@@ -1,61 +1,74 @@
 import { z } from 'zod';
 import { createAction } from 'nango';
-import type { ProxyConfiguration } from 'nango';
 
+// Block content must include the block type as a top-level key (e.g., "paragraph", "heading_1", "to_do")
 const InputSchema = z.object({
-    block_id: z.string().describe('The ID of the block to update. Example: "2b6ce298-3121-8087-914a-d4fe743f6d69"'),
-    paragraph: z.any().optional().describe('Paragraph block content.'),
-    heading_1: z.any().optional().describe('Heading 1 block content.'),
-    heading_2: z.any().optional().describe('Heading 2 block content.'),
-    heading_3: z.any().optional().describe('Heading 3 block content.'),
-    bulleted_list_item: z.any().optional().describe('Bulleted list item content.'),
-    numbered_list_item: z.any().optional().describe('Numbered list item content.'),
-    to_do: z.any().optional().describe('To-do block content.'),
-    toggle: z.any().optional().describe('Toggle block content.'),
-    code: z.any().optional().describe('Code block content.'),
-    callout: z.any().optional().describe('Callout block content.'),
-    quote: z.any().optional().describe('Quote block content.')
+    block_id: z.string().describe('The ID of the block to update. Example: "c02fc1d3-db8b-45c5-a222-27595b15aea7"'),
+    content: z.object({}).passthrough()
+});
+
+const BlockBaseSchema = z.object({
+    object: z.string(),
+    id: z.string(),
+    type: z.string()
 });
 
 const OutputSchema = z.object({
     id: z.string(),
-    object: z.string(),
     type: z.string(),
-    has_children: z.boolean()
+    object: z.string()
 });
 
 const action = createAction({
-    description: 'Modifies the content of a block based on its type.',
-    version: '1.0.0',
-
+    description: "Update a block's supported fields or rich text content.",
+    version: '2.0.0',
     endpoint: {
-        method: 'PATCH',
-        path: '/blocks/update',
+        method: 'POST',
+        path: '/actions/update-block',
         group: 'Blocks'
     },
-
     input: InputSchema,
     output: OutputSchema,
-    scopes: [],
+    scopes: ['update_content'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
-        const { block_id, ...blockContent } = input;
+        const blockTypes = Object.keys(input.content);
+        if (blockTypes.length !== 1) {
+            throw new nango.ActionError({
+                type: 'invalid_input',
+                message:
+                    blockTypes.length === 0
+                        ? 'The content object must contain a block type key (e.g., "paragraph", "heading_1", "to_do").'
+                        : 'The content object must contain exactly one block type key.'
+            });
+        }
 
-        const config: ProxyConfiguration = {
-            // https://developers.notion.com/reference/update-a-block
-            endpoint: `v1/blocks/${block_id}`,
-            data: blockContent,
+        const blockType = blockTypes[0]!;
+
+        const blockContent = input.content[blockType];
+
+        if (blockType === 'child_page' || blockType === 'child_database') {
+            throw new nango.ActionError({
+                type: 'unsupported_block_type',
+                message: `Updating ${blockType} blocks is not supported via this endpoint. Use the appropriate page or database update endpoint instead.`
+            });
+        }
+
+        // https://developers.notion.com/reference/update-a-block
+        const response = await nango.patch({
+            endpoint: `/v1/blocks/${encodeURIComponent(input.block_id)}`,
+            data: {
+                [blockType]: blockContent
+            },
             retries: 3
-        };
+        });
 
-        const response = await nango.patch(config);
-        const data = response.data;
+        const block = BlockBaseSchema.parse(response.data);
 
         return {
-            id: data.id,
-            object: data.object,
-            type: data.type,
-            has_children: data.has_children
+            id: block.id,
+            type: block.type,
+            object: block.object
         };
     }
 });

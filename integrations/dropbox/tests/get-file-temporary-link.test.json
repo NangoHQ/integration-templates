@@ -1,0 +1,74 @@
+{
+  "input": {
+    "path": "/test-file-temporary-link.txt"
+  },
+  "output": {
+    "metadata": {
+      "name": "test-file-temporary-link.txt",
+      "path_lower": "/test-file-temporary-link.txt",
+      "path_display": "/test-file-temporary-link.txt",
+      "id": "id:MzePHdV-D28AAAAAAAAAIg",
+      "client_modified": "2026-04-28T20:50:48Z",
+      "server_modified": "2026-04-28T20:50:48Z",
+      "rev": "016508b62c92e1b000000033c9fd2f3",
+      "size": 53,
+      "is_downloadable": true,
+      "content_hash": "e602d667102bcba4c432e0ed678a00e054438df297b524bf186d50cfc5246b8a"
+    },
+    "link": "https://uca8c01e586dbad84d2dca758e91.dl.dropboxusercontent.com/cd/0/get/C_d8fNf4_WTV4L8BjleL2Tk910CfQFMAalT7jzT_poB6LNfdrd3lS5rFOxPIXPeQEbJLuQopsqc5MW8aWAaEWVLUsil_h1LGubyLHhc0W-FxYIGTkSmKCqkCO0M7W2KmC8Nl1rmU233PginsxQ8vkXlU61lvYxKSppRJgt_9TmEZWg/file"
+  },
+  "nango": {},
+  "api": {
+    "post": {
+      "/2/files/get_temporary_link": {
+        "response": {
+          "metadata": {
+            "name": "test-file-temporary-link.txt",
+            "path_lower": "/test-file-temporary-link.txt",
+            "path_display": "/test-file-temporary-link.txt",
+            "id": "id:MzePHdV-D28AAAAAAAAAIg",
+            "client_modified": "2026-04-28T20:50:48Z",
+            "server_modified": "2026-04-28T20:50:48Z",
+            "rev": "016508b62c92e1b000000033c9fd2f3",
+            "size": 53,
+            "is_downloadable": true,
+            "content_hash": "e602d667102bcba4c432e0ed678a00e054438df297b524bf186d50cfc5246b8a"
+          },
+          "link": "https://uca8c01e586dbad84d2dca758e91.dl.dropboxusercontent.com/cd/0/get/C_d8fNf4_WTV4L8BjleL2Tk910CfQFMAalT7jzT_poB6LNfdrd3lS5rFOxPIXPeQEbJLuQopsqc5MW8aWAaEWVLUsil_h1LGubyLHhc0W-FxYIGTkSmKCqkCO0M7W2KmC8Nl1rmU233PginsxQ8vkXlU61lvYxKSppRJgt_9TmEZWg/file"
+        },
+        "status": 200,
+        "headers": {
+          "date": "Tue, 28 Apr 2026 20:51:09 GMT",
+          "content-type": "application/json",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=5184000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4902",
+          "x-ratelimit-reset": "1777409492",
+          "cache-control": "no-cache",
+          "x-server-response-time": "82",
+          "server": "envoy",
+          "vary": "Accept-Encoding",
+          "x-dropbox-response-origin": "far_remote",
+          "x-dropbox-request-id": "9e731d42e649407fa295e3ba69f11dbc",
+          "x-dropbox-trace-id": "69f11dbc000000005d43e99da880215a"
+        },
+        "hash": "6eac30b16f6861e8ef946b6b21cd300db89143a3",
+        "request": {
+          "data": {
+            "path": "/test-file-temporary-link.txt"
+          }
+        }
+      }
+    }
+  }
+}

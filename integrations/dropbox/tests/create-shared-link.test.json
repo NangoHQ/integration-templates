@@ -1,0 +1,227 @@
+{
+  "input": {
+    "path": "/test-shared-link-folder-2",
+    "settings": {
+      "requested_visibility": "public",
+      "allow_download": true
+    }
+  },
+  "output": {
+    "url": "https://www.dropbox.com/scl/fo/5ylycof332d470t4x5k4j/ACyZC6x3JbSnlIftHoeSOQs?rlkey=f6xu95u4vgc5jqvpyocoqwu8l&dl=0",
+    "name": "test-shared-link-folder-2",
+    "path": "/test-shared-link-folder-2",
+    "link_permissions": {
+      "can_revoke": true,
+      "resolved_visibility": {
+        ".tag": "public"
+      },
+      "requested_visibility": {
+        ".tag": "public"
+      },
+      "effective_audience": {
+        ".tag": "public"
+      },
+      "link_access_level": {
+        ".tag": "viewer"
+      },
+      "visibility_policies": [
+        {
+          "policy": {
+            ".tag": "public"
+          },
+          "resolved_policy": {
+            ".tag": "public"
+          },
+          "allowed": true
+        },
+        {
+          "policy": {
+            ".tag": "team_only"
+          },
+          "resolved_policy": {
+            ".tag": "no_one"
+          },
+          "allowed": false,
+          "disallowed_reason": {
+            ".tag": "user_not_on_team"
+          }
+        },
+        {
+          "policy": {
+            ".tag": "password"
+          },
+          "resolved_policy": {
+            ".tag": "password"
+          },
+          "allowed": true
+        }
+      ],
+      "can_set_expiry": false,
+      "can_remove_expiry": true,
+      "allow_download": true,
+      "can_allow_download": true,
+      "can_disallow_download": false,
+      "allow_comments": false,
+      "team_restricts_comments": false,
+      "audience_options": [
+        {
+          "audience": {
+            ".tag": "public"
+          },
+          "allowed": true
+        },
+        {
+          "audience": {
+            ".tag": "team"
+          },
+          "allowed": false,
+          "disallowed_reason": {
+            ".tag": "user_not_on_team"
+          }
+        },
+        {
+          "audience": {
+            ".tag": "no_one"
+          },
+          "allowed": true
+        }
+      ],
+      "can_set_password": false,
+      "can_remove_password": true,
+      "require_password": false,
+      "can_use_extended_sharing_controls": false
+    }
+  },
+  "nango": {},
+  "api": {
+    "post": {
+      "/2/sharing/create_shared_link_with_settings": {
+        "response": {
+          ".tag": "folder",
+          "url": "https://www.dropbox.com/scl/fo/5ylycof332d470t4x5k4j/ACyZC6x3JbSnlIftHoeSOQs?rlkey=f6xu95u4vgc5jqvpyocoqwu8l&dl=0",
+          "id": "id:MzePHdV-D28AAAAAAAAAJw",
+          "name": "test-shared-link-folder-2",
+          "path_lower": "/test-shared-link-folder-2",
+          "link_permissions": {
+            "resolved_visibility": {
+              ".tag": "public"
+            },
+            "requested_visibility": {
+              ".tag": "public"
+            },
+            "can_revoke": true,
+            "effective_audience": {
+              ".tag": "public"
+            },
+            "link_access_level": {
+              ".tag": "viewer"
+            },
+            "visibility_policies": [
+              {
+                "policy": {
+                  ".tag": "public"
+                },
+                "resolved_policy": {
+                  ".tag": "public"
+                },
+                "allowed": true
+              },
+              {
+                "policy": {
+                  ".tag": "team_only"
+                },
+                "resolved_policy": {
+                  ".tag": "no_one"
+                },
+                "allowed": false,
+                "disallowed_reason": {
+                  ".tag": "user_not_on_team"
+                }
+              },
+              {
+                "policy": {
+                  ".tag": "password"
+                },
+                "resolved_policy": {
+                  ".tag": "password"
+                },
+                "allowed": true
+              }
+            ],
+            "can_set_expiry": false,
+            "can_remove_expiry": true,
+            "allow_download": true,
+            "can_allow_download": true,
+            "can_disallow_download": false,
+            "allow_comments": false,
+            "team_restricts_comments": false,
+            "audience_options": [
+              {
+                "audience": {
+                  ".tag": "public"
+                },
+                "allowed": true
+              },
+              {
+                "audience": {
+                  ".tag": "team"
+                },
+                "allowed": false,
+                "disallowed_reason": {
+                  ".tag": "user_not_on_team"
+                }
+              },
+              {
+                "audience": {
+                  ".tag": "no_one"
+                },
+                "allowed": true
+              }
+            ],
+            "can_set_password": false,
+            "can_remove_password": true,
+            "require_password": false,
+            "can_use_extended_sharing_controls": false
+          },
+          "created_timestamp": "2026-04-28T20:51:03Z"
+        },
+        "status": 200,
+        "headers": {
+          "date": "Tue, 28 Apr 2026 20:51:04 GMT",
+          "content-type": "application/json",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=5184000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4940",
+          "x-ratelimit-reset": "1777409492",
+          "cache-control": "no-cache",
+          "x-server-response-time": "1121",
+          "server": "envoy",
+          "vary": "Accept-Encoding",
+          "x-dropbox-response-origin": "far_remote",
+          "x-dropbox-request-id": "f19825f955ac4e5f8640c8a269f11db7",
+          "x-dropbox-trace-id": "69f11db600000000136ccfb9a39bbc5c"
+        },
+        "hash": "bc94b4ba62e873dd7a038708c9d4af1c25b8cd56",
+        "request": {
+          "data": {
+            "path": "/test-shared-link-folder-2",
+            "settings": {
+              "requested_visibility": "public",
+              "allow_download": true
+            }
+          }
+        }
+      }
+    }
+  }
+}

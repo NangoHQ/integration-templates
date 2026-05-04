@@ -1,0 +1,112 @@
+{
+  "nango": {
+    "batchSave": {
+      "User": [
+        {
+          "id": "328d872b-594c-8197-9cf9-000204973f06",
+          "name": "Nango Developer",
+          "type": "person",
+          "avatar_url": "https://lh3.googleusercontent.com/a/ACg8ocK6hPtnyJxrsAu6MwEP8pz0LKBFnAUIwqK_cH0sM6svMmUwkA=s100"
+        },
+        {
+          "id": "35261e8c-e0a3-81ad-a1d1-0027b98124d9",
+          "name": "TestNangoAPI",
+          "type": "bot",
+          "avatar_url": "https://s3-us-west-2.amazonaws.com/public.notion-static.com/5fceb476-7e08-46b3-a642-881f6ba1ea30/d3601938-b94d-4e1e-977d-4efc94d949cejpeg.jpg"
+        }
+      ]
+    },
+    "batchDelete": {
+      "User": []
+    }
+  },
+  "api": {
+    "get": {
+      "/v1/users": {
+        "response": {
+          "object": "list",
+          "results": [
+            {
+              "object": "user",
+              "id": "328d872b-594c-8197-9cf9-000204973f06",
+              "name": "Nango Developer",
+              "avatar_url": "https://lh3.googleusercontent.com/a/ACg8ocK6hPtnyJxrsAu6MwEP8pz0LKBFnAUIwqK_cH0sM6svMmUwkA=s100",
+              "type": "person",
+              "person": {
+                "email": "api@nango.dev"
+              }
+            },
+            {
+              "object": "user",
+              "id": "35261e8c-e0a3-81ad-a1d1-0027b98124d9",
+              "name": "TestNangoAPI",
+              "avatar_url": "https://s3-us-west-2.amazonaws.com/public.notion-static.com/5fceb476-7e08-46b3-a642-881f6ba1ea30/d3601938-b94d-4e1e-977d-4efc94d949cejpeg.jpg",
+              "type": "bot",
+              "bot": {
+                "owner": {
+                  "type": "user",
+                  "user": {
+                    "object": "user",
+                    "id": "328d872b-594c-8197-9cf9-000204973f06",
+                    "name": "Nango Developer",
+                    "avatar_url": "https://lh3.googleusercontent.com/a/ACg8ocK6hPtnyJxrsAu6MwEP8pz0LKBFnAUIwqK_cH0sM6svMmUwkA=s100",
+                    "type": "person",
+                    "person": {
+                      "email": "api@nango.dev"
+                    }
+                  }
+                },
+                "workspace_name": "Nango Developer’s Space",
+                "workspace_id": "c5261e8c-e0a3-81e9-b139-00030f59af1d",
+                "workspace_limits": {
+                  "max_file_upload_size_in_bytes": 5242880
+                }
+              }
+            }
+          ],
+          "next_cursor": null,
+          "has_more": false,
+          "type": "user",
+          "user": {},
+          "request_id": "1ae28624-a4fc-452f-88a8-41d0cd7d2540"
+        },
+        "status": 200,
+        "headers": {
+          "date": "Thu, 30 Apr 2026 16:50:42 GMT",
+          "content-type": "application/json; charset=utf-8",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=31536000; includeSubDomains; preload",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4994",
+          "x-ratelimit-reset": "1777567898",
+          "cf-ray": "9f480c0859f4d74d-PDX",
+          "cf-cache-status": "DYNAMIC",
+          "etag": "W/\"444-3o9WJaWSkLDLjYGMsrLi7z5Fza4\"",
+          "server": "cloudflare",
+          "vary": "Accept-Encoding",
+          "content-security-policy": "default-src 'none'",
+          "referrer-policy": "strict-origin-when-cross-origin",
+          "x-notion-request-id": "1ae28624-a4fc-452f-88a8-41d0cd7d2540",
+          "x-permitted-cross-domain-policies": "none",
+          "set-cookie": "__cf_bm=GZ44GEJFusia3SYrD254Yq.wSr2VWgog_NXLvg20rVg-1777567842.6109989-1.0.1.1-EpTzXoYBNKXEmKqTFrHVGxm8Cy9fxlDySyj.x6HElF3zl_Auh4qwJR1G3x1DnEvL1HQE74OPpWc34J82UfGbGubv6WjFT4eQtcehteR8zSoEVtbLpJTBhCnxo4GCj5dx; HttpOnly; Secure; Path=/; Domain=notion.com; Expires=Thu, 30 Apr 2026 17:20:42 GMT",
+          "alt-svc": "h3=\":443\"; ma=86400"
+        },
+        "hash": "f7cff476da5d3d3bf676fd53d8a04afecc9b7a88",
+        "request": {
+          "params": {
+            "page_size": "100"
+          }
+        }
+      }
+    }
+  }
+}

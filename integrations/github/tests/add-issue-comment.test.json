@@ -1,0 +1,151 @@
+{
+  "input": {
+    "owner": "viictoo",
+    "repo": "api-playground2",
+    "issue_number": 1,
+    "body": "Test comment from Nango action"
+  },
+  "output": {
+    "id": 4342809071,
+    "node_id": "IC_kwDOSPtvHM8AAAABAtoB7w",
+    "url": "https://api.github.com/repos/viictoo/api-playground2/issues/comments/4342809071",
+    "html_url": "https://github.com/viictoo/api-playground2/issues/1#issuecomment-4342809071",
+    "body": "Test comment from Nango action",
+    "user": {
+      "login": "testnangoapi[bot]",
+      "id": 280313874,
+      "avatar_url": "https://avatars.githubusercontent.com/u/125632594?v=4",
+      "html_url": "https://github.com/apps/testnangoapi"
+    },
+    "created_at": "2026-04-29T10:20:19Z",
+    "updated_at": "2026-04-29T10:20:19Z",
+    "issue_url": "https://api.github.com/repos/viictoo/api-playground2/issues/1"
+  },
+  "nango": {},
+  "api": {
+    "post": {
+      "/repos/viictoo/api-playground2/issues/1/comments": {
+        "response": {
+          "url": "https://api.github.com/repos/viictoo/api-playground2/issues/comments/4342809071",
+          "html_url": "https://github.com/viictoo/api-playground2/issues/1#issuecomment-4342809071",
+          "issue_url": "https://api.github.com/repos/viictoo/api-playground2/issues/1",
+          "id": 4342809071,
+          "node_id": "IC_kwDOSPtvHM8AAAABAtoB7w",
+          "user": {
+            "login": "testnangoapi[bot]",
+            "id": 280313874,
+            "node_id": "BOT_kgDOELVAEg",
+            "avatar_url": "https://avatars.githubusercontent.com/u/125632594?v=4",
+            "gravatar_id": "",
+            "url": "https://api.github.com/users/testnangoapi%5Bbot%5D",
+            "html_url": "https://github.com/apps/testnangoapi",
+            "followers_url": "https://api.github.com/users/testnangoapi%5Bbot%5D/followers",
+            "following_url": "https://api.github.com/users/testnangoapi%5Bbot%5D/following{/other_user}",
+            "gists_url": "https://api.github.com/users/testnangoapi%5Bbot%5D/gists{/gist_id}",
+            "starred_url": "https://api.github.com/users/testnangoapi%5Bbot%5D/starred{/owner}{/repo}",
+            "subscriptions_url": "https://api.github.com/users/testnangoapi%5Bbot%5D/subscriptions",
+            "organizations_url": "https://api.github.com/users/testnangoapi%5Bbot%5D/orgs",
+            "repos_url": "https://api.github.com/users/testnangoapi%5Bbot%5D/repos",
+            "events_url": "https://api.github.com/users/testnangoapi%5Bbot%5D/events{/privacy}",
+            "received_events_url": "https://api.github.com/users/testnangoapi%5Bbot%5D/received_events",
+            "type": "Bot",
+            "user_view_type": "public",
+            "site_admin": false
+          },
+          "created_at": "2026-04-29T10:20:19Z",
+          "updated_at": "2026-04-29T10:20:19Z",
+          "author_association": "CONTRIBUTOR",
+          "body": "Test comment from Nango action",
+          "reactions": {
+            "url": "https://api.github.com/repos/viictoo/api-playground2/issues/comments/4342809071/reactions",
+            "total_count": 0,
+            "+1": 0,
+            "-1": 0,
+            "laugh": 0,
+            "hooray": 0,
+            "confused": 0,
+            "heart": 0,
+            "rocket": 0,
+            "eyes": 0
+          },
+          "performed_via_github_app": {
+            "id": 3541661,
+            "slug": "testnangoapi",
+            "node_id": "A_kwDOB30AUs4ANgqd",
+            "owner": {
+              "login": "viictoo",
+              "id": 125632594,
+              "node_id": "U_kgDOB30AUg",
+              "avatar_url": "https://avatars.githubusercontent.com/u/125632594?v=4",
+              "gravatar_id": "",
+              "url": "https://api.github.com/users/viictoo",
+              "html_url": "https://github.com/viictoo",
+              "followers_url": "https://api.github.com/users/viictoo/followers",
+              "following_url": "https://api.github.com/users/viictoo/following{/other_user}",
+              "gists_url": "https://api.github.com/users/viictoo/gists{/gist_id}",
+              "starred_url": "https://api.github.com/users/viictoo/starred{/owner}{/repo}",
+              "subscriptions_url": "https://api.github.com/users/viictoo/subscriptions",
+              "organizations_url": "https://api.github.com/users/viictoo/orgs",
+              "repos_url": "https://api.github.com/users/viictoo/repos",
+              "events_url": "https://api.github.com/users/viictoo/events{/privacy}",
+              "received_events_url": "https://api.github.com/users/viictoo/received_events",
+              "type": "User",
+              "user_view_type": "public",
+              "site_admin": false
+            },
+            "name": "TestNangoAPI",
+            "description": "",
+            "external_url": "https://nango.dev",
+            "html_url": "https://github.com/apps/testnangoapi",
+            "created_at": "2026-04-29T09:02:09Z",
+            "updated_at": "2026-04-29T09:40:18Z",
+            "permissions": {
+              "actions": "write",
+              "codespaces": "write",
+              "codespaces_metadata": "read",
+              "contents": "write",
+              "deployments": "write",
+              "discussions": "write",
+              "issues": "write",
+              "merge_queues": "write",
+              "metadata": "read",
+              "pages": "write",
+              "pull_requests": "write",
+              "repository_projects": "write",
+              "statuses": "write",
+              "workflows": "write"
+            },
+            "events": []
+          },
+          "pin": null
+        },
+        "status": 200,
+        "headers": {
+          "date": "Wed, 29 Apr 2026 10:20:19 GMT",
+          "content-type": "application/json; charset=utf-8",
+          "content-length": "3297",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=5184000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4929",
+          "x-ratelimit-reset": "1777458055",
+          "etag": "W/\"ce1-7E3O5gjux7kUrnLzm35dQJbxtoA\""
+        },
+        "hash": "449a89252ec84be111b67f180cb7902ddc6a17c6",
+        "request": {
+          "data": {
+            "body": "Test comment from Nango action"
+          }
+        }
+      }
+    }
+  }
+}

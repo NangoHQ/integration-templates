@@ -1,0 +1,71 @@
+{
+  "input": {
+    "owner": "viictoo",
+    "repo": "api-playground2",
+    "workflow_id": "ci.yml"
+  },
+  "output": {
+    "id": 268232428,
+    "node_id": "W_kwDOSPtvHM4P_Obs",
+    "name": "CI",
+    "path": ".github/workflows/ci.yml",
+    "state": "active",
+    "created_at": "2026-04-29T09:27:53.000Z",
+    "updated_at": "2026-04-29T09:27:53.000Z",
+    "url": "https://api.github.com/repos/viictoo/api-playground2/actions/workflows/268232428",
+    "html_url": "https://github.com/viictoo/api-playground2/blob/main/.github/workflows/ci.yml",
+    "badge_url": "https://github.com/viictoo/api-playground2/workflows/CI/badge.svg"
+  },
+  "nango": {},
+  "api": {
+    "get": {
+      "/repos/viictoo/api-playground2/actions/workflows/ci.yml": {
+        "response": {
+          "id": 268232428,
+          "node_id": "W_kwDOSPtvHM4P_Obs",
+          "name": "CI",
+          "path": ".github/workflows/ci.yml",
+          "state": "active",
+          "created_at": "2026-04-29T09:27:53.000Z",
+          "updated_at": "2026-04-29T09:27:53.000Z",
+          "url": "https://api.github.com/repos/viictoo/api-playground2/actions/workflows/268232428",
+          "html_url": "https://github.com/viictoo/api-playground2/blob/main/.github/workflows/ci.yml",
+          "badge_url": "https://github.com/viictoo/api-playground2/workflows/CI/badge.svg"
+        },
+        "status": 200,
+        "headers": {
+          "date": "Wed, 29 Apr 2026 09:58:39 GMT",
+          "content-type": "application/json; charset=utf-8",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "deny",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=31536000; includeSubdomains; preload",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "ETag, Link, Location, Retry-After, X-GitHub-OTP, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Used, X-RateLimit-Resource, X-RateLimit-Reset, X-OAuth-Scopes, X-Accepted-OAuth-Scopes, X-Poll-Interval, X-GitHub-Media-Type, X-GitHub-SSO, X-GitHub-Request-Id, Deprecation, Sunset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4994",
+          "x-ratelimit-reset": "1777460029",
+          "cache-control": "private, max-age=60, s-maxage=60",
+          "vary": "Accept, Authorization, Cookie, X-GitHub-OTP,Accept-Encoding, Accept, X-Requested-With",
+          "etag": "W/\"34503cfdcb87b1bc278fce4e306669a5e579f6634b9354d03800d13947ebf7fd\"",
+          "x-github-media-type": "github.v3",
+          "x-accepted-github-permissions": "actions=read",
+          "x-github-api-version-selected": "2022-11-28",
+          "referrer-policy": "origin-when-cross-origin, strict-origin-when-cross-origin",
+          "content-security-policy": "default-src 'none'",
+          "server": "github.com",
+          "x-ratelimit-used": "6",
+          "x-ratelimit-resource": "core",
+          "x-github-request-id": "D8F3:35326B:14CA28EA:150ECB14:69F1D648"
+        },
+        "hash": "bebdbd2a51229786630170fb3754cb4e523fe071",
+        "request": {}
+      }
+    }
+  }
+}

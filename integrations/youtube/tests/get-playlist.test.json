@@ -1,0 +1,138 @@
+{
+  "input": {
+    "playlistId": "UUBR8-60-B28hp2BmDPdntcQ"
+  },
+  "output": {
+    "id": "UUBR8-60-B28hp2BmDPdntcQ",
+    "title": "Uploads from YouTube",
+    "description": "",
+    "publishedAt": "2020-02-23T08:00:00Z",
+    "channelId": "UCBR8-60-B28hp2BmDPdntcQ",
+    "channelTitle": "YouTube",
+    "thumbnails": {
+      "default": {
+        "url": "https://i.ytimg.com/vi/BLelz0cH7M8/default.jpg",
+        "width": 120,
+        "height": 90
+      },
+      "medium": {
+        "url": "https://i.ytimg.com/vi/BLelz0cH7M8/mqdefault.jpg",
+        "width": 320,
+        "height": 180
+      },
+      "high": {
+        "url": "https://i.ytimg.com/vi/BLelz0cH7M8/hqdefault.jpg",
+        "width": 480,
+        "height": 360
+      },
+      "standard": {
+        "url": "https://i.ytimg.com/vi/BLelz0cH7M8/sddefault.jpg",
+        "width": 640,
+        "height": 480
+      },
+      "maxres": {
+        "url": "https://i.ytimg.com/vi/BLelz0cH7M8/maxresdefault.jpg",
+        "width": 1280,
+        "height": 720
+      }
+    },
+    "itemCount": 1499,
+    "privacyStatus": "public"
+  },
+  "nango": {},
+  "api": {
+    "get": {
+      "/youtube/v3/playlists": {
+        "response": {
+          "kind": "youtube#playlistListResponse",
+          "etag": "wqF2KBkvoUOb-Tr2HlYrzL5nJoc",
+          "pageInfo": {
+            "totalResults": 1,
+            "resultsPerPage": 5
+          },
+          "items": [
+            {
+              "kind": "youtube#playlist",
+              "etag": "xrFb05F_SzMXGENufUFs2ayTg2M",
+              "id": "UUBR8-60-B28hp2BmDPdntcQ",
+              "snippet": {
+                "publishedAt": "2020-02-23T08:00:00Z",
+                "channelId": "UCBR8-60-B28hp2BmDPdntcQ",
+                "title": "Uploads from YouTube",
+                "description": "",
+                "thumbnails": {
+                  "default": {
+                    "url": "https://i.ytimg.com/vi/BLelz0cH7M8/default.jpg",
+                    "width": 120,
+                    "height": 90
+                  },
+                  "medium": {
+                    "url": "https://i.ytimg.com/vi/BLelz0cH7M8/mqdefault.jpg",
+                    "width": 320,
+                    "height": 180
+                  },
+                  "high": {
+                    "url": "https://i.ytimg.com/vi/BLelz0cH7M8/hqdefault.jpg",
+                    "width": 480,
+                    "height": 360
+                  },
+                  "standard": {
+                    "url": "https://i.ytimg.com/vi/BLelz0cH7M8/sddefault.jpg",
+                    "width": 640,
+                    "height": 480
+                  },
+                  "maxres": {
+                    "url": "https://i.ytimg.com/vi/BLelz0cH7M8/maxresdefault.jpg",
+                    "width": 1280,
+                    "height": 720
+                  }
+                },
+                "channelTitle": "YouTube",
+                "defaultLanguage": "en",
+                "localized": {
+                  "title": "Uploads from YouTube",
+                  "description": ""
+                }
+              },
+              "status": {
+                "privacyStatus": "public"
+              },
+              "contentDetails": {
+                "itemCount": 1499
+              }
+            }
+          ]
+        },
+        "status": 200,
+        "headers": {
+          "date": "Thu, 30 Apr 2026 17:41:24 GMT",
+          "content-type": "application/json; charset=UTF-8",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=5184000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4901",
+          "x-ratelimit-reset": "1777570901",
+          "vary": "Origin, X-Origin, Referer",
+          "server": "scaffolding on HTTPServer2",
+          "alt-svc": "h3=\":443\"; ma=2592000,h3-29=\":443\"; ma=2592000"
+        },
+        "hash": "5a40a7011a5a641802bed3777d54034ee26f8b06",
+        "request": {
+          "params": {
+            "id": "UUBR8-60-B28hp2BmDPdntcQ",
+            "part": "snippet,contentDetails,status"
+          }
+        }
+      }
+    }
+  }
+}

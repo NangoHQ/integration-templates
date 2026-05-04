@@ -1,0 +1,74 @@
+{
+  "input": {
+    "owner": "viictoo",
+    "repo": "api-playground2",
+    "name": "updated-label-name",
+    "new_name": "test-label-final",
+    "color": "00ff00",
+    "description": "Test label for automated testing"
+  },
+  "output": {
+    "id": 10819619735,
+    "node_id": "LA_kwDOSPtvHM8AAAAChOZLlw",
+    "url": "https://api.github.com/repos/viictoo/api-playground2/labels/test-label-final",
+    "name": "test-label-final",
+    "color": "00ff00",
+    "default": false,
+    "description": "Test label for automated testing"
+  },
+  "nango": {},
+  "api": {
+    "patch": {
+      "/repos/viictoo/api-playground2/labels/updated-label-name": {
+        "response": {
+          "id": 10819619735,
+          "node_id": "LA_kwDOSPtvHM8AAAAChOZLlw",
+          "url": "https://api.github.com/repos/viictoo/api-playground2/labels/test-label-final",
+          "name": "test-label-final",
+          "color": "00ff00",
+          "default": false,
+          "description": "Test label for automated testing"
+        },
+        "status": 200,
+        "headers": {
+          "date": "Wed, 29 Apr 2026 09:59:13 GMT",
+          "content-type": "application/json; charset=utf-8",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "deny",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=31536000; includeSubdomains; preload",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "ETag, Link, Location, Retry-After, X-GitHub-OTP, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Used, X-RateLimit-Resource, X-RateLimit-Reset, X-OAuth-Scopes, X-Accepted-OAuth-Scopes, X-Poll-Interval, X-GitHub-Media-Type, X-GitHub-SSO, X-GitHub-Request-Id, Deprecation, Sunset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4984",
+          "x-ratelimit-reset": "1777460029",
+          "cache-control": "private, max-age=60, s-maxage=60",
+          "vary": "Accept, Authorization, Cookie, X-GitHub-OTP,Accept-Encoding, Accept, X-Requested-With",
+          "etag": "W/\"b7fa1f3ae3b1c5eb6ff598719659dcc8aea18ac9e18e3c479605643ed712cc84\"",
+          "x-github-media-type": "github.v3",
+          "x-accepted-github-permissions": "issues=write; pull_requests=write",
+          "x-github-api-version-selected": "2022-11-28",
+          "referrer-policy": "origin-when-cross-origin, strict-origin-when-cross-origin",
+          "content-security-policy": "default-src 'none'",
+          "server": "github.com",
+          "x-ratelimit-used": "16",
+          "x-ratelimit-resource": "core",
+          "x-github-request-id": "B2E4:1F7322:13F72A0C:143C2788:69F1D66B"
+        },
+        "hash": "3f8f3d1a1d4a5860dc7c9b28f442b71819e32529",
+        "request": {
+          "data": {
+            "name": "test-label-final",
+            "color": "00ff00",
+            "description": "Test label for automated testing"
+          }
+        }
+      }
+    }
+  }
+}

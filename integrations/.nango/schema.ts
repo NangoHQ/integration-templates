@@ -1323,6 +1323,18 @@ export interface SyncMetadata_asana_projects {
   team_ids?: string[] | undefined;
 };
 
+export interface Section {
+  id: string;
+  url: string;
+  category_id: number;
+  name: string;
+  description: string;
+};
+
+export interface SyncMetadata_asana_sections {
+  project_ids: string[];
+};
+
 export interface Subtask {
   id: string;
   parent_task_id: string;
@@ -1488,6 +1500,38 @@ export interface ActionOutput_asana_createproject {
   start_on?: string | undefined;
   default_view?: string | undefined;
   owner?: string | undefined;
+};
+
+export interface ActionInput_asana_createsection {
+  /**
+   * Globally unique identifier for the project. Example: "12345"
+   */
+  project_id: string;
+  /**
+   * The text to be displayed as the section name. This cannot be an empty string. Example: "Next Actions"
+   */
+  name: string;
+  /**
+   * An existing section within this project before which the added section should be inserted. Cannot be provided together with insert_after.
+   */
+  insert_before?: string | undefined;
+  /**
+   * An existing section within this project after which the added section should be inserted. Cannot be provided together with insert_before.
+   */
+  insert_after?: string | undefined;
+};
+
+export interface ActionOutput_asana_createsection {
+  gid: string;
+  resource_type: string;
+  name: string;
+  created_at?: string | undefined;
+  project?: {  gid: string;
+  resource_type: string;
+  name?: string | undefined;};
+  projects?: ({  gid: string;
+  resource_type: string;
+  name?: string | undefined;})[];
 };
 
 export interface ActionInput_asana_createstoryontask {
@@ -1730,6 +1774,39 @@ export interface ActionOutput_asana_deleteproject {
   success: boolean;
 };
 
+export interface ActionInput_asana_deletesection {
+  /**
+   * The globally unique identifier for the section. Example: "1234567890"
+   */
+  section_gid: string;
+};
+
+export interface ActionOutput_asana_deletesection {
+  success: boolean;
+};
+
+export interface ActionInput_asana_deletestory {
+  /**
+   * Globally unique identifier for the story. Example: "12345"
+   */
+  story_gid: string;
+};
+
+export interface ActionOutput_asana_deletestory {
+  success: boolean;
+};
+
+export interface ActionInput_asana_deletetag {
+  /**
+   * The globally unique identifier for the tag. Example: "11235"
+   */
+  tag_gid: string;
+};
+
+export interface ActionOutput_asana_deletetag {
+  success: boolean;
+};
+
 export interface ActionInput_asana_deletetask {
   /**
    * The globally unique identifier for the task to delete. Example: "1209876543210987"
@@ -1763,6 +1840,26 @@ export interface ActionOutput_asana_getproject {
   gid: string;
   name?: string | undefined;
   resource_type?: string | undefined;
+};
+
+export interface ActionInput_asana_getsection {
+  /**
+   * The globally unique identifier for the section. Example: "12345"
+   */
+  section_gid: string;
+};
+
+export interface ActionOutput_asana_getsection {
+  gid: string;
+  resource_type: string;
+  name: string;
+  created_at?: string | undefined;
+  project?: {  gid: string;
+  resource_type: string;
+  name: string;} | undefined;
+  projects?: ({  gid: string;
+  resource_type: string;
+  name: string;})[] | undefined;
 };
 
 export interface ActionInput_asana_gettag {
@@ -2041,6 +2138,31 @@ export interface ActionOutput_asana_listprojectsforworkspace {
   name?: string | undefined;};
   permalink_url?: string | undefined;})[];
   next_cursor?: string | undefined;
+};
+
+export interface ActionInput_asana_listsectionsforproject {
+  /**
+   * Globally unique identifier for the project. Example: "12345"
+   */
+  project_id: string;
+  /**
+   * Pagination cursor (offset token) from the previous response. Omit for the first page.
+   */
+  cursor?: string | undefined;
+};
+
+export interface ActionOutput_asana_listsectionsforproject {
+  items: ({  gid: string;
+  resource_type: string;
+  name: string;
+  created_at?: string | undefined;
+  project?: {  gid: string;
+  resource_type: string;
+  name: string;} | undefined;
+  projects?: ({  gid: string;
+  resource_type: string;
+  name: string;})[] | undefined;})[];
+  next_page_offset?: string | undefined;
 };
 
 export interface ActionInput_asana_liststoriesfortask {
@@ -2430,6 +2552,67 @@ export interface ActionOutput_asana_removetagfromtask {
   success: boolean;
 };
 
+export interface ActionInput_asana_searchtasksinworkspace {
+  /**
+   * Globally unique identifier for the workspace or organization. Example: "1202775892569436"
+   */
+  workspace_gid: string;
+  /**
+   * Comma-separated list of user identifiers, or "me". Example: "me"
+   */
+  assignee?: string | undefined;
+  /**
+   * Comma-separated list of project IDs. Example: "1211440849237745"
+   */
+  project?: string | undefined;
+  /**
+   * Comma-separated list of section or column IDs. Example: "12345"
+   */
+  section?: string | undefined;
+  /**
+   * Filter to completed tasks.
+   */
+  completed?: boolean | undefined;
+  /**
+   * Only return tasks modified since the given ISO 8601 datetime. Example: "2024-01-01T00:00:00.000Z"
+   */
+  modified_since?: string | undefined;
+  /**
+   * Sort field. Defaults to modified_at.
+   */
+  sort_by?: 'due_date' | 'created_at' | 'completed_at' | 'likes' | 'modified_at' | undefined;
+  /**
+   * Sort ascending. Defaults to false.
+   */
+  sort_ascending?: boolean | undefined;
+  /**
+   * Maximum number of tasks to return (max 100).
+   */
+  limit?: number | undefined;
+  /**
+   * Pagination cursor from a previous response. Omit for the first page.
+   */
+  cursor?: string | undefined;
+};
+
+export interface ActionOutput_asana_searchtasksinworkspace {
+  tasks: ({  gid: string;
+  name?: string | undefined;
+  resource_type?: string | undefined;
+  completed?: boolean | undefined;
+  assignee?: {  gid?: string | undefined;
+  name?: string | undefined;};
+  projects?: ({  gid?: string | undefined;
+  name?: string | undefined;})[];
+  sections?: ({  gid?: string | undefined;
+  name?: string | undefined;})[];
+  modified_at?: string | undefined;
+  created_at?: string | undefined;
+  due_on?: string | undefined;
+  notes?: string | undefined;})[];
+  next_cursor?: string | undefined;
+};
+
 export interface ActionInput_asana_updateproject {
   /**
    * Globally unique identifier for the project. Example: "120987654321"
@@ -2491,6 +2674,24 @@ export interface ActionOutput_asana_updateproject {
   default_view?: string | undefined;
   workspace_gid?: string | undefined;
   owner_gid?: string | undefined;
+};
+
+export interface ActionInput_asana_updatesection {
+  /**
+   * The globally unique identifier for the section. Example: "1200000000000001"
+   */
+  section_gid: string;
+  /**
+   * The updated name for the section.
+   */
+  name: string;
+};
+
+export interface ActionOutput_asana_updatesection {
+  gid: string;
+  name?: string | undefined;
+  project?: {  gid: string;
+  name?: string | undefined;};
 };
 
 export interface ActionInput_asana_updatetag {
@@ -7063,57 +7264,1130 @@ export interface ActionOutput_docusign_deleteuser {
   success: boolean;
 };
 
-export interface Document {
+export interface File {
   id: string;
-  path: string;
-  title: string;
-  modified_date: string;
+  name: string;
+  mimeType: string;
+  parents?: string[] | undefined;
+  driveId?: string | undefined;
+  createdTime: string;
+  modifiedTime: string;
+  size?: string | undefined;
+  webViewLink?: string | undefined;
+  trashed?: boolean | undefined;
 };
 
 export interface SyncMetadata_dropbox_files {
-  files: string[];
-  folders: string[];
+  rootPaths?: string[] | undefined;
 };
 
-export interface SyncMetadata_dropbox_users {
+export interface SyncMetadata_dropbox_folders {
+  root_paths?: string[] | undefined;
+};
+
+export interface SharedFolder {
+  id: string;
+  sharedFolderId: string;
+  sharedFolderName?: string | undefined;
+  isTeamFolder?: boolean | undefined;
+  parentSharedFolderId?: string | undefined;
+  sharedFolderPathLower?: string | undefined;
+  sharedFolderPreviewPath?: string | undefined;
+  accessType?: string | undefined;
+  isInsideTeamFolder?: boolean | undefined;
+  isMountManaged?: boolean | undefined;
+  aclUpdatePolicy?: string | undefined;
+};
+
+export interface SharedLink {
+  id: string;
+  url: string;
+  name: string;
+  path_lower?: string | undefined;
+  type?: 'file' | 'folder' | undefined;
+  client_modified?: string | undefined;
+  server_modified?: string | undefined;
+  expires?: string | undefined;
+};
+
+export interface ActionInput_dropbox_batchcopyfilesorfolders {
+  /**
+   * List of source and destination path pairs to copy
+   */
+  entries: ({  /**
+   * Source path in Dropbox. Example: "/folder/file.txt"
+   */
+  from_path: string;
+  /**
+   * Destination path in Dropbox. Example: "/folder/destination.txt"
+   */
+  to_path: string;})[];
+  /**
+   * If true, auto-rename conflicting files
+   */
+  autorename?: boolean | undefined;
+};
+
+export interface ActionOutput_dropbox_batchcopyfilesorfolders {
+  async_job_id?: string | undefined;
+  entries?: ({  success?: {  metadata: {  name: string;
+  path_lower: string;
+  id: string;
+  content_hash?: string | undefined;
+  server_modified?: string | undefined;};};
+  failure?: {  failure_reason?: {  ".tag": string;
+  description?: string | undefined;};
+  ".tag"?: string | undefined;};
+  ".tag"?: string | undefined;})[];
+  is_complete?: boolean | undefined;
+  ".tag"?: string | undefined;
+};
+
+export interface ActionInput_dropbox_batchcreatefolders {
+  /**
+   * List of paths to be created in the Dropbox. Max 10000 items. Example: ["/Projects/2024", "/Projects/2025"]
+   */
+  paths: string[];
+  /**
+   * If there is a conflict, have the Dropbox server try to autorename the folder to avoid the conflict. Default: false
+   */
+  autorename?: boolean | undefined;
+  /**
+   * Whether to force the create to happen asynchronously. Default: false
+   */
+  force_async?: boolean | undefined;
+  /**
+   * Polling interval in milliseconds when checking async job status. Default: 1000
+   */
+  poll_interval_ms?: number | undefined;
+  /**
+   * Maximum number of polling attempts for async job status. Default: 30
+   */
+  max_poll_attempts?: number | undefined;
+};
+
+export interface ActionOutput_dropbox_batchcreatefolders {
+  /**
+   * Whether the batch operation completed successfully
+   */
+  completed: boolean;
+  /**
+   * The async job ID if the operation is still in progress
+   */
+  async_job_id?: string | undefined;
+  /**
+   * Array of results for each folder creation attempt
+   */
+  folders?: ({  path: string;
+  success: boolean;
+  id?: string | undefined;
+  name?: string | undefined;
+  error?: string | undefined;})[];
+  /**
+   * Total number of folders in the batch
+   */
+  total_count: number;
+  /**
+   * Number of folders successfully created
+   */
+  success_count: number;
+  /**
+   * Number of folders that failed to create
+   */
+  failure_count: number;
+};
+
+export interface ActionInput_dropbox_batchdeletefilesorfolders {
+  /**
+   * List of files/folders to delete. Each entry has a path field.
+   */
+  entries: ({  /**
+   * Path in the user's Dropbox to delete. Example: "/Homework/math/Prime_Numbers.txt"
+   */
+  path: string;})[];
+};
+
+export interface ActionOutput_dropbox_batchdeletefilesorfolders {
+  /**
+   * Status of the batch deletion operation
+   */
+  status: 'complete' | 'in_progress' | 'failed';
+  /**
+   * If status is in_progress, the job ID to poll for completion
+   */
+  async_job_id?: string | undefined;
+  /**
+   * Results for each entry if the operation is complete
+   */
+  entries?: ({  ".tag": string;
+  metadata?: {  ".tag": string;
+  name?: string | undefined;
+  path_lower?: string | undefined;
+  path_display?: string | undefined;
+  parent_shared_folder_id?: string | undefined;
+  id?: string | undefined;};
+  success?: {} | undefined;
+  failure?: {} | undefined;})[];
+};
+
+export interface ActionInput_dropbox_batchmovefilesorfolders {
+  /**
+   * List of up to 1000 entries to move, each with from_path and to_path.
+   */
+  entries: ({  /**
+   * Path of the file or folder to move. Example: "/folder/file.txt"
+   */
+  from_path: string;
+  /**
+   * Destination path for the file or folder. Example: "/newfolder/file.txt"
+   */
+  to_path: string;})[];
+};
+
+export interface ActionOutput_dropbox_batchmovefilesorfolders {
+  job_status: 'complete' | 'in_progress' | 'failed';
+  /**
+   * If job is in progress, this ID can be used to check status later.
+   */
+  async_job_id?: string | undefined;
+  entries: ({  0: {  status: 'success';
+  id: string;
+  name?: string | undefined;
+  path_display?: string | undefined;
+  path_lower?: string | undefined;
+  tag: 'file' | 'folder';};
+  1: {  status: 'failure';
+  error_tag: string;
+  error_message: string;
+  to_path?: string | undefined;
+  from_path?: string | undefined;};})[];
+};
+
+export interface ActionInput_dropbox_checkbatchcopyfilesorfolders {
+  /**
+   * The async job ID returned by batch-copy-files-or-folders. Example: "dbjid:AAAcrHLQ..."
+   */
+  async_job_id: string;
+};
+
+export interface ActionOutput_dropbox_checkbatchcopyfilesorfolders {
+  ".tag": 'in_progress' | 'complete' | 'failed';
+  entries?: ({  ".tag": string;
+  metadata?: {  name: string;
+  path_lower: string;
+  path_display?: string | undefined;
+  id: string;
+  content_hash?: string | undefined;
+  server_modified?: string | undefined;};
+  failure?: {  ".tag": string;
+  description?: string | undefined;};})[];
+};
+
+export interface ActionInput_dropbox_checkbatchdeletefilesorfolders {
+  /**
+   * The async job ID returned by batch-delete-files-or-folders. Example: "dbjid:AAAcrHLQ..."
+   */
+  async_job_id: string;
+};
+
+export interface ActionOutput_dropbox_checkbatchdeletefilesorfolders {
+  /**
+   * Status of the batch deletion check
+   */
+  status: 'complete' | 'in_progress' | 'failed';
+  /**
+   * Per-entry results when status is complete
+   */
+  entries?: ({  ".tag": string;
+  metadata?: {  ".tag": string;
+  name?: string | undefined;
+  path_lower?: string | undefined;
+  path_display?: string | undefined;
+  id?: string | undefined;};
+  failure?: {} | undefined;})[];
+};
+
+export interface ActionInput_dropbox_checkbatchmovefilesorfolders {
+  /**
+   * The async job ID returned by batch-move-files-or-folders. Example: "dbjid:AAAcrHLQ..."
+   */
+  async_job_id: string;
+};
+
+export interface ActionOutput_dropbox_checkbatchmovefilesorfolders {
+  job_status: 'complete' | 'in_progress' | 'failed';
+  entries: ({  0: {  status: 'success';
+  id: string;
+  name?: string | undefined;
+  path_display?: string | undefined;
+  path_lower?: string | undefined;
+  tag: 'file' | 'folder';};
+  1: {  status: 'failure';
+  error_tag: string;
+  error_message: string;
+  to_path?: string | undefined;
+  from_path?: string | undefined;};})[];
+};
+
+export interface ActionInput_dropbox_checkunsharefolder {
+  /**
+   * The async job ID returned by unshare-folder. Example: "dbjid:AAAcrHLQ..."
+   */
+  async_job_id: string;
+};
+
+export interface ActionOutput_dropbox_checkunsharefolder {
+  success: boolean;
+  status: 'complete' | 'in_progress' | 'failed';
+  message?: string | undefined;
+};
+
+export interface ActionInput_dropbox_copyfileorfolder {
+  /**
+   * The path of the file or folder to copy. Example: "/folder/myfile.txt"
+   */
+  from_path: string;
+  /**
+   * The destination path for the copy. Example: "/folder/myfile_copy.txt"
+   */
+  to_path: string;
+  /**
+   * If true, copy contents of shared folders.
+   */
+  allow_shared_folder?: boolean | undefined;
+  /**
+   * If true, auto-rename conflicting files.
+   */
+  autorename?: boolean | undefined;
+  /**
+   * If true, allow ownership transfer for files in shared folders.
+   */
+  allow_ownership_transfer?: boolean | undefined;
+};
+
+export interface ActionOutput_dropbox_copyfileorfolder {
+  /**
+   * The unique ID of the copied file or folder
+   */
+  id: string;
+  /**
+   * The name of the copied file or folder
+   */
+  name: string;
+  /**
+   * The lowercased path of the copy
+   */
+  path_lower?: string | undefined;
+  /**
+   * The display path of the copy
+   */
+  path_display?: string | undefined;
+  /**
+   * Size in bytes
+   */
+  size?: number | undefined;
+  /**
+   * Client modified timestamp for files
+   */
+  client_modified?: string | undefined;
+  /**
+   * Server modified timestamp
+   */
+  server_modified?: string | undefined;
+  /**
+   * Revision identifier
+   */
+  rev?: string | undefined;
+  /**
+   * Content hash for files
+   */
+  content_hash?: string | undefined;
+};
+
+export interface ActionInput_dropbox_createfolder {
+  /**
+   * The path in Dropbox where the folder should be created. Example: "/home/TestFolder"
+   */
+  path: string;
+  /**
+   * If true, the folder will be renamed to avoid conflicts if a folder already exists at the given path. Default: false
+   */
+  autorename?: boolean | undefined;
+};
+
+export interface ActionOutput_dropbox_createfolder {
+  name: string;
+  path_lower?: string | undefined;
+  path_display?: string | undefined;
+  id: string;
+};
+
+export interface ActionInput_dropbox_createsharedlink {
+  /**
+   * The path to the file or folder in the Dropbox account. Example: /folder/file.txt
+   */
+  path: string;
+  /**
+   * Optional settings for the shared link including visibility, audience, access level, password, and expiry.
+   */
+  settings?: {  /**
+   * The requested visibility for the shared link. Can be public, password (link is publicly visible, but only accessible with the password), or team_only (only members of the same team can access).
+   */
+  requested_visibility?: 'public' | 'password' | 'team_only' | undefined;
+  /**
+   * The audience of the shared link. Can be public (anyone with the link can access), team (only members of the same team can access), no_one (link is disabled), or members (only specific members can access).
+   */
+  audience?: 'public' | 'team' | 'no_one' | 'members' | undefined;
+  /**
+   * The access level on the link. Can be viewer, viewer_no_comment (can view but not comment), editor, or owner.
+   */
+  access?: 'viewer' | 'viewer_no_comment' | 'editor' | 'owner' | undefined;
+  /**
+   * Whether to allow downloads via the shared link.
+   */
+  allow_download?: boolean | undefined;
+  /**
+   * The password for the shared link. Required if requested_visibility is set to password.
+   */
+  password?: string | undefined;
+  /**
+   * The expiration time for the shared link in ISO 8601 format (e.g., 2025-12-31T23:59:59Z).
+   */
+  expires?: string | undefined;};
+};
+
+export interface ActionOutput_dropbox_createsharedlink {
+  /**
+   * The shared link URL that can be used to access the file or folder.
+   */
+  url: string;
+  /**
+   * The name of the file or folder.
+   */
+  name: string;
+  /**
+   * The lowercased full path to the file or folder.
+   */
+  path: string;
+  /**
+   * The permissions associated with the shared link.
+   */
+  link_permissions?: {} | undefined;
+  /**
+   * The expiration time of the shared link if set.
+   */
+  expiry?: string | undefined;
+  /**
+   * Whether the shared link is password protected.
+   */
+  password_protected?: boolean | undefined;
 };
 
 export interface ActionInput_dropbox_createuser {
-  firstName: string;
-  lastName: string;
+  /**
+   * Email address of the new user. Example: "john.doe@example.com"
+   */
   email: string;
+  /**
+   * First name of the new user. Example: "John"
+   */
+  firstName: string;
+  /**
+   * Last name of the new user. Example: "Doe"
+   */
+  lastName: string;
 };
 
 export interface ActionOutput_dropbox_createuser {
   id: string;
-  email: string;
   firstName: string;
   lastName: string;
+  email: string;
 };
 
-export interface ActionInput_dropbox_deleteuser {
+export interface ActionInput_dropbox_deletefileorfolder {
+  /**
+   * Path to the file or folder to delete. Example: "/path/to/file.txt" or "/path/to/folder"
+   */
+  path: string;
+};
+
+export interface ActionOutput_dropbox_deletefileorfolder {
+  name: string;
+  path_lower?: string | undefined;
+  path_display?: string | undefined;
   id: string;
+  client_modified?: string | undefined;
+  server_modified?: string | undefined;
+  rev?: string | undefined;
+  size?: number | undefined;
+  is_downloadable?: boolean | undefined;
+  content_hash?: string | undefined;
 };
 
-export interface ActionOutput_dropbox_deleteuser {
-  success: boolean;
+export interface ActionInput_dropbox_downloadfile {
+  /**
+   * The path of the file to download. Example: "/Homework/math/Prime_Numbers.txt" or "id:a4ayc_80_OEAAAAAAAAAYa"
+   */
+  path: string;
 };
 
-export interface ActionInput_dropbox_foldercontent {
+export interface ActionOutput_dropbox_downloadfile {
+  metadata: {  name: string;
+  path_lower?: string | undefined;
+  path_display?: string | undefined;
+  id: string;
+  client_modified?: string | undefined;
+  server_modified?: string | undefined;
+  rev?: string | undefined;
+  size?: number | undefined;
+  content_hash?: string | undefined;
+  is_downloadable?: boolean | undefined;};
+  /**
+   * Base64-encoded file content
+   */
+  bytes: string;
+};
+
+export interface ActionInput_dropbox_downloadfolderaszip {
+  /**
+   * The path of the folder to download. Example: "/my-folder". Note: The root folder "/" is not supported.
+   */
+  path: string;
+};
+
+export interface ActionOutput_dropbox_downloadfolderaszip {
+  metadata: {  id: string;
+  name: string;
+  path_lower?: string | undefined;
+  path_display?: string | undefined;};
+  /**
+   * Base64-encoded zip file content
+   */
+  zip_content: string;
+};
+
+export interface ActionInput_dropbox_getcurrentaccount {
+};
+
+export interface ActionOutput_dropbox_getcurrentaccount {
+  account_id: string;
+  name: {  given_name: string;
+  surname: string;
+  familiar_name: string;
+  display_name: string;};
+  email: string;
+  account_type: string;
+  email_verified?: boolean | undefined;
+  disabled?: boolean | undefined;
+  locale?: string | undefined;
+  referral_link?: string | undefined;
+  is_paired?: boolean | undefined;
+  profile_photo_url?: string | undefined;
+  country?: string | undefined;
+  team?: {  name: string;
+  id: string;} | undefined;
+  team_member_id?: string | undefined;
+};
+
+export interface ActionInput_dropbox_getfileorfoldermetadata {
+  /**
+   * Path in the user's Dropbox to get metadata for. Example: "/folder/file.txt"
+   */
   path?: string | undefined;
+  /**
+   * Unique identifier for the file or folder. Can be used instead of path. Example: "id:a4ayc_80_OEAAAAAAAAAXw"
+   */
+  id?: string | undefined;
+};
+
+export interface ActionOutput_dropbox_getfileorfoldermetadata {
+  0: {  type: 'file';
+  name: string;
+  id: string;
+  client_modified: string;
+  server_modified: string;
+  rev: string;
+  size: number;
+  path_lower?: string | undefined;
+  path_display?: string | undefined;
+  sharing_info?: {  read_only?: boolean | undefined;
+  parent_shared_folder_id?: string | undefined;
+  modified_by?: string | undefined;
+  traverse_only?: boolean | undefined;
+  no_access?: boolean | undefined;};
+  content_hash?: string | undefined;
+  has_explicit_shared_members?: boolean | undefined;
+  is_downloadable?: boolean | undefined;};
+  1: {  type: 'folder';
+  name: string;
+  id: string;
+  path_lower?: string | undefined;
+  path_display?: string | undefined;
+  sharing_info?: {  read_only?: boolean | undefined;
+  parent_shared_folder_id?: string | undefined;
+  modified_by?: string | undefined;
+  traverse_only?: boolean | undefined;
+  no_access?: boolean | undefined;};};
+  2: {  type: 'deleted';
+  name: string;
+  id?: string | undefined;
+  path_lower?: string | undefined;
+  path_display?: string | undefined;};
+};
+
+export interface ActionInput_dropbox_getfiletemporarylink {
+  /**
+   * The path to the file you want a temporary link to. Example: "/folder/file.txt"
+   */
+  path: string;
+};
+
+export interface ActionOutput_dropbox_getfiletemporarylink {
+  metadata: {  name: string;
+  path_lower?: string | undefined;
+  path_display?: string | undefined;
+  id: string;
+  client_modified?: string | undefined;
+  server_modified?: string | undefined;
+  rev?: string | undefined;
+  size?: number | undefined;
+  is_downloadable?: boolean | undefined;
+  content_hash?: string | undefined;};
+  /**
+   * Temporary link to stream content of the file. Expires after four hours.
+   */
+  link: string;
+};
+
+export interface ActionInput_dropbox_listfilerevisions {
+  /**
+   * The path to the file or a file ID. Example: "/folder/document.txt" or "id:a4aycG80J0UAAAAAAAAcZA"
+   */
+  path: string;
+  /**
+   * Specify how to interpret the path argument. "path" (default): revisions at the same file path are returned. "id": revisions for the file ID (survives moves and renames).
+   */
+  mode?: 'path' | 'id' | undefined;
+  /**
+   * Maximum number of revisions to return. Defaults to 10.
+   */
+  limit?: number | undefined;
+};
+
+export interface ActionOutput_dropbox_listfilerevisions {
+  /**
+   * If true, this file was deleted.
+   */
+  is_deleted?: boolean | undefined;
+  /**
+   * The revisions for the file.
+   */
+  entries: ({  /**
+   * The last component of the path (including extension).
+   */
+  name: string;
+  /**
+   * The lowercased full path in the user's Dropbox.
+   */
+  path_lower?: string | undefined;
+  /**
+   * The cased path to be shown to the user.
+   */
+  path_display?: string | undefined;
+  /**
+   * A unique identifier for the file.
+   */
+  id: string;
+  /**
+   * For files, this is the modification time set by the client.
+   */
+  client_modified?: string | undefined;
+  /**
+   * The last modified time of the file.
+   */
+  server_modified: string;
+  /**
+   * A unique identifier for the current revision of a file.
+   */
+  rev: string;
+  /**
+   * The file size in bytes.
+   */
+  size: number;
+  /**
+   * A hash of the file content.
+   */
+  content_hash?: string | undefined;
+  /**
+   * If true, file can be downloaded directly.
+   */
+  is_downloadable?: boolean | undefined;
+  /**
+   * Whether this file has any explicit shared members.
+   */
+  has_explicit_shared_members?: boolean | undefined;})[];
+  /**
+   * Pass the cursor into files/list_revisions/continue to paginate through the entries.
+   */
   cursor?: string | undefined;
 };
 
-export interface ActionOutput_dropbox_foldercontent {
-  files: ({  id: string;
-  path: string;
-  title: string;
-  modified_date: string;})[];
-  folders: ({  id: string;
-  path: string;
-  title: string;
-  modified_date: string;})[];
+export interface ActionInput_dropbox_listfolder {
+  /**
+   * The path to the folder to list. Use "" (empty string) or omit for root folder. Example: "/Homework/math"
+   */
+  path?: string | undefined;
+  /**
+   * If true, list contents recursively for all subfolders. Default: false
+   */
+  recursive?: boolean | undefined;
+  /**
+   * If true, include entries for files and folders that were deleted. Default: false
+   */
+  include_deleted?: boolean | undefined;
+  /**
+   * Maximum number of entries to return per request (1-2000).
+   */
+  limit?: number | undefined;
+  /**
+   * Pagination cursor from a previous response. If provided, continues listing from that point.
+   */
+  cursor?: string | undefined;
+};
+
+export interface ActionOutput_dropbox_listfolder {
+  /**
+   * The files and folders in the directory.
+   */
+  entries: any[];
+  /**
+   * Cursor for retrieving more entries via list_folder/continue.
+   */
+  cursor?: string | undefined;
+  /**
+   * True if more entries are available.
+   */
+  has_more: boolean;
+};
+
+export interface ActionInput_dropbox_listsharedfolders {
+  /**
+   * The maximum number of results to return per request. Default is 100.
+   */
+  limit?: number | undefined;
+  /**
+   * Pagination cursor from the previous response. Omit for the first page.
+   */
+  cursor?: string | undefined;
+};
+
+export interface ActionOutput_dropbox_listsharedfolders {
+  folders: ({  shared_folder_id: string;
+  name: string;
+  path_lower?: string | undefined;
+  preview_url: string;
+  access_type: string;
+  is_team_folder: boolean;
+  is_inside_team_folder: boolean;
+  time_invited: string;})[];
   next_cursor?: string | undefined;
+};
+
+export interface ActionInput_dropbox_listsharedlinks {
+  /**
+   * Path to the file or folder to get shared links for. If not provided, returns all shared links for the current user.
+   */
+  path?: string | undefined;
+  /**
+   * Cursor returned from previous call to get the next page of results. Cursor is only returned when no path is provided.
+   */
+  cursor?: string | undefined;
+  /**
+   * If true, only return links directly to the given path. If false or omitted, also return links to parent folders.
+   */
+  direct_only?: boolean | undefined;
+};
+
+export interface ActionOutput_dropbox_listsharedlinks {
+  links: ({  ".tag": 'file' | 'folder';
+  url: string;
+  id: string;
+  name: string;
+  path_lower: string;
+  link_permissions?: {  can_revoke?: boolean | undefined;
+  resolved_visibility?: {  ".tag": string;} | undefined;
+  requested_visibility?: {  ".tag": string;} | undefined;
+  revoke_failure_reason?: {  ".tag": string;} | undefined;};
+  team_member_info?: {  team_info: {  id: string;
+  name: string;};
+  display_name: string;
+  member_id: string;
+  email?: string | undefined;};
+  expires?: string | undefined;
+  content_owner_team_info?: {  id: string;
+  name: string;} | undefined;})[];
+  has_more: boolean;
+  cursor?: string | undefined;
+};
+
+export interface ActionInput_dropbox_modifysharedlinksettings {
+  /**
+   * URL of the shared link to change its settings. Example: "https://www.dropbox.com/s/abc123/file.txt"
+   */
+  url: string;
+  /**
+   * Set of settings for the shared link.
+   */
+  settings?: {  /**
+   * Use `audience` instead. The requested access for this shared link.
+   */
+  requested_visibility?: 'public' | 'team_only' | 'password' | undefined;
+  /**
+   * The new audience who can benefit from the access level.
+   */
+  audience?: 'public' | 'team' | 'no_one' | 'members' | undefined;
+  /**
+   * Requested access level. Note: modifying access level for an existing link is not supported.
+   */
+  access?: 'viewer' | 'editor' | 'max' | undefined;
+  /**
+   * Expiration time of the shared link in ISO 8601 format. By default the link won't expire.
+   */
+  expires?: string | undefined;
+  /**
+   * Boolean flag to enable or disable password protection.
+   */
+  require_password?: boolean | undefined;
+  /**
+   * If require_password is true, this specifies the password to access the link.
+   */
+  link_password?: string | undefined;
+  /**
+   * Boolean flag to allow or disallow download capabilities for shared links.
+   */
+  allow_download?: boolean | undefined;};
+  /**
+   * If set to true, removes the expiration of the shared link.
+   */
+  remove_expiration?: boolean | undefined;
+};
+
+export interface ActionOutput_dropbox_modifysharedlinksettings {
+  url: string;
+  name?: string | undefined;
+  link_permissions?: {  can_revoke?: boolean | undefined;
+  resolved_visibility?: 'public' | 'team_only' | 'password' | 'team_and_password' | 'shared_folder_only' | 'no_one' | undefined;
+  requested_visibility?: 'public' | 'team_only' | 'password' | undefined;
+  effective_audience?: 'public' | 'team' | 'no_one' | 'members' | undefined;
+  link_access_level?: 'viewer' | 'editor' | 'max' | undefined;
+  can_set_expiration?: boolean | undefined;
+  can_set_password?: boolean | undefined;
+  can_remove_password?: boolean | undefined;
+  allow_download?: boolean | undefined;
+  can_allow_download?: boolean | undefined;
+  require_password?: boolean | undefined;
+  can_request_password?: boolean | undefined;};
+  expires?: string | undefined;
+  path_lower?: string | undefined;
+  file_id?: string | undefined;
+  id?: string | undefined;
+  client_modified?: string | undefined;
+  server_modified?: string | undefined;
+  rev?: string | undefined;
+  size?: number | undefined;
+  is_downloadable?: boolean | undefined;
+};
+
+export interface ActionInput_dropbox_movefileorfolder {
+  /**
+   * The path to the file or folder to be moved. Example: "/Folder/File.txt"
+   */
+  from_path: string;
+  /**
+   * The destination path, including the new name for the file or folder. Example: "/NewFolder/NewFile.txt"
+   */
+  to_path: string;
+  /**
+   * If true, move will take into account the shared folder permissions. Default: false
+   */
+  allow_shared_folder?: boolean | undefined;
+  /**
+   * If true, rename will be attempted if a conflict occurs. Default: false
+   */
+  autorename?: boolean | undefined;
+};
+
+export interface ActionOutput_dropbox_movefileorfolder {
+  name: string;
+  path_lower?: string | undefined;
+  path_display?: string | undefined;
+  id: string;
+  content_hash?: string | undefined;
+  rev?: string | undefined;
+  size?: number | undefined;
+  client_modified?: string | undefined;
+  server_modified?: string | undefined;
+  is_downloadable?: boolean | undefined;
+  tag?: 'file' | 'folder' | undefined;
+};
+
+export interface ActionInput_dropbox_restorefilerevision {
+  /**
+   * The path of the file to restore. Example: "/Documents/example.txt"
+   */
+  path: string;
+  /**
+   * The revision ID to restore to. Example: "015a01044acb99900000001aa8954d0"
+   */
+  rev: string;
+};
+
+export interface ActionOutput_dropbox_restorefilerevision {
+  name: string;
+  id: string;
+  client_modified?: string | undefined;
+  server_modified?: string | undefined;
+  rev: string;
+  size: number;
+  path_lower?: string | undefined;
+  path_display?: string | undefined;
+  content_hash?: string | undefined;
+};
+
+export interface ActionInput_dropbox_revokesharedlink {
+  /**
+   * The URL of the shared link to revoke. Example: "https://www.dropbox.com/s/..."
+   */
+  url: string;
+};
+
+export interface ActionOutput_dropbox_revokesharedlink {
+  /**
+   * Whether the shared link was successfully revoked.
+   */
+  success: boolean;
+};
+
+export interface ActionInput_dropbox_searchfilesandfolders {
+  /**
+   * The string to search for. May match across multiple fields based on the request arguments.
+   */
+  query: string;
+  /**
+   * A specific folder path to search in. If not specified, searches the entire Dropbox. Example: "/home/Documents"
+   */
+  path?: string | undefined;
+  /**
+   * Maximum number of results to return. Default: 100. Range: 1-1000.
+   */
+  max_results?: number | undefined;
+  /**
+   * Order of results. Default: relevance.
+   */
+  order_by?: 'relevance' | 'last_modified_time' | undefined;
+  /**
+   * Filter by file status. Default: active.
+   */
+  file_status?: 'active' | 'deleted' | undefined;
+  /**
+   * If true, restricts search to file names only. Default: false.
+   */
+  filename_only?: boolean | undefined;
+  /**
+   * Restrict search to specific file extensions. Only works for active files. Example: ["pdf", "txt"]
+   */
+  file_extensions?: string[] | undefined;
+  /**
+   * Restrict search to specific file categories. Only works for active files.
+   */
+  file_categories?: ({  0: 'image';
+  1: 'document';
+  2: 'pdf';
+  3: 'spreadsheet';
+  4: 'presentation';
+  5: 'audio';
+  6: 'video';
+  7: 'folder';
+  8: 'paper';
+  9: 'other';})[] | undefined;
+  /**
+   * Pagination cursor from a previous response. Omit for the first page.
+   */
+  cursor?: string | undefined;
+};
+
+export interface ActionOutput_dropbox_searchfilesandfolders {
+  /**
+   * List of search result matches
+   */
+  matches: ({  match_type?: {  ".tag": string;} | undefined;
+  metadata?: {  ".tag": 'metadata' | 'unmounted' | 'not_found';
+  metadata?: unknown | undefined;};})[];
+  /**
+   * If true, more results are available
+   */
+  has_more: boolean;
+  /**
+   * Cursor for fetching the next page of results
+   */
+  cursor?: string | undefined;
+};
+
+export interface ActionInput_dropbox_sharefolder {
+  /**
+   * Dropbox path to the folder to share. Example: "/my-folder"
+   */
+  path: string;
+  /**
+   * If true, force the share operation to run asynchronously
+   */
+  force_async?: boolean | undefined;
+  /**
+   * Who can be a member of this shared folder
+   */
+  member_policy?: 'anyone' | 'team' | undefined;
+  /**
+   * Who can access shared links for the folder
+   */
+  shared_link_policy?: 'anyone' | 'members' | undefined;
+  /**
+   * Whether to enable viewer info for this folder
+   */
+  viewer_info_policy?: 'disabled' | 'enabled' | undefined;
+  /**
+   * How access levels are inherited
+   */
+  access_inheritance?: 'inherit' | 'no_inherit' | undefined;
+};
+
+export interface ActionOutput_dropbox_sharefolder {
+  success: boolean;
+  async_job_id?: string | undefined;
+  shared_folder_metadata?: {  shared_folder_id: string;
+  name: string;
+  path_lower?: string | undefined;
+  preview_url?: string | undefined;
+  access_type?: string | undefined;
+  is_team_folder?: boolean | undefined;
+  is_inside_team_folder?: boolean | undefined;};
+};
+
+export interface ActionInput_dropbox_unsharefolder {
+  /**
+   * The ID for the shared folder. Example: "84528192421"
+   */
+  sharedFolderId: string;
+  /**
+   * If true, members of this shared folder will get a copy of this folder after it is unshared. Otherwise, it will be removed from their Dropbox. The current user, who is an owner, will always retain their copy.
+   */
+  leaveACopy?: boolean | undefined;
+};
+
+export interface ActionOutput_dropbox_unsharefolder {
+  success: boolean;
+  message?: string | undefined;
+};
+
+export interface ActionInput_dropbox_uploadfile {
+  /**
+   * Path in the user's Dropbox to save the file. Example: "/folder/document.txt"
+   */
+  path: string;
+  /**
+   * The file content as a base64-encoded string or raw string for text files.
+   */
+  content: string;
+  /**
+   * The encoding of the content. Defaults to "utf8".
+   */
+  encoding?: 'base64' | 'utf8' | undefined;
+  /**
+   * Selects what to do if the file already exists. "add" will add a new file, "overwrite" will overwrite, "update" will update only if the revision matches (requires rev). Defaults to "add".
+   */
+  mode?: 'add' | 'overwrite' | 'update' | undefined;
+  /**
+   * The revision of the file to update. Required when mode is "update".
+   */
+  rev?: string | undefined;
+  /**
+   * If true and there's a conflict, Dropbox will try to autorename the file to avoid the conflict. Defaults to false.
+   */
+  autorename?: boolean | undefined;
+  /**
+   * If true, suppresses user notifications for this modification. Defaults to false.
+   */
+  mute?: boolean | undefined;
+  /**
+   * The value to store as the client_modified timestamp in ISO 8601 format. If not set, Dropbox uses the current time.
+   */
+  client_modified?: string | undefined;
+};
+
+export interface ActionOutput_dropbox_uploadfile {
+  /**
+   * The name of the file.
+   */
+  name: string;
+  /**
+   * The lowercase full path of the file.
+   */
+  path_lower: string;
+  /**
+   * The unique identifier of the file.
+   */
+  id: string;
+  /**
+   * The timestamp when the file was last modified by the client.
+   */
+  client_modified: string;
+  /**
+   * The timestamp when the file was last modified on the server.
+   */
+  server_modified: string;
+  /**
+   * The revision of the file.
+   */
+  rev: string;
+  /**
+   * The file size in bytes.
+   */
+  size: number;
+};
+
+export interface ActionInput_dropbox_uploadlargefile {
+  /**
+   * The file content as a base64-encoded string
+   */
+  file_content_base64: string;
+  /**
+   * The destination path in Dropbox. Example: "/folder/file.txt"
+   */
+  dropbox_path: string;
+  /**
+   * What to do if the file already exists. Default: "add"
+   */
+  mode?: 'add' | 'overwrite' | undefined;
+  /**
+   * Size of each chunk in bytes. Default: 4194304 (4MB). Max: 150MB
+   */
+  chunk_size?: number | undefined;
+  /**
+   * If true, rename the file if a conflict occurs. Default: false
+   */
+  autorename?: boolean | undefined;
+  /**
+   * If true, suppresses email notification. Default: false
+   */
+  mute?: boolean | undefined;
+};
+
+export interface ActionOutput_dropbox_uploadlargefile {
+  success: boolean;
+  path: string;
+  file_id?: string | undefined;
+  content_hash?: string | undefined;
+  name?: string | undefined;
 };
 
 export interface EvaluAgentGroup {
@@ -7970,21 +9244,26 @@ export interface ActionOutput_gem_uploadresume {
   download_url: string;
 };
 
-export interface GithubIssue {
+export interface Commit {
   id: string;
-  owner: string;
-  repo: string;
-  issue_number: number;
-  title: string;
-  author: string;
-  author_id: string;
-  state: string;
-  date_created: Date;
-  date_last_modified: Date;
-  body: string;
-};
-
-export interface SyncMetadata_github_issues {
+  sha: string;
+  message: string;
+  author_name?: string | undefined;
+  author_email?: string | undefined;
+  author_date?: string | undefined;
+  author_login?: string | undefined;
+  committer_name?: string | undefined;
+  committer_email?: string | undefined;
+  committer_date?: string | undefined;
+  committer_login?: string | undefined;
+  url?: string | undefined;
+  html_url?: string | undefined;
+  repository_owner: string;
+  repository_name: string;
+  branch: string;
+  parent_shas?: string[] | undefined;
+  verified?: boolean | undefined;
+  verification_reason?: string | undefined;
 };
 
 export interface Issue {
@@ -8011,7 +9290,9 @@ export interface Issue {
   priority?: number | undefined;
 };
 
-export interface SyncMetadata_github_issueslite {
+export interface SyncMetadata_github_issues {
+  repositories?: ({  owner: string;
+  repo: string;})[] | undefined;
 };
 
 export interface GithubRepoFile {
@@ -8027,32 +9308,2581 @@ export interface SyncMetadata_github_listfiles {
   branch: string;
 };
 
-export type ActionInput_github_listrepos = void
+export interface PullRequest {
+  /**
+   * The unique identifier of the pull request (e.g., "12345")
+   */
+  id: string;
+  /**
+   * The pull request number within the repository
+   */
+  number: number;
+  /**
+   * The state of the pull request: "open", "closed"
+   */
+  state: string;
+  /**
+   * The title of the pull request
+   */
+  title: string;
+  /**
+   * The description/body of the pull request
+   */
+  body?: string | undefined;
+  /**
+   * The login/username of the PR author
+   */
+  user_login?: string | undefined;
+  /**
+   * The ID of the PR author
+   */
+  user_id?: number | undefined;
+  /**
+   * The ISO 8601 timestamp when the PR was created
+   */
+  created_at: string;
+  /**
+   * The ISO 8601 timestamp when the PR was last updated
+   */
+  updated_at: string;
+  /**
+   * The ISO 8601 timestamp when the PR was closed
+   */
+  closed_at?: string | undefined;
+  /**
+   * The ISO 8601 timestamp when the PR was merged
+   */
+  merged_at?: string | undefined;
+  /**
+   * The SHA of the merge commit
+   */
+  merge_commit_sha?: string | undefined;
+  /**
+   * The name of the head branch
+   */
+  head_ref: string;
+  /**
+   * The SHA of the head branch commit
+   */
+  head_sha: string;
+  /**
+   * The name of the base branch
+   */
+  base_ref: string;
+  /**
+   * The SHA of the base branch commit
+   */
+  base_sha: string;
+  /**
+   * Whether the pull request is a draft
+   */
+  draft: boolean;
+  /**
+   * The URL to view the pull request on GitHub
+   */
+  html_url: string;
+  /**
+   * The full name of the repository (e.g., "owner/repo")
+   */
+  repo_full_name: string;
+  /**
+   * Labels attached to the pull request
+   */
+  labels: ({  id: number;
+  name: string;
+  color: string;
+  description?: string | undefined;})[];
+  /**
+   * Users assigned to the pull request
+   */
+  assignees: ({  login: string;
+  id: number;})[];
+  /**
+   * Users requested to review the pull request
+   */
+  requested_reviewers: ({  login: string;
+  id: number;})[];
+};
 
-export interface ActionOutput_github_listrepos {
-  repos: ({  id: number;
-  owner: string;
+export interface SyncMetadata_github_pullrequests {
+  repos: string[];
+};
+
+export interface Release {
+  id: string;
+  repo_owner: string;
+  repo_name: string;
+  release_id: number;
+  node_id: string;
+  tag_name: string;
+  target_commitish: string;
+  name?: string | undefined;
+  body?: string | undefined;
+  draft: boolean;
+  prerelease: boolean;
+  created_at: string;
+  published_at?: string | undefined;
+  author_login: string;
+  author_id: number;
+};
+
+export interface SyncMetadata_github_releases {
+  repos?: ({  owner: string;
+  name: string;})[] | undefined;
+};
+
+export interface Repository {
+  id: string;
   name: string;
   full_name: string;
-  description: string;
-  url: string;
-  date_created: Date;
-  date_last_modified: Date;})[];
+  owner_login: string;
+  owner_id: string;
+  owner_type: string;
+  private: boolean;
+  visibility?: string | undefined;
+  html_url: string;
+  description?: string | undefined;
+  fork: boolean;
+  default_branch: string;
+  created_at?: string | undefined;
+  updated_at?: string | undefined;
+  pushed_at?: string | undefined;
+  homepage?: string | undefined;
+  language?: string | undefined;
+  size: number;
+  forks_count: number;
+  stargazers_count: number;
+  open_issues_count: number;
+  archived?: boolean | undefined;
+  disabled?: boolean | undefined;
 };
 
-export interface ActionInput_github_writefile {
+export interface FileMetadata {
+  siteId: string;
+  id: string;
+  name: string;
+  etag: string;
+  cTag: string;
+  is_folder: boolean;
+  mime_type: string | null;
+  path: string;
+  raw_source?: any | undefined;
+  updated_at: string;
+  download_url: string | null;
+  created_at: string;
+  blob_size: number;
+};
+
+export interface SyncMetadata_github_repositoryfiles {
   owner: string;
   repo: string;
+  branch: string;
+};
+
+export interface WorkflowRun {
+  id: string;
+  name?: string | undefined;
+  head_branch?: string | undefined;
+  head_sha: string;
   path: string;
-  message: string;
-  content: string;
+  run_number: number;
+  event: string;
+  status?: string | undefined;
+  conclusion?: string | undefined;
+  workflow_id: number;
+  url: string;
+  html_url: string;
+  created_at: string;
+  updated_at: string;
+  run_started_at?: string | undefined;
+  run_attempt?: number | undefined;
+  repository_id: number;
+  repository_name: string;
+  repository_owner: string;
+};
+
+export interface SyncMetadata_github_workflowruns {
+  repositories?: ({  owner: string;
+  name: string;})[] | undefined;
+};
+
+export interface ActionInput_github_addissuecomment {
+  /**
+   * The account owner of the repository. Example: "octocat"
+   */
+  owner: string;
+  /**
+   * The name of the repository. Example: "hello-world"
+   */
+  repo: string;
+  /**
+   * The number that identifies the issue. Example: 42
+   */
+  issue_number: number;
+  /**
+   * The contents of the comment. Markdown is supported. Example: "This is a comment"
+   */
+  body: string;
+};
+
+export interface ActionOutput_github_addissuecomment {
+  /**
+   * The unique identifier of the comment
+   */
+  id: number;
+  /**
+   * The node ID of the comment
+   */
+  node_id: string;
+  /**
+   * The API URL of the comment
+   */
+  url: string;
+  /**
+   * The contents of the comment
+   */
+  body?: string | undefined;
+  /**
+   * The HTML URL of the comment
+   */
+  html_url: string;
+  /**
+   * The user who created the comment
+   */
+  user?: {  login: string;
+  id: number;
+  avatar_url: string;
+  html_url: string;} | undefined;
+  /**
+   * The timestamp when the comment was created
+   */
+  created_at?: string | undefined;
+  /**
+   * The timestamp when the comment was last updated
+   */
+  updated_at?: string | undefined;
+  /**
+   * The API URL of the issue
+   */
+  issue_url?: string | undefined;
+};
+
+export interface ActionInput_github_createbranch {
+  /**
+   * Repository owner. Example: "viictoo"
+   */
+  owner: string;
+  /**
+   * Repository name. Example: "api-playground2"
+   */
+  repo: string;
+  /**
+   * Name of the new branch. Example: "feature-branch"
+   */
+  branch: string;
+  /**
+   * The SHA of the commit to create the branch from. Example: "abc123def..."
+   */
   sha: string;
 };
 
-export interface ActionOutput_github_writefile {
-  url: string;
-  status: string;
+export interface ActionOutput_github_createbranch {
+  /**
+   * The Git reference. Example: "refs/heads/feature-branch"
+   */
+  ref: string;
+  /**
+   * The SHA of the referenced object
+   */
   sha: string;
+  /**
+   * Type of the referenced object. Example: "commit"
+   */
+  type: string;
+};
+
+export interface ActionInput_github_createissue {
+  /**
+   * The account owner of the repository. Example: "octocat"
+   */
+  owner: string;
+  /**
+   * The name of the repository. Example: "Hello-World"
+   */
+  repo: string;
+  /**
+   * The title of the issue. Example: "Found a bug"
+   */
+  title: string;
+  /**
+   * The contents of the issue. Example: "I am having a problem with this."
+   */
+  body?: string | undefined;
+  /**
+   * Logins for Users to assign to this issue. Example: ["octocat"]
+   */
+  assignees?: string[] | undefined;
+  /**
+   * Labels to associate with this issue. Example: ["bug", "ui"]
+   */
+  labels?: string[] | undefined;
+  /**
+   * The number of the milestone to associate this issue with. Example: 1
+   */
+  milestone?: number | string | undefined;
+};
+
+export interface ActionOutput_github_createissue {
+  id: number;
+  node_id: string;
+  url: string;
+  html_url: string;
+  number: number;
+  state: string;
+  state_reason?: string | undefined;
+  title: string;
+  body?: string | undefined;
+  user_login?: string | undefined;
+  labels: string[];
+  assignees: string[];
+  milestone_number?: number | undefined;
+  locked: boolean;
+  comments: number;
+  created_at: string;
+  updated_at: string;
+  closed_at?: string | undefined;
+};
+
+export interface ActionInput_github_createlabel {
+  /**
+   * Repository owner. Example: "octocat"
+   */
+  owner: string;
+  /**
+   * Repository name. Example: "hello-world"
+   */
+  repo: string;
+  /**
+   * Label name. Example: "bug"
+   */
+  name: string;
+  /**
+   * Color of the label in hexadecimal format without leading hash. Example: "ff0000"
+   */
+  color: string;
+  /**
+   * Description of the label. Example: "Something is broken"
+   */
+  description?: string | undefined;
+};
+
+export interface ActionOutput_github_createlabel {
+  id: number;
+  node_id: string;
+  url: string;
+  name: string;
+  color: string;
+  default: boolean;
+  description?: string | undefined;
+};
+
+export interface ActionInput_github_createorupdatefile {
+  /**
+   * The account owner of the repository. Example: "octocat"
+   */
+  owner: string;
+  /**
+   * The name of the repository. Example: "hello-world"
+   */
+  repo: string;
+  /**
+   * The file path in the repository. Example: "path/to/file.md"
+   */
+  path: string;
+  /**
+   * The commit message. Example: "My commit message"
+   */
+  message: string;
+  /**
+   * The new file content. This will be Base64 encoded automatically.
+   */
+  content: string;
+  /**
+   * The branch name. Defaults to the repository's default branch if not provided.
+   */
+  branch?: string | undefined;
+  /**
+   * The blob SHA of the file being replaced. Required for updating an existing file. If not provided, the action will attempt to fetch the current SHA.
+   */
+  sha?: string | undefined;
+  /**
+   * The person that committed the file. Defaults to the authenticated user.
+   */
+  committer?: {  name: string;
+  email: string;
+  date?: string | undefined;};
+  /**
+   * The author of the file. Default: the committer or the authenticated user if you omit committer.
+   */
+  author?: {  name: string;
+  email: string;
+  date?: string | undefined;};
+};
+
+export interface ActionOutput_github_createorupdatefile {
+  content?: {  name: string;
+  path: string;
+  sha: string;
+  size: number;
+  url: string;
+  html_url?: string | undefined;
+  git_url?: string | undefined;
+  download_url?: string | undefined;
+  type: string;};
+  commit: {  sha: string;
+  node_id: string;
+  url: string;
+  html_url: string;
+  message: string;
+  author: {  date: string;
+  name: string;
+  email: string;};
+  committer: {  date: string;
+  name: string;
+  email: string;};
+  tree: {  url: string;
+  sha: string;};
+  parents: ({  url: string;
+  html_url: string;
+  sha: string;})[];
+  verification: {  verified: boolean;
+  reason: string;
+  signature?: string | undefined;
+  payload?: string | undefined;
+  verified_at?: string | undefined;};};
+};
+
+export interface ActionInput_github_createpullrequest {
+  /**
+   * Repository owner. Example: "viictoo"
+   */
+  owner: string;
+  /**
+   * Repository name. Example: "api-playground2"
+   */
+  repo: string;
+  /**
+   * The title of the pull request. Example: "Fix authentication bug"
+   */
+  title: string;
+  /**
+   * The name of the branch where your changes are implemented. Example: "feature-branch"
+   */
+  head: string;
+  /**
+   * The name of the branch you want the changes pulled into. Example: "main"
+   */
+  base: string;
+  /**
+   * The contents of the pull request.
+   */
+  body?: string | undefined;
+  /**
+   * Whether the pull request should be created as a draft.
+   */
+  draft?: boolean | undefined;
+};
+
+export interface ActionOutput_github_createpullrequest {
+  id: number;
+  nodeId: string;
+  url: string;
+  number: number;
+  state: string;
+  title: string;
+  body?: string | undefined;
+  draft?: boolean | undefined;
+  headRef?: string | undefined;
+  headSha?: string | undefined;
+  baseRef?: string | undefined;
+  baseSha?: string | undefined;
+  createdAt: string;
+  updatedAt: string;
+};
+
+export interface ActionInput_github_createrelease {
+  /**
+   * The account owner of the repository. Example: "octocat"
+   */
+  owner: string;
+  /**
+   * The name of the repository. Example: "Hello-World"
+   */
+  repo: string;
+  /**
+   * The name of the tag. Example: "v1.0.0"
+   */
+  tag_name: string;
+  /**
+   * The commitish value that determines where the Git tag is created from. Can be any branch or commit SHA. Defaults to the repository's default branch. Example: "main"
+   */
+  target_commitish?: string | undefined;
+  /**
+   * The name of the release. Example: "v1.0.0 - First Release"
+   */
+  name?: string | undefined;
+  /**
+   * Text describing the contents of the tag. Example: "Description of the release"
+   */
+  body?: string | undefined;
+  /**
+   * Whether the release is a draft. Defaults to false.
+   */
+  draft?: boolean | undefined;
+  /**
+   * Whether the release is a prerelease. Defaults to false.
+   */
+  prerelease?: boolean | undefined;
+};
+
+export interface ActionOutput_github_createrelease {
+  id: number;
+  tag_name: string;
+  target_commitish?: string | undefined;
+  name?: string | undefined;
+  body?: string | undefined;
+  draft: boolean;
+  prerelease: boolean;
+  created_at: string;
+  published_at?: string | undefined;
+  html_url: string;
+};
+
+export interface ActionInput_github_createreviewrequest {
+  /**
+   * Repository owner (username or organization). Example: "octocat"
+   */
+  owner: string;
+  /**
+   * Repository name. Example: "hello-world"
+   */
+  repo: string;
+  /**
+   * Pull request number. Example: 1
+   */
+  pull_number: number;
+  /**
+   * Usernames of users to request reviews from. Example: ["octocat"]
+   */
+  reviewers?: string[] | undefined;
+  /**
+   * Slugs of teams to request reviews from. Example: ["justice-league"]
+   */
+  team_reviewers?: string[] | undefined;
+};
+
+export interface ActionOutput_github_createreviewrequest {
+  /**
+   * Pull request ID
+   */
+  id: number;
+  /**
+   * Pull request number
+   */
+  number: number;
+  /**
+   * Pull request state
+   */
+  state: string;
+  /**
+   * Pull request title
+   */
+  title: string;
+  /**
+   * Users requested to review
+   */
+  requested_reviewers?: ({  login: string;
+  id: number;
+  node_id?: string | undefined;
+  avatar_url?: string | undefined;
+  gravatar_id?: string | undefined;
+  url?: string | undefined;
+  html_url?: string | undefined;
+  type?: string | undefined;})[];
+  /**
+   * Teams requested to review
+   */
+  requested_teams?: ({  id: number;
+  node_id?: string | undefined;
+  url?: string | undefined;
+  html_url?: string | undefined;
+  name: string;
+  slug: string;
+  description?: string | undefined;
+  privacy?: string | undefined;
+  permission?: string | undefined;
+  members_url?: string | undefined;
+  repositories_url?: string | undefined;
+  parent?: unknown | undefined;})[];
+};
+
+export interface ActionInput_github_createtagobject {
+  /**
+   * The account owner of the repository. Example: "octocat"
+   */
+  owner: string;
+  /**
+   * The name of the repository. Example: "hello-world"
+   */
+  repo: string;
+  /**
+   * The name of the tag. Example: "v1.0.0"
+   */
+  tag: string;
+  /**
+   * The tag message. Example: "Release v1.0.0"
+   */
+  message: string;
+  /**
+   * The SHA of the git object this tag points to. Example: "c3d0be41cbeaa591f95c7208cc9321296ff76a1c"
+   */
+  object: string;
+  /**
+   * The type of the object the tag points to.
+   */
+  type: 'commit' | 'tree' | 'blob';
+  /**
+   * The name of the person creating the tag. Example: "Monalisa Octocat"
+   */
+  tagger_name: string;
+  /**
+   * The email of the person creating the tag. Example: "octocat@github.com"
+   */
+  tagger_email: string;
+  /**
+   * The date the tag was created (ISO 8601 format). Defaults to current time if not provided. Example: "2024-01-01T00:00:00Z"
+   */
+  tagger_date?: string | undefined;
+};
+
+export interface ActionOutput_github_createtagobject {
+  sha: string;
+  url: string;
+  tagger_name: string;
+  tagger_email: string;
+  tagger_date: string;
+  object_sha: string;
+  object_type: string;
+  object_url: string;
+  tag: string;
+  message: string;
+};
+
+export interface ActionInput_github_deletefile {
+  /**
+   * The account owner of the repository. Example: "octocat"
+   */
+  owner: string;
+  /**
+   * The name of the repository. Example: "Hello-World"
+   */
+  repo: string;
+  /**
+   * The path to the file in the repository. Example: "path/to/file.txt"
+   */
+  path: string;
+  /**
+   * The commit message. Example: "Delete file.txt"
+   */
+  message: string;
+  /**
+   * The blob SHA of the file being deleted. Example: "sha256hash"
+   */
+  sha: string;
+  /**
+   * The name of the branch to delete the file from. Example: "main"
+   */
+  branch: string;
+};
+
+export interface ActionOutput_github_deletefile {
+  commit?: {  sha?: string | undefined;
+  message?: string | undefined;
+  html_url?: string | undefined;
+  author?: {  date?: string | undefined;
+  email?: string | undefined;
+  name?: string | undefined;};
+  committer?: {  date?: string | undefined;
+  email?: string | undefined;
+  name?: string | undefined;};
+  tree?: {  sha?: string | undefined;
+  url?: string | undefined;};
+  parents?: ({  sha?: string | undefined;
+  html_url?: string | undefined;
+  url?: string | undefined;})[];};
+};
+
+export interface ActionInput_github_deletelabel {
+  /**
+   * Repository owner. Example: "viictoo"
+   */
+  owner: string;
+  /**
+   * Repository name. Example: "api-playground2"
+   */
+  repo: string;
+  /**
+   * Label name to delete. Example: "bug"
+   */
+  name: string;
+};
+
+export interface ActionOutput_github_deletelabel {
+  success: boolean;
+  message: string;
+};
+
+export interface ActionInput_github_deleterelease {
+  /**
+   * Repository owner. Example: "viictoo"
+   */
+  owner: string;
+  /**
+   * Repository name. Example: "api-playground2"
+   */
+  repo: string;
+  /**
+   * Release ID to delete. Example: 12345678
+   */
+  release_id: number;
+};
+
+export interface ActionOutput_github_deleterelease {
+  success: boolean;
+  message?: string | undefined;
+};
+
+export interface ActionInput_github_getbranch {
+  /**
+   * Repository owner. Example: "octocat"
+   */
+  owner: string;
+  /**
+   * Repository name. Example: "Hello-World"
+   */
+  repo: string;
+  /**
+   * Branch name. Example: "main"
+   */
+  branch: string;
+};
+
+export interface ActionOutput_github_getbranch {
+  name: string;
+  commit_sha: string;
+  protected?: boolean | undefined;
+  protection?: unknown | undefined;
+};
+
+export interface ActionInput_github_getcommit {
+  /**
+   * The account owner of the repository. Example: "viictoo"
+   */
+  owner: string;
+  /**
+   * The name of the repository. Example: "api-playground2"
+   */
+  repo: string;
+  /**
+   * The commit reference. Can be a commit SHA, branch name (heads/BRANCH_NAME), or tag name (tags/TAG_NAME). Example: "main"
+   */
+  ref: string;
+};
+
+export interface ActionOutput_github_getcommit {
+  sha: string;
+  node_id: string;
+  url: string;
+  html_url: string;
+  comments_url: string;
+  commit: {  message: string;
+  author?: {  name: string;
+  email: string;
+  date: string;} | undefined;
+  committer?: {  name: string;
+  email: string;
+  date: string;} | undefined;
+  comment_count: number;
+  tree: {  sha: string;
+  url: string;};
+  verification?: {  verified: boolean;
+  reason: string;
+  payload?: string | undefined;
+  signature?: string | undefined;
+  verified_at?: string | undefined;};};
+  author?: {  login: string;
+  id: number;
+  avatar_url: string;
+  html_url: string;} | undefined;
+  committer?: {  login: string;
+  id: number;
+  avatar_url: string;
+  html_url: string;} | undefined;
+  parents: ({  sha: string;
+  url: string;
+  html_url?: string | undefined;})[];
+  stats?: {  additions: number;
+  deletions: number;
+  total: number;} | undefined;
+  files?: ({  sha?: string | undefined;
+  filename: string;
+  status: 'added' | 'removed' | 'modified' | 'renamed' | 'copied' | 'changed' | 'unchanged';
+  additions: number;
+  deletions: number;
+  changes: number;
+  blob_url: string;
+  raw_url: string;
+  contents_url: string;
+  patch?: string | undefined;
+  previous_filename?: string | undefined;})[];
+};
+
+export interface ActionInput_github_getfilecontents {
+  /**
+   * The account owner of the repository. Example: "octocat"
+   */
+  owner: string;
+  /**
+   * The name of the repository. Example: "Hello-World"
+   */
+  repo: string;
+  /**
+   * The path to the file or directory. Example: "README.md" or "docs/"
+   */
+  path: string;
+  /**
+   * The name of the commit/branch/tag. Defaults to the repository's default branch.
+   */
+  ref?: string | undefined;
+};
+
+export interface ActionOutput_github_getfilecontents {
+  /**
+   * Type of content
+   */
+  type: 'file' | 'dir' | 'symlink' | 'submodule';
+  size: number;
+  name: string;
+  path: string;
+  sha: string;
+  url: string;
+  git_url?: string | undefined;
+  html_url?: string | undefined;
+  download_url?: string | undefined;
+  /**
+   * Base64 encoded content for files
+   */
+  content?: string | undefined;
+  /**
+   * Content encoding (e.g., base64)
+   */
+  encoding?: string | undefined;
+  /**
+   * Directory entries when type is dir
+   */
+  entries?: ({  /**
+   * Type of content: file, dir, symlink, or submodule
+   */
+  type: string;
+  size: number;
+  name: string;
+  path: string;
+  sha: string;
+  url: string;
+  git_url?: string | undefined;
+  html_url?: string | undefined;
+  download_url?: string | undefined;
+  _links?: {  git?: string | undefined;
+  html?: string | undefined;
+  self?: string | undefined;};})[];
+  /**
+   * Symlink target when type is symlink
+   */
+  target?: string | undefined;
+  /**
+   * Submodule URL when type is submodule
+   */
+  submodule_git_url?: string | undefined;
+  _links?: {  git?: string | undefined;
+  html?: string | undefined;
+  self?: string | undefined;};
+};
+
+export interface ActionInput_github_getissue {
+  /**
+   * Repository owner. Example: "octocat"
+   */
+  owner: string;
+  /**
+   * Repository name. Example: "hello-world"
+   */
+  repo: string;
+  /**
+   * Issue number. Example: 1
+   */
+  issue_number: number;
+};
+
+export interface ActionOutput_github_getissue {
+  id: number;
+  node_id: string;
+  url: string;
+  repository_url: string;
+  labels_url: string;
+  comments_url: string;
+  events_url: string;
+  html_url: string;
+  number: number;
+  state: string;
+  title: string;
+  body?: string | undefined;
+  user: {  login: string;
+  id: number;
+  node_id: string;
+  avatar_url: string;
+  gravatar_id: string;
+  url: string;
+  html_url: string;
+  type: string;};
+  labels: ({  id: number;
+  node_id: string;
+  url: string;
+  name: string;
+  description?: string | undefined;
+  color: string;
+  default: boolean;})[];
+  assignee: {  login: string;
+  id: number;
+  avatar_url?: string | undefined;
+  html_url?: string | undefined;};
+  assignees: unknown[];
+  milestone: {  id: number;
+  number: number;
+  title: string;
+  state: string;};
+  locked: boolean;
+  active_lock_reason?: string | undefined;
+  comments: number;
+  pull_request?: {  url: string;
+  html_url: string;
+  diff_url: string;
+  patch_url: string;} | undefined;
+  closed_at?: string | undefined;
+  created_at: string;
+  updated_at: string;
+  closed_by?: unknown | undefined;
+};
+
+export interface ActionInput_github_getjoblogsdownloadurl {
+  /**
+   * The account owner of the repository. Example: "octocat"
+   */
+  owner: string;
+  /**
+   * The name of the repository. Example: "hello-world"
+   */
+  repo: string;
+  /**
+   * The unique identifier of the job. Example: 123456789
+   */
+  job_id: number;
+};
+
+export interface ActionOutput_github_getjoblogsdownloadurl {
+  /**
+   * The API endpoint URL for job logs. Note: Due to Nango proxy limitations with 302 redirects, this returns the API endpoint rather than the actual download URL. Users should make a direct request to this URL with their GitHub token to receive the 302 redirect and extract the Location header.
+   */
+  download_url: string;
+};
+
+export interface ActionInput_github_getlabel {
+  /**
+   * The account owner of the repository. Example: "octocat"
+   */
+  owner: string;
+  /**
+   * The name of the repository. Example: "hello-world"
+   */
+  repo: string;
+  /**
+   * The name of the label. Example: "bug"
+   */
+  name: string;
+};
+
+export interface ActionOutput_github_getlabel {
+  id: number;
+  node_id: string;
+  url: string;
+  name: string;
+  description?: string | undefined;
+  color: string;
+  default: boolean;
+};
+
+export interface ActionInput_github_getpullrequest {
+  /**
+   * The account owner of the repository. Example: "octocat"
+   */
+  owner: string;
+  /**
+   * The name of the repository. Example: "Hello-World"
+   */
+  repo: string;
+  /**
+   * The number that identifies the pull request. Example: 1
+   */
+  pull_number: number;
+};
+
+export interface ActionOutput_github_getpullrequest {
+  /**
+   * The unique identifier of the pull request. Example: 1
+   */
+  id: number;
+  /**
+   * The number of the pull request in the repository. Example: 1347
+   */
+  number: number;
+  /**
+   * The title of the pull request.
+   */
+  title: string;
+  /**
+   * The state of the pull request. Example: "open"
+   */
+  state: string;
+  /**
+   * The body content of the pull request.
+   */
+  body: string;
+  head: {  /**
+   * The branch name of the head. Example: "new-topic"
+   */
+  ref: string;
+  /**
+   * The commit SHA of the head.
+   */
+  sha: string;};
+  base: {  /**
+   * The branch name of the base. Example: "main"
+   */
+  ref: string;
+  /**
+   * The commit SHA of the base.
+   */
+  sha: string;};
+  user: {  /**
+   * The username of the author.
+   */
+  login: string;
+  /**
+   * The user ID of the author.
+   */
+  id: number;};
+  /**
+   * The timestamp when the pull request was created.
+   */
+  created_at: string;
+  /**
+   * The timestamp when the pull request was last updated.
+   */
+  updated_at: string;
+  /**
+   * The timestamp when the pull request was closed.
+   */
+  closed_at: string;
+  /**
+   * The timestamp when the pull request was merged.
+   */
+  merged_at: string;
+};
+
+export interface ActionInput_github_getrelease {
+  /**
+   * The account owner of the repository. Example: "octocat"
+   */
+  owner: string;
+  /**
+   * The name of the repository. Example: "hello-world"
+   */
+  repo: string;
+  /**
+   * The unique identifier of the release. Example: 1
+   */
+  release_id: number;
+};
+
+export interface ActionOutput_github_getrelease {
+  /**
+   * The unique identifier of the release
+   */
+  id: number;
+  /**
+   * The node ID of the release
+   */
+  node_id?: string | undefined;
+  /**
+   * The name of the tag
+   */
+  tag_name?: string | undefined;
+  /**
+   * The name of the release
+   */
+  name?: string | undefined;
+  /**
+   * The body of the release notes
+   */
+  body?: string | undefined;
+  /**
+   * Whether the release is a draft
+   */
+  draft?: boolean | undefined;
+  /**
+   * Whether the release is a prerelease
+   */
+  prerelease?: boolean | undefined;
+  /**
+   * The date the release was created
+   */
+  created_at?: string | undefined;
+  /**
+   * The date the release was published
+   */
+  published_at?: string | undefined;
+  author?: {  login: string;
+  id: number;
+  node_id?: string | undefined;
+  avatar_url?: string | undefined;
+  html_url?: string | undefined;};
+  /**
+   * The URL of the release in the browser
+   */
+  html_url?: string | undefined;
+  /**
+   * The URL to download the release as a tarball
+   */
+  tarball_url?: string | undefined;
+  /**
+   * The URL to download the release as a zipball
+   */
+  zipball_url?: string | undefined;
+  assets?: ({  id: number;
+  node_id?: string | undefined;
+  name: string;
+  content_type?: string | undefined;
+  size?: number | undefined;
+  download_count?: number | undefined;
+  created_at?: string | undefined;
+  updated_at?: string | undefined;
+  browser_download_url?: string | undefined;})[];
+};
+
+export interface ActionInput_github_getrepository {
+  /**
+   * Repository owner. Example: "octocat"
+   */
+  owner: string;
+  /**
+   * Repository name. Example: "Hello-World"
+   */
+  repo: string;
+};
+
+export interface ActionOutput_github_getrepository {
+  id: number;
+  name: string;
+  full_name?: string | undefined;
+  description?: string | undefined;
+  private: boolean;
+  visibility?: string | undefined;
+  default_branch?: string | undefined;
+  html_url?: string | undefined;
+  owner: {  login: string;
+  id: number;
+  type?: string | undefined;};
+  created_at?: string | undefined;
+  updated_at?: string | undefined;
+};
+
+export interface ActionInput_github_getreview {
+  /**
+   * The account owner of the repository. Example: "octocat"
+   */
+  owner: string;
+  /**
+   * The name of the repository. Example: "Hello-World"
+   */
+  repo: string;
+  /**
+   * The number of the pull request. Example: 1
+   */
+  pull_number: number;
+  /**
+   * The unique identifier of the review. Example: 1
+   */
+  review_id: number;
+};
+
+export interface ActionOutput_github_getreview {
+  id: number;
+  user_login: string;
+  user_id: number;
+  body?: string | undefined;
+  state: string;
+  html_url: string;
+  pull_request_url: string;
+  commit_id: string;
+  submitted_at?: string | undefined;
+};
+
+export interface ActionInput_github_gettagref {
+  /**
+   * The account owner of the repository. Example: "octocat"
+   */
+  owner: string;
+  /**
+   * The name of the repository. Example: "hello-world"
+   */
+  repo: string;
+  /**
+   * The Git reference to retrieve. Use "tags/<tag_name>" for tags or "heads/<branch_name>" for branches. Example: "tags/v1.0.0"
+   */
+  ref: string;
+};
+
+export interface ActionOutput_github_gettagref {
+  ref: string;
+  node_id: string;
+  url: string;
+  object: {  type: string;
+  sha: string;
+  url: string;};
+};
+
+export interface ActionInput_github_getworkflowrun {
+  /**
+   * The account owner of the repository. Example: "viictoo"
+   */
+  owner: string;
+  /**
+   * The name of the repository. Example: "api-playground2"
+   */
+  repo: string;
+  /**
+   * The unique identifier of the workflow run. Example: 123456789
+   */
+  run_id: number;
+  /**
+   * If true, pull requests are omitted from the response.
+   */
+  exclude_pull_requests?: boolean | undefined;
+};
+
+export interface ActionOutput_github_getworkflowrun {
+  id: number;
+  name: string;
+  node_id: string;
+  head_branch: string;
+  head_sha: string;
+  path: string;
+  run_number: number;
+  run_attempt?: number | undefined;
+  event: string;
+  status: string;
+  conclusion: string;
+  workflow_id: number;
+  url: string;
+  html_url: string;
+  created_at: string;
+  updated_at: string;
+  run_started_at?: string | undefined;
+  jobs_url: string;
+  logs_url: string;
+  check_suite_url: string;
+  artifacts_url: string;
+  cancel_url: string;
+  rerun_url: string;
+  workflow_url: string;
+  display_title: string;
+};
+
+export interface ActionInput_github_getworkflow {
+  /**
+   * The account owner of the repository. Example: "octocat"
+   */
+  owner: string;
+  /**
+   * The name of the repository. Example: "hello-world"
+   */
+  repo: string;
+  /**
+   * The ID of the workflow. You can also pass the workflow file name as a string. Example: 12345 or "main.yaml"
+   */
+  workflow_id: number | string;
+};
+
+export interface ActionOutput_github_getworkflow {
+  /**
+   * The ID of the workflow
+   */
+  id: number;
+  /**
+   * The node ID of the workflow
+   */
+  node_id?: string | undefined;
+  /**
+   * The name of the workflow
+   */
+  name: string;
+  /**
+   * The path to the workflow file
+   */
+  path: string;
+  /**
+   * The state of the workflow (e.g., "active")
+   */
+  state: string;
+  /**
+   * The creation timestamp
+   */
+  created_at?: string | undefined;
+  /**
+   * The last update timestamp
+   */
+  updated_at?: string | undefined;
+  /**
+   * The API URL for the workflow
+   */
+  url?: string | undefined;
+  /**
+   * The HTML URL for the workflow
+   */
+  html_url?: string | undefined;
+  /**
+   * The badge URL for the workflow status
+   */
+  badge_url?: string | undefined;
+};
+
+export interface ActionInput_github_listbranches {
+  /**
+   * The account owner of the repository. Example: "viictoo"
+   */
+  owner: string;
+  /**
+   * The name of the repository without the .git extension. Example: "api-playground2"
+   */
+  repo: string;
+  /**
+   * Setting to true returns only protected branches. Setting to false returns only unprotected branches. Omitting this parameter returns all branches.
+   */
+  protected?: boolean | undefined;
+  /**
+   * The number of results per page (max 100). Default: 30
+   */
+  per_page?: number | undefined;
+  /**
+   * The page number of the results to fetch. Default: 1
+   */
+  page?: number | undefined;
+};
+
+export interface ActionOutput_github_listbranches {
+  branches: ({  name: string;
+  commit: {  sha: string;
+  url: string;};
+  protected: boolean;})[];
+  next_page?: number | undefined;
+};
+
+export interface ActionInput_github_listcommits {
+  /**
+   * The account owner of the repository. Example: "octocat"
+   */
+  owner: string;
+  /**
+   * The name of the repository. Example: "Hello-World"
+   */
+  repo: string;
+  /**
+   * SHA or branch to start listing commits from. Example: "main"
+   */
+  sha?: string | undefined;
+  /**
+   * Only commits containing this file path will be returned. Example: "docs/README.md"
+   */
+  path?: string | undefined;
+  /**
+   * GitHub login or email address by which to filter by commit author. Example: "octocat@example.com"
+   */
+  author?: string | undefined;
+  /**
+   * Only commits after this date will be returned. ISO 8601 format: YYYY-MM-DDTHH:MM:SSZ. Example: "2024-01-01T00:00:00Z"
+   */
+  since?: string | undefined;
+  /**
+   * Only commits before this date will be returned. ISO 8601 format: YYYY-MM-DDTHH:MM:SSZ. Example: "2024-12-31T23:59:59Z"
+   */
+  until?: string | undefined;
+  /**
+   * The number of results per page (max 100). Default: 30
+   */
+  per_page?: number | undefined;
+  /**
+   * Page number of the results to fetch. Default: 1
+   */
+  page?: number | undefined;
+};
+
+export interface ActionOutput_github_listcommits {
+  commits: ({  /**
+   * The SHA of the commit
+   */
+  sha: string;
+  /**
+   * The commit message
+   */
+  message: string;
+  /**
+   * Name of the author
+   */
+  author_name?: string | undefined;
+  /**
+   * Email of the author
+   */
+  author_email?: string | undefined;
+  /**
+   * Date of the commit
+   */
+  author_date?: string | undefined;
+  /**
+   * Name of the committer
+   */
+  committer_name?: string | undefined;
+  /**
+   * Email of the committer
+   */
+  committer_email?: string | undefined;
+  /**
+   * Date the commit was committed
+   */
+  committer_date?: string | undefined;
+  /**
+   * URL to the commit on GitHub
+   */
+  html_url?: string | undefined;
+  /**
+   * SHAs of parent commits
+   */
+  parent_shas?: string[] | undefined;})[];
+  /**
+   * Total number of commits (if available)
+   */
+  total_count?: number | undefined;
+};
+
+export interface ActionInput_github_listissuecomments {
+  /**
+   * The account owner of the repository. Example: "octocat"
+   */
+  owner: string;
+  /**
+   * The name of the repository. Example: "hello-world"
+   */
+  repo: string;
+  /**
+   * The number that identifies the issue. Example: 1
+   */
+  issue_number: number;
+  /**
+   * The number of results per page (max 100). Example: 30
+   */
+  per_page?: number | undefined;
+  /**
+   * Page number of the results to fetch. Example: 1
+   */
+  page?: number | undefined;
+};
+
+export interface ActionOutput_github_listissuecomments {
+  /**
+   * Array of issue comments
+   */
+  comments: ({  /**
+   * The unique identifier of the comment. Example: 1
+   */
+  id: number;
+  /**
+   * The node ID of the comment. Example: "MDEyOklzc3VlQ29tbWVudDE="
+   */
+  node_id?: string | undefined;
+  /**
+   * The REST API URL for the issue comment. Example: "https://api.github.com/repos/octocat/hello-world/issues/comments/1"
+   */
+  url?: string | undefined;
+  /**
+   * The HTML URL for the issue comment. Example: "https://github.com/octocat/hello-world/issues/1#issuecomment-1"
+   */
+  html_url?: string | undefined;
+  /**
+   * The contents of the issue comment.
+   */
+  body?: string | undefined;
+  /**
+   * The login username of the comment author. Example: "octocat"
+   */
+  user_login?: string | undefined;
+  /**
+   * The unique identifier of the comment author. Example: 1
+   */
+  user_id?: number | undefined;
+  /**
+   * The time the comment was created in ISO 8601 format. Example: "2011-04-14T16:00:49Z"
+   */
+  created_at?: string | undefined;
+  /**
+   * The time the comment was last updated in ISO 8601 format. Example: "2011-04-14T16:00:49Z"
+   */
+  updated_at?: string | undefined;
+  /**
+   * The REST API URL for the issue. Example: "https://api.github.com/repos/octocat/hello-world/issues/1"
+   */
+  issue_url?: string | undefined;})[];
+  /**
+   * The next page number if more results are available
+   */
+  next_page?: number | undefined;
+};
+
+export interface ActionInput_github_listissues {
+  /**
+   * The account owner of the repository. The name is not case sensitive.
+   */
+  owner: string;
+  /**
+   * The name of the repository without the .git extension. The name is not case sensitive.
+   */
+  repo: string;
+  /**
+   * Indicates the state of the issues to return.
+   */
+  state?: 'open' | 'closed' | 'all' | undefined;
+  /**
+   * Can be the name of a user. Pass in none for issues with no assigned user, and * for issues assigned to any user.
+   */
+  assignee?: string | undefined;
+  /**
+   * A list of comma separated label names. Example: bug,ui,@high
+   */
+  labels?: string | undefined;
+  /**
+   * What to sort results by.
+   */
+  sort?: 'created' | 'updated' | 'comments' | undefined;
+  /**
+   * The direction to sort the results by.
+   */
+  direction?: 'asc' | 'desc' | undefined;
+  /**
+   * Only show results that were last updated after the given time. This is a timestamp in ISO 8601 format: YYYY-MM-DDTHH:MM:SSZ.
+   */
+  since?: string | undefined;
+  /**
+   * Pagination cursor (page number). Omit for the first page.
+   */
+  cursor?: string | undefined;
+  /**
+   * The number of results per page (max 100).
+   */
+  per_page?: number | undefined;
+};
+
+export interface ActionOutput_github_listissues {
+  issues: ({  id: number;
+  node_id: string;
+  url: string;
+  repository_url: string;
+  labels_url: string;
+  comments_url: string;
+  events_url: string;
+  html_url: string;
+  number: number;
+  state: string;
+  state_reason?: string | undefined;
+  title: string;
+  body?: string | undefined;
+  user: {  login: string;
+  id: number;
+  node_id: string;
+  avatar_url: string;
+  gravatar_id: string;
+  url: string;
+  html_url: string;
+  type: string;
+  site_admin: boolean;
+  name?: string | undefined;};
+  labels: ({  id: number;
+  node_id: string;
+  url: string;
+  name: string;
+  color: string;
+  description?: string | undefined;})[];
+  assignees?: ({  login: string;
+  id: number;
+  node_id: string;
+  avatar_url: string;
+  gravatar_id: string;
+  url: string;
+  html_url: string;
+  type: string;
+  site_admin: boolean;
+  name?: string | undefined;})[];
+  locked: boolean;
+  comments: number;
+  created_at: string;
+  updated_at: string;
+  closed_at?: string | undefined;
+  pull_request?: {  url: string;
+  html_url: string;
+  diff_url: string;
+  patch_url: string;} | undefined;})[];
+  next_cursor?: string | undefined;
+};
+
+export interface ActionInput_github_listlabels {
+  /**
+   * The account owner of the repository
+   */
+  owner: string;
+  /**
+   * The name of the repository
+   */
+  repo: string;
+  /**
+   * The number of results per page (max 100)
+   */
+  per_page?: number | undefined;
+  /**
+   * The page number of the results to fetch
+   */
+  page?: number | undefined;
+};
+
+export interface ActionOutput_github_listlabels {
+  labels: ({  id: number;
+  node_id: string;
+  url: string;
+  name: string;
+  description: string;
+  color: string;
+  default: boolean;})[];
+  next_page?: number | undefined;
+};
+
+export interface ActionInput_github_listpullrequestfiles {
+  /**
+   * The account owner of the repository. Example: "octocat"
+   */
+  owner: string;
+  /**
+   * The name of the repository. Example: "Hello-World"
+   */
+  repo: string;
+  /**
+   * The number that identifies the pull request. Example: 1
+   */
+  pull_number: number;
+  /**
+   * The number of results per page (max 100). Default: 30
+   */
+  per_page?: number | undefined;
+  /**
+   * The page number of the results to fetch. Default: 1
+   */
+  page?: number | undefined;
+};
+
+export interface ActionOutput_github_listpullrequestfiles {
+  files: ({  sha?: string | undefined;
+  filename: string;
+  status: 'added' | 'removed' | 'modified' | 'renamed' | 'copied' | 'changed' | 'unchanged';
+  additions: number;
+  deletions: number;
+  changes: number;
+  blob_url: string;
+  raw_url: string;
+  contents_url: string;
+  patch?: string | undefined;
+  previous_filename?: string | undefined;})[];
+};
+
+export interface ActionInput_github_listpullrequestreviews {
+  /**
+   * The account owner of the repository. Example: "octocat"
+   */
+  owner: string;
+  /**
+   * The name of the repository. Example: "Hello-World"
+   */
+  repo: string;
+  /**
+   * The number that identifies the pull request. Example: 42
+   */
+  pull_number: number;
+  /**
+   * The number of results per page (max 100). Example: 30
+   */
+  per_page?: number | undefined;
+  /**
+   * Page number of the results to fetch. Example: 1
+   */
+  page?: number | undefined;
+};
+
+export interface ActionOutput_github_listpullrequestreviews {
+  reviews: ({  id: number;
+  node_id: string;
+  user?: {  login: string;
+  id: number;
+  avatar_url?: string | undefined;
+  html_url?: string | undefined;};
+  body: string;
+  state: string;
+  html_url: string;
+  pull_request_url: string;
+  commit_id: string;
+  submitted_at?: string | undefined;})[];
+  total_count?: number | undefined;
+};
+
+export interface ActionInput_github_listpullrequests {
+  /**
+   * Repository owner. Example: "octocat"
+   */
+  owner: string;
+  /**
+   * Repository name. Example: "Hello-World"
+   */
+  repo: string;
+  /**
+   * Filter by state. Example: "open"
+   */
+  state?: 'open' | 'closed' | 'all' | undefined;
+  /**
+   * Filter by head branch (format: user:branch). Example: "octocat:main"
+   */
+  head?: string | undefined;
+  /**
+   * Filter by base branch. Example: "main"
+   */
+  base?: string | undefined;
+  /**
+   * Sort by field. Example: "created"
+   */
+  sort?: 'created' | 'updated' | 'popularity' | 'long-running' | undefined;
+  /**
+   * Sort direction. Example: "desc"
+   */
+  direction?: 'asc' | 'desc' | undefined;
+  /**
+   * Items per page (max 100). Example: 30
+   */
+  per_page?: number | undefined;
+  /**
+   * Page number. Example: 1
+   */
+  page?: number | undefined;
+};
+
+export interface ActionOutput_github_listpullrequests {
+  pull_requests: ({  id: number;
+  node_id: string;
+  url: string;
+  html_url: string;
+  diff_url?: string | undefined;
+  patch_url?: string | undefined;
+  issue_url?: string | undefined;
+  commits_url: string;
+  review_comments_url: string;
+  review_comment_url: string;
+  comments_url: string;
+  statuses_url: string;
+  number: number;
+  state: 'open' | 'closed';
+  title: string;
+  body?: string | undefined;
+  user?: {  login: string;
+  id: number;
+  avatar_url?: string | undefined;
+  html_url?: string | undefined;};
+  labels?: ({  id?: number | undefined;
+  node_id?: string | undefined;
+  url?: string | undefined;
+  name: string;
+  description?: string | undefined;
+  color?: string | undefined;})[];
+  assignees?: ({  login: string;
+  id: number;})[] | undefined;
+  milestone?: {  id: number;
+  number: number;
+  title: string;
+  state: string;} | undefined;
+  locked: boolean;
+  active_lock_reason?: string | undefined;
+  created_at: string;
+  updated_at: string;
+  closed_at?: string | undefined;
+  merged_at?: string | undefined;
+  merge_commit_sha?: string | undefined;
+  head: {  label: string;
+  ref: string;
+  sha: string;
+  user?: {  login: string;
+  id: number;} | undefined;
+  repo?: {  id: number;
+  name: string;
+  full_name: string;} | undefined;};
+  base: {  label: string;
+  ref: string;
+  sha: string;
+  user?: {  login: string;
+  id: number;} | undefined;
+  repo?: {  id: number;
+  name: string;
+  full_name: string;} | undefined;};
+  draft: boolean;
+  author_association: string;})[];
+  total_count?: number | undefined;
+};
+
+export interface ActionInput_github_listreleaseassets {
+  /**
+   * The account owner of the repository. Example: "octocat"
+   */
+  owner: string;
+  /**
+   * The name of the repository. Example: "Hello-World"
+   */
+  repo: string;
+  /**
+   * The unique identifier of the release. Example: 1
+   */
+  release_id: number;
+  /**
+   * The number of results per page (max 100). Default: 30
+   */
+  per_page?: number | undefined;
+  /**
+   * The page number of the results to fetch. Default: 1
+   */
+  page?: number | undefined;
+};
+
+export interface ActionOutput_github_listreleaseassets {
+  assets: ({  id: number;
+  node_id: string;
+  name: string;
+  label?: string | undefined;
+  state: string;
+  content_type: string;
+  size: number;
+  download_count: number;
+  browser_download_url: string;
+  url: string;
+  created_at: string;
+  updated_at: string;})[];
+  next_page?: number | undefined;
+};
+
+export interface ActionInput_github_listreleases {
+  /**
+   * The account owner of the repository. Example: "octocat"
+   */
+  owner: string;
+  /**
+   * The name of the repository. Example: "Hello-World"
+   */
+  repo: string;
+  /**
+   * The number of results per page (max 100). Example: 30
+   */
+  per_page?: number | undefined;
+  /**
+   * Page number of the results to fetch. Example: 1
+   */
+  page?: number | undefined;
+};
+
+export interface ActionOutput_github_listreleases {
+  releases: ({  id: number;
+  node_id: string;
+  tag_name: string;
+  target_commitish: string;
+  name?: string | undefined;
+  body?: string | undefined;
+  draft: boolean;
+  prerelease: boolean;
+  created_at: string;
+  published_at?: string | undefined;
+  author?: {  login: string;
+  id: number;
+  node_id: string;
+  avatar_url: string;
+  gravatar_id?: string | undefined;
+  url: string;
+  html_url: string;};})[];
+  next_page?: number | undefined;
+};
+
+export interface ActionInput_github_listworkflowjobs {
+  /**
+   * Repository owner. Example: "viictoo"
+   */
+  owner: string;
+  /**
+   * Repository name. Example: "api-playground2"
+   */
+  repo: string;
+  /**
+   * The ID of the workflow run. Example: 12345678
+   */
+  run_id: number;
+  /**
+   * Filter to specify which jobs to include. Can be "latest" or "all". Default: "latest"
+   */
+  filter?: 'latest' | 'all' | undefined;
+  /**
+   * The number of results per page (max 100). Default: 30
+   */
+  per_page?: number | undefined;
+  /**
+   * Page number of results to fetch. Default: 1
+   */
+  page?: number | undefined;
+};
+
+export interface ActionOutput_github_listworkflowjobs {
+  total_count: number;
+  jobs: ({  id: number;
+  run_id: number;
+  workflow_name?: string | undefined;
+  head_branch?: string | undefined;
+  run_url: string;
+  run_attempt?: number | undefined;
+  node_id: string;
+  head_sha: string;
+  url: string;
+  html_url: string;
+  status: string;
+  conclusion?: string | undefined;
+  started_at?: string | undefined;
+  completed_at?: string | undefined;
+  name: string;
+  steps?: ({  name: string;
+  status: string;
+  conclusion?: string | undefined;
+  number: number;
+  started_at?: string | undefined;
+  completed_at?: string | undefined;})[];
+  check_run_url?: string | undefined;
+  labels?: string[] | undefined;
+  runner_id?: number | undefined;
+  runner_name?: string | undefined;
+  runner_group_id?: number | undefined;
+  runner_group_name?: string | undefined;})[];
+};
+
+export interface ActionInput_github_listworkflowruns {
+  /**
+   * The account owner of the repository. Example: "octocat"
+   */
+  owner: string;
+  /**
+   * The name of the repository. Example: "hello-world"
+   */
+  repo: string;
+  /**
+   * The ID of the workflow. Example: "161335" or "main.yml". If provided, only runs for this workflow are returned.
+   */
+  workflow_id?: string | number | undefined;
+  /**
+   * Returns workflow runs with the specified status or conclusion.
+   */
+  status?: 'queued' | 'in_progress' | 'completed' | 'waiting' | 'requested' | 'pending' | 'action_required' | 'cancelled' | 'failure' | 'neutral' | 'skipped' | 'stale' | 'success' | 'timed_out' | undefined;
+  /**
+   * Returns workflow runs triggered on the specified branch.
+   */
+  branch?: string | undefined;
+  /**
+   * Pagination cursor from the previous response. Omit for the first page.
+   */
+  cursor?: string | undefined;
+  /**
+   * The number of results per page (max 100). Default: 30.
+   */
+  per_page?: number | undefined;
+};
+
+export interface ActionOutput_github_listworkflowruns {
+  runs: ({  id: number;
+  name?: string | undefined;
+  node_id: string;
+  head_branch?: string | undefined;
+  head_sha?: string | undefined;
+  path?: string | undefined;
+  run_number?: number | undefined;
+  event?: string | undefined;
+  status?: string | undefined;
+  conclusion?: string | undefined;
+  workflow_id?: number | undefined;
+  url?: string | undefined;
+  html_url?: string | undefined;
+  created_at?: string | undefined;
+  updated_at?: string | undefined;
+  run_started_at?: string | undefined;})[];
+  total_count: number;
+  next_cursor?: string | undefined;
+};
+
+export interface ActionInput_github_listworkflows {
+  /**
+   * Repository owner. Example: "octocat"
+   */
+  owner: string;
+  /**
+   * Repository name. Example: "hello-world"
+   */
+  repo: string;
+  /**
+   * Number of results per page (max 100).
+   */
+  per_page?: number | undefined;
+  /**
+   * Page number of the results to fetch.
+   */
+  page?: number | undefined;
+};
+
+export interface ActionOutput_github_listworkflows {
+  total_count: number;
+  workflows: ({  id: number;
+  node_id: string;
+  name: string;
+  path: string;
+  state: string;
+  created_at: string;
+  updated_at: string;
+  url: string;
+  html_url: string;
+  badge_url: string;})[];
+};
+
+export interface ActionInput_github_mergepullrequest {
+  /**
+   * Account owner of the repository. Example: "octocat"
+   */
+  owner: string;
+  /**
+   * Name of the repository. Example: "hello-world"
+   */
+  repo: string;
+  /**
+   * Number identifying the pull request. Example: 42
+   */
+  pull_number: number;
+  /**
+   * Title for the automatic commit message.
+   */
+  commit_title?: string | undefined;
+  /**
+   * Extra detail to append to automatic commit message.
+   */
+  commit_message?: string | undefined;
+  /**
+   * SHA that pull request head must match to allow merge.
+   */
+  sha?: string | undefined;
+  /**
+   * The merge method to use. Can be one of: merge, squash, rebase. Default: merge.
+   */
+  merge_method?: 'merge' | 'squash' | 'rebase' | undefined;
+};
+
+export interface ActionOutput_github_mergepullrequest {
+  sha: string;
+  merged: boolean;
+  message: string;
+};
+
+export interface ActionInput_github_rerunworkflowrun {
+  /**
+   * The account owner of the repository. Example: "octocat"
+   */
+  owner: string;
+  /**
+   * The name of the repository. Example: "Hello-World"
+   */
+  repo: string;
+  /**
+   * The unique identifier of the workflow run. Example: 30433642
+   */
+  run_id: number;
+  /**
+   * Whether to enable debug logging for the re-run. Default: false
+   */
+  enable_debug_logging?: boolean | undefined;
+};
+
+export interface ActionOutput_github_rerunworkflowrun {
+  success: boolean;
+  message: string;
+};
+
+export interface ActionInput_github_submitpullrequestreview {
+  /**
+   * The account owner of the repository. Example: "octocat"
+   */
+  owner: string;
+  /**
+   * The name of the repository. Example: "hello-world"
+   */
+  repo: string;
+  /**
+   * The number that identifies the pull request. Example: 42
+   */
+  pull_number: number;
+  /**
+   * The review action to perform.
+   */
+  event: 'APPROVE' | 'REQUEST_CHANGES' | 'COMMENT';
+  /**
+   * The body text of the pull request review. Required for REQUEST_CHANGES or COMMENT.
+   */
+  body?: string | undefined;
+  /**
+   * The SHA of the commit that needs a review. Defaults to the most recent commit.
+   */
+  commit_id?: string | undefined;
+  /**
+   * Draft review comments to include in the review.
+   */
+  comments?: ({  /**
+   * The relative path to the file that necessitates a review comment.
+   */
+  path: string;
+  /**
+   * The position in the diff where you want to add a review comment.
+   */
+  position?: number | undefined;
+  /**
+   * Text of the review comment.
+   */
+  body: string;
+  /**
+   * The line of the blob in the pull request diff.
+   */
+  line?: number | undefined;
+  /**
+   * The side of the diff.
+   */
+  side?: 'LEFT' | 'RIGHT' | undefined;
+  /**
+   * The start line of the range for a multi-line comment.
+   */
+  start_line?: number | undefined;
+  /**
+   * The start side of the diff for a multi-line comment.
+   */
+  start_side?: 'LEFT' | 'RIGHT' | undefined;})[];
+};
+
+export interface ActionOutput_github_submitpullrequestreview {
+  id: number;
+  nodeId: string;
+  user?: {  login?: string | undefined;
+  id?: number | undefined;
+  htmlUrl?: string | undefined;};
+  body: string;
+  state: string;
+  htmlUrl: string;
+  pullRequestUrl: string;
+  submittedAt?: string | undefined;
+  commitId?: string | undefined;
+  authorAssociation: string;
+};
+
+export interface ActionInput_github_triggerworkflowdispatch {
+  owner: string;
+  repo: string;
+  workflow_id: string;
+  ref: string;
+  inputs?: {  [key: string]: string;} | undefined;
+};
+
+export interface ActionOutput_github_triggerworkflowdispatch {
+  workflow_run_id?: number | undefined;
+  run_url?: string | undefined;
+  html_url?: string | undefined;
+};
+
+export interface ActionInput_github_updateissue {
+  /**
+   * The account owner of the repository. Example: "octocat"
+   */
+  owner: string;
+  /**
+   * The name of the repository. Example: "hello-world"
+   */
+  repo: string;
+  /**
+   * The number that identifies the issue. Example: 1
+   */
+  issue_number: number;
+  /**
+   * The title of the issue.
+   */
+  title?: string | undefined;
+  /**
+   * The contents of the issue.
+   */
+  body?: string | undefined;
+  /**
+   * State of the issue.
+   */
+  state?: 'open' | 'closed' | undefined;
+  /**
+   * The reason for the state change.
+   */
+  state_reason?: 'completed' | 'not_planned' | 'reopened' | 'duplicate' | undefined;
+  /**
+   * Labels to associate with this issue. Example: ["bug", "ui"]
+   */
+  labels?: string[] | undefined;
+  /**
+   * Logins for Users to assign to this issue. Example: ["octocat"]
+   */
+  assignees?: string[] | undefined;
+  /**
+   * The number of the milestone to associate this issue with.
+   */
+  milestone?: number | undefined;
+};
+
+export interface ActionOutput_github_updateissue {
+  /**
+   * The ID of the issue.
+   */
+  id: number;
+  /**
+   * The node ID of the issue.
+   */
+  node_id: string;
+  /**
+   * The number of the issue.
+   */
+  number: number;
+  /**
+   * The title of the issue.
+   */
+  title: string;
+  /**
+   * The state of the issue.
+   */
+  state: string;
+  /**
+   * The reason for the state change.
+   */
+  state_reason?: string | undefined;
+  /**
+   * The contents of the issue.
+   */
+  body?: string | undefined;
+  /**
+   * The URL of the issue.
+   */
+  html_url: string;
+  /**
+   * The API URL of the issue.
+   */
+  url: string;
+  /**
+   * The repository API URL.
+   */
+  repository_url: string;
+  /**
+   * The labels associated with the issue.
+   */
+  labels: ({  id: number;
+  name: string;
+  color: string;
+  description?: string | undefined;})[];
+  /**
+   * The users assigned to the issue.
+   */
+  assignees: ({  login: string;
+  id: number;
+  avatar_url: string;
+  html_url: string;})[];
+  /**
+   * The milestone associated with the issue.
+   */
+  milestone?: {  url: string;
+  html_url: string;
+  id: number;
+  number: number;
+  title: string;
+  description?: string | undefined;
+  state: string;};
+  /**
+   * Whether the issue is locked.
+   */
+  locked: boolean;
+  /**
+   * The number of comments.
+   */
+  comments: number;
+  /**
+   * The creation timestamp.
+   */
+  created_at: string;
+  /**
+   * The last update timestamp.
+   */
+  updated_at: string;
+  /**
+   * The closure timestamp.
+   */
+  closed_at?: string | undefined;
+};
+
+export interface ActionInput_github_updatelabel {
+  /**
+   * Repository owner. Example: "octocat"
+   */
+  owner: string;
+  /**
+   * Repository name. Example: "hello-world"
+   */
+  repo: string;
+  /**
+   * Current name of the label. Example: "bug"
+   */
+  name: string;
+  /**
+   * New name for the label. Example: "critical-bug"
+   */
+  new_name?: string | undefined;
+  /**
+   * Color for the label in hexadecimal format without the leading #. Example: "ff0000"
+   */
+  color?: string | undefined;
+  /**
+   * Short description of the label. Pass null to clear. Example: "Something is not working"
+   */
+  description?: string | undefined;
+};
+
+export interface ActionOutput_github_updatelabel {
+  id: number;
+  node_id: string;
+  url: string;
+  name: string;
+  color: string;
+  default: boolean;
+  description?: string | undefined;
+};
+
+export interface ActionInput_github_updatepullrequest {
+  /**
+   * The account owner of the repository. Example: "octocat"
+   */
+  owner: string;
+  /**
+   * The name of the repository. Example: "Hello-World"
+   */
+  repo: string;
+  /**
+   * The number that identifies the pull request. Example: 42
+   */
+  pull_number: number;
+  /**
+   * The title of the pull request.
+   */
+  title?: string | undefined;
+  /**
+   * The contents of the pull request.
+   */
+  body?: string | undefined;
+  /**
+   * State of the pull request.
+   */
+  state?: 'open' | 'closed' | undefined;
+  /**
+   * The name of the branch you want the changes pulled into.
+   */
+  base?: string | undefined;
+  /**
+   * Indicates whether maintainers can modify the pull request.
+   */
+  maintainer_can_modify?: boolean | undefined;
+};
+
+export interface ActionOutput_github_updatepullrequest {
+  id: number;
+  number: number;
+  state: 'open' | 'closed';
+  title: string;
+  body?: string | undefined;
+  html_url: string;
+  user?: {  login: string;
+  id: number;} | undefined;
+  created_at: string;
+  updated_at: string;
+  closed_at?: string | undefined;
+  merged_at?: string | undefined;
+  head: {  ref: string;
+  sha: string;};
+  base: {  ref: string;
+  sha: string;};
+  draft: boolean;
+};
+
+export interface ActionInput_github_updaterelease {
+  /**
+   * The account owner of the repository. Example: "viictoo"
+   */
+  owner: string;
+  /**
+   * The name of the repository. Example: "api-playground2"
+   */
+  repo: string;
+  /**
+   * The unique identifier of the release. Example: 12345678
+   */
+  release_id: number;
+  /**
+   * The name of the tag.
+   */
+  tag_name?: string | undefined;
+  /**
+   * The commitish value that determines where the Git tag is created from.
+   */
+  target_commitish?: string | undefined;
+  /**
+   * The name of the release. Pass null to clear.
+   */
+  name?: string | undefined;
+  /**
+   * Text describing the contents of the tag. Pass null to clear.
+   */
+  body?: string | undefined;
+  /**
+   * true makes the release a draft, false publishes the release.
+   */
+  draft?: boolean | undefined;
+  /**
+   * true to identify the release as a prerelease, false for a full release.
+   */
+  prerelease?: boolean | undefined;
+  /**
+   * Whether this release should be set as the latest release.
+   */
+  make_latest?: 'true' | 'false' | 'legacy' | undefined;
+  /**
+   * A category for discussion linked to the release.
+   */
+  discussion_category_name?: string | undefined;
+};
+
+export interface ActionOutput_github_updaterelease {
+  /**
+   * The unique identifier of the release.
+   */
+  id: number;
+  /**
+   * The node ID of the release.
+   */
+  node_id: string;
+  /**
+   * The name of the tag.
+   */
+  tag_name: string;
+  /**
+   * The commitish value for the tag.
+   */
+  target_commitish: string;
+  /**
+   * The name of the release.
+   */
+  name?: string | undefined;
+  /**
+   * The body/description of the release.
+   */
+  body?: string | undefined;
+  /**
+   * Whether the release is a draft.
+   */
+  draft: boolean;
+  /**
+   * Whether the release is a prerelease.
+   */
+  prerelease: boolean;
+  /**
+   * The creation timestamp.
+   */
+  created_at: string;
+  /**
+   * The publication timestamp.
+   */
+  published_at?: string | undefined;
+  /**
+   * The last update timestamp.
+   */
+  updated_at?: string | undefined;
+  /**
+   * The API URL for the release.
+   */
+  url: string;
+  /**
+   * The HTML URL for the release.
+   */
+  html_url: string;
+  /**
+   * The assets URL for the release.
+   */
+  assets_url: string;
+  /**
+   * The upload URL for the release.
+   */
+  upload_url: string;
+  /**
+   * The tarball URL.
+   */
+  tarball_url?: string | undefined;
+  /**
+   * The zipball URL.
+   */
+  zipball_url?: string | undefined;
+  author: {  login: string;
+  id: number;
+  node_id: string;
+  avatar_url: string;
+  gravatar_id?: string | undefined;
+  url: string;
+  html_url: string;
+  type: string;};
+  assets: ({})[];
 };
 
 export interface GithubCommit {
@@ -10380,19 +14210,6 @@ export interface ActionOutput_google_calendar_whoami {
   email: string;
 };
 
-export interface File {
-  id: string;
-  name: string;
-  mimeType: string;
-  parents?: string[] | undefined;
-  driveId?: string | undefined;
-  createdTime: string;
-  modifiedTime: string;
-  size?: string | undefined;
-  webViewLink?: string | undefined;
-  trashed?: boolean | undefined;
-};
-
 export interface SyncMetadata_google_drive_documents {
   /**
    * Array of file IDs to sync directly
@@ -11332,59 +15149,1526 @@ export interface ActionOutput_google_drive_uploaddocument {
   webContentLink?: string | undefined;
 };
 
-export interface GmailEmail {
+export interface Filter {
   id: string;
-  sender: string;
-  recipients?: string | undefined;
-  date: string;
-  subject: string;
-  body?: string | undefined;
-  attachments: ({  filename: string;
-  mimeType: string;
-  size: number;
-  attachmentId: string;})[];
-  threadId: string;
+  from?: string | undefined;
+  to?: string | undefined;
+  subject?: string | undefined;
+  query?: string | undefined;
+  negatedQuery?: string | undefined;
+  hasAttachment?: boolean | undefined;
+  excludeChats?: boolean | undefined;
+  size?: number | undefined;
+  sizeComparison?: string | undefined;
+  addLabelIds?: string[] | undefined;
+  removeLabelIds?: string[] | undefined;
+  forward?: string | undefined;
 };
 
-export interface SyncMetadata_google_mail_emails {
-  backfillPeriodMs: number;
-};
-
-export interface GmailLabel {
+export interface Label {
   id: string;
   name: string;
-  messageListVisibility: string | null;
-  labelListVisibility: string | null;
-  type: string;
-  messagesTotal: number;
-  messagesUnread: number;
-  threadsTotal: number;
-  threadsUnread: number;
-  color: {  textColor: string;
-  backgroundColor: string;} | null;
+  messageListVisibility?: 'hide' | 'show' | undefined;
+  labelListVisibility?: 'labelHide' | 'labelShow' | 'labelShowIfUnread' | undefined;
+  type?: 'system' | 'user' | undefined;
+  messagesTotal?: number | undefined;
+  messagesUnread?: number | undefined;
+  threadsTotal?: number | undefined;
+  threadsUnread?: number | undefined;
 };
 
-export interface SyncMetadata_google_mail_labels {
+export interface Message {
+  id: string;
+  channel_id: string;
+  channel_name: string;
+  user_id: string;
+  user_name?: string | undefined;
+  text: string;
+  timestamp: string;
+  thread_ts?: string | undefined;
+  parent_ts?: string | undefined;
+  is_thread_reply?: boolean | undefined;
+  reactions?: ({  name: string;
+  count: number;
+  users: string[];})[] | undefined;
+  reply_count?: number | undefined;
+  reply_users?: string[] | undefined;
+  created_at: string;
 };
 
-export interface ActionInput_google_mail_fetchattachment {
+export interface SendAsAlias {
+  id: string;
+  sendAsEmail: string;
+  displayName?: string | undefined;
+  replyToAddress?: string | undefined;
+  signature?: string | undefined;
+  isPrimary?: boolean | undefined;
+  isDefault?: boolean | undefined;
+  verificationStatus?: string | undefined;
+  treatAsAlias?: boolean | undefined;
+  smtpMsa?: {  host?: string | undefined;
+  port?: number | undefined;
+  username?: string | undefined;
+  password?: string | undefined;
+  securityMode?: string | undefined;};
+};
+
+export interface Thread {
+  id: string;
+  historyId: string;
+  messages?: ({  id: string;
   threadId: string;
+  labelIds?: string[] | undefined;
+  snippet?: string | undefined;
+  historyId?: string | undefined;
+  internalDate?: string | undefined;
+  payload?: {  partId?: string | undefined;
+  mimeType?: string | undefined;
+  filename?: string | undefined;
+  headers?: ({  name: string;
+  value: string;})[] | undefined;
+  body?: {  attachmentId?: string | undefined;
+  size?: number | undefined;
+  data?: string | undefined;};
+  parts?: unknown[] | undefined;};
+  sizeEstimate?: number | undefined;
+  raw?: string | undefined;})[];
+};
+
+export interface ActionInput_google_mail_batchdeletemessages {
+  /**
+   * Array of Gmail message IDs to delete. Example: ["msg123", "msg456"]
+   */
+  ids: string[];
+};
+
+export type ActionOutput_google_mail_batchdeletemessages = null
+
+export interface ActionInput_google_mail_batchmodifymessages {
+  /**
+   * The IDs of the messages to modify. Maximum 1000.
+   */
+  ids: string[];
+  /**
+   * Label IDs to add to all messages.
+   */
+  addLabelIds?: string[] | undefined;
+  /**
+   * Label IDs to remove from all messages.
+   */
+  removeLabelIds?: string[] | undefined;
+};
+
+export interface ActionOutput_google_mail_batchmodifymessages {
+  /**
+   * Whether the batch modification was successful.
+   */
+  success: boolean;
+  /**
+   * Number of messages modified.
+   */
+  modifiedCount: number;
+};
+
+export interface ActionInput_google_mail_createdraft {
+  /**
+   * Base64url-encoded RFC 2822 MIME content of the draft message.
+   */
+  raw: string;
+  /**
+   * Optional thread ID to add the draft to an existing thread. Example: "18f3a2b4c5d6e7f8"
+   */
+  threadId?: string | undefined;
+};
+
+export interface ActionOutput_google_mail_createdraft {
+  /**
+   * The ID of the created draft.
+   */
+  id: string;
+  /**
+   * The ID of the message within the draft.
+   */
+  messageId?: string | undefined;
+  /**
+   * The thread ID associated with the draft message.
+   */
+  threadId?: string | undefined;
+  /**
+   * Label IDs applied to the draft message.
+   */
+  labelIds?: string[] | undefined;
+};
+
+export interface ActionInput_google_mail_createfilter {
+  criteria: {  /**
+   * The sender's display name or email address.
+   */
+  from?: string | undefined;
+  /**
+   * The recipient's display name or email address. Includes recipients in the 'to', 'cc', and 'bcc' header fields.
+   */
+  to?: string | undefined;
+  /**
+   * Case-insensitive phrase found in the message's subject.
+   */
+  subject?: string | undefined;
+  /**
+   * Only return messages matching the specified query. Supports the same query format as the Gmail search box.
+   */
+  query?: string | undefined;
+  /**
+   * Only return messages not matching the specified query.
+   */
+  negatedQuery?: string | undefined;
+  /**
+   * Whether the message has any attachment.
+   */
+  hasAttachment?: boolean | undefined;
+  /**
+   * Whether the response should exclude chats.
+   */
+  excludeChats?: boolean | undefined;
+  /**
+   * The size of the entire RFC822 message in bytes, including all headers and attachments.
+   */
+  size?: number | undefined;
+  /**
+   * How the message size in bytes should be in relation to the size field.
+   */
+  sizeComparison?: 'smaller' | 'larger' | 'unspecified' | undefined;};
+  action: {  /**
+   * List of labels to add to the message.
+   */
+  addLabelIds?: string[] | undefined;
+  /**
+   * List of labels to remove from the message.
+   */
+  removeLabelIds?: string[] | undefined;
+  /**
+   * Email address that the message should be forwarded to.
+   */
+  forward?: string | undefined;};
+};
+
+export interface ActionOutput_google_mail_createfilter {
+  id: string;
+  criteria?: {  /**
+   * The sender's display name or email address.
+   */
+  from?: string | undefined;
+  /**
+   * The recipient's display name or email address. Includes recipients in the 'to', 'cc', and 'bcc' header fields.
+   */
+  to?: string | undefined;
+  /**
+   * Case-insensitive phrase found in the message's subject.
+   */
+  subject?: string | undefined;
+  /**
+   * Only return messages matching the specified query. Supports the same query format as the Gmail search box.
+   */
+  query?: string | undefined;
+  /**
+   * Only return messages not matching the specified query.
+   */
+  negatedQuery?: string | undefined;
+  /**
+   * Whether the message has any attachment.
+   */
+  hasAttachment?: boolean | undefined;
+  /**
+   * Whether the response should exclude chats.
+   */
+  excludeChats?: boolean | undefined;
+  /**
+   * The size of the entire RFC822 message in bytes, including all headers and attachments.
+   */
+  size?: number | undefined;
+  /**
+   * How the message size in bytes should be in relation to the size field.
+   */
+  sizeComparison?: 'smaller' | 'larger' | 'unspecified' | undefined;};
+  action?: {  /**
+   * List of labels to add to the message.
+   */
+  addLabelIds?: string[] | undefined;
+  /**
+   * List of labels to remove from the message.
+   */
+  removeLabelIds?: string[] | undefined;
+  /**
+   * Email address that the message should be forwarded to.
+   */
+  forward?: string | undefined;};
+};
+
+export interface ActionInput_google_mail_createlabel {
+  /**
+   * The display name of the label. Example: "Work"
+   */
+  name: string;
+  /**
+   * The visibility of the label in the label list. Example: "labelShow"
+   */
+  labelListVisibility?: 'labelHide' | 'labelShow' | 'labelShowIfUnread' | undefined;
+  /**
+   * The visibility of the label in the message list. Example: "show"
+   */
+  messageListVisibility?: 'hide' | 'show' | undefined;
+  /**
+   * The type of the label. Only "user" can be created. Defaults to "user".
+   */
+  type?: 'user' | undefined;
+};
+
+export interface ActionOutput_google_mail_createlabel {
+  /**
+   * The immutable ID of the label.
+   */
+  id: string;
+  /**
+   * The display name of the label.
+   */
+  name: string;
+  /**
+   * The visibility of the label in the label list.
+   */
+  labelListVisibility?: string | undefined;
+  /**
+   * The visibility of the label in the message list.
+   */
+  messageListVisibility?: string | undefined;
+  /**
+   * The type of the label.
+   */
+  type?: string | undefined;
+};
+
+export interface ActionInput_google_mail_createsendasalias {
+  /**
+   * The email address to appear in the "From:" header for mail sent using this alias. Example: "alias@example.com"
+   */
+  sendAsEmail: string;
+  /**
+   * A name that appears in the "From:" header for mail sent using this alias. Example: "John Doe"
+   */
+  displayName?: string | undefined;
+  /**
+   * An optional email address to use for the reply-to header. Example: "replies@example.com"
+   */
+  replyToAddress?: string | undefined;
+  /**
+   * An optional HTML signature for the alias
+   */
+  signature?: string | undefined;
+  /**
+   * Whether this alias is the default for the user
+   */
+  isDefault?: boolean | undefined;
+  /**
+   * Whether Gmail should treat this address as an alias of the user's primary email address
+   */
+  treatAsAlias?: boolean | undefined;
+};
+
+export interface ActionOutput_google_mail_createsendasalias {
+  sendAsEmail: string;
+  displayName?: string | undefined;
+  replyToAddress?: string | undefined;
+  signature?: string | undefined;
+  isDefault?: boolean | undefined;
+  isPrimary?: boolean | undefined;
+  treatAsAlias?: boolean | undefined;
+  verificationStatus?: string | undefined;
+};
+
+export interface ActionInput_google_mail_deletedraft {
+  /**
+   * The ID of the draft to delete. Example: "r-1234567890abcdef"
+   */
+  id: string;
+};
+
+export interface ActionOutput_google_mail_deletedraft {
+  /**
+   * Whether the draft was successfully deleted
+   */
+  success: boolean;
+};
+
+export interface ActionInput_google_mail_deletefilter {
+  /**
+   * The ID of the filter to delete. Example: "ABC123"
+   */
+  id: string;
+};
+
+export type ActionOutput_google_mail_deletefilter = null
+
+export interface ActionInput_google_mail_deleteforwardingaddress {
+  /**
+   * The forwarding email address to delete. Example: "forward@example.com"
+   */
+  forwardingEmail: string;
+};
+
+export interface ActionOutput_google_mail_deleteforwardingaddress {
+  /**
+   * Whether the forwarding address was successfully deleted
+   */
+  success: boolean;
+};
+
+export interface ActionInput_google_mail_deletelabel {
+  /**
+   * The ID of the label to delete. Example: "Label_1"
+   */
+  id: string;
+};
+
+export interface ActionOutput_google_mail_deletelabel {
+  /**
+   * Whether the label was successfully deleted
+   */
+  success: boolean;
+};
+
+export interface ActionInput_google_mail_deletemessage {
+  /**
+   * The ID of the message to delete. Example: "123abc456def"
+   */
+  id: string;
+};
+
+export interface ActionOutput_google_mail_deletemessage {
+  /**
+   * Whether the deletion was successful
+   */
+  success: boolean;
+  /**
+   * The ID of the deleted message
+   */
+  id: string;
+};
+
+export interface ActionInput_google_mail_deletesendasalias {
+  /**
+   * The email address of the send-as alias to delete. Example: "alias@example.com"
+   */
+  sendAsEmail: string;
+};
+
+export type ActionOutput_google_mail_deletesendasalias = void
+
+export interface ActionInput_google_mail_deletethread {
+  /**
+   * The ID of the thread to delete. Example: "123abc456def789"
+   */
+  id: string;
+};
+
+export interface ActionOutput_google_mail_deletethread {
+  success: boolean;
+  id: string;
+};
+
+export interface ActionInput_google_mail_getattachment {
+  /**
+   * The ID of the message containing the attachment. Example: "1234567890abcdef"
+   */
+  messageId: string;
+  /**
+   * The ID of the attachment to retrieve. Example: "attachment_001"
+   */
   attachmentId: string;
+  /**
+   * The user's email address or "me". Defaults to "me".
+   */
+  userId?: string | undefined;
 };
 
-export type ActionOutput_google_mail_fetchattachment = string
-
-export interface ActionInput_google_mail_sendemail {
-  from: string;
-  to: string;
-  headers: {  [key: string]: string;};
-  subject: string;
-  body: string;
+export interface ActionOutput_google_mail_getattachment {
+  /**
+   * The size of the attachment in bytes
+   */
+  size: number;
+  /**
+   * The attachment data in base64url encoding
+   */
+  data: string;
 };
 
-export interface ActionOutput_google_mail_sendemail {
+export interface ActionInput_google_mail_getautoforwardingsettings {
+  /**
+   * User ID. Use "me" for the currently authenticated user. Example: "me"
+   */
+  userId?: string | undefined;
+};
+
+export interface ActionOutput_google_mail_getautoforwardingsettings {
+  enabled?: boolean | undefined;
+  emailAddress?: string | undefined;
+  disposition?: string | undefined;
+};
+
+export interface ActionInput_google_mail_getdraft {
+  /**
+   * The ID of the draft to retrieve. Example: "r-1234567890"
+   */
+  id: string;
+  /**
+   * The user's email address. Special value "me" can be used to indicate the authenticated user. Defaults to "me".
+   */
+  userId?: string | undefined;
+};
+
+export interface ActionOutput_google_mail_getdraft {
+  id: string;
+  message?: {  id?: string | undefined;
+  threadId?: string | undefined;
+  labelIds?: string[] | undefined;
+  snippet?: string | undefined;
+  historyId?: string | undefined;
+  internalDate?: string | undefined;
+  payload?: {  partId?: string | undefined;
+  mimeType?: string | undefined;
+  filename?: string | undefined;
+  headers?: ({  name: string;
+  value: string;})[] | undefined;
+  body?: {  attachmentId?: string | undefined;
+  size?: number | undefined;
+  data?: string | undefined;};
+  parts?: unknown[] | undefined;};
+  sizeEstimate?: number | undefined;
+  raw?: string | undefined;};
+};
+
+export interface ActionInput_google_mail_getfilter {
+  /**
+   * The ID of the filter to retrieve. Example: "ANeLbv78uP8GVB5D7xQf1fIlIaHoeFC0fV6lCu1"
+   */
+  id: string;
+};
+
+export interface ActionOutput_google_mail_getfilter {
+  id: string;
+  criteria?: {  /**
+   * The sender's display name or email address
+   */
+  from?: string | undefined;
+  /**
+   * The recipient's display name or email address
+   */
+  to?: string | undefined;
+  /**
+   * Case-insensitive phrase found in the message's subject
+   */
+  subject?: string | undefined;
+  /**
+   * Only return messages matching the specified query
+   */
+  query?: string | undefined;
+  /**
+   * Only return messages not matching the specified query
+   */
+  negatedQuery?: string | undefined;
+  /**
+   * Whether the message has any attachment
+   */
+  hasAttachment?: boolean | undefined;
+  /**
+   * Whether the response should exclude chats
+   */
+  excludeChats?: boolean | undefined;
+  /**
+   * The size of the entire RFC822 message in bytes
+   */
+  size?: number | undefined;
+  /**
+   * How the message size should be in relation to the size field
+   */
+  sizeComparison?: 'unspecified' | 'smaller' | 'larger' | undefined;};
+  action?: {  /**
+   * List of labels to add to the message
+   */
+  addLabelIds?: string[] | undefined;
+  /**
+   * List of labels to remove from the message
+   */
+  removeLabelIds?: string[] | undefined;
+  /**
+   * Email address that the message should be forwarded to
+   */
+  forward?: string | undefined;};
+};
+
+export interface ActionInput_google_mail_getforwardingaddress {
+  /**
+   * The forwarding email address to retrieve. Example: "user@example.com"
+   */
+  forwardingEmail: string;
+};
+
+export interface ActionOutput_google_mail_getforwardingaddress {
+  forwardingEmail: string;
+  verificationStatus: 'accepted' | 'pending' | 'confirmationCodeSent';
+  verificationTime?: string | undefined;
+};
+
+export interface ActionInput_google_mail_getimapsettings {
+  /**
+   * User ID. Example: "me"
+   */
+  userId?: string | undefined;
+};
+
+export interface ActionOutput_google_mail_getimapsettings {
+  autoExpunge?: boolean | undefined;
+  enabled?: boolean | undefined;
+  expungeBehavior?: 'expungeBehaviorUnspecified' | 'archive' | 'trash' | 'deleteForever' | undefined;
+  maxFolderSize?: 0 | 1000 | 2000 | 5000 | 10000 | undefined;
+};
+
+export interface ActionInput_google_mail_getlabel {
+  /**
+   * Label ID. Example: "Label_123"
+   */
+  id: string;
+  /**
+   * User ID. The special value "me" can be used to indicate the authenticated user. Default: "me".
+   */
+  userId?: string | undefined;
+};
+
+export interface ActionOutput_google_mail_getlabel {
+  id: string;
+  name: string;
+  messageListVisibility?: 'show' | 'hide' | undefined;
+  labelListVisibility?: 'labelShow' | 'labelShowIfUnread' | 'labelHide' | undefined;
+  type?: 'system' | 'user' | undefined;
+  messagesTotal?: number | undefined;
+  messagesUnread?: number | undefined;
+  threadsTotal?: number | undefined;
+  threadsUnread?: number | undefined;
+  color?: {  textColor?: string | undefined;
+  backgroundColor?: string | undefined;};
+};
+
+export interface ActionInput_google_mail_getlanguagesettings {
+  /**
+   * User's email address. The special value "me" can be used to indicate the authenticated user.
+   */
+  userId?: string | undefined;
+};
+
+export interface ActionOutput_google_mail_getlanguagesettings {
+  displayLanguage?: string | undefined;
+};
+
+export interface ActionInput_google_mail_getmessage {
+  /**
+   * The ID of the message to retrieve. Example: "12345abc"
+   */
+  id: string;
+  /**
+   * The format to return the message in. Values: full, metadata, minimal, raw. Example: "full"
+   */
+  format?: 'full' | 'metadata' | 'minimal' | 'raw' | undefined;
+  /**
+   * When format is metadata, only include headers specified in this array. Example: ["Subject", "From"]
+   */
+  metadataHeaders?: string[] | undefined;
+};
+
+export interface ActionOutput_google_mail_getmessage {
+  id: string;
+  threadId?: string | undefined;
+  labelIds?: string[] | undefined;
+  snippet?: string | undefined;
+  historyId?: string | undefined;
+  internalDate?: string | undefined;
+  payload?: {  partId?: string | undefined;
+  mimeType?: string | undefined;
+  filename?: string | undefined;
+  headers?: ({  name: string;
+  value: string;})[] | undefined;
+  body?: {  attachmentId?: string | undefined;
+  size?: number | undefined;
+  data?: string | undefined;};
+  parts?: unknown[] | undefined;};
+  sizeEstimate?: number | undefined;
+  raw?: string | undefined;
+};
+
+export interface ActionInput_google_mail_getpopsettings {
+  /**
+   * User's email address. The special value 'me' can be used to indicate the authenticated user. Defaults to 'me'.
+   */
+  userId?: string | undefined;
+};
+
+export interface ActionOutput_google_mail_getpopsettings {
+  /**
+   * The range of messages which are accessible via POP.
+   */
+  accessWindow?: 'accessWindowUnspecified' | 'disabled' | 'fromNowOn' | 'allMail' | undefined;
+  /**
+   * The action that will be executed on a message after it has been fetched via POP.
+   */
+  disposition?: 'dispositionUnspecified' | 'leaveInInbox' | 'archive' | 'trash' | 'markRead' | undefined;
+};
+
+export interface ActionInput_google_mail_getsendasalias {
+  /**
+   * The user's email address. Use "me" to indicate the authenticated user. Example: "me"
+   */
+  userId?: string | undefined;
+  /**
+   * The send-as alias to be retrieved. Example: "alias@example.com"
+   */
+  sendAsEmail: string;
+};
+
+export interface ActionOutput_google_mail_getsendasalias {
+  sendAsEmail: string;
+  displayName?: string | undefined;
+  replyToAddress?: string | undefined;
+  signature?: string | undefined;
+  isPrimary?: boolean | undefined;
+  isDefault?: boolean | undefined;
+  treatAsAlias?: boolean | undefined;
+  smtpMsa?: {  host?: string | undefined;
+  port?: number | undefined;
+  username?: string | undefined;
+  password?: string | undefined;
+  securityMode?: 'securityModeUnspecified' | 'none' | 'ssl' | 'starttls' | undefined;};
+  verificationStatus?: 'verificationStatusUnspecified' | 'accepted' | 'pending' | undefined;
+};
+
+export interface ActionInput_google_mail_getthread {
+  /**
+   * The ID of the thread to retrieve. Example: "18e1a2b3c4d5e6f7"
+   */
+  id: string;
+  /**
+   * The format to return the messages in. "full" returns full email data, "metadata" returns only IDs, labels, and headers, "minimal" returns only IDs and labels.
+   */
+  format?: 'full' | 'metadata' | 'minimal' | undefined;
+  /**
+   * When given and format is METADATA, only include headers specified.
+   */
+  metadataHeaders?: string[] | undefined;
+};
+
+export interface ActionOutput_google_mail_getthread {
+  id: string;
+  historyId?: string | undefined;
+  messages?: ({  id: string;
+  threadId?: string | undefined;
+  labelIds?: string[] | undefined;
+  snippet?: string | undefined;
+  historyId?: string | undefined;
+  internalDate?: string | undefined;
+  payload?: {  partId?: string | undefined;
+  mimeType?: string | undefined;
+  filename?: string | undefined;
+  headers?: ({  name: string;
+  value: string;})[] | undefined;
+  body?: {  attachmentId?: string | undefined;
+  data?: string | undefined;
+  size?: number | undefined;};
+  parts?: unknown | undefined;};
+  sizeEstimate?: number | undefined;
+  raw?: string | undefined;})[];
+  snippet?: string | undefined;
+};
+
+export interface ActionInput_google_mail_getvacationsettings {
+};
+
+export interface ActionOutput_google_mail_getvacationsettings {
+  enableAutoReply: boolean;
+  responseSubject?: string | undefined;
+  responseBodyPlainText?: string | undefined;
+  responseBodyHtml?: string | undefined;
+  restrictToContacts?: boolean | undefined;
+  restrictToDomain?: boolean | undefined;
+  startTime?: string | undefined;
+  endTime?: string | undefined;
+};
+
+export interface ActionInput_google_mail_listdrafts {
+  /**
+   * Maximum number of drafts to return. Default is 100. Maximum allowed is 500.
+   */
+  maxResults?: number | undefined;
+  /**
+   * Page token to retrieve a specific page of results in the list. Omit for the first page.
+   */
+  pageToken?: string | undefined;
+  /**
+   * Query to filter drafts. Supports the same query format as the Gmail search box.
+   */
+  q?: string | undefined;
+  /**
+   * Include drafts from SPAM and TRASH in the results.
+   */
+  includeSpamTrash?: boolean | undefined;
+};
+
+export interface ActionOutput_google_mail_listdrafts {
+  drafts: ({  id: string;
+  message?: {  id: string;
+  threadId: string;} | undefined;})[];
+  nextPageToken?: string | undefined;
+  resultSizeEstimate?: number | undefined;
+};
+
+export interface ActionInput_google_mail_listfilters {
+  /**
+   * User ID. Use "me" for the authenticated user. Defaults to "me".
+   */
+  userId?: string | undefined;
+};
+
+export interface ActionOutput_google_mail_listfilters {
+  filters: ({  id: string;
+  criteria?: {  from?: string | undefined;
+  to?: string | undefined;
+  subject?: string | undefined;
+  query?: string | undefined;
+  negatedQuery?: string | undefined;
+  hasAttachment?: boolean | undefined;
+  excludeChats?: boolean | undefined;
+  size?: number | undefined;
+  sizeComparison?: string | undefined;};
+  action?: {  addLabelIds?: string[] | undefined;
+  removeLabelIds?: string[] | undefined;
+  forward?: string | undefined;};})[];
+  nextCursor?: string | undefined;
+};
+
+export interface ActionInput_google_mail_listforwardingaddresses {
+  /**
+   * The users email address. The special value me can be used to indicate the authenticated user. Defaults to "me".
+   */
+  userId?: string | undefined;
+};
+
+export interface ActionOutput_google_mail_listforwardingaddresses {
+  forwardingAddresses: ({  forwardingEmail: string;
+  verificationStatus?: string | undefined;})[];
+};
+
+export interface ActionInput_google_mail_listlabels {
+};
+
+export interface ActionOutput_google_mail_listlabels {
+  labels: ({  /**
+   * The immutable ID of the label
+   */
+  id: string;
+  /**
+   * The display name of the label
+   */
+  name: string;
+  /**
+   * The owner type for the label: system or user
+   */
+  type: string;
+  /**
+   * The visibility of the label in the message list
+   */
+  messageListVisibility?: string | undefined;
+  /**
+   * The visibility of the label in the label list
+   */
+  labelListVisibility?: string | undefined;
+  /**
+   * The total number of messages with the label
+   */
+  messagesTotal?: number | undefined;
+  /**
+   * The number of unread messages with the label
+   */
+  messagesUnread?: number | undefined;
+  /**
+   * The total number of threads with the label
+   */
+  threadsTotal?: number | undefined;
+  /**
+   * The number of unread threads with the label
+   */
+  threadsUnread?: number | undefined;
+  /**
+   * The text color of the label
+   */
+  textColor?: string | undefined;
+  /**
+   * The background color of the label
+   */
+  backgroundColor?: string | undefined;})[];
+};
+
+export interface ActionInput_google_mail_listmessages {
+  /**
+   * Only return messages matching the specified query. Supports the same query format as the Gmail search box. For example: "from:someuser@example.com rfc822msgid: is:unread"
+   */
+  q?: string | undefined;
+  /**
+   * Only return messages with labels that match all of the specified label IDs.
+   */
+  labelIds?: string[] | undefined;
+  /**
+   * Include messages from SPAM and TRASH in the results.
+   */
+  includeSpamTrash?: boolean | undefined;
+  /**
+   * Maximum number of messages to return. Defaults to 100. The maximum allowed value is 500.
+   */
+  maxResults?: number | undefined;
+  /**
+   * Page token to retrieve a specific page of results in the list.
+   */
+  pageToken?: string | undefined;
+};
+
+export interface ActionOutput_google_mail_listmessages {
+  messages: ({  id: string;
+  threadId: string;})[];
+  nextPageToken?: string | undefined;
+  resultSizeEstimate?: number | undefined;
+};
+
+export interface ActionInput_google_mail_listsendasaliases {
+};
+
+export interface ActionOutput_google_mail_listsendasaliases {
+  sendAsAliases: ({  displayName?: string | undefined;
+  isDefault?: boolean | undefined;
+  isPrimary?: boolean | undefined;
+  replyToAddress?: string | undefined;
+  sendAsEmail?: string | undefined;
+  signature?: string | undefined;
+  treatAsAlias?: boolean | undefined;
+  verificationStatus?: string | undefined;})[];
+};
+
+export interface ActionInput_google_mail_listthreads {
+  q?: string | undefined;
+  labelIds?: string[] | undefined;
+  includeSpamTrash?: boolean | undefined;
+  maxResults?: number | undefined;
+  pageToken?: string | undefined;
+};
+
+export interface ActionOutput_google_mail_listthreads {
+  threads?: ({  id: string;
+  snippet?: string | undefined;
+  historyId?: string | undefined;
+  messages?: ({  id: string;
+  threadId?: string | undefined;
+  labelIds?: string[] | undefined;
+  snippet?: string | undefined;
+  historyId?: string | undefined;
+  internalDate?: string | undefined;
+  payload?: {  [key: string]: unknown | undefined;};
+  sizeEstimate?: number | undefined;})[];})[];
+  nextPageToken?: string | undefined;
+  resultSizeEstimate?: number | undefined;
+};
+
+export interface ActionInput_google_mail_listwatchhistory {
+  /**
+   * Start history ID to return history records after. Example: "1234567890"
+   */
+  startHistoryId: string;
+  /**
+   * History types to return. Supported values: messageAdded, messageDeleted, labelAdded, labelRemoved. If not specified, all history types are returned.
+   */
+  historyTypes?: ({  0: 'messageAdded';
+  1: 'messageDeleted';
+  2: 'labelAdded';
+  3: 'labelRemoved';})[] | undefined;
+  /**
+   * Only return history for this label. Example: "Label_1"
+   */
+  labelId?: string | undefined;
+  /**
+   * Maximum number of history records to return.
+   */
+  maxResults?: number | undefined;
+  /**
+   * Page token to retrieve a specific page of results.
+   */
+  pageToken?: string | undefined;
+};
+
+export interface ActionOutput_google_mail_listwatchhistory {
+  history: ({  id: string;
+  messages?: ({  id: string;
+  threadId: string;
+  labelIds?: string[] | undefined;
+  historyId?: string | undefined;})[];
+  messagesAdded?: ({  message: {  id: string;
+  threadId: string;
+  labelIds?: string[] | undefined;
+  historyId?: string | undefined;};})[];
+  messagesDeleted?: ({  message: {  id: string;
+  threadId: string;
+  labelIds?: string[] | undefined;
+  historyId?: string | undefined;};})[];
+  labelsAdded?: ({  message: {  id: string;
+  threadId: string;
+  labelIds?: string[] | undefined;};
+  labelIds: string[];})[];
+  labelsRemoved?: ({  message: {  id: string;
+  threadId: string;
+  labelIds?: string[] | undefined;};
+  labelIds: string[];})[];})[];
+  historyId?: string | undefined;
+  nextPageToken?: string | undefined;
+};
+
+export interface ActionInput_google_mail_modifymessage {
+  /**
+   * The ID of the message to modify. Example: "1234567890abcdef"
+   */
+  id: string;
+  /**
+   * A list of label IDs to add to the message.
+   */
+  addLabelIds?: string[] | undefined;
+  /**
+   * A list of label IDs to remove from the message.
+   */
+  removeLabelIds?: string[] | undefined;
+};
+
+export interface ActionOutput_google_mail_modifymessage {
+  id: string;
+  threadId?: string | undefined;
+  labelIds?: string[] | undefined;
+  snippet?: string | undefined;
+  historyId?: string | undefined;
+  internalDate?: string | undefined;
+  sizeEstimate?: number | undefined;
+};
+
+export interface ActionInput_google_mail_modifythread {
+  /**
+   * The ID of the thread to modify. Example: "123abc456def"
+   */
+  threadId: string;
+  /**
+   * A list of label IDs to add to the thread.
+   */
+  addLabelIds?: string[] | undefined;
+  /**
+   * A list of label IDs to remove from the thread.
+   */
+  removeLabelIds?: string[] | undefined;
+};
+
+export interface ActionOutput_google_mail_modifythread {
+  /**
+   * The ID of the modified thread.
+   */
+  id: string;
+  /**
+   * The history ID of the thread.
+   */
+  historyId?: string | undefined;
+  messages?: unknown[] | undefined;
+};
+
+export interface ActionInput_google_mail_senddraft {
+  /**
+   * The ID of the draft to send. Example: "r-1234567890"
+   */
+  id: string;
+};
+
+export interface ActionOutput_google_mail_senddraft {
+  /**
+   * The ID of the sent message. Example: "1234567890abcdef"
+   */
+  id: string;
+  /**
+   * The ID of the thread the message belongs to. Example: "abcdef1234567890"
+   */
+  threadId?: string | undefined;
+  /**
+   * List of label IDs applied to the message.
+   */
+  labelIds?: string[] | undefined;
+  /**
+   * A short snippet of the message content.
+   */
+  snippet?: string | undefined;
+  /**
+   * The history ID of the message.
+   */
+  historyId?: string | undefined;
+  /**
+   * The internal date of the message in epoch milliseconds.
+   */
+  internalDate?: string | undefined;
+  /**
+   * Estimated size of the message in bytes.
+   */
+  sizeEstimate?: number | undefined;
+};
+
+export interface ActionInput_google_mail_sendmessage {
+  /**
+   * The base64url-encoded MIME content of the email message to send.
+   */
+  raw: string;
+  /**
+   * The ID of the thread to reply to. If omitted, a new thread is created.
+   */
+  threadId?: string | undefined;
+};
+
+export interface ActionOutput_google_mail_sendmessage {
+  /**
+   * The ID of the sent message.
+   */
+  id: string;
+  /**
+   * The ID of the thread the message belongs to.
+   */
+  threadId: string;
+  /**
+   * List of label IDs applied to the message.
+   */
+  labelIds?: string[] | undefined;
+  /**
+   * A short snippet of the message text.
+   */
+  snippet?: string | undefined;
+  /**
+   * The history ID of the message.
+   */
+  historyId?: string | undefined;
+  /**
+   * The internal date of the message in milliseconds since epoch.
+   */
+  internalDate?: string | undefined;
+};
+
+export interface ActionInput_google_mail_stopwatch {
+  /**
+   * The user's email address. Use "me" to indicate the authenticated user. Defaults to "me". Example: "me"
+   */
+  userId?: string | undefined;
+};
+
+export interface ActionOutput_google_mail_stopwatch {
+  success: boolean;
+};
+
+export interface ActionInput_google_mail_trashmessage {
+  /**
+   * The ID of the message to trash. Example: "16e69b9f7e6e0f8b"
+   */
+  id: string;
+};
+
+export interface ActionOutput_google_mail_trashmessage {
   id: string;
   threadId: string;
+  labelIds?: string[] | undefined;
+  snippet?: string | undefined;
+  historyId?: string | undefined;
+  internalDate?: string | undefined;
+  sizeEstimate?: number | undefined;
+};
+
+export interface ActionInput_google_mail_trashthread {
+  /**
+   * The ID of the thread to trash. Example: "18e0b4e6c8a0b9e2"
+   */
+  thread_id: string;
+};
+
+export interface ActionOutput_google_mail_trashthread {
+  id: string;
+  snippet?: string | undefined;
+  historyId?: string | undefined;
+  messages?: ({  id?: string | undefined;
+  threadId?: string | undefined;
+  labelIds?: string[] | undefined;
+  snippet?: string | undefined;
+  historyId?: string | undefined;
+  internalDate?: string | undefined;
+  payload?: {} | undefined;
+  sizeEstimate?: number | undefined;
+  raw?: string | undefined;})[];
+};
+
+export interface ActionInput_google_mail_untrashmessage {
+  /**
+   * The ID of the message to untrash. Example: "1234567890abcdef"
+   */
+  id: string;
+};
+
+export interface ActionOutput_google_mail_untrashmessage {
+  id: string;
+  threadId?: string | undefined;
+  labelIds?: string[] | undefined;
+  snippet?: string | undefined;
+  historyId?: string | undefined;
+  internalDate?: string | undefined;
+  sizeEstimate?: number | undefined;
+};
+
+export interface ActionInput_google_mail_untrashthread {
+  /**
+   * The ID of the thread to restore from trash. Example: "18abc123def456"
+   */
+  threadId: string;
+};
+
+export interface ActionOutput_google_mail_untrashthread {
+  id: string;
+  historyId?: string | undefined;
+  messages?: ({  id: string;
+  threadId?: string | undefined;
+  labelIds?: string[] | undefined;
+  snippet?: string | undefined;
+  historyId?: string | undefined;
+  internalDate?: string | undefined;})[];
+};
+
+export interface ActionInput_google_mail_updateautoforwardingsettings {
+  /**
+   * Whether all incoming mail is automatically forwarded to another address.
+   */
+  enabled: boolean;
+  /**
+   * Email address to which all incoming messages are forwarded. This email address must be a verified member of the forwarding addresses.
+   */
+  email_address?: string | undefined;
+  /**
+   * The state that a message should be left in after it has been forwarded.
+   */
+  disposition?: 'dispositionUnspecified' | 'leaveInInbox' | 'archive' | 'trash' | 'markRead' | undefined;
+};
+
+export interface ActionOutput_google_mail_updateautoforwardingsettings {
+  enabled: boolean;
+  email_address?: string | undefined;
+  disposition?: 'dispositionUnspecified' | 'leaveInInbox' | 'archive' | 'trash' | 'markRead' | undefined;
+};
+
+export interface ActionInput_google_mail_updatedraft {
+  /**
+   * The ID of the draft to update. Example: "r-1234567890"
+   */
+  id: string;
+  /**
+   * The raw RFC 2822 formatted MIME message as a base64url encoded string.
+   */
+  raw: string;
+};
+
+export interface ActionOutput_google_mail_updatedraft {
+  id: string;
+  message?: {  id: string;
+  threadId?: string | undefined;
+  labelIds?: string[] | undefined;
+  snippet?: string | undefined;
+  historyId?: string | undefined;
+  internalDate?: string | undefined;
+  sizeEstimate?: number | undefined;
+  raw?: string | undefined;};
+};
+
+export interface ActionInput_google_mail_updateimapsettings {
+  /**
+   * Whether IMAP is enabled for the account.
+   */
+  imap_enabled?: boolean | undefined;
+  /**
+   * Whether to automatically expunge messages when they are deleted.
+   */
+  auto_expunge?: boolean | undefined;
+  /**
+   * Behavior for expunging messages.
+   */
+  expunge_behavior?: 'archive' | 'trash' | 'deleteForever' | undefined;
+  /**
+   * Maximum folder size. Allowed values: 0 (unlimited), 1000, 2000, 5000, 10000.
+   */
+  max_folder_size?: 0 | 1000 | 2000 | 5000 | 10000 | undefined;
+};
+
+export interface ActionOutput_google_mail_updateimapsettings {
+  imap_enabled?: boolean | undefined;
+  auto_expunge?: boolean | undefined;
+  expunge_behavior?: 'archive' | 'trash' | 'deleteForever' | undefined;
+  max_folder_size?: 0 | 1000 | 2000 | 5000 | 10000 | undefined;
+};
+
+export interface ActionInput_google_mail_updatelabel {
+  /**
+   * The ID of the label to update. Example: "Label_1"
+   */
+  labelId: string;
+  /**
+   * The new name of the label.
+   */
+  name?: string | undefined;
+  /**
+   * The visibility of the label in the message list.
+   */
+  messageListVisibility?: 'show' | 'hide' | undefined;
+  /**
+   * The visibility of the label in the label list.
+   */
+  labelListVisibility?: 'labelShow' | 'labelShowIfUnread' | 'labelHide' | undefined;
+};
+
+export interface ActionOutput_google_mail_updatelabel {
+  id: string;
+  name: string;
+  messageListVisibility?: 'show' | 'hide' | undefined;
+  labelListVisibility?: 'labelShow' | 'labelShowIfUnread' | 'labelHide' | undefined;
+  type?: 'system' | 'user' | undefined;
+  messagesTotal?: number | undefined;
+  messagesUnread?: number | undefined;
+  threadsTotal?: number | undefined;
+  threadsUnread?: number | undefined;
+};
+
+export interface ActionInput_google_mail_updatelanguagesettings {
+  /**
+   * The language to display the Gmail UI in. Example: "en", "fr", "es", "de". Use "en" for English.
+   */
+  displayLanguage: string;
+};
+
+export interface ActionOutput_google_mail_updatelanguagesettings {
+  displayLanguage: string;
+};
+
+export interface ActionInput_google_mail_updatepopsettings {
+  /**
+   * The range of messages which are accessible via POP. Example: "allMail"
+   */
+  accessWindow?: 'accessWindowUnspecified' | 'disabled' | 'allMail' | 'fromNowOn' | undefined;
+  /**
+   * The action that will be executed on a message after it has been fetched via POP. Example: "leaveInInbox"
+   */
+  disposition?: 'dispositionUnspecified' | 'leaveInInbox' | 'archive' | 'trash' | 'markRead' | undefined;
+};
+
+export interface ActionOutput_google_mail_updatepopsettings {
+  accessWindow?: string | undefined;
+  disposition?: string | undefined;
+};
+
+export interface ActionInput_google_mail_updatesendasalias {
+  /**
+   * The email address that appears in the "From:" header for mail sent using this alias. Example: "alias@example.com"
+   */
+  sendAsEmail: string;
+  /**
+   * The user ID. Use "me" for the authenticated user. Defaults to "me".
+   */
+  userId?: string | undefined;
+  /**
+   * A name that appears in the "From:" header instead of the actual email address. Example: "John Doe"
+   */
+  displayName?: string | undefined;
+  /**
+   * An optional email address to use for replies. Example: "replies@example.com"
+   */
+  replyToAddress?: string | undefined;
+  /**
+   * An optional HTML signature that is included in messages composed with this alias.
+   */
+  signature?: string | undefined;
+  /**
+   * Whether Gmail should treat this alias as an alias.
+   */
+  treatAsAlias?: boolean | undefined;
+  /**
+   * Whether this alias is the default alias.
+   */
+  isDefault?: boolean | undefined;
+};
+
+export interface ActionOutput_google_mail_updatesendasalias {
+  /**
+   * The email address of the alias.
+   */
+  sendAsEmail: string;
+  /**
+   * The display name for this alias.
+   */
+  displayName?: string | undefined;
+  /**
+   * The reply-to address for this alias.
+   */
+  replyToAddress?: string | undefined;
+  /**
+   * The HTML signature for this alias.
+   */
+  signature?: string | undefined;
+  /**
+   * Whether this is the primary alias.
+   */
+  isPrimary?: boolean | undefined;
+  /**
+   * Whether this is the default alias.
+   */
+  isDefault?: boolean | undefined;
+  /**
+   * Whether Gmail treats this as an alias.
+   */
+  treatAsAlias?: boolean | undefined;
+  /**
+   * The verification status of this alias.
+   */
+  verificationStatus?: string | undefined;
+};
+
+export interface ActionInput_google_mail_updatesendassmtpmsa {
+  /**
+   * The send-as alias email to be updated. Example: "alias@example.com"
+   */
+  sendAsEmail: string;
+  /**
+   * User's email address. The special value "me" can be used to indicate the authenticated user. Defaults to "me".
+   */
+  userId?: string | undefined;
+  /**
+   * The SMTP MSA settings for the send-as alias.
+   */
+  smtpMsa: {  /**
+   * The hostname of the SMTP service. Required.
+   */
+  host: string;
+  /**
+   * The port of the SMTP service. Required.
+   */
+  port: number;
+  /**
+   * The username for authentication with the SMTP service. This is a write-only field.
+   */
+  username?: string | undefined;
+  /**
+   * The password for authentication with the SMTP service. This is a write-only field.
+   */
+  password?: string | undefined;
+  /**
+   * The protocol used to secure communication with the SMTP service. Required.
+   */
+  securityMode: 'securityModeUnspecified' | 'none' | 'ssl' | 'starttls';};
+};
+
+export interface ActionOutput_google_mail_updatesendassmtpmsa {
+  sendAs: {  sendAsEmail: string;
+  displayName?: string | undefined;
+  replyToAddress?: string | undefined;
+  signature?: string | undefined;
+  isPrimary?: boolean | undefined;
+  isDefault?: boolean | undefined;
+  treatAsAlias?: boolean | undefined;
+  smtpMsa?: {  host: string;
+  port: number;
+  securityMode: 'securityModeUnspecified' | 'none' | 'ssl' | 'starttls';} | undefined;
+  verificationStatus?: 'verificationStatusUnspecified' | 'accepted' | 'pending' | undefined;};
+};
+
+export interface ActionInput_google_mail_updatevacationsettings {
+  /**
+   * Flag that controls whether Gmail automatically replies to messages.
+   */
+  enableAutoReply: boolean;
+  /**
+   * Optional text to prepend to the subject line in vacation responses. Either this or responseBody must be nonempty to enable auto-replies.
+   */
+  responseSubject?: string | undefined;
+  /**
+   * Response body in plain text format. If both responseBodyPlainText and responseBodyHtml are specified, responseBodyHtml will be used.
+   */
+  responseBodyPlainText?: string | undefined;
+  /**
+   * Response body in HTML format. Gmail will sanitize the HTML before storing it. If both responseBodyPlainText and responseBodyHtml are specified, responseBodyHtml will be used.
+   */
+  responseBodyHtml?: string | undefined;
+  /**
+   * Flag that determines whether responses are sent to recipients who are not in the user's list of contacts.
+   */
+  restrictToContacts?: boolean | undefined;
+  /**
+   * Flag that determines whether responses are sent to recipients who are outside of the user's domain. This feature is only available for Google Workspace users.
+   */
+  restrictToDomain?: boolean | undefined;
+  /**
+   * An optional start time for sending auto-replies (epoch milliseconds as a string). When this is specified, Gmail will automatically reply only to messages that it receives after the start time.
+   */
+  startTime?: string | undefined;
+  /**
+   * An optional end time for sending auto-replies (epoch milliseconds as a string). When this is specified, Gmail will automatically reply only to messages that it receives before the end time. If both startTime and endTime are specified, startTime must precede endTime.
+   */
+  endTime?: string | undefined;
+};
+
+export interface ActionOutput_google_mail_updatevacationsettings {
+  enableAutoReply: boolean;
+  responseSubject?: string | undefined;
+  responseBodyPlainText?: string | undefined;
+  responseBodyHtml?: string | undefined;
+  restrictToContacts?: boolean | undefined;
+  restrictToDomain?: boolean | undefined;
+  startTime?: string | undefined;
+  endTime?: string | undefined;
+};
+
+export interface ActionInput_google_mail_verifysendasalias {
+  /**
+   * The send-as alias email address to verify. Example: "api+test@nango.dev"
+   */
+  sendAsEmail: string;
+  /**
+   * The user ID. Defaults to "me" for the authenticated user.
+   */
+  userId?: string | undefined;
+};
+
+export type ActionOutput_google_mail_verifysendasalias = void
+
+export interface ActionInput_google_mail_watchmailbox {
+  /**
+   * The name of the Cloud Pub/Sub topic to use for notifications. Format: projects/{project}/topics/{topic}
+   */
+  topicName: string;
+  /**
+   * List of label IDs to filter on for push notifications. If specified, only changes to messages with these labels will trigger notifications.
+   */
+  labelIds?: string[] | undefined;
+  /**
+   * How to treat the labelIds filter. "include" means only labels in labelIds will trigger notifications. "exclude" means all labels except those in labelIds will trigger notifications.
+   */
+  labelFilterBehavior?: 'include' | 'exclude' | undefined;
+};
+
+export interface ActionOutput_google_mail_watchmailbox {
+  /**
+   * The ID of the mailbox history record at which the watch was started.
+   */
+  historyId: string;
+  /**
+   * The expiration time of the watch as a timestamp in milliseconds.
+   */
+  expiration: string;
 };
 
 export interface Row {
@@ -18913,49 +24197,120 @@ export interface SyncMetadata_next_cloud_ocs_users {
 
 export interface ContentMetadata {
   id: string;
-  path?: string | undefined;
-  type: 'page' | 'database';
-  last_modified: string;
+  object_type: 'page' | 'data_source';
   title?: string | undefined;
+  created_time: string;
+  last_edited_time: string;
   parent_id?: string | undefined;
+  parent_type?: string | undefined;
+  url?: string | undefined;
+  archived?: boolean | undefined;
+  in_trash?: boolean | undefined;
 };
 
-export interface SyncMetadata_notion_contentmetadata {
-};
-
-export interface NotionCompleteDatabase {
+export interface DataSourceEntry {
   id: string;
-  row: {};
-  meta: {  databaseId: string;
-  path: string;
-  title: string;
-  last_modified: string;};
+  data_source_id: string;
+  created_time: string;
+  last_edited_time: string;
+  url: string;
+  public_url?: string | undefined;
+  in_trash: boolean;
+  is_archived?: boolean | undefined;
+  is_locked?: boolean | undefined;
+  properties?: {  [key: string]: unknown | undefined;};
 };
 
-export interface SyncMetadata_notion_databases {
+export interface DataSourceTemplate {
+  id: string;
+  name: string;
+  data_source_id: string;
+  created_at?: string | undefined;
+  updated_at?: string | undefined;
 };
 
-export interface SyncMetadata_notion_users {
+export interface DataSource {
+  id: string;
+  title?: string | undefined;
+  description?: string | undefined;
+  parent_database_id?: string | undefined;
+  parent_data_source_id?: string | undefined;
+  is_inline?: boolean | undefined;
+  in_trash?: boolean | undefined;
+  created_time?: string | undefined;
+  last_edited_time?: string | undefined;
+  created_by_id?: string | undefined;
+  last_edited_by_id?: string | undefined;
+  url?: string | undefined;
+  public_url?: string | undefined;
+  properties?: {  [key: string]: unknown | undefined;};
 };
 
 export interface ActionInput_notion_appendblockchildren {
   /**
-   * The ID of the block or page to append to. Example: "2b6ce298-3121-80ae-bfe1-f8984b993639"
+   * The ID of the parent block or page. Example: "c02fc1d3-db8b-45c5-a222-27595b15aea7"
    */
   block_id: string;
   /**
-   * Array of block objects to append (max 100).
+   * Array of block objects to append. Maximum 100 blocks per request.
    */
-  children: any[];
+  children: ({  0: {  type: 'paragraph';
+  paragraph: {  rich_text: ({  0: {  type: 'text';
+  text: {  content: string;};};})[];};};
+  1: {  type: 'heading_1';
+  heading_1: {  rich_text: ({  0: {  type: 'text';
+  text: {  content: string;};};})[];};};
+  2: {  type: 'heading_2';
+  heading_2: {  rich_text: ({  0: {  type: 'text';
+  text: {  content: string;};};})[];};};
+  3: {  type: 'heading_3';
+  heading_3: {  rich_text: ({  0: {  type: 'text';
+  text: {  content: string;};};})[];};};
+  4: {  type: 'bulleted_list_item';
+  bulleted_list_item: {  rich_text: ({  0: {  type: 'text';
+  text: {  content: string;};};})[];};};
+  5: {  type: 'numbered_list_item';
+  numbered_list_item: {  rich_text: ({  0: {  type: 'text';
+  text: {  content: string;};};})[];};};
+  6: {  type: 'to_do';
+  to_do: {  rich_text: ({  0: {  type: 'text';
+  text: {  content: string;};};})[];
+  checked?: boolean | undefined;};};
+  7: {  type: 'quote';
+  quote: {  rich_text: ({  0: {  type: 'text';
+  text: {  content: string;};};})[];};};
+  8: {  type: 'callout';
+  callout: {  rich_text: ({  0: {  type: 'text';
+  text: {  content: string;};};})[];};};
+  9: {  type: 'code';
+  code: {  rich_text: ({  0: {  type: 'text';
+  text: {  content: string;};};})[];
+  language: string;};};
+  10: {  type: 'divider';
+  divider: {};};})[];
   /**
-   * Block ID to insert after.
+   * Controls where to insert blocks. Defaults to end.
    */
-  after?: string | undefined;
+  position?: {  type: 'after_block';
+  after_block: {  id: string;};} | {  type: 'start';} | {  type: 'end';} | undefined;
 };
 
 export interface ActionOutput_notion_appendblockchildren {
-  object: string;
-  results: any[];
+  object: 'list';
+  results: ({  object: 'block';
+  id: string;
+  type: string;
+  created_time?: string | undefined;
+  last_edited_time?: string | undefined;
+  created_by?: {  object: 'user';
+  id: string;} | undefined;
+  last_edited_by?: {  object: 'user';
+  id: string;} | undefined;
+  has_children?: boolean | undefined;
+  archived?: boolean | undefined;
+  in_trash?: boolean | undefined;})[];
+  next_cursor?: string | undefined;
+  has_more: boolean;
 };
 
 export interface ActionInput_notion_appendbulletedlist {
@@ -19056,188 +24411,222 @@ export interface ActionOutput_notion_appendtodoblock {
 
 export interface ActionInput_notion_archivepage {
   /**
-   * The ID of the page to archive. Example: "2b6ce298-3121-80ae-bfe1-f8984b993639"
+   * Notion page ID to archive. Example: "a1b2c3d4-e5f6-7890-abcd-ef1234567890"
    */
   page_id: string;
 };
 
 export interface ActionOutput_notion_archivepage {
   id: string;
-  object: string;
   archived: boolean;
+  in_trash?: boolean | undefined;
+  url?: string | undefined;
+  created_time?: string | undefined;
+  last_edited_time?: string | undefined;
 };
 
 export interface ActionInput_notion_createcomment {
+  0: {  /**
+   * The ID of the parent page to add a comment to. Example: "b55c9c91-384d-452b-81db-d1ef79372b75"
+   */
+  page_id: string;
   /**
-   * Parent page for the comment.
+   * An array of rich text objects representing the comment content
    */
-  parent: {  /**
-   * Page ID to add comment to. Example: "2b6ce298-3121-80ae-bfe1-f8984b993639"
+  rich_text: ({  0: {  type: 'text';
+  text: {  content: string;
+  link?: {  url: string;} | undefined;};
+  annotations?: {} | undefined;
+  plain_text?: string | undefined;
+  href?: string | undefined;};
+  1: {  type: 'mention';
+  mention: {};};
+  2: {  type: 'equation';
+  equation: {  expression: string;};};
+  3: {};})[];
+  markdown?: never | undefined;};
+  1: {  /**
+   * The ID of the parent page to add a comment to. Example: "b55c9c91-384d-452b-81db-d1ef79372b75"
    */
-  page_id: string;};
+  page_id: string;
   /**
-   * Comment content as rich text array.
+   * The comment content as a Markdown string. Supports inline formatting only.
    */
-  rich_text: any[];
+  markdown: string;
+  rich_text?: never | undefined;};
+  2: {  /**
+   * The ID of the parent block to add a comment to. Example: "195de922-1179-449f-ab80-75a27c979105"
+   */
+  block_id: string;
   /**
-   * Discussion thread ID to reply to.
+   * An array of rich text objects representing the comment content
    */
-  discussion_id?: string | undefined;
+  rich_text: ({  0: {  type: 'text';
+  text: {  content: string;
+  link?: {  url: string;} | undefined;};
+  annotations?: {} | undefined;
+  plain_text?: string | undefined;
+  href?: string | undefined;};
+  1: {  type: 'mention';
+  mention: {};};
+  2: {  type: 'equation';
+  equation: {  expression: string;};};
+  3: {};})[];
+  markdown?: never | undefined;};
+  3: {  /**
+   * The ID of the parent block to add a comment to. Example: "195de922-1179-449f-ab80-75a27c979105"
+   */
+  block_id: string;
+  /**
+   * The comment content as a Markdown string. Supports inline formatting only.
+   */
+  markdown: string;
+  rich_text?: never | undefined;};
+  4: {  /**
+   * The ID of the existing discussion thread to add a comment to. Example: "195de922-1179-449f-ab80-75a27c979105"
+   */
+  discussion_id: string;
+  /**
+   * An array of rich text objects representing the comment content
+   */
+  rich_text: ({  0: {  type: 'text';
+  text: {  content: string;
+  link?: {  url: string;} | undefined;};
+  annotations?: {} | undefined;
+  plain_text?: string | undefined;
+  href?: string | undefined;};
+  1: {  type: 'mention';
+  mention: {};};
+  2: {  type: 'equation';
+  equation: {  expression: string;};};
+  3: {};})[];
+  markdown?: never | undefined;};
+  5: {  /**
+   * The ID of the existing discussion thread to add a comment to. Example: "195de922-1179-449f-ab80-75a27c979105"
+   */
+  discussion_id: string;
+  /**
+   * The comment content as a Markdown string. Supports inline formatting only.
+   */
+  markdown: string;
+  rich_text?: never | undefined;};
 };
 
 export interface ActionOutput_notion_createcomment {
+  /**
+   * The ID of the created comment
+   */
   id: string;
-  object: string;
-  created_time: string;
-  rich_text: any[];
+  object: 'comment';
 };
 
-export interface ActionInput_notion_createdatabaserow {
+export interface ActionInput_notion_createdatasource {
+  /**
+   * The ID of the parent database (with or without dashes). Example: "a1b2c3d4-e5f6-7890-abcd-ef1234567890"
+   */
   databaseId: string;
+  /**
+   * Title of the data source as it appears in Notion.
+   */
+  title?: string | undefined;
+  /**
+   * Icon for the data source.
+   */
+  icon?: {  type: 'emoji';
+  emoji: string;} | undefined;
+  /**
+   * Property schema of the data source. Example: { "Name": { "title": {} }, "Status": { "select": { "options": [{ "name": "To Do", "color": "red" }] } } }
+   */
   properties: {};
 };
 
-export interface ActionOutput_notion_createdatabaserow {
-  success: boolean;
-  addedProperties: ({  propertyKey: string;
-  notionValue?: any | undefined;})[];
-};
-
-export interface ActionInput_notion_createdatabase {
-  /**
-   * Parent page where database will be created.
-   */
-  parent: {  /**
-   * Parent page ID. Example: "2b6ce298-3121-80ae-bfe1-f8984b993639"
-   */
-  page_id: string;};
-  /**
-   * Database title as rich text array.
-   */
-  title: ({  text: {  content: string;};})[];
-  /**
-   * Database property schema. Example: {"Name":{"title":{}},"Description":{"rich_text":{}}}
-   */
-  properties: {  [key: string]: any | undefined;};
-};
-
-export interface ActionOutput_notion_createdatabase {
+export interface ActionOutput_notion_createdatasource {
   id: string;
-  object: string;
-  created_time: string;
-  title: any[];
-  properties: {  [key: string]: any | undefined;};
+  title?: string | undefined;
+  databaseId: string;
+  url?: string | undefined;
 };
 
 export interface ActionInput_notion_createpage {
-  /**
-   * Parent page or database. Must include either page_id or database_id.
-   */
-  parent: {  /**
-   * Parent page ID. Example: "2b6ce298-3121-80ae-bfe1-f8984b993639"
-   */
-  page_id?: string | undefined;
-  /**
-   * Parent database ID. Example: "2b6ce298-3121-8079-a497-d3eca16d875c"
-   */
-  database_id?: string | undefined;};
-  /**
-   * Page properties. For pages with page parent, use title property. For database parents, use database property schema.
-   */
-  properties: {  [key: string]: any | undefined;};
-  /**
-   * Array of block objects to add as page content.
-   */
-  children?: any[] | undefined;
-  /**
-   * Page icon as emoji or external URL.
-   */
-  icon?: {  type?: string | undefined;
+  parent: {  page_id?: string | undefined;
+  database_id?: string | undefined;
+  data_source_id?: string | undefined;
+  workspace?: boolean | undefined;};
+  title?: string | undefined;
+  properties?: any | undefined;
+  icon?: {  type: 'emoji' | 'external' | 'file' | 'custom_emoji';
   emoji?: string | undefined;
-  external?: {  url: string;} | undefined;};
-  /**
-   * Page cover image as external URL.
-   */
-  cover?: {  type?: string | undefined;
-  external?: {  url: string;} | undefined;};
+  external?: {  url: string;} | undefined;
+  file?: {} | undefined;
+  custom_emoji?: string | undefined;};
+  cover?: {  type: 'external' | 'file';
+  external?: {  url: string;} | undefined;
+  file?: {} | undefined;};
+  children?: ({  type: 'paragraph' | 'heading_1' | 'heading_2' | 'heading_3' | 'bulleted_list_item' | 'numbered_list_item' | 'to_do';
+  text: string;
+  checked?: boolean | undefined;})[];
+  template?: {  type: 'none' | 'default' | 'template_id';
+  template_id?: string | undefined;
+  timezone?: string | undefined;};
+  markdown?: string | undefined;
 };
 
 export interface ActionOutput_notion_createpage {
   id: string;
-  object: string;
-  created_time: string;
-  last_edited_time: string;
-  created_by: {  object: string;
-  id: string;};
-  last_edited_by: {  object: string;
-  id: string;};
-  parent: {  type: string;
-  page_id: string | null;
-  database_id: string | null;};
-  archived: boolean;
-  in_trash: boolean;
-  properties: {  [key: string]: any | undefined;};
-  url: string;
-  public_url: string | null;
+  object?: 'page' | undefined;
+  created_time?: string | undefined;
+  last_edited_time?: string | undefined;
+  url?: string | undefined;
+  public_url?: string | undefined;
+  archived?: boolean | undefined;
+  in_trash?: boolean | undefined;
+  parent?: unknown | undefined;
+  icon?: unknown | undefined;
+  cover?: unknown | undefined;
+  properties?: any | undefined;
 };
 
 export interface ActionInput_notion_deleteblock {
   /**
-   * The ID of the block to delete. Example: "2b6ce298-3121-8087-914a-d4fe743f6d69"
+   * The ID of the block to delete/archive. Example: "12345678-1234-1234-1234-123456789012"
    */
   block_id: string;
 };
 
 export interface ActionOutput_notion_deleteblock {
   id: string;
-  object: string;
+  type: string;
   archived: boolean;
 };
 
 export interface ActionInput_notion_duplicatepage {
   /**
-   * Parent page or database for the duplicate.
+   * The ID of the Notion page to duplicate. Example: "35261e8ce0a38035a054fcdf4d7e1a31"
    */
-  parent: {  /**
-   * Parent page ID. Example: "2b6ce298-3121-80ae-bfe1-f8984b993639"
-   */
-  page_id?: string | undefined;
+  page_id: string;
   /**
-   * Parent database ID.
+   * Optional ID of the parent page where the duplicated page should be created. If not provided, the duplicated page will be created under the same parent as the original.
    */
-  database_id?: string | undefined;};
+  parent_page_id?: string | undefined;
   /**
-   * Page properties for the duplicate.
+   * Optional title for the duplicated page. If not provided, the original page title will be used with " (Copy)" suffix.
    */
-  properties: {  [key: string]: any | undefined;};
-  /**
-   * Content blocks to include in the duplicate.
-   */
-  children?: any[] | undefined;
+  title?: string | undefined;
 };
 
 export interface ActionOutput_notion_duplicatepage {
+  /**
+   * The ID of the duplicated page
+   */
   id: string;
-  object: string;
-  created_time: string;
-  parent: {  type: string;
-  page_id: string | null;
-  database_id: string | null;};
-  properties: {  [key: string]: any | undefined;};
-};
-
-export interface ActionInput_notion_fetchcontentmetadata {
+  /**
+   * The URL of the duplicated page
+   */
   url?: string | undefined;
-  id?: string | undefined;
-};
-
-export interface ActionOutput_notion_fetchcontentmetadata {
-  id: string;
-  path?: string | undefined;
-  type: 'page' | 'database';
-  last_modified: string;
+  /**
+   * The title of the duplicated page
+   */
   title?: string | undefined;
-  parent_id?: string | undefined;
 };
 
 export interface ActionInput_notion_getbotuser {
@@ -19245,50 +24634,238 @@ export interface ActionInput_notion_getbotuser {
 
 export interface ActionOutput_notion_getbotuser {
   id: string;
-  object: string;
+  name?: string | undefined;
+  avatar_url?: string | undefined;
+  type: 'bot';
+  bot: {  owner: {  type: 'user' | 'workspace';
+  user_id?: string | undefined;
+  user_name?: string | undefined;
+  user_email?: string | undefined;};
+  workspace_id: string;
+  workspace_name?: string | undefined;
+  max_file_upload_size_in_bytes: number;};
+};
+
+export interface ActionInput_notion_getpageasmarkdown {
+  /**
+   * The ID of the page to retrieve as markdown. Example: "b55c9c91-384d-452b-81db-d1ef79372b75"
+   */
+  page_id: string;
+  /**
+   * Include meeting note transcripts (default: false)
+   */
+  include_transcript?: boolean | undefined;
+};
+
+export interface ActionOutput_notion_getpageasmarkdown {
+  id: string;
+  markdown: string;
+  truncated: boolean;
+  unknown_block_ids: string[];
+};
+
+export interface ActionInput_notion_getpagepropertyitem {
+  /**
+   * The ID of the page containing the property. Example: "b55c9c91-384d-452b-81db-d1ef79372b75"
+   */
+  page_id: string;
+  /**
+   * The ID or name of the property to retrieve. Can be a property ID (e.g., "title", "%3E%5DWj") or property name (e.g., "Name", "Status"). Property IDs are more stable if properties are renamed.
+   */
+  property_id: string;
+  /**
+   * Pagination cursor for properties with many values (title, rich_text, relation, people). Omit for the first page.
+   */
+  start_cursor?: string | undefined;
+  /**
+   * Number of results to return per page. Maximum is 100. Default: 100.
+   */
+  page_size?: number | undefined;
+};
+
+export interface ActionOutput_notion_getpagepropertyitem {
+  0: {  object: 'property_item';
+  id: string;
+  type: string;};
+  1: {  object: 'list';
   type: string;
-  name: string;
-  bot?: any | undefined;
+  results: ({})[];
+  next_cursor?: string | undefined;
+  has_more: boolean;
+  property_item?: {} | undefined;};
+};
+
+export interface ActionInput_notion_getuser {
+  /**
+   * User ID to retrieve. Example: "e79a0b74-3aba-4149-9f74-0bb5791a6ee6"
+   */
+  userId: string;
+};
+
+export interface ActionOutput_notion_getuser {
+  id: string;
+  name?: string | undefined;
+  avatarUrl?: string | undefined;
+  type: 'person' | 'bot';
+  email?: string | undefined;
+  botOwner?: {  type: string;
+  userId?: string | undefined;
+  userName?: string | undefined;
+  workspace?: boolean | undefined;};
+};
+
+export interface ActionInput_notion_listblockchildren {
+  /**
+   * Block ID or page ID to retrieve children for. Example: "c02fc1d3-db8b-45c5-a222-27595b15aea7"
+   */
+  block_id: string;
+  /**
+   * Number of results per page (max 100).
+   */
+  page_size?: number | undefined;
+  /**
+   * Pagination cursor from the previous response. Omit for the first page.
+   */
+  cursor?: string | undefined;
+};
+
+export interface ActionOutput_notion_listblockchildren {
+  results: ({  object: string;
+  id: string;
+  type: string;
+  created_time?: string | undefined;
+  last_edited_time?: string | undefined;
+  created_by?: {} | undefined;
+  last_edited_by?: {} | undefined;
+  has_children?: boolean | undefined;
+  in_trash?: boolean | undefined;
+  parent?: {} | undefined;})[];
+  next_cursor?: string | undefined;
+  has_more: boolean;
 };
 
 export interface ActionInput_notion_listcomments {
   /**
-   * The ID of the page or block. Example: "2b6ce298-3121-80ae-bfe1-f8984b993639"
+   * The ID of the block (page or block) to retrieve comments for. Example: "5c6a28216bb14a7eb6e1c50111515c3d"
    */
   block_id: string;
   /**
-   * Number of results to return (max 100).
-   */
-  page_size?: number | undefined;
-  /**
-   * Pagination cursor from previous response.
+   * Pagination cursor from the previous response. Omit for the first page.
    */
   cursor?: string | undefined;
+  /**
+   * Number of comments to return per page. Maximum: 100.
+   */
+  page_size?: number | undefined;
 };
 
 export interface ActionOutput_notion_listcomments {
-  object: string;
-  results: any[];
+  comments: ({  object: 'comment';
+  /**
+   * Unique identifier for the comment.
+   */
+  id: string;
+  parent: {  /**
+   * Type of parent (e.g., "page_id", "block_id").
+   */
+  type: string;
+  page_id?: string | undefined;
+  block_id?: string | undefined;};
+  /**
+   * Discussion thread ID.
+   */
+  discussion_id: string;
+  /**
+   * ISO 8601 timestamp.
+   */
+  created_time: string;
+  /**
+   * ISO 8601 timestamp.
+   */
+  last_edited_time: string;
+  created_by: {  object: 'user';
+  id: string;
+  name?: string | undefined;
+  avatar_url?: string | undefined;
+  type?: string | undefined;
+  person?: {  email: string;} | undefined;};
+  rich_text: ({  type?: string | undefined;
+  text?: {  content: string;
+  link?: {  url: string;} | undefined;};
+  annotations?: {  bold?: boolean | undefined;
+  italic?: boolean | undefined;
+  strikethrough?: boolean | undefined;
+  underline?: boolean | undefined;
+  code?: boolean | undefined;
+  color?: string | undefined;};})[];})[];
+  next_cursor?: string | undefined;
   has_more: boolean;
-  next_cursor: string | null;
+};
+
+export interface ActionInput_notion_listdatasourcetemplates {
+  /**
+   * The ID of the Notion data source. Example: "d9824bdc-8445-4327-be8b-5b47500af6ce"
+   */
+  dataSourceId: string;
+  /**
+   * Filter templates by name (case-insensitive substring match).
+   */
+  name?: string | undefined;
+  /**
+   * Pagination cursor from the previous response. Omit for the first page.
+   */
+  cursor?: string | undefined;
+  /**
+   * Number of items to return per page (1-100). Defaults to 100.
+   */
+  limit?: number | undefined;
+};
+
+export interface ActionOutput_notion_listdatasourcetemplates {
+  /**
+   * Array of templates available in this data source.
+   */
+  templates: ({  /**
+   * ID of the template page.
+   */
+  id: string;
+  /**
+   * Name of the template.
+   */
+  name: string;
+  /**
+   * Whether this template is the default template for the data source.
+   */
+  isDefault: boolean;})[];
+  /**
+   * Whether there are more templates available beyond this page.
+   */
+  hasMore: boolean;
+  /**
+   * Cursor to use for the next page of results. Omitted if there are no more results.
+   */
+  nextCursor?: string | undefined;
 };
 
 export interface ActionInput_notion_listusers {
   /**
-   * Number of results to return (max 100).
+   * Pagination cursor from the previous response. Omit for the first page.
+   */
+  start_cursor?: string | undefined;
+  /**
+   * Number of users to return. Maximum is 100.
    */
   page_size?: number | undefined;
-  /**
-   * Pagination cursor from previous response.
-   */
-  cursor?: string | undefined;
 };
 
 export interface ActionOutput_notion_listusers {
-  object: string;
-  results: any[];
+  users: ({  id: string;
+  type: 'person' | 'bot';
+  name?: string | undefined;
+  avatar_url?: string | undefined;
+  email?: string | undefined;})[];
+  next_cursor?: string | undefined;
   has_more: boolean;
-  next_cursor: string | null;
 };
 
 export interface ActionInput_notion_querydatabasefiltered {
@@ -19373,17 +24950,89 @@ export interface ActionOutput_notion_querydatabase {
   next_cursor: string | null;
 };
 
-export interface ActionInput_notion_restorepage {
+export interface ActionInput_notion_movepage {
   /**
-   * The ID of the page to restore. Example: "2b6ce298-3121-80ae-bfe1-f8984b993639"
+   * The ID of the page to move. Example: "195de922-1179-449f-ab80-75a27c979105"
    */
   page_id: string;
+  /**
+   * The new parent location for the page. Either a page_id or data_source_id parent.
+   */
+  parent: {  type: 'page_id';
+  /**
+   * The ID of the parent page to move the page under. Example: "b55c9c91-384d-452b-81db-d1ef79372b75"
+   */
+  page_id: string;} | {  type: 'data_source_id';
+  /**
+   * The ID of the data source (database) to move the page into. Example: "1c7b35e6-e67f-8096-bf3f-000ba938459e"
+   */
+  data_source_id: string;};
+};
+
+export interface ActionOutput_notion_movepage {
+  id: string;
+  object: 'page';
+  created_time?: string | undefined;
+  last_edited_time?: string | undefined;
+  parent: {  type: string;
+  page_id?: string | undefined;
+  database_id?: string | undefined;
+  data_source_id?: string | undefined;
+  workspace?: boolean | undefined;};
+  archived?: boolean | undefined;
+  in_trash?: boolean | undefined;
+  url?: string | undefined;
+  public_url?: string | undefined;
+};
+
+export interface ActionInput_notion_querydatasource {
+  data_source_id: string;
+  filter?: {  [key: string]: unknown | undefined;};
+  sorts?: ({  [key: string]: unknown | undefined;})[];
+  start_cursor?: string | undefined;
+  page_size?: number | undefined;
+  in_trash?: boolean | undefined;
+};
+
+export interface ActionOutput_notion_querydatasource {
+  results: ({  [key: string]: unknown | undefined;})[];
+  next_cursor?: string | undefined;
+  has_more: boolean;
+  request_status?: {  [key: string]: unknown | undefined;};
+};
+
+export interface ActionInput_notion_restorepage {
+  /**
+   * The ID of the page to restore from trash. Example: "12345678-1234-1234-1234-123456789012"
+   */
+  pageId: string;
 };
 
 export interface ActionOutput_notion_restorepage {
   id: string;
   object: string;
-  archived: boolean;
+  createdTime?: string | undefined;
+  lastEditedTime?: string | undefined;
+  archived?: boolean | undefined;
+  inTrash?: boolean | undefined;
+  url?: string | undefined;
+};
+
+export interface ActionInput_notion_retrieveblock {
+  /**
+   * Block ID. Example: "c02fc1d3-db8b-45c5-a222-27595b15aea7"
+   */
+  block_id: string;
+};
+
+export interface ActionOutput_notion_retrieveblock {
+  id: string;
+  object: 'block';
+  type: string;
+  created_time?: string | undefined;
+  last_edited_time?: string | undefined;
+  has_children?: boolean | undefined;
+  in_trash?: boolean | undefined;
 };
 
 export interface ActionInput_notion_retrieveblockchildren {
@@ -19408,19 +25057,62 @@ export interface ActionOutput_notion_retrieveblockchildren {
   next_cursor: string | null;
 };
 
-export interface ActionInput_notion_retrieveblock {
+export interface ActionInput_notion_retrievecomment {
   /**
-   * The ID of the block to retrieve. Example: "2b6ce298-3121-8087-914a-d4fe743f6d69"
+   * The ID of the comment to retrieve. Example: "c02fc1d3-db8b-45c5-a222-27595b15aea7"
    */
-  block_id: string;
+  comment_id: string;
 };
 
-export interface ActionOutput_notion_retrieveblock {
+export interface ActionOutput_notion_retrievecomment {
   id: string;
-  object: string;
-  type: string;
-  has_children: boolean;
-  created_time: string;
+  parent: {  type: string;
+  page_id?: string | undefined;
+  block_id?: string | undefined;};
+  discussion_id: string;
+  rich_text: ({  type?: string | undefined;
+  text?: {  content: string;} | undefined;
+  mention?: {  type: string;
+  user?: {  object: string;
+  id: string;} | undefined;};
+  annotations?: {  bold?: boolean | undefined;
+  italic?: boolean | undefined;
+  strikethrough?: boolean | undefined;
+  underline?: boolean | undefined;
+  code?: boolean | undefined;
+  color?: string | undefined;};
+  plain_text?: string | undefined;
+  href?: string | undefined;})[];
+  created_by?: {  object: string;
+  id: string;} | undefined;
+  created_time?: string | undefined;
+};
+
+export interface ActionInput_notion_retrievedatasource {
+  /**
+   * The ID of the Notion data source to retrieve. Example: "d9824bdc-8445-4327-be8b-5b47500af6ce"
+   */
+  data_source_id: string;
+};
+
+export interface ActionOutput_notion_retrievedatasource {
+  object: 'data_source';
+  id: string;
+  title?: unknown[] | undefined;
+  description?: unknown[] | undefined;
+  parent?: unknown | undefined;
+  database_parent?: unknown | undefined;
+  is_inline?: boolean | undefined;
+  in_trash?: boolean | undefined;
+  created_time?: string | undefined;
+  last_edited_time?: string | undefined;
+  created_by?: unknown | undefined;
+  last_edited_by?: unknown | undefined;
+  properties?: {  [key: string]: unknown | undefined;};
+  icon?: unknown | undefined;
+  cover?: unknown | undefined;
+  url?: string | undefined;
+  public_url?: string | undefined;
 };
 
 export interface ActionInput_notion_retrievedatabase {
@@ -19459,29 +25151,45 @@ export interface ActionOutput_notion_retrievepageproperty {
 
 export interface ActionInput_notion_retrievepage {
   /**
-   * The ID of the page to retrieve. Example: "2b6ce298-3121-80ae-bfe1-f8984b993639"
+   * The ID of the page to retrieve. Example: "b55c9c91-384d-452b-81db-d1ef79372b75"
    */
   page_id: string;
 };
 
 export interface ActionOutput_notion_retrievepage {
   id: string;
-  object: string;
+  object: 'page';
   created_time: string;
   last_edited_time: string;
-  created_by: {  object: string;
-  id: string;};
-  last_edited_by: {  object: string;
-  id: string;};
-  parent: {  type: string;
-  page_id: string | null;
-  database_id: string | null;
-  workspace: boolean | null;};
-  archived: boolean;
   in_trash: boolean;
-  properties: {  [key: string]: any | undefined;};
+  is_archived: boolean;
+  is_locked: boolean;
   url: string;
-  public_url: string | null;
+  public_url?: string | undefined;
+  parent: {  type: string;
+  database_id?: string | undefined;
+  page_id?: string | undefined;
+  workspace?: boolean | undefined;
+  block_id?: string | undefined;};
+  properties: {};
+  icon: {  type: 'emoji';
+  emoji: string;} | {  type: 'external';
+  external: {  url: string;};} | {  type: 'file';
+  file: {  url: string;
+  expiry_time: string;};} | {  type: 'custom_emoji';
+  custom_emoji: {  id: string;
+  name: string;
+  url: string;};} | {  type: 'icon';
+  icon: {  name: string;
+  color: string;};};
+  cover: {  type: 'external';
+  external: {  url: string;};} | {  type: 'file';
+  file: {  url: string;
+  expiry_time: string;};};
+  created_by: {  id: string;
+  object: string;};
+  last_edited_by: {  id: string;
+  object: string;};
 };
 
 export interface ActionInput_notion_retrieveuser {
@@ -19545,92 +25253,131 @@ export interface ActionOutput_notion_searchpages {
 
 export interface ActionInput_notion_search {
   /**
-   * Text to search for in page/database titles.
+   * Search query string to filter results by title.
    */
   query?: string | undefined;
+  filter?: {  property: 'object';
+  value: 'page' | 'data_source';} | undefined;
+  sort?: {  timestamp: 'last_edited_time' | 'created_time';
+  direction: 'ascending' | 'descending';} | undefined;
   /**
-   * Filter to search only pages or databases. Example: {"property":"object","value":"page"}
+   * Pagination cursor for the next page of results.
    */
-  filter?: {  property: string;
-  value: string;} | undefined;
-  /**
-   * Sort order. Example: {"direction":"descending","timestamp":"last_edited_time"}
-   */
-  sort?: {  direction: string;
-  timestamp: string;} | undefined;
-  /**
-   * Number of results to return (max 100).
-   */
+  start_cursor?: string | undefined;
   page_size?: number | undefined;
-  /**
-   * Pagination cursor from previous response.
-   */
-  cursor?: string | undefined;
 };
 
 export interface ActionOutput_notion_search {
-  object: string;
-  results: any[];
+  results: unknown[];
+  next_cursor?: string | undefined;
   has_more: boolean;
-  next_cursor: string | null;
 };
 
 export interface ActionInput_notion_updateblock {
   /**
-   * The ID of the block to update. Example: "2b6ce298-3121-8087-914a-d4fe743f6d69"
+   * The ID of the block to update. Example: "c02fc1d3-db8b-45c5-a222-27595b15aea7"
    */
   block_id: string;
-  /**
-   * Paragraph block content.
-   */
-  paragraph?: any | undefined;
-  /**
-   * Heading 1 block content.
-   */
-  heading_1?: any | undefined;
-  /**
-   * Heading 2 block content.
-   */
-  heading_2?: any | undefined;
-  /**
-   * Heading 3 block content.
-   */
-  heading_3?: any | undefined;
-  /**
-   * Bulleted list item content.
-   */
-  bulleted_list_item?: any | undefined;
-  /**
-   * Numbered list item content.
-   */
-  numbered_list_item?: any | undefined;
-  /**
-   * To-do block content.
-   */
-  to_do?: any | undefined;
-  /**
-   * Toggle block content.
-   */
-  toggle?: any | undefined;
-  /**
-   * Code block content.
-   */
-  code?: any | undefined;
-  /**
-   * Callout block content.
-   */
-  callout?: any | undefined;
-  /**
-   * Quote block content.
-   */
-  quote?: any | undefined;
+  content: {};
 };
 
 export interface ActionOutput_notion_updateblock {
   id: string;
-  object: string;
   type: string;
-  has_children: boolean;
+  object: string;
+};
+
+export interface ActionInput_notion_updatedatasource {
+  /**
+   * The ID of the data source to update. Example: "d9824bdc-8445-4327-be8b-5b47500af6ce"
+   */
+  dataSourceId: string;
+  /**
+   * Title of the data source as it appears in Notion.
+   */
+  title?: ({  type: 'text';
+  text: {  content: string;
+  link?: {  url: string;} | undefined;};})[];
+  /**
+   * Description of the data source as it appears in Notion.
+   */
+  description?: ({  type: 'text';
+  text: {  content: string;
+  link?: {  url: string;} | undefined;};})[];
+  /**
+   * The property schema updates for the data source. Properties set to null will be removed.
+   */
+  properties?: {  [key: string]: {  name?: string | undefined;
+  description?: string | undefined;
+  type?: string | undefined;} | null;};
+  /**
+   * Whether to move the data source to or from the trash.
+   */
+  inTrash?: boolean | undefined;
+  /**
+   * The parent of the data source, when moving it to a different database.
+   */
+  parent?: {  type: 'database_id';
+  database_id: string;} | undefined;
+  /**
+   * New icon for the data source. Set to null to remove the icon.
+   */
+  icon?: {  type: 'emoji';
+  emoji: string;} | {  type: 'external';
+  external: {  url: string;};} | {  type: 'file';
+  file: {  url: string;
+  expiry_time?: string | undefined;};} | {  type: 'custom_emoji';
+  custom_emoji: {  id: string;
+  name?: string | undefined;
+  url?: string | undefined;};} | {  type: 'icon';
+  icon: {  name: string;
+  color?: 'gray' | 'lightgray' | 'brown' | 'yellow' | 'orange' | 'green' | 'blue' | 'purple' | 'pink' | 'red' | undefined;};};
+};
+
+export interface ActionOutput_notion_updatedatasource {
+  object: 'data_source';
+  /**
+   * The ID of the data source.
+   */
+  id: string;
+  title?: ({  type: string;
+  text: {  content: string;
+  link?: {  url: string;} | undefined;};
+  annotations?: {} | undefined;
+  plain_text?: string | undefined;
+  href?: string | undefined;})[];
+  description?: ({  type: string;
+  text: {  content: string;
+  link?: {  url: string;} | undefined;};
+  annotations?: {} | undefined;
+  plain_text?: string | undefined;
+  href?: string | undefined;})[];
+  parent?: {  type: 'database_id';
+  database_id: string;} | undefined;
+  database_parent?: {  type: string;
+  page_id?: string | undefined;
+  workspace?: boolean | undefined;
+  block_id?: string | undefined;
+  database_id?: string | undefined;};
+  is_inline?: boolean | undefined;
+  in_trash?: boolean | undefined;
+  /**
+   * ISO 8601 timestamp when the data source was created.
+   */
+  created_time?: string | undefined;
+  /**
+   * ISO 8601 timestamp when the data source was last edited.
+   */
+  last_edited_time?: string | undefined;
+  created_by?: {  object: 'user';
+  id: string;} | undefined;
+  last_edited_by?: {  object: 'user';
+  id: string;} | undefined;
+  properties?: {  [key: string]: {};} | undefined;
+  icon?: unknown | undefined;
+  cover?: unknown | undefined;
+  url?: string | undefined;
+  public_url?: string | undefined;
 };
 
 export interface ActionInput_notion_updatedatabase {
@@ -19659,50 +25406,118 @@ export interface ActionOutput_notion_updatedatabase {
   properties: {  [key: string]: any | undefined;};
 };
 
-export interface ActionInput_notion_updatepage {
+export interface ActionInput_notion_updatepagemarkdown {
   /**
-   * The ID of the page to update. Example: "2b6ce298-3121-80ae-bfe1-f8984b993639"
+   * Notion page ID. Example: "b55c9c91-384d-452b-81db-d1ef79372b75"
    */
   page_id: string;
   /**
-   * Page properties to update.
+   * Command type for the update operation.
    */
-  properties?: {  [key: string]: any | undefined;};
+  type: 'update_content' | 'replace_content' | 'insert_content' | 'replace_content_range';
+  update_content?: {  /**
+   * Array of search-and-replace operations.
+   */
+  content_updates: ({  /**
+   * Text to find in the page content. Must match exactly one location unless replace_all_matches is true.
+   */
+  old_str: string;
   /**
-   * Page icon as emoji or external URL.
+   * Replacement text.
    */
-  icon?: {  type?: string | undefined;
-  emoji?: string | undefined;
-  external?: {  url: string;} | undefined;};
+  new_str: string;
   /**
-   * Page cover image as external URL.
+   * If true, replace all occurrences of old_str. Defaults to false.
    */
-  cover?: {  type?: string | undefined;
-  external?: {  url: string;} | undefined;};
+  replace_all_matches?: boolean | undefined;})[];
   /**
-   * Set to true to archive the page.
+   * Set to true to allow the operation to delete child pages or databases.
    */
-  archived?: boolean | undefined;
+  allow_deleting_content?: boolean | undefined;};
+  replace_content?: {  /**
+   * The new enhanced markdown content to replace the entire page content.
+   */
+  new_str: string;
+  /**
+   * Set to true to allow the operation to delete child pages or databases.
+   */
+  allow_deleting_content?: boolean | undefined;};
+  insert_content?: {  /**
+   * Markdown content to insert.
+   */
+  content: string;
+  /**
+   * Ellipsis-based selection format to insert after a specific location. Example: "# Heading...end of section"
+   */
+  after?: string | undefined;};
+  replace_content_range?: {  /**
+   * Markdown content to insert at the replaced range.
+   */
+  content: string;
+  /**
+   * Ellipsis-based selection format defining the range to replace. Example: "start text...end text"
+   */
+  range: string;
+  /**
+   * Set to true to allow the operation to delete child pages or databases.
+   */
+  allow_deleting_content?: boolean | undefined;};
+};
+
+export interface ActionOutput_notion_updatepagemarkdown {
+  id: string;
+  markdown: string;
+  truncated: boolean;
+  unknown_block_ids?: string[] | undefined;
+};
+
+export interface ActionInput_notion_updatepage {
+  /**
+   * The ID of the page to update.
+   */
+  page_id: string;
+  /**
+   * Property values to update. Each key is the property name and the value is the property value object.
+   */
+  properties?: unknown | undefined;
+  /**
+   * The icon for the page. Can be an emoji, external file, uploaded file, custom emoji, or Notion icon.
+   */
+  icon?: unknown | undefined;
+  /**
+   * The cover image for the page. Can be an external file or uploaded file.
+   */
+  cover?: unknown | undefined;
+  /**
+   * Whether the page should be locked from editing in the Notion app UI.
+   */
+  is_locked?: boolean | undefined;
+  /**
+   * Whether the page should be moved to trash (true) or restored (false).
+   */
+  in_trash?: boolean | undefined;
+  /**
+   * Whether the page should be archived.
+   */
+  is_archived?: boolean | undefined;
 };
 
 export interface ActionOutput_notion_updatepage {
   id: string;
-  object: string;
-  created_time: string;
-  last_edited_time: string;
-  created_by: {  object: string;
-  id: string;};
-  last_edited_by: {  object: string;
-  id: string;};
-  parent: {  type: string;
-  page_id: string | null;
-  database_id: string | null;
-  workspace: boolean | null;};
-  archived: boolean;
-  in_trash: boolean;
-  properties: {  [key: string]: any | undefined;};
-  url: string;
-  public_url: string | null;
+  object?: string | undefined;
+  created_time?: string | undefined;
+  last_edited_time?: string | undefined;
+  in_trash?: boolean | undefined;
+  is_archived?: boolean | undefined;
+  is_locked?: boolean | undefined;
+  url?: string | undefined;
+  public_url?: string | undefined;
+  parent?: unknown | undefined;
+  properties?: unknown | undefined;
+  icon?: unknown | undefined;
+  cover?: unknown | undefined;
+  created_by?: unknown | undefined;
+  last_edited_by?: unknown | undefined;
 };
 
 export interface SyncMetadata_okta_users {
@@ -22379,22 +28194,6 @@ export interface SyncMetadata_sap_success_factors_locations {
 export interface SyncMetadata_sap_success_factors_unifiedemployees {
 };
 
-export interface FileMetadata {
-  siteId: string;
-  id: string;
-  name: string;
-  etag: string;
-  cTag: string;
-  is_folder: boolean;
-  mime_type: string | null;
-  path: string;
-  raw_source?: any | undefined;
-  updated_at: string;
-  download_url: string | null;
-  created_at: string;
-  blob_size: number;
-};
-
 export interface SyncMetadata_sharepoint_online_sharedsitesselection {
   sharedSites: string[];
   pickedFiles: ({  siteId: string;
@@ -22475,29 +28274,22 @@ export interface SyncMetadata_shopify_orders {
 
 export interface Channel {
   id: string;
-  name?: string | undefined;
-  name_normalized?: string | undefined;
-  created: number;
-  creator?: string | undefined;
-  is_archived: boolean;
-  is_general: boolean;
-  is_private: boolean;
-  is_channel: boolean;
-  is_group: boolean;
-  is_im: boolean;
-  is_mpim: boolean;
-  is_shared?: boolean | undefined;
-  is_org_shared?: boolean | undefined;
-  is_ext_shared?: boolean | undefined;
-  is_pending_ext_shared?: boolean | undefined;
-  is_member?: boolean | undefined;
-  num_members?: number | undefined;
-  topic: {  value: string;
-  creator?: string | undefined;
-  last_set: number;};
-  purpose: {  value: string;
-  creator?: string | undefined;
-  last_set: number;};
+  title?: string | undefined;
+  description?: string | undefined;
+  customUrl?: string | undefined;
+  publishedAt?: string | undefined;
+  thumbnailDefaultUrl?: string | undefined;
+  thumbnailMediumUrl?: string | undefined;
+  thumbnailHighUrl?: string | undefined;
+  viewCount?: number | undefined;
+  subscriberCount?: number | undefined;
+  hiddenSubscriberCount?: boolean | undefined;
+  videoCount?: number | undefined;
+  country?: string | undefined;
+  privacyStatus?: string | undefined;
+  isLinked?: boolean | undefined;
+  madeForKids?: boolean | undefined;
+  selfDeclaredMadeForKids?: boolean | undefined;
 };
 
 export interface SyncMetadata_slack_channels {
@@ -22505,25 +28297,6 @@ export interface SyncMetadata_slack_channels {
    * Whether to auto-join public channels
    */
   joinPublicChannels?: boolean | undefined;
-};
-
-export interface Message {
-  id: string;
-  channel_id: string;
-  channel_name: string;
-  user_id: string;
-  user_name?: string | undefined;
-  text: string;
-  timestamp: string;
-  thread_ts?: string | undefined;
-  parent_ts?: string | undefined;
-  is_thread_reply?: boolean | undefined;
-  reactions?: ({  name: string;
-  count: number;
-  users: string[];})[] | undefined;
-  reply_count?: number | undefined;
-  reply_users?: string[] | undefined;
-  created_at: string;
 };
 
 export interface ActionInput_slack_addreaction {
@@ -26793,18 +32566,856 @@ export interface ActionOutput_xero_updatepurchaseorder {
   warnings?: ({  [key: string]: unknown | undefined;})[];
 };
 
+export interface CaptionTrack {
+  /**
+   * The ID that YouTube uses to uniquely identify the caption track
+   */
+  id: string;
+  /**
+   * The ID of the video associated with the caption track
+   */
+  video_id: string;
+  /**
+   * The date and time when the caption track was last updated in ISO 8601 format
+   */
+  last_updated: string;
+  /**
+   * The caption track type: ASR, forced, or standard
+   */
+  track_kind?: string | undefined;
+  /**
+   * The language of the caption track as a BCP-47 language tag
+   */
+  language?: string | undefined;
+  /**
+   * The name of the caption track visible to users during playback
+   */
+  name?: string | undefined;
+  /**
+   * The type of audio track: commentary, descriptive, primary, or unknown
+   */
+  audio_track_type?: string | undefined;
+  /**
+   * Whether the track contains closed captions for the deaf and hard of hearing
+   */
+  is_cc?: boolean | undefined;
+  /**
+   * Whether the caption track uses large text for the vision-impaired
+   */
+  is_large?: boolean | undefined;
+  /**
+   * Whether the caption track is formatted for easy reader at third-grade level
+   */
+  is_easy_reader?: boolean | undefined;
+  /**
+   * Whether the caption track is a draft and not publicly visible
+   */
+  is_draft?: boolean | undefined;
+  /**
+   * Whether YouTube synchronized the caption track to the audio track
+   */
+  is_auto_synced?: boolean | undefined;
+  /**
+   * The caption track status: failed, serving, or syncing
+   */
+  status?: string | undefined;
+  /**
+   * The reason YouTube failed to process the caption track
+   */
+  failure_reason?: string | undefined;
+};
+
+export interface ChannelPlaylist {
+  /**
+   * The ID that YouTube uses to uniquely identify the playlist
+   */
+  id: string;
+  /**
+   * The ID of the channel that owns the playlist
+   */
+  channelId: string;
+  /**
+   * The channel title of the channel that owns the playlist
+   */
+  channelTitle?: string | undefined;
+  /**
+   * The playlist title
+   */
+  title: string;
+  /**
+   * The playlist description
+   */
+  description?: string | undefined;
+  /**
+   * The playlist privacy status: private, public, or unlisted
+   */
+  privacyStatus?: string | undefined;
+  /**
+   * The number of videos in the playlist
+   */
+  itemCount?: number | undefined;
+  /**
+   * The date and time that the playlist was created
+   */
+  publishedAt: string;
+  /**
+   * URL of the default thumbnail for the playlist
+   */
+  thumbnailUrl?: string | undefined;
+};
+
+export interface SyncMetadata_youtube_channelplaylists {
+  channelIds?: string[] | undefined;
+};
+
+export interface CommentThread {
+  id: string;
+  videoId: string;
+  channelId?: string | undefined;
+  topLevelComment: {  id: string;
+  author: {  channelId?: string | undefined;
+  displayName: string;
+  profileImageUrl?: string | undefined;
+  channelUrl?: string | undefined;};
+  textOriginal: string;
+  textDisplay: string;
+  likeCount: number;
+  publishedAt: string;
+  updatedAt: string;
+  parentId?: string | undefined;};
+  replies: ({  id: string;
+  author: {  channelId?: string | undefined;
+  displayName: string;
+  profileImageUrl?: string | undefined;
+  channelUrl?: string | undefined;};
+  textOriginal: string;
+  textDisplay: string;
+  likeCount: number;
+  publishedAt: string;
+  updatedAt: string;
+  parentId?: string | undefined;})[];
+  totalReplyCount: number;
+  canReply?: boolean | undefined;
+  isPublic?: boolean | undefined;
+  etag: string;
+};
+
+export interface PlaylistItem {
+  id: string;
+  playlist_id: string;
+  video_id: string;
+  position: number;
+  published_at: string;
+  channel_id?: string | undefined;
+  channel_title?: string | undefined;
+  title?: string | undefined;
+  description?: string | undefined;
+  privacy_status?: string | undefined;
+  video_owner_channel_id?: string | undefined;
+  video_owner_channel_title?: string | undefined;
+  video_published_at?: string | undefined;
+};
+
+export interface SyncMetadata_youtube_playlistitems {
+  playlist_ids?: string[] | undefined;
+};
+
+export interface UploadedVideo {
+  id: string;
+  title: string;
+  description: string;
+  channelId: string;
+  channelTitle?: string | undefined;
+  publishedAt: string;
+  playlistItemId: string;
+  position?: number | undefined;
+  thumbnails?: {  [key: string]: any | undefined;};
+  tags?: string[] | undefined;
+  categoryId?: string | undefined;
+  statistics?: {  viewCount?: string | undefined;
+  likeCount?: string | undefined;
+  commentCount?: string | undefined;};
+  status?: {  privacyStatus?: string | undefined;
+  uploadStatus?: string | undefined;
+  license?: string | undefined;
+  embeddable?: boolean | undefined;};
+};
+
+export interface ActionInput_youtube_addplaylistitem {
+  /**
+   * The ID of the playlist to add the video to. Example: "PLxxxxxxxxxxxxxxxxxxx"
+   */
+  playlistId: string;
+  /**
+   * The YouTube video ID to add to the playlist. Example: "dQw4w9WgXcQ"
+   */
+  videoId: string;
+  /**
+   * The position to insert the video into the playlist (0-based). If not specified, the video is added to the end.
+   */
+  position?: number | undefined;
+};
+
+export interface ActionOutput_youtube_addplaylistitem {
+  id: string;
+  playlistId: string;
+  videoId: string;
+  position?: number | undefined;
+  title?: string | undefined;
+};
+
+export interface ActionInput_youtube_createcommentreply {
+  /**
+   * The ID of the parent comment to reply to. Example: "UgyYYtDkvwfR2g4Y8HZ4AaABAg"
+   */
+  parentId: string;
+  /**
+   * The original text of the reply. Example: "Thanks for watching!"
+   */
+  textOriginal: string;
+};
+
+export interface ActionOutput_youtube_createcommentreply {
+  id: string;
+  parentId?: string | undefined;
+  textOriginal?: string | undefined;
+  authorDisplayName?: string | undefined;
+  authorProfileImageUrl?: string | undefined;
+  authorChannelUrl?: string | undefined;
+  authorChannelId?: string | undefined;
+  videoId?: string | undefined;
+  likeCount?: number | undefined;
+  publishedAt?: string | undefined;
+  updatedAt?: string | undefined;
+};
+
+export interface ActionInput_youtube_createcomment {
+  /**
+   * The ID of the video to comment on. Example: "dQw4w9WgXcQ"
+   */
+  videoId: string;
+  /**
+   * The ID of the channel that owns the video. Example: "UC_x5XG1OV2P6uZZ5FSM9Ttw"
+   */
+  channelId: string;
+  /**
+   * The text content of the comment. Example: "Great video!"
+   */
+  text: string;
+};
+
+export interface ActionOutput_youtube_createcomment {
+  commentThreadId: string;
+  commentId: string;
+  channelId: string;
+  videoId: string;
+  textDisplay: string;
+  textOriginal: string;
+  authorDisplayName: string;
+  authorChannelId?: string | undefined;
+  publishedAt: string;
+  updatedAt: string;
+  likeCount?: number | undefined;
+  canReply?: boolean | undefined;
+  totalReplyCount?: number | undefined;
+  isPublic?: boolean | undefined;
+};
+
+export interface ActionInput_youtube_createplaylist {
+  /**
+   * The title of the playlist.
+   */
+  title: string;
+  /**
+   * The description of the playlist.
+   */
+  description?: string | undefined;
+  /**
+   * The privacy status of the playlist.
+   */
+  privacyStatus?: 'public' | 'unlisted' | 'private' | undefined;
+};
+
+export interface ActionOutput_youtube_createplaylist {
+  id: string;
+  title?: string | undefined;
+  description?: string | undefined;
+  privacyStatus?: string | undefined;
+};
+
+export interface ActionInput_youtube_deletecomment {
+  /**
+   * The ID of the comment to delete. Example: "UgyR8T-2e8gRcv1o0zN4AaABAg"
+   */
+  commentId: string;
+};
+
+export interface ActionOutput_youtube_deletecomment {
+  success: boolean;
+};
+
+export interface ActionInput_youtube_deleteplaylistitem {
+  /**
+   * The ID of the playlist item to delete. Example: "PL1234567890abcdefABCDEF1234567890abcdefAB"
+   */
+  playlistItemId: string;
+};
+
+export interface ActionOutput_youtube_deleteplaylistitem {
+  /**
+   * Whether the playlist item was successfully deleted
+   */
+  success: boolean;
+};
+
+export interface ActionInput_youtube_deleteplaylist {
+  /**
+   * The YouTube playlist ID to delete. Example: "PLxxxxxxxxxxxxxxxxxxxxxxxxxxx"
+   */
+  playlistId: string;
+};
+
+export interface ActionOutput_youtube_deleteplaylist {
+  success: boolean;
+  playlistId: string;
+};
+
+export interface ActionInput_youtube_deletevideo {
+  /**
+   * The ID of the video to delete. Example: "dQw4w9WgXcQ"
+   */
+  videoId: string;
+};
+
+export interface ActionOutput_youtube_deletevideo {
+  success: boolean;
+  message: string;
+};
+
+export interface ActionInput_youtube_getchannel {
+  id?: string | undefined;
+  forHandle?: string | undefined;
+  forUsername?: string | undefined;
+  mine?: boolean | undefined;
+};
+
+export interface ActionOutput_youtube_getchannel {
+  id: string;
+  title?: string | undefined;
+  description?: string | undefined;
+  customUrl?: string | undefined;
+  publishedAt?: string | undefined;
+  thumbnails?: {  [key: string]: {  url?: string | undefined;
+  width?: number | undefined;
+  height?: number | undefined;};};
+  country?: string | undefined;
+  viewCount?: string | undefined;
+  subscriberCount?: string | undefined;
+  hiddenSubscriberCount?: boolean | undefined;
+  videoCount?: string | undefined;
+  relatedPlaylists?: {  likes?: string | undefined;
+  favorites?: string | undefined;
+  uploads?: string | undefined;};
+  brandingSettings?: {  channel?: {  title?: string | undefined;
+  description?: string | undefined;
+  keywords?: string | undefined;
+  defaultTab?: string | undefined;
+  trackingAnalyticsAccountId?: string | undefined;
+  moderateComments?: boolean | undefined;
+  showRelatedChannels?: boolean | undefined;
+  showBrowseView?: boolean | undefined;
+  featuredChannelsTitle?: string | undefined;
+  featuredChannelsUrls?: string[] | undefined;
+  unsubscribedTrailer?: string | undefined;
+  profileColor?: string | undefined;
+  defaultLanguage?: string | undefined;
+  country?: string | undefined;};
+  image?: {  bannerImageUrl?: string | undefined;
+  bannerMobileImageUrl?: string | undefined;
+  bannerTabletLowImageUrl?: string | undefined;
+  bannerTabletImageUrl?: string | undefined;
+  bannerTabletHdImageUrl?: string | undefined;
+  bannerTabletExtraHdImageUrl?: string | undefined;
+  bannerMobileLowImageUrl?: string | undefined;
+  bannerMobileMediumHdImageUrl?: string | undefined;
+  bannerMobileHdImageUrl?: string | undefined;
+  bannerMobileExtraHdImageUrl?: string | undefined;
+  bannerTvImageUrl?: string | undefined;
+  bannerTvLowImageUrl?: string | undefined;
+  bannerTvMediumImageUrl?: string | undefined;
+  bannerTvHighImageUrl?: string | undefined;
+  bannerExternalUrl?: string | undefined;};
+  watch?: {  textColor?: string | undefined;
+  backgroundColor?: string | undefined;
+  featuredPlaylistId?: string | undefined;};};
+};
+
+export interface ActionInput_youtube_getcomment {
+  /**
+   * The ID of the comment to retrieve. Example: "UgxT9K7pHq8QfC2z3t4"
+   */
+  commentId: string;
+};
+
+export interface ActionOutput_youtube_getcomment {
+  id: string;
+  authorDisplayName?: string | undefined;
+  authorProfileImageUrl?: string | undefined;
+  authorChannelUrl?: string | undefined;
+  authorChannelId?: string | undefined;
+  channelId?: string | undefined;
+  textDisplay?: string | undefined;
+  textOriginal?: string | undefined;
+  parentId?: string | undefined;
+  canRate?: boolean | undefined;
+  viewerRating?: string | undefined;
+  likeCount?: number | undefined;
+  moderationStatus?: string | undefined;
+  publishedAt?: string | undefined;
+  updatedAt?: string | undefined;
+};
+
+export interface ActionInput_youtube_getplaylist {
+  /**
+   * The ID of the YouTube playlist to retrieve. Example: "PLxxxxxxxxxxxxxxxxxxx"
+   */
+  playlistId: string;
+};
+
+export interface ActionOutput_youtube_getplaylist {
+  id: string;
+  title?: string | undefined;
+  description?: string | undefined;
+  publishedAt?: string | undefined;
+  channelId?: string | undefined;
+  channelTitle?: string | undefined;
+  itemCount?: number | undefined;
+  privacyStatus?: 'public' | 'unlisted' | 'private' | undefined;
+  thumbnails?: {  [key: string]: {  url: string;
+  width?: number | undefined;
+  height?: number | undefined;};};
+};
+
+export interface ActionInput_youtube_getvideo {
+  /**
+   * YouTube video ID. Example: "dQw4w9WgXcQ"
+   */
+  videoId: string;
+};
+
+export interface ActionOutput_youtube_getvideo {
+  id: string;
+  title?: string | undefined;
+  description?: string | undefined;
+  publishedAt?: string | undefined;
+  channelId?: string | undefined;
+  channelTitle?: string | undefined;
+  duration?: string | undefined;
+  viewCount?: string | undefined;
+  likeCount?: string | undefined;
+  commentCount?: string | undefined;
+  privacyStatus?: string | undefined;
+  thumbnails?: any | undefined;
+  tags?: string[] | undefined;
+  categoryId?: string | undefined;
+  definition?: string | undefined;
+  caption?: string | undefined;
+  embeddable?: boolean | undefined;
+};
+
+export interface ActionInput_youtube_listcaptions {
+  /**
+   * The YouTube video ID of the video for which to return caption tracks. Example: "dQw4w9WgXcQ"
+   */
+  videoId: string;
+};
+
+export interface ActionOutput_youtube_listcaptions {
+  items: ({  id: string;
+  videoId?: string | undefined;
+  lastUpdated?: string | undefined;
+  trackKind?: string | undefined;
+  language?: string | undefined;
+  name?: string | undefined;
+  audioTrackType?: string | undefined;
+  isCC?: boolean | undefined;
+  isLarge?: boolean | undefined;
+  isEasyReader?: boolean | undefined;
+  isDraft?: boolean | undefined;
+  isAutoSynced?: boolean | undefined;
+  status?: string | undefined;
+  failureReason?: string | undefined;})[];
+  /**
+   * The token for the next page of results.
+   */
+  nextPageToken?: string | undefined;
+};
+
+export interface ActionInput_youtube_listchannelplaylists {
+  /**
+   * The YouTube channel ID. Example: "UC_x5XG1OV2P6uZZ5FSM9Ttw"
+   */
+  channelId: string;
+  /**
+   * Maximum number of playlists to return (1-50). Default: 5
+   */
+  maxResults?: number | undefined;
+  /**
+   * Pagination token for the next page of results
+   */
+  pageToken?: string | undefined;
+};
+
+export interface ActionOutput_youtube_listchannelplaylists {
+  playlists: ({  id: string;
+  title?: string | undefined;
+  description?: string | undefined;
+  channelId?: string | undefined;
+  channelTitle?: string | undefined;
+  publishedAt?: string | undefined;
+  privacyStatus?: string | undefined;
+  itemCount?: number | undefined;
+  thumbnails?: {  [key: string]: {  url: string;
+  width?: number | undefined;
+  height?: number | undefined;};};})[];
+  nextPageToken?: string | undefined;
+  prevPageToken?: string | undefined;
+  totalResults: number;
+};
+
+export interface ActionInput_youtube_listcommentthreads {
+  /**
+   * The video ID to retrieve comment threads for. Example: "dQw4w9WgXcQ"
+   */
+  videoId?: string | undefined;
+  /**
+   * The channel ID to retrieve all comment threads for.
+   */
+  allThreadsRelatedToChannelId?: string | undefined;
+  /**
+   * The token for the next page of results.
+   */
+  pageToken?: string | undefined;
+  /**
+   * Maximum number of results to return (1-100). Default: 20.
+   */
+  maxResults?: number | undefined;
+  /**
+   * Order of comment threads. time (default) or relevance.
+   */
+  order?: 'time' | 'relevance' | undefined;
+  /**
+   * Search terms to filter comments.
+   */
+  searchTerms?: string | undefined;
+  /**
+   * Format of comments. html (default) or plainText.
+   */
+  textFormat?: 'html' | 'plainText' | undefined;
+};
+
+export interface ActionOutput_youtube_listcommentthreads {
+  items: ({  id: string;
+  videoId?: string | undefined;
+  channelId?: string | undefined;
+  topLevelCommentId?: string | undefined;
+  topLevelCommentAuthor?: string | undefined;
+  topLevelCommentText?: string | undefined;
+  topLevelCommentPublishedAt?: string | undefined;
+  topLevelCommentLikeCount?: number | undefined;
+  totalReplyCount?: number | undefined;
+  canReply?: boolean | undefined;
+  isPublic?: boolean | undefined;
+  replies?: ({  id: string;
+  author?: string | undefined;
+  text?: string | undefined;
+  publishedAt?: string | undefined;
+  likeCount?: number | undefined;})[];})[];
+  nextPageToken?: string | undefined;
+};
+
+export interface ActionInput_youtube_listplaylistitems {
+  /**
+   * The ID of the YouTube playlist to list items from. Example: "PLBCF2DAC6FFB574DE"
+   */
+  playlistId: string;
+  /**
+   * The maximum number of items to return (1-50, default 50).
+   */
+  maxResults?: number | undefined;
+  /**
+   * Pagination token from the previous response. Omit for the first page.
+   */
+  cursor?: string | undefined;
+};
+
+export interface ActionOutput_youtube_listplaylistitems {
+  /**
+   * The playlist items returned.
+   */
+  items: ({  /**
+   * The unique ID of the playlist item.
+   */
+  id: string;
+  /**
+   * The ID of the playlist this item belongs to.
+   */
+  playlistId?: string | undefined;
+  /**
+   * The ID of the video in this playlist item.
+   */
+  videoId?: string | undefined;
+  /**
+   * The position of the item in the playlist (0-indexed).
+   */
+  position?: number | undefined;
+  /**
+   * The title of the video.
+   */
+  title?: string | undefined;
+  /**
+   * The description of the video.
+   */
+  description?: string | undefined;
+  /**
+   * The date and time the item was added to the playlist.
+   */
+  publishedAt?: string | undefined;
+  /**
+   * The ID of the channel that owns the playlist.
+   */
+  channelId?: string | undefined;
+  /**
+   * The title of the channel that owns the playlist.
+   */
+  channelTitle?: string | undefined;
+  /**
+   * The ID of the channel that uploaded the video.
+   */
+  videoOwnerChannelId?: string | undefined;
+  /**
+   * The title of the channel that uploaded the video.
+   */
+  videoOwnerChannelTitle?: string | undefined;
+  /**
+   * The privacy status of the video (public, unlisted, private).
+   */
+  privacyStatus?: string | undefined;
+  /**
+   * The date and time the video was published.
+   */
+  videoPublishedAt?: string | undefined;
+  /**
+   * Thumbnail images for the video.
+   */
+  thumbnails?: {  [key: string]: {  url?: string | undefined;
+  width?: number | undefined;
+  height?: number | undefined;};};})[];
+  /**
+   * Token for the next page of results. Omit if no more results.
+   */
+  nextCursor?: string | undefined;
+  /**
+   * Total number of results available.
+   */
+  totalResults?: number | undefined;
+  /**
+   * Number of results returned per page.
+   */
+  resultsPerPage?: number | undefined;
+};
+
+export interface ActionInput_youtube_listuploadedvideos {
+  /**
+   * YouTube channel ID. If omitted, uses the authenticated user's channel ("mine"). Example: "UC_x5XG1OV2P6uZZ5FSM9Ttw"
+   */
+  channel_id?: string | undefined;
+  /**
+   * Page token from a previous response next_cursor to fetch the next page of results.
+   */
+  cursor?: string | undefined;
+};
+
+export interface ActionOutput_youtube_listuploadedvideos {
+  items: ({  id: string;
+  title: string;
+  description?: string | undefined;
+  published_at: string;
+  channel_id: string;
+  channel_title?: string | undefined;
+  video_id: string;
+  thumbnail_url?: string | undefined;
+  position?: number | undefined;})[];
+  next_cursor?: string | undefined;
+};
+
+export interface ActionInput_youtube_updatecomment {
+  /**
+   * The ID of the comment to update. Example: "UgzDE2pQ6kCHY1EaXcJ4AaABAg"
+   */
+  id: string;
+  /**
+   * The new text content for the comment.
+   */
+  textOriginal: string;
+};
+
+export interface ActionOutput_youtube_updatecomment {
+  id: string;
+  authorDisplayName: string;
+  authorChannelId?: string | undefined;
+  textDisplay: string;
+  textOriginal: string;
+  likeCount?: number | undefined;
+  publishedAt: string;
+  updatedAt: string;
+  videoId?: string | undefined;
+  parentId?: string | undefined;
+  channelId?: string | undefined;
+};
+
+export interface ActionInput_youtube_updateplaylistitem {
+  id: string;
+  playlistId: string;
+  resourceId: {  kind: string;
+  videoId: string;};
+  position?: number | undefined;
+  note?: string | undefined;
+  startAt?: string | undefined;
+  endAt?: string | undefined;
+};
+
+export interface ActionOutput_youtube_updateplaylistitem {
+  id: string;
+  playlistId: string;
+  videoId: string;
+  position?: number | undefined;
+  title?: string | undefined;
+  description?: string | undefined;
+  publishedAt?: string | undefined;
+  channelId?: string | undefined;
+  channelTitle?: string | undefined;
+  thumbnails?: any | undefined;
+  note?: string | undefined;
+  startAt?: string | undefined;
+  endAt?: string | undefined;
+  privacyStatus?: string | undefined;
+  videoPublishedAt?: string | undefined;
+};
+
+export interface ActionInput_youtube_updateplaylist {
+  /**
+   * The ID of the playlist to update. Example: "PLBCF2DAC6FFB6DE8"
+   */
+  id: string;
+  /**
+   * The title of the playlist.
+   */
+  title?: string | undefined;
+  /**
+   * The description of the playlist.
+   */
+  description?: string | undefined;
+  /**
+   * The privacy status of the playlist.
+   */
+  privacyStatus?: 'public' | 'unlisted' | 'private' | undefined;
+};
+
+export interface ActionOutput_youtube_updateplaylist {
+  id: string;
+  title?: string | undefined;
+  description?: string | undefined;
+  privacyStatus?: 'public' | 'unlisted' | 'private' | undefined;
+};
+
+export interface ActionInput_youtube_updatevideo {
+  /**
+   * The ID of the video to update. Example: "dQw4w9WgXcQ"
+   */
+  id: string;
+  snippet?: {  /**
+   * The title of the video.
+   */
+  title?: string | undefined;
+  /**
+   * The description of the video.
+   */
+  description?: string | undefined;
+  /**
+   * Tags associated with the video.
+   */
+  tags?: string[] | undefined;
+  /**
+   * The category ID for the video.
+   */
+  categoryId?: string | undefined;
+  /**
+   * The default language of the video.
+   */
+  defaultLanguage?: string | undefined;};
+  status?: {  /**
+   * The privacy status of the video.
+   */
+  privacyStatus?: 'public' | 'unlisted' | 'private' | undefined;
+  /**
+   * The license of the video.
+   */
+  license?: 'youtube' | 'creativeCommon' | undefined;
+  /**
+   * Whether the video can be embedded.
+   */
+  embeddable?: boolean | undefined;
+  /**
+   * Whether the public can view video statistics.
+   */
+  publicStatsViewable?: boolean | undefined;
+  /**
+   * Scheduled publish time (ISO 8601). Requires privacyStatus to be private.
+   */
+  publishAt?: string | undefined;
+  /**
+   * Whether the video is self-declared as made for kids.
+   */
+  selfDeclaredMadeForKids?: boolean | undefined;
+  /**
+   * Whether the video contains synthetic media.
+   */
+  containsSyntheticMedia?: boolean | undefined;};
+  /**
+   * Localized titles and descriptions by language code.
+   */
+  localizations?: {  [key: string]: {  title?: string | undefined;
+  description?: string | undefined;};};
+  recordingDetails?: {  /**
+   * The date the video was recorded (ISO 8601).
+   */
+  recordingDate?: string | undefined;};
+};
+
+export interface ActionOutput_youtube_updatevideo {
+  id: string;
+  snippet?: {  title: string;
+  description?: string | undefined;
+  tags?: string[] | undefined;
+  categoryId?: string | undefined;
+  defaultLanguage?: string | undefined;};
+  status?: {  privacyStatus?: string | undefined;
+  license?: string | undefined;
+  embeddable?: boolean | undefined;
+  publicStatsViewable?: boolean | undefined;
+  publishAt?: string | undefined;
+  selfDeclaredMadeForKids?: boolean | undefined;
+  containsSyntheticMedia?: boolean | undefined;};
+  localizations?: {  [key: string]: {  title?: string | undefined;
+  description?: string | undefined;};};
+  recordingDetails?: {  recordingDate?: string | undefined;};
+};
+
 export interface SyncMetadata_zendesk_articles {
 };
 
 export interface SyncMetadata_zendesk_categories {
-};
-
-export interface Section {
-  id: string;
-  url: string;
-  category_id: number;
-  name: string;
-  description: string;
 };
 
 export interface SyncMetadata_zendesk_sections {

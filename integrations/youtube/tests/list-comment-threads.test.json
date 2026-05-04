@@ -1,0 +1,317 @@
+{
+  "input": {
+    "videoId": "cJK5VJubPNs",
+    "maxResults": 5
+  },
+  "output": {
+    "items": [
+      {
+        "id": "UgxvFA1GhF38NRDose14AaABAg",
+        "videoId": "cJK5VJubPNs",
+        "channelId": "UCZXMDk2QjU7dBanCVrMj4CA",
+        "topLevelCommentId": "UgxvFA1GhF38NRDose14AaABAg",
+        "topLevelCommentAuthor": "@NangoDeveloper",
+        "topLevelCommentText": "Test comment from Nango action",
+        "topLevelCommentPublishedAt": "2026-05-01T12:04:17Z",
+        "topLevelCommentLikeCount": 0,
+        "totalReplyCount": 0,
+        "canReply": true,
+        "isPublic": true
+      },
+      {
+        "id": "UgwUyNwbwyTOAhG6eJh4AaABAg",
+        "videoId": "cJK5VJubPNs",
+        "channelId": "UCZXMDk2QjU7dBanCVrMj4CA",
+        "topLevelCommentId": "UgwUyNwbwyTOAhG6eJh4AaABAg",
+        "topLevelCommentAuthor": "@NangoDeveloper",
+        "topLevelCommentText": "Test comment from Nango action",
+        "topLevelCommentPublishedAt": "2026-05-01T12:04:05Z",
+        "topLevelCommentLikeCount": 0,
+        "totalReplyCount": 0,
+        "canReply": true,
+        "isPublic": true
+      },
+      {
+        "id": "UgxFAUol9jlQn4MTEax4AaABAg",
+        "videoId": "cJK5VJubPNs",
+        "channelId": "UCZXMDk2QjU7dBanCVrMj4CA",
+        "topLevelCommentId": "UgxFAUol9jlQn4MTEax4AaABAg",
+        "topLevelCommentAuthor": "@NangoDeveloper",
+        "topLevelCommentText": "Wonderful",
+        "topLevelCommentPublishedAt": "2026-05-01T11:41:26Z",
+        "topLevelCommentLikeCount": 0,
+        "totalReplyCount": 1,
+        "canReply": true,
+        "isPublic": true,
+        "replies": [
+          {
+            "id": "UgxFAUol9jlQn4MTEax4AaABAg.AWGN6-AiAZGAWGN9zRYZhq",
+            "author": "@NangoDeveloper",
+            "text": "Trees Bien",
+            "publishedAt": "2026-05-01T11:41:59Z",
+            "likeCount": 0
+          }
+        ]
+      },
+      {
+        "id": "UgxY57TPPitUW7SP-Pl4AaABAg",
+        "videoId": "cJK5VJubPNs",
+        "channelId": "UCZXMDk2QjU7dBanCVrMj4CA",
+        "topLevelCommentId": "UgxY57TPPitUW7SP-Pl4AaABAg",
+        "topLevelCommentAuthor": "@NangoDeveloper",
+        "topLevelCommentText": "Those are trees",
+        "topLevelCommentPublishedAt": "2026-05-01T11:41:16Z",
+        "topLevelCommentLikeCount": 0,
+        "totalReplyCount": 1,
+        "canReply": true,
+        "isPublic": true,
+        "replies": [
+          {
+            "id": "UgxY57TPPitUW7SP-Pl4AaABAg.AWGN4gcuthyAWGNGO1uuI4",
+            "author": "@NangoDeveloper",
+            "text": "Montage",
+            "publishedAt": "2026-05-01T11:42:51Z",
+            "likeCount": 0
+          }
+        ]
+      }
+    ]
+  },
+  "nango": {},
+  "api": {
+    "get": {
+      "/youtube/v3/commentThreads": {
+        "response": {
+          "kind": "youtube#commentThreadListResponse",
+          "etag": "laL3bD3U2Jz-lZNTSYfRUXa9h7I",
+          "pageInfo": {
+            "totalResults": 4,
+            "resultsPerPage": 5
+          },
+          "items": [
+            {
+              "kind": "youtube#commentThread",
+              "etag": "0D_7p-60sWysbtLWNwSkgtleFBU",
+              "id": "UgxvFA1GhF38NRDose14AaABAg",
+              "snippet": {
+                "channelId": "UCZXMDk2QjU7dBanCVrMj4CA",
+                "videoId": "cJK5VJubPNs",
+                "topLevelComment": {
+                  "kind": "youtube#comment",
+                  "etag": "U3r9LkVJQ-vclP0gAeryZT4pUyA",
+                  "id": "UgxvFA1GhF38NRDose14AaABAg",
+                  "snippet": {
+                    "channelId": "UCZXMDk2QjU7dBanCVrMj4CA",
+                    "videoId": "cJK5VJubPNs",
+                    "textDisplay": "Test comment from Nango action",
+                    "textOriginal": "Test comment from Nango action",
+                    "authorDisplayName": "@NangoDeveloper",
+                    "authorProfileImageUrl": "https://yt3.ggpht.com/ytc/AIdro_n4EABOy6Ijor53Y9vON11pv7lnVa4DCZbpGTyhfVHnh3Pxiux6cQbieChI2FN94xMBGA=s48-c-k-c0x00ffffff-no-rj",
+                    "authorChannelUrl": "http://www.youtube.com/@NangoDeveloper",
+                    "authorChannelId": {
+                      "value": "UCZXMDk2QjU7dBanCVrMj4CA"
+                    },
+                    "canRate": true,
+                    "viewerRating": "none",
+                    "likeCount": 0,
+                    "publishedAt": "2026-05-01T12:04:17Z",
+                    "updatedAt": "2026-05-01T12:04:17Z"
+                  }
+                },
+                "canReply": true,
+                "totalReplyCount": 0,
+                "isPublic": true
+              }
+            },
+            {
+              "kind": "youtube#commentThread",
+              "etag": "-99Jv5647Tw_6llibnMDQJ3PbPw",
+              "id": "UgwUyNwbwyTOAhG6eJh4AaABAg",
+              "snippet": {
+                "channelId": "UCZXMDk2QjU7dBanCVrMj4CA",
+                "videoId": "cJK5VJubPNs",
+                "topLevelComment": {
+                  "kind": "youtube#comment",
+                  "etag": "71hb0fR60eHZu9y_wQqKxPbSRrM",
+                  "id": "UgwUyNwbwyTOAhG6eJh4AaABAg",
+                  "snippet": {
+                    "channelId": "UCZXMDk2QjU7dBanCVrMj4CA",
+                    "videoId": "cJK5VJubPNs",
+                    "textDisplay": "Test comment from Nango action",
+                    "textOriginal": "Test comment from Nango action",
+                    "authorDisplayName": "@NangoDeveloper",
+                    "authorProfileImageUrl": "https://yt3.ggpht.com/ytc/AIdro_n4EABOy6Ijor53Y9vON11pv7lnVa4DCZbpGTyhfVHnh3Pxiux6cQbieChI2FN94xMBGA=s48-c-k-c0x00ffffff-no-rj",
+                    "authorChannelUrl": "http://www.youtube.com/@NangoDeveloper",
+                    "authorChannelId": {
+                      "value": "UCZXMDk2QjU7dBanCVrMj4CA"
+                    },
+                    "canRate": true,
+                    "viewerRating": "none",
+                    "likeCount": 0,
+                    "publishedAt": "2026-05-01T12:04:05Z",
+                    "updatedAt": "2026-05-01T12:04:05Z"
+                  }
+                },
+                "canReply": true,
+                "totalReplyCount": 0,
+                "isPublic": true
+              }
+            },
+            {
+              "kind": "youtube#commentThread",
+              "etag": "Fu5vh5HwIMBAnJlccY0xTo3TPFU",
+              "id": "UgxFAUol9jlQn4MTEax4AaABAg",
+              "snippet": {
+                "channelId": "UCZXMDk2QjU7dBanCVrMj4CA",
+                "videoId": "cJK5VJubPNs",
+                "topLevelComment": {
+                  "kind": "youtube#comment",
+                  "etag": "KirtJwAOx9x_lUtxa3N96p7c1yQ",
+                  "id": "UgxFAUol9jlQn4MTEax4AaABAg",
+                  "snippet": {
+                    "channelId": "UCZXMDk2QjU7dBanCVrMj4CA",
+                    "videoId": "cJK5VJubPNs",
+                    "textDisplay": "Wonderful",
+                    "textOriginal": "Wonderful",
+                    "authorDisplayName": "@NangoDeveloper",
+                    "authorProfileImageUrl": "https://yt3.ggpht.com/ytc/AIdro_n4EABOy6Ijor53Y9vON11pv7lnVa4DCZbpGTyhfVHnh3Pxiux6cQbieChI2FN94xMBGA=s48-c-k-c0x00ffffff-no-rj",
+                    "authorChannelUrl": "http://www.youtube.com/@NangoDeveloper",
+                    "authorChannelId": {
+                      "value": "UCZXMDk2QjU7dBanCVrMj4CA"
+                    },
+                    "canRate": true,
+                    "viewerRating": "none",
+                    "likeCount": 0,
+                    "publishedAt": "2026-05-01T11:41:26Z",
+                    "updatedAt": "2026-05-01T11:41:26Z"
+                  }
+                },
+                "canReply": true,
+                "totalReplyCount": 1,
+                "isPublic": true
+              },
+              "replies": {
+                "comments": [
+                  {
+                    "kind": "youtube#comment",
+                    "etag": "lCwWatPm3oauF4aXAT3bTSJ9rC8",
+                    "id": "UgxFAUol9jlQn4MTEax4AaABAg.AWGN6-AiAZGAWGN9zRYZhq",
+                    "snippet": {
+                      "channelId": "UCZXMDk2QjU7dBanCVrMj4CA",
+                      "videoId": "cJK5VJubPNs",
+                      "textDisplay": "Trees Bien",
+                      "textOriginal": "Trees Bien",
+                      "parentId": "UgxFAUol9jlQn4MTEax4AaABAg",
+                      "authorDisplayName": "@NangoDeveloper",
+                      "authorProfileImageUrl": "https://yt3.ggpht.com/ytc/AIdro_n4EABOy6Ijor53Y9vON11pv7lnVa4DCZbpGTyhfVHnh3Pxiux6cQbieChI2FN94xMBGA=s48-c-k-c0x00ffffff-no-rj",
+                      "authorChannelUrl": "http://www.youtube.com/@NangoDeveloper",
+                      "authorChannelId": {
+                        "value": "UCZXMDk2QjU7dBanCVrMj4CA"
+                      },
+                      "canRate": true,
+                      "viewerRating": "none",
+                      "likeCount": 0,
+                      "publishedAt": "2026-05-01T11:41:59Z",
+                      "updatedAt": "2026-05-01T11:41:59Z"
+                    }
+                  }
+                ]
+              }
+            },
+            {
+              "kind": "youtube#commentThread",
+              "etag": "ATuZozIfhLTZ-Cey1eWGiic3ED4",
+              "id": "UgxY57TPPitUW7SP-Pl4AaABAg",
+              "snippet": {
+                "channelId": "UCZXMDk2QjU7dBanCVrMj4CA",
+                "videoId": "cJK5VJubPNs",
+                "topLevelComment": {
+                  "kind": "youtube#comment",
+                  "etag": "IK1MPi_AD-af5Jb9X8fw-dMuoxs",
+                  "id": "UgxY57TPPitUW7SP-Pl4AaABAg",
+                  "snippet": {
+                    "channelId": "UCZXMDk2QjU7dBanCVrMj4CA",
+                    "videoId": "cJK5VJubPNs",
+                    "textDisplay": "Those are trees",
+                    "textOriginal": "Those are trees",
+                    "authorDisplayName": "@NangoDeveloper",
+                    "authorProfileImageUrl": "https://yt3.ggpht.com/ytc/AIdro_n4EABOy6Ijor53Y9vON11pv7lnVa4DCZbpGTyhfVHnh3Pxiux6cQbieChI2FN94xMBGA=s48-c-k-c0x00ffffff-no-rj",
+                    "authorChannelUrl": "http://www.youtube.com/@NangoDeveloper",
+                    "authorChannelId": {
+                      "value": "UCZXMDk2QjU7dBanCVrMj4CA"
+                    },
+                    "canRate": true,
+                    "viewerRating": "none",
+                    "likeCount": 0,
+                    "publishedAt": "2026-05-01T11:41:16Z",
+                    "updatedAt": "2026-05-01T11:41:16Z"
+                  }
+                },
+                "canReply": true,
+                "totalReplyCount": 1,
+                "isPublic": true
+              },
+              "replies": {
+                "comments": [
+                  {
+                    "kind": "youtube#comment",
+                    "etag": "ug4eVobO5gsc7PAeLGeDdQghCd4",
+                    "id": "UgxY57TPPitUW7SP-Pl4AaABAg.AWGN4gcuthyAWGNGO1uuI4",
+                    "snippet": {
+                      "channelId": "UCZXMDk2QjU7dBanCVrMj4CA",
+                      "videoId": "cJK5VJubPNs",
+                      "textDisplay": "Montage",
+                      "textOriginal": "Montage",
+                      "parentId": "UgxY57TPPitUW7SP-Pl4AaABAg",
+                      "authorDisplayName": "@NangoDeveloper",
+                      "authorProfileImageUrl": "https://yt3.ggpht.com/ytc/AIdro_n4EABOy6Ijor53Y9vON11pv7lnVa4DCZbpGTyhfVHnh3Pxiux6cQbieChI2FN94xMBGA=s48-c-k-c0x00ffffff-no-rj",
+                      "authorChannelUrl": "http://www.youtube.com/@NangoDeveloper",
+                      "authorChannelId": {
+                        "value": "UCZXMDk2QjU7dBanCVrMj4CA"
+                      },
+                      "canRate": true,
+                      "viewerRating": "none",
+                      "likeCount": 0,
+                      "publishedAt": "2026-05-01T11:42:51Z",
+                      "updatedAt": "2026-05-01T11:42:51Z"
+                    }
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        "status": 200,
+        "headers": {
+          "date": "Fri, 01 May 2026 12:04:49 GMT",
+          "content-type": "application/json; charset=UTF-8",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=5184000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4953",
+          "x-ratelimit-reset": "1777637099",
+          "vary": "Origin, X-Origin, Referer",
+          "server": "scaffolding on HTTPServer2",
+          "alt-svc": "h3=\":443\"; ma=2592000,h3-29=\":443\"; ma=2592000"
+        },
+        "hash": "f97e753305a52887dbe8b3338a8bf8eb106b9a57",
+        "request": {
+          "params": {
+            "maxResults": "5",
+            "part": "snippet,replies",
+            "videoId": "cJK5VJubPNs"
+          }
+        }
+      }
+    }
+  }
+}

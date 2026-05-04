@@ -1,0 +1,78 @@
+{
+  "input": {
+    "owner": "viictoo",
+    "repo": "api-playground2",
+    "pull_number": 7
+  },
+  "output": {
+    "files": [
+      {
+        "sha": "e2659cb2d3ee3afd704ab2f14e5a93feb3688f87",
+        "filename": "src/greetings.py",
+        "status": "added",
+        "additions": 1,
+        "deletions": 0,
+        "changes": 1,
+        "blob_url": "https://github.com/viictoo/api-playground2/blob/2f68cb4b1ff7b32db9c74269be41296c9d5771dc/src%2Fgreetings.py",
+        "raw_url": "https://github.com/viictoo/api-playground2/raw/2f68cb4b1ff7b32db9c74269be41296c9d5771dc/src%2Fgreetings.py",
+        "contents_url": "https://api.github.com/repos/viictoo/api-playground2/contents/src%2Fgreetings.py?ref=2f68cb4b1ff7b32db9c74269be41296c9d5771dc",
+        "patch": "@@ -0,0 +1 @@\n+GREETINGS = [\"Hello\", \"Hi\", \"Howdy\", \"Hey\"]"
+      }
+    ]
+  },
+  "nango": {},
+  "api": {
+    "get": {
+      "/repos/viictoo/api-playground2/pulls/7/files": {
+        "response": [
+          {
+            "sha": "e2659cb2d3ee3afd704ab2f14e5a93feb3688f87",
+            "filename": "src/greetings.py",
+            "status": "added",
+            "additions": 1,
+            "deletions": 0,
+            "changes": 1,
+            "blob_url": "https://github.com/viictoo/api-playground2/blob/2f68cb4b1ff7b32db9c74269be41296c9d5771dc/src%2Fgreetings.py",
+            "raw_url": "https://github.com/viictoo/api-playground2/raw/2f68cb4b1ff7b32db9c74269be41296c9d5771dc/src%2Fgreetings.py",
+            "contents_url": "https://api.github.com/repos/viictoo/api-playground2/contents/src%2Fgreetings.py?ref=2f68cb4b1ff7b32db9c74269be41296c9d5771dc",
+            "patch": "@@ -0,0 +1 @@\n+GREETINGS = [\"Hello\", \"Hi\", \"Howdy\", \"Hey\"]"
+          }
+        ],
+        "status": 200,
+        "headers": {
+          "date": "Wed, 29 Apr 2026 10:25:43 GMT",
+          "content-type": "application/json; charset=utf-8",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "deny",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=31536000; includeSubdomains; preload",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "ETag, Link, Location, Retry-After, X-GitHub-OTP, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Used, X-RateLimit-Resource, X-RateLimit-Reset, X-OAuth-Scopes, X-Accepted-OAuth-Scopes, X-Poll-Interval, X-GitHub-Media-Type, X-GitHub-SSO, X-GitHub-Request-Id, Deprecation, Sunset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4834",
+          "x-ratelimit-reset": "1777460029",
+          "cache-control": "private, max-age=60, s-maxage=60",
+          "vary": "Accept, Authorization, Cookie, X-GitHub-OTP,Accept-Encoding, Accept, X-Requested-With",
+          "etag": "W/\"098504deaa6a5739c51c0f0436115f2f4abe776caf0fafef20b2ce5dcadce3d0\"",
+          "last-modified": "Wed, 29 Apr 2026 10:25:26 GMT",
+          "x-github-media-type": "github.v3",
+          "x-accepted-github-permissions": "pull_requests=read",
+          "x-github-api-version-selected": "2022-11-28",
+          "referrer-policy": "origin-when-cross-origin, strict-origin-when-cross-origin",
+          "content-security-policy": "default-src 'none'",
+          "server": "github.com",
+          "x-ratelimit-used": "166",
+          "x-ratelimit-resource": "core",
+          "x-github-request-id": "B400:2DAA34:14685C18:14AD6C9F:69F1DCA1"
+        },
+        "hash": "9716700c08b52e950a8cd5c6f8e1d5d517984fd7",
+        "request": {}
+      }
+    }
+  }
+}

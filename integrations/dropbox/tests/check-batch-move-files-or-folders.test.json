@@ -1,0 +1,50 @@
+{
+  "input": {
+    "async_job_id": "dbjid:AABGDjGnBPIDPekD-TnQ26ooWHXjTkUs8JCoS8YsoI6hrT6N9r2lVcOYwX8XeG_g5wC6nWmXulp5ZKFrMWqfsagm"
+  },
+  "output": {
+    "job_status": "complete",
+    "entries": [
+      {
+        "status": "success",
+        "id": "id:MzePHdV-D28AAAAAAAAAZA",
+        "name": "nango-move-test-moved",
+        "path_display": "/nango-move-test-moved",
+        "path_lower": "/nango-move-test-moved",
+        "tag": "folder"
+      }
+    ]
+  },
+  "nango": {},
+  "api": {
+    "post": {
+      "/2/files/move_batch/check_v2": {
+        "response": {
+          ".tag": "complete",
+          "entries": [
+            {
+              ".tag": "success",
+              "metadata": {
+                ".tag": "folder",
+                "id": "id:MzePHdV-D28AAAAAAAAAZA",
+                "name": "nango-move-test-moved",
+                "path_display": "/nango-move-test-moved",
+                "path_lower": "/nango-move-test-moved"
+              }
+            }
+          ]
+        },
+        "status": 200,
+        "headers": {
+          "content-type": "application/json"
+        },
+        "hash": "efb7cdc7e03add281751dcd21fda1e5d837c37bb",
+        "request": {
+          "data": {
+            "async_job_id": "dbjid:AABGDjGnBPIDPekD-TnQ26ooWHXjTkUs8JCoS8YsoI6hrT6N9r2lVcOYwX8XeG_g5wC6nWmXulp5ZKFrMWqfsagm"
+          }
+        }
+      }
+    }
+  }
+}

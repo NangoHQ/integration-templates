@@ -1,54 +1,110 @@
 import { z } from 'zod';
 import { createAction } from 'nango';
-import type { ProxyConfiguration } from 'nango';
 
 const InputSchema = z.object({
-    block_id: z.string().describe('The ID of the page or block. Example: "2b6ce298-3121-80ae-bfe1-f8984b993639"'),
-    page_size: z.number().optional().describe('Number of results to return (max 100).'),
-    cursor: z.string().optional().describe('Pagination cursor from previous response.')
+    block_id: z.string().describe('The ID of the block (page or block) to retrieve comments for. Example: "5c6a28216bb14a7eb6e1c50111515c3d"'),
+    cursor: z.string().optional().describe('Pagination cursor from the previous response. Omit for the first page.'),
+    page_size: z.number().min(1).max(100).optional().describe('Number of comments to return per page. Maximum: 100.')
+});
+
+const RichTextSchema = z.object({
+    type: z.string().optional(),
+    text: z
+        .object({
+            content: z.string(),
+            link: z
+                .object({
+                    url: z.string()
+                })
+                .optional()
+                .nullable()
+        })
+        .optional(),
+    annotations: z
+        .object({
+            bold: z.boolean().optional(),
+            italic: z.boolean().optional(),
+            strikethrough: z.boolean().optional(),
+            underline: z.boolean().optional(),
+            code: z.boolean().optional(),
+            color: z.string().optional()
+        })
+        .optional()
+});
+
+const CommentSchema = z.object({
+    object: z.literal('comment'),
+    id: z.string().describe('Unique identifier for the comment.'),
+    parent: z
+        .object({
+            type: z.string().describe('Type of parent (e.g., "page_id", "block_id").'),
+            page_id: z.string().optional(),
+            block_id: z.string().optional()
+        })
+        .passthrough(),
+    discussion_id: z.string().describe('Discussion thread ID.'),
+    created_time: z.string().describe('ISO 8601 timestamp.'),
+    last_edited_time: z.string().describe('ISO 8601 timestamp.'),
+    created_by: z
+        .object({
+            object: z.literal('user'),
+            id: z.string(),
+            name: z.string().optional(),
+            avatar_url: z.string().optional(),
+            type: z.string().optional(),
+            person: z
+                .object({
+                    email: z.string()
+                })
+                .optional()
+        })
+        .passthrough(),
+    rich_text: z.array(RichTextSchema)
 });
 
 const OutputSchema = z.object({
-    object: z.string(),
-    results: z.array(z.any()),
-    has_more: z.boolean(),
-    next_cursor: z.union([z.string(), z.null()])
+    comments: z.array(CommentSchema),
+    next_cursor: z.string().optional(),
+    has_more: z.boolean()
 });
 
 const action = createAction({
-    description: 'Retrieves unresolved comments from a page or block.',
-    version: '1.0.0',
-
+    description: 'List comments for a page or discussion thread.',
+    version: '2.0.0',
     endpoint: {
         method: 'GET',
-        path: '/comments/list',
+        path: '/actions/list-comments',
         group: 'Comments'
     },
-
     input: InputSchema,
     output: OutputSchema,
-    scopes: [],
+    scopes: ['read:comments'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
-        const config: ProxyConfiguration = {
-            // https://developers.notion.com/reference/retrieve-a-comment
-            endpoint: 'v1/comments',
+        const response = await nango.get({
+            // https://developers.notion.com/reference/list-comments
+            endpoint: '/v1/comments',
             params: {
                 block_id: input.block_id,
-                ...(input.page_size && { page_size: input.page_size }),
-                ...(input.cursor && { start_cursor: input.cursor })
+                ...(input.cursor && { start_cursor: input.cursor }),
+                ...(input.page_size && { page_size: String(input.page_size) })
             },
             retries: 3
-        };
+        });
 
-        const response = await nango.get(config);
-        const data = response.data;
+        const ResponseSchema = z.object({
+            object: z.literal('list'),
+            results: z.array(z.unknown()),
+            next_cursor: z.string().nullable(),
+            has_more: z.boolean()
+        });
+
+        const parsed = ResponseSchema.parse(response.data);
 
         return {
-            object: data.object,
-            results: data.results,
-            has_more: data.has_more,
-            next_cursor: data.next_cursor ?? null
+            comments: parsed.results.map((comment) => CommentSchema.parse(comment)),
+            ...(parsed.next_cursor !== null && { next_cursor: parsed.next_cursor }),
+            has_more: parsed.has_more
         };
     }
 });

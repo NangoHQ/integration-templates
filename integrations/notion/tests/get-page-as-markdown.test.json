@@ -1,0 +1,62 @@
+{
+  "input": {
+    "page_id": "35261e8c-e0a3-80c8-bf92-f6fb2d4a6e04"
+  },
+  "output": {
+    "id": "35261e8c-e0a3-80c8-bf92-f6fb2d4a6e04",
+    "markdown": "<empty-block/>\n<page url=\"https://app.notion.com/p/35261e8ce0a381d2870ff3014d91943c\">Test Page for Archive Mock</page>\n<database url=\"https://app.notion.com/p/197feec6f0dd4950be1ffff04221c405\" inline=\"false\" data-source-url=\"collection://ad9a7274-6fda-417c-a38b-377f296e7293\">Test Database for Data Sources</database>",
+    "truncated": false,
+    "unknown_block_ids": []
+  },
+  "nango": {},
+  "api": {
+    "get": {
+      "/v1/pages/35261e8c-e0a3-80c8-bf92-f6fb2d4a6e04/markdown": {
+        "response": {
+          "object": "page_markdown",
+          "id": "35261e8c-e0a3-80c8-bf92-f6fb2d4a6e04",
+          "markdown": "<empty-block/>\n<page url=\"https://app.notion.com/p/35261e8ce0a381d2870ff3014d91943c\">Test Page for Archive Mock</page>\n<database url=\"https://app.notion.com/p/197feec6f0dd4950be1ffff04221c405\" inline=\"false\" data-source-url=\"collection://ad9a7274-6fda-417c-a38b-377f296e7293\">Test Database for Data Sources</database>",
+          "truncated": false,
+          "unknown_block_ids": [],
+          "request_id": "de780a8d-06cb-4125-8019-f80c542b1930"
+        },
+        "status": 200,
+        "headers": {
+          "date": "Thu, 30 Apr 2026 11:22:53 GMT",
+          "content-type": "application/json; charset=utf-8",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=31536000; includeSubDomains; preload",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4944",
+          "x-ratelimit-reset": "1777548213",
+          "cf-ray": "9f462bd57a230bdf-SEA",
+          "cf-cache-status": "DYNAMIC",
+          "etag": "W/\"1f8-zLtvMYKnJWIZC3k4I9cQ+OapIAc\"",
+          "server": "cloudflare",
+          "vary": "Accept-Encoding",
+          "content-security-policy": "default-src 'none'",
+          "referrer-policy": "strict-origin-when-cross-origin",
+          "x-notion-request-id": "de780a8d-06cb-4125-8019-f80c542b1930",
+          "x-permitted-cross-domain-policies": "none",
+          "set-cookie": "__cf_bm=jkoiSSa4shjrwT1WsbvIu2uWfQ5CnEnpyhoRLa5v8nA-1777548173.6739805-1.0.1.1-g2EQliaGF13G5P0gwDWrX2rs0rbXjaf7Ebe8LgqaZBRsRu53bgKGg0aCjGxDfwj0ANm.GFj3NPlLO1vZEzeuvO9LdOQm04pzukVbZG3M3_5__micYWcQeorS5kFZkvQo; HttpOnly; Secure; Path=/; Domain=notion.com; Expires=Thu, 30 Apr 2026 11:52:53 GMT",
+          "alt-svc": "h3=\":443\"; ma=86400"
+        },
+        "hash": "99ad7bba0598968b1c5bcd124cad0ba5be9aa52f",
+        "request": {
+          "headers": {
+            "Notion-Version": "2026-03-11"
+          }
+        }
+      }
+    }
+  }
+}

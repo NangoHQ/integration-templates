@@ -1,0 +1,103 @@
+import { z } from 'zod';
+import { createAction } from 'nango';
+
+const InputSchema = z.object({});
+
+const ProviderColorSchema = z.object({
+    textColor: z.string().optional(),
+    backgroundColor: z.string().optional()
+});
+
+const ProviderLabelSchema = z.object({
+    id: z.string(),
+    name: z.string(),
+    messageListVisibility: z.string().optional(),
+    labelListVisibility: z.string().optional(),
+    type: z.string(),
+    messagesTotal: z.number().optional(),
+    messagesUnread: z.number().optional(),
+    threadsTotal: z.number().optional(),
+    threadsUnread: z.number().optional(),
+    color: ProviderColorSchema.optional()
+});
+
+const ProviderLabelsResponseSchema = z.object({
+    labels: z.array(ProviderLabelSchema).optional()
+});
+
+const LabelSchema = z.object({
+    id: z.string().describe('The immutable ID of the label'),
+    name: z.string().describe('The display name of the label'),
+    type: z.string().describe('The owner type for the label: system or user'),
+    messageListVisibility: z.string().optional().describe('The visibility of the label in the message list'),
+    labelListVisibility: z.string().optional().describe('The visibility of the label in the label list'),
+    messagesTotal: z.number().optional().describe('The total number of messages with the label'),
+    messagesUnread: z.number().optional().describe('The number of unread messages with the label'),
+    threadsTotal: z.number().optional().describe('The total number of threads with the label'),
+    threadsUnread: z.number().optional().describe('The number of unread threads with the label'),
+    textColor: z.string().optional().describe('The text color of the label'),
+    backgroundColor: z.string().optional().describe('The background color of the label')
+});
+
+const OutputSchema = z.object({
+    labels: z.array(LabelSchema)
+});
+
+const action = createAction({
+    description: 'List built-in and user-created mailbox labels.',
+    version: '1.0.0',
+    endpoint: {
+        method: 'GET',
+        path: '/actions/list-labels',
+        group: 'Labels'
+    },
+    input: InputSchema,
+    output: OutputSchema,
+    scopes: ['https://www.googleapis.com/auth/gmail.labels'],
+
+    exec: async (nango, _input): Promise<z.infer<typeof OutputSchema>> => {
+        // https://developers.google.com/workspace/gmail/api/reference/rest/v1/users.labels/list
+        const response = await nango.get({
+            endpoint: '/gmail/v1/users/me/labels',
+            retries: 3
+        });
+
+        const parsed = ProviderLabelsResponseSchema.parse(response.data);
+        const labels = parsed.labels || [];
+
+        return {
+            labels: labels.map((label) => ({
+                id: label.id,
+                name: label.name,
+                type: label.type,
+                ...(label.messageListVisibility !== undefined && {
+                    messageListVisibility: label.messageListVisibility
+                }),
+                ...(label.labelListVisibility !== undefined && {
+                    labelListVisibility: label.labelListVisibility
+                }),
+                ...(label.messagesTotal !== undefined && {
+                    messagesTotal: label.messagesTotal
+                }),
+                ...(label.messagesUnread !== undefined && {
+                    messagesUnread: label.messagesUnread
+                }),
+                ...(label.threadsTotal !== undefined && {
+                    threadsTotal: label.threadsTotal
+                }),
+                ...(label.threadsUnread !== undefined && {
+                    threadsUnread: label.threadsUnread
+                }),
+                ...(label.color?.textColor !== undefined && {
+                    textColor: label.color.textColor
+                }),
+                ...(label.color?.backgroundColor !== undefined && {
+                    backgroundColor: label.color.backgroundColor
+                })
+            }))
+        };
+    }
+});
+
+export type NangoActionLocal = Parameters<(typeof action)['exec']>[0];
+export default action;
