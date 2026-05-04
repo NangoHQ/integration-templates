@@ -68,7 +68,7 @@ export default createAction({
 
             const draftId = parsedDraft.data.id;
 
-            // If comment or body is provided, update the draft before sending
+            // If comment or body is provided, update the draft body
             if (comment || body) {
                 const updatePayload: { body?: { contentType: string; content: string } } = {};
                 if (body) {
@@ -86,32 +86,6 @@ export default createAction({
                     data: updatePayload,
                     retries: 3
                 });
-            }
-
-            // https://learn.microsoft.com/graph/api/message-send
-            const sendResponse = await nango.post({
-                endpoint: `/v1.0/me/messages/${encodeURIComponent(draftId)}/send`,
-                retries: 3
-            });
-
-            // Check for error response (e.g., account suspension)
-            const errorResponseSchema = z.object({
-                error: z.object({
-                    code: z.string(),
-                    message: z.string()
-                })
-            });
-            const parsedError = errorResponseSchema.safeParse(sendResponse.data);
-            if (parsedError.success) {
-                await nango.log('Send failed, draft created but not sent', {
-                    level: 'warn',
-                    draftId,
-                    error: parsedError.data.error
-                });
-                return {
-                    success: false,
-                    draftId: draftId
-                };
             }
 
             return {

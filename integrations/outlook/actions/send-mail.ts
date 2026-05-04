@@ -45,7 +45,7 @@ const action = createAction({
     },
     input: InputSchema,
     output: OutputSchema,
-    scopes: ['Mail.Send', 'Mail.ReadWrite'],
+    scopes: ['Mail.Send'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         // https://learn.microsoft.com/graph/api/user-sendmail

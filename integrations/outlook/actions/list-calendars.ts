@@ -2,7 +2,7 @@ import { z } from 'zod';
 import { createAction } from 'nango';
 
 const InputSchema = z.object({
-    cursor: z.string().optional().describe('Pagination cursor (skipToken) from the previous response. Omit for the first page.'),
+    cursor: z.string().optional().describe('Full @odata.nextLink URL from the previous response for pagination. Omit for the first page.'),
     limit: z.number().optional().describe('Maximum number of calendars to return. Default is 10, maximum is 50.')
 });
 
@@ -45,36 +45,17 @@ const action = createAction({
     scopes: ['Calendars.Read'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
-        const limit = input.limit ?? 10;
-
-        // Build the config for nango.get
+        // Microsoft Graph: use the full @odata.nextLink URL for subsequent pages
         // https://learn.microsoft.com/graph/api/user-list-calendars
-        const config = {
-            endpoint: '/v1.0/me/calendars',
-            params: {
-                $top: String(Math.min(limit, 50)),
-                ...(input.cursor && { $skiptoken: input.cursor })
-            },
-            retries: 3
-        };
-
-        const response = await nango.get(config);
+        const endpoint = input.cursor ?? '/v1.0/me/calendars';
+        const params = input.cursor ? {} : { $top: String(Math.min(input.limit ?? 10, 50)) };
+        const response = await nango.get({ endpoint, params, retries: 3 });
 
         const providerData = ProviderResponseSchema.parse(response.data);
 
-        // Extract skipToken from nextLink if present
-        let nextCursor: string | undefined;
-        if (providerData['@odata.nextLink']) {
-            const nextLink = providerData['@odata.nextLink'];
-            const skipTokenMatch = nextLink.match(/\$skiptoken=([^&]+)/);
-            if (skipTokenMatch && skipTokenMatch[1]) {
-                nextCursor = decodeURIComponent(skipTokenMatch[1]);
-            }
-        }
-
         return {
             calendars: providerData.value,
-            ...(nextCursor && { next_cursor: nextCursor })
+            ...(providerData['@odata.nextLink'] !== undefined && { next_cursor: providerData['@odata.nextLink'] })
         };
     }
 });

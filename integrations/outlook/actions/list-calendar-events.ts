@@ -75,6 +75,12 @@ const action = createAction({
     scopes: ['Calendars.Read'],
 
     exec: async (nango, input): Promise<z.infer<typeof ListOutputSchema>> => {
+        if ((input.start_date_time && !input.end_date_time) || (!input.start_date_time && input.end_date_time)) {
+            throw new nango.ActionError({
+                message: 'Both start_date_time and end_date_time must be provided together for a date-window query'
+            });
+        }
+
         const top = input.top || 10;
         const params: Record<string, string | number> = {
             $top: top

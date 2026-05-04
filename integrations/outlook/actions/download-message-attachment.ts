@@ -41,13 +41,19 @@ const action = createAction({
         const encodedAttachmentId = encodeURIComponent(input.attachmentId);
 
         // https://learn.microsoft.com/graph/api/attachment-get
-        const directResponse = await nango.get({
-            endpoint: `/v1.0/me/messages/${encodedMessageId}/attachments/${encodedAttachmentId}/$value`,
-            retries: 3
-        });
+        // Wrap in try/catch so non-2xx errors fall through to the metadata-based fallback
+        let directResponse: Awaited<ReturnType<typeof nango.get>> | null = null;
+        try {
+            directResponse = await nango.get({
+                endpoint: `/v1.0/me/messages/${encodedMessageId}/attachments/${encodedAttachmentId}/$value`,
+                retries: 3
+            });
+        } catch (_err) {
+            // Item/reference attachments do not support $value — fall through to metadata fetch
+        }
 
         // If we got a response with data, it means this is a file attachment with direct content
-        if (directResponse.data && typeof directResponse.data === 'string') {
+        if (directResponse?.data && typeof directResponse.data === 'string') {
             // https://learn.microsoft.com/graph/api/attachment-get
             const metadataResponse = await nango.get({
                 endpoint: `/v1.0/me/messages/${encodedMessageId}/attachments/${encodedAttachmentId}`,

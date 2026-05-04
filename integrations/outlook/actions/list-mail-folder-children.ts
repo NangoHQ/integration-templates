@@ -8,7 +8,7 @@ const InputSchema = z.object({
             'The ID of the mail folder to list children for. Example: "AAMkAGVmODUyMzE1LTM0MDctNDNlMS05YjQ1LTI4MjE5MjJmYzY1ZgAuAAAAAADY3h3zQIGrQ6Pm8GPMwoNdAQCr0pwLSY4vT6AX1L4UHn_uAAAAAAEJAAA="'
         ),
     limit: z.number().optional().describe('Maximum number of folders to return per page. Default is 10.'),
-    cursor: z.string().optional().describe('Pagination cursor from the previous response (@odata.nextLink). Omit for the first page.')
+    cursor: z.string().optional().describe('Full @odata.nextLink URL from the previous response for pagination. Omit for the first page.')
 });
 
 const ProviderMailFolderSchema = z.object({
@@ -56,29 +56,13 @@ const action = createAction({
     scopes: ['Mail.Read', 'Mail.ReadBasic', 'Mail.ReadWrite'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
-        const limit = input.limit ?? 10;
-
+        // Microsoft Graph: use the full @odata.nextLink URL for subsequent pages
         // https://learn.microsoft.com/graph/api/mailfolder-list-childfolders
-        const response = await nango.get({
-            endpoint: `/v1.0/me/mailFolders/${encodeURIComponent(input.folderId)}/childFolders`,
-            params: {
-                $top: String(limit),
-                ...(input.cursor && { $skiptoken: input.cursor })
-            },
-            retries: 3
-        });
+        const endpoint = input.cursor ?? `/v1.0/me/mailFolders/${encodeURIComponent(input.folderId)}/childFolders`;
+        const params = input.cursor ? {} : { $top: String(input.limit ?? 10) };
+        const response = await nango.get({ endpoint, params, retries: 3 });
 
         const providerResponse = ProviderResponseSchema.parse(response.data);
-
-        // Extract skip token from @odata.nextLink if present
-        let nextCursor: string | undefined;
-        if (providerResponse['@odata.nextLink']) {
-            const nextLink = providerResponse['@odata.nextLink'];
-            const skipTokenMatch = nextLink.match(/[$&?]skiptoken=([^&]*)/);
-            if (skipTokenMatch && skipTokenMatch[1]) {
-                nextCursor = decodeURIComponent(skipTokenMatch[1]);
-            }
-        }
 
         return {
             folders: providerResponse.value.map((folder) => ({
@@ -91,7 +75,7 @@ const action = createAction({
                 ...(folder.sizeInBytes !== undefined && { sizeInBytes: folder.sizeInBytes }),
                 ...(folder.isHidden !== undefined && { isHidden: folder.isHidden })
             })),
-            ...(nextCursor !== undefined && { next_cursor: nextCursor })
+            ...(providerResponse['@odata.nextLink'] !== undefined && { next_cursor: providerResponse['@odata.nextLink'] })
         };
     }
 });

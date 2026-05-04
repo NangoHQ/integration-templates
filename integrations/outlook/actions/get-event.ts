@@ -196,7 +196,7 @@ const action = createAction({
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const params: Record<string, string> = {};
         if (input['select']) {
-            params['select'] = input['select'];
+            params['$select'] = input['select'];
         }
 
         const headers: Record<string, string> = {};

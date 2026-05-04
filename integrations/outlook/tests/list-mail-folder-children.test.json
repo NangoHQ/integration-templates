@@ -25,7 +25,8 @@
         "sizeInBytes": 0,
         "isHidden": false
       }
-    ]
+    ],
+    "next_cursor": "https://graph.microsoft.com/v1.0/me/mailFolders('Inbox')/childFolders?%24top=2&%24skip=2"
   },
   "nango": {},
   "api": {

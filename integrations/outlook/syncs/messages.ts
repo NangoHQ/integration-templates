@@ -65,20 +65,64 @@ const MetadataSchema = z.object({
     backfillPeriodMs: z.number().int().positive().optional()
 });
 
+const DeltaMessageSchema = z.object({
+    id: z.string(),
+    '@removed': z.object({ reason: z.string() }).optional(),
+    subject: z.string().optional(),
+    bodyPreview: z.string().optional(),
+    importance: z.string().optional(),
+    conversationId: z.string().optional(),
+    receivedDateTime: z.string().optional(),
+    sentDateTime: z.string().optional(),
+    isRead: z.boolean().optional(),
+    isDraft: z.boolean().optional(),
+    internetMessageId: z.string().optional(),
+    sender: z
+        .object({
+            emailAddress: z
+                .object({
+                    name: z.string().optional(),
+                    address: z.string().optional()
+                })
+                .optional()
+        })
+        .optional(),
+    from: z
+        .object({
+            emailAddress: z
+                .object({
+                    name: z.string().optional(),
+                    address: z.string().optional()
+                })
+                .optional()
+        })
+        .optional(),
+    toRecipients: z
+        .array(
+            z.object({
+                emailAddress: z
+                    .object({
+                        name: z.string().optional(),
+                        address: z.string().optional()
+                    })
+                    .optional()
+            })
+        )
+        .optional(),
+    webLink: z.string().optional(),
+    createdDateTime: z.string().optional(),
+    lastModifiedDateTime: z.string().optional()
+});
+
 const DeltaPageSchema = z.object({
-    value: z.array(z.any()).default([]),
+    value: z.array(DeltaMessageSchema).default([]),
     '@odata.nextLink': z.string().optional(),
     '@odata.deltaLink': z.string().optional()
 });
 
 type Message = z.infer<typeof MessageSchema>;
 type Checkpoint = z.infer<typeof CheckpointSchema>;
-
-type DeltaMessage = Message & {
-    ['@removed']?: {
-        reason: string;
-    };
-};
+type DeltaMessage = z.infer<typeof DeltaMessageSchema>;
 
 function toMessage(message: DeltaMessage, folderId: string): Message {
     return {

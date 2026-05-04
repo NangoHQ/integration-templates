@@ -49,18 +49,14 @@ const action = createAction({
     scopes: ['Mail.Read', 'Mail.ReadBasic', 'Mail.ReadWrite'],
 
     exec: async (nango, input): Promise<z.infer<typeof ListMailFoldersOutputSchema>> => {
+        // Microsoft Graph: use the full @odata.nextLink URL for subsequent pages
+        // https://learn.microsoft.com/graph/api/user-list-mailfolders
+        const endpoint = input.nextLink ?? '/v1.0/me/mailFolders';
         const params: Record<string, string | number> = {};
-
-        if (input.limit) {
+        if (!input.nextLink && input.limit) {
             params['$top'] = input.limit;
         }
-
-        // https://learn.microsoft.com/graph/api/user-list-mailfolders
-        const response = await nango.get({
-            endpoint: '/v1.0/me/mailFolders',
-            params,
-            retries: 3
-        });
+        const response = await nango.get({ endpoint, params, retries: 3 });
 
         const providerData = ProviderResponseSchema.parse(response.data);
 

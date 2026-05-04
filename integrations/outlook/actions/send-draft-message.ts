@@ -7,7 +7,9 @@ const InputSchema = z.object({
 
 const OutputSchema = z.object({
     success: z.boolean().describe('Whether the draft was sent successfully'),
-    message_id: z.string().describe('The ID of the message that was sent')
+    message_id: z
+        .string()
+        .describe('The ID of the draft that was sent. This equals the input draft ID; the send endpoint returns no body to confirm the sent item ID.')
 });
 
 const action = createAction({

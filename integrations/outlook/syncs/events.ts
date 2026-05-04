@@ -49,6 +49,40 @@ const CheckpointSchema = z.object({
     windowEnd: z.string()
 });
 
+const ProviderEventSchema = z.object({
+    id: z.string(),
+    '@removed': z.object({ reason: z.string() }).optional(),
+    subject: z.string().optional(),
+    bodyPreview: z.string().optional(),
+    start: DateTimeTimeZoneSchema.optional(),
+    end: DateTimeTimeZoneSchema.optional(),
+    location: z.object({ displayName: z.string().optional() }).optional(),
+    isAllDay: z.boolean().optional(),
+    isCancelled: z.boolean().optional(),
+    isDraft: z.boolean().optional(),
+    isOnlineMeeting: z.boolean().optional(),
+    onlineMeetingProvider: z.string().optional(),
+    importance: z.string().optional(),
+    sensitivity: z.string().optional(),
+    showAs: z.string().optional(),
+    webLink: z.string().optional(),
+    iCalUId: z.string().optional(),
+    type: z.string().optional(),
+    seriesMasterId: z.string().optional(),
+    organizer: z
+        .object({
+            emailAddress: z.object({ address: z.string().optional(), name: z.string().optional() }).optional()
+        })
+        .optional(),
+    categories: z.array(z.string()).optional(),
+    createdDateTime: z.string().optional(),
+    lastModifiedDateTime: z.string().optional(),
+    originalStartTimeZone: z.string().optional(),
+    originalEndTimeZone: z.string().optional(),
+    hasAttachments: z.boolean().optional(),
+    changeKey: z.string().optional()
+});
+
 const DeltaPageSchema = z.object({
     value: z.array(z.any()).default([]),
     '@odata.nextLink': z.string().optional(),
@@ -107,7 +141,9 @@ const sync = createSync({
             const upserts: Array<z.infer<typeof EventSchema>> = [];
             const deletions: Array<{ id: string }> = [];
 
-            for (const event of events) {
+            for (const rawEvent of events) {
+                const event = ProviderEventSchema.parse(rawEvent);
+
                 if (event['@removed']?.reason === 'deleted') {
                     deletions.push({ id: event.id });
                     continue;
