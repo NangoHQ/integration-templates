@@ -1,0 +1,211 @@
+{
+  "input": {
+    "folderId": "inbox",
+    "limit": 2
+  },
+  "output": {
+    "messages": [
+      {
+        "id": "AQMkADAwATNiZmYAZS1hZGNjAC0zNzY5LTAwAi0wMAoARgAAA4r_TlY6z-REqceKH8A61PsHAHnHtSEqpiRFlk2OncK9A48AAAIBDAAAAHnHtSEqpiRFlk2OncK9A48AAAAdoEGuAAAA",
+        "subject": "New app(s) connected to your Microsoft account",
+        "receivedDateTime": "2026-05-04T08:32:46Z",
+        "sentDateTime": "2026-05-04T08:32:41Z",
+        "from": {
+          "emailAddress": {
+            "name": "Microsoft account team",
+            "address": "account-security-noreply@accountprotection.microsoft.com"
+          }
+        },
+        "toRecipients": [
+          {
+            "emailAddress": {
+              "name": "apinangodev@outlook.com",
+              "address": "apinangodev@outlook.com"
+            }
+          }
+        ],
+        "isRead": true,
+        "importance": "normal",
+        "conversationId": "AQQkADAwATNiZmYAZS1hZGNjAC0zNzY5LTAwAi0wMAoAEADmbu3L6wfYQ4CwplBvha45",
+        "internetMessageId": "<C85LYDND6TU4.3O4EX7CSHCON2@bl02epf00024f2f>",
+        "bodyPreview": "Microsoft account\r\nNew app(s) have access to your data\r\nNangoAPI connected to the Microsoft account ap**v@outlook.com.\r\nIf you didn't grant this access, please remove the app(s) from your account.\r\nManage your apps\r\nYou can also opt out or change where yo"
+      },
+      {
+        "id": "AQMkADAwATNiZmYAZS1hZGNjAC0zNzY5LTAwAi0wMAoARgAAA4r_TlY6z-REqceKH8A61PsHAHnHtSEqpiRFlk2OncK9A48AAAIBDAAAAHnHtSEqpiRFlk2OncK9A48AAAAdoEGtAAAA",
+        "subject": "Microsoft account security info was added",
+        "receivedDateTime": "2026-05-04T07:49:42Z",
+        "sentDateTime": "2026-05-04T07:49:37Z",
+        "from": {
+          "emailAddress": {
+            "name": "Microsoft account team",
+            "address": "account-security-noreply@accountprotection.microsoft.com"
+          }
+        },
+        "toRecipients": [
+          {
+            "emailAddress": {
+              "name": "apinangodev@outlook.com",
+              "address": "apinangodev@outlook.com"
+            }
+          }
+        ],
+        "isRead": true,
+        "importance": "normal",
+        "conversationId": "AQQkADAwATNiZmYAZS1hZGNjAC0zNzY5LTAwAi0wMAoAEADpQ2W5USd9Q6br3oXkeGcM",
+        "internetMessageId": "<HRJEJIBD6TU4.CSYS3HR4F2L11@bl02epf00024f33>",
+        "bodyPreview": "Microsoft account\r\nSecurity info was added\r\nThe following security info was recently added to the Microsoft account ap**v@outlook.com:\r\n\r\n  *   api@nango.dev\r\n\r\nIf this was you, then you can safely ignore this email.\r\nIf this wasn't you, a malicious user "
+      }
+    ],
+    "next_cursor": "https://graph.microsoft.com/v1.0/me/mailFolders('inbox')/messages?%24top=2&%24skip=2"
+  },
+  "nango": {},
+  "api": {
+    "get": {
+      "/v1.0/me/mailFolders/inbox/messages": {
+        "response": {
+          "@odata.context": "https://graph.microsoft.com/v1.0/$metadata#users('apinangodev%40outlook.com')/mailFolders('inbox')/messages",
+          "value": [
+            {
+              "@odata.etag": "W/\"CQAAABYAAAB5x7UhKqYkRZZNjp3CvQOPAAAdn45a\"",
+              "id": "AQMkADAwATNiZmYAZS1hZGNjAC0zNzY5LTAwAi0wMAoARgAAA4r_TlY6z-REqceKH8A61PsHAHnHtSEqpiRFlk2OncK9A48AAAIBDAAAAHnHtSEqpiRFlk2OncK9A48AAAAdoEGuAAAA",
+              "createdDateTime": "2026-05-04T08:32:45Z",
+              "lastModifiedDateTime": "2026-05-04T08:32:46Z",
+              "changeKey": "CQAAABYAAAB5x7UhKqYkRZZNjp3CvQOPAAAdn45a",
+              "categories": [],
+              "receivedDateTime": "2026-05-04T08:32:46Z",
+              "sentDateTime": "2026-05-04T08:32:41Z",
+              "hasAttachments": false,
+              "internetMessageId": "<C85LYDND6TU4.3O4EX7CSHCON2@bl02epf00024f2f>",
+              "subject": "New app(s) connected to your Microsoft account",
+              "bodyPreview": "Microsoft account\r\nNew app(s) have access to your data\r\nNangoAPI connected to the Microsoft account ap**v@outlook.com.\r\nIf you didn't grant this access, please remove the app(s) from your account.\r\nManage your apps\r\nYou can also opt out or change where yo",
+              "importance": "normal",
+              "parentFolderId": "AQMkADAwATNiZmYAZS1hZGNjAC0zNzY5LTAwAi0wMAoALgAAA4r_TlY6z-REqceKH8A61PsBAHnHtSEqpiRFlk2OncK9A48AAAIBDAAAAA==",
+              "conversationId": "AQQkADAwATNiZmYAZS1hZGNjAC0zNzY5LTAwAi0wMAoAEADmbu3L6wfYQ4CwplBvha45",
+              "conversationIndex": "AQHc26CV5m7ty+sH2EOAsKZQb4WuOQ==",
+              "isDeliveryReceiptRequested": null,
+              "isReadReceiptRequested": false,
+              "isRead": true,
+              "isDraft": false,
+              "webLink": "https://outlook.live.com/owa/?ItemID=AQMkADAwATNiZmYAZS1hZGNjAC0zNzY5LTAwAi0wMAoARgAAA4r%2BTlY6z%2FREqceKH8A61PsHAHnHtSEqpiRFlk2OncK9A48AAAIBDAAAAHnHtSEqpiRFlk2OncK9A48AAAAdoEGuAAAA&exvsurl=1&viewmodel=ReadMessageItem",
+              "inferenceClassification": "focused",
+              "body": {
+                "contentType": "html",
+                "content": "<html dir=\"ltr\"><head>\r\n<meta http-equiv=\"Content-Type\" content=\"text/html; charset=utf-8\"><style type=\"text/css\">\r\n<!--\r\n-->\r\n</style></head><body><table dir=\"ltr\"><tbody><tr><td id=\"i1\" style=\"padding:0; font-family:'Segoe UI Semibold','Segoe UI Bold','Segoe UI','Helvetica Neue Medium',Arial,sans-serif; font-size:17px; color:#707070\">Microsoft account</td></tr><tr><td id=\"i2\" style=\"padding:0; font-family:'Segoe UI Light','Segoe UI','Helvetica Neue Medium',Arial,sans-serif; font-size:41px; color:#2672ec\">New app(s) have access to your data</td></tr><tr><td id=\"i3\" style=\"padding:0; padding-top:25px; font-family:'Segoe UI',Tahoma,Verdana,Arial,sans-serif; font-size:14px; color:#2a2a2a\">NangoAPI connected to the Microsoft account <a dir=\"ltr\" id=\"iAccount\" class=\"link\" href=\"mailto:ap**v@outlook.com\" style=\"color:#2672ec; text-decoration:none\">ap**v@outlook.com</a>.</td></tr><tr><td id=\"i4\" style=\"padding:0; padding-top:25px; font-family:'Segoe UI',Tahoma,Verdana,Arial,sans-serif; font-size:14px; color:#2a2a2a\">If you didn't grant this access, please remove the app(s) from your account.</td></tr><tr><td style=\"padding:0; padding-top:25px; font-family:'Segoe UI',Tahoma,Verdana,Arial,sans-serif; font-size:14px; color:#2a2a2a\"><table border=\"0\" cellspacing=\"0\"><tbody><tr><td bgcolor=\"#2672ec\" style=\"background-color:#2672ec; padding-top:5px; padding-right:20px; padding-bottom:5px; padding-left:20px; min-width:50px\"><a id=\"i5\" href=\"https://account.live.com/consent/Manage?fn=email\" style=\"font-family:'Segoe UI Semibold','Segoe UI Bold','Segoe UI','Helvetica Neue Medium',Arial,sans-serif; font-size:14px; text-align:center; text-decoration:none; font-weight:600; letter-spacing:0.02em; color:#fff\">Manage your apps</a></td></tr></tbody></table></td></tr><tr><td id=\"i6\" style=\"padding:0; padding-top:25px; font-family:'Segoe UI',Tahoma,Verdana,Arial,sans-serif; font-size:14px; color:#2a2a2a\">You can also <a id=\"iLink3\" class=\"link\" href=\"https://account.live.com/SecurityNotifications/Update\" style=\"color:#2672ec; text-decoration:none\">opt out</a> or change where you receive security notifications.</td></tr><tr><td id=\"i7\" style=\"padding:0; padding-top:25px; font-family:'Segoe UI',Tahoma,Verdana,Arial,sans-serif; font-size:14px; color:#2a2a2a\">Thanks,</td></tr><tr><td id=\"i8\" style=\"padding:0; font-family:'Segoe UI',Tahoma,Verdana,Arial,sans-serif; font-size:14px; color:#2a2a2a\">The Microsoft account team</td></tr></tbody></table><div lang=\"en\" style=\"margin-top:20px; margin-bottom:10px\"><a class=\"link\" href=\"https://go.microsoft.com/fwlink/?LinkId=521839\">Privacy Statement</a><div style=\"margin-top:10px\">Microsoft Corporation, One Microsoft Way, Redmond, WA 98052</div></div></body></html>"
+              },
+              "sender": {
+                "emailAddress": {
+                  "name": "Microsoft account team",
+                  "address": "account-security-noreply@accountprotection.microsoft.com"
+                }
+              },
+              "from": {
+                "emailAddress": {
+                  "name": "Microsoft account team",
+                  "address": "account-security-noreply@accountprotection.microsoft.com"
+                }
+              },
+              "toRecipients": [
+                {
+                  "emailAddress": {
+                    "name": "apinangodev@outlook.com",
+                    "address": "apinangodev@outlook.com"
+                  }
+                }
+              ],
+              "ccRecipients": [],
+              "bccRecipients": [],
+              "replyTo": [],
+              "flag": {
+                "flagStatus": "notFlagged"
+              }
+            },
+            {
+              "@odata.etag": "W/\"CQAAABYAAAB5x7UhKqYkRZZNjp3CvQOPAAAdn4iH\"",
+              "id": "AQMkADAwATNiZmYAZS1hZGNjAC0zNzY5LTAwAi0wMAoARgAAA4r_TlY6z-REqceKH8A61PsHAHnHtSEqpiRFlk2OncK9A48AAAIBDAAAAHnHtSEqpiRFlk2OncK9A48AAAAdoEGtAAAA",
+              "createdDateTime": "2026-05-04T07:49:42Z",
+              "lastModifiedDateTime": "2026-05-04T07:49:43Z",
+              "changeKey": "CQAAABYAAAB5x7UhKqYkRZZNjp3CvQOPAAAdn4iH",
+              "categories": [],
+              "receivedDateTime": "2026-05-04T07:49:42Z",
+              "sentDateTime": "2026-05-04T07:49:37Z",
+              "hasAttachments": false,
+              "internetMessageId": "<HRJEJIBD6TU4.CSYS3HR4F2L11@bl02epf00024f33>",
+              "subject": "Microsoft account security info was added",
+              "bodyPreview": "Microsoft account\r\nSecurity info was added\r\nThe following security info was recently added to the Microsoft account ap**v@outlook.com:\r\n\r\n  *   api@nango.dev\r\n\r\nIf this was you, then you can safely ignore this email.\r\nIf this wasn't you, a malicious user ",
+              "importance": "normal",
+              "parentFolderId": "AQMkADAwATNiZmYAZS1hZGNjAC0zNzY5LTAwAi0wMAoALgAAA4r_TlY6z-REqceKH8A61PsBAHnHtSEqpiRFlk2OncK9A48AAAIBDAAAAA==",
+              "conversationId": "AQQkADAwATNiZmYAZS1hZGNjAC0zNzY5LTAwAi0wMAoAEADpQ2W5USd9Q6br3oXkeGcM",
+              "conversationIndex": "AQHc25qR6UNluVEnfUOm696F5HhnDA==",
+              "isDeliveryReceiptRequested": null,
+              "isReadReceiptRequested": false,
+              "isRead": true,
+              "isDraft": false,
+              "webLink": "https://outlook.live.com/owa/?ItemID=AQMkADAwATNiZmYAZS1hZGNjAC0zNzY5LTAwAi0wMAoARgAAA4r%2BTlY6z%2FREqceKH8A61PsHAHnHtSEqpiRFlk2OncK9A48AAAIBDAAAAHnHtSEqpiRFlk2OncK9A48AAAAdoEGtAAAA&exvsurl=1&viewmodel=ReadMessageItem",
+              "inferenceClassification": "focused",
+              "body": {
+                "contentType": "html",
+                "content": "<html dir=\"ltr\"><head>\r\n<meta http-equiv=\"Content-Type\" content=\"text/html; charset=utf-8\"><style type=\"text/css\">\r\n<!--\r\n-->\r\n</style></head><body><table dir=\"ltr\"><tbody><tr><td id=\"i1\" style=\"padding:0; font-family:'Segoe UI Semibold','Segoe UI Bold','Segoe UI','Helvetica Neue Medium',Arial,sans-serif; font-size:17px; color:#707070\">Microsoft account</td></tr><tr><td id=\"i2\" style=\"padding:0; font-family:'Segoe UI Light','Segoe UI','Helvetica Neue Medium',Arial,sans-serif; font-size:41px; color:#2672ec\">Security info was added</td></tr><tr><td id=\"i3\" style=\"padding:0; padding-top:25px; font-family:'Segoe UI',Tahoma,Verdana,Arial,sans-serif; font-size:14px; color:#2a2a2a\">The following security info was recently added to the Microsoft account <a dir=\"ltr\" id=\"iAccount\" class=\"link\" href=\"mailto:ap**v@outlook.com\" style=\"color:#2672ec; text-decoration:none\">ap**v@outlook.com</a>:</td></tr><tr><td id=\"i4\" style=\"padding:0; padding-top:6px; font-family:'Segoe UI',Tahoma,Verdana,Arial,sans-serif; font-size:14px; color:#2a2a2a\"><ul><li>api@nango.dev</li></ul></td></tr><tr><td id=\"i5\" style=\"padding:0; padding-top:6px; font-family:'Segoe UI',Tahoma,Verdana,Arial,sans-serif; font-size:14px; color:#2a2a2a\">If this was you, then you can safely ignore this email.</td></tr><tr><td id=\"i6\" style=\"padding:0; padding-top:25px; font-family:'Segoe UI',Tahoma,Verdana,Arial,sans-serif; font-size:14px; color:#2a2a2a\">If this wasn't you, a malicious user has access to your account. Please review your recent activity and we'll help you secure your account.</td></tr><tr><td style=\"padding:0; padding-top:25px; font-family:'Segoe UI',Tahoma,Verdana,Arial,sans-serif; font-size:14px; color:#2a2a2a\"><table border=\"0\" cellspacing=\"0\"><tbody><tr><td bgcolor=\"#2672ec\" style=\"background-color:#2672ec; padding-top:5px; padding-right:20px; padding-bottom:5px; padding-left:20px; min-width:50px\"><a id=\"i7\" href=\"https://account.microsoft.com/activity\" style=\"font-family:'Segoe UI Semibold','Segoe UI Bold','Segoe UI','Helvetica Neue Medium',Arial,sans-serif; font-size:14px; text-align:center; text-decoration:none; font-weight:600; letter-spacing:0.02em; color:#fff\">Review recent activity</a></td></tr></tbody></table></td></tr><tr><td id=\"i8\" style=\"padding:0; padding-top:25px; font-family:'Segoe UI',Tahoma,Verdana,Arial,sans-serif; font-size:14px; color:#2a2a2a\">To opt out or change where you receive security notifications, <a id=\"iLink3\" class=\"link\" href=\"https://account.live.com/SecurityNotifications/Update\" style=\"color:#2672ec; text-decoration:none\">click here</a>.</td></tr><tr><td id=\"i9\" style=\"padding:0; padding-top:25px; font-family:'Segoe UI',Tahoma,Verdana,Arial,sans-serif; font-size:14px; color:#2a2a2a\">Thanks,</td></tr><tr><td id=\"i10\" style=\"padding:0; font-family:'Segoe UI',Tahoma,Verdana,Arial,sans-serif; font-size:14px; color:#2a2a2a\">The Microsoft account team</td></tr></tbody></table><div lang=\"en\" style=\"margin-top:20px; margin-bottom:10px\"><a class=\"link\" href=\"https://go.microsoft.com/fwlink/?LinkId=521839\">Privacy Statement</a><div style=\"margin-top:10px\">Microsoft Corporation, One Microsoft Way, Redmond, WA 98052</div></div></body></html>"
+              },
+              "sender": {
+                "emailAddress": {
+                  "name": "Microsoft account team",
+                  "address": "account-security-noreply@accountprotection.microsoft.com"
+                }
+              },
+              "from": {
+                "emailAddress": {
+                  "name": "Microsoft account team",
+                  "address": "account-security-noreply@accountprotection.microsoft.com"
+                }
+              },
+              "toRecipients": [
+                {
+                  "emailAddress": {
+                    "name": "apinangodev@outlook.com",
+                    "address": "apinangodev@outlook.com"
+                  }
+                }
+              ],
+              "ccRecipients": [],
+              "bccRecipients": [],
+              "replyTo": [],
+              "flag": {
+                "flagStatus": "notFlagged"
+              }
+            }
+          ],
+          "@odata.nextLink": "https://graph.microsoft.com/v1.0/me/mailFolders('inbox')/messages?%24top=2&%24skip=2"
+        },
+        "status": 200,
+        "headers": {
+          "date": "Mon, 04 May 2026 09:21:40 GMT",
+          "content-type": "application/json; odata.metadata=minimal; odata.streaming=true; IEEE754Compatible=false; charset=utf-8",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=31536000",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4997",
+          "x-ratelimit-reset": "1777886560",
+          "cache-control": "private",
+          "request-id": "9ef58579-ae8a-4351-aa53-5493b4819e0e",
+          "client-request-id": "9ef58579-ae8a-4351-aa53-5493b4819e0e",
+          "x-ms-ags-diagnostic": "{\"ServerInfo\":{\"DataCenter\":\"West US 2\",\"Slice\":\"E\",\"Ring\":\"4\",\"ScaleUnit\":\"000\",\"RoleInstance\":\"CO1PEPF00005D4B\"}}"
+        },
+        "hash": "b47c6e07312c4eb485bf0b59eff457dd36157646",
+        "request": {
+          "params": {
+            "$top": "2"
+          }
+        }
+      }
+    }
+  }
+}

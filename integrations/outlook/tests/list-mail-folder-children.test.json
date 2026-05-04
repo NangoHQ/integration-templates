@@ -1,0 +1,92 @@
+{
+  "input": {
+    "folderId": "Inbox",
+    "limit": 2
+  },
+  "output": {
+    "folders": [
+      {
+        "id": "AQMkADAwATNiZmYAZS1hZGNjAC0zNzY5LTAwAi0wMAoALgAAA4r_TlY6z-REqceKH8A61PsBAHnHtSEqpiRFlk2OncK9A48AAAAdoFczAAAA",
+        "displayName": "Project Alpha",
+        "parentFolderId": "AQMkADAwATNiZmYAZS1hZGNjAC0zNzY5LTAwAi0wMAoALgAAA4r_TlY6z-REqceKH8A61PsBAHnHtSEqpiRFlk2OncK9A48AAAIBDAAAAA==",
+        "childFolderCount": 2,
+        "unreadItemCount": 0,
+        "totalItemCount": 0,
+        "sizeInBytes": 0,
+        "isHidden": false
+      },
+      {
+        "id": "AQMkADAwATNiZmYAZS1hZGNjAC0zNzY5LTAwAi0wMAoALgAAA4r_TlY6z-REqceKH8A61PsBAHnHtSEqpiRFlk2OncK9A48AAAAdoFdGAAAA",
+        "displayName": "TestFolder",
+        "parentFolderId": "AQMkADAwATNiZmYAZS1hZGNjAC0zNzY5LTAwAi0wMAoALgAAA4r_TlY6z-REqceKH8A61PsBAHnHtSEqpiRFlk2OncK9A48AAAIBDAAAAA==",
+        "childFolderCount": 0,
+        "unreadItemCount": 0,
+        "totalItemCount": 0,
+        "sizeInBytes": 0,
+        "isHidden": false
+      }
+    ]
+  },
+  "nango": {},
+  "api": {
+    "get": {
+      "/v1.0/me/mailFolders/Inbox/childFolders": {
+        "response": {
+          "@odata.context": "https://graph.microsoft.com/v1.0/$metadata#users('apinangodev%40outlook.com')/mailFolders('Inbox')/childFolders",
+          "value": [
+            {
+              "id": "AQMkADAwATNiZmYAZS1hZGNjAC0zNzY5LTAwAi0wMAoALgAAA4r_TlY6z-REqceKH8A61PsBAHnHtSEqpiRFlk2OncK9A48AAAAdoFczAAAA",
+              "displayName": "Project Alpha",
+              "parentFolderId": "AQMkADAwATNiZmYAZS1hZGNjAC0zNzY5LTAwAi0wMAoALgAAA4r_TlY6z-REqceKH8A61PsBAHnHtSEqpiRFlk2OncK9A48AAAIBDAAAAA==",
+              "childFolderCount": 2,
+              "unreadItemCount": 0,
+              "totalItemCount": 0,
+              "sizeInBytes": 0,
+              "isHidden": false
+            },
+            {
+              "id": "AQMkADAwATNiZmYAZS1hZGNjAC0zNzY5LTAwAi0wMAoALgAAA4r_TlY6z-REqceKH8A61PsBAHnHtSEqpiRFlk2OncK9A48AAAAdoFdGAAAA",
+              "displayName": "TestFolder",
+              "parentFolderId": "AQMkADAwATNiZmYAZS1hZGNjAC0zNzY5LTAwAi0wMAoALgAAA4r_TlY6z-REqceKH8A61PsBAHnHtSEqpiRFlk2OncK9A48AAAIBDAAAAA==",
+              "childFolderCount": 0,
+              "unreadItemCount": 0,
+              "totalItemCount": 0,
+              "sizeInBytes": 0,
+              "isHidden": false
+            }
+          ],
+          "@odata.nextLink": "https://graph.microsoft.com/v1.0/me/mailFolders('Inbox')/childFolders?%24top=2&%24skip=2"
+        },
+        "status": 200,
+        "headers": {
+          "date": "Mon, 04 May 2026 09:27:46 GMT",
+          "content-type": "application/json; odata.metadata=minimal; odata.streaming=true; IEEE754Compatible=false; charset=utf-8",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=31536000",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4956",
+          "x-ratelimit-reset": "1777886878",
+          "cache-control": "private",
+          "request-id": "5e94ac12-b406-4c66-bc41-18b2a17d46ea",
+          "client-request-id": "5e94ac12-b406-4c66-bc41-18b2a17d46ea",
+          "x-ms-ags-diagnostic": "{\"ServerInfo\":{\"DataCenter\":\"West US 2\",\"Slice\":\"E\",\"Ring\":\"4\",\"ScaleUnit\":\"004\",\"RoleInstance\":\"MW2PEPF0000E05B\"}}"
+        },
+        "hash": "384eef387d1ff1c6f6982889cf93518d2dbfc8d0",
+        "request": {
+          "params": {
+            "$top": "2"
+          }
+        }
+      }
+    }
+  }
+}

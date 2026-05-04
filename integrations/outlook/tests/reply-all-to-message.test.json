@@ -1,0 +1,224 @@
+{
+  "input": {
+    "messageId": "AQMkADAwATNiZmYAZS1hZGNjAC0zNzY5LTAwAi0wMAoARgAAA4r_TlY6z-REqceKH8A61PsHAHnHtSEqpiRFlk2OncK9A48AAAIBCQAAAHnHtSEqpiRFlk2OncK9A48AAAAdoLPyAAAA",
+    "comment": "Test reply all",
+    "createDraft": true
+  },
+  "output": {
+    "success": false,
+    "draftId": "AQMkADAwATNiZmYAZS1hZGNjAC0zNzY5LTAwAi0wMAoARgAAA4r_TlY6z-REqceKH8A61PsHAHnHtSEqpiRFlk2OncK9A48AAAIBDwAAAHnHtSEqpiRFlk2OncK9A48AAAAdoIRHAAAA"
+  },
+  "nango": {},
+  "api": {
+    "post": {
+      "/v1.0/me/messages/AQMkADAwATNiZmYAZS1hZGNjAC0zNzY5LTAwAi0wMAoARgAAA4r_TlY6z-REqceKH8A61PsHAHnHtSEqpiRFlk2OncK9A48AAAIBCQAAAHnHtSEqpiRFlk2OncK9A48AAAAdoLPyAAAA/createReplyAll": {
+        "response": {
+          "@odata.context": "https://graph.microsoft.com/v1.0/$metadata#users('apinangodev%40outlook.com')/messages/$entity",
+          "@odata.etag": "W/\"CQAAABYAAAB5x7UhKqYkRZZNjp3CvQOPAAAdn50w\"",
+          "id": "AQMkADAwATNiZmYAZS1hZGNjAC0zNzY5LTAwAi0wMAoARgAAA4r_TlY6z-REqceKH8A61PsHAHnHtSEqpiRFlk2OncK9A48AAAIBDwAAAHnHtSEqpiRFlk2OncK9A48AAAAdoIRHAAAA",
+          "createdDateTime": "2026-05-04T09:31:38Z",
+          "lastModifiedDateTime": "2026-05-04T09:31:38Z",
+          "changeKey": "CQAAABYAAAB5x7UhKqYkRZZNjp3CvQOPAAAdn50w",
+          "categories": [],
+          "receivedDateTime": "2026-05-04T09:31:38Z",
+          "sentDateTime": "2026-05-04T09:31:38Z",
+          "hasAttachments": false,
+          "internetMessageId": "<LV5PR18MB92761014AED68504E59348FCA2BA312@LV5PR18MB927610.namprd18.prod.outlook.com>",
+          "subject": "RE: Test email from Nango action",
+          "bodyPreview": "________________________________\r\nFrom: Nango Dev\r\nSent: Monday, 04 May 2026 09:23:14\r\nTo: Test Recipient <test@example.com>\r\nSubject: Test email from Nango action\r\n\r\n\r\nHello from the Send Mail action!",
+          "importance": "normal",
+          "parentFolderId": "AQMkADAwATNiZmYAZS1hZGNjAC0zNzY5LTAwAi0wMAoALgAAA4r_TlY6z-REqceKH8A61PsBAHnHtSEqpiRFlk2OncK9A48AAAIBDwAAAA==",
+          "conversationId": "AQQkADAwATNiZmYAZS1hZGNjAC0zNzY5LTAwAi0wMAoAEAChoChc01xmTYj93tSOqHtE",
+          "conversationIndex": "AQHc26eioaAoXNNcZk2I/d7Ujqh7RLX9mk4k",
+          "isDeliveryReceiptRequested": false,
+          "isReadReceiptRequested": false,
+          "isRead": true,
+          "isDraft": true,
+          "webLink": "https://outlook.live.com/owa/?ItemID=AQMkADAwATNiZmYAZS1hZGNjAC0zNzY5LTAwAi0wMAoARgAAA4r%2BTlY6z%2FREqceKH8A61PsHAHnHtSEqpiRFlk2OncK9A48AAAIBDwAAAHnHtSEqpiRFlk2OncK9A48AAAAdoIRHAAAA&exvsurl=1&viewmodel=ReadMessageItem",
+          "inferenceClassification": "focused",
+          "body": {
+            "contentType": "html",
+            "content": "<html><head>\r\n<meta http-equiv=\"Content-Type\" content=\"text/html; charset=utf-8\"></head><body><hr tabindex=\"-1\" style=\"display:inline-block; width:98%\"><div id=\"divRplyFwdMsg\" dir=\"ltr\"><font face=\"Calibri, sans-serif\" color=\"#000000\" style=\"font-size:11pt\"><b>From:</b> Nango Dev<br><b>Sent:</b> Monday, 04 May 2026 09:23:14<br><b>To:</b> Test Recipient &lt;test@example.com&gt;<br><b>Subject:</b> Test email from Nango action</font> <div>&nbsp;</div></div><div><p>Hello from the Send Mail action!</p></div></body></html>"
+          },
+          "sender": {
+            "emailAddress": {
+              "name": "Nango Dev",
+              "address": "apinangodev@outlook.com"
+            }
+          },
+          "from": {
+            "emailAddress": {
+              "name": "Nango Dev",
+              "address": "apinangodev@outlook.com"
+            }
+          },
+          "toRecipients": [
+            {
+              "emailAddress": {
+                "name": "Test Recipient",
+                "address": "test@example.com"
+              }
+            }
+          ],
+          "ccRecipients": [],
+          "bccRecipients": [],
+          "replyTo": [],
+          "flag": {
+            "flagStatus": "notFlagged"
+          }
+        },
+        "status": 201,
+        "headers": {
+          "date": "Mon, 04 May 2026 09:31:39 GMT",
+          "content-type": "application/json; odata.metadata=minimal; odata.streaming=true; IEEE754Compatible=false; charset=utf-8",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=31536000",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4979",
+          "x-ratelimit-reset": "1777887114",
+          "cache-control": "private",
+          "location": "https://graph.microsoft.com/v1.0/users('apinangodev@outlook.com')/messages('AQMkADAwATNiZmYAZS1hZGNjAC0zNzY5LTAwAi0wMAoARgAAA4r_TlY6z-REqceKH8A61PsHAHnHtSEqpiRFlk2OncK9A48AAAIBDwAAAHnHtSEqpiRFlk2OncK9A48AAAAdoIRHAAAA')",
+          "request-id": "db8dda05-9361-4fb1-ad08-89d7b8ca9d92",
+          "client-request-id": "db8dda05-9361-4fb1-ad08-89d7b8ca9d92",
+          "x-ms-ags-diagnostic": "{\"ServerInfo\":{\"DataCenter\":\"West US 2\",\"Slice\":\"E\",\"Ring\":\"4\",\"ScaleUnit\":\"002\",\"RoleInstance\":\"MWH0EPF000C0118\"}}"
+        },
+        "hash": "ca42e68a287c2b8e6c324c1c8c8251d14194e3e5",
+        "request": {}
+      },
+      "/v1.0/me/messages/AQMkADAwATNiZmYAZS1hZGNjAC0zNzY5LTAwAi0wMAoARgAAA4r_TlY6z-REqceKH8A61PsHAHnHtSEqpiRFlk2OncK9A48AAAIBDwAAAHnHtSEqpiRFlk2OncK9A48AAAAdoIRHAAAA/send": {
+        "response": {
+          "error": {
+            "code": "ErrorAccountSuspend",
+            "message": "Account suspended. Follow the instructions in your Inbox to verify your account., WASCL UserAction verdict is not None. Actual verdict is Suspend."
+          }
+        },
+        "status": 403,
+        "headers": {
+          "date": "Mon, 04 May 2026 09:31:40 GMT",
+          "content-type": "application/json; charset=utf-8; ieee754compatible=false; odata.metadata=minimal; odata.streaming=true",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=31536000",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4977",
+          "x-ratelimit-reset": "1777887114",
+          "cache-control": "private",
+          "request-id": "e89bf4d6-c76e-4b9c-81de-f05ce1ff4604",
+          "client-request-id": "e89bf4d6-c76e-4b9c-81de-f05ce1ff4604",
+          "x-ms-ags-diagnostic": "{\"ServerInfo\":{\"DataCenter\":\"West US 2\",\"Slice\":\"E\",\"Ring\":\"4\",\"ScaleUnit\":\"001\",\"RoleInstance\":\"MW2PEPF00013BA8\"}}",
+          "etag": "W/\"c7-4NvQRe59tuPbAb9OoCvsly/h5gc\""
+        },
+        "hash": "607726105658622609f59d93dec9c70a799fc242",
+        "request": {}
+      }
+    },
+    "patch": {
+      "/v1.0/me/messages/AQMkADAwATNiZmYAZS1hZGNjAC0zNzY5LTAwAi0wMAoARgAAA4r_TlY6z-REqceKH8A61PsHAHnHtSEqpiRFlk2OncK9A48AAAIBDwAAAHnHtSEqpiRFlk2OncK9A48AAAAdoIRHAAAA": {
+        "response": {
+          "@odata.context": "https://graph.microsoft.com/v1.0/$metadata#users('apinangodev%40outlook.com')/messages/$entity",
+          "@odata.etag": "W/\"CQAAABYAAAB5x7UhKqYkRZZNjp3CvQOPAAAdn50y\"",
+          "id": "AQMkADAwATNiZmYAZS1hZGNjAC0zNzY5LTAwAi0wMAoARgAAA4r_TlY6z-REqceKH8A61PsHAHnHtSEqpiRFlk2OncK9A48AAAIBDwAAAHnHtSEqpiRFlk2OncK9A48AAAAdoIRHAAAA",
+          "createdDateTime": "2026-05-04T09:31:38Z",
+          "lastModifiedDateTime": "2026-05-04T09:31:39Z",
+          "changeKey": "CQAAABYAAAB5x7UhKqYkRZZNjp3CvQOPAAAdn50y",
+          "categories": [],
+          "receivedDateTime": "2026-05-04T09:31:38Z",
+          "sentDateTime": "2026-05-04T09:31:38Z",
+          "hasAttachments": false,
+          "internetMessageId": "<LV5PR18MB92761014AED68504E59348FCA2BA312@LV5PR18MB927610.namprd18.prod.outlook.com>",
+          "subject": "RE: Test email from Nango action",
+          "bodyPreview": "Test reply all",
+          "importance": "normal",
+          "parentFolderId": "AQMkADAwATNiZmYAZS1hZGNjAC0zNzY5LTAwAi0wMAoALgAAA4r_TlY6z-REqceKH8A61PsBAHnHtSEqpiRFlk2OncK9A48AAAIBDwAAAA==",
+          "conversationId": "AQQkADAwATNiZmYAZS1hZGNjAC0zNzY5LTAwAi0wMAoAEAChoChc01xmTYj93tSOqHtE",
+          "conversationIndex": "AQHc26eioaAoXNNcZk2I/d7Ujqh7RLX9mk4k",
+          "isDeliveryReceiptRequested": false,
+          "isReadReceiptRequested": false,
+          "isRead": true,
+          "isDraft": true,
+          "webLink": "https://outlook.live.com/owa/?ItemID=AQMkADAwATNiZmYAZS1hZGNjAC0zNzY5LTAwAi0wMAoARgAAA4r%2BTlY6z%2FREqceKH8A61PsHAHnHtSEqpiRFlk2OncK9A48AAAIBDwAAAHnHtSEqpiRFlk2OncK9A48AAAAdoIRHAAAA&exvsurl=1&viewmodel=ReadMessageItem",
+          "inferenceClassification": "focused",
+          "body": {
+            "contentType": "text",
+            "content": "Test reply all"
+          },
+          "sender": {
+            "emailAddress": {
+              "name": "Nango Dev",
+              "address": "apinangodev@outlook.com"
+            }
+          },
+          "from": {
+            "emailAddress": {
+              "name": "Nango Dev",
+              "address": "apinangodev@outlook.com"
+            }
+          },
+          "toRecipients": [
+            {
+              "emailAddress": {
+                "name": "Test Recipient",
+                "address": "test@example.com"
+              }
+            }
+          ],
+          "ccRecipients": [],
+          "bccRecipients": [],
+          "replyTo": [],
+          "flag": {
+            "flagStatus": "notFlagged"
+          }
+        },
+        "status": 200,
+        "headers": {
+          "date": "Mon, 04 May 2026 09:31:39 GMT",
+          "content-type": "application/json; odata.metadata=minimal; odata.streaming=true; IEEE754Compatible=false; charset=utf-8",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=31536000",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4978",
+          "x-ratelimit-reset": "1777887114",
+          "cache-control": "private",
+          "request-id": "b62928bf-45f5-4136-907d-4c7f67cf8385",
+          "client-request-id": "b62928bf-45f5-4136-907d-4c7f67cf8385",
+          "x-ms-ags-diagnostic": "{\"ServerInfo\":{\"DataCenter\":\"West US 2\",\"Slice\":\"E\",\"Ring\":\"4\",\"ScaleUnit\":\"003\",\"RoleInstance\":\"CO1PEPF00006AB1\"}}"
+        },
+        "hash": "c5f8576a5a4c3e4284596806db8fe42b392e765a",
+        "request": {
+          "data": {
+            "body": {
+              "contentType": "text",
+              "content": "Test reply all"
+            }
+          }
+        }
+      }
+    }
+  }
+}

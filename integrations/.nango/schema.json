@@ -17243,156 +17243,116 @@
         "id": {
           "type": "string"
         },
-        "created_at": {
+        "subject": {
           "type": "string"
         },
-        "start_at": {
+        "bodyPreview": {
           "type": "string"
         },
-        "end_at": {
-          "type": "string"
-        },
-        "cover_url": {
-          "type": "string"
-        },
-        "name": {
-          "type": "string"
-        },
-        "description": {
-          "type": "string"
-        },
-        "description_md": {
-          "type": "string"
-        },
-        "series_api_id": {
-          "type": [
-            "string",
-            "null"
-          ]
-        },
-        "duration_interval_iso8601": {
-          "type": "string"
-        },
-        "geo_latitude": {
-          "type": [
-            "string",
-            "null"
-          ]
-        },
-        "geo_longitude": {
-          "type": [
-            "string",
-            "null"
-          ]
-        },
-        "geo_address_json": {
-          "anyOf": [
-            {
-              "type": "object",
-              "properties": {
-                "city": {
-                  "type": "string"
-                },
-                "type": {
-                  "type": "string"
-                },
-                "region": {
-                  "type": "string"
-                },
-                "address": {
-                  "type": "string"
-                },
-                "country": {
-                  "type": "string"
-                },
-                "latitude": {
-                  "type": "string"
-                },
-                "place_id": {
-                  "type": "string"
-                },
-                "longitude": {
-                  "type": "string"
-                },
-                "city_state": {
-                  "type": "string"
-                },
-                "description": {
-                  "type": "string"
-                },
-                "full_address": {
-                  "type": "string"
-                }
-              },
-              "required": [
-                "city",
-                "type",
-                "region",
-                "address",
-                "country",
-                "latitude",
-                "place_id",
-                "longitude",
-                "city_state",
-                "description",
-                "full_address"
-              ],
-              "additionalProperties": false
+        "start": {
+          "type": "object",
+          "properties": {
+            "dateTime": {
+              "type": "string"
             },
-            {
-              "type": "null"
+            "timeZone": {
+              "type": "string"
             }
-          ]
+          },
+          "required": [
+            "dateTime",
+            "timeZone"
+          ],
+          "additionalProperties": false
         },
-        "url": {
+        "end": {
+          "type": "object",
+          "properties": {
+            "dateTime": {
+              "type": "string"
+            },
+            "timeZone": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "dateTime",
+            "timeZone"
+          ],
+          "additionalProperties": false
+        },
+        "location": {
           "type": "string"
         },
-        "timezone": {
+        "isAllDay": {
+          "type": "boolean"
+        },
+        "isCancelled": {
+          "type": "boolean"
+        },
+        "isDraft": {
+          "type": "boolean"
+        },
+        "isOnlineMeeting": {
+          "type": "boolean"
+        },
+        "onlineMeetingProvider": {
           "type": "string"
         },
-        "event_type": {
+        "importance": {
           "type": "string"
         },
-        "user_api_id": {
+        "sensitivity": {
           "type": "string"
         },
-        "visibility": {
+        "showAs": {
           "type": "string"
         },
-        "meeting_url": {
-          "type": [
-            "string",
-            "null"
-          ]
+        "webLink": {
+          "type": "string"
         },
-        "zoom_meeting_url": {
-          "type": [
-            "string",
-            "null"
-          ]
+        "iCalUId": {
+          "type": "string"
+        },
+        "type": {
+          "type": "string"
+        },
+        "seriesMasterId": {
+          "type": "string"
+        },
+        "organizerEmail": {
+          "type": "string"
+        },
+        "organizerName": {
+          "type": "string"
+        },
+        "categories": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "createdDateTime": {
+          "type": "string"
+        },
+        "lastModifiedDateTime": {
+          "type": "string"
+        },
+        "originalStartTimeZone": {
+          "type": "string"
+        },
+        "originalEndTimeZone": {
+          "type": "string"
+        },
+        "hasAttachments": {
+          "type": "boolean"
+        },
+        "changeKey": {
+          "type": "string"
         }
       },
       "required": [
-        "id",
-        "created_at",
-        "start_at",
-        "end_at",
-        "cover_url",
-        "name",
-        "description",
-        "description_md",
-        "series_api_id",
-        "duration_interval_iso8601",
-        "geo_latitude",
-        "geo_longitude",
-        "geo_address_json",
-        "url",
-        "timezone",
-        "event_type",
-        "user_api_id",
-        "visibility",
-        "meeting_url",
-        "zoom_meeting_url"
+        "id"
       ],
       "additionalProperties": false
     },
@@ -39881,88 +39841,39 @@
         "id": {
           "type": "string"
         },
-        "summary": {
-          "type": [
-            "string",
-            "null"
-          ]
+        "name": {
+          "type": "string"
         },
-        "description": {
-          "type": [
-            "string",
-            "null"
-          ]
+        "color": {
+          "type": "string"
         },
-        "location": {
-          "type": [
-            "string",
-            "null"
-          ]
+        "changeKey": {
+          "type": "string"
         },
-        "timeZone": {
-          "type": [
-            "string",
-            "null"
-          ]
-        },
-        "summaryOverride": {
-          "type": [
-            "string",
-            "null"
-          ]
-        },
-        "colorId": {
-          "type": [
-            "string",
-            "null"
-          ]
-        },
-        "backgroundColor": {
-          "type": [
-            "string",
-            "null"
-          ]
-        },
-        "foregroundColor": {
-          "type": [
-            "string",
-            "null"
-          ]
-        },
-        "hidden": {
+        "canShare": {
           "type": "boolean"
         },
-        "selected": {
+        "canViewPrivateItems": {
           "type": "boolean"
         },
-        "accessRole": {
-          "type": [
-            "string",
-            "null"
-          ]
-        },
-        "primary": {
+        "canEdit": {
           "type": "boolean"
         },
-        "deleted": {
-          "type": "boolean"
+        "owner": {
+          "type": "object",
+          "properties": {
+            "name": {
+              "type": "string"
+            },
+            "address": {
+              "type": "string"
+            }
+          },
+          "additionalProperties": false
         }
       },
       "required": [
-        "id",
-        "summary",
-        "description",
-        "location",
-        "timeZone",
-        "summaryOverride",
-        "colorId",
-        "backgroundColor",
-        "foregroundColor",
-        "hidden",
-        "selected",
-        "accessRole",
-        "primary",
-        "deleted"
+        "id"
       ],
       "additionalProperties": false
     },
@@ -77763,34 +77674,250 @@
       "type": "object",
       "additionalProperties": false
     },
-    "OutlookCalendar": {
+    "SyncMetadata_outlook_events": {
+      "type": "object",
+      "properties": {
+        "backfillPeriodMs": {
+          "type": "number"
+        }
+      },
+      "additionalProperties": false
+    },
+    "MailFolder": {
       "type": "object",
       "properties": {
         "id": {
           "type": "string"
         },
-        "allowedOnlineMeetingProviders": {
-          "type": "array",
-          "items": {
-            "type": "string"
-          }
-        },
-        "canEdit": {
-          "type": "boolean"
-        },
-        "canShare": {
-          "type": "boolean"
-        },
-        "canViewPrivateItems": {
-          "type": "boolean"
-        },
-        "changeKey": {
+        "displayName": {
           "type": "string"
+        },
+        "parentFolderId": {
+          "type": "string"
+        },
+        "childFolderCount": {
+          "type": "number"
+        },
+        "totalItemCount": {
+          "type": "number"
+        },
+        "unreadItemCount": {
+          "type": "number"
+        },
+        "sizeInBytes": {
+          "type": "number"
+        },
+        "isHidden": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "id",
+        "displayName"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_outlook_addeventattachment": {
+      "type": "object",
+      "properties": {
+        "eventId": {
+          "type": "string",
+          "description": "Event ID. Example: \"AAMkAGI1AAAt9AHjAAA=\""
+        },
+        "name": {
+          "type": "string",
+          "description": "File name. Example: \"menu.txt\""
+        },
+        "contentBytes": {
+          "type": "string",
+          "description": "Base64-encoded file content. Example: \"bWFjIGFuZCBjaGVlc2UgdG9kYXk=\""
+        },
+        "contentType": {
+          "type": "string",
+          "description": "MIME type of the attachment. Example: \"text/plain\""
+        }
+      },
+      "required": [
+        "eventId",
+        "name",
+        "contentBytes"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_outlook_addeventattachment": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "contentType": {
+          "type": "string"
+        },
+        "size": {
+          "type": "number"
+        },
+        "isInline": {
+          "type": "boolean"
+        },
+        "lastModifiedDateTime": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "id",
+        "name"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_outlook_addmessageattachment": {
+      "type": "object",
+      "properties": {
+        "messageId": {
+          "type": "string",
+          "description": "The ID of the draft message to attach the file to. Example: \"AQMkAGFk...\""
+        },
+        "fileName": {
+          "type": "string",
+          "description": "The name of the file to attach. Example: \"document.pdf\""
+        },
+        "contentType": {
+          "type": "string",
+          "description": "The MIME type of the file. Example: \"application/pdf\""
+        },
+        "contentBytes": {
+          "type": "string",
+          "description": "The base64-encoded content of the file. Example: \"JVBERi0xLjQK...\""
+        }
+      },
+      "required": [
+        "messageId",
+        "fileName",
+        "contentType",
+        "contentBytes"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_outlook_addmessageattachment": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "contentType": {
+          "type": "string"
+        },
+        "size": {
+          "type": "number"
+        }
+      },
+      "required": [
+        "id",
+        "name"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_outlook_cancelevent": {
+      "type": "object",
+      "properties": {
+        "eventId": {
+          "type": "string",
+          "description": "The ID of the event to cancel. Example: \"AQMkAGI2...\""
+        },
+        "comment": {
+          "type": "string",
+          "description": "An optional comment to include in the cancellation message sent to attendees."
+        }
+      },
+      "required": [
+        "eventId"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_outlook_cancelevent": {
+      "type": "object",
+      "properties": {
+        "success": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "success"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_outlook_copymessage": {
+      "type": "object",
+      "properties": {
+        "messageId": {
+          "type": "string",
+          "description": "The ID of the message to copy. Example: \"AQMkADAwATM0MDAAMS1iN...\""
+        },
+        "destinationId": {
+          "type": "string",
+          "description": "The ID of the destination mail folder, or a well-known folder name such as \"inbox\", \"drafts\", \"sentitems\", \"deleteditems\"."
+        }
+      },
+      "required": [
+        "messageId",
+        "destinationId"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_outlook_copymessage": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "subject": {
+          "type": "string"
+        },
+        "receivedDateTime": {
+          "type": "string"
+        },
+        "sentDateTime": {
+          "type": "string"
+        },
+        "hasAttachments": {
+          "type": "boolean"
+        },
+        "body": {
+          "type": "object",
+          "properties": {
+            "contentType": {
+              "type": "string"
+            },
+            "content": {
+              "type": "string"
+            }
+          },
+          "additionalProperties": false
+        },
+        "bodyPreview": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "id"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_outlook_createcalendar": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string",
+          "description": "Name of the new calendar. Example: \"Team Events\""
         },
         "color": {
           "type": "string",
           "enum": [
-            "auto",
             "lightBlue",
             "lightGreen",
             "lightOrange",
@@ -77801,144 +77928,411 @@
             "lightBrown",
             "lightRed",
             "maxColor"
-          ]
-        },
-        "defaultOnlineMeetingProvider": {
-          "type": "string"
-        },
-        "hexColor": {
-          "type": "string"
-        },
-        "isDefaultCalendar": {
-          "type": "boolean"
-        },
-        "isRemovable": {
-          "type": "boolean"
-        },
-        "isTallyingResponses": {
-          "type": "boolean"
-        },
-        "name": {
-          "type": "string"
-        },
-        "owner": {
-          "type": "object",
-          "properties": {
-            "address": {
-              "type": "string"
-            },
-            "name": {
-              "type": "string"
-            }
-          },
-          "required": [
-            "address",
-            "name"
           ],
-          "additionalProperties": false
+          "description": "Color theme for the calendar. Example: \"lightBlue\""
         }
       },
       "required": [
-        "id",
-        "allowedOnlineMeetingProviders",
-        "canEdit",
-        "canShare",
-        "canViewPrivateItems",
-        "changeKey",
-        "color",
-        "defaultOnlineMeetingProvider",
-        "hexColor",
-        "isDefaultCalendar",
-        "isRemovable",
-        "isTallyingResponses",
-        "name",
-        "owner"
+        "name"
       ],
       "additionalProperties": false
     },
-    "SyncMetadata_outlook_calendars": {
-      "type": "object",
-      "additionalProperties": false
-    },
-    "OutlookEmail": {
+    "ActionOutput_outlook_createcalendar": {
       "type": "object",
       "properties": {
         "id": {
           "type": "string"
         },
-        "sender": {
+        "name": {
           "type": "string"
         },
-        "recipients": {
+        "color": {
+          "type": [
+            "string",
+            "number"
+          ]
+        },
+        "canShare": {
+          "type": "boolean"
+        },
+        "canViewPrivateItems": {
+          "type": "boolean"
+        },
+        "isDefaultCalendar": {
+          "type": "boolean"
+        },
+        "isTallyingResponses": {
+          "type": "boolean"
+        },
+        "ownerName": {
           "type": "string"
         },
-        "date": {
+        "ownerAddress": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "id",
+        "name"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_outlook_createdraftmessage": {
+      "type": "object",
+      "properties": {
+        "subject": {
+          "type": "string",
+          "description": "Subject of the message. Example: \"Meeting notes\""
+        },
+        "body": {
+          "type": "object",
+          "properties": {
+            "contentType": {
+              "type": "string",
+              "enum": [
+                "text",
+                "html"
+              ]
+            },
+            "content": {
+              "type": "string",
+              "description": "Body content of the message"
+            }
+          },
+          "required": [
+            "contentType",
+            "content"
+          ],
+          "additionalProperties": false,
+          "description": "Body of the message"
+        },
+        "toRecipients": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "emailAddress": {
+                "type": "object",
+                "properties": {
+                  "address": {
+                    "type": "string"
+                  },
+                  "name": {
+                    "type": "string",
+                    "description": "Display name. Example: \"John Doe\""
+                  }
+                },
+                "required": [
+                  "address"
+                ],
+                "additionalProperties": false
+              }
+            },
+            "required": [
+              "emailAddress"
+            ],
+            "additionalProperties": false
+          },
+          "description": "List of recipients to send the message to"
+        },
+        "ccRecipients": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "emailAddress": {
+                "type": "object",
+                "properties": {
+                  "address": {
+                    "type": "string"
+                  },
+                  "name": {
+                    "type": "string",
+                    "description": "Display name. Example: \"John Doe\""
+                  }
+                },
+                "required": [
+                  "address"
+                ],
+                "additionalProperties": false
+              }
+            },
+            "required": [
+              "emailAddress"
+            ],
+            "additionalProperties": false
+          },
+          "description": "List of CC recipients"
+        },
+        "bccRecipients": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "emailAddress": {
+                "type": "object",
+                "properties": {
+                  "address": {
+                    "type": "string"
+                  },
+                  "name": {
+                    "type": "string",
+                    "description": "Display name. Example: \"John Doe\""
+                  }
+                },
+                "required": [
+                  "address"
+                ],
+                "additionalProperties": false
+              }
+            },
+            "required": [
+              "emailAddress"
+            ],
+            "additionalProperties": false
+          },
+          "description": "List of BCC recipients"
+        },
+        "importance": {
+          "type": "string",
+          "enum": [
+            "low",
+            "normal",
+            "high"
+          ],
+          "description": "Importance level. Example: \"normal\""
+        },
+        "isReadReceiptRequested": {
+          "type": "boolean",
+          "description": "Whether a read receipt was requested"
+        },
+        "isDeliveryReceiptRequested": {
+          "type": "boolean",
+          "description": "Whether a delivery receipt was requested"
+        }
+      },
+      "required": [
+        "subject",
+        "body"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_outlook_createdraftmessage": {
+      "type": "object",
+      "properties": {
+        "id": {
           "type": "string"
         },
         "subject": {
           "type": "string"
         },
         "body": {
-          "type": "string"
+          "type": "object",
+          "properties": {
+            "contentType": {
+              "type": "string",
+              "enum": [
+                "text",
+                "html"
+              ]
+            },
+            "content": {
+              "type": "string",
+              "description": "Body content of the message"
+            }
+          },
+          "required": [
+            "contentType",
+            "content"
+          ],
+          "additionalProperties": false
         },
-        "attachments": {
+        "toRecipients": {
           "type": "array",
           "items": {
             "type": "object",
             "properties": {
-              "filename": {
-                "type": "string"
-              },
-              "mimeType": {
-                "type": "string"
-              },
-              "size": {
-                "type": "number"
-              },
-              "attachmentId": {
-                "type": "string"
+              "emailAddress": {
+                "type": "object",
+                "properties": {
+                  "address": {
+                    "type": "string"
+                  },
+                  "name": {
+                    "type": "string",
+                    "description": "Display name. Example: \"John Doe\""
+                  }
+                },
+                "required": [
+                  "address"
+                ],
+                "additionalProperties": false
               }
             },
             "required": [
-              "filename",
-              "mimeType",
-              "size",
-              "attachmentId"
+              "emailAddress"
             ],
             "additionalProperties": false
           }
         },
-        "threadId": {
+        "ccRecipients": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "emailAddress": {
+                "type": "object",
+                "properties": {
+                  "address": {
+                    "type": "string"
+                  },
+                  "name": {
+                    "type": "string",
+                    "description": "Display name. Example: \"John Doe\""
+                  }
+                },
+                "required": [
+                  "address"
+                ],
+                "additionalProperties": false
+              }
+            },
+            "required": [
+              "emailAddress"
+            ],
+            "additionalProperties": false
+          }
+        },
+        "bccRecipients": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "emailAddress": {
+                "type": "object",
+                "properties": {
+                  "address": {
+                    "type": "string"
+                  },
+                  "name": {
+                    "type": "string",
+                    "description": "Display name. Example: \"John Doe\""
+                  }
+                },
+                "required": [
+                  "address"
+                ],
+                "additionalProperties": false
+              }
+            },
+            "required": [
+              "emailAddress"
+            ],
+            "additionalProperties": false
+          }
+        },
+        "importance": {
+          "type": "string",
+          "enum": [
+            "low",
+            "normal",
+            "high"
+          ]
+        },
+        "isDraft": {
+          "type": "boolean"
+        },
+        "createdDateTime": {
+          "type": "string"
+        },
+        "lastModifiedDateTime": {
+          "type": "string"
+        },
+        "webLink": {
           "type": "string"
         }
       },
       "required": [
-        "id",
-        "date",
-        "subject",
-        "body",
-        "attachments",
-        "threadId"
+        "id"
       ],
       "additionalProperties": false
     },
-    "SyncMetadata_outlook_emails": {
+    "ActionInput_outlook_createevent": {
       "type": "object",
       "properties": {
-        "backfillPeriodMs": {
-          "type": "number"
-        }
-      },
-      "required": [
-        "backfillPeriodMs"
-      ],
-      "additionalProperties": false
-    },
-    "OutlookCalendarEvent": {
-      "type": "object",
-      "properties": {
-        "id": {
-          "type": "string"
+        "calendarId": {
+          "type": "string",
+          "description": "Calendar ID. If omitted, the event is created in the default calendar. Example: \"AQMkAGI2...\""
+        },
+        "subject": {
+          "type": "string",
+          "description": "Event subject/title. Example: \"Team Meeting\""
+        },
+        "start": {
+          "type": "object",
+          "properties": {
+            "dateTime": {
+              "type": "string"
+            },
+            "timeZone": {
+              "type": "string",
+              "description": "Time zone for start time. Example: \"UTC\" or \"Pacific Standard Time\""
+            }
+          },
+          "required": [
+            "dateTime",
+            "timeZone"
+          ],
+          "additionalProperties": false
+        },
+        "end": {
+          "type": "object",
+          "properties": {
+            "dateTime": {
+              "type": "string"
+            },
+            "timeZone": {
+              "type": "string",
+              "description": "Time zone for end time. Example: \"UTC\" or \"Pacific Standard Time\""
+            }
+          },
+          "required": [
+            "dateTime",
+            "timeZone"
+          ],
+          "additionalProperties": false
+        },
+        "body": {
+          "type": "object",
+          "properties": {
+            "contentType": {
+              "type": "string",
+              "enum": [
+                "text",
+                "html"
+              ]
+            },
+            "content": {
+              "type": "string",
+              "description": "Event body/description content."
+            }
+          },
+          "required": [
+            "content"
+          ],
+          "additionalProperties": false
+        },
+        "location": {
+          "type": "object",
+          "properties": {
+            "displayName": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "displayName"
+          ],
+          "additionalProperties": false
         },
         "attendees": {
           "type": "array",
@@ -77952,78 +78346,12 @@
                     "type": "string"
                   },
                   "name": {
-                    "type": "string"
-                  }
-                },
-                "required": [
-                  "address",
-                  "name"
-                ],
-                "additionalProperties": false
-              },
-              "proposedNewTime": {
-                "type": "object",
-                "properties": {
-                  "start": {
-                    "type": "object",
-                    "properties": {
-                      "dateTime": {
-                        "type": "string"
-                      },
-                      "timeZone": {
-                        "type": "string"
-                      }
-                    },
-                    "required": [
-                      "dateTime",
-                      "timeZone"
-                    ],
-                    "additionalProperties": false
-                  },
-                  "end": {
-                    "type": "object",
-                    "properties": {
-                      "dateTime": {
-                        "type": "string"
-                      },
-                      "timeZone": {
-                        "type": "string"
-                      }
-                    },
-                    "required": [
-                      "dateTime",
-                      "timeZone"
-                    ],
-                    "additionalProperties": false
-                  }
-                },
-                "required": [
-                  "start",
-                  "end"
-                ],
-                "additionalProperties": false
-              },
-              "status": {
-                "type": "object",
-                "properties": {
-                  "response": {
                     "type": "string",
-                    "enum": [
-                      "none",
-                      "organizer",
-                      "tentativelyAccepted",
-                      "accepted",
-                      "declined",
-                      "notResponded"
-                    ]
-                  },
-                  "sentDateTime": {
-                    "type": "string"
+                    "description": "Attendee display name."
                   }
                 },
                 "required": [
-                  "response",
-                  "sentDateTime"
+                  "address"
                 ],
                 "additionalProperties": false
               },
@@ -78037,334 +78365,25 @@
               }
             },
             "required": [
-              "emailAddress",
-              "status",
-              "type"
+              "emailAddress"
             ],
             "additionalProperties": false
-          }
-        },
-        "bodyPreview": {
-          "type": "string"
-        },
-        "end": {
-          "type": "object",
-          "properties": {
-            "dateTime": {
-              "type": "string"
-            },
-            "timeZone": {
-              "type": "string"
-            }
           },
-          "required": [
-            "dateTime",
-            "timeZone"
-          ],
-          "additionalProperties": false
+          "description": "List of attendees to invite to the event."
         },
-        "importance": {
-          "type": "string",
-          "enum": [
-            "low",
-            "normal",
-            "high"
-          ]
-        },
-        "isAllDay": {
-          "type": "boolean"
-        },
-        "isCancelled": {
-          "type": "boolean"
-        },
-        "isOrganizer": {
-          "type": "boolean"
-        },
-        "location": {
-          "type": "object",
-          "properties": {
-            "address": {
-              "type": "object",
-              "properties": {
-                "city": {
-                  "type": "string"
-                },
-                "countryOrRegion": {
-                  "type": "string"
-                },
-                "postalCode": {
-                  "type": "string"
-                },
-                "state": {
-                  "type": "string"
-                },
-                "street": {
-                  "type": "string"
-                }
-              },
-              "additionalProperties": false
-            },
-            "coordinates": {
-              "type": "object",
-              "properties": {
-                "accuracy": {
-                  "type": "number"
-                },
-                "altitude": {
-                  "type": "number"
-                },
-                "altitudeAccuracy": {
-                  "type": "number"
-                },
-                "latitude": {
-                  "type": "number"
-                },
-                "longitude": {
-                  "type": "number"
-                }
-              },
-              "additionalProperties": false
-            },
-            "displayName": {
-              "type": "string"
-            },
-            "locationEmailAddress": {
-              "type": "string"
-            },
-            "locationUri": {
-              "type": "string"
-            },
-            "locationType": {
-              "type": "string",
-              "enum": [
-                "default",
-                "conferenceRoom",
-                "homeAddress",
-                "businessAddress",
-                "geoCoordinates",
-                "streetAddress",
-                "hotel",
-                "restaurant",
-                "localBusiness",
-                "postalAddress"
-              ]
-            },
-            "uniqueId": {
-              "type": "string"
-            },
-            "uniqueIdType": {
-              "type": "string"
-            }
-          },
-          "additionalProperties": false
-        },
-        "onlineMeeting": {
-          "anyOf": [
-            {
-              "type": "object",
-              "properties": {
-                "conferenceId": {
-                  "type": "string"
-                },
-                "joinUrl": {
-                  "type": "string"
-                },
-                "phones": {
-                  "type": "array",
-                  "items": {
-                    "type": "object",
-                    "properties": {
-                      "number": {
-                        "type": "string"
-                      },
-                      "type": {
-                        "type": "string",
-                        "enum": [
-                          "home",
-                          "business",
-                          "mobile",
-                          "other",
-                          "assistant",
-                          "homeFax",
-                          "businessFax",
-                          "otherFax",
-                          "pager",
-                          "radio"
-                        ]
-                      }
-                    },
-                    "required": [
-                      "number",
-                      "type"
-                    ],
-                    "additionalProperties": false
-                  }
-                },
-                "quickDial": {
-                  "type": "string"
-                },
-                "tollFreeNumbers": {
-                  "type": "array",
-                  "items": {
-                    "type": "string"
-                  }
-                },
-                "tollNumber": {
-                  "type": "string"
-                }
-              },
-              "required": [
-                "phones",
-                "tollFreeNumbers"
-              ],
-              "additionalProperties": false
-            },
-            {
-              "type": "null"
-            }
-          ]
+        "isOnlineMeeting": {
+          "type": "boolean",
+          "description": "Whether to create an online meeting (Teams)."
         },
         "onlineMeetingProvider": {
-          "type": "string"
-        },
-        "organizer": {
-          "type": "object",
-          "properties": {
-            "emailAddress": {
-              "type": "object",
-              "properties": {
-                "address": {
-                  "type": "string"
-                },
-                "name": {
-                  "type": "string"
-                }
-              },
-              "required": [
-                "address",
-                "name"
-              ],
-              "additionalProperties": false
-            }
-          },
-          "required": [
-            "emailAddress"
+          "type": "string",
+          "enum": [
+            "teamsForBusiness",
+            "skypeForBusiness",
+            "skypeForConsumer",
+            "unknown"
           ],
-          "additionalProperties": false
-        },
-        "recurrence": {
-          "anyOf": [
-            {
-              "type": "object",
-              "properties": {
-                "pattern": {
-                  "type": "object",
-                  "properties": {
-                    "dayOfMonth": {
-                      "type": "number"
-                    },
-                    "daysOfWeek": {
-                      "type": "array",
-                      "items": {
-                        "type": "string"
-                      }
-                    },
-                    "firstDayOfWeek": {
-                      "type": "string"
-                    },
-                    "index": {
-                      "type": "string",
-                      "enum": [
-                        "first",
-                        "second",
-                        "third",
-                        "fourth",
-                        "last"
-                      ]
-                    },
-                    "interval": {
-                      "type": "number"
-                    },
-                    "month": {
-                      "type": "number"
-                    },
-                    "type": {
-                      "type": "string",
-                      "enum": [
-                        "daily",
-                        "weekly",
-                        "absoluteMonthly",
-                        "relativeMonthly",
-                        "absoluteYearly",
-                        "relativeYearly"
-                      ]
-                    }
-                  },
-                  "required": [
-                    "interval",
-                    "type"
-                  ],
-                  "additionalProperties": false
-                },
-                "range": {
-                  "type": "object",
-                  "properties": {
-                    "endDate": {
-                      "type": "string"
-                    },
-                    "numberOfOccurrences": {
-                      "type": "number"
-                    },
-                    "recurrenceTimeZone": {
-                      "type": "string"
-                    },
-                    "startDate": {
-                      "type": "string"
-                    },
-                    "type": {
-                      "type": "string",
-                      "enum": [
-                        "endDate",
-                        "noEnd",
-                        "numbered"
-                      ]
-                    }
-                  },
-                  "required": [
-                    "startDate",
-                    "type"
-                  ],
-                  "additionalProperties": false
-                }
-              },
-              "required": [
-                "range"
-              ],
-              "additionalProperties": false
-            },
-            {
-              "type": "null"
-            }
-          ]
-        },
-        "responseRequested": {
-          "type": "boolean"
-        },
-        "responseStatus": {
-          "type": "object",
-          "properties": {
-            "response": {
-              "type": "string"
-            },
-            "time": {
-              "type": "string"
-            }
-          },
-          "required": [
-            "response",
-            "time"
-          ],
-          "additionalProperties": false
+          "description": "Online meeting provider."
         },
         "sensitivity": {
           "type": "string",
@@ -78374,6 +78393,34 @@
             "private",
             "confidential"
           ]
+        },
+        "showAs": {
+          "type": "string",
+          "enum": [
+            "free",
+            "tentative",
+            "busy",
+            "oof",
+            "workingElsewhere",
+            "unknown"
+          ]
+        }
+      },
+      "required": [
+        "subject",
+        "start",
+        "end"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_outlook_createevent": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "subject": {
+          "type": "string"
         },
         "start": {
           "type": "object",
@@ -78391,49 +78438,122 @@
           ],
           "additionalProperties": false
         },
-        "subject": {
-          "type": "string"
+        "end": {
+          "type": "object",
+          "properties": {
+            "dateTime": {
+              "type": "string"
+            },
+            "timeZone": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "dateTime",
+            "timeZone"
+          ],
+          "additionalProperties": false
+        },
+        "body": {
+          "type": "object",
+          "properties": {
+            "contentType": {
+              "type": "string"
+            },
+            "content": {
+              "type": "string"
+            }
+          },
+          "additionalProperties": false
+        },
+        "location": {
+          "type": "object",
+          "properties": {
+            "displayName": {
+              "type": "string"
+            }
+          },
+          "additionalProperties": false
+        },
+        "attendees": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "emailAddress": {
+                "type": "object",
+                "properties": {
+                  "address": {
+                    "type": "string"
+                  },
+                  "name": {
+                    "type": "string"
+                  }
+                },
+                "additionalProperties": false
+              },
+              "type": {
+                "type": "string",
+                "enum": [
+                  "required",
+                  "optional",
+                  "resource"
+                ]
+              }
+            },
+            "additionalProperties": false
+          }
+        },
+        "isOnlineMeeting": {
+          "type": "boolean"
+        },
+        "onlineMeeting": {
+          "type": "object",
+          "properties": {
+            "joinUrl": {
+              "type": "string"
+            }
+          },
+          "additionalProperties": false
         },
         "webLink": {
           "type": "string"
+        },
+        "createdDateTime": {
+          "type": "string"
+        },
+        "lastModifiedDateTime": {
+          "type": "string"
         }
       },
       "required": [
-        "id",
-        "attendees",
-        "bodyPreview",
-        "end",
-        "importance",
-        "isAllDay",
-        "isCancelled",
-        "isOrganizer",
-        "location",
-        "onlineMeeting",
-        "onlineMeetingProvider",
-        "organizer",
-        "recurrence",
-        "responseRequested",
-        "responseStatus",
-        "sensitivity",
-        "start",
-        "subject",
-        "webLink"
+        "id"
       ],
       "additionalProperties": false
     },
-    "SyncMetadata_outlook_events": {
+    "ActionInput_outlook_createmailfolder": {
       "type": "object",
       "properties": {
-        "backfillPeriodMs": {
-          "type": "number"
+        "parentFolderId": {
+          "type": "string",
+          "description": "The unique identifier of the parent mail folder. Example: \"AQMkAGI2...\""
+        },
+        "displayName": {
+          "type": "string",
+          "description": "The display name of the new mail folder. Example: \"Work\""
+        },
+        "hidden": {
+          "type": "boolean",
+          "description": "Whether the folder should be hidden from standard folder lists."
         }
       },
       "required": [
-        "backfillPeriodMs"
+        "parentFolderId",
+        "displayName"
       ],
       "additionalProperties": false
     },
-    "OutlookFolder": {
+    "ActionOutput_outlook_createmailfolder": {
       "type": "object",
       "properties": {
         "id": {
@@ -78460,42 +78580,428 @@
       },
       "required": [
         "id",
-        "displayName",
-        "parentFolderId",
-        "childFolderCount",
-        "unreadItemCount",
-        "totalItemCount",
-        "isHidden"
+        "displayName"
       ],
       "additionalProperties": false
     },
-    "SyncMetadata_outlook_folders": {
-      "type": "object",
-      "additionalProperties": false
-    },
-    "ActionInput_outlook_fetchattachment": {
+    "ActionInput_outlook_deletecalendar": {
       "type": "object",
       "properties": {
-        "threadId": {
-          "type": "string"
+        "calendarId": {
+          "type": "string",
+          "description": "The ID of the calendar to delete. Example: \"AAMkAGI...\""
+        }
+      },
+      "required": [
+        "calendarId"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_outlook_deletecalendar": {
+      "type": "object",
+      "properties": {
+        "success": {
+          "type": "boolean"
         },
-        "attachmentId": {
+        "calendarId": {
           "type": "string"
         }
       },
       "required": [
-        "threadId",
+        "success",
+        "calendarId"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_outlook_deleteevent": {
+      "type": "object",
+      "properties": {
+        "event_id": {
+          "type": "string",
+          "description": "The ID of the event to delete. Example: \"AAMkAGI2...\""
+        },
+        "calendar_id": {
+          "type": "string",
+          "description": "Optional calendar ID. If omitted, uses the default calendar."
+        }
+      },
+      "required": [
+        "event_id"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_outlook_deleteevent": {
+      "type": "object",
+      "properties": {
+        "success": {
+          "type": "boolean"
+        },
+        "message": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "success",
+        "message"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_outlook_deletemessage": {
+      "type": "object",
+      "properties": {
+        "messageId": {
+          "type": "string",
+          "description": "The unique identifier of the message to delete. Example: \"AAMkAGVmMDEzM...\""
+        }
+      },
+      "required": [
+        "messageId"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_outlook_deletemessage": {
+      "type": "object",
+      "properties": {
+        "success": {
+          "type": "boolean",
+          "description": "Whether the deletion was successful"
+        }
+      },
+      "required": [
+        "success"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_outlook_downloadmessageattachment": {
+      "type": "object",
+      "properties": {
+        "messageId": {
+          "type": "string",
+          "description": "The ID of the message containing the attachment. Example: \"AAMkAGVmMD...\""
+        },
+        "attachmentId": {
+          "type": "string",
+          "description": "The ID of the attachment to download. Example: \"AAMkAGVmMD...\""
+        }
+      },
+      "required": [
+        "messageId",
         "attachmentId"
       ],
       "additionalProperties": false
     },
-    "ActionOutput_outlook_fetchattachment": {
-      "type": "string"
+    "ActionOutput_outlook_downloadmessageattachment": {
+      "type": "object",
+      "properties": {
+        "content": {
+          "type": "string",
+          "description": "The base64-encoded content of the attachment."
+        },
+        "contentType": {
+          "type": "string",
+          "description": "The MIME type of the attachment content."
+        },
+        "name": {
+          "type": "string",
+          "description": "The name of the attachment file."
+        }
+      },
+      "required": [
+        "content",
+        "contentType"
+      ],
+      "additionalProperties": false
     },
-    "ActionInput_outlook_fetcheventcontent": {
+    "ActionInput_outlook_getcalendar": {
+      "type": "object",
+      "properties": {
+        "calendarId": {
+          "type": "string",
+          "description": "The unique identifier of the calendar. Example: \"AAMkAGI2TGuLAAA=\""
+        }
+      },
+      "required": [
+        "calendarId"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_outlook_getcalendar": {
       "type": "object",
       "properties": {
         "id": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "color": {
+          "type": "string"
+        },
+        "isDefaultCalendar": {
+          "type": "boolean"
+        },
+        "changeKey": {
+          "type": "string"
+        },
+        "canShare": {
+          "type": "boolean"
+        },
+        "canViewPrivateItems": {
+          "type": "boolean"
+        },
+        "hexColor": {
+          "type": "string"
+        },
+        "canEdit": {
+          "type": "boolean"
+        },
+        "allowedOnlineMeetingProviders": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "defaultOnlineMeetingProvider": {
+          "type": "string"
+        },
+        "isTallyingResponses": {
+          "type": "boolean"
+        },
+        "isRemovable": {
+          "type": "boolean"
+        },
+        "owner": {
+          "type": "object",
+          "properties": {
+            "name": {
+              "type": "string"
+            },
+            "address": {
+              "type": "string"
+            }
+          },
+          "additionalProperties": false
+        }
+      },
+      "required": [
+        "id"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_outlook_getevent": {
+      "type": "object",
+      "properties": {
+        "eventId": {
+          "type": "string",
+          "description": "The unique identifier of the event. Example: \"AAMkAGI1AAAoZDOFAAA=\""
+        },
+        "timezone": {
+          "type": "string",
+          "description": "The time zone to use for returning event dates. Example: \"Pacific Standard Time\""
+        },
+        "select": {
+          "type": "string",
+          "description": "A comma-separated list of properties to include in the response. Example: \"subject,start,end,location\""
+        }
+      },
+      "required": [
+        "eventId"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_outlook_getevent": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "subject": {
+          "type": "string"
+        },
+        "bodyPreview": {
+          "type": "string"
+        },
+        "bodyContentType": {
+          "type": "string"
+        },
+        "bodyContent": {
+          "type": "string"
+        },
+        "start": {
+          "type": "object",
+          "properties": {
+            "dateTime": {
+              "type": "string"
+            },
+            "timeZone": {
+              "type": "string"
+            }
+          },
+          "additionalProperties": false
+        },
+        "end": {
+          "type": "object",
+          "properties": {
+            "dateTime": {
+              "type": "string"
+            },
+            "timeZone": {
+              "type": "string"
+            }
+          },
+          "additionalProperties": false
+        },
+        "locationDisplayName": {
+          "type": "string"
+        },
+        "locationType": {
+          "type": "string"
+        },
+        "locations": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "displayName": {
+                "type": "string"
+              },
+              "locationType": {
+                "type": "string"
+              },
+              "uniqueId": {
+                "type": "string"
+              },
+              "uniqueIdType": {
+                "type": "string"
+              }
+            },
+            "additionalProperties": false
+          }
+        },
+        "attendees": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "type": {
+                "type": "string"
+              },
+              "response": {
+                "type": "string"
+              },
+              "emailName": {
+                "type": "string"
+              },
+              "emailAddress": {
+                "type": "string"
+              }
+            },
+            "additionalProperties": false
+          }
+        },
+        "organizerName": {
+          "type": "string"
+        },
+        "organizerAddress": {
+          "type": "string"
+        },
+        "isOrganizer": {
+          "type": "boolean"
+        },
+        "isCancelled": {
+          "type": "boolean"
+        },
+        "isAllDay": {
+          "type": "boolean"
+        },
+        "importance": {
+          "type": "string"
+        },
+        "showAs": {
+          "type": "string"
+        },
+        "sensitivity": {
+          "type": "string"
+        },
+        "recurrence": {
+          "type": "object",
+          "properties": {
+            "pattern": {
+              "type": "object",
+              "properties": {
+                "type": {
+                  "type": "string"
+                },
+                "interval": {
+                  "type": "number"
+                },
+                "month": {
+                  "type": "number"
+                },
+                "dayOfMonth": {
+                  "type": "number"
+                },
+                "daysOfWeek": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "firstDayOfWeek": {
+                  "type": "string"
+                },
+                "index": {
+                  "type": "string"
+                }
+              },
+              "additionalProperties": false
+            },
+            "range": {
+              "type": "object",
+              "properties": {
+                "type": {
+                  "type": "string"
+                },
+                "startDate": {
+                  "type": "string"
+                },
+                "endDate": {
+                  "type": "string"
+                },
+                "numberOfOccurrences": {
+                  "type": "number"
+                }
+              },
+              "additionalProperties": false
+            }
+          },
+          "additionalProperties": false
+        },
+        "seriesMasterId": {
+          "type": "string"
+        },
+        "type": {
+          "type": "string"
+        },
+        "webLink": {
+          "type": "string"
+        },
+        "onlineMeetingUrl": {
+          "type": "string"
+        },
+        "createdDateTime": {
+          "type": "string"
+        },
+        "lastModifiedDateTime": {
+          "type": "string"
+        },
+        "iCalUId": {
+          "type": "string"
+        },
+        "response": {
+          "type": "string"
+        },
+        "responseTime": {
           "type": "string"
         }
       },
@@ -78504,23 +79010,1527 @@
       ],
       "additionalProperties": false
     },
-    "ActionOutput_outlook_fetcheventcontent": {
+    "ActionInput_outlook_getmessage": {
       "type": "object",
       "properties": {
-        "content": {
-          "type": "string"
-        },
-        "contentType": {
+        "messageId": {
           "type": "string",
-          "enum": [
-            "text",
-            "html"
-          ]
+          "description": "The unique identifier of the message. Example: \"AAMkAGVmMD...\""
+        },
+        "expandAttachments": {
+          "type": "boolean",
+          "description": "If true, expands the attachments relationship in the response."
         }
       },
       "required": [
-        "content",
-        "contentType"
+        "messageId"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_outlook_getmessage": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "subject": {
+          "type": "string"
+        },
+        "bodyPreview": {
+          "type": "string"
+        },
+        "createdDateTime": {
+          "type": "string"
+        },
+        "receivedDateTime": {
+          "type": "string"
+        },
+        "sentDateTime": {
+          "type": "string"
+        },
+        "importance": {
+          "type": "string"
+        },
+        "isRead": {
+          "type": "boolean"
+        },
+        "isDraft": {
+          "type": "boolean"
+        },
+        "from": {
+          "type": "object",
+          "properties": {
+            "emailAddress": {
+              "type": "object",
+              "properties": {
+                "address": {
+                  "type": "string"
+                },
+                "name": {
+                  "type": "string"
+                }
+              },
+              "additionalProperties": false
+            }
+          },
+          "additionalProperties": false
+        },
+        "toRecipients": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "emailAddress": {
+                "type": "object",
+                "properties": {
+                  "address": {
+                    "type": "string"
+                  },
+                  "name": {
+                    "type": "string"
+                  }
+                },
+                "additionalProperties": false
+              }
+            },
+            "additionalProperties": false
+          }
+        },
+        "ccRecipients": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "emailAddress": {
+                "type": "object",
+                "properties": {
+                  "address": {
+                    "type": "string"
+                  },
+                  "name": {
+                    "type": "string"
+                  }
+                },
+                "additionalProperties": false
+              }
+            },
+            "additionalProperties": false
+          }
+        },
+        "bccRecipients": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "emailAddress": {
+                "type": "object",
+                "properties": {
+                  "address": {
+                    "type": "string"
+                  },
+                  "name": {
+                    "type": "string"
+                  }
+                },
+                "additionalProperties": false
+              }
+            },
+            "additionalProperties": false
+          }
+        },
+        "replyTo": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "emailAddress": {
+                "type": "object",
+                "properties": {
+                  "address": {
+                    "type": "string"
+                  },
+                  "name": {
+                    "type": "string"
+                  }
+                },
+                "additionalProperties": false
+              }
+            },
+            "additionalProperties": false
+          }
+        },
+        "attachments": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "name": {
+                "type": "string"
+              },
+              "contentType": {
+                "type": "string"
+              },
+              "size": {
+                "type": "number"
+              }
+            },
+            "required": [
+              "id"
+            ],
+            "additionalProperties": false
+          }
+        }
+      },
+      "required": [
+        "id"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_outlook_listcalendarevents": {
+      "type": "object",
+      "properties": {
+        "calendar_id": {
+          "type": "string",
+          "description": "The ID of the calendar to list events from. If omitted, the default calendar is used. Example: \"AQMkADAwATM0...\""
+        },
+        "start_date_time": {
+          "type": "string",
+          "description": "Start of the date range (ISO 8601 format). Required when using calendarView. Example: \"2024-01-01T00:00:00Z\""
+        },
+        "end_date_time": {
+          "type": "string",
+          "description": "End of the date range (ISO 8601 format). Required when using calendarView. Example: \"2024-01-31T23:59:59Z\""
+        },
+        "top": {
+          "type": "number",
+          "description": "Maximum number of events to return per page. Default: 10, Max: 50."
+        }
+      },
+      "additionalProperties": false
+    },
+    "ActionOutput_outlook_listcalendarevents": {
+      "type": "object",
+      "properties": {
+        "events": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "subject": {
+                "type": "string"
+              },
+              "body_preview": {
+                "type": "string"
+              },
+              "start_date_time": {
+                "type": "string"
+              },
+              "start_time_zone": {
+                "type": "string"
+              },
+              "end_date_time": {
+                "type": "string"
+              },
+              "end_time_zone": {
+                "type": "string"
+              },
+              "location": {
+                "type": "string"
+              },
+              "is_all_day": {
+                "type": "boolean"
+              },
+              "show_as": {
+                "type": "string"
+              },
+              "web_link": {
+                "type": "string"
+              },
+              "created_date_time": {
+                "type": "string"
+              },
+              "last_modified_date_time": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "id"
+            ],
+            "additionalProperties": false
+          }
+        },
+        "next_link": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "events"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_outlook_listcalendars": {
+      "type": "object",
+      "properties": {
+        "cursor": {
+          "type": "string",
+          "description": "Pagination cursor (skipToken) from the previous response. Omit for the first page."
+        },
+        "limit": {
+          "type": "number",
+          "description": "Maximum number of calendars to return. Default is 10, maximum is 50."
+        }
+      },
+      "additionalProperties": false
+    },
+    "ActionOutput_outlook_listcalendars": {
+      "type": "object",
+      "properties": {
+        "calendars": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "name": {
+                "type": "string"
+              },
+              "color": {
+                "type": "string"
+              },
+              "changeKey": {
+                "type": "string"
+              },
+              "canShare": {
+                "type": "boolean"
+              },
+              "canViewPrivateItems": {
+                "type": "boolean"
+              },
+              "canEdit": {
+                "type": "boolean"
+              },
+              "owner": {
+                "type": "object",
+                "properties": {
+                  "name": {
+                    "type": "string"
+                  },
+                  "address": {
+                    "type": "string"
+                  }
+                },
+                "additionalProperties": false
+              }
+            },
+            "required": [
+              "id"
+            ],
+            "additionalProperties": false
+          }
+        },
+        "next_cursor": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "calendars"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_outlook_listeventattachments": {
+      "type": "object",
+      "properties": {
+        "eventId": {
+          "type": "string",
+          "description": "The ID of the event to list attachments for. Example: \"AAMkAGVmMDEzMTM4LTZmYWUtNDdkNC1hMDZiLTU1OGY5OTZhYmY4OABGAAAAAAAiQ8W967B7TKBjgx9rVEURBwAiIsqMbYjsT5e-T7KzowPTAAAAAAENAAAiIsqMbYjsT5e-T7KzowPTAAAa_WKzAAA=\""
+        }
+      },
+      "required": [
+        "eventId"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_outlook_listeventattachments": {
+      "type": "object",
+      "properties": {
+        "attachments": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "contentType": {
+                "type": "string"
+              },
+              "isInline": {
+                "type": "boolean"
+              },
+              "lastModifiedDateTime": {
+                "type": "string"
+              },
+              "name": {
+                "type": "string"
+              },
+              "size": {
+                "type": "number"
+              }
+            },
+            "required": [
+              "id"
+            ],
+            "additionalProperties": false
+          }
+        },
+        "nextLink": {
+          "type": "string",
+          "description": "Pagination link for the next page of results. Omit for the first page."
+        }
+      },
+      "required": [
+        "attachments"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_outlook_listmailfolderchildren": {
+      "type": "object",
+      "properties": {
+        "folderId": {
+          "type": "string",
+          "description": "The ID of the mail folder to list children for. Example: \"AAMkAGVmODUyMzE1LTM0MDctNDNlMS05YjQ1LTI4MjE5MjJmYzY1ZgAuAAAAAADY3h3zQIGrQ6Pm8GPMwoNdAQCr0pwLSY4vT6AX1L4UHn_uAAAAAAEJAAA=\""
+        },
+        "limit": {
+          "type": "number",
+          "description": "Maximum number of folders to return per page. Default is 10."
+        },
+        "cursor": {
+          "type": "string",
+          "description": "Pagination cursor from the previous response (@odata.nextLink). Omit for the first page."
+        }
+      },
+      "required": [
+        "folderId"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_outlook_listmailfolderchildren": {
+      "type": "object",
+      "properties": {
+        "folders": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "displayName": {
+                "type": "string"
+              },
+              "parentFolderId": {
+                "type": "string"
+              },
+              "childFolderCount": {
+                "type": "number"
+              },
+              "unreadItemCount": {
+                "type": "number"
+              },
+              "totalItemCount": {
+                "type": "number"
+              },
+              "sizeInBytes": {
+                "type": "number"
+              },
+              "isHidden": {
+                "type": "boolean"
+              }
+            },
+            "required": [
+              "id"
+            ],
+            "additionalProperties": false
+          }
+        },
+        "next_cursor": {
+          "type": "string",
+          "description": "Cursor to fetch the next page of results. Absent if there are no more pages."
+        }
+      },
+      "required": [
+        "folders"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_outlook_listmailfolders": {
+      "type": "object",
+      "properties": {
+        "limit": {
+          "type": "number",
+          "description": "Number of folders to return per page. Max 50."
+        },
+        "nextLink": {
+          "type": "string",
+          "description": "OData nextLink for pagination from previous response"
+        }
+      },
+      "additionalProperties": false
+    },
+    "ActionOutput_outlook_listmailfolders": {
+      "type": "object",
+      "properties": {
+        "folders": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "displayName": {
+                "type": "string"
+              },
+              "parentFolderId": {
+                "type": "string"
+              },
+              "childFolderCount": {
+                "type": "number"
+              },
+              "unreadItemCount": {
+                "type": "number"
+              },
+              "totalItemCount": {
+                "type": "number"
+              },
+              "wellKnownName": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "id"
+            ],
+            "additionalProperties": false
+          }
+        },
+        "nextLink": {
+          "type": "string",
+          "description": "OData nextLink for retrieving the next page"
+        }
+      },
+      "required": [
+        "folders"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_outlook_listmessageattachments": {
+      "type": "object",
+      "properties": {
+        "messageId": {
+          "type": "string",
+          "description": "The unique identifier of the message to list attachments for. Example: \"AAMkAGVmMD...\""
+        }
+      },
+      "required": [
+        "messageId"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_outlook_listmessageattachments": {
+      "type": "object",
+      "properties": {
+        "attachments": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "lastModifiedDateTime": {
+                "type": "string"
+              },
+              "name": {
+                "type": "string"
+              },
+              "contentType": {
+                "type": "string"
+              },
+              "size": {
+                "type": "number"
+              },
+              "isInline": {
+                "type": "boolean"
+              },
+              "contentId": {
+                "type": "string"
+              },
+              "contentLocation": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "id"
+            ],
+            "additionalProperties": false
+          }
+        }
+      },
+      "required": [
+        "attachments"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_outlook_listmessages": {
+      "type": "object",
+      "properties": {
+        "folderId": {
+          "type": "string",
+          "description": "Mail folder ID. Use \"inbox\" for the inbox folder. Example: \"inbox\""
+        },
+        "filter": {
+          "type": "string",
+          "description": "OData filter expression for receivedDateTime. Example: \"receivedDateTime ge 2024-01-01T00:00:00Z\""
+        },
+        "select": {
+          "type": "string",
+          "description": "Comma-separated list of properties to include. Example: \"id,subject,receivedDateTime,from\""
+        },
+        "cursor": {
+          "type": "string",
+          "description": "Pagination link (odata.nextLink) from the previous response. Omit for the first page."
+        },
+        "limit": {
+          "type": "number",
+          "description": "Maximum number of messages to return per page. Default: 10, Max: 50."
+        }
+      },
+      "additionalProperties": false
+    },
+    "ActionOutput_outlook_listmessages": {
+      "type": "object",
+      "properties": {
+        "messages": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "subject": {
+                "type": "string"
+              },
+              "receivedDateTime": {
+                "type": "string"
+              },
+              "sentDateTime": {
+                "type": "string"
+              },
+              "from": {
+                "type": "object",
+                "properties": {
+                  "emailAddress": {
+                    "type": "object",
+                    "properties": {
+                      "name": {
+                        "type": "string"
+                      },
+                      "address": {
+                        "type": "string"
+                      }
+                    },
+                    "additionalProperties": false
+                  }
+                },
+                "additionalProperties": false
+              },
+              "toRecipients": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "emailAddress": {
+                      "type": "object",
+                      "properties": {
+                        "name": {
+                          "type": "string"
+                        },
+                        "address": {
+                          "type": "string"
+                        }
+                      },
+                      "additionalProperties": false
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              },
+              "isRead": {
+                "type": "boolean"
+              },
+              "importance": {
+                "type": "string"
+              },
+              "conversationId": {
+                "type": "string"
+              },
+              "internetMessageId": {
+                "type": "string"
+              },
+              "bodyPreview": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "id"
+            ],
+            "additionalProperties": false
+          }
+        },
+        "next_cursor": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "messages"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_outlook_movemessage": {
+      "type": "object",
+      "properties": {
+        "messageId": {
+          "type": "string",
+          "description": "The unique identifier of the message to move. Example: \"AAMkAGVmMDEz...\""
+        },
+        "destinationId": {
+          "type": "string",
+          "description": "The unique identifier of the destination mail folder. Example: \"AAMkAGVmMDEzMjA...\""
+        }
+      },
+      "required": [
+        "messageId",
+        "destinationId"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_outlook_movemessage": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "parentFolderId": {
+          "type": "string"
+        },
+        "subject": {
+          "type": "string"
+        },
+        "receivedDateTime": {
+          "type": "string"
+        },
+        "sentDateTime": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "id",
+        "parentFolderId"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_outlook_replyalltomessage": {
+      "type": "object",
+      "properties": {
+        "messageId": {
+          "type": "string",
+          "description": "The ID of the message to reply to"
+        },
+        "comment": {
+          "type": "string",
+          "description": "A comment to include in the reply. Required when not creating a draft."
+        },
+        "createDraft": {
+          "type": "boolean",
+          "description": "If true, creates a draft reply instead of sending immediately"
+        },
+        "body": {
+          "type": "object",
+          "properties": {
+            "contentType": {
+              "type": "string",
+              "enum": [
+                "text",
+                "html"
+              ]
+            },
+            "content": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "contentType",
+            "content"
+          ],
+          "additionalProperties": false,
+          "description": "The body of the reply message. Use instead of comment for more control."
+        }
+      },
+      "required": [
+        "messageId"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_outlook_replyalltomessage": {
+      "type": "object",
+      "properties": {
+        "success": {
+          "type": "boolean"
+        },
+        "draftId": {
+          "type": "string",
+          "description": "The ID of the created draft (only when createDraft is true)"
+        }
+      },
+      "required": [
+        "success"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_outlook_replytomessage": {
+      "type": "object",
+      "properties": {
+        "messageId": {
+          "type": "string",
+          "description": "The ID of the message to reply to. Example: \"AAMkAGVmMDEZ...\""
+        },
+        "comment": {
+          "type": "string",
+          "description": "The plain text body of the reply message. Example: \"Thank you for your email. I will get back to you soon.\""
+        }
+      },
+      "required": [
+        "messageId",
+        "comment"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_outlook_replytomessage": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "messageId": {
+          "type": "string"
+        },
+        "success": {
+          "type": "boolean"
+        },
+        "subject": {
+          "type": "string"
+        },
+        "body": {
+          "type": "object",
+          "properties": {
+            "contentType": {
+              "type": "string"
+            },
+            "content": {
+              "type": "string"
+            }
+          },
+          "additionalProperties": false
+        },
+        "sender": {
+          "type": "object",
+          "properties": {
+            "emailAddress": {
+              "type": "object",
+              "properties": {
+                "address": {
+                  "type": "string"
+                },
+                "name": {
+                  "type": "string"
+                }
+              },
+              "additionalProperties": false
+            }
+          },
+          "additionalProperties": false
+        },
+        "toRecipients": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "emailAddress": {
+                "type": "object",
+                "properties": {
+                  "address": {
+                    "type": "string"
+                  },
+                  "name": {
+                    "type": "string"
+                  }
+                },
+                "additionalProperties": false
+              }
+            },
+            "additionalProperties": false
+          }
+        },
+        "createdDateTime": {
+          "type": "string"
+        },
+        "sentDateTime": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "messageId",
+        "success"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_outlook_senddraftmessage": {
+      "type": "object",
+      "properties": {
+        "message_id": {
+          "type": "string",
+          "description": "The unique identifier of the draft message to send. Example: \"AAMkAGVmMDEz...\""
+        }
+      },
+      "required": [
+        "message_id"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_outlook_senddraftmessage": {
+      "type": "object",
+      "properties": {
+        "success": {
+          "type": "boolean",
+          "description": "Whether the draft was sent successfully"
+        },
+        "message_id": {
+          "type": "string",
+          "description": "The ID of the message that was sent"
+        }
+      },
+      "required": [
+        "success",
+        "message_id"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_outlook_sendmail": {
+      "type": "object",
+      "properties": {
+        "message": {
+          "type": "object",
+          "properties": {
+            "subject": {
+              "type": "string"
+            },
+            "body": {
+              "type": "object",
+              "properties": {
+                "contentType": {
+                  "type": "string",
+                  "enum": [
+                    "text",
+                    "html"
+                  ]
+                },
+                "content": {
+                  "type": "string",
+                  "description": "The content of the body. Example: \"Hello world\""
+                }
+              },
+              "required": [
+                "contentType",
+                "content"
+              ],
+              "additionalProperties": false
+            },
+            "toRecipients": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "emailAddress": {
+                    "type": "object",
+                    "properties": {
+                      "address": {
+                        "type": "string"
+                      },
+                      "name": {
+                        "type": "string",
+                        "description": "The display name of the recipient. Example: \"John Doe\""
+                      }
+                    },
+                    "required": [
+                      "address"
+                    ],
+                    "additionalProperties": false
+                  }
+                },
+                "required": [
+                  "emailAddress"
+                ],
+                "additionalProperties": false
+              },
+              "description": "The recipients of the message"
+            },
+            "ccRecipients": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "emailAddress": {
+                    "type": "object",
+                    "properties": {
+                      "address": {
+                        "type": "string"
+                      },
+                      "name": {
+                        "type": "string",
+                        "description": "The display name of the recipient. Example: \"John Doe\""
+                      }
+                    },
+                    "required": [
+                      "address"
+                    ],
+                    "additionalProperties": false
+                  }
+                },
+                "required": [
+                  "emailAddress"
+                ],
+                "additionalProperties": false
+              },
+              "description": "The CC recipients of the message"
+            },
+            "bccRecipients": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "emailAddress": {
+                    "type": "object",
+                    "properties": {
+                      "address": {
+                        "type": "string"
+                      },
+                      "name": {
+                        "type": "string",
+                        "description": "The display name of the recipient. Example: \"John Doe\""
+                      }
+                    },
+                    "required": [
+                      "address"
+                    ],
+                    "additionalProperties": false
+                  }
+                },
+                "required": [
+                  "emailAddress"
+                ],
+                "additionalProperties": false
+              },
+              "description": "The BCC recipients of the message"
+            },
+            "replyTo": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "emailAddress": {
+                    "type": "object",
+                    "properties": {
+                      "address": {
+                        "type": "string"
+                      },
+                      "name": {
+                        "type": "string",
+                        "description": "The display name of the recipient. Example: \"John Doe\""
+                      }
+                    },
+                    "required": [
+                      "address"
+                    ],
+                    "additionalProperties": false
+                  }
+                },
+                "required": [
+                  "emailAddress"
+                ],
+                "additionalProperties": false
+              },
+              "description": "The reply-to recipients of the message"
+            },
+            "importance": {
+              "type": "string",
+              "enum": [
+                "low",
+                "normal",
+                "high"
+              ],
+              "description": "The importance of the message. Example: \"normal\""
+            }
+          },
+          "required": [
+            "subject",
+            "body",
+            "toRecipients"
+          ],
+          "additionalProperties": false
+        },
+        "saveToSentItems": {
+          "type": "boolean",
+          "description": "Whether to save the message in Sent Items. Default: true"
+        }
+      },
+      "required": [
+        "message"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_outlook_sendmail": {
+      "type": "object",
+      "properties": {
+        "success": {
+          "type": "boolean"
+        },
+        "message": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "success"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_outlook_updatecalendar": {
+      "type": "object",
+      "properties": {
+        "calendarId": {
+          "type": "string",
+          "description": "The unique identifier of the calendar to update. Example: \"AQMkAGI...\""
+        },
+        "name": {
+          "type": "string",
+          "description": "The calendar name. Example: \"Work Calendar\""
+        },
+        "color": {
+          "type": "string",
+          "description": "The color of the calendar in hex format or a preset color constant. Example: \"#2B579A\" or \"lightBlue\""
+        }
+      },
+      "required": [
+        "calendarId"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_outlook_updatecalendar": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "color": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "id"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_outlook_updateevent": {
+      "type": "object",
+      "properties": {
+        "eventId": {
+          "type": "string",
+          "description": "The unique identifier of the event to update. Example: \"AAMkAGI1...\""
+        },
+        "subject": {
+          "type": "string",
+          "description": "The subject of the event."
+        },
+        "body": {
+          "type": "object",
+          "properties": {
+            "contentType": {
+              "type": "string",
+              "enum": [
+                "text",
+                "html"
+              ]
+            },
+            "content": {
+              "type": "string"
+            }
+          },
+          "additionalProperties": false,
+          "description": "The body of the event."
+        },
+        "attendees": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "emailAddress": {
+                "type": "object",
+                "properties": {
+                  "address": {
+                    "type": "string"
+                  },
+                  "name": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "address"
+                ],
+                "additionalProperties": false
+              },
+              "type": {
+                "type": "string",
+                "enum": [
+                  "required",
+                  "optional",
+                  "resource"
+                ]
+              }
+            },
+            "required": [
+              "emailAddress"
+            ],
+            "additionalProperties": false
+          },
+          "description": "The attendees of the event."
+        },
+        "start": {
+          "type": "object",
+          "properties": {
+            "dateTime": {
+              "type": "string"
+            },
+            "timeZone": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "dateTime"
+          ],
+          "additionalProperties": false,
+          "description": "The start time of the event."
+        },
+        "end": {
+          "type": "object",
+          "properties": {
+            "dateTime": {
+              "type": "string"
+            },
+            "timeZone": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "dateTime"
+          ],
+          "additionalProperties": false,
+          "description": "The end time of the event."
+        },
+        "location": {
+          "type": "object",
+          "properties": {
+            "displayName": {
+              "type": "string"
+            },
+            "address": {
+              "type": "object",
+              "properties": {
+                "street": {
+                  "type": "string"
+                },
+                "city": {
+                  "type": "string"
+                },
+                "state": {
+                  "type": "string"
+                },
+                "countryOrRegion": {
+                  "type": "string"
+                },
+                "postalCode": {
+                  "type": "string"
+                }
+              },
+              "additionalProperties": false
+            }
+          },
+          "additionalProperties": false,
+          "description": "The location of the event."
+        }
+      },
+      "required": [
+        "eventId"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_outlook_updateevent": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "subject": {
+          "type": "string"
+        },
+        "body": {
+          "type": "object",
+          "properties": {
+            "contentType": {
+              "type": "string"
+            },
+            "content": {
+              "type": "string"
+            }
+          },
+          "additionalProperties": false
+        },
+        "attendees": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "emailAddress": {
+                "type": "object",
+                "properties": {
+                  "address": {
+                    "type": "string"
+                  },
+                  "name": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "address"
+                ],
+                "additionalProperties": false
+              },
+              "type": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "emailAddress"
+            ],
+            "additionalProperties": false
+          }
+        },
+        "start": {
+          "type": "object",
+          "properties": {
+            "dateTime": {
+              "type": "string"
+            },
+            "timeZone": {
+              "type": "string"
+            }
+          },
+          "additionalProperties": false
+        },
+        "end": {
+          "type": "object",
+          "properties": {
+            "dateTime": {
+              "type": "string"
+            },
+            "timeZone": {
+              "type": "string"
+            }
+          },
+          "additionalProperties": false
+        },
+        "location": {
+          "type": "object",
+          "properties": {
+            "displayName": {
+              "type": "string"
+            },
+            "address": {
+              "type": "object",
+              "properties": {
+                "street": {
+                  "type": "string"
+                },
+                "city": {
+                  "type": "string"
+                },
+                "state": {
+                  "type": "string"
+                },
+                "countryOrRegion": {
+                  "type": "string"
+                },
+                "postalCode": {
+                  "type": "string"
+                }
+              },
+              "additionalProperties": false
+            }
+          },
+          "additionalProperties": false
+        },
+        "createdDateTime": {
+          "type": "string"
+        },
+        "lastModifiedDateTime": {
+          "type": "string"
+        },
+        "webLink": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "id"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_outlook_updatemessage": {
+      "type": "object",
+      "properties": {
+        "messageId": {
+          "type": "string",
+          "description": "The unique identifier of the message to update. Example: \"AAMkAGVmMDEz\""
+        },
+        "subject": {
+          "type": "string",
+          "description": "The subject of the message."
+        },
+        "body": {
+          "type": "object",
+          "properties": {
+            "contentType": {
+              "type": "string",
+              "enum": [
+                "text",
+                "html"
+              ]
+            },
+            "content": {
+              "type": "string",
+              "description": "The content of the body."
+            }
+          },
+          "required": [
+            "contentType",
+            "content"
+          ],
+          "additionalProperties": false,
+          "description": "The body of the message."
+        },
+        "categories": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "The categories associated with the message."
+        },
+        "isRead": {
+          "type": "boolean",
+          "description": "Indicates whether the message has been read."
+        },
+        "flag": {
+          "type": "object",
+          "properties": {
+            "flagStatus": {
+              "type": "string",
+              "enum": [
+                "notFlagged",
+                "complete",
+                "flagged"
+              ]
+            }
+          },
+          "required": [
+            "flagStatus"
+          ],
+          "additionalProperties": false,
+          "description": "The flag status of the message."
+        }
+      },
+      "required": [
+        "messageId"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_outlook_updatemessage": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "subject": {
+          "type": "string"
+        },
+        "body": {
+          "type": "object",
+          "properties": {
+            "contentType": {
+              "type": "string"
+            },
+            "content": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "contentType",
+            "content"
+          ],
+          "additionalProperties": false
+        },
+        "categories": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "isRead": {
+          "type": "boolean"
+        },
+        "flag": {
+          "type": "object",
+          "properties": {
+            "flagStatus": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "flagStatus"
+          ],
+          "additionalProperties": false
+        }
+      },
+      "required": [
+        "id"
       ],
       "additionalProperties": false
     },

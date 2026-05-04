@@ -4097,35 +4097,34 @@ export interface SyncMetadata_cal_com_v2_eventtypes {
 
 export interface Event {
   id: string;
-  created_at: string;
-  start_at: string;
-  end_at: string;
-  cover_url: string;
-  name: string;
-  description: string;
-  description_md: string;
-  series_api_id: string | null;
-  duration_interval_iso8601: string;
-  geo_latitude: string | null;
-  geo_longitude: string | null;
-  geo_address_json: {  city: string;
-  type: string;
-  region: string;
-  address: string;
-  country: string;
-  latitude: string;
-  place_id: string;
-  longitude: string;
-  city_state: string;
-  description: string;
-  full_address: string;} | null;
-  url: string;
-  timezone: string;
-  event_type: string;
-  user_api_id: string;
-  visibility: string;
-  meeting_url: string | null;
-  zoom_meeting_url: string | null;
+  subject?: string | undefined;
+  bodyPreview?: string | undefined;
+  start?: {  dateTime: string;
+  timeZone: string;} | undefined;
+  end?: {  dateTime: string;
+  timeZone: string;} | undefined;
+  location?: string | undefined;
+  isAllDay?: boolean | undefined;
+  isCancelled?: boolean | undefined;
+  isDraft?: boolean | undefined;
+  isOnlineMeeting?: boolean | undefined;
+  onlineMeetingProvider?: string | undefined;
+  importance?: string | undefined;
+  sensitivity?: string | undefined;
+  showAs?: string | undefined;
+  webLink?: string | undefined;
+  iCalUId?: string | undefined;
+  type?: string | undefined;
+  seriesMasterId?: string | undefined;
+  organizerEmail?: string | undefined;
+  organizerName?: string | undefined;
+  categories?: string[] | undefined;
+  createdDateTime?: string | undefined;
+  lastModifiedDateTime?: string | undefined;
+  originalStartTimeZone?: string | undefined;
+  originalEndTimeZone?: string | undefined;
+  hasAttachments?: boolean | undefined;
+  changeKey?: string | undefined;
 };
 
 export interface SyncMetadata_cal_com_v2_events {
@@ -11249,19 +11248,14 @@ export interface SyncMetadata_google_calendar_events {
 
 export interface Calendar {
   id: string;
-  summary: string | null;
-  description: string | null;
-  location: string | null;
-  timeZone: string | null;
-  summaryOverride: string | null;
-  colorId: string | null;
-  backgroundColor: string | null;
-  foregroundColor: string | null;
-  hidden: boolean;
-  selected: boolean;
-  accessRole: string | null;
-  primary: boolean;
-  deleted: boolean;
+  name?: string | undefined;
+  color?: string | undefined;
+  changeKey?: string | undefined;
+  canShare?: boolean | undefined;
+  canViewPrivateItems?: boolean | undefined;
+  canEdit?: boolean | undefined;
+  owner?: {  name?: string | undefined;
+  address?: string | undefined;};
 };
 
 export interface Setting {
@@ -24161,142 +24155,1033 @@ export interface SyncMetadata_oracle_hcm_employees {
 export interface SyncMetadata_oracle_hcm_unifiedemployees {
 };
 
-export interface OutlookCalendar {
-  id: string;
-  allowedOnlineMeetingProviders: string[];
-  canEdit: boolean;
-  canShare: boolean;
-  canViewPrivateItems: boolean;
-  changeKey: string;
-  color: 'auto' | 'lightBlue' | 'lightGreen' | 'lightOrange' | 'lightGray' | 'lightYellow' | 'lightTeal' | 'lightPink' | 'lightBrown' | 'lightRed' | 'maxColor';
-  defaultOnlineMeetingProvider: string;
-  hexColor: string;
-  isDefaultCalendar: boolean;
-  isRemovable: boolean;
-  isTallyingResponses: boolean;
-  name: string;
-  owner: {  address: string;
-  name: string;};
-};
-
-export interface SyncMetadata_outlook_calendars {
-};
-
-export interface OutlookEmail {
-  id: string;
-  sender?: string | undefined;
-  recipients?: string | undefined;
-  date: string;
-  subject: string;
-  body: string;
-  attachments: ({  filename: string;
-  mimeType: string;
-  size: number;
-  attachmentId: string;})[];
-  threadId: string;
-};
-
-export interface SyncMetadata_outlook_emails {
-  backfillPeriodMs: number;
-};
-
-export interface OutlookCalendarEvent {
-  id: string;
-  attendees: ({  emailAddress: {  address: string;
-  name: string;};
-  proposedNewTime?: {  start: {  dateTime: string;
-  timeZone: string;};
-  end: {  dateTime: string;
-  timeZone: string;};} | undefined;
-  status: {  response: 'none' | 'organizer' | 'tentativelyAccepted' | 'accepted' | 'declined' | 'notResponded';
-  sentDateTime: string;};
-  type: 'required' | 'optional' | 'resource';})[];
-  bodyPreview: string;
-  end: {  dateTime: string;
-  timeZone: string;};
-  importance: 'low' | 'normal' | 'high';
-  isAllDay: boolean;
-  isCancelled: boolean;
-  isOrganizer: boolean;
-  location: {  address?: {  city?: string | undefined;
-  countryOrRegion?: string | undefined;
-  postalCode?: string | undefined;
-  state?: string | undefined;
-  street?: string | undefined;};
-  coordinates?: {  accuracy?: number | undefined;
-  altitude?: number | undefined;
-  altitudeAccuracy?: number | undefined;
-  latitude?: number | undefined;
-  longitude?: number | undefined;};
-  displayName?: string | undefined;
-  locationEmailAddress?: string | undefined;
-  locationUri?: string | undefined;
-  locationType?: 'default' | 'conferenceRoom' | 'homeAddress' | 'businessAddress' | 'geoCoordinates' | 'streetAddress' | 'hotel' | 'restaurant' | 'localBusiness' | 'postalAddress' | undefined;
-  uniqueId?: string | undefined;
-  uniqueIdType?: string | undefined;};
-  onlineMeeting: {  conferenceId?: string | undefined;
-  joinUrl?: string | undefined;
-  phones: ({  number: string;
-  type: 'home' | 'business' | 'mobile' | 'other' | 'assistant' | 'homeFax' | 'businessFax' | 'otherFax' | 'pager' | 'radio';})[];
-  quickDial?: string | undefined;
-  tollFreeNumbers: string[];
-  tollNumber?: string | undefined;} | null;
-  onlineMeetingProvider: string;
-  organizer: {  emailAddress: {  address: string;
-  name: string;};};
-  recurrence: {  pattern?: {  dayOfMonth?: number | undefined;
-  daysOfWeek?: string[] | undefined;
-  firstDayOfWeek?: string | undefined;
-  index?: 'first' | 'second' | 'third' | 'fourth' | 'last' | undefined;
-  interval: number;
-  month?: number | undefined;
-  type: 'daily' | 'weekly' | 'absoluteMonthly' | 'relativeMonthly' | 'absoluteYearly' | 'relativeYearly';};
-  range: {  endDate?: string | undefined;
-  numberOfOccurrences?: number | undefined;
-  recurrenceTimeZone?: string | undefined;
-  startDate: string;
-  type: 'endDate' | 'noEnd' | 'numbered';};} | null;
-  responseRequested: boolean;
-  responseStatus: {  response: string;
-  time: string;};
-  sensitivity: 'normal' | 'personal' | 'private' | 'confidential';
-  start: {  dateTime: string;
-  timeZone: string;};
-  subject: string;
-  webLink: string;
-};
-
 export interface SyncMetadata_outlook_events {
-  backfillPeriodMs: number;
+  backfillPeriodMs?: number | undefined;
 };
 
-export interface OutlookFolder {
+export interface MailFolder {
   id: string;
   displayName: string;
+  parentFolderId?: string | undefined;
+  childFolderCount?: number | undefined;
+  totalItemCount?: number | undefined;
+  unreadItemCount?: number | undefined;
+  sizeInBytes?: number | undefined;
+  isHidden?: boolean | undefined;
+};
+
+export interface ActionInput_outlook_addeventattachment {
+  /**
+   * Event ID. Example: "AAMkAGI1AAAt9AHjAAA="
+   */
+  eventId: string;
+  /**
+   * File name. Example: "menu.txt"
+   */
+  name: string;
+  /**
+   * Base64-encoded file content. Example: "bWFjIGFuZCBjaGVlc2UgdG9kYXk="
+   */
+  contentBytes: string;
+  /**
+   * MIME type of the attachment. Example: "text/plain"
+   */
+  contentType?: string | undefined;
+};
+
+export interface ActionOutput_outlook_addeventattachment {
+  id: string;
+  name: string;
+  contentType?: string | undefined;
+  size?: number | undefined;
+  isInline?: boolean | undefined;
+  lastModifiedDateTime?: string | undefined;
+};
+
+export interface ActionInput_outlook_addmessageattachment {
+  /**
+   * The ID of the draft message to attach the file to. Example: "AQMkAGFk..."
+   */
+  messageId: string;
+  /**
+   * The name of the file to attach. Example: "document.pdf"
+   */
+  fileName: string;
+  /**
+   * The MIME type of the file. Example: "application/pdf"
+   */
+  contentType: string;
+  /**
+   * The base64-encoded content of the file. Example: "JVBERi0xLjQK..."
+   */
+  contentBytes: string;
+};
+
+export interface ActionOutput_outlook_addmessageattachment {
+  id: string;
+  name: string;
+  contentType?: string | undefined;
+  size?: number | undefined;
+};
+
+export interface ActionInput_outlook_cancelevent {
+  /**
+   * The ID of the event to cancel. Example: "AQMkAGI2..."
+   */
+  eventId: string;
+  /**
+   * An optional comment to include in the cancellation message sent to attendees.
+   */
+  comment?: string | undefined;
+};
+
+export interface ActionOutput_outlook_cancelevent {
+  success: boolean;
+};
+
+export interface ActionInput_outlook_copymessage {
+  /**
+   * The ID of the message to copy. Example: "AQMkADAwATM0MDAAMS1iN..."
+   */
+  messageId: string;
+  /**
+   * The ID of the destination mail folder, or a well-known folder name such as "inbox", "drafts", "sentitems", "deleteditems".
+   */
+  destinationId: string;
+};
+
+export interface ActionOutput_outlook_copymessage {
+  id: string;
+  subject?: string | undefined;
+  receivedDateTime?: string | undefined;
+  sentDateTime?: string | undefined;
+  hasAttachments?: boolean | undefined;
+  body?: {  contentType?: string | undefined;
+  content?: string | undefined;};
+  bodyPreview?: string | undefined;
+};
+
+export interface ActionInput_outlook_createcalendar {
+  /**
+   * Name of the new calendar. Example: "Team Events"
+   */
+  name: string;
+  /**
+   * Color theme for the calendar. Example: "lightBlue"
+   */
+  color?: 'lightBlue' | 'lightGreen' | 'lightOrange' | 'lightGray' | 'lightYellow' | 'lightTeal' | 'lightPink' | 'lightBrown' | 'lightRed' | 'maxColor' | undefined;
+};
+
+export interface ActionOutput_outlook_createcalendar {
+  id: string;
+  name: string;
+  color?: string | number | undefined;
+  canShare?: boolean | undefined;
+  canViewPrivateItems?: boolean | undefined;
+  isDefaultCalendar?: boolean | undefined;
+  isTallyingResponses?: boolean | undefined;
+  ownerName?: string | undefined;
+  ownerAddress?: string | undefined;
+};
+
+export interface ActionInput_outlook_createdraftmessage {
+  /**
+   * Subject of the message. Example: "Meeting notes"
+   */
+  subject: string;
+  /**
+   * Body of the message
+   */
+  body: {  /**
+   * Content type: "text" or "html"
+   */
+  contentType: 'text' | 'html';
+  /**
+   * Body content of the message
+   */
+  content: string;};
+  /**
+   * List of recipients to send the message to
+   */
+  toRecipients?: ({  emailAddress: {  /**
+   * Email address. Example: "recipient@example.com"
+   */
+  address: string;
+  /**
+   * Display name. Example: "John Doe"
+   */
+  name?: string | undefined;};})[];
+  /**
+   * List of CC recipients
+   */
+  ccRecipients?: ({  emailAddress: {  /**
+   * Email address. Example: "recipient@example.com"
+   */
+  address: string;
+  /**
+   * Display name. Example: "John Doe"
+   */
+  name?: string | undefined;};})[];
+  /**
+   * List of BCC recipients
+   */
+  bccRecipients?: ({  emailAddress: {  /**
+   * Email address. Example: "recipient@example.com"
+   */
+  address: string;
+  /**
+   * Display name. Example: "John Doe"
+   */
+  name?: string | undefined;};})[];
+  /**
+   * Importance level. Example: "normal"
+   */
+  importance?: 'low' | 'normal' | 'high' | undefined;
+  /**
+   * Whether a read receipt was requested
+   */
+  isReadReceiptRequested?: boolean | undefined;
+  /**
+   * Whether a delivery receipt was requested
+   */
+  isDeliveryReceiptRequested?: boolean | undefined;
+};
+
+export interface ActionOutput_outlook_createdraftmessage {
+  id: string;
+  subject?: string | undefined;
+  body?: {  /**
+   * Content type: "text" or "html"
+   */
+  contentType: 'text' | 'html';
+  /**
+   * Body content of the message
+   */
+  content: string;} | undefined;
+  toRecipients?: ({  emailAddress: {  /**
+   * Email address. Example: "recipient@example.com"
+   */
+  address: string;
+  /**
+   * Display name. Example: "John Doe"
+   */
+  name?: string | undefined;};})[];
+  ccRecipients?: ({  emailAddress: {  /**
+   * Email address. Example: "recipient@example.com"
+   */
+  address: string;
+  /**
+   * Display name. Example: "John Doe"
+   */
+  name?: string | undefined;};})[];
+  bccRecipients?: ({  emailAddress: {  /**
+   * Email address. Example: "recipient@example.com"
+   */
+  address: string;
+  /**
+   * Display name. Example: "John Doe"
+   */
+  name?: string | undefined;};})[];
+  importance?: 'low' | 'normal' | 'high' | undefined;
+  isDraft?: boolean | undefined;
+  createdDateTime?: string | undefined;
+  lastModifiedDateTime?: string | undefined;
+  webLink?: string | undefined;
+};
+
+export interface ActionInput_outlook_createevent {
+  /**
+   * Calendar ID. If omitted, the event is created in the default calendar. Example: "AQMkAGI2..."
+   */
+  calendarId?: string | undefined;
+  /**
+   * Event subject/title. Example: "Team Meeting"
+   */
+  subject: string;
+  start: {  /**
+   * Start time in ISO 8601 format. Example: "2024-06-15T10:00:00"
+   */
+  dateTime: string;
+  /**
+   * Time zone for start time. Example: "UTC" or "Pacific Standard Time"
+   */
+  timeZone: string;};
+  end: {  /**
+   * End time in ISO 8601 format. Example: "2024-06-15T11:00:00"
+   */
+  dateTime: string;
+  /**
+   * Time zone for end time. Example: "UTC" or "Pacific Standard Time"
+   */
+  timeZone: string;};
+  body?: {  /**
+   * Body content type.
+   */
+  contentType?: 'text' | 'html' | undefined;
+  /**
+   * Event body/description content.
+   */
+  content: string;};
+  location?: {  /**
+   * Location display name. Example: "Conference Room A"
+   */
+  displayName: string;} | undefined;
+  /**
+   * List of attendees to invite to the event.
+   */
+  attendees?: ({  emailAddress: {  /**
+   * Attendee email address. Example: "user@example.com"
+   */
+  address: string;
+  /**
+   * Attendee display name.
+   */
+  name?: string | undefined;};
+  type?: 'required' | 'optional' | 'resource' | undefined;})[];
+  /**
+   * Whether to create an online meeting (Teams).
+   */
+  isOnlineMeeting?: boolean | undefined;
+  /**
+   * Online meeting provider.
+   */
+  onlineMeetingProvider?: 'teamsForBusiness' | 'skypeForBusiness' | 'skypeForConsumer' | 'unknown' | undefined;
+  sensitivity?: 'normal' | 'personal' | 'private' | 'confidential' | undefined;
+  showAs?: 'free' | 'tentative' | 'busy' | 'oof' | 'workingElsewhere' | 'unknown' | undefined;
+};
+
+export interface ActionOutput_outlook_createevent {
+  id: string;
+  subject?: string | undefined;
+  start?: {  dateTime: string;
+  timeZone: string;} | undefined;
+  end?: {  dateTime: string;
+  timeZone: string;} | undefined;
+  body?: {  contentType?: string | undefined;
+  content?: string | undefined;};
+  location?: {  displayName?: string | undefined;};
+  attendees?: ({  emailAddress?: {  address?: string | undefined;
+  name?: string | undefined;};
+  type?: 'required' | 'optional' | 'resource' | undefined;})[];
+  isOnlineMeeting?: boolean | undefined;
+  onlineMeeting?: {  joinUrl?: string | undefined;};
+  webLink?: string | undefined;
+  createdDateTime?: string | undefined;
+  lastModifiedDateTime?: string | undefined;
+};
+
+export interface ActionInput_outlook_createmailfolder {
+  /**
+   * The unique identifier of the parent mail folder. Example: "AQMkAGI2..."
+   */
   parentFolderId: string;
-  childFolderCount: number;
-  unreadItemCount: number;
-  totalItemCount: number;
-  isHidden: boolean;
+  /**
+   * The display name of the new mail folder. Example: "Work"
+   */
+  displayName: string;
+  /**
+   * Whether the folder should be hidden from standard folder lists.
+   */
+  hidden?: boolean | undefined;
 };
 
-export interface SyncMetadata_outlook_folders {
+export interface ActionOutput_outlook_createmailfolder {
+  id: string;
+  displayName: string;
+  parentFolderId?: string | undefined;
+  childFolderCount?: number | undefined;
+  unreadItemCount?: number | undefined;
+  totalItemCount?: number | undefined;
+  isHidden?: boolean | undefined;
 };
 
-export interface ActionInput_outlook_fetchattachment {
-  threadId: string;
+export interface ActionInput_outlook_deletecalendar {
+  /**
+   * The ID of the calendar to delete. Example: "AAMkAGI..."
+   */
+  calendarId: string;
+};
+
+export interface ActionOutput_outlook_deletecalendar {
+  success: boolean;
+  calendarId: string;
+};
+
+export interface ActionInput_outlook_deleteevent {
+  /**
+   * The ID of the event to delete. Example: "AAMkAGI2..."
+   */
+  event_id: string;
+  /**
+   * Optional calendar ID. If omitted, uses the default calendar.
+   */
+  calendar_id?: string | undefined;
+};
+
+export interface ActionOutput_outlook_deleteevent {
+  success: boolean;
+  message: string;
+};
+
+export interface ActionInput_outlook_deletemessage {
+  /**
+   * The unique identifier of the message to delete. Example: "AAMkAGVmMDEzM..."
+   */
+  messageId: string;
+};
+
+export interface ActionOutput_outlook_deletemessage {
+  /**
+   * Whether the deletion was successful
+   */
+  success: boolean;
+};
+
+export interface ActionInput_outlook_downloadmessageattachment {
+  /**
+   * The ID of the message containing the attachment. Example: "AAMkAGVmMD..."
+   */
+  messageId: string;
+  /**
+   * The ID of the attachment to download. Example: "AAMkAGVmMD..."
+   */
   attachmentId: string;
 };
 
-export type ActionOutput_outlook_fetchattachment = string
-
-export interface ActionInput_outlook_fetcheventcontent {
-  id: string;
+export interface ActionOutput_outlook_downloadmessageattachment {
+  /**
+   * The base64-encoded content of the attachment.
+   */
+  content: string;
+  /**
+   * The MIME type of the attachment content.
+   */
+  contentType: string;
+  /**
+   * The name of the attachment file.
+   */
+  name?: string | undefined;
 };
 
-export interface ActionOutput_outlook_fetcheventcontent {
-  content: string;
+export interface ActionInput_outlook_getcalendar {
+  /**
+   * The unique identifier of the calendar. Example: "AAMkAGI2TGuLAAA="
+   */
+  calendarId: string;
+};
+
+export interface ActionOutput_outlook_getcalendar {
+  id: string;
+  name?: string | undefined;
+  color?: string | undefined;
+  isDefaultCalendar?: boolean | undefined;
+  changeKey?: string | undefined;
+  canShare?: boolean | undefined;
+  canViewPrivateItems?: boolean | undefined;
+  hexColor?: string | undefined;
+  canEdit?: boolean | undefined;
+  allowedOnlineMeetingProviders?: string[] | undefined;
+  defaultOnlineMeetingProvider?: string | undefined;
+  isTallyingResponses?: boolean | undefined;
+  isRemovable?: boolean | undefined;
+  owner?: {  name?: string | undefined;
+  address?: string | undefined;};
+};
+
+export interface ActionInput_outlook_getevent {
+  /**
+   * The unique identifier of the event. Example: "AAMkAGI1AAAoZDOFAAA="
+   */
+  eventId: string;
+  /**
+   * The time zone to use for returning event dates. Example: "Pacific Standard Time"
+   */
+  timezone?: string | undefined;
+  /**
+   * A comma-separated list of properties to include in the response. Example: "subject,start,end,location"
+   */
+  select?: string | undefined;
+};
+
+export interface ActionOutput_outlook_getevent {
+  id: string;
+  subject?: string | undefined;
+  bodyPreview?: string | undefined;
+  bodyContentType?: string | undefined;
+  bodyContent?: string | undefined;
+  start?: {  dateTime?: string | undefined;
+  timeZone?: string | undefined;};
+  end?: {  dateTime?: string | undefined;
+  timeZone?: string | undefined;};
+  locationDisplayName?: string | undefined;
+  locationType?: string | undefined;
+  locations?: ({  displayName?: string | undefined;
+  locationType?: string | undefined;
+  uniqueId?: string | undefined;
+  uniqueIdType?: string | undefined;})[];
+  attendees?: ({  type?: string | undefined;
+  response?: string | undefined;
+  emailName?: string | undefined;
+  emailAddress?: string | undefined;})[];
+  organizerName?: string | undefined;
+  organizerAddress?: string | undefined;
+  isOrganizer?: boolean | undefined;
+  isCancelled?: boolean | undefined;
+  isAllDay?: boolean | undefined;
+  importance?: string | undefined;
+  showAs?: string | undefined;
+  sensitivity?: string | undefined;
+  recurrence?: {  pattern?: {  type?: string | undefined;
+  interval?: number | undefined;
+  month?: number | undefined;
+  dayOfMonth?: number | undefined;
+  daysOfWeek?: string[] | undefined;
+  firstDayOfWeek?: string | undefined;
+  index?: string | undefined;};
+  range?: {  type?: string | undefined;
+  startDate?: string | undefined;
+  endDate?: string | undefined;
+  numberOfOccurrences?: number | undefined;};};
+  seriesMasterId?: string | undefined;
+  type?: string | undefined;
+  webLink?: string | undefined;
+  onlineMeetingUrl?: string | undefined;
+  createdDateTime?: string | undefined;
+  lastModifiedDateTime?: string | undefined;
+  iCalUId?: string | undefined;
+  response?: string | undefined;
+  responseTime?: string | undefined;
+};
+
+export interface ActionInput_outlook_getmessage {
+  /**
+   * The unique identifier of the message. Example: "AAMkAGVmMD..."
+   */
+  messageId: string;
+  /**
+   * If true, expands the attachments relationship in the response.
+   */
+  expandAttachments?: boolean | undefined;
+};
+
+export interface ActionOutput_outlook_getmessage {
+  id: string;
+  subject?: string | undefined;
+  bodyPreview?: string | undefined;
+  createdDateTime?: string | undefined;
+  receivedDateTime?: string | undefined;
+  sentDateTime?: string | undefined;
+  importance?: string | undefined;
+  isRead?: boolean | undefined;
+  isDraft?: boolean | undefined;
+  from?: {  emailAddress?: {  address?: string | undefined;
+  name?: string | undefined;};};
+  toRecipients?: ({  emailAddress?: {  address?: string | undefined;
+  name?: string | undefined;};})[];
+  ccRecipients?: ({  emailAddress?: {  address?: string | undefined;
+  name?: string | undefined;};})[];
+  bccRecipients?: ({  emailAddress?: {  address?: string | undefined;
+  name?: string | undefined;};})[];
+  replyTo?: ({  emailAddress?: {  address?: string | undefined;
+  name?: string | undefined;};})[];
+  attachments?: ({  id: string;
+  name?: string | undefined;
+  contentType?: string | undefined;
+  size?: number | undefined;})[];
+};
+
+export interface ActionInput_outlook_listcalendarevents {
+  /**
+   * The ID of the calendar to list events from. If omitted, the default calendar is used. Example: "AQMkADAwATM0..."
+   */
+  calendar_id?: string | undefined;
+  /**
+   * Start of the date range (ISO 8601 format). Required when using calendarView. Example: "2024-01-01T00:00:00Z"
+   */
+  start_date_time?: string | undefined;
+  /**
+   * End of the date range (ISO 8601 format). Required when using calendarView. Example: "2024-01-31T23:59:59Z"
+   */
+  end_date_time?: string | undefined;
+  /**
+   * Maximum number of events to return per page. Default: 10, Max: 50.
+   */
+  top?: number | undefined;
+};
+
+export interface ActionOutput_outlook_listcalendarevents {
+  events: ({  id: string;
+  subject?: string | undefined;
+  body_preview?: string | undefined;
+  start_date_time?: string | undefined;
+  start_time_zone?: string | undefined;
+  end_date_time?: string | undefined;
+  end_time_zone?: string | undefined;
+  location?: string | undefined;
+  is_all_day?: boolean | undefined;
+  show_as?: string | undefined;
+  web_link?: string | undefined;
+  created_date_time?: string | undefined;
+  last_modified_date_time?: string | undefined;})[];
+  next_link?: string | undefined;
+};
+
+export interface ActionInput_outlook_listcalendars {
+  /**
+   * Pagination cursor (skipToken) from the previous response. Omit for the first page.
+   */
+  cursor?: string | undefined;
+  /**
+   * Maximum number of calendars to return. Default is 10, maximum is 50.
+   */
+  limit?: number | undefined;
+};
+
+export interface ActionOutput_outlook_listcalendars {
+  calendars: ({  id: string;
+  name?: string | undefined;
+  color?: string | undefined;
+  changeKey?: string | undefined;
+  canShare?: boolean | undefined;
+  canViewPrivateItems?: boolean | undefined;
+  canEdit?: boolean | undefined;
+  owner?: {  name?: string | undefined;
+  address?: string | undefined;};})[];
+  next_cursor?: string | undefined;
+};
+
+export interface ActionInput_outlook_listeventattachments {
+  /**
+   * The ID of the event to list attachments for. Example: "AAMkAGVmMDEzMTM4LTZmYWUtNDdkNC1hMDZiLTU1OGY5OTZhYmY4OABGAAAAAAAiQ8W967B7TKBjgx9rVEURBwAiIsqMbYjsT5e-T7KzowPTAAAAAAENAAAiIsqMbYjsT5e-T7KzowPTAAAa_WKzAAA="
+   */
+  eventId: string;
+};
+
+export interface ActionOutput_outlook_listeventattachments {
+  attachments: ({  id: string;
+  contentType?: string | undefined;
+  isInline?: boolean | undefined;
+  lastModifiedDateTime?: string | undefined;
+  name?: string | undefined;
+  size?: number | undefined;})[];
+  /**
+   * Pagination link for the next page of results. Omit for the first page.
+   */
+  nextLink?: string | undefined;
+};
+
+export interface ActionInput_outlook_listmailfolderchildren {
+  /**
+   * The ID of the mail folder to list children for. Example: "AAMkAGVmODUyMzE1LTM0MDctNDNlMS05YjQ1LTI4MjE5MjJmYzY1ZgAuAAAAAADY3h3zQIGrQ6Pm8GPMwoNdAQCr0pwLSY4vT6AX1L4UHn_uAAAAAAEJAAA="
+   */
+  folderId: string;
+  /**
+   * Maximum number of folders to return per page. Default is 10.
+   */
+  limit?: number | undefined;
+  /**
+   * Pagination cursor from the previous response (@odata.nextLink). Omit for the first page.
+   */
+  cursor?: string | undefined;
+};
+
+export interface ActionOutput_outlook_listmailfolderchildren {
+  folders: ({  id: string;
+  displayName?: string | undefined;
+  parentFolderId?: string | undefined;
+  childFolderCount?: number | undefined;
+  unreadItemCount?: number | undefined;
+  totalItemCount?: number | undefined;
+  sizeInBytes?: number | undefined;
+  isHidden?: boolean | undefined;})[];
+  /**
+   * Cursor to fetch the next page of results. Absent if there are no more pages.
+   */
+  next_cursor?: string | undefined;
+};
+
+export interface ActionInput_outlook_listmailfolders {
+  /**
+   * Number of folders to return per page. Max 50.
+   */
+  limit?: number | undefined;
+  /**
+   * OData nextLink for pagination from previous response
+   */
+  nextLink?: string | undefined;
+};
+
+export interface ActionOutput_outlook_listmailfolders {
+  folders: ({  id: string;
+  displayName?: string | undefined;
+  parentFolderId?: string | undefined;
+  childFolderCount?: number | undefined;
+  unreadItemCount?: number | undefined;
+  totalItemCount?: number | undefined;
+  wellKnownName?: string | undefined;})[];
+  /**
+   * OData nextLink for retrieving the next page
+   */
+  nextLink?: string | undefined;
+};
+
+export interface ActionInput_outlook_listmessageattachments {
+  /**
+   * The unique identifier of the message to list attachments for. Example: "AAMkAGVmMD..."
+   */
+  messageId: string;
+};
+
+export interface ActionOutput_outlook_listmessageattachments {
+  attachments: ({  id: string;
+  lastModifiedDateTime?: string | undefined;
+  name?: string | undefined;
+  contentType?: string | undefined;
+  size?: number | undefined;
+  isInline?: boolean | undefined;
+  contentId?: string | undefined;
+  contentLocation?: string | undefined;})[];
+};
+
+export interface ActionInput_outlook_listmessages {
+  /**
+   * Mail folder ID. Use "inbox" for the inbox folder. Example: "inbox"
+   */
+  folderId?: string | undefined;
+  /**
+   * OData filter expression for receivedDateTime. Example: "receivedDateTime ge 2024-01-01T00:00:00Z"
+   */
+  filter?: string | undefined;
+  /**
+   * Comma-separated list of properties to include. Example: "id,subject,receivedDateTime,from"
+   */
+  select?: string | undefined;
+  /**
+   * Pagination link (odata.nextLink) from the previous response. Omit for the first page.
+   */
+  cursor?: string | undefined;
+  /**
+   * Maximum number of messages to return per page. Default: 10, Max: 50.
+   */
+  limit?: number | undefined;
+};
+
+export interface ActionOutput_outlook_listmessages {
+  messages: ({  id: string;
+  subject?: string | undefined;
+  receivedDateTime?: string | undefined;
+  sentDateTime?: string | undefined;
+  from?: {  emailAddress?: {  name?: string | undefined;
+  address?: string | undefined;};};
+  toRecipients?: ({  emailAddress?: {  name?: string | undefined;
+  address?: string | undefined;};})[];
+  isRead?: boolean | undefined;
+  importance?: string | undefined;
+  conversationId?: string | undefined;
+  internetMessageId?: string | undefined;
+  bodyPreview?: string | undefined;})[];
+  next_cursor?: string | undefined;
+};
+
+export interface ActionInput_outlook_movemessage {
+  /**
+   * The unique identifier of the message to move. Example: "AAMkAGVmMDEz..."
+   */
+  messageId: string;
+  /**
+   * The unique identifier of the destination mail folder. Example: "AAMkAGVmMDEzMjA..."
+   */
+  destinationId: string;
+};
+
+export interface ActionOutput_outlook_movemessage {
+  id: string;
+  parentFolderId: string;
+  subject?: string | undefined;
+  receivedDateTime?: string | undefined;
+  sentDateTime?: string | undefined;
+};
+
+export interface ActionInput_outlook_replyalltomessage {
+  /**
+   * The ID of the message to reply to
+   */
+  messageId: string;
+  /**
+   * A comment to include in the reply. Required when not creating a draft.
+   */
+  comment?: string | undefined;
+  /**
+   * If true, creates a draft reply instead of sending immediately
+   */
+  createDraft?: boolean | undefined;
+  /**
+   * The body of the reply message. Use instead of comment for more control.
+   */
+  body?: {  contentType: 'text' | 'html';
+  content: string;} | undefined;
+};
+
+export interface ActionOutput_outlook_replyalltomessage {
+  success: boolean;
+  /**
+   * The ID of the created draft (only when createDraft is true)
+   */
+  draftId?: string | undefined;
+};
+
+export interface ActionInput_outlook_replytomessage {
+  /**
+   * The ID of the message to reply to. Example: "AAMkAGVmMDEZ..."
+   */
+  messageId: string;
+  /**
+   * The plain text body of the reply message. Example: "Thank you for your email. I will get back to you soon."
+   */
+  comment: string;
+};
+
+export interface ActionOutput_outlook_replytomessage {
+  id?: string | undefined;
+  messageId: string;
+  success: boolean;
+  subject?: string | undefined;
+  body?: {  contentType?: string | undefined;
+  content?: string | undefined;};
+  sender?: {  emailAddress?: {  address?: string | undefined;
+  name?: string | undefined;};};
+  toRecipients?: ({  emailAddress?: {  address?: string | undefined;
+  name?: string | undefined;};})[];
+  createdDateTime?: string | undefined;
+  sentDateTime?: string | undefined;
+};
+
+export interface ActionInput_outlook_senddraftmessage {
+  /**
+   * The unique identifier of the draft message to send. Example: "AAMkAGVmMDEz..."
+   */
+  message_id: string;
+};
+
+export interface ActionOutput_outlook_senddraftmessage {
+  /**
+   * Whether the draft was sent successfully
+   */
+  success: boolean;
+  /**
+   * The ID of the message that was sent
+   */
+  message_id: string;
+};
+
+export interface ActionInput_outlook_sendmail {
+  message: {  /**
+   * The subject of the message. Example: "Hello from Nango"
+   */
+  subject: string;
+  body: {  /**
+   * The content type of the body. Example: "html"
+   */
   contentType: 'text' | 'html';
+  /**
+   * The content of the body. Example: "Hello world"
+   */
+  content: string;};
+  /**
+   * The recipients of the message
+   */
+  toRecipients: ({  emailAddress: {  /**
+   * The email address. Example: "user@example.com"
+   */
+  address: string;
+  /**
+   * The display name of the recipient. Example: "John Doe"
+   */
+  name?: string | undefined;};})[];
+  /**
+   * The CC recipients of the message
+   */
+  ccRecipients?: ({  emailAddress: {  /**
+   * The email address. Example: "user@example.com"
+   */
+  address: string;
+  /**
+   * The display name of the recipient. Example: "John Doe"
+   */
+  name?: string | undefined;};})[];
+  /**
+   * The BCC recipients of the message
+   */
+  bccRecipients?: ({  emailAddress: {  /**
+   * The email address. Example: "user@example.com"
+   */
+  address: string;
+  /**
+   * The display name of the recipient. Example: "John Doe"
+   */
+  name?: string | undefined;};})[];
+  /**
+   * The reply-to recipients of the message
+   */
+  replyTo?: ({  emailAddress: {  /**
+   * The email address. Example: "user@example.com"
+   */
+  address: string;
+  /**
+   * The display name of the recipient. Example: "John Doe"
+   */
+  name?: string | undefined;};})[];
+  /**
+   * The importance of the message. Example: "normal"
+   */
+  importance?: 'low' | 'normal' | 'high' | undefined;};
+  /**
+   * Whether to save the message in Sent Items. Default: true
+   */
+  saveToSentItems?: boolean | undefined;
+};
+
+export interface ActionOutput_outlook_sendmail {
+  success: boolean;
+  message?: string | undefined;
+};
+
+export interface ActionInput_outlook_updatecalendar {
+  /**
+   * The unique identifier of the calendar to update. Example: "AQMkAGI..."
+   */
+  calendarId: string;
+  /**
+   * The calendar name. Example: "Work Calendar"
+   */
+  name?: string | undefined;
+  /**
+   * The color of the calendar in hex format or a preset color constant. Example: "#2B579A" or "lightBlue"
+   */
+  color?: string | undefined;
+};
+
+export interface ActionOutput_outlook_updatecalendar {
+  id: string;
+  name?: string | undefined;
+  color?: string | undefined;
+};
+
+export interface ActionInput_outlook_updateevent {
+  /**
+   * The unique identifier of the event to update. Example: "AAMkAGI1..."
+   */
+  eventId: string;
+  /**
+   * The subject of the event.
+   */
+  subject?: string | undefined;
+  /**
+   * The body of the event.
+   */
+  body?: {  contentType?: 'text' | 'html' | undefined;
+  content?: string | undefined;};
+  /**
+   * The attendees of the event.
+   */
+  attendees?: ({  emailAddress: {  address: string;
+  name?: string | undefined;};
+  type?: 'required' | 'optional' | 'resource' | undefined;})[];
+  /**
+   * The start time of the event.
+   */
+  start?: {  /**
+   * The start date and time in ISO 8601 format.
+   */
+  dateTime: string;
+  timeZone?: string | undefined;};
+  /**
+   * The end time of the event.
+   */
+  end?: {  /**
+   * The end date and time in ISO 8601 format.
+   */
+  dateTime: string;
+  timeZone?: string | undefined;};
+  /**
+   * The location of the event.
+   */
+  location?: {  displayName?: string | undefined;
+  address?: {  street?: string | undefined;
+  city?: string | undefined;
+  state?: string | undefined;
+  countryOrRegion?: string | undefined;
+  postalCode?: string | undefined;};};
+};
+
+export interface ActionOutput_outlook_updateevent {
+  id: string;
+  subject?: string | undefined;
+  body?: {  contentType?: string | undefined;
+  content?: string | undefined;};
+  attendees?: ({  emailAddress: {  address: string;
+  name?: string | undefined;};
+  type?: string | undefined;})[];
+  start?: {  dateTime?: string | undefined;
+  timeZone?: string | undefined;};
+  end?: {  dateTime?: string | undefined;
+  timeZone?: string | undefined;};
+  location?: {  displayName?: string | undefined;
+  address?: {  street?: string | undefined;
+  city?: string | undefined;
+  state?: string | undefined;
+  countryOrRegion?: string | undefined;
+  postalCode?: string | undefined;};};
+  createdDateTime?: string | undefined;
+  lastModifiedDateTime?: string | undefined;
+  webLink?: string | undefined;
+};
+
+export interface ActionInput_outlook_updatemessage {
+  /**
+   * The unique identifier of the message to update. Example: "AAMkAGVmMDEz"
+   */
+  messageId: string;
+  /**
+   * The subject of the message.
+   */
+  subject?: string | undefined;
+  /**
+   * The body of the message.
+   */
+  body?: {  /**
+   * The content type of the body.
+   */
+  contentType: 'text' | 'html';
+  /**
+   * The content of the body.
+   */
+  content: string;} | undefined;
+  /**
+   * The categories associated with the message.
+   */
+  categories?: string[] | undefined;
+  /**
+   * Indicates whether the message has been read.
+   */
+  isRead?: boolean | undefined;
+  /**
+   * The flag status of the message.
+   */
+  flag?: {  /**
+   * The flag status of the message.
+   */
+  flagStatus: 'notFlagged' | 'complete' | 'flagged';} | undefined;
+};
+
+export interface ActionOutput_outlook_updatemessage {
+  id: string;
+  subject?: string | undefined;
+  body?: {  contentType: string;
+  content: string;} | undefined;
+  categories?: string[] | undefined;
+  isRead?: boolean | undefined;
+  flag?: {  flagStatus: string;} | undefined;
 };
 
 export interface SyncMetadata_paycom_unifiedemployees {

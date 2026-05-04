@@ -965,11 +965,39 @@ import './oracle-hcm/syncs/unified-employees.js';
 
 // -- Integration: outlook
 import './outlook/syncs/calendars.js';
-import './outlook/syncs/emails.js';
 import './outlook/syncs/events.js';
-import './outlook/syncs/folders.js';
-import './outlook/actions/fetch-attachment.js';
-import './outlook/actions/fetch-event-content.js';
+import './outlook/syncs/mail-folders.js';
+import './outlook/syncs/messages.js';
+import './outlook/actions/add-event-attachment.js';
+import './outlook/actions/add-message-attachment.js';
+import './outlook/actions/cancel-event.js';
+import './outlook/actions/copy-message.js';
+import './outlook/actions/create-calendar.js';
+import './outlook/actions/create-draft-message.js';
+import './outlook/actions/create-event.js';
+import './outlook/actions/create-mail-folder.js';
+import './outlook/actions/delete-calendar.js';
+import './outlook/actions/delete-event.js';
+import './outlook/actions/delete-message.js';
+import './outlook/actions/download-message-attachment.js';
+import './outlook/actions/get-calendar.js';
+import './outlook/actions/get-event.js';
+import './outlook/actions/get-message.js';
+import './outlook/actions/list-calendar-events.js';
+import './outlook/actions/list-calendars.js';
+import './outlook/actions/list-event-attachments.js';
+import './outlook/actions/list-mail-folder-children.js';
+import './outlook/actions/list-mail-folders.js';
+import './outlook/actions/list-message-attachments.js';
+import './outlook/actions/list-messages.js';
+import './outlook/actions/move-message.js';
+import './outlook/actions/reply-all-to-message.js';
+import './outlook/actions/reply-to-message.js';
+import './outlook/actions/send-draft-message.js';
+import './outlook/actions/send-mail.js';
+import './outlook/actions/update-calendar.js';
+import './outlook/actions/update-event.js';
+import './outlook/actions/update-message.js';
 
 // -- Integration: paycom
 import './paycom/syncs/unified-employees.js';
