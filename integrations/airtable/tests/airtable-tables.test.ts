@@ -1,19 +1,32 @@
-import { vi, expect, it, describe } from 'vitest';
+import { afterEach, vi, expect, it, describe } from 'vitest';
 
-import sync from '../syncs/tables.js';
+import createSync from '../syncs/tables.js';
 
 describe('airtable tables tests', () => {
-    const nangoMock = new global.vitest.NangoSyncMock({
-        dirname: __dirname,
-        name: 'tables',
-        Model: 'Table'
+    const models = 'Table'.split(',');
+
+    const createTestContext = () => {
+        const nangoMock = new global.vitest.NangoSyncMock({
+            dirname: __dirname,
+            name: 'tables',
+            Model: 'Table'
+        });
+
+        return {
+            nangoMock,
+            batchSaveSpy: vi.spyOn(nangoMock, 'batchSave')
+        };
+    };
+
+    afterEach(() => {
+        vi.clearAllMocks();
+        vi.restoreAllMocks();
     });
 
-    const models = 'Table'.split(',');
-    const batchSaveSpy = vi.spyOn(nangoMock, 'batchSave');
-
     it('should get, map correctly the data and batchSave the result', async () => {
-        await sync.exec(nangoMock);
+        const { nangoMock, batchSaveSpy } = createTestContext();
+
+        await createSync.exec(nangoMock);
 
         for (const model of models) {
             const expectedBatchSaveData = await nangoMock.getBatchSaveData(model);
@@ -26,6 +39,9 @@ describe('airtable tables tests', () => {
                 return [];
             });
 
+            // Normalize spy-captured args into plain JSON so they compare cleanly
+            // with fixture data loaded from `*.test.json`.
+            // Removes things like prototypes, undefined values and other non-serializable data.
             const spied = JSON.parse(JSON.stringify(spiedData));
 
             expect(spied).toStrictEqual(expectedBatchSaveData);
@@ -33,12 +49,28 @@ describe('airtable tables tests', () => {
     });
 
     it('should get, map correctly the data and batchDelete the result', async () => {
-        await sync.exec(nangoMock);
+        const { nangoMock } = createTestContext();
+        const batchDeleteSpy = vi.spyOn(nangoMock, 'batchDelete');
+
+        await createSync.exec(nangoMock);
 
         for (const model of models) {
             const batchDeleteData = await nangoMock.getBatchDeleteData(model);
             if (batchDeleteData && batchDeleteData.length > 0) {
-                expect(nangoMock.batchDelete).toHaveBeenCalledWith(batchDeleteData, model);
+                const spiedData = batchDeleteSpy.mock.calls.flatMap((call) => {
+                    if (call[1] === model) {
+                        return call[0];
+                    }
+
+                    return [];
+                });
+
+                // Normalize spy-captured args into plain JSON so they compare cleanly
+                // with fixture data loaded from `*.test.json`.
+                // Removes things like prototypes, undefined values and other non-serializable data.
+                const spied = JSON.parse(JSON.stringify(spiedData));
+
+                expect(spied).toStrictEqual(batchDeleteData);
             }
         }
     });
