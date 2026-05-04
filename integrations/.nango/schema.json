@@ -79279,7 +79279,7 @@
       "properties": {
         "cursor": {
           "type": "string",
-          "description": "Pagination cursor (skipToken) from the previous response. Omit for the first page."
+          "description": "Full"
         },
         "limit": {
           "type": "number",
@@ -79414,7 +79414,7 @@
         },
         "cursor": {
           "type": "string",
-          "description": "Pagination cursor from the previous response (@odata.nextLink). Omit for the first page."
+          "description": "Full"
         }
       },
       "required": [
@@ -79925,7 +79925,7 @@
         },
         "message_id": {
           "type": "string",
-          "description": "The ID of the message that was sent"
+          "description": "The ID of the draft that was sent. This equals the input draft ID; the send endpoint returns no body to confirm the sent item ID."
         }
       },
       "required": [

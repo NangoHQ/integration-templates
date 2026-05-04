@@ -24728,7 +24728,7 @@ export interface ActionOutput_outlook_listcalendarevents {
 
 export interface ActionInput_outlook_listcalendars {
   /**
-   * Pagination cursor (skipToken) from the previous response. Omit for the first page.
+   * Full @odata.nextLink URL from the previous response for pagination. Omit for the first page.
    */
   cursor?: string | undefined;
   /**
@@ -24780,7 +24780,7 @@ export interface ActionInput_outlook_listmailfolderchildren {
    */
   limit?: number | undefined;
   /**
-   * Pagination cursor from the previous response (@odata.nextLink). Omit for the first page.
+   * Full @odata.nextLink URL from the previous response for pagination. Omit for the first page.
    */
   cursor?: string | undefined;
 };
@@ -24969,7 +24969,7 @@ export interface ActionOutput_outlook_senddraftmessage {
    */
   success: boolean;
   /**
-   * The ID of the message that was sent
+   * The ID of the draft that was sent. This equals the input draft ID; the send endpoint returns no body to confirm the sent item ID.
    */
   message_id: string;
 };
