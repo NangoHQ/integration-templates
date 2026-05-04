@@ -1,0 +1,157 @@
+{
+  "input": {
+    "parent": {
+      "workspace": true
+    },
+    "title": "Test Workspace Page"
+  },
+  "output": {
+    "id": "35261e8c-e0a3-81c4-8ad0-ce9db06c3eab",
+    "object": "page",
+    "created_time": "2026-04-30T11:29:00.000Z",
+    "last_edited_time": "2026-04-30T11:29:00.000Z",
+    "url": "https://app.notion.com/p/Test-Workspace-Page-35261e8ce0a381c48ad0ce9db06c3eab",
+    "archived": false,
+    "in_trash": false,
+    "parent": {
+      "type": "workspace",
+      "workspace": true
+    },
+    "icon": null,
+    "cover": null,
+    "properties": {
+      "title": {
+        "id": "title",
+        "type": "title",
+        "title": [
+          {
+            "type": "text",
+            "text": {
+              "content": "Test Workspace Page",
+              "link": null
+            },
+            "annotations": {
+              "bold": false,
+              "italic": false,
+              "strikethrough": false,
+              "underline": false,
+              "code": false,
+              "color": "default"
+            },
+            "plain_text": "Test Workspace Page",
+            "href": null
+          }
+        ]
+      }
+    }
+  },
+  "nango": {},
+  "api": {
+    "post": {
+      "/v1/pages": {
+        "response": {
+          "object": "page",
+          "id": "35261e8c-e0a3-81c4-8ad0-ce9db06c3eab",
+          "created_time": "2026-04-30T11:29:00.000Z",
+          "last_edited_time": "2026-04-30T11:29:00.000Z",
+          "created_by": {
+            "object": "user",
+            "id": "35261e8c-e0a3-81ad-a1d1-0027b98124d9"
+          },
+          "last_edited_by": {
+            "object": "user",
+            "id": "35261e8c-e0a3-81ad-a1d1-0027b98124d9"
+          },
+          "cover": null,
+          "icon": null,
+          "parent": {
+            "type": "workspace",
+            "workspace": true
+          },
+          "in_trash": false,
+          "is_archived": false,
+          "is_locked": false,
+          "properties": {
+            "title": {
+              "id": "title",
+              "type": "title",
+              "title": [
+                {
+                  "type": "text",
+                  "text": {
+                    "content": "Test Workspace Page",
+                    "link": null
+                  },
+                  "annotations": {
+                    "bold": false,
+                    "italic": false,
+                    "strikethrough": false,
+                    "underline": false,
+                    "code": false,
+                    "color": "default"
+                  },
+                  "plain_text": "Test Workspace Page",
+                  "href": null
+                }
+              ]
+            }
+          },
+          "url": "https://app.notion.com/p/Test-Workspace-Page-35261e8ce0a381c48ad0ce9db06c3eab",
+          "public_url": null,
+          "archived": false,
+          "request_id": "00e18536-f452-40c1-9f7e-9eb199cb82bb"
+        },
+        "status": 200,
+        "headers": {
+          "date": "Thu, 30 Apr 2026 11:29:53 GMT",
+          "content-type": "application/json; charset=utf-8",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=31536000; includeSubDomains; preload",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4996",
+          "x-ratelimit-reset": "1777548652",
+          "cf-ray": "9f4636139ca90bdf-SEA",
+          "cf-cache-status": "DYNAMIC",
+          "etag": "W/\"381-4Ptgn8NBTLvejvBRnKzAhEmiIC8\"",
+          "server": "cloudflare",
+          "vary": "Accept-Encoding",
+          "content-security-policy": "default-src 'none'",
+          "referrer-policy": "strict-origin-when-cross-origin",
+          "x-notion-request-id": "00e18536-f452-40c1-9f7e-9eb199cb82bb",
+          "x-permitted-cross-domain-policies": "none",
+          "set-cookie": "__cf_bm=7QyH0SKr7bRd5LVUFFk0J1gKz1NhPk_f7Z0RJ1yhRVk-1777548593.2173567-1.0.1.1-zc7pcLVSyJHBnNZo_u6CqUyHM90yuiN3ljoW6bWPCQq015hpsqqoLGVnDxtnYqlYjixgklscN10CwqUyxNYPcRFqygOnBBurIaBgZUiSjrYGmJzr7OGudFQbGiIo8P8X; HttpOnly; Secure; Path=/; Domain=notion.com; Expires=Thu, 30 Apr 2026 11:59:53 GMT",
+          "alt-svc": "h3=\":443\"; ma=86400"
+        },
+        "hash": "d3d1965929d0dbb94c7381d8629432a368819f3b",
+        "request": {
+          "data": {
+            "parent": {
+              "type": "workspace",
+              "workspace": true
+            },
+            "properties": {
+              "title": {
+                "title": [
+                  {
+                    "text": {
+                      "content": "Test Workspace Page"
+                    }
+                  }
+                ]
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

@@ -23217,49 +23217,120 @@ export interface SyncMetadata_next_cloud_ocs_users {
 
 export interface ContentMetadata {
   id: string;
-  path?: string | undefined;
-  type: 'page' | 'database';
-  last_modified: string;
+  object_type: 'page' | 'data_source';
   title?: string | undefined;
+  created_time: string;
+  last_edited_time: string;
   parent_id?: string | undefined;
+  parent_type?: string | undefined;
+  url?: string | undefined;
+  archived?: boolean | undefined;
+  in_trash?: boolean | undefined;
 };
 
-export interface SyncMetadata_notion_contentmetadata {
-};
-
-export interface NotionCompleteDatabase {
+export interface DataSourceEntry {
   id: string;
-  row: {};
-  meta: {  databaseId: string;
-  path: string;
-  title: string;
-  last_modified: string;};
+  data_source_id: string;
+  created_time: string;
+  last_edited_time: string;
+  url: string;
+  public_url?: string | undefined;
+  in_trash: boolean;
+  is_archived?: boolean | undefined;
+  is_locked?: boolean | undefined;
+  properties?: {  [key: string]: unknown | undefined;};
 };
 
-export interface SyncMetadata_notion_databases {
+export interface DataSourceTemplate {
+  id: string;
+  name: string;
+  data_source_id: string;
+  created_at?: string | undefined;
+  updated_at?: string | undefined;
 };
 
-export interface SyncMetadata_notion_users {
+export interface DataSource {
+  id: string;
+  title?: string | undefined;
+  description?: string | undefined;
+  parent_database_id?: string | undefined;
+  parent_data_source_id?: string | undefined;
+  is_inline?: boolean | undefined;
+  in_trash?: boolean | undefined;
+  created_time?: string | undefined;
+  last_edited_time?: string | undefined;
+  created_by_id?: string | undefined;
+  last_edited_by_id?: string | undefined;
+  url?: string | undefined;
+  public_url?: string | undefined;
+  properties?: {  [key: string]: unknown | undefined;};
 };
 
 export interface ActionInput_notion_appendblockchildren {
   /**
-   * The ID of the block or page to append to. Example: "2b6ce298-3121-80ae-bfe1-f8984b993639"
+   * The ID of the parent block or page. Example: "c02fc1d3-db8b-45c5-a222-27595b15aea7"
    */
   block_id: string;
   /**
-   * Array of block objects to append (max 100).
+   * Array of block objects to append. Maximum 100 blocks per request.
    */
-  children: any[];
+  children: ({  0: {  type: 'paragraph';
+  paragraph: {  rich_text: ({  0: {  type: 'text';
+  text: {  content: string;};};})[];};};
+  1: {  type: 'heading_1';
+  heading_1: {  rich_text: ({  0: {  type: 'text';
+  text: {  content: string;};};})[];};};
+  2: {  type: 'heading_2';
+  heading_2: {  rich_text: ({  0: {  type: 'text';
+  text: {  content: string;};};})[];};};
+  3: {  type: 'heading_3';
+  heading_3: {  rich_text: ({  0: {  type: 'text';
+  text: {  content: string;};};})[];};};
+  4: {  type: 'bulleted_list_item';
+  bulleted_list_item: {  rich_text: ({  0: {  type: 'text';
+  text: {  content: string;};};})[];};};
+  5: {  type: 'numbered_list_item';
+  numbered_list_item: {  rich_text: ({  0: {  type: 'text';
+  text: {  content: string;};};})[];};};
+  6: {  type: 'to_do';
+  to_do: {  rich_text: ({  0: {  type: 'text';
+  text: {  content: string;};};})[];
+  checked?: boolean | undefined;};};
+  7: {  type: 'quote';
+  quote: {  rich_text: ({  0: {  type: 'text';
+  text: {  content: string;};};})[];};};
+  8: {  type: 'callout';
+  callout: {  rich_text: ({  0: {  type: 'text';
+  text: {  content: string;};};})[];};};
+  9: {  type: 'code';
+  code: {  rich_text: ({  0: {  type: 'text';
+  text: {  content: string;};};})[];
+  language: string;};};
+  10: {  type: 'divider';
+  divider: {};};})[];
   /**
-   * Block ID to insert after.
+   * Controls where to insert blocks. Defaults to end.
    */
-  after?: string | undefined;
+  position?: {  type: 'after_block';
+  after_block: {  id: string;};} | {  type: 'start';} | {  type: 'end';} | undefined;
 };
 
 export interface ActionOutput_notion_appendblockchildren {
-  object: string;
-  results: any[];
+  object: 'list';
+  results: ({  object: 'block';
+  id: string;
+  type: string;
+  created_time?: string | undefined;
+  last_edited_time?: string | undefined;
+  created_by?: {  object: 'user';
+  id: string;} | undefined;
+  last_edited_by?: {  object: 'user';
+  id: string;} | undefined;
+  has_children?: boolean | undefined;
+  archived?: boolean | undefined;
+  in_trash?: boolean | undefined;})[];
+  next_cursor?: string | undefined;
+  has_more: boolean;
 };
 
 export interface ActionInput_notion_appendbulletedlist {
@@ -23360,188 +23431,222 @@ export interface ActionOutput_notion_appendtodoblock {
 
 export interface ActionInput_notion_archivepage {
   /**
-   * The ID of the page to archive. Example: "2b6ce298-3121-80ae-bfe1-f8984b993639"
+   * Notion page ID to archive. Example: "a1b2c3d4-e5f6-7890-abcd-ef1234567890"
    */
   page_id: string;
 };
 
 export interface ActionOutput_notion_archivepage {
   id: string;
-  object: string;
   archived: boolean;
+  in_trash?: boolean | undefined;
+  url?: string | undefined;
+  created_time?: string | undefined;
+  last_edited_time?: string | undefined;
 };
 
 export interface ActionInput_notion_createcomment {
+  0: {  /**
+   * The ID of the parent page to add a comment to. Example: "b55c9c91-384d-452b-81db-d1ef79372b75"
+   */
+  page_id: string;
   /**
-   * Parent page for the comment.
+   * An array of rich text objects representing the comment content
    */
-  parent: {  /**
-   * Page ID to add comment to. Example: "2b6ce298-3121-80ae-bfe1-f8984b993639"
+  rich_text: ({  0: {  type: 'text';
+  text: {  content: string;
+  link?: {  url: string;} | undefined;};
+  annotations?: {} | undefined;
+  plain_text?: string | undefined;
+  href?: string | undefined;};
+  1: {  type: 'mention';
+  mention: {};};
+  2: {  type: 'equation';
+  equation: {  expression: string;};};
+  3: {};})[];
+  markdown?: never | undefined;};
+  1: {  /**
+   * The ID of the parent page to add a comment to. Example: "b55c9c91-384d-452b-81db-d1ef79372b75"
    */
-  page_id: string;};
+  page_id: string;
   /**
-   * Comment content as rich text array.
+   * The comment content as a Markdown string. Supports inline formatting only.
    */
-  rich_text: any[];
+  markdown: string;
+  rich_text?: never | undefined;};
+  2: {  /**
+   * The ID of the parent block to add a comment to. Example: "195de922-1179-449f-ab80-75a27c979105"
+   */
+  block_id: string;
   /**
-   * Discussion thread ID to reply to.
+   * An array of rich text objects representing the comment content
    */
-  discussion_id?: string | undefined;
+  rich_text: ({  0: {  type: 'text';
+  text: {  content: string;
+  link?: {  url: string;} | undefined;};
+  annotations?: {} | undefined;
+  plain_text?: string | undefined;
+  href?: string | undefined;};
+  1: {  type: 'mention';
+  mention: {};};
+  2: {  type: 'equation';
+  equation: {  expression: string;};};
+  3: {};})[];
+  markdown?: never | undefined;};
+  3: {  /**
+   * The ID of the parent block to add a comment to. Example: "195de922-1179-449f-ab80-75a27c979105"
+   */
+  block_id: string;
+  /**
+   * The comment content as a Markdown string. Supports inline formatting only.
+   */
+  markdown: string;
+  rich_text?: never | undefined;};
+  4: {  /**
+   * The ID of the existing discussion thread to add a comment to. Example: "195de922-1179-449f-ab80-75a27c979105"
+   */
+  discussion_id: string;
+  /**
+   * An array of rich text objects representing the comment content
+   */
+  rich_text: ({  0: {  type: 'text';
+  text: {  content: string;
+  link?: {  url: string;} | undefined;};
+  annotations?: {} | undefined;
+  plain_text?: string | undefined;
+  href?: string | undefined;};
+  1: {  type: 'mention';
+  mention: {};};
+  2: {  type: 'equation';
+  equation: {  expression: string;};};
+  3: {};})[];
+  markdown?: never | undefined;};
+  5: {  /**
+   * The ID of the existing discussion thread to add a comment to. Example: "195de922-1179-449f-ab80-75a27c979105"
+   */
+  discussion_id: string;
+  /**
+   * The comment content as a Markdown string. Supports inline formatting only.
+   */
+  markdown: string;
+  rich_text?: never | undefined;};
 };
 
 export interface ActionOutput_notion_createcomment {
+  /**
+   * The ID of the created comment
+   */
   id: string;
-  object: string;
-  created_time: string;
-  rich_text: any[];
+  object: 'comment';
 };
 
-export interface ActionInput_notion_createdatabaserow {
+export interface ActionInput_notion_createdatasource {
+  /**
+   * The ID of the parent database (with or without dashes). Example: "a1b2c3d4-e5f6-7890-abcd-ef1234567890"
+   */
   databaseId: string;
+  /**
+   * Title of the data source as it appears in Notion.
+   */
+  title?: string | undefined;
+  /**
+   * Icon for the data source.
+   */
+  icon?: {  type: 'emoji';
+  emoji: string;} | undefined;
+  /**
+   * Property schema of the data source. Example: { "Name": { "title": {} }, "Status": { "select": { "options": [{ "name": "To Do", "color": "red" }] } } }
+   */
   properties: {};
 };
 
-export interface ActionOutput_notion_createdatabaserow {
-  success: boolean;
-  addedProperties: ({  propertyKey: string;
-  notionValue?: any | undefined;})[];
-};
-
-export interface ActionInput_notion_createdatabase {
-  /**
-   * Parent page where database will be created.
-   */
-  parent: {  /**
-   * Parent page ID. Example: "2b6ce298-3121-80ae-bfe1-f8984b993639"
-   */
-  page_id: string;};
-  /**
-   * Database title as rich text array.
-   */
-  title: ({  text: {  content: string;};})[];
-  /**
-   * Database property schema. Example: {"Name":{"title":{}},"Description":{"rich_text":{}}}
-   */
-  properties: {  [key: string]: any | undefined;};
-};
-
-export interface ActionOutput_notion_createdatabase {
+export interface ActionOutput_notion_createdatasource {
   id: string;
-  object: string;
-  created_time: string;
-  title: any[];
-  properties: {  [key: string]: any | undefined;};
+  title?: string | undefined;
+  databaseId: string;
+  url?: string | undefined;
 };
 
 export interface ActionInput_notion_createpage {
-  /**
-   * Parent page or database. Must include either page_id or database_id.
-   */
-  parent: {  /**
-   * Parent page ID. Example: "2b6ce298-3121-80ae-bfe1-f8984b993639"
-   */
-  page_id?: string | undefined;
-  /**
-   * Parent database ID. Example: "2b6ce298-3121-8079-a497-d3eca16d875c"
-   */
-  database_id?: string | undefined;};
-  /**
-   * Page properties. For pages with page parent, use title property. For database parents, use database property schema.
-   */
-  properties: {  [key: string]: any | undefined;};
-  /**
-   * Array of block objects to add as page content.
-   */
-  children?: any[] | undefined;
-  /**
-   * Page icon as emoji or external URL.
-   */
-  icon?: {  type?: string | undefined;
+  parent: {  page_id?: string | undefined;
+  database_id?: string | undefined;
+  data_source_id?: string | undefined;
+  workspace?: boolean | undefined;};
+  title?: string | undefined;
+  properties?: any | undefined;
+  icon?: {  type: 'emoji' | 'external' | 'file' | 'custom_emoji';
   emoji?: string | undefined;
-  external?: {  url: string;} | undefined;};
-  /**
-   * Page cover image as external URL.
-   */
-  cover?: {  type?: string | undefined;
-  external?: {  url: string;} | undefined;};
+  external?: {  url: string;} | undefined;
+  file?: {} | undefined;
+  custom_emoji?: string | undefined;};
+  cover?: {  type: 'external' | 'file';
+  external?: {  url: string;} | undefined;
+  file?: {} | undefined;};
+  children?: ({  type: 'paragraph' | 'heading_1' | 'heading_2' | 'heading_3' | 'bulleted_list_item' | 'numbered_list_item' | 'to_do';
+  text: string;
+  checked?: boolean | undefined;})[];
+  template?: {  type: 'none' | 'default' | 'template_id';
+  template_id?: string | undefined;
+  timezone?: string | undefined;};
+  markdown?: string | undefined;
 };
 
 export interface ActionOutput_notion_createpage {
   id: string;
-  object: string;
-  created_time: string;
-  last_edited_time: string;
-  created_by: {  object: string;
-  id: string;};
-  last_edited_by: {  object: string;
-  id: string;};
-  parent: {  type: string;
-  page_id: string | null;
-  database_id: string | null;};
-  archived: boolean;
-  in_trash: boolean;
-  properties: {  [key: string]: any | undefined;};
-  url: string;
-  public_url: string | null;
+  object?: 'page' | undefined;
+  created_time?: string | undefined;
+  last_edited_time?: string | undefined;
+  url?: string | undefined;
+  public_url?: string | undefined;
+  archived?: boolean | undefined;
+  in_trash?: boolean | undefined;
+  parent?: unknown | undefined;
+  icon?: unknown | undefined;
+  cover?: unknown | undefined;
+  properties?: any | undefined;
 };
 
 export interface ActionInput_notion_deleteblock {
   /**
-   * The ID of the block to delete. Example: "2b6ce298-3121-8087-914a-d4fe743f6d69"
+   * The ID of the block to delete/archive. Example: "12345678-1234-1234-1234-123456789012"
    */
   block_id: string;
 };
 
 export interface ActionOutput_notion_deleteblock {
   id: string;
-  object: string;
+  type: string;
   archived: boolean;
 };
 
 export interface ActionInput_notion_duplicatepage {
   /**
-   * Parent page or database for the duplicate.
+   * The ID of the Notion page to duplicate. Example: "35261e8ce0a38035a054fcdf4d7e1a31"
    */
-  parent: {  /**
-   * Parent page ID. Example: "2b6ce298-3121-80ae-bfe1-f8984b993639"
-   */
-  page_id?: string | undefined;
+  page_id: string;
   /**
-   * Parent database ID.
+   * Optional ID of the parent page where the duplicated page should be created. If not provided, the duplicated page will be created under the same parent as the original.
    */
-  database_id?: string | undefined;};
+  parent_page_id?: string | undefined;
   /**
-   * Page properties for the duplicate.
+   * Optional title for the duplicated page. If not provided, the original page title will be used with " (Copy)" suffix.
    */
-  properties: {  [key: string]: any | undefined;};
-  /**
-   * Content blocks to include in the duplicate.
-   */
-  children?: any[] | undefined;
+  title?: string | undefined;
 };
 
 export interface ActionOutput_notion_duplicatepage {
+  /**
+   * The ID of the duplicated page
+   */
   id: string;
-  object: string;
-  created_time: string;
-  parent: {  type: string;
-  page_id: string | null;
-  database_id: string | null;};
-  properties: {  [key: string]: any | undefined;};
-};
-
-export interface ActionInput_notion_fetchcontentmetadata {
+  /**
+   * The URL of the duplicated page
+   */
   url?: string | undefined;
-  id?: string | undefined;
-};
-
-export interface ActionOutput_notion_fetchcontentmetadata {
-  id: string;
-  path?: string | undefined;
-  type: 'page' | 'database';
-  last_modified: string;
+  /**
+   * The title of the duplicated page
+   */
   title?: string | undefined;
-  parent_id?: string | undefined;
 };
 
 export interface ActionInput_notion_getbotuser {
@@ -23549,50 +23654,238 @@ export interface ActionInput_notion_getbotuser {
 
 export interface ActionOutput_notion_getbotuser {
   id: string;
-  object: string;
+  name?: string | undefined;
+  avatar_url?: string | undefined;
+  type: 'bot';
+  bot: {  owner: {  type: 'user' | 'workspace';
+  user_id?: string | undefined;
+  user_name?: string | undefined;
+  user_email?: string | undefined;};
+  workspace_id: string;
+  workspace_name?: string | undefined;
+  max_file_upload_size_in_bytes: number;};
+};
+
+export interface ActionInput_notion_getpageasmarkdown {
+  /**
+   * The ID of the page to retrieve as markdown. Example: "b55c9c91-384d-452b-81db-d1ef79372b75"
+   */
+  page_id: string;
+  /**
+   * Include meeting note transcripts (default: false)
+   */
+  include_transcript?: boolean | undefined;
+};
+
+export interface ActionOutput_notion_getpageasmarkdown {
+  id: string;
+  markdown: string;
+  truncated: boolean;
+  unknown_block_ids: string[];
+};
+
+export interface ActionInput_notion_getpagepropertyitem {
+  /**
+   * The ID of the page containing the property. Example: "b55c9c91-384d-452b-81db-d1ef79372b75"
+   */
+  page_id: string;
+  /**
+   * The ID or name of the property to retrieve. Can be a property ID (e.g., "title", "%3E%5DWj") or property name (e.g., "Name", "Status"). Property IDs are more stable if properties are renamed.
+   */
+  property_id: string;
+  /**
+   * Pagination cursor for properties with many values (title, rich_text, relation, people). Omit for the first page.
+   */
+  start_cursor?: string | undefined;
+  /**
+   * Number of results to return per page. Maximum is 100. Default: 100.
+   */
+  page_size?: number | undefined;
+};
+
+export interface ActionOutput_notion_getpagepropertyitem {
+  0: {  object: 'property_item';
+  id: string;
+  type: string;};
+  1: {  object: 'list';
   type: string;
-  name: string;
-  bot?: any | undefined;
+  results: ({})[];
+  next_cursor?: string | undefined;
+  has_more: boolean;
+  property_item?: {} | undefined;};
+};
+
+export interface ActionInput_notion_getuser {
+  /**
+   * User ID to retrieve. Example: "e79a0b74-3aba-4149-9f74-0bb5791a6ee6"
+   */
+  userId: string;
+};
+
+export interface ActionOutput_notion_getuser {
+  id: string;
+  name?: string | undefined;
+  avatarUrl?: string | undefined;
+  type: 'person' | 'bot';
+  email?: string | undefined;
+  botOwner?: {  type: string;
+  userId?: string | undefined;
+  userName?: string | undefined;
+  workspace?: boolean | undefined;};
+};
+
+export interface ActionInput_notion_listblockchildren {
+  /**
+   * Block ID or page ID to retrieve children for. Example: "c02fc1d3-db8b-45c5-a222-27595b15aea7"
+   */
+  block_id: string;
+  /**
+   * Number of results per page (max 100).
+   */
+  page_size?: number | undefined;
+  /**
+   * Pagination cursor from the previous response. Omit for the first page.
+   */
+  cursor?: string | undefined;
+};
+
+export interface ActionOutput_notion_listblockchildren {
+  results: ({  object: string;
+  id: string;
+  type: string;
+  created_time?: string | undefined;
+  last_edited_time?: string | undefined;
+  created_by?: {} | undefined;
+  last_edited_by?: {} | undefined;
+  has_children?: boolean | undefined;
+  in_trash?: boolean | undefined;
+  parent?: {} | undefined;})[];
+  next_cursor?: string | undefined;
+  has_more: boolean;
 };
 
 export interface ActionInput_notion_listcomments {
   /**
-   * The ID of the page or block. Example: "2b6ce298-3121-80ae-bfe1-f8984b993639"
+   * The ID of the block (page or block) to retrieve comments for. Example: "5c6a28216bb14a7eb6e1c50111515c3d"
    */
   block_id: string;
   /**
-   * Number of results to return (max 100).
-   */
-  page_size?: number | undefined;
-  /**
-   * Pagination cursor from previous response.
+   * Pagination cursor from the previous response. Omit for the first page.
    */
   cursor?: string | undefined;
+  /**
+   * Number of comments to return per page. Maximum: 100.
+   */
+  page_size?: number | undefined;
 };
 
 export interface ActionOutput_notion_listcomments {
-  object: string;
-  results: any[];
+  comments: ({  object: 'comment';
+  /**
+   * Unique identifier for the comment.
+   */
+  id: string;
+  parent: {  /**
+   * Type of parent (e.g., "page_id", "block_id").
+   */
+  type: string;
+  page_id?: string | undefined;
+  block_id?: string | undefined;};
+  /**
+   * Discussion thread ID.
+   */
+  discussion_id: string;
+  /**
+   * ISO 8601 timestamp.
+   */
+  created_time: string;
+  /**
+   * ISO 8601 timestamp.
+   */
+  last_edited_time: string;
+  created_by: {  object: 'user';
+  id: string;
+  name?: string | undefined;
+  avatar_url?: string | undefined;
+  type?: string | undefined;
+  person?: {  email: string;} | undefined;};
+  rich_text: ({  type?: string | undefined;
+  text?: {  content: string;
+  link?: {  url: string;} | undefined;};
+  annotations?: {  bold?: boolean | undefined;
+  italic?: boolean | undefined;
+  strikethrough?: boolean | undefined;
+  underline?: boolean | undefined;
+  code?: boolean | undefined;
+  color?: string | undefined;};})[];})[];
+  next_cursor?: string | undefined;
   has_more: boolean;
-  next_cursor: string | null;
+};
+
+export interface ActionInput_notion_listdatasourcetemplates {
+  /**
+   * The ID of the Notion data source. Example: "d9824bdc-8445-4327-be8b-5b47500af6ce"
+   */
+  dataSourceId: string;
+  /**
+   * Filter templates by name (case-insensitive substring match).
+   */
+  name?: string | undefined;
+  /**
+   * Pagination cursor from the previous response. Omit for the first page.
+   */
+  cursor?: string | undefined;
+  /**
+   * Number of items to return per page (1-100). Defaults to 100.
+   */
+  limit?: number | undefined;
+};
+
+export interface ActionOutput_notion_listdatasourcetemplates {
+  /**
+   * Array of templates available in this data source.
+   */
+  templates: ({  /**
+   * ID of the template page.
+   */
+  id: string;
+  /**
+   * Name of the template.
+   */
+  name: string;
+  /**
+   * Whether this template is the default template for the data source.
+   */
+  isDefault: boolean;})[];
+  /**
+   * Whether there are more templates available beyond this page.
+   */
+  hasMore: boolean;
+  /**
+   * Cursor to use for the next page of results. Omitted if there are no more results.
+   */
+  nextCursor?: string | undefined;
 };
 
 export interface ActionInput_notion_listusers {
   /**
-   * Number of results to return (max 100).
+   * Pagination cursor from the previous response. Omit for the first page.
+   */
+  start_cursor?: string | undefined;
+  /**
+   * Number of users to return. Maximum is 100.
    */
   page_size?: number | undefined;
-  /**
-   * Pagination cursor from previous response.
-   */
-  cursor?: string | undefined;
 };
 
 export interface ActionOutput_notion_listusers {
-  object: string;
-  results: any[];
+  users: ({  id: string;
+  type: 'person' | 'bot';
+  name?: string | undefined;
+  avatar_url?: string | undefined;
+  email?: string | undefined;})[];
+  next_cursor?: string | undefined;
   has_more: boolean;
-  next_cursor: string | null;
 };
 
 export interface ActionInput_notion_querydatabasefiltered {
@@ -23677,17 +23970,89 @@ export interface ActionOutput_notion_querydatabase {
   next_cursor: string | null;
 };
 
-export interface ActionInput_notion_restorepage {
+export interface ActionInput_notion_movepage {
   /**
-   * The ID of the page to restore. Example: "2b6ce298-3121-80ae-bfe1-f8984b993639"
+   * The ID of the page to move. Example: "195de922-1179-449f-ab80-75a27c979105"
    */
   page_id: string;
+  /**
+   * The new parent location for the page. Either a page_id or data_source_id parent.
+   */
+  parent: {  type: 'page_id';
+  /**
+   * The ID of the parent page to move the page under. Example: "b55c9c91-384d-452b-81db-d1ef79372b75"
+   */
+  page_id: string;} | {  type: 'data_source_id';
+  /**
+   * The ID of the data source (database) to move the page into. Example: "1c7b35e6-e67f-8096-bf3f-000ba938459e"
+   */
+  data_source_id: string;};
+};
+
+export interface ActionOutput_notion_movepage {
+  id: string;
+  object: 'page';
+  created_time?: string | undefined;
+  last_edited_time?: string | undefined;
+  parent: {  type: string;
+  page_id?: string | undefined;
+  database_id?: string | undefined;
+  data_source_id?: string | undefined;
+  workspace?: boolean | undefined;};
+  archived?: boolean | undefined;
+  in_trash?: boolean | undefined;
+  url?: string | undefined;
+  public_url?: string | undefined;
+};
+
+export interface ActionInput_notion_querydatasource {
+  data_source_id: string;
+  filter?: {  [key: string]: unknown | undefined;};
+  sorts?: ({  [key: string]: unknown | undefined;})[];
+  start_cursor?: string | undefined;
+  page_size?: number | undefined;
+  in_trash?: boolean | undefined;
+};
+
+export interface ActionOutput_notion_querydatasource {
+  results: ({  [key: string]: unknown | undefined;})[];
+  next_cursor?: string | undefined;
+  has_more: boolean;
+  request_status?: {  [key: string]: unknown | undefined;};
+};
+
+export interface ActionInput_notion_restorepage {
+  /**
+   * The ID of the page to restore from trash. Example: "12345678-1234-1234-1234-123456789012"
+   */
+  pageId: string;
 };
 
 export interface ActionOutput_notion_restorepage {
   id: string;
   object: string;
-  archived: boolean;
+  createdTime?: string | undefined;
+  lastEditedTime?: string | undefined;
+  archived?: boolean | undefined;
+  inTrash?: boolean | undefined;
+  url?: string | undefined;
+};
+
+export interface ActionInput_notion_retrieveblock {
+  /**
+   * Block ID. Example: "c02fc1d3-db8b-45c5-a222-27595b15aea7"
+   */
+  block_id: string;
+};
+
+export interface ActionOutput_notion_retrieveblock {
+  id: string;
+  object: 'block';
+  type: string;
+  created_time?: string | undefined;
+  last_edited_time?: string | undefined;
+  has_children?: boolean | undefined;
+  in_trash?: boolean | undefined;
 };
 
 export interface ActionInput_notion_retrieveblockchildren {
@@ -23712,19 +24077,62 @@ export interface ActionOutput_notion_retrieveblockchildren {
   next_cursor: string | null;
 };
 
-export interface ActionInput_notion_retrieveblock {
+export interface ActionInput_notion_retrievecomment {
   /**
-   * The ID of the block to retrieve. Example: "2b6ce298-3121-8087-914a-d4fe743f6d69"
+   * The ID of the comment to retrieve. Example: "c02fc1d3-db8b-45c5-a222-27595b15aea7"
    */
-  block_id: string;
+  comment_id: string;
 };
 
-export interface ActionOutput_notion_retrieveblock {
+export interface ActionOutput_notion_retrievecomment {
   id: string;
-  object: string;
-  type: string;
-  has_children: boolean;
-  created_time: string;
+  parent: {  type: string;
+  page_id?: string | undefined;
+  block_id?: string | undefined;};
+  discussion_id: string;
+  rich_text: ({  type?: string | undefined;
+  text?: {  content: string;} | undefined;
+  mention?: {  type: string;
+  user?: {  object: string;
+  id: string;} | undefined;};
+  annotations?: {  bold?: boolean | undefined;
+  italic?: boolean | undefined;
+  strikethrough?: boolean | undefined;
+  underline?: boolean | undefined;
+  code?: boolean | undefined;
+  color?: string | undefined;};
+  plain_text?: string | undefined;
+  href?: string | undefined;})[];
+  created_by?: {  object: string;
+  id: string;} | undefined;
+  created_time?: string | undefined;
+};
+
+export interface ActionInput_notion_retrievedatasource {
+  /**
+   * The ID of the Notion data source to retrieve. Example: "d9824bdc-8445-4327-be8b-5b47500af6ce"
+   */
+  data_source_id: string;
+};
+
+export interface ActionOutput_notion_retrievedatasource {
+  object: 'data_source';
+  id: string;
+  title?: unknown[] | undefined;
+  description?: unknown[] | undefined;
+  parent?: unknown | undefined;
+  database_parent?: unknown | undefined;
+  is_inline?: boolean | undefined;
+  in_trash?: boolean | undefined;
+  created_time?: string | undefined;
+  last_edited_time?: string | undefined;
+  created_by?: unknown | undefined;
+  last_edited_by?: unknown | undefined;
+  properties?: {  [key: string]: unknown | undefined;};
+  icon?: unknown | undefined;
+  cover?: unknown | undefined;
+  url?: string | undefined;
+  public_url?: string | undefined;
 };
 
 export interface ActionInput_notion_retrievedatabase {
@@ -23763,29 +24171,45 @@ export interface ActionOutput_notion_retrievepageproperty {
 
 export interface ActionInput_notion_retrievepage {
   /**
-   * The ID of the page to retrieve. Example: "2b6ce298-3121-80ae-bfe1-f8984b993639"
+   * The ID of the page to retrieve. Example: "b55c9c91-384d-452b-81db-d1ef79372b75"
    */
   page_id: string;
 };
 
 export interface ActionOutput_notion_retrievepage {
   id: string;
-  object: string;
+  object: 'page';
   created_time: string;
   last_edited_time: string;
-  created_by: {  object: string;
-  id: string;};
-  last_edited_by: {  object: string;
-  id: string;};
-  parent: {  type: string;
-  page_id: string | null;
-  database_id: string | null;
-  workspace: boolean | null;};
-  archived: boolean;
   in_trash: boolean;
-  properties: {  [key: string]: any | undefined;};
+  is_archived: boolean;
+  is_locked: boolean;
   url: string;
-  public_url: string | null;
+  public_url?: string | undefined;
+  parent: {  type: string;
+  database_id?: string | undefined;
+  page_id?: string | undefined;
+  workspace?: boolean | undefined;
+  block_id?: string | undefined;};
+  properties: {};
+  icon: {  type: 'emoji';
+  emoji: string;} | {  type: 'external';
+  external: {  url: string;};} | {  type: 'file';
+  file: {  url: string;
+  expiry_time: string;};} | {  type: 'custom_emoji';
+  custom_emoji: {  id: string;
+  name: string;
+  url: string;};} | {  type: 'icon';
+  icon: {  name: string;
+  color: string;};};
+  cover: {  type: 'external';
+  external: {  url: string;};} | {  type: 'file';
+  file: {  url: string;
+  expiry_time: string;};};
+  created_by: {  id: string;
+  object: string;};
+  last_edited_by: {  id: string;
+  object: string;};
 };
 
 export interface ActionInput_notion_retrieveuser {
@@ -23849,92 +24273,131 @@ export interface ActionOutput_notion_searchpages {
 
 export interface ActionInput_notion_search {
   /**
-   * Text to search for in page/database titles.
+   * Search query string to filter results by title.
    */
   query?: string | undefined;
+  filter?: {  property: 'object';
+  value: 'page' | 'data_source';} | undefined;
+  sort?: {  timestamp: 'last_edited_time' | 'created_time';
+  direction: 'ascending' | 'descending';} | undefined;
   /**
-   * Filter to search only pages or databases. Example: {"property":"object","value":"page"}
+   * Pagination cursor for the next page of results.
    */
-  filter?: {  property: string;
-  value: string;} | undefined;
-  /**
-   * Sort order. Example: {"direction":"descending","timestamp":"last_edited_time"}
-   */
-  sort?: {  direction: string;
-  timestamp: string;} | undefined;
-  /**
-   * Number of results to return (max 100).
-   */
+  start_cursor?: string | undefined;
   page_size?: number | undefined;
-  /**
-   * Pagination cursor from previous response.
-   */
-  cursor?: string | undefined;
 };
 
 export interface ActionOutput_notion_search {
-  object: string;
-  results: any[];
+  results: unknown[];
+  next_cursor?: string | undefined;
   has_more: boolean;
-  next_cursor: string | null;
 };
 
 export interface ActionInput_notion_updateblock {
   /**
-   * The ID of the block to update. Example: "2b6ce298-3121-8087-914a-d4fe743f6d69"
+   * The ID of the block to update. Example: "c02fc1d3-db8b-45c5-a222-27595b15aea7"
    */
   block_id: string;
-  /**
-   * Paragraph block content.
-   */
-  paragraph?: any | undefined;
-  /**
-   * Heading 1 block content.
-   */
-  heading_1?: any | undefined;
-  /**
-   * Heading 2 block content.
-   */
-  heading_2?: any | undefined;
-  /**
-   * Heading 3 block content.
-   */
-  heading_3?: any | undefined;
-  /**
-   * Bulleted list item content.
-   */
-  bulleted_list_item?: any | undefined;
-  /**
-   * Numbered list item content.
-   */
-  numbered_list_item?: any | undefined;
-  /**
-   * To-do block content.
-   */
-  to_do?: any | undefined;
-  /**
-   * Toggle block content.
-   */
-  toggle?: any | undefined;
-  /**
-   * Code block content.
-   */
-  code?: any | undefined;
-  /**
-   * Callout block content.
-   */
-  callout?: any | undefined;
-  /**
-   * Quote block content.
-   */
-  quote?: any | undefined;
+  content: {};
 };
 
 export interface ActionOutput_notion_updateblock {
   id: string;
-  object: string;
   type: string;
-  has_children: boolean;
+  object: string;
+};
+
+export interface ActionInput_notion_updatedatasource {
+  /**
+   * The ID of the data source to update. Example: "d9824bdc-8445-4327-be8b-5b47500af6ce"
+   */
+  dataSourceId: string;
+  /**
+   * Title of the data source as it appears in Notion.
+   */
+  title?: ({  type: 'text';
+  text: {  content: string;
+  link?: {  url: string;} | undefined;};})[];
+  /**
+   * Description of the data source as it appears in Notion.
+   */
+  description?: ({  type: 'text';
+  text: {  content: string;
+  link?: {  url: string;} | undefined;};})[];
+  /**
+   * The property schema updates for the data source. Properties set to null will be removed.
+   */
+  properties?: {  [key: string]: {  name?: string | undefined;
+  description?: string | undefined;
+  type?: string | undefined;} | null;};
+  /**
+   * Whether to move the data source to or from the trash.
+   */
+  inTrash?: boolean | undefined;
+  /**
+   * The parent of the data source, when moving it to a different database.
+   */
+  parent?: {  type: 'database_id';
+  database_id: string;} | undefined;
+  /**
+   * New icon for the data source. Set to null to remove the icon.
+   */
+  icon?: {  type: 'emoji';
+  emoji: string;} | {  type: 'external';
+  external: {  url: string;};} | {  type: 'file';
+  file: {  url: string;
+  expiry_time?: string | undefined;};} | {  type: 'custom_emoji';
+  custom_emoji: {  id: string;
+  name?: string | undefined;
+  url?: string | undefined;};} | {  type: 'icon';
+  icon: {  name: string;
+  color?: 'gray' | 'lightgray' | 'brown' | 'yellow' | 'orange' | 'green' | 'blue' | 'purple' | 'pink' | 'red' | undefined;};};
+};
+
+export interface ActionOutput_notion_updatedatasource {
+  object: 'data_source';
+  /**
+   * The ID of the data source.
+   */
+  id: string;
+  title?: ({  type: string;
+  text: {  content: string;
+  link?: {  url: string;} | undefined;};
+  annotations?: {} | undefined;
+  plain_text?: string | undefined;
+  href?: string | undefined;})[];
+  description?: ({  type: string;
+  text: {  content: string;
+  link?: {  url: string;} | undefined;};
+  annotations?: {} | undefined;
+  plain_text?: string | undefined;
+  href?: string | undefined;})[];
+  parent?: {  type: 'database_id';
+  database_id: string;} | undefined;
+  database_parent?: {  type: string;
+  page_id?: string | undefined;
+  workspace?: boolean | undefined;
+  block_id?: string | undefined;
+  database_id?: string | undefined;};
+  is_inline?: boolean | undefined;
+  in_trash?: boolean | undefined;
+  /**
+   * ISO 8601 timestamp when the data source was created.
+   */
+  created_time?: string | undefined;
+  /**
+   * ISO 8601 timestamp when the data source was last edited.
+   */
+  last_edited_time?: string | undefined;
+  created_by?: {  object: 'user';
+  id: string;} | undefined;
+  last_edited_by?: {  object: 'user';
+  id: string;} | undefined;
+  properties?: {  [key: string]: {};} | undefined;
+  icon?: unknown | undefined;
+  cover?: unknown | undefined;
+  url?: string | undefined;
+  public_url?: string | undefined;
 };
 
 export interface ActionInput_notion_updatedatabase {
@@ -23963,50 +24426,118 @@ export interface ActionOutput_notion_updatedatabase {
   properties: {  [key: string]: any | undefined;};
 };
 
-export interface ActionInput_notion_updatepage {
+export interface ActionInput_notion_updatepagemarkdown {
   /**
-   * The ID of the page to update. Example: "2b6ce298-3121-80ae-bfe1-f8984b993639"
+   * Notion page ID. Example: "b55c9c91-384d-452b-81db-d1ef79372b75"
    */
   page_id: string;
   /**
-   * Page properties to update.
+   * Command type for the update operation.
    */
-  properties?: {  [key: string]: any | undefined;};
+  type: 'update_content' | 'replace_content' | 'insert_content' | 'replace_content_range';
+  update_content?: {  /**
+   * Array of search-and-replace operations.
+   */
+  content_updates: ({  /**
+   * Text to find in the page content. Must match exactly one location unless replace_all_matches is true.
+   */
+  old_str: string;
   /**
-   * Page icon as emoji or external URL.
+   * Replacement text.
    */
-  icon?: {  type?: string | undefined;
-  emoji?: string | undefined;
-  external?: {  url: string;} | undefined;};
+  new_str: string;
   /**
-   * Page cover image as external URL.
+   * If true, replace all occurrences of old_str. Defaults to false.
    */
-  cover?: {  type?: string | undefined;
-  external?: {  url: string;} | undefined;};
+  replace_all_matches?: boolean | undefined;})[];
   /**
-   * Set to true to archive the page.
+   * Set to true to allow the operation to delete child pages or databases.
    */
-  archived?: boolean | undefined;
+  allow_deleting_content?: boolean | undefined;};
+  replace_content?: {  /**
+   * The new enhanced markdown content to replace the entire page content.
+   */
+  new_str: string;
+  /**
+   * Set to true to allow the operation to delete child pages or databases.
+   */
+  allow_deleting_content?: boolean | undefined;};
+  insert_content?: {  /**
+   * Markdown content to insert.
+   */
+  content: string;
+  /**
+   * Ellipsis-based selection format to insert after a specific location. Example: "# Heading...end of section"
+   */
+  after?: string | undefined;};
+  replace_content_range?: {  /**
+   * Markdown content to insert at the replaced range.
+   */
+  content: string;
+  /**
+   * Ellipsis-based selection format defining the range to replace. Example: "start text...end text"
+   */
+  range: string;
+  /**
+   * Set to true to allow the operation to delete child pages or databases.
+   */
+  allow_deleting_content?: boolean | undefined;};
+};
+
+export interface ActionOutput_notion_updatepagemarkdown {
+  id: string;
+  markdown: string;
+  truncated: boolean;
+  unknown_block_ids?: string[] | undefined;
+};
+
+export interface ActionInput_notion_updatepage {
+  /**
+   * The ID of the page to update.
+   */
+  page_id: string;
+  /**
+   * Property values to update. Each key is the property name and the value is the property value object.
+   */
+  properties?: unknown | undefined;
+  /**
+   * The icon for the page. Can be an emoji, external file, uploaded file, custom emoji, or Notion icon.
+   */
+  icon?: unknown | undefined;
+  /**
+   * The cover image for the page. Can be an external file or uploaded file.
+   */
+  cover?: unknown | undefined;
+  /**
+   * Whether the page should be locked from editing in the Notion app UI.
+   */
+  is_locked?: boolean | undefined;
+  /**
+   * Whether the page should be moved to trash (true) or restored (false).
+   */
+  in_trash?: boolean | undefined;
+  /**
+   * Whether the page should be archived.
+   */
+  is_archived?: boolean | undefined;
 };
 
 export interface ActionOutput_notion_updatepage {
   id: string;
-  object: string;
-  created_time: string;
-  last_edited_time: string;
-  created_by: {  object: string;
-  id: string;};
-  last_edited_by: {  object: string;
-  id: string;};
-  parent: {  type: string;
-  page_id: string | null;
-  database_id: string | null;
-  workspace: boolean | null;};
-  archived: boolean;
-  in_trash: boolean;
-  properties: {  [key: string]: any | undefined;};
-  url: string;
-  public_url: string | null;
+  object?: string | undefined;
+  created_time?: string | undefined;
+  last_edited_time?: string | undefined;
+  in_trash?: boolean | undefined;
+  is_archived?: boolean | undefined;
+  is_locked?: boolean | undefined;
+  url?: string | undefined;
+  public_url?: string | undefined;
+  parent?: unknown | undefined;
+  properties?: unknown | undefined;
+  icon?: unknown | undefined;
+  cover?: unknown | undefined;
+  created_by?: unknown | undefined;
+  last_edited_by?: unknown | undefined;
 };
 
 export interface SyncMetadata_okta_users {
