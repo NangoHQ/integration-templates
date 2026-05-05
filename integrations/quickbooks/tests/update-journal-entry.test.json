@@ -1,0 +1,174 @@
+{
+  "input": {
+    "id": "159",
+    "sync_token": "0",
+    "private_note": "Updated via saved dryrun",
+    "line_items": [
+      {
+        "id": "0",
+        "description": "Saved test debit",
+        "amount": 300,
+        "detail_type": "JournalEntryLineDetail",
+        "journal_entry_line_detail": {
+          "posting_type": "Debit",
+          "account_ref": {
+            "value": "1"
+          }
+        }
+      },
+      {
+        "id": "1",
+        "description": "Saved test credit",
+        "amount": 300,
+        "detail_type": "JournalEntryLineDetail",
+        "journal_entry_line_detail": {
+          "posting_type": "Credit",
+          "account_ref": {
+            "value": "2"
+          }
+        }
+      }
+    ]
+  },
+  "output": {
+    "id": "159",
+    "sync_token": "1",
+    "txn_date": "2026-05-05",
+    "private_note": "Updated via saved dryrun",
+    "line_items": [
+      {
+        "id": "0",
+        "description": "Saved test debit",
+        "amount": 300,
+        "detail_type": "JournalEntryLineDetail",
+        "posting_type": "Debit",
+        "account_id": "1",
+        "account_name": "Services"
+      },
+      {
+        "id": "1",
+        "description": "Saved test credit",
+        "amount": 300,
+        "detail_type": "JournalEntryLineDetail",
+        "posting_type": "Credit",
+        "account_id": "2",
+        "account_name": "Retained Earnings"
+      }
+    ]
+  },
+  "nango": {
+    "getConnection": {}
+  },
+  "api": {
+    "post": {
+      "/v3/company/9341457021722202/journalentry": {
+        "response": {
+          "JournalEntry": {
+            "Adjustment": false,
+            "TotalAmt": 0,
+            "domain": "QBO",
+            "sparse": false,
+            "Id": "159",
+            "SyncToken": "1",
+            "MetaData": {
+              "CreateTime": "2026-05-05T02:11:04-07:00",
+              "LastUpdatedTime": "2026-05-05T02:11:14-07:00"
+            },
+            "TxnDate": "2026-05-05",
+            "CurrencyRef": {
+              "value": "USD",
+              "name": "United States Dollar"
+            },
+            "PrivateNote": "Updated via saved dryrun",
+            "Line": [
+              {
+                "Id": "0",
+                "Description": "Saved test debit",
+                "Amount": 300,
+                "DetailType": "JournalEntryLineDetail",
+                "JournalEntryLineDetail": {
+                  "PostingType": "Debit",
+                  "AccountRef": {
+                    "value": "1",
+                    "name": "Services"
+                  }
+                },
+                "CustomExtensions": []
+              },
+              {
+                "Id": "1",
+                "Description": "Saved test credit",
+                "Amount": 300,
+                "DetailType": "JournalEntryLineDetail",
+                "JournalEntryLineDetail": {
+                  "PostingType": "Credit",
+                  "AccountRef": {
+                    "value": "2",
+                    "name": "Retained Earnings"
+                  }
+                },
+                "CustomExtensions": []
+              }
+            ],
+            "TxnTaxDetail": {}
+          },
+          "time": "2026-05-05T02:11:14.268-07:00"
+        },
+        "status": 200,
+        "headers": {
+          "date": "Tue, 05 May 2026 09:11:14 GMT",
+          "content-type": "application/json",
+          "content-length": "836",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=5184000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4978",
+          "x-ratelimit-reset": "1777972320",
+          "etag": "W/\"344-AbMC0N3gWi8cJrCF13nYgUgRj7s\""
+        },
+        "hash": "2212060b47df2c6e19dc32b3abcb4f897c8d08fa",
+        "request": {
+          "data": {
+            "Id": "159",
+            "SyncToken": "0",
+            "PrivateNote": "Updated via saved dryrun",
+            "Line": [
+              {
+                "Id": "0",
+                "Description": "Saved test debit",
+                "Amount": 300,
+                "DetailType": "JournalEntryLineDetail",
+                "JournalEntryLineDetail": {
+                  "PostingType": "Debit",
+                  "AccountRef": {
+                    "value": "1"
+                  }
+                }
+              },
+              {
+                "Id": "1",
+                "Description": "Saved test credit",
+                "Amount": 300,
+                "DetailType": "JournalEntryLineDetail",
+                "JournalEntryLineDetail": {
+                  "PostingType": "Credit",
+                  "AccountRef": {
+                    "value": "2"
+                  }
+                }
+              }
+            ]
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,168 @@
+{
+  "input": {
+    "id": "73",
+    "syncToken": "3",
+    "customerRef": {
+      "value": "1"
+    },
+    "line": [
+      {
+        "id": "1",
+        "amount": 100,
+        "detailType": "SalesItemLineDetail",
+        "salesItemLineDetail": {
+          "itemRef": {
+            "value": "10"
+          }
+        }
+      }
+    ],
+    "privateNote": "Updated via Nango action - final test"
+  },
+  "output": {
+    "id": "73",
+    "syncToken": "4",
+    "createdAt": "2026-04-07T12:51:27-07:00",
+    "updatedAt": "2026-05-05T02:17:28-07:00"
+  },
+  "nango": {
+    "getConnection": {}
+  },
+  "api": {
+    "post": {
+      "/v3/company/9341457021722202/creditmemo": {
+        "response": {
+          "CreditMemo": {
+            "RemainingCredit": 0,
+            "domain": "QBO",
+            "sparse": false,
+            "Id": "73",
+            "SyncToken": "4",
+            "MetaData": {
+              "CreateTime": "2026-04-07T12:51:27-07:00",
+              "LastUpdatedTime": "2026-05-05T02:17:28-07:00"
+            },
+            "CustomField": [],
+            "DocNumber": "1026",
+            "TxnDate": "2026-05-05",
+            "CurrencyRef": {
+              "value": "USD",
+              "name": "United States Dollar"
+            },
+            "PrivateNote": "Updated via Nango action - final test",
+            "Line": [
+              {
+                "Id": "1",
+                "LineNum": 1,
+                "Amount": 100,
+                "DetailType": "SalesItemLineDetail",
+                "SalesItemLineDetail": {
+                  "ItemRef": {
+                    "value": "10",
+                    "name": "Pest Control"
+                  },
+                  "ItemAccountRef": {
+                    "value": "54",
+                    "name": "Pest Control Services"
+                  },
+                  "TaxCodeRef": {
+                    "value": "NON"
+                  }
+                },
+                "CustomExtensions": []
+              },
+              {
+                "Amount": 100,
+                "DetailType": "SubTotalLineDetail",
+                "SubTotalLineDetail": {}
+              }
+            ],
+            "TxnTaxDetail": {
+              "TotalTax": 0
+            },
+            "CustomerRef": {
+              "value": "1",
+              "name": "Amy's Bird Sanctuary"
+            },
+            "BillAddr": {
+              "Id": "2",
+              "Line1": "4581 Finch St.",
+              "City": "Bayshore",
+              "CountrySubDivisionCode": "CA",
+              "PostalCode": "94326",
+              "Lat": "INVALID",
+              "Long": "INVALID"
+            },
+            "ShipAddr": {
+              "Id": "2",
+              "Line1": "4581 Finch St.",
+              "City": "Bayshore",
+              "CountrySubDivisionCode": "CA",
+              "PostalCode": "94326",
+              "Lat": "INVALID",
+              "Long": "INVALID"
+            },
+            "FreeFormAddress": true,
+            "ShipFromAddr": {
+              "Id": "108",
+              "Line1": "123 Sierra Way",
+              "Line2": "San Pablo, CA  87999"
+            },
+            "TotalAmt": 100,
+            "ApplyTaxAfterDiscount": false,
+            "PrintStatus": "NeedToPrint",
+            "EmailStatus": "NotSet",
+            "Balance": 0
+          },
+          "time": "2026-05-05T02:17:27.446-07:00"
+        },
+        "status": 200,
+        "headers": {
+          "date": "Tue, 05 May 2026 09:17:27 GMT",
+          "content-type": "application/json",
+          "content-length": "1352",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=5184000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4971",
+          "x-ratelimit-reset": "1777972659",
+          "etag": "W/\"548-TJefgcK3ajFLct8B1Z5jxWmnDZs\""
+        },
+        "hash": "0bc8ca04b42267d8f5b05c84066313c0a328e5dc",
+        "request": {
+          "params": {
+            "minorversion": "73"
+          },
+          "data": {
+            "Id": "73",
+            "SyncToken": "3",
+            "CustomerRef": {
+              "value": "1"
+            },
+            "Line": [
+              {
+                "Amount": 100,
+                "DetailType": "SalesItemLineDetail",
+                "Id": "1",
+                "SalesItemLineDetail": {
+                  "ItemRef": {
+                    "value": "10"
+                  }
+                }
+              }
+            ],
+            "PrivateNote": "Updated via Nango action - final test"
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,516 @@
+{
+  "input": {},
+  "output": {
+    "deposits": [
+      {
+        "id": "176",
+        "sync_token": "0",
+        "transaction_date": "2024-05-05",
+        "total_amount": 100,
+        "deposit_to_account_id": "35",
+        "deposit_to_account_name": "Checking",
+        "currency_code": "USD",
+        "created_at": "2026-05-05T03:09:36-07:00",
+        "updated_at": "2026-05-05T03:09:36-07:00"
+      },
+      {
+        "id": "173",
+        "sync_token": "0",
+        "transaction_date": "2024-05-05",
+        "total_amount": 100,
+        "deposit_to_account_id": "35",
+        "deposit_to_account_name": "Checking",
+        "currency_code": "USD",
+        "created_at": "2026-05-05T03:09:15-07:00",
+        "updated_at": "2026-05-05T03:09:15-07:00"
+      },
+      {
+        "id": "167",
+        "sync_token": "0",
+        "transaction_date": "2024-05-05",
+        "total_amount": 100,
+        "deposit_to_account_id": "35",
+        "deposit_to_account_name": "Checking",
+        "currency_code": "USD",
+        "created_at": "2026-05-05T03:07:38-07:00",
+        "updated_at": "2026-05-05T03:07:38-07:00"
+      },
+      {
+        "id": "121",
+        "sync_token": "0",
+        "transaction_date": "2026-04-08",
+        "total_amount": 868.15,
+        "deposit_to_account_id": "35",
+        "deposit_to_account_name": "Checking",
+        "currency_code": "USD",
+        "created_at": "2026-04-08T13:00:56-07:00",
+        "updated_at": "2026-04-08T13:00:56-07:00"
+      },
+      {
+        "id": "102",
+        "sync_token": "0",
+        "transaction_date": "2026-04-07",
+        "total_amount": 408,
+        "deposit_to_account_id": "35",
+        "deposit_to_account_name": "Checking",
+        "currency_code": "USD",
+        "created_at": "2026-04-07T13:40:31-07:00",
+        "updated_at": "2026-04-07T13:40:31-07:00"
+      },
+      {
+        "id": "4",
+        "sync_token": "1",
+        "transaction_date": "2025-11-23",
+        "total_amount": 5000,
+        "deposit_to_account_id": "35",
+        "deposit_to_account_name": "Checking",
+        "currency_code": "USD",
+        "private_note": "Opening Balance",
+        "created_at": "2026-04-04T12:08:20-07:00",
+        "updated_at": "2026-04-07T13:33:24-07:00"
+      },
+      {
+        "id": "62",
+        "sync_token": "0",
+        "transaction_date": "2026-04-06",
+        "total_amount": 218.75,
+        "deposit_to_account_id": "35",
+        "deposit_to_account_name": "Checking",
+        "currency_code": "USD",
+        "created_at": "2026-04-06T15:22:31-07:00",
+        "updated_at": "2026-04-06T15:22:31-07:00"
+      },
+      {
+        "id": "5",
+        "sync_token": "0",
+        "transaction_date": "2026-04-04",
+        "total_amount": 600,
+        "deposit_to_account_id": "36",
+        "deposit_to_account_name": "Savings",
+        "currency_code": "USD",
+        "private_note": "Opening Balance",
+        "created_at": "2026-04-04T12:09:00-07:00",
+        "updated_at": "2026-04-04T12:09:00-07:00"
+      }
+    ]
+  },
+  "nango": {
+    "getConnection": {}
+  },
+  "api": {
+    "post": {
+      "/v3/company/9341457021722202/query": {
+        "response": {
+          "QueryResponse": {
+            "Deposit": [
+              {
+                "DepositToAccountRef": {
+                  "value": "35",
+                  "name": "Checking"
+                },
+                "TotalAmt": 100,
+                "domain": "QBO",
+                "sparse": false,
+                "Id": "176",
+                "SyncToken": "0",
+                "MetaData": {
+                  "CreateTime": "2026-05-05T03:09:36-07:00",
+                  "LastUpdatedTime": "2026-05-05T03:09:36-07:00"
+                },
+                "TxnDate": "2024-05-05",
+                "CurrencyRef": {
+                  "value": "USD",
+                  "name": "United States Dollar"
+                },
+                "Line": [
+                  {
+                    "Id": "1",
+                    "LineNum": 1,
+                    "Amount": 100,
+                    "DetailType": "DepositLineDetail",
+                    "DepositLineDetail": {
+                      "AccountRef": {
+                        "value": "1",
+                        "name": "Test Account"
+                      }
+                    },
+                    "CustomExtensions": []
+                  }
+                ],
+                "TxnTaxDetail": {}
+              },
+              {
+                "DepositToAccountRef": {
+                  "value": "35",
+                  "name": "Checking"
+                },
+                "TotalAmt": 100,
+                "domain": "QBO",
+                "sparse": false,
+                "Id": "173",
+                "SyncToken": "0",
+                "MetaData": {
+                  "CreateTime": "2026-05-05T03:09:15-07:00",
+                  "LastUpdatedTime": "2026-05-05T03:09:15-07:00"
+                },
+                "TxnDate": "2024-05-05",
+                "CurrencyRef": {
+                  "value": "USD",
+                  "name": "United States Dollar"
+                },
+                "Line": [
+                  {
+                    "Id": "1",
+                    "LineNum": 1,
+                    "Amount": 100,
+                    "DetailType": "DepositLineDetail",
+                    "DepositLineDetail": {
+                      "AccountRef": {
+                        "value": "1",
+                        "name": "Test Account"
+                      }
+                    },
+                    "CustomExtensions": []
+                  }
+                ],
+                "TxnTaxDetail": {}
+              },
+              {
+                "DepositToAccountRef": {
+                  "value": "35",
+                  "name": "Checking"
+                },
+                "TotalAmt": 100,
+                "domain": "QBO",
+                "sparse": false,
+                "Id": "167",
+                "SyncToken": "0",
+                "MetaData": {
+                  "CreateTime": "2026-05-05T03:07:38-07:00",
+                  "LastUpdatedTime": "2026-05-05T03:07:38-07:00"
+                },
+                "TxnDate": "2024-05-05",
+                "CurrencyRef": {
+                  "value": "USD",
+                  "name": "United States Dollar"
+                },
+                "Line": [
+                  {
+                    "Id": "1",
+                    "LineNum": 1,
+                    "Amount": 100,
+                    "DetailType": "DepositLineDetail",
+                    "DepositLineDetail": {
+                      "AccountRef": {
+                        "value": "1",
+                        "name": "Test Account"
+                      }
+                    },
+                    "CustomExtensions": []
+                  }
+                ],
+                "TxnTaxDetail": {}
+              },
+              {
+                "DepositToAccountRef": {
+                  "value": "35",
+                  "name": "Checking"
+                },
+                "CashBack": {
+                  "AccountRef": {
+                    "value": "36",
+                    "name": "Savings"
+                  },
+                  "Amount": 200,
+                  "Memo": "Money to savings"
+                },
+                "TotalAmt": 868.15,
+                "domain": "QBO",
+                "sparse": false,
+                "Id": "121",
+                "SyncToken": "0",
+                "MetaData": {
+                  "CreateTime": "2026-04-08T13:00:56-07:00",
+                  "LastUpdatedTime": "2026-04-08T13:00:56-07:00"
+                },
+                "TxnDate": "2026-04-08",
+                "CurrencyRef": {
+                  "value": "USD",
+                  "name": "United States Dollar"
+                },
+                "Line": [
+                  {
+                    "Amount": 226.75,
+                    "LinkedTxn": [
+                      {
+                        "TxnId": "97",
+                        "TxnType": "Payment",
+                        "TxnLineId": "0"
+                      }
+                    ]
+                  },
+                  {
+                    "Amount": 460.4,
+                    "LinkedTxn": [
+                      {
+                        "TxnId": "94",
+                        "TxnType": "Payment",
+                        "TxnLineId": "0"
+                      }
+                    ]
+                  },
+                  {
+                    "Amount": 80,
+                    "LinkedTxn": [
+                      {
+                        "TxnId": "116",
+                        "TxnType": "Payment",
+                        "TxnLineId": "0"
+                      }
+                    ]
+                  },
+                  {
+                    "Amount": 81,
+                    "LinkedTxn": [
+                      {
+                        "TxnId": "98",
+                        "TxnType": "Payment",
+                        "TxnLineId": "0"
+                      }
+                    ]
+                  },
+                  {
+                    "Amount": 220,
+                    "LinkedTxn": [
+                      {
+                        "TxnId": "101",
+                        "TxnType": "Payment",
+                        "TxnLineId": "0"
+                      }
+                    ],
+                    "DepositLineDetail": {
+                      "PaymentMethodRef": {
+                        "value": "2"
+                      }
+                    }
+                  }
+                ],
+                "TxnTaxDetail": {}
+              },
+              {
+                "DepositToAccountRef": {
+                  "value": "35",
+                  "name": "Checking"
+                },
+                "TotalAmt": 408,
+                "domain": "QBO",
+                "sparse": false,
+                "Id": "102",
+                "SyncToken": "0",
+                "MetaData": {
+                  "CreateTime": "2026-04-07T13:40:31-07:00",
+                  "LastUpdatedTime": "2026-04-07T13:40:31-07:00"
+                },
+                "TxnDate": "2026-04-07",
+                "CurrencyRef": {
+                  "value": "USD",
+                  "name": "United States Dollar"
+                },
+                "Line": [
+                  {
+                    "Amount": 108,
+                    "LinkedTxn": [
+                      {
+                        "TxnId": "31",
+                        "TxnType": "Payment",
+                        "TxnLineId": "0"
+                      }
+                    ],
+                    "DepositLineDetail": {
+                      "PaymentMethodRef": {
+                        "value": "2"
+                      },
+                      "CheckNum": "6552"
+                    }
+                  },
+                  {
+                    "Amount": 300,
+                    "LinkedTxn": [
+                      {
+                        "TxnId": "32",
+                        "TxnType": "Payment",
+                        "TxnLineId": "0"
+                      }
+                    ],
+                    "DepositLineDetail": {
+                      "PaymentMethodRef": {
+                        "value": "2"
+                      },
+                      "CheckNum": "5421"
+                    }
+                  }
+                ],
+                "TxnTaxDetail": {}
+              },
+              {
+                "DepositToAccountRef": {
+                  "value": "35",
+                  "name": "Checking"
+                },
+                "TotalAmt": 5000,
+                "domain": "QBO",
+                "sparse": false,
+                "Id": "4",
+                "SyncToken": "1",
+                "MetaData": {
+                  "CreateTime": "2026-04-04T12:08:20-07:00",
+                  "LastUpdatedTime": "2026-04-07T13:33:24-07:00"
+                },
+                "TxnDate": "2025-11-23",
+                "CurrencyRef": {
+                  "value": "USD",
+                  "name": "United States Dollar"
+                },
+                "PrivateNote": "Opening Balance",
+                "Line": [
+                  {
+                    "Id": "1",
+                    "LineNum": 1,
+                    "Amount": 5000,
+                    "DetailType": "DepositLineDetail",
+                    "DepositLineDetail": {
+                      "AccountRef": {
+                        "value": "34",
+                        "name": "Opening Balance Equity"
+                      }
+                    },
+                    "CustomExtensions": []
+                  }
+                ],
+                "TxnTaxDetail": {}
+              },
+              {
+                "DepositToAccountRef": {
+                  "value": "35",
+                  "name": "Checking"
+                },
+                "TotalAmt": 218.75,
+                "domain": "QBO",
+                "sparse": false,
+                "Id": "62",
+                "SyncToken": "0",
+                "MetaData": {
+                  "CreateTime": "2026-04-06T15:22:31-07:00",
+                  "LastUpdatedTime": "2026-04-06T15:22:31-07:00"
+                },
+                "TxnDate": "2026-04-06",
+                "CurrencyRef": {
+                  "value": "USD",
+                  "name": "United States Dollar"
+                },
+                "Line": [
+                  {
+                    "Amount": 140,
+                    "LinkedTxn": [
+                      {
+                        "TxnId": "47",
+                        "TxnType": "SalesReceipt",
+                        "TxnLineId": "0"
+                      }
+                    ]
+                  },
+                  {
+                    "Amount": 78.75,
+                    "LinkedTxn": [
+                      {
+                        "TxnId": "38",
+                        "TxnType": "SalesReceipt",
+                        "TxnLineId": "0"
+                      }
+                    ],
+                    "DepositLineDetail": {
+                      "PaymentMethodRef": {
+                        "value": "1"
+                      }
+                    }
+                  }
+                ],
+                "TxnTaxDetail": {}
+              },
+              {
+                "DepositToAccountRef": {
+                  "value": "36",
+                  "name": "Savings"
+                },
+                "TotalAmt": 600,
+                "domain": "QBO",
+                "sparse": false,
+                "Id": "5",
+                "SyncToken": "0",
+                "MetaData": {
+                  "CreateTime": "2026-04-04T12:09:00-07:00",
+                  "LastUpdatedTime": "2026-04-04T12:09:00-07:00"
+                },
+                "TxnDate": "2026-04-04",
+                "CurrencyRef": {
+                  "value": "USD",
+                  "name": "United States Dollar"
+                },
+                "PrivateNote": "Opening Balance",
+                "Line": [
+                  {
+                    "Id": "1",
+                    "LineNum": 1,
+                    "Amount": 600,
+                    "DetailType": "DepositLineDetail",
+                    "DepositLineDetail": {
+                      "AccountRef": {
+                        "value": "34",
+                        "name": "Opening Balance Equity"
+                      }
+                    },
+                    "CustomExtensions": []
+                  }
+                ],
+                "TxnTaxDetail": {}
+              }
+            ],
+            "startPosition": 1,
+            "maxResults": 8,
+            "totalCount": 8
+          },
+          "time": "2026-05-05T03:09:38.135-07:00"
+        },
+        "status": 200,
+        "headers": {
+          "date": "Tue, 05 May 2026 10:09:38 GMT",
+          "content-type": "application/json",
+          "content-length": "4873",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=5184000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4827",
+          "x-ratelimit-reset": "1777975791",
+          "etag": "W/\"1309-lhsQHJpLC9EY3hZ33Nv/1OGzzsg\""
+        },
+        "hash": "1815855dae3fd567fe8623e82eff5ce9eed7bfa7",
+        "request": {
+          "params": {
+            "query": "SELECT * FROM Deposit STARTPOSITION 1 MAXRESULTS 100"
+          },
+          "headers": {
+            "Content-Type": "text/plain"
+          }
+        }
+      }
+    }
+  }
+}

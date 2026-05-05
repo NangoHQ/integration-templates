@@ -1,0 +1,430 @@
+{
+  "input": {
+    "limit": 10
+  },
+  "output": {
+    "accounts": [
+      {
+        "id": "69",
+        "name": "Accounting",
+        "accountType": "Expense",
+        "accountSubType": "LegalProfessionalFees",
+        "classification": "Expense",
+        "fullyQualifiedName": "Legal & Professional Fees:Accounting",
+        "active": true,
+        "currentBalance": 0,
+        "currentBalanceWithSubAccounts": 0,
+        "currency": "USD",
+        "createdAt": "2026-04-05T10:25:02-07:00",
+        "updatedAt": "2026-04-05T10:25:02-07:00"
+      },
+      {
+        "id": "33",
+        "name": "Accounts Payable (A/P)",
+        "accountType": "Accounts Payable",
+        "accountSubType": "AccountsPayable",
+        "classification": "Liability",
+        "fullyQualifiedName": "Accounts Payable (A/P)",
+        "active": true,
+        "currentBalance": -1602.67,
+        "currentBalanceWithSubAccounts": -1602.67,
+        "currency": "USD",
+        "createdAt": "2026-04-01T10:12:02-07:00",
+        "updatedAt": "2026-04-08T13:10:36-07:00"
+      },
+      {
+        "id": "84",
+        "name": "Accounts Receivable (A/R)",
+        "accountType": "Accounts Receivable",
+        "accountSubType": "AccountsReceivable",
+        "classification": "Asset",
+        "fullyQualifiedName": "Accounts Receivable (A/R)",
+        "active": true,
+        "currentBalance": 5081.52,
+        "currentBalanceWithSubAccounts": 5081.52,
+        "currency": "USD",
+        "createdAt": "2026-04-05T14:49:29-07:00",
+        "updatedAt": "2026-05-05T03:09:42-07:00"
+      },
+      {
+        "id": "7",
+        "name": "Advertising",
+        "accountType": "Expense",
+        "accountSubType": "AdvertisingPromotional",
+        "classification": "Expense",
+        "fullyQualifiedName": "Advertising",
+        "active": true,
+        "currentBalance": 0,
+        "currentBalanceWithSubAccounts": 0,
+        "currency": "USD",
+        "createdAt": "2026-03-31T14:42:07-07:00",
+        "updatedAt": "2026-03-31T14:42:07-07:00"
+      },
+      {
+        "id": "89",
+        "name": "Arizona Dept. of Revenue Payable",
+        "accountType": "Other Current Liability",
+        "accountSubType": "GlobalTaxPayable",
+        "classification": "Liability",
+        "fullyQualifiedName": "Arizona Dept. of Revenue Payable",
+        "active": true,
+        "currentBalance": 0,
+        "currentBalanceWithSubAccounts": 0,
+        "currency": "USD",
+        "createdAt": "2026-04-07T12:17:04-07:00",
+        "updatedAt": "2026-04-08T13:05:01-07:00"
+      },
+      {
+        "id": "55",
+        "name": "Automobile",
+        "accountType": "Expense",
+        "accountSubType": "Auto",
+        "classification": "Expense",
+        "fullyQualifiedName": "Automobile",
+        "active": true,
+        "currentBalance": 0,
+        "currentBalanceWithSubAccounts": 0,
+        "currency": "USD",
+        "createdAt": "2026-04-05T10:15:53-07:00",
+        "updatedAt": "2026-04-05T10:16:05-07:00"
+      },
+      {
+        "id": "1150040001",
+        "name": "Bank Account May 2026",
+        "accountType": "Bank",
+        "accountSubType": "CashOnHand",
+        "classification": "Asset",
+        "fullyQualifiedName": "Bank Account May 2026",
+        "active": true,
+        "currentBalance": 0,
+        "currentBalanceWithSubAccounts": 0,
+        "currency": "USD",
+        "createdAt": "2026-05-05T02:04:31-07:00",
+        "updatedAt": "2026-05-05T02:04:31-07:00"
+      },
+      {
+        "id": "1150040002",
+        "name": "Bank Account May 2026 v2",
+        "accountType": "Bank",
+        "accountSubType": "CashOnHand",
+        "classification": "Asset",
+        "fullyQualifiedName": "Bank Account May 2026 v2",
+        "active": true,
+        "currentBalance": 0,
+        "currentBalanceWithSubAccounts": 0,
+        "currency": "USD",
+        "createdAt": "2026-05-05T02:05:38-07:00",
+        "updatedAt": "2026-05-05T02:05:38-07:00"
+      },
+      {
+        "id": "8",
+        "name": "Bank Charges",
+        "accountType": "Expense",
+        "accountSubType": "BankCharges",
+        "classification": "Expense",
+        "fullyQualifiedName": "Bank Charges",
+        "active": true,
+        "currentBalance": 0,
+        "currentBalanceWithSubAccounts": 0,
+        "currency": "USD",
+        "createdAt": "2026-03-31T14:42:07-07:00",
+        "updatedAt": "2026-03-31T14:42:07-07:00"
+      },
+      {
+        "id": "85",
+        "name": "Billable Expense Income",
+        "accountType": "Income",
+        "accountSubType": "ServiceFeeIncome",
+        "classification": "Revenue",
+        "fullyQualifiedName": "Billable Expense Income",
+        "active": true,
+        "currentBalance": 0,
+        "currentBalanceWithSubAccounts": 0,
+        "currency": "USD",
+        "createdAt": "2026-04-05T14:54:12-07:00",
+        "updatedAt": "2026-04-05T14:54:12-07:00"
+      }
+    ],
+    "nextCursor": "11"
+  },
+  "nango": {
+    "getConnection": {}
+  },
+  "api": {
+    "post": {
+      "/v3/company/9341457021722202/query": {
+        "response": {
+          "QueryResponse": {
+            "Account": [
+              {
+                "Name": "Accounting",
+                "SubAccount": true,
+                "ParentRef": {
+                  "value": "12"
+                },
+                "FullyQualifiedName": "Legal & Professional Fees:Accounting",
+                "Active": true,
+                "Classification": "Expense",
+                "AccountType": "Expense",
+                "AccountSubType": "LegalProfessionalFees",
+                "CurrentBalance": 0,
+                "CurrentBalanceWithSubAccounts": 0,
+                "CurrencyRef": {
+                  "value": "USD",
+                  "name": "United States Dollar"
+                },
+                "domain": "QBO",
+                "sparse": false,
+                "Id": "69",
+                "SyncToken": "0",
+                "MetaData": {
+                  "CreateTime": "2026-04-05T10:25:02-07:00",
+                  "LastUpdatedTime": "2026-04-05T10:25:02-07:00"
+                }
+              },
+              {
+                "Name": "Accounts Payable (A/P)",
+                "SubAccount": false,
+                "FullyQualifiedName": "Accounts Payable (A/P)",
+                "Active": true,
+                "Classification": "Liability",
+                "AccountType": "Accounts Payable",
+                "AccountSubType": "AccountsPayable",
+                "CurrentBalance": -1602.67,
+                "CurrentBalanceWithSubAccounts": -1602.67,
+                "CurrencyRef": {
+                  "value": "USD",
+                  "name": "United States Dollar"
+                },
+                "domain": "QBO",
+                "sparse": false,
+                "Id": "33",
+                "SyncToken": "0",
+                "MetaData": {
+                  "CreateTime": "2026-04-01T10:12:02-07:00",
+                  "LastUpdatedTime": "2026-04-08T13:10:36-07:00"
+                }
+              },
+              {
+                "Name": "Accounts Receivable (A/R)",
+                "SubAccount": false,
+                "FullyQualifiedName": "Accounts Receivable (A/R)",
+                "Active": true,
+                "Classification": "Asset",
+                "AccountType": "Accounts Receivable",
+                "AccountSubType": "AccountsReceivable",
+                "CurrentBalance": 5081.52,
+                "CurrentBalanceWithSubAccounts": 5081.52,
+                "CurrencyRef": {
+                  "value": "USD",
+                  "name": "United States Dollar"
+                },
+                "domain": "QBO",
+                "sparse": false,
+                "Id": "84",
+                "SyncToken": "0",
+                "MetaData": {
+                  "CreateTime": "2026-04-05T14:49:29-07:00",
+                  "LastUpdatedTime": "2026-05-05T03:09:42-07:00"
+                }
+              },
+              {
+                "Name": "Advertising",
+                "SubAccount": false,
+                "FullyQualifiedName": "Advertising",
+                "Active": true,
+                "Classification": "Expense",
+                "AccountType": "Expense",
+                "AccountSubType": "AdvertisingPromotional",
+                "CurrentBalance": 0,
+                "CurrentBalanceWithSubAccounts": 0,
+                "CurrencyRef": {
+                  "value": "USD",
+                  "name": "United States Dollar"
+                },
+                "domain": "QBO",
+                "sparse": false,
+                "Id": "7",
+                "SyncToken": "0",
+                "MetaData": {
+                  "CreateTime": "2026-03-31T14:42:07-07:00",
+                  "LastUpdatedTime": "2026-03-31T14:42:07-07:00"
+                }
+              },
+              {
+                "Name": "Arizona Dept. of Revenue Payable",
+                "SubAccount": false,
+                "FullyQualifiedName": "Arizona Dept. of Revenue Payable",
+                "Active": true,
+                "Classification": "Liability",
+                "AccountType": "Other Current Liability",
+                "AccountSubType": "GlobalTaxPayable",
+                "CurrentBalance": 0,
+                "CurrentBalanceWithSubAccounts": 0,
+                "CurrencyRef": {
+                  "value": "USD",
+                  "name": "United States Dollar"
+                },
+                "domain": "QBO",
+                "sparse": false,
+                "Id": "89",
+                "SyncToken": "0",
+                "MetaData": {
+                  "CreateTime": "2026-04-07T12:17:04-07:00",
+                  "LastUpdatedTime": "2026-04-08T13:05:01-07:00"
+                }
+              },
+              {
+                "Name": "Automobile",
+                "SubAccount": false,
+                "FullyQualifiedName": "Automobile",
+                "Active": true,
+                "Classification": "Expense",
+                "AccountType": "Expense",
+                "AccountSubType": "Auto",
+                "CurrentBalance": 0,
+                "CurrentBalanceWithSubAccounts": 0,
+                "CurrencyRef": {
+                  "value": "USD",
+                  "name": "United States Dollar"
+                },
+                "domain": "QBO",
+                "sparse": false,
+                "Id": "55",
+                "SyncToken": "0",
+                "MetaData": {
+                  "CreateTime": "2026-04-05T10:15:53-07:00",
+                  "LastUpdatedTime": "2026-04-05T10:16:05-07:00"
+                }
+              },
+              {
+                "Name": "Bank Account May 2026",
+                "SubAccount": false,
+                "FullyQualifiedName": "Bank Account May 2026",
+                "Active": true,
+                "Classification": "Asset",
+                "AccountType": "Bank",
+                "AccountSubType": "CashOnHand",
+                "CurrentBalance": 0,
+                "CurrentBalanceWithSubAccounts": 0,
+                "CurrencyRef": {
+                  "value": "USD",
+                  "name": "United States Dollar"
+                },
+                "domain": "QBO",
+                "sparse": false,
+                "Id": "1150040001",
+                "SyncToken": "0",
+                "MetaData": {
+                  "CreateTime": "2026-05-05T02:04:31-07:00",
+                  "LastUpdatedTime": "2026-05-05T02:04:31-07:00"
+                }
+              },
+              {
+                "Name": "Bank Account May 2026 v2",
+                "SubAccount": false,
+                "FullyQualifiedName": "Bank Account May 2026 v2",
+                "Active": true,
+                "Classification": "Asset",
+                "AccountType": "Bank",
+                "AccountSubType": "CashOnHand",
+                "CurrentBalance": 0,
+                "CurrentBalanceWithSubAccounts": 0,
+                "CurrencyRef": {
+                  "value": "USD",
+                  "name": "United States Dollar"
+                },
+                "domain": "QBO",
+                "sparse": false,
+                "Id": "1150040002",
+                "SyncToken": "0",
+                "MetaData": {
+                  "CreateTime": "2026-05-05T02:05:38-07:00",
+                  "LastUpdatedTime": "2026-05-05T02:05:38-07:00"
+                }
+              },
+              {
+                "Name": "Bank Charges",
+                "SubAccount": false,
+                "FullyQualifiedName": "Bank Charges",
+                "Active": true,
+                "Classification": "Expense",
+                "AccountType": "Expense",
+                "AccountSubType": "BankCharges",
+                "CurrentBalance": 0,
+                "CurrentBalanceWithSubAccounts": 0,
+                "CurrencyRef": {
+                  "value": "USD",
+                  "name": "United States Dollar"
+                },
+                "domain": "QBO",
+                "sparse": false,
+                "Id": "8",
+                "SyncToken": "0",
+                "MetaData": {
+                  "CreateTime": "2026-03-31T14:42:07-07:00",
+                  "LastUpdatedTime": "2026-03-31T14:42:07-07:00"
+                }
+              },
+              {
+                "Name": "Billable Expense Income",
+                "SubAccount": false,
+                "FullyQualifiedName": "Billable Expense Income",
+                "Active": true,
+                "Classification": "Revenue",
+                "AccountType": "Income",
+                "AccountSubType": "ServiceFeeIncome",
+                "CurrentBalance": 0,
+                "CurrentBalanceWithSubAccounts": 0,
+                "CurrencyRef": {
+                  "value": "USD",
+                  "name": "United States Dollar"
+                },
+                "domain": "QBO",
+                "sparse": false,
+                "Id": "85",
+                "SyncToken": "0",
+                "MetaData": {
+                  "CreateTime": "2026-04-05T14:54:12-07:00",
+                  "LastUpdatedTime": "2026-04-05T14:54:12-07:00"
+                }
+              }
+            ],
+            "startPosition": 1,
+            "maxResults": 10
+          },
+          "time": "2026-05-05T03:11:06.658-07:00"
+        },
+        "status": 200,
+        "headers": {
+          "date": "Tue, 05 May 2026 10:11:06 GMT",
+          "content-type": "application/json",
+          "content-length": "4837",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=5184000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4961",
+          "x-ratelimit-reset": "1777975914",
+          "etag": "W/\"12e5-zwVdIeoSympbUgKUYIiUgDueipo\""
+        },
+        "hash": "c9bb903db563eddc8e436ae18c15ac12dfe6994d",
+        "request": {
+          "params": {
+            "query": "SELECT * FROM Account STARTPOSITION 1 MAXRESULTS 10"
+          },
+          "headers": {
+            "Content-Type": "text/plain"
+          }
+        }
+      }
+    }
+  }
+}
