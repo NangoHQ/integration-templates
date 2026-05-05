@@ -118,9 +118,18 @@ const action = createAction({
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const realmId = await getRealmId(nango);
 
+        const debitLines = input.Line.filter((line) => line.JournalEntryLineDetail.PostingType === 'Debit');
+        const creditLines = input.Line.filter((line) => line.JournalEntryLineDetail.PostingType === 'Credit');
+        if (debitLines.length === 0 || creditLines.length === 0) {
+            throw new nango.ActionError({
+                type: 'invalid_journal_entry',
+                message: 'Journal entry must have at least one Debit line and at least one Credit line'
+            });
+        }
+
         // Validate that lines balance (debits equal credits)
-        const totalDebits = input.Line.filter((line) => line.JournalEntryLineDetail.PostingType === 'Debit').reduce((sum, line) => sum + line.Amount, 0);
-        const totalCredits = input.Line.filter((line) => line.JournalEntryLineDetail.PostingType === 'Credit').reduce((sum, line) => sum + line.Amount, 0);
+        const totalDebits = debitLines.reduce((sum, line) => sum + line.Amount, 0);
+        const totalCredits = creditLines.reduce((sum, line) => sum + line.Amount, 0);
 
         if (Math.abs(totalDebits - totalCredits) > 0.001) {
             throw new nango.ActionError({

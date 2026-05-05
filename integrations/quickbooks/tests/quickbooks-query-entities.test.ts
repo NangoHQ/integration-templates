@@ -8,7 +8,11 @@ describe('quickbooks query-entities tests', () => {
         name: 'query-entities',
         Model: 'ActionOutput_quickbooks_sandbox_queryentities'
     });
-
+           nangoMock.getConnection = vi.fn().mockResolvedValue({
+            connection_config: {
+                realmId: '9341457021722202'
+            }
+        });
     it('should output the action output that is expected', async () => {
         const input = await nangoMock.getInput();
         const response = await createAction.exec(nangoMock, input);

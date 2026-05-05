@@ -105,14 +105,7 @@ const action = createAction({
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const connection = await nango.getConnection();
-        let realmId = connection.connection_config?.['realmId'];
-        // For test environment: if connection is empty object (mock), extract realmId from API endpoint path in mock
-        // The QuickBooks sandbox test mock uses realmId 9341457021722202
-        if (!realmId || typeof realmId !== 'string') {
-            if (Object.keys(connection).length === 0) {
-                realmId = '9341457021722202';
-            }
-        }
+        const realmId = connection.connection_config?.['realmId'];
         if (!realmId || typeof realmId !== 'string') {
             throw new nango.ActionError({
                 type: 'invalid_connection',
@@ -151,7 +144,7 @@ const action = createAction({
         const returnedMaxResults = queryResponse.maxResults ?? 0;
         const returnedStartPosition = queryResponse.startPosition ?? 1;
 
-        const hasMore = returnedStartPosition + records.length - 1 < totalCount || records.length >= maxResults;
+        const hasMore = returnedStartPosition + records.length - 1 < totalCount;
 
         return {
             records,

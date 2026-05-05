@@ -170,7 +170,8 @@ const action = createAction({
         // Build sparse update payload - only include fields that are provided
         const payload: Record<string, unknown> = {
             Id: input.id,
-            SyncToken: input.syncToken
+            SyncToken: input.syncToken,
+            sparse: true
         };
 
         if (input.customerRef !== undefined) {
@@ -234,10 +235,26 @@ const action = createAction({
             payload['CustomerMemo'] = input.customerMemo;
         }
         if (input.billAddr !== undefined) {
-            payload['BillAddr'] = input.billAddr;
+            payload['BillAddr'] = {
+                ...(input.billAddr.id !== undefined && { Id: input.billAddr.id }),
+                ...(input.billAddr.line1 !== undefined && { Line1: input.billAddr.line1 }),
+                ...(input.billAddr.line2 !== undefined && { Line2: input.billAddr.line2 }),
+                ...(input.billAddr.city !== undefined && { City: input.billAddr.city }),
+                ...(input.billAddr.country !== undefined && { Country: input.billAddr.country }),
+                ...(input.billAddr.countrySubDivisionCode !== undefined && { CountrySubDivisionCode: input.billAddr.countrySubDivisionCode }),
+                ...(input.billAddr.postalCode !== undefined && { PostalCode: input.billAddr.postalCode })
+            };
         }
         if (input.shipAddr !== undefined) {
-            payload['ShipAddr'] = input.shipAddr;
+            payload['ShipAddr'] = {
+                ...(input.shipAddr.id !== undefined && { Id: input.shipAddr.id }),
+                ...(input.shipAddr.line1 !== undefined && { Line1: input.shipAddr.line1 }),
+                ...(input.shipAddr.line2 !== undefined && { Line2: input.shipAddr.line2 }),
+                ...(input.shipAddr.city !== undefined && { City: input.shipAddr.city }),
+                ...(input.shipAddr.country !== undefined && { Country: input.shipAddr.country }),
+                ...(input.shipAddr.countrySubDivisionCode !== undefined && { CountrySubDivisionCode: input.shipAddr.countrySubDivisionCode }),
+                ...(input.shipAddr.postalCode !== undefined && { PostalCode: input.shipAddr.postalCode })
+            };
         }
         if (input.classRef !== undefined) {
             payload['ClassRef'] = input.classRef;
@@ -249,7 +266,22 @@ const action = createAction({
             payload['GlobalTaxCalculation'] = input.globalTaxCalculation;
         }
         if (input.txnTaxDetail !== undefined) {
-            payload['TxnTaxDetail'] = input.txnTaxDetail;
+            payload['TxnTaxDetail'] = {
+                ...(input.txnTaxDetail.txnTaxCodeRef !== undefined && { TxnTaxCodeRef: { value: input.txnTaxDetail.txnTaxCodeRef.value } }),
+                ...(input.txnTaxDetail.totalTax !== undefined && { TotalTax: input.txnTaxDetail.totalTax }),
+                ...(input.txnTaxDetail.taxLine !== undefined && {
+                    TaxLine: input.txnTaxDetail.taxLine.map((tl) => ({
+                        Amount: tl.amount,
+                        DetailType: tl.detailType,
+                        TaxLineDetail: {
+                            TaxRateRef: { value: tl.taxLineDetail.taxRateRef.value },
+                            PercentBased: tl.taxLineDetail.percentBased,
+                            ...(tl.taxLineDetail.taxPercent !== undefined && { TaxPercent: tl.taxLineDetail.taxPercent }),
+                            NetAmountTaxable: tl.taxLineDetail.netAmountTaxable
+                        }
+                    }))
+                })
+            };
         }
         if (input.depositToAccountRef !== undefined) {
             payload['DepositToAccountRef'] = input.depositToAccountRef;

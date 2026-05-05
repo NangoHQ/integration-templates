@@ -196,7 +196,7 @@ const action = createAction({
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         // https://developer.intuit.com/app/developer/qbo/docs/api/accounting/all-entities/companyinfo
         const connection = await nango.getConnection();
-        const realmId = connection.connection_config['realmId'];
+        const realmId = connection.connection_config?.['realmId'];
 
         if (!realmId) {
             throw new nango.ActionError({
@@ -210,8 +210,15 @@ const action = createAction({
         const maxResults = 100;
         let totalCount: number | undefined;
 
+        if (input.updated_after) {
+            const parsed = new Date(input.updated_after);
+            if (isNaN(parsed.getTime())) {
+                throw new nango.ActionError({ type: 'invalid_input', message: 'updated_after must be a valid ISO datetime string' });
+            }
+        }
+
         while (true) {
-            const filter = input.updated_after ? ` WHERE MetaData.LastUpdatedTime > '${input.updated_after}'` : '';
+            const filter = input.updated_after ? ` WHERE MetaData.LastUpdatedTime > '${new Date(input.updated_after).toISOString()}'` : '';
             const query = `SELECT * FROM PurchaseOrder${filter} STARTPOSITION ${startPosition} MAXRESULTS ${maxResults}`;
 
             // https://developer.intuit.com/app/developer/qbo/docs/api/accounting/all-entities/purchaseorder#query-a-purchaseorder
@@ -241,11 +248,8 @@ const action = createAction({
             startPosition += maxResults;
         }
 
-        const nextCursor = startPosition > 1 ? String(startPosition) : undefined;
-
         return {
             purchase_orders: purchaseOrders,
-            ...(nextCursor !== undefined && { next_cursor: nextCursor }),
             ...(totalCount !== undefined && { total_count: totalCount })
         };
     }

@@ -162,12 +162,16 @@ const action = createAction({
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const realmId = await getRealmId(nango);
 
-        const startPosition = input.cursor ? parseInt(input.cursor, 10) : 1;
-        if (isNaN(startPosition) || startPosition < 1) {
-            throw new nango.ActionError({
-                type: 'invalid_cursor',
-                message: 'Invalid cursor value. Cursor must be a positive integer representing STARTPOSITION.'
-            });
+        let startPosition = 1;
+        if (input.cursor) {
+            const n = Number(input.cursor);
+            if (!Number.isInteger(n) || n < 1) {
+                throw new nango.ActionError({
+                    type: 'invalid_cursor',
+                    message: 'Invalid cursor value. Cursor must be a positive integer representing STARTPOSITION.'
+                });
+            }
+            startPosition = n;
         }
 
         const query = `SELECT * FROM Item STARTPOSITION ${startPosition} MAXRESULTS ${MAX_RESULTS}`;

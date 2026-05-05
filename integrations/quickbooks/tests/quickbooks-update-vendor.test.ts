@@ -8,6 +8,11 @@ describe('quickbooks update-vendor tests', () => {
         name: 'update-vendor',
         Model: 'ActionOutput_quickbooks_sandbox_updatevendor'
     });
+        nangoMock.getConnection = vi.fn().mockResolvedValue({
+        connection_config: {
+            realmId: '9341457021722202'
+        }
+    });
 
     it('should output the action output that is expected', async () => {
         const input = await nangoMock.getInput();

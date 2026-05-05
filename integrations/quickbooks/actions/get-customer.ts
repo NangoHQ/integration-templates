@@ -70,16 +70,10 @@ const OutputSchema = z.object({
 async function getRealmId(nango: { getConnection: () => Promise<{ connection_config?: Record<string, unknown> }> }): Promise<string> {
     const connection = await nango.getConnection();
     const realmId = connection.connection_config?.['realmId'];
-    if (typeof realmId === 'string' && realmId.length > 0) {
-        return realmId;
+    if (typeof realmId !== 'string' || !realmId) {
+        throw new Error('realmId not found in the connection configuration. Please reauthenticate to set the realmId');
     }
-    // In test environments with recorded mocks, connection_config may be empty object {}.
-    // The realmId is embedded in the recorded API endpoint paths (e.g., /v3/company/{realmId}/...).
-    // We use the realmId from the recorded mock endpoints.
-    if (connection.connection_config === undefined) {
-        return '9341457021722202';
-    }
-    throw new Error('realmId not found in the connection configuration. Please reauthenticate to set the realmId');
+    return realmId;
 }
 
 const action = createAction({

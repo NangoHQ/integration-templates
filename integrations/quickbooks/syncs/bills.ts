@@ -1,4 +1,4 @@
-import { createSync, ProxyConfiguration } from 'nango';
+import { createSync } from 'nango';
 import { z } from 'zod';
 
 const LineSchema = z.object({
@@ -185,66 +185,49 @@ const sync = createSync({
         const useIncremental = checkpoint && checkpoint.updated_after && new Date(checkpoint.updated_after) > cutoff;
 
         if (useIncremental) {
-            const proxyConfig: ProxyConfiguration = {
-                // CDC path - https://developer.intuit.com/app/developer/qbo/docs/api/accounting/all-entities/cdc
+            // CDC does not support offset pagination — use a single get call
+            // CDC path - https://developer.intuit.com/app/developer/qbo/docs/api/accounting/all-entities/cdc
+            const cdcResponse = await nango.get({
                 endpoint: `/v3/company/${encodeURIComponent(realmId)}/cdc`,
-                params: {
-                    entities: 'Bill',
-                    changedSince: checkpoint.updated_after
-                },
+                params: { entities: 'Bill', changedSince: checkpoint.updated_after },
                 headers: { 'Content-Type': 'text/plain' },
-                paginate: {
-                    type: 'offset',
-                    offset_name_in_request: 'startPosition',
-                    response_path: 'CDCResponse[0].QueryResponse[0].Bill',
-                    limit_name_in_request: 'maxResults',
-                    limit: 1000
-                },
                 retries: 3
-            };
+            });
+            const parsed = CDCQueryResponseSchema.parse(cdcResponse.data);
+            const bills = parsed.CDCResponse?.[0]?.QueryResponse?.[0]?.Bill ?? [];
 
-            for await (const records of nango.paginate(proxyConfig)) {
-                const parsed = CDCQueryResponseSchema.parse({
-                    CDCResponse: [{ QueryResponse: [{ Bill: records }] }]
-                });
-                const bills = parsed.CDCResponse?.[0]?.QueryResponse?.[0]?.Bill ?? [];
+            const active = bills.filter((r) => r.status !== 'Deleted');
+            const deleted = bills.filter((r) => r.status === 'Deleted');
 
-                const active = bills.filter((r) => r.status !== 'Deleted');
-                const deleted = bills.filter((r) => r.status === 'Deleted');
-
-                if (active.length > 0) {
-                    await nango.batchSave(
-                        active.map((r) =>
-                            toBill({
-                                Id: r.Id,
-                                VendorRef: r.VendorRef,
-                                Line: r.Line,
-                                Balance: r.Balance,
-                                DueDate: r.DueDate,
-                                TxnDate: r.TxnDate,
-                                TotalAmt: r.TotalAmt,
-                                DocNumber: r.DocNumber,
-                                PrivateNote: r.PrivateNote,
-                                MetaData: r.MetaData
-                            })
-                        ),
-                        'Bill'
-                    );
-                }
-                if (deleted.length > 0) {
-                    await nango.batchDelete(
-                        deleted.map((r) => ({ id: r.Id })),
-                        'Bill'
-                    );
-                }
-
-                const latest = active.reduce(
-                    (max, r) => (r.MetaData?.LastUpdatedTime && r.MetaData.LastUpdatedTime > max ? r.MetaData.LastUpdatedTime : max),
-                    ''
+            if (active.length > 0) {
+                await nango.batchSave(
+                    active.map((r) =>
+                        toBill({
+                            Id: r.Id,
+                            VendorRef: r.VendorRef,
+                            Line: r.Line,
+                            Balance: r.Balance,
+                            DueDate: r.DueDate,
+                            TxnDate: r.TxnDate,
+                            TotalAmt: r.TotalAmt,
+                            DocNumber: r.DocNumber,
+                            PrivateNote: r.PrivateNote,
+                            MetaData: r.MetaData
+                        })
+                    ),
+                    'Bill'
                 );
-                if (latest) {
-                    await nango.saveCheckpoint({ updated_after: latest });
-                }
+            }
+            if (deleted.length > 0) {
+                await nango.batchDelete(
+                    deleted.map((r) => ({ id: r.Id })),
+                    'Bill'
+                );
+            }
+
+            const latest = bills.reduce((max, r) => (r.MetaData?.LastUpdatedTime && r.MetaData.LastUpdatedTime > max ? r.MetaData.LastUpdatedTime : max), '');
+            if (latest) {
+                await nango.saveCheckpoint({ updated_after: latest });
             }
         } else {
             // Full query path - https://developer.intuit.com/app/developer/qbo/docs/api/accounting/all-entities/bill

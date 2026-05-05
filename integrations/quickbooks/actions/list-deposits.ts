@@ -125,16 +125,19 @@ const action = createAction({
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const realmId = await getCompanyRealmId(nango);
 
-        const startPosition = input.cursor ? parseInt(input.cursor, 10) : 1;
-        const maxResults = 100;
-
-        if (isNaN(startPosition) || startPosition < 1) {
-            throw new nango.ActionError({
-                type: 'invalid_cursor',
-                message: 'Invalid cursor value. Cursor must be a positive integer.',
-                cursor: input.cursor
-            });
+        let startPosition = 1;
+        if (input.cursor) {
+            const n = Number(input.cursor);
+            if (!Number.isInteger(n) || n < 1) {
+                throw new nango.ActionError({
+                    type: 'invalid_cursor',
+                    message: 'Invalid cursor value. Cursor must be a positive integer.',
+                    cursor: input.cursor
+                });
+            }
+            startPosition = n;
         }
+        const maxResults = 100;
 
         // https://developer.intuit.com/app/developer/qbo/docs/learn/explore-the-quickbooks-online-api/data-queries
         const query = `SELECT * FROM Deposit STARTPOSITION ${startPosition} MAXRESULTS ${maxResults}`;

@@ -112,7 +112,8 @@ const action = createAction({
 
         const sparseData: Record<string, unknown> = {
             Id: input.Id,
-            SyncToken: input.SyncToken
+            SyncToken: input.SyncToken,
+            sparse: true
         };
 
         if (input.APAccountRef !== undefined) {

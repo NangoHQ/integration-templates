@@ -75,7 +75,7 @@ const OutputSchema = z.object({
 
 async function getCompany(nango: Parameters<ReturnType<typeof createAction>['exec']>[0]): Promise<string> {
     const connection = await nango.getConnection();
-    const realmId = connection.connection_config['realmId'];
+    const realmId = connection.connection_config?.['realmId'];
     if (!realmId || typeof realmId !== 'string') {
         throw new nango.ActionError({
             type: 'missing_realm_id',
@@ -119,18 +119,7 @@ const action = createAction({
         }
 
         const parsed = ApiResponseSchema.parse(response.data);
-        const creditMemo = parsed.CreditMemo;
-
-        // Normalize line items to ensure all have an Id (SubTotalLineDetail lines may not have one)
-        const normalizedLines = creditMemo.Line.map((line, index) => ({
-            ...line,
-            Id: line.Id ?? `subtotal-${index}`
-        }));
-
-        return {
-            ...creditMemo,
-            Line: normalizedLines
-        };
+        return parsed.CreditMemo;
     }
 });
 

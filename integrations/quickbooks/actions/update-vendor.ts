@@ -89,15 +89,14 @@ const OutputSchema = z.object({
 
 async function getRealmId(nango: Parameters<(typeof action)['exec']>[0]): Promise<string> {
     const connection = await nango.getConnection();
-    const config = connection.connection_config;
-    if (config !== null && config !== undefined && typeof config === 'object') {
-        const realmId = 'realmId' in config ? config['realmId'] : undefined;
-        if (typeof realmId === 'string') {
-            return realmId;
-        }
+    const realmId = connection.connection_config?.['realmId'];
+    if (typeof realmId !== 'string' || !realmId) {
+        throw new nango.ActionError({
+            type: 'missing_realm_id',
+            message: 'realmId not found in the connection configuration. Please reauthenticate to set the realmId'
+        });
     }
-    // Fallback for test environment: use realmId from mock API endpoint path
-    return '9341457021722202';
+    return realmId;
 }
 
 const action = createAction({
@@ -117,7 +116,8 @@ const action = createAction({
 
         const requestBody: Record<string, unknown> = {
             Id: input.Id,
-            SyncToken: input.SyncToken
+            SyncToken: input.SyncToken,
+            sparse: true
         };
 
         if (input.DisplayName !== undefined) {

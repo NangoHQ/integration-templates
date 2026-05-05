@@ -184,64 +184,41 @@ const sync = createSync<
         const useIncremental = checkpoint && checkpoint.updated_after && new Date(checkpoint.updated_after) > cutoff;
 
         if (useIncremental) {
-            const proxyConfig: {
-                endpoint: string;
-                params: { entities: string; changedSince: string };
-                headers: { 'Content-Type': string };
-                paginate: {
-                    type: 'offset';
-                    offset_name_in_request: string;
-                    response_path: string;
-                    limit_name_in_request: string;
-                    limit: number;
-                };
-                retries: number;
-            } = {
-                // https://developer.intuit.com/app/developer/qbo/docs/api/accounting/all-entities/journalentry
+            // CDC does not support offset pagination — use a single get call
+            // https://developer.intuit.com/app/developer/qbo/docs/api/accounting/all-entities/journalentry
+            const cdcResponse = await nango.get({
                 endpoint: `/v3/company/${encodeURIComponent(realmId)}/cdc`,
-                params: {
-                    entities: 'JournalEntry',
-                    changedSince: checkpoint.updated_after
-                },
+                params: { entities: 'JournalEntry', changedSince: checkpoint.updated_after },
                 headers: { 'Content-Type': 'text/plain' },
-                paginate: {
-                    type: 'offset',
-                    offset_name_in_request: 'startPosition',
-                    response_path: 'CDCResponse[0].QueryResponse[0].JournalEntry',
-                    limit_name_in_request: 'maxResults',
-                    limit: 1000
-                },
                 retries: 3
-            };
+            });
+            const cdcRecords: unknown[] = cdcResponse.data?.CDCResponse?.[0]?.QueryResponse?.[0]?.JournalEntry ?? [];
+            const parsed = z.array(JournalEntrySchema).safeParse(cdcRecords);
+            if (!parsed.success) {
+                throw new Error(`Failed to parse CDC response: ${parsed.error.message}`);
+            }
 
-            for await (const records of nango.paginate(proxyConfig)) {
-                const parsed = z.array(JournalEntrySchema).safeParse(records);
-                if (!parsed.success) {
-                    throw new Error(`Failed to parse CDC response: ${parsed.error.message}`);
-                }
+            const journalEntries = parsed.data;
+            const active = journalEntries.filter((r) => r.status !== 'Deleted');
+            const deleted = journalEntries.filter((r) => r.status === 'Deleted');
 
-                const journalEntries = parsed.data;
-                const active = journalEntries.filter((r) => r.status !== 'Deleted');
-                const deleted = journalEntries.filter((r) => r.status === 'Deleted');
+            if (active.length > 0) {
+                const mapped = active.map((r) => toJournalEntry(r));
+                await nango.batchSave(mapped, 'JournalEntry');
+            }
 
-                if (active.length > 0) {
-                    const mapped = active.map((r) => toJournalEntry(r));
-                    await nango.batchSave(mapped, 'JournalEntry');
-                }
+            if (deleted.length > 0) {
+                await nango.batchDelete(
+                    deleted.map((r) => ({ id: r.Id })),
+                    'JournalEntry'
+                );
+            }
 
-                if (deleted.length > 0) {
-                    await nango.batchDelete(
-                        deleted.map((r) => ({ id: r.Id })),
-                        'JournalEntry'
-                    );
-                }
-
-                const latest = active.reduce((max, r) => (r.MetaData?.LastUpdatedTime > max ? r.MetaData.LastUpdatedTime : max), '');
-                if (latest) {
-                    await nango.saveCheckpoint({
-                        updated_after: latest
-                    });
-                }
+            const latest = journalEntries.reduce((max, r) => (r.MetaData?.LastUpdatedTime > max ? r.MetaData.LastUpdatedTime : max), '');
+            if (latest) {
+                await nango.saveCheckpoint({
+                    updated_after: latest
+                });
             }
         } else {
             let startPosition = 1;

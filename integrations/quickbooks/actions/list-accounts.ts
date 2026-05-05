@@ -114,14 +114,21 @@ const action = createAction({
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const realmId = await getCompanyRealmId(nango);
 
-        const limit = input.limit ?? 100;
-        const startPosition = input.cursor ? parseInt(input.cursor, 10) : 1;
+        const limit = Math.min(input.limit ?? 100, 1000);
+        if (limit < 1) {
+            throw new nango.ActionError({ type: 'invalid_limit', message: 'Limit must be a positive integer.' });
+        }
 
-        if (isNaN(startPosition) || startPosition < 1) {
-            throw new nango.ActionError({
-                type: 'invalid_cursor',
-                message: 'Invalid cursor value. Cursor must be a positive integer representing STARTPOSITION.'
-            });
+        let startPosition = 1;
+        if (input.cursor) {
+            const n = Number(input.cursor);
+            if (!Number.isInteger(n) || n < 1) {
+                throw new nango.ActionError({
+                    type: 'invalid_cursor',
+                    message: 'Invalid cursor value. Cursor must be a positive integer representing STARTPOSITION.'
+                });
+            }
+            startPosition = n;
         }
 
         // https://developer.intuit.com/app/developer/qbo/docs/api/accounting/all-entities/account#query-an-account

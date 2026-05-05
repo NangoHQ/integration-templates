@@ -156,48 +156,39 @@ const sync = createSync<SyncModels, never, typeof CheckpointSchema>({
         const useIncremental = updatedAfter !== '' && new Date(updatedAfter) > cutoff;
 
         if (useIncremental) {
-            for await (const records of nango.paginate({
+            // CDC does not support offset pagination — use a single get call
+            const cdcResponse = await nango.get({
                 endpoint: `/v3/company/${encodeURIComponent(realmId)}/cdc`,
-                params: {
-                    entities: 'Item',
-                    changedSince: updatedAfter
-                },
+                params: { entities: 'Item', changedSince: updatedAfter },
                 headers: { 'Content-Type': 'text/plain' },
-                paginate: {
-                    type: 'offset',
-                    offset_name_in_request: 'startPosition',
-                    response_path: 'CDCResponse[0].QueryResponse[0].Item',
-                    limit_name_in_request: 'maxResults',
-                    limit: 1000
-                },
                 retries: 3
-            })) {
-                const parsedRecords = z.array(ItemSchema).safeParse(records);
-                if (!parsedRecords.success) {
-                    throw new Error(`Failed to parse CDC records: ${parsedRecords.error.message}`);
-                }
+            });
+            const cdcRecords: unknown[] = cdcResponse.data?.CDCResponse?.[0]?.QueryResponse?.[0]?.Item ?? [];
+            const parsedRecords = z.array(ItemSchema).safeParse(cdcRecords);
+            if (!parsedRecords.success) {
+                throw new Error(`Failed to parse CDC records: ${parsedRecords.error.message}`);
+            }
 
-                const validRecords = parsedRecords.data;
-                const active = validRecords.filter((r) => r.Active !== false && r.status !== 'Deleted');
-                const deleted = validRecords.filter((r) => r.Active === false || r.status === 'Deleted');
+            const validRecords = parsedRecords.data;
+            const active = validRecords.filter((r) => r.Active !== false && r.status !== 'Deleted');
+            const deleted = validRecords.filter((r) => r.Active === false || r.status === 'Deleted');
 
-                if (active.length > 0) {
-                    await nango.batchSave(active.map(toItem), 'Item');
-                }
-                if (deleted.length > 0) {
-                    await nango.batchDelete(
-                        deleted.map((r) => ({ id: r.Id })),
-                        'Item'
-                    );
-                }
+            if (active.length > 0) {
+                await nango.batchSave(active.map(toItem), 'Item');
+            }
+            if (deleted.length > 0) {
+                await nango.batchDelete(
+                    deleted.map((r) => ({ id: r.Id })),
+                    'Item'
+                );
+            }
 
-                const latest = validRecords.reduce((max, r) => {
-                    const time = r.MetaData?.LastUpdatedTime;
-                    return time && time > max ? time : max;
-                }, '');
-                if (latest) {
-                    await nango.saveCheckpoint({ updated_after: latest });
-                }
+            const latest = validRecords.reduce((max, r) => {
+                const time = r.MetaData?.LastUpdatedTime;
+                return time && time > max ? time : max;
+            }, '');
+            if (latest) {
+                await nango.saveCheckpoint({ updated_after: latest });
             }
         } else {
             let startPosition = 1;

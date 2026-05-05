@@ -2,7 +2,197 @@
   "nango": {
     "getConnection": {},
     "batchSave": {
-      "Payment": []
+      "Payment": [
+        {
+          "id": "128",
+          "totalAmount": 387,
+          "customerId": "8",
+          "customerName": "0969 Ocean View Road",
+          "transactionDate": "2026-04-08",
+          "depositToAccountId": "4",
+          "lines": [{"amount": 387, "linkedTransactions": [{"txnId": "96", "txnType": "Invoice"}]}],
+          "createdAt": "2026-04-08T13:13:33-07:00",
+          "updatedAt": "2026-04-08T13:13:33-07:00"
+        },
+        {
+          "id": "120",
+          "totalAmount": 1675.52,
+          "customerId": "3",
+          "customerName": "Cool Cars",
+          "transactionDate": "2026-04-08",
+          "depositToAccountId": "4",
+          "lines": [{"amount": 1675.52, "linkedTransactions": [{"txnId": "12", "txnType": "Invoice"}]}],
+          "createdAt": "2026-04-08T12:59:21-07:00",
+          "updatedAt": "2026-04-08T12:59:21-07:00"
+        },
+        {
+          "id": "116",
+          "totalAmount": 80,
+          "customerId": "25",
+          "customerName": "Sushi by Katsuyuki",
+          "transactionDate": "2026-04-04",
+          "depositToAccountId": "4",
+          "lines": [{"amount": 80, "linkedTransactions": [{"txnId": "63", "txnType": "Invoice"}]}],
+          "createdAt": "2026-04-08T12:52:44-07:00",
+          "updatedAt": "2026-04-08T12:52:44-07:00"
+        },
+        {
+          "id": "101",
+          "totalAmount": 220,
+          "customerId": "1",
+          "customerName": "Amy's Bird Sanctuary",
+          "transactionDate": "2026-04-07",
+          "paymentMethodId": "2",
+          "depositToAccountId": "4",
+          "lines": [{"amount": 220, "linkedTransactions": [{"txnId": "67", "txnType": "Invoice"}]}],
+          "createdAt": "2026-04-07T13:39:32-07:00",
+          "updatedAt": "2026-04-07T13:39:32-07:00"
+        },
+        {
+          "id": "98",
+          "totalAmount": 81,
+          "customerId": "26",
+          "customerName": "Travis Waldron",
+          "transactionDate": "2026-04-07",
+          "depositToAccountId": "4",
+          "lines": [{"amount": 81, "linkedTransactions": [{"txnId": "42", "txnType": "Invoice"}]}],
+          "createdAt": "2026-04-07T13:35:42-07:00",
+          "updatedAt": "2026-04-07T13:35:42-07:00"
+        },
+        {
+          "id": "97",
+          "totalAmount": 226.75,
+          "customerId": "8",
+          "customerName": "0969 Ocean View Road",
+          "transactionDate": "2026-01-12",
+          "depositToAccountId": "4",
+          "lines": [{"amount": 226.75, "linkedTransactions": [{"txnId": "95", "txnType": "Invoice"}]}],
+          "createdAt": "2026-04-07T13:31:45-07:00",
+          "updatedAt": "2026-04-07T13:31:45-07:00"
+        },
+        {
+          "id": "94",
+          "totalAmount": 460.4,
+          "customerId": "5",
+          "customerName": "Dukes Basketball Camp",
+          "transactionDate": "2026-03-12",
+          "depositToAccountId": "4",
+          "lines": [{"amount": 460.4, "linkedTransactions": [{"txnId": "93", "txnType": "Invoice"}]}],
+          "createdAt": "2026-04-07T13:28:29-07:00",
+          "updatedAt": "2026-04-07T13:28:29-07:00"
+        },
+        {
+          "id": "31",
+          "totalAmount": 108,
+          "customerId": "1",
+          "customerName": "Amy's Bird Sanctuary",
+          "transactionDate": "2026-04-06",
+          "paymentMethodId": "2",
+          "depositToAccountId": "4",
+          "lines": [{"amount": 108, "linkedTransactions": [{"txnId": "9", "txnType": "Invoice"}]}],
+          "createdAt": "2026-04-06T11:06:09-07:00",
+          "updatedAt": "2026-04-07T13:25:20-07:00"
+        },
+        {
+          "id": "33",
+          "totalAmount": 50,
+          "customerId": "9",
+          "customerName": "55 Twin Lane",
+          "transactionDate": "2026-04-06",
+          "paymentMethodId": "2",
+          "depositToAccountId": "35",
+          "lines": [{"amount": 50, "linkedTransactions": [{"txnId": "13", "txnType": "Invoice"}]}],
+          "createdAt": "2026-04-06T11:07:19-07:00",
+          "updatedAt": "2026-04-07T13:24:04-07:00"
+        },
+        {
+          "id": "15",
+          "totalAmount": 86.4,
+          "customerId": "9",
+          "customerName": "55 Twin Lane",
+          "transactionDate": "2026-03-14",
+          "paymentMethodId": "2",
+          "depositToAccountId": "35",
+          "lines": [{"amount": 86.4, "linkedTransactions": [{"txnId": "14", "txnType": "Invoice"}]}],
+          "createdAt": "2026-04-05T15:08:16-07:00",
+          "updatedAt": "2026-04-07T13:23:11-07:00"
+        },
+        {
+          "id": "76",
+          "totalAmount": 175,
+          "customerId": "2",
+          "customerName": "Bill's Windsurf Shop",
+          "transactionDate": "2026-01-12",
+          "paymentMethodId": "2",
+          "depositToAccountId": "35",
+          "lines": [{"amount": 175, "linkedTransactions": [{"txnId": "10", "txnType": "Invoice"}]}],
+          "createdAt": "2026-04-07T12:56:01-07:00",
+          "updatedAt": "2026-04-07T12:56:01-07:00"
+        },
+        {
+          "id": "74",
+          "totalAmount": 0,
+          "customerId": "1",
+          "customerName": "Amy's Bird Sanctuary",
+          "transactionDate": "2026-03-22",
+          "privateNote": "Created by QB Online to link credits to charges.",
+          "lines": [
+            {"amount": 100, "linkedTransactions": [{"txnId": "71", "txnType": "Invoice"}]},
+            {"amount": 100, "linkedTransactions": [{"txnId": "73", "txnType": "CreditMemo"}]}
+          ],
+          "createdAt": "2026-04-07T12:51:28-07:00",
+          "updatedAt": "2026-04-07T12:52:08-07:00"
+        },
+        {
+          "id": "72",
+          "totalAmount": 105,
+          "customerId": "1",
+          "customerName": "Amy's Bird Sanctuary",
+          "transactionDate": "2026-03-16",
+          "privateNote": "Amy claims the pest control did not occur",
+          "paymentMethodId": "2",
+          "depositToAccountId": "35",
+          "lines": [{"amount": 105, "linkedTransactions": [{"txnId": "71", "txnType": "Invoice"}]}],
+          "createdAt": "2026-04-07T12:50:23-07:00",
+          "updatedAt": "2026-04-07T12:50:23-07:00"
+        },
+        {
+          "id": "61",
+          "totalAmount": 694,
+          "customerId": "3",
+          "customerName": "Cool Cars",
+          "transactionDate": "2026-04-01",
+          "paymentMethodId": "2",
+          "depositToAccountId": "35",
+          "lines": [{"amount": 694, "linkedTransactions": [{"txnId": "12", "txnType": "Invoice"}]}],
+          "createdAt": "2026-04-06T15:21:23-07:00",
+          "updatedAt": "2026-04-06T15:21:23-07:00"
+        },
+        {
+          "id": "40",
+          "totalAmount": 103.55,
+          "customerId": "26",
+          "customerName": "Travis Waldron",
+          "transactionDate": "2026-04-06",
+          "paymentMethodId": "2",
+          "depositToAccountId": "35",
+          "lines": [{"amount": 103.55, "linkedTransactions": [{"txnId": "27", "txnType": "Invoice"}]}],
+          "createdAt": "2026-04-06T11:17:33-07:00",
+          "updatedAt": "2026-04-06T11:17:33-07:00"
+        },
+        {
+          "id": "32",
+          "totalAmount": 300,
+          "customerId": "13",
+          "customerName": "John Melton",
+          "transactionDate": "2026-04-06",
+          "paymentMethodId": "2",
+          "depositToAccountId": "4",
+          "lines": [{"amount": 300, "linkedTransactions": [{"txnId": "16", "txnType": "Invoice"}]}],
+          "createdAt": "2026-04-06T11:06:49-07:00",
+          "updatedAt": "2026-04-06T11:06:49-07:00"
+        }
+      ]
     },
     "batchDelete": {
       "Payment": []

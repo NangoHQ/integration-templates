@@ -100,7 +100,14 @@ const action = createAction({
         const realmId = await getCompany(nango);
 
         const maxResults = 100;
-        const startPosition = input.cursor ? parseInt(input.cursor, 10) : 1;
+        let startPosition = 1;
+        if (input.cursor) {
+            const n = Number(input.cursor);
+            if (!Number.isInteger(n) || n < 1) {
+                throw new nango.ActionError({ type: 'invalid_cursor', message: 'Cursor must be a positive integer.' });
+            }
+            startPosition = n;
+        }
 
         const query = `SELECT * FROM Estimate STARTPOSITION ${startPosition} MAXRESULTS ${maxResults}`;
 

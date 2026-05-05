@@ -219,7 +219,7 @@ const action = createAction({
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const connection = await nango.getConnection();
-        const realmId = connection.connection_config['realmId'];
+        const realmId = connection.connection_config?.['realmId'];
 
         if (!realmId) {
             throw new nango.ActionError({
@@ -228,8 +228,18 @@ const action = createAction({
             });
         }
 
-        const startPosition = input.cursor ? parseInt(input.cursor, 10) : 1;
-        const maxResults = input.limit ?? 100;
+        let startPosition = 1;
+        if (input.cursor) {
+            const n = Number(input.cursor);
+            if (!Number.isInteger(n) || n < 1) {
+                throw new nango.ActionError({ type: 'invalid_cursor', message: 'Cursor must be a positive integer.' });
+            }
+            startPosition = n;
+        }
+        const maxResults = Math.min(input.limit ?? 100, 1000);
+        if (maxResults < 1) {
+            throw new nango.ActionError({ type: 'invalid_limit', message: 'Limit must be a positive integer.' });
+        }
 
         // https://developer.intuit.com/app/developer/qbo/docs/api/accounting/all-entities/invoice
         const response = await nango.post({

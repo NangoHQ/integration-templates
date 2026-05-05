@@ -146,30 +146,14 @@ const OutputSchema = z.object({
 
 async function getRealmId(nango: Parameters<Parameters<typeof createAction>[0]['exec']>[0]): Promise<string> {
     const connection = await nango.getConnection();
-
-    // @allowTryCatch - Handle test mode where connection_config might be empty mock
-    try {
-        const realmId = connection.connection_config?.['realmId'];
-        if (realmId && typeof realmId === 'string') {
-            return realmId;
-        }
-    } catch {
-        // Fall through to error
+    const realmId = connection.connection_config?.['realmId'];
+    if (!realmId || typeof realmId !== 'string') {
+        throw new nango.ActionError({
+            type: 'missing_realm_id',
+            message: 'realmId not found in the connection configuration. Please reauthenticate to set the realmId'
+        });
     }
-
-    // In test mode, the realmId might not be captured in the mock
-    // The mock still contains the correct endpoint URL with realmId
-    // For production, realmId is always required
-    const connectionId = String(connection.id ?? '');
-    if (connectionId === 'test-connection-id' || !connection.connection_config) {
-        // This is a test run, return a default realmId for the test
-        return '9341457021722202';
-    }
-
-    throw new nango.ActionError({
-        type: 'missing_realm_id',
-        message: 'realmId not found in the connection configuration. Please reauthenticate to set the realmId'
-    });
+    return realmId;
 }
 
 function toPurchaseOrder(po: z.infer<typeof ProviderPurchaseOrderSchema>): z.infer<typeof OutputSchema> {

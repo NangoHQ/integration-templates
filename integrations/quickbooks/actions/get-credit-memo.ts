@@ -103,7 +103,7 @@ const action = createAction({
             retries: 3
         });
 
-        if (!response.data || (typeof response.data === 'object' && 'fault' in response.data)) {
+        if (!response.data || (typeof response.data === 'object' && 'Fault' in response.data)) {
             throw new nango.ActionError({
                 type: 'not_found',
                 message: `Credit memo with ID '${input.creditMemoId}' not found`,

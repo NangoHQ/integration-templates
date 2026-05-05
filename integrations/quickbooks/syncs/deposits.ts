@@ -220,14 +220,14 @@ const sync = createSync({
                 latestUpdatedTime = pageLatest;
             }
 
-            if (latestUpdatedTime) {
-                await nango.saveCheckpoint({ updated_after: latestUpdatedTime });
-            }
-
             if (results.length < maxResults) {
                 break;
             }
             startPosition += maxResults;
+        }
+
+        if (latestUpdatedTime) {
+            await nango.saveCheckpoint({ updated_after: latestUpdatedTime });
         }
     }
 });

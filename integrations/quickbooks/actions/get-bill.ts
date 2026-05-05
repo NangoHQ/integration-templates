@@ -97,13 +97,13 @@ const OutputSchema = z.object({
 async function getCompany(nango: Parameters<(typeof action)['exec']>[0]): Promise<string> {
     const connection = await nango.getConnection();
     const realmId = connection.connection_config?.['realmId'];
-    if (realmId && typeof realmId === 'string') {
-        return realmId;
+    if (!realmId || typeof realmId !== 'string') {
+        throw new nango.ActionError({
+            type: 'missing_realm_id',
+            message: 'realmId not found in the connection configuration. Please reauthenticate to set the realmId'
+        });
     }
-    // Fallback for test mocks with incomplete connection data
-    // Extract realmId from test fixture path pattern: /v3/company/{realmId}/bill/{id}
-    // This matches the mock in tests/get-bill.test.json
-    return '9341457021722202';
+    return realmId;
 }
 
 const action = createAction({

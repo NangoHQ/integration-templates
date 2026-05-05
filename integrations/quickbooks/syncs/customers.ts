@@ -66,9 +66,9 @@ const CustomerModelSchema = z.object({
     updated_at: z.string()
 });
 
-async function getRealmId(nango: { getConnection: () => Promise<{ connection_config: Record<string, unknown> }> }): Promise<string> {
+async function getRealmId(nango: { getConnection: () => Promise<{ connection_config?: Record<string, unknown> }> }): Promise<string> {
     const connection = await nango.getConnection();
-    const realmId = connection.connection_config['realmId'];
+    const realmId = connection.connection_config?.['realmId'];
     if (!realmId || typeof realmId !== 'string') {
         throw new Error('realmId not found in the connection configuration. Please reauthenticate to set the realmId');
     }
@@ -116,57 +116,38 @@ const sync = createSync<{ Customer: typeof CustomerModelSchema }, undefined, typ
         const useIncremental = checkpoint && checkpoint.updated_after && new Date(checkpoint.updated_after) > cutoff;
 
         if (useIncremental) {
+            // CDC does not support offset pagination — use a single get call
             // CDC path: https://developer.intuit.com/app/developer/qbo/docs/api/accounting/most-visited/changedatacapture
-            const proxyConfig: {
-                endpoint: string;
-                params: { entities: string; changedSince: string };
-                headers: { 'Content-Type': string };
-                paginate: {
-                    type: 'offset';
-                    offset_name_in_request: string;
-                    response_path: string;
-                    limit_name_in_request: string;
-                    limit: number;
-                };
-                retries: number;
-            } = {
+            const cdcResponse = await nango.get({
                 endpoint: `/v3/company/${encodeURIComponent(realmId)}/cdc`,
                 params: { entities: 'Customer', changedSince: checkpoint.updated_after },
                 headers: { 'Content-Type': 'text/plain' },
-                paginate: {
-                    type: 'offset',
-                    offset_name_in_request: 'startPosition',
-                    response_path: 'CDCResponse[0].QueryResponse[0].Customer',
-                    limit_name_in_request: 'maxResults',
-                    limit: 1000
-                },
                 retries: 3
-            };
-            for await (const records of nango.paginate(proxyConfig)) {
-                const parsedRecords = z.array(CustomerSchema).safeParse(records);
-                if (!parsedRecords.success) {
-                    throw new Error(`Failed to parse CDC records: ${parsedRecords.error.message}`);
-                }
+            });
+            const cdcRecords: unknown[] = cdcResponse.data?.CDCResponse?.[0]?.QueryResponse?.[0]?.Customer ?? [];
+            const parsedRecords = z.array(CustomerSchema).safeParse(cdcRecords);
+            if (!parsedRecords.success) {
+                throw new Error(`Failed to parse CDC records: ${parsedRecords.error.message}`);
+            }
 
-                const validRecords = parsedRecords.data;
-                const active = validRecords.filter((r) => r.Active !== false);
-                const deleted = validRecords.filter((r) => r.Active === false);
-                if (active.length > 0) {
-                    await nango.batchSave(active.map(toCustomer), 'Customer');
-                }
-                if (deleted.length > 0) {
-                    await nango.batchDelete(
-                        deleted.map((r) => ({ id: r.Id })),
-                        'Customer'
-                    );
-                }
-                const latest = validRecords.reduce((max: string, r) => {
-                    const time = r.MetaData?.LastUpdatedTime;
-                    return time && time > max ? time : max;
-                }, '');
-                if (latest) {
-                    await nango.saveCheckpoint({ updated_after: latest });
-                }
+            const validRecords = parsedRecords.data;
+            const active = validRecords.filter((r) => r.Active !== false);
+            const deleted = validRecords.filter((r) => r.Active === false);
+            if (active.length > 0) {
+                await nango.batchSave(active.map(toCustomer), 'Customer');
+            }
+            if (deleted.length > 0) {
+                await nango.batchDelete(
+                    deleted.map((r) => ({ id: r.Id })),
+                    'Customer'
+                );
+            }
+            const latest = validRecords.reduce((max: string, r) => {
+                const time = r.MetaData?.LastUpdatedTime;
+                return time && time > max ? time : max;
+            }, '');
+            if (latest) {
+                await nango.saveCheckpoint({ updated_after: latest });
             }
         } else {
             // Full query path: https://developer.intuit.com/app/developer/qbo/docs/api/accounting/all-entities/customer#query-a-customer
@@ -215,12 +196,15 @@ const sync = createSync<{ Customer: typeof CustomerModelSchema }, undefined, typ
                 if (pageLatest > latestUpdatedTime) {
                     latestUpdatedTime = pageLatest;
                 }
-                await nango.saveCheckpoint({ updated_after: latestUpdatedTime });
 
                 if (results.length < maxResults) {
                     break;
                 }
                 startPosition += maxResults;
+            }
+
+            if (latestUpdatedTime) {
+                await nango.saveCheckpoint({ updated_after: latestUpdatedTime });
             }
         }
     }

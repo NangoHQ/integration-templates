@@ -8,7 +8,12 @@ describe('quickbooks get-customer tests', () => {
         name: 'get-customer',
         Model: 'ActionOutput_quickbooks_sandbox_getcustomer'
     });
-
+       nangoMock.getConnection = vi.fn().mockResolvedValue({
+            connection_config: {
+                realmId: '9341457021722202'
+            }
+        });
+        
     it('should output the action output that is expected', async () => {
         const input = await nangoMock.getInput();
         const response = await createAction.exec(nangoMock, input);

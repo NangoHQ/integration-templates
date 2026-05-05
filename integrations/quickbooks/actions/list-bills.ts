@@ -84,7 +84,7 @@ const OutputSchema = z.object({
 
 async function getRealmId(nango: NangoAction): Promise<string> {
     const connection = await nango.getConnection();
-    const realmId = connection.connection_config['realmId'];
+    const realmId = connection.connection_config?.['realmId'];
     if (!realmId) {
         throw new nango.ActionError({
             message: 'realmId not found in the connection configuration. Please reauthenticate to set the realmId'
@@ -125,7 +125,10 @@ export default createAction<typeof InputSchema, typeof OutputSchema>({
         const realmId = await getRealmId(nango);
 
         const startPosition = input.cursor ?? 1;
-        const maxResults = input.limit ?? 100;
+        const maxResults = Math.min(input.limit ?? 100, 1000);
+        if (maxResults < 1) {
+            throw new nango.ActionError({ type: 'invalid_limit', message: 'Limit must be a positive integer.' });
+        }
 
         // Docs: https://developer.intuit.com/app/developer/qbo/docs/api/accounting/all-entities/query
         const query = `SELECT * FROM Bill STARTPOSITION ${startPosition} MAXRESULTS ${maxResults}`;

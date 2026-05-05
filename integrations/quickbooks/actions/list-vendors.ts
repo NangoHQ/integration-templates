@@ -52,25 +52,12 @@ const OutputSchema = z.object({
 });
 
 async function getRealmId(nango: { getConnection: () => Promise<{ connection_config?: Record<string, unknown> }> }): Promise<string> {
-    // @allowTryCatch Test environment fallback for missing connection_config mock
-    try {
-        const connection = await nango.getConnection();
-        const connectionConfig = connection.connection_config;
-        if (!connectionConfig) {
-            throw new Error('realmId not found in the connection configuration. Please reauthenticate to set the realmId');
-        }
-        const realmId = connectionConfig['realmId'];
-        if (typeof realmId !== 'string' || !realmId) {
-            throw new Error('realmId not found in the connection configuration. Please reauthenticate to set the realmId');
-        }
-        return realmId;
-    } catch (error) {
-        // In test environment, use the realmId from the captured API path
-        if (process.env['VITEST']) {
-            return '9341457021722202';
-        }
-        throw error;
+    const connection = await nango.getConnection();
+    const realmId = connection.connection_config?.['realmId'];
+    if (typeof realmId !== 'string' || !realmId) {
+        throw new Error('realmId not found in the connection configuration. Please reauthenticate to set the realmId');
     }
+    return realmId;
 }
 
 const action = createAction({
@@ -87,7 +74,14 @@ const action = createAction({
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const realmId = await getRealmId(nango);
 
-        const startPosition = input.cursor ? parseInt(input.cursor, 10) : 1;
+        let startPosition = 1;
+        if (input.cursor) {
+            const n = Number(input.cursor);
+            if (!Number.isInteger(n) || n < 1) {
+                throw new nango.ActionError({ type: 'invalid_cursor', message: 'Cursor must be a positive integer.' });
+            }
+            startPosition = n;
+        }
         const maxResults = 100;
 
         // https://developer.intuit.com/app/developer/qbo/docs/api/accounting/all-entities/vendor#query-a-vendor

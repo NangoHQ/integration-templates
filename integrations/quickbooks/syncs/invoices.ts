@@ -134,44 +134,38 @@ const sync = createSync({
         const useIncremental = checkpoint != null && checkpoint.updated_after && new Date(checkpoint.updated_after) > cutoff;
 
         if (useIncremental) {
+            // CDC does not support offset pagination — use a single get call
             // API docs: https://developer.intuit.com/app/developer/qbo/docs/api/accounting/most-entities-cdc
-            for await (const records of nango.paginate({
+            const cdcResponse = await nango.get({
                 endpoint: `/v3/company/${encodeURIComponent(realmId)}/cdc`,
                 params: { entities: 'Invoice', changedSince: checkpoint.updated_after },
                 headers: { 'Content-Type': 'text/plain' },
-                paginate: {
-                    type: 'offset',
-                    offset_name_in_request: 'startPosition',
-                    response_path: 'CDCResponse[0].QueryResponse[0].Invoice',
-                    limit_name_in_request: 'maxResults',
-                    limit: 1000
-                },
                 retries: 3
-            })) {
-                const parsedRecords = z.array(InvoiceSchema).safeParse(records);
-                if (!parsedRecords.success) {
-                    throw new Error(`Failed to parse CDC records: ${parsedRecords.error.message}`);
-                }
+            });
+            const cdcRecords: unknown[] = cdcResponse.data?.CDCResponse?.[0]?.QueryResponse?.[0]?.Invoice ?? [];
+            const parsedRecords = z.array(InvoiceSchema).safeParse(cdcRecords);
+            if (!parsedRecords.success) {
+                throw new Error(`Failed to parse CDC records: ${parsedRecords.error.message}`);
+            }
 
-                const validRecords = parsedRecords.data;
-                const active = validRecords.filter((r) => r.status !== 'Deleted' && r.status !== 'Voided');
-                const deleted = validRecords.filter((r) => r.status === 'Deleted' || r.status === 'Voided');
-                if (active.length > 0) {
-                    await nango.batchSave(active.map(toInvoice), 'Invoice');
-                }
-                if (checkpoint != null && deleted.length > 0) {
-                    await nango.batchDelete(
-                        deleted.map((r) => ({ id: r.Id })),
-                        'Invoice'
-                    );
-                }
-                const latest = validRecords.reduce((max, r) => {
-                    const updated = r.MetaData?.LastUpdatedTime;
-                    return updated && updated > max ? updated : max;
-                }, '');
-                if (latest) {
-                    await nango.saveCheckpoint({ updated_after: latest });
-                }
+            const validRecords = parsedRecords.data;
+            const active = validRecords.filter((r) => r.status !== 'Deleted' && r.status !== 'Voided');
+            const deleted = validRecords.filter((r) => r.status === 'Deleted' || r.status === 'Voided');
+            if (active.length > 0) {
+                await nango.batchSave(active.map(toInvoice), 'Invoice');
+            }
+            if (checkpoint != null && deleted.length > 0) {
+                await nango.batchDelete(
+                    deleted.map((r) => ({ id: r.Id })),
+                    'Invoice'
+                );
+            }
+            const latest = validRecords.reduce((max, r) => {
+                const updated = r.MetaData?.LastUpdatedTime;
+                return updated && updated > max ? updated : max;
+            }, '');
+            if (latest) {
+                await nango.saveCheckpoint({ updated_after: latest });
             }
         } else {
             // API docs: https://developer.intuit.com/app/developer/qbo/docs/api/accounting/all-entities/Invoice
@@ -221,14 +215,14 @@ const sync = createSync({
                     latestUpdatedTime = pageLatest;
                 }
 
-                if (latestUpdatedTime) {
-                    await nango.saveCheckpoint({ updated_after: latestUpdatedTime });
-                }
-
                 if (results.length < maxResults) {
                     break;
                 }
                 startPosition += maxResults;
+            }
+
+            if (latestUpdatedTime) {
+                await nango.saveCheckpoint({ updated_after: latestUpdatedTime });
             }
         }
     }

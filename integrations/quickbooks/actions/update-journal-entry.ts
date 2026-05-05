@@ -115,7 +115,8 @@ const action = createAction({
         // Only include fields that are provided in the input
         const requestBody: Record<string, unknown> = {
             Id: input.id,
-            SyncToken: input.sync_token
+            SyncToken: input.sync_token,
+            sparse: true
         };
 
         if (input.txn_date !== undefined) {

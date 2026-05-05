@@ -159,7 +159,14 @@ const action = createAction({
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const realmId = await getRealmId(nango);
-        const startPosition = input.cursor ? parseInt(input.cursor, 10) : 1;
+        let startPosition = 1;
+        if (input.cursor) {
+            const n = Number(input.cursor);
+            if (!Number.isInteger(n) || n < 1) {
+                throw new nango.ActionError({ type: 'invalid_cursor', message: 'Cursor must be a positive integer.' });
+            }
+            startPosition = n;
+        }
         const maxResults = 100;
 
         const query = `SELECT * FROM Payment STARTPOSITION ${startPosition} MAXRESULTS ${maxResults}`;

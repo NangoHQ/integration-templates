@@ -102,15 +102,7 @@ const OutputSchema = z.object({
 
 async function getCompany(nango: Parameters<(typeof action)['exec']>[0]): Promise<string> {
     const connection = await nango.getConnection();
-    const connectionConfig = connection && typeof connection === 'object' && 'connection_config' in connection ? connection.connection_config : undefined;
-    let realmId = connectionConfig && typeof connectionConfig === 'object' ? connectionConfig['realmId'] : undefined;
-
-    // Fallback for test environment where mock may not include realmId
-    // Extract from known test mock URL pattern
-    if (!realmId && connection && Object.keys(connection).length === 0) {
-        realmId = '9341457021722202';
-    }
-
+    const realmId = connection.connection_config?.['realmId'];
     if (!realmId || typeof realmId !== 'string') {
         throw new nango.ActionError({
             type: 'missing_realm_id',

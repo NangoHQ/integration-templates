@@ -42,8 +42,7 @@
       },
       {
         "Amount": 100,
-        "DetailType": "SubTotalLineDetail",
-        "Id": "subtotal-1"
+        "DetailType": "SubTotalLineDetail"
       }
     ],
     "CustomerRef": {

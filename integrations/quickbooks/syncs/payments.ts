@@ -54,6 +54,10 @@ const QueryResponseSchema = z.object({
     Payment: z.array(PaymentProviderSchema).optional()
 });
 
+const ResponseSchema = z.object({
+    QueryResponse: QueryResponseSchema.optional()
+});
+
 const PaymentSchema = z.object({
     id: z.string(),
     totalAmount: z.number().optional(),
@@ -157,60 +161,41 @@ const sync = createSync({
         const useIncremental = checkpoint && checkpoint.updated_after && new Date(checkpoint.updated_after) > cutoff;
 
         if (useIncremental) {
-            // CDC path for incremental sync
+            // CDC path for incremental sync — CDC does not support offset pagination, use a single get call
             // https://developer.intuit.com/app/developer/qbo/docs/api/accounting/all-entities/payment#cdc
-            const proxyConfig: {
-                endpoint: string;
-                params: { entities: string; changedSince: string };
-                headers: { 'Content-Type': string };
-                paginate: {
-                    type: 'offset';
-                    offset_name_in_request: string;
-                    response_path: string;
-                    limit_name_in_request: string;
-                    limit: number;
-                };
-                retries: number;
-            } = {
+            const cdcResponse = await nango.get({
                 endpoint: `/v3/company/${encodeURIComponent(realmId)}/cdc`,
                 params: {
                     entities: 'Payment',
                     changedSince: checkpoint.updated_after
                 },
                 headers: { 'Content-Type': 'text/plain' },
-                paginate: {
-                    type: 'offset',
-                    offset_name_in_request: 'startPosition',
-                    response_path: 'CDCResponse[0].QueryResponse[0].Payment',
-                    limit_name_in_request: 'maxResults',
-                    limit: 1000
-                },
                 retries: 3
-            };
-            for await (const records of nango.paginate(proxyConfig)) {
-                const parsedRecords = z.array(PaymentProviderSchema).safeParse(records);
-                if (!parsedRecords.success) {
-                    throw new Error(`Failed to parse CDC records: ${parsedRecords.error.message}`);
-                }
-                const validRecords = parsedRecords.data;
-                const active = validRecords.filter((r) => r.status !== 'Deleted');
-                const deleted = validRecords.filter((r) => r.status === 'Deleted');
-                if (active.length > 0) {
-                    await nango.batchSave(active.map(toPayment), 'Payment');
-                }
-                if (deleted.length > 0) {
-                    await nango.batchDelete(
-                        deleted.map((r) => ({ id: r.Id })),
-                        'Payment'
-                    );
-                }
-                const latest = active.reduce(
-                    (max, r) => (r.MetaData?.LastUpdatedTime && r.MetaData.LastUpdatedTime > max ? r.MetaData.LastUpdatedTime : max),
-                    ''
+            });
+            const cdcRecords: unknown[] = cdcResponse.data?.CDCResponse?.[0]?.QueryResponse?.[0]?.Payment ?? [];
+            const parsedRecords = z.array(PaymentProviderSchema).safeParse(cdcRecords);
+            if (!parsedRecords.success) {
+                throw new Error(`Failed to parse CDC records: ${parsedRecords.error.message}`);
+            }
+            const validRecords = parsedRecords.data;
+            const active = validRecords.filter((r) => r.status !== 'Deleted');
+            const deleted = validRecords.filter((r) => r.status === 'Deleted');
+            if (active.length > 0) {
+                await nango.batchSave(active.map(toPayment), 'Payment');
+            }
+            if (deleted.length > 0) {
+                await nango.batchDelete(
+                    deleted.map((r) => ({ id: r.Id })),
+                    'Payment'
                 );
-                if (latest) {
-                    await nango.saveCheckpoint({ updated_after: latest });
-                }
+            }
+            // Use all records (active + deleted) so the checkpoint always advances
+            const latest = validRecords.reduce(
+                (max, r) => (r.MetaData?.LastUpdatedTime && r.MetaData.LastUpdatedTime > max ? r.MetaData.LastUpdatedTime : max),
+                ''
+            );
+            if (latest) {
+                await nango.saveCheckpoint({ updated_after: latest });
             }
         } else {
             // Full query path
@@ -230,11 +215,11 @@ const sync = createSync({
                     retries: 10
                 });
 
-                const parsed = QueryResponseSchema.safeParse(response.data);
+                const parsed = ResponseSchema.safeParse(response.data);
                 if (!parsed.success) {
                     throw new Error(`Failed to parse query response: ${parsed.error.message}`);
                 }
-                const results = parsed.data.Payment ?? [];
+                const results = parsed.data.QueryResponse?.Payment ?? [];
                 if (results.length === 0) {
                     break;
                 }
@@ -248,12 +233,15 @@ const sync = createSync({
                 if (pageLatest > latestUpdatedTime) {
                     latestUpdatedTime = pageLatest;
                 }
-                await nango.saveCheckpoint({ updated_after: latestUpdatedTime });
 
                 if (results.length < maxResults) {
                     break;
                 }
                 startPosition += maxResults;
+            }
+
+            if (latestUpdatedTime) {
+                await nango.saveCheckpoint({ updated_after: latestUpdatedTime });
             }
         }
     }
