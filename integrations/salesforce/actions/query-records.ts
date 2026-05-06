@@ -2,7 +2,7 @@ import { z } from 'zod';
 import { createAction } from 'nango';
 
 const InputSchema = z.object({
-    version: z.string().optional().describe('Salesforce API version. Example: "v63.0". If not provided, the default version from the connection will be used.'),
+    version: z.string().optional().describe('Salesforce API version. Example: "v63.0". Defaults to v63.0.'),
     soql: z.string().describe('SOQL query string. Example: "SELECT Id, Name FROM Account LIMIT 10"')
 });
 

@@ -27989,7 +27989,7 @@ export interface ActionInput_salesforce_compositebatchrequest {
   /**
    * Request body for POST, PUT, or PATCH requests
    */
-  richInput?: {  [key: string]: any | undefined;};
+  richInput?: {  [key: string]: unknown | undefined;};
   /**
    * Name of the binary part for multipart requests
    */
@@ -28041,12 +28041,12 @@ export interface ActionInput_salesforce_compositerequest {
   allOrNone?: boolean | undefined;
   subrequests: ({  method: string;
   url: string;
-  body?: {  [key: string]: any | undefined;};
+  body?: {  [key: string]: unknown | undefined;};
   referenceId: string;})[];
 };
 
 export interface ActionOutput_salesforce_compositerequest {
-  compositeResponse: ({  body?: any | undefined;
+  compositeResponse: ({  body?: unknown | undefined;
   httpStatusCode: number;
   referenceId: string;})[];
 };
@@ -28647,7 +28647,7 @@ export interface ActionOutput_salesforce_queryallrecords {
 
 export interface ActionInput_salesforce_queryrecords {
   /**
-   * Salesforce API version. Example: "v63.0". If not provided, the default version from the connection will be used.
+   * Salesforce API version. Example: "v63.0". Defaults to v63.0.
    */
   version?: string | undefined;
   /**

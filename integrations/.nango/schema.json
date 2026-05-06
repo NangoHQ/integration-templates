@@ -95591,7 +95591,7 @@
       "properties": {
         "version": {
           "type": "string",
-          "description": "Salesforce API version. Example: \"v63.0\". If not provided, the default version from the connection will be used."
+          "description": "Salesforce API version. Example: \"v63.0\". Defaults to v63.0."
         },
         "soql": {
           "type": "string",

@@ -37,12 +37,12 @@ const action = createAction({
     output: OutputSchema,
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
-        const version = input.version || 'v60.0';
+        const encodedVersion = encodeURIComponent(input.version || 'v60.0');
         const encodedSobject = encodeURIComponent(input.sobject);
         const encodedExternalIdField = encodeURIComponent(input.external_id_field);
         const encodedExternalId = encodeURIComponent(input.external_id);
 
-        const endpoint = `/services/data/${version}/sobjects/${encodedSobject}/${encodedExternalIdField}/${encodedExternalId}`;
+        const endpoint = `/services/data/${encodedVersion}/sobjects/${encodedSobject}/${encodedExternalIdField}/${encodedExternalId}`;
 
         const params: Record<string, string | string[]> = {};
         if (input.fields && input.fields.length > 0) {

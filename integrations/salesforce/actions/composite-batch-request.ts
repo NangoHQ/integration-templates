@@ -4,7 +4,7 @@ import { createAction } from 'nango';
 const SubrequestSchema = z.object({
     method: z.enum(['GET', 'POST', 'PUT', 'PATCH', 'DELETE']).describe('HTTP method for the subrequest. Example: "GET"'),
     url: z.string().describe('URL path for the subrequest (without the instance URL). Example: "v57.0/sobjects/Account/001D000000K0fXOIAZ"'),
-    richInput: z.record(z.string(), z.any()).optional().describe('Request body for POST, PUT, or PATCH requests'),
+    richInput: z.record(z.string(), z.unknown()).optional().describe('Request body for POST, PUT, or PATCH requests'),
     binaryPartName: z.string().optional().describe('Name of the binary part for multipart requests'),
     binaryPartNameAlias: z.string().optional().describe('Alias for the binary part name')
 });
@@ -39,7 +39,7 @@ const action = createAction({
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         // https://developer.salesforce.com/docs/atlas.en-us.api_rest.meta/api_rest/resources_composite_batch.htm
-        const apiVersion = input.apiVersion ?? 'v57.0';
+        const apiVersion = encodeURIComponent(input.apiVersion ?? 'v57.0');
         const haltOnError = input.haltOnError ?? false;
         const response = await nango.post({
             endpoint: `/services/data/${apiVersion}/composite/batch`,

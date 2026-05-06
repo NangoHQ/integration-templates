@@ -21,13 +21,6 @@ const SearchResultSchema = z
     })
     .passthrough();
 
-const SearchRecordGroupSchema = z.object({
-    attributes: z.object({
-        type: z.string()
-    }),
-    searchRecords: z.array(z.unknown())
-});
-
 const ProviderResponseSchema = z.object({
     searchRecords: z.array(z.unknown()).optional()
 });
@@ -118,20 +111,14 @@ const action = createAction({
         const searchRecords = providerData.searchRecords || [];
 
         for (const record of searchRecords) {
-            const parsedGroup = SearchRecordGroupSchema.safeParse(record);
-            if (parsedGroup.success) {
-                const sobjectType = parsedGroup.data.attributes.type;
-                for (const searchRecord of parsedGroup.data.searchRecords) {
-                    const parsedRecord = SearchResultSchema.safeParse(searchRecord);
-                    if (parsedRecord.success) {
-                        const { attributes: _attributes, Id, ...fields } = parsedRecord.data;
-                        results.push({
-                            sobjectType,
-                            id: Id,
-                            fields
-                        });
-                    }
-                }
+            const parsedRecord = SearchResultSchema.safeParse(record);
+            if (parsedRecord.success) {
+                const { attributes, Id, ...fields } = parsedRecord.data;
+                results.push({
+                    sobjectType: attributes.type,
+                    id: Id,
+                    fields: Object.keys(fields).length > 0 ? fields : undefined
+                });
             }
         }
 

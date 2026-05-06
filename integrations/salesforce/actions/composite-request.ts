@@ -4,7 +4,7 @@ import { createAction } from 'nango';
 const SubrequestSchema = z.object({
     method: z.string(),
     url: z.string(),
-    body: z.record(z.string(), z.any()).optional(),
+    body: z.record(z.string(), z.unknown()).optional(),
     referenceId: z.string()
 });
 
@@ -15,7 +15,7 @@ const InputSchema = z.object({
 });
 
 const CompositeResultSchema = z.object({
-    body: z.any().optional(),
+    body: z.unknown().optional(),
     httpStatusCode: z.number(),
     referenceId: z.string()
 });
@@ -27,7 +27,7 @@ const OutputSchema = z.object({
 const ProviderCompositeResponseSchema = z.object({
     compositeResponse: z.array(
         z.object({
-            body: z.any().optional(),
+            body: z.unknown().optional(),
             httpHeaders: z.record(z.string(), z.string()).optional(),
             httpStatusCode: z.number(),
             referenceId: z.string()
@@ -48,7 +48,7 @@ const action = createAction({
     scopes: ['api'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
-        const version = input.apiVersion || 'v59.0';
+        const version = encodeURIComponent(input.apiVersion || 'v59.0');
 
         // https://developer.salesforce.com/docs/atlas.en-us.api_rest.meta/api_rest/resources_composite.htm
         const response = await nango.post({

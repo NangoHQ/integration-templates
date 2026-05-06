@@ -59,8 +59,12 @@ const sync = createSync({
         const hasWhereClause = soqlQuery.toLowerCase().includes(' where ');
         const hasTimestampField = soqlQuery.toLowerCase().includes(timestampField.toLowerCase());
 
-        if (hasCheckpoint && hasTimestampField && !hasWhereClause) {
-            soqlQuery = `${soqlQuery} WHERE ${timestampField} > ${updatedAfter}`;
+        if (hasCheckpoint && hasTimestampField) {
+            if (hasWhereClause) {
+                soqlQuery = `${soqlQuery} AND ${timestampField} > ${updatedAfter}`;
+            } else {
+                soqlQuery = `${soqlQuery} WHERE ${timestampField} > ${updatedAfter}`;
+            }
         }
 
         let nextRecordsUrl = validatedCheckpoint?.next_records_url || undefined;

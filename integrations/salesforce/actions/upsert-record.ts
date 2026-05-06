@@ -34,7 +34,7 @@ const action = createAction({
     output: OutputSchema,
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
-        const apiVersion = input.api_version || 'v60.0';
+        const apiVersion = encodeURIComponent(input.api_version || 'v60.0');
         const sObject = encodeURIComponent(input.sObject);
         const externalIdField = encodeURIComponent(input.external_id_field);
         const externalId = encodeURIComponent(input.external_id);
@@ -55,10 +55,11 @@ const action = createAction({
             });
         }
 
+        const data = response.data ?? {};
         return {
             success: true,
-            ...(response.data.id && { id: response.data.id }),
-            ...(response.data.created !== undefined && { created: response.data.created })
+            ...(data.id && { id: data.id }),
+            ...(data.created !== undefined && { created: data.created })
         };
     }
 });

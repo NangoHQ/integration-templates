@@ -139,109 +139,108 @@ const sync = createSync({
                 break;
             }
 
-            // Hydrate conversation data for each case
-            const tickets = await Promise.all(
-                cases.map(async (caseRecord) => {
-                    const conversation: z.infer<typeof ConversationItemSchema>[] = [];
+            // Hydrate conversation data for each case sequentially to avoid rate limits
+            const tickets: z.infer<typeof TicketSchema>[] = [];
+            for (const caseRecord of cases) {
+                const conversation: z.infer<typeof ConversationItemSchema>[] = [];
 
-                    // Fetch CaseComments
-                    // https://developer.salesforce.com/docs/atlas.en-us.api_rest.meta/api_rest/resources_query.htm
-                    const caseCommentQuery = `SELECT Id, CreatedDate, CreatedById, CommentBody FROM CaseComment WHERE ParentId = '${encodeURIComponent(caseRecord.Id)}' ORDER BY CreatedDate ASC`;
-                    // @allowTryCatch CaseComment objects may not be accessible or available in all Salesforce orgs; graceful degradation preserves sync.
-                    try {
-                        const caseCommentResponse = await nango.get({
-                            endpoint: '/services/data/v59.0/query',
-                            params: {
-                                q: caseCommentQuery
-                            },
-                            retries: 3
+                // Fetch CaseComments
+                // https://developer.salesforce.com/docs/atlas.en-us.api_rest.meta/api_rest/resources_query.htm
+                const caseCommentQuery = `SELECT Id, CreatedDate, CreatedById, CommentBody FROM CaseComment WHERE ParentId = '${encodeURIComponent(caseRecord.Id)}' ORDER BY CreatedDate ASC`;
+                // @allowTryCatch CaseComment objects may not be accessible or available in all Salesforce orgs; graceful degradation preserves sync.
+                try {
+                    const caseCommentResponse = await nango.get({
+                        endpoint: '/services/data/v59.0/query',
+                        params: {
+                            q: caseCommentQuery
+                        },
+                        retries: 3
+                    });
+
+                    const caseComments = z
+                        .object({
+                            records: z.array(
+                                z.object({
+                                    Id: z.string(),
+                                    CreatedDate: z.string(),
+                                    CreatedById: z.string().nullable().optional(),
+                                    CommentBody: z.string().nullable().optional()
+                                })
+                            )
+                        })
+                        .parse(caseCommentResponse.data);
+
+                    for (const comment of caseComments.records) {
+                        conversation.push({
+                            id: comment.Id,
+                            type: 'CaseComment',
+                            created_date: comment.CreatedDate,
+                            created_by: comment.CreatedById ?? undefined,
+                            body: comment.CommentBody ?? undefined
                         });
-
-                        const caseComments = z
-                            .object({
-                                records: z.array(
-                                    z.object({
-                                        Id: z.string(),
-                                        CreatedDate: z.string(),
-                                        CreatedById: z.string().nullable().optional(),
-                                        CommentBody: z.string().nullable().optional()
-                                    })
-                                )
-                            })
-                            .parse(caseCommentResponse.data);
-
-                        for (const comment of caseComments.records) {
-                            conversation.push({
-                                id: comment.Id,
-                                type: 'CaseComment',
-                                created_date: comment.CreatedDate,
-                                created_by: comment.CreatedById ?? undefined,
-                                body: comment.CommentBody ?? undefined
-                            });
-                        }
-                    } catch {
-                        // Case comments may not be available, continue without them
                     }
+                } catch {
+                    // Case comments may not be available, continue without them
+                }
 
-                    // Fetch FeedItems for case feed
-                    const feedQuery = `SELECT Id, CreatedDate, CreatedById, Body FROM FeedItem WHERE ParentId = '${encodeURIComponent(caseRecord.Id)}' ORDER BY CreatedDate ASC`;
-                    // @allowTryCatch FeedItem objects may not be accessible or available in all Salesforce orgs; graceful degradation preserves sync.
-                    try {
-                        const feedResponse = await nango.get({
-                            endpoint: '/services/data/v59.0/query',
-                            params: {
-                                q: feedQuery
-                            },
-                            retries: 3
+                // Fetch FeedItems for case feed
+                const feedQuery = `SELECT Id, CreatedDate, CreatedById, Body FROM FeedItem WHERE ParentId = '${encodeURIComponent(caseRecord.Id)}' ORDER BY CreatedDate ASC`;
+                // @allowTryCatch FeedItem objects may not be accessible or available in all Salesforce orgs; graceful degradation preserves sync.
+                try {
+                    const feedResponse = await nango.get({
+                        endpoint: '/services/data/v59.0/query',
+                        params: {
+                            q: feedQuery
+                        },
+                        retries: 3
+                    });
+
+                    const feedItems = z
+                        .object({
+                            records: z.array(
+                                z.object({
+                                    Id: z.string(),
+                                    CreatedDate: z.string(),
+                                    CreatedById: z.string().nullable().optional(),
+                                    Body: z.string().nullable().optional()
+                                })
+                            )
+                        })
+                        .parse(feedResponse.data);
+
+                    for (const feedItem of feedItems.records) {
+                        conversation.push({
+                            id: feedItem.Id,
+                            type: 'FeedItem',
+                            created_date: feedItem.CreatedDate,
+                            created_by: feedItem.CreatedById ?? undefined,
+                            body: feedItem.Body ?? undefined
                         });
-
-                        const feedItems = z
-                            .object({
-                                records: z.array(
-                                    z.object({
-                                        Id: z.string(),
-                                        CreatedDate: z.string(),
-                                        CreatedById: z.string().nullable().optional(),
-                                        Body: z.string().nullable().optional()
-                                    })
-                                )
-                            })
-                            .parse(feedResponse.data);
-
-                        for (const feedItem of feedItems.records) {
-                            conversation.push({
-                                id: feedItem.Id,
-                                type: 'FeedItem',
-                                created_date: feedItem.CreatedDate,
-                                created_by: feedItem.CreatedById ?? undefined,
-                                body: feedItem.Body ?? undefined
-                            });
-                        }
-                    } catch {
-                        // Feed items may not be available, continue without them
                     }
+                } catch {
+                    // Feed items may not be available, continue without them
+                }
 
-                    // Sort conversation by created date
-                    conversation.sort((a, b) => new Date(a.created_date).getTime() - new Date(b.created_date).getTime());
+                // Sort conversation by created date
+                conversation.sort((a, b) => new Date(a.created_date).getTime() - new Date(b.created_date).getTime());
 
-                    return {
-                        id: caseRecord.Id,
-                        case_number: caseRecord.CaseNumber,
-                        subject: caseRecord.Subject ?? undefined,
-                        description: caseRecord.Description ?? undefined,
-                        status: caseRecord.Status ?? undefined,
-                        priority: caseRecord.Priority ?? undefined,
-                        origin: caseRecord.Origin ?? undefined,
-                        reason: caseRecord.Reason ?? undefined,
-                        owner_id: caseRecord.OwnerId ?? undefined,
-                        account_id: caseRecord.AccountId ?? undefined,
-                        contact_id: caseRecord.ContactId ?? undefined,
-                        created_date: caseRecord.CreatedDate,
-                        last_modified_date: caseRecord.LastModifiedDate,
-                        conversation: conversation.length > 0 ? conversation : undefined
-                    };
-                })
-            );
+                tickets.push({
+                    id: caseRecord.Id,
+                    case_number: caseRecord.CaseNumber,
+                    subject: caseRecord.Subject ?? undefined,
+                    description: caseRecord.Description ?? undefined,
+                    status: caseRecord.Status ?? undefined,
+                    priority: caseRecord.Priority ?? undefined,
+                    origin: caseRecord.Origin ?? undefined,
+                    reason: caseRecord.Reason ?? undefined,
+                    owner_id: caseRecord.OwnerId ?? undefined,
+                    account_id: caseRecord.AccountId ?? undefined,
+                    contact_id: caseRecord.ContactId ?? undefined,
+                    created_date: caseRecord.CreatedDate,
+                    last_modified_date: caseRecord.LastModifiedDate,
+                    conversation: conversation.length > 0 ? conversation : undefined
+                });
+            }
 
             await nango.batchSave(tickets, 'Ticket');
 
