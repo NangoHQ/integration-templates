@@ -1,7 +1,6 @@
 import { createSync } from 'nango';
 import { z } from 'zod';
 import type { ProxyConfiguration } from 'nango';
-import type { AxiosResponse } from 'axios';
 
 // Provider docs: https://developer.zendesk.com/api-reference/ticketing/users/users/
 interface ProviderUser {
@@ -47,12 +46,6 @@ const CheckpointSchema = z.object({
     cursor: z.string()
 });
 
-interface ZendeskUsersResponse {
-    users: ProviderUser[];
-    after_cursor?: string;
-    end_of_stream?: boolean;
-}
-
 const sync = createSync({
     description: 'Sync users from Zendesk Support using incremental cursor-based exports',
     version: '3.0.0',
@@ -86,7 +79,7 @@ const sync = createSync({
                 response_path: 'users',
                 limit_name_in_request: 'per_page',
                 limit: 100,
-                on_page: async (paginationState: { nextPageParam?: string | number | undefined; response: AxiosResponse<ZendeskUsersResponse> }) => {
+                on_page: async (paginationState) => {
                     const afterCursor = paginationState.response.data.after_cursor;
                     cursor = afterCursor ?? (typeof paginationState.nextPageParam === 'string' ? paginationState.nextPageParam : undefined);
                 }
