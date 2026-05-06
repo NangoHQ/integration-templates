@@ -144,7 +144,9 @@ const action = createAction({
         const returnedMaxResults = queryResponse.maxResults ?? 0;
         const returnedStartPosition = queryResponse.startPosition ?? 1;
 
-        const hasMore = returnedStartPosition + records.length - 1 < totalCount;
+        // totalCount is only present for COUNT queries; for regular queries fall back to full-page heuristic
+        const hasMore =
+            totalCount > 0 ? returnedStartPosition + records.length - 1 < totalCount : records.length >= maxResults;
 
         return {
             records,
