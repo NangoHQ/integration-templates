@@ -81,41 +81,43 @@ const sync = createSync({
 
         await nango.trackDeletesStart('Section');
 
-        for await (const page of nango.paginate(proxyConfig)) {
-            const sections: z.infer<typeof SectionSchema>[] = [];
-            for (const raw of page) {
-                const parsed = SectionSchema.safeParse(raw);
-                if (!parsed.success) {
-                    throw new Error(`Failed to parse section: ${parsed.error.message}`);
+        try {
+            for await (const page of nango.paginate(proxyConfig)) {
+                const sections: z.infer<typeof SectionSchema>[] = [];
+                for (const raw of page) {
+                    const parsed = SectionSchema.safeParse(raw);
+                    if (!parsed.success) {
+                        throw new Error(`Failed to parse section: ${parsed.error.message}`);
+                    }
+                    sections.push(parsed.data);
                 }
-                sections.push(parsed.data);
+
+                if (sections.length === 0) {
+                    continue;
+                }
+
+                const mappedSections = sections.map((section) => ({
+                    id: String(section.id),
+                    name: section.name,
+                    ...(section.description !== undefined && section.description !== null && { description: section.description }),
+                    ...(section.category_id !== undefined && section.category_id !== null && { category_id: section.category_id }),
+                    ...(section.parent_section_id !== undefined && section.parent_section_id !== null && { parent_section_id: section.parent_section_id }),
+                    locale: section.locale,
+                    ...(section.source_locale !== undefined && section.source_locale !== null && { source_locale: section.source_locale }),
+                    created_at: section.created_at,
+                    updated_at: section.updated_at,
+                    ...(section.position !== undefined && section.position !== null && { position: section.position }),
+                    ...(section.outdated !== undefined && section.outdated !== null && { outdated: section.outdated }),
+                    ...(section.html_url !== undefined && section.html_url !== null && { html_url: section.html_url }),
+                    ...(section.url !== undefined && section.url !== null && { url: section.url }),
+                    ...(section.theme_template !== undefined && section.theme_template !== null && { theme_template: section.theme_template })
+                }));
+
+                await nango.batchSave(mappedSections, 'Section');
             }
-
-            if (sections.length === 0) {
-                continue;
-            }
-
-            const mappedSections = sections.map((section) => ({
-                id: String(section.id),
-                name: section.name,
-                ...(section.description !== undefined && section.description !== null && { description: section.description }),
-                ...(section.category_id !== undefined && section.category_id !== null && { category_id: section.category_id }),
-                ...(section.parent_section_id !== undefined && section.parent_section_id !== null && { parent_section_id: section.parent_section_id }),
-                locale: section.locale,
-                ...(section.source_locale !== undefined && section.source_locale !== null && { source_locale: section.source_locale }),
-                created_at: section.created_at,
-                updated_at: section.updated_at,
-                ...(section.position !== undefined && section.position !== null && { position: section.position }),
-                ...(section.outdated !== undefined && section.outdated !== null && { outdated: section.outdated }),
-                ...(section.html_url !== undefined && section.html_url !== null && { html_url: section.html_url }),
-                ...(section.url !== undefined && section.url !== null && { url: section.url }),
-                ...(section.theme_template !== undefined && section.theme_template !== null && { theme_template: section.theme_template })
-            }));
-
-            await nango.batchSave(mappedSections, 'Section');
+        } finally {
+            await nango.trackDeletesEnd('Section');
         }
-
-        await nango.trackDeletesEnd('Section');
     }
 });
 

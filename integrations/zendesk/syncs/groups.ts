@@ -68,35 +68,37 @@ const sync = createSync({
             retries: 3
         };
 
-        for await (const page of nango.paginate<ProviderGroup>(proxyConfig)) {
-            const groups: Group[] = [];
+        try {
+            for await (const page of nango.paginate<ProviderGroup>(proxyConfig)) {
+                const groups: Group[] = [];
 
-            for (const record of page) {
-                const parseResult = ProviderGroupSchema.safeParse(record);
-                if (!parseResult.success) {
-                    throw new Error(`Failed to parse group: ${JSON.stringify(parseResult.error.issues)}`);
+                for (const record of page) {
+                    const parseResult = ProviderGroupSchema.safeParse(record);
+                    if (!parseResult.success) {
+                        throw new Error(`Failed to parse group: ${JSON.stringify(parseResult.error.issues)}`);
+                    }
+
+                    const group = parseResult.data;
+                    groups.push({
+                        id: String(group.id),
+                        name: group.name,
+                        ...(group.description && { description: group.description }),
+                        ...(group.default !== undefined && { isDefault: group.default }),
+                        ...(group.deleted !== undefined && { isDeleted: group.deleted }),
+                        ...(group.is_public !== undefined && { isPublic: group.is_public }),
+                        ...(group.created_at && { createdAt: group.created_at }),
+                        ...(group.updated_at && { updatedAt: group.updated_at }),
+                        ...(group.url && { url: group.url })
+                    });
                 }
 
-                const group = parseResult.data;
-                groups.push({
-                    id: String(group.id),
-                    name: group.name,
-                    ...(group.description && { description: group.description }),
-                    ...(group.default !== undefined && { isDefault: group.default }),
-                    ...(group.deleted !== undefined && { isDeleted: group.deleted }),
-                    ...(group.is_public !== undefined && { isPublic: group.is_public }),
-                    ...(group.created_at && { createdAt: group.created_at }),
-                    ...(group.updated_at && { updatedAt: group.updated_at }),
-                    ...(group.url && { url: group.url })
-                });
+                if (groups.length > 0) {
+                    await nango.batchSave(groups, 'Group');
+                }
             }
-
-            if (groups.length > 0) {
-                await nango.batchSave(groups, 'Group');
-            }
+        } finally {
+            await nango.trackDeletesEnd('Group');
         }
-
-        await nango.trackDeletesEnd('Group');
     }
 });
 

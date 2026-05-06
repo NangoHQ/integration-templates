@@ -95,32 +95,34 @@ const sync = createSync({
             retries: 3
         };
 
-        for await (const page of nango.paginate(proxyConfig)) {
-            const validated = CategoriesResponseSchema.safeParse({ categories: page });
-            if (!validated.success) {
-                throw new Error(`Failed to validate categories: ${validated.error.message}`);
-            }
+        try {
+            for await (const page of nango.paginate(proxyConfig)) {
+                const validated = CategoriesResponseSchema.safeParse({ categories: page });
+                if (!validated.success) {
+                    throw new Error(`Failed to validate categories: ${validated.error.message}`);
+                }
 
-            const categories = validated.data.categories.map((category) => ({
-                id: String(category.id),
-                name: category.name,
-                ...(category.description != null && { description: category.description }),
-                locale: category.locale,
-                ...(category.source_locale != null && { source_locale: category.source_locale }),
-                ...(category.position != null && { position: category.position }),
-                ...(category.outdated != null && { outdated: category.outdated }),
-                created_at: category.created_at,
-                updated_at: category.updated_at,
-                ...(category.html_url != null && { html_url: category.html_url }),
-                ...(category.url != null && { url: category.url })
-            }));
+                const categories = validated.data.categories.map((category) => ({
+                    id: String(category.id),
+                    name: category.name,
+                    ...(category.description != null && { description: category.description }),
+                    locale: category.locale,
+                    ...(category.source_locale != null && { source_locale: category.source_locale }),
+                    ...(category.position != null && { position: category.position }),
+                    ...(category.outdated != null && { outdated: category.outdated }),
+                    created_at: category.created_at,
+                    updated_at: category.updated_at,
+                    ...(category.html_url != null && { html_url: category.html_url }),
+                    ...(category.url != null && { url: category.url })
+                }));
 
-            if (categories.length > 0) {
-                await nango.batchSave(categories, 'Category');
+                if (categories.length > 0) {
+                    await nango.batchSave(categories, 'Category');
+                }
             }
+        } finally {
+            await nango.trackDeletesEnd('Category');
         }
-
-        await nango.trackDeletesEnd('Category');
     }
 });
 

@@ -102,7 +102,7 @@ const action = createAction({
             params['page[after]'] = input.cursor;
         }
         if (input.per_page !== undefined) {
-            params['per_page'] = input.per_page;
+            params['page[size]'] = input.per_page;
         }
         if (input.active !== undefined) {
             params['active'] = String(input.active);

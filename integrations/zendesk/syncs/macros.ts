@@ -74,34 +74,36 @@ const sync = createSync({
             retries: 3
         };
 
-        for await (const page of nango.paginate<Macro>(proxyConfig)) {
-            const macros: NormalizedMacro[] = page.map((macro) => ({
-                id: String(macro.id),
-                title: macro.title,
-                active: macro.active,
-                ...(macro.description != null && {
-                    description: macro.description
-                }),
-                ...(macro.position != null && {
-                    position: macro.position
-                }),
-                ...(macro.created_at != null && {
-                    created_at: macro.created_at
-                }),
-                ...(macro.updated_at != null && {
-                    updated_at: macro.updated_at
-                }),
-                ...(macro.actions != null && {
-                    actions: macro.actions
-                })
-            }));
+        try {
+            for await (const page of nango.paginate<Macro>(proxyConfig)) {
+                const macros: NormalizedMacro[] = page.map((macro) => ({
+                    id: String(macro.id),
+                    title: macro.title,
+                    active: macro.active,
+                    ...(macro.description != null && {
+                        description: macro.description
+                    }),
+                    ...(macro.position != null && {
+                        position: macro.position
+                    }),
+                    ...(macro.created_at != null && {
+                        created_at: macro.created_at
+                    }),
+                    ...(macro.updated_at != null && {
+                        updated_at: macro.updated_at
+                    }),
+                    ...(macro.actions != null && {
+                        actions: macro.actions
+                    })
+                }));
 
-            if (macros.length > 0) {
-                await nango.batchSave(macros, 'Macro');
+                if (macros.length > 0) {
+                    await nango.batchSave(macros, 'Macro');
+                }
             }
+        } finally {
+            await nango.trackDeletesEnd('Macro');
         }
-
-        await nango.trackDeletesEnd('Macro');
     }
 });
 

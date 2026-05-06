@@ -103,62 +103,64 @@ const sync = createSync({
             retries: 3
         };
 
-        for await (const page of nango.paginate(proxyConfig)) {
-            const ticketFields: Array<z.infer<typeof TicketFieldSchema>> = [];
+        try {
+            for await (const page of nango.paginate(proxyConfig)) {
+                const ticketFields: Array<z.infer<typeof TicketFieldSchema>> = [];
 
-            for (const record of page) {
-                const parseResult = ProviderTicketFieldSchema.safeParse(record);
-                if (!parseResult.success) {
-                    throw new Error(`Failed to parse ticket field: ${JSON.stringify(parseResult.error.issues)}`);
+                for (const record of page) {
+                    const parseResult = ProviderTicketFieldSchema.safeParse(record);
+                    if (!parseResult.success) {
+                        throw new Error(`Failed to parse ticket field: ${JSON.stringify(parseResult.error.issues)}`);
+                    }
+                    const raw = parseResult.data;
+
+                    ticketFields.push({
+                        id: String(raw.id),
+                        type: raw.type,
+                        title: raw.title,
+                        ...(raw.raw_title != null && { raw_title: raw.raw_title }),
+                        ...(raw.description != null && { description: raw.description }),
+                        ...(raw.raw_description != null && { raw_description: raw.raw_description }),
+                        ...(raw.position != null && { position: raw.position }),
+                        ...(raw.active != null && { active: raw.active }),
+                        ...(raw.required != null && { required: raw.required }),
+                        ...(raw.agent_can_edit != null && { agent_can_edit: raw.agent_can_edit }),
+                        ...(raw.removable != null && { removable: raw.removable }),
+                        created_at: raw.created_at,
+                        updated_at: raw.updated_at,
+                        ...(raw.visible_in_portal != null && { visible_in_portal: raw.visible_in_portal }),
+                        ...(raw.editable_in_portal != null && { editable_in_portal: raw.editable_in_portal }),
+                        ...(raw.required_in_portal != null && { required_in_portal: raw.required_in_portal }),
+                        ...(raw.title_in_portal != null && { title_in_portal: raw.title_in_portal }),
+                        ...(raw.raw_title_in_portal != null && { raw_title_in_portal: raw.raw_title_in_portal }),
+                        ...(raw.tag != null && { tag: raw.tag }),
+                        ...(raw.regexp_for_validation != null && { regexp_for_validation: raw.regexp_for_validation }),
+                        ...(raw.sub_type_id != null && { sub_type_id: raw.sub_type_id }),
+                        ...(raw.custom_field_options != null && {
+                            custom_field_options: raw.custom_field_options.map((opt) => ({
+                                ...(opt.id !== undefined && { id: opt.id }),
+                                ...(opt.name !== undefined && { name: opt.name }),
+                                ...(opt.raw_name !== undefined && { raw_name: opt.raw_name }),
+                                ...(opt.value !== undefined && { value: opt.value }),
+                                ...(opt.default !== undefined && { default: opt.default })
+                            }))
+                        }),
+                        ...(raw.system_field_options != null && {
+                            system_field_options: raw.system_field_options.map((opt) => ({
+                                ...(opt.name !== undefined && { name: opt.name }),
+                                ...(opt.value !== undefined && { value: opt.value })
+                            }))
+                        })
+                    });
                 }
-                const raw = parseResult.data;
 
-                ticketFields.push({
-                    id: String(raw.id),
-                    type: raw.type,
-                    title: raw.title,
-                    ...(raw.raw_title != null && { raw_title: raw.raw_title }),
-                    ...(raw.description != null && { description: raw.description }),
-                    ...(raw.raw_description != null && { raw_description: raw.raw_description }),
-                    ...(raw.position != null && { position: raw.position }),
-                    ...(raw.active != null && { active: raw.active }),
-                    ...(raw.required != null && { required: raw.required }),
-                    ...(raw.agent_can_edit != null && { agent_can_edit: raw.agent_can_edit }),
-                    ...(raw.removable != null && { removable: raw.removable }),
-                    created_at: raw.created_at,
-                    updated_at: raw.updated_at,
-                    ...(raw.visible_in_portal != null && { visible_in_portal: raw.visible_in_portal }),
-                    ...(raw.editable_in_portal != null && { editable_in_portal: raw.editable_in_portal }),
-                    ...(raw.required_in_portal != null && { required_in_portal: raw.required_in_portal }),
-                    ...(raw.title_in_portal != null && { title_in_portal: raw.title_in_portal }),
-                    ...(raw.raw_title_in_portal != null && { raw_title_in_portal: raw.raw_title_in_portal }),
-                    ...(raw.tag != null && { tag: raw.tag }),
-                    ...(raw.regexp_for_validation != null && { regexp_for_validation: raw.regexp_for_validation }),
-                    ...(raw.sub_type_id != null && { sub_type_id: raw.sub_type_id }),
-                    ...(raw.custom_field_options != null && {
-                        custom_field_options: raw.custom_field_options.map((opt) => ({
-                            ...(opt.id !== undefined && { id: opt.id }),
-                            ...(opt.name !== undefined && { name: opt.name }),
-                            ...(opt.raw_name !== undefined && { raw_name: opt.raw_name }),
-                            ...(opt.value !== undefined && { value: opt.value }),
-                            ...(opt.default !== undefined && { default: opt.default })
-                        }))
-                    }),
-                    ...(raw.system_field_options != null && {
-                        system_field_options: raw.system_field_options.map((opt) => ({
-                            ...(opt.name !== undefined && { name: opt.name }),
-                            ...(opt.value !== undefined && { value: opt.value })
-                        }))
-                    })
-                });
+                if (ticketFields.length > 0) {
+                    await nango.batchSave(ticketFields, 'TicketField');
+                }
             }
-
-            if (ticketFields.length > 0) {
-                await nango.batchSave(ticketFields, 'TicketField');
-            }
+        } finally {
+            await nango.trackDeletesEnd('TicketField');
         }
-
-        await nango.trackDeletesEnd('TicketField');
     }
 });
 

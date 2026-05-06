@@ -21,9 +21,13 @@ const ViewSchema = z.object({
 
 const ProviderResponseSchema = z.object({
     views: z.array(ViewSchema),
-    next_cursor: z.string().optional(),
-    after_cursor: z.string().optional(),
-    before_cursor: z.string().optional(),
+    meta: z
+        .object({
+            has_more: z.boolean().optional(),
+            after_cursor: z.string().optional(),
+            before_cursor: z.string().optional()
+        })
+        .optional(),
     count: z.number().optional()
 });
 
@@ -59,7 +63,8 @@ const action = createAction({
         const response = await nango.get({
             endpoint: '/api/v2/views.json',
             params: {
-                ...(input.cursor && { 'page[after]': input.cursor })
+                ...(input.cursor && { 'page[after]': input.cursor }),
+                'page[size]': 100
             },
             retries: 3
         });
@@ -77,7 +82,7 @@ const action = createAction({
                 ...(view.created_at !== undefined && { created_at: view.created_at }),
                 ...(view.updated_at !== undefined && { updated_at: view.updated_at })
             })),
-            ...(parsed.next_cursor !== undefined && { next_cursor: parsed.next_cursor })
+            ...(parsed.meta?.after_cursor !== undefined && { next_cursor: parsed.meta.after_cursor })
         };
     }
 });

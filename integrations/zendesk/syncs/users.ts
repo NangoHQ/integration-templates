@@ -48,7 +48,7 @@ const CheckpointSchema = z.object({
 
 const sync = createSync({
     description: 'Sync users from Zendesk Support using incremental cursor-based exports',
-    version: '3.0.0',
+    version: '3.0.1',
     frequency: 'every hour',
     autoStart: true,
     endpoints: [

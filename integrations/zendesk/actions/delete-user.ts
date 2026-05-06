@@ -29,7 +29,7 @@ const action = createAction({
             retries: 10
         });
 
-        if (response.status !== 200) {
+        if (response.status !== 200 && response.status !== 204) {
             throw new nango.ActionError({
                 type: 'delete_failed',
                 message: 'Failed to delete user',

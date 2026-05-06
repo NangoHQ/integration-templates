@@ -50,41 +50,43 @@ const sync = createSync({
             retries: 3
         };
 
-        for await (const page of nango.paginate(proxyConfig)) {
-            const views = page.map(
-                (record: {
-                    id: number;
-                    title: string;
-                    description?: string | null;
-                    active?: boolean;
-                    created_at?: string;
-                    updated_at?: string;
-                    default?: boolean;
-                    position?: number;
-                    conditions?: Record<string, unknown>;
-                    execution?: Record<string, unknown>;
-                    restriction?: unknown;
-                }) => ({
-                    id: String(record.id),
-                    title: record.title,
-                    ...(record.description != null && { description: record.description }),
-                    ...(record.active !== undefined && { active: record.active }),
-                    ...(record.created_at != null && { created_at: record.created_at }),
-                    ...(record.updated_at != null && { updated_at: record.updated_at }),
-                    ...(record.default !== undefined && { default: record.default }),
-                    ...(record.position !== undefined && { position: record.position }),
-                    ...(record.conditions !== undefined && { conditions: record.conditions }),
-                    ...(record.execution !== undefined && { execution: record.execution }),
-                    ...(record.restriction !== undefined && { restriction: record.restriction })
-                })
-            );
+        try {
+            for await (const page of nango.paginate(proxyConfig)) {
+                const views = page.map(
+                    (record: {
+                        id: number;
+                        title: string;
+                        description?: string | null;
+                        active?: boolean;
+                        created_at?: string;
+                        updated_at?: string;
+                        default?: boolean;
+                        position?: number;
+                        conditions?: Record<string, unknown>;
+                        execution?: Record<string, unknown>;
+                        restriction?: unknown;
+                    }) => ({
+                        id: String(record.id),
+                        title: record.title,
+                        ...(record.description != null && { description: record.description }),
+                        ...(record.active !== undefined && { active: record.active }),
+                        ...(record.created_at != null && { created_at: record.created_at }),
+                        ...(record.updated_at != null && { updated_at: record.updated_at }),
+                        ...(record.default !== undefined && { default: record.default }),
+                        ...(record.position !== undefined && { position: record.position }),
+                        ...(record.conditions !== undefined && { conditions: record.conditions }),
+                        ...(record.execution !== undefined && { execution: record.execution }),
+                        ...(record.restriction !== undefined && { restriction: record.restriction })
+                    })
+                );
 
-            if (views.length > 0) {
-                await nango.batchSave(views, 'View');
+                if (views.length > 0) {
+                    await nango.batchSave(views, 'View');
+                }
             }
+        } finally {
+            await nango.trackDeletesEnd('View');
         }
-
-        await nango.trackDeletesEnd('View');
     }
 });
 
