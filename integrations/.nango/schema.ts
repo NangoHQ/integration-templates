@@ -27924,255 +27924,954 @@ export interface ActionOutput_ring_central_getcompanyinfo {
 export interface SyncMetadata_sage_intacct_oauth_accounts {
 };
 
-export interface SyncMetadata_salesforce_accounts {
-};
-
-export interface SyncMetadata_salesforce_articles {
-  customFields: string[];
-};
-
-export interface SyncMetadata_salesforce_contacts {
-};
-
-export interface Lead {
+export interface Case {
   id: string;
-  first_name: string | null;
-  last_name: string;
-  company_name: string;
-  email: string | null;
-  owner_id: string;
-  owner_name: string;
-  phone: string | null;
-  salutation: string | null;
-  title: string | null;
-  website: string | null;
-  industry: string | null;
-  last_modified_date: string;
-};
-
-export interface SyncMetadata_salesforce_leads {
+  case_number?: string | undefined;
+  subject?: string | undefined;
+  description?: string | undefined;
+  status?: string | undefined;
+  priority?: string | undefined;
+  origin?: string | undefined;
+  reason?: string | undefined;
+  type?: string | undefined;
+  owner_id?: string | undefined;
+  account_id?: string | undefined;
+  contact_id?: string | undefined;
+  created_at: string;
+  updated_at: string;
+  system_modstamp: string;
+  closed_at?: string | undefined;
+  is_closed?: boolean | undefined;
+  is_escalated?: boolean | undefined;
 };
 
 export interface Opportunity {
   id: string;
-  opportunity_name: string;
-  account_name: string | null;
-  account_id: string | null;
-  amount: number | null;
-  description: string | null;
-  close_date: string;
-  created_by_id: string;
-  created_by: string;
-  owner_id: string;
-  owner_name: string;
-  stage: string;
-  probability: number | null;
-  type: string | null;
-  last_modified_date: string;
-};
-
-export interface SyncMetadata_salesforce_opportunities {
-};
-
-export interface SyncMetadata_salesforce_tickets {
-};
-
-export interface ActionInput_salesforce_createaccount {
-  description?: string | undefined;
-  website?: string | undefined;
-  industry?: string | undefined;
-  billing_city?: string | undefined;
-  billing_country?: string | undefined;
-  owner_id?: string | undefined;
-  name: string;
-};
-
-export interface ActionOutput_salesforce_createaccount {
-  id: string;
-  success: boolean;
-  errors: any[];
-};
-
-export interface ActionInput_salesforce_createcontact {
-  first_name?: string | undefined;
-  account_id?: string | undefined;
-  owner_id?: string | undefined;
-  email?: string | undefined;
-  mobile?: string | undefined;
-  phone?: string | undefined;
-  salutation?: string | undefined;
-  title?: string | undefined;
-  last_name: string;
-};
-
-export interface ActionOutput_salesforce_createcontact {
-  id: string;
-  success: boolean;
-  errors: any[];
-};
-
-export interface ActionInput_salesforce_createlead {
-  first_name?: string | undefined;
-  email?: string | undefined;
-  owner_id?: string | undefined;
-  phone?: string | undefined;
-  salutation?: string | undefined;
-  title?: string | undefined;
-  website?: string | undefined;
-  industry?: string | undefined;
-  last_name: string;
-  company_name: string;
-};
-
-export interface ActionOutput_salesforce_createlead {
-  id: string;
-  success: boolean;
-  errors: any[];
-};
-
-export interface ActionInput_salesforce_createopportunity {
-  account_id?: string | undefined;
+  name?: string | undefined;
   amount?: number | undefined;
-  description?: string | undefined;
-  created_by_id?: string | undefined;
+  stage?: string | undefined;
+  close_date?: string | undefined;
   owner_id?: string | undefined;
-  probability?: number | undefined;
-  type?: string | undefined;
-  opportunity_name: string;
-  close_date: string;
-  stage: string;
+  updated_at: string;
 };
 
-export interface ActionOutput_salesforce_createopportunity {
+export interface Record {
+  id: string;
+  raw: {  [key: string]: unknown | undefined;};
+};
+
+export interface SyncMetadata_salesforce_recordsbysoql {
+  soql_query: string;
+  api_version?: string | undefined;
+  timestamp_field?: string | undefined;
+};
+
+export interface ActionInput_salesforce_compositebatchrequest {
+  /**
+   * Salesforce API version. Defaults to v57.0. Example: "v57.0"
+   */
+  apiVersion?: string | undefined;
+  /**
+   * If true, stop processing subrequests after a failure. Defaults to false.
+   */
+  haltOnError?: boolean | undefined;
+  /**
+   * Array of subrequests to execute (1-25 requests)
+   */
+  batchRequests: ({  /**
+   * HTTP method for the subrequest. Example: "GET"
+   */
+  method: 'GET' | 'POST' | 'PUT' | 'PATCH' | 'DELETE';
+  /**
+   * URL path for the subrequest (without the instance URL). Example: "v57.0/sobjects/Account/001D000000K0fXOIAZ"
+   */
+  url: string;
+  /**
+   * Request body for POST, PUT, or PATCH requests
+   */
+  richInput?: {  [key: string]: any | undefined;};
+  /**
+   * Name of the binary part for multipart requests
+   */
+  binaryPartName?: string | undefined;
+  /**
+   * Alias for the binary part name
+   */
+  binaryPartNameAlias?: string | undefined;})[];
+};
+
+export interface ActionOutput_salesforce_compositebatchrequest {
+  /**
+   * True if any subrequest resulted in an error
+   */
+  hasErrors: boolean;
+  /**
+   * Results for each subrequest in the order they were submitted
+   */
+  results: ({  /**
+   * HTTP status code for this subrequest
+   */
+  statusCode: number;
+  /**
+   * Response body from this subrequest, which varies by endpoint
+   */
+  result?: unknown | undefined;})[];
+};
+
+export interface ActionInput_salesforce_compositegraphrequest {
+  graphs: ({  graphId: string;
+  compositeRequest: ({  method: 'DELETE' | 'GET' | 'PATCH' | 'POST';
+  url: string;
+  referenceId: string;
+  body?: {} | undefined;})[];})[];
+  apiVersion?: string | undefined;
+};
+
+export interface ActionOutput_salesforce_compositegraphrequest {
+  graphs: ({  graphId: string;
+  graphResponse: {  compositeResponse: ({  body?: unknown | undefined;
+  httpHeaders?: {} | undefined;
+  httpStatusCode: number;
+  referenceId: string;})[];};
+  isSuccessful: boolean;})[];
+};
+
+export interface ActionInput_salesforce_compositerequest {
+  apiVersion?: string | undefined;
+  allOrNone?: boolean | undefined;
+  subrequests: ({  method: string;
+  url: string;
+  body?: {  [key: string]: any | undefined;};
+  referenceId: string;})[];
+};
+
+export interface ActionOutput_salesforce_compositerequest {
+  compositeResponse: ({  body?: any | undefined;
+  httpStatusCode: number;
+  referenceId: string;})[];
+};
+
+export interface ActionInput_salesforce_createrecord {
+  sObject: string;
+  version?: string | undefined;
+  record: {  [key: string]: unknown | undefined;};
+};
+
+export interface ActionOutput_salesforce_createrecord {
   id: string;
   success: boolean;
-  errors: any[];
+  errors: unknown[];
 };
 
-export interface ActionInput_salesforce_deleteaccount {
-  id: string;
+export interface ActionInput_salesforce_createsobjectcollection {
+  /**
+   * Indicates whether to roll back the entire request when any object fails (true) or continue with other objects (false). Defaults to false.
+   */
+  allOrNone?: boolean | undefined;
+  /**
+   * List of sObject records to create. Up to 200 records.
+   */
+  records: ({  attributes: {  /**
+   * The sObject type for this record. Example: "Account", "Contact", "Opportunity"
+   */
+  type: string;};})[];
+  /**
+   * API version to use (e.g., "v63.0"). If not provided, uses the connection default.
+   */
+  apiVersion?: string | undefined;
 };
 
-export interface ActionOutput_salesforce_deleteaccount {
+export interface ActionOutput_salesforce_createsobjectcollection {
+  /**
+   * List of SaveResult objects corresponding to each input record, in the same order.
+   */
+  results: ({  /**
+   * The ID of the created record, if successful.
+   */
+  id?: string | undefined;
+  /**
+   * Whether the record was created successfully.
+   */
   success: boolean;
+  /**
+   * List of errors if the record creation failed.
+   */
+  errors?: ({  /**
+   * Error status code.
+   */
+  statusCode: string;
+  /**
+   * Error message.
+   */
+  message: string;
+  /**
+   * Fields that caused the error.
+   */
+  fields?: string[] | undefined;})[];})[];
 };
 
-export interface ActionInput_salesforce_deletecontact {
-  id: string;
+export interface ActionInput_salesforce_deleterecord {
+  /**
+   * The type of sObject to delete. Example: "Account", "Contact", "Opportunity"
+   */
+  sobject: string;
+  /**
+   * The Salesforce record ID to delete. Example: "0015000000VALDtAAP"
+   */
+  recordId: string;
+  /**
+   * API version to use. Defaults to "v63.0".
+   */
+  apiVersion?: string | undefined;
 };
 
-export interface ActionOutput_salesforce_deletecontact {
+export interface ActionOutput_salesforce_deleterecord {
   success: boolean;
+  message: string;
 };
 
-export interface ActionInput_salesforce_deletelead {
-  id: string;
+export interface ActionInput_salesforce_deletesobjectcollection {
+  /**
+   * API version to use (e.g., "v62.0"). If not provided, the latest version will be discovered.
+   */
+  api_version?: string | undefined;
+  /**
+   * The type of sObject to delete (e.g., "Account", "Contact", "Opportunity").
+   */
+  sObjectName: string;
+  /**
+   * Array of record IDs to delete.
+   */
+  ids: string[];
+  /**
+   * If true, all deletions must succeed for any to succeed (transactional). If false, partial success is allowed.
+   */
+  allOrNone?: boolean | undefined;
 };
 
-export interface ActionOutput_salesforce_deletelead {
+export interface ActionOutput_salesforce_deletesobjectcollection {
+  /**
+   * Results for each record deletion.
+   */
+  results: ({  id?: string | undefined;
   success: boolean;
+  errors?: ({  statusCode: string;
+  message: string;
+  fields?: string[] | undefined;})[];})[];
 };
 
-export interface ActionInput_salesforce_deleteopportunity {
-  id: string;
+export interface ActionInput_salesforce_describeglobal {
+  api_version?: string | undefined;
 };
 
-export interface ActionOutput_salesforce_deleteopportunity {
-  success: boolean;
-};
-
-export interface ActionInput_salesforce_fetchfields {
+export interface ActionOutput_salesforce_describeglobal {
+  /**
+   * Character encoding used by the org.
+   */
+  encoding: string;
+  /**
+   * Maximum number of records that can be processed in a single batch.
+   */
+  max_batch_size: number;
+  /**
+   * List of available sObject types and their metadata.
+   */
+  sobjects: ({  /**
+   * Name of the sObject.
+   */
   name: string;
+  /**
+   * Display label for the sObject.
+   */
+  label: string;
+  /**
+   * Whether the sObject is a custom object.
+   */
+  custom: boolean;
+  keyPrefix?: string | undefined;
+  labelPlural?: string | undefined;
+  layoutable?: boolean | undefined;
+  activateable?: boolean | undefined;
+  /**
+   * Whether records of this sObject can be created.
+   */
+  createable: boolean;
+  /**
+   * Whether records of this sObject can be deleted.
+   */
+  deletable: boolean;
+  /**
+   * Whether records of this sObject can be updated.
+   */
+  updateable: boolean;
+  /**
+   * Whether records of this sObject can be queried.
+   */
+  queryable: boolean;
+  feedEnabled?: boolean | undefined;
+  mergeable?: boolean | undefined;
+  replicateable?: boolean | undefined;
+  retrieveable?: boolean | undefined;
+  searchLayoutable?: boolean | undefined;
+  /**
+   * Whether records of this sObject can be searched.
+   */
+  searchable: boolean;
+  triggerable?: boolean | undefined;
+  deprecatedAndHidden?: boolean | undefined;
+  hasSubtypes?: boolean | undefined;
+  isSubtype?: boolean | undefined;
+  idEnabled?: boolean | undefined;
+  urls?: {  [key: string]: unknown | undefined;};})[];
 };
 
-export interface ActionOutput_salesforce_fetchfields {
+export interface ActionInput_salesforce_describesobject {
+  /**
+   * The name of the sObject to describe. Example: "Account"
+   */
+  sObject: string;
+  /**
+   * API version to use. Example: "v58.0". If not provided, uses the connection default.
+   */
+  apiVersion?: string | undefined;
+};
+
+export interface ActionOutput_salesforce_describesobject {
+  name: string;
+  label: string;
+  labelPlural: string;
   fields: ({  name: string;
   label: string;
   type: string;
-  referenceTo: string[];
-  relationshipName: string | null;})[];
-  childRelationships: ({  object: string;
-  relationshipName: string | null;
-  field: string;})[];
-  validationRules: ({  id: string;
+  length?: number | undefined;
+  required?: boolean | undefined;
+  referenceTo?: string[] | undefined;
+  relationshipName?: string | undefined;})[];
+  childRelationships?: ({  childSObject?: string | undefined;
+  field?: string | undefined;
+  relationshipName?: string | undefined;})[];
+  recordTypeInfos?: ({  recordTypeId: string;
   name: string;
-  errorConditionFormula: string;
-  errorMessage: string;})[];
+  active: boolean;
+  available: boolean;})[] | undefined;
+  queryable?: boolean | undefined;
+  createable?: boolean | undefined;
+  updateable?: boolean | undefined;
+  deletable?: boolean | undefined;
 };
 
-export interface ActionInput_salesforce_updateaccount {
-  description?: string | undefined;
-  website?: string | undefined;
-  industry?: string | undefined;
-  billing_city?: string | undefined;
-  billing_country?: string | undefined;
-  owner_id?: string | undefined;
+export interface ActionInput_salesforce_getcurrentuser {
+};
+
+export interface ActionOutput_salesforce_getcurrentuser {
+  /**
+   * Salesforce user ID. Example: "005x00000012Q9P"
+   */
+  user_id: string;
+  /**
+   * Salesforce organization ID. Example: "00Dx0000000BV7z"
+   */
+  organization_id: string;
+  /**
+   * Salesforce username. Example: "admin@company.com"
+   */
+  username?: string | undefined;
+  /**
+   * Email address of the user.
+   */
+  email?: string | undefined;
+  /**
+   * Whether the email has been verified.
+   */
+  email_verified?: boolean | undefined;
+  /**
+   * First name of the user.
+   */
+  first_name?: string | undefined;
+  /**
+   * Last name of the user.
+   */
+  last_name?: string | undefined;
+  /**
+   * Display name of the user.
+   */
+  display_name?: string | undefined;
+  /**
+   * URL to the user profile picture.
+   */
+  picture?: string | undefined;
+  /**
+   * User time zone.
+   */
+  timezone?: string | undefined;
+  /**
+   * User locale.
+   */
+  locale?: string | undefined;
+  /**
+   * URL to the user profile.
+   */
+  profile_url?: string | undefined;
+};
+
+export interface ActionInput_salesforce_getlimits {
+};
+
+export interface ActionOutput_salesforce_getlimits {
+  [key: string]: {  max: number;
+  remaining: number;};
+};
+
+export interface ActionInput_salesforce_getquickactiondefaults {
+  /**
+   * The API name of the quick action. Example: "Account.New_Account"
+   */
+  quickActionName: string;
+  /**
+   * The ID of the context record to get default values for. If provided, defaults are computed based on this record. Example: "001xx000003DGSXAA4"
+   */
+  contextId?: string | undefined;
+  /**
+   * Salesforce API version. Defaults to "v59.0". Example: "v60.0"
+   */
+  apiVersion?: string | undefined;
+};
+
+export interface ActionOutput_salesforce_getquickactiondefaults {
+  defaultValues?: {  [key: string]: unknown | undefined;};
+};
+
+export interface ActionInput_salesforce_getrecordbyexternalid {
+  /**
+   * API version. Example: "v60.0". If omitted, defaults to the connection's configured version.
+   */
+  version?: string | undefined;
+  /**
+   * sObject API name. Example: "Account", "Contact", "CustomObject__c".
+   */
+  sobject: string;
+  /**
+   * External ID field name. Example: "External_ID__c", "Custom_External_Id__c".
+   */
+  external_id_field: string;
+  /**
+   * External ID value to retrieve. Example: "EXT-12345".
+   */
+  external_id: string;
+  /**
+   * Fields to return in the response. If omitted, all fields are returned. Example: ["Id", "Name", "CreatedDate"]
+   */
+  fields?: string[] | undefined;
+};
+
+/**
+ * Record fields including Id and attributes
+ */
+export interface ActionOutput_salesforce_getrecordbyexternalid {
+  /**
+   * Salesforce record ID (18-character).
+   */
   id: string;
+  attributes?: {  type: string;
+  url: string;} | undefined;
+};
+
+export interface ActionInput_salesforce_getrecord {
+  /**
+   * The Salesforce object type. Example: "Account", "Contact", "Opportunity"
+   */
+  sObject: string;
+  /**
+   * The Salesforce record ID. Example: "001D000000INjVe"
+   */
+  recordId: string;
+  /**
+   * Optional list of fields to retrieve. If omitted, all accessible fields are returned.
+   */
+  fields?: string[] | undefined;
+};
+
+export interface ActionOutput_salesforce_getrecord {
+};
+
+export interface ActionInput_salesforce_getsobjectbasicinfo {
+  /**
+   * The name of the sObject to retrieve metadata for. Example: "Account"
+   */
+  sObject: string;
+  /**
+   * Optional API version to use. Defaults to "v63.0". Example: "v60.0"
+   */
+  apiVersion?: string | undefined;
+};
+
+export interface ActionOutput_salesforce_getsobjectbasicinfo {
+  /**
+   * The API name of the sObject.
+   */
+  name: string;
+  /**
+   * The display label for the sObject.
+   */
+  label: string;
+  /**
+   * The plural display label for the sObject.
+   */
+  labelPlural?: string | undefined;
+  /**
+   * The key prefix for record IDs of this type.
+   */
+  keyPrefix?: string | undefined;
+  /**
+   * Whether records of this type can be updated.
+   */
+  updateable?: boolean | undefined;
+  /**
+   * Whether records of this type can be created.
+   */
+  createable?: boolean | undefined;
+  /**
+   * Whether records of this type can be deleted.
+   */
+  deletable?: boolean | undefined;
+  /**
+   * Whether records of this type can be queried.
+   */
+  queryable?: boolean | undefined;
+  /**
+   * Whether this is a custom object.
+   */
+  custom?: boolean | undefined;
+  urls?: {  /**
+   * URL for the sObject resource.
+   */
+  sobject?: string | undefined;
+  /**
+   * URL for the describe resource.
+   */
+  describe?: string | undefined;
+  /**
+   * URL template for accessing a specific record.
+   */
+  rowTemplate?: string | undefined;
+  /**
+   * URL template for editing a record in the UI.
+   */
+  uiEditTemplate?: string | undefined;
+  /**
+   * URL template for viewing a record in the UI.
+   */
+  uiDetailTemplate?: string | undefined;};
+  /**
+   * Metadata for fields defined on this sObject.
+   */
+  fields?: ({  /**
+   * The API name of the field.
+   */
+  name: string;
+  /**
+   * The display label for the field.
+   */
+  label: string;
+  /**
+   * The data type of the field.
+   */
+  type: string;
+  /**
+   * The maximum length of the field.
+   */
+  length?: number | undefined;
+  /**
+   * Whether the field can be updated.
+   */
+  updateable?: boolean | undefined;
+  /**
+   * Whether the field can be set on create.
+   */
+  createable?: boolean | undefined;
+  /**
+   * Whether this is a custom field.
+   */
+  custom?: boolean | undefined;
+  /**
+   * Whether the field allows null values.
+   */
+  nillable?: boolean | undefined;})[];
+  /**
+   * Recently accessed records of this type.
+   */
+  recentItems?: ({  /**
+   * Record ID of the recent item.
+   */
+  id: string;
+  /**
+   * Name or primary field value of the recent item.
+   */
+  name?: string | undefined;})[];
+};
+
+export interface ActionInput_salesforce_listavailableresources {
+};
+
+export interface ActionOutput_salesforce_listavailableresources {
+  versions: ({  version: string;
+  label: string;
+  url: string;})[];
+};
+
+export interface ActionInput_salesforce_listquickactions {
+  /**
+   * Salesforce API version. Example: "v60.0". If omitted, uses the default version from the connection.
+   */
+  apiVersion?: string | undefined;
+  /**
+   * sObject type to list quick actions for (e.g., "Account", "Contact", "Opportunity"). If omitted, returns global quick actions.
+   */
+  sObjectType?: string | undefined;
+};
+
+export interface ActionOutput_salesforce_listquickactions {
+  /**
+   * List of quick actions available
+   */
+  quickActions: ({  /**
+   * The API name of the quick action
+   */
+  actionName: string;
+  /**
+   * The display label of the quick action
+   */
+  label: string;
+  /**
+   * The type of quick action (e.g., "Create", "Update", "SendEmail")
+   */
+  type: string;
+  /**
+   * The target sObject for the quick action
+   */
+  targetObject?: string | undefined;
+  /**
+   * The parent field for the quick action
+   */
+  targetParentField?: string | undefined;})[];
+  /**
+   * Total number of quick actions returned
+   */
+  count: number;
+};
+
+export interface ActionInput_salesforce_listrecentitems {
+  /**
+   * Maximum number of records to return. Default varies by API version.
+   */
+  limit?: number | undefined;
+};
+
+export interface ActionOutput_salesforce_listrecentitems {
+  items: ({  /**
+   * Record ID
+   */
+  id: string;
+  /**
+   * Record name
+   */
   name?: string | undefined;
-};
-
-export interface ActionOutput_salesforce_updateaccount {
-  success: boolean;
-};
-
-export interface ActionInput_salesforce_updatecontact {
-  first_name?: string | undefined;
-  account_id?: string | undefined;
-  owner_id?: string | undefined;
-  email?: string | undefined;
-  mobile?: string | undefined;
-  phone?: string | undefined;
-  salutation?: string | undefined;
-  title?: string | undefined;
-  id: string;
-  last_name?: string | undefined;
-};
-
-export interface ActionOutput_salesforce_updatecontact {
-  success: boolean;
-};
-
-export interface ActionInput_salesforce_updatelead {
-  first_name?: string | undefined;
-  email?: string | undefined;
-  owner_id?: string | undefined;
-  phone?: string | undefined;
-  salutation?: string | undefined;
-  title?: string | undefined;
-  website?: string | undefined;
-  industry?: string | undefined;
-  id: string;
-  last_name?: string | undefined;
-  company_name?: string | undefined;
-};
-
-export interface ActionOutput_salesforce_updatelead {
-  success: boolean;
-};
-
-export interface ActionInput_salesforce_updateopportunity {
-  account_id?: string | undefined;
-  amount?: number | undefined;
-  description?: string | undefined;
-  created_by_id?: string | undefined;
-  owner_id?: string | undefined;
-  probability?: number | undefined;
+  /**
+   * SObject type (e.g., Account, Contact)
+   */
   type?: string | undefined;
-  id: string;
-  opportunity_name?: string | undefined;
-  close_date?: string | undefined;
-  stage?: string | undefined;
+  /**
+   * URL to the record
+   */
+  url?: string | undefined;})[];
+  /**
+   * Number of items returned
+   */
+  count: number;
 };
 
-export interface ActionOutput_salesforce_updateopportunity {
+export interface ActionInput_salesforce_parameterizedsearchrecords {
+  /**
+   * Search string (q parameter). Example: "Acme"
+   */
+  query: string;
+  /**
+   * Array of sObject types to search across. Example: ["Account", "Contact"]
+   */
+  sobjects: string[];
+  /**
+   * Fields to return for each sObject. Example: ["Id", "Name", "Email"]
+   */
+  fields?: string[] | undefined;
+  /**
+   * Maximum number of results to return (1-2000).
+   */
+  limit?: number | undefined;
+  /**
+   * Number of records to skip for pagination.
+   */
+  offset?: number | undefined;
+  /**
+   * Field to order results by.
+   */
+  orderBy?: string | undefined;
+  /**
+   * Additional WHERE clause to filter results.
+   */
+  where?: string | undefined;
+};
+
+export interface ActionOutput_salesforce_parameterizedsearchrecords {
+  results: ({  sobjectType: string;
+  id: string;
+  fields?: {  [key: string]: unknown | undefined;};})[];
+};
+
+export interface ActionInput_salesforce_queryallrecords {
+  /**
+   * SOQL query string. Example: "SELECT Id, Name FROM Account"
+   */
+  query: string;
+  /**
+   * Salesforce API version. Example: "v60.0". If omitted, uses the connection default.
+   */
+  apiVersion?: string | undefined;
+};
+
+export interface ActionOutput_salesforce_queryallrecords {
+  totalSize: number;
+  done: boolean;
+  records: ({  [key: string]: unknown | undefined;})[];
+  nextRecordsUrl?: string | undefined;
+};
+
+export interface ActionInput_salesforce_queryrecords {
+  /**
+   * Salesforce API version. Example: "v63.0". If not provided, the default version from the connection will be used.
+   */
+  version?: string | undefined;
+  /**
+   * SOQL query string. Example: "SELECT Id, Name FROM Account LIMIT 10"
+   */
+  soql: string;
+};
+
+export interface ActionOutput_salesforce_queryrecords {
+  totalSize: number;
+  done: boolean;
+  records: ({  [key: string]: unknown | undefined;})[];
+  nextRecordsUrl?: string | undefined;
+};
+
+export interface ActionInput_salesforce_retrievequerymore {
+  /**
+   * The nextRecordsUrl from a previous query or queryAll response. Example: "/services/data/v62.0/query/01gD00000000abcIAQ-2000"
+   */
+  nextRecordsUrl: string;
+};
+
+export interface ActionOutput_salesforce_retrievequerymore {
+  done: boolean;
+  totalSize: number;
+  records: ({})[];
+  nextRecordsUrl?: string | undefined;
+};
+
+export interface ActionInput_salesforce_searchrecords {
+  /**
+   * SOSL search string. Example: FIND {Acme}
+   */
+  q: string;
+  /**
+   * Salesforce API version. Example: v58.0. Defaults to v58.0
+   */
+  apiVersion?: string | undefined;
+};
+
+export interface ActionOutput_salesforce_searchrecords {
+  searchResults: {  [key: string]: ({  attributes: {  type: string;
+  url: string;};
+  Id: string;})[];};
+  totalSize: number;
+};
+
+export interface ActionInput_salesforce_updaterecordbyexternalid {
+  /**
+   * The sObject type (e.g., Account, Contact, CustomObject__c). Example: "Account"
+   */
+  sObject: string;
+  /**
+   * The API name of the external ID field. Example: "customExtIdField__c"
+   */
+  externalIdField: string;
+  /**
+   * The external ID value to look up. Example: "ext-123"
+   */
+  externalId: string;
+  /**
+   * The field values to update on the record. Example: { "Name": "Acme Corp", "Phone": "555-1234" }
+   */
+  fields: {  [key: string]: unknown | undefined;};
+};
+
+export interface ActionOutput_salesforce_updaterecordbyexternalid {
+  /**
+   * The Salesforce ID of the updated record. Only returned if the record was created (when updateOnly is false).
+   */
+  id?: string | undefined;
+  /**
+   * Whether the record was successfully updated.
+   */
+  updated: boolean;
+  /**
+   * Whether a new record was created (only when updateOnly is false and record did not exist).
+   */
+  created?: boolean | undefined;
+};
+
+export interface ActionInput_salesforce_updaterecord {
+  /**
+   * API version to use. Example: "v63.0". Defaults to v63.0 if not provided.
+   */
+  api_version?: string | undefined;
+  /**
+   * The sObject type to update. Example: "Account", "Contact", "Opportunity".
+   */
+  sobject: string;
+  /**
+   * The Salesforce record ID to update. Example: "0015000000XYZABC".
+   */
+  record_id: string;
+  /**
+   * Fields to update on the record. Only provided fields will be updated.
+   */
+  fields: {  [key: string]: unknown | undefined;};
+};
+
+export interface ActionOutput_salesforce_updaterecord {
+  /**
+   * Whether the update was successful.
+   */
   success: boolean;
+  /**
+   * Error messages if the update failed.
+   */
+  errors?: string[] | undefined;
 };
 
-export type ActionInput_salesforce_whoami = void
+export interface ActionInput_salesforce_updatesobjectcollection {
+  /**
+   * Array of records to update. Each record must include attributes.type, id, and the fields to update.
+   */
+  records: ({  attributes: {  /**
+   * The sObject type. Example: "Account", "Contact"
+   */
+  type: string;};
+  /**
+   * The record ID to update. Example: "001xx000003DHP0AAO"
+   */
+  id: string;})[];
+  /**
+   * If true, all records must succeed or all fail. If false, partial success is allowed. Default: false
+   */
+  allOrNone?: boolean | undefined;
+};
 
-export interface ActionOutput_salesforce_whoami {
-  id: string;
-  email: string;
+export interface ActionOutput_salesforce_updatesobjectcollection {
+  results: ({  id?: string | undefined;
+  success: boolean;
+  errors?: ({  statusCode: string;
+  message: string;
+  fields?: string[] | undefined;})[];})[];
+};
+
+export interface ActionInput_salesforce_upsertrecord {
+  /**
+   * The Salesforce sObject type (e.g., Account, Contact, Lead).
+   */
+  sObject: string;
+  /**
+   * The name of the external ID field on the sObject (e.g., External_ID__c).
+   */
+  external_id_field: string;
+  /**
+   * The external ID value to upsert.
+   */
+  external_id: string;
+  /**
+   * The field data for the record to upsert.
+   */
+  record_data: {  [key: string]: unknown | undefined;};
+  /**
+   * Salesforce API version (e.g., "v60.0"). Defaults to v60.0.
+   */
+  api_version?: string | undefined;
+};
+
+export interface ActionOutput_salesforce_upsertrecord {
+  /**
+   * The ID of the created or updated record.
+   */
+  id?: string | undefined;
+  /**
+   * Whether the operation was successful.
+   */
+  success: boolean;
+  /**
+   * True if the record was created, false if updated.
+   */
+  created?: boolean | undefined;
+  /**
+   * Error details if the operation failed.
+   */
+  errors?: ({  statusCode: string;
+  fields?: string[] | undefined;
+  message: string;})[];
+};
+
+export interface ActionInput_salesforce_upsertsobjectcollection {
+  /**
+   * API version. Example: "v63.0"
+   */
+  version: string;
+  /**
+   * sObject type. Example: "Account"
+   */
+  sobject: string;
+  /**
+   * External ID field name. Example: "External_Id__c"
+   */
+  externalIdFieldName: string;
+  /**
+   * Array of records to upsert
+   */
+  records: ({})[];
+  /**
+   * Whether to treat all records as a single transaction
+   */
+  allOrNone?: boolean | undefined;
+};
+
+export interface ActionOutput_salesforce_upsertsobjectcollection {
+  /**
+   * Results for each record in the request
+   */
+  results: ({  /**
+   * Record ID
+   */
+  id?: string | undefined;
+  /**
+   * Whether the operation succeeded
+   */
+  success: boolean;
+  /**
+   * Whether a new record was created
+   */
+  created?: boolean | undefined;
+  /**
+   * Error details if operation failed
+   */
+  errors?: ({})[] | undefined;})[];
 };
 
 export interface SyncMetadata_sap_success_factors_employees {

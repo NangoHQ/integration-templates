@@ -1,0 +1,289 @@
+{
+  "nango": {
+    "batchSave": {
+      "User": [
+        {
+          "id": "005dM00000aYaE4QAK",
+          "username": "autoproc@00ddm00000vfgtuuai",
+          "email": "noreply@00ddm00000vfgtuuai",
+          "first_name": "Automated",
+          "last_name": "Process",
+          "is_active": true,
+          "profile_id": "00edM00000Qj7rDQAR",
+          "system_modstamp": "2026-05-01T07:35:37.000+0000"
+        },
+        {
+          "id": "005dM00000aYaE6QAK",
+          "username": "cloud@00ddm00000vfgtuuai",
+          "email": "noreply@00ddm00000vfgtuuai",
+          "last_name": "Platform Integration User",
+          "is_active": true,
+          "profile_id": "00edM00000Qj7rFQAR",
+          "system_modstamp": "2026-05-01T07:35:37.000+0000"
+        },
+        {
+          "id": "005dM00000aYaE7QAK",
+          "username": "automatedclean@00ddm00000vfgtuuai",
+          "email": "noreply@00ddm00000vfgtuuai",
+          "last_name": "Data.com Clean",
+          "is_active": true,
+          "profile_id": "00edM00000Qj7rDQAR",
+          "system_modstamp": "2026-05-01T07:35:37.000+0000"
+        },
+        {
+          "id": "005dM00000aYf0qQAC",
+          "username": "epic.e4b25881caf2@orgfarm.salesforce.com",
+          "email": "epic.orgfarm@salesforce.com",
+          "first_name": "OrgFarm",
+          "last_name": "EPIC",
+          "is_active": true,
+          "profile_id": "00edM00000Qj7rBQAR",
+          "profile_name": "System Administrator",
+          "system_modstamp": "2026-05-01T21:13:13.000+0000"
+        },
+        {
+          "id": "005dM00000aYaE3QAK",
+          "username": "integration@00ddm00000vfgtuuai.com",
+          "email": "noreply@example.com",
+          "first_name": "Integration",
+          "last_name": "User",
+          "is_active": true,
+          "profile_id": "00edM00000Qj7rCQAR",
+          "profile_name": "Analytics Cloud Integration User",
+          "system_modstamp": "2026-05-01T21:13:13.000+0000"
+        },
+        {
+          "id": "005dM00000aYaE8QAK",
+          "username": "chatty.00ddm00000vfgtuuai.mjifjaax38ab@chatter.salesforce.com",
+          "email": "noreply@example.com",
+          "last_name": "Chatter Expert",
+          "is_active": true,
+          "profile_id": "00edM00000Qj7rGQAR",
+          "profile_name": "Chatter Free User",
+          "system_modstamp": "2026-05-01T21:13:13.000+0000"
+        },
+        {
+          "id": "005dM00000aYaE9QAK",
+          "username": "insightssecurity@00ddm00000vfgtuuai.com",
+          "email": "noreply@example.com",
+          "first_name": "Security",
+          "last_name": "User",
+          "is_active": true,
+          "profile_id": "00edM00000Qj7rHQAR",
+          "profile_name": "Analytics Cloud Security User",
+          "system_modstamp": "2026-05-01T21:13:13.000+0000"
+        },
+        {
+          "id": "005dM00000awSFJQA2",
+          "username": "api.bf5463dc8155@agentforce.com",
+          "email": "api@nango.dev",
+          "first_name": "Nango",
+          "last_name": "API",
+          "is_active": true,
+          "profile_id": "00edM00000Qj7rBQAR",
+          "profile_name": "System Administrator",
+          "system_modstamp": "2026-05-06T09:49:19.000+0000"
+        }
+      ]
+    },
+    "batchDelete": {
+      "User": []
+    }
+  },
+  "api": {
+    "get": {
+      "/services/data/v59.0/query": {
+        "response": {
+          "totalSize": 8,
+          "done": true,
+          "records": [
+            {
+              "attributes": {
+                "type": "User",
+                "url": "/services/data/v59.0/sobjects/User/005dM00000aYaE4QAK"
+              },
+              "Id": "005dM00000aYaE4QAK",
+              "Username": "autoproc@00ddm00000vfgtuuai",
+              "Email": "noreply@00ddm00000vfgtuuai",
+              "FirstName": "Automated",
+              "LastName": "Process",
+              "IsActive": true,
+              "ProfileId": "00edM00000Qj7rDQAR",
+              "Profile": null,
+              "SystemModstamp": "2026-05-01T07:35:37.000+0000"
+            },
+            {
+              "attributes": {
+                "type": "User",
+                "url": "/services/data/v59.0/sobjects/User/005dM00000aYaE6QAK"
+              },
+              "Id": "005dM00000aYaE6QAK",
+              "Username": "cloud@00ddm00000vfgtuuai",
+              "Email": "noreply@00ddm00000vfgtuuai",
+              "FirstName": null,
+              "LastName": "Platform Integration User",
+              "IsActive": true,
+              "ProfileId": "00edM00000Qj7rFQAR",
+              "Profile": null,
+              "SystemModstamp": "2026-05-01T07:35:37.000+0000"
+            },
+            {
+              "attributes": {
+                "type": "User",
+                "url": "/services/data/v59.0/sobjects/User/005dM00000aYaE7QAK"
+              },
+              "Id": "005dM00000aYaE7QAK",
+              "Username": "automatedclean@00ddm00000vfgtuuai",
+              "Email": "noreply@00ddm00000vfgtuuai",
+              "FirstName": null,
+              "LastName": "Data.com Clean",
+              "IsActive": true,
+              "ProfileId": "00edM00000Qj7rDQAR",
+              "Profile": null,
+              "SystemModstamp": "2026-05-01T07:35:37.000+0000"
+            },
+            {
+              "attributes": {
+                "type": "User",
+                "url": "/services/data/v59.0/sobjects/User/005dM00000aYf0qQAC"
+              },
+              "Id": "005dM00000aYf0qQAC",
+              "Username": "epic.e4b25881caf2@orgfarm.salesforce.com",
+              "Email": "epic.orgfarm@salesforce.com",
+              "FirstName": "OrgFarm",
+              "LastName": "EPIC",
+              "IsActive": true,
+              "ProfileId": "00edM00000Qj7rBQAR",
+              "Profile": {
+                "attributes": {
+                  "type": "Profile",
+                  "url": "/services/data/v59.0/sobjects/Profile/00edM00000Qj7rBQAR"
+                },
+                "Name": "System Administrator"
+              },
+              "SystemModstamp": "2026-05-01T21:13:13.000+0000"
+            },
+            {
+              "attributes": {
+                "type": "User",
+                "url": "/services/data/v59.0/sobjects/User/005dM00000aYaE3QAK"
+              },
+              "Id": "005dM00000aYaE3QAK",
+              "Username": "integration@00ddm00000vfgtuuai.com",
+              "Email": "noreply@example.com",
+              "FirstName": "Integration",
+              "LastName": "User",
+              "IsActive": true,
+              "ProfileId": "00edM00000Qj7rCQAR",
+              "Profile": {
+                "attributes": {
+                  "type": "Profile",
+                  "url": "/services/data/v59.0/sobjects/Profile/00edM00000Qj7rCQAR"
+                },
+                "Name": "Analytics Cloud Integration User"
+              },
+              "SystemModstamp": "2026-05-01T21:13:13.000+0000"
+            },
+            {
+              "attributes": {
+                "type": "User",
+                "url": "/services/data/v59.0/sobjects/User/005dM00000aYaE8QAK"
+              },
+              "Id": "005dM00000aYaE8QAK",
+              "Username": "chatty.00ddm00000vfgtuuai.mjifjaax38ab@chatter.salesforce.com",
+              "Email": "noreply@example.com",
+              "FirstName": null,
+              "LastName": "Chatter Expert",
+              "IsActive": true,
+              "ProfileId": "00edM00000Qj7rGQAR",
+              "Profile": {
+                "attributes": {
+                  "type": "Profile",
+                  "url": "/services/data/v59.0/sobjects/Profile/00edM00000Qj7rGQAR"
+                },
+                "Name": "Chatter Free User"
+              },
+              "SystemModstamp": "2026-05-01T21:13:13.000+0000"
+            },
+            {
+              "attributes": {
+                "type": "User",
+                "url": "/services/data/v59.0/sobjects/User/005dM00000aYaE9QAK"
+              },
+              "Id": "005dM00000aYaE9QAK",
+              "Username": "insightssecurity@00ddm00000vfgtuuai.com",
+              "Email": "noreply@example.com",
+              "FirstName": "Security",
+              "LastName": "User",
+              "IsActive": true,
+              "ProfileId": "00edM00000Qj7rHQAR",
+              "Profile": {
+                "attributes": {
+                  "type": "Profile",
+                  "url": "/services/data/v59.0/sobjects/Profile/00edM00000Qj7rHQAR"
+                },
+                "Name": "Analytics Cloud Security User"
+              },
+              "SystemModstamp": "2026-05-01T21:13:13.000+0000"
+            },
+            {
+              "attributes": {
+                "type": "User",
+                "url": "/services/data/v59.0/sobjects/User/005dM00000awSFJQA2"
+              },
+              "Id": "005dM00000awSFJQA2",
+              "Username": "api.bf5463dc8155@agentforce.com",
+              "Email": "api@nango.dev",
+              "FirstName": "Nango",
+              "LastName": "API",
+              "IsActive": true,
+              "ProfileId": "00edM00000Qj7rBQAR",
+              "Profile": {
+                "attributes": {
+                  "type": "Profile",
+                  "url": "/services/data/v59.0/sobjects/Profile/00edM00000Qj7rBQAR"
+                },
+                "Name": "System Administrator"
+              },
+              "SystemModstamp": "2026-05-06T09:49:19.000+0000"
+            }
+          ]
+        },
+        "status": 200,
+        "headers": {
+          "date": "Wed, 06 May 2026 12:09:54 GMT",
+          "content-type": "application/json;charset=UTF-8",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=63072000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4994",
+          "x-ratelimit-reset": "1778069449",
+          "x-robots-tag": "none",
+          "cache-control": "no-cache,must-revalidate,max-age=0,no-store,private",
+          "vary": "Accept-Encoding",
+          "sforce-limit-info": "api-usage=924/15000",
+          "set-cookie": "CookieConsentPolicy=0:1; path=/; expires=Thu, 06-May-2027 12:09:54 GMT; Max-Age=31536000; secure, LSKey-c$CookieConsentPolicy=0:1; path=/; expires=Thu, 06-May-2027 12:09:54 GMT; Max-Age=31536000; secure, BrowserId=fgQjN0lEEfGqTeUeYxcUtA; domain=.salesforce.com; path=/; expires=Thu, 06-May-2027 12:09:54 GMT; Max-Age=31536000; secure; SameSite=None",
+          "server": "sfdcedge",
+          "x-sfdc-request-id": "882cba1636c7a5e4adde752b8d4575e5",
+          "x-request-id": "882cba1636c7a5e4adde752b8d4575e5",
+          "x-sfdc-edge-cache": "none"
+        },
+        "hash": "9cb77797c8e6c8be97f8c43069431a31e569f649",
+        "request": {
+          "params": {
+            "q": "SELECT Id, Username, Email, FirstName, LastName, IsActive, ProfileId, Profile.Name, SystemModstamp FROM User ORDER BY SystemModstamp ASC"
+          }
+        }
+      }
+    }
+  }
+}
