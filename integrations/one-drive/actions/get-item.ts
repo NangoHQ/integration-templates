@@ -8,7 +8,7 @@ const ProviderDriveItemSchema = z.object({
     name: z.string().optional(),
     size: z.number().optional(),
     webUrl: z.string().optional(),
-    downloadUrl: z.string().optional(),
+    '@microsoft.graph.downloadUrl': z.string().optional(),
     createdDateTime: z.string().optional(),
     lastModifiedDateTime: z.string().optional(),
     description: z.string().optional().nullable(),
@@ -74,7 +74,7 @@ const action = createAction({
     },
     input: InputSchema,
     output: OutputSchema,
-    scopes: ['Files.Read', 'Files.Read.All'],
+    scopes: ['Files.Read', 'Files.Read.All', 'offline_access'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         // Validate that either itemId or path is provided, but not both
@@ -104,7 +104,13 @@ const action = createAction({
             if (path === '/') {
                 endpoint = '/v1.0/me/drive/root';
             } else {
-                endpoint = `/v1.0/me/drive/root:${encodeURIComponent(path)}`;
+                // Encode each segment individually to handle special characters while
+                // preserving the / separators required by Graph root: path addressing.
+                const encodedPath = path
+                    .split('/')
+                    .map((s) => encodeURIComponent(s))
+                    .join('/');
+                endpoint = `/v1.0/me/drive/root:${encodedPath}`;
             }
         }
 
@@ -130,7 +136,7 @@ const action = createAction({
             ...(item.name !== undefined && { name: item.name }),
             ...(item.size !== undefined && { size: item.size }),
             ...(item.webUrl !== undefined && { webUrl: item.webUrl }),
-            ...(item.downloadUrl !== undefined && { downloadUrl: item.downloadUrl }),
+            ...(item['@microsoft.graph.downloadUrl'] !== undefined && { downloadUrl: item['@microsoft.graph.downloadUrl'] }),
             ...(item.createdDateTime !== undefined && { createdDateTime: item.createdDateTime }),
             ...(item.lastModifiedDateTime !== undefined && { lastModifiedDateTime: item.lastModifiedDateTime }),
             ...(item.description !== undefined && item.description !== null && { description: item.description }),

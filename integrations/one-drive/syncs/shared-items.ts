@@ -42,7 +42,7 @@ const SharedItemSchema = z.object({
     lastModifiedDateTime: z.string().optional(),
     size: z.number().optional(),
     isFolder: z.boolean().optional(),
-    remoteItem: z.any().optional()
+    remoteItem: RemoteItemSchema.optional()
 });
 
 const CheckpointSchema = z.object({
@@ -74,6 +74,7 @@ const sync = createSync({
     models: {
         SharedItem: SharedItemSchema
     },
+    scopes: ['Files.Read', 'Files.Read.All', 'offline_access'],
 
     exec: async (nango) => {
         // /sharedWithMe is a snapshot inventory endpoint with no delta cursor,

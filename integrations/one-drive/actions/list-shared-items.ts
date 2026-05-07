@@ -2,12 +2,7 @@ import { z } from 'zod';
 import { createAction } from 'nango';
 
 const InputSchema = z.object({
-    cursor: z
-        .string()
-        .optional()
-        .describe(
-            'Pagination link from the previous response. Omit for the first page. Example: "https://graph.microsoft.com/v1.0/me/drive/sharedWithMe?$skiptoken=abc123"'
-        )
+    cursor: z.string().optional().describe('Pagination token from the previous response ($skiptoken value). Omit for the first page. Example: "abc123"')
 });
 
 const SharedByUserSchema = z.object({
@@ -97,7 +92,7 @@ const action = createAction({
     },
     input: InputSchema,
     output: OutputSchema,
-    scopes: ['Files.Read', 'Files.Read.All'],
+    scopes: ['Files.Read', 'Files.Read.All', 'offline_access'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const response = await nango.get({
@@ -137,11 +132,21 @@ const action = createAction({
             };
         });
 
+        // Extract $skiptoken from the nextLink URL so cursor input/output are consistent token values.
+        let nextCursor: string | undefined;
+        const nextLink = providerData['@odata.nextLink'];
+        if (nextLink) {
+            try {
+                const url = new URL(nextLink);
+                nextCursor = url.searchParams.get('$skiptoken') ?? undefined;
+            } catch {
+                nextCursor = nextLink;
+            }
+        }
+
         return {
             items,
-            ...(providerData['@odata.nextLink'] && {
-                nextCursor: providerData['@odata.nextLink']
-            })
+            ...(nextCursor !== undefined && { nextCursor })
         };
     }
 });

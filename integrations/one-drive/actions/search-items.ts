@@ -77,7 +77,7 @@ const action = createAction({
     },
     input: InputSchema,
     output: OutputSchema,
-    scopes: ['Files.Read', 'Files.Read.All'],
+    scopes: ['Files.Read', 'Files.Read.All', 'offline_access'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const response = await nango.get({

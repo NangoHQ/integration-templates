@@ -45,7 +45,7 @@ const action = createAction({
     },
     input: InputSchema,
     output: ListOutputSchema,
-    scopes: ['Files.Read'],
+    scopes: ['Files.Read', 'offline_access'],
 
     exec: async (nango, input): Promise<z.infer<typeof ListOutputSchema>> => {
         const itemId = input.itemId || 'root';

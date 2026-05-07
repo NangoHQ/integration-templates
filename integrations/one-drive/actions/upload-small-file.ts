@@ -15,7 +15,7 @@ const ProviderDriveItemSchema = z.object({
     webUrl: z.string().optional(),
     createdDateTime: z.string().optional(),
     lastModifiedDateTime: z.string().optional(),
-    downloadUrl: z.string().nullable().optional()
+    '@microsoft.graph.downloadUrl': z.string().nullable().optional()
 });
 
 const OutputSchema = z.object({
@@ -38,7 +38,7 @@ const action = createAction({
     },
     input: InputSchema,
     output: OutputSchema,
-    scopes: ['Files.ReadWrite'],
+    scopes: ['Files.ReadWrite', 'offline_access'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         // Decode base64 content to binary buffer
@@ -67,8 +67,8 @@ const action = createAction({
             ...(providerItem.lastModifiedDateTime !== undefined && {
                 last_modified_date_time: providerItem.lastModifiedDateTime
             }),
-            ...(providerItem.downloadUrl != null && {
-                download_url: providerItem.downloadUrl
+            ...(providerItem['@microsoft.graph.downloadUrl'] != null && {
+                download_url: providerItem['@microsoft.graph.downloadUrl']
             })
         };
     }

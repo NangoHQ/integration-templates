@@ -32,6 +32,7 @@ const sync = createSync({
     models: {
         RecentItem: RecentItemSchema
     },
+    scopes: ['Files.Read', 'offline_access'],
 
     exec: async (nango) => {
         // Full refresh: start tracking deletes before fetching data

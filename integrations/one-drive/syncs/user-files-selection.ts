@@ -74,6 +74,7 @@ const sync = createSync({
         SelectedUserFile: UserFileSchema
     },
     endpoints: [{ method: 'POST', path: '/syncs/user-files-selection' }],
+    scopes: ['Files.Read', 'offline_access'],
 
     exec: async (nango) => {
         // Get metadata with drives and picked files
@@ -105,6 +106,7 @@ const sync = createSync({
 
         // Track deletes to remove files that are no longer selected
         await nango.trackDeletesStart('SelectedUserFile');
+        let fetchErrorCount = 0;
 
         const files: Array<{
             id: string;
@@ -194,10 +196,17 @@ const sync = createSync({
                 files.push(fileRecord);
                 await nango.log(`Processed file: ${fileRecord.name ?? fileRecord.id}`);
             } catch (error) {
+                fetchErrorCount++;
                 await nango.log(
                     `Warning: Failed to fetch file ${pickedFile.id} from drive ${pickedFile.driveId}: ${error instanceof Error ? error.message : String(error)}`
                 );
             }
+        }
+
+        // Guard: if every file fetch failed, abort rather than calling trackDeletesEnd with
+        // no saves, which would mass-delete all previously synced records.
+        if (fetchErrorCount === metadata.pickedFiles.length) {
+            throw new Error('All file fetches failed; aborting sync to prevent accidental data loss from delete tracking');
         }
 
         // Save all files

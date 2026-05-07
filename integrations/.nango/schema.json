@@ -82940,7 +82940,53 @@
         "isFolder": {
           "type": "boolean"
         },
-        "remoteItem": {}
+        "remoteItem": {
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "string"
+            },
+            "driveId": {
+              "type": "string"
+            },
+            "name": {
+              "type": "string"
+            },
+            "webUrl": {
+              "type": "string"
+            },
+            "createdDateTime": {
+              "type": "string"
+            },
+            "lastModifiedDateTime": {
+              "type": "string"
+            },
+            "size": {
+              "type": "number"
+            },
+            "file": {
+              "type": "object",
+              "additionalProperties": false
+            },
+            "folder": {
+              "type": "object",
+              "additionalProperties": false
+            },
+            "parentReference": {
+              "type": "object",
+              "additionalProperties": false
+            },
+            "shared": {
+              "type": "object",
+              "additionalProperties": false
+            }
+          },
+          "required": [
+            "id",
+            "driveId"
+          ],
+          "additionalProperties": false
+        }
       },
       "required": [
         "id"
@@ -84157,7 +84203,7 @@
       "properties": {
         "cursor": {
           "type": "string",
-          "description": "Pagination link from the previous response. Omit for the first page. Example: \"https://graph.microsoft.com/v1.0/me/drive/sharedWithMe?$skiptoken=abc123\""
+          "description": "Pagination token from the previous response ($skiptoken value). Omit for the first page. Example: \"abc123\""
         }
       },
       "additionalProperties": false

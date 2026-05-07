@@ -104,7 +104,7 @@ const action = createAction({
     },
     input: InputSchema,
     output: OutputSchema,
-    scopes: ['Files.Read', 'Files.ReadWrite'],
+    scopes: ['Files.Read', 'Files.ReadWrite', 'offline_access'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         // https://learn.microsoft.com/graph/api/permission-get

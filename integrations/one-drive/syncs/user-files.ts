@@ -80,6 +80,7 @@ const sync = createSync({
             path: '/syncs/user-files'
         }
     ],
+    scopes: ['Files.Read', 'Files.Read.All', 'offline_access'],
     checkpoint: CheckpointSchema,
     models: {
         UserFile: UserFileSchema

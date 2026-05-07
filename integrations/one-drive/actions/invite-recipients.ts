@@ -27,7 +27,7 @@ const InputSchema = z.object({
 
 const IdentitySchema = z.object({
     displayName: z.string().optional(),
-    id: z.string().uuid().optional()
+    id: z.string().optional()
 });
 
 const GrantedToV2Schema = z.object({
@@ -59,7 +59,7 @@ const ErrorDetailSchema = z.object({
 });
 
 const PermissionSchema = z.object({
-    id: z.string().uuid().optional(),
+    id: z.string().optional(),
     grantedToV2: GrantedToV2Schema.optional(),
     grantedTo: z
         .object({
@@ -78,7 +78,7 @@ const ProviderResponseSchema = z.object({
 });
 
 const RecipientResultSchema = z.object({
-    id: z.string().uuid().optional(),
+    id: z.string().optional(),
     grantedToUserId: z.string().uuid().optional(),
     grantedToUserDisplayName: z.string().optional(),
     invitationEmail: z.string().optional(),
@@ -105,7 +105,7 @@ const action = createAction({
     },
     input: InputSchema,
     output: OutputSchema,
-    scopes: ['Files.ReadWrite'],
+    scopes: ['Files.ReadWrite', 'offline_access'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const requestBody: Record<string, unknown> = {

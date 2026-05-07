@@ -62,6 +62,7 @@ const sync = createSync({
     models: {
         DriveItem: DriveItemSchema
     },
+    scopes: ['Files.Read', 'Files.Read.All', 'offline_access'],
 
     exec: async (nango) => {
         const checkpoint = await nango.getCheckpoint();

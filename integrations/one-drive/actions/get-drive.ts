@@ -65,7 +65,7 @@ const action = createAction({
     },
     input: InputSchema,
     output: OutputSchema,
-    scopes: ['openid', 'profile', 'Files.Read'],
+    scopes: ['openid', 'profile', 'Files.Read', 'offline_access'],
 
     exec: async (nango, _input): Promise<z.infer<typeof OutputSchema>> => {
         // https://learn.microsoft.com/graph/api/resources/onedrive

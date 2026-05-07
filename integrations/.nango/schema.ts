@@ -25640,7 +25640,17 @@ export interface SharedItem {
   lastModifiedDateTime?: string | undefined;
   size?: number | undefined;
   isFolder?: boolean | undefined;
-  remoteItem?: any | undefined;
+  remoteItem?: {  id: string;
+  driveId: string;
+  name?: string | undefined;
+  webUrl?: string | undefined;
+  createdDateTime?: string | undefined;
+  lastModifiedDateTime?: string | undefined;
+  size?: number | undefined;
+  file?: {} | undefined;
+  folder?: {} | undefined;
+  parentReference?: {} | undefined;
+  shared?: {} | undefined;};
 };
 
 export type SyncMetadata_one_drive_shareditems = void
@@ -26100,7 +26110,7 @@ export interface ActionOutput_one_drive_listrecentitems {
 
 export interface ActionInput_one_drive_listshareditems {
   /**
-   * Pagination link from the previous response. Omit for the first page. Example: "https://graph.microsoft.com/v1.0/me/drive/sharedWithMe?$skiptoken=abc123"
+   * Pagination token from the previous response ($skiptoken value). Omit for the first page. Example: "abc123"
    */
   cursor?: string | undefined;
 };

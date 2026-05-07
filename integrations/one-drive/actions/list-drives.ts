@@ -54,7 +54,7 @@ const action = createAction({
     },
     input: InputSchema,
     output: OutputSchema,
-    scopes: ['Files.Read', 'Files.Read.All'],
+    scopes: ['Files.Read', 'Files.Read.All', 'offline_access'],
 
     exec: async (nango, _input): Promise<z.infer<typeof OutputSchema>> => {
         // https://learn.microsoft.com/graph/api/drive-list

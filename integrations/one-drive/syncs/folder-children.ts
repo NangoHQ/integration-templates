@@ -10,7 +10,7 @@ const DriveItemSchema = z.object({
     name: z.string(),
     size: z.number().optional(),
     webUrl: z.string().optional(),
-    downloadUrl: z.string().optional(),
+    '@microsoft.graph.downloadUrl': z.string().optional(),
     createdDateTime: z.string(),
     lastModifiedDateTime: z.string(),
     parentReference: z
@@ -85,6 +85,7 @@ const sync = createSync({
     models: {
         FolderChild: FolderChildSchema
     },
+    scopes: ['Files.Read', 'offline_access'],
 
     exec: async (nango) => {
         const metadata = await nango.getMetadata();
@@ -124,95 +125,98 @@ const sync = createSync({
             await nango.trackDeletesStart('FolderChild');
         }
 
-        for (let i = typedCheckpoint.folderIndex; i < folderIds.length; i++) {
-            const folderId = folderIds[i];
-            if (!folderId) {
-                if (i < folderIds.length - 1) {
+        try {
+            for (let i = typedCheckpoint.folderIndex; i < folderIds.length; i++) {
+                const folderId = folderIds[i];
+                if (!folderId) {
+                    if (i < folderIds.length - 1) {
+                        await nango.saveCheckpoint({
+                            folderIndex: i + 1,
+                            nextEndpoint: ''
+                        });
+                    }
+                    continue;
+                }
+
+                const baseEndpoint = `/v1.0/me/drive/items/${encodeURIComponent(folderId)}/children`;
+                const initialEndpoint = i === typedCheckpoint.folderIndex && typedCheckpoint.nextEndpoint ? typedCheckpoint.nextEndpoint : baseEndpoint;
+                let nextEndpoint = '';
+                let sawPage = false;
+
+                const proxyConfig: ProxyConfiguration = {
+                    // https://learn.microsoft.com/graph/api/driveitem-list-children
+                    endpoint: initialEndpoint,
+                    ...(initialEndpoint === baseEndpoint ? { params: { $top: 100 } } : {}),
+                    retries: 3,
+                    paginate: {
+                        type: 'link',
+                        response_path: 'value',
+                        link_path_in_response_body: '@odata.nextLink',
+                        on_page: async ({ response }) => {
+                            const rawNextLink = response.data?.['@odata.nextLink'];
+                            nextEndpoint = normalizeGraphEndpoint(typeof rawNextLink === 'string' ? rawNextLink : undefined);
+                        }
+                    }
+                };
+
+                for await (const page of nango.paginate(proxyConfig)) {
+                    sawPage = true;
+                    const records: FolderChild[] = [];
+
+                    for (const rawItem of page) {
+                        const parseResult = DriveItemSchema.safeParse(rawItem);
+                        if (!parseResult.success) {
+                            throw new Error(`Failed to parse drive item: ${JSON.stringify(parseResult.error)}`);
+                        }
+
+                        const item = parseResult.data;
+                        const mapped: FolderChild = {
+                            id: item.id,
+                            folderId: folderId,
+                            name: item.name,
+                            size: item.size,
+                            webUrl: item.webUrl,
+                            downloadUrl: item['@microsoft.graph.downloadUrl'],
+                            createdDateTime: item.createdDateTime,
+                            lastModifiedDateTime: item.lastModifiedDateTime,
+                            driveId: item.parentReference?.driveId,
+                            parentPath: item.parentReference?.path,
+                            isFolder: item.folder !== undefined,
+                            mimeType: item.file?.mimeType
+                        };
+
+                        records.push(mapped);
+                    }
+
+                    if (records.length > 0) {
+                        await nango.batchSave(records, 'FolderChild');
+                    }
+
+                    if (nextEndpoint) {
+                        await nango.saveCheckpoint({
+                            folderIndex: i,
+                            nextEndpoint
+                        });
+                    } else if (i < folderIds.length - 1) {
+                        await nango.saveCheckpoint({
+                            folderIndex: i + 1,
+                            nextEndpoint: ''
+                        });
+                    }
+                }
+
+                if (!sawPage && i < folderIds.length - 1) {
                     await nango.saveCheckpoint({
                         folderIndex: i + 1,
                         nextEndpoint: ''
                     });
                 }
-                continue;
             }
 
-            const baseEndpoint = `/v1.0/me/drive/items/${encodeURIComponent(folderId)}/children`;
-            const initialEndpoint = i === typedCheckpoint.folderIndex && typedCheckpoint.nextEndpoint ? typedCheckpoint.nextEndpoint : baseEndpoint;
-            let nextEndpoint = '';
-            let sawPage = false;
-
-            const proxyConfig: ProxyConfiguration = {
-                // https://learn.microsoft.com/graph/api/driveitem-list-children
-                endpoint: initialEndpoint,
-                ...(initialEndpoint === baseEndpoint ? { params: { $top: 100 } } : {}),
-                retries: 3,
-                paginate: {
-                    type: 'link',
-                    response_path: 'value',
-                    link_path_in_response_body: '@odata.nextLink',
-                    on_page: async ({ response }) => {
-                        const rawNextLink = response.data?.['@odata.nextLink'];
-                        nextEndpoint = normalizeGraphEndpoint(typeof rawNextLink === 'string' ? rawNextLink : undefined);
-                    }
-                }
-            };
-
-            for await (const page of nango.paginate(proxyConfig)) {
-                sawPage = true;
-                const records: FolderChild[] = [];
-
-                for (const rawItem of page) {
-                    const parseResult = DriveItemSchema.safeParse(rawItem);
-                    if (!parseResult.success) {
-                        throw new Error(`Failed to parse drive item: ${JSON.stringify(parseResult.error)}`);
-                    }
-
-                    const item = parseResult.data;
-                    const mapped: FolderChild = {
-                        id: item.id,
-                        folderId: folderId,
-                        name: item.name,
-                        size: item.size,
-                        webUrl: item.webUrl,
-                        downloadUrl: item.downloadUrl,
-                        createdDateTime: item.createdDateTime,
-                        lastModifiedDateTime: item.lastModifiedDateTime,
-                        driveId: item.parentReference?.driveId,
-                        parentPath: item.parentReference?.path,
-                        isFolder: item.folder !== undefined,
-                        mimeType: item.file?.mimeType
-                    };
-
-                    records.push(mapped);
-                }
-
-                if (records.length > 0) {
-                    await nango.batchSave(records, 'FolderChild');
-                }
-
-                if (nextEndpoint) {
-                    await nango.saveCheckpoint({
-                        folderIndex: i,
-                        nextEndpoint
-                    });
-                } else if (i < folderIds.length - 1) {
-                    await nango.saveCheckpoint({
-                        folderIndex: i + 1,
-                        nextEndpoint: ''
-                    });
-                }
-            }
-
-            if (!sawPage && i < folderIds.length - 1) {
-                await nango.saveCheckpoint({
-                    folderIndex: i + 1,
-                    nextEndpoint: ''
-                });
-            }
+            await nango.clearCheckpoint();
+        } finally {
+            await nango.trackDeletesEnd('FolderChild');
         }
-
-        await nango.clearCheckpoint();
-        await nango.trackDeletesEnd('FolderChild');
     }
 });
 
