@@ -4391,26 +4391,20 @@
         "name": {
           "type": "string"
         },
-        "color": {
-          "type": "string"
-        },
-        "notes": {
+        "type": {
           "type": "string"
         },
         "created_at": {
-          "type": "string"
+          "type": "number"
         },
-        "workspace_gid": {
-          "type": "string"
-        },
-        "permalink_url": {
-          "type": "string"
+        "updated_at": {
+          "type": "number"
         }
       },
       "required": [
         "id",
         "name",
-        "workspace_gid"
+        "type"
       ],
       "additionalProperties": false
     },
@@ -57288,34 +57282,34 @@
         "name": {
           "type": "string"
         },
-        "domain": {
+        "company_id": {
           "type": "string"
         },
-        "industry": {
+        "created_at": {
+          "type": "number"
+        },
+        "updated_at": {
+          "type": "number"
+        },
+        "session_count": {
+          "type": "number"
+        },
+        "monthly_spend": {
+          "type": "number"
+        },
+        "user_count": {
+          "type": "number"
+        },
+        "plan": {
           "type": "string"
         },
-        "city": {
-          "type": "string"
-        },
-        "state": {
-          "type": "string"
-        },
-        "country": {
-          "type": "string"
-        },
-        "phone": {
-          "type": "string"
+        "size": {
+          "type": "number"
         },
         "website": {
           "type": "string"
         },
-        "description": {
-          "type": "string"
-        },
-        "createdAt": {
-          "type": "string"
-        },
-        "updatedAt": {
+        "industry": {
           "type": "string"
         }
       },
@@ -60771,15 +60765,64 @@
       ],
       "additionalProperties": false
     },
-    "SyncMetadata_intercom_articles": {
+    "Admin": {
       "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "type": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "email": {
+          "type": "string"
+        },
+        "job_title": {
+          "type": "string"
+        },
+        "away_mode_enabled": {
+          "type": "boolean"
+        },
+        "away_mode_reassign": {
+          "type": "boolean"
+        },
+        "away_status_reason_id": {
+          "type": "number"
+        },
+        "has_inbox_seat": {
+          "type": "boolean"
+        },
+        "team_ids": {
+          "type": "array",
+          "items": {
+            "type": "number"
+          }
+        },
+        "avatar": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "object",
+              "additionalProperties": false
+            }
+          ]
+        },
+        "team_priority_level": {
+          "type": "object",
+          "additionalProperties": false
+        }
+      },
+      "required": [
+        "id"
+      ],
       "additionalProperties": false
     },
-    "SyncMetadata_intercom_contacts": {
-      "type": "object",
-      "additionalProperties": false
-    },
-    "ConversationMessage": {
+    "ConversationPart": {
       "type": "object",
       "properties": {
         "id": {
@@ -60788,95 +60831,432 @@
         "conversation_id": {
           "type": "string"
         },
+        "part_type": {
+          "type": "string"
+        },
         "body": {
+          "type": "string"
+        },
+        "created_at": {
+          "type": "number"
+        },
+        "updated_at": {
+          "type": "number"
+        },
+        "author": {
+          "type": "object",
+          "additionalProperties": false
+        }
+      },
+      "required": [
+        "id",
+        "conversation_id"
+      ],
+      "additionalProperties": false
+    },
+    "Collection": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        },
+        "url": {
+          "type": "string"
+        },
+        "created_at": {
+          "type": "number"
+        },
+        "updated_at": {
+          "type": "number"
+        },
+        "workspace_id": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "id"
+      ],
+      "additionalProperties": false
+    },
+    "Segment": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "name": {
           "type": "string"
         },
         "type": {
           "type": "string"
         },
         "created_at": {
-          "type": "string"
+          "type": "number"
         },
         "updated_at": {
+          "type": "number"
+        },
+        "person_type": {
           "type": "string"
         },
-        "author": {
-          "type": "object",
-          "properties": {
-            "type": {
-              "type": "string"
-            },
-            "name": {
-              "type": "string"
-            },
-            "id": {
-              "type": "string"
-            }
-          },
-          "required": [
-            "type",
-            "name",
-            "id"
-          ],
-          "additionalProperties": false
+        "count": {
+          "type": "number"
         }
       },
       "required": [
         "id",
-        "conversation_id",
-        "body",
-        "type",
-        "created_at",
-        "updated_at",
-        "author"
+        "name"
       ],
       "additionalProperties": false
     },
-    "SyncMetadata_intercom_conversations": {
+    "ActionInput_intercom_attachcontacttocompany": {
       "type": "object",
+      "properties": {
+        "contact_id": {
+          "type": "string",
+          "description": "The unique identifier for the contact. Example: \"5f3e2e3c5f3e2e3c5f3e2e3c\""
+        },
+        "company_id": {
+          "type": "string",
+          "description": "The unique identifier for the company. Example: \"5f3e2e3c5f3e2e3c5f3e2e3d\""
+        }
+      },
+      "required": [
+        "contact_id",
+        "company_id"
+      ],
       "additionalProperties": false
     },
-    "SyncMetadata_intercom_users": {
+    "ActionOutput_intercom_attachcontacttocompany": {
       "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "The unique identifier for the company that was attached."
+        }
+      },
+      "required": [
+        "id"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_intercom_closeconversation": {
+      "type": "object",
+      "properties": {
+        "conversation_id": {
+          "type": "string",
+          "description": "The unique identifier for the conversation to close. Example: \"123\""
+        },
+        "admin_id": {
+          "type": "string",
+          "description": "The ID of the admin who is closing the conversation. Example: \"456\""
+        }
+      },
+      "required": [
+        "conversation_id",
+        "admin_id"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_intercom_closeconversation": {
+      "type": "object",
+      "properties": {
+        "success": {
+          "type": "boolean",
+          "description": "Whether the conversation was successfully closed"
+        },
+        "conversation_id": {
+          "type": "string",
+          "description": "The ID of the closed conversation"
+        }
+      },
+      "required": [
+        "success",
+        "conversation_id"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_intercom_createarticle": {
+      "type": "object",
+      "properties": {
+        "title": {
+          "type": "string",
+          "description": "The title of the article. Example: \"Thanks for everything\""
+        },
+        "body": {
+          "type": "string",
+          "description": "The content of the article in HTML. Example: \"<p>This is the body in html</p>\""
+        },
+        "author_id": {
+          "type": "number",
+          "description": "The id of the author of the article. Must be a teammate on the help center's workspace. Example: 1295"
+        },
+        "state": {
+          "type": "string",
+          "enum": [
+            "draft",
+            "published"
+          ],
+          "description": "Whether the article will be published or will be a draft. Defaults to draft."
+        },
+        "description": {
+          "type": "string",
+          "description": "The description of the article. Example: \"Description of the Article\""
+        },
+        "parent_id": {
+          "type": "number",
+          "description": "The id of the article's parent collection or section. An article without this field stands alone. Example: 18"
+        },
+        "parent_type": {
+          "type": "string",
+          "enum": [
+            "collection",
+            "section"
+          ],
+          "description": "The type of parent, which can either be a collection or section. Example: \"collection\""
+        }
+      },
+      "required": [
+        "title",
+        "body",
+        "author_id",
+        "state"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_intercom_createarticle": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "The unique identifier for the article which is given by Intercom."
+        },
+        "workspace_id": {
+          "type": "string",
+          "description": "The id of the workspace which the article belongs to."
+        },
+        "title": {
+          "type": "string",
+          "description": "The title of the article."
+        },
+        "description": {
+          "type": "string",
+          "description": "The description of the article."
+        },
+        "body": {
+          "type": "string",
+          "description": "The body of the article in HTML."
+        },
+        "author_id": {
+          "type": "number",
+          "description": "The id of the author of the article."
+        },
+        "state": {
+          "type": "string",
+          "enum": [
+            "draft",
+            "published"
+          ],
+          "description": "Whether the article is published or is a draft."
+        },
+        "created_at": {
+          "type": "number",
+          "description": "The time when the article was created (Unix timestamp in seconds)."
+        },
+        "updated_at": {
+          "type": "number",
+          "description": "The time when the article was last updated (Unix timestamp in seconds)."
+        },
+        "url": {
+          "type": "string",
+          "description": "The URL of the article."
+        },
+        "parent_id": {
+          "type": "number",
+          "description": "The id of the article's parent collection or section."
+        },
+        "parent_type": {
+          "type": "string",
+          "description": "The type of parent, which can either be a collection or section."
+        }
+      },
+      "required": [
+        "id",
+        "workspace_id",
+        "title",
+        "author_id",
+        "state",
+        "created_at",
+        "updated_at"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_intercom_createcompany": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string",
+          "description": "The name of the Company. Example: \"Intercom\""
+        },
+        "company_id": {
+          "type": "string",
+          "description": "The company id you have defined for the company. Example: \"625e90fc55ab113b6d92175f\""
+        },
+        "plan": {
+          "type": "string",
+          "description": "The name of the plan you have associated with the company. Example: \"Enterprise\""
+        },
+        "size": {
+          "type": "number",
+          "description": "The number of employees in this company. Example: 100"
+        },
+        "website": {
+          "type": "string",
+          "description": "The URL for this company's website. Example: \"https://www.example.com\""
+        },
+        "industry": {
+          "type": "string",
+          "description": "The industry that this company operates in. Example: \"Manufacturing\""
+        },
+        "custom_attributes": {
+          "type": "object",
+          "additionalProperties": {
+            "anyOf": [
+              {},
+              {
+                "not": {}
+              }
+            ]
+          }
+        },
+        "remote_created_at": {
+          "type": "number",
+          "description": "The time the company was created by you (Unix timestamp). Example: 1394531169"
+        },
+        "monthly_spend": {
+          "type": "number",
+          "description": "How much revenue the company generates for your business. Example: 1000"
+        }
+      },
+      "required": [
+        "name",
+        "company_id"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_intercom_createcompany": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "The Intercom defined id representing the company."
+        },
+        "company_id": {
+          "type": "string",
+          "description": "The company id you have defined for the company."
+        },
+        "name": {
+          "type": "string",
+          "description": "The name of the company."
+        },
+        "plan": {
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "string"
+            },
+            "name": {
+              "type": "string"
+            }
+          },
+          "additionalProperties": false,
+          "description": "The plan associated with the company."
+        },
+        "website": {
+          "type": "string",
+          "description": "The URL for the company website."
+        },
+        "industry": {
+          "type": "string",
+          "description": "The industry that the company operates in."
+        },
+        "size": {
+          "type": "number",
+          "description": "The number of employees in the company."
+        },
+        "monthly_spend": {
+          "type": "number",
+          "description": "How much revenue the company generates for your business."
+        },
+        "custom_attributes": {
+          "type": "object",
+          "additionalProperties": {
+            "anyOf": [
+              {},
+              {
+                "not": {}
+              }
+            ]
+          }
+        },
+        "created_at": {
+          "type": "number",
+          "description": "The time the company was added in Intercom (Unix timestamp)."
+        },
+        "updated_at": {
+          "type": "number",
+          "description": "The last time the company was updated (Unix timestamp)."
+        }
+      },
+      "required": [
+        "id",
+        "company_id",
+        "name",
+        "created_at",
+        "updated_at"
+      ],
       "additionalProperties": false
     },
     "ActionInput_intercom_createcontact": {
       "type": "object",
       "properties": {
-        "firstName": {
-          "type": "string"
-        },
-        "lastName": {
-          "type": "string"
+        "role": {
+          "type": "string",
+          "enum": [
+            "user",
+            "lead"
+          ],
+          "description": "The role of the contact. \"user\" for identified contacts (with email or user_id), \"lead\" for anonymous contacts."
         },
         "email": {
-          "type": "string"
+          "type": "string",
+          "description": "Email address of the contact. Required for users, optional for leads."
         },
-        "external_id": {
-          "type": "string"
+        "name": {
+          "type": "string",
+          "description": "Full name of the contact."
         },
-        "phone": {
-          "type": "string"
-        },
-        "avatar": {
-          "type": "string"
-        },
-        "signed_up_at": {
-          "type": "number"
-        },
-        "last_seen_at": {
-          "type": "number"
-        },
-        "owner_id": {
-          "type": "string"
-        },
-        "unsubscribed_from_emails": {
-          "type": "boolean"
+        "custom_attributes": {
+          "type": "object",
+          "additionalProperties": {
+            "anyOf": [
+              {},
+              {
+                "not": {}
+              }
+            ]
+          },
+          "description": "Custom attributes as key-value pairs."
         }
       },
       "required": [
-        "firstName",
-        "lastName",
+        "role",
         "email"
       ],
       "additionalProperties": false
@@ -60887,64 +61267,269 @@
         "id": {
           "type": "string"
         },
-        "workspace_id": {
-          "type": "string"
-        },
-        "external_id": {
-          "type": [
-            "string",
-            "null"
+        "role": {
+          "type": "string",
+          "enum": [
+            "user",
+            "lead"
           ]
-        },
-        "type": {
-          "type": "string"
         },
         "email": {
           "type": "string"
         },
-        "phone": {
-          "type": [
-            "string",
-            "null"
-          ]
-        },
         "name": {
-          "type": [
-            "string",
-            "null"
-          ]
+          "type": "string"
+        },
+        "external_id": {
+          "type": "string"
+        },
+        "user_id": {
+          "type": "string"
+        },
+        "phone": {
+          "type": "string"
+        },
+        "avatar": {
+          "type": "string"
         },
         "created_at": {
-          "type": "string"
+          "type": "number"
         },
         "updated_at": {
-          "type": "string"
-        },
-        "last_seen_at": {
-          "type": [
-            "string",
-            "null"
-          ]
-        },
-        "last_replied_at": {
-          "type": [
-            "string",
-            "null"
-          ]
+          "type": "number"
         }
       },
       "required": [
         "id",
-        "workspace_id",
-        "external_id",
-        "type",
-        "email",
-        "phone",
-        "name",
+        "role"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_intercom_createconversation": {
+      "type": "object",
+      "properties": {
+        "from": {
+          "type": "object",
+          "properties": {
+            "type": {
+              "type": "string",
+              "enum": [
+                "admin",
+                "contact",
+                "user"
+              ]
+            },
+            "id": {
+              "type": "string",
+              "description": "The ID of the admin, contact, or user"
+            }
+          },
+          "required": [
+            "type",
+            "id"
+          ],
+          "additionalProperties": false,
+          "description": "The admin or contact starting the conversation"
+        },
+        "body": {
+          "type": "string",
+          "description": "The message body"
+        },
+        "subject": {
+          "type": "string",
+          "description": "Subject line for email conversations (required when message type is email)"
+        }
+      },
+      "required": [
+        "from",
+        "body"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_intercom_createconversation": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "The message ID"
+        },
+        "conversation_id": {
+          "type": "string",
+          "description": "The conversation ID"
+        },
+        "created_at": {
+          "type": "number"
+        },
+        "body": {
+          "type": "string"
+        },
+        "message_type": {
+          "type": "string",
+          "enum": [
+            "email",
+            "inapp",
+            "facebook",
+            "twitter"
+          ]
+        },
+        "subject": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "id",
+        "conversation_id",
         "created_at",
-        "updated_at",
-        "last_seen_at",
-        "last_replied_at"
+        "body",
+        "message_type"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_intercom_createnote": {
+      "type": "object",
+      "properties": {
+        "contact_id": {
+          "type": "string",
+          "description": "The unique identifier of the contact to add the note to. Example: \"6762f0ad1bb69f9f2193bb62\""
+        },
+        "body": {
+          "type": "string",
+          "description": "The text content of the note. Example: \"This is an internal note about the contact\""
+        },
+        "admin_id": {
+          "type": "string",
+          "description": "The unique identifier of the admin creating the note. If omitted, the note is created by the authorized admin. Example: \"123\""
+        }
+      },
+      "required": [
+        "contact_id",
+        "body"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_intercom_createnote": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "type": {
+          "type": "string"
+        },
+        "created_at": {
+          "type": "number"
+        },
+        "body": {
+          "type": "string"
+        },
+        "contact_id": {
+          "type": "string"
+        },
+        "admin_id": {
+          "type": "string"
+        },
+        "admin_name": {
+          "type": "string"
+        },
+        "admin_email": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "id",
+        "type",
+        "created_at",
+        "body"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_intercom_createtag": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string",
+          "description": "The name of the tag to create. Example: \"Premium Customers\""
+        }
+      },
+      "required": [
+        "name"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_intercom_createtag": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "The unique identifier for the created tag"
+        },
+        "name": {
+          "type": "string",
+          "description": "The name of the created tag"
+        }
+      },
+      "required": [
+        "id",
+        "name"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_intercom_deletearticle": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "The unique identifier of the article to delete"
+        }
+      },
+      "required": [
+        "id"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_intercom_deletearticle": {
+      "type": "object",
+      "properties": {
+        "success": {
+          "type": "boolean",
+          "description": "Whether the deletion was successful"
+        },
+        "id": {
+          "type": "string",
+          "description": "The ID of the deleted article"
+        }
+      },
+      "required": [
+        "success",
+        "id"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_intercom_deletecompany": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "The unique identifier of the company. Example: \"5a250dd6\""
+        }
+      },
+      "required": [
+        "id"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_intercom_deletecompany": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "id"
       ],
       "additionalProperties": false
     },
@@ -60952,7 +61537,8 @@
       "type": "object",
       "properties": {
         "id": {
-          "type": "string"
+          "type": "string",
+          "description": "The unique identifier for the contact to delete. Example: \"5f3c8b3e8f0e3c0001a2b3c4\""
         }
       },
       "required": [
@@ -60965,6 +61551,9 @@
       "properties": {
         "success": {
           "type": "boolean"
+        },
+        "deleted_id": {
+          "type": "string"
         }
       },
       "required": [
@@ -60972,11 +61561,50 @@
       ],
       "additionalProperties": false
     },
-    "ActionInput_intercom_fetcharticle": {
+    "ActionInput_intercom_detachcontactfromcompany": {
+      "type": "object",
+      "properties": {
+        "contact_id": {
+          "type": "string",
+          "description": "The unique identifier for the contact. Example: \"63d2a3f8e8a1b2c3d4e5f6g7\""
+        },
+        "company_id": {
+          "type": "string",
+          "description": "The unique identifier for the company. Example: \"63d2a3f8e8a1b2c3d4e5f6h8\""
+        }
+      },
+      "required": [
+        "contact_id",
+        "company_id"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_intercom_detachcontactfromcompany": {
+      "type": "object",
+      "properties": {
+        "success": {
+          "type": "boolean"
+        },
+        "contact_id": {
+          "type": "string"
+        },
+        "company_id": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "success",
+        "contact_id",
+        "company_id"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_intercom_getadmin": {
       "type": "object",
       "properties": {
         "id": {
-          "type": "string"
+          "type": "string",
+          "description": "The unique identifier of the admin. Example: \"12345\""
         }
       },
       "required": [
@@ -60984,12 +61612,2425 @@
       ],
       "additionalProperties": false
     },
-    "ActionOutput_intercom_fetcharticle": {
+    "ActionOutput_intercom_getadmin": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "type": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "email": {
+          "type": "string"
+        },
+        "job_title": {
+          "type": "string"
+        },
+        "away_mode_enabled": {
+          "type": "boolean"
+        },
+        "away_mode_reassign": {
+          "type": "boolean"
+        },
+        "avatar": {
+          "type": "string"
+        },
+        "team_ids": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "admin_ids": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "team_only": {
+          "type": "boolean"
+        },
+        "has_inbox_seat": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "id",
+        "type"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_intercom_getarticle": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "The unique identifier of the article. Example: \"123456\""
+        }
+      },
+      "required": [
+        "id"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_intercom_getarticle": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "type": {
+          "type": "string"
+        },
+        "workspace_id": {
+          "type": "string"
+        },
+        "title": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        },
+        "body": {
+          "type": "string"
+        },
+        "author_id": {
+          "type": "number"
+        },
+        "state": {
+          "type": "string"
+        },
+        "created_at": {
+          "type": "number"
+        },
+        "updated_at": {
+          "type": "number"
+        },
+        "url": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "id",
+        "type",
+        "workspace_id",
+        "title",
+        "state",
+        "created_at",
+        "updated_at"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_intercom_getcompany": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "The unique identifier for the company which is given by Intercom. Example: \"5f4d3c1c-7b1b-4d7d-a97e-6095715c6632\""
+        }
+      },
+      "required": [
+        "id"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_intercom_getcompany": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "company_id": {
+          "type": "string"
+        },
+        "remote_created_at": {
+          "type": "number"
+        },
+        "created_at": {
+          "type": "number"
+        },
+        "updated_at": {
+          "type": "number"
+        },
+        "last_request_at": {
+          "type": "number"
+        },
+        "size": {
+          "type": "number"
+        },
+        "website": {
+          "type": "string"
+        },
+        "industry": {
+          "type": "string"
+        },
+        "monthly_spend": {
+          "type": "number"
+        },
+        "session_count": {
+          "type": "number"
+        },
+        "user_count": {
+          "type": "number"
+        },
+        "custom_attributes": {}
+      },
+      "required": [
+        "id"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_intercom_getcontact": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "The unique identifier for the contact. Example: \"5f5c4a1c7c9c4a0001f7e1a2\""
+        }
+      },
+      "required": [
+        "id"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_intercom_getcontact": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "email": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "role": {
+          "type": "string",
+          "enum": [
+            "user",
+            "lead"
+          ]
+        },
+        "created_at": {
+          "type": "number"
+        },
+        "updated_at": {
+          "type": "number"
+        }
+      },
+      "required": [
+        "id"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_intercom_getconversation": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "The unique identifier for the conversation. Example: \"123\""
+        },
+        "display_as": {
+          "type": "string",
+          "enum": [
+            "plaintext",
+            "html"
+          ],
+          "description": "Format for conversation parts content. Use \"plaintext\" for plain text or \"html\" for HTML formatted content."
+        }
+      },
+      "required": [
+        "id"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_intercom_getconversation": {
       "type": "object",
       "properties": {
         "type": {
           "type": "string"
         },
+        "id": {
+          "type": "string"
+        },
+        "title": {
+          "type": "string"
+        },
+        "created_at": {
+          "type": "number"
+        },
+        "updated_at": {
+          "type": "number"
+        },
+        "waiting_since": {
+          "type": "number"
+        },
+        "snoozed_until": {
+          "type": "number"
+        },
+        "open": {
+          "type": "boolean"
+        },
+        "state": {
+          "type": "string",
+          "enum": [
+            "open",
+            "closed",
+            "snoozed"
+          ]
+        },
+        "read": {
+          "type": "boolean"
+        },
+        "priority": {
+          "type": "string",
+          "enum": [
+            "priority",
+            "not_priority"
+          ]
+        },
+        "admin_assignee_id": {
+          "type": "number"
+        },
+        "team_assignee_id": {
+          "type": "number"
+        },
+        "assignee": {
+          "type": "object",
+          "properties": {
+            "type": {
+              "type": "string"
+            },
+            "id": {
+              "type": "string"
+            },
+            "name": {
+              "type": "string"
+            },
+            "email": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "type"
+          ],
+          "additionalProperties": false
+        },
+        "user": {
+          "type": "object",
+          "properties": {
+            "type": {
+              "type": "string"
+            },
+            "id": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "type",
+            "id"
+          ],
+          "additionalProperties": false
+        },
+        "contacts": {
+          "type": "object",
+          "properties": {
+            "type": {
+              "type": "string"
+            },
+            "contacts": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "type": {
+                    "type": "string"
+                  },
+                  "id": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "type",
+                  "id"
+                ],
+                "additionalProperties": false
+              }
+            }
+          },
+          "required": [
+            "contacts"
+          ],
+          "additionalProperties": false
+        },
+        "source": {
+          "type": "object",
+          "properties": {
+            "type": {
+              "type": "string"
+            },
+            "id": {
+              "type": "string"
+            },
+            "delivered_as": {
+              "type": "string"
+            },
+            "subject": {
+              "type": "string"
+            },
+            "body": {
+              "type": "string"
+            },
+            "author": {
+              "type": "object",
+              "properties": {
+                "type": {
+                  "type": "string"
+                },
+                "id": {
+                  "type": "string"
+                },
+                "name": {
+                  "type": "string"
+                },
+                "email": {
+                  "type": "string"
+                }
+              },
+              "additionalProperties": false
+            },
+            "attachments": {
+              "type": "array",
+              "items": {}
+            },
+            "url": {
+              "type": "string"
+            },
+            "redacted": {
+              "type": "boolean"
+            }
+          },
+          "additionalProperties": false
+        },
+        "conversation_parts": {
+          "type": "object",
+          "properties": {
+            "type": {
+              "type": "string"
+            },
+            "conversation_parts": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "type": {
+                    "type": "string"
+                  },
+                  "id": {
+                    "type": "string"
+                  },
+                  "part_type": {
+                    "type": "string"
+                  },
+                  "body": {
+                    "type": "string"
+                  },
+                  "created_at": {
+                    "type": "number"
+                  },
+                  "updated_at": {
+                    "type": "number"
+                  },
+                  "notified_at": {
+                    "type": "number"
+                  },
+                  "assigned_to": {},
+                  "author": {
+                    "type": "object",
+                    "properties": {
+                      "type": {
+                        "type": "string"
+                      },
+                      "id": {
+                        "type": "string"
+                      },
+                      "name": {
+                        "type": "string"
+                      },
+                      "email": {
+                        "type": "string"
+                      }
+                    },
+                    "additionalProperties": false
+                  },
+                  "attachments": {
+                    "type": "array",
+                    "items": {}
+                  }
+                },
+                "required": [
+                  "id",
+                  "created_at"
+                ],
+                "additionalProperties": false
+              }
+            },
+            "total_count": {
+              "type": "number"
+            }
+          },
+          "required": [
+            "conversation_parts",
+            "total_count"
+          ],
+          "additionalProperties": false
+        },
+        "tags": {
+          "type": "object",
+          "properties": {
+            "type": {
+              "type": "string"
+            },
+            "tags": {
+              "type": "array",
+              "items": {}
+            },
+            "total_count": {
+              "type": "number"
+            }
+          },
+          "required": [
+            "tags"
+          ],
+          "additionalProperties": false
+        }
+      },
+      "required": [
+        "id",
+        "created_at",
+        "updated_at"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_intercom_listadmins": {
+      "type": "object",
+      "properties": {
+        "cursor": {
+          "type": "string",
+          "description": "Pagination cursor from the previous response. Omit for the first page."
+        },
+        "per_page": {
+          "type": "number",
+          "description": "Number of results per page. Max 150."
+        }
+      },
+      "additionalProperties": false
+    },
+    "ActionOutput_intercom_listadmins": {
+      "type": "object",
+      "properties": {
+        "admins": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "type": {
+                "type": "string",
+                "description": "The type of object."
+              },
+              "name": {
+                "type": "string",
+                "description": "The name of the admin."
+              },
+              "email": {
+                "type": "string",
+                "description": "The email address of the admin."
+              },
+              "job_title": {
+                "type": "string",
+                "description": "The job title of the admin."
+              },
+              "away_mode_enabled": {
+                "type": "boolean",
+                "description": "Whether the admin has away mode enabled."
+              },
+              "away_mode_reassign": {
+                "type": "boolean",
+                "description": "Whether conversations should be reassigned when in away mode."
+              },
+              "has_inbox_seat": {
+                "type": "boolean",
+                "description": "Whether the admin has an inbox seat."
+              },
+              "team_ids": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                },
+                "description": "IDs of teams the admin belongs to."
+              },
+              "avatar": {
+                "type": "string",
+                "description": "URL to the admin avatar image."
+              },
+              "team_id": {
+                "type": "string",
+                "description": "ID of the team the admin belongs to."
+              },
+              "team_type": {
+                "type": "string",
+                "description": "Type of team the admin belongs to."
+              }
+            },
+            "required": [
+              "id",
+              "type"
+            ],
+            "additionalProperties": false
+          },
+          "description": "List of admins in the workspace."
+        },
+        "next_cursor": {
+          "type": "string",
+          "description": "Cursor for the next page of results."
+        },
+        "total_count": {
+          "type": "number",
+          "description": "Total number of admins."
+        },
+        "type": {
+          "type": "string",
+          "description": "The type of object returned."
+        }
+      },
+      "required": [
+        "admins"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_intercom_listarticles": {
+      "type": "object",
+      "properties": {
+        "cursor": {
+          "type": "string",
+          "description": "Pagination cursor from the previous response. Maps to starting_after parameter. Omit for the first page."
+        },
+        "per_page": {
+          "type": "number",
+          "description": "Number of results per page. Maximum is 150."
+        }
+      },
+      "additionalProperties": false
+    },
+    "ActionOutput_intercom_listarticles": {
+      "type": "object",
+      "properties": {
+        "items": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "workspace_id": {
+                "type": "string"
+              },
+              "title": {
+                "type": "string"
+              },
+              "description": {
+                "type": "string"
+              },
+              "body": {
+                "type": "string"
+              },
+              "author_id": {
+                "type": "string"
+              },
+              "state": {
+                "type": "string",
+                "enum": [
+                  "published",
+                  "draft"
+                ]
+              },
+              "created_at": {
+                "type": "number"
+              },
+              "updated_at": {
+                "type": "number"
+              },
+              "url": {
+                "type": "string"
+              },
+              "parent_id": {
+                "type": "string"
+              },
+              "parent_ids": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "parent_type": {
+                "type": "string"
+              },
+              "default_locale": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "id",
+              "workspace_id",
+              "title",
+              "author_id",
+              "state",
+              "created_at",
+              "updated_at"
+            ],
+            "additionalProperties": false
+          }
+        },
+        "next_cursor": {
+          "type": "string"
+        },
+        "total_count": {
+          "type": "number"
+        }
+      },
+      "required": [
+        "items",
+        "total_count"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_intercom_listcompanies": {
+      "type": "object",
+      "properties": {
+        "cursor": {
+          "type": "string",
+          "description": "Pagination cursor from the previous response pages.next.starting_after. Omit for the first page."
+        },
+        "per_page": {
+          "type": "number",
+          "description": "Number of results per page. Maximum 150."
+        }
+      },
+      "additionalProperties": false
+    },
+    "ActionOutput_intercom_listcompanies": {
+      "type": "object",
+      "properties": {
+        "companies": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "type": {
+                "type": "string"
+              },
+              "id": {
+                "type": [
+                  "string",
+                  "number"
+                ]
+              },
+              "name": {
+                "type": "string"
+              },
+              "company_id": {
+                "type": "string"
+              },
+              "app_id": {
+                "type": [
+                  "string",
+                  "number"
+                ]
+              },
+              "plan": {
+                "type": "object",
+                "properties": {
+                  "id": {
+                    "type": [
+                      "string",
+                      "number"
+                    ]
+                  },
+                  "name": {
+                    "type": "string"
+                  }
+                },
+                "additionalProperties": false
+              },
+              "monthly_spend": {
+                "type": [
+                  "number",
+                  "null"
+                ]
+              },
+              "session_count": {
+                "type": [
+                  "number",
+                  "null"
+                ]
+              },
+              "user_count": {
+                "type": [
+                  "number",
+                  "null"
+                ]
+              },
+              "size": {
+                "type": [
+                  "number",
+                  "null"
+                ]
+              },
+              "website": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "industry": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "remote_created_at": {
+                "type": [
+                  "number",
+                  "null"
+                ]
+              },
+              "created_at": {
+                "type": [
+                  "number",
+                  "null"
+                ]
+              },
+              "updated_at": {
+                "type": [
+                  "number",
+                  "null"
+                ]
+              },
+              "tags": {
+                "type": "object",
+                "properties": {
+                  "type": {
+                    "type": "string"
+                  },
+                  "tags": {
+                    "type": "array",
+                    "items": {}
+                  }
+                },
+                "additionalProperties": false
+              },
+              "segments": {
+                "type": "object",
+                "properties": {
+                  "type": {
+                    "type": "string"
+                  },
+                  "segments": {
+                    "type": "array",
+                    "items": {}
+                  }
+                },
+                "additionalProperties": false
+              }
+            },
+            "required": [
+              "id"
+            ],
+            "additionalProperties": false
+          }
+        },
+        "starting_after": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "companies"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_intercom_listcompanycontacts": {
+      "type": "object",
+      "properties": {
+        "company_id": {
+          "type": "string",
+          "description": "The Intercom company ID. Example: \"5f1e5b5e5e5e5e5e5e5e5e5e\""
+        },
+        "cursor": {
+          "type": "string",
+          "description": "Pagination cursor (page number) from the previous response. Omit for the first page."
+        },
+        "per_page": {
+          "type": "number",
+          "description": "Number of results per page (max 150). Default: 50."
+        }
+      },
+      "required": [
+        "company_id"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_intercom_listcompanycontacts": {
+      "type": "object",
+      "properties": {
+        "items": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "type": {
+                "type": "string"
+              },
+              "role": {
+                "type": "string",
+                "enum": [
+                  "user",
+                  "lead"
+                ]
+              },
+              "email": {
+                "type": "string"
+              },
+              "phone": {
+                "type": "string"
+              },
+              "name": {
+                "type": "string"
+              },
+              "created_at": {
+                "type": "number"
+              },
+              "updated_at": {
+                "type": "number"
+              }
+            },
+            "required": [
+              "id",
+              "type",
+              "role",
+              "created_at",
+              "updated_at"
+            ],
+            "additionalProperties": false
+          }
+        },
+        "starting_after": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "items"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_intercom_listcontacts": {
+      "type": "object",
+      "properties": {
+        "cursor": {
+          "type": "string",
+          "description": "Pagination cursor from the previous response. Omit for the first page."
+        },
+        "per_page": {
+          "type": "number",
+          "description": "Number of results per page (default 50, max 150)."
+        }
+      },
+      "additionalProperties": false
+    },
+    "ActionOutput_intercom_listcontacts": {
+      "type": "object",
+      "properties": {
+        "contacts": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "type": {
+                "type": "string",
+                "const": "contact"
+              },
+              "id": {
+                "type": "string"
+              },
+              "external_id": {
+                "type": "string"
+              },
+              "workspace_id": {
+                "type": "string"
+              },
+              "role": {
+                "type": "string",
+                "enum": [
+                  "user",
+                  "lead"
+                ]
+              },
+              "email": {
+                "type": "string"
+              },
+              "phone": {
+                "type": "string"
+              },
+              "name": {
+                "type": "string"
+              },
+              "owner_id": {
+                "type": "number"
+              },
+              "has_hard_bounced": {
+                "type": "boolean"
+              },
+              "marked_email_as_spam": {
+                "type": "boolean"
+              },
+              "unsubscribed_from_emails": {
+                "type": "boolean"
+              },
+              "created_at": {
+                "type": "number"
+              },
+              "updated_at": {
+                "type": "number"
+              },
+              "signed_up_at": {
+                "type": "number"
+              },
+              "last_seen_at": {
+                "type": "number"
+              },
+              "last_replied_at": {
+                "type": "number"
+              },
+              "last_contacted_at": {
+                "type": "number"
+              },
+              "last_email_opened_at": {
+                "type": "number"
+              },
+              "last_email_clicked_at": {
+                "type": "number"
+              },
+              "language_override": {
+                "type": "string"
+              },
+              "browser": {
+                "type": "string"
+              },
+              "browser_version": {
+                "type": "string"
+              },
+              "browser_language": {
+                "type": "string"
+              },
+              "os": {
+                "type": "string"
+              },
+              "custom_attributes": {
+                "type": "object",
+                "additionalProperties": {
+                  "anyOf": [
+                    {},
+                    {
+                      "not": {}
+                    }
+                  ]
+                }
+              }
+            },
+            "required": [
+              "type",
+              "id",
+              "workspace_id",
+              "role",
+              "created_at",
+              "updated_at"
+            ],
+            "additionalProperties": false
+          }
+        },
+        "total_count": {
+          "type": "number"
+        },
+        "next_cursor": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "contacts",
+        "total_count"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_intercom_listconversations": {
+      "type": "object",
+      "properties": {
+        "cursor": {
+          "type": "string"
+        },
+        "per_page": {
+          "type": "number"
+        },
+        "state": {
+          "type": "string",
+          "enum": [
+            "open",
+            "closed",
+            "snoozed"
+          ]
+        }
+      },
+      "additionalProperties": false
+    },
+    "ActionOutput_intercom_listconversations": {
+      "type": "object",
+      "properties": {
+        "conversations": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "created_at": {
+                "type": "number"
+              },
+              "updated_at": {
+                "type": "number"
+              },
+              "state": {
+                "type": "string",
+                "enum": [
+                  "open",
+                  "closed",
+                  "snoozed"
+                ]
+              },
+              "title": {
+                "type": "string"
+              },
+              "source": {
+                "type": "object",
+                "additionalProperties": {
+                  "anyOf": [
+                    {},
+                    {
+                      "not": {}
+                    }
+                  ]
+                }
+              },
+              "contacts": {
+                "type": "object",
+                "additionalProperties": {
+                  "anyOf": [
+                    {},
+                    {
+                      "not": {}
+                    }
+                  ]
+                }
+              },
+              "teammates": {
+                "type": "object",
+                "additionalProperties": {
+                  "anyOf": [
+                    {},
+                    {
+                      "not": {}
+                    }
+                  ]
+                }
+              },
+              "conversation_parts": {
+                "type": "object",
+                "additionalProperties": {
+                  "anyOf": [
+                    {},
+                    {
+                      "not": {}
+                    }
+                  ]
+                }
+              },
+              "tags": {
+                "type": "object",
+                "additionalProperties": {
+                  "anyOf": [
+                    {},
+                    {
+                      "not": {}
+                    }
+                  ]
+                }
+              },
+              "custom_attributes": {
+                "type": "object",
+                "additionalProperties": {
+                  "anyOf": [
+                    {},
+                    {
+                      "not": {}
+                    }
+                  ]
+                }
+              },
+              "statistics": {
+                "type": "object",
+                "additionalProperties": {
+                  "anyOf": [
+                    {},
+                    {
+                      "not": {}
+                    }
+                  ]
+                }
+              }
+            },
+            "required": [
+              "id",
+              "created_at",
+              "updated_at",
+              "state"
+            ],
+            "additionalProperties": false
+          }
+        },
+        "next_cursor": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "conversations"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_intercom_listhelpcentercollections": {
+      "type": "object",
+      "properties": {
+        "page": {
+          "type": "number",
+          "description": "Page number for pagination. Starts at 1."
+        },
+        "per_page": {
+          "type": "number",
+          "description": "Number of items per page. Maximum is 150."
+        }
+      },
+      "additionalProperties": false
+    },
+    "ActionOutput_intercom_listhelpcentercollections": {
+      "type": "object",
+      "properties": {
+        "collections": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "name": {
+                "type": "string"
+              },
+              "description": {
+                "type": "string"
+              },
+              "icon": {
+                "type": "string"
+              },
+              "order": {
+                "type": "number"
+              },
+              "created_at": {
+                "type": "number"
+              },
+              "updated_at": {
+                "type": "number"
+              }
+            },
+            "required": [
+              "id",
+              "name",
+              "created_at",
+              "updated_at"
+            ],
+            "additionalProperties": false
+          }
+        },
+        "has_more": {
+          "type": "boolean"
+        },
+        "next_page": {
+          "type": "number"
+        }
+      },
+      "required": [
+        "collections",
+        "has_more"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_intercom_listnotes": {
+      "type": "object",
+      "properties": {
+        "contact_id": {
+          "type": "string",
+          "description": "The Intercom contact ID to list notes for. Example: \"65f1a2b3c4d5e6f7g8h9i0j1\""
+        },
+        "cursor": {
+          "type": "string",
+          "description": "Pagination cursor from the previous response (the `next_cursor` value). Omit for the first page."
+        },
+        "per_page": {
+          "type": "number",
+          "description": "Number of results per page (max 150). Default varies by API."
+        }
+      },
+      "required": [
+        "contact_id"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_intercom_listnotes": {
+      "type": "object",
+      "properties": {
+        "notes": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "body": {
+                "type": "string"
+              },
+              "author_id": {
+                "type": "string"
+              },
+              "author_name": {
+                "type": "string"
+              },
+              "author_email": {
+                "type": "string"
+              },
+              "created_at": {
+                "type": "number"
+              },
+              "updated_at": {
+                "type": "number"
+              }
+            },
+            "required": [
+              "id"
+            ],
+            "additionalProperties": false
+          }
+        },
+        "next_cursor": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "notes"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_intercom_listtags": {
+      "type": "object",
+      "properties": {
+        "cursor": {
+          "type": "string",
+          "description": "Pagination cursor from the previous response. Omit for the first page."
+        }
+      },
+      "additionalProperties": false
+    },
+    "ActionOutput_intercom_listtags": {
+      "type": "object",
+      "properties": {
+        "items": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "type": {
+                "type": "string"
+              },
+              "id": {
+                "type": "string"
+              },
+              "name": {
+                "type": "string"
+              },
+              "applied_to": {
+                "type": "object",
+                "properties": {
+                  "contacts": {
+                    "type": "number"
+                  },
+                  "companies": {
+                    "type": "number"
+                  },
+                  "conversations": {
+                    "type": "number"
+                  }
+                },
+                "additionalProperties": false
+              }
+            },
+            "required": [
+              "id",
+              "name"
+            ],
+            "additionalProperties": false
+          }
+        },
+        "next_cursor": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "items"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_intercom_mergecontacts": {
+      "type": "object",
+      "properties": {
+        "from": {
+          "type": "string",
+          "description": "The ID of the lead contact to merge. Example: \"66c1b0a6c1234567890abcdef\""
+        },
+        "into": {
+          "type": "string",
+          "description": "The ID of the user contact to merge into. Example: \"66c1b0a6c1234567890fedcba\""
+        }
+      },
+      "required": [
+        "from",
+        "into"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_intercom_mergecontacts": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "role": {
+          "type": "string",
+          "enum": [
+            "user",
+            "lead",
+            "admin"
+          ]
+        },
+        "name": {
+          "type": "string"
+        },
+        "email": {
+          "type": "string"
+        },
+        "user_id": {
+          "type": "string"
+        },
+        "company_id": {
+          "type": "string"
+        },
+        "created_at": {
+          "type": "number"
+        },
+        "updated_at": {
+          "type": "number"
+        },
+        "last_seen_at": {
+          "type": "number"
+        },
+        "avatar": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "id",
+        "role",
+        "created_at",
+        "updated_at"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_intercom_reopenconversation": {
+      "type": "object",
+      "properties": {
+        "conversation_id": {
+          "type": "string",
+          "description": "The Intercom conversation ID to reopen. Example: \"12345678\""
+        },
+        "admin_id": {
+          "type": "string",
+          "description": "The admin ID who is reopening the conversation. Example: \"87654321\""
+        }
+      },
+      "required": [
+        "conversation_id",
+        "admin_id"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_intercom_reopenconversation": {
+      "type": "object",
+      "properties": {
+        "success": {
+          "type": "boolean"
+        },
+        "conversation_id": {
+          "type": "string"
+        },
+        "part_id": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "success",
+        "conversation_id"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_intercom_replytoconversation": {
+      "type": "object",
+      "properties": {
+        "conversation_id": {
+          "type": "string",
+          "description": "The Intercom conversation ID to reply to. Example: \"123\""
+        },
+        "type": {
+          "type": "string",
+          "enum": [
+            "admin",
+            "user"
+          ],
+          "description": "The type of reply: \"admin\" for admin replies, \"user\" for contact replies."
+        },
+        "message_type": {
+          "type": "string",
+          "enum": [
+            "comment",
+            "note"
+          ],
+          "description": "The message type: \"comment\" for replies, \"note\" for internal admin notes."
+        },
+        "body": {
+          "type": "string",
+          "description": "The text body of the reply. Notes accept HTML formatting."
+        },
+        "admin_id": {
+          "type": "string",
+          "description": "The admin ID (required for type=\"admin\")."
+        },
+        "intercom_user_id": {
+          "type": "string",
+          "description": "The contact ID (required for type=\"user\")."
+        },
+        "attachment_urls": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "Optional array of attachment URLs (max 5)."
+        }
+      },
+      "required": [
+        "conversation_id",
+        "type",
+        "message_type",
+        "body"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_intercom_replytoconversation": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "state": {
+          "type": "string"
+        },
+        "created_at": {
+          "type": "number"
+        },
+        "updated_at": {
+          "type": "number"
+        },
+        "conversation_parts": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "type": {
+                "type": "string"
+              },
+              "body": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "created_at": {
+                "type": "number"
+              },
+              "updated_at": {
+                "type": "number"
+              },
+              "author_id": {
+                "type": "string"
+              },
+              "author_type": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "id"
+            ],
+            "additionalProperties": false
+          }
+        }
+      },
+      "required": [
+        "id"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_intercom_searchcontacts": {
+      "type": "object",
+      "properties": {
+        "query": {
+          "type": "object",
+          "properties": {
+            "field": {
+              "type": "string"
+            },
+            "operator": {
+              "type": "string",
+              "enum": [
+                "=",
+                "!=",
+                ">",
+                "<",
+                "~",
+                "!~",
+                "IN",
+                "NIN",
+                "AND",
+                "OR"
+              ],
+              "description": "Comparison operator."
+            },
+            "value": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "number"
+                },
+                {
+                  "type": "boolean"
+                },
+                {
+                  "type": "array",
+                  "items": {}
+                }
+              ],
+              "description": "Value to compare against."
+            }
+          },
+          "required": [
+            "field",
+            "operator",
+            "value"
+          ],
+          "additionalProperties": false,
+          "description": "Search query with field, operator, and value."
+        },
+        "cursor": {
+          "type": "string",
+          "description": "Pagination cursor from the previous response (pages.next.starting_after). Omit for the first page."
+        },
+        "per_page": {
+          "type": "number",
+          "description": "Number of results per page (max 150)."
+        }
+      },
+      "additionalProperties": false
+    },
+    "ActionOutput_intercom_searchcontacts": {
+      "type": "object",
+      "properties": {
+        "contacts": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "role": {
+                "type": "string",
+                "enum": [
+                  "user",
+                  "lead"
+                ]
+              },
+              "email": {
+                "type": "string"
+              },
+              "phone": {
+                "type": "string"
+              },
+              "name": {
+                "type": "string"
+              },
+              "created_at": {
+                "type": "number"
+              },
+              "updated_at": {
+                "type": "number"
+              },
+              "user_id": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "id",
+              "role"
+            ],
+            "additionalProperties": false
+          }
+        },
+        "next_cursor": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "contacts"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_intercom_searchconversations": {
+      "type": "object",
+      "properties": {
+        "query": {
+          "type": "object",
+          "properties": {
+            "field": {
+              "type": "string"
+            },
+            "operator": {
+              "type": "string",
+              "description": "The comparison operator. Example: \"=\""
+            },
+            "value": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "number"
+                },
+                {
+                  "type": "boolean"
+                },
+                {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "0": {
+                        "type": "string"
+                      },
+                      "1": {
+                        "type": "number"
+                      }
+                    },
+                    "required": [
+                      "0",
+                      "1"
+                    ],
+                    "additionalProperties": false
+                  }
+                }
+              ],
+              "description": "The value to filter by"
+            }
+          },
+          "additionalProperties": false,
+          "description": "A simple filter query"
+        },
+        "cursor": {
+          "type": "string",
+          "description": "Pagination cursor from a previous response"
+        },
+        "per_page": {
+          "type": "number",
+          "description": "Number of results per page (max 150)"
+        }
+      },
+      "required": [
+        "query"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_intercom_searchconversations": {
+      "type": "object",
+      "properties": {
+        "conversations": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "type": {
+                "type": "string",
+                "const": "conversation"
+              },
+              "id": {
+                "type": "string",
+                "description": "The conversation ID"
+              },
+              "title": {
+                "type": "string"
+              },
+              "created_at": {
+                "type": "number",
+                "description": "Unix timestamp of creation time"
+              },
+              "updated_at": {
+                "type": "number",
+                "description": "Unix timestamp of last update"
+              },
+              "waiting_since": {
+                "type": "number",
+                "description": "Unix timestamp when customer started waiting"
+              },
+              "snoozed_until": {
+                "type": "number",
+                "description": "Unix timestamp when snooze ends"
+              },
+              "open": {
+                "type": "boolean",
+                "description": "Whether the conversation is open"
+              },
+              "state": {
+                "type": "string",
+                "enum": [
+                  "open",
+                  "closed",
+                  "snoozed"
+                ],
+                "description": "Conversation state"
+              },
+              "read": {
+                "type": "boolean",
+                "description": "Whether the conversation has been read"
+              },
+              "priority": {
+                "type": "string",
+                "enum": [
+                  "priority",
+                  "not_priority"
+                ],
+                "description": "Priority status"
+              },
+              "admin_assignee_id": {
+                "type": "number",
+                "description": "ID of assigned admin"
+              },
+              "team_assignee_id": {
+                "type": "number",
+                "description": "ID of assigned team"
+              }
+            },
+            "required": [
+              "id"
+            ],
+            "additionalProperties": false
+          },
+          "description": "List of matching conversations"
+        },
+        "total_count": {
+          "type": "number",
+          "description": "Total number of matching conversations"
+        },
+        "next_cursor": {
+          "type": "string",
+          "description": "Cursor for the next page of results"
+        }
+      },
+      "required": [
+        "conversations",
+        "total_count"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_intercom_sendmessage": {
+      "type": "object",
+      "properties": {
+        "message_type": {
+          "type": "string",
+          "enum": [
+            "email",
+            "inapp"
+          ],
+          "description": "Type of message to send: \"email\" or \"inapp\"."
+        },
+        "subject": {
+          "type": "string",
+          "description": "Subject line for email messages. Required when message_type is \"email\"."
+        },
+        "body": {
+          "type": "string",
+          "description": "The message body content (HTML supported)."
+        },
+        "from": {
+          "type": "object",
+          "properties": {
+            "type": {
+              "type": "string",
+              "const": "admin"
+            },
+            "id": {
+              "type": "string",
+              "description": "ID of the admin sending the message."
+            }
+          },
+          "required": [
+            "type",
+            "id"
+          ],
+          "additionalProperties": false,
+          "description": "The admin sending the message."
+        },
+        "to": {
+          "type": "object",
+          "properties": {
+            "type": {
+              "type": "string",
+              "enum": [
+                "contact",
+                "user"
+              ]
+            },
+            "id": {
+              "type": "string",
+              "description": "ID of the contact or user receiving the message."
+            }
+          },
+          "required": [
+            "type",
+            "id"
+          ],
+          "additionalProperties": false,
+          "description": "The recipient contact or user."
+        },
+        "template": {
+          "type": "string",
+          "description": "Optional template name for the message."
+        }
+      },
+      "required": [
+        "message_type",
+        "body",
+        "from",
+        "to"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_intercom_sendmessage": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "type": {
+          "type": "string"
+        },
+        "message_type": {
+          "type": "string",
+          "enum": [
+            "email",
+            "inapp"
+          ]
+        },
+        "subject": {
+          "type": "string"
+        },
+        "body": {
+          "type": "string"
+        },
+        "from": {
+          "type": "object",
+          "properties": {
+            "type": {
+              "type": "string",
+              "const": "admin"
+            },
+            "id": {
+              "type": "string"
+            },
+            "name": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "type",
+            "id"
+          ],
+          "additionalProperties": false
+        },
+        "to": {
+          "type": "object",
+          "properties": {
+            "type": {
+              "type": "string"
+            },
+            "id": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "type",
+            "id"
+          ],
+          "additionalProperties": false
+        },
+        "created_at": {
+          "type": "number"
+        }
+      },
+      "required": [
+        "id"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_intercom_snoozeconversation": {
+      "type": "object",
+      "properties": {
+        "conversation_id": {
+          "type": "string",
+          "description": "The unique identifier for the conversation to snooze. Example: \"123\""
+        },
+        "admin_id": {
+          "type": "string",
+          "description": "The ID of the admin performing the snooze action. Example: \"456\""
+        },
+        "snoozed_until": {
+          "type": "number",
+          "description": "Unix timestamp (seconds) when the conversation should be unsnoozed. Example: 1704067200"
+        }
+      },
+      "required": [
+        "conversation_id",
+        "admin_id",
+        "snoozed_until"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_intercom_snoozeconversation": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "state": {
+          "type": "string"
+        },
+        "snoozed_until": {
+          "type": "number"
+        },
+        "created_at": {
+          "type": "number"
+        },
+        "updated_at": {
+          "type": "number"
+        }
+      },
+      "required": [
+        "id",
+        "state",
+        "created_at",
+        "updated_at"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_intercom_tagcompanies": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string",
+          "description": "Tag name to apply. Example: \"VIP\""
+        },
+        "companies": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "company_id": {
+                "type": "string",
+                "description": "Company ID alternative field"
+              }
+            },
+            "additionalProperties": false
+          },
+          "description": "Array of companies to tag with their IDs"
+        }
+      },
+      "required": [
+        "name",
+        "companies"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_intercom_tagcompanies": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "type": {
+          "type": "string"
+        },
+        "companies": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "company_id": {
+                "type": "string"
+              },
+              "name": {
+                "type": "string"
+              }
+            },
+            "additionalProperties": false
+          }
+        }
+      },
+      "required": [
+        "id",
+        "name",
+        "type"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_intercom_tagcontacts": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string",
+          "description": "Name of the tag to create or use. Example: \"VIP Customers\""
+        },
+        "users": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "email": {
+                "type": "string",
+                "description": "Contact email address. Example: \"user@example.com\""
+              }
+            },
+            "additionalProperties": false
+          },
+          "description": "Array of contacts to tag, each with id or email"
+        }
+      },
+      "required": [
+        "name",
+        "users"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_intercom_tagcontacts": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "type": {
+          "type": "string"
+        },
+        "created_at": {
+          "type": "number"
+        },
+        "updated_at": {
+          "type": "number"
+        },
+        "tagged_users": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "email": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "id"
+            ],
+            "additionalProperties": false
+          }
+        }
+      },
+      "required": [
+        "id",
+        "name",
+        "type"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_intercom_tagconversation": {
+      "type": "object",
+      "properties": {
+        "conversation_id": {
+          "type": "string",
+          "description": "The unique identifier for the conversation to tag. Example: \"123\""
+        },
+        "tag_id": {
+          "type": "string",
+          "description": "The unique identifier for the tag to apply. Example: \"456\""
+        },
+        "admin_id": {
+          "type": "string",
+          "description": "The unique identifier for the admin applying the tag. Example: \"789\""
+        }
+      },
+      "required": [
+        "conversation_id",
+        "tag_id",
+        "admin_id"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_intercom_tagconversation": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "id",
+        "name"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_intercom_untagcontacts": {
+      "type": "object",
+      "properties": {
+        "tag_name": {
+          "type": "string",
+          "description": "Name of the tag to remove from contacts. Example: \"VIP\""
+        },
+        "contacts": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "email": {
+                "type": "string",
+                "description": "Contact email address. Example: \"user@example.com\""
+              }
+            },
+            "additionalProperties": false
+          },
+          "description": "Array of contacts to untag, each with either id or email"
+        }
+      },
+      "required": [
+        "tag_name",
+        "contacts"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_intercom_untagcontacts": {
+      "type": "object",
+      "properties": {
+        "tag_id": {
+          "type": "string",
+          "description": "ID of the tag"
+        },
+        "tag_name": {
+          "type": "string",
+          "description": "Name of the tag"
+        },
+        "untagged_contacts": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "email": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "id"
+            ],
+            "additionalProperties": false
+          },
+          "description": "Contacts that were untagged"
+        }
+      },
+      "required": [
+        "tag_id",
+        "tag_name",
+        "untagged_contacts"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_intercom_untagconversation": {
+      "type": "object",
+      "properties": {
+        "conversation_id": {
+          "type": "string",
+          "description": "The ID of the conversation to untag. Example: \"123\""
+        },
+        "tag_id": {
+          "type": "string",
+          "description": "The ID of the tag to remove. Example: \"456\""
+        },
+        "admin_id": {
+          "type": "string",
+          "description": "The ID of the admin performing the untag operation. Example: \"789\""
+        }
+      },
+      "required": [
+        "conversation_id",
+        "tag_id",
+        "admin_id"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_intercom_untagconversation": {
+      "type": "object",
+      "properties": {
+        "success": {
+          "type": "boolean",
+          "description": "Whether the tag was successfully removed"
+        }
+      },
+      "required": [
+        "success"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_intercom_updatearticle": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "The unique identifier of the article to update. Example: \"6871119\""
+        },
+        "title": {
+          "type": "string",
+          "description": "The title of the article."
+        },
+        "description": {
+          "type": "string",
+          "description": "The description of the article."
+        },
+        "body": {
+          "type": "string",
+          "description": "The body of the article in HTML."
+        },
+        "state": {
+          "type": "string",
+          "enum": [
+            "published",
+            "draft"
+          ],
+          "description": "Whether the article is published or draft."
+        },
+        "author_id": {
+          "type": "number",
+          "description": "The id of the author of the article. Must be a teammate on the help center's workspace."
+        },
+        "parent_id": {
+          "type": "number",
+          "description": "The id of the article's parent collection or section."
+        },
+        "parent_type": {
+          "type": "string",
+          "enum": [
+            "collection",
+            "section"
+          ],
+          "description": "The type of parent, which can either be a collection or section."
+        }
+      },
+      "required": [
+        "id"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_intercom_updatearticle": {
+      "type": "object",
+      "properties": {
         "id": {
           "type": "string"
         },
@@ -61000,39 +64041,38 @@
           "type": "string"
         },
         "description": {
-          "type": [
-            "string",
-            "null"
-          ]
+          "type": "string"
         },
         "body": {
-          "type": [
-            "string",
-            "null"
-          ]
+          "type": "string"
         },
         "author_id": {
           "type": "number"
         },
         "state": {
-          "type": "string"
-        },
-        "created_at": {
-          "type": "string"
-        },
-        "updated_at": {
-          "type": "string"
-        },
-        "url": {
-          "type": [
-            "string",
-            "null"
+          "type": "string",
+          "enum": [
+            "published",
+            "draft"
           ]
         },
+        "created_at": {
+          "type": "number"
+        },
+        "updated_at": {
+          "type": "number"
+        },
+        "url": {
+          "type": "string"
+        },
         "parent_id": {
-          "type": [
-            "number",
-            "null"
+          "type": "number"
+        },
+        "parent_type": {
+          "type": "string",
+          "enum": [
+            "collection",
+            "section"
           ]
         },
         "parent_ids": {
@@ -61041,2095 +64081,96 @@
             "type": "number"
           }
         },
-        "parent_type": {
-          "type": [
-            "string",
-            "null"
-          ]
-        },
         "default_locale": {
           "type": "string"
-        },
-        "translated_content": {
-          "anyOf": [
-            {
-              "type": "object",
-              "properties": {
-                "type": {
-                  "type": [
-                    "string",
-                    "null"
-                  ]
-                },
-                "ar": {
-                  "anyOf": [
-                    {
-                      "type": "object",
-                      "properties": {
-                        "type": {
-                          "type": [
-                            "string",
-                            "null"
-                          ]
-                        },
-                        "title": {
-                          "type": "string"
-                        },
-                        "description": {
-                          "type": "string"
-                        },
-                        "body": {
-                          "type": "string"
-                        },
-                        "author_id": {
-                          "type": "number"
-                        },
-                        "state": {
-                          "type": "string"
-                        },
-                        "created_at": {
-                          "type": "number"
-                        },
-                        "updated_at": {
-                          "type": "number"
-                        },
-                        "url": {
-                          "type": "string"
-                        }
-                      },
-                      "required": [
-                        "type",
-                        "title",
-                        "description",
-                        "body",
-                        "author_id",
-                        "state",
-                        "created_at",
-                        "updated_at",
-                        "url"
-                      ],
-                      "additionalProperties": false
-                    },
-                    {
-                      "type": "null"
-                    }
-                  ]
-                },
-                "bg": {
-                  "anyOf": [
-                    {
-                      "type": "object",
-                      "properties": {
-                        "type": {
-                          "type": [
-                            "string",
-                            "null"
-                          ]
-                        },
-                        "title": {
-                          "type": "string"
-                        },
-                        "description": {
-                          "type": "string"
-                        },
-                        "body": {
-                          "type": "string"
-                        },
-                        "author_id": {
-                          "type": "number"
-                        },
-                        "state": {
-                          "type": "string"
-                        },
-                        "created_at": {
-                          "type": "number"
-                        },
-                        "updated_at": {
-                          "type": "number"
-                        },
-                        "url": {
-                          "type": "string"
-                        }
-                      },
-                      "required": [
-                        "type",
-                        "title",
-                        "description",
-                        "body",
-                        "author_id",
-                        "state",
-                        "created_at",
-                        "updated_at",
-                        "url"
-                      ],
-                      "additionalProperties": false
-                    },
-                    {
-                      "type": "null"
-                    }
-                  ]
-                },
-                "bs": {
-                  "anyOf": [
-                    {
-                      "type": "object",
-                      "properties": {
-                        "type": {
-                          "type": [
-                            "string",
-                            "null"
-                          ]
-                        },
-                        "title": {
-                          "type": "string"
-                        },
-                        "description": {
-                          "type": "string"
-                        },
-                        "body": {
-                          "type": "string"
-                        },
-                        "author_id": {
-                          "type": "number"
-                        },
-                        "state": {
-                          "type": "string"
-                        },
-                        "created_at": {
-                          "type": "number"
-                        },
-                        "updated_at": {
-                          "type": "number"
-                        },
-                        "url": {
-                          "type": "string"
-                        }
-                      },
-                      "required": [
-                        "type",
-                        "title",
-                        "description",
-                        "body",
-                        "author_id",
-                        "state",
-                        "created_at",
-                        "updated_at",
-                        "url"
-                      ],
-                      "additionalProperties": false
-                    },
-                    {
-                      "type": "null"
-                    }
-                  ]
-                },
-                "ca": {
-                  "anyOf": [
-                    {
-                      "type": "object",
-                      "properties": {
-                        "type": {
-                          "type": [
-                            "string",
-                            "null"
-                          ]
-                        },
-                        "title": {
-                          "type": "string"
-                        },
-                        "description": {
-                          "type": "string"
-                        },
-                        "body": {
-                          "type": "string"
-                        },
-                        "author_id": {
-                          "type": "number"
-                        },
-                        "state": {
-                          "type": "string"
-                        },
-                        "created_at": {
-                          "type": "number"
-                        },
-                        "updated_at": {
-                          "type": "number"
-                        },
-                        "url": {
-                          "type": "string"
-                        }
-                      },
-                      "required": [
-                        "type",
-                        "title",
-                        "description",
-                        "body",
-                        "author_id",
-                        "state",
-                        "created_at",
-                        "updated_at",
-                        "url"
-                      ],
-                      "additionalProperties": false
-                    },
-                    {
-                      "type": "null"
-                    }
-                  ]
-                },
-                "cs": {
-                  "anyOf": [
-                    {
-                      "type": "object",
-                      "properties": {
-                        "type": {
-                          "type": [
-                            "string",
-                            "null"
-                          ]
-                        },
-                        "title": {
-                          "type": "string"
-                        },
-                        "description": {
-                          "type": "string"
-                        },
-                        "body": {
-                          "type": "string"
-                        },
-                        "author_id": {
-                          "type": "number"
-                        },
-                        "state": {
-                          "type": "string"
-                        },
-                        "created_at": {
-                          "type": "number"
-                        },
-                        "updated_at": {
-                          "type": "number"
-                        },
-                        "url": {
-                          "type": "string"
-                        }
-                      },
-                      "required": [
-                        "type",
-                        "title",
-                        "description",
-                        "body",
-                        "author_id",
-                        "state",
-                        "created_at",
-                        "updated_at",
-                        "url"
-                      ],
-                      "additionalProperties": false
-                    },
-                    {
-                      "type": "null"
-                    }
-                  ]
-                },
-                "da": {
-                  "anyOf": [
-                    {
-                      "type": "object",
-                      "properties": {
-                        "type": {
-                          "type": [
-                            "string",
-                            "null"
-                          ]
-                        },
-                        "title": {
-                          "type": "string"
-                        },
-                        "description": {
-                          "type": "string"
-                        },
-                        "body": {
-                          "type": "string"
-                        },
-                        "author_id": {
-                          "type": "number"
-                        },
-                        "state": {
-                          "type": "string"
-                        },
-                        "created_at": {
-                          "type": "number"
-                        },
-                        "updated_at": {
-                          "type": "number"
-                        },
-                        "url": {
-                          "type": "string"
-                        }
-                      },
-                      "required": [
-                        "type",
-                        "title",
-                        "description",
-                        "body",
-                        "author_id",
-                        "state",
-                        "created_at",
-                        "updated_at",
-                        "url"
-                      ],
-                      "additionalProperties": false
-                    },
-                    {
-                      "type": "null"
-                    }
-                  ]
-                },
-                "de": {
-                  "anyOf": [
-                    {
-                      "type": "object",
-                      "properties": {
-                        "type": {
-                          "type": [
-                            "string",
-                            "null"
-                          ]
-                        },
-                        "title": {
-                          "type": "string"
-                        },
-                        "description": {
-                          "type": "string"
-                        },
-                        "body": {
-                          "type": "string"
-                        },
-                        "author_id": {
-                          "type": "number"
-                        },
-                        "state": {
-                          "type": "string"
-                        },
-                        "created_at": {
-                          "type": "number"
-                        },
-                        "updated_at": {
-                          "type": "number"
-                        },
-                        "url": {
-                          "type": "string"
-                        }
-                      },
-                      "required": [
-                        "type",
-                        "title",
-                        "description",
-                        "body",
-                        "author_id",
-                        "state",
-                        "created_at",
-                        "updated_at",
-                        "url"
-                      ],
-                      "additionalProperties": false
-                    },
-                    {
-                      "type": "null"
-                    }
-                  ]
-                },
-                "el": {
-                  "anyOf": [
-                    {
-                      "type": "object",
-                      "properties": {
-                        "type": {
-                          "type": [
-                            "string",
-                            "null"
-                          ]
-                        },
-                        "title": {
-                          "type": "string"
-                        },
-                        "description": {
-                          "type": "string"
-                        },
-                        "body": {
-                          "type": "string"
-                        },
-                        "author_id": {
-                          "type": "number"
-                        },
-                        "state": {
-                          "type": "string"
-                        },
-                        "created_at": {
-                          "type": "number"
-                        },
-                        "updated_at": {
-                          "type": "number"
-                        },
-                        "url": {
-                          "type": "string"
-                        }
-                      },
-                      "required": [
-                        "type",
-                        "title",
-                        "description",
-                        "body",
-                        "author_id",
-                        "state",
-                        "created_at",
-                        "updated_at",
-                        "url"
-                      ],
-                      "additionalProperties": false
-                    },
-                    {
-                      "type": "null"
-                    }
-                  ]
-                },
-                "en": {
-                  "anyOf": [
-                    {
-                      "type": "object",
-                      "properties": {
-                        "type": {
-                          "type": [
-                            "string",
-                            "null"
-                          ]
-                        },
-                        "title": {
-                          "type": "string"
-                        },
-                        "description": {
-                          "type": "string"
-                        },
-                        "body": {
-                          "type": "string"
-                        },
-                        "author_id": {
-                          "type": "number"
-                        },
-                        "state": {
-                          "type": "string"
-                        },
-                        "created_at": {
-                          "type": "number"
-                        },
-                        "updated_at": {
-                          "type": "number"
-                        },
-                        "url": {
-                          "type": "string"
-                        }
-                      },
-                      "required": [
-                        "type",
-                        "title",
-                        "description",
-                        "body",
-                        "author_id",
-                        "state",
-                        "created_at",
-                        "updated_at",
-                        "url"
-                      ],
-                      "additionalProperties": false
-                    },
-                    {
-                      "type": "null"
-                    }
-                  ]
-                },
-                "es": {
-                  "anyOf": [
-                    {
-                      "type": "object",
-                      "properties": {
-                        "type": {
-                          "type": [
-                            "string",
-                            "null"
-                          ]
-                        },
-                        "title": {
-                          "type": "string"
-                        },
-                        "description": {
-                          "type": "string"
-                        },
-                        "body": {
-                          "type": "string"
-                        },
-                        "author_id": {
-                          "type": "number"
-                        },
-                        "state": {
-                          "type": "string"
-                        },
-                        "created_at": {
-                          "type": "number"
-                        },
-                        "updated_at": {
-                          "type": "number"
-                        },
-                        "url": {
-                          "type": "string"
-                        }
-                      },
-                      "required": [
-                        "type",
-                        "title",
-                        "description",
-                        "body",
-                        "author_id",
-                        "state",
-                        "created_at",
-                        "updated_at",
-                        "url"
-                      ],
-                      "additionalProperties": false
-                    },
-                    {
-                      "type": "null"
-                    }
-                  ]
-                },
-                "et": {
-                  "anyOf": [
-                    {
-                      "type": "object",
-                      "properties": {
-                        "type": {
-                          "type": [
-                            "string",
-                            "null"
-                          ]
-                        },
-                        "title": {
-                          "type": "string"
-                        },
-                        "description": {
-                          "type": "string"
-                        },
-                        "body": {
-                          "type": "string"
-                        },
-                        "author_id": {
-                          "type": "number"
-                        },
-                        "state": {
-                          "type": "string"
-                        },
-                        "created_at": {
-                          "type": "number"
-                        },
-                        "updated_at": {
-                          "type": "number"
-                        },
-                        "url": {
-                          "type": "string"
-                        }
-                      },
-                      "required": [
-                        "type",
-                        "title",
-                        "description",
-                        "body",
-                        "author_id",
-                        "state",
-                        "created_at",
-                        "updated_at",
-                        "url"
-                      ],
-                      "additionalProperties": false
-                    },
-                    {
-                      "type": "null"
-                    }
-                  ]
-                },
-                "fi": {
-                  "anyOf": [
-                    {
-                      "type": "object",
-                      "properties": {
-                        "type": {
-                          "type": [
-                            "string",
-                            "null"
-                          ]
-                        },
-                        "title": {
-                          "type": "string"
-                        },
-                        "description": {
-                          "type": "string"
-                        },
-                        "body": {
-                          "type": "string"
-                        },
-                        "author_id": {
-                          "type": "number"
-                        },
-                        "state": {
-                          "type": "string"
-                        },
-                        "created_at": {
-                          "type": "number"
-                        },
-                        "updated_at": {
-                          "type": "number"
-                        },
-                        "url": {
-                          "type": "string"
-                        }
-                      },
-                      "required": [
-                        "type",
-                        "title",
-                        "description",
-                        "body",
-                        "author_id",
-                        "state",
-                        "created_at",
-                        "updated_at",
-                        "url"
-                      ],
-                      "additionalProperties": false
-                    },
-                    {
-                      "type": "null"
-                    }
-                  ]
-                },
-                "fr": {
-                  "anyOf": [
-                    {
-                      "type": "object",
-                      "properties": {
-                        "type": {
-                          "type": [
-                            "string",
-                            "null"
-                          ]
-                        },
-                        "title": {
-                          "type": "string"
-                        },
-                        "description": {
-                          "type": "string"
-                        },
-                        "body": {
-                          "type": "string"
-                        },
-                        "author_id": {
-                          "type": "number"
-                        },
-                        "state": {
-                          "type": "string"
-                        },
-                        "created_at": {
-                          "type": "number"
-                        },
-                        "updated_at": {
-                          "type": "number"
-                        },
-                        "url": {
-                          "type": "string"
-                        }
-                      },
-                      "required": [
-                        "type",
-                        "title",
-                        "description",
-                        "body",
-                        "author_id",
-                        "state",
-                        "created_at",
-                        "updated_at",
-                        "url"
-                      ],
-                      "additionalProperties": false
-                    },
-                    {
-                      "type": "null"
-                    }
-                  ]
-                },
-                "he": {
-                  "anyOf": [
-                    {
-                      "type": "object",
-                      "properties": {
-                        "type": {
-                          "type": [
-                            "string",
-                            "null"
-                          ]
-                        },
-                        "title": {
-                          "type": "string"
-                        },
-                        "description": {
-                          "type": "string"
-                        },
-                        "body": {
-                          "type": "string"
-                        },
-                        "author_id": {
-                          "type": "number"
-                        },
-                        "state": {
-                          "type": "string"
-                        },
-                        "created_at": {
-                          "type": "number"
-                        },
-                        "updated_at": {
-                          "type": "number"
-                        },
-                        "url": {
-                          "type": "string"
-                        }
-                      },
-                      "required": [
-                        "type",
-                        "title",
-                        "description",
-                        "body",
-                        "author_id",
-                        "state",
-                        "created_at",
-                        "updated_at",
-                        "url"
-                      ],
-                      "additionalProperties": false
-                    },
-                    {
-                      "type": "null"
-                    }
-                  ]
-                },
-                "hr": {
-                  "anyOf": [
-                    {
-                      "type": "object",
-                      "properties": {
-                        "type": {
-                          "type": [
-                            "string",
-                            "null"
-                          ]
-                        },
-                        "title": {
-                          "type": "string"
-                        },
-                        "description": {
-                          "type": "string"
-                        },
-                        "body": {
-                          "type": "string"
-                        },
-                        "author_id": {
-                          "type": "number"
-                        },
-                        "state": {
-                          "type": "string"
-                        },
-                        "created_at": {
-                          "type": "number"
-                        },
-                        "updated_at": {
-                          "type": "number"
-                        },
-                        "url": {
-                          "type": "string"
-                        }
-                      },
-                      "required": [
-                        "type",
-                        "title",
-                        "description",
-                        "body",
-                        "author_id",
-                        "state",
-                        "created_at",
-                        "updated_at",
-                        "url"
-                      ],
-                      "additionalProperties": false
-                    },
-                    {
-                      "type": "null"
-                    }
-                  ]
-                },
-                "hu": {
-                  "anyOf": [
-                    {
-                      "type": "object",
-                      "properties": {
-                        "type": {
-                          "type": [
-                            "string",
-                            "null"
-                          ]
-                        },
-                        "title": {
-                          "type": "string"
-                        },
-                        "description": {
-                          "type": "string"
-                        },
-                        "body": {
-                          "type": "string"
-                        },
-                        "author_id": {
-                          "type": "number"
-                        },
-                        "state": {
-                          "type": "string"
-                        },
-                        "created_at": {
-                          "type": "number"
-                        },
-                        "updated_at": {
-                          "type": "number"
-                        },
-                        "url": {
-                          "type": "string"
-                        }
-                      },
-                      "required": [
-                        "type",
-                        "title",
-                        "description",
-                        "body",
-                        "author_id",
-                        "state",
-                        "created_at",
-                        "updated_at",
-                        "url"
-                      ],
-                      "additionalProperties": false
-                    },
-                    {
-                      "type": "null"
-                    }
-                  ]
-                },
-                "id": {
-                  "anyOf": [
-                    {
-                      "type": "object",
-                      "properties": {
-                        "type": {
-                          "type": [
-                            "string",
-                            "null"
-                          ]
-                        },
-                        "title": {
-                          "type": "string"
-                        },
-                        "description": {
-                          "type": "string"
-                        },
-                        "body": {
-                          "type": "string"
-                        },
-                        "author_id": {
-                          "type": "number"
-                        },
-                        "state": {
-                          "type": "string"
-                        },
-                        "created_at": {
-                          "type": "number"
-                        },
-                        "updated_at": {
-                          "type": "number"
-                        },
-                        "url": {
-                          "type": "string"
-                        }
-                      },
-                      "required": [
-                        "type",
-                        "title",
-                        "description",
-                        "body",
-                        "author_id",
-                        "state",
-                        "created_at",
-                        "updated_at",
-                        "url"
-                      ],
-                      "additionalProperties": false
-                    },
-                    {
-                      "type": "null"
-                    }
-                  ]
-                },
-                "it": {
-                  "anyOf": [
-                    {
-                      "type": "object",
-                      "properties": {
-                        "type": {
-                          "type": [
-                            "string",
-                            "null"
-                          ]
-                        },
-                        "title": {
-                          "type": "string"
-                        },
-                        "description": {
-                          "type": "string"
-                        },
-                        "body": {
-                          "type": "string"
-                        },
-                        "author_id": {
-                          "type": "number"
-                        },
-                        "state": {
-                          "type": "string"
-                        },
-                        "created_at": {
-                          "type": "number"
-                        },
-                        "updated_at": {
-                          "type": "number"
-                        },
-                        "url": {
-                          "type": "string"
-                        }
-                      },
-                      "required": [
-                        "type",
-                        "title",
-                        "description",
-                        "body",
-                        "author_id",
-                        "state",
-                        "created_at",
-                        "updated_at",
-                        "url"
-                      ],
-                      "additionalProperties": false
-                    },
-                    {
-                      "type": "null"
-                    }
-                  ]
-                },
-                "ja": {
-                  "anyOf": [
-                    {
-                      "type": "object",
-                      "properties": {
-                        "type": {
-                          "type": [
-                            "string",
-                            "null"
-                          ]
-                        },
-                        "title": {
-                          "type": "string"
-                        },
-                        "description": {
-                          "type": "string"
-                        },
-                        "body": {
-                          "type": "string"
-                        },
-                        "author_id": {
-                          "type": "number"
-                        },
-                        "state": {
-                          "type": "string"
-                        },
-                        "created_at": {
-                          "type": "number"
-                        },
-                        "updated_at": {
-                          "type": "number"
-                        },
-                        "url": {
-                          "type": "string"
-                        }
-                      },
-                      "required": [
-                        "type",
-                        "title",
-                        "description",
-                        "body",
-                        "author_id",
-                        "state",
-                        "created_at",
-                        "updated_at",
-                        "url"
-                      ],
-                      "additionalProperties": false
-                    },
-                    {
-                      "type": "null"
-                    }
-                  ]
-                },
-                "ko": {
-                  "anyOf": [
-                    {
-                      "type": "object",
-                      "properties": {
-                        "type": {
-                          "type": [
-                            "string",
-                            "null"
-                          ]
-                        },
-                        "title": {
-                          "type": "string"
-                        },
-                        "description": {
-                          "type": "string"
-                        },
-                        "body": {
-                          "type": "string"
-                        },
-                        "author_id": {
-                          "type": "number"
-                        },
-                        "state": {
-                          "type": "string"
-                        },
-                        "created_at": {
-                          "type": "number"
-                        },
-                        "updated_at": {
-                          "type": "number"
-                        },
-                        "url": {
-                          "type": "string"
-                        }
-                      },
-                      "required": [
-                        "type",
-                        "title",
-                        "description",
-                        "body",
-                        "author_id",
-                        "state",
-                        "created_at",
-                        "updated_at",
-                        "url"
-                      ],
-                      "additionalProperties": false
-                    },
-                    {
-                      "type": "null"
-                    }
-                  ]
-                },
-                "lt": {
-                  "anyOf": [
-                    {
-                      "type": "object",
-                      "properties": {
-                        "type": {
-                          "type": [
-                            "string",
-                            "null"
-                          ]
-                        },
-                        "title": {
-                          "type": "string"
-                        },
-                        "description": {
-                          "type": "string"
-                        },
-                        "body": {
-                          "type": "string"
-                        },
-                        "author_id": {
-                          "type": "number"
-                        },
-                        "state": {
-                          "type": "string"
-                        },
-                        "created_at": {
-                          "type": "number"
-                        },
-                        "updated_at": {
-                          "type": "number"
-                        },
-                        "url": {
-                          "type": "string"
-                        }
-                      },
-                      "required": [
-                        "type",
-                        "title",
-                        "description",
-                        "body",
-                        "author_id",
-                        "state",
-                        "created_at",
-                        "updated_at",
-                        "url"
-                      ],
-                      "additionalProperties": false
-                    },
-                    {
-                      "type": "null"
-                    }
-                  ]
-                },
-                "lv": {
-                  "anyOf": [
-                    {
-                      "type": "object",
-                      "properties": {
-                        "type": {
-                          "type": [
-                            "string",
-                            "null"
-                          ]
-                        },
-                        "title": {
-                          "type": "string"
-                        },
-                        "description": {
-                          "type": "string"
-                        },
-                        "body": {
-                          "type": "string"
-                        },
-                        "author_id": {
-                          "type": "number"
-                        },
-                        "state": {
-                          "type": "string"
-                        },
-                        "created_at": {
-                          "type": "number"
-                        },
-                        "updated_at": {
-                          "type": "number"
-                        },
-                        "url": {
-                          "type": "string"
-                        }
-                      },
-                      "required": [
-                        "type",
-                        "title",
-                        "description",
-                        "body",
-                        "author_id",
-                        "state",
-                        "created_at",
-                        "updated_at",
-                        "url"
-                      ],
-                      "additionalProperties": false
-                    },
-                    {
-                      "type": "null"
-                    }
-                  ]
-                },
-                "mn": {
-                  "anyOf": [
-                    {
-                      "type": "object",
-                      "properties": {
-                        "type": {
-                          "type": [
-                            "string",
-                            "null"
-                          ]
-                        },
-                        "title": {
-                          "type": "string"
-                        },
-                        "description": {
-                          "type": "string"
-                        },
-                        "body": {
-                          "type": "string"
-                        },
-                        "author_id": {
-                          "type": "number"
-                        },
-                        "state": {
-                          "type": "string"
-                        },
-                        "created_at": {
-                          "type": "number"
-                        },
-                        "updated_at": {
-                          "type": "number"
-                        },
-                        "url": {
-                          "type": "string"
-                        }
-                      },
-                      "required": [
-                        "type",
-                        "title",
-                        "description",
-                        "body",
-                        "author_id",
-                        "state",
-                        "created_at",
-                        "updated_at",
-                        "url"
-                      ],
-                      "additionalProperties": false
-                    },
-                    {
-                      "type": "null"
-                    }
-                  ]
-                },
-                "nb": {
-                  "anyOf": [
-                    {
-                      "type": "object",
-                      "properties": {
-                        "type": {
-                          "type": [
-                            "string",
-                            "null"
-                          ]
-                        },
-                        "title": {
-                          "type": "string"
-                        },
-                        "description": {
-                          "type": "string"
-                        },
-                        "body": {
-                          "type": "string"
-                        },
-                        "author_id": {
-                          "type": "number"
-                        },
-                        "state": {
-                          "type": "string"
-                        },
-                        "created_at": {
-                          "type": "number"
-                        },
-                        "updated_at": {
-                          "type": "number"
-                        },
-                        "url": {
-                          "type": "string"
-                        }
-                      },
-                      "required": [
-                        "type",
-                        "title",
-                        "description",
-                        "body",
-                        "author_id",
-                        "state",
-                        "created_at",
-                        "updated_at",
-                        "url"
-                      ],
-                      "additionalProperties": false
-                    },
-                    {
-                      "type": "null"
-                    }
-                  ]
-                },
-                "nl": {
-                  "anyOf": [
-                    {
-                      "type": "object",
-                      "properties": {
-                        "type": {
-                          "type": [
-                            "string",
-                            "null"
-                          ]
-                        },
-                        "title": {
-                          "type": "string"
-                        },
-                        "description": {
-                          "type": "string"
-                        },
-                        "body": {
-                          "type": "string"
-                        },
-                        "author_id": {
-                          "type": "number"
-                        },
-                        "state": {
-                          "type": "string"
-                        },
-                        "created_at": {
-                          "type": "number"
-                        },
-                        "updated_at": {
-                          "type": "number"
-                        },
-                        "url": {
-                          "type": "string"
-                        }
-                      },
-                      "required": [
-                        "type",
-                        "title",
-                        "description",
-                        "body",
-                        "author_id",
-                        "state",
-                        "created_at",
-                        "updated_at",
-                        "url"
-                      ],
-                      "additionalProperties": false
-                    },
-                    {
-                      "type": "null"
-                    }
-                  ]
-                },
-                "pl": {
-                  "anyOf": [
-                    {
-                      "type": "object",
-                      "properties": {
-                        "type": {
-                          "type": [
-                            "string",
-                            "null"
-                          ]
-                        },
-                        "title": {
-                          "type": "string"
-                        },
-                        "description": {
-                          "type": "string"
-                        },
-                        "body": {
-                          "type": "string"
-                        },
-                        "author_id": {
-                          "type": "number"
-                        },
-                        "state": {
-                          "type": "string"
-                        },
-                        "created_at": {
-                          "type": "number"
-                        },
-                        "updated_at": {
-                          "type": "number"
-                        },
-                        "url": {
-                          "type": "string"
-                        }
-                      },
-                      "required": [
-                        "type",
-                        "title",
-                        "description",
-                        "body",
-                        "author_id",
-                        "state",
-                        "created_at",
-                        "updated_at",
-                        "url"
-                      ],
-                      "additionalProperties": false
-                    },
-                    {
-                      "type": "null"
-                    }
-                  ]
-                },
-                "pt": {
-                  "anyOf": [
-                    {
-                      "type": "object",
-                      "properties": {
-                        "type": {
-                          "type": [
-                            "string",
-                            "null"
-                          ]
-                        },
-                        "title": {
-                          "type": "string"
-                        },
-                        "description": {
-                          "type": "string"
-                        },
-                        "body": {
-                          "type": "string"
-                        },
-                        "author_id": {
-                          "type": "number"
-                        },
-                        "state": {
-                          "type": "string"
-                        },
-                        "created_at": {
-                          "type": "number"
-                        },
-                        "updated_at": {
-                          "type": "number"
-                        },
-                        "url": {
-                          "type": "string"
-                        }
-                      },
-                      "required": [
-                        "type",
-                        "title",
-                        "description",
-                        "body",
-                        "author_id",
-                        "state",
-                        "created_at",
-                        "updated_at",
-                        "url"
-                      ],
-                      "additionalProperties": false
-                    },
-                    {
-                      "type": "null"
-                    }
-                  ]
-                },
-                "ro": {
-                  "anyOf": [
-                    {
-                      "type": "object",
-                      "properties": {
-                        "type": {
-                          "type": [
-                            "string",
-                            "null"
-                          ]
-                        },
-                        "title": {
-                          "type": "string"
-                        },
-                        "description": {
-                          "type": "string"
-                        },
-                        "body": {
-                          "type": "string"
-                        },
-                        "author_id": {
-                          "type": "number"
-                        },
-                        "state": {
-                          "type": "string"
-                        },
-                        "created_at": {
-                          "type": "number"
-                        },
-                        "updated_at": {
-                          "type": "number"
-                        },
-                        "url": {
-                          "type": "string"
-                        }
-                      },
-                      "required": [
-                        "type",
-                        "title",
-                        "description",
-                        "body",
-                        "author_id",
-                        "state",
-                        "created_at",
-                        "updated_at",
-                        "url"
-                      ],
-                      "additionalProperties": false
-                    },
-                    {
-                      "type": "null"
-                    }
-                  ]
-                },
-                "ru": {
-                  "anyOf": [
-                    {
-                      "type": "object",
-                      "properties": {
-                        "type": {
-                          "type": [
-                            "string",
-                            "null"
-                          ]
-                        },
-                        "title": {
-                          "type": "string"
-                        },
-                        "description": {
-                          "type": "string"
-                        },
-                        "body": {
-                          "type": "string"
-                        },
-                        "author_id": {
-                          "type": "number"
-                        },
-                        "state": {
-                          "type": "string"
-                        },
-                        "created_at": {
-                          "type": "number"
-                        },
-                        "updated_at": {
-                          "type": "number"
-                        },
-                        "url": {
-                          "type": "string"
-                        }
-                      },
-                      "required": [
-                        "type",
-                        "title",
-                        "description",
-                        "body",
-                        "author_id",
-                        "state",
-                        "created_at",
-                        "updated_at",
-                        "url"
-                      ],
-                      "additionalProperties": false
-                    },
-                    {
-                      "type": "null"
-                    }
-                  ]
-                },
-                "sl": {
-                  "anyOf": [
-                    {
-                      "type": "object",
-                      "properties": {
-                        "type": {
-                          "type": [
-                            "string",
-                            "null"
-                          ]
-                        },
-                        "title": {
-                          "type": "string"
-                        },
-                        "description": {
-                          "type": "string"
-                        },
-                        "body": {
-                          "type": "string"
-                        },
-                        "author_id": {
-                          "type": "number"
-                        },
-                        "state": {
-                          "type": "string"
-                        },
-                        "created_at": {
-                          "type": "number"
-                        },
-                        "updated_at": {
-                          "type": "number"
-                        },
-                        "url": {
-                          "type": "string"
-                        }
-                      },
-                      "required": [
-                        "type",
-                        "title",
-                        "description",
-                        "body",
-                        "author_id",
-                        "state",
-                        "created_at",
-                        "updated_at",
-                        "url"
-                      ],
-                      "additionalProperties": false
-                    },
-                    {
-                      "type": "null"
-                    }
-                  ]
-                },
-                "sr": {
-                  "anyOf": [
-                    {
-                      "type": "object",
-                      "properties": {
-                        "type": {
-                          "type": [
-                            "string",
-                            "null"
-                          ]
-                        },
-                        "title": {
-                          "type": "string"
-                        },
-                        "description": {
-                          "type": "string"
-                        },
-                        "body": {
-                          "type": "string"
-                        },
-                        "author_id": {
-                          "type": "number"
-                        },
-                        "state": {
-                          "type": "string"
-                        },
-                        "created_at": {
-                          "type": "number"
-                        },
-                        "updated_at": {
-                          "type": "number"
-                        },
-                        "url": {
-                          "type": "string"
-                        }
-                      },
-                      "required": [
-                        "type",
-                        "title",
-                        "description",
-                        "body",
-                        "author_id",
-                        "state",
-                        "created_at",
-                        "updated_at",
-                        "url"
-                      ],
-                      "additionalProperties": false
-                    },
-                    {
-                      "type": "null"
-                    }
-                  ]
-                },
-                "sv": {
-                  "anyOf": [
-                    {
-                      "type": "object",
-                      "properties": {
-                        "type": {
-                          "type": [
-                            "string",
-                            "null"
-                          ]
-                        },
-                        "title": {
-                          "type": "string"
-                        },
-                        "description": {
-                          "type": "string"
-                        },
-                        "body": {
-                          "type": "string"
-                        },
-                        "author_id": {
-                          "type": "number"
-                        },
-                        "state": {
-                          "type": "string"
-                        },
-                        "created_at": {
-                          "type": "number"
-                        },
-                        "updated_at": {
-                          "type": "number"
-                        },
-                        "url": {
-                          "type": "string"
-                        }
-                      },
-                      "required": [
-                        "type",
-                        "title",
-                        "description",
-                        "body",
-                        "author_id",
-                        "state",
-                        "created_at",
-                        "updated_at",
-                        "url"
-                      ],
-                      "additionalProperties": false
-                    },
-                    {
-                      "type": "null"
-                    }
-                  ]
-                },
-                "tr": {
-                  "anyOf": [
-                    {
-                      "type": "object",
-                      "properties": {
-                        "type": {
-                          "type": [
-                            "string",
-                            "null"
-                          ]
-                        },
-                        "title": {
-                          "type": "string"
-                        },
-                        "description": {
-                          "type": "string"
-                        },
-                        "body": {
-                          "type": "string"
-                        },
-                        "author_id": {
-                          "type": "number"
-                        },
-                        "state": {
-                          "type": "string"
-                        },
-                        "created_at": {
-                          "type": "number"
-                        },
-                        "updated_at": {
-                          "type": "number"
-                        },
-                        "url": {
-                          "type": "string"
-                        }
-                      },
-                      "required": [
-                        "type",
-                        "title",
-                        "description",
-                        "body",
-                        "author_id",
-                        "state",
-                        "created_at",
-                        "updated_at",
-                        "url"
-                      ],
-                      "additionalProperties": false
-                    },
-                    {
-                      "type": "null"
-                    }
-                  ]
-                },
-                "vi": {
-                  "anyOf": [
-                    {
-                      "type": "object",
-                      "properties": {
-                        "type": {
-                          "type": [
-                            "string",
-                            "null"
-                          ]
-                        },
-                        "title": {
-                          "type": "string"
-                        },
-                        "description": {
-                          "type": "string"
-                        },
-                        "body": {
-                          "type": "string"
-                        },
-                        "author_id": {
-                          "type": "number"
-                        },
-                        "state": {
-                          "type": "string"
-                        },
-                        "created_at": {
-                          "type": "number"
-                        },
-                        "updated_at": {
-                          "type": "number"
-                        },
-                        "url": {
-                          "type": "string"
-                        }
-                      },
-                      "required": [
-                        "type",
-                        "title",
-                        "description",
-                        "body",
-                        "author_id",
-                        "state",
-                        "created_at",
-                        "updated_at",
-                        "url"
-                      ],
-                      "additionalProperties": false
-                    },
-                    {
-                      "type": "null"
-                    }
-                  ]
-                },
-                "pt-BR": {
-                  "anyOf": [
-                    {
-                      "type": "object",
-                      "properties": {
-                        "type": {
-                          "type": [
-                            "string",
-                            "null"
-                          ]
-                        },
-                        "title": {
-                          "type": "string"
-                        },
-                        "description": {
-                          "type": "string"
-                        },
-                        "body": {
-                          "type": "string"
-                        },
-                        "author_id": {
-                          "type": "number"
-                        },
-                        "state": {
-                          "type": "string"
-                        },
-                        "created_at": {
-                          "type": "number"
-                        },
-                        "updated_at": {
-                          "type": "number"
-                        },
-                        "url": {
-                          "type": "string"
-                        }
-                      },
-                      "required": [
-                        "type",
-                        "title",
-                        "description",
-                        "body",
-                        "author_id",
-                        "state",
-                        "created_at",
-                        "updated_at",
-                        "url"
-                      ],
-                      "additionalProperties": false
-                    },
-                    {
-                      "type": "null"
-                    }
-                  ]
-                },
-                "zh-CN": {
-                  "anyOf": [
-                    {
-                      "type": "object",
-                      "properties": {
-                        "type": {
-                          "type": [
-                            "string",
-                            "null"
-                          ]
-                        },
-                        "title": {
-                          "type": "string"
-                        },
-                        "description": {
-                          "type": "string"
-                        },
-                        "body": {
-                          "type": "string"
-                        },
-                        "author_id": {
-                          "type": "number"
-                        },
-                        "state": {
-                          "type": "string"
-                        },
-                        "created_at": {
-                          "type": "number"
-                        },
-                        "updated_at": {
-                          "type": "number"
-                        },
-                        "url": {
-                          "type": "string"
-                        }
-                      },
-                      "required": [
-                        "type",
-                        "title",
-                        "description",
-                        "body",
-                        "author_id",
-                        "state",
-                        "created_at",
-                        "updated_at",
-                        "url"
-                      ],
-                      "additionalProperties": false
-                    },
-                    {
-                      "type": "null"
-                    }
-                  ]
-                },
-                "zh-TW": {
-                  "anyOf": [
-                    {
-                      "type": "object",
-                      "properties": {
-                        "type": {
-                          "type": [
-                            "string",
-                            "null"
-                          ]
-                        },
-                        "title": {
-                          "type": "string"
-                        },
-                        "description": {
-                          "type": "string"
-                        },
-                        "body": {
-                          "type": "string"
-                        },
-                        "author_id": {
-                          "type": "number"
-                        },
-                        "state": {
-                          "type": "string"
-                        },
-                        "created_at": {
-                          "type": "number"
-                        },
-                        "updated_at": {
-                          "type": "number"
-                        },
-                        "url": {
-                          "type": "string"
-                        }
-                      },
-                      "required": [
-                        "type",
-                        "title",
-                        "description",
-                        "body",
-                        "author_id",
-                        "state",
-                        "created_at",
-                        "updated_at",
-                        "url"
-                      ],
-                      "additionalProperties": false
-                    },
-                    {
-                      "type": "null"
-                    }
-                  ]
-                }
-              },
-              "required": [
-                "type",
-                "ar",
-                "bg",
-                "bs",
-                "ca",
-                "cs",
-                "da",
-                "de",
-                "el",
-                "en",
-                "es",
-                "et",
-                "fi",
-                "fr",
-                "he",
-                "hr",
-                "hu",
-                "id",
-                "it",
-                "ja",
-                "ko",
-                "lt",
-                "lv",
-                "mn",
-                "nb",
-                "nl",
-                "pl",
-                "pt",
-                "ro",
-                "ru",
-                "sl",
-                "sr",
-                "sv",
-                "tr",
-                "vi",
-                "pt-BR",
-                "zh-CN",
-                "zh-TW"
-              ],
-              "additionalProperties": false
-            },
-            {
-              "type": "null"
-            }
-          ]
         }
       },
       "required": [
-        "type",
         "id",
         "workspace_id",
         "title",
-        "description",
-        "body",
         "author_id",
         "state",
         "created_at",
-        "updated_at",
-        "url",
-        "parent_id",
-        "parent_ids",
-        "parent_type"
+        "updated_at"
       ],
       "additionalProperties": false
     },
-    "ActionInput_intercom_whoami": {
-      "type": "null"
+    "ActionInput_intercom_updatecompany": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "plan": {
+          "type": "string"
+        },
+        "website": {
+          "type": "string"
+        },
+        "industry": {
+          "type": "string"
+        },
+        "size": {
+          "type": "number"
+        },
+        "monthly_spend": {
+          "type": "number"
+        },
+        "remote_created_at": {
+          "type": "number"
+        },
+        "custom_attributes": {
+          "type": "object",
+          "additionalProperties": false
+        }
+      },
+      "required": [
+        "id"
+      ],
+      "additionalProperties": false
     },
-    "ActionOutput_intercom_whoami": {
+    "ActionOutput_intercom_updatecompany": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "company_id": {
+          "type": "string"
+        },
+        "plan": {
+          "type": "string"
+        },
+        "website": {
+          "type": "string"
+        },
+        "industry": {
+          "type": "string"
+        },
+        "size": {
+          "type": "number"
+        },
+        "monthly_spend": {
+          "type": "number"
+        },
+        "custom_attributes": {
+          "type": "object",
+          "additionalProperties": false
+        }
+      },
+      "required": [
+        "id"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_intercom_updatecontact": {
       "type": "object",
       "properties": {
         "id": {
@@ -63137,11 +64178,155 @@
         },
         "email": {
           "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "phone": {
+          "type": "string"
+        },
+        "role": {
+          "type": "string"
+        },
+        "custom_attributes": {
+          "type": "object",
+          "additionalProperties": {
+            "anyOf": [
+              {},
+              {
+                "not": {}
+              }
+            ]
+          }
+        }
+      },
+      "required": [
+        "id"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_intercom_updatecontact": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "type": {
+          "type": "string"
+        },
+        "email": {
+          "type": "string"
+        },
+        "phone": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "role": {
+          "type": "string"
+        },
+        "custom_attributes": {
+          "type": "object",
+          "additionalProperties": {
+            "anyOf": [
+              {},
+              {
+                "not": {}
+              }
+            ]
+          }
+        },
+        "created_at": {
+          "type": "number"
+        },
+        "updated_at": {
+          "type": "number"
         }
       },
       "required": [
         "id",
-        "email"
+        "type",
+        "email",
+        "phone",
+        "name",
+        "role",
+        "custom_attributes",
+        "created_at",
+        "updated_at"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_intercom_updateconversation": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "custom_attributes": {
+          "type": "object",
+          "additionalProperties": {
+            "anyOf": [
+              {},
+              {
+                "not": {}
+              }
+            ]
+          }
+        },
+        "read": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "id"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_intercom_updateconversation": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "title": {
+          "type": "string"
+        },
+        "state": {
+          "type": "string",
+          "enum": [
+            "open",
+            "closed",
+            "snoozed"
+          ]
+        },
+        "read": {
+          "type": "boolean"
+        },
+        "created_at": {
+          "type": "number"
+        },
+        "updated_at": {
+          "type": "number"
+        },
+        "custom_attributes": {
+          "type": "object",
+          "additionalProperties": {
+            "anyOf": [
+              {},
+              {
+                "not": {}
+              }
+            ]
+          }
+        }
+      },
+      "required": [
+        "id",
+        "state",
+        "read",
+        "created_at",
+        "updated_at"
       ],
       "additionalProperties": false
     },

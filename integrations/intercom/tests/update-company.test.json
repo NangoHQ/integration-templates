@@ -1,0 +1,94 @@
+{
+  "input": {
+    "id": "69fc27ea0aff3c84b7d5a897",
+    "name": "Updated Nango Test Company",
+    "plan": "Premium",
+    "website": "https://nango.dev"
+  },
+  "output": {
+    "id": "69fc27ea0aff3c84b7d5a897",
+    "name": "Updated Nango Test Company",
+    "company_id": "nango-test-company-001",
+    "plan": "Premium",
+    "website": "https://nango.dev",
+    "monthly_spend": 0,
+    "custom_attributes": {
+      "creation_source": "api"
+    }
+  },
+  "nango": {},
+  "api": {
+    "put": {
+      "/companies/69fc27ea0aff3c84b7d5a897": {
+        "response": {
+          "type": "company",
+          "company_id": "nango-test-company-001",
+          "id": "69fc27ea0aff3c84b7d5a897",
+          "app_id": "h64a47v4",
+          "name": "Updated Nango Test Company",
+          "created_at": 1778132970,
+          "updated_at": 1778132989,
+          "monthly_spend": 0,
+          "session_count": 0,
+          "user_count": 0,
+          "website": "https://nango.dev",
+          "tags": {
+            "type": "tag.list",
+            "tags": []
+          },
+          "segments": {
+            "type": "segment.list",
+            "segments": []
+          },
+          "plan": {
+            "type": "plan",
+            "id": "844779",
+            "name": "Premium"
+          },
+          "custom_attributes": {
+            "creation_source": "api"
+          }
+        },
+        "status": 200,
+        "headers": {
+          "date": "Thu, 07 May 2026 05:49:59 GMT",
+          "content-type": "application/json; charset=utf-8",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "1; mode=block",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=31556952; includeSubDomains; preload",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4995",
+          "x-ratelimit-reset": "1778133006",
+          "vary": "Accept-Encoding",
+          "status": "200 OK",
+          "x-intercom-version": "9f26d01b250900ba55fb5a7d9ef827b19f52128d",
+          "x-request-id": "0006pcth52ksbrcpnl5g",
+          "etag": "W/\"725358948c22c2efdf60d86875db3517\"",
+          "cache-control": "max-age=0, private, must-revalidate",
+          "referrer-policy": "strict-origin-when-cross-origin",
+          "x-request-queueing": "0",
+          "intercom-version": "2.15",
+          "x-runtime": "0.085706",
+          "server": "nginx",
+          "x-ami-version": "ami-018421ea35bfc2097"
+        },
+        "hash": "6fda9f7c3255a7d0c3fc1f0510d718c7adbf4dba",
+        "request": {
+          "data": {
+            "name": "Updated Nango Test Company",
+            "plan": "Premium",
+            "website": "https://nango.dev"
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,125 +1,156 @@
-import { createSync } from 'nango';
-import { mapConversation, mapMessages } from '../mappers/to-conversation.js';
-import type { IntercomConversationMessage, IntercomConversationsResponse } from '../types.js';
-
-import type { ProxyConfiguration } from 'nango';
-import { Conversation, ConversationMessage } from '../models.js';
+import { createSync, type ProxyConfiguration } from 'nango';
 import { z } from 'zod';
 
-/**
- * Fetches Intercom conversations with all their associated messages and notes.
- *
- * Note that Intercom has a hard limit of 500 message parts (messages/notes/actions etc.) returned per conversation.
- * If a conversation has more than 500 parts some will be missing.
- * Only fetches parts that have a message body, ignores parts which are pure actions & metadata (e.g. closed conversation).
- *
- * Initial sync: Fetches conversations updated in the last X years (default: X=2)
- * Incremential sync: Fetches the conversations that have been updates since the last sync (updated_at date from Intercom, seems to be reliable)
- *
- * For endpoint documentation, refer to:
- * https://developers.intercom.com/docs/references/rest-api/api.intercom.io/conversations/retrieveconversation
- * @param nango - An instance of NangoSync for handling synchronization tasks.
- */
+// https://developers.intercom.com/docs/references/rest-api/api.intercom.io/Conversations
+const ConversationSchema = z.object({
+    id: z.string(),
+    title: z.string().nullable().optional(),
+    state: z.enum(['open', 'closed', 'snoozed']).optional(),
+    created_at: z.number().optional(),
+    updated_at: z.number().optional(),
+    waiting_since: z.number().nullable().optional(),
+    snoozed_until: z.number().nullable().optional(),
+    open: z.boolean().optional(),
+    read: z.boolean().optional(),
+    priority: z.string().optional(),
+    admin_assignee_id: z.number().nullable().optional(),
+    team_assignee_id: z.number().nullable().optional(),
+    tags: z
+        .object({
+            tags: z.array(z.object({ id: z.string(), name: z.string() }).passthrough())
+        })
+        .passthrough()
+        .nullable()
+        .optional(),
+    source: z.object({}).passthrough().nullable().optional(),
+    contacts: z.object({}).passthrough().nullable().optional(),
+    company: z.object({}).passthrough().nullable().optional(),
+    teammates: z.object({}).passthrough().nullable().optional(),
+    custom_attributes: z.record(z.string(), z.unknown()).optional(),
+    conversation_rating: z.object({}).passthrough().nullable().optional(),
+    first_contact_reply: z.object({}).passthrough().nullable().optional(),
+    sla_applied: z.object({}).passthrough().nullable().optional(),
+    statistics: z.object({}).passthrough().nullable().optional(),
+    linked_objects: z.object({}).passthrough().nullable().optional(),
+    ai_agent_participated: z.boolean().optional(),
+    ai_agent: z.object({}).passthrough().nullable().optional()
+});
+
+const ConversationListItemSchema = z.object({
+    id: z.string(),
+    updated_at: z.number()
+});
+
+const CheckpointSchema = z.object({
+    updated_after: z.number()
+});
+
 const sync = createSync({
-    description: 'Fetches a list of conversations from Intercom',
-    version: '2.0.0',
-    frequency: 'every 6 hours',
+    description: 'Sync conversations from Intercom',
+    version: '3.0.0',
+    endpoints: [{ path: '/syncs/conversations', method: 'POST' }],
+    frequency: 'every 5 minutes',
     autoStart: true,
-    syncType: 'incremental',
-
-    endpoints: [
-        {
-            method: 'GET',
-            path: '/conversations'
-        },
-        {
-            method: 'GET',
-            path: '/conversation-messages'
-        }
-    ],
-
+    checkpoint: CheckpointSchema,
     models: {
-        Conversation: Conversation,
-        ConversationMessage: ConversationMessage
+        Conversation: ConversationSchema
     },
 
-    metadata: z.object({}),
-
     exec: async (nango) => {
-        // Intercom uses unix timestamp for datetimes.
-        // Convert the last sync run date into a unix timestamp for easier comparison.
-        const lastSyncDateTimestamp = nango.lastSyncDate ? nango.lastSyncDate.getTime() / 1000 : 0;
-        const maxYearsToSync = 2;
-        const maxSyncDate = new Date();
-        maxSyncDate.setFullYear(new Date().getFullYear() - maxYearsToSync);
-        const maxSyncDateTimestamp = maxSyncDate.getTime() / 1000;
+        const checkpoint = await nango.getCheckpoint();
+        const checkpointParsed = CheckpointSchema.safeParse(checkpoint);
 
-        // Get the list of conversations
-        // Not documented, but from testing it seems the list is sorted by updated_at DESC
-        // https://developers.intercom.com/intercom-api-reference/reference/listconversations
-        let finished = false;
-        let nextPage = '';
+        // Bound lookback window on first run (2 years back).
+        const defaultLookback = Math.floor(Date.now() / 1000) - 2 * 365 * 24 * 60 * 60;
+        const updatedAfter = checkpointParsed.success ? checkpointParsed.data.updated_after : defaultLookback;
 
-        while (!finished) {
-            // This API endpoint has an annoying bug: If you pass "starting_after" with no value you get a 500 server error
-            // Because of this we only set it here when we are fetching page >= 2, otherwise we don't pass it.
-            const queryParams: Record<string, string> = {
-                per_page: '100'
-            };
-
-            if (nextPage !== '') {
-                queryParams['starting_after'] = nextPage;
-            }
-
-            const config: ProxyConfiguration = {
-                // https://developers.intercom.com/intercom-api-reference/reference/listconversations
-                endpoint: '/conversations',
-                retries: 10,
-                headers: {
-                    'Intercom-Version': '2.9'
+        // cursor_name_in_request uses dot-path so lodash set() writes the cursor into
+        // body.pagination.starting_after, not at the top-level body key.
+        const proxyConfig: ProxyConfiguration = {
+            // https://developers.intercom.com/docs/references/rest-api/api.intercom.io/Conversations/searchConversations
+            endpoint: '/conversations/search',
+            method: 'POST',
+            data: {
+                query: {
+                    operator: 'AND',
+                    value: [{ field: 'updated_at', operator: '>', value: updatedAfter }]
                 },
-                params: queryParams
-            };
-            const ConversationResp = await nango.get<IntercomConversationsResponse>(config);
+                pagination: { per_page: 100 }
+            },
+            paginate: {
+                type: 'cursor',
+                cursor_name_in_request: 'pagination.starting_after',
+                cursor_path_in_response: 'pages.next.starting_after',
+                response_path: 'conversations',
+                limit_name_in_request: 'per_page',
+                limit: 60
+            },
+            headers: { 'Intercom-Version': '2.11' },
+            retries: 3
+        };
 
-            const intercomConversationsPage: Conversation[] = [];
-            const intercomMessagesPage: ConversationMessage[] = [];
+        let maxUpdatedAt: number | undefined;
+        let sawConversations = false;
 
-            for (const conversation of ConversationResp.data.conversations) {
-                if (conversation.updated_at < lastSyncDateTimestamp) {
-                    continue;
+        for await (const batch of nango.paginate<z.infer<typeof ConversationListItemSchema>>(proxyConfig)) {
+            sawConversations = sawConversations || batch.length > 0;
+            const toSave: z.infer<typeof ConversationSchema>[] = [];
+
+            for (const item of batch) {
+                const parsed = ConversationListItemSchema.safeParse(item);
+                if (!parsed.success) {
+                    throw new Error(`Failed to parse conversation list item: ${parsed.error.message}`);
                 }
 
-                const conversationConfig: ProxyConfiguration = {
-                    // https://developers.intercom.com/docs/references/rest-api/api.intercom.io/conversations/retrieveconversation
-                    endpoint: `/conversations/${conversation.id}`,
-                    retries: 10,
-                    headers: {
-                        'Intercom-Version': '2.9'
-                    },
-                    params: { display_as: 'plaintext' }
-                };
+                // https://developers.intercom.com/docs/references/rest-api/api.intercom.io/Conversations/retrieveConversation
+                const detail = await nango.get({
+                    endpoint: `/conversations/${encodeURIComponent(parsed.data.id)}`,
+                    params: { display_as: 'plaintext' },
+                    headers: { 'Intercom-Version': '2.11' },
+                    retries: 3
+                });
 
-                const messageResp = await nango.get<IntercomConversationMessage>(conversationConfig);
+                const c = detail.data;
+                toSave.push({
+                    id: c.id,
+                    ...(c.title != null && { title: c.title }),
+                    ...(c.state !== undefined && { state: c.state }),
+                    ...(c.created_at !== undefined && { created_at: c.created_at }),
+                    ...(c.updated_at !== undefined && { updated_at: c.updated_at }),
+                    ...(c.waiting_since != null && { waiting_since: c.waiting_since }),
+                    ...(c.snoozed_until != null && { snoozed_until: c.snoozed_until }),
+                    ...(c.open !== undefined && { open: c.open }),
+                    ...(c.read !== undefined && { read: c.read }),
+                    ...(c.priority !== undefined && { priority: c.priority }),
+                    ...(c.admin_assignee_id != null && { admin_assignee_id: c.admin_assignee_id }),
+                    ...(c.team_assignee_id != null && { team_assignee_id: c.team_assignee_id }),
+                    ...(c.tags !== undefined && { tags: c.tags ?? null }),
+                    ...(c.source !== undefined && { source: c.source ?? null }),
+                    ...(c.contacts !== undefined && { contacts: c.contacts ?? null }),
+                    ...(c.company !== undefined && { company: c.company ?? null }),
+                    ...(c.teammates !== undefined && { teammates: c.teammates ?? null }),
+                    ...(c.custom_attributes !== undefined && { custom_attributes: c.custom_attributes }),
+                    ...(c.conversation_rating !== undefined && { conversation_rating: c.conversation_rating ?? null }),
+                    ...(c.first_contact_reply !== undefined && { first_contact_reply: c.first_contact_reply ?? null }),
+                    ...(c.sla_applied !== undefined && { sla_applied: c.sla_applied ?? null }),
+                    ...(c.statistics !== undefined && { statistics: c.statistics ?? null }),
+                    ...(c.linked_objects !== undefined && { linked_objects: c.linked_objects ?? null }),
+                    ...(c.ai_agent_participated !== undefined && { ai_agent_participated: c.ai_agent_participated }),
+                    ...(c.ai_agent !== undefined && { ai_agent: c.ai_agent ?? null })
+                });
 
-                intercomConversationsPage.push(mapConversation(conversation));
-                intercomMessagesPage.push(...mapMessages(messageResp.data));
+                if (maxUpdatedAt === undefined || parsed.data.updated_at > maxUpdatedAt) {
+                    maxUpdatedAt = parsed.data.updated_at;
+                }
             }
 
-            await nango.batchSave(intercomConversationsPage, 'Conversation');
-            await nango.batchSave(intercomMessagesPage, 'ConversationMessage');
-
-            const lastConversation = ConversationResp.data.conversations[ConversationResp.data.conversations.length - 1];
-
-            if (
-                !ConversationResp.data.pages.next ||
-                (lastSyncDateTimestamp === 0 && lastConversation && lastConversation.updated_at <= maxSyncDateTimestamp) ||
-                (lastSyncDateTimestamp > 0 && lastConversation && lastConversation.updated_at < lastSyncDateTimestamp)
-            ) {
-                finished = true;
-            } else {
-                nextPage = ConversationResp.data.pages.next.starting_after;
+            if (toSave.length > 0) {
+                await nango.batchSave(toSave, 'Conversation');
             }
+        }
+
+        if (sawConversations && maxUpdatedAt !== undefined) {
+            await nango.saveCheckpoint({ updated_after: maxUpdatedAt });
         }
     }
 });

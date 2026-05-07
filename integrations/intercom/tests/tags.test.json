@@ -1,0 +1,102 @@
+{
+  "nango": {
+    "batchSave": {
+      "Tag": [
+        {
+          "id": "14928988",
+          "name": "Feature Request",
+          "type": "tag"
+        },
+        {
+          "id": "14929065",
+          "name": "Test Tag",
+          "type": "tag"
+        },
+        {
+          "id": "14929067",
+          "name": "Test Tag Nango",
+          "type": "tag"
+        },
+        {
+          "id": "14929069",
+          "name": "TestTag",
+          "type": "tag"
+        }
+      ]
+    },
+    "batchDelete": {
+      "Tag": []
+    }
+  },
+  "api": {
+    "get": {
+      "/tags": {
+        "response": {
+          "type": "list",
+          "data": [
+            {
+              "type": "tag",
+              "id": "14928988",
+              "name": "Feature Request"
+            },
+            {
+              "type": "tag",
+              "id": "14929065",
+              "name": "Test Tag"
+            },
+            {
+              "type": "tag",
+              "id": "14929067",
+              "name": "Test Tag Nango"
+            },
+            {
+              "type": "tag",
+              "id": "14929069",
+              "name": "TestTag"
+            }
+          ]
+        },
+        "status": 200,
+        "headers": {
+          "date": "Thu, 07 May 2026 05:49:25 GMT",
+          "content-type": "application/json; charset=utf-8",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "1; mode=block",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=31556952; includeSubDomains; preload",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4998",
+          "x-ratelimit-reset": "1778132976",
+          "vary": "Accept-Encoding",
+          "status": "200 OK",
+          "x-intercom-version": "9f26d01b250900ba55fb5a7d9ef827b19f52128d",
+          "x-request-id": "002ce7sgsno64vlr7u30",
+          "etag": "W/\"7cd575d854832c0be30943ce0a4ff25a\"",
+          "cache-control": "max-age=0, private, must-revalidate",
+          "referrer-policy": "strict-origin-when-cross-origin",
+          "x-request-queueing": "0",
+          "intercom-version": "2.11",
+          "x-runtime": "0.036392",
+          "server": "nginx",
+          "x-ami-version": "ami-018421ea35bfc2097"
+        },
+        "hash": "f5515a2a5989baf74986f083e33ddc9c9b695eda",
+        "request": {
+          "params": {
+            "per_page": "150"
+          },
+          "headers": {
+            "Intercom-Version": "2.11"
+          }
+        }
+      }
+    }
+  }
+}
