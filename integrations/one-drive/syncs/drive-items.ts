@@ -1,6 +1,5 @@
 import { createSync, ProxyConfiguration } from 'nango';
 import { z } from 'zod';
-import type { AxiosResponse } from 'axios';
 
 // https://learn.microsoft.com/graph/api/resources/driveitem
 const DriveItemSchema = z
@@ -82,7 +81,7 @@ const sync = createSync({
             response_path: 'value',
             limit: 100,
             limit_name_in_request: '$top',
-            on_page: async ({ response }: { response: AxiosResponse }) => {
+            on_page: async ({ response }) => {
                 // Save whichever Graph state token this page exposes so the next run can resume.
                 const parsedResponse = DeltaResponseSchema.safeParse(response.data);
                 if (parsedResponse.success) {
