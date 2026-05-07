@@ -1,14 +1,18 @@
 import { z } from 'zod';
 import { createAction } from 'nango';
 
-const CompanyIdSchema = z.object({
-    id: z.string().optional().describe('Company ID'),
-    company_id: z.string().optional().describe('Company ID alternative field')
-});
+const CompanyIdSchema = z
+    .object({
+        id: z.string().optional().describe('Company ID'),
+        company_id: z.string().optional().describe('Company ID alternative field')
+    })
+    .refine((data) => data.id || data.company_id, {
+        message: 'Each company entry must have at least one of: id, company_id'
+    });
 
 const InputSchema = z.object({
     name: z.string().describe('Tag name to apply. Example: "VIP"'),
-    companies: z.array(CompanyIdSchema).describe('Array of companies to tag with their IDs')
+    companies: z.array(CompanyIdSchema).min(1).describe('Array of companies to tag with their IDs')
 });
 
 const ProviderCompanySchema = z.object({

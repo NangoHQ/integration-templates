@@ -19691,7 +19691,7 @@ export interface ActionInput_intercom_createarticle {
   /**
    * Whether the article will be published or will be a draft. Defaults to draft.
    */
-  state: 'draft' | 'published';
+  state?: 'draft' | 'published' | undefined;
   /**
    * The description of the article. Example: "Description of the Article"
    */
@@ -19846,7 +19846,7 @@ export interface ActionInput_intercom_createcontact {
   /**
    * Email address of the contact. Required for users, optional for leads.
    */
-  email: string;
+  email?: string | undefined;
   /**
    * Full name of the contact.
    */
@@ -20071,7 +20071,7 @@ export interface ActionOutput_intercom_getcompany {
   monthly_spend?: number | undefined;
   session_count?: number | undefined;
   user_count?: number | undefined;
-  custom_attributes?: any | undefined;
+  custom_attributes?: {  [key: string]: unknown | undefined;};
 };
 
 export interface ActionInput_intercom_getcontact {
@@ -20556,7 +20556,7 @@ export interface ActionInput_intercom_searchcontacts {
   /**
    * Value to compare against.
    */
-  value: string | number | boolean | any[];} | undefined;
+  value: string | number | boolean | unknown[];} | undefined;
   /**
    * Pagination cursor from the previous response (pages.next.starting_after). Omit for the first page.
    */
@@ -20843,7 +20843,7 @@ export interface ActionOutput_intercom_untagcontacts {
   /**
    * Contacts that were untagged
    */
-  untagged_contacts: ({  id: string;
+  untagged_contacts: ({  id?: string | undefined;
   email?: string | undefined;})[];
 };
 

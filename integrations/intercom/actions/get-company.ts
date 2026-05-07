@@ -21,7 +21,7 @@ const ProviderCompanySchema = z.object({
     monthly_spend: z.number().nullish(),
     session_count: z.number().optional(),
     user_count: z.number().optional(),
-    custom_attributes: z.any().optional()
+    custom_attributes: z.record(z.string(), z.unknown()).optional()
 });
 
 const OutputSchema = z.object({
@@ -38,7 +38,7 @@ const OutputSchema = z.object({
     monthly_spend: z.number().optional(),
     session_count: z.number().optional(),
     user_count: z.number().optional(),
-    custom_attributes: z.any().optional()
+    custom_attributes: z.record(z.string(), z.unknown()).optional()
 });
 
 const action = createAction({

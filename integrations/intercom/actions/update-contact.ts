@@ -1,22 +1,14 @@
 import * as z from 'zod';
 import { createAction } from 'nango';
 
-const InputSchema = z
-    .object({
-        id: z.string(),
-        email: z.string(),
-        name: z.string(),
-        phone: z.string(),
-        role: z.string(),
-        custom_attributes: z.record(z.string(), z.unknown())
-    })
-    .partial({
-        email: true,
-        name: true,
-        phone: true,
-        role: true,
-        custom_attributes: true
-    });
+const InputSchema = z.object({
+    id: z.string(),
+    email: z.string().optional(),
+    name: z.string().nullable().optional(),
+    phone: z.string().nullable().optional(),
+    role: z.string().optional(),
+    custom_attributes: z.record(z.string(), z.unknown()).nullable().optional()
+});
 
 const ProviderContactSchema = z.object({
     id: z.string(),

@@ -140,7 +140,9 @@ const sync = createSync({
         }
 
         if (maxUpdatedAt !== undefined) {
-            await nango.saveCheckpoint({ updated_after: maxUpdatedAt });
+            // Store one second before max to re-fetch that second on the next run,
+            // preventing same-second updates between runs from being missed.
+            await nango.saveCheckpoint({ updated_after: maxUpdatedAt - 1 });
         }
     }
 });

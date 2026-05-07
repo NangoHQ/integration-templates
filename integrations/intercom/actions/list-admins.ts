@@ -37,7 +37,7 @@ const RawAdminSchema = z.object({
     away_mode_enabled: z.boolean().optional(),
     away_mode_reassign: z.boolean().optional(),
     has_inbox_seat: z.boolean().optional(),
-    team_ids: z.array(z.string()).optional(),
+    team_ids: z.array(z.number()).optional(),
     avatar: z.string().nullable().optional(),
     team_id: z.string().nullable().optional(),
     team_type: z.string().nullable().optional()
@@ -136,7 +136,7 @@ const action = createAction({
                 result.has_inbox_seat = admin.has_inbox_seat;
             }
             if (admin.team_ids !== undefined) {
-                result.team_ids = admin.team_ids;
+                result.team_ids = admin.team_ids.map((id) => String(id));
             }
             if (admin.avatar !== null && admin.avatar !== undefined) {
                 result.avatar = admin.avatar;

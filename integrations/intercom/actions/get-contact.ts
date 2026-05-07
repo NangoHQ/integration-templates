@@ -2,7 +2,7 @@ import { z } from 'zod';
 import { createAction } from 'nango';
 
 const InputSchema = z.object({
-    id: z.string().describe('The unique identifier for the contact. Example: "5f5c4a1c7c9c4a0001f7e1a2"')
+    id: z.string().min(1).describe('The unique identifier for the contact. Example: "5f5c4a1c7c9c4a0001f7e1a2"')
 });
 
 const ProviderContactSchema = z.object({

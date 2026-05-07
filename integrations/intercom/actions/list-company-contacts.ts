@@ -4,7 +4,7 @@ import { createAction } from 'nango';
 const InputSchema = z.object({
     company_id: z.string().describe('The Intercom company ID. Example: "5f1e5b5e5e5e5e5e5e5e5e5e"'),
     cursor: z.string().optional().describe('Pagination cursor (page number) from the previous response. Omit for the first page.'),
-    per_page: z.number().optional().describe('Number of results per page (max 150). Default: 50.')
+    per_page: z.number().int().min(1).max(150).optional().describe('Number of results per page (max 150). Default: 50.')
 });
 
 const ContactSchema = z.object({
@@ -63,6 +63,9 @@ const action = createAction({
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         // https://developers.intercom.com/docs/references/rest-api/api.intercom.io/Companies/getCompaniesIdContacts
         const page = input.cursor ? parseInt(input.cursor, 10) : 1;
+        if (isNaN(page) || page < 1) {
+            throw new nango.ActionError({ type: 'invalid_input', message: 'cursor must be a positive integer page number' });
+        }
         const response = await nango.get({
             endpoint: `/companies/${encodeURIComponent(input.company_id)}/contacts`,
             params: {

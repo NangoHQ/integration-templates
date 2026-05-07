@@ -93,6 +93,12 @@ const action = createAction({
                     message: 'intercom_user_id is required when type is "user"'
                 });
             }
+            if (input.message_type !== 'comment') {
+                throw new nango.ActionError({
+                    type: 'validation_error',
+                    message: 'message_type must be "comment" for user replies; only admins can send notes'
+                });
+            }
             requestBody['intercom_user_id'] = input.intercom_user_id;
         }
 

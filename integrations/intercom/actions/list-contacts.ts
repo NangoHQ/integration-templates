@@ -3,7 +3,7 @@ import { createAction } from 'nango';
 
 const InputSchema = z.object({
     cursor: z.string().optional().describe('Pagination cursor from the previous response. Omit for the first page.'),
-    per_page: z.number().optional().describe('Number of results per page (default 50, max 150).')
+    per_page: z.number().int().min(1).max(150).optional().describe('Number of results per page (default 50, max 150).')
 });
 
 const ContactSchema = z.object({

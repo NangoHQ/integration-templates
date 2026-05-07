@@ -41,42 +41,43 @@ const sync = createSync({
 
     exec: async (nango) => {
         await nango.trackDeletesStart('Admin');
+        try {
+            // https://developers.intercom.com/docs/references/rest-api/api.intercom.io/admins/listadmins
+            const response = await nango.get({
+                endpoint: '/admins',
+                headers: {
+                    'Intercom-Version': '2.11'
+                },
+                retries: 3
+            });
 
-        // https://developers.intercom.com/docs/references/rest-api/api.intercom.io/admins/listadmins
-        const response = await nango.get({
-            endpoint: '/admins',
-            headers: {
-                'Intercom-Version': '2.11'
-            },
-            retries: 3
-        });
+            const parsed = AdminListSchema.safeParse(response.data);
+            if (!parsed.success) {
+                throw new Error(`Failed to parse admin list: ${parsed.error.message}`);
+            }
 
-        const parsed = AdminListSchema.safeParse(response.data);
-        if (!parsed.success) {
-            throw new Error(`Failed to parse admin list: ${parsed.error.message}`);
+            const admins = parsed.data.admins ?? [];
+            const mappedAdmins = admins.map((admin) => ({
+                id: admin.id,
+                type: admin.type,
+                name: admin.name,
+                email: admin.email,
+                job_title: admin.job_title,
+                away_mode_enabled: admin.away_mode_enabled,
+                away_mode_reassign: admin.away_mode_reassign,
+                away_status_reason_id: admin.away_status_reason_id,
+                has_inbox_seat: admin.has_inbox_seat,
+                team_ids: admin.team_ids,
+                avatar: admin.avatar,
+                team_priority_level: admin.team_priority_level
+            }));
+
+            if (mappedAdmins.length > 0) {
+                await nango.batchSave(mappedAdmins, 'Admin');
+            }
+        } finally {
+            await nango.trackDeletesEnd('Admin');
         }
-
-        const admins = parsed.data.admins ?? [];
-        const mappedAdmins = admins.map((admin) => ({
-            id: admin.id,
-            type: admin.type,
-            name: admin.name,
-            email: admin.email,
-            job_title: admin.job_title,
-            away_mode_enabled: admin.away_mode_enabled,
-            away_mode_reassign: admin.away_mode_reassign,
-            away_status_reason_id: admin.away_status_reason_id,
-            has_inbox_seat: admin.has_inbox_seat,
-            team_ids: admin.team_ids,
-            avatar: admin.avatar,
-            team_priority_level: admin.team_priority_level
-        }));
-
-        if (mappedAdmins.length > 0) {
-            await nango.batchSave(mappedAdmins, 'Admin');
-        }
-
-        await nango.trackDeletesEnd('Admin');
     }
 });
 

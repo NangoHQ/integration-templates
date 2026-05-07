@@ -28,7 +28,7 @@ const ProviderResponseSchema = z.object({
 });
 
 const ContactResultSchema = z.object({
-    id: z.string(),
+    id: z.string().optional(),
     email: z.string().optional()
 });
 
@@ -75,7 +75,10 @@ const action = createAction({
         // Intercom returns empty users array after untagging (users are no longer associated)
         // Return the input contacts as confirmation they were processed
         const untaggedContacts = input.contacts.map((contact) => {
-            const result: { id: string; email?: string } = { id: contact.id || contact.email || '' };
+            const result: { id?: string; email?: string } = {};
+            if (contact.id) {
+                result.id = contact.id;
+            }
             if (contact.email) {
                 result.email = contact.email;
             }

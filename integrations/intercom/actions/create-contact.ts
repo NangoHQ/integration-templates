@@ -1,14 +1,20 @@
 import { z } from 'zod';
 import { createAction } from 'nango';
 
-const InputSchema = z.object({
-    role: z
-        .union([z.literal('user'), z.literal('lead')])
-        .describe('The role of the contact. "user" for identified contacts (with email or user_id), "lead" for anonymous contacts.'),
-    email: z.string().email().describe('Email address of the contact. Required for users, optional for leads.'),
-    name: z.string().optional().describe('Full name of the contact.'),
-    custom_attributes: z.record(z.string(), z.unknown()).optional().describe('Custom attributes as key-value pairs.')
-});
+const InputSchema = z
+    .object({
+        role: z
+            .union([z.literal('user'), z.literal('lead')])
+            .describe('The role of the contact. "user" for identified contacts (with email or user_id), "lead" for anonymous contacts.'),
+        email: z.string().email().optional().describe('Email address of the contact. Required for users, optional for leads.'),
+        name: z.string().optional().describe('Full name of the contact.'),
+        custom_attributes: z.record(z.string(), z.unknown()).optional().describe('Custom attributes as key-value pairs.')
+    })
+    .superRefine((data, ctx) => {
+        if (data.role === 'user' && !data.email) {
+            ctx.addIssue({ code: 'custom', message: 'email is required for user contacts', path: ['email'] });
+        }
+    });
 
 const ProviderContactSchema = z
     .object({
@@ -60,7 +66,7 @@ const action = createAction({
             },
             data: {
                 role: input.role,
-                email: input.email,
+                ...(input.email !== undefined && { email: input.email }),
                 ...(input.name !== undefined && { name: input.name }),
                 ...(input.custom_attributes !== undefined && { custom_attributes: input.custom_attributes })
             },

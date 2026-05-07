@@ -59,47 +59,48 @@ const sync = createSync({
         // an updated_at filter for incremental fetching. Segments are reference
         // data that change infrequently (segment definitions, not membership).
         await nango.trackDeletesStart('Segment');
+        try {
+            let startingAfter: string | undefined;
 
-        let startingAfter: string | undefined;
+            do {
+                // https://developers.intercom.com/docs/references/rest-api/api.intercom.io/Segments
+                const response = await nango.get({
+                    endpoint: '/segments',
+                    headers: {
+                        'Intercom-Version': '2.11'
+                    },
+                    params: {
+                        per_page: 1,
+                        ...(startingAfter && { starting_after: startingAfter })
+                    },
+                    retries: 3
+                });
 
-        do {
-            // https://developers.intercom.com/docs/references/rest-api/api.intercom.io/Segments
-            const response = await nango.get({
-                endpoint: '/segments',
-                headers: {
-                    'Intercom-Version': '2.11'
-                },
-                params: {
-                    per_page: 1,
-                    ...(startingAfter && { starting_after: startingAfter })
-                },
-                retries: 3
-            });
+                const parsed = IntercomSegmentsResponseSchema.safeParse(response.data);
+                if (!parsed.success) {
+                    throw new Error(`Failed to parse segments response: ${parsed.error.message}`);
+                }
 
-            const parsed = IntercomSegmentsResponseSchema.safeParse(response.data);
-            if (!parsed.success) {
-                throw new Error(`Failed to parse segments response: ${parsed.error.message}`);
-            }
+                const segments = parsed.data.segments || [];
+                const mappedSegments = segments.map((segment) => ({
+                    id: segment.id,
+                    name: segment.name,
+                    ...(segment.type !== undefined && { type: segment.type }),
+                    ...(segment.created_at !== undefined && { created_at: segment.created_at }),
+                    ...(segment.updated_at !== undefined && { updated_at: segment.updated_at }),
+                    ...(segment.person_type !== undefined && { person_type: segment.person_type }),
+                    ...(segment.count !== undefined && { count: segment.count })
+                }));
 
-            const segments = parsed.data.segments || [];
-            const mappedSegments = segments.map((segment) => ({
-                id: segment.id,
-                name: segment.name,
-                ...(segment.type !== undefined && { type: segment.type }),
-                ...(segment.created_at !== undefined && { created_at: segment.created_at }),
-                ...(segment.updated_at !== undefined && { updated_at: segment.updated_at }),
-                ...(segment.person_type !== undefined && { person_type: segment.person_type }),
-                ...(segment.count !== undefined && { count: segment.count })
-            }));
+                if (mappedSegments.length > 0) {
+                    await nango.batchSave(mappedSegments, 'Segment');
+                }
 
-            if (mappedSegments.length > 0) {
-                await nango.batchSave(mappedSegments, 'Segment');
-            }
-
-            startingAfter = parsed.data.pages?.next?.starting_after;
-        } while (startingAfter);
-
-        await nango.trackDeletesEnd('Segment');
+                startingAfter = parsed.data.pages?.next?.starting_after;
+            } while (startingAfter);
+        } finally {
+            await nango.trackDeletesEnd('Segment');
+        }
     }
 });
 

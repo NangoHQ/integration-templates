@@ -4,7 +4,7 @@ import { createAction } from 'nango';
 const QueryConditionSchema = z.object({
     field: z.string().describe('Field name to filter on. Example: "updated_at"'),
     operator: z.enum(['=', '!=', '>', '<', '~', '!~', 'IN', 'NIN', 'AND', 'OR']).describe('Comparison operator.'),
-    value: z.union([z.string(), z.number(), z.boolean(), z.array(z.any())]).describe('Value to compare against.')
+    value: z.union([z.string(), z.number(), z.boolean(), z.array(z.unknown())]).describe('Value to compare against.')
 });
 
 const InputSchema = z.object({

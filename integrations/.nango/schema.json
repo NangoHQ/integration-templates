@@ -61025,8 +61025,7 @@
       "required": [
         "title",
         "body",
-        "author_id",
-        "state"
+        "author_id"
       ],
       "additionalProperties": false
     },
@@ -61256,8 +61255,7 @@
         }
       },
       "required": [
-        "role",
-        "email"
+        "role"
       ],
       "additionalProperties": false
     },
@@ -61780,7 +61778,17 @@
         "user_count": {
           "type": "number"
         },
-        "custom_attributes": {}
+        "custom_attributes": {
+          "type": "object",
+          "additionalProperties": {
+            "anyOf": [
+              {},
+              {
+                "not": {}
+              }
+            ]
+          }
+        }
       },
       "required": [
         "id"
@@ -63928,9 +63936,6 @@
                 "type": "string"
               }
             },
-            "required": [
-              "id"
-            ],
             "additionalProperties": false
           },
           "description": "Contacts that were untagged"

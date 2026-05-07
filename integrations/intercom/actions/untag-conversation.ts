@@ -27,7 +27,7 @@ const action = createAction({
         // https://developers.intercom.com/docs/references/rest-api/api.intercom.io/Tags
         await nango.delete({
             endpoint: `/conversations/${encodeURIComponent(input.conversation_id)}/tags/${encodeURIComponent(input.tag_id)}`,
-            params: {
+            data: {
                 admin_id: input.admin_id
             },
             retries: 3,

@@ -5,7 +5,7 @@ const InputSchema = z.object({
     title: z.string().describe('The title of the article. Example: "Thanks for everything"'),
     body: z.string().describe('The content of the article in HTML. Example: "<p>This is the body in html</p>"'),
     author_id: z.number().describe("The id of the author of the article. Must be a teammate on the help center's workspace. Example: 1295"),
-    state: z.enum(['draft', 'published']).describe('Whether the article will be published or will be a draft. Defaults to draft.'),
+    state: z.enum(['draft', 'published']).optional().describe('Whether the article will be published or will be a draft. Defaults to draft.'),
     description: z.string().optional().describe('The description of the article. Example: "Description of the Article"'),
     parent_id: z.number().optional().describe("The id of the article's parent collection or section. An article without this field stands alone. Example: 18"),
     parent_type: z.enum(['collection', 'section']).optional().describe('The type of parent, which can either be a collection or section. Example: "collection"')
@@ -65,7 +65,7 @@ const action = createAction({
                 title: input.title,
                 body: input.body,
                 author_id: input.author_id,
-                state: input.state,
+                ...(input.state !== undefined && { state: input.state }),
                 ...(input.description !== undefined && { description: input.description }),
                 ...(input.parent_id !== undefined && { parent_id: input.parent_id }),
                 ...(input.parent_type !== undefined && { parent_type: input.parent_type })
