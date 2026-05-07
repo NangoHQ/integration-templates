@@ -1,0 +1,57 @@
+{
+  "input": {
+    "parentItemId": "root",
+    "fileName": "test-upload.txt"
+  },
+  "output": {
+    "uploadUrl": "https://my.microsoftpersonalcontent.com/personal/ab43234b783bb6c3/_api/v2.0/drive/items/01YED5K7RQRVEGDO4JWVEJ25FYT3UXHAKI/uploadSession?guid='dbe8b01b-415a-4718-9836-9cce66cbc95f'&overwrite=True&rename=False&dc=0&tempauth=v1e.eyJzaXRlaWQiOiJjZGRhZTAyYS04MmFiLTQ1ZjItOGQ5Zi1iN2U5MGJiYTZkOTMiLCJhcHBfZGlzcGxheW5hbWUiOiJOYW5nb09uZWRyaXZlQVBJIiwiYXBwaWQiOiIwNTJmMzY0Zi1lNWMzLTQ1YmQtODg0OS00MTc1ZjgxZjZkYmIiLCJhdWQiOiIwMDAwMDAwMy0wMDAwLTBmZjEtY2UwMC0wMDAwMDAwMDAwMDAvbXkubWljcm9zb2Z0cGVyc29uYWxjb250ZW50LmNvbUA5MTg4MDQwZC02YzY3LTRjNWItYjExMi0zNmEzMDRiNjZkYWQiLCJleHAiOiIxNzc4MTg5NDExIn0.lWN9C6ijNYIAR0tfk_tQkJ6Az5iWp9WVdRQMHP5GaL4ciG-kJE_vG4e_hOsFcEAiWMbFKP6k5JQLNgjzX3uuGtdGsCgLX7QHAzG8cDsNBvRcKNmArzRU8pIZPuC3DBK4OvYpnMc9Fwpq0B2ipVFrtJPTw2FFFWCQuMd-5iqcvu8nhiaNyjCHSc2cs3cd055rcZdg2P0jtu5HScfWjdG4f347HTYrV0Nff2BqAU8eYDZmZWesna1yrqLjFeGCqLId5Fcp9QkJh0ZHkU1lEeeHqYUWGgUtTufAm00COtI1R0mG1il4LtrtfG7IrwlHFDFh3639JLKjbf5Iy3Dos8JEwZHgjrL0QXbX0l3zARCPkpaZVHJy1se2U4Q3Em-PE5QW1b4iU2woDTvvxaO1QXzu9wyX6NQi2atljpGSH5JG_r61otWO96PYrpNTmeNBQezhNkvkdZVJPEBOMx_ePGrcwaZvhhUjaeunQ_SCoQacarE.DaSkWK0GA8NEpMfFS6LSAzIUeGSb0VhwffDYegxmfvc",
+    "expirationDateTime": "2026-05-06T21:45:11.275Z",
+    "nextExpectedRanges": [
+      "0-"
+    ]
+  },
+  "nango": {},
+  "api": {
+    "post": {
+      "/v1.0/me/drive/items/root:/test-upload.txt:/createUploadSession": {
+        "response": {
+          "@odata.context": "https://graph.microsoft.com/v1.0/$metadata#microsoft.graph.uploadSession",
+          "expirationDateTime": "2026-05-06T21:45:11.275Z",
+          "nextExpectedRanges": [
+            "0-"
+          ],
+          "uploadUrl": "https://my.microsoftpersonalcontent.com/personal/ab43234b783bb6c3/_api/v2.0/drive/items/01YED5K7RQRVEGDO4JWVEJ25FYT3UXHAKI/uploadSession?guid='dbe8b01b-415a-4718-9836-9cce66cbc95f'&overwrite=True&rename=False&dc=0&tempauth=v1e.eyJzaXRlaWQiOiJjZGRhZTAyYS04MmFiLTQ1ZjItOGQ5Zi1iN2U5MGJiYTZkOTMiLCJhcHBfZGlzcGxheW5hbWUiOiJOYW5nb09uZWRyaXZlQVBJIiwiYXBwaWQiOiIwNTJmMzY0Zi1lNWMzLTQ1YmQtODg0OS00MTc1ZjgxZjZkYmIiLCJhdWQiOiIwMDAwMDAwMy0wMDAwLTBmZjEtY2UwMC0wMDAwMDAwMDAwMDAvbXkubWljcm9zb2Z0cGVyc29uYWxjb250ZW50LmNvbUA5MTg4MDQwZC02YzY3LTRjNWItYjExMi0zNmEzMDRiNjZkYWQiLCJleHAiOiIxNzc4MTg5NDExIn0.lWN9C6ijNYIAR0tfk_tQkJ6Az5iWp9WVdRQMHP5GaL4ciG-kJE_vG4e_hOsFcEAiWMbFKP6k5JQLNgjzX3uuGtdGsCgLX7QHAzG8cDsNBvRcKNmArzRU8pIZPuC3DBK4OvYpnMc9Fwpq0B2ipVFrtJPTw2FFFWCQuMd-5iqcvu8nhiaNyjCHSc2cs3cd055rcZdg2P0jtu5HScfWjdG4f347HTYrV0Nff2BqAU8eYDZmZWesna1yrqLjFeGCqLId5Fcp9QkJh0ZHkU1lEeeHqYUWGgUtTufAm00COtI1R0mG1il4LtrtfG7IrwlHFDFh3639JLKjbf5Iy3Dos8JEwZHgjrL0QXbX0l3zARCPkpaZVHJy1se2U4Q3Em-PE5QW1b4iU2woDTvvxaO1QXzu9wyX6NQi2atljpGSH5JG_r61otWO96PYrpNTmeNBQezhNkvkdZVJPEBOMx_ePGrcwaZvhhUjaeunQ_SCoQacarE.DaSkWK0GA8NEpMfFS6LSAzIUeGSb0VhwffDYegxmfvc"
+        },
+        "status": 200,
+        "headers": {
+          "date": "Wed, 06 May 2026 21:30:11 GMT",
+          "content-type": "application/json;odata.metadata=minimal;odata.streaming=true;IEEE754Compatible=false;charset=utf-8",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=31536000",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4893",
+          "x-ratelimit-reset": "1778103025",
+          "cache-control": "no-store, no-cache, max-age=0, private",
+          "location": "https://graph.microsoft.com",
+          "vary": "Accept-Encoding",
+          "request-id": "b249c17f-50a2-419b-8c91-704a529ef9ae",
+          "client-request-id": "b249c17f-50a2-419b-8c91-704a529ef9ae",
+          "x-ms-ags-diagnostic": "{\"ServerInfo\":{\"DataCenter\":\"West US 2\",\"Slice\":\"E\",\"Ring\":\"4\",\"ScaleUnit\":\"005\",\"RoleInstance\":\"MWH0EPF000B882D\"}}",
+          "splogid": "f91511a2-f0f3-c000-c5d0-dae2d144160d",
+          "odata-version": "4.0"
+        },
+        "hash": "ee32e10cf61c09d6e3213f700d9ce548d4d42c97",
+        "request": {}
+      }
+    }
+  }
+}

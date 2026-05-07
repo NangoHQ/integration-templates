@@ -1,110 +1,214 @@
 import { createSync } from 'nango';
-import type { DriveItem } from '../types.js';
-import { toFile } from '../mappers/to-file.js';
+import { z } from 'zod';
 
-import type { ProxyConfiguration } from 'nango';
-import { OneDriveFileSelection, OneDriveMetadata } from '../models.js';
+/**
+ * Schema for metadata input containing drives and picked files
+ */
+const MetadataSchema = z.object({
+    drives: z.array(
+        z.object({
+            id: z.string().describe('Drive ID'),
+            name: z.string().optional().describe('Drive name')
+        })
+    ),
+    pickedFiles: z.array(
+        z.object({
+            driveId: z.string().describe('Drive ID containing the file'),
+            id: z.string().describe('DriveItem ID'),
+            name: z.string().optional().describe('File name')
+        })
+    )
+});
+
+/**
+ * Schema for the UserFile model
+ */
+const UserFileSchema = z.object({
+    id: z.string().describe('Unique file identifier (driveId + fileId)'),
+    driveId: z.string().describe('Drive ID'),
+    driveItemId: z.string().describe('DriveItem ID'),
+    name: z.string().optional().describe('File name'),
+    webUrl: z.string().optional().describe('Web URL to the file'),
+    downloadUrl: z.string().optional().describe('Download URL'),
+    size: z.number().optional().describe('File size in bytes'),
+    createdDateTime: z.string().optional().describe('Creation timestamp'),
+    lastModifiedDateTime: z.string().optional().describe('Last modification timestamp'),
+    mimeType: z.string().optional().describe('MIME type'),
+    parentReferenceId: z.string().optional().describe('Parent folder ID'),
+    parentReferenceName: z.string().optional().describe('Parent folder name'),
+    parentReferencePath: z.string().optional().describe('Parent folder path')
+});
+
+/**
+ * Provider response schema for a drive item
+ */
+const DriveItemSchema = z.object({
+    id: z.string(),
+    name: z.string().optional(),
+    webUrl: z.string().optional(),
+    size: z.number().optional(),
+    createdDateTime: z.string().optional(),
+    lastModifiedDateTime: z.string().optional(),
+    file: z
+        .object({
+            mimeType: z.string().optional()
+        })
+        .optional(),
+    folder: z.object({}).optional(),
+    parentReference: z
+        .object({
+            id: z.string().optional(),
+            name: z.string().optional(),
+            path: z.string().optional()
+        })
+        .optional(),
+    '@microsoft.graph.downloadUrl': z.string().optional()
+});
 
 const sync = createSync({
-    description: "Fetch selected files from a user's OneDrive based on provided metadata.",
-    version: '1.0.1',
+    description: 'Sync selected OneDrive files from metadata',
+    version: '2.0.0',
     frequency: 'every hour',
     autoStart: false,
-    syncType: 'full',
-
-    endpoints: [
-        {
-            method: 'GET',
-            path: '/user-files/selected',
-            group: 'Files'
-        }
-    ],
-
-    scopes: ['Files.Read', 'Files.Read.All', 'offline_access'],
-
     models: {
-        OneDriveFileSelection: OneDriveFileSelection
+        SelectedUserFile: UserFileSchema
     },
-
-    metadata: OneDriveMetadata,
+    endpoints: [{ method: 'POST', path: '/syncs/user-files-selection' }],
 
     exec: async (nango) => {
-        const metadata = await nango.getMetadata();
+        // Get metadata with drives and picked files
+        const rawMetadata = await nango.getMetadata();
+        const metadataResult = MetadataSchema.safeParse(rawMetadata);
 
-        if (!metadata || !metadata.pickedFiles || !metadata.pickedFiles.length) {
-            await nango.log('No files selected for syncing');
+        if (!metadataResult.success) {
+            throw new nango.ActionError({
+                message: 'Invalid metadata: required fields are drives and pickedFiles'
+            });
+        }
+
+        const metadata = metadataResult.data;
+
+        if (metadata.pickedFiles.length === 0) {
+            await nango.log('No files selected for sync');
             return;
         }
 
-        const files = [];
-
+        // Validate picked files belong to known drives
         for (const pickedFile of metadata.pickedFiles) {
-            const { driveId, fileIds } = pickedFile;
-
-            for (const fileId of fileIds) {
-                // Get the file or folder
-                // https://learn.microsoft.com/en-us/graph/api/driveitem-get?view=graph-rest-1.0
-                const itemConfig: ProxyConfiguration = {
-                    // https://learn.microsoft.com/en-us/graph/api/driveitem-get?view=graph-rest-1.0
-                    endpoint: `/v1.0/drives/${driveId}/items/${fileId}`,
-                    retries: 10
-                };
-
-                // @allowTryCatch
-                try {
-                    const response = await nango.get<DriveItem>(itemConfig);
-                    const item = response.data;
-
-                    // Add the file to the list
-                    files.push(toFile(item, driveId));
-
-                    // If it's a folder, fetch its contents recursively
-                    if (item.folder && item.folder.childCount > 0) {
-                        await fetchFolderContents(nango, driveId, fileId, files);
-                    }
-                } catch (error: any) {
-                    await nango.log(`Error fetching file ${fileId} from drive ${driveId}: ${error.message}`);
-                }
+            const driveExists = metadata.drives.some((drive) => drive.id === pickedFile.driveId);
+            if (!driveExists) {
+                throw new nango.ActionError({
+                    message: `Drive ${pickedFile.driveId} not found in metadata.drives for file ${pickedFile.id}`
+                });
             }
         }
 
-        await nango.batchSave(files, 'OneDriveFileSelection');
-        await nango.deleteRecordsFromPreviousExecutions('OneDriveFileSelection');
+        // Track deletes to remove files that are no longer selected
+        await nango.trackDeletesStart('SelectedUserFile');
+
+        const files: Array<{
+            id: string;
+            driveId: string;
+            driveItemId: string;
+            name?: string;
+            webUrl?: string;
+            downloadUrl?: string;
+            size?: number;
+            createdDateTime?: string;
+            lastModifiedDateTime?: string;
+            mimeType?: string;
+            parentReferenceId?: string;
+            parentReferenceName?: string;
+            parentReferencePath?: string;
+        }> = [];
+
+        for (const pickedFile of metadata.pickedFiles) {
+            // @allowTryCatch Continue processing other files if one fails
+            // Individual file failures should not block the entire sync
+            try {
+                // https://learn.microsoft.com/graph/api/driveitem-get
+                const response = await nango.get({
+                    endpoint: `/v1.0/drives/${encodeURIComponent(pickedFile.driveId)}/items/${encodeURIComponent(pickedFile.id)}`,
+                    retries: 3
+                });
+
+                const parseResult = DriveItemSchema.safeParse(response.data);
+                if (!parseResult.success) {
+                    throw new Error(`Failed to parse drive item ${pickedFile.id}: ${parseResult.error.message}`);
+                }
+
+                const item = parseResult.data;
+
+                // Build file record with optional fields
+                const fileRecord: {
+                    id: string;
+                    driveId: string;
+                    driveItemId: string;
+                    name?: string;
+                    webUrl?: string;
+                    downloadUrl?: string;
+                    size?: number;
+                    createdDateTime?: string;
+                    lastModifiedDateTime?: string;
+                    mimeType?: string;
+                    parentReferenceId?: string;
+                    parentReferenceName?: string;
+                    parentReferencePath?: string;
+                } = {
+                    id: `${pickedFile.driveId}:${item.id}`,
+                    driveId: pickedFile.driveId,
+                    driveItemId: item.id
+                };
+
+                if (item.name) {
+                    fileRecord.name = item.name;
+                }
+                if (item.webUrl) {
+                    fileRecord.webUrl = item.webUrl;
+                }
+                if (item['@microsoft.graph.downloadUrl']) {
+                    fileRecord.downloadUrl = item['@microsoft.graph.downloadUrl'];
+                }
+                if (item.size !== undefined) {
+                    fileRecord.size = item.size;
+                }
+                if (item.createdDateTime) {
+                    fileRecord.createdDateTime = item.createdDateTime;
+                }
+                if (item.lastModifiedDateTime) {
+                    fileRecord.lastModifiedDateTime = item.lastModifiedDateTime;
+                }
+                if (item.file?.mimeType) {
+                    fileRecord.mimeType = item.file.mimeType;
+                }
+                if (item.parentReference?.id) {
+                    fileRecord.parentReferenceId = item.parentReference.id;
+                }
+                if (item.parentReference?.name) {
+                    fileRecord.parentReferenceName = item.parentReference.name;
+                }
+                if (item.parentReference?.path) {
+                    fileRecord.parentReferencePath = item.parentReference.path;
+                }
+
+                files.push(fileRecord);
+                await nango.log(`Processed file: ${fileRecord.name ?? fileRecord.id}`);
+            } catch (error) {
+                await nango.log(
+                    `Warning: Failed to fetch file ${pickedFile.id} from drive ${pickedFile.driveId}: ${error instanceof Error ? error.message : String(error)}`
+                );
+            }
+        }
+
+        // Save all files
+        if (files.length > 0) {
+            await nango.batchSave(files, 'SelectedUserFile');
+        }
+
+        // End delete tracking - files no longer in selection will be deleted
+        await nango.trackDeletesEnd('SelectedUserFile');
     }
 });
 
 export type NangoSyncLocal = Parameters<(typeof sync)['exec']>[0];
 export default sync;
-
-async function fetchFolderContents(nango: NangoSyncLocal, driveId: string, folderId: string, files: any[], depth = 3) {
-    if (depth === 0) {
-        return;
-    }
-
-    // Get items in the folder
-    // https://learn.microsoft.com/en-us/graph/api/driveitem-list-children?view=graph-rest-1.0
-    const folderConfig: ProxyConfiguration = {
-        // https://learn.microsoft.com/en-us/graph/api/driveitem-list-children?view=graph-rest-1.0
-        endpoint: `/v1.0/drives/${driveId}/items/${folderId}/children`,
-        paginate: {
-            type: 'link',
-            limit_name_in_request: '$top',
-            response_path: 'value',
-            link_path_in_response_body: '@odata.nextLink',
-            limit: 100
-        },
-        retries: 10
-    };
-
-    for await (const items of nango.paginate(folderConfig)) {
-        for (const item of items) {
-            // Add the file to the list
-            files.push(toFile(item, driveId));
-
-            // If it's a folder, fetch its contents recursively
-            if (item.folder && item.folder.childCount > 0) {
-                await fetchFolderContents(nango, driveId, item.id, files, depth - 1);
-            }
-        }
-    }
-}
