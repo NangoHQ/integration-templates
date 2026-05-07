@@ -1,7 +1,6 @@
-import { createSync } from 'nango';
+import { createSync, ProxyConfiguration } from 'nango';
 import { z } from 'zod';
 import type { AxiosResponse } from 'axios';
-import type { LinkPagination } from '@nangohq/types';
 
 // https://learn.microsoft.com/graph/api/resources/driveitem
 const DriveItemSchema = z
@@ -77,7 +76,7 @@ const sync = createSync({
         }
 
         // https://learn.microsoft.com/graph/api/driveitem-delta
-        const paginateConfig: LinkPagination = {
+        const paginateConfig: NonNullable<ProxyConfiguration['paginate']> = {
             type: 'link',
             link_path_in_response_body: '@odata.nextLink',
             response_path: 'value',
@@ -96,7 +95,8 @@ const sync = createSync({
             }
         };
 
-        const proxyConfig = {
+        const proxyConfig: ProxyConfiguration = {
+            // https://learn.microsoft.com/graph/api/driveitem-delta
             endpoint: endpoint,
             paginate: paginateConfig,
             retries: 3
