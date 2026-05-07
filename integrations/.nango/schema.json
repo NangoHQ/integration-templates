@@ -82769,7 +82769,7 @@
       ],
       "additionalProperties": false
     },
-    "OneDriveFile": {
+    "DriveItem": {
       "type": "object",
       "properties": {
         "id": {
@@ -82778,59 +82778,1846 @@
         "name": {
           "type": "string"
         },
-        "etag": {
+        "size": {
+          "type": "number"
+        },
+        "createdDateTime": {
           "type": "string"
         },
-        "cTag": {
+        "lastModifiedDateTime": {
           "type": "string"
         },
-        "is_folder": {
-          "type": "boolean"
-        },
-        "mime_type": {
-          "type": [
-            "string",
-            "null"
-          ]
-        },
-        "path": {
+        "webUrl": {
           "type": "string"
         },
-        "raw_source": {
+        "downloadUrl": {
+          "type": "string"
+        },
+        "file": {
           "type": "object",
           "additionalProperties": false
         },
-        "updated_at": {
+        "folder": {
+          "type": "object",
+          "additionalProperties": false
+        },
+        "parentReference": {
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "string"
+            }
+          },
+          "additionalProperties": false
+        },
+        "deleted": {
+          "type": "object",
+          "additionalProperties": false
+        }
+      },
+      "required": [
+        "id"
+      ],
+      "additionalProperties": false
+    },
+    "FolderChild": {
+      "type": "object",
+      "properties": {
+        "id": {
           "type": "string"
         },
-        "created_at": {
+        "folderId": {
           "type": "string"
         },
-        "blob_size": {
+        "name": {
+          "type": "string"
+        },
+        "size": {
           "type": "number"
         },
-        "drive_id": {
+        "webUrl": {
+          "type": "string"
+        },
+        "downloadUrl": {
+          "type": "string"
+        },
+        "createdDateTime": {
+          "type": "string"
+        },
+        "lastModifiedDateTime": {
+          "type": "string"
+        },
+        "driveId": {
+          "type": "string"
+        },
+        "parentPath": {
+          "type": "string"
+        },
+        "isFolder": {
+          "type": "boolean"
+        },
+        "mimeType": {
           "type": "string"
         }
       },
       "required": [
         "id",
+        "folderId",
         "name",
-        "etag",
-        "cTag",
-        "is_folder",
-        "mime_type",
-        "path",
-        "raw_source",
-        "updated_at",
-        "created_at",
-        "blob_size",
-        "drive_id"
+        "createdDateTime",
+        "lastModifiedDateTime",
+        "isFolder"
       ],
       "additionalProperties": false
     },
-    "SyncMetadata_one_drive_userfiles": {
+    "SyncMetadata_one_drive_folderchildren": {
       "type": "object",
+      "properties": {
+        "folderIds": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      },
+      "required": [
+        "folderIds"
+      ],
+      "additionalProperties": false
+    },
+    "RecentItem": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "createdDateTime": {
+          "type": "string"
+        },
+        "lastModifiedDateTime": {
+          "type": "string"
+        },
+        "size": {
+          "type": "number"
+        },
+        "webUrl": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "id",
+        "name"
+      ],
+      "additionalProperties": false
+    },
+    "SyncMetadata_one_drive_recentitems": {
+      "type": "null"
+    },
+    "SharedItem": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "webUrl": {
+          "type": "string"
+        },
+        "createdDateTime": {
+          "type": "string"
+        },
+        "lastModifiedDateTime": {
+          "type": "string"
+        },
+        "size": {
+          "type": "number"
+        },
+        "isFolder": {
+          "type": "boolean"
+        },
+        "remoteItem": {}
+      },
+      "required": [
+        "id"
+      ],
+      "additionalProperties": false
+    },
+    "SyncMetadata_one_drive_shareditems": {
+      "type": "null"
+    },
+    "SelectedUserFile": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "Unique file identifier (driveId + fileId)"
+        },
+        "driveId": {
+          "type": "string",
+          "description": "Drive ID"
+        },
+        "driveItemId": {
+          "type": "string",
+          "description": "DriveItem ID"
+        },
+        "name": {
+          "type": "string",
+          "description": "File name"
+        },
+        "webUrl": {
+          "type": "string",
+          "description": "Web URL to the file"
+        },
+        "downloadUrl": {
+          "type": "string",
+          "description": "Download URL"
+        },
+        "size": {
+          "type": "number",
+          "description": "File size in bytes"
+        },
+        "createdDateTime": {
+          "type": "string",
+          "description": "Creation timestamp"
+        },
+        "lastModifiedDateTime": {
+          "type": "string",
+          "description": "Last modification timestamp"
+        },
+        "mimeType": {
+          "type": "string",
+          "description": "MIME type"
+        },
+        "parentReferenceId": {
+          "type": "string",
+          "description": "Parent folder ID"
+        },
+        "parentReferenceName": {
+          "type": "string",
+          "description": "Parent folder name"
+        },
+        "parentReferencePath": {
+          "type": "string",
+          "description": "Parent folder path"
+        }
+      },
+      "required": [
+        "id",
+        "driveId",
+        "driveItemId"
+      ],
+      "additionalProperties": false
+    },
+    "UserFile": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "size": {
+          "type": "number"
+        },
+        "createdDateTime": {
+          "type": "string"
+        },
+        "lastModifiedDateTime": {
+          "type": "string"
+        },
+        "webUrl": {
+          "type": "string"
+        },
+        "downloadUrl": {
+          "type": "string"
+        },
+        "mimeType": {
+          "type": "string"
+        },
+        "file": {
+          "type": "object",
+          "properties": {
+            "mimeType": {
+              "type": "string"
+            }
+          },
+          "additionalProperties": false
+        },
+        "folder": {
+          "type": "object",
+          "properties": {
+            "childCount": {
+              "type": "number"
+            }
+          },
+          "additionalProperties": false
+        },
+        "parentReference": {
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "string"
+            },
+            "path": {
+              "type": "string"
+            }
+          },
+          "additionalProperties": false
+        },
+        "deleted": {
+          "type": "object",
+          "properties": {
+            "state": {
+              "type": "string"
+            }
+          },
+          "additionalProperties": false
+        }
+      },
+      "required": [
+        "id"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_one_drive_copyitem": {
+      "type": "object",
+      "properties": {
+        "itemId": {
+          "type": "string",
+          "description": "The ID of the file or folder to copy. Example: \"01A2B3C4D5E6F7G8H9I0J1K2L3M4N5O6P7Q8R9S0T1U2V3W4X5Y6Z7\""
+        },
+        "targetParentId": {
+          "type": "string",
+          "description": "The ID of the destination folder where the item should be copied. Example: \"targetFolderId123\""
+        },
+        "newName": {
+          "type": "string",
+          "description": "Optional new name for the copied item. If not provided, the original name will be used."
+        }
+      },
+      "required": [
+        "itemId",
+        "targetParentId"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_one_drive_copyitem": {
+      "type": "object",
+      "properties": {
+        "success": {
+          "type": "boolean"
+        },
+        "itemId": {
+          "type": "string"
+        },
+        "status": {
+          "type": "string"
+        },
+        "error": {
+          "type": "object",
+          "properties": {
+            "code": {
+              "type": "string"
+            },
+            "message": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "code",
+            "message"
+          ],
+          "additionalProperties": false
+        }
+      },
+      "required": [
+        "success"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_one_drive_createfolder": {
+      "type": "object",
+      "properties": {
+        "parentItemId": {
+          "type": "string",
+          "description": "The ID of the parent item where the folder will be created. Use \"root\" to create in the root."
+        },
+        "name": {
+          "type": "string",
+          "description": "The name of the new folder."
+        },
+        "conflictBehavior": {
+          "type": "string",
+          "enum": [
+            "fail",
+            "replace",
+            "rename"
+          ],
+          "description": "The conflict resolution behavior."
+        }
+      },
+      "required": [
+        "parentItemId",
+        "name"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_one_drive_createfolder": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "webUrl": {
+          "type": "string"
+        },
+        "createdDateTime": {
+          "type": "string"
+        },
+        "parentReference": {
+          "type": "object",
+          "properties": {
+            "driveId": {
+              "type": "string"
+            },
+            "id": {
+              "type": "string"
+            },
+            "path": {
+              "type": "string"
+            }
+          },
+          "additionalProperties": false
+        }
+      },
+      "required": [
+        "id",
+        "name"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_one_drive_createsharinglink": {
+      "type": "object",
+      "properties": {
+        "itemId": {
+          "type": "string",
+          "description": "The ID of the driveItem to share. Example: \"01X2Y3Z4ABC5DEF6G7H8I9J0K\""
+        },
+        "type": {
+          "type": "string",
+          "enum": [
+            "view",
+            "edit",
+            "embed"
+          ],
+          "description": "The type of sharing link to create. view: read-only, edit: read-write, embed: embeddable link."
+        },
+        "scope": {
+          "type": "string",
+          "enum": [
+            "anonymous",
+            "organization"
+          ],
+          "description": "The scope of the sharing link. anonymous: anyone with the link, organization: only organization members."
+        },
+        "password": {
+          "type": "string",
+          "description": "Optional password for the sharing link."
+        },
+        "expirationDateTime": {
+          "type": "string",
+          "description": "Optional expiration date/time in ISO 8601 format. Example: \"2026-12-31T23:59:59Z\""
+        }
+      },
+      "required": [
+        "itemId",
+        "type"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_one_drive_createsharinglink": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "shareId": {
+          "type": "string"
+        },
+        "webUrl": {
+          "type": "string"
+        },
+        "type": {
+          "type": "string"
+        },
+        "scope": {
+          "type": "string"
+        },
+        "roles": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      },
+      "additionalProperties": false
+    },
+    "ActionInput_one_drive_createuploadsession": {
+      "type": "object",
+      "properties": {
+        "parentItemId": {
+          "type": "string",
+          "description": "The ID of the parent folder where the file will be uploaded. Example: \"0123456789abc\""
+        },
+        "fileName": {
+          "type": "string",
+          "description": "The name of the file to upload. Example: \"document.pdf\""
+        }
+      },
+      "required": [
+        "parentItemId",
+        "fileName"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_one_drive_createuploadsession": {
+      "type": "object",
+      "properties": {
+        "uploadUrl": {
+          "type": "string"
+        },
+        "expirationDateTime": {
+          "type": "string"
+        },
+        "nextExpectedRanges": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      },
+      "required": [
+        "uploadUrl",
+        "expirationDateTime"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_one_drive_deleteitem": {
+      "type": "object",
+      "properties": {
+        "itemId": {
+          "type": "string",
+          "description": "The ID of the item (file or folder) to delete. Example: \"0123456789ABC\""
+        }
+      },
+      "required": [
+        "itemId"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_one_drive_deleteitem": {
+      "type": "object",
+      "properties": {
+        "success": {
+          "type": "boolean",
+          "description": "Whether the deletion was successful"
+        },
+        "itemId": {
+          "type": "string",
+          "description": "The ID of the deleted item"
+        },
+        "message": {
+          "type": "string",
+          "description": "Status message"
+        }
+      },
+      "required": [
+        "success",
+        "itemId",
+        "message"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_one_drive_deletepermission": {
+      "type": "object",
+      "properties": {
+        "itemId": {
+          "type": "string",
+          "description": "The ID of the OneDrive item. Example: \"01JRXCVV4F3FS3J3G7QJD2ZRK2O4I3XPGZ\""
+        },
+        "permissionId": {
+          "type": "string",
+          "description": "The ID of the permission to delete. Example: \"1\""
+        }
+      },
+      "required": [
+        "itemId",
+        "permissionId"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_one_drive_deletepermission": {
+      "type": "object",
+      "properties": {
+        "success": {
+          "type": "boolean",
+          "description": "Whether the permission was successfully deleted"
+        }
+      },
+      "required": [
+        "success"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_one_drive_getdrive": {
+      "type": "object",
+      "additionalProperties": false
+    },
+    "ActionOutput_one_drive_getdrive": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        },
+        "driveType": {
+          "type": "string"
+        },
+        "webUrl": {
+          "type": "string"
+        },
+        "owner": {
+          "type": "object",
+          "properties": {
+            "userId": {
+              "type": "string"
+            },
+            "displayName": {
+              "type": "string"
+            }
+          },
+          "additionalProperties": false
+        },
+        "quota": {
+          "type": "object",
+          "properties": {
+            "deleted": {
+              "type": "number"
+            },
+            "remaining": {
+              "type": "number"
+            },
+            "state": {
+              "type": "string"
+            },
+            "total": {
+              "type": "number"
+            },
+            "used": {
+              "type": "number"
+            }
+          },
+          "additionalProperties": false
+        }
+      },
+      "required": [
+        "id"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_one_drive_getitem": {
+      "type": "object",
+      "properties": {
+        "itemId": {
+          "type": "string",
+          "description": "The unique ID of the item to retrieve. Example: \"01X3XYZABC123\""
+        },
+        "path": {
+          "type": "string",
+          "description": "The path to the item relative to the root. Example: \"/Documents/file.txt\" or \"Documents/folder\""
+        }
+      },
+      "additionalProperties": false
+    },
+    "ActionOutput_one_drive_getitem": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "size": {
+          "type": "number"
+        },
+        "webUrl": {
+          "type": "string"
+        },
+        "downloadUrl": {
+          "type": "string"
+        },
+        "createdDateTime": {
+          "type": "string"
+        },
+        "lastModifiedDateTime": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        },
+        "isFolder": {
+          "type": "boolean"
+        },
+        "folderChildCount": {
+          "type": "number"
+        },
+        "fileMimeType": {
+          "type": "string"
+        },
+        "parentId": {
+          "type": "string"
+        },
+        "parentDriveId": {
+          "type": "string"
+        },
+        "parentPath": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "id"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_one_drive_getpermission": {
+      "type": "object",
+      "properties": {
+        "itemId": {
+          "type": "string",
+          "description": "The ID of the drive item. Example: \"01A1B2C3D4E5F6G7H8I9J0K1L2M3N4O5P6Q7R8S9T0U1V2W3X4Y5Z6\""
+        },
+        "permissionId": {
+          "type": "string",
+          "description": "The ID of the permission. Example: \"1\""
+        }
+      },
+      "required": [
+        "itemId",
+        "permissionId"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_one_drive_getpermission": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "roles": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "grantedTo": {
+          "type": "object",
+          "properties": {
+            "user": {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "string"
+                },
+                "displayName": {
+                  "type": "string"
+                },
+                "email": {
+                  "type": "string"
+                }
+              },
+              "additionalProperties": false
+            },
+            "application": {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "string"
+                },
+                "displayName": {
+                  "type": "string"
+                }
+              },
+              "additionalProperties": false
+            }
+          },
+          "additionalProperties": false
+        },
+        "grantedToIdentities": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "user": {
+                "type": "object",
+                "properties": {
+                  "id": {
+                    "type": "string"
+                  },
+                  "displayName": {
+                    "type": "string"
+                  },
+                  "email": {
+                    "type": "string"
+                  }
+                },
+                "additionalProperties": false
+              },
+              "application": {
+                "type": "object",
+                "properties": {
+                  "id": {
+                    "type": "string"
+                  },
+                  "displayName": {
+                    "type": "string"
+                  }
+                },
+                "additionalProperties": false
+              }
+            },
+            "additionalProperties": false
+          }
+        },
+        "invitation": {
+          "type": "object",
+          "properties": {
+            "email": {
+              "type": "string"
+            },
+            "redeemedBy": {
+              "type": "string"
+            }
+          },
+          "additionalProperties": false
+        },
+        "inheritedFrom": {
+          "type": "object",
+          "properties": {
+            "driveId": {
+              "type": "string"
+            },
+            "id": {
+              "type": "string"
+            },
+            "name": {
+              "type": "string"
+            }
+          },
+          "additionalProperties": false
+        },
+        "link": {
+          "type": "object",
+          "properties": {
+            "type": {
+              "type": "string"
+            },
+            "scope": {
+              "type": "string"
+            },
+            "webUrl": {
+              "type": "string"
+            },
+            "application": {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "string"
+                },
+                "displayName": {
+                  "type": "string"
+                }
+              },
+              "additionalProperties": false
+            }
+          },
+          "additionalProperties": false
+        },
+        "expirationDateTime": {
+          "type": "string"
+        },
+        "hasPassword": {
+          "type": "boolean"
+        },
+        "shareId": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "id"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_one_drive_inviterecipients": {
+      "type": "object",
+      "properties": {
+        "itemId": {
+          "type": "string",
+          "description": "The ID of the drive item to share. Example: \"0123456789ABC\""
+        },
+        "recipients": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "email": {
+                "type": "string"
+              },
+              "objectId": {
+                "type": "string",
+                "description": "The unique identifier of the recipient in Microsoft Entra ID."
+              },
+              "alias": {
+                "type": "string",
+                "description": "The alias of the recipient. Example: \"family\" for a family sharing link."
+              }
+            },
+            "additionalProperties": false
+          },
+          "description": "A collection of recipients who receive access and the sharing invitation."
+        },
+        "roles": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "0": {
+                "type": "string",
+                "const": "read"
+              },
+              "1": {
+                "type": "string",
+                "const": "write"
+              }
+            },
+            "required": [
+              "0",
+              "1"
+            ],
+            "additionalProperties": false
+          },
+          "description": "The roles to grant to the recipients. Valid values: \"read\", \"write\""
+        },
+        "requireSignIn": {
+          "type": "boolean",
+          "description": "Specifies whether the recipient must sign in to view the shared item."
+        },
+        "sendInvitation": {
+          "type": "boolean",
+          "description": "If true, sends a sharing link to the recipient. Otherwise, grants permission without sending a notification."
+        },
+        "message": {
+          "type": "string",
+          "description": "A plain text message included in the sharing invitation. Maximum length: 2,000 characters."
+        },
+        "password": {
+          "type": "string",
+          "description": "The password set on the invite by the creator. Optional and OneDrive for home only."
+        },
+        "expirationDateTime": {
+          "type": "string",
+          "description": "The dateTime after which the permission expires."
+        },
+        "retainInheritedPermissions": {
+          "type": "boolean",
+          "description": "If true (default), any existing inherited permissions are retained when sharing for the first time."
+        }
+      },
+      "required": [
+        "itemId",
+        "recipients",
+        "roles"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_one_drive_inviterecipients": {
+      "type": "object",
+      "properties": {
+        "permissions": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "grantedToUserId": {
+                "type": "string"
+              },
+              "grantedToUserDisplayName": {
+                "type": "string"
+              },
+              "invitationEmail": {
+                "type": "string"
+              },
+              "signInRequired": {
+                "type": "boolean"
+              },
+              "roles": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "hasPassword": {
+                "type": "boolean"
+              },
+              "expirationDateTime": {
+                "type": "string"
+              },
+              "hasError": {
+                "type": "boolean"
+              },
+              "errorCode": {
+                "type": "string"
+              },
+              "errorMessage": {
+                "type": "string"
+              }
+            },
+            "additionalProperties": false
+          }
+        }
+      },
+      "required": [
+        "permissions"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_one_drive_listchildren": {
+      "type": "object",
+      "properties": {
+        "itemId": {
+          "type": "string",
+          "description": "Item ID of the folder. Use \"root\" or omit to list root children. Example: \"0123456789ABCDEF!123\""
+        }
+      },
+      "additionalProperties": false
+    },
+    "ActionOutput_one_drive_listchildren": {
+      "type": "object",
+      "properties": {
+        "items": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "name": {
+                "type": "string"
+              },
+              "size": {
+                "type": "number"
+              },
+              "webUrl": {
+                "type": "string"
+              },
+              "createdDateTime": {
+                "type": "string"
+              },
+              "lastModifiedDateTime": {
+                "type": "string"
+              },
+              "fileSystemInfo": {
+                "type": "object",
+                "properties": {
+                  "createdDateTime": {
+                    "type": "string"
+                  },
+                  "lastModifiedDateTime": {
+                    "type": "string"
+                  }
+                },
+                "additionalProperties": false
+              },
+              "folder": {
+                "type": "object",
+                "properties": {
+                  "childCount": {
+                    "type": "number"
+                  }
+                },
+                "additionalProperties": false
+              },
+              "deleted": {
+                "type": "object",
+                "properties": {
+                  "state": {
+                    "type": "string"
+                  }
+                },
+                "additionalProperties": false
+              }
+            },
+            "required": [
+              "id",
+              "name"
+            ],
+            "additionalProperties": false
+          }
+        },
+        "nextLink": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "items"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_one_drive_listdrives": {
+      "type": "object",
+      "additionalProperties": false
+    },
+    "ActionOutput_one_drive_listdrives": {
+      "type": "object",
+      "properties": {
+        "drives": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "name": {
+                "type": "string",
+                "description": "The name of the drive."
+              },
+              "driveType": {
+                "type": "string",
+                "description": "The type of drive (personal, business, or documentLibrary)."
+              },
+              "ownerId": {
+                "type": "string",
+                "description": "The ID of the drive owner."
+              },
+              "ownerName": {
+                "type": "string",
+                "description": "The display name of the drive owner."
+              }
+            },
+            "required": [
+              "id"
+            ],
+            "additionalProperties": false
+          },
+          "description": "List of drives available to the authenticated user."
+        }
+      },
+      "required": [
+        "drives"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_one_drive_listpermissions": {
+      "type": "object",
+      "properties": {
+        "itemId": {
+          "type": "string",
+          "description": "The ID of the drive item. Example: \"5D33DD65C6932946!70859\""
+        }
+      },
+      "required": [
+        "itemId"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_one_drive_listpermissions": {
+      "type": "object",
+      "properties": {
+        "permissions": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "roles": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "link": {
+                "type": "object",
+                "properties": {
+                  "webUrl": {
+                    "type": "string"
+                  },
+                  "type": {
+                    "type": "string"
+                  },
+                  "application": {
+                    "type": "object",
+                    "properties": {
+                      "id": {
+                        "type": "string"
+                      },
+                      "displayName": {
+                        "type": "string"
+                      }
+                    },
+                    "additionalProperties": false
+                  }
+                },
+                "additionalProperties": false
+              },
+              "grantedTo": {
+                "type": "object",
+                "properties": {
+                  "user": {
+                    "type": "object",
+                    "properties": {
+                      "id": {
+                        "type": "string"
+                      },
+                      "displayName": {
+                        "type": "string"
+                      }
+                    },
+                    "additionalProperties": false
+                  },
+                  "application": {
+                    "type": "object",
+                    "properties": {
+                      "id": {
+                        "type": "string"
+                      },
+                      "displayName": {
+                        "type": "string"
+                      }
+                    },
+                    "additionalProperties": false
+                  },
+                  "device": {
+                    "type": "object",
+                    "properties": {
+                      "id": {
+                        "type": "string"
+                      },
+                      "displayName": {
+                        "type": "string"
+                      }
+                    },
+                    "additionalProperties": false
+                  }
+                },
+                "additionalProperties": false
+              },
+              "grantedToV2": {
+                "type": "object",
+                "properties": {
+                  "user": {
+                    "type": "object",
+                    "properties": {
+                      "id": {
+                        "type": "string"
+                      },
+                      "displayName": {
+                        "type": "string"
+                      }
+                    },
+                    "additionalProperties": false
+                  },
+                  "application": {
+                    "type": "object",
+                    "properties": {
+                      "id": {
+                        "type": "string"
+                      },
+                      "displayName": {
+                        "type": "string"
+                      }
+                    },
+                    "additionalProperties": false
+                  },
+                  "device": {
+                    "type": "object",
+                    "properties": {
+                      "id": {
+                        "type": "string"
+                      },
+                      "displayName": {
+                        "type": "string"
+                      }
+                    },
+                    "additionalProperties": false
+                  }
+                },
+                "additionalProperties": false
+              },
+              "inheritedFrom": {
+                "type": "object",
+                "properties": {
+                  "driveId": {
+                    "type": "string"
+                  },
+                  "id": {
+                    "type": "string"
+                  },
+                  "path": {
+                    "type": "string"
+                  }
+                },
+                "additionalProperties": false
+              }
+            },
+            "required": [
+              "id",
+              "roles"
+            ],
+            "additionalProperties": false
+          }
+        }
+      },
+      "required": [
+        "permissions"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_one_drive_listrecentitems": {
+      "type": "object",
+      "additionalProperties": false
+    },
+    "ActionOutput_one_drive_listrecentitems": {
+      "type": "object",
+      "properties": {
+        "items": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "name": {
+                "type": "string"
+              },
+              "webUrl": {
+                "type": "string"
+              },
+              "size": {
+                "type": "number"
+              },
+              "createdDateTime": {
+                "type": "string"
+              },
+              "lastModifiedDateTime": {
+                "type": "string"
+              },
+              "isFolder": {
+                "type": "boolean"
+              },
+              "isFile": {
+                "type": "boolean"
+              }
+            },
+            "required": [
+              "id"
+            ],
+            "additionalProperties": false
+          }
+        }
+      },
+      "required": [
+        "items"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_one_drive_listshareditems": {
+      "type": "object",
+      "properties": {
+        "cursor": {
+          "type": "string",
+          "description": "Pagination link from the previous response. Omit for the first page. Example: \"https://graph.microsoft.com/v1.0/me/drive/sharedWithMe?$skiptoken=abc123\""
+        }
+      },
+      "additionalProperties": false
+    },
+    "ActionOutput_one_drive_listshareditems": {
+      "type": "object",
+      "properties": {
+        "items": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "name": {
+                "type": "string"
+              },
+              "remoteId": {
+                "type": "string"
+              },
+              "remoteDriveId": {
+                "type": "string"
+              },
+              "size": {
+                "type": "number"
+              },
+              "webUrl": {
+                "type": "string"
+              },
+              "createdDateTime": {
+                "type": "string"
+              },
+              "lastModifiedDateTime": {
+                "type": "string"
+              },
+              "sharedBy": {
+                "type": "object",
+                "properties": {
+                  "displayName": {
+                    "type": "string"
+                  },
+                  "id": {
+                    "type": "string"
+                  },
+                  "email": {
+                    "type": "string"
+                  }
+                },
+                "additionalProperties": false
+              },
+              "sharedDateTime": {
+                "type": "string"
+              },
+              "isFolder": {
+                "type": "boolean"
+              }
+            },
+            "required": [
+              "id",
+              "name",
+              "remoteId"
+            ],
+            "additionalProperties": false
+          }
+        },
+        "nextCursor": {
+          "type": "string",
+          "description": "Pagination cursor for the next page of results."
+        }
+      },
+      "required": [
+        "items"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_one_drive_listversions": {
+      "type": "object",
+      "properties": {
+        "itemId": {
+          "type": "string",
+          "description": "The ID of the file to list versions for. Example: \"0123456789ABC!123\""
+        }
+      },
+      "required": [
+        "itemId"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_one_drive_listversions": {
+      "type": "object",
+      "properties": {
+        "versions": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "lastModifiedBy": {
+                "type": "object",
+                "properties": {
+                  "user": {
+                    "type": "object",
+                    "properties": {
+                      "id": {
+                        "type": "string"
+                      },
+                      "displayName": {
+                        "type": "string"
+                      }
+                    },
+                    "additionalProperties": false
+                  }
+                },
+                "additionalProperties": false
+              },
+              "lastModifiedDateTime": {
+                "type": "string"
+              },
+              "size": {
+                "type": "number"
+              }
+            },
+            "required": [
+              "id"
+            ],
+            "additionalProperties": false
+          }
+        }
+      },
+      "required": [
+        "versions"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_one_drive_moveitem": {
+      "type": "object",
+      "properties": {
+        "itemId": {
+          "type": "string",
+          "description": "The ID of the drive item to move or rename. Example: \"0123456789abc\""
+        },
+        "parentFolderId": {
+          "type": "string",
+          "description": "The ID of the destination folder to move the item to. If omitted, the item stays in the same location."
+        },
+        "name": {
+          "type": "string",
+          "description": "The new name for the item. If omitted, the item keeps its current name."
+        }
+      },
+      "required": [
+        "itemId"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_one_drive_moveitem": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "The ID of the moved/renamed item"
+        },
+        "name": {
+          "type": "string",
+          "description": "The name of the item"
+        },
+        "parentFolderId": {
+          "type": "string",
+          "description": "The ID of the parent folder"
+        }
+      },
+      "required": [
+        "id",
+        "name"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_one_drive_searchitems": {
+      "type": "object",
+      "properties": {
+        "query": {
+          "type": "string",
+          "description": "Search query string. Example: \"budget\""
+        }
+      },
+      "required": [
+        "query"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_one_drive_searchitems": {
+      "type": "object",
+      "properties": {
+        "items": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "name": {
+                "type": "string"
+              },
+              "size": {
+                "type": "number"
+              },
+              "webUrl": {
+                "type": "string"
+              },
+              "createdDateTime": {
+                "type": "string"
+              },
+              "lastModifiedDateTime": {
+                "type": "string"
+              },
+              "folder": {
+                "type": "object",
+                "properties": {
+                  "childCount": {
+                    "type": "number"
+                  }
+                },
+                "additionalProperties": false
+              },
+              "file": {
+                "type": "object",
+                "properties": {
+                  "mimeType": {
+                    "type": "string"
+                  }
+                },
+                "additionalProperties": false
+              },
+              "parentReference": {
+                "type": "object",
+                "properties": {
+                  "driveId": {
+                    "type": "string"
+                  },
+                  "id": {
+                    "type": "string"
+                  },
+                  "path": {
+                    "type": "string"
+                  }
+                },
+                "additionalProperties": false
+              }
+            },
+            "required": [
+              "id",
+              "name"
+            ],
+            "additionalProperties": false
+          }
+        },
+        "nextLink": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "items"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_one_drive_updateitem": {
+      "type": "object",
+      "properties": {
+        "itemId": {
+          "type": "string",
+          "description": "The ID of the drive item to update. Example: 01NKDM7HMOJTVYMDOSXFDK2QJDXCDI3WUK"
+        },
+        "name": {
+          "type": "string",
+          "description": "The new name for the item. Example: new-file-name.docx"
+        },
+        "description": {
+          "type": "string",
+          "description": "The description of the item. Set to null to clear. Example: Project documentation file"
+        },
+        "fileSystemInfo": {
+          "type": "object",
+          "properties": {
+            "createdDateTime": {
+              "type": "string"
+            },
+            "lastModifiedDateTime": {
+              "type": "string",
+              "description": "The UTC date and time the file was last modified. Example: 2024-01-15T10:00:00Z"
+            }
+          },
+          "additionalProperties": false,
+          "description": "File system metadata to update"
+        },
+        "parentReference": {
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "string"
+            },
+            "driveId": {
+              "type": "string",
+              "description": "The ID of the drive containing the parent. Example: b!dRdbR4F600000000000000000000000"
+            },
+            "path": {
+              "type": "string",
+              "description": "The path of the parent. Example: /drive/root:/Documents"
+            }
+          },
+          "additionalProperties": false,
+          "description": "Parent reference to move the item to a different location"
+        }
+      },
+      "required": [
+        "itemId"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_one_drive_updateitem": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        },
+        "size": {
+          "type": "number"
+        },
+        "webUrl": {
+          "type": "string"
+        },
+        "createdDateTime": {
+          "type": "string"
+        },
+        "lastModifiedDateTime": {
+          "type": "string"
+        },
+        "file": {
+          "type": "object",
+          "properties": {
+            "mimeType": {
+              "type": "string"
+            }
+          },
+          "additionalProperties": false
+        },
+        "folder": {
+          "type": "object",
+          "properties": {
+            "childCount": {
+              "type": "number"
+            }
+          },
+          "additionalProperties": false
+        },
+        "fileSystemInfo": {
+          "type": "object",
+          "properties": {
+            "createdDateTime": {
+              "type": "string"
+            },
+            "lastModifiedDateTime": {
+              "type": "string"
+            }
+          },
+          "additionalProperties": false
+        },
+        "parentReference": {
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "string"
+            },
+            "driveId": {
+              "type": "string"
+            },
+            "path": {
+              "type": "string"
+            }
+          },
+          "additionalProperties": false
+        }
+      },
+      "required": [
+        "id",
+        "name"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_one_drive_uploadsmallfile": {
+      "type": "object",
+      "properties": {
+        "parent_item_id": {
+          "type": "string",
+          "description": "The ID of the parent folder where the file will be uploaded. Example: \"0123456789ABCDEF!1234\""
+        },
+        "file_name": {
+          "type": "string",
+          "description": "The name of the file to create. Example: \"document.txt\""
+        },
+        "content": {
+          "type": "string",
+          "description": "The binary content of the file as a base64-encoded string."
+        },
+        "content_type": {
+          "type": "string",
+          "description": "The MIME type of the file content. Defaults to \"application/octet-stream\"."
+        }
+      },
+      "required": [
+        "parent_item_id",
+        "file_name",
+        "content"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_one_drive_uploadsmallfile": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "The ID of the uploaded file."
+        },
+        "name": {
+          "type": "string",
+          "description": "The name of the uploaded file."
+        },
+        "size": {
+          "type": "number",
+          "description": "The size of the uploaded file in bytes."
+        },
+        "web_url": {
+          "type": "string",
+          "description": "The URL to open the file in OneDrive."
+        },
+        "created_date_time": {
+          "type": "string",
+          "description": "The UTC date and time the file was created."
+        },
+        "last_modified_date_time": {
+          "type": "string",
+          "description": "The UTC date and time the file was last modified."
+        },
+        "download_url": {
+          "type": "string",
+          "description": "A temporary download URL for the file content."
+        }
+      },
+      "required": [
+        "id"
+      ],
       "additionalProperties": false
     },
     "OneDriveFileSelection": {
@@ -82890,118 +84677,6 @@
         "created_at",
         "blob_size",
         "drive_id"
-      ],
-      "additionalProperties": false
-    },
-    "SyncMetadata_one_drive_userfilesselection": {
-      "type": "object",
-      "properties": {
-        "drives": {
-          "type": "array",
-          "items": {
-            "type": "string"
-          }
-        },
-        "pickedFiles": {
-          "type": "array",
-          "items": {
-            "type": "object",
-            "properties": {
-              "driveId": {
-                "type": "string"
-              },
-              "fileIds": {
-                "type": "array",
-                "items": {
-                  "type": "string"
-                }
-              }
-            },
-            "required": [
-              "driveId",
-              "fileIds"
-            ],
-            "additionalProperties": false
-          }
-        }
-      },
-      "required": [
-        "drives",
-        "pickedFiles"
-      ],
-      "additionalProperties": false
-    },
-    "ActionInput_one_drive_fetchfile": {
-      "type": "object",
-      "properties": {
-        "driveId": {
-          "type": "string"
-        },
-        "itemId": {
-          "type": "string"
-        }
-      },
-      "required": [
-        "driveId",
-        "itemId"
-      ],
-      "additionalProperties": false
-    },
-    "ActionOutput_one_drive_fetchfile": {
-      "type": "object",
-      "properties": {
-        "id": {
-          "type": "string"
-        },
-        "download_url": {
-          "type": [
-            "string",
-            "null"
-          ]
-        }
-      },
-      "required": [
-        "id",
-        "download_url"
-      ],
-      "additionalProperties": false
-    },
-    "ActionInput_one_drive_listdrives": {
-      "type": "null"
-    },
-    "ActionOutput_one_drive_listdrives": {
-      "type": "object",
-      "properties": {
-        "drives": {
-          "type": "array",
-          "items": {
-            "type": "object",
-            "properties": {
-              "id": {
-                "type": "string"
-              },
-              "name": {
-                "type": "string"
-              },
-              "createdDateTime": {
-                "type": "string"
-              },
-              "webUrl": {
-                "type": "string"
-              }
-            },
-            "required": [
-              "id",
-              "name",
-              "createdDateTime",
-              "webUrl"
-            ],
-            "additionalProperties": false
-          }
-        }
-      },
-      "required": [
-        "drives"
       ],
       "additionalProperties": false
     },

@@ -136,7 +136,7 @@ const action = createAction({
             // https://learn.microsoft.com/graph/api/driveitem-invite
             endpoint: `/v1.0/me/drive/items/${encodeURIComponent(input.itemId)}/invite`,
             data: requestBody,
-            retries: 3,
+            retries: 3
         });
 
         const providerResponse = ProviderResponseSchema.parse(response.data);

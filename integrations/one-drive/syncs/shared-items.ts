@@ -79,7 +79,10 @@ const sync = createSync({
         // /sharedWithMe is a snapshot inventory endpoint with no delta cursor,
         // so we keep full-refresh delete tracking and only checkpoint page links for resumability.
         const checkpoint = await nango.getCheckpoint();
-        let nextEndpoint = checkpoint && typeof checkpoint === 'object' && 'nextEndpoint' in checkpoint && typeof checkpoint.nextEndpoint === 'string' ? checkpoint.nextEndpoint : '';
+        let nextEndpoint =
+            checkpoint && typeof checkpoint === 'object' && 'nextEndpoint' in checkpoint && typeof checkpoint.nextEndpoint === 'string'
+                ? checkpoint.nextEndpoint
+                : '';
 
         if (!nextEndpoint) {
             await nango.trackDeletesStart('SharedItem');

@@ -89,7 +89,10 @@ const sync = createSync({
         const checkpoint = await nango.getCheckpoint();
 
         // Graph delta returns a resumable state token in nextLink and deltaLink responses.
-        let deltaToken = checkpoint && typeof checkpoint === 'object' && 'deltaToken' in checkpoint && typeof checkpoint.deltaToken === 'string' ? checkpoint.deltaToken : '';
+        let deltaToken =
+            checkpoint && typeof checkpoint === 'object' && 'deltaToken' in checkpoint && typeof checkpoint.deltaToken === 'string'
+                ? checkpoint.deltaToken
+                : '';
 
         const proxyConfig: ProxyConfiguration = {
             // https://learn.microsoft.com/graph/api/driveitem-delta
