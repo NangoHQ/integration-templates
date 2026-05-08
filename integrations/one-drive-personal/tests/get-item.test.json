@@ -1,0 +1,82 @@
+{
+  "input": {
+    "path": "/"
+  },
+  "output": {
+    "id": "AB43234B783BB6C3!sea8cc6beffdb43d7976fbc7da445c639",
+    "name": "root",
+    "type": "folder",
+    "size": 1152102,
+    "createdDateTime": "2026-03-04T06:13:47Z",
+    "lastModifiedDateTime": "2026-05-08T09:33:56Z",
+    "webUrl": "https://onedrive.live.com?cid=AB43234B783BB6C3&id=01YED5K7V6Y2GOVW7725BZO354PWSELRRZ",
+    "parentReference": {},
+    "folder": {
+      "childCount": 13
+    }
+  },
+  "nango": {},
+  "api": {
+    "get": {
+      "/v1.0/drive/root:/": {
+        "response": {
+          "@odata.context": "https://api.onedrive.com/v1.0/$metadata#items/$entity",
+          "createdBy": {
+            "user": {
+              "email": "apinangodev@outlook.com",
+              "displayName": "Nango Dev"
+            }
+          },
+          "createdDateTime": "2026-03-04T06:13:47Z",
+          "eTag": "\"{4382681E-DF43-4B6E-BAE8-AB3DF85CAAC6},8\"",
+          "id": "AB43234B783BB6C3!sea8cc6beffdb43d7976fbc7da445c639",
+          "lastModifiedDateTime": "2026-05-08T09:33:56Z",
+          "name": "root",
+          "parentReference": {
+            "driveType": "personal",
+            "driveId": "AB43234B783BB6C3"
+          },
+          "webUrl": "https://onedrive.live.com?cid=AB43234B783BB6C3&id=01YED5K7V6Y2GOVW7725BZO354PWSELRRZ",
+          "fileSystemInfo": {
+            "createdDateTime": "2026-03-04T06:13:47Z",
+            "lastModifiedDateTime": "2026-05-08T09:33:56Z"
+          },
+          "folder": {
+            "childCount": 13,
+            "folderType": "documents",
+            "folderView": {
+              "sortBy": "name",
+              "sortOrder": "ascending",
+              "viewType": "thumbnails"
+            }
+          },
+          "isAuthoritative": false,
+          "root": {},
+          "size": 1152102
+        },
+        "status": 200,
+        "headers": {
+          "date": "Fri, 08 May 2026 09:34:15 GMT",
+          "content-type": "application/json;odata.metadata=minimal;odata.streaming=true;IEEE754Compatible=false;charset=utf-8",
+          "content-length": "824",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=5184000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4997",
+          "x-ratelimit-reset": "1778232914",
+          "etag": "W/\"338-eGC9I3UPjTh3cyBnWHZD0qse81o\""
+        },
+        "hash": "56438f81df6519b5badbae5c33037064fd1bc86b",
+        "request": {}
+      }
+    }
+  }
+}
