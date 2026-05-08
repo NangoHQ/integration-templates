@@ -15,7 +15,7 @@
   "nango": {},
   "api": {
     "post": {
-      "/v1.0/drive/items/root/children": {
+      "/v1.0/drive/root/children": {
         "response": {
           "@odata.context": "https://api.onedrive.com/v1.0/$metadata#drives('default')/items('root')/children/$entity",
           "@odata.etag": "\"{4742A368-62A6-4BAE-9CDF-3BF2001E4BE9},1\"",

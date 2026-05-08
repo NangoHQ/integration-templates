@@ -8,7 +8,7 @@ const normalizeOneDriveEndpoint = (link: string): string => {
 };
 
 const MetadataSchema = z.object({
-    folderIds: z.array(z.string()).min(1).describe('OneDrive item IDs for folders to sync children from')
+    folderIds: z.array(z.string()).describe('OneDrive item IDs for folders to sync children from')
 });
 
 const FolderChildrenCheckpointSchema = z.object({

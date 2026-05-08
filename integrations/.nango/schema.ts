@@ -26096,20 +26096,6 @@ export interface ActionOutput_one_drive_personal_listpermissions {
   shareId?: string | undefined;})[];
 };
 
-export interface ActionInput_one_drive_personal_listrecentitems {
-};
-
-export interface ActionOutput_one_drive_personal_listrecentitems {
-  items: ({  id: string;
-  name?: string | undefined;
-  size?: number | undefined;
-  webUrl?: string | undefined;
-  createdDateTime?: string | undefined;
-  lastModifiedDateTime?: string | undefined;
-  isFolder?: boolean | undefined;
-  isFile?: boolean | undefined;})[];
-};
-
 export interface ActionInput_one_drive_personal_listversions {
   /**
    * The ID of the file item. Example: "0123456789abc"
@@ -26277,7 +26263,7 @@ export interface ActionInput_one_drive_personal_uploadsmallfile {
    */
   fileName: string;
   /**
-   * The content of the file to upload. For binary files, base64 encode the content.
+   * The base64-encoded content of the file to upload. Always base64 encode the content before passing it here.
    */
   content: string;
   /**

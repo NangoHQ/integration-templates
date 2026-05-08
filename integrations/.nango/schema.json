@@ -84304,55 +84304,6 @@
       ],
       "additionalProperties": false
     },
-    "ActionInput_one_drive_personal_listrecentitems": {
-      "type": "object",
-      "additionalProperties": false
-    },
-    "ActionOutput_one_drive_personal_listrecentitems": {
-      "type": "object",
-      "properties": {
-        "items": {
-          "type": "array",
-          "items": {
-            "type": "object",
-            "properties": {
-              "id": {
-                "type": "string"
-              },
-              "name": {
-                "type": "string"
-              },
-              "size": {
-                "type": "number"
-              },
-              "webUrl": {
-                "type": "string"
-              },
-              "createdDateTime": {
-                "type": "string"
-              },
-              "lastModifiedDateTime": {
-                "type": "string"
-              },
-              "isFolder": {
-                "type": "boolean"
-              },
-              "isFile": {
-                "type": "boolean"
-              }
-            },
-            "required": [
-              "id"
-            ],
-            "additionalProperties": false
-          }
-        }
-      },
-      "required": [
-        "items"
-      ],
-      "additionalProperties": false
-    },
     "ActionInput_one_drive_personal_listversions": {
       "type": "object",
       "properties": {
@@ -84681,7 +84632,7 @@
         },
         "content": {
           "type": "string",
-          "description": "The content of the file to upload. For binary files, base64 encode the content."
+          "description": "The base64-encoded content of the file to upload. Always base64 encode the content before passing it here."
         },
         "contentType": {
           "type": "string",

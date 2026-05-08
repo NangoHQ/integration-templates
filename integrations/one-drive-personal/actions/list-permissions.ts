@@ -2,7 +2,7 @@ import { z } from 'zod';
 import { createAction } from 'nango';
 
 const InputSchema = z.object({
-    itemId: z.string().describe('The ID of the drive item to list permissions for. Example: "123ABC!456"')
+    itemId: z.string().min(1).describe('The ID of the drive item to list permissions for. Example: "123ABC!456"')
 });
 
 const PermissionSchema = z

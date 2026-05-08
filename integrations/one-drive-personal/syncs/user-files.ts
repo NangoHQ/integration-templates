@@ -106,7 +106,7 @@ const sync = createSync({
             foldersToProcess.push('root');
         }
 
-        await nango.trackDeletesStart('UserFile');
+        let deleteTrackingStarted = false;
 
         // @allowTryCatch
         try {
@@ -126,6 +126,11 @@ const sync = createSync({
                 });
 
                 const childrenResponse = ChildrenResponseSchema.parse(response.data);
+
+                if (!deleteTrackingStarted) {
+                    await nango.trackDeletesStart('UserFile');
+                    deleteTrackingStarted = true;
+                }
 
                 const files = childrenResponse.value
                     .filter((item) => !item.deleted)
@@ -175,7 +180,9 @@ const sync = createSync({
 
             await nango.clearCheckpoint();
         } finally {
-            await nango.trackDeletesEnd('UserFile');
+            if (deleteTrackingStarted) {
+                await nango.trackDeletesEnd('UserFile');
+            }
         }
     }
 });

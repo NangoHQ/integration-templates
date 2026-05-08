@@ -51,8 +51,9 @@ const action = createAction({
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         // https://learn.microsoft.com/onedrive/developer/rest-api/api/driveitem_post_children
+        const endpoint = input.parentItemId === 'root' ? '/v1.0/drive/root/children' : `/v1.0/drive/items/${encodeURIComponent(input.parentItemId)}/children`;
         const response = await nango.post({
-            endpoint: `/v1.0/drive/items/${encodeURIComponent(input.parentItemId)}/children`,
+            endpoint,
             data: {
                 name: input.folderName,
                 folder: {},

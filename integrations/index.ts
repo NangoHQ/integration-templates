@@ -1014,7 +1014,6 @@ import './one-drive-personal/actions/get-permission.js';
 import './one-drive-personal/actions/invite-recipients.js';
 import './one-drive-personal/actions/list-children.js';
 import './one-drive-personal/actions/list-permissions.js';
-import './one-drive-personal/actions/list-recent-items.js';
 import './one-drive-personal/actions/list-versions.js';
 import './one-drive-personal/actions/move-item.js';
 import './one-drive-personal/actions/search-items.js';
