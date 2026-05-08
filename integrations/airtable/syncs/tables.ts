@@ -1,3 +1,4 @@
+import type { ProxyConfiguration } from 'nango';
 import { createSync } from 'nango';
 import { z } from 'zod';
 
@@ -5,11 +6,6 @@ const ProviderBaseSchema = z.object({
     id: z.string(),
     name: z.string(),
     permissionLevel: z.string().optional()
-});
-
-const ProviderBasesResponseSchema = z.object({
-    bases: ProviderBaseSchema.array(),
-    offset: z.string().optional()
 });
 
 const ProviderTableFieldSchema = z.object({
@@ -62,16 +58,13 @@ const TableSchema = z.object({
     views: TableViewSchema.array()
 });
 
-const CheckpointSchema = z.object({
-    offset: z.string()
-});
+type ProviderBase = z.infer<typeof ProviderBaseSchema>;
 
 const sync = createSync({
     description: 'Sync Airtable table schemas across bases in scope.',
     version: '2.0.1',
     frequency: 'every day',
     autoStart: true,
-    checkpoint: CheckpointSchema,
     endpoints: [
         {
             method: 'GET',
@@ -83,27 +76,24 @@ const sync = createSync({
         Table: TableSchema
     },
     exec: async (nango) => {
-        const checkpoint = await nango.getCheckpoint();
-        let offset = typeof checkpoint?.['offset'] === 'string' ? checkpoint['offset'] : undefined;
+        const config: ProxyConfiguration = {
+            // https://airtable.com/developers/web/api/list-bases
+            endpoint: '/v0/meta/bases',
+            retries: 10,
+            paginate: {
+                type: 'cursor',
+                cursor_path_in_response: 'offset',
+                cursor_name_in_request: 'offset',
+                response_path: 'bases'
+            }
+        };
 
-        // The Metadata API is full refresh only, but the bases list offset lets interrupted runs resume page-by-page.
         await nango.trackDeletesStart('Table');
 
-        do {
-            const baseResponse = await nango.get({
-                // https://airtable.com/developers/web/api/list-bases
-                endpoint: '/v0/meta/bases',
-                params: {
-                    ...(offset ? { offset } : {})
-                },
-                retries: 3
-            });
-
-            const parsedBases = ProviderBasesResponseSchema.parse(baseResponse.data);
-
+        for await (const page of nango.paginate<ProviderBase>(config)) {
             const allTables: z.infer<typeof TableSchema>[] = [];
 
-            for (const base of parsedBases.bases) {
+            for (const base of page) {
                 const response = await nango.get({
                     // https://airtable.com/developers/web/api/get-base-schema
                     endpoint: `/v0/meta/bases/${base.id}/tables`,
@@ -113,7 +103,7 @@ const sync = createSync({
                 const parsedTables = ProviderTablesResponseSchema.parse(response.data);
 
                 for (const aTable of parsedTables.tables) {
-                    const table: z.infer<typeof TableSchema> = {
+                    allTables.push({
                         id: aTable.id,
                         name: aTable.name,
                         baseId: base.id,
@@ -121,23 +111,15 @@ const sync = createSync({
                         primaryFieldId: aTable.primaryFieldId,
                         fields: aTable.fields,
                         views: aTable.views
-                    };
-
-                    allTables.push(table);
+                    });
                 }
             }
 
             if (allTables.length > 0) {
                 await nango.batchSave(allTables, 'Table');
             }
+        }
 
-            offset = parsedBases.offset;
-            if (offset) {
-                await nango.saveCheckpoint({ offset });
-            }
-        } while (offset);
-
-        await nango.saveCheckpoint({ offset: '' });
         await nango.trackDeletesEnd('Table');
     }
 });
