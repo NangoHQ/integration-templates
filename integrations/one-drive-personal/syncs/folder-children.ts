@@ -116,65 +116,65 @@ const sync = createSync({
 
         // @allowTryCatch
         try {
-        for (let i = startIndex; i < folderIds.length; i++) {
-            const folderIdVal = folderIds[i];
-            if (folderIdVal === undefined) {
-                continue;
-            }
-            const folderId = folderIdVal;
+            for (let i = startIndex; i < folderIds.length; i++) {
+                const folderIdVal = folderIds[i];
+                if (folderIdVal === undefined) {
+                    continue;
+                }
+                const folderId = folderIdVal;
 
-            await nango.log(`Syncing children for folder: ${folderId}`);
+                await nango.log(`Syncing children for folder: ${folderId}`);
 
-            let endpoint = nextLink ?? `/v1.0/drive/items/${encodeURIComponent(folderId)}/children`;
-            nextLink = undefined;
+                let endpoint = nextLink ?? `/v1.0/drive/items/${encodeURIComponent(folderId)}/children`;
+                nextLink = undefined;
 
-            while (true) {
-                // https://learn.microsoft.com/onedrive/developer/rest-api/api/driveitem_list_children
-                const response = await nango.get({
-                    endpoint,
-                    retries: 3
-                });
+                while (true) {
+                    // https://learn.microsoft.com/onedrive/developer/rest-api/api/driveitem_list_children
+                    const response = await nango.get({
+                        endpoint,
+                        retries: 3
+                    });
 
-                const childrenResponse = ListChildrenResponseSchema.parse(response.data);
-                const children = childrenResponse.value.map((item: OneDriveDriveItem) => ({
-                    id: `${folderId}-${item.id}`,
-                    name: item.name,
-                    folderId: folderId,
-                    size: item.size,
-                    createdDateTime: item.createdDateTime,
-                    lastModifiedDateTime: item.lastModifiedDateTime,
-                    webUrl: item.webUrl,
-                    description: item.description,
-                    isFolder: item.folder !== undefined,
-                    parentId: item.parentReference?.id
-                }));
+                    const childrenResponse = ListChildrenResponseSchema.parse(response.data);
+                    const children = childrenResponse.value.map((item: OneDriveDriveItem) => ({
+                        id: `${folderId}-${item.id}`,
+                        name: item.name,
+                        folderId: folderId,
+                        size: item.size,
+                        createdDateTime: item.createdDateTime,
+                        lastModifiedDateTime: item.lastModifiedDateTime,
+                        webUrl: item.webUrl,
+                        description: item.description,
+                        isFolder: item.folder !== undefined,
+                        parentId: item.parentReference?.id
+                    }));
 
-                if (children.length > 0) {
-                    await nango.batchSave(children, 'FolderChild');
+                    if (children.length > 0) {
+                        await nango.batchSave(children, 'FolderChild');
+                    }
+
+                    const nextPage = childrenResponse['@odata.nextLink'];
+                    if (!nextPage) {
+                        break;
+                    }
+
+                    endpoint = normalizeOneDriveEndpoint(nextPage);
+                    await nango.saveCheckpoint({
+                        currentFolderIndex: i,
+                        nextLink: endpoint,
+                        folderIdsKey
+                    });
                 }
 
-                const nextPage = childrenResponse['@odata.nextLink'];
-                if (!nextPage) {
-                    break;
+                if (i + 1 < folderIds.length) {
+                    const nextCheckpoint: FolderChildrenCheckpoint = {
+                        currentFolderIndex: i + 1,
+                        nextLink: '',
+                        folderIdsKey
+                    };
+                    await nango.saveCheckpoint(nextCheckpoint);
                 }
-
-                endpoint = normalizeOneDriveEndpoint(nextPage);
-                await nango.saveCheckpoint({
-                    currentFolderIndex: i,
-                    nextLink: endpoint,
-                    folderIdsKey
-                });
             }
-
-            if (i + 1 < folderIds.length) {
-                const nextCheckpoint: FolderChildrenCheckpoint = {
-                    currentFolderIndex: i + 1,
-                    nextLink: '',
-                    folderIdsKey
-                };
-                await nango.saveCheckpoint(nextCheckpoint);
-            }
-        }
 
             await nango.clearCheckpoint();
         } finally {

@@ -110,68 +110,68 @@ const sync = createSync({
 
         // @allowTryCatch
         try {
-        while (currentFolderId || foldersToProcess.length > 0) {
-            if (!currentFolderId) {
-                const nextFolderId = foldersToProcess.shift();
-                if (!nextFolderId) {
-                    break;
-                }
-                currentFolderId = nextFolderId;
-            }
-
-            // https://learn.microsoft.com/onedrive/developer/rest-api/api/driveitem_list_children
-            const response = await nango.get({
-                endpoint: nextLink || `/v1.0/drive/items/${encodeURIComponent(currentFolderId)}/children`,
-                retries: 3
-            });
-
-            const childrenResponse = ChildrenResponseSchema.parse(response.data);
-
-            const files = childrenResponse.value
-                .filter((item) => !item.deleted)
-                .map((item) => ({
-                    id: item.id,
-                    name: item.name,
-                    size: item.size,
-                    createdDateTime: item.createdDateTime,
-                    lastModifiedDateTime: item.lastModifiedDateTime,
-                    webUrl: item.webUrl,
-                    downloadUrl: item.downloadUrl,
-                    mimeType: item.file?.mimeType,
-                    isFolder: item.folder !== undefined,
-                    childCount: item.folder?.childCount,
-                    parentId: item.parentReference?.id,
-                    parentPath: item.parentReference?.path
-                }));
-
-            if (files.length > 0) {
-                await nango.batchSave(files, 'UserFile');
-            }
-
-            for (const item of childrenResponse.value) {
-                if (item.deleted) {
-                    continue;
+            while (currentFolderId || foldersToProcess.length > 0) {
+                if (!currentFolderId) {
+                    const nextFolderId = foldersToProcess.shift();
+                    if (!nextFolderId) {
+                        break;
+                    }
+                    currentFolderId = nextFolderId;
                 }
 
-                if (item.folder?.childCount && item.folder.childCount > 0) {
-                    foldersToProcess.push(item.id);
-                }
-            }
-
-            nextLink = childrenResponse['@odata.nextLink'] ? normalizeOneDriveEndpoint(childrenResponse['@odata.nextLink']) : '';
-
-            if (nextLink || foldersToProcess.length > 0) {
-                await nango.saveCheckpoint({
-                    currentFolderId: nextLink ? currentFolderId : '',
-                    nextLink,
-                    pendingFolderIds: JSON.stringify(foldersToProcess)
+                // https://learn.microsoft.com/onedrive/developer/rest-api/api/driveitem_list_children
+                const response = await nango.get({
+                    endpoint: nextLink || `/v1.0/drive/items/${encodeURIComponent(currentFolderId)}/children`,
+                    retries: 3
                 });
-            }
 
-            if (!nextLink) {
-                currentFolderId = '';
+                const childrenResponse = ChildrenResponseSchema.parse(response.data);
+
+                const files = childrenResponse.value
+                    .filter((item) => !item.deleted)
+                    .map((item) => ({
+                        id: item.id,
+                        name: item.name,
+                        size: item.size,
+                        createdDateTime: item.createdDateTime,
+                        lastModifiedDateTime: item.lastModifiedDateTime,
+                        webUrl: item.webUrl,
+                        downloadUrl: item.downloadUrl,
+                        mimeType: item.file?.mimeType,
+                        isFolder: item.folder !== undefined,
+                        childCount: item.folder?.childCount,
+                        parentId: item.parentReference?.id,
+                        parentPath: item.parentReference?.path
+                    }));
+
+                if (files.length > 0) {
+                    await nango.batchSave(files, 'UserFile');
+                }
+
+                for (const item of childrenResponse.value) {
+                    if (item.deleted) {
+                        continue;
+                    }
+
+                    if (item.folder?.childCount && item.folder.childCount > 0) {
+                        foldersToProcess.push(item.id);
+                    }
+                }
+
+                nextLink = childrenResponse['@odata.nextLink'] ? normalizeOneDriveEndpoint(childrenResponse['@odata.nextLink']) : '';
+
+                if (nextLink || foldersToProcess.length > 0) {
+                    await nango.saveCheckpoint({
+                        currentFolderId: nextLink ? currentFolderId : '',
+                        nextLink,
+                        pendingFolderIds: JSON.stringify(foldersToProcess)
+                    });
+                }
+
+                if (!nextLink) {
+                    currentFolderId = '';
+                }
             }
-        }
 
             await nango.clearCheckpoint();
         } finally {
