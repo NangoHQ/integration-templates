@@ -68,7 +68,7 @@ const CheckpointSchema = z.object({
 
 const sync = createSync({
     description: 'Sync Airtable table schemas across bases in scope.',
-    version: '2.0.0',
+    version: '2.0.1',
     frequency: 'every day',
     autoStart: true,
     checkpoint: CheckpointSchema,
@@ -137,7 +137,7 @@ const sync = createSync({
             }
         } while (offset);
 
-        await nango.clearCheckpoint();
+        await nango.saveCheckpoint({ offset: '' });
         await nango.trackDeletesEnd('Table');
     }
 });
