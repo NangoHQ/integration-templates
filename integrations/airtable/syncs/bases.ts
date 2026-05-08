@@ -70,7 +70,7 @@ const sync = createSync({
                 }
             } while (offset);
 
-            await nango.clearCheckpoint();
+            await nango.saveCheckpoint({ offset: '' });
         } finally {
             await nango.trackDeletesEnd('Base');
         }
