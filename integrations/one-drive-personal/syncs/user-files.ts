@@ -108,6 +108,8 @@ const sync = createSync({
 
         await nango.trackDeletesStart('UserFile');
 
+        // @allowTryCatch
+        try {
         while (currentFolderId || foldersToProcess.length > 0) {
             if (!currentFolderId) {
                 const nextFolderId = foldersToProcess.shift();
@@ -171,8 +173,10 @@ const sync = createSync({
             }
         }
 
-        await nango.clearCheckpoint();
-        await nango.trackDeletesEnd('UserFile');
+            await nango.clearCheckpoint();
+        } finally {
+            await nango.trackDeletesEnd('UserFile');
+        }
     }
 });
 

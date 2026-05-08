@@ -78,7 +78,7 @@
         },
         "status": 200,
         "headers": {
-          "date": "Fri, 08 May 2026 09:40:09 GMT",
+          "date": "Fri, 08 May 2026 14:43:03 GMT",
           "content-type": "application/json; odata.metadata=minimal",
           "content-length": "585",
           "connection": "keep-alive",
@@ -92,8 +92,8 @@
           "access-control-allow-origin": "*",
           "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
           "x-ratelimit-limit": "5000",
-          "x-ratelimit-remaining": "4957",
-          "x-ratelimit-reset": "1778233219",
+          "x-ratelimit-remaining": "4993",
+          "x-ratelimit-reset": "1778251386",
           "etag": "W/\"249-jK+vkcPx350NU/sS6rj9+cT3drY\""
         },
         "hash": "ae9409a4b0430682ee5e613da6ec6bdd108280aa",

@@ -100,7 +100,11 @@ const action = createAction({
             if (parsed.success) {
                 return parsed.data;
             }
-            return perm;
+            throw new nango.ActionError({
+                type: 'invalid_response',
+                message: 'Unexpected permission format returned by the API',
+                details: parsed.error.issues
+            });
         });
 
         return {

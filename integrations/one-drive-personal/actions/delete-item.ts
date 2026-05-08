@@ -26,7 +26,7 @@ const action = createAction({
         // https://learn.microsoft.com/onedrive/developer/rest-api/api/driveitem_delete
         await nango.delete({
             endpoint: `/v1.0/drive/items/${encodeURIComponent(input.itemId)}`,
-            retries: 1
+            retries: 3
         });
 
         return {

@@ -15,7 +15,8 @@ const ProviderDriveItemSchema = z.object({
 });
 
 const ProviderRecentResponseSchema = z.object({
-    value: z.array(ProviderDriveItemSchema)
+    value: z.array(ProviderDriveItemSchema),
+    '@odata.nextLink': z.string().optional()
 });
 
 const DriveItemSchema = z.object({
@@ -49,15 +50,22 @@ const action = createAction({
         // https://learn.microsoft.com/onedrive/developer/rest-api/api/driveitem_list_children
         // Note: The /drive/recent endpoint is deprecated/unavailable for personal OneDrive.
         // Using /drive/root/children as an alternative to list drive items.
-        const response = await nango.get({
-            endpoint: '/v1.0/drive/root/children',
-            retries: 3
-        });
+        const allItems: z.infer<typeof ProviderDriveItemSchema>[] = [];
+        let endpoint: string | undefined = '/v1.0/drive/root/children';
 
-        const parsed = ProviderRecentResponseSchema.parse(response.data);
+        while (endpoint) {
+            const response = await nango.get({
+                endpoint,
+                retries: 3
+            });
+
+            const parsed = ProviderRecentResponseSchema.parse(response.data);
+            allItems.push(...parsed.value);
+            endpoint = parsed['@odata.nextLink'];
+        }
 
         return {
-            items: parsed.value.map((item) => ({
+            items: allItems.map((item) => ({
                 id: item.id,
                 ...(item.name !== undefined && { name: item.name }),
                 ...(item.size !== undefined && { size: item.size }),

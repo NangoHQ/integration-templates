@@ -57,64 +57,67 @@ const sync = createSync({
         // Track deletes for full refresh pattern - must be called first
         await nango.trackDeletesStart('UserFileSelection');
 
-        // Fetch and validate metadata
-        const rawMetadata = await nango.getMetadata();
-        const metadataParse = MetadataSchema.safeParse(rawMetadata);
-        if (!metadataParse.success) {
-            throw new Error(`Invalid metadata: ${metadataParse.error.message}`);
-        }
-        const metadata = metadataParse.data;
-
-        const results: Array<{
-            id: string;
-            fileId: string;
-            name?: string;
-            size?: number;
-            webUrl?: string;
-            downloadUrl?: string;
-            createdDateTime?: string;
-            lastModifiedDateTime?: string;
-        }> = [];
-
-        if (metadata.pickedFiles && metadata.pickedFiles.length > 0) {
-            for (const picked of metadata.pickedFiles) {
-                // https://learn.microsoft.com/onedrive/developer/rest-api/api/driveitem_get
-                const response = await nango.get({
-                    endpoint: `/v1.0/drive/items/${encodeURIComponent(picked.fileId)}`,
-                    params: {
-                        select: 'id,name,size,webUrl,content.downloadUrl,createdDateTime,lastModifiedDateTime'
-                    },
-                    retries: 3
-                });
-
-                const parsed = DriveItemSchema.safeParse(response.data);
-                if (!parsed.success) {
-                    throw new Error(`Invalid response: ${parsed.error.message} for file ${picked.fileId}`);
-                }
-
-                const data = parsed.data;
-                if (!data.id) {
-                    throw new Error(`Invalid response: missing id for file ${picked.fileId}`);
-                }
-
-                results.push({
-                    id: data.id,
-                    fileId: data.id,
-                    ...(data.name !== undefined && { name: data.name }),
-                    ...(data.size !== undefined && { size: data.size }),
-                    ...(data.webUrl !== undefined && { webUrl: data.webUrl }),
-                    ...(data.content?.downloadUrl !== undefined && { downloadUrl: data.content.downloadUrl }),
-                    ...(data.createdDateTime !== undefined && { createdDateTime: data.createdDateTime }),
-                    ...(data.lastModifiedDateTime !== undefined && { lastModifiedDateTime: data.lastModifiedDateTime })
-                });
+        // @allowTryCatch
+        try {
+            // Fetch and validate metadata
+            const rawMetadata = await nango.getMetadata();
+            const metadataParse = MetadataSchema.safeParse(rawMetadata);
+            if (!metadataParse.success) {
+                throw new Error(`Invalid metadata: ${metadataParse.error.message}`);
             }
-        }
+            const metadata = metadataParse.data;
 
-        if (results.length > 0) {
-            await nango.batchSave(results, 'UserFileSelection');
-        }
+            const results: Array<{
+                id: string;
+                fileId: string;
+                name?: string;
+                size?: number;
+                webUrl?: string;
+                downloadUrl?: string;
+                createdDateTime?: string;
+                lastModifiedDateTime?: string;
+            }> = [];
 
-        await nango.trackDeletesEnd('UserFileSelection');
+            if (metadata.pickedFiles && metadata.pickedFiles.length > 0) {
+                for (const picked of metadata.pickedFiles) {
+                    // https://learn.microsoft.com/onedrive/developer/rest-api/api/driveitem_get
+                    const response = await nango.get({
+                        endpoint: `/v1.0/drive/items/${encodeURIComponent(picked.fileId)}`,
+                        params: {
+                            select: 'id,name,size,webUrl,content.downloadUrl,createdDateTime,lastModifiedDateTime'
+                        },
+                        retries: 3
+                    });
+
+                    const parsed = DriveItemSchema.safeParse(response.data);
+                    if (!parsed.success) {
+                        throw new Error(`Invalid response: ${parsed.error.message} for file ${picked.fileId}`);
+                    }
+
+                    const data = parsed.data;
+                    if (!data.id) {
+                        throw new Error(`Invalid response: missing id for file ${picked.fileId}`);
+                    }
+
+                    results.push({
+                        id: data.id,
+                        fileId: data.id,
+                        ...(data.name !== undefined && { name: data.name }),
+                        ...(data.size !== undefined && { size: data.size }),
+                        ...(data.webUrl !== undefined && { webUrl: data.webUrl }),
+                        ...(data.content?.downloadUrl !== undefined && { downloadUrl: data.content.downloadUrl }),
+                        ...(data.createdDateTime !== undefined && { createdDateTime: data.createdDateTime }),
+                        ...(data.lastModifiedDateTime !== undefined && { lastModifiedDateTime: data.lastModifiedDateTime })
+                    });
+                }
+            }
+
+            if (results.length > 0) {
+                await nango.batchSave(results, 'UserFileSelection');
+            }
+        } finally {
+            await nango.trackDeletesEnd('UserFileSelection');
+        }
     }
 });
 

@@ -59,10 +59,15 @@ const action = createAction({
         const payload: Record<string, unknown> = {};
 
         if (input.parent_reference !== undefined) {
-            payload['parentReference'] = {};
+            if (input.parent_reference.id === undefined && input.parent_reference.path === undefined) {
+                throw new nango.ActionError({
+                    type: 'invalid_request',
+                    message: 'parent_reference must include either id or path'
+                });
+            }
             if (input.parent_reference.id !== undefined) {
                 payload['parentReference'] = { id: input.parent_reference.id };
-            } else if (input.parent_reference.path !== undefined) {
+            } else {
                 payload['parentReference'] = { path: input.parent_reference.path };
             }
         }

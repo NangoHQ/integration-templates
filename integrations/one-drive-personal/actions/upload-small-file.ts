@@ -4,7 +4,7 @@ import { createAction } from 'nango';
 const InputSchema = z.object({
     parentItemId: z.string().describe('The ID of the parent item (folder) where the file will be uploaded. Example: "root" or a specific item ID.'),
     fileName: z.string().describe('The name of the file to be uploaded. Example: "document.txt"'),
-    content: z.string().describe('The content of the file to upload. For binary files, base64 encode the content.'),
+    content: z.string().describe('The base64-encoded content of the file to upload. Always base64 encode the content before passing it here.'),
     contentType: z.string().optional().describe('The MIME type of the file content. Defaults to "text/plain" if not provided. Example: "application/json"')
 });
 
@@ -46,7 +46,7 @@ const action = createAction({
             headers: {
                 'Content-Type': contentType
             },
-            data: input.content,
+            data: Buffer.from(input.content, 'base64'),
             retries: 3
         });
 

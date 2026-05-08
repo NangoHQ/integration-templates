@@ -114,6 +114,8 @@ const sync = createSync({
 
         await nango.trackDeletesStart('FolderChild');
 
+        // @allowTryCatch
+        try {
         for (let i = startIndex; i < folderIds.length; i++) {
             const folderIdVal = folderIds[i];
             if (folderIdVal === undefined) {
@@ -174,8 +176,10 @@ const sync = createSync({
             }
         }
 
-        await nango.clearCheckpoint();
-        await nango.trackDeletesEnd('FolderChild');
+            await nango.clearCheckpoint();
+        } finally {
+            await nango.trackDeletesEnd('FolderChild');
+        }
     }
 });
 

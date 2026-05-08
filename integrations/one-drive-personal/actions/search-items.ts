@@ -68,8 +68,7 @@ const action = createAction({
             endpoint = input.cursor;
         } else {
             const searchQuery = input.query || '';
-            // Try using $search query parameter which is standard OData
-            endpoint = `/v1.0/drive/root/children?$search=${encodeURIComponent(searchQuery)}`;
+            endpoint = `/v1.0/drive/root/view.search?q=${encodeURIComponent(searchQuery)}`;
         }
 
         const response = await nango.get({
