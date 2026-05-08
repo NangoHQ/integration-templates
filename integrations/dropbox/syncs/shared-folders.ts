@@ -48,13 +48,9 @@ const SharedFolderOutputSchema = z.object({
     aclUpdatePolicy: z.string().optional()
 });
 
-const CheckpointSchema = z.object({
-    cursor: z.string()
-});
-
 const sync = createSync({
     description: 'Sync shared folder metadata visible to the current Dropbox user.',
-    version: '1.0.0',
+    version: '1.0.1',
     frequency: 'every hour',
     autoStart: true,
     endpoints: [
@@ -63,19 +59,11 @@ const sync = createSync({
             path: '/syncs/shared-folders'
         }
     ],
-    checkpoint: CheckpointSchema,
     models: {
         SharedFolder: SharedFolderOutputSchema
     },
 
     exec: async (nango) => {
-        const checkpoint = z.object({ cursor: z.string().optional() }).parse((await nango.getCheckpoint()) ?? {});
-
-        // Reset any stored cursor before a delete-tracked run to ensure all records are seen
-        if (checkpoint.cursor) {
-            await nango.clearCheckpoint();
-        }
-
         let cursor: string | undefined = undefined;
         let hasMore = true;
 
@@ -125,13 +113,7 @@ const sync = createSync({
 
                 cursor = parsed.cursor;
                 hasMore = (parsed.has_more ?? false) && cursor !== undefined;
-
-                if (cursor) {
-                    await nango.saveCheckpoint({ cursor });
-                }
             }
-
-            await nango.clearCheckpoint();
         } finally {
             await nango.trackDeletesEnd('SharedFolder');
         }
