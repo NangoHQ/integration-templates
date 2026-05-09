@@ -58,7 +58,7 @@ class MockNango {
     }
 
     async *paginate<T>(config: any): AsyncGenerator<T[]> {
-        if (config.endpoint === '/installation/repositories') {
+        if (config.endpoint === '/user/repos') {
             if (this.repoCount === 0) {
                 this.repoCount++;
                 yield [

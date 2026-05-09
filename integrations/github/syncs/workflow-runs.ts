@@ -117,17 +117,17 @@ const getRepositoriesInScope = async (nango: RepositoryScopeNango): Promise<Scop
 
     const repositories: ScopedRepository[] = [];
 
-    // https://docs.github.com/en/rest/apps/apps#list-repositories-accessible-to-the-app-installation
+    // https://docs.github.com/en/rest/repos/repos#list-repositories-for-the-authenticated-user
     for await (const page of nango.paginate<unknown>({
-        endpoint: '/installation/repositories',
+        endpoint: '/user/repos',
+        params: { per_page: 100 },
         paginate: {
             type: 'offset',
             offset_name_in_request: 'page',
             offset_start_value: 1,
             offset_calculation_method: 'per-page',
             limit_name_in_request: 'per_page',
-            limit: 100,
-            response_path: 'repositories'
+            limit: 100
         },
         retries: 3
     })) {
@@ -149,7 +149,7 @@ const getRepositoriesInScope = async (nango: RepositoryScopeNango): Promise<Scop
 
 const sync = createSync({
     description: 'Sync GitHub Actions workflow runs for one or more repositories.',
-    version: '1.0.0',
+    version: '1.0.1',
     endpoints: [{ method: 'POST', path: '/syncs/workflow-runs' }],
     frequency: 'every hour',
     autoStart: true,
