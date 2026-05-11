@@ -1,49 +1,85 @@
+import { z } from 'zod';
 import { createAction } from 'nango';
-import { getSubdomain } from '../helpers/get-subdomain.js';
-import type { ZendeskCategory } from '../types.js';
 
-import type { ProxyConfiguration } from 'nango';
-import { Category, CategoryCreate } from '../models.js';
+const InputSchema = z.object({
+    name: z.string().describe('The name of the category. Example: "Getting Started"'),
+    locale: z.string().describe('The locale where the category is displayed. Example: "en-us"'),
+    description: z.string().optional().describe('The description of the category'),
+    position: z.number().int().optional().describe('The position of this category relative to other categories')
+});
+
+const ProviderCategorySchema = z.object({
+    id: z.number(),
+    name: z.string(),
+    locale: z.string(),
+    description: z.string().nullable().optional(),
+    position: z.number().int().optional(),
+    created_at: z.string(),
+    updated_at: z.string(),
+    html_url: z.string(),
+    url: z.string(),
+    outdated: z.boolean().optional(),
+    source_locale: z.string().optional()
+});
+
+const OutputSchema = z.object({
+    id: z.number(),
+    name: z.string(),
+    locale: z.string(),
+    description: z.string().optional(),
+    position: z.number().int().optional(),
+    created_at: z.string(),
+    updated_at: z.string(),
+    html_url: z.string(),
+    url: z.string(),
+    outdated: z.boolean().optional(),
+    source_locale: z.string().optional()
+});
 
 const action = createAction({
-    description: 'Create a category within the help center',
-    version: '1.0.0',
-
+    description: 'Create a Zendesk Help Center category',
+    version: '2.0.0',
     endpoint: {
         method: 'POST',
-        path: '/categories',
-        group: 'Categories'
+        path: '/actions/create-category',
+        group: 'Help Center'
     },
-
-    input: CategoryCreate,
-    output: Category,
+    input: InputSchema,
+    output: OutputSchema,
     scopes: ['hc:write'],
 
-    exec: async (nango, input): Promise<Category> => {
-        const subdomain = await getSubdomain(nango);
-        const metadata = await nango.getMetadata();
-        const locale: string = metadata && metadata['locale'] ? String(metadata['locale']) : 'en-us';
-
-        const config: ProxyConfiguration = {
-            baseUrlOverride: `https://${subdomain}.zendesk.com`,
-            // https://developer.zendesk.com/api-reference/help_center/help-center-api/categories/#create-category
-            endpoint: `/api/v2/help_center/${locale}/categories`,
-            retries: 3,
-            data: input
+    exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
+        const categoryData: Record<string, unknown> = {
+            category: {
+                name: input.name,
+                locale: input.locale,
+                ...(input.description !== undefined && { description: input.description }),
+                ...(input.position !== undefined && { position: input.position })
+            }
         };
 
-        const response = await nango.post<{ category: ZendeskCategory }>(config);
+        // https://developer.zendesk.com/api-reference/help_center/help-center-api/categories/#create-category
+        const response = await nango.post({
+            endpoint: '/api/v2/help_center/categories',
+            data: categoryData,
+            retries: 3
+        });
 
-        const { data } = response;
+        const providerCategory = ProviderCategorySchema.parse(response.data.category);
 
-        const category: Category = {
-            id: data.category.id.toString(),
-            name: data.category.name,
-            url: data.category.url,
-            description: data.category.description
+        return {
+            id: providerCategory.id,
+            name: providerCategory.name,
+            locale: providerCategory.locale,
+            ...(providerCategory.description != null && { description: providerCategory.description }),
+            ...(providerCategory.position !== undefined && { position: providerCategory.position }),
+            created_at: providerCategory.created_at,
+            updated_at: providerCategory.updated_at,
+            html_url: providerCategory.html_url,
+            url: providerCategory.url,
+            ...(providerCategory.outdated !== undefined && { outdated: providerCategory.outdated }),
+            ...(providerCategory.source_locale !== undefined && { source_locale: providerCategory.source_locale })
         };
-
-        return category;
     }
 });
 

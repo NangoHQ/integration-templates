@@ -1,0 +1,250 @@
+{
+  "nango": {
+    "batchSave": {
+      "Organization": [
+        {
+          "id": "46406146527249",
+          "name": "Nango",
+          "created_at": "2026-05-06T07:45:46Z",
+          "updated_at": "2026-05-06T07:45:46Z",
+          "url": "https://nango-1049.zendesk.com/api/v2/organizations/46406146527249.json",
+          "domain_names": [],
+          "shared_comments": false,
+          "shared_tickets": false,
+          "tags": []
+        },
+        {
+          "id": "46407153235345",
+          "name": "Testnango",
+          "created_at": "2026-05-06T08:08:48Z",
+          "updated_at": "2026-05-06T08:08:48Z",
+          "url": "https://nango-1049.zendesk.com/api/v2/organizations/46407153235345.json",
+          "domain_names": [],
+          "shared_comments": false,
+          "shared_tickets": false,
+          "tags": [],
+          "notes": "",
+          "details": ""
+        },
+        {
+          "id": "46407197673361",
+          "name": "TestAPI",
+          "created_at": "2026-05-06T08:08:59Z",
+          "updated_at": "2026-05-06T08:46:27Z",
+          "url": "https://nango-1049.zendesk.com/api/v2/organizations/46407197673361.json",
+          "domain_names": [],
+          "shared_comments": false,
+          "shared_tickets": false,
+          "tags": [],
+          "notes": "Updated organization notes via API",
+          "details": ""
+        },
+        {
+          "id": "46408895178129",
+          "name": "Test Organization from API",
+          "created_at": "2026-05-06T08:48:17Z",
+          "updated_at": "2026-05-06T08:48:17Z",
+          "url": "https://nango-1049.zendesk.com/api/v2/organizations/46408895178129.json",
+          "domain_names": [],
+          "shared_comments": false,
+          "shared_tickets": false,
+          "tags": []
+        },
+        {
+          "id": "46408897356049",
+          "name": "Test Organization 1778057308",
+          "created_at": "2026-05-06T08:48:34Z",
+          "updated_at": "2026-05-06T08:48:34Z",
+          "url": "https://nango-1049.zendesk.com/api/v2/organizations/46408897356049.json",
+          "domain_names": [],
+          "shared_comments": false,
+          "shared_tickets": false,
+          "tags": []
+        },
+        {
+          "id": "46409100347537",
+          "name": "Test Organization 2026",
+          "created_at": "2026-05-06T08:53:42Z",
+          "updated_at": "2026-05-06T08:53:42Z",
+          "url": "https://nango-1049.zendesk.com/api/v2/organizations/46409100347537.json",
+          "domain_names": [],
+          "shared_comments": false,
+          "shared_tickets": false,
+          "tags": []
+        }
+      ]
+    },
+    "batchDelete": {
+      "Organization": []
+    }
+  },
+  "api": {
+    "get": {
+      "/api/v2/incremental/organizations": {
+        "response": {
+          "organizations": [
+            {
+              "url": "https://nango-1049.zendesk.com/api/v2/organizations/46406146527249.json",
+              "id": 46406146527249,
+              "name": "Nango",
+              "shared_tickets": false,
+              "shared_comments": false,
+              "external_id": null,
+              "created_at": "2026-05-06T07:45:46Z",
+              "updated_at": "2026-05-06T07:45:46Z",
+              "domain_names": [],
+              "details": null,
+              "notes": null,
+              "group_id": null,
+              "tags": [],
+              "organization_fields": {},
+              "deleted_at": null
+            },
+            {
+              "url": "https://nango-1049.zendesk.com/api/v2/organizations/46407153235345.json",
+              "id": 46407153235345,
+              "name": "Testnango",
+              "shared_tickets": false,
+              "shared_comments": false,
+              "external_id": null,
+              "created_at": "2026-05-06T08:08:48Z",
+              "updated_at": "2026-05-06T08:08:48Z",
+              "domain_names": [],
+              "details": "",
+              "notes": "",
+              "group_id": null,
+              "tags": [],
+              "organization_fields": {},
+              "deleted_at": null
+            },
+            {
+              "url": "https://nango-1049.zendesk.com/api/v2/organizations/46407197673361.json",
+              "id": 46407197673361,
+              "name": "TestAPI",
+              "shared_tickets": false,
+              "shared_comments": false,
+              "external_id": null,
+              "created_at": "2026-05-06T08:08:59Z",
+              "updated_at": "2026-05-06T08:46:27Z",
+              "domain_names": [],
+              "details": "",
+              "notes": "Updated organization notes via API",
+              "group_id": null,
+              "tags": [],
+              "organization_fields": {},
+              "deleted_at": null
+            },
+            {
+              "url": "https://nango-1049.zendesk.com/api/v2/organizations/46408895178129.json",
+              "id": 46408895178129,
+              "name": "Test Organization from API",
+              "shared_tickets": false,
+              "shared_comments": false,
+              "external_id": null,
+              "created_at": "2026-05-06T08:48:17Z",
+              "updated_at": "2026-05-06T08:48:17Z",
+              "domain_names": [],
+              "details": null,
+              "notes": null,
+              "group_id": null,
+              "tags": [],
+              "organization_fields": {},
+              "deleted_at": null
+            },
+            {
+              "url": "https://nango-1049.zendesk.com/api/v2/organizations/46408897356049.json",
+              "id": 46408897356049,
+              "name": "Test Organization 1778057308",
+              "shared_tickets": false,
+              "shared_comments": false,
+              "external_id": null,
+              "created_at": "2026-05-06T08:48:34Z",
+              "updated_at": "2026-05-06T08:48:34Z",
+              "domain_names": [],
+              "details": null,
+              "notes": null,
+              "group_id": null,
+              "tags": [],
+              "organization_fields": {},
+              "deleted_at": null
+            },
+            {
+              "url": "https://nango-1049.zendesk.com/api/v2/organizations/46409100347537.json",
+              "id": 46409100347537,
+              "name": "Test Organization 2026",
+              "shared_tickets": false,
+              "shared_comments": false,
+              "external_id": null,
+              "created_at": "2026-05-06T08:53:42Z",
+              "updated_at": "2026-05-06T08:53:42Z",
+              "domain_names": [],
+              "details": null,
+              "notes": null,
+              "group_id": null,
+              "tags": [],
+              "organization_fields": {},
+              "deleted_at": null
+            }
+          ],
+          "next_page": "https://nango-1049.zendesk.com/api/v2/incremental/organizations.json?per_page=1000&start_time=1778057622",
+          "count": 6,
+          "end_of_stream": true,
+          "end_time": 1778057622
+        },
+        "status": 200,
+        "headers": {
+          "date": "Wed, 06 May 2026 09:56:24 GMT",
+          "content-type": "application/json; charset=utf-8",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=31536000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "X-Zendesk-API-Warn,X-Zendesk-User-Id,X-Zendesk-User-Session-Expires-At",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4988",
+          "x-ratelimit-reset": "1778061425",
+          "x-zendesk-api-version": "v2",
+          "x-zendesk-application-version": "v25703",
+          "x-rate-limit": "400",
+          "ratelimit-limit": "400",
+          "x-rate-limit-remaining": "398",
+          "ratelimit-remaining": "398",
+          "ratelimit-reset": "36",
+          "zendesk-ratelimit-incremental-exports": "total=10; remaining=8; resets=36",
+          "etag": "W/\"df58fe1aba11fac134c9be2ae5e3e2d0\"",
+          "cache-control": "max-age=0, private, must-revalidate",
+          "zendesk-route": "/api/v2/incremental/organizations",
+          "set-cookie": "_zendesk_cookie=BAhJIhl7ImRldmljZV90b2tlbnMiOnt9fQY6BkVU--0bf2100788cb010d0183feca16aaf88ccaf719ca; path=/; expires=Thu, 06 May 2027 06:03:50 GMT; secure; HttpOnly; SameSite=None, __cf_bm=.XJA8vJLGidShWHofU4Hnob4NL7G7oWaXL7s3jEJZl8-1778061384-1.0.1.1-c_Ir_hZykOhYiUiUVSZ48jfljP.01AOJas3exuvpD.fU1qIusoZeCfu.HECEE8PBKHEukt0V34FGzae92aG2O0CoxVj0yIxNMLPhCwGui6Q; path=/; expires=Wed, 06-May-26 10:26:24 GMT; domain=.nango-1049.zendesk.com; HttpOnly; Secure; SameSite=None, _cfuvid=kABs_I5xUhqTp.Ua7YtYE_n_gvQLKVGgJjNrLdTYuec-1778061384294-0.0.1.1-604800000; path=/; domain=.nango-1049.zendesk.com; HttpOnly; Secure; SameSite=None",
+          "x-zendesk-origin-server": "classic-app-server-incremental-648b4b4b69-bhpst",
+          "x-request-id": "9f771d614e8d9694-DUB",
+          "x-runtime": "0.196538",
+          "x-envoy-upstream-service-time": "206",
+          "x-openapi-route-path": "/api/v2/incremental/organizations",
+          "zendesk-service": "classic",
+          "x-zendesk-zorg": "yes",
+          "vary": "Accept-Encoding",
+          "via": "zorg",
+          "x-envoy-decorator-operation": "/api/v2/incremental",
+          "cf-cache-status": "DYNAMIC",
+          "report-to": "{\"endpoints\":[{\"url\":\"https:\\/\\/a.nel.cloudflare.com\\/report\\/v4?s=Wn38x4xzZde5AaDuKVnT%2BXWduNJhvaAq23Bv7AC9%2FttpUt2nELgKJJ9pSNaxXcPKgsoP%2FSBkUYaFNfMCgFGOt4y34MapTOn%2BWMH2RKLjcZh%2B1p9hdGzsfSiuaSIx0bwRXx%2FRvirmvNc%3D\"}],\"group\":\"cf-nel\",\"max_age\":604800}",
+          "nel": "{\"success_fraction\":0.01,\"report_to\":\"cf-nel\",\"max_age\":604800}",
+          "server": "cloudflare",
+          "cf-ray": "9f771d614e8d9694-PDX"
+        },
+        "hash": "af70e2775155beec8a07597190b509de02ad619b",
+        "request": {
+          "params": {
+            "per_page": "1000",
+            "start_time": "0"
+          }
+        }
+      }
+    }
+  }
+}

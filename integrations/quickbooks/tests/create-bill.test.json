@@ -1,0 +1,141 @@
+{
+  "input": {
+    "VendorRef": {
+      "value": "56"
+    },
+    "TxnDate": "2026-05-05",
+    "Lines": [
+      {
+        "DetailType": "AccountBasedExpenseLineDetail",
+        "Amount": 150,
+        "AccountBasedExpenseLineDetail": {
+          "AccountRef": {
+            "value": "69"
+          }
+        }
+      }
+    ]
+  },
+  "output": {
+    "id": "191",
+    "vendorId": "56",
+    "vendorName": "Bob's Burger Joint",
+    "transactionDate": "2026-05-05",
+    "dueDate": "2026-05-05",
+    "totalAmount": 150,
+    "balance": 150,
+    "lines": [
+      {
+        "id": "1",
+        "detailType": "AccountBasedExpenseLineDetail",
+        "amount": 150
+      }
+    ],
+    "createdAt": "2026-05-05T03:19:47-07:00",
+    "updatedAt": "2026-05-05T03:19:47-07:00"
+  },
+  "nango": {
+    "getConnection": {
+      "connection_config": {
+        "realmId": "9341457021722202"
+      }
+    }
+  },
+  "api": {
+    "post": {
+      "/v3/company/9341457021722202/bill": {
+        "response": {
+          "Bill": {
+            "DueDate": "2026-05-05",
+            "Balance": 150,
+            "domain": "QBO",
+            "sparse": false,
+            "Id": "191",
+            "SyncToken": "0",
+            "MetaData": {
+              "CreateTime": "2026-05-05T03:19:47-07:00",
+              "LastModifiedByRef": {
+                "value": "<redacted>"
+              },
+              "LastUpdatedTime": "2026-05-05T03:19:47-07:00"
+            },
+            "TxnDate": "2026-05-05",
+            "CurrencyRef": {
+              "value": "USD",
+              "name": "United States Dollar"
+            },
+            "Line": [
+              {
+                "Id": "1",
+                "LineNum": 1,
+                "Amount": 150,
+                "LinkedTxn": [],
+                "DetailType": "AccountBasedExpenseLineDetail",
+                "AccountBasedExpenseLineDetail": {
+                  "AccountRef": {
+                    "value": "69",
+                    "name": "Legal & Professional Fees:Accounting"
+                  },
+                  "BillableStatus": "NotBillable",
+                  "TaxCodeRef": {
+                    "value": "NON"
+                  }
+                },
+                "CustomExtensions": []
+              }
+            ],
+            "VendorRef": {
+              "value": "56",
+              "name": "Bob's Burger Joint"
+            },
+            "APAccountRef": {
+              "value": "33",
+              "name": "Accounts Payable (A/P)"
+            },
+            "TotalAmt": 150
+          },
+          "time": "2026-05-05T03:19:47.456-07:00"
+        },
+        "status": 200,
+        "headers": {
+          "date": "Tue, 05 May 2026 10:19:47 GMT",
+          "content-type": "application/json",
+          "content-length": "811",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=5184000; includeSubDomains",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4984",
+          "x-ratelimit-reset": "1777976404",
+          "etag": "W/\"32b-CwwouoEO4/fqaLAShkf3CA7yeXk\""
+        },
+        "hash": "601ccc08c6cf6893fa777839d5d9b4f320eb6e93",
+        "request": {
+          "data": {
+            "VendorRef": {
+              "value": "56"
+            },
+            "TxnDate": "2026-05-05",
+            "Line": [
+              {
+                "DetailType": "AccountBasedExpenseLineDetail",
+                "Amount": 150,
+                "AccountBasedExpenseLineDetail": {
+                  "AccountRef": {
+                    "value": "69"
+                  }
+                }
+              }
+            ]
+          }
+        }
+      }
+    }
+  }
+}

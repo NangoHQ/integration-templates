@@ -172,7 +172,7 @@ async function getProjectKeys(nango: Parameters<Parameters<typeof createSync>[0]
 
 const sync = createSync({
     description: 'Sync Jira project components for projects in scope',
-    version: '1.0.0',
+    version: '1.0.1',
     frequency: 'every hour',
     autoStart: true,
     models: {
@@ -227,7 +227,6 @@ const sync = createSync({
             }
         }
 
-        await nango.clearCheckpoint();
         await nango.trackDeletesEnd('ProjectComponent');
     }
 });

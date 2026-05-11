@@ -32,17 +32,11 @@ const SharedLinkSchema = z.object({
     expires: z.string().optional()
 });
 
-// Checkpoint schema - empty string means no cursor (start from beginning)
-const CheckpointSchema = z.object({
-    cursor: z.string()
-});
-
 const sync = createSync({
     description: 'Sync Dropbox shared links for the current user or configured path scopes.',
-    version: '1.0.0',
+    version: '1.0.1',
     frequency: 'every hour',
     autoStart: true,
-    checkpoint: CheckpointSchema,
     models: {
         SharedLink: SharedLinkSchema
     },
@@ -54,8 +48,6 @@ const sync = createSync({
     ],
 
     exec: async (nango) => {
-        const checkpoint = z.object({ cursor: z.string().optional() }).parse((await nango.getCheckpoint()) ?? {});
-
         const connectionSchema = z.object({
             metadata: z.object({ path: z.unknown().optional() }).nullish(),
             data: z.object({ metadata: z.object({ path: z.unknown().optional() }).nullish() }).optional()
@@ -63,13 +55,6 @@ const sync = createSync({
         const rawConnection = connectionSchema.parse(await nango.getConnection());
         const metadata = rawConnection.metadata ?? rawConnection.data?.metadata ?? {};
         const pathFilter = typeof metadata.path === 'string' && metadata.path.trim() ? metadata.path.trim() : undefined;
-
-        // Dropbox shared links require a full refresh. The cursor only resumes pagination when
-        // listing every shared link for the user, so we clear it after a successful run.
-        // Reset any stored cursor before a delete-tracked run to ensure all records are seen.
-        if (!pathFilter && checkpoint?.cursor) {
-            await nango.clearCheckpoint();
-        }
 
         await nango.trackDeletesStart('SharedLink');
 
@@ -113,13 +98,7 @@ const sync = createSync({
 
                 hasMore = (responseHasMore ?? false) && nextCursor !== undefined;
                 cursor = nextCursor;
-
-                if (!pathFilter && cursor !== undefined) {
-                    await nango.saveCheckpoint({ cursor });
-                }
             }
-
-            await nango.clearCheckpoint();
         } finally {
             await nango.trackDeletesEnd('SharedLink');
         }

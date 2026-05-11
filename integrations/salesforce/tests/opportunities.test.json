@@ -1,0 +1,739 @@
+{
+  "nango": {
+    "batchSave": {
+      "Opportunity": [
+        {
+          "id": "006dM00000Mw7VtQAJ",
+          "name": "Dickenson Mobile Generators",
+          "amount": 15000,
+          "stage": "Qualification",
+          "close_date": "2026-03-08",
+          "owner_id": "005dM00000aYf0qQAC",
+          "updated_at": "2026-05-01T07:25:37.000+0000"
+        },
+        {
+          "id": "006dM00000Mw7VuQAJ",
+          "name": "United Oil Office Portable Generators",
+          "amount": 125000,
+          "stage": "Negotiation/Review",
+          "close_date": "2026-02-24",
+          "owner_id": "005dM00000aYf0qQAC",
+          "updated_at": "2026-05-01T07:25:37.000+0000"
+        },
+        {
+          "id": "006dM00000Mw7VvQAJ",
+          "name": "Express Logistics Standby Generator",
+          "amount": 220000,
+          "stage": "Closed Won",
+          "close_date": "2026-01-20",
+          "owner_id": "005dM00000aYf0qQAC",
+          "updated_at": "2026-05-01T07:25:37.000+0000"
+        },
+        {
+          "id": "006dM00000Mw7VwQAJ",
+          "name": "GenePoint Standby Generator",
+          "amount": 85000,
+          "stage": "Closed Won",
+          "close_date": "2026-02-27",
+          "owner_id": "005dM00000aYf0qQAC",
+          "updated_at": "2026-05-01T07:25:37.000+0000"
+        },
+        {
+          "id": "006dM00000Mw7VxQAJ",
+          "name": "Grand Hotels Kitchen Generator",
+          "amount": 15000,
+          "stage": "Id. Decision Makers",
+          "close_date": "2026-01-15",
+          "owner_id": "005dM00000aYf0qQAC",
+          "updated_at": "2026-05-01T07:25:37.000+0000"
+        },
+        {
+          "id": "006dM00000Mw7VyQAJ",
+          "name": "United Oil Refinery Generators",
+          "amount": 270000,
+          "stage": "Proposal/Price Quote",
+          "close_date": "2026-04-10",
+          "owner_id": "005dM00000aYf0qQAC",
+          "updated_at": "2026-05-01T07:25:37.000+0000"
+        },
+        {
+          "id": "006dM00000Mw7VzQAJ",
+          "name": "United Oil SLA",
+          "amount": 120000,
+          "stage": "Closed Won",
+          "close_date": "2026-04-17",
+          "owner_id": "005dM00000aYf0qQAC",
+          "updated_at": "2026-05-01T07:25:37.000+0000"
+        },
+        {
+          "id": "006dM00000Mw7W0QAJ",
+          "name": "Grand Hotels Guest Portable Generators",
+          "amount": 250000,
+          "stage": "Value Proposition",
+          "close_date": "2026-04-25",
+          "owner_id": "005dM00000aYf0qQAC",
+          "updated_at": "2026-05-01T07:25:37.000+0000"
+        },
+        {
+          "id": "006dM00000Mw7W1QAJ",
+          "name": "Edge Emergency Generator",
+          "amount": 75000,
+          "stage": "Closed Won",
+          "close_date": "2026-04-25",
+          "owner_id": "005dM00000aYf0qQAC",
+          "updated_at": "2026-05-01T07:25:37.000+0000"
+        },
+        {
+          "id": "006dM00000Mw7W2QAJ",
+          "name": "University of AZ Portable Generators",
+          "amount": 50000,
+          "stage": "Closed Won",
+          "close_date": "2026-01-24",
+          "owner_id": "005dM00000aYf0qQAC",
+          "updated_at": "2026-05-01T07:25:37.000+0000"
+        },
+        {
+          "id": "006dM00000Mw7W3QAJ",
+          "name": "Pyramid Emergency Generators",
+          "amount": 100000,
+          "stage": "Prospecting",
+          "close_date": "2026-03-04",
+          "owner_id": "005dM00000aYf0qQAC",
+          "updated_at": "2026-05-01T07:25:37.000+0000"
+        },
+        {
+          "id": "006dM00000Mw7W4QAJ",
+          "name": "Express Logistics Portable Truck Generators",
+          "amount": 80000,
+          "stage": "Value Proposition",
+          "close_date": "2026-01-18",
+          "owner_id": "005dM00000aYf0qQAC",
+          "updated_at": "2026-05-01T07:25:37.000+0000"
+        },
+        {
+          "id": "006dM00000Mw7W5QAJ",
+          "name": "GenePoint Lab Generators",
+          "amount": 60000,
+          "stage": "Id. Decision Makers",
+          "close_date": "2026-04-19",
+          "owner_id": "005dM00000aYf0qQAC",
+          "updated_at": "2026-05-01T07:25:37.000+0000"
+        },
+        {
+          "id": "006dM00000Mw7W6QAJ",
+          "name": "GenePoint SLA",
+          "amount": 30000,
+          "stage": "Closed Won",
+          "close_date": "2026-04-22",
+          "owner_id": "005dM00000aYf0qQAC",
+          "updated_at": "2026-05-01T07:25:37.000+0000"
+        },
+        {
+          "id": "006dM00000Mw7W7QAJ",
+          "name": "United Oil Installations",
+          "amount": 270000,
+          "stage": "Negotiation/Review",
+          "close_date": "2026-02-20",
+          "owner_id": "005dM00000aYf0qQAC",
+          "updated_at": "2026-05-01T07:25:37.000+0000"
+        },
+        {
+          "id": "006dM00000Mw7W8QAJ",
+          "name": "Edge Installation",
+          "amount": 50000,
+          "stage": "Closed Won",
+          "close_date": "2026-02-14",
+          "owner_id": "005dM00000aYf0qQAC",
+          "updated_at": "2026-05-01T07:25:37.000+0000"
+        },
+        {
+          "id": "006dM00000Mw7W9QAJ",
+          "name": "Edge SLA",
+          "amount": 60000,
+          "stage": "Closed Won",
+          "close_date": "2026-01-10",
+          "owner_id": "005dM00000aYf0qQAC",
+          "updated_at": "2026-05-01T07:25:37.000+0000"
+        },
+        {
+          "id": "006dM00000Mw7WAQAZ",
+          "name": "United Oil Installations",
+          "amount": 270000,
+          "stage": "Closed Won",
+          "close_date": "2026-02-19",
+          "owner_id": "005dM00000aYf0qQAC",
+          "updated_at": "2026-05-01T07:25:37.000+0000"
+        },
+        {
+          "id": "006dM00000Mw7WBQAZ",
+          "name": "Grand Hotels Generator Installations",
+          "amount": 350000,
+          "stage": "Closed Won",
+          "close_date": "2026-04-08",
+          "owner_id": "005dM00000aYf0qQAC",
+          "updated_at": "2026-05-01T07:25:37.000+0000"
+        },
+        {
+          "id": "006dM00000Mw7WCQAZ",
+          "name": "United Oil Refinery Generators",
+          "amount": 915000,
+          "stage": "Closed Won",
+          "close_date": "2026-04-03",
+          "owner_id": "005dM00000aYf0qQAC",
+          "updated_at": "2026-05-01T07:25:37.000+0000"
+        },
+        {
+          "id": "006dM00000Mw7WDQAZ",
+          "name": "University of AZ Installations",
+          "amount": 100000,
+          "stage": "Proposal/Price Quote",
+          "close_date": "2026-01-21",
+          "owner_id": "005dM00000aYf0qQAC",
+          "updated_at": "2026-05-01T07:25:37.000+0000"
+        },
+        {
+          "id": "006dM00000Mw7WEQAZ",
+          "name": "Express Logistics SLA",
+          "amount": 120000,
+          "stage": "Perception Analysis",
+          "close_date": "2026-01-19",
+          "owner_id": "005dM00000aYf0qQAC",
+          "updated_at": "2026-05-01T07:25:37.000+0000"
+        },
+        {
+          "id": "006dM00000Mw7WFQAZ",
+          "name": "University of AZ SLA",
+          "amount": 90000,
+          "stage": "Closed Won",
+          "close_date": "2026-01-28",
+          "owner_id": "005dM00000aYf0qQAC",
+          "updated_at": "2026-05-01T07:25:37.000+0000"
+        },
+        {
+          "id": "006dM00000Mw7WGQAZ",
+          "name": "Burlington Textiles Weaving Plant Generator",
+          "amount": 235000,
+          "stage": "Closed Won",
+          "close_date": "2026-03-01",
+          "owner_id": "005dM00000aYf0qQAC",
+          "updated_at": "2026-05-01T07:25:37.000+0000"
+        },
+        {
+          "id": "006dM00000Mw7WHQAZ",
+          "name": "United Oil Installations",
+          "amount": 235000,
+          "stage": "Closed Won",
+          "close_date": "2026-03-03",
+          "owner_id": "005dM00000aYf0qQAC",
+          "updated_at": "2026-05-01T07:25:37.000+0000"
+        },
+        {
+          "id": "006dM00000Mw7WIQAZ",
+          "name": "United Oil Emergency Generators",
+          "amount": 440000,
+          "stage": "Closed Won",
+          "close_date": "2026-02-13",
+          "owner_id": "005dM00000aYf0qQAC",
+          "updated_at": "2026-05-01T07:25:37.000+0000"
+        },
+        {
+          "id": "006dM00000Mw7WJQAZ",
+          "name": "Grand Hotels SLA",
+          "amount": 90000,
+          "stage": "Closed Won",
+          "close_date": "2026-01-17",
+          "owner_id": "005dM00000aYf0qQAC",
+          "updated_at": "2026-05-01T07:25:37.000+0000"
+        },
+        {
+          "id": "006dM00000Mw7WKQAZ",
+          "name": "United Oil Standby Generators",
+          "amount": 120000,
+          "stage": "Closed Won",
+          "close_date": "2026-04-18",
+          "owner_id": "005dM00000aYf0qQAC",
+          "updated_at": "2026-05-01T07:25:37.000+0000"
+        },
+        {
+          "id": "006dM00000Mw7WLQAZ",
+          "name": "Grand Hotels Emergency Generators",
+          "amount": 210000,
+          "stage": "Closed Won",
+          "close_date": "2026-04-06",
+          "owner_id": "005dM00000aYf0qQAC",
+          "updated_at": "2026-05-01T07:25:37.000+0000"
+        },
+        {
+          "id": "006dM00000Mw7WMQAZ",
+          "name": "United Oil Plant Standby Generators",
+          "amount": 675000,
+          "stage": "Needs Analysis",
+          "close_date": "2026-03-20",
+          "owner_id": "005dM00000aYf0qQAC",
+          "updated_at": "2026-05-01T07:25:37.000+0000"
+        },
+        {
+          "id": "006dM00000Mw7WNQAZ",
+          "name": "Edge Emergency Generator",
+          "amount": 35000,
+          "stage": "Id. Decision Makers",
+          "close_date": "2026-05-01",
+          "owner_id": "005dM00000aYf0qQAC",
+          "updated_at": "2026-05-01T07:25:37.000+0000"
+        }
+      ]
+    },
+    "batchDelete": {
+      "Opportunity": []
+    }
+  },
+  "api": {
+    "get": {
+      "/services/data/v59.0/query": {
+        "response": {
+          "totalSize": 31,
+          "done": true,
+          "records": [
+            {
+              "attributes": {
+                "type": "Opportunity",
+                "url": "/services/data/v59.0/sobjects/Opportunity/006dM00000Mw7VtQAJ"
+              },
+              "Id": "006dM00000Mw7VtQAJ",
+              "Name": "Dickenson Mobile Generators",
+              "Amount": 15000,
+              "StageName": "Qualification",
+              "CloseDate": "2026-03-08",
+              "OwnerId": "005dM00000aYf0qQAC",
+              "SystemModstamp": "2026-05-01T07:25:37.000+0000"
+            },
+            {
+              "attributes": {
+                "type": "Opportunity",
+                "url": "/services/data/v59.0/sobjects/Opportunity/006dM00000Mw7VuQAJ"
+              },
+              "Id": "006dM00000Mw7VuQAJ",
+              "Name": "United Oil Office Portable Generators",
+              "Amount": 125000,
+              "StageName": "Negotiation/Review",
+              "CloseDate": "2026-02-24",
+              "OwnerId": "005dM00000aYf0qQAC",
+              "SystemModstamp": "2026-05-01T07:25:37.000+0000"
+            },
+            {
+              "attributes": {
+                "type": "Opportunity",
+                "url": "/services/data/v59.0/sobjects/Opportunity/006dM00000Mw7VvQAJ"
+              },
+              "Id": "006dM00000Mw7VvQAJ",
+              "Name": "Express Logistics Standby Generator",
+              "Amount": 220000,
+              "StageName": "Closed Won",
+              "CloseDate": "2026-01-20",
+              "OwnerId": "005dM00000aYf0qQAC",
+              "SystemModstamp": "2026-05-01T07:25:37.000+0000"
+            },
+            {
+              "attributes": {
+                "type": "Opportunity",
+                "url": "/services/data/v59.0/sobjects/Opportunity/006dM00000Mw7VwQAJ"
+              },
+              "Id": "006dM00000Mw7VwQAJ",
+              "Name": "GenePoint Standby Generator",
+              "Amount": 85000,
+              "StageName": "Closed Won",
+              "CloseDate": "2026-02-27",
+              "OwnerId": "005dM00000aYf0qQAC",
+              "SystemModstamp": "2026-05-01T07:25:37.000+0000"
+            },
+            {
+              "attributes": {
+                "type": "Opportunity",
+                "url": "/services/data/v59.0/sobjects/Opportunity/006dM00000Mw7VxQAJ"
+              },
+              "Id": "006dM00000Mw7VxQAJ",
+              "Name": "Grand Hotels Kitchen Generator",
+              "Amount": 15000,
+              "StageName": "Id. Decision Makers",
+              "CloseDate": "2026-01-15",
+              "OwnerId": "005dM00000aYf0qQAC",
+              "SystemModstamp": "2026-05-01T07:25:37.000+0000"
+            },
+            {
+              "attributes": {
+                "type": "Opportunity",
+                "url": "/services/data/v59.0/sobjects/Opportunity/006dM00000Mw7VyQAJ"
+              },
+              "Id": "006dM00000Mw7VyQAJ",
+              "Name": "United Oil Refinery Generators",
+              "Amount": 270000,
+              "StageName": "Proposal/Price Quote",
+              "CloseDate": "2026-04-10",
+              "OwnerId": "005dM00000aYf0qQAC",
+              "SystemModstamp": "2026-05-01T07:25:37.000+0000"
+            },
+            {
+              "attributes": {
+                "type": "Opportunity",
+                "url": "/services/data/v59.0/sobjects/Opportunity/006dM00000Mw7VzQAJ"
+              },
+              "Id": "006dM00000Mw7VzQAJ",
+              "Name": "United Oil SLA",
+              "Amount": 120000,
+              "StageName": "Closed Won",
+              "CloseDate": "2026-04-17",
+              "OwnerId": "005dM00000aYf0qQAC",
+              "SystemModstamp": "2026-05-01T07:25:37.000+0000"
+            },
+            {
+              "attributes": {
+                "type": "Opportunity",
+                "url": "/services/data/v59.0/sobjects/Opportunity/006dM00000Mw7W0QAJ"
+              },
+              "Id": "006dM00000Mw7W0QAJ",
+              "Name": "Grand Hotels Guest Portable Generators",
+              "Amount": 250000,
+              "StageName": "Value Proposition",
+              "CloseDate": "2026-04-25",
+              "OwnerId": "005dM00000aYf0qQAC",
+              "SystemModstamp": "2026-05-01T07:25:37.000+0000"
+            },
+            {
+              "attributes": {
+                "type": "Opportunity",
+                "url": "/services/data/v59.0/sobjects/Opportunity/006dM00000Mw7W1QAJ"
+              },
+              "Id": "006dM00000Mw7W1QAJ",
+              "Name": "Edge Emergency Generator",
+              "Amount": 75000,
+              "StageName": "Closed Won",
+              "CloseDate": "2026-04-25",
+              "OwnerId": "005dM00000aYf0qQAC",
+              "SystemModstamp": "2026-05-01T07:25:37.000+0000"
+            },
+            {
+              "attributes": {
+                "type": "Opportunity",
+                "url": "/services/data/v59.0/sobjects/Opportunity/006dM00000Mw7W2QAJ"
+              },
+              "Id": "006dM00000Mw7W2QAJ",
+              "Name": "University of AZ Portable Generators",
+              "Amount": 50000,
+              "StageName": "Closed Won",
+              "CloseDate": "2026-01-24",
+              "OwnerId": "005dM00000aYf0qQAC",
+              "SystemModstamp": "2026-05-01T07:25:37.000+0000"
+            },
+            {
+              "attributes": {
+                "type": "Opportunity",
+                "url": "/services/data/v59.0/sobjects/Opportunity/006dM00000Mw7W3QAJ"
+              },
+              "Id": "006dM00000Mw7W3QAJ",
+              "Name": "Pyramid Emergency Generators",
+              "Amount": 100000,
+              "StageName": "Prospecting",
+              "CloseDate": "2026-03-04",
+              "OwnerId": "005dM00000aYf0qQAC",
+              "SystemModstamp": "2026-05-01T07:25:37.000+0000"
+            },
+            {
+              "attributes": {
+                "type": "Opportunity",
+                "url": "/services/data/v59.0/sobjects/Opportunity/006dM00000Mw7W4QAJ"
+              },
+              "Id": "006dM00000Mw7W4QAJ",
+              "Name": "Express Logistics Portable Truck Generators",
+              "Amount": 80000,
+              "StageName": "Value Proposition",
+              "CloseDate": "2026-01-18",
+              "OwnerId": "005dM00000aYf0qQAC",
+              "SystemModstamp": "2026-05-01T07:25:37.000+0000"
+            },
+            {
+              "attributes": {
+                "type": "Opportunity",
+                "url": "/services/data/v59.0/sobjects/Opportunity/006dM00000Mw7W5QAJ"
+              },
+              "Id": "006dM00000Mw7W5QAJ",
+              "Name": "GenePoint Lab Generators",
+              "Amount": 60000,
+              "StageName": "Id. Decision Makers",
+              "CloseDate": "2026-04-19",
+              "OwnerId": "005dM00000aYf0qQAC",
+              "SystemModstamp": "2026-05-01T07:25:37.000+0000"
+            },
+            {
+              "attributes": {
+                "type": "Opportunity",
+                "url": "/services/data/v59.0/sobjects/Opportunity/006dM00000Mw7W6QAJ"
+              },
+              "Id": "006dM00000Mw7W6QAJ",
+              "Name": "GenePoint SLA",
+              "Amount": 30000,
+              "StageName": "Closed Won",
+              "CloseDate": "2026-04-22",
+              "OwnerId": "005dM00000aYf0qQAC",
+              "SystemModstamp": "2026-05-01T07:25:37.000+0000"
+            },
+            {
+              "attributes": {
+                "type": "Opportunity",
+                "url": "/services/data/v59.0/sobjects/Opportunity/006dM00000Mw7W7QAJ"
+              },
+              "Id": "006dM00000Mw7W7QAJ",
+              "Name": "United Oil Installations",
+              "Amount": 270000,
+              "StageName": "Negotiation/Review",
+              "CloseDate": "2026-02-20",
+              "OwnerId": "005dM00000aYf0qQAC",
+              "SystemModstamp": "2026-05-01T07:25:37.000+0000"
+            },
+            {
+              "attributes": {
+                "type": "Opportunity",
+                "url": "/services/data/v59.0/sobjects/Opportunity/006dM00000Mw7W8QAJ"
+              },
+              "Id": "006dM00000Mw7W8QAJ",
+              "Name": "Edge Installation",
+              "Amount": 50000,
+              "StageName": "Closed Won",
+              "CloseDate": "2026-02-14",
+              "OwnerId": "005dM00000aYf0qQAC",
+              "SystemModstamp": "2026-05-01T07:25:37.000+0000"
+            },
+            {
+              "attributes": {
+                "type": "Opportunity",
+                "url": "/services/data/v59.0/sobjects/Opportunity/006dM00000Mw7W9QAJ"
+              },
+              "Id": "006dM00000Mw7W9QAJ",
+              "Name": "Edge SLA",
+              "Amount": 60000,
+              "StageName": "Closed Won",
+              "CloseDate": "2026-01-10",
+              "OwnerId": "005dM00000aYf0qQAC",
+              "SystemModstamp": "2026-05-01T07:25:37.000+0000"
+            },
+            {
+              "attributes": {
+                "type": "Opportunity",
+                "url": "/services/data/v59.0/sobjects/Opportunity/006dM00000Mw7WAQAZ"
+              },
+              "Id": "006dM00000Mw7WAQAZ",
+              "Name": "United Oil Installations",
+              "Amount": 270000,
+              "StageName": "Closed Won",
+              "CloseDate": "2026-02-19",
+              "OwnerId": "005dM00000aYf0qQAC",
+              "SystemModstamp": "2026-05-01T07:25:37.000+0000"
+            },
+            {
+              "attributes": {
+                "type": "Opportunity",
+                "url": "/services/data/v59.0/sobjects/Opportunity/006dM00000Mw7WBQAZ"
+              },
+              "Id": "006dM00000Mw7WBQAZ",
+              "Name": "Grand Hotels Generator Installations",
+              "Amount": 350000,
+              "StageName": "Closed Won",
+              "CloseDate": "2026-04-08",
+              "OwnerId": "005dM00000aYf0qQAC",
+              "SystemModstamp": "2026-05-01T07:25:37.000+0000"
+            },
+            {
+              "attributes": {
+                "type": "Opportunity",
+                "url": "/services/data/v59.0/sobjects/Opportunity/006dM00000Mw7WCQAZ"
+              },
+              "Id": "006dM00000Mw7WCQAZ",
+              "Name": "United Oil Refinery Generators",
+              "Amount": 915000,
+              "StageName": "Closed Won",
+              "CloseDate": "2026-04-03",
+              "OwnerId": "005dM00000aYf0qQAC",
+              "SystemModstamp": "2026-05-01T07:25:37.000+0000"
+            },
+            {
+              "attributes": {
+                "type": "Opportunity",
+                "url": "/services/data/v59.0/sobjects/Opportunity/006dM00000Mw7WDQAZ"
+              },
+              "Id": "006dM00000Mw7WDQAZ",
+              "Name": "University of AZ Installations",
+              "Amount": 100000,
+              "StageName": "Proposal/Price Quote",
+              "CloseDate": "2026-01-21",
+              "OwnerId": "005dM00000aYf0qQAC",
+              "SystemModstamp": "2026-05-01T07:25:37.000+0000"
+            },
+            {
+              "attributes": {
+                "type": "Opportunity",
+                "url": "/services/data/v59.0/sobjects/Opportunity/006dM00000Mw7WEQAZ"
+              },
+              "Id": "006dM00000Mw7WEQAZ",
+              "Name": "Express Logistics SLA",
+              "Amount": 120000,
+              "StageName": "Perception Analysis",
+              "CloseDate": "2026-01-19",
+              "OwnerId": "005dM00000aYf0qQAC",
+              "SystemModstamp": "2026-05-01T07:25:37.000+0000"
+            },
+            {
+              "attributes": {
+                "type": "Opportunity",
+                "url": "/services/data/v59.0/sobjects/Opportunity/006dM00000Mw7WFQAZ"
+              },
+              "Id": "006dM00000Mw7WFQAZ",
+              "Name": "University of AZ SLA",
+              "Amount": 90000,
+              "StageName": "Closed Won",
+              "CloseDate": "2026-01-28",
+              "OwnerId": "005dM00000aYf0qQAC",
+              "SystemModstamp": "2026-05-01T07:25:37.000+0000"
+            },
+            {
+              "attributes": {
+                "type": "Opportunity",
+                "url": "/services/data/v59.0/sobjects/Opportunity/006dM00000Mw7WGQAZ"
+              },
+              "Id": "006dM00000Mw7WGQAZ",
+              "Name": "Burlington Textiles Weaving Plant Generator",
+              "Amount": 235000,
+              "StageName": "Closed Won",
+              "CloseDate": "2026-03-01",
+              "OwnerId": "005dM00000aYf0qQAC",
+              "SystemModstamp": "2026-05-01T07:25:37.000+0000"
+            },
+            {
+              "attributes": {
+                "type": "Opportunity",
+                "url": "/services/data/v59.0/sobjects/Opportunity/006dM00000Mw7WHQAZ"
+              },
+              "Id": "006dM00000Mw7WHQAZ",
+              "Name": "United Oil Installations",
+              "Amount": 235000,
+              "StageName": "Closed Won",
+              "CloseDate": "2026-03-03",
+              "OwnerId": "005dM00000aYf0qQAC",
+              "SystemModstamp": "2026-05-01T07:25:37.000+0000"
+            },
+            {
+              "attributes": {
+                "type": "Opportunity",
+                "url": "/services/data/v59.0/sobjects/Opportunity/006dM00000Mw7WIQAZ"
+              },
+              "Id": "006dM00000Mw7WIQAZ",
+              "Name": "United Oil Emergency Generators",
+              "Amount": 440000,
+              "StageName": "Closed Won",
+              "CloseDate": "2026-02-13",
+              "OwnerId": "005dM00000aYf0qQAC",
+              "SystemModstamp": "2026-05-01T07:25:37.000+0000"
+            },
+            {
+              "attributes": {
+                "type": "Opportunity",
+                "url": "/services/data/v59.0/sobjects/Opportunity/006dM00000Mw7WJQAZ"
+              },
+              "Id": "006dM00000Mw7WJQAZ",
+              "Name": "Grand Hotels SLA",
+              "Amount": 90000,
+              "StageName": "Closed Won",
+              "CloseDate": "2026-01-17",
+              "OwnerId": "005dM00000aYf0qQAC",
+              "SystemModstamp": "2026-05-01T07:25:37.000+0000"
+            },
+            {
+              "attributes": {
+                "type": "Opportunity",
+                "url": "/services/data/v59.0/sobjects/Opportunity/006dM00000Mw7WKQAZ"
+              },
+              "Id": "006dM00000Mw7WKQAZ",
+              "Name": "United Oil Standby Generators",
+              "Amount": 120000,
+              "StageName": "Closed Won",
+              "CloseDate": "2026-04-18",
+              "OwnerId": "005dM00000aYf0qQAC",
+              "SystemModstamp": "2026-05-01T07:25:37.000+0000"
+            },
+            {
+              "attributes": {
+                "type": "Opportunity",
+                "url": "/services/data/v59.0/sobjects/Opportunity/006dM00000Mw7WLQAZ"
+              },
+              "Id": "006dM00000Mw7WLQAZ",
+              "Name": "Grand Hotels Emergency Generators",
+              "Amount": 210000,
+              "StageName": "Closed Won",
+              "CloseDate": "2026-04-06",
+              "OwnerId": "005dM00000aYf0qQAC",
+              "SystemModstamp": "2026-05-01T07:25:37.000+0000"
+            },
+            {
+              "attributes": {
+                "type": "Opportunity",
+                "url": "/services/data/v59.0/sobjects/Opportunity/006dM00000Mw7WMQAZ"
+              },
+              "Id": "006dM00000Mw7WMQAZ",
+              "Name": "United Oil Plant Standby Generators",
+              "Amount": 675000,
+              "StageName": "Needs Analysis",
+              "CloseDate": "2026-03-20",
+              "OwnerId": "005dM00000aYf0qQAC",
+              "SystemModstamp": "2026-05-01T07:25:37.000+0000"
+            },
+            {
+              "attributes": {
+                "type": "Opportunity",
+                "url": "/services/data/v59.0/sobjects/Opportunity/006dM00000Mw7WNQAZ"
+              },
+              "Id": "006dM00000Mw7WNQAZ",
+              "Name": "Edge Emergency Generator",
+              "Amount": 35000,
+              "StageName": "Id. Decision Makers",
+              "CloseDate": "2026-05-01",
+              "OwnerId": "005dM00000aYf0qQAC",
+              "SystemModstamp": "2026-05-01T07:25:37.000+0000"
+            }
+          ]
+        },
+        "status": 200,
+        "headers": {
+          "date": "Wed, 06 May 2026 12:09:03 GMT",
+          "content-type": "application/json;charset=UTF-8",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=63072000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4988",
+          "x-ratelimit-reset": "1778069383",
+          "sforce-limit-info": "api-usage=900/15000",
+          "set-cookie": "CookieConsentPolicy=0:1; path=/; expires=Thu, 06-May-2027 12:09:03 GMT; Max-Age=31536000; secure, LSKey-c$CookieConsentPolicy=0:1; path=/; expires=Thu, 06-May-2027 12:09:03 GMT; Max-Age=31536000; secure, BrowserId=X2et_ElEEfGqatPcEzw_iw; domain=.salesforce.com; path=/; expires=Thu, 06-May-2027 12:09:03 GMT; Max-Age=31536000; secure; SameSite=None",
+          "cache-control": "no-cache,must-revalidate,max-age=0,no-store,private",
+          "vary": "Accept-Encoding",
+          "x-robots-tag": "none",
+          "server": "sfdcedge",
+          "x-sfdc-request-id": "6dd121ddea30b85a2ad7a0efbf61fdeb",
+          "x-request-id": "6dd121ddea30b85a2ad7a0efbf61fdeb",
+          "x-sfdc-edge-cache": "none"
+        },
+        "hash": "8eb3c6fd88af102e03ae793df8566716e0d455ee",
+        "request": {
+          "params": {
+            "q": "SELECT Id, Name, Amount, StageName, CloseDate, OwnerId, SystemModstamp FROM Opportunity ORDER BY SystemModstamp ASC"
+          }
+        }
+      }
+    }
+  }
+}

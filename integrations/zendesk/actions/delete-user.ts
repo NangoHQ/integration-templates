@@ -1,43 +1,46 @@
+import { z } from 'zod';
 import { createAction } from 'nango';
-import { getSubdomain } from '../helpers/get-subdomain.js';
 
-import type { ProxyConfiguration } from 'nango';
-import { SuccessResponse, IdEntity } from '../models.js';
+const InputSchema = z.object({
+    userId: z.string().describe('The ID of the user to delete. Example: "1234567890"')
+});
+
+const OutputSchema = z.object({
+    success: z.boolean().describe('Whether the user was successfully deleted'),
+    userId: z.string().describe('The ID of the deleted user')
+});
 
 const action = createAction({
-    description: 'Delete a user in Zendesk',
-    version: '1.0.0',
-
+    description: 'Delete a Zendesk user',
+    version: '2.0.0',
     endpoint: {
-        method: 'DELETE',
-        path: '/users',
+        method: 'POST',
+        path: '/actions/delete-user',
         group: 'Users'
     },
+    input: InputSchema,
+    output: OutputSchema,
+    scopes: ['read', 'write'],
 
-    input: IdEntity,
-    output: SuccessResponse,
-    scopes: ['users:write'],
+    exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
+        // https://developer.zendesk.com/api-reference/ticketing/users/users/#delete-user
+        const response = await nango.delete({
+            endpoint: `/api/v2/users/${encodeURIComponent(input.userId)}.json`,
+            retries: 10
+        });
 
-    exec: async (nango, input): Promise<SuccessResponse> => {
-        if (!input.id) {
+        if (response.status !== 200 && response.status !== 204) {
             throw new nango.ActionError({
-                message: 'Id is required to delete a user'
+                type: 'delete_failed',
+                message: 'Failed to delete user',
+                status: response.status,
+                userId: input.userId
             });
         }
 
-        const subdomain = await getSubdomain(nango);
-
-        const config: ProxyConfiguration = {
-            baseUrlOverride: `https://${subdomain}.zendesk.com`,
-            // https://developer.zendesk.com/api-reference/ticketing/users/users/#delete-user
-            endpoint: `/api/v2/users/${input.id}`,
-            retries: 3
-        };
-
-        await nango.delete(config);
-
         return {
-            success: true
+            success: true,
+            userId: input.userId
         };
     }
 });

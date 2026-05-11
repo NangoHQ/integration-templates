@@ -1,0 +1,291 @@
+{
+  "input": {
+    "sObjectName": "Account",
+    "ids": [
+      "001dM00003kREKdQAO",
+      "001dM00003kREKeQAO"
+    ],
+    "allOrNone": false
+  },
+  "output": {
+    "results": [
+      {
+        "id": "001dM00003kREKdQAO",
+        "success": true
+      },
+      {
+        "id": "001dM00003kREKeQAO",
+        "success": true
+      }
+    ]
+  },
+  "nango": {},
+  "api": {
+    "get": {
+      "/services/data": {
+        "response": [
+          {
+            "label": "Summer '14",
+            "url": "/services/data/v31.0",
+            "version": "31.0"
+          },
+          {
+            "label": "Winter '15",
+            "url": "/services/data/v32.0",
+            "version": "32.0"
+          },
+          {
+            "label": "Spring '15",
+            "url": "/services/data/v33.0",
+            "version": "33.0"
+          },
+          {
+            "label": "Summer '15",
+            "url": "/services/data/v34.0",
+            "version": "34.0"
+          },
+          {
+            "label": "Winter '16",
+            "url": "/services/data/v35.0",
+            "version": "35.0"
+          },
+          {
+            "label": "Spring '16",
+            "url": "/services/data/v36.0",
+            "version": "36.0"
+          },
+          {
+            "label": "Summer '16",
+            "url": "/services/data/v37.0",
+            "version": "37.0"
+          },
+          {
+            "label": "Winter '17",
+            "url": "/services/data/v38.0",
+            "version": "38.0"
+          },
+          {
+            "label": "Spring '17",
+            "url": "/services/data/v39.0",
+            "version": "39.0"
+          },
+          {
+            "label": "Summer '17",
+            "url": "/services/data/v40.0",
+            "version": "40.0"
+          },
+          {
+            "label": "Winter '18",
+            "url": "/services/data/v41.0",
+            "version": "41.0"
+          },
+          {
+            "label": "Spring ’18",
+            "url": "/services/data/v42.0",
+            "version": "42.0"
+          },
+          {
+            "label": "Summer '18",
+            "url": "/services/data/v43.0",
+            "version": "43.0"
+          },
+          {
+            "label": "Winter '19",
+            "url": "/services/data/v44.0",
+            "version": "44.0"
+          },
+          {
+            "label": "Spring '19",
+            "url": "/services/data/v45.0",
+            "version": "45.0"
+          },
+          {
+            "label": "Summer '19",
+            "url": "/services/data/v46.0",
+            "version": "46.0"
+          },
+          {
+            "label": "Winter '20",
+            "url": "/services/data/v47.0",
+            "version": "47.0"
+          },
+          {
+            "label": "Spring '20",
+            "url": "/services/data/v48.0",
+            "version": "48.0"
+          },
+          {
+            "label": "Summer '20",
+            "url": "/services/data/v49.0",
+            "version": "49.0"
+          },
+          {
+            "label": "Winter '21",
+            "url": "/services/data/v50.0",
+            "version": "50.0"
+          },
+          {
+            "label": "Spring '21",
+            "url": "/services/data/v51.0",
+            "version": "51.0"
+          },
+          {
+            "label": "Summer '21",
+            "url": "/services/data/v52.0",
+            "version": "52.0"
+          },
+          {
+            "label": "Winter '22",
+            "url": "/services/data/v53.0",
+            "version": "53.0"
+          },
+          {
+            "label": "Spring '22",
+            "url": "/services/data/v54.0",
+            "version": "54.0"
+          },
+          {
+            "label": "Summer '22",
+            "url": "/services/data/v55.0",
+            "version": "55.0"
+          },
+          {
+            "label": "Winter '23",
+            "url": "/services/data/v56.0",
+            "version": "56.0"
+          },
+          {
+            "label": "Spring '23",
+            "url": "/services/data/v57.0",
+            "version": "57.0"
+          },
+          {
+            "label": "Summer '23",
+            "url": "/services/data/v58.0",
+            "version": "58.0"
+          },
+          {
+            "label": "Winter '24",
+            "url": "/services/data/v59.0",
+            "version": "59.0"
+          },
+          {
+            "label": "Spring '24",
+            "url": "/services/data/v60.0",
+            "version": "60.0"
+          },
+          {
+            "label": "Summer '24",
+            "url": "/services/data/v61.0",
+            "version": "61.0"
+          },
+          {
+            "label": "Winter '25",
+            "url": "/services/data/v62.0",
+            "version": "62.0"
+          },
+          {
+            "label": "Spring '25",
+            "url": "/services/data/v63.0",
+            "version": "63.0"
+          },
+          {
+            "label": "Summer '25",
+            "url": "/services/data/v64.0",
+            "version": "64.0"
+          },
+          {
+            "label": "Winter '26",
+            "url": "/services/data/v65.0",
+            "version": "65.0"
+          },
+          {
+            "label": "Spring '26",
+            "url": "/services/data/v66.0",
+            "version": "66.0"
+          }
+        ],
+        "status": 200,
+        "headers": {
+          "date": "Wed, 06 May 2026 11:35:29 GMT",
+          "content-type": "application/json;charset=UTF-8",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=63072000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4918",
+          "x-ratelimit-reset": "1778067345",
+          "cache-control": "no-cache,must-revalidate,max-age=0,no-store,private",
+          "vary": "Accept-Encoding",
+          "set-cookie": "CookieConsentPolicy=0:1; path=/; expires=Thu, 06-May-2027 11:35:29 GMT; Max-Age=31536000; secure, LSKey-c$CookieConsentPolicy=0:1; path=/; expires=Thu, 06-May-2027 11:35:29 GMT; Max-Age=31536000; secure, BrowserId=ry2u8Ek_EfGTjc0ghwhXZQ; domain=.salesforce.com; path=/; expires=Thu, 06-May-2027 11:35:29 GMT; Max-Age=31536000; secure; SameSite=None",
+          "x-robots-tag": "none",
+          "server": "sfdcedge",
+          "x-sfdc-request-id": "453f6866b17150a3f0446d8f3c04d0d9",
+          "x-request-id": "453f6866b17150a3f0446d8f3c04d0d9",
+          "x-sfdc-edge-cache": "none"
+        },
+        "hash": "3d83f75e6539ce9376724bfd659963ceb82daf4f",
+        "request": {}
+      }
+    },
+    "delete": {
+      "/services/data/v66.0/composite/sobjects": {
+        "response": [
+          {
+            "id": "001dM00003kREKdQAO",
+            "success": true,
+            "errors": []
+          },
+          {
+            "id": "001dM00003kREKeQAO",
+            "success": true,
+            "errors": []
+          }
+        ],
+        "status": 200,
+        "headers": {
+          "date": "Wed, 06 May 2026 11:35:31 GMT",
+          "content-type": "application/json;charset=UTF-8",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=63072000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4917",
+          "x-ratelimit-reset": "1778067345",
+          "cache-control": "no-cache,must-revalidate,max-age=0,no-store,private",
+          "sforce-limit-info": "api-usage=146/15000",
+          "x-robots-tag": "none",
+          "set-cookie": "CookieConsentPolicy=0:1; path=/; expires=Thu, 06-May-2027 11:35:30 GMT; Max-Age=31536000; secure, LSKey-c$CookieConsentPolicy=0:1; path=/; expires=Thu, 06-May-2027 11:35:30 GMT; Max-Age=31536000; secure, BrowserId=r_akvEk_EfGQva_sa4ZVQQ; domain=.salesforce.com; path=/; expires=Thu, 06-May-2027 11:35:30 GMT; Max-Age=31536000; secure; SameSite=None",
+          "server": "sfdcedge",
+          "x-sfdc-request-id": "d7bd9f79d3d7bcedfc2af76f4aea8353",
+          "x-request-id": "d7bd9f79d3d7bcedfc2af76f4aea8353",
+          "x-sfdc-edge-cache": "none"
+        },
+        "hash": "dd38f164da3bfeacb6e19ac2e978e51f37840221",
+        "request": {
+          "params": {
+            "allOrNone": "false",
+            "ids": "001dM00003kREKdQAO,001dM00003kREKeQAO",
+            "sObjectName": "Account"
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,834 @@
+{
+  "input": {},
+  "output": {
+    "items": [
+      {
+        "id": "3",
+        "name": "Concrete",
+        "description": "Concrete for fountain installation",
+        "active": true,
+        "type": "Service",
+        "income_account_id": "48",
+        "purchase_cost": 0,
+        "unit_price": 0,
+        "taxable": true,
+        "created_at": "2026-04-05T10:36:03-07:00",
+        "updated_at": "2026-04-08T12:47:47-07:00"
+      },
+      {
+        "id": "4",
+        "name": "Design",
+        "description": "Custom Design",
+        "active": true,
+        "type": "Service",
+        "income_account_id": "82",
+        "purchase_cost": 0,
+        "unit_price": 75,
+        "taxable": false,
+        "created_at": "2026-04-05T10:41:38-07:00",
+        "updated_at": "2026-04-05T10:41:38-07:00"
+      },
+      {
+        "id": "6",
+        "name": "Gardening",
+        "description": "Weekly Gardening Service",
+        "active": true,
+        "type": "Service",
+        "income_account_id": "45",
+        "purchase_cost": 0,
+        "unit_price": 0,
+        "taxable": false,
+        "created_at": "2026-04-05T10:43:14-07:00",
+        "updated_at": "2026-04-05T10:43:14-07:00"
+      },
+      {
+        "id": "2",
+        "name": "Hours",
+        "active": true,
+        "type": "Service",
+        "income_account_id": "1",
+        "purchase_cost": 0,
+        "unit_price": 0,
+        "taxable": false,
+        "created_at": "2026-03-31T14:42:05-07:00",
+        "updated_at": "2026-03-31T14:42:05-07:00"
+      },
+      {
+        "id": "7",
+        "name": "Installation",
+        "description": "Installation of landscape design",
+        "active": true,
+        "type": "Service",
+        "income_account_id": "52",
+        "purchase_cost": 0,
+        "unit_price": 50,
+        "taxable": false,
+        "created_at": "2026-04-05T10:43:54-07:00",
+        "updated_at": "2026-04-05T10:43:54-07:00"
+      },
+      {
+        "id": "8",
+        "name": "Lighting",
+        "description": "Garden Lighting",
+        "active": true,
+        "type": "Service",
+        "income_account_id": "48",
+        "purchase_cost": 0,
+        "unit_price": 0,
+        "taxable": true,
+        "created_at": "2026-04-05T10:44:40-07:00",
+        "updated_at": "2026-04-08T12:47:38-07:00"
+      },
+      {
+        "id": "9",
+        "name": "Maintenance & Repair",
+        "description": "Maintenance & Repair",
+        "active": true,
+        "type": "Service",
+        "income_account_id": "53",
+        "purchase_cost": 0,
+        "unit_price": 0,
+        "taxable": false,
+        "created_at": "2026-04-05T10:45:18-07:00",
+        "updated_at": "2026-04-05T10:45:18-07:00"
+      },
+      {
+        "id": "10",
+        "name": "Pest Control",
+        "description": "Pest Control Services",
+        "active": true,
+        "type": "Service",
+        "income_account_id": "54",
+        "purchase_cost": 0,
+        "unit_price": 35,
+        "taxable": false,
+        "created_at": "2026-04-05T10:45:49-07:00",
+        "updated_at": "2026-04-05T10:45:49-07:00"
+      },
+      {
+        "id": "11",
+        "name": "Pump",
+        "description": "Fountain Pump",
+        "active": true,
+        "type": "Inventory",
+        "income_account_id": "79",
+        "expense_account_id": "80",
+        "asset_account_id": "81",
+        "quantity_on_hand": 25,
+        "inventory_start_date": "2026-04-08",
+        "purchase_cost": 10,
+        "unit_price": 15,
+        "purchase_description": "Fountain Pump",
+        "taxable": true,
+        "created_at": "2026-04-05T10:46:45-07:00",
+        "updated_at": "2026-05-05T02:11:41-07:00"
+      },
+      {
+        "id": "12",
+        "name": "Refunds & Allowances",
+        "description": "Income due to refunds or allowances",
+        "active": true,
+        "type": "Service",
+        "income_account_id": "83",
+        "purchase_cost": 0,
+        "unit_price": 0,
+        "taxable": false,
+        "created_at": "2026-04-05T10:49:18-07:00",
+        "updated_at": "2026-04-05T10:49:18-07:00"
+      },
+      {
+        "id": "5",
+        "name": "Rock Fountain",
+        "description": "Rock Fountain",
+        "active": true,
+        "type": "Inventory",
+        "income_account_id": "79",
+        "expense_account_id": "80",
+        "asset_account_id": "81",
+        "quantity_on_hand": 2,
+        "inventory_start_date": "2026-04-08",
+        "purchase_cost": 125,
+        "unit_price": 275,
+        "purchase_description": "Rock Fountain",
+        "taxable": true,
+        "created_at": "2026-04-05T10:42:19-07:00",
+        "updated_at": "2026-04-08T13:16:17-07:00"
+      },
+      {
+        "id": "13",
+        "name": "Rocks",
+        "description": "Garden Rocks",
+        "active": true,
+        "type": "Service",
+        "income_account_id": "48",
+        "purchase_cost": 0,
+        "unit_price": 0,
+        "taxable": true,
+        "created_at": "2026-04-05T10:50:11-07:00",
+        "updated_at": "2026-04-08T12:47:31-07:00"
+      },
+      {
+        "id": "14",
+        "name": "Sod",
+        "description": "Sod",
+        "active": true,
+        "type": "Service",
+        "income_account_id": "49",
+        "purchase_cost": 0,
+        "unit_price": 0,
+        "taxable": true,
+        "created_at": "2026-04-05T10:50:45-07:00",
+        "updated_at": "2026-04-08T12:47:22-07:00"
+      },
+      {
+        "id": "15",
+        "name": "Soil",
+        "description": "2 cubic ft. bag",
+        "active": true,
+        "type": "Service",
+        "income_account_id": "49",
+        "expense_account_id": "66",
+        "purchase_cost": 6.5,
+        "unit_price": 10,
+        "purchase_description": "2 cubic ft. bag",
+        "taxable": true,
+        "created_at": "2026-04-05T10:51:28-07:00",
+        "updated_at": "2026-04-08T12:47:25-07:00"
+      },
+      {
+        "id": "16",
+        "name": "Sprinkler Heads",
+        "description": "Sprinkler Heads",
+        "active": true,
+        "type": "Inventory",
+        "income_account_id": "79",
+        "expense_account_id": "80",
+        "asset_account_id": "81",
+        "quantity_on_hand": 25,
+        "inventory_start_date": "2026-04-08",
+        "purchase_cost": 0.75,
+        "unit_price": 2,
+        "purchase_description": "Sprinkler Heads",
+        "taxable": true,
+        "created_at": "2026-04-05T10:51:50-07:00",
+        "updated_at": "2026-04-08T12:51:47-07:00"
+      },
+      {
+        "id": "17",
+        "name": "Sprinkler Pipes",
+        "description": "Sprinkler Pipes",
+        "active": true,
+        "type": "Inventory",
+        "income_account_id": "79",
+        "expense_account_id": "80",
+        "asset_account_id": "81",
+        "quantity_on_hand": 31,
+        "inventory_start_date": "2026-04-08",
+        "purchase_cost": 2.5,
+        "unit_price": 4,
+        "purchase_description": "Sprinkler Pipes",
+        "taxable": true,
+        "created_at": "2026-04-05T10:52:07-07:00",
+        "updated_at": "2026-04-08T12:57:24-07:00"
+      },
+      {
+        "id": "1",
+        "name": "Test Item Updated",
+        "active": true,
+        "type": "Service",
+        "income_account_id": "1",
+        "purchase_cost": 0,
+        "unit_price": 0,
+        "taxable": false,
+        "created_at": "2026-03-31T14:42:05-07:00",
+        "updated_at": "2026-05-05T02:03:49-07:00"
+      },
+      {
+        "id": "19",
+        "name": "Test Service Item",
+        "active": true,
+        "type": "Service",
+        "income_account_id": "85",
+        "purchase_cost": 0,
+        "unit_price": 0,
+        "taxable": false,
+        "created_at": "2026-05-05T02:10:35-07:00",
+        "updated_at": "2026-05-05T02:10:35-07:00"
+      },
+      {
+        "id": "20",
+        "name": "Test Service Item 2026",
+        "active": true,
+        "type": "Service",
+        "income_account_id": "79",
+        "purchase_cost": 0,
+        "unit_price": 0,
+        "taxable": false,
+        "created_at": "2026-05-05T03:11:27-07:00",
+        "updated_at": "2026-05-05T03:11:27-07:00"
+      },
+      {
+        "id": "18",
+        "name": "Trimming",
+        "description": "Tree and Shrub Trimming",
+        "active": true,
+        "type": "Service",
+        "income_account_id": "45",
+        "purchase_cost": 0,
+        "unit_price": 35,
+        "taxable": false,
+        "created_at": "2026-04-05T10:52:42-07:00",
+        "updated_at": "2026-04-05T10:52:42-07:00"
+      }
+    ]
+  },
+  "nango": {
+    "getConnection": {}
+  },
+  "api": {
+    "get": {
+      "/v3/company/9341457021722202/query": {
+        "response": {
+          "QueryResponse": {
+            "Item": [
+              {
+                "Name": "Concrete",
+                "Description": "Concrete for fountain installation",
+                "Active": true,
+                "FullyQualifiedName": "Concrete",
+                "Taxable": true,
+                "UnitPrice": 0,
+                "Type": "Service",
+                "IncomeAccountRef": {
+                  "value": "48",
+                  "name": "Landscaping Services:Job Materials:Fountains and Garden Lighting"
+                },
+                "PurchaseCost": 0,
+                "TrackQtyOnHand": false,
+                "domain": "QBO",
+                "sparse": false,
+                "Id": "3",
+                "SyncToken": "1",
+                "MetaData": {
+                  "CreateTime": "2026-04-05T10:36:03-07:00",
+                  "LastUpdatedTime": "2026-04-08T12:47:47-07:00"
+                }
+              },
+              {
+                "Name": "Design",
+                "Description": "Custom Design",
+                "Active": true,
+                "FullyQualifiedName": "Design",
+                "Taxable": false,
+                "UnitPrice": 75,
+                "Type": "Service",
+                "IncomeAccountRef": {
+                  "value": "82",
+                  "name": "Design income"
+                },
+                "PurchaseCost": 0,
+                "TrackQtyOnHand": false,
+                "domain": "QBO",
+                "sparse": false,
+                "Id": "4",
+                "SyncToken": "0",
+                "MetaData": {
+                  "CreateTime": "2026-04-05T10:41:38-07:00",
+                  "LastUpdatedTime": "2026-04-05T10:41:38-07:00"
+                }
+              },
+              {
+                "Name": "Gardening",
+                "Description": "Weekly Gardening Service",
+                "Active": true,
+                "FullyQualifiedName": "Gardening",
+                "Taxable": false,
+                "UnitPrice": 0,
+                "Type": "Service",
+                "IncomeAccountRef": {
+                  "value": "45",
+                  "name": "Landscaping Services"
+                },
+                "PurchaseCost": 0,
+                "TrackQtyOnHand": false,
+                "domain": "QBO",
+                "sparse": false,
+                "Id": "6",
+                "SyncToken": "0",
+                "MetaData": {
+                  "CreateTime": "2026-04-05T10:43:14-07:00",
+                  "LastUpdatedTime": "2026-04-05T10:43:14-07:00"
+                }
+              },
+              {
+                "Name": "Hours",
+                "Active": true,
+                "FullyQualifiedName": "Hours",
+                "Taxable": false,
+                "UnitPrice": 0,
+                "Type": "Service",
+                "IncomeAccountRef": {
+                  "value": "1",
+                  "name": "Test Account"
+                },
+                "PurchaseCost": 0,
+                "TrackQtyOnHand": false,
+                "domain": "QBO",
+                "sparse": false,
+                "Id": "2",
+                "SyncToken": "0",
+                "MetaData": {
+                  "CreateTime": "2026-03-31T14:42:05-07:00",
+                  "LastUpdatedTime": "2026-03-31T14:42:05-07:00"
+                }
+              },
+              {
+                "Name": "Installation",
+                "Description": "Installation of landscape design",
+                "Active": true,
+                "FullyQualifiedName": "Installation",
+                "Taxable": false,
+                "UnitPrice": 50,
+                "Type": "Service",
+                "IncomeAccountRef": {
+                  "value": "52",
+                  "name": "Landscaping Services:Labor:Installation"
+                },
+                "PurchaseCost": 0,
+                "TrackQtyOnHand": false,
+                "domain": "QBO",
+                "sparse": false,
+                "Id": "7",
+                "SyncToken": "0",
+                "MetaData": {
+                  "CreateTime": "2026-04-05T10:43:54-07:00",
+                  "LastUpdatedTime": "2026-04-05T10:43:54-07:00"
+                }
+              },
+              {
+                "Name": "Lighting",
+                "Description": "Garden Lighting",
+                "Active": true,
+                "FullyQualifiedName": "Lighting",
+                "Taxable": true,
+                "UnitPrice": 0,
+                "Type": "Service",
+                "IncomeAccountRef": {
+                  "value": "48",
+                  "name": "Landscaping Services:Job Materials:Fountains and Garden Lighting"
+                },
+                "PurchaseCost": 0,
+                "TrackQtyOnHand": false,
+                "domain": "QBO",
+                "sparse": false,
+                "Id": "8",
+                "SyncToken": "1",
+                "MetaData": {
+                  "CreateTime": "2026-04-05T10:44:40-07:00",
+                  "LastUpdatedTime": "2026-04-08T12:47:38-07:00"
+                }
+              },
+              {
+                "Name": "Maintenance & Repair",
+                "Description": "Maintenance & Repair",
+                "Active": true,
+                "FullyQualifiedName": "Maintenance & Repair",
+                "Taxable": false,
+                "UnitPrice": 0,
+                "Type": "Service",
+                "IncomeAccountRef": {
+                  "value": "53",
+                  "name": "Landscaping Services:Labor:Maintenance and Repair"
+                },
+                "PurchaseCost": 0,
+                "TrackQtyOnHand": false,
+                "domain": "QBO",
+                "sparse": false,
+                "Id": "9",
+                "SyncToken": "0",
+                "MetaData": {
+                  "CreateTime": "2026-04-05T10:45:18-07:00",
+                  "LastUpdatedTime": "2026-04-05T10:45:18-07:00"
+                }
+              },
+              {
+                "Name": "Pest Control",
+                "Description": "Pest Control Services",
+                "Active": true,
+                "FullyQualifiedName": "Pest Control",
+                "Taxable": false,
+                "UnitPrice": 35,
+                "Type": "Service",
+                "IncomeAccountRef": {
+                  "value": "54",
+                  "name": "Pest Control Services"
+                },
+                "PurchaseCost": 0,
+                "TrackQtyOnHand": false,
+                "domain": "QBO",
+                "sparse": false,
+                "Id": "10",
+                "SyncToken": "0",
+                "MetaData": {
+                  "CreateTime": "2026-04-05T10:45:49-07:00",
+                  "LastUpdatedTime": "2026-04-05T10:45:49-07:00"
+                }
+              },
+              {
+                "Name": "Pump",
+                "Description": "Fountain Pump",
+                "Active": true,
+                "FullyQualifiedName": "Pump",
+                "Taxable": true,
+                "UnitPrice": 15,
+                "Type": "Inventory",
+                "IncomeAccountRef": {
+                  "value": "79",
+                  "name": "Sales of Product Income"
+                },
+                "PurchaseDesc": "Fountain Pump",
+                "PurchaseCost": 10,
+                "ExpenseAccountRef": {
+                  "value": "80",
+                  "name": "Cost of Goods Sold"
+                },
+                "AssetAccountRef": {
+                  "value": "81",
+                  "name": "Inventory Asset"
+                },
+                "TrackQtyOnHand": true,
+                "QtyOnHand": 25,
+                "InvStartDate": "2026-04-08",
+                "domain": "QBO",
+                "sparse": false,
+                "Id": "11",
+                "SyncToken": "3",
+                "MetaData": {
+                  "CreateTime": "2026-04-05T10:46:45-07:00",
+                  "LastUpdatedTime": "2026-05-05T02:11:41-07:00"
+                }
+              },
+              {
+                "Name": "Refunds & Allowances",
+                "Description": "Income due to refunds or allowances",
+                "Active": true,
+                "FullyQualifiedName": "Refunds & Allowances",
+                "Taxable": false,
+                "UnitPrice": 0,
+                "Type": "Service",
+                "IncomeAccountRef": {
+                  "value": "83",
+                  "name": "Other Income"
+                },
+                "PurchaseCost": 0,
+                "TrackQtyOnHand": false,
+                "domain": "QBO",
+                "sparse": false,
+                "Id": "12",
+                "SyncToken": "0",
+                "MetaData": {
+                  "CreateTime": "2026-04-05T10:49:18-07:00",
+                  "LastUpdatedTime": "2026-04-05T10:49:18-07:00"
+                }
+              },
+              {
+                "Name": "Rock Fountain",
+                "Description": "Rock Fountain",
+                "Active": true,
+                "FullyQualifiedName": "Rock Fountain",
+                "Taxable": true,
+                "UnitPrice": 275,
+                "Type": "Inventory",
+                "IncomeAccountRef": {
+                  "value": "79",
+                  "name": "Sales of Product Income"
+                },
+                "PurchaseDesc": "Rock Fountain",
+                "PurchaseCost": 125,
+                "ExpenseAccountRef": {
+                  "value": "80",
+                  "name": "Cost of Goods Sold"
+                },
+                "AssetAccountRef": {
+                  "value": "81",
+                  "name": "Inventory Asset"
+                },
+                "TrackQtyOnHand": true,
+                "QtyOnHand": 2,
+                "InvStartDate": "2026-04-08",
+                "domain": "QBO",
+                "sparse": false,
+                "Id": "5",
+                "SyncToken": "2",
+                "MetaData": {
+                  "CreateTime": "2026-04-05T10:42:19-07:00",
+                  "LastUpdatedTime": "2026-04-08T13:16:17-07:00"
+                }
+              },
+              {
+                "Name": "Rocks",
+                "Description": "Garden Rocks",
+                "Active": true,
+                "FullyQualifiedName": "Rocks",
+                "Taxable": true,
+                "UnitPrice": 0,
+                "Type": "Service",
+                "IncomeAccountRef": {
+                  "value": "48",
+                  "name": "Landscaping Services:Job Materials:Fountains and Garden Lighting"
+                },
+                "PurchaseCost": 0,
+                "TrackQtyOnHand": false,
+                "domain": "QBO",
+                "sparse": false,
+                "Id": "13",
+                "SyncToken": "1",
+                "MetaData": {
+                  "CreateTime": "2026-04-05T10:50:11-07:00",
+                  "LastUpdatedTime": "2026-04-08T12:47:31-07:00"
+                }
+              },
+              {
+                "Name": "Sod",
+                "Description": "Sod",
+                "Active": true,
+                "FullyQualifiedName": "Sod",
+                "Taxable": true,
+                "UnitPrice": 0,
+                "Type": "Service",
+                "IncomeAccountRef": {
+                  "value": "49",
+                  "name": "Landscaping Services:Job Materials:Plants and Soil"
+                },
+                "PurchaseCost": 0,
+                "TrackQtyOnHand": false,
+                "domain": "QBO",
+                "sparse": false,
+                "Id": "14",
+                "SyncToken": "1",
+                "MetaData": {
+                  "CreateTime": "2026-04-05T10:50:45-07:00",
+                  "LastUpdatedTime": "2026-04-08T12:47:22-07:00"
+                }
+              },
+              {
+                "Name": "Soil",
+                "Description": "2 cubic ft. bag",
+                "Active": true,
+                "FullyQualifiedName": "Soil",
+                "Taxable": true,
+                "UnitPrice": 10,
+                "Type": "Service",
+                "IncomeAccountRef": {
+                  "value": "49",
+                  "name": "Landscaping Services:Job Materials:Plants and Soil"
+                },
+                "PurchaseDesc": "2 cubic ft. bag",
+                "PurchaseCost": 6.5,
+                "ExpenseAccountRef": {
+                  "value": "66",
+                  "name": "Job Expenses:Job Materials:Plants and Soil"
+                },
+                "TrackQtyOnHand": false,
+                "domain": "QBO",
+                "sparse": false,
+                "Id": "15",
+                "SyncToken": "2",
+                "MetaData": {
+                  "CreateTime": "2026-04-05T10:51:28-07:00",
+                  "LastUpdatedTime": "2026-04-08T12:47:25-07:00"
+                }
+              },
+              {
+                "Name": "Sprinkler Heads",
+                "Description": "Sprinkler Heads",
+                "Active": true,
+                "FullyQualifiedName": "Sprinkler Heads",
+                "Taxable": true,
+                "UnitPrice": 2,
+                "Type": "Inventory",
+                "IncomeAccountRef": {
+                  "value": "79",
+                  "name": "Sales of Product Income"
+                },
+                "PurchaseDesc": "Sprinkler Heads",
+                "PurchaseCost": 0.75,
+                "ExpenseAccountRef": {
+                  "value": "80",
+                  "name": "Cost of Goods Sold"
+                },
+                "AssetAccountRef": {
+                  "value": "81",
+                  "name": "Inventory Asset"
+                },
+                "TrackQtyOnHand": true,
+                "QtyOnHand": 25,
+                "InvStartDate": "2026-04-08",
+                "domain": "QBO",
+                "sparse": false,
+                "Id": "16",
+                "SyncToken": "3",
+                "MetaData": {
+                  "CreateTime": "2026-04-05T10:51:50-07:00",
+                  "LastUpdatedTime": "2026-04-08T12:51:47-07:00"
+                }
+              },
+              {
+                "Name": "Sprinkler Pipes",
+                "Description": "Sprinkler Pipes",
+                "Active": true,
+                "FullyQualifiedName": "Sprinkler Pipes",
+                "Taxable": true,
+                "UnitPrice": 4,
+                "Type": "Inventory",
+                "IncomeAccountRef": {
+                  "value": "79",
+                  "name": "Sales of Product Income"
+                },
+                "PurchaseDesc": "Sprinkler Pipes",
+                "PurchaseCost": 2.5,
+                "ExpenseAccountRef": {
+                  "value": "80",
+                  "name": "Cost of Goods Sold"
+                },
+                "AssetAccountRef": {
+                  "value": "81",
+                  "name": "Inventory Asset"
+                },
+                "TrackQtyOnHand": true,
+                "QtyOnHand": 31,
+                "InvStartDate": "2026-04-08",
+                "domain": "QBO",
+                "sparse": false,
+                "Id": "17",
+                "SyncToken": "3",
+                "MetaData": {
+                  "CreateTime": "2026-04-05T10:52:07-07:00",
+                  "LastUpdatedTime": "2026-04-08T12:57:24-07:00"
+                }
+              },
+              {
+                "Name": "Test Item Updated",
+                "Active": true,
+                "FullyQualifiedName": "Test Item Updated",
+                "Taxable": false,
+                "UnitPrice": 0,
+                "Type": "Service",
+                "IncomeAccountRef": {
+                  "value": "1",
+                  "name": "Test Account"
+                },
+                "PurchaseCost": 0,
+                "TrackQtyOnHand": false,
+                "domain": "QBO",
+                "sparse": false,
+                "Id": "1",
+                "SyncToken": "1",
+                "MetaData": {
+                  "CreateTime": "2026-03-31T14:42:05-07:00",
+                  "LastUpdatedTime": "2026-05-05T02:03:49-07:00"
+                }
+              },
+              {
+                "Name": "Test Service Item",
+                "Active": true,
+                "FullyQualifiedName": "Test Service Item",
+                "Taxable": false,
+                "UnitPrice": 0,
+                "Type": "Service",
+                "IncomeAccountRef": {
+                  "value": "85",
+                  "name": "Billable Expense Income"
+                },
+                "PurchaseCost": 0,
+                "TrackQtyOnHand": false,
+                "domain": "QBO",
+                "sparse": false,
+                "Id": "19",
+                "SyncToken": "0",
+                "MetaData": {
+                  "CreateTime": "2026-05-05T02:10:35-07:00",
+                  "LastUpdatedTime": "2026-05-05T02:10:35-07:00"
+                }
+              },
+              {
+                "Name": "Test Service Item 2026",
+                "Active": true,
+                "FullyQualifiedName": "Test Service Item 2026",
+                "Taxable": false,
+                "UnitPrice": 0,
+                "Type": "Service",
+                "IncomeAccountRef": {
+                  "value": "79",
+                  "name": "Sales of Product Income"
+                },
+                "PurchaseCost": 0,
+                "TrackQtyOnHand": false,
+                "domain": "QBO",
+                "sparse": false,
+                "Id": "20",
+                "SyncToken": "0",
+                "MetaData": {
+                  "CreateTime": "2026-05-05T03:11:27-07:00",
+                  "LastUpdatedTime": "2026-05-05T03:11:27-07:00"
+                }
+              },
+              {
+                "Name": "Trimming",
+                "Description": "Tree and Shrub Trimming",
+                "Active": true,
+                "FullyQualifiedName": "Trimming",
+                "Taxable": false,
+                "UnitPrice": 35,
+                "Type": "Service",
+                "IncomeAccountRef": {
+                  "value": "45",
+                  "name": "Landscaping Services"
+                },
+                "PurchaseCost": 0,
+                "TrackQtyOnHand": false,
+                "domain": "QBO",
+                "sparse": false,
+                "Id": "18",
+                "SyncToken": "0",
+                "MetaData": {
+                  "CreateTime": "2026-04-05T10:52:42-07:00",
+                  "LastUpdatedTime": "2026-04-05T10:52:42-07:00"
+                }
+              }
+            ],
+            "startPosition": 1,
+            "maxResults": 20
+          },
+          "time": "2026-05-05T03:11:50.168-07:00"
+        },
+        "status": 200,
+        "headers": {
+          "date": "Tue, 05 May 2026 10:11:50 GMT",
+          "content-type": "application/json",
+          "content-length": "9395",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=5184000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4874",
+          "x-ratelimit-reset": "1777975914",
+          "etag": "W/\"24b3-aHCAul7pCWGLZKuvoyDtDKl7xP4\""
+        },
+        "hash": "536cbfc726b21170152f4c8fad414502a1da8ba0",
+        "request": {
+          "params": {
+            "query": "SELECT * FROM Item STARTPOSITION 1 MAXRESULTS 100"
+          }
+        }
+      }
+    }
+  }
+}

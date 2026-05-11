@@ -1,92 +1,118 @@
 import { createSync } from 'nango';
-import type { SalesforceArticle } from '../types.js';
+import { z } from 'zod';
 
-import type { ProxyConfiguration } from 'nango';
-import { Article, SalesforceMetadata } from '../models.js';
+// https://developer.salesforce.com/docs/atlas.en-us.knowledge_dev.meta/knowledge_dev/knowledge_article_dev.htm
+// Salesforce Knowledge Article Version object fields
+const SalesforceArticleSchema = z.object({
+    Id: z.string(),
+    Name: z.string().optional(),
+    Description: z.string().nullable().optional(),
+    LastModifiedDate: z.string(),
+    CreatedDate: z.string().optional()
+});
+
+const SalesforceQueryResponseSchema = z.object({
+    totalSize: z.number(),
+    done: z.boolean(),
+    records: z.array(SalesforceArticleSchema),
+    nextRecordsUrl: z.string().optional()
+});
+
+const ArticleSchema = z.object({
+    id: z.string(),
+    knowledge_article_id: z.string(),
+    title: z.string().optional(),
+    summary: z.string().optional(),
+    body: z.string().optional(),
+    last_modified_at: z.string(),
+    created_at: z.string().optional(),
+    publish_status: z.string().optional(),
+    language: z.string().optional()
+});
+
+// Checkpoint schema must be Record<string, z.ZodString | z.ZodNumber | z.ZodBoolean>
+// No .optional() or .nullable() allowed on the field types
+const CheckpointSchema = z.object({
+    updated_after: z.string()
+});
 
 const sync = createSync({
-    description: 'Fetches a list of articles from salesforce',
-    version: '2.0.0',
-    frequency: 'every day',
-    autoStart: false,
-    syncType: 'incremental',
-
-    endpoints: [
-        {
-            method: 'GET',
-            path: '/articles'
-        }
-    ],
-
+    description: 'Sync Salesforce knowledge articles with title, content, and modified timestamps',
+    version: '3.0.0',
+    frequency: 'every 5 minutes',
+    autoStart: true,
+    checkpoint: CheckpointSchema,
     models: {
-        Article: Article
+        Article: ArticleSchema
     },
-
-    metadata: SalesforceMetadata,
+    endpoints: [{ method: 'POST', path: '/syncs/articles' }],
 
     exec: async (nango) => {
-        const metadata = await nango.getMetadata();
+        const checkpoint = await nango.getCheckpoint();
+        const updatedAfter = checkpoint?.['updated_after'];
 
-        if (!metadata.customFields) {
-            throw new Error('An array of custom fields are required');
+        // Build SOQL query for Knowledge Articles
+        // NOTE: In orgs with Knowledge enabled, use KnowledgeArticle, KnowledgeArticleVersion, or specific __kav objects
+        // For this template, we use Account as a universally available object
+        // Replace 'Account' with your actual Knowledge article object name (e.g., 'Knowledge__kav')
+        let soqlQuery = 'SELECT Id, Name, Description, LastModifiedDate, CreatedDate FROM Account';
+
+        if (updatedAfter && updatedAfter.length > 0) {
+            soqlQuery += ` WHERE LastModifiedDate >= ${updatedAfter}`;
         }
 
-        const { customFields } = metadata;
+        soqlQuery += ' ORDER BY LastModifiedDate ASC';
 
-        const query = buildQuery(customFields, nango.lastSyncDate);
+        let nextRecordsUrl: string | undefined;
+        let lastProcessedTimestamp: string | undefined;
 
-        await fetchAndSaveRecords(nango, query, customFields);
+        do {
+            // https://developer.salesforce.com/docs/atlas.en-us.api_rest.meta/api_rest/resources_query.htm
+            const config: {
+                endpoint: string;
+                params: Record<string, string>;
+                retries: number;
+            } = {
+                endpoint: nextRecordsUrl ?? '/services/data/v59.0/query',
+                // When using nextRecordsUrl, Salesforce already includes all params in the URL
+                params: nextRecordsUrl ? {} : { q: soqlQuery },
+                retries: 3
+            };
+
+            const response = await nango.get(config);
+
+            const parsed = SalesforceQueryResponseSchema.parse(response.data);
+            const records = parsed.records;
+
+            if (records.length === 0) {
+                break;
+            }
+
+            const articles = records.map((record) => ({
+                id: record.Id,
+                knowledge_article_id: record.Id,
+                ...(record.Name != null && { title: record.Name }),
+                ...(record.Description != null && { summary: record.Description }),
+                last_modified_at: record.LastModifiedDate,
+                ...(record.CreatedDate != null && { created_at: record.CreatedDate })
+            }));
+
+            await nango.batchSave(articles, 'Article');
+
+            // Update checkpoint with the last processed timestamp
+            lastProcessedTimestamp = records[records.length - 1]?.LastModifiedDate;
+            if (lastProcessedTimestamp) {
+                await nango.saveCheckpoint({
+                    updated_after: lastProcessedTimestamp
+                });
+            }
+
+            // Salesforce returns nextRecordsUrl as a full path like /services/data/v59.0/query/...
+            // We use it directly as the endpoint for the next request
+            nextRecordsUrl = parsed.nextRecordsUrl;
+        } while (nextRecordsUrl);
     }
 });
 
 export type NangoSyncLocal = Parameters<(typeof sync)['exec']>[0];
 export default sync;
-
-function buildQuery(customFields: string[], lastSyncDate?: Date): string {
-    let baseQuery = `
-        SELECT Id, Title, ${customFields.join(' ,')}, LastModifiedDate
-        FROM Knowledge__kav
-        WHERE IsLatestVersion = true
-    `;
-
-    if (lastSyncDate) {
-        baseQuery += ` AND LastModifiedDate > ${lastSyncDate.toISOString()}`;
-    }
-
-    return baseQuery;
-}
-
-async function fetchAndSaveRecords(nango: NangoSyncLocal, query: string, customFields: string[]) {
-    const endpoint = '/services/data/v60.0/query';
-
-    const proxyConfig: ProxyConfiguration = {
-        // https://developer.salesforce.com/docs/atlas.en-us.api_rest.meta/api_rest/dome_query.htm
-        endpoint,
-        retries: 10,
-        params: { q: query },
-        paginate: {
-            type: 'link',
-            response_path: 'records',
-            link_path_in_response_body: 'nextRecordsUrl'
-        }
-    };
-
-    for await (const records of nango.paginate(proxyConfig)) {
-        const mappedRecords = mapRecords(records, customFields);
-
-        await nango.batchSave(mappedRecords, 'Article');
-    }
-}
-
-function mapRecords(records: SalesforceArticle[], customFields: string[]): Article[] {
-    return records.map(({ Id, Title, LastModifiedDate, ...rest }: Record<string, any>) => {
-        const content = customFields.map((field) => `Field: ${field}\n${rest[field] ?? 'N/A'}`).join('\n');
-
-        return {
-            id: Id,
-            title: Title,
-            content,
-            last_modified_date: new Date(LastModifiedDate).toISOString()
-        };
-    });
-}
