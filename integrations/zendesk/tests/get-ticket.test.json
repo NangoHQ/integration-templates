@@ -1,0 +1,241 @@
+{
+  "input": {
+    "ticket_id": 1
+  },
+  "output": {
+    "id": 1,
+    "url": "https://nango-1049.zendesk.com/api/v2/tickets/1.json",
+    "subject": "SAMPLE: How does Zendesk work",
+    "status": "open",
+    "description": "Hello, let's see how you or your agents can easily respond to and solve tickets.\n\nFeel free to email additional customer test inquiries to **support@nango-1049.zendesk.com**.\n\nBut first, let's start by solving one ticket.\n\nYour Zendesk Team",
+    "priority": "normal",
+    "requester_id": 46406156914577,
+    "assignee_id": 46406145565073,
+    "group_id": 46406158244625,
+    "created_at": "2026-05-06T07:46:23Z",
+    "updated_at": "2026-05-06T07:46:23Z",
+    "tags": [
+      "zendesk_accelerated_setup"
+    ]
+  },
+  "nango": {},
+  "api": {
+    "get": {
+      "/api/v2/tickets/1.json": {
+        "response": {
+          "ticket": {
+            "url": "https://nango-1049.zendesk.com/api/v2/tickets/1.json",
+            "id": 1,
+            "external_id": null,
+            "via": {
+              "channel": "sample_ticket",
+              "source": {
+                "from": {},
+                "to": {},
+                "rel": null
+              }
+            },
+            "created_at": "2026-05-06T07:46:23Z",
+            "updated_at": "2026-05-06T07:46:23Z",
+            "generated_timestamp": 1778053583,
+            "type": null,
+            "subject": "SAMPLE: How does Zendesk work",
+            "raw_subject": "SAMPLE: How does Zendesk work",
+            "description": "Hello, let's see how you or your agents can easily respond to and solve tickets.\n\nFeel free to email additional customer test inquiries to **support@nango-1049.zendesk.com**.\n\nBut first, let's start by solving one ticket.\n\nYour Zendesk Team",
+            "priority": "normal",
+            "status": "open",
+            "recipient": null,
+            "requester_id": 46406156914577,
+            "submitter_id": 46406156914577,
+            "assignee_id": 46406145565073,
+            "organization_id": null,
+            "group_id": 46406158244625,
+            "collaborator_ids": [
+              46406145565073
+            ],
+            "follower_ids": [],
+            "email_cc_ids": [
+              46406145565073
+            ],
+            "forum_topic_id": null,
+            "problem_id": null,
+            "has_incidents": false,
+            "is_public": true,
+            "due_at": null,
+            "tags": [
+              "zendesk_accelerated_setup"
+            ],
+            "custom_fields": [
+              {
+                "id": 46406130043793,
+                "value": null
+              },
+              {
+                "id": 46406130045073,
+                "value": null
+              },
+              {
+                "id": 46406130045969,
+                "value": null
+              },
+              {
+                "id": 46406146796817,
+                "value": null
+              },
+              {
+                "id": 46406147126033,
+                "value": null
+              },
+              {
+                "id": 46406167358737,
+                "value": null
+              },
+              {
+                "id": 46406168902289,
+                "value": null
+              },
+              {
+                "id": 46406169312273,
+                "value": null
+              },
+              {
+                "id": 46406182218641,
+                "value": null
+              },
+              {
+                "id": 46406182230673,
+                "value": null
+              },
+              {
+                "id": 46406182261521,
+                "value": null
+              },
+              {
+                "id": 46406182268689,
+                "value": null
+              },
+              {
+                "id": 46406182281361,
+                "value": null
+              }
+            ],
+            "satisfaction_rating": {
+              "score": "unoffered"
+            },
+            "sharing_agreement_ids": [],
+            "custom_status_id": 46406158222353,
+            "encoded_id": "LW3ZND-1926N",
+            "fields": [
+              {
+                "id": 46406130043793,
+                "value": null
+              },
+              {
+                "id": 46406130045073,
+                "value": null
+              },
+              {
+                "id": 46406130045969,
+                "value": null
+              },
+              {
+                "id": 46406146796817,
+                "value": null
+              },
+              {
+                "id": 46406147126033,
+                "value": null
+              },
+              {
+                "id": 46406167358737,
+                "value": null
+              },
+              {
+                "id": 46406168902289,
+                "value": null
+              },
+              {
+                "id": 46406169312273,
+                "value": null
+              },
+              {
+                "id": 46406182218641,
+                "value": null
+              },
+              {
+                "id": 46406182230673,
+                "value": null
+              },
+              {
+                "id": 46406182261521,
+                "value": null
+              },
+              {
+                "id": 46406182268689,
+                "value": null
+              },
+              {
+                "id": 46406182281361,
+                "value": null
+              }
+            ],
+            "followup_ids": [],
+            "ticket_form_id": 46406146302353,
+            "brand_id": 46406158162961,
+            "allow_channelback": false,
+            "allow_attachments": true,
+            "from_messaging_channel": false,
+            "support_type": "agent"
+          }
+        },
+        "status": 200,
+        "headers": {
+          "date": "Wed, 06 May 2026 08:44:48 GMT",
+          "content-type": "application/json; charset=utf-8",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=31536000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "X-Zendesk-API-Warn,X-Zendesk-User-Id,X-Zendesk-User-Session-Expires-At",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4942",
+          "x-ratelimit-reset": "1778057093",
+          "x-zendesk-api-version": "v2",
+          "x-zendesk-application-version": "v25703",
+          "x-rate-limit": "400",
+          "ratelimit-limit": "400",
+          "x-rate-limit-remaining": "386",
+          "ratelimit-remaining": "386",
+          "ratelimit-reset": "12",
+          "etag": "W/\"45d4641cdb48a50425007fb4090fed61\"",
+          "cache-control": "max-age=0, private, must-revalidate",
+          "zendesk-route": "/api/v2/tickets/:id",
+          "set-cookie": "_zendesk_cookie=BAhJIhl7ImRldmljZV90b2tlbnMiOnt9fQY6BkVU--0bf2100788cb010d0183feca16aaf88ccaf719ca; path=/; expires=Thu, 06 May 2027 06:12:38 GMT; secure; HttpOnly; SameSite=None, __cf_bm=gMRBgQks1EDqaTWZRW9lzadNHBR6T2.ivZqWNWf86lo-1778057088-1.0.1.1-gswNeuv9T7xXXbYtGO76IM1JvTm2lPNfiehzssYVfrsUD4I3Jl2CzYKYpoxpWo55Tr4kuBAjqYtkYvMIFYwqMSEdstkA7IeKP5VWq26qdqM; path=/; expires=Wed, 06-May-26 09:14:48 GMT; domain=.nango-1049.zendesk.com; HttpOnly; Secure; SameSite=None, _cfuvid=N1E7PVGlmFOcv8ZU5CBwfAqvIoLUQ7Ja_EMcvbmIPrc-1778057088389-0.0.1.1-604800000; path=/; domain=.nango-1049.zendesk.com; HttpOnly; Secure; SameSite=None",
+          "x-zendesk-origin-server": "classic-app-server-69d49c4b9b-smp6n",
+          "x-request-id": "9f76b4806cd21687-DUB",
+          "x-runtime": "0.119700",
+          "x-envoy-upstream-service-time": "123",
+          "x-openapi-route-path": "/api/v2/tickets/{ticket_id}",
+          "zendesk-service": "classic",
+          "x-zendesk-zorg": "yes",
+          "vary": "Accept-Encoding",
+          "via": "zorg",
+          "x-envoy-decorator-operation": "/api/v2/tickets",
+          "cf-cache-status": "DYNAMIC",
+          "report-to": "{\"endpoints\":[{\"url\":\"https:\\/\\/a.nel.cloudflare.com\\/report\\/v4?s=XsEByaGyeNVP3TWoaQatDvYrTzB5woMjR0lFyzDMzJQI%2Foo3DGUG29pWRZ%2F2HgBsdRxAQFiZS%2F4hJXcylzKCl%2Br7DwQwT%2Fkiv3xFqYqbrpHNfWtHIis%2B0x0ub%2FLNbrJr%2FPL1p7u23KI%3D\"}],\"group\":\"cf-nel\",\"max_age\":604800}",
+          "nel": "{\"success_fraction\":0.01,\"report_to\":\"cf-nel\",\"max_age\":604800}",
+          "server": "cloudflare",
+          "cf-ray": "9f76b4806cd21687-PDX"
+        },
+        "hash": "7d979b0611a57b1136f00040e5fd8625018d2c14",
+        "request": {}
+      }
+    }
+  }
+}

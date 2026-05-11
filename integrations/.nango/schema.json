@@ -543,26 +543,40 @@
         "id": {
           "type": "string"
         },
-        "name": {
+        "title": {
           "type": "string"
         },
-        "type": {
+        "description": {
           "type": "string"
         },
-        "base_id": {
+        "active": {
+          "type": "boolean"
+        },
+        "created_at": {
           "type": "string"
         },
-        "table_id": {
+        "updated_at": {
           "type": "string"
         },
-        "table_name": {
-          "type": "string"
-        }
+        "default": {
+          "type": "boolean"
+        },
+        "position": {
+          "type": "number"
+        },
+        "conditions": {
+          "type": "object",
+          "additionalProperties": false
+        },
+        "execution": {
+          "type": "object",
+          "additionalProperties": false
+        },
+        "restriction": {}
       },
       "required": [
         "id",
-        "base_id",
-        "table_id"
+        "title"
       ],
       "additionalProperties": false
     },
@@ -4305,25 +4319,52 @@
         "id": {
           "type": "string"
         },
-        "url": {
-          "type": "string"
-        },
-        "category_id": {
-          "type": "number"
-        },
         "name": {
           "type": "string"
         },
         "description": {
           "type": "string"
+        },
+        "category_id": {
+          "type": "number"
+        },
+        "parent_section_id": {
+          "type": "number"
+        },
+        "locale": {
+          "type": "string"
+        },
+        "source_locale": {
+          "type": "string"
+        },
+        "created_at": {
+          "type": "string"
+        },
+        "updated_at": {
+          "type": "string"
+        },
+        "position": {
+          "type": "number"
+        },
+        "outdated": {
+          "type": "boolean"
+        },
+        "html_url": {
+          "type": "string"
+        },
+        "url": {
+          "type": "string"
+        },
+        "theme_template": {
+          "type": "string"
         }
       },
       "required": [
         "id",
-        "url",
-        "category_id",
         "name",
-        "description"
+        "locale",
+        "created_at",
+        "updated_at"
       ],
       "additionalProperties": false
     },
@@ -26594,21 +26635,43 @@
         "id": {
           "type": "string"
         },
-        "url": {
-          "type": "string"
-        },
         "name": {
           "type": "string"
         },
         "description": {
           "type": "string"
+        },
+        "locale": {
+          "type": "string"
+        },
+        "source_locale": {
+          "type": "string"
+        },
+        "position": {
+          "type": "number"
+        },
+        "outdated": {
+          "type": "boolean"
+        },
+        "created_at": {
+          "type": "string"
+        },
+        "updated_at": {
+          "type": "string"
+        },
+        "html_url": {
+          "type": "string"
+        },
+        "url": {
+          "type": "string"
         }
       },
       "required": [
         "id",
-        "url",
         "name",
-        "description"
+        "locale",
+        "created_at",
+        "updated_at"
       ],
       "additionalProperties": false
     },
@@ -30555,26 +30618,8 @@
     "Article": {
       "type": "object",
       "properties": {
-        "title": {
-          "type": "string"
-        },
         "id": {
           "type": "string"
-        },
-        "url": {
-          "type": "string"
-        },
-        "locale": {
-          "type": "string"
-        },
-        "user_segment_id": {
-          "type": [
-            "number",
-            "null"
-          ]
-        },
-        "permission_group_id": {
-          "type": "number"
         },
         "author_id": {
           "type": "number"
@@ -30609,6 +30654,9 @@
             "type": "string"
           }
         },
+        "locale": {
+          "type": "string"
+        },
         "outdated": {
           "type": "boolean"
         },
@@ -30617,6 +30665,9 @@
           "items": {
             "type": "string"
           }
+        },
+        "permission_group_id": {
+          "type": "number"
         },
         "position": {
           "type": "number"
@@ -30630,8 +30681,23 @@
         "source_locale": {
           "type": "string"
         },
+        "title": {
+          "type": "string"
+        },
         "updated_at": {
           "type": "string"
+        },
+        "url": {
+          "type": "string"
+        },
+        "user_segment_id": {
+          "type": "number"
+        },
+        "user_segment_ids": {
+          "type": "array",
+          "items": {
+            "type": "number"
+          }
         },
         "vote_count": {
           "type": "number"
@@ -30641,30 +30707,12 @@
         }
       },
       "required": [
-        "title",
         "id",
-        "url",
-        "locale",
-        "user_segment_id",
-        "permission_group_id",
-        "author_id",
-        "body",
-        "comments_disabled",
-        "content_tag_ids",
         "created_at",
-        "draft",
-        "edited_at",
-        "html_url",
-        "label_names",
-        "outdated",
-        "outdated_locales",
-        "position",
-        "promoted",
-        "section_id",
-        "source_locale",
+        "locale",
+        "title",
         "updated_at",
-        "vote_count",
-        "vote_sum"
+        "url"
       ],
       "additionalProperties": false
     },
@@ -30725,402 +30773,94 @@
     "Ticket": {
       "type": "object",
       "properties": {
-        "url": {
-          "type": [
-            "string",
-            "null"
-          ]
-        },
         "id": {
           "type": "string"
         },
-        "external_id": {
-          "type": [
-            "string",
-            "null"
-          ]
+        "url": {
+          "type": "string"
         },
-        "via": {
-          "anyOf": [
-            {
-              "type": "object",
-              "properties": {
-                "channel": {
-                  "type": "string"
-                },
-                "source": {
-                  "type": "object",
-                  "properties": {
-                    "from": {
-                      "type": "object",
-                      "additionalProperties": {
-                        "anyOf": [
-                          {},
-                          {
-                            "not": {}
-                          }
-                        ]
-                      }
-                    },
-                    "to": {
-                      "type": "object",
-                      "additionalProperties": {
-                        "anyOf": [
-                          {},
-                          {
-                            "not": {}
-                          }
-                        ]
-                      }
-                    },
-                    "rel": {
-                      "type": [
-                        "string",
-                        "null"
-                      ]
-                    }
-                  },
-                  "required": [
-                    "from",
-                    "to",
-                    "rel"
-                  ],
-                  "additionalProperties": false
-                }
-              },
-              "required": [
-                "channel",
-                "source"
-              ],
-              "additionalProperties": false
-            },
-            {
-              "type": "null"
-            }
-          ]
+        "external_id": {
+          "type": "string"
         },
         "created_at": {
-          "type": [
-            "string",
-            "null"
-          ]
+          "type": "string"
         },
         "updated_at": {
-          "type": [
-            "string",
-            "null"
-          ]
-        },
-        "generated_timestamp": {
-          "type": [
-            "number",
-            "null"
-          ]
+          "type": "string"
         },
         "type": {
-          "type": [
-            "string",
-            "null"
-          ]
+          "type": "string"
         },
         "subject": {
-          "type": [
-            "string",
-            "null"
-          ]
-        },
-        "raw_subject": {
-          "type": [
-            "string",
-            "null"
-          ]
+          "type": "string"
         },
         "description": {
-          "type": [
-            "string",
-            "null"
-          ]
+          "type": "string"
         },
         "priority": {
-          "type": [
-            "string",
-            "null"
-          ]
+          "type": "string"
         },
         "status": {
-          "type": [
-            "string",
-            "null"
-          ]
+          "type": "string"
         },
         "recipient": {
-          "type": [
-            "string",
-            "null"
-          ]
+          "type": "string"
         },
         "requester_id": {
-          "type": [
-            "number",
-            "null"
-          ]
+          "type": "string"
         },
         "submitter_id": {
-          "type": [
-            "number",
-            "null"
-          ]
+          "type": "string"
         },
         "assignee_id": {
-          "type": [
-            "number",
-            "null"
-          ]
+          "type": "string"
         },
         "organization_id": {
-          "type": [
-            "number",
-            "null"
-          ]
+          "type": "string"
         },
         "group_id": {
-          "type": [
-            "number",
-            "null"
-          ]
+          "type": "string"
         },
         "collaborator_ids": {
-          "anyOf": [
-            {
-              "type": "array",
-              "items": {
-                "type": "number"
-              }
-            },
-            {
-              "type": "null"
-            }
-          ]
-        },
-        "follower_ids": {
-          "anyOf": [
-            {
-              "type": "array",
-              "items": {
-                "type": "number"
-              }
-            },
-            {
-              "type": "null"
-            }
-          ]
-        },
-        "email_cc_ids": {
-          "anyOf": [
-            {
-              "type": "array",
-              "items": {
-                "type": "number"
-              }
-            },
-            {
-              "type": "null"
-            }
-          ]
-        },
-        "forum_topic_id": {
-          "type": [
-            "string",
-            "null"
-          ]
-        },
-        "problem_id": {
-          "type": [
-            "string",
-            "null"
-          ]
-        },
-        "has_incidents": {
-          "type": [
-            "boolean",
-            "null"
-          ]
-        },
-        "is_public": {
-          "type": [
-            "boolean",
-            "null"
-          ]
-        },
-        "due_at": {
-          "type": [
-            "string",
-            "null"
-          ]
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
         },
         "tags": {
-          "anyOf": [
-            {
-              "type": "array",
-              "items": {
-                "type": "string"
-              }
-            },
-            {
-              "type": "null"
-            }
-          ]
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "has_incidents": {
+          "type": "boolean"
+        },
+        "is_public": {
+          "type": "boolean"
+        },
+        "due_at": {
+          "type": "string"
         },
         "custom_fields": {
-          "anyOf": [
-            {
-              "type": "array",
-              "items": {
-                "type": "object",
-                "properties": {
-                  "id": {
-                    "type": "number"
-                  },
-                  "value": {
-                    "type": [
-                      "string",
-                      "null"
-                    ]
-                  }
-                },
-                "required": [
-                  "id",
-                  "value"
-                ],
-                "additionalProperties": false
-              }
-            },
-            {
-              "type": "null"
-            }
-          ]
-        },
-        "satisfaction_rating": {
-          "anyOf": [
-            {
-              "type": "object",
-              "additionalProperties": {
-                "anyOf": [
-                  {},
-                  {
-                    "not": {}
-                  }
-                ]
-              }
-            },
-            {
-              "type": "null"
-            }
-          ]
-        },
-        "sharing_agreement_ids": {
-          "anyOf": [
-            {
-              "type": "array",
-              "items": {
-                "type": "number"
-              }
-            },
-            {
-              "type": "null"
-            }
-          ]
-        },
-        "custom_status_id": {
-          "type": [
-            "number",
-            "null"
-          ]
-        },
-        "fields": {
-          "anyOf": [
-            {
-              "type": "array",
-              "items": {
-                "type": "object",
-                "properties": {
-                  "id": {
-                    "type": "number"
-                  },
-                  "value": {
-                    "type": [
-                      "string",
-                      "null"
-                    ]
-                  }
-                },
-                "required": [
-                  "id",
-                  "value"
-                ],
-                "additionalProperties": false
-              }
-            },
-            {
-              "type": "null"
-            }
-          ]
-        },
-        "followup_ids": {
-          "anyOf": [
-            {
-              "type": "array",
-              "items": {
-                "type": "number"
-              }
-            },
-            {
-              "type": "null"
-            }
-          ]
+          "type": "array",
+          "items": {}
         },
         "ticket_form_id": {
-          "type": [
-            "number",
-            "null"
-          ]
+          "type": "string"
         },
         "brand_id": {
-          "type": [
-            "number",
-            "null"
-          ]
-        },
-        "allow_channelback": {
-          "type": [
-            "boolean",
-            "null"
-          ]
-        },
-        "allow_attachments": {
-          "type": [
-            "boolean",
-            "null"
-          ]
-        },
-        "from_messaging_channel": {
-          "type": [
-            "boolean",
-            "null"
-          ]
+          "type": "string"
         }
       },
       "required": [
-        "url",
         "id",
+        "url",
         "external_id",
-        "via",
         "created_at",
         "updated_at",
-        "generated_timestamp",
         "type",
         "subject",
-        "raw_subject",
         "description",
         "priority",
         "status",
@@ -31131,25 +30871,13 @@
         "organization_id",
         "group_id",
         "collaborator_ids",
-        "follower_ids",
-        "email_cc_ids",
-        "forum_topic_id",
-        "problem_id",
+        "tags",
         "has_incidents",
         "is_public",
         "due_at",
-        "tags",
         "custom_fields",
-        "satisfaction_rating",
-        "sharing_agreement_ids",
-        "custom_status_id",
-        "fields",
-        "followup_ids",
         "ticket_form_id",
-        "brand_id",
-        "allow_channelback",
-        "allow_attachments",
-        "from_messaging_channel"
+        "brand_id"
       ],
       "additionalProperties": false
     },
@@ -100780,23 +100508,33 @@
         "id": {
           "type": "string"
         },
-        "active": {
+        "name": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        },
+        "isDefault": {
           "type": "boolean"
         },
-        "created_at": {
-          "type": [
-            "string",
-            "null"
-          ]
+        "isDeleted": {
+          "type": "boolean"
         },
-        "name": {
+        "isPublic": {
+          "type": "boolean"
+        },
+        "createdAt": {
+          "type": "string"
+        },
+        "updatedAt": {
+          "type": "string"
+        },
+        "url": {
           "type": "string"
         }
       },
       "required": [
         "id",
-        "active",
-        "created_at",
         "name"
       ],
       "additionalProperties": false
@@ -114980,203 +114718,64 @@
       ],
       "additionalProperties": false
     },
-    "SyncMetadata_zendesk_articles": {
-      "type": "object",
-      "additionalProperties": false
-    },
-    "SyncMetadata_zendesk_categories": {
-      "type": "object",
-      "additionalProperties": false
-    },
-    "SyncMetadata_zendesk_sections": {
-      "type": "object",
-      "additionalProperties": false
-    },
-    "SyncMetadata_zendesk_tickets": {
-      "type": "object",
-      "additionalProperties": false
-    },
-    "SyncMetadata_zendesk_users": {
-      "type": "object",
-      "additionalProperties": false
-    },
-    "ActionInput_zendesk_createcategory": {
-      "type": "object",
-      "properties": {
-        "category": {
-          "type": "object",
-          "properties": {
-            "name": {
-              "type": "string"
-            },
-            "description": {
-              "type": "string"
-            }
-          },
-          "required": [
-            "name"
-          ],
-          "additionalProperties": false
-        }
-      },
-      "required": [
-        "category"
-      ],
-      "additionalProperties": false
-    },
-    "ActionOutput_zendesk_createcategory": {
+    "Macro": {
       "type": "object",
       "properties": {
         "id": {
           "type": "string"
         },
-        "url": {
+        "title": {
           "type": "string"
         },
-        "name": {
-          "type": "string"
-        },
-        "description": {
-          "type": "string"
-        }
-      },
-      "required": [
-        "id",
-        "url",
-        "name",
-        "description"
-      ],
-      "additionalProperties": false
-    },
-    "ActionInput_zendesk_createsection": {
-      "type": "object",
-      "properties": {
-        "category_id": {
-          "type": "number"
-        },
-        "section": {
-          "type": "object",
-          "properties": {
-            "name": {
-              "type": "string"
-            },
-            "description": {
-              "type": "string"
-            }
-          },
-          "required": [
-            "name"
-          ],
-          "additionalProperties": false
-        }
-      },
-      "required": [
-        "category_id",
-        "section"
-      ],
-      "additionalProperties": false
-    },
-    "ActionOutput_zendesk_createsection": {
-      "type": "object",
-      "properties": {
-        "id": {
-          "type": "string"
-        },
-        "url": {
-          "type": "string"
-        },
-        "category_id": {
-          "type": "number"
-        },
-        "name": {
-          "type": "string"
+        "active": {
+          "type": "boolean"
         },
         "description": {
           "type": "string"
-        }
-      },
-      "required": [
-        "id",
-        "url",
-        "category_id",
-        "name",
-        "description"
-      ],
-      "additionalProperties": false
-    },
-    "ActionInput_zendesk_createticket": {
-      "type": "object",
-      "properties": {
-        "ticket": {
-          "type": "object",
-          "properties": {
-            "comment": {
-              "type": "object",
-              "properties": {
-                "body": {
-                  "type": "string"
-                },
-                "html_body": {
-                  "type": "string"
-                }
+        },
+        "position": {
+          "type": "number"
+        },
+        "created_at": {
+          "type": "string"
+        },
+        "updated_at": {
+          "type": "string"
+        },
+        "actions": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "field": {
+                "type": [
+                  "string",
+                  "number"
+                ]
               },
-              "additionalProperties": false
+              "value": {}
             },
-            "assignee_email": {
-              "type": "string"
-            },
-            "assignee_id": {
-              "type": "number"
-            },
-            "brand_id": {
-              "type": "number"
-            },
-            "due_at": {
-              "type": "string"
-            },
-            "type": {
-              "type": "string",
-              "enum": [
-                "problem",
-                "incident",
-                "question",
-                "task"
-              ]
-            },
-            "status": {
-              "type": "string",
-              "enum": [
-                "new",
-                "open",
-                "pending",
-                "hold",
-                "solved",
-                "closed."
-              ]
-            },
-            "metadata": {
-              "type": "object",
-              "additionalProperties": false
-            }
-          },
-          "required": [
-            "comment"
-          ],
-          "additionalProperties": false
+            "required": [
+              "field"
+            ],
+            "additionalProperties": false
+          }
         }
       },
       "required": [
-        "ticket"
+        "id",
+        "title",
+        "active"
       ],
       "additionalProperties": false
     },
-    "ActionOutput_zendesk_createticket": {
+    "Organization": {
       "type": "object",
       "properties": {
         "id": {
           "type": "string"
         },
-        "url": {
+        "name": {
           "type": "string"
         },
         "created_at": {
@@ -115185,80 +114784,380 @@
         "updated_at": {
           "type": "string"
         },
-        "subject": {
-          "type": [
-            "string",
-            "null"
-          ]
-        },
-        "description": {
+        "url": {
           "type": "string"
         },
-        "priority": {
-          "type": [
-            "string",
-            "null"
-          ]
+        "external_id": {
+          "type": "string"
         },
-        "status": {
+        "domain_names": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "group_id": {
+          "type": "number"
+        },
+        "shared_comments": {
+          "type": "boolean"
+        },
+        "shared_tickets": {
+          "type": "boolean"
+        },
+        "tags": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "notes": {
+          "type": "string"
+        },
+        "details": {
           "type": "string"
         }
       },
       "required": [
         "id",
-        "url",
+        "name",
         "created_at",
         "updated_at",
-        "subject",
-        "description",
-        "priority",
-        "status"
+        "url"
       ],
       "additionalProperties": false
     },
-    "ActionInput_zendesk_createuser": {
-      "type": "object",
-      "properties": {
-        "firstName": {
-          "type": "string"
-        },
-        "lastName": {
-          "type": "string"
-        },
-        "email": {
-          "type": "string"
-        },
-        "role": {
-          "type": "string",
-          "enum": [
-            "admin",
-            "agent"
-          ]
-        }
-      },
-      "required": [
-        "firstName",
-        "lastName",
-        "email"
-      ],
-      "additionalProperties": false
-    },
-    "ActionOutput_zendesk_createuser": {
+    "TicketComment": {
       "type": "object",
       "properties": {
         "id": {
           "type": "string"
         },
-        "firstName": {
+        "ticket_id": {
           "type": "string"
         },
-        "lastName": {
+        "type": {
           "type": "string"
         },
-        "email": {
+        "author_id": {
           "type": "string"
         },
-        "user_fields": {
+        "body": {
+          "type": "string"
+        },
+        "html_body": {
+          "type": "string"
+        },
+        "plain_body": {
+          "type": "string"
+        },
+        "public": {
+          "type": "boolean"
+        },
+        "created_at": {
+          "type": "string"
+        },
+        "updated_at": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "id",
+        "ticket_id",
+        "author_id",
+        "created_at"
+      ],
+      "additionalProperties": false
+    },
+    "TicketField": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "type": {
+          "type": "string"
+        },
+        "title": {
+          "type": "string"
+        },
+        "raw_title": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        },
+        "raw_description": {
+          "type": "string"
+        },
+        "position": {
+          "type": "number"
+        },
+        "active": {
+          "type": "boolean"
+        },
+        "required": {
+          "type": "boolean"
+        },
+        "agent_can_edit": {
+          "type": "boolean"
+        },
+        "removable": {
+          "type": "boolean"
+        },
+        "created_at": {
+          "type": "string"
+        },
+        "updated_at": {
+          "type": "string"
+        },
+        "visible_in_portal": {
+          "type": "boolean"
+        },
+        "editable_in_portal": {
+          "type": "boolean"
+        },
+        "required_in_portal": {
+          "type": "boolean"
+        },
+        "title_in_portal": {
+          "type": "string"
+        },
+        "raw_title_in_portal": {
+          "type": "string"
+        },
+        "tag": {
+          "type": "string"
+        },
+        "regexp_for_validation": {
+          "type": "string"
+        },
+        "sub_type_id": {
+          "type": "number"
+        },
+        "custom_field_options": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "number"
+              },
+              "name": {
+                "type": "string"
+              },
+              "raw_name": {
+                "type": "string"
+              },
+              "value": {
+                "type": "string"
+              },
+              "default": {
+                "type": "boolean"
+              }
+            },
+            "additionalProperties": false
+          }
+        },
+        "system_field_options": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "name": {
+                "type": "string"
+              },
+              "value": {
+                "type": "string"
+              }
+            },
+            "additionalProperties": false
+          }
+        }
+      },
+      "required": [
+        "id",
+        "type",
+        "title",
+        "created_at",
+        "updated_at"
+      ],
+      "additionalProperties": false
+    },
+    "TicketForm": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "display_name": {
+          "type": "string"
+        },
+        "raw_name": {
+          "type": "string"
+        },
+        "raw_display_name": {
+          "type": "string"
+        },
+        "position": {
+          "type": "number"
+        },
+        "ticket_field_ids": {
+          "type": "array",
+          "items": {
+            "type": "number"
+          }
+        },
+        "active": {
+          "type": "boolean"
+        },
+        "default": {
+          "type": "boolean"
+        },
+        "end_user_visible": {
+          "type": "boolean"
+        },
+        "in_all_brands": {
+          "type": "boolean"
+        },
+        "restricted_brand_ids": {
+          "type": "array",
+          "items": {
+            "type": "number"
+          }
+        },
+        "created_at": {
+          "type": "string"
+        },
+        "updated_at": {
+          "type": "string"
+        },
+        "deleted_at": {
+          "type": "string"
+        },
+        "url": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "id"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_zendesk_createcategory": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string",
+          "description": "The name of the category. Example: \"Getting Started\""
+        },
+        "locale": {
+          "type": "string",
+          "description": "The locale where the category is displayed. Example: \"en-us\""
+        },
+        "description": {
+          "type": "string",
+          "description": "The description of the category"
+        },
+        "position": {
+          "type": "number",
+          "description": "The position of this category relative to other categories"
+        }
+      },
+      "required": [
+        "name",
+        "locale"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_zendesk_createcategory": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "number"
+        },
+        "name": {
+          "type": "string"
+        },
+        "locale": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        },
+        "position": {
+          "type": "number"
+        },
+        "created_at": {
+          "type": "string"
+        },
+        "updated_at": {
+          "type": "string"
+        },
+        "html_url": {
+          "type": "string"
+        },
+        "url": {
+          "type": "string"
+        },
+        "outdated": {
+          "type": "boolean"
+        },
+        "source_locale": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "id",
+        "name",
+        "locale",
+        "created_at",
+        "updated_at",
+        "html_url",
+        "url"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_zendesk_createorganization": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "notes": {
+          "type": "string"
+        },
+        "details": {
+          "type": "string"
+        },
+        "external_id": {
+          "type": "string"
+        },
+        "domain_names": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "group_id": {
+          "type": "number"
+        },
+        "shared_tickets": {
+          "type": "boolean"
+        },
+        "shared_comments": {
+          "type": "boolean"
+        },
+        "tags": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "organization_fields": {
           "type": "object",
           "additionalProperties": {
             "anyOf": [
@@ -115271,22 +115170,447 @@
         }
       },
       "required": [
+        "name"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_zendesk_createorganization": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "number"
+        },
+        "name": {
+          "type": "string"
+        },
+        "notes": {
+          "type": "string"
+        },
+        "details": {
+          "type": "string"
+        },
+        "external_id": {
+          "type": "string"
+        },
+        "domain_names": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "group_id": {
+          "type": "number"
+        },
+        "shared_tickets": {
+          "type": "boolean"
+        },
+        "shared_comments": {
+          "type": "boolean"
+        },
+        "tags": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "organization_fields": {
+          "type": "object",
+          "additionalProperties": {
+            "anyOf": [
+              {},
+              {
+                "not": {}
+              }
+            ]
+          }
+        },
+        "created_at": {
+          "type": "string"
+        },
+        "updated_at": {
+          "type": "string"
+        }
+      },
+      "required": [
         "id",
-        "firstName",
-        "lastName",
-        "email"
+        "name",
+        "domain_names",
+        "shared_tickets",
+        "shared_comments",
+        "tags",
+        "created_at",
+        "updated_at"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_zendesk_createsection": {
+      "type": "object",
+      "properties": {
+        "category_id": {
+          "type": "number",
+          "description": "The ID of the category to which this section belongs. Example: 123"
+        },
+        "name": {
+          "type": "string",
+          "description": "The name of the section. Example: \"Getting Started\""
+        },
+        "locale": {
+          "type": "string",
+          "description": "The locale in which the section is displayed. Example: \"en-us\""
+        },
+        "description": {
+          "type": "string",
+          "description": "The description of the section. Example: \"Articles about getting started\""
+        },
+        "position": {
+          "type": "number",
+          "description": "The position of this section in the section list. Used when sorting is set to manual."
+        },
+        "parent_section_id": {
+          "type": "number",
+          "description": "The ID of the parent section. Only writable for Guide Enterprise customers."
+        },
+        "theme_template": {
+          "type": "string",
+          "description": "The theme template name used to display this section in Help Center."
+        }
+      },
+      "required": [
+        "category_id",
+        "name",
+        "locale"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_zendesk_createsection": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "number"
+        },
+        "category_id": {
+          "type": "number"
+        },
+        "name": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        },
+        "locale": {
+          "type": "string"
+        },
+        "source_locale": {
+          "type": "string"
+        },
+        "position": {
+          "type": "number"
+        },
+        "parent_section_id": {
+          "type": "number"
+        },
+        "theme_template": {
+          "type": "string"
+        },
+        "html_url": {
+          "type": "string"
+        },
+        "url": {
+          "type": "string"
+        },
+        "created_at": {
+          "type": "string"
+        },
+        "updated_at": {
+          "type": "string"
+        },
+        "outdated": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "id",
+        "name",
+        "locale"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_zendesk_createticket": {
+      "type": "object",
+      "properties": {
+        "subject": {
+          "type": "string",
+          "description": "The subject of the ticket. Example: \"My printer is on fire!\""
+        },
+        "comment": {
+          "type": "string",
+          "description": "The initial comment on the ticket. Example: \"The printer caught fire when I tried to print a document.\""
+        },
+        "requester_email": {
+          "type": "string",
+          "description": "Email of the requester. If no user exists with this email, a new user will be created. Example: \"customer@example.com\""
+        },
+        "requester_name": {
+          "type": "string",
+          "description": "Name of the requester. Only used when creating a new user. Example: \"John Doe\""
+        },
+        "priority": {
+          "type": "string",
+          "enum": [
+            "urgent",
+            "high",
+            "normal",
+            "low"
+          ],
+          "description": "Priority of the ticket."
+        },
+        "status": {
+          "type": "string",
+          "enum": [
+            "new",
+            "open",
+            "pending",
+            "hold",
+            "solved",
+            "closed"
+          ],
+          "description": "Status of the ticket."
+        },
+        "tags": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "Tags applied to the ticket. Example: [\"printer\", \"urgent\"]"
+        },
+        "type": {
+          "type": "string",
+          "enum": [
+            "problem",
+            "incident",
+            "question",
+            "task"
+          ],
+          "description": "Type of ticket."
+        }
+      },
+      "required": [
+        "subject",
+        "comment"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_zendesk_createticket": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "number"
+        },
+        "url": {
+          "type": "string"
+        },
+        "subject": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        },
+        "status": {
+          "type": "string"
+        },
+        "priority": {
+          "type": "string"
+        },
+        "type": {
+          "type": "string"
+        },
+        "created_at": {
+          "type": "string"
+        },
+        "updated_at": {
+          "type": "string"
+        },
+        "requester_id": {
+          "type": "number"
+        },
+        "submitter_id": {
+          "type": "number"
+        },
+        "assignee_id": {
+          "type": "number"
+        },
+        "organization_id": {
+          "type": "number"
+        },
+        "group_id": {
+          "type": "number"
+        },
+        "tags": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      },
+      "required": [
+        "id",
+        "url",
+        "subject",
+        "status",
+        "created_at",
+        "updated_at",
+        "requester_id",
+        "submitter_id",
+        "tags"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_zendesk_createuser": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string",
+          "description": "The full name of the user. Example: \"John Doe\""
+        },
+        "email": {
+          "type": "string",
+          "description": "The primary email address of the user. Example: \"john@example.com\""
+        },
+        "phone": {
+          "type": "string",
+          "description": "The phone number of the user. Example: \"+1234567890\""
+        },
+        "role": {
+          "type": "string",
+          "enum": [
+            "end-user",
+            "agent",
+            "admin"
+          ],
+          "description": "The role of the user. Example: \"end-user\""
+        },
+        "external_id": {
+          "type": "string",
+          "description": "A unique identifier from your external system. Example: \"ext-123\""
+        },
+        "locale": {
+          "type": "string",
+          "description": "The locale of the user. Example: \"en-US\""
+        },
+        "signature": {
+          "type": "string",
+          "description": "The signature of the agent/admin. Example: \"Best regards, John\""
+        },
+        "details": {
+          "type": "string",
+          "description": "Details about the user. Example: \"VIP customer\""
+        },
+        "notes": {
+          "type": "string",
+          "description": "Notes about the user. Example: \"Acquired through referral\""
+        },
+        "organization_id": {
+          "type": "number",
+          "description": "The ID of the organization the user belongs to. Example: 123"
+        },
+        "verified": {
+          "type": "boolean",
+          "description": "Whether the user has been verified. Example: true"
+        },
+        "suspended": {
+          "type": "boolean",
+          "description": "Whether the user is suspended. Example: false"
+        }
+      },
+      "required": [
+        "name"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_zendesk_createuser": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "number",
+          "description": "The ID of the created user. Example: 123"
+        },
+        "name": {
+          "type": "string",
+          "description": "The name of the created user. Example: \"John Doe\""
+        },
+        "email": {
+          "type": "string",
+          "description": "The email of the created user. Example: \"john@example.com\""
+        },
+        "phone": {
+          "type": "string",
+          "description": "The phone of the created user. Example: \"+1234567890\""
+        },
+        "role": {
+          "type": "string",
+          "description": "The role of the created user. Example: \"end-user\""
+        },
+        "external_id": {
+          "type": "string",
+          "description": "The external ID of the created user. Example: \"ext-123\""
+        },
+        "locale": {
+          "type": "string",
+          "description": "The locale of the created user. Example: \"en-US\""
+        },
+        "signature": {
+          "type": "string",
+          "description": "The signature of the created user. Example: \"Best regards, John\""
+        },
+        "details": {
+          "type": "string",
+          "description": "The details of the created user. Example: \"VIP customer\""
+        },
+        "notes": {
+          "type": "string",
+          "description": "The notes of the created user. Example: \"Acquired through referral\""
+        },
+        "organization_id": {
+          "type": "number",
+          "description": "The organization ID of the created user. Example: 123"
+        },
+        "active": {
+          "type": "boolean",
+          "description": "Whether the created user is active. Example: true"
+        },
+        "verified": {
+          "type": "boolean",
+          "description": "Whether the created user is verified. Example: true"
+        },
+        "suspended": {
+          "type": "boolean",
+          "description": "Whether the created user is suspended. Example: false"
+        },
+        "created_at": {
+          "type": "string",
+          "description": "The creation timestamp. Example: \"2024-01-01T00:00:00Z\""
+        },
+        "updated_at": {
+          "type": "string",
+          "description": "The update timestamp. Example: \"2024-01-01T00:00:00Z\""
+        }
+      },
+      "required": [
+        "id",
+        "name"
       ],
       "additionalProperties": false
     },
     "ActionInput_zendesk_deleteuser": {
       "type": "object",
       "properties": {
-        "id": {
-          "type": "string"
+        "userId": {
+          "type": "string",
+          "description": "The ID of the user to delete. Example: \"1234567890\""
         }
       },
       "required": [
-        "id"
+        "userId"
       ],
       "additionalProperties": false
     },
@@ -115294,19 +115618,734 @@
       "type": "object",
       "properties": {
         "success": {
+          "type": "boolean",
+          "description": "Whether the user was successfully deleted"
+        },
+        "userId": {
+          "type": "string",
+          "description": "The ID of the deleted user"
+        }
+      },
+      "required": [
+        "success",
+        "userId"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_zendesk_getarticle": {
+      "type": "object",
+      "properties": {
+        "article_id": {
+          "type": "number",
+          "description": "The unique ID of the article. Example: 360026053753"
+        }
+      },
+      "required": [
+        "article_id"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_zendesk_getarticle": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "number"
+        },
+        "title": {
+          "type": "string"
+        },
+        "body": {
+          "type": "string"
+        },
+        "author_id": {
+          "type": "number"
+        },
+        "section_id": {
+          "type": "number"
+        },
+        "category_id": {
+          "type": "number"
+        },
+        "created_at": {
+          "type": "string"
+        },
+        "updated_at": {
+          "type": "string"
+        },
+        "edited_at": {
+          "type": "string"
+        },
+        "locale": {
+          "type": "string"
+        },
+        "source_locale": {
+          "type": "string"
+        },
+        "html_url": {
+          "type": "string"
+        },
+        "url": {
+          "type": "string"
+        },
+        "draft": {
+          "type": "boolean"
+        },
+        "promoted": {
+          "type": "boolean"
+        },
+        "position": {
+          "type": "number"
+        },
+        "comments_disabled": {
+          "type": "boolean"
+        },
+        "vote_count": {
+          "type": "number"
+        },
+        "vote_sum": {
+          "type": "number"
+        },
+        "permission_group_id": {
+          "type": "number"
+        },
+        "user_segment_id": {
+          "type": "number"
+        },
+        "user_segment_ids": {
+          "type": "array",
+          "items": {
+            "type": "number"
+          }
+        },
+        "label_names": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "content_tag_ids": {
+          "type": "array",
+          "items": {
+            "type": "number"
+          }
+        },
+        "outdated": {
+          "type": "boolean"
+        },
+        "outdated_locales": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      },
+      "required": [
+        "id",
+        "title"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_zendesk_getgroup": {
+      "type": "object",
+      "properties": {
+        "group_id": {
+          "type": "number",
+          "description": "Group ID. Example: 123456"
+        }
+      },
+      "required": [
+        "group_id"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_zendesk_getgroup": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "number"
+        },
+        "name": {
+          "type": "string"
+        },
+        "url": {
+          "type": "string"
+        },
+        "created_at": {
+          "type": "string"
+        },
+        "updated_at": {
+          "type": "string"
+        },
+        "deleted": {
           "type": "boolean"
         }
       },
       "required": [
-        "success"
+        "id",
+        "name"
       ],
       "additionalProperties": false
     },
-    "ActionInput_zendesk_fetcharticle": {
+    "ActionInput_zendesk_getorganization": {
+      "type": "object",
+      "properties": {
+        "organization_id": {
+          "type": "number",
+          "description": "The ID of the organization to retrieve. Example: 35436"
+        }
+      },
+      "required": [
+        "organization_id"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_zendesk_getorganization": {
       "type": "object",
       "properties": {
         "id": {
+          "type": "number"
+        },
+        "name": {
           "type": "string"
+        },
+        "created_at": {
+          "type": "string"
+        },
+        "updated_at": {
+          "type": "string"
+        },
+        "details": {
+          "type": "string"
+        },
+        "domain_names": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "external_id": {
+          "type": "string"
+        },
+        "group_id": {
+          "type": "number"
+        },
+        "notes": {
+          "type": "string"
+        },
+        "organization_fields": {
+          "type": "object",
+          "additionalProperties": {
+            "anyOf": [
+              {},
+              {
+                "not": {}
+              }
+            ]
+          }
+        },
+        "shared_comments": {
+          "type": "boolean"
+        },
+        "shared_tickets": {
+          "type": "boolean"
+        },
+        "tags": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "url": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "id",
+        "name"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_zendesk_getticketcomments": {
+      "type": "object",
+      "properties": {
+        "ticket_id": {
+          "type": "number",
+          "description": "The ID of the ticket. Example: 123"
+        },
+        "cursor": {
+          "type": "string",
+          "description": "Pagination cursor from the previous response. Omit for the first page."
+        },
+        "per_page": {
+          "type": "number",
+          "description": "Number of records to return per page (default 100, max 100)."
+        }
+      },
+      "required": [
+        "ticket_id"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_zendesk_getticketcomments": {
+      "type": "object",
+      "properties": {
+        "comments": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "number"
+              },
+              "type": {
+                "type": "string"
+              },
+              "body": {
+                "type": "string"
+              },
+              "html_body": {
+                "type": "string"
+              },
+              "plain_body": {
+                "type": "string"
+              },
+              "public": {
+                "type": "boolean"
+              },
+              "author_id": {
+                "type": "number"
+              },
+              "audit_id": {
+                "type": "number"
+              },
+              "created_at": {
+                "type": "string"
+              },
+              "attachments": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "number"
+                    },
+                    "file_name": {
+                      "type": "string"
+                    },
+                    "content_url": {
+                      "type": "string"
+                    },
+                    "content_type": {
+                      "type": "string"
+                    },
+                    "size": {
+                      "type": "number"
+                    }
+                  },
+                  "required": [
+                    "id",
+                    "file_name"
+                  ],
+                  "additionalProperties": false
+                }
+              },
+              "metadata": {
+                "type": "object",
+                "additionalProperties": false
+              },
+              "via": {
+                "type": "object",
+                "additionalProperties": false
+              }
+            },
+            "required": [
+              "id"
+            ],
+            "additionalProperties": false
+          }
+        },
+        "next_cursor": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "comments"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_zendesk_getticketfield": {
+      "type": "object",
+      "properties": {
+        "ticketFieldId": {
+          "type": "number",
+          "description": "The ID of the ticket field. Example: 123"
+        }
+      },
+      "required": [
+        "ticketFieldId"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_zendesk_getticketfield": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "number"
+        },
+        "url": {
+          "type": "string"
+        },
+        "type": {
+          "type": "string"
+        },
+        "title": {
+          "type": "string"
+        },
+        "raw_title": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        },
+        "raw_description": {
+          "type": "string"
+        },
+        "position": {
+          "type": "number"
+        },
+        "active": {
+          "type": "boolean"
+        },
+        "required": {
+          "type": "boolean"
+        },
+        "collapsed_for_agents": {
+          "type": "boolean"
+        },
+        "regexp_for_validation": {
+          "type": "string"
+        },
+        "title_in_portal": {
+          "type": "string"
+        },
+        "raw_title_in_portal": {
+          "type": "string"
+        },
+        "visible_in_portal": {
+          "type": "boolean"
+        },
+        "editable_in_portal": {
+          "type": "boolean"
+        },
+        "required_in_portal": {
+          "type": "boolean"
+        },
+        "tag": {
+          "type": "string"
+        },
+        "removable": {
+          "type": "boolean"
+        },
+        "agent_description": {
+          "type": "string"
+        },
+        "created_at": {
+          "type": "string"
+        },
+        "updated_at": {
+          "type": "string"
+        },
+        "custom_field_options": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "number"
+              },
+              "name": {
+                "type": "string"
+              },
+              "raw_name": {
+                "type": "string"
+              },
+              "value": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "id",
+              "name",
+              "value"
+            ],
+            "additionalProperties": false
+          }
+        },
+        "system_field_options": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "number"
+              },
+              "name": {
+                "type": "string"
+              },
+              "raw_name": {
+                "type": "string"
+              },
+              "value": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "name",
+              "value"
+            ],
+            "additionalProperties": false
+          }
+        },
+        "sub_type_id": {
+          "type": "number"
+        },
+        "creator_user_id": {
+          "type": "number"
+        },
+        "creator_app_name": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "id",
+        "url",
+        "type",
+        "title"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_zendesk_getticketform": {
+      "type": "object",
+      "properties": {
+        "ticket_form_id": {
+          "type": "number",
+          "description": "The ID of the ticket form to retrieve. Example: 123"
+        }
+      },
+      "required": [
+        "ticket_form_id"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_zendesk_getticketform": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "number"
+        },
+        "name": {
+          "type": "string"
+        },
+        "raw_name": {
+          "type": "string"
+        },
+        "display_name": {
+          "type": "string"
+        },
+        "raw_display_name": {
+          "type": "string"
+        },
+        "position": {
+          "type": "number"
+        },
+        "ticket_field_ids": {
+          "type": "array",
+          "items": {
+            "type": "number"
+          }
+        },
+        "active": {
+          "type": "boolean"
+        },
+        "default": {
+          "type": "boolean"
+        },
+        "end_user_visible": {
+          "type": "boolean"
+        },
+        "agent_conditions": {
+          "type": "array",
+          "items": {}
+        },
+        "end_user_conditions": {
+          "type": "array",
+          "items": {}
+        },
+        "visible_in_portal": {
+          "type": "boolean"
+        },
+        "editable_in_portal": {
+          "type": "boolean"
+        },
+        "required_in_portal": {
+          "type": "boolean"
+        },
+        "created_at": {
+          "type": "string"
+        },
+        "updated_at": {
+          "type": "string"
+        },
+        "in_business_hours": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "id",
+        "name"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_zendesk_getticket": {
+      "type": "object",
+      "properties": {
+        "ticket_id": {
+          "type": [
+            "string",
+            "number"
+          ],
+          "description": "Ticket ID to retrieve. Example: \"1\" or 1"
+        },
+        "include": {
+          "type": "string",
+          "description": "Comma-separated list of sideloads to include. Example: \"users,organizations,groups\". See: https://developer.zendesk.com/api-reference/ticketing/tickets/tickets/#sideloads"
+        }
+      },
+      "required": [
+        "ticket_id"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_zendesk_getticket": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "number"
+        },
+        "url": {
+          "type": "string"
+        },
+        "subject": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        },
+        "priority": {
+          "type": "string"
+        },
+        "status": {
+          "type": "string"
+        },
+        "type": {
+          "type": "string"
+        },
+        "requester_id": {
+          "type": "number"
+        },
+        "assignee_id": {
+          "type": "number"
+        },
+        "organization_id": {
+          "type": "number"
+        },
+        "group_id": {
+          "type": "number"
+        },
+        "created_at": {
+          "type": "string"
+        },
+        "updated_at": {
+          "type": "string"
+        },
+        "tags": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      },
+      "required": [
+        "id",
+        "url",
+        "subject",
+        "status"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_zendesk_getuser": {
+      "type": "object",
+      "properties": {
+        "userId": {
+          "type": "string",
+          "description": "The ID of the user to retrieve. Example: \"123456\""
+        }
+      },
+      "required": [
+        "userId"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_zendesk_getuser": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "number"
+        },
+        "url": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "email": {
+          "type": "string"
+        },
+        "createdAt": {
+          "type": "string"
+        },
+        "updatedAt": {
+          "type": "string"
+        },
+        "timeZone": {
+          "type": "string"
+        },
+        "ianaTimeZone": {
+          "type": "string"
+        },
+        "phone": {
+          "type": "string"
+        },
+        "locale": {
+          "type": "string"
+        },
+        "localeId": {
+          "type": "number"
+        },
+        "organizationId": {
+          "type": "number"
+        },
+        "role": {
+          "type": "string"
+        },
+        "verified": {
+          "type": "boolean"
+        },
+        "active": {
+          "type": "boolean"
+        },
+        "suspended": {
+          "type": "boolean"
         }
       },
       "required": [
@@ -115314,135 +116353,52 @@
       ],
       "additionalProperties": false
     },
-    "ActionOutput_zendesk_fetcharticle": {
+    "ActionInput_zendesk_listarticles": {
       "type": "object",
       "properties": {
-        "article": {
-          "type": "object",
-          "properties": {
-            "title": {
-              "type": "string"
-            },
-            "id": {
-              "type": "string"
-            },
-            "url": {
-              "type": "string"
-            },
-            "locale": {
-              "type": "string"
-            },
-            "user_segment_id": {
-              "type": [
-                "number",
-                "null"
-              ]
-            },
-            "permission_group_id": {
-              "type": "number"
-            },
-            "author_id": {
-              "type": "number"
-            },
-            "body": {
-              "type": "string"
-            },
-            "comments_disabled": {
-              "type": "boolean"
-            },
-            "content_tag_ids": {
-              "type": "array",
-              "items": {
-                "type": "number"
-              }
-            },
-            "created_at": {
-              "type": "string"
-            },
-            "draft": {
-              "type": "boolean"
-            },
-            "edited_at": {
-              "type": "string"
-            },
-            "html_url": {
-              "type": "string"
-            },
-            "label_names": {
-              "type": "array",
-              "items": {
-                "type": "string"
-              }
-            },
-            "outdated": {
-              "type": "boolean"
-            },
-            "outdated_locales": {
-              "type": "array",
-              "items": {
-                "type": "string"
-              }
-            },
-            "position": {
-              "type": "number"
-            },
-            "promoted": {
-              "type": "boolean"
-            },
-            "section_id": {
-              "type": "number"
-            },
-            "source_locale": {
-              "type": "string"
-            },
-            "updated_at": {
-              "type": "string"
-            },
-            "vote_count": {
-              "type": "number"
-            },
-            "vote_sum": {
-              "type": "number"
-            }
-          },
-          "required": [
-            "title",
-            "id",
-            "url",
-            "locale",
-            "user_segment_id",
-            "permission_group_id",
-            "author_id",
-            "body",
-            "comments_disabled",
-            "content_tag_ids",
-            "created_at",
-            "draft",
-            "edited_at",
-            "html_url",
-            "label_names",
-            "outdated",
-            "outdated_locales",
+        "cursor": {
+          "type": "string",
+          "description": "Pagination cursor from the previous response. Omit for the first page."
+        },
+        "locale": {
+          "type": "string",
+          "description": "Locale to filter articles by. Example: \"en-us\". Omit to list all locales."
+        },
+        "sort_by": {
+          "type": "string",
+          "enum": [
             "position",
-            "promoted",
-            "section_id",
-            "source_locale",
+            "title",
+            "created_at",
             "updated_at",
-            "vote_count",
-            "vote_sum"
+            "edited_at"
           ],
-          "additionalProperties": false
+          "description": "Sort field. Default is position."
+        },
+        "sort_order": {
+          "type": "string",
+          "enum": [
+            "asc",
+            "desc"
+          ],
+          "description": "Sort order. Default is asc."
+        },
+        "label_names": {
+          "type": "string",
+          "description": "Comma-separated list of label names to filter by. Up to 10 labels."
+        },
+        "section_id": {
+          "type": "string",
+          "description": "Filter articles by section ID."
+        },
+        "category_id": {
+          "type": "string",
+          "description": "Filter articles by category ID."
         }
       },
-      "required": [
-        "article"
-      ],
       "additionalProperties": false
     },
-    "ActionInput_zendesk_fetcharticles": {
-      "type": "null"
-    },
-    "ActionOutput_zendesk_fetcharticles": {
+    "ActionOutput_zendesk_listarticles": {
       "type": "object",
       "properties": {
         "articles": {
@@ -115450,23 +116406,104 @@
           "items": {
             "type": "object",
             "properties": {
+              "id": {
+                "type": "number"
+              },
+              "author_id": {
+                "type": "number"
+              },
+              "body": {
+                "type": "string"
+              },
+              "comments_disabled": {
+                "type": "boolean"
+              },
+              "content_tag_ids": {
+                "type": "array",
+                "items": {
+                  "type": "number"
+                }
+              },
+              "created_at": {
+                "type": "string"
+              },
+              "draft": {
+                "type": "boolean"
+              },
+              "edited_at": {
+                "type": "string"
+              },
+              "html_url": {
+                "type": "string"
+              },
+              "label_names": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "locale": {
+                "type": "string"
+              },
+              "outdated": {
+                "type": "boolean"
+              },
+              "outdated_locales": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "permission_group_id": {
+                "type": "number"
+              },
+              "position": {
+                "type": "number"
+              },
+              "promoted": {
+                "type": "boolean"
+              },
+              "section_id": {
+                "type": "number"
+              },
+              "source_locale": {
+                "type": "string"
+              },
               "title": {
                 "type": "string"
               },
-              "id": {
+              "updated_at": {
                 "type": "string"
               },
               "url": {
                 "type": "string"
+              },
+              "user_segment_id": {
+                "type": "number"
+              },
+              "user_segment_ids": {
+                "type": "array",
+                "items": {
+                  "type": "number"
+                }
+              },
+              "vote_count": {
+                "type": "number"
+              },
+              "vote_sum": {
+                "type": "number"
               }
             },
             "required": [
-              "title",
               "id",
-              "url"
+              "locale",
+              "title"
             ],
             "additionalProperties": false
           }
+        },
+        "next_cursor": {
+          "type": "string"
         }
       },
       "required": [
@@ -115474,11 +116511,854 @@
       ],
       "additionalProperties": false
     },
+    "ActionInput_zendesk_listgroups": {
+      "type": "object",
+      "properties": {
+        "cursor": {
+          "type": "string",
+          "description": "Pagination cursor from the previous response. Omit for the first page."
+        }
+      },
+      "additionalProperties": false
+    },
+    "ActionOutput_zendesk_listgroups": {
+      "type": "object",
+      "properties": {
+        "items": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "number"
+              },
+              "name": {
+                "type": "string"
+              },
+              "description": {
+                "type": "string"
+              },
+              "url": {
+                "type": "string"
+              },
+              "created_at": {
+                "type": "string"
+              },
+              "updated_at": {
+                "type": "string"
+              },
+              "default": {
+                "type": "boolean"
+              },
+              "deleted": {
+                "type": "boolean"
+              },
+              "is_public": {
+                "type": "boolean"
+              }
+            },
+            "required": [
+              "id",
+              "name",
+              "url",
+              "created_at",
+              "updated_at"
+            ],
+            "additionalProperties": false
+          }
+        },
+        "next_cursor": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "items"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_zendesk_listmacros": {
+      "type": "object",
+      "properties": {
+        "cursor": {
+          "type": "string",
+          "description": "Pagination cursor from the previous response. Omit for the first page."
+        },
+        "per_page": {
+          "type": "number",
+          "description": "Number of records to return per page. Maximum 100."
+        },
+        "active": {
+          "type": "boolean",
+          "description": "Filter by active macros if true or inactive macros if false"
+        },
+        "access": {
+          "type": "string",
+          "enum": [
+            "personal",
+            "agents",
+            "shared",
+            "account"
+          ],
+          "description": "Filter macros by access level"
+        },
+        "category": {
+          "type": "number",
+          "description": "Filter macros by category ID"
+        },
+        "group_id": {
+          "type": "number",
+          "description": "Filter macros by group ID"
+        },
+        "only_viewable": {
+          "type": "boolean",
+          "description": "If true, returns only macros that can be applied to tickets"
+        },
+        "sort_by": {
+          "type": "string",
+          "enum": [
+            "alphabetical",
+            "created_at",
+            "updated_at",
+            "usage_1h",
+            "usage_24h",
+            "usage_7d",
+            "usage_30d"
+          ],
+          "description": "Sort field. Defaults to alphabetical"
+        },
+        "sort_order": {
+          "type": "string",
+          "enum": [
+            "asc",
+            "desc"
+          ],
+          "description": "Sort order. Defaults to asc for alphabetical and position sort, desc for others"
+        }
+      },
+      "additionalProperties": false
+    },
+    "ActionOutput_zendesk_listmacros": {
+      "type": "object",
+      "properties": {
+        "macros": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "number"
+              },
+              "title": {
+                "type": "string"
+              },
+              "raw_title": {
+                "type": "string"
+              },
+              "description": {
+                "type": "string"
+              },
+              "active": {
+                "type": "boolean"
+              },
+              "default": {
+                "type": "boolean"
+              },
+              "position": {
+                "type": "number"
+              },
+              "actions": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "field": {
+                      "type": "string"
+                    },
+                    "value": {}
+                  },
+                  "required": [
+                    "field"
+                  ],
+                  "additionalProperties": false
+                }
+              },
+              "restriction": {
+                "type": "object",
+                "properties": {
+                  "type": {
+                    "type": "string"
+                  },
+                  "id": {
+                    "type": "number"
+                  },
+                  "ids": {
+                    "type": "array",
+                    "items": {
+                      "type": "number"
+                    }
+                  }
+                },
+                "additionalProperties": false
+              },
+              "created_at": {
+                "type": "string"
+              },
+              "updated_at": {
+                "type": "string"
+              },
+              "url": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "id",
+              "title"
+            ],
+            "additionalProperties": false
+          }
+        },
+        "next_cursor": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "macros"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_zendesk_listorganizations": {
+      "type": "object",
+      "properties": {
+        "cursor": {
+          "type": "string",
+          "description": "Pagination cursor from the previous response. Omit for the first page."
+        }
+      },
+      "additionalProperties": false
+    },
+    "ActionOutput_zendesk_listorganizations": {
+      "type": "object",
+      "properties": {
+        "items": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "number"
+              },
+              "name": {
+                "type": "string"
+              },
+              "url": {
+                "type": "string"
+              },
+              "external_id": {
+                "type": "string"
+              },
+              "created_at": {
+                "type": "string"
+              },
+              "updated_at": {
+                "type": "string"
+              },
+              "domain_names": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "details": {
+                "type": "string"
+              },
+              "notes": {
+                "type": "string"
+              },
+              "group_id": {
+                "type": "number"
+              },
+              "shared_tickets": {
+                "type": "boolean"
+              },
+              "shared_comments": {
+                "type": "boolean"
+              },
+              "tags": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              }
+            },
+            "required": [
+              "id"
+            ],
+            "additionalProperties": false
+          }
+        },
+        "next_cursor": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "items"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_zendesk_listticketfields": {
+      "type": "object",
+      "properties": {
+        "cursor": {
+          "type": "string",
+          "description": "Pagination cursor from the previous response. Omit for the first page."
+        }
+      },
+      "additionalProperties": false
+    },
+    "ActionOutput_zendesk_listticketfields": {
+      "type": "object",
+      "properties": {
+        "items": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "number"
+              },
+              "url": {
+                "type": "string"
+              },
+              "type": {
+                "type": "string"
+              },
+              "title": {
+                "type": "string"
+              },
+              "raw_title": {
+                "type": "string"
+              },
+              "description": {
+                "type": "string"
+              },
+              "raw_description": {
+                "type": "string"
+              },
+              "position": {
+                "type": "number"
+              },
+              "active": {
+                "type": "boolean"
+              },
+              "required": {
+                "type": "boolean"
+              },
+              "collapsed_for_agents": {
+                "type": "boolean"
+              },
+              "regexp_for_validation": {
+                "type": "string"
+              },
+              "title_in_portal": {
+                "type": "string"
+              },
+              "raw_title_in_portal": {
+                "type": "string"
+              },
+              "visible_in_portal": {
+                "type": "boolean"
+              },
+              "editable_in_portal": {
+                "type": "boolean"
+              },
+              "required_in_portal": {
+                "type": "boolean"
+              },
+              "tag": {
+                "type": "string"
+              },
+              "created_at": {
+                "type": "string"
+              },
+              "updated_at": {
+                "type": "string"
+              },
+              "removable": {
+                "type": "boolean"
+              },
+              "agent_description": {
+                "type": "string"
+              },
+              "custom_field_options": {
+                "type": "array",
+                "items": {}
+              }
+            },
+            "required": [
+              "id",
+              "url",
+              "type",
+              "title"
+            ],
+            "additionalProperties": false
+          }
+        },
+        "next_cursor": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "items"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_zendesk_listticketforms": {
+      "type": "object",
+      "properties": {
+        "cursor": {
+          "type": "string",
+          "description": "Pagination cursor from the previous response. Omit for the first page."
+        }
+      },
+      "additionalProperties": false
+    },
+    "ActionOutput_zendesk_listticketforms": {
+      "type": "object",
+      "properties": {
+        "items": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "number"
+              },
+              "name": {
+                "type": "string"
+              },
+              "raw_name": {
+                "type": "string"
+              },
+              "display_name": {
+                "type": "string"
+              },
+              "end_user_visible": {
+                "type": "boolean"
+              },
+              "position": {
+                "type": "number"
+              },
+              "ticket_field_ids": {
+                "type": "array",
+                "items": {
+                  "type": "number"
+                }
+              },
+              "active": {
+                "type": "boolean"
+              },
+              "default": {
+                "type": "boolean"
+              },
+              "created_at": {
+                "type": "string"
+              },
+              "updated_at": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "id",
+              "name"
+            ],
+            "additionalProperties": false
+          }
+        },
+        "next_cursor": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "items"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_zendesk_listtickets": {
+      "type": "object",
+      "properties": {
+        "cursor": {
+          "type": "string",
+          "description": "Pagination cursor from the previous response. Omit for the first page."
+        },
+        "page_size": {
+          "type": "number",
+          "description": "Number of items to return per page. Maximum is 100."
+        }
+      },
+      "additionalProperties": false
+    },
+    "ActionOutput_zendesk_listtickets": {
+      "type": "object",
+      "properties": {
+        "tickets": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "number"
+              },
+              "url": {
+                "type": "string",
+                "description": "API URL for the ticket"
+              },
+              "external_id": {
+                "type": "string",
+                "description": "External platform ID"
+              },
+              "type": {
+                "type": "string",
+                "description": "Ticket type"
+              },
+              "subject": {
+                "type": "string",
+                "description": "Ticket subject"
+              },
+              "raw_subject": {
+                "type": "string",
+                "description": "Dynamic content placeholder for subject"
+              },
+              "description": {
+                "type": "string",
+                "description": "Ticket description"
+              },
+              "priority": {
+                "type": "string",
+                "description": "Ticket priority"
+              },
+              "status": {
+                "type": "string",
+                "description": "Ticket status"
+              },
+              "recipient": {
+                "type": "string",
+                "description": "Original recipient email address"
+              },
+              "requester_id": {
+                "type": "number",
+                "description": "User ID of the requester"
+              },
+              "submitter_id": {
+                "type": "number",
+                "description": "User ID of the submitter"
+              },
+              "assignee_id": {
+                "type": "number",
+                "description": "User ID of the assignee"
+              },
+              "organization_id": {
+                "type": "number",
+                "description": "Organization ID"
+              },
+              "group_id": {
+                "type": "number",
+                "description": "Group ID"
+              },
+              "collaborator_ids": {
+                "type": "array",
+                "items": {
+                  "type": "number"
+                },
+                "description": "User IDs of collaborators"
+              },
+              "follower_ids": {
+                "type": "array",
+                "items": {
+                  "type": "number"
+                },
+                "description": "User IDs of followers"
+              },
+              "email_cc_ids": {
+                "type": "array",
+                "items": {
+                  "type": "number"
+                },
+                "description": "User IDs in email CC"
+              },
+              "forum_topic_id": {
+                "type": "number",
+                "description": "Topic ID in the community"
+              },
+              "problem_id": {
+                "type": "number",
+                "description": "Problem ticket ID for incidents"
+              },
+              "has_incidents": {
+                "type": "boolean",
+                "description": "Whether ticket has linked incidents"
+              },
+              "is_public": {
+                "type": "boolean",
+                "description": "Whether ticket is public"
+              },
+              "due_at": {
+                "type": "string",
+                "description": "Due date for tickets of type task"
+              },
+              "tags": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                },
+                "description": "Array of tags"
+              },
+              "custom_fields": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "number"
+                    },
+                    "value": {}
+                  },
+                  "required": [
+                    "id"
+                  ],
+                  "additionalProperties": false
+                },
+                "description": "Custom field values"
+              },
+              "satisfaction_rating": {
+                "type": "object",
+                "properties": {
+                  "score": {
+                    "type": "string"
+                  },
+                  "comment": {
+                    "type": "string"
+                  }
+                },
+                "additionalProperties": false,
+                "description": "Satisfaction rating"
+              },
+              "sharing_agreement_ids": {
+                "type": "array",
+                "items": {
+                  "type": "number"
+                },
+                "description": "Sharing agreement IDs"
+              },
+              "followup_ids": {
+                "type": "array",
+                "items": {
+                  "type": "number"
+                },
+                "description": "Followup ticket IDs"
+              },
+              "ticket_form_id": {
+                "type": "number",
+                "description": "Ticket form ID"
+              },
+              "brand_id": {
+                "type": "number",
+                "description": "Brand ID"
+              },
+              "allow_channelback": {
+                "type": "boolean",
+                "description": "Whether channelback is allowed"
+              },
+              "allow_attachments": {
+                "type": "boolean",
+                "description": "Whether attachments are allowed"
+              },
+              "created_at": {
+                "type": "string",
+                "description": "Creation timestamp"
+              },
+              "updated_at": {
+                "type": "string",
+                "description": "Last update timestamp"
+              }
+            },
+            "required": [
+              "id",
+              "url",
+              "status"
+            ],
+            "additionalProperties": false
+          },
+          "description": "Array of tickets"
+        },
+        "next_cursor": {
+          "type": "string",
+          "description": "Cursor for the next page of results"
+        },
+        "has_more": {
+          "type": "boolean",
+          "description": "Whether there are more results"
+        }
+      },
+      "required": [
+        "tickets"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_zendesk_listusers": {
+      "type": "object",
+      "properties": {
+        "cursor": {
+          "type": "string",
+          "description": "Pagination cursor from the previous response. Omit for the first page."
+        }
+      },
+      "additionalProperties": false
+    },
+    "ActionOutput_zendesk_listusers": {
+      "type": "object",
+      "properties": {
+        "items": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "number"
+              },
+              "name": {
+                "type": "string"
+              },
+              "email": {
+                "type": "string"
+              },
+              "role": {
+                "type": "string"
+              },
+              "active": {
+                "type": "boolean"
+              },
+              "created_at": {
+                "type": "string"
+              },
+              "updated_at": {
+                "type": "string"
+              },
+              "external_id": {
+                "type": "string"
+              },
+              "locale": {
+                "type": "string"
+              },
+              "time_zone": {
+                "type": "string"
+              },
+              "verified": {
+                "type": "boolean"
+              }
+            },
+            "required": [
+              "id"
+            ],
+            "additionalProperties": false
+          }
+        },
+        "next_cursor": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "items"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_zendesk_listviews": {
+      "type": "object",
+      "properties": {
+        "cursor": {
+          "type": "string",
+          "description": "Pagination cursor from the previous response. Omit for the first page."
+        }
+      },
+      "additionalProperties": false
+    },
+    "ActionOutput_zendesk_listviews": {
+      "type": "object",
+      "properties": {
+        "views": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "number"
+              },
+              "title": {
+                "type": "string"
+              },
+              "active": {
+                "type": "boolean"
+              },
+              "default": {
+                "type": "boolean"
+              },
+              "description": {
+                "type": "string"
+              },
+              "position": {
+                "type": "number"
+              },
+              "created_at": {
+                "type": "string"
+              },
+              "updated_at": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "id",
+              "title"
+            ],
+            "additionalProperties": false
+          }
+        },
+        "next_cursor": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "views"
+      ],
+      "additionalProperties": false
+    },
     "ActionInput_zendesk_searchtickets": {
       "type": "object",
       "properties": {
         "query": {
-          "type": "string"
+          "type": "string",
+          "description": "Zendesk search query. Should include \"type:ticket\" and any additional filters like status, tags, dates. Example: \"type:ticket status:open\""
+        },
+        "sort_by": {
+          "type": "string",
+          "enum": [
+            "updated_at",
+            "created_at",
+            "priority",
+            "status",
+            "ticket_type"
+          ],
+          "description": "Sort field. Defaults to relevance."
+        },
+        "sort_order": {
+          "type": "string",
+          "enum": [
+            "asc",
+            "desc"
+          ],
+          "description": "Sort order. Defaults to desc."
+        },
+        "page": {
+          "type": "number",
+          "description": "Page number for offset pagination."
         }
       },
       "required": [
@@ -115489,49 +117369,37 @@
     "ActionOutput_zendesk_searchtickets": {
       "type": "object",
       "properties": {
+        "count": {
+          "type": "number"
+        },
+        "next_page": {
+          "type": "string"
+        },
+        "previous_page": {
+          "type": "string"
+        },
         "tickets": {
           "type": "array",
           "items": {
             "type": "object",
             "properties": {
               "id": {
-                "type": "string"
+                "type": "number"
               },
               "url": {
                 "type": "string"
               },
               "external_id": {
-                "type": [
-                  "string",
-                  "null"
-                ]
-              },
-              "requester_id": {
                 "type": "string"
               },
-              "requester_name": {
-                "type": "string"
-              },
-              "assignee_id": {
-                "type": [
-                  "string",
-                  "null"
-                ]
-              },
-              "assignee_name": {
-                "type": [
-                  "string",
-                  "null"
-                ]
-              },
-              "assignee_avatar": {
-                "type": [
-                  "string",
-                  "null"
-                ]
-              },
-              "status": {
-                "type": "string"
+              "via": {
+                "type": "object",
+                "properties": {
+                  "channel": {
+                    "type": "string"
+                  }
+                },
+                "additionalProperties": false
               },
               "created_at": {
                 "type": "string"
@@ -115539,55 +117407,666 @@
               "updated_at": {
                 "type": "string"
               },
-              "is_public": {
-                "type": "boolean"
+              "type": {
+                "type": "string"
               },
               "subject": {
-                "type": [
-                  "string",
-                  "null"
-                ]
+                "type": "string"
+              },
+              "raw_subject": {
+                "type": "string"
               },
               "description": {
                 "type": "string"
               },
               "priority": {
-                "type": [
-                  "string",
-                  "null"
-                ]
+                "type": "string"
+              },
+              "status": {
+                "type": "string"
+              },
+              "recipient": {
+                "type": "string"
+              },
+              "requester_id": {
+                "type": "number"
+              },
+              "submitter_id": {
+                "type": "number"
+              },
+              "assignee_id": {
+                "type": "number"
+              },
+              "organization_id": {
+                "type": "number"
+              },
+              "group_id": {
+                "type": "number"
+              },
+              "collaborator_ids": {
+                "type": "array",
+                "items": {
+                  "type": "number"
+                }
+              },
+              "follower_ids": {
+                "type": "array",
+                "items": {
+                  "type": "number"
+                }
+              },
+              "email_cc_ids": {
+                "type": "array",
+                "items": {
+                  "type": "number"
+                }
+              },
+              "forum_topic_id": {
+                "type": "number"
+              },
+              "problem_id": {
+                "type": "number"
+              },
+              "has_incidents": {
+                "type": "boolean"
+              },
+              "is_public": {
+                "type": "boolean"
+              },
+              "due_at": {
+                "type": "string"
               },
               "tags": {
                 "type": "array",
                 "items": {
                   "type": "string"
                 }
+              },
+              "custom_fields": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "number"
+                    },
+                    "value": {}
+                  },
+                  "required": [
+                    "id"
+                  ],
+                  "additionalProperties": false
+                }
+              },
+              "satisfaction_rating": {
+                "type": "object",
+                "properties": {
+                  "score": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "score"
+                ],
+                "additionalProperties": false
+              },
+              "sharing_agreement_ids": {
+                "type": "array",
+                "items": {
+                  "type": "number"
+                }
+              },
+              "fields": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "number"
+                    },
+                    "value": {}
+                  },
+                  "required": [
+                    "id"
+                  ],
+                  "additionalProperties": false
+                }
+              },
+              "followup_ids": {
+                "type": "array",
+                "items": {
+                  "type": "number"
+                }
+              },
+              "ticket_form_id": {
+                "type": "number"
+              },
+              "brand_id": {
+                "type": "number"
+              },
+              "allow_channelback": {
+                "type": "boolean"
+              },
+              "allow_attachments": {
+                "type": "boolean"
               }
             },
             "required": [
               "id",
               "url",
-              "external_id",
-              "requester_id",
-              "requester_name",
-              "assignee_id",
-              "assignee_name",
-              "assignee_avatar",
-              "status",
               "created_at",
               "updated_at",
-              "is_public",
-              "subject",
-              "description",
-              "priority",
-              "tags"
+              "status",
+              "requester_id",
+              "submitter_id"
             ],
             "additionalProperties": false
           }
         }
       },
       "required": [
+        "count",
         "tickets"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_zendesk_updateorganization": {
+      "type": "object",
+      "properties": {
+        "organizationId": {
+          "type": "number",
+          "description": "The ID of the organization to update. Example: 123"
+        },
+        "name": {
+          "type": "string",
+          "description": "A unique name for the organization. Example: \"Acme Inc.\""
+        },
+        "notes": {
+          "type": "string",
+          "description": "Any notes about the organization. Set to null to clear. Example: \"Primary customer\""
+        },
+        "details": {
+          "type": "string",
+          "description": "Any details about the organization, such as the address. Set to null to clear."
+        },
+        "external_id": {
+          "type": "string",
+          "description": "A unique external ID to associate organizations to an external record. Set to null to clear."
+        },
+        "group_id": {
+          "type": "number",
+          "description": "New tickets from users in this organization are automatically put in this group. Example: 234"
+        },
+        "shared_tickets": {
+          "type": "boolean",
+          "description": "End users in this organization can see each other's tickets."
+        },
+        "shared_comments": {
+          "type": "boolean",
+          "description": "End users in this organization can comment on each other's tickets."
+        },
+        "domain_names": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "An array of domain names associated with this organization. Example: [\"example.com\", \"acme.com\"]"
+        },
+        "tags": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "The tags of the organization. Example: [\"vip\", \"enterprise\"]"
+        }
+      },
+      "required": [
+        "organizationId"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_zendesk_updateorganization": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "number",
+          "description": "The ID of the organization"
+        },
+        "name": {
+          "type": "string"
+        },
+        "notes": {
+          "type": "string"
+        },
+        "details": {
+          "type": "string"
+        },
+        "external_id": {
+          "type": "string"
+        },
+        "group_id": {
+          "type": "number"
+        },
+        "shared_tickets": {
+          "type": "boolean"
+        },
+        "shared_comments": {
+          "type": "boolean"
+        },
+        "domain_names": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "tags": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "created_at": {
+          "type": "string"
+        },
+        "updated_at": {
+          "type": "string"
+        },
+        "url": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "id"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_zendesk_updateticket": {
+      "type": "object",
+      "properties": {
+        "ticket_id": {
+          "type": "number",
+          "description": "The ID of the ticket to update. Example: 12345"
+        },
+        "subject": {
+          "type": "string",
+          "description": "The subject of the ticket."
+        },
+        "status": {
+          "type": "string",
+          "enum": [
+            "new",
+            "open",
+            "pending",
+            "hold",
+            "solved",
+            "closed"
+          ],
+          "description": "The status of the ticket."
+        },
+        "priority": {
+          "type": "string",
+          "enum": [
+            "urgent",
+            "high",
+            "normal",
+            "low"
+          ],
+          "description": "The priority of the ticket."
+        },
+        "assignee_id": {
+          "type": "number",
+          "description": "The ID of the agent to assign the ticket to."
+        },
+        "group_id": {
+          "type": "number",
+          "description": "The ID of the group to assign the ticket to."
+        },
+        "requester_id": {
+          "type": "number",
+          "description": "The ID of the requester (end user) of the ticket."
+        },
+        "tags": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "Array of tags to apply to the ticket."
+        },
+        "custom_fields": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "number"
+              },
+              "value": {
+                "type": [
+                  "string",
+                  "number",
+                  "boolean"
+                ],
+                "description": "The value to set for the custom field."
+              }
+            },
+            "required": [
+              "id",
+              "value"
+            ],
+            "additionalProperties": false
+          },
+          "description": "Array of custom field objects with id and value."
+        },
+        "comment": {
+          "type": "object",
+          "properties": {
+            "body": {
+              "type": "string"
+            },
+            "public": {
+              "type": "boolean",
+              "description": "Whether the comment is public (visible to requester) or internal. Default: true"
+            },
+            "author_id": {
+              "type": "number",
+              "description": "The ID of the user who authored the comment. Defaults to the authenticated user."
+            }
+          },
+          "required": [
+            "body"
+          ],
+          "additionalProperties": false,
+          "description": "Optional comment to add when updating the ticket."
+        }
+      },
+      "required": [
+        "ticket_id"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_zendesk_updateticket": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "number"
+        },
+        "url": {
+          "type": "string"
+        },
+        "subject": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        },
+        "priority": {
+          "type": "string"
+        },
+        "status": {
+          "type": "string"
+        },
+        "recipient": {
+          "type": "string"
+        },
+        "requester_id": {
+          "type": "number"
+        },
+        "submitter_id": {
+          "type": "number"
+        },
+        "assignee_id": {
+          "type": "number"
+        },
+        "organization_id": {
+          "type": "number"
+        },
+        "group_id": {
+          "type": "number"
+        },
+        "collaborator_ids": {
+          "type": "array",
+          "items": {
+            "type": "number"
+          }
+        },
+        "tags": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "custom_fields": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "number"
+              },
+              "value": {
+                "type": [
+                  "string",
+                  "number",
+                  "boolean",
+                  "null"
+                ]
+              }
+            },
+            "required": [
+              "id"
+            ],
+            "additionalProperties": false
+          }
+        },
+        "created_at": {
+          "type": "string"
+        },
+        "updated_at": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "id",
+        "url",
+        "status",
+        "requester_id",
+        "submitter_id",
+        "created_at",
+        "updated_at"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_zendesk_updateuser": {
+      "type": "object",
+      "properties": {
+        "userId": {
+          "type": "string",
+          "description": "The ID of the user to update. Example: \"123456789\""
+        },
+        "name": {
+          "type": "string",
+          "description": "The user's full name."
+        },
+        "email": {
+          "type": "string",
+          "description": "The user's email address. On update, adds as secondary email if primary is verified."
+        },
+        "alias": {
+          "type": "string",
+          "description": "An alias displayed to end users."
+        },
+        "details": {
+          "type": "string",
+          "description": "Any details you want to store about the user, such as an address."
+        },
+        "notes": {
+          "type": "string",
+          "description": "Any notes you want to store about the user."
+        },
+        "phone": {
+          "type": "string",
+          "description": "The user's primary phone number."
+        },
+        "organizationId": {
+          "type": "number",
+          "description": "The ID of the user's organization."
+        },
+        "role": {
+          "type": "string",
+          "enum": [
+            "end-user",
+            "agent",
+            "admin"
+          ],
+          "description": "The user's role."
+        },
+        "customRoleId": {
+          "type": "number",
+          "description": "A custom role ID if the user is an agent on Enterprise plan."
+        },
+        "defaultGroupId": {
+          "type": "number",
+          "description": "The ID of the user's default group."
+        },
+        "externalId": {
+          "type": "string",
+          "description": "A unique identifier from another system."
+        },
+        "localeId": {
+          "type": "number",
+          "description": "The language identifier for this user."
+        },
+        "timeZone": {
+          "type": "string",
+          "description": "The time-zone of this user. Example: \"America/New_York\"."
+        },
+        "verified": {
+          "type": "boolean",
+          "description": "Whether any of the user's identities is verified."
+        },
+        "suspended": {
+          "type": "boolean",
+          "description": "If the agent is suspended."
+        },
+        "userFields": {
+          "type": "object",
+          "additionalProperties": {
+            "anyOf": [
+              {},
+              {
+                "not": {}
+              }
+            ]
+          },
+          "description": "Custom fields values for the user's profile."
+        },
+        "tags": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "The user's tags."
+        },
+        "remotePhotoUrl": {
+          "type": "string",
+          "description": "A URL pointing to the user's profile picture."
+        },
+        "signature": {
+          "type": "string",
+          "description": "The user's signature."
+        }
+      },
+      "required": [
+        "userId"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_zendesk_updateuser": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "email": {
+          "type": "string"
+        },
+        "alias": {
+          "type": "string"
+        },
+        "details": {
+          "type": "string"
+        },
+        "notes": {
+          "type": "string"
+        },
+        "phone": {
+          "type": "string"
+        },
+        "organizationId": {
+          "type": "number"
+        },
+        "role": {
+          "type": "string"
+        },
+        "customRoleId": {
+          "type": "number"
+        },
+        "defaultGroupId": {
+          "type": "number"
+        },
+        "externalId": {
+          "type": "string"
+        },
+        "localeId": {
+          "type": "number"
+        },
+        "timeZone": {
+          "type": "string"
+        },
+        "verified": {
+          "type": "boolean"
+        },
+        "suspended": {
+          "type": "boolean"
+        },
+        "userFields": {
+          "type": "object",
+          "additionalProperties": {
+            "anyOf": [
+              {},
+              {
+                "not": {}
+              }
+            ]
+          }
+        },
+        "tags": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "remotePhotoUrl": {
+          "type": "string"
+        },
+        "signature": {
+          "type": "string"
+        },
+        "createdAt": {
+          "type": "string"
+        },
+        "updatedAt": {
+          "type": "string"
+        },
+        "url": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "id"
       ],
       "additionalProperties": false
     },

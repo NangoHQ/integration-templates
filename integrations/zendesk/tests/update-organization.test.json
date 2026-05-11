@@ -1,0 +1,97 @@
+{
+  "input": {
+    "organizationId": 46407197673361,
+    "notes": "Updated organization notes via API"
+  },
+  "output": {
+    "id": 46407197673361,
+    "name": "TestAPI",
+    "notes": "Updated organization notes via API",
+    "details": "",
+    "shared_tickets": false,
+    "shared_comments": false,
+    "domain_names": [],
+    "tags": [],
+    "created_at": "2026-05-06T08:08:59Z",
+    "updated_at": "2026-05-06T08:46:27Z",
+    "url": "https://nango-1049.zendesk.com/api/v2/organizations/46407197673361.json"
+  },
+  "nango": {},
+  "api": {
+    "put": {
+      "/api/v2/organizations/46407197673361.json": {
+        "response": {
+          "organization": {
+            "url": "https://nango-1049.zendesk.com/api/v2/organizations/46407197673361.json",
+            "id": 46407197673361,
+            "name": "TestAPI",
+            "shared_tickets": false,
+            "shared_comments": false,
+            "external_id": null,
+            "created_at": "2026-05-06T08:08:59Z",
+            "updated_at": "2026-05-06T08:46:27Z",
+            "domain_names": [],
+            "details": "",
+            "notes": "Updated organization notes via API",
+            "group_id": null,
+            "tags": [],
+            "organization_fields": {}
+          }
+        },
+        "status": 200,
+        "headers": {
+          "date": "Wed, 06 May 2026 08:46:36 GMT",
+          "content-type": "application/json; charset=utf-8",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=31536000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "X-Zendesk-API-Warn,X-Zendesk-User-Id,X-Zendesk-User-Session-Expires-At",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4870",
+          "x-ratelimit-reset": "1778057199",
+          "x-zendesk-api-version": "v2",
+          "x-zendesk-application-version": "v25703",
+          "x-rate-limit": "400",
+          "ratelimit-limit": "400",
+          "x-rate-limit-remaining": "381",
+          "ratelimit-remaining": "381",
+          "ratelimit-reset": "24",
+          "etag": "W/\"85d378944bd04c523e371adfe9759f8d\"",
+          "cache-control": "max-age=0, private, must-revalidate",
+          "zendesk-route": "/api/v2/organizations/:id",
+          "set-cookie": "_zendesk_cookie=BAhJIhl7ImRldmljZV90b2tlbnMiOnt9fQY6BkVU--0bf2100788cb010d0183feca16aaf88ccaf719ca; path=/; expires=Thu, 06 May 2027 05:54:28 GMT; secure; HttpOnly; SameSite=None, __cf_bm=_.O.zRIAE_qyYcSicqMKbYasBb26j_ppA01r_FjUnYg-1778057196-1.0.1.1-3VpgcJ51jmEITQ6GKF.M0i5pK3fSNf70W0czuC1qZi.7.QZjNqvX80n72FrwBrnR022wE1v_I.mtc9jPT.59RgvW7V4BHtmBi0pwRGNUZVo; path=/; expires=Wed, 06-May-26 09:16:36 GMT; domain=.nango-1049.zendesk.com; HttpOnly; Secure; SameSite=None, _cfuvid=NOjXDqJChmhM0r3pN4rP7limHqbusQf_y.Yipn63_pw-1778057196270-0.0.1.1-604800000; path=/; domain=.nango-1049.zendesk.com; HttpOnly; Secure; SameSite=None",
+          "x-zendesk-origin-server": "classic-app-server-69d49c4b9b-92g6s",
+          "x-request-id": "9f76b7230c6b6e10-DUB",
+          "x-runtime": "0.084483",
+          "x-envoy-upstream-service-time": "89",
+          "x-openapi-route-path": "/api/v2/organizations/{organization_id}",
+          "zendesk-service": "classic",
+          "x-zendesk-zorg": "yes",
+          "vary": "Accept-Encoding",
+          "via": "zorg",
+          "x-envoy-decorator-operation": "/api/v2/organizations",
+          "cf-cache-status": "DYNAMIC",
+          "report-to": "{\"endpoints\":[{\"url\":\"https:\\/\\/a.nel.cloudflare.com\\/report\\/v4?s=ZNautXhSPryW3dnXSC4apD7LpOacF1ySkYtaM0N3C0rNThKiSaLEbg32pMH2rnlJETvPXieam0dFJT5dGWkIhISKxqIJ%2BJyTvPqq4O8v5nPzb6XRNUr8aK0M8%2FqJGMBUfQgmMnG8TMU%3D\"}],\"group\":\"cf-nel\",\"max_age\":604800}",
+          "nel": "{\"success_fraction\":0.01,\"report_to\":\"cf-nel\",\"max_age\":604800}",
+          "server": "cloudflare",
+          "cf-ray": "9f76b7230c6b6e10-PDX"
+        },
+        "hash": "7476f8ba15afbe67a536ab8b04fc22b95b6ecb73",
+        "request": {
+          "data": {
+            "organization": {
+              "notes": "Updated organization notes via API"
+            }
+          }
+        }
+      }
+    }
+  }
+}

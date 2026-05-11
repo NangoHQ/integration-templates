@@ -129,11 +129,16 @@ export interface Table {
 
 export interface View {
   id: string;
-  name?: string | undefined;
-  type?: string | undefined;
-  base_id: string;
-  table_id: string;
-  table_name?: string | undefined;
+  title: string;
+  description?: string | undefined;
+  active?: boolean | undefined;
+  created_at?: string | undefined;
+  updated_at?: string | undefined;
+  default?: boolean | undefined;
+  position?: number | undefined;
+  conditions?: {} | undefined;
+  execution?: {} | undefined;
+  restriction?: unknown | undefined;
 };
 
 export interface Webhook {
@@ -1325,10 +1330,19 @@ export interface SyncMetadata_asana_projects {
 
 export interface Section {
   id: string;
-  url: string;
-  category_id: number;
   name: string;
-  description: string;
+  description?: string | undefined;
+  category_id?: number | undefined;
+  parent_section_id?: number | undefined;
+  locale: string;
+  source_locale?: string | undefined;
+  created_at: string;
+  updated_at: string;
+  position?: number | undefined;
+  outdated?: boolean | undefined;
+  html_url?: string | undefined;
+  url?: string | undefined;
+  theme_template?: string | undefined;
 };
 
 export interface SyncMetadata_asana_sections {
@@ -7181,9 +7195,16 @@ export interface SyncMetadata_discourse_activeusers {
 
 export interface Category {
   id: string;
-  url: string;
   name: string;
-  description: string;
+  description?: string | undefined;
+  locale: string;
+  source_locale?: string | undefined;
+  position?: number | undefined;
+  outdated?: boolean | undefined;
+  created_at: string;
+  updated_at: string;
+  html_url?: string | undefined;
+  url?: string | undefined;
 };
 
 export interface SyncMetadata_discourse_categories {
@@ -8608,30 +8629,31 @@ export interface ActionOutput_fireflies_addtolive {
 };
 
 export interface Article {
-  title: string;
   id: string;
-  url: string;
-  locale: string;
-  user_segment_id: number | null;
-  permission_group_id: number;
-  author_id: number;
-  body: string;
-  comments_disabled: boolean;
-  content_tag_ids: number[];
+  author_id?: number | undefined;
+  body?: string | undefined;
+  comments_disabled?: boolean | undefined;
+  content_tag_ids?: number[] | undefined;
   created_at: string;
-  draft: boolean;
-  edited_at: string;
-  html_url: string;
-  label_names: string[];
-  outdated: boolean;
-  outdated_locales: string[];
-  position: number;
-  promoted: boolean;
-  section_id: number;
-  source_locale: string;
+  draft?: boolean | undefined;
+  edited_at?: string | undefined;
+  html_url?: string | undefined;
+  label_names?: string[] | undefined;
+  locale: string;
+  outdated?: boolean | undefined;
+  outdated_locales?: string[] | undefined;
+  permission_group_id?: number | undefined;
+  position?: number | undefined;
+  promoted?: boolean | undefined;
+  section_id?: number | undefined;
+  source_locale?: string | undefined;
+  title: string;
   updated_at: string;
-  vote_count: number;
-  vote_sum: number;
+  url: string;
+  user_segment_id?: number | undefined;
+  user_segment_ids?: number[] | undefined;
+  vote_count?: number | undefined;
+  vote_sum?: number | undefined;
 };
 
 export interface SyncMetadata_freshdesk_articles {
@@ -8656,50 +8678,30 @@ export interface SyncMetadata_freshdesk_contacts {
 };
 
 export interface Ticket {
-  url: string | null;
   id: string;
-  external_id: string | null;
-  via: {  channel: string;
-  source: {  from: {  [key: string]: any | undefined;};
-  to: {  [key: string]: any | undefined;};
-  rel: string | null;};} | null;
-  created_at: string | null;
-  updated_at: string | null;
-  generated_timestamp: number | null;
-  type: string | null;
-  subject: string | null;
-  raw_subject: string | null;
-  description: string | null;
-  priority: string | null;
-  status: string | null;
-  recipient: string | null;
-  requester_id: number | null;
-  submitter_id: number | null;
-  assignee_id: number | null;
-  organization_id: number | null;
-  group_id: number | null;
-  collaborator_ids: number[] | null;
-  follower_ids: number[] | null;
-  email_cc_ids: number[] | null;
-  forum_topic_id: string | null;
-  problem_id: string | null;
-  has_incidents: boolean | null;
-  is_public: boolean | null;
-  due_at: string | null;
-  tags: string[] | null;
-  custom_fields: ({  id: number;
-  value: string | null;})[] | null;
-  satisfaction_rating: {  [key: string]: any | undefined;} | null;
-  sharing_agreement_ids: number[] | null;
-  custom_status_id: number | null;
-  fields: ({  id: number;
-  value: string | null;})[] | null;
-  followup_ids: number[] | null;
-  ticket_form_id: number | null;
-  brand_id: number | null;
-  allow_channelback: boolean | null;
-  allow_attachments: boolean | null;
-  from_messaging_channel: boolean | null;
+  url: string;
+  external_id: string;
+  created_at: string;
+  updated_at: string;
+  type: string;
+  subject: string;
+  description: string;
+  priority: string;
+  status: string;
+  recipient: string;
+  requester_id: string;
+  submitter_id: string;
+  assignee_id: string;
+  organization_id: string;
+  group_id: string;
+  collaborator_ids: string[];
+  tags: string[];
+  has_incidents: boolean;
+  is_public: boolean;
+  due_at: string;
+  custom_fields: any[];
+  ticket_form_id: string;
+  brand_id: string;
 };
 
 export interface SyncMetadata_freshdesk_tickets {
@@ -31688,9 +31690,14 @@ export interface SyncMetadata_sap_success_factors_employees {
 
 export interface Group {
   id: string;
-  active: boolean;
-  created_at: string | null;
   name: string;
+  description?: string | undefined;
+  isDefault?: boolean | undefined;
+  isDeleted?: boolean | undefined;
+  isPublic?: boolean | undefined;
+  createdAt?: string | undefined;
+  updatedAt?: string | undefined;
+  url?: string | undefined;
 };
 
 export interface SyncMetadata_sap_success_factors_groups {
@@ -36920,153 +36927,1368 @@ export interface ActionOutput_youtube_updatevideo {
   recordingDetails?: {  recordingDate?: string | undefined;};
 };
 
-export interface SyncMetadata_zendesk_articles {
+export interface Macro {
+  id: string;
+  title: string;
+  active: boolean;
+  description?: string | undefined;
+  position?: number | undefined;
+  created_at?: string | undefined;
+  updated_at?: string | undefined;
+  actions?: ({  field: string | number;
+  value?: unknown | undefined;})[];
 };
 
-export interface SyncMetadata_zendesk_categories {
+export interface Organization {
+  id: string;
+  name: string;
+  created_at: string;
+  updated_at: string;
+  url: string;
+  external_id?: string | undefined;
+  domain_names?: string[] | undefined;
+  group_id?: number | undefined;
+  shared_comments?: boolean | undefined;
+  shared_tickets?: boolean | undefined;
+  tags?: string[] | undefined;
+  notes?: string | undefined;
+  details?: string | undefined;
 };
 
-export interface SyncMetadata_zendesk_sections {
+export interface TicketComment {
+  id: string;
+  ticket_id: string;
+  type?: string | undefined;
+  author_id: string;
+  body?: string | undefined;
+  html_body?: string | undefined;
+  plain_body?: string | undefined;
+  public?: boolean | undefined;
+  created_at: string;
+  updated_at?: string | undefined;
 };
 
-export interface SyncMetadata_zendesk_tickets {
+export interface TicketField {
+  id: string;
+  type: string;
+  title: string;
+  raw_title?: string | undefined;
+  description?: string | undefined;
+  raw_description?: string | undefined;
+  position?: number | undefined;
+  active?: boolean | undefined;
+  required?: boolean | undefined;
+  agent_can_edit?: boolean | undefined;
+  removable?: boolean | undefined;
+  created_at: string;
+  updated_at: string;
+  visible_in_portal?: boolean | undefined;
+  editable_in_portal?: boolean | undefined;
+  required_in_portal?: boolean | undefined;
+  title_in_portal?: string | undefined;
+  raw_title_in_portal?: string | undefined;
+  tag?: string | undefined;
+  regexp_for_validation?: string | undefined;
+  sub_type_id?: number | undefined;
+  custom_field_options?: ({  id?: number | undefined;
+  name?: string | undefined;
+  raw_name?: string | undefined;
+  value?: string | undefined;
+  default?: boolean | undefined;})[];
+  system_field_options?: ({  name?: string | undefined;
+  value?: string | undefined;})[];
 };
 
-export interface SyncMetadata_zendesk_users {
+export interface TicketForm {
+  id: string;
+  name?: string | undefined;
+  display_name?: string | undefined;
+  raw_name?: string | undefined;
+  raw_display_name?: string | undefined;
+  position?: number | undefined;
+  ticket_field_ids?: number[] | undefined;
+  active?: boolean | undefined;
+  default?: boolean | undefined;
+  end_user_visible?: boolean | undefined;
+  in_all_brands?: boolean | undefined;
+  restricted_brand_ids?: number[] | undefined;
+  created_at?: string | undefined;
+  updated_at?: string | undefined;
+  deleted_at?: string | undefined;
+  url?: string | undefined;
 };
 
 export interface ActionInput_zendesk_createcategory {
-  category: {  name: string;
-  description?: string | undefined;};
+  /**
+   * The name of the category. Example: "Getting Started"
+   */
+  name: string;
+  /**
+   * The locale where the category is displayed. Example: "en-us"
+   */
+  locale: string;
+  /**
+   * The description of the category
+   */
+  description?: string | undefined;
+  /**
+   * The position of this category relative to other categories
+   */
+  position?: number | undefined;
 };
 
 export interface ActionOutput_zendesk_createcategory {
-  id: string;
-  url: string;
+  id: number;
   name: string;
-  description: string;
+  locale: string;
+  description?: string | undefined;
+  position?: number | undefined;
+  created_at: string;
+  updated_at: string;
+  html_url: string;
+  url: string;
+  outdated?: boolean | undefined;
+  source_locale?: string | undefined;
+};
+
+export interface ActionInput_zendesk_createorganization {
+  name: string;
+  notes?: string | undefined;
+  details?: string | undefined;
+  external_id?: string | undefined;
+  domain_names?: string[] | undefined;
+  group_id?: number | undefined;
+  shared_tickets?: boolean | undefined;
+  shared_comments?: boolean | undefined;
+  tags?: string[] | undefined;
+  organization_fields?: {  [key: string]: unknown | undefined;};
+};
+
+export interface ActionOutput_zendesk_createorganization {
+  id: number;
+  name: string;
+  notes?: string | undefined;
+  details?: string | undefined;
+  external_id?: string | undefined;
+  domain_names: string[];
+  group_id?: number | undefined;
+  shared_tickets: boolean;
+  shared_comments: boolean;
+  tags: string[];
+  organization_fields?: {  [key: string]: unknown | undefined;};
+  created_at: string;
+  updated_at: string;
 };
 
 export interface ActionInput_zendesk_createsection {
+  /**
+   * The ID of the category to which this section belongs. Example: 123
+   */
   category_id: number;
-  section: {  name: string;
-  description?: string | undefined;};
+  /**
+   * The name of the section. Example: "Getting Started"
+   */
+  name: string;
+  /**
+   * The locale in which the section is displayed. Example: "en-us"
+   */
+  locale: string;
+  /**
+   * The description of the section. Example: "Articles about getting started"
+   */
+  description?: string | undefined;
+  /**
+   * The position of this section in the section list. Used when sorting is set to manual.
+   */
+  position?: number | undefined;
+  /**
+   * The ID of the parent section. Only writable for Guide Enterprise customers.
+   */
+  parent_section_id?: number | undefined;
+  /**
+   * The theme template name used to display this section in Help Center.
+   */
+  theme_template?: string | undefined;
 };
 
 export interface ActionOutput_zendesk_createsection {
-  id: string;
-  url: string;
-  category_id: number;
+  id: number;
+  category_id?: number | undefined;
   name: string;
-  description: string;
+  description?: string | undefined;
+  locale: string;
+  source_locale?: string | undefined;
+  position?: number | undefined;
+  parent_section_id?: number | undefined;
+  theme_template?: string | undefined;
+  html_url?: string | undefined;
+  url?: string | undefined;
+  created_at?: string | undefined;
+  updated_at?: string | undefined;
+  outdated?: boolean | undefined;
 };
 
 export interface ActionInput_zendesk_createticket {
-  ticket: {  comment: {  body?: string | undefined;
-  html_body?: string | undefined;};
-  assignee_email?: string | undefined;
-  assignee_id?: number | undefined;
-  brand_id?: number | undefined;
-  due_at?: string | undefined;
+  /**
+   * The subject of the ticket. Example: "My printer is on fire!"
+   */
+  subject: string;
+  /**
+   * The initial comment on the ticket. Example: "The printer caught fire when I tried to print a document."
+   */
+  comment: string;
+  /**
+   * Email of the requester. If no user exists with this email, a new user will be created. Example: "customer@example.com"
+   */
+  requester_email?: string | undefined;
+  /**
+   * Name of the requester. Only used when creating a new user. Example: "John Doe"
+   */
+  requester_name?: string | undefined;
+  /**
+   * Priority of the ticket.
+   */
+  priority?: 'urgent' | 'high' | 'normal' | 'low' | undefined;
+  /**
+   * Status of the ticket.
+   */
+  status?: 'new' | 'open' | 'pending' | 'hold' | 'solved' | 'closed' | undefined;
+  /**
+   * Tags applied to the ticket. Example: ["printer", "urgent"]
+   */
+  tags?: string[] | undefined;
+  /**
+   * Type of ticket.
+   */
   type?: 'problem' | 'incident' | 'question' | 'task' | undefined;
-  status?: 'new' | 'open' | 'pending' | 'hold' | 'solved' | 'closed.' | undefined;
-  metadata?: {} | undefined;};
 };
 
 export interface ActionOutput_zendesk_createticket {
-  id: string;
+  id: number;
   url: string;
+  subject: string;
+  description?: string | undefined;
+  status: string;
+  priority?: string | undefined;
+  type?: string | undefined;
   created_at: string;
   updated_at: string;
-  subject: string | null;
-  description: string;
-  priority: string | null;
-  status: string;
+  requester_id: number;
+  submitter_id: number;
+  assignee_id?: number | undefined;
+  organization_id?: number | undefined;
+  group_id?: number | undefined;
+  tags: string[];
 };
 
 export interface ActionInput_zendesk_createuser {
-  firstName: string;
-  lastName: string;
-  email: string;
-  role?: 'admin' | 'agent' | undefined;
+  /**
+   * The full name of the user. Example: "John Doe"
+   */
+  name: string;
+  /**
+   * The primary email address of the user. Example: "john@example.com"
+   */
+  email?: string | undefined;
+  /**
+   * The phone number of the user. Example: "+1234567890"
+   */
+  phone?: string | undefined;
+  /**
+   * The role of the user. Example: "end-user"
+   */
+  role?: 'end-user' | 'agent' | 'admin' | undefined;
+  /**
+   * A unique identifier from your external system. Example: "ext-123"
+   */
+  external_id?: string | undefined;
+  /**
+   * The locale of the user. Example: "en-US"
+   */
+  locale?: string | undefined;
+  /**
+   * The signature of the agent/admin. Example: "Best regards, John"
+   */
+  signature?: string | undefined;
+  /**
+   * Details about the user. Example: "VIP customer"
+   */
+  details?: string | undefined;
+  /**
+   * Notes about the user. Example: "Acquired through referral"
+   */
+  notes?: string | undefined;
+  /**
+   * The ID of the organization the user belongs to. Example: 123
+   */
+  organization_id?: number | undefined;
+  /**
+   * Whether the user has been verified. Example: true
+   */
+  verified?: boolean | undefined;
+  /**
+   * Whether the user is suspended. Example: false
+   */
+  suspended?: boolean | undefined;
 };
 
 export interface ActionOutput_zendesk_createuser {
-  id: string;
-  firstName: string;
-  lastName: string;
-  email: string;
-  user_fields?: {  [key: string]: any | undefined;};
+  /**
+   * The ID of the created user. Example: 123
+   */
+  id: number;
+  /**
+   * The name of the created user. Example: "John Doe"
+   */
+  name: string;
+  /**
+   * The email of the created user. Example: "john@example.com"
+   */
+  email?: string | undefined;
+  /**
+   * The phone of the created user. Example: "+1234567890"
+   */
+  phone?: string | undefined;
+  /**
+   * The role of the created user. Example: "end-user"
+   */
+  role?: string | undefined;
+  /**
+   * The external ID of the created user. Example: "ext-123"
+   */
+  external_id?: string | undefined;
+  /**
+   * The locale of the created user. Example: "en-US"
+   */
+  locale?: string | undefined;
+  /**
+   * The signature of the created user. Example: "Best regards, John"
+   */
+  signature?: string | undefined;
+  /**
+   * The details of the created user. Example: "VIP customer"
+   */
+  details?: string | undefined;
+  /**
+   * The notes of the created user. Example: "Acquired through referral"
+   */
+  notes?: string | undefined;
+  /**
+   * The organization ID of the created user. Example: 123
+   */
+  organization_id?: number | undefined;
+  /**
+   * Whether the created user is active. Example: true
+   */
+  active?: boolean | undefined;
+  /**
+   * Whether the created user is verified. Example: true
+   */
+  verified?: boolean | undefined;
+  /**
+   * Whether the created user is suspended. Example: false
+   */
+  suspended?: boolean | undefined;
+  /**
+   * The creation timestamp. Example: "2024-01-01T00:00:00Z"
+   */
+  created_at?: string | undefined;
+  /**
+   * The update timestamp. Example: "2024-01-01T00:00:00Z"
+   */
+  updated_at?: string | undefined;
 };
 
 export interface ActionInput_zendesk_deleteuser {
-  id: string;
+  /**
+   * The ID of the user to delete. Example: "1234567890"
+   */
+  userId: string;
 };
 
 export interface ActionOutput_zendesk_deleteuser {
+  /**
+   * Whether the user was successfully deleted
+   */
   success: boolean;
+  /**
+   * The ID of the deleted user
+   */
+  userId: string;
 };
 
-export interface ActionInput_zendesk_fetcharticle {
-  id: string;
+export interface ActionInput_zendesk_getarticle {
+  /**
+   * The unique ID of the article. Example: 360026053753
+   */
+  article_id: number;
 };
 
-export interface ActionOutput_zendesk_fetcharticle {
-  article: {  title: string;
-  id: string;
+export interface ActionOutput_zendesk_getarticle {
+  id: number;
+  title: string;
+  body?: string | undefined;
+  author_id?: number | undefined;
+  section_id?: number | undefined;
+  category_id?: number | undefined;
+  created_at?: string | undefined;
+  updated_at?: string | undefined;
+  edited_at?: string | undefined;
+  locale?: string | undefined;
+  source_locale?: string | undefined;
+  html_url?: string | undefined;
+  url?: string | undefined;
+  draft?: boolean | undefined;
+  promoted?: boolean | undefined;
+  position?: number | undefined;
+  comments_disabled?: boolean | undefined;
+  vote_count?: number | undefined;
+  vote_sum?: number | undefined;
+  permission_group_id?: number | undefined;
+  user_segment_id?: number | undefined;
+  user_segment_ids?: number[] | undefined;
+  label_names?: string[] | undefined;
+  content_tag_ids?: number[] | undefined;
+  outdated?: boolean | undefined;
+  outdated_locales?: string[] | undefined;
+};
+
+export interface ActionInput_zendesk_getgroup {
+  /**
+   * Group ID. Example: 123456
+   */
+  group_id: number;
+};
+
+export interface ActionOutput_zendesk_getgroup {
+  id: number;
+  name: string;
+  url?: string | undefined;
+  created_at?: string | undefined;
+  updated_at?: string | undefined;
+  deleted?: boolean | undefined;
+};
+
+export interface ActionInput_zendesk_getorganization {
+  /**
+   * The ID of the organization to retrieve. Example: 35436
+   */
+  organization_id: number;
+};
+
+export interface ActionOutput_zendesk_getorganization {
+  id: number;
+  name: string;
+  created_at?: string | undefined;
+  updated_at?: string | undefined;
+  details?: string | undefined;
+  domain_names?: string[] | undefined;
+  external_id?: string | undefined;
+  group_id?: number | undefined;
+  notes?: string | undefined;
+  organization_fields?: {  [key: string]: unknown | undefined;};
+  shared_comments?: boolean | undefined;
+  shared_tickets?: boolean | undefined;
+  tags?: string[] | undefined;
+  url?: string | undefined;
+};
+
+export interface ActionInput_zendesk_getticketcomments {
+  /**
+   * The ID of the ticket. Example: 123
+   */
+  ticket_id: number;
+  /**
+   * Pagination cursor from the previous response. Omit for the first page.
+   */
+  cursor?: string | undefined;
+  /**
+   * Number of records to return per page (default 100, max 100).
+   */
+  per_page?: number | undefined;
+};
+
+export interface ActionOutput_zendesk_getticketcomments {
+  comments: ({  id: number;
+  type?: string | undefined;
+  body?: string | undefined;
+  html_body?: string | undefined;
+  plain_body?: string | undefined;
+  public?: boolean | undefined;
+  author_id?: number | undefined;
+  audit_id?: number | undefined;
+  created_at?: string | undefined;
+  attachments?: ({  id: number;
+  file_name: string;
+  content_url?: string | undefined;
+  content_type?: string | undefined;
+  size?: number | undefined;})[];
+  metadata?: {} | undefined;
+  via?: {} | undefined;})[];
+  next_cursor?: string | undefined;
+};
+
+export interface ActionInput_zendesk_getticketfield {
+  /**
+   * The ID of the ticket field. Example: 123
+   */
+  ticketFieldId: number;
+};
+
+export interface ActionOutput_zendesk_getticketfield {
+  id: number;
   url: string;
-  locale: string;
-  user_segment_id: number | null;
-  permission_group_id: number;
-  author_id: number;
-  body: string;
-  comments_disabled: boolean;
-  content_tag_ids: number[];
-  created_at: string;
-  draft: boolean;
-  edited_at: string;
-  html_url: string;
-  label_names: string[];
-  outdated: boolean;
-  outdated_locales: string[];
-  position: number;
-  promoted: boolean;
-  section_id: number;
-  source_locale: string;
-  updated_at: string;
-  vote_count: number;
-  vote_sum: number;};
+  type: string;
+  title: string;
+  raw_title?: string | undefined;
+  description?: string | undefined;
+  raw_description?: string | undefined;
+  position?: number | undefined;
+  active?: boolean | undefined;
+  required?: boolean | undefined;
+  collapsed_for_agents?: boolean | undefined;
+  regexp_for_validation?: string | undefined;
+  title_in_portal?: string | undefined;
+  raw_title_in_portal?: string | undefined;
+  visible_in_portal?: boolean | undefined;
+  editable_in_portal?: boolean | undefined;
+  required_in_portal?: boolean | undefined;
+  tag?: string | undefined;
+  removable?: boolean | undefined;
+  agent_description?: string | undefined;
+  created_at?: string | undefined;
+  updated_at?: string | undefined;
+  custom_field_options?: ({  id: number;
+  name: string;
+  raw_name?: string | undefined;
+  value: string;})[];
+  system_field_options?: ({  id?: number | undefined;
+  name: string;
+  raw_name?: string | undefined;
+  value: string;})[];
+  sub_type_id?: number | undefined;
+  creator_user_id?: number | undefined;
+  creator_app_name?: string | undefined;
 };
 
-export type ActionInput_zendesk_fetcharticles = void
+export interface ActionInput_zendesk_getticketform {
+  /**
+   * The ID of the ticket form to retrieve. Example: 123
+   */
+  ticket_form_id: number;
+};
 
-export interface ActionOutput_zendesk_fetcharticles {
-  articles: ({  title: string;
-  id: string;
-  url: string;})[];
+export interface ActionOutput_zendesk_getticketform {
+  id: number;
+  name: string;
+  raw_name?: string | undefined;
+  display_name?: string | undefined;
+  raw_display_name?: string | undefined;
+  position?: number | undefined;
+  ticket_field_ids?: number[] | undefined;
+  active?: boolean | undefined;
+  default?: boolean | undefined;
+  end_user_visible?: boolean | undefined;
+  agent_conditions?: unknown[] | undefined;
+  end_user_conditions?: unknown[] | undefined;
+  visible_in_portal?: boolean | undefined;
+  editable_in_portal?: boolean | undefined;
+  required_in_portal?: boolean | undefined;
+  created_at?: string | undefined;
+  updated_at?: string | undefined;
+  in_business_hours?: boolean | undefined;
+};
+
+export interface ActionInput_zendesk_getticket {
+  /**
+   * Ticket ID to retrieve. Example: "1" or 1
+   */
+  ticket_id: string | number;
+  /**
+   * Comma-separated list of sideloads to include. Example: "users,organizations,groups". See: https://developer.zendesk.com/api-reference/ticketing/tickets/tickets/#sideloads
+   */
+  include?: string | undefined;
+};
+
+export interface ActionOutput_zendesk_getticket {
+  id: number;
+  url: string;
+  subject: string;
+  description?: string | undefined;
+  priority?: string | undefined;
+  status: string;
+  type?: string | undefined;
+  requester_id?: number | undefined;
+  assignee_id?: number | undefined;
+  organization_id?: number | undefined;
+  group_id?: number | undefined;
+  created_at?: string | undefined;
+  updated_at?: string | undefined;
+  tags?: string[] | undefined;
+};
+
+export interface ActionInput_zendesk_getuser {
+  /**
+   * The ID of the user to retrieve. Example: "123456"
+   */
+  userId: string;
+};
+
+export interface ActionOutput_zendesk_getuser {
+  id: number;
+  url?: string | undefined;
+  name?: string | undefined;
+  email?: string | undefined;
+  createdAt?: string | undefined;
+  updatedAt?: string | undefined;
+  timeZone?: string | undefined;
+  ianaTimeZone?: string | undefined;
+  phone?: string | undefined;
+  locale?: string | undefined;
+  localeId?: number | undefined;
+  organizationId?: number | undefined;
+  role?: string | undefined;
+  verified?: boolean | undefined;
+  active?: boolean | undefined;
+  suspended?: boolean | undefined;
+};
+
+export interface ActionInput_zendesk_listarticles {
+  /**
+   * Pagination cursor from the previous response. Omit for the first page.
+   */
+  cursor?: string | undefined;
+  /**
+   * Locale to filter articles by. Example: "en-us". Omit to list all locales.
+   */
+  locale?: string | undefined;
+  /**
+   * Sort field. Default is position.
+   */
+  sort_by?: 'position' | 'title' | 'created_at' | 'updated_at' | 'edited_at' | undefined;
+  /**
+   * Sort order. Default is asc.
+   */
+  sort_order?: 'asc' | 'desc' | undefined;
+  /**
+   * Comma-separated list of label names to filter by. Up to 10 labels.
+   */
+  label_names?: string | undefined;
+  /**
+   * Filter articles by section ID.
+   */
+  section_id?: string | undefined;
+  /**
+   * Filter articles by category ID.
+   */
+  category_id?: string | undefined;
+};
+
+export interface ActionOutput_zendesk_listarticles {
+  articles: ({  id: number;
+  author_id?: number | undefined;
+  body?: string | undefined;
+  comments_disabled?: boolean | undefined;
+  content_tag_ids?: number[] | undefined;
+  created_at?: string | undefined;
+  draft?: boolean | undefined;
+  edited_at?: string | undefined;
+  html_url?: string | undefined;
+  label_names?: string[] | undefined;
+  locale: string;
+  outdated?: boolean | undefined;
+  outdated_locales?: string[] | undefined;
+  permission_group_id?: number | undefined;
+  position?: number | undefined;
+  promoted?: boolean | undefined;
+  section_id?: number | undefined;
+  source_locale?: string | undefined;
+  title: string;
+  updated_at?: string | undefined;
+  url?: string | undefined;
+  user_segment_id?: number | undefined;
+  user_segment_ids?: number[] | undefined;
+  vote_count?: number | undefined;
+  vote_sum?: number | undefined;})[];
+  next_cursor?: string | undefined;
+};
+
+export interface ActionInput_zendesk_listgroups {
+  /**
+   * Pagination cursor from the previous response. Omit for the first page.
+   */
+  cursor?: string | undefined;
+};
+
+export interface ActionOutput_zendesk_listgroups {
+  items: ({  id: number;
+  name: string;
+  description?: string | undefined;
+  url: string;
+  created_at: string;
+  updated_at: string;
+  default?: boolean | undefined;
+  deleted?: boolean | undefined;
+  is_public?: boolean | undefined;})[];
+  next_cursor?: string | undefined;
+};
+
+export interface ActionInput_zendesk_listmacros {
+  /**
+   * Pagination cursor from the previous response. Omit for the first page.
+   */
+  cursor?: string | undefined;
+  /**
+   * Number of records to return per page. Maximum 100.
+   */
+  per_page?: number | undefined;
+  /**
+   * Filter by active macros if true or inactive macros if false
+   */
+  active?: boolean | undefined;
+  /**
+   * Filter macros by access level
+   */
+  access?: 'personal' | 'agents' | 'shared' | 'account' | undefined;
+  /**
+   * Filter macros by category ID
+   */
+  category?: number | undefined;
+  /**
+   * Filter macros by group ID
+   */
+  group_id?: number | undefined;
+  /**
+   * If true, returns only macros that can be applied to tickets
+   */
+  only_viewable?: boolean | undefined;
+  /**
+   * Sort field. Defaults to alphabetical
+   */
+  sort_by?: 'alphabetical' | 'created_at' | 'updated_at' | 'usage_1h' | 'usage_24h' | 'usage_7d' | 'usage_30d' | undefined;
+  /**
+   * Sort order. Defaults to asc for alphabetical and position sort, desc for others
+   */
+  sort_order?: 'asc' | 'desc' | undefined;
+};
+
+export interface ActionOutput_zendesk_listmacros {
+  macros: ({  id: number;
+  title: string;
+  raw_title?: string | undefined;
+  description?: string | undefined;
+  active?: boolean | undefined;
+  default?: boolean | undefined;
+  position?: number | undefined;
+  actions?: ({  field: string;
+  value?: unknown | undefined;})[];
+  restriction?: {  type?: string | undefined;
+  id?: number | undefined;
+  ids?: number[] | undefined;};
+  created_at?: string | undefined;
+  updated_at?: string | undefined;
+  url?: string | undefined;})[];
+  next_cursor?: string | undefined;
+};
+
+export interface ActionInput_zendesk_listorganizations {
+  /**
+   * Pagination cursor from the previous response. Omit for the first page.
+   */
+  cursor?: string | undefined;
+};
+
+export interface ActionOutput_zendesk_listorganizations {
+  items: ({  id: number;
+  name?: string | undefined;
+  url?: string | undefined;
+  external_id?: string | undefined;
+  created_at?: string | undefined;
+  updated_at?: string | undefined;
+  domain_names?: string[] | undefined;
+  details?: string | undefined;
+  notes?: string | undefined;
+  group_id?: number | undefined;
+  shared_tickets?: boolean | undefined;
+  shared_comments?: boolean | undefined;
+  tags?: string[] | undefined;})[];
+  next_cursor?: string | undefined;
+};
+
+export interface ActionInput_zendesk_listticketfields {
+  /**
+   * Pagination cursor from the previous response. Omit for the first page.
+   */
+  cursor?: string | undefined;
+};
+
+export interface ActionOutput_zendesk_listticketfields {
+  items: ({  id: number;
+  url: string;
+  type: string;
+  title: string;
+  raw_title?: string | undefined;
+  description?: string | undefined;
+  raw_description?: string | undefined;
+  position?: number | undefined;
+  active?: boolean | undefined;
+  required?: boolean | undefined;
+  collapsed_for_agents?: boolean | undefined;
+  regexp_for_validation?: string | undefined;
+  title_in_portal?: string | undefined;
+  raw_title_in_portal?: string | undefined;
+  visible_in_portal?: boolean | undefined;
+  editable_in_portal?: boolean | undefined;
+  required_in_portal?: boolean | undefined;
+  tag?: string | undefined;
+  created_at?: string | undefined;
+  updated_at?: string | undefined;
+  removable?: boolean | undefined;
+  agent_description?: string | undefined;
+  custom_field_options?: unknown[] | undefined;})[];
+  next_cursor?: string | undefined;
+};
+
+export interface ActionInput_zendesk_listticketforms {
+  /**
+   * Pagination cursor from the previous response. Omit for the first page.
+   */
+  cursor?: string | undefined;
+};
+
+export interface ActionOutput_zendesk_listticketforms {
+  items: ({  id: number;
+  name: string;
+  raw_name?: string | undefined;
+  display_name?: string | undefined;
+  end_user_visible?: boolean | undefined;
+  position?: number | undefined;
+  ticket_field_ids?: number[] | undefined;
+  active?: boolean | undefined;
+  default?: boolean | undefined;
+  created_at?: string | undefined;
+  updated_at?: string | undefined;})[];
+  next_cursor?: string | undefined;
+};
+
+export interface ActionInput_zendesk_listtickets {
+  /**
+   * Pagination cursor from the previous response. Omit for the first page.
+   */
+  cursor?: string | undefined;
+  /**
+   * Number of items to return per page. Maximum is 100.
+   */
+  page_size?: number | undefined;
+};
+
+export interface ActionOutput_zendesk_listtickets {
+  /**
+   * Array of tickets
+   */
+  tickets: ({  /**
+   * Ticket ID. Example: 123
+   */
+  id: number;
+  /**
+   * API URL for the ticket
+   */
+  url: string;
+  /**
+   * External platform ID
+   */
+  external_id?: string | undefined;
+  /**
+   * Ticket type
+   */
+  type?: string | undefined;
+  /**
+   * Ticket subject
+   */
+  subject?: string | undefined;
+  /**
+   * Dynamic content placeholder for subject
+   */
+  raw_subject?: string | undefined;
+  /**
+   * Ticket description
+   */
+  description?: string | undefined;
+  /**
+   * Ticket priority
+   */
+  priority?: string | undefined;
+  /**
+   * Ticket status
+   */
+  status: string;
+  /**
+   * Original recipient email address
+   */
+  recipient?: string | undefined;
+  /**
+   * User ID of the requester
+   */
+  requester_id?: number | undefined;
+  /**
+   * User ID of the submitter
+   */
+  submitter_id?: number | undefined;
+  /**
+   * User ID of the assignee
+   */
+  assignee_id?: number | undefined;
+  /**
+   * Organization ID
+   */
+  organization_id?: number | undefined;
+  /**
+   * Group ID
+   */
+  group_id?: number | undefined;
+  /**
+   * User IDs of collaborators
+   */
+  collaborator_ids?: number[] | undefined;
+  /**
+   * User IDs of followers
+   */
+  follower_ids?: number[] | undefined;
+  /**
+   * User IDs in email CC
+   */
+  email_cc_ids?: number[] | undefined;
+  /**
+   * Topic ID in the community
+   */
+  forum_topic_id?: number | undefined;
+  /**
+   * Problem ticket ID for incidents
+   */
+  problem_id?: number | undefined;
+  /**
+   * Whether ticket has linked incidents
+   */
+  has_incidents?: boolean | undefined;
+  /**
+   * Whether ticket is public
+   */
+  is_public?: boolean | undefined;
+  /**
+   * Due date for tickets of type task
+   */
+  due_at?: string | undefined;
+  /**
+   * Array of tags
+   */
+  tags?: string[] | undefined;
+  /**
+   * Custom field values
+   */
+  custom_fields?: ({  id: number;
+  value?: unknown | undefined;})[];
+  /**
+   * Satisfaction rating
+   */
+  satisfaction_rating?: {  score?: string | undefined;
+  comment?: string | undefined;};
+  /**
+   * Sharing agreement IDs
+   */
+  sharing_agreement_ids?: number[] | undefined;
+  /**
+   * Followup ticket IDs
+   */
+  followup_ids?: number[] | undefined;
+  /**
+   * Ticket form ID
+   */
+  ticket_form_id?: number | undefined;
+  /**
+   * Brand ID
+   */
+  brand_id?: number | undefined;
+  /**
+   * Whether channelback is allowed
+   */
+  allow_channelback?: boolean | undefined;
+  /**
+   * Whether attachments are allowed
+   */
+  allow_attachments?: boolean | undefined;
+  /**
+   * Creation timestamp
+   */
+  created_at?: string | undefined;
+  /**
+   * Last update timestamp
+   */
+  updated_at?: string | undefined;})[];
+  /**
+   * Cursor for the next page of results
+   */
+  next_cursor?: string | undefined;
+  /**
+   * Whether there are more results
+   */
+  has_more?: boolean | undefined;
+};
+
+export interface ActionInput_zendesk_listusers {
+  /**
+   * Pagination cursor from the previous response. Omit for the first page.
+   */
+  cursor?: string | undefined;
+};
+
+export interface ActionOutput_zendesk_listusers {
+  items: ({  id: number;
+  name?: string | undefined;
+  email?: string | undefined;
+  role?: string | undefined;
+  active?: boolean | undefined;
+  created_at?: string | undefined;
+  updated_at?: string | undefined;
+  external_id?: string | undefined;
+  locale?: string | undefined;
+  time_zone?: string | undefined;
+  verified?: boolean | undefined;})[];
+  next_cursor?: string | undefined;
+};
+
+export interface ActionInput_zendesk_listviews {
+  /**
+   * Pagination cursor from the previous response. Omit for the first page.
+   */
+  cursor?: string | undefined;
+};
+
+export interface ActionOutput_zendesk_listviews {
+  views: ({  id: number;
+  title: string;
+  active?: boolean | undefined;
+  default?: boolean | undefined;
+  description?: string | undefined;
+  position?: number | undefined;
+  created_at?: string | undefined;
+  updated_at?: string | undefined;})[];
+  next_cursor?: string | undefined;
 };
 
 export interface ActionInput_zendesk_searchtickets {
+  /**
+   * Zendesk search query. Should include "type:ticket" and any additional filters like status, tags, dates. Example: "type:ticket status:open"
+   */
   query: string;
+  /**
+   * Sort field. Defaults to relevance.
+   */
+  sort_by?: 'updated_at' | 'created_at' | 'priority' | 'status' | 'ticket_type' | undefined;
+  /**
+   * Sort order. Defaults to desc.
+   */
+  sort_order?: 'asc' | 'desc' | undefined;
+  /**
+   * Page number for offset pagination.
+   */
+  page?: number | undefined;
 };
 
 export interface ActionOutput_zendesk_searchtickets {
-  tickets: ({  id: string;
+  count: number;
+  next_page?: string | undefined;
+  previous_page?: string | undefined;
+  tickets: ({  id: number;
   url: string;
-  external_id: string | null;
-  requester_id: string;
-  requester_name: string;
-  assignee_id: string | null;
-  assignee_name: string | null;
-  assignee_avatar: string | null;
-  status: string;
+  external_id?: string | undefined;
+  via?: {  channel?: string | undefined;};
   created_at: string;
   updated_at: string;
-  is_public: boolean;
-  subject: string | null;
-  description: string;
-  priority: string | null;
-  tags: string[];})[];
+  type?: string | undefined;
+  subject?: string | undefined;
+  raw_subject?: string | undefined;
+  description?: string | undefined;
+  priority?: string | undefined;
+  status: string;
+  recipient?: string | undefined;
+  requester_id: number;
+  submitter_id: number;
+  assignee_id?: number | undefined;
+  organization_id?: number | undefined;
+  group_id?: number | undefined;
+  collaborator_ids?: number[] | undefined;
+  follower_ids?: number[] | undefined;
+  email_cc_ids?: number[] | undefined;
+  forum_topic_id?: number | undefined;
+  problem_id?: number | undefined;
+  has_incidents?: boolean | undefined;
+  is_public?: boolean | undefined;
+  due_at?: string | undefined;
+  tags?: string[] | undefined;
+  custom_fields?: ({  id: number;
+  value?: unknown | undefined;})[];
+  satisfaction_rating?: {  score: string;} | undefined;
+  sharing_agreement_ids?: number[] | undefined;
+  fields?: ({  id: number;
+  value?: unknown | undefined;})[];
+  followup_ids?: number[] | undefined;
+  ticket_form_id?: number | undefined;
+  brand_id?: number | undefined;
+  allow_channelback?: boolean | undefined;
+  allow_attachments?: boolean | undefined;})[];
+};
+
+export interface ActionInput_zendesk_updateorganization {
+  /**
+   * The ID of the organization to update. Example: 123
+   */
+  organizationId: number;
+  /**
+   * A unique name for the organization. Example: "Acme Inc."
+   */
+  name?: string | undefined;
+  /**
+   * Any notes about the organization. Set to null to clear. Example: "Primary customer"
+   */
+  notes?: string | undefined;
+  /**
+   * Any details about the organization, such as the address. Set to null to clear.
+   */
+  details?: string | undefined;
+  /**
+   * A unique external ID to associate organizations to an external record. Set to null to clear.
+   */
+  external_id?: string | undefined;
+  /**
+   * New tickets from users in this organization are automatically put in this group. Example: 234
+   */
+  group_id?: number | undefined;
+  /**
+   * End users in this organization can see each other's tickets.
+   */
+  shared_tickets?: boolean | undefined;
+  /**
+   * End users in this organization can comment on each other's tickets.
+   */
+  shared_comments?: boolean | undefined;
+  /**
+   * An array of domain names associated with this organization. Example: ["example.com", "acme.com"]
+   */
+  domain_names?: string[] | undefined;
+  /**
+   * The tags of the organization. Example: ["vip", "enterprise"]
+   */
+  tags?: string[] | undefined;
+};
+
+export interface ActionOutput_zendesk_updateorganization {
+  /**
+   * The ID of the organization
+   */
+  id: number;
+  name?: string | undefined;
+  notes?: string | undefined;
+  details?: string | undefined;
+  external_id?: string | undefined;
+  group_id?: number | undefined;
+  shared_tickets?: boolean | undefined;
+  shared_comments?: boolean | undefined;
+  domain_names?: string[] | undefined;
+  tags?: string[] | undefined;
+  created_at?: string | undefined;
+  updated_at?: string | undefined;
+  url?: string | undefined;
+};
+
+export interface ActionInput_zendesk_updateticket {
+  /**
+   * The ID of the ticket to update. Example: 12345
+   */
+  ticket_id: number;
+  /**
+   * The subject of the ticket.
+   */
+  subject?: string | undefined;
+  /**
+   * The status of the ticket.
+   */
+  status?: 'new' | 'open' | 'pending' | 'hold' | 'solved' | 'closed' | undefined;
+  /**
+   * The priority of the ticket.
+   */
+  priority?: 'urgent' | 'high' | 'normal' | 'low' | undefined;
+  /**
+   * The ID of the agent to assign the ticket to.
+   */
+  assignee_id?: number | undefined;
+  /**
+   * The ID of the group to assign the ticket to.
+   */
+  group_id?: number | undefined;
+  /**
+   * The ID of the requester (end user) of the ticket.
+   */
+  requester_id?: number | undefined;
+  /**
+   * Array of tags to apply to the ticket.
+   */
+  tags?: string[] | undefined;
+  /**
+   * Array of custom field objects with id and value.
+   */
+  custom_fields?: ({  /**
+   * The ID of the custom field.
+   */
+  id: number;
+  /**
+   * The value to set for the custom field.
+   */
+  value: string | number | boolean;})[] | undefined;
+  /**
+   * Optional comment to add when updating the ticket.
+   */
+  comment?: {  /**
+   * The body of the comment. Example: "This issue has been resolved."
+   */
+  body: string;
+  /**
+   * Whether the comment is public (visible to requester) or internal. Default: true
+   */
+  public?: boolean | undefined;
+  /**
+   * The ID of the user who authored the comment. Defaults to the authenticated user.
+   */
+  author_id?: number | undefined;};
+};
+
+export interface ActionOutput_zendesk_updateticket {
+  id: number;
+  url: string;
+  subject?: string | undefined;
+  description?: string | undefined;
+  priority?: string | undefined;
+  status: string;
+  recipient?: string | undefined;
+  requester_id: number;
+  submitter_id: number;
+  assignee_id?: number | undefined;
+  organization_id?: number | undefined;
+  group_id?: number | undefined;
+  collaborator_ids?: number[] | undefined;
+  tags?: string[] | undefined;
+  custom_fields?: ({  id: number;
+  value?: string | number | boolean | null | undefined;})[];
+  created_at: string;
+  updated_at: string;
+};
+
+export interface ActionInput_zendesk_updateuser {
+  /**
+   * The ID of the user to update. Example: "123456789"
+   */
+  userId: string;
+  /**
+   * The user's full name.
+   */
+  name?: string | undefined;
+  /**
+   * The user's email address. On update, adds as secondary email if primary is verified.
+   */
+  email?: string | undefined;
+  /**
+   * An alias displayed to end users.
+   */
+  alias?: string | undefined;
+  /**
+   * Any details you want to store about the user, such as an address.
+   */
+  details?: string | undefined;
+  /**
+   * Any notes you want to store about the user.
+   */
+  notes?: string | undefined;
+  /**
+   * The user's primary phone number.
+   */
+  phone?: string | undefined;
+  /**
+   * The ID of the user's organization.
+   */
+  organizationId?: number | undefined;
+  /**
+   * The user's role.
+   */
+  role?: 'end-user' | 'agent' | 'admin' | undefined;
+  /**
+   * A custom role ID if the user is an agent on Enterprise plan.
+   */
+  customRoleId?: number | undefined;
+  /**
+   * The ID of the user's default group.
+   */
+  defaultGroupId?: number | undefined;
+  /**
+   * A unique identifier from another system.
+   */
+  externalId?: string | undefined;
+  /**
+   * The language identifier for this user.
+   */
+  localeId?: number | undefined;
+  /**
+   * The time-zone of this user. Example: "America/New_York".
+   */
+  timeZone?: string | undefined;
+  /**
+   * Whether any of the user's identities is verified.
+   */
+  verified?: boolean | undefined;
+  /**
+   * If the agent is suspended.
+   */
+  suspended?: boolean | undefined;
+  /**
+   * Custom fields values for the user's profile.
+   */
+  userFields?: {  [key: string]: unknown | undefined;};
+  /**
+   * The user's tags.
+   */
+  tags?: string[] | undefined;
+  /**
+   * A URL pointing to the user's profile picture.
+   */
+  remotePhotoUrl?: string | undefined;
+  /**
+   * The user's signature.
+   */
+  signature?: string | undefined;
+};
+
+export interface ActionOutput_zendesk_updateuser {
+  id: string;
+  name?: string | undefined;
+  email?: string | undefined;
+  alias?: string | undefined;
+  details?: string | undefined;
+  notes?: string | undefined;
+  phone?: string | undefined;
+  organizationId?: number | undefined;
+  role?: string | undefined;
+  customRoleId?: number | undefined;
+  defaultGroupId?: number | undefined;
+  externalId?: string | undefined;
+  localeId?: number | undefined;
+  timeZone?: string | undefined;
+  verified?: boolean | undefined;
+  suspended?: boolean | undefined;
+  userFields?: {  [key: string]: unknown | undefined;};
+  tags?: string[] | undefined;
+  remotePhotoUrl?: string | undefined;
+  signature?: string | undefined;
+  createdAt?: string | undefined;
+  updatedAt?: string | undefined;
+  url?: string | undefined;
 };
 
 export interface ZohoCRMAccount {
