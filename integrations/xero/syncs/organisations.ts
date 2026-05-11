@@ -23,7 +23,7 @@ const OrganisationSchema = z.object({
 
 const sync = createSync({
     description: 'Sync Xero organisation records for connected tenants.',
-    version: '3.0.0',
+    version: '3.0.1',
     frequency: 'every hour',
     autoStart: true,
     models: {
