@@ -99633,112 +99633,70 @@
       "type": "object",
       "additionalProperties": false
     },
-    "SyncMetadata_salesforce_accounts": {
-      "type": "object",
-      "additionalProperties": false
-    },
-    "SyncMetadata_salesforce_articles": {
-      "type": "object",
-      "properties": {
-        "customFields": {
-          "type": "array",
-          "items": {
-            "type": "string"
-          }
-        }
-      },
-      "required": [
-        "customFields"
-      ],
-      "additionalProperties": false
-    },
-    "SyncMetadata_salesforce_contacts": {
-      "type": "object",
-      "additionalProperties": false
-    },
-    "Lead": {
+    "Case": {
       "type": "object",
       "properties": {
         "id": {
           "type": "string"
         },
-        "first_name": {
-          "type": [
-            "string",
-            "null"
-          ]
-        },
-        "last_name": {
+        "case_number": {
           "type": "string"
         },
-        "company_name": {
+        "subject": {
           "type": "string"
         },
-        "email": {
-          "type": [
-            "string",
-            "null"
-          ]
+        "description": {
+          "type": "string"
+        },
+        "status": {
+          "type": "string"
+        },
+        "priority": {
+          "type": "string"
+        },
+        "origin": {
+          "type": "string"
+        },
+        "reason": {
+          "type": "string"
+        },
+        "type": {
+          "type": "string"
         },
         "owner_id": {
           "type": "string"
         },
-        "owner_name": {
+        "account_id": {
           "type": "string"
         },
-        "phone": {
-          "type": [
-            "string",
-            "null"
-          ]
-        },
-        "salutation": {
-          "type": [
-            "string",
-            "null"
-          ]
-        },
-        "title": {
-          "type": [
-            "string",
-            "null"
-          ]
-        },
-        "website": {
-          "type": [
-            "string",
-            "null"
-          ]
-        },
-        "industry": {
-          "type": [
-            "string",
-            "null"
-          ]
-        },
-        "last_modified_date": {
+        "contact_id": {
           "type": "string"
+        },
+        "created_at": {
+          "type": "string"
+        },
+        "updated_at": {
+          "type": "string"
+        },
+        "system_modstamp": {
+          "type": "string"
+        },
+        "closed_at": {
+          "type": "string"
+        },
+        "is_closed": {
+          "type": "boolean"
+        },
+        "is_escalated": {
+          "type": "boolean"
         }
       },
       "required": [
         "id",
-        "first_name",
-        "last_name",
-        "company_name",
-        "email",
-        "owner_id",
-        "owner_name",
-        "phone",
-        "salutation",
-        "title",
-        "website",
-        "industry",
-        "last_modified_date"
+        "created_at",
+        "updated_at",
+        "system_modstamp"
       ],
-      "additionalProperties": false
-    },
-    "SyncMetadata_salesforce_leads": {
-      "type": "object",
       "additionalProperties": false
     },
     "Opportunity": {
@@ -99747,305 +99705,400 @@
         "id": {
           "type": "string"
         },
-        "opportunity_name": {
-          "type": "string"
-        },
-        "account_name": {
-          "type": [
-            "string",
-            "null"
-          ]
-        },
-        "account_id": {
-          "type": [
-            "string",
-            "null"
-          ]
-        },
-        "amount": {
-          "type": [
-            "number",
-            "null"
-          ]
-        },
-        "description": {
-          "type": [
-            "string",
-            "null"
-          ]
-        },
-        "close_date": {
-          "type": "string"
-        },
-        "created_by_id": {
-          "type": "string"
-        },
-        "created_by": {
-          "type": "string"
-        },
-        "owner_id": {
-          "type": "string"
-        },
-        "owner_name": {
-          "type": "string"
-        },
-        "stage": {
-          "type": "string"
-        },
-        "probability": {
-          "type": [
-            "number",
-            "null"
-          ]
-        },
-        "type": {
-          "type": [
-            "string",
-            "null"
-          ]
-        },
-        "last_modified_date": {
-          "type": "string"
-        }
-      },
-      "required": [
-        "id",
-        "opportunity_name",
-        "account_name",
-        "account_id",
-        "amount",
-        "description",
-        "close_date",
-        "created_by_id",
-        "created_by",
-        "owner_id",
-        "owner_name",
-        "stage",
-        "probability",
-        "type",
-        "last_modified_date"
-      ],
-      "additionalProperties": false
-    },
-    "SyncMetadata_salesforce_opportunities": {
-      "type": "object",
-      "additionalProperties": false
-    },
-    "SyncMetadata_salesforce_tickets": {
-      "type": "object",
-      "additionalProperties": false
-    },
-    "ActionInput_salesforce_createaccount": {
-      "type": "object",
-      "properties": {
-        "description": {
-          "type": "string"
-        },
-        "website": {
-          "type": "string"
-        },
-        "industry": {
-          "type": "string"
-        },
-        "billing_city": {
-          "type": "string"
-        },
-        "billing_country": {
-          "type": "string"
-        },
-        "owner_id": {
-          "type": "string"
-        },
         "name": {
-          "type": "string"
-        }
-      },
-      "required": [
-        "name"
-      ],
-      "additionalProperties": false
-    },
-    "ActionOutput_salesforce_createaccount": {
-      "type": "object",
-      "properties": {
-        "id": {
-          "type": "string"
-        },
-        "success": {
-          "type": "boolean"
-        },
-        "errors": {
-          "type": "array",
-          "items": {}
-        }
-      },
-      "required": [
-        "id",
-        "success",
-        "errors"
-      ],
-      "additionalProperties": false
-    },
-    "ActionInput_salesforce_createcontact": {
-      "type": "object",
-      "properties": {
-        "first_name": {
-          "type": "string"
-        },
-        "account_id": {
-          "type": "string"
-        },
-        "owner_id": {
-          "type": "string"
-        },
-        "email": {
-          "type": "string"
-        },
-        "mobile": {
-          "type": "string"
-        },
-        "phone": {
-          "type": "string"
-        },
-        "salutation": {
-          "type": "string"
-        },
-        "title": {
-          "type": "string"
-        },
-        "last_name": {
-          "type": "string"
-        }
-      },
-      "required": [
-        "last_name"
-      ],
-      "additionalProperties": false
-    },
-    "ActionOutput_salesforce_createcontact": {
-      "type": "object",
-      "properties": {
-        "id": {
-          "type": "string"
-        },
-        "success": {
-          "type": "boolean"
-        },
-        "errors": {
-          "type": "array",
-          "items": {}
-        }
-      },
-      "required": [
-        "id",
-        "success",
-        "errors"
-      ],
-      "additionalProperties": false
-    },
-    "ActionInput_salesforce_createlead": {
-      "type": "object",
-      "properties": {
-        "first_name": {
-          "type": "string"
-        },
-        "email": {
-          "type": "string"
-        },
-        "owner_id": {
-          "type": "string"
-        },
-        "phone": {
-          "type": "string"
-        },
-        "salutation": {
-          "type": "string"
-        },
-        "title": {
-          "type": "string"
-        },
-        "website": {
-          "type": "string"
-        },
-        "industry": {
-          "type": "string"
-        },
-        "last_name": {
-          "type": "string"
-        },
-        "company_name": {
-          "type": "string"
-        }
-      },
-      "required": [
-        "last_name",
-        "company_name"
-      ],
-      "additionalProperties": false
-    },
-    "ActionOutput_salesforce_createlead": {
-      "type": "object",
-      "properties": {
-        "id": {
-          "type": "string"
-        },
-        "success": {
-          "type": "boolean"
-        },
-        "errors": {
-          "type": "array",
-          "items": {}
-        }
-      },
-      "required": [
-        "id",
-        "success",
-        "errors"
-      ],
-      "additionalProperties": false
-    },
-    "ActionInput_salesforce_createopportunity": {
-      "type": "object",
-      "properties": {
-        "account_id": {
           "type": "string"
         },
         "amount": {
           "type": "number"
         },
-        "description": {
-          "type": "string"
-        },
-        "created_by_id": {
-          "type": "string"
-        },
-        "owner_id": {
-          "type": "string"
-        },
-        "probability": {
-          "type": "number"
-        },
-        "type": {
-          "type": "string"
-        },
-        "opportunity_name": {
+        "stage": {
           "type": "string"
         },
         "close_date": {
           "type": "string"
         },
-        "stage": {
+        "owner_id": {
+          "type": "string"
+        },
+        "updated_at": {
           "type": "string"
         }
       },
       "required": [
-        "opportunity_name",
-        "close_date",
-        "stage"
+        "id",
+        "updated_at"
       ],
       "additionalProperties": false
     },
-    "ActionOutput_salesforce_createopportunity": {
+    "Record": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "raw": {
+          "type": "object",
+          "additionalProperties": {
+            "anyOf": [
+              {},
+              {
+                "not": {}
+              }
+            ]
+          }
+        }
+      },
+      "required": [
+        "id",
+        "raw"
+      ],
+      "additionalProperties": false
+    },
+    "SyncMetadata_salesforce_recordsbysoql": {
+      "type": "object",
+      "properties": {
+        "soql_query": {
+          "type": "string"
+        },
+        "api_version": {
+          "type": "string"
+        },
+        "timestamp_field": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "soql_query"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_salesforce_compositebatchrequest": {
+      "type": "object",
+      "properties": {
+        "apiVersion": {
+          "type": "string",
+          "description": "Salesforce API version. Defaults to v57.0. Example: \"v57.0\""
+        },
+        "haltOnError": {
+          "type": "boolean",
+          "description": "If true, stop processing subrequests after a failure. Defaults to false."
+        },
+        "batchRequests": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "method": {
+                "type": "string",
+                "enum": [
+                  "GET",
+                  "POST",
+                  "PUT",
+                  "PATCH",
+                  "DELETE"
+                ]
+              },
+              "url": {
+                "type": "string",
+                "description": "URL path for the subrequest (without the instance URL). Example: \"v57.0/sobjects/Account/001D000000K0fXOIAZ\""
+              },
+              "richInput": {
+                "type": "object",
+                "additionalProperties": {
+                  "anyOf": [
+                    {},
+                    {
+                      "not": {}
+                    }
+                  ]
+                },
+                "description": "Request body for POST, PUT, or PATCH requests"
+              },
+              "binaryPartName": {
+                "type": "string",
+                "description": "Name of the binary part for multipart requests"
+              },
+              "binaryPartNameAlias": {
+                "type": "string",
+                "description": "Alias for the binary part name"
+              }
+            },
+            "required": [
+              "method",
+              "url"
+            ],
+            "additionalProperties": false
+          },
+          "description": "Array of subrequests to execute (1-25 requests)"
+        }
+      },
+      "required": [
+        "batchRequests"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_salesforce_compositebatchrequest": {
+      "type": "object",
+      "properties": {
+        "hasErrors": {
+          "type": "boolean",
+          "description": "True if any subrequest resulted in an error"
+        },
+        "results": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "statusCode": {
+                "type": "number"
+              },
+              "result": {
+                "description": "Response body from this subrequest, which varies by endpoint"
+              }
+            },
+            "required": [
+              "statusCode"
+            ],
+            "additionalProperties": false
+          },
+          "description": "Results for each subrequest in the order they were submitted"
+        }
+      },
+      "required": [
+        "hasErrors",
+        "results"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_salesforce_compositegraphrequest": {
+      "type": "object",
+      "properties": {
+        "graphs": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "graphId": {
+                "type": "string"
+              },
+              "compositeRequest": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "method": {
+                      "type": "string",
+                      "enum": [
+                        "DELETE",
+                        "GET",
+                        "PATCH",
+                        "POST"
+                      ]
+                    },
+                    "url": {
+                      "type": "string"
+                    },
+                    "referenceId": {
+                      "type": "string"
+                    },
+                    "body": {
+                      "type": "object",
+                      "additionalProperties": false
+                    }
+                  },
+                  "required": [
+                    "method",
+                    "url",
+                    "referenceId"
+                  ],
+                  "additionalProperties": false
+                }
+              }
+            },
+            "required": [
+              "graphId",
+              "compositeRequest"
+            ],
+            "additionalProperties": false
+          }
+        },
+        "apiVersion": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "graphs"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_salesforce_compositegraphrequest": {
+      "type": "object",
+      "properties": {
+        "graphs": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "graphId": {
+                "type": "string"
+              },
+              "graphResponse": {
+                "type": "object",
+                "properties": {
+                  "compositeResponse": {
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "properties": {
+                        "body": {},
+                        "httpHeaders": {
+                          "type": "object",
+                          "additionalProperties": false
+                        },
+                        "httpStatusCode": {
+                          "type": "number"
+                        },
+                        "referenceId": {
+                          "type": "string"
+                        }
+                      },
+                      "required": [
+                        "httpStatusCode",
+                        "referenceId"
+                      ],
+                      "additionalProperties": false
+                    }
+                  }
+                },
+                "required": [
+                  "compositeResponse"
+                ],
+                "additionalProperties": false
+              },
+              "isSuccessful": {
+                "type": "boolean"
+              }
+            },
+            "required": [
+              "graphId",
+              "graphResponse",
+              "isSuccessful"
+            ],
+            "additionalProperties": false
+          }
+        }
+      },
+      "required": [
+        "graphs"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_salesforce_compositerequest": {
+      "type": "object",
+      "properties": {
+        "apiVersion": {
+          "type": "string"
+        },
+        "allOrNone": {
+          "type": "boolean"
+        },
+        "subrequests": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "method": {
+                "type": "string"
+              },
+              "url": {
+                "type": "string"
+              },
+              "body": {
+                "type": "object",
+                "additionalProperties": {
+                  "anyOf": [
+                    {},
+                    {
+                      "not": {}
+                    }
+                  ]
+                }
+              },
+              "referenceId": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "method",
+              "url",
+              "referenceId"
+            ],
+            "additionalProperties": false
+          }
+        }
+      },
+      "required": [
+        "subrequests"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_salesforce_compositerequest": {
+      "type": "object",
+      "properties": {
+        "compositeResponse": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "body": {},
+              "httpStatusCode": {
+                "type": "number"
+              },
+              "referenceId": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "httpStatusCode",
+              "referenceId"
+            ],
+            "additionalProperties": false
+          }
+        }
+      },
+      "required": [
+        "compositeResponse"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_salesforce_createrecord": {
+      "type": "object",
+      "properties": {
+        "sObject": {
+          "type": "string"
+        },
+        "version": {
+          "type": "string"
+        },
+        "record": {
+          "type": "object",
+          "additionalProperties": {
+            "anyOf": [
+              {},
+              {
+                "not": {}
+              }
+            ]
+          }
+        }
+      },
+      "required": [
+        "sObject",
+        "record"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_salesforce_createrecord": {
       "type": "object",
       "properties": {
         "id": {
@@ -100066,117 +100119,386 @@
       ],
       "additionalProperties": false
     },
-    "ActionInput_salesforce_deleteaccount": {
+    "ActionInput_salesforce_createsobjectcollection": {
       "type": "object",
       "properties": {
-        "id": {
-          "type": "string"
+        "allOrNone": {
+          "type": "boolean",
+          "description": "Indicates whether to roll back the entire request when any object fails (true) or continue with other objects (false). Defaults to false."
+        },
+        "records": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "attributes": {
+                "type": "object",
+                "properties": {
+                  "type": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "type"
+                ],
+                "additionalProperties": false
+              }
+            },
+            "required": [
+              "attributes"
+            ],
+            "additionalProperties": false
+          },
+          "description": "List of sObject records to create. Up to 200 records."
+        },
+        "apiVersion": {
+          "type": "string",
+          "description": "API version to use (e.g., \"v63.0\"). If not provided, uses the connection default."
         }
       },
       "required": [
-        "id"
+        "records"
       ],
       "additionalProperties": false
     },
-    "ActionOutput_salesforce_deleteaccount": {
+    "ActionOutput_salesforce_createsobjectcollection": {
+      "type": "object",
+      "properties": {
+        "results": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "success": {
+                "type": "boolean",
+                "description": "Whether the record was created successfully."
+              },
+              "errors": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "statusCode": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string",
+                      "description": "Error message."
+                    },
+                    "fields": {
+                      "type": "array",
+                      "items": {
+                        "type": "string"
+                      },
+                      "description": "Fields that caused the error."
+                    }
+                  },
+                  "required": [
+                    "statusCode",
+                    "message"
+                  ],
+                  "additionalProperties": false
+                },
+                "description": "List of errors if the record creation failed."
+              }
+            },
+            "required": [
+              "success"
+            ],
+            "additionalProperties": false
+          },
+          "description": "List of SaveResult objects corresponding to each input record, in the same order."
+        }
+      },
+      "required": [
+        "results"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_salesforce_deleterecord": {
+      "type": "object",
+      "properties": {
+        "sobject": {
+          "type": "string",
+          "description": "The type of sObject to delete. Example: \"Account\", \"Contact\", \"Opportunity\""
+        },
+        "recordId": {
+          "type": "string",
+          "description": "The Salesforce record ID to delete. Example: \"0015000000VALDtAAP\""
+        },
+        "apiVersion": {
+          "type": "string",
+          "description": "API version to use. Defaults to \"v63.0\"."
+        }
+      },
+      "required": [
+        "sobject",
+        "recordId"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_salesforce_deleterecord": {
       "type": "object",
       "properties": {
         "success": {
           "type": "boolean"
-        }
-      },
-      "required": [
-        "success"
-      ],
-      "additionalProperties": false
-    },
-    "ActionInput_salesforce_deletecontact": {
-      "type": "object",
-      "properties": {
-        "id": {
+        },
+        "message": {
           "type": "string"
         }
       },
       "required": [
-        "id"
+        "success",
+        "message"
       ],
       "additionalProperties": false
     },
-    "ActionOutput_salesforce_deletecontact": {
+    "ActionInput_salesforce_deletesobjectcollection": {
       "type": "object",
       "properties": {
-        "success": {
-          "type": "boolean"
+        "api_version": {
+          "type": "string",
+          "description": "API version to use (e.g., \"v62.0\"). If not provided, the latest version will be discovered."
+        },
+        "sObjectName": {
+          "type": "string",
+          "description": "The type of sObject to delete (e.g., \"Account\", \"Contact\", \"Opportunity\")."
+        },
+        "ids": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "Array of record IDs to delete."
+        },
+        "allOrNone": {
+          "type": "boolean",
+          "description": "If true, all deletions must succeed for any to succeed (transactional). If false, partial success is allowed."
         }
       },
       "required": [
-        "success"
+        "sObjectName",
+        "ids"
       ],
       "additionalProperties": false
     },
-    "ActionInput_salesforce_deletelead": {
+    "ActionOutput_salesforce_deletesobjectcollection": {
       "type": "object",
       "properties": {
-        "id": {
+        "results": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "success": {
+                "type": "boolean"
+              },
+              "errors": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "statusCode": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    },
+                    "fields": {
+                      "type": "array",
+                      "items": {
+                        "type": "string"
+                      }
+                    }
+                  },
+                  "required": [
+                    "statusCode",
+                    "message"
+                  ],
+                  "additionalProperties": false
+                }
+              }
+            },
+            "required": [
+              "success"
+            ],
+            "additionalProperties": false
+          },
+          "description": "Results for each record deletion."
+        }
+      },
+      "required": [
+        "results"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_salesforce_describeglobal": {
+      "type": "object",
+      "properties": {
+        "api_version": {
           "type": "string"
         }
       },
-      "required": [
-        "id"
-      ],
       "additionalProperties": false
     },
-    "ActionOutput_salesforce_deletelead": {
+    "ActionOutput_salesforce_describeglobal": {
       "type": "object",
       "properties": {
-        "success": {
-          "type": "boolean"
+        "encoding": {
+          "type": "string",
+          "description": "Character encoding used by the org."
+        },
+        "max_batch_size": {
+          "type": "number",
+          "description": "Maximum number of records that can be processed in a single batch."
+        },
+        "sobjects": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "name": {
+                "type": "string"
+              },
+              "label": {
+                "type": "string",
+                "description": "Display label for the sObject."
+              },
+              "custom": {
+                "type": "boolean",
+                "description": "Whether the sObject is a custom object."
+              },
+              "keyPrefix": {
+                "type": "string"
+              },
+              "labelPlural": {
+                "type": "string"
+              },
+              "layoutable": {
+                "type": "boolean"
+              },
+              "activateable": {
+                "type": "boolean"
+              },
+              "createable": {
+                "type": "boolean",
+                "description": "Whether records of this sObject can be created."
+              },
+              "deletable": {
+                "type": "boolean",
+                "description": "Whether records of this sObject can be deleted."
+              },
+              "updateable": {
+                "type": "boolean",
+                "description": "Whether records of this sObject can be updated."
+              },
+              "queryable": {
+                "type": "boolean",
+                "description": "Whether records of this sObject can be queried."
+              },
+              "feedEnabled": {
+                "type": "boolean"
+              },
+              "mergeable": {
+                "type": "boolean"
+              },
+              "replicateable": {
+                "type": "boolean"
+              },
+              "retrieveable": {
+                "type": "boolean"
+              },
+              "searchLayoutable": {
+                "type": "boolean"
+              },
+              "searchable": {
+                "type": "boolean",
+                "description": "Whether records of this sObject can be searched."
+              },
+              "triggerable": {
+                "type": "boolean"
+              },
+              "deprecatedAndHidden": {
+                "type": "boolean"
+              },
+              "hasSubtypes": {
+                "type": "boolean"
+              },
+              "isSubtype": {
+                "type": "boolean"
+              },
+              "idEnabled": {
+                "type": "boolean"
+              },
+              "urls": {
+                "type": "object",
+                "additionalProperties": {
+                  "anyOf": [
+                    {},
+                    {
+                      "not": {}
+                    }
+                  ]
+                }
+              }
+            },
+            "required": [
+              "name",
+              "label",
+              "custom",
+              "createable",
+              "deletable",
+              "updateable",
+              "queryable",
+              "searchable"
+            ],
+            "additionalProperties": false
+          },
+          "description": "List of available sObject types and their metadata."
         }
       },
       "required": [
-        "success"
+        "encoding",
+        "max_batch_size",
+        "sobjects"
       ],
       "additionalProperties": false
     },
-    "ActionInput_salesforce_deleteopportunity": {
+    "ActionInput_salesforce_describesobject": {
       "type": "object",
       "properties": {
-        "id": {
-          "type": "string"
+        "sObject": {
+          "type": "string",
+          "description": "The name of the sObject to describe. Example: \"Account\""
+        },
+        "apiVersion": {
+          "type": "string",
+          "description": "API version to use. Example: \"v58.0\". If not provided, uses the connection default."
         }
       },
       "required": [
-        "id"
+        "sObject"
       ],
       "additionalProperties": false
     },
-    "ActionOutput_salesforce_deleteopportunity": {
-      "type": "object",
-      "properties": {
-        "success": {
-          "type": "boolean"
-        }
-      },
-      "required": [
-        "success"
-      ],
-      "additionalProperties": false
-    },
-    "ActionInput_salesforce_fetchfields": {
+    "ActionOutput_salesforce_describesobject": {
       "type": "object",
       "properties": {
         "name": {
           "type": "string"
-        }
-      },
-      "required": [
-        "name"
-      ],
-      "additionalProperties": false
-    },
-    "ActionOutput_salesforce_fetchfields": {
-      "type": "object",
-      "properties": {
+        },
+        "label": {
+          "type": "string"
+        },
+        "labelPlural": {
+          "type": "string"
+        },
         "fields": {
           "type": "array",
           "items": {
@@ -100191,6 +100513,12 @@
               "type": {
                 "type": "string"
               },
+              "length": {
+                "type": "number"
+              },
+              "required": {
+                "type": "boolean"
+              },
               "referenceTo": {
                 "type": "array",
                 "items": {
@@ -100198,18 +100526,13 @@
                 }
               },
               "relationshipName": {
-                "type": [
-                  "string",
-                  "null"
-                ]
+                "type": "string"
               }
             },
             "required": [
               "name",
               "label",
-              "type",
-              "referenceTo",
-              "relationshipName"
+              "type"
             ],
             "additionalProperties": false
           }
@@ -100219,28 +100542,411 @@
           "items": {
             "type": "object",
             "properties": {
-              "object": {
+              "childSObject": {
                 "type": "string"
-              },
-              "relationshipName": {
-                "type": [
-                  "string",
-                  "null"
-                ]
               },
               "field": {
                 "type": "string"
+              },
+              "relationshipName": {
+                "type": "string"
+              }
+            },
+            "additionalProperties": false
+          }
+        },
+        "recordTypeInfos": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "recordTypeId": {
+                "type": "string"
+              },
+              "name": {
+                "type": "string"
+              },
+              "active": {
+                "type": "boolean"
+              },
+              "available": {
+                "type": "boolean"
               }
             },
             "required": [
-              "object",
-              "relationshipName",
-              "field"
+              "recordTypeId",
+              "name",
+              "active",
+              "available"
             ],
             "additionalProperties": false
           }
         },
-        "validationRules": {
+        "queryable": {
+          "type": "boolean"
+        },
+        "createable": {
+          "type": "boolean"
+        },
+        "updateable": {
+          "type": "boolean"
+        },
+        "deletable": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "name",
+        "label",
+        "labelPlural",
+        "fields"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_salesforce_getcurrentuser": {
+      "type": "object",
+      "additionalProperties": false
+    },
+    "ActionOutput_salesforce_getcurrentuser": {
+      "type": "object",
+      "properties": {
+        "user_id": {
+          "type": "string",
+          "description": "Salesforce user ID. Example: \"005x00000012Q9P\""
+        },
+        "organization_id": {
+          "type": "string",
+          "description": "Salesforce organization ID. Example: \"00Dx0000000BV7z\""
+        },
+        "username": {
+          "type": "string",
+          "description": "Salesforce username. Example: \"admin@company.com\""
+        },
+        "email": {
+          "type": "string",
+          "description": "Email address of the user."
+        },
+        "email_verified": {
+          "type": "boolean",
+          "description": "Whether the email has been verified."
+        },
+        "first_name": {
+          "type": "string",
+          "description": "First name of the user."
+        },
+        "last_name": {
+          "type": "string",
+          "description": "Last name of the user."
+        },
+        "display_name": {
+          "type": "string",
+          "description": "Display name of the user."
+        },
+        "picture": {
+          "type": "string",
+          "description": "URL to the user profile picture."
+        },
+        "timezone": {
+          "type": "string",
+          "description": "User time zone."
+        },
+        "locale": {
+          "type": "string",
+          "description": "User locale."
+        },
+        "profile_url": {
+          "type": "string",
+          "description": "URL to the user profile."
+        }
+      },
+      "required": [
+        "user_id",
+        "organization_id"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_salesforce_getlimits": {
+      "type": "object",
+      "additionalProperties": false
+    },
+    "ActionOutput_salesforce_getlimits": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "object",
+        "properties": {
+          "max": {
+            "type": "number"
+          },
+          "remaining": {
+            "type": "number"
+          }
+        },
+        "required": [
+          "max",
+          "remaining"
+        ],
+        "additionalProperties": false
+      }
+    },
+    "ActionInput_salesforce_getquickactiondefaults": {
+      "type": "object",
+      "properties": {
+        "quickActionName": {
+          "type": "string",
+          "description": "The API name of the quick action. Example: \"Account.New_Account\""
+        },
+        "contextId": {
+          "type": "string",
+          "description": "The ID of the context record to get default values for. If provided, defaults are computed based on this record. Example: \"001xx000003DGSXAA4\""
+        },
+        "apiVersion": {
+          "type": "string",
+          "description": "Salesforce API version. Defaults to \"v59.0\". Example: \"v60.0\""
+        }
+      },
+      "required": [
+        "quickActionName"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_salesforce_getquickactiondefaults": {
+      "type": "object",
+      "properties": {
+        "defaultValues": {
+          "type": "object",
+          "additionalProperties": {
+            "anyOf": [
+              {},
+              {
+                "not": {}
+              }
+            ]
+          }
+        }
+      },
+      "additionalProperties": false
+    },
+    "ActionInput_salesforce_getrecordbyexternalid": {
+      "type": "object",
+      "properties": {
+        "version": {
+          "type": "string",
+          "description": "API version. Example: \"v60.0\". If omitted, defaults to the connection's configured version."
+        },
+        "sobject": {
+          "type": "string",
+          "description": "sObject API name. Example: \"Account\", \"Contact\", \"CustomObject__c\"."
+        },
+        "external_id_field": {
+          "type": "string",
+          "description": "External ID field name. Example: \"External_ID__c\", \"Custom_External_Id__c\"."
+        },
+        "external_id": {
+          "type": "string",
+          "description": "External ID value to retrieve. Example: \"EXT-12345\"."
+        },
+        "fields": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "Fields to return in the response. If omitted, all fields are returned. Example: [\"Id\", \"Name\", \"CreatedDate\"]"
+        }
+      },
+      "required": [
+        "sobject",
+        "external_id_field",
+        "external_id"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_salesforce_getrecordbyexternalid": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "Salesforce record ID (18-character)."
+        },
+        "attributes": {
+          "type": "object",
+          "properties": {
+            "type": {
+              "type": "string"
+            },
+            "url": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "type",
+            "url"
+          ],
+          "additionalProperties": false
+        }
+      },
+      "required": [
+        "id"
+      ],
+      "additionalProperties": false,
+      "description": "Record fields including Id and attributes"
+    },
+    "ActionInput_salesforce_getrecord": {
+      "type": "object",
+      "properties": {
+        "sObject": {
+          "type": "string",
+          "description": "The Salesforce object type. Example: \"Account\", \"Contact\", \"Opportunity\""
+        },
+        "recordId": {
+          "type": "string",
+          "description": "The Salesforce record ID. Example: \"001D000000INjVe\""
+        },
+        "fields": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "Optional list of fields to retrieve. If omitted, all accessible fields are returned."
+        }
+      },
+      "required": [
+        "sObject",
+        "recordId"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_salesforce_getrecord": {
+      "type": "object",
+      "additionalProperties": false
+    },
+    "ActionInput_salesforce_getsobjectbasicinfo": {
+      "type": "object",
+      "properties": {
+        "sObject": {
+          "type": "string",
+          "description": "The name of the sObject to retrieve metadata for. Example: \"Account\""
+        },
+        "apiVersion": {
+          "type": "string",
+          "description": "Optional API version to use. Defaults to \"v63.0\". Example: \"v60.0\""
+        }
+      },
+      "required": [
+        "sObject"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_salesforce_getsobjectbasicinfo": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string",
+          "description": "The API name of the sObject."
+        },
+        "label": {
+          "type": "string",
+          "description": "The display label for the sObject."
+        },
+        "labelPlural": {
+          "type": "string",
+          "description": "The plural display label for the sObject."
+        },
+        "keyPrefix": {
+          "type": "string",
+          "description": "The key prefix for record IDs of this type."
+        },
+        "updateable": {
+          "type": "boolean",
+          "description": "Whether records of this type can be updated."
+        },
+        "createable": {
+          "type": "boolean",
+          "description": "Whether records of this type can be created."
+        },
+        "deletable": {
+          "type": "boolean",
+          "description": "Whether records of this type can be deleted."
+        },
+        "queryable": {
+          "type": "boolean",
+          "description": "Whether records of this type can be queried."
+        },
+        "custom": {
+          "type": "boolean",
+          "description": "Whether this is a custom object."
+        },
+        "urls": {
+          "type": "object",
+          "properties": {
+            "sobject": {
+              "type": "string"
+            },
+            "describe": {
+              "type": "string",
+              "description": "URL for the describe resource."
+            },
+            "rowTemplate": {
+              "type": "string",
+              "description": "URL template for accessing a specific record."
+            },
+            "uiEditTemplate": {
+              "type": "string",
+              "description": "URL template for editing a record in the UI."
+            },
+            "uiDetailTemplate": {
+              "type": "string",
+              "description": "URL template for viewing a record in the UI."
+            }
+          },
+          "additionalProperties": false
+        },
+        "fields": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "name": {
+                "type": "string"
+              },
+              "label": {
+                "type": "string",
+                "description": "The display label for the field."
+              },
+              "type": {
+                "type": "string",
+                "description": "The data type of the field."
+              },
+              "length": {
+                "type": "number",
+                "description": "The maximum length of the field."
+              },
+              "updateable": {
+                "type": "boolean",
+                "description": "Whether the field can be updated."
+              },
+              "createable": {
+                "type": "boolean",
+                "description": "Whether the field can be set on create."
+              },
+              "custom": {
+                "type": "boolean",
+                "description": "Whether this is a custom field."
+              },
+              "nillable": {
+                "type": "boolean",
+                "description": "Whether the field allows null values."
+              }
+            },
+            "required": [
+              "name",
+              "label",
+              "type"
+            ],
+            "additionalProperties": false
+          },
+          "description": "Metadata for fields defined on this sObject."
+        },
+        "recentItems": {
           "type": "array",
           "items": {
             "type": "object",
@@ -100249,229 +100955,568 @@
                 "type": "string"
               },
               "name": {
+                "type": "string",
+                "description": "Name or primary field value of the recent item."
+              }
+            },
+            "required": [
+              "id"
+            ],
+            "additionalProperties": false
+          },
+          "description": "Recently accessed records of this type."
+        }
+      },
+      "required": [
+        "name",
+        "label"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_salesforce_listavailableresources": {
+      "type": "object",
+      "additionalProperties": false
+    },
+    "ActionOutput_salesforce_listavailableresources": {
+      "type": "object",
+      "properties": {
+        "versions": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "version": {
                 "type": "string"
               },
-              "errorConditionFormula": {
+              "label": {
                 "type": "string"
               },
-              "errorMessage": {
+              "url": {
                 "type": "string"
               }
             },
             "required": [
-              "id",
-              "name",
-              "errorConditionFormula",
-              "errorMessage"
+              "version",
+              "label",
+              "url"
             ],
             "additionalProperties": false
           }
         }
       },
       "required": [
-        "fields",
-        "childRelationships",
-        "validationRules"
+        "versions"
       ],
       "additionalProperties": false
     },
-    "ActionInput_salesforce_updateaccount": {
+    "ActionInput_salesforce_listquickactions": {
       "type": "object",
       "properties": {
-        "description": {
-          "type": "string"
+        "apiVersion": {
+          "type": "string",
+          "description": "Salesforce API version. Example: \"v60.0\". If omitted, uses the default version from the connection."
         },
-        "website": {
-          "type": "string"
+        "sObjectType": {
+          "type": "string",
+          "description": "sObject type to list quick actions for (e.g., \"Account\", \"Contact\", \"Opportunity\"). If omitted, returns global quick actions."
+        }
+      },
+      "additionalProperties": false
+    },
+    "ActionOutput_salesforce_listquickactions": {
+      "type": "object",
+      "properties": {
+        "quickActions": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "actionName": {
+                "type": "string"
+              },
+              "label": {
+                "type": "string",
+                "description": "The display label of the quick action"
+              },
+              "type": {
+                "type": "string",
+                "description": "The type of quick action (e.g., \"Create\", \"Update\", \"SendEmail\")"
+              },
+              "targetObject": {
+                "type": "string",
+                "description": "The target sObject for the quick action"
+              },
+              "targetParentField": {
+                "type": "string",
+                "description": "The parent field for the quick action"
+              }
+            },
+            "required": [
+              "actionName",
+              "label",
+              "type"
+            ],
+            "additionalProperties": false
+          },
+          "description": "List of quick actions available"
         },
-        "industry": {
-          "type": "string"
-        },
-        "billing_city": {
-          "type": "string"
-        },
-        "billing_country": {
-          "type": "string"
-        },
-        "owner_id": {
-          "type": "string"
-        },
-        "id": {
-          "type": "string"
-        },
-        "name": {
-          "type": "string"
+        "count": {
+          "type": "number",
+          "description": "Total number of quick actions returned"
         }
       },
       "required": [
-        "id"
+        "quickActions",
+        "count"
       ],
       "additionalProperties": false
     },
-    "ActionOutput_salesforce_updateaccount": {
+    "ActionInput_salesforce_listrecentitems": {
       "type": "object",
       "properties": {
-        "success": {
-          "type": "boolean"
+        "limit": {
+          "type": "number",
+          "description": "Maximum number of records to return. Default varies by API version."
+        }
+      },
+      "additionalProperties": false
+    },
+    "ActionOutput_salesforce_listrecentitems": {
+      "type": "object",
+      "properties": {
+        "items": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "name": {
+                "type": "string",
+                "description": "Record name"
+              },
+              "type": {
+                "type": "string",
+                "description": "SObject type (e.g., Account, Contact)"
+              },
+              "url": {
+                "type": "string",
+                "description": "URL to the record"
+              }
+            },
+            "required": [
+              "id"
+            ],
+            "additionalProperties": false
+          }
+        },
+        "count": {
+          "type": "number",
+          "description": "Number of items returned"
         }
       },
       "required": [
-        "success"
+        "items",
+        "count"
       ],
       "additionalProperties": false
     },
-    "ActionInput_salesforce_updatecontact": {
+    "ActionInput_salesforce_parameterizedsearchrecords": {
       "type": "object",
       "properties": {
-        "first_name": {
-          "type": "string"
+        "query": {
+          "type": "string",
+          "description": "Search string (q parameter). Example: \"Acme\""
         },
-        "account_id": {
-          "type": "string"
+        "sobjects": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "Array of sObject types to search across. Example: [\"Account\", \"Contact\"]"
         },
-        "owner_id": {
-          "type": "string"
+        "fields": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "Fields to return for each sObject. Example: [\"Id\", \"Name\", \"Email\"]"
         },
-        "email": {
-          "type": "string"
+        "limit": {
+          "type": "number",
+          "description": "Maximum number of results to return (1-2000)."
         },
-        "mobile": {
-          "type": "string"
+        "offset": {
+          "type": "number",
+          "description": "Number of records to skip for pagination."
         },
-        "phone": {
-          "type": "string"
+        "orderBy": {
+          "type": "string",
+          "description": "Field to order results by."
         },
-        "salutation": {
-          "type": "string"
-        },
-        "title": {
-          "type": "string"
-        },
-        "id": {
-          "type": "string"
-        },
-        "last_name": {
-          "type": "string"
+        "where": {
+          "type": "string",
+          "description": "Additional WHERE clause to filter results."
         }
       },
       "required": [
-        "id"
+        "query",
+        "sobjects"
       ],
       "additionalProperties": false
     },
-    "ActionOutput_salesforce_updatecontact": {
+    "ActionOutput_salesforce_parameterizedsearchrecords": {
       "type": "object",
       "properties": {
-        "success": {
-          "type": "boolean"
+        "results": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "sobjectType": {
+                "type": "string"
+              },
+              "id": {
+                "type": "string"
+              },
+              "fields": {
+                "type": "object",
+                "additionalProperties": {
+                  "anyOf": [
+                    {},
+                    {
+                      "not": {}
+                    }
+                  ]
+                }
+              }
+            },
+            "required": [
+              "sobjectType",
+              "id"
+            ],
+            "additionalProperties": false
+          }
         }
       },
       "required": [
-        "success"
+        "results"
       ],
       "additionalProperties": false
     },
-    "ActionInput_salesforce_updatelead": {
+    "ActionInput_salesforce_queryallrecords": {
       "type": "object",
       "properties": {
-        "first_name": {
-          "type": "string"
+        "query": {
+          "type": "string",
+          "description": "SOQL query string. Example: \"SELECT Id, Name FROM Account\""
         },
-        "email": {
-          "type": "string"
-        },
-        "owner_id": {
-          "type": "string"
-        },
-        "phone": {
-          "type": "string"
-        },
-        "salutation": {
-          "type": "string"
-        },
-        "title": {
-          "type": "string"
-        },
-        "website": {
-          "type": "string"
-        },
-        "industry": {
-          "type": "string"
-        },
-        "id": {
-          "type": "string"
-        },
-        "last_name": {
-          "type": "string"
-        },
-        "company_name": {
-          "type": "string"
+        "apiVersion": {
+          "type": "string",
+          "description": "Salesforce API version. Example: \"v60.0\". If omitted, uses the connection default."
         }
       },
       "required": [
-        "id"
+        "query"
       ],
       "additionalProperties": false
     },
-    "ActionOutput_salesforce_updatelead": {
+    "ActionOutput_salesforce_queryallrecords": {
       "type": "object",
       "properties": {
-        "success": {
-          "type": "boolean"
-        }
-      },
-      "required": [
-        "success"
-      ],
-      "additionalProperties": false
-    },
-    "ActionInput_salesforce_updateopportunity": {
-      "type": "object",
-      "properties": {
-        "account_id": {
-          "type": "string"
-        },
-        "amount": {
+        "totalSize": {
           "type": "number"
         },
-        "description": {
-          "type": "string"
+        "done": {
+          "type": "boolean"
         },
-        "created_by_id": {
-          "type": "string"
+        "records": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": {
+              "anyOf": [
+                {},
+                {
+                  "not": {}
+                }
+              ]
+            }
+          }
         },
-        "owner_id": {
-          "type": "string"
-        },
-        "probability": {
-          "type": "number"
-        },
-        "type": {
-          "type": "string"
-        },
-        "id": {
-          "type": "string"
-        },
-        "opportunity_name": {
-          "type": "string"
-        },
-        "close_date": {
-          "type": "string"
-        },
-        "stage": {
+        "nextRecordsUrl": {
           "type": "string"
         }
       },
       "required": [
-        "id"
+        "totalSize",
+        "done",
+        "records"
       ],
       "additionalProperties": false
     },
-    "ActionOutput_salesforce_updateopportunity": {
+    "ActionInput_salesforce_queryrecords": {
+      "type": "object",
+      "properties": {
+        "version": {
+          "type": "string",
+          "description": "Salesforce API version. Example: \"v63.0\". Defaults to v63.0."
+        },
+        "soql": {
+          "type": "string",
+          "description": "SOQL query string. Example: \"SELECT Id, Name FROM Account LIMIT 10\""
+        }
+      },
+      "required": [
+        "soql"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_salesforce_queryrecords": {
+      "type": "object",
+      "properties": {
+        "totalSize": {
+          "type": "number"
+        },
+        "done": {
+          "type": "boolean"
+        },
+        "records": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": {
+              "anyOf": [
+                {},
+                {
+                  "not": {}
+                }
+              ]
+            }
+          }
+        },
+        "nextRecordsUrl": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "totalSize",
+        "done",
+        "records"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_salesforce_retrievequerymore": {
+      "type": "object",
+      "properties": {
+        "nextRecordsUrl": {
+          "type": "string",
+          "description": "The nextRecordsUrl from a previous query or queryAll response. Example: \"/services/data/v62.0/query/01gD00000000abcIAQ-2000\""
+        }
+      },
+      "required": [
+        "nextRecordsUrl"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_salesforce_retrievequerymore": {
+      "type": "object",
+      "properties": {
+        "done": {
+          "type": "boolean"
+        },
+        "totalSize": {
+          "type": "number"
+        },
+        "records": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false
+          }
+        },
+        "nextRecordsUrl": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "done",
+        "totalSize",
+        "records"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_salesforce_searchrecords": {
+      "type": "object",
+      "properties": {
+        "q": {
+          "type": "string",
+          "description": "SOSL search string. Example: FIND {Acme}"
+        },
+        "apiVersion": {
+          "type": "string",
+          "description": "Salesforce API version. Example: v58.0. Defaults to v58.0"
+        }
+      },
+      "required": [
+        "q"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_salesforce_searchrecords": {
+      "type": "object",
+      "properties": {
+        "searchResults": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "attributes": {
+                  "type": "object",
+                  "properties": {
+                    "type": {
+                      "type": "string"
+                    },
+                    "url": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "type",
+                    "url"
+                  ],
+                  "additionalProperties": false
+                },
+                "Id": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "attributes",
+                "Id"
+              ],
+              "additionalProperties": false
+            }
+          }
+        },
+        "totalSize": {
+          "type": "number"
+        }
+      },
+      "required": [
+        "searchResults",
+        "totalSize"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_salesforce_updaterecordbyexternalid": {
+      "type": "object",
+      "properties": {
+        "sObject": {
+          "type": "string",
+          "description": "The sObject type (e.g., Account, Contact, CustomObject__c). Example: \"Account\""
+        },
+        "externalIdField": {
+          "type": "string",
+          "description": "The API name of the external ID field. Example: \"customExtIdField__c\""
+        },
+        "externalId": {
+          "type": "string",
+          "description": "The external ID value to look up. Example: \"ext-123\""
+        },
+        "fields": {
+          "type": "object",
+          "additionalProperties": {
+            "anyOf": [
+              {},
+              {
+                "not": {}
+              }
+            ]
+          },
+          "description": "The field values to update on the record. Example: { \"Name\": \"Acme Corp\", \"Phone\": \"555-1234\" }"
+        }
+      },
+      "required": [
+        "sObject",
+        "externalIdField",
+        "externalId",
+        "fields"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_salesforce_updaterecordbyexternalid": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "The Salesforce ID of the updated record. Only returned if the record was created (when updateOnly is false)."
+        },
+        "updated": {
+          "type": "boolean",
+          "description": "Whether the record was successfully updated."
+        },
+        "created": {
+          "type": "boolean",
+          "description": "Whether a new record was created (only when updateOnly is false and record did not exist)."
+        }
+      },
+      "required": [
+        "updated"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_salesforce_updaterecord": {
+      "type": "object",
+      "properties": {
+        "api_version": {
+          "type": "string",
+          "description": "API version to use. Example: \"v63.0\". Defaults to v63.0 if not provided."
+        },
+        "sobject": {
+          "type": "string",
+          "description": "The sObject type to update. Example: \"Account\", \"Contact\", \"Opportunity\"."
+        },
+        "record_id": {
+          "type": "string",
+          "description": "The Salesforce record ID to update. Example: \"0015000000XYZABC\"."
+        },
+        "fields": {
+          "type": "object",
+          "additionalProperties": {
+            "anyOf": [
+              {},
+              {
+                "not": {}
+              }
+            ]
+          },
+          "description": "Fields to update on the record. Only provided fields will be updated."
+        }
+      },
+      "required": [
+        "sobject",
+        "record_id",
+        "fields"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_salesforce_updaterecord": {
       "type": "object",
       "properties": {
         "success": {
-          "type": "boolean"
+          "type": "boolean",
+          "description": "Whether the update was successful."
+        },
+        "errors": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "Error messages if the update failed."
         }
       },
       "required": [
@@ -100479,22 +101524,262 @@
       ],
       "additionalProperties": false
     },
-    "ActionInput_salesforce_whoami": {
-      "type": "null"
-    },
-    "ActionOutput_salesforce_whoami": {
+    "ActionInput_salesforce_updatesobjectcollection": {
       "type": "object",
       "properties": {
-        "id": {
-          "type": "string"
+        "records": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "attributes": {
+                "type": "object",
+                "properties": {
+                  "type": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "type"
+                ],
+                "additionalProperties": false
+              },
+              "id": {
+                "type": "string",
+                "description": "The record ID to update. Example: \"001xx000003DHP0AAO\""
+              }
+            },
+            "required": [
+              "attributes",
+              "id"
+            ],
+            "additionalProperties": false
+          },
+          "description": "Array of records to update. Each record must include attributes.type, id, and the fields to update."
         },
-        "email": {
-          "type": "string"
+        "allOrNone": {
+          "type": "boolean",
+          "description": "If true, all records must succeed or all fail. If false, partial success is allowed. Default: false"
         }
       },
       "required": [
-        "id",
-        "email"
+        "records"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_salesforce_updatesobjectcollection": {
+      "type": "object",
+      "properties": {
+        "results": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "success": {
+                "type": "boolean"
+              },
+              "errors": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "statusCode": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    },
+                    "fields": {
+                      "type": "array",
+                      "items": {
+                        "type": "string"
+                      }
+                    }
+                  },
+                  "required": [
+                    "statusCode",
+                    "message"
+                  ],
+                  "additionalProperties": false
+                }
+              }
+            },
+            "required": [
+              "success"
+            ],
+            "additionalProperties": false
+          }
+        }
+      },
+      "required": [
+        "results"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_salesforce_upsertrecord": {
+      "type": "object",
+      "properties": {
+        "sObject": {
+          "type": "string",
+          "description": "The Salesforce sObject type (e.g., Account, Contact, Lead)."
+        },
+        "external_id_field": {
+          "type": "string",
+          "description": "The name of the external ID field on the sObject (e.g., External_ID__c)."
+        },
+        "external_id": {
+          "type": "string",
+          "description": "The external ID value to upsert."
+        },
+        "record_data": {
+          "type": "object",
+          "additionalProperties": {
+            "anyOf": [
+              {},
+              {
+                "not": {}
+              }
+            ]
+          },
+          "description": "The field data for the record to upsert."
+        },
+        "api_version": {
+          "type": "string",
+          "description": "Salesforce API version (e.g., \"v60.0\"). Defaults to v60.0."
+        }
+      },
+      "required": [
+        "sObject",
+        "external_id_field",
+        "external_id",
+        "record_data"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_salesforce_upsertrecord": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "The ID of the created or updated record."
+        },
+        "success": {
+          "type": "boolean",
+          "description": "Whether the operation was successful."
+        },
+        "created": {
+          "type": "boolean",
+          "description": "True if the record was created, false if updated."
+        },
+        "errors": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "statusCode": {
+                "type": "string"
+              },
+              "fields": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "message": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "statusCode",
+              "message"
+            ],
+            "additionalProperties": false
+          },
+          "description": "Error details if the operation failed."
+        }
+      },
+      "required": [
+        "success"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_salesforce_upsertsobjectcollection": {
+      "type": "object",
+      "properties": {
+        "version": {
+          "type": "string",
+          "description": "API version. Example: \"v63.0\""
+        },
+        "sobject": {
+          "type": "string",
+          "description": "sObject type. Example: \"Account\""
+        },
+        "externalIdFieldName": {
+          "type": "string",
+          "description": "External ID field name. Example: \"External_Id__c\""
+        },
+        "records": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false
+          },
+          "description": "Array of records to upsert"
+        },
+        "allOrNone": {
+          "type": "boolean",
+          "description": "Whether to treat all records as a single transaction"
+        }
+      },
+      "required": [
+        "version",
+        "sobject",
+        "externalIdFieldName",
+        "records"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_salesforce_upsertsobjectcollection": {
+      "type": "object",
+      "properties": {
+        "results": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "success": {
+                "type": "boolean",
+                "description": "Whether the operation succeeded"
+              },
+              "created": {
+                "type": "boolean",
+                "description": "Whether a new record was created"
+              },
+              "errors": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "additionalProperties": false
+                },
+                "description": "Error details if operation failed"
+              }
+            },
+            "required": [
+              "success"
+            ],
+            "additionalProperties": false
+          },
+          "description": "Results for each record in the request"
+        }
+      },
+      "required": [
+        "results"
       ],
       "additionalProperties": false
     },
