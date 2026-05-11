@@ -1,0 +1,131 @@
+{
+  "input": {
+    "id": "1"
+  },
+  "output": {
+    "id": "1",
+    "vendor_id": "31",
+    "vendor_name": "Brosnahan Insurance Agency",
+    "ap_account_id": "33",
+    "ap_account_name": "Accounts Payable (A/P)",
+    "currency_code": "USD",
+    "currency_name": "United States Dollar",
+    "lines": [
+      {
+        "id": "1",
+        "line_num": 1,
+        "amount": 2000,
+        "detail_type": "AccountBasedExpenseLineDetail",
+        "account_id": "14",
+        "account_name": "Miscellaneous",
+        "billable_status": "NotBillable"
+      }
+    ],
+    "total_amount": 2000,
+    "transaction_date": "2026-04-01",
+    "due_date": "2026-04-01",
+    "private_note": "Opening Balance",
+    "created_at": "2026-04-01T10:12:02-07:00",
+    "updated_at": "2026-04-05T15:28:48-07:00",
+    "sync_token": "1"
+  },
+  "nango": {
+    "getConnection": {}
+  },
+  "api": {
+    "get": {
+      "/v3/company/9341457021722202/bill/1": {
+        "response": {
+          "Bill": {
+            "DueDate": "2026-04-01",
+            "VendorAddr": {
+              "Id": "32",
+              "Line1": "P.O. Box 5",
+              "City": "Middlefield",
+              "CountrySubDivisionCode": "CA",
+              "PostalCode": "94482",
+              "Lat": "43.8249453",
+              "Long": "-79.2639122"
+            },
+            "Balance": 0,
+            "domain": "QBO",
+            "sparse": false,
+            "Id": "1",
+            "SyncToken": "1",
+            "MetaData": {
+              "CreateTime": "2026-04-01T10:12:02-07:00",
+              "LastModifiedByRef": {
+                "value": "9341457021722234"
+              },
+              "LastUpdatedTime": "2026-04-05T15:28:48-07:00"
+            },
+            "TxnDate": "2026-04-01",
+            "CurrencyRef": {
+              "value": "USD",
+              "name": "United States Dollar"
+            },
+            "PrivateNote": "Opening Balance",
+            "LinkedTxn": [
+              {
+                "TxnId": "22",
+                "TxnType": "BillPaymentCheck"
+              }
+            ],
+            "Line": [
+              {
+                "Id": "1",
+                "LineNum": 1,
+                "Amount": 2000,
+                "LinkedTxn": [],
+                "DetailType": "AccountBasedExpenseLineDetail",
+                "AccountBasedExpenseLineDetail": {
+                  "AccountRef": {
+                    "value": "14",
+                    "name": "Miscellaneous"
+                  },
+                  "BillableStatus": "NotBillable",
+                  "TaxCodeRef": {
+                    "value": "NON"
+                  }
+                },
+                "CustomExtensions": []
+              }
+            ],
+            "VendorRef": {
+              "value": "31",
+              "name": "Brosnahan Insurance Agency"
+            },
+            "APAccountRef": {
+              "value": "33",
+              "name": "Accounts Payable (A/P)"
+            },
+            "TotalAmt": 2000
+          },
+          "time": "2026-05-05T03:22:08.036-07:00"
+        },
+        "status": 200,
+        "headers": {
+          "date": "Tue, 05 May 2026 10:22:08 GMT",
+          "content-type": "application/json;charset=UTF-8",
+          "content-length": "1039",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=5184000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4964",
+          "x-ratelimit-reset": "1777976529",
+          "etag": "W/\"40f-jXguE6uiWhadOB5tkV1vZz+pcxw\""
+        },
+        "hash": "737b69c255439240aa39f0eb51716ff58510b61a",
+        "request": {}
+      }
+    }
+  }
+}

@@ -1,0 +1,541 @@
+{
+  "input": {
+    "query": "SELECT * FROM Customer MAXRESULTS 5"
+  },
+  "output": {
+    "records": [
+      {
+        "Taxable": true,
+        "BillAddr": {
+          "Id": "2",
+          "Line1": "4581 Finch St.",
+          "City": "Bayshore",
+          "CountrySubDivisionCode": "CA",
+          "PostalCode": "94326",
+          "Lat": "INVALID",
+          "Long": "INVALID"
+        },
+        "ShipAddr": {
+          "Id": "2",
+          "Line1": "4581 Finch St.",
+          "City": "Bayshore",
+          "CountrySubDivisionCode": "CA",
+          "PostalCode": "94326",
+          "Lat": "INVALID",
+          "Long": "INVALID"
+        },
+        "Job": false,
+        "BillWithParent": false,
+        "Balance": 839,
+        "BalanceWithJobs": 839,
+        "CurrencyRef": {
+          "value": "USD",
+          "name": "United States Dollar"
+        },
+        "PreferredDeliveryMethod": "Print",
+        "IsProject": false,
+        "ClientEntityId": "0",
+        "domain": "QBO",
+        "sparse": false,
+        "Id": "1",
+        "SyncToken": "0",
+        "MetaData": {
+          "CreateTime": "2026-03-31T16:48:43-07:00",
+          "LastUpdatedTime": "2026-05-05T02:11:28-07:00"
+        },
+        "GivenName": "Amy",
+        "FamilyName": "Lauterbach",
+        "FullyQualifiedName": "Amy's Bird Sanctuary",
+        "CompanyName": "Amy's Bird Sanctuary",
+        "DisplayName": "Amy's Bird Sanctuary",
+        "PrintOnCheckName": "Amy's Bird Sanctuary",
+        "Active": true,
+        "V4IDPseudonym": "0020985225447ef2db40d5bcc385ad6806d406",
+        "PrimaryPhone": {
+          "FreeFormNumber": "(650) 555-3311"
+        },
+        "PrimaryEmailAddr": {
+          "Address": "Birds@Intuit.com"
+        }
+      },
+      {
+        "Taxable": false,
+        "BillAddr": {
+          "Id": "3",
+          "Line1": "12 Ocean Dr.",
+          "City": "Half Moon Bay",
+          "CountrySubDivisionCode": "CA",
+          "PostalCode": "94213",
+          "Lat": "37.4307072",
+          "Long": "-122.4295234"
+        },
+        "Job": false,
+        "BillWithParent": false,
+        "Balance": 85,
+        "BalanceWithJobs": 85,
+        "CurrencyRef": {
+          "value": "USD",
+          "name": "United States Dollar"
+        },
+        "PreferredDeliveryMethod": "Print",
+        "IsProject": false,
+        "ClientEntityId": "0",
+        "domain": "QBO",
+        "sparse": false,
+        "Id": "2",
+        "SyncToken": "0",
+        "MetaData": {
+          "CreateTime": "2026-03-31T16:49:28-07:00",
+          "LastUpdatedTime": "2026-04-07T12:56:01-07:00"
+        },
+        "GivenName": "Bill",
+        "FamilyName": "Lucchini",
+        "FullyQualifiedName": "Bill's Windsurf Shop",
+        "CompanyName": "Bill's Windsurf Shop",
+        "DisplayName": "Bill's Windsurf Shop",
+        "PrintOnCheckName": "Bill's Windsurf Shop",
+        "Active": true,
+        "V4IDPseudonym": "002098c91e9678012846399bf3704f0009b625",
+        "PrimaryPhone": {
+          "FreeFormNumber": "(415) 444-6538"
+        },
+        "PrimaryEmailAddr": {
+          "Address": "Surf@Intuit.com"
+        }
+      },
+      {
+        "Taxable": false,
+        "BillAddr": {
+          "Id": "4",
+          "Line1": "65 Ocean Dr.",
+          "City": "Half Moon Bay",
+          "CountrySubDivisionCode": "CA",
+          "PostalCode": "94213",
+          "Lat": "37.4300318",
+          "Long": "-122.4336537"
+        },
+        "Job": false,
+        "BillWithParent": false,
+        "Balance": 0,
+        "BalanceWithJobs": 0,
+        "CurrencyRef": {
+          "value": "USD",
+          "name": "United States Dollar"
+        },
+        "PreferredDeliveryMethod": "Print",
+        "IsProject": false,
+        "ClientEntityId": "0",
+        "domain": "QBO",
+        "sparse": false,
+        "Id": "3",
+        "SyncToken": "0",
+        "MetaData": {
+          "CreateTime": "2026-03-31T16:51:22-07:00",
+          "LastUpdatedTime": "2026-04-08T12:59:21-07:00"
+        },
+        "GivenName": "Grace",
+        "FamilyName": "Pariente",
+        "FullyQualifiedName": "Cool Cars",
+        "CompanyName": "Cool Cars",
+        "DisplayName": "Cool Cars",
+        "PrintOnCheckName": "Cool Cars",
+        "Active": true,
+        "V4IDPseudonym": "00209835d5283023f640a5b3d8c913a53531af",
+        "PrimaryPhone": {
+          "FreeFormNumber": "(415) 555-9933"
+        },
+        "PrimaryEmailAddr": {
+          "Address": "Cool_Cars@intuit.com"
+        }
+      },
+      {
+        "Taxable": false,
+        "BillAddr": {
+          "Id": "5",
+          "Line1": "321 Channing",
+          "City": "Palo Alto",
+          "CountrySubDivisionCode": "CA",
+          "PostalCode": "94303",
+          "Lat": "37.443231",
+          "Long": "-122.1561846"
+        },
+        "Job": false,
+        "BillWithParent": false,
+        "Balance": 0,
+        "BalanceWithJobs": 0,
+        "CurrencyRef": {
+          "value": "USD",
+          "name": "United States Dollar"
+        },
+        "PreferredDeliveryMethod": "Print",
+        "IsProject": false,
+        "ClientEntityId": "0",
+        "domain": "QBO",
+        "sparse": false,
+        "Id": "4",
+        "SyncToken": "0",
+        "MetaData": {
+          "CreateTime": "2026-03-31T16:52:08-07:00",
+          "LastUpdatedTime": "2026-03-31T16:52:08-07:00"
+        },
+        "GivenName": "Diego",
+        "FamilyName": "Rodriguez",
+        "FullyQualifiedName": "Diego Rodriguez",
+        "DisplayName": "Diego Rodriguez",
+        "PrintOnCheckName": "Diego Rodriguez",
+        "Active": true,
+        "V4IDPseudonym": "002098df12d366da7045d1b40185a0f37be2eb",
+        "PrimaryPhone": {
+          "FreeFormNumber": "(650) 555-4477"
+        },
+        "PrimaryEmailAddr": {
+          "Address": "Diego@Rodriguez.com"
+        }
+      },
+      {
+        "Taxable": true,
+        "BillAddr": {
+          "Id": "6",
+          "Line1": "25 Court St.",
+          "City": "Tucson",
+          "CountrySubDivisionCode": "AZ",
+          "PostalCode": "85719",
+          "Lat": "32.2841116",
+          "Long": "-110.9744298"
+        },
+        "ShipAddr": {
+          "Id": "6",
+          "Line1": "25 Court St.",
+          "City": "Tucson",
+          "CountrySubDivisionCode": "AZ",
+          "PostalCode": "85719",
+          "Lat": "32.2841116",
+          "Long": "-110.9744298"
+        },
+        "Job": false,
+        "BillWithParent": false,
+        "Balance": 0,
+        "BalanceWithJobs": 0,
+        "CurrencyRef": {
+          "value": "USD",
+          "name": "United States Dollar"
+        },
+        "PreferredDeliveryMethod": "Print",
+        "IsProject": false,
+        "ClientEntityId": "0",
+        "domain": "QBO",
+        "sparse": false,
+        "Id": "5",
+        "SyncToken": "1",
+        "MetaData": {
+          "CreateTime": "2026-03-31T16:54:59-07:00",
+          "LastUpdatedTime": "2026-04-07T13:28:29-07:00"
+        },
+        "GivenName": "Peter",
+        "FamilyName": "Dukes",
+        "FullyQualifiedName": "Dukes Basketball Camp",
+        "CompanyName": "Dukes Basketball Camp",
+        "DisplayName": "Dukes Basketball Camp",
+        "PrintOnCheckName": "Dukes Basketball Camp",
+        "Active": true,
+        "V4IDPseudonym": "002098009f17b5d3e74bd283706ccde69a283e",
+        "PrimaryPhone": {
+          "FreeFormNumber": "(520) 420-5638"
+        },
+        "PrimaryEmailAddr": {
+          "Address": "Dukes_bball@intuit.com"
+        }
+      }
+    ],
+    "total_count": 0,
+    "start_position": 1,
+    "max_results": 5,
+    "has_more": false
+  },
+  "nango": {
+    "getConnection": {}
+  },
+  "api": {
+    "get": {
+      "/v3/company/9341457021722202/query": {
+        "response": {
+          "QueryResponse": {
+            "Customer": [
+              {
+                "Taxable": true,
+                "BillAddr": {
+                  "Id": "2",
+                  "Line1": "4581 Finch St.",
+                  "City": "Bayshore",
+                  "CountrySubDivisionCode": "CA",
+                  "PostalCode": "94326",
+                  "Lat": "INVALID",
+                  "Long": "INVALID"
+                },
+                "ShipAddr": {
+                  "Id": "2",
+                  "Line1": "4581 Finch St.",
+                  "City": "Bayshore",
+                  "CountrySubDivisionCode": "CA",
+                  "PostalCode": "94326",
+                  "Lat": "INVALID",
+                  "Long": "INVALID"
+                },
+                "Job": false,
+                "BillWithParent": false,
+                "Balance": 839,
+                "BalanceWithJobs": 839,
+                "CurrencyRef": {
+                  "value": "USD",
+                  "name": "United States Dollar"
+                },
+                "PreferredDeliveryMethod": "Print",
+                "IsProject": false,
+                "ClientEntityId": "0",
+                "domain": "QBO",
+                "sparse": false,
+                "Id": "1",
+                "SyncToken": "0",
+                "MetaData": {
+                  "CreateTime": "2026-03-31T16:48:43-07:00",
+                  "LastUpdatedTime": "2026-05-05T02:11:28-07:00"
+                },
+                "GivenName": "Amy",
+                "FamilyName": "Lauterbach",
+                "FullyQualifiedName": "Amy's Bird Sanctuary",
+                "CompanyName": "Amy's Bird Sanctuary",
+                "DisplayName": "Amy's Bird Sanctuary",
+                "PrintOnCheckName": "Amy's Bird Sanctuary",
+                "Active": true,
+                "V4IDPseudonym": "0020985225447ef2db40d5bcc385ad6806d406",
+                "PrimaryPhone": {
+                  "FreeFormNumber": "(650) 555-3311"
+                },
+                "PrimaryEmailAddr": {
+                  "Address": "Birds@Intuit.com"
+                }
+              },
+              {
+                "Taxable": false,
+                "BillAddr": {
+                  "Id": "3",
+                  "Line1": "12 Ocean Dr.",
+                  "City": "Half Moon Bay",
+                  "CountrySubDivisionCode": "CA",
+                  "PostalCode": "94213",
+                  "Lat": "37.4307072",
+                  "Long": "-122.4295234"
+                },
+                "Job": false,
+                "BillWithParent": false,
+                "Balance": 85,
+                "BalanceWithJobs": 85,
+                "CurrencyRef": {
+                  "value": "USD",
+                  "name": "United States Dollar"
+                },
+                "PreferredDeliveryMethod": "Print",
+                "IsProject": false,
+                "ClientEntityId": "0",
+                "domain": "QBO",
+                "sparse": false,
+                "Id": "2",
+                "SyncToken": "0",
+                "MetaData": {
+                  "CreateTime": "2026-03-31T16:49:28-07:00",
+                  "LastUpdatedTime": "2026-04-07T12:56:01-07:00"
+                },
+                "GivenName": "Bill",
+                "FamilyName": "Lucchini",
+                "FullyQualifiedName": "Bill's Windsurf Shop",
+                "CompanyName": "Bill's Windsurf Shop",
+                "DisplayName": "Bill's Windsurf Shop",
+                "PrintOnCheckName": "Bill's Windsurf Shop",
+                "Active": true,
+                "V4IDPseudonym": "002098c91e9678012846399bf3704f0009b625",
+                "PrimaryPhone": {
+                  "FreeFormNumber": "(415) 444-6538"
+                },
+                "PrimaryEmailAddr": {
+                  "Address": "Surf@Intuit.com"
+                }
+              },
+              {
+                "Taxable": false,
+                "BillAddr": {
+                  "Id": "4",
+                  "Line1": "65 Ocean Dr.",
+                  "City": "Half Moon Bay",
+                  "CountrySubDivisionCode": "CA",
+                  "PostalCode": "94213",
+                  "Lat": "37.4300318",
+                  "Long": "-122.4336537"
+                },
+                "Job": false,
+                "BillWithParent": false,
+                "Balance": 0,
+                "BalanceWithJobs": 0,
+                "CurrencyRef": {
+                  "value": "USD",
+                  "name": "United States Dollar"
+                },
+                "PreferredDeliveryMethod": "Print",
+                "IsProject": false,
+                "ClientEntityId": "0",
+                "domain": "QBO",
+                "sparse": false,
+                "Id": "3",
+                "SyncToken": "0",
+                "MetaData": {
+                  "CreateTime": "2026-03-31T16:51:22-07:00",
+                  "LastUpdatedTime": "2026-04-08T12:59:21-07:00"
+                },
+                "GivenName": "Grace",
+                "FamilyName": "Pariente",
+                "FullyQualifiedName": "Cool Cars",
+                "CompanyName": "Cool Cars",
+                "DisplayName": "Cool Cars",
+                "PrintOnCheckName": "Cool Cars",
+                "Active": true,
+                "V4IDPseudonym": "00209835d5283023f640a5b3d8c913a53531af",
+                "PrimaryPhone": {
+                  "FreeFormNumber": "(415) 555-9933"
+                },
+                "PrimaryEmailAddr": {
+                  "Address": "Cool_Cars@intuit.com"
+                }
+              },
+              {
+                "Taxable": false,
+                "BillAddr": {
+                  "Id": "5",
+                  "Line1": "321 Channing",
+                  "City": "Palo Alto",
+                  "CountrySubDivisionCode": "CA",
+                  "PostalCode": "94303",
+                  "Lat": "37.443231",
+                  "Long": "-122.1561846"
+                },
+                "Job": false,
+                "BillWithParent": false,
+                "Balance": 0,
+                "BalanceWithJobs": 0,
+                "CurrencyRef": {
+                  "value": "USD",
+                  "name": "United States Dollar"
+                },
+                "PreferredDeliveryMethod": "Print",
+                "IsProject": false,
+                "ClientEntityId": "0",
+                "domain": "QBO",
+                "sparse": false,
+                "Id": "4",
+                "SyncToken": "0",
+                "MetaData": {
+                  "CreateTime": "2026-03-31T16:52:08-07:00",
+                  "LastUpdatedTime": "2026-03-31T16:52:08-07:00"
+                },
+                "GivenName": "Diego",
+                "FamilyName": "Rodriguez",
+                "FullyQualifiedName": "Diego Rodriguez",
+                "DisplayName": "Diego Rodriguez",
+                "PrintOnCheckName": "Diego Rodriguez",
+                "Active": true,
+                "V4IDPseudonym": "002098df12d366da7045d1b40185a0f37be2eb",
+                "PrimaryPhone": {
+                  "FreeFormNumber": "(650) 555-4477"
+                },
+                "PrimaryEmailAddr": {
+                  "Address": "Diego@Rodriguez.com"
+                }
+              },
+              {
+                "Taxable": true,
+                "BillAddr": {
+                  "Id": "6",
+                  "Line1": "25 Court St.",
+                  "City": "Tucson",
+                  "CountrySubDivisionCode": "AZ",
+                  "PostalCode": "85719",
+                  "Lat": "32.2841116",
+                  "Long": "-110.9744298"
+                },
+                "ShipAddr": {
+                  "Id": "6",
+                  "Line1": "25 Court St.",
+                  "City": "Tucson",
+                  "CountrySubDivisionCode": "AZ",
+                  "PostalCode": "85719",
+                  "Lat": "32.2841116",
+                  "Long": "-110.9744298"
+                },
+                "Job": false,
+                "BillWithParent": false,
+                "Balance": 0,
+                "BalanceWithJobs": 0,
+                "CurrencyRef": {
+                  "value": "USD",
+                  "name": "United States Dollar"
+                },
+                "PreferredDeliveryMethod": "Print",
+                "IsProject": false,
+                "ClientEntityId": "0",
+                "domain": "QBO",
+                "sparse": false,
+                "Id": "5",
+                "SyncToken": "1",
+                "MetaData": {
+                  "CreateTime": "2026-03-31T16:54:59-07:00",
+                  "LastUpdatedTime": "2026-04-07T13:28:29-07:00"
+                },
+                "GivenName": "Peter",
+                "FamilyName": "Dukes",
+                "FullyQualifiedName": "Dukes Basketball Camp",
+                "CompanyName": "Dukes Basketball Camp",
+                "DisplayName": "Dukes Basketball Camp",
+                "PrintOnCheckName": "Dukes Basketball Camp",
+                "Active": true,
+                "V4IDPseudonym": "002098009f17b5d3e74bd283706ccde69a283e",
+                "PrimaryPhone": {
+                  "FreeFormNumber": "(520) 420-5638"
+                },
+                "PrimaryEmailAddr": {
+                  "Address": "Dukes_bball@intuit.com"
+                }
+              }
+            ],
+            "startPosition": 1,
+            "maxResults": 5
+          },
+          "time": "2026-05-05T02:11:33.336-07:00"
+        },
+        "status": 200,
+        "headers": {
+          "date": "Tue, 05 May 2026 09:11:33 GMT",
+          "content-type": "application/json",
+          "content-length": "4861",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=5184000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4959",
+          "x-ratelimit-reset": "1777972320",
+          "etag": "W/\"12fd-5kTN4wu9GvpH86RxNp/SvaARaUM\""
+        },
+        "hash": "c7c8481e8869aac7f1c67b5ad03e6c7bdc979c6a",
+        "request": {
+          "params": {
+            "query": "SELECT * FROM Customer MAXRESULTS 5 STARTPOSITION 1"
+          }
+        }
+      }
+    }
+  }
+}

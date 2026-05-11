@@ -1,0 +1,26 @@
+import { vi, expect, it, describe } from 'vitest';
+
+import createAction from '../actions/create-customer.js';
+
+describe('quickbooks create-customer tests', () => {
+    const nangoMock = new global.vitest.NangoActionMock({
+        dirname: __dirname,
+        name: 'create-customer',
+        Model: 'ActionOutput_quickbooks_sandbox_createcustomer'
+    });
+
+    it('should output the action output that is expected', async () => {
+        // Inject connection_config with realmId for the test
+        nangoMock.getConnection = vi.fn(async () => ({
+            connection_config: {
+                realmId: '9341457021722202'
+            }
+        }));
+
+        const input = await nangoMock.getInput();
+        const response = await createAction.exec(nangoMock, input);
+        const output = await nangoMock.getOutput();
+
+        expect(response).toEqual(output);
+    });
+});
