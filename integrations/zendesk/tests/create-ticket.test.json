@@ -1,0 +1,418 @@
+{
+  "input": {
+    "subject": "Test ticket from Nango",
+    "comment": "This is a test ticket created via Nango action"
+  },
+  "output": {
+    "id": 4,
+    "url": "https://nango-1049.zendesk.com/api/v2/tickets/4.json",
+    "subject": "Test ticket from Nango",
+    "description": "This is a test ticket created via Nango action",
+    "status": "open",
+    "priority": "normal",
+    "created_at": "2026-05-06T08:46:13Z",
+    "updated_at": "2026-05-06T08:46:13Z",
+    "requester_id": 46406145565073,
+    "submitter_id": 46406145565073,
+    "assignee_id": 46406145565073,
+    "organization_id": 46406146527249,
+    "group_id": 46406158244625,
+    "tags": []
+  },
+  "nango": {},
+  "api": {
+    "post": {
+      "/api/v2/tickets.json": {
+        "response": {
+          "ticket": {
+            "url": "https://nango-1049.zendesk.com/api/v2/tickets/4.json",
+            "id": 4,
+            "external_id": null,
+            "via": {
+              "channel": "api",
+              "source": {
+                "from": {},
+                "to": {},
+                "rel": null
+              }
+            },
+            "created_at": "2026-05-06T08:46:13Z",
+            "updated_at": "2026-05-06T08:46:13Z",
+            "generated_timestamp": 0,
+            "type": null,
+            "subject": "Test ticket from Nango",
+            "raw_subject": "Test ticket from Nango",
+            "description": "This is a test ticket created via Nango action",
+            "priority": "normal",
+            "status": "open",
+            "recipient": null,
+            "requester_id": 46406145565073,
+            "submitter_id": 46406145565073,
+            "assignee_id": 46406145565073,
+            "organization_id": 46406146527249,
+            "group_id": 46406158244625,
+            "collaborator_ids": [],
+            "follower_ids": [],
+            "email_cc_ids": [],
+            "forum_topic_id": null,
+            "problem_id": null,
+            "has_incidents": false,
+            "is_public": true,
+            "due_at": null,
+            "tags": [],
+            "custom_fields": [
+              {
+                "id": 46406130043793,
+                "value": null
+              },
+              {
+                "id": 46406130045073,
+                "value": null
+              },
+              {
+                "id": 46406130045969,
+                "value": null
+              },
+              {
+                "id": 46406146796817,
+                "value": null
+              },
+              {
+                "id": 46406147126033,
+                "value": null
+              },
+              {
+                "id": 46406167358737,
+                "value": null
+              },
+              {
+                "id": 46406168902289,
+                "value": null
+              },
+              {
+                "id": 46406169312273,
+                "value": null
+              },
+              {
+                "id": 46406182218641,
+                "value": null
+              },
+              {
+                "id": 46406182230673,
+                "value": null
+              },
+              {
+                "id": 46406182261521,
+                "value": null
+              },
+              {
+                "id": 46406182268689,
+                "value": null
+              },
+              {
+                "id": 46406182281361,
+                "value": null
+              }
+            ],
+            "satisfaction_rating": {
+              "score": "unoffered"
+            },
+            "sharing_agreement_ids": [],
+            "custom_status_id": 46406158222353,
+            "encoded_id": "93E76R-EM7YR",
+            "fields": [
+              {
+                "id": 46406130043793,
+                "value": null
+              },
+              {
+                "id": 46406130045073,
+                "value": null
+              },
+              {
+                "id": 46406130045969,
+                "value": null
+              },
+              {
+                "id": 46406146796817,
+                "value": null
+              },
+              {
+                "id": 46406147126033,
+                "value": null
+              },
+              {
+                "id": 46406167358737,
+                "value": null
+              },
+              {
+                "id": 46406168902289,
+                "value": null
+              },
+              {
+                "id": 46406169312273,
+                "value": null
+              },
+              {
+                "id": 46406182218641,
+                "value": null
+              },
+              {
+                "id": 46406182230673,
+                "value": null
+              },
+              {
+                "id": 46406182261521,
+                "value": null
+              },
+              {
+                "id": 46406182268689,
+                "value": null
+              },
+              {
+                "id": 46406182281361,
+                "value": null
+              }
+            ],
+            "followup_ids": [],
+            "ticket_form_id": 46406146302353,
+            "brand_id": 46406158162961,
+            "allow_channelback": false,
+            "allow_attachments": true,
+            "from_messaging_channel": false,
+            "support_type": "agent"
+          },
+          "audit": {
+            "id": 46408796978961,
+            "ticket_id": 4,
+            "created_at": "2026-05-06T08:46:13Z",
+            "author_id": 46406145565073,
+            "metadata": {
+              "system": {
+                "client": "axios/1.15.0",
+                "ip_address": "54.69.127.183",
+                "location": "Boardman, OR, United States",
+                "latitude": 45.8401,
+                "longitude": -119.705
+              },
+              "custom": {}
+            },
+            "events": [
+              {
+                "id": 46408796979089,
+                "type": "Comment",
+                "author_id": 46406145565073,
+                "body": "This is a test ticket created via Nango action",
+                "html_body": "<div class=\"zd-comment\" dir=\"auto\"><p dir=\"auto\">This is a test ticket created via Nango action</p></div>",
+                "plain_body": "This is a test ticket created via Nango action",
+                "public": true,
+                "attachments": [],
+                "audit_id": 46408796978961
+              },
+              {
+                "id": 46408796979217,
+                "type": "Create",
+                "value": "Test ticket from Nango",
+                "field_name": "subject"
+              },
+              {
+                "id": 46408796979345,
+                "type": "Create",
+                "value": "46406145565073",
+                "field_name": "requester_id"
+              },
+              {
+                "id": 46408796979473,
+                "type": "Create",
+                "value": null,
+                "field_name": "priority"
+              },
+              {
+                "id": 46408796979601,
+                "type": "Create",
+                "value": null,
+                "field_name": "type"
+              },
+              {
+                "id": 46408796979729,
+                "type": "Create",
+                "value": "open",
+                "field_name": "status"
+              },
+              {
+                "id": 46408796979857,
+                "type": "Create",
+                "value": "46406145565073",
+                "field_name": "assignee_id"
+              },
+              {
+                "id": 46408796979985,
+                "type": "Create",
+                "value": "46406158244625",
+                "field_name": "group_id"
+              },
+              {
+                "id": 46408796980113,
+                "type": "Create",
+                "value": "46406146527249",
+                "field_name": "organization_id"
+              },
+              {
+                "id": 46408796980241,
+                "type": "Create",
+                "value": "46406158222353",
+                "field_name": "custom_status_id"
+              },
+              {
+                "id": 46408796980369,
+                "type": "Create",
+                "value": "46406158162961",
+                "field_name": "brand_id"
+              },
+              {
+                "id": 46408796980497,
+                "type": "Create",
+                "value": "46406146302353",
+                "field_name": "ticket_form_id"
+              },
+              {
+                "id": 46408796980625,
+                "type": "Notification",
+                "via": {
+                  "channel": "rule",
+                  "source": {
+                    "from": {
+                      "deleted": false,
+                      "title": "Notify requester of new proactive ticket",
+                      "id": 46406146589841
+                    },
+                    "rel": "trigger"
+                  }
+                },
+                "subject": "{{ticket.title}}",
+                "body": "This ticket was created on your behalf.<br/><br/>To add additional comments, reply to this email.<br/><br/>{{ticket.latest_public_comment_html}}",
+                "recipients": [
+                  46406145565073
+                ]
+              },
+              {
+                "id": 46408796980753,
+                "type": "Notification",
+                "via": {
+                  "channel": "rule",
+                  "source": {
+                    "from": {
+                      "deleted": false,
+                      "title": "Notify all agents of received request",
+                      "id": 46406158339345
+                    },
+                    "rel": "trigger"
+                  }
+                },
+                "subject": "[{{ticket.account}}] {{ticket.title}}",
+                "body": "A ticket (#{{ticket.id}}) by {{ticket.requester.name}} has been received. It is unassigned.<br/><br/>{{ticket.latest_comment_html}}",
+                "recipients": [
+                  46406145565073
+                ]
+              },
+              {
+                "id": 46408796980881,
+                "type": "Change",
+                "via": {
+                  "channel": "rule",
+                  "source": {
+                    "from": {
+                      "deleted": false,
+                      "title": "Set tickets with no priority to normal",
+                      "id": 46406158342033
+                    },
+                    "rel": "trigger"
+                  }
+                },
+                "value": "normal",
+                "field_name": "priority",
+                "previous_value": null
+              },
+              {
+                "id": 46408825687313,
+                "type": "Create",
+                "value": "Set first reply time",
+                "field_name": "sla_policy"
+              }
+            ],
+            "via": {
+              "channel": "api",
+              "source": {
+                "from": {},
+                "to": {
+                  "address": "api@nango.dev",
+                  "name": "Nango API"
+                },
+                "rel": null
+              }
+            }
+          }
+        },
+        "status": 201,
+        "headers": {
+          "date": "Wed, 06 May 2026 08:46:14 GMT",
+          "content-type": "application/json; charset=utf-8",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=31536000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "X-Zendesk-API-Warn,X-Zendesk-User-Id,X-Zendesk-User-Session-Expires-At",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4919",
+          "x-ratelimit-reset": "1778057199",
+          "x-zendesk-api-version": "v2",
+          "x-zendesk-application-version": "v25703",
+          "zendesk-ep": "-22",
+          "location": "https://nango-1049.zendesk.com/api/v2/tickets/4.json",
+          "x-rate-limit": "400",
+          "ratelimit-limit": "400",
+          "x-rate-limit-remaining": "393",
+          "ratelimit-remaining": "393",
+          "ratelimit-reset": "46",
+          "zendesk-ratelimit-ticket-request-create-by-user-and-ip": "total=300; remaining=299; resets=47",
+          "etag": "W/\"a386d13b7add3c1cb1d50c99daedf261\"",
+          "cache-control": "max-age=0, private, must-revalidate",
+          "zendesk-route": "/api/v2/tickets",
+          "set-cookie": "_zendesk_cookie=BAhJIhl7ImRldmljZV90b2tlbnMiOnt9fQY6BkVU--0bf2100788cb010d0183feca16aaf88ccaf719ca; path=/; expires=Thu, 06 May 2027 05:50:40 GMT; secure; HttpOnly; SameSite=None, __cf_bm=zL7MO1hKy8WdEoZlt7PVQo_DDYXxzXJ7JDE.3CgjwJ0-1778057174-1.0.1.1-krxDgq7ydcZniu3p6A7wSOnI2ns9VavFkb5evzmR6TnG6oqDvXb87bl8.AkMCi9Lvb5cVYD3DgJbbM2LSvH.rYNfq.qFb0qUDWr9qpJQDh4; path=/; expires=Wed, 06-May-26 09:16:14 GMT; domain=.nango-1049.zendesk.com; HttpOnly; Secure; SameSite=None, _cfuvid=5LjfPD_mohToVXmoN2G.XNsupdEU2cO_IIOSMc6j_Jw-1778057174305-0.0.1.1-604800000; path=/; domain=.nango-1049.zendesk.com; HttpOnly; Secure; SameSite=None",
+          "x-zendesk-origin-server": "classic-app-server-69d49c4b9b-b5ctb",
+          "x-request-id": "9f76b6969a16613d-DUB",
+          "x-runtime": "0.588709",
+          "x-envoy-upstream-service-time": "593",
+          "x-openapi-route-path": "/api/v2/tickets",
+          "zendesk-service": "classic",
+          "x-zendesk-zorg": "yes",
+          "vary": "Accept-Encoding",
+          "via": "zorg",
+          "x-envoy-decorator-operation": "/api/v2/tickets",
+          "cf-cache-status": "DYNAMIC",
+          "report-to": "{\"endpoints\":[{\"url\":\"https:\\/\\/a.nel.cloudflare.com\\/report\\/v4?s=qBKYlXCjAKu9eszgBxFv7XEsqJFAod01Em2U1KzkJq%2BJnl7yZp9Ss1mObHHg5CvDdSy3ZeCMGuJPXexg%2FF3cSqx2Le%2Fh%2F8og9FhqScB3SHrgxVk9dyLW2%2BFFV%2FchrrYWEYIZRHsXnFw%3D\"}],\"group\":\"cf-nel\",\"max_age\":604800}",
+          "nel": "{\"success_fraction\":0.01,\"report_to\":\"cf-nel\",\"max_age\":604800}",
+          "server": "cloudflare",
+          "cf-ray": "9f76b6969a16613d-PDX"
+        },
+        "hash": "f87ad85c0b4bdd30d7568f3d5b5eec812b723e3b",
+        "request": {
+          "data": {
+            "ticket": {
+              "subject": "Test ticket from Nango",
+              "comment": {
+                "body": "This is a test ticket created via Nango action"
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

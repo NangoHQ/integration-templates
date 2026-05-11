@@ -129,11 +129,16 @@ export interface Table {
 
 export interface View {
   id: string;
-  name?: string | undefined;
-  type?: string | undefined;
-  base_id: string;
-  table_id: string;
-  table_name?: string | undefined;
+  title: string;
+  description?: string | undefined;
+  active?: boolean | undefined;
+  created_at?: string | undefined;
+  updated_at?: string | undefined;
+  default?: boolean | undefined;
+  position?: number | undefined;
+  conditions?: {} | undefined;
+  execution?: {} | undefined;
+  restriction?: unknown | undefined;
 };
 
 export interface Webhook {
@@ -1325,10 +1330,19 @@ export interface SyncMetadata_asana_projects {
 
 export interface Section {
   id: string;
-  url: string;
-  category_id: number;
   name: string;
-  description: string;
+  description?: string | undefined;
+  category_id?: number | undefined;
+  parent_section_id?: number | undefined;
+  locale: string;
+  source_locale?: string | undefined;
+  created_at: string;
+  updated_at: string;
+  position?: number | undefined;
+  outdated?: boolean | undefined;
+  html_url?: string | undefined;
+  url?: string | undefined;
+  theme_template?: string | undefined;
 };
 
 export interface SyncMetadata_asana_sections {
@@ -5077,35 +5091,34 @@ export interface SyncMetadata_cal_com_v2_eventtypes {
 
 export interface Event {
   id: string;
-  created_at: string;
-  start_at: string;
-  end_at: string;
-  cover_url: string;
-  name: string;
-  description: string;
-  description_md: string;
-  series_api_id: string | null;
-  duration_interval_iso8601: string;
-  geo_latitude: string | null;
-  geo_longitude: string | null;
-  geo_address_json: {  city: string;
-  type: string;
-  region: string;
-  address: string;
-  country: string;
-  latitude: string;
-  place_id: string;
-  longitude: string;
-  city_state: string;
-  description: string;
-  full_address: string;} | null;
-  url: string;
-  timezone: string;
-  event_type: string;
-  user_api_id: string;
-  visibility: string;
-  meeting_url: string | null;
-  zoom_meeting_url: string | null;
+  subject?: string | undefined;
+  bodyPreview?: string | undefined;
+  start?: {  dateTime: string;
+  timeZone: string;} | undefined;
+  end?: {  dateTime: string;
+  timeZone: string;} | undefined;
+  location?: string | undefined;
+  isAllDay?: boolean | undefined;
+  isCancelled?: boolean | undefined;
+  isDraft?: boolean | undefined;
+  isOnlineMeeting?: boolean | undefined;
+  onlineMeetingProvider?: string | undefined;
+  importance?: string | undefined;
+  sensitivity?: string | undefined;
+  showAs?: string | undefined;
+  webLink?: string | undefined;
+  iCalUId?: string | undefined;
+  type?: string | undefined;
+  seriesMasterId?: string | undefined;
+  organizerEmail?: string | undefined;
+  organizerName?: string | undefined;
+  categories?: string[] | undefined;
+  createdDateTime?: string | undefined;
+  lastModifiedDateTime?: string | undefined;
+  originalStartTimeZone?: string | undefined;
+  originalEndTimeZone?: string | undefined;
+  hasAttachments?: boolean | undefined;
+  changeKey?: string | undefined;
 };
 
 export interface SyncMetadata_cal_com_v2_events {
@@ -7182,9 +7195,16 @@ export interface SyncMetadata_discourse_activeusers {
 
 export interface Category {
   id: string;
-  url: string;
   name: string;
-  description: string;
+  description?: string | undefined;
+  locale: string;
+  source_locale?: string | undefined;
+  position?: number | undefined;
+  outdated?: boolean | undefined;
+  created_at: string;
+  updated_at: string;
+  html_url?: string | undefined;
+  url?: string | undefined;
 };
 
 export interface SyncMetadata_discourse_categories {
@@ -8609,30 +8629,31 @@ export interface ActionOutput_fireflies_addtolive {
 };
 
 export interface Article {
-  title: string;
   id: string;
-  url: string;
-  locale: string;
-  user_segment_id: number | null;
-  permission_group_id: number;
-  author_id: number;
-  body: string;
-  comments_disabled: boolean;
-  content_tag_ids: number[];
+  author_id?: number | undefined;
+  body?: string | undefined;
+  comments_disabled?: boolean | undefined;
+  content_tag_ids?: number[] | undefined;
   created_at: string;
-  draft: boolean;
-  edited_at: string;
-  html_url: string;
-  label_names: string[];
-  outdated: boolean;
-  outdated_locales: string[];
-  position: number;
-  promoted: boolean;
-  section_id: number;
-  source_locale: string;
+  draft?: boolean | undefined;
+  edited_at?: string | undefined;
+  html_url?: string | undefined;
+  label_names?: string[] | undefined;
+  locale: string;
+  outdated?: boolean | undefined;
+  outdated_locales?: string[] | undefined;
+  permission_group_id?: number | undefined;
+  position?: number | undefined;
+  promoted?: boolean | undefined;
+  section_id?: number | undefined;
+  source_locale?: string | undefined;
+  title: string;
   updated_at: string;
-  vote_count: number;
-  vote_sum: number;
+  url: string;
+  user_segment_id?: number | undefined;
+  user_segment_ids?: number[] | undefined;
+  vote_count?: number | undefined;
+  vote_sum?: number | undefined;
 };
 
 export interface SyncMetadata_freshdesk_articles {
@@ -8657,50 +8678,30 @@ export interface SyncMetadata_freshdesk_contacts {
 };
 
 export interface Ticket {
-  url: string | null;
   id: string;
-  external_id: string | null;
-  via: {  channel: string;
-  source: {  from: {  [key: string]: any | undefined;};
-  to: {  [key: string]: any | undefined;};
-  rel: string | null;};} | null;
-  created_at: string | null;
-  updated_at: string | null;
-  generated_timestamp: number | null;
-  type: string | null;
-  subject: string | null;
-  raw_subject: string | null;
-  description: string | null;
-  priority: string | null;
-  status: string | null;
-  recipient: string | null;
-  requester_id: number | null;
-  submitter_id: number | null;
-  assignee_id: number | null;
-  organization_id: number | null;
-  group_id: number | null;
-  collaborator_ids: number[] | null;
-  follower_ids: number[] | null;
-  email_cc_ids: number[] | null;
-  forum_topic_id: string | null;
-  problem_id: string | null;
-  has_incidents: boolean | null;
-  is_public: boolean | null;
-  due_at: string | null;
-  tags: string[] | null;
-  custom_fields: ({  id: number;
-  value: string | null;})[] | null;
-  satisfaction_rating: {  [key: string]: any | undefined;} | null;
-  sharing_agreement_ids: number[] | null;
-  custom_status_id: number | null;
-  fields: ({  id: number;
-  value: string | null;})[] | null;
-  followup_ids: number[] | null;
-  ticket_form_id: number | null;
-  brand_id: number | null;
-  allow_channelback: boolean | null;
-  allow_attachments: boolean | null;
-  from_messaging_channel: boolean | null;
+  url: string;
+  external_id: string;
+  created_at: string;
+  updated_at: string;
+  type: string;
+  subject: string;
+  description: string;
+  priority: string;
+  status: string;
+  recipient: string;
+  requester_id: string;
+  submitter_id: string;
+  assignee_id: string;
+  organization_id: string;
+  group_id: string;
+  collaborator_ids: string[];
+  tags: string[];
+  has_incidents: boolean;
+  is_public: boolean;
+  due_at: string;
+  custom_fields: any[];
+  ticket_form_id: string;
+  brand_id: string;
 };
 
 export interface SyncMetadata_freshdesk_tickets {
@@ -12229,19 +12230,14 @@ export interface SyncMetadata_google_calendar_events {
 
 export interface Calendar {
   id: string;
-  summary: string | null;
-  description: string | null;
-  location: string | null;
-  timeZone: string | null;
-  summaryOverride: string | null;
-  colorId: string | null;
-  backgroundColor: string | null;
-  foregroundColor: string | null;
-  hidden: boolean;
-  selected: boolean;
-  accessRole: string | null;
-  primary: boolean;
-  deleted: boolean;
+  name?: string | undefined;
+  color?: string | undefined;
+  changeKey?: string | undefined;
+  canShare?: boolean | undefined;
+  canViewPrivateItems?: boolean | undefined;
+  canEdit?: boolean | undefined;
+  owner?: {  name?: string | undefined;
+  address?: string | undefined;};
 };
 
 export interface Setting {
@@ -25672,142 +25668,1033 @@ export interface SyncMetadata_oracle_hcm_employees {
 export interface SyncMetadata_oracle_hcm_unifiedemployees {
 };
 
-export interface OutlookCalendar {
-  id: string;
-  allowedOnlineMeetingProviders: string[];
-  canEdit: boolean;
-  canShare: boolean;
-  canViewPrivateItems: boolean;
-  changeKey: string;
-  color: 'auto' | 'lightBlue' | 'lightGreen' | 'lightOrange' | 'lightGray' | 'lightYellow' | 'lightTeal' | 'lightPink' | 'lightBrown' | 'lightRed' | 'maxColor';
-  defaultOnlineMeetingProvider: string;
-  hexColor: string;
-  isDefaultCalendar: boolean;
-  isRemovable: boolean;
-  isTallyingResponses: boolean;
-  name: string;
-  owner: {  address: string;
-  name: string;};
-};
-
-export interface SyncMetadata_outlook_calendars {
-};
-
-export interface OutlookEmail {
-  id: string;
-  sender?: string | undefined;
-  recipients?: string | undefined;
-  date: string;
-  subject: string;
-  body: string;
-  attachments: ({  filename: string;
-  mimeType: string;
-  size: number;
-  attachmentId: string;})[];
-  threadId: string;
-};
-
-export interface SyncMetadata_outlook_emails {
-  backfillPeriodMs: number;
-};
-
-export interface OutlookCalendarEvent {
-  id: string;
-  attendees: ({  emailAddress: {  address: string;
-  name: string;};
-  proposedNewTime?: {  start: {  dateTime: string;
-  timeZone: string;};
-  end: {  dateTime: string;
-  timeZone: string;};} | undefined;
-  status: {  response: 'none' | 'organizer' | 'tentativelyAccepted' | 'accepted' | 'declined' | 'notResponded';
-  sentDateTime: string;};
-  type: 'required' | 'optional' | 'resource';})[];
-  bodyPreview: string;
-  end: {  dateTime: string;
-  timeZone: string;};
-  importance: 'low' | 'normal' | 'high';
-  isAllDay: boolean;
-  isCancelled: boolean;
-  isOrganizer: boolean;
-  location: {  address?: {  city?: string | undefined;
-  countryOrRegion?: string | undefined;
-  postalCode?: string | undefined;
-  state?: string | undefined;
-  street?: string | undefined;};
-  coordinates?: {  accuracy?: number | undefined;
-  altitude?: number | undefined;
-  altitudeAccuracy?: number | undefined;
-  latitude?: number | undefined;
-  longitude?: number | undefined;};
-  displayName?: string | undefined;
-  locationEmailAddress?: string | undefined;
-  locationUri?: string | undefined;
-  locationType?: 'default' | 'conferenceRoom' | 'homeAddress' | 'businessAddress' | 'geoCoordinates' | 'streetAddress' | 'hotel' | 'restaurant' | 'localBusiness' | 'postalAddress' | undefined;
-  uniqueId?: string | undefined;
-  uniqueIdType?: string | undefined;};
-  onlineMeeting: {  conferenceId?: string | undefined;
-  joinUrl?: string | undefined;
-  phones: ({  number: string;
-  type: 'home' | 'business' | 'mobile' | 'other' | 'assistant' | 'homeFax' | 'businessFax' | 'otherFax' | 'pager' | 'radio';})[];
-  quickDial?: string | undefined;
-  tollFreeNumbers: string[];
-  tollNumber?: string | undefined;} | null;
-  onlineMeetingProvider: string;
-  organizer: {  emailAddress: {  address: string;
-  name: string;};};
-  recurrence: {  pattern?: {  dayOfMonth?: number | undefined;
-  daysOfWeek?: string[] | undefined;
-  firstDayOfWeek?: string | undefined;
-  index?: 'first' | 'second' | 'third' | 'fourth' | 'last' | undefined;
-  interval: number;
-  month?: number | undefined;
-  type: 'daily' | 'weekly' | 'absoluteMonthly' | 'relativeMonthly' | 'absoluteYearly' | 'relativeYearly';};
-  range: {  endDate?: string | undefined;
-  numberOfOccurrences?: number | undefined;
-  recurrenceTimeZone?: string | undefined;
-  startDate: string;
-  type: 'endDate' | 'noEnd' | 'numbered';};} | null;
-  responseRequested: boolean;
-  responseStatus: {  response: string;
-  time: string;};
-  sensitivity: 'normal' | 'personal' | 'private' | 'confidential';
-  start: {  dateTime: string;
-  timeZone: string;};
-  subject: string;
-  webLink: string;
-};
-
 export interface SyncMetadata_outlook_events {
-  backfillPeriodMs: number;
+  backfillPeriodMs?: number | undefined;
 };
 
-export interface OutlookFolder {
+export interface MailFolder {
   id: string;
   displayName: string;
+  parentFolderId?: string | undefined;
+  childFolderCount?: number | undefined;
+  totalItemCount?: number | undefined;
+  unreadItemCount?: number | undefined;
+  sizeInBytes?: number | undefined;
+  isHidden?: boolean | undefined;
+};
+
+export interface ActionInput_outlook_addeventattachment {
+  /**
+   * Event ID. Example: "AAMkAGI1AAAt9AHjAAA="
+   */
+  eventId: string;
+  /**
+   * File name. Example: "menu.txt"
+   */
+  name: string;
+  /**
+   * Base64-encoded file content. Example: "bWFjIGFuZCBjaGVlc2UgdG9kYXk="
+   */
+  contentBytes: string;
+  /**
+   * MIME type of the attachment. Example: "text/plain"
+   */
+  contentType?: string | undefined;
+};
+
+export interface ActionOutput_outlook_addeventattachment {
+  id: string;
+  name: string;
+  contentType?: string | undefined;
+  size?: number | undefined;
+  isInline?: boolean | undefined;
+  lastModifiedDateTime?: string | undefined;
+};
+
+export interface ActionInput_outlook_addmessageattachment {
+  /**
+   * The ID of the draft message to attach the file to. Example: "AQMkAGFk..."
+   */
+  messageId: string;
+  /**
+   * The name of the file to attach. Example: "document.pdf"
+   */
+  fileName: string;
+  /**
+   * The MIME type of the file. Example: "application/pdf"
+   */
+  contentType: string;
+  /**
+   * The base64-encoded content of the file. Example: "JVBERi0xLjQK..."
+   */
+  contentBytes: string;
+};
+
+export interface ActionOutput_outlook_addmessageattachment {
+  id: string;
+  name: string;
+  contentType?: string | undefined;
+  size?: number | undefined;
+};
+
+export interface ActionInput_outlook_cancelevent {
+  /**
+   * The ID of the event to cancel. Example: "AQMkAGI2..."
+   */
+  eventId: string;
+  /**
+   * An optional comment to include in the cancellation message sent to attendees.
+   */
+  comment?: string | undefined;
+};
+
+export interface ActionOutput_outlook_cancelevent {
+  success: boolean;
+};
+
+export interface ActionInput_outlook_copymessage {
+  /**
+   * The ID of the message to copy. Example: "AQMkADAwATM0MDAAMS1iN..."
+   */
+  messageId: string;
+  /**
+   * The ID of the destination mail folder, or a well-known folder name such as "inbox", "drafts", "sentitems", "deleteditems".
+   */
+  destinationId: string;
+};
+
+export interface ActionOutput_outlook_copymessage {
+  id: string;
+  subject?: string | undefined;
+  receivedDateTime?: string | undefined;
+  sentDateTime?: string | undefined;
+  hasAttachments?: boolean | undefined;
+  body?: {  contentType?: string | undefined;
+  content?: string | undefined;};
+  bodyPreview?: string | undefined;
+};
+
+export interface ActionInput_outlook_createcalendar {
+  /**
+   * Name of the new calendar. Example: "Team Events"
+   */
+  name: string;
+  /**
+   * Color theme for the calendar. Example: "lightBlue"
+   */
+  color?: 'lightBlue' | 'lightGreen' | 'lightOrange' | 'lightGray' | 'lightYellow' | 'lightTeal' | 'lightPink' | 'lightBrown' | 'lightRed' | 'maxColor' | undefined;
+};
+
+export interface ActionOutput_outlook_createcalendar {
+  id: string;
+  name: string;
+  color?: string | number | undefined;
+  canShare?: boolean | undefined;
+  canViewPrivateItems?: boolean | undefined;
+  isDefaultCalendar?: boolean | undefined;
+  isTallyingResponses?: boolean | undefined;
+  ownerName?: string | undefined;
+  ownerAddress?: string | undefined;
+};
+
+export interface ActionInput_outlook_createdraftmessage {
+  /**
+   * Subject of the message. Example: "Meeting notes"
+   */
+  subject: string;
+  /**
+   * Body of the message
+   */
+  body: {  /**
+   * Content type: "text" or "html"
+   */
+  contentType: 'text' | 'html';
+  /**
+   * Body content of the message
+   */
+  content: string;};
+  /**
+   * List of recipients to send the message to
+   */
+  toRecipients?: ({  emailAddress: {  /**
+   * Email address. Example: "recipient@example.com"
+   */
+  address: string;
+  /**
+   * Display name. Example: "John Doe"
+   */
+  name?: string | undefined;};})[];
+  /**
+   * List of CC recipients
+   */
+  ccRecipients?: ({  emailAddress: {  /**
+   * Email address. Example: "recipient@example.com"
+   */
+  address: string;
+  /**
+   * Display name. Example: "John Doe"
+   */
+  name?: string | undefined;};})[];
+  /**
+   * List of BCC recipients
+   */
+  bccRecipients?: ({  emailAddress: {  /**
+   * Email address. Example: "recipient@example.com"
+   */
+  address: string;
+  /**
+   * Display name. Example: "John Doe"
+   */
+  name?: string | undefined;};})[];
+  /**
+   * Importance level. Example: "normal"
+   */
+  importance?: 'low' | 'normal' | 'high' | undefined;
+  /**
+   * Whether a read receipt was requested
+   */
+  isReadReceiptRequested?: boolean | undefined;
+  /**
+   * Whether a delivery receipt was requested
+   */
+  isDeliveryReceiptRequested?: boolean | undefined;
+};
+
+export interface ActionOutput_outlook_createdraftmessage {
+  id: string;
+  subject?: string | undefined;
+  body?: {  /**
+   * Content type: "text" or "html"
+   */
+  contentType: 'text' | 'html';
+  /**
+   * Body content of the message
+   */
+  content: string;} | undefined;
+  toRecipients?: ({  emailAddress: {  /**
+   * Email address. Example: "recipient@example.com"
+   */
+  address: string;
+  /**
+   * Display name. Example: "John Doe"
+   */
+  name?: string | undefined;};})[];
+  ccRecipients?: ({  emailAddress: {  /**
+   * Email address. Example: "recipient@example.com"
+   */
+  address: string;
+  /**
+   * Display name. Example: "John Doe"
+   */
+  name?: string | undefined;};})[];
+  bccRecipients?: ({  emailAddress: {  /**
+   * Email address. Example: "recipient@example.com"
+   */
+  address: string;
+  /**
+   * Display name. Example: "John Doe"
+   */
+  name?: string | undefined;};})[];
+  importance?: 'low' | 'normal' | 'high' | undefined;
+  isDraft?: boolean | undefined;
+  createdDateTime?: string | undefined;
+  lastModifiedDateTime?: string | undefined;
+  webLink?: string | undefined;
+};
+
+export interface ActionInput_outlook_createevent {
+  /**
+   * Calendar ID. If omitted, the event is created in the default calendar. Example: "AQMkAGI2..."
+   */
+  calendarId?: string | undefined;
+  /**
+   * Event subject/title. Example: "Team Meeting"
+   */
+  subject: string;
+  start: {  /**
+   * Start time in ISO 8601 format. Example: "2024-06-15T10:00:00"
+   */
+  dateTime: string;
+  /**
+   * Time zone for start time. Example: "UTC" or "Pacific Standard Time"
+   */
+  timeZone: string;};
+  end: {  /**
+   * End time in ISO 8601 format. Example: "2024-06-15T11:00:00"
+   */
+  dateTime: string;
+  /**
+   * Time zone for end time. Example: "UTC" or "Pacific Standard Time"
+   */
+  timeZone: string;};
+  body?: {  /**
+   * Body content type.
+   */
+  contentType?: 'text' | 'html' | undefined;
+  /**
+   * Event body/description content.
+   */
+  content: string;};
+  location?: {  /**
+   * Location display name. Example: "Conference Room A"
+   */
+  displayName: string;} | undefined;
+  /**
+   * List of attendees to invite to the event.
+   */
+  attendees?: ({  emailAddress: {  /**
+   * Attendee email address. Example: "user@example.com"
+   */
+  address: string;
+  /**
+   * Attendee display name.
+   */
+  name?: string | undefined;};
+  type?: 'required' | 'optional' | 'resource' | undefined;})[];
+  /**
+   * Whether to create an online meeting (Teams).
+   */
+  isOnlineMeeting?: boolean | undefined;
+  /**
+   * Online meeting provider.
+   */
+  onlineMeetingProvider?: 'teamsForBusiness' | 'skypeForBusiness' | 'skypeForConsumer' | 'unknown' | undefined;
+  sensitivity?: 'normal' | 'personal' | 'private' | 'confidential' | undefined;
+  showAs?: 'free' | 'tentative' | 'busy' | 'oof' | 'workingElsewhere' | 'unknown' | undefined;
+};
+
+export interface ActionOutput_outlook_createevent {
+  id: string;
+  subject?: string | undefined;
+  start?: {  dateTime: string;
+  timeZone: string;} | undefined;
+  end?: {  dateTime: string;
+  timeZone: string;} | undefined;
+  body?: {  contentType?: string | undefined;
+  content?: string | undefined;};
+  location?: {  displayName?: string | undefined;};
+  attendees?: ({  emailAddress?: {  address?: string | undefined;
+  name?: string | undefined;};
+  type?: 'required' | 'optional' | 'resource' | undefined;})[];
+  isOnlineMeeting?: boolean | undefined;
+  onlineMeeting?: {  joinUrl?: string | undefined;};
+  webLink?: string | undefined;
+  createdDateTime?: string | undefined;
+  lastModifiedDateTime?: string | undefined;
+};
+
+export interface ActionInput_outlook_createmailfolder {
+  /**
+   * The unique identifier of the parent mail folder. Example: "AQMkAGI2..."
+   */
   parentFolderId: string;
-  childFolderCount: number;
-  unreadItemCount: number;
-  totalItemCount: number;
-  isHidden: boolean;
+  /**
+   * The display name of the new mail folder. Example: "Work"
+   */
+  displayName: string;
+  /**
+   * Whether the folder should be hidden from standard folder lists.
+   */
+  hidden?: boolean | undefined;
 };
 
-export interface SyncMetadata_outlook_folders {
+export interface ActionOutput_outlook_createmailfolder {
+  id: string;
+  displayName: string;
+  parentFolderId?: string | undefined;
+  childFolderCount?: number | undefined;
+  unreadItemCount?: number | undefined;
+  totalItemCount?: number | undefined;
+  isHidden?: boolean | undefined;
 };
 
-export interface ActionInput_outlook_fetchattachment {
-  threadId: string;
+export interface ActionInput_outlook_deletecalendar {
+  /**
+   * The ID of the calendar to delete. Example: "AAMkAGI..."
+   */
+  calendarId: string;
+};
+
+export interface ActionOutput_outlook_deletecalendar {
+  success: boolean;
+  calendarId: string;
+};
+
+export interface ActionInput_outlook_deleteevent {
+  /**
+   * The ID of the event to delete. Example: "AAMkAGI2..."
+   */
+  event_id: string;
+  /**
+   * Optional calendar ID. If omitted, uses the default calendar.
+   */
+  calendar_id?: string | undefined;
+};
+
+export interface ActionOutput_outlook_deleteevent {
+  success: boolean;
+  message: string;
+};
+
+export interface ActionInput_outlook_deletemessage {
+  /**
+   * The unique identifier of the message to delete. Example: "AAMkAGVmMDEzM..."
+   */
+  messageId: string;
+};
+
+export interface ActionOutput_outlook_deletemessage {
+  /**
+   * Whether the deletion was successful
+   */
+  success: boolean;
+};
+
+export interface ActionInput_outlook_downloadmessageattachment {
+  /**
+   * The ID of the message containing the attachment. Example: "AAMkAGVmMD..."
+   */
+  messageId: string;
+  /**
+   * The ID of the attachment to download. Example: "AAMkAGVmMD..."
+   */
   attachmentId: string;
 };
 
-export type ActionOutput_outlook_fetchattachment = string
-
-export interface ActionInput_outlook_fetcheventcontent {
-  id: string;
+export interface ActionOutput_outlook_downloadmessageattachment {
+  /**
+   * The base64-encoded content of the attachment.
+   */
+  content: string;
+  /**
+   * The MIME type of the attachment content.
+   */
+  contentType: string;
+  /**
+   * The name of the attachment file.
+   */
+  name?: string | undefined;
 };
 
-export interface ActionOutput_outlook_fetcheventcontent {
-  content: string;
+export interface ActionInput_outlook_getcalendar {
+  /**
+   * The unique identifier of the calendar. Example: "AAMkAGI2TGuLAAA="
+   */
+  calendarId: string;
+};
+
+export interface ActionOutput_outlook_getcalendar {
+  id: string;
+  name?: string | undefined;
+  color?: string | undefined;
+  isDefaultCalendar?: boolean | undefined;
+  changeKey?: string | undefined;
+  canShare?: boolean | undefined;
+  canViewPrivateItems?: boolean | undefined;
+  hexColor?: string | undefined;
+  canEdit?: boolean | undefined;
+  allowedOnlineMeetingProviders?: string[] | undefined;
+  defaultOnlineMeetingProvider?: string | undefined;
+  isTallyingResponses?: boolean | undefined;
+  isRemovable?: boolean | undefined;
+  owner?: {  name?: string | undefined;
+  address?: string | undefined;};
+};
+
+export interface ActionInput_outlook_getevent {
+  /**
+   * The unique identifier of the event. Example: "AAMkAGI1AAAoZDOFAAA="
+   */
+  eventId: string;
+  /**
+   * The time zone to use for returning event dates. Example: "Pacific Standard Time"
+   */
+  timezone?: string | undefined;
+  /**
+   * A comma-separated list of properties to include in the response. Example: "subject,start,end,location"
+   */
+  select?: string | undefined;
+};
+
+export interface ActionOutput_outlook_getevent {
+  id: string;
+  subject?: string | undefined;
+  bodyPreview?: string | undefined;
+  bodyContentType?: string | undefined;
+  bodyContent?: string | undefined;
+  start?: {  dateTime?: string | undefined;
+  timeZone?: string | undefined;};
+  end?: {  dateTime?: string | undefined;
+  timeZone?: string | undefined;};
+  locationDisplayName?: string | undefined;
+  locationType?: string | undefined;
+  locations?: ({  displayName?: string | undefined;
+  locationType?: string | undefined;
+  uniqueId?: string | undefined;
+  uniqueIdType?: string | undefined;})[];
+  attendees?: ({  type?: string | undefined;
+  response?: string | undefined;
+  emailName?: string | undefined;
+  emailAddress?: string | undefined;})[];
+  organizerName?: string | undefined;
+  organizerAddress?: string | undefined;
+  isOrganizer?: boolean | undefined;
+  isCancelled?: boolean | undefined;
+  isAllDay?: boolean | undefined;
+  importance?: string | undefined;
+  showAs?: string | undefined;
+  sensitivity?: string | undefined;
+  recurrence?: {  pattern?: {  type?: string | undefined;
+  interval?: number | undefined;
+  month?: number | undefined;
+  dayOfMonth?: number | undefined;
+  daysOfWeek?: string[] | undefined;
+  firstDayOfWeek?: string | undefined;
+  index?: string | undefined;};
+  range?: {  type?: string | undefined;
+  startDate?: string | undefined;
+  endDate?: string | undefined;
+  numberOfOccurrences?: number | undefined;};};
+  seriesMasterId?: string | undefined;
+  type?: string | undefined;
+  webLink?: string | undefined;
+  onlineMeetingUrl?: string | undefined;
+  createdDateTime?: string | undefined;
+  lastModifiedDateTime?: string | undefined;
+  iCalUId?: string | undefined;
+  response?: string | undefined;
+  responseTime?: string | undefined;
+};
+
+export interface ActionInput_outlook_getmessage {
+  /**
+   * The unique identifier of the message. Example: "AAMkAGVmMD..."
+   */
+  messageId: string;
+  /**
+   * If true, expands the attachments relationship in the response.
+   */
+  expandAttachments?: boolean | undefined;
+};
+
+export interface ActionOutput_outlook_getmessage {
+  id: string;
+  subject?: string | undefined;
+  bodyPreview?: string | undefined;
+  createdDateTime?: string | undefined;
+  receivedDateTime?: string | undefined;
+  sentDateTime?: string | undefined;
+  importance?: string | undefined;
+  isRead?: boolean | undefined;
+  isDraft?: boolean | undefined;
+  from?: {  emailAddress?: {  address?: string | undefined;
+  name?: string | undefined;};};
+  toRecipients?: ({  emailAddress?: {  address?: string | undefined;
+  name?: string | undefined;};})[];
+  ccRecipients?: ({  emailAddress?: {  address?: string | undefined;
+  name?: string | undefined;};})[];
+  bccRecipients?: ({  emailAddress?: {  address?: string | undefined;
+  name?: string | undefined;};})[];
+  replyTo?: ({  emailAddress?: {  address?: string | undefined;
+  name?: string | undefined;};})[];
+  attachments?: ({  id: string;
+  name?: string | undefined;
+  contentType?: string | undefined;
+  size?: number | undefined;})[];
+};
+
+export interface ActionInput_outlook_listcalendarevents {
+  /**
+   * The ID of the calendar to list events from. If omitted, the default calendar is used. Example: "AQMkADAwATM0..."
+   */
+  calendar_id?: string | undefined;
+  /**
+   * Start of the date range (ISO 8601 format). Required when using calendarView. Example: "2024-01-01T00:00:00Z"
+   */
+  start_date_time?: string | undefined;
+  /**
+   * End of the date range (ISO 8601 format). Required when using calendarView. Example: "2024-01-31T23:59:59Z"
+   */
+  end_date_time?: string | undefined;
+  /**
+   * Maximum number of events to return per page. Default: 10, Max: 50.
+   */
+  top?: number | undefined;
+};
+
+export interface ActionOutput_outlook_listcalendarevents {
+  events: ({  id: string;
+  subject?: string | undefined;
+  body_preview?: string | undefined;
+  start_date_time?: string | undefined;
+  start_time_zone?: string | undefined;
+  end_date_time?: string | undefined;
+  end_time_zone?: string | undefined;
+  location?: string | undefined;
+  is_all_day?: boolean | undefined;
+  show_as?: string | undefined;
+  web_link?: string | undefined;
+  created_date_time?: string | undefined;
+  last_modified_date_time?: string | undefined;})[];
+  next_link?: string | undefined;
+};
+
+export interface ActionInput_outlook_listcalendars {
+  /**
+   * Full @odata.nextLink URL from the previous response for pagination. Omit for the first page.
+   */
+  cursor?: string | undefined;
+  /**
+   * Maximum number of calendars to return. Default is 10, maximum is 50.
+   */
+  limit?: number | undefined;
+};
+
+export interface ActionOutput_outlook_listcalendars {
+  calendars: ({  id: string;
+  name?: string | undefined;
+  color?: string | undefined;
+  changeKey?: string | undefined;
+  canShare?: boolean | undefined;
+  canViewPrivateItems?: boolean | undefined;
+  canEdit?: boolean | undefined;
+  owner?: {  name?: string | undefined;
+  address?: string | undefined;};})[];
+  next_cursor?: string | undefined;
+};
+
+export interface ActionInput_outlook_listeventattachments {
+  /**
+   * The ID of the event to list attachments for. Example: "AAMkAGVmMDEzMTM4LTZmYWUtNDdkNC1hMDZiLTU1OGY5OTZhYmY4OABGAAAAAAAiQ8W967B7TKBjgx9rVEURBwAiIsqMbYjsT5e-T7KzowPTAAAAAAENAAAiIsqMbYjsT5e-T7KzowPTAAAa_WKzAAA="
+   */
+  eventId: string;
+};
+
+export interface ActionOutput_outlook_listeventattachments {
+  attachments: ({  id: string;
+  contentType?: string | undefined;
+  isInline?: boolean | undefined;
+  lastModifiedDateTime?: string | undefined;
+  name?: string | undefined;
+  size?: number | undefined;})[];
+  /**
+   * Pagination link for the next page of results. Omit for the first page.
+   */
+  nextLink?: string | undefined;
+};
+
+export interface ActionInput_outlook_listmailfolderchildren {
+  /**
+   * The ID of the mail folder to list children for. Example: "AAMkAGVmODUyMzE1LTM0MDctNDNlMS05YjQ1LTI4MjE5MjJmYzY1ZgAuAAAAAADY3h3zQIGrQ6Pm8GPMwoNdAQCr0pwLSY4vT6AX1L4UHn_uAAAAAAEJAAA="
+   */
+  folderId: string;
+  /**
+   * Maximum number of folders to return per page. Default is 10.
+   */
+  limit?: number | undefined;
+  /**
+   * Full @odata.nextLink URL from the previous response for pagination. Omit for the first page.
+   */
+  cursor?: string | undefined;
+};
+
+export interface ActionOutput_outlook_listmailfolderchildren {
+  folders: ({  id: string;
+  displayName?: string | undefined;
+  parentFolderId?: string | undefined;
+  childFolderCount?: number | undefined;
+  unreadItemCount?: number | undefined;
+  totalItemCount?: number | undefined;
+  sizeInBytes?: number | undefined;
+  isHidden?: boolean | undefined;})[];
+  /**
+   * Cursor to fetch the next page of results. Absent if there are no more pages.
+   */
+  next_cursor?: string | undefined;
+};
+
+export interface ActionInput_outlook_listmailfolders {
+  /**
+   * Number of folders to return per page. Max 50.
+   */
+  limit?: number | undefined;
+  /**
+   * OData nextLink for pagination from previous response
+   */
+  nextLink?: string | undefined;
+};
+
+export interface ActionOutput_outlook_listmailfolders {
+  folders: ({  id: string;
+  displayName?: string | undefined;
+  parentFolderId?: string | undefined;
+  childFolderCount?: number | undefined;
+  unreadItemCount?: number | undefined;
+  totalItemCount?: number | undefined;
+  wellKnownName?: string | undefined;})[];
+  /**
+   * OData nextLink for retrieving the next page
+   */
+  nextLink?: string | undefined;
+};
+
+export interface ActionInput_outlook_listmessageattachments {
+  /**
+   * The unique identifier of the message to list attachments for. Example: "AAMkAGVmMD..."
+   */
+  messageId: string;
+};
+
+export interface ActionOutput_outlook_listmessageattachments {
+  attachments: ({  id: string;
+  lastModifiedDateTime?: string | undefined;
+  name?: string | undefined;
+  contentType?: string | undefined;
+  size?: number | undefined;
+  isInline?: boolean | undefined;
+  contentId?: string | undefined;
+  contentLocation?: string | undefined;})[];
+};
+
+export interface ActionInput_outlook_listmessages {
+  /**
+   * Mail folder ID. Use "inbox" for the inbox folder. Example: "inbox"
+   */
+  folderId?: string | undefined;
+  /**
+   * OData filter expression for receivedDateTime. Example: "receivedDateTime ge 2024-01-01T00:00:00Z"
+   */
+  filter?: string | undefined;
+  /**
+   * Comma-separated list of properties to include. Example: "id,subject,receivedDateTime,from"
+   */
+  select?: string | undefined;
+  /**
+   * Pagination link (odata.nextLink) from the previous response. Omit for the first page.
+   */
+  cursor?: string | undefined;
+  /**
+   * Maximum number of messages to return per page. Default: 10, Max: 50.
+   */
+  limit?: number | undefined;
+};
+
+export interface ActionOutput_outlook_listmessages {
+  messages: ({  id: string;
+  subject?: string | undefined;
+  receivedDateTime?: string | undefined;
+  sentDateTime?: string | undefined;
+  from?: {  emailAddress?: {  name?: string | undefined;
+  address?: string | undefined;};};
+  toRecipients?: ({  emailAddress?: {  name?: string | undefined;
+  address?: string | undefined;};})[];
+  isRead?: boolean | undefined;
+  importance?: string | undefined;
+  conversationId?: string | undefined;
+  internetMessageId?: string | undefined;
+  bodyPreview?: string | undefined;})[];
+  next_cursor?: string | undefined;
+};
+
+export interface ActionInput_outlook_movemessage {
+  /**
+   * The unique identifier of the message to move. Example: "AAMkAGVmMDEz..."
+   */
+  messageId: string;
+  /**
+   * The unique identifier of the destination mail folder. Example: "AAMkAGVmMDEzMjA..."
+   */
+  destinationId: string;
+};
+
+export interface ActionOutput_outlook_movemessage {
+  id: string;
+  parentFolderId: string;
+  subject?: string | undefined;
+  receivedDateTime?: string | undefined;
+  sentDateTime?: string | undefined;
+};
+
+export interface ActionInput_outlook_replyalltomessage {
+  /**
+   * The ID of the message to reply to
+   */
+  messageId: string;
+  /**
+   * A comment to include in the reply. Required when not creating a draft.
+   */
+  comment?: string | undefined;
+  /**
+   * If true, creates a draft reply instead of sending immediately
+   */
+  createDraft?: boolean | undefined;
+  /**
+   * The body of the reply message. Use instead of comment for more control.
+   */
+  body?: {  contentType: 'text' | 'html';
+  content: string;} | undefined;
+};
+
+export interface ActionOutput_outlook_replyalltomessage {
+  success: boolean;
+  /**
+   * The ID of the created draft (only when createDraft is true)
+   */
+  draftId?: string | undefined;
+};
+
+export interface ActionInput_outlook_replytomessage {
+  /**
+   * The ID of the message to reply to. Example: "AAMkAGVmMDEZ..."
+   */
+  messageId: string;
+  /**
+   * The plain text body of the reply message. Example: "Thank you for your email. I will get back to you soon."
+   */
+  comment: string;
+};
+
+export interface ActionOutput_outlook_replytomessage {
+  id?: string | undefined;
+  messageId: string;
+  success: boolean;
+  subject?: string | undefined;
+  body?: {  contentType?: string | undefined;
+  content?: string | undefined;};
+  sender?: {  emailAddress?: {  address?: string | undefined;
+  name?: string | undefined;};};
+  toRecipients?: ({  emailAddress?: {  address?: string | undefined;
+  name?: string | undefined;};})[];
+  createdDateTime?: string | undefined;
+  sentDateTime?: string | undefined;
+};
+
+export interface ActionInput_outlook_senddraftmessage {
+  /**
+   * The unique identifier of the draft message to send. Example: "AAMkAGVmMDEz..."
+   */
+  message_id: string;
+};
+
+export interface ActionOutput_outlook_senddraftmessage {
+  /**
+   * Whether the draft was sent successfully
+   */
+  success: boolean;
+  /**
+   * The ID of the draft that was sent. This equals the input draft ID; the send endpoint returns no body to confirm the sent item ID.
+   */
+  message_id: string;
+};
+
+export interface ActionInput_outlook_sendmail {
+  message: {  /**
+   * The subject of the message. Example: "Hello from Nango"
+   */
+  subject: string;
+  body: {  /**
+   * The content type of the body. Example: "html"
+   */
   contentType: 'text' | 'html';
+  /**
+   * The content of the body. Example: "Hello world"
+   */
+  content: string;};
+  /**
+   * The recipients of the message
+   */
+  toRecipients: ({  emailAddress: {  /**
+   * The email address. Example: "user@example.com"
+   */
+  address: string;
+  /**
+   * The display name of the recipient. Example: "John Doe"
+   */
+  name?: string | undefined;};})[];
+  /**
+   * The CC recipients of the message
+   */
+  ccRecipients?: ({  emailAddress: {  /**
+   * The email address. Example: "user@example.com"
+   */
+  address: string;
+  /**
+   * The display name of the recipient. Example: "John Doe"
+   */
+  name?: string | undefined;};})[];
+  /**
+   * The BCC recipients of the message
+   */
+  bccRecipients?: ({  emailAddress: {  /**
+   * The email address. Example: "user@example.com"
+   */
+  address: string;
+  /**
+   * The display name of the recipient. Example: "John Doe"
+   */
+  name?: string | undefined;};})[];
+  /**
+   * The reply-to recipients of the message
+   */
+  replyTo?: ({  emailAddress: {  /**
+   * The email address. Example: "user@example.com"
+   */
+  address: string;
+  /**
+   * The display name of the recipient. Example: "John Doe"
+   */
+  name?: string | undefined;};})[];
+  /**
+   * The importance of the message. Example: "normal"
+   */
+  importance?: 'low' | 'normal' | 'high' | undefined;};
+  /**
+   * Whether to save the message in Sent Items. Default: true
+   */
+  saveToSentItems?: boolean | undefined;
+};
+
+export interface ActionOutput_outlook_sendmail {
+  success: boolean;
+  message?: string | undefined;
+};
+
+export interface ActionInput_outlook_updatecalendar {
+  /**
+   * The unique identifier of the calendar to update. Example: "AQMkAGI..."
+   */
+  calendarId: string;
+  /**
+   * The calendar name. Example: "Work Calendar"
+   */
+  name?: string | undefined;
+  /**
+   * The color of the calendar in hex format or a preset color constant. Example: "#2B579A" or "lightBlue"
+   */
+  color?: string | undefined;
+};
+
+export interface ActionOutput_outlook_updatecalendar {
+  id: string;
+  name?: string | undefined;
+  color?: string | undefined;
+};
+
+export interface ActionInput_outlook_updateevent {
+  /**
+   * The unique identifier of the event to update. Example: "AAMkAGI1..."
+   */
+  eventId: string;
+  /**
+   * The subject of the event.
+   */
+  subject?: string | undefined;
+  /**
+   * The body of the event.
+   */
+  body?: {  contentType?: 'text' | 'html' | undefined;
+  content?: string | undefined;};
+  /**
+   * The attendees of the event.
+   */
+  attendees?: ({  emailAddress: {  address: string;
+  name?: string | undefined;};
+  type?: 'required' | 'optional' | 'resource' | undefined;})[];
+  /**
+   * The start time of the event.
+   */
+  start?: {  /**
+   * The start date and time in ISO 8601 format.
+   */
+  dateTime: string;
+  timeZone?: string | undefined;};
+  /**
+   * The end time of the event.
+   */
+  end?: {  /**
+   * The end date and time in ISO 8601 format.
+   */
+  dateTime: string;
+  timeZone?: string | undefined;};
+  /**
+   * The location of the event.
+   */
+  location?: {  displayName?: string | undefined;
+  address?: {  street?: string | undefined;
+  city?: string | undefined;
+  state?: string | undefined;
+  countryOrRegion?: string | undefined;
+  postalCode?: string | undefined;};};
+};
+
+export interface ActionOutput_outlook_updateevent {
+  id: string;
+  subject?: string | undefined;
+  body?: {  contentType?: string | undefined;
+  content?: string | undefined;};
+  attendees?: ({  emailAddress: {  address: string;
+  name?: string | undefined;};
+  type?: string | undefined;})[];
+  start?: {  dateTime?: string | undefined;
+  timeZone?: string | undefined;};
+  end?: {  dateTime?: string | undefined;
+  timeZone?: string | undefined;};
+  location?: {  displayName?: string | undefined;
+  address?: {  street?: string | undefined;
+  city?: string | undefined;
+  state?: string | undefined;
+  countryOrRegion?: string | undefined;
+  postalCode?: string | undefined;};};
+  createdDateTime?: string | undefined;
+  lastModifiedDateTime?: string | undefined;
+  webLink?: string | undefined;
+};
+
+export interface ActionInput_outlook_updatemessage {
+  /**
+   * The unique identifier of the message to update. Example: "AAMkAGVmMDEz"
+   */
+  messageId: string;
+  /**
+   * The subject of the message.
+   */
+  subject?: string | undefined;
+  /**
+   * The body of the message.
+   */
+  body?: {  /**
+   * The content type of the body.
+   */
+  contentType: 'text' | 'html';
+  /**
+   * The content of the body.
+   */
+  content: string;} | undefined;
+  /**
+   * The categories associated with the message.
+   */
+  categories?: string[] | undefined;
+  /**
+   * Indicates whether the message has been read.
+   */
+  isRead?: boolean | undefined;
+  /**
+   * The flag status of the message.
+   */
+  flag?: {  /**
+   * The flag status of the message.
+   */
+  flagStatus: 'notFlagged' | 'complete' | 'flagged';} | undefined;
+};
+
+export interface ActionOutput_outlook_updatemessage {
+  id: string;
+  subject?: string | undefined;
+  body?: {  contentType: string;
+  content: string;} | undefined;
+  categories?: string[] | undefined;
+  isRead?: boolean | undefined;
+  flag?: {  flagStatus: string;} | undefined;
 };
 
 export interface SyncMetadata_paycom_unifiedemployees {
@@ -26485,71 +27372,69 @@ export interface Account {
   AddToWatchlist?: boolean | undefined;
 };
 
-export interface SyncMetadata_quickbooks_accounts {
-};
-
 export interface BillPayment {
   id: string;
-  vendor_id?: string | undefined;
-  vendor_name?: string | undefined;
-  txn_date: string;
-  total_amount: number;
-  currency: string;
+  active?: boolean | undefined;
+  total_amount?: number | undefined;
+  pay_type?: string | undefined;
   private_note?: string | undefined;
-  lines: ({  amount: number;
-  linkedTxn: ({  txn_id: string;
-  txn_type: string;})[];})[];
-};
-
-export interface SyncMetadata_quickbooks_billpayments {
-};
-
-export interface Bill {
-  created_at: string;
-  updated_at: string;
-  id: string;
-  sales_term_id?: string | undefined;
-  due_date: string;
-  balance: number;
-  txn_date: string;
-  currency: string;
-  vendor_id: string;
+  transaction_date?: string | undefined;
+  document_number?: string | undefined;
+  vendor_id?: string | undefined;
   vendor_name?: string | undefined;
   ap_account_id?: string | undefined;
   ap_account_name?: string | undefined;
-  total_amount: number;
-  lines: ({  id: string;
-  detail_type: string;
+  check_bank_account_id?: string | undefined;
+  check_bank_account_name?: string | undefined;
+  check_print_status?: string | undefined;
+  credit_card_account_id?: string | undefined;
+  credit_card_account_name?: string | undefined;
+  lines?: ({  id?: string | undefined;
+  line_num?: string | undefined;
   amount: number;
-  account_id?: string | undefined;
-  account_name?: string | undefined;})[];
+  linked_transactions?: ({  transaction_id: string;
+  transaction_type: string;})[] | undefined;})[];
+  created_at?: string | undefined;
+  updated_at?: string | undefined;
 };
 
-export interface SyncMetadata_quickbooks_bills {
+export interface Bill {
+  id: string;
+  vendorId?: string | undefined;
+  vendorName?: string | undefined;
+  lines?: ({  id?: string | undefined;
+  description?: string | undefined;
+  amount?: number | undefined;
+  detailType?: string | undefined;
+  itemRef?: string | undefined;
+  itemName?: string | undefined;
+  quantity?: number | undefined;
+  unitPrice?: number | undefined;
+  accountRef?: string | undefined;
+  accountName?: string | undefined;})[];
+  balance?: number | undefined;
+  dueDate?: string | undefined;
+  txnDate?: string | undefined;
+  totalAmount?: number | undefined;
+  docNumber?: string | undefined;
+  privateNote?: string | undefined;
+  createdAt?: string | undefined;
+  updatedAt?: string | undefined;
 };
 
 export interface CreditMemo {
-  created_at: string;
-  updated_at: string;
   id: string;
-  txn_date: string;
-  balance_cents: number;
-  total_amt_cents: number;
-  bill_address: {  city: string | null;
-  line1: string | null;
-  postal_code: string | null;
-  country: string | null;
-  id: string;} | null;
-  items: ({  id: string;
-  description: string | null;
-  qty: number;
-  unit_price_cents: number;
-  amount_cents: number;})[];
-  remaining_credit: number;
-  customer_name: string | null;
-};
-
-export interface SyncMetadata_quickbooks_creditmemos {
+  total_amount?: number | undefined;
+  balance?: number | undefined;
+  customer_id?: string | undefined;
+  customer_name?: string | undefined;
+  currency_code?: string | undefined;
+  txn_date?: string | undefined;
+  status?: string | undefined;
+  private_note?: string | undefined;
+  email?: string | undefined;
+  created_at?: string | undefined;
+  updated_at: string;
 };
 
 export interface Customer {
@@ -26561,27 +27446,47 @@ export interface Customer {
   modified_at: string;
 };
 
-export interface SyncMetadata_quickbooks_customers {
-};
-
 export interface Deposit {
-  created_at: string;
-  updated_at: string;
   id: string;
-  account_id?: string | undefined;
-  account_name?: string | undefined;
-  txn_date: string;
-  total_amount: number;
-  currency: string;
-  private_note?: string | undefined;
-  lines: ({  id?: string | undefined;
-  amount: number;
-  detail_type?: string | undefined;
-  deposit_account_id?: string | undefined;
-  deposit_account_name?: string | undefined;})[];
+  syncToken?: string | undefined;
+  createdAt?: string | undefined;
+  updatedAt: string;
+  depositToAccountId?: string | undefined;
+  depositToAccountName?: string | undefined;
+  documentNumber?: string | undefined;
+  transactionDate?: string | undefined;
+  privateNote?: string | undefined;
+  totalAmount?: number | undefined;
+  currency?: string | undefined;
+  exchangeRate?: number | undefined;
+  homeTotalAmount?: number | undefined;
+  lines?: ({  [key: string]: unknown | undefined;})[];
 };
 
-export interface SyncMetadata_quickbooks_deposits {
+export interface Estimate {
+  id: string;
+  estimate_id: string;
+  customer_id?: string | undefined;
+  customer_name?: string | undefined;
+  transaction_date?: string | undefined;
+  expiration_date?: string | undefined;
+  total_amount?: number | undefined;
+  status?: string | undefined;
+  doc_number?: string | undefined;
+  private_note?: string | undefined;
+  sales_term_id?: string | undefined;
+  bill_email?: string | undefined;
+  ship_method?: string | undefined;
+  ship_date?: string | undefined;
+  tracking_num?: string | undefined;
+  class_id?: string | undefined;
+  department_id?: string | undefined;
+  sales_rep_id?: string | undefined;
+  tax_code_id?: string | undefined;
+  billing_address?: {  [key: string]: unknown | undefined;};
+  shipping_address?: {  [key: string]: unknown | undefined;};
+  line_items?: ({  [key: string]: unknown | undefined;})[];
+  last_updated_time: string;
 };
 
 export interface Invoice {
@@ -26603,9 +27508,6 @@ export interface Invoice {
   CurrencyCode?: string | undefined;
 };
 
-export interface SyncMetadata_quickbooks_invoices {
-};
-
 export interface Item {
   id: string;
   item_code?: string | undefined;
@@ -26614,33 +27516,35 @@ export interface Item {
   account_code?: string | undefined;
 };
 
-export interface SyncMetadata_quickbooks_items {
-};
-
 export interface JournalEntry {
-  created_at: string;
-  updated_at: string;
   id: string;
-  date: string | null;
-  currency: string;
-  note?: string | undefined;
-  lines: ({  id: string;
-  type: string;
-  account_id: string;
-  account_name: string;
-  net_amount: number;
-  posting_type: 'Debit' | 'Credit';
-  description: string;
-  entity_type?: string | undefined;
-  entity_type_id?: string | undefined;
-  entity_type_name?: string | undefined;
-  department_id?: string | undefined;
-  department_name?: string | undefined;
-  class_id?: string | undefined;
-  class_name?: string | undefined;})[];
-};
-
-export interface SyncMetadata_quickbooks_journalentries {
+  docNumber?: string | undefined;
+  txnDate: string;
+  privateNote?: string | undefined;
+  line: ({  id?: string | undefined;
+  description?: string | undefined;
+  amount: number;
+  detailType: string;
+  postingType?: string | undefined;
+  accountRef?: {  value: string;
+  name?: string | undefined;};
+  entity?: {  type?: string | undefined;
+  entityRef?: {  value: string;
+  name?: string | undefined;
+  type?: string | undefined;};};
+  classRef?: {  value: string;
+  name?: string | undefined;};
+  departmentRef?: {  value: string;
+  name?: string | undefined;};
+  taxCodeRef?: {  value: string;} | undefined;
+  taxApplicableOn?: string | undefined;
+  billableStatus?: string | undefined;})[];
+  metaData: {  createTime: string;
+  lastUpdatedTime: string;};
+  currencyRef?: {  value: string;
+  name?: string | undefined;};
+  exchangeRate?: number | undefined;
+  adjustment?: boolean | undefined;
 };
 
 export interface Payment {
@@ -26661,815 +27565,3421 @@ export interface Payment {
   batch_payment_id?: string | undefined;
 };
 
-export interface SyncMetadata_quickbooks_payments {
-};
-
 export interface Purchase {
-  created_at: string;
-  updated_at: string;
   id: string;
-  account_id?: string | undefined;
-  account_name?: string | undefined;
-  payment_type: string;
-  entity_type?: string | undefined;
-  entity_id?: string | undefined;
-  entity_name?: string | undefined;
-  total_amount: number;
-  print_status?: string | undefined;
   doc_number?: string | undefined;
-  txn_date: string;
-  currency: string;
-  lines: ({  id: string;
-  description?: string | undefined;
-  detail_type: string;
-  amount: number;
-  account_name?: string | undefined;
+  txn_date?: string | undefined;
+  total_amount?: number | undefined;
+  payment_type?: string | undefined;
+  private_note?: string | undefined;
+  vendor_id?: string | undefined;
+  vendor_name?: string | undefined;
   account_id?: string | undefined;
-  billable_status?: string | undefined;
-  tax_code?: string | undefined;})[];
-};
-
-export interface SyncMetadata_quickbooks_purchases {
+  account_name?: string | undefined;
+  currency_code?: string | undefined;
+  exchange_rate?: number | undefined;
+  credit?: boolean | undefined;
+  department_id?: string | undefined;
+  department_name?: string | undefined;
+  created_at?: string | undefined;
+  updated_at?: string | undefined;
+  lines?: ({  id?: string | undefined;
+  line_num?: string | undefined;
+  description?: string | undefined;
+  amount?: number | undefined;
+  detail_type?: string | undefined;
+  account_ref_value?: string | undefined;
+  account_ref_name?: string | undefined;
+  item_ref_value?: string | undefined;
+  item_ref_name?: string | undefined;
+  unit_price?: number | undefined;
+  quantity?: number | undefined;
+  tax_amount?: number | undefined;
+  billable_status?: string | undefined;})[];
 };
 
 export interface Transfer {
-  created_at: string;
-  updated_at: string;
   id: string;
-  from_account_id?: string | undefined;
-  from_account_name?: string | undefined;
-  to_account_id?: string | undefined;
-  to_account_name?: string | undefined;
+  fromAccountRef: {  value: string;
+  name?: string | undefined;};
+  toAccountRef: {  value: string;
+  name?: string | undefined;};
   amount: number;
-  currency: string;
-  txn_date: string;
-  private_note?: string | undefined;
+  txnDate: string;
+  privateNote?: string | undefined;
+  createdAt: string;
+  updatedAt: string;
 };
 
-export interface SyncMetadata_quickbooks_transfers {
+export interface Vendor {
+  id: string;
+  active?: boolean | undefined;
+  displayName?: string | undefined;
+  givenName?: string | undefined;
+  familyName?: string | undefined;
+  email?: string | undefined;
+  phone?: string | undefined;
+  companyName?: string | undefined;
+  addressLine1?: string | undefined;
+  city?: string | undefined;
+  state?: string | undefined;
+  postalCode?: string | undefined;
+  lastUpdatedTime?: string | undefined;
 };
 
 export interface ActionInput_quickbooks_createaccount {
+  /**
+   * Name of the account. Example: "My Account"
+   */
   name: string;
-  account_type?: string | undefined;
-  account_sub_type?: string | undefined;
+  /**
+   * Account classification type
+   */
+  accountType: 'Bank' | 'Other Current Asset' | 'Fixed Asset' | 'Other Asset' | 'Accounts Receivable' | 'Equity' | 'Expense' | 'Other Expense' | 'Cost of Goods Sold' | 'Accounts Payable' | 'Credit Card' | 'Long Term Liability' | 'Other Current Liability' | 'Income' | 'Other Income';
+  /**
+   * Detailed account type
+   */
+  accountSubType?: string | undefined;
+  /**
+   * Description of the account
+   */
   description?: string | undefined;
-  acct_num?: string | undefined;
+  /**
+   * Currency reference
+   */
+  currencyRef?: {  /**
+   * Currency code
+   */
+  value: string;
+  /**
+   * Currency name
+   */
+  name?: string | undefined;};
 };
 
 export interface ActionOutput_quickbooks_createaccount {
-  created_at: string;
-  updated_at: string;
   id: string;
-  fully_qualified_name: string;
   name: string;
-  account_type: string;
-  account_sub_type: string;
-  classification: string;
-  current_balance_cents: number;
-  active: boolean;
-  description: string | null;
-  acct_num: string | null;
-  sub_account: boolean;
+  accountType: string;
+  accountSubType?: string | undefined;
+  description?: string | undefined;
+  currencyCode?: string | undefined;
+  active?: boolean | undefined;
+  currentBalance?: number | undefined;
+  currentBalanceWithSubAccounts?: number | undefined;
+  syncToken?: string | undefined;
+  createdAt?: string | undefined;
+  updatedAt?: string | undefined;
 };
 
 export interface ActionInput_quickbooks_createbill {
-  currency: string;
-  vendor_id: string;
-  vendor_name?: string | undefined;
-  line: ({  id: string;
-  detail_type: string;
-  amount: number;
-  account_id?: string | undefined;
-  account_name?: string | undefined;})[];
+  VendorRef: {  /**
+   * Vendor ID reference. Example: "89"
+   */
+  value: string;};
+  /**
+   * Transaction date in YYYY-MM-DD format. Example: "2024-01-15"
+   */
+  TxnDate: string;
+  /**
+   * Due date in YYYY-MM-DD format
+   */
+  DueDate?: string | undefined;
+  /**
+   * Line items (expense or item-based)
+   */
+  Lines: ({  DetailType: 'AccountBasedExpenseLineDetail' | 'ItemBasedExpenseLineDetail';
+  Amount: number;
+  Description?: string | undefined;
+  AccountBasedExpenseLineDetail?: {  AccountRef: {  /**
+   * Account ID reference
+   */
+  value: string;};
+  CustomerRef?: {  value: string;} | undefined;
+  ClassRef?: {  value: string;} | undefined;
+  DepartmentRef?: {  value: string;} | undefined;};
+  ItemBasedExpenseLineDetail?: {  ItemRef: {  /**
+   * Item ID reference
+   */
+  value: string;};
+  Qty?: number | undefined;
+  UnitPrice?: number | undefined;
+  CustomerRef?: {  value: string;} | undefined;
+  ClassRef?: {  value: string;} | undefined;
+  DepartmentRef?: {  value: string;} | undefined;};})[];
 };
 
 export interface ActionOutput_quickbooks_createbill {
-  created_at: string;
-  updated_at: string;
   id: string;
-  sales_term_id?: string | undefined;
-  due_date: string;
-  balance: number;
-  txn_date: string;
-  currency: string;
-  vendor_id: string;
-  vendor_name?: string | undefined;
-  ap_account_id?: string | undefined;
-  ap_account_name?: string | undefined;
-  total_amount: number;
-  lines: ({  id: string;
-  detail_type: string;
+  vendorId: string;
+  vendorName?: string | undefined;
+  transactionDate: string;
+  dueDate?: string | undefined;
+  totalAmount: number;
+  balance?: number | undefined;
+  lines?: ({  id?: string | undefined;
+  detailType: string;
   amount: number;
-  account_id?: string | undefined;
-  account_name?: string | undefined;})[];
+  description?: string | undefined;})[];
+  createdAt?: string | undefined;
+  updatedAt?: string | undefined;
 };
 
 export interface ActionInput_quickbooks_createcreditmemo {
-  customer_ref: {  name?: string | undefined;
-  value: string;};
-  line: ({  detail_type: string;
-  amount_cents: number;
-  sales_item_line_detail: {  item_ref: {  name?: string | undefined;
-  value: string;};};
-  quantity?: number | undefined;
-  unit_price_cents?: number | undefined;
-  discount_rate?: number | undefined;
-  description?: string | undefined;})[];
-  due_date?: string | undefined;
-  currency_ref: {  name?: string | undefined;
-  value: string;};
-  project_ref: {  name?: string | undefined;
-  value: string;};
+  CustomerRef: {  value: string;
+  name?: string | undefined;};
+  Line: ({  Amount: number;
+  DetailType: string;
+  Description?: string | undefined;
+  SalesItemLineDetail?: {  ItemRef: {  value: string;
+  name?: string | undefined;};
+  UnitPrice?: number | undefined;
+  Qty?: number | undefined;
+  TaxCodeRef?: {  value: string;
+  name?: string | undefined;};};})[];
+  TxnDate?: string | undefined;
+  DocNumber?: string | undefined;
+  PrivateNote?: string | undefined;
+  CustomerMemo?: {  value: string;} | undefined;
+  BillEmail?: {  Address: string;} | undefined;
+  CurrencyRef?: {  value: string;
+  name?: string | undefined;};
+  ProjectRef?: {  value: string;
+  name?: string | undefined;};
 };
 
 export interface ActionOutput_quickbooks_createcreditmemo {
-  created_at: string;
-  updated_at: string;
-  id: string;
-  txn_date: string;
-  balance_cents: number;
-  total_amt_cents: number;
-  bill_address: {  city: string | null;
-  line1: string | null;
-  postal_code: string | null;
-  country: string | null;
-  id: string;} | null;
-  items: ({  id: string;
-  description: string | null;
-  qty: number;
-  unit_price_cents: number;
-  amount_cents: number;})[];
-  remaining_credit: number;
-  customer_name: string | null;
+  Id: string;
+  SyncToken: string;
+  MetaData: {  CreateTime: string;
+  LastUpdatedTime: string;};
+  DocNumber?: string | undefined;
+  TxnDate: string;
+  PrivateNote?: string | undefined;
+  Line: ({  Id?: string | undefined;
+  LineNum?: number | undefined;
+  Description?: string | undefined;
+  Amount: number;
+  DetailType: string;
+  SalesItemLineDetail?: {  ItemRef: {  value: string;
+  name?: string | undefined;};
+  UnitPrice?: number | undefined;
+  Qty?: number | undefined;
+  TaxCodeRef?: {  value: string;
+  name?: string | undefined;};};})[];
+  CustomerRef: {  value: string;
+  name?: string | undefined;};
+  CustomerMemo?: {  value: string;} | undefined;
+  TotalAmt: number;
+  RemainingCredit?: number | undefined;
+  Balance?: number | undefined;
 };
 
 export interface ActionInput_quickbooks_createcustomer {
-  display_name?: string | undefined;
-  suffix?: string | undefined;
-  title?: string | undefined;
-  given_name?: string | undefined;
-  company_name?: string | undefined;
-  notes?: string | undefined;
-  primary_email?: string | undefined;
-  primary_phone?: string | undefined;
-  bill_address: {  line1?: string | undefined;
-  line2?: string | undefined;
-  city?: string | undefined;
-  postal_code?: string | undefined;
-  country?: string | undefined;
-  lat?: string | undefined;
-  long?: string | undefined;};
-  ship_address: {  line1?: string | undefined;
-  line2?: string | undefined;
-  city?: string | undefined;
-  postal_code?: string | undefined;
-  country?: string | undefined;
-  lat?: string | undefined;
-  long?: string | undefined;};
+  /**
+   * Display name for the customer. Example: "Acme Corp"
+   */
+  DisplayName: string;
+  /**
+   * First name. Example: "John"
+   */
+  GivenName?: string | undefined;
+  /**
+   * Middle name
+   */
+  MiddleName?: string | undefined;
+  /**
+   * Last name. Example: "Doe"
+   */
+  FamilyName?: string | undefined;
+  /**
+   * Name suffix. Example: "Jr", "Sr"
+   */
+  Suffix?: string | undefined;
+  /**
+   * Company name. Example: "Acme Corporation"
+   */
+  CompanyName?: string | undefined;
+  /**
+   * Primary email address
+   */
+  PrimaryEmailAddr?: {  /**
+   * Email address. Example: "customer@example.com"
+   */
+  Address: string;} | undefined;
+  /**
+   * Primary phone number
+   */
+  PrimaryPhone?: {  /**
+   * Phone number. Example: "(555) 555-5555"
+   */
+  FreeFormNumber: string;} | undefined;
+  /**
+   * Billing address
+   */
+  BillAddr?: {  /**
+   * Address line 1. Example: "123 Main Street"
+   */
+  Line1?: string | undefined;
+  /**
+   * Address line 2
+   */
+  Line2?: string | undefined;
+  /**
+   * Address line 3
+   */
+  Line3?: string | undefined;
+  /**
+   * City name. Example: "Mountain View"
+   */
+  City?: string | undefined;
+  /**
+   * Country name. Example: "USA"
+   */
+  Country?: string | undefined;
+  /**
+   * State or province code. Example: "CA"
+   */
+  CountrySubDivisionCode?: string | undefined;
+  /**
+   * Postal code. Example: "94042"
+   */
+  PostalCode?: string | undefined;};
+  /**
+   * Shipping address
+   */
+  ShipAddr?: {  /**
+   * Address line 1. Example: "123 Main Street"
+   */
+  Line1?: string | undefined;
+  /**
+   * Address line 2
+   */
+  Line2?: string | undefined;
+  /**
+   * Address line 3
+   */
+  Line3?: string | undefined;
+  /**
+   * City name. Example: "Mountain View"
+   */
+  City?: string | undefined;
+  /**
+   * Country name. Example: "USA"
+   */
+  Country?: string | undefined;
+  /**
+   * State or province code. Example: "CA"
+   */
+  CountrySubDivisionCode?: string | undefined;
+  /**
+   * Postal code. Example: "94042"
+   */
+  PostalCode?: string | undefined;};
+  /**
+   * Additional notes about the customer
+   */
+  Notes?: string | undefined;
 };
 
 export interface ActionOutput_quickbooks_createcustomer {
-  created_at: string;
-  updated_at: string;
+  /**
+   * Unique identifier for the customer
+   */
   id: string;
-  given_name: string | null;
-  display_name: string | null;
-  active: boolean;
-  balance_cents: number;
-  taxable: boolean;
-  primary_email: string | null;
-  primary_phone: string | null;
-  bill_address: {  city: string | null;
-  line1: string | null;
-  postal_code: string | null;
-  country: string | null;
-  id: string;} | null;
-  ship_address: {  city: string | null;
-  line1: string | null;
-  postal_code: string | null;
-  country: string | null;
-  id: string;} | null;
+  /**
+   * Display name of the customer
+   */
+  displayName: string;
+  /**
+   * First name
+   */
+  givenName?: string | undefined;
+  /**
+   * Middle name
+   */
+  middleName?: string | undefined;
+  /**
+   * Last name
+   */
+  familyName?: string | undefined;
+  /**
+   * Name suffix
+   */
+  suffix?: string | undefined;
+  /**
+   * Company name
+   */
+  companyName?: string | undefined;
+  /**
+   * Primary email address
+   */
+  email?: string | undefined;
+  /**
+   * Primary phone number
+   */
+  phone?: string | undefined;
+  /**
+   * Billing address
+   */
+  billingAddress?: {  /**
+   * Address line 1. Example: "123 Main Street"
+   */
+  Line1?: string | undefined;
+  /**
+   * Address line 2
+   */
+  Line2?: string | undefined;
+  /**
+   * Address line 3
+   */
+  Line3?: string | undefined;
+  /**
+   * City name. Example: "Mountain View"
+   */
+  City?: string | undefined;
+  /**
+   * Country name. Example: "USA"
+   */
+  Country?: string | undefined;
+  /**
+   * State or province code. Example: "CA"
+   */
+  CountrySubDivisionCode?: string | undefined;
+  /**
+   * Postal code. Example: "94042"
+   */
+  PostalCode?: string | undefined;};
+  /**
+   * Shipping address
+   */
+  shippingAddress?: {  /**
+   * Address line 1. Example: "123 Main Street"
+   */
+  Line1?: string | undefined;
+  /**
+   * Address line 2
+   */
+  Line2?: string | undefined;
+  /**
+   * Address line 3
+   */
+  Line3?: string | undefined;
+  /**
+   * City name. Example: "Mountain View"
+   */
+  City?: string | undefined;
+  /**
+   * Country name. Example: "USA"
+   */
+  Country?: string | undefined;
+  /**
+   * State or province code. Example: "CA"
+   */
+  CountrySubDivisionCode?: string | undefined;
+  /**
+   * Postal code. Example: "94042"
+   */
+  PostalCode?: string | undefined;};
+  /**
+   * Customer notes
+   */
+  notes?: string | undefined;
+  /**
+   * Current balance
+   */
+  balance?: number | undefined;
+  /**
+   * Whether the customer is active
+   */
+  active?: boolean | undefined;
+  /**
+   * Creation timestamp
+   */
+  createdAt?: string | undefined;
+  /**
+   * Last update timestamp
+   */
+  updatedAt?: string | undefined;
+};
+
+export interface ActionInput_quickbooks_createdeposit {
+  /**
+   * Reference to the account where funds are deposited
+   */
+  DepositToAccountRef: {  /**
+   * Account ID. Example: "35"
+   */
+  value: string;
+  /**
+   * Account name. Example: "Checking"
+   */
+  name?: string | undefined;};
+  /**
+   * Transaction date in YYYY-MM-DD format. Example: "2024-01-15"
+   */
+  TxnDate: string;
+  /**
+   * Array of deposit lines (minimum 1 required)
+   */
+  Lines: ({  /**
+   * Unique identifier for the line. Example: "1"
+   */
+  Id?: string | undefined;
+  LineNum?: number | undefined;
+  /**
+   * Description of the deposit line
+   */
+  Description?: string | undefined;
+  /**
+   * Amount for this deposit line. Example: 100.00
+   */
+  Amount: number;
+  /**
+   * Type of line detail
+   */
+  DetailType: 'DepositLineDetail' | 'SalesItemLineDetail' | 'AccountBasedExpenseLineDetail' | 'JournalEntryLineDetail';
+  DepositLineDetail?: {  /**
+   * Account reference for the deposit line
+   */
+  AccountRef?: {  /**
+   * Account ID. Example: "35"
+   */
+  value: string;
+  /**
+   * Account name. Example: "Checking"
+   */
+  name?: string | undefined;};
+  Entity?: {  Type?: string | undefined;
+  EntityRef?: {  /**
+   * Account ID. Example: "35"
+   */
+  value: string;
+  /**
+   * Account name. Example: "Checking"
+   */
+  name?: string | undefined;};};
+  ClassRef?: {  /**
+   * Account ID. Example: "35"
+   */
+  value: string;
+  /**
+   * Account name. Example: "Checking"
+   */
+  name?: string | undefined;};
+  DepartmentRef?: {  /**
+   * Account ID. Example: "35"
+   */
+  value: string;
+  /**
+   * Account name. Example: "Checking"
+   */
+  name?: string | undefined;};
+  PaymentMethodRef?: {  /**
+   * Account ID. Example: "35"
+   */
+  value: string;
+  /**
+   * Account name. Example: "Checking"
+   */
+  name?: string | undefined;};
+  CheckNum?: string | undefined;
+  TxnOrigin?: string | undefined;
+  LinkedTxn?: ({  /**
+   * Transaction ID of the linked transaction. Example: "123"
+   */
+  TxnId: string;
+  /**
+   * Transaction type. Example: "Payment", "Invoice"
+   */
+  TxnType: string;})[] | undefined;};
+  SalesItemLineDetail?: unknown | undefined;
+  AccountBasedExpenseLineDetail?: unknown | undefined;
+  JournalEntryLineDetail?: unknown | undefined;})[];
+  /**
+   * Currency reference
+   */
+  CurrencyRef?: {  /**
+   * Currency code. Example: "USD"
+   */
+  value: string;
+  /**
+   * Currency name. Example: "United States Dollar"
+   */
+  name?: string | undefined;};
+  /**
+   * Private note for internal use
+   */
+  PrivateNote?: string | undefined;
+};
+
+export interface ActionOutput_quickbooks_createdeposit {
+  /**
+   * Deposit ID
+   */
+  id: string;
+  /**
+   * Sync token for subsequent updates
+   */
+  syncToken: string;
+  /**
+   * Creation timestamp
+   */
+  createdAt: string;
+  /**
+   * Last update timestamp
+   */
+  updatedAt: string;
+  /**
+   * ID of the deposit account
+   */
+  depositToAccountId: string;
+  /**
+   * Name of the deposit account
+   */
+  depositToAccountName?: string | undefined;
+  /**
+   * Transaction date
+   */
+  txnDate: string;
+  /**
+   * Total deposit amount
+   */
+  totalAmount: number;
+  /**
+   * Deposit lines
+   */
+  lines: unknown[];
+  /**
+   * Currency code
+   */
+  currency?: string | undefined;
+  /**
+   * Private note
+   */
+  privateNote?: string | undefined;
+};
+
+export interface ActionInput_quickbooks_createestimate {
+  CustomerRef: {  /**
+   * The ID of the customer for this estimate. Example: "123"
+   */
+  value: string;};
+  /**
+   * The date of the transaction in YYYY-MM-DD format. Example: "2024-01-15"
+   */
+  TxnDate: string;
+  /**
+   * The line items for this estimate
+   */
+  Line: ({  /**
+   * The monetary amount of this line item. Example: 100.00
+   */
+  Amount: number;
+  /**
+   * Description of the line item
+   */
+  Description?: string | undefined;
+  /**
+   * The type of line detail
+   */
+  DetailType: 'SalesItemLineDetail' | 'DescriptionOnly';
+  SalesItemLineDetail?: {  ItemRef: {  /**
+   * The ID of the item. Example: "1"
+   */
+  value: string;};
+  /**
+   * Quantity of the item
+   */
+  Qty?: number | undefined;
+  /**
+   * Unit price of the item
+   */
+  UnitPrice?: number | undefined;};})[];
+  /**
+   * Private note for the estimate
+   */
+  PrivateNote?: string | undefined;
+  BillEmail?: {  /**
+   * Email address to send the estimate
+   */
+  Address: string;} | undefined;
+};
+
+export interface ActionOutput_quickbooks_createestimate {
+  /**
+   * The unique identifier of the created estimate
+   */
+  Id: string;
+  /**
+   * The sync token for concurrency control
+   */
+  SyncToken: string;
+  /**
+   * The document number of the estimate
+   */
+  DocNumber?: string | undefined;
+  /**
+   * The transaction date of the estimate
+   */
+  TxnDate: string;
+  /**
+   * The total amount of the estimate
+   */
+  TotalAmt: number;
+  CustomerRef: {  /**
+   * The ID of the customer
+   */
+  value: string;
+  /**
+   * The name of the customer
+   */
+  name?: string | undefined;};
+  Line: ({  /**
+   * The ID of the line item
+   */
+  Id?: string | undefined;
+  /**
+   * The line number
+   */
+  LineNum?: number | undefined;
+  /**
+   * The amount of the line item
+   */
+  Amount: number;
+  /**
+   * Description of the line item
+   */
+  Description?: string | undefined;
+  /**
+   * The type of line detail
+   */
+  DetailType: string;
+  SalesItemLineDetail?: {  ItemRef: {  /**
+   * The ID of the item
+   */
+  value: string;
+  /**
+   * The name of the item
+   */
+  name?: string | undefined;};
+  /**
+   * Quantity of the item
+   */
+  Qty?: number | undefined;
+  /**
+   * Unit price of the item
+   */
+  UnitPrice?: number | undefined;};})[];
+  MetaData: {  /**
+   * The creation timestamp
+   */
+  CreateTime: string;
+  /**
+   * The last updated timestamp
+   */
+  LastUpdatedTime: string;};
 };
 
 export interface ActionInput_quickbooks_createinvoice {
-  customer_ref: {  name?: string | undefined;
+  /**
+   * Reference to the customer
+   */
+  customerRef: {  /**
+   * Customer ID. Example: "1"
+   */
   value: string;};
-  line: ({  detail_type: string;
-  amount_cents: number;
-  sales_item_line_detail: {  item_ref: {  name?: string | undefined;
-  value: string;};};
-  quantity?: number | undefined;
-  unit_price_cents?: number | undefined;
-  discount_rate?: number | undefined;
-  description?: string | undefined;})[];
-  txn_date?: string | undefined;
-  due_date?: string | undefined;
-  currency_ref: {  name?: string | undefined;
+  /**
+   * Transaction date in YYYY-MM-DD format. Example: "2024-01-15"
+   */
+  txnDate: string;
+  /**
+   * Invoice line items
+   */
+  line: ({  detailType: 'SalesItemLineDetail';
+  /**
+   * Line item amount. Example: 100.00
+   */
+  amount: number;
+  salesItemLineDetail: {  itemRef: {  /**
+   * Item ID. Example: "1"
+   */
   value: string;};
-  project_ref: {  name?: string | undefined;
-  value: string;};
+  /**
+   * Quantity. Example: 1
+   */
+  qty?: number | undefined;
+  /**
+   * Unit price. Example: 100.00
+   */
+  unitPrice?: number | undefined;};})[];
 };
 
 export interface ActionOutput_quickbooks_createinvoice {
-  created_at: string;
-  updated_at: string;
+  /**
+   * Invoice ID
+   */
   id: string;
-  txn_date: string;
-  balance_cents: number;
-  total_amt_cents: number;
-  bill_address: {  city: string | null;
-  line1: string | null;
-  postal_code: string | null;
-  country: string | null;
-  id: string;} | null;
-  items: ({  id: string;
-  description: string | null;
-  qty: number;
-  unit_price_cents: number;
-  amount_cents: number;})[];
-  due_date: string;
-  deposit_cents: number;
+  /**
+   * Customer ID
+   */
+  customerId: string;
+  /**
+   * Transaction date
+   */
+  txnDate: string;
+  /**
+   * Total invoice amount
+   */
+  totalAmount: number;
+  /**
+   * Remaining balance
+   */
+  balance: number;
+  /**
+   * Document number
+   */
+  docNumber?: string | undefined;
+  lineItems: ({  id?: string | undefined;
+  amount: number;
+  itemId: string;
+  qty?: number | undefined;
+  unitPrice?: number | undefined;})[];
 };
 
 export interface ActionInput_quickbooks_createitem {
-  track_qty_onHand?: boolean | undefined;
-  qty_on_hand?: number | undefined;
+  /**
+   * Name of the item. Must be unique. Example: "Office Supplies"
+   */
   name: string;
-  expense_accountRef: {  name?: string | undefined;
-  value: string;};
-  income_accountRef: {  name?: string | undefined;
-  value: string;};
-  asset_accountRef: {  name?: string | undefined;
-  value: string;};
-  inv_start_date?: string | undefined;
-  unit_price_cents?: number | undefined;
-  purchase_cost_cents?: number | undefined;
-  type?: string | undefined;
+  /**
+   * Type of item
+   */
+  type: 'Inventory' | 'Service' | 'NonInventory' | 'Product' | 'Group' | 'Category';
+  /**
+   * Description for sales transactions
+   */
+  description?: string | undefined;
+  /**
+   * Unit price for sales
+   */
+  unitPrice?: number | undefined;
+  /**
+   * ID of the income account. Required for Inventory, Service, Product, Other Charge types
+   */
+  incomeAccountId?: string | undefined;
+  /**
+   * ID of the expense account. Required when purchase information is provided
+   */
+  expenseAccountId?: string | undefined;
+  /**
+   * ID of the asset account. Required for Inventory type
+   */
+  assetAccountId?: string | undefined;
+  /**
+   * Whether to track quantity on hand. Required for Inventory type
+   */
+  trackQtyOnHand?: boolean | undefined;
+  /**
+   * Initial quantity on hand. Required for Inventory type
+   */
+  qtyOnHand?: number | undefined;
+  /**
+   * Description for purchase transactions
+   */
+  purchaseDescription?: string | undefined;
+  /**
+   * Cost for purchasing
+   */
+  purchaseCost?: number | undefined;
+  /**
+   * Whether the item is taxable
+   */
+  taxable?: boolean | undefined;
+  /**
+   * Whether the item is active
+   */
+  active?: boolean | undefined;
 };
 
 export interface ActionOutput_quickbooks_createitem {
-  created_at: string;
-  updated_at: string;
+  /**
+   * The unique QuickBooks Item ID
+   */
   id: string;
+  /**
+   * Name of the item
+   */
   name: string;
-  active: boolean;
+  /**
+   * Type of item
+   */
   type: string;
-  unit_price_cents: number;
-  purchase_cost_cents: number;
-  qty_on_hand: number | null;
-  inv_start_date: string | null;
-  description: string | null;
-  track_qty_onHand: boolean;
+  /**
+   * Whether the item is active
+   */
+  active?: boolean | undefined;
+  /**
+   * Whether the item is taxable
+   */
+  taxable?: boolean | undefined;
+  /**
+   * Unit price for sales
+   */
+  unitPrice?: number | undefined;
+  /**
+   * Description for sales
+   */
+  description?: string | undefined;
+  /**
+   * Description for purchases
+   */
+  purchaseDescription?: string | undefined;
+  /**
+   * Purchase cost
+   */
+  purchaseCost?: number | undefined;
+  /**
+   * Income account reference
+   */
+  incomeAccountRef?: {  value: string;
+  name?: string | undefined;};
+  /**
+   * Expense account reference
+   */
+  expenseAccountRef?: {  value: string;
+  name?: string | undefined;};
+  /**
+   * Asset account reference
+   */
+  assetAccountRef?: {  value: string;
+  name?: string | undefined;};
+  /**
+   * Track quantity on hand
+   */
+  trackQtyOnHand?: boolean | undefined;
+  /**
+   * Quantity on hand
+   */
+  qtyOnHand?: number | undefined;
+  /**
+   * Sync token for optimistic locking
+   */
+  syncToken: string;
+  /**
+   * Creation timestamp
+   */
+  createdAt: string;
+  /**
+   * Last update timestamp
+   */
+  updatedAt: string;
 };
 
 export interface ActionInput_quickbooks_createjournalentry {
-  line_items: ({  detail_type: string;
-  amount: number;
-  project_ref: {  name?: string | undefined;
-  value: string;};
-  description?: string | undefined;
-  line_num?: number | undefined;
-  journal_entry_line_detail: {  journal_code_ref: {  name?: string | undefined;
-  value: string;};
-  posting_type: 'Debit' | 'Credit';
-  account_ref: {  name?: string | undefined;
-  value: string;};
-  tax_applicable_on?: string | undefined;
-  entity?: {  type?: string | undefined;
-  entity_ref: {  name?: string | undefined;
-  value: string;};};
-  tax_inclusive_amt?: number | undefined;
-  class_ref: {  name?: string | undefined;
-  value: string;};
-  department_ref: {  name?: string | undefined;
-  value: string;};
-  tax_code_ref: {  name?: string | undefined;
-  value: string;};
-  billable_status?: string | undefined;
-  tax_amount?: number | undefined;};})[];
-  journal_code_ref: {  name?: string | undefined;
-  value: string;};
-  currency_ref: {  name?: string | undefined;
-  value: string;};
+  /**
+   * Journal entry lines. Must include at least two lines that balance: one Debit and one Credit
+   */
+  Line: ({  /**
+   * Line ID (integer as string). Example: "0"
+   */
+  Id?: string | undefined;
+  /**
+   * Line description
+   */
+  Description?: string | undefined;
+  /**
+   * Line amount. Must balance with other lines
+   */
+  Amount: number;
+  DetailType: 'JournalEntryLineDetail';
+  JournalEntryLineDetail: {  /**
+   * Posting type: Debit or Credit
+   */
+  PostingType: 'Debit' | 'Credit';
+  AccountRef: {  /**
+   * Account ID. Example: "39"
+   */
+  value: string;
+  /**
+   * Account name. Example: "Opening Bal Equity"
+   */
+  name?: string | undefined;};};})[];
+  /**
+   * Transaction date in YYYY-MM-DD format. Example: "2024-01-15"
+   */
+  TxnDate?: string | undefined;
+  /**
+   * Private note for the journal entry
+   */
+  PrivateNote?: string | undefined;
+  /**
+   * Document number for the journal entry
+   */
+  DocNumber?: string | undefined;
 };
 
 export interface ActionOutput_quickbooks_createjournalentry {
-  created_at: string;
-  updated_at: string;
+  /**
+   * Journal entry ID
+   */
   id: string;
-  date: string | null;
-  currency: string;
-  note?: string | undefined;
-  lines: ({  id: string;
-  type: string;
-  account_id: string;
-  account_name: string;
-  net_amount: number;
-  posting_type: 'Debit' | 'Credit';
-  description: string;
-  entity_type?: string | undefined;
-  entity_type_id?: string | undefined;
-  entity_type_name?: string | undefined;
-  department_id?: string | undefined;
-  department_name?: string | undefined;
-  class_id?: string | undefined;
-  class_name?: string | undefined;})[];
+  /**
+   * Sync token for updates
+   */
+  sync_token: string;
+  /**
+   * Transaction date
+   */
+  txn_date?: string | undefined;
+  /**
+   * Document number
+   */
+  doc_number?: string | undefined;
+  /**
+   * Private note
+   */
+  private_note?: string | undefined;
+  /**
+   * Number of lines in the journal entry
+   */
+  line_count: number;
+  /**
+   * Creation timestamp
+   */
+  created_at: string;
+  /**
+   * Last update timestamp
+   */
+  updated_at: string;
 };
 
 export interface ActionInput_quickbooks_createpayment {
-  total_amount_cents: number;
-  customer_ref: {  name?: string | undefined;
-  value: string;};
-  currency_ref: {  name?: string | undefined;
-  value: string;};
-  project_ref: {  name?: string | undefined;
-  value: string;};
+  /**
+   * Reference to the customer making the payment
+   */
+  CustomerRef: {  /**
+   * Customer ID. Example: "1"
+   */
+  value: string;
+  /**
+   * Customer name
+   */
+  name?: string | undefined;};
+  /**
+   * Total amount of the payment. Example: 100.00
+   */
+  TotalAmt: number;
+  /**
+   * Payment lines with linked transactions
+   */
+  Line?: ({  /**
+   * The amount applied to this line. Example: 100.00
+   */
+  Amount: number;
+  /**
+   * Linked transactions (e.g., invoices to apply payment to)
+   */
+  LinkedTxn?: ({  /**
+   * The ID of the transaction to link to. Example: "123"
+   */
+  TxnId: string;
+  /**
+   * The type of transaction. Example: "Invoice"
+   */
+  TxnType: string;})[] | undefined;})[];
+  /**
+   * Payment method reference
+   */
+  PaymentMethodRef?: {  /**
+   * Payment method ID
+   */
+  value: string;} | undefined;
+  /**
+   * Account to deposit the payment to
+   */
+  DepositToAccountRef?: {  /**
+   * Account ID to deposit to
+   */
+  value: string;} | undefined;
+  /**
+   * Private note for the payment
+   */
+  PrivateNote?: string | undefined;
+  /**
+   * Transaction date in YYYY-MM-DD format
+   */
+  TxnDate?: string | undefined;
 };
 
 export interface ActionOutput_quickbooks_createpayment {
-  created_at: string;
-  updated_at: string;
+  /**
+   * Payment ID
+   */
   id: string;
-  amount_cents: number;
-  customer_name: string | null;
-  txn_date: string;
+  /**
+   * Customer ID
+   */
+  customer_id: string;
+  /**
+   * Customer name
+   */
+  customer_name?: string | undefined;
+  /**
+   * Total payment amount
+   */
+  total_amount: number;
+  /**
+   * Payment lines
+   */
+  lines?: ({  /**
+   * Line amount
+   */
+  amount: number;
+  linked_transactions?: ({  /**
+   * Transaction ID
+   */
+  txn_id: string;
+  /**
+   * Transaction type
+   */
+  txn_type: string;})[] | undefined;})[];
+  /**
+   * Payment method ID
+   */
+  payment_method_id?: string | undefined;
+  /**
+   * Deposit account ID
+   */
+  deposit_account_id?: string | undefined;
+  /**
+   * Private note
+   */
+  private_note?: string | undefined;
+  /**
+   * Transaction date
+   */
+  txn_date?: string | undefined;
+  /**
+   * Creation timestamp
+   */
+  created_at?: string | undefined;
+  /**
+   * Last update timestamp
+   */
+  updated_at?: string | undefined;
 };
 
 export interface ActionInput_quickbooks_createpurchaseorder {
-  ap_account_ref: {  name?: string | undefined;
-  value: string;};
-  vendor_ref: {  name?: string | undefined;
-  value: string;};
-  line: ({  id?: string | undefined;
-  amount_cents: number;
-  detail_type: 'ItemBasedExpenseLineDetail';
-  item_based_expense_line_detail?: {  item_ref?: {  name?: string | undefined;
-  value: string;};
-  price_level_ref?: {  name?: string | undefined;
-  value: string;};
-  qty?: number | undefined;
-  unit_price_cents?: number | undefined;
-  tax_inclusive_amt?: number | undefined;
-  customer_ref?: {  name?: string | undefined;
-  value: string;};
-  class_ref?: {  name?: string | undefined;
-  value: string;};
-  tax_code_ref?: {  name?: string | undefined;
-  value: string;};
-  markup_info?: {  price_level_ref?: {  name?: string | undefined;
-  value: string;};
-  percent?: number | undefined;
-  mark_up_income_account_ref?: {  name?: string | undefined;
-  value: string;};} | null;
-  billable_status?: 'Billable' | 'NotBillable' | 'HasBeenBilled' | undefined;};
-  description?: string | undefined;
-  line_num?: number | undefined;
-  linked_txn?: ({  txn_id: string;
-  txn_type: string;
-  txn_line_id?: string | undefined;})[];
-  project_ref?: {  name?: string | undefined;
-  value: string;};})[];
-  sync_token?: string | undefined;
-  currency_ref: {  name?: string | undefined;
-  value: string;};
-  global_tax_calculation?: 'TaxExcluded' | 'TaxInclusive' | 'NotApplicable' | undefined;
-  txn_date?: string | undefined;
-  custom_field: ({  definition_id: string;
-  name?: string | undefined;
-  type?: string | undefined;
-  string_value?: string | undefined;})[];
-  po_email?: string | null | undefined;
-  class_ref: {  name?: string | undefined;
-  value: string;};
-  sales_term_ref: {  name?: string | undefined;
-  value: string;};
-  linked_txn: ({  txn_id: string;
-  txn_type: string;
-  txn_line_id?: string | undefined;})[];
-  memo?: string | undefined;
-  po_status?: 'Open' | 'Closed' | undefined;
-  transaction_location_type?: string | undefined;
-  due_date?: string | undefined;
-  metadata: {  created_at: string;
-  updated_at: string;};
-  doc_number?: string | undefined;
-  private_note?: string | undefined;
-  ship_method_ref: {  name?: string | undefined;
-  value: string;};
-  txn_tax_detail: {  txn_tax_code_ref: {  name?: string | undefined;
-  value: string;};
-  total_tax_cents?: number | undefined;
-  tax_line?: ({  amount: number;
-  detail_type: string;
-  tax_line_detail: 'TaxLineDetail';})[] | undefined;};
-  ship_to: {  name?: string | undefined;
-  value: string;};
-  exchange_rate?: number | undefined;
-  ship_addr?: {  line1?: string | undefined;
-  line2?: string | undefined;
-  line3?: string | undefined;
-  line4?: string | undefined;
-  line5?: string | undefined;
-  city?: string | undefined;
-  sub_division_code?: string | undefined;
-  postal_code?: string | undefined;
-  country?: string | undefined;
-  country_sub_division_code?: string | undefined;
-  lat?: string | undefined;
-  long?: string | undefined;
-  id: string;} | null;
-  vendor_addr?: {  line1?: string | undefined;
-  line2?: string | undefined;
-  line3?: string | undefined;
-  line4?: string | undefined;
-  line5?: string | undefined;
-  city?: string | undefined;
-  sub_division_code?: string | undefined;
-  postal_code?: string | undefined;
-  country?: string | undefined;
-  country_sub_division_code?: string | undefined;
-  lat?: string | undefined;
-  long?: string | undefined;
-  id: string;} | null;
-  email_status?: string | undefined;
-  total_amt_cents: number;
-  recur_data_ref: {  name?: string | undefined;
-  value: string;};
+  /**
+   * Reference to the vendor for this purchase order. Example: { value: "123", name: "Hicks Hardware" }
+   */
+  VendorRef: {  value: string;
+  name?: string | undefined;};
+  /**
+   * Line items for the purchase order
+   */
+  Line: ({  Id?: string | undefined;
+  Description?: string | undefined;
+  Amount: number;
+  DetailType: 'ItemBasedExpenseLineDetail' | 'AccountBasedExpenseLineDetail';
+  ItemBasedExpenseLineDetail?: {  ItemRef: {  value: string;
+  name?: string | undefined;};
+  CustomerRef?: {  value: string;
+  name?: string | undefined;};
+  PriceLevelRef?: {  value: string;
+  name?: string | undefined;};
+  TaxCodeRef?: {  value: string;
+  name?: string | undefined;};
+  Qty?: number | undefined;
+  UnitPrice?: number | undefined;
+  MarkupInfo?: {  PercentBased?: boolean | undefined;
+  Value?: number | undefined;
+  Percent?: number | undefined;
+  PriceLevelRef?: {  value: string;
+  name?: string | undefined;};};
+  BillableStatus?: string | undefined;};
+  AccountBasedExpenseLineDetail?: {  AccountRef: {  value: string;
+  name?: string | undefined;};
+  CustomerRef?: {  value: string;
+  name?: string | undefined;};
+  TaxCodeRef?: {  value: string;
+  name?: string | undefined;};
+  TaxAmount?: number | undefined;
+  BillableStatus?: string | undefined;};})[];
+  /**
+   * AP account reference
+   */
+  APAccountRef?: {  value: string;
+  name?: string | undefined;};
+  /**
+   * Ship to reference
+   */
+  ShipTo?: {  value: string;
+  name?: string | undefined;};
+  /**
+   * Template reference
+   */
+  TemplateRef?: {  value: string;
+  name?: string | undefined;};
+  /**
+   * Transaction date. Format: YYYY-MM-DD
+   */
+  TxnDate?: string | undefined;
+  /**
+   * Currency reference
+   */
+  CurrencyRef?: {  value: string;
+  name?: string | undefined;};
+  /**
+   * Memo for the purchase order
+   */
+  Memo?: string | undefined;
+  /**
+   * Private note not visible to vendor
+   */
+  PrivateNote?: string | undefined;
+  /**
+   * Shipping address
+   */
+  ShipAddr?: {  Id?: string | undefined;
+  Line1?: string | undefined;
+  Line2?: string | undefined;
+  Line3?: string | undefined;
+  Line4?: string | undefined;
+  Line5?: string | undefined;
+  City?: string | undefined;
+  Country?: string | undefined;
+  CountrySubDivisionCode?: string | undefined;
+  PostalCode?: string | undefined;
+  Lat?: string | undefined;
+  Long?: string | undefined;};
+  /**
+   * Vendor address
+   */
+  VendorAddr?: {  Id?: string | undefined;
+  Line1?: string | undefined;
+  Line2?: string | undefined;
+  Line3?: string | undefined;
+  Line4?: string | undefined;
+  Line5?: string | undefined;
+  City?: string | undefined;
+  Country?: string | undefined;
+  CountrySubDivisionCode?: string | undefined;
+  PostalCode?: string | undefined;
+  Lat?: string | undefined;
+  Long?: string | undefined;};
+  /**
+   * Purchase order status
+   */
+  POStatus?: 'Open' | 'Closed' | undefined;
+  /**
+   * Due date. Format: YYYY-MM-DD
+   */
+  DueDate?: string | undefined;
+  /**
+   * Expected delivery date. Format: YYYY-MM-DD
+   */
+  ExpectedDate?: string | undefined;
+  /**
+   * Custom fields
+   */
+  CustomField?: ({  DefinitionId: string;
+  Name?: string | undefined;
+  Type?: string | undefined;
+  StringValue?: string | undefined;})[];
+  /**
+   * Class reference
+   */
+  ClassRef?: {  value: string;
+  name?: string | undefined;};
+  /**
+   * Sales term reference
+   */
+  SalesTermRef?: {  value: string;
+  name?: string | undefined;};
+  /**
+   * Linked transactions
+   */
+  LinkedTxn?: ({  TxnId: string;
+  TxnType: string;})[] | undefined;
+  /**
+   * Print status
+   */
+  PrintStatus?: 'NeedToPrint' | 'Printed' | undefined;
 };
 
 export interface ActionOutput_quickbooks_createpurchaseorder {
   id: string;
-  created_at: string;
-  updated_at: string;
-  ap_account_ref: {  name?: string | undefined;
-  value: string;};
-  vendor_ref: {  name?: string | undefined;
-  value: string;};
-  line: ({  id?: string | undefined;
-  amount_cents: number;
-  detail_type: 'ItemBasedExpenseLineDetail';
-  item_based_expense_line_detail?: {  item_ref?: {  name?: string | undefined;
-  value: string;};
-  price_level_ref?: {  name?: string | undefined;
-  value: string;};
-  qty?: number | undefined;
-  unit_price_cents?: number | undefined;
-  tax_inclusive_amt?: number | undefined;
-  customer_ref?: {  name?: string | undefined;
-  value: string;};
-  class_ref?: {  name?: string | undefined;
-  value: string;};
-  tax_code_ref?: {  name?: string | undefined;
-  value: string;};
-  markup_info?: {  price_level_ref?: {  name?: string | undefined;
-  value: string;};
-  percent?: number | undefined;
-  mark_up_income_account_ref?: {  name?: string | undefined;
-  value: string;};} | null;
-  billable_status?: 'Billable' | 'NotBillable' | 'HasBeenBilled' | undefined;};
-  description?: string | undefined;
-  line_num?: number | undefined;
-  linked_txn?: ({  txn_id: string;
-  txn_type: string;
-  txn_line_id?: string | undefined;})[];
-  project_ref?: {  name?: string | undefined;
-  value: string;};})[];
-  sync_token?: string | undefined;
-  currency_ref?: {  name?: string | undefined;
-  value: string;};
-  global_tax_calculation?: 'TaxExcluded' | 'TaxInclusive' | 'NotApplicable' | undefined;
-  txn_date?: string | undefined;
-  custom_field?: ({  definition_id: string;
-  name?: string | undefined;
-  type?: string | undefined;
-  string_value?: string | undefined;})[];
-  po_email?: string | null | undefined;
-  class_ref?: {  name?: string | undefined;
-  value: string;};
-  sales_term_ref?: {  name?: string | undefined;
-  value: string;};
-  linked_txn?: ({  txn_id: string;
-  txn_type: string;
-  txn_line_id?: string | undefined;})[];
+  syncToken: string;
+  docNumber?: string | undefined;
+  vendorRef: {  value: string;
+  name?: string | undefined;};
+  line: ({  Id?: string | undefined;
+  Description?: string | undefined;
+  Amount: number;
+  DetailType: 'ItemBasedExpenseLineDetail' | 'AccountBasedExpenseLineDetail';
+  ItemBasedExpenseLineDetail?: {  ItemRef: {  value: string;
+  name?: string | undefined;};
+  CustomerRef?: {  value: string;
+  name?: string | undefined;};
+  PriceLevelRef?: {  value: string;
+  name?: string | undefined;};
+  TaxCodeRef?: {  value: string;
+  name?: string | undefined;};
+  Qty?: number | undefined;
+  UnitPrice?: number | undefined;
+  MarkupInfo?: {  PercentBased?: boolean | undefined;
+  Value?: number | undefined;
+  Percent?: number | undefined;
+  PriceLevelRef?: {  value: string;
+  name?: string | undefined;};};
+  BillableStatus?: string | undefined;};
+  AccountBasedExpenseLineDetail?: {  AccountRef: {  value: string;
+  name?: string | undefined;};
+  CustomerRef?: {  value: string;
+  name?: string | undefined;};
+  TaxCodeRef?: {  value: string;
+  name?: string | undefined;};
+  TaxAmount?: number | undefined;
+  BillableStatus?: string | undefined;};})[];
+  totalAmt?: number | undefined;
+  txnDate?: string | undefined;
+  poStatus?: string | undefined;
+  dueDate?: string | undefined;
+  expectedDate?: string | undefined;
   memo?: string | undefined;
-  po_status?: 'Open' | 'Closed' | undefined;
-  transaction_location_type?: string | undefined;
+  privateNote?: string | undefined;
+  shipAddr?: {  Id?: string | undefined;
+  Line1?: string | undefined;
+  Line2?: string | undefined;
+  Line3?: string | undefined;
+  Line4?: string | undefined;
+  Line5?: string | undefined;
+  City?: string | undefined;
+  Country?: string | undefined;
+  CountrySubDivisionCode?: string | undefined;
+  PostalCode?: string | undefined;
+  Lat?: string | undefined;
+  Long?: string | undefined;};
+  vendorAddr?: {  Id?: string | undefined;
+  Line1?: string | undefined;
+  Line2?: string | undefined;
+  Line3?: string | undefined;
+  Line4?: string | undefined;
+  Line5?: string | undefined;
+  City?: string | undefined;
+  Country?: string | undefined;
+  CountrySubDivisionCode?: string | undefined;
+  PostalCode?: string | undefined;
+  Lat?: string | undefined;
+  Long?: string | undefined;};
+  metaData?: {  CreateTime: string;
+  LastUpdatedTime: string;} | undefined;
+};
+
+export interface ActionInput_quickbooks_createvendor {
+  /**
+   * The display name of the vendor. Example: "Acme Supplies"
+   */
+  displayName: string;
+  /**
+   * First name of the vendor contact.
+   */
+  givenName?: string | undefined;
+  /**
+   * Last name of the vendor contact.
+   */
+  familyName?: string | undefined;
+  /**
+   * Company name of the vendor.
+   */
+  companyName?: string | undefined;
+  /**
+   * Primary email address.
+   */
+  primaryEmail?: string | undefined;
+  /**
+   * Primary phone number.
+   */
+  primaryPhone?: string | undefined;
+  /**
+   * Mobile phone number.
+   */
+  mobile?: string | undefined;
+  /**
+   * Fax number.
+   */
+  fax?: string | undefined;
+  /**
+   * Website address.
+   */
+  webAddr?: string | undefined;
+  /**
+   * Billing address for the vendor.
+   */
+  billAddr?: {  line1?: string | undefined;
+  city?: string | undefined;
+  country?: string | undefined;
+  postalCode?: string | undefined;
+  lat?: string | undefined;
+  long?: string | undefined;};
+};
+
+export interface ActionOutput_quickbooks_createvendor {
+  id: string;
+  syncToken: string;
+  displayName?: string | undefined;
+  givenName?: string | undefined;
+  familyName?: string | undefined;
+  companyName?: string | undefined;
+  primaryEmail?: string | undefined;
+  primaryPhone?: string | undefined;
+  mobile?: string | undefined;
+  fax?: string | undefined;
+  webAddr?: string | undefined;
+  billAddr?: {  line1?: string | undefined;
+  city?: string | undefined;
+  country?: string | undefined;
+  postalCode?: string | undefined;
+  lat?: string | undefined;
+  long?: string | undefined;};
+  createdTime?: string | undefined;
+  lastUpdatedTime?: string | undefined;
+};
+
+export interface ActionInput_quickbooks_getaccount {
+  /**
+   * The unique identifier of the account. Example: "1"
+   */
+  id: string;
+};
+
+export interface ActionOutput_quickbooks_getaccount {
+  id: string;
+  name: string;
+  accountType?: string | undefined;
+  accountSubType?: string | undefined;
+  accountNumber?: string | undefined;
+  active?: boolean | undefined;
+  classification?: string | undefined;
+  currentBalance?: number | undefined;
+  currentBalanceWithSubAccounts?: number | undefined;
+  description?: string | undefined;
+  fullyQualifiedName?: string | undefined;
+  subAccount?: boolean | undefined;
+  syncToken?: string | undefined;
+  domain?: string | undefined;
+  sparse?: boolean | undefined;
+  metadata?: {  createTime?: string | undefined;
+  lastUpdatedTime?: string | undefined;};
+  parentRef?: {  value?: string | undefined;
+  name?: string | undefined;};
+  currencyRef?: {  value?: string | undefined;
+  name?: string | undefined;};
+};
+
+export interface ActionInput_quickbooks_getbill {
+  /**
+   * Bill ID. Example: "123"
+   */
+  id: string;
+};
+
+export interface ActionOutput_quickbooks_getbill {
+  id: string;
+  vendor_id: string;
+  vendor_name?: string | undefined;
+  ap_account_id?: string | undefined;
+  ap_account_name?: string | undefined;
+  currency_code?: string | undefined;
+  currency_name?: string | undefined;
+  lines: ({  id?: string | undefined;
+  line_num?: number | undefined;
+  description?: string | undefined;
+  amount: number;
+  detail_type: string;
+  account_id?: string | undefined;
+  account_name?: string | undefined;
+  billable_status?: string | undefined;})[];
+  total_amount: number;
+  transaction_date?: string | undefined;
   due_date?: string | undefined;
-  metadata?: {  created_at: string;
-  updated_at: string;} | undefined;
   doc_number?: string | undefined;
   private_note?: string | undefined;
-  ship_method_ref?: {  name?: string | undefined;
-  value: string;};
-  txn_tax_detail?: {  txn_tax_code_ref: {  name?: string | undefined;
-  value: string;};
-  total_tax_cents?: number | undefined;
-  tax_line?: ({  amount: number;
-  detail_type: string;
-  tax_line_detail: 'TaxLineDetail';})[] | undefined;};
-  ship_to?: {  name?: string | undefined;
-  value: string;};
-  exchange_rate?: number | undefined;
-  ship_addr?: {  line1?: string | undefined;
-  line2?: string | undefined;
-  line3?: string | undefined;
-  line4?: string | undefined;
-  line5?: string | undefined;
+  created_at?: string | undefined;
+  updated_at?: string | undefined;
+  sync_token?: string | undefined;
+};
+
+export interface ActionInput_quickbooks_getcreditmemo {
+  /**
+   * The unique identifier of the credit memo. Example: "123"
+   */
+  creditMemoId: string;
+};
+
+export interface ActionOutput_quickbooks_getcreditmemo {
+  /**
+   * The unique identifier of the credit memo
+   */
+  id: string;
+  /**
+   * The document number
+   */
+  docNumber?: string | undefined;
+  /**
+   * The transaction date
+   */
+  txnDate?: string | undefined;
+  /**
+   * Private note
+   */
+  privateNote?: string | undefined;
+  /**
+   * The total amount of the credit memo
+   */
+  totalAmount?: number | undefined;
+  /**
+   * The remaining balance
+   */
+  balance?: number | undefined;
+  /**
+   * The status of the credit memo (e.g., Pending, Paid, Voided)
+   */
+  status?: string | undefined;
+  /**
+   * Customer reference ID
+   */
+  customerId?: string | undefined;
+  /**
+   * Customer reference name
+   */
+  customerName?: string | undefined;
+  /**
+   * Public memo
+   */
+  memo?: string | undefined;
+  /**
+   * When the credit memo was created
+   */
+  createdTime?: string | undefined;
+  /**
+   * When the credit memo was last updated
+   */
+  lastUpdatedTime?: string | undefined;
+};
+
+export interface ActionInput_quickbooks_getcustomer {
+  /**
+   * Customer ID. Example: "1"
+   */
+  id: string;
+};
+
+export interface ActionOutput_quickbooks_getcustomer {
+  id: string;
+  displayName?: string | undefined;
+  givenName?: string | undefined;
+  familyName?: string | undefined;
+  companyName?: string | undefined;
+  email?: string | undefined;
+  phone?: string | undefined;
+  active?: boolean | undefined;
+  balance?: number | undefined;
+  address?: {  line1?: string | undefined;
   city?: string | undefined;
-  sub_division_code?: string | undefined;
-  postal_code?: string | undefined;
-  country?: string | undefined;
-  country_sub_division_code?: string | undefined;
-  lat?: string | undefined;
-  long?: string | undefined;
-  id: string;} | null;
-  vendor_addr?: {  line1?: string | undefined;
+  state?: string | undefined;
+  postalCode?: string | undefined;
+  country?: string | undefined;};
+  createdAt?: string | undefined;
+  updatedAt?: string | undefined;
+};
+
+export interface ActionInput_quickbooks_getdeposit {
+  /**
+   * The unique identifier of the deposit. Example: "123"
+   */
+  id: string;
+};
+
+export interface ActionOutput_quickbooks_getdeposit {
+  id: string;
+  totalAmount: number;
+  transactionDate: string;
+  privateNote?: string | undefined;
+  depositToAccountId?: string | undefined;
+  depositToAccountName?: string | undefined;
+  lines?: ({  id?: string | undefined;
+  amount?: number | undefined;
+  description?: string | undefined;
+  detailType?: string | undefined;
+  accountId?: string | undefined;
+  accountName?: string | undefined;})[];
+  createdAt?: string | undefined;
+  updatedAt?: string | undefined;
+};
+
+export interface ActionInput_quickbooks_getestimate {
+  /**
+   * The ID of the estimate to retrieve. Example: "123"
+   */
+  id: string;
+};
+
+export interface ActionOutput_quickbooks_getestimate {
+  id: string;
+  syncToken: string;
+  createdAt?: string | undefined;
+  updatedAt?: string | undefined;
+  docNumber?: string | undefined;
+  txnDate?: string | undefined;
+  privateNote?: string | undefined;
+  totalAmount?: number | undefined;
+  customerId?: string | undefined;
+  customerName?: string | undefined;
+  lines?: ({  id?: string | undefined;
+  lineNumber?: string | undefined;
+  description?: string | undefined;
+  amount?: number | undefined;
+  detailType?: string | undefined;})[];
+};
+
+export interface ActionInput_quickbooks_getinvoice {
+  /**
+   * The unique identifier of the invoice. Example: "123"
+   */
+  id: string;
+};
+
+export interface ActionOutput_quickbooks_getinvoice {
+  /**
+   * The unique identifier of the invoice
+   */
+  id: string;
+  /**
+   * The invoice document number
+   */
+  docNumber?: string | undefined;
+  /**
+   * The sync token for optimistic locking
+   */
+  syncToken?: string | undefined;
+  /**
+   * The creation time of the invoice
+   */
+  createTime?: string | undefined;
+  /**
+   * The last update time of the invoice
+   */
+  lastUpdatedTime?: string | undefined;
+  /**
+   * The transaction date
+   */
+  txnDate?: string | undefined;
+  /**
+   * A private note on the invoice
+   */
+  privateNote?: string | undefined;
+  /**
+   * The total amount of the invoice
+   */
+  totalAmt?: number | undefined;
+  /**
+   * The remaining balance of the invoice
+   */
+  balance?: number | undefined;
+  /**
+   * The deposit amount applied to the invoice
+   */
+  deposit?: number | undefined;
+  /**
+   * The status of the invoice (e.g., Pending, Paid)
+   */
+  status?: string | undefined;
+  /**
+   * The ID of the customer
+   */
+  customerId: string;
+  /**
+   * The display name of the customer
+   */
+  customerName?: string | undefined;
+  /**
+   * The billing address
+   */
+  billAddr?: {} | undefined;
+  /**
+   * The shipping address
+   */
+  shipAddr?: {} | undefined;
+  /**
+   * The billing email address
+   */
+  billEmail?: string | undefined;
+  /**
+   * The line items on the invoice
+   */
+  lineItems?: ({})[] | undefined;
+  /**
+   * The currency code
+   */
+  currencyCode?: string | undefined;
+  /**
+   * The currency name
+   */
+  currencyName?: string | undefined;
+};
+
+export interface ActionInput_quickbooks_getitem {
+  /**
+   * Item ID. Example: "123"
+   */
+  id: string;
+};
+
+export interface ActionOutput_quickbooks_getitem {
+  id: string;
+  name?: string | undefined;
+  fully_qualified_name?: string | undefined;
+  type?: 'Inventory' | 'NonInventory' | 'Service' | 'Group' | 'Category' | undefined;
+  active?: boolean | undefined;
+  description?: string | undefined;
+  unit_price?: number | undefined;
+  purchase_cost?: number | undefined;
+  expense_account_id?: string | undefined;
+  income_account_id?: string | undefined;
+  asset_account_id?: string | undefined;
+  track_qty_on_hand?: boolean | undefined;
+  qty_on_hand?: number | undefined;
+  inv_start_date?: string | undefined;
+  create_time?: string | undefined;
+  last_updated_time?: string | undefined;
+};
+
+export interface ActionInput_quickbooks_getjournalentry {
+  /**
+   * Journal Entry ID. Example: "123"
+   */
+  id: string;
+};
+
+export interface ActionOutput_quickbooks_getjournalentry {
+  id: string;
+  line?: ({  id?: string | undefined;
+  description?: string | undefined;
+  amount: number;
+  detailType: string;
+  postingType: 'Debit' | 'Credit';
+  accountRefValue: string;
+  accountRefName?: string | undefined;})[];
+  txnDate?: string | undefined;
+  totalAmt?: number | undefined;
+  docNumber?: string | undefined;
+  privateNote?: string | undefined;
+  createTime?: string | undefined;
+  lastUpdatedTime?: string | undefined;
+  domain?: string | undefined;
+  sparse?: boolean | undefined;
+  syncToken?: string | undefined;
+};
+
+export interface ActionInput_quickbooks_getpayment {
+  /**
+   * Payment ID. Example: "123"
+   */
+  id: string;
+};
+
+export interface ActionOutput_quickbooks_getpayment {
+  id: string;
+  total_amount?: number | undefined;
+  customer_id?: string | undefined;
+  customer_name?: string | undefined;
+  deposit_to_account_id?: string | undefined;
+  payment_method_id?: string | undefined;
+  payment_reference?: string | undefined;
+  transaction_date?: string | undefined;
+  private_note?: string | undefined;
+  created_at?: string | undefined;
+  updated_at?: string | undefined;
+  line_items?: ({  amount?: number | undefined;
+  linked_transactions?: ({  transaction_id?: string | undefined;
+  transaction_type?: string | undefined;})[];})[];
+};
+
+export interface ActionInput_quickbooks_getpurchaseorder {
+  /**
+   * The unique identifier of the purchase order. Example: "123"
+   */
+  id: string;
+};
+
+export interface ActionOutput_quickbooks_getpurchaseorder {
+  id: string;
+  docNumber?: string | undefined;
+  txnDate?: string | undefined;
+  totalAmount?: number | undefined;
+  status?: string | undefined;
+  createdAt?: string | undefined;
+  updatedAt?: string | undefined;
+  items?: ({  id?: string | undefined;
+  lineNum?: number | undefined;
+  description?: string | undefined;
+  amount?: number | undefined;
+  detailType?: string | undefined;})[];
+};
+
+export interface ActionInput_quickbooks_getvendor {
+  /**
+   * Vendor ID. Example: "5"
+   */
+  id: string;
+};
+
+export interface ActionOutput_quickbooks_getvendor {
+  id: string;
+  displayName?: string | undefined;
+  companyName?: string | undefined;
+  printOnCheckName?: string | undefined;
+  active?: boolean | undefined;
+  balance?: number | undefined;
+  vendor1099?: boolean | undefined;
+  billAddress?: {  id?: string | undefined;
+  line1?: string | undefined;
   line2?: string | undefined;
-  line3?: string | undefined;
-  line4?: string | undefined;
-  line5?: string | undefined;
   city?: string | undefined;
-  sub_division_code?: string | undefined;
-  postal_code?: string | undefined;
   country?: string | undefined;
-  country_sub_division_code?: string | undefined;
-  lat?: string | undefined;
-  long?: string | undefined;
-  id: string;} | null;
-  email_status?: string | undefined;
-  total_amt_cents: number;
-  recur_data_ref?: {  name?: string | undefined;
-  value: string;};
+  countrySubDivisionCode?: string | undefined;
+  postalCode?: string | undefined;};
+  primaryPhone?: string | undefined;
+  primaryEmail?: string | undefined;
+  currencyCode?: string | undefined;
+  createdAt?: string | undefined;
+  updatedAt?: string | undefined;
+};
+
+export interface ActionInput_quickbooks_listaccounts {
+  /**
+   * Pagination cursor (STARTPOSITION value). Omit for the first page.
+   */
+  cursor?: string | undefined;
+  /**
+   * Maximum number of results to return. Default: 100, Max: 1000.
+   */
+  limit?: number | undefined;
+};
+
+export interface ActionOutput_quickbooks_listaccounts {
+  accounts: ({  id: string;
+  name: string;
+  accountType: string;
+  accountSubType?: string | undefined;
+  classification?: string | undefined;
+  fullyQualifiedName?: string | undefined;
+  active?: boolean | undefined;
+  currentBalance?: number | undefined;
+  currentBalanceWithSubAccounts?: number | undefined;
+  currency?: string | undefined;
+  createdAt?: string | undefined;
+  updatedAt?: string | undefined;})[];
+  nextCursor?: string | undefined;
+  totalCount?: number | undefined;
+};
+
+export interface ActionInput_quickbooks_listbills {
+  /**
+   * Starting position for pagination (1-based)
+   */
+  cursor?: number | undefined;
+  /**
+   * Maximum number of results to return
+   */
+  limit?: number | undefined;
+};
+
+export interface ActionOutput_quickbooks_listbills {
+  bills: ({  id: string;
+  vendorId?: string | undefined;
+  vendorName?: string | undefined;
+  accountId?: string | undefined;
+  accountName?: string | undefined;
+  transactionDate?: string | undefined;
+  dueDate?: string | undefined;
+  totalAmount?: number | undefined;
+  balance?: number | undefined;
+  currency?: string | undefined;
+  privateNote?: string | undefined;
+  createdAt?: string | undefined;
+  updatedAt?: string | undefined;})[];
+  /**
+   * Next starting position for pagination
+   */
+  next_cursor?: number | undefined;
+};
+
+export interface ActionInput_quickbooks_listcreditmemos {
+  /**
+   * Pagination cursor (start position). Omit for the first page.
+   */
+  cursor?: string | undefined;
+  /**
+   * Filter by records updated after this ISO timestamp. Example: "2024-01-01T00:00:00Z"
+   */
+  updated_after?: string | undefined;
+};
+
+export interface ActionOutput_quickbooks_listcreditmemos {
+  items: ({  id: string;
+  doc_number?: string | undefined;
+  txn_date?: string | undefined;
+  customer_id?: string | undefined;
+  customer_name?: string | undefined;
+  currency_code?: string | undefined;
+  total_amount?: number | undefined;
+  balance?: number | undefined;
+  status?: string | undefined;
+  created_at?: string | undefined;
+  updated_at?: string | undefined;})[];
+  next_cursor?: string | undefined;
+};
+
+export interface ActionInput_quickbooks_listcustomers {
+  /**
+   * Pagination cursor (STARTPOSITION value). Omit for the first page.
+   */
+  cursor?: string | undefined;
+};
+
+export interface ActionOutput_quickbooks_listcustomers {
+  items: ({  id: string;
+  display_name?: string | undefined;
+  given_name?: string | undefined;
+  family_name?: string | undefined;
+  company_name?: string | undefined;
+  active?: boolean | undefined;
+  email?: string | undefined;
+  phone?: string | undefined;
+  created_at?: string | undefined;
+  updated_at?: string | undefined;})[];
+  next_cursor?: string | undefined;
+};
+
+export interface ActionInput_quickbooks_listdeposits {
+  /**
+   * Pagination cursor (STARTPOSITION value). Omit for the first page. Example: "1"
+   */
+  cursor?: string | undefined;
+};
+
+export interface ActionOutput_quickbooks_listdeposits {
+  deposits: ({  id: string;
+  sync_token?: string | undefined;
+  transaction_date?: string | undefined;
+  total_amount?: number | undefined;
+  deposit_to_account_id?: string | undefined;
+  deposit_to_account_name?: string | undefined;
+  currency_code?: string | undefined;
+  private_note?: string | undefined;
+  created_at?: string | undefined;
+  updated_at?: string | undefined;})[];
+  next_cursor?: string | undefined;
+};
+
+export interface ActionInput_quickbooks_listestimates {
+  /**
+   * Pagination cursor (STARTPOSITION value). Omit for the first page.
+   */
+  cursor?: string | undefined;
+};
+
+export interface ActionOutput_quickbooks_listestimates {
+  estimates: ({  id: string;
+  doc_number?: string | undefined;
+  txn_date?: string | undefined;
+  customer_id?: string | undefined;
+  customer_name?: string | undefined;
+  total_amount?: number | undefined;
+  created_at?: string | undefined;
+  updated_at?: string | undefined;
+  status?: string | undefined;
+  private_note?: string | undefined;
+  customer_memo?: string | undefined;
+  email?: string | undefined;})[];
+  next_cursor?: string | undefined;
+};
+
+export interface ActionInput_quickbooks_listinvoices {
+  /**
+   * Pagination cursor (STARTPOSITION value). Omit for the first page. Example: "21"
+   */
+  cursor?: string | undefined;
+  /**
+   * Maximum number of results per page. Max 1000. Default: 100
+   */
+  limit?: number | undefined;
+};
+
+export interface ActionOutput_quickbooks_listinvoices {
+  items: ({  id: string;
+  doc_number?: string | undefined;
+  txn_date?: string | undefined;
+  total_amount?: number | undefined;
+  balance?: number | undefined;
+  due_date?: string | undefined;
+  customer_id?: string | undefined;
+  customer_name?: string | undefined;
+  customer_memo?: string | undefined;
+  email?: string | undefined;
+  ship_address?: {  id?: string | undefined;
+  line1?: string | undefined;
+  city?: string | undefined;
+  state?: string | undefined;
+  postal_code?: string | undefined;
+  country?: string | undefined;};
+  bill_address?: {  id?: string | undefined;
+  line1?: string | undefined;
+  city?: string | undefined;
+  state?: string | undefined;
+  postal_code?: string | undefined;
+  country?: string | undefined;};
+  lines?: ({  id: string;
+  detail_type?: string | undefined;
+  amount?: number | undefined;
+  description?: string | undefined;
+  item_id?: string | undefined;
+  item_name?: string | undefined;
+  quantity?: number | undefined;
+  unit_price?: number | undefined;})[];
+  status?: string | undefined;
+  created_at?: string | undefined;
+  updated_at?: string | undefined;})[];
+  next_cursor?: string | undefined;
+};
+
+export interface ActionInput_quickbooks_listitems {
+  /**
+   * Pagination cursor (STARTPOSITION value). Omit for the first page.
+   */
+  cursor?: string | undefined;
+};
+
+export interface ActionOutput_quickbooks_listitems {
+  items: ({  id: string;
+  name?: string | undefined;
+  description?: string | undefined;
+  active?: boolean | undefined;
+  type?: string | undefined;
+  income_account_id?: string | undefined;
+  expense_account_id?: string | undefined;
+  asset_account_id?: string | undefined;
+  quantity_on_hand?: number | undefined;
+  inventory_start_date?: string | undefined;
+  purchase_cost?: number | undefined;
+  unit_price?: number | undefined;
+  purchase_description?: string | undefined;
+  taxable?: boolean | undefined;
+  sales_tax_code_id?: string | undefined;
+  purchase_tax_code_id?: string | undefined;
+  created_at?: string | undefined;
+  updated_at?: string | undefined;})[];
+  next_cursor?: string | undefined;
+};
+
+export interface ActionInput_quickbooks_listjournalentries {
+  /**
+   * Pagination cursor representing the STARTPOSITION for the next page. Omit for the first page.
+   */
+  cursor?: string | undefined;
+  /**
+   * Filter journal entries updated after this timestamp (ISO 8601 format). Example: "2024-01-01T00:00:00Z"
+   */
+  updated_after?: string | undefined;
+};
+
+export interface ActionOutput_quickbooks_listjournalentries {
+  items: ({  id: string;
+  sync_token: string;
+  transaction_date: string;
+  private_note?: string | undefined;
+  total_amount: number;
+  status?: string | undefined;
+  created_at: string;
+  updated_at: string;
+  lines: ({  id?: string | undefined;
+  description?: string | undefined;
+  amount: number;
+  posting_type?: string | undefined;
+  account_id?: string | undefined;
+  account_name?: string | undefined;})[];})[];
+  next_cursor?: string | undefined;
+};
+
+export interface ActionInput_quickbooks_listpayments {
+  /**
+   * Pagination cursor. Format: STARTPOSITION value. Omit for the first page.
+   */
+  cursor?: string | undefined;
+};
+
+export interface ActionOutput_quickbooks_listpayments {
+  payments: ({  id: string;
+  domain?: string | undefined;
+  sparse?: boolean | undefined;
+  sync_token: string;
+  created_at?: string | undefined;
+  updated_at?: string | undefined;
+  customer_id: string;
+  customer_name?: string | undefined;
+  txn_date: string;
+  total_amount: number;
+  unapplied_amount?: number | undefined;
+  payment_ref_number?: string | undefined;
+  payment_method_id?: string | undefined;
+  payment_method_name?: string | undefined;
+  deposit_to_account_id?: string | undefined;
+  deposit_to_account_name?: string | undefined;
+  status?: string | undefined;
+  lines?: ({  amount: number;
+  linked_transactions?: ({  txn_id: string;
+  txn_type: string;})[] | undefined;})[];})[];
+  next_cursor?: string | undefined;
+};
+
+export interface ActionInput_quickbooks_listpurchaseorders {
+  /**
+   * Filter for purchase orders updated after this ISO timestamp
+   */
+  updated_after?: string | undefined;
+};
+
+export interface ActionOutput_quickbooks_listpurchaseorders {
+  purchase_orders: ({  id: string;
+  ap_account_ref?: {  value?: string | undefined;
+  name?: string | undefined;};
+  vendor_ref?: {  value?: string | undefined;
+  name?: string | undefined;};
+  linked_transactions?: ({  txn_id?: string | undefined;
+  txn_type?: string | undefined;})[];
+  metadata?: {  create_time?: string | undefined;
+  last_updated_time?: string | undefined;};
+  po_status?: string | undefined;
+  doc_number?: string | undefined;
+  txn_date?: string | undefined;
+  total_amount?: number | undefined;
+  line_items?: ({  id?: string | undefined;
+  description?: string | undefined;
+  amount?: number | undefined;
+  detail_type?: string | undefined;
+  item_ref?: {  value?: string | undefined;
+  name?: string | undefined;};
+  quantity?: number | undefined;
+  unit_price?: number | undefined;})[];
+  due_date?: string | undefined;
+  memo?: string | undefined;})[];
+  next_cursor?: string | undefined;
+  total_count?: number | undefined;
+};
+
+export interface ActionInput_quickbooks_listvendors {
+  /**
+   * Pagination cursor (STARTPOSITION). Omit for the first page.
+   */
+  cursor?: string | undefined;
+};
+
+export interface ActionOutput_quickbooks_listvendors {
+  vendors: ({  id: string;
+  display_name?: string | undefined;
+  given_name?: string | undefined;
+  family_name?: string | undefined;
+  company_name?: string | undefined;
+  active?: boolean | undefined;
+  email?: string | undefined;
+  phone?: string | undefined;
+  created_at?: string | undefined;
+  updated_at?: string | undefined;})[];
+  next_cursor?: string | undefined;
+};
+
+export interface ActionInput_quickbooks_queryentities {
+  /**
+   * SQL-like query string to execute against QuickBooks. Example: "SELECT * FROM Customer"
+   */
+  query: string;
+  /**
+   * Starting position for pagination. Default: 1
+   */
+  start_position?: number | undefined;
+  /**
+   * Maximum number of results to return per page. Default: 100
+   */
+  max_results?: number | undefined;
+};
+
+export interface ActionOutput_quickbooks_queryentities {
+  /**
+   * Query results as an array of entity objects
+   */
+  records: unknown[];
+  /**
+   * Total count of records matching the query
+   */
+  total_count?: number | undefined;
+  /**
+   * Starting position of this result set
+   */
+  start_position?: number | undefined;
+  /**
+   * Maximum results in this response
+   */
+  max_results?: number | undefined;
+  /**
+   * Whether more results are available
+   */
+  has_more: boolean;
+};
+
+export interface ActionInput_quickbooks_sendinvoice {
+  /**
+   * The ID of the invoice to send. Example: "123"
+   */
+  invoiceId: string;
+  /**
+   * Optional email address to send the invoice to. If not provided, the invoice will be sent to the customer email address.
+   */
+  emailTo?: string | undefined;
+};
+
+export interface ActionOutput_quickbooks_sendinvoice {
+  /**
+   * Whether the invoice was sent successfully
+   */
+  success: boolean;
+  /**
+   * The ID of the sent invoice
+   */
+  invoiceId: string;
+  /**
+   * Status message from QuickBooks
+   */
+  message?: string | undefined;
 };
 
 export interface ActionInput_quickbooks_updateaccount {
-  name: string;
-  account_type?: string | undefined;
-  account_sub_type?: string | undefined;
-  description?: string | undefined;
-  acct_num?: string | undefined;
+  /**
+   * Account ID. Example: "93"
+   */
   id: string;
-  sync_token: string;
+  /**
+   * Current SyncToken for optimistic locking. Example: "0"
+   */
+  syncToken: string;
+  /**
+   * Account name. Example: "New Account Name"
+   */
+  name?: string | undefined;
+  /**
+   * Account description. Example: "Description of the account"
+   */
+  description?: string | undefined;
+  /**
+   * Whether the account is active
+   */
   active?: boolean | undefined;
 };
 
 export interface ActionOutput_quickbooks_updateaccount {
-  created_at: string;
-  updated_at: string;
   id: string;
-  fully_qualified_name: string;
-  name: string;
-  account_type: string;
-  account_sub_type: string;
-  classification: string;
-  current_balance_cents: number;
-  active: boolean;
-  description: string | null;
-  acct_num: string | null;
-  sub_account: boolean;
+  syncToken: string;
+  name?: string | undefined;
+  description?: string | undefined;
+  active?: boolean | undefined;
+  fullyQualifiedName?: string | undefined;
+  classification?: string | undefined;
+  accountType?: string | undefined;
+  accountSubType?: string | undefined;
+  currencyCode?: string | undefined;
+  currentBalance?: number | undefined;
+  currentBalanceWithSubAccounts?: number | undefined;
+  createTime?: string | undefined;
+  lastUpdatedTime?: string | undefined;
+};
+
+export interface ActionInput_quickbooks_updatebill {
+  /**
+   * The unique identifier of the bill to update. Example: "123"
+   */
+  Id: string;
+  /**
+   * The current sync token for optimistic locking. Must be fetched from a prior read. Example: "0"
+   */
+  SyncToken: string;
+  /**
+   * Set to true for sparse updates (only specified fields are updated). Default: true
+   */
+  sparse?: boolean | undefined;
+  /**
+   * Vendor reference for the bill
+   */
+  VendorRef?: {  value: string;
+  name?: string | undefined;};
+  /**
+   * Accounts Payable account reference
+   */
+  APAccountRef?: {  value: string;
+  name?: string | undefined;};
+  /**
+   * Transaction date in YYYY-MM-DD format
+   */
+  TxnDate?: string | undefined;
+  /**
+   * Due date in YYYY-MM-DD format
+   */
+  DueDate?: string | undefined;
+  /**
+   * Document number for the bill
+   */
+  DocNumber?: string | undefined;
+  /**
+   * Private note for internal use
+   */
+  PrivateNote?: string | undefined;
+  /**
+   * Total amount of the bill
+   */
+  TotalAmt?: number | undefined;
+  /**
+   * Line items for the bill
+   */
+  Line?: ({  Id?: string | undefined;
+  LineNum?: number | undefined;
+  Description?: string | undefined;
+  Amount: number;
+  DetailType: string;
+  AccountBasedExpenseLineDetail?: {  AccountRef: {  value: string;
+  name?: string | undefined;};
+  BillableStatus?: string | undefined;
+  TaxCodeRef?: {  value: string;} | undefined;};
+  ItemBasedExpenseLineDetail?: {  ItemRef: {  value: string;
+  name?: string | undefined;};
+  Qty?: number | undefined;
+  UnitPrice?: number | undefined;
+  BillableStatus?: string | undefined;
+  TaxCodeRef?: {  value: string;} | undefined;};})[];
+};
+
+export interface ActionOutput_quickbooks_updatebill {
+  /**
+   * The unique identifier of the updated bill
+   */
+  Id: string;
+  /**
+   * The new sync token after update
+   */
+  SyncToken: string;
+  domain?: string | undefined;
+  sparse?: boolean | undefined;
+  MetaData?: {  CreateTime: string;
+  LastUpdatedTime: string;} | undefined;
+  VendorRef?: {  value: string;
+  name?: string | undefined;};
+  APAccountRef?: {  value: string;
+  name?: string | undefined;};
+  TxnDate?: string | undefined;
+  DueDate?: string | undefined;
+  DocNumber?: string | undefined;
+  PrivateNote?: string | undefined;
+  TotalAmt?: number | undefined;
+  Balance?: number | undefined;
+  Line?: ({  Id?: string | undefined;
+  LineNum?: number | undefined;
+  Description?: string | undefined;
+  Amount: number;
+  DetailType: string;
+  AccountBasedExpenseLineDetail?: {  AccountRef: {  value: string;
+  name?: string | undefined;};
+  BillableStatus?: string | undefined;
+  TaxCodeRef?: {  value: string;} | undefined;};
+  ItemBasedExpenseLineDetail?: {  ItemRef: {  value: string;
+  name?: string | undefined;};
+  Qty?: number | undefined;
+  UnitPrice?: number | undefined;
+  BillableStatus?: string | undefined;
+  TaxCodeRef?: {  value: string;} | undefined;};})[];
 };
 
 export interface ActionInput_quickbooks_updatecreditmemo {
-  customer_ref: {  name?: string | undefined;
-  value: string;};
-  line: ({  detail_type: string;
-  amount_cents: number;
-  sales_item_line_detail: {  item_ref: {  name?: string | undefined;
-  value: string;};};
-  quantity?: number | undefined;
-  unit_price_cents?: number | undefined;
-  discount_rate?: number | undefined;
-  description?: string | undefined;})[];
-  due_date?: string | undefined;
-  currency_ref: {  name?: string | undefined;
-  value: string;};
-  project_ref: {  name?: string | undefined;
-  value: string;};
+  /**
+   * The unique identifier of the credit memo. Example: "123"
+   */
   id: string;
-  sync_token: string;
-  active?: boolean | undefined;
+  /**
+   * The current sync token of the credit memo. Required for updates to prevent conflicts.
+   */
+  syncToken: string;
+  /**
+   * Customer reference. Required when creating; optional for updates only when not changing the customer.
+   */
+  customerRef?: {  /**
+   * Customer ID
+   */
+  value: string;
+  /**
+   * Customer name
+   */
+  name?: string | undefined;};
+  /**
+   * Transaction date in YYYY-MM-DD format
+   */
+  txnDate?: string | undefined;
+  /**
+   * Line items for the credit memo
+   */
+  line?: ({  /**
+   * Line item ID for existing lines
+   */
+  id?: string | undefined;
+  /**
+   * Line number
+   */
+  lineNum?: number | undefined;
+  /**
+   * Line item description
+   */
+  description?: string | undefined;
+  /**
+   * Line item amount
+   */
+  amount: number;
+  /**
+   * Line detail type. Example: "SalesItemLineDetail"
+   */
+  detailType: string;
+  salesItemLineDetail?: {  itemRef: {  /**
+   * Item ID
+   */
+  value: string;
+  /**
+   * Item name
+   */
+  name?: string | undefined;};
+  /**
+   * Unit price
+   */
+  unitPrice?: number | undefined;
+  /**
+   * Quantity
+   */
+  qty?: number | undefined;
+  taxCodeRef?: {  /**
+   * Tax code ID
+   */
+  value: string;} | undefined;};})[];
+  /**
+   * Total amount of the credit memo
+   */
+  totalAmt?: number | undefined;
+  /**
+   * Whether to apply tax after discount
+   */
+  applyTaxAfterDiscount?: boolean | undefined;
+  /**
+   * Private note for internal use
+   */
+  privateNote?: string | undefined;
+  /**
+   * Memo to be displayed to the customer
+   */
+  customerMemo?: {  /**
+   * Customer-facing memo text
+   */
+  value: string;} | undefined;
+  /**
+   * Billing address
+   */
+  billAddr?: {  /**
+   * Address ID
+   */
+  id?: string | undefined;
+  /**
+   * Address line 1
+   */
+  line1?: string | undefined;
+  /**
+   * Address line 2
+   */
+  line2?: string | undefined;
+  /**
+   * City
+   */
+  city?: string | undefined;
+  /**
+   * Country
+   */
+  country?: string | undefined;
+  /**
+   * State or province code
+   */
+  countrySubDivisionCode?: string | undefined;
+  /**
+   * Postal or ZIP code
+   */
+  postalCode?: string | undefined;};
+  /**
+   * Shipping address
+   */
+  shipAddr?: {  /**
+   * Address ID
+   */
+  id?: string | undefined;
+  /**
+   * Address line 1
+   */
+  line1?: string | undefined;
+  /**
+   * Address line 2
+   */
+  line2?: string | undefined;
+  /**
+   * City
+   */
+  city?: string | undefined;
+  /**
+   * Country
+   */
+  country?: string | undefined;
+  /**
+   * State or province code
+   */
+  countrySubDivisionCode?: string | undefined;
+  /**
+   * Postal or ZIP code
+   */
+  postalCode?: string | undefined;};
+  /**
+   * Class reference
+   */
+  classRef?: {  /**
+   * Class ID
+   */
+  value: string;
+  /**
+   * Class name
+   */
+  name?: string | undefined;};
+  /**
+   * Sales term reference
+   */
+  salesTermRef?: {  /**
+   * Sales term ID
+   */
+  value: string;
+  /**
+   * Sales term name
+   */
+  name?: string | undefined;};
+  /**
+   * Global tax calculation type
+   */
+  globalTaxCalculation?: string | undefined;
+  /**
+   * Transaction tax details
+   */
+  txnTaxDetail?: {  txnTaxCodeRef?: {  /**
+   * Transaction tax code ID
+   */
+  value: string;} | undefined;
+  /**
+   * Total tax amount
+   */
+  totalTax?: number | undefined;
+  taxLine?: ({  /**
+   * Tax line amount
+   */
+  amount: number;
+  /**
+   * Tax detail type
+   */
+  detailType: string;
+  taxLineDetail: {  taxRateRef: {  /**
+   * Tax rate ID
+   */
+  value: string;};
+  /**
+   * Whether tax is percent-based
+   */
+  percentBased: boolean;
+  /**
+   * Tax percentage
+   */
+  taxPercent?: number | undefined;
+  /**
+   * Net amount subject to tax
+   */
+  netAmountTaxable: number;};})[];};
+  /**
+   * Account to deposit refund to
+   */
+  depositToAccountRef?: {  /**
+   * Account ID
+   */
+  value: string;
+  /**
+   * Account name
+   */
+  name?: string | undefined;};
 };
 
 export interface ActionOutput_quickbooks_updatecreditmemo {
-  created_at: string;
-  updated_at: string;
   id: string;
-  txn_date: string;
-  balance_cents: number;
-  total_amt_cents: number;
-  bill_address: {  city: string | null;
-  line1: string | null;
-  postal_code: string | null;
-  country: string | null;
-  id: string;} | null;
-  items: ({  id: string;
-  description: string | null;
-  qty: number;
-  unit_price_cents: number;
-  amount_cents: number;})[];
-  remaining_credit: number;
-  customer_name: string | null;
+  syncToken: string;
+  createdAt: string;
+  updatedAt: string;
 };
 
 export interface ActionInput_quickbooks_updatecustomer {
-  display_name?: string | undefined;
-  suffix?: string | undefined;
-  title?: string | undefined;
-  given_name?: string | undefined;
-  company_name?: string | undefined;
-  notes?: string | undefined;
-  primary_email?: string | undefined;
-  primary_phone?: string | undefined;
-  bill_address: {  line1?: string | undefined;
-  line2?: string | undefined;
-  city?: string | undefined;
-  postal_code?: string | undefined;
-  country?: string | undefined;
-  lat?: string | undefined;
-  long?: string | undefined;};
-  ship_address: {  line1?: string | undefined;
-  line2?: string | undefined;
-  city?: string | undefined;
-  postal_code?: string | undefined;
-  country?: string | undefined;
-  lat?: string | undefined;
-  long?: string | undefined;};
-  id: string;
-  sync_token: string;
-  active?: boolean | undefined;
+  /**
+   * The unique identifier of the customer. Example: "1"
+   */
+  Id: string;
+  /**
+   * The version identifier for the customer. Required for concurrency control.
+   */
+  SyncToken: string;
+  /**
+   * Optional realmId override. Uses connection config realmId if not provided.
+   */
+  realmId?: string | undefined;
+  /**
+   * Set to true for sparse update to send only changed fields.
+   */
+  sparse?: boolean | undefined;
+  /**
+   * The display name of the customer.
+   */
+  DisplayName?: string | undefined;
+  /**
+   * The first name of the customer.
+   */
+  GivenName?: string | undefined;
+  /**
+   * The last name of the customer.
+   */
+  FamilyName?: string | undefined;
+  /**
+   * The middle name of the customer.
+   */
+  MiddleName?: string | undefined;
+  /**
+   * The suffix of the customer (e.g., Jr., Sr., III).
+   */
+  Suffix?: string | undefined;
+  /**
+   * The title of the customer (e.g., Mr., Mrs., Dr.).
+   */
+  Title?: string | undefined;
+  /**
+   * The company name associated with this customer. Use null to clear.
+   */
+  CompanyName?: string | undefined;
+  /**
+   * The primary email address of the customer.
+   */
+  PrimaryEmailAddr?: {  Address?: string | undefined;};
+  /**
+   * The primary phone number of the customer.
+   */
+  PrimaryPhone?: {  FreeFormNumber?: string | undefined;};
+  /**
+   * The mobile phone number of the customer.
+   */
+  Mobile?: {  FreeFormNumber?: string | undefined;};
+  /**
+   * The fax number of the customer.
+   */
+  Fax?: {  FreeFormNumber?: string | undefined;};
+  /**
+   * The billing address of the customer.
+   */
+  BillAddr?: {  Line1?: string | undefined;
+  Line2?: string | undefined;
+  Line3?: string | undefined;
+  City?: string | undefined;
+  CountrySubDivisionCode?: string | undefined;
+  PostalCode?: string | undefined;
+  Country?: string | undefined;
+  Lat?: string | undefined;
+  Long?: string | undefined;};
+  /**
+   * The shipping address of the customer.
+   */
+  ShipAddr?: {  Line1?: string | undefined;
+  Line2?: string | undefined;
+  Line3?: string | undefined;
+  City?: string | undefined;
+  CountrySubDivisionCode?: string | undefined;
+  PostalCode?: string | undefined;
+  Country?: string | undefined;
+  Lat?: string | undefined;
+  Long?: string | undefined;};
+  /**
+   * Notes about this customer.
+   */
+  Notes?: string | undefined;
+  /**
+   * Whether the customer is active.
+   */
+  Active?: boolean | undefined;
+  /**
+   * Whether the customer is taxable.
+   */
+  Taxable?: boolean | undefined;
+  /**
+   * The currency reference for this customer.
+   */
+  CurrencyRef?: {  value: string;
+  name?: string | undefined;};
 };
 
 export interface ActionOutput_quickbooks_updatecustomer {
-  created_at: string;
-  updated_at: string;
   id: string;
-  given_name: string | null;
-  display_name: string | null;
-  active: boolean;
-  balance_cents: number;
-  taxable: boolean;
-  primary_email: string | null;
-  primary_phone: string | null;
-  bill_address: {  city: string | null;
-  line1: string | null;
-  postal_code: string | null;
-  country: string | null;
-  id: string;} | null;
-  ship_address: {  city: string | null;
-  line1: string | null;
-  postal_code: string | null;
-  country: string | null;
-  id: string;} | null;
+  syncToken: string;
+  displayName?: string | undefined;
+  givenName?: string | undefined;
+  familyName?: string | undefined;
+  middleName?: string | undefined;
+  suffix?: string | undefined;
+  title?: string | undefined;
+  companyName?: string | undefined;
+  active?: boolean | undefined;
+  primaryEmail?: string | undefined;
+  primaryPhone?: string | undefined;
+  mobile?: string | undefined;
+  fax?: string | undefined;
+  billingAddress?: {  id?: string | undefined;
+  line1?: string | undefined;
+  line2?: string | undefined;
+  line3?: string | undefined;
+  city?: string | undefined;
+  countrySubDivisionCode?: string | undefined;
+  postalCode?: string | undefined;
+  country?: string | undefined;
+  latitude?: string | undefined;
+  longitude?: string | undefined;};
+  shippingAddress?: {  id?: string | undefined;
+  line1?: string | undefined;
+  line2?: string | undefined;
+  line3?: string | undefined;
+  city?: string | undefined;
+  countrySubDivisionCode?: string | undefined;
+  postalCode?: string | undefined;
+  country?: string | undefined;
+  latitude?: string | undefined;
+  longitude?: string | undefined;};
+  notes?: string | undefined;
+  taxable?: boolean | undefined;
+  currencyRefValue?: string | undefined;
+  currencyRefName?: string | undefined;
+  createdAt?: string | undefined;
+  updatedAt?: string | undefined;
+};
+
+export interface ActionInput_quickbooks_updatedeposit {
+  /**
+   * The unique identifier of the deposit to update. Example: "123"
+   */
+  Id: string;
+  /**
+   * The version number of the object. Used for concurrency control. Example: "0"
+   */
+  SyncToken: string;
+  /**
+   * Set to true for sparse updates (partial updates). When true, only provided fields are updated.
+   */
+  sparse?: boolean | undefined;
+  /**
+   * Reference to the account where funds are deposited.
+   */
+  DepositToAccountRef?: {  value: string;
+  name?: string | undefined;};
+  /**
+   * The date of the transaction in YYYY-MM-DD format. Example: "2024-01-15"
+   */
+  TxnDate?: string | undefined;
+  /**
+   * The total monetary amount of the deposit.
+   */
+  TotalAmt?: number | undefined;
+  /**
+   * A private note for the deposit.
+   */
+  PrivateNote?: string | undefined;
+  /**
+   * The deposit line items.
+   */
+  Line?: ({  Id?: string | undefined;
+  LineNum?: number | undefined;
+  Description?: string | undefined;
+  Amount: number;
+  DetailType: string;
+  DepositLineDetail?: {  AccountRef?: {  value: string;
+  name?: string | undefined;};
+  Entity?: {  Type: string;
+  EntityRef: {  value: string;
+  name?: string | undefined;};};};
+  LinkedTxn?: ({  TxnId: string;
+  TxnType: string;
+  TxnLineId?: string | undefined;})[];})[];
+};
+
+export interface ActionOutput_quickbooks_updatedeposit {
+  /**
+   * The unique identifier of the updated deposit.
+   */
+  id: string;
+  /**
+   * The new SyncToken after the update.
+   */
+  syncToken: string;
+  /**
+   * The total amount of the deposit.
+   */
+  totalAmount?: number | undefined;
+  /**
+   * The date of the transaction.
+   */
+  transactionDate?: string | undefined;
+  /**
+   * The ID of the account where funds are deposited.
+   */
+  depositToAccountId?: string | undefined;
+  /**
+   * The private note for the deposit.
+   */
+  privateNote?: string | undefined;
+  /**
+   * The number of line items in the deposit.
+   */
+  lineCount?: number | undefined;
+  /**
+   * The last updated timestamp.
+   */
+  lastUpdatedTime?: string | undefined;
+};
+
+export interface ActionInput_quickbooks_updateestimate {
+  /**
+   * The unique identifier of the estimate to update. Example: "123"
+   */
+  Id: string;
+  /**
+   * The current SyncToken for optimistic concurrency control. Example: "0"
+   */
+  SyncToken: string;
+  /**
+   * When true, only provided fields are updated (sparse update).
+   */
+  sparse?: boolean | undefined;
+  /**
+   * Total amount of the estimate.
+   */
+  TotalAmt?: number | undefined;
+  /**
+   * Line items for the estimate.
+   */
+  Line?: ({  Id?: string | undefined;
+  Description?: string | undefined;
+  Amount?: number | undefined;
+  DetailType?: string | undefined;
+  SalesItemLineDetail?: {  ItemRef?: {  value: string;
+  name?: string | undefined;};
+  Qty?: number | undefined;
+  UnitPrice?: number | undefined;};})[];
+  /**
+   * Reference to the customer.
+   */
+  CustomerRef?: {  value: string;
+  name?: string | undefined;};
+  /**
+   * Billing email address.
+   */
+  BillEmail?: {  Address?: string | undefined;};
+  /**
+   * Shipping from address.
+   */
+  ShipFromAddr?: {  Line1?: string | undefined;
+  City?: string | undefined;
+  CountrySubDivisionCode?: string | undefined;
+  PostalCode?: string | undefined;
+  Country?: string | undefined;};
+  /**
+   * Billing address.
+   */
+  BillAddr?: {  Line1?: string | undefined;
+  City?: string | undefined;
+  CountrySubDivisionCode?: string | undefined;
+  PostalCode?: string | undefined;
+  Country?: string | undefined;};
+  /**
+   * Shipping address.
+   */
+  ShipAddr?: {  Line1?: string | undefined;
+  City?: string | undefined;
+  CountrySubDivisionCode?: string | undefined;
+  PostalCode?: string | undefined;
+  Country?: string | undefined;};
+  /**
+   * Transaction date in YYYY-MM-DD format.
+   */
+  TxnDate?: string | undefined;
+  /**
+   * Expiration date in YYYY-MM-DD format.
+   */
+  ExpirationDate?: string | undefined;
+  /**
+   * Private note not visible to customer.
+   */
+  PrivateNote?: string | undefined;
+  /**
+   * Customer-facing memo.
+   */
+  CustomerMemo?: {  value?: string | undefined;};
+  /**
+   * Reference to sales term.
+   */
+  SalesTermRef?: {  value?: string | undefined;};
+};
+
+export interface ActionOutput_quickbooks_updateestimate {
+  /**
+   * The unique identifier of the updated estimate.
+   */
+  id: string;
+  /**
+   * The new SyncToken after update.
+   */
+  syncToken: string;
+  /**
+   * Total amount of the estimate.
+   */
+  totalAmount?: number | undefined;
+  /**
+   * Transaction date.
+   */
+  transactionDate?: string | undefined;
+  /**
+   * Status of the estimate.
+   */
+  status?: string | undefined;
+  /**
+   * Whether the update was successful.
+   */
+  success: boolean;
 };
 
 export interface ActionInput_quickbooks_updateinvoice {
-  customer_ref: {  name?: string | undefined;
-  value: string;};
-  line: ({  detail_type: string;
-  amount_cents: number;
-  sales_item_line_detail: {  item_ref: {  name?: string | undefined;
-  value: string;};};
-  quantity?: number | undefined;
-  unit_price_cents?: number | undefined;
-  discount_rate?: number | undefined;
-  description?: string | undefined;})[];
-  txn_date?: string | undefined;
-  due_date?: string | undefined;
-  currency_ref: {  name?: string | undefined;
-  value: string;};
-  project_ref: {  name?: string | undefined;
-  value: string;};
-  id: string;
-  sync_token: string;
-  active?: boolean | undefined;
+  /**
+   * The unique identifier of the invoice to update. Example: "123"
+   */
+  Id: string;
+  /**
+   * The current sync token of the invoice for optimistic locking. Example: "1"
+   */
+  SyncToken: string;
+  /**
+   * Whether to perform a sparse update (only update provided fields). Defaults to true.
+   */
+  sparse?: boolean | undefined;
+  /**
+   * Customer reference for the invoice
+   */
+  CustomerRef?: {  value?: string | undefined;
+  name?: string | undefined;};
+  /**
+   * Line items for the invoice
+   */
+  Line?: ({  Id?: string | undefined;
+  LineNum?: string | undefined;
+  Description?: string | undefined;
+  Amount?: number | undefined;
+  DetailType?: string | undefined;
+  SalesItemLineDetail?: {  ItemRef?: {  value: string;
+  name?: string | undefined;};
+  UnitPrice?: number | undefined;
+  Qty?: number | undefined;};})[];
+  /**
+   * Transaction date (YYYY-MM-DD)
+   */
+  TxnDate?: string | undefined;
+  /**
+   * Due date (YYYY-MM-DD)
+   */
+  DueDate?: string | undefined;
+  /**
+   * Email address for billing
+   */
+  BillEmail?: {  Address?: string | undefined;};
+  /**
+   * Shipping from address
+   */
+  ShipFromAddr?: {} | undefined;
+  /**
+   * Shipping to address
+   */
+  ShipToAddr?: {} | undefined;
+  /**
+   * Billing address
+   */
+  BillAddr?: {} | undefined;
+  /**
+   * Ship date (YYYY-MM-DD)
+   */
+  ShipDate?: string | undefined;
+  /**
+   * Tracking number
+   */
+  TrackingNum?: string | undefined;
+  /**
+   * Private note for internal use
+   */
+  PrivateNote?: string | undefined;
+  /**
+   * Customer-facing memo
+   */
+  CustomerMemo?: {  value?: string | undefined;};
+  /**
+   * Sales terms reference
+   */
+  SalesTermRef?: {  value?: string | undefined;};
+  /**
+   * Sales representative reference
+   */
+  SalesRepRef?: {  value?: string | undefined;};
+  /**
+   * Tax details
+   */
+  TxnTaxDetail?: {} | undefined;
+  /**
+   * Deposit amount
+   */
+  Deposit?: number | undefined;
+  /**
+   * Deposit account reference
+   */
+  DepositToAccountRef?: {  value?: string | undefined;};
+  /**
+   * Allow IPN payment
+   */
+  AllowIPNPayment?: boolean | undefined;
+  /**
+   * Allow online payment
+   */
+  AllowOnlinePayment?: boolean | undefined;
+  /**
+   * Allow online credit card payment
+   */
+  AllowOnlineCreditCardPayment?: boolean | undefined;
+  /**
+   * Allow online ACH payment
+   */
+  AllowOnlineACHPayment?: boolean | undefined;
+  /**
+   * Print status
+   */
+  PrintStatus?: string | undefined;
+  /**
+   * Email status
+   */
+  EmailStatus?: string | undefined;
+  /**
+   * Delivery information
+   */
+  DeliveryInfo?: {} | undefined;
 };
 
 export interface ActionOutput_quickbooks_updateinvoice {
-  created_at: string;
-  updated_at: string;
   id: string;
-  txn_date: string;
-  balance_cents: number;
-  total_amt_cents: number;
-  bill_address: {  city: string | null;
-  line1: string | null;
-  postal_code: string | null;
-  country: string | null;
-  id: string;} | null;
-  items: ({  id: string;
-  description: string | null;
-  qty: number;
-  unit_price_cents: number;
-  amount_cents: number;})[];
-  due_date: string;
-  deposit_cents: number;
+  syncToken: string;
+  createdAt?: string | undefined;
+  updatedAt?: string | undefined;
+  docNumber?: string | undefined;
+  txnDate?: string | undefined;
+  dueDate?: string | undefined;
+  status?: string | undefined;
+  totalAmount?: number | undefined;
+  balance?: number | undefined;
+  customerRef?: {  value?: string | undefined;
+  name?: string | undefined;};
+  lineItems?: unknown[] | undefined;
+  billEmail?: string | undefined;
+  shipDate?: string | undefined;
+  trackingNum?: string | undefined;
+  privateNote?: string | undefined;
+  customerMemo?: string | undefined;
+  printStatus?: string | undefined;
+  emailStatus?: string | undefined;
 };
 
 export interface ActionInput_quickbooks_updateitem {
-  track_qty_onHand?: boolean | undefined;
-  qty_on_hand?: number | undefined;
-  name: string;
-  expense_accountRef: {  name?: string | undefined;
-  value: string;};
-  income_accountRef: {  name?: string | undefined;
-  value: string;};
-  asset_accountRef: {  name?: string | undefined;
-  value: string;};
-  inv_start_date?: string | undefined;
-  unit_price_cents?: number | undefined;
-  purchase_cost_cents?: number | undefined;
-  type?: string | undefined;
-  id: string;
-  sync_token: string;
-  active?: boolean | undefined;
+  /**
+   * The QuickBooks Item ID. Example: "1"
+   */
+  Id: string;
+  /**
+   * The SyncToken value from the existing item to prevent conflicts.
+   */
+  SyncToken: string;
+  /**
+   * New name for the item.
+   */
+  Name?: string | undefined;
+  /**
+   * New description for the item.
+   */
+  Description?: string | undefined;
+  /**
+   * Unit price of the item.
+   */
+  UnitPrice?: number | undefined;
+  /**
+   * Type of item.
+   */
+  Type?: 'Inventory' | 'NonInventory' | 'Service' | undefined;
+  /**
+   * Income account reference.
+   */
+  IncomeAccountRef?: {  value: string;
+  name?: string | undefined;};
+  /**
+   * Expense account reference.
+   */
+  ExpenseAccountRef?: {  value: string;
+  name?: string | undefined;};
+  /**
+   * Asset account reference for inventory items.
+   */
+  AssetAccountRef?: {  value: string;
+  name?: string | undefined;};
+  /**
+   * Quantity on hand for inventory items.
+   */
+  QtyOnHand?: number | undefined;
+  /**
+   * Purchase cost for inventory items.
+   */
+  PurchaseCost?: number | undefined;
+  /**
+   * Whether the item is active.
+   */
+  Active?: boolean | undefined;
 };
 
 export interface ActionOutput_quickbooks_updateitem {
-  created_at: string;
-  updated_at: string;
-  id: string;
-  name: string;
-  active: boolean;
-  type: string;
-  unit_price_cents: number;
-  purchase_cost_cents: number;
-  qty_on_hand: number | null;
-  inv_start_date: string | null;
-  description: string | null;
-  track_qty_onHand: boolean;
+  Id: string;
+  SyncToken: string;
+  Name: string;
+  Description?: string | undefined;
+  UnitPrice?: number | undefined;
+  Type: string;
+  IncomeAccountRef?: {  value: string;
+  name?: string | undefined;};
+  ExpenseAccountRef?: {  value: string;
+  name?: string | undefined;};
+  AssetAccountRef?: {  value: string;
+  name?: string | undefined;};
+  QtyOnHand?: number | undefined;
+  PurchaseCost?: number | undefined;
+  Active: boolean;
+  MetaData: {  CreateTime: string;
+  LastUpdatedTime: string;};
 };
 
 export interface ActionInput_quickbooks_updatejournalentry {
+  /**
+   * The unique identifier of the journal entry to update. Example: "123"
+   */
   id: string;
+  /**
+   * The sync token for concurrency control. Required for updates. Example: "0"
+   */
   sync_token: string;
-  sparse?: boolean | undefined;
-  line_items: ({  id?: string | undefined;
-  detail_type: string;
-  amount?: number | undefined;
-  project_ref: {  name?: string | undefined;
-  value: string;};
-  description?: string | undefined;
-  line_num?: number | undefined;
-  journal_entry_line_detail: {  journal_code_ref: {  name?: string | undefined;
-  value: string;};
-  posting_type: 'Debit' | 'Credit';
-  account_ref: {  name?: string | undefined;
-  value: string;};
-  tax_applicable_on?: string | undefined;
-  entity?: {  type?: string | undefined;
-  entity_ref: {  name?: string | undefined;
-  value: string;};};
-  tax_inclusive_amt?: number | undefined;
-  class_ref: {  name?: string | undefined;
-  value: string;};
-  department_ref: {  name?: string | undefined;
-  value: string;};
-  tax_code_ref: {  name?: string | undefined;
-  value: string;};
-  billable_status?: string | undefined;
-  tax_amount?: number | undefined;};})[];
-  currency_ref: {  name?: string | undefined;
-  value: string;};
-  global_tax_calculation?: string | undefined;
-  doc_number?: string | undefined;
+  /**
+   * The transaction date in YYYY-MM-DD format. Example: "2024-01-15"
+   */
+  txn_date?: string | undefined;
+  /**
+   * A private note for the journal entry. Set to null to clear. Example: "Adjusting entry for Q1"
+   */
   private_note?: string | undefined;
-  exchange_rate?: number | undefined;
-  transaction_location_type?: string | undefined;
-  txn_tax_detail?: {  txn_tax_code_ref: {  name?: string | undefined;
-  value: string;};
-  total_tax?: number | undefined;
-  tax_line?: ({  detail_type: string;
-  tax_line_detail?: {  tax_rate_ref: {  name?: string | undefined;
-  value: string;};
-  net_amount_taxable?: number | undefined;
-  percent_based?: boolean | undefined;
-  tax_percent?: number | undefined;};
-  amount?: number | undefined;})[];};
-  adjustment?: boolean | undefined;
+  /**
+   * Journal entry line items. Each entry must balance (total debits = total credits).
+   */
+  line_items?: ({  /**
+   * Line item ID for existing lines. Omit for new lines.
+   */
+  id?: string | undefined;
+  /**
+   * Description of the line item.
+   */
+  description?: string | undefined;
+  /**
+   * The monetary amount of the line item.
+   */
+  amount: number;
+  /**
+   * Must be "JournalEntryLineDetail".
+   */
+  detail_type: 'JournalEntryLineDetail';
+  journal_entry_line_detail: {  /**
+   * Whether this is a Debit or Credit line.
+   */
+  posting_type: 'Debit' | 'Credit';
+  account_ref: {  /**
+   * The account ID. Example: "1"
+   */
+  value: string;
+  /**
+   * The account name.
+   */
+  name?: string | undefined;};};})[];
 };
 
 export interface ActionOutput_quickbooks_updatejournalentry {
-  created_at: string;
-  updated_at: string;
+  /**
+   * The unique identifier of the journal entry.
+   */
   id: string;
-  date: string | null;
-  currency: string;
-  note?: string | undefined;
-  lines: ({  id: string;
-  type: string;
+  /**
+   * The current sync token for concurrency control.
+   */
+  sync_token: string;
+  /**
+   * The transaction date.
+   */
+  txn_date?: string | undefined;
+  /**
+   * The private note.
+   */
+  private_note?: string | undefined;
+  line_items?: ({  id?: string | undefined;
+  description?: string | undefined;
+  amount: number;
+  detail_type: string;
+  posting_type: string;
   account_id: string;
-  account_name: string;
-  net_amount: number;
-  posting_type: 'Debit' | 'Credit';
-  description: string;
-  entity_type?: string | undefined;
-  entity_type_id?: string | undefined;
-  entity_type_name?: string | undefined;
-  department_id?: string | undefined;
-  department_name?: string | undefined;
-  class_id?: string | undefined;
-  class_name?: string | undefined;})[];
+  account_name?: string | undefined;})[];
+};
+
+export interface ActionInput_quickbooks_updatepayment {
+  /**
+   * The unique identifier of the payment to update. Example: "123"
+   */
+  Id: string;
+  /**
+   * The current sync token of the payment for optimistic locking. Example: "0"
+   */
+  SyncToken: string;
+  /**
+   * The total amount of the payment. Optional for sparse updates.
+   */
+  TotalAmt?: number | undefined;
+  /**
+   * Reference to the customer who made the payment. Optional for sparse updates.
+   */
+  CustomerRef?: {  value: string;
+  name?: string | undefined;};
+  /**
+   * Reference to the payment method used. Optional for sparse updates.
+   */
+  PaymentMethodRef?: {  value: string;
+  name?: string | undefined;};
+  /**
+   * Reference to the account where the payment is deposited. Optional for sparse updates.
+   */
+  DepositToAccountRef?: {  value: string;
+  name?: string | undefined;};
+  /**
+   * Private note about the payment. Optional for sparse updates.
+   */
+  PrivateNote?: string | undefined;
+  /**
+   * The transaction date in YYYY-MM-DD format. Optional for sparse updates.
+   */
+  TxnDate?: string | undefined;
+  /**
+   * Whether to perform a sparse update (only update provided fields). Defaults to true if not provided.
+   */
+  sparse?: boolean | undefined;
+};
+
+export interface ActionOutput_quickbooks_updatepayment {
+  /**
+   * The unique identifier of the payment.
+   */
+  Id: string;
+  /**
+   * The new sync token after update.
+   */
+  SyncToken: string;
+  /**
+   * The total amount of the payment.
+   */
+  TotalAmt: number;
+  /**
+   * Reference to the customer who made the payment.
+   */
+  CustomerRef?: {  value: string;
+  name?: string | undefined;};
+  /**
+   * Reference to the payment method used.
+   */
+  PaymentMethodRef?: {  value: string;
+  name?: string | undefined;};
+  /**
+   * Reference to the account where the payment is deposited.
+   */
+  DepositToAccountRef?: {  value: string;
+  name?: string | undefined;};
+  /**
+   * Private note about the payment.
+   */
+  PrivateNote?: string | undefined;
+  /**
+   * The transaction date in YYYY-MM-DD format.
+   */
+  TxnDate?: string | undefined;
+  /**
+   * The domain of the payment record.
+   */
+  domain?: string | undefined;
+  /**
+   * Metadata about the payment record.
+   */
+  MetaData?: {  CreateTime?: string | undefined;
+  LastUpdatedTime?: string | undefined;};
+};
+
+export interface ActionInput_quickbooks_updatepurchaseorder {
+  /**
+   * Unique identifier of the purchase order to update. Example: "123"
+   */
+  Id: string;
+  /**
+   * SyncToken for concurrency control. Example: "2"
+   */
+  SyncToken: string;
+  /**
+   * AP account reference for the purchase order
+   */
+  APAccountRef?: {  value?: string | undefined;
+  name?: string | undefined;};
+  /**
+   * Vendor reference for the purchase order
+   */
+  VendorRef?: {  value?: string | undefined;
+  name?: string | undefined;};
+  /**
+   * Line items for the purchase order
+   */
+  Line?: ({  Id?: string | undefined;
+  LineNum?: number | undefined;
+  Description?: string | undefined;
+  Amount?: number | undefined;
+  DetailType?: string | undefined;
+  ItemBasedExpenseLineDetail?: {  ItemRef?: {  value: string;
+  name?: string | undefined;};
+  UnitPrice?: number | undefined;
+  Qty?: number | undefined;};})[];
+  /**
+   * Total amount of the purchase order
+   */
+  TotalAmt?: number | undefined;
+  /**
+   * Status of the purchase order (e.g., Open, Closed)
+   */
+  PurchaseOrderStatus?: string | undefined;
+  /**
+   * Memo or notes for the purchase order
+   */
+  Memo?: string | undefined;
+  /**
+   * Print status (NeedToPrint, PrintComplete)
+   */
+  PrintStatus?: string | undefined;
+};
+
+export interface ActionOutput_quickbooks_updatepurchaseorder {
+  /**
+   * Unique identifier of the updated purchase order
+   */
+  Id: string;
+  /**
+   * Updated SyncToken for concurrency control
+   */
+  SyncToken: string;
+  /**
+   * Whether the update was successful
+   */
+  success: boolean;
+};
+
+export interface ActionInput_quickbooks_updatevendor {
+  /**
+   * Unique identifier of the vendor. Example: "123"
+   */
+  Id: string;
+  /**
+   * Version number for optimistic locking. Example: "2"
+   */
+  SyncToken: string;
+  /**
+   * Display name of the vendor
+   */
+  DisplayName?: string | undefined;
+  /**
+   * First name of the vendor
+   */
+  GivenName?: string | undefined;
+  /**
+   * Last name of the vendor
+   */
+  FamilyName?: string | undefined;
+  /**
+   * Company name of the vendor
+   */
+  CompanyName?: string | undefined;
+  /**
+   * Primary email address
+   */
+  PrimaryEmailAddr?: {  Address?: string | undefined;};
+  /**
+   * Primary phone number
+   */
+  PrimaryPhone?: {  FreeFormNumber?: string | undefined;};
+  /**
+   * Billing address
+   */
+  BillAddr?: {  Line1?: string | undefined;
+  City?: string | undefined;
+  Country?: string | undefined;
+  PostalCode?: string | undefined;};
+};
+
+export interface ActionOutput_quickbooks_updatevendor {
+  id: string;
+  sync_token: string;
+  display_name?: string | undefined;
+  given_name?: string | undefined;
+  family_name?: string | undefined;
+  company_name?: string | undefined;
+  email?: string | undefined;
+  phone?: string | undefined;
+  address?: {  line1?: string | undefined;
+  city?: string | undefined;
+  country?: string | undefined;
+  postal_code?: string | undefined;};
+  active?: boolean | undefined;
 };
 
 export interface SyncMetadata_ramp_users {
@@ -28879,9 +32389,14 @@ export interface SyncMetadata_sap_success_factors_employees {
 
 export interface Group {
   id: string;
-  active: boolean;
-  created_at: string | null;
   name: string;
+  description?: string | undefined;
+  isDefault?: boolean | undefined;
+  isDeleted?: boolean | undefined;
+  isPublic?: boolean | undefined;
+  createdAt?: string | undefined;
+  updatedAt?: string | undefined;
+  url?: string | undefined;
 };
 
 export interface SyncMetadata_sap_success_factors_groups {
@@ -34111,153 +37626,1368 @@ export interface ActionOutput_youtube_updatevideo {
   recordingDetails?: {  recordingDate?: string | undefined;};
 };
 
-export interface SyncMetadata_zendesk_articles {
+export interface Macro {
+  id: string;
+  title: string;
+  active: boolean;
+  description?: string | undefined;
+  position?: number | undefined;
+  created_at?: string | undefined;
+  updated_at?: string | undefined;
+  actions?: ({  field: string | number;
+  value?: unknown | undefined;})[];
 };
 
-export interface SyncMetadata_zendesk_categories {
+export interface Organization {
+  id: string;
+  name: string;
+  created_at: string;
+  updated_at: string;
+  url: string;
+  external_id?: string | undefined;
+  domain_names?: string[] | undefined;
+  group_id?: number | undefined;
+  shared_comments?: boolean | undefined;
+  shared_tickets?: boolean | undefined;
+  tags?: string[] | undefined;
+  notes?: string | undefined;
+  details?: string | undefined;
 };
 
-export interface SyncMetadata_zendesk_sections {
+export interface TicketComment {
+  id: string;
+  ticket_id: string;
+  type?: string | undefined;
+  author_id: string;
+  body?: string | undefined;
+  html_body?: string | undefined;
+  plain_body?: string | undefined;
+  public?: boolean | undefined;
+  created_at: string;
+  updated_at?: string | undefined;
 };
 
-export interface SyncMetadata_zendesk_tickets {
+export interface TicketField {
+  id: string;
+  type: string;
+  title: string;
+  raw_title?: string | undefined;
+  description?: string | undefined;
+  raw_description?: string | undefined;
+  position?: number | undefined;
+  active?: boolean | undefined;
+  required?: boolean | undefined;
+  agent_can_edit?: boolean | undefined;
+  removable?: boolean | undefined;
+  created_at: string;
+  updated_at: string;
+  visible_in_portal?: boolean | undefined;
+  editable_in_portal?: boolean | undefined;
+  required_in_portal?: boolean | undefined;
+  title_in_portal?: string | undefined;
+  raw_title_in_portal?: string | undefined;
+  tag?: string | undefined;
+  regexp_for_validation?: string | undefined;
+  sub_type_id?: number | undefined;
+  custom_field_options?: ({  id?: number | undefined;
+  name?: string | undefined;
+  raw_name?: string | undefined;
+  value?: string | undefined;
+  default?: boolean | undefined;})[];
+  system_field_options?: ({  name?: string | undefined;
+  value?: string | undefined;})[];
 };
 
-export interface SyncMetadata_zendesk_users {
+export interface TicketForm {
+  id: string;
+  name?: string | undefined;
+  display_name?: string | undefined;
+  raw_name?: string | undefined;
+  raw_display_name?: string | undefined;
+  position?: number | undefined;
+  ticket_field_ids?: number[] | undefined;
+  active?: boolean | undefined;
+  default?: boolean | undefined;
+  end_user_visible?: boolean | undefined;
+  in_all_brands?: boolean | undefined;
+  restricted_brand_ids?: number[] | undefined;
+  created_at?: string | undefined;
+  updated_at?: string | undefined;
+  deleted_at?: string | undefined;
+  url?: string | undefined;
 };
 
 export interface ActionInput_zendesk_createcategory {
-  category: {  name: string;
-  description?: string | undefined;};
+  /**
+   * The name of the category. Example: "Getting Started"
+   */
+  name: string;
+  /**
+   * The locale where the category is displayed. Example: "en-us"
+   */
+  locale: string;
+  /**
+   * The description of the category
+   */
+  description?: string | undefined;
+  /**
+   * The position of this category relative to other categories
+   */
+  position?: number | undefined;
 };
 
 export interface ActionOutput_zendesk_createcategory {
-  id: string;
-  url: string;
+  id: number;
   name: string;
-  description: string;
+  locale: string;
+  description?: string | undefined;
+  position?: number | undefined;
+  created_at: string;
+  updated_at: string;
+  html_url: string;
+  url: string;
+  outdated?: boolean | undefined;
+  source_locale?: string | undefined;
+};
+
+export interface ActionInput_zendesk_createorganization {
+  name: string;
+  notes?: string | undefined;
+  details?: string | undefined;
+  external_id?: string | undefined;
+  domain_names?: string[] | undefined;
+  group_id?: number | undefined;
+  shared_tickets?: boolean | undefined;
+  shared_comments?: boolean | undefined;
+  tags?: string[] | undefined;
+  organization_fields?: {  [key: string]: unknown | undefined;};
+};
+
+export interface ActionOutput_zendesk_createorganization {
+  id: number;
+  name: string;
+  notes?: string | undefined;
+  details?: string | undefined;
+  external_id?: string | undefined;
+  domain_names: string[];
+  group_id?: number | undefined;
+  shared_tickets: boolean;
+  shared_comments: boolean;
+  tags: string[];
+  organization_fields?: {  [key: string]: unknown | undefined;};
+  created_at: string;
+  updated_at: string;
 };
 
 export interface ActionInput_zendesk_createsection {
+  /**
+   * The ID of the category to which this section belongs. Example: 123
+   */
   category_id: number;
-  section: {  name: string;
-  description?: string | undefined;};
+  /**
+   * The name of the section. Example: "Getting Started"
+   */
+  name: string;
+  /**
+   * The locale in which the section is displayed. Example: "en-us"
+   */
+  locale: string;
+  /**
+   * The description of the section. Example: "Articles about getting started"
+   */
+  description?: string | undefined;
+  /**
+   * The position of this section in the section list. Used when sorting is set to manual.
+   */
+  position?: number | undefined;
+  /**
+   * The ID of the parent section. Only writable for Guide Enterprise customers.
+   */
+  parent_section_id?: number | undefined;
+  /**
+   * The theme template name used to display this section in Help Center.
+   */
+  theme_template?: string | undefined;
 };
 
 export interface ActionOutput_zendesk_createsection {
-  id: string;
-  url: string;
-  category_id: number;
+  id: number;
+  category_id?: number | undefined;
   name: string;
-  description: string;
+  description?: string | undefined;
+  locale: string;
+  source_locale?: string | undefined;
+  position?: number | undefined;
+  parent_section_id?: number | undefined;
+  theme_template?: string | undefined;
+  html_url?: string | undefined;
+  url?: string | undefined;
+  created_at?: string | undefined;
+  updated_at?: string | undefined;
+  outdated?: boolean | undefined;
 };
 
 export interface ActionInput_zendesk_createticket {
-  ticket: {  comment: {  body?: string | undefined;
-  html_body?: string | undefined;};
-  assignee_email?: string | undefined;
-  assignee_id?: number | undefined;
-  brand_id?: number | undefined;
-  due_at?: string | undefined;
+  /**
+   * The subject of the ticket. Example: "My printer is on fire!"
+   */
+  subject: string;
+  /**
+   * The initial comment on the ticket. Example: "The printer caught fire when I tried to print a document."
+   */
+  comment: string;
+  /**
+   * Email of the requester. If no user exists with this email, a new user will be created. Example: "customer@example.com"
+   */
+  requester_email?: string | undefined;
+  /**
+   * Name of the requester. Only used when creating a new user. Example: "John Doe"
+   */
+  requester_name?: string | undefined;
+  /**
+   * Priority of the ticket.
+   */
+  priority?: 'urgent' | 'high' | 'normal' | 'low' | undefined;
+  /**
+   * Status of the ticket.
+   */
+  status?: 'new' | 'open' | 'pending' | 'hold' | 'solved' | 'closed' | undefined;
+  /**
+   * Tags applied to the ticket. Example: ["printer", "urgent"]
+   */
+  tags?: string[] | undefined;
+  /**
+   * Type of ticket.
+   */
   type?: 'problem' | 'incident' | 'question' | 'task' | undefined;
-  status?: 'new' | 'open' | 'pending' | 'hold' | 'solved' | 'closed.' | undefined;
-  metadata?: {} | undefined;};
 };
 
 export interface ActionOutput_zendesk_createticket {
-  id: string;
+  id: number;
   url: string;
+  subject: string;
+  description?: string | undefined;
+  status: string;
+  priority?: string | undefined;
+  type?: string | undefined;
   created_at: string;
   updated_at: string;
-  subject: string | null;
-  description: string;
-  priority: string | null;
-  status: string;
+  requester_id: number;
+  submitter_id: number;
+  assignee_id?: number | undefined;
+  organization_id?: number | undefined;
+  group_id?: number | undefined;
+  tags: string[];
 };
 
 export interface ActionInput_zendesk_createuser {
-  firstName: string;
-  lastName: string;
-  email: string;
-  role?: 'admin' | 'agent' | undefined;
+  /**
+   * The full name of the user. Example: "John Doe"
+   */
+  name: string;
+  /**
+   * The primary email address of the user. Example: "john@example.com"
+   */
+  email?: string | undefined;
+  /**
+   * The phone number of the user. Example: "+1234567890"
+   */
+  phone?: string | undefined;
+  /**
+   * The role of the user. Example: "end-user"
+   */
+  role?: 'end-user' | 'agent' | 'admin' | undefined;
+  /**
+   * A unique identifier from your external system. Example: "ext-123"
+   */
+  external_id?: string | undefined;
+  /**
+   * The locale of the user. Example: "en-US"
+   */
+  locale?: string | undefined;
+  /**
+   * The signature of the agent/admin. Example: "Best regards, John"
+   */
+  signature?: string | undefined;
+  /**
+   * Details about the user. Example: "VIP customer"
+   */
+  details?: string | undefined;
+  /**
+   * Notes about the user. Example: "Acquired through referral"
+   */
+  notes?: string | undefined;
+  /**
+   * The ID of the organization the user belongs to. Example: 123
+   */
+  organization_id?: number | undefined;
+  /**
+   * Whether the user has been verified. Example: true
+   */
+  verified?: boolean | undefined;
+  /**
+   * Whether the user is suspended. Example: false
+   */
+  suspended?: boolean | undefined;
 };
 
 export interface ActionOutput_zendesk_createuser {
-  id: string;
-  firstName: string;
-  lastName: string;
-  email: string;
-  user_fields?: {  [key: string]: any | undefined;};
+  /**
+   * The ID of the created user. Example: 123
+   */
+  id: number;
+  /**
+   * The name of the created user. Example: "John Doe"
+   */
+  name: string;
+  /**
+   * The email of the created user. Example: "john@example.com"
+   */
+  email?: string | undefined;
+  /**
+   * The phone of the created user. Example: "+1234567890"
+   */
+  phone?: string | undefined;
+  /**
+   * The role of the created user. Example: "end-user"
+   */
+  role?: string | undefined;
+  /**
+   * The external ID of the created user. Example: "ext-123"
+   */
+  external_id?: string | undefined;
+  /**
+   * The locale of the created user. Example: "en-US"
+   */
+  locale?: string | undefined;
+  /**
+   * The signature of the created user. Example: "Best regards, John"
+   */
+  signature?: string | undefined;
+  /**
+   * The details of the created user. Example: "VIP customer"
+   */
+  details?: string | undefined;
+  /**
+   * The notes of the created user. Example: "Acquired through referral"
+   */
+  notes?: string | undefined;
+  /**
+   * The organization ID of the created user. Example: 123
+   */
+  organization_id?: number | undefined;
+  /**
+   * Whether the created user is active. Example: true
+   */
+  active?: boolean | undefined;
+  /**
+   * Whether the created user is verified. Example: true
+   */
+  verified?: boolean | undefined;
+  /**
+   * Whether the created user is suspended. Example: false
+   */
+  suspended?: boolean | undefined;
+  /**
+   * The creation timestamp. Example: "2024-01-01T00:00:00Z"
+   */
+  created_at?: string | undefined;
+  /**
+   * The update timestamp. Example: "2024-01-01T00:00:00Z"
+   */
+  updated_at?: string | undefined;
 };
 
 export interface ActionInput_zendesk_deleteuser {
-  id: string;
+  /**
+   * The ID of the user to delete. Example: "1234567890"
+   */
+  userId: string;
 };
 
 export interface ActionOutput_zendesk_deleteuser {
+  /**
+   * Whether the user was successfully deleted
+   */
   success: boolean;
+  /**
+   * The ID of the deleted user
+   */
+  userId: string;
 };
 
-export interface ActionInput_zendesk_fetcharticle {
-  id: string;
+export interface ActionInput_zendesk_getarticle {
+  /**
+   * The unique ID of the article. Example: 360026053753
+   */
+  article_id: number;
 };
 
-export interface ActionOutput_zendesk_fetcharticle {
-  article: {  title: string;
-  id: string;
+export interface ActionOutput_zendesk_getarticle {
+  id: number;
+  title: string;
+  body?: string | undefined;
+  author_id?: number | undefined;
+  section_id?: number | undefined;
+  category_id?: number | undefined;
+  created_at?: string | undefined;
+  updated_at?: string | undefined;
+  edited_at?: string | undefined;
+  locale?: string | undefined;
+  source_locale?: string | undefined;
+  html_url?: string | undefined;
+  url?: string | undefined;
+  draft?: boolean | undefined;
+  promoted?: boolean | undefined;
+  position?: number | undefined;
+  comments_disabled?: boolean | undefined;
+  vote_count?: number | undefined;
+  vote_sum?: number | undefined;
+  permission_group_id?: number | undefined;
+  user_segment_id?: number | undefined;
+  user_segment_ids?: number[] | undefined;
+  label_names?: string[] | undefined;
+  content_tag_ids?: number[] | undefined;
+  outdated?: boolean | undefined;
+  outdated_locales?: string[] | undefined;
+};
+
+export interface ActionInput_zendesk_getgroup {
+  /**
+   * Group ID. Example: 123456
+   */
+  group_id: number;
+};
+
+export interface ActionOutput_zendesk_getgroup {
+  id: number;
+  name: string;
+  url?: string | undefined;
+  created_at?: string | undefined;
+  updated_at?: string | undefined;
+  deleted?: boolean | undefined;
+};
+
+export interface ActionInput_zendesk_getorganization {
+  /**
+   * The ID of the organization to retrieve. Example: 35436
+   */
+  organization_id: number;
+};
+
+export interface ActionOutput_zendesk_getorganization {
+  id: number;
+  name: string;
+  created_at?: string | undefined;
+  updated_at?: string | undefined;
+  details?: string | undefined;
+  domain_names?: string[] | undefined;
+  external_id?: string | undefined;
+  group_id?: number | undefined;
+  notes?: string | undefined;
+  organization_fields?: {  [key: string]: unknown | undefined;};
+  shared_comments?: boolean | undefined;
+  shared_tickets?: boolean | undefined;
+  tags?: string[] | undefined;
+  url?: string | undefined;
+};
+
+export interface ActionInput_zendesk_getticketcomments {
+  /**
+   * The ID of the ticket. Example: 123
+   */
+  ticket_id: number;
+  /**
+   * Pagination cursor from the previous response. Omit for the first page.
+   */
+  cursor?: string | undefined;
+  /**
+   * Number of records to return per page (default 100, max 100).
+   */
+  per_page?: number | undefined;
+};
+
+export interface ActionOutput_zendesk_getticketcomments {
+  comments: ({  id: number;
+  type?: string | undefined;
+  body?: string | undefined;
+  html_body?: string | undefined;
+  plain_body?: string | undefined;
+  public?: boolean | undefined;
+  author_id?: number | undefined;
+  audit_id?: number | undefined;
+  created_at?: string | undefined;
+  attachments?: ({  id: number;
+  file_name: string;
+  content_url?: string | undefined;
+  content_type?: string | undefined;
+  size?: number | undefined;})[];
+  metadata?: {} | undefined;
+  via?: {} | undefined;})[];
+  next_cursor?: string | undefined;
+};
+
+export interface ActionInput_zendesk_getticketfield {
+  /**
+   * The ID of the ticket field. Example: 123
+   */
+  ticketFieldId: number;
+};
+
+export interface ActionOutput_zendesk_getticketfield {
+  id: number;
   url: string;
-  locale: string;
-  user_segment_id: number | null;
-  permission_group_id: number;
-  author_id: number;
-  body: string;
-  comments_disabled: boolean;
-  content_tag_ids: number[];
-  created_at: string;
-  draft: boolean;
-  edited_at: string;
-  html_url: string;
-  label_names: string[];
-  outdated: boolean;
-  outdated_locales: string[];
-  position: number;
-  promoted: boolean;
-  section_id: number;
-  source_locale: string;
-  updated_at: string;
-  vote_count: number;
-  vote_sum: number;};
+  type: string;
+  title: string;
+  raw_title?: string | undefined;
+  description?: string | undefined;
+  raw_description?: string | undefined;
+  position?: number | undefined;
+  active?: boolean | undefined;
+  required?: boolean | undefined;
+  collapsed_for_agents?: boolean | undefined;
+  regexp_for_validation?: string | undefined;
+  title_in_portal?: string | undefined;
+  raw_title_in_portal?: string | undefined;
+  visible_in_portal?: boolean | undefined;
+  editable_in_portal?: boolean | undefined;
+  required_in_portal?: boolean | undefined;
+  tag?: string | undefined;
+  removable?: boolean | undefined;
+  agent_description?: string | undefined;
+  created_at?: string | undefined;
+  updated_at?: string | undefined;
+  custom_field_options?: ({  id: number;
+  name: string;
+  raw_name?: string | undefined;
+  value: string;})[];
+  system_field_options?: ({  id?: number | undefined;
+  name: string;
+  raw_name?: string | undefined;
+  value: string;})[];
+  sub_type_id?: number | undefined;
+  creator_user_id?: number | undefined;
+  creator_app_name?: string | undefined;
 };
 
-export type ActionInput_zendesk_fetcharticles = void
+export interface ActionInput_zendesk_getticketform {
+  /**
+   * The ID of the ticket form to retrieve. Example: 123
+   */
+  ticket_form_id: number;
+};
 
-export interface ActionOutput_zendesk_fetcharticles {
-  articles: ({  title: string;
-  id: string;
-  url: string;})[];
+export interface ActionOutput_zendesk_getticketform {
+  id: number;
+  name: string;
+  raw_name?: string | undefined;
+  display_name?: string | undefined;
+  raw_display_name?: string | undefined;
+  position?: number | undefined;
+  ticket_field_ids?: number[] | undefined;
+  active?: boolean | undefined;
+  default?: boolean | undefined;
+  end_user_visible?: boolean | undefined;
+  agent_conditions?: unknown[] | undefined;
+  end_user_conditions?: unknown[] | undefined;
+  visible_in_portal?: boolean | undefined;
+  editable_in_portal?: boolean | undefined;
+  required_in_portal?: boolean | undefined;
+  created_at?: string | undefined;
+  updated_at?: string | undefined;
+  in_business_hours?: boolean | undefined;
+};
+
+export interface ActionInput_zendesk_getticket {
+  /**
+   * Ticket ID to retrieve. Example: "1" or 1
+   */
+  ticket_id: string | number;
+  /**
+   * Comma-separated list of sideloads to include. Example: "users,organizations,groups". See: https://developer.zendesk.com/api-reference/ticketing/tickets/tickets/#sideloads
+   */
+  include?: string | undefined;
+};
+
+export interface ActionOutput_zendesk_getticket {
+  id: number;
+  url: string;
+  subject: string;
+  description?: string | undefined;
+  priority?: string | undefined;
+  status: string;
+  type?: string | undefined;
+  requester_id?: number | undefined;
+  assignee_id?: number | undefined;
+  organization_id?: number | undefined;
+  group_id?: number | undefined;
+  created_at?: string | undefined;
+  updated_at?: string | undefined;
+  tags?: string[] | undefined;
+};
+
+export interface ActionInput_zendesk_getuser {
+  /**
+   * The ID of the user to retrieve. Example: "123456"
+   */
+  userId: string;
+};
+
+export interface ActionOutput_zendesk_getuser {
+  id: number;
+  url?: string | undefined;
+  name?: string | undefined;
+  email?: string | undefined;
+  createdAt?: string | undefined;
+  updatedAt?: string | undefined;
+  timeZone?: string | undefined;
+  ianaTimeZone?: string | undefined;
+  phone?: string | undefined;
+  locale?: string | undefined;
+  localeId?: number | undefined;
+  organizationId?: number | undefined;
+  role?: string | undefined;
+  verified?: boolean | undefined;
+  active?: boolean | undefined;
+  suspended?: boolean | undefined;
+};
+
+export interface ActionInput_zendesk_listarticles {
+  /**
+   * Pagination cursor from the previous response. Omit for the first page.
+   */
+  cursor?: string | undefined;
+  /**
+   * Locale to filter articles by. Example: "en-us". Omit to list all locales.
+   */
+  locale?: string | undefined;
+  /**
+   * Sort field. Default is position.
+   */
+  sort_by?: 'position' | 'title' | 'created_at' | 'updated_at' | 'edited_at' | undefined;
+  /**
+   * Sort order. Default is asc.
+   */
+  sort_order?: 'asc' | 'desc' | undefined;
+  /**
+   * Comma-separated list of label names to filter by. Up to 10 labels.
+   */
+  label_names?: string | undefined;
+  /**
+   * Filter articles by section ID.
+   */
+  section_id?: string | undefined;
+  /**
+   * Filter articles by category ID.
+   */
+  category_id?: string | undefined;
+};
+
+export interface ActionOutput_zendesk_listarticles {
+  articles: ({  id: number;
+  author_id?: number | undefined;
+  body?: string | undefined;
+  comments_disabled?: boolean | undefined;
+  content_tag_ids?: number[] | undefined;
+  created_at?: string | undefined;
+  draft?: boolean | undefined;
+  edited_at?: string | undefined;
+  html_url?: string | undefined;
+  label_names?: string[] | undefined;
+  locale: string;
+  outdated?: boolean | undefined;
+  outdated_locales?: string[] | undefined;
+  permission_group_id?: number | undefined;
+  position?: number | undefined;
+  promoted?: boolean | undefined;
+  section_id?: number | undefined;
+  source_locale?: string | undefined;
+  title: string;
+  updated_at?: string | undefined;
+  url?: string | undefined;
+  user_segment_id?: number | undefined;
+  user_segment_ids?: number[] | undefined;
+  vote_count?: number | undefined;
+  vote_sum?: number | undefined;})[];
+  next_cursor?: string | undefined;
+};
+
+export interface ActionInput_zendesk_listgroups {
+  /**
+   * Pagination cursor from the previous response. Omit for the first page.
+   */
+  cursor?: string | undefined;
+};
+
+export interface ActionOutput_zendesk_listgroups {
+  items: ({  id: number;
+  name: string;
+  description?: string | undefined;
+  url: string;
+  created_at: string;
+  updated_at: string;
+  default?: boolean | undefined;
+  deleted?: boolean | undefined;
+  is_public?: boolean | undefined;})[];
+  next_cursor?: string | undefined;
+};
+
+export interface ActionInput_zendesk_listmacros {
+  /**
+   * Pagination cursor from the previous response. Omit for the first page.
+   */
+  cursor?: string | undefined;
+  /**
+   * Number of records to return per page. Maximum 100.
+   */
+  per_page?: number | undefined;
+  /**
+   * Filter by active macros if true or inactive macros if false
+   */
+  active?: boolean | undefined;
+  /**
+   * Filter macros by access level
+   */
+  access?: 'personal' | 'agents' | 'shared' | 'account' | undefined;
+  /**
+   * Filter macros by category ID
+   */
+  category?: number | undefined;
+  /**
+   * Filter macros by group ID
+   */
+  group_id?: number | undefined;
+  /**
+   * If true, returns only macros that can be applied to tickets
+   */
+  only_viewable?: boolean | undefined;
+  /**
+   * Sort field. Defaults to alphabetical
+   */
+  sort_by?: 'alphabetical' | 'created_at' | 'updated_at' | 'usage_1h' | 'usage_24h' | 'usage_7d' | 'usage_30d' | undefined;
+  /**
+   * Sort order. Defaults to asc for alphabetical and position sort, desc for others
+   */
+  sort_order?: 'asc' | 'desc' | undefined;
+};
+
+export interface ActionOutput_zendesk_listmacros {
+  macros: ({  id: number;
+  title: string;
+  raw_title?: string | undefined;
+  description?: string | undefined;
+  active?: boolean | undefined;
+  default?: boolean | undefined;
+  position?: number | undefined;
+  actions?: ({  field: string;
+  value?: unknown | undefined;})[];
+  restriction?: {  type?: string | undefined;
+  id?: number | undefined;
+  ids?: number[] | undefined;};
+  created_at?: string | undefined;
+  updated_at?: string | undefined;
+  url?: string | undefined;})[];
+  next_cursor?: string | undefined;
+};
+
+export interface ActionInput_zendesk_listorganizations {
+  /**
+   * Pagination cursor from the previous response. Omit for the first page.
+   */
+  cursor?: string | undefined;
+};
+
+export interface ActionOutput_zendesk_listorganizations {
+  items: ({  id: number;
+  name?: string | undefined;
+  url?: string | undefined;
+  external_id?: string | undefined;
+  created_at?: string | undefined;
+  updated_at?: string | undefined;
+  domain_names?: string[] | undefined;
+  details?: string | undefined;
+  notes?: string | undefined;
+  group_id?: number | undefined;
+  shared_tickets?: boolean | undefined;
+  shared_comments?: boolean | undefined;
+  tags?: string[] | undefined;})[];
+  next_cursor?: string | undefined;
+};
+
+export interface ActionInput_zendesk_listticketfields {
+  /**
+   * Pagination cursor from the previous response. Omit for the first page.
+   */
+  cursor?: string | undefined;
+};
+
+export interface ActionOutput_zendesk_listticketfields {
+  items: ({  id: number;
+  url: string;
+  type: string;
+  title: string;
+  raw_title?: string | undefined;
+  description?: string | undefined;
+  raw_description?: string | undefined;
+  position?: number | undefined;
+  active?: boolean | undefined;
+  required?: boolean | undefined;
+  collapsed_for_agents?: boolean | undefined;
+  regexp_for_validation?: string | undefined;
+  title_in_portal?: string | undefined;
+  raw_title_in_portal?: string | undefined;
+  visible_in_portal?: boolean | undefined;
+  editable_in_portal?: boolean | undefined;
+  required_in_portal?: boolean | undefined;
+  tag?: string | undefined;
+  created_at?: string | undefined;
+  updated_at?: string | undefined;
+  removable?: boolean | undefined;
+  agent_description?: string | undefined;
+  custom_field_options?: unknown[] | undefined;})[];
+  next_cursor?: string | undefined;
+};
+
+export interface ActionInput_zendesk_listticketforms {
+  /**
+   * Pagination cursor from the previous response. Omit for the first page.
+   */
+  cursor?: string | undefined;
+};
+
+export interface ActionOutput_zendesk_listticketforms {
+  items: ({  id: number;
+  name: string;
+  raw_name?: string | undefined;
+  display_name?: string | undefined;
+  end_user_visible?: boolean | undefined;
+  position?: number | undefined;
+  ticket_field_ids?: number[] | undefined;
+  active?: boolean | undefined;
+  default?: boolean | undefined;
+  created_at?: string | undefined;
+  updated_at?: string | undefined;})[];
+  next_cursor?: string | undefined;
+};
+
+export interface ActionInput_zendesk_listtickets {
+  /**
+   * Pagination cursor from the previous response. Omit for the first page.
+   */
+  cursor?: string | undefined;
+  /**
+   * Number of items to return per page. Maximum is 100.
+   */
+  page_size?: number | undefined;
+};
+
+export interface ActionOutput_zendesk_listtickets {
+  /**
+   * Array of tickets
+   */
+  tickets: ({  /**
+   * Ticket ID. Example: 123
+   */
+  id: number;
+  /**
+   * API URL for the ticket
+   */
+  url: string;
+  /**
+   * External platform ID
+   */
+  external_id?: string | undefined;
+  /**
+   * Ticket type
+   */
+  type?: string | undefined;
+  /**
+   * Ticket subject
+   */
+  subject?: string | undefined;
+  /**
+   * Dynamic content placeholder for subject
+   */
+  raw_subject?: string | undefined;
+  /**
+   * Ticket description
+   */
+  description?: string | undefined;
+  /**
+   * Ticket priority
+   */
+  priority?: string | undefined;
+  /**
+   * Ticket status
+   */
+  status: string;
+  /**
+   * Original recipient email address
+   */
+  recipient?: string | undefined;
+  /**
+   * User ID of the requester
+   */
+  requester_id?: number | undefined;
+  /**
+   * User ID of the submitter
+   */
+  submitter_id?: number | undefined;
+  /**
+   * User ID of the assignee
+   */
+  assignee_id?: number | undefined;
+  /**
+   * Organization ID
+   */
+  organization_id?: number | undefined;
+  /**
+   * Group ID
+   */
+  group_id?: number | undefined;
+  /**
+   * User IDs of collaborators
+   */
+  collaborator_ids?: number[] | undefined;
+  /**
+   * User IDs of followers
+   */
+  follower_ids?: number[] | undefined;
+  /**
+   * User IDs in email CC
+   */
+  email_cc_ids?: number[] | undefined;
+  /**
+   * Topic ID in the community
+   */
+  forum_topic_id?: number | undefined;
+  /**
+   * Problem ticket ID for incidents
+   */
+  problem_id?: number | undefined;
+  /**
+   * Whether ticket has linked incidents
+   */
+  has_incidents?: boolean | undefined;
+  /**
+   * Whether ticket is public
+   */
+  is_public?: boolean | undefined;
+  /**
+   * Due date for tickets of type task
+   */
+  due_at?: string | undefined;
+  /**
+   * Array of tags
+   */
+  tags?: string[] | undefined;
+  /**
+   * Custom field values
+   */
+  custom_fields?: ({  id: number;
+  value?: unknown | undefined;})[];
+  /**
+   * Satisfaction rating
+   */
+  satisfaction_rating?: {  score?: string | undefined;
+  comment?: string | undefined;};
+  /**
+   * Sharing agreement IDs
+   */
+  sharing_agreement_ids?: number[] | undefined;
+  /**
+   * Followup ticket IDs
+   */
+  followup_ids?: number[] | undefined;
+  /**
+   * Ticket form ID
+   */
+  ticket_form_id?: number | undefined;
+  /**
+   * Brand ID
+   */
+  brand_id?: number | undefined;
+  /**
+   * Whether channelback is allowed
+   */
+  allow_channelback?: boolean | undefined;
+  /**
+   * Whether attachments are allowed
+   */
+  allow_attachments?: boolean | undefined;
+  /**
+   * Creation timestamp
+   */
+  created_at?: string | undefined;
+  /**
+   * Last update timestamp
+   */
+  updated_at?: string | undefined;})[];
+  /**
+   * Cursor for the next page of results
+   */
+  next_cursor?: string | undefined;
+  /**
+   * Whether there are more results
+   */
+  has_more?: boolean | undefined;
+};
+
+export interface ActionInput_zendesk_listusers {
+  /**
+   * Pagination cursor from the previous response. Omit for the first page.
+   */
+  cursor?: string | undefined;
+};
+
+export interface ActionOutput_zendesk_listusers {
+  items: ({  id: number;
+  name?: string | undefined;
+  email?: string | undefined;
+  role?: string | undefined;
+  active?: boolean | undefined;
+  created_at?: string | undefined;
+  updated_at?: string | undefined;
+  external_id?: string | undefined;
+  locale?: string | undefined;
+  time_zone?: string | undefined;
+  verified?: boolean | undefined;})[];
+  next_cursor?: string | undefined;
+};
+
+export interface ActionInput_zendesk_listviews {
+  /**
+   * Pagination cursor from the previous response. Omit for the first page.
+   */
+  cursor?: string | undefined;
+};
+
+export interface ActionOutput_zendesk_listviews {
+  views: ({  id: number;
+  title: string;
+  active?: boolean | undefined;
+  default?: boolean | undefined;
+  description?: string | undefined;
+  position?: number | undefined;
+  created_at?: string | undefined;
+  updated_at?: string | undefined;})[];
+  next_cursor?: string | undefined;
 };
 
 export interface ActionInput_zendesk_searchtickets {
+  /**
+   * Zendesk search query. Should include "type:ticket" and any additional filters like status, tags, dates. Example: "type:ticket status:open"
+   */
   query: string;
+  /**
+   * Sort field. Defaults to relevance.
+   */
+  sort_by?: 'updated_at' | 'created_at' | 'priority' | 'status' | 'ticket_type' | undefined;
+  /**
+   * Sort order. Defaults to desc.
+   */
+  sort_order?: 'asc' | 'desc' | undefined;
+  /**
+   * Page number for offset pagination.
+   */
+  page?: number | undefined;
 };
 
 export interface ActionOutput_zendesk_searchtickets {
-  tickets: ({  id: string;
+  count: number;
+  next_page?: string | undefined;
+  previous_page?: string | undefined;
+  tickets: ({  id: number;
   url: string;
-  external_id: string | null;
-  requester_id: string;
-  requester_name: string;
-  assignee_id: string | null;
-  assignee_name: string | null;
-  assignee_avatar: string | null;
-  status: string;
+  external_id?: string | undefined;
+  via?: {  channel?: string | undefined;};
   created_at: string;
   updated_at: string;
-  is_public: boolean;
-  subject: string | null;
-  description: string;
-  priority: string | null;
-  tags: string[];})[];
+  type?: string | undefined;
+  subject?: string | undefined;
+  raw_subject?: string | undefined;
+  description?: string | undefined;
+  priority?: string | undefined;
+  status: string;
+  recipient?: string | undefined;
+  requester_id: number;
+  submitter_id: number;
+  assignee_id?: number | undefined;
+  organization_id?: number | undefined;
+  group_id?: number | undefined;
+  collaborator_ids?: number[] | undefined;
+  follower_ids?: number[] | undefined;
+  email_cc_ids?: number[] | undefined;
+  forum_topic_id?: number | undefined;
+  problem_id?: number | undefined;
+  has_incidents?: boolean | undefined;
+  is_public?: boolean | undefined;
+  due_at?: string | undefined;
+  tags?: string[] | undefined;
+  custom_fields?: ({  id: number;
+  value?: unknown | undefined;})[];
+  satisfaction_rating?: {  score: string;} | undefined;
+  sharing_agreement_ids?: number[] | undefined;
+  fields?: ({  id: number;
+  value?: unknown | undefined;})[];
+  followup_ids?: number[] | undefined;
+  ticket_form_id?: number | undefined;
+  brand_id?: number | undefined;
+  allow_channelback?: boolean | undefined;
+  allow_attachments?: boolean | undefined;})[];
+};
+
+export interface ActionInput_zendesk_updateorganization {
+  /**
+   * The ID of the organization to update. Example: 123
+   */
+  organizationId: number;
+  /**
+   * A unique name for the organization. Example: "Acme Inc."
+   */
+  name?: string | undefined;
+  /**
+   * Any notes about the organization. Set to null to clear. Example: "Primary customer"
+   */
+  notes?: string | undefined;
+  /**
+   * Any details about the organization, such as the address. Set to null to clear.
+   */
+  details?: string | undefined;
+  /**
+   * A unique external ID to associate organizations to an external record. Set to null to clear.
+   */
+  external_id?: string | undefined;
+  /**
+   * New tickets from users in this organization are automatically put in this group. Example: 234
+   */
+  group_id?: number | undefined;
+  /**
+   * End users in this organization can see each other's tickets.
+   */
+  shared_tickets?: boolean | undefined;
+  /**
+   * End users in this organization can comment on each other's tickets.
+   */
+  shared_comments?: boolean | undefined;
+  /**
+   * An array of domain names associated with this organization. Example: ["example.com", "acme.com"]
+   */
+  domain_names?: string[] | undefined;
+  /**
+   * The tags of the organization. Example: ["vip", "enterprise"]
+   */
+  tags?: string[] | undefined;
+};
+
+export interface ActionOutput_zendesk_updateorganization {
+  /**
+   * The ID of the organization
+   */
+  id: number;
+  name?: string | undefined;
+  notes?: string | undefined;
+  details?: string | undefined;
+  external_id?: string | undefined;
+  group_id?: number | undefined;
+  shared_tickets?: boolean | undefined;
+  shared_comments?: boolean | undefined;
+  domain_names?: string[] | undefined;
+  tags?: string[] | undefined;
+  created_at?: string | undefined;
+  updated_at?: string | undefined;
+  url?: string | undefined;
+};
+
+export interface ActionInput_zendesk_updateticket {
+  /**
+   * The ID of the ticket to update. Example: 12345
+   */
+  ticket_id: number;
+  /**
+   * The subject of the ticket.
+   */
+  subject?: string | undefined;
+  /**
+   * The status of the ticket.
+   */
+  status?: 'new' | 'open' | 'pending' | 'hold' | 'solved' | 'closed' | undefined;
+  /**
+   * The priority of the ticket.
+   */
+  priority?: 'urgent' | 'high' | 'normal' | 'low' | undefined;
+  /**
+   * The ID of the agent to assign the ticket to.
+   */
+  assignee_id?: number | undefined;
+  /**
+   * The ID of the group to assign the ticket to.
+   */
+  group_id?: number | undefined;
+  /**
+   * The ID of the requester (end user) of the ticket.
+   */
+  requester_id?: number | undefined;
+  /**
+   * Array of tags to apply to the ticket.
+   */
+  tags?: string[] | undefined;
+  /**
+   * Array of custom field objects with id and value.
+   */
+  custom_fields?: ({  /**
+   * The ID of the custom field.
+   */
+  id: number;
+  /**
+   * The value to set for the custom field.
+   */
+  value: string | number | boolean;})[] | undefined;
+  /**
+   * Optional comment to add when updating the ticket.
+   */
+  comment?: {  /**
+   * The body of the comment. Example: "This issue has been resolved."
+   */
+  body: string;
+  /**
+   * Whether the comment is public (visible to requester) or internal. Default: true
+   */
+  public?: boolean | undefined;
+  /**
+   * The ID of the user who authored the comment. Defaults to the authenticated user.
+   */
+  author_id?: number | undefined;};
+};
+
+export interface ActionOutput_zendesk_updateticket {
+  id: number;
+  url: string;
+  subject?: string | undefined;
+  description?: string | undefined;
+  priority?: string | undefined;
+  status: string;
+  recipient?: string | undefined;
+  requester_id: number;
+  submitter_id: number;
+  assignee_id?: number | undefined;
+  organization_id?: number | undefined;
+  group_id?: number | undefined;
+  collaborator_ids?: number[] | undefined;
+  tags?: string[] | undefined;
+  custom_fields?: ({  id: number;
+  value?: string | number | boolean | null | undefined;})[];
+  created_at: string;
+  updated_at: string;
+};
+
+export interface ActionInput_zendesk_updateuser {
+  /**
+   * The ID of the user to update. Example: "123456789"
+   */
+  userId: string;
+  /**
+   * The user's full name.
+   */
+  name?: string | undefined;
+  /**
+   * The user's email address. On update, adds as secondary email if primary is verified.
+   */
+  email?: string | undefined;
+  /**
+   * An alias displayed to end users.
+   */
+  alias?: string | undefined;
+  /**
+   * Any details you want to store about the user, such as an address.
+   */
+  details?: string | undefined;
+  /**
+   * Any notes you want to store about the user.
+   */
+  notes?: string | undefined;
+  /**
+   * The user's primary phone number.
+   */
+  phone?: string | undefined;
+  /**
+   * The ID of the user's organization.
+   */
+  organizationId?: number | undefined;
+  /**
+   * The user's role.
+   */
+  role?: 'end-user' | 'agent' | 'admin' | undefined;
+  /**
+   * A custom role ID if the user is an agent on Enterprise plan.
+   */
+  customRoleId?: number | undefined;
+  /**
+   * The ID of the user's default group.
+   */
+  defaultGroupId?: number | undefined;
+  /**
+   * A unique identifier from another system.
+   */
+  externalId?: string | undefined;
+  /**
+   * The language identifier for this user.
+   */
+  localeId?: number | undefined;
+  /**
+   * The time-zone of this user. Example: "America/New_York".
+   */
+  timeZone?: string | undefined;
+  /**
+   * Whether any of the user's identities is verified.
+   */
+  verified?: boolean | undefined;
+  /**
+   * If the agent is suspended.
+   */
+  suspended?: boolean | undefined;
+  /**
+   * Custom fields values for the user's profile.
+   */
+  userFields?: {  [key: string]: unknown | undefined;};
+  /**
+   * The user's tags.
+   */
+  tags?: string[] | undefined;
+  /**
+   * A URL pointing to the user's profile picture.
+   */
+  remotePhotoUrl?: string | undefined;
+  /**
+   * The user's signature.
+   */
+  signature?: string | undefined;
+};
+
+export interface ActionOutput_zendesk_updateuser {
+  id: string;
+  name?: string | undefined;
+  email?: string | undefined;
+  alias?: string | undefined;
+  details?: string | undefined;
+  notes?: string | undefined;
+  phone?: string | undefined;
+  organizationId?: number | undefined;
+  role?: string | undefined;
+  customRoleId?: number | undefined;
+  defaultGroupId?: number | undefined;
+  externalId?: string | undefined;
+  localeId?: number | undefined;
+  timeZone?: string | undefined;
+  verified?: boolean | undefined;
+  suspended?: boolean | undefined;
+  userFields?: {  [key: string]: unknown | undefined;};
+  tags?: string[] | undefined;
+  remotePhotoUrl?: string | undefined;
+  signature?: string | undefined;
+  createdAt?: string | undefined;
+  updatedAt?: string | undefined;
+  url?: string | undefined;
 };
 
 export interface ZohoCRMAccount {

@@ -1,0 +1,63 @@
+{
+  "input": {
+    "parentFolderId": "Inbox",
+    "displayName": "TestFolder4283"
+  },
+  "output": {
+    "id": "AQMkADAwATNiZmYAZS1hZGNjAC0zNzY5LTAwAi0wMAoALgAAA4r_TlY6z-REqceKH8A61PsBAHnHtSEqpiRFlk2OncK9A48AAAAdoFdIAAAA",
+    "displayName": "TestFolder4283",
+    "parentFolderId": "AQMkADAwATNiZmYAZS1hZGNjAC0zNzY5LTAwAi0wMAoALgAAA4r_TlY6z-REqceKH8A61PsBAHnHtSEqpiRFlk2OncK9A48AAAIBDAAAAA==",
+    "childFolderCount": 0,
+    "unreadItemCount": 0,
+    "totalItemCount": 0,
+    "isHidden": false
+  },
+  "nango": {},
+  "api": {
+    "post": {
+      "/v1.0/me/mailFolders/Inbox/childFolders": {
+        "response": {
+          "@odata.context": "https://graph.microsoft.com/v1.0/$metadata#users('apinangodev%40outlook.com')/mailFolders('Inbox')/childFolders/$entity",
+          "id": "AQMkADAwATNiZmYAZS1hZGNjAC0zNzY5LTAwAi0wMAoALgAAA4r_TlY6z-REqceKH8A61PsBAHnHtSEqpiRFlk2OncK9A48AAAAdoFdIAAAA",
+          "displayName": "TestFolder4283",
+          "parentFolderId": "AQMkADAwATNiZmYAZS1hZGNjAC0zNzY5LTAwAi0wMAoALgAAA4r_TlY6z-REqceKH8A61PsBAHnHtSEqpiRFlk2OncK9A48AAAIBDAAAAA==",
+          "childFolderCount": 0,
+          "unreadItemCount": 0,
+          "totalItemCount": 0,
+          "sizeInBytes": 0,
+          "isHidden": false
+        },
+        "status": 201,
+        "headers": {
+          "date": "Mon, 04 May 2026 09:25:08 GMT",
+          "content-type": "application/json; odata.metadata=minimal; odata.streaming=true; IEEE754Compatible=false; charset=utf-8",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=31536000",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4983",
+          "x-ratelimit-reset": "1777886748",
+          "cache-control": "private",
+          "location": "https://graph.microsoft.com/v1.0/users('apinangodev@outlook.com')/mailFolders('AQMkADAwATNiZmYAZS1hZGNjAC0zNzY5LTAwAi0wMAoALgAAA4r_TlY6z-REqceKH8A61PsBAHnHtSEqpiRFlk2OncK9A48AAAAdoFdIAAAA')",
+          "request-id": "83d3f39b-966d-4da7-9342-b47fa7945f2c",
+          "client-request-id": "83d3f39b-966d-4da7-9342-b47fa7945f2c",
+          "x-ms-ags-diagnostic": "{\"ServerInfo\":{\"DataCenter\":\"West US 2\",\"Slice\":\"E\",\"Ring\":\"4\",\"ScaleUnit\":\"000\",\"RoleInstance\":\"CO1PEPF00000107\"}}"
+        },
+        "hash": "46b59bb556e403aa4751349854c0e6ec953953e9",
+        "request": {
+          "data": {
+            "displayName": "TestFolder4283"
+          }
+        }
+      }
+    }
+  }
+}

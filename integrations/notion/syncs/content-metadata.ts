@@ -209,7 +209,7 @@ function extractParent(item: PageObject | DataSourceObject): { parent_id?: strin
 
 const sync = createSync({
     description: 'Sync page and data source metadata for broad Notion content discovery.',
-    version: '3.0.0',
+    version: '3.0.1',
     frequency: 'every hour',
     autoStart: true,
     checkpoint: CheckpointSchema,
@@ -231,6 +231,8 @@ const sync = createSync({
         let cursor = parsedCheckpoint?.success ? parsedCheckpoint.data.start_cursor : undefined;
 
         await nango.trackDeletesStart('ContentMetadata');
+        let checkpointSaved = false;
+        const hadExistingCheckpoint = !!cursor;
 
         // Manual pagination loop to avoid test mock provider lookup issues
         do {
@@ -297,13 +299,16 @@ const sync = createSync({
             const nextCursor = data.next_cursor ?? undefined;
             if (nextCursor) {
                 await nango.saveCheckpoint({ start_cursor: nextCursor });
+                checkpointSaved = true;
             }
 
             cursor = nextCursor;
         } while (cursor);
 
         await nango.trackDeletesEnd('ContentMetadata');
-        await nango.clearCheckpoint();
+        if (checkpointSaved || hadExistingCheckpoint) {
+            await nango.clearCheckpoint();
+        }
     }
 });
 

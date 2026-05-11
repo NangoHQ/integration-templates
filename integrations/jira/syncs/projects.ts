@@ -57,7 +57,7 @@ const ProviderProjectSchema = z.object({
 
 const sync = createSync({
     description: 'Sync Jira projects accessible to the authenticated user.',
-    version: '2.0.0',
+    version: '2.0.1',
     endpoints: [{ method: 'POST', path: '/syncs/projects' }],
     frequency: 'every hour',
     autoStart: true,
@@ -129,7 +129,6 @@ const sync = createSync({
             );
         }
 
-        await nango.clearCheckpoint();
         await nango.trackDeletesEnd('Project');
     }
 });

@@ -1,92 +1,125 @@
+import { z } from 'zod';
 import { createAction } from 'nango';
-import { getCompany } from '../utils/get-company.js';
-import { toQuickBooksCreditMemo, toCreditMemo } from '../mappers/to-credit-memo.js';
 
-import type { ProxyConfiguration } from 'nango';
-import { CreditMemo, CreateCreditMemo } from '../models.js';
+const RefSchema = z.object({
+    value: z.string(),
+    name: z.string().optional()
+});
 
-/**
- * This function handles the creation of a credit memo in QuickBooks via the Nango action.
- * It validates the input credit memo data, maps it to the appropriate QuickBooks credit memo structure,
- * and sends a request to create the credit memo in the QuickBooks API.
- * For detailed endpoint documentation, refer to:
- * https://developer.intuit.com/app/developer/qbo/docs/api/accounting/all-entities/creditmemo#create-a-credit-memo
- *
- * @param {NangoAction} nango - The Nango action instance to handle API requests.
- * @param {CreateCreditMemo} input - The credit memo data input that will be sent to QuickBooks.
- * @throws {nango.ActionError} - Throws an error if the input is missing or lacks required fields.
- * @returns {Promise<CreditMemo>} - Returns the created credit memo object from QuickBooks.
- */
+const SalesItemLineDetailSchema = z.object({
+    ItemRef: RefSchema,
+    UnitPrice: z.number().optional(),
+    Qty: z.number().optional(),
+    TaxCodeRef: RefSchema.optional()
+});
+
+const LineSchema = z.object({
+    Amount: z.number(),
+    DetailType: z.string(),
+    Description: z.string().optional(),
+    SalesItemLineDetail: SalesItemLineDetailSchema.optional()
+});
+
+const InputSchema = z.object({
+    CustomerRef: RefSchema,
+    Line: z.array(LineSchema),
+    TxnDate: z.string().optional(),
+    DocNumber: z.string().optional(),
+    PrivateNote: z.string().optional(),
+    CustomerMemo: z
+        .object({
+            value: z.string()
+        })
+        .optional(),
+    BillEmail: z
+        .object({
+            Address: z.string()
+        })
+        .optional(),
+    CurrencyRef: RefSchema.optional(),
+    ProjectRef: RefSchema.optional()
+});
+
+const MetaDataSchema = z.object({
+    CreateTime: z.string(),
+    LastUpdatedTime: z.string()
+});
+
+const CreditMemoLineSchema = z.object({
+    Id: z.string().optional(),
+    LineNum: z.number().optional(),
+    Description: z.string().optional(),
+    Amount: z.number(),
+    DetailType: z.string(),
+    SalesItemLineDetail: SalesItemLineDetailSchema.optional()
+});
+
+const OutputSchema = z.object({
+    Id: z.string(),
+    SyncToken: z.string(),
+    MetaData: MetaDataSchema,
+    DocNumber: z.string().optional(),
+    TxnDate: z.string(),
+    PrivateNote: z.string().optional(),
+    Line: z.array(CreditMemoLineSchema),
+    CustomerRef: RefSchema,
+    CustomerMemo: z
+        .object({
+            value: z.string()
+        })
+        .optional(),
+    TotalAmt: z.number(),
+    RemainingCredit: z.number().optional(),
+    Balance: z.number().optional()
+});
+
+async function getCompany(nango: Parameters<ReturnType<typeof createAction>['exec']>[0]): Promise<string> {
+    const connection = await nango.getConnection();
+    const realmId = connection.connection_config?.['realmId'];
+    if (!realmId || typeof realmId !== 'string') {
+        throw new nango.ActionError({
+            type: 'missing_realm_id',
+            message: 'realmId not found in the connection configuration. Please reauthenticate to set the realmId.'
+        });
+    }
+    return realmId;
+}
+
+const ApiResponseSchema = z.object({
+    CreditMemo: OutputSchema
+});
+
 const action = createAction({
-    description: 'Creates a single credit memo in QuickBooks.',
-    version: '1.0.0',
-
+    description: 'Create a QuickBooks credit memo.',
+    version: '2.0.0',
     endpoint: {
         method: 'POST',
-        path: '/credit-memos',
+        path: '/actions/create-credit-memo',
         group: 'Credit Memos'
     },
-
-    input: CreateCreditMemo,
-    output: CreditMemo,
+    input: InputSchema,
+    output: OutputSchema,
     scopes: ['com.intuit.quickbooks.accounting'],
 
-    exec: async (nango, input): Promise<CreditMemo> => {
-        // Validate if input is present
-        if (!input) {
-            throw new nango.ActionError({
-                message: `Input credit memo object is required. Received: ${JSON.stringify(input)}`
-            });
-        }
+    exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
+        const realmId = await getCompany(nango);
 
-        // Validate required fields
-        if (!input.customer_ref || !input.customer_ref.value) {
-            throw new nango.ActionError({
-                message: `CustomerRef is required and must include a value. Received: ${JSON.stringify(input.customer_ref)}`
-            });
-        }
-
-        if (!input.line || input.line.length === 0) {
-            throw new nango.ActionError({
-                message: `At least one line item is required. Received: ${JSON.stringify(input.line)}`
-            });
-        }
-
-        // Validate each line item
-        for (const line of input.line) {
-            if (!line.detail_type) {
-                throw new nango.ActionError({
-                    message: `DetailType is required for each line item. Received: ${JSON.stringify(line)}`
-                });
-            }
-
-            if (line.amount_cents === undefined) {
-                throw new nango.ActionError({
-                    message: `amount_cents is required for each line item. Received: ${JSON.stringify(line)}`
-                });
-            }
-
-            if (!line.sales_item_line_detail || !line.sales_item_line_detail.item_ref) {
-                throw new nango.ActionError({
-                    message: `SalesItemLineDetail with item_ref is required for each line item. Received: ${JSON.stringify(line.sales_item_line_detail)}`
-                });
-            }
-        }
-
-        const companyId = await getCompany(nango);
-        // Map the credit memo input to the QuickBooks credit memo structure
-        const quickBooksInvoice = toQuickBooksCreditMemo(input);
-
-        const config: ProxyConfiguration = {
-            // https://developer.intuit.com/app/developer/qbo/docs/api/accounting/all-entities/creditmemo#create-a-credit-memo
-            endpoint: `/v3/company/${companyId}/creditmemo`,
-            data: quickBooksInvoice,
+        // https://developer.intuit.com/app/developer/qbo/docs/api/accounting/all-entities/creditmemo
+        const response = await nango.post({
+            endpoint: `/v3/company/${encodeURIComponent(realmId)}/creditmemo`,
+            data: input,
             retries: 3
-        };
+        });
 
-        const response = await nango.post(config);
+        if (!response.data) {
+            throw new nango.ActionError({
+                type: 'api_error',
+                message: 'No data returned from QuickBooks API'
+            });
+        }
 
-        return toCreditMemo(response.data['CreditMemo']);
+        const parsed = ApiResponseSchema.parse(response.data);
+        return parsed.CreditMemo;
     }
 });
 
