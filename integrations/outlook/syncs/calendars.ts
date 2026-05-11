@@ -1,64 +1,97 @@
 import { createSync } from 'nango';
-import type { ProxyConfiguration } from 'nango';
-import { OutlookCalendar } from '../models.js';
 import { z } from 'zod';
 
+const CalendarOwnerSchema = z.object({
+    name: z.string().optional(),
+    address: z.string().optional()
+});
+
+const MicrosoftCalendarSchema = z.object({
+    id: z.string(),
+    name: z.string().optional(),
+    color: z.string().optional(),
+    changeKey: z.string().optional(),
+    canShare: z.boolean().optional(),
+    canViewPrivateItems: z.boolean().optional(),
+    canEdit: z.boolean().optional(),
+    owner: CalendarOwnerSchema.optional()
+});
+
+const CalendarSchema = z.object({
+    id: z.string(),
+    name: z.string().optional(),
+    color: z.string().optional(),
+    changeKey: z.string().optional(),
+    canShare: z.boolean().optional(),
+    canViewPrivateItems: z.boolean().optional(),
+    canEdit: z.boolean().optional(),
+    owner: CalendarOwnerSchema.optional()
+});
+
 const sync = createSync({
-    description: 'Sync the calendars list of the user',
-    version: '2.0.0',
+    description: 'Sync mailbox calendars and basic calendar metadata',
+    version: '3.0.0',
     frequency: 'every hour',
     autoStart: true,
-    syncType: 'full',
-
+    models: {
+        Calendar: CalendarSchema
+    },
     endpoints: [
         {
-            method: 'GET',
-            path: '/calendars'
+            path: '/syncs/calendars',
+            method: 'GET'
         }
     ],
 
-    scopes: ['Calendars.Read'],
-
-    models: {
-        OutlookCalendar: OutlookCalendar
-    },
-
-    metadata: z.object({}),
-
     exec: async (nango) => {
-        const config: ProxyConfiguration = {
-            // https://learn.microsoft.com/en-us/graph/api/user-list-calendars?view=graph-rest-1.0&tabs=http
-            endpoint: '/v1.0/me/calendars',
-            params: {
-                $top: '100'
-            },
-            paginate: {
-                type: 'link',
-                response_path: 'value',
-                link_path_in_response_body: '@odata.nextLink',
-                limit: 100,
-                limit_name_in_request: '$top'
-            },
-            retries: 10
-        };
+        // https://learn.microsoft.com/graph/api/user-list-calendars
+        await nango.trackDeletesStart('Calendar');
 
-        for await (const calendarsPage of nango.paginate<OutlookCalendar>(config)) {
-            const processedCalendars = calendarsPage.map((calendar: any) => {
-                // Remove OData metadata properties
-                delete calendar['@odata.etag'];
-                delete calendar['@odata.id'];
+        try {
+            for await (const page of nango.paginate({
+                // https://learn.microsoft.com/graph/api/user-list-calendars
+                endpoint: '/v1.0/me/calendars',
+                paginate: {
+                    type: 'link',
+                    response_path: 'value',
+                    link_path_in_response_body: '@odata.nextLink',
+                    limit: 50,
+                    limit_name_in_request: '$top'
+                },
+                retries: 3
+            })) {
+                const calendars = page.map((raw: unknown) => {
+                    const parseResult = MicrosoftCalendarSchema.safeParse(raw);
+                    if (!parseResult.success) {
+                        throw new Error(`Invalid calendar record: ${parseResult.error.message}`);
+                    }
+                    const record = parseResult.data;
 
-                return calendar;
-            });
+                    return {
+                        id: record.id,
+                        ...(record.name != null && { name: record.name }),
+                        ...(record.color != null && { color: record.color }),
+                        ...(record.changeKey != null && { changeKey: record.changeKey }),
+                        ...(record.canShare != null && { canShare: record.canShare }),
+                        ...(record.canViewPrivateItems != null && { canViewPrivateItems: record.canViewPrivateItems }),
+                        ...(record.canEdit != null && { canEdit: record.canEdit }),
+                        ...(record.owner != null && {
+                            owner: {
+                                ...(record.owner.name != null && { name: record.owner.name }),
+                                ...(record.owner.address != null && { address: record.owner.address })
+                            }
+                        })
+                    };
+                });
 
-            if (processedCalendars.length > 0) {
-                await nango.batchSave(processedCalendars, 'OutlookCalendar');
+                if (calendars.length > 0) {
+                    await nango.batchSave(calendars, 'Calendar');
+                }
             }
+        } finally {
+            await nango.trackDeletesEnd('Calendar');
         }
-
-        await nango.deleteRecordsFromPreviousExecutions('OutlookCalendar');
     }
 });
 
-export type NangoSyncLocal = Parameters<(typeof sync)['exec']>[0];
 export default sync;

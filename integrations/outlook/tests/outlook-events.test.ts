@@ -1,47 +1,83 @@
-import { vi, expect, it, describe } from 'vitest';
+import { afterEach, beforeEach, vi, expect, it, describe } from 'vitest';
 
-import fetchData from '../syncs/events.js';
+import createSync from '../syncs/events.js';
 
 describe('outlook events tests', () => {
+  const models = 'Event'.split(',');
+
+  const createTestContext = () => {
     const nangoMock = new global.vitest.NangoSyncMock({
-        dirname: __dirname,
-        name: 'events',
-        Model: 'OutlookCalendarEvent'
+      dirname: __dirname,
+      name: "events",
+      Model: "Event"
     });
 
-    vi.setSystemTime('2025-05-27T15:49:10.826Z');
+    return {
+      nangoMock,
+      batchSaveSpy: vi.spyOn(nangoMock, 'batchSave')
+    };
+  };
 
-    const models = 'OutlookCalendarEvent'.split(',');
-    const batchSaveSpy = vi.spyOn(nangoMock, 'batchSave');
+  beforeEach(() => {
+    vi.useFakeTimers();
+    vi.setSystemTime(new Date('2026-05-04T13:50:35.816Z'));
+  });
 
-    it('should get, map correctly the data and batchSave the result', async () => {
-        await fetchData.exec(nangoMock);
+  afterEach(() => {
+    vi.clearAllMocks();
+    vi.restoreAllMocks();
+    vi.useRealTimers();
+  });
 
-        for (const model of models) {
-            const expectedBatchSaveData = await nangoMock.getBatchSaveData(model);
+  it('should get, map correctly the data and batchSave the result', async () => {
+    const { nangoMock, batchSaveSpy } = createTestContext();
 
-            const spiedData = batchSaveSpy.mock.calls.flatMap((call) => {
-                if (call[1] === model) {
-                    return call[0];
-                }
+    await createSync.exec(nangoMock);
 
-                return [];
-            });
+    for (const model of models) {
+      const expectedBatchSaveData = await nangoMock.getBatchSaveData(model);
 
-            const spied = JSON.parse(JSON.stringify(spiedData));
-
-            expect(spied).toStrictEqual(expectedBatchSaveData);
+      const spiedData = batchSaveSpy.mock.calls.flatMap(call => {
+        if (call[1] === model) {
+          return call[0];
         }
-    });
 
-    it('should get, map correctly the data and batchDelete the result', async () => {
-        await fetchData.exec(nangoMock);
+        return [];
+      });
 
-        for (const model of models) {
-            const batchDeleteData = await nangoMock.getBatchDeleteData(model);
-            if (batchDeleteData && batchDeleteData.length > 0) {
-                expect(nangoMock.batchDelete).toHaveBeenCalledWith(batchDeleteData, model);
-            }
-        }
-    });
+      // Normalize spy-captured args into plain JSON so they compare cleanly
+      // with fixture data loaded from `*.test.json`. 
+      // Removes things like prototypes, undefined values and other non-serializable data.
+      const spied = JSON.parse(JSON.stringify(spiedData));
+
+      expect(spied).toStrictEqual(expectedBatchSaveData);
+    }
+  });
+
+  it('should get, map correctly the data and batchDelete the result', async () => {
+    const { nangoMock } = createTestContext();
+    const batchDeleteSpy = vi.spyOn(nangoMock, 'batchDelete');
+
+    await createSync.exec(nangoMock);
+
+    for (const model of models) {
+      const batchDeleteData = await nangoMock.getBatchDeleteData(model);
+      if (batchDeleteData && batchDeleteData.length > 0) {
+        const spiedData = batchDeleteSpy.mock.calls.flatMap(call => {
+          if (call[1] === model) {
+            return call[0];
+          }
+
+          return [];
+        });
+
+        // Normalize spy-captured args into plain JSON so they compare cleanly
+        // with fixture data loaded from `*.test.json`.
+        // Removes things like prototypes, undefined values and other non-serializable data.
+        const spied = JSON.parse(JSON.stringify(spiedData));
+
+        expect(spied).toStrictEqual(batchDeleteData);
+      }
+    }
+  });
 });
