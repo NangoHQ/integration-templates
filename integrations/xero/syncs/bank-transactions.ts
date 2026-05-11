@@ -7,7 +7,7 @@ const CheckpointSchema = z.object({
 
 const ConnectionSchema = z.object({
     connection_config: z.record(z.string(), z.unknown()).optional(),
-    metadata: z.record(z.string(), z.unknown()).optional()
+    metadata: z.record(z.string(), z.unknown()).optional().nullable()
 });
 
 const ConnectionsResponseSchema = z.array(

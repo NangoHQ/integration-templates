@@ -24,7 +24,7 @@ const PurchaseOrderSchema = z.object({
 
 const ConnectionResponseSchema = z.object({
     connection_config: z.record(z.string(), z.unknown()).optional(),
-    metadata: z.record(z.string(), z.unknown()).optional()
+    metadata: z.record(z.string(), z.unknown()).optional().nullable()
 });
 
 const TenantSchema = z.object({

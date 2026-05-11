@@ -120,7 +120,7 @@ const sync = createSync({
 async function resolveTenantId(nango: Parameters<(typeof sync)['exec']>[0]): Promise<string> {
     const connectionSchema = z.object({
         connection_config: z.record(z.string(), z.unknown()).optional(),
-        metadata: z.record(z.string(), z.unknown()).optional()
+        metadata: z.record(z.string(), z.unknown()).optional().nullable()
     });
 
     const rawConnection = await nango.getConnection();
