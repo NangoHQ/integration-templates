@@ -31,7 +31,7 @@ const CheckpointSchema = z.object({
 
 const sync = createSync({
     description: 'Sync templates available for a Notion data source',
-    version: '1.0.0',
+    version: '1.0.1',
     frequency: 'every hour',
     autoStart: true,
     checkpoint: CheckpointSchema,
@@ -62,6 +62,8 @@ const sync = createSync({
         // the cursor only to resume interrupted runs safely.
         await nango.trackDeletesStart('DataSourceTemplate');
         let cursor = parsedCheckpoint?.success ? parsedCheckpoint.data.start_cursor : undefined;
+        let checkpointSaved = false;
+        const hadExistingCheckpoint = !!cursor;
 
         do {
             const response = await nango.get({
@@ -95,12 +97,15 @@ const sync = createSync({
             const nextCursor = parsedResponse.data.next_cursor ?? undefined;
             if (nextCursor) {
                 await nango.saveCheckpoint({ start_cursor: nextCursor });
+                checkpointSaved = true;
             }
 
             cursor = nextCursor;
         } while (cursor);
 
-        await nango.clearCheckpoint();
+        if (checkpointSaved || hadExistingCheckpoint) {
+            await nango.clearCheckpoint();
+        }
         await nango.trackDeletesEnd('DataSourceTemplate');
     }
 });

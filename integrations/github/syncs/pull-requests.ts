@@ -175,17 +175,17 @@ const getRepositoriesInScope = async (nango: RepositoryScopeNango): Promise<stri
 
     const repos: string[] = [];
 
-    // https://docs.github.com/en/rest/apps/apps#list-repositories-accessible-to-the-app-installation
+    // https://docs.github.com/en/rest/repos/repos#list-repositories-for-the-authenticated-user
     for await (const page of nango.paginate<unknown>({
-        endpoint: '/installation/repositories',
+        endpoint: '/user/repos',
+        params: { per_page: 100 },
         paginate: {
             type: 'offset',
             offset_name_in_request: 'page',
             offset_start_value: 1,
             offset_calculation_method: 'per-page',
             limit_name_in_request: 'per_page',
-            limit: 100,
-            response_path: 'repositories'
+            limit: 100
         },
         retries: 3
     })) {
@@ -204,7 +204,7 @@ const getRepositoriesInScope = async (nango: RepositoryScopeNango): Promise<stri
 
 const sync = createSync({
     description: 'Sync pull requests for one or more GitHub repositories, including status, branches, and merge state.',
-    version: '1.0.0',
+    version: '1.0.1',
     frequency: 'every 5 minutes',
     autoStart: true,
     checkpoint: CheckpointSchema,

@@ -1,0 +1,423 @@
+{
+  "nango": {
+    "batchSave": {
+      "MailFolder": [
+        {
+          "id": "AQMkADAwATNiZmYAZS1hZGNjAC0zNzY5LTAwAi0wMAoALgAAA4r_TlY6z-REqceKH8A61PsBAHnHtSEqpiRFlk2OncK9A48AAAIBMAAAAA==",
+          "displayName": "Archive",
+          "parentFolderId": "AQMkADAwATNiZmYAZS1hZGNjAC0zNzY5LTAwAi0wMAoALgAAA4r_TlY6z-REqceKH8A61PsBAHnHtSEqpiRFlk2OncK9A48AAAIBCAAAAA==",
+          "childFolderCount": 0,
+          "totalItemCount": 2,
+          "unreadItemCount": 0,
+          "sizeInBytes": 4098,
+          "isHidden": false
+        },
+        {
+          "id": "AQMkADAwATNiZmYAZS1hZGNjAC0zNzY5LTAwAi0wMAoALgAAA4r_TlY6z-REqceKH8A61PsBAHnHtSEqpiRFlk2OncK9A48AAAIBKgAAAA==",
+          "displayName": "Conversation History",
+          "parentFolderId": "AQMkADAwATNiZmYAZS1hZGNjAC0zNzY5LTAwAi0wMAoALgAAA4r_TlY6z-REqceKH8A61PsBAHnHtSEqpiRFlk2OncK9A48AAAIBCAAAAA==",
+          "childFolderCount": 1,
+          "totalItemCount": 0,
+          "unreadItemCount": 0,
+          "sizeInBytes": 0,
+          "isHidden": false
+        },
+        {
+          "id": "AQMkADAwATNiZmYAZS1hZGNjAC0zNzY5LTAwAi0wMAoALgAAA4r_TlY6z-REqceKH8A61PsBAHnHtSEqpiRFlk2OncK9A48AAAAdoFc4AAAA",
+          "displayName": "Custom Folder 1",
+          "parentFolderId": "AQMkADAwATNiZmYAZS1hZGNjAC0zNzY5LTAwAi0wMAoALgAAA4r_TlY6z-REqceKH8A61PsBAHnHtSEqpiRFlk2OncK9A48AAAIBCAAAAA==",
+          "childFolderCount": 0,
+          "totalItemCount": 1,
+          "unreadItemCount": 1,
+          "sizeInBytes": 22538,
+          "isHidden": false
+        },
+        {
+          "id": "AQMkADAwATNiZmYAZS1hZGNjAC0zNzY5LTAwAi0wMAoALgAAA4r_TlY6z-REqceKH8A61PsBAHnHtSEqpiRFlk2OncK9A48AAAAdoFc3AAAA",
+          "displayName": "Custom Folder 2",
+          "parentFolderId": "AQMkADAwATNiZmYAZS1hZGNjAC0zNzY5LTAwAi0wMAoALgAAA4r_TlY6z-REqceKH8A61PsBAHnHtSEqpiRFlk2OncK9A48AAAIBCAAAAA==",
+          "childFolderCount": 0,
+          "totalItemCount": 1,
+          "unreadItemCount": 0,
+          "sizeInBytes": 2047,
+          "isHidden": false
+        },
+        {
+          "id": "AQMkADAwATNiZmYAZS1hZGNjAC0zNzY5LTAwAi0wMAoALgAAA4r_TlY6z-REqceKH8A61PsBAHnHtSEqpiRFlk2OncK9A48AAAIBCgAAAA==",
+          "displayName": "Deleted Items",
+          "parentFolderId": "AQMkADAwATNiZmYAZS1hZGNjAC0zNzY5LTAwAi0wMAoALgAAA4r_TlY6z-REqceKH8A61PsBAHnHtSEqpiRFlk2OncK9A48AAAIBCAAAAA==",
+          "childFolderCount": 2,
+          "totalItemCount": 4,
+          "unreadItemCount": 0,
+          "sizeInBytes": 14980,
+          "isHidden": false
+        },
+        {
+          "id": "AQMkADAwATNiZmYAZS1hZGNjAC0zNzY5LTAwAi0wMAoALgAAA4r_TlY6z-REqceKH8A61PsBAHnHtSEqpiRFlk2OncK9A48AAAIBDwAAAA==",
+          "displayName": "Drafts",
+          "parentFolderId": "AQMkADAwATNiZmYAZS1hZGNjAC0zNzY5LTAwAi0wMAoALgAAA4r_TlY6z-REqceKH8A61PsBAHnHtSEqpiRFlk2OncK9A48AAAIBCAAAAA==",
+          "childFolderCount": 1,
+          "totalItemCount": 14,
+          "unreadItemCount": 0,
+          "sizeInBytes": 36360,
+          "isHidden": false
+        },
+        {
+          "id": "AQMkADAwATNiZmYAZS1hZGNjAC0zNzY5LTAwAi0wMAoALgAAA4r_TlY6z-REqceKH8A61PsBAHnHtSEqpiRFlk2OncK9A48AAAAdoFc2AAAA",
+          "displayName": "Follow Up",
+          "parentFolderId": "AQMkADAwATNiZmYAZS1hZGNjAC0zNzY5LTAwAi0wMAoALgAAA4r_TlY6z-REqceKH8A61PsBAHnHtSEqpiRFlk2OncK9A48AAAIBDwAAAA==",
+          "childFolderCount": 0,
+          "totalItemCount": 0,
+          "unreadItemCount": 0,
+          "sizeInBytes": 0,
+          "isHidden": false
+        },
+        {
+          "id": "AQMkADAwATNiZmYAZS1hZGNjAC0zNzY5LTAwAi0wMAoALgAAA4r_TlY6z-REqceKH8A61PsBAHnHtSEqpiRFlk2OncK9A48AAAIBDAAAAA==",
+          "displayName": "Inbox",
+          "parentFolderId": "AQMkADAwATNiZmYAZS1hZGNjAC0zNzY5LTAwAi0wMAoALgAAA4r_TlY6z-REqceKH8A61PsBAHnHtSEqpiRFlk2OncK9A48AAAIBCAAAAA==",
+          "childFolderCount": 3,
+          "totalItemCount": 11,
+          "unreadItemCount": 8,
+          "sizeInBytes": 1987150,
+          "isHidden": false
+        },
+        {
+          "id": "AQMkADAwATNiZmYAZS1hZGNjAC0zNzY5LTAwAi0wMAoALgAAA4r_TlY6z-REqceKH8A61PsBAHnHtSEqpiRFlk2OncK9A48AAAAdoFczAAAA",
+          "displayName": "Project Alpha",
+          "parentFolderId": "AQMkADAwATNiZmYAZS1hZGNjAC0zNzY5LTAwAi0wMAoALgAAA4r_TlY6z-REqceKH8A61PsBAHnHtSEqpiRFlk2OncK9A48AAAIBDAAAAA==",
+          "childFolderCount": 2,
+          "totalItemCount": 0,
+          "unreadItemCount": 0,
+          "sizeInBytes": 0,
+          "isHidden": false
+        },
+        {
+          "id": "AQMkADAwATNiZmYAZS1hZGNjAC0zNzY5LTAwAi0wMAoALgAAA4r_TlY6z-REqceKH8A61PsBAHnHtSEqpiRFlk2OncK9A48AAAAdoFc1AAAA",
+          "displayName": "Archive",
+          "parentFolderId": "AQMkADAwATNiZmYAZS1hZGNjAC0zNzY5LTAwAi0wMAoALgAAA4r_TlY6z-REqceKH8A61PsBAHnHtSEqpiRFlk2OncK9A48AAAAdoFczAAAA",
+          "childFolderCount": 0,
+          "totalItemCount": 0,
+          "unreadItemCount": 0,
+          "sizeInBytes": 0,
+          "isHidden": false
+        },
+        {
+          "id": "AQMkADAwATNiZmYAZS1hZGNjAC0zNzY5LTAwAi0wMAoALgAAA4r_TlY6z-REqceKH8A61PsBAHnHtSEqpiRFlk2OncK9A48AAAAdoFc0AAAA",
+          "displayName": "Urgent",
+          "parentFolderId": "AQMkADAwATNiZmYAZS1hZGNjAC0zNzY5LTAwAi0wMAoALgAAA4r_TlY6z-REqceKH8A61PsBAHnHtSEqpiRFlk2OncK9A48AAAAdoFczAAAA",
+          "childFolderCount": 0,
+          "totalItemCount": 0,
+          "unreadItemCount": 0,
+          "sizeInBytes": 0,
+          "isHidden": false
+        },
+        {
+          "id": "AQMkADAwATNiZmYAZS1hZGNjAC0zNzY5LTAwAi0wMAoALgAAA4r_TlY6z-REqceKH8A61PsBAHnHtSEqpiRFlk2OncK9A48AAAAdoFdGAAAA",
+          "displayName": "TestFolder",
+          "parentFolderId": "AQMkADAwATNiZmYAZS1hZGNjAC0zNzY5LTAwAi0wMAoALgAAA4r_TlY6z-REqceKH8A61PsBAHnHtSEqpiRFlk2OncK9A48AAAIBDAAAAA==",
+          "childFolderCount": 0,
+          "totalItemCount": 0,
+          "unreadItemCount": 0,
+          "sizeInBytes": 0,
+          "isHidden": false
+        },
+        {
+          "id": "AQMkADAwATNiZmYAZS1hZGNjAC0zNzY5LTAwAi0wMAoALgAAA4r_TlY6z-REqceKH8A61PsBAHnHtSEqpiRFlk2OncK9A48AAAAdoFdIAAAA",
+          "displayName": "TestFolder4283",
+          "parentFolderId": "AQMkADAwATNiZmYAZS1hZGNjAC0zNzY5LTAwAi0wMAoALgAAA4r_TlY6z-REqceKH8A61PsBAHnHtSEqpiRFlk2OncK9A48AAAIBDAAAAA==",
+          "childFolderCount": 0,
+          "totalItemCount": 0,
+          "unreadItemCount": 0,
+          "sizeInBytes": 0,
+          "isHidden": false
+        },
+        {
+          "id": "AQMkADAwATNiZmYAZS1hZGNjAC0zNzY5LTAwAi0wMAoALgAAA4r_TlY6z-REqceKH8A61PsBAHnHtSEqpiRFlk2OncK9A48AAAIBFAAAAA==",
+          "displayName": "Junk Email",
+          "parentFolderId": "AQMkADAwATNiZmYAZS1hZGNjAC0zNzY5LTAwAi0wMAoALgAAA4r_TlY6z-REqceKH8A61PsBAHnHtSEqpiRFlk2OncK9A48AAAIBCAAAAA==",
+          "childFolderCount": 0,
+          "totalItemCount": 1,
+          "unreadItemCount": 1,
+          "sizeInBytes": 354271,
+          "isHidden": false
+        },
+        {
+          "id": "AQMkADAwATNiZmYAZS1hZGNjAC0zNzY5LTAwAi0wMAoALgAAA4r_TlY6z-REqceKH8A61PsBAHnHtSEqpiRFlk2OncK9A48AAAIBCwAAAA==",
+          "displayName": "Outbox",
+          "parentFolderId": "AQMkADAwATNiZmYAZS1hZGNjAC0zNzY5LTAwAi0wMAoALgAAA4r_TlY6z-REqceKH8A61PsBAHnHtSEqpiRFlk2OncK9A48AAAIBCAAAAA==",
+          "childFolderCount": 0,
+          "totalItemCount": 0,
+          "unreadItemCount": 0,
+          "sizeInBytes": 0,
+          "isHidden": false
+        },
+        {
+          "id": "AQMkADAwATNiZmYAZS1hZGNjAC0zNzY5LTAwAi0wMAoALgAAA4r_TlY6z-REqceKH8A61PsBAHnHtSEqpiRFlk2OncK9A48AAAIBCQAAAA==",
+          "displayName": "Sent Items",
+          "parentFolderId": "AQMkADAwATNiZmYAZS1hZGNjAC0zNzY5LTAwAi0wMAoALgAAA4r_TlY6z-REqceKH8A61PsBAHnHtSEqpiRFlk2OncK9A48AAAIBCAAAAA==",
+          "childFolderCount": 0,
+          "totalItemCount": 11,
+          "unreadItemCount": 0,
+          "sizeInBytes": 147297,
+          "isHidden": false
+        }
+      ]
+    },
+    "batchDelete": {
+      "MailFolder": []
+    }
+  },
+  "api": {
+    "get": {
+      "/v1.0/me/mailFolders/delta": [
+        {
+          "response": {
+            "@odata.context": "https://graph.microsoft.com/v1.0/$metadata#Collection(mailFolder)",
+            "value": [
+              {
+                "@odata.type": "#microsoft.graph.mailFolder",
+                "id": "AQMkADAwATNiZmYAZS1hZGNjAC0zNzY5LTAwAi0wMAoALgAAA4r_TlY6z-REqceKH8A61PsBAHnHtSEqpiRFlk2OncK9A48AAAIBMAAAAA==",
+                "displayName": "Archive",
+                "parentFolderId": "AQMkADAwATNiZmYAZS1hZGNjAC0zNzY5LTAwAi0wMAoALgAAA4r_TlY6z-REqceKH8A61PsBAHnHtSEqpiRFlk2OncK9A48AAAIBCAAAAA==",
+                "childFolderCount": 0,
+                "unreadItemCount": 0,
+                "totalItemCount": 2,
+                "sizeInBytes": 4098,
+                "isHidden": false
+              },
+              {
+                "@odata.type": "#microsoft.graph.mailFolder",
+                "id": "AQMkADAwATNiZmYAZS1hZGNjAC0zNzY5LTAwAi0wMAoALgAAA4r_TlY6z-REqceKH8A61PsBAHnHtSEqpiRFlk2OncK9A48AAAIBKgAAAA==",
+                "displayName": "Conversation History",
+                "parentFolderId": "AQMkADAwATNiZmYAZS1hZGNjAC0zNzY5LTAwAi0wMAoALgAAA4r_TlY6z-REqceKH8A61PsBAHnHtSEqpiRFlk2OncK9A48AAAIBCAAAAA==",
+                "childFolderCount": 1,
+                "unreadItemCount": 0,
+                "totalItemCount": 0,
+                "sizeInBytes": 0,
+                "isHidden": false
+              },
+              {
+                "@odata.type": "#microsoft.graph.mailFolder",
+                "id": "AQMkADAwATNiZmYAZS1hZGNjAC0zNzY5LTAwAi0wMAoALgAAA4r_TlY6z-REqceKH8A61PsBAHnHtSEqpiRFlk2OncK9A48AAAAdoFc4AAAA",
+                "displayName": "Custom Folder 1",
+                "parentFolderId": "AQMkADAwATNiZmYAZS1hZGNjAC0zNzY5LTAwAi0wMAoALgAAA4r_TlY6z-REqceKH8A61PsBAHnHtSEqpiRFlk2OncK9A48AAAIBCAAAAA==",
+                "childFolderCount": 0,
+                "unreadItemCount": 1,
+                "totalItemCount": 1,
+                "sizeInBytes": 22538,
+                "isHidden": false
+              },
+              {
+                "@odata.type": "#microsoft.graph.mailFolder",
+                "id": "AQMkADAwATNiZmYAZS1hZGNjAC0zNzY5LTAwAi0wMAoALgAAA4r_TlY6z-REqceKH8A61PsBAHnHtSEqpiRFlk2OncK9A48AAAAdoFc3AAAA",
+                "displayName": "Custom Folder 2",
+                "parentFolderId": "AQMkADAwATNiZmYAZS1hZGNjAC0zNzY5LTAwAi0wMAoALgAAA4r_TlY6z-REqceKH8A61PsBAHnHtSEqpiRFlk2OncK9A48AAAIBCAAAAA==",
+                "childFolderCount": 0,
+                "unreadItemCount": 0,
+                "totalItemCount": 1,
+                "sizeInBytes": 2047,
+                "isHidden": false
+              },
+              {
+                "@odata.type": "#microsoft.graph.mailFolder",
+                "id": "AQMkADAwATNiZmYAZS1hZGNjAC0zNzY5LTAwAi0wMAoALgAAA4r_TlY6z-REqceKH8A61PsBAHnHtSEqpiRFlk2OncK9A48AAAIBCgAAAA==",
+                "displayName": "Deleted Items",
+                "parentFolderId": "AQMkADAwATNiZmYAZS1hZGNjAC0zNzY5LTAwAi0wMAoALgAAA4r_TlY6z-REqceKH8A61PsBAHnHtSEqpiRFlk2OncK9A48AAAIBCAAAAA==",
+                "childFolderCount": 2,
+                "unreadItemCount": 0,
+                "totalItemCount": 4,
+                "sizeInBytes": 14980,
+                "isHidden": false
+              },
+              {
+                "@odata.type": "#microsoft.graph.mailFolder",
+                "id": "AQMkADAwATNiZmYAZS1hZGNjAC0zNzY5LTAwAi0wMAoALgAAA4r_TlY6z-REqceKH8A61PsBAHnHtSEqpiRFlk2OncK9A48AAAIBDwAAAA==",
+                "displayName": "Drafts",
+                "parentFolderId": "AQMkADAwATNiZmYAZS1hZGNjAC0zNzY5LTAwAi0wMAoALgAAA4r_TlY6z-REqceKH8A61PsBAHnHtSEqpiRFlk2OncK9A48AAAIBCAAAAA==",
+                "childFolderCount": 1,
+                "unreadItemCount": 0,
+                "totalItemCount": 14,
+                "sizeInBytes": 36360,
+                "isHidden": false
+              },
+              {
+                "@odata.type": "#microsoft.graph.mailFolder",
+                "id": "AQMkADAwATNiZmYAZS1hZGNjAC0zNzY5LTAwAi0wMAoALgAAA4r_TlY6z-REqceKH8A61PsBAHnHtSEqpiRFlk2OncK9A48AAAAdoFc2AAAA",
+                "displayName": "Follow Up",
+                "parentFolderId": "AQMkADAwATNiZmYAZS1hZGNjAC0zNzY5LTAwAi0wMAoALgAAA4r_TlY6z-REqceKH8A61PsBAHnHtSEqpiRFlk2OncK9A48AAAIBDwAAAA==",
+                "childFolderCount": 0,
+                "unreadItemCount": 0,
+                "totalItemCount": 0,
+                "sizeInBytes": 0,
+                "isHidden": false
+              },
+              {
+                "@odata.type": "#microsoft.graph.mailFolder",
+                "id": "AQMkADAwATNiZmYAZS1hZGNjAC0zNzY5LTAwAi0wMAoALgAAA4r_TlY6z-REqceKH8A61PsBAHnHtSEqpiRFlk2OncK9A48AAAIBDAAAAA==",
+                "displayName": "Inbox",
+                "parentFolderId": "AQMkADAwATNiZmYAZS1hZGNjAC0zNzY5LTAwAi0wMAoALgAAA4r_TlY6z-REqceKH8A61PsBAHnHtSEqpiRFlk2OncK9A48AAAIBCAAAAA==",
+                "childFolderCount": 3,
+                "unreadItemCount": 8,
+                "totalItemCount": 11,
+                "sizeInBytes": 1987150,
+                "isHidden": false
+              },
+              {
+                "@odata.type": "#microsoft.graph.mailFolder",
+                "id": "AQMkADAwATNiZmYAZS1hZGNjAC0zNzY5LTAwAi0wMAoALgAAA4r_TlY6z-REqceKH8A61PsBAHnHtSEqpiRFlk2OncK9A48AAAAdoFczAAAA",
+                "displayName": "Project Alpha",
+                "parentFolderId": "AQMkADAwATNiZmYAZS1hZGNjAC0zNzY5LTAwAi0wMAoALgAAA4r_TlY6z-REqceKH8A61PsBAHnHtSEqpiRFlk2OncK9A48AAAIBDAAAAA==",
+                "childFolderCount": 2,
+                "unreadItemCount": 0,
+                "totalItemCount": 0,
+                "sizeInBytes": 0,
+                "isHidden": false
+              },
+              {
+                "@odata.type": "#microsoft.graph.mailFolder",
+                "id": "AQMkADAwATNiZmYAZS1hZGNjAC0zNzY5LTAwAi0wMAoALgAAA4r_TlY6z-REqceKH8A61PsBAHnHtSEqpiRFlk2OncK9A48AAAAdoFc1AAAA",
+                "displayName": "Archive",
+                "parentFolderId": "AQMkADAwATNiZmYAZS1hZGNjAC0zNzY5LTAwAi0wMAoALgAAA4r_TlY6z-REqceKH8A61PsBAHnHtSEqpiRFlk2OncK9A48AAAAdoFczAAAA",
+                "childFolderCount": 0,
+                "unreadItemCount": 0,
+                "totalItemCount": 0,
+                "sizeInBytes": 0,
+                "isHidden": false
+              }
+            ],
+            "@odata.nextLink": "https://graph.microsoft.com/v1.0/me/mailFolders/delta?$skiptoken=OdoBdPzXEwCIoewBJ6Cd9RCu3WQSPxmU9Q5dXzwGYm6VvLLsEqFn38lfvkF-XEq6flIOQcxPhRI0aVWbm8OWcNOvN_WflJqSPeOu8D6jQwtDmy4rS33c3i3biP4RIV2CF1JyRCWVuRR--PcSMMXqVrqgdmhEGAVjrY5MD_Y_B_E.RlAsA7RKXweCqg-fiz7-HU1A_HfvD18Fhw-qjn7FRNc"
+          },
+          "status": 200,
+          "headers": {
+            "date": "Mon, 04 May 2026 13:44:18 GMT",
+            "content-type": "application/json; odata.metadata=minimal; odata.streaming=true; IEEE754Compatible=false; charset=utf-8",
+            "transfer-encoding": "chunked",
+            "connection": "keep-alive",
+            "x-xss-protection": "0",
+            "x-content-type-options": "nosniff",
+            "x-download-options": "noopen",
+            "x-frame-options": "SAMEORIGIN",
+            "x-dns-prefetch-control": "off",
+            "strict-transport-security": "max-age=31536000",
+            "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+            "access-control-allow-origin": "*",
+            "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+            "x-ratelimit-limit": "5000",
+            "x-ratelimit-remaining": "4993",
+            "x-ratelimit-reset": "1777902313",
+            "cache-control": "private",
+            "request-id": "549e09c2-c782-41c2-84bc-a7ee28becea9",
+            "client-request-id": "549e09c2-c782-41c2-84bc-a7ee28becea9",
+            "x-ms-ags-diagnostic": "{\"ServerInfo\":{\"DataCenter\":\"West US 2\",\"Slice\":\"E\",\"Ring\":\"4\",\"ScaleUnit\":\"003\",\"RoleInstance\":\"CO1PEPF0000BA8C\"}}"
+          },
+          "hash": "b21b7c076a4897f23fd92b20a0d0f3e80dbbcd08",
+          "request": {}
+        },
+        {
+          "response": {
+            "@odata.context": "https://graph.microsoft.com/v1.0/$metadata#Collection(mailFolder)",
+            "value": [
+              {
+                "@odata.type": "#microsoft.graph.mailFolder",
+                "id": "AQMkADAwATNiZmYAZS1hZGNjAC0zNzY5LTAwAi0wMAoALgAAA4r_TlY6z-REqceKH8A61PsBAHnHtSEqpiRFlk2OncK9A48AAAAdoFc0AAAA",
+                "displayName": "Urgent",
+                "parentFolderId": "AQMkADAwATNiZmYAZS1hZGNjAC0zNzY5LTAwAi0wMAoALgAAA4r_TlY6z-REqceKH8A61PsBAHnHtSEqpiRFlk2OncK9A48AAAAdoFczAAAA",
+                "childFolderCount": 0,
+                "unreadItemCount": 0,
+                "totalItemCount": 0,
+                "sizeInBytes": 0,
+                "isHidden": false
+              },
+              {
+                "@odata.type": "#microsoft.graph.mailFolder",
+                "id": "AQMkADAwATNiZmYAZS1hZGNjAC0zNzY5LTAwAi0wMAoALgAAA4r_TlY6z-REqceKH8A61PsBAHnHtSEqpiRFlk2OncK9A48AAAAdoFdGAAAA",
+                "displayName": "TestFolder",
+                "parentFolderId": "AQMkADAwATNiZmYAZS1hZGNjAC0zNzY5LTAwAi0wMAoALgAAA4r_TlY6z-REqceKH8A61PsBAHnHtSEqpiRFlk2OncK9A48AAAIBDAAAAA==",
+                "childFolderCount": 0,
+                "unreadItemCount": 0,
+                "totalItemCount": 0,
+                "sizeInBytes": 0,
+                "isHidden": false
+              },
+              {
+                "@odata.type": "#microsoft.graph.mailFolder",
+                "id": "AQMkADAwATNiZmYAZS1hZGNjAC0zNzY5LTAwAi0wMAoALgAAA4r_TlY6z-REqceKH8A61PsBAHnHtSEqpiRFlk2OncK9A48AAAAdoFdIAAAA",
+                "displayName": "TestFolder4283",
+                "parentFolderId": "AQMkADAwATNiZmYAZS1hZGNjAC0zNzY5LTAwAi0wMAoALgAAA4r_TlY6z-REqceKH8A61PsBAHnHtSEqpiRFlk2OncK9A48AAAIBDAAAAA==",
+                "childFolderCount": 0,
+                "unreadItemCount": 0,
+                "totalItemCount": 0,
+                "sizeInBytes": 0,
+                "isHidden": false
+              },
+              {
+                "@odata.type": "#microsoft.graph.mailFolder",
+                "id": "AQMkADAwATNiZmYAZS1hZGNjAC0zNzY5LTAwAi0wMAoALgAAA4r_TlY6z-REqceKH8A61PsBAHnHtSEqpiRFlk2OncK9A48AAAIBFAAAAA==",
+                "displayName": "Junk Email",
+                "parentFolderId": "AQMkADAwATNiZmYAZS1hZGNjAC0zNzY5LTAwAi0wMAoALgAAA4r_TlY6z-REqceKH8A61PsBAHnHtSEqpiRFlk2OncK9A48AAAIBCAAAAA==",
+                "childFolderCount": 0,
+                "unreadItemCount": 1,
+                "totalItemCount": 1,
+                "sizeInBytes": 354271,
+                "isHidden": false
+              },
+              {
+                "@odata.type": "#microsoft.graph.mailFolder",
+                "id": "AQMkADAwATNiZmYAZS1hZGNjAC0zNzY5LTAwAi0wMAoALgAAA4r_TlY6z-REqceKH8A61PsBAHnHtSEqpiRFlk2OncK9A48AAAIBCwAAAA==",
+                "displayName": "Outbox",
+                "parentFolderId": "AQMkADAwATNiZmYAZS1hZGNjAC0zNzY5LTAwAi0wMAoALgAAA4r_TlY6z-REqceKH8A61PsBAHnHtSEqpiRFlk2OncK9A48AAAIBCAAAAA==",
+                "childFolderCount": 0,
+                "unreadItemCount": 0,
+                "totalItemCount": 0,
+                "sizeInBytes": 0,
+                "isHidden": false
+              },
+              {
+                "@odata.type": "#microsoft.graph.mailFolder",
+                "id": "AQMkADAwATNiZmYAZS1hZGNjAC0zNzY5LTAwAi0wMAoALgAAA4r_TlY6z-REqceKH8A61PsBAHnHtSEqpiRFlk2OncK9A48AAAIBCQAAAA==",
+                "displayName": "Sent Items",
+                "parentFolderId": "AQMkADAwATNiZmYAZS1hZGNjAC0zNzY5LTAwAi0wMAoALgAAA4r_TlY6z-REqceKH8A61PsBAHnHtSEqpiRFlk2OncK9A48AAAIBCAAAAA==",
+                "childFolderCount": 0,
+                "unreadItemCount": 0,
+                "totalItemCount": 11,
+                "sizeInBytes": 147297,
+                "isHidden": false
+              }
+            ],
+            "@odata.deltaLink": "https://graph.microsoft.com/v1.0/me/mailFolders/delta?$deltatoken=LztZwWjo5IivWBhyxw5rAKjM_ssiwhF4O5sbDbjNCbCZeG6aQzJGMS51kGmd-zl6MOxWapuY8SGETivjDEtGaZqHTslAj4WimFHo9ccUt6s.141_XZ2NkvoaL04zbyrsSS9eXLiFY5oqoqq78t49iC0"
+          },
+          "status": 200,
+          "headers": {
+            "date": "Mon, 04 May 2026 13:44:19 GMT",
+            "content-type": "application/json; odata.metadata=minimal; odata.streaming=true; IEEE754Compatible=false; charset=utf-8",
+            "transfer-encoding": "chunked",
+            "connection": "keep-alive",
+            "x-xss-protection": "0",
+            "x-content-type-options": "nosniff",
+            "x-download-options": "noopen",
+            "x-frame-options": "SAMEORIGIN",
+            "x-dns-prefetch-control": "off",
+            "strict-transport-security": "max-age=31536000",
+            "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+            "access-control-allow-origin": "*",
+            "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+            "x-ratelimit-limit": "5000",
+            "x-ratelimit-remaining": "4992",
+            "x-ratelimit-reset": "1777902313",
+            "cache-control": "private",
+            "request-id": "a1c10a55-57d4-468a-852c-b63d68d073cd",
+            "client-request-id": "a1c10a55-57d4-468a-852c-b63d68d073cd",
+            "x-ms-ags-diagnostic": "{\"ServerInfo\":{\"DataCenter\":\"West US 2\",\"Slice\":\"E\",\"Ring\":\"4\",\"ScaleUnit\":\"002\",\"RoleInstance\":\"MWH0EPF000C8E66\"}}"
+          },
+          "hash": "7ad50497f9d6788a569b9523c8796cd5a265ff52",
+          "request": {
+            "params": {
+              "$skiptoken": "OdoBdPzXEwCIoewBJ6Cd9RCu3WQSPxmU9Q5dXzwGYm6VvLLsEqFn38lfvkF-XEq6flIOQcxPhRI0aVWbm8OWcNOvN_WflJqSPeOu8D6jQwtDmy4rS33c3i3biP4RIV2CF1JyRCWVuRR--PcSMMXqVrqgdmhEGAVjrY5MD_Y_B_E.RlAsA7RKXweCqg-fiz7-HU1A_HfvD18Fhw-qjn7FRNc"
+            }
+          }
+        }
+      ]
+    }
+  }
+}

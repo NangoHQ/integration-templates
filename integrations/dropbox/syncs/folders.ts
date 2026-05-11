@@ -12,10 +12,6 @@ const FolderSchema = z.object({
 
 type Folder = z.infer<typeof FolderSchema>;
 
-const CheckpointSchema = z.object({
-    cursors: z.record(z.string(), z.string()).optional()
-});
-
 const MetadataSchema = z.object({
     root_paths: z.array(z.string()).optional()
 });
@@ -97,7 +93,7 @@ function mapFolders(entries: z.infer<typeof MetadataEntrySchema>[]): { folders: 
 
 const sync = createSync({
     description: 'Sync Dropbox folder metadata from configured root paths.',
-    version: '1.0.0',
+    version: '1.0.1',
     endpoints: [{ method: 'POST', path: '/syncs/folders' }],
     frequency: 'every hour',
     autoStart: true,
@@ -108,16 +104,14 @@ const sync = createSync({
     },
 
     exec: async (nango) => {
-        const checkpoint = CheckpointSchema.parse((await nango.getCheckpoint()) ?? {});
         const rawConnection = z
             .object({ metadata: z.unknown().optional(), data: z.object({ metadata: z.unknown().optional() }).optional() })
             .parse(await nango.getConnection());
         const metadata = MetadataSchema.parse(rawConnection.metadata ?? rawConnection.data?.metadata ?? {});
         const rootPaths = getRootPaths(metadata);
-        const cursors: Record<string, string> = { ...(checkpoint.cursors ?? {}) };
 
         for (const rootPath of rootPaths) {
-            let cursor: string | undefined = cursors[rootPath];
+            let cursor: string | undefined;
             let hasMore = true;
 
             while (hasMore) {
@@ -136,7 +130,6 @@ const sync = createSync({
                         const parsed = CursorResetErrorSchema.safeParse(err);
                         if (parsed.success && parsed.data.response.data.error['.tag'] === 'reset') {
                             cursor = undefined;
-                            delete cursors[rootPath];
                             continue;
                         }
                         throw err;
@@ -169,9 +162,6 @@ const sync = createSync({
                 }
 
                 cursor = result.cursor;
-                cursors[rootPath] = cursor;
-                // @ts-expect-error - nango.saveCheckpoint has incorrect type inference in SDK
-                await nango.saveCheckpoint({ cursors });
                 hasMore = result.has_more;
             }
         }

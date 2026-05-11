@@ -24,7 +24,7 @@ const PurchaseOrderSchema = z.object({
 
 const ConnectionResponseSchema = z.object({
     connection_config: z.record(z.string(), z.unknown()).optional(),
-    metadata: z.record(z.string(), z.unknown()).optional()
+    metadata: z.record(z.string(), z.unknown()).optional().nullable()
 });
 
 const TenantSchema = z.object({
@@ -52,7 +52,7 @@ function parseXeroDate(value: unknown): string {
 
 const sync = createSync({
     description: 'Sync purchase orders from Xero.',
-    version: '3.0.0',
+    version: '3.0.1',
     endpoints: [{ method: 'GET', path: '/syncs/purchase-orders' }],
     frequency: 'every hour',
     autoStart: true,
