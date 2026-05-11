@@ -55,7 +55,7 @@ type CheckpointType = z.infer<typeof CheckpointSchema>;
 
 const sync = createSync({
     description: 'Sync Jira project versions for projects in scope',
-    version: '1.0.0',
+    version: '1.0.1',
     frequency: 'every hour',
     autoStart: true,
     endpoints: [
@@ -132,6 +132,7 @@ const sync = createSync({
 
         // Start delete tracking for full refresh
         await nango.trackDeletesStart('ProjectVersion');
+        let checkpointSaved = false;
 
         // Process each project
         for (let i = startIndex; i < projectKeys.length; i++) {
@@ -178,12 +179,13 @@ const sync = createSync({
                     projectIndex: i + 1
                 };
                 await nango.saveCheckpoint(checkpointData);
+                checkpointSaved = true;
             }
         }
 
-        await nango.clearCheckpoint();
-
-        // End delete tracking - marks versions not seen in this run as deleted
+        if (checkpointSaved) {
+            await nango.clearCheckpoint();
+        }
         await nango.trackDeletesEnd('ProjectVersion');
     }
 });

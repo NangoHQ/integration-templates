@@ -74,7 +74,7 @@ function extractCursorFromNextUrl(nextUrl: string): string {
 
 const sync = createSync({
     description: 'Sync Confluence attachment metadata across accessible content',
-    version: '1.0.0',
+    version: '1.0.1',
     endpoints: [{ method: 'GET', path: '/syncs/attachments' }],
     frequency: 'every hour',
     autoStart: true,
@@ -143,6 +143,7 @@ const sync = createSync({
         if (!cursor) {
             await nango.trackDeletesStart('Attachment');
         }
+        let checkpointSaved = false;
 
         while (true) {
             const response = await nango.get({
@@ -193,10 +194,13 @@ const sync = createSync({
 
             cursor = extractCursorFromNextUrl(nextUrl);
             await nango.saveCheckpoint({ cursor });
+            checkpointSaved = true;
         }
 
         await nango.trackDeletesEnd('Attachment');
-        await nango.clearCheckpoint();
+        if (checkpointSaved) {
+            await nango.clearCheckpoint();
+        }
     }
 });
 

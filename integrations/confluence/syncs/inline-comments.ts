@@ -68,7 +68,7 @@ function extractCursorFromNextUrl(nextUrl: string): string {
 
 const sync = createSync({
     description: 'Sync Confluence inline comments visible to the connection',
-    version: '1.0.0',
+    version: '1.0.1',
     frequency: 'every hour',
     autoStart: true,
     endpoints: [
@@ -120,6 +120,7 @@ const sync = createSync({
             await nango.trackDeletesStart('InlineComment');
             deleteTrackingStarted = true;
         }
+        let checkpointSaved = false;
 
         try {
             while (true) {
@@ -161,6 +162,7 @@ const sync = createSync({
 
                 cursor = extractCursorFromNextUrl(nextUrl);
                 await nango.saveCheckpoint({ cursor });
+                checkpointSaved = true;
             }
         } finally {
             if (deleteTrackingStarted) {
@@ -168,7 +170,9 @@ const sync = createSync({
             }
         }
 
-        await nango.clearCheckpoint();
+        if (checkpointSaved) {
+            await nango.clearCheckpoint();
+        }
     }
 });
 

@@ -60,7 +60,7 @@ const CheckpointSchema = z.object({
 
 const sync = createSync({
     description: 'Sync Airtable webhooks configured on bases in scope',
-    version: '1.0.0',
+    version: '1.0.1',
     frequency: 'every hour',
     autoStart: true,
     metadata: MetadataSchema,
@@ -83,6 +83,7 @@ const sync = createSync({
 
         // Airtable does not expose changed-only webhook configuration reads, so resume uses base-list pagination.
         await nango.trackDeletesStart('Webhook');
+        let checkpointSaved = false;
 
         try {
             do {
@@ -146,10 +147,13 @@ const sync = createSync({
 
                 if (!metadata.baseId && offset) {
                     await nango.saveCheckpoint({ offset });
+                    checkpointSaved = true;
                 }
             } while (!metadata.baseId && offset);
 
-            await nango.clearCheckpoint();
+            if (checkpointSaved) {
+                await nango.clearCheckpoint();
+            }
         } finally {
             await nango.trackDeletesEnd('Webhook');
         }

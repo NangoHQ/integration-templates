@@ -61,7 +61,7 @@ const MetadataSchema = z.object({
 
 const sync = createSync({
     description: 'Sync items from YouTube playlists in scope',
-    version: '1.0.0',
+    version: '1.0.1',
     endpoints: [{ method: 'GET', path: '/syncs/playlist-items' }],
     frequency: 'every hour',
     autoStart: true,
@@ -108,6 +108,7 @@ const sync = createSync({
         // Blocker: YouTube playlistItems.list only supports full-list pagination by playlist and pageToken.
         // We use full-refresh deletion detection and checkpoint the current playlist/page for resume.
         await nango.trackDeletesStart('PlaylistItem');
+        let checkpointSaved = false;
 
         for (let i = startPlaylistIndex; i < playlistIds.length; i++) {
             const rawPlaylistId = playlistIds[i];
@@ -179,6 +180,7 @@ const sync = createSync({
                         page_token: nextPageToken,
                         playlist_index: i
                     });
+                    checkpointSaved = true;
                     continue;
                 }
 
@@ -189,13 +191,16 @@ const sync = createSync({
                         playlist_index: i + 1,
                         page_token: ''
                     });
+                    checkpointSaved = true;
                 }
 
                 break;
             }
         }
 
-        await nango.clearCheckpoint();
+        if (checkpointSaved) {
+            await nango.clearCheckpoint();
+        }
         await nango.trackDeletesEnd('PlaylistItem');
     }
 });

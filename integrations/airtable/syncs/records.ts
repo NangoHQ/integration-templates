@@ -58,6 +58,7 @@ const sync = createSync({
 
         // Airtable list records only exposes page offsets, so this remains a checkpointed full refresh.
         await nango.trackDeletesStart('AirtableRecord');
+        let checkpointSaved = false;
 
         try {
             const queryParams = new URLSearchParams();
@@ -114,10 +115,13 @@ const sync = createSync({
                 offset = providerResponse.offset;
                 if (offset) {
                     await nango.saveCheckpoint({ offset });
+                    checkpointSaved = true;
                 }
             } while (offset);
 
-            await nango.clearCheckpoint();
+            if (checkpointSaved) {
+                await nango.clearCheckpoint();
+            }
         } finally {
             await nango.trackDeletesEnd('AirtableRecord');
         }

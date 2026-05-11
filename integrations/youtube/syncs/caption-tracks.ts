@@ -58,7 +58,7 @@ const CheckpointSchema = z.object({
 
 const sync = createSync({
     description: 'Sync caption track metadata for YouTube videos in scope',
-    version: '1.0.0',
+    version: '1.0.1',
     frequency: 'every hour',
     autoStart: true,
     syncType: 'full',
@@ -103,6 +103,7 @@ const sync = createSync({
 
         await nango.trackDeletesStart('CaptionTrack');
         let syncSuccessful = false;
+        let checkpointSaved = false;
         try {
             for (let videoIndex = startingVideoIndex; videoIndex < videoIds.length; videoIndex++) {
                 const videoId = videoIds[videoIndex];
@@ -154,11 +155,12 @@ const sync = createSync({
 
                 if (videoIndex < videoIds.length - 1) {
                     await nango.saveCheckpoint({ video_index: videoIndex + 1 });
+                    checkpointSaved = true;
                 }
             }
             syncSuccessful = true;
         } finally {
-            if (syncSuccessful) {
+            if (syncSuccessful && checkpointSaved) {
                 await nango.clearCheckpoint();
             }
             await nango.trackDeletesEnd('CaptionTrack');

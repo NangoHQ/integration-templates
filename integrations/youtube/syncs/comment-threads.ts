@@ -131,7 +131,7 @@ function mapCommentThread(thread: z.infer<typeof ProviderCommentThreadSchema>): 
 
 const sync = createSync({
     description: 'Sync comment threads for YouTube videos or channels in scope',
-    version: '1.0.0',
+    version: '1.0.1',
     frequency: 'every hour',
     autoStart: true,
     checkpoint: CheckpointSchema,
@@ -199,6 +199,7 @@ const sync = createSync({
 
         await nango.trackDeletesStart('CommentThread');
         let syncSuccessful = false;
+        let checkpointSaved = false;
         try {
             // Process each video/channel
             for (let targetIndex = startTargetIndex; targetIndex < idsToFetch.length; targetIndex++) {
@@ -257,6 +258,7 @@ const sync = createSync({
                             target_index: targetIndex,
                             page_token: nextPageToken
                         });
+                        checkpointSaved = true;
                         continue;
                     }
 
@@ -268,6 +270,7 @@ const sync = createSync({
                             target_index: targetIndex + 1,
                             page_token: ''
                         });
+                        checkpointSaved = true;
                     }
 
                     break;
@@ -275,7 +278,7 @@ const sync = createSync({
             }
             syncSuccessful = true;
         } finally {
-            if (syncSuccessful) {
+            if (syncSuccessful && checkpointSaved) {
                 await nango.clearCheckpoint();
             }
             await nango.trackDeletesEnd('CommentThread');
