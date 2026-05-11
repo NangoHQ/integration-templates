@@ -109,6 +109,7 @@ const sync = createSync({
         // We use full-refresh deletion detection and checkpoint the current playlist/page for resume.
         await nango.trackDeletesStart('PlaylistItem');
         let checkpointSaved = false;
+        const hadExistingCheckpoint = checkpoint !== null;
 
         for (let i = startPlaylistIndex; i < playlistIds.length; i++) {
             const rawPlaylistId = playlistIds[i];
@@ -198,7 +199,7 @@ const sync = createSync({
             }
         }
 
-        if (checkpointSaved) {
+        if (checkpointSaved || hadExistingCheckpoint) {
             await nango.clearCheckpoint();
         }
         await nango.trackDeletesEnd('PlaylistItem');

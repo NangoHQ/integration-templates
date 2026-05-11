@@ -129,6 +129,7 @@ const sync = createSync({
         const checkpointResult = await nango.getCheckpoint();
         const checkpoint = CheckpointSchema.safeParse(checkpointResult);
         const startIndex = checkpoint.success && checkpoint.data.projectIndex < projectKeys.length ? checkpoint.data.projectIndex : 0;
+        const hadExistingCheckpoint = checkpoint.success;
 
         // Start delete tracking for full refresh
         await nango.trackDeletesStart('ProjectVersion');
@@ -183,7 +184,7 @@ const sync = createSync({
             }
         }
 
-        if (checkpointSaved) {
+        if (checkpointSaved || hadExistingCheckpoint) {
             await nango.clearCheckpoint();
         }
         await nango.trackDeletesEnd('ProjectVersion');

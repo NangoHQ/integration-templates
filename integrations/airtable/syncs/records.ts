@@ -55,6 +55,7 @@ const sync = createSync({
         const metadata = metadataResult.data;
         const checkpoint = await nango.getCheckpoint();
         let offset = typeof checkpoint?.['offset'] === 'string' ? checkpoint['offset'] : undefined;
+        const hadExistingCheckpoint = offset !== undefined;
 
         // Airtable list records only exposes page offsets, so this remains a checkpointed full refresh.
         await nango.trackDeletesStart('AirtableRecord');
@@ -119,7 +120,7 @@ const sync = createSync({
                 }
             } while (offset);
 
-            if (checkpointSaved) {
+            if (checkpointSaved || hadExistingCheckpoint) {
                 await nango.clearCheckpoint();
             }
         } finally {

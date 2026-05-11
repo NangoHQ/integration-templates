@@ -96,6 +96,7 @@ const sync = createSync({
         const cloudId = await getCloudId(nango);
         const checkpoint = await nango.getCheckpoint();
         let cursor = checkpoint?.cursor;
+        const hadExistingCheckpoint = !!cursor;
 
         let deleteTrackingStarted = false;
         if (!cursor) {
@@ -156,7 +157,7 @@ const sync = createSync({
             }
         }
 
-        if (checkpointSaved) {
+        if (checkpointSaved || hadExistingCheckpoint) {
             await nango.clearCheckpoint();
         }
     }

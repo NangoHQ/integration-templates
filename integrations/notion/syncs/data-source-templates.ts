@@ -63,6 +63,7 @@ const sync = createSync({
         await nango.trackDeletesStart('DataSourceTemplate');
         let cursor = parsedCheckpoint?.success ? parsedCheckpoint.data.start_cursor : undefined;
         let checkpointSaved = false;
+        const hadExistingCheckpoint = !!cursor;
 
         do {
             const response = await nango.get({
@@ -102,7 +103,7 @@ const sync = createSync({
             cursor = nextCursor;
         } while (cursor);
 
-        if (checkpointSaved) {
+        if (checkpointSaved || hadExistingCheckpoint) {
             await nango.clearCheckpoint();
         }
         await nango.trackDeletesEnd('DataSourceTemplate');

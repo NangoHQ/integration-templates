@@ -190,6 +190,7 @@ const sync = createSync({
 
         await nango.trackDeletesStart('UploadedVideo');
         let checkpointSaved = false;
+        const hadExistingCheckpoint = checkpoint !== null;
 
         // Process each uploads playlist
         for (let uploadsPlaylistIndex = startUploadsPlaylistIndex; uploadsPlaylistIndex < uploadsPlaylistIds.length; uploadsPlaylistIndex++) {
@@ -317,7 +318,7 @@ const sync = createSync({
             }
         }
 
-        if (checkpointSaved) {
+        if (checkpointSaved || hadExistingCheckpoint) {
             await nango.clearCheckpoint();
         }
         await nango.trackDeletesEnd('UploadedVideo');

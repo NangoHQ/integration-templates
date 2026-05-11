@@ -200,6 +200,7 @@ const sync = createSync({
         await nango.trackDeletesStart('CommentThread');
         let syncSuccessful = false;
         let checkpointSaved = false;
+        const hadExistingCheckpoint = checkpoint !== null;
         try {
             // Process each video/channel
             for (let targetIndex = startTargetIndex; targetIndex < idsToFetch.length; targetIndex++) {
@@ -278,7 +279,7 @@ const sync = createSync({
             }
             syncSuccessful = true;
         } finally {
-            if (syncSuccessful && checkpointSaved) {
+            if (syncSuccessful && (checkpointSaved || hadExistingCheckpoint)) {
                 await nango.clearCheckpoint();
             }
             await nango.trackDeletesEnd('CommentThread');

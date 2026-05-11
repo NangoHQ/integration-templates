@@ -121,6 +121,7 @@ const sync = createSync({
         await nango.trackDeletesStart('DataSource');
         let cursor = parsedCheckpoint?.success ? parsedCheckpoint.data.start_cursor : undefined;
         let checkpointSaved = false;
+        const hadExistingCheckpoint = !!cursor;
 
         // https://developers.notion.com/reference/post-search
         // Search for all data sources shared with the connection
@@ -219,7 +220,7 @@ const sync = createSync({
             cursor = nextCursor;
         } while (cursor);
 
-        if (checkpointSaved) {
+        if (checkpointSaved || hadExistingCheckpoint) {
             await nango.clearCheckpoint();
         }
         await nango.trackDeletesEnd('DataSource');

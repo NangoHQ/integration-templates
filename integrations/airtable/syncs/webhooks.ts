@@ -80,6 +80,7 @@ const sync = createSync({
         const metadata = metadataResult.data;
         const checkpoint = await nango.getCheckpoint();
         let offset = metadata.baseId ? undefined : typeof checkpoint?.['offset'] === 'string' ? checkpoint['offset'] : undefined;
+        const hadExistingCheckpoint = offset !== undefined;
 
         // Airtable does not expose changed-only webhook configuration reads, so resume uses base-list pagination.
         await nango.trackDeletesStart('Webhook');
@@ -151,7 +152,7 @@ const sync = createSync({
                 }
             } while (!metadata.baseId && offset);
 
-            if (checkpointSaved) {
+            if (checkpointSaved || hadExistingCheckpoint) {
                 await nango.clearCheckpoint();
             }
         } finally {

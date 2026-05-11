@@ -104,6 +104,7 @@ const sync = createSync({
         await nango.trackDeletesStart('CaptionTrack');
         let syncSuccessful = false;
         let checkpointSaved = false;
+        const hadExistingCheckpoint = checkpoint !== null;
         try {
             for (let videoIndex = startingVideoIndex; videoIndex < videoIds.length; videoIndex++) {
                 const videoId = videoIds[videoIndex];
@@ -160,7 +161,7 @@ const sync = createSync({
             }
             syncSuccessful = true;
         } finally {
-            if (syncSuccessful && checkpointSaved) {
+            if (syncSuccessful && (checkpointSaved || hadExistingCheckpoint)) {
                 await nango.clearCheckpoint();
             }
             await nango.trackDeletesEnd('CaptionTrack');

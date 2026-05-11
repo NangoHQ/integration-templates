@@ -55,6 +55,7 @@ const sync = createSync({
 
         let cursor = parsedCheckpoint?.success ? parsedCheckpoint.data.start_cursor : undefined;
         let checkpointSaved = false;
+        const hadExistingCheckpoint = !!cursor;
 
         do {
             // https://developers.notion.com/reference/get-users
@@ -93,7 +94,7 @@ const sync = createSync({
             cursor = nextCursor;
         } while (cursor);
 
-        if (checkpointSaved) {
+        if (checkpointSaved || hadExistingCheckpoint) {
             await nango.clearCheckpoint();
         }
         await nango.trackDeletesEnd('User');

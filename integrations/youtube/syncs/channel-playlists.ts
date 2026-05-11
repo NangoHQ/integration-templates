@@ -88,6 +88,7 @@ const sync = createSync({
         // We must fetch all playlists and use deletion detection, while resuming with pageToken.
         await nango.trackDeletesStart('ChannelPlaylist');
         let checkpointSaved = false;
+        const hadExistingCheckpoint = checkpoint !== null;
 
         for (let channelIndex = startChannelIndex; channelIndex < channelIds.length; channelIndex++) {
             const channelId = channelIds[channelIndex];
@@ -158,7 +159,7 @@ const sync = createSync({
             }
         }
 
-        if (checkpointSaved) {
+        if (checkpointSaved || hadExistingCheckpoint) {
             await nango.clearCheckpoint();
         }
         await nango.trackDeletesEnd('ChannelPlaylist');

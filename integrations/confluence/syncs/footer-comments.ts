@@ -97,6 +97,7 @@ const sync = createSync({
     exec: async (nango) => {
         const checkpoint = await nango.getCheckpoint();
         let cursor = checkpoint && checkpoint['cursor'] ? checkpoint['cursor'] : '';
+        const hadExistingCheckpoint = !!cursor;
 
         const connection = await nango.getConnection();
         const connectionConfig = connection.connection_config;
@@ -198,7 +199,7 @@ const sync = createSync({
         }
 
         await nango.trackDeletesEnd('FooterComment');
-        if (checkpointSaved) {
+        if (checkpointSaved || hadExistingCheckpoint) {
             await nango.clearCheckpoint();
         }
     }

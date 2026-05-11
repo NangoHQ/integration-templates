@@ -232,6 +232,7 @@ const sync = createSync({
 
         await nango.trackDeletesStart('ContentMetadata');
         let checkpointSaved = false;
+        const hadExistingCheckpoint = !!cursor;
 
         // Manual pagination loop to avoid test mock provider lookup issues
         do {
@@ -305,7 +306,7 @@ const sync = createSync({
         } while (cursor);
 
         await nango.trackDeletesEnd('ContentMetadata');
-        if (checkpointSaved) {
+        if (checkpointSaved || hadExistingCheckpoint) {
             await nango.clearCheckpoint();
         }
     }
