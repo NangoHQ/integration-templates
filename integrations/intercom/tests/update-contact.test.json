@@ -1,0 +1,160 @@
+{
+  "input": {
+    "id": "69fc29998a2dc8e1c9776ee5",
+    "name": "Updated Test User"
+  },
+  "output": {
+    "id": "69fc29998a2dc8e1c9776ee5",
+    "type": "contact",
+    "email": "test-1778133396@example.com",
+    "phone": null,
+    "name": "Updated Test User",
+    "role": "user",
+    "custom_attributes": {},
+    "created_at": 1778133401,
+    "updated_at": 1778133412
+  },
+  "nango": {},
+  "api": {
+    "put": {
+      "/contacts/69fc29998a2dc8e1c9776ee5": {
+        "response": {
+          "type": "contact",
+          "id": "69fc29998a2dc8e1c9776ee5",
+          "workspace_id": "h64a47v4",
+          "external_id": null,
+          "role": "user",
+          "email": "test-1778133396@example.com",
+          "phone": null,
+          "name": "Updated Test User",
+          "avatar": null,
+          "owner_id": null,
+          "social_profiles": {
+            "type": "list",
+            "data": []
+          },
+          "has_hard_bounced": false,
+          "marked_email_as_spam": false,
+          "unsubscribed_from_emails": false,
+          "created_at": 1778133401,
+          "updated_at": 1778133412,
+          "signed_up_at": null,
+          "last_seen_at": null,
+          "last_replied_at": null,
+          "last_contacted_at": null,
+          "last_email_opened_at": null,
+          "last_email_clicked_at": null,
+          "language_override": null,
+          "browser": null,
+          "browser_version": null,
+          "browser_language": null,
+          "os": null,
+          "location": {
+            "type": "location",
+            "country": null,
+            "region": null,
+            "city": null,
+            "country_code": null,
+            "continent_code": null
+          },
+          "android_app_name": null,
+          "android_app_version": null,
+          "android_device": null,
+          "android_os_version": null,
+          "android_sdk_version": null,
+          "android_last_seen_at": null,
+          "ios_app_name": null,
+          "ios_app_version": null,
+          "ios_device": null,
+          "ios_os_version": null,
+          "ios_sdk_version": null,
+          "ios_last_seen_at": null,
+          "custom_attributes": {},
+          "tags": {
+            "type": "list",
+            "data": [],
+            "url": "/contacts/69fc29998a2dc8e1c9776ee5/tags",
+            "total_count": 0,
+            "has_more": false
+          },
+          "notes": {
+            "type": "list",
+            "data": [],
+            "url": "/contacts/69fc29998a2dc8e1c9776ee5/notes",
+            "total_count": 0,
+            "has_more": false
+          },
+          "companies": {
+            "type": "list",
+            "data": [],
+            "url": "/contacts/69fc29998a2dc8e1c9776ee5/companies",
+            "total_count": 0,
+            "has_more": false
+          },
+          "opted_out_subscription_types": {
+            "type": "list",
+            "data": [],
+            "url": "/contacts/69fc29998a2dc8e1c9776ee5/subscriptions",
+            "total_count": 0,
+            "has_more": false
+          },
+          "opted_in_subscription_types": {
+            "type": "list",
+            "data": [],
+            "url": "/contacts/69fc29998a2dc8e1c9776ee5/subscriptions",
+            "total_count": 0,
+            "has_more": false
+          },
+          "utm_campaign": null,
+          "utm_content": null,
+          "utm_medium": null,
+          "utm_source": null,
+          "utm_term": null,
+          "referrer": null,
+          "sms_consent": false,
+          "unsubscribed_from_sms": false
+        },
+        "status": 200,
+        "headers": {
+          "date": "Thu, 07 May 2026 05:57:42 GMT",
+          "content-type": "application/json; charset=utf-8",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "1; mode=block",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=31556952; includeSubDomains; preload",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "5000",
+          "x-ratelimit-reset": "1778133476",
+          "vary": "Accept-Encoding",
+          "status": "200 OK",
+          "x-intercom-version": "9f26d01b250900ba55fb5a7d9ef827b19f52128d",
+          "x-request-id": "0006su2da1kfo83c471g",
+          "etag": "W/\"7ea2fe26a3e8a9bfbbc88747bdfa240a\"",
+          "cache-control": "max-age=0, private, must-revalidate",
+          "referrer-policy": "strict-origin-when-cross-origin",
+          "x-request-queueing": "0",
+          "intercom-version": "2.11",
+          "x-runtime": "0.083358",
+          "server": "nginx",
+          "x-ami-version": "ami-018421ea35bfc2097"
+        },
+        "hash": "d34607f0369321a0c3d828e049722873a1550381",
+        "request": {
+          "headers": {
+            "Intercom-Version": "2.11"
+          },
+          "data": {
+            "name": "Updated Test User"
+          }
+        }
+      }
+    }
+  }
+}

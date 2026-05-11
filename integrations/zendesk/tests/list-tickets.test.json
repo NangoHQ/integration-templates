@@ -1,0 +1,892 @@
+{
+  "input": {},
+  "output": {
+    "tickets": [
+      {
+        "id": 1,
+        "url": "https://nango-1049.zendesk.com/api/v2/tickets/1.json",
+        "subject": "SAMPLE: How does Zendesk work",
+        "raw_subject": "SAMPLE: How does Zendesk work",
+        "description": "Hello, let's see how you or your agents can easily respond to and solve tickets.\n\nFeel free to email additional customer test inquiries to **support@nango-1049.zendesk.com**.\n\nBut first, let's start by solving one ticket.\n\nYour Zendesk Team",
+        "priority": "normal",
+        "status": "open",
+        "requester_id": 46406156914577,
+        "submitter_id": 46406156914577,
+        "assignee_id": 46406145565073,
+        "group_id": 46406158244625,
+        "collaborator_ids": [
+          46406145565073
+        ],
+        "follower_ids": [],
+        "email_cc_ids": [
+          46406145565073
+        ],
+        "has_incidents": false,
+        "is_public": true,
+        "tags": [
+          "zendesk_accelerated_setup"
+        ],
+        "custom_fields": [
+          {
+            "id": 46406130043793,
+            "value": null
+          },
+          {
+            "id": 46406130045073,
+            "value": null
+          },
+          {
+            "id": 46406130045969,
+            "value": null
+          },
+          {
+            "id": 46406146796817,
+            "value": null
+          },
+          {
+            "id": 46406147126033,
+            "value": null
+          },
+          {
+            "id": 46406167358737,
+            "value": null
+          },
+          {
+            "id": 46406168902289,
+            "value": null
+          },
+          {
+            "id": 46406169312273,
+            "value": null
+          },
+          {
+            "id": 46406182218641,
+            "value": null
+          },
+          {
+            "id": 46406182230673,
+            "value": null
+          },
+          {
+            "id": 46406182261521,
+            "value": null
+          },
+          {
+            "id": 46406182268689,
+            "value": null
+          },
+          {
+            "id": 46406182281361,
+            "value": null
+          }
+        ],
+        "satisfaction_rating": {
+          "score": "unoffered"
+        },
+        "sharing_agreement_ids": [],
+        "followup_ids": [],
+        "ticket_form_id": 46406146302353,
+        "brand_id": 46406158162961,
+        "allow_channelback": false,
+        "allow_attachments": true,
+        "created_at": "2026-05-06T07:46:23Z",
+        "updated_at": "2026-05-06T08:46:36Z"
+      },
+      {
+        "id": 2,
+        "url": "https://nango-1049.zendesk.com/api/v2/tickets/2.json",
+        "type": "question",
+        "subject": "TestTicket",
+        "raw_subject": "TestTicket",
+        "description": "Reply to testticket to testUser",
+        "priority": "low",
+        "status": "open",
+        "requester_id": 46407218913169,
+        "submitter_id": 46406145565073,
+        "assignee_id": 46406145565073,
+        "group_id": 46406158244625,
+        "collaborator_ids": [],
+        "follower_ids": [],
+        "email_cc_ids": [],
+        "has_incidents": false,
+        "is_public": true,
+        "tags": [
+          "intent__misc__thanks__thanks",
+          "intent_confidence__low",
+          "language__en",
+          "language_confidence__medium",
+          "sentiment__neutral",
+          "sentiment_confidence__high",
+          "urgent"
+        ],
+        "custom_fields": [
+          {
+            "id": 46406130043793,
+            "value": null
+          },
+          {
+            "id": 46406130045073,
+            "value": null
+          },
+          {
+            "id": 46406130045969,
+            "value": null
+          },
+          {
+            "id": 46406146796817,
+            "value": null
+          },
+          {
+            "id": 46406147126033,
+            "value": null
+          },
+          {
+            "id": 46406167358737,
+            "value": null
+          },
+          {
+            "id": 46406168902289,
+            "value": null
+          },
+          {
+            "id": 46406169312273,
+            "value": "sentiment__neutral"
+          },
+          {
+            "id": 46406182218641,
+            "value": "intent__misc__thanks__thanks"
+          },
+          {
+            "id": 46406182230673,
+            "value": "intent_confidence__low"
+          },
+          {
+            "id": 46406182261521,
+            "value": "language__en"
+          },
+          {
+            "id": 46406182268689,
+            "value": "language_confidence__medium"
+          },
+          {
+            "id": 46406182281361,
+            "value": "sentiment_confidence__high"
+          }
+        ],
+        "satisfaction_rating": {
+          "score": "unoffered"
+        },
+        "sharing_agreement_ids": [],
+        "followup_ids": [],
+        "ticket_form_id": 46406146302353,
+        "brand_id": 46406158162961,
+        "allow_channelback": false,
+        "allow_attachments": true,
+        "created_at": "2026-05-06T08:16:30Z",
+        "updated_at": "2026-05-06T08:16:33Z"
+      },
+      {
+        "id": 3,
+        "url": "https://nango-1049.zendesk.com/api/v2/tickets/3.json",
+        "subject": "Test ticket from Nango",
+        "raw_subject": "Test ticket from Nango",
+        "description": "This is a test ticket created via Nango action",
+        "priority": "normal",
+        "status": "open",
+        "requester_id": 46406145565073,
+        "submitter_id": 46406145565073,
+        "assignee_id": 46406145565073,
+        "organization_id": 46406146527249,
+        "group_id": 46406158244625,
+        "collaborator_ids": [],
+        "follower_ids": [],
+        "email_cc_ids": [],
+        "has_incidents": false,
+        "is_public": true,
+        "tags": [
+          "intent__account__new__creating",
+          "intent_confidence__low",
+          "language__en",
+          "language_confidence__high",
+          "sentiment__neutral",
+          "sentiment_confidence__high"
+        ],
+        "custom_fields": [
+          {
+            "id": 46406130043793,
+            "value": null
+          },
+          {
+            "id": 46406130045073,
+            "value": null
+          },
+          {
+            "id": 46406130045969,
+            "value": null
+          },
+          {
+            "id": 46406146796817,
+            "value": null
+          },
+          {
+            "id": 46406147126033,
+            "value": null
+          },
+          {
+            "id": 46406167358737,
+            "value": null
+          },
+          {
+            "id": 46406168902289,
+            "value": null
+          },
+          {
+            "id": 46406169312273,
+            "value": "sentiment__neutral"
+          },
+          {
+            "id": 46406182218641,
+            "value": "intent__account__new__creating"
+          },
+          {
+            "id": 46406182230673,
+            "value": "intent_confidence__low"
+          },
+          {
+            "id": 46406182261521,
+            "value": "language__en"
+          },
+          {
+            "id": 46406182268689,
+            "value": "language_confidence__high"
+          },
+          {
+            "id": 46406182281361,
+            "value": "sentiment_confidence__high"
+          }
+        ],
+        "satisfaction_rating": {
+          "score": "unoffered"
+        },
+        "sharing_agreement_ids": [],
+        "followup_ids": [],
+        "ticket_form_id": 46406146302353,
+        "brand_id": 46406158162961,
+        "allow_channelback": false,
+        "allow_attachments": true,
+        "created_at": "2026-05-06T08:45:54Z",
+        "updated_at": "2026-05-06T08:46:02Z"
+      },
+      {
+        "id": 4,
+        "url": "https://nango-1049.zendesk.com/api/v2/tickets/4.json",
+        "subject": "Test ticket from Nango",
+        "raw_subject": "Test ticket from Nango",
+        "description": "This is a test ticket created via Nango action",
+        "priority": "normal",
+        "status": "open",
+        "requester_id": 46406145565073,
+        "submitter_id": 46406145565073,
+        "assignee_id": 46406145565073,
+        "organization_id": 46406146527249,
+        "group_id": 46406158244625,
+        "collaborator_ids": [],
+        "follower_ids": [],
+        "email_cc_ids": [],
+        "has_incidents": false,
+        "is_public": true,
+        "tags": [
+          "intent__account__new__creating",
+          "intent_confidence__low",
+          "language__en",
+          "language_confidence__high",
+          "sentiment__neutral",
+          "sentiment_confidence__high"
+        ],
+        "custom_fields": [
+          {
+            "id": 46406130043793,
+            "value": null
+          },
+          {
+            "id": 46406130045073,
+            "value": null
+          },
+          {
+            "id": 46406130045969,
+            "value": null
+          },
+          {
+            "id": 46406146796817,
+            "value": null
+          },
+          {
+            "id": 46406147126033,
+            "value": null
+          },
+          {
+            "id": 46406167358737,
+            "value": null
+          },
+          {
+            "id": 46406168902289,
+            "value": null
+          },
+          {
+            "id": 46406169312273,
+            "value": "sentiment__neutral"
+          },
+          {
+            "id": 46406182218641,
+            "value": "intent__account__new__creating"
+          },
+          {
+            "id": 46406182230673,
+            "value": "intent_confidence__low"
+          },
+          {
+            "id": 46406182261521,
+            "value": "language__en"
+          },
+          {
+            "id": 46406182268689,
+            "value": "language_confidence__high"
+          },
+          {
+            "id": 46406182281361,
+            "value": "sentiment_confidence__high"
+          }
+        ],
+        "satisfaction_rating": {
+          "score": "unoffered"
+        },
+        "sharing_agreement_ids": [],
+        "followup_ids": [],
+        "ticket_form_id": 46406146302353,
+        "brand_id": 46406158162961,
+        "allow_channelback": false,
+        "allow_attachments": true,
+        "created_at": "2026-05-06T08:46:13Z",
+        "updated_at": "2026-05-06T08:46:17Z"
+      }
+    ],
+    "next_cursor": "eyJvIjoibmljZV9pZCIsInYiOiJhUVFBQUFBQUFBQUEifQ==",
+    "has_more": false
+  },
+  "nango": {},
+  "api": {
+    "get": {
+      "/api/v2/tickets.json": {
+        "response": {
+          "tickets": [
+            {
+              "url": "https://nango-1049.zendesk.com/api/v2/tickets/1.json",
+              "id": 1,
+              "external_id": null,
+              "via": {
+                "channel": "sample_ticket",
+                "source": {
+                  "from": {},
+                  "to": {},
+                  "rel": null
+                }
+              },
+              "created_at": "2026-05-06T07:46:23Z",
+              "updated_at": "2026-05-06T08:46:36Z",
+              "generated_timestamp": 1778057196,
+              "type": null,
+              "subject": "SAMPLE: How does Zendesk work",
+              "raw_subject": "SAMPLE: How does Zendesk work",
+              "description": "Hello, let's see how you or your agents can easily respond to and solve tickets.\n\nFeel free to email additional customer test inquiries to **support@nango-1049.zendesk.com**.\n\nBut first, let's start by solving one ticket.\n\nYour Zendesk Team",
+              "priority": "normal",
+              "status": "open",
+              "recipient": null,
+              "requester_id": 46406156914577,
+              "submitter_id": 46406156914577,
+              "assignee_id": 46406145565073,
+              "organization_id": null,
+              "group_id": 46406158244625,
+              "collaborator_ids": [
+                46406145565073
+              ],
+              "follower_ids": [],
+              "email_cc_ids": [
+                46406145565073
+              ],
+              "forum_topic_id": null,
+              "problem_id": null,
+              "has_incidents": false,
+              "is_public": true,
+              "due_at": null,
+              "tags": [
+                "zendesk_accelerated_setup"
+              ],
+              "custom_fields": [
+                {
+                  "id": 46406130043793,
+                  "value": null
+                },
+                {
+                  "id": 46406130045073,
+                  "value": null
+                },
+                {
+                  "id": 46406130045969,
+                  "value": null
+                },
+                {
+                  "id": 46406146796817,
+                  "value": null
+                },
+                {
+                  "id": 46406147126033,
+                  "value": null
+                },
+                {
+                  "id": 46406167358737,
+                  "value": null
+                },
+                {
+                  "id": 46406168902289,
+                  "value": null
+                },
+                {
+                  "id": 46406169312273,
+                  "value": null
+                },
+                {
+                  "id": 46406182218641,
+                  "value": null
+                },
+                {
+                  "id": 46406182230673,
+                  "value": null
+                },
+                {
+                  "id": 46406182261521,
+                  "value": null
+                },
+                {
+                  "id": 46406182268689,
+                  "value": null
+                },
+                {
+                  "id": 46406182281361,
+                  "value": null
+                }
+              ],
+              "satisfaction_rating": {
+                "score": "unoffered"
+              },
+              "sharing_agreement_ids": [],
+              "custom_status_id": 46406158222353,
+              "encoded_id": "LW3ZND-1926N",
+              "followup_ids": [],
+              "ticket_form_id": 46406146302353,
+              "brand_id": 46406158162961,
+              "allow_channelback": false,
+              "allow_attachments": true,
+              "from_messaging_channel": false,
+              "support_type": "agent"
+            },
+            {
+              "url": "https://nango-1049.zendesk.com/api/v2/tickets/2.json",
+              "id": 2,
+              "external_id": null,
+              "via": {
+                "channel": "web",
+                "source": {
+                  "from": {},
+                  "to": {},
+                  "rel": null
+                }
+              },
+              "created_at": "2026-05-06T08:16:30Z",
+              "updated_at": "2026-05-06T08:16:33Z",
+              "generated_timestamp": 1778055393,
+              "type": "question",
+              "subject": "TestTicket",
+              "raw_subject": "TestTicket",
+              "description": "Reply to testticket to testUser",
+              "priority": "low",
+              "status": "open",
+              "recipient": null,
+              "requester_id": 46407218913169,
+              "submitter_id": 46406145565073,
+              "assignee_id": 46406145565073,
+              "organization_id": null,
+              "group_id": 46406158244625,
+              "collaborator_ids": [],
+              "follower_ids": [],
+              "email_cc_ids": [],
+              "forum_topic_id": null,
+              "problem_id": null,
+              "has_incidents": false,
+              "is_public": true,
+              "due_at": null,
+              "tags": [
+                "intent__misc__thanks__thanks",
+                "intent_confidence__low",
+                "language__en",
+                "language_confidence__medium",
+                "sentiment__neutral",
+                "sentiment_confidence__high",
+                "urgent"
+              ],
+              "custom_fields": [
+                {
+                  "id": 46406130043793,
+                  "value": null
+                },
+                {
+                  "id": 46406130045073,
+                  "value": null
+                },
+                {
+                  "id": 46406130045969,
+                  "value": null
+                },
+                {
+                  "id": 46406146796817,
+                  "value": null
+                },
+                {
+                  "id": 46406147126033,
+                  "value": null
+                },
+                {
+                  "id": 46406167358737,
+                  "value": null
+                },
+                {
+                  "id": 46406168902289,
+                  "value": null
+                },
+                {
+                  "id": 46406169312273,
+                  "value": "sentiment__neutral"
+                },
+                {
+                  "id": 46406182218641,
+                  "value": "intent__misc__thanks__thanks"
+                },
+                {
+                  "id": 46406182230673,
+                  "value": "intent_confidence__low"
+                },
+                {
+                  "id": 46406182261521,
+                  "value": "language__en"
+                },
+                {
+                  "id": 46406182268689,
+                  "value": "language_confidence__medium"
+                },
+                {
+                  "id": 46406182281361,
+                  "value": "sentiment_confidence__high"
+                }
+              ],
+              "satisfaction_rating": {
+                "score": "unoffered"
+              },
+              "sharing_agreement_ids": [],
+              "custom_status_id": 46406158222353,
+              "encoded_id": "VLZGD5-30KK4",
+              "followup_ids": [],
+              "ticket_form_id": 46406146302353,
+              "brand_id": 46406158162961,
+              "allow_channelback": false,
+              "allow_attachments": true,
+              "from_messaging_channel": false,
+              "support_type": "agent"
+            },
+            {
+              "url": "https://nango-1049.zendesk.com/api/v2/tickets/3.json",
+              "id": 3,
+              "external_id": null,
+              "via": {
+                "channel": "api",
+                "source": {
+                  "from": {},
+                  "to": {},
+                  "rel": null
+                }
+              },
+              "created_at": "2026-05-06T08:45:54Z",
+              "updated_at": "2026-05-06T08:46:02Z",
+              "generated_timestamp": 1778057162,
+              "type": null,
+              "subject": "Test ticket from Nango",
+              "raw_subject": "Test ticket from Nango",
+              "description": "This is a test ticket created via Nango action",
+              "priority": "normal",
+              "status": "open",
+              "recipient": null,
+              "requester_id": 46406145565073,
+              "submitter_id": 46406145565073,
+              "assignee_id": 46406145565073,
+              "organization_id": 46406146527249,
+              "group_id": 46406158244625,
+              "collaborator_ids": [],
+              "follower_ids": [],
+              "email_cc_ids": [],
+              "forum_topic_id": null,
+              "problem_id": null,
+              "has_incidents": false,
+              "is_public": true,
+              "due_at": null,
+              "tags": [
+                "intent__account__new__creating",
+                "intent_confidence__low",
+                "language__en",
+                "language_confidence__high",
+                "sentiment__neutral",
+                "sentiment_confidence__high"
+              ],
+              "custom_fields": [
+                {
+                  "id": 46406130043793,
+                  "value": null
+                },
+                {
+                  "id": 46406130045073,
+                  "value": null
+                },
+                {
+                  "id": 46406130045969,
+                  "value": null
+                },
+                {
+                  "id": 46406146796817,
+                  "value": null
+                },
+                {
+                  "id": 46406147126033,
+                  "value": null
+                },
+                {
+                  "id": 46406167358737,
+                  "value": null
+                },
+                {
+                  "id": 46406168902289,
+                  "value": null
+                },
+                {
+                  "id": 46406169312273,
+                  "value": "sentiment__neutral"
+                },
+                {
+                  "id": 46406182218641,
+                  "value": "intent__account__new__creating"
+                },
+                {
+                  "id": 46406182230673,
+                  "value": "intent_confidence__low"
+                },
+                {
+                  "id": 46406182261521,
+                  "value": "language__en"
+                },
+                {
+                  "id": 46406182268689,
+                  "value": "language_confidence__high"
+                },
+                {
+                  "id": 46406182281361,
+                  "value": "sentiment_confidence__high"
+                }
+              ],
+              "satisfaction_rating": {
+                "score": "unoffered"
+              },
+              "sharing_agreement_ids": [],
+              "custom_status_id": 46406158222353,
+              "encoded_id": "4LY77Z-7R53W",
+              "followup_ids": [],
+              "ticket_form_id": 46406146302353,
+              "brand_id": 46406158162961,
+              "allow_channelback": false,
+              "allow_attachments": true,
+              "from_messaging_channel": false,
+              "support_type": "agent"
+            },
+            {
+              "url": "https://nango-1049.zendesk.com/api/v2/tickets/4.json",
+              "id": 4,
+              "external_id": null,
+              "via": {
+                "channel": "api",
+                "source": {
+                  "from": {},
+                  "to": {},
+                  "rel": null
+                }
+              },
+              "created_at": "2026-05-06T08:46:13Z",
+              "updated_at": "2026-05-06T08:46:17Z",
+              "generated_timestamp": 1778057177,
+              "type": null,
+              "subject": "Test ticket from Nango",
+              "raw_subject": "Test ticket from Nango",
+              "description": "This is a test ticket created via Nango action",
+              "priority": "normal",
+              "status": "open",
+              "recipient": null,
+              "requester_id": 46406145565073,
+              "submitter_id": 46406145565073,
+              "assignee_id": 46406145565073,
+              "organization_id": 46406146527249,
+              "group_id": 46406158244625,
+              "collaborator_ids": [],
+              "follower_ids": [],
+              "email_cc_ids": [],
+              "forum_topic_id": null,
+              "problem_id": null,
+              "has_incidents": false,
+              "is_public": true,
+              "due_at": null,
+              "tags": [
+                "intent__account__new__creating",
+                "intent_confidence__low",
+                "language__en",
+                "language_confidence__high",
+                "sentiment__neutral",
+                "sentiment_confidence__high"
+              ],
+              "custom_fields": [
+                {
+                  "id": 46406130043793,
+                  "value": null
+                },
+                {
+                  "id": 46406130045073,
+                  "value": null
+                },
+                {
+                  "id": 46406130045969,
+                  "value": null
+                },
+                {
+                  "id": 46406146796817,
+                  "value": null
+                },
+                {
+                  "id": 46406147126033,
+                  "value": null
+                },
+                {
+                  "id": 46406167358737,
+                  "value": null
+                },
+                {
+                  "id": 46406168902289,
+                  "value": null
+                },
+                {
+                  "id": 46406169312273,
+                  "value": "sentiment__neutral"
+                },
+                {
+                  "id": 46406182218641,
+                  "value": "intent__account__new__creating"
+                },
+                {
+                  "id": 46406182230673,
+                  "value": "intent_confidence__low"
+                },
+                {
+                  "id": 46406182261521,
+                  "value": "language__en"
+                },
+                {
+                  "id": 46406182268689,
+                  "value": "language_confidence__high"
+                },
+                {
+                  "id": 46406182281361,
+                  "value": "sentiment_confidence__high"
+                }
+              ],
+              "satisfaction_rating": {
+                "score": "unoffered"
+              },
+              "sharing_agreement_ids": [],
+              "custom_status_id": 46406158222353,
+              "encoded_id": "93E76R-EM7YR",
+              "followup_ids": [],
+              "ticket_form_id": 46406146302353,
+              "brand_id": 46406158162961,
+              "allow_channelback": false,
+              "allow_attachments": true,
+              "from_messaging_channel": false,
+              "support_type": "agent"
+            }
+          ],
+          "meta": {
+            "has_more": false,
+            "after_cursor": "eyJvIjoibmljZV9pZCIsInYiOiJhUVFBQUFBQUFBQUEifQ==",
+            "before_cursor": "eyJvIjoibmljZV9pZCIsInYiOiJhUUVBQUFBQUFBQUEifQ=="
+          },
+          "links": {
+            "prev": "https://nango-1049.zendesk.com/api/v2/tickets.json?page%5Bbefore%5D=eyJvIjoibmljZV9pZCIsInYiOiJhUUVBQUFBQUFBQUEifQ%3D%3D&page%5Bsize%5D=100",
+            "next": "https://nango-1049.zendesk.com/api/v2/tickets.json?page%5Bafter%5D=eyJvIjoibmljZV9pZCIsInYiOiJhUVFBQUFBQUFBQUEifQ%3D%3D&page%5Bsize%5D=100"
+          }
+        },
+        "status": 200,
+        "headers": {
+          "date": "Wed, 06 May 2026 08:47:30 GMT",
+          "content-type": "application/json; charset=utf-8",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=31536000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "X-Zendesk-API-Warn,X-Zendesk-User-Id,X-Zendesk-User-Session-Expires-At",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4957",
+          "x-ratelimit-reset": "1778057259",
+          "x-zendesk-api-version": "v2",
+          "x-zendesk-application-version": "v25703",
+          "x-rate-limit": "400",
+          "ratelimit-limit": "400",
+          "x-rate-limit-remaining": "395",
+          "ratelimit-remaining": "395",
+          "ratelimit-reset": "30",
+          "zendesk-ratelimit-tickets-index": "total=100; remaining=98; resets=30",
+          "etag": "W/\"c8487b020f7a29f61d54ed6be2f8bc88\"",
+          "cache-control": "max-age=0, private, must-revalidate",
+          "zendesk-route": "/api/v2/tickets",
+          "set-cookie": "_zendesk_cookie=BAhJIhl7ImRldmljZV90b2tlbnMiOnt9fQY6BkVU--0bf2100788cb010d0183feca16aaf88ccaf719ca; path=/; expires=Thu, 06 May 2027 08:02:53 GMT; secure; HttpOnly; SameSite=None, __cf_bm=aRstVRXSIH10q0zVxKS87iDYhcQDgE._qrCorOjxPRY-1778057250-1.0.1.1-XZBrs3R8ThnDoWDAd0mXL9zWv0.Dl6nWIe8MjKDkdH86xw_JzNfHewQogpM.njkTpjPMewNjEjqO0RGDFWTWsyBEGqeV_oH5Qmi12MY1wJ8; path=/; expires=Wed, 06-May-26 09:17:30 GMT; domain=.nango-1049.zendesk.com; HttpOnly; Secure; SameSite=None, _cfuvid=nxYNoZlAuoPasGr_OgNM4hMODZ2Y3CHv8vR.9jIWIZU-1778057250984-0.0.1.1-604800000; path=/; domain=.nango-1049.zendesk.com; HttpOnly; Secure; SameSite=None",
+          "x-zendesk-origin-server": "classic-app-server-69d49c4b9b-ncqg2",
+          "x-request-id": "9f76b8788b626e10-DUB",
+          "x-runtime": "0.135509",
+          "x-envoy-upstream-service-time": "143",
+          "x-openapi-route-path": "/api/v2/tickets",
+          "zendesk-service": "classic",
+          "x-zendesk-zorg": "yes",
+          "vary": "Accept-Encoding",
+          "via": "zorg",
+          "x-envoy-decorator-operation": "/api/v2/tickets",
+          "cf-cache-status": "DYNAMIC",
+          "report-to": "{\"endpoints\":[{\"url\":\"https:\\/\\/a.nel.cloudflare.com\\/report\\/v4?s=I0G%2FLZVg0hL8HNJx8iV4TIus%2F%2FbyDbJDfuo8%2Fl18oggLpsoyrpxi71aiDHuMKXof7luYJjWVA3MiAdrYwW%2B3B43itieb%2FRw%2BVFqbUL%2B2ElESl88uURrlbbWJ0bZV2eOHUUmZ48c8q6E%3D\"}],\"group\":\"cf-nel\",\"max_age\":604800}",
+          "nel": "{\"success_fraction\":0.01,\"report_to\":\"cf-nel\",\"max_age\":604800}",
+          "server": "cloudflare",
+          "cf-ray": "9f76b8788b626e10-PDX"
+        },
+        "hash": "5e6f1ea767c0455ee5e19f10bd6e4febfb32ee3d",
+        "request": {
+          "params": {
+            "page[size]": "100"
+          }
+        }
+      }
+    }
+  }
+}

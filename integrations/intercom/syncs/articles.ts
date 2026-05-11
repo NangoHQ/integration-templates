@@ -1,44 +1,60 @@
-import { createSync } from 'nango';
-import type { IntercomArticle } from '../types.js';
-import { toArticle } from '../mappers/to-article.js';
-
-import type { ProxyConfiguration } from 'nango';
-import { Article } from '../models.js';
+import { createSync, type ProxyConfiguration } from 'nango';
 import { z } from 'zod';
 
-/**
- * Retrieves Intercom articles from the API, transforms the data into a suitable format,
- * and saves the processed articles using NangoSync. This function handles pagination to ensure
- * that all articles are fetched, converted, and stored correctly.
- *
- * For detailed endpoint documentation, refer to:
- * https://developers.intercom.com/docs/references/rest-api/api.intercom.io/articles/listarticles
- *
- * @param nango An instance of NangoSync for handling synchronization tasks.
- * @returns Promise that resolves when all articles are fetched and saved.
- */
-const sync = createSync({
-    description: 'Fetches a list of articles from Intercom',
-    version: '2.0.0',
-    frequency: 'every 6 hours',
-    autoStart: true,
-    syncType: 'full',
+const ArticleSchema = z.object({
+    id: z.string(),
+    type: z.string().optional(),
+    workspace_id: z.string().optional(),
+    title: z.string().optional(),
+    description: z.string().nullable().optional(),
+    body: z.string().nullable().optional(),
+    author_id: z.coerce.number().optional(),
+    state: z.enum(['published', 'draft']).optional(),
+    created_at: z.number().optional(),
+    updated_at: z.number().optional(),
+    url: z.string().nullable().optional(),
+    parent_id: z.coerce.number().nullable().optional(),
+    parent_ids: z.array(z.coerce.number()).optional(),
+    parent_type: z.enum(['collection', 'section']).nullable().optional(),
+    default_locale: z.string().optional(),
+    content_id: z.string().optional(),
+    statistics: z
+        .object({
+            type: z.string().optional(),
+            views: z.number().optional(),
+            conversions: z.number().optional(),
+            reactions: z.number().optional(),
+            happy_reaction_percentage: z.number().optional(),
+            neutral_reaction_percentage: z.number().optional(),
+            sad_reaction_percentage: z.number().optional()
+        })
+        .nullable()
+        .optional()
+});
 
+type Article = z.infer<typeof ArticleSchema>;
+
+const sync = createSync({
+    description: 'Sync Help Center articles from Intercom',
+    version: '3.0.0',
+    frequency: 'every hour',
+    autoStart: true,
+    models: {
+        Article: ArticleSchema
+    },
     endpoints: [
         {
             method: 'GET',
-            path: '/articles'
+            path: '/syncs/articles'
         }
     ],
 
-    models: {
-        Article: Article
-    },
-
-    metadata: z.object({}),
-
     exec: async (nango) => {
-        const config: ProxyConfiguration = {
+        // /articles does not expose a provider-side updated_at filter, so this
+        // must stay a full refresh to keep delete tracking accurate.
+        await nango.trackDeletesStart('Article');
+
+        const proxyConfig: ProxyConfiguration = {
             // https://developers.intercom.com/docs/references/rest-api/api.intercom.io/articles/listarticles
             endpoint: '/articles',
             paginate: {
@@ -49,16 +65,18 @@ const sync = createSync({
                 limit: 100
             },
             headers: {
-                'Intercom-Version': '2.9'
+                'Intercom-Version': '2.11'
             },
-            retries: 10
+            retries: 3
         };
 
-        for await (const articles of nango.paginate<IntercomArticle>(config)) {
-            const mappedArticles = articles.map((article: IntercomArticle) => toArticle(article));
-            await nango.batchSave(mappedArticles, 'Article');
+        for await (const page of nango.paginate<Article>(proxyConfig)) {
+            if (page.length > 0) {
+                await nango.batchSave(page, 'Article');
+            }
         }
-        await nango.deleteRecordsFromPreviousExecutions('Article');
+
+        await nango.trackDeletesEnd('Article');
     }
 });
 

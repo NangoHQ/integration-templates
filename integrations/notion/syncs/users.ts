@@ -29,7 +29,7 @@ const CheckpointSchema = z.object({
 
 const sync = createSync({
     description: 'Sync Notion users and bots visible to the integration.',
-    version: '2.0.0',
+    version: '2.0.1',
     frequency: 'every hour',
     autoStart: true,
     checkpoint: CheckpointSchema,
@@ -54,6 +54,8 @@ const sync = createSync({
         await nango.trackDeletesStart('User');
 
         let cursor = parsedCheckpoint?.success ? parsedCheckpoint.data.start_cursor : undefined;
+        let checkpointSaved = false;
+        const hadExistingCheckpoint = !!cursor;
 
         do {
             // https://developers.notion.com/reference/get-users
@@ -86,12 +88,15 @@ const sync = createSync({
             const nextCursor = data.has_more ? (data.next_cursor ?? undefined) : undefined;
             if (nextCursor) {
                 await nango.saveCheckpoint({ start_cursor: nextCursor });
+                checkpointSaved = true;
             }
 
             cursor = nextCursor;
         } while (cursor);
 
-        await nango.clearCheckpoint();
+        if (checkpointSaved || hadExistingCheckpoint) {
+            await nango.clearCheckpoint();
+        }
         await nango.trackDeletesEnd('User');
     }
 });

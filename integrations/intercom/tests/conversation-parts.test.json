@@ -1,0 +1,2438 @@
+{
+  "nango": {
+    "batchSave": {
+      "ConversationPart": [
+        {
+          "id": "44949017546",
+          "conversation_id": "215474207312016",
+          "part_type": "company_updated",
+          "created_at": 1778134494,
+          "updated_at": 1778134494,
+          "author": {
+            "id": "10553732",
+            "type": "bot",
+            "name": "Fin",
+            "email": "operator+h64a47v4@intercom.io"
+          }
+        },
+        {
+          "id": "44949017866",
+          "conversation_id": "215474207312016",
+          "part_type": "conversation_attribute_updated_by_admin",
+          "created_at": 1778134495,
+          "updated_at": 1778134495,
+          "author": {
+            "id": "10553732",
+            "type": "bot",
+            "name": "Fin",
+            "email": "operator+h64a47v4@intercom.io"
+          }
+        },
+        {
+          "id": "44948233657",
+          "conversation_id": "215474207175846",
+          "part_type": "conversation_attribute_updated_by_admin",
+          "created_at": 1778133162,
+          "updated_at": 1778133162,
+          "author": {
+            "id": "10553732",
+            "type": "bot",
+            "name": "Fin",
+            "email": "operator+h64a47v4@intercom.io"
+          }
+        },
+        {
+          "id": "44948315117",
+          "conversation_id": "215474207175846",
+          "part_type": "close",
+          "created_at": 1778133309,
+          "updated_at": 1778133309,
+          "author": {
+            "id": "10553731",
+            "type": "admin",
+            "name": "Nango Developer",
+            "email": "api@nango.dev"
+          }
+        },
+        {
+          "id": "44948321489",
+          "conversation_id": "215474207175846",
+          "part_type": "close",
+          "created_at": 1778133319,
+          "updated_at": 1778133319,
+          "author": {
+            "id": "10553731",
+            "type": "admin",
+            "name": "Nango Developer",
+            "email": "api@nango.dev"
+          }
+        },
+        {
+          "id": "44948393217",
+          "conversation_id": "215474207175846",
+          "part_type": "open",
+          "created_at": 1778133449,
+          "updated_at": 1778133449,
+          "author": {
+            "id": "10553731",
+            "type": "admin",
+            "name": "Nango Developer",
+            "email": "api@nango.dev"
+          }
+        },
+        {
+          "id": "44948313891",
+          "conversation_id": "215474207188301",
+          "part_type": "conversation_attribute_updated_by_admin",
+          "created_at": 1778133307,
+          "updated_at": 1778133307,
+          "author": {
+            "id": "10553732",
+            "type": "bot",
+            "name": "Fin",
+            "email": "operator+h64a47v4@intercom.io"
+          }
+        },
+        {
+          "id": "44948304799",
+          "conversation_id": "215474207187204",
+          "part_type": "conversation_attribute_updated_by_admin",
+          "created_at": 1778133292,
+          "updated_at": 1778133292,
+          "author": {
+            "id": "10553732",
+            "type": "bot",
+            "name": "Fin",
+            "email": "operator+h64a47v4@intercom.io"
+          }
+        },
+        {
+          "id": "44947253867",
+          "conversation_id": "215474207061545",
+          "part_type": "company_updated",
+          "created_at": 1778131335,
+          "updated_at": 1778131335,
+          "author": {
+            "id": "10553732",
+            "type": "bot",
+            "name": "Fin",
+            "email": "operator+h64a47v4@intercom.io"
+          }
+        },
+        {
+          "id": "44948075015",
+          "conversation_id": "215474207061545",
+          "part_type": "close",
+          "created_at": 1778132868,
+          "updated_at": 1778132868,
+          "author": {
+            "id": "10553731",
+            "type": "admin",
+            "name": "Nango Developer",
+            "email": "api@nango.dev"
+          }
+        },
+        {
+          "id": "44948080299",
+          "conversation_id": "215474207061545",
+          "part_type": "open",
+          "created_at": 1778132878,
+          "updated_at": 1778132878,
+          "author": {
+            "id": "10553731",
+            "type": "admin",
+            "name": "Nango Developer",
+            "email": "api@nango.dev"
+          }
+        },
+        {
+          "id": "44948090334",
+          "conversation_id": "215474207061545",
+          "part_type": "close",
+          "created_at": 1778132897,
+          "updated_at": 1778132897,
+          "author": {
+            "id": "10553731",
+            "type": "admin",
+            "name": "Nango Developer",
+            "email": "api@nango.dev"
+          }
+        },
+        {
+          "id": "44948096283",
+          "conversation_id": "215474207061545",
+          "part_type": "open",
+          "created_at": 1778132907,
+          "updated_at": 1778132907,
+          "author": {
+            "id": "10553731",
+            "type": "admin",
+            "name": "Nango Developer",
+            "email": "api@nango.dev"
+          }
+        },
+        {
+          "id": "44948099481",
+          "conversation_id": "215474207061545",
+          "part_type": "close",
+          "created_at": 1778132912,
+          "updated_at": 1778132912,
+          "author": {
+            "id": "10553731",
+            "type": "admin",
+            "name": "Nango Developer",
+            "email": "api@nango.dev"
+          }
+        },
+        {
+          "id": "44948146095",
+          "conversation_id": "215474207061545",
+          "part_type": "open",
+          "created_at": 1778132999,
+          "updated_at": 1778132999,
+          "author": {
+            "id": "10553731",
+            "type": "admin",
+            "name": "Nango Developer",
+            "email": "api@nango.dev"
+          }
+        },
+        {
+          "id": "44948183719",
+          "conversation_id": "215474207061545",
+          "part_type": "comment",
+          "body": "This is a test reply from Nango automation",
+          "created_at": 1778133069,
+          "updated_at": 1778133180,
+          "author": {
+            "id": "10553731",
+            "type": "admin",
+            "name": "Nango Developer",
+            "email": "api@nango.dev"
+          }
+        },
+        {
+          "id": "44948190311",
+          "conversation_id": "215474207061545",
+          "part_type": "conversation_tags_updated",
+          "created_at": 1778133081,
+          "updated_at": 1778133081,
+          "author": {
+            "id": "10553731",
+            "type": "admin",
+            "name": "Nango Developer",
+            "email": "api@nango.dev"
+          }
+        },
+        {
+          "id": "44948198390",
+          "conversation_id": "215474207061545",
+          "part_type": "comment",
+          "body": "This is a test reply from Nango automation",
+          "created_at": 1778133097,
+          "updated_at": 1778133097,
+          "author": {
+            "id": "10553731",
+            "type": "admin",
+            "name": "Nango Developer",
+            "email": "api@nango.dev"
+          }
+        },
+        {
+          "id": "44948213830",
+          "conversation_id": "215474207061545",
+          "part_type": "snoozed",
+          "created_at": 1778133127,
+          "updated_at": 1778133127,
+          "author": {
+            "id": "10553731",
+            "type": "admin",
+            "name": "Nango Developer",
+            "email": "api@nango.dev"
+          }
+        },
+        {
+          "id": "44948215199",
+          "conversation_id": "215474207061545",
+          "part_type": "comment",
+          "body": "This is a test reply from Nango automation",
+          "created_at": 1778133130,
+          "updated_at": 1778133130,
+          "author": {
+            "id": "10553731",
+            "type": "admin",
+            "name": "Nango Developer",
+            "email": "api@nango.dev"
+          }
+        },
+        {
+          "id": "44948223722",
+          "conversation_id": "215474207061545",
+          "part_type": "comment",
+          "body": "This is a test reply from Nango automation",
+          "created_at": 1778133145,
+          "updated_at": 1778133145,
+          "author": {
+            "id": "10553731",
+            "type": "admin",
+            "name": "Nango Developer",
+            "email": "api@nango.dev"
+          }
+        },
+        {
+          "id": "44948245034",
+          "conversation_id": "215474207061545",
+          "part_type": "snoozed",
+          "created_at": 1778133182,
+          "updated_at": 1778133182,
+          "author": {
+            "id": "10553731",
+            "type": "admin",
+            "name": "Nango Developer",
+            "email": "api@nango.dev"
+          }
+        },
+        {
+          "id": "44948266457",
+          "conversation_id": "215474207061545",
+          "part_type": "snoozed",
+          "created_at": 1778133222,
+          "updated_at": 1778133222,
+          "author": {
+            "id": "10553731",
+            "type": "admin",
+            "name": "Nango Developer",
+            "email": "api@nango.dev"
+          }
+        },
+        {
+          "id": "44948288828",
+          "conversation_id": "215474207061545",
+          "part_type": "snoozed",
+          "created_at": 1778133263,
+          "updated_at": 1778133263,
+          "author": {
+            "id": "10553731",
+            "type": "admin",
+            "name": "Nango Developer",
+            "email": "api@nango.dev"
+          }
+        },
+        {
+          "id": "44948296214",
+          "conversation_id": "215474207061545",
+          "part_type": "snoozed",
+          "created_at": 1778133276,
+          "updated_at": 1778133276,
+          "author": {
+            "id": "10553731",
+            "type": "admin",
+            "name": "Nango Developer",
+            "email": "api@nango.dev"
+          }
+        },
+        {
+          "id": "44948230282",
+          "conversation_id": "215474207175294",
+          "part_type": "conversation_attribute_updated_by_admin",
+          "created_at": 1778133156,
+          "updated_at": 1778133156,
+          "author": {
+            "id": "10553732",
+            "type": "bot",
+            "name": "Fin",
+            "email": "operator+h64a47v4@intercom.io"
+          }
+        }
+      ]
+    },
+    "batchDelete": {
+      "ConversationPart": []
+    }
+  },
+  "api": {
+    "post": {
+      "/conversations/search": {
+        "response": {
+          "type": "conversation.list",
+          "pages": {
+            "type": "pages",
+            "page": 1,
+            "per_page": 100,
+            "total_pages": 1
+          },
+          "total_count": 6,
+          "conversations": [
+            {
+              "type": "conversation",
+              "id": "215474207312016",
+              "created_at": 1778134494,
+              "updated_at": 1778134495,
+              "waiting_since": 1778134494,
+              "snoozed_until": null,
+              "source": {
+                "type": "conversation",
+                "id": "3653707491",
+                "delivered_as": "customer_initiated",
+                "subject": "",
+                "body": "<p>Test conversation for assignment</p>",
+                "author": {
+                  "type": "user",
+                  "id": "69fc21865a28f6d15c73b074",
+                  "name": "Phone &amp; SMS",
+                  "email": "phone@projectmap.com"
+                },
+                "attachments": [],
+                "url": null,
+                "redacted": false
+              },
+              "contacts": {
+                "type": "contact.list",
+                "contacts": [
+                  {
+                    "type": "contact",
+                    "id": "69fc21865a28f6d15c73b074",
+                    "external_id": "035c0b02-f5a0-4d64-9cca-ffdf90d279c6"
+                  }
+                ]
+              },
+              "first_contact_reply": {
+                "created_at": 1778134494,
+                "type": "conversation",
+                "url": null
+              },
+              "admin_assignee_id": null,
+              "team_assignee_id": null,
+              "open": true,
+              "state": "open",
+              "read": true,
+              "tags": {
+                "type": "tag.list",
+                "tags": []
+              },
+              "priority": "not_priority",
+              "sla_applied": null,
+              "statistics": {
+                "type": "conversation_statistics",
+                "time_to_assignment": null,
+                "time_to_admin_reply": null,
+                "time_to_first_close": null,
+                "time_to_last_close": null,
+                "median_time_to_reply": null,
+                "first_contact_reply_at": 1778134494,
+                "first_assignment_at": null,
+                "first_admin_reply_at": null,
+                "first_close_at": null,
+                "last_assignment_at": null,
+                "last_assignment_admin_reply_at": null,
+                "last_contact_reply_at": 1778134494,
+                "last_admin_reply_at": null,
+                "last_close_at": null,
+                "last_closed_by_id": null,
+                "count_reopens": 0,
+                "count_assignments": 0,
+                "count_conversation_parts": 3
+              },
+              "conversation_rating": null,
+              "teammates": {
+                "type": "admin.list",
+                "admins": []
+              },
+              "title": "",
+              "custom_attributes": {
+                "Has attachments": false,
+                "SDR Success Counted": false,
+                "Imported via standalone": false,
+                "Auto-translated": false,
+                "Fin AI Agent: Preview": false,
+                "Fin awaiting teammate input": false,
+                "Fin AI Agent: Image used in reply": false,
+                "Copilot used": false,
+                "Has QA Notes": false,
+                "QA Notes Count": 0,
+                "Created by app package code": "nangoapp",
+                "Language": "English"
+              },
+              "topics": {
+                "type": "topic.list",
+                "topics": [],
+                "total_count": 0
+              },
+              "ticket": null,
+              "linked_objects": {
+                "type": "list",
+                "data": [],
+                "total_count": 0,
+                "has_more": false
+              },
+              "ai_agent": null,
+              "ai_agent_participated": false
+            },
+            {
+              "type": "conversation",
+              "id": "215474207175846",
+              "created_at": 1778133161,
+              "updated_at": 1778133449,
+              "waiting_since": 1778133161,
+              "snoozed_until": null,
+              "source": {
+                "type": "conversation",
+                "id": "3653679661",
+                "delivered_as": "customer_initiated",
+                "subject": "",
+                "body": "<p>Test conversation for close action</p>",
+                "author": {
+                  "type": "user",
+                  "id": "69fc287a254b6d77baf2310a",
+                  "name": "Test User",
+                  "email": "test-close-conv@example.com"
+                },
+                "attachments": [],
+                "url": null,
+                "redacted": false
+              },
+              "contacts": {
+                "type": "contact.list",
+                "contacts": [
+                  {
+                    "type": "contact",
+                    "id": "69fc287a254b6d77baf2310a",
+                    "external_id": null
+                  }
+                ]
+              },
+              "first_contact_reply": {
+                "created_at": 1778133161,
+                "type": "conversation",
+                "url": null
+              },
+              "admin_assignee_id": null,
+              "team_assignee_id": null,
+              "open": true,
+              "state": "open",
+              "read": true,
+              "tags": {
+                "type": "tag.list",
+                "tags": []
+              },
+              "priority": "not_priority",
+              "sla_applied": null,
+              "statistics": {
+                "type": "conversation_statistics",
+                "time_to_assignment": null,
+                "time_to_admin_reply": null,
+                "time_to_first_close": 148,
+                "time_to_last_close": 158,
+                "median_time_to_reply": null,
+                "first_contact_reply_at": 1778133161,
+                "first_assignment_at": null,
+                "first_admin_reply_at": null,
+                "first_close_at": 1778133309,
+                "last_assignment_at": null,
+                "last_assignment_admin_reply_at": null,
+                "last_contact_reply_at": 1778133161,
+                "last_admin_reply_at": null,
+                "last_close_at": 1778133319,
+                "last_closed_by_id": 10553731,
+                "count_reopens": 1,
+                "count_assignments": 0,
+                "count_conversation_parts": 5
+              },
+              "conversation_rating": null,
+              "teammates": {
+                "type": "admin.list",
+                "admins": []
+              },
+              "title": "",
+              "custom_attributes": {
+                "Has attachments": false,
+                "SDR Success Counted": false,
+                "Imported via standalone": false,
+                "Auto-translated": false,
+                "Fin AI Agent: Preview": false,
+                "Fin awaiting teammate input": false,
+                "Fin AI Agent: Image used in reply": false,
+                "Copilot used": false,
+                "Has QA Notes": false,
+                "QA Notes Count": 0,
+                "Created by app package code": "nangoapp",
+                "Language": "English"
+              },
+              "topics": {
+                "type": "topic.list",
+                "topics": [],
+                "total_count": 0
+              },
+              "ticket": null,
+              "linked_objects": {
+                "type": "list",
+                "data": [],
+                "total_count": 0,
+                "has_more": false
+              },
+              "ai_agent": null,
+              "ai_agent_participated": false
+            },
+            {
+              "type": "conversation",
+              "id": "215474207188301",
+              "created_at": 1778133307,
+              "updated_at": 1778133307,
+              "waiting_since": 1778133307,
+              "snoozed_until": null,
+              "source": {
+                "type": "conversation",
+                "id": "3653682356",
+                "delivered_as": "customer_initiated",
+                "subject": "",
+                "body": "<p>Hello, this is a test conversation from a Nango action</p>",
+                "author": {
+                  "type": "user",
+                  "id": "69fc27fb4edb48d3256fedcb",
+                  "name": "Test Conversation User",
+                  "email": "test-conversation-2026@example.com"
+                },
+                "attachments": [],
+                "url": null,
+                "redacted": false
+              },
+              "contacts": {
+                "type": "contact.list",
+                "contacts": [
+                  {
+                    "type": "contact",
+                    "id": "69fc27fb4edb48d3256fedcb",
+                    "external_id": null
+                  }
+                ]
+              },
+              "first_contact_reply": {
+                "created_at": 1778133307,
+                "type": "conversation",
+                "url": null
+              },
+              "admin_assignee_id": null,
+              "team_assignee_id": null,
+              "open": true,
+              "state": "open",
+              "read": true,
+              "tags": {
+                "type": "tag.list",
+                "tags": []
+              },
+              "priority": "not_priority",
+              "sla_applied": null,
+              "statistics": {
+                "type": "conversation_statistics",
+                "time_to_assignment": null,
+                "time_to_admin_reply": null,
+                "time_to_first_close": null,
+                "time_to_last_close": null,
+                "median_time_to_reply": null,
+                "first_contact_reply_at": 1778133307,
+                "first_assignment_at": null,
+                "first_admin_reply_at": null,
+                "first_close_at": null,
+                "last_assignment_at": null,
+                "last_assignment_admin_reply_at": null,
+                "last_contact_reply_at": 1778133307,
+                "last_admin_reply_at": null,
+                "last_close_at": null,
+                "last_closed_by_id": null,
+                "count_reopens": 0,
+                "count_assignments": 0,
+                "count_conversation_parts": 2
+              },
+              "conversation_rating": null,
+              "teammates": {
+                "type": "admin.list",
+                "admins": []
+              },
+              "title": "",
+              "custom_attributes": {
+                "Has attachments": false,
+                "SDR Success Counted": false,
+                "Imported via standalone": false,
+                "Auto-translated": false,
+                "Fin AI Agent: Preview": false,
+                "Fin awaiting teammate input": false,
+                "Fin AI Agent: Image used in reply": false,
+                "Copilot used": false,
+                "Has QA Notes": false,
+                "QA Notes Count": 0,
+                "Created by app package code": "nangoapp",
+                "Language": "English"
+              },
+              "topics": {
+                "type": "topic.list",
+                "topics": [],
+                "total_count": 0
+              },
+              "ticket": null,
+              "linked_objects": {
+                "type": "list",
+                "data": [],
+                "total_count": 0,
+                "has_more": false
+              },
+              "ai_agent": null,
+              "ai_agent_participated": false
+            },
+            {
+              "type": "conversation",
+              "id": "215474207187204",
+              "created_at": 1778133292,
+              "updated_at": 1778133292,
+              "waiting_since": 1778133292,
+              "snoozed_until": null,
+              "source": {
+                "type": "conversation",
+                "id": "3653682070",
+                "delivered_as": "customer_initiated",
+                "subject": "",
+                "body": "<p>Hello, this is a test conversation from a Nango action</p>",
+                "author": {
+                  "type": "user",
+                  "id": "69fc27fb4edb48d3256fedcb",
+                  "name": "Test Conversation User",
+                  "email": "test-conversation-2026@example.com"
+                },
+                "attachments": [],
+                "url": null,
+                "redacted": false
+              },
+              "contacts": {
+                "type": "contact.list",
+                "contacts": [
+                  {
+                    "type": "contact",
+                    "id": "69fc27fb4edb48d3256fedcb",
+                    "external_id": null
+                  }
+                ]
+              },
+              "first_contact_reply": {
+                "created_at": 1778133292,
+                "type": "conversation",
+                "url": null
+              },
+              "admin_assignee_id": null,
+              "team_assignee_id": null,
+              "open": true,
+              "state": "open",
+              "read": true,
+              "tags": {
+                "type": "tag.list",
+                "tags": []
+              },
+              "priority": "not_priority",
+              "sla_applied": null,
+              "statistics": {
+                "type": "conversation_statistics",
+                "time_to_assignment": null,
+                "time_to_admin_reply": null,
+                "time_to_first_close": null,
+                "time_to_last_close": null,
+                "median_time_to_reply": null,
+                "first_contact_reply_at": 1778133292,
+                "first_assignment_at": null,
+                "first_admin_reply_at": null,
+                "first_close_at": null,
+                "last_assignment_at": null,
+                "last_assignment_admin_reply_at": null,
+                "last_contact_reply_at": 1778133292,
+                "last_admin_reply_at": null,
+                "last_close_at": null,
+                "last_closed_by_id": null,
+                "count_reopens": 0,
+                "count_assignments": 0,
+                "count_conversation_parts": 2
+              },
+              "conversation_rating": null,
+              "teammates": {
+                "type": "admin.list",
+                "admins": []
+              },
+              "title": "",
+              "custom_attributes": {
+                "Has attachments": false,
+                "SDR Success Counted": false,
+                "Imported via standalone": false,
+                "Auto-translated": false,
+                "Fin AI Agent: Preview": false,
+                "Fin awaiting teammate input": false,
+                "Fin AI Agent: Image used in reply": false,
+                "Copilot used": false,
+                "Has QA Notes": false,
+                "QA Notes Count": 0,
+                "Created by app package code": "nangoapp",
+                "Language": "English",
+                "AI Title": "Test conversation"
+              },
+              "topics": {
+                "type": "topic.list",
+                "topics": [],
+                "total_count": 0
+              },
+              "ticket": null,
+              "linked_objects": {
+                "type": "list",
+                "data": [],
+                "total_count": 0,
+                "has_more": false
+              },
+              "ai_agent": null,
+              "ai_agent_participated": false
+            },
+            {
+              "type": "conversation",
+              "id": "215474207061545",
+              "created_at": 1778131334,
+              "updated_at": 1778133276,
+              "waiting_since": null,
+              "snoozed_until": 1778737917,
+              "source": null,
+              "contacts": {
+                "type": "contact.list",
+                "contacts": [
+                  {
+                    "type": "contact",
+                    "id": "69fc21865a28f6d15c73b074",
+                    "external_id": "035c0b02-f5a0-4d64-9cca-ffdf90d279c6"
+                  }
+                ]
+              },
+              "first_contact_reply": null,
+              "admin_assignee_id": null,
+              "team_assignee_id": null,
+              "open": true,
+              "state": "snoozed",
+              "read": false,
+              "tags": {
+                "type": "tag.list",
+                "tags": []
+              },
+              "priority": "not_priority",
+              "sla_applied": null,
+              "statistics": {
+                "type": "conversation_statistics",
+                "time_to_assignment": null,
+                "time_to_admin_reply": null,
+                "time_to_first_close": null,
+                "time_to_last_close": null,
+                "median_time_to_reply": null,
+                "first_contact_reply_at": null,
+                "first_assignment_at": null,
+                "first_admin_reply_at": null,
+                "first_close_at": null,
+                "last_assignment_at": null,
+                "last_assignment_admin_reply_at": null,
+                "last_contact_reply_at": null,
+                "last_admin_reply_at": null,
+                "last_close_at": null,
+                "last_closed_by_id": null,
+                "count_reopens": 0,
+                "count_assignments": 0,
+                "count_conversation_parts": 18
+              },
+              "conversation_rating": null,
+              "teammates": {
+                "type": "admin.list",
+                "admins": [
+                  {
+                    "type": "admin",
+                    "id": "10553731"
+                  }
+                ]
+              },
+              "title": null,
+              "custom_attributes": {
+                "Has attachments": false,
+                "SDR Success Counted": false,
+                "Imported via standalone": false,
+                "Auto-translated": false,
+                "Fin AI Agent: Preview": false,
+                "Fin awaiting teammate input": false,
+                "Fin AI Agent: Image used in reply": false,
+                "Copilot used": false,
+                "Has QA Notes": false,
+                "QA Notes Count": 0
+              },
+              "topics": {
+                "type": "topic.list",
+                "topics": [],
+                "total_count": 0
+              },
+              "ticket": null,
+              "linked_objects": {
+                "type": "list",
+                "data": [],
+                "total_count": 0,
+                "has_more": false
+              },
+              "ai_agent": null,
+              "ai_agent_participated": false
+            },
+            {
+              "type": "conversation",
+              "id": "215474207175294",
+              "created_at": 1778133155,
+              "updated_at": 1778133156,
+              "waiting_since": 1778133155,
+              "snoozed_until": null,
+              "source": {
+                "type": "conversation",
+                "id": "3653679547",
+                "delivered_as": "customer_initiated",
+                "subject": "",
+                "body": "<p>Hello, this is a test conversation from a Nango action</p>",
+                "author": {
+                  "type": "user",
+                  "id": "69fc27fb4edb48d3256fedcb",
+                  "name": "Test Conversation User",
+                  "email": "test-conversation-2026@example.com"
+                },
+                "attachments": [],
+                "url": null,
+                "redacted": false
+              },
+              "contacts": {
+                "type": "contact.list",
+                "contacts": [
+                  {
+                    "type": "contact",
+                    "id": "69fc27fb4edb48d3256fedcb",
+                    "external_id": null
+                  }
+                ]
+              },
+              "first_contact_reply": {
+                "created_at": 1778133155,
+                "type": "conversation",
+                "url": null
+              },
+              "admin_assignee_id": null,
+              "team_assignee_id": null,
+              "open": true,
+              "state": "open",
+              "read": true,
+              "tags": {
+                "type": "tag.list",
+                "tags": []
+              },
+              "priority": "not_priority",
+              "sla_applied": null,
+              "statistics": {
+                "type": "conversation_statistics",
+                "time_to_assignment": null,
+                "time_to_admin_reply": null,
+                "time_to_first_close": null,
+                "time_to_last_close": null,
+                "median_time_to_reply": null,
+                "first_contact_reply_at": 1778133155,
+                "first_assignment_at": null,
+                "first_admin_reply_at": null,
+                "first_close_at": null,
+                "last_assignment_at": null,
+                "last_assignment_admin_reply_at": null,
+                "last_contact_reply_at": 1778133155,
+                "last_admin_reply_at": null,
+                "last_close_at": null,
+                "last_closed_by_id": null,
+                "count_reopens": 0,
+                "count_assignments": 0,
+                "count_conversation_parts": 2
+              },
+              "conversation_rating": null,
+              "teammates": {
+                "type": "admin.list",
+                "admins": []
+              },
+              "title": "",
+              "custom_attributes": {
+                "Has attachments": false,
+                "SDR Success Counted": false,
+                "Imported via standalone": false,
+                "Auto-translated": false,
+                "Fin AI Agent: Preview": false,
+                "Fin awaiting teammate input": false,
+                "Fin AI Agent: Image used in reply": false,
+                "Copilot used": false,
+                "Has QA Notes": false,
+                "QA Notes Count": 0,
+                "Created by app package code": "nangoapp",
+                "Language": "English"
+              },
+              "topics": {
+                "type": "topic.list",
+                "topics": [],
+                "total_count": 0
+              },
+              "ticket": null,
+              "linked_objects": {
+                "type": "list",
+                "data": [],
+                "total_count": 0,
+                "has_more": false
+              },
+              "ai_agent": null,
+              "ai_agent_participated": false
+            }
+          ]
+        },
+        "status": 200,
+        "headers": {
+          "date": "Thu, 07 May 2026 09:42:12 GMT",
+          "content-type": "application/json; charset=utf-8",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "1; mode=block",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=31556952; includeSubDomains; preload",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "5000",
+          "x-ratelimit-reset": "1778146946",
+          "vary": "Accept-Encoding",
+          "status": "200 OK",
+          "x-intercom-version": "19f2486a9e0cb9f748c362451ac7fa51aa69ddb5",
+          "x-request-id": "002g9kp4psoc4j6ergp0",
+          "etag": "W/\"a2a595b83feac8d8928fc39fdb650a0b\"",
+          "cache-control": "max-age=0, private, must-revalidate",
+          "referrer-policy": "strict-origin-when-cross-origin",
+          "x-request-queueing": "0",
+          "intercom-version": "2.11",
+          "x-runtime": "0.467102",
+          "server": "nginx",
+          "x-ami-version": "ami-018421ea35bfc2097"
+        },
+        "hash": "e7ac4edec61e70b527d703f4ac5cc2564d09d943",
+        "request": {
+          "headers": {
+            "Intercom-Version": "2.11"
+          },
+          "data": {
+            "query": {
+              "operator": "AND",
+              "value": [
+                {
+                  "field": "updated_at",
+                  "operator": ">",
+                  "value": 1715061182
+                }
+              ]
+            },
+            "pagination": {
+              "per_page": 100
+            },
+            "per_page": 60
+          }
+        }
+      }
+    },
+    "get": {
+      "/conversations/215474207312016": {
+        "response": {
+          "type": "conversation",
+          "id": "215474207312016",
+          "created_at": 1778134494,
+          "updated_at": 1778134495,
+          "waiting_since": 1778134494,
+          "snoozed_until": null,
+          "source": {
+            "type": "conversation",
+            "id": "3653707491",
+            "delivered_as": "customer_initiated",
+            "subject": "",
+            "body": "Test conversation for assignment",
+            "author": {
+              "type": "user",
+              "id": "69fc21865a28f6d15c73b074",
+              "name": "Phone &amp; SMS",
+              "email": "phone@projectmap.com"
+            },
+            "attachments": [],
+            "url": null,
+            "redacted": false
+          },
+          "contacts": {
+            "type": "contact.list",
+            "contacts": [
+              {
+                "type": "contact",
+                "id": "69fc21865a28f6d15c73b074",
+                "external_id": "035c0b02-f5a0-4d64-9cca-ffdf90d279c6"
+              }
+            ]
+          },
+          "first_contact_reply": {
+            "created_at": 1778134494,
+            "type": "conversation",
+            "url": null
+          },
+          "admin_assignee_id": null,
+          "team_assignee_id": null,
+          "open": true,
+          "state": "open",
+          "read": true,
+          "tags": {
+            "type": "tag.list",
+            "tags": []
+          },
+          "priority": "not_priority",
+          "sla_applied": null,
+          "statistics": {
+            "type": "conversation_statistics",
+            "time_to_assignment": null,
+            "time_to_admin_reply": null,
+            "time_to_first_close": null,
+            "time_to_last_close": null,
+            "median_time_to_reply": null,
+            "first_contact_reply_at": 1778134494,
+            "first_assignment_at": null,
+            "first_admin_reply_at": null,
+            "first_close_at": null,
+            "last_assignment_at": null,
+            "last_assignment_admin_reply_at": null,
+            "last_contact_reply_at": 1778134494,
+            "last_admin_reply_at": null,
+            "last_close_at": null,
+            "last_closed_by_id": null,
+            "count_reopens": 0,
+            "count_assignments": 0,
+            "count_conversation_parts": 3
+          },
+          "conversation_rating": null,
+          "teammates": {
+            "type": "admin.list",
+            "admins": []
+          },
+          "title": "",
+          "custom_attributes": {
+            "Has attachments": false,
+            "SDR Success Counted": false,
+            "Imported via standalone": false,
+            "Auto-translated": false,
+            "Fin AI Agent: Preview": false,
+            "Fin awaiting teammate input": false,
+            "Fin AI Agent: Image used in reply": false,
+            "Copilot used": false,
+            "Has QA Notes": false,
+            "QA Notes Count": 0,
+            "Created by app package code": "nangoapp",
+            "Language": "English"
+          },
+          "topics": {
+            "type": "topic.list",
+            "topics": [],
+            "total_count": 0
+          },
+          "ticket": null,
+          "linked_objects": {
+            "type": "list",
+            "data": [],
+            "total_count": 0,
+            "has_more": false
+          },
+          "ai_agent": null,
+          "ai_agent_participated": false,
+          "conversation_parts": {
+            "type": "conversation_part.list",
+            "conversation_parts": [
+              {
+                "type": "conversation_part",
+                "id": "44949017546",
+                "part_type": "company_updated",
+                "body": null,
+                "created_at": 1778134494,
+                "updated_at": 1778134494,
+                "notified_at": 1778134494,
+                "assigned_to": null,
+                "author": {
+                  "id": "10553732",
+                  "type": "bot",
+                  "name": "Fin",
+                  "email": "operator+h64a47v4@intercom.io"
+                },
+                "attachments": [],
+                "external_id": null,
+                "redacted": false
+              },
+              {
+                "type": "conversation_part",
+                "id": "44949017866",
+                "part_type": "conversation_attribute_updated_by_admin",
+                "body": null,
+                "created_at": 1778134495,
+                "updated_at": 1778134495,
+                "notified_at": 1778134495,
+                "assigned_to": null,
+                "author": {
+                  "id": "10553732",
+                  "type": "bot",
+                  "name": "Fin",
+                  "email": "operator+h64a47v4@intercom.io"
+                },
+                "attachments": [],
+                "external_id": null,
+                "redacted": false
+              }
+            ],
+            "total_count": 2
+          }
+        },
+        "status": 200,
+        "headers": {
+          "date": "Thu, 07 May 2026 09:42:13 GMT",
+          "content-type": "application/json; charset=utf-8",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "1; mode=block",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=31556952; includeSubDomains; preload",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4999",
+          "x-ratelimit-reset": "1778146946",
+          "vary": "Accept-Encoding",
+          "status": "200 OK",
+          "x-intercom-version": "11c3b3b08d9f2526a8fa96a61013a475354cf23f",
+          "x-request-id": "002fhi2qo4m49897vbd0",
+          "etag": "W/\"7eeceb57120bd1cb53c51dc0b6595f81\"",
+          "cache-control": "max-age=0, private, must-revalidate",
+          "referrer-policy": "strict-origin-when-cross-origin",
+          "x-request-queueing": "0",
+          "intercom-version": "2.11",
+          "x-runtime": "0.174490",
+          "server": "nginx",
+          "x-ami-version": "ami-018421ea35bfc2097"
+        },
+        "hash": "7427cebc66c5cd82dafd78023667f7651ba8adc4",
+        "request": {
+          "params": {
+            "display_as": "plaintext"
+          },
+          "headers": {
+            "Intercom-Version": "2.11"
+          }
+        }
+      },
+      "/conversations/215474207175846": {
+        "response": {
+          "type": "conversation",
+          "id": "215474207175846",
+          "created_at": 1778133161,
+          "updated_at": 1778133449,
+          "waiting_since": 1778133161,
+          "snoozed_until": null,
+          "source": {
+            "type": "conversation",
+            "id": "3653679661",
+            "delivered_as": "customer_initiated",
+            "subject": "",
+            "body": "Test conversation for close action",
+            "author": {
+              "type": "user",
+              "id": "69fc287a254b6d77baf2310a",
+              "name": "Test User",
+              "email": "test-close-conv@example.com"
+            },
+            "attachments": [],
+            "url": null,
+            "redacted": false
+          },
+          "contacts": {
+            "type": "contact.list",
+            "contacts": [
+              {
+                "type": "contact",
+                "id": "69fc287a254b6d77baf2310a",
+                "external_id": null
+              }
+            ]
+          },
+          "first_contact_reply": {
+            "created_at": 1778133161,
+            "type": "conversation",
+            "url": null
+          },
+          "admin_assignee_id": null,
+          "team_assignee_id": null,
+          "open": true,
+          "state": "open",
+          "read": true,
+          "tags": {
+            "type": "tag.list",
+            "tags": []
+          },
+          "priority": "not_priority",
+          "sla_applied": null,
+          "statistics": {
+            "type": "conversation_statistics",
+            "time_to_assignment": null,
+            "time_to_admin_reply": null,
+            "time_to_first_close": 148,
+            "time_to_last_close": 158,
+            "median_time_to_reply": null,
+            "first_contact_reply_at": 1778133161,
+            "first_assignment_at": null,
+            "first_admin_reply_at": null,
+            "first_close_at": 1778133309,
+            "last_assignment_at": null,
+            "last_assignment_admin_reply_at": null,
+            "last_contact_reply_at": 1778133161,
+            "last_admin_reply_at": null,
+            "last_close_at": 1778133319,
+            "last_closed_by_id": 10553731,
+            "count_reopens": 1,
+            "count_assignments": 0,
+            "count_conversation_parts": 5
+          },
+          "conversation_rating": null,
+          "teammates": {
+            "type": "admin.list",
+            "admins": []
+          },
+          "title": "",
+          "custom_attributes": {
+            "Has attachments": false,
+            "SDR Success Counted": false,
+            "Imported via standalone": false,
+            "Auto-translated": false,
+            "Fin AI Agent: Preview": false,
+            "Fin awaiting teammate input": false,
+            "Fin AI Agent: Image used in reply": false,
+            "Copilot used": false,
+            "Has QA Notes": false,
+            "QA Notes Count": 0,
+            "Created by app package code": "nangoapp",
+            "Language": "English"
+          },
+          "topics": {
+            "type": "topic.list",
+            "topics": [],
+            "total_count": 0
+          },
+          "ticket": null,
+          "linked_objects": {
+            "type": "list",
+            "data": [],
+            "total_count": 0,
+            "has_more": false
+          },
+          "ai_agent": null,
+          "ai_agent_participated": false,
+          "conversation_parts": {
+            "type": "conversation_part.list",
+            "conversation_parts": [
+              {
+                "type": "conversation_part",
+                "id": "44948233657",
+                "part_type": "conversation_attribute_updated_by_admin",
+                "body": null,
+                "created_at": 1778133162,
+                "updated_at": 1778133162,
+                "notified_at": 1778133162,
+                "assigned_to": null,
+                "author": {
+                  "id": "10553732",
+                  "type": "bot",
+                  "name": "Fin",
+                  "email": "operator+h64a47v4@intercom.io"
+                },
+                "attachments": [],
+                "external_id": null,
+                "redacted": false
+              },
+              {
+                "type": "conversation_part",
+                "id": "44948315117",
+                "part_type": "close",
+                "body": null,
+                "created_at": 1778133309,
+                "updated_at": 1778133309,
+                "notified_at": 1778133309,
+                "assigned_to": null,
+                "author": {
+                  "id": "10553731",
+                  "type": "admin",
+                  "name": "Nango Developer",
+                  "email": "api@nango.dev"
+                },
+                "attachments": [],
+                "external_id": null,
+                "redacted": false
+              },
+              {
+                "type": "conversation_part",
+                "id": "44948321489",
+                "part_type": "close",
+                "body": null,
+                "created_at": 1778133319,
+                "updated_at": 1778133319,
+                "notified_at": 1778133319,
+                "assigned_to": null,
+                "author": {
+                  "id": "10553731",
+                  "type": "admin",
+                  "name": "Nango Developer",
+                  "email": "api@nango.dev"
+                },
+                "attachments": [],
+                "external_id": null,
+                "redacted": false
+              },
+              {
+                "type": "conversation_part",
+                "id": "44948393217",
+                "part_type": "open",
+                "body": null,
+                "created_at": 1778133449,
+                "updated_at": 1778133449,
+                "notified_at": 1778133449,
+                "assigned_to": null,
+                "author": {
+                  "id": "10553731",
+                  "type": "admin",
+                  "name": "Nango Developer",
+                  "email": "api@nango.dev"
+                },
+                "attachments": [],
+                "external_id": null,
+                "redacted": false
+              }
+            ],
+            "total_count": 4
+          }
+        },
+        "status": 200,
+        "headers": {
+          "date": "Thu, 07 May 2026 09:42:14 GMT",
+          "content-type": "application/json; charset=utf-8",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "1; mode=block",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=31556952; includeSubDomains; preload",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4998",
+          "x-ratelimit-reset": "1778146946",
+          "vary": "Accept-Encoding",
+          "status": "200 OK",
+          "x-intercom-version": "1a95b5893b87317969a87272b259be9bb31cac99",
+          "x-request-id": "002foq5kjagra3mal090",
+          "etag": "W/\"8f2e682cde0fbba42ebfbc707d54e524\"",
+          "cache-control": "max-age=0, private, must-revalidate",
+          "referrer-policy": "strict-origin-when-cross-origin",
+          "x-request-queueing": "0",
+          "intercom-version": "2.11",
+          "x-runtime": "0.181058",
+          "server": "nginx",
+          "x-ami-version": "ami-018421ea35bfc2097"
+        },
+        "hash": "a92a1578fd89fc5798b0cb87068d66a439debb32",
+        "request": {
+          "params": {
+            "display_as": "plaintext"
+          },
+          "headers": {
+            "Intercom-Version": "2.11"
+          }
+        }
+      },
+      "/conversations/215474207188301": {
+        "response": {
+          "type": "conversation",
+          "id": "215474207188301",
+          "created_at": 1778133307,
+          "updated_at": 1778133307,
+          "waiting_since": 1778133307,
+          "snoozed_until": null,
+          "source": {
+            "type": "conversation",
+            "id": "3653682356",
+            "delivered_as": "customer_initiated",
+            "subject": "",
+            "body": "Hello, this is a test conversation from a Nango action",
+            "author": {
+              "type": "user",
+              "id": "69fc27fb4edb48d3256fedcb",
+              "name": "Test Conversation User",
+              "email": "test-conversation-2026@example.com"
+            },
+            "attachments": [],
+            "url": null,
+            "redacted": false
+          },
+          "contacts": {
+            "type": "contact.list",
+            "contacts": [
+              {
+                "type": "contact",
+                "id": "69fc27fb4edb48d3256fedcb",
+                "external_id": null
+              }
+            ]
+          },
+          "first_contact_reply": {
+            "created_at": 1778133307,
+            "type": "conversation",
+            "url": null
+          },
+          "admin_assignee_id": null,
+          "team_assignee_id": null,
+          "open": true,
+          "state": "open",
+          "read": true,
+          "tags": {
+            "type": "tag.list",
+            "tags": []
+          },
+          "priority": "not_priority",
+          "sla_applied": null,
+          "statistics": {
+            "type": "conversation_statistics",
+            "time_to_assignment": null,
+            "time_to_admin_reply": null,
+            "time_to_first_close": null,
+            "time_to_last_close": null,
+            "median_time_to_reply": null,
+            "first_contact_reply_at": 1778133307,
+            "first_assignment_at": null,
+            "first_admin_reply_at": null,
+            "first_close_at": null,
+            "last_assignment_at": null,
+            "last_assignment_admin_reply_at": null,
+            "last_contact_reply_at": 1778133307,
+            "last_admin_reply_at": null,
+            "last_close_at": null,
+            "last_closed_by_id": null,
+            "count_reopens": 0,
+            "count_assignments": 0,
+            "count_conversation_parts": 2
+          },
+          "conversation_rating": null,
+          "teammates": {
+            "type": "admin.list",
+            "admins": []
+          },
+          "title": "",
+          "custom_attributes": {
+            "Has attachments": false,
+            "SDR Success Counted": false,
+            "Imported via standalone": false,
+            "Auto-translated": false,
+            "Fin AI Agent: Preview": false,
+            "Fin awaiting teammate input": false,
+            "Fin AI Agent: Image used in reply": false,
+            "Copilot used": false,
+            "Has QA Notes": false,
+            "QA Notes Count": 0,
+            "Created by app package code": "nangoapp",
+            "Language": "English"
+          },
+          "topics": {
+            "type": "topic.list",
+            "topics": [],
+            "total_count": 0
+          },
+          "ticket": null,
+          "linked_objects": {
+            "type": "list",
+            "data": [],
+            "total_count": 0,
+            "has_more": false
+          },
+          "ai_agent": null,
+          "ai_agent_participated": false,
+          "conversation_parts": {
+            "type": "conversation_part.list",
+            "conversation_parts": [
+              {
+                "type": "conversation_part",
+                "id": "44948313891",
+                "part_type": "conversation_attribute_updated_by_admin",
+                "body": null,
+                "created_at": 1778133307,
+                "updated_at": 1778133307,
+                "notified_at": 1778133307,
+                "assigned_to": null,
+                "author": {
+                  "id": "10553732",
+                  "type": "bot",
+                  "name": "Fin",
+                  "email": "operator+h64a47v4@intercom.io"
+                },
+                "attachments": [],
+                "external_id": null,
+                "redacted": false
+              }
+            ],
+            "total_count": 1
+          }
+        },
+        "status": 200,
+        "headers": {
+          "date": "Thu, 07 May 2026 09:42:15 GMT",
+          "content-type": "application/json; charset=utf-8",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "1; mode=block",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=31556952; includeSubDomains; preload",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4997",
+          "x-ratelimit-reset": "1778146946",
+          "vary": "Accept-Encoding",
+          "status": "200 OK",
+          "x-intercom-version": "d4db6e88ee88c1b2367698cc7245cb3f3358ad65",
+          "x-request-id": "000870jtg03dsgbopl70",
+          "etag": "W/\"2b75f8ed695004ed60ca8565384a3fca\"",
+          "cache-control": "max-age=0, private, must-revalidate",
+          "referrer-policy": "strict-origin-when-cross-origin",
+          "x-request-queueing": "0",
+          "intercom-version": "2.11",
+          "x-runtime": "0.240342",
+          "server": "nginx",
+          "x-ami-version": "ami-018421ea35bfc2097"
+        },
+        "hash": "ba7008504d2c85c1334bb7b0ccabae41bb86e2c7",
+        "request": {
+          "params": {
+            "display_as": "plaintext"
+          },
+          "headers": {
+            "Intercom-Version": "2.11"
+          }
+        }
+      },
+      "/conversations/215474207187204": {
+        "response": {
+          "type": "conversation",
+          "id": "215474207187204",
+          "created_at": 1778133292,
+          "updated_at": 1778133292,
+          "waiting_since": 1778133292,
+          "snoozed_until": null,
+          "source": {
+            "type": "conversation",
+            "id": "3653682070",
+            "delivered_as": "customer_initiated",
+            "subject": "",
+            "body": "Hello, this is a test conversation from a Nango action",
+            "author": {
+              "type": "user",
+              "id": "69fc27fb4edb48d3256fedcb",
+              "name": "Test Conversation User",
+              "email": "test-conversation-2026@example.com"
+            },
+            "attachments": [],
+            "url": null,
+            "redacted": false
+          },
+          "contacts": {
+            "type": "contact.list",
+            "contacts": [
+              {
+                "type": "contact",
+                "id": "69fc27fb4edb48d3256fedcb",
+                "external_id": null
+              }
+            ]
+          },
+          "first_contact_reply": {
+            "created_at": 1778133292,
+            "type": "conversation",
+            "url": null
+          },
+          "admin_assignee_id": null,
+          "team_assignee_id": null,
+          "open": true,
+          "state": "open",
+          "read": true,
+          "tags": {
+            "type": "tag.list",
+            "tags": []
+          },
+          "priority": "not_priority",
+          "sla_applied": null,
+          "statistics": {
+            "type": "conversation_statistics",
+            "time_to_assignment": null,
+            "time_to_admin_reply": null,
+            "time_to_first_close": null,
+            "time_to_last_close": null,
+            "median_time_to_reply": null,
+            "first_contact_reply_at": 1778133292,
+            "first_assignment_at": null,
+            "first_admin_reply_at": null,
+            "first_close_at": null,
+            "last_assignment_at": null,
+            "last_assignment_admin_reply_at": null,
+            "last_contact_reply_at": 1778133292,
+            "last_admin_reply_at": null,
+            "last_close_at": null,
+            "last_closed_by_id": null,
+            "count_reopens": 0,
+            "count_assignments": 0,
+            "count_conversation_parts": 2
+          },
+          "conversation_rating": null,
+          "teammates": {
+            "type": "admin.list",
+            "admins": []
+          },
+          "title": "",
+          "custom_attributes": {
+            "Has attachments": false,
+            "SDR Success Counted": false,
+            "Imported via standalone": false,
+            "Auto-translated": false,
+            "Fin AI Agent: Preview": false,
+            "Fin awaiting teammate input": false,
+            "Fin AI Agent: Image used in reply": false,
+            "Copilot used": false,
+            "Has QA Notes": false,
+            "QA Notes Count": 0,
+            "Created by app package code": "nangoapp",
+            "Language": "English",
+            "AI Title": "Test conversation"
+          },
+          "topics": {
+            "type": "topic.list",
+            "topics": [],
+            "total_count": 0
+          },
+          "ticket": null,
+          "linked_objects": {
+            "type": "list",
+            "data": [],
+            "total_count": 0,
+            "has_more": false
+          },
+          "ai_agent": null,
+          "ai_agent_participated": false,
+          "conversation_parts": {
+            "type": "conversation_part.list",
+            "conversation_parts": [
+              {
+                "type": "conversation_part",
+                "id": "44948304799",
+                "part_type": "conversation_attribute_updated_by_admin",
+                "body": null,
+                "created_at": 1778133292,
+                "updated_at": 1778133292,
+                "notified_at": 1778133292,
+                "assigned_to": null,
+                "author": {
+                  "id": "10553732",
+                  "type": "bot",
+                  "name": "Fin",
+                  "email": "operator+h64a47v4@intercom.io"
+                },
+                "attachments": [],
+                "external_id": null,
+                "redacted": false
+              }
+            ],
+            "total_count": 1
+          }
+        },
+        "status": 200,
+        "headers": {
+          "date": "Thu, 07 May 2026 09:42:16 GMT",
+          "content-type": "application/json; charset=utf-8",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "1; mode=block",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=31556952; includeSubDomains; preload",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4996",
+          "x-ratelimit-reset": "1778146946",
+          "vary": "Accept-Encoding",
+          "status": "200 OK",
+          "x-intercom-version": "19f2486a9e0cb9f748c362451ac7fa51aa69ddb5",
+          "x-request-id": "002fjvivtbnn01dm8gqg",
+          "etag": "W/\"7c4eba3783c8611c91abef0137adc3be\"",
+          "cache-control": "max-age=0, private, must-revalidate",
+          "referrer-policy": "strict-origin-when-cross-origin",
+          "x-request-queueing": "0",
+          "intercom-version": "2.11",
+          "x-runtime": "0.151294",
+          "server": "nginx",
+          "x-ami-version": "ami-018421ea35bfc2097"
+        },
+        "hash": "581706b354531e769f6eb4043e34bb71f06ee234",
+        "request": {
+          "params": {
+            "display_as": "plaintext"
+          },
+          "headers": {
+            "Intercom-Version": "2.11"
+          }
+        }
+      },
+      "/conversations/215474207061545": {
+        "response": {
+          "type": "conversation",
+          "id": "215474207061545",
+          "created_at": 1778131334,
+          "updated_at": 1778133276,
+          "waiting_since": null,
+          "snoozed_until": 1778737917,
+          "source": null,
+          "contacts": {
+            "type": "contact.list",
+            "contacts": [
+              {
+                "type": "contact",
+                "id": "69fc21865a28f6d15c73b074",
+                "external_id": "035c0b02-f5a0-4d64-9cca-ffdf90d279c6"
+              }
+            ]
+          },
+          "first_contact_reply": null,
+          "admin_assignee_id": null,
+          "team_assignee_id": null,
+          "open": true,
+          "state": "snoozed",
+          "read": false,
+          "tags": {
+            "type": "tag.list",
+            "tags": []
+          },
+          "priority": "not_priority",
+          "sla_applied": null,
+          "statistics": {
+            "type": "conversation_statistics",
+            "time_to_assignment": null,
+            "time_to_admin_reply": null,
+            "time_to_first_close": null,
+            "time_to_last_close": null,
+            "median_time_to_reply": null,
+            "first_contact_reply_at": null,
+            "first_assignment_at": null,
+            "first_admin_reply_at": null,
+            "first_close_at": null,
+            "last_assignment_at": null,
+            "last_assignment_admin_reply_at": null,
+            "last_contact_reply_at": null,
+            "last_admin_reply_at": null,
+            "last_close_at": null,
+            "last_closed_by_id": null,
+            "count_reopens": 0,
+            "count_assignments": 0,
+            "count_conversation_parts": 18
+          },
+          "conversation_rating": null,
+          "teammates": {
+            "type": "admin.list",
+            "admins": [
+              {
+                "type": "admin",
+                "id": "10553731"
+              }
+            ]
+          },
+          "title": null,
+          "custom_attributes": {
+            "Has attachments": false,
+            "SDR Success Counted": false,
+            "Imported via standalone": false,
+            "Auto-translated": false,
+            "Fin AI Agent: Preview": false,
+            "Fin awaiting teammate input": false,
+            "Fin AI Agent: Image used in reply": false,
+            "Copilot used": false,
+            "Has QA Notes": false,
+            "QA Notes Count": 0
+          },
+          "topics": {
+            "type": "topic.list",
+            "topics": [],
+            "total_count": 0
+          },
+          "ticket": null,
+          "linked_objects": {
+            "type": "list",
+            "data": [],
+            "total_count": 0,
+            "has_more": false
+          },
+          "ai_agent": null,
+          "ai_agent_participated": false,
+          "conversation_parts": {
+            "type": "conversation_part.list",
+            "conversation_parts": [
+              {
+                "type": "conversation_part",
+                "id": "44947253867",
+                "part_type": "company_updated",
+                "body": null,
+                "created_at": 1778131335,
+                "updated_at": 1778131335,
+                "notified_at": 1778131335,
+                "assigned_to": null,
+                "author": {
+                  "id": "10553732",
+                  "type": "bot",
+                  "name": "Fin",
+                  "email": "operator+h64a47v4@intercom.io"
+                },
+                "attachments": [],
+                "external_id": null,
+                "redacted": false
+              },
+              {
+                "type": "conversation_part",
+                "id": "44948075015",
+                "part_type": "close",
+                "body": null,
+                "created_at": 1778132868,
+                "updated_at": 1778132868,
+                "notified_at": 1778132868,
+                "assigned_to": null,
+                "author": {
+                  "id": "10553731",
+                  "type": "admin",
+                  "name": "Nango Developer",
+                  "email": "api@nango.dev"
+                },
+                "attachments": [],
+                "external_id": null,
+                "redacted": false
+              },
+              {
+                "type": "conversation_part",
+                "id": "44948080299",
+                "part_type": "open",
+                "body": null,
+                "created_at": 1778132878,
+                "updated_at": 1778132878,
+                "notified_at": 1778132878,
+                "assigned_to": null,
+                "author": {
+                  "id": "10553731",
+                  "type": "admin",
+                  "name": "Nango Developer",
+                  "email": "api@nango.dev"
+                },
+                "attachments": [],
+                "external_id": null,
+                "redacted": false
+              },
+              {
+                "type": "conversation_part",
+                "id": "44948090334",
+                "part_type": "close",
+                "body": null,
+                "created_at": 1778132897,
+                "updated_at": 1778132897,
+                "notified_at": 1778132897,
+                "assigned_to": null,
+                "author": {
+                  "id": "10553731",
+                  "type": "admin",
+                  "name": "Nango Developer",
+                  "email": "api@nango.dev"
+                },
+                "attachments": [],
+                "external_id": null,
+                "redacted": false
+              },
+              {
+                "type": "conversation_part",
+                "id": "44948096283",
+                "part_type": "open",
+                "body": null,
+                "created_at": 1778132907,
+                "updated_at": 1778132907,
+                "notified_at": 1778132907,
+                "assigned_to": null,
+                "author": {
+                  "id": "10553731",
+                  "type": "admin",
+                  "name": "Nango Developer",
+                  "email": "api@nango.dev"
+                },
+                "attachments": [],
+                "external_id": null,
+                "redacted": false
+              },
+              {
+                "type": "conversation_part",
+                "id": "44948099481",
+                "part_type": "close",
+                "body": null,
+                "created_at": 1778132912,
+                "updated_at": 1778132912,
+                "notified_at": 1778132912,
+                "assigned_to": null,
+                "author": {
+                  "id": "10553731",
+                  "type": "admin",
+                  "name": "Nango Developer",
+                  "email": "api@nango.dev"
+                },
+                "attachments": [],
+                "external_id": null,
+                "redacted": false
+              },
+              {
+                "type": "conversation_part",
+                "id": "44948146095",
+                "part_type": "open",
+                "body": null,
+                "created_at": 1778132999,
+                "updated_at": 1778132999,
+                "notified_at": 1778132999,
+                "assigned_to": null,
+                "author": {
+                  "id": "10553731",
+                  "type": "admin",
+                  "name": "Nango Developer",
+                  "email": "api@nango.dev"
+                },
+                "attachments": [],
+                "external_id": null,
+                "redacted": false
+              },
+              {
+                "type": "conversation_part",
+                "id": "44948183719",
+                "part_type": "comment",
+                "body": "This is a test reply from Nango automation",
+                "created_at": 1778133069,
+                "updated_at": 1778133180,
+                "notified_at": 1778133069,
+                "assigned_to": null,
+                "author": {
+                  "id": "10553731",
+                  "type": "admin",
+                  "name": "Nango Developer",
+                  "email": "api@nango.dev"
+                },
+                "attachments": [],
+                "external_id": null,
+                "redacted": false
+              },
+              {
+                "type": "conversation_part",
+                "id": "44948190311",
+                "part_type": "conversation_tags_updated",
+                "body": null,
+                "created_at": 1778133081,
+                "updated_at": 1778133081,
+                "notified_at": 1778133081,
+                "assigned_to": null,
+                "author": {
+                  "id": "10553731",
+                  "type": "admin",
+                  "name": "Nango Developer",
+                  "email": "api@nango.dev"
+                },
+                "attachments": [],
+                "external_id": null,
+                "redacted": false
+              },
+              {
+                "type": "conversation_part",
+                "id": "44948198390",
+                "part_type": "comment",
+                "body": "This is a test reply from Nango automation",
+                "created_at": 1778133097,
+                "updated_at": 1778133097,
+                "notified_at": 1778133097,
+                "assigned_to": null,
+                "author": {
+                  "id": "10553731",
+                  "type": "admin",
+                  "name": "Nango Developer",
+                  "email": "api@nango.dev"
+                },
+                "attachments": [],
+                "external_id": null,
+                "redacted": false
+              },
+              {
+                "type": "conversation_part",
+                "id": "44948213830",
+                "part_type": "snoozed",
+                "body": null,
+                "created_at": 1778133127,
+                "updated_at": 1778133127,
+                "notified_at": 1778133127,
+                "assigned_to": null,
+                "author": {
+                  "id": "10553731",
+                  "type": "admin",
+                  "name": "Nango Developer",
+                  "email": "api@nango.dev"
+                },
+                "attachments": [],
+                "external_id": null,
+                "redacted": false
+              },
+              {
+                "type": "conversation_part",
+                "id": "44948215199",
+                "part_type": "comment",
+                "body": "This is a test reply from Nango automation",
+                "created_at": 1778133130,
+                "updated_at": 1778133130,
+                "notified_at": 1778133130,
+                "assigned_to": null,
+                "author": {
+                  "id": "10553731",
+                  "type": "admin",
+                  "name": "Nango Developer",
+                  "email": "api@nango.dev"
+                },
+                "attachments": [],
+                "external_id": null,
+                "redacted": false
+              },
+              {
+                "type": "conversation_part",
+                "id": "44948223722",
+                "part_type": "comment",
+                "body": "This is a test reply from Nango automation",
+                "created_at": 1778133145,
+                "updated_at": 1778133145,
+                "notified_at": 1778133145,
+                "assigned_to": null,
+                "author": {
+                  "id": "10553731",
+                  "type": "admin",
+                  "name": "Nango Developer",
+                  "email": "api@nango.dev"
+                },
+                "attachments": [],
+                "external_id": null,
+                "redacted": false
+              },
+              {
+                "type": "conversation_part",
+                "id": "44948245034",
+                "part_type": "snoozed",
+                "body": null,
+                "created_at": 1778133182,
+                "updated_at": 1778133182,
+                "notified_at": 1778133182,
+                "assigned_to": null,
+                "author": {
+                  "id": "10553731",
+                  "type": "admin",
+                  "name": "Nango Developer",
+                  "email": "api@nango.dev"
+                },
+                "attachments": [],
+                "external_id": null,
+                "redacted": false
+              },
+              {
+                "type": "conversation_part",
+                "id": "44948266457",
+                "part_type": "snoozed",
+                "body": null,
+                "created_at": 1778133222,
+                "updated_at": 1778133222,
+                "notified_at": 1778133222,
+                "assigned_to": null,
+                "author": {
+                  "id": "10553731",
+                  "type": "admin",
+                  "name": "Nango Developer",
+                  "email": "api@nango.dev"
+                },
+                "attachments": [],
+                "external_id": null,
+                "redacted": false
+              },
+              {
+                "type": "conversation_part",
+                "id": "44948288828",
+                "part_type": "snoozed",
+                "body": null,
+                "created_at": 1778133263,
+                "updated_at": 1778133263,
+                "notified_at": 1778133263,
+                "assigned_to": null,
+                "author": {
+                  "id": "10553731",
+                  "type": "admin",
+                  "name": "Nango Developer",
+                  "email": "api@nango.dev"
+                },
+                "attachments": [],
+                "external_id": null,
+                "redacted": false
+              },
+              {
+                "type": "conversation_part",
+                "id": "44948296214",
+                "part_type": "snoozed",
+                "body": null,
+                "created_at": 1778133276,
+                "updated_at": 1778133276,
+                "notified_at": 1778133276,
+                "assigned_to": null,
+                "author": {
+                  "id": "10553731",
+                  "type": "admin",
+                  "name": "Nango Developer",
+                  "email": "api@nango.dev"
+                },
+                "attachments": [],
+                "external_id": null,
+                "redacted": false
+              }
+            ],
+            "total_count": 17
+          }
+        },
+        "status": 200,
+        "headers": {
+          "date": "Thu, 07 May 2026 09:42:16 GMT",
+          "content-type": "application/json; charset=utf-8",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "1; mode=block",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=31556952; includeSubDomains; preload",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4995",
+          "x-ratelimit-reset": "1778146946",
+          "vary": "Accept-Encoding",
+          "status": "200 OK",
+          "x-intercom-version": "37c2676ce3066637679937e1ee6cadb4a1b4ab58",
+          "x-request-id": "002fhiqdq1kmob4g2pkg",
+          "etag": "W/\"5a9b35d117c0cabfbd628650a10e90d7\"",
+          "cache-control": "max-age=0, private, must-revalidate",
+          "referrer-policy": "strict-origin-when-cross-origin",
+          "x-request-queueing": "0",
+          "intercom-version": "2.11",
+          "x-runtime": "0.197730",
+          "server": "nginx",
+          "x-ami-version": "ami-018421ea35bfc2097"
+        },
+        "hash": "3966a589818b00fd868cf119514b784c28492450",
+        "request": {
+          "params": {
+            "display_as": "plaintext"
+          },
+          "headers": {
+            "Intercom-Version": "2.11"
+          }
+        }
+      },
+      "/conversations/215474207175294": {
+        "response": {
+          "type": "conversation",
+          "id": "215474207175294",
+          "created_at": 1778133155,
+          "updated_at": 1778133156,
+          "waiting_since": 1778133155,
+          "snoozed_until": null,
+          "source": {
+            "type": "conversation",
+            "id": "3653679547",
+            "delivered_as": "customer_initiated",
+            "subject": "",
+            "body": "Hello, this is a test conversation from a Nango action",
+            "author": {
+              "type": "user",
+              "id": "69fc27fb4edb48d3256fedcb",
+              "name": "Test Conversation User",
+              "email": "test-conversation-2026@example.com"
+            },
+            "attachments": [],
+            "url": null,
+            "redacted": false
+          },
+          "contacts": {
+            "type": "contact.list",
+            "contacts": [
+              {
+                "type": "contact",
+                "id": "69fc27fb4edb48d3256fedcb",
+                "external_id": null
+              }
+            ]
+          },
+          "first_contact_reply": {
+            "created_at": 1778133155,
+            "type": "conversation",
+            "url": null
+          },
+          "admin_assignee_id": null,
+          "team_assignee_id": null,
+          "open": true,
+          "state": "open",
+          "read": true,
+          "tags": {
+            "type": "tag.list",
+            "tags": []
+          },
+          "priority": "not_priority",
+          "sla_applied": null,
+          "statistics": {
+            "type": "conversation_statistics",
+            "time_to_assignment": null,
+            "time_to_admin_reply": null,
+            "time_to_first_close": null,
+            "time_to_last_close": null,
+            "median_time_to_reply": null,
+            "first_contact_reply_at": 1778133155,
+            "first_assignment_at": null,
+            "first_admin_reply_at": null,
+            "first_close_at": null,
+            "last_assignment_at": null,
+            "last_assignment_admin_reply_at": null,
+            "last_contact_reply_at": 1778133155,
+            "last_admin_reply_at": null,
+            "last_close_at": null,
+            "last_closed_by_id": null,
+            "count_reopens": 0,
+            "count_assignments": 0,
+            "count_conversation_parts": 2
+          },
+          "conversation_rating": null,
+          "teammates": {
+            "type": "admin.list",
+            "admins": []
+          },
+          "title": "",
+          "custom_attributes": {
+            "Has attachments": false,
+            "SDR Success Counted": false,
+            "Imported via standalone": false,
+            "Auto-translated": false,
+            "Fin AI Agent: Preview": false,
+            "Fin awaiting teammate input": false,
+            "Fin AI Agent: Image used in reply": false,
+            "Copilot used": false,
+            "Has QA Notes": false,
+            "QA Notes Count": 0,
+            "Created by app package code": "nangoapp",
+            "Language": "English"
+          },
+          "topics": {
+            "type": "topic.list",
+            "topics": [],
+            "total_count": 0
+          },
+          "ticket": null,
+          "linked_objects": {
+            "type": "list",
+            "data": [],
+            "total_count": 0,
+            "has_more": false
+          },
+          "ai_agent": null,
+          "ai_agent_participated": false,
+          "conversation_parts": {
+            "type": "conversation_part.list",
+            "conversation_parts": [
+              {
+                "type": "conversation_part",
+                "id": "44948230282",
+                "part_type": "conversation_attribute_updated_by_admin",
+                "body": null,
+                "created_at": 1778133156,
+                "updated_at": 1778133156,
+                "notified_at": 1778133156,
+                "assigned_to": null,
+                "author": {
+                  "id": "10553732",
+                  "type": "bot",
+                  "name": "Fin",
+                  "email": "operator+h64a47v4@intercom.io"
+                },
+                "attachments": [],
+                "external_id": null,
+                "redacted": false
+              }
+            ],
+            "total_count": 1
+          }
+        },
+        "status": 200,
+        "headers": {
+          "date": "Thu, 07 May 2026 09:42:17 GMT",
+          "content-type": "application/json; charset=utf-8",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "1; mode=block",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=31556952; includeSubDomains; preload",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4994",
+          "x-ratelimit-reset": "1778146946",
+          "vary": "Accept-Encoding",
+          "status": "200 OK",
+          "x-intercom-version": "1a95b5893b87317969a87272b259be9bb31cac99",
+          "x-request-id": "002ftl6ootkn7njqa09g",
+          "etag": "W/\"f27e5ade67e6461baa31ce92d921f2f1\"",
+          "cache-control": "max-age=0, private, must-revalidate",
+          "referrer-policy": "strict-origin-when-cross-origin",
+          "x-request-queueing": "0",
+          "intercom-version": "2.11",
+          "x-runtime": "0.156524",
+          "server": "nginx",
+          "x-ami-version": "ami-018421ea35bfc2097"
+        },
+        "hash": "f3633218e89de19a791e0f329f7bc302cac2929c",
+        "request": {
+          "params": {
+            "display_as": "plaintext"
+          },
+          "headers": {
+            "Intercom-Version": "2.11"
+          }
+        }
+      }
+    }
+  }
+}

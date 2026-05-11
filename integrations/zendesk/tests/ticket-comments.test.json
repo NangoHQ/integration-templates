@@ -1,0 +1,657 @@
+{
+  "nango": {
+    "getMetadata": {
+      "ticket_ids": [
+        1,
+        2,
+        3,
+        4
+      ]
+    },
+    "batchSave": {
+      "TicketComment": [
+        {
+          "id": "46406156941841",
+          "ticket_id": "1",
+          "type": "Comment",
+          "author_id": "46406156914577",
+          "body": "Hello, let's see how you or your agents can easily respond to and solve tickets.\n\nFeel free to email additional customer test inquiries to **support@nango-1049.zendesk.com**.\n\nBut first, let's start by solving one ticket.\n\nYour Zendesk Team",
+          "html_body": "<div class=\"zd-comment\" dir=\"auto\">Hello, let's see how you or your agents can easily respond to and solve tickets.<br><br>Feel free to email additional customer test inquiries to <b>support@nango-1049.zendesk.com</b>.<br><br>But first, let's start by solving one ticket.<br><br>Your Zendesk Team</div>",
+          "plain_body": "Hello, let's see how you or your agents can easily respond to and solve tickets.\n\nFeel free to email additional customer test inquiries to support@nango-1049.zendesk.com.\n\nBut first, let's start by solving one ticket.\n\nYour Zendesk Team",
+          "public": true,
+          "created_at": "2026-05-06T07:46:23Z"
+        },
+        {
+          "id": "46408803208081",
+          "ticket_id": "1",
+          "type": "Comment",
+          "author_id": "46406145565073",
+          "body": "Test update from Nango action",
+          "html_body": "<div class=\"zd-comment\" dir=\"auto\"><p dir=\"auto\">Test update from Nango action</p></div>",
+          "plain_body": "Test update from Nango action",
+          "public": true,
+          "created_at": "2026-05-06T08:46:03Z"
+        },
+        {
+          "id": "46408790915729",
+          "ticket_id": "1",
+          "type": "Comment",
+          "author_id": "46406145565073",
+          "body": "Test update from Nango action",
+          "html_body": "<div class=\"zd-comment\" dir=\"auto\"><p dir=\"auto\">Test update from Nango action</p></div>",
+          "plain_body": "Test update from Nango action",
+          "public": true,
+          "created_at": "2026-05-06T08:46:36Z"
+        },
+        {
+          "id": "46408840819217",
+          "ticket_id": "1",
+          "type": "Comment",
+          "author_id": "46406145565073",
+          "body": "Test update from Nango action",
+          "html_body": "<div class=\"zd-comment\" dir=\"auto\"><p dir=\"auto\">Test update from Nango action</p></div>",
+          "plain_body": "Test update from Nango action",
+          "public": true,
+          "created_at": "2026-05-06T08:47:45Z"
+        },
+        {
+          "id": "46407519287569",
+          "ticket_id": "2",
+          "type": "Comment",
+          "author_id": "46406145565073",
+          "body": "Reply to testticket to testUser",
+          "html_body": "<div class=\"zd-comment\" dir=\"auto\">Reply to testticket to testUser<br></div>",
+          "plain_body": "Reply to testticket to testUser",
+          "public": true,
+          "created_at": "2026-05-06T08:16:30Z"
+        },
+        {
+          "id": "46408794813713",
+          "ticket_id": "3",
+          "type": "Comment",
+          "author_id": "46406145565073",
+          "body": "This is a test ticket created via Nango action",
+          "html_body": "<div class=\"zd-comment\" dir=\"auto\"><p dir=\"auto\">This is a test ticket created via Nango action</p></div>",
+          "plain_body": "This is a test ticket created via Nango action",
+          "public": true,
+          "created_at": "2026-05-06T08:45:54Z"
+        },
+        {
+          "id": "46408796979089",
+          "ticket_id": "4",
+          "type": "Comment",
+          "author_id": "46406145565073",
+          "body": "This is a test ticket created via Nango action",
+          "html_body": "<div class=\"zd-comment\" dir=\"auto\"><p dir=\"auto\">This is a test ticket created via Nango action</p></div>",
+          "plain_body": "This is a test ticket created via Nango action",
+          "public": true,
+          "created_at": "2026-05-06T08:46:13Z"
+        },
+        {
+          "id": "46409876672657",
+          "ticket_id": "4",
+          "type": "Comment",
+          "author_id": "46406145565073",
+          "body": "this is an internal note on a ticket\nThe ticket is not closed",
+          "html_body": "<div class=\"zd-comment\" dir=\"auto\">this is an internal note on a ticket<br>The ticket is not closed<br></div>",
+          "plain_body": "this is an internal note on a ticket\nThe ticket is not closed",
+          "public": false,
+          "created_at": "2026-05-06T09:09:04Z"
+        },
+        {
+          "id": "46409868973329",
+          "ticket_id": "4",
+          "type": "Comment",
+          "author_id": "46406145565073",
+          "body": "Note that this is a Public reply to a ticket",
+          "html_body": "<div class=\"zd-comment\" dir=\"auto\">Note that this is a Public reply to a ticket<br></div>",
+          "plain_body": "Note that this is a Public reply to a ticket",
+          "public": true,
+          "created_at": "2026-05-06T09:09:29Z"
+        }
+      ]
+    },
+    "batchDelete": {
+      "TicketComment": []
+    }
+  },
+  "api": {
+    "get": {
+      "/api/v2/tickets/1/comments": {
+        "response": {
+          "comments": [
+            {
+              "id": 46406156941841,
+              "type": "Comment",
+              "author_id": 46406156914577,
+              "body": "Hello, let's see how you or your agents can easily respond to and solve tickets.\n\nFeel free to email additional customer test inquiries to **support@nango-1049.zendesk.com**.\n\nBut first, let's start by solving one ticket.\n\nYour Zendesk Team",
+              "html_body": "<div class=\"zd-comment\" dir=\"auto\">Hello, let's see how you or your agents can easily respond to and solve tickets.<br><br>Feel free to email additional customer test inquiries to <b>support@nango-1049.zendesk.com</b>.<br><br>But first, let's start by solving one ticket.<br><br>Your Zendesk Team</div>",
+              "plain_body": "Hello, let's see how you or your agents can easily respond to and solve tickets.\n\nFeel free to email additional customer test inquiries to support@nango-1049.zendesk.com.\n\nBut first, let's start by solving one ticket.\n\nYour Zendesk Team",
+              "public": true,
+              "attachments": [],
+              "audit_id": 46406156941713,
+              "via": {
+                "channel": "sample_ticket",
+                "source": {
+                  "from": {},
+                  "to": {},
+                  "rel": null
+                }
+              },
+              "created_at": "2026-05-06T07:46:23Z",
+              "metadata": {
+                "system": {
+                  "client": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/147.0.0.0 Safari/537.36",
+                  "ip_address": "196.96.188.122",
+                  "location": "Nairobi, 30, Kenya",
+                  "latitude": -1.2841,
+                  "longitude": 36.8155
+                },
+                "custom": {}
+              }
+            },
+            {
+              "id": 46408803208081,
+              "type": "Comment",
+              "author_id": 46406145565073,
+              "body": "Test update from Nango action",
+              "html_body": "<div class=\"zd-comment\" dir=\"auto\"><p dir=\"auto\">Test update from Nango action</p></div>",
+              "plain_body": "Test update from Nango action",
+              "public": true,
+              "attachments": [],
+              "audit_id": 46408787392785,
+              "via": {
+                "channel": "api",
+                "source": {
+                  "from": {},
+                  "to": {
+                    "address": "example@zendesk.com",
+                    "name": "Customer",
+                    "email_ccs": [
+                      46406145565073
+                    ]
+                  },
+                  "rel": null
+                }
+              },
+              "created_at": "2026-05-06T08:46:03Z",
+              "metadata": {
+                "system": {
+                  "client": "axios/1.15.0",
+                  "ip_address": "54.69.127.183",
+                  "location": "Boardman, OR, United States",
+                  "latitude": 45.8401,
+                  "longitude": -119.705
+                },
+                "custom": {}
+              }
+            },
+            {
+              "id": 46408790915729,
+              "type": "Comment",
+              "author_id": 46406145565073,
+              "body": "Test update from Nango action",
+              "html_body": "<div class=\"zd-comment\" dir=\"auto\"><p dir=\"auto\">Test update from Nango action</p></div>",
+              "plain_body": "Test update from Nango action",
+              "public": true,
+              "attachments": [],
+              "audit_id": 46408790911889,
+              "via": {
+                "channel": "api",
+                "source": {
+                  "from": {},
+                  "to": {
+                    "address": "example@zendesk.com",
+                    "name": "Customer",
+                    "email_ccs": [
+                      46406145565073
+                    ]
+                  },
+                  "rel": null
+                }
+              },
+              "created_at": "2026-05-06T08:46:36Z",
+              "metadata": {
+                "system": {
+                  "client": "axios/1.15.0",
+                  "ip_address": "54.69.127.183",
+                  "location": "Boardman, OR, United States",
+                  "latitude": 45.8401,
+                  "longitude": -119.705
+                },
+                "custom": {}
+              }
+            },
+            {
+              "id": 46408840819217,
+              "type": "Comment",
+              "author_id": 46406145565073,
+              "body": "Test update from Nango action",
+              "html_body": "<div class=\"zd-comment\" dir=\"auto\"><p dir=\"auto\">Test update from Nango action</p></div>",
+              "plain_body": "Test update from Nango action",
+              "public": true,
+              "attachments": [],
+              "audit_id": 46408869654289,
+              "via": {
+                "channel": "api",
+                "source": {
+                  "from": {},
+                  "to": {
+                    "address": "example@zendesk.com",
+                    "name": "Customer",
+                    "email_ccs": [
+                      46406145565073
+                    ]
+                  },
+                  "rel": null
+                }
+              },
+              "created_at": "2026-05-06T08:47:45Z",
+              "metadata": {
+                "system": {
+                  "client": "axios/1.15.0",
+                  "ip_address": "54.69.127.183",
+                  "location": "Boardman, OR, United States",
+                  "latitude": 45.8401,
+                  "longitude": -119.705
+                },
+                "custom": {}
+              }
+            }
+          ],
+          "next_page": null,
+          "previous_page": null,
+          "count": 4
+        },
+        "status": 200,
+        "headers": {
+          "date": "Wed, 06 May 2026 09:59:39 GMT",
+          "content-type": "application/json; charset=utf-8",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=31536000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "X-Zendesk-API-Warn,X-Zendesk-User-Id,X-Zendesk-User-Session-Expires-At",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4989",
+          "x-ratelimit-reset": "1778061623",
+          "x-zendesk-api-version": "v2",
+          "x-zendesk-application-version": "v25703",
+          "etag": "W/\"e9b3f73a25de5f02b1cf33f0ebacf3d2\"",
+          "last-modified": "Wed, 06 May 2026 08:47:45 GMT",
+          "cache-control": "max-age=0, private, must-revalidate",
+          "x-rate-limit": "400",
+          "ratelimit-limit": "400",
+          "x-rate-limit-remaining": "395",
+          "ratelimit-remaining": "395",
+          "ratelimit-reset": "21",
+          "zendesk-route": "/api/v2/tickets/:ticket_id/comments",
+          "set-cookie": "_zendesk_cookie=BAhJIhl7ImRldmljZV90b2tlbnMiOnt9fQY6BkVU--0bf2100788cb010d0183feca16aaf88ccaf719ca; path=/; expires=Thu, 06 May 2027 08:05:08 GMT; secure; HttpOnly; SameSite=None, __cf_bm=Hq1Vyj77df_aC0OsmkQRcRJf9xuzXIrumPEfZjVwMPY-1778061579-1.0.1.1-fMa_iAjIuoPesuu.YZegXurLWPDHEJF7TZ8b598D7bgmqx1VvhbJEVSNR4IN_XsBiXHIvrzil4cZzOSVPbgap.yU6ZIOBrjtbeHr_LgA.0M; path=/; expires=Wed, 06-May-26 10:29:39 GMT; domain=.nango-1049.zendesk.com; HttpOnly; Secure; SameSite=None, _cfuvid=yEiHh7.rJ7tqwCKn_BTkTJxFRpbyyu.M_ouHIzT5Go8-1778061579145-0.0.1.1-604800000; path=/; domain=.nango-1049.zendesk.com; HttpOnly; Secure; SameSite=None",
+          "x-zendesk-origin-server": "classic-app-server-69d49c4b9b-tnzd9",
+          "x-request-id": "9f772223e84ce102-DUB",
+          "x-runtime": "0.090857",
+          "x-envoy-upstream-service-time": "95",
+          "x-openapi-route-path": "/api/v2/tickets/{ticket_id}/comments",
+          "zendesk-service": "classic",
+          "x-zendesk-zorg": "yes",
+          "vary": "Accept-Encoding",
+          "via": "zorg",
+          "x-envoy-decorator-operation": "/api/v2/tickets",
+          "cf-cache-status": "DYNAMIC",
+          "report-to": "{\"endpoints\":[{\"url\":\"https:\\/\\/a.nel.cloudflare.com\\/report\\/v4?s=Bz%2BzkyjXYq%2F%2Bd2aas%2BCFy0z%2Fh7b9riIg4hgV7cvWKUZMFJTX3Y2aK2%2F1osES%2BFDtHIrAnEYxP5lCNHJKzA4RQdem%2B5V2MwIpTeST9Es%2FIIbzd7Uejdj%2FfOp0UZrQLlE6goancuQYXK4%3D\"}],\"group\":\"cf-nel\",\"max_age\":604800}",
+          "nel": "{\"success_fraction\":0.01,\"report_to\":\"cf-nel\",\"max_age\":604800}",
+          "server": "cloudflare",
+          "cf-ray": "9f772223e84ce102-PDX"
+        },
+        "hash": "48f54ee35917af56cdb7c75b1ecead0788d90524",
+        "request": {
+          "params": {
+            "page": "1"
+          }
+        }
+      },
+      "/api/v2/tickets/2/comments": {
+        "response": {
+          "comments": [
+            {
+              "id": 46407519287569,
+              "type": "Comment",
+              "author_id": 46406145565073,
+              "body": "Reply to testticket to testUser",
+              "html_body": "<div class=\"zd-comment\" dir=\"auto\">Reply to testticket to testUser<br></div>",
+              "plain_body": "Reply to testticket to testUser",
+              "public": true,
+              "attachments": [],
+              "audit_id": 46407519287441,
+              "via": {
+                "channel": "web",
+                "source": {
+                  "from": {},
+                  "to": {
+                    "address": "testuser@mail.com",
+                    "name": "TestUser"
+                  },
+                  "rel": null
+                }
+              },
+              "created_at": "2026-05-06T08:16:30Z",
+              "metadata": {
+                "system": {
+                  "client": "Agent-Graph/latest TicketsMutationService/createTicket JavaStarter/4.67.0",
+                  "ip_address": "127.0.0.6"
+                },
+                "custom": {}
+              }
+            }
+          ],
+          "next_page": null,
+          "previous_page": null,
+          "count": 1
+        },
+        "status": 200,
+        "headers": {
+          "date": "Wed, 06 May 2026 09:59:39 GMT",
+          "content-type": "application/json; charset=utf-8",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=31536000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "X-Zendesk-API-Warn,X-Zendesk-User-Id,X-Zendesk-User-Session-Expires-At",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4988",
+          "x-ratelimit-reset": "1778061623",
+          "x-zendesk-api-version": "v2",
+          "x-zendesk-application-version": "v25703",
+          "etag": "W/\"ea5473aeed5f3ab534226b2f1c2fd39b\"",
+          "last-modified": "Wed, 06 May 2026 08:16:33 GMT",
+          "cache-control": "max-age=0, private, must-revalidate",
+          "x-rate-limit": "400",
+          "ratelimit-limit": "400",
+          "x-rate-limit-remaining": "394",
+          "ratelimit-remaining": "394",
+          "ratelimit-reset": "21",
+          "zendesk-route": "/api/v2/tickets/:ticket_id/comments",
+          "set-cookie": "_zendesk_cookie=BAhJIhl7ImRldmljZV90b2tlbnMiOnt9fQY6BkVU--0bf2100788cb010d0183feca16aaf88ccaf719ca; path=/; expires=Thu, 06 May 2027 05:58:48 GMT; secure; HttpOnly; SameSite=None, __cf_bm=9NQdSDJsKx1ckQezbGFrJwmVh.XKf1o5fvwDm8QPFM8-1778061579-1.0.1.1-Wf.sCtcEwYjRSTbTcdToRKLE_zlIYFnXPVNSnsRKvHw.jqvXOzUAa_OympVDu0Qfs9TZs4ClA1c7f.wh_0XwpjnippH4lCPlibQPyvFVbtg; path=/; expires=Wed, 06-May-26 10:29:39 GMT; domain=.nango-1049.zendesk.com; HttpOnly; Secure; SameSite=None, _cfuvid=ECVzJGdHV17r5uUBNyBejEgeHLx5NmlsmWBPARzkNBU-1778061579806-0.0.1.1-604800000; path=/; domain=.nango-1049.zendesk.com; HttpOnly; Secure; SameSite=None",
+          "x-zendesk-origin-server": "classic-app-server-69d49c4b9b-9744r",
+          "x-request-id": "9f7722282cd6fef5-DUB",
+          "x-runtime": "0.082787",
+          "x-envoy-upstream-service-time": "87",
+          "x-openapi-route-path": "/api/v2/tickets/{ticket_id}/comments",
+          "zendesk-service": "classic",
+          "x-zendesk-zorg": "yes",
+          "vary": "Accept-Encoding",
+          "via": "zorg",
+          "x-envoy-decorator-operation": "/api/v2/tickets",
+          "cf-cache-status": "DYNAMIC",
+          "report-to": "{\"endpoints\":[{\"url\":\"https:\\/\\/a.nel.cloudflare.com\\/report\\/v4?s=Ankhh33HKuO5f1XYsU%2BlB7l1bHYtStKPYVhdZE8wShOiMQzgITI1u0zxBXmtxhEbCxs0gBWurA22W8IC8CO%2By5WjRJG6Jlme0neht4yrPwZGZq8HLIJDtfRUcSfjFrcpk4O4rNxLxUk%3D\"}],\"group\":\"cf-nel\",\"max_age\":604800}",
+          "nel": "{\"success_fraction\":0.01,\"report_to\":\"cf-nel\",\"max_age\":604800}",
+          "server": "cloudflare",
+          "cf-ray": "9f7722282cd6fef5-PDX"
+        },
+        "hash": "ed4352a8a610921fc8f2902ef3237ec0381cf943",
+        "request": {
+          "params": {
+            "page": "1"
+          }
+        }
+      },
+      "/api/v2/tickets/3/comments": {
+        "response": {
+          "comments": [
+            {
+              "id": 46408794813713,
+              "type": "Comment",
+              "author_id": 46406145565073,
+              "body": "This is a test ticket created via Nango action",
+              "html_body": "<div class=\"zd-comment\" dir=\"auto\"><p dir=\"auto\">This is a test ticket created via Nango action</p></div>",
+              "plain_body": "This is a test ticket created via Nango action",
+              "public": true,
+              "attachments": [],
+              "audit_id": 46408794813585,
+              "via": {
+                "channel": "api",
+                "source": {
+                  "from": {},
+                  "to": {
+                    "address": "api@nango.dev",
+                    "name": "Nango API"
+                  },
+                  "rel": null
+                }
+              },
+              "created_at": "2026-05-06T08:45:54Z",
+              "metadata": {
+                "system": {
+                  "client": "axios/1.15.0",
+                  "ip_address": "54.69.127.183",
+                  "location": "Boardman, OR, United States",
+                  "latitude": 45.8401,
+                  "longitude": -119.705
+                },
+                "custom": {}
+              }
+            }
+          ],
+          "next_page": null,
+          "previous_page": null,
+          "count": 1
+        },
+        "status": 200,
+        "headers": {
+          "date": "Wed, 06 May 2026 09:59:40 GMT",
+          "content-type": "application/json; charset=utf-8",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=31536000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "X-Zendesk-API-Warn,X-Zendesk-User-Id,X-Zendesk-User-Session-Expires-At",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4987",
+          "x-ratelimit-reset": "1778061623",
+          "x-zendesk-api-version": "v2",
+          "x-zendesk-application-version": "v25703",
+          "etag": "W/\"3cee03fd984b9f11ebdf0f2754c0d0fd\"",
+          "last-modified": "Wed, 06 May 2026 08:46:02 GMT",
+          "cache-control": "max-age=0, private, must-revalidate",
+          "x-rate-limit": "400",
+          "ratelimit-limit": "400",
+          "x-rate-limit-remaining": "393",
+          "ratelimit-remaining": "393",
+          "ratelimit-reset": "20",
+          "zendesk-route": "/api/v2/tickets/:ticket_id/comments",
+          "set-cookie": "_zendesk_cookie=BAhJIhl7ImRldmljZV90b2tlbnMiOnt9fQY6BkVU--0bf2100788cb010d0183feca16aaf88ccaf719ca; path=/; expires=Thu, 06 May 2027 09:04:14 GMT; secure; HttpOnly; SameSite=None, __cf_bm=0t7MJjokl7W5.B1l_gxJDFckdEuE3K4c5PuTvQ8rGno-1778061580-1.0.1.1-wjx41m8EfwK98ZPK_ByP3Gi2cOWJdmgRIYJnGAvxMaypS5xacUncDHasHGSVw4TyFj19g4RwOY0flrZ4WUbp8aZFu6W3x_JXs3XwBvdvaMU; path=/; expires=Wed, 06-May-26 10:29:40 GMT; domain=.nango-1049.zendesk.com; HttpOnly; Secure; SameSite=None, _cfuvid=CjQurMJJP8CqxU6FrW1HKsLm6XbdBKaDcKmICTTeI1k-1778061580442-0.0.1.1-604800000; path=/; domain=.nango-1049.zendesk.com; HttpOnly; Secure; SameSite=None",
+          "x-zendesk-origin-server": "classic-app-server-69d49c4b9b-nslzv",
+          "x-request-id": "9f77222bfe0de102-DUB",
+          "x-runtime": "0.099216",
+          "x-envoy-upstream-service-time": "103",
+          "x-openapi-route-path": "/api/v2/tickets/{ticket_id}/comments",
+          "zendesk-service": "classic",
+          "x-zendesk-zorg": "yes",
+          "vary": "Accept-Encoding",
+          "via": "zorg",
+          "x-envoy-decorator-operation": "/api/v2/tickets",
+          "cf-cache-status": "DYNAMIC",
+          "report-to": "{\"endpoints\":[{\"url\":\"https:\\/\\/a.nel.cloudflare.com\\/report\\/v4?s=3FH0VfD0vsznXvM1Wuhr5NLv4RMzQ9yAoWLebeJ4lIinqzZZnaPGUfAbI6rhRpblfC9IlC70LDnQ0J27L1HStP4RUlg80mzzVD68t2cxeZk85qS8QyK%2B0Pf4yJPELrUfEOeEPbW%2F3to%3D\"}],\"group\":\"cf-nel\",\"max_age\":604800}",
+          "nel": "{\"success_fraction\":0.01,\"report_to\":\"cf-nel\",\"max_age\":604800}",
+          "server": "cloudflare",
+          "cf-ray": "9f77222bfe0de102-PDX"
+        },
+        "hash": "55813f2fe1b43b6e58f1bbb9ef9cbc3d7b9b829c",
+        "request": {
+          "params": {
+            "page": "1"
+          }
+        }
+      },
+      "/api/v2/tickets/4/comments": {
+        "response": {
+          "comments": [
+            {
+              "id": 46408796979089,
+              "type": "Comment",
+              "author_id": 46406145565073,
+              "body": "This is a test ticket created via Nango action",
+              "html_body": "<div class=\"zd-comment\" dir=\"auto\"><p dir=\"auto\">This is a test ticket created via Nango action</p></div>",
+              "plain_body": "This is a test ticket created via Nango action",
+              "public": true,
+              "attachments": [],
+              "audit_id": 46408796978961,
+              "via": {
+                "channel": "api",
+                "source": {
+                  "from": {},
+                  "to": {
+                    "address": "api@nango.dev",
+                    "name": "Nango API"
+                  },
+                  "rel": null
+                }
+              },
+              "created_at": "2026-05-06T08:46:13Z",
+              "metadata": {
+                "system": {
+                  "client": "axios/1.15.0",
+                  "ip_address": "54.69.127.183",
+                  "location": "Boardman, OR, United States",
+                  "latitude": 45.8401,
+                  "longitude": -119.705
+                },
+                "custom": {}
+              }
+            },
+            {
+              "id": 46409876672657,
+              "type": "Comment",
+              "author_id": 46406145565073,
+              "body": "this is an internal note on a ticket\nThe ticket is not closed",
+              "html_body": "<div class=\"zd-comment\" dir=\"auto\">this is an internal note on a ticket<br>The ticket is not closed<br></div>",
+              "plain_body": "this is an internal note on a ticket\nThe ticket is not closed",
+              "public": false,
+              "attachments": [],
+              "audit_id": 46409876670609,
+              "via": {
+                "channel": "web",
+                "source": {
+                  "from": {},
+                  "to": {},
+                  "rel": null
+                }
+              },
+              "created_at": "2026-05-06T09:09:04Z",
+              "metadata": {
+                "system": {
+                  "client": "Agent-Graph/latest TicketsMutationService/updateTicket JavaStarter/4.67.0",
+                  "ip_address": "127.0.0.6"
+                },
+                "custom": {}
+              }
+            },
+            {
+              "id": 46409868973329,
+              "type": "Comment",
+              "author_id": 46406145565073,
+              "body": "Note that this is a Public reply to a ticket",
+              "html_body": "<div class=\"zd-comment\" dir=\"auto\">Note that this is a Public reply to a ticket<br></div>",
+              "plain_body": "Note that this is a Public reply to a ticket",
+              "public": true,
+              "attachments": [],
+              "audit_id": 46409853312401,
+              "via": {
+                "channel": "web",
+                "source": {
+                  "from": {},
+                  "to": {
+                    "address": "api@nango.dev",
+                    "name": "Nango API"
+                  },
+                  "rel": null
+                }
+              },
+              "created_at": "2026-05-06T09:09:29Z",
+              "metadata": {
+                "system": {
+                  "client": "Agent-Graph/latest TicketsMutationService/updateTicket JavaStarter/4.67.0",
+                  "ip_address": "127.0.0.6"
+                },
+                "custom": {}
+              }
+            }
+          ],
+          "next_page": null,
+          "previous_page": null,
+          "count": 3
+        },
+        "status": 200,
+        "headers": {
+          "date": "Wed, 06 May 2026 09:59:41 GMT",
+          "content-type": "application/json; charset=utf-8",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=31536000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "X-Zendesk-API-Warn,X-Zendesk-User-Id,X-Zendesk-User-Session-Expires-At",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4986",
+          "x-ratelimit-reset": "1778061623",
+          "x-zendesk-api-version": "v2",
+          "x-zendesk-application-version": "v25703",
+          "etag": "W/\"8822dbc1fa0605f67686468c55823a6c\"",
+          "last-modified": "Wed, 06 May 2026 09:09:29 GMT",
+          "cache-control": "max-age=0, private, must-revalidate",
+          "x-rate-limit": "400",
+          "ratelimit-limit": "400",
+          "x-rate-limit-remaining": "392",
+          "ratelimit-remaining": "392",
+          "ratelimit-reset": "19",
+          "zendesk-route": "/api/v2/tickets/:ticket_id/comments",
+          "set-cookie": "_zendesk_cookie=BAhJIhl7ImRldmljZV90b2tlbnMiOnt9fQY6BkVU--0bf2100788cb010d0183feca16aaf88ccaf719ca; path=/; expires=Thu, 06 May 2027 07:36:21 GMT; secure; HttpOnly; SameSite=None, __cf_bm=DpGuw9m4aL8ovQ8pzYHClniAK6ALlTQ8cIIPC4mZMYk-1778061581-1.0.1.1-0pI_b8B2G1F4hb9kV2TvEJYkq2TxUYW.Y7FV3c0kTdpAn7smzajKfGGjInravtZ4rwijHiR6VNmIEAJSFjAyiOaSh9iE5aMYeEikY5AFIw4; path=/; expires=Wed, 06-May-26 10:29:41 GMT; domain=.nango-1049.zendesk.com; HttpOnly; Secure; SameSite=None, _cfuvid=Mrmb0aMn2Ojs_xM0jkVCUFRh04U4PgfrUUcuRJRDJfw-1778061581099-0.0.1.1-604800000; path=/; domain=.nango-1049.zendesk.com; HttpOnly; Secure; SameSite=None",
+          "x-zendesk-origin-server": "classic-app-server-69d49c4b9b-dk88f",
+          "x-request-id": "9f7722300a49fef5-DUB",
+          "x-runtime": "0.094236",
+          "x-envoy-upstream-service-time": "99",
+          "x-openapi-route-path": "/api/v2/tickets/{ticket_id}/comments",
+          "zendesk-service": "classic",
+          "x-zendesk-zorg": "yes",
+          "vary": "Accept-Encoding",
+          "via": "zorg",
+          "x-envoy-decorator-operation": "/api/v2/tickets",
+          "cf-cache-status": "DYNAMIC",
+          "report-to": "{\"endpoints\":[{\"url\":\"https:\\/\\/a.nel.cloudflare.com\\/report\\/v4?s=%2BNZQ3x6WumMB1TLLQR2LhlZckqAz7MvNwuyjPiKGR7%2F7WAXR%2FcBtzbvFuhd%2BpHQHXRbffmvRULLOB5k9fbjxOlpiCn48gHApQiHvXrX26%2BJy40o44GqjQPn3qp%2B%2F921p%2Fza5I0HmvJ4%3D\"}],\"group\":\"cf-nel\",\"max_age\":604800}",
+          "nel": "{\"success_fraction\":0.01,\"report_to\":\"cf-nel\",\"max_age\":604800}",
+          "server": "cloudflare",
+          "cf-ray": "9f7722300a49fef5-PDX"
+        },
+        "hash": "97b8a45aa80f3d2ae8bc05660f13550971f10923",
+        "request": {
+          "params": {
+            "page": "1"
+          }
+        }
+      }
+    }
+  }
+}

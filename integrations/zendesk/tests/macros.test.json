@@ -1,0 +1,157 @@
+{
+  "nango": {
+    "batchSave": {
+      "Macro": [
+        {
+          "id": "46406146551697",
+          "title": "Customer not responding",
+          "active": true,
+          "position": 9999,
+          "created_at": "2026-05-06T07:45:46Z",
+          "updated_at": "2026-05-06T07:45:46Z",
+          "actions": [
+            {
+              "field": "status",
+              "value": "pending"
+            },
+            {
+              "field": "comment_value",
+              "value": "Hello {{ticket.requester.name}}. Our agent {{current_user.name}} has tried to contact you about this request but we haven't heard back from you yet. Please let us know if we can be of further assistance. Thanks. "
+            }
+          ]
+        },
+        {
+          "id": "46406146551185",
+          "title": "Downgrade and inform",
+          "active": true,
+          "position": 9999,
+          "created_at": "2026-05-06T07:45:46Z",
+          "updated_at": "2026-05-06T07:45:46Z",
+          "actions": [
+            {
+              "field": "priority",
+              "value": "low"
+            },
+            {
+              "field": "comment_value",
+              "value": "We're currently experiencing unusually high traffic. We'll get back to you as soon as possible."
+            }
+          ]
+        }
+      ]
+    },
+    "batchDelete": {
+      "Macro": []
+    }
+  },
+  "api": {
+    "get": {
+      "/api/v2/macros.json": {
+        "response": {
+          "macros": [
+            {
+              "url": "https://nango-1049.zendesk.com/api/v2/macros/46406146551697.json",
+              "id": 46406146551697,
+              "title": "Customer not responding",
+              "active": true,
+              "updated_at": "2026-05-06T07:45:46Z",
+              "created_at": "2026-05-06T07:45:46Z",
+              "default": false,
+              "position": 9999,
+              "description": null,
+              "actions": [
+                {
+                  "field": "status",
+                  "value": "pending"
+                },
+                {
+                  "field": "comment_value",
+                  "value": "Hello {{ticket.requester.name}}. Our agent {{current_user.name}} has tried to contact you about this request but we haven't heard back from you yet. Please let us know if we can be of further assistance. Thanks. "
+                }
+              ],
+              "restriction": null,
+              "raw_title": "Customer not responding"
+            },
+            {
+              "url": "https://nango-1049.zendesk.com/api/v2/macros/46406146551185.json",
+              "id": 46406146551185,
+              "title": "Downgrade and inform",
+              "active": true,
+              "updated_at": "2026-05-06T07:45:46Z",
+              "created_at": "2026-05-06T07:45:46Z",
+              "default": false,
+              "position": 9999,
+              "description": null,
+              "actions": [
+                {
+                  "field": "priority",
+                  "value": "low"
+                },
+                {
+                  "field": "comment_value",
+                  "value": "We're currently experiencing unusually high traffic. We'll get back to you as soon as possible."
+                }
+              ],
+              "restriction": null,
+              "raw_title": "Downgrade and inform"
+            }
+          ],
+          "next_page": null,
+          "previous_page": null,
+          "count": 2
+        },
+        "status": 200,
+        "headers": {
+          "date": "Wed, 06 May 2026 08:47:19 GMT",
+          "content-type": "application/json; charset=utf-8",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=31536000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "X-Zendesk-API-Warn,X-Zendesk-User-Id,X-Zendesk-User-Session-Expires-At",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4972",
+          "x-ratelimit-reset": "1778057259",
+          "x-zendesk-api-version": "v2",
+          "x-zendesk-application-version": "v25703",
+          "etag": "W/\"4804ade1ad468433d53ec1e405189019\"",
+          "cache-control": "max-age=0, private, must-revalidate",
+          "x-rate-limit": "400",
+          "ratelimit-limit": "400",
+          "x-rate-limit-remaining": "398",
+          "ratelimit-remaining": "398",
+          "ratelimit-reset": "41",
+          "zendesk-route": "/api/v2/macros",
+          "set-cookie": "_zendesk_cookie=BAhJIhl7ImRldmljZV90b2tlbnMiOnt9fQY6BkVU--0bf2100788cb010d0183feca16aaf88ccaf719ca; path=/; expires=Thu, 06 May 2027 07:32:17 GMT; secure; HttpOnly; SameSite=None, __cf_bm=qNifNsEFUh9SCAnDDCFGRcf4Fc891WISslJqzai5r8Y-1778057239-1.0.1.1-uyXenNBF5JwLfD1mjrB_ca2nNRjjb1Zlz26yVpVTi7r5dY4xCkIXHsryiRuRqoAh2gfPLg1VkAhSwPGPuHqUlmesVKlDLo4nGBbPaKBzUUI; path=/; expires=Wed, 06-May-26 09:17:19 GMT; domain=.nango-1049.zendesk.com; HttpOnly; Secure; SameSite=None, _cfuvid=SHia.XMTBwqjdY2M5l7ajHgbPIeGljZ7y53rLIaBPHw-1778057239674-0.0.1.1-604800000; path=/; domain=.nango-1049.zendesk.com; HttpOnly; Secure; SameSite=None",
+          "x-zendesk-origin-server": "classic-app-server-69d49c4b9b-fnsv4",
+          "x-request-id": "9f76b8325e523e6d-DUB",
+          "x-runtime": "0.068779",
+          "x-envoy-upstream-service-time": "72",
+          "x-openapi-route-path": "/api/v2/macros",
+          "zendesk-service": "classic",
+          "x-zendesk-zorg": "yes",
+          "vary": "Accept-Encoding",
+          "via": "zorg",
+          "x-envoy-decorator-operation": "/api/v2/macros",
+          "cf-cache-status": "DYNAMIC",
+          "report-to": "{\"endpoints\":[{\"url\":\"https:\\/\\/a.nel.cloudflare.com\\/report\\/v4?s=fKv6BbmCyNpnDRiweiIygUaVPhoYt2sv3bbIFuyXBSh19BTt3qF%2FVCOiyvxRpc%2BDYVeX%2BBi74re96SgutR%2FeeXS5rJSSQZt2gvPHopRPu6XzCIpDA3xaD4GsxbnXEttrQe%2Fw4MKdK68%3D\"}],\"group\":\"cf-nel\",\"max_age\":604800}",
+          "nel": "{\"success_fraction\":0.01,\"report_to\":\"cf-nel\",\"max_age\":604800}",
+          "server": "cloudflare",
+          "cf-ray": "9f76b8325e523e6d-PDX"
+        },
+        "hash": "3b5ecfd338f6e5d4d54d9c19ca42788e17c6abd6",
+        "request": {
+          "params": {
+            "per_page": "100"
+          }
+        }
+      }
+    }
+  }
+}

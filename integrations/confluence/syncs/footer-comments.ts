@@ -78,7 +78,7 @@ function extractCursorFromNextUrl(nextUrl: string): string {
 
 const sync = createSync({
     description: 'Sync Confluence footer comments visible to the connection',
-    version: '1.0.0',
+    version: '1.0.1',
     frequency: 'every hour',
     autoStart: true,
     checkpoint: CheckpointSchema,
@@ -97,6 +97,7 @@ const sync = createSync({
     exec: async (nango) => {
         const checkpoint = await nango.getCheckpoint();
         let cursor = checkpoint && checkpoint['cursor'] ? checkpoint['cursor'] : '';
+        const hadExistingCheckpoint = !!cursor;
 
         const connection = await nango.getConnection();
         const connectionConfig = connection.connection_config;
@@ -142,6 +143,7 @@ const sync = createSync({
         if (!cursor) {
             await nango.trackDeletesStart('FooterComment');
         }
+        let checkpointSaved = false;
 
         const baseUrlOverride = `https://api.atlassian.com/ex/confluence/${cloudId}`;
         const limit = 100;
@@ -193,10 +195,13 @@ const sync = createSync({
 
             cursor = extractCursorFromNextUrl(nextLink);
             await nango.saveCheckpoint({ cursor });
+            checkpointSaved = true;
         }
 
         await nango.trackDeletesEnd('FooterComment');
-        await nango.clearCheckpoint();
+        if (checkpointSaved || hadExistingCheckpoint) {
+            await nango.clearCheckpoint();
+        }
     }
 });
 

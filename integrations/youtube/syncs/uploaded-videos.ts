@@ -133,7 +133,7 @@ const CheckpointSchema = z.object({
  */
 const sync = createSync({
     description: 'Sync uploaded videos for YouTube channels in scope',
-    version: '1.0.0',
+    version: '1.0.1',
     frequency: 'every hour',
     autoStart: true,
     endpoints: [{ method: 'GET', path: '/syncs/uploaded-videos' }],
@@ -189,6 +189,8 @@ const sync = createSync({
         }
 
         await nango.trackDeletesStart('UploadedVideo');
+        let checkpointSaved = false;
+        const hadExistingCheckpoint = checkpoint !== null;
 
         // Process each uploads playlist
         for (let uploadsPlaylistIndex = startUploadsPlaylistIndex; uploadsPlaylistIndex < uploadsPlaylistIds.length; uploadsPlaylistIndex++) {
@@ -297,6 +299,7 @@ const sync = createSync({
                         uploads_playlist_index: uploadsPlaylistIndex,
                         page_token: nextPageToken
                     });
+                    checkpointSaved = true;
                     pageToken = nextPageToken;
                     continue;
                 }
@@ -308,13 +311,16 @@ const sync = createSync({
                         uploads_playlist_index: uploadsPlaylistIndex + 1,
                         page_token: ''
                     });
+                    checkpointSaved = true;
                 }
 
                 break;
             }
         }
 
-        await nango.clearCheckpoint();
+        if (checkpointSaved || hadExistingCheckpoint) {
+            await nango.clearCheckpoint();
+        }
         await nango.trackDeletesEnd('UploadedVideo');
     }
 });

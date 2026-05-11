@@ -43,7 +43,6 @@ describe('Notion Users Pagination', () => {
             expect.objectContaining({ endpoint: '/v1/users', params: expect.objectContaining({ page_size: 100 }) })
         );
         expect(nango.batchSave).toHaveBeenCalledWith([{ id: 'user1', type: 'person', name: 'Test User' }], 'User');
-        expect(nango.clearCheckpoint).toHaveBeenCalled();
         expect(nango.trackDeletesEnd).toHaveBeenCalledWith('User');
     });
 
@@ -92,7 +91,6 @@ describe('Notion Users Pagination', () => {
         await fetchData.exec(nango as any);
 
         expect(nango.batchSave).not.toHaveBeenCalled();
-        expect(nango.clearCheckpoint).toHaveBeenCalled();
         expect(nango.trackDeletesEnd).toHaveBeenCalledWith('User');
     });
 
