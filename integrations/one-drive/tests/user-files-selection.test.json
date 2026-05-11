@@ -1,0 +1,231 @@
+{
+  "nango": {
+    "getMetadata": {
+      "drives": [
+        {
+          "id": "AB43234B783BB6C3",
+          "name": "OneDrive"
+        }
+      ],
+      "pickedFiles": [
+        {
+          "driveId": "AB43234B783BB6C3",
+          "id": "AB43234B783BB6C3!sf201a5a4f06840999fe0436ab4e06402",
+          "name": "Getting started with OneDrive.pdf"
+        },
+        {
+          "driveId": "AB43234B783BB6C3",
+          "id": "AB43234B783BB6C3!s61488d3089bb48b59d74b89ee9738148",
+          "name": "test-upload.txt"
+        }
+      ]
+    },
+    "batchSave": {
+      "SelectedUserFile": [
+        {
+          "id": "AB43234B783BB6C3:AB43234B783BB6C3!sf201a5a4f06840999fe0436ab4e06402",
+          "driveId": "AB43234B783BB6C3",
+          "driveItemId": "AB43234B783BB6C3!sf201a5a4f06840999fe0436ab4e06402",
+          "name": "Getting started with OneDrive.pdf",
+          "webUrl": "https://onedrive.live.com?cid=AB43234B783BB6C3&id=AB43234B783BB6C3!sf201a5a4f06840999fe0436ab4e06402",
+          "downloadUrl": "https://my.microsoftpersonalcontent.com/personal/ab43234b783bb6c3/_layouts/15/download.aspx?UniqueId=f201a5a4-f068-4099-9fe0-436ab4e06402&Translate=false&tempauth=<redacted>&ApiVersion=2.0",
+          "size": 1151898,
+          "createdDateTime": "2026-03-19T15:08:48Z",
+          "lastModifiedDateTime": "2026-03-19T15:08:48Z",
+          "mimeType": "application/pdf",
+          "parentReferenceId": "AB43234B783BB6C3!sea8cc6beffdb43d7976fbc7da445c639",
+          "parentReferenceName": "Documents",
+          "parentReferencePath": "/drives/AB43234B783BB6C3/root:"
+        },
+        {
+          "id": "AB43234B783BB6C3:AB43234B783BB6C3!s61488d3089bb48b59d74b89ee9738148",
+          "driveId": "AB43234B783BB6C3",
+          "driveItemId": "AB43234B783BB6C3!s61488d3089bb48b59d74b89ee9738148",
+          "name": "test-upload.txt",
+          "webUrl": "https://onedrive.live.com?cid=AB43234B783BB6C3&id=AB43234B783BB6C3!s61488d3089bb48b59d74b89ee9738148",
+          "downloadUrl": "https://my.microsoftpersonalcontent.com/personal/ab43234b783bb6c3/_layouts/15/download.aspx?UniqueId=61488d30-89bb-48b5-9d74-b89ee9738148&Translate=false&tempauth=<redacted>&ApiVersion=2.0",
+          "size": 12,
+          "createdDateTime": "2026-05-06T21:29:59Z",
+          "lastModifiedDateTime": "2026-05-06T21:32:46Z",
+          "mimeType": "text/plain",
+          "parentReferenceId": "AB43234B783BB6C3!sea8cc6beffdb43d7976fbc7da445c639",
+          "parentReferenceName": "Documents",
+          "parentReferencePath": "/drives/AB43234B783BB6C3/root:"
+        }
+      ]
+    },
+    "batchDelete": {
+      "SelectedUserFile": []
+    }
+  },
+  "api": {
+    "get": {
+      "/v1.0/drives/AB43234B783BB6C3/items/AB43234B783BB6C3!sf201a5a4f06840999fe0436ab4e06402": {
+        "response": {
+          "@odata.context": "https://graph.microsoft.com/v1.0/$metadata#drives('AB43234B783BB6C3')/items/$entity",
+          "@microsoft.graph.downloadUrl": "https://my.microsoftpersonalcontent.com/personal/ab43234b783bb6c3/_layouts/15/download.aspx?UniqueId=f201a5a4-f068-4099-9fe0-436ab4e06402&Translate=false&tempauth=<redacted>&ApiVersion=2.0",
+          "createdDateTime": "2026-03-19T15:08:48Z",
+          "eTag": "\"{F201A5A4-F068-4099-9FE0-436AB4E06402},1\"",
+          "id": "AB43234B783BB6C3!sf201a5a4f06840999fe0436ab4e06402",
+          "lastModifiedDateTime": "2026-03-19T15:08:48Z",
+          "name": "Getting started with OneDrive.pdf",
+          "webUrl": "https://onedrive.live.com?cid=AB43234B783BB6C3&id=AB43234B783BB6C3!sf201a5a4f06840999fe0436ab4e06402",
+          "cTag": "\"c:{F201A5A4-F068-4099-9FE0-436AB4E06402},1\"",
+          "isAuthoritative": false,
+          "size": 1151898,
+          "createdBy": {
+            "application": {
+              "id": "00000000-0000-0000-0000-000000048beb",
+              "displayName": "i:0i.t|ms.sp.ext|00000000-0000-0000-0000-000000048beb@9188040d-6c67-4c5b-b112-36a304b66dad"
+            },
+            "user": {
+              "email": "apinangodev@outlook.com",
+              "id": "AB43234B783BB6C3",
+              "displayName": "Nango Dev"
+            }
+          },
+          "lastModifiedBy": {
+            "application": {
+              "id": "00000000-0000-0000-0000-000000048beb",
+              "displayName": "i:0i.t|ms.sp.ext|00000000-0000-0000-0000-000000048beb@9188040d-6c67-4c5b-b112-36a304b66dad"
+            },
+            "user": {
+              "email": "apinangodev@outlook.com",
+              "id": "AB43234B783BB6C3",
+              "displayName": "Nango Dev"
+            }
+          },
+          "parentReference": {
+            "driveType": "personal",
+            "driveId": "AB43234B783BB6C3",
+            "id": "AB43234B783BB6C3!sea8cc6beffdb43d7976fbc7da445c639",
+            "name": "Documents",
+            "path": "/drives/AB43234B783BB6C3/root:",
+            "siteId": "cddae02a-82ab-45f2-8d9f-b7e90bba6d93"
+          },
+          "file": {
+            "mimeType": "application/pdf",
+            "hashes": {
+              "quickXorHash": "18/IWu6BIWRDdxpgFwLzWtvjicQ="
+            }
+          },
+          "fileSystemInfo": {
+            "createdDateTime": "2026-03-19T15:08:48Z",
+            "lastModifiedDateTime": "2026-03-19T15:08:48Z"
+          }
+        },
+        "status": 200,
+        "headers": {
+          "date": "Wed, 06 May 2026 21:34:40 GMT",
+          "content-type": "application/json;odata.metadata=minimal;odata.streaming=true;IEEE754Compatible=false;charset=utf-8",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=31536000",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4963",
+          "x-ratelimit-reset": "1778103285",
+          "cache-control": "no-store, no-cache",
+          "vary": "Accept-Encoding",
+          "request-id": "90f6fb82-4c1f-4d8c-9886-e6d7f43adc73",
+          "client-request-id": "90f6fb82-4c1f-4d8c-9886-e6d7f43adc73",
+          "x-ms-ags-diagnostic": "{\"ServerInfo\":{\"DataCenter\":\"West US 2\",\"Slice\":\"E\",\"Ring\":\"4\",\"ScaleUnit\":\"004\",\"RoleInstance\":\"MW2PEPF0000E01A\"}}",
+          "splogid": "3b1611a2-c097-c000-c5d0-d43d9dc0b3d7",
+          "odata-version": "4.0"
+        },
+        "hash": "6043ed2470c975d878db631b33f5307d24603c3e",
+        "request": {}
+      },
+      "/v1.0/drives/AB43234B783BB6C3/items/AB43234B783BB6C3!s61488d3089bb48b59d74b89ee9738148": {
+        "response": {
+          "@odata.context": "https://graph.microsoft.com/v1.0/$metadata#drives('AB43234B783BB6C3')/items/$entity",
+          "@microsoft.graph.downloadUrl": "https://my.microsoftpersonalcontent.com/personal/ab43234b783bb6c3/_layouts/15/download.aspx?UniqueId=61488d30-89bb-48b5-9d74-b89ee9738148&Translate=false&tempauth=<redacted>&ApiVersion=2.0",
+          "createdDateTime": "2026-05-06T21:29:59Z",
+          "eTag": "\"{61488D30-89BB-48B5-9D74-B89EE9738148},9\"",
+          "id": "AB43234B783BB6C3!s61488d3089bb48b59d74b89ee9738148",
+          "lastModifiedDateTime": "2026-05-06T21:32:46Z",
+          "name": "test-upload.txt",
+          "webUrl": "https://onedrive.live.com?cid=AB43234B783BB6C3&id=AB43234B783BB6C3!s61488d3089bb48b59d74b89ee9738148",
+          "cTag": "\"c:{61488D30-89BB-48B5-9D74-B89EE9738148},3\"",
+          "isAuthoritative": false,
+          "size": 12,
+          "createdBy": {
+            "application": {
+              "id": "052f364f-e5c3-45bd-8849-4175f81f6dbb",
+              "displayName": "i:0i.t|ms.sp.ext|052f364f-e5c3-45bd-8849-4175f81f6dbb@9188040d-6c67-4c5b-b112-36a304b66dad"
+            },
+            "user": {
+              "email": "apinangodev@outlook.com",
+              "id": "AB43234B783BB6C3",
+              "displayName": "Nango Dev"
+            }
+          },
+          "lastModifiedBy": {
+            "application": {
+              "id": "052f364f-e5c3-45bd-8849-4175f81f6dbb",
+              "displayName": "i:0i.t|ms.sp.ext|052f364f-e5c3-45bd-8849-4175f81f6dbb@9188040d-6c67-4c5b-b112-36a304b66dad"
+            },
+            "user": {
+              "email": "apinangodev@outlook.com",
+              "id": "AB43234B783BB6C3",
+              "displayName": "Nango Dev"
+            }
+          },
+          "parentReference": {
+            "driveType": "personal",
+            "driveId": "AB43234B783BB6C3",
+            "id": "AB43234B783BB6C3!sea8cc6beffdb43d7976fbc7da445c639",
+            "name": "Documents",
+            "path": "/drives/AB43234B783BB6C3/root:",
+            "siteId": "cddae02a-82ab-45f2-8d9f-b7e90bba6d93"
+          },
+          "file": {
+            "mimeType": "text/plain",
+            "hashes": {
+              "quickXorHash": "SCgDG9jwBhBc4Q1ybAMZQgAAAAA="
+            }
+          },
+          "fileSystemInfo": {
+            "createdDateTime": "2026-05-06T21:29:59Z",
+            "lastModifiedDateTime": "2026-05-06T21:32:46Z"
+          }
+        },
+        "status": 200,
+        "headers": {
+          "date": "Wed, 06 May 2026 21:34:41 GMT",
+          "content-type": "application/json;odata.metadata=minimal;odata.streaming=true;IEEE754Compatible=false;charset=utf-8",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=31536000",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4962",
+          "x-ratelimit-reset": "1778103285",
+          "cache-control": "no-store, no-cache",
+          "vary": "Accept-Encoding",
+          "request-id": "2c1de3ba-aac2-4cdd-9e1d-9b625aab4125",
+          "client-request-id": "2c1de3ba-aac2-4cdd-9e1d-9b625aab4125",
+          "x-ms-ags-diagnostic": "{\"ServerInfo\":{\"DataCenter\":\"West US 2\",\"Slice\":\"E\",\"Ring\":\"4\",\"ScaleUnit\":\"004\",\"RoleInstance\":\"MW2PEPF00013F58\"}}",
+          "splogid": "3b1611a2-a0cf-d000-068d-efd7d45b2ecd",
+          "odata-version": "4.0"
+        },
+        "hash": "ef42278163956b2a110dec4aaaa9ccfa738acb4b",
+        "request": {}
+      }
+    }
+  }
+}

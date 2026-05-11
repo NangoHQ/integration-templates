@@ -1,0 +1,106 @@
+{
+  "input": {
+    "itemId": "AB43234B783BB6C3!sc2595f4d06c2445abe96754c40b77fc3",
+    "recipients": [
+      {
+        "email": "test.invite@example.com"
+      }
+    ],
+    "roles": [
+      "read"
+    ],
+    "requireSignIn": true
+  },
+  "output": {
+    "permissions": [
+      {
+        "roles": [
+          "read"
+        ],
+        "signInRequired": true
+      }
+    ]
+  },
+  "nango": {},
+  "api": {
+    "post": {
+      "/v1.0/me/drive/items/AB43234B783BB6C3!sc2595f4d06c2445abe96754c40b77fc3/invite": {
+        "response": {
+          "@odata.context": "https://graph.microsoft.com/v1.0/$metadata#Collection(microsoft.graph.permission)",
+          "value": [
+            {
+              "roles": [
+                "read"
+              ],
+              "grantedToIdentitiesV2": [
+                {
+                  "user": {
+                    "email": "test.invite@example.com"
+                  }
+                }
+              ],
+              "grantedToIdentities": [
+                {
+                  "user": {
+                    "email": "test.invite@example.com"
+                  }
+                }
+              ],
+              "invitation": {
+                "signInRequired": true
+              },
+              "link": {
+                "type": "view",
+                "webUrl": "https://1drv.ms/t/c/ab43234b783bb6c3/IQBNX1nCwgZaRL6WdUxAt3_DAT0ABfU-m3Qn9YeniHUPLVw?email=test.invite@example.com"
+              }
+            }
+          ]
+        },
+        "status": 200,
+        "headers": {
+          "date": "Wed, 06 May 2026 21:32:34 GMT",
+          "content-type": "application/json;odata.metadata=minimal;odata.streaming=true;IEEE754Compatible=false;charset=utf-8",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=31536000",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4992",
+          "x-ratelimit-reset": "1778103210",
+          "cache-control": "private",
+          "location": "https://graph.microsoft.com",
+          "vary": "Accept-Encoding",
+          "request-id": "059293b5-c3d2-4246-a5d8-13d59f783d02",
+          "client-request-id": "059293b5-c3d2-4246-a5d8-13d59f783d02",
+          "x-ms-ags-diagnostic": "{\"ServerInfo\":{\"DataCenter\":\"West US 2\",\"Slice\":\"E\",\"Ring\":\"4\",\"ScaleUnit\":\"004\",\"RoleInstance\":\"MW2PEPF0000E05D\"}}",
+          "link": "<https://developer.microsoft-tst.com/en-us/graph/changes?$filterby=v1.0,Removal&from=2021-09-01&to=2021-10-01>;rel=\"deprecation\";type=\"text/html\", <https://developer.microsoft-tst.com/en-us/graph/changes?$filterby=v1.0,Removal&from=2021-09-01&to=2021-10-01>;rel=\"deprecation\";type=\"text/html\"",
+          "deprecation": "Fri, 03 Sep 2021 23:59:59 GMT",
+          "sunset": "Sun, 01 Oct 2023 23:59:59 GMT",
+          "splogid": "1c1611a2-10d1-c000-c5d0-dec56a0919aa",
+          "odata-version": "4.0"
+        },
+        "hash": "a95e1e612ad16e1cdf7786bd5e53670373ff59d9",
+        "request": {
+          "data": {
+            "recipients": [
+              {
+                "email": "test.invite@example.com"
+              }
+            ],
+            "roles": [
+              "read"
+            ],
+            "requireSignIn": true
+          }
+        }
+      }
+    }
+  }
+}

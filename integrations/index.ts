@@ -1036,10 +1036,32 @@ import './okta/actions/create-user.js';
 import './okta/actions/remove-user-group.js';
 
 // -- Integration: one-drive
-import './one-drive/syncs/user-files.js';
+import './one-drive/syncs/drive-items.js';
+import './one-drive/syncs/folder-children.js';
+import './one-drive/syncs/recent-items.js';
+import './one-drive/syncs/shared-items.js';
 import './one-drive/syncs/user-files-selection.js';
-import './one-drive/actions/fetch-file.js';
+import './one-drive/syncs/user-files.js';
+import './one-drive/actions/copy-item.js';
+import './one-drive/actions/create-folder.js';
+import './one-drive/actions/create-sharing-link.js';
+import './one-drive/actions/create-upload-session.js';
+import './one-drive/actions/delete-item.js';
+import './one-drive/actions/delete-permission.js';
+import './one-drive/actions/get-drive.js';
+import './one-drive/actions/get-item.js';
+import './one-drive/actions/get-permission.js';
+import './one-drive/actions/invite-recipients.js';
+import './one-drive/actions/list-children.js';
 import './one-drive/actions/list-drives.js';
+import './one-drive/actions/list-permissions.js';
+import './one-drive/actions/list-recent-items.js';
+import './one-drive/actions/list-shared-items.js';
+import './one-drive/actions/list-versions.js';
+import './one-drive/actions/move-item.js';
+import './one-drive/actions/search-items.js';
+import './one-drive/actions/update-item.js';
+import './one-drive/actions/upload-small-file.js';
 
 // -- Integration: one-drive-personal
 import './one-drive-personal/syncs/user-files-selection.js';

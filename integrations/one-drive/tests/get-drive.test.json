@@ -1,0 +1,91 @@
+{
+  "input": {},
+  "output": {
+    "id": "AB43234B783BB6C3",
+    "name": "OneDrive",
+    "description": "",
+    "driveType": "personal",
+    "webUrl": "https://my.microsoftpersonalcontent.com/personal/ab43234b783bb6c3/Documents",
+    "owner": {
+      "displayName": "Nango Dev"
+    },
+    "quota": {
+      "deleted": 0,
+      "remaining": 5367557222,
+      "state": "normal",
+      "total": 5368709120,
+      "used": 1151898
+    }
+  },
+  "nango": {},
+  "api": {
+    "get": {
+      "/v1.0/me/drive": {
+        "response": {
+          "@odata.context": "https://graph.microsoft.com/v1.0/$metadata#drives/$entity",
+          "createdDateTime": "2026-03-04T06:13:47Z",
+          "description": "",
+          "id": "AB43234B783BB6C3",
+          "lastModifiedDateTime": "2026-05-06T21:29:55Z",
+          "name": "OneDrive",
+          "webUrl": "https://my.microsoftpersonalcontent.com/personal/ab43234b783bb6c3/Documents",
+          "driveType": "personal",
+          "createdBy": {
+            "user": {
+              "displayName": "System Account"
+            }
+          },
+          "lastModifiedBy": {
+            "user": {
+              "displayName": "System Account"
+            }
+          },
+          "owner": {
+            "user": {
+              "email": "apinangodev@outlook.com",
+              "displayName": "Nango Dev"
+            }
+          },
+          "quota": {
+            "deleted": 0,
+            "remaining": 5367557222,
+            "state": "normal",
+            "total": 5368709120,
+            "used": 1151898,
+            "storagePlanInformation": {
+              "upgradeAvailable": true
+            }
+          }
+        },
+        "status": 200,
+        "headers": {
+          "date": "Wed, 06 May 2026 21:29:58 GMT",
+          "content-type": "application/json;odata.metadata=minimal;odata.streaming=true;IEEE754Compatible=false;charset=utf-8",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=31536000",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4926",
+          "x-ratelimit-reset": "1778103025",
+          "cache-control": "no-store, no-cache, max-age=0, private",
+          "vary": "Accept-Encoding",
+          "request-id": "3f75a00f-b7db-4a86-898d-73ce9c35c3e9",
+          "client-request-id": "3f75a00f-b7db-4a86-898d-73ce9c35c3e9",
+          "x-ms-ags-diagnostic": "{\"ServerInfo\":{\"DataCenter\":\"West US 2\",\"Slice\":\"E\",\"Ring\":\"4\",\"ScaleUnit\":\"000\",\"RoleInstance\":\"CO1PEPF00015D75\"}}",
+          "splogid": "f61511a2-d0c0-c000-c5d0-d013bba47c71",
+          "odata-version": "4.0"
+        },
+        "hash": "ea4c780bd3aba9a31d9e136225252fb13dcebe61",
+        "request": {}
+      }
+    }
+  }
+}
