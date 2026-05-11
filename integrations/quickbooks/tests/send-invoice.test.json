@@ -1,0 +1,224 @@
+{
+  "input": {
+    "invoiceId": "103"
+  },
+  "output": {
+    "success": true,
+    "invoiceId": "103",
+    "message": "Invoice sent successfully"
+  },
+  "nango": {
+    "getConnection": {}
+  },
+  "api": {
+    "post": {
+      "/v3/company/9341457021722202/invoice/103/send": {
+        "response": {
+          "Invoice": {
+            "AllowIPNPayment": false,
+            "AllowOnlinePayment": false,
+            "AllowOnlineCreditCardPayment": false,
+            "AllowOnlineACHPayment": false,
+            "domain": "QBO",
+            "sparse": false,
+            "Id": "103",
+            "SyncToken": "1",
+            "MetaData": {
+              "CreateTime": "2026-04-07T13:41:59-07:00",
+              "LastUpdatedTime": "2026-05-05T02:06:31-07:00"
+            },
+            "CustomField": [],
+            "DocNumber": "1033",
+            "TxnDate": "2026-04-07",
+            "CurrencyRef": {
+              "value": "USD",
+              "name": "United States Dollar"
+            },
+            "LinkedTxn": [
+              {
+                "TxnId": "41",
+                "TxnType": "Estimate"
+              }
+            ],
+            "Line": [
+              {
+                "Id": "1",
+                "LineNum": 1,
+                "Description": "Rock Fountain",
+                "Amount": 275,
+                "LinkedTxn": [
+                  {
+                    "TxnId": "41",
+                    "TxnType": "Estimate"
+                  }
+                ],
+                "DetailType": "SalesItemLineDetail",
+                "SalesItemLineDetail": {
+                  "ItemRef": {
+                    "value": "5",
+                    "name": "Rock Fountain"
+                  },
+                  "UnitPrice": 275,
+                  "Qty": 1,
+                  "TaxCodeRef": {
+                    "value": "TAX"
+                  }
+                },
+                "CustomExtensions": []
+              },
+              {
+                "Id": "2",
+                "LineNum": 2,
+                "Description": "Custom Design",
+                "Amount": 262.5,
+                "LinkedTxn": [
+                  {
+                    "TxnId": "41",
+                    "TxnType": "Estimate"
+                  }
+                ],
+                "DetailType": "SalesItemLineDetail",
+                "SalesItemLineDetail": {
+                  "ItemRef": {
+                    "value": "4",
+                    "name": "Design"
+                  },
+                  "UnitPrice": 75,
+                  "Qty": 3.5,
+                  "TaxCodeRef": {
+                    "value": "NON"
+                  }
+                },
+                "CustomExtensions": []
+              },
+              {
+                "Id": "3",
+                "LineNum": 3,
+                "Description": "Fountain Pump",
+                "Amount": 45,
+                "LinkedTxn": [
+                  {
+                    "TxnId": "41",
+                    "TxnType": "Estimate"
+                  }
+                ],
+                "DetailType": "SalesItemLineDetail",
+                "SalesItemLineDetail": {
+                  "ItemRef": {
+                    "value": "11",
+                    "name": "Pump"
+                  },
+                  "UnitPrice": 22.5,
+                  "Qty": 2,
+                  "TaxCodeRef": {
+                    "value": "TAX"
+                  }
+                },
+                "CustomExtensions": []
+              },
+              {
+                "Amount": 582.5,
+                "DetailType": "SubTotalLineDetail",
+                "SubTotalLineDetail": {}
+              }
+            ],
+            "TxnTaxDetail": {
+              "TxnTaxCodeRef": {
+                "value": "2"
+              },
+              "TotalTax": 46.6,
+              "TaxLine": [
+                {
+                  "Amount": 46.6,
+                  "DetailType": "TaxLineDetail",
+                  "TaxLineDetail": {
+                    "TaxRateRef": {
+                      "value": "3"
+                    },
+                    "PercentBased": true,
+                    "TaxPercent": 8,
+                    "NetAmountTaxable": 582.5
+                  }
+                }
+              ]
+            },
+            "CustomerRef": {
+              "value": "10",
+              "name": "Geeta Kalapatapu"
+            },
+            "CustomerMemo": {
+              "value": "Thank you for your business and have a great day!"
+            },
+            "BillAddr": {
+              "Id": "87",
+              "Line1": "Geeta Kalapatapu",
+              "Line2": "1987 Main St.",
+              "Line3": "Middlefield, CA  94303",
+              "Lat": "37.4530553",
+              "Long": "-122.1178261"
+            },
+            "ShipAddr": {
+              "Id": "10",
+              "Line1": "1987 Main St.",
+              "City": "Middlefield",
+              "CountrySubDivisionCode": "CA",
+              "PostalCode": "94303",
+              "Lat": "37.445013",
+              "Long": "-122.1391443"
+            },
+            "SalesTermRef": {
+              "value": "3",
+              "name": "Net 30"
+            },
+            "DueDate": "2026-05-07",
+            "TotalAmt": 629.1,
+            "ApplyTaxAfterDiscount": false,
+            "PrintStatus": "NeedToPrint",
+            "EmailStatus": "EmailSent",
+            "BillEmail": {
+              "Address": "Geeta@Kalapatapu.com"
+            },
+            "Balance": 629.1,
+            "DeliveryInfo": {
+              "DeliveryType": "Email",
+              "DeliveryTime": "2026-05-05T02:06:31-07:00"
+            }
+          },
+          "time": "2026-05-05T02:06:31.216-07:00"
+        },
+        "status": 200,
+        "headers": {
+          "date": "Tue, 05 May 2026 09:06:31 GMT",
+          "content-type": "application/json;charset=UTF-8",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=31536000",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4932",
+          "x-ratelimit-reset": "1777972017",
+          "qbo-version": "2073.223",
+          "service-time": "total=332, db=199",
+          "expires": "0",
+          "cache-control": "max-age=0, no-cache, no-store, must-revalidate, private",
+          "x-envoy-upstream-service-time": "353",
+          "x-request-id": "1-69f9b317-3a5dcdfb2a46af0b58ac6dc1",
+          "x-intuit-upstream-locality-region": "us-west-2",
+          "x-spanid": "c9984da5-ebbb-c08f-b15f-bc1fa1bb24c1",
+          "x-amzn-trace-id": "Root=1-69f9b317-3a5dcdfb2a46af0b58ac6dc1",
+          "intuit_tid": "1-69f9b317-3a5dcdfb2a46af0b58ac6dc1",
+          "server": "istio-envoy"
+        },
+        "hash": "0e9fcec3a26bdc9c50df8d20482ac73e81ebe937",
+        "request": {}
+      }
+    }
+  }
+}

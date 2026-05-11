@@ -66,7 +66,7 @@ const RepositorySchema = z.object({
 
 const sync = createSync({
     description: 'Sync repositories visible to the authenticated GitHub user or installation.',
-    version: '1.0.0',
+    version: '1.0.1',
     frequency: 'every hour',
     autoStart: true,
     endpoints: [
@@ -85,13 +85,12 @@ const sync = createSync({
         await nango.trackDeletesStart('Repository');
 
         try {
-            // https://docs.github.com/en/rest/apps/apps#list-repositories-accessible-to-the-app-installation
+            // https://docs.github.com/en/rest/repos/repos#list-repositories-for-the-authenticated-user
             for await (const pageResults of nango.paginate({
-                endpoint: '/installation/repositories',
+                endpoint: '/user/repos',
                 params: {
                     sort: 'updated',
-                    direction: 'desc',
-                    per_page: '10'
+                    direction: 'desc'
                 },
                 paginate: {
                     type: 'offset',
@@ -99,8 +98,7 @@ const sync = createSync({
                     offset_start_value: 1,
                     offset_calculation_method: 'per-page',
                     limit_name_in_request: 'per_page',
-                    limit: 10,
-                    response_path: 'repositories'
+                    limit: 100
                 },
                 retries: 3
             })) {

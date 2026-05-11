@@ -1,65 +1,155 @@
+import { z } from 'zod';
 import { createAction } from 'nango';
-import { getCompany } from '../utils/get-company.js';
-import { toQuickBooksAccount, toAccount } from '../mappers/to-account.js';
 
-import type { ProxyConfiguration } from 'nango';
-import { Account, CreateAccount } from '../models.js';
+const InputSchema = z.object({
+    name: z.string().describe('Name of the account. Example: "My Account"'),
+    accountType: z
+        .enum([
+            'Bank',
+            'Other Current Asset',
+            'Fixed Asset',
+            'Other Asset',
+            'Accounts Receivable',
+            'Equity',
+            'Expense',
+            'Other Expense',
+            'Cost of Goods Sold',
+            'Accounts Payable',
+            'Credit Card',
+            'Long Term Liability',
+            'Other Current Liability',
+            'Income',
+            'Other Income'
+        ])
+        .describe('Account classification type'),
+    accountSubType: z.string().optional().describe('Detailed account type'),
+    description: z.string().optional().describe('Description of the account'),
+    currencyRef: z
+        .object({
+            value: z.string().describe('Currency code'),
+            name: z.string().optional().describe('Currency name')
+        })
+        .optional()
+        .describe('Currency reference')
+});
 
-/**
- * This function handles the creation of a account in QuickBooks via the Nango action.
- * It validates the input account data, maps it to the appropriate QuickBooks account structure,
- * and sends a request to create the account in the QuickBooks API.
- * For detailed endpoint documentation, refer to:
- * https://developer.intuit.com/app/developer/qbo/docs/api/accounting/all-entities/account#create-an-account
- *
- * @param {NangoAction} nango - The Nango action instance to handle API requests.
- * @param {CreateAccount} input - The account data input that will be sent to QuickBooks.
- * @throws {nango.ActionError} - Throws an error if the input is missing or lacks required fields.
- * @returns {Promise<Account>} - Returns the created account object from QuickBooks.
- */
+const ProviderAccountResponseSchema = z.object({
+    Account: z.object({
+        Id: z.string(),
+        Name: z.string(),
+        AccountType: z.string(),
+        AccountSubType: z.string().optional(),
+        Description: z.string().optional(),
+        CurrencyRef: z
+            .object({
+                value: z.string(),
+                name: z.string().optional()
+            })
+            .optional(),
+        Active: z.boolean().optional(),
+        CurrentBalance: z.number().optional(),
+        CurrentBalanceWithSubAccounts: z.number().optional(),
+        SyncToken: z.string().optional(),
+        MetaData: z
+            .object({
+                CreateTime: z.string().optional(),
+                LastUpdatedTime: z.string().optional()
+            })
+            .optional()
+    })
+});
+
+const OutputSchema = z.object({
+    id: z.string(),
+    name: z.string(),
+    accountType: z.string(),
+    accountSubType: z.string().optional(),
+    description: z.string().optional(),
+    currencyCode: z.string().optional(),
+    active: z.boolean().optional(),
+    currentBalance: z.number().optional(),
+    currentBalanceWithSubAccounts: z.number().optional(),
+    syncToken: z.string().optional(),
+    createdAt: z.string().optional(),
+    updatedAt: z.string().optional()
+});
+
 const action = createAction({
-    description: 'Creates a single account in QuickBooks.',
+    description: 'Create a QuickBooks Online chart of accounts entry.',
     version: '1.0.0',
-
     endpoint: {
         method: 'POST',
-        path: '/accounts',
+        path: '/actions/create-account',
         group: 'Accounts'
     },
-
-    input: CreateAccount,
-    output: Account,
+    input: InputSchema,
+    output: OutputSchema,
     scopes: ['com.intuit.quickbooks.accounting'],
 
-    exec: async (nango, input): Promise<Account> => {
-        // Validate if input is present
-        if (!input) {
+    exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
+        const connection = await nango.getConnection();
+        const realmId = connection.connection_config['realmId'];
+
+        if (!realmId) {
             throw new nango.ActionError({
-                message: `Input account object is required. Received: ${JSON.stringify(input)}`
+                type: 'missing_realm_id',
+                message: 'realmId not found in the connection configuration. Please reauthenticate to set the realmId'
             });
         }
 
-        // Ensure that required fields are present for QuickBooks
-        if (!input.name || (!input.account_type && !input.account_sub_type)) {
-            throw new nango.ActionError({
-                message: `Please provide a 'name' and at least one of the following: account_type or account_sub_type. Received: ${JSON.stringify(input)}`
-            });
-        }
-
-        const companyId = await getCompany(nango);
-        // Map the account input to the QuickBooks account structure
-        const quickBooksAccount = toQuickBooksAccount(input);
-
-        const config: ProxyConfiguration = {
-            // https://developer.intuit.com/app/developer/qbo/docs/api/accounting/all-entities/account#create-an-account
-            endpoint: `/v3/company/${companyId}/account`,
-            data: quickBooksAccount,
-            retries: 3
+        const requestBody: Record<string, unknown> = {
+            Name: input.name,
+            AccountType: input.accountType
         };
 
-        const response = await nango.post(config);
+        if (input.accountSubType !== undefined) {
+            requestBody['AccountSubType'] = input.accountSubType;
+        }
 
-        return toAccount(response.data['Account']);
+        if (input.description !== undefined) {
+            requestBody['Description'] = input.description;
+        }
+
+        if (input.currencyRef !== undefined) {
+            requestBody['CurrencyRef'] = {
+                value: input.currencyRef.value,
+                ...(input.currencyRef.name !== undefined && { name: input.currencyRef.name })
+            };
+        }
+
+        // https://developer.intuit.com/app/developer/qbo/docs/api/accounting/all-entities/account
+        const response = await nango.post({
+            endpoint: `/v3/company/${encodeURIComponent(realmId)}/account`,
+            data: requestBody,
+            retries: 3
+        });
+
+        if (!response.data) {
+            throw new nango.ActionError({
+                type: 'api_error',
+                message: 'Failed to create account: empty response from QuickBooks API'
+            });
+        }
+
+        const parsed = ProviderAccountResponseSchema.parse(response.data);
+        const account = parsed.Account;
+
+        return {
+            id: account.Id,
+            name: account.Name,
+            accountType: account.AccountType,
+            ...(account.AccountSubType !== undefined && { accountSubType: account.AccountSubType }),
+            ...(account.Description !== undefined && { description: account.Description }),
+            ...(account.CurrencyRef?.value !== undefined && { currencyCode: account.CurrencyRef.value }),
+            ...(account.Active !== undefined && { active: account.Active }),
+            ...(account.CurrentBalance !== undefined && { currentBalance: account.CurrentBalance }),
+            ...(account.CurrentBalanceWithSubAccounts !== undefined && {
+                currentBalanceWithSubAccounts: account.CurrentBalanceWithSubAccounts
+            }),
+            ...(account.SyncToken !== undefined && { syncToken: account.SyncToken }),
+            ...(account.MetaData?.CreateTime !== undefined && { createdAt: account.MetaData.CreateTime }),
+            ...(account.MetaData?.LastUpdatedTime !== undefined && { updatedAt: account.MetaData.LastUpdatedTime })
+        };
     }
 });
 

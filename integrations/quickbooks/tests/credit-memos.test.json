@@ -1,0 +1,883 @@
+{
+  "nango": {
+    "getConnection": {},
+    "batchSave": {
+      "CreditMemo": [
+        {
+          "id": "184",
+          "total_amount": 100,
+          "balance": 100,
+          "customer_id": "1",
+          "customer_name": "Test Customer Final",
+          "currency_code": "USD",
+          "txn_date": "2026-05-05",
+          "created_at": "2026-05-05T03:13:07-07:00",
+          "updated_at": "2026-05-05T03:13:07-07:00"
+        },
+        {
+          "id": "181",
+          "total_amount": 100,
+          "balance": 100,
+          "customer_id": "1",
+          "customer_name": "Test Customer Final",
+          "currency_code": "USD",
+          "txn_date": "2026-05-05",
+          "created_at": "2026-05-05T03:11:51-07:00",
+          "updated_at": "2026-05-05T03:11:51-07:00"
+        },
+        {
+          "id": "179",
+          "total_amount": 100,
+          "balance": 100,
+          "customer_id": "1",
+          "customer_name": "Test Customer Final",
+          "currency_code": "USD",
+          "txn_date": "2026-05-05",
+          "created_at": "2026-05-05T03:11:35-07:00",
+          "updated_at": "2026-05-05T03:11:35-07:00"
+        },
+        {
+          "id": "177",
+          "total_amount": 100,
+          "balance": 100,
+          "customer_id": "1",
+          "customer_name": "Test Customer Final",
+          "currency_code": "USD",
+          "txn_date": "2026-05-05",
+          "created_at": "2026-05-05T03:09:42-07:00",
+          "updated_at": "2026-05-05T03:09:42-07:00"
+        },
+        {
+          "id": "175",
+          "total_amount": 100,
+          "balance": 100,
+          "customer_id": "1",
+          "customer_name": "Test Customer Final",
+          "currency_code": "USD",
+          "txn_date": "2026-05-05",
+          "created_at": "2026-05-05T03:09:28-07:00",
+          "updated_at": "2026-05-05T03:09:28-07:00"
+        },
+        {
+          "id": "169",
+          "total_amount": 100,
+          "balance": 100,
+          "customer_id": "1",
+          "customer_name": "Test Customer Final",
+          "currency_code": "USD",
+          "txn_date": "2026-05-05",
+          "created_at": "2026-05-05T03:08:48-07:00",
+          "updated_at": "2026-05-05T03:08:48-07:00"
+        },
+        {
+          "id": "166",
+          "total_amount": 100,
+          "balance": 100,
+          "customer_id": "1",
+          "customer_name": "Test Customer Final",
+          "currency_code": "USD",
+          "txn_date": "2026-05-05",
+          "created_at": "2026-05-05T03:07:29-07:00",
+          "updated_at": "2026-05-05T03:07:29-07:00"
+        },
+        {
+          "id": "164",
+          "total_amount": 100,
+          "balance": 100,
+          "customer_id": "1",
+          "customer_name": "Test Customer Final",
+          "currency_code": "USD",
+          "txn_date": "2026-05-05",
+          "created_at": "2026-05-05T03:06:59-07:00",
+          "updated_at": "2026-05-05T03:06:59-07:00"
+        },
+        {
+          "id": "73",
+          "total_amount": 100,
+          "balance": 0,
+          "customer_id": "1",
+          "customer_name": "Test Customer Final",
+          "currency_code": "USD",
+          "txn_date": "2026-05-05",
+          "private_note": "Final validation test",
+          "created_at": "2026-04-07T12:51:27-07:00",
+          "updated_at": "2026-05-05T02:21:19-07:00"
+        }
+      ]
+    },
+    "batchDelete": {
+      "CreditMemo": []
+    }
+  },
+  "api": {
+    "get": {
+      "/v3/company/9341457021722202/query": {
+        "response": {
+          "QueryResponse": {
+            "CreditMemo": [
+              {
+                "RemainingCredit": 100,
+                "domain": "QBO",
+                "sparse": false,
+                "Id": "184",
+                "SyncToken": "0",
+                "MetaData": {
+                  "CreateTime": "2026-05-05T03:13:07-07:00",
+                  "LastUpdatedTime": "2026-05-05T03:13:07-07:00"
+                },
+                "CustomField": [],
+                "DocNumber": "1051",
+                "TxnDate": "2026-05-05",
+                "CurrencyRef": {
+                  "value": "USD",
+                  "name": "United States Dollar"
+                },
+                "Line": [
+                  {
+                    "Id": "1",
+                    "LineNum": 1,
+                    "Amount": 100,
+                    "DetailType": "SalesItemLineDetail",
+                    "SalesItemLineDetail": {
+                      "ItemRef": {
+                        "value": "1",
+                        "name": "Test Item Updated"
+                      },
+                      "ItemAccountRef": {
+                        "value": "1",
+                        "name": "Test Account Updated"
+                      },
+                      "TaxCodeRef": {
+                        "value": "NON"
+                      }
+                    },
+                    "CustomExtensions": []
+                  },
+                  {
+                    "Amount": 100,
+                    "DetailType": "SubTotalLineDetail",
+                    "SubTotalLineDetail": {}
+                  }
+                ],
+                "TxnTaxDetail": {
+                  "TotalTax": 0
+                },
+                "CustomerRef": {
+                  "value": "1",
+                  "name": "Test Customer Final"
+                },
+                "BillAddr": {
+                  "Id": "2",
+                  "Line1": "4581 Finch St.",
+                  "City": "Bayshore",
+                  "CountrySubDivisionCode": "CA",
+                  "PostalCode": "94326",
+                  "Lat": "INVALID",
+                  "Long": "INVALID"
+                },
+                "ShipAddr": {
+                  "Id": "2",
+                  "Line1": "4581 Finch St.",
+                  "City": "Bayshore",
+                  "CountrySubDivisionCode": "CA",
+                  "PostalCode": "94326",
+                  "Lat": "INVALID",
+                  "Long": "INVALID"
+                },
+                "FreeFormAddress": true,
+                "ShipFromAddr": {
+                  "Id": "119",
+                  "Line1": "123 Sierra Way",
+                  "Line2": "San Pablo, CA  87999"
+                },
+                "TotalAmt": 100,
+                "ApplyTaxAfterDiscount": false,
+                "PrintStatus": "NeedToPrint",
+                "EmailStatus": "NotSet",
+                "Balance": 100
+              },
+              {
+                "RemainingCredit": 100,
+                "domain": "QBO",
+                "sparse": false,
+                "Id": "181",
+                "SyncToken": "0",
+                "MetaData": {
+                  "CreateTime": "2026-05-05T03:11:51-07:00",
+                  "LastUpdatedTime": "2026-05-05T03:11:51-07:00"
+                },
+                "CustomField": [],
+                "DocNumber": "1050",
+                "TxnDate": "2026-05-05",
+                "CurrencyRef": {
+                  "value": "USD",
+                  "name": "United States Dollar"
+                },
+                "Line": [
+                  {
+                    "Id": "1",
+                    "LineNum": 1,
+                    "Amount": 100,
+                    "DetailType": "SalesItemLineDetail",
+                    "SalesItemLineDetail": {
+                      "ItemRef": {
+                        "value": "1",
+                        "name": "Test Item Updated"
+                      },
+                      "ItemAccountRef": {
+                        "value": "1",
+                        "name": "Test Account Updated"
+                      },
+                      "TaxCodeRef": {
+                        "value": "NON"
+                      }
+                    },
+                    "CustomExtensions": []
+                  },
+                  {
+                    "Amount": 100,
+                    "DetailType": "SubTotalLineDetail",
+                    "SubTotalLineDetail": {}
+                  }
+                ],
+                "TxnTaxDetail": {
+                  "TotalTax": 0
+                },
+                "CustomerRef": {
+                  "value": "1",
+                  "name": "Test Customer Final"
+                },
+                "BillAddr": {
+                  "Id": "2",
+                  "Line1": "4581 Finch St.",
+                  "City": "Bayshore",
+                  "CountrySubDivisionCode": "CA",
+                  "PostalCode": "94326",
+                  "Lat": "INVALID",
+                  "Long": "INVALID"
+                },
+                "ShipAddr": {
+                  "Id": "2",
+                  "Line1": "4581 Finch St.",
+                  "City": "Bayshore",
+                  "CountrySubDivisionCode": "CA",
+                  "PostalCode": "94326",
+                  "Lat": "INVALID",
+                  "Long": "INVALID"
+                },
+                "FreeFormAddress": true,
+                "ShipFromAddr": {
+                  "Id": "117",
+                  "Line1": "123 Sierra Way",
+                  "Line2": "San Pablo, CA  87999"
+                },
+                "TotalAmt": 100,
+                "ApplyTaxAfterDiscount": false,
+                "PrintStatus": "NeedToPrint",
+                "EmailStatus": "NotSet",
+                "Balance": 100
+              },
+              {
+                "RemainingCredit": 100,
+                "domain": "QBO",
+                "sparse": false,
+                "Id": "179",
+                "SyncToken": "0",
+                "MetaData": {
+                  "CreateTime": "2026-05-05T03:11:35-07:00",
+                  "LastUpdatedTime": "2026-05-05T03:11:35-07:00"
+                },
+                "CustomField": [],
+                "DocNumber": "1049",
+                "TxnDate": "2026-05-05",
+                "CurrencyRef": {
+                  "value": "USD",
+                  "name": "United States Dollar"
+                },
+                "Line": [
+                  {
+                    "Id": "1",
+                    "LineNum": 1,
+                    "Amount": 100,
+                    "DetailType": "SalesItemLineDetail",
+                    "SalesItemLineDetail": {
+                      "ItemRef": {
+                        "value": "1",
+                        "name": "Test Item Updated"
+                      },
+                      "ItemAccountRef": {
+                        "value": "1",
+                        "name": "Test Account Updated"
+                      },
+                      "TaxCodeRef": {
+                        "value": "NON"
+                      }
+                    },
+                    "CustomExtensions": []
+                  },
+                  {
+                    "Amount": 100,
+                    "DetailType": "SubTotalLineDetail",
+                    "SubTotalLineDetail": {}
+                  }
+                ],
+                "TxnTaxDetail": {
+                  "TotalTax": 0
+                },
+                "CustomerRef": {
+                  "value": "1",
+                  "name": "Test Customer Final"
+                },
+                "BillAddr": {
+                  "Id": "2",
+                  "Line1": "4581 Finch St.",
+                  "City": "Bayshore",
+                  "CountrySubDivisionCode": "CA",
+                  "PostalCode": "94326",
+                  "Lat": "INVALID",
+                  "Long": "INVALID"
+                },
+                "ShipAddr": {
+                  "Id": "2",
+                  "Line1": "4581 Finch St.",
+                  "City": "Bayshore",
+                  "CountrySubDivisionCode": "CA",
+                  "PostalCode": "94326",
+                  "Lat": "INVALID",
+                  "Long": "INVALID"
+                },
+                "FreeFormAddress": true,
+                "ShipFromAddr": {
+                  "Id": "116",
+                  "Line1": "123 Sierra Way",
+                  "Line2": "San Pablo, CA  87999"
+                },
+                "TotalAmt": 100,
+                "ApplyTaxAfterDiscount": false,
+                "PrintStatus": "NeedToPrint",
+                "EmailStatus": "NotSet",
+                "Balance": 100
+              },
+              {
+                "RemainingCredit": 100,
+                "domain": "QBO",
+                "sparse": false,
+                "Id": "177",
+                "SyncToken": "0",
+                "MetaData": {
+                  "CreateTime": "2026-05-05T03:09:42-07:00",
+                  "LastUpdatedTime": "2026-05-05T03:09:42-07:00"
+                },
+                "CustomField": [],
+                "DocNumber": "1048",
+                "TxnDate": "2026-05-05",
+                "CurrencyRef": {
+                  "value": "USD",
+                  "name": "United States Dollar"
+                },
+                "Line": [
+                  {
+                    "Id": "1",
+                    "LineNum": 1,
+                    "Amount": 100,
+                    "DetailType": "SalesItemLineDetail",
+                    "SalesItemLineDetail": {
+                      "ItemRef": {
+                        "value": "1",
+                        "name": "Test Item Updated"
+                      },
+                      "ItemAccountRef": {
+                        "value": "1",
+                        "name": "Test Account Updated"
+                      },
+                      "TaxCodeRef": {
+                        "value": "NON"
+                      }
+                    },
+                    "CustomExtensions": []
+                  },
+                  {
+                    "Amount": 100,
+                    "DetailType": "SubTotalLineDetail",
+                    "SubTotalLineDetail": {}
+                  }
+                ],
+                "TxnTaxDetail": {
+                  "TotalTax": 0
+                },
+                "CustomerRef": {
+                  "value": "1",
+                  "name": "Test Customer Final"
+                },
+                "BillAddr": {
+                  "Id": "2",
+                  "Line1": "4581 Finch St.",
+                  "City": "Bayshore",
+                  "CountrySubDivisionCode": "CA",
+                  "PostalCode": "94326",
+                  "Lat": "INVALID",
+                  "Long": "INVALID"
+                },
+                "ShipAddr": {
+                  "Id": "2",
+                  "Line1": "4581 Finch St.",
+                  "City": "Bayshore",
+                  "CountrySubDivisionCode": "CA",
+                  "PostalCode": "94326",
+                  "Lat": "INVALID",
+                  "Long": "INVALID"
+                },
+                "FreeFormAddress": true,
+                "ShipFromAddr": {
+                  "Id": "114",
+                  "Line1": "123 Sierra Way",
+                  "Line2": "San Pablo, CA  87999"
+                },
+                "TotalAmt": 100,
+                "ApplyTaxAfterDiscount": false,
+                "PrintStatus": "NeedToPrint",
+                "EmailStatus": "NotSet",
+                "Balance": 100
+              },
+              {
+                "RemainingCredit": 100,
+                "domain": "QBO",
+                "sparse": false,
+                "Id": "175",
+                "SyncToken": "0",
+                "MetaData": {
+                  "CreateTime": "2026-05-05T03:09:28-07:00",
+                  "LastUpdatedTime": "2026-05-05T03:09:28-07:00"
+                },
+                "CustomField": [],
+                "DocNumber": "1047",
+                "TxnDate": "2026-05-05",
+                "CurrencyRef": {
+                  "value": "USD",
+                  "name": "United States Dollar"
+                },
+                "Line": [
+                  {
+                    "Id": "1",
+                    "LineNum": 1,
+                    "Amount": 100,
+                    "DetailType": "SalesItemLineDetail",
+                    "SalesItemLineDetail": {
+                      "ItemRef": {
+                        "value": "1",
+                        "name": "Test Item Updated"
+                      },
+                      "ItemAccountRef": {
+                        "value": "1",
+                        "name": "Test Account Updated"
+                      },
+                      "TaxCodeRef": {
+                        "value": "NON"
+                      }
+                    },
+                    "CustomExtensions": []
+                  },
+                  {
+                    "Amount": 100,
+                    "DetailType": "SubTotalLineDetail",
+                    "SubTotalLineDetail": {}
+                  }
+                ],
+                "TxnTaxDetail": {
+                  "TotalTax": 0
+                },
+                "CustomerRef": {
+                  "value": "1",
+                  "name": "Test Customer Final"
+                },
+                "BillAddr": {
+                  "Id": "2",
+                  "Line1": "4581 Finch St.",
+                  "City": "Bayshore",
+                  "CountrySubDivisionCode": "CA",
+                  "PostalCode": "94326",
+                  "Lat": "INVALID",
+                  "Long": "INVALID"
+                },
+                "ShipAddr": {
+                  "Id": "2",
+                  "Line1": "4581 Finch St.",
+                  "City": "Bayshore",
+                  "CountrySubDivisionCode": "CA",
+                  "PostalCode": "94326",
+                  "Lat": "INVALID",
+                  "Long": "INVALID"
+                },
+                "FreeFormAddress": true,
+                "ShipFromAddr": {
+                  "Id": "113",
+                  "Line1": "123 Sierra Way",
+                  "Line2": "San Pablo, CA  87999"
+                },
+                "TotalAmt": 100,
+                "ApplyTaxAfterDiscount": false,
+                "PrintStatus": "NeedToPrint",
+                "EmailStatus": "NotSet",
+                "Balance": 100
+              },
+              {
+                "RemainingCredit": 100,
+                "domain": "QBO",
+                "sparse": false,
+                "Id": "169",
+                "SyncToken": "0",
+                "MetaData": {
+                  "CreateTime": "2026-05-05T03:08:48-07:00",
+                  "LastUpdatedTime": "2026-05-05T03:08:48-07:00"
+                },
+                "CustomField": [],
+                "DocNumber": "1046",
+                "TxnDate": "2026-05-05",
+                "CurrencyRef": {
+                  "value": "USD",
+                  "name": "United States Dollar"
+                },
+                "Line": [
+                  {
+                    "Id": "1",
+                    "LineNum": 1,
+                    "Amount": 100,
+                    "DetailType": "SalesItemLineDetail",
+                    "SalesItemLineDetail": {
+                      "ItemRef": {
+                        "value": "1",
+                        "name": "Test Item Updated"
+                      },
+                      "ItemAccountRef": {
+                        "value": "1",
+                        "name": "Test Account Updated"
+                      },
+                      "TaxCodeRef": {
+                        "value": "NON"
+                      }
+                    },
+                    "CustomExtensions": []
+                  },
+                  {
+                    "Amount": 100,
+                    "DetailType": "SubTotalLineDetail",
+                    "SubTotalLineDetail": {}
+                  }
+                ],
+                "TxnTaxDetail": {
+                  "TotalTax": 0
+                },
+                "CustomerRef": {
+                  "value": "1",
+                  "name": "Test Customer Final"
+                },
+                "BillAddr": {
+                  "Id": "2",
+                  "Line1": "4581 Finch St.",
+                  "City": "Bayshore",
+                  "CountrySubDivisionCode": "CA",
+                  "PostalCode": "94326",
+                  "Lat": "INVALID",
+                  "Long": "INVALID"
+                },
+                "ShipAddr": {
+                  "Id": "2",
+                  "Line1": "4581 Finch St.",
+                  "City": "Bayshore",
+                  "CountrySubDivisionCode": "CA",
+                  "PostalCode": "94326",
+                  "Lat": "INVALID",
+                  "Long": "INVALID"
+                },
+                "FreeFormAddress": true,
+                "ShipFromAddr": {
+                  "Id": "111",
+                  "Line1": "123 Sierra Way",
+                  "Line2": "San Pablo, CA  87999"
+                },
+                "TotalAmt": 100,
+                "ApplyTaxAfterDiscount": false,
+                "PrintStatus": "NeedToPrint",
+                "EmailStatus": "NotSet",
+                "Balance": 100
+              },
+              {
+                "RemainingCredit": 100,
+                "domain": "QBO",
+                "sparse": false,
+                "Id": "166",
+                "SyncToken": "0",
+                "MetaData": {
+                  "CreateTime": "2026-05-05T03:07:29-07:00",
+                  "LastUpdatedTime": "2026-05-05T03:07:29-07:00"
+                },
+                "CustomField": [],
+                "DocNumber": "1045",
+                "TxnDate": "2026-05-05",
+                "CurrencyRef": {
+                  "value": "USD",
+                  "name": "United States Dollar"
+                },
+                "Line": [
+                  {
+                    "Id": "1",
+                    "LineNum": 1,
+                    "Amount": 100,
+                    "DetailType": "SalesItemLineDetail",
+                    "SalesItemLineDetail": {
+                      "ItemRef": {
+                        "value": "1",
+                        "name": "Test Item Updated"
+                      },
+                      "ItemAccountRef": {
+                        "value": "1",
+                        "name": "Test Account Updated"
+                      },
+                      "TaxCodeRef": {
+                        "value": "NON"
+                      }
+                    },
+                    "CustomExtensions": []
+                  },
+                  {
+                    "Amount": 100,
+                    "DetailType": "SubTotalLineDetail",
+                    "SubTotalLineDetail": {}
+                  }
+                ],
+                "TxnTaxDetail": {
+                  "TotalTax": 0
+                },
+                "CustomerRef": {
+                  "value": "1",
+                  "name": "Test Customer Final"
+                },
+                "BillAddr": {
+                  "Id": "2",
+                  "Line1": "4581 Finch St.",
+                  "City": "Bayshore",
+                  "CountrySubDivisionCode": "CA",
+                  "PostalCode": "94326",
+                  "Lat": "INVALID",
+                  "Long": "INVALID"
+                },
+                "ShipAddr": {
+                  "Id": "2",
+                  "Line1": "4581 Finch St.",
+                  "City": "Bayshore",
+                  "CountrySubDivisionCode": "CA",
+                  "PostalCode": "94326",
+                  "Lat": "INVALID",
+                  "Long": "INVALID"
+                },
+                "FreeFormAddress": true,
+                "ShipFromAddr": {
+                  "Id": "110",
+                  "Line1": "123 Sierra Way",
+                  "Line2": "San Pablo, CA  87999"
+                },
+                "TotalAmt": 100,
+                "ApplyTaxAfterDiscount": false,
+                "PrintStatus": "NeedToPrint",
+                "EmailStatus": "NotSet",
+                "Balance": 100
+              },
+              {
+                "RemainingCredit": 100,
+                "domain": "QBO",
+                "sparse": false,
+                "Id": "164",
+                "SyncToken": "0",
+                "MetaData": {
+                  "CreateTime": "2026-05-05T03:06:59-07:00",
+                  "LastUpdatedTime": "2026-05-05T03:06:59-07:00"
+                },
+                "CustomField": [],
+                "DocNumber": "1044",
+                "TxnDate": "2026-05-05",
+                "CurrencyRef": {
+                  "value": "USD",
+                  "name": "United States Dollar"
+                },
+                "Line": [
+                  {
+                    "Id": "1",
+                    "LineNum": 1,
+                    "Amount": 100,
+                    "DetailType": "SalesItemLineDetail",
+                    "SalesItemLineDetail": {
+                      "ItemRef": {
+                        "value": "1",
+                        "name": "Test Item Updated"
+                      },
+                      "ItemAccountRef": {
+                        "value": "1",
+                        "name": "Test Account Updated"
+                      },
+                      "TaxCodeRef": {
+                        "value": "NON"
+                      }
+                    },
+                    "CustomExtensions": []
+                  },
+                  {
+                    "Amount": 100,
+                    "DetailType": "SubTotalLineDetail",
+                    "SubTotalLineDetail": {}
+                  }
+                ],
+                "TxnTaxDetail": {
+                  "TotalTax": 0
+                },
+                "CustomerRef": {
+                  "value": "1",
+                  "name": "Test Customer Final"
+                },
+                "BillAddr": {
+                  "Id": "2",
+                  "Line1": "4581 Finch St.",
+                  "City": "Bayshore",
+                  "CountrySubDivisionCode": "CA",
+                  "PostalCode": "94326",
+                  "Lat": "INVALID",
+                  "Long": "INVALID"
+                },
+                "ShipAddr": {
+                  "Id": "2",
+                  "Line1": "4581 Finch St.",
+                  "City": "Bayshore",
+                  "CountrySubDivisionCode": "CA",
+                  "PostalCode": "94326",
+                  "Lat": "INVALID",
+                  "Long": "INVALID"
+                },
+                "FreeFormAddress": true,
+                "ShipFromAddr": {
+                  "Id": "109",
+                  "Line1": "123 Sierra Way",
+                  "Line2": "San Pablo, CA  87999"
+                },
+                "TotalAmt": 100,
+                "ApplyTaxAfterDiscount": false,
+                "PrintStatus": "NeedToPrint",
+                "EmailStatus": "NotSet",
+                "Balance": 100
+              },
+              {
+                "RemainingCredit": 0,
+                "domain": "QBO",
+                "sparse": false,
+                "Id": "73",
+                "SyncToken": "5",
+                "MetaData": {
+                  "CreateTime": "2026-04-07T12:51:27-07:00",
+                  "LastUpdatedTime": "2026-05-05T02:21:19-07:00"
+                },
+                "CustomField": [],
+                "DocNumber": "1026",
+                "TxnDate": "2026-05-05",
+                "CurrencyRef": {
+                  "value": "USD",
+                  "name": "United States Dollar"
+                },
+                "PrivateNote": "Final validation test",
+                "Line": [
+                  {
+                    "Id": "1",
+                    "LineNum": 1,
+                    "Amount": 100,
+                    "DetailType": "SalesItemLineDetail",
+                    "SalesItemLineDetail": {
+                      "ItemRef": {
+                        "value": "10",
+                        "name": "Pest Control"
+                      },
+                      "ItemAccountRef": {
+                        "value": "54",
+                        "name": "Pest Control Services"
+                      },
+                      "TaxCodeRef": {
+                        "value": "NON"
+                      }
+                    },
+                    "CustomExtensions": []
+                  },
+                  {
+                    "Amount": 100,
+                    "DetailType": "SubTotalLineDetail",
+                    "SubTotalLineDetail": {}
+                  }
+                ],
+                "TxnTaxDetail": {
+                  "TotalTax": 0
+                },
+                "CustomerRef": {
+                  "value": "1",
+                  "name": "Test Customer Final"
+                },
+                "BillAddr": {
+                  "Id": "2",
+                  "Line1": "4581 Finch St.",
+                  "City": "Bayshore",
+                  "CountrySubDivisionCode": "CA",
+                  "PostalCode": "94326",
+                  "Lat": "INVALID",
+                  "Long": "INVALID"
+                },
+                "ShipAddr": {
+                  "Id": "2",
+                  "Line1": "4581 Finch St.",
+                  "City": "Bayshore",
+                  "CountrySubDivisionCode": "CA",
+                  "PostalCode": "94326",
+                  "Lat": "INVALID",
+                  "Long": "INVALID"
+                },
+                "FreeFormAddress": true,
+                "ShipFromAddr": {
+                  "Id": "108",
+                  "Line1": "123 Sierra Way",
+                  "Line2": "San Pablo, CA  87999"
+                },
+                "TotalAmt": 100,
+                "ApplyTaxAfterDiscount": false,
+                "PrintStatus": "NeedToPrint",
+                "EmailStatus": "NotSet",
+                "Balance": 0
+              }
+            ],
+            "startPosition": 1,
+            "maxResults": 9
+          },
+          "time": "2026-05-05T05:15:56.621-07:00"
+        },
+        "status": 200,
+        "headers": {
+          "date": "Tue, 05 May 2026 12:15:56 GMT",
+          "content-type": "application/json",
+          "content-length": "11444",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=5184000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4964",
+          "x-ratelimit-reset": "1777983379",
+          "etag": "W/\"2cb4-+INVxe/zE8nZ+cClTrLvH9mH/N8\""
+        },
+        "hash": "d6cb774e791cede6a8760c71e7b5b280aded37df",
+        "request": {
+          "params": {
+            "query": "SELECT * FROM CreditMemo STARTPOSITION 1 MAXRESULTS 100"
+          }
+        }
+      }
+    }
+  }
+}

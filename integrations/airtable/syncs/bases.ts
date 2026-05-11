@@ -1,3 +1,4 @@
+import type { ProxyConfiguration } from 'nango';
 import { createSync } from 'nango';
 import { z } from 'zod';
 
@@ -13,67 +14,47 @@ const ProviderBaseSchema = z.object({
     permissionLevel: z.string().nullable().optional()
 });
 
-const ProviderBasesResponseSchema = z.object({
-    bases: z.array(ProviderBaseSchema),
-    offset: z.string().optional()
-});
-
-const CheckpointSchema = z.object({
-    offset: z.string()
-});
+type ProviderBase = z.infer<typeof ProviderBaseSchema>;
 
 const sync = createSync({
     description: 'Sync Airtable bases visible to the authenticated user.',
-    version: '2.0.0',
+    version: '2.0.1',
     endpoints: [{ method: 'GET', path: '/syncs/bases' }],
     frequency: 'every hour',
     autoStart: true,
-    checkpoint: CheckpointSchema,
     models: {
         Base: BaseSchema
     },
     scopes: ['schema.bases:read'],
 
     exec: async (nango) => {
-        const checkpoint = await nango.getCheckpoint();
-        let offset = typeof checkpoint?.['offset'] === 'string' ? checkpoint['offset'] : undefined;
+        const config: ProxyConfiguration = {
+            // https://airtable.com/developers/web/api/list-bases
+            endpoint: '/v0/meta/bases',
+            retries: 10,
+            paginate: {
+                type: 'cursor',
+                cursor_path_in_response: 'offset',
+                cursor_name_in_request: 'offset',
+                response_path: 'bases'
+            }
+        };
 
-        // Airtable exposes page offsets for resume state, but no changed-since filter or delete feed for bases.
         await nango.trackDeletesStart('Base');
 
-        try {
-            do {
-                const response = await nango.get({
-                    // https://airtable.com/developers/web/api/list-bases
-                    endpoint: '/v0/meta/bases',
-                    params: {
-                        ...(offset ? { offset } : {})
-                    },
-                    retries: 3
-                });
+        for await (const page of nango.paginate<ProviderBase>(config)) {
+            const bases = page.map((base) => ({
+                id: base.id,
+                ...(base.name != null && { name: base.name }),
+                ...(base.permissionLevel != null && { permissionLevel: base.permissionLevel })
+            }));
 
-                const providerResponse = ProviderBasesResponseSchema.parse(response.data);
-
-                const bases = providerResponse.bases.map((base) => ({
-                    id: base.id,
-                    ...(base.name != null && { name: base.name }),
-                    ...(base.permissionLevel != null && { permissionLevel: base.permissionLevel })
-                }));
-
-                if (bases.length > 0) {
-                    await nango.batchSave(bases, 'Base');
-                }
-
-                offset = providerResponse.offset;
-                if (offset) {
-                    await nango.saveCheckpoint({ offset });
-                }
-            } while (offset);
-
-            await nango.clearCheckpoint();
-        } finally {
-            await nango.trackDeletesEnd('Base');
+            if (bases.length > 0) {
+                await nango.batchSave(bases, 'Base');
+            }
         }
+
+        await nango.trackDeletesEnd('Base');
     }
 });
 

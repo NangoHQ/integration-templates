@@ -1,0 +1,230 @@
+{
+  "input": {
+    "id": "100"
+  },
+  "output": {
+    "id": "100",
+    "syncToken": "0",
+    "createdAt": "2026-04-07T13:37:55-07:00",
+    "updatedAt": "2026-04-08T13:16:17-07:00",
+    "docNumber": "1001",
+    "txnDate": "2026-04-05",
+    "totalAmount": 362.07,
+    "customerId": "24",
+    "customerName": "Sonnenschein Family Store",
+    "lines": [
+      {
+        "id": "1",
+        "lineNumber": "1",
+        "description": "Rock Fountain",
+        "amount": 275,
+        "detailType": "SalesItemLineDetail"
+      },
+      {
+        "id": "2",
+        "lineNumber": "2",
+        "description": "Fountain Pump",
+        "amount": 12.75,
+        "detailType": "SalesItemLineDetail"
+      },
+      {
+        "id": "3",
+        "lineNumber": "3",
+        "description": "Concrete for fountain installation",
+        "amount": 47.5,
+        "detailType": "SalesItemLineDetail"
+      },
+      {
+        "amount": 335.25,
+        "detailType": "SubTotalLineDetail"
+      }
+    ]
+  },
+  "nango": {
+    "getConnection": {}
+  },
+  "api": {
+    "get": {
+      "/v3/company/9341457021722202/estimate/100": {
+        "response": {
+          "Estimate": {
+            "domain": "QBO",
+            "sparse": false,
+            "Id": "100",
+            "SyncToken": "0",
+            "MetaData": {
+              "CreateTime": "2026-04-07T13:37:55-07:00",
+              "LastUpdatedTime": "2026-04-08T13:16:17-07:00"
+            },
+            "CustomField": [],
+            "DocNumber": "1001",
+            "TxnDate": "2026-04-05",
+            "CurrencyRef": {
+              "value": "USD",
+              "name": "United States Dollar"
+            },
+            "TxnStatus": "Closed",
+            "LinkedTxn": [
+              {
+                "TxnId": "130",
+                "TxnType": "Invoice"
+              }
+            ],
+            "Line": [
+              {
+                "Id": "1",
+                "LineNum": 1,
+                "Description": "Rock Fountain",
+                "Amount": 275,
+                "DetailType": "SalesItemLineDetail",
+                "SalesItemLineDetail": {
+                  "ItemRef": {
+                    "value": "5",
+                    "name": "Rock Fountain"
+                  },
+                  "UnitPrice": 275,
+                  "Qty": 1,
+                  "ItemAccountRef": {
+                    "value": "48",
+                    "name": "Landscaping Services:Job Materials:Fountains and Garden Lighting"
+                  },
+                  "TaxCodeRef": {
+                    "value": "TAX"
+                  }
+                },
+                "CustomExtensions": []
+              },
+              {
+                "Id": "2",
+                "LineNum": 2,
+                "Description": "Fountain Pump",
+                "Amount": 12.75,
+                "DetailType": "SalesItemLineDetail",
+                "SalesItemLineDetail": {
+                  "ItemRef": {
+                    "value": "11",
+                    "name": "Pump"
+                  },
+                  "UnitPrice": 12.75,
+                  "Qty": 1,
+                  "ItemAccountRef": {
+                    "value": "48",
+                    "name": "Landscaping Services:Job Materials:Fountains and Garden Lighting"
+                  },
+                  "TaxCodeRef": {
+                    "value": "TAX"
+                  }
+                },
+                "CustomExtensions": []
+              },
+              {
+                "Id": "3",
+                "LineNum": 3,
+                "Description": "Concrete for fountain installation",
+                "Amount": 47.5,
+                "DetailType": "SalesItemLineDetail",
+                "SalesItemLineDetail": {
+                  "ItemRef": {
+                    "value": "3",
+                    "name": "Concrete"
+                  },
+                  "UnitPrice": 9.5,
+                  "Qty": 5,
+                  "ItemAccountRef": {
+                    "value": "48",
+                    "name": "Landscaping Services:Job Materials:Fountains and Garden Lighting"
+                  },
+                  "TaxCodeRef": {
+                    "value": "TAX"
+                  }
+                },
+                "CustomExtensions": []
+              },
+              {
+                "Amount": 335.25,
+                "DetailType": "SubTotalLineDetail",
+                "SubTotalLineDetail": {}
+              }
+            ],
+            "TxnTaxDetail": {
+              "TxnTaxCodeRef": {
+                "value": "2"
+              },
+              "TotalTax": 26.82,
+              "TaxLine": [
+                {
+                  "Amount": 26.82,
+                  "DetailType": "TaxLineDetail",
+                  "TaxLineDetail": {
+                    "TaxRateRef": {
+                      "value": "3"
+                    },
+                    "PercentBased": true,
+                    "TaxPercent": 8,
+                    "NetAmountTaxable": 335.25
+                  }
+                }
+              ]
+            },
+            "CustomerRef": {
+              "value": "24",
+              "name": "Sonnenschein Family Store"
+            },
+            "CustomerMemo": {
+              "value": "Thank you for your business and have a great day!"
+            },
+            "BillAddr": {
+              "Id": "86",
+              "Line1": "Russ Sonnenschein",
+              "Line2": "Sonnenschein Family Store",
+              "Line3": "5647 Cypress Hill Ave.",
+              "Line4": "Middlefield, CA  94303",
+              "Lat": "37.4238562",
+              "Long": "-122.1141681"
+            },
+            "ShipAddr": {
+              "Id": "25",
+              "Line1": "5647 Cypress Hill Ave.",
+              "City": "Middlefield",
+              "CountrySubDivisionCode": "CA",
+              "PostalCode": "94303",
+              "Lat": "37.4238562",
+              "Long": "-122.1141681"
+            },
+            "FreeFormAddress": true,
+            "TotalAmt": 362.07,
+            "ApplyTaxAfterDiscount": false,
+            "PrintStatus": "NeedToPrint",
+            "EmailStatus": "NotSet",
+            "BillEmail": {
+              "Address": "Familiystore@intuit.com"
+            }
+          },
+          "time": "2026-05-05T03:13:14.748-07:00"
+        },
+        "status": 200,
+        "headers": {
+          "date": "Tue, 05 May 2026 10:13:15 GMT",
+          "content-type": "application/json",
+          "content-length": "2465",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=5184000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4966",
+          "x-ratelimit-reset": "1777976030",
+          "etag": "W/\"9a1-+cxIxTNXKR8S+jsIAJpDrLV/WeM\""
+        },
+        "hash": "279695464867a8694e5bdcf9cc9ca4a120b94d4a",
+        "request": {}
+      }
+    }
+  }
+}
