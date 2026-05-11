@@ -81,7 +81,7 @@ async function getCloudId(nango: NangoSyncLocal): Promise<string> {
 
 const sync = createSync({
     description: 'Sync Confluence spaces visible to the authenticated user.',
-    version: '3.0.0',
+    version: '3.0.1',
     frequency: 'every hour',
     autoStart: true,
     endpoints: [{ method: 'GET', path: '/syncs/spaces' }],
@@ -96,12 +96,14 @@ const sync = createSync({
         const cloudId = await getCloudId(nango);
         const checkpoint = await nango.getCheckpoint();
         let cursor = checkpoint?.cursor;
+        const hadExistingCheckpoint = !!cursor;
 
         let deleteTrackingStarted = false;
         if (!cursor) {
             await nango.trackDeletesStart('Space');
             deleteTrackingStarted = true;
         }
+        let checkpointSaved = false;
 
         let hasMore = true;
 
@@ -142,6 +144,7 @@ const sync = createSync({
                     if (nextCursor) {
                         cursor = nextCursor;
                         await nango.saveCheckpoint({ cursor });
+                        checkpointSaved = true;
                         continue;
                     }
                 }
@@ -154,7 +157,9 @@ const sync = createSync({
             }
         }
 
-        await nango.clearCheckpoint();
+        if (checkpointSaved || hadExistingCheckpoint) {
+            await nango.clearCheckpoint();
+        }
     }
 });
 
