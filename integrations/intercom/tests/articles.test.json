@@ -1,0 +1,207 @@
+{
+  "nango": {
+    "batchSave": {
+      "Article": [
+        {
+          "id": "15009729",
+          "type": "article",
+          "workspace_id": "h64a47v4",
+          "parent_id": null,
+          "parent_type": null,
+          "parent_ids": [],
+          "content_id": "17681165",
+          "title": "Archived Test Article",
+          "description": "",
+          "body": "<p class=\"no-margin\">Updated body content</p>",
+          "author_id": 10553731,
+          "state": "draft",
+          "created_at": 1778133274,
+          "updated_at": 1778133435,
+          "url": null
+        },
+        {
+          "id": "15009700",
+          "type": "article",
+          "workspace_id": "h64a47v4",
+          "parent_id": null,
+          "parent_type": null,
+          "parent_ids": [],
+          "content_id": "17681113",
+          "title": "Test Article",
+          "description": "",
+          "body": "<p class=\"no-margin\">Test body</p>",
+          "author_id": 10553731,
+          "state": "draft",
+          "created_at": 1778132904,
+          "updated_at": 1778132904,
+          "url": null
+        },
+        {
+          "id": "15009699",
+          "type": "article",
+          "workspace_id": "h64a47v4",
+          "parent_id": null,
+          "parent_type": null,
+          "parent_ids": [],
+          "content_id": "17681112",
+          "title": "Test Article",
+          "description": "",
+          "body": "<p class=\"no-margin\">Test body</p>",
+          "author_id": 10553731,
+          "state": "draft",
+          "created_at": 1778132894,
+          "updated_at": 1778132894,
+          "url": null
+        },
+        {
+          "id": "15009621",
+          "type": "article",
+          "workspace_id": "h64a47v4",
+          "parent_id": null,
+          "parent_type": null,
+          "parent_ids": [],
+          "content_id": "17680971",
+          "title": "Your first public article",
+          "description": "Some resources to help you understand how Articles can be used",
+          "body": "<p class=\"no-margin\">Public articles enable customers to self-serve and find support 24/7.<br>Teammates can also insert articles in Help Desk conversations, send them in Proactive Support messages, and use them to power the <a href=\"https://www.intercom.com/help/en/articles/7120684-fin-ai-agent-explained\" target=\"_blank\" class=\"intercom-content-link\">Fin AI Agent</a> 💪</p><p class=\"no-margin\"></p>\n<h1 id=\"h_61bff2dd7a\">Build a comprehensive knowledge base</h1><p class=\"no-margin\">Once you've written your first few articles, you need to <a href=\"https://www.intercom.com/help/en/articles/56647-create-collections-in-your-help-center\" target=\"_blank\" class=\"intercom-content-link\">group them into collections</a> to publish them on your Help Center (articles are only visible on your Help Center if they’re in a collection).</p><p class=\"no-margin\"></p>\n<h3 id=\"h_bb4813e5c6\">To make your content easy to find, you need to:</h3><ul><li><p class=\"no-margin\">Organize your collections into topics that matter most to your customers - this will make your Help Center easier to browse.</p></li><li><p class=\"no-margin\">Add short descriptions to each collection to optimize them for search, and to help people better understand what they contain.</p></li><li><p class=\"no-margin\"><a href=\"https://www.intercom.com/help/en/articles/56644-customize-your-help-center\" target=\"_blank\" class=\"intercom-content-link\">Customize your Help Center to match your brand</a> or use <a href=\"https://www.intercom.com/help/en/articles/8170953-create-and-manage-multiple-help-centers\" target=\"_blank\" class=\"intercom-content-link\">Multi Help Center</a> for various products/brands.</p></li></ul><h1 id=\"h_8b76258d80\">Use Articles to power Fin AI Agent and Fin AI Copilot</h1><p class=\"no-margin\">Fin can use your Intercom Articles to hold conversations and provide AI Answers. As your Articles get better, Fin AI Agent does too—along with its rate of automated resolution.</p><p class=\"no-margin\"></p>\n<div class=\"intercom-container\"><img src=\"https://downloads.intercomcdn.com/i/o/737654156/1dacc100c19eb70144b41922/226da4b3-5acb-4a75-8983-61dea50c6f31?expires=1778241600&amp;signature=3820a0ba2facb219c2bbd5f4267aec03b0409cfde95f69b9d78b8fa2a057425f&amp;req=cyMgEMx6nIRZFb4V1XW4gaZNBt8CEv5hekWOJyYsMs2L%2FN5qMKtlvFWIOqIG%0ALHKOoLzdvJs83cz%2BKeySwrQP8Q%3D%3D%0A\"></div><div class=\"intercom-interblocks-callout\" style=\"background-color: #feedaf80; border-color: #fbc91633;\"><p class=\"no-margin\">For a public article to be enabled for Fin, it must be published, part of a live <a href=\"https://www.intercom.com/help/en/articles/1970126-get-started-with-help-center\" target=\"_blank\" class=\"intercom-content-link\">Help Center</a> and in a <a href=\"https://www.intercom.com/help/en/articles/56647-create-collections-in-your-help-center\" target=\"_blank\" class=\"intercom-content-link\">collection.</a></p></div><hr><p class=\"no-margin\">For more tips on using public articles, visit our <a href=\"https://www.intercom.com/help/en/articles/56641-create-an-article\" target=\"_blank\" class=\"intercom-content-link\">Help Center.</a></p>",
+          "author_id": 10553731,
+          "state": "draft",
+          "created_at": 1778131331,
+          "updated_at": 1778131331,
+          "url": null
+        }
+      ]
+    },
+    "batchDelete": {
+      "Article": []
+    }
+  },
+  "api": {
+    "get": {
+      "/articles": {
+        "response": {
+          "type": "list",
+          "pages": {
+            "type": "pages",
+            "next": "https://api.intercom.io/articles?per_page=100&page=1",
+            "page": 0,
+            "per_page": 100,
+            "total_pages": 1
+          },
+          "total_count": 4,
+          "data": [
+            {
+              "id": "15009729",
+              "type": "article",
+              "workspace_id": "h64a47v4",
+              "parent_id": null,
+              "parent_type": null,
+              "parent_ids": [],
+              "content_id": "17681165",
+              "title": "Archived Test Article",
+              "description": "",
+              "body": "<p class=\"no-margin\">Updated body content</p>",
+              "author_id": 10553731,
+              "state": "draft",
+              "created_at": 1778133274,
+              "updated_at": 1778133435,
+              "url": null
+            },
+            {
+              "id": "15009700",
+              "type": "article",
+              "workspace_id": "h64a47v4",
+              "parent_id": null,
+              "parent_type": null,
+              "parent_ids": [],
+              "content_id": "17681113",
+              "title": "Test Article",
+              "description": "",
+              "body": "<p class=\"no-margin\">Test body</p>",
+              "author_id": 10553731,
+              "state": "draft",
+              "created_at": 1778132904,
+              "updated_at": 1778132904,
+              "url": null
+            },
+            {
+              "id": "15009699",
+              "type": "article",
+              "workspace_id": "h64a47v4",
+              "parent_id": null,
+              "parent_type": null,
+              "parent_ids": [],
+              "content_id": "17681112",
+              "title": "Test Article",
+              "description": "",
+              "body": "<p class=\"no-margin\">Test body</p>",
+              "author_id": 10553731,
+              "state": "draft",
+              "created_at": 1778132894,
+              "updated_at": 1778132894,
+              "url": null
+            },
+            {
+              "id": "15009621",
+              "type": "article",
+              "workspace_id": "h64a47v4",
+              "parent_id": null,
+              "parent_type": null,
+              "parent_ids": [],
+              "content_id": "17680971",
+              "title": "Your first public article",
+              "description": "Some resources to help you understand how Articles can be used",
+              "body": "<p class=\"no-margin\">Public articles enable customers to self-serve and find support 24/7.<br>Teammates can also insert articles in Help Desk conversations, send them in Proactive Support messages, and use them to power the <a href=\"https://www.intercom.com/help/en/articles/7120684-fin-ai-agent-explained\" target=\"_blank\" class=\"intercom-content-link\">Fin AI Agent</a> 💪</p><p class=\"no-margin\"></p>\n<h1 id=\"h_61bff2dd7a\">Build a comprehensive knowledge base</h1><p class=\"no-margin\">Once you've written your first few articles, you need to <a href=\"https://www.intercom.com/help/en/articles/56647-create-collections-in-your-help-center\" target=\"_blank\" class=\"intercom-content-link\">group them into collections</a> to publish them on your Help Center (articles are only visible on your Help Center if they’re in a collection).</p><p class=\"no-margin\"></p>\n<h3 id=\"h_bb4813e5c6\">To make your content easy to find, you need to:</h3><ul><li><p class=\"no-margin\">Organize your collections into topics that matter most to your customers - this will make your Help Center easier to browse.</p></li><li><p class=\"no-margin\">Add short descriptions to each collection to optimize them for search, and to help people better understand what they contain.</p></li><li><p class=\"no-margin\"><a href=\"https://www.intercom.com/help/en/articles/56644-customize-your-help-center\" target=\"_blank\" class=\"intercom-content-link\">Customize your Help Center to match your brand</a> or use <a href=\"https://www.intercom.com/help/en/articles/8170953-create-and-manage-multiple-help-centers\" target=\"_blank\" class=\"intercom-content-link\">Multi Help Center</a> for various products/brands.</p></li></ul><h1 id=\"h_8b76258d80\">Use Articles to power Fin AI Agent and Fin AI Copilot</h1><p class=\"no-margin\">Fin can use your Intercom Articles to hold conversations and provide AI Answers. As your Articles get better, Fin AI Agent does too—along with its rate of automated resolution.</p><p class=\"no-margin\"></p>\n<div class=\"intercom-container\"><img src=\"https://downloads.intercomcdn.com/i/o/737654156/1dacc100c19eb70144b41922/226da4b3-5acb-4a75-8983-61dea50c6f31?expires=1778241600&amp;signature=3820a0ba2facb219c2bbd5f4267aec03b0409cfde95f69b9d78b8fa2a057425f&amp;req=cyMgEMx6nIRZFb4V1XW4gaZNBt8CEv5hekWOJyYsMs2L%2FN5qMKtlvFWIOqIG%0ALHKOoLzdvJs83cz%2BKeySwrQP8Q%3D%3D%0A\"></div><div class=\"intercom-interblocks-callout\" style=\"background-color: #feedaf80; border-color: #fbc91633;\"><p class=\"no-margin\">For a public article to be enabled for Fin, it must be published, part of a live <a href=\"https://www.intercom.com/help/en/articles/1970126-get-started-with-help-center\" target=\"_blank\" class=\"intercom-content-link\">Help Center</a> and in a <a href=\"https://www.intercom.com/help/en/articles/56647-create-collections-in-your-help-center\" target=\"_blank\" class=\"intercom-content-link\">collection.</a></p></div><hr><p class=\"no-margin\">For more tips on using public articles, visit our <a href=\"https://www.intercom.com/help/en/articles/56641-create-an-article\" target=\"_blank\" class=\"intercom-content-link\">Help Center.</a></p>",
+              "author_id": 10553731,
+              "state": "draft",
+              "created_at": 1778131331,
+              "updated_at": 1778131331,
+              "url": null
+            }
+          ]
+        },
+        "status": 200,
+        "headers": {
+          "date": "Thu, 07 May 2026 07:04:00 GMT",
+          "content-type": "application/json; charset=utf-8",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "1; mode=block",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=31556952; includeSubDomains; preload",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "5000",
+          "x-ratelimit-reset": "1778137446",
+          "vary": "Accept-Encoding",
+          "status": "200 OK",
+          "x-intercom-version": "9f26d01b250900ba55fb5a7d9ef827b19f52128d",
+          "x-request-id": "0008oqmjje8ljs6lp5e0",
+          "etag": "W/\"40c94eb8362fb8e21d22d03fac6f847a\"",
+          "cache-control": "max-age=0, private, must-revalidate",
+          "referrer-policy": "strict-origin-when-cross-origin",
+          "x-request-queueing": "0",
+          "intercom-version": "2.11",
+          "x-runtime": "0.150348",
+          "server": "nginx",
+          "x-ami-version": "ami-018421ea35bfc2097"
+        },
+        "hash": "e14d1776014f229de671795366dd1e5c1db136b1",
+        "request": {
+          "params": {
+            "page": "0",
+            "per_page": "100"
+          },
+          "headers": {
+            "Intercom-Version": "2.11"
+          }
+        }
+      }
+    }
+  }
+}

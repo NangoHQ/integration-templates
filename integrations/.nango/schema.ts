@@ -1365,11 +1365,9 @@ export interface SyncMetadata_asana_subtasks {
 export interface Tag {
   id: string;
   name: string;
-  color?: string | undefined;
-  notes?: string | undefined;
-  created_at?: string | undefined;
-  workspace_gid: string;
-  permalink_url?: string | undefined;
+  type: string;
+  created_at?: number | undefined;
+  updated_at?: number | undefined;
 };
 
 export interface Task {
@@ -18005,16 +18003,16 @@ export interface SyncMetadata_hibob_service_user_unifiedemployees {
 export interface Company {
   id: string;
   name?: string | undefined;
-  domain?: string | undefined;
-  industry?: string | undefined;
-  city?: string | undefined;
-  state?: string | undefined;
-  country?: string | undefined;
-  phone?: string | undefined;
+  company_id?: string | undefined;
+  created_at?: number | undefined;
+  updated_at?: number | undefined;
+  session_count?: number | undefined;
+  monthly_spend?: number | undefined;
+  user_count?: number | undefined;
+  plan?: string | undefined;
+  size?: number | undefined;
   website?: string | undefined;
-  description?: string | undefined;
-  createdAt?: string | undefined;
-  updatedAt?: string | undefined;
+  industry?: string | undefined;
 };
 
 export interface Deal {
@@ -19588,426 +19586,1396 @@ export interface ActionOutput_instantly_setcampaignname {
   status: string;
 };
 
-export interface SyncMetadata_intercom_articles {
+export interface Admin {
+  id: string;
+  type?: string | undefined;
+  name?: string | undefined;
+  email?: string | undefined;
+  job_title?: string | undefined;
+  away_mode_enabled?: boolean | undefined;
+  away_mode_reassign?: boolean | undefined;
+  away_status_reason_id?: number | undefined;
+  has_inbox_seat?: boolean | undefined;
+  team_ids?: number[] | undefined;
+  avatar?: string | {} | undefined;
+  team_priority_level?: {} | undefined;
 };
 
-export interface SyncMetadata_intercom_contacts {
-};
-
-export interface ConversationMessage {
+export interface ConversationPart {
   id: string;
   conversation_id: string;
-  body: string;
-  type: string;
-  created_at: string;
-  updated_at: string;
-  author: {  type: string;
+  part_type?: string | undefined;
+  body?: string | undefined;
+  created_at?: number | undefined;
+  updated_at?: number | undefined;
+  author?: {} | undefined;
+};
+
+export interface Collection {
+  id: string;
+  name?: string | undefined;
+  description?: string | undefined;
+  url?: string | undefined;
+  created_at?: number | undefined;
+  updated_at?: number | undefined;
+  workspace_id?: string | undefined;
+};
+
+export interface Segment {
+  id: string;
   name: string;
-  id: string;};
+  type?: string | undefined;
+  created_at?: number | undefined;
+  updated_at?: number | undefined;
+  person_type?: string | undefined;
+  count?: number | undefined;
 };
 
-export interface SyncMetadata_intercom_conversations {
+export interface ActionInput_intercom_attachcontacttocompany {
+  /**
+   * The unique identifier for the contact. Example: "5f3e2e3c5f3e2e3c5f3e2e3c"
+   */
+  contact_id: string;
+  /**
+   * The unique identifier for the company. Example: "5f3e2e3c5f3e2e3c5f3e2e3d"
+   */
+  company_id: string;
 };
 
-export interface SyncMetadata_intercom_users {
+export interface ActionOutput_intercom_attachcontacttocompany {
+  /**
+   * The unique identifier for the company that was attached.
+   */
+  id: string;
+};
+
+export interface ActionInput_intercom_closeconversation {
+  /**
+   * The unique identifier for the conversation to close. Example: "123"
+   */
+  conversation_id: string;
+  /**
+   * The ID of the admin who is closing the conversation. Example: "456"
+   */
+  admin_id: string;
+};
+
+export interface ActionOutput_intercom_closeconversation {
+  /**
+   * Whether the conversation was successfully closed
+   */
+  success: boolean;
+  /**
+   * The ID of the closed conversation
+   */
+  conversation_id: string;
+};
+
+export interface ActionInput_intercom_createarticle {
+  /**
+   * The title of the article. Example: "Thanks for everything"
+   */
+  title: string;
+  /**
+   * The content of the article in HTML. Example: "<p>This is the body in html</p>"
+   */
+  body: string;
+  /**
+   * The id of the author of the article. Must be a teammate on the help center's workspace. Example: 1295
+   */
+  author_id: number;
+  /**
+   * Whether the article will be published or will be a draft. Defaults to draft.
+   */
+  state?: 'draft' | 'published' | undefined;
+  /**
+   * The description of the article. Example: "Description of the Article"
+   */
+  description?: string | undefined;
+  /**
+   * The id of the article's parent collection or section. An article without this field stands alone. Example: 18
+   */
+  parent_id?: number | undefined;
+  /**
+   * The type of parent, which can either be a collection or section. Example: "collection"
+   */
+  parent_type?: 'collection' | 'section' | undefined;
+};
+
+export interface ActionOutput_intercom_createarticle {
+  /**
+   * The unique identifier for the article which is given by Intercom.
+   */
+  id: string;
+  /**
+   * The id of the workspace which the article belongs to.
+   */
+  workspace_id: string;
+  /**
+   * The title of the article.
+   */
+  title: string;
+  /**
+   * The description of the article.
+   */
+  description?: string | undefined;
+  /**
+   * The body of the article in HTML.
+   */
+  body?: string | undefined;
+  /**
+   * The id of the author of the article.
+   */
+  author_id: number;
+  /**
+   * Whether the article is published or is a draft.
+   */
+  state: 'draft' | 'published';
+  /**
+   * The time when the article was created (Unix timestamp in seconds).
+   */
+  created_at: number;
+  /**
+   * The time when the article was last updated (Unix timestamp in seconds).
+   */
+  updated_at: number;
+  /**
+   * The URL of the article.
+   */
+  url?: string | undefined;
+  /**
+   * The id of the article's parent collection or section.
+   */
+  parent_id?: number | undefined;
+  /**
+   * The type of parent, which can either be a collection or section.
+   */
+  parent_type?: string | undefined;
+};
+
+export interface ActionInput_intercom_createcompany {
+  /**
+   * The name of the Company. Example: "Intercom"
+   */
+  name: string;
+  /**
+   * The company id you have defined for the company. Example: "625e90fc55ab113b6d92175f"
+   */
+  company_id: string;
+  /**
+   * The name of the plan you have associated with the company. Example: "Enterprise"
+   */
+  plan?: string | undefined;
+  /**
+   * The number of employees in this company. Example: 100
+   */
+  size?: number | undefined;
+  /**
+   * The URL for this company's website. Example: "https://www.example.com"
+   */
+  website?: string | undefined;
+  /**
+   * The industry that this company operates in. Example: "Manufacturing"
+   */
+  industry?: string | undefined;
+  custom_attributes?: {  [key: string]: unknown | undefined;};
+  /**
+   * The time the company was created by you (Unix timestamp). Example: 1394531169
+   */
+  remote_created_at?: number | undefined;
+  /**
+   * How much revenue the company generates for your business. Example: 1000
+   */
+  monthly_spend?: number | undefined;
+};
+
+export interface ActionOutput_intercom_createcompany {
+  /**
+   * The Intercom defined id representing the company.
+   */
+  id: string;
+  /**
+   * The company id you have defined for the company.
+   */
+  company_id: string;
+  /**
+   * The name of the company.
+   */
+  name: string;
+  /**
+   * The plan associated with the company.
+   */
+  plan?: {  id?: string | undefined;
+  name?: string | undefined;};
+  /**
+   * The URL for the company website.
+   */
+  website?: string | undefined;
+  /**
+   * The industry that the company operates in.
+   */
+  industry?: string | undefined;
+  /**
+   * The number of employees in the company.
+   */
+  size?: number | undefined;
+  /**
+   * How much revenue the company generates for your business.
+   */
+  monthly_spend?: number | undefined;
+  custom_attributes?: {  [key: string]: unknown | undefined;};
+  /**
+   * The time the company was added in Intercom (Unix timestamp).
+   */
+  created_at: number;
+  /**
+   * The last time the company was updated (Unix timestamp).
+   */
+  updated_at: number;
 };
 
 export interface ActionInput_intercom_createcontact {
-  firstName: string;
-  lastName: string;
-  email: string;
-  external_id?: string | undefined;
-  phone?: string | undefined;
-  avatar?: string | undefined;
-  signed_up_at?: number | undefined;
-  last_seen_at?: number | undefined;
-  owner_id?: string | undefined;
-  unsubscribed_from_emails?: boolean | undefined;
+  /**
+   * The role of the contact. "user" for identified contacts (with email or user_id), "lead" for anonymous contacts.
+   */
+  role: 'user' | 'lead';
+  /**
+   * Email address of the contact. Required for users, optional for leads.
+   */
+  email?: string | undefined;
+  /**
+   * Full name of the contact.
+   */
+  name?: string | undefined;
+  /**
+   * Custom attributes as key-value pairs.
+   */
+  custom_attributes?: {  [key: string]: unknown | undefined;};
 };
 
 export interface ActionOutput_intercom_createcontact {
   id: string;
-  workspace_id: string;
-  external_id: string | null;
+  role: 'user' | 'lead';
+  email?: string | undefined;
+  name?: string | undefined;
+  external_id?: string | undefined;
+  user_id?: string | undefined;
+  phone?: string | undefined;
+  avatar?: string | undefined;
+  created_at?: number | undefined;
+  updated_at?: number | undefined;
+};
+
+export interface ActionInput_intercom_createconversation {
+  /**
+   * The admin or contact starting the conversation
+   */
+  from: {  type: 'admin' | 'contact' | 'user';
+  /**
+   * The ID of the admin, contact, or user
+   */
+  id: string;};
+  /**
+   * The message body
+   */
+  body: string;
+  /**
+   * Subject line for email conversations (required when message type is email)
+   */
+  subject?: string | undefined;
+};
+
+export interface ActionOutput_intercom_createconversation {
+  /**
+   * The message ID
+   */
+  id: string;
+  /**
+   * The conversation ID
+   */
+  conversation_id: string;
+  created_at: number;
+  body: string;
+  message_type: 'email' | 'inapp' | 'facebook' | 'twitter';
+  subject?: string | undefined;
+};
+
+export interface ActionInput_intercom_createnote {
+  /**
+   * The unique identifier of the contact to add the note to. Example: "6762f0ad1bb69f9f2193bb62"
+   */
+  contact_id: string;
+  /**
+   * The text content of the note. Example: "This is an internal note about the contact"
+   */
+  body: string;
+  /**
+   * The unique identifier of the admin creating the note. If omitted, the note is created by the authorized admin. Example: "123"
+   */
+  admin_id?: string | undefined;
+};
+
+export interface ActionOutput_intercom_createnote {
+  id: string;
   type: string;
-  email: string;
-  phone: string | null;
-  name: string | null;
-  created_at: string;
-  updated_at: string;
-  last_seen_at: string | null;
-  last_replied_at: string | null;
+  created_at: number;
+  body: string;
+  contact_id?: string | undefined;
+  admin_id?: string | undefined;
+  admin_name?: string | undefined;
+  admin_email?: string | undefined;
+};
+
+export interface ActionInput_intercom_createtag {
+  /**
+   * The name of the tag to create. Example: "Premium Customers"
+   */
+  name: string;
+};
+
+export interface ActionOutput_intercom_createtag {
+  /**
+   * The unique identifier for the created tag
+   */
+  id: string;
+  /**
+   * The name of the created tag
+   */
+  name: string;
+};
+
+export interface ActionInput_intercom_deletearticle {
+  /**
+   * The unique identifier of the article to delete
+   */
+  id: string;
+};
+
+export interface ActionOutput_intercom_deletearticle {
+  /**
+   * Whether the deletion was successful
+   */
+  success: boolean;
+  /**
+   * The ID of the deleted article
+   */
+  id: string;
+};
+
+export interface ActionInput_intercom_deletecompany {
+  /**
+   * The unique identifier of the company. Example: "5a250dd6"
+   */
+  id: string;
+};
+
+export interface ActionOutput_intercom_deletecompany {
+  id: string;
+  name?: string | undefined;
 };
 
 export interface ActionInput_intercom_deletecontact {
+  /**
+   * The unique identifier for the contact to delete. Example: "5f3c8b3e8f0e3c0001a2b3c4"
+   */
   id: string;
 };
 
 export interface ActionOutput_intercom_deletecontact {
   success: boolean;
+  deleted_id?: string | undefined;
 };
 
-export interface ActionInput_intercom_fetcharticle {
+export interface ActionInput_intercom_detachcontactfromcompany {
+  /**
+   * The unique identifier for the contact. Example: "63d2a3f8e8a1b2c3d4e5f6g7"
+   */
+  contact_id: string;
+  /**
+   * The unique identifier for the company. Example: "63d2a3f8e8a1b2c3d4e5f6h8"
+   */
+  company_id: string;
+};
+
+export interface ActionOutput_intercom_detachcontactfromcompany {
+  success: boolean;
+  contact_id: string;
+  company_id: string;
+};
+
+export interface ActionInput_intercom_getadmin {
+  /**
+   * The unique identifier of the admin. Example: "12345"
+   */
   id: string;
 };
 
-export interface ActionOutput_intercom_fetcharticle {
+export interface ActionOutput_intercom_getadmin {
+  id: string;
   type: string;
+  name?: string | undefined;
+  email?: string | undefined;
+  job_title?: string | undefined;
+  away_mode_enabled?: boolean | undefined;
+  away_mode_reassign?: boolean | undefined;
+  avatar?: string | undefined;
+  team_ids?: string[] | undefined;
+  admin_ids?: string[] | undefined;
+  team_only?: boolean | undefined;
+  has_inbox_seat?: boolean | undefined;
+};
+
+export interface ActionInput_intercom_getarticle {
+  /**
+   * The unique identifier of the article. Example: "123456"
+   */
+  id: string;
+};
+
+export interface ActionOutput_intercom_getarticle {
+  id: string;
+  type: string;
+  workspace_id: string;
+  title: string;
+  description?: string | undefined;
+  body?: string | undefined;
+  author_id?: number | undefined;
+  state: string;
+  created_at: number;
+  updated_at: number;
+  url?: string | undefined;
+};
+
+export interface ActionInput_intercom_getcompany {
+  /**
+   * The unique identifier for the company which is given by Intercom. Example: "5f4d3c1c-7b1b-4d7d-a97e-6095715c6632"
+   */
+  id: string;
+};
+
+export interface ActionOutput_intercom_getcompany {
+  id: string;
+  name?: string | undefined;
+  company_id?: string | undefined;
+  remote_created_at?: number | undefined;
+  created_at?: number | undefined;
+  updated_at?: number | undefined;
+  last_request_at?: number | undefined;
+  size?: number | undefined;
+  website?: string | undefined;
+  industry?: string | undefined;
+  monthly_spend?: number | undefined;
+  session_count?: number | undefined;
+  user_count?: number | undefined;
+  custom_attributes?: {  [key: string]: unknown | undefined;};
+};
+
+export interface ActionInput_intercom_getcontact {
+  /**
+   * The unique identifier for the contact. Example: "5f5c4a1c7c9c4a0001f7e1a2"
+   */
+  id: string;
+};
+
+export interface ActionOutput_intercom_getcontact {
+  id: string;
+  email?: string | undefined;
+  name?: string | undefined;
+  role?: 'user' | 'lead' | undefined;
+  created_at?: number | undefined;
+  updated_at?: number | undefined;
+};
+
+export interface ActionInput_intercom_getconversation {
+  /**
+   * The unique identifier for the conversation. Example: "123"
+   */
+  id: string;
+  /**
+   * Format for conversation parts content. Use "plaintext" for plain text or "html" for HTML formatted content.
+   */
+  display_as?: 'plaintext' | 'html' | undefined;
+};
+
+export interface ActionOutput_intercom_getconversation {
+  type?: string | undefined;
+  id: string;
+  title?: string | undefined;
+  created_at: number;
+  updated_at: number;
+  waiting_since?: number | undefined;
+  snoozed_until?: number | undefined;
+  open?: boolean | undefined;
+  state?: 'open' | 'closed' | 'snoozed' | undefined;
+  read?: boolean | undefined;
+  priority?: 'priority' | 'not_priority' | undefined;
+  admin_assignee_id?: number | undefined;
+  team_assignee_id?: number | undefined;
+  assignee?: {  type: string;
+  id?: string | undefined;
+  name?: string | undefined;
+  email?: string | undefined;};
+  user?: {  type: string;
+  id: string;} | undefined;
+  contacts?: {  type?: string | undefined;
+  contacts: ({  type: string;
+  id: string;})[];};
+  source?: {  type?: string | undefined;
+  id?: string | undefined;
+  delivered_as?: string | undefined;
+  subject?: string | undefined;
+  body?: string | undefined;
+  author?: {  type?: string | undefined;
+  id?: string | undefined;
+  name?: string | undefined;
+  email?: string | undefined;};
+  attachments?: unknown[] | undefined;
+  url?: string | undefined;
+  redacted?: boolean | undefined;};
+  conversation_parts?: {  type?: string | undefined;
+  conversation_parts: ({  type?: string | undefined;
+  id: string;
+  part_type?: string | undefined;
+  body?: string | undefined;
+  created_at: number;
+  updated_at?: number | undefined;
+  notified_at?: number | undefined;
+  assigned_to?: unknown | undefined;
+  author?: {  type?: string | undefined;
+  id?: string | undefined;
+  name?: string | undefined;
+  email?: string | undefined;};
+  attachments?: unknown[] | undefined;})[];
+  total_count: number;};
+  tags?: {  type?: string | undefined;
+  tags: unknown[];
+  total_count?: number | undefined;};
+};
+
+export interface ActionInput_intercom_listadmins {
+  /**
+   * Pagination cursor from the previous response. Omit for the first page.
+   */
+  cursor?: string | undefined;
+  /**
+   * Number of results per page. Max 150.
+   */
+  per_page?: number | undefined;
+};
+
+export interface ActionOutput_intercom_listadmins {
+  /**
+   * List of admins in the workspace.
+   */
+  admins: ({  /**
+   * The unique identifier for the admin.
+   */
+  id: string;
+  /**
+   * The type of object.
+   */
+  type: string;
+  /**
+   * The name of the admin.
+   */
+  name?: string | undefined;
+  /**
+   * The email address of the admin.
+   */
+  email?: string | undefined;
+  /**
+   * The job title of the admin.
+   */
+  job_title?: string | undefined;
+  /**
+   * Whether the admin has away mode enabled.
+   */
+  away_mode_enabled?: boolean | undefined;
+  /**
+   * Whether conversations should be reassigned when in away mode.
+   */
+  away_mode_reassign?: boolean | undefined;
+  /**
+   * Whether the admin has an inbox seat.
+   */
+  has_inbox_seat?: boolean | undefined;
+  /**
+   * IDs of teams the admin belongs to.
+   */
+  team_ids?: string[] | undefined;
+  /**
+   * URL to the admin avatar image.
+   */
+  avatar?: string | undefined;
+  /**
+   * ID of the team the admin belongs to.
+   */
+  team_id?: string | undefined;
+  /**
+   * Type of team the admin belongs to.
+   */
+  team_type?: string | undefined;})[];
+  /**
+   * Cursor for the next page of results.
+   */
+  next_cursor?: string | undefined;
+  /**
+   * Total number of admins.
+   */
+  total_count?: number | undefined;
+  /**
+   * The type of object returned.
+   */
+  type?: string | undefined;
+};
+
+export interface ActionInput_intercom_listarticles {
+  /**
+   * Pagination cursor from the previous response. Maps to starting_after parameter. Omit for the first page.
+   */
+  cursor?: string | undefined;
+  /**
+   * Number of results per page. Maximum is 150.
+   */
+  per_page?: number | undefined;
+};
+
+export interface ActionOutput_intercom_listarticles {
+  items: ({  id: string;
+  workspace_id: string;
+  title: string;
+  description?: string | undefined;
+  body?: string | undefined;
+  author_id: string;
+  state: 'published' | 'draft';
+  created_at: number;
+  updated_at: number;
+  url?: string | undefined;
+  parent_id?: string | undefined;
+  parent_ids?: string[] | undefined;
+  parent_type?: string | undefined;
+  default_locale?: string | undefined;})[];
+  next_cursor?: string | undefined;
+  total_count: number;
+};
+
+export interface ActionInput_intercom_listcompanies {
+  /**
+   * Pagination cursor from the previous response pages.next.starting_after. Omit for the first page.
+   */
+  cursor?: string | undefined;
+  /**
+   * Number of results per page. Maximum 150.
+   */
+  per_page?: number | undefined;
+};
+
+export interface ActionOutput_intercom_listcompanies {
+  companies: ({  type?: string | undefined;
+  id: string | number;
+  name?: string | undefined;
+  company_id?: string | undefined;
+  app_id?: string | number | undefined;
+  plan?: {  id?: string | number | undefined;
+  name?: string | undefined;};
+  monthly_spend?: number | null | undefined;
+  session_count?: number | null | undefined;
+  user_count?: number | null | undefined;
+  size?: number | null | undefined;
+  website?: string | null | undefined;
+  industry?: string | null | undefined;
+  remote_created_at?: number | null | undefined;
+  created_at?: number | null | undefined;
+  updated_at?: number | null | undefined;
+  tags?: {  type?: string | undefined;
+  tags?: unknown[] | undefined;};
+  segments?: {  type?: string | undefined;
+  segments?: unknown[] | undefined;};})[];
+  starting_after?: string | undefined;
+};
+
+export interface ActionInput_intercom_listcompanycontacts {
+  /**
+   * The Intercom company ID. Example: "5f1e5b5e5e5e5e5e5e5e5e5e"
+   */
+  company_id: string;
+  /**
+   * Pagination cursor (page number) from the previous response. Omit for the first page.
+   */
+  cursor?: string | undefined;
+  /**
+   * Number of results per page (max 150). Default: 50.
+   */
+  per_page?: number | undefined;
+};
+
+export interface ActionOutput_intercom_listcompanycontacts {
+  items: ({  id: string;
+  type: string;
+  role: 'user' | 'lead';
+  email?: string | undefined;
+  phone?: string | undefined;
+  name?: string | undefined;
+  created_at: number;
+  updated_at: number;})[];
+  starting_after?: string | undefined;
+};
+
+export interface ActionInput_intercom_listcontacts {
+  /**
+   * Pagination cursor from the previous response. Omit for the first page.
+   */
+  cursor?: string | undefined;
+  /**
+   * Number of results per page (default 50, max 150).
+   */
+  per_page?: number | undefined;
+};
+
+export interface ActionOutput_intercom_listcontacts {
+  contacts: ({  type: 'contact';
+  id: string;
+  external_id?: string | undefined;
+  workspace_id: string;
+  role: 'user' | 'lead';
+  email?: string | undefined;
+  phone?: string | undefined;
+  name?: string | undefined;
+  owner_id?: number | undefined;
+  has_hard_bounced?: boolean | undefined;
+  marked_email_as_spam?: boolean | undefined;
+  unsubscribed_from_emails?: boolean | undefined;
+  created_at: number;
+  updated_at: number;
+  signed_up_at?: number | undefined;
+  last_seen_at?: number | undefined;
+  last_replied_at?: number | undefined;
+  last_contacted_at?: number | undefined;
+  last_email_opened_at?: number | undefined;
+  last_email_clicked_at?: number | undefined;
+  language_override?: string | undefined;
+  browser?: string | undefined;
+  browser_version?: string | undefined;
+  browser_language?: string | undefined;
+  os?: string | undefined;
+  custom_attributes?: {  [key: string]: unknown | undefined;};})[];
+  total_count: number;
+  next_cursor?: string | undefined;
+};
+
+export interface ActionInput_intercom_listconversations {
+  cursor?: string | undefined;
+  per_page?: number | undefined;
+  state?: 'open' | 'closed' | 'snoozed' | undefined;
+};
+
+export interface ActionOutput_intercom_listconversations {
+  conversations: ({  id: string;
+  created_at: number;
+  updated_at: number;
+  state: 'open' | 'closed' | 'snoozed';
+  title?: string | undefined;
+  source?: {  [key: string]: unknown | undefined;};
+  contacts?: {  [key: string]: unknown | undefined;};
+  teammates?: {  [key: string]: unknown | undefined;};
+  conversation_parts?: {  [key: string]: unknown | undefined;};
+  tags?: {  [key: string]: unknown | undefined;};
+  custom_attributes?: {  [key: string]: unknown | undefined;};
+  statistics?: {  [key: string]: unknown | undefined;};})[];
+  next_cursor?: string | undefined;
+};
+
+export interface ActionInput_intercom_listhelpcentercollections {
+  /**
+   * Page number for pagination. Starts at 1.
+   */
+  page?: number | undefined;
+  /**
+   * Number of items per page. Maximum is 150.
+   */
+  per_page?: number | undefined;
+};
+
+export interface ActionOutput_intercom_listhelpcentercollections {
+  collections: ({  id: string;
+  name: string;
+  description?: string | undefined;
+  icon?: string | undefined;
+  order?: number | undefined;
+  created_at: number;
+  updated_at: number;})[];
+  has_more: boolean;
+  next_page?: number | undefined;
+};
+
+export interface ActionInput_intercom_listnotes {
+  /**
+   * The Intercom contact ID to list notes for. Example: "65f1a2b3c4d5e6f7g8h9i0j1"
+   */
+  contact_id: string;
+  /**
+   * Pagination cursor from the previous response (the `next_cursor` value). Omit for the first page.
+   */
+  cursor?: string | undefined;
+  /**
+   * Number of results per page (max 150). Default varies by API.
+   */
+  per_page?: number | undefined;
+};
+
+export interface ActionOutput_intercom_listnotes {
+  notes: ({  id: string;
+  body?: string | undefined;
+  author_id?: string | undefined;
+  author_name?: string | undefined;
+  author_email?: string | undefined;
+  created_at?: number | undefined;
+  updated_at?: number | undefined;})[];
+  next_cursor?: string | undefined;
+};
+
+export interface ActionInput_intercom_listtags {
+  /**
+   * Pagination cursor from the previous response. Omit for the first page.
+   */
+  cursor?: string | undefined;
+};
+
+export interface ActionOutput_intercom_listtags {
+  items: ({  type?: string | undefined;
+  id: string;
+  name: string;
+  applied_to?: {  contacts?: number | undefined;
+  companies?: number | undefined;
+  conversations?: number | undefined;};})[];
+  next_cursor?: string | undefined;
+};
+
+export interface ActionInput_intercom_mergecontacts {
+  /**
+   * The ID of the lead contact to merge. Example: "66c1b0a6c1234567890abcdef"
+   */
+  from: string;
+  /**
+   * The ID of the user contact to merge into. Example: "66c1b0a6c1234567890fedcba"
+   */
+  into: string;
+};
+
+export interface ActionOutput_intercom_mergecontacts {
+  id: string;
+  role: 'user' | 'lead' | 'admin';
+  name?: string | undefined;
+  email?: string | undefined;
+  user_id?: string | undefined;
+  company_id?: string | undefined;
+  created_at: number;
+  updated_at: number;
+  last_seen_at?: number | undefined;
+  avatar?: string | undefined;
+};
+
+export interface ActionInput_intercom_reopenconversation {
+  /**
+   * The Intercom conversation ID to reopen. Example: "12345678"
+   */
+  conversation_id: string;
+  /**
+   * The admin ID who is reopening the conversation. Example: "87654321"
+   */
+  admin_id: string;
+};
+
+export interface ActionOutput_intercom_reopenconversation {
+  success: boolean;
+  conversation_id: string;
+  part_id?: string | undefined;
+};
+
+export interface ActionInput_intercom_replytoconversation {
+  /**
+   * The Intercom conversation ID to reply to. Example: "123"
+   */
+  conversation_id: string;
+  /**
+   * The type of reply: "admin" for admin replies, "user" for contact replies.
+   */
+  type: 'admin' | 'user';
+  /**
+   * The message type: "comment" for replies, "note" for internal admin notes.
+   */
+  message_type: 'comment' | 'note';
+  /**
+   * The text body of the reply. Notes accept HTML formatting.
+   */
+  body: string;
+  /**
+   * The admin ID (required for type="admin").
+   */
+  admin_id?: string | undefined;
+  /**
+   * The contact ID (required for type="user").
+   */
+  intercom_user_id?: string | undefined;
+  /**
+   * Optional array of attachment URLs (max 5).
+   */
+  attachment_urls?: string[] | undefined;
+};
+
+export interface ActionOutput_intercom_replytoconversation {
+  id: string;
+  state?: string | undefined;
+  created_at?: number | undefined;
+  updated_at?: number | undefined;
+  conversation_parts?: ({  id: string;
+  type?: string | undefined;
+  body?: string | null | undefined;
+  created_at?: number | undefined;
+  updated_at?: number | undefined;
+  author_id?: string | undefined;
+  author_type?: string | undefined;})[];
+};
+
+export interface ActionInput_intercom_searchcontacts {
+  /**
+   * Search query with field, operator, and value.
+   */
+  query?: {  /**
+   * Field name to filter on. Example: "updated_at"
+   */
+  field: string;
+  /**
+   * Comparison operator.
+   */
+  operator: '=' | '!=' | '>' | '<' | '~' | '!~' | 'IN' | 'NIN' | 'AND' | 'OR';
+  /**
+   * Value to compare against.
+   */
+  value: string | number | boolean | unknown[];} | undefined;
+  /**
+   * Pagination cursor from the previous response (pages.next.starting_after). Omit for the first page.
+   */
+  cursor?: string | undefined;
+  /**
+   * Number of results per page (max 150).
+   */
+  per_page?: number | undefined;
+};
+
+export interface ActionOutput_intercom_searchcontacts {
+  contacts: ({  id: string;
+  role: 'user' | 'lead';
+  email?: string | undefined;
+  phone?: string | undefined;
+  name?: string | undefined;
+  created_at?: number | undefined;
+  updated_at?: number | undefined;
+  user_id?: string | undefined;})[];
+  next_cursor?: string | undefined;
+};
+
+export interface ActionInput_intercom_searchconversations {
+  /**
+   * A simple filter query
+   */
+  query: {  /**
+   * The field to filter on. Example: "state"
+   */
+  field?: string | undefined;
+  /**
+   * The comparison operator. Example: "="
+   */
+  operator?: string | undefined;
+  /**
+   * The value to filter by
+   */
+  value?: string | number | boolean | ({  0: string;
+  1: number;})[] | undefined;};
+  /**
+   * Pagination cursor from a previous response
+   */
+  cursor?: string | undefined;
+  /**
+   * Number of results per page (max 150)
+   */
+  per_page?: number | undefined;
+};
+
+export interface ActionOutput_intercom_searchconversations {
+  /**
+   * List of matching conversations
+   */
+  conversations: ({  type?: 'conversation' | undefined;
+  /**
+   * The conversation ID
+   */
+  id: string;
+  title?: string | undefined;
+  /**
+   * Unix timestamp of creation time
+   */
+  created_at?: number | undefined;
+  /**
+   * Unix timestamp of last update
+   */
+  updated_at?: number | undefined;
+  /**
+   * Unix timestamp when customer started waiting
+   */
+  waiting_since?: number | undefined;
+  /**
+   * Unix timestamp when snooze ends
+   */
+  snoozed_until?: number | undefined;
+  /**
+   * Whether the conversation is open
+   */
+  open?: boolean | undefined;
+  /**
+   * Conversation state
+   */
+  state?: 'open' | 'closed' | 'snoozed' | undefined;
+  /**
+   * Whether the conversation has been read
+   */
+  read?: boolean | undefined;
+  /**
+   * Priority status
+   */
+  priority?: 'priority' | 'not_priority' | undefined;
+  /**
+   * ID of assigned admin
+   */
+  admin_assignee_id?: number | undefined;
+  /**
+   * ID of assigned team
+   */
+  team_assignee_id?: number | undefined;})[];
+  /**
+   * Total number of matching conversations
+   */
+  total_count: number;
+  /**
+   * Cursor for the next page of results
+   */
+  next_cursor?: string | undefined;
+};
+
+export interface ActionInput_intercom_sendmessage {
+  /**
+   * Type of message to send: "email" or "inapp".
+   */
+  message_type: 'email' | 'inapp';
+  /**
+   * Subject line for email messages. Required when message_type is "email".
+   */
+  subject?: string | undefined;
+  /**
+   * The message body content (HTML supported).
+   */
+  body: string;
+  /**
+   * The admin sending the message.
+   */
+  from: {  type: 'admin';
+  /**
+   * ID of the admin sending the message.
+   */
+  id: string;};
+  /**
+   * The recipient contact or user.
+   */
+  to: {  type: 'contact' | 'user';
+  /**
+   * ID of the contact or user receiving the message.
+   */
+  id: string;};
+  /**
+   * Optional template name for the message.
+   */
+  template?: string | undefined;
+};
+
+export interface ActionOutput_intercom_sendmessage {
+  id: string;
+  type?: string | undefined;
+  message_type?: 'email' | 'inapp' | undefined;
+  subject?: string | undefined;
+  body?: string | undefined;
+  from?: {  type: 'admin';
+  id: string;
+  name?: string | undefined;};
+  to?: {  type: string;
+  id: string;} | undefined;
+  created_at?: number | undefined;
+};
+
+export interface ActionInput_intercom_snoozeconversation {
+  /**
+   * The unique identifier for the conversation to snooze. Example: "123"
+   */
+  conversation_id: string;
+  /**
+   * The ID of the admin performing the snooze action. Example: "456"
+   */
+  admin_id: string;
+  /**
+   * Unix timestamp (seconds) when the conversation should be unsnoozed. Example: 1704067200
+   */
+  snoozed_until: number;
+};
+
+export interface ActionOutput_intercom_snoozeconversation {
+  id: string;
+  state: string;
+  snoozed_until?: number | undefined;
+  created_at: number;
+  updated_at: number;
+};
+
+export interface ActionInput_intercom_tagcompanies {
+  /**
+   * Tag name to apply. Example: "VIP"
+   */
+  name: string;
+  /**
+   * Array of companies to tag with their IDs
+   */
+  companies: ({  /**
+   * Company ID
+   */
+  id?: string | undefined;
+  /**
+   * Company ID alternative field
+   */
+  company_id?: string | undefined;})[];
+};
+
+export interface ActionOutput_intercom_tagcompanies {
+  id: string;
+  name: string;
+  type: string;
+  companies?: ({  id?: string | undefined;
+  company_id?: string | undefined;
+  name?: string | undefined;})[];
+};
+
+export interface ActionInput_intercom_tagcontacts {
+  /**
+   * Name of the tag to create or use. Example: "VIP Customers"
+   */
+  name: string;
+  /**
+   * Array of contacts to tag, each with id or email
+   */
+  users: ({  /**
+   * Contact ID. Example: "63f5c5c5c5c5c5c5c5c5c5c5"
+   */
+  id?: string | undefined;
+  /**
+   * Contact email address. Example: "user@example.com"
+   */
+  email?: string | undefined;})[];
+};
+
+export interface ActionOutput_intercom_tagcontacts {
+  id: string;
+  name: string;
+  type: string;
+  created_at?: number | undefined;
+  updated_at?: number | undefined;
+  tagged_users?: ({  id: string;
+  email?: string | undefined;})[];
+};
+
+export interface ActionInput_intercom_tagconversation {
+  /**
+   * The unique identifier for the conversation to tag. Example: "123"
+   */
+  conversation_id: string;
+  /**
+   * The unique identifier for the tag to apply. Example: "456"
+   */
+  tag_id: string;
+  /**
+   * The unique identifier for the admin applying the tag. Example: "789"
+   */
+  admin_id: string;
+};
+
+export interface ActionOutput_intercom_tagconversation {
+  id: string;
+  name: string;
+};
+
+export interface ActionInput_intercom_untagcontacts {
+  /**
+   * Name of the tag to remove from contacts. Example: "VIP"
+   */
+  tag_name: string;
+  /**
+   * Array of contacts to untag, each with either id or email
+   */
+  contacts: ({  /**
+   * Intercom contact ID. Example: "5f5e8b5a8b5a8b5a8b5a8b5a"
+   */
+  id?: string | undefined;
+  /**
+   * Contact email address. Example: "user@example.com"
+   */
+  email?: string | undefined;})[];
+};
+
+export interface ActionOutput_intercom_untagcontacts {
+  /**
+   * ID of the tag
+   */
+  tag_id: string;
+  /**
+   * Name of the tag
+   */
+  tag_name: string;
+  /**
+   * Contacts that were untagged
+   */
+  untagged_contacts: ({  id?: string | undefined;
+  email?: string | undefined;})[];
+};
+
+export interface ActionInput_intercom_untagconversation {
+  /**
+   * The ID of the conversation to untag. Example: "123"
+   */
+  conversation_id: string;
+  /**
+   * The ID of the tag to remove. Example: "456"
+   */
+  tag_id: string;
+  /**
+   * The ID of the admin performing the untag operation. Example: "789"
+   */
+  admin_id: string;
+};
+
+export interface ActionOutput_intercom_untagconversation {
+  /**
+   * Whether the tag was successfully removed
+   */
+  success: boolean;
+};
+
+export interface ActionInput_intercom_updatearticle {
+  /**
+   * The unique identifier of the article to update. Example: "6871119"
+   */
+  id: string;
+  /**
+   * The title of the article.
+   */
+  title?: string | undefined;
+  /**
+   * The description of the article.
+   */
+  description?: string | undefined;
+  /**
+   * The body of the article in HTML.
+   */
+  body?: string | undefined;
+  /**
+   * Whether the article is published or draft.
+   */
+  state?: 'published' | 'draft' | undefined;
+  /**
+   * The id of the author of the article. Must be a teammate on the help center's workspace.
+   */
+  author_id?: number | undefined;
+  /**
+   * The id of the article's parent collection or section.
+   */
+  parent_id?: number | undefined;
+  /**
+   * The type of parent, which can either be a collection or section.
+   */
+  parent_type?: 'collection' | 'section' | undefined;
+};
+
+export interface ActionOutput_intercom_updatearticle {
   id: string;
   workspace_id: string;
   title: string;
-  description: string | null;
-  body: string | null;
+  description?: string | undefined;
+  body?: string | undefined;
   author_id: number;
-  state: string;
-  created_at: string;
-  updated_at: string;
-  url: string | null;
-  parent_id: number | null;
-  parent_ids: number[];
-  parent_type: string | null;
+  state: 'published' | 'draft';
+  created_at: number;
+  updated_at: number;
+  url?: string | undefined;
+  parent_id?: number | undefined;
+  parent_type?: 'collection' | 'section' | undefined;
+  parent_ids?: number[] | undefined;
   default_locale?: string | undefined;
-  translated_content?: {  type: string | null;
-  ar: {  type: string | null;
-  title: string;
-  description: string;
-  body: string;
-  author_id: number;
-  state: string;
-  created_at: number;
-  updated_at: number;
-  url: string;} | null;
-  bg: {  type: string | null;
-  title: string;
-  description: string;
-  body: string;
-  author_id: number;
-  state: string;
-  created_at: number;
-  updated_at: number;
-  url: string;} | null;
-  bs: {  type: string | null;
-  title: string;
-  description: string;
-  body: string;
-  author_id: number;
-  state: string;
-  created_at: number;
-  updated_at: number;
-  url: string;} | null;
-  ca: {  type: string | null;
-  title: string;
-  description: string;
-  body: string;
-  author_id: number;
-  state: string;
-  created_at: number;
-  updated_at: number;
-  url: string;} | null;
-  cs: {  type: string | null;
-  title: string;
-  description: string;
-  body: string;
-  author_id: number;
-  state: string;
-  created_at: number;
-  updated_at: number;
-  url: string;} | null;
-  da: {  type: string | null;
-  title: string;
-  description: string;
-  body: string;
-  author_id: number;
-  state: string;
-  created_at: number;
-  updated_at: number;
-  url: string;} | null;
-  de: {  type: string | null;
-  title: string;
-  description: string;
-  body: string;
-  author_id: number;
-  state: string;
-  created_at: number;
-  updated_at: number;
-  url: string;} | null;
-  el: {  type: string | null;
-  title: string;
-  description: string;
-  body: string;
-  author_id: number;
-  state: string;
-  created_at: number;
-  updated_at: number;
-  url: string;} | null;
-  en: {  type: string | null;
-  title: string;
-  description: string;
-  body: string;
-  author_id: number;
-  state: string;
-  created_at: number;
-  updated_at: number;
-  url: string;} | null;
-  es: {  type: string | null;
-  title: string;
-  description: string;
-  body: string;
-  author_id: number;
-  state: string;
-  created_at: number;
-  updated_at: number;
-  url: string;} | null;
-  et: {  type: string | null;
-  title: string;
-  description: string;
-  body: string;
-  author_id: number;
-  state: string;
-  created_at: number;
-  updated_at: number;
-  url: string;} | null;
-  fi: {  type: string | null;
-  title: string;
-  description: string;
-  body: string;
-  author_id: number;
-  state: string;
-  created_at: number;
-  updated_at: number;
-  url: string;} | null;
-  fr: {  type: string | null;
-  title: string;
-  description: string;
-  body: string;
-  author_id: number;
-  state: string;
-  created_at: number;
-  updated_at: number;
-  url: string;} | null;
-  he: {  type: string | null;
-  title: string;
-  description: string;
-  body: string;
-  author_id: number;
-  state: string;
-  created_at: number;
-  updated_at: number;
-  url: string;} | null;
-  hr: {  type: string | null;
-  title: string;
-  description: string;
-  body: string;
-  author_id: number;
-  state: string;
-  created_at: number;
-  updated_at: number;
-  url: string;} | null;
-  hu: {  type: string | null;
-  title: string;
-  description: string;
-  body: string;
-  author_id: number;
-  state: string;
-  created_at: number;
-  updated_at: number;
-  url: string;} | null;
-  id: {  type: string | null;
-  title: string;
-  description: string;
-  body: string;
-  author_id: number;
-  state: string;
-  created_at: number;
-  updated_at: number;
-  url: string;} | null;
-  it: {  type: string | null;
-  title: string;
-  description: string;
-  body: string;
-  author_id: number;
-  state: string;
-  created_at: number;
-  updated_at: number;
-  url: string;} | null;
-  ja: {  type: string | null;
-  title: string;
-  description: string;
-  body: string;
-  author_id: number;
-  state: string;
-  created_at: number;
-  updated_at: number;
-  url: string;} | null;
-  ko: {  type: string | null;
-  title: string;
-  description: string;
-  body: string;
-  author_id: number;
-  state: string;
-  created_at: number;
-  updated_at: number;
-  url: string;} | null;
-  lt: {  type: string | null;
-  title: string;
-  description: string;
-  body: string;
-  author_id: number;
-  state: string;
-  created_at: number;
-  updated_at: number;
-  url: string;} | null;
-  lv: {  type: string | null;
-  title: string;
-  description: string;
-  body: string;
-  author_id: number;
-  state: string;
-  created_at: number;
-  updated_at: number;
-  url: string;} | null;
-  mn: {  type: string | null;
-  title: string;
-  description: string;
-  body: string;
-  author_id: number;
-  state: string;
-  created_at: number;
-  updated_at: number;
-  url: string;} | null;
-  nb: {  type: string | null;
-  title: string;
-  description: string;
-  body: string;
-  author_id: number;
-  state: string;
-  created_at: number;
-  updated_at: number;
-  url: string;} | null;
-  nl: {  type: string | null;
-  title: string;
-  description: string;
-  body: string;
-  author_id: number;
-  state: string;
-  created_at: number;
-  updated_at: number;
-  url: string;} | null;
-  pl: {  type: string | null;
-  title: string;
-  description: string;
-  body: string;
-  author_id: number;
-  state: string;
-  created_at: number;
-  updated_at: number;
-  url: string;} | null;
-  pt: {  type: string | null;
-  title: string;
-  description: string;
-  body: string;
-  author_id: number;
-  state: string;
-  created_at: number;
-  updated_at: number;
-  url: string;} | null;
-  ro: {  type: string | null;
-  title: string;
-  description: string;
-  body: string;
-  author_id: number;
-  state: string;
-  created_at: number;
-  updated_at: number;
-  url: string;} | null;
-  ru: {  type: string | null;
-  title: string;
-  description: string;
-  body: string;
-  author_id: number;
-  state: string;
-  created_at: number;
-  updated_at: number;
-  url: string;} | null;
-  sl: {  type: string | null;
-  title: string;
-  description: string;
-  body: string;
-  author_id: number;
-  state: string;
-  created_at: number;
-  updated_at: number;
-  url: string;} | null;
-  sr: {  type: string | null;
-  title: string;
-  description: string;
-  body: string;
-  author_id: number;
-  state: string;
-  created_at: number;
-  updated_at: number;
-  url: string;} | null;
-  sv: {  type: string | null;
-  title: string;
-  description: string;
-  body: string;
-  author_id: number;
-  state: string;
-  created_at: number;
-  updated_at: number;
-  url: string;} | null;
-  tr: {  type: string | null;
-  title: string;
-  description: string;
-  body: string;
-  author_id: number;
-  state: string;
-  created_at: number;
-  updated_at: number;
-  url: string;} | null;
-  vi: {  type: string | null;
-  title: string;
-  description: string;
-  body: string;
-  author_id: number;
-  state: string;
-  created_at: number;
-  updated_at: number;
-  url: string;} | null;
-  "pt-BR": {  type: string | null;
-  title: string;
-  description: string;
-  body: string;
-  author_id: number;
-  state: string;
-  created_at: number;
-  updated_at: number;
-  url: string;} | null;
-  "zh-CN": {  type: string | null;
-  title: string;
-  description: string;
-  body: string;
-  author_id: number;
-  state: string;
-  created_at: number;
-  updated_at: number;
-  url: string;} | null;
-  "zh-TW": {  type: string | null;
-  title: string;
-  description: string;
-  body: string;
-  author_id: number;
-  state: string;
-  created_at: number;
-  updated_at: number;
-  url: string;} | null;} | null | undefined;
 };
 
-export type ActionInput_intercom_whoami = void
-
-export interface ActionOutput_intercom_whoami {
+export interface ActionInput_intercom_updatecompany {
   id: string;
+  name?: string | undefined;
+  plan?: string | undefined;
+  website?: string | undefined;
+  industry?: string | undefined;
+  size?: number | undefined;
+  monthly_spend?: number | undefined;
+  remote_created_at?: number | undefined;
+  custom_attributes?: {} | undefined;
+};
+
+export interface ActionOutput_intercom_updatecompany {
+  id: string;
+  name?: string | undefined;
+  company_id?: string | undefined;
+  plan?: string | undefined;
+  website?: string | undefined;
+  industry?: string | undefined;
+  size?: number | undefined;
+  monthly_spend?: number | undefined;
+  custom_attributes?: {} | undefined;
+};
+
+export interface ActionInput_intercom_updatecontact {
+  id: string;
+  email?: string | undefined;
+  name?: string | undefined;
+  phone?: string | undefined;
+  role?: string | undefined;
+  custom_attributes?: {  [key: string]: unknown | undefined;};
+};
+
+export interface ActionOutput_intercom_updatecontact {
+  id: string;
+  type: string;
   email: string;
+  phone: string;
+  name: string;
+  role: string;
+  custom_attributes: {  [key: string]: unknown | undefined;};
+  created_at: number;
+  updated_at: number;
+};
+
+export interface ActionInput_intercom_updateconversation {
+  id: string;
+  custom_attributes?: {  [key: string]: unknown | undefined;};
+  read?: boolean | undefined;
+};
+
+export interface ActionOutput_intercom_updateconversation {
+  id: string;
+  title?: string | undefined;
+  state: 'open' | 'closed' | 'snoozed';
+  read: boolean;
+  created_at: number;
+  updated_at: number;
+  custom_attributes?: {  [key: string]: unknown | undefined;};
 };
 
 export interface Field {

@@ -1,0 +1,110 @@
+{
+  "nango": {
+    "batchSave": {
+      "Segment": [
+        {
+          "id": "69fc2184546d452769953ebf",
+          "name": "Active",
+          "type": "segment",
+          "created_at": 1778131332,
+          "updated_at": 1778131332,
+          "person_type": "user"
+        },
+        {
+          "id": "69fc2183546d452769953ebe",
+          "name": "New",
+          "type": "segment",
+          "created_at": 1778131331,
+          "updated_at": 1778131331,
+          "person_type": "user"
+        },
+        {
+          "id": "69fc2184546d452769953ec0",
+          "name": "Slipping Away",
+          "type": "segment",
+          "created_at": 1778131332,
+          "updated_at": 1778131332,
+          "person_type": "user"
+        }
+      ]
+    },
+    "batchDelete": {
+      "Segment": []
+    }
+  },
+  "api": {
+    "get": {
+      "/segments": {
+        "response": {
+          "type": "segment.list",
+          "segments": [
+            {
+              "type": "segment",
+              "id": "69fc2184546d452769953ebf",
+              "name": "Active",
+              "created_at": 1778131332,
+              "updated_at": 1778131332,
+              "person_type": "user"
+            },
+            {
+              "type": "segment",
+              "id": "69fc2183546d452769953ebe",
+              "name": "New",
+              "created_at": 1778131331,
+              "updated_at": 1778131331,
+              "person_type": "user"
+            },
+            {
+              "type": "segment",
+              "id": "69fc2184546d452769953ec0",
+              "name": "Slipping Away",
+              "created_at": 1778131332,
+              "updated_at": 1778131332,
+              "person_type": "user"
+            }
+          ]
+        },
+        "status": 200,
+        "headers": {
+          "date": "Thu, 07 May 2026 05:47:24 GMT",
+          "content-type": "application/json; charset=utf-8",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "1; mode=block",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=31556952; includeSubDomains; preload",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4999",
+          "x-ratelimit-reset": "1778132856",
+          "vary": "Accept-Encoding",
+          "status": "200 OK",
+          "x-intercom-version": "9f26d01b250900ba55fb5a7d9ef827b19f52128d",
+          "x-request-id": "002ckhvard71mp8qj1t0",
+          "etag": "W/\"e974d63254497c6be63c4df77f2be9e6\"",
+          "cache-control": "max-age=0, private, must-revalidate",
+          "referrer-policy": "strict-origin-when-cross-origin",
+          "x-request-queueing": "0",
+          "intercom-version": "2.11",
+          "x-runtime": "0.055323",
+          "server": "nginx",
+          "x-ami-version": "ami-018421ea35bfc2097"
+        },
+        "hash": "c13bed95c0190fc3aebb18ee22a3a1c8228ceea7",
+        "request": {
+          "params": {
+            "per_page": "150"
+          },
+          "headers": {
+            "Intercom-Version": "2.11"
+          }
+        }
+      }
+    }
+  }
+}

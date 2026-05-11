@@ -1,19 +1,38 @@
-import { vi, expect, it, describe } from 'vitest';
+import { afterEach, beforeEach, vi, expect, it, describe } from 'vitest';
 
-import fetchData from '../syncs/contacts.js';
+import createSync from '../syncs/contacts.js';
 
 describe('intercom contacts tests', () => {
-    const nangoMock = new global.vitest.NangoSyncMock({
-        dirname: __dirname,
-        name: 'contacts',
-        Model: 'Contact'
+    const models = 'Contact'.split(',');
+
+    const createTestContext = () => {
+        const nangoMock = new global.vitest.NangoSyncMock({
+            dirname: __dirname,
+            name: 'contacts',
+            Model: 'Contact'
+        });
+
+        return {
+            nangoMock,
+            batchSaveSpy: vi.spyOn(nangoMock, 'batchSave')
+        };
+    };
+
+    beforeEach(() => {
+        vi.useFakeTimers();
+        vi.setSystemTime(new Date('2025-01-01T00:00:00Z').getTime());
     });
 
-    const models = 'Contact'.split(',');
-    const batchSaveSpy = vi.spyOn(nangoMock, 'batchSave');
+    afterEach(() => {
+        vi.useRealTimers();
+        vi.clearAllMocks();
+        vi.restoreAllMocks();
+    });
 
     it('should get, map correctly the data and batchSave the result', async () => {
-        await fetchData.exec(nangoMock);
+        const { nangoMock, batchSaveSpy } = createTestContext();
+
+        await createSync.exec(nangoMock);
 
         for (const model of models) {
             const expectedBatchSaveData = await nangoMock.getBatchSaveData(model);
@@ -26,6 +45,9 @@ describe('intercom contacts tests', () => {
                 return [];
             });
 
+            // Normalize spy-captured args into plain JSON so they compare cleanly
+            // with fixture data loaded from `*.test.json`.
+            // Removes things like prototypes, undefined values and other non-serializable data.
             const spied = JSON.parse(JSON.stringify(spiedData));
 
             expect(spied).toStrictEqual(expectedBatchSaveData);
@@ -33,12 +55,28 @@ describe('intercom contacts tests', () => {
     });
 
     it('should get, map correctly the data and batchDelete the result', async () => {
-        await fetchData.exec(nangoMock);
+        const { nangoMock } = createTestContext();
+        const batchDeleteSpy = vi.spyOn(nangoMock, 'batchDelete');
+
+        await createSync.exec(nangoMock);
 
         for (const model of models) {
             const batchDeleteData = await nangoMock.getBatchDeleteData(model);
             if (batchDeleteData && batchDeleteData.length > 0) {
-                expect(nangoMock.batchDelete).toHaveBeenCalledWith(batchDeleteData, model);
+                const spiedData = batchDeleteSpy.mock.calls.flatMap((call) => {
+                    if (call[1] === model) {
+                        return call[0];
+                    }
+
+                    return [];
+                });
+
+                // Normalize spy-captured args into plain JSON so they compare cleanly
+                // with fixture data loaded from `*.test.json`.
+                // Removes things like prototypes, undefined values and other non-serializable data.
+                const spied = JSON.parse(JSON.stringify(spiedData));
+
+                expect(spied).toStrictEqual(batchDeleteData);
             }
         }
     });
