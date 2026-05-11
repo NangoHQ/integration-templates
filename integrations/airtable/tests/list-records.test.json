@@ -1,0 +1,166 @@
+{
+  "input": {
+    "baseId": "appBeIpEI3hxUKRMo",
+    "tableIdOrName": "Tasks",
+    "pageSize": 1
+  },
+  "output": {
+    "records": [
+      {
+        "id": "rec0YSum488QkBuvM",
+        "createdTime": "2023-11-29T16:36:07.000Z",
+        "fields": {
+          "Task": "Launch social media campaign for awareness",
+          "Assignee": [
+            "rece7sSfykM5IdYpb"
+          ],
+          "Daily time required": 0.29999999999999877,
+          "Start": "2024-01-04",
+          "Deadline": "2024-01-09",
+          "Project": [
+            "recgCZeXd5hohgAaK"
+          ],
+          "Availability": [
+            1
+          ],
+          "Duration": 4,
+          "Status": "To do",
+          "Range": "01-04 → 01-09",
+          "Photo (from Assignee)": [
+            {
+              "id": "attIGpBs2L4p6BIIZ",
+              "width": 300,
+              "height": 300,
+              "url": "https://v5.airtableusercontent.com/v3/u/52/52/1777053600000/ktmhOBG3v-ytbh3aFzUJ9g/lh0Gh4LQw8VyNIjE9sISOY4AKHQ65BYEOF_GGM-W8deQYJTVa55NTYtep2tEcBd9EnltZP_SFXq6mfizLHGxkA5WHYkiPLV2RZBPAlOTZI7aCHi2nX5RDC3GvO-9sFakevV2kDNENl1QQN1k0_iZFg/uh3bdCT_DWoibf9FAfpQXvV6FaV3rRiNjQh05T2_o9U",
+              "filename": "Avatars-26.png",
+              "size": 93745,
+              "type": "image/png",
+              "thumbnails": {
+                "small": {
+                  "url": "https://v5.airtableusercontent.com/v3/u/52/52/1777053600000/PqZz4t99vqIQv3kDAW-1vg/lVbAveiqS2_FUTf7a9FcLgHdTw2W348qJqe2e4MlteWzltNLsuYpI-Tq5eMUUfcpuUshEq-Zy4oAYk80jGATTGYfDojW9D5Qhkp_ZImx9w-f0AwHpx-BTp7rqyKJEuTwpcY8iLk2mVsGe7PVowPEcg/CjXgEB60ruwaLTqxOrYbrrb0a_HvFCPI5FM64FYmP40",
+                  "width": 36,
+                  "height": 36
+                },
+                "large": {
+                  "url": "https://v5.airtableusercontent.com/v3/u/52/52/1777053600000/E1K5oJIF4v748miniuACcg/D_Rl2mr0NP2l61U9zHdbtX5T2Q6Cw5qdMD29ihT6AloEwA5299JcwiU5NaRW7OaK7ngWwYPsp-wa-A4HVFXTS4ed2yJHQC6pS5YtKVkLqOj7i_xScWXB29miG7OpqZ0GncSakZm5yLj7Q8b4LBl_rQ/RYuBrgjqcUjVa0wmDLctDhR0M678ySBp39N8WU7oy_4",
+                  "width": 300,
+                  "height": 300
+                },
+                "full": {
+                  "url": "https://v5.airtableusercontent.com/v3/u/52/52/1777053600000/rx48qtK4ixai4YZ9VNWdxw/_-Fok5Di4d4UMg6wYF9nRiOySybZryDYKTHRgmilQzLfVzQLnxFkO6HBfu1uIhB9EotP7bA-Z1h-8xqKgMhDPNTZ2AEt3TUsS0v4c6bXNaqwKr78xB-N2I96BGzjXEufocAvZXljNnZuk1l0y5FMNw/5_kPZSgBtMUNQdKeYKu7L3W-0AmhiXpqioKo_EbK9Ag",
+                  "width": 300,
+                  "height": 300
+                }
+              }
+            }
+          ],
+          "Is Overdue": "Yes",
+          "Order": "aa",
+          "Predecessors": [
+            "recmoFKNvG3BduBLh"
+          ],
+          "Successors": [
+            "recBZ6U5VHK5hd1qc"
+          ]
+        }
+      }
+    ],
+    "offset": "itrp3zjCLsebpMVjo/rec0YSum488QkBuvM"
+  },
+  "nango": {},
+  "api": {
+    "get": {
+      "/v0/appBeIpEI3hxUKRMo/Tasks": {
+        "response": {
+          "records": [
+            {
+              "id": "rec0YSum488QkBuvM",
+              "createdTime": "2023-11-29T16:36:07.000Z",
+              "fields": {
+                "Task": "Launch social media campaign for awareness",
+                "Assignee": [
+                  "rece7sSfykM5IdYpb"
+                ],
+                "Daily time required": 0.29999999999999877,
+                "Start": "2024-01-04",
+                "Deadline": "2024-01-09",
+                "Project": [
+                  "recgCZeXd5hohgAaK"
+                ],
+                "Availability": [
+                  1
+                ],
+                "Duration": 4,
+                "Status": "To do",
+                "Range": "01-04 → 01-09",
+                "Photo (from Assignee)": [
+                  {
+                    "id": "attIGpBs2L4p6BIIZ",
+                    "width": 300,
+                    "height": 300,
+                    "url": "https://v5.airtableusercontent.com/v3/u/52/52/1777053600000/ktmhOBG3v-ytbh3aFzUJ9g/lh0Gh4LQw8VyNIjE9sISOY4AKHQ65BYEOF_GGM-W8deQYJTVa55NTYtep2tEcBd9EnltZP_SFXq6mfizLHGxkA5WHYkiPLV2RZBPAlOTZI7aCHi2nX5RDC3GvO-9sFakevV2kDNENl1QQN1k0_iZFg/uh3bdCT_DWoibf9FAfpQXvV6FaV3rRiNjQh05T2_o9U",
+                    "filename": "Avatars-26.png",
+                    "size": 93745,
+                    "type": "image/png",
+                    "thumbnails": {
+                      "small": {
+                        "url": "https://v5.airtableusercontent.com/v3/u/52/52/1777053600000/PqZz4t99vqIQv3kDAW-1vg/lVbAveiqS2_FUTf7a9FcLgHdTw2W348qJqe2e4MlteWzltNLsuYpI-Tq5eMUUfcpuUshEq-Zy4oAYk80jGATTGYfDojW9D5Qhkp_ZImx9w-f0AwHpx-BTp7rqyKJEuTwpcY8iLk2mVsGe7PVowPEcg/CjXgEB60ruwaLTqxOrYbrrb0a_HvFCPI5FM64FYmP40",
+                        "width": 36,
+                        "height": 36
+                      },
+                      "large": {
+                        "url": "https://v5.airtableusercontent.com/v3/u/52/52/1777053600000/E1K5oJIF4v748miniuACcg/D_Rl2mr0NP2l61U9zHdbtX5T2Q6Cw5qdMD29ihT6AloEwA5299JcwiU5NaRW7OaK7ngWwYPsp-wa-A4HVFXTS4ed2yJHQC6pS5YtKVkLqOj7i_xScWXB29miG7OpqZ0GncSakZm5yLj7Q8b4LBl_rQ/RYuBrgjqcUjVa0wmDLctDhR0M678ySBp39N8WU7oy_4",
+                        "width": 300,
+                        "height": 300
+                      },
+                      "full": {
+                        "url": "https://v5.airtableusercontent.com/v3/u/52/52/1777053600000/rx48qtK4ixai4YZ9VNWdxw/_-Fok5Di4d4UMg6wYF9nRiOySybZryDYKTHRgmilQzLfVzQLnxFkO6HBfu1uIhB9EotP7bA-Z1h-8xqKgMhDPNTZ2AEt3TUsS0v4c6bXNaqwKr78xB-N2I96BGzjXEufocAvZXljNnZuk1l0y5FMNw/5_kPZSgBtMUNQdKeYKu7L3W-0AmhiXpqioKo_EbK9Ag",
+                        "width": 300,
+                        "height": 300
+                      }
+                    }
+                  }
+                ],
+                "Is Overdue": "Yes",
+                "Order": "aa",
+                "Predecessors": [
+                  "recmoFKNvG3BduBLh"
+                ],
+                "Successors": [
+                  "recBZ6U5VHK5hd1qc"
+                ]
+              }
+            }
+          ],
+          "offset": "itrp3zjCLsebpMVjo/rec0YSum488QkBuvM"
+        },
+        "status": 200,
+        "headers": {
+          "date": "Fri, 24 Apr 2026 15:16:40 GMT",
+          "content-type": "application/json; charset=utf-8",
+          "content-length": "1921",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=5184000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4969",
+          "x-ratelimit-reset": "1777043811",
+          "etag": "W/\"781-e16JfPM5nATUessxsyaO1Wn1zl8\""
+        },
+        "hash": "35109b42e5dcbcdb8168d11ec13c4a6f6fd1aec1",
+        "request": {
+          "params": {
+            "pageSize": "1"
+          }
+        }
+      }
+    }
+  }
+}

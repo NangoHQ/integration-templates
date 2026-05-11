@@ -1,29 +1,31 @@
-import { createSync } from 'nango';
 import type { ProxyConfiguration } from 'nango';
-import { Base } from '../models.js';
+import { createSync } from 'nango';
 import { z } from 'zod';
 
+const BaseSchema = z.object({
+    id: z.string().describe('The unique identifier for the base. Example: appXXXXXXXXXXXXXX'),
+    name: z.string().optional(),
+    permissionLevel: z.string().optional()
+});
+
+const ProviderBaseSchema = z.object({
+    id: z.string(),
+    name: z.string().nullable(),
+    permissionLevel: z.string().nullable().optional()
+});
+
+type ProviderBase = z.infer<typeof ProviderBaseSchema>;
+
 const sync = createSync({
-    description: 'List all bases',
-    version: '1.0.0',
-    frequency: 'every day',
+    description: 'Sync Airtable bases visible to the authenticated user.',
+    version: '2.0.1',
+    endpoints: [{ method: 'GET', path: '/syncs/bases' }],
+    frequency: 'every hour',
     autoStart: true,
-    syncType: 'full',
-
-    endpoints: [
-        {
-            method: 'GET',
-            path: '/bases'
-        }
-    ],
-
-    scopes: ['schema.bases:read'],
-
     models: {
-        Base: Base
+        Base: BaseSchema
     },
-
-    metadata: z.object({}),
+    scopes: ['schema.bases:read'],
 
     exec: async (nango) => {
         const config: ProxyConfiguration = {
@@ -38,11 +40,21 @@ const sync = createSync({
             }
         };
 
-        for await (const bases of nango.paginate<Base>(config)) {
-            await nango.batchSave(bases, 'Base');
+        await nango.trackDeletesStart('Base');
+
+        for await (const page of nango.paginate<ProviderBase>(config)) {
+            const bases = page.map((base) => ({
+                id: base.id,
+                ...(base.name != null && { name: base.name }),
+                ...(base.permissionLevel != null && { permissionLevel: base.permissionLevel })
+            }));
+
+            if (bases.length > 0) {
+                await nango.batchSave(bases, 'Base');
+            }
         }
 
-        await nango.deleteRecordsFromPreviousExecutions('Base');
+        await nango.trackDeletesEnd('Base');
     }
 });
 

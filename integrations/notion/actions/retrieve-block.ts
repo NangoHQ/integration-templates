@@ -1,50 +1,67 @@
 import { z } from 'zod';
 import { createAction } from 'nango';
-import type { ProxyConfiguration } from 'nango';
 
 const InputSchema = z.object({
-    block_id: z.string().describe('The ID of the block to retrieve. Example: "2b6ce298-3121-8087-914a-d4fe743f6d69"')
+    block_id: z.string().describe('Block ID. Example: "c02fc1d3-db8b-45c5-a222-27595b15aea7"')
 });
 
-const OutputSchema = z.object({
-    id: z.string(),
-    object: z.string(),
-    type: z.string(),
-    has_children: z.boolean(),
-    created_time: z.string()
-});
+const ProviderResponseSchema = z
+    .object({
+        id: z.string(),
+        object: z.string(),
+        type: z.string(),
+        created_time: z.string().optional(),
+        last_edited_time: z.string().optional(),
+        has_children: z.boolean().optional(),
+        in_trash: z.boolean().optional()
+    })
+    .passthrough();
+
+const OutputSchema = z
+    .object({
+        id: z.string(),
+        object: z.literal('block'),
+        type: z.string(),
+        created_time: z.string().optional(),
+        last_edited_time: z.string().optional(),
+        has_children: z.boolean().optional(),
+        in_trash: z.boolean().optional()
+    })
+    .passthrough();
 
 const action = createAction({
-    description: 'Gets a block object by its ID.',
-    version: '1.0.0',
-
+    description: 'Retrieve a single block by block ID.',
+    version: '2.0.0',
     endpoint: {
-        method: 'GET',
-        path: '/blocks/get',
+        method: 'POST',
+        path: '/actions/retrieve-block',
         group: 'Blocks'
     },
-
     input: InputSchema,
     output: OutputSchema,
     scopes: [],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
-        const config: ProxyConfiguration = {
-            // https://developers.notion.com/reference/retrieve-a-block
-            endpoint: `v1/blocks/${input.block_id}`,
+        // https://developers.notion.com/reference/retrieve-a-block
+        const response = await nango.get({
+            endpoint: `/v1/blocks/${encodeURIComponent(input.block_id)}`,
             retries: 3
-        };
+        });
 
-        const response = await nango.get(config);
-        const data = response.data;
+        if (!response.data) {
+            throw new nango.ActionError({
+                type: 'not_found',
+                message: 'Block not found',
+                block_id: input.block_id
+            });
+        }
 
-        return {
-            id: data.id,
-            object: data.object,
-            type: data.type,
-            has_children: data.has_children,
-            created_time: data.created_time
-        };
+        const parsed = ProviderResponseSchema.parse(response.data);
+
+        return OutputSchema.parse({
+            ...parsed,
+            object: 'block'
+        });
     }
 });
 

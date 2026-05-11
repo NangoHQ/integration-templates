@@ -44,7 +44,7 @@ type PlaylistItem = {
 
 const sync = createSync({
     description: 'Sync playlists for YouTube channels in scope',
-    version: '1.0.0',
+    version: '1.0.1',
     frequency: 'every hour',
     autoStart: true,
     endpoints: [{ method: 'POST', path: '/syncs/channel-playlists' }],
@@ -87,6 +87,8 @@ const sync = createSync({
         // Blocker: YouTube playlists.list does not support timestamp-based filtering
         // We must fetch all playlists and use deletion detection, while resuming with pageToken.
         await nango.trackDeletesStart('ChannelPlaylist');
+        let checkpointSaved = false;
+        const hadExistingCheckpoint = checkpoint !== null;
 
         for (let channelIndex = startChannelIndex; channelIndex < channelIds.length; channelIndex++) {
             const channelId = channelIds[channelIndex];
@@ -139,6 +141,7 @@ const sync = createSync({
                         channel_index: channelIndex,
                         page_token: nextPageToken
                     });
+                    checkpointSaved = true;
                     continue;
                 }
 
@@ -149,16 +152,16 @@ const sync = createSync({
                         channel_index: channelIndex + 1,
                         page_token: ''
                     });
+                    checkpointSaved = true;
                 }
 
                 break;
             }
         }
 
-        // Clear checkpoint after successful completion
-        await nango.clearCheckpoint();
-
-        // End delete tracking - this will mark as deleted any playlists not in this fetch
+        if (checkpointSaved || hadExistingCheckpoint) {
+            await nango.clearCheckpoint();
+        }
         await nango.trackDeletesEnd('ChannelPlaylist');
     }
 });

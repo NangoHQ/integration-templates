@@ -69,10 +69,6 @@ const ListFolderResponseSchema = z.object({
     has_more: z.boolean()
 });
 
-const CheckpointSchema = z.object({
-    cursors: z.record(z.string(), z.string()).optional()
-});
-
 const MetadataSchema = z.object({
     rootPaths: z.array(z.string()).optional()
 });
@@ -127,7 +123,7 @@ function mapEntries(entries: z.infer<typeof MetadataEntrySchema>[]): { files: Fi
 
 const sync = createSync({
     description: 'Sync Dropbox file metadata from configured root paths using list folder cursors.',
-    version: '3.0.0',
+    version: '3.0.1',
     frequency: 'every 30 minutes',
     autoStart: true,
     metadata: MetadataSchema,
@@ -142,17 +138,15 @@ const sync = createSync({
     ],
 
     exec: async (nango) => {
-        const checkpoint = CheckpointSchema.parse((await nango.getCheckpoint()) ?? {});
         const rawConnection = z
             .object({ metadata: z.unknown().optional(), data: z.object({ metadata: z.unknown().optional() }).optional() })
             .parse(await nango.getConnection());
         const metadata = MetadataSchema.parse(rawConnection.metadata ?? rawConnection.data?.metadata ?? {});
 
         const rootPaths = getRootPaths(metadata);
-        const cursors: Record<string, string> = { ...(checkpoint.cursors ?? {}) };
 
         for (const rootPath of rootPaths) {
-            let cursor = cursors[rootPath];
+            let cursor: string | undefined;
             let hasMore = true;
 
             while (hasMore) {
@@ -189,9 +183,6 @@ const sync = createSync({
                 }
 
                 cursor = result.cursor;
-                cursors[rootPath] = cursor;
-                // @ts-expect-error - nango.saveCheckpoint has incorrect type inference in SDK
-                await nango.saveCheckpoint({ cursors });
                 hasMore = result.has_more;
             }
         }

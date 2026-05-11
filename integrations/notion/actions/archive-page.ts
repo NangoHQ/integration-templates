@@ -1,48 +1,69 @@
 import { z } from 'zod';
 import { createAction } from 'nango';
-import type { ProxyConfiguration } from 'nango';
 
 const InputSchema = z.object({
-    page_id: z.string().describe('The ID of the page to archive. Example: "2b6ce298-3121-80ae-bfe1-f8984b993639"')
+    page_id: z.string().describe('Notion page ID to archive. Example: "a1b2c3d4-e5f6-7890-abcd-ef1234567890"')
+});
+
+const ProviderPageSchema = z.object({
+    id: z.string(),
+    archived: z.boolean(),
+    in_trash: z.boolean().optional(),
+    url: z.string().optional(),
+    created_time: z.string().optional(),
+    last_edited_time: z.string().optional()
 });
 
 const OutputSchema = z.object({
     id: z.string(),
-    object: z.string(),
-    archived: z.boolean()
+    archived: z.boolean(),
+    in_trash: z.boolean().optional(),
+    url: z.string().optional(),
+    created_time: z.string().optional(),
+    last_edited_time: z.string().optional()
 });
 
 const action = createAction({
-    description: 'Moves a page to trash by setting archived to true.',
-    version: '1.0.0',
-
+    description: 'Archive a page so it is removed from active workspace views.',
+    version: '2.0.0',
     endpoint: {
         method: 'POST',
-        path: '/pages/archive',
+        path: '/actions/archive-page',
         group: 'Pages'
     },
-
     input: InputSchema,
     output: OutputSchema,
     scopes: [],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
-        const config: ProxyConfiguration = {
-            // https://developers.notion.com/reference/patch-page
-            endpoint: `v1/pages/${input.page_id}`,
+        const pageId = input.page_id;
+
+        // https://developers.notion.com/reference/patch-page
+        const response = await nango.patch({
+            endpoint: `/v1/pages/${encodeURIComponent(pageId)}`,
             data: {
                 archived: true
             },
             retries: 3
-        };
+        });
 
-        const response = await nango.patch(config);
-        const data = response.data;
+        if (!response.data) {
+            throw new nango.ActionError({
+                type: 'not_found',
+                message: 'Page not found',
+                page_id: pageId
+            });
+        }
+
+        const providerPage = ProviderPageSchema.parse(response.data);
 
         return {
-            id: data.id,
-            object: data.object,
-            archived: data.archived
+            id: providerPage.id,
+            archived: providerPage.archived,
+            ...(providerPage.in_trash !== undefined && { in_trash: providerPage.in_trash }),
+            ...(providerPage.url !== undefined && { url: providerPage.url }),
+            ...(providerPage.created_time !== undefined && { created_time: providerPage.created_time }),
+            ...(providerPage.last_edited_time !== undefined && { last_edited_time: providerPage.last_edited_time })
         };
     }
 });

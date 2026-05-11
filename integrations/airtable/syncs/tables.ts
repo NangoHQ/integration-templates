@@ -1,37 +1,85 @@
-import { createSync } from 'nango';
-import type { AirtableTable } from '../types.js';
-
 import type { ProxyConfiguration } from 'nango';
-import type { Base } from '../models.js';
-import { Table } from '../models.js';
+import { createSync } from 'nango';
 import { z } from 'zod';
 
+const ProviderBaseSchema = z.object({
+    id: z.string(),
+    name: z.string(),
+    permissionLevel: z.string().optional()
+});
+
+const ProviderTableFieldSchema = z.object({
+    id: z.string(),
+    name: z.string(),
+    type: z.string(),
+    description: z.string().optional(),
+    options: z.record(z.string(), z.unknown()).optional()
+});
+
+const ProviderTableViewSchema = z.object({
+    id: z.string(),
+    name: z.string(),
+    type: z.string()
+});
+
+const ProviderTableSchema = z.object({
+    id: z.string(),
+    name: z.string(),
+    primaryFieldId: z.string(),
+    fields: ProviderTableFieldSchema.array(),
+    views: ProviderTableViewSchema.array()
+});
+
+const ProviderTablesResponseSchema = z.object({
+    tables: ProviderTableSchema.array()
+});
+
+const TableFieldSchema = z.object({
+    id: z.string(),
+    name: z.string(),
+    type: z.string(),
+    description: z.string().optional(),
+    options: z.record(z.string(), z.unknown()).optional()
+});
+
+const TableViewSchema = z.object({
+    id: z.string(),
+    name: z.string(),
+    type: z.string()
+});
+
+const TableSchema = z.object({
+    id: z.string(),
+    name: z.string(),
+    baseId: z.string(),
+    baseName: z.string(),
+    primaryFieldId: z.string(),
+    fields: TableFieldSchema.array(),
+    views: TableViewSchema.array()
+});
+
+type ProviderBase = z.infer<typeof ProviderBaseSchema>;
+
 const sync = createSync({
-    description: 'Lists all tables with their schema for all bases with a reference to the base id that\nthe table belongs to',
-    version: '1.0.0',
+    description: 'Sync Airtable table schemas across bases in scope.',
+    version: '2.0.1',
     frequency: 'every day',
     autoStart: true,
-    syncType: 'full',
-
     endpoints: [
         {
             method: 'GET',
-            path: '/tables'
+            path: '/syncs/tables'
         }
     ],
-
     scopes: ['schema.bases:read'],
-
     models: {
-        Table: Table
+        Table: TableSchema
     },
-
-    metadata: z.object({}),
-
     exec: async (nango) => {
         const config: ProxyConfiguration = {
             // https://airtable.com/developers/web/api/list-bases
             endpoint: '/v0/meta/bases',
+            retries: 10,
             paginate: {
                 type: 'cursor',
                 cursor_path_in_response: 'offset',
@@ -40,41 +88,39 @@ const sync = createSync({
             }
         };
 
-        for await (const bases of nango.paginate<Base>(config)) {
-            const allTables: Table[] = [];
-            for (const base of bases) {
-                const { id: baseId, name: baseName } = base;
-                const tableConfig: ProxyConfiguration = {
+        await nango.trackDeletesStart('Table');
+
+        for await (const page of nango.paginate<ProviderBase>(config)) {
+            const allTables: z.infer<typeof TableSchema>[] = [];
+
+            for (const base of page) {
+                const response = await nango.get({
                     // https://airtable.com/developers/web/api/get-base-schema
-                    endpoint: `/v0/meta/bases/${baseId}/tables`,
-                    retries: 10
-                };
-
-                const response = await nango.get<{ tables: AirtableTable[] }>(tableConfig);
-
-                const { data } = response;
-
-                const tables: Table[] = data.tables.map((aTable: AirtableTable) => {
-                    const table: Table = {
-                        id: aTable.id,
-                        name: aTable.name,
-                        views: aTable.views,
-                        fields: aTable.fields,
-                        primaryFieldId: aTable.primaryFieldId,
-                        baseId,
-                        baseName
-                    };
-
-                    return table;
+                    endpoint: `/v0/meta/bases/${base.id}/tables`,
+                    retries: 3
                 });
 
-                allTables.push(...tables);
+                const parsedTables = ProviderTablesResponseSchema.parse(response.data);
+
+                for (const aTable of parsedTables.tables) {
+                    allTables.push({
+                        id: aTable.id,
+                        name: aTable.name,
+                        baseId: base.id,
+                        baseName: base.name,
+                        primaryFieldId: aTable.primaryFieldId,
+                        fields: aTable.fields,
+                        views: aTable.views
+                    });
+                }
             }
 
-            await nango.batchSave(allTables, 'Table');
+            if (allTables.length > 0) {
+                await nango.batchSave(allTables, 'Table');
+            }
         }
 
-        await nango.deleteRecordsFromPreviousExecutions('Table');
+        await nango.trackDeletesEnd('Table');
     }
 });
 

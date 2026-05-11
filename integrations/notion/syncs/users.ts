@@ -1,53 +1,103 @@
 import { createSync } from 'nango';
-import type { NotionUser } from '../types.js';
-
-import type { ProxyConfiguration } from 'nango';
-import { User } from '../models.js';
 import { z } from 'zod';
 
-const sync = createSync({
-    description: 'Fetches a list of users from Notion',
-    version: '1.0.0',
-    frequency: 'every day',
-    autoStart: true,
-    syncType: 'full',
+const NotionListUsersResponseSchema = z.object({
+    object: z.literal('list'),
+    results: z.array(
+        z.object({
+            id: z.string(),
+            object: z.literal('user'),
+            type: z.enum(['person', 'bot']),
+            name: z.string().nullable(),
+            avatar_url: z.string().nullable().optional()
+        })
+    ),
+    next_cursor: z.string().nullable().optional(),
+    has_more: z.boolean()
+});
 
+const UserSchema = z.object({
+    id: z.string(),
+    name: z.string().optional(),
+    type: z.enum(['person', 'bot']),
+    avatar_url: z.string().optional()
+});
+
+const CheckpointSchema = z.object({
+    start_cursor: z.string()
+});
+
+const sync = createSync({
+    description: 'Sync Notion users and bots visible to the integration.',
+    version: '2.0.1',
+    frequency: 'every hour',
+    autoStart: true,
+    checkpoint: CheckpointSchema,
+    models: {
+        User: UserSchema
+    },
     endpoints: [
         {
-            method: 'GET',
-            path: '/users',
-            group: 'Users'
+            path: '/syncs/users',
+            method: 'GET'
         }
     ],
 
-    models: {
-        User: User
-    },
-
-    metadata: z.object({}),
-
     exec: async (nango) => {
-        const config: ProxyConfiguration = {
-            // https://developers.notion.com/reference/get-users
-            endpoint: '/v1/users',
-            retries: 10
-        };
+        const rawCheckpoint = await nango.getCheckpoint();
+        const parsedCheckpoint = rawCheckpoint ? CheckpointSchema.safeParse(rawCheckpoint) : null;
 
-        for await (const rawUsers of nango.paginate<NotionUser>(config)) {
-            const users: User[] = rawUsers.map((rawUser: NotionUser) => {
-                const [firstName, lastName] = rawUser.name.split(' ');
-                return {
-                    id: rawUser.id,
-                    firstName: firstName ?? '',
-                    lastName: lastName ?? '',
-                    email: rawUser.person ? rawUser.person.email : '',
-                    isBot: rawUser.bot !== undefined
-                };
+        // Blocker: Notion users API does not support changed-since filters,
+        // has no deleted users endpoint, and does not return modification timestamps.
+        // This stays a full refresh sync and uses the cursor only to resume
+        // interrupted runs safely.
+        await nango.trackDeletesStart('User');
+
+        let cursor = parsedCheckpoint?.success ? parsedCheckpoint.data.start_cursor : undefined;
+        let checkpointSaved = false;
+        const hadExistingCheckpoint = !!cursor;
+
+        do {
+            // https://developers.notion.com/reference/get-users
+            const response = await nango.get({
+                endpoint: '/v1/users',
+                params: {
+                    page_size: 100,
+                    ...(cursor && { start_cursor: cursor })
+                },
+                retries: 3
             });
 
-            await nango.batchSave(users, 'User');
+            const parseResult = NotionListUsersResponseSchema.safeParse(response.data);
+            if (!parseResult.success) {
+                throw new Error(`Failed to parse users response: ${parseResult.error.message}`);
+            }
+
+            const data = parseResult.data;
+            const users = data.results.map((user) => ({
+                id: user.id,
+                ...(user.name && { name: user.name }),
+                type: user.type,
+                ...(user.avatar_url && { avatar_url: user.avatar_url })
+            }));
+
+            if (users.length > 0) {
+                await nango.batchSave(users, 'User');
+            }
+
+            const nextCursor = data.has_more ? (data.next_cursor ?? undefined) : undefined;
+            if (nextCursor) {
+                await nango.saveCheckpoint({ start_cursor: nextCursor });
+                checkpointSaved = true;
+            }
+
+            cursor = nextCursor;
+        } while (cursor);
+
+        if (checkpointSaved || hadExistingCheckpoint) {
+            await nango.clearCheckpoint();
         }
-        await nango.deleteRecordsFromPreviousExecutions('User');
+        await nango.trackDeletesEnd('User');
     }
 });
 

@@ -1,70 +1,89 @@
 import { z } from 'zod';
 import { createAction } from 'nango';
-import type { ProxyConfiguration } from 'nango';
 
 const InputSchema = z.object({
-    query: z.string().optional().describe('Text to search for in page/database titles.'),
+    query: z.string().optional().describe('Search query string to filter results by title.'),
     filter: z
         .object({
-            property: z.string(),
-            value: z.string()
+            property: z.literal('object'),
+            value: z.enum(['page', 'data_source'])
         })
-        .optional()
-        .describe('Filter to search only pages or databases. Example: {"property":"object","value":"page"}'),
+        .describe('Filter to search only pages or only data_sources.')
+        .optional(),
     sort: z
         .object({
-            direction: z.string(),
-            timestamp: z.string()
+            timestamp: z.enum(['last_edited_time', 'created_time']),
+            direction: z.enum(['ascending', 'descending'])
         })
-        .optional()
-        .describe('Sort order. Example: {"direction":"descending","timestamp":"last_edited_time"}'),
-    page_size: z.number().optional().describe('Number of results to return (max 100).'),
-    cursor: z.string().optional().describe('Pagination cursor from previous response.')
+        .describe('Sort order for results.')
+        .optional(),
+    start_cursor: z.string().optional().describe('Pagination cursor for the next page of results.'),
+    page_size: z.number().describe('Number of results per page (max 100).').min(1).max(100).optional()
+});
+
+const ProviderResponseSchema = z.object({
+    object: z.literal('list'),
+    results: z.array(z.unknown()),
+    next_cursor: z.string().nullable(),
+    has_more: z.boolean(),
+    type: z.string().optional(),
+    page_or_data_source: z.object({}).optional()
 });
 
 const OutputSchema = z.object({
-    object: z.string(),
-    results: z.array(z.any()),
-    has_more: z.boolean(),
-    next_cursor: z.union([z.string(), z.null()])
+    results: z.array(z.unknown()),
+    next_cursor: z.string().optional(),
+    has_more: z.boolean()
 });
 
 const action = createAction({
-    description: 'Searches all pages and databases shared with the integration by title.',
-    version: '1.0.0',
-
+    description: 'Search pages, data sources, and other searchable Notion objects.',
+    version: '2.0.0',
     endpoint: {
         method: 'POST',
-        path: '/search',
+        path: '/actions/search',
         group: 'Search'
     },
-
     input: InputSchema,
     output: OutputSchema,
-    scopes: [],
+    scopes: ['search:read'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
-        const config: ProxyConfiguration = {
-            // https://developers.notion.com/reference/post-search
-            endpoint: 'v1/search',
-            data: {
-                ...(input.query && { query: input.query }),
-                ...(input.filter && { filter: input.filter }),
-                ...(input.sort && { sort: input.sort }),
-                ...(input.page_size && { page_size: input.page_size }),
-                ...(input.cursor && { start_cursor: input.cursor })
-            },
-            retries: 3
-        };
+        const requestBody: Record<string, unknown> = {};
 
-        const response = await nango.post(config);
-        const data = response.data;
+        if (input['query'] !== undefined) {
+            requestBody['query'] = input['query'];
+        }
+
+        if (input['filter'] !== undefined) {
+            requestBody['filter'] = input['filter'];
+        }
+
+        if (input['sort'] !== undefined) {
+            requestBody['sort'] = input['sort'];
+        }
+
+        if (input['start_cursor'] !== undefined) {
+            requestBody['start_cursor'] = input['start_cursor'];
+        }
+
+        if (input['page_size'] !== undefined) {
+            requestBody['page_size'] = input['page_size'];
+        }
+
+        const response = await nango.post({
+            // https://developers.notion.com/reference/post-search
+            endpoint: '/v1/search',
+            data: requestBody,
+            retries: 3
+        });
+
+        const parsed = ProviderResponseSchema.parse(response.data);
 
         return {
-            object: data.object,
-            results: data.results,
-            has_more: data.has_more,
-            next_cursor: data.next_cursor ?? null
+            results: parsed.results,
+            ...(parsed.next_cursor !== null && { next_cursor: parsed.next_cursor }),
+            has_more: parsed.has_more
         };
     }
 });

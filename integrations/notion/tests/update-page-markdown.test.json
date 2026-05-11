@@ -1,0 +1,71 @@
+{
+  "input": {
+    "page_id": "35261e8c-e0a3-81de-a05d-e91c78496380",
+    "type": "replace_content",
+    "replace_content": {
+      "new_str": "# Test Page 2 for Move\n\nThis page content was updated via the Update Page Markdown action.\n\n## Test Successful\n\nThe replace_content command is working correctly!"
+    }
+  },
+  "output": {
+    "id": "35261e8c-e0a3-81de-a05d-e91c78496380",
+    "markdown": "# Test Page 2 for Move\nThis page content was updated via the Update Page Markdown action.\n## Test Successful\nThe replace_content command is working correctly!",
+    "truncated": false
+  },
+  "nango": {},
+  "api": {
+    "patch": {
+      "/v1/pages/35261e8c-e0a3-81de-a05d-e91c78496380/markdown": {
+        "response": {
+          "object": "page_markdown",
+          "id": "35261e8c-e0a3-81de-a05d-e91c78496380",
+          "markdown": "# Test Page 2 for Move\nThis page content was updated via the Update Page Markdown action.\n## Test Successful\nThe replace_content command is working correctly!",
+          "truncated": false,
+          "unknown_block_ids": [],
+          "request_id": "4f704abe-18fa-4965-a7e8-eaf7810bc321"
+        },
+        "status": 200,
+        "headers": {
+          "date": "Thu, 30 Apr 2026 11:34:17 GMT",
+          "content-type": "application/json; charset=utf-8",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=31536000; includeSubDomains; preload",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4995",
+          "x-ratelimit-reset": "1777548906",
+          "cf-ray": "9f463c82ae63ec08-SEA",
+          "cf-cache-status": "DYNAMIC",
+          "etag": "W/\"152-u38FqKshXAk0Eqx0dz9qRzOrrAU\"",
+          "server": "cloudflare",
+          "vary": "Accept-Encoding",
+          "content-security-policy": "default-src 'none'",
+          "referrer-policy": "strict-origin-when-cross-origin",
+          "x-notion-request-id": "4f704abe-18fa-4965-a7e8-eaf7810bc321",
+          "x-permitted-cross-domain-policies": "none",
+          "set-cookie": "__cf_bm=kfpm9cDIhMLibQn4et31iC7vo.mPy7sptk_G7E0qxyo-1777548856.7505245-1.0.1.1-3MHgwQyvFSpw501BN_QJBnG8QHhNzganOaNfeo2Q24i9ZBFpYpfmDFy1G78dbdMGsGpSoJLc31zpwg4EyraTm7UAzoN2vblw4Z3XudG8h6Wgyjb_8G_gbrI4Hhbb9zYZ; HttpOnly; Secure; Path=/; Domain=notion.com; Expires=Thu, 30 Apr 2026 12:04:17 GMT",
+          "alt-svc": "h3=\":443\"; ma=86400"
+        },
+        "hash": "e0ec8f02e53ea181610fb962dc868b5a66487195",
+        "request": {
+          "headers": {
+            "Notion-Version": "2025-09-03"
+          },
+          "data": {
+            "type": "replace_content",
+            "replace_content": {
+              "new_str": "# Test Page 2 for Move\n\nThis page content was updated via the Update Page Markdown action.\n\n## Test Successful\n\nThe replace_content command is working correctly!"
+            }
+          }
+        }
+      }
+    }
+  }
+}
