@@ -102,37 +102,40 @@ const sync = createSync({
             retries: 3
         };
 
-        for await (const forms of nango.paginate(proxyConfig)) {
-            const parsed = z.array(ProviderRoutingFormSchema).safeParse(forms);
-            if (!parsed.success) {
-                throw new Error('Failed to parse routing forms from provider response');
+        try {
+            for await (const forms of nango.paginate(proxyConfig)) {
+                const parsed = z.array(ProviderRoutingFormSchema).safeParse(forms);
+                if (!parsed.success) {
+                    throw new Error('Failed to parse routing forms from provider response');
+                }
+
+                const routingForms = parsed.data.map((form) => {
+                    const id = form.uri.split('/').pop() ?? form.uri;
+                    return {
+                        id: id,
+                        uri: form.uri,
+                        organization: form.organization,
+                        name: form.name,
+                        status: form.status,
+                        questions: form.questions,
+                        created_at: form.created_at,
+                        updated_at: form.updated_at
+                    };
+                });
+
+                if (routingForms.length > 0) {
+                    await nango.batchSave(routingForms, 'RoutingForm');
+                }
+
+                if (pageToken !== undefined) {
+                    await nango.saveCheckpoint({ page_token: pageToken });
+                }
             }
 
-            const routingForms = parsed.data.map((form) => {
-                const id = form.uri.split('/').pop() ?? form.uri;
-                return {
-                    id: id,
-                    uri: form.uri,
-                    organization: form.organization,
-                    name: form.name,
-                    status: form.status,
-                    questions: form.questions,
-                    created_at: form.created_at,
-                    updated_at: form.updated_at
-                };
-            });
-
-            if (routingForms.length > 0) {
-                await nango.batchSave(routingForms, 'RoutingForm');
-            }
-
-            if (pageToken !== undefined) {
-                await nango.saveCheckpoint({ page_token: pageToken });
-            }
+            await nango.saveCheckpoint({ page_token: '' });
+        } finally {
+            await nango.trackDeletesEnd('RoutingForm');
         }
-
-        await nango.trackDeletesEnd('RoutingForm');
-        await nango.saveCheckpoint({ page_token: '' });
     }
 });
 

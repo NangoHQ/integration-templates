@@ -68,7 +68,7 @@ function getRole(obj: Record<string, unknown>): MembershipRole {
     if (value === 'owner' || value === 'admin' || value === 'user') {
         return value;
     }
-    return 'user';
+    throw new Error(`Unknown membership role: ${value}`);
 }
 
 const action = createAction({

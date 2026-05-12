@@ -60,7 +60,7 @@ type CalendlyEventType = z.infer<typeof _CalendlyEventTypeSchema>;
 
 const sync = createSync<{ EventType: typeof EventTypeSchema }, undefined, typeof CheckpointSchema>({
     description: 'Sync event types from Calendly',
-    version: '1.0.0',
+    version: '4.0.0',
     frequency: 'every hour',
     autoStart: true,
     endpoints: [
@@ -114,53 +114,56 @@ const sync = createSync<{ EventType: typeof EventTypeSchema }, undefined, typeof
             retries: 3
         };
 
-        for await (const page of nango.paginate<CalendlyEventType>(proxyConfig)) {
-            const upserts: EventType[] = [];
+        try {
+            for await (const page of nango.paginate<CalendlyEventType>(proxyConfig)) {
+                const upserts: EventType[] = [];
 
-            for (const item of page) {
-                if (item.deleted_at) {
-                    continue;
+                for (const item of page) {
+                    if (item.deleted_at) {
+                        continue;
+                    }
+
+                    const uriParts = item.uri.split('/');
+                    const id = uriParts[uriParts.length - 1];
+                    if (!id) {
+                        continue;
+                    }
+
+                    upserts.push({
+                        id,
+                        uri: item.uri,
+                        name: item.name,
+                        active: item.active,
+                        booking_method: item.booking_method,
+                        color: item.color,
+                        created_at: item.created_at,
+                        updated_at: item.updated_at,
+                        ...(item.deleted_at != null && { deleted_at: item.deleted_at }),
+                        ...(item.description_plain != null && { description_plain: item.description_plain }),
+                        ...(item.description_html != null && { description_html: item.description_html }),
+                        duration: item.duration,
+                        kind: item.kind,
+                        pooling_type: item.pooling_type,
+                        position: item.position,
+                        scheduling_url: item.scheduling_url,
+                        slug: item.slug,
+                        type: item.type
+                    });
                 }
 
-                const uriParts = item.uri.split('/');
-                const id = uriParts[uriParts.length - 1];
-                if (!id) {
-                    continue;
+                if (upserts.length > 0) {
+                    await nango.batchSave(upserts, 'EventType');
                 }
 
-                upserts.push({
-                    id,
-                    uri: item.uri,
-                    name: item.name,
-                    active: item.active,
-                    booking_method: item.booking_method,
-                    color: item.color,
-                    created_at: item.created_at,
-                    updated_at: item.updated_at,
-                    ...(item.deleted_at != null && { deleted_at: item.deleted_at }),
-                    ...(item.description_plain != null && { description_plain: item.description_plain }),
-                    ...(item.description_html != null && { description_html: item.description_html }),
-                    duration: item.duration,
-                    kind: item.kind,
-                    pooling_type: item.pooling_type,
-                    position: item.position,
-                    scheduling_url: item.scheduling_url,
-                    slug: item.slug,
-                    type: item.type
-                });
+                if (pageToken) {
+                    await nango.saveCheckpoint({ page_token: pageToken });
+                }
             }
 
-            if (upserts.length > 0) {
-                await nango.batchSave(upserts, 'EventType');
-            }
-
-            if (pageToken) {
-                await nango.saveCheckpoint({ page_token: pageToken });
-            }
+            await nango.saveCheckpoint({ page_token: '' });
+        } finally {
+            await nango.trackDeletesEnd('EventType');
         }
-
-        await nango.trackDeletesEnd('EventType');
-        await nango.saveCheckpoint({ page_token: '' });
     }
 });
 

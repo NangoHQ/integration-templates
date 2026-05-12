@@ -69,6 +69,13 @@ const action = createAction({
     scopes: ['webhooks:read'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
+        if ((input.organization_url !== undefined || input.user_url !== undefined) && input.scope === undefined) {
+            throw new nango.ActionError({
+                type: 'missing_scope',
+                message: '`scope` is required when `organization_url` or `user_url` is provided'
+            });
+        }
+
         const params: Record<string, string | number> = {};
 
         if (input.organization_url !== undefined) {

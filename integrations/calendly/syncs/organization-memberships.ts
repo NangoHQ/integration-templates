@@ -131,8 +131,7 @@ const sync = createSync<
 
             const parseResult = ProviderResponseSchema.safeParse(response.data);
             if (!parseResult.success) {
-                await nango.log('Failed to parse organization memberships response', { level: 'error' });
-                break;
+                throw new Error(`Failed to parse organization memberships response: ${parseResult.error.message}`);
             }
 
             const data = parseResult.data;

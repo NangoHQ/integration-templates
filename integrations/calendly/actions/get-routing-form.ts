@@ -72,11 +72,7 @@ const action = createAction({
                 updated_at: resource.updated_at
             };
         } catch (error) {
-            if (
-                typeof error === 'object' &&
-                error !== null &&
-                (('status' in error && error.status === 404) || ('type' in error && error.type === 'script_http_error'))
-            ) {
+            if (typeof error === 'object' && error !== null && 'status' in error && error.status === 404) {
                 return null;
             }
             throw error;

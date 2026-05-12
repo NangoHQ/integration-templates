@@ -80,13 +80,13 @@ const action = createAction({
         const ProviderResponseSchema = z.object({
             collection: z.array(
                 z.object({
-                    uri: z.string().optional(),
-                    uuid: z.string().optional(),
-                    name: z.string().optional(),
-                    organization: z.string().optional(),
-                    status: z.string().optional(),
-                    created_at: z.string().optional(),
-                    updated_at: z.string().optional()
+                    uri: z.string(),
+                    uuid: z.string(),
+                    name: z.string(),
+                    organization: z.string(),
+                    status: z.string(),
+                    created_at: z.string(),
+                    updated_at: z.string()
                 })
             ),
             pagination: z
@@ -98,17 +98,15 @@ const action = createAction({
 
         const parsed = ProviderResponseSchema.parse(response.data);
 
-        const items = parsed.collection.map((item) => {
-            return {
-                uri: item.uri || '',
-                uuid: item.uuid || '',
-                name: item.name || '',
-                organization: item.organization || '',
-                status: item.status || '',
-                created_at: item.created_at || '',
-                updated_at: item.updated_at || ''
-            };
-        });
+        const items = parsed.collection.map((item) => ({
+            uri: item.uri,
+            uuid: item.uuid,
+            name: item.name,
+            organization: item.organization,
+            status: item.status,
+            created_at: item.created_at,
+            updated_at: item.updated_at
+        }));
 
         return {
             items,

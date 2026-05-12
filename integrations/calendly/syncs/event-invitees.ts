@@ -155,7 +155,7 @@ function getNextPageToken(pagination?: { next_page?: string | null | undefined; 
 
 const sync = createSync({
     description: 'Sync event invitees from Calendly',
-    version: '1.0.0',
+    version: '3.0.0',
     frequency: 'every hour',
     autoStart: true,
     endpoints: [{ method: 'GET', path: '/event-invitees' }],
@@ -213,7 +213,7 @@ const sync = createSync({
                 const eventUuid = eventUriParts[eventUriParts.length - 1];
 
                 if (!eventUuid) {
-                    await nango.log('WARNING', 'Could not extract event UUID', { uri: event.uri });
+                    await nango.log(`Could not extract event UUID: ${event.uri}`, { level: 'warn' });
                     continue;
                 }
 

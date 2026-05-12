@@ -35,7 +35,8 @@ const EventTypeSchema = z.object({
 });
 
 const PaginationSchema = z.object({
-    next_page: z.string().nullable().optional()
+    next_page: z.string().nullable().optional(),
+    next_page_token: z.string().nullable().optional()
 });
 
 const ProviderResponseSchema = z.object({
@@ -91,7 +92,7 @@ const action = createAction({
 
         const providerData = ProviderResponseSchema.parse(response.data);
 
-        const nextCursor = providerData.pagination?.next_page;
+        const nextCursor = providerData.pagination?.next_page_token;
 
         return {
             event_types: providerData.collection,

@@ -5047,41 +5047,78 @@ export interface SyncMetadata_brightcrowd_pages {
 };
 
 export interface EventType {
+  /**
+   * Unique identifier for the event type
+   */
   id: string;
+  /**
+   * Canonical reference for the event type
+   */
   uri: string;
-  name: string | null;
+  /**
+   * Event type name
+   */
+  name?: string | undefined;
+  /**
+   * Indicates if the event type is active
+   */
   active: boolean;
-  booking_method: string;
-  slug: string | null;
-  scheduling_url: string;
-  duration: number;
-  duration_options: number[] | null;
-  kind: string;
-  pooling_type: string | null;
-  type: string;
-  color: string;
+  /**
+   * Booking method
+   */
+  booking_method?: 'instant' | 'poll' | undefined;
+  /**
+   * Hex color value
+   */
+  color?: string | undefined;
+  /**
+   * Creation timestamp
+   */
   created_at: string;
+  /**
+   * Last update timestamp
+   */
   updated_at: string;
-  internal_note: string | null;
-  description_plain: string | null;
-  description_html: string | null;
-  profile: {  type: string;
-  name: string;
-  owner: string;} | null;
-  secret: boolean;
-  deleted_at: string | null;
-  admin_managed: boolean;
-  locations: ({  kind: string;
-  phone_number?: number | null | undefined;
-  additional_info?: string | null | undefined;})[] | null;
-  custom_questions: ({  name: string;
-  type: string;
-  position: number;
-  enabled: boolean;
-  required: boolean;
-  answer_choices: string[];
-  include_other: boolean;})[];
-  position: number;
+  /**
+   * Deletion timestamp if deleted
+   */
+  deleted_at?: string | undefined;
+  /**
+   * Plain text description
+   */
+  description_plain?: string | undefined;
+  /**
+   * HTML description
+   */
+  description_html?: string | undefined;
+  /**
+   * Session duration in minutes
+   */
+  duration?: number | undefined;
+  /**
+   * Event type kind
+   */
+  kind?: 'solo' | undefined;
+  /**
+   * Pooling type for team event types
+   */
+  pooling_type?: 'round_robin' | 'collective' | 'multi_pool' | undefined;
+  /**
+   * Display position
+   */
+  position?: number | undefined;
+  /**
+   * Booking URL
+   */
+  scheduling_url?: string | undefined;
+  /**
+   * URL slug
+   */
+  slug?: string | undefined;
+  /**
+   * Event type category
+   */
+  type?: 'StandardEventType' | 'AdhocEventType' | undefined;
 };
 
 export interface SyncMetadata_cal_com_v2_eventtypes {
@@ -5122,87 +5159,675 @@ export interface Event {
 export interface SyncMetadata_cal_com_v2_events {
 };
 
-export interface EventInvitee {
+export interface Invitee {
+  /**
+   * The URI of the invitee (used as unique identifier)
+   */
   id: string;
-  cancel_url: string;
-  created_at: string;
   email: string;
-  event: string;
   name: string;
-  first_name: string | null;
-  last_name: string | null;
-  new_invitee: string | null;
-  old_invitee: string | null;
-  questions_and_answers: ({  answer: string;
-  position: number;
-  question: string;})[];
-  reschedule_url: string;
-  rescheduled: boolean;
   status: string;
-  text_reminder_number: string | null;
-  timezone: string;
-  tracking: {  utm_campaign: string | null;
-  utm_source: string | null;
-  utm_medium: string | null;
-  utm_content: string | null;
-  utm_term: string | null;
-  salesforce_uuid: string | null;};
+  created_at: string;
   updated_at: string;
-  uri: string;
-  cancellation: {  canceled_by: string;
-  reason: string | null;
-  canceler_type: string;
-  created_at: string;};
-  routing_form_submission: string | null;
-  payment: {  external_id: string;
+  event: string;
+  canceled?: boolean | undefined;
+  rescheduled?: boolean | undefined;
+  cancel_url?: string | undefined;
+  reschedule_url?: string | undefined;
+  timezone?: string | undefined;
+  text_reminder_number?: string | undefined;
+  questions_and_answers?: ({  question: string;
+  answer: string;
+  position: number;})[] | undefined;
+  tracking?: {  utm_campaign?: string | undefined;
+  utm_source?: string | undefined;
+  utm_medium?: string | undefined;
+  utm_content?: string | undefined;
+  utm_term?: string | undefined;
+  salesforce_uuid?: string | undefined;};
+  payment?: {  external_id: string;
   provider: string;
   amount: number;
   currency: string;
-  terms: string;
-  successful: boolean;} | null;
-  no_show: string | null;
-  reconfirmation: {  created_at: string;
-  confirmed_at: string;} | null;
-  scheduling_method: string | null;
-  invitee_scheduled_by: string | null;
+  terms?: string | undefined;
+  successful: boolean;};
 };
 
-export interface SyncMetadata_calendly_eventinvitees {
+export interface OrganizationMembership {
+  id: string;
+  uri: string;
+  role: string;
+  organizationUri: string;
+  userUri: string;
+  userEmail?: string | undefined;
+  userName?: string | undefined;
+  createdAt?: string | undefined;
+  updatedAt?: string | undefined;
 };
 
-export interface SyncMetadata_calendly_eventtypes {
+export interface RoutingForm {
+  id: string;
+  uri: string;
+  organization: string;
+  name: string;
+  status: string;
+  questions: ({  uuid: string;
+  name: string;
+  type: string;
+  required: boolean;
+  answer_choices: string[];})[];
+  created_at: string;
+  updated_at: string;
 };
 
-export interface SyncMetadata_calendly_events {
+export interface ScheduledEvent {
+  id: string;
+  uri: string;
+  name?: string | undefined;
+  status?: 'active' | 'canceled' | undefined;
+  start_time: string;
+  end_time: string;
+  event_type?: string | undefined;
+  location?: {  type?: string | undefined;
+  location?: string | undefined;};
+  invitees_counter?: {  total?: number | undefined;
+  active?: number | undefined;
+  limit_reached?: boolean | undefined;};
+  created_at: string;
+  updated_at: string;
+  event_type_name?: string | undefined;
+  event_guests?: ({  email?: string | undefined;
+  display_name?: string | undefined;})[];
+  calendar_event?: {  kind?: string | undefined;
+  external_id?: string | undefined;};
+  cancellation?: {  canceled_by?: string | undefined;
+  reason?: string | undefined;
+  canceler_type?: string | undefined;};
 };
 
-export interface SyncMetadata_calendly_users {
+export interface WebhookSubscription {
+  /**
+   * Unique identifier (extracted from URI)
+   */
+  id: string;
+  /**
+   * Full URI of the webhook subscription
+   */
+  uri: string;
+  /**
+   * URL that receives webhook events
+   */
+  callback_url: string;
+  /**
+   * Array of event types subscribed to
+   */
+  events: string[];
+  /**
+   * Scope of the webhook subscription
+   */
+  scope: 'organization' | 'user' | 'group';
+  /**
+   * URI of the organization
+   */
+  organization: string;
+  /**
+   * URI of the user (when scope is user)
+   */
+  user?: string | undefined;
+  /**
+   * URI of the group (when scope is group)
+   */
+  group?: string | undefined;
+  /**
+   * When the subscription was created
+   */
+  created_at: string;
+  /**
+   * When the subscription was last updated
+   */
+  updated_at: string;
+  /**
+   * When retries started for failed deliveries
+   */
+  retry_started_at?: string | undefined;
+  /**
+   * Current status of the webhook
+   */
+  status?: 'active' | 'disabled' | undefined;
+  /**
+   * Additional state information
+   */
+  state?: string | undefined;
 };
 
 export interface ActionInput_calendly_createuser {
+  /**
+   * Email address of the user to invite
+   */
   email: string;
 };
 
 export interface ActionOutput_calendly_createuser {
+  /**
+   * Invitation UUID
+   */
   id: string;
+  /**
+   * Email of the invited user
+   */
   email: string;
+  /**
+   * First name (empty for pending invitations)
+   */
   firstName: string;
+  /**
+   * Last name (empty for pending invitations)
+   */
   lastName: string;
 };
 
 export interface ActionInput_calendly_deleteuser {
+  /**
+   * Organization membership UUID to remove
+   */
   id: string;
 };
 
 export interface ActionOutput_calendly_deleteuser {
+  /**
+   * Whether the deletion was successful
+   */
   success: boolean;
 };
 
-export type ActionInput_calendly_whoami = void
+export interface ActionInput_calendly_getcurrentorganization {
+};
 
-export interface ActionOutput_calendly_whoami {
-  id: string;
+export interface ActionOutput_calendly_getcurrentorganization {
+  /**
+   * Organization URI. Example: "https://api.calendly.com/organizations/12345678-1234-1234-1234-123456789012"
+   */
+  uri: string;
+  /**
+   * Organization name. Example: "Acme Inc"
+   */
+  name: string;
+  /**
+   * Organization locale. Example: "en"
+   */
+  locale?: string | undefined;
+  /**
+   * Organization creation timestamp. Example: "2023-01-01T00:00:00Z"
+   */
+  created_at?: string | undefined;
+  /**
+   * Organization update timestamp. Example: "2023-01-01T00:00:00Z"
+   */
+  updated_at?: string | undefined;
+};
+
+export interface ActionInput_calendly_getcurrentuser {
+};
+
+export interface ActionOutput_calendly_getcurrentuser {
+  /**
+   * User URI
+   */
+  uri: string;
+  /**
+   * User email
+   */
   email: string;
+  /**
+   * User name
+   */
+  name: string;
+  /**
+   * User slug
+   */
+  slug: string;
+  /**
+   * User timezone
+   */
+  timezone: string;
+  /**
+   * User avatar URL
+   */
+  avatar_url?: string | undefined;
+  /**
+   * User creation timestamp
+   */
+  created_at: string;
+  /**
+   * User update timestamp
+   */
+  updated_at: string;
+  /**
+   * User scheduling URL
+   */
+  scheduling_url: string;
+  /**
+   * Organization URI
+   */
+  current_organization: string;
+};
+
+export interface ActionInput_calendly_getorganizationmembership {
+  /**
+   * The unique identifier (UUID) of the organization membership. Example: "12345678-1234-1234-1234-123456789012"
+   */
+  uuid: string;
+};
+
+export interface ActionOutput_calendly_getorganizationmembership {
+  /**
+   * Canonical reference (unique identifier) for the organization membership
+   */
+  uri: string;
+  /**
+   * Role of the user within the organization (e.g., owner, admin, user)
+   */
+  role: string;
+  /**
+   * Canonical reference (unique identifier) for the organization
+   */
+  organization: string;
+  /**
+   * Primary account details of the user
+   */
+  user: {  /**
+   * Canonical reference (unique identifier) for the user
+   */
+  uri: string;
+  /**
+   * Full name of the user
+   */
+  name?: string | undefined;
+  /**
+   * Unique slug of the user
+   */
+  slug?: string | undefined;
+  /**
+   * Email address of the user
+   */
+  email?: string | undefined;
+  /**
+   * Calendly URL for the user's scheduling page
+   */
+  scheduling_url?: string | undefined;
+  /**
+   * User's timezone
+   */
+  timezone?: string | undefined;
+  /**
+   * Timestamp when the user was created
+   */
+  created_at?: string | undefined;
+  /**
+   * Timestamp when the user was last updated
+   */
+  updated_at?: string | undefined;
+  /**
+   * User's locale
+   */
+  locale?: string | undefined;
+  /**
+   * User's time notation preference (12h or 24h)
+   */
+  time_notation?: string | undefined;
+  /**
+   * URL of the user's avatar image
+   */
+  avatar_url?: string | undefined;};
+  /**
+   * Timestamp when the organization membership was created
+   */
+  created_at?: string | undefined;
+  /**
+   * Timestamp when the organization membership was last updated
+   */
+  updated_at?: string | undefined;
+};
+
+export interface ActionInput_calendly_getroutingform {
+  /**
+   * The unique identifier of the routing form in UUID format. Example: "9f53ccd3-88e6-4c62-ad9e-91ea57d2187d"
+   */
+  uuid: string;
+};
+
+export interface ActionOutput_calendly_getroutingform {
+  uri: string;
+  organization: string;
+  name: string;
+  status: 'published' | 'unpublished';
+  questions: ({  uuid: string;
+  name: string;
+  type: string;
+  required: boolean;
+  answer_choices: string[];})[];
+  created_at: string;
+  updated_at: string;
+};
+
+export interface ActionInput_calendly_listeventtypes {
+  /**
+   * Filter by user URI. Example: "https://api.calendly.com/users/ABC123"
+   */
+  user?: string | undefined;
+  /**
+   * Filter by organization URI. Example: "https://api.calendly.com/organizations/XYZ789"
+   */
+  organization?: string | undefined;
+  /**
+   * Filter by active status. If true, returns only active event types. If false, returns only inactive event types.
+   */
+  active?: boolean | undefined;
+  /**
+   * Number of results per page. Maximum 100.
+   */
+  count?: number | undefined;
+  /**
+   * Pagination cursor from the previous response. Omit for the first page.
+   */
+  cursor?: string | undefined;
+  /**
+   * Sort order. Example: "created_at:asc" or "created_at:desc".
+   */
+  sort?: string | undefined;
+};
+
+export interface ActionOutput_calendly_listeventtypes {
+  event_types: ({  uri: string;
+  active: boolean;
+  booking_method: string;
+  color: string;
+  created_at: string;
+  description_html: string;
+  duration: number;
+  internal_note: string;
+  kind: string;
+  name: string;
+  pooling_type: string;
+  profile: {  name: string;
+  type: string;
+  owner: string;};
+  scheduling_url: string;
+  slug: string;
+  type: string;})[];
+  next_cursor?: string | undefined;
+};
+
+export interface ActionInput_calendly_listorganizationmemberships {
+  /**
+   * Organization URI to filter memberships. Example: "https://api.calendly.com/organizations/ABC123"
+   */
+  organization?: string | undefined;
+  /**
+   * User URI to filter memberships. Example: "https://api.calendly.com/users/XYZ789"
+   */
+  user?: string | undefined;
+  /**
+   * Email address to filter memberships. Example: "user@example.com"
+   */
+  email?: string | undefined;
+  /**
+   * Number of results per page (max 100). Default varies by Calendly.
+   */
+  count?: number | undefined;
+  /**
+   * Pagination token from a previous response to fetch the next page.
+   */
+  page_token?: string | undefined;
+};
+
+export interface ActionOutput_calendly_listorganizationmemberships {
+  /**
+   * Array of organization membership records.
+   */
+  collection: ({  /**
+   * Unique membership URI. Example: "https://api.calendly.com/organization_memberships/UUID"
+   */
+  uri: string;
+  /**
+   * Role of the user in the organization.
+   */
+  role: 'owner' | 'admin' | 'user';
+  user: {  /**
+   * User URI. Example: "https://api.calendly.com/users/XYZ789"
+   */
+  uri: string;
+  /**
+   * Full name of the user.
+   */
+  name: string;
+  /**
+   * Email address of the user.
+   */
+  email: string;
+  /**
+   * User scheduling URL.
+   */
+  scheduling_url: string;
+  /**
+   * User timezone.
+   */
+  timezone: string;
+  /**
+   * ISO 8601 timestamp when user was created.
+   */
+  created_at: string;
+  /**
+   * ISO 8601 timestamp when user was last updated.
+   */
+  updated_at: string;};
+  organization: {  /**
+   * Organization URI. Example: "https://api.calendly.com/organizations/ABC123"
+   */
+  uri: string;};
+  /**
+   * ISO 8601 timestamp when membership was created.
+   */
+  created_at: string;
+  /**
+   * ISO 8601 timestamp when membership was last updated.
+   */
+  updated_at: string;})[];
+  /**
+   * Pagination metadata for navigating results.
+   */
+  pagination: {  /**
+   * Number of items in the current page.
+   */
+  count: number;
+  /**
+   * Token to fetch the next page of results.
+   */
+  next_page_token?: string | undefined;};
+};
+
+export interface ActionInput_calendly_listroutingforms {
+  /**
+   * The URI of the organization to list routing forms for. If not provided, the action will fetch the current user's organization.
+   */
+  organization?: string | undefined;
+  /**
+   * Pagination cursor from the previous response. Omit for the first page.
+   */
+  cursor?: string | undefined;
+  /**
+   * Number of results per page. Default is 20.
+   */
+  count?: number | undefined;
+};
+
+export interface ActionOutput_calendly_listroutingforms {
+  items: ({  /**
+   * Canonical reference (unique identifier) for the routing form.
+   */
+  uri: string;
+  /**
+   * Unique identifier for the routing form.
+   */
+  uuid: string;
+  /**
+   * The routing form name (in human-readable format).
+   */
+  name: string;
+  /**
+   * The URI of the organization associated with the routing form.
+   */
+  organization: string;
+  /**
+   * The status of the routing form (e.g., active, disabled).
+   */
+  status: string;
+  /**
+   * ISO 8601 timestamp when the routing form was created.
+   */
+  created_at: string;
+  /**
+   * ISO 8601 timestamp when the routing form was last updated.
+   */
+  updated_at: string;})[];
+  /**
+   * Cursor for the next page of results.
+   */
+  next_cursor?: string | undefined;
+};
+
+export interface ActionInput_calendly_listscheduledevents {
+  /**
+   * Minimum start time for events in ISO 8601 format. Example: "2024-01-01T00:00:00Z"
+   */
+  min_start_time?: string | undefined;
+  /**
+   * Maximum start time for events in ISO 8601 format. Example: "2024-12-31T23:59:59Z"
+   */
+  max_start_time?: string | undefined;
+  /**
+   * Filter events by status: "active" or "canceled"
+   */
+  status?: 'active' | 'canceled' | undefined;
+  /**
+   * Filter events by invitee email address
+   */
+  invitee_email?: string | undefined;
+  /**
+   * Sort order for events. Default is "start_time:asc"
+   */
+  sort?: 'start_time:asc' | 'start_time:desc' | undefined;
+  /**
+   * Number of events to return per page (max 100)
+   */
+  count?: number | undefined;
+  /**
+   * Pagination cursor from the previous response. Omit for the first page.
+   */
+  cursor?: string | undefined;
+};
+
+export interface ActionOutput_calendly_listscheduledevents {
+  events: ({  uri: string;
+  name?: string | undefined;
+  status: 'active' | 'canceled';
+  start_time: string;
+  end_time: string;
+  event_type: string;
+  location: {  type: string;
+  status?: string | undefined;
+  location?: string | undefined;
+  join_url?: string | undefined;};
+  invitees_counter: {  active: number;
+  limit: number;
+  total: number;};
+  created_at: string;
+  updated_at: string;})[];
+  next_cursor?: string | undefined;
+};
+
+export interface ActionInput_calendly_listwebhooksubscriptions {
+  /**
+   * Filter by organization URL. Example: "https://api.calendly.com/organizations/ABC123"
+   */
+  organization_url?: string | undefined;
+  /**
+   * Filter by user URL. Example: "https://api.calendly.com/users/ABC123"
+   */
+  user_url?: string | undefined;
+  /**
+   * Scope of webhook subscriptions to return. Required when filtering by organization or user
+   */
+  scope?: 'organization' | 'user' | undefined;
+  /**
+   * Sort order for results. Default: created_at:desc
+   */
+  sort?: 'created_at:asc' | 'created_at:desc' | undefined;
+  /**
+   * Number of results per page. Max: 100, Default: 20
+   */
+  count?: number | undefined;
+  /**
+   * Pagination token from a previous response
+   */
+  page_token?: string | undefined;
+};
+
+export interface ActionOutput_calendly_listwebhooksubscriptions {
+  /**
+   * List of webhook subscriptions
+   */
+  collection: ({  /**
+   * Canonical reference for the webhook subscription
+   */
+  uri: string;
+  /**
+   * URL where webhook events are sent
+   */
+  callback_url: string;
+  /**
+   * List of event types subscribed to
+   */
+  events: string[];
+  /**
+   * URL of the associated organization
+   */
+  organization: string;
+  /**
+   * URL of the associated user, if scoped to user
+   */
+  user?: string | undefined;
+  /**
+   * Scope of the webhook subscription
+   */
+  scope: 'organization' | 'user';
+  /**
+   * ISO 8601 timestamp when the subscription was created
+   */
+  created_at: string;
+  /**
+   * ISO 8601 timestamp when the subscription was last updated
+   */
+  updated_at: string;
+  /**
+   * URL of the user who created the subscription
+   */
+  creator: string;
+  /**
+   * When retry attempts started, if applicable
+   */
+  retry_started_at?: string | undefined;
+  /**
+   * Current state of the webhook subscription
+   */
+  state: string;
+  /**
+   * Version of the webhook subscription
+   */
+  version: string;})[];
+  pagination?: {  count?: number | undefined;
+  next_page_token?: string | undefined;
+  previous_page_token?: string | undefined;};
 };
 
 export interface BackgroundCheck {
