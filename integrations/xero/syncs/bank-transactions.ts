@@ -7,7 +7,7 @@ const CheckpointSchema = z.object({
 
 const ConnectionSchema = z.object({
     connection_config: z.record(z.string(), z.unknown()).optional(),
-    metadata: z.record(z.string(), z.unknown()).optional()
+    metadata: z.record(z.string(), z.unknown()).optional().nullable()
 });
 
 const ConnectionsResponseSchema = z.array(
@@ -48,7 +48,7 @@ function formatIfModifiedSince(date: Date): string {
 
 const sync = createSync({
     description: 'Sync bank transactions from Xero.',
-    version: '3.0.0',
+    version: '3.0.1',
     frequency: 'every hour',
     autoStart: true,
     endpoints: [

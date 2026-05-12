@@ -1,0 +1,123 @@
+{
+  "input": {
+    "parentItemId": "root",
+    "name": "TestFolder"
+  },
+  "output": {
+    "id": "AB43234B783BB6C3!s693ee9513e554000a66e8a45aad7349e",
+    "name": "TestFolder 1",
+    "webUrl": "https://onedrive.live.com?cid=AB43234B783BB6C3&id=AB43234B783BB6C3!s693ee9513e554000a66e8a45aad7349e",
+    "createdDateTime": "2026-05-06T21:30:20Z",
+    "parentReference": {
+      "driveId": "AB43234B783BB6C3",
+      "id": "AB43234B783BB6C3!sea8cc6beffdb43d7976fbc7da445c639",
+      "path": "/drives/AB43234B783BB6C3/root:"
+    }
+  },
+  "nango": {},
+  "api": {
+    "post": {
+      "/v1.0/me/drive/items/root/children": {
+        "response": {
+          "@odata.context": "https://graph.microsoft.com/v1.0/$metadata#users('apinangodev%40outlook.com')/drive/items('root')/children/$entity",
+          "@odata.etag": "\"{693EE951-3E55-4000-A66E-8A45AAD7349E},1\"",
+          "eTag": "\"{693EE951-3E55-4000-A66E-8A45AAD7349E},1\"",
+          "lastModifiedDateTime": "2026-05-06T21:30:20Z",
+          "createdDateTime": "2026-05-06T21:30:20Z",
+          "id": "AB43234B783BB6C3!s693ee9513e554000a66e8a45aad7349e",
+          "name": "TestFolder 1",
+          "size": 0,
+          "webUrl": "https://onedrive.live.com?cid=AB43234B783BB6C3&id=AB43234B783BB6C3!s693ee9513e554000a66e8a45aad7349e",
+          "cTag": "\"c:{693EE951-3E55-4000-A66E-8A45AAD7349E},0\"",
+          "commentSettings": {
+            "commentingDisabled": {
+              "isDisabled": false
+            }
+          },
+          "createdBy": {
+            "application": {
+              "displayName": "i:0i.t|ms.sp.ext|052f364f-e5c3-45bd-8849-4175f81f6dbb@9188040d-6c67-4c5b-b112-36a304b66dad",
+              "id": "052f364f-e5c3-45bd-8849-4175f81f6dbb"
+            },
+            "user": {
+              "displayName": "Nango Dev",
+              "email": "apinangodev@outlook.com"
+            }
+          },
+          "lastModifiedBy": {
+            "application": {
+              "displayName": "i:0i.t|ms.sp.ext|052f364f-e5c3-45bd-8849-4175f81f6dbb@9188040d-6c67-4c5b-b112-36a304b66dad",
+              "id": "052f364f-e5c3-45bd-8849-4175f81f6dbb"
+            },
+            "user": {
+              "displayName": "Nango Dev",
+              "email": "apinangodev@outlook.com"
+            }
+          },
+          "parentReference": {
+            "driveId": "AB43234B783BB6C3",
+            "driveType": "personal",
+            "id": "AB43234B783BB6C3!sea8cc6beffdb43d7976fbc7da445c639",
+            "path": "/drives/AB43234B783BB6C3/root:",
+            "sharepointIds": {
+              "listId": "4faba25c-23cb-4336-b517-5143cf67f714",
+              "listItemUniqueId": "4382681e-df43-4b6e-bae8-ab3df85caac6",
+              "siteId": "cddae02a-82ab-45f2-8d9f-b7e90bba6d93",
+              "siteUrl": "https://my.microsoftpersonalcontent.com/personal/ab43234b783bb6c3",
+              "tenantId": "9188040d-6c67-4c5b-b112-36a304b66dad",
+              "webId": "913a7c28-d1fc-4d6a-853b-eaf63264f2e4"
+            }
+          },
+          "fileSystemInfo": {
+            "createdDateTime": "2026-05-06T21:30:20Z",
+            "lastModifiedDateTime": "2026-05-06T21:30:20Z"
+          },
+          "folder": {
+            "childCount": 0,
+            "view": {
+              "sortBy": "name",
+              "sortOrder": "ascending",
+              "viewType": "thumbnails"
+            }
+          }
+        },
+        "status": 201,
+        "headers": {
+          "date": "Wed, 06 May 2026 21:30:20 GMT",
+          "content-type": "application/json;odata.metadata=minimal;odata.streaming=true;IEEE754Compatible=false;charset=utf-8",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=31536000",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4861",
+          "x-ratelimit-reset": "1778103025",
+          "cache-control": "private",
+          "etag": "\"{693EE951-3E55-4000-A66E-8A45AAD7349E},1\"",
+          "location": "https://my.microsoftpersonalcontent.com/_api/v2.0/drives('default')/items('root')/children('AB43234B783BB6C3!s693ee9513e554000a66e8a45aad7349e')",
+          "vary": "Accept-Encoding",
+          "request-id": "173b25a5-8d1d-4bec-a953-a323e3896ade",
+          "client-request-id": "173b25a5-8d1d-4bec-a953-a323e3896ade",
+          "x-ms-ags-diagnostic": "{\"ServerInfo\":{\"DataCenter\":\"West US 2\",\"Slice\":\"E\",\"Ring\":\"4\",\"ScaleUnit\":\"000\",\"RoleInstance\":\"CO1PEPF00000104\"}}",
+          "splogid": "fc1511a2-d033-c000-c5d0-dff98c7ec92d",
+          "odata-version": "4.0"
+        },
+        "hash": "13b7ded43bdd8aa307f09ce46921549258fe391f",
+        "request": {
+          "data": {
+            "name": "TestFolder",
+            "folder": {},
+            "@microsoft.graph.conflictBehavior": "rename"
+          }
+        }
+      }
+    }
+  }
+}

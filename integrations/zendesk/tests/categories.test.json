@@ -1,0 +1,182 @@
+{
+  "nango": {
+    "batchSave": {
+      "Category": [
+        {
+          "id": "46406160013969",
+          "name": "General",
+          "description": "",
+          "locale": "en-us",
+          "source_locale": "en-us",
+          "position": 0,
+          "outdated": false,
+          "created_at": "2026-05-06T07:46:03Z",
+          "updated_at": "2026-05-06T08:35:34Z",
+          "html_url": "https://nango-1049.zendesk.com/hc/en-us/categories/46406160013969-General",
+          "url": "https://nango-1049.zendesk.com/api/v2/help_center/en-us/categories/46406160013969.json"
+        },
+        {
+          "id": "46408801796625",
+          "name": "Test Category",
+          "locale": "en-us",
+          "source_locale": "en-us",
+          "position": 0,
+          "outdated": false,
+          "created_at": "2026-05-06T08:45:51Z",
+          "updated_at": "2026-05-06T08:45:51Z",
+          "html_url": "https://nango-1049.zendesk.com/hc/en-us/categories/46408801796625-Test-Category",
+          "url": "https://nango-1049.zendesk.com/api/v2/help_center/en-us/categories/46408801796625.json"
+        },
+        {
+          "id": "46408832903953",
+          "name": "Test Category",
+          "locale": "en-us",
+          "source_locale": "en-us",
+          "position": 0,
+          "outdated": false,
+          "created_at": "2026-05-06T08:47:17Z",
+          "updated_at": "2026-05-06T08:47:17Z",
+          "html_url": "https://nango-1049.zendesk.com/hc/en-us/categories/46408832903953-Test-Category",
+          "url": "https://nango-1049.zendesk.com/api/v2/help_center/en-us/categories/46408832903953.json"
+        },
+        {
+          "id": "46408807177233",
+          "name": "Test Category for Section",
+          "description": "A test category for creating sections",
+          "locale": "en-us",
+          "source_locale": "en-us",
+          "position": 0,
+          "outdated": false,
+          "created_at": "2026-05-06T08:46:40Z",
+          "updated_at": "2026-05-06T08:47:49Z",
+          "html_url": "https://nango-1049.zendesk.com/hc/en-us/categories/46408807177233-Test-Category-for-Section",
+          "url": "https://nango-1049.zendesk.com/api/v2/help_center/en-us/categories/46408807177233.json"
+        }
+      ]
+    },
+    "batchDelete": {
+      "Category": []
+    }
+  },
+  "api": {
+    "get": {
+      "/api/v2/help_center/categories": {
+        "response": {
+          "meta": {
+            "has_more": false,
+            "after_cursor": "ZDUA+2kAAAAAZPD/+mkAAAAAaRFcd2Q1KgAA",
+            "before_cursor": "ZFb9+mkAAAAAZLvx+mkAAAAAaZHarsY0KgAA"
+          },
+          "links": {
+            "first": "https://nango-1049.zendesk.com/api/v2/help_center/categories?page%5Bsize%5D=100&sort_by=updated_at&sort_order=asc",
+            "last": "https://nango-1049.zendesk.com/api/v2/help_center/categories?page%5Bbefore%5D=bGFzdF9wYWdl&page%5Bsize%5D=100&sort_by=updated_at&sort_order=asc"
+          },
+          "categories": [
+            {
+              "id": 46406160013969,
+              "url": "https://nango-1049.zendesk.com/api/v2/help_center/en-us/categories/46406160013969.json",
+              "html_url": "https://nango-1049.zendesk.com/hc/en-us/categories/46406160013969-General",
+              "position": 0,
+              "created_at": "2026-05-06T07:46:03Z",
+              "updated_at": "2026-05-06T08:35:34Z",
+              "name": "General",
+              "description": "",
+              "locale": "en-us",
+              "source_locale": "en-us",
+              "outdated": false
+            },
+            {
+              "id": 46408801796625,
+              "url": "https://nango-1049.zendesk.com/api/v2/help_center/en-us/categories/46408801796625.json",
+              "html_url": "https://nango-1049.zendesk.com/hc/en-us/categories/46408801796625-Test-Category",
+              "position": 0,
+              "created_at": "2026-05-06T08:45:51Z",
+              "updated_at": "2026-05-06T08:45:51Z",
+              "name": "Test Category",
+              "description": null,
+              "locale": "en-us",
+              "source_locale": "en-us",
+              "outdated": false
+            },
+            {
+              "id": 46408832903953,
+              "url": "https://nango-1049.zendesk.com/api/v2/help_center/en-us/categories/46408832903953.json",
+              "html_url": "https://nango-1049.zendesk.com/hc/en-us/categories/46408832903953-Test-Category",
+              "position": 0,
+              "created_at": "2026-05-06T08:47:17Z",
+              "updated_at": "2026-05-06T08:47:17Z",
+              "name": "Test Category",
+              "description": null,
+              "locale": "en-us",
+              "source_locale": "en-us",
+              "outdated": false
+            },
+            {
+              "id": 46408807177233,
+              "url": "https://nango-1049.zendesk.com/api/v2/help_center/en-us/categories/46408807177233.json",
+              "html_url": "https://nango-1049.zendesk.com/hc/en-us/categories/46408807177233-Test-Category-for-Section",
+              "position": 0,
+              "created_at": "2026-05-06T08:46:40Z",
+              "updated_at": "2026-05-06T08:47:49Z",
+              "name": "Test Category for Section",
+              "description": "A test category for creating sections",
+              "locale": "en-us",
+              "source_locale": "en-us",
+              "outdated": false
+            }
+          ]
+        },
+        "status": 200,
+        "headers": {
+          "date": "Wed, 06 May 2026 08:47:54 GMT",
+          "content-type": "application/json; charset=utf-8",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "1; mode=block",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=31536000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "X-Zendesk-API-Warn",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4960",
+          "x-ratelimit-reset": "1778057320",
+          "x-ua-compatible": "IE=edge",
+          "x-zendesk-api-version": "v2",
+          "x-rate-limit": "400",
+          "x-rate-limit-remaining": "395",
+          "x-zendesk-origin-server": "app-server-5d5b6bbd9d-qhlwt",
+          "etag": "W/\"188e5282b4837fecef42234f160f73bb\"",
+          "cache-control": "max-age=0, private, must-revalidate",
+          "x-request-id": "9f76b90cf8c4613d-DUB",
+          "x-runtime": "0.066604",
+          "x-envoy-upstream-service-time": "71",
+          "x-openapi-route-path": "/api/v2/help_center/categories",
+          "zendesk-service": "help-center",
+          "x-zendesk-zorg": "yes",
+          "protocol": "HTTP/1.1 always",
+          "vary": "Accept-Encoding",
+          "via": "zorg",
+          "x-envoy-decorator-operation": "/api/v2/help_center/",
+          "cf-cache-status": "BYPASS",
+          "set-cookie": "__cf_bm=W83LF52qydaHt8WN.9KU_fH0uk2fep86hzJJHcPSpTw-1778057274-1.0.1.1-wOgkZirko2nYtBY0SNZTvhbn1TRgwfb8P8S9No_T8ULBikbv10UgXV7nok_5eUj8FOov8WEjz8fxwuV02eFEbAdtvyJ.XDH4qnXGQRuyr2g; path=/; expires=Wed, 06-May-26 09:17:54 GMT; domain=.nango-1049.zendesk.com; HttpOnly; Secure; SameSite=None, _cfuvid=Si3h47tlPN8wcuas_MuodPqyPYmi9CBINOZ2oqWmGjE-1778057274661-0.0.1.1-604800000; path=/; domain=.nango-1049.zendesk.com; HttpOnly; Secure; SameSite=None",
+          "report-to": "{\"endpoints\":[{\"url\":\"https:\\/\\/a.nel.cloudflare.com\\/report\\/v4?s=mZqydky5K6FkMmN%2F2FAAVJFEeXhPuqJR7bmW1WMQnR5yyOBIawh%2BrwrkNsb%2BJQuUc4aTg2QPw7j8qWdbK8WKnY50xfcPCNNHU%2BaHW89c%2BZgrqS%2Bo5elCMMX2WS3V3CHlUEiD%2FRuvz7Y%3D\"}],\"group\":\"cf-nel\",\"max_age\":604800}",
+          "nel": "{\"success_fraction\":0.01,\"report_to\":\"cf-nel\",\"max_age\":604800}",
+          "server": "cloudflare",
+          "cf-ray": "9f76b90cf8c4613d-PDX"
+        },
+        "hash": "29feaef030cf0f47479dff89c8e6338f93876d59",
+        "request": {
+          "params": {
+            "page[size]": "100",
+            "sort_by": "updated_at",
+            "sort_order": "asc"
+          }
+        }
+      }
+    }
+  }
+}

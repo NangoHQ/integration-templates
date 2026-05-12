@@ -1,52 +1,37 @@
+import { z } from 'zod';
 import { createAction } from 'nango';
-import { idEntitySchema } from '../schema.zod.js';
-import type { IntercomDeleteContactResponse } from '../types.js';
 
-import type { ProxyConfiguration } from 'nango';
-import { SuccessResponse, IdEntity } from '../models.js';
+const InputSchema = z.object({
+    id: z.string().describe('The unique identifier for the contact to delete. Example: "5f3c8b3e8f0e3c0001a2b3c4"')
+});
 
-/**
- * Deletes an Intercom contact.
- *
- * This function validates the input against the defined schema and constructs a request
- * to the Intercom API to delete a contact by their ID. If the input is invalid,
- * it logs the errors and throws an ActionError.
- *
- * @param {NangoAction} nango - The Nango action context, used for logging and making API requests.
- * @param {IdEntity} input - The input data containing the ID of the contact to be deleted
- *
- * @returns {Promise<SuccessResponse>} - A promise that resolves to a SuccessResponse object indicating the result of the deletion.
- *
- * @throws {nango.ActionError} - Throws an error if the input validation fails.
- *
- * For detailed endpoint documentation, refer to:
- * https://developers.intercom.com/docs/references/rest-api/api.intercom.io/contacts/deletecontact
- */
+const OutputSchema = z.object({
+    success: z.boolean(),
+    deleted_id: z.string().optional()
+});
+
 const action = createAction({
-    description: 'Deletes a contact in Intercom',
-    version: '1.0.0',
-
+    description: 'Delete a contact by ID',
+    version: '2.0.0',
     endpoint: {
-        method: 'DELETE',
-        path: '/contact'
+        method: 'POST',
+        path: '/actions/delete-contact',
+        group: 'Contacts'
     },
+    input: InputSchema,
+    output: OutputSchema,
+    scopes: ['contacts:delete'],
 
-    input: IdEntity,
-    output: SuccessResponse,
-
-    exec: async (nango, input): Promise<SuccessResponse> => {
-        const parsedInput = await nango.zodValidateInput({ zodSchema: idEntitySchema, input });
-
-        const config: ProxyConfiguration = {
-            // https://developers.intercom.com/docs/references/rest-api/api.intercom.io/contacts/deletecontact
-            endpoint: `/contacts/${parsedInput.data.id}`,
+    exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
+        // https://developers.intercom.com/docs/references/rest-api/api.intercom.io/Contacts
+        await nango.delete({
+            endpoint: `/contacts/${encodeURIComponent(input.id)}`,
             retries: 3
-        };
-
-        const response = await nango.delete<IntercomDeleteContactResponse>(config);
+        });
 
         return {
-            success: response.data.deleted
+            success: true,
+            deleted_id: input.id
         };
     }
 });

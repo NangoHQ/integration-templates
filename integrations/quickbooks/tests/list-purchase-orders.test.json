@@ -1,0 +1,1264 @@
+{
+  "input": {},
+  "output": {
+    "purchase_orders": [
+      {
+        "id": "163",
+        "ap_account_ref": {
+          "value": "33",
+          "name": "Accounts Payable (A/P)"
+        },
+        "vendor_ref": {
+          "value": "56",
+          "name": "Bob's Burger Joint"
+        },
+        "linked_transactions": [],
+        "metadata": {
+          "create_time": "2026-05-05T02:17:37-07:00",
+          "last_updated_time": "2026-05-05T02:17:37-07:00"
+        },
+        "po_status": "Open",
+        "doc_number": "1010",
+        "txn_date": "2026-05-05",
+        "total_amount": 150,
+        "line_items": [
+          {
+            "id": "1",
+            "description": "Office supplies",
+            "amount": 150,
+            "detail_type": "AccountBasedExpenseLineDetail",
+            "Id": "1",
+            "Description": "Office supplies",
+            "Amount": 150,
+            "DetailType": "AccountBasedExpenseLineDetail",
+            "AccountBasedExpenseLineDetail": {
+              "AccountRef": {
+                "value": "69",
+                "name": "Legal & Professional Fees:Accounting"
+              },
+              "BillableStatus": "NotBillable",
+              "TaxCodeRef": {
+                "value": "NON"
+              }
+            },
+            "LineNum": 1,
+            "CustomExtensions": []
+          }
+        ],
+        "memo": "Test purchase order"
+      },
+      {
+        "id": "162",
+        "ap_account_ref": {
+          "value": "33",
+          "name": "Accounts Payable (A/P)"
+        },
+        "vendor_ref": {
+          "value": "56",
+          "name": "Bob's Burger Joint"
+        },
+        "linked_transactions": [],
+        "metadata": {
+          "create_time": "2026-05-05T02:14:00-07:00",
+          "last_updated_time": "2026-05-05T02:14:00-07:00"
+        },
+        "po_status": "Open",
+        "doc_number": "1009",
+        "txn_date": "2026-05-05",
+        "total_amount": 150,
+        "line_items": [
+          {
+            "id": "1",
+            "description": "Office supplies",
+            "amount": 150,
+            "detail_type": "AccountBasedExpenseLineDetail",
+            "Id": "1",
+            "Description": "Office supplies",
+            "Amount": 150,
+            "DetailType": "AccountBasedExpenseLineDetail",
+            "AccountBasedExpenseLineDetail": {
+              "AccountRef": {
+                "value": "69",
+                "name": "Legal & Professional Fees:Accounting"
+              },
+              "BillableStatus": "NotBillable",
+              "TaxCodeRef": {
+                "value": "NON"
+              }
+            },
+            "LineNum": 1,
+            "CustomExtensions": []
+          }
+        ],
+        "memo": "Test purchase order"
+      },
+      {
+        "id": "160",
+        "ap_account_ref": {
+          "value": "33",
+          "name": "Accounts Payable (A/P)"
+        },
+        "vendor_ref": {
+          "value": "56",
+          "name": "Bob's Burger Joint"
+        },
+        "linked_transactions": [],
+        "metadata": {
+          "create_time": "2026-05-05T02:11:06-07:00",
+          "last_updated_time": "2026-05-05T02:11:41-07:00"
+        },
+        "po_status": "Open",
+        "txn_date": "2026-05-05",
+        "total_amount": 150,
+        "line_items": [
+          {
+            "id": "1",
+            "description": "Updated pump description",
+            "amount": 150,
+            "detail_type": "ItemBasedExpenseLineDetail",
+            "item_ref": {
+              "value": "11",
+              "name": "Pump"
+            },
+            "quantity": 2,
+            "unit_price": 75,
+            "Id": "1",
+            "Description": "Updated pump description",
+            "Amount": 150,
+            "DetailType": "ItemBasedExpenseLineDetail",
+            "ItemBasedExpenseLineDetail": {
+              "ItemRef": {
+                "value": "11",
+                "name": "Pump"
+              },
+              "Qty": 2,
+              "UnitPrice": 75,
+              "BillableStatus": "NotBillable",
+              "TaxCodeRef": {
+                "value": "NON"
+              }
+            },
+            "LineNum": 1,
+            "Received": 0,
+            "CustomExtensions": []
+          }
+        ],
+        "memo": "Updated memo for testing"
+      },
+      {
+        "id": "158",
+        "ap_account_ref": {
+          "value": "33",
+          "name": "Accounts Payable (A/P)"
+        },
+        "vendor_ref": {
+          "value": "56",
+          "name": "Bob's Burger Joint"
+        },
+        "linked_transactions": [],
+        "metadata": {
+          "create_time": "2026-05-05T02:10:20-07:00",
+          "last_updated_time": "2026-05-05T02:10:20-07:00"
+        },
+        "po_status": "Open",
+        "doc_number": "1007",
+        "txn_date": "2026-05-05",
+        "total_amount": 150,
+        "line_items": [
+          {
+            "id": "1",
+            "description": "Office supplies",
+            "amount": 150,
+            "detail_type": "AccountBasedExpenseLineDetail",
+            "Id": "1",
+            "Description": "Office supplies",
+            "Amount": 150,
+            "DetailType": "AccountBasedExpenseLineDetail",
+            "AccountBasedExpenseLineDetail": {
+              "AccountRef": {
+                "value": "69",
+                "name": "Legal & Professional Fees:Accounting"
+              },
+              "BillableStatus": "NotBillable",
+              "TaxCodeRef": {
+                "value": "NON"
+              }
+            },
+            "LineNum": 1,
+            "CustomExtensions": []
+          }
+        ],
+        "memo": "Test purchase order"
+      },
+      {
+        "id": "156",
+        "ap_account_ref": {
+          "value": "33",
+          "name": "Accounts Payable (A/P)"
+        },
+        "vendor_ref": {
+          "value": "56",
+          "name": "Bob's Burger Joint"
+        },
+        "linked_transactions": [],
+        "metadata": {
+          "create_time": "2026-05-05T02:10:07-07:00",
+          "last_updated_time": "2026-05-05T02:10:07-07:00"
+        },
+        "po_status": "Open",
+        "doc_number": "1006",
+        "txn_date": "2026-05-05",
+        "total_amount": 150,
+        "line_items": [
+          {
+            "id": "1",
+            "description": "Office supplies",
+            "amount": 150,
+            "detail_type": "AccountBasedExpenseLineDetail",
+            "Id": "1",
+            "Description": "Office supplies",
+            "Amount": 150,
+            "DetailType": "AccountBasedExpenseLineDetail",
+            "AccountBasedExpenseLineDetail": {
+              "AccountRef": {
+                "value": "69",
+                "name": "Legal & Professional Fees:Accounting"
+              },
+              "BillableStatus": "NotBillable",
+              "TaxCodeRef": {
+                "value": "NON"
+              }
+            },
+            "LineNum": 1,
+            "CustomExtensions": []
+          }
+        ],
+        "memo": "Test purchase order"
+      },
+      {
+        "id": "154",
+        "ap_account_ref": {
+          "value": "33",
+          "name": "Accounts Payable (A/P)"
+        },
+        "vendor_ref": {
+          "value": "56",
+          "name": "Bob's Burger Joint"
+        },
+        "linked_transactions": [],
+        "metadata": {
+          "create_time": "2026-05-05T02:08:26-07:00",
+          "last_updated_time": "2026-05-05T02:08:26-07:00"
+        },
+        "po_status": "Open",
+        "doc_number": "1005",
+        "txn_date": "2026-05-05",
+        "total_amount": 150,
+        "line_items": [
+          {
+            "id": "1",
+            "description": "Office supplies",
+            "amount": 150,
+            "detail_type": "AccountBasedExpenseLineDetail",
+            "Id": "1",
+            "Description": "Office supplies",
+            "Amount": 150,
+            "DetailType": "AccountBasedExpenseLineDetail",
+            "AccountBasedExpenseLineDetail": {
+              "AccountRef": {
+                "value": "69",
+                "name": "Legal & Professional Fees:Accounting"
+              },
+              "BillableStatus": "NotBillable",
+              "TaxCodeRef": {
+                "value": "NON"
+              }
+            },
+            "LineNum": 1,
+            "CustomExtensions": []
+          }
+        ],
+        "memo": "Test purchase order"
+      },
+      {
+        "id": "125",
+        "ap_account_ref": {
+          "value": "33",
+          "name": "Accounts Payable (A/P)"
+        },
+        "vendor_ref": {
+          "value": "46",
+          "name": "Norton Lumber and Building Materials"
+        },
+        "linked_transactions": [
+          {
+            "txn_id": "126",
+            "txn_type": "Bill"
+          }
+        ],
+        "metadata": {
+          "create_time": "2026-04-08T13:10:14-07:00",
+          "last_updated_time": "2026-04-08T13:10:36-07:00"
+        },
+        "po_status": "Closed",
+        "doc_number": "1004",
+        "txn_date": "2026-04-08",
+        "total_amount": 205,
+        "line_items": [
+          {
+            "id": "1",
+            "description": "Fountain Pump",
+            "amount": 80,
+            "detail_type": "ItemBasedExpenseLineDetail",
+            "item_ref": {
+              "value": "11",
+              "name": "Pump"
+            },
+            "quantity": 8,
+            "unit_price": 10,
+            "Id": "1",
+            "Description": "Fountain Pump",
+            "Amount": 80,
+            "DetailType": "ItemBasedExpenseLineDetail",
+            "ItemBasedExpenseLineDetail": {
+              "ItemRef": {
+                "value": "11",
+                "name": "Pump"
+              },
+              "Qty": 8,
+              "UnitPrice": 10,
+              "BillableStatus": "NotBillable",
+              "TaxCodeRef": {
+                "value": "NON"
+              }
+            },
+            "LineNum": 1,
+            "CustomExtensions": []
+          },
+          {
+            "id": "2",
+            "description": "Rock Fountain",
+            "amount": 125,
+            "detail_type": "ItemBasedExpenseLineDetail",
+            "item_ref": {
+              "value": "5",
+              "name": "Rock Fountain"
+            },
+            "quantity": 1,
+            "unit_price": 125,
+            "Id": "2",
+            "Description": "Rock Fountain",
+            "Amount": 125,
+            "DetailType": "ItemBasedExpenseLineDetail",
+            "ItemBasedExpenseLineDetail": {
+              "ItemRef": {
+                "value": "5",
+                "name": "Rock Fountain"
+              },
+              "Qty": 1,
+              "UnitPrice": 125,
+              "BillableStatus": "NotBillable",
+              "TaxCodeRef": {
+                "value": "NON"
+              }
+            },
+            "LineNum": 2,
+            "CustomExtensions": []
+          }
+        ]
+      },
+      {
+        "id": "114",
+        "ap_account_ref": {
+          "value": "33",
+          "name": "Accounts Payable (A/P)"
+        },
+        "vendor_ref": {
+          "value": "41",
+          "name": "Hicks Hardware"
+        },
+        "linked_transactions": [
+          {
+            "txn_id": "115",
+            "txn_type": "Purchase"
+          }
+        ],
+        "metadata": {
+          "create_time": "2026-04-08T12:50:05-07:00",
+          "last_updated_time": "2026-04-08T12:51:47-07:00"
+        },
+        "po_status": "Closed",
+        "doc_number": "1003",
+        "txn_date": "2026-04-08",
+        "total_amount": 228.75,
+        "line_items": [
+          {
+            "id": "1",
+            "description": "Rock Fountain",
+            "amount": 125,
+            "detail_type": "ItemBasedExpenseLineDetail",
+            "item_ref": {
+              "value": "5",
+              "name": "Rock Fountain"
+            },
+            "quantity": 1,
+            "unit_price": 125,
+            "Id": "1",
+            "Description": "Rock Fountain",
+            "Amount": 125,
+            "DetailType": "ItemBasedExpenseLineDetail",
+            "ItemBasedExpenseLineDetail": {
+              "ItemRef": {
+                "value": "5",
+                "name": "Rock Fountain"
+              },
+              "Qty": 1,
+              "UnitPrice": 125,
+              "CustomerRef": {
+                "value": "25",
+                "name": "Sushi by Katsuyuki"
+              },
+              "BillableStatus": "NotBillable",
+              "TaxCodeRef": {
+                "value": "NON"
+              }
+            },
+            "LineNum": 1,
+            "CustomExtensions": []
+          },
+          {
+            "id": "2",
+            "description": "Sprinkler Heads",
+            "amount": 11.25,
+            "detail_type": "ItemBasedExpenseLineDetail",
+            "item_ref": {
+              "value": "16",
+              "name": "Sprinkler Heads"
+            },
+            "quantity": 15,
+            "unit_price": 0.75,
+            "Id": "2",
+            "Description": "Sprinkler Heads",
+            "Amount": 11.25,
+            "DetailType": "ItemBasedExpenseLineDetail",
+            "ItemBasedExpenseLineDetail": {
+              "ItemRef": {
+                "value": "16",
+                "name": "Sprinkler Heads"
+              },
+              "Qty": 15,
+              "UnitPrice": 0.75,
+              "CustomerRef": {
+                "value": "25",
+                "name": "Sushi by Katsuyuki"
+              },
+              "BillableStatus": "NotBillable",
+              "TaxCodeRef": {
+                "value": "NON"
+              }
+            },
+            "LineNum": 2,
+            "CustomExtensions": []
+          },
+          {
+            "id": "3",
+            "description": "Sprinkler Pipes",
+            "amount": 62.5,
+            "detail_type": "ItemBasedExpenseLineDetail",
+            "item_ref": {
+              "value": "17",
+              "name": "Sprinkler Pipes"
+            },
+            "quantity": 25,
+            "unit_price": 2.5,
+            "Id": "3",
+            "Description": "Sprinkler Pipes",
+            "Amount": 62.5,
+            "DetailType": "ItemBasedExpenseLineDetail",
+            "ItemBasedExpenseLineDetail": {
+              "ItemRef": {
+                "value": "17",
+                "name": "Sprinkler Pipes"
+              },
+              "Qty": 25,
+              "UnitPrice": 2.5,
+              "CustomerRef": {
+                "value": "25",
+                "name": "Sushi by Katsuyuki"
+              },
+              "BillableStatus": "NotBillable",
+              "TaxCodeRef": {
+                "value": "NON"
+              }
+            },
+            "LineNum": 3,
+            "CustomExtensions": []
+          },
+          {
+            "id": "4",
+            "description": "Fountain Pump",
+            "amount": 30,
+            "detail_type": "ItemBasedExpenseLineDetail",
+            "item_ref": {
+              "value": "11",
+              "name": "Pump"
+            },
+            "quantity": 3,
+            "unit_price": 10,
+            "Id": "4",
+            "Description": "Fountain Pump",
+            "Amount": 30,
+            "DetailType": "ItemBasedExpenseLineDetail",
+            "ItemBasedExpenseLineDetail": {
+              "ItemRef": {
+                "value": "11",
+                "name": "Pump"
+              },
+              "Qty": 3,
+              "UnitPrice": 10,
+              "BillableStatus": "NotBillable",
+              "TaxCodeRef": {
+                "value": "NON"
+              }
+            },
+            "LineNum": 4,
+            "CustomExtensions": []
+          }
+        ]
+      },
+      {
+        "id": "45",
+        "ap_account_ref": {
+          "value": "33",
+          "name": "Accounts Payable (A/P)"
+        },
+        "vendor_ref": {
+          "value": "51",
+          "name": "Tim Philip Masonry"
+        },
+        "linked_transactions": [],
+        "metadata": {
+          "create_time": "2026-04-06T11:33:16-07:00",
+          "last_updated_time": "2026-04-06T11:33:16-07:00"
+        },
+        "po_status": "Open",
+        "doc_number": "1002",
+        "txn_date": "2026-04-06",
+        "total_amount": 125,
+        "line_items": [
+          {
+            "id": "1",
+            "description": "Rock Fountain",
+            "amount": 125,
+            "detail_type": "ItemBasedExpenseLineDetail",
+            "item_ref": {
+              "value": "5",
+              "name": "Rock Fountain"
+            },
+            "quantity": 1,
+            "unit_price": 125,
+            "Id": "1",
+            "Description": "Rock Fountain",
+            "Amount": 125,
+            "DetailType": "ItemBasedExpenseLineDetail",
+            "ItemBasedExpenseLineDetail": {
+              "ItemRef": {
+                "value": "5",
+                "name": "Rock Fountain"
+              },
+              "Qty": 1,
+              "UnitPrice": 125,
+              "BillableStatus": "NotBillable",
+              "TaxCodeRef": {
+                "value": "NON"
+              }
+            },
+            "LineNum": 1,
+            "CustomExtensions": []
+          }
+        ]
+      }
+    ],
+    "total_count": 9
+  },
+  "nango": {
+    "getConnection": {}
+  },
+  "api": {
+    "get": {
+      "/v3/company/9341457021722202/query": {
+        "response": {
+          "QueryResponse": {
+            "PurchaseOrder": [
+              {
+                "EmailStatus": "NotSet",
+                "POStatus": "Open",
+                "domain": "QBO",
+                "sparse": false,
+                "Id": "163",
+                "SyncToken": "0",
+                "MetaData": {
+                  "CreateTime": "2026-05-05T02:17:37-07:00",
+                  "LastModifiedByRef": {
+                    "value": "9341457021722234"
+                  },
+                  "LastUpdatedTime": "2026-05-05T02:17:37-07:00"
+                },
+                "CustomField": [],
+                "DocNumber": "1010",
+                "TxnDate": "2026-05-05",
+                "CurrencyRef": {
+                  "value": "USD",
+                  "name": "United States Dollar"
+                },
+                "LinkedTxn": [],
+                "Line": [
+                  {
+                    "Id": "1",
+                    "LineNum": 1,
+                    "Description": "Office supplies",
+                    "Amount": 150,
+                    "DetailType": "AccountBasedExpenseLineDetail",
+                    "AccountBasedExpenseLineDetail": {
+                      "AccountRef": {
+                        "value": "69",
+                        "name": "Legal & Professional Fees:Accounting"
+                      },
+                      "BillableStatus": "NotBillable",
+                      "TaxCodeRef": {
+                        "value": "NON"
+                      }
+                    },
+                    "CustomExtensions": []
+                  }
+                ],
+                "VendorRef": {
+                  "value": "56",
+                  "name": "Bob's Burger Joint"
+                },
+                "APAccountRef": {
+                  "value": "33",
+                  "name": "Accounts Payable (A/P)"
+                },
+                "TotalAmt": 150,
+                "Memo": "Test purchase order"
+              },
+              {
+                "EmailStatus": "NotSet",
+                "POStatus": "Open",
+                "domain": "QBO",
+                "sparse": false,
+                "Id": "162",
+                "SyncToken": "0",
+                "MetaData": {
+                  "CreateTime": "2026-05-05T02:14:00-07:00",
+                  "LastModifiedByRef": {
+                    "value": "9341457021722234"
+                  },
+                  "LastUpdatedTime": "2026-05-05T02:14:00-07:00"
+                },
+                "CustomField": [],
+                "DocNumber": "1009",
+                "TxnDate": "2026-05-05",
+                "CurrencyRef": {
+                  "value": "USD",
+                  "name": "United States Dollar"
+                },
+                "LinkedTxn": [],
+                "Line": [
+                  {
+                    "Id": "1",
+                    "LineNum": 1,
+                    "Description": "Office supplies",
+                    "Amount": 150,
+                    "DetailType": "AccountBasedExpenseLineDetail",
+                    "AccountBasedExpenseLineDetail": {
+                      "AccountRef": {
+                        "value": "69",
+                        "name": "Legal & Professional Fees:Accounting"
+                      },
+                      "BillableStatus": "NotBillable",
+                      "TaxCodeRef": {
+                        "value": "NON"
+                      }
+                    },
+                    "CustomExtensions": []
+                  }
+                ],
+                "VendorRef": {
+                  "value": "56",
+                  "name": "Bob's Burger Joint"
+                },
+                "APAccountRef": {
+                  "value": "33",
+                  "name": "Accounts Payable (A/P)"
+                },
+                "TotalAmt": 150,
+                "Memo": "Test purchase order"
+              },
+              {
+                "EmailStatus": "NotSet",
+                "POStatus": "Open",
+                "domain": "QBO",
+                "sparse": false,
+                "Id": "160",
+                "SyncToken": "1",
+                "MetaData": {
+                  "CreateTime": "2026-05-05T02:11:06-07:00",
+                  "LastModifiedByRef": {
+                    "value": "9341457021722234"
+                  },
+                  "LastUpdatedTime": "2026-05-05T02:11:41-07:00"
+                },
+                "CustomField": [],
+                "TxnDate": "2026-05-05",
+                "CurrencyRef": {
+                  "value": "USD",
+                  "name": "United States Dollar"
+                },
+                "LinkedTxn": [],
+                "Line": [
+                  {
+                    "Id": "1",
+                    "LineNum": 1,
+                    "Description": "Updated pump description",
+                    "Amount": 150,
+                    "Received": 0,
+                    "DetailType": "ItemBasedExpenseLineDetail",
+                    "ItemBasedExpenseLineDetail": {
+                      "BillableStatus": "NotBillable",
+                      "ItemRef": {
+                        "value": "11",
+                        "name": "Pump"
+                      },
+                      "UnitPrice": 75,
+                      "Qty": 2,
+                      "TaxCodeRef": {
+                        "value": "NON"
+                      }
+                    },
+                    "CustomExtensions": []
+                  }
+                ],
+                "VendorRef": {
+                  "value": "56",
+                  "name": "Bob's Burger Joint"
+                },
+                "APAccountRef": {
+                  "value": "33",
+                  "name": "Accounts Payable (A/P)"
+                },
+                "TotalAmt": 150,
+                "Memo": "Updated memo for testing"
+              },
+              {
+                "EmailStatus": "NotSet",
+                "POStatus": "Open",
+                "domain": "QBO",
+                "sparse": false,
+                "Id": "158",
+                "SyncToken": "0",
+                "MetaData": {
+                  "CreateTime": "2026-05-05T02:10:20-07:00",
+                  "LastModifiedByRef": {
+                    "value": "9341457021722234"
+                  },
+                  "LastUpdatedTime": "2026-05-05T02:10:20-07:00"
+                },
+                "CustomField": [],
+                "DocNumber": "1007",
+                "TxnDate": "2026-05-05",
+                "CurrencyRef": {
+                  "value": "USD",
+                  "name": "United States Dollar"
+                },
+                "LinkedTxn": [],
+                "Line": [
+                  {
+                    "Id": "1",
+                    "LineNum": 1,
+                    "Description": "Office supplies",
+                    "Amount": 150,
+                    "DetailType": "AccountBasedExpenseLineDetail",
+                    "AccountBasedExpenseLineDetail": {
+                      "AccountRef": {
+                        "value": "69",
+                        "name": "Legal & Professional Fees:Accounting"
+                      },
+                      "BillableStatus": "NotBillable",
+                      "TaxCodeRef": {
+                        "value": "NON"
+                      }
+                    },
+                    "CustomExtensions": []
+                  }
+                ],
+                "VendorRef": {
+                  "value": "56",
+                  "name": "Bob's Burger Joint"
+                },
+                "APAccountRef": {
+                  "value": "33",
+                  "name": "Accounts Payable (A/P)"
+                },
+                "TotalAmt": 150,
+                "Memo": "Test purchase order"
+              },
+              {
+                "EmailStatus": "NotSet",
+                "POStatus": "Open",
+                "domain": "QBO",
+                "sparse": false,
+                "Id": "156",
+                "SyncToken": "0",
+                "MetaData": {
+                  "CreateTime": "2026-05-05T02:10:07-07:00",
+                  "LastModifiedByRef": {
+                    "value": "9341457021722234"
+                  },
+                  "LastUpdatedTime": "2026-05-05T02:10:07-07:00"
+                },
+                "CustomField": [],
+                "DocNumber": "1006",
+                "TxnDate": "2026-05-05",
+                "CurrencyRef": {
+                  "value": "USD",
+                  "name": "United States Dollar"
+                },
+                "LinkedTxn": [],
+                "Line": [
+                  {
+                    "Id": "1",
+                    "LineNum": 1,
+                    "Description": "Office supplies",
+                    "Amount": 150,
+                    "DetailType": "AccountBasedExpenseLineDetail",
+                    "AccountBasedExpenseLineDetail": {
+                      "AccountRef": {
+                        "value": "69",
+                        "name": "Legal & Professional Fees:Accounting"
+                      },
+                      "BillableStatus": "NotBillable",
+                      "TaxCodeRef": {
+                        "value": "NON"
+                      }
+                    },
+                    "CustomExtensions": []
+                  }
+                ],
+                "VendorRef": {
+                  "value": "56",
+                  "name": "Bob's Burger Joint"
+                },
+                "APAccountRef": {
+                  "value": "33",
+                  "name": "Accounts Payable (A/P)"
+                },
+                "TotalAmt": 150,
+                "Memo": "Test purchase order"
+              },
+              {
+                "EmailStatus": "NotSet",
+                "POStatus": "Open",
+                "domain": "QBO",
+                "sparse": false,
+                "Id": "154",
+                "SyncToken": "0",
+                "MetaData": {
+                  "CreateTime": "2026-05-05T02:08:26-07:00",
+                  "LastModifiedByRef": {
+                    "value": "9341457021722234"
+                  },
+                  "LastUpdatedTime": "2026-05-05T02:08:26-07:00"
+                },
+                "CustomField": [],
+                "DocNumber": "1005",
+                "TxnDate": "2026-05-05",
+                "CurrencyRef": {
+                  "value": "USD",
+                  "name": "United States Dollar"
+                },
+                "LinkedTxn": [],
+                "Line": [
+                  {
+                    "Id": "1",
+                    "LineNum": 1,
+                    "Description": "Office supplies",
+                    "Amount": 150,
+                    "DetailType": "AccountBasedExpenseLineDetail",
+                    "AccountBasedExpenseLineDetail": {
+                      "AccountRef": {
+                        "value": "69",
+                        "name": "Legal & Professional Fees:Accounting"
+                      },
+                      "BillableStatus": "NotBillable",
+                      "TaxCodeRef": {
+                        "value": "NON"
+                      }
+                    },
+                    "CustomExtensions": []
+                  }
+                ],
+                "VendorRef": {
+                  "value": "56",
+                  "name": "Bob's Burger Joint"
+                },
+                "APAccountRef": {
+                  "value": "33",
+                  "name": "Accounts Payable (A/P)"
+                },
+                "TotalAmt": 150,
+                "Memo": "Test purchase order"
+              },
+              {
+                "VendorAddr": {
+                  "Id": "92",
+                  "Line1": "Julie Norton",
+                  "Line2": "Norton Lumber and Building Materials",
+                  "Line3": "4528 Country Road",
+                  "Line4": "Middlefield, CA  94303",
+                  "Lat": "37.4530553",
+                  "Long": "-122.1178261"
+                },
+                "ShipAddr": {
+                  "Id": "93",
+                  "Line1": "Craig's Design and Landscaping Services",
+                  "Line2": "123 Sierra Way",
+                  "Line3": "San Pablo, CA  87999",
+                  "Lat": "INVALID",
+                  "Long": "INVALID"
+                },
+                "EmailStatus": "NotSet",
+                "POStatus": "Closed",
+                "domain": "QBO",
+                "sparse": false,
+                "Id": "125",
+                "SyncToken": "1",
+                "MetaData": {
+                  "CreateTime": "2026-04-08T13:10:14-07:00",
+                  "LastModifiedByRef": {
+                    "value": "9341457021722234"
+                  },
+                  "LastUpdatedTime": "2026-04-08T13:10:36-07:00"
+                },
+                "CustomField": [],
+                "DocNumber": "1004",
+                "TxnDate": "2026-04-08",
+                "CurrencyRef": {
+                  "value": "USD",
+                  "name": "United States Dollar"
+                },
+                "LinkedTxn": [
+                  {
+                    "TxnId": "126",
+                    "TxnType": "Bill"
+                  }
+                ],
+                "Line": [
+                  {
+                    "Id": "1",
+                    "LineNum": 1,
+                    "Description": "Fountain Pump",
+                    "Amount": 80,
+                    "DetailType": "ItemBasedExpenseLineDetail",
+                    "ItemBasedExpenseLineDetail": {
+                      "BillableStatus": "NotBillable",
+                      "ItemRef": {
+                        "value": "11",
+                        "name": "Pump"
+                      },
+                      "UnitPrice": 10,
+                      "Qty": 8,
+                      "TaxCodeRef": {
+                        "value": "NON"
+                      }
+                    },
+                    "CustomExtensions": []
+                  },
+                  {
+                    "Id": "2",
+                    "LineNum": 2,
+                    "Description": "Rock Fountain",
+                    "Amount": 125,
+                    "DetailType": "ItemBasedExpenseLineDetail",
+                    "ItemBasedExpenseLineDetail": {
+                      "BillableStatus": "NotBillable",
+                      "ItemRef": {
+                        "value": "5",
+                        "name": "Rock Fountain"
+                      },
+                      "UnitPrice": 125,
+                      "Qty": 1,
+                      "TaxCodeRef": {
+                        "value": "NON"
+                      }
+                    },
+                    "CustomExtensions": []
+                  }
+                ],
+                "VendorRef": {
+                  "value": "46",
+                  "name": "Norton Lumber and Building Materials"
+                },
+                "APAccountRef": {
+                  "value": "33",
+                  "name": "Accounts Payable (A/P)"
+                },
+                "TotalAmt": 205
+              },
+              {
+                "VendorAddr": {
+                  "Id": "89",
+                  "Line1": "Geoff Hicks",
+                  "Line2": "Hicks Hardware",
+                  "Line3": "42 Main St.",
+                  "Line4": "Middlefield, CA  94303",
+                  "Lat": "37.4530553",
+                  "Long": "-122.1178261"
+                },
+                "ShipAddr": {
+                  "Id": "90",
+                  "Line1": "Craig's Design and Landscaping Services",
+                  "Line2": "123 Sierra Way",
+                  "Line3": "San Pablo, CA  87999",
+                  "Lat": "INVALID",
+                  "Long": "INVALID"
+                },
+                "EmailStatus": "NotSet",
+                "POStatus": "Closed",
+                "domain": "QBO",
+                "sparse": false,
+                "Id": "114",
+                "SyncToken": "2",
+                "MetaData": {
+                  "CreateTime": "2026-04-08T12:50:05-07:00",
+                  "LastModifiedByRef": {
+                    "value": "9341457021722234"
+                  },
+                  "LastUpdatedTime": "2026-04-08T12:51:47-07:00"
+                },
+                "CustomField": [],
+                "DocNumber": "1003",
+                "TxnDate": "2026-04-08",
+                "CurrencyRef": {
+                  "value": "USD",
+                  "name": "United States Dollar"
+                },
+                "LinkedTxn": [
+                  {
+                    "TxnId": "115",
+                    "TxnType": "Purchase"
+                  }
+                ],
+                "Line": [
+                  {
+                    "Id": "1",
+                    "LineNum": 1,
+                    "Description": "Rock Fountain",
+                    "Amount": 125,
+                    "DetailType": "ItemBasedExpenseLineDetail",
+                    "ItemBasedExpenseLineDetail": {
+                      "CustomerRef": {
+                        "value": "25",
+                        "name": "Sushi by Katsuyuki"
+                      },
+                      "BillableStatus": "NotBillable",
+                      "ItemRef": {
+                        "value": "5",
+                        "name": "Rock Fountain"
+                      },
+                      "UnitPrice": 125,
+                      "Qty": 1,
+                      "TaxCodeRef": {
+                        "value": "NON"
+                      }
+                    },
+                    "CustomExtensions": []
+                  },
+                  {
+                    "Id": "2",
+                    "LineNum": 2,
+                    "Description": "Sprinkler Heads",
+                    "Amount": 11.25,
+                    "DetailType": "ItemBasedExpenseLineDetail",
+                    "ItemBasedExpenseLineDetail": {
+                      "CustomerRef": {
+                        "value": "25",
+                        "name": "Sushi by Katsuyuki"
+                      },
+                      "BillableStatus": "NotBillable",
+                      "ItemRef": {
+                        "value": "16",
+                        "name": "Sprinkler Heads"
+                      },
+                      "UnitPrice": 0.75,
+                      "Qty": 15,
+                      "TaxCodeRef": {
+                        "value": "NON"
+                      }
+                    },
+                    "CustomExtensions": []
+                  },
+                  {
+                    "Id": "3",
+                    "LineNum": 3,
+                    "Description": "Sprinkler Pipes",
+                    "Amount": 62.5,
+                    "DetailType": "ItemBasedExpenseLineDetail",
+                    "ItemBasedExpenseLineDetail": {
+                      "CustomerRef": {
+                        "value": "25",
+                        "name": "Sushi by Katsuyuki"
+                      },
+                      "BillableStatus": "NotBillable",
+                      "ItemRef": {
+                        "value": "17",
+                        "name": "Sprinkler Pipes"
+                      },
+                      "UnitPrice": 2.5,
+                      "Qty": 25,
+                      "TaxCodeRef": {
+                        "value": "NON"
+                      }
+                    },
+                    "CustomExtensions": []
+                  },
+                  {
+                    "Id": "4",
+                    "LineNum": 4,
+                    "Description": "Fountain Pump",
+                    "Amount": 30,
+                    "DetailType": "ItemBasedExpenseLineDetail",
+                    "ItemBasedExpenseLineDetail": {
+                      "BillableStatus": "NotBillable",
+                      "ItemRef": {
+                        "value": "11",
+                        "name": "Pump"
+                      },
+                      "UnitPrice": 10,
+                      "Qty": 3,
+                      "TaxCodeRef": {
+                        "value": "NON"
+                      }
+                    },
+                    "CustomExtensions": []
+                  }
+                ],
+                "VendorRef": {
+                  "value": "41",
+                  "name": "Hicks Hardware"
+                },
+                "APAccountRef": {
+                  "value": "33",
+                  "name": "Accounts Payable (A/P)"
+                },
+                "TotalAmt": 228.75
+              },
+              {
+                "VendorAddr": {
+                  "Id": "63",
+                  "Line1": "Tim Philip",
+                  "Line2": "Tim Philip Masonry",
+                  "Line3": "3948 Elm St.",
+                  "Line4": "Middlefield, CA  94482",
+                  "Lat": "INVALID",
+                  "Long": "INVALID"
+                },
+                "ShipAddr": {
+                  "Id": "64",
+                  "Line1": "Craig's Design and Landscaping Services",
+                  "Line2": "123 Sierra Way",
+                  "Line3": "San Pablo, CA  87999",
+                  "Lat": "INVALID",
+                  "Long": "INVALID"
+                },
+                "EmailStatus": "NotSet",
+                "POStatus": "Open",
+                "domain": "QBO",
+                "sparse": false,
+                "Id": "45",
+                "SyncToken": "0",
+                "MetaData": {
+                  "CreateTime": "2026-04-06T11:33:16-07:00",
+                  "LastModifiedByRef": {
+                    "value": "9341457021722234"
+                  },
+                  "LastUpdatedTime": "2026-04-06T11:33:16-07:00"
+                },
+                "CustomField": [],
+                "DocNumber": "1002",
+                "TxnDate": "2026-04-06",
+                "CurrencyRef": {
+                  "value": "USD",
+                  "name": "United States Dollar"
+                },
+                "LinkedTxn": [],
+                "Line": [
+                  {
+                    "Id": "1",
+                    "LineNum": 1,
+                    "Description": "Rock Fountain",
+                    "Amount": 125,
+                    "DetailType": "ItemBasedExpenseLineDetail",
+                    "ItemBasedExpenseLineDetail": {
+                      "BillableStatus": "NotBillable",
+                      "ItemRef": {
+                        "value": "5",
+                        "name": "Rock Fountain"
+                      },
+                      "UnitPrice": 125,
+                      "Qty": 1,
+                      "TaxCodeRef": {
+                        "value": "NON"
+                      }
+                    },
+                    "CustomExtensions": []
+                  }
+                ],
+                "VendorRef": {
+                  "value": "51",
+                  "name": "Tim Philip Masonry"
+                },
+                "APAccountRef": {
+                  "value": "33",
+                  "name": "Accounts Payable (A/P)"
+                },
+                "TotalAmt": 125
+              }
+            ],
+            "startPosition": 1,
+            "maxResults": 9,
+            "totalCount": 9
+          },
+          "time": "2026-05-05T04:39:39.695-07:00"
+        },
+        "status": 200,
+        "headers": {
+          "date": "Tue, 05 May 2026 11:39:39 GMT",
+          "content-type": "application/json",
+          "content-length": "10194",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=5184000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4990",
+          "x-ratelimit-reset": "1777981219",
+          "etag": "W/\"27d2-QSufh20l2RVxAFq9tAwW7+lqNcg\""
+        },
+        "hash": "76a57f5e11f8a3998423fddb6ddb65e9f6882fa3",
+        "request": {
+          "params": {
+            "query": "SELECT * FROM PurchaseOrder STARTPOSITION 1 MAXRESULTS 100"
+          }
+        }
+      }
+    }
+  }
+}

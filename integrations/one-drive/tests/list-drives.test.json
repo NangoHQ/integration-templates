@@ -1,0 +1,160 @@
+{
+  "input": {},
+  "output": {
+    "drives": [
+      {
+        "id": "b!KuDazauC8kWNn7fpC7ptkyh8OpH80WpNhTvq9jJk8uQr8sBNmfyfSr7aIoGnveXd",
+        "name": "AEEE102E-CFF8-4E2A-89C6-03841FF83500",
+        "driveType": "personal",
+        "ownerName": "Nango Dev"
+      },
+      {
+        "id": "b!KuDazauC8kWNn7fpC7ptkyh8OpH80WpNhTvq9jJk8uS1EDhKI4BrQp8zK2m0S_tN",
+        "name": "C022FB8E-9907-45F9-BF47-A403283F090E",
+        "driveType": "personal",
+        "ownerName": "Nango Dev"
+      },
+      {
+        "id": "AB43234B783BB6C3",
+        "name": "OneDrive",
+        "driveType": "personal",
+        "ownerName": "Nango Dev"
+      }
+    ]
+  },
+  "nango": {},
+  "api": {
+    "get": {
+      "/v1.0/me/drives": {
+        "response": {
+          "@odata.context": "https://graph.microsoft.com/v1.0/$metadata#drives",
+          "value": [
+            {
+              "createdDateTime": "2026-03-04T06:13:51Z",
+              "description": "Document library to store albums and album items",
+              "id": "b!KuDazauC8kWNn7fpC7ptkyh8OpH80WpNhTvq9jJk8uQr8sBNmfyfSr7aIoGnveXd",
+              "lastModifiedDateTime": "2026-03-04T06:13:51Z",
+              "name": "AEEE102E-CFF8-4E2A-89C6-03841FF83500",
+              "webUrl": "https://my.microsoftpersonalcontent.com/personal/ab43234b783bb6c3/AEEE102ECFF84E2A89C603841FF83500",
+              "driveType": "personal",
+              "createdBy": {
+                "user": {
+                  "displayName": "System Account"
+                }
+              },
+              "owner": {
+                "user": {
+                  "email": "apinangodev@outlook.com",
+                  "displayName": "Nango Dev"
+                }
+              },
+              "quota": {
+                "deleted": 0,
+                "remaining": 5367557222,
+                "state": "normal",
+                "total": 5368709120,
+                "used": 1151898,
+                "storagePlanInformation": {
+                  "upgradeAvailable": true
+                }
+              }
+            },
+            {
+              "createdDateTime": "2026-03-04T06:13:51Z",
+              "description": "Document List to store face crops and other user specific information",
+              "id": "b!KuDazauC8kWNn7fpC7ptkyh8OpH80WpNhTvq9jJk8uS1EDhKI4BrQp8zK2m0S_tN",
+              "lastModifiedDateTime": "2026-03-04T06:13:51Z",
+              "name": "C022FB8E-9907-45F9-BF47-A403283F090E",
+              "webUrl": "https://my.microsoftpersonalcontent.com/personal/ab43234b783bb6c3/C022FB8E990745F9BF47A403283F090E",
+              "driveType": "personal",
+              "createdBy": {
+                "user": {
+                  "displayName": "System Account"
+                }
+              },
+              "owner": {
+                "user": {
+                  "email": "apinangodev@outlook.com",
+                  "displayName": "Nango Dev"
+                }
+              },
+              "quota": {
+                "deleted": 0,
+                "remaining": 5367557222,
+                "state": "normal",
+                "total": 5368709120,
+                "used": 1151898,
+                "storagePlanInformation": {
+                  "upgradeAvailable": true
+                }
+              }
+            },
+            {
+              "createdDateTime": "2026-03-04T06:13:47Z",
+              "description": "",
+              "id": "AB43234B783BB6C3",
+              "lastModifiedDateTime": "2026-05-06T21:29:55Z",
+              "name": "OneDrive",
+              "webUrl": "https://my.microsoftpersonalcontent.com/personal/ab43234b783bb6c3/Documents",
+              "driveType": "personal",
+              "createdBy": {
+                "user": {
+                  "displayName": "System Account"
+                }
+              },
+              "lastModifiedBy": {
+                "user": {
+                  "displayName": "System Account"
+                }
+              },
+              "owner": {
+                "user": {
+                  "email": "apinangodev@outlook.com",
+                  "displayName": "Nango Dev"
+                }
+              },
+              "quota": {
+                "deleted": 0,
+                "remaining": 5367557222,
+                "state": "normal",
+                "total": 5368709120,
+                "used": 1151898,
+                "storagePlanInformation": {
+                  "upgradeAvailable": true
+                }
+              }
+            }
+          ]
+        },
+        "status": 200,
+        "headers": {
+          "date": "Wed, 06 May 2026 21:29:57 GMT",
+          "content-type": "application/json;odata.metadata=minimal;odata.streaming=true;IEEE754Compatible=false;charset=utf-8",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=31536000",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4932",
+          "x-ratelimit-reset": "1778103026",
+          "cache-control": "no-store, no-cache, max-age=0, private",
+          "vary": "Accept-Encoding",
+          "request-id": "bd694064-dbaa-4b69-9038-868dd00745b7",
+          "client-request-id": "bd694064-dbaa-4b69-9038-868dd00745b7",
+          "x-ms-ags-diagnostic": "{\"ServerInfo\":{\"DataCenter\":\"West US 2\",\"Slice\":\"E\",\"Ring\":\"4\",\"ScaleUnit\":\"001\",\"RoleInstance\":\"MW2PEPF000031CA\"}}",
+          "splogid": "f61511a2-7098-c000-c5d0-d3503342cb0b",
+          "odata-version": "4.0"
+        },
+        "hash": "e64056560dfb02a68c8fc4ee4054c6a1e2239fc5",
+        "request": {}
+      }
+    }
+  }
+}

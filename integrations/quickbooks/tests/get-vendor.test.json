@@ -1,0 +1,74 @@
+{
+    "input": {
+        "id": "56"
+    },
+    "output": {
+        "id": "56",
+        "displayName": "Bob's Burger Joint",
+        "printOnCheckName": "Bob's Burger Joint",
+        "active": true,
+        "balance": 0,
+        "vendor1099": false,
+        "currencyCode": "USD",
+        "createdAt": "2026-04-22T14:28:52-07:00",
+        "updatedAt": "2026-04-22T14:28:52-07:00"
+    },
+    "nango": {
+        "getConnection": {
+            "connection_config": {
+                "realmId": "9341457021722202"
+            }
+        }
+    },
+    "api": {
+        "get": {
+            "/v3/company/9341457021722202/vendor/56": {
+                "response": {
+                    "Vendor": {
+                        "Balance": 0,
+                        "BillRate": 0,
+                        "Vendor1099": false,
+                        "CurrencyRef": {
+                            "value": "USD",
+                            "name": "United States Dollar"
+                        },
+                        "CostRate": 0,
+                        "domain": "QBO",
+                        "sparse": false,
+                        "Id": "56",
+                        "SyncToken": "0",
+                        "MetaData": {
+                            "CreateTime": "2026-04-22T14:28:52-07:00",
+                            "LastUpdatedTime": "2026-04-22T14:28:52-07:00"
+                        },
+                        "DisplayName": "Bob's Burger Joint",
+                        "PrintOnCheckName": "Bob's Burger Joint",
+                        "Active": true,
+                        "V4IDPseudonym": "0020984601c40d57554993b5249d46d1385195"
+                    },
+                    "time": "2026-05-05T02:06:07.142-07:00"
+                },
+                "status": 200,
+                "headers": {
+                    "date": "Tue, 05 May 2026 09:06:07 GMT",
+                    "content-type": "application/json;charset=UTF-8",
+                    "content-length": "470",
+                    "connection": "keep-alive",
+                    "x-xss-protection": "0",
+                    "x-content-type-options": "nosniff",
+                    "x-download-options": "noopen",
+                    "x-frame-options": "SAMEORIGIN",
+                    "x-dns-prefetch-control": "off",
+                    "strict-transport-security": "max-age=5184000; includeSubDomains",
+                    "access-control-allow-origin": "*",
+                    "x-ratelimit-limit": "5000",
+                    "x-ratelimit-remaining": "4971",
+                    "x-ratelimit-reset": "1777972017",
+                    "etag": "W/\"1d6-dLsugaBUw8nA0mHh27ywEpkviKI\""
+                },
+                "hash": "fa875d1faa1191d794d3d04ddeed8be13784ffa4",
+                "request": {}
+            }
+        }
+    }
+}

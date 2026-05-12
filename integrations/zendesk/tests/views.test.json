@@ -1,0 +1,2548 @@
+{
+  "nango": {
+    "batchSave": {
+      "View": [
+        {
+          "id": "46406158347537",
+          "title": "Your unsolved tickets",
+          "active": true,
+          "created_at": "2026-05-06T07:45:47Z",
+          "updated_at": "2026-05-06T07:45:47Z",
+          "default": false,
+          "position": 0,
+          "conditions": {
+            "all": [
+              {
+                "field": "status",
+                "operator": "less_than",
+                "value": "solved"
+              },
+              {
+                "field": "assignee_id",
+                "operator": "is",
+                "value": "current_user"
+              },
+              {
+                "field": "support_type",
+                "operator": "is",
+                "value": "0"
+              }
+            ],
+            "any": []
+          },
+          "execution": {
+            "group_by": "status",
+            "group_order": "asc",
+            "sort_by": "nice_id",
+            "sort_order": "desc",
+            "group": {
+              "id": "status",
+              "title": "Status category",
+              "filterable": true,
+              "sortable": true,
+              "order": "asc"
+            },
+            "sort": {
+              "id": "ticket_id",
+              "title": "ID",
+              "filterable": true,
+              "sortable": true,
+              "order": "desc"
+            },
+            "columns": [
+              {
+                "id": "custom_status_id",
+                "title": "Ticket status",
+                "filterable": true,
+                "sortable": false
+              },
+              {
+                "id": "subject",
+                "title": "Subject",
+                "filterable": true,
+                "sortable": true
+              },
+              {
+                "id": "requester",
+                "title": "Requester",
+                "filterable": true,
+                "sortable": true
+              },
+              {
+                "id": "created",
+                "title": "Requested",
+                "filterable": false,
+                "sortable": true
+              },
+              {
+                "id": "type",
+                "title": "Type",
+                "filterable": true,
+                "sortable": true
+              },
+              {
+                "id": "priority",
+                "title": "Priority",
+                "filterable": true,
+                "sortable": true
+              }
+            ],
+            "fields": [
+              {
+                "id": "custom_status_id",
+                "title": "Ticket status",
+                "filterable": true,
+                "sortable": false
+              },
+              {
+                "id": "subject",
+                "title": "Subject",
+                "filterable": true,
+                "sortable": true
+              },
+              {
+                "id": "requester",
+                "title": "Requester",
+                "filterable": true,
+                "sortable": true
+              },
+              {
+                "id": "created",
+                "title": "Requested",
+                "filterable": false,
+                "sortable": true
+              },
+              {
+                "id": "type",
+                "title": "Type",
+                "filterable": true,
+                "sortable": true
+              },
+              {
+                "id": "priority",
+                "title": "Priority",
+                "filterable": true,
+                "sortable": true
+              }
+            ],
+            "custom_fields": []
+          },
+          "restriction": null
+        },
+        {
+          "id": "46406158351377",
+          "title": "Unassigned tickets",
+          "active": true,
+          "created_at": "2026-05-06T07:45:47Z",
+          "updated_at": "2026-05-06T07:45:47Z",
+          "default": false,
+          "position": 1,
+          "conditions": {
+            "all": [
+              {
+                "field": "assignee_id",
+                "operator": "is",
+                "value": ""
+              },
+              {
+                "field": "status",
+                "operator": "less_than",
+                "value": "solved"
+              },
+              {
+                "field": "support_type",
+                "operator": "is",
+                "value": "0"
+              }
+            ],
+            "any": []
+          },
+          "execution": {
+            "group_by": null,
+            "group_order": "asc",
+            "sort_by": "created",
+            "sort_order": "desc",
+            "group": null,
+            "sort": {
+              "id": "created",
+              "title": "Requested",
+              "filterable": false,
+              "sortable": true,
+              "order": "desc"
+            },
+            "columns": [
+              {
+                "id": "custom_status_id",
+                "title": "Ticket status",
+                "filterable": true,
+                "sortable": false
+              },
+              {
+                "id": "subject",
+                "title": "Subject",
+                "filterable": true,
+                "sortable": true
+              },
+              {
+                "id": "requester",
+                "title": "Requester",
+                "filterable": true,
+                "sortable": true
+              },
+              {
+                "id": "created",
+                "title": "Requested",
+                "filterable": false,
+                "sortable": true
+              },
+              {
+                "id": "priority",
+                "title": "Priority",
+                "filterable": true,
+                "sortable": true
+              }
+            ],
+            "fields": [
+              {
+                "id": "custom_status_id",
+                "title": "Ticket status",
+                "filterable": true,
+                "sortable": false
+              },
+              {
+                "id": "subject",
+                "title": "Subject",
+                "filterable": true,
+                "sortable": true
+              },
+              {
+                "id": "requester",
+                "title": "Requester",
+                "filterable": true,
+                "sortable": true
+              },
+              {
+                "id": "created",
+                "title": "Requested",
+                "filterable": false,
+                "sortable": true
+              },
+              {
+                "id": "priority",
+                "title": "Priority",
+                "filterable": true,
+                "sortable": true
+              }
+            ],
+            "custom_fields": []
+          },
+          "restriction": null
+        },
+        {
+          "id": "46406158349713",
+          "title": "All unsolved tickets",
+          "active": true,
+          "created_at": "2026-05-06T07:45:47Z",
+          "updated_at": "2026-05-06T07:45:47Z",
+          "default": false,
+          "position": 2,
+          "conditions": {
+            "all": [
+              {
+                "field": "status",
+                "operator": "less_than",
+                "value": "solved"
+              },
+              {
+                "field": "support_type",
+                "operator": "is",
+                "value": "0"
+              }
+            ],
+            "any": []
+          },
+          "execution": {
+            "group_by": "assignee",
+            "group_order": "asc",
+            "sort_by": "nice_id",
+            "sort_order": "desc",
+            "group": {
+              "id": "assignee",
+              "title": "Assignee",
+              "filterable": true,
+              "sortable": true,
+              "order": "asc"
+            },
+            "sort": {
+              "id": "ticket_id",
+              "title": "ID",
+              "filterable": true,
+              "sortable": true,
+              "order": "desc"
+            },
+            "columns": [
+              {
+                "id": "custom_status_id",
+                "title": "Ticket status",
+                "filterable": true,
+                "sortable": false
+              },
+              {
+                "id": "subject",
+                "title": "Subject",
+                "filterable": true,
+                "sortable": true
+              },
+              {
+                "id": "requester",
+                "title": "Requester",
+                "filterable": true,
+                "sortable": true
+              },
+              {
+                "id": "created",
+                "title": "Requested",
+                "filterable": false,
+                "sortable": true
+              },
+              {
+                "id": "priority",
+                "title": "Priority",
+                "filterable": true,
+                "sortable": true
+              },
+              {
+                "id": "updated",
+                "title": "Updated",
+                "filterable": true,
+                "sortable": true
+              }
+            ],
+            "fields": [
+              {
+                "id": "custom_status_id",
+                "title": "Ticket status",
+                "filterable": true,
+                "sortable": false
+              },
+              {
+                "id": "subject",
+                "title": "Subject",
+                "filterable": true,
+                "sortable": true
+              },
+              {
+                "id": "requester",
+                "title": "Requester",
+                "filterable": true,
+                "sortable": true
+              },
+              {
+                "id": "created",
+                "title": "Requested",
+                "filterable": false,
+                "sortable": true
+              },
+              {
+                "id": "priority",
+                "title": "Priority",
+                "filterable": true,
+                "sortable": true
+              },
+              {
+                "id": "updated",
+                "title": "Updated",
+                "filterable": true,
+                "sortable": true
+              }
+            ],
+            "custom_fields": []
+          },
+          "restriction": null
+        },
+        {
+          "id": "46406146633361",
+          "title": "Recently updated tickets",
+          "active": true,
+          "created_at": "2026-05-06T07:45:47Z",
+          "updated_at": "2026-05-06T07:45:47Z",
+          "default": false,
+          "position": 3,
+          "conditions": {
+            "all": [
+              {
+                "field": "updated_at",
+                "operator": "less_than",
+                "value": "24"
+              },
+              {
+                "field": "status",
+                "operator": "less_than",
+                "value": "closed"
+              },
+              {
+                "field": "support_type",
+                "operator": "is",
+                "value": "0"
+              }
+            ],
+            "any": []
+          },
+          "execution": {
+            "group_by": "status",
+            "group_order": "asc",
+            "sort_by": "updated",
+            "sort_order": "desc",
+            "group": {
+              "id": "status",
+              "title": "Status category",
+              "filterable": true,
+              "sortable": true,
+              "order": "asc"
+            },
+            "sort": {
+              "id": "updated",
+              "title": "Updated",
+              "filterable": true,
+              "sortable": true,
+              "order": "desc"
+            },
+            "columns": [
+              {
+                "id": "custom_status_id",
+                "title": "Ticket status",
+                "filterable": true,
+                "sortable": false
+              },
+              {
+                "id": "subject",
+                "title": "Subject",
+                "filterable": true,
+                "sortable": true
+              },
+              {
+                "id": "requester",
+                "title": "Requester",
+                "filterable": true,
+                "sortable": true
+              },
+              {
+                "id": "created",
+                "title": "Requested",
+                "filterable": false,
+                "sortable": true
+              },
+              {
+                "id": "priority",
+                "title": "Priority",
+                "filterable": true,
+                "sortable": true
+              },
+              {
+                "id": "assignee",
+                "title": "Assignee",
+                "filterable": true,
+                "sortable": true
+              }
+            ],
+            "fields": [
+              {
+                "id": "custom_status_id",
+                "title": "Ticket status",
+                "filterable": true,
+                "sortable": false
+              },
+              {
+                "id": "subject",
+                "title": "Subject",
+                "filterable": true,
+                "sortable": true
+              },
+              {
+                "id": "requester",
+                "title": "Requester",
+                "filterable": true,
+                "sortable": true
+              },
+              {
+                "id": "created",
+                "title": "Requested",
+                "filterable": false,
+                "sortable": true
+              },
+              {
+                "id": "priority",
+                "title": "Priority",
+                "filterable": true,
+                "sortable": true
+              },
+              {
+                "id": "assignee",
+                "title": "Assignee",
+                "filterable": true,
+                "sortable": true
+              }
+            ],
+            "custom_fields": []
+          },
+          "restriction": null
+        },
+        {
+          "id": "46406146641425",
+          "title": "Current tasks",
+          "active": false,
+          "created_at": "2026-05-06T07:45:47Z",
+          "updated_at": "2026-05-06T07:45:47Z",
+          "default": false,
+          "position": 11,
+          "conditions": {
+            "all": [
+              {
+                "field": "status",
+                "operator": "less_than",
+                "value": "solved"
+              },
+              {
+                "field": "type",
+                "operator": "is",
+                "value": "task"
+              },
+              {
+                "field": "support_type",
+                "operator": "is",
+                "value": "0"
+              }
+            ],
+            "any": []
+          },
+          "execution": {
+            "group_by": "due_date",
+            "group_order": "asc",
+            "sort_by": "assignee",
+            "sort_order": "desc",
+            "group": {
+              "id": "due_date",
+              "title": "Due date",
+              "filterable": true,
+              "sortable": true,
+              "order": "asc"
+            },
+            "sort": {
+              "id": "assignee",
+              "title": "Assignee",
+              "filterable": true,
+              "sortable": true,
+              "order": "desc"
+            },
+            "columns": [
+              {
+                "id": "custom_status_id",
+                "title": "Ticket status",
+                "filterable": true,
+                "sortable": false
+              },
+              {
+                "id": "subject",
+                "title": "Subject",
+                "filterable": true,
+                "sortable": true
+              },
+              {
+                "id": "requester",
+                "title": "Requester",
+                "filterable": true,
+                "sortable": true
+              },
+              {
+                "id": "created",
+                "title": "Requested",
+                "filterable": false,
+                "sortable": true
+              },
+              {
+                "id": "assignee",
+                "title": "Assignee",
+                "filterable": true,
+                "sortable": true
+              },
+              {
+                "id": "due_date",
+                "title": "Due date",
+                "filterable": true,
+                "sortable": true
+              }
+            ],
+            "fields": [
+              {
+                "id": "custom_status_id",
+                "title": "Ticket status",
+                "filterable": true,
+                "sortable": false
+              },
+              {
+                "id": "subject",
+                "title": "Subject",
+                "filterable": true,
+                "sortable": true
+              },
+              {
+                "id": "requester",
+                "title": "Requester",
+                "filterable": true,
+                "sortable": true
+              },
+              {
+                "id": "created",
+                "title": "Requested",
+                "filterable": false,
+                "sortable": true
+              },
+              {
+                "id": "assignee",
+                "title": "Assignee",
+                "filterable": true,
+                "sortable": true
+              },
+              {
+                "id": "due_date",
+                "title": "Due date",
+                "filterable": true,
+                "sortable": true
+              }
+            ],
+            "custom_fields": []
+          },
+          "restriction": null
+        },
+        {
+          "id": "46406158355473",
+          "title": "Overdue tasks",
+          "active": false,
+          "created_at": "2026-05-06T07:45:47Z",
+          "updated_at": "2026-05-06T07:45:47Z",
+          "default": false,
+          "position": 12,
+          "conditions": {
+            "all": [
+              {
+                "field": "status",
+                "operator": "less_than",
+                "value": "solved"
+              },
+              {
+                "field": "due_at",
+                "operator": "greater_than",
+                "value": "0"
+              },
+              {
+                "field": "support_type",
+                "operator": "is",
+                "value": "0"
+              }
+            ],
+            "any": []
+          },
+          "execution": {
+            "group_by": "due_date",
+            "group_order": "asc",
+            "sort_by": "assignee",
+            "sort_order": "desc",
+            "group": {
+              "id": "due_date",
+              "title": "Due date",
+              "filterable": true,
+              "sortable": true,
+              "order": "asc"
+            },
+            "sort": {
+              "id": "assignee",
+              "title": "Assignee",
+              "filterable": true,
+              "sortable": true,
+              "order": "desc"
+            },
+            "columns": [
+              {
+                "id": "custom_status_id",
+                "title": "Ticket status",
+                "filterable": true,
+                "sortable": false
+              },
+              {
+                "id": "subject",
+                "title": "Subject",
+                "filterable": true,
+                "sortable": true
+              },
+              {
+                "id": "requester",
+                "title": "Requester",
+                "filterable": true,
+                "sortable": true
+              },
+              {
+                "id": "created",
+                "title": "Requested",
+                "filterable": false,
+                "sortable": true
+              },
+              {
+                "id": "assignee",
+                "title": "Assignee",
+                "filterable": true,
+                "sortable": true
+              },
+              {
+                "id": "due_date",
+                "title": "Due date",
+                "filterable": true,
+                "sortable": true
+              }
+            ],
+            "fields": [
+              {
+                "id": "custom_status_id",
+                "title": "Ticket status",
+                "filterable": true,
+                "sortable": false
+              },
+              {
+                "id": "subject",
+                "title": "Subject",
+                "filterable": true,
+                "sortable": true
+              },
+              {
+                "id": "requester",
+                "title": "Requester",
+                "filterable": true,
+                "sortable": true
+              },
+              {
+                "id": "created",
+                "title": "Requested",
+                "filterable": false,
+                "sortable": true
+              },
+              {
+                "id": "assignee",
+                "title": "Assignee",
+                "filterable": true,
+                "sortable": true
+              },
+              {
+                "id": "due_date",
+                "title": "Due date",
+                "filterable": true,
+                "sortable": true
+              }
+            ],
+            "custom_fields": []
+          },
+          "restriction": null
+        },
+        {
+          "id": "46406146639633",
+          "title": "Pending tickets",
+          "active": true,
+          "created_at": "2026-05-06T07:45:47Z",
+          "updated_at": "2026-05-06T07:45:47Z",
+          "default": false,
+          "position": 9999,
+          "conditions": {
+            "all": [
+              {
+                "field": "status",
+                "operator": "is",
+                "value": "pending"
+              },
+              {
+                "field": "support_type",
+                "operator": "is",
+                "value": "0"
+              }
+            ],
+            "any": []
+          },
+          "execution": {
+            "group_by": "updated",
+            "group_order": "asc",
+            "sort_by": "nice_id",
+            "sort_order": "desc",
+            "group": {
+              "id": "updated",
+              "title": "Updated",
+              "filterable": true,
+              "sortable": true,
+              "order": "asc"
+            },
+            "sort": {
+              "id": "ticket_id",
+              "title": "ID",
+              "filterable": true,
+              "sortable": true,
+              "order": "desc"
+            },
+            "columns": [
+              {
+                "id": "custom_status_id",
+                "title": "Ticket status",
+                "filterable": true,
+                "sortable": false
+              },
+              {
+                "id": "subject",
+                "title": "Subject",
+                "filterable": true,
+                "sortable": true
+              },
+              {
+                "id": "requester",
+                "title": "Requester",
+                "filterable": true,
+                "sortable": true
+              },
+              {
+                "id": "created",
+                "title": "Requested",
+                "filterable": false,
+                "sortable": true
+              },
+              {
+                "id": "priority",
+                "title": "Priority",
+                "filterable": true,
+                "sortable": true
+              },
+              {
+                "id": "assignee",
+                "title": "Assignee",
+                "filterable": true,
+                "sortable": true
+              }
+            ],
+            "fields": [
+              {
+                "id": "custom_status_id",
+                "title": "Ticket status",
+                "filterable": true,
+                "sortable": false
+              },
+              {
+                "id": "subject",
+                "title": "Subject",
+                "filterable": true,
+                "sortable": true
+              },
+              {
+                "id": "requester",
+                "title": "Requester",
+                "filterable": true,
+                "sortable": true
+              },
+              {
+                "id": "created",
+                "title": "Requested",
+                "filterable": false,
+                "sortable": true
+              },
+              {
+                "id": "priority",
+                "title": "Priority",
+                "filterable": true,
+                "sortable": true
+              },
+              {
+                "id": "assignee",
+                "title": "Assignee",
+                "filterable": true,
+                "sortable": true
+              }
+            ],
+            "custom_fields": []
+          },
+          "restriction": null
+        },
+        {
+          "id": "46406158348433",
+          "title": "Recently solved tickets",
+          "active": true,
+          "created_at": "2026-05-06T07:45:47Z",
+          "updated_at": "2026-05-06T07:45:47Z",
+          "default": false,
+          "position": 9999,
+          "conditions": {
+            "all": [
+              {
+                "field": "status",
+                "operator": "is",
+                "value": "solved"
+              },
+              {
+                "field": "support_type",
+                "operator": "is",
+                "value": "0"
+              }
+            ],
+            "any": []
+          },
+          "execution": {
+            "group_by": "assignee",
+            "group_order": "asc",
+            "sort_by": "solved",
+            "sort_order": "desc",
+            "group": {
+              "id": "assignee",
+              "title": "Assignee",
+              "filterable": true,
+              "sortable": true,
+              "order": "asc"
+            },
+            "sort": {
+              "id": "solved",
+              "title": "Solved",
+              "filterable": true,
+              "sortable": true,
+              "order": "desc"
+            },
+            "columns": [
+              {
+                "id": "custom_status_id",
+                "title": "Ticket status",
+                "filterable": true,
+                "sortable": false
+              },
+              {
+                "id": "subject",
+                "title": "Subject",
+                "filterable": true,
+                "sortable": true
+              },
+              {
+                "id": "requester",
+                "title": "Requester",
+                "filterable": true,
+                "sortable": true
+              },
+              {
+                "id": "created",
+                "title": "Requested",
+                "filterable": false,
+                "sortable": true
+              },
+              {
+                "id": "solved",
+                "title": "Solved",
+                "filterable": true,
+                "sortable": true
+              },
+              {
+                "id": "priority",
+                "title": "Priority",
+                "filterable": true,
+                "sortable": true
+              }
+            ],
+            "fields": [
+              {
+                "id": "custom_status_id",
+                "title": "Ticket status",
+                "filterable": true,
+                "sortable": false
+              },
+              {
+                "id": "subject",
+                "title": "Subject",
+                "filterable": true,
+                "sortable": true
+              },
+              {
+                "id": "requester",
+                "title": "Requester",
+                "filterable": true,
+                "sortable": true
+              },
+              {
+                "id": "created",
+                "title": "Requested",
+                "filterable": false,
+                "sortable": true
+              },
+              {
+                "id": "solved",
+                "title": "Solved",
+                "filterable": true,
+                "sortable": true
+              },
+              {
+                "id": "priority",
+                "title": "Priority",
+                "filterable": true,
+                "sortable": true
+              }
+            ],
+            "custom_fields": []
+          },
+          "restriction": null
+        },
+        {
+          "id": "46406147277457",
+          "title": "Your tickets with approval requested",
+          "active": false,
+          "created_at": "2026-05-06T07:45:52Z",
+          "updated_at": "2026-05-06T07:45:52Z",
+          "default": false,
+          "position": 10000,
+          "conditions": {
+            "all": [
+              {
+                "field": "assignee_id",
+                "operator": "is",
+                "value": "current_user"
+              },
+              {
+                "field": "custom_fields_46406147126033",
+                "operator": "present",
+                "value": null
+              },
+              {
+                "field": "support_type",
+                "operator": "is",
+                "value": "0"
+              }
+            ],
+            "any": []
+          },
+          "execution": {
+            "group_by": null,
+            "group_order": "desc",
+            "sort_by": null,
+            "sort_order": "desc",
+            "group": null,
+            "sort": null,
+            "columns": [
+              {
+                "id": 46406147126033,
+                "title": "Approval status",
+                "type": "tagger",
+                "url": "https://nango-1049.zendesk.com/api/v2/ticket_fields/46406147126033.json",
+                "filterable": true,
+                "sortable": true
+              },
+              {
+                "id": "custom_status_id",
+                "title": "Ticket status",
+                "filterable": true,
+                "sortable": false
+              },
+              {
+                "id": "subject",
+                "title": "Subject",
+                "filterable": true,
+                "sortable": true
+              },
+              {
+                "id": "requester",
+                "title": "Requester",
+                "filterable": true,
+                "sortable": true
+              },
+              {
+                "id": "created",
+                "title": "Requested",
+                "filterable": false,
+                "sortable": true
+              }
+            ],
+            "fields": [
+              {
+                "id": "custom_status_id",
+                "title": "Ticket status",
+                "filterable": true,
+                "sortable": false
+              },
+              {
+                "id": "subject",
+                "title": "Subject",
+                "filterable": true,
+                "sortable": true
+              },
+              {
+                "id": "requester",
+                "title": "Requester",
+                "filterable": true,
+                "sortable": true
+              },
+              {
+                "id": "created",
+                "title": "Requested",
+                "filterable": false,
+                "sortable": true
+              }
+            ],
+            "custom_fields": [
+              {
+                "id": 46406147126033,
+                "title": "Approval status",
+                "type": "tagger",
+                "url": "https://nango-1049.zendesk.com/api/v2/ticket_fields/46406147126033.json",
+                "filterable": true,
+                "sortable": true
+              }
+            ]
+          },
+          "restriction": null
+        },
+        {
+          "id": "46406158928785",
+          "title": "Tickets with pending approvals",
+          "active": false,
+          "created_at": "2026-05-06T07:45:52Z",
+          "updated_at": "2026-05-06T07:45:52Z",
+          "default": false,
+          "position": 10001,
+          "conditions": {
+            "all": [
+              {
+                "field": "assignee_id",
+                "operator": "is_not",
+                "value": "current_user"
+              },
+              {
+                "field": "custom_fields_46406147126033",
+                "operator": "present",
+                "value": null
+              },
+              {
+                "field": "custom_fields_46406147126033",
+                "operator": "is",
+                "value": "zd_es_approval_pending"
+              },
+              {
+                "field": "group_id",
+                "operator": "is",
+                "value": "current_groups"
+              },
+              {
+                "field": "support_type",
+                "operator": "is",
+                "value": "0"
+              }
+            ],
+            "any": []
+          },
+          "execution": {
+            "group_by": null,
+            "group_order": "desc",
+            "sort_by": null,
+            "sort_order": "desc",
+            "group": null,
+            "sort": null,
+            "columns": [
+              {
+                "id": 46406147126033,
+                "title": "Approval status",
+                "type": "tagger",
+                "url": "https://nango-1049.zendesk.com/api/v2/ticket_fields/46406147126033.json",
+                "filterable": true,
+                "sortable": true
+              },
+              {
+                "id": "custom_status_id",
+                "title": "Ticket status",
+                "filterable": true,
+                "sortable": false
+              },
+              {
+                "id": "subject",
+                "title": "Subject",
+                "filterable": true,
+                "sortable": true
+              },
+              {
+                "id": "requester",
+                "title": "Requester",
+                "filterable": true,
+                "sortable": true
+              },
+              {
+                "id": "created",
+                "title": "Requested",
+                "filterable": false,
+                "sortable": true
+              },
+              {
+                "id": "assignee",
+                "title": "Assignee",
+                "filterable": true,
+                "sortable": true
+              }
+            ],
+            "fields": [
+              {
+                "id": "custom_status_id",
+                "title": "Ticket status",
+                "filterable": true,
+                "sortable": false
+              },
+              {
+                "id": "subject",
+                "title": "Subject",
+                "filterable": true,
+                "sortable": true
+              },
+              {
+                "id": "requester",
+                "title": "Requester",
+                "filterable": true,
+                "sortable": true
+              },
+              {
+                "id": "created",
+                "title": "Requested",
+                "filterable": false,
+                "sortable": true
+              },
+              {
+                "id": "assignee",
+                "title": "Assignee",
+                "filterable": true,
+                "sortable": true
+              }
+            ],
+            "custom_fields": [
+              {
+                "id": 46406147126033,
+                "title": "Approval status",
+                "type": "tagger",
+                "url": "https://nango-1049.zendesk.com/api/v2/ticket_fields/46406147126033.json",
+                "filterable": true,
+                "sortable": true
+              }
+            ]
+          },
+          "restriction": null
+        }
+      ]
+    },
+    "batchDelete": {
+      "View": []
+    }
+  },
+  "api": {
+    "get": {
+      "/api/v2/views": {
+        "response": {
+          "views": [
+            {
+              "url": "https://nango-1049.zendesk.com/api/v2/views/46406158347537.json",
+              "id": 46406158347537,
+              "title": "Your unsolved tickets",
+              "active": true,
+              "updated_at": "2026-05-06T07:45:47Z",
+              "created_at": "2026-05-06T07:45:47Z",
+              "default": false,
+              "position": 0,
+              "description": null,
+              "execution": {
+                "group_by": "status",
+                "group_order": "asc",
+                "sort_by": "nice_id",
+                "sort_order": "desc",
+                "group": {
+                  "id": "status",
+                  "title": "Status category",
+                  "filterable": true,
+                  "sortable": true,
+                  "order": "asc"
+                },
+                "sort": {
+                  "id": "ticket_id",
+                  "title": "ID",
+                  "filterable": true,
+                  "sortable": true,
+                  "order": "desc"
+                },
+                "columns": [
+                  {
+                    "id": "custom_status_id",
+                    "title": "Ticket status",
+                    "filterable": true,
+                    "sortable": false
+                  },
+                  {
+                    "id": "subject",
+                    "title": "Subject",
+                    "filterable": true,
+                    "sortable": true
+                  },
+                  {
+                    "id": "requester",
+                    "title": "Requester",
+                    "filterable": true,
+                    "sortable": true
+                  },
+                  {
+                    "id": "created",
+                    "title": "Requested",
+                    "filterable": false,
+                    "sortable": true
+                  },
+                  {
+                    "id": "type",
+                    "title": "Type",
+                    "filterable": true,
+                    "sortable": true
+                  },
+                  {
+                    "id": "priority",
+                    "title": "Priority",
+                    "filterable": true,
+                    "sortable": true
+                  }
+                ],
+                "fields": [
+                  {
+                    "id": "custom_status_id",
+                    "title": "Ticket status",
+                    "filterable": true,
+                    "sortable": false
+                  },
+                  {
+                    "id": "subject",
+                    "title": "Subject",
+                    "filterable": true,
+                    "sortable": true
+                  },
+                  {
+                    "id": "requester",
+                    "title": "Requester",
+                    "filterable": true,
+                    "sortable": true
+                  },
+                  {
+                    "id": "created",
+                    "title": "Requested",
+                    "filterable": false,
+                    "sortable": true
+                  },
+                  {
+                    "id": "type",
+                    "title": "Type",
+                    "filterable": true,
+                    "sortable": true
+                  },
+                  {
+                    "id": "priority",
+                    "title": "Priority",
+                    "filterable": true,
+                    "sortable": true
+                  }
+                ],
+                "custom_fields": []
+              },
+              "conditions": {
+                "all": [
+                  {
+                    "field": "status",
+                    "operator": "less_than",
+                    "value": "solved"
+                  },
+                  {
+                    "field": "assignee_id",
+                    "operator": "is",
+                    "value": "current_user"
+                  },
+                  {
+                    "field": "support_type",
+                    "operator": "is",
+                    "value": "0"
+                  }
+                ],
+                "any": []
+              },
+              "restriction": null,
+              "raw_title": "{{zd.your_unsolved_tickets}}"
+            },
+            {
+              "url": "https://nango-1049.zendesk.com/api/v2/views/46406158351377.json",
+              "id": 46406158351377,
+              "title": "Unassigned tickets",
+              "active": true,
+              "updated_at": "2026-05-06T07:45:47Z",
+              "created_at": "2026-05-06T07:45:47Z",
+              "default": false,
+              "position": 1,
+              "description": null,
+              "execution": {
+                "group_by": null,
+                "group_order": "asc",
+                "sort_by": "created",
+                "sort_order": "desc",
+                "group": null,
+                "sort": {
+                  "id": "created",
+                  "title": "Requested",
+                  "filterable": false,
+                  "sortable": true,
+                  "order": "desc"
+                },
+                "columns": [
+                  {
+                    "id": "custom_status_id",
+                    "title": "Ticket status",
+                    "filterable": true,
+                    "sortable": false
+                  },
+                  {
+                    "id": "subject",
+                    "title": "Subject",
+                    "filterable": true,
+                    "sortable": true
+                  },
+                  {
+                    "id": "requester",
+                    "title": "Requester",
+                    "filterable": true,
+                    "sortable": true
+                  },
+                  {
+                    "id": "created",
+                    "title": "Requested",
+                    "filterable": false,
+                    "sortable": true
+                  },
+                  {
+                    "id": "priority",
+                    "title": "Priority",
+                    "filterable": true,
+                    "sortable": true
+                  }
+                ],
+                "fields": [
+                  {
+                    "id": "custom_status_id",
+                    "title": "Ticket status",
+                    "filterable": true,
+                    "sortable": false
+                  },
+                  {
+                    "id": "subject",
+                    "title": "Subject",
+                    "filterable": true,
+                    "sortable": true
+                  },
+                  {
+                    "id": "requester",
+                    "title": "Requester",
+                    "filterable": true,
+                    "sortable": true
+                  },
+                  {
+                    "id": "created",
+                    "title": "Requested",
+                    "filterable": false,
+                    "sortable": true
+                  },
+                  {
+                    "id": "priority",
+                    "title": "Priority",
+                    "filterable": true,
+                    "sortable": true
+                  }
+                ],
+                "custom_fields": []
+              },
+              "conditions": {
+                "all": [
+                  {
+                    "field": "assignee_id",
+                    "operator": "is",
+                    "value": ""
+                  },
+                  {
+                    "field": "status",
+                    "operator": "less_than",
+                    "value": "solved"
+                  },
+                  {
+                    "field": "support_type",
+                    "operator": "is",
+                    "value": "0"
+                  }
+                ],
+                "any": []
+              },
+              "restriction": null,
+              "raw_title": "{{zd.unassigned_tickets}}"
+            },
+            {
+              "url": "https://nango-1049.zendesk.com/api/v2/views/46406158349713.json",
+              "id": 46406158349713,
+              "title": "All unsolved tickets",
+              "active": true,
+              "updated_at": "2026-05-06T07:45:47Z",
+              "created_at": "2026-05-06T07:45:47Z",
+              "default": false,
+              "position": 2,
+              "description": null,
+              "execution": {
+                "group_by": "assignee",
+                "group_order": "asc",
+                "sort_by": "nice_id",
+                "sort_order": "desc",
+                "group": {
+                  "id": "assignee",
+                  "title": "Assignee",
+                  "filterable": true,
+                  "sortable": true,
+                  "order": "asc"
+                },
+                "sort": {
+                  "id": "ticket_id",
+                  "title": "ID",
+                  "filterable": true,
+                  "sortable": true,
+                  "order": "desc"
+                },
+                "columns": [
+                  {
+                    "id": "custom_status_id",
+                    "title": "Ticket status",
+                    "filterable": true,
+                    "sortable": false
+                  },
+                  {
+                    "id": "subject",
+                    "title": "Subject",
+                    "filterable": true,
+                    "sortable": true
+                  },
+                  {
+                    "id": "requester",
+                    "title": "Requester",
+                    "filterable": true,
+                    "sortable": true
+                  },
+                  {
+                    "id": "created",
+                    "title": "Requested",
+                    "filterable": false,
+                    "sortable": true
+                  },
+                  {
+                    "id": "priority",
+                    "title": "Priority",
+                    "filterable": true,
+                    "sortable": true
+                  },
+                  {
+                    "id": "updated",
+                    "title": "Updated",
+                    "filterable": true,
+                    "sortable": true
+                  }
+                ],
+                "fields": [
+                  {
+                    "id": "custom_status_id",
+                    "title": "Ticket status",
+                    "filterable": true,
+                    "sortable": false
+                  },
+                  {
+                    "id": "subject",
+                    "title": "Subject",
+                    "filterable": true,
+                    "sortable": true
+                  },
+                  {
+                    "id": "requester",
+                    "title": "Requester",
+                    "filterable": true,
+                    "sortable": true
+                  },
+                  {
+                    "id": "created",
+                    "title": "Requested",
+                    "filterable": false,
+                    "sortable": true
+                  },
+                  {
+                    "id": "priority",
+                    "title": "Priority",
+                    "filterable": true,
+                    "sortable": true
+                  },
+                  {
+                    "id": "updated",
+                    "title": "Updated",
+                    "filterable": true,
+                    "sortable": true
+                  }
+                ],
+                "custom_fields": []
+              },
+              "conditions": {
+                "all": [
+                  {
+                    "field": "status",
+                    "operator": "less_than",
+                    "value": "solved"
+                  },
+                  {
+                    "field": "support_type",
+                    "operator": "is",
+                    "value": "0"
+                  }
+                ],
+                "any": []
+              },
+              "restriction": null,
+              "raw_title": "{{zd.all_unsolved_tickets}}"
+            },
+            {
+              "url": "https://nango-1049.zendesk.com/api/v2/views/46406146633361.json",
+              "id": 46406146633361,
+              "title": "Recently updated tickets",
+              "active": true,
+              "updated_at": "2026-05-06T07:45:47Z",
+              "created_at": "2026-05-06T07:45:47Z",
+              "default": false,
+              "position": 3,
+              "description": null,
+              "execution": {
+                "group_by": "status",
+                "group_order": "asc",
+                "sort_by": "updated",
+                "sort_order": "desc",
+                "group": {
+                  "id": "status",
+                  "title": "Status category",
+                  "filterable": true,
+                  "sortable": true,
+                  "order": "asc"
+                },
+                "sort": {
+                  "id": "updated",
+                  "title": "Updated",
+                  "filterable": true,
+                  "sortable": true,
+                  "order": "desc"
+                },
+                "columns": [
+                  {
+                    "id": "custom_status_id",
+                    "title": "Ticket status",
+                    "filterable": true,
+                    "sortable": false
+                  },
+                  {
+                    "id": "subject",
+                    "title": "Subject",
+                    "filterable": true,
+                    "sortable": true
+                  },
+                  {
+                    "id": "requester",
+                    "title": "Requester",
+                    "filterable": true,
+                    "sortable": true
+                  },
+                  {
+                    "id": "created",
+                    "title": "Requested",
+                    "filterable": false,
+                    "sortable": true
+                  },
+                  {
+                    "id": "priority",
+                    "title": "Priority",
+                    "filterable": true,
+                    "sortable": true
+                  },
+                  {
+                    "id": "assignee",
+                    "title": "Assignee",
+                    "filterable": true,
+                    "sortable": true
+                  }
+                ],
+                "fields": [
+                  {
+                    "id": "custom_status_id",
+                    "title": "Ticket status",
+                    "filterable": true,
+                    "sortable": false
+                  },
+                  {
+                    "id": "subject",
+                    "title": "Subject",
+                    "filterable": true,
+                    "sortable": true
+                  },
+                  {
+                    "id": "requester",
+                    "title": "Requester",
+                    "filterable": true,
+                    "sortable": true
+                  },
+                  {
+                    "id": "created",
+                    "title": "Requested",
+                    "filterable": false,
+                    "sortable": true
+                  },
+                  {
+                    "id": "priority",
+                    "title": "Priority",
+                    "filterable": true,
+                    "sortable": true
+                  },
+                  {
+                    "id": "assignee",
+                    "title": "Assignee",
+                    "filterable": true,
+                    "sortable": true
+                  }
+                ],
+                "custom_fields": []
+              },
+              "conditions": {
+                "all": [
+                  {
+                    "field": "updated_at",
+                    "operator": "less_than",
+                    "value": "24"
+                  },
+                  {
+                    "field": "status",
+                    "operator": "less_than",
+                    "value": "closed"
+                  },
+                  {
+                    "field": "support_type",
+                    "operator": "is",
+                    "value": "0"
+                  }
+                ],
+                "any": []
+              },
+              "restriction": null,
+              "raw_title": "{{zd.recently_updated_tickets}}"
+            },
+            {
+              "url": "https://nango-1049.zendesk.com/api/v2/views/46406146641425.json",
+              "id": 46406146641425,
+              "title": "Current tasks",
+              "active": false,
+              "updated_at": "2026-05-06T07:45:47Z",
+              "created_at": "2026-05-06T07:45:47Z",
+              "default": false,
+              "position": 11,
+              "description": null,
+              "execution": {
+                "group_by": "due_date",
+                "group_order": "asc",
+                "sort_by": "assignee",
+                "sort_order": "desc",
+                "group": {
+                  "id": "due_date",
+                  "title": "Due date",
+                  "filterable": true,
+                  "sortable": true,
+                  "order": "asc"
+                },
+                "sort": {
+                  "id": "assignee",
+                  "title": "Assignee",
+                  "filterable": true,
+                  "sortable": true,
+                  "order": "desc"
+                },
+                "columns": [
+                  {
+                    "id": "custom_status_id",
+                    "title": "Ticket status",
+                    "filterable": true,
+                    "sortable": false
+                  },
+                  {
+                    "id": "subject",
+                    "title": "Subject",
+                    "filterable": true,
+                    "sortable": true
+                  },
+                  {
+                    "id": "requester",
+                    "title": "Requester",
+                    "filterable": true,
+                    "sortable": true
+                  },
+                  {
+                    "id": "created",
+                    "title": "Requested",
+                    "filterable": false,
+                    "sortable": true
+                  },
+                  {
+                    "id": "assignee",
+                    "title": "Assignee",
+                    "filterable": true,
+                    "sortable": true
+                  },
+                  {
+                    "id": "due_date",
+                    "title": "Due date",
+                    "filterable": true,
+                    "sortable": true
+                  }
+                ],
+                "fields": [
+                  {
+                    "id": "custom_status_id",
+                    "title": "Ticket status",
+                    "filterable": true,
+                    "sortable": false
+                  },
+                  {
+                    "id": "subject",
+                    "title": "Subject",
+                    "filterable": true,
+                    "sortable": true
+                  },
+                  {
+                    "id": "requester",
+                    "title": "Requester",
+                    "filterable": true,
+                    "sortable": true
+                  },
+                  {
+                    "id": "created",
+                    "title": "Requested",
+                    "filterable": false,
+                    "sortable": true
+                  },
+                  {
+                    "id": "assignee",
+                    "title": "Assignee",
+                    "filterable": true,
+                    "sortable": true
+                  },
+                  {
+                    "id": "due_date",
+                    "title": "Due date",
+                    "filterable": true,
+                    "sortable": true
+                  }
+                ],
+                "custom_fields": []
+              },
+              "conditions": {
+                "all": [
+                  {
+                    "field": "status",
+                    "operator": "less_than",
+                    "value": "solved"
+                  },
+                  {
+                    "field": "type",
+                    "operator": "is",
+                    "value": "task"
+                  },
+                  {
+                    "field": "support_type",
+                    "operator": "is",
+                    "value": "0"
+                  }
+                ],
+                "any": []
+              },
+              "restriction": null,
+              "raw_title": "{{zd.current_tasks}}"
+            },
+            {
+              "url": "https://nango-1049.zendesk.com/api/v2/views/46406158355473.json",
+              "id": 46406158355473,
+              "title": "Overdue tasks",
+              "active": false,
+              "updated_at": "2026-05-06T07:45:47Z",
+              "created_at": "2026-05-06T07:45:47Z",
+              "default": false,
+              "position": 12,
+              "description": null,
+              "execution": {
+                "group_by": "due_date",
+                "group_order": "asc",
+                "sort_by": "assignee",
+                "sort_order": "desc",
+                "group": {
+                  "id": "due_date",
+                  "title": "Due date",
+                  "filterable": true,
+                  "sortable": true,
+                  "order": "asc"
+                },
+                "sort": {
+                  "id": "assignee",
+                  "title": "Assignee",
+                  "filterable": true,
+                  "sortable": true,
+                  "order": "desc"
+                },
+                "columns": [
+                  {
+                    "id": "custom_status_id",
+                    "title": "Ticket status",
+                    "filterable": true,
+                    "sortable": false
+                  },
+                  {
+                    "id": "subject",
+                    "title": "Subject",
+                    "filterable": true,
+                    "sortable": true
+                  },
+                  {
+                    "id": "requester",
+                    "title": "Requester",
+                    "filterable": true,
+                    "sortable": true
+                  },
+                  {
+                    "id": "created",
+                    "title": "Requested",
+                    "filterable": false,
+                    "sortable": true
+                  },
+                  {
+                    "id": "assignee",
+                    "title": "Assignee",
+                    "filterable": true,
+                    "sortable": true
+                  },
+                  {
+                    "id": "due_date",
+                    "title": "Due date",
+                    "filterable": true,
+                    "sortable": true
+                  }
+                ],
+                "fields": [
+                  {
+                    "id": "custom_status_id",
+                    "title": "Ticket status",
+                    "filterable": true,
+                    "sortable": false
+                  },
+                  {
+                    "id": "subject",
+                    "title": "Subject",
+                    "filterable": true,
+                    "sortable": true
+                  },
+                  {
+                    "id": "requester",
+                    "title": "Requester",
+                    "filterable": true,
+                    "sortable": true
+                  },
+                  {
+                    "id": "created",
+                    "title": "Requested",
+                    "filterable": false,
+                    "sortable": true
+                  },
+                  {
+                    "id": "assignee",
+                    "title": "Assignee",
+                    "filterable": true,
+                    "sortable": true
+                  },
+                  {
+                    "id": "due_date",
+                    "title": "Due date",
+                    "filterable": true,
+                    "sortable": true
+                  }
+                ],
+                "custom_fields": []
+              },
+              "conditions": {
+                "all": [
+                  {
+                    "field": "status",
+                    "operator": "less_than",
+                    "value": "solved"
+                  },
+                  {
+                    "field": "due_at",
+                    "operator": "greater_than",
+                    "value": "0"
+                  },
+                  {
+                    "field": "support_type",
+                    "operator": "is",
+                    "value": "0"
+                  }
+                ],
+                "any": []
+              },
+              "restriction": null,
+              "raw_title": "{{zd.overdue_tasks}}"
+            },
+            {
+              "url": "https://nango-1049.zendesk.com/api/v2/views/46406146639633.json",
+              "id": 46406146639633,
+              "title": "Pending tickets",
+              "active": true,
+              "updated_at": "2026-05-06T07:45:47Z",
+              "created_at": "2026-05-06T07:45:47Z",
+              "default": false,
+              "position": 9999,
+              "description": null,
+              "execution": {
+                "group_by": "updated",
+                "group_order": "asc",
+                "sort_by": "nice_id",
+                "sort_order": "desc",
+                "group": {
+                  "id": "updated",
+                  "title": "Updated",
+                  "filterable": true,
+                  "sortable": true,
+                  "order": "asc"
+                },
+                "sort": {
+                  "id": "ticket_id",
+                  "title": "ID",
+                  "filterable": true,
+                  "sortable": true,
+                  "order": "desc"
+                },
+                "columns": [
+                  {
+                    "id": "custom_status_id",
+                    "title": "Ticket status",
+                    "filterable": true,
+                    "sortable": false
+                  },
+                  {
+                    "id": "subject",
+                    "title": "Subject",
+                    "filterable": true,
+                    "sortable": true
+                  },
+                  {
+                    "id": "requester",
+                    "title": "Requester",
+                    "filterable": true,
+                    "sortable": true
+                  },
+                  {
+                    "id": "created",
+                    "title": "Requested",
+                    "filterable": false,
+                    "sortable": true
+                  },
+                  {
+                    "id": "priority",
+                    "title": "Priority",
+                    "filterable": true,
+                    "sortable": true
+                  },
+                  {
+                    "id": "assignee",
+                    "title": "Assignee",
+                    "filterable": true,
+                    "sortable": true
+                  }
+                ],
+                "fields": [
+                  {
+                    "id": "custom_status_id",
+                    "title": "Ticket status",
+                    "filterable": true,
+                    "sortable": false
+                  },
+                  {
+                    "id": "subject",
+                    "title": "Subject",
+                    "filterable": true,
+                    "sortable": true
+                  },
+                  {
+                    "id": "requester",
+                    "title": "Requester",
+                    "filterable": true,
+                    "sortable": true
+                  },
+                  {
+                    "id": "created",
+                    "title": "Requested",
+                    "filterable": false,
+                    "sortable": true
+                  },
+                  {
+                    "id": "priority",
+                    "title": "Priority",
+                    "filterable": true,
+                    "sortable": true
+                  },
+                  {
+                    "id": "assignee",
+                    "title": "Assignee",
+                    "filterable": true,
+                    "sortable": true
+                  }
+                ],
+                "custom_fields": []
+              },
+              "conditions": {
+                "all": [
+                  {
+                    "field": "status",
+                    "operator": "is",
+                    "value": "pending"
+                  },
+                  {
+                    "field": "support_type",
+                    "operator": "is",
+                    "value": "0"
+                  }
+                ],
+                "any": []
+              },
+              "restriction": null,
+              "raw_title": "{{zd.pending_tickets}}"
+            },
+            {
+              "url": "https://nango-1049.zendesk.com/api/v2/views/46406158348433.json",
+              "id": 46406158348433,
+              "title": "Recently solved tickets",
+              "active": true,
+              "updated_at": "2026-05-06T07:45:47Z",
+              "created_at": "2026-05-06T07:45:47Z",
+              "default": false,
+              "position": 9999,
+              "description": null,
+              "execution": {
+                "group_by": "assignee",
+                "group_order": "asc",
+                "sort_by": "solved",
+                "sort_order": "desc",
+                "group": {
+                  "id": "assignee",
+                  "title": "Assignee",
+                  "filterable": true,
+                  "sortable": true,
+                  "order": "asc"
+                },
+                "sort": {
+                  "id": "solved",
+                  "title": "Solved",
+                  "filterable": true,
+                  "sortable": true,
+                  "order": "desc"
+                },
+                "columns": [
+                  {
+                    "id": "custom_status_id",
+                    "title": "Ticket status",
+                    "filterable": true,
+                    "sortable": false
+                  },
+                  {
+                    "id": "subject",
+                    "title": "Subject",
+                    "filterable": true,
+                    "sortable": true
+                  },
+                  {
+                    "id": "requester",
+                    "title": "Requester",
+                    "filterable": true,
+                    "sortable": true
+                  },
+                  {
+                    "id": "created",
+                    "title": "Requested",
+                    "filterable": false,
+                    "sortable": true
+                  },
+                  {
+                    "id": "solved",
+                    "title": "Solved",
+                    "filterable": true,
+                    "sortable": true
+                  },
+                  {
+                    "id": "priority",
+                    "title": "Priority",
+                    "filterable": true,
+                    "sortable": true
+                  }
+                ],
+                "fields": [
+                  {
+                    "id": "custom_status_id",
+                    "title": "Ticket status",
+                    "filterable": true,
+                    "sortable": false
+                  },
+                  {
+                    "id": "subject",
+                    "title": "Subject",
+                    "filterable": true,
+                    "sortable": true
+                  },
+                  {
+                    "id": "requester",
+                    "title": "Requester",
+                    "filterable": true,
+                    "sortable": true
+                  },
+                  {
+                    "id": "created",
+                    "title": "Requested",
+                    "filterable": false,
+                    "sortable": true
+                  },
+                  {
+                    "id": "solved",
+                    "title": "Solved",
+                    "filterable": true,
+                    "sortable": true
+                  },
+                  {
+                    "id": "priority",
+                    "title": "Priority",
+                    "filterable": true,
+                    "sortable": true
+                  }
+                ],
+                "custom_fields": []
+              },
+              "conditions": {
+                "all": [
+                  {
+                    "field": "status",
+                    "operator": "is",
+                    "value": "solved"
+                  },
+                  {
+                    "field": "support_type",
+                    "operator": "is",
+                    "value": "0"
+                  }
+                ],
+                "any": []
+              },
+              "restriction": null,
+              "raw_title": "{{zd.recently_solved_tickets}}"
+            },
+            {
+              "url": "https://nango-1049.zendesk.com/api/v2/views/46406147277457.json",
+              "id": 46406147277457,
+              "title": "Your tickets with approval requested",
+              "active": false,
+              "updated_at": "2026-05-06T07:45:52Z",
+              "created_at": "2026-05-06T07:45:52Z",
+              "default": false,
+              "position": 10000,
+              "description": null,
+              "execution": {
+                "group_by": null,
+                "group_order": "desc",
+                "sort_by": null,
+                "sort_order": "desc",
+                "group": null,
+                "sort": null,
+                "columns": [
+                  {
+                    "id": 46406147126033,
+                    "title": "Approval status",
+                    "type": "tagger",
+                    "url": "https://nango-1049.zendesk.com/api/v2/ticket_fields/46406147126033.json",
+                    "filterable": true,
+                    "sortable": true
+                  },
+                  {
+                    "id": "custom_status_id",
+                    "title": "Ticket status",
+                    "filterable": true,
+                    "sortable": false
+                  },
+                  {
+                    "id": "subject",
+                    "title": "Subject",
+                    "filterable": true,
+                    "sortable": true
+                  },
+                  {
+                    "id": "requester",
+                    "title": "Requester",
+                    "filterable": true,
+                    "sortable": true
+                  },
+                  {
+                    "id": "created",
+                    "title": "Requested",
+                    "filterable": false,
+                    "sortable": true
+                  }
+                ],
+                "fields": [
+                  {
+                    "id": "custom_status_id",
+                    "title": "Ticket status",
+                    "filterable": true,
+                    "sortable": false
+                  },
+                  {
+                    "id": "subject",
+                    "title": "Subject",
+                    "filterable": true,
+                    "sortable": true
+                  },
+                  {
+                    "id": "requester",
+                    "title": "Requester",
+                    "filterable": true,
+                    "sortable": true
+                  },
+                  {
+                    "id": "created",
+                    "title": "Requested",
+                    "filterable": false,
+                    "sortable": true
+                  }
+                ],
+                "custom_fields": [
+                  {
+                    "id": 46406147126033,
+                    "title": "Approval status",
+                    "type": "tagger",
+                    "url": "https://nango-1049.zendesk.com/api/v2/ticket_fields/46406147126033.json",
+                    "filterable": true,
+                    "sortable": true
+                  }
+                ]
+              },
+              "conditions": {
+                "all": [
+                  {
+                    "field": "assignee_id",
+                    "operator": "is",
+                    "value": "current_user"
+                  },
+                  {
+                    "field": "custom_fields_46406147126033",
+                    "operator": "present",
+                    "value": null
+                  },
+                  {
+                    "field": "support_type",
+                    "operator": "is",
+                    "value": "0"
+                  }
+                ],
+                "any": []
+              },
+              "restriction": null,
+              "raw_title": "{{zd.tickets_with_approval_requested}}"
+            },
+            {
+              "url": "https://nango-1049.zendesk.com/api/v2/views/46406158928785.json",
+              "id": 46406158928785,
+              "title": "Tickets with pending approvals",
+              "active": false,
+              "updated_at": "2026-05-06T07:45:52Z",
+              "created_at": "2026-05-06T07:45:52Z",
+              "default": false,
+              "position": 10001,
+              "description": null,
+              "execution": {
+                "group_by": null,
+                "group_order": "desc",
+                "sort_by": null,
+                "sort_order": "desc",
+                "group": null,
+                "sort": null,
+                "columns": [
+                  {
+                    "id": 46406147126033,
+                    "title": "Approval status",
+                    "type": "tagger",
+                    "url": "https://nango-1049.zendesk.com/api/v2/ticket_fields/46406147126033.json",
+                    "filterable": true,
+                    "sortable": true
+                  },
+                  {
+                    "id": "custom_status_id",
+                    "title": "Ticket status",
+                    "filterable": true,
+                    "sortable": false
+                  },
+                  {
+                    "id": "subject",
+                    "title": "Subject",
+                    "filterable": true,
+                    "sortable": true
+                  },
+                  {
+                    "id": "requester",
+                    "title": "Requester",
+                    "filterable": true,
+                    "sortable": true
+                  },
+                  {
+                    "id": "created",
+                    "title": "Requested",
+                    "filterable": false,
+                    "sortable": true
+                  },
+                  {
+                    "id": "assignee",
+                    "title": "Assignee",
+                    "filterable": true,
+                    "sortable": true
+                  }
+                ],
+                "fields": [
+                  {
+                    "id": "custom_status_id",
+                    "title": "Ticket status",
+                    "filterable": true,
+                    "sortable": false
+                  },
+                  {
+                    "id": "subject",
+                    "title": "Subject",
+                    "filterable": true,
+                    "sortable": true
+                  },
+                  {
+                    "id": "requester",
+                    "title": "Requester",
+                    "filterable": true,
+                    "sortable": true
+                  },
+                  {
+                    "id": "created",
+                    "title": "Requested",
+                    "filterable": false,
+                    "sortable": true
+                  },
+                  {
+                    "id": "assignee",
+                    "title": "Assignee",
+                    "filterable": true,
+                    "sortable": true
+                  }
+                ],
+                "custom_fields": [
+                  {
+                    "id": 46406147126033,
+                    "title": "Approval status",
+                    "type": "tagger",
+                    "url": "https://nango-1049.zendesk.com/api/v2/ticket_fields/46406147126033.json",
+                    "filterable": true,
+                    "sortable": true
+                  }
+                ]
+              },
+              "conditions": {
+                "all": [
+                  {
+                    "field": "assignee_id",
+                    "operator": "is_not",
+                    "value": "current_user"
+                  },
+                  {
+                    "field": "custom_fields_46406147126033",
+                    "operator": "present",
+                    "value": null
+                  },
+                  {
+                    "field": "custom_fields_46406147126033",
+                    "operator": "is",
+                    "value": "zd_es_approval_pending"
+                  },
+                  {
+                    "field": "group_id",
+                    "operator": "is",
+                    "value": "current_groups"
+                  },
+                  {
+                    "field": "support_type",
+                    "operator": "is",
+                    "value": "0"
+                  }
+                ],
+                "any": []
+              },
+              "restriction": null,
+              "raw_title": "{{zd.tickets_with_pending_approvals}}"
+            }
+          ],
+          "next_page": null,
+          "previous_page": null,
+          "count": 10
+        },
+        "status": 200,
+        "headers": {
+          "date": "Wed, 06 May 2026 08:49:16 GMT",
+          "content-type": "application/json; charset=utf-8",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=31536000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "X-Zendesk-API-Warn,X-Zendesk-User-Id,X-Zendesk-User-Session-Expires-At",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4943",
+          "x-ratelimit-reset": "1778057383",
+          "x-zendesk-api-version": "v2",
+          "x-zendesk-application-version": "v25703",
+          "x-rate-limit": "400",
+          "ratelimit-limit": "400",
+          "x-rate-limit-remaining": "391",
+          "ratelimit-remaining": "391",
+          "ratelimit-reset": "44",
+          "etag": "W/\"b2a326dcda91a5970c51c3cabc19da36\"",
+          "cache-control": "max-age=0, private, must-revalidate",
+          "zendesk-route": "/api/v2/views",
+          "set-cookie": "<redacted>",
+          "x-zendesk-origin-server": "classic-app-server-69d49c4b9b-fjtwg",
+          "x-request-id": "9f76bb0afb2c8736-DUB",
+          "x-runtime": "0.139447",
+          "x-envoy-upstream-service-time": "144",
+          "x-openapi-route-path": "/api/v2/views",
+          "zendesk-service": "classic",
+          "x-zendesk-zorg": "yes",
+          "vary": "Accept-Encoding",
+          "via": "zorg",
+          "x-envoy-decorator-operation": "/api/v2/views",
+          "cf-cache-status": "DYNAMIC",
+          "report-to": "{\"endpoints\":[{\"url\":\"https:\\/\\/a.nel.cloudflare.com\\/report\\/v4?s=PODA9tYEsBsauiQDdImLv%2FKvaqRls%2BsGKXsKWE321cucwoMxo5322MBbKZ6GWDV7tUosXhpvtOpHLSfx6VuIiaTxqXwoby2Hkm6ylVbw7vvgznkiS8D7MQYdrcBXoL1ltKVDCinUixM%3D\"}],\"group\":\"cf-nel\",\"max_age\":604800}",
+          "nel": "{\"success_fraction\":0.01,\"report_to\":\"cf-nel\",\"max_age\":604800}",
+          "server": "cloudflare",
+          "cf-ray": "9f76bb0afb2c8736-PDX"
+        },
+        "hash": "fce663a355bef3b97b7ddc29a901730d8cd378c9",
+        "request": {
+          "params": {
+            "page": "1",
+            "per_page": "100"
+          }
+        }
+      }
+    }
+  }
+}
