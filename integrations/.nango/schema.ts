@@ -5326,6 +5326,381 @@ export interface ActionOutput_calendly_createuser {
   lastName: string;
 };
 
+export interface ActionInput_calendly_createwebhooksubscription {
+  /**
+   * The callback URL. Example: "https://example.com/webhooks"
+   */
+  url: string;
+  /**
+   * The events to subscribe to. Example: ["invitee.created", "invitee.canceled"]
+   */
+  events: string[];
+  /**
+   * The organization URI. Example: "https://api.calendly.com/organizations/ORG123"
+   */
+  organization: string;
+  /**
+   * The scope of the subscription.
+   */
+  scope: 'organization' | 'user';
+  /**
+   * The user URI. Required when scope is "user". Example: "https://api.calendly.com/users/USER123"
+   */
+  user?: string | undefined;
+  /**
+   * An optional secret key used to sign webhook payloads.
+   */
+  signing_key?: string | undefined;
+};
+
+export interface ActionOutput_calendly_createwebhooksubscription {
+  /**
+   * The webhook subscription URI.
+   */
+  uri: string;
+  /**
+   * The callback URL.
+   */
+  callback_url: string;
+  /**
+   * The moment the webhook subscription was created.
+   */
+  created_at: string;
+  /**
+   * The moment the webhook subscription was last updated.
+   */
+  updated_at: string;
+  /**
+   * The moment retries started for a failing webhook subscription.
+   */
+  retry_started_at: string;
+  /**
+   * The state of the webhook subscription.
+   */
+  state: string;
+  /**
+   * The events the webhook subscription is subscribed to.
+   */
+  events: string[];
+  /**
+   * The scope of the webhook subscription.
+   */
+  scope: string;
+  /**
+   * The organization URI.
+   */
+  organization: string;
+  /**
+   * The user URI.
+   */
+  user: string;
+};
+
+export interface ActionInput_calendly_deletewebhooksubscription {
+  /**
+   * The unique identifier of the webhook subscription to delete. Example: "ABCD1234..."
+   */
+  uuid: string;
+};
+
+export interface ActionOutput_calendly_deletewebhooksubscription {
+  uuid: string;
+  deleted: boolean;
+};
+
+export interface ActionInput_calendly_geteventinvitee {
+  /**
+   * The UUID of the scheduled event. Example: "AAAAAAAAAAAAAAAA"
+   */
+  event_uuid: string;
+  /**
+   * The UUID of the invitee. Example: "BBBBBBBBBBBBBBBB"
+   */
+  invitee_uuid: string;
+};
+
+export interface ActionOutput_calendly_geteventinvitee {
+  cancel_url: string;
+  created_at: string;
+  email: string;
+  event: string;
+  name: string;
+  first_name?: string | undefined;
+  last_name?: string | undefined;
+  new_invitee?: string | undefined;
+  old_invitee?: string | undefined;
+  questions_and_answers: ({  answer: string;
+  position: number;
+  question: string;})[];
+  reschedule_url: string;
+  rescheduled: boolean;
+  status: string;
+  text_reminder_number?: string | undefined;
+  timezone: string;
+  tracking: {  utm_campaign?: string | undefined;
+  utm_source?: string | undefined;
+  utm_medium?: string | undefined;
+  utm_content?: string | undefined;
+  utm_term?: string | undefined;
+  salesforce_uuid?: string | undefined;};
+  updated_at: string;
+  uri: string;
+  cancellation?: {  canceled_by: string;
+  reason?: string | undefined;
+  canceler_type: string;
+  created_at: string;};
+  routing_form_submission?: string | undefined;
+  payment?: {  external_id: string;
+  provider: string;
+  amount: number;
+  currency: string;
+  terms: string;
+  successful: boolean;} | undefined;
+  no_show?: string | undefined;
+  reconfirmation?: {  created_at: string;
+  confirmed_at: string;} | undefined;
+  scheduling_method?: string | undefined;
+  invitee_scheduled_by?: string | undefined;
+};
+
+export interface ActionInput_calendly_geteventtype {
+  /**
+   * The unique identifier (UUID) of the event type. Example: "AAAAAAAAAAAAAAAA"
+   */
+  uuid: string;
+};
+
+export interface ActionOutput_calendly_geteventtype {
+  uri: string;
+  name?: string | undefined;
+  active: boolean;
+  slug?: string | undefined;
+  scheduling_url: string;
+  duration: number;
+  color?: string | undefined;
+  type: string;
+  kind?: string | undefined;
+  description_plain?: string | undefined;
+  description_html?: string | undefined;
+  internal_note?: string | undefined;
+  secret?: boolean | undefined;
+  booking_method?: string | undefined;
+  admin_managed?: boolean | undefined;
+  created_at?: string | undefined;
+  updated_at?: string | undefined;
+  deleted_at?: string | undefined;
+  custom_questions?: unknown[] | undefined;
+  duration_options?: number[] | undefined;
+  is_paid?: boolean | undefined;
+  locale?: string | undefined;
+  locations?: unknown[] | undefined;
+  pooling_type?: string | undefined;
+  position?: number | undefined;
+  profile?: {  type: string;
+  name: string;
+  owner: string;} | undefined;
+};
+
+export interface ActionInput_calendly_getscheduledevent {
+  /**
+   * The unique identifier for the scheduled event. Example: "8pv58mskifkj5st9o6m2qqde74"
+   */
+  uuid: string;
+};
+
+export interface ActionOutput_calendly_getscheduledevent {
+  uri: string;
+  event_type: string;
+  name: string;
+  status: 'active' | 'canceled';
+  start_time: string;
+  end_time: string;
+  created_at: string;
+  updated_at: string;
+  event_memberships?: ({  user: string;
+  user_email?: string | undefined;
+  user_name?: string | undefined;
+  buffered_start_time?: string | undefined;
+  buffered_end_time?: string | undefined;})[];
+  event_guests?: ({  [key: string]: unknown | undefined;})[];
+  invitees_counter?: {  active: number;
+  limit: number;
+  total: number;} | undefined;
+  location?: {  type: string;
+  status?: string | undefined;
+  join_url?: string | undefined;
+  data?: {  [key: string]: unknown | undefined;};};
+  calendar_event?: {  external_id?: string | undefined;
+  kind?: string | undefined;};
+  meeting_notes_html?: string | undefined;
+  meeting_notes_plain?: string | undefined;
+};
+
+export interface ActionInput_calendly_getwebhooksubscription {
+  /**
+   * The unique identifier of the webhook subscription. Example: "AAAAAAAAAAAAAAAA"
+   */
+  uuid: string;
+};
+
+export interface ActionOutput_calendly_getwebhooksubscription {
+  /**
+   * Canonical reference (unique identifier) for the webhook subscription.
+   */
+  uri: string;
+  /**
+   * The callback URL to use when the event is triggered.
+   */
+  callback_url: string;
+  /**
+   * The moment when the webhook subscription was created.
+   */
+  created_at: string;
+  /**
+   * The moment when the webhook subscription was last updated.
+   */
+  updated_at: string;
+  /**
+   * The date and time the webhook subscription retry started.
+   */
+  retry_started_at?: string | undefined;
+  /**
+   * Indicates if the webhook subscription is active or disabled.
+   */
+  state: string;
+  /**
+   * A list of events to which the webhook is subscribed.
+   */
+  events: string[];
+  /**
+   * The scope of the webhook subscription.
+   */
+  scope: string;
+  /**
+   * The organization associated with the webhook subscription.
+   */
+  organization: string;
+  /**
+   * The user associated with the webhook subscription.
+   */
+  user?: string | undefined;
+  /**
+   * The user who created the webhook subscription.
+   */
+  creator?: string | undefined;
+  /**
+   * The group associated with the webhook subscription.
+   */
+  group?: string | undefined;
+};
+
+export interface ActionInput_calendly_listeventinvitees {
+  /**
+   * The unique identifier for the scheduled event. Example: "GBGBDCAADAEDCRZ2"
+   */
+  event_uuid: string;
+  /**
+   * Filter by invitee email address
+   */
+  email?: string | undefined;
+  /**
+   * Filter by invitee status
+   */
+  status?: 'active' | 'canceled' | undefined;
+  /**
+   * Sort order for results
+   */
+  sort?: 'created_at:asc' | 'created_at:desc' | 'updated_at:asc' | 'updated_at:desc' | undefined;
+  /**
+   * Number of results per page (1-100)
+   */
+  count?: number | undefined;
+  /**
+   * Pagination cursor from the previous response. Omit for the first page.
+   */
+  cursor?: string | undefined;
+};
+
+export interface ActionOutput_calendly_listeventinvitees {
+  /**
+   * List of event invitees
+   */
+  items: ({  /**
+   * Canonical reference for the invitee
+   */
+  uri: string;
+  /**
+   * Invitee email address
+   */
+  email: string;
+  /**
+   * Invitee display name
+   */
+  name?: string | undefined;
+  /**
+   * Status of the invitee
+   */
+  status: 'active' | 'canceled';
+  /**
+   * Invitee timezone
+   */
+  timezone?: string | undefined;
+  /**
+   * When the invitee was created
+   */
+  created_at: string;
+  /**
+   * When the invitee was last updated
+   */
+  updated_at: string;
+  /**
+   * Reference to the scheduled event
+   */
+  event: string;
+  /**
+   * Answers to custom questions
+   */
+  questions_and_answers?: ({  question: string;
+  answer: string;})[] | undefined;
+  /**
+   * UTM tracking parameters
+   */
+  tracking?: {  utm_campaign?: string | undefined;
+  utm_source?: string | undefined;
+  utm_medium?: string | undefined;
+  utm_content?: string | undefined;
+  utm_term?: string | undefined;
+  salesforce_uuid?: string | undefined;};
+  /**
+   * Phone number for text reminders
+   */
+  text_reminder_number?: string | undefined;
+  /**
+   * Whether the invitee rescheduled
+   */
+  rescheduled?: boolean | undefined;
+  /**
+   * Reference to the previous invitee if rescheduled
+   */
+  old_invitee?: string | undefined;
+  /**
+   * Reference to the new invitee if rescheduled
+   */
+  new_invitee?: string | undefined;
+  /**
+   * URL to cancel the invitee
+   */
+  cancel_url?: string | undefined;
+  /**
+   * URL to reschedule the invitee
+   */
+  reschedule_url?: string | undefined;})[];
+  /**
+   * Pagination cursor for the next page of results
+   */
+  next_cursor?: string | undefined;
+};
+
 export interface ActionInput_calendly_deleteuser {
   /**
    * Organization membership UUID to remove
