@@ -1,41 +1,33 @@
+import { z } from 'zod';
 import { createAction } from 'nango';
-import { idEntitySchema } from '../schema.zod.js';
 
-import type { ProxyConfiguration } from 'nango';
-import { SuccessResponse, IdEntity } from '../models.js';
+const InputSchema = z.object({
+    id: z.string().describe('Organization membership UUID to remove')
+});
 
-/**
- * Executes the delete user action by validating input, constructing the endpoint,
- * and making the API call to Calendly to delete the user from an organization.
- */
+const OutputSchema = z.object({
+    success: z.boolean().describe('Whether the deletion was successful')
+});
+
 const action = createAction({
-    description: 'Deletes a user in Calendly',
-    version: '2.0.0',
-
+    description: 'Remove a user from the Calendly organization.',
+    version: '1.0.0',
     endpoint: {
         method: 'DELETE',
         path: '/users',
         group: 'Users'
     },
+    input: InputSchema,
+    output: OutputSchema,
 
-    input: IdEntity,
-    output: SuccessResponse,
-    scopes: ['admin'],
-
-    exec: async (nango, input): Promise<SuccessResponse> => {
-        await nango.zodValidateInput({ zodSchema: idEntitySchema, input });
-
-        const config: ProxyConfiguration = {
-            // https://developer.calendly.com/api-docs/269e89d9f559f-remove-user-from-organization
+    exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
+        // https://developer.calendly.com/api-docs/ce7440ed9da47-remove-user-from-organization
+        await nango.delete({
             endpoint: `/organization_memberships/${input.id}`,
             retries: 3
-        };
+        });
 
-        await nango.delete(config);
-
-        return {
-            success: true
-        };
+        return { success: true };
     }
 });
 
