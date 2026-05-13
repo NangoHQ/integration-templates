@@ -1,14 +1,7 @@
 import { z } from 'zod';
 import { createAction, ProxyConfiguration } from 'nango';
 
-const InputSchema = z.object({
-    projection: z
-        .string()
-        .optional()
-        .describe(
-            'LinkedIn field projection to request additional profile fields. Example: "(id,firstName,lastName,profilePicture(displayImage~:playableStreams))"'
-        )
-});
+const InputSchema = z.object({});
 
 const ProviderProfileSchema = z
     .object({
@@ -55,7 +48,7 @@ const action = createAction({
     input: InputSchema,
     output: OutputSchema,
     scopes: ['openid', 'profile', 'email'],
-    exec: async (nango, _input): Promise<z.infer<typeof OutputSchema>> => {
+    exec: async (nango): Promise<z.infer<typeof OutputSchema>> => {
         const config: ProxyConfiguration = {
             // https://learn.microsoft.com/en-us/linkedin/consumer/integrations/self-serve/sign-in-with-linkedin-v2
             endpoint: '/v2/userinfo',

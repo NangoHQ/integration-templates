@@ -75957,12 +75957,6 @@
     },
     "ActionInput_linkedin_getcurrentmemberprofile": {
       "type": "object",
-      "properties": {
-        "projection": {
-          "type": "string",
-          "description": "LinkedIn field projection to request additional profile fields. Example: \"(id,firstName,lastName,profilePicture(displayImage~:playableStreams))\""
-        }
-      },
       "additionalProperties": false
     },
     "ActionOutput_linkedin_getcurrentmemberprofile": {

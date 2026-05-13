@@ -24656,10 +24656,6 @@ export interface ActionOutput_linkedin_deletepost {
 };
 
 export interface ActionInput_linkedin_getcurrentmemberprofile {
-  /**
-   * LinkedIn field projection to request additional profile fields. Example: "(id,firstName,lastName,profilePicture(displayImage~:playableStreams))"
-   */
-  projection?: string | undefined;
 };
 
 export interface ActionOutput_linkedin_getcurrentmemberprofile {

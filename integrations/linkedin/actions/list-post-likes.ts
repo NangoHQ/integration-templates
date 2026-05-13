@@ -39,7 +39,7 @@ const OutputSchema = z.object({
 });
 
 const action = createAction({
-    description: 'List likes on a LinkedIn post or comment thread.',
+    description: 'List reactions on a LinkedIn post or comment thread. Returns all reaction types (LIKE, PRAISE, EMPATHY, APPRECIATION, etc.).',
     version: '1.0.0',
     endpoint: {
         method: 'GET',
