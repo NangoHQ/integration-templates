@@ -57,9 +57,20 @@ export interface SyncMetadata_adp_unifiedemployees {
 
 export interface User {
   id: string;
-  firstName: string;
-  lastName: string;
-  email: string;
+  first_name?: string | undefined;
+  last_name?: string | undefined;
+  email?: string | undefined;
+  type?: number | undefined;
+  pmi?: number | undefined;
+  timezone?: string | undefined;
+  dept?: string | undefined;
+  created_at?: string | undefined;
+  last_login_time?: string | undefined;
+  last_client_version?: string | undefined;
+  group_ids?: string[] | undefined;
+  im_group_ids?: string[] | undefined;
+  status?: string | undefined;
+  role_id?: string | undefined;
 };
 
 export interface SyncMetadata_aircall_users {
@@ -40943,119 +40954,1059 @@ export interface ActionOutput_zoho_mail_sendemail {
 
 export interface Meeting {
   id: string;
-  topic: string;
-  startTime: string;
-  duration: number;
-  timezone: string;
-  joinUrl: string;
-  createdAt: string;
+  topic?: string | undefined;
+  start_time?: string | undefined;
+  duration?: number | undefined;
+  timezone?: string | undefined;
+  created_at?: string | undefined;
+  join_url?: string | undefined;
+  type?: number | undefined;
+  uuid?: string | undefined;
+  host_id?: string | undefined;
+  status?: string | undefined;
 };
 
-export interface SyncMetadata_zoom_meetings {
-};
-
-export interface RecordingFile {
+export interface Recording {
   id: string;
-  deletedTime?: string | undefined;
-  downloadUrl: string;
-  filePath?: string | undefined;
-  fileSize: number;
-  fileType: 'MP4' | 'M4A' | 'CHAT' | 'TRANSCRIPT' | 'CSV' | 'TB' | 'CC' | 'CHAT_MESSAGE' | 'SUMMARY' | 'TIMELINE';
-  fileExtension: 'MP4' | 'M4A' | 'TXT' | 'VTT' | 'CSV' | 'JSON' | 'JPG';
-  meetingId: string;
-  playUrl?: string | undefined;
-  recordingEnd: string;
-  recordingStart: string;
-  recordingType: 'shared_screen_with_speaker_view(CC)' | 'shared_screen_with_speaker_view' | 'shared_screen_with_gallery_view' | 'active_speaker' | 'gallery_view' | 'shared_screen' | 'audio_only' | 'audio_transcript' | 'chat_file' | 'poll' | 'host_video' | 'closed_caption' | 'timeline' | 'thumbnail' | 'audio_interpretation' | 'summary' | 'summary_next_steps' | 'summary_smart_chapters' | 'sign_interpretation' | 'production_studio';
-  status: 'completed';
-  autoDelete?: boolean | undefined;
-  autoDeleteDate?: string | undefined;
-  playPasscode: string;
+  uuid: string;
+  account_id?: string | undefined;
+  host_id?: string | undefined;
+  topic?: string | undefined;
+  type?: number | undefined;
+  start_time?: string | undefined;
+  duration?: number | undefined;
+  total_size?: number | undefined;
+  recording_count?: number | undefined;
+  share_url?: string | undefined;
 };
 
-export interface SyncMetadata_zoom_recordingfiles {
-  backfillPeriodDays: number;
+export interface Webinar {
+  id: string;
+  uuid?: string | undefined;
+  host_id?: string | undefined;
+  topic?: string | undefined;
+  agenda?: string | undefined;
+  type?: string | undefined;
+  duration?: number | undefined;
+  start_time?: string | undefined;
+  timezone?: string | undefined;
+  created_at?: string | undefined;
+  join_url?: string | undefined;
 };
 
-export interface SyncMetadata_zoom_users {
+export interface ActionInput_zoom_createmeetingregistrant {
+  /**
+   * The meeting ID or meeting number. Example: "85746065"
+   */
+  meeting_id: string;
+  /**
+   * Occurrence IDs. You can find these with the meeting get API. Multiple values separated by comma.
+   */
+  occurrence_ids?: string | undefined;
+  /**
+   * A valid email address of the registrant.
+   */
+  email: string;
+  /**
+   * The registrant's first name.
+   */
+  first_name: string;
+  /**
+   * The registrant's last name.
+   */
+  last_name?: string | undefined;
+  /**
+   * The registrant's address.
+   */
+  address?: string | undefined;
+  /**
+   * The registrant's city.
+   */
+  city?: string | undefined;
+  /**
+   * The registrant's country in two-letter abbreviated form.
+   */
+  country?: string | undefined;
+  /**
+   * The registrant's zip or postal code.
+   */
+  zip?: string | undefined;
+  /**
+   * The registrant's state or province.
+   */
+  state?: string | undefined;
+  /**
+   * The registrant's phone number.
+   */
+  phone?: string | undefined;
+  /**
+   * The registrant's industry.
+   */
+  industry?: string | undefined;
+  /**
+   * The registrant's organization.
+   */
+  org?: string | undefined;
+  /**
+   * The registrant's job title.
+   */
+  job_title?: string | undefined;
+  /**
+   * The registrant's purchasing time frame.
+   */
+  purchasing_time_frame?: string | undefined;
+  /**
+   * The registrant's role in the purchase process.
+   */
+  role_in_purchase_process?: string | undefined;
+  /**
+   * The registrant's number of employees.
+   */
+  no_of_employees?: string | undefined;
+  /**
+   * Any questions or comments from the registrant.
+   */
+  comments?: string | undefined;
+  /**
+   * Custom questions and answers from the registrant.
+   */
+  custom_questions?: ({  title?: string | undefined;
+  value?: string | undefined;})[];
+};
+
+export interface ActionOutput_zoom_createmeetingregistrant {
+  id?: number | undefined;
+  join_url?: string | undefined;
+  registrant_id?: string | undefined;
+  start_time?: string | undefined;
+  topic?: string | undefined;
 };
 
 export interface ActionInput_zoom_createmeeting {
-  topic: string;
-  type: 'instant' | 'scheduled' | 'recurringNoFixed' | 'recurring' | 'screenShareOnly';
-  agenda?: string | undefined;
-  default_password?: boolean | undefined;
+  /**
+   * The user ID or email address of the user. For user-level apps, pass `me` as the value for userId.
+   */
+  userId: string;
+  /**
+   * Meeting topic.
+   */
+  topic?: string | undefined;
+  /**
+   * Meeting Type: 1 - Instant meeting, 2 - Scheduled meeting, 3 - Recurring meeting with no fixed time, 8 - Recurring meeting with fixed time.
+   */
+  type?: number | undefined;
+  /**
+   * Meeting start time in ISO 8601 format (yyyy-MM-ddTHH:mm:ssZ).
+   */
+  start_time?: string | undefined;
+  /**
+   * Meeting duration in minutes. Used for scheduled meetings only.
+   */
   duration?: number | undefined;
+  /**
+   * Time zone to format start_time. For example, "America/Los_Angeles".
+   */
+  timezone?: string | undefined;
+  /**
+   * Passcode to join the meeting. Max 10 characters.
+   */
   password?: string | undefined;
-  pre_schedule?: boolean | undefined;
+  /**
+   * Meeting description.
+   */
+  agenda?: string | undefined;
+  /**
+   * Meeting settings.
+   */
+  settings?: {  host_video?: boolean | undefined;
+  participant_video?: boolean | undefined;
+  join_before_host?: boolean | undefined;
+  mute_upon_entry?: boolean | undefined;
+  waiting_room?: boolean | undefined;
+  auto_recording?: 'local' | 'cloud' | 'none' | undefined;};
+};
+
+export interface ActionOutput_zoom_createmeeting {
+  /**
+   * Meeting ID.
+   */
+  id: number;
+  topic?: string | undefined;
+  type?: number | undefined;
+  start_time?: string | undefined;
+  duration?: number | undefined;
+  timezone?: string | undefined;
+  password?: string | undefined;
+  agenda?: string | undefined;
+  host_id?: string | undefined;
+  host_email?: string | undefined;
+  join_url?: string | undefined;
+  start_url?: string | undefined;
+  created_at?: string | undefined;
+  settings?: {  host_video?: boolean | undefined;
+  participant_video?: boolean | undefined;
+  join_before_host?: boolean | undefined;
+  mute_upon_entry?: boolean | undefined;
+  waiting_room?: boolean | undefined;
+  auto_recording?: string | undefined;};
+};
+
+export interface ActionInput_zoom_createuser {
+  action: 'create' | 'autoCreate' | 'custCreate' | 'ssoCreate';
+  user_info: {  email: string;
+  first_name?: string | undefined;
+  last_name?: string | undefined;
+  password?: string | undefined;
+  type: 1 | 2 | 3 | 99;};
+};
+
+export interface ActionOutput_zoom_createuser {
+  id: string;
+  email: string;
+  first_name?: string | undefined;
+  last_name?: string | undefined;
+  type: 1 | 2 | 3 | 99;
+};
+
+export interface ActionInput_zoom_createwebinar {
+  /**
+   * The user ID or email address of the user. For user-level apps, pass "me". Defaults to "me".
+   */
+  userId?: string | undefined;
+  /**
+   * Webinar topic.
+   */
+  topic: string;
+  /**
+   * Webinar type: 5 (Webinar), 6 (Recurring no fixed time), 9 (Recurring fixed time). Defaults to 5.
+   */
+  type?: number | undefined;
+  /**
+   * Webinar start time in ISO 8601 format. Required for type 5 and 9.
+   */
+  start_time?: string | undefined;
+  /**
+   * Webinar duration in minutes.
+   */
+  duration?: number | undefined;
+  /**
+   * Webinar agenda.
+   */
+  agenda?: string | undefined;
+  /**
+   * Time zone to format start_time.
+   */
+  timezone?: string | undefined;
+  /**
+   * Webinar passcode.
+   */
+  password?: string | undefined;
+  /**
+   * Webinar settings.
+   */
+  settings?: {  host_video?: boolean | undefined;
+  panelists_video?: boolean | undefined;
+  practice_session?: boolean | undefined;
+  hd_video?: boolean | undefined;
+  auto_recording?: 'local' | 'cloud' | 'none' | undefined;
+  approval_type?: number | undefined;};
+};
+
+export interface ActionOutput_zoom_createwebinar {
+  host_email?: string | undefined;
+  host_id?: string | undefined;
+  id?: number | undefined;
+  uuid?: string | undefined;
+  agenda?: string | undefined;
+  created_at?: string | undefined;
+  duration?: number | undefined;
+  join_url?: string | undefined;
+  occurrences?: ({  duration?: number | undefined;
+  occurrence_id?: string | undefined;
+  start_time?: string | undefined;
+  status?: string | undefined;})[];
+  password?: string | undefined;
   recurrence?: {  end_date_time?: string | undefined;
   end_times?: number | undefined;
   monthly_day?: number | undefined;
   monthly_week?: number | undefined;
   monthly_week_day?: number | undefined;
   repeat_interval?: number | undefined;
-  type?: 'daily' | 'weekly' | 'monthly' | undefined;
-  weekly_days?: 'sunday' | 'monday' | 'tuesday' | 'wednesday' | 'thursday' | 'friday' | 'saturday' | undefined;};
-  settings?: {  host_video?: boolean | undefined;
-  participant_video?: boolean | undefined;
-  join_before_host?: boolean | undefined;
-  mute_upon_entry?: boolean | undefined;
-  approval_type?: 'automatic' | 'manually' | 'notRequired' | undefined;
-  registration_type?: 'registerOnceAttendAny' | 'registerEveryTime' | 'registerOnceSelectOccurrences' | undefined;
-  audio?: 'both' | 'telephony' | 'voip' | 'thirdParty' | undefined;
-  auto_recording?: 'local' | 'cloud' | 'none' | undefined;
-  waiting_room: boolean;};
-  schedule_for?: string | undefined;
+  type: number;
+  weekly_days?: string | undefined;};
+  settings?: {  allow_multiple_devices?: boolean | undefined;
+  alternative_hosts?: string | undefined;
+  approval_type?: number | undefined;
+  audio?: string | undefined;
+  auto_recording?: string | undefined;
+  close_registration?: boolean | undefined;
+  contact_email?: string | undefined;
+  contact_name?: string | undefined;
+  email_language?: string | undefined;
+  enforce_login?: boolean | undefined;
+  enforce_login_domains?: string | undefined;
+  hd_video?: boolean | undefined;
+  host_video?: boolean | undefined;
+  meeting_authentication?: boolean | undefined;
+  on_demand?: boolean | undefined;
+  panelists_invitation_email_notification?: boolean | undefined;
+  panelists_video?: boolean | undefined;
+  practice_session?: boolean | undefined;
+  registrants_confirmation_email?: boolean | undefined;
+  registrants_email_notification?: boolean | undefined;
+  registrants_restrict_number?: number | undefined;
+  registration_type?: number | undefined;
+  show_share_button?: boolean | undefined;
+  survey_url?: string | undefined;};
   start_time?: string | undefined;
-  template_id?: string | undefined;
+  start_url?: string | undefined;
   timezone?: string | undefined;
+  topic?: string | undefined;
+  tracking_fields?: ({  field?: string | undefined;
+  value?: string | undefined;})[];
+  type?: number | undefined;
 };
 
-export interface ActionOutput_zoom_createmeeting {
-  id: string;
-  topic: string;
-  startTime: string;
-  duration: number;
-  timezone: string;
-  joinUrl: string;
-  createdAt: string;
+export interface ActionInput_zoom_deletemeetingregistrant {
+  /**
+   * The meeting ID. Example: 123456789
+   */
+  meetingId: number;
+  /**
+   * The meeting registrant ID. Example: "abc123"
+   */
+  registrantId: string;
+  /**
+   * The meeting occurrence ID. Example: "def456"
+   */
+  occurrenceId?: string | undefined;
 };
 
-export interface ActionInput_zoom_createuser {
-  firstName: string;
-  lastName: string;
-  email: string;
-  action?: 'create' | 'autoCreate' | 'custCreate' | 'ssoCreate' | undefined;
-  display_name?: string | undefined;
-  type?: 'basic' | 'licensed' | 'UnassignedWithoutMeetingsBasic' | 'None' | undefined;
-};
-
-export interface ActionOutput_zoom_createuser {
-  id: string;
-  firstName: string;
-  lastName: string;
-  email: string;
+export interface ActionOutput_zoom_deletemeetingregistrant {
+  meetingId: number;
+  registrantId: string;
+  deleted: boolean;
 };
 
 export interface ActionInput_zoom_deletemeeting {
-  id: string;
+  /**
+   * The meeting ID to delete. Example: "123456789"
+   */
+  meetingId: string;
+  /**
+   * The meeting occurrence ID for recurring meetings. Example: "abc123"
+   */
+  occurrenceId?: string | undefined;
 };
 
 export interface ActionOutput_zoom_deletemeeting {
   success: boolean;
+  meetingId: string;
+};
+
+export interface ActionInput_zoom_deleterecording {
+  /**
+   * The meeting ID or meeting UUID. Example: "123456789"
+   */
+  meeting_id: string;
+  /**
+   * The recording delete action. "trash" moves the recording to trash (default), "delete" permanently deletes the recording.
+   */
+  action?: 'trash' | 'delete' | undefined;
+};
+
+export interface ActionOutput_zoom_deleterecording {
+  meeting_id: string;
+  action?: string | undefined;
+  deleted: boolean;
 };
 
 export interface ActionInput_zoom_deleteuser {
-  id: string;
+  /**
+   * The user ID or email address of the user to delete. Example: "user@example.com"
+   */
+  userId: string;
+  /**
+   * Delete action: disassociate (default) removes the user from the account; delete permanently removes the user.
+   */
+  action?: 'disassociate' | 'delete' | undefined;
+  /**
+   * Email address of the user to transfer meetings, webinars, and recordings to before deletion.
+   */
+  transfer_email?: string | undefined;
+  /**
+   * Whether to transfer meetings to the transfer_email user. Default: true.
+   */
+  transfer_meeting?: boolean | undefined;
+  /**
+   * Whether to transfer webinars to the transfer_email user. Default: true.
+   */
+  transfer_webinar?: boolean | undefined;
+  /**
+   * Whether to transfer cloud recordings to the transfer_email user. Default: true.
+   */
+  transfer_recording?: boolean | undefined;
 };
 
 export interface ActionOutput_zoom_deleteuser {
-  success: boolean;
+  /**
+   * The ID of the deleted or archived user.
+   */
+  userId: string;
 };
 
-export type ActionInput_zoom_whoami = void
+export interface ActionInput_zoom_deletewebinar {
+  /**
+   * The unique identifier of the webinar to delete. Example: "123456789"
+   */
+  webinar_id: string;
+};
 
-export interface ActionOutput_zoom_whoami {
+export interface ActionOutput_zoom_deletewebinar {
+  success: boolean;
+  webinar_id: string;
+};
+
+export interface ActionInput_zoom_getcurrentuser {
+};
+
+export interface ActionOutput_zoom_getcurrentuser {
   id: string;
+  first_name?: string | undefined;
+  last_name?: string | undefined;
   email: string;
+  type: number;
+  pmi?: string | undefined;
+  timezone?: string | undefined;
+  dept?: string | undefined;
+  created_at?: string | undefined;
+  last_login_time?: string | undefined;
+  last_client_version?: string | undefined;
+  account_id?: string | undefined;
+  pic_url?: string | undefined;
+  status?: string | undefined;
+  group_ids?: string[] | undefined;
+  im_group_ids?: string[] | undefined;
+};
+
+export interface ActionInput_zoom_getmeetingregistrant {
+  /**
+   * The meeting ID. Example: "88233737762"
+   */
+  meetingId: string;
+  /**
+   * The registrant ID. Example: "ESJWWYqvTDWFGNUqJzB_bQ"
+   */
+  registrantId: string;
+};
+
+export interface ActionOutput_zoom_getmeetingregistrant {
+  id: string;
+  first_name: string;
+  last_name?: string | undefined;
+  email: string;
+  address?: string | undefined;
+  city?: string | undefined;
+  country?: string | undefined;
+  zip?: string | undefined;
+  state?: string | undefined;
+  phone?: string | undefined;
+  industry?: string | undefined;
+  org?: string | undefined;
+  job_title?: string | undefined;
+  purchasing_time_frame?: string | undefined;
+  role_in_purchase_process?: string | undefined;
+  no_of_employees?: string | undefined;
+  comments?: string | undefined;
+  custom_questions?: ({  title?: string | undefined;
+  value?: string | undefined;})[];
+  status?: string | undefined;
+  create_time?: string | undefined;
+  join_url?: string | undefined;
+};
+
+export interface ActionInput_zoom_getmeeting {
+  /**
+   * The meeting ID in long format. Example: 1234555466
+   */
+  meeting_id: number;
+};
+
+export interface ActionOutput_zoom_getmeeting {
+  assistant_id?: string | undefined;
+  host_email?: string | undefined;
+  host_id: string;
+  id: number;
+  uuid: string;
+  agenda?: string | undefined;
+  created_at?: string | undefined;
+  duration?: number | undefined;
+  encrypted_password?: string | undefined;
+  h323_password?: string | undefined;
+  join_url?: string | undefined;
+  occurrences?: ({  duration?: number | undefined;
+  occurrence_id?: string | undefined;
+  start_time?: string | undefined;
+  status?: string | undefined;})[];
+  password?: string | undefined;
+  pmi?: string | undefined;
+  recurrence?: {  end_date_time?: string | undefined;
+  end_times?: number | undefined;
+  monthly_day?: number | undefined;
+  monthly_week?: number | undefined;
+  monthly_week_day?: number | undefined;
+  repeat_interval?: number | undefined;
+  type: number;
+  weekly_days?: string | undefined;};
+  settings?: {  [key: string]: unknown | undefined;};
+  start_time?: string | undefined;
+  start_url?: string | undefined;
+  status?: string | undefined;
+  timezone?: string | undefined;
+  topic?: string | undefined;
+  tracking_fields?: ({  field?: string | undefined;
+  value?: string | undefined;
+  visible?: boolean | undefined;})[];
+  type: number;
+};
+
+export interface ActionInput_zoom_getrecording {
+  /**
+   * The meeting ID or UUID. Example: "123456789"
+   */
+  meeting_id: string;
+};
+
+export interface ActionOutput_zoom_getrecording {
+  account_id?: string | undefined;
+  duration?: number | undefined;
+  host_id?: string | undefined;
+  id?: number | undefined;
+  recording_count?: number | undefined;
+  start_time?: string | undefined;
+  topic?: string | undefined;
+  total_size?: number | undefined;
+  type?: number | undefined;
+  uuid?: string | undefined;
+  recording_files?: ({  deleted_time?: string | undefined;
+  download_url?: string | undefined;
+  file_extension?: string | undefined;
+  file_path?: string | undefined;
+  file_size?: number | undefined;
+  file_type?: string | undefined;
+  id?: string | undefined;
+  meeting_id?: string | undefined;
+  play_url?: string | undefined;
+  recording_end?: string | undefined;
+  recording_start?: string | undefined;
+  recording_type?: string | undefined;
+  status?: string | undefined;})[];
+  participant_audio_files?: ({  deleted_time?: string | undefined;
+  download_url?: string | undefined;
+  file_extension?: string | undefined;
+  file_path?: string | undefined;
+  file_size?: number | undefined;
+  file_type?: string | undefined;
+  id?: string | undefined;
+  meeting_id?: string | undefined;
+  play_url?: string | undefined;
+  recording_end?: string | undefined;
+  recording_start?: string | undefined;
+  recording_type?: string | undefined;
+  status?: string | undefined;})[];
+  download_access_token?: string | undefined;
+  recording_play_passcode?: string | undefined;
+};
+
+export interface ActionInput_zoom_getuser {
+  /**
+   * The user ID or email address of the user. For user-level apps, pass "me" as the value for userId.
+   */
+  userId: string;
+};
+
+export interface ActionOutput_zoom_getuser {
+  id: string;
+  account_id?: string | undefined;
+  cms_user_id?: string | undefined;
+  company?: string | undefined;
+  created_at?: string | undefined;
+  custom_attributes?: ({  key?: string | undefined;
+  name?: string | undefined;
+  value?: string | undefined;})[];
+  dept?: string | undefined;
+  email?: string | undefined;
+  first_name?: string | undefined;
+  group_ids?: string[] | undefined;
+  host_key?: string | undefined;
+  im_group_ids?: string[] | undefined;
+  jid?: string | undefined;
+  job_title?: string | undefined;
+  language?: string | undefined;
+  last_client_version?: string | undefined;
+  last_login_time?: string | undefined;
+  last_name?: string | undefined;
+  location?: string | undefined;
+  login_type?: number | undefined;
+  manager?: string | undefined;
+  personal_meeting_url?: string | undefined;
+  phone_country?: string | undefined;
+  phone_number?: string | undefined;
+  phone_numbers?: ({  code?: string | undefined;
+  country?: string | undefined;
+  number?: string | undefined;
+  verified?: boolean | undefined;})[];
+  pic_url?: string | undefined;
+  plan_united_type?: string | undefined;
+  pmi?: number | undefined;
+  role_id?: string | undefined;
+  role_name?: string | undefined;
+  status?: string | undefined;
+  timezone?: string | undefined;
+  type?: number | undefined;
+  use_pmi?: boolean | undefined;
+  vanity_url?: string | undefined;
+  verified?: number | undefined;
+};
+
+export interface ActionInput_zoom_getwebinar {
+  /**
+   * The webinar ID in long format. Example: 123456789
+   */
+  webinarId: number;
+};
+
+export interface ActionOutput_zoom_getwebinar {
+  uuid: string;
+  id: number;
+  host_id: string;
+  host_email?: string | undefined;
+  topic: string;
+  type: number;
+  start_time?: string | undefined;
+  duration?: number | undefined;
+  timezone?: string | undefined;
+  created_at?: string | undefined;
+  agenda?: string | undefined;
+  start_url?: string | undefined;
+  join_url?: string | undefined;
+  password?: string | undefined;
+  occurrences?: ({  duration?: number | undefined;
+  occurrence_id?: string | undefined;
+  start_time?: string | undefined;
+  status?: string | undefined;})[];
+  recurrence?: {  end_date_time?: string | undefined;
+  end_times?: number | undefined;
+  monthly_day?: number | undefined;
+  monthly_week?: number | undefined;
+  monthly_week_day?: number | undefined;
+  repeat_interval?: number | undefined;
+  type?: number | undefined;
+  weekly_days?: string | undefined;};
+  settings?: {  [key: string]: unknown | undefined;};
+  tracking_fields?: ({  field?: string | undefined;
+  value?: string | undefined;})[];
+};
+
+export interface ActionInput_zoom_listmeetingregistrants {
+  /**
+   * Meeting ID or UUID. Example: "123456789"
+   */
+  meeting_id: string;
+  /**
+   * Registrant status filter. Values: approved, pending, denied
+   */
+  status?: string | undefined;
+  /**
+   * Number of records per page. Default: 30, Max: 300
+   */
+  page_size?: number | undefined;
+  /**
+   * Pagination cursor (next_page_token) from the previous response. Omit for the first page.
+   */
+  cursor?: string | undefined;
+};
+
+export interface ActionOutput_zoom_listmeetingregistrants {
+  registrants: ({  id?: string | undefined;
+  email: string;
+  first_name: string;
+  last_name?: string | undefined;
+  address?: string | undefined;
+  city?: string | undefined;
+  comments?: string | undefined;
+  country?: string | undefined;
+  custom_questions?: ({  title?: string | undefined;
+  value?: string | undefined;})[];
+  industry?: string | undefined;
+  job_title?: string | undefined;
+  no_of_employees?: string | undefined;
+  org?: string | undefined;
+  phone?: string | undefined;
+  purchasing_time_frame?: string | undefined;
+  role_in_purchase_process?: string | undefined;
+  state?: string | undefined;
+  status?: string | undefined;
+  zip?: string | undefined;
+  create_time?: string | undefined;
+  join_url?: string | undefined;})[];
+  next_page_token?: string | undefined;
+  page_size?: number | undefined;
+  total_records?: number | undefined;
+};
+
+export interface ActionInput_zoom_listmeetings {
+  /**
+   * The user ID or email address of the user. For user-level apps, pass `me` as the value for userId.
+   */
+  userId: string;
+  /**
+   * The meeting types to query.
+   */
+  type?: 'scheduled' | 'live' | 'upcoming' | undefined;
+  /**
+   * The number of records returned within a single API call. Max 300.
+   */
+  page_size?: number | undefined;
+  /**
+   * Pagination cursor (next_page_token) from the previous response. Omit for the first page.
+   */
+  cursor?: string | undefined;
+};
+
+export interface ActionOutput_zoom_listmeetings {
+  meetings: ({  agenda?: string | undefined;
+  created_at?: string | undefined;
+  duration?: number | undefined;
+  host_id?: string | undefined;
+  id?: number | undefined;
+  join_url?: string | undefined;
+  pmi?: string | undefined;
+  start_time?: string | undefined;
+  timezone?: string | undefined;
+  topic?: string | undefined;
+  type?: number | undefined;
+  uuid?: string | undefined;})[];
+  next_page_token?: string | undefined;
+  page_count?: number | undefined;
+  page_number?: number | undefined;
+  page_size?: number | undefined;
+  total_records?: number | undefined;
+};
+
+export interface ActionInput_zoom_listrecordings {
+  /**
+   * The user ID or email address of the user. For user-level apps, pass "me" as the value for userId.
+   */
+  user_id: string;
+  /**
+   * Pagination cursor from the previous response. Maps to next_page_token.
+   */
+  cursor?: string | undefined;
+  /**
+   * The number of records returned within a single API call. Max 300.
+   */
+  page_size?: number | undefined;
+  /**
+   * The start date in 'yyyy-mm-dd' UTC format.
+   */
+  from?: string | undefined;
+  /**
+   * The end date in 'yyyy-mm-dd' UTC format.
+   */
+  to?: string | undefined;
+  /**
+   * Query trash. true: List recordings from trash.
+   */
+  trash?: boolean | undefined;
+  /**
+   * The type of Cloud recording to retrieve from the trash.
+   */
+  trash_type?: string | undefined;
+};
+
+export interface ActionOutput_zoom_listrecordings {
+  from?: string | undefined;
+  to?: string | undefined;
+  meetings: ({  id: string;
+  uuid?: string | undefined;
+  account_id?: string | undefined;
+  host_id?: string | undefined;
+  topic?: string | undefined;
+  type?: string | undefined;
+  start_time?: string | undefined;
+  duration?: number | undefined;
+  total_size?: string | undefined;
+  recording_count?: string | undefined;
+  share_url?: string | undefined;
+  timezone?: string | undefined;
+  recording_files?: ({  id?: string | undefined;
+  meeting_id?: string | undefined;
+  recording_start?: string | undefined;
+  recording_end?: string | undefined;
+  file_type?: string | undefined;
+  file_size?: number | undefined;
+  play_url?: string | undefined;
+  download_url?: string | undefined;
+  recording_type?: string | undefined;
+  status?: string | undefined;
+  deleted_time?: string | undefined;})[];})[];
+  next_page_token?: string | undefined;
+  page_count?: number | undefined;
+  page_size?: number | undefined;
+  total_records?: number | undefined;
+};
+
+export interface ActionInput_zoom_listusers {
+  /**
+   * Pagination cursor (next_page_token) from the previous response. Omit for the first page.
+   */
+  cursor?: string | undefined;
+  /**
+   * User status filter.
+   */
+  status?: 'active' | 'inactive' | 'pending' | undefined;
+  /**
+   * Number of records per page. Default: 30, max: 300.
+   */
+  page_size?: number | undefined;
+};
+
+export interface ActionOutput_zoom_listusers {
+  users: ({  id: string;
+  first_name?: string | undefined;
+  last_name?: string | undefined;
+  email: string;
+  type: number;
+  pmi?: string | number | undefined;
+  timezone?: string | undefined;
+  dept?: string | undefined;
+  created_at?: string | undefined;
+  last_login_time?: string | undefined;
+  last_client_version?: string | undefined;
+  group_ids?: string[] | undefined;
+  im_group_ids?: string[] | undefined;
+  status?: string | undefined;
+  verified?: number | undefined;
+  pic_url?: string | undefined;
+  host_key?: string | undefined;
+  role_id?: string | undefined;
+  plan_united_type?: string | undefined;
+  custom_attributes?: unknown[] | undefined;})[];
+  next_page_token?: string | undefined;
+  total_records?: number | undefined;
+  page_number?: number | undefined;
+  page_count?: number | undefined;
+  page_size?: number | undefined;
+};
+
+export interface ActionInput_zoom_listwebinars {
+  /**
+   * The user ID or email address of the user. For user-level apps, pass `me`.
+   */
+  userId?: string | undefined;
+  /**
+   * Pagination cursor from the previous response. Omit for the first page.
+   */
+  cursor?: string | undefined;
+  /**
+   * The number of records returned within a single API call.
+   */
+  page_size?: number | undefined;
+};
+
+export interface ActionOutput_zoom_listwebinars {
+  webinars: ({  id: number;
+  uuid: string;
+  host_id: string;
+  topic: string;
+  type?: string | undefined;
+  start_time?: string | undefined;
+  duration?: number | undefined;
+  timezone?: string | undefined;
+  created_at?: string | undefined;
+  agenda?: string | undefined;
+  join_url?: string | undefined;})[];
+  next_page_token?: string | undefined;
+  page_size?: number | undefined;
+  total_records?: number | undefined;
+};
+
+export interface ActionInput_zoom_updatemeetingregistrant {
+  /**
+   * The meeting ID in long format. Example: "85746065"
+   */
+  meeting_id: string;
+  /**
+   * The registrant ID. Example: "ESJWWYqvTDWFGNUqJzB_bQ"
+   */
+  registrant_id: string;
+  /**
+   * The registrant email address. Example: "user@example.com"
+   */
+  email: string;
+  /**
+   * The status action to apply. Example: "approve"
+   */
+  action: 'approve' | 'cancel' | 'deny';
+  /**
+   * The meeting occurrence ID for recurring meetings.
+   */
+  occurrence_id?: string | undefined;
+};
+
+export interface ActionOutput_zoom_updatemeetingregistrant {
+  success: boolean;
+  meeting_id: string;
+  registrant_id: string;
+  action: 'approve' | 'cancel' | 'deny';
+};
+
+export interface ActionInput_zoom_updatemeeting {
+  /**
+   * The meeting ID in long format. Example: 1234567890
+   */
+  meetingId: number;
+  /**
+   * Meeting topic.
+   */
+  topic?: string | undefined;
+  /**
+   * Meeting type: 1=Instant, 2=Scheduled, 3=Recurring no fixed time, 8=Recurring with fixed time.
+   */
+  type?: number | undefined;
+  /**
+   * Meeting start time in ISO 8601 format. Example: 2024-01-15T10:00:00Z
+   */
+  start_time?: string | undefined;
+  /**
+   * Meeting duration in minutes.
+   */
+  duration?: number | undefined;
+  /**
+   * Time zone for start_time. Example: America/Los_Angeles
+   */
+  timezone?: string | undefined;
+  /**
+   * Meeting password.
+   */
+  password?: string | undefined;
+  /**
+   * Meeting description/agenda.
+   */
+  agenda?: string | undefined;
+};
+
+export type ActionOutput_zoom_updatemeeting = null
+
+export interface ActionInput_zoom_updateuser {
+  /**
+   * The user ID or "me" for the current user. Example: "me"
+   */
+  userId: string;
+  /**
+   * User's first name.
+   */
+  first_name?: string | undefined;
+  /**
+   * User's last name.
+   */
+  last_name?: string | undefined;
+  /**
+   * User's department.
+   */
+  dept?: string | undefined;
+  /**
+   * User's company.
+   */
+  company?: string | undefined;
+  /**
+   * User's job title.
+   */
+  job_title?: string | undefined;
+  /**
+   * The time zone ID for the user profile.
+   */
+  timezone?: string | undefined;
+  /**
+   * User's language.
+   */
+  language?: string | undefined;
+  /**
+   * User's location.
+   */
+  location?: string | undefined;
+  /**
+   * The manager for the user.
+   */
+  manager?: string | undefined;
+  /**
+   * Host key. It should be a 6-10 digit number.
+   */
+  host_key?: string | undefined;
+};
+
+export interface ActionOutput_zoom_updateuser {
+  userId: string;
+  updated: boolean;
+};
+
+export interface ActionInput_zoom_updatewebinar {
+  /**
+   * The webinar ID in long format. Example: 123456789
+   */
+  webinar_id: number;
+  /**
+   * Webinar occurrence id. Support change of agenda, start_time, duration, settings.
+   */
+  occurrence_id?: string | undefined;
+  /**
+   * Webinar description.
+   */
+  agenda?: string | undefined;
+  /**
+   * Webinar duration in minutes. Used for scheduled webinars only.
+   */
+  duration?: number | undefined;
+  /**
+   * Webinar passcode. Maximum 10 characters.
+   */
+  password?: string | undefined;
+  /**
+   * Webinar start time in ISO 8601 format. Example: 2024-01-15T10:00:00Z
+   */
+  start_time?: string | undefined;
+  /**
+   * Time zone for start_time. Example: America/Los_Angeles
+   */
+  timezone?: string | undefined;
+  /**
+   * Webinar topic.
+   */
+  topic?: string | undefined;
+  /**
+   * Webinar type: 5 (webinar), 6 (recurring no fixed time), 9 (recurring fixed time).
+   */
+  type?: number | undefined;
+  /**
+   * Webinar settings.
+   */
+  settings?: {  host_video?: boolean | undefined;
+  panelists_video?: boolean | undefined;
+  practice_session?: boolean | undefined;
+  hd_video?: boolean | undefined;
+  auto_recording?: 'local' | 'cloud' | 'none' | undefined;
+  meeting_authentication?: boolean | undefined;
+  approval_type?: number | undefined;
+  registration_type?: number | undefined;
+  on_demand?: boolean | undefined;
+  close_registration?: boolean | undefined;
+  contact_email?: string | undefined;
+  contact_name?: string | undefined;
+  alternative_hosts?: string | undefined;};
+};
+
+export interface ActionOutput_zoom_updatewebinar {
+  success: boolean;
+  webinar_id: number;
 };

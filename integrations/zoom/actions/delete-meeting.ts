@@ -1,38 +1,41 @@
+import { z } from 'zod';
 import { createAction } from 'nango';
-import type { ProxyConfiguration } from 'nango';
-import { SuccessResponse, IdEntity } from '../models.js';
+
+const InputSchema = z.object({
+    meetingId: z.string().describe('The meeting ID to delete. Example: "123456789"'),
+    occurrenceId: z.string().optional().describe('The meeting occurrence ID for recurring meetings. Example: "abc123"')
+});
+
+const OutputSchema = z.object({
+    success: z.boolean(),
+    meetingId: z.string()
+});
 
 const action = createAction({
-    description: 'Deletes a meeting in Zoom',
-    version: '1.0.0',
-
+    description: 'Delete or archive a meeting in Zoom.',
+    version: '2.0.0',
     endpoint: {
-        method: 'DELETE',
-        path: '/meetings',
+        method: 'POST',
+        path: '/actions/delete-meeting',
         group: 'Meetings'
     },
-
-    input: IdEntity,
-    output: SuccessResponse,
+    input: InputSchema,
+    output: OutputSchema,
     scopes: ['meeting:write'],
 
-    exec: async (nango, input): Promise<SuccessResponse> => {
-        if (!input.id) {
-            throw new nango.ActionError({
-                message: 'Id is required to delete a meeting'
-            });
-        }
-
-        const config: ProxyConfiguration = {
-            // https://developers.zoom.us/docs/api/meetings/#tag/meetings/DELETE/meetings/{meetingId}
-            endpoint: `/meetings/${input.id}`,
+    exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
+        // https://zoom.github.io/api/#operation/deleteMeeting
+        await nango.delete({
+            endpoint: `/meetings/${input.meetingId}`,
+            params: {
+                ...(input.occurrenceId && { occurrence_id: input.occurrenceId })
+            },
             retries: 3
-        };
-
-        await nango.delete(config);
+        });
 
         return {
-            success: true
+            success: true,
+            meetingId: input.meetingId
         };
     }
 });
