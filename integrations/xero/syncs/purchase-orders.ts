@@ -39,7 +39,8 @@ function parseXeroDate(value: unknown): string {
     if (typeof value !== 'string' || value.length === 0) {
         return '';
     }
-    const msMatch = value.match(/^\/Date\((\d+)([+-]\d{4})\)\/$/);
+    // Allow negative timestamps for pre-1970 Xero dates (see general-ledger.ts parseDate).
+    const msMatch = value.match(/^\/Date\((-?\d+)([+-]\d{4})\)\/$/);
     if (msMatch && msMatch[1] !== undefined) {
         const timestamp = parseInt(msMatch[1], 10);
         return new Date(timestamp).toISOString();

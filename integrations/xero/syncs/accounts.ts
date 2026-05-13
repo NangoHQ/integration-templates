@@ -50,7 +50,8 @@ const XeroAccountSchema = z.object({
 });
 
 function parseMsJsonDate(dateString: string): Date | null {
-    const match = dateString.match(/\/Date\((\d+)([+-]\d{4})\)\//);
+    // Allow negative timestamps for pre-1970 Xero dates (see general-ledger.ts parseDate).
+    const match = dateString.match(/\/Date\((-?\d+)([+-]\d{4})\)\//);
     if (!match) {
         return null;
     }

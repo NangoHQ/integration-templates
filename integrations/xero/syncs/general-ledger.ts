@@ -40,13 +40,20 @@ const ConnectionsResponseSchema = z.array(
     })
 );
 
-function parseDate(xeroDateString: string): Date {
-    const match = xeroDateString.match(/\/Date\((\d+)([+-]\d{4})?\)\//);
+function parseDate(xeroDateString: string): Date | null {
+    // Allow negative timestamps. Xero returns pre-1970 dates (e.g. typos
+    // like a Jan-1964 invoice date that should have been 2024, or
+    // legacy customer records with founding dates) as
+    // /Date(-174268800000+0000)/. Previously the `\d+` capture rejected
+    // those, throwing, and the throw killed the whole sync — one bad
+    // row stranded the customer's entire history.
+    const match = xeroDateString.match(/\/Date\((-?\d+)([+-]\d{4})?\)\//);
     if (match && Array.isArray(match) && match.length > 1 && match[1]) {
         const timestamp = parseInt(match[1], 10);
+        if (!Number.isFinite(timestamp)) return null;
         return new Date(timestamp);
     }
-    throw new Error(`Cannot parse date from Xero API with parseDate function, input was: ${xeroDateString}`);
+    return null;
 }
 
 async function resolveTenantId(nango: {
@@ -129,14 +136,16 @@ interface XeroJournal {
 }
 
 function mapJournal(journal: XeroJournal): z.infer<typeof GeneralLedgerSchema> {
+    const journalDate = journal.JournalDate ? parseDate(journal.JournalDate) : null;
+    const createdDate = journal.CreatedDateUTC ? parseDate(journal.CreatedDateUTC) : null;
     return {
         id: journal.JournalID!,
-        date: journal.JournalDate ? parseDate(journal.JournalDate).toISOString() : null,
+        date: journalDate ? journalDate.toISOString() : null,
         number: journal.JournalNumber!,
         reference: journal.Reference ?? null,
         sourceId: journal.SourceID ?? null,
         sourceType: journal.SourceType ?? null,
-        createdDate: journal.CreatedDateUTC ? parseDate(journal.CreatedDateUTC).toISOString() : null,
+        createdDate: createdDate ? createdDate.toISOString() : null,
         lines: (journal.JournalLines ?? []).map((line) => {
             const mapped: z.infer<typeof LedgerLineSchema> = {
                 journalLineId: line.JournalLineID ?? '',
@@ -211,7 +220,23 @@ const sync = createSync({
                 continue;
             }
 
-            await nango.batchSave(journals.map(mapJournal), 'GeneralLedger');
+            // Map each journal in a try/catch so one malformed entry
+            // (unexpected shape, library schema mismatch, etc.) can't
+            // abort the entire sync. The previous code mapped all
+            // journals in a single .map() chain; any throw inside
+            // mapJournal terminated the page and the sync.
+            const mapped: z.infer<typeof GeneralLedgerSchema>[] = [];
+            for (const journal of journals) {
+                try {
+                    mapped.push(mapJournal(journal));
+                } catch (err) {
+                    await nango.log(
+                        `Skipping journal ${journal.JournalID ?? '(unknown id)'} — failed to map: ${err instanceof Error ? err.message : String(err)}`,
+                        { level: 'warn' }
+                    );
+                }
+            }
+            await nango.batchSave(mapped, 'GeneralLedger');
 
             const maxJournalNumber = Math.max(...journals.map((j) => j.JournalNumber ?? 0));
             if (maxJournalNumber <= highestJournalNumber) {
