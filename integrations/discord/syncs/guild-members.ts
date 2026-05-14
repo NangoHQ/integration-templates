@@ -7,7 +7,7 @@ const CheckpointSchema = z.object({
 
 const MetadataSchema = z.object({
     botToken: z.string(),
-    guild_id: z.string()
+    guildId: z.string()
 });
 
 const UserSchema = z.object({
@@ -70,7 +70,7 @@ const sync = createSync({
 
         const metadataResult = MetadataSchema.safeParse(await nango.getMetadata());
         if (!metadataResult.success) {
-            await nango.log('Invalid metadata: missing botToken or guild_id');
+            await nango.log('Invalid metadata: missing botToken or guildId');
             return;
         }
         const metadata = metadataResult.data;
@@ -85,7 +85,7 @@ const sync = createSync({
             while (hasMore) {
                 // https://discord.com/developers/docs/resources/guild#list-guild-members
                 const response = await nango.get({
-                    endpoint: `/api/v10/guilds/${metadata.guild_id}/members`,
+                    endpoint: `/api/v10/guilds/${metadata.guildId}/members`,
                     headers: {
                         Authorization: `Bot ${metadata.botToken}`
                     },
@@ -110,7 +110,7 @@ const sync = createSync({
 
                 const records = members.map((member) => ({
                     id: member.user.id,
-                    guild_id: metadata.guild_id,
+                    guild_id: metadata.guildId,
                     user_id: member.user.id,
                     username: member.user.username,
                     ...(member.nick != null && { nick: member.nick }),

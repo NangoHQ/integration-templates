@@ -3,8 +3,7 @@ import { z } from 'zod';
 
 const MetadataSchema = z.object({
     botToken: z.string(),
-    guild_id: z.string().optional(),
-    guildId: z.string().optional()
+    guildId: z.string()
 });
 
 const RoleSchema = z.object({
@@ -83,11 +82,7 @@ const sync = createSync({
             return;
         }
 
-        const guildId = parsedMetadata.data.guild_id ?? parsedMetadata.data.guildId;
-        if (!guildId) {
-            await nango.log('No guild_id found in metadata', { level: 'error' });
-            return;
-        }
+        const guildId = parsedMetadata.data.guildId;
 
         const proxyConfig: ProxyConfiguration = {
             // https://discord.com/developers/docs/resources/guild#get-guild-roles

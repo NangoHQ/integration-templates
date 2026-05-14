@@ -26922,15 +26922,13 @@
         "botToken": {
           "type": "string"
         },
-        "guild_id": {
-          "type": "string"
-        },
         "guildId": {
           "type": "string"
         }
       },
       "required": [
-        "botToken"
+        "botToken",
+        "guildId"
       ],
       "additionalProperties": false
     },
@@ -27519,14 +27517,6 @@
         "rate_limit_per_user": {
           "type": "number",
           "description": "Seconds to wait between messages (slowmode). Range: 0-21600"
-        },
-        "type": {
-          "type": "number",
-          "enum": [
-            11,
-            12
-          ],
-          "description": "The type of thread. 11 = public thread, 12 = private thread. Defaults to public."
         }
       },
       "required": [
@@ -27706,7 +27696,7 @@
       "properties": {
         "guild_id": {
           "type": "string",
-          "description": "The ID of the guild to delete. The bot must be the owner of the guild."
+          "description": "The ID of the guild for the bot to leave."
         }
       },
       "required": [
@@ -27719,11 +27709,11 @@
       "properties": {
         "success": {
           "type": "boolean",
-          "description": "Whether the guild was successfully deleted"
+          "description": "Whether the bot successfully left the guild"
         },
         "guild_id": {
           "type": "string",
-          "description": "The ID of the deleted guild"
+          "description": "The ID of the guild that was left"
         }
       },
       "required": [
@@ -27819,7 +27809,7 @@
         },
         "emoji": {
           "type": "string",
-          "description": "The emoji to remove (URL-encoded). Example: \"👍\" or \"%F0%9F%91%8D\""
+          "description": "The emoji to remove. Provide the raw emoji character or name:id for custom emojis. Example: \"👍\" or \"emojiName:123456789\""
         }
       },
       "required": [
@@ -29129,7 +29119,6 @@
               "id",
               "name",
               "color",
-              "colors",
               "hoist",
               "position",
               "permissions",

@@ -20,7 +20,7 @@ const ChannelSchema = z.object({
 
 const MetadataSchema = z.object({
     botToken: z.string(),
-    guild_id: z.string()
+    guildId: z.string()
 });
 
 const ProviderChannelSchema = z.object({
@@ -62,7 +62,7 @@ const sync = createSync({
             throw new Error('Missing required metadata: botToken and guild_id are required');
         }
 
-        const { botToken, guild_id: guildId } = parsedMetadata.data;
+        const { botToken, guildId } = parsedMetadata.data;
 
         // https://discord.com/developers/docs/resources/guild#get-guild-channels
         // Blocker: Discord GET /guilds/{guild.id}/channels returns all channels

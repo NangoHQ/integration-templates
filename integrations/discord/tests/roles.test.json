@@ -3,7 +3,7 @@
     "getConnection": {},
     "getMetadata": {
       "botToken": "DISCORD_BOT_TOKEN",
-      "guild_id": "1504353980598321172"
+      "guildId": "1504353980598321172"
     },
     "batchSave": {
       "Role": [

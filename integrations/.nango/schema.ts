@@ -7277,8 +7277,7 @@ export interface Role {
 
 export interface SyncMetadata_discord_roles {
   botToken: string;
-  guild_id?: string | undefined;
-  guildId?: string | undefined;
+  guildId: string;
 };
 
 export interface SyncMetadata_discord_webhooks {
@@ -7594,10 +7593,6 @@ export interface ActionInput_discord_createthreadfrommessage {
    * Seconds to wait between messages (slowmode). Range: 0-21600
    */
   rate_limit_per_user?: number | undefined;
-  /**
-   * The type of thread. 11 = public thread, 12 = private thread. Defaults to public.
-   */
-  type?: 11 | 12 | undefined;
 };
 
 export interface ActionOutput_discord_createthreadfrommessage {
@@ -7668,18 +7663,18 @@ export interface ActionOutput_discord_deletechannel {
 
 export interface ActionInput_discord_deleteguild {
   /**
-   * The ID of the guild to delete. The bot must be the owner of the guild.
+   * The ID of the guild for the bot to leave.
    */
   guild_id: string;
 };
 
 export interface ActionOutput_discord_deleteguild {
   /**
-   * Whether the guild was successfully deleted
+   * Whether the bot successfully left the guild
    */
   success: boolean;
   /**
-   * The ID of the deleted guild
+   * The ID of the guild that was left
    */
   guild_id: string;
 };
@@ -7733,7 +7728,7 @@ export interface ActionInput_discord_deletereaction {
    */
   message_id: string;
   /**
-   * The emoji to remove (URL-encoded). Example: "👍" or "%F0%9F%91%8D"
+   * The emoji to remove. Provide the raw emoji character or name:id for custom emojis. Example: "👍" or "emojiName:123456789"
    */
   emoji: string;
 };
@@ -8284,7 +8279,7 @@ export interface ActionOutput_discord_listroles {
   roles: ({  id: string;
   name: string;
   color: number;
-  colors: {  primary_color: number;
+  colors?: {  primary_color: number;
   secondary_color?: number | undefined;
   tertiary_color?: number | undefined;};
   hoist: boolean;
