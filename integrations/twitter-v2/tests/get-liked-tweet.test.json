@@ -1,16 +1,16 @@
 {
   "input": {
-    "tweet_id": "1346889436626259968"
+    "tweet_id": "1111111111111111112"
   },
   "output": {
-    "id": "1346889436626259968",
-    "text": "Learn how to use the user Tweet timeline and user mention timeline endpoints in the Twitter API v2 to explore Tweets and mentions 👇\n\nhttps://t.co/8ef0gXruSD",
-    "author_id": "2244994945",
-    "created_at": "2021-01-06T18:40:40.000Z",
+    "id": "1111111111111111112",
+    "text": "Example tweet content.",
+    "author_id": "9999999999",
+    "created_at": "2020-01-01T00:00:00.000Z",
     "lang": "en",
     "possibly_sensitive": false,
     "reply_settings": "everyone",
-    "conversation_id": "1346889436626259968",
+    "conversation_id": "1111111111111111112",
     "public_metrics": {
       "like_count": 56,
       "retweet_count": 18,
@@ -23,13 +23,13 @@
   "nango": {},
   "api": {
     "get": {
-      "/2/tweets/1346889436626259968": {
+      "/2/tweets/1111111111111111112": {
         "response": {
           "data": {
-            "author_id": "2244994945",
-            "id": "1346889436626259968",
+            "author_id": "9999999999",
+            "id": "1111111111111111112",
             "reply_settings": "everyone",
-            "text": "Learn how to use the user Tweet timeline and user mention timeline endpoints in the Twitter API v2 to explore Tweets and mentions 👇\n\nhttps://t.co/8ef0gXruSD",
+            "text": "Example tweet content.",
             "lang": "en",
             "possibly_sensitive": false,
             "public_metrics": {
@@ -41,10 +41,10 @@
               "impression_count": 0
             },
             "edit_history_tweet_ids": [
-              "1346889436626259968"
+              "1111111111111111112"
             ],
-            "conversation_id": "1346889436626259968",
-            "created_at": "2021-01-06T18:40:40.000Z"
+            "conversation_id": "1111111111111111112",
+            "created_at": "2020-01-01T00:00:00.000Z"
           }
         },
         "status": 200,
@@ -69,19 +69,14 @@
           "server": "cloudflare envoy",
           "api-version": "2.163",
           "cache-control": "no-cache, no-store, max-age=0",
-          "set-cookie": "guest_id=v1%3A177878648621046749; Max-Age=34214400; Expires=Mon, 14 Jun 2027 19:21:26 GMT; Path=/; Domain=.twitter.com; Secure; SameSite=None, __cf_bm=6Mvrrf3ITgxLsmVcbfakb858UYfmeMiwIBhN1K5vbdc-1778786486.1938522-1.0.1.1-Xa7MfC3fEEvjXmwNSHpfjDHf0_au5mY79dKcoIv2qsWuUO1dDrBvnslhFmhmwgQnlIHB.5b8.RJjXdNKdwYs6hsKXWfRqKdm0CQJEquj8fsbMTZaR4GrBz45OIXDr1LL; HttpOnly; SameSite=None; Secure; Path=/; Domain=twitter.com; Expires=Thu, 14 May 2026 19:51:26 GMT",
           "x-access-level": "read-write",
-          "x-transaction-id": "f4ad282d5ecbad9c",
           "x-rate-limit-limit": "900",
           "x-rate-limit-reset": "1778787376",
           "content-disposition": "attachment; filename=json.json",
           "x-rate-limit-remaining": "898",
           "x-response-time": "47",
-          "origin-cf-ray": "9fbc4412bf909314-SEA",
-          "x-served-by": "t4_p",
           "vary": "accept-encoding",
-          "cf-cache-status": "DYNAMIC",
-          "cf-ray": "9fbc4412bf909314-PDX"
+          "cf-cache-status": "DYNAMIC"
         },
         "hash": "3fb9e4f6b2ef7a9d416496b2c8a9730c34bbe453",
         "request": {

@@ -3,11 +3,11 @@
     "batchSave": {
       "Tweet": [
         {
-          "id": "2055006009186541821",
-          "text": "Hello from Nango integration! Testing create tweet action - v2.",
-          "author_id": "2054257020509839360",
-          "created_at": "2026-05-14T19:23:07.000Z",
-          "conversation_id": "2055006009186541821",
+          "id": "1111111111111111113",
+          "text": "Example tweet content.",
+          "author_id": "1000000000000000001",
+          "created_at": "2020-01-01T00:00:00.000Z",
+          "conversation_id": "1111111111111111113",
           "public_metrics": {
             "retweet_count": 0,
             "reply_count": 0,
@@ -18,11 +18,11 @@
           }
         },
         {
-          "id": "2055005916559458549",
-          "text": "Hello from Nango! Testing the create tweet action.",
-          "author_id": "2054257020509839360",
-          "created_at": "2026-05-14T19:22:45.000Z",
-          "conversation_id": "2055005916559458549",
+          "id": "1111111111111111146",
+          "text": "Example tweet content.",
+          "author_id": "1000000000000000001",
+          "created_at": "2020-01-01T00:00:00.000Z",
+          "conversation_id": "1111111111111111146",
           "public_metrics": {
             "retweet_count": 0,
             "reply_count": 0,
@@ -33,11 +33,11 @@
           }
         },
         {
-          "id": "2054574901021782230",
-          "text": "Interesting read https://t.co/egIOLvHDKL #ai",
-          "author_id": "2054257020509839360",
-          "created_at": "2026-05-13T14:50:03.000Z",
-          "conversation_id": "2054574901021782230",
+          "id": "1111111111111111143",
+          "text": "Example tweet content.",
+          "author_id": "1000000000000000001",
+          "created_at": "2020-01-01T00:00:00.000Z",
+          "conversation_id": "1111111111111111143",
           "public_metrics": {
             "retweet_count": 0,
             "reply_count": 1,
@@ -48,11 +48,11 @@
           }
         },
         {
-          "id": "2054574503301181671",
-          "text": "Anyone else notice that the hardest part of any side project is naming things?",
-          "author_id": "2054257020509839360",
-          "created_at": "2026-05-13T14:48:28.000Z",
-          "conversation_id": "2054574503301181671",
+          "id": "1111111111111111147",
+          "text": "Example tweet content.",
+          "author_id": "1000000000000000001",
+          "created_at": "2020-01-01T00:00:00.000Z",
+          "conversation_id": "1111111111111111147",
           "public_metrics": {
             "retweet_count": 0,
             "reply_count": 0,
@@ -63,11 +63,11 @@
           }
         },
         {
-          "id": "2054574417410228403",
-          "text": "Reading through the docs #BuildInPublic #RTFM",
-          "author_id": "2054257020509839360",
-          "created_at": "2026-05-13T14:48:07.000Z",
-          "conversation_id": "2054574417410228403",
+          "id": "1111111111111111145",
+          "text": "Example tweet content.",
+          "author_id": "1000000000000000001",
+          "created_at": "2020-01-01T00:00:00.000Z",
+          "conversation_id": "1111111111111111145",
           "public_metrics": {
             "retweet_count": 0,
             "reply_count": 1,
@@ -78,11 +78,11 @@
           }
         },
         {
-          "id": "2054574197075038364",
-          "text": "Hot take: the best debugging tool is still console.log. Fight me. #DevLife #JavaScript",
-          "author_id": "2054257020509839360",
-          "created_at": "2026-05-13T14:47:15.000Z",
-          "conversation_id": "2054574197075038364",
+          "id": "1111111111111111148",
+          "text": "Example tweet content.",
+          "author_id": "1000000000000000001",
+          "created_at": "2020-01-01T00:00:00.000Z",
+          "conversation_id": "1111111111111111148",
           "public_metrics": {
             "retweet_count": 0,
             "reply_count": 0,
@@ -103,9 +103,9 @@
       "/2/users/me": {
         "response": {
           "data": {
-            "id": "2054257020509839360",
-            "name": "Nango Developer",
-            "username": "NangoApi"
+            "id": "1000000000000000001",
+            "name": "Test User",
+            "username": "testuser"
           }
         },
         "status": 200,
@@ -130,24 +130,19 @@
           "server": "cloudflare envoy",
           "api-version": "2.163",
           "cache-control": "no-cache, no-store, max-age=0",
-          "set-cookie": "guest_id=v1%3A177879008466942742; Max-Age=34214400; Expires=Mon, 14 Jun 2027 20:21:24 GMT; Path=/; Domain=.twitter.com; Secure; SameSite=None, __cf_bm=qkQdO2kcq46d6BQdsZo5yUXOz9GJDAwetLZgo1FJfjM-1778790084.6520174-1.0.1.1-4XaJaKa2ZxyaUc5wKWT1rHGfGYXYsyMpEzMcf7OhkDRDcA9sxaJNwC19k4_YFtZgO5_Xe4FpHTmWL8SSHeQBoaB.uYM_qp3to98FURSWpLdVU6qQUaKc8m78b4Y8rMnv; HttpOnly; SameSite=None; Secure; Path=/; Domain=twitter.com; Expires=Thu, 14 May 2026 20:51:24 GMT",
           "x-access-level": "read-write",
-          "x-transaction-id": "b4317fb972359a5f",
           "x-rate-limit-limit": "75",
           "x-rate-limit-reset": "1778790533",
           "content-disposition": "attachment; filename=json.json",
           "x-rate-limit-remaining": "71",
           "x-response-time": "34",
-          "origin-cf-ray": "9fbc9bed19c3fef6-SEA",
-          "x-served-by": "t4_p",
           "vary": "accept-encoding",
-          "cf-cache-status": "DYNAMIC",
-          "cf-ray": "9fbc9bed19c3fef6-PDX"
+          "cf-cache-status": "DYNAMIC"
         },
         "hash": "16f0be3f8bcf81363033ef9905a833cdddeedf92",
         "request": {}
       },
-      "/2/users/2054257020509839360/tweets": {
+      "/2/users/1000000000000000001/tweets": {
         "response": {
           "data": [
             {
@@ -159,14 +154,14 @@
                 "bookmark_count": 0,
                 "impression_count": 0
               },
-              "author_id": "2054257020509839360",
-              "created_at": "2026-05-14T19:23:07.000Z",
-              "text": "Hello from Nango integration! Testing create tweet action - v2.",
+              "author_id": "1000000000000000001",
+              "created_at": "2020-01-01T00:00:00.000Z",
+              "text": "Example tweet content.",
               "edit_history_tweet_ids": [
-                "2055006009186541821"
+                "1111111111111111113"
               ],
-              "id": "2055006009186541821",
-              "conversation_id": "2055006009186541821"
+              "id": "1111111111111111113",
+              "conversation_id": "1111111111111111113"
             },
             {
               "public_metrics": {
@@ -177,14 +172,14 @@
                 "bookmark_count": 0,
                 "impression_count": 0
               },
-              "author_id": "2054257020509839360",
-              "created_at": "2026-05-14T19:22:45.000Z",
-              "text": "Hello from Nango! Testing the create tweet action.",
+              "author_id": "1000000000000000001",
+              "created_at": "2020-01-01T00:00:00.000Z",
+              "text": "Example tweet content.",
               "edit_history_tweet_ids": [
-                "2055005916559458549"
+                "1111111111111111146"
               ],
-              "id": "2055005916559458549",
-              "conversation_id": "2055005916559458549"
+              "id": "1111111111111111146",
+              "conversation_id": "1111111111111111146"
             },
             {
               "public_metrics": {
@@ -195,14 +190,14 @@
                 "bookmark_count": 0,
                 "impression_count": 2
               },
-              "author_id": "2054257020509839360",
-              "created_at": "2026-05-13T14:50:03.000Z",
-              "text": "Interesting read https://t.co/egIOLvHDKL #ai",
+              "author_id": "1000000000000000001",
+              "created_at": "2020-01-01T00:00:00.000Z",
+              "text": "Example tweet content.",
               "edit_history_tweet_ids": [
-                "2054574901021782230"
+                "1111111111111111143"
               ],
-              "id": "2054574901021782230",
-              "conversation_id": "2054574901021782230"
+              "id": "1111111111111111143",
+              "conversation_id": "1111111111111111143"
             },
             {
               "public_metrics": {
@@ -213,14 +208,14 @@
                 "bookmark_count": 0,
                 "impression_count": 1
               },
-              "author_id": "2054257020509839360",
-              "created_at": "2026-05-13T14:48:28.000Z",
-              "text": "Anyone else notice that the hardest part of any side project is naming things?",
+              "author_id": "1000000000000000001",
+              "created_at": "2020-01-01T00:00:00.000Z",
+              "text": "Example tweet content.",
               "edit_history_tweet_ids": [
-                "2054574503301181671"
+                "1111111111111111147"
               ],
-              "id": "2054574503301181671",
-              "conversation_id": "2054574503301181671"
+              "id": "1111111111111111147",
+              "conversation_id": "1111111111111111147"
             },
             {
               "public_metrics": {
@@ -231,14 +226,14 @@
                 "bookmark_count": 0,
                 "impression_count": 2
               },
-              "author_id": "2054257020509839360",
-              "created_at": "2026-05-13T14:48:07.000Z",
-              "text": "Reading through the docs #BuildInPublic #RTFM",
+              "author_id": "1000000000000000001",
+              "created_at": "2020-01-01T00:00:00.000Z",
+              "text": "Example tweet content.",
               "edit_history_tweet_ids": [
-                "2054574417410228403"
+                "1111111111111111145"
               ],
-              "id": "2054574417410228403",
-              "conversation_id": "2054574417410228403"
+              "id": "1111111111111111145",
+              "conversation_id": "1111111111111111145"
             },
             {
               "public_metrics": {
@@ -249,20 +244,20 @@
                 "bookmark_count": 0,
                 "impression_count": 1
               },
-              "author_id": "2054257020509839360",
-              "created_at": "2026-05-13T14:47:15.000Z",
-              "text": "Hot take: the best debugging tool is still console.log. Fight me. #DevLife #JavaScript",
+              "author_id": "1000000000000000001",
+              "created_at": "2020-01-01T00:00:00.000Z",
+              "text": "Example tweet content.",
               "edit_history_tweet_ids": [
-                "2054574197075038364"
+                "1111111111111111148"
               ],
-              "id": "2054574197075038364",
-              "conversation_id": "2054574197075038364"
+              "id": "1111111111111111148",
+              "conversation_id": "1111111111111111148"
             }
           ],
           "meta": {
             "result_count": 6,
-            "newest_id": "2055006009186541821",
-            "oldest_id": "2054574197075038364"
+            "newest_id": "1111111111111111113",
+            "oldest_id": "1111111111111111148"
           }
         },
         "status": 200,
@@ -287,19 +282,14 @@
           "server": "cloudflare envoy",
           "api-version": "2.163",
           "cache-control": "no-cache, no-store, max-age=0",
-          "set-cookie": "guest_id=v1%3A177879008520610156; Max-Age=34214400; Expires=Mon, 14 Jun 2027 20:21:25 GMT; Path=/; Domain=.twitter.com; Secure; SameSite=None, __cf_bm=36DT69FGe56h2rTIxVeJ5o9yfH9D2VusH2RAWpdBmws-1778790085.1890845-1.0.1.1-TcG5WyrtPiDK.SRMeDpV8RcFGUgCKLaC4IThjcmjuQHFZBXw3Z48ZdjFBGcnl4mClo0ZBGOAXxWnJlJ.X1BQcs.u5T7ViytAhouGGVdz5j2xz6wU6rsJubvkyq9GiNvG; HttpOnly; SameSite=None; Secure; Path=/; Domain=twitter.com; Expires=Thu, 14 May 2026 20:51:25 GMT",
           "x-access-level": "read-write",
-          "x-transaction-id": "096e36a166e8bf51",
           "x-rate-limit-limit": "900",
           "x-rate-limit-reset": "1778790534",
           "content-disposition": "attachment; filename=json.json",
           "x-rate-limit-remaining": "896",
           "x-response-time": "61",
-          "origin-cf-ray": "9fbc9bf06a2eff05-SEA",
-          "x-served-by": "t4_p",
           "vary": "accept-encoding",
-          "cf-cache-status": "DYNAMIC",
-          "cf-ray": "9fbc9bf06a2eff05-PDX"
+          "cf-cache-status": "DYNAMIC"
         },
         "hash": "44a818e0668c38651bd1dbd3e6e8bb4a8f0b2b8e",
         "request": {

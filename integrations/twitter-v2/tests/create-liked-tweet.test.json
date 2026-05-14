@@ -1,7 +1,7 @@
 {
   "input": {
-    "userId": "2054257020509839360",
-    "tweetId": "1346889436626259968"
+    "userId": "1000000000000000001",
+    "tweetId": "1111111111111111112"
   },
   "output": {
     "liked": true
@@ -9,7 +9,7 @@
   "nango": {},
   "api": {
     "post": {
-      "/2/users/2054257020509839360/likes": {
+      "/2/users/1000000000000000001/likes": {
         "response": {
           "data": {
             "liked": true
@@ -37,9 +37,7 @@
           "server": "cloudflare envoy",
           "api-version": "2.163",
           "cache-control": "no-cache, no-store, max-age=0",
-          "set-cookie": "guest_id=v1%3A177878648432395421; Max-Age=34214400; Expires=Mon, 14 Jun 2027 19:21:24 GMT; Path=/; Domain=.twitter.com; Secure; SameSite=None, __cf_bm=dV3ynoL6lGgZ6fktz7Y13RM_cTnu8waVlYawZ.m5WH4-1778786484.3083515-1.0.1.1-SWY7.8zAcCy3k2ZfiEHqSndsBlajoj5X9bgAIVzzvEpYT8Hv9bCZM.NsV7PVpAznx_zglwVWipkVCST9mzHxwDc6xwWt_pXnqpKZPrMLqTd8nNd74BVOr7J7SKFt8nGw; HttpOnly; SameSite=None; Secure; Path=/; Domain=twitter.com; Expires=Thu, 14 May 2026 19:51:24 GMT",
           "x-access-level": "read-write",
-          "x-transaction-id": "340c91c7d5b0fbbd",
           "x-rate-limit-limit": "50",
           "x-rate-limit-reset": "1778787356",
           "content-disposition": "attachment; filename=json.json",
@@ -48,16 +46,13 @@
           "x-user-limit-24hour-reset": "1778872856",
           "x-user-limit-24hour-remaining": "996",
           "x-response-time": "32",
-          "origin-cf-ray": "9fbc4406ed5e9314-SEA",
-          "x-served-by": "t4_p",
           "vary": "accept-encoding",
-          "cf-cache-status": "DYNAMIC",
-          "cf-ray": "9fbc4406ed5e9314-PDX"
+          "cf-cache-status": "DYNAMIC"
         },
         "hash": "418f597786b179c2100f22930180c9121490fe2d",
         "request": {
           "data": {
-            "tweet_id": "1346889436626259968"
+            "tweet_id": "1111111111111111112"
           }
         }
       }

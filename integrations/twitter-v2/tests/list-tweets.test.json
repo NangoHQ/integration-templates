@@ -1,100 +1,100 @@
 {
   "input": {
-    "user_id": "2244994945",
+    "user_id": "9999999999",
     "max_results": 5
   },
   "output": {
     "tweets": [
       {
-        "id": "2052646100633284774",
-        "text": "RT @chrisparkX: Try X API. \n\nThere are a ton of great new apps and use cases. This is a good example.",
+        "id": "1111111111111111137",
+        "text": "Example tweet content.",
         "edit_history_tweet_ids": [
-          "2052646100633284774"
+          "1111111111111111137"
         ]
       },
       {
-        "id": "2047770162405716218",
-        "text": "RT @agno_three: the future of the X API is ridculously high potential with the rise of agents",
+        "id": "1111111111111111138",
+        "text": "Example tweet content.",
         "edit_history_tweet_ids": [
-          "2047770162405716218"
+          "1111111111111111138"
         ]
       },
       {
-        "id": "2047769628059881849",
-        "text": "RT @chrisparkX: Try out X API + Grok with OpenClaw! \n\nHere’s a tutorial video by @AlexFinn who’s been building with X API for over a year n…",
+        "id": "1111111111111111139",
+        "text": "Example tweet content.",
         "edit_history_tweet_ids": [
-          "2047769628059881849"
+          "1111111111111111139"
         ]
       },
       {
-        "id": "2047769537244770356",
-        "text": "RT @AlexFinn: OpenClaw + the X API is a match made in heaven\n\nIt's an incredible way to stay on top of what's trending in the world, plus e…",
+        "id": "1111111111111111140",
+        "text": "Example tweet content.",
         "edit_history_tweet_ids": [
-          "2047769537244770356"
+          "1111111111111111140"
         ]
       },
       {
-        "id": "2047427759014895849",
-        "text": "RT @mike_rosinsky: We've made some key Quality of Life updates for the X Activity API:\n\n- Bulk subscription deletion\n- Fetch subscriptions…",
+        "id": "1111111111111111141",
+        "text": "Example tweet content.",
         "edit_history_tweet_ids": [
-          "2047427759014895849"
+          "1111111111111111141"
         ]
       }
     ],
     "meta": {
       "result_count": 5,
-      "newest_id": "2052646100633284774",
-      "oldest_id": "2047427759014895849",
+      "newest_id": "1111111111111111137",
+      "oldest_id": "1111111111111111141",
       "next_token": "7140dibdnow9c7btwoxhox6bx1yln3yiiexcvnnc75ik9"
     }
   },
   "nango": {},
   "api": {
     "get": {
-      "/2/users/2244994945/tweets": {
+      "/2/users/9999999999/tweets": {
         "response": {
           "data": [
             {
-              "id": "2052646100633284774",
-              "text": "RT @chrisparkX: Try X API. \n\nThere are a ton of great new apps and use cases. This is a good example.",
+              "id": "1111111111111111137",
+              "text": "Example tweet content.",
               "edit_history_tweet_ids": [
-                "2052646100633284774"
+                "1111111111111111137"
               ]
             },
             {
-              "id": "2047770162405716218",
-              "text": "RT @agno_three: the future of the X API is ridculously high potential with the rise of agents",
+              "id": "1111111111111111138",
+              "text": "Example tweet content.",
               "edit_history_tweet_ids": [
-                "2047770162405716218"
+                "1111111111111111138"
               ]
             },
             {
-              "id": "2047769628059881849",
-              "text": "RT @chrisparkX: Try out X API + Grok with OpenClaw! \n\nHere’s a tutorial video by @AlexFinn who’s been building with X API for over a year n…",
+              "id": "1111111111111111139",
+              "text": "Example tweet content.",
               "edit_history_tweet_ids": [
-                "2047769628059881849"
+                "1111111111111111139"
               ]
             },
             {
-              "id": "2047769537244770356",
-              "text": "RT @AlexFinn: OpenClaw + the X API is a match made in heaven\n\nIt's an incredible way to stay on top of what's trending in the world, plus e…",
+              "id": "1111111111111111140",
+              "text": "Example tweet content.",
               "edit_history_tweet_ids": [
-                "2047769537244770356"
+                "1111111111111111140"
               ]
             },
             {
-              "id": "2047427759014895849",
-              "text": "RT @mike_rosinsky: We've made some key Quality of Life updates for the X Activity API:\n\n- Bulk subscription deletion\n- Fetch subscriptions…",
+              "id": "1111111111111111141",
+              "text": "Example tweet content.",
               "edit_history_tweet_ids": [
-                "2047427759014895849"
+                "1111111111111111141"
               ]
             }
           ],
           "meta": {
             "next_token": "7140dibdnow9c7btwoxhox6bx1yln3yiiexcvnnc75ik9",
             "result_count": 5,
-            "newest_id": "2052646100633284774",
-            "oldest_id": "2047427759014895849"
+            "newest_id": "1111111111111111137",
+            "oldest_id": "1111111111111111141"
           }
         },
         "status": 200,
@@ -119,19 +119,14 @@
           "server": "cloudflare envoy",
           "api-version": "2.163",
           "cache-control": "no-cache, no-store, max-age=0",
-          "set-cookie": "guest_id=v1%3A177878664766325238; Max-Age=34214400; Expires=Mon, 14 Jun 2027 19:24:07 GMT; Path=/; Domain=.twitter.com; Secure; SameSite=None, __cf_bm=8sFVXepDFgxie5qeLseZKscnP5wVPZzeS3cmewANELk-1778786647.6462374-1.0.1.1-1jsWlrtkxlMzZXMl4VhPsSjkCOQwlfSxoRJsuIdfNqoPG1uNCVtYJAVhVlJV22bUpte3juznBpr17WJjHpyWEwb1.ZlchDlUNmScgbe6e9_g0yGTWRSuk4LXIArirbdm; HttpOnly; SameSite=None; Secure; Path=/; Domain=twitter.com; Expires=Thu, 14 May 2026 19:54:07 GMT",
           "x-access-level": "read-write",
-          "x-transaction-id": "5b5caa828183de5b",
           "x-rate-limit-limit": "900",
           "x-rate-limit-reset": "1778787500",
           "content-disposition": "attachment; filename=json.json",
           "x-rate-limit-remaining": "897",
           "x-response-time": "95",
-          "origin-cf-ray": "9fbc4803cc5c9314-SEA",
-          "x-served-by": "t4_p",
           "vary": "accept-encoding",
-          "cf-cache-status": "DYNAMIC",
-          "cf-ray": "9fbc4803cc5c9314-PDX"
+          "cf-cache-status": "DYNAMIC"
         },
         "hash": "367da5929bcf6afd2add9d8e2a6e0b60703ec568",
         "request": {

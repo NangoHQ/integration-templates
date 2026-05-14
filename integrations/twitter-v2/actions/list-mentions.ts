@@ -137,7 +137,7 @@ const MetaSchema = z
 
 const ProviderResponseSchema = z
     .object({
-        data: z.array(TweetSchema),
+        data: z.array(TweetSchema).optional(),
         includes: IncludesSchema,
         meta: MetaSchema
     })
@@ -292,13 +292,13 @@ const action = createAction({
         const data = rawData.data;
 
         return {
-            items: data.data,
+            items: data.data ?? [],
             includes: data.includes || {},
             next_cursor: data.meta?.next_token,
             previous_cursor: data.meta?.previous_token,
             newest_id: data.meta?.newest_id,
             oldest_id: data.meta?.oldest_id,
-            result_count: data.meta?.result_count ?? data.data.length
+            result_count: data.meta?.result_count ?? data.data?.length ?? 0
         };
     }
 });

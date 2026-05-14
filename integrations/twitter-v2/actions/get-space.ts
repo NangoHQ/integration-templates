@@ -64,7 +64,7 @@ const action = createAction({
             endpoint: `/2/spaces/${input.space_id}`,
             params: {
                 'space.fields':
-                    'created_at,creator_id,ended_at,host_ids,lang,is_ticketed,invited_user_ids,participant_count,scheduled_start,speaker_ids,started_at,state,title,topic_ids,updated_at'
+                    'created_at,creator_id,ended_at,host_ids,lang,is_ticketed,invited_user_ids,participant_count,scheduled_start,speaker_ids,started_at,state,subscriber_count,title,topic_ids,updated_at'
             },
             retries: 3
         });

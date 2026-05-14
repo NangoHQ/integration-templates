@@ -101,7 +101,7 @@ const action = createAction({
             params['expansions'] = input.expansions.join(',');
         }
 
-        const endpoint = input.usernames && !input.ids ? '/2/users/by' : '/2/users';
+        const endpoint = input.usernames && (!input.ids || input.ids.length === 0) ? '/2/users/by' : '/2/users';
 
         // https://docs.x.com/x-api/users/get-users-by-ids
         const response = await nango.get({

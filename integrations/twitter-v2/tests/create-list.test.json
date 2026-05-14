@@ -3,7 +3,7 @@
     "name": "Test List from Nango"
   },
   "output": {
-    "id": "2055005930128101778",
+    "id": "1111111111100000001",
     "name": "Test List from Nango"
   },
   "nango": {},
@@ -12,7 +12,7 @@
       "/2/lists": {
         "response": {
           "data": {
-            "id": "2055005930128101778",
+            "id": "1111111111100000001",
             "name": "Test List from Nango"
           }
         },
@@ -36,22 +36,17 @@
           "x-ratelimit-reset": "1778786625",
           "perf": "7402827104",
           "server": "cloudflare envoy",
-          "location": "https://api.twitter.com/2/lists/2055005930128101778",
+          "location": "https://api.twitter.com/2/lists/1111111111100000001",
           "api-version": "2.163",
           "cache-control": "no-cache, no-store, max-age=0",
-          "set-cookie": "guest_id=v1%3A177878656853443651; Max-Age=34214400; Expires=Mon, 14 Jun 2027 19:22:48 GMT; Path=/; Domain=.twitter.com; Secure; SameSite=None, __cf_bm=Zv.GuxHus2UN4IYmpeUL3P6WyX0MC_WudblDKdZJlow-1778786568.5128615-1.0.1.1-whriEDAzM54KtyQXerTnB3hsaZ0ZTxMhEyZ9Ia6TrGEjF7X6U8lBzDIOWIPWuV.F9ieM86T48sLRjVP2s274o6eu9GR6QKhpS_hRciND7pzYBWfO1MdpQQs2dBDPQ5vU; HttpOnly; SameSite=None; Secure; Path=/; Domain=twitter.com; Expires=Thu, 14 May 2026 19:52:48 GMT",
           "x-access-level": "read-write",
-          "x-transaction-id": "deceb73b9302e413",
           "x-rate-limit-limit": "300",
           "x-rate-limit-reset": "1778787459",
           "content-disposition": "attachment; filename=json.json",
           "x-rate-limit-remaining": "298",
           "x-response-time": "54",
-          "origin-cf-ray": "9fbc4615391cfc83-SEA",
-          "x-served-by": "t4_p",
           "vary": "accept-encoding",
-          "cf-cache-status": "DYNAMIC",
-          "cf-ray": "9fbc4615391cfc83-PDX"
+          "cf-cache-status": "DYNAMIC"
         },
         "hash": "33237c848bf598c182dab74b29a98f1f4b082e8e",
         "request": {

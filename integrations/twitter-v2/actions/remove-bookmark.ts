@@ -26,7 +26,7 @@ const action = createAction({
     },
     input: InputSchema,
     output: OutputSchema,
-    scopes: ['bookmark.write'],
+    scopes: ['bookmark.write', 'users.read', 'tweet.read'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         // https://docs.x.com/x-api/users/user-lookup-by-id

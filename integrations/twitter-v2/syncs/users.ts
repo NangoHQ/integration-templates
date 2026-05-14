@@ -1,6 +1,16 @@
 import { createSync } from 'nango';
 import { z } from 'zod';
 
+const UserMeResponseSchema = z.object({
+    data: z
+        .object({
+            id: z.string(),
+            name: z.string(),
+            username: z.string()
+        })
+        .passthrough()
+});
+
 // https://docs.x.com/x-api/users/get-my-user
 const UserSchema = z.object({
     id: z.string(),
@@ -46,10 +56,12 @@ const sync = createSync({
             retries: 3
         });
 
-        const userData = response.data.data;
-        if (!userData) {
-            return;
+        const parsed = UserMeResponseSchema.safeParse(response.data);
+        if (!parsed.success) {
+            throw new Error(`Unexpected /2/users/me response shape: ${parsed.error.message}`);
         }
+        // Use the raw response for field access — schema validated the required shape above
+        const userData = response.data.data;
 
         const user: z.infer<typeof UserSchema> = {
             id: userData.id,

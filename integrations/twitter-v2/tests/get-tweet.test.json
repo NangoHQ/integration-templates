@@ -1,16 +1,16 @@
 {
   "input": {
-    "id": "1050118621198921728"
+    "id": "1111111111111111118"
   },
   "output": {
-    "id": "1050118621198921728",
-    "text": "To make room for more expression, we will now count all emojis as equal—including those with gender‍‍‍ ‍‍and skin tone modifiers 👍🏻👍🏽👍🏿. This is now reflected in Twitter-Text, our Open Source library. \n\nUsing Twitter-Text? See the forum post for detail: https://t.co/Nx1XZmRCXA",
-    "authorId": "6253282",
-    "createdAt": "2018-10-10T20:19:24.000Z",
+    "id": "1111111111111111118",
+    "text": "Example tweet content.",
+    "authorId": "6253282000",
+    "createdAt": "2020-01-01T00:00:00.000Z",
     "publicMetrics": {
-      "retweetCount": 131,
+      "retweetCount": 130,
       "replyCount": 34,
-      "likeCount": 279,
+      "likeCount": 280,
       "quoteCount": 0,
       "bookmarkCount": 0,
       "impressionCount": 0
@@ -18,12 +18,12 @@
     "lang": "en",
     "possiblySensitive": false,
     "replySettings": "everyone",
-    "conversationId": "1050118621198921728",
+    "conversationId": "1111111111111111118",
     "editHistoryTweetIds": [
-      "1050118621198921728"
+      "1111111111111111118"
     ],
     "editControls": {
-      "editableUntil": "2018-10-10T20:49:24.000Z",
+      "editableUntil": "2020-01-01T00:30:00.000Z",
       "editsRemaining": 5,
       "isEditEligible": true
     }
@@ -31,29 +31,29 @@
   "nango": {},
   "api": {
     "get": {
-      "/2/tweets/1050118621198921728": {
+      "/2/tweets/1111111111111111118": {
         "response": {
           "data": {
             "possibly_sensitive": false,
             "lang": "en",
             "reply_settings": "everyone",
-            "text": "To make room for more expression, we will now count all emojis as equal—including those with gender‍‍‍ ‍‍and skin tone modifiers 👍🏻👍🏽👍🏿. This is now reflected in Twitter-Text, our Open Source library. \n\nUsing Twitter-Text? See the forum post for detail: https://t.co/Nx1XZmRCXA",
+            "text": "Example tweet content.",
             "edit_history_tweet_ids": [
-              "1050118621198921728"
+              "1111111111111111118"
             ],
             "edit_controls": {
               "edits_remaining": 5,
               "is_edit_eligible": true,
-              "editable_until": "2018-10-10T20:49:24.000Z"
+              "editable_until": "2020-01-01T00:30:00.000Z"
             },
-            "created_at": "2018-10-10T20:19:24.000Z",
-            "conversation_id": "1050118621198921728",
-            "author_id": "6253282",
-            "id": "1050118621198921728",
+            "created_at": "2020-01-01T00:00:00.000Z",
+            "conversation_id": "1111111111111111118",
+            "author_id": "6253282000",
+            "id": "1111111111111111118",
             "public_metrics": {
-              "retweet_count": 131,
+              "retweet_count": 130,
               "reply_count": 34,
-              "like_count": 279,
+              "like_count": 280,
               "quote_count": 0,
               "bookmark_count": 0,
               "impression_count": 0
@@ -82,19 +82,14 @@
           "server": "cloudflare envoy",
           "api-version": "2.163",
           "cache-control": "no-cache, no-store, max-age=0",
-          "set-cookie": "guest_id=v1%3A177878651959592589; Max-Age=34214400; Expires=Mon, 14 Jun 2027 19:21:59 GMT; Path=/; Domain=.twitter.com; Secure; SameSite=None, __cf_bm=B4Ua39fkLDb_53q351KYE8MTK2y8aEcBdp2bldXXAeg-1778786519.5780766-1.0.1.1-ZubTo15brffeG6Ut0IHlMKXXqG9BeCLy5wkczpic.kjKLJYVGHQLx1cTqulTJKPikuduzNTtMHKRLusVOQGZSFIZiDgHLIVkGXnGRpj7YRf3b.gO8Pnz1RcbpXmDeDCW; HttpOnly; SameSite=None; Secure; Path=/; Domain=twitter.com; Expires=Thu, 14 May 2026 19:51:59 GMT",
           "x-access-level": "read-write",
-          "x-transaction-id": "fdfbfd79b2baf2fe",
           "x-rate-limit-limit": "900",
           "x-rate-limit-reset": "1778787376",
           "content-disposition": "attachment; filename=json.json",
           "x-rate-limit-remaining": "894",
           "x-response-time": "47",
-          "origin-cf-ray": "9fbc44e35e48ff0f-SEA",
-          "x-served-by": "t4_p",
           "vary": "accept-encoding",
-          "cf-cache-status": "DYNAMIC",
-          "cf-ray": "9fbc44e35e48ff0f-PDX"
+          "cf-cache-status": "DYNAMIC"
         },
         "hash": "df41db5da8141d19e58d69ded3adb19de616f16d",
         "request": {

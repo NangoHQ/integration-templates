@@ -1,15 +1,15 @@
 {
   "input": {
-    "id": "1212092628029698048"
+    "id": "1111111111111111115"
   },
   "output": {
-    "id": "1212092628029698048",
-    "text": "We believe the best future version of our API will come from building it with YOU. Here’s to another great year with everyone who builds on the Twitter platform. We can’t wait to continue working with you in the new year. https://t.co/yvxdK6aOo2",
+    "id": "1111111111111111115",
+    "text": "Example tweet content.",
     "edit_history_tweet_ids": [
-      "1212092628029698048"
+      "1111111111111111115"
     ],
-    "author_id": "2244994945",
-    "created_at": "2019-12-31T19:26:16.000Z",
+    "author_id": "9999999999",
+    "created_at": "2020-01-01T00:00:00.000Z",
     "lang": "en",
     "possibly_sensitive": false,
     "public_metrics": {
@@ -23,30 +23,30 @@
     "referenced_tweets": [
       {
         "type": "replied_to",
-        "id": "1212092627178287104"
+        "id": "1111111111111111116"
       }
     ],
-    "in_reply_to_user_id": "2244994945",
-    "conversation_id": "1212092619796316161",
+    "in_reply_to_user_id": "9999999999",
+    "conversation_id": "1111111111111111117",
     "reply_settings": "everyone"
   },
   "nango": {},
   "api": {
     "get": {
-      "/2/tweets/1212092628029698048": {
+      "/2/tweets/1111111111111111115": {
         "response": {
           "data": {
             "edit_history_tweet_ids": [
-              "1212092628029698048"
+              "1111111111111111115"
             ],
             "referenced_tweets": [
               {
                 "type": "replied_to",
-                "id": "1212092627178287104"
+                "id": "1111111111111111116"
               }
             ],
-            "in_reply_to_user_id": "2244994945",
-            "id": "1212092628029698048",
+            "in_reply_to_user_id": "9999999999",
+            "id": "1111111111111111115",
             "public_metrics": {
               "retweet_count": 0,
               "reply_count": 0,
@@ -55,12 +55,12 @@
               "bookmark_count": 0,
               "impression_count": 0
             },
-            "text": "We believe the best future version of our API will come from building it with YOU. Here’s to another great year with everyone who builds on the Twitter platform. We can’t wait to continue working with you in the new year. https://t.co/yvxdK6aOo2",
+            "text": "Example tweet content.",
             "lang": "en",
-            "created_at": "2019-12-31T19:26:16.000Z",
+            "created_at": "2020-01-01T00:00:00.000Z",
             "reply_settings": "everyone",
-            "conversation_id": "1212092619796316161",
-            "author_id": "2244994945",
+            "conversation_id": "1111111111111111117",
+            "author_id": "9999999999",
             "possibly_sensitive": false
           }
         },
@@ -86,19 +86,14 @@
           "server": "cloudflare envoy",
           "api-version": "2.163",
           "cache-control": "no-cache, no-store, max-age=0",
-          "set-cookie": "guest_id=v1%3A177878649734358335; Max-Age=34214400; Expires=Mon, 14 Jun 2027 19:21:37 GMT; Path=/; Domain=.twitter.com; Secure; SameSite=None, __cf_bm=FoIhz.YfowzlB1MzgwWf0SxYTkr2GZQoG4wNBuDVlZ4-1778786497.3268623-1.0.1.1-RtF1H0d1IXKh9_CiRqnhydA0A8c2.mPFWODf8KUY5b5t1ZbsJ16iKM8vKsj4sXPCAwH9kSul_Csl.1DHWF_xx1PraYMjLNGfPr4WDrwHBtNQ2Vr5HEplXGsA.ygu8sjK; HttpOnly; SameSite=None; Secure; Path=/; Domain=twitter.com; Expires=Thu, 14 May 2026 19:51:37 GMT",
           "x-access-level": "read-write",
-          "x-transaction-id": "90ef7fd190efba31",
           "x-rate-limit-limit": "900",
           "x-rate-limit-reset": "1778787376",
           "content-disposition": "attachment; filename=json.json",
           "x-rate-limit-remaining": "896",
           "x-response-time": "44",
-          "origin-cf-ray": "9fbc445848a8fc83-SEA",
-          "x-served-by": "t4_p",
           "vary": "accept-encoding",
-          "cf-cache-status": "DYNAMIC",
-          "cf-ray": "9fbc445848a8fc83-PDX"
+          "cf-cache-status": "DYNAMIC"
         },
         "hash": "d1cf33e1faa502699ae8bc75580e11395fb84b21",
         "request": {

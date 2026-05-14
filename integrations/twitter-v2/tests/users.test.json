@@ -3,12 +3,12 @@
     "batchSave": {
       "User": [
         {
-          "id": "2054257020509839360",
-          "name": "Nango Developer",
-          "username": "NangoApi",
-          "created_at": "2026-05-12T17:47:14.000Z",
+          "id": "1000000000000000001",
+          "name": "Test User",
+          "username": "testuser",
+          "created_at": "2020-01-01T00:00:00.000Z",
           "description": "",
-          "profile_image_url": "https://pbs.twimg.com/profile_images/2054257104353931264/arKku5e__normal.png",
+          "profile_image_url": "https://pbs.twimg.com/profile_images/placeholder/photo_normal.png",
           "protected": false,
           "public_metrics": {
             "followers_count": 0,
@@ -33,11 +33,11 @@
         "response": {
           "data": {
             "verified_type": "none",
-            "profile_image_url": "https://pbs.twimg.com/profile_images/2054257104353931264/arKku5e__normal.png",
+            "profile_image_url": "https://pbs.twimg.com/profile_images/placeholder/photo_normal.png",
             "protected": false,
             "verified": false,
-            "username": "NangoApi",
-            "name": "Nango Developer",
+            "username": "testuser",
+            "name": "Test User",
             "public_metrics": {
               "followers_count": 0,
               "following_count": 6,
@@ -47,8 +47,8 @@
               "media_count": 0
             },
             "description": "",
-            "created_at": "2026-05-12T17:47:14.000Z",
-            "id": "2054257020509839360",
+            "created_at": "2020-01-01T00:00:00.000Z",
+            "id": "1000000000000000001",
             "subscription_type": "None"
           }
         },
@@ -74,19 +74,14 @@
           "server": "cloudflare envoy",
           "api-version": "2.163",
           "cache-control": "no-cache, no-store, max-age=0",
-          "set-cookie": "guest_id=v1%3A177878741894219871; Max-Age=34214400; Expires=Mon, 14 Jun 2027 19:36:58 GMT; Path=/; Domain=.twitter.com; Secure; SameSite=None, __cf_bm=938gZf4i6t1zXDFQQfpU2O6tF82t5TLtRidOYHveKlM-1778787418.9275613-1.0.1.1-jTxNDFhWEgu8HHM8NVXJvzq6Gpj1El_elg9au4xSYXP_FbTnDC3Yuqty55Xk9M2sONb7o3aDm1FO7GP2.S3xlRgucitELjLvGMq35z3B4cepXXbKLFx0JOBkdRXJyOVt; HttpOnly; SameSite=None; Secure; Path=/; Domain=twitter.com; Expires=Thu, 14 May 2026 20:06:58 GMT",
           "x-access-level": "read-write",
-          "x-transaction-id": "3a5abe90fb0ee27e",
           "x-rate-limit-limit": "75",
           "x-rate-limit-reset": "1778788310",
           "content-disposition": "attachment; filename=json.json",
           "x-rate-limit-remaining": "73",
           "x-response-time": "44",
-          "origin-cf-ray": "9fbc5ad849bb70b9-SEA",
-          "x-served-by": "t4_p",
           "vary": "accept-encoding",
-          "cf-cache-status": "DYNAMIC",
-          "cf-ray": "9fbc5ad849bb70b9-PDX"
+          "cf-cache-status": "DYNAMIC"
         },
         "hash": "f972ae1d7152ab411dc20d2c42a0f741f99670f0",
         "request": {

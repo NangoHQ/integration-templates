@@ -1,21 +1,21 @@
 {
   "input": {
-    "id": "2244994945"
+    "id": "9999999999"
   },
   "output": {
-    "id": "2244994945",
-    "name": "Developers",
-    "username": "XDevelopers"
+    "id": "9999999999",
+    "name": "API Developer",
+    "username": "apideveloper"
   },
   "nango": {},
   "api": {
     "get": {
-      "/2/users/2244994945": {
+      "/2/users/9999999999": {
         "response": {
           "data": {
-            "id": "2244994945",
-            "name": "Developers",
-            "username": "XDevelopers"
+            "id": "9999999999",
+            "name": "API Developer",
+            "username": "apideveloper"
           }
         },
         "status": 200,
@@ -40,19 +40,14 @@
           "server": "cloudflare envoy",
           "api-version": "2.163",
           "cache-control": "no-cache, no-store, max-age=0",
-          "set-cookie": "guest_id=v1%3A177878652818423502; Max-Age=34214400; Expires=Mon, 14 Jun 2027 19:22:08 GMT; Path=/; Domain=.twitter.com; Secure; SameSite=None, __cf_bm=Qc7Fj585MjFpxa1WZfyOlYIZNqmIWe0ez8rm3CxEBWo-1778786528.1699655-1.0.1.1-wgLP5EFlkQ4HKqIibZ79DiiqeoN50ekU06bZ.URnARllmH2wNa51b1tf0qzugIBZkd5P7XLA64LtYrCTxLJ_jvMBNNAUaY4_DcmEp.mk_LvNQLx0Oxvpj8CLFU.z15LO; HttpOnly; SameSite=None; Secure; Path=/; Domain=twitter.com; Expires=Thu, 14 May 2026 19:52:08 GMT",
           "x-access-level": "read-write",
-          "x-transaction-id": "3e3475f46fdcade2",
           "x-rate-limit-limit": "900",
           "x-rate-limit-reset": "1778787418",
           "content-disposition": "attachment; filename=json.json",
           "x-rate-limit-remaining": "898",
           "x-response-time": "33",
-          "origin-cf-ray": "9fbc45190a43fc83-SEA",
-          "x-served-by": "t4_p",
           "vary": "accept-encoding",
-          "cf-cache-status": "DYNAMIC",
-          "cf-ray": "9fbc45190a43fc83-PDX"
+          "cf-cache-status": "DYNAMIC"
         },
         "hash": "cd7aa680310c19b912d0bb633d95345cec873a77",
         "request": {}

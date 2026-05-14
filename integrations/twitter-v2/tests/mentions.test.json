@@ -3,15 +3,15 @@
     "batchSave": {
       "Mention": [
         {
-          "id": "2054785108419256746",
-          "text": "@NangoApi @NangoApi 💪",
-          "author_id": "1084775580309118977",
-          "created_at": "2026-05-14T04:45:20.000Z",
+          "id": "1111111111111111142",
+          "text": "@testuser @testuser Example tweet content.",
+          "author_id": "1000000000000000002",
+          "created_at": "2020-01-01T00:00:00.000Z",
           "edit_history_tweet_ids": [
-            "2054785108419256746"
+            "1111111111111111142"
           ],
-          "conversation_id": "2054574901021782230",
-          "in_reply_to_user_id": "2054257020509839360",
+          "conversation_id": "1111111111111111143",
+          "in_reply_to_user_id": "1000000000000000001",
           "public_metrics": {
             "retweet_count": 0,
             "reply_count": 0,
@@ -23,15 +23,15 @@
           "lang": "qme"
         },
         {
-          "id": "2054784917750300711",
-          "text": "@NangoApi @nangoapi 🤙🏽",
-          "author_id": "1084775580309118977",
-          "created_at": "2026-05-14T04:44:35.000Z",
+          "id": "1111111111111111144",
+          "text": "@testuser @testuser Example tweet content.",
+          "author_id": "1000000000000000002",
+          "created_at": "2020-01-01T00:00:00.000Z",
           "edit_history_tweet_ids": [
-            "2054784917750300711"
+            "1111111111111111144"
           ],
-          "conversation_id": "2054574417410228403",
-          "in_reply_to_user_id": "2054257020509839360",
+          "conversation_id": "1111111111111111145",
+          "in_reply_to_user_id": "1000000000000000001",
           "public_metrics": {
             "retweet_count": 0,
             "reply_count": 0,
@@ -53,9 +53,9 @@
       "/2/users/me": {
         "response": {
           "data": {
-            "id": "2054257020509839360",
-            "name": "Nango Developer",
-            "username": "NangoApi"
+            "id": "1000000000000000001",
+            "name": "Test User",
+            "username": "testuser"
           }
         },
         "status": 200,
@@ -80,37 +80,32 @@
           "server": "cloudflare envoy",
           "api-version": "2.163",
           "cache-control": "no-cache, no-store, max-age=0",
-          "set-cookie": "guest_id=v1%3A177879067223606721; Max-Age=34214400; Expires=Mon, 14 Jun 2027 20:31:12 GMT; Path=/; Domain=.twitter.com; Secure; SameSite=None, __cf_bm=qXnWNndj6.Kivp0HzQiU6ZwWE2S0gjOwo7qe4PwO97o-1778790672.2220714-1.0.1.1-xI9NEE7rqlQiAlICITeMkiTYCbbV3H.ZXo3UTRiKvY_JNmrhOJEWRwOA0H5mEBRTidY3.dOBXyz20uJ8.k5TkPx3_FPbsDph0hS1RX_6JfMWriBFNt2_vT7h00QyYtOv; HttpOnly; SameSite=None; Secure; Path=/; Domain=twitter.com; Expires=Thu, 14 May 2026 21:01:12 GMT",
           "x-access-level": "read-write",
-          "x-transaction-id": "c9184609ad0eb8cf",
           "x-rate-limit-limit": "75",
           "x-rate-limit-reset": "1778791503",
           "content-disposition": "attachment; filename=json.json",
           "x-rate-limit-remaining": "69",
           "x-response-time": "36",
-          "origin-cf-ray": "9fbcaa456896a11a-SEA",
-          "x-served-by": "t4_p",
           "vary": "accept-encoding",
-          "cf-cache-status": "DYNAMIC",
-          "cf-ray": "9fbcaa456896a11a-PDX"
+          "cf-cache-status": "DYNAMIC"
         },
         "hash": "16f0be3f8bcf81363033ef9905a833cdddeedf92",
         "request": {}
       },
-      "/2/users/2054257020509839360/mentions": [
+      "/2/users/1000000000000000001/mentions": [
         {
           "response": {
             "data": [
               {
-                "in_reply_to_user_id": "2054257020509839360",
-                "conversation_id": "2054574901021782230",
+                "in_reply_to_user_id": "1000000000000000001",
+                "conversation_id": "1111111111111111143",
                 "edit_history_tweet_ids": [
-                  "2054785108419256746"
+                  "1111111111111111142"
                 ],
-                "author_id": "1084775580309118977",
-                "text": "@NangoApi @NangoApi 💪",
-                "id": "2054785108419256746",
-                "created_at": "2026-05-14T04:45:20.000Z",
+                "author_id": "1000000000000000002",
+                "text": "@testuser @testuser Example tweet content.",
+                "id": "1111111111111111142",
+                "created_at": "2020-01-01T00:00:00.000Z",
                 "public_metrics": {
                   "retweet_count": 0,
                   "reply_count": 0,
@@ -122,15 +117,15 @@
                 "lang": "qme"
               },
               {
-                "in_reply_to_user_id": "2054257020509839360",
-                "conversation_id": "2054574417410228403",
+                "in_reply_to_user_id": "1000000000000000001",
+                "conversation_id": "1111111111111111145",
                 "edit_history_tweet_ids": [
-                  "2054784917750300711"
+                  "1111111111111111144"
                 ],
-                "author_id": "1084775580309118977",
-                "text": "@NangoApi @nangoapi 🤙🏽",
-                "id": "2054784917750300711",
-                "created_at": "2026-05-14T04:44:35.000Z",
+                "author_id": "1000000000000000002",
+                "text": "@testuser @testuser Example tweet content.",
+                "id": "1111111111111111144",
+                "created_at": "2020-01-01T00:00:00.000Z",
                 "public_metrics": {
                   "retweet_count": 0,
                   "reply_count": 0,
@@ -145,8 +140,8 @@
             "meta": {
               "next_token": "7140dibdnow9c7btwoxi3wf00harnztswbdw91ojq2p0x",
               "result_count": 2,
-              "newest_id": "2054785108419256746",
-              "oldest_id": "2054784917750300711"
+              "newest_id": "1111111111111111142",
+              "oldest_id": "1111111111111111144"
             }
           },
           "status": 200,
@@ -171,19 +166,14 @@
             "server": "cloudflare envoy",
             "api-version": "2.163",
             "cache-control": "no-cache, no-store, max-age=0",
-            "set-cookie": "guest_id=v1%3A177879067253524125; Max-Age=34214400; Expires=Mon, 14 Jun 2027 20:31:12 GMT; Path=/; Domain=.twitter.com; Secure; SameSite=None, __cf_bm=Rx7ArdrRsdg0H8kznSvIv9P583tUVMKBF4fbL0tWaD4-1778790672.5183244-1.0.1.1-ykhcTX88QW7zcY9Hqv.VsziIteTi9Z4sU9sskiPO.GZyE.RcVPlqTMdf07.yHgm85gEOSVuQzUQYwXC2KnNAvb8ryn9ioWvZYxsKXdsQBk48byUe_1JzHl9aPWbFWhba; HttpOnly; SameSite=None; Secure; Path=/; Domain=twitter.com; Expires=Thu, 14 May 2026 21:01:12 GMT",
             "x-access-level": "read-write",
-            "x-transaction-id": "2af89b469195a02f",
             "x-rate-limit-limit": "300",
             "x-rate-limit-reset": "1778791450",
             "content-disposition": "attachment; filename=json.json",
             "x-rate-limit-remaining": "295",
             "x-response-time": "57",
-            "origin-cf-ray": "9fbcaa473e6f8ce4-SEA",
-            "x-served-by": "t4_p",
             "vary": "accept-encoding",
-            "cf-cache-status": "DYNAMIC",
-            "cf-ray": "9fbcaa473e6f8ce4-PDX"
+            "cf-cache-status": "DYNAMIC"
           },
           "hash": "ac90ce0b6ae8a8f150dc79e9512adb1bd92aff09",
           "request": {
@@ -222,19 +212,14 @@
             "server": "cloudflare envoy",
             "api-version": "2.163",
             "cache-control": "no-cache, no-store, max-age=0",
-            "set-cookie": "guest_id=v1%3A177879067271781523; Max-Age=34214400; Expires=Mon, 14 Jun 2027 20:31:12 GMT; Path=/; Domain=.twitter.com; Secure; SameSite=None, __cf_bm=rfNSFBxsRK.74Pd33ndgliOWk2DK71jQPxQkNAZpW7g-1778790672.7007437-1.0.1.1-NZNGfhKTtjDeDb6KIB7O1diTeKI_F67XMio1bmCgCWcRXorLk0O2nrKiJU0pmSajXNM1RHA4ooCRdCXB3bq3IZwN_RdwxnywATUTxJicxzCKuc8K3kMzQYzAYxQIHoz3; HttpOnly; SameSite=None; Secure; Path=/; Domain=twitter.com; Expires=Thu, 14 May 2026 21:01:12 GMT",
             "x-access-level": "read-write",
-            "x-transaction-id": "ac1bbcfe2ff0d3a6",
             "x-rate-limit-limit": "300",
             "x-rate-limit-reset": "1778791450",
             "content-disposition": "attachment; filename=json.json",
             "x-rate-limit-remaining": "294",
             "x-response-time": "37",
-            "origin-cf-ray": "9fbcaa486cb561c8-SEA",
-            "x-served-by": "t4_p",
             "vary": "accept-encoding",
-            "cf-cache-status": "DYNAMIC",
-            "cf-ray": "9fbcaa486cb561c8-PDX"
+            "cf-cache-status": "DYNAMIC"
           },
           "hash": "77e3514fdb91e466928a3b1e0af217c3b2917213",
           "request": {

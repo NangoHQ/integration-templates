@@ -36128,9 +36128,9 @@ export interface ActionInput_twitter_v2_createtweet {
    */
   quoteTweetId?: string | undefined;
   /**
-   * Media keys for media attachments to include in the tweet.
+   * Media IDs for media attachments to include in the tweet (from the upload endpoint).
    */
-  mediaKeys?: string[] | undefined;
+  mediaIds?: string[] | undefined;
 };
 
 export interface ActionOutput_twitter_v2_createtweet {

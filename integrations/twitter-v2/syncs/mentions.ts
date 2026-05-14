@@ -71,6 +71,9 @@ const sync = createSync({
             retries: 3
         });
 
+        if (!userResponse.data?.data?.id) {
+            throw new Error('Failed to get authenticated user ID from /2/users/me');
+        }
         const userId = userResponse.data.data.id;
 
         const proxyConfig: ProxyConfiguration = {
@@ -113,8 +116,9 @@ const sync = createSync({
             await nango.batchSave(mappedMentions, 'Mention');
 
             // Track the highest (newest) ID for checkpoint
+            // BigInt comparison required — string comparison gives wrong order for IDs of different lengths
             for (const mention of mentions) {
-                if (!maxId || mention.id > maxId) {
+                if (!maxId || BigInt(mention.id) > BigInt(maxId)) {
                     maxId = mention.id;
                 }
             }

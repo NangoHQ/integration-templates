@@ -2,9 +2,9 @@ import { z } from 'zod';
 import { createAction } from 'nango';
 
 const InputSchema = z.object({
-    query: z.string().describe('Search term to filter Spaces by title. Example: "crypto"'),
+    query: z.string().min(1).describe('Search term to filter Spaces by title. Example: "crypto"'),
     state: z.enum(['live', 'scheduled', 'all']).optional().describe('Filter by Space state: live, scheduled, or all. Default: all'),
-    max_results: z.number().min(1).max(100).optional().describe('Maximum number of results to return (1-100). Default: 100'),
+    max_results: z.number().int().min(1).max(100).optional().describe('Maximum number of results to return (1-100). Default: 100'),
     cursor: z.string().optional().describe('Pagination cursor from previous response for fetching next page')
 });
 

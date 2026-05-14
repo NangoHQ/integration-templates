@@ -1,10 +1,10 @@
 {
   "input": {
-    "text": "Hello from Nango integration! Testing create tweet action - v2."
+    "text": "Example tweet content."
   },
   "output": {
-    "id": "2055006009186541821",
-    "text": "Hello from Nango integration! Testing create tweet action - v2."
+    "id": "1111111111111111113",
+    "text": "Example tweet content."
   },
   "nango": {},
   "api": {
@@ -13,10 +13,10 @@
         "response": {
           "data": {
             "edit_history_tweet_ids": [
-              "2055006009186541821"
+              "1111111111111111113"
             ],
-            "text": "Hello from Nango integration! Testing create tweet action - v2.",
-            "id": "2055006009186541821"
+            "text": "Example tweet content.",
+            "id": "1111111111111111113"
           }
         },
         "status": 201,
@@ -39,27 +39,22 @@
           "x-ratelimit-reset": "1778786625",
           "perf": "7402827104",
           "server": "cloudflare envoy",
-          "location": "https://api.x.com/2/tweets/2055006009186541821",
+          "location": "https://api.x.com/2/tweets/1111111111111111113",
           "api-version": "2.163",
           "cache-control": "no-cache, no-store, max-age=0",
-          "set-cookie": "guest_id=v1%3A177878658736678424; Max-Age=34214400; Expires=Mon, 14 Jun 2027 19:23:07 GMT; Path=/; Domain=.twitter.com; Secure; SameSite=None, __cf_bm=lPw2DtegfFasQ8trUeEjoT_PvN61fyMXLXG71AYXnlM-1778786587.3496735-1.0.1.1-KskMI6VBRcTxPu0.9IOu18e7aEHi2mMhs6QeBE5fQDZDMR1Nwm38KZEDBgtyervdLVCYTUsH584p.g3CglQu05jpeleDl0Fl4YiPP2TCiXHGupXl8JVDZhlzGN.hrpRG; HttpOnly; SameSite=None; Secure; Path=/; Domain=twitter.com; Expires=Thu, 14 May 2026 19:53:07 GMT",
           "x-access-level": "read-write",
-          "x-transaction-id": "24e8f5edb4a8435e",
           "x-rate-limit-limit": "100",
           "x-rate-limit-reset": "1778787454",
           "content-disposition": "attachment; filename=json.json",
           "x-rate-limit-remaining": "95",
           "x-response-time": "113",
-          "origin-cf-ray": "9fbc468aef628e6c-SEA",
-          "x-served-by": "t4_p",
           "vary": "accept-encoding",
-          "cf-cache-status": "DYNAMIC",
-          "cf-ray": "9fbc468aef628e6c-PDX"
+          "cf-cache-status": "DYNAMIC"
         },
         "hash": "4d4fc4db0217c38f294e910046c792f345775a4a",
         "request": {
           "data": {
-            "text": "Hello from Nango integration! Testing create tweet action - v2."
+            "text": "Example tweet content."
           }
         }
       }

@@ -1,6 +1,6 @@
 {
   "input": {
-    "tweetId": "1346889436626259968"
+    "tweetId": "1111111111111111112"
   },
   "output": {
     "liked": true
@@ -8,7 +8,7 @@
   "nango": {
     "getConnection": {},
     "getMetadata": {
-      "userId": "2054257020509839360"
+      "userId": "1000000000000000001"
     }
   },
   "api": {
@@ -16,9 +16,9 @@
       "/2/users/me": {
         "response": {
           "data": {
-            "id": "2054257020509839360",
-            "name": "Nango Developer",
-            "username": "NangoApi"
+            "id": "1000000000000000001",
+            "name": "Test User",
+            "username": "testuser"
           }
         },
         "status": 200,
@@ -33,7 +33,7 @@
       }
     },
     "post": {
-      "/2/users/2054257020509839360/likes": {
+      "/2/users/1000000000000000001/likes": {
         "response": {
           "data": {
             "liked": true
@@ -49,7 +49,7 @@
         "hash": "418f597786b179c2100f22930180c9121490fe2d",
         "request": {
           "data": {
-            "tweet_id": "1346889436626259968"
+            "tweet_id": "1111111111111111112"
           }
         }
       }

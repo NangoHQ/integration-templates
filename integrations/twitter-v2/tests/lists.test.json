@@ -3,52 +3,52 @@
     "batchSave": {
       "List": [
         {
-          "id": "2055005930128101778",
+          "id": "1111111111100000001",
           "name": "Test List from Nango",
           "description": "",
-          "created_at": "2026-05-14T19:22:48.000Z",
+          "created_at": "2020-01-01T00:00:00.000Z",
           "private": false,
-          "owner_id": "2054257020509839360",
+          "owner_id": "1000000000000000001",
           "follower_count": 0,
           "member_count": 0
         },
         {
-          "id": "2055005892920459767",
+          "id": "1111111111100000006",
           "name": "Test List from Nango",
           "description": "",
-          "created_at": "2026-05-14T19:22:39.000Z",
+          "created_at": "2020-01-01T00:00:00.000Z",
           "private": false,
-          "owner_id": "2054257020509839360",
+          "owner_id": "1000000000000000001",
           "follower_count": 0,
           "member_count": 0
         },
         {
-          "id": "2054575875052458408",
+          "id": "1111111111100000007",
           "name": "ListC",
           "description": "",
-          "created_at": "2026-05-13T14:53:55.000Z",
+          "created_at": "2020-01-01T00:00:00.000Z",
           "private": false,
-          "owner_id": "2054257020509839360",
+          "owner_id": "1000000000000000001",
           "follower_count": 0,
           "member_count": 2
         },
         {
-          "id": "2054575781766922307",
+          "id": "1111111111100000008",
           "name": "ListB",
           "description": "",
-          "created_at": "2026-05-13T14:53:33.000Z",
+          "created_at": "2020-01-01T00:00:00.000Z",
           "private": false,
-          "owner_id": "2054257020509839360",
+          "owner_id": "1000000000000000001",
           "follower_count": 0,
           "member_count": 1
         },
         {
-          "id": "2054575637306740862",
+          "id": "1111111111100000009",
           "name": "listA",
           "description": "",
-          "created_at": "2026-05-13T14:52:58.000Z",
+          "created_at": "2020-01-01T00:00:00.000Z",
           "private": false,
-          "owner_id": "2054257020509839360",
+          "owner_id": "1000000000000000001",
           "follower_count": 0,
           "member_count": 1
         }
@@ -63,9 +63,9 @@
       "/2/users/me": {
         "response": {
           "data": {
-            "id": "2054257020509839360",
-            "name": "Nango Developer",
-            "username": "NangoApi"
+            "id": "1000000000000000001",
+            "name": "Test User",
+            "username": "testuser"
           }
         },
         "status": 200,
@@ -90,72 +90,67 @@
           "server": "cloudflare envoy",
           "api-version": "2.163",
           "cache-control": "no-cache, no-store, max-age=0",
-          "set-cookie": "guest_id=v1%3A177878665799172916; Max-Age=34214400; Expires=Mon, 14 Jun 2027 19:24:18 GMT; Path=/; Domain=.twitter.com; Secure; SameSite=None, __cf_bm=vFFcZ1MZQ5HyDKNZO_PdWuTxYI9JVzYhixyHCfVbR9E-1778786657.9756835-1.0.1.1-c_vtAyUHfih3RaebWGAOCcJBPh12ikccgrl3P3v2h9dnKSF5pXIVLHi8oe9G9J4XVcpgEICAF5IOYoMfBSIFYTFQRG3IaOigU1Rya5czh4BTJei2lI.UIp7IPIs61HAr; HttpOnly; SameSite=None; Secure; Path=/; Domain=twitter.com; Expires=Thu, 14 May 2026 19:54:18 GMT",
           "x-access-level": "read-write",
-          "x-transaction-id": "09b7685e2f1c3ca6",
           "x-rate-limit-limit": "75",
           "x-rate-limit-reset": "1778787393",
           "content-disposition": "attachment; filename=json.json",
           "x-rate-limit-remaining": "55",
           "x-response-time": "35",
-          "origin-cf-ray": "9fbc484458cb962a-SEA",
-          "x-served-by": "t4_p",
           "vary": "accept-encoding",
-          "cf-cache-status": "DYNAMIC",
-          "cf-ray": "9fbc484458cb962a-PDX"
+          "cf-cache-status": "DYNAMIC"
         },
         "hash": "16f0be3f8bcf81363033ef9905a833cdddeedf92",
         "request": {}
       },
-      "/2/users/2054257020509839360/owned_lists": {
+      "/2/users/1000000000000000001/owned_lists": {
         "response": {
           "data": [
             {
-              "created_at": "2026-05-14T19:22:48.000Z",
-              "owner_id": "2054257020509839360",
+              "created_at": "2020-01-01T00:00:00.000Z",
+              "owner_id": "1000000000000000001",
               "name": "Test List from Nango",
               "private": false,
-              "id": "2055005930128101778",
+              "id": "1111111111100000001",
               "description": "",
               "follower_count": 0,
               "member_count": 0
             },
             {
-              "created_at": "2026-05-14T19:22:39.000Z",
-              "owner_id": "2054257020509839360",
+              "created_at": "2020-01-01T00:00:00.000Z",
+              "owner_id": "1000000000000000001",
               "name": "Test List from Nango",
               "private": false,
-              "id": "2055005892920459767",
+              "id": "1111111111100000006",
               "description": "",
               "follower_count": 0,
               "member_count": 0
             },
             {
-              "created_at": "2026-05-13T14:53:55.000Z",
-              "owner_id": "2054257020509839360",
+              "created_at": "2020-01-01T00:00:00.000Z",
+              "owner_id": "1000000000000000001",
               "name": "ListC",
               "private": false,
-              "id": "2054575875052458408",
+              "id": "1111111111100000007",
               "description": "",
               "follower_count": 0,
               "member_count": 2
             },
             {
-              "created_at": "2026-05-13T14:53:33.000Z",
-              "owner_id": "2054257020509839360",
+              "created_at": "2020-01-01T00:00:00.000Z",
+              "owner_id": "1000000000000000001",
               "name": "ListB",
               "private": false,
-              "id": "2054575781766922307",
+              "id": "1111111111100000008",
               "description": "",
               "follower_count": 0,
               "member_count": 1
             },
             {
-              "created_at": "2026-05-13T14:52:58.000Z",
-              "owner_id": "2054257020509839360",
+              "created_at": "2020-01-01T00:00:00.000Z",
+              "owner_id": "1000000000000000001",
               "name": "listA",
               "private": false,
-              "id": "2054575637306740862",
+              "id": "1111111111100000009",
               "description": "",
               "follower_count": 0,
               "member_count": 1
@@ -187,19 +182,14 @@
           "server": "cloudflare envoy",
           "api-version": "2.163",
           "cache-control": "no-cache, no-store, max-age=0",
-          "set-cookie": "guest_id=v1%3A177878665818365340; Max-Age=34214400; Expires=Mon, 14 Jun 2027 19:24:18 GMT; Path=/; Domain=.twitter.com; Secure; SameSite=None, __cf_bm=YamPbATUJRPVlU5uY4sCOUhE5AVE9y.jP.SbLCytp_U-1778786658.1660464-1.0.1.1-LuwYbsfKgjBaGjU18cVfJbKfwFtF7k4sf_uBLxXFYqXBcB1XU7LmX79ojrkTWPChfKqyuzaTSzFnIKCH2_ZsImpmcQx13bKG_i16QEEt547TsQn2eei7stSH9KLsHlQw; HttpOnly; SameSite=None; Secure; Path=/; Domain=twitter.com; Expires=Thu, 14 May 2026 19:54:18 GMT",
           "x-access-level": "read-write",
-          "x-transaction-id": "5302e93597e8c0cb",
           "x-rate-limit-limit": "15",
           "x-rate-limit-reset": "1778787383",
           "content-disposition": "attachment; filename=json.json",
           "x-rate-limit-remaining": "10",
           "x-response-time": "90",
-          "origin-cf-ray": "9fbc48458b02ff0f-SEA",
-          "x-served-by": "t4_p",
           "vary": "accept-encoding",
-          "cf-cache-status": "DYNAMIC",
-          "cf-ray": "9fbc48458b02ff0f-PDX"
+          "cf-cache-status": "DYNAMIC"
         },
         "hash": "8975a33a32f3984c34cdd38e7aa802df7b24ec1c",
         "request": {

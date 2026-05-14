@@ -5,7 +5,7 @@ const InputSchema = z.object({
     text: z.string().max(280).describe('The text content of the tweet. Maximum 280 characters.'),
     replyToTweetId: z.string().optional().describe('The ID of the tweet to reply to. If provided, creates a reply tweet.'),
     quoteTweetId: z.string().optional().describe('The ID of the tweet to quote. If provided, creates a quote tweet.'),
-    mediaKeys: z.array(z.string()).optional().describe('Media keys for media attachments to include in the tweet.')
+    mediaIds: z.array(z.string()).optional().describe('Media IDs for media attachments to include in the tweet (from the upload endpoint).')
 });
 
 const ProviderCreateResponseSchema = z.object({
@@ -55,9 +55,9 @@ const action = createAction({
             payload['quote_tweet_id'] = input.quoteTweetId;
         }
 
-        if (input.mediaKeys !== undefined && input.mediaKeys.length > 0) {
+        if (input.mediaIds !== undefined && input.mediaIds.length > 0) {
             payload['media'] = {
-                media_ids: input.mediaKeys
+                media_ids: input.mediaIds
             };
         }
 
@@ -69,12 +69,13 @@ const action = createAction({
         });
 
         if (response.status !== 200 && response.status !== 201) {
-            const providerResponse = ProviderCreateResponseSchema.parse(response.data);
-            if (providerResponse.errors && providerResponse.errors.length > 0) {
+            const parsed = ProviderCreateResponseSchema.safeParse(response.data);
+            const errors = parsed.success ? parsed.data.errors : undefined;
+            if (errors && errors.length > 0) {
                 throw new nango.ActionError({
                     type: 'api_error',
-                    message: providerResponse.errors[0]?.message || 'Failed to create tweet',
-                    errors: providerResponse.errors
+                    message: errors[0]?.message || 'Failed to create tweet',
+                    errors
                 });
             }
             throw new nango.ActionError({

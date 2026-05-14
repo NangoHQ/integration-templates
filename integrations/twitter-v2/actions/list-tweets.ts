@@ -128,7 +128,7 @@ const action = createAction({
             params['end_time'] = input.end_time;
         }
         if (input.exclude !== undefined && input.exclude.length > 0) {
-            params['exclude'] = input.exclude;
+            params['exclude'] = input.exclude.join(',');
         }
 
         // https://docs.x.com/x-api/users/lookup/api-reference/get-users-id-tweets

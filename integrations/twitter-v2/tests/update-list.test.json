@@ -1,6 +1,6 @@
 {
   "input": {
-    "id": "2055024841053646940",
+    "id": "1111111111100000005",
     "name": "Nango updated list"
   },
   "output": {
@@ -9,7 +9,7 @@
   "nango": {},
   "api": {
     "put": {
-      "/2/lists/2055024841053646940": {
+      "/2/lists/1111111111100000005": {
         "response": {
           "data": {
             "updated": true
@@ -37,19 +37,14 @@
           "server": "cloudflare envoy",
           "api-version": "2.163",
           "cache-control": "no-cache, no-store, max-age=0",
-          "set-cookie": "guest_id=v1%3A177879116903555782; Max-Age=34214400; Expires=Mon, 14 Jun 2027 20:39:29 GMT; Path=/; Domain=.twitter.com; Secure; SameSite=None, __cf_bm=4DAekq7DMirF33L7HeQ2yWoHwVpBkI9MVI7mbMWI6p0-1778791169.0174143-1.0.1.1-jRKlgGKtk4LN3c5PeHDHxKyNcn0iOcrjZNVM_fRxGctVkKVqJ8i4YmYPUzegQQck5_5AEcyGvOdSKNX7gwXNuppOZFk9i1UNgiWC6g4g3ql9Ck66Yl1nVaNeDLTo94Tw; HttpOnly; SameSite=None; Secure; Path=/; Domain=twitter.com; Expires=Thu, 14 May 2026 21:09:29 GMT",
           "x-access-level": "read-write",
-          "x-transaction-id": "50f16ecadcf02f55",
           "x-rate-limit-limit": "300",
           "x-rate-limit-reset": "1778791993",
           "content-disposition": "attachment; filename=json.json",
           "x-rate-limit-remaining": "297",
           "x-response-time": "49",
-          "origin-cf-ray": "9fbcb6665d68962a-SEA",
-          "x-served-by": "t4_p",
           "vary": "accept-encoding",
-          "cf-cache-status": "DYNAMIC",
-          "cf-ray": "9fbcb6665d68962a-PDX"
+          "cf-cache-status": "DYNAMIC"
         },
         "hash": "ebddc439361a71af5eb638bd9dc12ac94019f706",
         "request": {

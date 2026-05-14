@@ -1,31 +1,146 @@
 {
   "input": {
-    "userId": "1666068243165220864"
+    "userId": "1000000000000000001"
   },
   "output": {
-    "lists": [],
-    "resultCount": 0
+    "lists": [
+      {
+        "id": "1111111111100000005",
+        "name": "Updated list name",
+        "createdAt": "2020-01-01T00:00:00.000Z",
+        "description": "Example user description.",
+        "followerCount": 0,
+        "memberCount": 0,
+        "ownerId": "1000000000000000001",
+        "isPrivate": false
+      },
+      {
+        "id": "1111111111100000001",
+        "name": "Test List from Nango",
+        "createdAt": "2020-01-01T00:00:00.000Z",
+        "description": "",
+        "followerCount": 0,
+        "memberCount": 0,
+        "ownerId": "1000000000000000001",
+        "isPrivate": false
+      },
+      {
+        "id": "1111111111100000006",
+        "name": "Test List from Nango",
+        "createdAt": "2020-01-01T00:00:00.000Z",
+        "description": "",
+        "followerCount": 0,
+        "memberCount": 0,
+        "ownerId": "1000000000000000001",
+        "isPrivate": false
+      },
+      {
+        "id": "1111111111100000007",
+        "name": "ListC",
+        "createdAt": "2020-01-01T00:00:00.000Z",
+        "description": "",
+        "followerCount": 0,
+        "memberCount": 2,
+        "ownerId": "1000000000000000001",
+        "isPrivate": false
+      },
+      {
+        "id": "1111111111100000008",
+        "name": "ListB",
+        "createdAt": "2020-01-01T00:00:00.000Z",
+        "description": "",
+        "followerCount": 0,
+        "memberCount": 1,
+        "ownerId": "1000000000000000001",
+        "isPrivate": false
+      },
+      {
+        "id": "1111111111100000009",
+        "name": "listA",
+        "createdAt": "2020-01-01T00:00:00.000Z",
+        "description": "",
+        "followerCount": 0,
+        "memberCount": 1,
+        "ownerId": "1000000000000000001",
+        "isPrivate": false
+      }
+    ],
+    "resultCount": 6
   },
   "nango": {},
   "api": {
     "get": {
-      "/2/users/1666068243165220864/owned_lists": {
+      "/2/users/1000000000000000001/owned_lists": {
         "response": {
-          "errors": [
+          "data": [
             {
-              "value": "1666068243165220864",
-              "detail": "Could not find user with id: [1666068243165220864].",
-              "title": "Not Found Error",
-              "resource_type": "user",
-              "parameter": "id",
-              "resource_id": "1666068243165220864",
-              "type": "https://api.twitter.com/2/problems/resource-not-found"
+              "id": "1111111111100000005",
+              "created_at": "2020-01-01T00:00:00.000Z",
+              "owner_id": "1000000000000000001",
+              "member_count": 0,
+              "follower_count": 0,
+              "description": "Example user description.",
+              "name": "Updated list name",
+              "private": false
+            },
+            {
+              "id": "1111111111100000001",
+              "created_at": "2020-01-01T00:00:00.000Z",
+              "owner_id": "1000000000000000001",
+              "member_count": 0,
+              "follower_count": 0,
+              "description": "",
+              "name": "Test List from Nango",
+              "private": false
+            },
+            {
+              "id": "1111111111100000006",
+              "created_at": "2020-01-01T00:00:00.000Z",
+              "owner_id": "1000000000000000001",
+              "member_count": 0,
+              "follower_count": 0,
+              "description": "",
+              "name": "Test List from Nango",
+              "private": false
+            },
+            {
+              "id": "1111111111100000007",
+              "created_at": "2020-01-01T00:00:00.000Z",
+              "owner_id": "1000000000000000001",
+              "member_count": 2,
+              "follower_count": 0,
+              "description": "",
+              "name": "ListC",
+              "private": false
+            },
+            {
+              "id": "1111111111100000008",
+              "created_at": "2020-01-01T00:00:00.000Z",
+              "owner_id": "1000000000000000001",
+              "member_count": 1,
+              "follower_count": 0,
+              "description": "",
+              "name": "ListB",
+              "private": false
+            },
+            {
+              "id": "1111111111100000009",
+              "created_at": "2020-01-01T00:00:00.000Z",
+              "owner_id": "1000000000000000001",
+              "member_count": 1,
+              "follower_count": 0,
+              "description": "",
+              "name": "listA",
+              "private": false
             }
-          ]
+          ],
+          "meta": {
+            "result_count": 6
+          }
         },
         "status": 200,
         "headers": {
-          "date": "Thu, 14 May 2026 19:21:32 GMT",
+          "date": "Thu, 14 May 2026 21:30:41 GMT",
           "content-type": "application/json; charset=utf-8",
           "transfer-encoding": "chunked",
           "connection": "keep-alive",
@@ -39,29 +154,25 @@
           "access-control-allow-origin": "*",
           "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
           "x-ratelimit-limit": "5000",
-          "x-ratelimit-remaining": "4911",
-          "x-ratelimit-reset": "1778786504",
+          "x-ratelimit-remaining": "4997",
+          "x-ratelimit-reset": "1778794300",
           "perf": "7402827104",
           "server": "cloudflare envoy",
           "api-version": "2.163",
           "cache-control": "no-cache, no-store, max-age=0",
-          "set-cookie": "guest_id=v1%3A177878649281506184; Max-Age=34214400; Expires=Mon, 14 Jun 2027 19:21:32 GMT; Path=/; Domain=.twitter.com; Secure; SameSite=None, __cf_bm=WKahD6HifnZxazLkCy4abZllee0M3eSGq3W.WIlwPrM-1778786492.7985091-1.0.1.1-euQNlRTUmyAH0WDiDdprU9dKrx6phWgGvy0Rz0Y.WpZPVZRN90ah2643uiQAtVpmZJ4.xyIwzSUT4C373fKJE8gHaKG.JN7t5cBUFlFQZXAKufpunYHNOoN.TMQI.EuS; HttpOnly; SameSite=None; Secure; Path=/; Domain=twitter.com; Expires=Thu, 14 May 2026 19:51:32 GMT",
           "x-access-level": "read-write",
-          "x-transaction-id": "1a65fbd29a55d9f7",
           "x-rate-limit-limit": "15",
-          "x-rate-limit-reset": "1778787383",
+          "x-rate-limit-reset": "1778794918",
           "content-disposition": "attachment; filename=json.json",
-          "x-rate-limit-remaining": "13",
-          "x-response-time": "34",
-          "origin-cf-ray": "9fbc443bff25962a-SEA",
-          "x-served-by": "t4_p",
+          "x-rate-limit-remaining": "11",
+          "x-response-time": "94",
           "vary": "accept-encoding",
-          "cf-cache-status": "DYNAMIC",
-          "cf-ray": "9fbc443bff25962a-PDX"
+          "cf-cache-status": "DYNAMIC"
         },
-        "hash": "00d1603c76d18d8ec2603d742e5a1e142fe7db69",
+        "hash": "e9fdac0079ef27bf01f35e65caf82cb0b35dbe16",
         "request": {
           "params": {
+            "list.fields": "created_at,description,follower_count,member_count,owner_id,private",
             "max_results": "100"
           }
         }

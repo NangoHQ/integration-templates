@@ -85,8 +85,9 @@ const sync = createSync<{ LikedTweet: typeof LikedTweetSchema }, undefined, type
             }
 
             // Update highest ID seen (tweet IDs are snowflake IDs, higher = newer)
+            // BigInt comparison required — string comparison gives wrong order for IDs of different lengths
             for (const tweet of tweets) {
-                if (!highestId || tweet.id > highestId) {
+                if (!highestId || BigInt(tweet.id) > BigInt(highestId)) {
                     highestId = tweet.id;
                 }
             }

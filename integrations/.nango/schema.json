@@ -110105,12 +110105,12 @@
           "type": "string",
           "description": "The ID of the tweet to quote. If provided, creates a quote tweet."
         },
-        "mediaKeys": {
+        "mediaIds": {
           "type": "array",
           "items": {
             "type": "string"
           },
-          "description": "Media keys for media attachments to include in the tweet."
+          "description": "Media IDs for media attachments to include in the tweet (from the upload endpoint)."
         }
       },
       "required": [

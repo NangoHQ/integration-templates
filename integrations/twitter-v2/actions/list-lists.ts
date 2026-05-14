@@ -62,11 +62,12 @@ const action = createAction({
     },
     input: InputSchema,
     output: OutputSchema,
-    scopes: ['tweet.read', 'users.read'],
+    scopes: ['list.read', 'tweet.read', 'users.read'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const params: Record<string, string | number> = {
-            max_results: input.maxResults ?? 100
+            max_results: input.maxResults ?? 100,
+            'list.fields': 'created_at,description,follower_count,member_count,owner_id,private'
         };
 
         if (input.paginationToken) {

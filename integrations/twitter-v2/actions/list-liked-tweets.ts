@@ -85,6 +85,14 @@ const action = createAction({
             });
         }
 
+        if (response.status !== 200) {
+            throw new nango.ActionError({
+                type: 'api_error',
+                message: `Unexpected response from Twitter API`,
+                status: response.status
+            });
+        }
+
         const rawData = response.data;
         if (!rawData || typeof rawData !== 'object') {
             throw new nango.ActionError({

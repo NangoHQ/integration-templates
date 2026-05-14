@@ -1,31 +1,31 @@
 {
   "input": {
-    "id": "1355797419175383040"
+    "id": "1111111111100000004"
   },
   "output": {
-    "id": "1355797419175383040",
-    "name": "X Comms",
-    "created_at": "2021-01-31T08:37:48.000Z",
+    "id": "1111111111100000004",
+    "name": "Test List Name",
+    "created_at": "2020-01-01T00:00:00.000Z",
     "description": "",
-    "follower_count": 413,
-    "member_count": 32,
-    "owner_id": "257366942",
+    "follower_count": 400,
+    "member_count": 30,
+    "owner_id": "2573669420",
     "private": false
   },
   "nango": {},
   "api": {
     "get": {
-      "/2/lists/1355797419175383040": {
+      "/2/lists/1111111111100000004": {
         "response": {
           "data": {
-            "member_count": 32,
-            "follower_count": 413,
-            "owner_id": "257366942",
-            "created_at": "2021-01-31T08:37:48.000Z",
+            "member_count": 30,
+            "follower_count": 400,
+            "owner_id": "2573669420",
+            "created_at": "2020-01-01T00:00:00.000Z",
             "description": "",
-            "id": "1355797419175383040",
+            "id": "1111111111100000004",
             "private": false,
-            "name": "X Comms"
+            "name": "Test List Name"
           }
         },
         "status": 200,
@@ -50,19 +50,14 @@
           "server": "cloudflare envoy",
           "api-version": "2.163",
           "cache-control": "no-cache, no-store, max-age=0",
-          "set-cookie": "guest_id=v1%3A177878650045299933; Max-Age=34214400; Expires=Mon, 14 Jun 2027 19:21:40 GMT; Path=/; Domain=.twitter.com; Secure; SameSite=None, __cf_bm=pi4GfWVzt2d8oBW1MRc2l3T_5SeIbji7CoP3bG8UXHI-1778786500.4365916-1.0.1.1-yyBTlzdymSZltZ2HmChjvnAii7DJgYHVfB71CcllIAnPRCceNyXWMwpNVCbrlplQnrAypps1cOACkBSKNHu6W2URS0tUZgH1gaYse1Lj0NRZgCtXhbUq.sDHgijSjENu; HttpOnly; SameSite=None; Secure; Path=/; Domain=twitter.com; Expires=Thu, 14 May 2026 19:51:40 GMT",
           "x-access-level": "read-write",
-          "x-transaction-id": "26b2f248f1ac58ae",
           "x-rate-limit-limit": "75",
           "x-rate-limit-reset": "1778787368",
           "content-disposition": "attachment; filename=json.json",
           "x-rate-limit-remaining": "72",
           "x-response-time": "47",
-          "origin-cf-ray": "9fbc446bbf9a9314-SEA",
-          "x-served-by": "t4_p",
           "vary": "accept-encoding",
-          "cf-cache-status": "DYNAMIC",
-          "cf-ray": "9fbc446bbf9a9314-PDX"
+          "cf-cache-status": "DYNAMIC"
         },
         "hash": "15488c6c881c4846daa286a4b5f3ec3444b1cebd",
         "request": {

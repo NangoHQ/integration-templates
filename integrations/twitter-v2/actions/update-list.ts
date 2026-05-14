@@ -43,6 +43,13 @@ const action = createAction({
     scopes: ['list.write', 'tweet.read', 'users.read'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
+        if (input.name === undefined && input.description === undefined && input.private === undefined) {
+            throw new nango.ActionError({
+                type: 'invalid_input',
+                message: 'At least one of name, description, or private must be provided to update a list.'
+            });
+        }
+
         const response = await nango.put({
             // https://developer.x.com/en/docs/twitter-api/lists/manage-lists/api-reference/put-lists-id
             endpoint: `/2/lists/${input.id}`,

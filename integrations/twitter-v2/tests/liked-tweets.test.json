@@ -3,9 +3,9 @@
     "batchSave": {
       "LikedTweet": [
         {
-          "author_id": "2244994945",
+          "author_id": "9999999999",
           "edit_history_tweet_ids": [
-            "1346889436626259968"
+            "1111111111111111112"
           ],
           "public_metrics": {
             "retweet_count": 18,
@@ -15,145 +15,145 @@
             "bookmark_count": 0,
             "impression_count": 0
           },
-          "created_at": "2021-01-06T18:40:40.000Z",
-          "text": "Learn how to use the user Tweet timeline and user mention timeline endpoints in the Twitter API v2 to explore Tweets and mentions 👇\n\nhttps://t.co/8ef0gXruSD",
-          "id": "1346889436626259968"
+          "created_at": "2020-01-01T00:00:00.000Z",
+          "text": "Example tweet content.",
+          "id": "1111111111111111112"
         },
         {
-          "author_id": "1353836358901501952",
+          "author_id": "1000000000000000003",
           "edit_history_tweet_ids": [
-            "2052808804018909248"
+            "1111111111111111119"
           ],
           "public_metrics": {
             "retweet_count": 22,
             "reply_count": 13,
-            "like_count": 734,
+            "like_count": 700,
             "quote_count": 2,
             "bookmark_count": 60,
-            "impression_count": 191662
+            "impression_count": 190000
           },
-          "created_at": "2026-05-08T17:52:12.000Z",
-          "text": "The improvements from these interventions survive reinforcement learning, and “stack” with our regular harmlessness training. https://t.co/aiiag3im3o",
-          "id": "2052808804018909248"
+          "created_at": "2020-01-01T00:00:00.000Z",
+          "text": "Example tweet content.",
+          "id": "1111111111111111119"
         },
         {
-          "author_id": "1353836358901501952",
+          "author_id": "1000000000000000003",
           "edit_history_tweet_ids": [
-            "2052808801040859392"
+            "1111111111111111120"
           ],
           "public_metrics": {
             "retweet_count": 71,
             "reply_count": 35,
-            "like_count": 1291,
+            "like_count": 1200,
             "quote_count": 86,
             "bookmark_count": 236,
-            "impression_count": 385798
+            "impression_count": 380000
           },
-          "created_at": "2026-05-08T17:52:12.000Z",
-          "text": "High-quality documents based on Claude’s constitution, combined with fictional stories that portray an aligned AI, can reduce agentic misalignment by more than a factor of three—despite being unrelated to the evaluation scenario. https://t.co/JORhSuY4N7",
-          "id": "2052808801040859392"
+          "created_at": "2020-01-01T00:00:00.000Z",
+          "text": "Example tweet content.",
+          "id": "1111111111111111120"
         },
         {
-          "author_id": "1353836358901501952",
+          "author_id": "1000000000000000003",
           "edit_history_tweet_ids": [
-            "2052808798239146290"
+            "1111111111111111121"
           ],
           "public_metrics": {
             "retweet_count": 43,
             "reply_count": 18,
-            "like_count": 994,
+            "like_count": 990,
             "quote_count": 10,
             "bookmark_count": 90,
-            "impression_count": 347515
+            "impression_count": 340000
           },
-          "created_at": "2026-05-08T17:52:11.000Z",
-          "text": "Our best intervention was a dataset where the user is in an ethically difficult situation and the assistant gives a high quality, principled response.\n\nThis had the biggest effect despite being quite different from the evaluation set. https://t.co/I9Zsl8q90U",
-          "id": "2052808798239146290"
+          "created_at": "2020-01-01T00:00:00.000Z",
+          "text": "Example tweet content.",
+          "id": "1111111111111111121"
         },
         {
-          "author_id": "1353836358901501952",
+          "author_id": "1000000000000000003",
           "edit_history_tweet_ids": [
-            "2052808789297115628"
+            "1111111111111111122"
           ],
           "public_metrics": {
             "retweet_count": 148,
             "reply_count": 69,
-            "like_count": 1931,
+            "like_count": 1900,
             "quote_count": 72,
             "bookmark_count": 660,
-            "impression_count": 571956
+            "impression_count": 570000
           },
-          "created_at": "2026-05-08T17:52:09.000Z",
-          "text": "We found that training Claude on demonstrations of aligned behavior wasn’t enough. Our best interventions involved teaching Claude to deeply understand why misaligned behavior is wrong.\n\nRead more: https://t.co/0YaRlXhVZb",
-          "id": "2052808789297115628"
+          "created_at": "2020-01-01T00:00:00.000Z",
+          "text": "Example tweet content.",
+          "id": "1111111111111111122"
         },
         {
-          "author_id": "1353836358901501952",
+          "author_id": "1000000000000000003",
           "edit_history_tweet_ids": [
-            "2052808791301697563"
+            "1111111111111111123"
           ],
           "public_metrics": {
             "retweet_count": 472,
             "reply_count": 324,
-            "like_count": 5072,
+            "like_count": 5000,
             "quote_count": 709,
-            "bookmark_count": 2249,
-            "impression_count": 4357683
+            "bookmark_count": 2200,
+            "impression_count": 4300000
           },
-          "created_at": "2026-05-08T17:52:09.000Z",
-          "text": "We started by investigating why Claude chose to blackmail. We believe the original source of the behavior was internet text that portrays AI as evil and interested in self-preservation.\n\nOur post-training at the time wasn’t making it worse—but it also wasn’t making it better.",
-          "id": "2052808791301697563"
+          "created_at": "2020-01-01T00:00:00.000Z",
+          "text": "Example tweet content.",
+          "id": "1111111111111111123"
         },
         {
-          "author_id": "1353836358901501952",
+          "author_id": "1000000000000000003",
           "edit_history_tweet_ids": [
-            "2052808787514228772"
+            "1111111111111111124"
           ],
           "public_metrics": {
-            "retweet_count": 805,
+            "retweet_count": 800,
             "reply_count": 548,
-            "like_count": 9212,
+            "like_count": 9200,
             "quote_count": 375,
-            "bookmark_count": 3817,
-            "impression_count": 1519817
+            "bookmark_count": 3800,
+            "impression_count": 1500000
           },
-          "created_at": "2026-05-08T17:52:08.000Z",
-          "text": "New Anthropic research: Teaching Claude why.\n\nLast year we reported that, under certain experimental conditions, Claude 4 would blackmail users.\n\nSince then, we’ve completely eliminated this behavior. How?",
-          "id": "2052808787514228772"
+          "created_at": "2020-01-01T00:00:00.000Z",
+          "text": "Example tweet content.",
+          "id": "1111111111111111124"
         },
         {
-          "author_id": "1353836358901501952",
+          "author_id": "1000000000000000003",
           "edit_history_tweet_ids": [
-            "2052808809182060581"
+            "1111111111111111125"
           ],
           "public_metrics": {
             "retweet_count": 33,
             "reply_count": 66,
-            "like_count": 604,
+            "like_count": 600,
             "quote_count": 10,
             "bookmark_count": 261,
-            "impression_count": 285545
+            "impression_count": 280000
           },
-          "created_at": "2026-05-08T17:52:14.000Z",
-          "text": "Read the full post here: https://t.co/NsJittkoZc",
-          "id": "2052808809182060581"
+          "created_at": "2020-01-01T00:00:00.000Z",
+          "text": "Example tweet content.",
+          "id": "1111111111111111125"
         },
         {
-          "author_id": "1423817598618292225",
+          "author_id": "1000000000000000004",
           "edit_history_tweet_ids": [
-            "2054215792154005631"
+            "1111111111111111126"
           ],
           "public_metrics": {
             "retweet_count": 321,
             "reply_count": 39,
-            "like_count": 3655,
+            "like_count": 3600,
             "quote_count": 12,
             "bookmark_count": 284,
-            "impression_count": 317528
+            "impression_count": 310000
           },
-          "created_at": "2026-05-12T15:03:04.000Z",
-          "text": "“Hey Peter, what’s happening… I noticed that you only used 2 million tokens yesterday. The company minimum is 100 million per day…. So, uh if you could uh, just get that token spend up a bit, that would be great…” https://t.co/F7QONb2Cz8 https://t.co/4cjfSTXmJw",
-          "id": "2054215792154005631"
+          "created_at": "2020-01-01T00:00:00.000Z",
+          "text": "Example tweet content.",
+          "id": "1111111111111111126"
         }
       ]
     },
@@ -166,9 +166,9 @@
       "/2/users/me": {
         "response": {
           "data": {
-            "id": "2054257020509839360",
-            "name": "Nango Developer",
-            "username": "NangoApi"
+            "id": "1000000000000000001",
+            "name": "Test User",
+            "username": "testuser"
           }
         },
         "status": 200,
@@ -193,31 +193,26 @@
           "server": "cloudflare envoy",
           "api-version": "2.163",
           "cache-control": "no-cache, no-store, max-age=0",
-          "set-cookie": "guest_id=v1%3A177879063409965978; Max-Age=34214400; Expires=Mon, 14 Jun 2027 20:30:34 GMT; Path=/; Domain=.twitter.com; Secure; SameSite=None, __cf_bm=uqZ9TChLjJNJoRQXnJ8UBS_7VCZEFbClXzsTRKlbEGM-1778790634.0830657-1.0.1.1-692GorXiH3znVEDy7mA7JnMrWoF.Jba9GCtJ0ZJqyAZ4QaXUsfZeHIwde82z9LIFsCckUvDqtC4HQQpCFIMAF0tkOJNGSvtianRrH5WDjG3cmuKzaFJy9CnqgkSKHfcc; HttpOnly; SameSite=None; Secure; Path=/; Domain=twitter.com; Expires=Thu, 14 May 2026 21:00:34 GMT",
           "x-access-level": "read-write",
-          "x-transaction-id": "65578612d9e56642",
           "x-rate-limit-limit": "75",
           "x-rate-limit-reset": "1778791503",
           "content-disposition": "attachment; filename=json.json",
           "x-rate-limit-remaining": "72",
           "x-response-time": "33",
-          "origin-cf-ray": "9fbca957091ba11a-SEA",
-          "x-served-by": "t4_p",
           "vary": "accept-encoding",
-          "cf-cache-status": "DYNAMIC",
-          "cf-ray": "9fbca957091ba11a-PDX"
+          "cf-cache-status": "DYNAMIC"
         },
         "hash": "16f0be3f8bcf81363033ef9905a833cdddeedf92",
         "request": {}
       },
-      "/2/users/2054257020509839360/liked_tweets": [
+      "/2/users/1000000000000000001/liked_tweets": [
         {
           "response": {
             "data": [
               {
-                "author_id": "2244994945",
+                "author_id": "9999999999",
                 "edit_history_tweet_ids": [
-                  "1346889436626259968"
+                  "1111111111111111112"
                 ],
                 "public_metrics": {
                   "retweet_count": 18,
@@ -227,145 +222,145 @@
                   "bookmark_count": 0,
                   "impression_count": 0
                 },
-                "created_at": "2021-01-06T18:40:40.000Z",
-                "text": "Learn how to use the user Tweet timeline and user mention timeline endpoints in the Twitter API v2 to explore Tweets and mentions 👇\n\nhttps://t.co/8ef0gXruSD",
-                "id": "1346889436626259968"
+                "created_at": "2020-01-01T00:00:00.000Z",
+                "text": "Example tweet content.",
+                "id": "1111111111111111112"
               },
               {
-                "author_id": "1353836358901501952",
+                "author_id": "1000000000000000003",
                 "edit_history_tweet_ids": [
-                  "2052808804018909248"
+                  "1111111111111111119"
                 ],
                 "public_metrics": {
                   "retweet_count": 22,
                   "reply_count": 13,
-                  "like_count": 734,
+                  "like_count": 700,
                   "quote_count": 2,
                   "bookmark_count": 60,
-                  "impression_count": 191662
+                  "impression_count": 190000
                 },
-                "created_at": "2026-05-08T17:52:12.000Z",
-                "text": "The improvements from these interventions survive reinforcement learning, and “stack” with our regular harmlessness training. https://t.co/aiiag3im3o",
-                "id": "2052808804018909248"
+                "created_at": "2020-01-01T00:00:00.000Z",
+                "text": "Example tweet content.",
+                "id": "1111111111111111119"
               },
               {
-                "author_id": "1353836358901501952",
+                "author_id": "1000000000000000003",
                 "edit_history_tweet_ids": [
-                  "2052808801040859392"
+                  "1111111111111111120"
                 ],
                 "public_metrics": {
                   "retweet_count": 71,
                   "reply_count": 35,
-                  "like_count": 1291,
+                  "like_count": 1200,
                   "quote_count": 86,
                   "bookmark_count": 236,
-                  "impression_count": 385798
+                  "impression_count": 380000
                 },
-                "created_at": "2026-05-08T17:52:12.000Z",
-                "text": "High-quality documents based on Claude’s constitution, combined with fictional stories that portray an aligned AI, can reduce agentic misalignment by more than a factor of three—despite being unrelated to the evaluation scenario. https://t.co/JORhSuY4N7",
-                "id": "2052808801040859392"
+                "created_at": "2020-01-01T00:00:00.000Z",
+                "text": "Example tweet content.",
+                "id": "1111111111111111120"
               },
               {
-                "author_id": "1353836358901501952",
+                "author_id": "1000000000000000003",
                 "edit_history_tweet_ids": [
-                  "2052808798239146290"
+                  "1111111111111111121"
                 ],
                 "public_metrics": {
                   "retweet_count": 43,
                   "reply_count": 18,
-                  "like_count": 994,
+                  "like_count": 990,
                   "quote_count": 10,
                   "bookmark_count": 90,
-                  "impression_count": 347515
+                  "impression_count": 340000
                 },
-                "created_at": "2026-05-08T17:52:11.000Z",
-                "text": "Our best intervention was a dataset where the user is in an ethically difficult situation and the assistant gives a high quality, principled response.\n\nThis had the biggest effect despite being quite different from the evaluation set. https://t.co/I9Zsl8q90U",
-                "id": "2052808798239146290"
+                "created_at": "2020-01-01T00:00:00.000Z",
+                "text": "Example tweet content.",
+                "id": "1111111111111111121"
               },
               {
-                "author_id": "1353836358901501952",
+                "author_id": "1000000000000000003",
                 "edit_history_tweet_ids": [
-                  "2052808789297115628"
+                  "1111111111111111122"
                 ],
                 "public_metrics": {
                   "retweet_count": 148,
                   "reply_count": 69,
-                  "like_count": 1931,
+                  "like_count": 1900,
                   "quote_count": 72,
                   "bookmark_count": 660,
-                  "impression_count": 571956
+                  "impression_count": 570000
                 },
-                "created_at": "2026-05-08T17:52:09.000Z",
-                "text": "We found that training Claude on demonstrations of aligned behavior wasn’t enough. Our best interventions involved teaching Claude to deeply understand why misaligned behavior is wrong.\n\nRead more: https://t.co/0YaRlXhVZb",
-                "id": "2052808789297115628"
+                "created_at": "2020-01-01T00:00:00.000Z",
+                "text": "Example tweet content.",
+                "id": "1111111111111111122"
               },
               {
-                "author_id": "1353836358901501952",
+                "author_id": "1000000000000000003",
                 "edit_history_tweet_ids": [
-                  "2052808791301697563"
+                  "1111111111111111123"
                 ],
                 "public_metrics": {
                   "retweet_count": 472,
                   "reply_count": 324,
-                  "like_count": 5072,
+                  "like_count": 5000,
                   "quote_count": 709,
-                  "bookmark_count": 2249,
-                  "impression_count": 4357683
+                  "bookmark_count": 2200,
+                  "impression_count": 4300000
                 },
-                "created_at": "2026-05-08T17:52:09.000Z",
-                "text": "We started by investigating why Claude chose to blackmail. We believe the original source of the behavior was internet text that portrays AI as evil and interested in self-preservation.\n\nOur post-training at the time wasn’t making it worse—but it also wasn’t making it better.",
-                "id": "2052808791301697563"
+                "created_at": "2020-01-01T00:00:00.000Z",
+                "text": "Example tweet content.",
+                "id": "1111111111111111123"
               },
               {
-                "author_id": "1353836358901501952",
+                "author_id": "1000000000000000003",
                 "edit_history_tweet_ids": [
-                  "2052808787514228772"
+                  "1111111111111111124"
                 ],
                 "public_metrics": {
-                  "retweet_count": 805,
+                  "retweet_count": 800,
                   "reply_count": 548,
-                  "like_count": 9212,
+                  "like_count": 9200,
                   "quote_count": 375,
-                  "bookmark_count": 3817,
-                  "impression_count": 1519817
+                  "bookmark_count": 3800,
+                  "impression_count": 1500000
                 },
-                "created_at": "2026-05-08T17:52:08.000Z",
-                "text": "New Anthropic research: Teaching Claude why.\n\nLast year we reported that, under certain experimental conditions, Claude 4 would blackmail users.\n\nSince then, we’ve completely eliminated this behavior. How?",
-                "id": "2052808787514228772"
+                "created_at": "2020-01-01T00:00:00.000Z",
+                "text": "Example tweet content.",
+                "id": "1111111111111111124"
               },
               {
-                "author_id": "1353836358901501952",
+                "author_id": "1000000000000000003",
                 "edit_history_tweet_ids": [
-                  "2052808809182060581"
+                  "1111111111111111125"
                 ],
                 "public_metrics": {
                   "retweet_count": 33,
                   "reply_count": 66,
-                  "like_count": 604,
+                  "like_count": 600,
                   "quote_count": 10,
                   "bookmark_count": 261,
-                  "impression_count": 285545
+                  "impression_count": 280000
                 },
-                "created_at": "2026-05-08T17:52:14.000Z",
-                "text": "Read the full post here: https://t.co/NsJittkoZc",
-                "id": "2052808809182060581"
+                "created_at": "2020-01-01T00:00:00.000Z",
+                "text": "Example tweet content.",
+                "id": "1111111111111111125"
               },
               {
-                "author_id": "1423817598618292225",
+                "author_id": "1000000000000000004",
                 "edit_history_tweet_ids": [
-                  "2054215792154005631"
+                  "1111111111111111126"
                 ],
                 "public_metrics": {
                   "retweet_count": 321,
                   "reply_count": 39,
-                  "like_count": 3655,
+                  "like_count": 3600,
                   "quote_count": 12,
                   "bookmark_count": 284,
-                  "impression_count": 317528
+                  "impression_count": 310000
                 },
-                "created_at": "2026-05-12T15:03:04.000Z",
-                "text": "“Hey Peter, what’s happening… I noticed that you only used 2 million tokens yesterday. The company minimum is 100 million per day…. So, uh if you could uh, just get that token spend up a bit, that would be great…” https://t.co/F7QONb2Cz8 https://t.co/4cjfSTXmJw",
-                "id": "2054215792154005631"
+                "created_at": "2020-01-01T00:00:00.000Z",
+                "text": "Example tweet content.",
+                "id": "1111111111111111126"
               }
             ],
             "meta": {
@@ -395,19 +390,14 @@
             "server": "cloudflare envoy",
             "api-version": "2.163",
             "cache-control": "no-cache, no-store, max-age=0",
-            "set-cookie": "guest_id=v1%3A177879063430148016; Max-Age=34214400; Expires=Mon, 14 Jun 2027 20:30:34 GMT; Path=/; Domain=.twitter.com; Secure; SameSite=None, __cf_bm=QJAN_WAWHXwVGcMOxt.TseMacSWOVKP23e9zHNLkMQQ-1778790634.2835932-1.0.1.1-OIoC0jqvfcsbq2k7NeemsdTabWBkHpERQhL1ftEUankYAcfIWOWElnXe.OuKSuS7PKc4qBFMHsVJ_9A4LtKuUv349HXi9Ln2lTfPK9dU0v64nt_2YzLNDBxYqmqQpMFO; HttpOnly; SameSite=None; Secure; Path=/; Domain=twitter.com; Expires=Thu, 14 May 2026 21:00:34 GMT",
             "x-access-level": "read-write",
-            "x-transaction-id": "feb32268339905bf",
             "x-rate-limit-limit": "75",
             "x-rate-limit-reset": "1778791522",
             "content-disposition": "attachment; filename=json.json",
             "x-rate-limit-remaining": "72",
             "x-response-time": "116",
-            "origin-cf-ray": "9fbca9584ebd61c8-SEA",
-            "x-served-by": "t4_p",
             "vary": "accept-encoding",
-            "cf-cache-status": "DYNAMIC",
-            "cf-ray": "9fbca9584ebd61c8-PDX"
+            "cf-cache-status": "DYNAMIC"
           },
           "hash": "eff4e1040f56fe0f2b62d9c5d0211caed52f445a",
           "request": {
@@ -446,19 +436,14 @@
             "server": "cloudflare envoy",
             "api-version": "2.163",
             "cache-control": "no-cache, no-store, max-age=0",
-            "set-cookie": "guest_id=v1%3A177879063456002675; Max-Age=34214400; Expires=Mon, 14 Jun 2027 20:30:34 GMT; Path=/; Domain=.twitter.com; Secure; SameSite=None, __cf_bm=KmN88bN99A9B8IJOGmnoOc6HHgZb7OH5mEPP5bHHhlI-1778790634.543129-1.0.1.1-BCi6zPG1u1viDygs4jnmK4Hicr5.DANTsxXKl6HC4t8MVpGGWABDgENGzmlJkRtPq0ldbnW7j5V0ErMzsWCl_KAResWiQQy7yQtbFoR8F6ht_8PzPHLq7asSi9cZyg8s; HttpOnly; SameSite=None; Secure; Path=/; Domain=twitter.com; Expires=Thu, 14 May 2026 21:00:34 GMT",
             "x-access-level": "read-write",
-            "x-transaction-id": "2df3a34bd1666bd7",
             "x-rate-limit-limit": "75",
             "x-rate-limit-reset": "1778791522",
             "content-disposition": "attachment; filename=json.json",
             "x-rate-limit-remaining": "71",
             "x-response-time": "37",
-            "origin-cf-ray": "9fbca959ef340ccf-SEA",
-            "x-served-by": "t4_p",
             "vary": "accept-encoding",
-            "cf-cache-status": "DYNAMIC",
-            "cf-ray": "9fbca959ef340ccf-PDX"
+            "cf-cache-status": "DYNAMIC"
           },
           "hash": "37dcd75df5ef3fe5675fac052c22371246533361",
           "request": {
