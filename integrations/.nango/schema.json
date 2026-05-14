@@ -123811,7 +123811,7 @@
           "type": "string"
         },
         "type": {
-          "type": "string"
+          "type": "number"
         },
         "duration": {
           "type": "number"
@@ -124193,6 +124193,11 @@
         },
         "type": {
           "type": "number",
+          "enum": [
+            5,
+            6,
+            9
+          ],
           "description": "Webinar type: 5 (Webinar), 6 (Recurring no fixed time), 9 (Recurring fixed time). Defaults to 5."
         },
         "start_time": {
@@ -125997,7 +126002,7 @@
                 "type": "string"
               },
               "type": {
-                "type": "string"
+                "type": "number"
               },
               "start_time": {
                 "type": "string"

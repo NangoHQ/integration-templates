@@ -86,38 +86,41 @@ const sync = createSync({
             retries: 3
         };
 
-        for await (const page of nango.paginate(proxyConfig)) {
-            const validatedUsers = z.array(ZoomUserSchema).safeParse(page);
-            if (!validatedUsers.success) {
-                continue;
+        // @allowTryCatch - ensures trackDeletesEnd always runs even if pagination throws
+        try {
+            for await (const page of nango.paginate(proxyConfig)) {
+                const validatedUsers = z.array(ZoomUserSchema).safeParse(page);
+                if (!validatedUsers.success) {
+                    throw new Error(`Invalid Zoom users page: ${validatedUsers.error.message}`);
+                }
+
+                const users = validatedUsers.data.map((record) => ({
+                    id: record.id,
+                    ...(record.first_name != null && { first_name: record.first_name }),
+                    ...(record.last_name != null && { last_name: record.last_name }),
+                    ...(record.email != null && { email: record.email }),
+                    ...(record.type != null && { type: record.type }),
+                    ...(record.pmi != null && { pmi: record.pmi }),
+                    ...(record.timezone != null && { timezone: record.timezone }),
+                    ...(record.dept != null && { dept: record.dept }),
+                    ...(record.created_at != null && { created_at: record.created_at }),
+                    ...(record.last_login_time != null && { last_login_time: record.last_login_time }),
+                    ...(record.last_client_version != null && { last_client_version: record.last_client_version }),
+                    ...(record.group_ids != null && { group_ids: record.group_ids }),
+                    ...(record.im_group_ids != null && { im_group_ids: record.im_group_ids }),
+                    ...(record.status != null && { status: record.status }),
+                    ...(record.role_id != null && { role_id: record.role_id })
+                }));
+
+                if (users.length > 0) {
+                    await nango.batchSave(users, 'User');
+                }
+
+                await nango.saveCheckpoint({ next_page_token: nextPageToken });
             }
-
-            const users = validatedUsers.data.map((record) => ({
-                id: record.id,
-                ...(record.first_name != null && { first_name: record.first_name }),
-                ...(record.last_name != null && { last_name: record.last_name }),
-                ...(record.email != null && { email: record.email }),
-                ...(record.type != null && { type: record.type }),
-                ...(record.pmi != null && { pmi: record.pmi }),
-                ...(record.timezone != null && { timezone: record.timezone }),
-                ...(record.dept != null && { dept: record.dept }),
-                ...(record.created_at != null && { created_at: record.created_at }),
-                ...(record.last_login_time != null && { last_login_time: record.last_login_time }),
-                ...(record.last_client_version != null && { last_client_version: record.last_client_version }),
-                ...(record.group_ids != null && { group_ids: record.group_ids }),
-                ...(record.im_group_ids != null && { im_group_ids: record.im_group_ids }),
-                ...(record.status != null && { status: record.status }),
-                ...(record.role_id != null && { role_id: record.role_id })
-            }));
-
-            if (users.length > 0) {
-                await nango.batchSave(users, 'User');
-            }
-
-            await nango.saveCheckpoint({ next_page_token: nextPageToken });
+        } finally {
+            await nango.trackDeletesEnd('User');
         }
-
-        await nango.trackDeletesEnd('User');
     }
 });
 

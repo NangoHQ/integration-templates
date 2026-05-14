@@ -2,7 +2,7 @@ import { z } from 'zod';
 import { createAction } from 'nango';
 
 const InputSchema = z.object({
-    meetingId: z.string().describe('The meeting ID to delete. Example: "123456789"'),
+    meetingId: z.string().min(1).describe('The meeting ID to delete. Example: "123456789"'),
     occurrenceId: z.string().optional().describe('The meeting occurrence ID for recurring meetings. Example: "abc123"')
 });
 

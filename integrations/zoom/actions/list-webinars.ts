@@ -12,7 +12,7 @@ const WebinarSchema = z.object({
     uuid: z.string(),
     host_id: z.string(),
     topic: z.string(),
-    type: z.string().optional(),
+    type: z.number().int().optional(),
     start_time: z.string().optional(),
     duration: z.number().int().optional(),
     timezone: z.string().optional(),

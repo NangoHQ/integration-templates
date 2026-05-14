@@ -57,44 +57,7 @@ const OutputSchema = z.object({
     verified: z.number().optional()
 });
 
-const ProviderUserSchema = z.object({
-    id: z.string(),
-    account_id: z.string().optional(),
-    cms_user_id: z.string().optional(),
-    company: z.string().optional(),
-    created_at: z.string().optional(),
-    custom_attributes: z.array(CustomAttributeSchema).optional(),
-    dept: z.string().optional(),
-    email: z.string().optional(),
-    first_name: z.string().optional(),
-    group_ids: z.array(z.string()).optional(),
-    host_key: z.string().optional(),
-    im_group_ids: z.array(z.string()).optional(),
-    jid: z.string().optional(),
-    job_title: z.string().optional(),
-    language: z.string().optional(),
-    last_client_version: z.string().optional(),
-    last_login_time: z.string().optional(),
-    last_name: z.string().optional(),
-    location: z.string().optional(),
-    login_type: z.number().optional(),
-    manager: z.string().optional(),
-    personal_meeting_url: z.string().optional(),
-    phone_country: z.string().optional(),
-    phone_number: z.string().optional(),
-    phone_numbers: z.array(PhoneNumberSchema).optional(),
-    pic_url: z.string().optional(),
-    plan_united_type: z.string().optional(),
-    pmi: z.number().optional(),
-    role_id: z.string().optional(),
-    role_name: z.string().optional(),
-    status: z.string().optional(),
-    timezone: z.string().optional(),
-    type: z.number().optional(),
-    use_pmi: z.boolean().optional(),
-    vanity_url: z.string().optional(),
-    verified: z.number().optional()
-});
+const ProviderUserSchema = OutputSchema;
 
 const action = createAction({
     description: 'Retrieve a single user from Zoom.',

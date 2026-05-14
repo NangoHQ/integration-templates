@@ -40986,7 +40986,7 @@ export interface Webinar {
   host_id?: string | undefined;
   topic?: string | undefined;
   agenda?: string | undefined;
-  type?: string | undefined;
+  type?: number | undefined;
   duration?: number | undefined;
   start_time?: string | undefined;
   timezone?: string | undefined;
@@ -41180,7 +41180,7 @@ export interface ActionInput_zoom_createwebinar {
   /**
    * Webinar type: 5 (Webinar), 6 (Recurring no fixed time), 9 (Recurring fixed time). Defaults to 5.
    */
-  type?: number | undefined;
+  type?: 5 | 6 | 9 | undefined;
   /**
    * Webinar start time in ISO 8601 format. Required for type 5 and 9.
    */
@@ -41820,7 +41820,7 @@ export interface ActionOutput_zoom_listwebinars {
   uuid: string;
   host_id: string;
   topic: string;
-  type?: string | undefined;
+  type?: number | undefined;
   start_time?: string | undefined;
   duration?: number | undefined;
   timezone?: string | undefined;

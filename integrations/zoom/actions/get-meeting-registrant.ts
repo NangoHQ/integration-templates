@@ -52,7 +52,7 @@ const action = createAction({
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const response = await nango.get({
             // https://developers.zoom.us/docs/api/rest/reference/zoom-api/methods/
-            endpoint: `/meetings/${input.meetingId}/registrants/${input.registrantId}`,
+            endpoint: `/meetings/${encodeURIComponent(encodeURIComponent(input.meetingId))}/registrants/${encodeURIComponent(input.registrantId)}`,
             retries: 3
         });
 

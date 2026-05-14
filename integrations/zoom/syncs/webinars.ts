@@ -7,7 +7,7 @@ const ProviderWebinarSchema = z.object({
     host_id: z.string().optional(),
     topic: z.string().optional(),
     agenda: z.string().optional(),
-    type: z.string().optional(),
+    type: z.number().int().optional(),
     duration: z.number().optional(),
     start_time: z.string().optional(),
     timezone: z.string().optional(),
@@ -21,7 +21,7 @@ const WebinarSchema = z.object({
     host_id: z.string().optional(),
     topic: z.string().optional(),
     agenda: z.string().optional(),
-    type: z.string().optional(),
+    type: z.number().int().optional(),
     duration: z.number().optional(),
     start_time: z.string().optional(),
     timezone: z.string().optional(),
@@ -29,16 +29,11 @@ const WebinarSchema = z.object({
     join_url: z.string().optional()
 });
 
-const CheckpointSchema = z.object({
-    next_page_token: z.string()
-});
-
 const sync = createSync({
     description: 'Sync webinars from Zoom.',
     version: '1.0.0',
     frequency: 'every hour',
     autoStart: true,
-    checkpoint: CheckpointSchema,
     models: {
         Webinar: WebinarSchema
     },
@@ -51,20 +46,15 @@ const sync = createSync({
     ],
 
     exec: async (nango) => {
-        const checkpoint = await nango.getCheckpoint();
-        let nextPageToken = checkpoint?.next_page_token ?? '';
-
-        // Blocker: The List Webinars endpoint does not support changed-since filtering,
-        // deleted-record endpoints, or persistent cursors. The next_page_token expires
-        // in 15 minutes, so this is a full refresh with a short-lived resume cursor.
+        // next_page_token expires in 15 minutes — shorter than the hourly run interval.
+        // Always start fresh to avoid poisoning runs after failures with stale cursors.
         await nango.trackDeletesStart('Webinar');
 
         const proxyConfig: ProxyConfiguration = {
             // https://developers.zoom.us/docs/api/rest/reference/zoom-api/methods/#operation/webinars
             endpoint: '/users/me/webinars',
             params: {
-                page_size: 300,
-                ...(nextPageToken && { next_page_token: nextPageToken })
+                page_size: 300
             },
             paginate: {
                 type: 'cursor',
@@ -72,10 +62,7 @@ const sync = createSync({
                 cursor_path_in_response: 'next_page_token',
                 response_path: 'webinars',
                 limit_name_in_request: 'page_size',
-                limit: 300,
-                on_page: async ({ nextPageParam }) => {
-                    nextPageToken = typeof nextPageParam === 'string' ? nextPageParam : '';
-                }
+                limit: 300
             },
             retries: 3
         };
@@ -108,14 +95,9 @@ const sync = createSync({
             if (records.length > 0) {
                 await nango.batchSave(records, 'Webinar');
             }
-
-            if (nextPageToken) {
-                await nango.saveCheckpoint({ next_page_token: nextPageToken });
-            }
         }
 
         await nango.trackDeletesEnd('Webinar');
-        await nango.saveCheckpoint({ next_page_token: '' });
     }
 });
 

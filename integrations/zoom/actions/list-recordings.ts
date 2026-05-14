@@ -16,12 +16,12 @@ const ProviderRecordingFileSchema = z.object({
 });
 
 const ProviderMeetingRecordingSchema = z.object({
-    id: z.string(),
+    id: z.union([z.string(), z.number()]),
     uuid: z.string().optional(),
     account_id: z.string().optional(),
     host_id: z.string().optional(),
     topic: z.string().optional(),
-    type: z.string().optional(),
+    type: z.union([z.string(), z.number()]).optional(),
     start_time: z.string().optional(),
     duration: z.number().optional(),
     total_size: z.union([z.string(), z.number()]).optional(),
@@ -145,12 +145,12 @@ const action = createAction({
             ...(raw.from !== undefined && { from: raw.from }),
             ...(raw.to !== undefined && { to: raw.to }),
             meetings: (raw.meetings ?? []).map((meeting) => ({
-                id: meeting.id,
+                id: String(meeting.id),
                 ...(meeting.uuid !== undefined && { uuid: meeting.uuid }),
                 ...(meeting.account_id !== undefined && { account_id: meeting.account_id }),
                 ...(meeting.host_id !== undefined && { host_id: meeting.host_id }),
                 ...(meeting.topic !== undefined && { topic: meeting.topic }),
-                ...(meeting.type !== undefined && { type: meeting.type }),
+                ...(meeting.type !== undefined && { type: String(meeting.type) }),
                 ...(meeting.start_time !== undefined && { start_time: meeting.start_time }),
                 ...(meeting.duration !== undefined && { duration: meeting.duration }),
                 ...(meeting.total_size !== undefined && { total_size: String(meeting.total_size) }),

@@ -30,7 +30,7 @@ const action = createAction({
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         // https://developers.zoom.us/docs/api/rest/reference/zoom-api/cloud-recording/recordingdelete
         await nango.delete({
-            endpoint: `/meetings/${input.meeting_id}/recordings`,
+            endpoint: `/meetings/${encodeURIComponent(encodeURIComponent(input.meeting_id))}/recordings`,
             params: {
                 ...(input.action !== undefined && { action: input.action })
             },

@@ -31,7 +31,7 @@ const action = createAction({
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         // https://developers.zoom.us/docs/api/meetings/#tag/Meetings/operation/meetingRegistrantStatus
         await nango.put({
-            endpoint: `/meetings/${input.meeting_id}/registrants/status`,
+            endpoint: `/meetings/${encodeURIComponent(encodeURIComponent(input.meeting_id))}/registrants/status`,
             params: {
                 ...(input.occurrence_id !== undefined && { occurrence_id: input.occurrence_id })
             },

@@ -62,7 +62,7 @@ const action = createAction({
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         // https://developers.zoom.us/docs/api-reference/zoom-api/methods/#operation/meetingRegistrantCreate
         const response = await nango.post({
-            endpoint: `/meetings/${input.meeting_id}/registrants`,
+            endpoint: `/meetings/${encodeURIComponent(encodeURIComponent(input.meeting_id))}/registrants`,
             params: {
                 ...(input.occurrence_ids !== undefined && { occurrence_ids: input.occurrence_ids })
             },
