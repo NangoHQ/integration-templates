@@ -52,7 +52,7 @@ const sync = createSync({
     description: 'Sync guild members from Discord',
     version: '1.0.0',
     frequency: 'every hour',
-    autoStart: true,
+    autoStart: false,
     endpoints: [
         {
             method: 'GET',
@@ -81,66 +81,69 @@ const sync = createSync({
         const limit = 1000;
         let hasMore = true;
 
-        while (hasMore) {
-            // https://discord.com/developers/docs/resources/guild#list-guild-members
-            const response = await nango.get({
-                endpoint: `/api/v10/guilds/${metadata.guild_id}/members`,
-                headers: {
-                    Authorization: `Bot ${metadata.botToken}`
-                },
-                params: {
-                    limit,
-                    after
-                },
-                retries: 3
-            });
+        try {
+            while (hasMore) {
+                // https://discord.com/developers/docs/resources/guild#list-guild-members
+                const response = await nango.get({
+                    endpoint: `/api/v10/guilds/${metadata.guild_id}/members`,
+                    headers: {
+                        Authorization: `Bot ${metadata.botToken}`
+                    },
+                    params: {
+                        limit,
+                        after
+                    },
+                    retries: 3
+                });
 
-            if (!Array.isArray(response.data)) {
-                await nango.log('Unexpected response format from Discord guild members endpoint');
-                break;
-            }
+                if (!Array.isArray(response.data)) {
+                    await nango.log('Unexpected response format from Discord guild members endpoint');
+                    break;
+                }
 
-            const members = z.array(GuildMemberResponseSchema).parse(response.data);
+                const members = z.array(GuildMemberResponseSchema).parse(response.data);
 
-            if (members.length === 0) {
-                hasMore = false;
-                break;
-            }
-
-            const records = members.map((member) => ({
-                id: member.user.id,
-                guild_id: metadata.guild_id,
-                user_id: member.user.id,
-                username: member.user.username,
-                ...(member.nick != null && { nick: member.nick }),
-                ...(member.avatar != null && { avatar: member.avatar }),
-                ...(member.banner != null && { banner: member.banner }),
-                roles: member.roles,
-                ...(member.joined_at != null && { joined_at: member.joined_at }),
-                ...(member.premium_since != null && { premium_since: member.premium_since }),
-                deaf: member.deaf,
-                mute: member.mute,
-                ...(typeof member.pending === 'boolean' && { pending: member.pending }),
-                flags: member.flags,
-                ...(member.communication_disabled_until != null && { communication_disabled_until: member.communication_disabled_until })
-            }));
-
-            await nango.batchSave(records, 'GuildMember');
-
-            if (members.length < limit) {
-                hasMore = false;
-            } else {
-                const lastMember = members[members.length - 1];
-                if (!lastMember) {
+                if (members.length === 0) {
                     hasMore = false;
                     break;
                 }
-                after = lastMember.user.id;
-                await nango.saveCheckpoint({ after });
+
+                const records = members.map((member) => ({
+                    id: member.user.id,
+                    guild_id: metadata.guild_id,
+                    user_id: member.user.id,
+                    username: member.user.username,
+                    ...(member.nick != null && { nick: member.nick }),
+                    ...(member.avatar != null && { avatar: member.avatar }),
+                    ...(member.banner != null && { banner: member.banner }),
+                    roles: member.roles,
+                    ...(member.joined_at != null && { joined_at: member.joined_at }),
+                    ...(member.premium_since != null && { premium_since: member.premium_since }),
+                    deaf: member.deaf,
+                    mute: member.mute,
+                    ...(typeof member.pending === 'boolean' && { pending: member.pending }),
+                    flags: member.flags,
+                    ...(member.communication_disabled_until != null && { communication_disabled_until: member.communication_disabled_until })
+                }));
+
+                await nango.batchSave(records, 'GuildMember');
+
+                if (members.length < limit) {
+                    hasMore = false;
+                } else {
+                    const lastMember = members[members.length - 1];
+                    if (!lastMember) {
+                        hasMore = false;
+                        break;
+                    }
+                    after = lastMember.user.id;
+                    await nango.saveCheckpoint({ after });
+                }
             }
+        } finally {
+            await nango.trackDeletesEnd('GuildMember');
         }
 
-        await nango.trackDeletesEnd('GuildMember');
         await nango.saveCheckpoint({ after: '0' });
     }
 });

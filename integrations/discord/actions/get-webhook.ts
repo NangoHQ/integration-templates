@@ -62,7 +62,7 @@ const action = createAction({
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const metadata = await nango.getMetadata<{ botToken: string }>();
 
-        if (!metadata.botToken) {
+        if (!metadata?.botToken) {
             throw new nango.ActionError({
                 type: 'invalid_metadata',
                 message: 'botToken is required in connection metadata.'

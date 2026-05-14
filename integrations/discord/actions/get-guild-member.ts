@@ -45,24 +45,6 @@ const GuildMemberSchema = z.object({
     collectibles: z.unknown().nullable().optional()
 });
 
-const OutputSchema = z.object({
-    user: UserSchema.nullable().optional(),
-    nick: z.string().nullable().optional(),
-    avatar: z.string().nullable().optional(),
-    banner: z.string().nullable().optional(),
-    roles: z.array(z.string()),
-    joined_at: z.string().nullable().optional(),
-    premium_since: z.string().nullable().optional(),
-    deaf: z.boolean(),
-    mute: z.boolean(),
-    flags: z.number(),
-    pending: z.boolean().optional(),
-    permissions: z.string().optional(),
-    communication_disabled_until: z.string().nullable().optional(),
-    avatar_decoration_data: z.unknown().nullable().optional(),
-    collectibles: z.unknown().nullable().optional()
-});
-
 const action = createAction({
     description: 'Retrieve a single guild member from Discord',
     version: '1.0.0',
@@ -72,10 +54,10 @@ const action = createAction({
         group: 'Guild Members'
     },
     input: InputSchema,
-    output: OutputSchema,
+    output: GuildMemberSchema,
     scopes: ['guilds', 'guilds.members.read'],
 
-    exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
+    exec: async (nango, input): Promise<z.infer<typeof GuildMemberSchema>> => {
         const metadata = await nango.getMetadata<{ botToken: string }>();
 
         if (!metadata?.botToken) {

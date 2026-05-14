@@ -4,7 +4,7 @@ import { createAction } from 'nango';
 const InputSchema = z.object({
     channel_id: z.string().describe('The ID of the channel containing the message. Example: "123456789012345678"'),
     message_id: z.string().describe('The ID of the message to remove the reaction from. Example: "987654321098765432"'),
-    emoji: z.string().describe('The emoji to remove (URL-encoded). Example: "👍" or "%F0%9F%91%8D"')
+    emoji: z.string().describe('The emoji to remove. Provide the raw emoji character or name:id for custom emojis. Example: "👍" or "emojiName:123456789"')
 });
 
 const OutputSchema = z.object({

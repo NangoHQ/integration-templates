@@ -91,7 +91,7 @@ const sync = createSync({
     description: 'Sync messages from Discord.',
     version: '1.0.0',
     frequency: 'every 5 minutes',
-    autoStart: true,
+    autoStart: false,
     checkpoint: CheckpointSchema,
     metadata: MetadataSchema,
     models: {

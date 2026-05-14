@@ -4,13 +4,17 @@ import { createAction } from 'nango';
 // Discord uses snowflake IDs (strings)
 const SnowflakeSchema = z.string();
 
-const InputSchema = z.object({
-    channel_id: SnowflakeSchema.describe('The ID of the channel to list messages from. Example: "1504364254634180618"'),
-    limit: z.number().int().min(1).max(100).optional().describe('Number of messages to return (1-100). Default: 50'),
-    before: SnowflakeSchema.optional().describe('Return messages before this message ID'),
-    after: SnowflakeSchema.optional().describe('Return messages after this message ID'),
-    around: SnowflakeSchema.optional().describe('Return messages around this message ID (ignores limit, returns 25 by default)')
-});
+const InputSchema = z
+    .object({
+        channel_id: SnowflakeSchema.describe('The ID of the channel to list messages from. Example: "1504364254634180618"'),
+        limit: z.number().int().min(1).max(100).optional().describe('Number of messages to return (1-100). Default: 50'),
+        before: SnowflakeSchema.optional().describe('Return messages before this message ID'),
+        after: SnowflakeSchema.optional().describe('Return messages after this message ID'),
+        around: SnowflakeSchema.optional().describe('Return messages around this message ID (ignores limit, returns 25 by default)')
+    })
+    .refine((data) => [data.before, data.after, data.around].filter(Boolean).length <= 1, {
+        message: 'Only one of before, after, or around can be provided.'
+    });
 
 // Provider schemas - match Discord API response exactly
 const ProviderAuthorSchema = z.object({

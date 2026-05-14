@@ -9,11 +9,7 @@ const InputSchema = z.object({
         .union([z.literal(60), z.literal(1440), z.literal(4320), z.literal(10080)])
         .optional()
         .describe('Duration in minutes to automatically archive the thread. One of: 60, 1440, 4320, 10080'),
-    rate_limit_per_user: z.number().int().min(0).max(21600).optional().describe('Seconds to wait between messages (slowmode). Range: 0-21600'),
-    type: z
-        .union([z.literal(11), z.literal(12)])
-        .optional()
-        .describe('The type of thread. 11 = public thread, 12 = private thread. Defaults to public.')
+    rate_limit_per_user: z.number().int().min(0).max(21600).optional().describe('Seconds to wait between messages (slowmode). Range: 0-21600')
 });
 
 const ProviderThreadSchema = z.object({
@@ -88,10 +84,6 @@ const action = createAction({
 
         if (input.rate_limit_per_user !== undefined) {
             requestData['rate_limit_per_user'] = input.rate_limit_per_user;
-        }
-
-        if (input.type !== undefined) {
-            requestData['type'] = input.type;
         }
 
         // https://discord.com/developers/docs/resources/channel#start-thread-from-message

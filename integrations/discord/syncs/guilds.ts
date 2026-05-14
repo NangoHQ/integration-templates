@@ -53,53 +53,56 @@ const sync = createSync({
 
         const limit = 200;
 
-        while (true) {
-            const response = await nango.get({
-                // https://discord.com/developers/docs/resources/user#get-current-user-guilds
-                endpoint: '/api/v10/users/@me/guilds',
-                headers: {
-                    Authorization: `Bot ${metadata.botToken}`
-                },
-                params: {
-                    limit,
-                    ...(after !== '0' && { after })
-                },
-                retries: 3
-            });
+        try {
+            while (true) {
+                const response = await nango.get({
+                    // https://discord.com/developers/docs/resources/user#get-current-user-guilds
+                    endpoint: '/api/v10/users/@me/guilds',
+                    headers: {
+                        Authorization: `Bot ${metadata.botToken}`
+                    },
+                    params: {
+                        limit,
+                        ...(after !== '0' && { after })
+                    },
+                    retries: 3
+                });
 
-            const parsedGuilds = z.array(GuildSchema).safeParse(response.data);
-            if (!parsedGuilds.success) {
-                throw new Error('Unexpected response format: expected array of guilds');
+                const parsedGuilds = z.array(GuildSchema).safeParse(response.data);
+                if (!parsedGuilds.success) {
+                    throw new Error('Unexpected response format: expected array of guilds');
+                }
+
+                const guilds = parsedGuilds.data.map((record) => ({
+                    id: record.id,
+                    name: record.name,
+                    icon: record.icon,
+                    ...(record.owner !== undefined && { owner: record.owner }),
+                    ...(record.permissions !== undefined && { permissions: record.permissions }),
+                    ...(record.permissions_new !== undefined && { permissions_new: record.permissions_new }),
+                    ...(record.features !== undefined && { features: record.features })
+                }));
+
+                if (guilds.length > 0) {
+                    await nango.batchSave(guilds, 'Guild');
+                }
+
+                if (parsedGuilds.data.length < limit) {
+                    break;
+                }
+
+                const lastGuild = parsedGuilds.data[parsedGuilds.data.length - 1];
+                if (!lastGuild) {
+                    break;
+                }
+
+                after = lastGuild.id;
+                await nango.saveCheckpoint({ after });
             }
-
-            const guilds = parsedGuilds.data.map((record) => ({
-                id: record.id,
-                name: record.name,
-                icon: record.icon,
-                ...(record.owner !== undefined && { owner: record.owner }),
-                ...(record.permissions !== undefined && { permissions: record.permissions }),
-                ...(record.permissions_new !== undefined && { permissions_new: record.permissions_new }),
-                ...(record.features !== undefined && { features: record.features })
-            }));
-
-            if (guilds.length > 0) {
-                await nango.batchSave(guilds, 'Guild');
-            }
-
-            if (parsedGuilds.data.length < limit) {
-                break;
-            }
-
-            const lastGuild = parsedGuilds.data[parsedGuilds.data.length - 1];
-            if (!lastGuild) {
-                break;
-            }
-
-            after = lastGuild.id;
-            await nango.saveCheckpoint({ after });
+        } finally {
+            await nango.trackDeletesEnd('Guild');
         }
 
-        await nango.trackDeletesEnd('Guild');
         await nango.saveCheckpoint({ after: '0' });
     }
 });

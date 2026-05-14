@@ -7,7 +7,7 @@ const MetadataSchema = z.object({
 
 const InputSchema = z.object({
     guildId: z.string().describe('The ID of the guild to create the channel in. Example: "41771983423143937"'),
-    name: z.string().describe('Channel name (1-100 characters). Example: "general"'),
+    name: z.string().min(1).max(100).describe('Channel name (1-100 characters). Example: "general"'),
     type: z
         .number()
         .optional()
@@ -22,7 +22,7 @@ const InputSchema = z.object({
     permissionOverwrites: z.array(z.unknown()).optional(),
     parentId: z.string().optional().describe('ID of the parent category for the channel.'),
     nsfw: z.boolean().optional().describe('Whether the channel is age-restricted.'),
-    rtcRegion: z.string().optional().describe('Channel voice region id, automatic when set to null.'),
+    rtcRegion: z.string().nullable().optional().describe('Channel voice region id, automatic when set to null.'),
     videoQualityMode: z.number().optional().describe('Camera video quality mode (1 for auto, 2 for 720p).'),
     defaultAutoArchiveDuration: z.number().optional().describe('Default duration in minutes for newly created threads (60, 1440, 4320, 10080).'),
     defaultReactionEmoji: z.object({}).passthrough().optional(),

@@ -75,6 +75,13 @@ const action = createAction({
             });
         }
 
+        if (input.icon !== undefined && input.icon !== null && input.unicodeEmoji !== undefined && input.unicodeEmoji !== null) {
+            throw new nango.ActionError({
+                type: 'invalid_input',
+                message: 'icon and unicodeEmoji are mutually exclusive; provide at most one.'
+            });
+        }
+
         const data: Record<string, unknown> = {};
         if (input.name !== undefined) {
             data['name'] = input.name;

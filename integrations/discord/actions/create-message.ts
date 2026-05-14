@@ -1,34 +1,45 @@
 import { z } from 'zod';
 import { createAction } from 'nango';
 
-const InputSchema = z.object({
-    channelId: z.string().describe('The ID of the channel to send the message to. Example: "1504353981911273533"'),
-    content: z
-        .string()
-        .optional()
-        .describe('The message content (max 2000 characters). One of content, embeds, components, sticker_ids, or files is required.'),
-    embeds: z.array(z.unknown()).optional().describe('Array of embed objects. Up to 10 embeds.'),
-    components: z.array(z.unknown()).optional().describe('Array of message component objects.'),
-    stickerIds: z.array(z.string()).optional().describe('Array of sticker IDs (max 3).'),
-    allowedMentions: z
-        .object({
-            parse: z.array(z.enum(['roles', 'users', 'everyone'])).optional(),
-            roles: z.array(z.string()).optional(),
-            users: z.array(z.string()).optional(),
-            replied_user: z.boolean().optional()
-        })
-        .optional()
-        .describe('Allowed mentions configuration.'),
-    messageReference: z
-        .object({
-            message_id: z.string(),
-            channel_id: z.string().optional(),
-            guild_id: z.string().optional(),
-            fail_if_not_exists: z.boolean().optional()
-        })
-        .optional()
-        .describe('Reference to a message to reply to.')
-});
+const InputSchema = z
+    .object({
+        channelId: z.string().describe('The ID of the channel to send the message to. Example: "1504353981911273533"'),
+        content: z
+            .string()
+            .optional()
+            .describe('The message content (max 2000 characters). One of content, embeds, components, sticker_ids, or files is required.'),
+        embeds: z.array(z.unknown()).optional().describe('Array of embed objects. Up to 10 embeds.'),
+        components: z.array(z.unknown()).optional().describe('Array of message component objects.'),
+        stickerIds: z.array(z.string()).optional().describe('Array of sticker IDs (max 3).'),
+        allowedMentions: z
+            .object({
+                parse: z.array(z.enum(['roles', 'users', 'everyone'])).optional(),
+                roles: z.array(z.string()).optional(),
+                users: z.array(z.string()).optional(),
+                replied_user: z.boolean().optional()
+            })
+            .optional()
+            .describe('Allowed mentions configuration.'),
+        messageReference: z
+            .object({
+                message_id: z.string(),
+                channel_id: z.string().optional(),
+                guild_id: z.string().optional(),
+                fail_if_not_exists: z.boolean().optional()
+            })
+            .optional()
+            .describe('Reference to a message to reply to.')
+    })
+    .refine(
+        (data) =>
+            data.content !== undefined ||
+            (data.embeds && data.embeds.length > 0) ||
+            (data.components && data.components.length > 0) ||
+            (data.stickerIds && data.stickerIds.length > 0),
+        {
+            message: 'At least one of content, embeds, components, or stickerIds must be provided.'
+        }
+    );
 
 const AuthorSchema = z.object({
     id: z.string(),

@@ -63,7 +63,7 @@ const sync = createSync({
     description: 'Sync roles from Discord',
     version: '1.0.0',
     frequency: 'every hour',
-    autoStart: true,
+    autoStart: false,
     metadata: MetadataSchema,
     models: {
         Role: RoleSchema
@@ -108,26 +108,28 @@ const sync = createSync({
 
         await nango.trackDeletesStart('Role');
 
-        const roles = parsed.data.map((role) => ({
-            id: role.id,
-            name: role.name,
-            ...(role.color !== undefined && { color: role.color }),
-            ...(role.colors !== undefined && { colors: role.colors }),
-            ...(role.hoist !== undefined && { hoist: role.hoist }),
-            ...(role.icon !== null && { icon: role.icon }),
-            ...(role.unicode_emoji !== null && { unicode_emoji: role.unicode_emoji }),
-            ...(role.position !== undefined && { position: role.position }),
-            ...(role.permissions !== undefined && { permissions: role.permissions }),
-            ...(role.managed !== undefined && { managed: role.managed }),
-            ...(role.mentionable !== undefined && { mentionable: role.mentionable }),
-            ...(role.flags !== undefined && { flags: role.flags })
-        }));
+        try {
+            const roles = parsed.data.map((role) => ({
+                id: role.id,
+                name: role.name,
+                ...(role.color !== undefined && { color: role.color }),
+                ...(role.colors !== undefined && { colors: role.colors }),
+                ...(role.hoist !== undefined && { hoist: role.hoist }),
+                ...(role.icon !== null && { icon: role.icon }),
+                ...(role.unicode_emoji !== null && { unicode_emoji: role.unicode_emoji }),
+                ...(role.position !== undefined && { position: role.position }),
+                ...(role.permissions !== undefined && { permissions: role.permissions }),
+                ...(role.managed !== undefined && { managed: role.managed }),
+                ...(role.mentionable !== undefined && { mentionable: role.mentionable }),
+                ...(role.flags !== undefined && { flags: role.flags })
+            }));
 
-        if (roles.length > 0) {
-            await nango.batchSave(roles, 'Role');
+            if (roles.length > 0) {
+                await nango.batchSave(roles, 'Role');
+            }
+        } finally {
+            await nango.trackDeletesEnd('Role');
         }
-
-        await nango.trackDeletesEnd('Role');
     }
 });
 

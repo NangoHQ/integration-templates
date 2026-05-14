@@ -41,24 +41,32 @@ const action = createAction({
         }
 
         // https://discord.com/developers/docs/resources/guild#remove-guild-member
-        const response = await nango.delete({
-            endpoint: `/api/v10/guilds/${input.guild_id}/members/${input.user_id}`,
-            headers: {
-                Authorization: `Bot ${metadata.botToken}`
-            },
-            retries: 1
-        });
-
-        // Discord returns 204 No Content on successful deletion
-        // 404 means the user is not a member of the guild
-        if (response.status === 204) {
-            return {
-                success: true,
-                message: `Member ${input.user_id} successfully removed from guild ${input.guild_id}`
-            };
+        let response: { status: number } | undefined;
+        try {
+            response = await nango.delete({
+                endpoint: `/api/v10/guilds/${input.guild_id}/members/${input.user_id}`,
+                headers: {
+                    Authorization: `Bot ${metadata.botToken}`
+                },
+                retries: 1
+            });
+        } catch (err: unknown) {
+            const status =
+                err !== null && typeof err === 'object' && 'response' in err &&
+                err.response !== null && typeof err.response === 'object' && 'status' in err.response &&
+                typeof err.response.status === 'number'
+                    ? err.response.status
+                    : undefined;
+            if (status === 404) {
+                return {
+                    success: false,
+                    message: `User ${input.user_id} is not a member of guild ${input.guild_id}`
+                };
+            }
+            throw err;
         }
 
-        if (response.status === 404) {
+        if (response?.status === 404) {
             return {
                 success: false,
                 message: `User ${input.user_id} is not a member of guild ${input.guild_id}`
@@ -66,8 +74,8 @@ const action = createAction({
         }
 
         return {
-            success: false,
-            message: `Unexpected response status: ${response.status}`
+            success: true,
+            message: `Member ${input.user_id} successfully removed from guild ${input.guild_id}`
         };
     }
 });

@@ -6,16 +6,17 @@ const MetadataSchema = z.object({
 });
 
 const InputSchema = z.object({
-    guild_id: z.string().describe('The ID of the guild to delete. The bot must be the owner of the guild.')
+    guild_id: z.string().describe('The ID of the guild for the bot to leave.')
 });
 
 const OutputSchema = z.object({
-    success: z.boolean().describe('Whether the guild was successfully deleted'),
-    guild_id: z.string().describe('The ID of the deleted guild')
+    success: z.boolean().describe('Whether the bot successfully left the guild'),
+    guild_id: z.string().describe('The ID of the guild that was left')
 });
 
 const action = createAction({
-    description: 'Delete or archive a guild in Discord',
+    description:
+        'Leave a guild in Discord. Note: Discord does not allow bots to delete guilds via the API; use this action to have the bot leave a guild instead.',
     version: '1.0.0',
     endpoint: {
         method: 'POST',
@@ -40,9 +41,11 @@ const action = createAction({
 
         const botToken = parsedMetadata.data.botToken;
 
-        // https://discord.com/developers/docs/resources/guild#delete-guild
+        // Discord does not permit bots to delete guilds via the API.
+        // DELETE /users/@me/guilds/{guild_id} is the bot-accessible endpoint to leave a guild.
+        // https://discord.com/developers/docs/resources/user#leave-guild
         const response = await nango.delete({
-            endpoint: `/api/v10/guilds/${input.guild_id}`,
+            endpoint: `/api/v10/users/@me/guilds/${input.guild_id}`,
             headers: {
                 Authorization: `Bot ${botToken}`
             },
@@ -51,8 +54,8 @@ const action = createAction({
 
         if (response.status !== 204) {
             throw new nango.ActionError({
-                type: 'delete_failed',
-                message: `Failed to delete guild. Status: ${response.status}`,
+                type: 'leave_failed',
+                message: `Failed to leave guild. Status: ${response.status}`,
                 guild_id: input.guild_id
             });
         }

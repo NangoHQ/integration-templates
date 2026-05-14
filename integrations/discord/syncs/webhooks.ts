@@ -58,7 +58,7 @@ const sync = createSync({
     version: '1.0.0',
     endpoints: [{ method: 'GET', path: '/syncs/webhooks' }],
     frequency: 'every hour',
-    autoStart: true,
+    autoStart: false,
     metadata: MetadataSchema,
     models: {
         Webhook: WebhookSchema
@@ -72,10 +72,6 @@ const sync = createSync({
             return;
         }
         const metadata = metadataResult.data;
-
-        // Blocker: Discord Get Channel Webhooks returns all webhooks with no
-        // changed-since filter, no deleted-record endpoint, and no resumable cursor.
-        await nango.trackDeletesStart('Webhook');
 
         const proxyConfig: ProxyConfiguration = {
             // https://discord.com/developers/docs/resources/webhook#get-channel-webhooks
@@ -93,43 +89,49 @@ const sync = createSync({
             retries: 3
         };
 
-        for await (const batch of nango.paginate(proxyConfig)) {
-            if (!Array.isArray(batch)) {
-                await nango.log('Unexpected response format: expected array of webhooks');
-                continue;
-            }
+        // Blocker: Discord Get Channel Webhooks returns all webhooks with no
+        // changed-since filter, no deleted-record endpoint, and no resumable cursor.
+        await nango.trackDeletesStart('Webhook');
 
-            const webhooks = [];
-            for (const raw of batch) {
-                const parsed = DiscordWebhookSchema.safeParse(raw);
-                if (!parsed.success) {
-                    await nango.log('Skipping invalid webhook record', parsed.error);
+        try {
+            for await (const batch of nango.paginate(proxyConfig)) {
+                if (!Array.isArray(batch)) {
+                    await nango.log('Unexpected response format: expected array of webhooks');
                     continue;
                 }
-                const webhook = parsed.data;
-                webhooks.push({
-                    id: webhook.id,
-                    type: webhook.type,
-                    ...(webhook.name != null && { name: webhook.name }),
-                    ...(webhook.channel_id != null && { channel_id: webhook.channel_id }),
-                    ...(webhook.guild_id != null && { guild_id: webhook.guild_id }),
-                    ...(webhook.avatar != null && { avatar: webhook.avatar }),
-                    ...(webhook.application_id != null && { application_id: webhook.application_id }),
-                    ...(webhook.user?.id != null && { user_id: webhook.user.id }),
-                    ...(webhook.user?.username != null && { user_name: webhook.user.username }),
-                    ...(webhook.source_guild?.id != null && { source_guild_id: webhook.source_guild.id }),
-                    ...(webhook.source_guild?.name != null && { source_guild_name: webhook.source_guild.name }),
-                    ...(webhook.source_channel?.id != null && { source_channel_id: webhook.source_channel.id }),
-                    ...(webhook.source_channel?.name != null && { source_channel_name: webhook.source_channel.name })
-                });
-            }
 
-            if (webhooks.length > 0) {
-                await nango.batchSave(webhooks, 'Webhook');
+                const webhooks = [];
+                for (const raw of batch) {
+                    const parsed = DiscordWebhookSchema.safeParse(raw);
+                    if (!parsed.success) {
+                        await nango.log('Skipping invalid webhook record', parsed.error);
+                        continue;
+                    }
+                    const webhook = parsed.data;
+                    webhooks.push({
+                        id: webhook.id,
+                        type: webhook.type,
+                        ...(webhook.name != null && { name: webhook.name }),
+                        ...(webhook.channel_id != null && { channel_id: webhook.channel_id }),
+                        ...(webhook.guild_id != null && { guild_id: webhook.guild_id }),
+                        ...(webhook.avatar != null && { avatar: webhook.avatar }),
+                        ...(webhook.application_id != null && { application_id: webhook.application_id }),
+                        ...(webhook.user?.id != null && { user_id: webhook.user.id }),
+                        ...(webhook.user?.username != null && { user_name: webhook.user.username }),
+                        ...(webhook.source_guild?.id != null && { source_guild_id: webhook.source_guild.id }),
+                        ...(webhook.source_guild?.name != null && { source_guild_name: webhook.source_guild.name }),
+                        ...(webhook.source_channel?.id != null && { source_channel_id: webhook.source_channel.id }),
+                        ...(webhook.source_channel?.name != null && { source_channel_name: webhook.source_channel.name })
+                    });
+                }
+
+                if (webhooks.length > 0) {
+                    await nango.batchSave(webhooks, 'Webhook');
+                }
             }
+        } finally {
+            await nango.trackDeletesEnd('Webhook');
         }
-
-        await nango.trackDeletesEnd('Webhook');
     }
 });
 
