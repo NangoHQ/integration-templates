@@ -280,6 +280,47 @@ import './dialpad/syncs/users.js';
 import './dialpad/actions/create-user.js';
 import './dialpad/actions/delete-user.js';
 
+// -- Integration: discord
+import './discord/syncs/channels.js';
+import './discord/syncs/guild-members.js';
+import './discord/syncs/guilds.js';
+import './discord/syncs/messages.js';
+import './discord/syncs/roles.js';
+import './discord/syncs/webhooks.js';
+import './discord/actions/add-guild-member-role.js';
+import './discord/actions/create-channel.js';
+import './discord/actions/create-message.js';
+import './discord/actions/create-reaction.js';
+import './discord/actions/create-role.js';
+import './discord/actions/create-thread-from-message.js';
+import './discord/actions/create-webhook.js';
+import './discord/actions/delete-channel.js';
+import './discord/actions/delete-guild.js';
+import './discord/actions/delete-guild-member.js';
+import './discord/actions/delete-message.js';
+import './discord/actions/delete-reaction.js';
+import './discord/actions/delete-role.js';
+import './discord/actions/delete-webhook.js';
+import './discord/actions/get-channel.js';
+import './discord/actions/get-guild-member.js';
+import './discord/actions/get-guild.js';
+import './discord/actions/get-message.js';
+import './discord/actions/get-role.js';
+import './discord/actions/get-webhook.js';
+import './discord/actions/list-channels.js';
+import './discord/actions/list-guild-members.js';
+import './discord/actions/list-guilds.js';
+import './discord/actions/list-messages.js';
+import './discord/actions/list-roles.js';
+import './discord/actions/list-webhooks.js';
+import './discord/actions/remove-guild-member-role.js';
+import './discord/actions/update-channel.js';
+import './discord/actions/update-guild-member.js';
+import './discord/actions/update-guild.js';
+import './discord/actions/update-message.js';
+import './discord/actions/update-role.js';
+import './discord/actions/update-webhook.js';
+
 // -- Integration: discourse
 import './discourse/syncs/active-users.js';
 import './discourse/syncs/categories.js';

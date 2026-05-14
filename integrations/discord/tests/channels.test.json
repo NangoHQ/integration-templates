@@ -1,0 +1,327 @@
+{
+  "nango": {
+    "getConnection": {},
+    "getMetadata": {
+      "botToken": "DISCORD_BOT_TOKEN",
+      "guild_id": "1504353980598321172"
+    },
+    "batchSave": {
+      "Channel": [
+        {
+          "id": "1504353981911273532",
+          "guild_id": "1504353980598321172",
+          "name": "Information",
+          "type": 4,
+          "position": 0,
+          "flags": 0
+        },
+        {
+          "id": "1504353981911273533",
+          "guild_id": "1504353980598321172",
+          "name": "welcome-and-rules",
+          "type": 0,
+          "position": 1,
+          "parent_id": "1504353981911273532",
+          "nsfw": false,
+          "rate_limit_per_user": 0,
+          "last_message_id": "1504385123347595304",
+          "flags": 0
+        },
+        {
+          "id": "1504353981911273534",
+          "guild_id": "1504353980598321172",
+          "name": "announcements",
+          "type": 0,
+          "position": 2,
+          "parent_id": "1504353981911273532",
+          "nsfw": false,
+          "rate_limit_per_user": 0,
+          "flags": 0
+        },
+        {
+          "id": "1504353981911273535",
+          "guild_id": "1504353980598321172",
+          "name": "Text Channels",
+          "type": 4,
+          "position": 3,
+          "flags": 0
+        },
+        {
+          "id": "1504353981911273536",
+          "guild_id": "1504353980598321172",
+          "name": "general",
+          "type": 0,
+          "position": 4,
+          "parent_id": "1504353981911273535",
+          "nsfw": false,
+          "rate_limit_per_user": 0,
+          "last_message_id": "1504354226627805327",
+          "flags": 0
+        },
+        {
+          "id": "1504353981911273537",
+          "guild_id": "1504353980598321172",
+          "name": "events",
+          "type": 0,
+          "position": 5,
+          "parent_id": "1504353981911273535",
+          "nsfw": false,
+          "rate_limit_per_user": 0,
+          "flags": 0
+        },
+        {
+          "id": "1504353981911273538",
+          "guild_id": "1504353980598321172",
+          "name": "ideas-and-feedback",
+          "type": 0,
+          "position": 6,
+          "parent_id": "1504353981911273535",
+          "nsfw": false,
+          "rate_limit_per_user": 0,
+          "flags": 0
+        },
+        {
+          "id": "1504353981911273539",
+          "guild_id": "1504353980598321172",
+          "name": "Voice Channels",
+          "type": 4,
+          "position": 7,
+          "flags": 0
+        },
+        {
+          "id": "1504353981911273540",
+          "guild_id": "1504353980598321172",
+          "name": "Lounge",
+          "type": 2,
+          "position": 8,
+          "parent_id": "1504353981911273539",
+          "nsfw": false,
+          "rate_limit_per_user": 0,
+          "bitrate": 64000,
+          "user_limit": 0,
+          "flags": 0
+        },
+        {
+          "id": "1504353981911273541",
+          "guild_id": "1504353980598321172",
+          "name": "Community Hangout",
+          "type": 2,
+          "position": 9,
+          "parent_id": "1504353981911273539",
+          "nsfw": false,
+          "rate_limit_per_user": 0,
+          "bitrate": 64000,
+          "user_limit": 0,
+          "flags": 0
+        },
+        {
+          "id": "1504353982183772260",
+          "guild_id": "1504353980598321172",
+          "name": "Stream Room",
+          "type": 2,
+          "position": 10,
+          "parent_id": "1504353981911273539",
+          "nsfw": false,
+          "rate_limit_per_user": 0,
+          "bitrate": 64000,
+          "user_limit": 0,
+          "flags": 0
+        }
+      ]
+    },
+    "batchDelete": {
+      "Channel": []
+    }
+  },
+  "api": {
+    "get": {
+      "/api/v10/guilds/1504353980598321172/channels": {
+        "response": [
+          {
+            "id": "1504353981911273532",
+            "type": 4,
+            "flags": 0,
+            "guild_id": "1504353980598321172",
+            "name": "Information",
+            "parent_id": null,
+            "position": 0,
+            "permission_overwrites": []
+          },
+          {
+            "id": "1504353981911273533",
+            "type": 0,
+            "last_message_id": "1504385123347595304",
+            "flags": 0,
+            "guild_id": "1504353980598321172",
+            "name": "welcome-and-rules",
+            "parent_id": "1504353981911273532",
+            "rate_limit_per_user": 0,
+            "topic": null,
+            "position": 1,
+            "permission_overwrites": [],
+            "nsfw": false
+          },
+          {
+            "id": "1504353981911273534",
+            "type": 0,
+            "last_message_id": null,
+            "flags": 0,
+            "guild_id": "1504353980598321172",
+            "name": "announcements",
+            "parent_id": "1504353981911273532",
+            "rate_limit_per_user": 0,
+            "topic": null,
+            "position": 2,
+            "permission_overwrites": [],
+            "nsfw": false
+          },
+          {
+            "id": "1504353981911273535",
+            "type": 4,
+            "flags": 0,
+            "guild_id": "1504353980598321172",
+            "name": "Text Channels",
+            "parent_id": null,
+            "position": 3,
+            "permission_overwrites": []
+          },
+          {
+            "id": "1504353981911273536",
+            "type": 0,
+            "last_message_id": "1504354226627805327",
+            "flags": 0,
+            "guild_id": "1504353980598321172",
+            "name": "general",
+            "parent_id": "1504353981911273535",
+            "rate_limit_per_user": 0,
+            "topic": null,
+            "position": 4,
+            "permission_overwrites": [],
+            "nsfw": false
+          },
+          {
+            "id": "1504353981911273537",
+            "type": 0,
+            "last_message_id": null,
+            "flags": 0,
+            "guild_id": "1504353980598321172",
+            "name": "events",
+            "parent_id": "1504353981911273535",
+            "rate_limit_per_user": 0,
+            "topic": null,
+            "position": 5,
+            "permission_overwrites": [],
+            "nsfw": false
+          },
+          {
+            "id": "1504353981911273538",
+            "type": 0,
+            "last_message_id": null,
+            "flags": 0,
+            "guild_id": "1504353980598321172",
+            "name": "ideas-and-feedback",
+            "parent_id": "1504353981911273535",
+            "rate_limit_per_user": 0,
+            "topic": null,
+            "position": 6,
+            "permission_overwrites": [],
+            "nsfw": false
+          },
+          {
+            "id": "1504353981911273539",
+            "type": 4,
+            "flags": 0,
+            "guild_id": "1504353980598321172",
+            "name": "Voice Channels",
+            "parent_id": null,
+            "position": 7,
+            "permission_overwrites": []
+          },
+          {
+            "id": "1504353981911273540",
+            "type": 2,
+            "last_message_id": null,
+            "flags": 0,
+            "guild_id": "1504353980598321172",
+            "name": "Lounge",
+            "parent_id": "1504353981911273539",
+            "rate_limit_per_user": 0,
+            "bitrate": 64000,
+            "user_limit": 0,
+            "rtc_region": null,
+            "position": 8,
+            "permission_overwrites": [],
+            "nsfw": false
+          },
+          {
+            "id": "1504353981911273541",
+            "type": 2,
+            "last_message_id": null,
+            "flags": 0,
+            "guild_id": "1504353980598321172",
+            "name": "Community Hangout",
+            "parent_id": "1504353981911273539",
+            "rate_limit_per_user": 0,
+            "bitrate": 64000,
+            "user_limit": 0,
+            "rtc_region": null,
+            "position": 9,
+            "permission_overwrites": [],
+            "nsfw": false
+          },
+          {
+            "id": "1504353982183772260",
+            "type": 2,
+            "last_message_id": null,
+            "flags": 0,
+            "guild_id": "1504353980598321172",
+            "name": "Stream Room",
+            "parent_id": "1504353981911273539",
+            "rate_limit_per_user": 0,
+            "bitrate": 64000,
+            "user_limit": 0,
+            "rtc_region": null,
+            "position": 10,
+            "permission_overwrites": [],
+            "nsfw": false
+          }
+        ],
+        "status": 200,
+        "headers": {
+          "date": "Thu, 14 May 2026 08:14:58 GMT",
+          "content-type": "application/json",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=31536000; includeSubDomains; preload",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "10",
+          "x-ratelimit-remaining": "8",
+          "x-ratelimit-reset": "1778746519.480",
+          "server": "cloudflare",
+          "x-ratelimit-bucket": "a66d55b18e9649f0915c93ce4c0677af",
+          "x-ratelimit-reset-after": "20.891",
+          "x-discord-features": "chat",
+          "vary": "Accept-Encoding",
+          "via": "1.1 google",
+          "alt-svc": "h3=\":443\"; ma=86400",
+          "content-security-policy": "frame-ancestors 'none'; default-src https://o64374.ingest.sentry.io; report-to csp-sentry; report-uri https://o64374.ingest.sentry.io/api/5441894/security/?sentry_key=8fbbce30bf5244ec9429546beef21870&sentry_environment=stable",
+          "cf-cache-status": "BYPASS",
+          "set-cookie": "REDACTED",
+          "report-to": "{\"group\":\"cf-nel\",\"max_age\":604800,\"endpoints\":[{\"url\":\"https://a.nel.cloudflare.com/report/v4?s=ROJMD1%2Bg%2FjnFtVBqFtalTFLbPi0zL15Ku3u%2Bc03xg%2B8Uzl57h6tiKw4uAskCdBFOccw94rhFSpN311mvXcOwYUy7a%2FUpRSk7dEZsZPPKgkcqMYt9PwzPP9P3tRpm\"}]}",
+          "nel": "{\"report_to\":\"cf-nel\",\"success_fraction\":0.0,\"max_age\":604800}",
+          "reporting-endpoints": "csp-sentry=\"https://o64374.ingest.sentry.io/api/5441894/security/?sentry_key=8fbbce30bf5244ec9429546beef21870&sentry_environment=stable\"",
+          "cf-ray": "9fb873cf49e0ff19-PDX"
+        },
+        "hash": "e7ecbabcfbba100c43c0a111f718dab82f77fb6f",
+        "request": {}
+      }
+    }
+  }
+}

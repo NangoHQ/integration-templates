@@ -143,20 +143,18 @@ export interface View {
 
 export interface Webhook {
   id: string;
-  baseId: string;
-  notificationUrl?: string | undefined;
-  isHookEnabled: boolean;
-  areNotificationsEnabled: boolean;
-  cursorForNextPayload: number;
-  expirationTime?: string | undefined;
-  lastSuccessfulNotificationTime?: string | undefined;
-  lastNotificationResult?: {  success?: boolean | undefined;
-  completionTimestamp?: string | undefined;
-  durationMs?: number | undefined;
-  retryNumber?: number | undefined;
-  willBeRetried?: boolean | undefined;
-  error?: {  message?: string | undefined;};};
-  specification?: {} | undefined;
+  type: number;
+  name?: string | undefined;
+  channel_id?: string | undefined;
+  guild_id?: string | undefined;
+  avatar?: string | undefined;
+  application_id?: string | undefined;
+  user_id?: string | undefined;
+  user_name?: string | undefined;
+  source_guild_id?: string | undefined;
+  source_guild_name?: string | undefined;
+  source_channel_id?: string | undefined;
+  source_channel_name?: string | undefined;
 };
 
 export interface SyncMetadata_airtable_webhooks {
@@ -7186,6 +7184,1683 @@ export interface ActionInput_dialpad_deleteuser {
 
 export interface ActionOutput_dialpad_deleteuser {
   success: boolean;
+};
+
+export interface Channel {
+  id: string;
+  title?: string | undefined;
+  description?: string | undefined;
+  customUrl?: string | undefined;
+  publishedAt?: string | undefined;
+  thumbnailDefaultUrl?: string | undefined;
+  thumbnailMediumUrl?: string | undefined;
+  thumbnailHighUrl?: string | undefined;
+  viewCount?: number | undefined;
+  subscriberCount?: number | undefined;
+  hiddenSubscriberCount?: boolean | undefined;
+  videoCount?: number | undefined;
+  country?: string | undefined;
+  privacyStatus?: string | undefined;
+  isLinked?: boolean | undefined;
+  madeForKids?: boolean | undefined;
+  selfDeclaredMadeForKids?: boolean | undefined;
+};
+
+export interface GuildMember {
+  id: string;
+  guild_id: string;
+  user_id: string;
+  username: string;
+  nick?: string | undefined;
+  avatar?: string | undefined;
+  banner?: string | undefined;
+  roles: string[];
+  joined_at?: string | undefined;
+  premium_since?: string | undefined;
+  deaf: boolean;
+  mute: boolean;
+  pending?: boolean | undefined;
+  flags: number;
+  communication_disabled_until?: string | undefined;
+};
+
+export interface Guild {
+  id: string;
+  name: string;
+  icon: string;
+  owner?: boolean | undefined;
+  permissions?: string | undefined;
+  permissions_new?: string | undefined;
+  features?: string[] | undefined;
+};
+
+export interface Message {
+  id: string;
+  channel_id: string;
+  channel_name: string;
+  user_id: string;
+  user_name?: string | undefined;
+  text: string;
+  timestamp: string;
+  thread_ts?: string | undefined;
+  parent_ts?: string | undefined;
+  is_thread_reply?: boolean | undefined;
+  reactions?: ({  name: string;
+  count: number;
+  users: string[];})[] | undefined;
+  reply_count?: number | undefined;
+  reply_users?: string[] | undefined;
+  created_at: string;
+};
+
+export interface SyncMetadata_discord_messages {
+  botToken: string;
+  channelId: string;
+};
+
+export interface Role {
+  id: string;
+  name: string;
+  color?: number | undefined;
+  colors?: {  primary_color: number;
+  secondary_color?: number | undefined;
+  tertiary_color?: number | undefined;};
+  hoist?: boolean | undefined;
+  icon?: string | undefined;
+  unicode_emoji?: string | undefined;
+  position?: number | undefined;
+  permissions?: string | undefined;
+  managed?: boolean | undefined;
+  mentionable?: boolean | undefined;
+  flags?: number | undefined;
+};
+
+export interface SyncMetadata_discord_roles {
+  botToken: string;
+  guild_id?: string | undefined;
+  guildId?: string | undefined;
+};
+
+export interface SyncMetadata_discord_webhooks {
+  botToken: string;
+  channelId: string;
+};
+
+export interface ActionInput_discord_addguildmemberrole {
+  /**
+   * Guild ID. Example: "123456789012345678"
+   */
+  guildId: string;
+  /**
+   * User ID. Example: "987654321098765432"
+   */
+  userId: string;
+  /**
+   * Role ID. Example: "111222333444555666"
+   */
+  roleId: string;
+};
+
+export interface ActionOutput_discord_addguildmemberrole {
+  success: boolean;
+};
+
+export interface ActionInput_discord_createchannel {
+  /**
+   * The ID of the guild to create the channel in. Example: "41771983423143937"
+   */
+  guildId: string;
+  /**
+   * Channel name (1-100 characters). Example: "general"
+   */
+  name: string;
+  /**
+   * The type of channel. Default is 0 (GUILD_TEXT). Options: 0 (GUILD_TEXT), 2 (GUILD_VOICE), 4 (GUILD_CATEGORY), 5 (GUILD_ANNOUNCEMENT), 13 (GUILD_STAGE_VOICE), 15 (GUILD_FORUM), 16 (GUILD_MEDIA).
+   */
+  type?: number | undefined;
+  /**
+   * Channel topic (0-1024 characters).
+   */
+  topic?: string | undefined;
+  /**
+   * The bitrate of the voice channel (min 8000).
+   */
+  bitrate?: number | undefined;
+  /**
+   * The user limit of the voice channel.
+   */
+  userLimit?: number | undefined;
+  /**
+   * Amount of seconds a user has to wait before sending another message (0-21600).
+   */
+  rateLimitPerUser?: number | undefined;
+  /**
+   * Sorting position of the channel.
+   */
+  position?: number | undefined;
+  permissionOverwrites?: unknown[] | undefined;
+  /**
+   * ID of the parent category for the channel.
+   */
+  parentId?: string | undefined;
+  /**
+   * Whether the channel is age-restricted.
+   */
+  nsfw?: boolean | undefined;
+  /**
+   * Channel voice region id, automatic when set to null.
+   */
+  rtcRegion?: string | undefined;
+  /**
+   * Camera video quality mode (1 for auto, 2 for 720p).
+   */
+  videoQualityMode?: number | undefined;
+  /**
+   * Default duration in minutes for newly created threads (60, 1440, 4320, 10080).
+   */
+  defaultAutoArchiveDuration?: number | undefined;
+  defaultReactionEmoji?: {} | undefined;
+  availableTags?: unknown[] | undefined;
+  /**
+   * Default sort order for forum/media channels (0 for latest activity, 1 for creation date).
+   */
+  defaultSortOrder?: number | undefined;
+  /**
+   * Default forum layout (0 not set, 1 list view, 2 gallery view).
+   */
+  defaultForumLayout?: number | undefined;
+  /**
+   * Initial rate limit per user for newly created threads.
+   */
+  defaultThreadRateLimitPerUser?: number | undefined;
+};
+
+export interface ActionOutput_discord_createchannel {
+  /**
+   * The ID of the created channel
+   */
+  id: string;
+  /**
+   * The ID of the guild the channel belongs to
+   */
+  guildId?: string | undefined;
+  /**
+   * The name of the channel
+   */
+  name?: string | undefined;
+  /**
+   * The type of the channel
+   */
+  type: number;
+  /**
+   * The sorting position of the channel
+   */
+  position?: number | undefined;
+  /**
+   * The channel topic
+   */
+  topic?: string | undefined;
+  /**
+   * Whether the channel is age-restricted
+   */
+  nsfw?: boolean | undefined;
+  /**
+   * The ID of the parent category
+   */
+  parentId?: string | undefined;
+  /**
+   * The bitrate of the voice channel
+   */
+  bitrate?: number | undefined;
+  /**
+   * The user limit of the voice channel
+   */
+  userLimit?: number | undefined;
+  /**
+   * The rate limit per user
+   */
+  rateLimitPerUser?: number | undefined;
+  /**
+   * The voice region ID
+   */
+  rtcRegion?: string | undefined;
+  /**
+   * The video quality mode
+   */
+  videoQualityMode?: number | undefined;
+  /**
+   * The default auto-archive duration
+   */
+  defaultAutoArchiveDuration?: number | undefined;
+};
+
+export interface ActionInput_discord_createmessage {
+  /**
+   * The ID of the channel to send the message to. Example: "1504353981911273533"
+   */
+  channelId: string;
+  /**
+   * The message content (max 2000 characters). One of content, embeds, components, sticker_ids, or files is required.
+   */
+  content?: string | undefined;
+  /**
+   * Array of embed objects. Up to 10 embeds.
+   */
+  embeds?: unknown[] | undefined;
+  /**
+   * Array of message component objects.
+   */
+  components?: unknown[] | undefined;
+  /**
+   * Array of sticker IDs (max 3).
+   */
+  stickerIds?: string[] | undefined;
+  /**
+   * Allowed mentions configuration.
+   */
+  allowedMentions?: {  parse?: ({  0: 'roles';
+  1: 'users';
+  2: 'everyone';})[] | undefined;
+  roles?: string[] | undefined;
+  users?: string[] | undefined;
+  replied_user?: boolean | undefined;};
+  /**
+   * Reference to a message to reply to.
+   */
+  messageReference?: {  message_id: string;
+  channel_id?: string | undefined;
+  guild_id?: string | undefined;
+  fail_if_not_exists?: boolean | undefined;};
+};
+
+export interface ActionOutput_discord_createmessage {
+  id: string;
+  channelId: string;
+  guildId?: string | undefined;
+  authorId: string;
+  authorUsername: string;
+  content: string;
+  timestamp: string;
+  editedTimestamp?: string | undefined;
+  tts?: boolean | undefined;
+  pinned?: boolean | undefined;
+  type?: number | undefined;
+};
+
+export interface ActionInput_discord_createreaction {
+  /**
+   * Channel ID where the message is located. Example: "1504364254634180618"
+   */
+  channel_id: string;
+  /**
+   * Message ID to add the reaction to. Example: "1234567890123456789"
+   */
+  message_id: string;
+  /**
+   * Emoji to add as a reaction. Can be a unicode emoji (e.g., "👍") or custom emoji format (e.g., "emoji_name:emoji_id"). Example: "👍" or "custom_emoji:123456789"
+   */
+  emoji: string;
+};
+
+export interface ActionOutput_discord_createreaction {
+  success: boolean;
+  channel_id: string;
+  message_id: string;
+  emoji: string;
+};
+
+export interface ActionInput_discord_createrole {
+  /**
+   * Guild ID (Snowflake). Example: "197038439483310086"
+   */
+  guildId: string;
+  /**
+   * Name of the role, max 100 characters. Example: "Moderators"
+   */
+  name: string;
+  /**
+   * Bitwise value of the enabled/disabled permissions. Example: "66321471"
+   */
+  permissions?: string | undefined;
+  /**
+   * Deprecated RGB color value. Default: 0
+   */
+  color?: number | undefined;
+  /**
+   * Role colors object with primary, secondary, and tertiary colors
+   */
+  colors?: {  primary_color: number;
+  secondary_color?: number | undefined;
+  tertiary_color?: number | undefined;};
+  /**
+   * Whether the role should be displayed separately in the sidebar. Default: false
+   */
+  hoist?: boolean | undefined;
+  /**
+   * The role's icon image data (if the guild has ROLE_ICONS feature)
+   */
+  icon?: string | undefined;
+  /**
+   * The role's unicode emoji as a standard emoji (if the guild has ROLE_ICONS feature)
+   */
+  unicode_emoji?: string | undefined;
+  /**
+   * Whether the role should be mentionable. Default: false
+   */
+  mentionable?: boolean | undefined;
+};
+
+export interface ActionOutput_discord_createrole {
+  id: string;
+  name: string;
+  color: number;
+  colors: {  primary_color: number;
+  secondary_color: number;
+  tertiary_color: number;};
+  hoist: boolean;
+  icon?: string | undefined;
+  unicode_emoji?: string | undefined;
+  position: number;
+  permissions: string;
+  managed: boolean;
+  mentionable: boolean;
+  tags?: {  bot_id?: string | undefined;
+  integration_id?: string | undefined;
+  premium_subscriber?: null | undefined;
+  subscription_listing_id?: string | undefined;
+  available_for_purchase?: null | undefined;
+  guild_connections?: null | undefined;};
+  flags: number;
+};
+
+export interface ActionInput_discord_createthreadfrommessage {
+  /**
+   * The ID of the channel containing the message. Example: "123456789012345678"
+   */
+  channel_id: string;
+  /**
+   * The ID of the message to create a thread from. Example: "987654321098765432"
+   */
+  message_id: string;
+  /**
+   * The name of the thread (1-100 characters). Example: "Discussion Thread"
+   */
+  name: string;
+  /**
+   * Duration in minutes to automatically archive the thread. One of: 60, 1440, 4320, 10080
+   */
+  auto_archive_duration?: 60 | 1440 | 4320 | 10080 | undefined;
+  /**
+   * Seconds to wait between messages (slowmode). Range: 0-21600
+   */
+  rate_limit_per_user?: number | undefined;
+  /**
+   * The type of thread. 11 = public thread, 12 = private thread. Defaults to public.
+   */
+  type?: 11 | 12 | undefined;
+};
+
+export interface ActionOutput_discord_createthreadfrommessage {
+  id: string;
+  type: number;
+  guild_id?: string | undefined;
+  name: string;
+  last_message_id?: string | undefined;
+  parent_id?: string | undefined;
+  owner_id?: string | undefined;
+  message_count?: number | undefined;
+  member_count?: number | undefined;
+  rate_limit_per_user?: number | undefined;
+  thread_metadata?: {  archived: boolean;
+  auto_archive_duration: number;
+  archive_timestamp?: string | undefined;
+  locked?: boolean | undefined;
+  invitable?: boolean | undefined;
+  create_timestamp?: string | undefined;};
+};
+
+export interface ActionInput_discord_createwebhook {
+  /**
+   * The channel ID where the webhook will be created. Can also be provided via metadata. Example: "199737254929760256"
+   */
+  channelId?: string | undefined;
+  /**
+   * Name of the webhook (1-80 characters). Must not contain "clyde" or "discord" (case-insensitive).
+   */
+  name: string;
+  /**
+   * Optional base64-encoded image data for the webhook avatar. Example: "data:image/png;base64,iVBORw0KGgo..."
+   */
+  avatar?: string | undefined;
+};
+
+export interface ActionOutput_discord_createwebhook {
+  id: string;
+  /**
+   * Webhook type: 1 = Incoming, 2 = Channel Follower, 3 = Application
+   */
+  type: number;
+  guildId?: string | undefined;
+  channelId?: string | undefined;
+  name?: string | undefined;
+  avatar?: string | undefined;
+  /**
+   * Webhook token (only for Incoming webhooks)
+   */
+  token?: string | undefined;
+  applicationId?: string | undefined;
+};
+
+export interface ActionInput_discord_deletechannel {
+  /**
+   * The ID of the channel to delete. Example: "41771983423143937"
+   */
+  channelId: string;
+};
+
+export interface ActionOutput_discord_deletechannel {
+  id: string;
+  type: number;
+  guildId?: string | undefined;
+  name?: string | undefined;
+  deleted: boolean;
+};
+
+export interface ActionInput_discord_deleteguild {
+  /**
+   * The ID of the guild to delete. The bot must be the owner of the guild.
+   */
+  guild_id: string;
+};
+
+export interface ActionOutput_discord_deleteguild {
+  /**
+   * Whether the guild was successfully deleted
+   */
+  success: boolean;
+  /**
+   * The ID of the deleted guild
+   */
+  guild_id: string;
+};
+
+export interface ActionInput_discord_deleteguildmember {
+  /**
+   * Guild ID. Example: "123456789012345678"
+   */
+  guild_id: string;
+  /**
+   * User ID of the member to delete. Example: "987654321098765432"
+   */
+  user_id: string;
+};
+
+export interface ActionOutput_discord_deleteguildmember {
+  success: boolean;
+  message: string;
+};
+
+export interface ActionInput_discord_deletemessage {
+  /**
+   * Channel ID where the message exists. Example: "1234567890123456789"
+   */
+  channelId: string;
+  /**
+   * Message ID to delete. Example: "9876543210987654321"
+   */
+  messageId: string;
+};
+
+export interface ActionOutput_discord_deletemessage {
+  success: boolean;
+  /**
+   * ID of the deleted message
+   */
+  messageId: string;
+  /**
+   * Channel ID where the message was deleted
+   */
+  channelId: string;
+};
+
+export interface ActionInput_discord_deletereaction {
+  /**
+   * The ID of the channel containing the message. Example: "123456789012345678"
+   */
+  channel_id: string;
+  /**
+   * The ID of the message to remove the reaction from. Example: "987654321098765432"
+   */
+  message_id: string;
+  /**
+   * The emoji to remove (URL-encoded). Example: "👍" or "%F0%9F%91%8D"
+   */
+  emoji: string;
+};
+
+export interface ActionOutput_discord_deletereaction {
+  success: boolean;
+};
+
+export interface ActionInput_discord_deleterole {
+  /**
+   * The ID of the guild containing the role. Example: "1234567890123456789"
+   */
+  guildId: string;
+  /**
+   * The ID of the role to delete. Example: "9876543210987654321"
+   */
+  roleId: string;
+};
+
+export interface ActionOutput_discord_deleterole {
+  /**
+   * The ID of the deleted role
+   */
+  id: string;
+  /**
+   * The name of the deleted role
+   */
+  name: string;
+  /**
+   * Whether the deletion was successful
+   */
+  success: boolean;
+};
+
+export interface ActionInput_discord_deletewebhook {
+  /**
+   * The ID of the webhook to delete. Example: "223704706495545344"
+   */
+  webhookId: string;
+};
+
+export interface ActionOutput_discord_deletewebhook {
+  /**
+   * Whether the webhook was successfully deleted
+   */
+  success: boolean;
+  /**
+   * The ID of the deleted webhook
+   */
+  webhookId: string;
+};
+
+export interface ActionInput_discord_getchannel {
+  /**
+   * The ID of the channel to retrieve. Example: "41771983423143937"
+   */
+  channelId: string;
+};
+
+export interface ActionOutput_discord_getchannel {
+  id: string;
+  type: number;
+  guildId?: string | undefined;
+  position?: number | undefined;
+  permissionOverwrites?: unknown[] | undefined;
+  name?: string | undefined;
+  topic?: string | undefined;
+  nsfw?: boolean | undefined;
+  lastMessageId?: string | undefined;
+  bitrate?: number | undefined;
+  userLimit?: number | undefined;
+  rateLimitPerUser?: number | undefined;
+  recipients?: unknown[] | undefined;
+  icon?: string | undefined;
+  ownerId?: string | undefined;
+  applicationId?: string | undefined;
+  managed?: boolean | undefined;
+  parentId?: string | undefined;
+  lastPinTimestamp?: string | undefined;
+  rtcRegion?: string | undefined;
+  videoQualityMode?: number | undefined;
+  messageCount?: number | undefined;
+  memberCount?: number | undefined;
+  threadMetadata?: unknown | undefined;
+  member?: unknown | undefined;
+  defaultAutoArchiveDuration?: number | undefined;
+  permissions?: string | undefined;
+  flags?: number | undefined;
+  totalMessageSent?: number | undefined;
+  availableTags?: unknown[] | undefined;
+  appliedTags?: string[] | undefined;
+  defaultReactionEmoji?: unknown | undefined;
+  defaultThreadRateLimitPerUser?: number | undefined;
+  defaultSortOrder?: number | undefined;
+  defaultForumLayout?: number | undefined;
+};
+
+export interface ActionInput_discord_getguildmember {
+  /**
+   * The ID of the guild. Example: "197038439483310086"
+   */
+  guild_id: string;
+  /**
+   * The ID of the user. Example: "73193882359173120"
+   */
+  user_id: string;
+};
+
+export interface ActionOutput_discord_getguildmember {
+  user?: {  id: string;
+  username: string;
+  discriminator: string;
+  global_name?: string | undefined;
+  avatar?: string | undefined;
+  bot?: boolean | undefined;
+  system?: boolean | undefined;
+  mfa_enabled?: boolean | undefined;
+  banner?: string | undefined;
+  accent_color?: number | undefined;
+  locale?: string | undefined;
+  verified?: boolean | undefined;
+  email?: string | undefined;
+  flags?: number | undefined;
+  premium_type?: number | undefined;
+  public_flags?: number | undefined;
+  avatar_decoration_data?: unknown | undefined;
+  collectibles?: unknown | undefined;};
+  nick?: string | undefined;
+  avatar?: string | undefined;
+  banner?: string | undefined;
+  roles: string[];
+  joined_at?: string | undefined;
+  premium_since?: string | undefined;
+  deaf: boolean;
+  mute: boolean;
+  flags: number;
+  pending?: boolean | undefined;
+  permissions?: string | undefined;
+  communication_disabled_until?: string | undefined;
+  avatar_decoration_data?: unknown | undefined;
+  collectibles?: unknown | undefined;
+};
+
+export interface ActionInput_discord_getguild {
+  /**
+   * Guild ID (snowflake). Example: "197038439483310086"
+   */
+  guildId: string;
+};
+
+export interface ActionOutput_discord_getguild {
+};
+
+export interface ActionInput_discord_getmessage {
+  /**
+   * The ID of the channel containing the message. Example: "1504364254634180618"
+   */
+  channelId: string;
+  /**
+   * The ID of the message to retrieve. Example: "1234567890123456789"
+   */
+  messageId: string;
+};
+
+export interface ActionOutput_discord_getmessage {
+  id: string;
+  channelId: string;
+  author: {  id: string;
+  username: string;
+  discriminator?: string | undefined;
+  globalName?: string | undefined;
+  avatar?: string | undefined;
+  bot?: boolean | undefined;
+  system?: boolean | undefined;};
+  content: string;
+  timestamp: string;
+  editedTimestamp?: string | undefined;
+  tts?: boolean | undefined;
+  mentionEveryone?: boolean | undefined;
+  mentions?: unknown[] | undefined;
+  mentionRoles?: string[] | undefined;
+  attachments?: unknown[] | undefined;
+  embeds?: unknown[] | undefined;
+  reactions?: unknown[] | undefined;
+  nonce?: string | number | undefined;
+  pinned?: boolean | undefined;
+  webhookId?: string | undefined;
+  type?: number | undefined;
+  activity?: unknown | undefined;
+  application?: unknown | undefined;
+  applicationId?: string | undefined;
+  messageReference?: unknown | undefined;
+  flags?: number | undefined;
+  referencedMessage?: unknown | undefined;
+  interaction?: unknown | undefined;
+  thread?: unknown | undefined;
+  components?: unknown[] | undefined;
+  stickerItems?: unknown[] | undefined;
+  stickers?: unknown[] | undefined;
+  position?: number | undefined;
+  roleSubscriptionData?: unknown | undefined;
+  resolved?: unknown | undefined;
+};
+
+export interface ActionInput_discord_getrole {
+  /**
+   * Guild ID (snowflake). Example: "41771983423143936"
+   */
+  guild_id: string;
+  /**
+   * Role ID (snowflake). Example: "41771983423143937"
+   */
+  role_id: string;
+};
+
+export interface ActionOutput_discord_getrole {
+  /**
+   * Role id
+   */
+  id: string;
+  /**
+   * Role name
+   */
+  name: string;
+  /**
+   * Deprecated integer representation of hexadecimal color code
+   */
+  color: number;
+  /**
+   * The role's colors
+   */
+  colors?: {  /**
+   * The primary color for the role
+   */
+  primary_color: number;
+  /**
+   * The secondary color for the role
+   */
+  secondary_color?: number | undefined;
+  /**
+   * The tertiary color for the role
+   */
+  tertiary_color?: number | undefined;};
+  /**
+   * If this role is pinned in the user listing
+   */
+  hoist: boolean;
+  /**
+   * Role icon hash
+   */
+  icon?: string | undefined;
+  /**
+   * Role unicode emoji
+   */
+  unicode_emoji?: string | undefined;
+  /**
+   * Position of this role
+   */
+  position: number;
+  /**
+   * Permission bit set
+   */
+  permissions: string;
+  /**
+   * Whether this role is managed by an integration
+   */
+  managed: boolean;
+  /**
+   * Whether this role is mentionable
+   */
+  mentionable: boolean;
+  /**
+   * The tags this role has
+   */
+  tags?: {  /**
+   * The id of the bot this role belongs to
+   */
+  bot_id?: string | undefined;
+  /**
+   * The id of the integration this role belongs to
+   */
+  integration_id?: string | undefined;
+  /**
+   * Whether this is the guild's Booster role
+   */
+  premium_subscriber?: null | undefined;
+  /**
+   * The id of this role's subscription sku and listing
+   */
+  subscription_listing_id?: string | undefined;
+  /**
+   * Whether this role is available for purchase
+   */
+  available_for_purchase?: null | undefined;
+  /**
+   * Whether this role is a guild's linked role
+   */
+  guild_connections?: null | undefined;};
+  /**
+   * Role flags combined as a bitfield
+   */
+  flags: number;
+};
+
+export interface ActionInput_discord_getwebhook {
+  /**
+   * The ID of the webhook to retrieve. Example: "123456789012345678"
+   */
+  webhookId: string;
+};
+
+export interface ActionOutput_discord_getwebhook {
+  /**
+   * The ID of the webhook.
+   */
+  id: string;
+  /**
+   * The type of the webhook (1 = Incoming, 2 = Channel Follower).
+   */
+  type: number;
+  /**
+   * The guild ID this webhook is for.
+   */
+  guildId?: string | undefined;
+  /**
+   * The channel ID this webhook is for.
+   */
+  channelId?: string | undefined;
+  /**
+   * The default name of the webhook.
+   */
+  name?: string | undefined;
+  /**
+   * The default user avatar hash of the webhook.
+   */
+  avatar?: string | undefined;
+  /**
+   * The secure token of the webhook (returned for incoming webhooks).
+   */
+  token?: string | undefined;
+  /**
+   * The application that created this webhook.
+   */
+  applicationId?: string | undefined;
+  /**
+   * The user that created this webhook.
+   */
+  user?: {  id: string;
+  username: string;
+  discriminator: string;
+  avatar?: string | undefined;
+  bot?: boolean | undefined;};
+  /**
+   * The URL used for executing the webhook (returned for incoming webhooks).
+   */
+  url?: string | undefined;
+};
+
+export interface ActionInput_discord_listchannels {
+  /**
+   * Guild (server) ID to list channels from. Example: "41771983423143937"
+   */
+  guild_id: string;
+};
+
+export interface ActionOutput_discord_listchannels {
+  channels: ({  id: string;
+  type: number;
+  guild_id?: string | undefined;
+  position?: number | undefined;
+  name?: string | undefined;
+  topic?: string | undefined;
+  nsfw?: boolean | undefined;
+  last_message_id?: string | undefined;
+  bitrate?: number | undefined;
+  user_limit?: number | undefined;
+  rate_limit_per_user?: number | undefined;
+  recipients?: unknown[] | undefined;
+  icon?: string | undefined;
+  owner_id?: string | undefined;
+  application_id?: string | undefined;
+  managed?: boolean | undefined;
+  parent_id?: string | undefined;
+  last_pin_timestamp?: string | undefined;
+  rtc_region?: string | undefined;
+  video_quality_mode?: number | undefined;
+  message_count?: number | undefined;
+  member_count?: number | undefined;
+  default_auto_archive_duration?: number | undefined;
+  permissions?: string | undefined;
+  flags?: number | undefined;
+  total_message_sent?: number | undefined;
+  permission_overwrites?: unknown[] | undefined;})[];
+};
+
+export interface ActionInput_discord_listguildmembers {
+  /**
+   * Guild ID. Example: "197038439483310086"
+   */
+  guild_id: string;
+  /**
+   * Max number of members to return (1-1000).
+   */
+  limit?: number | undefined;
+  /**
+   * The highest user id in the previous page. Omit for the first page.
+   */
+  after?: string | undefined;
+};
+
+export interface ActionOutput_discord_listguildmembers {
+  items: ({  user?: {  id: string;
+  username: string;
+  discriminator: string;
+  global_name?: string | undefined;
+  avatar?: string | undefined;
+  bot?: boolean | undefined;
+  system?: boolean | undefined;};
+  nick?: string | undefined;
+  avatar?: string | undefined;
+  banner?: string | undefined;
+  roles: string[];
+  joined_at?: string | undefined;
+  premium_since?: string | undefined;
+  deaf: boolean;
+  mute: boolean;
+  flags: number;
+  pending?: boolean | undefined;
+  permissions?: string | undefined;
+  communication_disabled_until?: string | undefined;})[];
+  next_after?: string | undefined;
+};
+
+export interface ActionInput_discord_listguilds {
+  /**
+   * Get guilds after this guild ID. Omit for the first page, or use the next_cursor from the previous response.
+   */
+  after?: string | undefined;
+  /**
+   * Maximum number of guilds to return (1-200, default: 200).
+   */
+  limit?: number | undefined;
+};
+
+export interface ActionOutput_discord_listguilds {
+  /**
+   * List of guilds.
+   */
+  items: ({  /**
+   * Guild ID.
+   */
+  id: string;
+  /**
+   * Guild name.
+   */
+  name: string;
+  /**
+   * Icon hash or null.
+   */
+  icon: string;
+  /**
+   * Whether the user is the owner of the guild.
+   */
+  owner: boolean;
+  /**
+   * Enabled guild features.
+   */
+  features: string[];
+  /**
+   * Permissions for the user in the guild.
+   */
+  permissions?: string | undefined;
+  /**
+   * Approximate number of members in the guild (if with_counts enabled).
+   */
+  approximate_member_count?: number | undefined;
+  /**
+   * Approximate number of online members (if with_counts enabled).
+   */
+  approximate_presence_count?: number | undefined;})[];
+  /**
+   * Cursor for the next page of results. Omit if there are no more pages.
+   */
+  next_cursor?: string | undefined;
+};
+
+export interface ActionInput_discord_listmessages {
+  /**
+   * The ID of the channel to list messages from. Example: "1504364254634180618"
+   */
+  channel_id: string;
+  /**
+   * Number of messages to return (1-100). Default: 50
+   */
+  limit?: number | undefined;
+  /**
+   * Return messages before this message ID
+   */
+  before?: string | undefined;
+  /**
+   * Return messages after this message ID
+   */
+  after?: string | undefined;
+  /**
+   * Return messages around this message ID (ignores limit, returns 25 by default)
+   */
+  around?: string | undefined;
+};
+
+export interface ActionOutput_discord_listmessages {
+  messages: ({  id: string;
+  channel_id: string;
+  guild_id?: string | undefined;
+  author: {  id?: string | undefined;
+  username: string;
+  global_name?: string | undefined;
+  avatar?: string | undefined;
+  bot?: boolean | undefined;};
+  content: string;
+  timestamp: string;
+  edited_timestamp?: string | undefined;
+  tts: boolean;
+  mention_everyone: boolean;
+  pinned: boolean;
+  type: number;
+  attachments: ({  id: string;
+  filename: string;
+  content_type?: string | undefined;
+  size: number;
+  url: string;
+  height?: number | undefined;
+  width?: number | undefined;})[];
+  mention_count: number;})[];
+  /**
+   * Whether more messages are available
+   */
+  has_more: boolean;
+};
+
+export interface ActionInput_discord_listroles {
+  /**
+   * Guild ID to list roles from. Example: "123456789012345678"
+   */
+  guild_id: string;
+};
+
+export interface ActionOutput_discord_listroles {
+  roles: ({  id: string;
+  name: string;
+  color: number;
+  colors: {  primary_color: number;
+  secondary_color?: number | undefined;
+  tertiary_color?: number | undefined;};
+  hoist: boolean;
+  icon?: string | undefined;
+  unicode_emoji?: string | undefined;
+  position: number;
+  permissions: string;
+  managed: boolean;
+  mentionable: boolean;
+  tags?: {  bot_id?: string | undefined;
+  integration_id?: string | undefined;
+  premium_subscriber?: null | undefined;
+  subscription_listing_id?: string | undefined;
+  available_for_purchase?: null | undefined;
+  guild_connections?: null | undefined;};
+  flags: number;})[];
+};
+
+export interface ActionInput_discord_listwebhooks {
+  /**
+   * Discord channel ID. Example: "1504364254634180618"
+   */
+  channelId: string;
+};
+
+export interface ActionOutput_discord_listwebhooks {
+  webhooks: ({  id: string;
+  type: number;
+  guild_id?: string | undefined;
+  channel_id?: string | undefined;
+  name?: string | undefined;
+  avatar?: string | undefined;
+  token?: string | undefined;
+  application_id?: string | undefined;
+  user?: {  id: string;
+  username: string;
+  discriminator: string;
+  avatar?: string | undefined;
+  bot?: boolean | undefined;};
+  source_guild?: {  id: string;
+  name: string;
+  icon?: string | undefined;};
+  source_channel?: {  id: string;
+  name: string;} | undefined;
+  url?: string | undefined;})[];
+};
+
+export interface ActionInput_discord_removeguildmemberrole {
+  /**
+   * Guild ID. Example: "123456789"
+   */
+  guild_id: string;
+  /**
+   * User ID of the member. Example: "987654321"
+   */
+  user_id: string;
+  /**
+   * Role ID to remove from the member. Example: "456789123"
+   */
+  role_id: string;
+};
+
+export interface ActionOutput_discord_removeguildmemberrole {
+  success: boolean;
+  guild_id: string;
+  user_id: string;
+  role_id: string;
+};
+
+export interface ActionInput_discord_updatechannel {
+  /**
+   * The ID of the channel to update. Example: "1504364254634180618"
+   */
+  channel_id: string;
+  /**
+   * The name of the channel (1-100 characters).
+   */
+  name?: string | undefined;
+  /**
+   * The type of channel.
+   */
+  type?: number | undefined;
+  /**
+   * The position of the channel in the left-hand listing.
+   */
+  position?: number | undefined;
+  /**
+   * The channel topic (0-1024 characters).
+   */
+  topic?: string | undefined;
+  /**
+   * Whether the channel is NSFW.
+   */
+  nsfw?: boolean | undefined;
+  /**
+   * Amount of seconds a user has to wait before sending another message (0-21600).
+   */
+  rate_limit_per_user?: number | undefined;
+  /**
+   * The bitrate (in bits) of the voice channel.
+   */
+  bitrate?: number | undefined;
+  /**
+   * The user limit of the voice channel.
+   */
+  user_limit?: number | undefined;
+  /**
+   * Channel or category-specific permissions.
+   */
+  permission_overwrites?: ({  id: string;
+  type: number;
+  allow: string;
+  deny: string;})[] | undefined;
+  /**
+   * ID of the parent category for a channel.
+   */
+  parent_id?: string | undefined;
+  /**
+   * Default duration that the clients use (not the API) for newly created threads in the channel.
+   */
+  default_auto_archive_duration?: number | undefined;
+  /**
+   * Channel flags combined as a bitfield.
+   */
+  flags?: number | undefined;
+};
+
+export interface ActionOutput_discord_updatechannel {
+  id: string;
+  type: number;
+  guild_id?: string | undefined;
+  name?: string | undefined;
+  position?: number | undefined;
+  permission_overwrites?: ({  id: string;
+  type: number;
+  allow: string;
+  deny: string;})[] | undefined;
+  nsfw?: boolean | undefined;
+  parent_id?: string | undefined;
+  topic?: string | undefined;
+  last_message_id?: string | undefined;
+  bitrate?: number | undefined;
+  user_limit?: number | undefined;
+  rate_limit_per_user?: number | undefined;
+  default_auto_archive_duration?: number | undefined;
+  flags?: number | undefined;
+};
+
+export interface ActionInput_discord_updateguildmember {
+  /**
+   * Guild ID. Example: "1504364254634180618"
+   */
+  guild_id: string;
+  /**
+   * User ID of the member to update. Example: "1234567890123456789"
+   */
+  user_id: string;
+  /**
+   * Value to set user's nickname to
+   */
+  nick?: string | undefined;
+  /**
+   * Array of role IDs to assign to the member
+   */
+  roles?: string[] | undefined;
+  /**
+   * Whether the user is muted in voice channels
+   */
+  mute?: boolean | undefined;
+  /**
+   * Whether the user is deafened in voice channels
+   */
+  deaf?: boolean | undefined;
+  /**
+   * ID of channel to move user to (if they are connected to voice)
+   */
+  channel_id?: string | undefined;
+  /**
+   * ISO8601 timestamp when the user's timeout will expire (up to 28 days in the future), or null to remove timeout
+   */
+  communication_disabled_until?: string | undefined;
+  /**
+   * Guild member flags
+   */
+  flags?: number | undefined;
+  /**
+   * Optional reason for the audit log
+   */
+  reason?: string | undefined;
+};
+
+export interface ActionOutput_discord_updateguildmember {
+  /**
+   * The ID of the user
+   */
+  user_id: string;
+  nick?: string | undefined;
+  roles: string[];
+  deaf: boolean;
+  mute: boolean;
+  flags: number;
+  joined_at?: string | undefined;
+  premium_since?: string | undefined;
+  communication_disabled_until?: string | undefined;
+  pending?: boolean | undefined;
+  permissions?: string | undefined;
+};
+
+export interface ActionInput_discord_updateguild {
+  /**
+   * Guild ID to update. Example: "197038439483310086"
+   */
+  guild_id: string;
+  /**
+   * Guild name (2-100 characters)
+   */
+  name?: string | undefined;
+  /**
+   * Guild voice region id (deprecated)
+   */
+  region?: string | undefined;
+  /**
+   * Verification level (0-4)
+   */
+  verification_level?: number | undefined;
+  /**
+   * Default message notification level (0=ALL_MESSAGES, 1=ONLY_MENTIONS)
+   */
+  default_message_notifications?: number | undefined;
+  /**
+   * Explicit content filter level (0=DISABLED, 1=MEMBERS_WITHOUT_ROLES, 2=ALL_MEMBERS)
+   */
+  explicit_content_filter?: number | undefined;
+  /**
+   * ID of the AFK channel
+   */
+  afk_channel_id?: string | undefined;
+  /**
+   * AFK timeout in seconds (60, 300, 900, 1800, 3600)
+   */
+  afk_timeout?: number | undefined;
+  /**
+   * Base64 1024x1024 png/jpeg/gif image for the guild icon
+   */
+  icon?: string | undefined;
+  /**
+   * ID of the guild owner
+   */
+  owner_id?: string | undefined;
+  /**
+   * Base64 16:9 png/jpeg image for the guild splash
+   */
+  splash?: string | undefined;
+  /**
+   * Base64 16:9 png/jpeg image for the guild discovery splash
+   */
+  discovery_splash?: string | undefined;
+  /**
+   * Base64 16:9 png/jpeg image for the guild banner
+   */
+  banner?: string | undefined;
+  /**
+   * ID of the channel where guild notices are posted
+   */
+  system_channel_id?: string | undefined;
+  /**
+   * System channel flags
+   */
+  system_channel_flags?: number | undefined;
+  /**
+   * ID of the channel where Community guilds display rules
+   */
+  rules_channel_id?: string | undefined;
+  /**
+   * ID of the channel where admins/moderators receive notices
+   */
+  public_updates_channel_id?: string | undefined;
+  /**
+   * Preferred locale for Community guilds (e.g., "en-US")
+   */
+  preferred_locale?: string | undefined;
+  /**
+   * Enabled guild features
+   */
+  features?: string[] | undefined;
+  /**
+   * Guild description
+   */
+  description?: string | undefined;
+  /**
+   * Whether the boost progress bar should be enabled
+   */
+  premium_progress_bar_enabled?: boolean | undefined;
+  /**
+   * ID of the channel where safety alerts are received
+   */
+  safety_alerts_channel_id?: string | undefined;
+};
+
+export interface ActionOutput_discord_updateguild {
+  /**
+   * Guild ID
+   */
+  id: string;
+  /**
+   * Guild name
+   */
+  name: string;
+  /**
+   * Icon hash
+   */
+  icon: string;
+  /**
+   * Guild description
+   */
+  description: string;
+  /**
+   * Splash hash
+   */
+  splash: string;
+  /**
+   * Discovery splash hash
+   */
+  discovery_splash: string;
+  /**
+   * Banner hash
+   */
+  banner: string;
+  /**
+   * Owner ID
+   */
+  owner_id: string;
+  /**
+   * AFK channel ID
+   */
+  afk_channel_id: string;
+  /**
+   * AFK timeout in seconds
+   */
+  afk_timeout: number;
+  /**
+   * Verification level
+   */
+  verification_level: number;
+  /**
+   * Default message notifications level
+   */
+  default_message_notifications: number;
+  /**
+   * Explicit content filter level
+   */
+  explicit_content_filter: number;
+  /**
+   * System channel ID
+   */
+  system_channel_id: string;
+  /**
+   * System channel flags
+   */
+  system_channel_flags: number;
+  /**
+   * Rules channel ID
+   */
+  rules_channel_id: string;
+  /**
+   * Public updates channel ID
+   */
+  public_updates_channel_id: string;
+  /**
+   * Preferred locale
+   */
+  preferred_locale: string;
+  /**
+   * Enabled guild features
+   */
+  features: string[];
+  /**
+   * Whether boost progress bar is enabled
+   */
+  premium_progress_bar_enabled: boolean;
+  /**
+   * Safety alerts channel ID
+   */
+  safety_alerts_channel_id: string;
+};
+
+export interface ActionInput_discord_updatemessage {
+  /**
+   * The ID of the channel containing the message. Example: "1504383343142240278"
+   */
+  channel_id: string;
+  /**
+   * The ID of the message to update. Example: "1504385053805908058"
+   */
+  message_id: string;
+  /**
+   * Message contents (up to 2000 characters).
+   */
+  content?: string | undefined;
+  /**
+   * Up to 10 embed objects.
+   */
+  embeds?: ({})[] | undefined;
+  /**
+   * Message flags (SUPPRESS_EMBEDS and IS_COMPONENTS_V2 only).
+   */
+  flags?: number | undefined;
+  /**
+   * Allowed mentions object.
+   */
+  allowed_mentions?: {} | undefined;
+  /**
+   * Message components.
+   */
+  components?: ({})[] | undefined;
+  /**
+   * Attachments to retain on the message after edit.
+   */
+  attachments?: ({})[] | undefined;
+};
+
+export interface ActionOutput_discord_updatemessage {
+  id: string;
+  channel_id: string;
+  content?: string | undefined;
+  timestamp?: string | undefined;
+  edited_timestamp?: string | undefined;
+  author_id?: string | undefined;
+  author_username?: string | undefined;
+  author_bot?: boolean | undefined;
+  embeds?: ({})[] | undefined;
+  flags?: number | undefined;
+  components?: ({})[] | undefined;
+  attachments?: ({})[] | undefined;
+};
+
+export interface ActionInput_discord_updaterole {
+  /**
+   * Guild ID. Example: "197038439483310086"
+   */
+  guildId: string;
+  /**
+   * Role ID. Example: "41771983423143936"
+   */
+  roleId: string;
+  /**
+   * Name of the role, max 100 characters
+   */
+  name?: string | undefined;
+  /**
+   * Bitwise value of the enabled/disabled permissions
+   */
+  permissions?: string | undefined;
+  /**
+   * Deprecated RGB color value
+   */
+  color?: number | undefined;
+  /**
+   * The role's colors
+   */
+  colors?: {  primary_color?: number | undefined;
+  secondary_color?: number | undefined;
+  tertiary_color?: number | undefined;};
+  /**
+   * Whether the role should be displayed separately in the sidebar
+   */
+  hoist?: boolean | undefined;
+  /**
+   * The role's icon image (if the guild has the ROLE_ICONS feature)
+   */
+  icon?: string | undefined;
+  /**
+   * The role's unicode emoji as a standard emoji (if the guild has the ROLE_ICONS feature)
+   */
+  unicodeEmoji?: string | undefined;
+  /**
+   * Whether the role should be mentionable
+   */
+  mentionable?: boolean | undefined;
+};
+
+export interface ActionOutput_discord_updaterole {
+  /**
+   * Role ID
+   */
+  id: string;
+  /**
+   * Role name
+   */
+  name: string;
+  /**
+   * Deprecated integer representation of hexadecimal color code
+   */
+  color: number;
+  /**
+   * The role's colors
+   */
+  colors?: {  primary_color: number;
+  secondary_color: number;
+  tertiary_color: number;} | undefined;
+  /**
+   * If this role is pinned in the user listing
+   */
+  hoist: boolean;
+  /**
+   * Role icon hash
+   */
+  icon?: string | undefined;
+  /**
+   * Role unicode emoji
+   */
+  unicode_emoji?: string | undefined;
+  /**
+   * Position of this role (roles with the same position are sorted by id)
+   */
+  position: number;
+  /**
+   * Permission bit set
+   */
+  permissions: string;
+  /**
+   * Whether this role is managed by an integration
+   */
+  managed: boolean;
+  /**
+   * Whether this role is mentionable
+   */
+  mentionable: boolean;
+  /**
+   * The tags this role has
+   */
+  tags?: {  bot_id?: string | undefined;
+  integration_id?: string | undefined;
+  premium_subscriber?: null | undefined;
+  subscription_listing_id?: string | undefined;
+  available_for_purchase?: null | undefined;
+  guild_connections?: null | undefined;};
+  /**
+   * Role flags combined as a bitfield
+   */
+  flags: number;
+};
+
+export interface ActionInput_discord_updatewebhook {
+  /**
+   * The ID of the webhook to update. Example: "223704706495545344"
+   */
+  webhook_id: string;
+  /**
+   * The new name of the webhook (1-80 characters).
+   */
+  name?: string | undefined;
+  /**
+   * The base64-encoded image data for the webhook avatar, or null to remove.
+   */
+  avatar?: string | undefined;
+  /**
+   * The new channel ID to move the webhook to.
+   */
+  channel_id?: string | undefined;
+};
+
+export interface ActionOutput_discord_updatewebhook {
+  id: string;
+  type: number;
+  guild_id?: string | undefined;
+  channel_id?: string | undefined;
+  name?: string | undefined;
+  avatar?: string | undefined;
+  token?: string | undefined;
+  application_id?: string | undefined;
+  user?: {  id: string;
+  username: string;
+  discriminator: string;
+  avatar?: string | undefined;
+  public_flags?: number | undefined;};
 };
 
 export interface SyncMetadata_discourse_activeusers {
@@ -15169,25 +16844,6 @@ export interface Label {
   messagesUnread?: number | undefined;
   threadsTotal?: number | undefined;
   threadsUnread?: number | undefined;
-};
-
-export interface Message {
-  id: string;
-  channel_id: string;
-  channel_name: string;
-  user_id: string;
-  user_name?: string | undefined;
-  text: string;
-  timestamp: string;
-  thread_ts?: string | undefined;
-  parent_ts?: string | undefined;
-  is_thread_reply?: boolean | undefined;
-  reactions?: ({  name: string;
-  count: number;
-  users: string[];})[] | undefined;
-  reply_count?: number | undefined;
-  reply_users?: string[] | undefined;
-  created_at: string;
 };
 
 export interface SendAsAlias {
@@ -34131,26 +35787,6 @@ export interface Order {
 };
 
 export interface SyncMetadata_shopify_orders {
-};
-
-export interface Channel {
-  id: string;
-  title?: string | undefined;
-  description?: string | undefined;
-  customUrl?: string | undefined;
-  publishedAt?: string | undefined;
-  thumbnailDefaultUrl?: string | undefined;
-  thumbnailMediumUrl?: string | undefined;
-  thumbnailHighUrl?: string | undefined;
-  viewCount?: number | undefined;
-  subscriberCount?: number | undefined;
-  hiddenSubscriberCount?: boolean | undefined;
-  videoCount?: number | undefined;
-  country?: string | undefined;
-  privacyStatus?: string | undefined;
-  isLinked?: boolean | undefined;
-  madeForKids?: boolean | undefined;
-  selfDeclaredMadeForKids?: boolean | undefined;
 };
 
 export interface SyncMetadata_slack_channels {
