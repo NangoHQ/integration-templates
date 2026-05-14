@@ -50,7 +50,7 @@ const action = createAction({
         if (input.cursor) {
             endpoint = input.cursor;
         } else if (input.userId) {
-            endpoint = `/v1.0/users/${input.userId}/chats`;
+            endpoint = `/v1.0/users/${encodeURIComponent(input.userId)}/chats`;
         } else {
             endpoint = '/v1.0/me/chats';
         }

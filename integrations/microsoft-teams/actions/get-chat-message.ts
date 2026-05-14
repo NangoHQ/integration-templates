@@ -41,7 +41,7 @@ const ProviderChatMessageSchema = z.object({
         .optional(),
     importance: z.enum(['normal', 'high', 'urgent']).optional(),
     replyToId: z.string().nullable().optional(),
-    messageType: z.enum(['message', 'chatEvent', 'systemEventMessage']).optional()
+    messageType: z.enum(['message', 'chatEvent', 'systemEventMessage', 'typing', 'unknownFutureValue']).optional()
 });
 
 const OutputSchema = z.object({
@@ -75,7 +75,7 @@ const OutputSchema = z.object({
         .optional(),
     importance: z.enum(['normal', 'high', 'urgent']).optional(),
     replyToId: z.string().optional(),
-    messageType: z.enum(['message', 'chatEvent', 'systemEventMessage']).optional()
+    messageType: z.enum(['message', 'chatEvent', 'systemEventMessage', 'typing', 'unknownFutureValue']).optional()
 });
 
 const action = createAction({

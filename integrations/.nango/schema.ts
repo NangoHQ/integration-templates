@@ -24915,10 +24915,10 @@ export interface ActionInput_microsoft_teams_createchat {
    */
   userId: string;
   /**
-   * Roles for this member. Defaults to ["member"] for group chats.
+   * Roles for this member. Use "owner" to grant ownership; omit or pass [] for a regular member.
    */
   roles?: ({  0: 'owner';
-  1: 'member';})[] | undefined;})[];
+  1: 'guest';})[] | undefined;})[];
 };
 
 export interface ActionOutput_microsoft_teams_createchat {
@@ -25177,7 +25177,7 @@ export interface ActionOutput_microsoft_teams_getchatmessage {
   content?: string | undefined;};
   importance?: 'normal' | 'high' | 'urgent' | undefined;
   replyToId?: string | undefined;
-  messageType?: 'message' | 'chatEvent' | 'systemEventMessage' | undefined;
+  messageType?: 'message' | 'chatEvent' | 'systemEventMessage' | 'typing' | 'unknownFutureValue' | undefined;
 };
 
 export interface ActionInput_microsoft_teams_getchat {
@@ -25240,13 +25240,13 @@ export interface ActionOutput_microsoft_teams_getteam {
 
 export interface ActionInput_microsoft_teams_listchannelmessages {
   /**
-   * Team ID. Example: "a1b2c3d4-e5f6-7890-abcd-ef1234567890"
+   * Team ID. Example: "a1b2c3d4-e5f6-7890-abcd-ef1234567890". Required when next_link is not provided.
    */
-  team_id: string;
+  team_id?: string | undefined;
   /**
-   * Channel ID. Example: "19:abc123@thread.tacv2"
+   * Channel ID. Example: "19:abc123@thread.tacv2". Required when next_link is not provided.
    */
-  channel_id: string;
+  channel_id?: string | undefined;
   /**
    * Pagination cursor (@odata.nextLink) from the previous response. Omit for the first page.
    */
@@ -25566,19 +25566,6 @@ export interface ActionOutput_microsoft_teams_replytochannelmessage {
   lastModifiedDateTime?: string | undefined;
   bodyContentType?: string | undefined;
   bodyContent?: string | undefined;
-};
-
-export interface ActionInput_microsoft_teams_seedtestdata {
-};
-
-export interface ActionOutput_microsoft_teams_seedtestdata {
-  teamId: string;
-  standardChannelId: string;
-  privateChannelId: string;
-  messageIds: string[];
-  replyId: string;
-  chatId: string;
-  chatMessageIds: string[];
 };
 
 export interface ActionInput_microsoft_teams_updatechannel {

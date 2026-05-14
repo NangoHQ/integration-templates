@@ -981,7 +981,6 @@ import './microsoft-teams/actions/list-joined-teams.js';
 import './microsoft-teams/actions/list-team-members.js';
 import './microsoft-teams/actions/remove-team-member.js';
 import './microsoft-teams/actions/reply-to-channel-message.js';
-import './microsoft-teams/actions/seed-test-data.js';
 import './microsoft-teams/actions/update-channel.js';
 
 // -- Integration: namely-pat

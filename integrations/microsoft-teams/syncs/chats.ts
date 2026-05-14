@@ -78,57 +78,59 @@ const sync = createSync({
         // changed-since filter for delegated permissions. It returns
         // the full chat inventory, so we use full refresh with deletion
         // detection.
-        const checkpointResult = await nango.getCheckpoint();
-        const parsedCheckpoint = CheckpointSchema.safeParse(checkpointResult);
-        const checkpoint = parsedCheckpoint.success ? parsedCheckpoint.data : { nextLink: '' };
 
+        // Reset pagination so a resumed run always scans from page 1 — skipping
+        // earlier pages would cause trackDeletesEnd to falsely delete those records.
+        await nango.saveCheckpoint({ nextLink: '' });
         await nango.trackDeletesStart('Chat');
 
-        let endpoint: string | undefined = checkpoint.nextLink || '/v1.0/me/chats?$top=50&$expand=members';
+        let endpoint: string | undefined = '/v1.0/me/chats?$top=50&$expand=members';
 
-        while (endpoint) {
-            const currentEndpoint = endpoint;
-            // https://learn.microsoft.com/graph/api/chat-list
-            const response = await nango.get({
-                endpoint: currentEndpoint,
-                retries: 3
-            });
+        try {
+            while (endpoint) {
+                const currentEndpoint = endpoint;
+                // https://learn.microsoft.com/graph/api/chat-list
+                const response = await nango.get({
+                    endpoint: currentEndpoint,
+                    retries: 3
+                });
 
-            const parsed = ProviderResponseSchema.parse(response.data);
-            const chats = parsed.value.map((chat) => ({
-                id: chat.id,
-                ...(chat.topic != null && { topic: chat.topic }),
-                createdDateTime: chat.createdDateTime,
-                lastUpdatedDateTime: chat.lastUpdatedDateTime,
-                chatType: chat.chatType,
-                ...(chat.webUrl != null && { webUrl: chat.webUrl }),
-                ...(chat.tenantId != null && { tenantId: chat.tenantId }),
-                ...(chat.isHiddenForAllMembers !== undefined && { isHiddenForAllMembers: chat.isHiddenForAllMembers }),
-                ...(chat.viewpoint?.isHidden !== undefined && { isHidden: chat.viewpoint.isHidden }),
-                ...(chat.members !== undefined && {
-                    members: chat.members.map((member) => ({
-                        id: member.id,
-                        ...(member.displayName != null && { displayName: member.displayName }),
-                        ...(member.userId != null && { userId: member.userId }),
-                        ...(member.email != null && { email: member.email }),
-                        ...(member.roles !== undefined && { roles: member.roles })
-                    }))
-                })
-            }));
+                const parsed = ProviderResponseSchema.parse(response.data);
+                const chats = parsed.value.map((chat) => ({
+                    id: chat.id,
+                    ...(chat.topic != null && { topic: chat.topic }),
+                    createdDateTime: chat.createdDateTime,
+                    lastUpdatedDateTime: chat.lastUpdatedDateTime,
+                    chatType: chat.chatType,
+                    ...(chat.webUrl != null && { webUrl: chat.webUrl }),
+                    ...(chat.tenantId != null && { tenantId: chat.tenantId }),
+                    ...(chat.isHiddenForAllMembers !== undefined && { isHiddenForAllMembers: chat.isHiddenForAllMembers }),
+                    ...(chat.viewpoint?.isHidden !== undefined && { isHidden: chat.viewpoint.isHidden }),
+                    ...(chat.members !== undefined && {
+                        members: chat.members.map((member) => ({
+                            id: member.id,
+                            ...(member.displayName != null && { displayName: member.displayName }),
+                            ...(member.userId != null && { userId: member.userId }),
+                            ...(member.email != null && { email: member.email }),
+                            ...(member.roles !== undefined && { roles: member.roles })
+                        }))
+                    })
+                }));
 
-            if (chats.length > 0) {
-                await nango.batchSave(chats, 'Chat');
+                if (chats.length > 0) {
+                    await nango.batchSave(chats, 'Chat');
+                }
+
+                endpoint = parsed['@odata.nextLink'];
+
+                if (endpoint) {
+                    await nango.saveCheckpoint({ nextLink: endpoint });
+                }
             }
-
-            endpoint = parsed['@odata.nextLink'];
-
-            if (endpoint) {
-                await nango.saveCheckpoint({ nextLink: endpoint });
-            }
+        } finally {
+            await nango.saveCheckpoint({ nextLink: '' });
+            await nango.trackDeletesEnd('Chat');
         }
-
-        await nango.saveCheckpoint({ nextLink: '' });
-        await nango.trackDeletesEnd('Chat');
     }
 });
 

@@ -195,7 +195,7 @@ const action = createAction({
         if (input.members && input.members.length > 0) {
             requestBody.members = input.members.map((member) => ({
                 '@odata.type': '#microsoft.graph.aadUserConversationMember',
-                roles: member.roles || ['member'],
+                roles: member.roles?.includes('owner') ? ['owner'] : [],
                 'user@odata.bind': `https://graph.microsoft.com/v1.0/users('${member.user_id}')`
             }));
         }

@@ -4,9 +4,9 @@ import { createAction } from 'nango';
 const MemberSchema = z.object({
     userId: z.string().describe('The Azure AD user ID of the member. Example: "a1b2c3d4-e5f6-7890-abcd-ef1234567890"'),
     roles: z
-        .array(z.enum(['owner', 'member']))
+        .array(z.enum(['owner', 'guest']))
         .optional()
-        .describe('Roles for this member. Defaults to ["member"] for group chats.')
+        .describe('Roles for this member. Use "owner" to grant ownership; omit or pass [] for a regular member.')
 });
 
 const InputSchema = z.object({
@@ -69,14 +69,11 @@ const action = createAction({
         }
 
         // Build conversation members array for the request
-        const members = input.members.map((member) => {
-            const roles = member.roles && member.roles.length > 0 ? member.roles : ['member'];
-            return {
-                '@odata.type': '#microsoft.graph.aadUserConversationMember',
-                roles: roles,
-                'user@odata.bind': `https://graph.microsoft.com/v1.0/users('${member.userId}')`
-            };
-        });
+        const members = input.members.map((member) => ({
+            '@odata.type': '#microsoft.graph.aadUserConversationMember',
+            roles: member.roles && member.roles.length > 0 ? member.roles : [],
+            'user@odata.bind': `https://graph.microsoft.com/v1.0/users('${member.userId}')`
+        }));
 
         const requestBody: {
             chatType: string;
@@ -87,7 +84,7 @@ const action = createAction({
             members: members
         };
 
-        if (input.topic !== undefined) {
+        if (input.chatType === 'group' && input.topic !== undefined) {
             requestBody.topic = input.topic;
         }
 

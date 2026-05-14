@@ -13,7 +13,7 @@ const ProviderChatSchema = z.object({
     lastUpdatedDateTime: z.string().optional(),
     onlineMeetingInfo: z
         .object({
-            joinUrl: z.string().optional()
+            joinWebUrl: z.string().optional()
         })
         .passthrough()
         .nullable()
@@ -67,7 +67,7 @@ const action = createAction({
             ...(providerChat.chatType !== undefined && { chat_type: providerChat.chatType }),
             ...(providerChat.createdDateTime !== undefined && { created_at: providerChat.createdDateTime }),
             ...(providerChat.lastUpdatedDateTime !== undefined && { last_updated_at: providerChat.lastUpdatedDateTime }),
-            ...(providerChat.onlineMeetingInfo?.joinUrl !== undefined && { join_url: providerChat.onlineMeetingInfo.joinUrl }),
+            ...(providerChat.onlineMeetingInfo?.joinWebUrl !== undefined && { join_url: providerChat.onlineMeetingInfo.joinWebUrl }),
             ...(providerChat.tenantId !== undefined && { tenant_id: providerChat.tenantId }),
             ...(providerChat.webUrl != null && { web_url: providerChat.webUrl })
         };

@@ -2,8 +2,8 @@ import { z } from 'zod';
 import { createAction } from 'nango';
 
 const InputSchema = z.object({
-    team_id: z.string().describe('Team ID. Example: "a1b2c3d4-e5f6-7890-abcd-ef1234567890"'),
-    channel_id: z.string().describe('Channel ID. Example: "19:abc123@thread.tacv2"'),
+    team_id: z.string().optional().describe('Team ID. Example: "a1b2c3d4-e5f6-7890-abcd-ef1234567890". Required when next_link is not provided.'),
+    channel_id: z.string().optional().describe('Channel ID. Example: "19:abc123@thread.tacv2". Required when next_link is not provided.'),
     next_link: z.string().optional().describe('Pagination cursor (@odata.nextLink) from the previous response. Omit for the first page.')
 });
 

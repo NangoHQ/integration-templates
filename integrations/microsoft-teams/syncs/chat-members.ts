@@ -70,13 +70,13 @@ const sync = createSync({
     ],
 
     exec: async (nango) => {
-        const checkpointResult = await nango.getCheckpoint();
-        const parsedCheckpoint = CheckpointSchema.safeParse(checkpointResult);
-        const checkpoint = parsedCheckpoint.success ? parsedCheckpoint.data : { chatsPageEndpoint: '', chatIndex: -1, membersNextLink: '' };
-
         // Blocker: Microsoft Graph /chats/{id}/members does not support delta,
         // change notifications, modified_since, or a deleted-record endpoint.
         // Membership rosters must be fully enumerated as snapshots.
+
+        // Reset pagination so a resumed run always scans from the first chat/page —
+        // skipping earlier chats would cause trackDeletesEnd to falsely delete them.
+        await nango.saveCheckpoint({ chatsPageEndpoint: '', chatIndex: -1, membersNextLink: '' });
         await nango.trackDeletesStart('ChatMember');
 
         const batch: z.infer<typeof ChatMemberRecordSchema>[] = [];
@@ -89,71 +89,70 @@ const sync = createSync({
             }
         };
 
-        let chatsPageEndpoint = checkpoint.chatsPageEndpoint || '/v1.0/me/chats';
+        let chatsPageEndpoint = '/v1.0/me/chats';
 
-        while (chatsPageEndpoint) {
-            // https://learn.microsoft.com/graph/api/chat-list
-            const chatsRequest = buildGraphRequest(chatsPageEndpoint, chatsPageEndpoint === '/v1.0/me/chats' ? { $top: '50' } : undefined);
-            const chatResponse = await nango.get({
-                ...chatsRequest,
-                retries: 3
-            });
+        try {
+            while (chatsPageEndpoint) {
+                // https://learn.microsoft.com/graph/api/chat-list
+                const chatsRequest = buildGraphRequest(chatsPageEndpoint, chatsPageEndpoint === '/v1.0/me/chats' ? { $top: '50' } : undefined);
+                const chatResponse = await nango.get({
+                    ...chatsRequest,
+                    retries: 3
+                });
 
-            const chatData = ChatListResponseSchema.parse(chatResponse.data);
-            const chats = chatData.value;
-            const isResumePage = checkpoint.chatsPageEndpoint === chatsPageEndpoint;
-            const startChatIndex = isResumePage && checkpoint.chatIndex >= 0 && checkpoint.chatIndex < chats.length ? checkpoint.chatIndex : 0;
+                const chatData = ChatListResponseSchema.parse(chatResponse.data);
+                const chats = chatData.value;
 
-            for (let chatIndex = startChatIndex; chatIndex < chats.length; chatIndex += 1) {
-                const chat = chats[chatIndex]!;
-                let membersNextLink: string | undefined =
-                    isResumePage && chatIndex === startChatIndex && checkpoint.membersNextLink.length > 0 ? checkpoint.membersNextLink : undefined;
+                for (let chatIndex = 0; chatIndex < chats.length; chatIndex += 1) {
+                    const chat = chats[chatIndex]!;
+                    let membersNextLink: string | undefined;
 
-                do {
-                    // https://learn.microsoft.com/graph/api/chat-list-members
-                    const membersRequest = buildGraphRequest(membersNextLink || `/v1.0/chats/${chat.id}/members`);
-                    const memberResponse = await nango.get({
-                        ...membersRequest,
-                        retries: 3
-                    });
+                    do {
+                        // https://learn.microsoft.com/graph/api/chat-list-members
+                        const membersRequest = buildGraphRequest(membersNextLink || `/v1.0/chats/${chat.id}/members`);
+                        const memberResponse = await nango.get({
+                            ...membersRequest,
+                            retries: 3
+                        });
 
-                    const memberData = ChatMemberListResponseSchema.parse(memberResponse.data);
-                    const members = memberData.value;
+                        const memberData = ChatMemberListResponseSchema.parse(memberResponse.data);
+                        const members = memberData.value;
 
-                    for (const member of members) {
-                        const record = {
-                            id: `${chat.id}_${member.id}`,
-                            chatId: chat.id,
-                            ...(member.userId != null && { userId: member.userId }),
-                            ...(member.displayName != null && { displayName: member.displayName }),
-                            ...(member.roles != null && { roles: member.roles })
-                        };
-                        batch.push(record);
+                        for (const member of members) {
+                            const record = {
+                                id: `${chat.id}_${member.id}`,
+                                chatId: chat.id,
+                                ...(member.userId != null && { userId: member.userId }),
+                                ...(member.displayName != null && { displayName: member.displayName }),
+                                ...(member.roles != null && { roles: member.roles })
+                            };
+                            batch.push(record);
 
-                        if (batch.length >= batchSize) {
-                            await flushBatch();
+                            if (batch.length >= batchSize) {
+                                await flushBatch();
+                            }
                         }
-                    }
 
-                    membersNextLink = memberData['@odata.nextLink'];
+                        membersNextLink = memberData['@odata.nextLink'];
 
-                    if (membersNextLink) {
-                        await nango.saveCheckpoint({ chatsPageEndpoint, chatIndex, membersNextLink });
-                    } else if (chatIndex < chats.length - 1) {
-                        await nango.saveCheckpoint({ chatsPageEndpoint, chatIndex: chatIndex + 1, membersNextLink: '' });
-                    } else if (chatData['@odata.nextLink']) {
-                        await nango.saveCheckpoint({ chatsPageEndpoint: chatData['@odata.nextLink'], chatIndex: 0, membersNextLink: '' });
-                    }
-                } while (membersNextLink);
+                        if (membersNextLink) {
+                            await nango.saveCheckpoint({ chatsPageEndpoint, chatIndex, membersNextLink });
+                        } else if (chatIndex < chats.length - 1) {
+                            await nango.saveCheckpoint({ chatsPageEndpoint, chatIndex: chatIndex + 1, membersNextLink: '' });
+                        } else if (chatData['@odata.nextLink']) {
+                            await nango.saveCheckpoint({ chatsPageEndpoint: chatData['@odata.nextLink'], chatIndex: 0, membersNextLink: '' });
+                        }
+                    } while (membersNextLink);
+                }
+
+                chatsPageEndpoint = chatData['@odata.nextLink'] || '';
             }
 
-            chatsPageEndpoint = chatData['@odata.nextLink'] || '';
+            await flushBatch();
+        } finally {
+            await nango.saveCheckpoint({ chatsPageEndpoint: '', chatIndex: -1, membersNextLink: '' });
+            await nango.trackDeletesEnd('ChatMember');
         }
-
-        await flushBatch();
-
-        await nango.saveCheckpoint({ chatsPageEndpoint: '', chatIndex: -1, membersNextLink: '' });
-        await nango.trackDeletesEnd('ChatMember');
     }
 });
 

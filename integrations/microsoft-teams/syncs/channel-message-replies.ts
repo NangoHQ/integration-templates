@@ -75,13 +75,11 @@ const CheckpointSchema = z.object({
     nextLink: z.string()
 });
 
-type Checkpoint = z.infer<typeof CheckpointSchema>;
-
 const sync = createSync<{ ChannelMessageReply: typeof ChannelMessageReplySchema }, undefined, typeof CheckpointSchema>({
     description: 'Sync replies for selected channel message threads',
     version: '1.0.0',
     frequency: 'every hour',
-    autoStart: true,
+    autoStart: false,
     checkpoint: CheckpointSchema,
     models: {
         ChannelMessageReply: ChannelMessageReplySchema
@@ -94,10 +92,6 @@ const sync = createSync<{ ChannelMessageReply: typeof ChannelMessageReplySchema 
     ],
 
     exec: async (nango) => {
-        const checkpointResult = await nango.getCheckpoint();
-        const checkpoint = CheckpointSchema.safeParse(checkpointResult);
-        const checkpointData: Checkpoint = checkpoint.success ? checkpoint.data : { parentIndex: -1, nextLink: '' };
-
         // Validate and extract metadata
         let metadataRaw: unknown = null;
         try {
@@ -122,74 +116,76 @@ const sync = createSync<{ ChannelMessageReply: typeof ChannelMessageReplySchema 
             return;
         }
 
-        const hasResumeParent = checkpointData.parentIndex >= 0 && checkpointData.parentIndex < parentMessagesParsed.length;
-        const startParentIndex = hasResumeParent ? checkpointData.parentIndex : 0;
-
+        // Reset pagination so a resumed run always scans all parent messages from
+        // the start — skipping earlier messages would cause trackDeletesEnd to
+        // falsely delete their replies.
+        await nango.saveCheckpoint({ parentIndex: -1, nextLink: '' });
         await nango.trackDeletesStart('ChannelMessageReply');
 
-        for (let parentIndex = startParentIndex; parentIndex < parentMessagesParsed.length; parentIndex += 1) {
-            const parent = parentMessagesParsed[parentIndex];
+        try {
+            for (let parentIndex = 0; parentIndex < parentMessagesParsed.length; parentIndex += 1) {
+                const parent = parentMessagesParsed[parentIndex];
 
-            if (!parent) {
-                continue;
-            }
+                if (!parent) {
+                    continue;
+                }
 
-            await nango.log(`Fetching replies for message ${parent.messageId} in channel ${parent.channelId} (team ${parent.teamId})`);
+                await nango.log(`Fetching replies for message ${parent.messageId} in channel ${parent.channelId} (team ${parent.teamId})`);
 
-            let nextLink: string | undefined =
-                hasResumeParent && parentIndex === startParentIndex && checkpointData.nextLink.length > 0 ? checkpointData.nextLink : undefined;
+                let nextLink: string | undefined;
 
-            do {
-                // https://learn.microsoft.com/en-us/graph/api/chatmessage-list-replies
-                const endpoint = nextLink || `/teams/${parent.teamId}/channels/${parent.channelId}/messages/${parent.messageId}/replies`;
-
-                const proxyConfig: ProxyConfiguration = {
+                do {
                     // https://learn.microsoft.com/en-us/graph/api/chatmessage-list-replies
-                    endpoint,
-                    retries: 3
-                };
+                    const endpoint = nextLink || `/teams/${parent.teamId}/channels/${parent.channelId}/messages/${parent.messageId}/replies`;
 
-                if (!nextLink) {
-                    proxyConfig.params = { $top: 50 };
-                }
+                    const proxyConfig: ProxyConfiguration = {
+                        // https://learn.microsoft.com/en-us/graph/api/chatmessage-list-replies
+                        endpoint,
+                        retries: 3
+                    };
 
-                const response = await nango.get(proxyConfig);
-                const parsed = ProviderReplyListSchema.parse(response.data);
+                    if (!nextLink) {
+                        proxyConfig.params = { $top: 50 };
+                    }
 
-                const replies = parsed.value.map((reply) => ({
-                    id: reply.id,
-                    parentMessageId: parent.messageId,
-                    channelId: reply.channelIdentity?.channelId ?? parent.channelId,
-                    teamId: reply.channelIdentity?.teamId ?? parent.teamId,
-                    createdDateTime: reply.createdDateTime,
-                    lastModifiedDateTime: reply.lastModifiedDateTime,
-                    deletedDateTime: reply.deletedDateTime ?? undefined,
-                    fromUserId: reply.from?.user?.id,
-                    fromUserDisplayName: reply.from?.user?.displayName,
-                    contentType: reply.body?.contentType,
-                    content: reply.body?.content,
-                    messageType: reply.messageType,
-                    importance: reply.importance,
-                    webUrl: reply.webUrl
-                }));
+                    const response = await nango.get(proxyConfig);
+                    const parsed = ProviderReplyListSchema.parse(response.data);
 
-                if (replies.length > 0) {
-                    await nango.batchSave(replies, 'ChannelMessageReply');
-                    await nango.log(`Saved ${replies.length} replies for message ${parent.messageId}`);
-                }
+                    const replies = parsed.value.map((reply) => ({
+                        id: reply.id,
+                        parentMessageId: parent.messageId,
+                        channelId: reply.channelIdentity?.channelId ?? parent.channelId,
+                        teamId: reply.channelIdentity?.teamId ?? parent.teamId,
+                        createdDateTime: reply.createdDateTime,
+                        lastModifiedDateTime: reply.lastModifiedDateTime,
+                        deletedDateTime: reply.deletedDateTime ?? undefined,
+                        fromUserId: reply.from?.user?.id,
+                        fromUserDisplayName: reply.from?.user?.displayName,
+                        contentType: reply.body?.contentType,
+                        content: reply.body?.content,
+                        messageType: reply.messageType,
+                        importance: reply.importance,
+                        webUrl: reply.webUrl
+                    }));
 
-                nextLink = parsed['@odata.nextLink'];
+                    if (replies.length > 0) {
+                        await nango.batchSave(replies, 'ChannelMessageReply');
+                        await nango.log(`Saved ${replies.length} replies for message ${parent.messageId}`);
+                    }
 
-                if (nextLink) {
-                    await nango.saveCheckpoint({ parentIndex, nextLink });
-                } else if (parentIndex < parentMessagesParsed.length - 1) {
-                    await nango.saveCheckpoint({ parentIndex: parentIndex + 1, nextLink: '' });
-                }
-            } while (nextLink);
+                    nextLink = parsed['@odata.nextLink'];
+
+                    if (nextLink) {
+                        await nango.saveCheckpoint({ parentIndex, nextLink });
+                    } else if (parentIndex < parentMessagesParsed.length - 1) {
+                        await nango.saveCheckpoint({ parentIndex: parentIndex + 1, nextLink: '' });
+                    }
+                } while (nextLink);
+            }
+        } finally {
+            await nango.saveCheckpoint({ parentIndex: -1, nextLink: '' });
+            await nango.trackDeletesEnd('ChannelMessageReply');
         }
-
-        await nango.saveCheckpoint({ parentIndex: -1, nextLink: '' });
-        await nango.trackDeletesEnd('ChannelMessageReply');
     }
 });
 

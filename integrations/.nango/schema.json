@@ -76651,7 +76651,7 @@
                     },
                     "1": {
                       "type": "string",
-                      "const": "member"
+                      "const": "guest"
                     }
                   },
                   "required": [
@@ -76660,7 +76660,7 @@
                   ],
                   "additionalProperties": false
                 },
-                "description": "Roles for this member. Defaults to [\"member\"] for group chats."
+                "description": "Roles for this member. Use \"owner\" to grant ownership; omit or pass [] for a regular member."
               }
             },
             "required": [
@@ -77342,7 +77342,9 @@
           "enum": [
             "message",
             "chatEvent",
-            "systemEventMessage"
+            "systemEventMessage",
+            "typing",
+            "unknownFutureValue"
           ]
         }
       },
@@ -77557,21 +77559,17 @@
       "properties": {
         "team_id": {
           "type": "string",
-          "description": "Team ID. Example: \"a1b2c3d4-e5f6-7890-abcd-ef1234567890\""
+          "description": "Team ID. Example: \"a1b2c3d4-e5f6-7890-abcd-ef1234567890\". Required when next_link is not provided."
         },
         "channel_id": {
           "type": "string",
-          "description": "Channel ID. Example: \"19:abc123@thread.tacv2\""
+          "description": "Channel ID. Example: \"19:abc123@thread.tacv2\". Required when next_link is not provided."
         },
         "next_link": {
           "type": "string",
           "description": "Pagination cursor (@odata.nextLink) from the previous response. Omit for the first page."
         }
       },
-      "required": [
-        "team_id",
-        "channel_id"
-      ],
       "additionalProperties": false
     },
     "ActionOutput_microsoft_teams_listchannelmessages": {
@@ -78442,52 +78440,6 @@
       },
       "required": [
         "id"
-      ],
-      "additionalProperties": false
-    },
-    "ActionInput_microsoft_teams_seedtestdata": {
-      "type": "object",
-      "additionalProperties": false
-    },
-    "ActionOutput_microsoft_teams_seedtestdata": {
-      "type": "object",
-      "properties": {
-        "teamId": {
-          "type": "string"
-        },
-        "standardChannelId": {
-          "type": "string"
-        },
-        "privateChannelId": {
-          "type": "string"
-        },
-        "messageIds": {
-          "type": "array",
-          "items": {
-            "type": "string"
-          }
-        },
-        "replyId": {
-          "type": "string"
-        },
-        "chatId": {
-          "type": "string"
-        },
-        "chatMessageIds": {
-          "type": "array",
-          "items": {
-            "type": "string"
-          }
-        }
-      },
-      "required": [
-        "teamId",
-        "standardChannelId",
-        "privateChannelId",
-        "messageIds",
-        "replyId",
-        "chatId",
-        "chatMessageIds"
       ],
       "additionalProperties": false
     },

@@ -208,60 +208,62 @@ const sync = createSync({
 async function runFallback(nango: NangoSyncLocal) {
     await nango.trackDeletesStart('ChatMessage');
 
-    const chatProxyConfig: ProxyConfiguration = {
-        // https://learn.microsoft.com/graph/api/chat-list
-        endpoint: '/v1.0/me/chats',
-        paginate: {
-            type: 'link',
-            link_path_in_response_body: '@odata.nextLink',
-            response_path: 'value',
-            limit_name_in_request: '$top',
-            limit: 50
-        },
-        retries: 3
-    };
+    try {
+        const chatProxyConfig: ProxyConfiguration = {
+            // https://learn.microsoft.com/graph/api/chat-list
+            endpoint: '/v1.0/me/chats',
+            paginate: {
+                type: 'link',
+                link_path_in_response_body: '@odata.nextLink',
+                response_path: 'value',
+                limit_name_in_request: '$top',
+                limit: 50
+            },
+            retries: 3
+        };
 
-    for await (const rawChats of nango.paginate<unknown>(chatProxyConfig)) {
-        if (!Array.isArray(rawChats)) {
-            continue;
-        }
-
-        for (const rawChat of rawChats) {
-            const parsedChat = ChatSchema.safeParse(rawChat);
-            if (!parsedChat.success) {
-                await nango.log('Failed to parse chat', { level: 'warn' });
+        for await (const rawChats of nango.paginate<unknown>(chatProxyConfig)) {
+            if (!Array.isArray(rawChats)) {
                 continue;
             }
 
-            const chatId = parsedChat.data.id;
-
-            const messageProxyConfig: ProxyConfiguration = {
-                // https://learn.microsoft.com/graph/api/chat-list-messages
-                endpoint: `/v1.0/chats/${chatId}/messages`,
-                paginate: {
-                    type: 'link',
-                    link_path_in_response_body: '@odata.nextLink',
-                    response_path: 'value',
-                    limit_name_in_request: '$top',
-                    limit: 50
-                },
-                retries: 3
-            };
-
-            for await (const rawMessages of nango.paginate<unknown>(messageProxyConfig)) {
-                if (!Array.isArray(rawMessages)) {
+            for (const rawChat of rawChats) {
+                const parsedChat = ChatSchema.safeParse(rawChat);
+                if (!parsedChat.success) {
+                    await nango.log('Failed to parse chat', { level: 'warn' });
                     continue;
                 }
 
-                const messages = mapMessages(rawMessages, chatId);
-                if (messages.length > 0) {
-                    await nango.batchSave(messages, 'ChatMessage');
+                const chatId = parsedChat.data.id;
+
+                const messageProxyConfig: ProxyConfiguration = {
+                    // https://learn.microsoft.com/graph/api/chat-list-messages
+                    endpoint: `/v1.0/chats/${chatId}/messages`,
+                    paginate: {
+                        type: 'link',
+                        link_path_in_response_body: '@odata.nextLink',
+                        response_path: 'value',
+                        limit_name_in_request: '$top',
+                        limit: 50
+                    },
+                    retries: 3
+                };
+
+                for await (const rawMessages of nango.paginate<unknown>(messageProxyConfig)) {
+                    if (!Array.isArray(rawMessages)) {
+                        continue;
+                    }
+
+                    const messages = mapMessages(rawMessages, chatId);
+                    if (messages.length > 0) {
+                        await nango.batchSave(messages, 'ChatMessage');
+                    }
                 }
             }
         }
+    } finally {
+        await nango.trackDeletesEnd('ChatMessage');
     }
-
-    await nango.trackDeletesEnd('ChatMessage');
 }
 
 export type NangoSyncLocal = Parameters<(typeof sync)['exec']>[0];
