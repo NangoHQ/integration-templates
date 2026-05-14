@@ -113,6 +113,9 @@ function parseCursor(cursor: string | undefined): { page: number; per_page: numb
     const parts = cursor.split(':');
     const page = parseInt(parts[0] || '1', 10);
     const per_page = parseInt(parts[1] || '200', 10);
+    if (isNaN(page) || page < 1 || isNaN(per_page) || per_page < 1) {
+        return { page: 1, per_page: 200 };
+    }
     return { page, per_page };
 }
 

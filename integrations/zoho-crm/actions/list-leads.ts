@@ -52,7 +52,7 @@ const LeadSchema = z
         Email_Opt_Out: z.boolean().optional(),
         $converted: z.boolean().optional(),
         $approved: z.boolean().optional(),
-        Tag: z.array(z.string()).optional()
+        Tag: z.array(z.object({ name: z.string(), id: z.string() })).optional()
     })
     .passthrough();
 

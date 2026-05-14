@@ -126815,7 +126815,20 @@
               "Tag": {
                 "type": "array",
                 "items": {
-                  "type": "string"
+                  "type": "object",
+                  "properties": {
+                    "name": {
+                      "type": "string"
+                    },
+                    "id": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "name",
+                    "id"
+                  ],
+                  "additionalProperties": false
                 }
               }
             },
@@ -127263,7 +127276,20 @@
               "Tag": {
                 "type": "array",
                 "items": {
-                  "type": "string"
+                  "type": "object",
+                  "properties": {
+                    "name": {
+                      "type": "string"
+                    },
+                    "id": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "name",
+                    "id"
+                  ],
+                  "additionalProperties": false
                 }
               }
             },
@@ -127668,7 +127694,20 @@
               "Tag": {
                 "type": "array",
                 "items": {
-                  "type": "string"
+                  "type": "object",
+                  "properties": {
+                    "name": {
+                      "type": "string"
+                    },
+                    "id": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "name",
+                    "id"
+                  ],
+                  "additionalProperties": false
                 }
               }
             },
@@ -128110,7 +128149,27 @@
         "trigger": {
           "type": "array",
           "items": {
-            "type": "string"
+            "type": "object",
+            "properties": {
+              "0": {
+                "type": "string",
+                "const": "approval"
+              },
+              "1": {
+                "type": "string",
+                "const": "workflow"
+              },
+              "2": {
+                "type": "string",
+                "const": "blueprint"
+              }
+            },
+            "required": [
+              "0",
+              "1",
+              "2"
+            ],
+            "additionalProperties": false
           },
           "description": "Triggers to execute (approval, workflow, blueprint)."
         }

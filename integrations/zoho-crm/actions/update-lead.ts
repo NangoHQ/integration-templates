@@ -75,7 +75,7 @@ const action = createAction({
         }
 
         // https://www.zoho.com/crm/developer/docs/api/v2/update-specific-record.html
-        const response = await nango.patch({
+        const response = await nango.put({
             endpoint: `/crm/v2/Leads/${record_id}`,
             data: {
                 data: [data]

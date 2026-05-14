@@ -138,11 +138,11 @@ const sync = createSync({
                         }
                     }
                 }
-            }
-        }
 
-        if (lastModifiedTime) {
-            await nango.saveCheckpoint({ updated_after: lastModifiedTime });
+                if (lastModifiedTime) {
+                    await nango.saveCheckpoint({ updated_after: lastModifiedTime });
+                }
+            }
         }
     }
 });

@@ -165,8 +165,8 @@ const action = createAction({
             updateData.What_Id = { id: input.What_Id };
         }
 
-        // https://www.zoho.com/crm/developer/docs/api/v2/update-records.html
-        const updateResponse = await nango.patch({
+        // https://www.zoho.com/crm/developer/docs/api/v2/update-specific-record.html
+        const updateResponse = await nango.put({
             endpoint: `crm/v2/Calls/${input.id}`,
             data: {
                 data: [updateData]

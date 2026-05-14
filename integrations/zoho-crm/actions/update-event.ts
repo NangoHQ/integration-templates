@@ -114,11 +114,18 @@ const action = createAction({
             updateData['Recurring_Activity'] = input.Recurring_Activity;
         }
 
+        if (Object.keys(updateData).length === 0) {
+            throw new nango.ActionError({
+                type: 'invalid_input',
+                message: 'At least one field must be provided to update'
+            });
+        }
+
         const requestBody: Record<string, unknown> = {
             data: [updateData]
         };
 
-        if (input.trigger !== undefined && input.trigger.length > 0) {
+        if (input.trigger !== undefined) {
             requestBody['trigger'] = input.trigger;
         }
 

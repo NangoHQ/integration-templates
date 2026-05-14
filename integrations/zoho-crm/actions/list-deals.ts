@@ -61,7 +61,7 @@ const DealSchema = z
         Created_By: OwnerSchema.optional(),
         Modified_By: OwnerSchema.optional(),
         Layout: LayoutSchema.optional(),
-        Tag: z.array(z.string()).optional()
+        Tag: z.array(z.object({ name: z.string(), id: z.string() })).optional()
     })
     .passthrough();
 

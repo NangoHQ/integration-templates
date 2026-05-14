@@ -132,8 +132,15 @@ const action = createAction({
             updateData['Owner'] = input.Owner;
         }
 
+        if (Object.keys(updateData).length === 0) {
+            throw new nango.ActionError({
+                type: 'invalid_input',
+                message: 'At least one field must be provided to update'
+            });
+        }
+
         // https://www.zoho.com/crm/developer/docs/api/v2/update-specific-record.html
-        const response = await nango.patch({
+        const response = await nango.put({
             endpoint: `/crm/v2/Products/${input.id}`,
             data: {
                 data: [updateData]

@@ -50,6 +50,13 @@ const action = createAction({
     scopes: ['ZohoCRM.modules.ALL'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
+        if (input.what_id !== undefined && input.se_module === undefined) {
+            throw new nango.ActionError({
+                type: 'invalid_input',
+                message: 'se_module is required when what_id is provided'
+            });
+        }
+
         const data: Record<string, unknown> = {
             id: input.id
         };

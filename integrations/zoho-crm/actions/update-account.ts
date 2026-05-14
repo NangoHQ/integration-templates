@@ -21,7 +21,10 @@ const InputSchema = z.object({
     Employees: z.number().optional().describe('Number of employees.'),
     Annual_Revenue: z.number().optional().describe('Annual revenue of the account.'),
     Description: z.string().optional().describe('Description of the account.'),
-    trigger: z.array(z.string()).optional().describe('Triggers to execute (approval, workflow, blueprint).')
+    trigger: z
+        .array(z.enum(['approval', 'workflow', 'blueprint']))
+        .optional()
+        .describe('Triggers to execute (approval, workflow, blueprint).')
 });
 
 // Output schema for update action

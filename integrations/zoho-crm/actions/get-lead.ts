@@ -64,7 +64,7 @@ const ProviderLeadSchema = z.object({
     $editable: z.boolean().optional(),
     $process_flow: z.boolean().optional(),
     $orchestration: z.boolean().optional(),
-    Tag: z.array(z.string()).optional()
+    Tag: z.array(z.object({ name: z.string(), id: z.string() })).optional()
 });
 
 const OutputSchema = z.object({
@@ -199,7 +199,7 @@ const action = createAction({
             ...(lead.$currency_symbol != null && { currencySymbol: lead.$currency_symbol }),
             ...(lead.$converted !== undefined && { converted: lead.$converted }),
             ...(lead.$approved !== undefined && { approved: lead.$approved }),
-            ...(lead.Tag !== undefined && { tags: lead.Tag })
+            ...(lead.Tag !== undefined && { tags: lead.Tag.map((t) => t.name) })
         };
     }
 });

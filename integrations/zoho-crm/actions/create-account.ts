@@ -67,7 +67,7 @@ const ProviderResponseSchema = z.object({
         z.object({
             code: z.string(),
             message: z.string(),
-            details: ProviderAccountSchema.optional()
+            details: z.unknown().optional()
         })
     )
 });
@@ -203,15 +203,23 @@ const action = createAction({
             });
         }
 
-        if (firstResult.code !== 'SUCCESS' || !firstResult.details) {
+        if (firstResult.code !== 'SUCCESS') {
             throw new nango.ActionError({
                 type: 'creation_failed',
                 message: firstResult.message || 'Failed to create account',
-                code: firstResult.code
+                code: firstResult.code,
+                details: firstResult.details
             });
         }
 
-        const account = firstResult.details;
+        const accountParsed = ProviderAccountSchema.safeParse(firstResult.details);
+        if (!accountParsed.success) {
+            throw new nango.ActionError({
+                type: 'invalid_response',
+                message: 'Failed to parse account details from Zoho CRM response'
+            });
+        }
+        const account = accountParsed.data;
 
         return {
             id: account.id,

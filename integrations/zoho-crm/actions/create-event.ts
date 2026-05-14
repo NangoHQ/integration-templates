@@ -46,19 +46,21 @@ const CreatedBySchema = z.object({
     email: z.string().email().optional()
 });
 
-const CreateResponseDetailsSchema = z.object({
-    id: z.string(),
-    Created_Time: z.string(),
-    Modified_Time: z.string(),
-    Created_By: CreatedBySchema.optional(),
-    Modified_By: CreatedBySchema.optional()
-});
+const CreateResponseDetailsSchema = z
+    .object({
+        id: z.string().optional(),
+        Created_Time: z.string().optional(),
+        Modified_Time: z.string().optional(),
+        Created_By: CreatedBySchema.optional(),
+        Modified_By: CreatedBySchema.optional()
+    })
+    .passthrough();
 
 const CreateResponseItemSchema = z.object({
     code: z.string(),
-    details: CreateResponseDetailsSchema,
+    details: CreateResponseDetailsSchema.optional(),
     message: z.string(),
-    status: z.enum(['success', 'error'])
+    status: z.string()
 });
 
 const CreateResponseSchema = z.object({
@@ -231,11 +233,18 @@ const action = createAction({
             throw new nango.ActionError({
                 type: 'create_failed',
                 message: responseItem.message,
-                code: responseItem.code
+                code: responseItem.code,
+                details: responseItem.details
             });
         }
 
-        const eventId = responseItem.details.id;
+        const eventId = responseItem.details?.id;
+        if (!eventId) {
+            throw new nango.ActionError({
+                type: 'invalid_response',
+                message: 'Created event ID not returned by Zoho CRM'
+            });
+        }
 
         // Fetch the full event details to return complete data
         // https://www.zoho.com/crm/developer/docs/api/v2/get-records.html
@@ -274,8 +283,8 @@ const action = createAction({
             event_title: event.Event_Title,
             start_datetime: event.Start_DateTime,
             end_datetime: event.End_DateTime,
-            created_time: event.Created_Time || responseItem.details.Created_Time,
-            modified_time: event.Modified_Time || responseItem.details.Modified_Time,
+            created_time: event.Created_Time || responseItem.details?.Created_Time || '',
+            modified_time: event.Modified_Time || responseItem.details?.Modified_Time || '',
             ...(event.All_day !== undefined && { all_day: event.All_day }),
             ...(event.Description != null && { description: event.Description }),
             ...(event.Venue != null && { venue: event.Venue }),

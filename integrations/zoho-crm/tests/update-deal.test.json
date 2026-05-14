@@ -13,7 +13,7 @@
   },
   "nango": {},
   "api": {
-    "patch": {
+    "put": {
       "/crm/v2/Deals/7328395000000698002": {
         "response": {
           "data": [
@@ -69,7 +69,7 @@
           "server-timing": "cpuTime;desc=\"CPU Time\";dur=93, totalTime;desc=\"Total Execution Time\";dur=126,murphySpanId;desc=\"\";dur=0",
           "content-language": "en-US"
         },
-        "hash": "60ff9d000a1b4cf76bb50a62649a42cca73950d8",
+        "hash": "7c090eae032f87fa99ef4069c19a29c61a7b5e06",
         "request": {
           "data": {
             "data": [

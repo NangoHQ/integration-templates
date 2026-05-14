@@ -191,7 +191,7 @@ const sync = createSync({
 
                 // Track the latest modified time for checkpointing
                 if (user.Modified_Time) {
-                    if (!lastModifiedTime || user.Modified_Time > lastModifiedTime) {
+                    if (!lastModifiedTime || new Date(user.Modified_Time) > new Date(lastModifiedTime)) {
                         lastModifiedTime = user.Modified_Time;
                     }
                 }

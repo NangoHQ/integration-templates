@@ -163,7 +163,7 @@ const sync = createSync({
 
             // Track the maximum Modified_Time for checkpoint
             for (const event of events) {
-                if (maxModifiedTime === undefined || event.Modified_Time > maxModifiedTime) {
+                if (maxModifiedTime === undefined || new Date(event.Modified_Time) > new Date(maxModifiedTime)) {
                     maxModifiedTime = event.Modified_Time;
                 }
             }
@@ -206,13 +206,11 @@ const sync = createSync({
             }
         }
 
-        // Save checkpoint with the latest modified time
-        if (maxModifiedTime !== undefined) {
-            const newCheckpoint: Checkpoint = {
-                modified_after: maxModifiedTime
-            };
-            await nango.saveCheckpoint(newCheckpoint);
-        }
+        // Save checkpoint — use current time if no updated events were found (deletion-only runs)
+        const newCheckpoint: Checkpoint = {
+            modified_after: maxModifiedTime ?? new Date().toISOString()
+        };
+        await nango.saveCheckpoint(newCheckpoint);
     }
 });
 

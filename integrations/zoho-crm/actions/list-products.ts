@@ -3,7 +3,7 @@ import { createAction } from 'nango';
 
 const InputSchema = z.object({
     cursor: z.string().optional().describe('Pagination cursor from the previous response. Format: page number. Omit for the first page.'),
-    per_page: z.number().optional().describe('Number of records per page. Default: 200, Max: 200.')
+    per_page: z.number().int().optional().describe('Number of records per page. Default: 200, Max: 200.')
 });
 
 const OwnerSchema = z.object({

@@ -84,14 +84,7 @@ const action = createAction({
 
         const providerResponse = ProviderResponseSchema.parse(response.data);
 
-        let nextCursor: string | undefined;
-        if (providerResponse.info.more_records) {
-            if (providerResponse.info.next_page_token) {
-                nextCursor = providerResponse.info.next_page_token;
-            } else {
-                nextCursor = String(page + 1);
-            }
-        }
+        const nextCursor = providerResponse.info.more_records ? String(page + 1) : undefined;
 
         return {
             items: providerResponse.data,

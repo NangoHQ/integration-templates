@@ -242,11 +242,9 @@ const sync = createSync<{ Call: typeof CallSchema }, undefined, typeof Checkpoin
             }
         }
 
-        // Save the checkpoint for the next run
-        if (maxModifiedTime) {
-            const newCheckpoint: Checkpoint = { updated_after: maxModifiedTime };
-            await nango.saveCheckpoint(newCheckpoint);
-        }
+        // Save checkpoint — use current time if no updated calls found (deletion-only runs)
+        const newCheckpoint: Checkpoint = { updated_after: maxModifiedTime ?? new Date().toISOString() };
+        await nango.saveCheckpoint(newCheckpoint);
     }
 });
 

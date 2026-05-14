@@ -154,9 +154,8 @@ const sync = createSync({
             }
         }
 
-        if (maxModifiedTime) {
-            await nango.saveCheckpoint({ modified_after: maxModifiedTime });
-        }
+        // Save checkpoint — use current time if no updated products found (deletion-only runs)
+        await nango.saveCheckpoint({ modified_after: maxModifiedTime ?? new Date().toISOString() });
 
         // Fetch and process deleted records only if we have a checkpoint
         // On first run (no checkpoint), we skip deletion handling

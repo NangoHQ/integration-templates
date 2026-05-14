@@ -48,6 +48,13 @@ const action = createAction({
     scopes: ['ZohoCRM.modules.ALL', 'ZohoCRM.modules.READ'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
+        if (!input.criteria && !input.email && !input.phone && !input.word) {
+            throw new nango.ActionError({
+                type: 'invalid_input',
+                message: 'At least one search filter (criteria, email, phone, or word) must be provided'
+            });
+        }
+
         const params: Record<string, string | number> = {};
 
         if (input.criteria) {

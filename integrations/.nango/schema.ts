@@ -42575,7 +42575,8 @@ export interface ActionOutput_zoho_crm_listdeals {
   email?: string | undefined;};
   Layout?: {  name: string;
   id: string;} | undefined;
-  Tag?: string[] | undefined;})[];
+  Tag?: ({  name: string;
+  id: string;})[] | undefined;})[];
   info: {  per_page: number;
   count: number;
   page: number;
@@ -42715,7 +42716,8 @@ export interface ActionOutput_zoho_crm_listleads {
   Email_Opt_Out?: boolean | undefined;
   "$converted"?: boolean | undefined;
   "$approved"?: boolean | undefined;
-  Tag?: string[] | undefined;})[];
+  Tag?: ({  name: string;
+  id: string;})[] | undefined;})[];
   next_cursor?: string | undefined;
   has_more: boolean;
   total_count: number;
@@ -42840,7 +42842,8 @@ export interface ActionOutput_zoho_crm_listtasks {
   Remind_At?: unknown | undefined;
   Recurring_Activity?: unknown | undefined;
   Send_Notification_Email?: boolean | undefined;
-  Tag?: string[] | undefined;})[];
+  Tag?: ({  name: string;
+  id: string;})[] | undefined;})[];
   next_cursor?: string | undefined;
 };
 
@@ -43044,7 +43047,9 @@ export interface ActionInput_zoho_crm_updateaccount {
   /**
    * Triggers to execute (approval, workflow, blueprint).
    */
-  trigger?: string[] | undefined;
+  trigger?: ({  0: 'approval';
+  1: 'workflow';
+  2: 'blueprint';})[] | undefined;
 };
 
 export interface ActionOutput_zoho_crm_updateaccount {

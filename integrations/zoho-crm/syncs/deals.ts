@@ -255,13 +255,11 @@ const sync = createSync<typeof modelSchemas, undefined, typeof CheckpointSchema>
             }
         }
 
-        // Save checkpoint with the last modified time
-        if (lastModifiedTime) {
-            const newCheckpoint: Checkpoint = {
-                modifiedAfter: lastModifiedTime
-            };
-            await nango.saveCheckpoint(newCheckpoint);
-        }
+        // Save checkpoint — use current time if no updated deals found (deletion-only runs)
+        const newCheckpoint: Checkpoint = {
+            modifiedAfter: lastModifiedTime ?? new Date().toISOString()
+        };
+        await nango.saveCheckpoint(newCheckpoint);
     }
 });
 

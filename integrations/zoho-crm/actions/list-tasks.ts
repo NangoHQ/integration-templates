@@ -38,7 +38,10 @@ const TaskSchema = z.object({
     Remind_At: z.unknown().nullable().optional(),
     Recurring_Activity: z.unknown().nullable().optional(),
     Send_Notification_Email: z.boolean().nullable().optional(),
-    Tag: z.array(z.string()).nullable().optional()
+    Tag: z
+        .array(z.object({ name: z.string(), id: z.string() }))
+        .nullable()
+        .optional()
 });
 
 const ProviderResponseSchema = z.object({

@@ -22,7 +22,7 @@
   },
   "nango": {},
   "api": {
-    "patch": {
+    "put": {
       "/crm/v2/Calls/7328395000000709004": {
         "response": {
           "data": [
@@ -188,7 +188,7 @@
           "vary": "accept-encoding",
           "content-language": "en-US"
         },
-        "hash": "ff1e93b00f07829ff2de6366051982e1e30d7088",
+        "hash": "5e7ed1e479711c1586fe233badca093365db239c",
         "request": {}
       }
     }

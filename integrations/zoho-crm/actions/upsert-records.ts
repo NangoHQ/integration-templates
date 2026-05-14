@@ -55,18 +55,15 @@ const action = createAction({
             };
         }
 
-        const headers: Record<string, string> = {};
+        const requestBody: Record<string, unknown> = { data: records };
         if (duplicateCheckFields && duplicateCheckFields.length > 0) {
-            headers['X-duplicateCheck'] = duplicateCheckFields.join(',');
+            requestBody['duplicate_check_fields'] = duplicateCheckFields;
         }
 
         // https://www.zoho.com/crm/developer/docs/api/v2/upsert-records.html
         const response = await nango.post({
             endpoint: `/crm/v2/${module}/upsert`,
-            data: {
-                data: records
-            },
-            headers,
+            data: requestBody,
             retries: 3
         });
 

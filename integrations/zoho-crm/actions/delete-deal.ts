@@ -9,7 +9,7 @@ const ProviderDeleteResponseSchema = z.object({
     data: z.array(
         z.object({
             code: z.string(),
-            details: z.any().optional(),
+            details: z.unknown().optional(),
             message: z.string(),
             status: z.string()
         })
