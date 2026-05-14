@@ -2,36 +2,41 @@ import { z } from 'zod';
 import { createAction } from 'nango';
 import type { ProxyConfiguration } from 'nango';
 
-const InputSchema = z.object({
-    userId: z.string().optional().describe('The user ID or email address of the user. For user-level apps, pass "me". Defaults to "me".'),
-    topic: z.string().max(200).describe('Webinar topic.'),
-    type: z.union([z.literal(5), z.literal(6), z.literal(9)]).optional().describe('Webinar type: 5 (Webinar), 6 (Recurring no fixed time), 9 (Recurring fixed time). Defaults to 5.'),
-    start_time: z.string().optional().describe('Webinar start time in ISO 8601 format. Required for type 5 and 9.'),
-    duration: z.number().int().optional().describe('Webinar duration in minutes.'),
-    agenda: z.string().optional().describe('Webinar agenda.'),
-    timezone: z.string().optional().describe('Time zone to format start_time.'),
-    password: z.string().max(10).optional().describe('Webinar passcode.'),
-    settings: z
-        .object({
-            host_video: z.boolean().optional(),
-            panelists_video: z.boolean().optional(),
-            practice_session: z.boolean().optional(),
-            hd_video: z.boolean().optional(),
-            auto_recording: z.enum(['local', 'cloud', 'none']).optional(),
-            approval_type: z.number().int().optional()
-        })
-        .optional()
-        .describe('Webinar settings.')
-}).superRefine((data, ctx) => {
-    const effectiveType = data.type ?? 5;
-    if ((effectiveType === 5 || effectiveType === 9) && !data.start_time) {
-        ctx.addIssue({
-            code: z.ZodIssueCode.custom,
-            message: 'start_time is required for webinar type 5 (Webinar) and type 9 (Recurring fixed time)',
-            path: ['start_time']
-        });
-    }
-});
+const InputSchema = z
+    .object({
+        userId: z.string().optional().describe('The user ID or email address of the user. For user-level apps, pass "me". Defaults to "me".'),
+        topic: z.string().max(200).describe('Webinar topic.'),
+        type: z
+            .union([z.literal(5), z.literal(6), z.literal(9)])
+            .optional()
+            .describe('Webinar type: 5 (Webinar), 6 (Recurring no fixed time), 9 (Recurring fixed time). Defaults to 5.'),
+        start_time: z.string().optional().describe('Webinar start time in ISO 8601 format. Required for type 5 and 9.'),
+        duration: z.number().int().optional().describe('Webinar duration in minutes.'),
+        agenda: z.string().optional().describe('Webinar agenda.'),
+        timezone: z.string().optional().describe('Time zone to format start_time.'),
+        password: z.string().max(10).optional().describe('Webinar passcode.'),
+        settings: z
+            .object({
+                host_video: z.boolean().optional(),
+                panelists_video: z.boolean().optional(),
+                practice_session: z.boolean().optional(),
+                hd_video: z.boolean().optional(),
+                auto_recording: z.enum(['local', 'cloud', 'none']).optional(),
+                approval_type: z.number().int().optional()
+            })
+            .optional()
+            .describe('Webinar settings.')
+    })
+    .superRefine((data, ctx) => {
+        const effectiveType = data.type ?? 5;
+        if ((effectiveType === 5 || effectiveType === 9) && !data.start_time) {
+            ctx.addIssue({
+                code: z.ZodIssueCode.custom,
+                message: 'start_time is required for webinar type 5 (Webinar) and type 9 (Recurring fixed time)',
+                path: ['start_time']
+            });
+        }
+    });
 
 const OccurrenceSchema = z.object({
     duration: z.number().int().optional(),
