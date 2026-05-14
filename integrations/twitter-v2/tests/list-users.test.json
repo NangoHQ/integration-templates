@@ -1,0 +1,132 @@
+{
+  "input": {
+    "usernames": [
+      "XDevelopers",
+      "X"
+    ],
+    "userFields": [
+      "created_at",
+      "description",
+      "public_metrics",
+      "verified"
+    ]
+  },
+  "output": {
+    "users": [
+      {
+        "id": "2244994945",
+        "name": "Developers",
+        "username": "XDevelopers",
+        "created_at": "2013-12-14T04:35:55.000Z",
+        "description": "The voice of the X Dev team and your official source for updates, news, and events, related to the X API.",
+        "verified": true,
+        "public_metrics": {
+          "followers_count": 681620,
+          "following_count": 759,
+          "tweet_count": 4268,
+          "listed_count": 2931
+        }
+      },
+      {
+        "id": "783214",
+        "name": "X",
+        "username": "X",
+        "created_at": "2007-02-20T14:35:54.000Z",
+        "description": "what's happening?!",
+        "verified": true,
+        "public_metrics": {
+          "followers_count": 60914861,
+          "following_count": 1,
+          "tweet_count": 15696,
+          "listed_count": 85260
+        }
+      }
+    ]
+  },
+  "nango": {},
+  "api": {
+    "get": {
+      "/2/users/by": {
+        "response": {
+          "data": [
+            {
+              "public_metrics": {
+                "followers_count": 681620,
+                "following_count": 759,
+                "tweet_count": 4268,
+                "listed_count": 2931,
+                "like_count": 2541,
+                "media_count": 826
+              },
+              "description": "The voice of the X Dev team and your official source for updates, news, and events, related to the X API.",
+              "created_at": "2013-12-14T04:35:55.000Z",
+              "name": "Developers",
+              "id": "2244994945",
+              "username": "XDevelopers",
+              "verified": true
+            },
+            {
+              "public_metrics": {
+                "followers_count": 60914861,
+                "following_count": 1,
+                "tweet_count": 15696,
+                "listed_count": 85260,
+                "like_count": 5988,
+                "media_count": 2487
+              },
+              "description": "what's happening?!",
+              "created_at": "2007-02-20T14:35:54.000Z",
+              "name": "X",
+              "id": "783214",
+              "username": "X",
+              "verified": true
+            }
+          ]
+        },
+        "status": 200,
+        "headers": {
+          "date": "Thu, 14 May 2026 19:22:36 GMT",
+          "content-type": "application/json; charset=utf-8",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=631138519; includeSubdomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4897",
+          "x-ratelimit-reset": "1778786565",
+          "perf": "7402827104",
+          "server": "cloudflare envoy",
+          "api-version": "2.163",
+          "cache-control": "no-cache, no-store, max-age=0",
+          "set-cookie": "guest_id=v1%3A177878655677789593; Max-Age=34214400; Expires=Mon, 14 Jun 2027 19:22:36 GMT; Path=/; Domain=.twitter.com; Secure; SameSite=None, __cf_bm=4GjFtZEuW9fsiBi.d2Qu8ft4J8YyiYBsrxRXrAuUhjU-1778786556.7610686-1.0.1.1-rRH8Y8FTkG93iL.uAyKyE16Px2I_NDRn04on.s62zrGB8zlTO7YxVggYOhezH2..iQRv0G9WP6VBKCQN.aNCnQUsqtP6C7Mcefsw4DihaMIqMb12tCtsqsTbavNXnwSm; HttpOnly; SameSite=None; Secure; Path=/; Domain=twitter.com; Expires=Thu, 14 May 2026 19:52:36 GMT",
+          "x-access-level": "read-write",
+          "x-transaction-id": "0864c8d2762d3ab0",
+          "x-rate-limit-limit": "900",
+          "x-rate-limit-reset": "1778787448",
+          "content-disposition": "attachment; filename=json.json",
+          "x-rate-limit-remaining": "898",
+          "x-response-time": "45",
+          "origin-cf-ray": "9fbc45cbbbcbff0f-SEA",
+          "x-served-by": "t4_p",
+          "vary": "accept-encoding",
+          "cf-cache-status": "DYNAMIC",
+          "cf-ray": "9fbc45cbbbcbff0f-PDX"
+        },
+        "hash": "e71be09e92a3803a2157933016d6b0774c6cb6a9",
+        "request": {
+          "params": {
+            "user.fields": "created_at,description,public_metrics,verified",
+            "usernames": "XDevelopers,X"
+          }
+        }
+      }
+    }
+  }
+}

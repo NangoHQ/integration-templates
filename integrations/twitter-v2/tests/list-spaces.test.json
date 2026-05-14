@@ -1,0 +1,466 @@
+{
+  "input": {
+    "query": "tech"
+  },
+  "output": {
+    "spaces": [
+      {
+        "id": "1qxvvkobQMOxB",
+        "state": "scheduled",
+        "title": "Ai Transforming the Tech Industry",
+        "created_at": "2026-05-13T21:46:27.000Z",
+        "creator_id": "457299862",
+        "host_ids": [
+          "457299862"
+        ],
+        "participant_count": 0,
+        "subscriber_count": 0,
+        "is_ticketed": false,
+        "scheduled_start": "2026-05-18T19:00:00.000Z",
+        "lang": "en",
+        "updated_at": "2026-05-14T19:22:35.000Z",
+        "topic_ids": [
+          "10026820777",
+          "1196446727181500416",
+          "848920371311001600"
+        ]
+      },
+      {
+        "id": "1qKVmQXRLwYxB",
+        "state": "scheduled",
+        "title": "Tech MK-ULTRA (Step 7 Cognitive Warfare)",
+        "created_at": "2026-05-13T22:26:20.000Z",
+        "creator_id": "1750236125933772800",
+        "host_ids": [
+          "1750236125933772800"
+        ],
+        "participant_count": 0,
+        "subscriber_count": 0,
+        "is_ticketed": false,
+        "scheduled_start": "2026-05-16T01:11:00.000Z",
+        "lang": "en",
+        "updated_at": "2026-05-14T19:22:35.000Z"
+      },
+      {
+        "id": "1DxLdvpkpEvxm",
+        "state": "scheduled",
+        "title": "Tech MK-ULTRA (Step 12 The Endgame)",
+        "created_at": "2026-05-13T22:36:14.000Z",
+        "creator_id": "1750236125933772800",
+        "host_ids": [
+          "1750236125933772800"
+        ],
+        "participant_count": 0,
+        "subscriber_count": 0,
+        "is_ticketed": false,
+        "scheduled_start": "2026-05-26T07:22:00.000Z",
+        "lang": "en",
+        "updated_at": "2026-05-14T19:22:35.000Z"
+      },
+      {
+        "id": "1pKdRbglvPNJW",
+        "state": "scheduled",
+        "title": "Tech MK-ULTRA (Step 9 Cognitive Warfare Defenses)",
+        "created_at": "2026-05-13T22:29:59.000Z",
+        "creator_id": "1750236125933772800",
+        "host_ids": [
+          "1750236125933772800"
+        ],
+        "participant_count": 0,
+        "subscriber_count": 0,
+        "is_ticketed": false,
+        "scheduled_start": "2026-05-24T01:11:00.000Z",
+        "lang": "en",
+        "updated_at": "2026-05-14T19:22:35.000Z"
+      },
+      {
+        "id": "1yKAPMYDXyWxb",
+        "state": "scheduled",
+        "title": "Shill Your AI | The Agent Show S2 E5",
+        "created_at": "2026-05-11T14:40:34.000Z",
+        "creator_id": "2018725341523562496",
+        "host_ids": [
+          "2018725341523562496"
+        ],
+        "participant_count": 0,
+        "subscriber_count": 0,
+        "is_ticketed": false,
+        "scheduled_start": "2026-05-14T22:00:00.000Z",
+        "lang": "en",
+        "updated_at": "2026-05-14T19:22:35.000Z"
+      },
+      {
+        "id": "1YGNrZmXVWpGw",
+        "state": "scheduled",
+        "title": "Tech MK-ULTRA (Step 11 Future of Artificial Intelligence)",
+        "created_at": "2026-05-13T22:34:24.000Z",
+        "creator_id": "1750236125933772800",
+        "host_ids": [
+          "1750236125933772800"
+        ],
+        "participant_count": 0,
+        "subscriber_count": 0,
+        "is_ticketed": false,
+        "scheduled_start": "2026-05-27T01:11:00.000Z",
+        "lang": "en",
+        "updated_at": "2026-05-14T19:22:35.000Z"
+      },
+      {
+        "id": "1lJQRvPYyrNxE",
+        "state": "scheduled",
+        "title": "Tech MK-ULTRA (Step 8 Cognitive Warfare for Dummies)",
+        "created_at": "2026-05-13T22:28:47.000Z",
+        "creator_id": "1750236125933772800",
+        "host_ids": [
+          "1750236125933772800"
+        ],
+        "participant_count": 0,
+        "subscriber_count": 0,
+        "is_ticketed": false,
+        "scheduled_start": "2026-05-23T01:11:00.000Z",
+        "lang": "en",
+        "updated_at": "2026-05-14T19:22:35.000Z"
+      },
+      {
+        "id": "1nxnRYNzPwExO",
+        "state": "scheduled",
+        "title": "Financial Pathways and Readiness for Women in Emerging Tech",
+        "created_at": "2026-05-07T07:36:33.000Z",
+        "creator_id": "1296526409448423427",
+        "host_ids": [
+          "1296526409448423427"
+        ],
+        "participant_count": 0,
+        "subscriber_count": 0,
+        "is_ticketed": false,
+        "scheduled_start": "2026-05-16T18:00:00.000Z",
+        "lang": "en",
+        "updated_at": "2026-05-14T19:22:35.000Z"
+      },
+      {
+        "id": "1pJdRbglBzRKW",
+        "state": "scheduled",
+        "title": "Tech MK-ULTRA (Step 10 LastPsyOp and ShadowBreak-AI)",
+        "created_at": "2026-05-13T22:31:12.000Z",
+        "creator_id": "1750236125933772800",
+        "host_ids": [
+          "1750236125933772800"
+        ],
+        "participant_count": 0,
+        "subscriber_count": 0,
+        "is_ticketed": false,
+        "scheduled_start": "2026-05-25T01:11:00.000Z",
+        "lang": "en",
+        "updated_at": "2026-05-14T19:22:35.000Z"
+      },
+      {
+        "id": "1qKDzPqWavzJV",
+        "state": "scheduled",
+        "title": "Crypto! Bitcoin’s old tech, what’s new and BETTER? Bistro LIVE",
+        "created_at": "2026-05-14T16:05:04.000Z",
+        "creator_id": "1550525342619688960",
+        "host_ids": [
+          "1550525342619688960"
+        ],
+        "participant_count": 0,
+        "subscriber_count": 0,
+        "is_ticketed": false,
+        "scheduled_start": "2026-05-15T10:30:00.000Z",
+        "lang": "en",
+        "updated_at": "2026-05-14T19:22:35.000Z",
+        "topic_ids": [
+          "913142676819648512"
+        ]
+      },
+      {
+        "id": "1aKbdbnqgdqJX",
+        "state": "scheduled",
+        "title": "ep18:Shill&Pill Tech Camp. Come rep your project! Whats 🔥 rt now? ",
+        "created_at": "2026-05-13T23:36:04.000Z",
+        "creator_id": "3259539894",
+        "host_ids": [
+          "3259539894"
+        ],
+        "participant_count": 0,
+        "subscriber_count": 0,
+        "is_ticketed": false,
+        "scheduled_start": "2026-05-19T17:00:21.000Z",
+        "lang": "en",
+        "updated_at": "2026-05-14T19:22:35.000Z"
+      },
+      {
+        "id": "1yxBeMNoWDaJN",
+        "state": "scheduled",
+        "title": "Communicating Through Change",
+        "created_at": "2026-05-11T15:16:53.000Z",
+        "creator_id": "1599111452656377858",
+        "host_ids": [
+          "1599111452656377858"
+        ],
+        "participant_count": 0,
+        "subscriber_count": 0,
+        "is_ticketed": false,
+        "scheduled_start": "2026-05-20T18:00:00.000Z",
+        "lang": "en",
+        "updated_at": "2026-05-14T19:22:35.000Z"
+      }
+    ]
+  },
+  "nango": {},
+  "api": {
+    "get": {
+      "/2/spaces/search": {
+        "response": {
+          "data": [
+            {
+              "is_ticketed": false,
+              "participant_count": 0,
+              "id": "1qxvvkobQMOxB",
+              "state": "scheduled",
+              "scheduled_start": "2026-05-18T19:00:00.000Z",
+              "lang": "en",
+              "updated_at": "2026-05-14T19:22:35.000Z",
+              "host_ids": [
+                "457299862"
+              ],
+              "creator_id": "457299862",
+              "created_at": "2026-05-13T21:46:27.000Z",
+              "subscriber_count": 0,
+              "topic_ids": [
+                "10026820777",
+                "1196446727181500416",
+                "848920371311001600"
+              ],
+              "title": "Ai Transforming the Tech Industry"
+            },
+            {
+              "is_ticketed": false,
+              "participant_count": 0,
+              "id": "1qKVmQXRLwYxB",
+              "state": "scheduled",
+              "scheduled_start": "2026-05-16T01:11:00.000Z",
+              "lang": "en",
+              "updated_at": "2026-05-14T19:22:35.000Z",
+              "host_ids": [
+                "1750236125933772800"
+              ],
+              "creator_id": "1750236125933772800",
+              "created_at": "2026-05-13T22:26:20.000Z",
+              "subscriber_count": 0,
+              "title": "Tech MK-ULTRA (Step 7 Cognitive Warfare)"
+            },
+            {
+              "is_ticketed": false,
+              "participant_count": 0,
+              "id": "1DxLdvpkpEvxm",
+              "state": "scheduled",
+              "scheduled_start": "2026-05-26T07:22:00.000Z",
+              "lang": "en",
+              "updated_at": "2026-05-14T19:22:35.000Z",
+              "host_ids": [
+                "1750236125933772800"
+              ],
+              "creator_id": "1750236125933772800",
+              "created_at": "2026-05-13T22:36:14.000Z",
+              "subscriber_count": 0,
+              "title": "Tech MK-ULTRA (Step 12 The Endgame)"
+            },
+            {
+              "is_ticketed": false,
+              "participant_count": 0,
+              "id": "1pKdRbglvPNJW",
+              "state": "scheduled",
+              "scheduled_start": "2026-05-24T01:11:00.000Z",
+              "lang": "en",
+              "updated_at": "2026-05-14T19:22:35.000Z",
+              "host_ids": [
+                "1750236125933772800"
+              ],
+              "creator_id": "1750236125933772800",
+              "created_at": "2026-05-13T22:29:59.000Z",
+              "subscriber_count": 0,
+              "title": "Tech MK-ULTRA (Step 9 Cognitive Warfare Defenses)"
+            },
+            {
+              "is_ticketed": false,
+              "participant_count": 0,
+              "id": "1yKAPMYDXyWxb",
+              "state": "scheduled",
+              "scheduled_start": "2026-05-14T22:00:00.000Z",
+              "lang": "en",
+              "updated_at": "2026-05-14T19:22:35.000Z",
+              "host_ids": [
+                "2018725341523562496"
+              ],
+              "creator_id": "2018725341523562496",
+              "created_at": "2026-05-11T14:40:34.000Z",
+              "subscriber_count": 0,
+              "title": "Shill Your AI | The Agent Show S2 E5"
+            },
+            {
+              "is_ticketed": false,
+              "participant_count": 0,
+              "id": "1YGNrZmXVWpGw",
+              "state": "scheduled",
+              "scheduled_start": "2026-05-27T01:11:00.000Z",
+              "lang": "en",
+              "updated_at": "2026-05-14T19:22:35.000Z",
+              "host_ids": [
+                "1750236125933772800"
+              ],
+              "creator_id": "1750236125933772800",
+              "created_at": "2026-05-13T22:34:24.000Z",
+              "subscriber_count": 0,
+              "title": "Tech MK-ULTRA (Step 11 Future of Artificial Intelligence)"
+            },
+            {
+              "is_ticketed": false,
+              "participant_count": 0,
+              "id": "1lJQRvPYyrNxE",
+              "state": "scheduled",
+              "scheduled_start": "2026-05-23T01:11:00.000Z",
+              "lang": "en",
+              "updated_at": "2026-05-14T19:22:35.000Z",
+              "host_ids": [
+                "1750236125933772800"
+              ],
+              "creator_id": "1750236125933772800",
+              "created_at": "2026-05-13T22:28:47.000Z",
+              "subscriber_count": 0,
+              "title": "Tech MK-ULTRA (Step 8 Cognitive Warfare for Dummies)"
+            },
+            {
+              "is_ticketed": false,
+              "participant_count": 0,
+              "id": "1nxnRYNzPwExO",
+              "state": "scheduled",
+              "scheduled_start": "2026-05-16T18:00:00.000Z",
+              "lang": "en",
+              "updated_at": "2026-05-14T19:22:35.000Z",
+              "host_ids": [
+                "1296526409448423427"
+              ],
+              "creator_id": "1296526409448423427",
+              "created_at": "2026-05-07T07:36:33.000Z",
+              "subscriber_count": 0,
+              "title": "Financial Pathways and Readiness for Women in Emerging Tech"
+            },
+            {
+              "is_ticketed": false,
+              "participant_count": 0,
+              "id": "1pJdRbglBzRKW",
+              "state": "scheduled",
+              "scheduled_start": "2026-05-25T01:11:00.000Z",
+              "lang": "en",
+              "updated_at": "2026-05-14T19:22:35.000Z",
+              "host_ids": [
+                "1750236125933772800"
+              ],
+              "creator_id": "1750236125933772800",
+              "created_at": "2026-05-13T22:31:12.000Z",
+              "subscriber_count": 0,
+              "title": "Tech MK-ULTRA (Step 10 LastPsyOp and ShadowBreak-AI)"
+            },
+            {
+              "is_ticketed": false,
+              "participant_count": 0,
+              "id": "1qKDzPqWavzJV",
+              "state": "scheduled",
+              "scheduled_start": "2026-05-15T10:30:00.000Z",
+              "lang": "en",
+              "updated_at": "2026-05-14T19:22:35.000Z",
+              "host_ids": [
+                "1550525342619688960"
+              ],
+              "creator_id": "1550525342619688960",
+              "created_at": "2026-05-14T16:05:04.000Z",
+              "subscriber_count": 0,
+              "topic_ids": [
+                "913142676819648512"
+              ],
+              "title": "Crypto! Bitcoin’s old tech, what’s new and BETTER? Bistro LIVE"
+            },
+            {
+              "is_ticketed": false,
+              "participant_count": 0,
+              "id": "1aKbdbnqgdqJX",
+              "state": "scheduled",
+              "scheduled_start": "2026-05-19T17:00:21.000Z",
+              "lang": "en",
+              "updated_at": "2026-05-14T19:22:35.000Z",
+              "host_ids": [
+                "3259539894"
+              ],
+              "creator_id": "3259539894",
+              "created_at": "2026-05-13T23:36:04.000Z",
+              "subscriber_count": 0,
+              "title": "ep18:Shill&Pill Tech Camp. Come rep your project! Whats 🔥 rt now? "
+            },
+            {
+              "is_ticketed": false,
+              "participant_count": 0,
+              "id": "1yxBeMNoWDaJN",
+              "state": "scheduled",
+              "scheduled_start": "2026-05-20T18:00:00.000Z",
+              "lang": "en",
+              "updated_at": "2026-05-14T19:22:35.000Z",
+              "host_ids": [
+                "1599111452656377858"
+              ],
+              "creator_id": "1599111452656377858",
+              "created_at": "2026-05-11T15:16:53.000Z",
+              "subscriber_count": 0,
+              "title": "Communicating Through Change"
+            }
+          ],
+          "meta": {
+            "result_count": 12
+          }
+        },
+        "status": 200,
+        "headers": {
+          "date": "Thu, 14 May 2026 19:22:41 GMT",
+          "content-type": "application/json; charset=utf-8",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=631138519; includeSubdomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4884",
+          "x-ratelimit-reset": "1778786565",
+          "perf": "7402827104",
+          "server": "cloudflare envoy",
+          "api-version": "2.163",
+          "cache-control": "no-cache, no-store, max-age=0",
+          "set-cookie": "guest_id=v1%3A177878656163041454; Max-Age=34214400; Expires=Mon, 14 Jun 2027 19:22:41 GMT; Path=/; Domain=.twitter.com; Secure; SameSite=None, __cf_bm=NZw1giwmevBCUIf_fJVu645Fum2Z0jEgPybZ171MVaU-1778786561.6133337-1.0.1.1-ozq2AP4y7sjogTLIbs5t1APHRsGuNBd6Dn0OmJe0CmD8ve.eidC62CbeccNRgVfnisof.Edtn8m7tpAOP4WW81iESVS2PQpnVYQ7ZPUwxzOTenYsJMCZCV8rKeuWchJ3; HttpOnly; SameSite=None; Secure; Path=/; Domain=twitter.com; Expires=Thu, 14 May 2026 19:52:41 GMT",
+          "x-access-level": "read-write",
+          "x-transaction-id": "aef5db20e68b4cfb",
+          "x-rate-limit-limit": "300",
+          "x-rate-limit-reset": "1778787395",
+          "content-disposition": "attachment; filename=json.json",
+          "x-rate-limit-remaining": "296",
+          "x-response-time": "199",
+          "origin-cf-ray": "9fbc45ea1b4fff0f-SEA",
+          "x-served-by": "t4_p",
+          "vary": "accept-encoding",
+          "cf-cache-status": "DYNAMIC",
+          "cf-ray": "9fbc45ea1b4fff0f-PDX"
+        },
+        "hash": "5cdc3e4ffd704b4e3b7fe93ebe89e0b8f8983670",
+        "request": {
+          "params": {
+            "query": "tech",
+            "space.fields": "id,state,title,created_at,creator_id,host_ids,invited_user_ids,speaker_ids,participant_count,subscriber_count,is_ticketed,scheduled_start,started_at,ended_at,lang,updated_at,topic_ids"
+          }
+        }
+      }
+    }
+  }
+}

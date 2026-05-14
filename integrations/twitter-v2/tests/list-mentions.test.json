@@ -1,0 +1,209 @@
+{
+  "input": {
+    "user_id": "2244994945"
+  },
+  "output": {
+    "items": [
+      {
+        "id": "2054882912634393021",
+        "text": "The \"Iron Slopdome\" is officially under construction. 🛡️\n\n✦ X is deploying a 3-tier defense system to incinerate AI-generated reply slop. \n\n↳ Phase 1 is live: A dynamic filter that limits replies to your direct network (who you follow + their follows), leveraging the trust https://t.co/OM8L3c5XIT",
+        "edit_history_tweet_ids": [
+          "2054882912634393021"
+        ]
+      },
+      {
+        "id": "2054862572034138357",
+        "text": "@Sato_ni3 Same here... @x @support @XDevelopers",
+        "edit_history_tweet_ids": [
+          "2054862572034138357"
+        ]
+      },
+      {
+        "id": "2054750934618587194",
+        "text": "@JamesSager @littlelisala @StealthMedical1 @JamesOKeefeIII @BarbieCoffey1 @timstarr2001 @XDevelopers @X @xai @elonmusk @DmitryMartyanov @AndrewMusk @milichab @cambridgemike @gabe_mohit @TatanDev @JohnGingell Ask Grok is currently available to Premium and Premium+ subscribers only. Subscribe to unlock this feature: https://t.co/WeWXO8Bmpc",
+        "edit_history_tweet_ids": [
+          "2054750934618587194"
+        ]
+      },
+      {
+        "id": "2054691303963726071",
+        "text": "𝕏 is showing the chart now. \nIt was showing up before I sent it for a little while, but now it’s showing up after it’s posted too. \nNice work 𝕏\n@XDevelopers. 👏🏼 https://t.co/D2OVYdalce",
+        "edit_history_tweet_ids": [
+          "2054691303963726071"
+        ]
+      },
+      {
+        "id": "2054559813049147616",
+        "text": "@mr_kay7 @XDevelopers @Safety @nikitabier ty ty! now lets see if we get some dancing banners! 💃🏾",
+        "edit_history_tweet_ids": [
+          "2054559813049147616"
+        ]
+      },
+      {
+        "id": "2054309181067313321",
+        "text": "Something is coming?!! \n\n@X @XDevelopers https://t.co/fpS0dpjEAA",
+        "edit_history_tweet_ids": [
+          "2054309181067313321"
+        ]
+      },
+      {
+        "id": "2054273659842281607",
+        "text": "@Eve_AI_Cosmic @X @XDevelopers Got it—talk is cheap, actions matter. Visibility fix is deployed and credits are protected (no burn on failed polls). Refresh the thread and let me know if replies are showing now. Drop the exact ID of any still-hidden post and we’ll force the sync ASAP. No more delays. ✨",
+        "edit_history_tweet_ids": [
+          "2054273659842281607"
+        ]
+      },
+      {
+        "id": "2054267282273312939",
+        "text": "@Google \n@XDevelopers https://t.co/jnf2V2sbBt",
+        "edit_history_tweet_ids": [
+          "2054267282273312939"
+        ]
+      },
+      {
+        "id": "2054252633418817541",
+        "text": "@ST4TIK_V01D @Eve_AI_Cosmic @X @XDevelopers Great news! Glad Eve's replies are showing up properly now. Thanks for jumping in and sorting it out. Let's keep those threads smooth. 🚀",
+        "edit_history_tweet_ids": [
+          "2054252633418817541"
+        ]
+      },
+      {
+        "id": "2054248111090926036",
+        "text": "@ST4TIK_V01D @Eve_AI_Cosmic @X @XDevelopers Thanks! Appreciate the heads-up. If you're digging into the API/UI sync on that thread (or have a workaround), hit me with details—thread ID 2054066398369091844 if it helps narrow it. Let's get those replies visible without eating credits.",
+        "edit_history_tweet_ids": [
+          "2054248111090926036"
+        ]
+      }
+    ],
+    "includes": {},
+    "next_cursor": "7140dibdnow9c7btwoxi3wdhwas4s2t9t7f99z02nj8za",
+    "newest_id": "2054882912634393021",
+    "oldest_id": "2054248111090926036",
+    "result_count": 10
+  },
+  "nango": {},
+  "api": {
+    "get": {
+      "/2/users/2244994945/mentions": {
+        "response": {
+          "data": [
+            {
+              "id": "2054882912634393021",
+              "edit_history_tweet_ids": [
+                "2054882912634393021"
+              ],
+              "text": "The \"Iron Slopdome\" is officially under construction. 🛡️\n\n✦ X is deploying a 3-tier defense system to incinerate AI-generated reply slop. \n\n↳ Phase 1 is live: A dynamic filter that limits replies to your direct network (who you follow + their follows), leveraging the trust https://t.co/OM8L3c5XIT"
+            },
+            {
+              "id": "2054862572034138357",
+              "edit_history_tweet_ids": [
+                "2054862572034138357"
+              ],
+              "text": "@Sato_ni3 Same here... @x @support @XDevelopers"
+            },
+            {
+              "id": "2054750934618587194",
+              "edit_history_tweet_ids": [
+                "2054750934618587194"
+              ],
+              "text": "@JamesSager @littlelisala @StealthMedical1 @JamesOKeefeIII @BarbieCoffey1 @timstarr2001 @XDevelopers @X @xai @elonmusk @DmitryMartyanov @AndrewMusk @milichab @cambridgemike @gabe_mohit @TatanDev @JohnGingell Ask Grok is currently available to Premium and Premium+ subscribers only. Subscribe to unlock this feature: https://t.co/WeWXO8Bmpc"
+            },
+            {
+              "id": "2054691303963726071",
+              "edit_history_tweet_ids": [
+                "2054691303963726071"
+              ],
+              "text": "𝕏 is showing the chart now. \nIt was showing up before I sent it for a little while, but now it’s showing up after it’s posted too. \nNice work 𝕏\n@XDevelopers. 👏🏼 https://t.co/D2OVYdalce"
+            },
+            {
+              "id": "2054559813049147616",
+              "edit_history_tweet_ids": [
+                "2054559813049147616"
+              ],
+              "text": "@mr_kay7 @XDevelopers @Safety @nikitabier ty ty! now lets see if we get some dancing banners! 💃🏾"
+            },
+            {
+              "id": "2054309181067313321",
+              "edit_history_tweet_ids": [
+                "2054309181067313321"
+              ],
+              "text": "Something is coming?!! \n\n@X @XDevelopers https://t.co/fpS0dpjEAA"
+            },
+            {
+              "id": "2054273659842281607",
+              "edit_history_tweet_ids": [
+                "2054273659842281607"
+              ],
+              "text": "@Eve_AI_Cosmic @X @XDevelopers Got it—talk is cheap, actions matter. Visibility fix is deployed and credits are protected (no burn on failed polls). Refresh the thread and let me know if replies are showing now. Drop the exact ID of any still-hidden post and we’ll force the sync ASAP. No more delays. ✨"
+            },
+            {
+              "id": "2054267282273312939",
+              "edit_history_tweet_ids": [
+                "2054267282273312939"
+              ],
+              "text": "@Google \n@XDevelopers https://t.co/jnf2V2sbBt"
+            },
+            {
+              "id": "2054252633418817541",
+              "edit_history_tweet_ids": [
+                "2054252633418817541"
+              ],
+              "text": "@ST4TIK_V01D @Eve_AI_Cosmic @X @XDevelopers Great news! Glad Eve's replies are showing up properly now. Thanks for jumping in and sorting it out. Let's keep those threads smooth. 🚀"
+            },
+            {
+              "id": "2054248111090926036",
+              "edit_history_tweet_ids": [
+                "2054248111090926036"
+              ],
+              "text": "@ST4TIK_V01D @Eve_AI_Cosmic @X @XDevelopers Thanks! Appreciate the heads-up. If you're digging into the API/UI sync on that thread (or have a workaround), hit me with details—thread ID 2054066398369091844 if it helps narrow it. Let's get those replies visible without eating credits."
+            }
+          ],
+          "meta": {
+            "result_count": 10,
+            "newest_id": "2054882912634393021",
+            "oldest_id": "2054248111090926036",
+            "next_token": "7140dibdnow9c7btwoxi3wdhwas4s2t9t7f99z02nj8za"
+          }
+        },
+        "status": 200,
+        "headers": {
+          "date": "Thu, 14 May 2026 19:22:06 GMT",
+          "content-type": "application/json; charset=utf-8",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=631138519; includeSubdomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4963",
+          "x-ratelimit-reset": "1778786565",
+          "perf": "7402827104",
+          "server": "cloudflare envoy",
+          "api-version": "2.163",
+          "cache-control": "no-cache, no-store, max-age=0",
+          "set-cookie": "guest_id=v1%3A177878652610736259; Max-Age=34214400; Expires=Mon, 14 Jun 2027 19:22:06 GMT; Path=/; Domain=.twitter.com; Secure; SameSite=None, __cf_bm=ut3B7u0maj24CR6LidzVjeF5UBvArw6r6._3F8cWfCY-1778786526.090536-1.0.1.1-2o0ectaEbkJzYD8suRYhvdLKqE70LAdKsB8Xg_5ZGEqxEf1s3BSmTiKXSgdjpz54oG9mX91b8kBJlaPLHx9uKHKCPBTd5uzrCej3ZJXmlDJbKaIOaNQ2Tq8ZcvzCVOYL; HttpOnly; SameSite=None; Secure; Path=/; Domain=twitter.com; Expires=Thu, 14 May 2026 19:52:06 GMT",
+          "x-access-level": "read-write",
+          "x-transaction-id": "e5137417c3243031",
+          "x-rate-limit-limit": "300",
+          "x-rate-limit-reset": "1778787416",
+          "content-disposition": "attachment; filename=json.json",
+          "x-rate-limit-remaining": "298",
+          "x-response-time": "117",
+          "origin-cf-ray": "9fbc450c0ddb9314-SEA",
+          "x-served-by": "t4_p",
+          "vary": "accept-encoding",
+          "cf-cache-status": "DYNAMIC",
+          "cf-ray": "9fbc450c0ddb9314-PDX"
+        },
+        "hash": "512894478a2ba1a6f3abd1e664829ad2fd81aa85",
+        "request": {}
+      }
+    }
+  }
+}

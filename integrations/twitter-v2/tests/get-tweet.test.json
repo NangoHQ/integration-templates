@@ -1,0 +1,108 @@
+{
+  "input": {
+    "id": "1050118621198921728"
+  },
+  "output": {
+    "id": "1050118621198921728",
+    "text": "To make room for more expression, we will now count all emojis as equal—including those with gender‍‍‍ ‍‍and skin tone modifiers 👍🏻👍🏽👍🏿. This is now reflected in Twitter-Text, our Open Source library. \n\nUsing Twitter-Text? See the forum post for detail: https://t.co/Nx1XZmRCXA",
+    "authorId": "6253282",
+    "createdAt": "2018-10-10T20:19:24.000Z",
+    "publicMetrics": {
+      "retweetCount": 131,
+      "replyCount": 34,
+      "likeCount": 279,
+      "quoteCount": 0,
+      "bookmarkCount": 0,
+      "impressionCount": 0
+    },
+    "lang": "en",
+    "possiblySensitive": false,
+    "replySettings": "everyone",
+    "conversationId": "1050118621198921728",
+    "editHistoryTweetIds": [
+      "1050118621198921728"
+    ],
+    "editControls": {
+      "editableUntil": "2018-10-10T20:49:24.000Z",
+      "editsRemaining": 5,
+      "isEditEligible": true
+    }
+  },
+  "nango": {},
+  "api": {
+    "get": {
+      "/2/tweets/1050118621198921728": {
+        "response": {
+          "data": {
+            "possibly_sensitive": false,
+            "lang": "en",
+            "reply_settings": "everyone",
+            "text": "To make room for more expression, we will now count all emojis as equal—including those with gender‍‍‍ ‍‍and skin tone modifiers 👍🏻👍🏽👍🏿. This is now reflected in Twitter-Text, our Open Source library. \n\nUsing Twitter-Text? See the forum post for detail: https://t.co/Nx1XZmRCXA",
+            "edit_history_tweet_ids": [
+              "1050118621198921728"
+            ],
+            "edit_controls": {
+              "edits_remaining": 5,
+              "is_edit_eligible": true,
+              "editable_until": "2018-10-10T20:49:24.000Z"
+            },
+            "created_at": "2018-10-10T20:19:24.000Z",
+            "conversation_id": "1050118621198921728",
+            "author_id": "6253282",
+            "id": "1050118621198921728",
+            "public_metrics": {
+              "retweet_count": 131,
+              "reply_count": 34,
+              "like_count": 279,
+              "quote_count": 0,
+              "bookmark_count": 0,
+              "impression_count": 0
+            }
+          }
+        },
+        "status": 200,
+        "headers": {
+          "date": "Thu, 14 May 2026 19:21:59 GMT",
+          "content-type": "application/json; charset=utf-8",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=631138519; includeSubdomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4973",
+          "x-ratelimit-reset": "1778786565",
+          "perf": "7402827104",
+          "server": "cloudflare envoy",
+          "api-version": "2.163",
+          "cache-control": "no-cache, no-store, max-age=0",
+          "set-cookie": "guest_id=v1%3A177878651959592589; Max-Age=34214400; Expires=Mon, 14 Jun 2027 19:21:59 GMT; Path=/; Domain=.twitter.com; Secure; SameSite=None, __cf_bm=B4Ua39fkLDb_53q351KYE8MTK2y8aEcBdp2bldXXAeg-1778786519.5780766-1.0.1.1-ZubTo15brffeG6Ut0IHlMKXXqG9BeCLy5wkczpic.kjKLJYVGHQLx1cTqulTJKPikuduzNTtMHKRLusVOQGZSFIZiDgHLIVkGXnGRpj7YRf3b.gO8Pnz1RcbpXmDeDCW; HttpOnly; SameSite=None; Secure; Path=/; Domain=twitter.com; Expires=Thu, 14 May 2026 19:51:59 GMT",
+          "x-access-level": "read-write",
+          "x-transaction-id": "fdfbfd79b2baf2fe",
+          "x-rate-limit-limit": "900",
+          "x-rate-limit-reset": "1778787376",
+          "content-disposition": "attachment; filename=json.json",
+          "x-rate-limit-remaining": "894",
+          "x-response-time": "47",
+          "origin-cf-ray": "9fbc44e35e48ff0f-SEA",
+          "x-served-by": "t4_p",
+          "vary": "accept-encoding",
+          "cf-cache-status": "DYNAMIC",
+          "cf-ray": "9fbc44e35e48ff0f-PDX"
+        },
+        "hash": "df41db5da8141d19e58d69ded3adb19de616f16d",
+        "request": {
+          "params": {
+            "tweet.fields": "author_id,created_at,public_metrics,lang,source,possibly_sensitive,reply_settings,conversation_id,in_reply_to_user_id,referenced_tweets,edit_history_tweet_ids,edit_controls"
+          }
+        }
+      }
+    }
+  }
+}

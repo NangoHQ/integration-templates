@@ -1,0 +1,214 @@
+{
+  "nango": {
+    "batchSave": {
+      "List": [
+        {
+          "id": "2055005930128101778",
+          "name": "Test List from Nango",
+          "description": "",
+          "created_at": "2026-05-14T19:22:48.000Z",
+          "private": false,
+          "owner_id": "2054257020509839360",
+          "follower_count": 0,
+          "member_count": 0
+        },
+        {
+          "id": "2055005892920459767",
+          "name": "Test List from Nango",
+          "description": "",
+          "created_at": "2026-05-14T19:22:39.000Z",
+          "private": false,
+          "owner_id": "2054257020509839360",
+          "follower_count": 0,
+          "member_count": 0
+        },
+        {
+          "id": "2054575875052458408",
+          "name": "ListC",
+          "description": "",
+          "created_at": "2026-05-13T14:53:55.000Z",
+          "private": false,
+          "owner_id": "2054257020509839360",
+          "follower_count": 0,
+          "member_count": 2
+        },
+        {
+          "id": "2054575781766922307",
+          "name": "ListB",
+          "description": "",
+          "created_at": "2026-05-13T14:53:33.000Z",
+          "private": false,
+          "owner_id": "2054257020509839360",
+          "follower_count": 0,
+          "member_count": 1
+        },
+        {
+          "id": "2054575637306740862",
+          "name": "listA",
+          "description": "",
+          "created_at": "2026-05-13T14:52:58.000Z",
+          "private": false,
+          "owner_id": "2054257020509839360",
+          "follower_count": 0,
+          "member_count": 1
+        }
+      ]
+    },
+    "batchDelete": {
+      "List": []
+    }
+  },
+  "api": {
+    "get": {
+      "/2/users/me": {
+        "response": {
+          "data": {
+            "id": "2054257020509839360",
+            "name": "Nango Developer",
+            "username": "NangoApi"
+          }
+        },
+        "status": 200,
+        "headers": {
+          "date": "Thu, 14 May 2026 19:24:18 GMT",
+          "content-type": "application/json; charset=utf-8",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=631138519; includeSubdomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4956",
+          "x-ratelimit-reset": "1778786687",
+          "perf": "7402827104",
+          "server": "cloudflare envoy",
+          "api-version": "2.163",
+          "cache-control": "no-cache, no-store, max-age=0",
+          "set-cookie": "guest_id=v1%3A177878665799172916; Max-Age=34214400; Expires=Mon, 14 Jun 2027 19:24:18 GMT; Path=/; Domain=.twitter.com; Secure; SameSite=None, __cf_bm=vFFcZ1MZQ5HyDKNZO_PdWuTxYI9JVzYhixyHCfVbR9E-1778786657.9756835-1.0.1.1-c_vtAyUHfih3RaebWGAOCcJBPh12ikccgrl3P3v2h9dnKSF5pXIVLHi8oe9G9J4XVcpgEICAF5IOYoMfBSIFYTFQRG3IaOigU1Rya5czh4BTJei2lI.UIp7IPIs61HAr; HttpOnly; SameSite=None; Secure; Path=/; Domain=twitter.com; Expires=Thu, 14 May 2026 19:54:18 GMT",
+          "x-access-level": "read-write",
+          "x-transaction-id": "09b7685e2f1c3ca6",
+          "x-rate-limit-limit": "75",
+          "x-rate-limit-reset": "1778787393",
+          "content-disposition": "attachment; filename=json.json",
+          "x-rate-limit-remaining": "55",
+          "x-response-time": "35",
+          "origin-cf-ray": "9fbc484458cb962a-SEA",
+          "x-served-by": "t4_p",
+          "vary": "accept-encoding",
+          "cf-cache-status": "DYNAMIC",
+          "cf-ray": "9fbc484458cb962a-PDX"
+        },
+        "hash": "16f0be3f8bcf81363033ef9905a833cdddeedf92",
+        "request": {}
+      },
+      "/2/users/2054257020509839360/owned_lists": {
+        "response": {
+          "data": [
+            {
+              "created_at": "2026-05-14T19:22:48.000Z",
+              "owner_id": "2054257020509839360",
+              "name": "Test List from Nango",
+              "private": false,
+              "id": "2055005930128101778",
+              "description": "",
+              "follower_count": 0,
+              "member_count": 0
+            },
+            {
+              "created_at": "2026-05-14T19:22:39.000Z",
+              "owner_id": "2054257020509839360",
+              "name": "Test List from Nango",
+              "private": false,
+              "id": "2055005892920459767",
+              "description": "",
+              "follower_count": 0,
+              "member_count": 0
+            },
+            {
+              "created_at": "2026-05-13T14:53:55.000Z",
+              "owner_id": "2054257020509839360",
+              "name": "ListC",
+              "private": false,
+              "id": "2054575875052458408",
+              "description": "",
+              "follower_count": 0,
+              "member_count": 2
+            },
+            {
+              "created_at": "2026-05-13T14:53:33.000Z",
+              "owner_id": "2054257020509839360",
+              "name": "ListB",
+              "private": false,
+              "id": "2054575781766922307",
+              "description": "",
+              "follower_count": 0,
+              "member_count": 1
+            },
+            {
+              "created_at": "2026-05-13T14:52:58.000Z",
+              "owner_id": "2054257020509839360",
+              "name": "listA",
+              "private": false,
+              "id": "2054575637306740862",
+              "description": "",
+              "follower_count": 0,
+              "member_count": 1
+            }
+          ],
+          "meta": {
+            "result_count": 5
+          }
+        },
+        "status": 200,
+        "headers": {
+          "date": "Thu, 14 May 2026 19:24:18 GMT",
+          "content-type": "application/json; charset=utf-8",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=631138519; includeSubdomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4955",
+          "x-ratelimit-reset": "1778786687",
+          "perf": "7402827104",
+          "server": "cloudflare envoy",
+          "api-version": "2.163",
+          "cache-control": "no-cache, no-store, max-age=0",
+          "set-cookie": "guest_id=v1%3A177878665818365340; Max-Age=34214400; Expires=Mon, 14 Jun 2027 19:24:18 GMT; Path=/; Domain=.twitter.com; Secure; SameSite=None, __cf_bm=YamPbATUJRPVlU5uY4sCOUhE5AVE9y.jP.SbLCytp_U-1778786658.1660464-1.0.1.1-LuwYbsfKgjBaGjU18cVfJbKfwFtF7k4sf_uBLxXFYqXBcB1XU7LmX79ojrkTWPChfKqyuzaTSzFnIKCH2_ZsImpmcQx13bKG_i16QEEt547TsQn2eei7stSH9KLsHlQw; HttpOnly; SameSite=None; Secure; Path=/; Domain=twitter.com; Expires=Thu, 14 May 2026 19:54:18 GMT",
+          "x-access-level": "read-write",
+          "x-transaction-id": "5302e93597e8c0cb",
+          "x-rate-limit-limit": "15",
+          "x-rate-limit-reset": "1778787383",
+          "content-disposition": "attachment; filename=json.json",
+          "x-rate-limit-remaining": "10",
+          "x-response-time": "90",
+          "origin-cf-ray": "9fbc48458b02ff0f-SEA",
+          "x-served-by": "t4_p",
+          "vary": "accept-encoding",
+          "cf-cache-status": "DYNAMIC",
+          "cf-ray": "9fbc48458b02ff0f-PDX"
+        },
+        "hash": "8975a33a32f3984c34cdd38e7aa802df7b24ec1c",
+        "request": {
+          "params": {
+            "list.fields": "description,created_at,private,owner_id,follower_count,member_count",
+            "max_results": "100"
+          }
+        }
+      }
+    }
+  }
+}

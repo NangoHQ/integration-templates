@@ -1,0 +1,97 @@
+import { z } from 'zod';
+import { createAction } from 'nango';
+
+const InputSchema = z.object({
+    text: z.string().max(280).describe('The text content of the tweet. Maximum 280 characters.'),
+    replyToTweetId: z.string().optional().describe('The ID of the tweet to reply to. If provided, creates a reply tweet.'),
+    quoteTweetId: z.string().optional().describe('The ID of the tweet to quote. If provided, creates a quote tweet.'),
+    mediaKeys: z.array(z.string()).optional().describe('Media keys for media attachments to include in the tweet.')
+});
+
+const ProviderCreateResponseSchema = z.object({
+    data: z.object({
+        id: z.string(),
+        text: z.string()
+    }),
+    errors: z
+        .array(
+            z.object({
+                message: z.string(),
+                field: z.string().optional()
+            })
+        )
+        .optional()
+});
+
+const OutputSchema = z.object({
+    id: z.string().describe('The unique identifier of the created tweet.'),
+    text: z.string().describe('The text content of the created tweet.')
+});
+
+const action = createAction({
+    description: 'Create a tweet in Twitter/X.',
+    version: '1.0.0',
+    endpoint: {
+        method: 'POST',
+        path: '/actions/create-tweet',
+        group: 'Tweets'
+    },
+    input: InputSchema,
+    output: OutputSchema,
+    scopes: ['tweet.write'],
+
+    exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
+        const payload: Record<string, unknown> = {
+            text: input.text
+        };
+
+        if (input.replyToTweetId !== undefined) {
+            payload['reply'] = {
+                in_reply_to_tweet_id: input.replyToTweetId
+            };
+        }
+
+        if (input.quoteTweetId !== undefined) {
+            payload['quote_tweet_id'] = input.quoteTweetId;
+        }
+
+        if (input.mediaKeys !== undefined && input.mediaKeys.length > 0) {
+            payload['media'] = {
+                media_ids: input.mediaKeys
+            };
+        }
+
+        // https://developer.x.com/en/docs/twitter-api/tweets/manage-tweets/api-reference/post-tweets
+        const response = await nango.post({
+            endpoint: '/2/tweets',
+            data: payload,
+            retries: 1
+        });
+
+        if (response.status !== 200 && response.status !== 201) {
+            const providerResponse = ProviderCreateResponseSchema.parse(response.data);
+            if (providerResponse.errors && providerResponse.errors.length > 0) {
+                throw new nango.ActionError({
+                    type: 'api_error',
+                    message: providerResponse.errors[0]?.message || 'Failed to create tweet',
+                    errors: providerResponse.errors
+                });
+            }
+            throw new nango.ActionError({
+                type: 'api_error',
+                message: `Failed to create tweet. Status: ${response.status}`
+            });
+        }
+
+        const providerResponse = ProviderCreateResponseSchema.parse(response.data);
+        const tweetData = providerResponse.data;
+
+        return {
+            id: tweetData.id,
+            text: tweetData.text
+        };
+    }
+});
+
+export type NangoActionLocal = Parameters<(typeof action)['exec']>[0];
+export default action;

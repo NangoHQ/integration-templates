@@ -1,0 +1,58 @@
+{
+  "input": {
+    "tweetId": "1346889436626259968"
+  },
+  "output": {
+    "liked": true
+  },
+  "nango": {
+    "getConnection": {},
+    "getMetadata": {
+      "userId": "2054257020509839360"
+    }
+  },
+  "api": {
+    "get": {
+      "/2/users/me": {
+        "response": {
+          "data": {
+            "id": "2054257020509839360",
+            "name": "Nango Developer",
+            "username": "NangoApi"
+          }
+        },
+        "status": 200,
+        "headers": {
+          "date": "Thu, 14 May 2026 19:24:18 GMT",
+          "content-type": "application/json; charset=utf-8",
+          "x-rate-limit-limit": "75",
+          "x-rate-limit-remaining": "68"
+        },
+        "hash": "16f0be3f8bcf81363033ef9905a833cdddeedf92",
+        "request": {}
+      }
+    },
+    "post": {
+      "/2/users/2054257020509839360/likes": {
+        "response": {
+          "data": {
+            "liked": true
+          }
+        },
+        "status": 200,
+        "headers": {
+          "date": "Thu, 14 May 2026 19:24:19 GMT",
+          "content-type": "application/json; charset=utf-8",
+          "x-rate-limit-limit": "50",
+          "x-rate-limit-remaining": "44"
+        },
+        "hash": "418f597786b179c2100f22930180c9121490fe2d",
+        "request": {
+          "data": {
+            "tweet_id": "1346889436626259968"
+          }
+        }
+      }
+    }
+  }
+}

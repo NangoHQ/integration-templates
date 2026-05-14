@@ -1,0 +1,111 @@
+{
+  "input": {
+    "target_user_id": "44196397"
+  },
+  "output": {
+    "success": true,
+    "following": false
+  },
+  "nango": {
+    "getConnection": {},
+    "getMetadata": {}
+  },
+  "api": {
+    "get": {
+      "/2/users/me": {
+        "response": {
+          "data": {
+            "id": "2054257020509839360",
+            "name": "Nango Developer",
+            "username": "NangoApi"
+          }
+        },
+        "status": 200,
+        "headers": {
+          "date": "Thu, 14 May 2026 19:24:06 GMT",
+          "content-type": "application/json; charset=utf-8",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=631138519; includeSubdomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4975",
+          "x-ratelimit-reset": "1778786687",
+          "perf": "7402827104",
+          "server": "cloudflare envoy",
+          "api-version": "2.163",
+          "cache-control": "no-cache, no-store, max-age=0",
+          "set-cookie": "guest_id=v1%3A177878664596469619; Max-Age=34214400; Expires=Mon, 14 Jun 2027 19:24:05 GMT; Path=/; Domain=.twitter.com; Secure; SameSite=None, __cf_bm=YFMh_IgG2i7ndwwlyirV4VjkTU1ePhOIBsPGIqzDnjY-1778786645.947763-1.0.1.1-2.Mfj8tmzsFmrQa5ZWBv_k6O49pLmFLbyGPXEUd7l4FWSbD8Plm4xYKBNUvKt.pxIkjFA2eYBbUbKE0ozpeoe5wKynYxKZ9THo5jXemofv5lgE99K1JgqvWnQExGFpih; HttpOnly; SameSite=None; Secure; Path=/; Domain=twitter.com; Expires=Thu, 14 May 2026 19:54:05 GMT",
+          "x-access-level": "read-write",
+          "x-transaction-id": "6dccc3b46c4e645b",
+          "x-rate-limit-limit": "75",
+          "x-rate-limit-reset": "1778787393",
+          "content-disposition": "attachment; filename=json.json",
+          "x-rate-limit-remaining": "58",
+          "x-response-time": "32",
+          "origin-cf-ray": "9fbc47f92eb869da-SEA",
+          "x-served-by": "t4_p",
+          "vary": "accept-encoding",
+          "cf-cache-status": "DYNAMIC",
+          "cf-ray": "9fbc47f92eb869da-PDX"
+        },
+        "hash": "16f0be3f8bcf81363033ef9905a833cdddeedf92",
+        "request": {}
+      }
+    },
+    "delete": {
+      "/2/users/2054257020509839360/following/44196397": {
+        "response": {
+          "data": {
+            "following": false
+          }
+        },
+        "status": 200,
+        "headers": {
+          "date": "Thu, 14 May 2026 19:24:06 GMT",
+          "content-type": "application/json; charset=utf-8",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=631138519; includeSubdomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4974",
+          "x-ratelimit-reset": "1778786687",
+          "perf": "7402827104",
+          "server": "cloudflare envoy",
+          "api-version": "2.163",
+          "cache-control": "no-cache, no-store, max-age=0",
+          "set-cookie": "guest_id=v1%3A177878664610124884; Max-Age=34214400; Expires=Mon, 14 Jun 2027 19:24:06 GMT; Path=/; Domain=.twitter.com; Secure; SameSite=None, __cf_bm=tD_9HM7RTtZkhUrhlL4yvPUP6BKembI5LDOuwXAyO2I-1778786646.0823596-1.0.1.1-OR5lT866SOZMqs7fsXo9BM.kSLQmIb2Yi810xzW03.S3gHwUiZ_tBH6HChpBHkpWZsQn5.YGdC.Su5Xf7Z_bo9DZwmCleh2fUHSkg.5Wo3rwimzcnMyjPvng55l7dXgU; HttpOnly; SameSite=None; Secure; Path=/; Domain=twitter.com; Expires=Thu, 14 May 2026 19:54:06 GMT",
+          "x-access-level": "read-write",
+          "x-transaction-id": "6194593e24042f1d",
+          "x-rate-limit-limit": "50",
+          "x-rate-limit-reset": "1778787393",
+          "content-disposition": "attachment; filename=json.json",
+          "x-rate-limit-remaining": "43",
+          "x-response-time": "64",
+          "origin-cf-ray": "9fbc47fa0faf9314-SEA",
+          "x-served-by": "t4_p",
+          "vary": "accept-encoding",
+          "cf-cache-status": "DYNAMIC",
+          "cf-ray": "9fbc47fa0faf9314-PDX"
+        },
+        "hash": "6ea9035a1bef1058b133e8cf130ea80af0135900",
+        "request": {}
+      }
+    }
+  }
+}

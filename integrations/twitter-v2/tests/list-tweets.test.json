@@ -1,0 +1,145 @@
+{
+  "input": {
+    "user_id": "2244994945",
+    "max_results": 5
+  },
+  "output": {
+    "tweets": [
+      {
+        "id": "2052646100633284774",
+        "text": "RT @chrisparkX: Try X API. \n\nThere are a ton of great new apps and use cases. This is a good example.",
+        "edit_history_tweet_ids": [
+          "2052646100633284774"
+        ]
+      },
+      {
+        "id": "2047770162405716218",
+        "text": "RT @agno_three: the future of the X API is ridculously high potential with the rise of agents",
+        "edit_history_tweet_ids": [
+          "2047770162405716218"
+        ]
+      },
+      {
+        "id": "2047769628059881849",
+        "text": "RT @chrisparkX: Try out X API + Grok with OpenClaw! \n\nHere’s a tutorial video by @AlexFinn who’s been building with X API for over a year n…",
+        "edit_history_tweet_ids": [
+          "2047769628059881849"
+        ]
+      },
+      {
+        "id": "2047769537244770356",
+        "text": "RT @AlexFinn: OpenClaw + the X API is a match made in heaven\n\nIt's an incredible way to stay on top of what's trending in the world, plus e…",
+        "edit_history_tweet_ids": [
+          "2047769537244770356"
+        ]
+      },
+      {
+        "id": "2047427759014895849",
+        "text": "RT @mike_rosinsky: We've made some key Quality of Life updates for the X Activity API:\n\n- Bulk subscription deletion\n- Fetch subscriptions…",
+        "edit_history_tweet_ids": [
+          "2047427759014895849"
+        ]
+      }
+    ],
+    "meta": {
+      "result_count": 5,
+      "newest_id": "2052646100633284774",
+      "oldest_id": "2047427759014895849",
+      "next_token": "7140dibdnow9c7btwoxhox6bx1yln3yiiexcvnnc75ik9"
+    }
+  },
+  "nango": {},
+  "api": {
+    "get": {
+      "/2/users/2244994945/tweets": {
+        "response": {
+          "data": [
+            {
+              "id": "2052646100633284774",
+              "text": "RT @chrisparkX: Try X API. \n\nThere are a ton of great new apps and use cases. This is a good example.",
+              "edit_history_tweet_ids": [
+                "2052646100633284774"
+              ]
+            },
+            {
+              "id": "2047770162405716218",
+              "text": "RT @agno_three: the future of the X API is ridculously high potential with the rise of agents",
+              "edit_history_tweet_ids": [
+                "2047770162405716218"
+              ]
+            },
+            {
+              "id": "2047769628059881849",
+              "text": "RT @chrisparkX: Try out X API + Grok with OpenClaw! \n\nHere’s a tutorial video by @AlexFinn who’s been building with X API for over a year n…",
+              "edit_history_tweet_ids": [
+                "2047769628059881849"
+              ]
+            },
+            {
+              "id": "2047769537244770356",
+              "text": "RT @AlexFinn: OpenClaw + the X API is a match made in heaven\n\nIt's an incredible way to stay on top of what's trending in the world, plus e…",
+              "edit_history_tweet_ids": [
+                "2047769537244770356"
+              ]
+            },
+            {
+              "id": "2047427759014895849",
+              "text": "RT @mike_rosinsky: We've made some key Quality of Life updates for the X Activity API:\n\n- Bulk subscription deletion\n- Fetch subscriptions…",
+              "edit_history_tweet_ids": [
+                "2047427759014895849"
+              ]
+            }
+          ],
+          "meta": {
+            "next_token": "7140dibdnow9c7btwoxhox6bx1yln3yiiexcvnnc75ik9",
+            "result_count": 5,
+            "newest_id": "2052646100633284774",
+            "oldest_id": "2047427759014895849"
+          }
+        },
+        "status": 200,
+        "headers": {
+          "date": "Thu, 14 May 2026 19:24:07 GMT",
+          "content-type": "application/json; charset=utf-8",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=631138519; includeSubdomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4971",
+          "x-ratelimit-reset": "1778786687",
+          "perf": "7402827104",
+          "server": "cloudflare envoy",
+          "api-version": "2.163",
+          "cache-control": "no-cache, no-store, max-age=0",
+          "set-cookie": "guest_id=v1%3A177878664766325238; Max-Age=34214400; Expires=Mon, 14 Jun 2027 19:24:07 GMT; Path=/; Domain=.twitter.com; Secure; SameSite=None, __cf_bm=8sFVXepDFgxie5qeLseZKscnP5wVPZzeS3cmewANELk-1778786647.6462374-1.0.1.1-1jsWlrtkxlMzZXMl4VhPsSjkCOQwlfSxoRJsuIdfNqoPG1uNCVtYJAVhVlJV22bUpte3juznBpr17WJjHpyWEwb1.ZlchDlUNmScgbe6e9_g0yGTWRSuk4LXIArirbdm; HttpOnly; SameSite=None; Secure; Path=/; Domain=twitter.com; Expires=Thu, 14 May 2026 19:54:07 GMT",
+          "x-access-level": "read-write",
+          "x-transaction-id": "5b5caa828183de5b",
+          "x-rate-limit-limit": "900",
+          "x-rate-limit-reset": "1778787500",
+          "content-disposition": "attachment; filename=json.json",
+          "x-rate-limit-remaining": "897",
+          "x-response-time": "95",
+          "origin-cf-ray": "9fbc4803cc5c9314-SEA",
+          "x-served-by": "t4_p",
+          "vary": "accept-encoding",
+          "cf-cache-status": "DYNAMIC",
+          "cf-ray": "9fbc4803cc5c9314-PDX"
+        },
+        "hash": "367da5929bcf6afd2add9d8e2a6e0b60703ec568",
+        "request": {
+          "params": {
+            "max_results": "5"
+          }
+        }
+      }
+    }
+  }
+}
