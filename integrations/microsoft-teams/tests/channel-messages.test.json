@@ -1,0 +1,12 @@
+{
+  "nango": {
+    "getConnection": {},
+    "batchSave": {
+      "ChannelMessage": []
+    },
+    "batchDelete": {
+      "ChannelMessage": []
+    }
+  },
+  "api": {}
+}

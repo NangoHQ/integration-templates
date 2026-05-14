@@ -1,0 +1,842 @@
+{
+  "input": {},
+  "output": {
+    "teamId": "97a9daf6-270f-43bb-96e4-e8980518fd0b",
+    "standardChannelId": "19:930ac81fe1524ddba0f92dee9d88969d@thread.tacv2",
+    "privateChannelId": "19:z1D8y9RebtgJXNvD-nyfQEKJiKvB2g4CT-aVhWMERag1@thread.tacv2",
+    "messageIds": [
+      "1778777270318",
+      "1778777270872",
+      "1778777271340"
+    ],
+    "replyId": "1778777271821",
+    "chatId": "19:858062e21bfc4b319cbf095abf0f8a80@thread.v2",
+    "chatMessageIds": [
+      "1778777272776",
+      "1778777273171"
+    ]
+  },
+  "nango": {},
+  "api": {
+    "get": {
+      "/v1.0/me": {
+        "response": {
+          "@odata.context": "https://graph.microsoft.com/v1.0/$metadata#users/$entity",
+          "businessPhones": [
+            "0720089691"
+          ],
+          "displayName": "Robin Guldener",
+          "givenName": "Robin",
+          "jobTitle": null,
+          "mail": "api@nangodevelopers.onmicrosoft.com",
+          "mobilePhone": null,
+          "officeLocation": null,
+          "preferredLanguage": "en",
+          "surname": "Guldener",
+          "userPrincipalName": "api@nangodevelopers.onmicrosoft.com",
+          "id": "aea0ba47-35e8-4a85-92bb-03ea32f9d3f6"
+        },
+        "status": 200,
+        "headers": {
+          "date": "Thu, 14 May 2026 16:47:47 GMT",
+          "content-type": "application/json;odata.metadata=minimal;odata.streaming=true;IEEE754Compatible=false;charset=utf-8",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=31536000",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4976",
+          "x-ratelimit-reset": "1778777279",
+          "cache-control": "no-cache",
+          "vary": "Accept-Encoding",
+          "request-id": "973a41c8-3721-4294-b0cb-a88f4bf45c00",
+          "client-request-id": "973a41c8-3721-4294-b0cb-a88f4bf45c00",
+          "x-ms-ags-diagnostic": "{\"ServerInfo\":{\"DataCenter\":\"West US 2\",\"Slice\":\"E\",\"Ring\":\"4\",\"ScaleUnit\":\"004\",\"RoleInstance\":\"MW2PEPF00013FC7\"}}",
+          "x-ms-resource-unit": "1",
+          "odata-version": "4.0"
+        },
+        "hash": "35111ab66c689584df578b20c2592b5ecd151521",
+        "request": {}
+      },
+      "/v1.0/users": {
+        "response": {
+          "@odata.context": "https://graph.microsoft.com/v1.0/$metadata#users",
+          "value": [
+            {
+              "businessPhones": [
+                "0720089691"
+              ],
+              "displayName": "Robin Guldener",
+              "givenName": "Robin",
+              "jobTitle": null,
+              "mail": "api@nangodevelopers.onmicrosoft.com",
+              "mobilePhone": null,
+              "officeLocation": null,
+              "preferredLanguage": "en",
+              "surname": "Guldener",
+              "userPrincipalName": "api@nangodevelopers.onmicrosoft.com",
+              "id": "aea0ba47-35e8-4a85-92bb-03ea32f9d3f6"
+            },
+            {
+              "businessPhones": [],
+              "displayName": "Kelvin Wari",
+              "givenName": "Kelvin",
+              "jobTitle": null,
+              "mail": "kelvin@nango.dev",
+              "mobilePhone": null,
+              "officeLocation": null,
+              "preferredLanguage": "en-US",
+              "surname": "Wari",
+              "userPrincipalName": "kelvin@nango.dev",
+              "id": "1fa5e375-5abd-416f-85b1-9919c358a426"
+            }
+          ]
+        },
+        "status": 200,
+        "headers": {
+          "date": "Thu, 14 May 2026 16:47:47 GMT",
+          "content-type": "application/json;odata.metadata=minimal;odata.streaming=true;IEEE754Compatible=false;charset=utf-8",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=31536000",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4975",
+          "x-ratelimit-reset": "1778777279",
+          "cache-control": "no-cache",
+          "vary": "Accept-Encoding",
+          "request-id": "a695857a-8233-4a93-8ebb-ca0bca5cd333",
+          "client-request-id": "a695857a-8233-4a93-8ebb-ca0bca5cd333",
+          "x-ms-ags-diagnostic": "{\"ServerInfo\":{\"DataCenter\":\"West US 2\",\"Slice\":\"E\",\"Ring\":\"4\",\"ScaleUnit\":\"005\",\"RoleInstance\":\"MWH0EPF000B7AA0\"}}",
+          "x-ms-resource-unit": "1",
+          "odata-version": "4.0"
+        },
+        "hash": "66eccc7c9e57a6b320365b178e3b414cf4d5ba77",
+        "request": {
+          "params": {
+            "$top": "2"
+          }
+        }
+      },
+      "/v1.0/teams": {
+        "response": {
+          "@odata.context": "https://graph.microsoft.com/v1.0/$metadata#teams",
+          "@odata.count": 1,
+          "value": [
+            {
+              "id": "97a9daf6-270f-43bb-96e4-e8980518fd0b",
+              "createdDateTime": null,
+              "displayName": "Nango Test Team",
+              "description": "Seeded by seed-test-data",
+              "internalId": null,
+              "classification": null,
+              "specialization": null,
+              "visibility": "public",
+              "webUrl": null,
+              "isArchived": null,
+              "isMembershipLimitedToOwners": null,
+              "memberSettings": null,
+              "guestSettings": null,
+              "messagingSettings": null,
+              "funSettings": null,
+              "discoverySettings": null,
+              "tagSettings": null,
+              "summary": null
+            }
+          ]
+        },
+        "status": 200,
+        "headers": {
+          "date": "Thu, 14 May 2026 16:47:47 GMT",
+          "content-type": "application/json;odata.metadata=minimal;odata.streaming=true;IEEE754Compatible=false;charset=utf-8",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=31536000",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4974",
+          "x-ratelimit-reset": "1778777279",
+          "vary": "Accept-Encoding",
+          "request-id": "616f4acb-63d8-40c9-a1e4-ba2fe9f412c7",
+          "client-request-id": "616f4acb-63d8-40c9-a1e4-ba2fe9f412c7",
+          "x-ms-ags-diagnostic": "{\"ServerInfo\":{\"DataCenter\":\"West US 2\",\"Slice\":\"E\",\"Ring\":\"4\",\"ScaleUnit\":\"001\",\"RoleInstance\":\"MW2PEPF00013FC3\"}}",
+          "odata-version": "4.0"
+        },
+        "hash": "a087a6dc7cc57923750b75fc9ad34166bf355525",
+        "request": {
+          "params": {
+            "$filter": "displayName eq 'Nango Test Team'",
+            "$top": "10"
+          }
+        }
+      },
+      "/v1.0/teams/97a9daf6-270f-43bb-96e4-e8980518fd0b/channels": {
+        "response": {
+          "@odata.context": "https://graph.microsoft.com/v1.0/$metadata#teams('97a9daf6-270f-43bb-96e4-e8980518fd0b')/channels",
+          "@odata.count": 4,
+          "value": [
+            {
+              "id": "19:930ac81fe1524ddba0f92dee9d88969d@thread.tacv2",
+              "createdDateTime": "2026-05-14T16:46:07.449Z",
+              "displayName": "General Seed",
+              "description": null,
+              "isFavoriteByDefault": null,
+              "email": null,
+              "tenantId": "56480ae2-88be-49cf-86f6-d62a45bf8758",
+              "webUrl": "https://teams.cloud.microsoft/l/channel/19%3A930ac81fe1524ddba0f92dee9d88969d%40thread.tacv2/General%20Seed?groupId=97a9daf6-270f-43bb-96e4-e8980518fd0b&tenantId=56480ae2-88be-49cf-86f6-d62a45bf8758&allowXTenantAccess=False",
+              "membershipType": "standard",
+              "layoutType": null,
+              "isArchived": false
+            },
+            {
+              "id": "19:czNFsIL_2U7BF8bND7DR_bZFfMiMHwbacFEO0z40WBA1@thread.tacv2",
+              "createdDateTime": "2026-05-14T16:40:57.866Z",
+              "displayName": "General",
+              "description": "Seeded by seed-test-data",
+              "isFavoriteByDefault": null,
+              "email": "NangoTestTeam@nango.dev",
+              "tenantId": "56480ae2-88be-49cf-86f6-d62a45bf8758",
+              "webUrl": "https://teams.cloud.microsoft/l/channel/19%3AczNFsIL_2U7BF8bND7DR_bZFfMiMHwbacFEO0z40WBA1%40thread.tacv2/Nango%20Test%20Team?groupId=97a9daf6-270f-43bb-96e4-e8980518fd0b&tenantId=56480ae2-88be-49cf-86f6-d62a45bf8758&allowXTenantAccess=False",
+              "membershipType": "standard",
+              "layoutType": null,
+              "isArchived": false
+            },
+            {
+              "id": "19:YupYQmOgNDXq07G5Zz4ktcg2Np6-vJijhfXw3cX2lcY1@thread.tacv2",
+              "createdDateTime": "2026-05-14T16:46:11.816Z",
+              "displayName": "AddMemberHere",
+              "description": "Channel to test add member",
+              "isFavoriteByDefault": null,
+              "email": null,
+              "tenantId": "56480ae2-88be-49cf-86f6-d62a45bf8758",
+              "webUrl": "https://teams.cloud.microsoft/l/channel/19%3AYupYQmOgNDXq07G5Zz4ktcg2Np6-vJijhfXw3cX2lcY1%40thread.tacv2/AddMemberHere?groupId=97a9daf6-270f-43bb-96e4-e8980518fd0b&tenantId=56480ae2-88be-49cf-86f6-d62a45bf8758&allowXTenantAccess=False&ngc=True",
+              "membershipType": "private",
+              "layoutType": null,
+              "isArchived": false
+            },
+            {
+              "id": "19:z1D8y9RebtgJXNvD-nyfQEKJiKvB2g4CT-aVhWMERag1@thread.tacv2",
+              "createdDateTime": "2026-05-14T16:46:18.05Z",
+              "displayName": "Private Seed",
+              "description": null,
+              "isFavoriteByDefault": null,
+              "email": null,
+              "tenantId": "56480ae2-88be-49cf-86f6-d62a45bf8758",
+              "webUrl": "https://teams.cloud.microsoft/l/channel/19%3Az1D8y9RebtgJXNvD-nyfQEKJiKvB2g4CT-aVhWMERag1%40thread.tacv2/Private%20Seed?groupId=97a9daf6-270f-43bb-96e4-e8980518fd0b&tenantId=56480ae2-88be-49cf-86f6-d62a45bf8758&allowXTenantAccess=False&ngc=True",
+              "membershipType": "private",
+              "layoutType": null,
+              "isArchived": false
+            }
+          ]
+        },
+        "status": 200,
+        "headers": {
+          "date": "Thu, 14 May 2026 16:47:48 GMT",
+          "content-type": "application/json;odata.metadata=minimal;odata.streaming=true;IEEE754Compatible=false;charset=utf-8",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=31536000",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4973",
+          "x-ratelimit-reset": "1778777279",
+          "vary": "Accept-Encoding",
+          "request-id": "aaec6b99-91d1-4aed-9219-661523c008b4",
+          "client-request-id": "aaec6b99-91d1-4aed-9219-661523c008b4",
+          "x-ms-ags-diagnostic": "{\"ServerInfo\":{\"DataCenter\":\"West US 2\",\"Slice\":\"E\",\"Ring\":\"4\",\"ScaleUnit\":\"000\",\"RoleInstance\":\"CO1PEPF000157AD\"}}",
+          "odata-version": "4.0"
+        },
+        "hash": "12ef9f3fdad567de759ab8d8d76063d29935af85",
+        "request": {}
+      },
+      "/v1.0/chats": {
+        "response": {
+          "@odata.context": "https://graph.microsoft.com/v1.0/$metadata#chats",
+          "@odata.count": 4,
+          "value": [
+            {
+              "id": "19:858062e21bfc4b319cbf095abf0f8a80@thread.v2",
+              "topic": "Nango Seed Chat",
+              "createdDateTime": "2026-05-14T16:47:09Z",
+              "lastUpdatedDateTime": "2026-05-14T16:47:09.234Z",
+              "chatType": "group",
+              "webUrl": "https://teams.microsoft.com/l/chat/19%3A858062e21bfc4b319cbf095abf0f8a80%40thread.v2/0?tenantId=56480ae2-88be-49cf-86f6-d62a45bf8758",
+              "tenantId": "56480ae2-88be-49cf-86f6-d62a45bf8758",
+              "isHiddenForAllMembers": false,
+              "onlineMeetingInfo": null,
+              "viewpoint": {
+                "isHidden": false,
+                "lastMessageReadDateTime": "2026-05-14T16:47:10.217Z"
+              }
+            },
+            {
+              "id": "19:1f50872f8ab44089818f01193ea60f24@thread.v2",
+              "topic": "Test Group Chat",
+              "createdDateTime": "2026-05-14T16:35:09Z",
+              "lastUpdatedDateTime": "2026-05-14T16:35:09.178Z",
+              "chatType": "group",
+              "webUrl": "https://teams.microsoft.com/l/chat/19%3A1f50872f8ab44089818f01193ea60f24%40thread.v2/0?tenantId=56480ae2-88be-49cf-86f6-d62a45bf8758",
+              "tenantId": "56480ae2-88be-49cf-86f6-d62a45bf8758",
+              "isHiddenForAllMembers": false,
+              "onlineMeetingInfo": null,
+              "viewpoint": {
+                "isHidden": false,
+                "lastMessageReadDateTime": "2026-05-14T16:35:09.53Z"
+              }
+            },
+            {
+              "id": "19:b90a650de0a745e2828279c4a6a8a36d@thread.v2",
+              "topic": "Test Group Chat",
+              "createdDateTime": "2026-05-14T16:35:18Z",
+              "lastUpdatedDateTime": "2026-05-14T16:35:18.552Z",
+              "chatType": "group",
+              "webUrl": "https://teams.microsoft.com/l/chat/19%3Ab90a650de0a745e2828279c4a6a8a36d%40thread.v2/0?tenantId=56480ae2-88be-49cf-86f6-d62a45bf8758",
+              "tenantId": "56480ae2-88be-49cf-86f6-d62a45bf8758",
+              "isHiddenForAllMembers": false,
+              "onlineMeetingInfo": null,
+              "viewpoint": {
+                "isHidden": false,
+                "lastMessageReadDateTime": "2026-05-14T16:35:19.022Z"
+              }
+            },
+            {
+              "id": "19:1fa5e375-5abd-416f-85b1-9919c358a426_aea0ba47-35e8-4a85-92bb-03ea32f9d3f6@unq.gbl.spaces",
+              "topic": null,
+              "createdDateTime": "2026-05-14T16:35:09Z",
+              "lastUpdatedDateTime": "2026-05-14T16:35:09.466Z",
+              "chatType": "oneOnOne",
+              "webUrl": "https://teams.microsoft.com/l/chat/19%3A1fa5e375-5abd-416f-85b1-9919c358a426_aea0ba47-35e8-4a85-92bb-03ea32f9d3f6%40unq.gbl.spaces/0?tenantId=56480ae2-88be-49cf-86f6-d62a45bf8758",
+              "tenantId": "56480ae2-88be-49cf-86f6-d62a45bf8758",
+              "isHiddenForAllMembers": false,
+              "onlineMeetingInfo": null,
+              "viewpoint": {
+                "isHidden": false,
+                "lastMessageReadDateTime": "2026-05-14T16:35:29.447Z"
+              }
+            }
+          ]
+        },
+        "status": 200,
+        "headers": {
+          "date": "Thu, 14 May 2026 16:47:52 GMT",
+          "content-type": "application/json;odata.metadata=minimal;odata.streaming=true;IEEE754Compatible=false;charset=utf-8",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=31536000",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4967",
+          "x-ratelimit-reset": "1778777279",
+          "vary": "Accept-Encoding",
+          "request-id": "6a334952-f758-4628-99e8-53e0058a5ce6",
+          "client-request-id": "6a334952-f758-4628-99e8-53e0058a5ce6",
+          "x-ms-ags-diagnostic": "{\"ServerInfo\":{\"DataCenter\":\"West US 2\",\"Slice\":\"E\",\"Ring\":\"4\",\"ScaleUnit\":\"005\",\"RoleInstance\":\"MWH0EPF000B674F\"}}",
+          "odata-version": "4.0"
+        },
+        "hash": "0fe9106ee9e2383dbe0d2cb38d623332302fbfe2",
+        "request": {
+          "params": {
+            "$top": "50"
+          }
+        }
+      }
+    },
+    "post": {
+      "/v1.0/teams/97a9daf6-270f-43bb-96e4-e8980518fd0b/channels/19:930ac81fe1524ddba0f92dee9d88969d@thread.tacv2/messages": [
+        {
+          "response": {
+            "@odata.context": "https://graph.microsoft.com/v1.0/$metadata#teams('97a9daf6-270f-43bb-96e4-e8980518fd0b')/channels('19%3A930ac81fe1524ddba0f92dee9d88969d%40thread.tacv2')/messages/$entity",
+            "id": "1778777270318",
+            "replyToId": null,
+            "etag": "1778777270318",
+            "messageType": "message",
+            "createdDateTime": "2026-05-14T16:47:50.318Z",
+            "lastModifiedDateTime": "2026-05-14T16:47:50.318Z",
+            "lastEditedDateTime": null,
+            "deletedDateTime": null,
+            "subject": null,
+            "summary": null,
+            "chatId": null,
+            "importance": "normal",
+            "locale": "en-us",
+            "webUrl": "https://teams.microsoft.com/l/message/19%3A930ac81fe1524ddba0f92dee9d88969d%40thread.tacv2/1778777270318?groupId=97a9daf6-270f-43bb-96e4-e8980518fd0b&tenantId=56480ae2-88be-49cf-86f6-d62a45bf8758&createdTime=1778777270318&parentMessageId=1778777270318",
+            "policyViolation": null,
+            "eventDetail": null,
+            "from": {
+              "application": null,
+              "device": null,
+              "user": {
+                "@odata.type": "#microsoft.graph.teamworkUserIdentity",
+                "id": "aea0ba47-35e8-4a85-92bb-03ea32f9d3f6",
+                "displayName": "Robin Guldener",
+                "userIdentityType": "aadUser",
+                "tenantId": "56480ae2-88be-49cf-86f6-d62a45bf8758"
+              }
+            },
+            "body": {
+              "contentType": "html",
+              "content": "<p>First seed message</p>"
+            },
+            "channelIdentity": {
+              "teamId": "97a9daf6-270f-43bb-96e4-e8980518fd0b",
+              "channelId": "19:930ac81fe1524ddba0f92dee9d88969d@thread.tacv2"
+            },
+            "attachments": [],
+            "mentions": [],
+            "reactions": []
+          },
+          "status": 201,
+          "headers": {
+            "date": "Thu, 14 May 2026 16:47:50 GMT",
+            "content-type": "application/json;odata.metadata=minimal;odata.streaming=true;IEEE754Compatible=false;charset=utf-8",
+            "transfer-encoding": "chunked",
+            "connection": "keep-alive",
+            "x-xss-protection": "0",
+            "x-content-type-options": "nosniff",
+            "x-download-options": "noopen",
+            "x-frame-options": "SAMEORIGIN",
+            "x-dns-prefetch-control": "off",
+            "strict-transport-security": "max-age=31536000",
+            "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+            "access-control-allow-origin": "*",
+            "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+            "x-ratelimit-limit": "5000",
+            "x-ratelimit-remaining": "4971",
+            "x-ratelimit-reset": "1778777279",
+            "location": "https://teamsgraph.teams.microsoft.com/v1.0/teams('97a9daf6-270f-43bb-96e4-e8980518fd0b')/channels('19:930ac81fe1524ddba0f92dee9d88969d@thread.tacv2')/messages('1778777270318')",
+            "vary": "Accept-Encoding",
+            "request-id": "4d2b85e2-f1a1-49d3-b849-026d2ec5b24b",
+            "client-request-id": "4d2b85e2-f1a1-49d3-b849-026d2ec5b24b",
+            "x-ms-ags-diagnostic": "{\"ServerInfo\":{\"DataCenter\":\"West US 2\",\"Slice\":\"E\",\"Ring\":\"4\",\"ScaleUnit\":\"000\",\"RoleInstance\":\"CO1PEPF0000B44D\"}}",
+            "odata-version": "4.0"
+          },
+          "hash": "c2e3f990c9db1ddbf38798c13c4bb546e5baafc5",
+          "request": {
+            "data": {
+              "body": {
+                "contentType": "html",
+                "content": "<p>First seed message</p>"
+              }
+            }
+          }
+        },
+        {
+          "response": {
+            "@odata.context": "https://graph.microsoft.com/v1.0/$metadata#teams('97a9daf6-270f-43bb-96e4-e8980518fd0b')/channels('19%3A930ac81fe1524ddba0f92dee9d88969d%40thread.tacv2')/messages/$entity",
+            "id": "1778777270872",
+            "replyToId": null,
+            "etag": "1778777270872",
+            "messageType": "message",
+            "createdDateTime": "2026-05-14T16:47:50.872Z",
+            "lastModifiedDateTime": "2026-05-14T16:47:50.872Z",
+            "lastEditedDateTime": null,
+            "deletedDateTime": null,
+            "subject": null,
+            "summary": null,
+            "chatId": null,
+            "importance": "normal",
+            "locale": "en-us",
+            "webUrl": "https://teams.microsoft.com/l/message/19%3A930ac81fe1524ddba0f92dee9d88969d%40thread.tacv2/1778777270872?groupId=97a9daf6-270f-43bb-96e4-e8980518fd0b&tenantId=56480ae2-88be-49cf-86f6-d62a45bf8758&createdTime=1778777270872&parentMessageId=1778777270872",
+            "policyViolation": null,
+            "eventDetail": null,
+            "from": {
+              "application": null,
+              "device": null,
+              "user": {
+                "@odata.type": "#microsoft.graph.teamworkUserIdentity",
+                "id": "aea0ba47-35e8-4a85-92bb-03ea32f9d3f6",
+                "displayName": "Robin Guldener",
+                "userIdentityType": "aadUser",
+                "tenantId": "56480ae2-88be-49cf-86f6-d62a45bf8758"
+              }
+            },
+            "body": {
+              "contentType": "html",
+              "content": "<p>Second seed message</p>"
+            },
+            "channelIdentity": {
+              "teamId": "97a9daf6-270f-43bb-96e4-e8980518fd0b",
+              "channelId": "19:930ac81fe1524ddba0f92dee9d88969d@thread.tacv2"
+            },
+            "attachments": [],
+            "mentions": [],
+            "reactions": []
+          },
+          "status": 201,
+          "headers": {
+            "date": "Thu, 14 May 2026 16:47:51 GMT",
+            "content-type": "application/json;odata.metadata=minimal;odata.streaming=true;IEEE754Compatible=false;charset=utf-8",
+            "transfer-encoding": "chunked",
+            "connection": "keep-alive",
+            "x-xss-protection": "0",
+            "x-content-type-options": "nosniff",
+            "x-download-options": "noopen",
+            "x-frame-options": "SAMEORIGIN",
+            "x-dns-prefetch-control": "off",
+            "strict-transport-security": "max-age=31536000",
+            "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+            "access-control-allow-origin": "*",
+            "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+            "x-ratelimit-limit": "5000",
+            "x-ratelimit-remaining": "4970",
+            "x-ratelimit-reset": "1778777279",
+            "location": "https://teamsgraph.teams.microsoft.com/v1.0/teams('97a9daf6-270f-43bb-96e4-e8980518fd0b')/channels('19:930ac81fe1524ddba0f92dee9d88969d@thread.tacv2')/messages('1778777270872')",
+            "vary": "Accept-Encoding",
+            "request-id": "4d6fddb2-985e-489c-bbb6-97b0afc05611",
+            "client-request-id": "4d6fddb2-985e-489c-bbb6-97b0afc05611",
+            "x-ms-ags-diagnostic": "{\"ServerInfo\":{\"DataCenter\":\"West US 2\",\"Slice\":\"E\",\"Ring\":\"4\",\"ScaleUnit\":\"004\",\"RoleInstance\":\"MW2PEPF00013F62\"}}",
+            "odata-version": "4.0"
+          },
+          "hash": "be970ae40ecb8a6bc78e6bdfbf8971b21c8505c9",
+          "request": {
+            "data": {
+              "body": {
+                "contentType": "html",
+                "content": "<p>Second seed message</p>"
+              }
+            }
+          }
+        },
+        {
+          "response": {
+            "@odata.context": "https://graph.microsoft.com/v1.0/$metadata#teams('97a9daf6-270f-43bb-96e4-e8980518fd0b')/channels('19%3A930ac81fe1524ddba0f92dee9d88969d%40thread.tacv2')/messages/$entity",
+            "id": "1778777271340",
+            "replyToId": null,
+            "etag": "1778777271340",
+            "messageType": "message",
+            "createdDateTime": "2026-05-14T16:47:51.34Z",
+            "lastModifiedDateTime": "2026-05-14T16:47:51.34Z",
+            "lastEditedDateTime": null,
+            "deletedDateTime": null,
+            "subject": null,
+            "summary": null,
+            "chatId": null,
+            "importance": "normal",
+            "locale": "en-us",
+            "webUrl": "https://teams.microsoft.com/l/message/19%3A930ac81fe1524ddba0f92dee9d88969d%40thread.tacv2/1778777271340?groupId=97a9daf6-270f-43bb-96e4-e8980518fd0b&tenantId=56480ae2-88be-49cf-86f6-d62a45bf8758&createdTime=1778777271340&parentMessageId=1778777271340",
+            "policyViolation": null,
+            "eventDetail": null,
+            "from": {
+              "application": null,
+              "device": null,
+              "user": {
+                "@odata.type": "#microsoft.graph.teamworkUserIdentity",
+                "id": "aea0ba47-35e8-4a85-92bb-03ea32f9d3f6",
+                "displayName": "Robin Guldener",
+                "userIdentityType": "aadUser",
+                "tenantId": "56480ae2-88be-49cf-86f6-d62a45bf8758"
+              }
+            },
+            "body": {
+              "contentType": "html",
+              "content": "<p>Third seed message</p>"
+            },
+            "channelIdentity": {
+              "teamId": "97a9daf6-270f-43bb-96e4-e8980518fd0b",
+              "channelId": "19:930ac81fe1524ddba0f92dee9d88969d@thread.tacv2"
+            },
+            "attachments": [],
+            "mentions": [],
+            "reactions": []
+          },
+          "status": 201,
+          "headers": {
+            "date": "Thu, 14 May 2026 16:47:51 GMT",
+            "content-type": "application/json;odata.metadata=minimal;odata.streaming=true;IEEE754Compatible=false;charset=utf-8",
+            "transfer-encoding": "chunked",
+            "connection": "keep-alive",
+            "x-xss-protection": "0",
+            "x-content-type-options": "nosniff",
+            "x-download-options": "noopen",
+            "x-frame-options": "SAMEORIGIN",
+            "x-dns-prefetch-control": "off",
+            "strict-transport-security": "max-age=31536000",
+            "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+            "access-control-allow-origin": "*",
+            "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+            "x-ratelimit-limit": "5000",
+            "x-ratelimit-remaining": "4969",
+            "x-ratelimit-reset": "1778777279",
+            "location": "https://teamsgraph.teams.microsoft.com/v1.0/teams('97a9daf6-270f-43bb-96e4-e8980518fd0b')/channels('19:930ac81fe1524ddba0f92dee9d88969d@thread.tacv2')/messages('1778777271340')",
+            "vary": "Accept-Encoding",
+            "request-id": "0a95654c-4972-4bf2-b6f0-064ee2617a85",
+            "client-request-id": "0a95654c-4972-4bf2-b6f0-064ee2617a85",
+            "x-ms-ags-diagnostic": "{\"ServerInfo\":{\"DataCenter\":\"West US 2\",\"Slice\":\"E\",\"Ring\":\"4\",\"ScaleUnit\":\"004\",\"RoleInstance\":\"MW2PEPF00013FC8\"}}",
+            "odata-version": "4.0"
+          },
+          "hash": "a239e10b1e28d5046f344552d5941b21271ce846",
+          "request": {
+            "data": {
+              "body": {
+                "contentType": "html",
+                "content": "<p>Third seed message</p>"
+              }
+            }
+          }
+        }
+      ],
+      "/v1.0/teams/97a9daf6-270f-43bb-96e4-e8980518fd0b/channels/19:930ac81fe1524ddba0f92dee9d88969d@thread.tacv2/messages/1778777270318/replies": {
+        "response": {
+          "@odata.context": "https://graph.microsoft.com/v1.0/$metadata#teams('97a9daf6-270f-43bb-96e4-e8980518fd0b')/channels('19%3A930ac81fe1524ddba0f92dee9d88969d%40thread.tacv2')/messages('1778777270318')/replies/$entity",
+          "id": "1778777271821",
+          "replyToId": "1778777270318",
+          "etag": "1778777271821",
+          "messageType": "message",
+          "createdDateTime": "2026-05-14T16:47:51.821Z",
+          "lastModifiedDateTime": "2026-05-14T16:47:51.821Z",
+          "lastEditedDateTime": null,
+          "deletedDateTime": null,
+          "subject": null,
+          "summary": null,
+          "chatId": null,
+          "importance": "normal",
+          "locale": "en-us",
+          "webUrl": "https://teams.microsoft.com/l/message/19%3A930ac81fe1524ddba0f92dee9d88969d%40thread.tacv2/1778777271821?groupId=97a9daf6-270f-43bb-96e4-e8980518fd0b&tenantId=56480ae2-88be-49cf-86f6-d62a45bf8758&createdTime=1778777271821&parentMessageId=1778777270318",
+          "policyViolation": null,
+          "eventDetail": null,
+          "from": {
+            "application": null,
+            "device": null,
+            "user": {
+              "@odata.type": "#microsoft.graph.teamworkUserIdentity",
+              "id": "aea0ba47-35e8-4a85-92bb-03ea32f9d3f6",
+              "displayName": "Robin Guldener",
+              "userIdentityType": "aadUser",
+              "tenantId": "56480ae2-88be-49cf-86f6-d62a45bf8758"
+            }
+          },
+          "body": {
+            "contentType": "html",
+            "content": "<p>Seed reply</p>"
+          },
+          "channelIdentity": {
+            "teamId": "97a9daf6-270f-43bb-96e4-e8980518fd0b",
+            "channelId": "19:930ac81fe1524ddba0f92dee9d88969d@thread.tacv2"
+          },
+          "attachments": [],
+          "mentions": [],
+          "reactions": []
+        },
+        "status": 201,
+        "headers": {
+          "date": "Thu, 14 May 2026 16:47:52 GMT",
+          "content-type": "application/json;odata.metadata=minimal;odata.streaming=true;IEEE754Compatible=false;charset=utf-8",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=31536000",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4968",
+          "x-ratelimit-reset": "1778777279",
+          "location": "https://teamsgraph.teams.microsoft.com/v1.0/teams('97a9daf6-270f-43bb-96e4-e8980518fd0b')/channels('19:930ac81fe1524ddba0f92dee9d88969d@thread.tacv2')/messages('1778777270318')/replies('1778777271821')",
+          "vary": "Accept-Encoding",
+          "request-id": "fe5a7e23-ed0a-4f35-9861-201b7c9f934c",
+          "client-request-id": "fe5a7e23-ed0a-4f35-9861-201b7c9f934c",
+          "x-ms-ags-diagnostic": "{\"ServerInfo\":{\"DataCenter\":\"West US 2\",\"Slice\":\"E\",\"Ring\":\"4\",\"ScaleUnit\":\"003\",\"RoleInstance\":\"CO1PEPF00004BE6\"}}",
+          "odata-version": "4.0"
+        },
+        "hash": "7da86274c67851e0f3c547334bacc60b06450406",
+        "request": {
+          "data": {
+            "body": {
+              "contentType": "html",
+              "content": "<p>Seed reply</p>"
+            }
+          }
+        }
+      },
+      "/v1.0/chats/19:858062e21bfc4b319cbf095abf0f8a80@thread.v2/messages": [
+        {
+          "response": {
+            "@odata.context": "https://graph.microsoft.com/v1.0/$metadata#chats('19%3A858062e21bfc4b319cbf095abf0f8a80%40thread.v2')/messages/$entity",
+            "id": "1778777272776",
+            "replyToId": null,
+            "etag": "1778777272776",
+            "messageType": "message",
+            "createdDateTime": "2026-05-14T16:47:52.776Z",
+            "lastModifiedDateTime": "2026-05-14T16:47:52.776Z",
+            "lastEditedDateTime": null,
+            "deletedDateTime": null,
+            "subject": null,
+            "summary": null,
+            "chatId": "19:858062e21bfc4b319cbf095abf0f8a80@thread.v2",
+            "importance": "normal",
+            "locale": "en-us",
+            "webUrl": null,
+            "channelIdentity": null,
+            "policyViolation": null,
+            "eventDetail": null,
+            "from": {
+              "application": null,
+              "device": null,
+              "user": {
+                "@odata.type": "#microsoft.graph.teamworkUserIdentity",
+                "id": "aea0ba47-35e8-4a85-92bb-03ea32f9d3f6",
+                "displayName": "Robin Guldener",
+                "userIdentityType": "aadUser",
+                "tenantId": "56480ae2-88be-49cf-86f6-d62a45bf8758"
+              }
+            },
+            "body": {
+              "contentType": "html",
+              "content": "<p>First seed chat message</p>"
+            },
+            "attachments": [],
+            "mentions": [],
+            "reactions": []
+          },
+          "status": 201,
+          "headers": {
+            "date": "Thu, 14 May 2026 16:47:52 GMT",
+            "content-type": "application/json;odata.metadata=minimal;odata.streaming=true;IEEE754Compatible=false;charset=utf-8",
+            "transfer-encoding": "chunked",
+            "connection": "keep-alive",
+            "x-xss-protection": "0",
+            "x-content-type-options": "nosniff",
+            "x-download-options": "noopen",
+            "x-frame-options": "SAMEORIGIN",
+            "x-dns-prefetch-control": "off",
+            "strict-transport-security": "max-age=31536000",
+            "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+            "access-control-allow-origin": "*",
+            "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+            "x-ratelimit-limit": "5000",
+            "x-ratelimit-remaining": "4966",
+            "x-ratelimit-reset": "1778777279",
+            "location": "https://teamsgraph.teams.microsoft.com/v1.0/chats('19:858062e21bfc4b319cbf095abf0f8a80@thread.v2')/messages('1778777272776')",
+            "vary": "Accept-Encoding",
+            "request-id": "becb019e-9f62-491f-b04b-286544edaee6",
+            "client-request-id": "becb019e-9f62-491f-b04b-286544edaee6",
+            "x-ms-ags-diagnostic": "{\"ServerInfo\":{\"DataCenter\":\"West US 2\",\"Slice\":\"E\",\"Ring\":\"4\",\"ScaleUnit\":\"005\",\"RoleInstance\":\"MWH0EPF000CB737\"}}",
+            "odata-version": "4.0"
+          },
+          "hash": "35059bac2193aea7cc59daa8903a0933afa6ac9c",
+          "request": {
+            "data": {
+              "body": {
+                "contentType": "html",
+                "content": "<p>First seed chat message</p>"
+              }
+            }
+          }
+        },
+        {
+          "response": {
+            "@odata.context": "https://graph.microsoft.com/v1.0/$metadata#chats('19%3A858062e21bfc4b319cbf095abf0f8a80%40thread.v2')/messages/$entity",
+            "id": "1778777273171",
+            "replyToId": null,
+            "etag": "1778777273171",
+            "messageType": "message",
+            "createdDateTime": "2026-05-14T16:47:53.171Z",
+            "lastModifiedDateTime": "2026-05-14T16:47:53.171Z",
+            "lastEditedDateTime": null,
+            "deletedDateTime": null,
+            "subject": null,
+            "summary": null,
+            "chatId": "19:858062e21bfc4b319cbf095abf0f8a80@thread.v2",
+            "importance": "normal",
+            "locale": "en-us",
+            "webUrl": null,
+            "channelIdentity": null,
+            "policyViolation": null,
+            "eventDetail": null,
+            "from": {
+              "application": null,
+              "device": null,
+              "user": {
+                "@odata.type": "#microsoft.graph.teamworkUserIdentity",
+                "id": "aea0ba47-35e8-4a85-92bb-03ea32f9d3f6",
+                "displayName": "Robin Guldener",
+                "userIdentityType": "aadUser",
+                "tenantId": "56480ae2-88be-49cf-86f6-d62a45bf8758"
+              }
+            },
+            "body": {
+              "contentType": "html",
+              "content": "<p>Second seed chat message</p>"
+            },
+            "attachments": [],
+            "mentions": [],
+            "reactions": []
+          },
+          "status": 201,
+          "headers": {
+            "date": "Thu, 14 May 2026 16:47:53 GMT",
+            "content-type": "application/json;odata.metadata=minimal;odata.streaming=true;IEEE754Compatible=false;charset=utf-8",
+            "transfer-encoding": "chunked",
+            "connection": "keep-alive",
+            "x-xss-protection": "0",
+            "x-content-type-options": "nosniff",
+            "x-download-options": "noopen",
+            "x-frame-options": "SAMEORIGIN",
+            "x-dns-prefetch-control": "off",
+            "strict-transport-security": "max-age=31536000",
+            "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+            "access-control-allow-origin": "*",
+            "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+            "x-ratelimit-limit": "5000",
+            "x-ratelimit-remaining": "4965",
+            "x-ratelimit-reset": "1778777279",
+            "location": "https://teamsgraph.teams.microsoft.com/v1.0/chats('19:858062e21bfc4b319cbf095abf0f8a80@thread.v2')/messages('1778777273171')",
+            "vary": "Accept-Encoding",
+            "request-id": "d1866f8d-bd4c-4f4a-99de-2b5e4b28dfe8",
+            "client-request-id": "d1866f8d-bd4c-4f4a-99de-2b5e4b28dfe8",
+            "x-ms-ags-diagnostic": "{\"ServerInfo\":{\"DataCenter\":\"West US 2\",\"Slice\":\"E\",\"Ring\":\"4\",\"ScaleUnit\":\"005\",\"RoleInstance\":\"MWH0EPF000C8E6E\"}}",
+            "odata-version": "4.0"
+          },
+          "hash": "05c3d0de91477ad9422b81df7e2f5f29e06d1d2c",
+          "request": {
+            "data": {
+              "body": {
+                "contentType": "html",
+                "content": "<p>Second seed chat message</p>"
+              }
+            }
+          }
+        }
+      ]
+    }
+  }
+}
