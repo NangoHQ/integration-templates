@@ -179,7 +179,7 @@ function mapJournal(journal: XeroJournal): z.infer<typeof GeneralLedgerSchema> {
 
 const sync = createSync({
     description: 'Sync Xero general ledger journals, each containing journal lines with account and tax details.',
-    version: '3.0.0',
+    version: '3.1.0',
     frequency: 'every hour',
     autoStart: true,
     syncType: 'incremental',

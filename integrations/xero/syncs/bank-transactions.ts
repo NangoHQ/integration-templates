@@ -49,7 +49,7 @@ function formatIfModifiedSince(date: Date): string {
 
 const sync = createSync({
     description: 'Sync bank transactions from Xero.',
-    version: '3.0.1',
+    version: '3.1.0',
     frequency: 'every hour',
     autoStart: true,
     endpoints: [

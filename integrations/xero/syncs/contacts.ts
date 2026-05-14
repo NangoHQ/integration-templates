@@ -133,7 +133,7 @@ interface Config extends ProxyConfiguration {
 
 const sync = createSync({
     description: 'Sync contacts from Xero.',
-    version: '3.0.0',
+    version: '3.1.0',
     frequency: 'every hour',
     autoStart: true,
     checkpoint: CheckpointSchema,
