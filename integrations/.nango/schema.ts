@@ -4981,6 +4981,109 @@ export interface ActionOutput_box_createfolder {
   name: string;})[];} | undefined;
 };
 
+export interface ActionInput_box_createuser {
+  /**
+   * The full name of the user. Example: "Jane Doe"
+   */
+  name: string;
+  /**
+   * The email address the user uses to log in. Example: "jane@example.com"
+   */
+  login: string;
+  /**
+   * The user's enterprise role.
+   */
+  role?: 'coadmin' | 'user' | undefined;
+  /**
+   * The language of the user in ISO 639-1 format.
+   */
+  language?: string | undefined;
+  /**
+   * Whether the user can use Box Sync.
+   */
+  is_sync_enabled?: boolean | undefined;
+  /**
+   * The user's job title.
+   */
+  job_title?: string | undefined;
+  /**
+   * The user's phone number.
+   */
+  phone?: string | undefined;
+  /**
+   * The user's address.
+   */
+  address?: string | undefined;
+  /**
+   * The user's total available space in bytes.
+   */
+  space_amount?: number | undefined;
+  /**
+   * Whether the user can see other enterprise users in their contact list.
+   */
+  can_see_managed_users?: boolean | undefined;
+  /**
+   * The user's timezone.
+   */
+  timezone?: string | undefined;
+  /**
+   * Whether the user is restricted from collaborating with users outside their enterprise.
+   */
+  is_external_collab_restricted?: boolean | undefined;
+  /**
+   * Whether to exempt the user from enterprise device limits.
+   */
+  is_exempt_from_device_limits?: boolean | undefined;
+  /**
+   * Whether the user must use two-factor authentication.
+   */
+  is_exempt_from_login_verification?: boolean | undefined;
+  /**
+   * Whether the user is an App User.
+   */
+  is_platform_access_only?: boolean | undefined;
+  /**
+   * The user's account status.
+   */
+  status?: 'active' | 'inactive' | 'cannot_delete_edit' | 'cannot_delete_edit_upload' | undefined;
+  /**
+   * An external identifier for an app user.
+   */
+  external_app_user_id?: string | undefined;
+  /**
+   * Tracking codes for analytics purposes.
+   */
+  tracking_codes?: ({  type?: 'tracking_code' | undefined;
+  name?: string | undefined;
+  value?: string | undefined;})[];
+};
+
+export interface ActionOutput_box_createuser {
+  id: string;
+  name?: string | undefined;
+  login?: string | undefined;
+  role?: string | undefined;
+  language?: string | undefined;
+  timezone?: string | undefined;
+  space_amount?: number | undefined;
+  space_used?: number | undefined;
+  max_upload_size?: number | undefined;
+  status?: string | undefined;
+  job_title?: string | undefined;
+  phone?: string | undefined;
+  address?: string | undefined;
+  avatar_url?: string | undefined;
+  is_sync_enabled?: boolean | undefined;
+  can_see_managed_users?: boolean | undefined;
+  is_external_collab_restricted?: boolean | undefined;
+  is_exempt_from_device_limits?: boolean | undefined;
+  is_exempt_from_login_verification?: boolean | undefined;
+  is_platform_access_only?: boolean | undefined;
+  external_app_user_id?: string | undefined;
+  created_at?: string | undefined;
+  modified_at?: string | undefined;
+};
+
 export interface ActionInput_box_deletecollaboration {
   /**
    * The ID of the collaboration to delete. Example: "72837978884"
@@ -5005,6 +5108,32 @@ export interface ActionOutput_box_deletecomment {
    * Whether the comment was successfully deleted
    */
   success: boolean;
+};
+
+export interface ActionInput_box_deleteuser {
+  /**
+   * The ID of the user to delete. Example: "12345"
+   */
+  user_id: string;
+  /**
+   * Whether to force the deletion even if the user has content. Defaults to false.
+   */
+  force?: boolean | undefined;
+  /**
+   * Whether to notify the user that they have been removed. Defaults to false.
+   */
+  notify?: boolean | undefined;
+};
+
+export interface ActionOutput_box_deleteuser {
+  /**
+   * Whether the user deletion succeeded
+   */
+  success: boolean;
+  /**
+   * The ID of the deleted user
+   */
+  user_id: string;
 };
 
 export interface ActionInput_box_deletefile {
@@ -5063,6 +5192,29 @@ export interface ActionOutput_box_downloadfile {
    * The ID of the downloaded file
    */
   file_id: string;
+};
+
+export interface ActionInput_box_foldercontent {
+  /**
+   * The ID of the folder to fetch content from. Defaults to the root folder ("0"). Example: "123456789"
+   */
+  folder_id?: string | undefined;
+  /**
+   * A pagination cursor returned by a previous call. Use this to fetch the next page of results.
+   */
+  marker?: string | undefined;
+};
+
+export interface ActionOutput_box_foldercontent {
+  folders: ({  id: string;
+  name: string;
+  modified_at: string;
+  url?: string | undefined;})[];
+  files: ({  id: string;
+  name: string;
+  modified_at: string;
+  download_url: string;})[];
+  next_marker?: string | undefined;
 };
 
 export interface ActionInput_box_getcollaboration {

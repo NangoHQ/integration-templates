@@ -18456,6 +18456,192 @@
       ],
       "additionalProperties": false
     },
+    "ActionInput_box_createuser": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string",
+          "description": "The full name of the user. Example: \"Jane Doe\""
+        },
+        "login": {
+          "type": "string",
+          "description": "The email address the user uses to log in. Example: \"jane@example.com\""
+        },
+        "role": {
+          "type": "string",
+          "enum": [
+            "coadmin",
+            "user"
+          ],
+          "description": "The user's enterprise role."
+        },
+        "language": {
+          "type": "string",
+          "description": "The language of the user in ISO 639-1 format."
+        },
+        "is_sync_enabled": {
+          "type": "boolean",
+          "description": "Whether the user can use Box Sync."
+        },
+        "job_title": {
+          "type": "string",
+          "description": "The user's job title."
+        },
+        "phone": {
+          "type": "string",
+          "description": "The user's phone number."
+        },
+        "address": {
+          "type": "string",
+          "description": "The user's address."
+        },
+        "space_amount": {
+          "type": "number",
+          "description": "The user's total available space in bytes."
+        },
+        "can_see_managed_users": {
+          "type": "boolean",
+          "description": "Whether the user can see other enterprise users in their contact list."
+        },
+        "timezone": {
+          "type": "string",
+          "description": "The user's timezone."
+        },
+        "is_external_collab_restricted": {
+          "type": "boolean",
+          "description": "Whether the user is restricted from collaborating with users outside their enterprise."
+        },
+        "is_exempt_from_device_limits": {
+          "type": "boolean",
+          "description": "Whether to exempt the user from enterprise device limits."
+        },
+        "is_exempt_from_login_verification": {
+          "type": "boolean",
+          "description": "Whether the user must use two-factor authentication."
+        },
+        "is_platform_access_only": {
+          "type": "boolean",
+          "description": "Whether the user is an App User."
+        },
+        "status": {
+          "type": "string",
+          "enum": [
+            "active",
+            "inactive",
+            "cannot_delete_edit",
+            "cannot_delete_edit_upload"
+          ],
+          "description": "The user's account status."
+        },
+        "external_app_user_id": {
+          "type": "string",
+          "description": "An external identifier for an app user."
+        },
+        "tracking_codes": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "type": {
+                "type": "string",
+                "const": "tracking_code"
+              },
+              "name": {
+                "type": "string"
+              },
+              "value": {
+                "type": "string"
+              }
+            },
+            "additionalProperties": false
+          },
+          "description": "Tracking codes for analytics purposes."
+        }
+      },
+      "required": [
+        "name",
+        "login"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_box_createuser": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "login": {
+          "type": "string"
+        },
+        "role": {
+          "type": "string"
+        },
+        "language": {
+          "type": "string"
+        },
+        "timezone": {
+          "type": "string"
+        },
+        "space_amount": {
+          "type": "number"
+        },
+        "space_used": {
+          "type": "number"
+        },
+        "max_upload_size": {
+          "type": "number"
+        },
+        "status": {
+          "type": "string"
+        },
+        "job_title": {
+          "type": "string"
+        },
+        "phone": {
+          "type": "string"
+        },
+        "address": {
+          "type": "string"
+        },
+        "avatar_url": {
+          "type": "string"
+        },
+        "is_sync_enabled": {
+          "type": "boolean"
+        },
+        "can_see_managed_users": {
+          "type": "boolean"
+        },
+        "is_external_collab_restricted": {
+          "type": "boolean"
+        },
+        "is_exempt_from_device_limits": {
+          "type": "boolean"
+        },
+        "is_exempt_from_login_verification": {
+          "type": "boolean"
+        },
+        "is_platform_access_only": {
+          "type": "boolean"
+        },
+        "external_app_user_id": {
+          "type": "string"
+        },
+        "created_at": {
+          "type": "string"
+        },
+        "modified_at": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "id"
+      ],
+      "additionalProperties": false
+    },
     "ActionInput_box_deletecollaboration": {
       "type": "object",
       "properties": {
@@ -18508,6 +18694,45 @@
       },
       "required": [
         "success"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_box_deleteuser": {
+      "type": "object",
+      "properties": {
+        "user_id": {
+          "type": "string",
+          "description": "The ID of the user to delete. Example: \"12345\""
+        },
+        "force": {
+          "type": "boolean",
+          "description": "Whether to force the deletion even if the user has content. Defaults to false."
+        },
+        "notify": {
+          "type": "boolean",
+          "description": "Whether to notify the user that they have been removed. Defaults to false."
+        }
+      },
+      "required": [
+        "user_id"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_box_deleteuser": {
+      "type": "object",
+      "properties": {
+        "success": {
+          "type": "boolean",
+          "description": "Whether the user deletion succeeded"
+        },
+        "user_id": {
+          "type": "string",
+          "description": "The ID of the deleted user"
+        }
+      },
+      "required": [
+        "success",
+        "user_id"
       ],
       "additionalProperties": false
     },
@@ -18615,6 +18840,86 @@
       "required": [
         "content",
         "file_id"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_box_foldercontent": {
+      "type": "object",
+      "properties": {
+        "folder_id": {
+          "type": "string",
+          "description": "The ID of the folder to fetch content from. Defaults to the root folder (\"0\"). Example: \"123456789\""
+        },
+        "marker": {
+          "type": "string",
+          "description": "A pagination cursor returned by a previous call. Use this to fetch the next page of results."
+        }
+      },
+      "additionalProperties": false
+    },
+    "ActionOutput_box_foldercontent": {
+      "type": "object",
+      "properties": {
+        "folders": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "name": {
+                "type": "string"
+              },
+              "modified_at": {
+                "type": "string"
+              },
+              "url": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "id",
+              "name",
+              "modified_at"
+            ],
+            "additionalProperties": false
+          }
+        },
+        "files": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "name": {
+                "type": "string"
+              },
+              "modified_at": {
+                "type": "string"
+              },
+              "download_url": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "id",
+              "name",
+              "modified_at",
+              "download_url"
+            ],
+            "additionalProperties": false
+          }
+        },
+        "next_marker": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "folders",
+        "files"
       ],
       "additionalProperties": false
     },
