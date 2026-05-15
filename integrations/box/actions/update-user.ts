@@ -143,6 +143,13 @@ const action = createAction({
             updateData['external_app_user_id'] = input.external_app_user_id;
         }
 
+        if (Object.keys(updateData).length === 0) {
+            throw new nango.ActionError({
+                type: 'invalid_input',
+                message: 'At least one field to update must be provided.'
+            });
+        }
+
         // https://developer.box.com/reference/put-users-id/
         const response = await nango.put({
             endpoint: `/2.0/users/${input.user_id}`,

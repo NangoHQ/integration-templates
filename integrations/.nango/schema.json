@@ -20173,7 +20173,7 @@
       "properties": {
         "query": {
           "type": "string",
-          "description": "The string to search for. This query is matched against item names, descriptions, text content of files, and various other fields. Required unless mdfilters is provided."
+          "description": "The string to search for. This query is matched against item names, descriptions, text content of files, and various other fields."
         },
         "type": {
           "type": "string",
@@ -20337,6 +20337,9 @@
           "description": "Limits results to items deleted within a date range (requires trash_content=trashed_only)."
         }
       },
+      "required": [
+        "query"
+      ],
       "additionalProperties": false
     },
     "ActionOutput_box_search": {

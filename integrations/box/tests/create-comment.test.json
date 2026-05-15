@@ -24,7 +24,7 @@
   "nango": {},
   "api": {
     "post": {
-      "/2.0/files/2231568666314/comments": {
+      "/2.0/comments": {
         "response": {
           "type": "comment",
           "id": "711220102",
@@ -70,6 +70,10 @@
         "hash": "50f53eb37cfc557c1c706431e5e587cfc1370e4d",
         "request": {
           "data": {
+            "item": {
+              "type": "file",
+              "id": "2231568666314"
+            },
             "message": "Test comment from Nango dryrun save"
           }
         }

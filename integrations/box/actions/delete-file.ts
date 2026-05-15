@@ -26,27 +26,27 @@ const action = createAction({
     scopes: ['root_readwrite'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
-        const file_id = input['file_id'];
-        const force_delete = input['force_delete'];
-
-        const queryParams: Record<string, string> = {};
-        if (force_delete) {
-            queryParams['force_delete'] = 'true';
-        }
-
-        const hasParams = Object.keys(queryParams).length > 0;
+        const file_id = input.file_id;
+        const force_delete = input.force_delete ?? false;
 
         // https://developer.box.com/reference/delete-files-id/
         await nango.delete({
             endpoint: `/2.0/files/${file_id}`,
-            ...(hasParams && { params: queryParams }),
             retries: 10
         });
+
+        if (force_delete) {
+            // https://developer.box.com/reference/delete-files-id-trash/
+            await nango.delete({
+                endpoint: `/2.0/files/${file_id}/trash`,
+                retries: 10
+            });
+        }
 
         return {
             success: true,
             file_id,
-            permanently_deleted: force_delete || false,
+            permanently_deleted: force_delete,
             message: force_delete ? 'File has been permanently deleted' : 'File has been moved to trash'
         };
     }

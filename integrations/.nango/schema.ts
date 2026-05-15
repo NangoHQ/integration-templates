@@ -5551,9 +5551,9 @@ export interface ActionOutput_box_listfolders {
 
 export interface ActionInput_box_search {
   /**
-   * The string to search for. This query is matched against item names, descriptions, text content of files, and various other fields. Required unless mdfilters is provided.
+   * The string to search for. This query is matched against item names, descriptions, text content of files, and various other fields.
    */
-  query?: string | undefined;
+  query: string;
   /**
    * Limits the search results to items of this type.
    */

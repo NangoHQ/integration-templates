@@ -45,8 +45,12 @@ const action = createAction({
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const response = await nango.post({
             // https://developer.box.com/reference/post-comments/
-            endpoint: `/2.0/files/${input.file_id}/comments`,
+            endpoint: '/2.0/comments',
             data: {
+                item: {
+                    type: 'file',
+                    id: input.file_id
+                },
                 message: input.message
             },
             retries: 10

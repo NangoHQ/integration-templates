@@ -2,7 +2,7 @@ import { z } from 'zod';
 import { createAction } from 'nango';
 
 const InputSchema = z.object({
-    user_id: z.string().describe('The ID of the user to delete. Example: "12345"'),
+    user_id: z.string().min(1).describe('The ID of the user to delete. Example: "12345"'),
     force: z.boolean().optional().describe('Whether to force the deletion even if the user has content. Defaults to false.'),
     notify: z.boolean().optional().describe('Whether to notify the user that they have been removed. Defaults to false.')
 });

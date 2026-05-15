@@ -123,6 +123,13 @@ const action = createAction({
             requestBody['can_view_path'] = input.can_view_path;
         }
 
+        if (Object.keys(requestBody).length === 0) {
+            throw new nango.ActionError({
+                type: 'invalid_input',
+                message: 'At least one of role, status, expires_at, or can_view_path must be provided to update the collaboration.'
+            });
+        }
+
         // https://developer.box.com/reference/put-collaborations-id/
         const response = await nango.put({
             endpoint: `/2.0/collaborations/${input.collaboration_id}`,

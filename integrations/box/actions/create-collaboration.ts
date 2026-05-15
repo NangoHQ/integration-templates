@@ -16,7 +16,11 @@ const InputSchema = z.object({
         .describe('The level of access granted. Example: "editor"'),
     is_access_only: z.boolean().optional().describe('If true, collaborators have access but items are not visible in All Files list. Example: true'),
     can_view_path: z.boolean().optional().describe('If true, invited users can see the entire parent path to the folder. Example: true'),
-    expires_at: z.string().datetime().optional().describe('Expiration date for the collaboration in ISO 8601 format. Example: "2019-08-29T23:59:00-07:00"'),
+    expires_at: z
+        .string()
+        .datetime({ offset: true })
+        .optional()
+        .describe('Expiration date for the collaboration in ISO 8601 format. Example: "2019-08-29T23:59:00-07:00"'),
     notify: z.boolean().optional().describe('Whether to notify the user of the invitation. Example: true')
 });
 

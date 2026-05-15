@@ -87,7 +87,7 @@ const action = createAction({
         });
         const fileBuffer = Buffer.from(input.content, 'base64');
 
-        const chunks: Buffer[] = [];
+        const chunks: Uint8Array[] = [];
         const crlf = Buffer.from('\r\n');
 
         chunks.push(Buffer.from(`--${boundary}`));
@@ -117,6 +117,7 @@ const action = createAction({
         const options = {
             url: url,
             method: 'POST',
+            retries: 3,
             headers: {
                 Authorization: `Bearer ${accessToken}`,
                 'Content-Type': `multipart/form-data; boundary=${boundary}`

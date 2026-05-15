@@ -4,10 +4,7 @@ import { createAction } from 'nango';
 const InputSchema = z.object({
     query: z
         .string()
-        .optional()
-        .describe(
-            'The string to search for. This query is matched against item names, descriptions, text content of files, and various other fields. Required unless mdfilters is provided.'
-        ),
+        .describe('The string to search for. This query is matched against item names, descriptions, text content of files, and various other fields.'),
     type: z.enum(['file', 'folder', 'web_link']).optional().describe('Limits the search results to items of this type.'),
     file_extensions: z
         .array(z.string())
@@ -85,11 +82,10 @@ const action = createAction({
     scopes: ['root_readwrite'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
-        const params: Record<string, string | number | string[] | number[]> = {};
+        const params: Record<string, string | number | string[] | number[]> = {
+            query: input.query
+        };
 
-        if (input.query !== undefined) {
-            params['query'] = input.query;
-        }
         if (input.type !== undefined) {
             params['type'] = input.type;
         }
