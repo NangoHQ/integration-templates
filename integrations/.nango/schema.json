@@ -17878,16 +17878,95 @@
       ],
       "additionalProperties": false
     },
-    "BoxDocument": {
+    "Collaboration": {
       "type": "object",
       "properties": {
         "id": {
           "type": "string"
         },
-        "name": {
+        "type": {
           "type": "string"
         },
-        "download_url": {
+        "item": {
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "string"
+            },
+            "type": {
+              "type": "string"
+            },
+            "name": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "id",
+            "type"
+          ],
+          "additionalProperties": false
+        },
+        "accessible_by": {
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "string"
+            },
+            "type": {
+              "type": "string"
+            },
+            "name": {
+              "type": "string"
+            },
+            "login": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "type"
+          ],
+          "additionalProperties": false
+        },
+        "invite_email": {
+          "type": "string"
+        },
+        "role": {
+          "type": "string"
+        },
+        "expires_at": {
+          "type": "string"
+        },
+        "is_access_only": {
+          "type": "boolean"
+        },
+        "status": {
+          "type": "string"
+        },
+        "acknowledged_at": {
+          "type": "string"
+        },
+        "created_by": {
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "string"
+            },
+            "type": {
+              "type": "string"
+            },
+            "name": {
+              "type": "string"
+            },
+            "login": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "type"
+          ],
+          "additionalProperties": false
+        },
+        "created_at": {
           "type": "string"
         },
         "modified_at": {
@@ -17896,31 +17975,11 @@
       },
       "required": [
         "id",
-        "name",
-        "download_url",
+        "type",
+        "role",
+        "status",
+        "created_at",
         "modified_at"
-      ],
-      "additionalProperties": false
-    },
-    "SyncMetadata_box_files": {
-      "type": "object",
-      "properties": {
-        "files": {
-          "type": "array",
-          "items": {
-            "type": "string"
-          }
-        },
-        "folders": {
-          "type": "array",
-          "items": {
-            "type": "string"
-          }
-        }
-      },
-      "required": [
-        "files",
-        "folders"
       ],
       "additionalProperties": false
     },
@@ -17945,67 +18004,2687 @@
       ],
       "additionalProperties": false
     },
-    "SyncMetadata_box_folders": {
-      "type": "object",
-      "additionalProperties": false
-    },
-    "SyncMetadata_box_users": {
-      "type": "object",
-      "additionalProperties": false
-    },
-    "ActionInput_box_createuser": {
+    "ActionInput_box_copyfile": {
       "type": "object",
       "properties": {
-        "firstName": {
+        "file_id": {
+          "type": "string",
+          "description": "The ID of the file to copy. Example: \"123456789\""
+        },
+        "parent_folder_id": {
+          "type": "string",
+          "description": "The ID of the destination folder. Example: \"987654321\""
+        },
+        "name": {
+          "type": "string",
+          "description": "An optional new name for the copied file. If not provided, the original name is used."
+        }
+      },
+      "required": [
+        "file_id",
+        "parent_folder_id"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_box_copyfile": {
+      "type": "object",
+      "properties": {
+        "id": {
           "type": "string"
         },
-        "lastName": {
+        "name": {
           "type": "string"
         },
-        "email": {
+        "type": {
           "type": "string"
         },
-        "address": {
+        "description": {
           "type": "string"
         },
-        "can_see_managed_users": {
-          "type": "boolean"
+        "size": {
+          "type": "number"
         },
-        "external_app_user_id": {
+        "created_at": {
           "type": "string"
         },
-        "is_exempt_from_device_limits": {
+        "modified_at": {
+          "type": "string"
+        },
+        "parent_folder_id": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "id",
+        "name",
+        "type"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_box_copyfolder": {
+      "type": "object",
+      "properties": {
+        "folder_id": {
+          "type": "string",
+          "description": "The ID of the folder to copy. Example: \"382204778319\""
+        },
+        "destination_folder_id": {
+          "type": "string",
+          "description": "The ID of the destination folder where the folder will be copied. Example: \"0\""
+        },
+        "name": {
+          "type": "string",
+          "description": "Optional new name for the copied folder. If not provided, the original name will be used with \" (copy)\" appended."
+        }
+      },
+      "required": [
+        "folder_id",
+        "destination_folder_id"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_box_copyfolder": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "type": {
+          "type": "string",
+          "const": "folder"
+        },
+        "parent": {
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "string"
+            },
+            "name": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "id"
+          ],
+          "additionalProperties": false
+        },
+        "created_at": {
+          "type": "string"
+        },
+        "modified_at": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        },
+        "size": {
+          "type": "number"
+        }
+      },
+      "required": [
+        "id",
+        "name",
+        "type"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_box_createcollaboration": {
+      "type": "object",
+      "properties": {
+        "item_type": {
+          "type": "string",
+          "enum": [
+            "file",
+            "folder"
+          ],
+          "description": "The type of item to grant access to. Example: \"folder\""
+        },
+        "item_id": {
+          "type": "string",
+          "description": "The ID of the item to grant access to. Example: \"382205380769\""
+        },
+        "accessible_by_type": {
+          "type": "string",
+          "enum": [
+            "user",
+            "group"
+          ],
+          "description": "The type of collaborator to invite. Example: \"user\""
+        },
+        "accessible_by_id": {
+          "type": "string",
+          "description": "The ID of the user or group to invite. Use this OR accessible_by_login, not both. Example: \"23522323\""
+        },
+        "accessible_by_login": {
+          "type": "string",
+          "description": "The email address of the user to invite. Use this OR accessible_by_id, not both. Example: \"john@example.com\""
+        },
+        "role": {
+          "type": "string",
+          "enum": [
+            "editor",
+            "viewer",
+            "previewer",
+            "uploader",
+            "previewer uploader",
+            "viewer uploader",
+            "co-owner"
+          ],
+          "description": "The level of access granted. Example: \"editor\""
+        },
+        "is_access_only": {
+          "type": "boolean",
+          "description": "If true, collaborators have access but items are not visible in All Files list. Example: true"
+        },
+        "can_view_path": {
+          "type": "boolean",
+          "description": "If true, invited users can see the entire parent path to the folder. Example: true"
+        },
+        "expires_at": {
+          "type": "string",
+          "description": "Expiration date for the collaboration in ISO 8601 format. Example: \"2019-08-29T23:59:00-07:00\""
+        },
+        "notify": {
+          "type": "boolean",
+          "description": "Whether to notify the user of the invitation. Example: true"
+        }
+      },
+      "required": [
+        "item_type",
+        "item_id",
+        "accessible_by_type",
+        "role"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_box_createcollaboration": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "type": {
+          "type": "string"
+        },
+        "item": {
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "string"
+            },
+            "type": {
+              "type": "string"
+            },
+            "name": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "id",
+            "type"
+          ],
+          "additionalProperties": false
+        },
+        "accessible_by": {
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "string"
+            },
+            "type": {
+              "type": "string"
+            },
+            "login": {
+              "type": "string"
+            },
+            "name": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "id",
+            "type"
+          ],
+          "additionalProperties": false
+        },
+        "invite_email": {
+          "type": "string"
+        },
+        "role": {
+          "type": "string"
+        },
+        "expires_at": {
+          "type": "string"
+        },
+        "is_access_only": {
           "type": "boolean"
         },
-        "is_exempt_from_login_verification": {
+        "status": {
+          "type": "string"
+        },
+        "acknowledged_at": {
+          "type": "string"
+        },
+        "created_at": {
+          "type": "string"
+        },
+        "modified_at": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "id",
+        "type",
+        "role"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_box_createcomment": {
+      "type": "object",
+      "properties": {
+        "file_id": {
+          "type": "string",
+          "description": "The ID of the file to comment on. Example: \"2231568666314\""
+        },
+        "message": {
+          "type": "string",
+          "description": "The text of the comment."
+        }
+      },
+      "required": [
+        "file_id",
+        "message"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_box_createcomment": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "type": {
+          "type": "string"
+        },
+        "message": {
+          "type": "string"
+        },
+        "tagged_message": {
+          "type": "string"
+        },
+        "is_reply_comment": {
           "type": "boolean"
         },
-        "is_external_collab_restricted": {
+        "created_by": {
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "string"
+            },
+            "type": {
+              "type": "string"
+            },
+            "name": {
+              "type": "string"
+            },
+            "login": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "id",
+            "type"
+          ],
+          "additionalProperties": false
+        },
+        "created_at": {
+          "type": "string"
+        },
+        "modified_at": {
+          "type": "string"
+        },
+        "item": {
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "string"
+            },
+            "type": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "id",
+            "type"
+          ],
+          "additionalProperties": false
+        }
+      },
+      "required": [
+        "id",
+        "type"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_box_createfolder": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string",
+          "description": "The name of the folder. Example: \"My New Folder\""
+        },
+        "parent_folder_id": {
+          "type": "string",
+          "description": "The ID of the parent folder. Use \"0\" for the root folder. Example: \"382205380769\""
+        }
+      },
+      "required": [
+        "name",
+        "parent_folder_id"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_box_createfolder": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "The unique identifier of the folder"
+        },
+        "name": {
+          "type": "string",
+          "description": "The name of the folder"
+        },
+        "type": {
+          "type": "string",
+          "const": "folder",
+          "description": "The type of the item"
+        },
+        "parent_id": {
+          "type": "string",
+          "description": "The ID of the parent folder"
+        },
+        "created_at": {
+          "type": "string",
+          "description": "The timestamp when the folder was created"
+        },
+        "modified_at": {
+          "type": "string",
+          "description": "The timestamp when the folder was last modified"
+        },
+        "description": {
+          "type": "string",
+          "description": "The description of the folder"
+        },
+        "path_collection": {
+          "type": "object",
+          "properties": {
+            "entries": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "id": {
+                    "type": "string"
+                  },
+                  "name": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "id",
+                  "name"
+                ],
+                "additionalProperties": false
+              }
+            }
+          },
+          "required": [
+            "entries"
+          ],
+          "additionalProperties": false,
+          "description": "The path from the root to this folder"
+        }
+      },
+      "required": [
+        "id",
+        "name",
+        "type"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_box_deletecollaboration": {
+      "type": "object",
+      "properties": {
+        "collaboration_id": {
+          "type": "string",
+          "description": "The ID of the collaboration to delete. Example: \"72837978884\""
+        }
+      },
+      "required": [
+        "collaboration_id"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_box_deletecollaboration": {
+      "type": "object",
+      "properties": {
+        "success": {
           "type": "boolean"
         },
-        "is_platform_access_only": {
+        "collaboration_id": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "success",
+        "collaboration_id"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_box_deletecomment": {
+      "type": "object",
+      "properties": {
+        "commentId": {
+          "type": "string",
+          "description": "The ID of the comment to delete. Example: \"12345\""
+        }
+      },
+      "required": [
+        "commentId"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_box_deletecomment": {
+      "type": "object",
+      "properties": {
+        "success": {
+          "type": "boolean",
+          "description": "Whether the comment was successfully deleted"
+        }
+      },
+      "required": [
+        "success"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_box_deletefile": {
+      "type": "object",
+      "properties": {
+        "file_id": {
+          "type": "string",
+          "description": "The unique identifier for the file to delete. Example: \"123456789\""
+        },
+        "force_delete": {
+          "type": "boolean",
+          "description": "If true, permanently deletes the file bypassing the trash. If false or omitted, the file is moved to trash."
+        }
+      },
+      "required": [
+        "file_id"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_box_deletefile": {
+      "type": "object",
+      "properties": {
+        "success": {
           "type": "boolean"
         },
-        "is_sync_enabled": {
+        "file_id": {
+          "type": "string"
+        },
+        "permanently_deleted": {
           "type": "boolean"
         },
-        "job_title": {
+        "message": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "success",
+        "file_id",
+        "permanently_deleted",
+        "message"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_box_deletefolder": {
+      "type": "object",
+      "properties": {
+        "folderId": {
+          "type": "string",
+          "description": "The ID of the folder to delete. Example: \"382204778319\""
+        },
+        "recursive": {
+          "type": "boolean",
+          "description": "Whether to delete the folder and all its contents. If false and folder is not empty, the operation will fail. Defaults to true."
+        }
+      },
+      "required": [
+        "folderId"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_box_deletefolder": {
+      "type": "object",
+      "properties": {
+        "success": {
+          "type": "boolean",
+          "description": "Whether the folder deletion succeeded"
+        },
+        "folderId": {
+          "type": "string",
+          "description": "The ID of the deleted folder"
+        }
+      },
+      "required": [
+        "success",
+        "folderId"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_box_downloadfile": {
+      "type": "object",
+      "properties": {
+        "file_id": {
+          "type": "string",
+          "description": "The ID of the file to download. Example: \"123456789\""
+        }
+      },
+      "required": [
+        "file_id"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_box_downloadfile": {
+      "type": "object",
+      "properties": {
+        "content": {
+          "type": "string",
+          "description": "The file content as a base64-encoded string"
+        },
+        "file_id": {
+          "type": "string",
+          "description": "The ID of the downloaded file"
+        }
+      },
+      "required": [
+        "content",
+        "file_id"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_box_getcollaboration": {
+      "type": "object",
+      "properties": {
+        "collaboration_id": {
+          "type": "string",
+          "description": "The ID of the collaboration. Example: \"1234\""
+        }
+      },
+      "required": [
+        "collaboration_id"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_box_getcollaboration": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "type": {
+          "type": "string",
+          "const": "collaboration"
+        },
+        "item": {
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "string"
+            },
+            "type": {
+              "type": "string"
+            },
+            "name": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "id",
+            "type"
+          ],
+          "additionalProperties": false
+        },
+        "accessible_by": {
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "string"
+            },
+            "type": {
+              "type": "string"
+            },
+            "login": {
+              "type": "string"
+            },
+            "name": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "id",
+            "type"
+          ],
+          "additionalProperties": false
+        },
+        "invite_email": {
+          "type": "string"
+        },
+        "role": {
+          "type": "string"
+        },
+        "expires_at": {
+          "type": "string"
+        },
+        "is_access_only": {
+          "type": "boolean"
+        },
+        "status": {
+          "type": "string",
+          "enum": [
+            "accepted",
+            "pending",
+            "rejected"
+          ]
+        },
+        "acknowledged_at": {
+          "type": "string"
+        },
+        "created_by": {
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "string"
+            },
+            "type": {
+              "type": "string"
+            },
+            "login": {
+              "type": "string"
+            },
+            "name": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "id",
+            "type"
+          ],
+          "additionalProperties": false
+        },
+        "created_at": {
+          "type": "string"
+        },
+        "modified_at": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "id",
+        "type",
+        "role",
+        "status",
+        "created_at",
+        "modified_at"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_box_getcomment": {
+      "type": "object",
+      "properties": {
+        "comment_id": {
+          "type": "string",
+          "description": "The ID of the comment to retrieve. Example: \"12345\""
+        }
+      },
+      "required": [
+        "comment_id"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_box_getcomment": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "type": {
+          "type": "string",
+          "const": "comment"
+        },
+        "is_reply_comment": {
+          "type": "boolean"
+        },
+        "message": {
+          "type": "string"
+        },
+        "tagged_message": {
+          "type": "string"
+        },
+        "created_by": {
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "string"
+            },
+            "type": {
+              "type": "string",
+              "const": "user"
+            },
+            "name": {
+              "type": "string"
+            },
+            "login": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "id",
+            "type"
+          ],
+          "additionalProperties": false
+        },
+        "created_at": {
+          "type": "string"
+        },
+        "modified_at": {
+          "type": "string"
+        },
+        "item": {
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "string"
+            },
+            "type": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "id",
+            "type"
+          ],
+          "additionalProperties": false
+        }
+      },
+      "required": [
+        "id",
+        "type"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_box_getfile": {
+      "type": "object",
+      "properties": {
+        "file_id": {
+          "type": "string",
+          "description": "The unique identifier of the file. Example: \"12345\""
+        }
+      },
+      "required": [
+        "file_id"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_box_getfile": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "type": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "size": {
+          "type": "number"
+        },
+        "created_at": {
+          "type": "string"
+        },
+        "modified_at": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        },
+        "etag": {
+          "type": "string"
+        },
+        "parent": {
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "string"
+            },
+            "type": {
+              "type": "string"
+            },
+            "name": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "id",
+            "type"
+          ],
+          "additionalProperties": false
+        },
+        "created_by": {
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "string"
+            },
+            "type": {
+              "type": "string"
+            },
+            "name": {
+              "type": "string"
+            },
+            "login": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "id",
+            "type",
+            "name"
+          ],
+          "additionalProperties": false
+        },
+        "modified_by": {
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "string"
+            },
+            "type": {
+              "type": "string"
+            },
+            "name": {
+              "type": "string"
+            },
+            "login": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "id",
+            "type",
+            "name"
+          ],
+          "additionalProperties": false
+        },
+        "owned_by": {
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "string"
+            },
+            "type": {
+              "type": "string"
+            },
+            "name": {
+              "type": "string"
+            },
+            "login": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "id",
+            "type",
+            "name"
+          ],
+          "additionalProperties": false
+        },
+        "item_status": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "id",
+        "type",
+        "name",
+        "size",
+        "created_at",
+        "modified_at"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_box_getfolder": {
+      "type": "object",
+      "properties": {
+        "folder_id": {
+          "type": "string",
+          "description": "The unique identifier that represent a folder. The root folder is always represented by the ID 0. Example: \"12345\""
+        }
+      },
+      "required": [
+        "folder_id"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_box_getfolder": {
+      "type": "object",
+      "properties": {
+        "type": {
+          "type": "string",
+          "const": "folder"
+        },
+        "id": {
+          "type": "string"
+        },
+        "sequence_id": {
+          "type": "string"
+        },
+        "etag": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "created_at": {
+          "type": "string"
+        },
+        "modified_at": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        },
+        "size": {
+          "type": "number"
+        },
+        "path_collection": {
+          "type": "object",
+          "properties": {
+            "total_count": {
+              "type": "number"
+            },
+            "entries": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "type": {
+                    "type": "string",
+                    "const": "folder"
+                  },
+                  "id": {
+                    "type": "string"
+                  },
+                  "sequence_id": {
+                    "type": "string"
+                  },
+                  "etag": {
+                    "type": "string"
+                  },
+                  "name": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "type",
+                  "id",
+                  "name"
+                ],
+                "additionalProperties": false
+              }
+            }
+          },
+          "required": [
+            "total_count",
+            "entries"
+          ],
+          "additionalProperties": false
+        },
+        "created_by": {
+          "type": "object",
+          "properties": {
+            "type": {
+              "type": "string",
+              "const": "user"
+            },
+            "id": {
+              "type": "string"
+            },
+            "name": {
+              "type": "string"
+            },
+            "login": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "type",
+            "id",
+            "name"
+          ],
+          "additionalProperties": false
+        },
+        "modified_by": {
+          "type": "object",
+          "properties": {
+            "type": {
+              "type": "string",
+              "const": "user"
+            },
+            "id": {
+              "type": "string"
+            },
+            "name": {
+              "type": "string"
+            },
+            "login": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "type",
+            "id",
+            "name"
+          ],
+          "additionalProperties": false
+        },
+        "trashed_at": {
+          "type": "string"
+        },
+        "purged_at": {
+          "type": "string"
+        },
+        "content_created_at": {
+          "type": "string"
+        },
+        "content_modified_at": {
+          "type": "string"
+        },
+        "owned_by": {
+          "type": "object",
+          "properties": {
+            "type": {
+              "type": "string",
+              "const": "user"
+            },
+            "id": {
+              "type": "string"
+            },
+            "name": {
+              "type": "string"
+            },
+            "login": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "type",
+            "id",
+            "name"
+          ],
+          "additionalProperties": false
+        },
+        "shared_link": {
+          "type": "object",
+          "properties": {
+            "url": {
+              "type": "string"
+            },
+            "download_url": {
+              "type": "string"
+            },
+            "vanity_url": {
+              "type": "string"
+            },
+            "vanity_name": {
+              "type": "string"
+            },
+            "access": {
+              "type": "string"
+            },
+            "effective_access": {
+              "type": "string"
+            },
+            "effective_permission": {
+              "type": "string"
+            },
+            "is_password_enabled": {
+              "type": "boolean"
+            },
+            "download_count": {
+              "type": "number"
+            },
+            "preview_count": {
+              "type": "number"
+            }
+          },
+          "required": [
+            "url"
+          ],
+          "additionalProperties": false
+        },
+        "folder_upload_email": {
+          "type": "object",
+          "properties": {
+            "access": {
+              "type": "string"
+            },
+            "email": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "access",
+            "email"
+          ],
+          "additionalProperties": false
+        },
+        "parent": {
+          "type": "object",
+          "properties": {
+            "type": {
+              "type": "string",
+              "const": "folder"
+            },
+            "id": {
+              "type": "string"
+            },
+            "sequence_id": {
+              "type": "string"
+            },
+            "etag": {
+              "type": "string"
+            },
+            "name": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "type",
+            "id",
+            "name"
+          ],
+          "additionalProperties": false
+        },
+        "item_status": {
+          "type": "string"
+        },
+        "item_collection": {
+          "type": "object",
+          "properties": {
+            "total_count": {
+              "type": "number"
+            },
+            "entries": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "type": {
+                    "type": "string"
+                  },
+                  "id": {
+                    "type": "string"
+                  },
+                  "name": {
+                    "type": "string"
+                  },
+                  "sequence_id": {
+                    "type": "string"
+                  },
+                  "etag": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "type",
+                  "id"
+                ],
+                "additionalProperties": false
+              }
+            },
+            "offset": {
+              "type": "number"
+            },
+            "limit": {
+              "type": "number"
+            },
+            "order": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "by": {
+                    "type": "string"
+                  },
+                  "direction": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "by",
+                  "direction"
+                ],
+                "additionalProperties": false
+              }
+            }
+          },
+          "required": [
+            "total_count",
+            "entries"
+          ],
+          "additionalProperties": false
+        },
+        "has_collaborations": {
+          "type": "boolean"
+        },
+        "permissions": {
+          "type": "object",
+          "properties": {
+            "can_delete": {
+              "type": "boolean"
+            },
+            "can_download": {
+              "type": "boolean"
+            },
+            "can_invite_collaborator": {
+              "type": "boolean"
+            },
+            "can_rename": {
+              "type": "boolean"
+            },
+            "can_set_share_access": {
+              "type": "boolean"
+            },
+            "can_share": {
+              "type": "boolean"
+            },
+            "can_upload": {
+              "type": "boolean"
+            },
+            "can_apply_watermark": {
+              "type": "boolean"
+            }
+          },
+          "additionalProperties": false
+        },
+        "tags": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "can_non_owners_invite": {
+          "type": "boolean"
+        },
+        "is_externally_owned": {
+          "type": "boolean"
+        },
+        "is_collaboration_restricted_to_enterprise": {
+          "type": "boolean"
+        },
+        "allowed_shared_link_access_levels": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "allowed_invitee_roles": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "watermark_info": {
+          "type": "object",
+          "properties": {
+            "is_watermarked": {
+              "type": "boolean"
+            },
+            "is_watermark_inherited": {
+              "type": "boolean"
+            },
+            "is_watermarked_by_access_policy": {
+              "type": "boolean"
+            }
+          },
+          "required": [
+            "is_watermarked"
+          ],
+          "additionalProperties": false
+        },
+        "is_accessible_via_shared_link": {
+          "type": "boolean"
+        },
+        "can_non_owners_view_collaborators": {
+          "type": "boolean"
+        },
+        "classification": {
+          "type": "object",
+          "properties": {
+            "name": {
+              "type": "string"
+            },
+            "definition": {
+              "type": "string"
+            },
+            "color": {
+              "type": "string"
+            }
+          },
+          "additionalProperties": false
+        },
+        "is_associated_with_app_item": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "type",
+        "id",
+        "name"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_box_getuser": {
+      "type": "object",
+      "properties": {
+        "user_id": {
+          "type": "string",
+          "description": "The ID of the user. Example: \"123\""
+        }
+      },
+      "required": [
+        "user_id"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_box_getuser": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "login": {
+          "type": "string"
+        },
+        "created_at": {
+          "type": "string"
+        },
+        "modified_at": {
+          "type": "string"
+        },
+        "timezone": {
           "type": "string"
         },
         "language": {
           "type": "string"
         },
+        "space_amount": {
+          "type": "number"
+        },
+        "space_used": {
+          "type": "number"
+        },
+        "max_upload_size": {
+          "type": "number"
+        },
+        "status": {
+          "type": "string"
+        },
+        "job_title": {
+          "type": "string"
+        },
         "phone": {
           "type": "string"
+        },
+        "address": {
+          "type": "string"
+        },
+        "avatar_url": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "id"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_box_listcollaborations": {
+      "type": "object",
+      "properties": {
+        "status": {
+          "type": "string",
+          "const": "pending",
+          "description": "The status of the collaborations to retrieve. Defaults to pending."
+        },
+        "offset": {
+          "type": "number",
+          "description": "The offset of the item at which to begin the response."
+        },
+        "limit": {
+          "type": "number",
+          "description": "The maximum number of items to return per page."
+        }
+      },
+      "additionalProperties": false
+    },
+    "ActionOutput_box_listcollaborations": {
+      "type": "object",
+      "properties": {
+        "collaborations": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "type": {
+                "type": "string",
+                "const": "collaboration"
+              },
+              "item": {
+                "type": "object",
+                "properties": {
+                  "id": {
+                    "type": "string"
+                  },
+                  "type": {
+                    "type": "string",
+                    "enum": [
+                      "file",
+                      "folder",
+                      "web_link"
+                    ]
+                  },
+                  "name": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "id",
+                  "type"
+                ],
+                "additionalProperties": false
+              },
+              "accessible_by": {
+                "type": "object",
+                "properties": {
+                  "id": {
+                    "type": "string"
+                  },
+                  "type": {
+                    "type": "string",
+                    "const": "user"
+                  },
+                  "name": {
+                    "type": "string"
+                  },
+                  "login": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "id",
+                  "type"
+                ],
+                "additionalProperties": false
+              },
+              "invite_email": {
+                "type": "string"
+              },
+              "role": {
+                "type": "string"
+              },
+              "status": {
+                "type": "string",
+                "enum": [
+                  "accepted",
+                  "pending",
+                  "rejected"
+                ]
+              },
+              "acknowledged_at": {
+                "type": "string"
+              },
+              "created_at": {
+                "type": "string"
+              },
+              "modified_at": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "id",
+              "type"
+            ],
+            "additionalProperties": false
+          }
+        },
+        "total_count": {
+          "type": "number"
+        },
+        "offset": {
+          "type": "number"
+        },
+        "limit": {
+          "type": "number"
+        },
+        "has_more": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "collaborations"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_box_listcomments": {
+      "type": "object",
+      "properties": {
+        "file_id": {
+          "type": "string",
+          "description": "The unique identifier of the file. Example: \"12345\""
+        },
+        "limit": {
+          "type": "number",
+          "description": "The maximum number of items to return per page. Default: 100."
+        },
+        "offset": {
+          "type": "number",
+          "description": "The 0-based offset of the first item to return. Default: 0."
+        }
+      },
+      "required": [
+        "file_id"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_box_listcomments": {
+      "type": "object",
+      "properties": {
+        "total_count": {
+          "type": "number"
+        },
+        "limit": {
+          "type": "number"
+        },
+        "offset": {
+          "type": "number"
+        },
+        "order": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "by": {
+                "type": "string"
+              },
+              "direction": {
+                "type": "string",
+                "enum": [
+                  "ASC",
+                  "DESC"
+                ]
+              }
+            },
+            "additionalProperties": false
+          }
+        },
+        "entries": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "type": {
+                "type": "string",
+                "const": "comment"
+              },
+              "is_reply_comment": {
+                "type": "boolean"
+              },
+              "message": {
+                "type": "string"
+              },
+              "tagged_message": {
+                "type": "string"
+              },
+              "created_by": {
+                "type": "object",
+                "properties": {
+                  "id": {
+                    "type": "string"
+                  },
+                  "type": {
+                    "type": "string",
+                    "const": "user"
+                  },
+                  "name": {
+                    "type": "string"
+                  },
+                  "login": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "id",
+                  "type",
+                  "name",
+                  "login"
+                ],
+                "additionalProperties": false
+              },
+              "created_at": {
+                "type": "string"
+              },
+              "modified_at": {
+                "type": "string"
+              },
+              "item": {
+                "type": "object",
+                "properties": {
+                  "id": {
+                    "type": "string"
+                  },
+                  "type": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "id",
+                  "type"
+                ],
+                "additionalProperties": false
+              }
+            },
+            "required": [
+              "id",
+              "type"
+            ],
+            "additionalProperties": false
+          }
+        }
+      },
+      "required": [
+        "entries"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_box_listfiles": {
+      "type": "object",
+      "properties": {
+        "folder_id": {
+          "type": "string",
+          "description": "The unique identifier for the folder. The root folder is always represented by the ID `0`. Example: \"0\""
+        },
+        "cursor": {
+          "type": "string",
+          "description": "Pagination cursor from the previous response. Omit for the first page."
+        },
+        "limit": {
+          "type": "number",
+          "description": "The maximum number of items to return per page. Maximum is 1000."
+        },
+        "sort": {
+          "type": "string",
+          "enum": [
+            "id",
+            "name",
+            "date",
+            "size"
+          ],
+          "description": "Defines the second attribute by which items are sorted."
+        },
+        "direction": {
+          "type": "string",
+          "enum": [
+            "ASC",
+            "DESC"
+          ],
+          "description": "The direction to sort results in."
+        }
+      },
+      "required": [
+        "folder_id"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_box_listfiles": {
+      "type": "object",
+      "properties": {
+        "items": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "type": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "id",
+              "type"
+            ],
+            "additionalProperties": false
+          }
+        },
+        "next_cursor": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "items"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_box_listfolders": {
+      "type": "object",
+      "properties": {
+        "folder_id": {
+          "type": "string",
+          "description": "The ID of the folder to list items from. Use \"0\" for the root folder. Defaults to \"0\"."
+        },
+        "limit": {
+          "type": "number",
+          "description": "The maximum number of items to return per page. Maximum is 1000."
+        },
+        "cursor": {
+          "type": "string",
+          "description": "Pagination cursor from the previous response. Omit for the first page."
+        }
+      },
+      "additionalProperties": false
+    },
+    "ActionOutput_box_listfolders": {
+      "type": "object",
+      "properties": {
+        "folders": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "type": {
+                "type": "string",
+                "const": "folder"
+              },
+              "name": {
+                "type": "string"
+              },
+              "sequence_id": {
+                "type": "string"
+              },
+              "etag": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "id",
+              "type",
+              "name"
+            ],
+            "additionalProperties": false
+          }
+        },
+        "next_cursor": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "folders"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_box_search": {
+      "type": "object",
+      "properties": {
+        "query": {
+          "type": "string",
+          "description": "The string to search for. This query is matched against item names, descriptions, text content of files, and various other fields. Required unless mdfilters is provided."
+        },
+        "type": {
+          "type": "string",
+          "enum": [
+            "file",
+            "folder",
+            "web_link"
+          ],
+          "description": "Limits the search results to items of this type."
+        },
+        "file_extensions": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "Limits results to files matching any of the provided extensions (comma-separated list without dots)."
+        },
+        "ancestor_folder_ids": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "Limits results to items within the given folders (comma-separated list of folder IDs)."
+        },
+        "created_at_range": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "Limits results to items created within a date range (comma-separated RFC3339 timestamps)."
+        },
+        "updated_at_range": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "Limits results to items updated within a date range (comma-separated RFC3339 timestamps)."
+        },
+        "size_range": {
+          "type": "array",
+          "items": {
+            "type": "number"
+          },
+          "description": "Limits results to items within a file size range (comma-separated byte sizes)."
+        },
+        "owner_user_ids": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "Limits results to items owned by the given users (comma-separated list of user IDs)."
+        },
+        "recent_updater_user_ids": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "Limits results to items recently updated by the given users (comma-separated list of user IDs)."
+        },
+        "content_types": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "0": {
+                "type": "string",
+                "const": "name"
+              },
+              "1": {
+                "type": "string",
+                "const": "description"
+              },
+              "2": {
+                "type": "string",
+                "const": "file_content"
+              },
+              "3": {
+                "type": "string",
+                "const": "comments"
+              },
+              "4": {
+                "type": "string",
+                "const": "tags"
+              }
+            },
+            "required": [
+              "0",
+              "1",
+              "2",
+              "3",
+              "4"
+            ],
+            "additionalProperties": false
+          },
+          "description": "Limits search to match specific content parts (comma-separated list)."
+        },
+        "trash_content": {
+          "type": "string",
+          "enum": [
+            "non_trashed_only",
+            "trashed_only",
+            "all_items"
+          ],
+          "description": "Determines if the search should look in trash. Defaults to non_trashed_only."
+        },
+        "sort": {
+          "type": "string",
+          "enum": [
+            "relevance",
+            "modified_at"
+          ],
+          "description": "Defines the order of search results. Defaults to relevance."
+        },
+        "direction": {
+          "type": "string",
+          "enum": [
+            "ASC",
+            "DESC"
+          ],
+          "description": "Defines the direction of ordering. Defaults to DESC."
+        },
+        "limit": {
+          "type": "number",
+          "description": "Maximum number of items to return per page. Defaults to 30, max 200."
+        },
+        "offset": {
+          "type": "number",
+          "description": "The offset of the first item to return. Defaults to 0."
+        },
+        "scope": {
+          "type": "string",
+          "enum": [
+            "user_content",
+            "enterprise_content"
+          ],
+          "description": "Limits results to user content or enterprise content. Defaults to user_content."
+        },
+        "fields": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "Comma-separated list of attributes to include in the response."
+        },
+        "include_recent_shared_links": {
+          "type": "boolean",
+          "description": "Whether to include items accessed through shared links."
+        },
+        "deleted_user_ids": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "Limits results to items deleted by the given users (requires trash_content=trashed_only)."
+        },
+        "deleted_at_range": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "Limits results to items deleted within a date range (requires trash_content=trashed_only)."
+        }
+      },
+      "additionalProperties": false
+    },
+    "ActionOutput_box_search": {
+      "type": "object",
+      "properties": {
+        "total_count": {
+          "type": "number"
+        },
+        "limit": {
+          "type": "number"
+        },
+        "offset": {
+          "type": "number"
+        },
+        "entries": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "type": {
+                "type": "string"
+              },
+              "id": {
+                "type": "string"
+              },
+              "name": {
+                "type": "string"
+              },
+              "description": {
+                "type": "string"
+              },
+              "size": {
+                "type": "number"
+              },
+              "created_at": {
+                "type": "string"
+              },
+              "modified_at": {
+                "type": "string"
+              },
+              "path_collection": {
+                "type": "object",
+                "properties": {
+                  "entries": {
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "properties": {
+                        "type": {
+                          "type": "string"
+                        },
+                        "id": {
+                          "type": "string"
+                        },
+                        "name": {
+                          "type": "string"
+                        }
+                      },
+                      "required": [
+                        "type",
+                        "id"
+                      ],
+                      "additionalProperties": false
+                    }
+                  }
+                },
+                "required": [
+                  "entries"
+                ],
+                "additionalProperties": false
+              }
+            },
+            "required": [
+              "type",
+              "id"
+            ],
+            "additionalProperties": false
+          }
+        }
+      },
+      "required": [
+        "total_count",
+        "limit",
+        "offset",
+        "entries"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_box_updatecollaboration": {
+      "type": "object",
+      "properties": {
+        "collaboration_id": {
+          "type": "string",
+          "description": "The ID of the collaboration. Example: \"12345678\""
+        },
+        "role": {
+          "type": "string",
+          "enum": [
+            "editor",
+            "viewer",
+            "previewer",
+            "uploader",
+            "previewer uploader",
+            "viewer uploader",
+            "co-owner",
+            "owner"
+          ],
+          "description": "The level of access granted."
+        },
+        "status": {
+          "type": "string",
+          "enum": [
+            "pending",
+            "accepted",
+            "rejected"
+          ],
+          "description": "Set the status of a pending collaboration invitation, effectively accepting or rejecting the invite."
+        },
+        "expires_at": {
+          "type": "string",
+          "description": "Update the expiration date for the collaboration. Format: ISO 8601 date-time. Example: \"2019-08-29T23:59:00-07:00\""
+        },
+        "can_view_path": {
+          "type": "boolean",
+          "description": "Determines if the invited users can see the entire parent path to the associated folder. Only for folder collaborations."
+        }
+      },
+      "required": [
+        "collaboration_id"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_box_updatecollaboration": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "type": {
+          "type": "string",
+          "const": "collaboration"
+        },
+        "item": {
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "string"
+            },
+            "type": {
+              "type": "string",
+              "enum": [
+                "file",
+                "folder",
+                "web_link"
+              ]
+            }
+          },
+          "required": [
+            "id",
+            "type"
+          ],
+          "additionalProperties": false
+        },
+        "accessible_by": {
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "string"
+            },
+            "type": {
+              "type": "string",
+              "const": "user"
+            },
+            "name": {
+              "type": "string"
+            },
+            "login": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "id",
+            "type",
+            "name",
+            "login"
+          ],
+          "additionalProperties": false
+        },
+        "invite_email": {
+          "type": "string"
+        },
+        "role": {
+          "type": "string"
+        },
+        "expires_at": {
+          "type": "string"
+        },
+        "is_access_only": {
+          "type": "boolean"
+        },
+        "status": {
+          "type": "string",
+          "enum": [
+            "accepted",
+            "pending",
+            "rejected"
+          ]
+        },
+        "acknowledged_at": {
+          "type": "string"
+        },
+        "created_by": {
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "string"
+            },
+            "type": {
+              "type": "string",
+              "const": "user"
+            },
+            "name": {
+              "type": "string"
+            },
+            "login": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "id",
+            "type",
+            "name",
+            "login"
+          ],
+          "additionalProperties": false
+        },
+        "created_at": {
+          "type": "string"
+        },
+        "modified_at": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "id",
+        "type",
+        "role",
+        "status"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_box_updatecomment": {
+      "type": "object",
+      "properties": {
+        "commentId": {
+          "type": "string",
+          "description": "The ID of the comment to update. Example: \"12345\""
+        },
+        "message": {
+          "type": "string",
+          "description": "The new text of the comment. Example: \"Updated comment message\""
+        }
+      },
+      "required": [
+        "commentId",
+        "message"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_box_updatecomment": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "type": {
+          "type": "string"
+        },
+        "message": {
+          "type": "string"
+        },
+        "isReplyComment": {
+          "type": "boolean"
+        },
+        "createdAt": {
+          "type": "string"
+        },
+        "modifiedAt": {
+          "type": "string"
+        },
+        "createdBy": {
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "string"
+            },
+            "type": {
+              "type": "string"
+            },
+            "name": {
+              "type": "string"
+            },
+            "login": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "id",
+            "type"
+          ],
+          "additionalProperties": false
+        },
+        "item": {
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "string"
+            },
+            "type": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "id",
+            "type"
+          ],
+          "additionalProperties": false
+        },
+        "taggedMessage": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "id",
+        "type",
+        "message"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_box_updatefile": {
+      "type": "object",
+      "properties": {
+        "file_id": {
+          "type": "string",
+          "description": "The unique identifier that represents a file. Example: \"2231571097476\""
+        },
+        "name": {
+          "type": "string",
+          "description": "An optional different name for the file. This can be used to rename the file."
+        },
+        "description": {
+          "type": "string",
+          "description": "The description for a file. Max length 256 characters."
+        },
+        "parent": {
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "id"
+          ],
+          "additionalProperties": false,
+          "description": "An optional new parent folder for the file. This can be used to move the file to a new folder."
+        },
+        "tags": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "The tags for this item. There is a limit of 100 tags per item."
+        }
+      },
+      "required": [
+        "file_id"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_box_updatefile": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "type": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        },
+        "size": {
+          "type": "number"
+        },
+        "created_at": {
+          "type": "string"
+        },
+        "modified_at": {
+          "type": "string"
+        },
+        "parent": {
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "string"
+            },
+            "name": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "id"
+          ],
+          "additionalProperties": false
+        },
+        "tags": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      },
+      "required": [
+        "id",
+        "type"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_box_updatefolder": {
+      "type": "object",
+      "properties": {
+        "folder_id": {
+          "type": "string",
+          "description": "The unique identifier for the folder to update. Example: \"12345\""
+        },
+        "name": {
+          "type": "string",
+          "description": "The new name for the folder."
+        },
+        "description": {
+          "type": "string",
+          "description": "The optional description of this folder."
+        },
+        "parent_id": {
+          "type": "string",
+          "description": "The ID of the new parent folder to move this folder into."
+        },
+        "tags": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "The tags for this item."
+        },
+        "can_non_owners_invite": {
+          "type": "boolean",
+          "description": "Specifies if users who are not the owner of the folder can invite new collaborators."
+        },
+        "is_collaboration_restricted_to_enterprise": {
+          "type": "boolean",
+          "description": "Specifies if new invites to this folder are restricted to users within the enterprise."
+        },
+        "can_non_owners_view_collaborators": {
+          "type": "boolean",
+          "description": "Restricts collaborators who are not the owner from viewing other collaborations on this folder."
+        }
+      },
+      "required": [
+        "folder_id"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_box_updatefolder": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "type": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        },
+        "parent_id": {
+          "type": "string"
+        },
+        "sync_state": {
+          "type": "string",
+          "enum": [
+            "synced",
+            "not_synced",
+            "partially_synced"
+          ]
+        },
+        "tags": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "can_non_owners_invite": {
+          "type": "boolean"
+        },
+        "is_collaboration_restricted_to_enterprise": {
+          "type": "boolean"
+        },
+        "can_non_owners_view_collaborators": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "id",
+        "type",
+        "name"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_box_updateuser": {
+      "type": "object",
+      "properties": {
+        "user_id": {
+          "type": "string",
+          "description": "The ID of the user to update. Example: \"12345\""
+        },
+        "name": {
+          "type": "string",
+          "description": "The name of the user."
+        },
+        "login": {
+          "type": "string",
+          "description": "The email address the user uses to log in."
         },
         "role": {
           "type": "string",
           "enum": [
             "coadmin",
             "user"
-          ]
+          ],
+          "description": "The user's enterprise role."
+        },
+        "language": {
+          "type": "string",
+          "description": "The language of the user in ISO 639-1 format."
+        },
+        "is_sync_enabled": {
+          "type": "boolean",
+          "description": "Whether the user can use Box Sync."
+        },
+        "job_title": {
+          "type": "string",
+          "description": "The user's job title."
+        },
+        "phone": {
+          "type": "string",
+          "description": "The user's phone number."
+        },
+        "address": {
+          "type": "string",
+          "description": "The user's address."
+        },
+        "can_see_managed_users": {
+          "type": "boolean",
+          "description": "Whether the user can see other enterprise users in their contact list."
+        },
+        "timezone": {
+          "type": "string",
+          "description": "The user's timezone."
+        },
+        "is_external_collab_restricted": {
+          "type": "boolean",
+          "description": "Whether the user is allowed to collaborate with users outside their enterprise."
+        },
+        "is_exempt_from_device_limits": {
+          "type": "boolean",
+          "description": "Whether to exempt the user from enterprise device limits."
+        },
+        "is_exempt_from_login_verification": {
+          "type": "boolean",
+          "description": "Whether the user must use two-factor authentication."
+        },
+        "is_password_reset_required": {
+          "type": "boolean",
+          "description": "Whether the user is required to reset their password."
+        },
+        "status": {
+          "type": "string",
+          "enum": [
+            "active",
+            "inactive",
+            "cannot_delete_edit",
+            "cannot_delete_edit_upload"
+          ],
+          "description": "The user's account status."
         },
         "space_amount": {
+          "type": "number",
+          "description": "The user's total available space in bytes. Set to -1 for unlimited storage."
+        },
+        "external_app_user_id": {
+          "type": "string",
+          "description": "An external identifier for an app user."
+        }
+      },
+      "required": [
+        "user_id"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_box_updateuser": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "type": {
+          "type": "string",
+          "const": "user"
+        },
+        "name": {
+          "type": "string"
+        },
+        "login": {
+          "type": "string"
+        },
+        "role": {
+          "type": "string",
+          "enum": [
+            "admin",
+            "coadmin",
+            "user"
+          ]
+        },
+        "language": {
+          "type": "string"
+        },
+        "timezone": {
+          "type": "string"
+        },
+        "space_amount": {
+          "type": "number"
+        },
+        "space_used": {
+          "type": "number"
+        },
+        "max_upload_size": {
           "type": "number"
         },
         "status": {
@@ -18017,170 +20696,105 @@
             "cannot_delete_edit_upload"
           ]
         },
-        "timezone": {
+        "job_title": {
           "type": "string"
         },
-        "tracking_codes": {
-          "type": "array",
-          "items": {
-            "type": "object",
-            "properties": {
-              "type": {
-                "type": "string",
-                "const": "tracking_code"
-              },
-              "name": {
-                "type": "string"
-              },
-              "value": {
-                "type": "string"
-              }
-            },
-            "additionalProperties": false
-          }
-        }
-      },
-      "required": [
-        "firstName",
-        "lastName",
-        "email",
-        "tracking_codes"
-      ],
-      "additionalProperties": false
-    },
-    "ActionOutput_box_createuser": {
-      "type": "object",
-      "properties": {
-        "id": {
+        "phone": {
           "type": "string"
         },
-        "email": {
+        "address": {
           "type": "string"
         },
-        "firstName": {
+        "avatar_url": {
           "type": "string"
         },
-        "lastName": {
+        "is_sync_enabled": {
+          "type": "boolean"
+        },
+        "can_see_managed_users": {
+          "type": "boolean"
+        },
+        "is_external_collab_restricted": {
+          "type": "boolean"
+        },
+        "is_exempt_from_device_limits": {
+          "type": "boolean"
+        },
+        "is_exempt_from_login_verification": {
+          "type": "boolean"
+        },
+        "is_platform_access_only": {
+          "type": "boolean"
+        },
+        "external_app_user_id": {
+          "type": "string"
+        },
+        "created_at": {
+          "type": "string"
+        },
+        "modified_at": {
           "type": "string"
         }
       },
       "required": [
         "id",
-        "email",
-        "firstName",
-        "lastName"
+        "type"
       ],
       "additionalProperties": false
     },
-    "ActionInput_box_deleteuser": {
+    "ActionInput_box_uploadfile": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string",
+          "description": "The name of the file to upload. Example: \"document.pdf\""
+        },
+        "parent_id": {
+          "type": "string",
+          "description": "The ID of the parent folder. Use \"0\" for the root folder. Example: \"0\""
+        },
+        "content": {
+          "type": "string",
+          "description": "The base64-encoded content of the file."
+        },
+        "content_type": {
+          "type": "string",
+          "description": "The MIME type of the file. Defaults to application/octet-stream."
+        }
+      },
+      "required": [
+        "name",
+        "parent_id",
+        "content"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_box_uploadfile": {
       "type": "object",
       "properties": {
         "id": {
           "type": "string"
         },
-        "force": {
-          "type": "boolean"
-        },
-        "notify": {
-          "type": "boolean"
-        }
-      },
-      "required": [
-        "id"
-      ],
-      "additionalProperties": false
-    },
-    "ActionOutput_box_deleteuser": {
-      "type": "object",
-      "properties": {
-        "success": {
-          "type": "boolean"
-        }
-      },
-      "required": [
-        "success"
-      ],
-      "additionalProperties": false
-    },
-    "ActionInput_box_foldercontent": {
-      "type": "object",
-      "properties": {
-        "id": {
+        "name": {
           "type": "string"
         },
-        "marker": {
+        "type": {
           "type": "string"
-        }
-      },
-      "additionalProperties": false
-    },
-    "ActionOutput_box_foldercontent": {
-      "type": "object",
-      "properties": {
-        "files": {
-          "type": "array",
-          "items": {
-            "type": "object",
-            "properties": {
-              "id": {
-                "type": "string"
-              },
-              "name": {
-                "type": "string"
-              },
-              "download_url": {
-                "type": "string"
-              },
-              "modified_at": {
-                "type": "string"
-              }
-            },
-            "required": [
-              "id",
-              "name",
-              "download_url",
-              "modified_at"
-            ],
-            "additionalProperties": false
-          }
         },
-        "folders": {
-          "type": "array",
-          "items": {
-            "type": "object",
-            "properties": {
-              "id": {
-                "type": "string"
-              },
-              "name": {
-                "type": "string"
-              },
-              "modified_at": {
-                "type": "string"
-              },
-              "url": {
-                "type": [
-                  "string",
-                  "null"
-                ]
-              }
-            },
-            "required": [
-              "id",
-              "name",
-              "modified_at",
-              "url"
-            ],
-            "additionalProperties": false
-          }
+        "size": {
+          "type": "number"
         },
-        "next_marker": {
+        "created_at": {
+          "type": "string"
+        },
+        "modified_at": {
           "type": "string"
         }
       },
       "required": [
-        "files",
-        "folders"
+        "id",
+        "name",
+        "type"
       ],
       "additionalProperties": false
     },

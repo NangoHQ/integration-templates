@@ -1,70 +1,45 @@
+import { z } from 'zod';
 import { createAction } from 'nango';
-import type { ProxyConfiguration } from 'nango';
-import { BoxDeleteUser, SuccessResponse } from '../models.js';
 
-/**
- * Validates the input for the delete user action.
- * Throws an error if the input is missing or if the required 'id' field is not provided.
- *
- * For more info about required fields, check the documentation:
- * https://developer.box.com/reference/delete-users-id/
- */
-function validateInput(nango: NangoActionLocal, input: BoxDeleteUser): void {
-    if (!input || !input.id) {
-        throw new nango.ActionError({
-            message: 'Id is required'
-        });
-    }
-}
+const InputSchema = z.object({
+    user_id: z.string().describe('The ID of the user to delete. Example: "12345"'),
+    force: z.boolean().optional().describe('Whether to force the deletion even if the user has content. Defaults to false.'),
+    notify: z.boolean().optional().describe('Whether to notify the user that they have been removed. Defaults to false.')
+});
 
-/**
- * Constructs the API endpoint URL for deleting a user based on the provided input.
- */
-function getEndpoint(input: BoxDeleteUser): string {
-    const endpoint = `/2.0/users/${input.id}`;
+const OutputSchema = z.object({
+    success: z.boolean().describe('Whether the user deletion succeeded'),
+    user_id: z.string().describe('The ID of the deleted user')
+});
 
-    const queryParams = Object.entries({
-        ...(input.force ? { force: input.force } : {}),
-        ...(input.notify ? { notify: input.notify } : {})
-    })
-        .map(([key, value]) => `${encodeURIComponent(key)}=${encodeURIComponent(value)}`)
-        .join('&');
-
-    const params = queryParams ? `&${queryParams}` : '';
-
-    return `${endpoint}${params}`;
-}
-
-/**
- * Executes the delete user action by validating input, constructing the endpoint,
- * and making the API call to Box to delete the specified user.
- */
 const action = createAction({
     description: 'Deletes a user in Box. Requires an enterprise account.',
-    version: '2.0.0',
-
+    version: '3.0.0',
     endpoint: {
-        method: 'DELETE',
-        path: '/users',
+        method: 'POST',
+        path: '/actions/delete-user',
         group: 'Users'
     },
+    input: InputSchema,
+    output: OutputSchema,
+    scopes: ['manage_managed_users'],
 
-    input: BoxDeleteUser,
-    output: SuccessResponse,
+    exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
+        const params: Record<string, string> = {};
 
-    exec: async (nango, input): Promise<SuccessResponse> => {
-        validateInput(nango, input);
+        if (input.force !== undefined) params['force'] = String(input.force);
+        if (input.notify !== undefined) params['notify'] = String(input.notify);
 
-        const config: ProxyConfiguration = {
-            // https://developer.box.com/reference/delete-users-id/
-            endpoint: getEndpoint(input),
+        // https://developer.box.com/reference/delete-users-id/
+        await nango.delete({
+            endpoint: `/2.0/users/${input.user_id}`,
+            params,
             retries: 3
-        };
-
-        await nango.delete(config);
+        });
 
         return {
-            success: true
+            success: true,
+            user_id: input.user_id
         };
     }
 });

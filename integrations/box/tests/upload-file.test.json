@@ -1,0 +1,20 @@
+{
+  "input": {
+    "name": "nango-dryrun-save.txt",
+    "parent_id": "0",
+    "content": "SGVsbG8gZnJvbSBOYW5nbyB1cGxvYWQgdGVzdA==",
+    "content_type": "text/plain"
+  },
+  "output": {
+    "id": "2231614888744",
+    "name": "nango-dryrun-save.txt",
+    "type": "file",
+    "size": 28,
+    "created_at": "2026-05-15T14:00:24-07:00",
+    "modified_at": "2026-05-15T14:00:24-07:00"
+  },
+  "nango": {
+    "getConnection": {}
+  },
+  "api": {}
+}
