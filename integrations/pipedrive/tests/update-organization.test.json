@@ -1,0 +1,135 @@
+{
+  "input": {
+    "id": 1,
+    "name": "Test Organization Updated"
+  },
+  "output": {
+    "id": 1,
+    "name": "Test Organization Updated",
+    "label_ids": [],
+    "add_time": "2026-05-15 09:54:05",
+    "update_time": "2026-05-15 10:36:22"
+  },
+  "nango": {},
+  "api": {
+    "put": {
+      "/v1/organizations/1": {
+        "response": {
+          "success": true,
+          "data": {
+            "id": 1,
+            "owner_id": {
+              "id": 25760681,
+              "name": "Nango",
+              "email": "api@nango.dev",
+              "has_pic": 0,
+              "pic_hash": null,
+              "active_flag": true,
+              "value": 25760681
+            },
+            "name": "Test Organization Updated",
+            "open_deals_count": 1,
+            "related_open_deals_count": 0,
+            "closed_deals_count": 0,
+            "related_closed_deals_count": 0,
+            "email_messages_count": 0,
+            "people_count": 1,
+            "activities_count": 1,
+            "done_activities_count": 0,
+            "undone_activities_count": 1,
+            "files_count": 0,
+            "notes_count": 1,
+            "followers_count": 1,
+            "won_deals_count": 0,
+            "related_won_deals_count": 0,
+            "lost_deals_count": 0,
+            "related_lost_deals_count": 0,
+            "active_flag": true,
+            "picture_id": null,
+            "country_code": null,
+            "first_char": "t",
+            "update_time": "2026-05-15 10:36:22",
+            "delete_time": null,
+            "add_time": "2026-05-15 09:54:05",
+            "visible_to": "3",
+            "next_activity_date": "2026-05-20",
+            "next_activity_time": "10:00:00",
+            "next_activity_id": 1,
+            "last_activity_id": null,
+            "last_activity_date": null,
+            "label": null,
+            "label_ids": [],
+            "address": "123 Main St, San Francisco, CA 94105",
+            "address_subpremise": null,
+            "address_street_number": null,
+            "address_route": null,
+            "address_sublocality": null,
+            "address_locality": null,
+            "address_admin_area_level_1": null,
+            "address_admin_area_level_2": null,
+            "address_country": null,
+            "address_country_code": null,
+            "address_postal_code": null,
+            "address_formatted_address": null,
+            "website": null,
+            "linkedin": null,
+            "industry": null,
+            "annual_revenue": null,
+            "employee_count": null,
+            "cc_email": "nango-sandbox2@pipedrivemail.com",
+            "owner_name": "Nango",
+            "company_id": 15043420
+          },
+          "related_objects": {
+            "user": {
+              "25760681": {
+                "id": 25760681,
+                "name": "Nango",
+                "email": "api@nango.dev",
+                "has_pic": 0,
+                "pic_hash": null,
+                "active_flag": true
+              }
+            }
+          }
+        },
+        "status": 200,
+        "headers": {
+          "date": "Fri, 15 May 2026 10:36:23 GMT",
+          "content-type": "application/json",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "1; mode=block",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=31536000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "X-RateLimit-Remaining, X-RateLimit-Limit, X-RateLimit-Reset, X-Daily-RateLimit-Token-Limit, X-Daily-RateLimit-Token-Remaining",
+          "x-ratelimit-limit": "80",
+          "x-ratelimit-remaining": "79",
+          "x-ratelimit-reset": "2",
+          "cf-ray": "9fc180527f91cb73-PDX",
+          "cf-cache-status": "DYNAMIC",
+          "cache-control": "no-cache",
+          "server": "cloudflare",
+          "vary": "Accept-Encoding",
+          "badi": "Routing: lon-2=>lon-2; Version: 7cc8; Host: 7bdc7f4564-h9c2f;",
+          "x-correlation-id": "7c08f24f-5101-4bee-9793-b99f6afecfc5",
+          "x-daily-ratelimit-token-limit": "150000",
+          "x-daily-ratelimit-token-remaining": "146602",
+          "set-cookie": "pipedrive-cdl=lon-2;path=/;expires=Sat, 16 May 2026 10:36:22 GMT;secure, __cf_bm=p8tJ_os6eCBHAXO0XapD1.OZKwidC6d8oLp_ktMG6_8-1778841382.7946715-1.0.1.1-4wmNAm9GZCTjRnwyxNJq7Vv8bD0mY7tCIE_kFxDYijof3J7QZeTpsQZbIvygcgWSoHQ.psmW4La26j9aQ9q7sUIs8KOsz1t05CmWQRVW5M3vXTbU1IvBsEKIzQwRCtF2; HttpOnly; SameSite=None; Secure; Path=/; Domain=pipedrive.com; Expires=Fri, 15 May 2026 11:06:23 GMT",
+          "alt-svc": "h3=\":443\"; ma=86400"
+        },
+        "hash": "b9eed86edd717e8cdf3dcce2529058f6c3ba970d",
+        "request": {
+          "data": {
+            "name": "Test Organization Updated"
+          }
+        }
+      }
+    }
+  }
+}

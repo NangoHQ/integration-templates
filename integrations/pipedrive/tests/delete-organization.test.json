@@ -1,0 +1,55 @@
+{
+  "input": {
+    "id": 10
+  },
+  "output": {
+    "id": 10,
+    "deleted": true,
+    "message": "Organization marked as deleted. It will be permanently deleted after 30 days."
+  },
+  "nango": {},
+  "api": {
+    "delete": {
+      "/v1/organizations/10": {
+        "response": {
+          "success": true,
+          "data": {
+            "id": 10
+          }
+        },
+        "status": 200,
+        "headers": {
+          "date": "Fri, 15 May 2026 10:37:22 GMT",
+          "content-type": "application/json",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "1; mode=block",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=31536000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "X-RateLimit-Remaining, X-RateLimit-Limit, X-RateLimit-Reset, X-Daily-RateLimit-Token-Limit, X-Daily-RateLimit-Token-Remaining",
+          "x-ratelimit-limit": "80",
+          "x-ratelimit-remaining": "79",
+          "x-ratelimit-reset": "2",
+          "cf-ray": "9fc181c70e02ccd1-PDX",
+          "cf-cache-status": "DYNAMIC",
+          "cache-control": "no-cache",
+          "server": "cloudflare",
+          "vary": "Accept-Encoding",
+          "badi": "Routing: lon-2=>lon-2; Version: 7cc8; Host: 7bdc7f4564-jswws;",
+          "x-correlation-id": "854d1010-48cf-4a95-8502-9e95d2ab3ca7",
+          "x-daily-ratelimit-token-limit": "150000",
+          "x-daily-ratelimit-token-remaining": "146538",
+          "set-cookie": "pipedrive-cdl=lon-2;path=/;expires=Sat, 16 May 2026 10:37:22 GMT;secure, __cf_bm=OtLFxB4EqDxG8yQvOa.6lnh8k_t83nPFLvdJlt_vwI4-1778841442.4056354-1.0.1.1-fnLPDw6EzsDdBwGzlUKbVXG2nmrXIpI_VF1oi6zTcyBOhdI7XHWjbpBFE1hij2Qah803OGgjuoBpmZztk5Hz9zoCCIn0ggFOcKkGChS8q9DSPW7onKgIjLghVnzdz4hY; HttpOnly; SameSite=None; Secure; Path=/; Domain=pipedrive.com; Expires=Fri, 15 May 2026 11:07:22 GMT",
+          "alt-svc": "h3=\":443\"; ma=86400"
+        },
+        "hash": "d135d6378ca666ee8a7d0baa63a6b09f324da400",
+        "request": {}
+      }
+    }
+  }
+}

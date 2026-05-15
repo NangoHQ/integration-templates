@@ -1,0 +1,99 @@
+{
+  "input": {
+    "id": 1,
+    "content": "<p>Updated test note content</p>"
+  },
+  "output": {
+    "id": 1,
+    "content": "<p>Updated test note content</p>",
+    "deal_id": 1,
+    "person_id": 1,
+    "org_id": 1,
+    "user_id": 25760681,
+    "add_time": "2026-05-15 09:55:19",
+    "update_time": "2026-05-15 10:15:47",
+    "pinned_to_lead_flag": 0,
+    "pinned_to_deal_flag": 1,
+    "pinned_to_organization_flag": 0,
+    "pinned_to_person_flag": 0
+  },
+  "nango": {},
+  "api": {
+    "put": {
+      "/v1/notes/1": {
+        "response": {
+          "success": true,
+          "data": {
+            "id": 1,
+            "user_id": 25760681,
+            "deal_id": 1,
+            "person_id": 1,
+            "org_id": 1,
+            "lead_id": null,
+            "content": "<p>Updated test note content</p>",
+            "add_time": "2026-05-15 09:55:19",
+            "update_time": "2026-05-15 10:15:47",
+            "active_flag": false,
+            "pinned_to_deal_flag": true,
+            "pinned_to_person_flag": false,
+            "pinned_to_organization_flag": false,
+            "pinned_to_lead_flag": false,
+            "last_update_user_id": 25760681,
+            "organization": {
+              "name": "Test Organization Updated"
+            },
+            "person": {
+              "name": "Jane Smith Updated via Direct API"
+            },
+            "deal": {
+              "title": "Acme Corp - Enterprise License"
+            },
+            "lead": null,
+            "user": {
+              "email": "api@nango.dev",
+              "name": "Nango",
+              "icon_url": null,
+              "is_you": true
+            }
+          }
+        },
+        "status": 200,
+        "headers": {
+          "date": "Fri, 15 May 2026 10:15:47 GMT",
+          "content-type": "application/json",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "1; mode=block",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=31536000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "X-RateLimit-Remaining, X-RateLimit-Limit, X-RateLimit-Reset, X-Daily-RateLimit-Token-Limit, X-Daily-RateLimit-Token-Remaining",
+          "x-ratelimit-limit": "80",
+          "x-ratelimit-remaining": "79",
+          "x-ratelimit-reset": "2",
+          "cf-ray": "9fc16226ff9068f1-PDX",
+          "cf-cache-status": "DYNAMIC",
+          "cache-control": "no-cache",
+          "server": "cloudflare",
+          "vary": "Accept-Encoding",
+          "badi": "Routing: lon-2=>lon-2; Version: 7cc8; Host: 7bdc7f4564-pswrn;",
+          "x-correlation-id": "238c161b-9e79-4259-9104-b8ce707f15ae",
+          "x-daily-ratelimit-token-limit": "150000",
+          "x-daily-ratelimit-token-remaining": "148342",
+          "set-cookie": "pipedrive-cdl=lon-2;path=/;expires=Sat, 16 May 2026 10:15:47 GMT;secure, __cf_bm=lM5a41dXBGO1r3dxPGCclt6OUKDM3SMVOpijrgnoggk-1778840147.0346317-1.0.1.1-vtzkYcT_dkYduHx9pX906rbtZS2Kw1O_qmAoPfBYN989uDAkOB8cUZVZlSTR39DdYna_X_IkCCd9MWl1iOOqW4LhTbif0pQae4qyUvZHZl65oHYQV1hu2Q_dfLvnXH4Z; HttpOnly; SameSite=None; Secure; Path=/; Domain=pipedrive.com; Expires=Fri, 15 May 2026 10:45:47 GMT",
+          "alt-svc": "h3=\":443\"; ma=86400"
+        },
+        "hash": "372733bab7cac2f7ae20bcac8865af948a392c2b",
+        "request": {
+          "data": {
+            "content": "<p>Updated test note content</p>"
+          }
+        }
+      }
+    }
+  }
+}

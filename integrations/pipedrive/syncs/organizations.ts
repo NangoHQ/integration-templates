@@ -1,82 +1,123 @@
-import { createSync } from 'nango';
-import type { ProxyConfiguration } from 'nango';
-import { PipeDriveOrganization } from '../models.js';
+import { createSync, type ProxyConfiguration } from 'nango';
 import { z } from 'zod';
 
+const OrganizationSchema = z.object({
+    id: z.string(),
+    name: z.string().optional(),
+    owner_id: z.number().optional(),
+    add_time: z.string().optional(),
+    update_time: z.string(),
+    active_flag: z.boolean().optional()
+});
+
+const CheckpointSchema = z.object({
+    updated_after: z.string(),
+    cursor: z.string()
+});
+
+type PipedriveOwner = {
+    id: number;
+    name?: string;
+    email?: string;
+    active_flag?: boolean;
+};
+
+type PipedriveOrganization = {
+    id: number;
+    name?: string | null;
+    owner_id?: number | PipedriveOwner;
+    add_time?: string;
+    update_time: string;
+    active_flag?: boolean;
+};
+
 const sync = createSync({
-    description: 'Fetches a list of organizations from pipedrive',
-    version: '1.0.0',
+    description: 'Sync organizations from Pipedrive.',
+    version: '2.0.0',
     frequency: 'every hour',
     autoStart: true,
-    syncType: 'incremental',
-
-    endpoints: [
-        {
-            method: 'GET',
-            path: '/pipedrive/organizations'
-        }
-    ],
-
-    scopes: ['contacts:read'],
-
+    endpoints: [{ method: 'POST', path: '/syncs/organizations' }],
+    checkpoint: CheckpointSchema,
     models: {
-        PipeDriveOrganization: PipeDriveOrganization
+        Organization: OrganizationSchema
     },
 
-    metadata: z.object({}),
-
     exec: async (nango) => {
-        let totalRecords = 0;
+        const checkpoint = await nango.getCheckpoint();
+        let updatedAfter: string | undefined = checkpoint?.updated_after || undefined;
+        let cursor: string | undefined = checkpoint?.cursor || undefined;
 
-        const config: ProxyConfiguration = {
-            // https://developers.pipedrive.com/docs/api/v1/Organizations#getOrganizationsCollection
-            endpoint: '/v1/organizations/collection',
-            ...(nango.lastSyncDate ? { params: { since: nango.lastSyncDate?.toISOString() } } : {}),
+        const proxyConfig: ProxyConfiguration = {
+            // https://developers.pipedrive.com/docs/api/v1/Organizations#getOrganizations
+            endpoint: '/v1/organizations',
+            params: {
+                sort_by: 'update_time',
+                sort_direction: 'asc',
+                ...(updatedAfter && { updated_since: updatedAfter }),
+                ...(cursor && { cursor })
+            },
             paginate: {
                 type: 'cursor',
-                cursor_path_in_response: 'additional_data.next_cursor',
                 cursor_name_in_request: 'cursor',
-                limit_name_in_request: 'limit',
+                cursor_path_in_response: 'additional_data.next_cursor',
                 response_path: 'data',
-                limit: 100
-            }
+                limit_name_in_request: 'limit',
+                limit: 500,
+                on_page: async (paginationState) => {
+                    const { nextPageParam } = paginationState;
+                    cursor = typeof nextPageParam === 'string' ? nextPageParam : undefined;
+                }
+            },
+            retries: 3
         };
-        for await (const organization of nango.paginate(config)) {
-            const mappedOrganization: PipeDriveOrganization[] = organization.map(mapOrganization) || [];
-            // Save Organization
-            const batchSize: number = mappedOrganization.length;
-            totalRecords += batchSize;
-            await nango.log(`Saving batch of ${batchSize} organizations (total organizations: ${totalRecords})`);
-            await nango.batchSave(mappedOrganization, 'PipeDriveOrganization');
+
+        for await (const page of nango.paginate<PipedriveOrganization>(proxyConfig)) {
+            const organizations = page.map((record) => {
+                // owner_id can be either a number or an object with id property
+                let ownerId: number | undefined;
+                if (record.owner_id !== undefined) {
+                    if (typeof record.owner_id === 'number') {
+                        ownerId = record.owner_id;
+                    } else if (typeof record.owner_id === 'object' && record.owner_id !== null && 'id' in record.owner_id) {
+                        ownerId = record.owner_id.id;
+                    }
+                }
+
+                return {
+                    id: String(record.id),
+                    ...(record.name != null && { name: record.name }),
+                    ...(ownerId !== undefined && { owner_id: ownerId }),
+                    ...(record.add_time !== undefined && { add_time: record.add_time }),
+                    update_time: record.update_time,
+                    ...(record.active_flag !== undefined && { active_flag: record.active_flag })
+                };
+            });
+
+            if (organizations.length === 0) {
+                continue;
+            }
+
+            await nango.batchSave(organizations, 'Organization');
+
+            if (cursor) {
+                await nango.saveCheckpoint({
+                    updated_after: updatedAfter || '',
+                    cursor
+                });
+                continue;
+            }
+
+            const lastOrganization = organizations[organizations.length - 1];
+            if (lastOrganization && lastOrganization.update_time) {
+                updatedAfter = lastOrganization.update_time;
+            }
+            await nango.saveCheckpoint({
+                updated_after: updatedAfter || '',
+                cursor: ''
+            });
         }
     }
 });
 
 export type NangoSyncLocal = Parameters<(typeof sync)['exec']>[0];
 export default sync;
-
-function mapOrganization(organization: any): PipeDriveOrganization {
-    return {
-        id: organization.id,
-        owner_id: organization.owner_id,
-        name: organization.name,
-        active_flag: organization.active_flag,
-        update_time: organization.update_time,
-        delete_time: organization.delete_time,
-        add_time: organization.add_time,
-        visible_to: organization.visible_to,
-        label: organization.label,
-        address: organization.address,
-        address_subpremise: organization.address_subpremise,
-        address_street_number: organization.address_street_number,
-        address_route: organization.address_route,
-        address_sublocality: organization.address_sublocality,
-        address_locality: organization.address_locality,
-        address_admin_area_level_1: organization.address_admin_area_level_1,
-        address_admin_area_level_2: organization.address_admin_area_level_2,
-        address_country: organization.address_country,
-        address_postal_code: organization.address_postal_code,
-        address_formatted_address: organization.address_formatted_address,
-        cc_email: organization.cc_email
-    };
-}

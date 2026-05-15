@@ -1,0 +1,99 @@
+{
+  "input": {
+    "id": 1
+  },
+  "output": {
+    "id": 1,
+    "title": "Acme Corp - Enterprise License",
+    "value": 25000,
+    "currency": "USD",
+    "person_id": 1,
+    "org_id": 1,
+    "stage_id": 3,
+    "pipeline_id": 1,
+    "status": "open",
+    "add_time": "2026-05-15T09:55:02Z",
+    "update_time": "2026-05-15T10:16:44Z",
+    "probability": 65,
+    "origin": "Marketplace",
+    "origin_id": "39e5a5a88f2dd367",
+    "is_archived": false
+  },
+  "nango": {},
+  "api": {
+    "get": {
+      "/v2/deals/1": {
+        "response": {
+          "success": true,
+          "data": {
+            "id": 1,
+            "title": "Acme Corp - Enterprise License",
+            "creator_user_id": 25760681,
+            "value": 25000,
+            "person_id": 1,
+            "org_id": 1,
+            "stage_id": 3,
+            "currency": "USD",
+            "add_time": "2026-05-15T09:55:02Z",
+            "update_time": "2026-05-15T10:16:44Z",
+            "status": "open",
+            "probability": 65,
+            "lost_reason": null,
+            "visible_to": 3,
+            "close_time": null,
+            "pipeline_id": 1,
+            "won_time": null,
+            "lost_time": null,
+            "stage_change_time": null,
+            "local_won_date": null,
+            "local_lost_date": null,
+            "local_close_date": null,
+            "expected_close_date": null,
+            "custom_fields": null,
+            "owner_id": 25760681,
+            "label_ids": [],
+            "is_deleted": false,
+            "origin": "Marketplace",
+            "origin_id": "39e5a5a88f2dd367",
+            "channel": 8,
+            "channel_id": "Nango_dev",
+            "is_archived": false,
+            "archive_time": null
+          }
+        },
+        "status": 200,
+        "headers": {
+          "date": "Fri, 15 May 2026 10:17:15 GMT",
+          "content-type": "application/json",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "1; mode=block",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=31536000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "X-RateLimit-Remaining, X-RateLimit-Limit, X-RateLimit-Reset, X-Daily-RateLimit-Token-Limit, X-Daily-RateLimit-Token-Remaining",
+          "x-ratelimit-limit": "80",
+          "x-ratelimit-remaining": "79",
+          "x-ratelimit-reset": "2",
+          "cf-ray": "9fc164519ea0ef34-PDX",
+          "cf-cache-status": "DYNAMIC",
+          "cache-control": "no-cache, private",
+          "server": "cloudflare",
+          "vary": "accept-encoding",
+          "badi": "Routing: lon-2=>lon-2; Version: 7cc8; Host: 7bdc7f4564-6zm5z;",
+          "x-correlation-id": "a9d1b128-0dd0-402e-916a-75af1ca1af00",
+          "x-daily-ratelimit-token-limit": "150000",
+          "x-daily-ratelimit-token-remaining": "148051",
+          "set-cookie": "pipedrive-cdl=lon-2;path=/;expires=Sat, 16 May 2026 10:17:15 GMT;secure, __cf_bm=qTIl753j0Peywp.jPfby.paBuqDVw66afc9HKoruegY-1778840235.776105-1.0.1.1-GEquSO9_3To5EJ4pFz1gzuktDYbA3bV.vCcMNUaM4z9tcouuqXWoLYS2_I52sTRSwYrTYM_.tSv.7OplU0DVgCXzQHd5ldrDnxDizVABlgA8XTbAr09lV81khmzI36MG; HttpOnly; SameSite=None; Secure; Path=/; Domain=pipedrive.com; Expires=Fri, 15 May 2026 10:47:15 GMT",
+          "alt-svc": "h3=\":443\"; ma=86400"
+        },
+        "hash": "d837fa50a37c246ec97385d43b70a9c1c2fe5eb0",
+        "request": {}
+      }
+    }
+  }
+}

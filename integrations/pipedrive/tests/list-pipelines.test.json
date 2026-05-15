@@ -1,0 +1,91 @@
+{
+  "input": {},
+  "output": {
+    "items": [
+      {
+        "id": 1,
+        "name": "Pipeline",
+        "add_time": "2026-05-15 05:52:25"
+      },
+      {
+        "id": 2,
+        "name": "Test Sales Pipeline",
+        "add_time": "2026-05-15 09:57:48",
+        "update_time": "2026-05-15 09:57:48"
+      }
+    ]
+  },
+  "nango": {},
+  "api": {
+    "get": {
+      "/v1/pipelines": {
+        "response": {
+          "success": true,
+          "data": [
+            {
+              "id": 1,
+              "name": "Pipeline",
+              "url_title": "default",
+              "order_nr": 1,
+              "active": true,
+              "deal_probability": false,
+              "add_time": "2026-05-15 05:52:25",
+              "update_time": null,
+              "selected": false
+            },
+            {
+              "id": 2,
+              "name": "Test Sales Pipeline",
+              "url_title": "Test-Sales-Pipeline",
+              "order_nr": 2,
+              "active": true,
+              "deal_probability": true,
+              "add_time": "2026-05-15 09:57:48",
+              "update_time": "2026-05-15 09:57:48",
+              "selected": false
+            }
+          ],
+          "additional_data": {
+            "pagination": {
+              "start": 0,
+              "limit": 100,
+              "more_items_in_collection": false
+            }
+          }
+        },
+        "status": 200,
+        "headers": {
+          "date": "Fri, 15 May 2026 10:15:50 GMT",
+          "content-type": "application/json",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "1; mode=block",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=31536000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "X-RateLimit-Remaining, X-RateLimit-Limit, X-RateLimit-Reset, X-Daily-RateLimit-Token-Limit, X-Daily-RateLimit-Token-Remaining",
+          "x-ratelimit-limit": "80",
+          "x-ratelimit-remaining": "79",
+          "x-ratelimit-reset": "2",
+          "cf-ray": "9fc1623d1bbcacc8-PDX",
+          "cf-cache-status": "DYNAMIC",
+          "cache-control": "no-cache",
+          "server": "cloudflare",
+          "vary": "Accept-Encoding",
+          "badi": "Routing: lon-2=>lon-2; Version: 7cc8; Host: 7bdc7f4564-jcjwj;",
+          "x-correlation-id": "9135fd8f-daf0-4994-b43d-b7173c1ec28b",
+          "x-daily-ratelimit-token-limit": "150000",
+          "x-daily-ratelimit-token-remaining": "148332",
+          "set-cookie": "pipedrive-cdl=lon-2;path=/;expires=Sat, 16 May 2026 10:15:50 GMT;secure, __cf_bm=NmpstYybP7HOdkJOhAXPMKoq6v5zRB6kPPWmvsl1WCY-1778840150.571158-1.0.1.1-1UaCEg.31XjlQMUvYTkZHBkC3PlET8NgBaCILcZg..WxXa_sJMCB724qmlM9e8JMSoGA4PuKYJM46RFJjE2Defu96bYWU6JR.0HK2kOv67y8XG8lLLY_lUEtC.9lhI2t; HttpOnly; SameSite=None; Secure; Path=/; Domain=pipedrive.com; Expires=Fri, 15 May 2026 10:45:50 GMT",
+          "alt-svc": "h3=\":443\"; ma=86400"
+        },
+        "hash": "66de2c9ff760436dd71eaafe0c3653d3a174f6ab",
+        "request": {}
+      }
+    }
+  }
+}

@@ -18017,15 +18017,24 @@ export interface Company {
 
 export interface Deal {
   id: string;
-  name?: string | undefined;
-  amount?: number | undefined;
-  closeDate?: string | undefined;
-  stage?: string | undefined;
-  ownerId?: string | undefined;
-  description?: string | undefined;
-  companyIds: string[];
-  contactIds: string[];
-  updatedAt: string;
+  title: string;
+  value?: number | undefined;
+  currency?: string | undefined;
+  add_time?: string | undefined;
+  update_time: string;
+  stage_id?: number | undefined;
+  pipeline_id?: number | undefined;
+  status?: string | undefined;
+  user_id?: number | undefined;
+  user_name?: string | undefined;
+  person_id?: number | undefined;
+  person_name?: string | undefined;
+  org_id?: number | undefined;
+  org_name?: string | undefined;
+  probability?: number | undefined;
+  lost_reason?: string | undefined;
+  close_time?: string | undefined;
+  visible_to?: number | string | undefined;
 };
 
 export interface MarketingEmail {
@@ -18054,15 +18063,21 @@ export interface Owner {
 
 export interface Product {
   id: string;
-  name?: string | undefined;
+  name: string;
+  code?: string | undefined;
   description?: string | undefined;
-  sku?: string | undefined;
-  price?: number | undefined;
-  costOfGoodsSold?: number | undefined;
-  billingFrequency?: string | undefined;
-  recurringBillingPeriod?: string | undefined;
-  createdAt?: string | undefined;
-  updatedAt?: string | undefined;
+  unit?: string | undefined;
+  tax?: number | undefined;
+  category?: number | undefined;
+  owner_id?: number | undefined;
+  is_linkable?: boolean | undefined;
+  visible_to?: number | undefined;
+  add_time?: string | undefined;
+  update_time?: string | undefined;
+  prices?: ({  currency: string;
+  price: number;
+  cost?: number | undefined;
+  direct_cost?: number | undefined;})[];
 };
 
 export interface ActionInput_hubspot_batchcreatecompanies {
@@ -28878,120 +28893,2647 @@ export interface ActionOutput_perimeter81_deleteuser {
   success: boolean;
 };
 
-export interface PipeDriveActivity {
+export interface Activity {
   id: string;
-  done: boolean;
-  type: string;
-  duration: Date;
-  subject: string;
-  company_id: number;
-  user_id: number;
-  conference_meeting_client: string;
-  conference_meeting_url: string;
-  conference_meeting_id: string;
-  due_date: Date;
-  due_time: Date;
-  busy_flag: boolean;
-  add_time: Date;
-  marked_as_done_time: Date;
-  public_description: string;
-  location: string;
-  org_id: number;
-  person_id: number;
-  deal_id: number;
-  active_flag: boolean;
-  update_time: Date;
-  update_user_id: number;
-  source_timezone: string;
-  lead_id: string;
-  location_subpremise: string;
-  location_street_number: string;
-  location_route: string;
-  location_sublocality: string;
-  location_locality: string;
-  location_admin_area_level_1: string;
-  location_admin_area_level_2: string;
-  location_country: string;
-  location_postal_code: string;
-  location_formatted_address: string;
-  project_id: number;
+  subject?: string | undefined;
+  type?: string | undefined;
+  done?: boolean | undefined;
+  due_date?: string | undefined;
+  due_time?: string | undefined;
+  duration?: string | undefined;
+  add_time?: string | undefined;
+  update_time?: string | undefined;
+  user_id?: number | undefined;
+  deal_id?: number | undefined;
+  person_id?: number | undefined;
+  org_id?: number | undefined;
+  lead_id?: string | undefined;
+  note?: string | undefined;
+  active_flag?: boolean | undefined;
+  public_description?: string | undefined;
+  busy_flag?: boolean | undefined;
+  marked_as_done_time?: string | undefined;
+  created_by_user_id?: number | undefined;
+  assigned_to_user_id?: number | undefined;
 };
 
-export interface SyncMetadata_pipedrive_activities {
-};
-
-export interface PipeDriveDeal {
+export interface Lead {
   id: string;
-  creator_user_id: number;
-  user_id: number;
-  person_id: number;
-  org_id: number;
-  stage_id: number;
   title: string;
-  value: number;
-  currency: string;
-  add_time: Date;
-  update_time: Date;
-  status: string;
-  probability: string;
-  lost_reason: string;
-  visible_to: string;
-  close_time: Date;
+  owner_id?: number | undefined;
+  creator_id?: number | undefined;
+  person_id?: number | undefined;
+  organization_id?: number | undefined;
+  value?: {  amount: number;
+  currency: string;} | undefined;
+  expected_close_date?: string | undefined;
+  was_seen?: boolean | undefined;
+  add_time: string;
+  update_time: string;
+  channel?: number | undefined;
+  channel_id?: string | undefined;
+  origin?: string | undefined;
+  origin_id?: string | undefined;
+};
+
+export interface Note {
+  id: string;
+  content?: string | undefined;
+  add_time?: string | undefined;
+  update_time?: string | undefined;
+  user_id?: number | undefined;
+  deal_id?: number | undefined;
+  person_id?: number | undefined;
+  org_id?: number | undefined;
+  lead_id?: string | undefined;
+  project_id?: number | undefined;
+  task_id?: number | undefined;
+};
+
+export interface Organization {
+  id: string;
+  name: string;
+  created_at: string;
+  updated_at: string;
+  url: string;
+  external_id?: string | undefined;
+  domain_names?: string[] | undefined;
+  group_id?: number | undefined;
+  shared_comments?: boolean | undefined;
+  shared_tickets?: boolean | undefined;
+  tags?: string[] | undefined;
+  notes?: string | undefined;
+  details?: string | undefined;
+};
+
+export interface Person {
+  id: string;
+  name: string;
+  emails?: ({  value: string;
+  primary?: boolean | undefined;
+  label?: string | undefined;})[];
+  phones?: ({  value: string;
+  primary?: boolean | undefined;
+  label?: string | undefined;})[];
+  org_id?: number | undefined;
+  owner_id?: number | undefined;
+  add_time?: string | undefined;
+  update_time: string;
+};
+
+export interface Pipeline {
+  id: string;
+  name?: string | undefined;
+  update_time: string;
+  add_time?: string | undefined;
+  is_deal_probability_enabled?: boolean | undefined;
+};
+
+export interface Stage {
+  id: string;
+  name: string;
   pipeline_id: number;
-  won_time: Date;
-  lost_time: Date;
-  expected_close_date: Date;
-  label: string;
+  order_nr: number;
+  is_deal_rot_enabled?: boolean | undefined;
+  days_to_rotten?: number | undefined;
+  deal_probability?: number | undefined;
+  add_time: string;
+  update_time?: string | undefined;
 };
 
-export interface SyncMetadata_pipedrive_deals {
+export interface ActionInput_pipedrive_createactivity {
+  /**
+   * The subject of the activity. Example: "Discuss revenue with John"
+   */
+  subject: string;
+  /**
+   * The type of the activity. Example: "call", "meeting", "lunch". Use ActivityTypes API to get available types.
+   */
+  type: string;
+  /**
+   * The ID of the user who owns the activity. Example: 12345
+   */
+  owner_id?: number | undefined;
+  /**
+   * The ID of the deal linked to the activity. Example: 98765
+   */
+  deal_id?: number | undefined;
+  /**
+   * The ID of the lead linked to the activity. Example: "a1b2c3d4e5f6"
+   */
+  lead_id?: string | undefined;
+  /**
+   * The ID of the person linked to the activity. Example: 56789
+   */
+  person_id?: number | undefined;
+  /**
+   * The ID of the organization linked to the activity. Example: 34567
+   */
+  org_id?: number | undefined;
+  /**
+   * The ID of the project linked to the activity. Example: 11122
+   */
+  project_id?: number | undefined;
+  /**
+   * The due date of the activity in YYYY-MM-DD format. Example: "2025-05-15"
+   */
+  due_date?: string | undefined;
+  /**
+   * The due time of the activity in HH:MM format. Example: "14:30"
+   */
+  due_time?: string | undefined;
+  /**
+   * The duration of the activity in HH:MM format. Example: "01:00"
+   */
+  duration?: string | undefined;
+  /**
+   * Whether the activity marks the assignee as busy or not in their calendar
+   */
+  busy?: boolean | undefined;
+  /**
+   * Whether the activity is marked as done or not
+   */
+  done?: boolean | undefined;
+  location?: {  /**
+   * The full address of the activity
+   */
+  value?: string | undefined;
+  /**
+   * Country of the activity
+   */
+  country?: string | undefined;
+  /**
+   * Admin area level 1 (e.g. state) of the activity
+   */
+  admin_area_level_1?: string | undefined;
+  /**
+   * Admin area level 2 (e.g. county) of the activity
+   */
+  admin_area_level_2?: string | undefined;
+  /**
+   * Locality (e.g. city) of the activity
+   */
+  locality?: string | undefined;
+  /**
+   * Sublocality (e.g. neighborhood) of the activity
+   */
+  sublocality?: string | undefined;
+  /**
+   * Route (e.g. street) of the activity
+   */
+  route?: string | undefined;
+  /**
+   * Street number of the activity
+   */
+  street_number?: string | undefined;
+  /**
+   * Subpremise (e.g. apartment/suite number) of the activity
+   */
+  subpremise?: string | undefined;
+  /**
+   * Postal code of the activity
+   */
+  postal_code?: string | undefined;};
+  /**
+   * The participants of the activity
+   */
+  participants?: ({  /**
+   * The ID of the person
+   */
+  person_id: number;
+  /**
+   * Whether the person is the primary participant or not
+   */
+  primary?: boolean | undefined;})[];
+  /**
+   * The attendees of the activity
+   */
+  attendees?: ({  /**
+   * The email address of the attendee
+   */
+  email: string;
+  /**
+   * The name of the attendee
+   */
+  name?: string | undefined;
+  /**
+   * The status of the attendee
+   */
+  status?: string | undefined;
+  /**
+   * Whether the attendee is the organizer or not
+   */
+  is_organizer?: boolean | undefined;
+  /**
+   * The ID of the person if the attendee has a person record
+   */
+  person_id?: number | undefined;
+  /**
+   * The ID of the user if the attendee is a user
+   */
+  user_id?: number | undefined;})[];
+  /**
+   * The public description of the activity that will be synced to external calendar
+   */
+  public_description?: string | undefined;
+  /**
+   * The priority of the activity. Mappable to a specific string using activityFields API. Example: 1
+   */
+  priority?: number | undefined;
+  /**
+   * The note of the activity
+   */
+  note?: string | undefined;
 };
 
-export interface PipeDriveOrganization {
+export interface ActionOutput_pipedrive_createactivity {
+  /**
+   * The ID of the created activity
+   */
+  id: number;
+  /**
+   * The subject of the activity
+   */
+  subject?: string | undefined;
+  /**
+   * The type of the activity
+   */
+  type?: string | undefined;
+  /**
+   * Whether the activity is marked as done
+   */
+  done?: boolean | undefined;
+  /**
+   * The due date of the activity
+   */
+  due_date?: string | undefined;
+  /**
+   * The due time of the activity
+   */
+  due_time?: string | undefined;
+  /**
+   * The duration of the activity
+   */
+  duration?: string | undefined;
+  /**
+   * Whether the activity marks the assignee as busy
+   */
+  busy_flag?: boolean | undefined;
+  /**
+   * The ID of the user who owns the activity
+   */
+  owner_id?: number | undefined;
+  /**
+   * The ID of the deal linked to the activity
+   */
+  deal_id?: number | undefined;
+  /**
+   * The ID of the lead linked to the activity
+   */
+  lead_id?: string | undefined;
+  /**
+   * The ID of the person linked to the activity
+   */
+  person_id?: number | undefined;
+  /**
+   * The ID of the organization linked to the activity
+   */
+  org_id?: number | undefined;
+  /**
+   * The ID of the project linked to the activity
+   */
+  project_id?: number | undefined;
+  /**
+   * The public description of the activity
+   */
+  public_description?: string | undefined;
+  /**
+   * The priority of the activity
+   */
+  priority?: number | undefined;
+  /**
+   * The note of the activity
+   */
+  note?: string | undefined;
+  /**
+   * The location of the activity
+   */
+  location?: string | undefined;
+  /**
+   * The time when the activity was created
+   */
+  add_time?: string | undefined;
+};
+
+export interface ActionInput_pipedrive_createdeal {
+  /**
+   * The title of the deal. Example: "Deal of the century"
+   */
+  title: string;
+  /**
+   * The value of the deal. Example: 10000
+   */
+  value?: number | undefined;
+  /**
+   * The currency of the deal. Accepts a 3-character currency code. Example: "USD"
+   */
+  currency?: string | undefined;
+  /**
+   * The ID of the user which will be the owner of the created deal. Example: 123
+   */
+  user_id?: number | undefined;
+  /**
+   * The ID of a person which this deal will be linked to. Example: 456
+   */
+  person_id?: number | undefined;
+  /**
+   * The ID of an organization which this deal will be linked to. Example: 789
+   */
+  org_id?: number | undefined;
+  /**
+   * The ID of the pipeline this deal will be added to. Example: 1
+   */
+  pipeline_id?: number | undefined;
+  /**
+   * The ID of the stage this deal will be added to. Example: 2
+   */
+  stage_id?: number | undefined;
+  /**
+   * The status of the deal. Values: open, won, lost
+   */
+  status?: 'open' | 'won' | 'lost' | undefined;
+  /**
+   * The expected close date of the deal. In ISO 8601 format: YYYY-MM-DD. Example: "2025-12-31"
+   */
+  expected_close_date?: string | undefined;
+  /**
+   * The success probability percentage of the deal. Example: 60
+   */
+  probability?: number | undefined;
+  /**
+   * The visibility of the deal. 1 = Owner only, 3 = Owner and followers, 5 = Entire company
+   */
+  visible_to?: number | undefined;
+  /**
+   * The reason for losing the deal. Only used when status is lost
+   */
+  lost_reason?: string | undefined;
+  /**
+   * The optional creation date and time of the deal in UTC. Format: YYYY-MM-DD HH:MM:SS
+   */
+  add_time?: string | undefined;
+};
+
+export interface ActionOutput_pipedrive_createdeal {
+  /**
+   * The ID of the created deal
+   */
+  id: number;
+  /**
+   * The title of the deal
+   */
+  title: string;
+  /**
+   * The value of the deal
+   */
+  value?: number | undefined;
+  /**
+   * The currency of the deal
+   */
+  currency?: string | undefined;
+  /**
+   * The ID of the deal owner
+   */
+  user_id?: number | undefined;
+  /**
+   * The ID of the linked person
+   */
+  person_id?: number | undefined;
+  /**
+   * The ID of the linked organization
+   */
+  org_id?: number | undefined;
+  /**
+   * The ID of the pipeline
+   */
+  pipeline_id?: number | undefined;
+  /**
+   * The ID of the stage
+   */
+  stage_id?: number | undefined;
+  /**
+   * The status of the deal
+   */
+  status?: string | undefined;
+  /**
+   * The expected close date
+   */
+  expected_close_date?: string | undefined;
+  /**
+   * The success probability percentage
+   */
+  probability?: number | undefined;
+  /**
+   * The visibility setting
+   */
+  visible_to?: number | undefined;
+  /**
+   * The reason for losing the deal
+   */
+  lost_reason?: string | undefined;
+  /**
+   * The creation time of the deal
+   */
+  add_time?: string | undefined;
+  /**
+   * The last update time of the deal
+   */
+  update_time?: string | undefined;
+};
+
+export interface ActionInput_pipedrive_createlead {
+  /**
+   * The name of the lead
+   */
+  title: string;
+  /**
+   * The ID of a person to link the lead to. Required unless organization_id is specified.
+   */
+  person_id?: number | undefined;
+  /**
+   * The ID of an organization to link the lead to. Required unless person_id is specified.
+   */
+  organization_id?: number | undefined;
+  /**
+   * The ID of the user who will own the lead
+   */
+  owner_id?: number | undefined;
+  /**
+   * The IDs of lead labels to associate with the lead
+   */
+  label_ids?: ({  0: string;
+  1: number;})[] | undefined;
+  /**
+   * The potential value of the lead
+   */
+  value?: {  amount: number;
+  currency: string;} | undefined;
+  /**
+   * The expected close date in ISO 8601 format (YYYY-MM-DD)
+   */
+  expected_close_date?: string | undefined;
+  /**
+   * The visibility of the lead
+   */
+  visible_to?: string | undefined;
+  /**
+   * Whether the lead was seen in the Pipedrive UI
+   */
+  was_seen?: boolean | undefined;
+  /**
+   * Optional ID to distinguish the origin of the lead
+   */
+  origin_id?: string | undefined;
+  /**
+   * The ID of the marketing channel
+   */
+  channel?: number | undefined;
+  /**
+   * Optional ID to further distinguish the marketing channel
+   */
+  channel_id?: string | undefined;
+};
+
+export interface ActionOutput_pipedrive_createlead {
   id: string;
-  owner_id: number;
+  title: string;
+  owner_id?: number | undefined;
+  creator_id?: number | undefined;
+  label_ids?: unknown[] | undefined;
+  person_id?: number | undefined;
+  organization_id?: number | undefined;
+  source_name?: string | undefined;
+  source_origin?: string | undefined;
+  value?: {  amount: number;
+  currency: string;} | undefined;
+  expected_close_date?: string | undefined;
+  visible_to?: string | undefined;
+  was_seen?: boolean | undefined;
+  next_activity_id?: number | undefined;
+  add_time?: string | undefined;
+  update_time?: string | undefined;
+  is_archived?: boolean | undefined;
+};
+
+export interface ActionInput_pipedrive_createnote {
+  /**
+   * The content of the note in HTML format. Subject to sanitization on the back-end.
+   */
+  content: string;
+  /**
+   * The ID of the deal the note will be attached to.
+   */
+  deal_id?: number | undefined;
+  /**
+   * The ID of the person the note will be attached to.
+   */
+  person_id?: number | undefined;
+  /**
+   * The ID of the organization the note will be attached to.
+   */
+  org_id?: number | undefined;
+  /**
+   * The ID of the lead the note will be attached to.
+   */
+  lead_id?: number | undefined;
+  /**
+   * The ID of the project the note will be attached to.
+   */
+  project_id?: number | undefined;
+  /**
+   * The ID of the task the note will be attached to.
+   */
+  task_id?: number | undefined;
+  /**
+   * The ID of the user who will be marked as the author of the note. Only an admin can change the author.
+   */
+  user_id?: number | undefined;
+  /**
+   * The optional creation date & time of the note in UTC. Can be set in the past or in the future. Format: YYYY-MM-DD HH:MM:SS
+   */
+  add_time?: string | undefined;
+  /**
+   * If set to 1, the note will be pinned to the lead.
+   */
+  pinned_to_lead_flag?: number | undefined;
+  /**
+   * If set to 1, the note will be pinned to the project.
+   */
+  pinned_to_project_flag?: number | undefined;
+};
+
+export interface ActionOutput_pipedrive_createnote {
+  id: number;
+  content: string;
+  deal_id?: number | undefined;
+  person_id?: number | undefined;
+  org_id?: number | undefined;
+  lead_id?: number | undefined;
+  project_id?: number | undefined;
+  task_id?: number | undefined;
+  user_id: number;
+  add_time: string;
+  update_time?: string | undefined;
+  active_flag: boolean;
+  pinned_to_lead_flag?: number | undefined;
+  pinned_to_project_flag?: number | undefined;
+};
+
+export interface ActionInput_pipedrive_createorganization {
+  /**
+   * The name of the organization. Example: "Acme Corp"
+   */
+  name: string;
+  /**
+   * The ID of the user who owns the organization. Example: 12345
+   */
+  owner_id?: number | undefined;
+  /**
+   * The visibility of the organization. 1 = owner and followers, 2 = entire company, 3 = owner only.
+   */
+  visible_to?: number | undefined;
+  /**
+   * The IDs of labels assigned to the organization.
+   */
+  label_ids?: number[] | undefined;
+  /**
+   * The address of the organization.
+   */
+  address?: {  /**
+   * The full address of the organization.
+   */
+  value?: string | undefined;
+  /**
+   * Country of the organization.
+   */
+  country?: string | undefined;
+  /**
+   * Admin area level 1 (e.g. state) of the organization.
+   */
+  admin_area_level_1?: string | undefined;
+  /**
+   * Admin area level 2 (e.g. county) of the organization.
+   */
+  admin_area_level_2?: string | undefined;
+  /**
+   * Locality (e.g. city) of the organization.
+   */
+  locality?: string | undefined;
+  /**
+   * Sublocality (e.g. neighborhood) of the organization.
+   */
+  sublocality?: string | undefined;
+  /**
+   * Route (e.g. street) of the organization.
+   */
+  route?: string | undefined;
+  /**
+   * Street number of the organization.
+   */
+  street_number?: string | undefined;
+  /**
+   * Subpremise (e.g. apartment/suite number) of the organization.
+   */
+  subpremise?: string | undefined;
+  /**
+   * Postal code of the organization.
+   */
+  postal_code?: string | undefined;};
+  custom_fields?: {  [key: string]: unknown | undefined;};
+};
+
+export interface ActionOutput_pipedrive_createorganization {
+  id: number;
+  name: string;
+  owner_id?: number | undefined;
+  add_time?: string | undefined;
+  update_time?: string | undefined;
+  visible_to?: number | undefined;
+  label_ids?: number[] | undefined;
+  address?: {  value?: string | undefined;
+  country?: string | undefined;
+  admin_area_level_1?: string | undefined;
+  admin_area_level_2?: string | undefined;
+  locality?: string | undefined;
+  sublocality?: string | undefined;
+  route?: string | undefined;
+  street_number?: string | undefined;
+  subpremise?: string | undefined;
+  postal_code?: string | undefined;};
+};
+
+export interface ActionInput_pipedrive_createperson {
+  /**
+   * The name of the person
+   */
+  name: string;
+  /**
+   * The ID of the user who owns the person
+   */
+  owner_id?: number | undefined;
+  /**
+   * The ID of the organization linked to the person
+   */
+  org_id?: number | undefined;
+  /**
+   * The emails of the person
+   */
+  email?: ({  value: string;
+  primary?: boolean | undefined;
+  label?: string | undefined;})[];
+  /**
+   * The phones of the person
+   */
+  phone?: ({  value: string;
+  primary?: boolean | undefined;
+  label?: string | undefined;})[];
+  /**
+   * The visibility of the person
+   */
+  visible_to?: number | undefined;
+  /**
+   * The marketing status of the person
+   */
+  marketing_status?: string | undefined;
+};
+
+export interface ActionOutput_pipedrive_createperson {
+  id: number;
+  name?: string | undefined;
+  email?: ({  value: string;
+  primary?: boolean | undefined;
+  label?: string | undefined;})[];
+  phone?: ({  value: string;
+  primary?: boolean | undefined;
+  label?: string | undefined;})[];
+  owner_id?: number | undefined;
+  org_id?: number | undefined;
+  visible_to?: number | string | undefined;
+  marketing_status?: string | undefined;
+};
+
+export interface ActionInput_pipedrive_createpipeline {
+  /**
+   * The name of the pipeline. Example: "Sales Pipeline"
+   */
+  name: string;
+  /**
+   * Whether deal probability is enabled for this pipeline
+   */
+  deal_probability?: boolean | undefined;
+};
+
+export interface ActionOutput_pipedrive_createpipeline {
+  id: string;
+  name: string;
+  deal_probability?: boolean | number | undefined;
+  add_time?: string | undefined;
+  update_time?: string | undefined;
+  active?: boolean | undefined;
+  order_nr?: number | undefined;
+};
+
+export interface ActionInput_pipedrive_createproduct {
+  /**
+   * The name of the product. Cannot be an empty string.
+   */
+  name: string;
+  /**
+   * The product code.
+   */
+  code?: string | undefined;
+  /**
+   * The product description.
+   */
+  description?: string | undefined;
+  /**
+   * The unit in which this product is sold.
+   */
+  unit?: string | undefined;
+  /**
+   * The tax percentage.
+   */
+  tax?: number | undefined;
+  /**
+   * The category of the product.
+   */
+  category?: number | undefined;
+  /**
+   * The ID of the user who will be marked as the owner of this product.
+   */
+  owner_id?: number | undefined;
+  /**
+   * Whether this product can be added to a deal or not.
+   */
+  is_linkable?: boolean | undefined;
+  /**
+   * The visibility of the product.
+   */
+  visible_to?: number | undefined;
+  /**
+   * An array of price objects.
+   */
+  prices?: ({  currency: string;
+  price: number;
+  cost?: number | undefined;
+  direct_cost?: number | undefined;})[];
+  /**
+   * Custom fields object.
+   */
+  custom_fields?: {} | undefined;
+  /**
+   * How often a customer is billed.
+   */
+  billing_frequency?: string | undefined;
+  /**
+   * The number of times the billing frequency repeats.
+   */
+  billing_frequency_cycles?: number | undefined;
+};
+
+export interface ActionOutput_pipedrive_createproduct {
+  id: number;
+  name: string;
+  code?: string | undefined;
+  description?: string | undefined;
+  unit?: string | undefined;
+  tax?: number | undefined;
+  category?: number | undefined;
+  owner_id?: number | undefined;
+  is_linkable?: boolean | undefined;
+  visible_to?: number | undefined;
+  add_time?: string | undefined;
+  update_time?: string | undefined;
+};
+
+export interface ActionInput_pipedrive_createstage {
+  /**
+   * The name of the stage. Example: "Qualified Lead"
+   */
+  name: string;
+  /**
+   * The ID of the pipeline to add the stage to. Example: 1
+   */
+  pipeline_id: number;
+  /**
+   * The success probability percentage of the deal. Used/shown when deal weighted values are used. Example: 50
+   */
+  deal_probability?: number | undefined;
+  /**
+   * Whether deals in this stage can become rotten
+   */
+  is_deal_rot_enabled?: boolean | undefined;
+  /**
+   * The number of days the deals not updated in this stage would become rotten. Applies only if is_deal_rot_enabled is set.
+   */
+  days_to_rotten?: number | undefined;
+};
+
+export interface ActionOutput_pipedrive_createstage {
+  id: string;
+  name: string;
+  pipeline_id: number;
+  order_nr?: number | undefined;
+  deal_probability?: number | undefined;
+  is_deal_rot_enabled?: boolean | undefined;
+  days_to_rotten?: number | undefined;
+  add_time?: string | undefined;
+  update_time?: string | undefined;
+  active_flag?: boolean | undefined;
+};
+
+export interface ActionInput_pipedrive_deleteactivity {
+  /**
+   * The ID of the activity to delete. Example: 8
+   */
+  id: number;
+};
+
+export interface ActionOutput_pipedrive_deleteactivity {
+  id: number;
+  success?: boolean | undefined;
+};
+
+export interface ActionInput_pipedrive_deletedeal {
+  /**
+   * The ID of the deal to delete. Example: 9
+   */
+  id: number;
+};
+
+export interface ActionOutput_pipedrive_deletedeal {
+  id: number;
+  deleted: boolean;
+};
+
+export interface ActionInput_pipedrive_deletelead {
+  /**
+   * The ID of the lead to delete. Example: "a1b2c3d4-e5f6-7890-abcd-ef1234567890"
+   */
+  id: string;
+};
+
+export interface ActionOutput_pipedrive_deletelead {
+  success: boolean;
+  id: string;
+};
+
+export interface ActionInput_pipedrive_deletenote {
+  /**
+   * The ID of the note to delete. Example: 123
+   */
+  id: number;
+};
+
+export interface ActionOutput_pipedrive_deletenote {
+  success: boolean;
+  deleted: boolean;
+};
+
+export interface ActionInput_pipedrive_deleteorganization {
+  /**
+   * The ID of the organization to delete. Example: 9
+   */
+  id: number;
+};
+
+export interface ActionOutput_pipedrive_deleteorganization {
+  id: number;
+  deleted?: boolean | undefined;
+  message?: string | undefined;
+};
+
+export interface ActionInput_pipedrive_deleteperson {
+  /**
+   * The ID of the person to delete. Example: 11
+   */
+  id: number;
+};
+
+export interface ActionOutput_pipedrive_deleteperson {
+  success: boolean;
+  id?: number | undefined;
+};
+
+export interface ActionInput_pipedrive_deletepipeline {
+  /**
+   * The ID of the pipeline to delete. Example: 123
+   */
+  id: number;
+};
+
+export interface ActionOutput_pipedrive_deletepipeline {
+  success: boolean;
+  id?: number | undefined;
+};
+
+export interface ActionInput_pipedrive_deleteproduct {
+  /**
+   * The ID of the product to delete. Example: 7
+   */
+  id: number;
+};
+
+export interface ActionOutput_pipedrive_deleteproduct {
+  success: boolean;
+  id?: number | undefined;
+};
+
+export interface ActionInput_pipedrive_deletestage {
+  /**
+   * The ID of the stage to delete. Example: 13
+   */
+  id: number;
+};
+
+export interface ActionOutput_pipedrive_deletestage {
+  success: boolean;
+  id?: number | undefined;
+};
+
+export interface ActionInput_pipedrive_getactivity {
+  /**
+   * The ID of the activity. Example: 123
+   */
+  id: number;
+};
+
+export interface ActionOutput_pipedrive_getactivity {
+  id: number;
+  subject?: string | undefined;
+  type?: string | undefined;
+  ownerId?: number | undefined;
+  dealId?: number | undefined;
+  leadId?: string | undefined;
+  personId?: number | undefined;
+  orgId?: number | undefined;
+  projectId?: number | undefined;
+  dueDate?: string | undefined;
+  dueTime?: string | undefined;
+  duration?: string | undefined;
+  busy?: boolean | undefined;
+  done?: boolean | undefined;
+  location?: {  value?: string | undefined;
+  country?: string | undefined;
+  adminAreaLevel1?: string | undefined;
+  adminAreaLevel2?: string | undefined;
+  locality?: string | undefined;
+  sublocality?: string | undefined;
+  route?: string | undefined;
+  streetNumber?: string | undefined;
+  subpremise?: string | undefined;
+  postalCode?: string | undefined;};
+  publicDescription?: string | undefined;
+  priority?: number | undefined;
+  note?: string | undefined;
+  addTime?: string | undefined;
+  updateTime?: string | undefined;
+};
+
+export interface ActionInput_pipedrive_getdeal {
+  /**
+   * The ID of the deal. Example: 123
+   */
+  id: number;
+};
+
+export interface ActionOutput_pipedrive_getdeal {
+  id: number;
+  title?: string | undefined;
+  value?: number | undefined;
+  currency?: string | undefined;
+  user_id?: number | undefined;
+  person_id?: number | undefined;
+  org_id?: number | undefined;
+  stage_id?: number | undefined;
+  pipeline_id?: number | undefined;
+  status?: string | undefined;
+  add_time?: string | undefined;
+  update_time?: string | undefined;
+  next_activity_date?: string | undefined;
+  next_activity_time?: string | undefined;
+  next_activity_id?: number | undefined;
+  last_activity_id?: number | undefined;
+  last_activity_date?: string | undefined;
+  lost_reason?: string | undefined;
+  close_time?: string | undefined;
+  won_time?: string | undefined;
+  first_won_time?: string | undefined;
+  lost_time?: string | undefined;
+  probability?: number | undefined;
+  products_count?: number | undefined;
+  files_count?: number | undefined;
+  notes_count?: number | undefined;
+  followers_count?: number | undefined;
+  email_messages_count?: number | undefined;
+  activities_count?: number | undefined;
+  done_activities_count?: number | undefined;
+  undone_activities_count?: number | undefined;
+  participants_count?: number | undefined;
+  expected_close_date?: string | undefined;
+  cc_email?: string | undefined;
+  org_name?: string | undefined;
+  person_name?: string | undefined;
+  owner_name?: string | undefined;
+  origin?: string | undefined;
+  origin_id?: string | undefined;
+  is_archived?: boolean | undefined;
+};
+
+export interface ActionInput_pipedrive_getlead {
+  /**
+   * The ID of the lead. Example: "e6e17c2f-1234-4567-890a-b1234567890c"
+   */
+  id: string;
+};
+
+export interface ActionOutput_pipedrive_getlead {
+  id: string;
+  title: string;
+  owner_id?: number | undefined;
+  creator_id?: number | undefined;
+  person_id?: number | undefined;
+  organization_id?: number | undefined;
+  value?: {  amount: number;
+  currency: string;} | undefined;
+  expected_close_date?: string | undefined;
+  add_time?: string | undefined;
+  update_time?: string | undefined;
+  was_seen?: boolean | undefined;
+  is_archived?: boolean | undefined;
+  next_activity_id?: number | undefined;
+  label_ids?: number[] | undefined;
+};
+
+export interface ActionInput_pipedrive_getnote {
+  /**
+   * The ID of the note to retrieve. Example: 123
+   */
+  id: number;
+};
+
+export interface ActionOutput_pipedrive_getnote {
+  id: number;
+  content?: string | undefined;
+  user_id?: number | undefined;
+  deal_id?: number | undefined;
+  person_id?: number | undefined;
+  org_id?: number | undefined;
+  lead_id?: string | undefined;
+  project_id?: number | undefined;
+  task_id?: number | undefined;
+  add_time?: string | undefined;
+  update_time?: string | undefined;
+  active_flag?: boolean | undefined;
+  pinned_to_lead_flag?: boolean | undefined;
+  pinned_to_deal_flag?: boolean | undefined;
+  pinned_to_organization_flag?: boolean | undefined;
+  pinned_to_person_flag?: boolean | undefined;
+  pinned_to_project_flag?: boolean | undefined;
+  pinned_to_task_flag?: boolean | undefined;
+  last_update_user_id?: number | undefined;
+};
+
+export interface ActionInput_pipedrive_getorganization {
+  /**
+   * The ID of the organization to retrieve. Example: 123
+   */
+  id: number;
+};
+
+export interface ActionOutput_pipedrive_getorganization {
+  id: number;
+  name?: string | undefined;
+  owner_id?: number | {  id: number;
+  name?: string | undefined;
+  email?: string | undefined;
+  has_pic?: number | undefined;
+  pic_hash?: string | undefined;
+  active_flag?: boolean | undefined;
+  value?: number | undefined;};
+  add_time?: string | undefined;
+  update_time?: string | undefined;
+  visible_to?: string | undefined;
+  label_ids?: number[] | undefined;
+  address?: {  value?: string | undefined;
+  country?: string | undefined;
+  admin_area_level_1?: string | undefined;
+  admin_area_level_2?: string | undefined;
+  locality?: string | undefined;
+  sublocality?: string | undefined;
+  route?: string | undefined;
+  street_number?: string | undefined;
+  subpremise?: string | undefined;
+  postal_code?: string | undefined;} | string;
+  people_count?: number | undefined;
+  open_deals_count?: number | undefined;
+  closed_deals_count?: number | undefined;
+  won_deals_count?: number | undefined;
+  lost_deals_count?: number | undefined;
+  activities_count?: number | undefined;
+  done_activities_count?: number | undefined;
+  undone_activities_count?: number | undefined;
+  email_messages_count?: number | undefined;
+  files_count?: number | undefined;
+  notes_count?: number | undefined;
+  followers_count?: number | undefined;
+  last_activity_id?: number | undefined;
+  next_activity_id?: number | undefined;
+};
+
+export interface ActionInput_pipedrive_getperson {
+  /**
+   * The ID of the person to retrieve. Example: 123
+   */
+  person_id: number;
+};
+
+export interface ActionOutput_pipedrive_getperson {
+  id: number;
+  name?: string | undefined;
+  owner_id?: number | {  id: number;
+  name?: string | undefined;
+  email?: string | undefined;
+  has_pic?: number | undefined;
+  pic_hash?: string | undefined;
+  active_flag?: boolean | undefined;};
+  org_id?: number | {  name: string;
+  people_count?: number | undefined;
+  owner_id?: number | undefined;
+  address?: string | undefined;
+  label_ids?: number[] | undefined;
+  active_flag?: boolean | undefined;
+  cc_email?: string | undefined;
+  owner_name?: string | undefined;
+  value?: number | undefined;};
+  emails?: ({  value: string;
+  primary?: boolean | undefined;
+  label?: string | undefined;})[];
+  phones?: ({  value: string;
+  primary?: boolean | undefined;
+  label?: string | undefined;})[];
+  add_time?: string | undefined;
+  update_time?: string | undefined;
+  visible_to?: number | string | undefined;
+  label_ids?: number[] | undefined;
+  active?: boolean | undefined;
+  deleted?: boolean | undefined;
+};
+
+export interface ActionInput_pipedrive_getpipeline {
+  /**
+   * The ID of the pipeline to retrieve. Example: 1
+   */
+  id: number;
+};
+
+export interface ActionOutput_pipedrive_getpipeline {
+  id: number;
+  name: string;
+  is_deal_probability_enabled?: boolean | undefined;
+  add_time?: string | undefined;
+  update_time?: string | undefined;
+};
+
+export interface ActionInput_pipedrive_getproduct {
+  /**
+   * The ID of the product. Example: 123
+   */
+  id: number;
+};
+
+export interface ActionOutput_pipedrive_getproduct {
+  id: number;
+  name: string;
+  code?: string | undefined;
+  description?: string | undefined;
+  unit?: string | undefined;
+  tax?: number | undefined;
+  category?: number | undefined;
+  owner_id?: number | {  id: number;
+  name?: string | undefined;
+  email?: string | undefined;};
+  is_linkable?: boolean | undefined;
+  visible_to?: number | string | undefined;
+  prices?: ({  currency: string;
+  price: number;
+  cost?: number | undefined;
+  direct_cost?: number | undefined;})[];
+  custom_fields?: {  [key: string]: unknown | undefined;};
+  billing_frequency?: string | undefined;
+  billing_frequency_cycles?: number | undefined;
+  add_time?: string | undefined;
+  update_time?: string | undefined;
+};
+
+export interface ActionInput_pipedrive_getstage {
+  /**
+   * The ID of the stage. Example: 1
+   */
+  id: number;
+};
+
+export interface ActionOutput_pipedrive_getstage {
+  id: number;
+  order_nr: number;
   name: string;
   active_flag: boolean;
-  update_time: Date;
-  delete_time: Date;
-  add_time: Date;
-  visible_to: string;
-  label: number;
-  address: number;
-  address_subpremise: string;
-  address_street_number: string;
-  address_route: string;
-  address_sublocality: string;
-  address_locality: string;
-  address_admin_area_level_1: string;
-  address_admin_area_level_2: string;
-  address_country: string;
-  address_postal_code: string;
-  address_formatted_address: string;
-  cc_email: string;
+  deal_probability?: number | undefined;
+  pipeline_id: number;
+  rotten_flag?: number | boolean | undefined;
+  rotten_days?: number | undefined;
+  add_time?: string | undefined;
+  update_time?: string | undefined;
 };
 
-export interface SyncMetadata_pipedrive_organizations {
+export interface ActionInput_pipedrive_getuser {
+  /**
+   * The ID of the user. Example: 123
+   */
+  id: number;
 };
 
-export interface PipeDrivePerson {
-  id: string;
-  active_flag: boolean;
-  owner_id: number;
-  org_id: number;
+export interface ActionOutput_pipedrive_getuser {
+  id: number;
   name: string;
-  phone: string[];
-  email: string[];
-  update_time: Date;
-  delete_time: Date;
-  add_time: Date;
-  visible_to: string;
-  picture_id: number;
-  label: number;
-  cc_email: string;
+  email: string;
+  active_flag: boolean;
+  timezone_name?: string | undefined;
+  timezone_offset?: string | undefined;
+  lang?: string | number | undefined;
+  locale?: string | undefined;
+  phone?: string | undefined;
+  created?: string | undefined;
+  modified?: string | undefined;
+  last_login?: string | undefined;
+  is_admin?: boolean | number | undefined;
+  role_id?: number | undefined;
+  icon_url?: string | undefined;
 };
 
-export interface SyncMetadata_pipedrive_persons {
+export interface ActionInput_pipedrive_listactivities {
+  /**
+   * Pagination cursor from the previous response. Omit for the first page.
+   */
+  cursor?: string | undefined;
+  /**
+   * Number of activities to return per page. Default: 100, max: 500.
+   */
+  limit?: number | undefined;
+  /**
+   * If supplied, only activities matching the specified filter are returned.
+   */
+  filter_id?: number | undefined;
+  /**
+   * If supplied, only activities owned by the specified user are returned.
+   */
+  user_id?: number | undefined;
+  /**
+   * If supplied, only activities linked to the specified deal are returned.
+   */
+  deal_id?: number | undefined;
+  /**
+   * If supplied, only activities whose primary participant is the given person are returned.
+   */
+  person_id?: number | undefined;
+  /**
+   * If supplied, only activities linked to the specified organization are returned.
+   */
+  org_id?: number | undefined;
+  /**
+   * If supplied, only activities with specified done flag value are returned.
+   */
+  done?: boolean | undefined;
+  /**
+   * The type of the activity. Can be one type or multiple types separated by a comma.
+   */
+  type?: string | undefined;
+  /**
+   * If set, only activities with an update_time later than or equal to this time are returned. In RFC3339 format, e.g. 2025-01-01T10:20:00Z.
+   */
+  updated_since?: string | undefined;
+  /**
+   * If set, only activities with an update_time earlier than this time are returned. In RFC3339 format, e.g. 2025-01-01T10:20:00Z.
+   */
+  updated_until?: string | undefined;
+  /**
+   * The field to sort by. Supported fields: id, update_time, add_time, due_date. Default: id.
+   */
+  sort_by?: string | undefined;
+  /**
+   * The sorting direction. Supported values: asc, desc. Default: asc.
+   */
+  sort_direction?: string | undefined;
+};
+
+export interface ActionOutput_pipedrive_listactivities {
+  /**
+   * List of activities
+   */
+  activities: ({  /**
+   * Activity ID
+   */
+  id: number;
+  /**
+   * Subject of the activity
+   */
+  subject?: string | undefined;
+  /**
+   * Type of the activity
+   */
+  type?: string | undefined;
+  /**
+   * Whether the activity is done
+   */
+  done?: boolean | undefined;
+  /**
+   * Due date of the activity
+   */
+  due_date?: string | undefined;
+  /**
+   * Due time of the activity
+   */
+  due_time?: string | undefined;
+  /**
+   * Duration of the activity
+   */
+  duration?: string | undefined;
+  /**
+   * ID of the user who owns the activity
+   */
+  user_id?: number | undefined;
+  /**
+   * ID of the deal linked to the activity
+   */
+  deal_id?: number | undefined;
+  /**
+   * ID of the person linked to the activity
+   */
+  person_id?: number | undefined;
+  /**
+   * ID of the organization linked to the activity
+   */
+  org_id?: number | undefined;
+  /**
+   * Time when the activity was added
+   */
+  add_time?: string | undefined;
+  /**
+   * Time when the activity was last updated
+   */
+  update_time?: string | undefined;
+  /**
+   * Location of the activity
+   */
+  location?: string | undefined;
+  /**
+   * Public description of the activity
+   */
+  public_description?: string | undefined;
+  /**
+   * Note of the activity
+   */
+  note?: string | undefined;})[];
+  /**
+   * Cursor for the next page of results
+   */
+  next_cursor?: string | undefined;
+};
+
+export interface ActionInput_pipedrive_listdeals {
+  /**
+   * Pagination cursor from the previous response. Omit for the first page.
+   */
+  cursor?: string | undefined;
+  /**
+   * If supplied, only deals matching the specified filter are returned.
+   */
+  filter_id?: number | undefined;
+  /**
+   * If supplied, only deals owned by the specified user are returned.
+   */
+  owner_id?: number | undefined;
+  /**
+   * If supplied, only deals linked to the specified person are returned.
+   */
+  person_id?: number | undefined;
+  /**
+   * If supplied, only deals linked to the specified organization are returned.
+   */
+  org_id?: number | undefined;
+  /**
+   * If supplied, only deals in the specified pipeline are returned.
+   */
+  pipeline_id?: number | undefined;
+  /**
+   * If supplied, only deals in the specified stage are returned.
+   */
+  stage_id?: number | undefined;
+  /**
+   * Only fetch deals with a specific status. If omitted, all not deleted deals are returned.
+   */
+  status?: string | undefined;
+  /**
+   * The number of items to return per page. Maximum 500.
+   */
+  limit?: number | undefined;
+};
+
+export interface ActionOutput_pipedrive_listdeals {
+  items: ({  id: number;
+  title?: string | undefined;
+  status?: string | undefined;
+  stage_id?: number | undefined;
+  pipeline_id?: number | undefined;
+  add_time?: string | undefined;
+  update_time?: string | undefined;})[];
+  next_cursor?: string | undefined;
+};
+
+export interface ActionInput_pipedrive_listleads {
+  /**
+   * Pagination cursor from the previous response. Maps to the `start` parameter in the Pipedrive API.
+   */
+  cursor?: string | undefined;
+  /**
+   * Number of leads to return per page. Default is 100, maximum is 500.
+   */
+  limit?: number | undefined;
+  /**
+   * If supplied, only leads matching the given user will be returned.
+   */
+  owner_id?: number | undefined;
+  /**
+   * If supplied, only leads matching the given person will be returned.
+   */
+  person_id?: number | undefined;
+  /**
+   * If supplied, only leads matching the given organization will be returned.
+   */
+  organization_id?: number | undefined;
+  /**
+   * The ID of the filter to use.
+   */
+  filter_id?: number | undefined;
+  /**
+   * If set, only leads with an update_time later than or equal to this time are returned. In ISO 8601 format, e.g., 2025-01-01T10:20:00Z.
+   */
+  updated_since?: string | undefined;
+  /**
+   * The field names and sorting mode separated by a comma (e.g., `add_time ASC`, `update_time DESC`). Only first-level field keys are supported.
+   */
+  sort?: string | undefined;
+};
+
+export interface ActionOutput_pipedrive_listleads {
+  /**
+   * The list of leads.
+   */
+  leads: ({  /**
+   * The unique ID of the lead.
+   */
+  id: string;
+  /**
+   * The title of the lead.
+   */
+  title: string;
+  /**
+   * The ID of the user who owns the lead.
+   */
+  owner_id?: number | undefined;
+  /**
+   * The ID of the person the lead is associated with.
+   */
+  person_id?: number | undefined;
+  /**
+   * The ID of the organization the lead is associated with.
+   */
+  organization_id?: number | undefined;
+  /**
+   * The date and time the lead was created.
+   */
+  add_time?: string | undefined;
+  /**
+   * The date and time the lead was last updated.
+   */
+  update_time?: string | undefined;
+  /**
+   * Whether the lead has been seen.
+   */
+  was_seen?: boolean | undefined;
+  /**
+   * The expected close date of the lead.
+   */
+  expected_close_date?: string | undefined;
+  /**
+   * The ID of the next activity associated with the lead.
+   */
+  next_activity_id?: number | undefined;
+  /**
+   * The source name of the lead.
+   */
+  source_name?: string | undefined;
+  /**
+   * The IDs of labels attached to the lead.
+   */
+  label_ids?: string[] | undefined;})[];
+  /**
+   * The cursor for the next page of results. Null if there are no more results.
+   */
+  next_cursor?: string | undefined;
+};
+
+export interface ActionInput_pipedrive_listnotes {
+  /**
+   * Pagination cursor from the previous response. Omit for the first page.
+   */
+  cursor?: string | undefined;
+  /**
+   * Number of items to return per page.
+   */
+  limit?: number | undefined;
+  /**
+   * Filter by user ID who created the note.
+   */
+  user_id?: number | undefined;
+  /**
+   * Filter by lead ID.
+   */
+  lead_id?: string | undefined;
+  /**
+   * Filter by deal ID.
+   */
+  deal_id?: number | undefined;
+  /**
+   * Filter by person ID.
+   */
+  person_id?: number | undefined;
+  /**
+   * Filter by organization ID.
+   */
+  org_id?: number | undefined;
+  /**
+   * Filter by project ID.
+   */
+  project_id?: number | undefined;
+  /**
+   * Filter by task ID.
+   */
+  task_id?: number | undefined;
+  /**
+   * Filter by start date (YYYY-MM-DD).
+   */
+  start_date?: string | undefined;
+  /**
+   * Filter by end date (YYYY-MM-DD).
+   */
+  end_date?: string | undefined;
+  /**
+   * Filter by updated since timestamp (RFC3339 format).
+   */
+  updated_since?: string | undefined;
+  /**
+   * Sort field and direction (e.g., "add_time DESC").
+   */
+  sort?: string | undefined;
+};
+
+export interface ActionOutput_pipedrive_listnotes {
+  /**
+   * The list of notes.
+   */
+  items: ({  /**
+   * The ID of the note.
+   */
+  id: number;
+  /**
+   * The ID of the user who created the note.
+   */
+  user_id?: number | undefined;
+  /**
+   * The ID of the deal this note is attached to.
+   */
+  deal_id?: number | undefined;
+  /**
+   * The ID of the person this note is attached to.
+   */
+  person_id?: number | undefined;
+  /**
+   * The ID of the organization this note is attached to.
+   */
+  org_id?: number | undefined;
+  /**
+   * The ID of the lead this note is attached to.
+   */
+  lead_id?: string | undefined;
+  /**
+   * The ID of the project this note is attached to.
+   */
+  project_id?: number | undefined;
+  /**
+   * The ID of the task this note is attached to.
+   */
+  task_id?: number | undefined;
+  /**
+   * The content of the note in HTML format.
+   */
+  content?: string | undefined;
+  /**
+   * The creation date and time of the note.
+   */
+  add_time?: string | undefined;
+  /**
+   * The last update date and time of the note.
+   */
+  update_time?: string | undefined;
+  /**
+   * Whether the note is active.
+   */
+  active_flag?: boolean | undefined;
+  /**
+   * Whether the note is pinned to a deal.
+   */
+  pinned_to_deal_flag?: number | undefined;
+  /**
+   * Whether the note is pinned to a person.
+   */
+  pinned_to_person_flag?: number | undefined;
+  /**
+   * Whether the note is pinned to an organization.
+   */
+  pinned_to_organization_flag?: number | undefined;
+  /**
+   * Whether the note is pinned to a lead.
+   */
+  pinned_to_lead_flag?: number | undefined;
+  /**
+   * Whether the note is pinned to a project.
+   */
+  pinned_to_project_flag?: number | undefined;
+  /**
+   * Whether the note is pinned to a task.
+   */
+  pinned_to_task_flag?: number | undefined;})[];
+  /**
+   * The cursor to fetch the next page of results.
+   */
+  next_cursor?: string | undefined;
+};
+
+export interface ActionInput_pipedrive_listorganizations {
+  /**
+   * Filter ID to apply. Only organizations matching the filter are returned.
+   */
+  filter_id?: number | undefined;
+  /**
+   * Comma-separated string of up to 100 organization IDs to fetch. Ignored if filter_id is provided.
+   */
+  ids?: string | undefined;
+  /**
+   * Owner user ID. Only organizations owned by this user are returned. Ignored if filter_id is provided.
+   */
+  owner_id?: number | undefined;
+  /**
+   * RFC3339 timestamp. Only organizations with update_time later than or equal to this are returned. Example: 2025-01-01T10:20:00Z
+   */
+  updated_since?: string | undefined;
+  /**
+   * RFC3339 timestamp. Only organizations with update_time earlier than this are returned. Example: 2025-01-01T10:20:00Z
+   */
+  updated_until?: string | undefined;
+  /**
+   * Field to sort by. Default: id
+   */
+  sort_by?: 'id' | 'update_time' | 'add_time' | undefined;
+  /**
+   * Sort direction. Default: asc
+   */
+  sort_direction?: 'asc' | 'desc' | undefined;
+  /**
+   * Comma-separated additional fields to include (e.g., next_activity_id, last_activity_id, open_deals_count).
+   */
+  include_fields?: string | undefined;
+  /**
+   * Comma-separated custom field keys to include. Maximum 15 keys.
+   */
+  custom_fields?: string | undefined;
+  /**
+   * When true, option custom fields return { id, label } objects instead of plain IDs.
+   */
+  include_option_labels?: boolean | undefined;
+  /**
+   * When true, response includes an array of label objects as { id, label }.
+   */
+  include_labels?: boolean | undefined;
+  /**
+   * Number of items to return per page. Default: 100, Maximum: 500.
+   */
+  limit?: number | undefined;
+  /**
+   * Pagination cursor from the previous response. Omit for the first page.
+   */
+  cursor?: string | undefined;
+};
+
+export interface ActionOutput_pipedrive_listorganizations {
+  organizations: ({  id: number;
+  name: string;
+  owner_id?: unknown | undefined;
+  add_time?: string | undefined;
+  update_time?: string | undefined;
+  visible_to?: unknown | undefined;
+  label_ids?: number[] | undefined;
+  labels?: ({  id: number;
+  label: string;})[] | undefined;
+  address?: unknown | undefined;
+  people_count?: number | undefined;
+  open_deals_count?: number | undefined;
+  closed_deals_count?: number | undefined;
+  won_deals_count?: number | undefined;
+  lost_deals_count?: number | undefined;
+  next_activity_id?: unknown | undefined;
+  last_activity_id?: unknown | undefined;
+  activities_count?: number | undefined;
+  done_activities_count?: number | undefined;
+  undone_activities_count?: number | undefined;
+  email_messages_count?: number | undefined;
+  files_count?: number | undefined;
+  notes_count?: number | undefined;
+  followers_count?: number | undefined;})[];
+  next_cursor?: string | undefined;
+};
+
+export interface ActionInput_pipedrive_listpersons {
+  /**
+   * If supplied, only persons matching the specified filter are returned
+   */
+  filter_id?: number | undefined;
+  /**
+   * If supplied, only persons owned by the specified user are returned
+   */
+  owner_id?: number | undefined;
+  /**
+   * If supplied, only persons linked to the specified organization are returned
+   */
+  org_id?: number | undefined;
+  /**
+   * If supplied, only persons linked to the specified deal are returned
+   */
+  deal_id?: number | undefined;
+  /**
+   * If set, only persons with an update_time later than or equal to this time are returned. In RFC3339 format, e.g. 2025-01-15T10:20:00Z
+   */
+  updated_since?: string | undefined;
+  /**
+   * If set, only persons with an update_time earlier than this time are returned. In RFC3339 format, e.g. 2025-01-15T10:20:00Z
+   */
+  updated_until?: string | undefined;
+  /**
+   * The field to sort by. Defaults to id
+   */
+  sort_by?: 'id' | 'update_time' | 'add_time' | undefined;
+  /**
+   * The sorting direction. Defaults to asc
+   */
+  sort_direction?: 'asc' | 'desc' | undefined;
+  /**
+   * For pagination, the limit of entries to be returned. Maximum value of 500
+   */
+  limit?: number | undefined;
+  /**
+   * Pagination cursor from the previous response. Omit for the first page.
+   */
+  cursor?: string | undefined;
+};
+
+export interface ActionOutput_pipedrive_listpersons {
+  persons: ({  id: number;
+  name?: string | undefined;
+  emails?: ({  value: string;
+  primary?: boolean | undefined;
+  label?: string | undefined;})[];
+  phones?: ({  value: string;
+  primary?: boolean | undefined;
+  label?: string | undefined;})[];
+  org_id?: number | undefined;
+  org_name?: string | undefined;
+  owner_id?: number | undefined;
+  owner_name?: string | undefined;
+  add_time?: string | undefined;
+  update_time?: string | undefined;
+  visible_to?: number | string | undefined;
+  label_ids?: number[] | undefined;
+  labels?: ({  id: number;
+  label: string;})[] | undefined;})[];
+  /**
+   * Pagination cursor for the next page of results
+   */
+  next_cursor?: string | undefined;
+};
+
+export interface ActionInput_pipedrive_listpipelines {
+  /**
+   * Pagination cursor from the previous response. Omit for the first page.
+   */
+  cursor?: string | undefined;
+  /**
+   * Number of items to return. Maximum 500. Default 100.
+   */
+  limit?: number | undefined;
+  /**
+   * Field to sort by. Default: id
+   */
+  sort_by?: 'id' | 'update_time' | 'add_time' | undefined;
+  /**
+   * Sort direction. Default: asc
+   */
+  sort_direction?: 'asc' | 'desc' | undefined;
+};
+
+export interface ActionOutput_pipedrive_listpipelines {
+  items: ({  id: number;
+  name: string;
+  url?: string | undefined;
+  add_time?: string | undefined;
+  update_time?: string | undefined;
+  is_deal_probability_enabled?: boolean | undefined;})[];
+  next_cursor?: string | undefined;
+};
+
+export interface ActionInput_pipedrive_listproducts {
+  /**
+   * Pagination start. Omit for the first page.
+   */
+  start?: number | undefined;
+  /**
+   * Number of items to return per page. Maximum is 500.
+   */
+  limit?: number | undefined;
+  /**
+   * If supplied, only products owned by the given user will be returned.
+   */
+  owner_id?: number | undefined;
+  /**
+   * The ID of the filter to use.
+   */
+  filter_id?: number | undefined;
+  /**
+   * Comma-separated string array of up to 100 entity IDs to fetch. If filter_id is provided, this is ignored.
+   */
+  ids?: string | undefined;
+  /**
+   * The field to sort by. Supported fields: id, name, add_time, update_time.
+   */
+  sort_by?: 'id' | 'name' | 'add_time' | 'update_time' | undefined;
+  /**
+   * The sorting direction. Supported values: asc, desc.
+   */
+  sort_direction?: 'asc' | 'desc' | undefined;
+};
+
+export interface ActionOutput_pipedrive_listproducts {
+  items: ({  id: string;
+  name: string;
+  code?: string | undefined;
+  description?: string | undefined;
+  unit?: string | undefined;
+  tax?: number | undefined;
+  category?: number | undefined;
+  active_flag?: boolean | undefined;
+  selectable?: boolean | undefined;
+  visible_to?: number | string | undefined;
+  owner_id?: number | {} | undefined;
+  add_time?: string | undefined;
+  update_time?: string | undefined;
+  prices?: ({  id?: number | undefined;
+  product_id?: number | undefined;
+  currency: string;
+  price: number;
+  cost?: number | undefined;
+  overhead_cost?: number | undefined;
+  price_formatted?: string | undefined;})[];})[];
+  next_start?: number | undefined;
+};
+
+export interface ActionInput_pipedrive_liststages {
+  /**
+   * The ID of the pipeline to fetch stages for. If omitted, stages for all pipelines will be returned.
+   */
+  pipeline_id?: number | undefined;
+  /**
+   * The field to sort by.
+   */
+  sort_by?: 'id' | 'update_time' | 'add_time' | 'order_nr' | undefined;
+  /**
+   * The sorting direction.
+   */
+  sort_direction?: 'asc' | 'desc' | undefined;
+  /**
+   * For pagination, the limit of entries to be returned. Maximum value of 500 is allowed.
+   */
+  limit?: number | undefined;
+  /**
+   * Pagination cursor from the previous response. Omit for the first page.
+   */
+  cursor?: string | undefined;
+};
+
+export interface ActionOutput_pipedrive_liststages {
+  items: ({  id: number;
+  name: string;
+  pipeline_id: number;
+  order_nr: number;
+  deal_probability?: number | undefined;
+  is_deal_rot_enabled?: boolean | undefined;
+  days_to_rotten?: number | undefined;
+  add_time?: string | undefined;
+  update_time?: string | undefined;
+  active_flag?: boolean | undefined;})[];
+  next_cursor?: string | undefined;
+};
+
+export interface ActionInput_pipedrive_listusers {
+  /**
+   * Pagination start offset. Example: 0
+   */
+  start?: number | undefined;
+  /**
+   * Number of items per page. Maximum 500. Example: 50
+   */
+  limit?: number | undefined;
+};
+
+export interface ActionOutput_pipedrive_listusers {
+  items: ({  /**
+   * User ID
+   */
+  id: number;
+  name?: string | undefined;
+  email?: string | undefined;
+  phone?: string | undefined;
+  locale?: string | undefined;
+  timezone_name?: string | undefined;
+  timezone_offset?: string | undefined;
+  created?: string | undefined;
+  modified?: string | undefined;
+  last_login?: string | undefined;
+  activated?: boolean | undefined;
+  is_admin?: number | undefined;
+  role_id?: number | undefined;
+  icon_url?: string | undefined;
+  active_flag?: boolean | undefined;})[];
+  success: boolean;
+  additional_data?: {  pagination?: {  start: number;
+  limit: number;
+  more_items_in_collection?: boolean | undefined;};};
+};
+
+export interface ActionInput_pipedrive_updateactivity {
+  /**
+   * The ID of the activity to update. Example: 8
+   */
+  id: number;
+  /**
+   * The subject of the activity
+   */
+  subject?: string | undefined;
+  /**
+   * The type of the activity
+   */
+  type?: string | undefined;
+  /**
+   * The ID of the user who owns the activity
+   */
+  owner_id?: number | undefined;
+  /**
+   * The ID of the deal linked to the activity
+   */
+  deal_id?: number | undefined;
+  /**
+   * The ID of the lead linked to the activity
+   */
+  lead_id?: string | undefined;
+  /**
+   * The ID of the person linked to the activity
+   */
+  person_id?: number | undefined;
+  /**
+   * The ID of the organization linked to the activity
+   */
+  org_id?: number | undefined;
+  /**
+   * The ID of the project linked to the activity
+   */
+  project_id?: number | undefined;
+  /**
+   * The due date of the activity
+   */
+  due_date?: string | undefined;
+  /**
+   * The due time of the activity
+   */
+  due_time?: string | undefined;
+  /**
+   * The duration of the activity
+   */
+  duration?: string | undefined;
+  /**
+   * Whether the activity marks the assignee as busy or not in their calendar
+   */
+  busy?: boolean | undefined;
+  /**
+   * Whether the activity is marked as done or not
+   */
+  done?: boolean | undefined;
+  /**
+   * The public description of the activity
+   */
+  public_description?: string | undefined;
+  /**
+   * The priority of the activity
+   */
+  priority?: number | undefined;
+  /**
+   * The note of the activity
+   */
+  note?: string | undefined;
+};
+
+export interface ActionOutput_pipedrive_updateactivity {
+  id: number;
+  subject?: string | undefined;
+  type?: string | undefined;
+  owner_id?: number | undefined;
+  deal_id?: number | undefined;
+  lead_id?: string | undefined;
+  person_id?: number | undefined;
+  org_id?: number | undefined;
+  project_id?: number | undefined;
+  due_date?: string | undefined;
+  due_time?: string | undefined;
+  duration?: string | undefined;
+  busy?: boolean | undefined;
+  done?: boolean | undefined;
+  public_description?: string | undefined;
+  priority?: number | undefined;
+  note?: string | undefined;
+  add_time?: string | undefined;
+  update_time?: string | undefined;
+};
+
+export interface ActionInput_pipedrive_updatedeal {
+  /**
+   * The ID of the deal to update. Example: 123
+   */
+  id: number;
+  /**
+   * The title of the deal
+   */
+  title?: string | undefined;
+  /**
+   * The ID of the user who owns the deal
+   */
+  owner_id?: number | undefined;
+  /**
+   * The ID of the person linked to the deal
+   */
+  person_id?: number | undefined;
+  /**
+   * The ID of the organization linked to the deal
+   */
+  org_id?: number | undefined;
+  /**
+   * The ID of the pipeline associated with the deal
+   */
+  pipeline_id?: number | undefined;
+  /**
+   * The ID of the deal stage
+   */
+  stage_id?: number | undefined;
+  /**
+   * The value of the deal
+   */
+  value?: number | undefined;
+  /**
+   * The currency associated with the deal (e.g., USD, EUR)
+   */
+  currency?: string | undefined;
+  /**
+   * The status of the deal
+   */
+  status?: 'open' | 'won' | 'lost' | undefined;
+  /**
+   * The success probability percentage of the deal
+   */
+  probability?: number | undefined;
+  /**
+   * The reason for losing the deal. Can only be set if deal status is lost
+   */
+  lost_reason?: string | undefined;
+  /**
+   * The expected close date of the deal in YYYY-MM-DD format
+   */
+  expected_close_date?: string | undefined;
+  /**
+   * The visibility of the deal
+   */
+  visible_to?: number | undefined;
+  /**
+   * The IDs of labels assigned to the deal
+   */
+  label_ids?: number[] | undefined;
+  /**
+   * Whether the deal is archived or not
+   */
+  is_archived?: boolean | undefined;
+  /**
+   * The optional date and time of archiving the deal in UTC. Format: YYYY-MM-DD HH:MM:SS
+   */
+  archive_time?: string | undefined;
+};
+
+export interface ActionOutput_pipedrive_updatedeal {
+  /**
+   * The ID of the updated deal
+   */
+  id: number;
+  /**
+   * The title of the deal
+   */
+  title: string;
+  /**
+   * The ID of the user who owns the deal
+   */
+  owner_id?: number | undefined;
+  /**
+   * The ID of the person linked to the deal
+   */
+  person_id?: number | undefined;
+  /**
+   * The ID of the organization linked to the deal
+   */
+  org_id?: number | undefined;
+  /**
+   * The ID of the pipeline associated with the deal
+   */
+  pipeline_id?: number | undefined;
+  /**
+   * The ID of the deal stage
+   */
+  stage_id?: number | undefined;
+  /**
+   * The value of the deal
+   */
+  value?: number | undefined;
+  /**
+   * The currency associated with the deal
+   */
+  currency?: string | undefined;
+  /**
+   * The status of the deal
+   */
+  status?: string | undefined;
+  /**
+   * The success probability percentage of the deal
+   */
+  probability?: number | undefined;
+  /**
+   * The reason for losing the deal
+   */
+  lost_reason?: string | undefined;
+  /**
+   * The expected close date of the deal
+   */
+  expected_close_date?: string | undefined;
+  /**
+   * The visibility of the deal
+   */
+  visible_to?: number | undefined;
+  /**
+   * The date and time when the deal was added
+   */
+  add_time?: string | undefined;
+  /**
+   * The date and time when the deal was last updated
+   */
+  update_time?: string | undefined;
+};
+
+export interface ActionInput_pipedrive_updatelead {
+  /**
+   * The ID of the lead to update. Example: "a1b2c3d4-e5f6-7890-abcd-ef1234567890"
+   */
+  id: string;
+  /**
+   * The name of the lead
+   */
+  title?: string | undefined;
+  /**
+   * The ID of the user which will be the owner of the lead
+   */
+  owner_id?: number | undefined;
+  /**
+   * The IDs of the lead labels which will be associated with the lead
+   */
+  label_ids?: string[] | undefined;
+  /**
+   * The ID of a person which this lead will be linked to. Set to null to unlink.
+   */
+  person_id?: number | undefined;
+  /**
+   * The ID of an organization which this lead will be linked to. Set to null to unlink.
+   */
+  organization_id?: number | undefined;
+  /**
+   * A flag indicating whether the lead is archived
+   */
+  is_archived?: boolean | undefined;
+  /**
+   * The potential value of the lead. Set to null to clear.
+   */
+  value?: {  amount: number;
+  currency: string;} | undefined;
+  /**
+   * The expected close date in ISO 8601 format (YYYY-MM-DD). Set to null to clear.
+   */
+  expected_close_date?: string | undefined;
+  /**
+   * The visibility of the lead
+   */
+  visible_to?: string | undefined;
+  /**
+   * A flag indicating whether the lead was seen by someone in the Pipedrive UI
+   */
+  was_seen?: boolean | undefined;
+  /**
+   * The ID of Marketing channel this lead was created from. Set to null to clear.
+   */
+  channel?: number | undefined;
+  /**
+   * The optional ID to further distinguish the Marketing channel. Set to null to clear.
+   */
+  channel_id?: string | undefined;
+};
+
+export interface ActionOutput_pipedrive_updatelead {
+  id: string;
+  title?: string | undefined;
+  owner_id?: number | undefined;
+  creator_id?: number | undefined;
+  label_ids?: string[] | undefined;
+  person_id?: number | undefined;
+  organization_id?: number | undefined;
+  is_archived?: boolean | undefined;
+  value?: {  amount: number;
+  currency: string;} | undefined;
+  expected_close_date?: string | undefined;
+  visible_to?: string | undefined;
+  was_seen?: boolean | undefined;
+  channel?: number | undefined;
+  channel_id?: string | undefined;
+  add_time?: string | undefined;
+  update_time?: string | undefined;
+  notes?: unknown[] | undefined;
+};
+
+export interface ActionInput_pipedrive_updatenote {
+  /**
+   * The ID of the note to update. Example: 123
+   */
+  id: number;
+  /**
+   * The content of the note in HTML format. Subject to sanitization on the back-end.
+   */
+  content?: string | undefined;
+  /**
+   * The ID of the lead the note will be attached to.
+   */
+  lead_id?: string | undefined;
+  /**
+   * The ID of the deal the note will be attached to.
+   */
+  deal_id?: number | undefined;
+  /**
+   * The ID of the person the note will be attached to.
+   */
+  person_id?: number | undefined;
+  /**
+   * The ID of the organization the note will be attached to.
+   */
+  org_id?: number | undefined;
+  /**
+   * The ID of the project the note will be attached to.
+   */
+  project_id?: number | undefined;
+  /**
+   * The ID of the task the note will be attached to.
+   */
+  task_id?: number | undefined;
+  /**
+   * The ID of the user who will be marked as the author of the note. Only an admin can change the author.
+   */
+  user_id?: number | undefined;
+  /**
+   * Whether the note is pinned to the lead. Values: 0 or 1.
+   */
+  pinned_to_lead_flag?: number | undefined;
+  /**
+   * Whether the note is pinned to the deal. Values: 0 or 1.
+   */
+  pinned_to_deal_flag?: number | undefined;
+  /**
+   * Whether the note is pinned to the organization. Values: 0 or 1.
+   */
+  pinned_to_organization_flag?: number | undefined;
+  /**
+   * Whether the note is pinned to the person. Values: 0 or 1.
+   */
+  pinned_to_person_flag?: number | undefined;
+  /**
+   * Whether the note is pinned to the project. Values: 0 or 1.
+   */
+  pinned_to_project_flag?: number | undefined;
+  /**
+   * Whether the note is pinned to the task. Values: 0 or 1.
+   */
+  pinned_to_task_flag?: number | undefined;
+};
+
+export interface ActionOutput_pipedrive_updatenote {
+  id: number;
+  content?: string | undefined;
+  lead_id?: string | undefined;
+  deal_id?: number | undefined;
+  person_id?: number | undefined;
+  org_id?: number | undefined;
+  project_id?: number | undefined;
+  task_id?: number | undefined;
+  user_id?: number | undefined;
+  add_time?: string | undefined;
+  update_time?: string | undefined;
+  pinned_to_lead_flag?: number | undefined;
+  pinned_to_deal_flag?: number | undefined;
+  pinned_to_organization_flag?: number | undefined;
+  pinned_to_person_flag?: number | undefined;
+  pinned_to_project_flag?: number | undefined;
+  pinned_to_task_flag?: number | undefined;
+};
+
+export interface ActionInput_pipedrive_updateorganization {
+  /**
+   * The ID of the organization to update. Example: 123
+   */
+  id: number;
+  /**
+   * The name of the organization
+   */
+  name?: string | undefined;
+  /**
+   * The ID of the user who owns the organization
+   */
+  owner_id?: number | undefined;
+  /**
+   * The visibility of the organization
+   */
+  visible_to?: number | undefined;
+  /**
+   * The IDs of labels assigned to the organization
+   */
+  label_ids?: number[] | undefined;
+  /**
+   * The address of the organization
+   */
+  address?: {  /**
+   * The full address of the organization
+   */
+  value?: string | undefined;
+  /**
+   * Country of the organization
+   */
+  country?: string | undefined;
+  /**
+   * Admin area level 1 (e.g. state)
+   */
+  admin_area_level_1?: string | undefined;
+  /**
+   * Admin area level 2 (e.g. county)
+   */
+  admin_area_level_2?: string | undefined;
+  /**
+   * Locality (e.g. city)
+   */
+  locality?: string | undefined;
+  /**
+   * Sublocality (e.g. neighborhood)
+   */
+  sublocality?: string | undefined;
+  /**
+   * Route (e.g. street)
+   */
+  route?: string | undefined;
+  /**
+   * Street number
+   */
+  street_number?: string | undefined;
+  /**
+   * Subpremise (e.g. apartment/suite number)
+   */
+  subpremise?: string | undefined;
+  /**
+   * Postal code
+   */
+  postal_code?: string | undefined;};
+  /**
+   * Custom fields as an object with 40-character hash keys
+   */
+  custom_fields?: {  [key: string]: unknown | undefined;};
+};
+
+export interface ActionOutput_pipedrive_updateorganization {
+  id: number;
+  name?: string | undefined;
+  owner_id?: number | undefined;
+  visible_to?: number | undefined;
+  label_ids?: number[] | undefined;
+  address?: {  value?: string | undefined;
+  country?: string | undefined;
+  admin_area_level_1?: string | undefined;
+  admin_area_level_2?: string | undefined;
+  locality?: string | undefined;
+  sublocality?: string | undefined;
+  route?: string | undefined;
+  street_number?: string | undefined;
+  subpremise?: string | undefined;
+  postal_code?: string | undefined;};
+  add_time?: string | undefined;
+  update_time?: string | undefined;
+};
+
+export interface ActionInput_pipedrive_updateperson {
+  /**
+   * The ID of the person to update
+   */
+  id: number;
+  /**
+   * The name of the person
+   */
+  name?: string | undefined;
+  /**
+   * The ID of the user who owns the person
+   */
+  owner_id?: number | undefined;
+  /**
+   * The ID of the organization linked to the person
+   */
+  org_id?: number | undefined;
+  /**
+   * The emails of the person
+   */
+  emails?: ({  value: string;
+  primary?: boolean | undefined;
+  label?: string | undefined;})[];
+  /**
+   * The phones of the person
+   */
+  phones?: ({  value: string;
+  primary?: boolean | undefined;
+  label?: string | undefined;})[];
+  /**
+   * The visibility of the person
+   */
+  visible_to?: number | undefined;
+  /**
+   * The IDs of labels assigned to the person
+   */
+  label_ids?: number[] | undefined;
+};
+
+export interface ActionOutput_pipedrive_updateperson {
+  id: number;
+  name?: string | undefined;
+  owner_id?: number | undefined;
+  org_id?: number | undefined;
+  emails?: ({  value: string;
+  primary?: boolean | undefined;
+  label?: string | undefined;})[];
+  phones?: ({  value: string;
+  primary?: boolean | undefined;
+  label?: string | undefined;})[];
+  visible_to?: number | undefined;
+  add_time?: string | undefined;
+  update_time?: string | undefined;
+};
+
+export interface ActionInput_pipedrive_updatepipeline {
+  /**
+   * The ID of the pipeline to update. Example: 6
+   */
+  id: number;
+  /**
+   * The name of the pipeline
+   */
+  name?: string | undefined;
+  /**
+   * Whether deal probability is disabled or enabled for this pipeline
+   */
+  is_deal_probability_enabled?: boolean | undefined;
+};
+
+export interface ActionOutput_pipedrive_updatepipeline {
+  id: number;
+  name: string;
+  is_deal_probability_enabled?: boolean | undefined;
+};
+
+export interface ActionInput_pipedrive_updateproduct {
+  id: number;
+  name?: string | undefined;
+  code?: string | undefined;
+  description?: string | undefined;
+  unit?: string | undefined;
+  tax?: number | undefined;
+  category?: number | undefined;
+  owner_id?: number | undefined;
+  is_linkable?: boolean | undefined;
+  visible_to?: number | undefined;
+  prices?: ({  currency: string;
+  price: number;
+  cost?: number | undefined;
+  direct_cost?: number | undefined;})[];
+  custom_fields?: {  [key: string]: unknown | undefined;};
+  billing_frequency?: 'one-time' | 'annually' | 'semi-annually' | 'quarterly' | 'monthly' | 'weekly' | undefined;
+  billing_frequency_cycles?: number | undefined;
+};
+
+export interface ActionOutput_pipedrive_updateproduct {
+  id: number;
+  name: string;
+  code?: unknown | undefined;
+  description?: unknown | undefined;
+  unit?: unknown | undefined;
+  tax?: unknown | undefined;
+  category?: unknown | undefined;
+  owner_id?: unknown | undefined;
+  is_linkable?: unknown | undefined;
+  visible_to?: unknown | undefined;
+  prices?: unknown[] | undefined;
+  custom_fields?: {  [key: string]: unknown | undefined;};
+  billing_frequency?: unknown | undefined;
+  billing_frequency_cycles?: unknown | undefined;
+  add_time?: string | undefined;
+  update_time?: string | undefined;
+};
+
+export interface ActionInput_pipedrive_updatestage {
+  /**
+   * The ID of the stage to update. Example: 1
+   */
+  stage_id: number;
+  /**
+   * The name of the stage. Example: "Qualified Lead"
+   */
+  name?: string | undefined;
+  /**
+   * The ID of the pipeline the stage belongs to. Example: 1
+   */
+  pipeline_id?: number | undefined;
+  /**
+   * The success probability percentage of the deal. Used/shown when deal weighted values are used. Example: 50
+   */
+  deal_probability?: number | undefined;
+  /**
+   * Whether deals in this stage can become rotten.
+   */
+  is_deal_rot_enabled?: boolean | undefined;
+  /**
+   * The number of days the deals not updated in this stage would become rotten. Applies only if the is_deal_rot_enabled is set. Example: 30
+   */
+  days_to_rotten?: number | undefined;
+};
+
+export interface ActionOutput_pipedrive_updatestage {
+  id: number;
+  name: string;
+  pipeline_id: number;
+  order_nr: number;
+  deal_probability?: number | undefined;
+  active_flag?: boolean | undefined;
+  rotten_flag?: boolean | undefined;
+  rotten_days?: number | undefined;
+  add_time?: string | undefined;
+  update_time?: string | undefined;
+  pipeline_name?: string | undefined;
+  pipeline_deal_probability?: boolean | undefined;
 };
 
 export interface Account {
@@ -39283,22 +41825,6 @@ export interface Macro {
   updated_at?: string | undefined;
   actions?: ({  field: string | number;
   value?: unknown | undefined;})[];
-};
-
-export interface Organization {
-  id: string;
-  name: string;
-  created_at: string;
-  updated_at: string;
-  url: string;
-  external_id?: string | undefined;
-  domain_names?: string[] | undefined;
-  group_id?: number | undefined;
-  shared_comments?: boolean | undefined;
-  shared_tickets?: boolean | undefined;
-  tags?: string[] | undefined;
-  notes?: string | undefined;
-  details?: string | undefined;
 };
 
 export interface TicketComment {
