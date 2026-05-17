@@ -199,11 +199,29 @@ import './cal-com-v2/syncs/events.js';
 // -- Integration: calendly
 import './calendly/syncs/event-invitees.js';
 import './calendly/syncs/event-types.js';
-import './calendly/syncs/events.js';
-import './calendly/syncs/users.js';
+import './calendly/syncs/organization-memberships.js';
+import './calendly/syncs/routing-forms.js';
+import './calendly/syncs/scheduled-events.js';
+import './calendly/syncs/webhook-subscriptions.js';
 import './calendly/actions/create-user.js';
+import './calendly/actions/create-webhook-subscription.js';
+import './calendly/actions/delete-webhook-subscription.js';
+import './calendly/actions/get-event-invitee.js';
+import './calendly/actions/get-event-type.js';
+import './calendly/actions/get-scheduled-event.js';
+import './calendly/actions/get-webhook-subscription.js';
+import './calendly/actions/list-event-invitees.js';
+
 import './calendly/actions/delete-user.js';
-import './calendly/actions/whoami.js';
+import './calendly/actions/get-current-organization.js';
+import './calendly/actions/get-current-user.js';
+import './calendly/actions/get-organization-membership.js';
+import './calendly/actions/get-routing-form.js';
+import './calendly/actions/list-event-types.js';
+import './calendly/actions/list-organization-memberships.js';
+import './calendly/actions/list-routing-forms.js';
+import './calendly/actions/list-scheduled-events.js';
+import './calendly/actions/list-webhook-subscriptions.js';
 
 // -- Integration: checkr-partner
 import './checkr-partner/syncs/background-checks.js';
@@ -279,6 +297,47 @@ import './datadog/actions/disable-user.js';
 import './dialpad/syncs/users.js';
 import './dialpad/actions/create-user.js';
 import './dialpad/actions/delete-user.js';
+
+// -- Integration: discord
+import './discord/syncs/channels.js';
+import './discord/syncs/guild-members.js';
+import './discord/syncs/guilds.js';
+import './discord/syncs/messages.js';
+import './discord/syncs/roles.js';
+import './discord/syncs/webhooks.js';
+import './discord/actions/add-guild-member-role.js';
+import './discord/actions/create-channel.js';
+import './discord/actions/create-message.js';
+import './discord/actions/create-reaction.js';
+import './discord/actions/create-role.js';
+import './discord/actions/create-thread-from-message.js';
+import './discord/actions/create-webhook.js';
+import './discord/actions/delete-channel.js';
+import './discord/actions/delete-guild.js';
+import './discord/actions/delete-guild-member.js';
+import './discord/actions/delete-message.js';
+import './discord/actions/delete-reaction.js';
+import './discord/actions/delete-role.js';
+import './discord/actions/delete-webhook.js';
+import './discord/actions/get-channel.js';
+import './discord/actions/get-guild-member.js';
+import './discord/actions/get-guild.js';
+import './discord/actions/get-message.js';
+import './discord/actions/get-role.js';
+import './discord/actions/get-webhook.js';
+import './discord/actions/list-channels.js';
+import './discord/actions/list-guild-members.js';
+import './discord/actions/list-guilds.js';
+import './discord/actions/list-messages.js';
+import './discord/actions/list-roles.js';
+import './discord/actions/list-webhooks.js';
+import './discord/actions/remove-guild-member-role.js';
+import './discord/actions/update-channel.js';
+import './discord/actions/update-guild-member.js';
+import './discord/actions/update-guild.js';
+import './discord/actions/update-message.js';
+import './discord/actions/update-role.js';
+import './discord/actions/update-webhook.js';
 
 // -- Integration: discourse
 import './discourse/syncs/active-users.js';
@@ -934,6 +993,15 @@ import './linear/actions/update-project.js';
 // -- Integration: linkedin
 import './linkedin/syncs/messages.js';
 import './linkedin/actions/post.js';
+import './linkedin/actions/create-comment.js';
+import './linkedin/actions/create-like.js';
+import './linkedin/actions/create-post.js';
+import './linkedin/actions/delete-comment.js';
+import './linkedin/actions/delete-like.js';
+import './linkedin/actions/delete-post.js';
+import './linkedin/actions/get-current-member-profile.js';
+import './linkedin/actions/list-post-likes.js';
+import './linkedin/actions/update-post.js';
 
 // -- Integration: luma
 import './luma/syncs/list-events.js';
@@ -1064,7 +1132,26 @@ import './one-drive/actions/update-item.js';
 import './one-drive/actions/upload-small-file.js';
 
 // -- Integration: one-drive-personal
+import './one-drive-personal/syncs/folder-children.js';
 import './one-drive-personal/syncs/user-files-selection.js';
+import './one-drive-personal/syncs/user-files.js';
+import './one-drive-personal/actions/create-folder.js';
+import './one-drive-personal/actions/create-sharing-link.js';
+import './one-drive-personal/actions/create-upload-session.js';
+import './one-drive-personal/actions/delete-item.js';
+import './one-drive-personal/actions/delete-permission.js';
+import './one-drive-personal/actions/download-item-content.js';
+import './one-drive-personal/actions/get-drive.js';
+import './one-drive-personal/actions/get-item.js';
+import './one-drive-personal/actions/get-permission.js';
+import './one-drive-personal/actions/invite-recipients.js';
+import './one-drive-personal/actions/list-children.js';
+import './one-drive-personal/actions/list-permissions.js';
+import './one-drive-personal/actions/list-versions.js';
+import './one-drive-personal/actions/move-item.js';
+import './one-drive-personal/actions/search-items.js';
+import './one-drive-personal/actions/update-item.js';
+import './one-drive-personal/actions/upload-small-file.js';
 
 // -- Integration: oracle-hcm
 import './oracle-hcm/syncs/employees.js';
@@ -1588,10 +1675,30 @@ import './zoho-mail/actions/send-email.js';
 
 // -- Integration: zoom
 import './zoom/syncs/meetings.js';
-import './zoom/syncs/recording-files.js';
+import './zoom/syncs/recordings.js';
 import './zoom/syncs/users.js';
+import './zoom/syncs/webinars.js';
+import './zoom/actions/create-meeting-registrant.js';
 import './zoom/actions/create-meeting.js';
 import './zoom/actions/create-user.js';
+import './zoom/actions/create-webinar.js';
+import './zoom/actions/delete-meeting-registrant.js';
 import './zoom/actions/delete-meeting.js';
+import './zoom/actions/delete-recording.js';
 import './zoom/actions/delete-user.js';
-import './zoom/actions/whoami.js';
+import './zoom/actions/delete-webinar.js';
+import './zoom/actions/get-current-user.js';
+import './zoom/actions/get-meeting-registrant.js';
+import './zoom/actions/get-meeting.js';
+import './zoom/actions/get-recording.js';
+import './zoom/actions/get-user.js';
+import './zoom/actions/get-webinar.js';
+import './zoom/actions/list-meeting-registrants.js';
+import './zoom/actions/list-meetings.js';
+import './zoom/actions/list-recordings.js';
+import './zoom/actions/list-users.js';
+import './zoom/actions/list-webinars.js';
+import './zoom/actions/update-meeting-registrant.js';
+import './zoom/actions/update-meeting.js';
+import './zoom/actions/update-user.js';
+import './zoom/actions/update-webinar.js';

@@ -1,38 +1,61 @@
+import { z } from 'zod';
 import { createAction } from 'nango';
-import type { ProxyConfiguration } from 'nango';
-import { SuccessResponse, IdEntity } from '../models.js';
+
+const InputSchema = z.object({
+    userId: z.string().describe('The user ID or email address of the user to delete. Example: "user@example.com"'),
+    action: z
+        .enum(['disassociate', 'delete'])
+        .optional()
+        .describe('Delete action: disassociate (default) removes the user from the account; delete permanently removes the user.'),
+    transfer_email: z.string().optional().describe('Email address of the user to transfer meetings, webinars, and recordings to before deletion.'),
+    transfer_meeting: z.boolean().optional().describe('Whether to transfer meetings to the transfer_email user. Default: true.'),
+    transfer_webinar: z.boolean().optional().describe('Whether to transfer webinars to the transfer_email user. Default: true.'),
+    transfer_recording: z.boolean().optional().describe('Whether to transfer cloud recordings to the transfer_email user. Default: true.')
+});
+
+const OutputSchema = z.object({
+    userId: z.string().describe('The ID of the deleted or archived user.')
+});
 
 const action = createAction({
-    description: 'Deletes a user in Zoom. Requires Pro account or higher',
+    description: 'Delete or archive a user in Zoom.',
     version: '1.0.0',
-
     endpoint: {
-        method: 'DELETE',
-        path: '/users',
+        method: 'POST',
+        path: '/actions/delete-user',
         group: 'Users'
     },
+    input: InputSchema,
+    output: OutputSchema,
+    scopes: ['user:write:admin', 'user:write'],
 
-    input: IdEntity,
-    output: SuccessResponse,
-    scopes: ['user:write', 'user:write:admin'],
-
-    exec: async (nango, input): Promise<SuccessResponse> => {
-        if (!input.id) {
-            throw new nango.ActionError({
-                message: 'Id is required to delete a user'
-            });
+    exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
+        const params: Record<string, string> = {};
+        if (input.action !== undefined) {
+            params['action'] = input.action;
+        }
+        if (input.transfer_email !== undefined) {
+            params['transfer_email'] = input.transfer_email;
+        }
+        if (input.transfer_meeting !== undefined) {
+            params['transfer_meeting'] = input.transfer_meeting.toString();
+        }
+        if (input.transfer_webinar !== undefined) {
+            params['transfer_webinar'] = input.transfer_webinar.toString();
+        }
+        if (input.transfer_recording !== undefined) {
+            params['transfer_recording'] = input.transfer_recording.toString();
         }
 
-        const config: ProxyConfiguration = {
-            // https://developers.zoom.us/docs/api/rest/reference/user/methods/#operation/userDelete
-            endpoint: `/users/${input.id}`,
-            retries: 3
-        };
-
-        await nango.delete(config);
+        await nango.delete({
+            // https://developers.zoom.us/docs/api/rest/reference/user/methods/#operation/deleteUser
+            endpoint: `/users/${input.userId}`,
+            params,
+            retries: 1
+        });
 
         return {
-            success: true
+            userId: input.userId
         };
     }
 });

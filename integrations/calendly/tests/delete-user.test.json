@@ -1,0 +1,20 @@
+{
+    "input": {
+        "id": "def67890-0000-0000-0000-defabc567890"
+    },
+    "output": {
+        "success": true
+    },
+    "nango": {},
+    "api": {
+        "delete": {
+            "/organization_memberships/def67890-0000-0000-0000-defabc567890": {
+                "response": {},
+                "status": 204,
+                "headers": {
+                    "content-type": "application/json; charset=utf-8"
+                }
+            }
+        }
+    }
+}
