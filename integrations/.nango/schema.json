@@ -20262,6 +20262,905 @@
       ],
       "additionalProperties": false
     },
+    "ActionInput_calendly_createwebhooksubscription": {
+      "type": "object",
+      "properties": {
+        "url": {
+          "type": "string",
+          "description": "The callback URL. Example: \"https://example.com/webhooks\""
+        },
+        "events": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "The events to subscribe to. Example: [\"invitee.created\", \"invitee.canceled\"]"
+        },
+        "organization": {
+          "type": "string",
+          "description": "The organization URI. Example: \"https://api.calendly.com/organizations/ORG123\""
+        },
+        "scope": {
+          "type": "string",
+          "enum": [
+            "organization",
+            "user"
+          ],
+          "description": "The scope of the subscription."
+        },
+        "user": {
+          "type": "string",
+          "description": "The user URI. Required when scope is \"user\". Example: \"https://api.calendly.com/users/USER123\""
+        },
+        "signing_key": {
+          "type": "string",
+          "description": "An optional secret key used to sign webhook payloads."
+        }
+      },
+      "required": [
+        "url",
+        "events",
+        "organization",
+        "scope"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_calendly_createwebhooksubscription": {
+      "type": "object",
+      "properties": {
+        "uri": {
+          "type": "string",
+          "description": "The webhook subscription URI."
+        },
+        "callback_url": {
+          "type": "string",
+          "description": "The callback URL."
+        },
+        "created_at": {
+          "type": "string",
+          "description": "The moment the webhook subscription was created."
+        },
+        "updated_at": {
+          "type": "string",
+          "description": "The moment the webhook subscription was last updated."
+        },
+        "retry_started_at": {
+          "type": "string",
+          "description": "The moment retries started for a failing webhook subscription."
+        },
+        "state": {
+          "type": "string",
+          "description": "The state of the webhook subscription."
+        },
+        "events": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "The events the webhook subscription is subscribed to."
+        },
+        "scope": {
+          "type": "string",
+          "description": "The scope of the webhook subscription."
+        },
+        "organization": {
+          "type": "string",
+          "description": "The organization URI."
+        },
+        "user": {
+          "type": "string",
+          "description": "The user URI."
+        }
+      },
+      "required": [
+        "uri",
+        "callback_url",
+        "created_at",
+        "updated_at",
+        "retry_started_at",
+        "state",
+        "events",
+        "scope",
+        "organization",
+        "user"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_calendly_deletewebhooksubscription": {
+      "type": "object",
+      "properties": {
+        "uuid": {
+          "type": "string",
+          "description": "The unique identifier of the webhook subscription to delete. Example: \"ABCD1234...\""
+        }
+      },
+      "required": [
+        "uuid"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_calendly_deletewebhooksubscription": {
+      "type": "object",
+      "properties": {
+        "uuid": {
+          "type": "string"
+        },
+        "deleted": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "uuid",
+        "deleted"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_calendly_geteventinvitee": {
+      "type": "object",
+      "properties": {
+        "event_uuid": {
+          "type": "string",
+          "description": "The UUID of the scheduled event. Example: \"AAAAAAAAAAAAAAAA\""
+        },
+        "invitee_uuid": {
+          "type": "string",
+          "description": "The UUID of the invitee. Example: \"BBBBBBBBBBBBBBBB\""
+        }
+      },
+      "required": [
+        "event_uuid",
+        "invitee_uuid"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_calendly_geteventinvitee": {
+      "type": "object",
+      "properties": {
+        "cancel_url": {
+          "type": "string"
+        },
+        "created_at": {
+          "type": "string"
+        },
+        "email": {
+          "type": "string"
+        },
+        "event": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "first_name": {
+          "type": "string"
+        },
+        "last_name": {
+          "type": "string"
+        },
+        "new_invitee": {
+          "type": "string"
+        },
+        "old_invitee": {
+          "type": "string"
+        },
+        "questions_and_answers": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "answer": {
+                "type": "string"
+              },
+              "position": {
+                "type": "number"
+              },
+              "question": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "answer",
+              "position",
+              "question"
+            ],
+            "additionalProperties": false
+          }
+        },
+        "reschedule_url": {
+          "type": "string"
+        },
+        "rescheduled": {
+          "type": "boolean"
+        },
+        "status": {
+          "type": "string"
+        },
+        "text_reminder_number": {
+          "type": "string"
+        },
+        "timezone": {
+          "type": "string"
+        },
+        "tracking": {
+          "type": "object",
+          "properties": {
+            "utm_campaign": {
+              "type": "string"
+            },
+            "utm_source": {
+              "type": "string"
+            },
+            "utm_medium": {
+              "type": "string"
+            },
+            "utm_content": {
+              "type": "string"
+            },
+            "utm_term": {
+              "type": "string"
+            },
+            "salesforce_uuid": {
+              "type": "string"
+            }
+          },
+          "additionalProperties": false
+        },
+        "updated_at": {
+          "type": "string"
+        },
+        "uri": {
+          "type": "string"
+        },
+        "cancellation": {
+          "type": "object",
+          "properties": {
+            "canceled_by": {
+              "type": "string"
+            },
+            "reason": {
+              "type": "string"
+            },
+            "canceler_type": {
+              "type": "string"
+            },
+            "created_at": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "canceled_by",
+            "canceler_type",
+            "created_at"
+          ],
+          "additionalProperties": false
+        },
+        "routing_form_submission": {
+          "type": "string"
+        },
+        "payment": {
+          "type": "object",
+          "properties": {
+            "external_id": {
+              "type": "string"
+            },
+            "provider": {
+              "type": "string"
+            },
+            "amount": {
+              "type": "number"
+            },
+            "currency": {
+              "type": "string"
+            },
+            "terms": {
+              "type": "string"
+            },
+            "successful": {
+              "type": "boolean"
+            }
+          },
+          "required": [
+            "external_id",
+            "provider",
+            "amount",
+            "currency",
+            "terms",
+            "successful"
+          ],
+          "additionalProperties": false
+        },
+        "no_show": {
+          "type": "string"
+        },
+        "reconfirmation": {
+          "type": "object",
+          "properties": {
+            "created_at": {
+              "type": "string"
+            },
+            "confirmed_at": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "created_at",
+            "confirmed_at"
+          ],
+          "additionalProperties": false
+        },
+        "scheduling_method": {
+          "type": "string"
+        },
+        "invitee_scheduled_by": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "cancel_url",
+        "created_at",
+        "email",
+        "event",
+        "name",
+        "questions_and_answers",
+        "reschedule_url",
+        "rescheduled",
+        "status",
+        "timezone",
+        "tracking",
+        "updated_at",
+        "uri"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_calendly_geteventtype": {
+      "type": "object",
+      "properties": {
+        "uuid": {
+          "type": "string",
+          "description": "The unique identifier (UUID) of the event type. Example: \"AAAAAAAAAAAAAAAA\""
+        }
+      },
+      "required": [
+        "uuid"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_calendly_geteventtype": {
+      "type": "object",
+      "properties": {
+        "uri": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "active": {
+          "type": "boolean"
+        },
+        "slug": {
+          "type": "string"
+        },
+        "scheduling_url": {
+          "type": "string"
+        },
+        "duration": {
+          "type": "number"
+        },
+        "color": {
+          "type": "string"
+        },
+        "type": {
+          "type": "string"
+        },
+        "kind": {
+          "type": "string"
+        },
+        "description_plain": {
+          "type": "string"
+        },
+        "description_html": {
+          "type": "string"
+        },
+        "internal_note": {
+          "type": "string"
+        },
+        "secret": {
+          "type": "boolean"
+        },
+        "booking_method": {
+          "type": "string"
+        },
+        "admin_managed": {
+          "type": "boolean"
+        },
+        "created_at": {
+          "type": "string"
+        },
+        "updated_at": {
+          "type": "string"
+        },
+        "deleted_at": {
+          "type": "string"
+        },
+        "custom_questions": {
+          "type": "array",
+          "items": {}
+        },
+        "duration_options": {
+          "type": "array",
+          "items": {
+            "type": "number"
+          }
+        },
+        "is_paid": {
+          "type": "boolean"
+        },
+        "locale": {
+          "type": "string"
+        },
+        "locations": {
+          "type": "array",
+          "items": {}
+        },
+        "pooling_type": {
+          "type": "string"
+        },
+        "position": {
+          "type": "number"
+        },
+        "profile": {
+          "type": "object",
+          "properties": {
+            "type": {
+              "type": "string"
+            },
+            "name": {
+              "type": "string"
+            },
+            "owner": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "type",
+            "name",
+            "owner"
+          ],
+          "additionalProperties": false
+        }
+      },
+      "required": [
+        "uri",
+        "active",
+        "scheduling_url",
+        "duration",
+        "type"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_calendly_getscheduledevent": {
+      "type": "object",
+      "properties": {
+        "uuid": {
+          "type": "string",
+          "description": "The unique identifier for the scheduled event. Example: \"8pv58mskifkj5st9o6m2qqde74\""
+        }
+      },
+      "required": [
+        "uuid"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_calendly_getscheduledevent": {
+      "type": "object",
+      "properties": {
+        "uri": {
+          "type": "string"
+        },
+        "event_type": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "status": {
+          "type": "string",
+          "enum": [
+            "active",
+            "canceled"
+          ]
+        },
+        "start_time": {
+          "type": "string"
+        },
+        "end_time": {
+          "type": "string"
+        },
+        "created_at": {
+          "type": "string"
+        },
+        "updated_at": {
+          "type": "string"
+        },
+        "event_memberships": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "user": {
+                "type": "string"
+              },
+              "user_email": {
+                "type": "string"
+              },
+              "user_name": {
+                "type": "string"
+              },
+              "buffered_start_time": {
+                "type": "string"
+              },
+              "buffered_end_time": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "user"
+            ],
+            "additionalProperties": false
+          }
+        },
+        "event_guests": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": {
+              "anyOf": [
+                {},
+                {
+                  "not": {}
+                }
+              ]
+            }
+          }
+        },
+        "invitees_counter": {
+          "type": "object",
+          "properties": {
+            "active": {
+              "type": "number"
+            },
+            "limit": {
+              "type": "number"
+            },
+            "total": {
+              "type": "number"
+            }
+          },
+          "required": [
+            "active",
+            "limit",
+            "total"
+          ],
+          "additionalProperties": false
+        },
+        "location": {
+          "type": "object",
+          "properties": {
+            "type": {
+              "type": "string"
+            },
+            "status": {
+              "type": "string"
+            },
+            "join_url": {
+              "type": "string"
+            },
+            "data": {
+              "type": "object",
+              "additionalProperties": {
+                "anyOf": [
+                  {},
+                  {
+                    "not": {}
+                  }
+                ]
+              }
+            }
+          },
+          "required": [
+            "type"
+          ],
+          "additionalProperties": false
+        },
+        "calendar_event": {
+          "type": "object",
+          "properties": {
+            "external_id": {
+              "type": "string"
+            },
+            "kind": {
+              "type": "string"
+            }
+          },
+          "additionalProperties": false
+        },
+        "meeting_notes_html": {
+          "type": "string"
+        },
+        "meeting_notes_plain": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "uri",
+        "event_type",
+        "name",
+        "status",
+        "start_time",
+        "end_time",
+        "created_at",
+        "updated_at"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_calendly_getwebhooksubscription": {
+      "type": "object",
+      "properties": {
+        "uuid": {
+          "type": "string",
+          "description": "The unique identifier of the webhook subscription. Example: \"AAAAAAAAAAAAAAAA\""
+        }
+      },
+      "required": [
+        "uuid"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_calendly_getwebhooksubscription": {
+      "type": "object",
+      "properties": {
+        "uri": {
+          "type": "string",
+          "description": "Canonical reference (unique identifier) for the webhook subscription."
+        },
+        "callback_url": {
+          "type": "string",
+          "description": "The callback URL to use when the event is triggered."
+        },
+        "created_at": {
+          "type": "string",
+          "description": "The moment when the webhook subscription was created."
+        },
+        "updated_at": {
+          "type": "string",
+          "description": "The moment when the webhook subscription was last updated."
+        },
+        "retry_started_at": {
+          "type": "string",
+          "description": "The date and time the webhook subscription retry started."
+        },
+        "state": {
+          "type": "string",
+          "description": "Indicates if the webhook subscription is active or disabled."
+        },
+        "events": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "A list of events to which the webhook is subscribed."
+        },
+        "scope": {
+          "type": "string",
+          "description": "The scope of the webhook subscription."
+        },
+        "organization": {
+          "type": "string",
+          "description": "The organization associated with the webhook subscription."
+        },
+        "user": {
+          "type": "string",
+          "description": "The user associated with the webhook subscription."
+        },
+        "creator": {
+          "type": "string",
+          "description": "The user who created the webhook subscription."
+        },
+        "group": {
+          "type": "string",
+          "description": "The group associated with the webhook subscription."
+        }
+      },
+      "required": [
+        "uri",
+        "callback_url",
+        "created_at",
+        "updated_at",
+        "state",
+        "events",
+        "scope",
+        "organization"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_calendly_listeventinvitees": {
+      "type": "object",
+      "properties": {
+        "event_uuid": {
+          "type": "string",
+          "description": "The unique identifier for the scheduled event. Example: \"GBGBDCAADAEDCRZ2\""
+        },
+        "email": {
+          "type": "string",
+          "description": "Filter by invitee email address"
+        },
+        "status": {
+          "type": "string",
+          "enum": [
+            "active",
+            "canceled"
+          ],
+          "description": "Filter by invitee status"
+        },
+        "sort": {
+          "type": "string",
+          "enum": [
+            "created_at:asc",
+            "created_at:desc",
+            "updated_at:asc",
+            "updated_at:desc"
+          ],
+          "description": "Sort order for results"
+        },
+        "count": {
+          "type": "number",
+          "description": "Number of results per page (1-100)"
+        },
+        "cursor": {
+          "type": "string",
+          "description": "Pagination cursor from the previous response. Omit for the first page."
+        }
+      },
+      "required": [
+        "event_uuid"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_calendly_listeventinvitees": {
+      "type": "object",
+      "properties": {
+        "items": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "uri": {
+                "type": "string"
+              },
+              "email": {
+                "type": "string",
+                "description": "Invitee email address"
+              },
+              "name": {
+                "type": "string",
+                "description": "Invitee display name"
+              },
+              "status": {
+                "type": "string",
+                "enum": [
+                  "active",
+                  "canceled"
+                ],
+                "description": "Status of the invitee"
+              },
+              "timezone": {
+                "type": "string",
+                "description": "Invitee timezone"
+              },
+              "created_at": {
+                "type": "string",
+                "description": "When the invitee was created"
+              },
+              "updated_at": {
+                "type": "string",
+                "description": "When the invitee was last updated"
+              },
+              "event": {
+                "type": "string",
+                "description": "Reference to the scheduled event"
+              },
+              "questions_and_answers": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "question": {
+                      "type": "string"
+                    },
+                    "answer": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "question",
+                    "answer"
+                  ],
+                  "additionalProperties": false
+                },
+                "description": "Answers to custom questions"
+              },
+              "tracking": {
+                "type": "object",
+                "properties": {
+                  "utm_campaign": {
+                    "type": "string"
+                  },
+                  "utm_source": {
+                    "type": "string"
+                  },
+                  "utm_medium": {
+                    "type": "string"
+                  },
+                  "utm_content": {
+                    "type": "string"
+                  },
+                  "utm_term": {
+                    "type": "string"
+                  },
+                  "salesforce_uuid": {
+                    "type": "string"
+                  }
+                },
+                "additionalProperties": false,
+                "description": "UTM tracking parameters"
+              },
+              "text_reminder_number": {
+                "type": "string",
+                "description": "Phone number for text reminders"
+              },
+              "rescheduled": {
+                "type": "boolean",
+                "description": "Whether the invitee rescheduled"
+              },
+              "old_invitee": {
+                "type": "string",
+                "description": "Reference to the previous invitee if rescheduled"
+              },
+              "new_invitee": {
+                "type": "string",
+                "description": "Reference to the new invitee if rescheduled"
+              },
+              "cancel_url": {
+                "type": "string",
+                "description": "URL to cancel the invitee"
+              },
+              "reschedule_url": {
+                "type": "string",
+                "description": "URL to reschedule the invitee"
+              }
+            },
+            "required": [
+              "uri",
+              "email",
+              "status",
+              "created_at",
+              "updated_at",
+              "event"
+            ],
+            "additionalProperties": false
+          },
+          "description": "List of event invitees"
+        },
+        "next_cursor": {
+          "type": "string",
+          "description": "Pagination cursor for the next page of results"
+        }
+      },
+      "required": [
+        "items"
+      ],
+      "additionalProperties": false
+    },
     "ActionInput_calendly_deleteuser": {
       "type": "object",
       "properties": {

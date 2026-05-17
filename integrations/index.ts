@@ -204,6 +204,14 @@ import './calendly/syncs/routing-forms.js';
 import './calendly/syncs/scheduled-events.js';
 import './calendly/syncs/webhook-subscriptions.js';
 import './calendly/actions/create-user.js';
+import './calendly/actions/create-webhook-subscription.js';
+import './calendly/actions/delete-webhook-subscription.js';
+import './calendly/actions/get-event-invitee.js';
+import './calendly/actions/get-event-type.js';
+import './calendly/actions/get-scheduled-event.js';
+import './calendly/actions/get-webhook-subscription.js';
+import './calendly/actions/list-event-invitees.js';
+
 import './calendly/actions/delete-user.js';
 import './calendly/actions/get-current-organization.js';
 import './calendly/actions/get-current-user.js';
