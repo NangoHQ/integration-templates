@@ -1,0 +1,48 @@
+{
+    "input": {
+        "email": "newuser@example.com"
+    },
+    "output": {
+        "id": "abc12345-0000-0000-0000-abcdef123456",
+        "email": "newuser@example.com",
+        "firstName": "",
+        "lastName": ""
+    },
+    "nango": {},
+    "api": {
+        "get": {
+            "/users/me": {
+                "response": {
+                    "resource": {
+                        "uri": "https://api.calendly.com/users/785113db-e1d3-49d7-a2fe-6b567e670325",
+                        "current_organization": "https://api.calendly.com/organizations/0de71879-73df-4c1b-94af-2d9f6f7f7224",
+                        "email": "api@nango.dev",
+                        "name": "Nango Developer"
+                    }
+                },
+                "status": 200,
+                "headers": {
+                    "content-type": "application/json; charset=utf-8"
+                }
+            }
+        },
+        "post": {
+            "/organizations/0de71879-73df-4c1b-94af-2d9f6f7f7224/invitations": {
+                "response": {
+                    "resource": {
+                        "uri": "https://api.calendly.com/organizations/0de71879-73df-4c1b-94af-2d9f6f7f7224/invitations/abc12345-0000-0000-0000-abcdef123456",
+                        "email": "newuser@example.com",
+                        "status": "pending",
+                        "created_at": "2026-05-12T13:00:00.000000Z",
+                        "updated_at": "2026-05-12T13:00:00.000000Z",
+                        "organization": "https://api.calendly.com/organizations/0de71879-73df-4c1b-94af-2d9f6f7f7224"
+                    }
+                },
+                "status": 201,
+                "headers": {
+                    "content-type": "application/json; charset=utf-8"
+                }
+            }
+        }
+    }
+}

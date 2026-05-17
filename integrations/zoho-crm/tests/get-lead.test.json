@@ -1,0 +1,169 @@
+{
+  "input": {
+    "recordId": "7328395000000691001"
+  },
+  "output": {
+    "id": "7328395000000691001",
+    "fullName": "Test Lead",
+    "lastName": "Test Lead",
+    "company": "Test Company",
+    "emailOptOut": false,
+    "owner": {
+      "name": "Nango Developer",
+      "id": "7328395000000605001",
+      "email": "api@nango.dev"
+    },
+    "createdBy": {
+      "name": "Nango Developer",
+      "id": "7328395000000605001",
+      "email": "api@nango.dev"
+    },
+    "modifiedBy": {
+      "name": "Nango Developer",
+      "id": "7328395000000605001",
+      "email": "api@nango.dev"
+    },
+    "createdTime": "2026-05-14T12:51:54+03:00",
+    "modifiedTime": "2026-05-14T12:51:54+03:00",
+    "currencySymbol": "KES",
+    "converted": false,
+    "approved": true,
+    "tags": []
+  },
+  "nango": {},
+  "api": {
+    "get": {
+      "/crm/v2/Leads/7328395000000691001": {
+        "response": {
+          "data": [
+            {
+              "nearby_distance__s": null,
+              "Owner": {
+                "name": "Nango Developer",
+                "id": "7328395000000605001",
+                "email": "api@nango.dev"
+              },
+              "Company": "Test Company",
+              "Email": null,
+              "$currency_symbol": "KES",
+              "Address": "",
+              "$field_states": null,
+              "Latitude": null,
+              "Last_Activity_Time": null,
+              "Industry": null,
+              "$state": "save",
+              "Unsubscribed_Mode": null,
+              "$converted": false,
+              "$process_flow": false,
+              "Street": null,
+              "$locked_for_me": false,
+              "Zip_Code": null,
+              "id": "7328395000000691001",
+              "$approved": true,
+              "$approval": {
+                "delegate": false,
+                "takeover": false,
+                "approve": false,
+                "reject": false,
+                "resubmit": false
+              },
+              "Created_Time": "2026-05-14T12:51:54+03:00",
+              "Coordinates": "",
+              "$editable": true,
+              "City": null,
+              "No_of_Employees": null,
+              "Longitude": null,
+              "State": null,
+              "Country": null,
+              "Created_By": {
+                "name": "Nango Developer",
+                "id": "7328395000000605001",
+                "email": "api@nango.dev"
+              },
+              "$zia_owner_assignment": "owner_recommendation_unavailable",
+              "Annual_Revenue": null,
+              "Secondary_Email": null,
+              "Description": null,
+              "Rating": null,
+              "$review_process": {
+                "approve": false,
+                "reject": false,
+                "resubmit": false
+              },
+              "Website": null,
+              "Twitter": null,
+              "$layout_id": {
+                "display_label": "Standard",
+                "name": "Standard",
+                "id": "7328395000000091055"
+              },
+              "Salutation": null,
+              "First_Name": null,
+              "Lead_Status": null,
+              "Full_Name": "Test Lead",
+              "Record_Image": null,
+              "Modified_By": {
+                "name": "Nango Developer",
+                "id": "7328395000000605001",
+                "email": "api@nango.dev"
+              },
+              "$review": null,
+              "Skype_ID": null,
+              "Phone": null,
+              "Flat_House_No_Building_Apartment_Name": null,
+              "Email_Opt_Out": false,
+              "Designation": null,
+              "Modified_Time": "2026-05-14T12:51:54+03:00",
+              "$converted_detail": {},
+              "Unsubscribed_Time": null,
+              "Mobile": null,
+              "$orchestration": false,
+              "Last_Name": "Test Lead",
+              "$in_merge": false,
+              "Locked__s": false,
+              "Lead_Source": null,
+              "Tag": [],
+              "Fax": null,
+              "$approval_state": "approved"
+            }
+          ]
+        },
+        "status": 200,
+        "headers": {
+          "date": "Thu, 14 May 2026 09:52:34 GMT",
+          "content-type": "application/json;charset=UTF-8",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "0; mode=block",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=64072000; includeSubDomains; preload",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4969",
+          "x-ratelimit-reset": "1778752407",
+          "server": "ZGS",
+          "referrer-policy": "strict-origin",
+          "content-security-policy": "default-src 'none';frame-ancestors 'self'; report-uri https://logsapi.zoho.com/csplog?service=crm",
+          "set-cookie": "crmcsr=dfb87c43-30ac-44f3-93d6-b06da876b456;path=/;SameSite=None;Secure;priority=high, _zcsr_tmp=dfb87c43-30ac-44f3-93d6-b06da876b456;path=/;SameSite=Strict;Secure;priority=high",
+          "cache-control": "no-store, no-cache, must-revalidate, private",
+          "pragma": "no-cache",
+          "expires": "Thu, 01 Jan 1970 00:00:00 GMT",
+          "clientversion": "13385089",
+          "clientsubversion": "7432b849c14b9f458689de05f79d175e",
+          "x-accesstoken-reset": "2026-05-14T13:35:29+03:00",
+          "content-disposition": "attachment; filename=response.json",
+          "server-timing": "cpuTime;desc=\"CPU Time\";dur=128, totalTime;desc=\"Total Execution Time\";dur=209,murphySpanId;desc=\"\";dur=0",
+          "vary": "accept-encoding",
+          "content-language": "en-US"
+        },
+        "hash": "be0b1999fa5a3942ba047ebb93faf4dcb48caec5",
+        "request": {}
+      }
+    }
+  }
+}
