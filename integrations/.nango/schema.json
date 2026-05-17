@@ -622,68 +622,46 @@
         "id": {
           "type": "string"
         },
-        "baseId": {
-          "type": "string"
-        },
-        "notificationUrl": {
-          "type": "string"
-        },
-        "isHookEnabled": {
-          "type": "boolean"
-        },
-        "areNotificationsEnabled": {
-          "type": "boolean"
-        },
-        "cursorForNextPayload": {
+        "type": {
           "type": "number"
         },
-        "expirationTime": {
+        "name": {
           "type": "string"
         },
-        "lastSuccessfulNotificationTime": {
+        "channel_id": {
           "type": "string"
         },
-        "lastNotificationResult": {
-          "type": "object",
-          "properties": {
-            "success": {
-              "type": "boolean"
-            },
-            "completionTimestamp": {
-              "type": "string"
-            },
-            "durationMs": {
-              "type": "number"
-            },
-            "retryNumber": {
-              "type": "number"
-            },
-            "willBeRetried": {
-              "type": "boolean"
-            },
-            "error": {
-              "type": "object",
-              "properties": {
-                "message": {
-                  "type": "string"
-                }
-              },
-              "additionalProperties": false
-            }
-          },
-          "additionalProperties": false
+        "guild_id": {
+          "type": "string"
         },
-        "specification": {
-          "type": "object",
-          "additionalProperties": false
+        "avatar": {
+          "type": "string"
+        },
+        "application_id": {
+          "type": "string"
+        },
+        "user_id": {
+          "type": "string"
+        },
+        "user_name": {
+          "type": "string"
+        },
+        "source_guild_id": {
+          "type": "string"
+        },
+        "source_guild_name": {
+          "type": "string"
+        },
+        "source_channel_id": {
+          "type": "string"
+        },
+        "source_channel_name": {
+          "type": "string"
         }
       },
       "required": [
         "id",
-        "baseId",
-        "isHookEnabled",
-        "areNotificationsEnabled",
-        "cursorForNextPayload"
+        "type"
       ],
       "additionalProperties": false
     },
@@ -28456,6 +28434,3564 @@
       ],
       "additionalProperties": false
     },
+    "Channel": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "title": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        },
+        "customUrl": {
+          "type": "string"
+        },
+        "publishedAt": {
+          "type": "string"
+        },
+        "thumbnailDefaultUrl": {
+          "type": "string"
+        },
+        "thumbnailMediumUrl": {
+          "type": "string"
+        },
+        "thumbnailHighUrl": {
+          "type": "string"
+        },
+        "viewCount": {
+          "type": "number"
+        },
+        "subscriberCount": {
+          "type": "number"
+        },
+        "hiddenSubscriberCount": {
+          "type": "boolean"
+        },
+        "videoCount": {
+          "type": "number"
+        },
+        "country": {
+          "type": "string"
+        },
+        "privacyStatus": {
+          "type": "string"
+        },
+        "isLinked": {
+          "type": "boolean"
+        },
+        "madeForKids": {
+          "type": "boolean"
+        },
+        "selfDeclaredMadeForKids": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "id"
+      ],
+      "additionalProperties": false
+    },
+    "GuildMember": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "guild_id": {
+          "type": "string"
+        },
+        "user_id": {
+          "type": "string"
+        },
+        "username": {
+          "type": "string"
+        },
+        "nick": {
+          "type": "string"
+        },
+        "avatar": {
+          "type": "string"
+        },
+        "banner": {
+          "type": "string"
+        },
+        "roles": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "joined_at": {
+          "type": "string"
+        },
+        "premium_since": {
+          "type": "string"
+        },
+        "deaf": {
+          "type": "boolean"
+        },
+        "mute": {
+          "type": "boolean"
+        },
+        "pending": {
+          "type": "boolean"
+        },
+        "flags": {
+          "type": "number"
+        },
+        "communication_disabled_until": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "id",
+        "guild_id",
+        "user_id",
+        "username",
+        "roles",
+        "deaf",
+        "mute",
+        "flags"
+      ],
+      "additionalProperties": false
+    },
+    "Guild": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "icon": {
+          "type": "string"
+        },
+        "owner": {
+          "type": "boolean"
+        },
+        "permissions": {
+          "type": "string"
+        },
+        "permissions_new": {
+          "type": "string"
+        },
+        "features": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      },
+      "required": [
+        "id",
+        "name",
+        "icon"
+      ],
+      "additionalProperties": false
+    },
+    "Message": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "channel_id": {
+          "type": "string"
+        },
+        "channel_name": {
+          "type": "string"
+        },
+        "user_id": {
+          "type": "string"
+        },
+        "user_name": {
+          "type": "string"
+        },
+        "text": {
+          "type": "string"
+        },
+        "timestamp": {
+          "type": "string"
+        },
+        "thread_ts": {
+          "type": "string"
+        },
+        "parent_ts": {
+          "type": "string"
+        },
+        "is_thread_reply": {
+          "type": "boolean"
+        },
+        "reactions": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "name": {
+                "type": "string"
+              },
+              "count": {
+                "type": "number"
+              },
+              "users": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              }
+            },
+            "required": [
+              "name",
+              "count",
+              "users"
+            ],
+            "additionalProperties": false
+          }
+        },
+        "reply_count": {
+          "type": "number"
+        },
+        "reply_users": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "created_at": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "id",
+        "channel_id",
+        "channel_name",
+        "user_id",
+        "text",
+        "timestamp",
+        "created_at"
+      ],
+      "additionalProperties": false
+    },
+    "SyncMetadata_discord_messages": {
+      "type": "object",
+      "properties": {
+        "botToken": {
+          "type": "string"
+        },
+        "channelId": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "botToken",
+        "channelId"
+      ],
+      "additionalProperties": false
+    },
+    "Role": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "color": {
+          "type": "number"
+        },
+        "colors": {
+          "type": "object",
+          "properties": {
+            "primary_color": {
+              "type": "number"
+            },
+            "secondary_color": {
+              "type": "number"
+            },
+            "tertiary_color": {
+              "type": "number"
+            }
+          },
+          "required": [
+            "primary_color"
+          ],
+          "additionalProperties": false
+        },
+        "hoist": {
+          "type": "boolean"
+        },
+        "icon": {
+          "type": "string"
+        },
+        "unicode_emoji": {
+          "type": "string"
+        },
+        "position": {
+          "type": "number"
+        },
+        "permissions": {
+          "type": "string"
+        },
+        "managed": {
+          "type": "boolean"
+        },
+        "mentionable": {
+          "type": "boolean"
+        },
+        "flags": {
+          "type": "number"
+        }
+      },
+      "required": [
+        "id",
+        "name"
+      ],
+      "additionalProperties": false
+    },
+    "SyncMetadata_discord_roles": {
+      "type": "object",
+      "properties": {
+        "botToken": {
+          "type": "string"
+        },
+        "guildId": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "botToken",
+        "guildId"
+      ],
+      "additionalProperties": false
+    },
+    "SyncMetadata_discord_webhooks": {
+      "type": "object",
+      "properties": {
+        "botToken": {
+          "type": "string"
+        },
+        "channelId": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "botToken",
+        "channelId"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_discord_addguildmemberrole": {
+      "type": "object",
+      "properties": {
+        "guildId": {
+          "type": "string",
+          "description": "Guild ID. Example: \"123456789012345678\""
+        },
+        "userId": {
+          "type": "string",
+          "description": "User ID. Example: \"987654321098765432\""
+        },
+        "roleId": {
+          "type": "string",
+          "description": "Role ID. Example: \"111222333444555666\""
+        }
+      },
+      "required": [
+        "guildId",
+        "userId",
+        "roleId"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_discord_addguildmemberrole": {
+      "type": "object",
+      "properties": {
+        "success": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "success"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_discord_createchannel": {
+      "type": "object",
+      "properties": {
+        "guildId": {
+          "type": "string",
+          "description": "The ID of the guild to create the channel in. Example: \"41771983423143937\""
+        },
+        "name": {
+          "type": "string",
+          "description": "Channel name (1-100 characters). Example: \"general\""
+        },
+        "type": {
+          "type": "number",
+          "description": "The type of channel. Default is 0 (GUILD_TEXT). Options: 0 (GUILD_TEXT), 2 (GUILD_VOICE), 4 (GUILD_CATEGORY), 5 (GUILD_ANNOUNCEMENT), 13 (GUILD_STAGE_VOICE), 15 (GUILD_FORUM), 16 (GUILD_MEDIA)."
+        },
+        "topic": {
+          "type": "string",
+          "description": "Channel topic (0-1024 characters)."
+        },
+        "bitrate": {
+          "type": "number",
+          "description": "The bitrate of the voice channel (min 8000)."
+        },
+        "userLimit": {
+          "type": "number",
+          "description": "The user limit of the voice channel."
+        },
+        "rateLimitPerUser": {
+          "type": "number",
+          "description": "Amount of seconds a user has to wait before sending another message (0-21600)."
+        },
+        "position": {
+          "type": "number",
+          "description": "Sorting position of the channel."
+        },
+        "permissionOverwrites": {
+          "type": "array",
+          "items": {}
+        },
+        "parentId": {
+          "type": "string",
+          "description": "ID of the parent category for the channel."
+        },
+        "nsfw": {
+          "type": "boolean",
+          "description": "Whether the channel is age-restricted."
+        },
+        "rtcRegion": {
+          "type": "string",
+          "description": "Channel voice region id, automatic when set to null."
+        },
+        "videoQualityMode": {
+          "type": "number",
+          "description": "Camera video quality mode (1 for auto, 2 for 720p)."
+        },
+        "defaultAutoArchiveDuration": {
+          "type": "number",
+          "description": "Default duration in minutes for newly created threads (60, 1440, 4320, 10080)."
+        },
+        "defaultReactionEmoji": {
+          "type": "object",
+          "additionalProperties": false
+        },
+        "availableTags": {
+          "type": "array",
+          "items": {}
+        },
+        "defaultSortOrder": {
+          "type": "number",
+          "description": "Default sort order for forum/media channels (0 for latest activity, 1 for creation date)."
+        },
+        "defaultForumLayout": {
+          "type": "number",
+          "description": "Default forum layout (0 not set, 1 list view, 2 gallery view)."
+        },
+        "defaultThreadRateLimitPerUser": {
+          "type": "number",
+          "description": "Initial rate limit per user for newly created threads."
+        }
+      },
+      "required": [
+        "guildId",
+        "name"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_discord_createchannel": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "The ID of the created channel"
+        },
+        "guildId": {
+          "type": "string",
+          "description": "The ID of the guild the channel belongs to"
+        },
+        "name": {
+          "type": "string",
+          "description": "The name of the channel"
+        },
+        "type": {
+          "type": "number",
+          "description": "The type of the channel"
+        },
+        "position": {
+          "type": "number",
+          "description": "The sorting position of the channel"
+        },
+        "topic": {
+          "type": "string",
+          "description": "The channel topic"
+        },
+        "nsfw": {
+          "type": "boolean",
+          "description": "Whether the channel is age-restricted"
+        },
+        "parentId": {
+          "type": "string",
+          "description": "The ID of the parent category"
+        },
+        "bitrate": {
+          "type": "number",
+          "description": "The bitrate of the voice channel"
+        },
+        "userLimit": {
+          "type": "number",
+          "description": "The user limit of the voice channel"
+        },
+        "rateLimitPerUser": {
+          "type": "number",
+          "description": "The rate limit per user"
+        },
+        "rtcRegion": {
+          "type": "string",
+          "description": "The voice region ID"
+        },
+        "videoQualityMode": {
+          "type": "number",
+          "description": "The video quality mode"
+        },
+        "defaultAutoArchiveDuration": {
+          "type": "number",
+          "description": "The default auto-archive duration"
+        }
+      },
+      "required": [
+        "id",
+        "type"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_discord_createmessage": {
+      "type": "object",
+      "properties": {
+        "channelId": {
+          "type": "string",
+          "description": "The ID of the channel to send the message to. Example: \"1504353981911273533\""
+        },
+        "content": {
+          "type": "string",
+          "description": "The message content (max 2000 characters). One of content, embeds, components, sticker_ids, or files is required."
+        },
+        "embeds": {
+          "type": "array",
+          "items": {},
+          "description": "Array of embed objects. Up to 10 embeds."
+        },
+        "components": {
+          "type": "array",
+          "items": {},
+          "description": "Array of message component objects."
+        },
+        "stickerIds": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "Array of sticker IDs (max 3)."
+        },
+        "allowedMentions": {
+          "type": "object",
+          "properties": {
+            "parse": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "0": {
+                    "type": "string",
+                    "const": "roles"
+                  },
+                  "1": {
+                    "type": "string",
+                    "const": "users"
+                  },
+                  "2": {
+                    "type": "string",
+                    "const": "everyone"
+                  }
+                },
+                "required": [
+                  "0",
+                  "1",
+                  "2"
+                ],
+                "additionalProperties": false
+              }
+            },
+            "roles": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "users": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "replied_user": {
+              "type": "boolean"
+            }
+          },
+          "additionalProperties": false,
+          "description": "Allowed mentions configuration."
+        },
+        "messageReference": {
+          "type": "object",
+          "properties": {
+            "message_id": {
+              "type": "string"
+            },
+            "channel_id": {
+              "type": "string"
+            },
+            "guild_id": {
+              "type": "string"
+            },
+            "fail_if_not_exists": {
+              "type": "boolean"
+            }
+          },
+          "required": [
+            "message_id"
+          ],
+          "additionalProperties": false,
+          "description": "Reference to a message to reply to."
+        }
+      },
+      "required": [
+        "channelId"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_discord_createmessage": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "channelId": {
+          "type": "string"
+        },
+        "guildId": {
+          "type": "string"
+        },
+        "authorId": {
+          "type": "string"
+        },
+        "authorUsername": {
+          "type": "string"
+        },
+        "content": {
+          "type": "string"
+        },
+        "timestamp": {
+          "type": "string"
+        },
+        "editedTimestamp": {
+          "type": "string"
+        },
+        "tts": {
+          "type": "boolean"
+        },
+        "pinned": {
+          "type": "boolean"
+        },
+        "type": {
+          "type": "number"
+        }
+      },
+      "required": [
+        "id",
+        "channelId",
+        "authorId",
+        "authorUsername",
+        "content",
+        "timestamp"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_discord_createreaction": {
+      "type": "object",
+      "properties": {
+        "channel_id": {
+          "type": "string",
+          "description": "Channel ID where the message is located. Example: \"1504364254634180618\""
+        },
+        "message_id": {
+          "type": "string",
+          "description": "Message ID to add the reaction to. Example: \"1234567890123456789\""
+        },
+        "emoji": {
+          "type": "string",
+          "description": "Emoji to add as a reaction. Can be a unicode emoji (e.g., \"👍\") or custom emoji format (e.g., \"emoji_name:emoji_id\"). Example: \"👍\" or \"custom_emoji:123456789\""
+        }
+      },
+      "required": [
+        "channel_id",
+        "message_id",
+        "emoji"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_discord_createreaction": {
+      "type": "object",
+      "properties": {
+        "success": {
+          "type": "boolean"
+        },
+        "channel_id": {
+          "type": "string"
+        },
+        "message_id": {
+          "type": "string"
+        },
+        "emoji": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "success",
+        "channel_id",
+        "message_id",
+        "emoji"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_discord_createrole": {
+      "type": "object",
+      "properties": {
+        "guildId": {
+          "type": "string",
+          "description": "Guild ID (Snowflake). Example: \"197038439483310086\""
+        },
+        "name": {
+          "type": "string",
+          "description": "Name of the role, max 100 characters. Example: \"Moderators\""
+        },
+        "permissions": {
+          "type": "string",
+          "description": "Bitwise value of the enabled/disabled permissions. Example: \"66321471\""
+        },
+        "color": {
+          "type": "number",
+          "description": "Deprecated RGB color value. Default: 0"
+        },
+        "colors": {
+          "type": "object",
+          "properties": {
+            "primary_color": {
+              "type": "number"
+            },
+            "secondary_color": {
+              "type": "number"
+            },
+            "tertiary_color": {
+              "type": "number"
+            }
+          },
+          "required": [
+            "primary_color"
+          ],
+          "additionalProperties": false,
+          "description": "Role colors object with primary, secondary, and tertiary colors"
+        },
+        "hoist": {
+          "type": "boolean",
+          "description": "Whether the role should be displayed separately in the sidebar. Default: false"
+        },
+        "icon": {
+          "type": "string",
+          "description": "The role's icon image data (if the guild has ROLE_ICONS feature)"
+        },
+        "unicode_emoji": {
+          "type": "string",
+          "description": "The role's unicode emoji as a standard emoji (if the guild has ROLE_ICONS feature)"
+        },
+        "mentionable": {
+          "type": "boolean",
+          "description": "Whether the role should be mentionable. Default: false"
+        }
+      },
+      "required": [
+        "guildId",
+        "name"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_discord_createrole": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "color": {
+          "type": "number"
+        },
+        "colors": {
+          "type": "object",
+          "properties": {
+            "primary_color": {
+              "type": "number"
+            },
+            "secondary_color": {
+              "type": "number"
+            },
+            "tertiary_color": {
+              "type": "number"
+            }
+          },
+          "required": [
+            "primary_color",
+            "secondary_color",
+            "tertiary_color"
+          ],
+          "additionalProperties": false
+        },
+        "hoist": {
+          "type": "boolean"
+        },
+        "icon": {
+          "type": "string"
+        },
+        "unicode_emoji": {
+          "type": "string"
+        },
+        "position": {
+          "type": "number"
+        },
+        "permissions": {
+          "type": "string"
+        },
+        "managed": {
+          "type": "boolean"
+        },
+        "mentionable": {
+          "type": "boolean"
+        },
+        "tags": {
+          "type": "object",
+          "properties": {
+            "bot_id": {
+              "type": "string"
+            },
+            "integration_id": {
+              "type": "string"
+            },
+            "premium_subscriber": {
+              "type": "null"
+            },
+            "subscription_listing_id": {
+              "type": "string"
+            },
+            "available_for_purchase": {
+              "type": "null"
+            },
+            "guild_connections": {
+              "type": "null"
+            }
+          },
+          "additionalProperties": false
+        },
+        "flags": {
+          "type": "number"
+        }
+      },
+      "required": [
+        "id",
+        "name",
+        "color",
+        "colors",
+        "hoist",
+        "position",
+        "permissions",
+        "managed",
+        "mentionable",
+        "flags"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_discord_createthreadfrommessage": {
+      "type": "object",
+      "properties": {
+        "channel_id": {
+          "type": "string",
+          "description": "The ID of the channel containing the message. Example: \"123456789012345678\""
+        },
+        "message_id": {
+          "type": "string",
+          "description": "The ID of the message to create a thread from. Example: \"987654321098765432\""
+        },
+        "name": {
+          "type": "string",
+          "description": "The name of the thread (1-100 characters). Example: \"Discussion Thread\""
+        },
+        "auto_archive_duration": {
+          "type": "number",
+          "enum": [
+            60,
+            1440,
+            4320,
+            10080
+          ],
+          "description": "Duration in minutes to automatically archive the thread. One of: 60, 1440, 4320, 10080"
+        },
+        "rate_limit_per_user": {
+          "type": "number",
+          "description": "Seconds to wait between messages (slowmode). Range: 0-21600"
+        }
+      },
+      "required": [
+        "channel_id",
+        "message_id",
+        "name"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_discord_createthreadfrommessage": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "type": {
+          "type": "number"
+        },
+        "guild_id": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "last_message_id": {
+          "type": "string"
+        },
+        "parent_id": {
+          "type": "string"
+        },
+        "owner_id": {
+          "type": "string"
+        },
+        "message_count": {
+          "type": "number"
+        },
+        "member_count": {
+          "type": "number"
+        },
+        "rate_limit_per_user": {
+          "type": "number"
+        },
+        "thread_metadata": {
+          "type": "object",
+          "properties": {
+            "archived": {
+              "type": "boolean"
+            },
+            "auto_archive_duration": {
+              "type": "number"
+            },
+            "archive_timestamp": {
+              "type": "string"
+            },
+            "locked": {
+              "type": "boolean"
+            },
+            "invitable": {
+              "type": "boolean"
+            },
+            "create_timestamp": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "archived",
+            "auto_archive_duration"
+          ],
+          "additionalProperties": false
+        }
+      },
+      "required": [
+        "id",
+        "type",
+        "name"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_discord_createwebhook": {
+      "type": "object",
+      "properties": {
+        "channelId": {
+          "type": "string",
+          "description": "The channel ID where the webhook will be created. Can also be provided via metadata. Example: \"199737254929760256\""
+        },
+        "name": {
+          "type": "string",
+          "description": "Name of the webhook (1-80 characters). Must not contain \"clyde\" or \"discord\" (case-insensitive)."
+        },
+        "avatar": {
+          "type": "string",
+          "description": "Optional base64-encoded image data for the webhook avatar. Example: \"data:image/png;base64,iVBORw0KGgo...\""
+        }
+      },
+      "required": [
+        "name"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_discord_createwebhook": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "type": {
+          "type": "number",
+          "description": "Webhook type: 1 = Incoming, 2 = Channel Follower, 3 = Application"
+        },
+        "guildId": {
+          "type": "string"
+        },
+        "channelId": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "avatar": {
+          "type": "string"
+        },
+        "token": {
+          "type": "string",
+          "description": "Webhook token (only for Incoming webhooks)"
+        },
+        "applicationId": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "id",
+        "type"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_discord_deletechannel": {
+      "type": "object",
+      "properties": {
+        "channelId": {
+          "type": "string",
+          "description": "The ID of the channel to delete. Example: \"41771983423143937\""
+        }
+      },
+      "required": [
+        "channelId"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_discord_deletechannel": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "type": {
+          "type": "number"
+        },
+        "guildId": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "deleted": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "id",
+        "type",
+        "deleted"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_discord_deleteguild": {
+      "type": "object",
+      "properties": {
+        "guild_id": {
+          "type": "string",
+          "description": "The ID of the guild for the bot to leave."
+        }
+      },
+      "required": [
+        "guild_id"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_discord_deleteguild": {
+      "type": "object",
+      "properties": {
+        "success": {
+          "type": "boolean",
+          "description": "Whether the bot successfully left the guild"
+        },
+        "guild_id": {
+          "type": "string",
+          "description": "The ID of the guild that was left"
+        }
+      },
+      "required": [
+        "success",
+        "guild_id"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_discord_deleteguildmember": {
+      "type": "object",
+      "properties": {
+        "guild_id": {
+          "type": "string",
+          "description": "Guild ID. Example: \"123456789012345678\""
+        },
+        "user_id": {
+          "type": "string",
+          "description": "User ID of the member to delete. Example: \"987654321098765432\""
+        }
+      },
+      "required": [
+        "guild_id",
+        "user_id"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_discord_deleteguildmember": {
+      "type": "object",
+      "properties": {
+        "success": {
+          "type": "boolean"
+        },
+        "message": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "success",
+        "message"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_discord_deletemessage": {
+      "type": "object",
+      "properties": {
+        "channelId": {
+          "type": "string",
+          "description": "Channel ID where the message exists. Example: \"1234567890123456789\""
+        },
+        "messageId": {
+          "type": "string",
+          "description": "Message ID to delete. Example: \"9876543210987654321\""
+        }
+      },
+      "required": [
+        "channelId",
+        "messageId"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_discord_deletemessage": {
+      "type": "object",
+      "properties": {
+        "success": {
+          "type": "boolean"
+        },
+        "messageId": {
+          "type": "string",
+          "description": "ID of the deleted message"
+        },
+        "channelId": {
+          "type": "string",
+          "description": "Channel ID where the message was deleted"
+        }
+      },
+      "required": [
+        "success",
+        "messageId",
+        "channelId"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_discord_deletereaction": {
+      "type": "object",
+      "properties": {
+        "channel_id": {
+          "type": "string",
+          "description": "The ID of the channel containing the message. Example: \"123456789012345678\""
+        },
+        "message_id": {
+          "type": "string",
+          "description": "The ID of the message to remove the reaction from. Example: \"987654321098765432\""
+        },
+        "emoji": {
+          "type": "string",
+          "description": "The emoji to remove. Provide the raw emoji character or name:id for custom emojis. Example: \"👍\" or \"emojiName:123456789\""
+        }
+      },
+      "required": [
+        "channel_id",
+        "message_id",
+        "emoji"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_discord_deletereaction": {
+      "type": "object",
+      "properties": {
+        "success": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "success"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_discord_deleterole": {
+      "type": "object",
+      "properties": {
+        "guildId": {
+          "type": "string",
+          "description": "The ID of the guild containing the role. Example: \"1234567890123456789\""
+        },
+        "roleId": {
+          "type": "string",
+          "description": "The ID of the role to delete. Example: \"9876543210987654321\""
+        }
+      },
+      "required": [
+        "guildId",
+        "roleId"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_discord_deleterole": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "The ID of the deleted role"
+        },
+        "name": {
+          "type": "string",
+          "description": "The name of the deleted role"
+        },
+        "success": {
+          "type": "boolean",
+          "description": "Whether the deletion was successful"
+        }
+      },
+      "required": [
+        "id",
+        "name",
+        "success"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_discord_deletewebhook": {
+      "type": "object",
+      "properties": {
+        "webhookId": {
+          "type": "string",
+          "description": "The ID of the webhook to delete. Example: \"223704706495545344\""
+        }
+      },
+      "required": [
+        "webhookId"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_discord_deletewebhook": {
+      "type": "object",
+      "properties": {
+        "success": {
+          "type": "boolean",
+          "description": "Whether the webhook was successfully deleted"
+        },
+        "webhookId": {
+          "type": "string",
+          "description": "The ID of the deleted webhook"
+        }
+      },
+      "required": [
+        "success",
+        "webhookId"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_discord_getchannel": {
+      "type": "object",
+      "properties": {
+        "channelId": {
+          "type": "string",
+          "description": "The ID of the channel to retrieve. Example: \"41771983423143937\""
+        }
+      },
+      "required": [
+        "channelId"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_discord_getchannel": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "type": {
+          "type": "number"
+        },
+        "guildId": {
+          "type": "string"
+        },
+        "position": {
+          "type": "number"
+        },
+        "permissionOverwrites": {
+          "type": "array",
+          "items": {}
+        },
+        "name": {
+          "type": "string"
+        },
+        "topic": {
+          "type": "string"
+        },
+        "nsfw": {
+          "type": "boolean"
+        },
+        "lastMessageId": {
+          "type": "string"
+        },
+        "bitrate": {
+          "type": "number"
+        },
+        "userLimit": {
+          "type": "number"
+        },
+        "rateLimitPerUser": {
+          "type": "number"
+        },
+        "recipients": {
+          "type": "array",
+          "items": {}
+        },
+        "icon": {
+          "type": "string"
+        },
+        "ownerId": {
+          "type": "string"
+        },
+        "applicationId": {
+          "type": "string"
+        },
+        "managed": {
+          "type": "boolean"
+        },
+        "parentId": {
+          "type": "string"
+        },
+        "lastPinTimestamp": {
+          "type": "string"
+        },
+        "rtcRegion": {
+          "type": "string"
+        },
+        "videoQualityMode": {
+          "type": "number"
+        },
+        "messageCount": {
+          "type": "number"
+        },
+        "memberCount": {
+          "type": "number"
+        },
+        "threadMetadata": {},
+        "member": {},
+        "defaultAutoArchiveDuration": {
+          "type": "number"
+        },
+        "permissions": {
+          "type": "string"
+        },
+        "flags": {
+          "type": "number"
+        },
+        "totalMessageSent": {
+          "type": "number"
+        },
+        "availableTags": {
+          "type": "array",
+          "items": {}
+        },
+        "appliedTags": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "defaultReactionEmoji": {},
+        "defaultThreadRateLimitPerUser": {
+          "type": "number"
+        },
+        "defaultSortOrder": {
+          "type": "number"
+        },
+        "defaultForumLayout": {
+          "type": "number"
+        }
+      },
+      "required": [
+        "id",
+        "type"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_discord_getguildmember": {
+      "type": "object",
+      "properties": {
+        "guild_id": {
+          "type": "string",
+          "description": "The ID of the guild. Example: \"197038439483310086\""
+        },
+        "user_id": {
+          "type": "string",
+          "description": "The ID of the user. Example: \"73193882359173120\""
+        }
+      },
+      "required": [
+        "guild_id",
+        "user_id"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_discord_getguildmember": {
+      "type": "object",
+      "properties": {
+        "user": {
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "string"
+            },
+            "username": {
+              "type": "string"
+            },
+            "discriminator": {
+              "type": "string"
+            },
+            "global_name": {
+              "type": "string"
+            },
+            "avatar": {
+              "type": "string"
+            },
+            "bot": {
+              "type": "boolean"
+            },
+            "system": {
+              "type": "boolean"
+            },
+            "mfa_enabled": {
+              "type": "boolean"
+            },
+            "banner": {
+              "type": "string"
+            },
+            "accent_color": {
+              "type": "number"
+            },
+            "locale": {
+              "type": "string"
+            },
+            "verified": {
+              "type": "boolean"
+            },
+            "email": {
+              "type": "string"
+            },
+            "flags": {
+              "type": "number"
+            },
+            "premium_type": {
+              "type": "number"
+            },
+            "public_flags": {
+              "type": "number"
+            },
+            "avatar_decoration_data": {},
+            "collectibles": {}
+          },
+          "required": [
+            "id",
+            "username",
+            "discriminator"
+          ],
+          "additionalProperties": false
+        },
+        "nick": {
+          "type": "string"
+        },
+        "avatar": {
+          "type": "string"
+        },
+        "banner": {
+          "type": "string"
+        },
+        "roles": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "joined_at": {
+          "type": "string"
+        },
+        "premium_since": {
+          "type": "string"
+        },
+        "deaf": {
+          "type": "boolean"
+        },
+        "mute": {
+          "type": "boolean"
+        },
+        "flags": {
+          "type": "number"
+        },
+        "pending": {
+          "type": "boolean"
+        },
+        "permissions": {
+          "type": "string"
+        },
+        "communication_disabled_until": {
+          "type": "string"
+        },
+        "avatar_decoration_data": {},
+        "collectibles": {}
+      },
+      "required": [
+        "roles",
+        "deaf",
+        "mute",
+        "flags"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_discord_getguild": {
+      "type": "object",
+      "properties": {
+        "guildId": {
+          "type": "string",
+          "description": "Guild ID (snowflake). Example: \"197038439483310086\""
+        }
+      },
+      "required": [
+        "guildId"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_discord_getguild": {
+      "type": "object",
+      "additionalProperties": false
+    },
+    "ActionInput_discord_getmessage": {
+      "type": "object",
+      "properties": {
+        "channelId": {
+          "type": "string",
+          "description": "The ID of the channel containing the message. Example: \"1504364254634180618\""
+        },
+        "messageId": {
+          "type": "string",
+          "description": "The ID of the message to retrieve. Example: \"1234567890123456789\""
+        }
+      },
+      "required": [
+        "channelId",
+        "messageId"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_discord_getmessage": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "channelId": {
+          "type": "string"
+        },
+        "author": {
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "string"
+            },
+            "username": {
+              "type": "string"
+            },
+            "discriminator": {
+              "type": "string"
+            },
+            "globalName": {
+              "type": "string"
+            },
+            "avatar": {
+              "type": "string"
+            },
+            "bot": {
+              "type": "boolean"
+            },
+            "system": {
+              "type": "boolean"
+            }
+          },
+          "required": [
+            "id",
+            "username"
+          ],
+          "additionalProperties": false
+        },
+        "content": {
+          "type": "string"
+        },
+        "timestamp": {
+          "type": "string"
+        },
+        "editedTimestamp": {
+          "type": "string"
+        },
+        "tts": {
+          "type": "boolean"
+        },
+        "mentionEveryone": {
+          "type": "boolean"
+        },
+        "mentions": {
+          "type": "array",
+          "items": {}
+        },
+        "mentionRoles": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "attachments": {
+          "type": "array",
+          "items": {}
+        },
+        "embeds": {
+          "type": "array",
+          "items": {}
+        },
+        "reactions": {
+          "type": "array",
+          "items": {}
+        },
+        "nonce": {
+          "type": [
+            "string",
+            "number"
+          ]
+        },
+        "pinned": {
+          "type": "boolean"
+        },
+        "webhookId": {
+          "type": "string"
+        },
+        "type": {
+          "type": "number"
+        },
+        "activity": {},
+        "application": {},
+        "applicationId": {
+          "type": "string"
+        },
+        "messageReference": {},
+        "flags": {
+          "type": "number"
+        },
+        "referencedMessage": {},
+        "interaction": {},
+        "thread": {},
+        "components": {
+          "type": "array",
+          "items": {}
+        },
+        "stickerItems": {
+          "type": "array",
+          "items": {}
+        },
+        "stickers": {
+          "type": "array",
+          "items": {}
+        },
+        "position": {
+          "type": "number"
+        },
+        "roleSubscriptionData": {},
+        "resolved": {}
+      },
+      "required": [
+        "id",
+        "channelId",
+        "author",
+        "content",
+        "timestamp"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_discord_getrole": {
+      "type": "object",
+      "properties": {
+        "guild_id": {
+          "type": "string",
+          "description": "Guild ID (snowflake). Example: \"41771983423143936\""
+        },
+        "role_id": {
+          "type": "string",
+          "description": "Role ID (snowflake). Example: \"41771983423143937\""
+        }
+      },
+      "required": [
+        "guild_id",
+        "role_id"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_discord_getrole": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "Role id"
+        },
+        "name": {
+          "type": "string",
+          "description": "Role name"
+        },
+        "color": {
+          "type": "number",
+          "description": "Deprecated integer representation of hexadecimal color code"
+        },
+        "colors": {
+          "type": "object",
+          "properties": {
+            "primary_color": {
+              "type": "number"
+            },
+            "secondary_color": {
+              "type": "number",
+              "description": "The secondary color for the role"
+            },
+            "tertiary_color": {
+              "type": "number",
+              "description": "The tertiary color for the role"
+            }
+          },
+          "required": [
+            "primary_color"
+          ],
+          "additionalProperties": false,
+          "description": "The role's colors"
+        },
+        "hoist": {
+          "type": "boolean",
+          "description": "If this role is pinned in the user listing"
+        },
+        "icon": {
+          "type": "string",
+          "description": "Role icon hash"
+        },
+        "unicode_emoji": {
+          "type": "string",
+          "description": "Role unicode emoji"
+        },
+        "position": {
+          "type": "number",
+          "description": "Position of this role"
+        },
+        "permissions": {
+          "type": "string",
+          "description": "Permission bit set"
+        },
+        "managed": {
+          "type": "boolean",
+          "description": "Whether this role is managed by an integration"
+        },
+        "mentionable": {
+          "type": "boolean",
+          "description": "Whether this role is mentionable"
+        },
+        "tags": {
+          "type": "object",
+          "properties": {
+            "bot_id": {
+              "type": "string"
+            },
+            "integration_id": {
+              "type": "string",
+              "description": "The id of the integration this role belongs to"
+            },
+            "premium_subscriber": {
+              "type": "null",
+              "description": "Whether this is the guild's Booster role"
+            },
+            "subscription_listing_id": {
+              "type": "string",
+              "description": "The id of this role's subscription sku and listing"
+            },
+            "available_for_purchase": {
+              "type": "null",
+              "description": "Whether this role is available for purchase"
+            },
+            "guild_connections": {
+              "type": "null",
+              "description": "Whether this role is a guild's linked role"
+            }
+          },
+          "additionalProperties": false,
+          "description": "The tags this role has"
+        },
+        "flags": {
+          "type": "number",
+          "description": "Role flags combined as a bitfield"
+        }
+      },
+      "required": [
+        "id",
+        "name",
+        "color",
+        "hoist",
+        "position",
+        "permissions",
+        "managed",
+        "mentionable",
+        "flags"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_discord_getwebhook": {
+      "type": "object",
+      "properties": {
+        "webhookId": {
+          "type": "string",
+          "description": "The ID of the webhook to retrieve. Example: \"123456789012345678\""
+        }
+      },
+      "required": [
+        "webhookId"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_discord_getwebhook": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "The ID of the webhook."
+        },
+        "type": {
+          "type": "number",
+          "description": "The type of the webhook (1 = Incoming, 2 = Channel Follower)."
+        },
+        "guildId": {
+          "type": "string",
+          "description": "The guild ID this webhook is for."
+        },
+        "channelId": {
+          "type": "string",
+          "description": "The channel ID this webhook is for."
+        },
+        "name": {
+          "type": "string",
+          "description": "The default name of the webhook."
+        },
+        "avatar": {
+          "type": "string",
+          "description": "The default user avatar hash of the webhook."
+        },
+        "token": {
+          "type": "string",
+          "description": "The secure token of the webhook (returned for incoming webhooks)."
+        },
+        "applicationId": {
+          "type": "string",
+          "description": "The application that created this webhook."
+        },
+        "user": {
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "string"
+            },
+            "username": {
+              "type": "string"
+            },
+            "discriminator": {
+              "type": "string"
+            },
+            "avatar": {
+              "type": "string"
+            },
+            "bot": {
+              "type": "boolean"
+            }
+          },
+          "required": [
+            "id",
+            "username",
+            "discriminator"
+          ],
+          "additionalProperties": false,
+          "description": "The user that created this webhook."
+        },
+        "url": {
+          "type": "string",
+          "description": "The URL used for executing the webhook (returned for incoming webhooks)."
+        }
+      },
+      "required": [
+        "id",
+        "type"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_discord_listchannels": {
+      "type": "object",
+      "properties": {
+        "guild_id": {
+          "type": "string",
+          "description": "Guild (server) ID to list channels from. Example: \"41771983423143937\""
+        }
+      },
+      "required": [
+        "guild_id"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_discord_listchannels": {
+      "type": "object",
+      "properties": {
+        "channels": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "type": {
+                "type": "number"
+              },
+              "guild_id": {
+                "type": "string"
+              },
+              "position": {
+                "type": "number"
+              },
+              "name": {
+                "type": "string"
+              },
+              "topic": {
+                "type": "string"
+              },
+              "nsfw": {
+                "type": "boolean"
+              },
+              "last_message_id": {
+                "type": "string"
+              },
+              "bitrate": {
+                "type": "number"
+              },
+              "user_limit": {
+                "type": "number"
+              },
+              "rate_limit_per_user": {
+                "type": "number"
+              },
+              "recipients": {
+                "type": "array",
+                "items": {}
+              },
+              "icon": {
+                "type": "string"
+              },
+              "owner_id": {
+                "type": "string"
+              },
+              "application_id": {
+                "type": "string"
+              },
+              "managed": {
+                "type": "boolean"
+              },
+              "parent_id": {
+                "type": "string"
+              },
+              "last_pin_timestamp": {
+                "type": "string"
+              },
+              "rtc_region": {
+                "type": "string"
+              },
+              "video_quality_mode": {
+                "type": "number"
+              },
+              "message_count": {
+                "type": "number"
+              },
+              "member_count": {
+                "type": "number"
+              },
+              "default_auto_archive_duration": {
+                "type": "number"
+              },
+              "permissions": {
+                "type": "string"
+              },
+              "flags": {
+                "type": "number"
+              },
+              "total_message_sent": {
+                "type": "number"
+              },
+              "permission_overwrites": {
+                "type": "array",
+                "items": {}
+              }
+            },
+            "required": [
+              "id",
+              "type"
+            ],
+            "additionalProperties": false
+          }
+        }
+      },
+      "required": [
+        "channels"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_discord_listguildmembers": {
+      "type": "object",
+      "properties": {
+        "guild_id": {
+          "type": "string",
+          "description": "Guild ID. Example: \"197038439483310086\""
+        },
+        "limit": {
+          "type": "number",
+          "description": "Max number of members to return (1-1000)."
+        },
+        "after": {
+          "type": "string",
+          "description": "The highest user id in the previous page. Omit for the first page."
+        }
+      },
+      "required": [
+        "guild_id"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_discord_listguildmembers": {
+      "type": "object",
+      "properties": {
+        "items": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "user": {
+                "type": "object",
+                "properties": {
+                  "id": {
+                    "type": "string"
+                  },
+                  "username": {
+                    "type": "string"
+                  },
+                  "discriminator": {
+                    "type": "string"
+                  },
+                  "global_name": {
+                    "type": "string"
+                  },
+                  "avatar": {
+                    "type": "string"
+                  },
+                  "bot": {
+                    "type": "boolean"
+                  },
+                  "system": {
+                    "type": "boolean"
+                  }
+                },
+                "required": [
+                  "id",
+                  "username",
+                  "discriminator"
+                ],
+                "additionalProperties": false
+              },
+              "nick": {
+                "type": "string"
+              },
+              "avatar": {
+                "type": "string"
+              },
+              "banner": {
+                "type": "string"
+              },
+              "roles": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "joined_at": {
+                "type": "string"
+              },
+              "premium_since": {
+                "type": "string"
+              },
+              "deaf": {
+                "type": "boolean"
+              },
+              "mute": {
+                "type": "boolean"
+              },
+              "flags": {
+                "type": "number"
+              },
+              "pending": {
+                "type": "boolean"
+              },
+              "permissions": {
+                "type": "string"
+              },
+              "communication_disabled_until": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "roles",
+              "deaf",
+              "mute",
+              "flags"
+            ],
+            "additionalProperties": false
+          }
+        },
+        "next_after": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "items"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_discord_listguilds": {
+      "type": "object",
+      "properties": {
+        "after": {
+          "type": "string",
+          "description": "Get guilds after this guild ID. Omit for the first page, or use the next_cursor from the previous response."
+        },
+        "limit": {
+          "type": "number",
+          "description": "Maximum number of guilds to return (1-200, default: 200)."
+        }
+      },
+      "additionalProperties": false
+    },
+    "ActionOutput_discord_listguilds": {
+      "type": "object",
+      "properties": {
+        "items": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "name": {
+                "type": "string",
+                "description": "Guild name."
+              },
+              "icon": {
+                "type": "string",
+                "description": "Icon hash or null."
+              },
+              "owner": {
+                "type": "boolean",
+                "description": "Whether the user is the owner of the guild."
+              },
+              "features": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                },
+                "description": "Enabled guild features."
+              },
+              "permissions": {
+                "type": "string",
+                "description": "Permissions for the user in the guild."
+              },
+              "approximate_member_count": {
+                "type": "number",
+                "description": "Approximate number of members in the guild (if with_counts enabled)."
+              },
+              "approximate_presence_count": {
+                "type": "number",
+                "description": "Approximate number of online members (if with_counts enabled)."
+              }
+            },
+            "required": [
+              "id",
+              "name",
+              "icon",
+              "owner",
+              "features"
+            ],
+            "additionalProperties": false
+          },
+          "description": "List of guilds."
+        },
+        "next_cursor": {
+          "type": "string",
+          "description": "Cursor for the next page of results. Omit if there are no more pages."
+        }
+      },
+      "required": [
+        "items"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_discord_listmessages": {
+      "type": "object",
+      "properties": {
+        "channel_id": {
+          "type": "string",
+          "description": "The ID of the channel to list messages from. Example: \"1504364254634180618\""
+        },
+        "limit": {
+          "type": "number",
+          "description": "Number of messages to return (1-100). Default: 50"
+        },
+        "before": {
+          "type": "string",
+          "description": "Return messages before this message ID"
+        },
+        "after": {
+          "type": "string",
+          "description": "Return messages after this message ID"
+        },
+        "around": {
+          "type": "string",
+          "description": "Return messages around this message ID (ignores limit, returns 25 by default)"
+        }
+      },
+      "required": [
+        "channel_id"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_discord_listmessages": {
+      "type": "object",
+      "properties": {
+        "messages": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "channel_id": {
+                "type": "string"
+              },
+              "guild_id": {
+                "type": "string"
+              },
+              "author": {
+                "type": "object",
+                "properties": {
+                  "id": {
+                    "type": "string"
+                  },
+                  "username": {
+                    "type": "string"
+                  },
+                  "global_name": {
+                    "type": "string"
+                  },
+                  "avatar": {
+                    "type": "string"
+                  },
+                  "bot": {
+                    "type": "boolean"
+                  }
+                },
+                "required": [
+                  "username"
+                ],
+                "additionalProperties": false
+              },
+              "content": {
+                "type": "string"
+              },
+              "timestamp": {
+                "type": "string"
+              },
+              "edited_timestamp": {
+                "type": "string"
+              },
+              "tts": {
+                "type": "boolean"
+              },
+              "mention_everyone": {
+                "type": "boolean"
+              },
+              "pinned": {
+                "type": "boolean"
+              },
+              "type": {
+                "type": "number"
+              },
+              "attachments": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "string"
+                    },
+                    "filename": {
+                      "type": "string"
+                    },
+                    "content_type": {
+                      "type": "string"
+                    },
+                    "size": {
+                      "type": "number"
+                    },
+                    "url": {
+                      "type": "string"
+                    },
+                    "height": {
+                      "type": "number"
+                    },
+                    "width": {
+                      "type": "number"
+                    }
+                  },
+                  "required": [
+                    "id",
+                    "filename",
+                    "size",
+                    "url"
+                  ],
+                  "additionalProperties": false
+                }
+              },
+              "mention_count": {
+                "type": "number"
+              }
+            },
+            "required": [
+              "id",
+              "channel_id",
+              "author",
+              "content",
+              "timestamp",
+              "tts",
+              "mention_everyone",
+              "pinned",
+              "type",
+              "attachments",
+              "mention_count"
+            ],
+            "additionalProperties": false
+          }
+        },
+        "has_more": {
+          "type": "boolean",
+          "description": "Whether more messages are available"
+        }
+      },
+      "required": [
+        "messages",
+        "has_more"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_discord_listroles": {
+      "type": "object",
+      "properties": {
+        "guild_id": {
+          "type": "string",
+          "description": "Guild ID to list roles from. Example: \"123456789012345678\""
+        }
+      },
+      "required": [
+        "guild_id"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_discord_listroles": {
+      "type": "object",
+      "properties": {
+        "roles": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "name": {
+                "type": "string"
+              },
+              "color": {
+                "type": "number"
+              },
+              "colors": {
+                "type": "object",
+                "properties": {
+                  "primary_color": {
+                    "type": "number"
+                  },
+                  "secondary_color": {
+                    "type": "number"
+                  },
+                  "tertiary_color": {
+                    "type": "number"
+                  }
+                },
+                "required": [
+                  "primary_color"
+                ],
+                "additionalProperties": false
+              },
+              "hoist": {
+                "type": "boolean"
+              },
+              "icon": {
+                "type": "string"
+              },
+              "unicode_emoji": {
+                "type": "string"
+              },
+              "position": {
+                "type": "number"
+              },
+              "permissions": {
+                "type": "string"
+              },
+              "managed": {
+                "type": "boolean"
+              },
+              "mentionable": {
+                "type": "boolean"
+              },
+              "tags": {
+                "type": "object",
+                "properties": {
+                  "bot_id": {
+                    "type": "string"
+                  },
+                  "integration_id": {
+                    "type": "string"
+                  },
+                  "premium_subscriber": {
+                    "type": "null"
+                  },
+                  "subscription_listing_id": {
+                    "type": "string"
+                  },
+                  "available_for_purchase": {
+                    "type": "null"
+                  },
+                  "guild_connections": {
+                    "type": "null"
+                  }
+                },
+                "additionalProperties": false
+              },
+              "flags": {
+                "type": "number"
+              }
+            },
+            "required": [
+              "id",
+              "name",
+              "color",
+              "hoist",
+              "position",
+              "permissions",
+              "managed",
+              "mentionable",
+              "flags"
+            ],
+            "additionalProperties": false
+          }
+        }
+      },
+      "required": [
+        "roles"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_discord_listwebhooks": {
+      "type": "object",
+      "properties": {
+        "channelId": {
+          "type": "string",
+          "description": "Discord channel ID. Example: \"1504364254634180618\""
+        }
+      },
+      "required": [
+        "channelId"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_discord_listwebhooks": {
+      "type": "object",
+      "properties": {
+        "webhooks": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "type": {
+                "type": "number"
+              },
+              "guild_id": {
+                "type": "string"
+              },
+              "channel_id": {
+                "type": "string"
+              },
+              "name": {
+                "type": "string"
+              },
+              "avatar": {
+                "type": "string"
+              },
+              "token": {
+                "type": "string"
+              },
+              "application_id": {
+                "type": "string"
+              },
+              "user": {
+                "type": "object",
+                "properties": {
+                  "id": {
+                    "type": "string"
+                  },
+                  "username": {
+                    "type": "string"
+                  },
+                  "discriminator": {
+                    "type": "string"
+                  },
+                  "avatar": {
+                    "type": "string"
+                  },
+                  "bot": {
+                    "type": "boolean"
+                  }
+                },
+                "required": [
+                  "id",
+                  "username",
+                  "discriminator"
+                ],
+                "additionalProperties": false
+              },
+              "source_guild": {
+                "type": "object",
+                "properties": {
+                  "id": {
+                    "type": "string"
+                  },
+                  "name": {
+                    "type": "string"
+                  },
+                  "icon": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "id",
+                  "name"
+                ],
+                "additionalProperties": false
+              },
+              "source_channel": {
+                "type": "object",
+                "properties": {
+                  "id": {
+                    "type": "string"
+                  },
+                  "name": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "id",
+                  "name"
+                ],
+                "additionalProperties": false
+              },
+              "url": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "id",
+              "type"
+            ],
+            "additionalProperties": false
+          }
+        }
+      },
+      "required": [
+        "webhooks"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_discord_removeguildmemberrole": {
+      "type": "object",
+      "properties": {
+        "guild_id": {
+          "type": "string",
+          "description": "Guild ID. Example: \"123456789\""
+        },
+        "user_id": {
+          "type": "string",
+          "description": "User ID of the member. Example: \"987654321\""
+        },
+        "role_id": {
+          "type": "string",
+          "description": "Role ID to remove from the member. Example: \"456789123\""
+        }
+      },
+      "required": [
+        "guild_id",
+        "user_id",
+        "role_id"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_discord_removeguildmemberrole": {
+      "type": "object",
+      "properties": {
+        "success": {
+          "type": "boolean"
+        },
+        "guild_id": {
+          "type": "string"
+        },
+        "user_id": {
+          "type": "string"
+        },
+        "role_id": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "success",
+        "guild_id",
+        "user_id",
+        "role_id"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_discord_updatechannel": {
+      "type": "object",
+      "properties": {
+        "channel_id": {
+          "type": "string",
+          "description": "The ID of the channel to update. Example: \"1504364254634180618\""
+        },
+        "name": {
+          "type": "string",
+          "description": "The name of the channel (1-100 characters)."
+        },
+        "type": {
+          "type": "number",
+          "description": "The type of channel."
+        },
+        "position": {
+          "type": "number",
+          "description": "The position of the channel in the left-hand listing."
+        },
+        "topic": {
+          "type": "string",
+          "description": "The channel topic (0-1024 characters)."
+        },
+        "nsfw": {
+          "type": "boolean",
+          "description": "Whether the channel is NSFW."
+        },
+        "rate_limit_per_user": {
+          "type": "number",
+          "description": "Amount of seconds a user has to wait before sending another message (0-21600)."
+        },
+        "bitrate": {
+          "type": "number",
+          "description": "The bitrate (in bits) of the voice channel."
+        },
+        "user_limit": {
+          "type": "number",
+          "description": "The user limit of the voice channel."
+        },
+        "permission_overwrites": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "type": {
+                "type": "number"
+              },
+              "allow": {
+                "type": "string"
+              },
+              "deny": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "id",
+              "type",
+              "allow",
+              "deny"
+            ],
+            "additionalProperties": false
+          },
+          "description": "Channel or category-specific permissions."
+        },
+        "parent_id": {
+          "type": "string",
+          "description": "ID of the parent category for a channel."
+        },
+        "default_auto_archive_duration": {
+          "type": "number",
+          "description": "Default duration that the clients use (not the API) for newly created threads in the channel."
+        },
+        "flags": {
+          "type": "number",
+          "description": "Channel flags combined as a bitfield."
+        }
+      },
+      "required": [
+        "channel_id"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_discord_updatechannel": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "type": {
+          "type": "number"
+        },
+        "guild_id": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "position": {
+          "type": "number"
+        },
+        "permission_overwrites": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "type": {
+                "type": "number"
+              },
+              "allow": {
+                "type": "string"
+              },
+              "deny": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "id",
+              "type",
+              "allow",
+              "deny"
+            ],
+            "additionalProperties": false
+          }
+        },
+        "nsfw": {
+          "type": "boolean"
+        },
+        "parent_id": {
+          "type": "string"
+        },
+        "topic": {
+          "type": "string"
+        },
+        "last_message_id": {
+          "type": "string"
+        },
+        "bitrate": {
+          "type": "number"
+        },
+        "user_limit": {
+          "type": "number"
+        },
+        "rate_limit_per_user": {
+          "type": "number"
+        },
+        "default_auto_archive_duration": {
+          "type": "number"
+        },
+        "flags": {
+          "type": "number"
+        }
+      },
+      "required": [
+        "id",
+        "type"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_discord_updateguildmember": {
+      "type": "object",
+      "properties": {
+        "guild_id": {
+          "type": "string",
+          "description": "Guild ID. Example: \"1504364254634180618\""
+        },
+        "user_id": {
+          "type": "string",
+          "description": "User ID of the member to update. Example: \"1234567890123456789\""
+        },
+        "nick": {
+          "type": "string",
+          "description": "Value to set user's nickname to"
+        },
+        "roles": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "Array of role IDs to assign to the member"
+        },
+        "mute": {
+          "type": "boolean",
+          "description": "Whether the user is muted in voice channels"
+        },
+        "deaf": {
+          "type": "boolean",
+          "description": "Whether the user is deafened in voice channels"
+        },
+        "channel_id": {
+          "type": "string",
+          "description": "ID of channel to move user to (if they are connected to voice)"
+        },
+        "communication_disabled_until": {
+          "type": "string",
+          "description": "ISO8601 timestamp when the user's timeout will expire (up to 28 days in the future), or null to remove timeout"
+        },
+        "flags": {
+          "type": "number",
+          "description": "Guild member flags"
+        },
+        "reason": {
+          "type": "string",
+          "description": "Optional reason for the audit log"
+        }
+      },
+      "required": [
+        "guild_id",
+        "user_id"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_discord_updateguildmember": {
+      "type": "object",
+      "properties": {
+        "user_id": {
+          "type": "string",
+          "description": "The ID of the user"
+        },
+        "nick": {
+          "type": "string"
+        },
+        "roles": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "deaf": {
+          "type": "boolean"
+        },
+        "mute": {
+          "type": "boolean"
+        },
+        "flags": {
+          "type": "number"
+        },
+        "joined_at": {
+          "type": "string"
+        },
+        "premium_since": {
+          "type": "string"
+        },
+        "communication_disabled_until": {
+          "type": "string"
+        },
+        "pending": {
+          "type": "boolean"
+        },
+        "permissions": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "user_id",
+        "roles",
+        "deaf",
+        "mute",
+        "flags"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_discord_updateguild": {
+      "type": "object",
+      "properties": {
+        "guild_id": {
+          "type": "string",
+          "description": "Guild ID to update. Example: \"197038439483310086\""
+        },
+        "name": {
+          "type": "string",
+          "description": "Guild name (2-100 characters)"
+        },
+        "region": {
+          "type": "string",
+          "description": "Guild voice region id (deprecated)"
+        },
+        "verification_level": {
+          "type": "number",
+          "description": "Verification level (0-4)"
+        },
+        "default_message_notifications": {
+          "type": "number",
+          "description": "Default message notification level (0=ALL_MESSAGES, 1=ONLY_MENTIONS)"
+        },
+        "explicit_content_filter": {
+          "type": "number",
+          "description": "Explicit content filter level (0=DISABLED, 1=MEMBERS_WITHOUT_ROLES, 2=ALL_MEMBERS)"
+        },
+        "afk_channel_id": {
+          "type": "string",
+          "description": "ID of the AFK channel"
+        },
+        "afk_timeout": {
+          "type": "number",
+          "description": "AFK timeout in seconds (60, 300, 900, 1800, 3600)"
+        },
+        "icon": {
+          "type": "string",
+          "description": "Base64 1024x1024 png/jpeg/gif image for the guild icon"
+        },
+        "owner_id": {
+          "type": "string",
+          "description": "ID of the guild owner"
+        },
+        "splash": {
+          "type": "string",
+          "description": "Base64 16:9 png/jpeg image for the guild splash"
+        },
+        "discovery_splash": {
+          "type": "string",
+          "description": "Base64 16:9 png/jpeg image for the guild discovery splash"
+        },
+        "banner": {
+          "type": "string",
+          "description": "Base64 16:9 png/jpeg image for the guild banner"
+        },
+        "system_channel_id": {
+          "type": "string",
+          "description": "ID of the channel where guild notices are posted"
+        },
+        "system_channel_flags": {
+          "type": "number",
+          "description": "System channel flags"
+        },
+        "rules_channel_id": {
+          "type": "string",
+          "description": "ID of the channel where Community guilds display rules"
+        },
+        "public_updates_channel_id": {
+          "type": "string",
+          "description": "ID of the channel where admins/moderators receive notices"
+        },
+        "preferred_locale": {
+          "type": "string",
+          "description": "Preferred locale for Community guilds (e.g., \"en-US\")"
+        },
+        "features": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "Enabled guild features"
+        },
+        "description": {
+          "type": "string",
+          "description": "Guild description"
+        },
+        "premium_progress_bar_enabled": {
+          "type": "boolean",
+          "description": "Whether the boost progress bar should be enabled"
+        },
+        "safety_alerts_channel_id": {
+          "type": "string",
+          "description": "ID of the channel where safety alerts are received"
+        }
+      },
+      "required": [
+        "guild_id"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_discord_updateguild": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "Guild ID"
+        },
+        "name": {
+          "type": "string",
+          "description": "Guild name"
+        },
+        "icon": {
+          "type": "string",
+          "description": "Icon hash"
+        },
+        "description": {
+          "type": "string",
+          "description": "Guild description"
+        },
+        "splash": {
+          "type": "string",
+          "description": "Splash hash"
+        },
+        "discovery_splash": {
+          "type": "string",
+          "description": "Discovery splash hash"
+        },
+        "banner": {
+          "type": "string",
+          "description": "Banner hash"
+        },
+        "owner_id": {
+          "type": "string",
+          "description": "Owner ID"
+        },
+        "afk_channel_id": {
+          "type": "string",
+          "description": "AFK channel ID"
+        },
+        "afk_timeout": {
+          "type": "number",
+          "description": "AFK timeout in seconds"
+        },
+        "verification_level": {
+          "type": "number",
+          "description": "Verification level"
+        },
+        "default_message_notifications": {
+          "type": "number",
+          "description": "Default message notifications level"
+        },
+        "explicit_content_filter": {
+          "type": "number",
+          "description": "Explicit content filter level"
+        },
+        "system_channel_id": {
+          "type": "string",
+          "description": "System channel ID"
+        },
+        "system_channel_flags": {
+          "type": "number",
+          "description": "System channel flags"
+        },
+        "rules_channel_id": {
+          "type": "string",
+          "description": "Rules channel ID"
+        },
+        "public_updates_channel_id": {
+          "type": "string",
+          "description": "Public updates channel ID"
+        },
+        "preferred_locale": {
+          "type": "string",
+          "description": "Preferred locale"
+        },
+        "features": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "Enabled guild features"
+        },
+        "premium_progress_bar_enabled": {
+          "type": "boolean",
+          "description": "Whether boost progress bar is enabled"
+        },
+        "safety_alerts_channel_id": {
+          "type": "string",
+          "description": "Safety alerts channel ID"
+        }
+      },
+      "required": [
+        "id",
+        "name",
+        "icon",
+        "description",
+        "splash",
+        "discovery_splash",
+        "banner",
+        "owner_id",
+        "afk_channel_id",
+        "afk_timeout",
+        "verification_level",
+        "default_message_notifications",
+        "explicit_content_filter",
+        "system_channel_id",
+        "system_channel_flags",
+        "rules_channel_id",
+        "public_updates_channel_id",
+        "preferred_locale",
+        "features",
+        "premium_progress_bar_enabled",
+        "safety_alerts_channel_id"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_discord_updatemessage": {
+      "type": "object",
+      "properties": {
+        "channel_id": {
+          "type": "string",
+          "description": "The ID of the channel containing the message. Example: \"1504383343142240278\""
+        },
+        "message_id": {
+          "type": "string",
+          "description": "The ID of the message to update. Example: \"1504385053805908058\""
+        },
+        "content": {
+          "type": "string",
+          "description": "Message contents (up to 2000 characters)."
+        },
+        "embeds": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false
+          },
+          "description": "Up to 10 embed objects."
+        },
+        "flags": {
+          "type": "number",
+          "description": "Message flags (SUPPRESS_EMBEDS and IS_COMPONENTS_V2 only)."
+        },
+        "allowed_mentions": {
+          "type": "object",
+          "additionalProperties": false,
+          "description": "Allowed mentions object."
+        },
+        "components": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false
+          },
+          "description": "Message components."
+        },
+        "attachments": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false
+          },
+          "description": "Attachments to retain on the message after edit."
+        }
+      },
+      "required": [
+        "channel_id",
+        "message_id"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_discord_updatemessage": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "channel_id": {
+          "type": "string"
+        },
+        "content": {
+          "type": "string"
+        },
+        "timestamp": {
+          "type": "string"
+        },
+        "edited_timestamp": {
+          "type": "string"
+        },
+        "author_id": {
+          "type": "string"
+        },
+        "author_username": {
+          "type": "string"
+        },
+        "author_bot": {
+          "type": "boolean"
+        },
+        "embeds": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false
+          }
+        },
+        "flags": {
+          "type": "number"
+        },
+        "components": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false
+          }
+        },
+        "attachments": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false
+          }
+        }
+      },
+      "required": [
+        "id",
+        "channel_id"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_discord_updaterole": {
+      "type": "object",
+      "properties": {
+        "guildId": {
+          "type": "string",
+          "description": "Guild ID. Example: \"197038439483310086\""
+        },
+        "roleId": {
+          "type": "string",
+          "description": "Role ID. Example: \"41771983423143936\""
+        },
+        "name": {
+          "type": "string",
+          "description": "Name of the role, max 100 characters"
+        },
+        "permissions": {
+          "type": "string",
+          "description": "Bitwise value of the enabled/disabled permissions"
+        },
+        "color": {
+          "type": "number",
+          "description": "Deprecated RGB color value"
+        },
+        "colors": {
+          "type": "object",
+          "properties": {
+            "primary_color": {
+              "type": "number"
+            },
+            "secondary_color": {
+              "type": "number"
+            },
+            "tertiary_color": {
+              "type": "number"
+            }
+          },
+          "additionalProperties": false,
+          "description": "The role's colors"
+        },
+        "hoist": {
+          "type": "boolean",
+          "description": "Whether the role should be displayed separately in the sidebar"
+        },
+        "icon": {
+          "type": "string",
+          "description": "The role's icon image (if the guild has the ROLE_ICONS feature)"
+        },
+        "unicodeEmoji": {
+          "type": "string",
+          "description": "The role's unicode emoji as a standard emoji (if the guild has the ROLE_ICONS feature)"
+        },
+        "mentionable": {
+          "type": "boolean",
+          "description": "Whether the role should be mentionable"
+        }
+      },
+      "required": [
+        "guildId",
+        "roleId"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_discord_updaterole": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "Role ID"
+        },
+        "name": {
+          "type": "string",
+          "description": "Role name"
+        },
+        "color": {
+          "type": "number",
+          "description": "Deprecated integer representation of hexadecimal color code"
+        },
+        "colors": {
+          "type": "object",
+          "properties": {
+            "primary_color": {
+              "type": "number"
+            },
+            "secondary_color": {
+              "type": "number"
+            },
+            "tertiary_color": {
+              "type": "number"
+            }
+          },
+          "required": [
+            "primary_color",
+            "secondary_color",
+            "tertiary_color"
+          ],
+          "additionalProperties": false,
+          "description": "The role's colors"
+        },
+        "hoist": {
+          "type": "boolean",
+          "description": "If this role is pinned in the user listing"
+        },
+        "icon": {
+          "type": "string",
+          "description": "Role icon hash"
+        },
+        "unicode_emoji": {
+          "type": "string",
+          "description": "Role unicode emoji"
+        },
+        "position": {
+          "type": "number",
+          "description": "Position of this role (roles with the same position are sorted by id)"
+        },
+        "permissions": {
+          "type": "string",
+          "description": "Permission bit set"
+        },
+        "managed": {
+          "type": "boolean",
+          "description": "Whether this role is managed by an integration"
+        },
+        "mentionable": {
+          "type": "boolean",
+          "description": "Whether this role is mentionable"
+        },
+        "tags": {
+          "type": "object",
+          "properties": {
+            "bot_id": {
+              "type": "string"
+            },
+            "integration_id": {
+              "type": "string"
+            },
+            "premium_subscriber": {
+              "type": "null"
+            },
+            "subscription_listing_id": {
+              "type": "string"
+            },
+            "available_for_purchase": {
+              "type": "null"
+            },
+            "guild_connections": {
+              "type": "null"
+            }
+          },
+          "additionalProperties": false,
+          "description": "The tags this role has"
+        },
+        "flags": {
+          "type": "number",
+          "description": "Role flags combined as a bitfield"
+        }
+      },
+      "required": [
+        "id",
+        "name",
+        "color",
+        "hoist",
+        "position",
+        "permissions",
+        "managed",
+        "mentionable",
+        "flags"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_discord_updatewebhook": {
+      "type": "object",
+      "properties": {
+        "webhook_id": {
+          "type": "string",
+          "description": "The ID of the webhook to update. Example: \"223704706495545344\""
+        },
+        "name": {
+          "type": "string",
+          "description": "The new name of the webhook (1-80 characters)."
+        },
+        "avatar": {
+          "type": "string",
+          "description": "The base64-encoded image data for the webhook avatar, or null to remove."
+        },
+        "channel_id": {
+          "type": "string",
+          "description": "The new channel ID to move the webhook to."
+        }
+      },
+      "required": [
+        "webhook_id"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_discord_updatewebhook": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "type": {
+          "type": "number"
+        },
+        "guild_id": {
+          "type": "string"
+        },
+        "channel_id": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "avatar": {
+          "type": "string"
+        },
+        "token": {
+          "type": "string"
+        },
+        "application_id": {
+          "type": "string"
+        },
+        "user": {
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "string"
+            },
+            "username": {
+              "type": "string"
+            },
+            "discriminator": {
+              "type": "string"
+            },
+            "avatar": {
+              "type": "string"
+            },
+            "public_flags": {
+              "type": "number"
+            }
+          },
+          "required": [
+            "id",
+            "username",
+            "discriminator"
+          ],
+          "additionalProperties": false
+        }
+      },
+      "required": [
+        "id",
+        "type"
+      ],
+      "additionalProperties": false
+    },
     "SyncMetadata_discourse_activeusers": {
       "type": "object",
       "additionalProperties": false
@@ -50248,89 +53784,6 @@
       "required": [
         "id",
         "name"
-      ],
-      "additionalProperties": false
-    },
-    "Message": {
-      "type": "object",
-      "properties": {
-        "id": {
-          "type": "string"
-        },
-        "channel_id": {
-          "type": "string"
-        },
-        "channel_name": {
-          "type": "string"
-        },
-        "user_id": {
-          "type": "string"
-        },
-        "user_name": {
-          "type": "string"
-        },
-        "text": {
-          "type": "string"
-        },
-        "timestamp": {
-          "type": "string"
-        },
-        "thread_ts": {
-          "type": "string"
-        },
-        "parent_ts": {
-          "type": "string"
-        },
-        "is_thread_reply": {
-          "type": "boolean"
-        },
-        "reactions": {
-          "type": "array",
-          "items": {
-            "type": "object",
-            "properties": {
-              "name": {
-                "type": "string"
-              },
-              "count": {
-                "type": "number"
-              },
-              "users": {
-                "type": "array",
-                "items": {
-                  "type": "string"
-                }
-              }
-            },
-            "required": [
-              "name",
-              "count",
-              "users"
-            ],
-            "additionalProperties": false
-          }
-        },
-        "reply_count": {
-          "type": "number"
-        },
-        "reply_users": {
-          "type": "array",
-          "items": {
-            "type": "string"
-          }
-        },
-        "created_at": {
-          "type": "string"
-        }
-      },
-      "required": [
-        "id",
-        "channel_id",
-        "channel_name",
-        "user_id",
-        "text",
-        "timestamp",
-        "created_at"
       ],
       "additionalProperties": false
     },
@@ -109028,66 +112481,6 @@
     },
     "SyncMetadata_shopify_orders": {
       "type": "object",
-      "additionalProperties": false
-    },
-    "Channel": {
-      "type": "object",
-      "properties": {
-        "id": {
-          "type": "string"
-        },
-        "title": {
-          "type": "string"
-        },
-        "description": {
-          "type": "string"
-        },
-        "customUrl": {
-          "type": "string"
-        },
-        "publishedAt": {
-          "type": "string"
-        },
-        "thumbnailDefaultUrl": {
-          "type": "string"
-        },
-        "thumbnailMediumUrl": {
-          "type": "string"
-        },
-        "thumbnailHighUrl": {
-          "type": "string"
-        },
-        "viewCount": {
-          "type": "number"
-        },
-        "subscriberCount": {
-          "type": "number"
-        },
-        "hiddenSubscriberCount": {
-          "type": "boolean"
-        },
-        "videoCount": {
-          "type": "number"
-        },
-        "country": {
-          "type": "string"
-        },
-        "privacyStatus": {
-          "type": "string"
-        },
-        "isLinked": {
-          "type": "boolean"
-        },
-        "madeForKids": {
-          "type": "boolean"
-        },
-        "selfDeclaredMadeForKids": {
-          "type": "boolean"
-        }
-      },
-      "required": [
-        "id"
-      ],
       "additionalProperties": false
     },
     "SyncMetadata_slack_channels": {

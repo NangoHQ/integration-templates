@@ -1,0 +1,111 @@
+{
+  "input": {
+    "channel_id": "1504364255091228764",
+    "message_id": "1504384650876026922",
+    "name": "Test Thread From New Message",
+    "auto_archive_duration": 1440
+  },
+  "output": {
+    "id": "1504384650876026922",
+    "type": 11,
+    "guild_id": "1504364254634180618",
+    "name": "Test Thread From New Message",
+    "last_message_id": "1504384701333241897",
+    "parent_id": "1504364255091228764",
+    "owner_id": "1504348286742564904",
+    "message_count": 0,
+    "member_count": 1,
+    "rate_limit_per_user": 0,
+    "thread_metadata": {
+      "archived": false,
+      "auto_archive_duration": 1440,
+      "archive_timestamp": "2026-05-14T07:27:42.980131+00:00",
+      "locked": false,
+      "create_timestamp": "2026-05-14T07:27:42.980131+00:00"
+    }
+  },
+  "nango": {
+    "getConnection": {},
+    "getMetadata": {
+      "botToken": ""
+    }
+  },
+  "api": {
+    "post": {
+      "/api/v10/channels/1504364255091228764/messages/1504384650876026922/threads": {
+        "response": {
+          "id": "1504384650876026922",
+          "type": 11,
+          "last_message_id": "1504384701333241897",
+          "flags": 0,
+          "guild_id": "1504364254634180618",
+          "name": "Test Thread From New Message",
+          "parent_id": "1504364255091228764",
+          "rate_limit_per_user": 0,
+          "bitrate": 64000,
+          "user_limit": 0,
+          "rtc_region": null,
+          "owner_id": "1504348286742564904",
+          "thread_metadata": {
+            "archived": false,
+            "archive_timestamp": "2026-05-14T07:27:42.980131+00:00",
+            "auto_archive_duration": 1440,
+            "locked": false,
+            "create_timestamp": "2026-05-14T07:27:42.980131+00:00"
+          },
+          "message_count": 0,
+          "member_count": 1,
+          "total_message_sent": 0,
+          "member": {
+            "id": "1504384650876026922",
+            "user_id": "1504348286742564904",
+            "join_timestamp": "2026-05-14T07:27:42.981022+00:00",
+            "flags": 1,
+            "muted": false,
+            "mute_config": null
+          }
+        },
+        "status": 201,
+        "headers": {
+          "date": "Thu, 14 May 2026 07:27:43 GMT",
+          "content-type": "application/json",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=31536000; includeSubDomains; preload",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "50",
+          "x-ratelimit-remaining": "49",
+          "x-ratelimit-reset": "1778743962.917",
+          "server": "cloudflare",
+          "x-ratelimit-bucket": "7ced0bc5b612b6797114f6ffc4b5fe04",
+          "x-ratelimit-reset-after": "300.000",
+          "x-discord-features": "threads",
+          "vary": "Accept-Encoding",
+          "via": "1.1 google",
+          "alt-svc": "h3=\":443\"; ma=86400",
+          "cf-cache-status": "DYNAMIC",
+          "set-cookie": "REDACTED",
+          "content-security-policy": "frame-ancestors 'none'; default-src https://o64374.ingest.sentry.io; report-to csp-sentry; report-uri https://o64374.ingest.sentry.io/api/5441894/security/?sentry_key=8fbbce30bf5244ec9429546beef21870&sentry_environment=stable",
+          "report-to": "{\"group\":\"cf-nel\",\"max_age\":604800,\"endpoints\":[{\"url\":\"https://a.nel.cloudflare.com/report/v4?s=bDXCxsAYjymYVzEnfd1FF3zTflFvMEhIfiA2U%2FrUnD%2F9QtgbDnzHQZbZvkK14siYUesaHUReGRoC7PxeljNMcJcM3AMMADc7XmeQCrwRlxarchUPo6VMvd45OiAW\"}]}",
+          "nel": "{\"report_to\":\"cf-nel\",\"success_fraction\":0.0,\"max_age\":604800}",
+          "reporting-endpoints": "csp-sentry=\"https://o64374.ingest.sentry.io/api/5441894/security/?sentry_key=8fbbce30bf5244ec9429546beef21870&sentry_environment=stable\"",
+          "cf-ray": "9fb82e94b807758f-PDX"
+        },
+        "hash": "2a3241a20056644a9ac794d0f33a3941e9838097",
+        "request": {
+          "data": {
+            "name": "Test Thread From New Message",
+            "auto_archive_duration": 1440
+          }
+        }
+      }
+    }
+  }
+}
