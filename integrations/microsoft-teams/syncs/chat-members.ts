@@ -91,8 +91,7 @@ const sync = createSync({
 
         let chatsPageEndpoint = '/v1.0/me/chats';
 
-        try {
-            while (chatsPageEndpoint) {
+        while (chatsPageEndpoint) {
                 // https://learn.microsoft.com/graph/api/chat-list
                 const chatsRequest = buildGraphRequest(chatsPageEndpoint, chatsPageEndpoint === '/v1.0/me/chats' ? { $top: '50' } : undefined);
                 const chatResponse = await nango.get({
@@ -134,25 +133,14 @@ const sync = createSync({
                         }
 
                         membersNextLink = memberData['@odata.nextLink'];
-
-                        if (membersNextLink) {
-                            await nango.saveCheckpoint({ chatsPageEndpoint, chatIndex, membersNextLink });
-                        } else if (chatIndex < chats.length - 1) {
-                            await nango.saveCheckpoint({ chatsPageEndpoint, chatIndex: chatIndex + 1, membersNextLink: '' });
-                        } else if (chatData['@odata.nextLink']) {
-                            await nango.saveCheckpoint({ chatsPageEndpoint: chatData['@odata.nextLink'], chatIndex: 0, membersNextLink: '' });
-                        }
                     } while (membersNextLink);
                 }
 
                 chatsPageEndpoint = chatData['@odata.nextLink'] || '';
-            }
-
-            await flushBatch();
-        } finally {
-            await nango.saveCheckpoint({ chatsPageEndpoint: '', chatIndex: -1, membersNextLink: '' });
-            await nango.trackDeletesEnd('ChatMember');
         }
+
+        await flushBatch();
+        await nango.trackDeletesEnd('ChatMember');
     }
 });
 

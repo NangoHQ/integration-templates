@@ -52,50 +52,42 @@ const sync = createSync({
 
         let nextLink: string | undefined = '/v1.0/me/joinedTeams';
 
-        try {
-            while (nextLink) {
-                // https://learn.microsoft.com/graph/api/user-list-joinedteams
-                const response = await nango.get({
-                    endpoint: nextLink,
-                    retries: 3
+        while (nextLink) {
+            // https://learn.microsoft.com/graph/api/user-list-joinedteams
+            const response = await nango.get({
+                endpoint: nextLink,
+                retries: 3
+            });
+
+            const parsed = ProviderTeamsResponseSchema.parse(response.data);
+            const mappedTeams = parsed.value
+                .filter((team) => team.id !== '')
+                .map((team) => {
+                    const result: z.infer<typeof JoinedTeamSchema> = {
+                        id: team.id
+                    };
+                    if (team.displayName !== null && team.displayName !== undefined) {
+                        result.displayName = team.displayName;
+                    }
+                    if (team.description !== null && team.description !== undefined) {
+                        result.description = team.description;
+                    }
+                    if (team.isArchived !== null && team.isArchived !== undefined) {
+                        result.isArchived = team.isArchived;
+                    }
+                    if (team.tenantId !== null && team.tenantId !== undefined) {
+                        result.tenantId = team.tenantId;
+                    }
+                    return result;
                 });
 
-                const parsed = ProviderTeamsResponseSchema.parse(response.data);
-                const mappedTeams = parsed.value
-                    .filter((team) => team.id !== '')
-                    .map((team) => {
-                        const result: z.infer<typeof JoinedTeamSchema> = {
-                            id: team.id
-                        };
-                        if (team.displayName !== null && team.displayName !== undefined) {
-                            result.displayName = team.displayName;
-                        }
-                        if (team.description !== null && team.description !== undefined) {
-                            result.description = team.description;
-                        }
-                        if (team.isArchived !== null && team.isArchived !== undefined) {
-                            result.isArchived = team.isArchived;
-                        }
-                        if (team.tenantId !== null && team.tenantId !== undefined) {
-                            result.tenantId = team.tenantId;
-                        }
-                        return result;
-                    });
-
-                if (mappedTeams.length > 0) {
-                    await nango.batchSave(mappedTeams, 'JoinedTeam');
-                }
-
-                nextLink = parsed['@odata.nextLink'];
-
-                if (nextLink) {
-                    await nango.saveCheckpoint({ nextLink });
-                }
+            if (mappedTeams.length > 0) {
+                await nango.batchSave(mappedTeams, 'JoinedTeam');
             }
-        } finally {
-            await nango.saveCheckpoint({ nextLink: '' });
-            await nango.trackDeletesEnd('JoinedTeam');
+
+            nextLink = parsed['@odata.nextLink'];
         }
+        await nango.trackDeletesEnd('JoinedTeam');
     }
 });
 

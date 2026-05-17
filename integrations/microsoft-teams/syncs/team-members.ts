@@ -69,62 +69,50 @@ const sync = createSync({
 
         let teamsPageEndpoint = '/v1.0/me/joinedTeams';
 
-        try {
-            while (teamsPageEndpoint) {
-                // https://learn.microsoft.com/en-us/graph/api/user-list-joinedteams
-                const teamsResponse = await nango.get({
-                    endpoint: teamsPageEndpoint,
-                    retries: 3
-                });
+        while (teamsPageEndpoint) {
+            // https://learn.microsoft.com/en-us/graph/api/user-list-joinedteams
+            const teamsResponse = await nango.get({
+                endpoint: teamsPageEndpoint,
+                retries: 3
+            });
 
-                const parsedTeams = TeamsResponseSchema.parse(teamsResponse.data);
-                const teams = parsedTeams.value;
+            const parsedTeams = TeamsResponseSchema.parse(teamsResponse.data);
+            const teams = parsedTeams.value;
 
-                for (let teamIndex = 0; teamIndex < teams.length; teamIndex += 1) {
-                    const team = teams[teamIndex]!;
-                    let membersNextLink: string | undefined;
+            for (let teamIndex = 0; teamIndex < teams.length; teamIndex += 1) {
+                const team = teams[teamIndex]!;
+                let membersNextLink: string | undefined;
 
-                    do {
-                        // https://learn.microsoft.com/en-us/graph/api/team-list-members
-                        const membersResponse = await nango.get({
-                            endpoint: membersNextLink || `/v1.0/teams/${team.id}/members?$top=100`,
-                            retries: 3
-                        });
+                do {
+                    // https://learn.microsoft.com/en-us/graph/api/team-list-members
+                    const membersResponse = await nango.get({
+                        endpoint: membersNextLink || `/v1.0/teams/${team.id}/members?$top=100`,
+                        retries: 3
+                    });
 
-                        const parsedMembers = TeamMembersResponseSchema.parse(membersResponse.data);
-                        const members = parsedMembers.value
-                            .filter((member) => member.userId)
-                            .map((member) => ({
-                                id: `${team.id}_${member.userId}`,
-                                teamId: team.id,
-                                userId: member.userId!,
-                                ...(member.displayName != null && { displayName: member.displayName }),
-                                ...(member.email != null && { email: member.email }),
-                                roles: member.roles ?? []
-                            }));
+                    const parsedMembers = TeamMembersResponseSchema.parse(membersResponse.data);
+                    const members = parsedMembers.value
+                        .filter((member) => member.userId)
+                        .map((member) => ({
+                            id: `${team.id}_${member.userId}`,
+                            teamId: team.id,
+                            userId: member.userId!,
+                            ...(member.displayName != null && { displayName: member.displayName }),
+                            ...(member.email != null && { email: member.email }),
+                            roles: member.roles ?? []
+                        }));
 
-                        if (members.length > 0) {
-                            await nango.batchSave(members, 'TeamMember');
-                        }
+                    if (members.length > 0) {
+                        await nango.batchSave(members, 'TeamMember');
+                    }
 
-                        membersNextLink = parsedMembers['@odata.nextLink'];
-
-                        if (membersNextLink) {
-                            await nango.saveCheckpoint({ teamsPageEndpoint, teamIndex, membersNextLink });
-                        } else if (teamIndex < teams.length - 1) {
-                            await nango.saveCheckpoint({ teamsPageEndpoint, teamIndex: teamIndex + 1, membersNextLink: '' });
-                        } else if (parsedTeams['@odata.nextLink']) {
-                            await nango.saveCheckpoint({ teamsPageEndpoint: parsedTeams['@odata.nextLink'], teamIndex: 0, membersNextLink: '' });
-                        }
-                    } while (membersNextLink);
-                }
-
-                teamsPageEndpoint = parsedTeams['@odata.nextLink'] || '';
+                    membersNextLink = parsedMembers['@odata.nextLink'];
+                } while (membersNextLink);
             }
-        } finally {
-            await nango.saveCheckpoint({ teamsPageEndpoint: '', teamIndex: -1, membersNextLink: '' });
-            await nango.trackDeletesEnd('TeamMember');
+
+            teamsPageEndpoint = parsedTeams['@odata.nextLink'] || '';
         }
+        await nango.trackDeletesEnd('TeamMember');
     }
 });
 

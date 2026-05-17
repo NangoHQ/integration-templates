@@ -122,8 +122,7 @@ const sync = createSync<{ ChannelMessageReply: typeof ChannelMessageReplySchema 
         await nango.saveCheckpoint({ parentIndex: -1, nextLink: '' });
         await nango.trackDeletesStart('ChannelMessageReply');
 
-        try {
-            for (let parentIndex = 0; parentIndex < parentMessagesParsed.length; parentIndex += 1) {
+        for (let parentIndex = 0; parentIndex < parentMessagesParsed.length; parentIndex += 1) {
                 const parent = parentMessagesParsed[parentIndex];
 
                 if (!parent) {
@@ -174,18 +173,9 @@ const sync = createSync<{ ChannelMessageReply: typeof ChannelMessageReplySchema 
                     }
 
                     nextLink = parsed['@odata.nextLink'];
-
-                    if (nextLink) {
-                        await nango.saveCheckpoint({ parentIndex, nextLink });
-                    } else if (parentIndex < parentMessagesParsed.length - 1) {
-                        await nango.saveCheckpoint({ parentIndex: parentIndex + 1, nextLink: '' });
-                    }
                 } while (nextLink);
-            }
-        } finally {
-            await nango.saveCheckpoint({ parentIndex: -1, nextLink: '' });
-            await nango.trackDeletesEnd('ChannelMessageReply');
         }
+        await nango.trackDeletesEnd('ChannelMessageReply');
     }
 });
 
