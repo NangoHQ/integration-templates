@@ -36146,14 +36146,14 @@ export interface ActionOutput_twitter_v2_createtweet {
 
 export interface ActionInput_twitter_v2_deletelikedtweet {
   /**
-   * The ID of the tweet to delete. Example: "1346889436626259968"
+   * The ID of the liked tweet to remove. Example: "1346889436626259968"
    */
-  id: string;
+  tweet_id: string;
 };
 
 export interface ActionOutput_twitter_v2_deletelikedtweet {
-  id: string;
-  deleted: boolean;
+  success: boolean;
+  liked?: boolean | undefined;
 };
 
 export interface ActionInput_twitter_v2_deletelist {

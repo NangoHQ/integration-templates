@@ -110139,29 +110139,28 @@
     "ActionInput_twitter_v2_deletelikedtweet": {
       "type": "object",
       "properties": {
-        "id": {
+        "tweet_id": {
           "type": "string",
-          "description": "The ID of the tweet to delete. Example: \"1346889436626259968\""
+          "description": "The ID of the liked tweet to remove. Example: \"1346889436626259968\""
         }
       },
       "required": [
-        "id"
+        "tweet_id"
       ],
       "additionalProperties": false
     },
     "ActionOutput_twitter_v2_deletelikedtweet": {
       "type": "object",
       "properties": {
-        "id": {
-          "type": "string"
+        "success": {
+          "type": "boolean"
         },
-        "deleted": {
+        "liked": {
           "type": "boolean"
         }
       },
       "required": [
-        "id",
-        "deleted"
+        "success"
       ],
       "additionalProperties": false
     },
