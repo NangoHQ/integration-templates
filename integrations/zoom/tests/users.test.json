@@ -1,0 +1,87 @@
+{
+  "nango": {
+    "batchSave": {
+      "User": [
+        {
+          "id": "_rvy35H7Sx2rTplFO1PgGg",
+          "first_name": "Integration",
+          "last_name": "Developer",
+          "email": "api@nango.dev",
+          "type": 1,
+          "pmi": 7764777964,
+          "timezone": "Africa/Nairobi",
+          "created_at": "2026-05-13T06:50:39Z",
+          "last_login_time": "2026-05-13T06:50:39Z",
+          "status": "active",
+          "role_id": "0"
+        }
+      ]
+    },
+    "batchDelete": {
+      "User": []
+    }
+  },
+  "api": {
+    "get": {
+      "/users": {
+        "response": {
+          "page_count": 1,
+          "page_number": 1,
+          "page_size": 300,
+          "total_records": 1,
+          "next_page_token": "",
+          "users": [
+            {
+              "id": "_rvy35H7Sx2rTplFO1PgGg",
+              "first_name": "Integration",
+              "last_name": "Developer",
+              "display_name": "Integration Developer",
+              "email": "api@nango.dev",
+              "type": 1,
+              "pmi": 7764777964,
+              "timezone": "Africa/Nairobi",
+              "verified": 0,
+              "created_at": "2026-05-13T06:50:39Z",
+              "last_login_time": "2026-05-13T06:50:39Z",
+              "pic_url": "https://us05web.zoom.us/p/v2/49b56a99327bdafa89584bfc8ecb9ccaa1c58dfc6074e78d87b301818062fe26/7816cdf1-2965-4c47-9234-8a12b3bcfbdf-2644",
+              "language": "en-US",
+              "phone_number": "",
+              "status": "active",
+              "login_types": [
+                1
+              ],
+              "role_id": "0",
+              "user_created_at": "2026-05-13T06:50:39Z"
+            }
+          ]
+        },
+        "status": 200,
+        "headers": {
+          "date": "Wed, 13 May 2026 11:02:06 GMT",
+          "content-type": "application/json;charset=UTF-8",
+          "content-length": "663",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=5184000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4994",
+          "x-ratelimit-reset": "1778670182",
+          "etag": "W/\"297-5qrIQDmGcYHWWrcptLiAPbNKdCM\""
+        },
+        "hash": "ab5ac7efbb5b7f253b3777ce58d12e7807e51463",
+        "request": {
+          "params": {
+            "page_size": "300"
+          }
+        }
+      }
+    }
+  }
+}

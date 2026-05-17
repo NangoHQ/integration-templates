@@ -1,0 +1,104 @@
+{
+  "input": {
+    "channelId": "1504353981911273533",
+    "content": "Hello from Nango!"
+  },
+  "output": {
+    "id": "1504385123347595304",
+    "channelId": "1504353981911273533",
+    "authorId": "1504348286742564904",
+    "authorUsername": "NangoAPIBot",
+    "content": "Hello from Nango!",
+    "timestamp": "2026-05-14T07:29:23.530000+00:00",
+    "tts": false,
+    "pinned": false,
+    "type": 0
+  },
+  "nango": {
+    "getConnection": {},
+    "getMetadata": {
+      "botToken": "DISCORD_BOT_TOKEN",
+      "guild_id": "1504353980598321172"
+    }
+  },
+  "api": {
+    "post": {
+      "/api/v10/channels/1504353981911273533/messages": {
+        "response": {
+          "type": 0,
+          "content": "Hello from Nango!",
+          "mentions": [],
+          "mention_roles": [],
+          "attachments": [],
+          "embeds": [],
+          "timestamp": "2026-05-14T07:29:23.530000+00:00",
+          "edited_timestamp": null,
+          "flags": 0,
+          "components": [],
+          "id": "1504385123347595304",
+          "channel_id": "1504353981911273533",
+          "author": {
+            "id": "1504348286742564904",
+            "username": "NangoAPIBot",
+            "avatar": "c5072fb99e63ace46ec2e4a609037289",
+            "discriminator": "7363",
+            "public_flags": 0,
+            "flags": 0,
+            "bot": true,
+            "banner": null,
+            "accent_color": null,
+            "global_name": null,
+            "avatar_decoration_data": null,
+            "collectibles": null,
+            "display_name_styles": null,
+            "banner_color": null,
+            "clan": null,
+            "primary_guild": null
+          },
+          "pinned": false,
+          "mention_everyone": false,
+          "tts": false
+        },
+        "status": 200,
+        "headers": {
+          "date": "Thu, 14 May 2026 07:29:23 GMT",
+          "content-type": "application/json",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=31536000; includeSubDomains; preload",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5",
+          "x-ratelimit-remaining": "4",
+          "x-ratelimit-reset": "1778743764.507",
+          "server": "cloudflare",
+          "x-ratelimit-bucket": "62df3a8bf3cb0dd93018dd80d06039f6",
+          "x-ratelimit-reset-after": "1.000",
+          "x-discord-features": "chat",
+          "vary": "Accept-Encoding",
+          "via": "1.1 google",
+          "alt-svc": "h3=\":443\"; ma=86400",
+          "cf-cache-status": "DYNAMIC",
+          "set-cookie": "REDACTED",
+          "content-security-policy": "frame-ancestors 'none'; default-src https://o64374.ingest.sentry.io; report-to csp-sentry; report-uri https://o64374.ingest.sentry.io/api/5441894/security/?sentry_key=8fbbce30bf5244ec9429546beef21870&sentry_environment=stable",
+          "report-to": "{\"group\":\"cf-nel\",\"max_age\":604800,\"endpoints\":[{\"url\":\"https://a.nel.cloudflare.com/report/v4?s=gkrFmMcc7d2lGAxckUDvs320vkn3930pQsPX2yJfh0iWCoEME2kc8GCeXB0tXscHyPwe8pGaYa4DK7NYDF6dK6Q7gMfiE1V2%2FObaPjlUc%2BHxiWuHDi4xfqpsObIA\"}]}",
+          "nel": "{\"report_to\":\"cf-nel\",\"success_fraction\":0.0,\"max_age\":604800}",
+          "reporting-endpoints": "csp-sentry=\"https://o64374.ingest.sentry.io/api/5441894/security/?sentry_key=8fbbce30bf5244ec9429546beef21870&sentry_environment=stable\"",
+          "cf-ray": "9fb831097f1c0d10-PDX"
+        },
+        "hash": "0bd83fd6b0474355d7fc416414e341db109eb28d",
+        "request": {
+          "data": {
+            "content": "Hello from Nango!"
+          }
+        }
+      }
+    }
+  }
+}

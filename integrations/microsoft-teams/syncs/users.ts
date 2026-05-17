@@ -1,145 +1,180 @@
 import { createSync } from 'nango';
-import type { DirectoryUsersResponse } from '../types.js';
+import { z } from 'zod';
 
-import { User, Metadata } from '../models.js';
+// Provider response schema - matches Microsoft Graph API casing
+const ProviderUserSchema = z.object({
+    id: z.string(),
+    displayName: z.string().nullable().optional(),
+    givenName: z.string().nullable().optional(),
+    surname: z.string().nullable().optional(),
+    mail: z.string().nullable().optional(),
+    userPrincipalName: z.string().optional(),
+    jobTitle: z.string().nullable().optional(),
+    department: z.string().nullable().optional(),
+    officeLocation: z.string().nullable().optional(),
+    businessPhones: z.array(z.string()).optional(),
+    mobilePhone: z.string().nullable().optional(),
+    createdDateTime: z.string().nullable().optional(),
+    lastPasswordChangeDateTime: z.string().nullable().optional(),
+    accountEnabled: z.boolean().nullable().optional(),
+    userType: z.string().nullable().optional(),
+    '@removed': z.object({}).passthrough().optional()
+});
+
+// Normalized sync model
+const UserSchema = z.object({
+    id: z.string(),
+    displayName: z.string().optional(),
+    givenName: z.string().optional(),
+    surname: z.string().optional(),
+    mail: z.string().optional(),
+    userPrincipalName: z.string(),
+    jobTitle: z.string().optional(),
+    department: z.string().optional(),
+    officeLocation: z.string().optional(),
+    businessPhones: z.array(z.string()).optional(),
+    mobilePhone: z.string().optional(),
+    createdDateTime: z.string().optional(),
+    lastPasswordChangeDateTime: z.string().optional(),
+    accountEnabled: z.boolean().optional(),
+    userType: z.string().optional()
+});
+
+const CheckpointSchema = z.object({
+    deltaLink: z.string()
+});
+
+const UsersDeltaResponseSchema = z.object({
+    value: z.array(ProviderUserSchema),
+    '@odata.nextLink': z.string().optional(),
+    '@odata.deltaLink': z.string().optional()
+});
+
+const SELECT_FIELDS = [
+    'id',
+    'displayName',
+    'givenName',
+    'surname',
+    'mail',
+    'userPrincipalName',
+    'jobTitle',
+    'department',
+    'officeLocation',
+    'businessPhones',
+    'mobilePhone',
+    'createdDateTime',
+    'lastPasswordChangeDateTime',
+    'accountEnabled',
+    'userType'
+].join(',');
+
+function buildGraphRequest(endpointOrUrl: string, defaultParams?: Record<string, string>) {
+    if (!endpointOrUrl.includes('?')) {
+        return {
+            endpoint: endpointOrUrl,
+            ...(defaultParams ? { params: defaultParams } : {})
+        };
+    }
+
+    const isAbsoluteUrl = endpointOrUrl.startsWith('http');
+    const url = new URL(isAbsoluteUrl ? endpointOrUrl : `https://graph.microsoft.com${endpointOrUrl}`);
+    const params = Object.fromEntries(url.searchParams.entries());
+
+    return {
+        endpoint: url.pathname,
+        ...(isAbsoluteUrl ? { baseUrlOverride: url.origin } : {}),
+        ...(Object.keys(params).length > 0 ? { params } : {})
+    };
+}
 
 const sync = createSync({
-    description: 'Continuously fetches users from either Microsoft 365 or Azure Active\nDirectory given specified\ngroups to sync.',
-    version: '2.0.0',
+    description: 'Sync directory users relevant to Microsoft Teams workspaces',
+    version: '3.0.0',
     frequency: 'every hour',
-    autoStart: false,
-    syncType: 'full',
-
+    autoStart: true,
+    checkpoint: CheckpointSchema,
+    models: {
+        User: UserSchema
+    },
     endpoints: [
         {
-            method: 'GET',
-            path: '/users',
-            group: 'Users'
+            path: '/syncs/users',
+            method: 'GET'
         }
     ],
 
-    scopes: ['User.Read.All'],
-
-    models: {
-        User: User
-    },
-
-    metadata: Metadata,
-
     exec: async (nango) => {
-        const metadata = await nango.getMetadata();
-        const { orgsToSync } = metadata;
+        const checkpointResult = await nango.getCheckpoint();
+        const parsedCheckpoint = CheckpointSchema.safeParse(checkpointResult);
+        const checkpoint = parsedCheckpoint.success ? parsedCheckpoint.data : { deltaLink: '' };
 
-        if (!metadata) {
-            throw new Error('No metadata');
+        let cursor = checkpoint.deltaLink || '/v1.0/users/delta';
+
+        while (cursor) {
+            // https://learn.microsoft.com/graph/api/user-delta
+            const request = buildGraphRequest(cursor, cursor === '/v1.0/users/delta' ? { $select: SELECT_FIELDS } : undefined);
+            const response = await nango.get({
+                ...request,
+                retries: 3
+            });
+            const parsed = UsersDeltaResponseSchema.parse(response.data);
+
+            const upserts: z.infer<typeof UserSchema>[] = [];
+            const deletions: { id: string }[] = [];
+
+            for (const user of parsed.value) {
+                if (user['@removed'] !== undefined) {
+                    deletions.push({ id: user.id });
+                    continue;
+                }
+
+                if (!user.userPrincipalName) {
+                    await nango.log(`Skipping user ${user.id} because delta payload omitted userPrincipalName`, { level: 'warn' });
+                    continue;
+                }
+
+                upserts.push({
+                    id: user.id,
+                    ...(user.displayName != null && { displayName: user.displayName }),
+                    ...(user.givenName != null && { givenName: user.givenName }),
+                    ...(user.surname != null && { surname: user.surname }),
+                    ...(user.mail != null && { mail: user.mail }),
+                    userPrincipalName: user.userPrincipalName,
+                    ...(user.jobTitle != null && { jobTitle: user.jobTitle }),
+                    ...(user.department != null && { department: user.department }),
+                    ...(user.officeLocation != null && { officeLocation: user.officeLocation }),
+                    ...(user.businessPhones != null && { businessPhones: user.businessPhones }),
+                    ...(user.mobilePhone != null && { mobilePhone: user.mobilePhone }),
+                    ...(user.createdDateTime != null && { createdDateTime: user.createdDateTime }),
+                    ...(user.lastPasswordChangeDateTime != null && {
+                        lastPasswordChangeDateTime: user.lastPasswordChangeDateTime
+                    }),
+                    ...(user.accountEnabled != null && { accountEnabled: user.accountEnabled }),
+                    ...(user.userType != null && { userType: user.userType })
+                });
+            }
+
+            if (upserts.length > 0) {
+                await nango.batchSave(upserts, 'User');
+            }
+
+            if (deletions.length > 0) {
+                await nango.batchDelete(deletions, 'User');
+            }
+
+            if (parsed['@odata.nextLink']) {
+                cursor = parsed['@odata.nextLink'];
+                await nango.saveCheckpoint({ deltaLink: cursor });
+            } else if (parsed['@odata.deltaLink']) {
+                cursor = parsed['@odata.deltaLink'];
+                await nango.saveCheckpoint({ deltaLink: cursor });
+                break;
+            } else {
+                break;
+            }
         }
-
-        if (!orgsToSync) {
-            throw new Error('No orgs to sync');
-        }
-
-        const baseEndpoint = '/v1.0/groups';
-
-        for (const orgId of orgsToSync) {
-            const endpoint = `${baseEndpoint}/${orgId}/transitiveMembers?$top=500`;
-
-            await nango.log(`Fetching users for org ID: ${orgId}`);
-            await fetchAndUpdateUsers(nango, endpoint);
-        }
-
-        const endpoint = 'v1.0/directory/deletedItems/microsoft.graph.user?$top=100';
-        await nango.log(`Detecting deleted users`);
-        await fetchAndUpdateUsers(nango, endpoint, true);
     }
 });
 
 export type NangoSyncLocal = Parameters<(typeof sync)['exec']>[0];
 export default sync;
-async function fetchAndUpdateUsers(nango: NangoSyncLocal, endpoint: string, runDelete = false): Promise<void> {
-    const selects = [
-        'id',
-        'mail',
-        'displayName',
-        'givenName',
-        'deletedDateTime',
-        'surname',
-        'userPrincipalName',
-        'mobilePhone',
-        'accountEnabled',
-        'userType',
-        'createdDateTime'
-    ];
-
-    do {
-        const disabledUsers: User[] = [];
-
-        const response = await nango.get<DirectoryUsersResponse>({
-            endpoint,
-            retries: 5,
-            params: {
-                $select: selects.join(',')
-            }
-        });
-
-        const { data } = response;
-
-        if (!data?.value) {
-            await nango.log(`No ${runDelete ? 'deleted ' : ''}users found.`);
-            break;
-        }
-
-        const users: User[] = [];
-        for (const u of data.value) {
-            let email = u.mail;
-            if (runDelete && !email && u.userPrincipalName) {
-                const id = u.id.replace(/-/g, '');
-                email = u.userPrincipalName.replace(id, '');
-            }
-
-            if (u['@odata.type'] && !u['@odata.type'].includes('#microsoft.graph.user')) {
-                continue;
-            }
-            const user: User = {
-                id: u.id,
-                email,
-                displayName: u.displayName,
-                givenName: u.givenName,
-                familyName: u.surname,
-                picture: null,
-                type: u.userType,
-                isAdmin: null,
-                phone: {
-                    value: u.mobilePhone,
-                    type: 'mobile'
-                },
-                createdAt: u.createdDateTime ?? null,
-                deletedAt: u.deletedDateTime ?? null,
-                organizationId: null,
-                organizationPath: null,
-                department: u.department ?? null
-            };
-
-            if (u.accountEnabled !== undefined && u.accountEnabled === false) {
-                disabledUsers.push(user);
-                continue;
-            }
-
-            users.push(user);
-        }
-
-        if (runDelete) {
-            await nango.batchDelete(users, 'User');
-        } else {
-            if (disabledUsers.length) {
-                await nango.batchDelete(disabledUsers, 'User');
-            }
-            await nango.batchSave(users, 'User');
-        }
-
-        if (data['@odata.nextLink']) {
-            endpoint = data['@odata.nextLink'];
-        } else {
-            break;
-        }
-    } while (endpoint);
-}

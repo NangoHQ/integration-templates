@@ -1,0 +1,1601 @@
+{
+  "nango": {
+    "batchSave": {
+      "Deal": [
+        {
+          "id": "7328395000000680197",
+          "createdTime": "2026-05-14T11:36:13+03:00",
+          "modifiedTime": "2026-05-14T11:36:13+03:00",
+          "dealName": "King",
+          "stage": "Id. Decision Makers",
+          "amount": 60000,
+          "closingDate": "2026-05-17",
+          "accountName": "King (Sample)",
+          "accountId": "7328395000000680055",
+          "contactName": "Kris Marrier (Sample)",
+          "contactId": "7328395000000680156",
+          "ownerName": "Nango Developer",
+          "ownerId": "7328395000000605001",
+          "ownerEmail": "api@nango.dev",
+          "probability": 60,
+          "type": "New Business"
+        },
+        {
+          "id": "7328395000000680196",
+          "createdTime": "2026-05-14T11:36:13+03:00",
+          "modifiedTime": "2026-05-14T11:36:13+03:00",
+          "dealName": "Truhlar And Truhlar Attys",
+          "stage": "Needs Analysis",
+          "amount": 45000,
+          "closingDate": "2026-05-15",
+          "accountName": "Truhlar And Truhlar (Sample)",
+          "accountId": "7328395000000680054",
+          "contactName": "Sage Wieser (Sample)",
+          "contactId": "7328395000000680155",
+          "ownerName": "Nango Developer",
+          "ownerId": "7328395000000605001",
+          "ownerEmail": "api@nango.dev",
+          "probability": 20,
+          "type": "New Business"
+        },
+        {
+          "id": "7328395000000680195",
+          "createdTime": "2026-05-14T11:36:13+03:00",
+          "modifiedTime": "2026-05-14T11:36:13+03:00",
+          "dealName": "Commercial Press",
+          "stage": "Closed Lost",
+          "amount": 45000,
+          "closingDate": "2026-05-16",
+          "accountName": "Commercial Press (Sample)",
+          "accountId": "7328395000000680053",
+          "contactName": "Leota Dilliard (Sample)",
+          "contactId": "7328395000000680154",
+          "ownerName": "Nango Developer",
+          "ownerId": "7328395000000605001",
+          "ownerEmail": "api@nango.dev",
+          "probability": 0,
+          "type": "Existing Business"
+        },
+        {
+          "id": "7328395000000680194",
+          "createdTime": "2026-05-14T11:36:13+03:00",
+          "modifiedTime": "2026-05-14T11:36:13+03:00",
+          "dealName": "Morlong Associates",
+          "stage": "Closed Won",
+          "amount": 35000,
+          "closingDate": "2026-05-17",
+          "accountName": "Morlong Associates (Sample)",
+          "accountId": "7328395000000680052",
+          "contactName": "Mitsue Tollner (Sample)",
+          "contactId": "7328395000000680153",
+          "ownerName": "Nango Developer",
+          "ownerId": "7328395000000605001",
+          "ownerEmail": "api@nango.dev",
+          "probability": 100,
+          "type": "Existing Business"
+        },
+        {
+          "id": "7328395000000680193",
+          "createdTime": "2026-05-14T11:36:13+03:00",
+          "modifiedTime": "2026-05-14T11:36:13+03:00",
+          "dealName": "Chapman",
+          "stage": "Negotiation/Review",
+          "amount": 70000,
+          "closingDate": "2026-05-15",
+          "accountName": "Chapman (Sample)",
+          "accountId": "7328395000000680051",
+          "contactName": "Simon Morasca (Sample)",
+          "contactId": "7328395000000680152",
+          "ownerName": "Nango Developer",
+          "ownerId": "7328395000000605001",
+          "ownerEmail": "api@nango.dev",
+          "probability": 90,
+          "type": "Existing Business"
+        },
+        {
+          "id": "7328395000000680192",
+          "createdTime": "2026-05-14T11:36:13+03:00",
+          "modifiedTime": "2026-05-14T11:36:13+03:00",
+          "dealName": "Printing Dimensions",
+          "stage": "Proposal/Price Quote",
+          "amount": 25000,
+          "closingDate": "2026-05-20",
+          "accountName": "Printing Dimensions (Sample)",
+          "accountId": "7328395000000680050",
+          "contactName": "Donette Foller (Sample)",
+          "contactId": "7328395000000680151",
+          "ownerName": "Nango Developer",
+          "ownerId": "7328395000000605001",
+          "ownerEmail": "api@nango.dev",
+          "probability": 75,
+          "type": "Existing Business"
+        },
+        {
+          "id": "7328395000000680191",
+          "createdTime": "2026-05-14T11:36:13+03:00",
+          "modifiedTime": "2026-05-14T11:36:13+03:00",
+          "dealName": "Feltz Printing Service",
+          "stage": "Id. Decision Makers",
+          "amount": 45000,
+          "closingDate": "2026-05-18",
+          "accountName": "Feltz Printing Service (Sample)",
+          "accountId": "7328395000000680049",
+          "contactName": "Capla Paprocki (Sample)",
+          "contactId": "7328395000000680150",
+          "ownerName": "Nango Developer",
+          "ownerId": "7328395000000605001",
+          "ownerEmail": "api@nango.dev",
+          "probability": 60,
+          "type": "New Business"
+        },
+        {
+          "id": "7328395000000680190",
+          "createdTime": "2026-05-14T11:36:13+03:00",
+          "modifiedTime": "2026-05-14T11:36:13+03:00",
+          "dealName": "Chemel",
+          "stage": "Value Proposition",
+          "amount": 70000,
+          "closingDate": "2026-05-15",
+          "accountName": "Chemel (Sample)",
+          "accountId": "7328395000000680048",
+          "contactName": "James Venere (Sample)",
+          "contactId": "7328395000000680149",
+          "ownerName": "Nango Developer",
+          "ownerId": "7328395000000605001",
+          "ownerEmail": "api@nango.dev",
+          "probability": 40,
+          "type": "Existing Business"
+        },
+        {
+          "id": "7328395000000680189",
+          "createdTime": "2026-05-14T11:36:13+03:00",
+          "modifiedTime": "2026-05-14T11:36:13+03:00",
+          "dealName": "Chanay",
+          "stage": "Needs Analysis",
+          "amount": 55000,
+          "closingDate": "2026-05-16",
+          "accountName": "Chanay (Sample)",
+          "accountId": "7328395000000680047",
+          "contactName": "Josephine Darakjy (Sample)",
+          "contactId": "7328395000000680148",
+          "ownerName": "Nango Developer",
+          "ownerId": "7328395000000605001",
+          "ownerEmail": "api@nango.dev",
+          "probability": 20,
+          "type": "New Business"
+        },
+        {
+          "id": "7328395000000680188",
+          "createdTime": "2026-05-14T11:36:13+03:00",
+          "modifiedTime": "2026-05-14T11:36:13+03:00",
+          "dealName": "Benton",
+          "stage": "Qualification",
+          "amount": 250000,
+          "closingDate": "2026-05-15",
+          "accountName": "Benton (Sample)",
+          "accountId": "7328395000000680046",
+          "contactName": "John Butt (Sample)",
+          "contactId": "7328395000000680147",
+          "ownerName": "Nango Developer",
+          "ownerId": "7328395000000605001",
+          "ownerEmail": "api@nango.dev",
+          "probability": 10,
+          "type": "Existing Business"
+        },
+        {
+          "id": "7328395000000695001",
+          "createdTime": "2026-05-14T12:52:06+03:00",
+          "modifiedTime": "2026-05-14T12:52:06+03:00",
+          "dealName": "Test Deal for Update Action",
+          "stage": "Qualification",
+          "ownerName": "Nango Developer",
+          "ownerId": "7328395000000605001",
+          "ownerEmail": "api@nango.dev",
+          "probability": 10
+        },
+        {
+          "id": "7328395000000688003",
+          "createdTime": "2026-05-14T12:52:27+03:00",
+          "modifiedTime": "2026-05-14T12:52:27+03:00",
+          "dealName": "Test Deal from Nango Action",
+          "stage": "Qualification",
+          "amount": 10000,
+          "closingDate": "2024-12-31",
+          "ownerName": "Nango Developer",
+          "ownerId": "7328395000000605001",
+          "ownerEmail": "api@nango.dev",
+          "probability": 10,
+          "expectedRevenue": 1000,
+          "description": "Test deal created via Nango action"
+        },
+        {
+          "id": "7328395000000690007",
+          "createdTime": "2026-05-14T12:53:53+03:00",
+          "modifiedTime": "2026-05-14T12:53:53+03:00",
+          "dealName": "Test Conversion Deal",
+          "stage": "Closed Won",
+          "amount": 5000,
+          "closingDate": "2024-12-31",
+          "accountName": "Test Company",
+          "accountId": "7328395000000690005",
+          "contactName": "Lead Conversion Test",
+          "contactId": "7328395000000690006",
+          "ownerName": "Nango Developer",
+          "ownerId": "7328395000000605001",
+          "ownerEmail": "api@nango.dev",
+          "probability": 100,
+          "expectedRevenue": 5000
+        },
+        {
+          "id": "7328395000000698002",
+          "createdTime": "2026-05-14T12:52:52+03:00",
+          "modifiedTime": "2026-05-14T12:54:21+03:00",
+          "dealName": "Updated Test Deal",
+          "stage": "Negotiation",
+          "amount": 50000,
+          "ownerName": "Nango Developer",
+          "ownerId": "7328395000000605001",
+          "ownerEmail": "api@nango.dev",
+          "probability": 10,
+          "expectedRevenue": 5000
+        },
+        {
+          "id": "7328395000000690025",
+          "createdTime": "2026-05-14T12:55:33+03:00",
+          "modifiedTime": "2026-05-14T12:55:33+03:00",
+          "dealName": "Test Deal from Nango Action",
+          "stage": "Qualification",
+          "amount": 10000,
+          "closingDate": "2024-12-31",
+          "ownerName": "Nango Developer",
+          "ownerId": "7328395000000605001",
+          "ownerEmail": "api@nango.dev",
+          "probability": 10,
+          "expectedRevenue": 1000,
+          "description": "Test deal created via Nango action"
+        },
+        {
+          "id": "7328395000000710002",
+          "createdTime": "2026-05-14T12:55:43+03:00",
+          "modifiedTime": "2026-05-14T12:55:43+03:00",
+          "dealName": "Test Deal from Nango Action",
+          "stage": "Qualification",
+          "amount": 10000,
+          "closingDate": "2024-12-31",
+          "ownerName": "Nango Developer",
+          "ownerId": "7328395000000605001",
+          "ownerEmail": "api@nango.dev",
+          "probability": 10,
+          "expectedRevenue": 1000,
+          "description": "Test deal created via Nango action"
+        },
+        {
+          "id": "7328395000000710007",
+          "createdTime": "2026-05-14T12:56:45+03:00",
+          "modifiedTime": "2026-05-14T12:56:45+03:00",
+          "dealName": "Mock Conversion Deal",
+          "stage": "Closed Won",
+          "amount": 5000,
+          "closingDate": "2024-12-31",
+          "accountName": "Mock Test Company",
+          "accountId": "7328395000000710005",
+          "contactName": "Lead Mock Test",
+          "contactId": "7328395000000710006",
+          "ownerName": "Nango Developer",
+          "ownerId": "7328395000000605001",
+          "ownerEmail": "api@nango.dev",
+          "probability": 100,
+          "expectedRevenue": 5000
+        }
+      ]
+    },
+    "batchDelete": {
+      "Deal": []
+    }
+  },
+  "api": {
+    "get": {
+      "/crm/v2/Deals": {
+        "response": {
+          "data": [
+            {
+              "Owner": {
+                "name": "Nango Developer",
+                "id": "7328395000000605001",
+                "email": "api@nango.dev"
+              },
+              "Description": null,
+              "$currency_symbol": "KES",
+              "Campaign_Source": null,
+              "$field_states": null,
+              "$review_process": {
+                "approve": false,
+                "reject": false,
+                "resubmit": false
+              },
+              "$layout_id": {
+                "display_label": "Standard",
+                "name": "Standard",
+                "id": "7328395000000091023"
+              },
+              "Closing_Date": "2026-05-17",
+              "Last_Activity_Time": "2026-05-14T11:36:15+03:00",
+              "Reason_For_Loss__s": null,
+              "Modified_By": {
+                "name": "Nango Developer",
+                "id": "7328395000000605001",
+                "email": "api@nango.dev"
+              },
+              "$review": null,
+              "Lead_Conversion_Time": null,
+              "$state": "save",
+              "$process_flow": false,
+              "Deal_Name": "King",
+              "Expected_Revenue": null,
+              "Overall_Sales_Duration": 3,
+              "Stage": "Id. Decision Makers",
+              "$locked_for_me": false,
+              "Account_Name": {
+                "name": "King (Sample)",
+                "id": "7328395000000680055"
+              },
+              "id": "7328395000000680197",
+              "$approved": true,
+              "$approval": {
+                "delegate": false,
+                "takeover": false,
+                "approve": false,
+                "reject": false,
+                "resubmit": false
+              },
+              "Modified_Time": "2026-05-14T11:36:13+03:00",
+              "Created_Time": "2026-05-14T11:36:13+03:00",
+              "Amount": 60000,
+              "Probability": 60,
+              "Next_Step": null,
+              "$editable": true,
+              "$orchestration": false,
+              "Contact_Name": {
+                "name": "Kris Marrier (Sample)",
+                "id": "7328395000000680156"
+              },
+              "Sales_Cycle_Duration": 3,
+              "Type": "New Business",
+              "$in_merge": false,
+              "Locked__s": false,
+              "Lead_Source": null,
+              "Created_By": {
+                "name": "Nango Developer",
+                "id": "7328395000000605001",
+                "email": "api@nango.dev"
+              },
+              "Tag": [],
+              "$zia_owner_assignment": "owner_recommendation_unavailable",
+              "$approval_state": "approved"
+            },
+            {
+              "Owner": {
+                "name": "Nango Developer",
+                "id": "7328395000000605001",
+                "email": "api@nango.dev"
+              },
+              "Description": null,
+              "$currency_symbol": "KES",
+              "Campaign_Source": null,
+              "$field_states": null,
+              "$review_process": {
+                "approve": false,
+                "reject": false,
+                "resubmit": false
+              },
+              "$layout_id": {
+                "display_label": "Standard",
+                "name": "Standard",
+                "id": "7328395000000091023"
+              },
+              "Closing_Date": "2026-05-15",
+              "Last_Activity_Time": "2026-05-14T11:36:13+03:00",
+              "Reason_For_Loss__s": null,
+              "Modified_By": {
+                "name": "Nango Developer",
+                "id": "7328395000000605001",
+                "email": "api@nango.dev"
+              },
+              "$review": null,
+              "Lead_Conversion_Time": null,
+              "$state": "save",
+              "$process_flow": false,
+              "Deal_Name": "Truhlar And Truhlar Attys",
+              "Expected_Revenue": null,
+              "Overall_Sales_Duration": 1,
+              "Stage": "Needs Analysis",
+              "$locked_for_me": false,
+              "Account_Name": {
+                "name": "Truhlar And Truhlar (Sample)",
+                "id": "7328395000000680054"
+              },
+              "id": "7328395000000680196",
+              "$approved": true,
+              "$approval": {
+                "delegate": false,
+                "takeover": false,
+                "approve": false,
+                "reject": false,
+                "resubmit": false
+              },
+              "Modified_Time": "2026-05-14T11:36:13+03:00",
+              "Created_Time": "2026-05-14T11:36:13+03:00",
+              "Amount": 45000,
+              "Probability": 20,
+              "Next_Step": null,
+              "$editable": true,
+              "$orchestration": false,
+              "Contact_Name": {
+                "name": "Sage Wieser (Sample)",
+                "id": "7328395000000680155"
+              },
+              "Sales_Cycle_Duration": 1,
+              "Type": "New Business",
+              "$in_merge": false,
+              "Locked__s": false,
+              "Lead_Source": null,
+              "Created_By": {
+                "name": "Nango Developer",
+                "id": "7328395000000605001",
+                "email": "api@nango.dev"
+              },
+              "Tag": [],
+              "$zia_owner_assignment": "owner_recommendation_unavailable",
+              "$approval_state": "approved"
+            },
+            {
+              "Owner": {
+                "name": "Nango Developer",
+                "id": "7328395000000605001",
+                "email": "api@nango.dev"
+              },
+              "Description": null,
+              "$currency_symbol": "KES",
+              "Campaign_Source": null,
+              "$field_states": null,
+              "$review_process": {
+                "approve": false,
+                "reject": false,
+                "resubmit": false
+              },
+              "$layout_id": {
+                "display_label": "Standard",
+                "name": "Standard",
+                "id": "7328395000000091023"
+              },
+              "Closing_Date": "2026-05-16",
+              "Last_Activity_Time": "2026-05-14T11:36:13+03:00",
+              "Reason_For_Loss__s": null,
+              "Modified_By": {
+                "name": "Nango Developer",
+                "id": "7328395000000605001",
+                "email": "api@nango.dev"
+              },
+              "$review": null,
+              "Lead_Conversion_Time": null,
+              "$state": "save",
+              "$process_flow": false,
+              "Deal_Name": "Commercial Press",
+              "Expected_Revenue": null,
+              "Overall_Sales_Duration": 2,
+              "Stage": "Closed Lost",
+              "$locked_for_me": false,
+              "Account_Name": {
+                "name": "Commercial Press (Sample)",
+                "id": "7328395000000680053"
+              },
+              "id": "7328395000000680195",
+              "$approved": true,
+              "$approval": {
+                "delegate": false,
+                "takeover": false,
+                "approve": false,
+                "reject": false,
+                "resubmit": false
+              },
+              "Modified_Time": "2026-05-14T11:36:13+03:00",
+              "Created_Time": "2026-05-14T11:36:13+03:00",
+              "Amount": 45000,
+              "Probability": 0,
+              "Next_Step": null,
+              "$editable": true,
+              "$orchestration": false,
+              "Contact_Name": {
+                "name": "Leota Dilliard (Sample)",
+                "id": "7328395000000680154"
+              },
+              "Sales_Cycle_Duration": 2,
+              "Type": "Existing Business",
+              "$in_merge": false,
+              "Locked__s": false,
+              "Lead_Source": null,
+              "Created_By": {
+                "name": "Nango Developer",
+                "id": "7328395000000605001",
+                "email": "api@nango.dev"
+              },
+              "Tag": [],
+              "$zia_owner_assignment": "owner_recommendation_unavailable",
+              "$approval_state": "approved"
+            },
+            {
+              "Owner": {
+                "name": "Nango Developer",
+                "id": "7328395000000605001",
+                "email": "api@nango.dev"
+              },
+              "Description": null,
+              "$currency_symbol": "KES",
+              "Campaign_Source": null,
+              "$field_states": null,
+              "$review_process": {
+                "approve": false,
+                "reject": false,
+                "resubmit": false
+              },
+              "$layout_id": {
+                "display_label": "Standard",
+                "name": "Standard",
+                "id": "7328395000000091023"
+              },
+              "Closing_Date": "2026-05-17",
+              "Last_Activity_Time": "2026-05-14T11:36:14+03:00",
+              "Reason_For_Loss__s": null,
+              "Modified_By": {
+                "name": "Nango Developer",
+                "id": "7328395000000605001",
+                "email": "api@nango.dev"
+              },
+              "$review": null,
+              "Lead_Conversion_Time": null,
+              "$state": "save",
+              "$process_flow": false,
+              "Deal_Name": "Morlong Associates",
+              "Expected_Revenue": null,
+              "Overall_Sales_Duration": 3,
+              "Stage": "Closed Won",
+              "$locked_for_me": false,
+              "Account_Name": {
+                "name": "Morlong Associates (Sample)",
+                "id": "7328395000000680052"
+              },
+              "id": "7328395000000680194",
+              "$approved": true,
+              "$approval": {
+                "delegate": false,
+                "takeover": false,
+                "approve": false,
+                "reject": false,
+                "resubmit": false
+              },
+              "Modified_Time": "2026-05-14T11:36:13+03:00",
+              "Created_Time": "2026-05-14T11:36:13+03:00",
+              "Amount": 35000,
+              "Probability": 100,
+              "Next_Step": null,
+              "$editable": true,
+              "$orchestration": false,
+              "Contact_Name": {
+                "name": "Mitsue Tollner (Sample)",
+                "id": "7328395000000680153"
+              },
+              "Sales_Cycle_Duration": 3,
+              "Type": "Existing Business",
+              "$in_merge": false,
+              "Locked__s": false,
+              "Lead_Source": null,
+              "Created_By": {
+                "name": "Nango Developer",
+                "id": "7328395000000605001",
+                "email": "api@nango.dev"
+              },
+              "Tag": [],
+              "$zia_owner_assignment": "owner_recommendation_unavailable",
+              "$approval_state": "approved"
+            },
+            {
+              "Owner": {
+                "name": "Nango Developer",
+                "id": "7328395000000605001",
+                "email": "api@nango.dev"
+              },
+              "Description": null,
+              "$currency_symbol": "KES",
+              "Campaign_Source": null,
+              "$field_states": null,
+              "$review_process": {
+                "approve": false,
+                "reject": false,
+                "resubmit": false
+              },
+              "$layout_id": {
+                "display_label": "Standard",
+                "name": "Standard",
+                "id": "7328395000000091023"
+              },
+              "Closing_Date": "2026-05-15",
+              "Last_Activity_Time": "2026-05-14T11:36:13+03:00",
+              "Reason_For_Loss__s": null,
+              "Modified_By": {
+                "name": "Nango Developer",
+                "id": "7328395000000605001",
+                "email": "api@nango.dev"
+              },
+              "$review": null,
+              "Lead_Conversion_Time": null,
+              "$state": "save",
+              "$process_flow": false,
+              "Deal_Name": "Chapman",
+              "Expected_Revenue": null,
+              "Overall_Sales_Duration": 1,
+              "Stage": "Negotiation/Review",
+              "$locked_for_me": false,
+              "Account_Name": {
+                "name": "Chapman (Sample)",
+                "id": "7328395000000680051"
+              },
+              "id": "7328395000000680193",
+              "$approved": true,
+              "$approval": {
+                "delegate": false,
+                "takeover": false,
+                "approve": false,
+                "reject": false,
+                "resubmit": false
+              },
+              "Modified_Time": "2026-05-14T11:36:13+03:00",
+              "Created_Time": "2026-05-14T11:36:13+03:00",
+              "Amount": 70000,
+              "Probability": 90,
+              "Next_Step": null,
+              "$editable": true,
+              "$orchestration": false,
+              "Contact_Name": {
+                "name": "Simon Morasca (Sample)",
+                "id": "7328395000000680152"
+              },
+              "Sales_Cycle_Duration": 1,
+              "Type": "Existing Business",
+              "$in_merge": false,
+              "Locked__s": false,
+              "Lead_Source": null,
+              "Created_By": {
+                "name": "Nango Developer",
+                "id": "7328395000000605001",
+                "email": "api@nango.dev"
+              },
+              "Tag": [],
+              "$zia_owner_assignment": "owner_recommendation_unavailable",
+              "$approval_state": "approved"
+            },
+            {
+              "Owner": {
+                "name": "Nango Developer",
+                "id": "7328395000000605001",
+                "email": "api@nango.dev"
+              },
+              "Description": null,
+              "$currency_symbol": "KES",
+              "Campaign_Source": null,
+              "$field_states": null,
+              "$review_process": {
+                "approve": false,
+                "reject": false,
+                "resubmit": false
+              },
+              "$layout_id": {
+                "display_label": "Standard",
+                "name": "Standard",
+                "id": "7328395000000091023"
+              },
+              "Closing_Date": "2026-05-20",
+              "Last_Activity_Time": "2026-05-14T11:36:14+03:00",
+              "Reason_For_Loss__s": null,
+              "Modified_By": {
+                "name": "Nango Developer",
+                "id": "7328395000000605001",
+                "email": "api@nango.dev"
+              },
+              "$review": null,
+              "Lead_Conversion_Time": null,
+              "$state": "save",
+              "$process_flow": false,
+              "Deal_Name": "Printing Dimensions",
+              "Expected_Revenue": null,
+              "Overall_Sales_Duration": 6,
+              "Stage": "Proposal/Price Quote",
+              "$locked_for_me": false,
+              "Account_Name": {
+                "name": "Printing Dimensions (Sample)",
+                "id": "7328395000000680050"
+              },
+              "id": "7328395000000680192",
+              "$approved": true,
+              "$approval": {
+                "delegate": false,
+                "takeover": false,
+                "approve": false,
+                "reject": false,
+                "resubmit": false
+              },
+              "Modified_Time": "2026-05-14T11:36:13+03:00",
+              "Created_Time": "2026-05-14T11:36:13+03:00",
+              "Amount": 25000,
+              "Probability": 75,
+              "Next_Step": null,
+              "$editable": true,
+              "$orchestration": false,
+              "Contact_Name": {
+                "name": "Donette Foller (Sample)",
+                "id": "7328395000000680151"
+              },
+              "Sales_Cycle_Duration": 6,
+              "Type": "Existing Business",
+              "$in_merge": false,
+              "Locked__s": false,
+              "Lead_Source": null,
+              "Created_By": {
+                "name": "Nango Developer",
+                "id": "7328395000000605001",
+                "email": "api@nango.dev"
+              },
+              "Tag": [],
+              "$zia_owner_assignment": "owner_recommendation_unavailable",
+              "$approval_state": "approved"
+            },
+            {
+              "Owner": {
+                "name": "Nango Developer",
+                "id": "7328395000000605001",
+                "email": "api@nango.dev"
+              },
+              "Description": null,
+              "$currency_symbol": "KES",
+              "Campaign_Source": null,
+              "$field_states": null,
+              "$review_process": {
+                "approve": false,
+                "reject": false,
+                "resubmit": false
+              },
+              "$layout_id": {
+                "display_label": "Standard",
+                "name": "Standard",
+                "id": "7328395000000091023"
+              },
+              "Closing_Date": "2026-05-18",
+              "Last_Activity_Time": "2026-05-14T11:36:14+03:00",
+              "Reason_For_Loss__s": null,
+              "Modified_By": {
+                "name": "Nango Developer",
+                "id": "7328395000000605001",
+                "email": "api@nango.dev"
+              },
+              "$review": null,
+              "Lead_Conversion_Time": null,
+              "$state": "save",
+              "$process_flow": false,
+              "Deal_Name": "Feltz Printing Service",
+              "Expected_Revenue": null,
+              "Overall_Sales_Duration": 4,
+              "Stage": "Id. Decision Makers",
+              "$locked_for_me": false,
+              "Account_Name": {
+                "name": "Feltz Printing Service (Sample)",
+                "id": "7328395000000680049"
+              },
+              "id": "7328395000000680191",
+              "$approved": true,
+              "$approval": {
+                "delegate": false,
+                "takeover": false,
+                "approve": false,
+                "reject": false,
+                "resubmit": false
+              },
+              "Modified_Time": "2026-05-14T11:36:13+03:00",
+              "Created_Time": "2026-05-14T11:36:13+03:00",
+              "Amount": 45000,
+              "Probability": 60,
+              "Next_Step": null,
+              "$editable": true,
+              "$orchestration": false,
+              "Contact_Name": {
+                "name": "Capla Paprocki (Sample)",
+                "id": "7328395000000680150"
+              },
+              "Sales_Cycle_Duration": 4,
+              "Type": "New Business",
+              "$in_merge": false,
+              "Locked__s": false,
+              "Lead_Source": null,
+              "Created_By": {
+                "name": "Nango Developer",
+                "id": "7328395000000605001",
+                "email": "api@nango.dev"
+              },
+              "Tag": [],
+              "$zia_owner_assignment": "owner_recommendation_unavailable",
+              "$approval_state": "approved"
+            },
+            {
+              "Owner": {
+                "name": "Nango Developer",
+                "id": "7328395000000605001",
+                "email": "api@nango.dev"
+              },
+              "Description": null,
+              "$currency_symbol": "KES",
+              "Campaign_Source": null,
+              "$field_states": null,
+              "$review_process": {
+                "approve": false,
+                "reject": false,
+                "resubmit": false
+              },
+              "$layout_id": {
+                "display_label": "Standard",
+                "name": "Standard",
+                "id": "7328395000000091023"
+              },
+              "Closing_Date": "2026-05-15",
+              "Last_Activity_Time": "2026-05-14T11:36:14+03:00",
+              "Reason_For_Loss__s": null,
+              "Modified_By": {
+                "name": "Nango Developer",
+                "id": "7328395000000605001",
+                "email": "api@nango.dev"
+              },
+              "$review": null,
+              "Lead_Conversion_Time": null,
+              "$state": "save",
+              "$process_flow": false,
+              "Deal_Name": "Chemel",
+              "Expected_Revenue": null,
+              "Overall_Sales_Duration": 1,
+              "Stage": "Value Proposition",
+              "$locked_for_me": false,
+              "Account_Name": {
+                "name": "Chemel (Sample)",
+                "id": "7328395000000680048"
+              },
+              "id": "7328395000000680190",
+              "$approved": true,
+              "$approval": {
+                "delegate": false,
+                "takeover": false,
+                "approve": false,
+                "reject": false,
+                "resubmit": false
+              },
+              "Modified_Time": "2026-05-14T11:36:13+03:00",
+              "Created_Time": "2026-05-14T11:36:13+03:00",
+              "Amount": 70000,
+              "Probability": 40,
+              "Next_Step": null,
+              "$editable": true,
+              "$orchestration": false,
+              "Contact_Name": {
+                "name": "James Venere (Sample)",
+                "id": "7328395000000680149"
+              },
+              "Sales_Cycle_Duration": 1,
+              "Type": "Existing Business",
+              "$in_merge": false,
+              "Locked__s": false,
+              "Lead_Source": null,
+              "Created_By": {
+                "name": "Nango Developer",
+                "id": "7328395000000605001",
+                "email": "api@nango.dev"
+              },
+              "Tag": [],
+              "$zia_owner_assignment": "owner_recommendation_unavailable",
+              "$approval_state": "approved"
+            },
+            {
+              "Owner": {
+                "name": "Nango Developer",
+                "id": "7328395000000605001",
+                "email": "api@nango.dev"
+              },
+              "Description": null,
+              "$currency_symbol": "KES",
+              "Campaign_Source": null,
+              "$field_states": null,
+              "$review_process": {
+                "approve": false,
+                "reject": false,
+                "resubmit": false
+              },
+              "$layout_id": {
+                "display_label": "Standard",
+                "name": "Standard",
+                "id": "7328395000000091023"
+              },
+              "Closing_Date": "2026-05-16",
+              "Last_Activity_Time": null,
+              "Reason_For_Loss__s": null,
+              "Modified_By": {
+                "name": "Nango Developer",
+                "id": "7328395000000605001",
+                "email": "api@nango.dev"
+              },
+              "$review": null,
+              "Lead_Conversion_Time": null,
+              "$state": "save",
+              "$process_flow": false,
+              "Deal_Name": "Chanay",
+              "Expected_Revenue": null,
+              "Overall_Sales_Duration": 2,
+              "Stage": "Needs Analysis",
+              "$locked_for_me": false,
+              "Account_Name": {
+                "name": "Chanay (Sample)",
+                "id": "7328395000000680047"
+              },
+              "id": "7328395000000680189",
+              "$approved": true,
+              "$approval": {
+                "delegate": false,
+                "takeover": false,
+                "approve": false,
+                "reject": false,
+                "resubmit": false
+              },
+              "Modified_Time": "2026-05-14T11:36:13+03:00",
+              "Created_Time": "2026-05-14T11:36:13+03:00",
+              "Amount": 55000,
+              "Probability": 20,
+              "Next_Step": null,
+              "$editable": true,
+              "$orchestration": false,
+              "Contact_Name": {
+                "name": "Josephine Darakjy (Sample)",
+                "id": "7328395000000680148"
+              },
+              "Sales_Cycle_Duration": 2,
+              "Type": "New Business",
+              "$in_merge": false,
+              "Locked__s": false,
+              "Lead_Source": null,
+              "Created_By": {
+                "name": "Nango Developer",
+                "id": "7328395000000605001",
+                "email": "api@nango.dev"
+              },
+              "Tag": [],
+              "$zia_owner_assignment": "owner_recommendation_unavailable",
+              "$approval_state": "approved"
+            },
+            {
+              "Owner": {
+                "name": "Nango Developer",
+                "id": "7328395000000605001",
+                "email": "api@nango.dev"
+              },
+              "Description": null,
+              "$currency_symbol": "KES",
+              "Campaign_Source": null,
+              "$field_states": null,
+              "$review_process": {
+                "approve": false,
+                "reject": false,
+                "resubmit": false
+              },
+              "$layout_id": {
+                "display_label": "Standard",
+                "name": "Standard",
+                "id": "7328395000000091023"
+              },
+              "Closing_Date": "2026-05-15",
+              "Last_Activity_Time": "2026-05-14T11:36:14+03:00",
+              "Reason_For_Loss__s": null,
+              "Modified_By": {
+                "name": "Nango Developer",
+                "id": "7328395000000605001",
+                "email": "api@nango.dev"
+              },
+              "$review": null,
+              "Lead_Conversion_Time": null,
+              "$state": "save",
+              "$process_flow": false,
+              "Deal_Name": "Benton",
+              "Expected_Revenue": null,
+              "Overall_Sales_Duration": 1,
+              "Stage": "Qualification",
+              "$locked_for_me": false,
+              "Account_Name": {
+                "name": "Benton (Sample)",
+                "id": "7328395000000680046"
+              },
+              "id": "7328395000000680188",
+              "$approved": true,
+              "$approval": {
+                "delegate": false,
+                "takeover": false,
+                "approve": false,
+                "reject": false,
+                "resubmit": false
+              },
+              "Modified_Time": "2026-05-14T11:36:13+03:00",
+              "Created_Time": "2026-05-14T11:36:13+03:00",
+              "Amount": 250000,
+              "Probability": 10,
+              "Next_Step": null,
+              "$editable": true,
+              "$orchestration": false,
+              "Contact_Name": {
+                "name": "John Butt (Sample)",
+                "id": "7328395000000680147"
+              },
+              "Sales_Cycle_Duration": 1,
+              "Type": "Existing Business",
+              "$in_merge": false,
+              "Locked__s": false,
+              "Lead_Source": null,
+              "Created_By": {
+                "name": "Nango Developer",
+                "id": "7328395000000605001",
+                "email": "api@nango.dev"
+              },
+              "Tag": [],
+              "$zia_owner_assignment": "owner_recommendation_unavailable",
+              "$approval_state": "approved"
+            },
+            {
+              "Owner": {
+                "name": "Nango Developer",
+                "id": "7328395000000605001",
+                "email": "api@nango.dev"
+              },
+              "Description": null,
+              "$currency_symbol": "KES",
+              "Campaign_Source": null,
+              "$field_states": null,
+              "$review_process": {
+                "approve": false,
+                "reject": false,
+                "resubmit": false
+              },
+              "$layout_id": {
+                "display_label": "Standard",
+                "name": "Standard",
+                "id": "7328395000000091023"
+              },
+              "Closing_Date": null,
+              "Last_Activity_Time": null,
+              "Reason_For_Loss__s": null,
+              "Modified_By": {
+                "name": "Nango Developer",
+                "id": "7328395000000605001",
+                "email": "api@nango.dev"
+              },
+              "$review": null,
+              "Lead_Conversion_Time": null,
+              "$state": "save",
+              "$process_flow": false,
+              "Deal_Name": "Test Deal for Update Action",
+              "Expected_Revenue": null,
+              "Overall_Sales_Duration": null,
+              "Stage": "Qualification",
+              "$locked_for_me": false,
+              "Account_Name": null,
+              "id": "7328395000000695001",
+              "$approved": true,
+              "$approval": {
+                "delegate": false,
+                "takeover": false,
+                "approve": false,
+                "reject": false,
+                "resubmit": false
+              },
+              "Modified_Time": "2026-05-14T12:52:06+03:00",
+              "Created_Time": "2026-05-14T12:52:06+03:00",
+              "Amount": null,
+              "Probability": 10,
+              "Next_Step": null,
+              "$editable": true,
+              "$orchestration": false,
+              "Contact_Name": null,
+              "Sales_Cycle_Duration": null,
+              "Type": null,
+              "$in_merge": false,
+              "Locked__s": false,
+              "Lead_Source": null,
+              "Created_By": {
+                "name": "Nango Developer",
+                "id": "7328395000000605001",
+                "email": "api@nango.dev"
+              },
+              "Tag": [],
+              "$zia_owner_assignment": "owner_recommendation_unavailable",
+              "$approval_state": "approved"
+            },
+            {
+              "Owner": {
+                "name": "Nango Developer",
+                "id": "7328395000000605001",
+                "email": "api@nango.dev"
+              },
+              "Description": "Test deal created via Nango action",
+              "$currency_symbol": "KES",
+              "Campaign_Source": null,
+              "$field_states": null,
+              "$review_process": {
+                "approve": false,
+                "reject": false,
+                "resubmit": false
+              },
+              "$layout_id": {
+                "display_label": "Standard",
+                "name": "Standard",
+                "id": "7328395000000091023"
+              },
+              "Closing_Date": "2024-12-31",
+              "Last_Activity_Time": null,
+              "Reason_For_Loss__s": null,
+              "Modified_By": {
+                "name": "Nango Developer",
+                "id": "7328395000000605001",
+                "email": "api@nango.dev"
+              },
+              "$review": null,
+              "Lead_Conversion_Time": null,
+              "$state": "save",
+              "$process_flow": false,
+              "Deal_Name": "Test Deal from Nango Action",
+              "Expected_Revenue": 1000,
+              "Overall_Sales_Duration": 0,
+              "Stage": "Qualification",
+              "$locked_for_me": false,
+              "Account_Name": null,
+              "id": "7328395000000688003",
+              "$approved": true,
+              "$approval": {
+                "delegate": false,
+                "takeover": false,
+                "approve": false,
+                "reject": false,
+                "resubmit": false
+              },
+              "Modified_Time": "2026-05-14T12:52:27+03:00",
+              "Created_Time": "2026-05-14T12:52:27+03:00",
+              "Amount": 10000,
+              "Probability": 10,
+              "Next_Step": null,
+              "$editable": true,
+              "$orchestration": false,
+              "Contact_Name": null,
+              "Sales_Cycle_Duration": 0,
+              "Type": null,
+              "$in_merge": false,
+              "Locked__s": false,
+              "Lead_Source": null,
+              "Created_By": {
+                "name": "Nango Developer",
+                "id": "7328395000000605001",
+                "email": "api@nango.dev"
+              },
+              "Tag": [],
+              "$zia_owner_assignment": "owner_recommendation_unavailable",
+              "$approval_state": "approved"
+            },
+            {
+              "Owner": {
+                "name": "Nango Developer",
+                "id": "7328395000000605001",
+                "email": "api@nango.dev"
+              },
+              "Description": null,
+              "$currency_symbol": "KES",
+              "Campaign_Source": null,
+              "$field_states": null,
+              "$review_process": {
+                "approve": false,
+                "reject": false,
+                "resubmit": false
+              },
+              "$layout_id": {
+                "display_label": "Standard",
+                "name": "Standard",
+                "id": "7328395000000091023"
+              },
+              "Closing_Date": "2024-12-31",
+              "Last_Activity_Time": "2026-05-14T12:53:53+03:00",
+              "Reason_For_Loss__s": null,
+              "Modified_By": {
+                "name": "Nango Developer",
+                "id": "7328395000000605001",
+                "email": "api@nango.dev"
+              },
+              "$review": null,
+              "Lead_Conversion_Time": 0,
+              "$state": "save",
+              "$process_flow": false,
+              "Deal_Name": "Test Conversion Deal",
+              "Expected_Revenue": 5000,
+              "Overall_Sales_Duration": 0,
+              "Stage": "Closed Won",
+              "$locked_for_me": false,
+              "Account_Name": {
+                "name": "Test Company",
+                "id": "7328395000000690005"
+              },
+              "id": "7328395000000690007",
+              "$approved": true,
+              "$approval": {
+                "delegate": false,
+                "takeover": false,
+                "approve": false,
+                "reject": false,
+                "resubmit": false
+              },
+              "Modified_Time": "2026-05-14T12:53:53+03:00",
+              "Created_Time": "2026-05-14T12:53:53+03:00",
+              "Amount": 5000,
+              "Probability": 100,
+              "Next_Step": null,
+              "$editable": true,
+              "$orchestration": false,
+              "Contact_Name": {
+                "name": "Lead Conversion Test",
+                "id": "7328395000000690006"
+              },
+              "Sales_Cycle_Duration": 0,
+              "Type": null,
+              "$in_merge": false,
+              "Locked__s": false,
+              "Lead_Source": null,
+              "Created_By": {
+                "name": "Nango Developer",
+                "id": "7328395000000605001",
+                "email": "api@nango.dev"
+              },
+              "Tag": [],
+              "$zia_owner_assignment": null,
+              "$approval_state": "approved"
+            },
+            {
+              "Owner": {
+                "name": "Nango Developer",
+                "id": "7328395000000605001",
+                "email": "api@nango.dev"
+              },
+              "Description": null,
+              "$currency_symbol": "KES",
+              "Campaign_Source": null,
+              "$field_states": null,
+              "$review_process": {
+                "approve": false,
+                "reject": false,
+                "resubmit": false
+              },
+              "$layout_id": {
+                "display_label": "Standard",
+                "name": "Standard",
+                "id": "7328395000000091023"
+              },
+              "Closing_Date": null,
+              "Last_Activity_Time": "2026-05-14T12:54:21+03:00",
+              "Reason_For_Loss__s": null,
+              "Modified_By": {
+                "name": "Nango Developer",
+                "id": "7328395000000605001",
+                "email": "api@nango.dev"
+              },
+              "$review": null,
+              "Lead_Conversion_Time": null,
+              "$state": "save",
+              "$process_flow": false,
+              "Deal_Name": "Updated Test Deal",
+              "Expected_Revenue": 5000,
+              "Overall_Sales_Duration": null,
+              "Stage": "Negotiation",
+              "$locked_for_me": false,
+              "Account_Name": null,
+              "id": "7328395000000698002",
+              "$approved": true,
+              "$approval": {
+                "delegate": false,
+                "takeover": false,
+                "approve": false,
+                "reject": false,
+                "resubmit": false
+              },
+              "Modified_Time": "2026-05-14T12:54:21+03:00",
+              "Created_Time": "2026-05-14T12:52:52+03:00",
+              "Amount": 50000,
+              "Probability": 10,
+              "Next_Step": null,
+              "$editable": true,
+              "$orchestration": false,
+              "Contact_Name": null,
+              "Sales_Cycle_Duration": null,
+              "Type": null,
+              "$in_merge": false,
+              "Locked__s": false,
+              "Lead_Source": null,
+              "Created_By": {
+                "name": "Nango Developer",
+                "id": "7328395000000605001",
+                "email": "api@nango.dev"
+              },
+              "Tag": [],
+              "$zia_owner_assignment": "owner_recommendation_unavailable",
+              "$approval_state": "approved"
+            },
+            {
+              "Owner": {
+                "name": "Nango Developer",
+                "id": "7328395000000605001",
+                "email": "api@nango.dev"
+              },
+              "Description": "Test deal created via Nango action",
+              "$currency_symbol": "KES",
+              "Campaign_Source": null,
+              "$field_states": null,
+              "$review_process": {
+                "approve": false,
+                "reject": false,
+                "resubmit": false
+              },
+              "$layout_id": {
+                "display_label": "Standard",
+                "name": "Standard",
+                "id": "7328395000000091023"
+              },
+              "Closing_Date": "2024-12-31",
+              "Last_Activity_Time": null,
+              "Reason_For_Loss__s": null,
+              "Modified_By": {
+                "name": "Nango Developer",
+                "id": "7328395000000605001",
+                "email": "api@nango.dev"
+              },
+              "$review": null,
+              "Lead_Conversion_Time": null,
+              "$state": "save",
+              "$process_flow": false,
+              "Deal_Name": "Test Deal from Nango Action",
+              "Expected_Revenue": 1000,
+              "Overall_Sales_Duration": 0,
+              "Stage": "Qualification",
+              "$locked_for_me": false,
+              "Account_Name": null,
+              "id": "7328395000000690025",
+              "$approved": true,
+              "$approval": {
+                "delegate": false,
+                "takeover": false,
+                "approve": false,
+                "reject": false,
+                "resubmit": false
+              },
+              "Modified_Time": "2026-05-14T12:55:33+03:00",
+              "Created_Time": "2026-05-14T12:55:33+03:00",
+              "Amount": 10000,
+              "Probability": 10,
+              "Next_Step": null,
+              "$editable": true,
+              "$orchestration": false,
+              "Contact_Name": null,
+              "Sales_Cycle_Duration": 0,
+              "Type": null,
+              "$in_merge": false,
+              "Locked__s": false,
+              "Lead_Source": null,
+              "Created_By": {
+                "name": "Nango Developer",
+                "id": "7328395000000605001",
+                "email": "api@nango.dev"
+              },
+              "Tag": [],
+              "$zia_owner_assignment": "owner_recommendation_unavailable",
+              "$approval_state": "approved"
+            },
+            {
+              "Owner": {
+                "name": "Nango Developer",
+                "id": "7328395000000605001",
+                "email": "api@nango.dev"
+              },
+              "Description": "Test deal created via Nango action",
+              "$currency_symbol": "KES",
+              "Campaign_Source": null,
+              "$field_states": null,
+              "$review_process": {
+                "approve": false,
+                "reject": false,
+                "resubmit": false
+              },
+              "$layout_id": {
+                "display_label": "Standard",
+                "name": "Standard",
+                "id": "7328395000000091023"
+              },
+              "Closing_Date": "2024-12-31",
+              "Last_Activity_Time": null,
+              "Reason_For_Loss__s": null,
+              "Modified_By": {
+                "name": "Nango Developer",
+                "id": "7328395000000605001",
+                "email": "api@nango.dev"
+              },
+              "$review": null,
+              "Lead_Conversion_Time": null,
+              "$state": "save",
+              "$process_flow": false,
+              "Deal_Name": "Test Deal from Nango Action",
+              "Expected_Revenue": 1000,
+              "Overall_Sales_Duration": 0,
+              "Stage": "Qualification",
+              "$locked_for_me": false,
+              "Account_Name": null,
+              "id": "7328395000000710002",
+              "$approved": true,
+              "$approval": {
+                "delegate": false,
+                "takeover": false,
+                "approve": false,
+                "reject": false,
+                "resubmit": false
+              },
+              "Modified_Time": "2026-05-14T12:55:43+03:00",
+              "Created_Time": "2026-05-14T12:55:43+03:00",
+              "Amount": 10000,
+              "Probability": 10,
+              "Next_Step": null,
+              "$editable": true,
+              "$orchestration": false,
+              "Contact_Name": null,
+              "Sales_Cycle_Duration": 0,
+              "Type": null,
+              "$in_merge": false,
+              "Locked__s": false,
+              "Lead_Source": null,
+              "Created_By": {
+                "name": "Nango Developer",
+                "id": "7328395000000605001",
+                "email": "api@nango.dev"
+              },
+              "Tag": [],
+              "$zia_owner_assignment": "owner_recommendation_unavailable",
+              "$approval_state": "approved"
+            },
+            {
+              "Owner": {
+                "name": "Nango Developer",
+                "id": "7328395000000605001",
+                "email": "api@nango.dev"
+              },
+              "Description": null,
+              "$currency_symbol": "KES",
+              "Campaign_Source": null,
+              "$field_states": null,
+              "$review_process": {
+                "approve": false,
+                "reject": false,
+                "resubmit": false
+              },
+              "$layout_id": {
+                "display_label": "Standard",
+                "name": "Standard",
+                "id": "7328395000000091023"
+              },
+              "Closing_Date": "2024-12-31",
+              "Last_Activity_Time": "2026-05-14T12:56:45+03:00",
+              "Reason_For_Loss__s": null,
+              "Modified_By": {
+                "name": "Nango Developer",
+                "id": "7328395000000605001",
+                "email": "api@nango.dev"
+              },
+              "$review": null,
+              "Lead_Conversion_Time": 0,
+              "$state": "save",
+              "$process_flow": false,
+              "Deal_Name": "Mock Conversion Deal",
+              "Expected_Revenue": 5000,
+              "Overall_Sales_Duration": 0,
+              "Stage": "Closed Won",
+              "$locked_for_me": false,
+              "Account_Name": {
+                "name": "Mock Test Company",
+                "id": "7328395000000710005"
+              },
+              "id": "7328395000000710007",
+              "$approved": true,
+              "$approval": {
+                "delegate": false,
+                "takeover": false,
+                "approve": false,
+                "reject": false,
+                "resubmit": false
+              },
+              "Modified_Time": "2026-05-14T12:56:45+03:00",
+              "Created_Time": "2026-05-14T12:56:45+03:00",
+              "Amount": 5000,
+              "Probability": 100,
+              "Next_Step": null,
+              "$editable": true,
+              "$orchestration": false,
+              "Contact_Name": {
+                "name": "Lead Mock Test",
+                "id": "7328395000000710006"
+              },
+              "Sales_Cycle_Duration": 0,
+              "Type": null,
+              "$in_merge": false,
+              "Locked__s": false,
+              "Lead_Source": null,
+              "Created_By": {
+                "name": "Nango Developer",
+                "id": "7328395000000605001",
+                "email": "api@nango.dev"
+              },
+              "Tag": [],
+              "$zia_owner_assignment": null,
+              "$approval_state": "approved"
+            }
+          ],
+          "info": {
+            "per_page": 200,
+            "count": 17,
+            "page": 1,
+            "sort_by": "Modified_Time",
+            "sort_order": "asc",
+            "more_records": false
+          }
+        },
+        "status": 200,
+        "headers": {
+          "date": "Thu, 14 May 2026 10:38:32 GMT",
+          "content-type": "application/json;charset=UTF-8",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "0; mode=block",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=64072000; includeSubDomains; preload",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4982",
+          "x-ratelimit-reset": "1778755139",
+          "server": "ZGS",
+          "referrer-policy": "strict-origin",
+          "content-security-policy": "default-src 'none';frame-ancestors 'self'; report-uri https://logsapi.zoho.com/csplog?service=crm",
+          "set-cookie": "crmcsr=b8839df3-e50d-4566-94f9-c8e6f9c27298;path=/;SameSite=None;Secure;priority=high, _zcsr_tmp=b8839df3-e50d-4566-94f9-c8e6f9c27298;path=/;SameSite=Strict;Secure;priority=high",
+          "cache-control": "no-store, no-cache, must-revalidate, private",
+          "pragma": "no-cache",
+          "expires": "Thu, 01 Jan 1970 00:00:00 GMT",
+          "clientversion": "13385089",
+          "clientsubversion": "7432b849c14b9f458689de05f79d175e",
+          "x-accesstoken-reset": "2026-05-14T14:37:59+03:00",
+          "content-disposition": "attachment; filename=response.json",
+          "server-timing": "totalTime;desc=\"Total Execution Time\";dur=75,murphySpanId;desc=\"\";dur=0",
+          "vary": "accept-encoding",
+          "content-language": "en-US"
+        },
+        "hash": "17872a8ed7948202915cf001b4116f807eeb2659",
+        "request": {
+          "params": {
+            "page": "1",
+            "per_page": "200",
+            "sort_by": "Modified_Time",
+            "sort_order": "asc"
+          }
+        }
+      }
+    }
+  }
+}

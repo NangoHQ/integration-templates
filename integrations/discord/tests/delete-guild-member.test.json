@@ -1,0 +1,62 @@
+{
+  "input": {
+    "guild_id": "1504364254634180618",
+    "user_id": "999999999999999999"
+  },
+  "output": {
+    "success": false,
+    "message": "User 999999999999999999 is not a member of guild 1504364254634180618"
+  },
+  "nango": {
+    "getConnection": {},
+    "getMetadata": {
+      "botToken": "DISCORD_BOT_TOKEN",
+      "guild_id": "1504353980598321172"
+    }
+  },
+  "api": {
+    "delete": {
+      "/api/v10/guilds/1504364254634180618/members/999999999999999999": {
+        "response": {
+          "message": "Unknown User",
+          "code": 10013
+        },
+        "status": 404,
+        "headers": {
+          "date": "Thu, 14 May 2026 07:24:57 GMT",
+          "content-type": "application/json; charset=utf-8",
+          "content-length": "42",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=31536000; includeSubDomains; preload",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5",
+          "x-ratelimit-remaining": "4",
+          "x-ratelimit-reset": "1778743498.223",
+          "server": "cloudflare",
+          "x-ratelimit-bucket": "e06f83c33559dfd4dc34f5666fdfa1d3",
+          "x-ratelimit-reset-after": "1.000",
+          "x-discord-features": "guilds",
+          "via": "1.1 google",
+          "alt-svc": "h3=\":443\"; ma=86400",
+          "cf-cache-status": "DYNAMIC",
+          "set-cookie": "REDACTED",
+          "content-security-policy": "frame-ancestors 'none'; default-src https://o64374.ingest.sentry.io; report-to csp-sentry; report-uri https://o64374.ingest.sentry.io/api/5441894/security/?sentry_key=8fbbce30bf5244ec9429546beef21870&sentry_environment=stable",
+          "report-to": "{\"group\":\"cf-nel\",\"max_age\":604800,\"endpoints\":[{\"url\":\"https://a.nel.cloudflare.com/report/v4?s=voN0FnmcN7Zc2f08bbxbUQ9LU6jBWp1PcKNhIn99gqmujpEq01cB2H1JJr1PgDp1pGNVzRW5Oq%2F8%2FSk%2FAzJS7VBrzmTNJ46u%2FNlkXGL43%2FJWKw%2BbyrgTO2a6fDZo\"}]}",
+          "nel": "{\"report_to\":\"cf-nel\",\"success_fraction\":0.0,\"max_age\":604800}",
+          "reporting-endpoints": "csp-sentry=\"https://o64374.ingest.sentry.io/api/5441894/security/?sentry_key=8fbbce30bf5244ec9429546beef21870&sentry_environment=stable\"",
+          "cf-ray": "9fb82a893b2bff11-PDX",
+          "etag": "W/\"2a-N0ymQWa1acHxWtOid/pe9SF9Md4\""
+        },
+        "hash": "96f4571bdf661ed0aae8772be057ace033ad567a",
+        "request": {}
+      }
+    }
+  }
+}

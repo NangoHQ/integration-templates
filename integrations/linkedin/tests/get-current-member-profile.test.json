@@ -1,0 +1,65 @@
+{
+  "input": {},
+  "output": {
+    "id": "cer9AVOqWG",
+    "name": "Nango Developer",
+    "givenName": "Nango",
+    "familyName": "Developer",
+    "picture": "https://media.licdn.com/dms/image/v2/D4E03AQE6eRrJ4Appew/profile-displayphoto-shrink_400_400/B4EZ0GmbtEJ0Ag-/0/1773932231789?e=1779926400&v=beta&t=5gMoqwDgJm0_b3GSPT4wfZ8pUyOCudILD400eSozfw4",
+    "email": "api@nango.dev",
+    "emailVerified": true,
+    "locale": {
+      "country": "US",
+      "language": "en"
+    }
+  },
+  "nango": {},
+  "api": {
+    "get": {
+      "/v2/userinfo": {
+        "response": {
+          "sub": "cer9AVOqWG",
+          "email_verified": true,
+          "name": "Nango Developer",
+          "locale": {
+            "country": "US",
+            "language": "en"
+          },
+          "given_name": "Nango",
+          "family_name": "Developer",
+          "email": "api@nango.dev",
+          "picture": "https://media.licdn.com/dms/image/v2/D4E03AQE6eRrJ4Appew/profile-displayphoto-shrink_400_400/B4EZ0GmbtEJ0Ag-/0/1773932231789?e=1779926400&v=beta&t=5gMoqwDgJm0_b3GSPT4wfZ8pUyOCudILD400eSozfw4"
+        },
+        "status": 200,
+        "headers": {
+          "date": "Tue, 12 May 2026 08:33:04 GMT",
+          "content-type": "application/json",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=5184000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4977",
+          "x-ratelimit-reset": "1778574826",
+          "x-restli-protocol-version": "1.0.0",
+          "x-li-fabric": "prod-lva1",
+          "x-li-source-fabric": "prod-lor1",
+          "x-li-pop": "prod-lor1-x",
+          "x-li-proto": "http/1.1",
+          "x-li-uuid": "AAZRmrY9C8RqlutSnJ4NTg==",
+          "set-cookie": "bcookie=\"v=2&51a7692a-4e96-4da6-86d0-19aa28e0a5a9\"; domain=.linkedin.com; Path=/; Secure; Expires=Wed, 12-May-2027 08:33:04 GMT; SameSite=None, lidc=\"b=VB92:s=V:r=V:a=V:p=V:g=4424:u=5:x=1:i=1778574784:t=1778656281:v=2:sig=AQFyUngQbh4t0W-ctXyJUGwav7rZUuPx\"",
+          "x-li-route-key": "\"b=VB92:s=V:r=V:a=V:p=V:g=4424:u=5:x=1:i=1778574784:t=1778656281:v=2:sig=AQFyUngQbh4t0W-ctXyJUGwav7rZUuPx\""
+        },
+        "hash": "e0f36d26064859c86bb7326323bed2f45b56a209",
+        "request": {}
+      }
+    }
+  }
+}
