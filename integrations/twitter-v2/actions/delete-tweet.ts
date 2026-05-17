@@ -47,7 +47,7 @@ const action = createAction({
     exec: async (nango, input) => {
         // https://developer.x.com/en/docs/x-api/tweets/manage-tweets/api-reference/delete-tweets-id
         const response = await nango.delete({
-            endpoint: `2/tweets/${input.id}`,
+            endpoint: `/2/tweets/${input.id}`,
             retries: 2
         });
 

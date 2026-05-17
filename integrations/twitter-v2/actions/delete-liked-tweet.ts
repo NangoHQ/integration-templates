@@ -2,80 +2,65 @@ import { z } from 'zod';
 import { createAction } from 'nango';
 
 const InputSchema = z.object({
-    id: z.string().describe('The ID of the tweet to delete. Example: "1346889436626259968"')
+    tweet_id: z.string().describe('The ID of the liked tweet to remove. Example: "1346889436626259968"')
 });
 
-const ProviderResponseSchema = z.object({
-    data: z
-        .object({
-            deleted: z.boolean()
+const ProviderUserSchema = z
+    .object({
+        data: z.object({
+            id: z.string()
         })
-        .optional(),
-    errors: z.array(z.unknown()).optional()
-});
+    })
+    .passthrough();
+
+const ProviderUnlikeResponseSchema = z
+    .object({
+        data: z
+            .object({
+                liked: z.boolean()
+            })
+            .optional()
+    })
+    .passthrough();
 
 const OutputSchema = z.object({
-    id: z.string(),
-    deleted: z.boolean()
+    success: z.boolean(),
+    liked: z.boolean().optional()
 });
 
 const action = createAction({
-    description: 'Delete a tweet owned by the authenticated user.',
+    description: 'Remove a liked tweet (unlike) for the authenticated user.',
     version: '1.0.0',
     endpoint: {
         method: 'POST',
         path: '/actions/delete-liked-tweet',
-        group: 'Tweets'
+        group: 'Likes'
     },
     input: InputSchema,
     output: OutputSchema,
-    scopes: ['tweet.read', 'tweet.write', 'users.read'],
+    scopes: ['tweet.read', 'users.read', 'like.write'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
-        // https://developer.twitter.com/en/docs/twitter-api/tweets/manage-tweets/api-reference/delete-tweets-id
-        const response = await nango.delete({
-            endpoint: `/2/tweets/${input.id}`,
+        // https://docs.x.com/x-api/users/lookup-ME#get-api-endpoint
+        const userResponse = await nango.get({
+            endpoint: '/2/users/me',
             retries: 3
         });
 
-        if (response.status === 404) {
-            throw new nango.ActionError({
-                type: 'not_found',
-                message: 'Tweet not found or you do not have permission to delete it',
-                id: input.id
-            });
-        }
+        const userData = ProviderUserSchema.parse(userResponse.data);
+        const userId = userData.data.id;
 
-        if (response.status === 403) {
-            throw new nango.ActionError({
-                type: 'forbidden',
-                message: 'You do not have permission to delete this tweet. You can only delete tweets you own.',
-                id: input.id
-            });
-        }
+        // https://docs.x.com/x-api/likes/manage-likes#delete-api-endpoint
+        const response = await nango.delete({
+            endpoint: `/2/users/${userId}/likes/${input.tweet_id}`,
+            retries: 3
+        });
 
-        if (!response.data) {
-            throw new nango.ActionError({
-                type: 'api_error',
-                message: 'No response data from X API',
-                id: input.id
-            });
-        }
-
-        const providerResponse = ProviderResponseSchema.parse(response.data);
-
-        if (providerResponse.errors && providerResponse.errors.length > 0) {
-            throw new nango.ActionError({
-                type: 'api_error',
-                message: 'X API returned errors',
-                errors: providerResponse.errors,
-                id: input.id
-            });
-        }
+        const parsed = ProviderUnlikeResponseSchema.parse(response.data);
 
         return {
-            id: input.id,
-            deleted: providerResponse.data?.deleted ?? true
+            success: true,
+            ...(parsed.data?.liked !== undefined && { liked: parsed.data.liked })
         };
     }
 });

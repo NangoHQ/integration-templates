@@ -31,7 +31,7 @@ const action = createAction({
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         // https://docs.x.com/x-api/users/user-lookup-by-id
         const userResponse = await nango.get({
-            endpoint: '2/users/me',
+            endpoint: '/2/users/me',
             retries: 3
         });
 
@@ -57,7 +57,7 @@ const action = createAction({
 
         // https://docs.x.com/x-api/introduction/bookmarks
         const response = await nango.delete({
-            endpoint: `2/users/${userId}/bookmarks/${input.tweet_id}`,
+            endpoint: `/2/users/${userId}/bookmarks/${input.tweet_id}`,
             retries: 2
         });
 
