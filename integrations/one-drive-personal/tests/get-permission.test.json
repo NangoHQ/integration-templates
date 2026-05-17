@@ -1,0 +1,120 @@
+{
+  "input": {
+    "itemId": "AB43234B783BB6C3!sc2595f4d06c2445abe96754c40b77fc3",
+    "permissionId": "d59921ed-6e25-4f3a-8bf2-bebff6412693"
+  },
+  "output": {
+    "id": "d59921ed-6e25-4f3a-8bf2-bebff6412693",
+    "roles": [
+      "read"
+    ],
+    "grantedToIdentities": [
+      {
+        "user": {
+          "displayName": "test.invite@example.com",
+          "email": "test.invite@example.com"
+        }
+      },
+      {
+        "user": {
+          "displayName": "testuser3@example.com",
+          "email": "testuser3@example.com"
+        }
+      }
+    ],
+    "link": {
+      "webUrl": "https://1drv.ms/t/c/ab43234b783bb6c3/IQBNX1nCwgZaRL6WdUxAt3_DAT0ABfU-m3Qn9YeniHUPLVw",
+      "type": "view",
+      "scope": "users",
+      "localizedDescription": "Specific people with the link can view",
+      "iconUrl": "https://static2.sharepointonline.com/files/fabric/assets/icons/sharing/specificpeople.svg",
+      "blocksDownload": false,
+      "createOnly": false,
+      "createdDateTime": "2026-05-06T21:32:23.453Z",
+      "role": "view",
+      "variant": "none"
+    },
+    "shareId": "u!aHR0cHM6Ly8xZHJ2Lm1zL3QvYy9hYjQzMjM0Yjc4M2JiNmMzL0lRQk5YMW5Dd2daYVJMNldkVXhBdDNfREFUMEFCZlUtbTNRbjlZZW5pSFVQTFZ3"
+  },
+  "nango": {},
+  "api": {
+    "get": {
+      "/v1.0/drive/items/AB43234B783BB6C3!sc2595f4d06c2445abe96754c40b77fc3/permissions/d59921ed-6e25-4f3a-8bf2-bebff6412693": {
+        "response": {
+          "@odata.context": "https://api.onedrive.com/v1.0/$metadata#drives('default')/items('AB43234B783BB6C3!sc2595f4d06c2445abe96754c40b77fc3')/permissions/$entity",
+          "@deprecated.GrantedToIdentities": "GrantedToIdentities has been deprecated. Refer to GrantedToIdentitiesV2",
+          "id": "d59921ed-6e25-4f3a-8bf2-bebff6412693",
+          "roles": [
+            "read"
+          ],
+          "shareId": "u!aHR0cHM6Ly8xZHJ2Lm1zL3QvYy9hYjQzMjM0Yjc4M2JiNmMzL0lRQk5YMW5Dd2daYVJMNldkVXhBdDNfREFUMEFCZlUtbTNRbjlZZW5pSFVQTFZ3",
+          "hasPassword": false,
+          "grantedToIdentitiesV2": [
+            {
+              "user": {
+                "@odata.type": "#oneDrive.sharePointIdentity",
+                "displayName": "test.invite@example.com",
+                "email": "test.invite@example.com"
+              }
+            },
+            {
+              "user": {
+                "@odata.type": "#oneDrive.sharePointIdentity",
+                "displayName": "testuser3@example.com",
+                "email": "testuser3@example.com"
+              }
+            }
+          ],
+          "grantedToIdentities": [
+            {
+              "user": {
+                "displayName": "test.invite@example.com",
+                "email": "test.invite@example.com"
+              }
+            },
+            {
+              "user": {
+                "displayName": "testuser3@example.com",
+                "email": "testuser3@example.com"
+              }
+            }
+          ],
+          "link": {
+            "localizedDescription": "Specific people with the link can view",
+            "iconUrl": "https://static2.sharepointonline.com/files/fabric/assets/icons/sharing/specificpeople.svg",
+            "scope": "users",
+            "type": "view",
+            "webUrl": "https://1drv.ms/t/c/ab43234b783bb6c3/IQBNX1nCwgZaRL6WdUxAt3_DAT0ABfU-m3Qn9YeniHUPLVw",
+            "blocksDownload": false,
+            "createOnly": false,
+            "createdDateTime": "2026-05-06T21:32:23.453Z",
+            "role": "view",
+            "variant": "none"
+          }
+        },
+        "status": 200,
+        "headers": {
+          "date": "Fri, 08 May 2026 09:36:26 GMT",
+          "content-type": "application/json; odata.metadata=minimal",
+          "content-length": "1365",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=5184000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4965",
+          "x-ratelimit-reset": "1778233035",
+          "etag": "W/\"555-oIR9GIugC7vrXkUdJ+HYRwxpukQ\""
+        },
+        "hash": "444a07b73bb44241542e729a362f7bb317acd8eb",
+        "request": {}
+      }
+    }
+  }
+}

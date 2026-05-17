@@ -27193,17 +27193,15 @@ export interface DriveItem {
 
 export interface FolderChild {
   id: string;
-  folderId: string;
   name: string;
+  folderId: string;
   size?: number | undefined;
+  createdDateTime?: string | undefined;
+  lastModifiedDateTime?: string | undefined;
   webUrl?: string | undefined;
-  downloadUrl?: string | undefined;
-  createdDateTime: string;
-  lastModifiedDateTime: string;
-  driveId?: string | undefined;
-  parentPath?: string | undefined;
+  description?: string | undefined;
   isFolder: boolean;
-  mimeType?: string | undefined;
+  parentId?: string | undefined;
 };
 
 export interface SyncMetadata_one_drive_folderchildren {
@@ -27308,11 +27306,10 @@ export interface UserFile {
   webUrl?: string | undefined;
   downloadUrl?: string | undefined;
   mimeType?: string | undefined;
-  file?: {  mimeType?: string | undefined;};
-  folder?: {  childCount?: number | undefined;};
-  parentReference?: {  id?: string | undefined;
-  path?: string | undefined;};
-  deleted?: {  state?: string | undefined;};
+  isFolder?: boolean | undefined;
+  childCount?: number | undefined;
+  parentId?: string | undefined;
+  parentPath?: string | undefined;
 };
 
 export interface ActionInput_one_drive_copyitem {
@@ -27899,23 +27896,611 @@ export interface ActionOutput_one_drive_uploadsmallfile {
   download_url?: string | undefined;
 };
 
-export interface OneDriveFileSelection {
+export interface UserFileSelection {
   id: string;
-  name: string;
-  etag: string;
-  cTag: string;
-  is_folder: boolean;
-  mime_type: string | null;
-  path: string;
-  raw_source: {};
-  updated_at: string;
-  created_at: string;
-  blob_size: number;
-  drive_id: string;
+  fileId: string;
+  name?: string | undefined;
+  size?: number | undefined;
+  webUrl?: string | undefined;
+  downloadUrl?: string | undefined;
+  createdDateTime?: string | undefined;
+  lastModifiedDateTime?: string | undefined;
 };
 
-export interface SyncMetadata_one_drive_personal_userfilesselection {
-  fileIds: string[];
+export interface ActionInput_one_drive_personal_createfolder {
+  /**
+   * The ID of the parent item (folder) where the new folder should be created. Example: "root" or "01A1B2C3D4E5F6G7H8I9J0K"
+   */
+  parentItemId: string;
+  /**
+   * The name for the new folder. Example: "My New Folder"
+   */
+  folderName: string;
+  /**
+   * The conflict behavior if a folder with the same name exists. Default is "rename".
+   */
+  conflictBehavior?: 'rename' | 'fail' | 'replace' | undefined;
+};
+
+export interface ActionOutput_one_drive_personal_createfolder {
+  /**
+   * The ID of the newly created folder
+   */
+  id: string;
+  /**
+   * The name of the created folder
+   */
+  name: string;
+  size?: number | undefined;
+  webUrl?: string | undefined;
+  createdDateTime?: string | undefined;
+  lastModifiedDateTime?: string | undefined;
+  parentId?: string | undefined;
+};
+
+export interface ActionInput_one_drive_personal_createsharinglink {
+  /**
+   * The ID of the drive item (file or folder) to share. Example: "0123456789abc!123"
+   */
+  item_id: string;
+  /**
+   * The type of sharing link to create. "view" allows read-only access, "edit" allows read-write access.
+   */
+  type: 'view' | 'edit';
+  /**
+   * The scope of the sharing link. "anonymous" allows anyone with the link to access (no sign-in required), "users" restricts to existing organization users.
+   */
+  scope: 'anonymous' | 'users';
+};
+
+export interface ActionOutput_one_drive_personal_createsharinglink {
+  /**
+   * The unique ID of the permission created.
+   */
+  id?: string | undefined;
+  link?: {  type?: 'view' | 'edit' | undefined;
+  scope?: 'anonymous' | 'users' | 'organization' | undefined;
+  /**
+   * The URL that can be used to access the shared item.
+   */
+  webUrl?: string | undefined;};
+  /**
+   * A unique token for the share link.
+   */
+  share_id?: string | undefined;
+  /**
+   * The set of roles granted by the permission.
+   */
+  roles?: string[] | undefined;
+};
+
+export interface ActionInput_one_drive_personal_createuploadsession {
+  /**
+   * The ID of the parent folder where the file will be uploaded. Example: "01ABCDEF123456789"
+   */
+  parent_item_id: string;
+  /**
+   * The name of the file to be uploaded. Example: "document.pdf"
+   */
+  file_name: string;
+  /**
+   * Optional description for the file.
+   */
+  file_description?: string | undefined;
+  /**
+   * Optional file system info for the file.
+   */
+  file_system_info?: {  /**
+   * Optional created date time in ISO 8601 format.
+   */
+  created_date_time?: string | undefined;
+  /**
+   * Optional last modified date time in ISO 8601 format.
+   */
+  last_modified_date_time?: string | undefined;};
+};
+
+export interface ActionOutput_one_drive_personal_createuploadsession {
+  /**
+   * The URL endpoint for uploading file bytes via byte-range PUT requests.
+   */
+  upload_url: string;
+  /**
+   * The expiration date/time in ISO 8601 format for the upload session.
+   */
+  expiration_date_time: string;
+  /**
+   * Zero or more byte ranges indicating what data has been received.
+   */
+  next_expected_ranges?: string[] | undefined;
+};
+
+export interface ActionInput_one_drive_personal_deleteitem {
+  /**
+   * The ID of the drive item to delete. Example: "0123456789abc"
+   */
+  itemId: string;
+};
+
+export interface ActionOutput_one_drive_personal_deleteitem {
+  /**
+   * Whether the item was successfully deleted
+   */
+  success: boolean;
+  /**
+   * The ID of the deleted item
+   */
+  itemId: string;
+};
+
+export interface ActionInput_one_drive_personal_deletepermission {
+  /**
+   * The ID of the drive item. Example: "0123456789abc"
+   */
+  itemId: string;
+  /**
+   * The ID of the permission to delete. Example: "b123456789ab!123"
+   */
+  permissionId: string;
+};
+
+export interface ActionOutput_one_drive_personal_deletepermission {
+  success: boolean;
+  itemId: string;
+  permissionId: string;
+};
+
+export interface ActionInput_one_drive_personal_downloaditemcontent {
+  /**
+   * The ID of the file item to download. Example: "01A2B3C4D5E6F7G8H9I0J1K2L3M4N5O6P7Q8R9S0T1U2V3W4X5Y6Z7A8B9C0D1E2F3"
+   */
+  item_id: string;
+};
+
+export interface ActionOutput_one_drive_personal_downloaditemcontent {
+  /**
+   * Base64-encoded binary content of the file
+   */
+  content: string;
+  /**
+   * MIME type of the file content
+   */
+  content_type: string;
+  /**
+   * Size of the file content in bytes
+   */
+  size: number;
+  /**
+   * Name of the file
+   */
+  name?: string | undefined;
+};
+
+export interface ActionInput_one_drive_personal_getdrive {
+};
+
+export interface ActionOutput_one_drive_personal_getdrive {
+  id: string;
+  driveType: string;
+  owner?: {  user?: {  id?: string | undefined;
+  displayName?: string | undefined;};};
+  quota?: {  deleted?: number | undefined;
+  remaining?: number | undefined;
+  state?: string | undefined;
+  total?: number | undefined;
+  used?: number | undefined;};
+};
+
+export interface ActionInput_one_drive_personal_getitem {
+  /**
+   * The ID of the drive item to retrieve. Example: "123ABC"
+   */
+  itemId?: string | undefined;
+  /**
+   * The path to the drive item from the root. Example: "/Documents/file.txt"
+   */
+  path?: string | undefined;
+};
+
+export interface ActionOutput_one_drive_personal_getitem {
+  /**
+   * The unique identifier of the item
+   */
+  id: string;
+  /**
+   * The name of the item
+   */
+  name: string;
+  /**
+   * The type of the item
+   */
+  type: 'file' | 'folder';
+  /**
+   * Size of the file in bytes
+   */
+  size?: number | undefined;
+  /**
+   * Date and time of item creation
+   */
+  createdDateTime?: string | undefined;
+  /**
+   * Date and time the item was last modified
+   */
+  lastModifiedDateTime?: string | undefined;
+  /**
+   * URL to view the item in OneDrive
+   */
+  webUrl?: string | undefined;
+  /**
+   * Reference to the parent folder
+   */
+  parentReference?: {  id?: string | undefined;
+  path?: string | undefined;};
+  /**
+   * URL to download the file content
+   */
+  downloadUrl?: string | undefined;
+  /**
+   * File metadata if this is a file
+   */
+  file?: {  mimeType?: string | undefined;};
+  /**
+   * Folder metadata if this is a folder
+   */
+  folder?: {  childCount?: number | undefined;};
+};
+
+export interface ActionInput_one_drive_personal_getpermission {
+  /**
+   * The ID of the driveItem. Example: "12345ABC!123"
+   */
+  itemId: string;
+  /**
+   * The ID of the permission to retrieve. Example: "1"
+   */
+  permissionId: string;
+};
+
+export interface ActionOutput_one_drive_personal_getpermission {
+  id: string;
+  roles: string[];
+  grantedTo?: {  user?: {  displayName?: string | undefined;
+  id?: string | undefined;
+  email?: string | undefined;};
+  application?: {  displayName?: string | undefined;
+  id?: string | undefined;
+  email?: string | undefined;};
+  device?: {  displayName?: string | undefined;
+  id?: string | undefined;
+  email?: string | undefined;};};
+  grantedToIdentities?: ({  user?: {  displayName?: string | undefined;
+  id?: string | undefined;
+  email?: string | undefined;};
+  application?: {  displayName?: string | undefined;
+  id?: string | undefined;
+  email?: string | undefined;};
+  device?: {  displayName?: string | undefined;
+  id?: string | undefined;
+  email?: string | undefined;};})[];
+  inheritedFrom?: {  driveId?: string | undefined;
+  id?: string | undefined;
+  path?: string | undefined;};
+  invitation?: {  email?: string | undefined;
+  invitedBy?: {  user?: {  displayName?: string | undefined;
+  id?: string | undefined;
+  email?: string | undefined;};
+  application?: {  displayName?: string | undefined;
+  id?: string | undefined;
+  email?: string | undefined;};
+  device?: {  displayName?: string | undefined;
+  id?: string | undefined;
+  email?: string | undefined;};};
+  sentDateTime?: string | undefined;
+  redeemedBy?: {  user?: {  displayName?: string | undefined;
+  id?: string | undefined;
+  email?: string | undefined;};
+  application?: {  displayName?: string | undefined;
+  id?: string | undefined;
+  email?: string | undefined;};
+  device?: {  displayName?: string | undefined;
+  id?: string | undefined;
+  email?: string | undefined;};};};
+  link?: {  webUrl?: string | undefined;
+  type?: string | undefined;
+  scope?: string | undefined;
+  application?: {  displayName?: string | undefined;
+  id?: string | undefined;
+  email?: string | undefined;};};
+  shareId?: string | undefined;
+};
+
+export interface ActionInput_one_drive_personal_inviterecipients {
+  /**
+   * The ID of the drive item to grant access to. Example: "0123456789ABC!123"
+   */
+  itemId: string;
+  /**
+   * List of recipients to invite. For personal accounts, use email addresses only.
+   */
+  recipients: ({  /**
+   * Email address of the recipient. Example: "user@example.com"
+   */
+  email: string;})[];
+  /**
+   * Roles to grant to the recipients. Values: "read", "write".
+   */
+  roles: ({  0: 'read';
+  1: 'write';})[];
+  /**
+   * Whether to send an invitation email to the recipients. Defaults to true.
+   */
+  sendInvitation?: boolean | undefined;
+  /**
+   * Whether the recipient is required to sign in to access the item. Defaults to false.
+   */
+  requireSignIn?: boolean | undefined;
+};
+
+export interface ActionOutput_one_drive_personal_inviterecipients {
+  /**
+   * List of permissions granted to the recipients.
+   */
+  permissions: ({  id?: string | undefined;
+  roles?: string[] | undefined;
+  link?: {  type?: string | undefined;
+  scope?: string | undefined;
+  webUrl?: string | undefined;};
+  grantedTo?: {  user?: {  displayName?: string | undefined;
+  id?: string | undefined;
+  email?: string | undefined;};};
+  grantedToV2?: {  user?: {  displayName?: string | undefined;
+  id?: string | undefined;
+  email?: string | undefined;};};
+  grantedToIdentities?: ({  user?: {  displayName?: string | undefined;
+  id?: string | undefined;
+  email?: string | undefined;};})[];
+  grantedToIdentitiesV2?: ({  user?: {  displayName?: string | undefined;
+  id?: string | undefined;
+  email?: string | undefined;};})[];
+  invitedBy?: {  user?: {  displayName?: string | undefined;
+  id?: string | undefined;
+  email?: string | undefined;};};
+  invitation?: {  email?: string | undefined;
+  signInRequired?: boolean | undefined;};})[];
+};
+
+export interface ActionInput_one_drive_personal_listchildren {
+  /**
+   * The ID of the folder to list children for. Omit to list children of the root folder. Example: "01ABC123DEF456"
+   */
+  itemId?: string | undefined;
+  /**
+   * Pagination cursor (@odata.nextLink) from the previous response. Omit for the first page.
+   */
+  cursor?: string | undefined;
+};
+
+export interface ActionOutput_one_drive_personal_listchildren {
+  items: ({  id: string;
+  name: string;
+  size?: number | undefined;
+  createdDateTime?: string | undefined;
+  lastModifiedDateTime?: string | undefined;
+  webUrl?: string | undefined;
+  isFolder?: boolean | undefined;
+  childCount?: number | undefined;
+  mimeType?: string | undefined;
+  parentId?: string | undefined;})[];
+  nextLink?: string | undefined;
+};
+
+export interface ActionInput_one_drive_personal_listpermissions {
+  /**
+   * The ID of the drive item to list permissions for. Example: "123ABC!456"
+   */
+  itemId: string;
+};
+
+export interface ActionOutput_one_drive_personal_listpermissions {
+  permissions: ({  id: string;
+  roles?: string[] | undefined;
+  grantedTo?: {  user?: {  id?: string | undefined;
+  displayName?: string | undefined;};};
+  grantedToIdentities?: ({  user?: {  id?: string | undefined;
+  displayName?: string | undefined;};})[];
+  hasPassword?: boolean | undefined;
+  link?: {  type?: string | undefined;
+  scope?: string | undefined;
+  webUrl?: string | undefined;};
+  invitation?: {  email?: string | undefined;
+  signInRequired?: boolean | undefined;};
+  expirationDateTime?: string | undefined;
+  shareId?: string | undefined;})[];
+};
+
+export interface ActionInput_one_drive_personal_listversions {
+  /**
+   * The ID of the file item. Example: "0123456789abc"
+   */
+  itemId: string;
+};
+
+export interface ActionOutput_one_drive_personal_listversions {
+  versions: ({  id: string;
+  lastModifiedBy?: {  displayName?: string | undefined;
+  email?: string | undefined;};
+  lastModifiedDateTime?: string | undefined;
+  size?: number | undefined;})[];
+};
+
+export interface ActionInput_one_drive_personal_moveitem {
+  /**
+   * The ID of the driveItem to move or rename. Example: "0123456789abc!123"
+   */
+  item_id: string;
+  /**
+   * Reference to the new parent folder for moving the item. Provide either id or path.
+   */
+  parent_reference?: {  /**
+   * The ID of the new parent folder. Example: "0123456789abc!456"
+   */
+  id?: string | undefined;
+  /**
+   * The path to the new parent folder. Example: "/drive/root:/NewFolder"
+   */
+  path?: string | undefined;};
+  /**
+   * The new name for the item. Example: "NewFileName.txt"
+   */
+  name?: string | undefined;
+};
+
+export interface ActionOutput_one_drive_personal_moveitem {
+  id: string;
+  name: string;
+  parent_reference?: {  id?: string | undefined;
+  path?: string | undefined;};
+  web_url?: string | undefined;
+  size?: number | undefined;
+  created_date_time?: string | undefined;
+  last_modified_date_time?: string | undefined;
+};
+
+export interface ActionInput_one_drive_personal_searchitems {
+  query?: string | undefined;
+  /**
+   * Pagination link from the previous response. Omit for the first page.
+   */
+  cursor?: string | undefined;
+};
+
+export interface ActionOutput_one_drive_personal_searchitems {
+  /**
+   * Array of drive items matching the search query.
+   */
+  items: ({  /**
+   * The unique identifier of the item.
+   */
+  id: string;
+  /**
+   * The name of the item.
+   */
+  name: string;
+  /**
+   * The size of the item in bytes.
+   */
+  size?: number | undefined;
+  /**
+   * The date and time the item was created.
+   */
+  created_at?: string | undefined;
+  /**
+   * The date and time the item was last modified.
+   */
+  modified_at?: string | undefined;
+  /**
+   * The URL to view the item in OneDrive.
+   */
+  web_url?: string | undefined;
+  /**
+   * Whether the item is a folder.
+   */
+  is_folder?: boolean | undefined;
+  /**
+   * Whether the item is a file.
+   */
+  is_file?: boolean | undefined;
+  /**
+   * The ID of the parent folder.
+   */
+  parent_id?: string | undefined;
+  /**
+   * Whether the item has been deleted.
+   */
+  is_deleted?: boolean | undefined;})[];
+  /**
+   * Pagination cursor for the next page of results.
+   */
+  next_cursor?: string | undefined;
+};
+
+export interface ActionInput_one_drive_personal_updateitem {
+  /**
+   * The unique identifier of the drive item to update. Example: "0123456789abc"
+   */
+  itemId: string;
+  /**
+   * New name for the item.
+   */
+  name?: string | undefined;
+  /**
+   * New description for the item. Use null to clear.
+   */
+  description?: string | undefined;
+  /**
+   * New parent folder reference to move the item.
+   */
+  parentReference?: {  /**
+   * The ID of the parent folder.
+   */
+  id: string;
+  /**
+   * The ID of the drive containing the parent folder.
+   */
+  driveId?: string | undefined;};
+  /**
+   * File system info to update.
+   */
+  fileSystemInfo?: {  /**
+   * The UTC date and time the file was created on the client.
+   */
+  createdDateTime?: string | undefined;
+  /**
+   * The UTC date and time the file was last modified on the client.
+   */
+  lastModifiedDateTime?: string | undefined;};
+};
+
+export interface ActionOutput_one_drive_personal_updateitem {
+  id: string;
+  name: string;
+  description?: string | undefined;
+  parentReference?: {  id: string;
+  driveId?: string | undefined;};
+  fileSystemInfo?: {  createdDateTime?: string | undefined;
+  lastModifiedDateTime?: string | undefined;};
+  webUrl?: string | undefined;
+  size?: number | undefined;
+  createdDateTime?: string | undefined;
+  lastModifiedDateTime?: string | undefined;
+};
+
+export interface ActionInput_one_drive_personal_uploadsmallfile {
+  /**
+   * The ID of the parent item (folder) where the file will be uploaded. Example: "root" or a specific item ID.
+   */
+  parentItemId: string;
+  /**
+   * The name of the file to be uploaded. Example: "document.txt"
+   */
+  fileName: string;
+  /**
+   * The base64-encoded content of the file to upload. Always base64 encode the content before passing it here.
+   */
+  content: string;
+  /**
+   * The MIME type of the file content. Defaults to "text/plain" if not provided. Example: "application/json"
+   */
+  contentType?: string | undefined;
+};
+
+export interface ActionOutput_one_drive_personal_uploadsmallfile {
+  id: string;
+  name: string;
+  size?: number | undefined;
+  webUrl?: string | undefined;
+  createdDateTime?: string | undefined;
+  lastModifiedDateTime?: string | undefined;
 };
 
 export interface Employee {
