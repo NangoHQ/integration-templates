@@ -6546,14 +6546,21 @@ export interface SyncMetadata_confluence_pages {
 
 export interface Space {
   id: string;
-  key: string;
-  name: string;
-  type?: string | undefined;
-  status?: string | undefined;
-  authorId?: string | undefined;
-  createdAt?: string | undefined;
-  homepageId?: string | undefined;
-  currentActiveAlias?: string | undefined;
+  state: 'live' | 'scheduled' | 'ended';
+  title?: string | undefined;
+  created_at?: string | undefined;
+  updated_at?: string | undefined;
+  creator_id?: string | undefined;
+  host_ids?: string[] | undefined;
+  speaker_ids?: string[] | undefined;
+  invited_user_ids?: string[] | undefined;
+  participant_count?: number | undefined;
+  subscriber_count?: number | undefined;
+  is_ticketed?: boolean | undefined;
+  lang?: string | undefined;
+  scheduled_start?: string | undefined;
+  started_at?: string | undefined;
+  ended_at?: string | undefined;
 };
 
 export interface SyncMetadata_confluence_spaces {
@@ -40502,6 +40509,839 @@ export interface TeamtailorCandidate {
 };
 
 export interface SyncMetadata_teamtailor_candidates {
+};
+
+export interface LikedTweet {
+  id: string;
+  text: string;
+  author_id?: string | undefined;
+  created_at?: string | undefined;
+  public_metrics?: {  like_count?: number | undefined;
+  retweet_count?: number | undefined;
+  reply_count?: number | undefined;
+  quote_count?: number | undefined;
+  impression_count?: number | undefined;
+  bookmark_count?: number | undefined;};
+  edit_history_tweet_ids?: string[] | undefined;
+};
+
+export interface List {
+  id: string;
+  name: string;
+  description?: string | undefined;
+  created_at?: string | undefined;
+  private?: boolean | undefined;
+  owner_id?: string | undefined;
+  follower_count?: number | undefined;
+  member_count?: number | undefined;
+};
+
+export interface Mention {
+  id: string;
+  text?: string | undefined;
+  author_id?: string | undefined;
+  created_at?: string | undefined;
+  edit_history_tweet_ids?: string[] | undefined;
+  conversation_id?: string | undefined;
+  in_reply_to_user_id?: string | undefined;
+  public_metrics?: {  retweet_count?: number | undefined;
+  reply_count?: number | undefined;
+  like_count?: number | undefined;
+  quote_count?: number | undefined;
+  bookmark_count?: number | undefined;
+  impression_count?: number | undefined;};
+  lang?: string | undefined;
+  source?: string | undefined;
+};
+
+export interface Tweet {
+  id: string;
+  text: string;
+  author_id?: string | undefined;
+  created_at?: string | undefined;
+  conversation_id?: string | undefined;
+  in_reply_to_user_id?: string | undefined;
+  referenced_tweets?: ({  type: 'retweeted' | 'quoted' | 'replied_to';
+  id: string;})[] | undefined;
+  public_metrics?: {  retweet_count?: number | undefined;
+  reply_count?: number | undefined;
+  like_count?: number | undefined;
+  impression_count?: number | undefined;
+  bookmark_count?: number | undefined;
+  quote_count?: number | undefined;};
+};
+
+export interface ActionInput_twitter_v2_bookmarktweet {
+  /**
+   * The ID of the authenticated source User for whom to add bookmarks. Example: "2244994945"
+   */
+  userId: string;
+  /**
+   * The ID of the Tweet to bookmark. Example: "1460323737035677698"
+   */
+  tweetId: string;
+};
+
+export interface ActionOutput_twitter_v2_bookmarktweet {
+  bookmarked: boolean;
+};
+
+export interface ActionInput_twitter_v2_createlikedtweet {
+  /**
+   * The ID of the authenticated user that is requesting to like the Post. Must match the authenticated user.
+   */
+  userId: string;
+  /**
+   * The ID of the Post to like. Example: "1228393702244134912"
+   */
+  tweetId: string;
+};
+
+export interface ActionOutput_twitter_v2_createlikedtweet {
+  liked: boolean;
+};
+
+export interface ActionInput_twitter_v2_createlist {
+  /**
+   * Name of the list. Example: "Tech News"
+   */
+  name: string;
+  /**
+   * Description for the list. Example: "Top tech journalists and publications"
+   */
+  description?: string | undefined;
+  /**
+   * Whether the list is private. If true, only the owner can view the list.
+   */
+  private?: boolean | undefined;
+};
+
+export interface ActionOutput_twitter_v2_createlist {
+  /**
+   * Unique identifier of the created list.
+   */
+  id: string;
+  /**
+   * Name of the created list.
+   */
+  name: string;
+};
+
+export interface ActionInput_twitter_v2_createtweet {
+  /**
+   * The text content of the tweet. Maximum 280 characters.
+   */
+  text: string;
+  /**
+   * The ID of the tweet to reply to. If provided, creates a reply tweet.
+   */
+  replyToTweetId?: string | undefined;
+  /**
+   * The ID of the tweet to quote. If provided, creates a quote tweet.
+   */
+  quoteTweetId?: string | undefined;
+  /**
+   * Media IDs for media attachments to include in the tweet (from the upload endpoint).
+   */
+  mediaIds?: string[] | undefined;
+};
+
+export interface ActionOutput_twitter_v2_createtweet {
+  /**
+   * The unique identifier of the created tweet.
+   */
+  id: string;
+  /**
+   * The text content of the created tweet.
+   */
+  text: string;
+};
+
+export interface ActionInput_twitter_v2_deletelikedtweet {
+  /**
+   * The ID of the liked tweet to remove. Example: "1346889436626259968"
+   */
+  tweet_id: string;
+};
+
+export interface ActionOutput_twitter_v2_deletelikedtweet {
+  success: boolean;
+  liked?: boolean | undefined;
+};
+
+export interface ActionInput_twitter_v2_deletelist {
+  /**
+   * The ID of the List to delete. Example: "1234567890"
+   */
+  id: string;
+};
+
+export interface ActionOutput_twitter_v2_deletelist {
+  deleted: boolean;
+};
+
+export interface ActionInput_twitter_v2_deletetweet {
+  /**
+   * The ID of the tweet to be deleted. Example: "1346889436626259968"
+   */
+  id: string;
+};
+
+export interface ActionOutput_twitter_v2_deletetweet {
+  success: boolean;
+  deleted?: boolean | undefined;
+  error?: string | undefined;
+};
+
+export interface ActionInput_twitter_v2_followuser {
+  /**
+   * The user ID of the user to follow. Example: "2244994945"
+   */
+  target_user_id: string;
+};
+
+export interface ActionOutput_twitter_v2_followuser {
+  /**
+   * Whether the follow was successful
+   */
+  following: boolean;
+  /**
+   * Whether the follow is pending (target user has protected account and must accept the request)
+   */
+  pending_follow: boolean;
+};
+
+export interface ActionInput_twitter_v2_getlikedtweet {
+  /**
+   * The unique identifier of the tweet to retrieve. Example: "1346889436626259968"
+   */
+  tweet_id: string;
+};
+
+export interface ActionOutput_twitter_v2_getlikedtweet {
+  /**
+   * The unique identifier of this tweet. Example: "1346889436626259968"
+   */
+  id: string;
+  /**
+   * The content of the tweet. Example: "Learn how to use the user Tweet timeline..."
+   */
+  text: string;
+  /**
+   * The unique identifier of the author of this tweet.
+   */
+  author_id?: string | undefined;
+  /**
+   * Creation time of the tweet. Format: ISO 8601 date-time.
+   */
+  created_at?: string | undefined;
+  /**
+   * Language of the tweet, if detected by X.
+   */
+  lang?: string | undefined;
+  /**
+   * Indicates if the tweet contains URLs marked as sensitive.
+   */
+  possibly_sensitive?: boolean | undefined;
+  /**
+   * Shows who can reply to this tweet.
+   */
+  reply_settings?: string | undefined;
+  /**
+   * The source of the tweet.
+   */
+  source?: string | undefined;
+  /**
+   * The conversation ID for the tweet.
+   */
+  conversation_id?: string | undefined;
+  /**
+   * If this tweet is a reply, the ID of the user it is replying to.
+   */
+  in_reply_to_user_id?: string | undefined;
+  /**
+   * Engagement metrics for the tweet.
+   */
+  public_metrics?: {  like_count?: number | undefined;
+  retweet_count?: number | undefined;
+  reply_count?: number | undefined;
+  quote_count?: number | undefined;
+  impression_count?: number | undefined;
+  bookmark_count?: number | undefined;};
+  /**
+   * A list of tweets this tweet refers to (retweets, quotes, replies).
+   */
+  referenced_tweets?: ({  id: string;
+  type: 'retweeted' | 'quoted' | 'replied_to';})[] | undefined;
+};
+
+export interface ActionInput_twitter_v2_getlist {
+  /**
+   * The ID of the List to lookup. Example: "1355797419175383040"
+   */
+  id: string;
+};
+
+export interface ActionOutput_twitter_v2_getlist {
+  id: string;
+  name: string;
+  created_at?: string | undefined;
+  description?: string | undefined;
+  follower_count?: number | undefined;
+  member_count?: number | undefined;
+  owner_id?: string | undefined;
+  private?: boolean | undefined;
+};
+
+export interface ActionInput_twitter_v2_getmention {
+  /**
+   * The unique identifier of the Tweet to retrieve. Example: "1234567890"
+   */
+  id: string;
+};
+
+export interface ActionOutput_twitter_v2_getmention {
+  id: string;
+  text: string;
+  edit_history_tweet_ids: string[];
+  author_id?: string | undefined;
+  created_at?: string | undefined;
+  lang?: string | undefined;
+  possibly_sensitive?: boolean | undefined;
+  public_metrics?: {  retweet_count?: number | undefined;
+  reply_count?: number | undefined;
+  like_count?: number | undefined;
+  quote_count?: number | undefined;
+  bookmark_count?: number | undefined;
+  impression_count?: number | undefined;};
+  referenced_tweets?: ({  type: string;
+  id: string;})[] | undefined;
+  in_reply_to_user_id?: string | undefined;
+  conversation_id?: string | undefined;
+  reply_settings?: string | undefined;
+  source?: string | undefined;
+};
+
+export interface ActionInput_twitter_v2_getspace {
+  /**
+   * The unique identifier of the Space to retrieve. Example: "1zqKVXPQhvZJB"
+   */
+  space_id: string;
+};
+
+export interface ActionOutput_twitter_v2_getspace {
+  id: string;
+  state: 'live' | 'scheduled' | 'ended';
+  created_at?: string | undefined;
+  creator_id?: string | undefined;
+  ended_at?: string | undefined;
+  host_ids?: string[] | undefined;
+  lang?: string | undefined;
+  is_ticketed?: boolean | undefined;
+  invited_user_ids?: string[] | undefined;
+  participant_count?: number | undefined;
+  scheduled_start?: string | undefined;
+  speaker_ids?: string[] | undefined;
+  started_at?: string | undefined;
+  subscriber_count?: number | undefined;
+  title?: string | undefined;
+  topic_ids?: string[] | undefined;
+  updated_at?: string | undefined;
+};
+
+export interface ActionInput_twitter_v2_gettweet {
+  /**
+   * The unique identifier of the Tweet to retrieve. Example: "1050118621198921728"
+   */
+  id: string;
+};
+
+export interface ActionOutput_twitter_v2_gettweet {
+  id: string;
+  text: string;
+  authorId?: string | undefined;
+  createdAt?: string | undefined;
+  publicMetrics?: {  retweetCount?: number | undefined;
+  replyCount?: number | undefined;
+  likeCount?: number | undefined;
+  quoteCount?: number | undefined;
+  bookmarkCount?: number | undefined;
+  impressionCount?: number | undefined;};
+  lang?: string | undefined;
+  source?: string | undefined;
+  possiblySensitive?: boolean | undefined;
+  replySettings?: string | undefined;
+  conversationId?: string | undefined;
+  inReplyToUserId?: string | undefined;
+  referencedTweets?: ({  type: string;
+  id: string;})[] | undefined;
+  editHistoryTweetIds?: string[] | undefined;
+  editControls?: {  editTweetIds?: string[] | undefined;
+  editableUntil?: string | undefined;
+  editsRemaining?: number | undefined;
+  isEditEligible?: boolean | undefined;};
+};
+
+export interface ActionInput_twitter_v2_getuser {
+  /**
+   * The ID of the User to lookup. Example: "2244994945"
+   */
+  id: string;
+};
+
+export interface ActionOutput_twitter_v2_getuser {
+  id: string;
+  name: string;
+  username: string;
+  created_at?: string | undefined;
+  description?: string | undefined;
+  location?: string | undefined;
+  profile_image_url?: string | undefined;
+  protected?: boolean | undefined;
+  public_metrics?: {  followers_count?: number | undefined;
+  following_count?: number | undefined;
+  tweet_count?: number | undefined;
+  listed_count?: number | undefined;
+  like_count?: number | undefined;};
+  url?: string | undefined;
+  verified?: boolean | undefined;
+  verified_type?: string | undefined;
+  subscription_type?: string | undefined;
+  pinned_tweet_id?: string | undefined;
+  most_recent_tweet_id?: string | undefined;
+};
+
+export interface ActionInput_twitter_v2_liketweet {
+  /**
+   * The ID of the tweet to like. Example: "1346889436626259968"
+   */
+  tweetId: string;
+};
+
+export interface ActionOutput_twitter_v2_liketweet {
+  /**
+   * Whether the tweet was successfully liked
+   */
+  liked: boolean;
+};
+
+export interface ActionInput_twitter_v2_listlikedtweets {
+  /**
+   * The ID of the User to lookup liked tweets for. Example: "2244994945"
+   */
+  userId: string;
+  /**
+   * Pagination cursor token for the next page of results. Omit for the first page.
+   */
+  cursor?: string | undefined;
+  /**
+   * The maximum number of results per page (5-100). Default: 100.
+   */
+  maxResults?: number | undefined;
+};
+
+export interface ActionOutput_twitter_v2_listlikedtweets {
+  /**
+   * Array of liked tweets
+   */
+  tweets: ({  id: string;
+  text?: string | undefined;
+  author_id?: string | undefined;
+  created_at?: string | undefined;
+  conversation_id?: string | undefined;
+  public_metrics?: {  like_count?: number | undefined;
+  reply_count?: number | undefined;
+  retweet_count?: number | undefined;
+  quote_count?: number | undefined;
+  impression_count?: number | undefined;};
+  lang?: string | undefined;
+  source?: string | undefined;})[];
+  /**
+   * Token for the next page of results. Null if there are no more pages.
+   */
+  nextCursor?: string | undefined;
+  /**
+   * Token for the previous page of results.
+   */
+  previousCursor?: string | undefined;
+  /**
+   * Number of results returned in this response.
+   */
+  resultCount: number;
+};
+
+export interface ActionInput_twitter_v2_listlists {
+  /**
+   * The user ID whose owned Lists you would like to retrieve. Example: "123456789"
+   */
+  userId: string;
+  /**
+   * The maximum number of results to be returned per page. This can be a number between 1 and 100. Default: 100
+   */
+  maxResults?: number | undefined;
+  /**
+   * Pagination token from the previous response to get the next page of results
+   */
+  paginationToken?: string | undefined;
+};
+
+export interface ActionOutput_twitter_v2_listlists {
+  lists: ({  id: string;
+  name: string;
+  createdAt?: string | undefined;
+  description?: string | undefined;
+  followerCount?: number | undefined;
+  memberCount?: number | undefined;
+  ownerId?: string | undefined;
+  isPrivate?: boolean | undefined;})[];
+  nextToken?: string | undefined;
+  previousToken?: string | undefined;
+  resultCount: number;
+};
+
+export interface ActionInput_twitter_v2_listmentions {
+  /**
+   * The user ID whose mentions to retrieve. Example: "2244994945"
+   */
+  user_id: string;
+  /**
+   * Pagination token from the previous response (meta.next_token). Omit for the first page.
+   */
+  cursor?: string | undefined;
+  /**
+   * Maximum number of results per page (5-100). Default: 10.
+   */
+  max_results?: number | undefined;
+  /**
+   * Earliest UTC timestamp from which Tweets will be provided (ISO 8601). Example: "2024-01-01T00:00:00Z".
+   */
+  start_time?: string | undefined;
+  /**
+   * Latest UTC timestamp to which Tweets will be provided (ISO 8601). Example: "2024-12-31T23:59:59Z".
+   */
+  end_time?: string | undefined;
+  /**
+   * Minimum Tweet ID to be included in the result set. Takes precedence over start_time.
+   */
+  since_id?: string | undefined;
+  /**
+   * Maximum Tweet ID to be included in the result set. Takes precedence over end_time.
+   */
+  until_id?: string | undefined;
+  /**
+   * Types of Tweets to exclude from results.
+   */
+  exclude?: ({  0: 'replies';
+  1: 'retweets';})[] | undefined;
+  /**
+   * Comma-separated list of Tweet fields to return. Example: "created_at,public_metrics,author_id".
+   */
+  tweet_fields?: string | undefined;
+  /**
+   * Comma-separated list of fields to expand. Example: "author_id,referenced_tweets.id".
+   */
+  expansions?: string | undefined;
+  /**
+   * Comma-separated list of User fields to return for expanded users. Example: "username,verified,public_metrics".
+   */
+  user_fields?: string | undefined;
+  /**
+   * Comma-separated list of Media fields to return.
+   */
+  media_fields?: string | undefined;
+  /**
+   * Comma-separated list of Place fields to return.
+   */
+  place_fields?: string | undefined;
+  /**
+   * Comma-separated list of Poll fields to return.
+   */
+  poll_fields?: string | undefined;
+};
+
+export interface ActionOutput_twitter_v2_listmentions {
+  items: ({  id: string;
+  text: string;
+  edit_history_tweet_ids?: string[] | undefined;
+  author_id?: string | undefined;
+  created_at?: string | undefined;
+  conversation_id?: string | undefined;
+  in_reply_to_user_id?: string | undefined;
+  referenced_tweets?: ({  id: string;
+  type: 'retweeted' | 'quoted' | 'replied_to';})[] | undefined;
+  attachments?: {  media_keys?: string[] | undefined;
+  poll_ids?: string[] | undefined;};
+  public_metrics?: {  retweet_count?: number | undefined;
+  reply_count?: number | undefined;
+  like_count?: number | undefined;
+  quote_count?: number | undefined;
+  bookmark_count?: number | undefined;
+  impression_count?: number | undefined;};
+  lang?: string | undefined;
+  source?: string | undefined;
+  reply_settings?: string | undefined;
+  possibly_sensitive?: boolean | undefined;})[];
+  includes?: {  users?: ({  id: string;
+  username: string;
+  name: string;
+  verified?: boolean | undefined;
+  created_at?: string | undefined;
+  description?: string | undefined;
+  public_metrics?: {  followers_count?: number | undefined;
+  following_count?: number | undefined;
+  tweet_count?: number | undefined;
+  listed_count?: number | undefined;};
+  profile_image_url?: string | undefined;
+  url?: string | undefined;
+  location?: string | undefined;
+  pinned_tweet_id?: string | undefined;})[];
+  tweets?: ({  id: string;
+  text: string;
+  edit_history_tweet_ids?: string[] | undefined;
+  author_id?: string | undefined;
+  created_at?: string | undefined;
+  conversation_id?: string | undefined;
+  in_reply_to_user_id?: string | undefined;
+  referenced_tweets?: ({  id: string;
+  type: 'retweeted' | 'quoted' | 'replied_to';})[] | undefined;
+  attachments?: {  media_keys?: string[] | undefined;
+  poll_ids?: string[] | undefined;};
+  public_metrics?: {  retweet_count?: number | undefined;
+  reply_count?: number | undefined;
+  like_count?: number | undefined;
+  quote_count?: number | undefined;
+  bookmark_count?: number | undefined;
+  impression_count?: number | undefined;};
+  lang?: string | undefined;
+  source?: string | undefined;
+  reply_settings?: string | undefined;
+  possibly_sensitive?: boolean | undefined;})[];
+  media?: ({  media_key: string;
+  type: string;
+  url?: string | undefined;
+  preview_image_url?: string | undefined;
+  alt_text?: string | undefined;
+  variants?: ({  bit_rate?: number | undefined;
+  content_type: string;
+  url: string;})[];})[];
+  polls?: ({  id: string;})[] | undefined;
+  places?: ({  id: string;})[] | undefined;};
+  next_cursor?: string | undefined;
+  previous_cursor?: string | undefined;
+  newest_id?: string | undefined;
+  oldest_id?: string | undefined;
+  result_count: number;
+};
+
+export interface ActionInput_twitter_v2_listspaces {
+  /**
+   * Search term to filter Spaces by title. Example: "crypto"
+   */
+  query: string;
+  /**
+   * Filter by Space state: live, scheduled, or all. Default: all
+   */
+  state?: 'live' | 'scheduled' | 'all' | undefined;
+  /**
+   * Maximum number of results to return (1-100). Default: 100
+   */
+  max_results?: number | undefined;
+  /**
+   * Pagination cursor from previous response for fetching next page
+   */
+  cursor?: string | undefined;
+};
+
+export interface ActionOutput_twitter_v2_listspaces {
+  spaces: ({  id: string;
+  state: 'live' | 'scheduled';
+  title?: string | undefined;
+  created_at?: string | undefined;
+  creator_id?: string | undefined;
+  host_ids?: string[] | undefined;
+  invited_user_ids?: string[] | undefined;
+  speaker_ids?: string[] | undefined;
+  participant_count?: number | undefined;
+  subscriber_count?: number | undefined;
+  is_ticketed?: boolean | undefined;
+  scheduled_start?: string | undefined;
+  started_at?: string | undefined;
+  ended_at?: string | undefined;
+  lang?: string | undefined;
+  updated_at?: string | undefined;
+  topic_ids?: string[] | undefined;})[];
+  next_cursor?: string | undefined;
+};
+
+export interface ActionInput_twitter_v2_listtweets {
+  /**
+   * The ID of the User whose tweets to retrieve. Example: "2244994945"
+   */
+  user_id: string;
+  /**
+   * Maximum number of results per page (5-100).
+   */
+  max_results?: number | undefined;
+  /**
+   * Pagination token for fetching the next page of results.
+   */
+  pagination_token?: string | undefined;
+  /**
+   * Minimum tweet ID to include in the result set.
+   */
+  since_id?: string | undefined;
+  /**
+   * Maximum tweet ID to include in the result set.
+   */
+  until_id?: string | undefined;
+  /**
+   * ISO 8601 timestamp. Earliest UTC timestamp from which tweets will be provided.
+   */
+  start_time?: string | undefined;
+  /**
+   * ISO 8601 timestamp. Latest UTC timestamp to which tweets will be provided.
+   */
+  end_time?: string | undefined;
+  /**
+   * Entities to exclude from results (replies or retweets).
+   */
+  exclude?: ({  0: 'replies';
+  1: 'retweets';})[] | undefined;
+};
+
+export interface ActionOutput_twitter_v2_listtweets {
+  tweets: ({  id: string;
+  text: string;
+  edit_history_tweet_ids?: string[] | undefined;
+  author_id?: string | undefined;
+  created_at?: string | undefined;
+  conversation_id?: string | undefined;
+  in_reply_to_user_id?: string | undefined;
+  referenced_tweets?: ({  type: 'retweeted' | 'quoted' | 'replied_to';
+  id: string;})[] | undefined;
+  public_metrics?: {  retweet_count?: number | undefined;
+  reply_count?: number | undefined;
+  like_count?: number | undefined;
+  quote_count?: number | undefined;
+  bookmark_count?: number | undefined;
+  impression_count?: number | undefined;};
+  lang?: string | undefined;
+  possibly_sensitive?: boolean | undefined;
+  reply_settings?: 'everyone' | 'mentionedUsers' | 'following' | undefined;
+  source?: string | undefined;})[];
+  meta: {  newest_id?: string | undefined;
+  oldest_id?: string | undefined;
+  result_count: number;
+  next_token?: string | undefined;
+  previous_token?: string | undefined;};
+};
+
+export interface ActionInput_twitter_v2_listusers {
+  /**
+   * List of user IDs to look up. Up to 100 IDs can be provided. Example: ["2244994945", "783214"]
+   */
+  ids?: string[] | undefined;
+  /**
+   * List of usernames to look up. Up to 100 usernames can be provided. Example: ["XDevelopers", "X"]
+   */
+  usernames?: string[] | undefined;
+  /**
+   * Additional user fields to include in the response. Example: ["created_at", "description", "public_metrics", "verified", "location", "profile_image_url"]
+   */
+  userFields?: string[] | undefined;
+  /**
+   * Expansions to include in the response. Example: ["pinned_tweet_id"]
+   */
+  expansions?: string[] | undefined;
+};
+
+export interface ActionOutput_twitter_v2_listusers {
+  users: ({  id: string;
+  name: string;
+  username: string;
+  created_at?: string | undefined;
+  description?: string | undefined;
+  location?: string | undefined;
+  profile_image_url?: string | undefined;
+  verified?: boolean | undefined;
+  protected?: boolean | undefined;
+  url?: string | undefined;
+  pinned_tweet_id?: string | undefined;
+  public_metrics?: {  followers_count?: number | undefined;
+  following_count?: number | undefined;
+  tweet_count?: number | undefined;
+  listed_count?: number | undefined;};})[];
+  errors?: ({  value: string;
+  detail?: string | undefined;
+  title?: string | undefined;
+  resource_type?: string | undefined;
+  parameter?: string | undefined;
+  resource_id?: string | undefined;})[];
+};
+
+export interface ActionInput_twitter_v2_removebookmark {
+  /**
+   * The ID of the tweet to remove from bookmarks. Example: "1234567890"
+   */
+  tweet_id: string;
+};
+
+export interface ActionOutput_twitter_v2_removebookmark {
+  /**
+   * Whether the bookmark was successfully removed
+   */
+  bookmark_removed: boolean;
+  /**
+   * The ID of the tweet that was removed from bookmarks
+   */
+  tweet_id: string;
+};
+
+export interface ActionInput_twitter_v2_unfollowuser {
+  /**
+   * The user ID of the user to unfollow. Example: "123456789"
+   */
+  target_user_id: string;
+};
+
+export interface ActionOutput_twitter_v2_unfollowuser {
+  success: boolean;
+  following?: boolean | undefined;
+};
+
+export interface ActionInput_twitter_v2_unliketweet {
+  /**
+   * The unique identifier of the Tweet to unlike. Example: "1234567890123456789"
+   */
+  tweet_id: string;
+};
+
+export interface ActionOutput_twitter_v2_unliketweet {
+  success: boolean;
+  liked?: boolean | undefined;
+};
+
+export interface ActionInput_twitter_v2_updatelist {
+  /**
+   * The ID of the List to modify. Example: "1146654567674912769"
+   */
+  id: string;
+  /**
+   * The name of the List. Example: "test v2 update list"
+   */
+  name?: string | undefined;
+  /**
+   * The description of the List. Example: "example update"
+   */
+  description?: string | undefined;
+  /**
+   * Determines whether the List should be private.
+   */
+  private?: boolean | undefined;
+};
+
+export interface ActionOutput_twitter_v2_updatelist {
+  updated: boolean;
 };
 
 export interface SyncMetadata_ukg_pro_unifiedemployees {

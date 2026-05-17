@@ -1481,6 +1481,39 @@ import './stripe-app/syncs/subscriptions.js';
 // -- Integration: teamtailor
 import './teamtailor/syncs/candidates.js';
 
+// -- Integration: twitter-v2
+import './twitter-v2/syncs/liked-tweets.js';
+import './twitter-v2/syncs/lists.js';
+import './twitter-v2/syncs/mentions.js';
+import './twitter-v2/syncs/spaces.js';
+import './twitter-v2/syncs/tweets.js';
+import './twitter-v2/syncs/users.js';
+import './twitter-v2/actions/bookmark-tweet.js';
+import './twitter-v2/actions/create-liked-tweet.js';
+import './twitter-v2/actions/create-list.js';
+import './twitter-v2/actions/create-tweet.js';
+import './twitter-v2/actions/delete-liked-tweet.js';
+import './twitter-v2/actions/delete-list.js';
+import './twitter-v2/actions/delete-tweet.js';
+import './twitter-v2/actions/follow-user.js';
+import './twitter-v2/actions/get-liked-tweet.js';
+import './twitter-v2/actions/get-list.js';
+import './twitter-v2/actions/get-mention.js';
+import './twitter-v2/actions/get-space.js';
+import './twitter-v2/actions/get-tweet.js';
+import './twitter-v2/actions/get-user.js';
+import './twitter-v2/actions/like-tweet.js';
+import './twitter-v2/actions/list-liked-tweets.js';
+import './twitter-v2/actions/list-lists.js';
+import './twitter-v2/actions/list-mentions.js';
+import './twitter-v2/actions/list-spaces.js';
+import './twitter-v2/actions/list-tweets.js';
+import './twitter-v2/actions/list-users.js';
+import './twitter-v2/actions/remove-bookmark.js';
+import './twitter-v2/actions/unfollow-user.js';
+import './twitter-v2/actions/unlike-tweet.js';
+import './twitter-v2/actions/update-list.js';
+
 // -- Integration: ukg-pro
 import './ukg-pro/syncs/unified-employees.js';
 
