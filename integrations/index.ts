@@ -1082,7 +1082,26 @@ import './one-drive/actions/update-item.js';
 import './one-drive/actions/upload-small-file.js';
 
 // -- Integration: one-drive-personal
+import './one-drive-personal/syncs/folder-children.js';
 import './one-drive-personal/syncs/user-files-selection.js';
+import './one-drive-personal/syncs/user-files.js';
+import './one-drive-personal/actions/create-folder.js';
+import './one-drive-personal/actions/create-sharing-link.js';
+import './one-drive-personal/actions/create-upload-session.js';
+import './one-drive-personal/actions/delete-item.js';
+import './one-drive-personal/actions/delete-permission.js';
+import './one-drive-personal/actions/download-item-content.js';
+import './one-drive-personal/actions/get-drive.js';
+import './one-drive-personal/actions/get-item.js';
+import './one-drive-personal/actions/get-permission.js';
+import './one-drive-personal/actions/invite-recipients.js';
+import './one-drive-personal/actions/list-children.js';
+import './one-drive-personal/actions/list-permissions.js';
+import './one-drive-personal/actions/list-versions.js';
+import './one-drive-personal/actions/move-item.js';
+import './one-drive-personal/actions/search-items.js';
+import './one-drive-personal/actions/update-item.js';
+import './one-drive-personal/actions/upload-small-file.js';
 
 // -- Integration: oracle-hcm
 import './oracle-hcm/syncs/employees.js';

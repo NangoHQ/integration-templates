@@ -1,0 +1,116 @@
+{
+  "input": {
+    "itemId": "AB43234B783BB6C3!s61488d3089bb48b59d74b89ee9738148",
+    "recipients": [
+      {
+        "email": "test-invite@example.com"
+      }
+    ],
+    "roles": [
+      "write"
+    ]
+  },
+  "output": {
+    "permissions": [
+      {
+        "roles": [
+          "write"
+        ],
+        "link": {
+          "type": "edit",
+          "webUrl": "https://1drv.ms/t/c/ab43234b783bb6c3/IQAwjUhhu4m1SJ10uJ7pc4FIAejtaCT49bfZ_6wiDRUcpWI"
+        },
+        "grantedToIdentities": [
+          {
+            "user": {
+              "email": "test-invite@example.com"
+            }
+          }
+        ],
+        "grantedToIdentitiesV2": [
+          {
+            "user": {
+              "email": "test-invite@example.com"
+            }
+          }
+        ],
+        "invitation": {
+          "signInRequired": false
+        }
+      }
+    ]
+  },
+  "nango": {},
+  "api": {
+    "post": {
+      "/v1.0/drive/items/AB43234B783BB6C3!s61488d3089bb48b59d74b89ee9738148/action.invite": {
+        "response": {
+          "@odata.context": "https://api.onedrive.com/v1.0/$metadata#drives('default')/items('AB43234B783BB6C3!s61488d3089bb48b59d74b89ee9738148')/permissions",
+          "value": [
+            {
+              "@deprecated.GrantedToIdentities": "GrantedToIdentities has been deprecated. Refer to GrantedToIdentitiesV2",
+              "roles": [
+                "write"
+              ],
+              "grantedToIdentitiesV2": [
+                {
+                  "user": {
+                    "email": "test-invite@example.com"
+                  }
+                }
+              ],
+              "grantedToIdentities": [
+                {
+                  "user": {
+                    "email": "test-invite@example.com"
+                  }
+                }
+              ],
+              "invitation": {
+                "signInRequired": false
+              },
+              "link": {
+                "type": "edit",
+                "webUrl": "https://1drv.ms/t/c/ab43234b783bb6c3/IQAwjUhhu4m1SJ10uJ7pc4FIAejtaCT49bfZ_6wiDRUcpWI"
+              }
+            }
+          ]
+        },
+        "status": 200,
+        "headers": {
+          "date": "Fri, 08 May 2026 14:43:03 GMT",
+          "content-type": "application/json; odata.metadata=minimal",
+          "content-length": "585",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=5184000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4993",
+          "x-ratelimit-reset": "1778251386",
+          "etag": "W/\"249-jK+vkcPx350NU/sS6rj9+cT3drY\""
+        },
+        "hash": "ae9409a4b0430682ee5e613da6ec6bdd108280aa",
+        "request": {
+          "data": {
+            "recipients": [
+              {
+                "email": "test-invite@example.com"
+              }
+            ],
+            "roles": [
+              "write"
+            ],
+            "sendInvitation": true
+          }
+        }
+      }
+    }
+  }
+}
