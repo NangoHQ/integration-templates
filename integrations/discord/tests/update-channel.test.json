@@ -1,0 +1,85 @@
+{
+  "input": {
+    "channel_id": "1504382704840474816",
+    "topic": "Updated via Nango update-channel action"
+  },
+  "output": {
+    "id": "1504382704840474816",
+    "type": 0,
+    "guild_id": "1504364254634180618",
+    "name": "test-channel-get",
+    "position": 3,
+    "permission_overwrites": [],
+    "nsfw": false,
+    "topic": "Updated via Nango update-channel action",
+    "last_message_id": "1504382788722491472",
+    "rate_limit_per_user": 0,
+    "flags": 0
+  },
+  "nango": {
+    "getConnection": {},
+    "getMetadata": {
+      "botToken": "DISCORD_BOT_TOKEN",
+      "guild_id": "1504353980598321172"
+    }
+  },
+  "api": {
+    "patch": {
+      "/api/v10/channels/1504382704840474816": {
+        "response": {
+          "id": "1504382704840474816",
+          "type": 0,
+          "last_message_id": "1504382788722491472",
+          "flags": 0,
+          "guild_id": "1504364254634180618",
+          "name": "test-channel-get",
+          "parent_id": null,
+          "rate_limit_per_user": 0,
+          "topic": "Updated via Nango update-channel action",
+          "position": 3,
+          "permission_overwrites": [],
+          "nsfw": false
+        },
+        "status": 200,
+        "headers": {
+          "date": "Thu, 14 May 2026 07:20:35 GMT",
+          "content-type": "application/json",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=31536000; includeSubDomains; preload",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "10",
+          "x-ratelimit-remaining": "9",
+          "x-ratelimit-reset": "1778743245.802",
+          "server": "cloudflare",
+          "x-ratelimit-bucket": "6e836da6cef38ba2f3dfd8568a4e9631",
+          "x-ratelimit-reset-after": "10.000",
+          "x-discord-features": "channel-maintenance",
+          "vary": "Accept-Encoding",
+          "via": "1.1 google",
+          "alt-svc": "h3=\":443\"; ma=86400",
+          "cf-cache-status": "DYNAMIC",
+          "set-cookie": "REDACTED",
+          "content-security-policy": "frame-ancestors 'none'; default-src https://o64374.ingest.sentry.io; report-to csp-sentry; report-uri https://o64374.ingest.sentry.io/api/5441894/security/?sentry_key=8fbbce30bf5244ec9429546beef21870&sentry_environment=stable",
+          "report-to": "{\"group\":\"cf-nel\",\"max_age\":604800,\"endpoints\":[{\"url\":\"https://a.nel.cloudflare.com/report/v4?s=HsB9Oj14iuHCXOzn%2B4Rw9KP1gIklmmZdlGXXhs05Uz66hfCg8qm4bSTEHJY1JFtnEuXqKpcqLVQKfNHXbhpa8jUvL0U%2BcSAPgx3wbEd%2FT3X718NbrPHnwnEybBg9\"}]}",
+          "nel": "{\"report_to\":\"cf-nel\",\"success_fraction\":0.0,\"max_age\":604800}",
+          "reporting-endpoints": "csp-sentry=\"https://o64374.ingest.sentry.io/api/5441894/security/?sentry_key=8fbbce30bf5244ec9429546beef21870&sentry_environment=stable\"",
+          "cf-ray": "9fb82426f9a5a11a-PDX"
+        },
+        "hash": "8c20b7312ee7cac315a03361018d0e0b0d80f4e7",
+        "request": {
+          "data": {
+            "topic": "Updated via Nango update-channel action"
+          }
+        }
+      }
+    }
+  }
+}

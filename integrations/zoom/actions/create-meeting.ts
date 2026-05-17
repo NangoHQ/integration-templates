@@ -1,149 +1,132 @@
+import { z } from 'zod';
 import { createAction } from 'nango';
-import { createMeetingSchema } from '../schema.zod.js';
-import type { ZoomCreatedMeeting } from '../types.js';
 
-import type { ProxyConfiguration } from 'nango';
-import { Meeting, CreateMeeting } from '../models.js';
+const InputSchema = z.object({
+    userId: z.string().describe('The user ID or email address of the user. For user-level apps, pass `me` as the value for userId.'),
+    topic: z.string().optional().describe('Meeting topic.'),
+    type: z
+        .number()
+        .optional()
+        .describe('Meeting Type: 1 - Instant meeting, 2 - Scheduled meeting, 3 - Recurring meeting with no fixed time, 8 - Recurring meeting with fixed time.'),
+    start_time: z.string().optional().describe('Meeting start time in ISO 8601 format (yyyy-MM-ddTHH:mm:ssZ).'),
+    duration: z.number().optional().describe('Meeting duration in minutes. Used for scheduled meetings only.'),
+    timezone: z.string().optional().describe('Time zone to format start_time. For example, "America/Los_Angeles".'),
+    password: z.string().optional().describe('Passcode to join the meeting. Max 10 characters.'),
+    agenda: z.string().optional().describe('Meeting description.'),
+    settings: z
+        .object({
+            host_video: z.boolean().optional(),
+            participant_video: z.boolean().optional(),
+            join_before_host: z.boolean().optional(),
+            mute_upon_entry: z.boolean().optional(),
+            waiting_room: z.boolean().optional(),
+            auto_recording: z.enum(['local', 'cloud', 'none']).optional()
+        })
+        .optional()
+        .describe('Meeting settings.')
+});
+
+const ProviderMeetingSchema = z.object({
+    id: z.number(),
+    topic: z.string().optional(),
+    type: z.number().optional(),
+    start_time: z.string().optional(),
+    duration: z.number().optional(),
+    timezone: z.string().optional(),
+    password: z.string().optional(),
+    agenda: z.string().optional(),
+    host_id: z.string().optional(),
+    host_email: z.string().optional(),
+    join_url: z.string().optional(),
+    start_url: z.string().optional(),
+    created_at: z.string().optional(),
+    settings: z
+        .object({
+            host_video: z.boolean().optional(),
+            participant_video: z.boolean().optional(),
+            join_before_host: z.boolean().optional(),
+            mute_upon_entry: z.boolean().optional(),
+            waiting_room: z.boolean().optional(),
+            auto_recording: z.string().optional()
+        })
+        .optional()
+});
+
+const OutputSchema = z.object({
+    id: z.number().describe('Meeting ID.'),
+    topic: z.string().optional(),
+    type: z.number().optional(),
+    start_time: z.string().optional(),
+    duration: z.number().optional(),
+    timezone: z.string().optional(),
+    password: z.string().optional(),
+    agenda: z.string().optional(),
+    host_id: z.string().optional(),
+    host_email: z.string().optional(),
+    join_url: z.string().optional(),
+    start_url: z.string().optional(),
+    created_at: z.string().optional(),
+    settings: z
+        .object({
+            host_video: z.boolean().optional(),
+            participant_video: z.boolean().optional(),
+            join_before_host: z.boolean().optional(),
+            mute_upon_entry: z.boolean().optional(),
+            waiting_room: z.boolean().optional(),
+            auto_recording: z.string().optional()
+        })
+        .optional()
+});
 
 const action = createAction({
-    description: 'Creates a meeting in Zoom.',
-    version: '1.0.0',
-
+    description: 'Create a meeting in Zoom.',
+    version: '2.0.0',
     endpoint: {
         method: 'POST',
-        path: '/meetings',
+        path: '/actions/create-meeting',
         group: 'Meetings'
     },
-
-    input: CreateMeeting,
-    output: Meeting,
+    input: InputSchema,
+    output: OutputSchema,
     scopes: ['meeting:write'],
 
-    exec: async (nango, input): Promise<Meeting> => {
-        await nango.zodValidateInput({ zodSchema: createMeetingSchema, input });
+    exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
+        // https://developers.zoom.us/docs/api/rest/reference/zoom-api/methods/#operation/meetingCreate
+        const response = await nango.post({
+            endpoint: `/users/${input.userId}/meetings`,
+            data: {
+                ...(input.topic !== undefined && { topic: input.topic }),
+                ...(input.type !== undefined && { type: input.type }),
+                ...(input.start_time !== undefined && { start_time: input.start_time }),
+                ...(input.duration !== undefined && { duration: input.duration }),
+                ...(input.timezone !== undefined && { timezone: input.timezone }),
+                ...(input.password !== undefined && { password: input.password }),
+                ...(input.agenda !== undefined && { agenda: input.agenda }),
+                ...(input.settings !== undefined && { settings: input.settings })
+            },
+            retries: 10
+        });
 
-        const zoomInput: Record<string, any> = {
-            ...input,
-            type: determineMeetingType(input.type)
+        const meeting = ProviderMeetingSchema.parse(response.data);
+
+        return {
+            id: meeting.id,
+            ...(meeting.topic !== undefined && { topic: meeting.topic }),
+            ...(meeting.type !== undefined && { type: meeting.type }),
+            ...(meeting.start_time !== undefined && { start_time: meeting.start_time }),
+            ...(meeting.duration !== undefined && { duration: meeting.duration }),
+            ...(meeting.timezone !== undefined && { timezone: meeting.timezone }),
+            ...(meeting.password !== undefined && { password: meeting.password }),
+            ...(meeting.agenda !== undefined && { agenda: meeting.agenda }),
+            ...(meeting.host_id !== undefined && { host_id: meeting.host_id }),
+            ...(meeting.host_email !== undefined && { host_email: meeting.host_email }),
+            ...(meeting.join_url !== undefined && { join_url: meeting.join_url }),
+            ...(meeting.start_url !== undefined && { start_url: meeting.start_url }),
+            ...(meeting.created_at !== undefined && { created_at: meeting.created_at }),
+            ...(meeting.settings !== undefined && { settings: meeting.settings })
         };
-
-        if (zoomInput['recurrence']?.['type']) {
-            zoomInput['recurrence']['type'] = determineRecurrenceType(zoomInput['recurrence']['type']);
-        }
-
-        if (zoomInput['recurrence']?.['weekly_days']) {
-            zoomInput['recurrence']['weekly_days'] = determineWeeklyDays(zoomInput['recurrence']['weekly_days']);
-        }
-
-        if (zoomInput['settings']?.['approval_type']) {
-            zoomInput['settings']['approval_type'] = determineApprovalType(zoomInput['settings']['approval_type']);
-        }
-
-        if (zoomInput['settings']?.['registration_type']) {
-            zoomInput['settings']['registration_type'] = determineRegistrationType(zoomInput['settings']['registration_type']);
-        }
-
-        const config: ProxyConfiguration = {
-            // https://developers.zoom.us/docs/api/meetings/#tag/meetings/POST/users/{userId}/meetings
-            endpoint: `/users/me/meetings`,
-            data: zoomInput,
-            retries: 3
-        };
-
-        const response = await nango.post<ZoomCreatedMeeting>(config);
-
-        const { data } = response;
-
-        const meeting: Meeting = {
-            id: data.id.toString(),
-            topic: data.topic,
-            startTime: data.start_time,
-            duration: data.duration,
-            timezone: data.timezone,
-            joinUrl: data.join_url,
-            createdAt: data.created_at
-        };
-
-        return meeting;
     }
 });
 
 export type NangoActionLocal = Parameters<(typeof action)['exec']>[0];
 export default action;
-
-function determineMeetingType(type: CreateMeeting['type']): number {
-    switch (type) {
-        case 'instant':
-            return 1;
-        case 'scheduled':
-            return 2;
-        case 'recurringNoFixed':
-            return 3;
-        case 'recurring':
-            return 8;
-        case 'screenShareOnly':
-            return 10;
-        default:
-            return 2;
-    }
-}
-
-function determineRecurrenceType(type: string): number {
-    switch (type) {
-        case 'daily':
-            return 1;
-        case 'weekly':
-            return 2;
-        case 'monthly':
-            return 3;
-        default:
-            return 2;
-    }
-}
-
-function determineWeeklyDays(type: string): number {
-    switch (type) {
-        case 'sunday':
-            return 1;
-        case 'monday':
-            return 2;
-        case 'tuesday':
-            return 3;
-        case 'wednesday':
-            return 4;
-        case 'thursday':
-            return 5;
-        case 'friday':
-            return 6;
-        case 'saturday':
-            return 7;
-        default:
-            return 1;
-    }
-}
-
-function determineApprovalType(type: string): number {
-    switch (type) {
-        case 'automaticallyApprove':
-            return 0;
-        case 'manuallyApprove':
-            return 1;
-        case 'noRegistrationRequired':
-            return 2;
-        default:
-            return 0;
-    }
-}
-
-function determineRegistrationType(type: string): number {
-    switch (type) {
-        case 'registerOnceAttendAny':
-            return 1;
-        case 'registerEachTime':
-            return 2;
-        case 'registerOnceSelectOccurrences':
-            return 3;
-        default:
-            return 1;
-    }
-}

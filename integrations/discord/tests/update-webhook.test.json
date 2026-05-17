@@ -1,0 +1,102 @@
+{
+  "input": {
+    "webhook_id": "1504366058239430721",
+    "name": "Updated Webhook Name"
+  },
+  "output": {
+    "id": "1504366058239430721",
+    "type": 1,
+    "guild_id": "1504364254634180618",
+    "channel_id": "1504364255091228764",
+    "name": "Updated Webhook Name",
+    "avatar": "5971d452e1d92f249a3abb69ce82dae0",
+    "token": "DISCORD_WEBHOOK_TOKEN",
+    "application_id": "1504348286742564904",
+    "user": {
+      "id": "1504347563401150515",
+      "username": "nangoapi",
+      "discriminator": "0",
+      "public_flags": 0
+    }
+  },
+  "nango": {
+    "getConnection": {},
+    "getMetadata": {
+      "botToken": "DISCORD_BOT_TOKEN",
+      "guild_id": "1504353980598321172"
+    }
+  },
+  "api": {
+    "patch": {
+      "/api/v10/webhooks/1504366058239430721": {
+        "response": {
+          "application_id": "1504348286742564904",
+          "avatar": "5971d452e1d92f249a3abb69ce82dae0",
+          "channel_id": "1504364255091228764",
+          "guild_id": "1504364254634180618",
+          "id": "1504366058239430721",
+          "name": "Updated Webhook Name",
+          "type": 1,
+          "user": {
+            "id": "1504347563401150515",
+            "username": "nangoapi",
+            "avatar": null,
+            "discriminator": "0",
+            "public_flags": 0,
+            "flags": 0,
+            "banner": null,
+            "accent_color": null,
+            "global_name": "nangoapi",
+            "avatar_decoration_data": null,
+            "collectibles": null,
+            "display_name_styles": null,
+            "banner_color": null,
+            "clan": null,
+            "primary_guild": null
+          },
+          "token": "DISCORD_WEBHOOK_TOKEN",
+          "url": "https://discord.com/api/webhooks/1504366058239430721/DISCORD_WEBHOOK_TOKEN"
+        },
+        "status": 200,
+        "headers": {
+          "date": "Thu, 14 May 2026 07:20:22 GMT",
+          "content-type": "application/json",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=31536000; includeSubDomains; preload",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "1000",
+          "x-ratelimit-remaining": "999",
+          "x-ratelimit-reset": "1778743221.955",
+          "server": "cloudflare",
+          "x-ratelimit-bucket": "5f7b5f070ff366e8583543d7bff584c3",
+          "x-ratelimit-reset-after": "0.001",
+          "x-discord-features": "webhooks",
+          "vary": "Accept-Encoding",
+          "via": "1.1 google",
+          "alt-svc": "h3=\":443\"; ma=86400",
+          "cf-cache-status": "DYNAMIC",
+          "set-cookie": "REDACTED",
+          "content-security-policy": "frame-ancestors 'none'; default-src https://o64374.ingest.sentry.io; report-to csp-sentry; report-uri https://o64374.ingest.sentry.io/api/5441894/security/?sentry_key=8fbbce30bf5244ec9429546beef21870&sentry_environment=stable",
+          "report-to": "{\"group\":\"cf-nel\",\"max_age\":604800,\"endpoints\":[{\"url\":\"https://a.nel.cloudflare.com/report/v4?s=cIEUGzfGKyzginWNMWTtJFyHz6VLI%2BZAPNZ39Bb1%2BTB9ja4qClQYe9zjtJejPkjZXcZQHHlUgjqjWj8K9vU1q16N9PXvGUIfDcQwgT9LyV23RRD3j3PWnsryBv3V\"}]}",
+          "nel": "{\"report_to\":\"cf-nel\",\"success_fraction\":0.0,\"max_age\":604800}",
+          "reporting-endpoints": "csp-sentry=\"https://o64374.ingest.sentry.io/api/5441894/security/?sentry_key=8fbbce30bf5244ec9429546beef21870&sentry_environment=stable\"",
+          "cf-ray": "9fb823d0df2ca11a-PDX"
+        },
+        "hash": "95e753fab5045bf92c8041099cdf06e0580d2e51",
+        "request": {
+          "data": {
+            "name": "Updated Webhook Name"
+          }
+        }
+      }
+    }
+  }
+}

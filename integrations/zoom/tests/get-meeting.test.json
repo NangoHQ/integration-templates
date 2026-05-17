@@ -1,0 +1,210 @@
+{
+  "input": {
+    "meeting_id": 85047333470
+  },
+  "output": {
+    "assistant_id": "",
+    "host_email": "api@nango.dev",
+    "host_id": "_rvy35H7Sx2rTplFO1PgGg",
+    "id": 85047333470,
+    "uuid": "XUyETGisSjenbZvxUYHDEw==",
+    "agenda": "",
+    "created_at": "2026-05-13T07:53:12Z",
+    "duration": 30,
+    "encrypted_password": "VTqCI4NXlA9Qk1mAUr6QbkY3kWttbz.1",
+    "h323_password": "831149",
+    "join_url": "https://us05web.zoom.us/j/85047333470?pwd=VTqCI4NXlA9Qk1mAUr6QbkY3kWttbz.1",
+    "password": "fMa6vh",
+    "settings": {
+      "host_video": true,
+      "participant_video": true,
+      "cn_meeting": false,
+      "in_meeting": false,
+      "join_before_host": true,
+      "jbh_time": 0,
+      "mute_upon_entry": false,
+      "watermark": false,
+      "use_pmi": false,
+      "approval_type": 2,
+      "audio": "voip",
+      "auto_recording": "none",
+      "auto_add_recording_to_video_management": {
+        "enable": false
+      },
+      "enforce_login": false,
+      "enforce_login_domains": "",
+      "alternative_hosts": "",
+      "alternative_host_update_polls": false,
+      "alternative_host_manage_meeting_summary": false,
+      "alternative_host_manage_cloud_recording": false,
+      "close_registration": false,
+      "show_share_button": false,
+      "allow_multiple_devices": false,
+      "registrants_confirmation_email": true,
+      "waiting_room": false,
+      "request_permission_to_unmute_participants": false,
+      "registrants_email_notification": true,
+      "meeting_authentication": false,
+      "encryption_type": "enhanced_encryption",
+      "approved_or_denied_countries_or_regions": {
+        "enable": false
+      },
+      "breakout_room": {
+        "enable": false
+      },
+      "internal_meeting": false,
+      "continuous_meeting_chat": {
+        "enable": true,
+        "auto_add_invited_external_users": false,
+        "auto_add_meeting_participants": false,
+        "channel_id": "web_sch_989d3d9bd8f04b9798d090e70f3b6dc2"
+      },
+      "participant_focused_meeting": false,
+      "push_change_to_calendar": false,
+      "resources": [],
+      "auto_start_meeting_summary": false,
+      "auto_start_ai_companion_questions": false,
+      "summary_template_id": "1e1356ad",
+      "allow_host_control_participant_mute_state": false,
+      "alternative_hosts_email_notification": true,
+      "show_join_info": false,
+      "device_testing": false,
+      "focus_mode": false,
+      "meeting_invitees": [],
+      "private_meeting": false,
+      "email_notification": true,
+      "host_save_video_order": false,
+      "sign_language_interpretation": {
+        "enable": false
+      },
+      "email_in_attendee_report": false
+    },
+    "start_time": "2026-05-14T10:00:00Z",
+    "start_url": "https://us05web.zoom.us/s/85047333470?zak=eyJ0eXAiOiJKV1QiLCJzdiI6IjAwMDAwMiIsInptX3NrbSI6InptX28ybSIsImFsZyI6IkhTMjU2In0.eyJpc3MiOiJ3ZWIiLCJjbHQiOjAsIm1udW0iOiI4NTA0NzMzMzQ3MCIsImF1ZCI6ImNsaWVudHNtIiwidWlkIjoiX3J2eTM1SDdTeDJyVHBsRk8xUGdHZyIsInppZCI6ImMyNzUxYzBhYmQ1YTRlNzVhMDE5MzUzYTI5NTRhODM5Iiwic2siOiIwIiwic3R5IjoxLCJ3Y2QiOiJ1czA1IiwiZXhwIjoxNzc4NjY2NDE0LCJpYXQiOjE3Nzg2NTkyMTQsImFpZCI6IkRhVkhtSE9XUWNDZjJqdXY1MVJHc2ciLCJjaWQiOiIifQ.3BzotqD-ujISIgIzRLEExapr_BAMMjziUbEBUOQt7oQ",
+    "status": "waiting",
+    "timezone": "Africa/Nairobi",
+    "topic": "Test Meeting from Nango",
+    "type": 2,
+    "chat_join_url": "https://us05web.zoom.us/launch/jc/85047333470",
+    "pstn_password": "831149",
+    "creation_source": "open_api",
+    "pre_schedule": false
+  },
+  "nango": {},
+  "api": {
+    "get": {
+      "/meetings/85047333470": {
+        "response": {
+          "uuid": "XUyETGisSjenbZvxUYHDEw==",
+          "id": 85047333470,
+          "host_id": "_rvy35H7Sx2rTplFO1PgGg",
+          "host_email": "api@nango.dev",
+          "assistant_id": "",
+          "topic": "Test Meeting from Nango",
+          "type": 2,
+          "status": "waiting",
+          "start_time": "2026-05-14T10:00:00Z",
+          "duration": 30,
+          "timezone": "Africa/Nairobi",
+          "agenda": "",
+          "created_at": "2026-05-13T07:53:12Z",
+          "start_url": "https://us05web.zoom.us/s/85047333470?zak=eyJ0eXAiOiJKV1QiLCJzdiI6IjAwMDAwMiIsInptX3NrbSI6InptX28ybSIsImFsZyI6IkhTMjU2In0.eyJpc3MiOiJ3ZWIiLCJjbHQiOjAsIm1udW0iOiI4NTA0NzMzMzQ3MCIsImF1ZCI6ImNsaWVudHNtIiwidWlkIjoiX3J2eTM1SDdTeDJyVHBsRk8xUGdHZyIsInppZCI6ImMyNzUxYzBhYmQ1YTRlNzVhMDE5MzUzYTI5NTRhODM5Iiwic2siOiIwIiwic3R5IjoxLCJ3Y2QiOiJ1czA1IiwiZXhwIjoxNzc4NjY2NDE0LCJpYXQiOjE3Nzg2NTkyMTQsImFpZCI6IkRhVkhtSE9XUWNDZjJqdXY1MVJHc2ciLCJjaWQiOiIifQ.3BzotqD-ujISIgIzRLEExapr_BAMMjziUbEBUOQt7oQ",
+          "join_url": "https://us05web.zoom.us/j/85047333470?pwd=VTqCI4NXlA9Qk1mAUr6QbkY3kWttbz.1",
+          "chat_join_url": "https://us05web.zoom.us/launch/jc/85047333470",
+          "password": "fMa6vh",
+          "h323_password": "831149",
+          "pstn_password": "831149",
+          "encrypted_password": "VTqCI4NXlA9Qk1mAUr6QbkY3kWttbz.1",
+          "settings": {
+            "host_video": true,
+            "participant_video": true,
+            "cn_meeting": false,
+            "in_meeting": false,
+            "join_before_host": true,
+            "jbh_time": 0,
+            "mute_upon_entry": false,
+            "watermark": false,
+            "use_pmi": false,
+            "approval_type": 2,
+            "audio": "voip",
+            "auto_recording": "none",
+            "auto_add_recording_to_video_management": {
+              "enable": false
+            },
+            "enforce_login": false,
+            "enforce_login_domains": "",
+            "alternative_hosts": "",
+            "alternative_host_update_polls": false,
+            "alternative_host_manage_meeting_summary": false,
+            "alternative_host_manage_cloud_recording": false,
+            "close_registration": false,
+            "show_share_button": false,
+            "allow_multiple_devices": false,
+            "registrants_confirmation_email": true,
+            "waiting_room": false,
+            "request_permission_to_unmute_participants": false,
+            "registrants_email_notification": true,
+            "meeting_authentication": false,
+            "encryption_type": "enhanced_encryption",
+            "approved_or_denied_countries_or_regions": {
+              "enable": false
+            },
+            "breakout_room": {
+              "enable": false
+            },
+            "internal_meeting": false,
+            "continuous_meeting_chat": {
+              "enable": true,
+              "auto_add_invited_external_users": false,
+              "auto_add_meeting_participants": false,
+              "channel_id": "web_sch_989d3d9bd8f04b9798d090e70f3b6dc2"
+            },
+            "participant_focused_meeting": false,
+            "push_change_to_calendar": false,
+            "resources": [],
+            "auto_start_meeting_summary": false,
+            "auto_start_ai_companion_questions": false,
+            "summary_template_id": "1e1356ad",
+            "allow_host_control_participant_mute_state": false,
+            "alternative_hosts_email_notification": true,
+            "show_join_info": false,
+            "device_testing": false,
+            "focus_mode": false,
+            "meeting_invitees": [],
+            "private_meeting": false,
+            "email_notification": true,
+            "host_save_video_order": false,
+            "sign_language_interpretation": {
+              "enable": false
+            },
+            "email_in_attendee_report": false
+          },
+          "creation_source": "open_api",
+          "pre_schedule": false
+        },
+        "status": 200,
+        "headers": {
+          "date": "Wed, 13 May 2026 08:00:14 GMT",
+          "content-type": "application/json;charset=UTF-8",
+          "content-length": "2785",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=5184000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4957",
+          "x-ratelimit-reset": "1778659217",
+          "etag": "W/\"ae1-opmOcW03vpD5BrUXTjoce04IHqo\""
+        },
+        "hash": "3e92a157cd78d940e2b132d35bebf08ccc5fb388",
+        "request": {}
+      }
+    }
+  }
+}

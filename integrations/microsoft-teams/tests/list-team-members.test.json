@@ -1,0 +1,74 @@
+{
+  "input": {
+    "teamId": "59709978-aaf4-45d8-baf2-b9816b125911"
+  },
+  "output": {
+    "items": [
+      {
+        "id": "MCMjMSMjNTY0ODBhZTItODhiZS00OWNmLTg2ZjYtZDYyYTQ1YmY4NzU4IyM1OTcwOTk3OC1hYWY0LTQ1ZDgtYmFmMi1iOTgxNmIxMjU5MTEjI2FlYTBiYTQ3LTM1ZTgtNGE4NS05MmJiLTAzZWEzMmY5ZDNmNg==",
+        "roles": [
+          "owner"
+        ],
+        "displayName": "Robin Guldener",
+        "userId": "aea0ba47-35e8-4a85-92bb-03ea32f9d3f6",
+        "email": "api@nangodevelopers.onmicrosoft.com",
+        "tenantId": "56480ae2-88be-49cf-86f6-d62a45bf8758"
+      }
+    ]
+  },
+  "nango": {},
+  "api": {
+    "get": {
+      "/v1.0/teams/59709978-aaf4-45d8-baf2-b9816b125911/members": {
+        "response": {
+          "@odata.context": "https://graph.microsoft.com/v1.0/$metadata#teams('59709978-aaf4-45d8-baf2-b9816b125911')/members",
+          "@odata.count": 1,
+          "value": [
+            {
+              "@odata.type": "#microsoft.graph.aadUserConversationMember",
+              "id": "MCMjMSMjNTY0ODBhZTItODhiZS00OWNmLTg2ZjYtZDYyYTQ1YmY4NzU4IyM1OTcwOTk3OC1hYWY0LTQ1ZDgtYmFmMi1iOTgxNmIxMjU5MTEjI2FlYTBiYTQ3LTM1ZTgtNGE4NS05MmJiLTAzZWEzMmY5ZDNmNg==",
+              "roles": [
+                "owner"
+              ],
+              "displayName": "Robin Guldener",
+              "visibleHistoryStartDateTime": "0001-01-01T00:00:00Z",
+              "userId": "aea0ba47-35e8-4a85-92bb-03ea32f9d3f6",
+              "email": "api@nangodevelopers.onmicrosoft.com",
+              "tenantId": "56480ae2-88be-49cf-86f6-d62a45bf8758"
+            }
+          ]
+        },
+        "status": 200,
+        "headers": {
+          "date": "Thu, 14 May 2026 16:38:43 GMT",
+          "content-type": "application/json;odata.metadata=minimal;odata.streaming=true;IEEE754Compatible=false;charset=utf-8",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=31536000",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4964",
+          "x-ratelimit-reset": "1778776734",
+          "vary": "Accept-Encoding",
+          "request-id": "f036916e-3601-4c2a-8ecf-d96e62bcd061",
+          "client-request-id": "f036916e-3601-4c2a-8ecf-d96e62bcd061",
+          "x-ms-ags-diagnostic": "{\"ServerInfo\":{\"DataCenter\":\"West US 2\",\"Slice\":\"E\",\"Ring\":\"4\",\"ScaleUnit\":\"005\",\"RoleInstance\":\"MWH0EPF000B674F\"}}",
+          "odata-version": "4.0"
+        },
+        "hash": "34b75e34514ffb88572e23cb0727565ef4f17835",
+        "request": {
+          "params": {
+            "$top": "50"
+          }
+        }
+      }
+    }
+  }
+}

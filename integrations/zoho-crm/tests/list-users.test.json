@@ -1,0 +1,187 @@
+{
+  "input": {},
+  "output": {
+    "users": [
+      {
+        "id": "7328395000000605001",
+        "email": "api@nango.dev",
+        "first_name": "Nango",
+        "last_name": "Developer",
+        "full_name": "Nango Developer",
+        "role": {
+          "name": "CEO",
+          "id": "7328395000000026005"
+        },
+        "profile": {
+          "name": "Administrator",
+          "id": "7328395000000026011"
+        },
+        "status": "active",
+        "confirm": true,
+        "zuid": "924194079",
+        "time_zone": "Africa/Nairobi",
+        "locale": "en_US",
+        "language": "en_US",
+        "state": "Nairobi City",
+        "country": "Kenya",
+        "country_locale": "KE",
+        "created_time": "2026-05-14T11:34:21+03:00",
+        "modified_time": "2026-05-14T11:35:10+03:00",
+        "created_by": {
+          "name": "Nango Developer",
+          "id": "7328395000000605001"
+        },
+        "modified_by": {
+          "name": "Nango Developer",
+          "id": "7328395000000605001"
+        },
+        "time_format": "hh:mm a",
+        "date_format": "MM/dd/yyyy",
+        "offset": 10800000,
+        "is_online": true,
+        "microsoft": false,
+        "personal_account": true
+      }
+    ],
+    "per_page": 200,
+    "count": 1,
+    "page": 1,
+    "more_records": false
+  },
+  "nango": {},
+  "api": {
+    "get": {
+      "/crm/v2/users": {
+        "response": {
+          "users": [
+            {
+              "country": "Kenya",
+              "language": "en_US",
+              "microsoft": false,
+              "id": "7328395000000605001",
+              "state": "Nairobi City",
+              "fax": null,
+              "country_locale": "KE",
+              "sandboxDeveloper": false,
+              "Reporting_To": null,
+              "zip": null,
+              "decimal_separator": "en_KE",
+              "created_time": "2026-05-14T11:34:21+03:00",
+              "time_format": "hh:mm a",
+              "offset": 10800000,
+              "profile": {
+                "name": "Administrator",
+                "id": "7328395000000026011"
+              },
+              "created_by": {
+                "name": "Nango Developer",
+                "id": "7328395000000605001"
+              },
+              "zuid": "924194079",
+              "full_name": "Nango Developer",
+              "territories": [],
+              "phone": null,
+              "Current_Shift__s": null,
+              "dob": null,
+              "status": "active",
+              "role": {
+                "name": "CEO",
+                "id": "7328395000000026005"
+              },
+              "customize_info": {
+                "notes_desc": null,
+                "show_right_panel": null,
+                "bc_view": null,
+                "show_home": false,
+                "show_detail_view": true,
+                "show_left_panel": true,
+                "unpin_recent_item": null
+              },
+              "city": null,
+              "distance_preference__s": "Miles",
+              "signature": null,
+              "name_format": "Salutation,First Name,Last Name",
+              "locale": "en_US",
+              "Shift_Effective_From__s": null,
+              "personal_account": true,
+              "Isonline": true,
+              "default_tab_group": "0",
+              "Modified_By": {
+                "name": "Nango Developer",
+                "id": "7328395000000605001"
+              },
+              "street": null,
+              "alias": null,
+              "theme": {
+                "normal_tab": {
+                  "font_color": "#FFFFFF",
+                  "background": "#222222"
+                },
+                "selected_tab": {
+                  "font_color": "#FFFFFF",
+                  "background": "#222222"
+                },
+                "new_background": null,
+                "background": "#F3F0EB",
+                "screen": "fixed",
+                "type": "default"
+              },
+              "first_name": "Nango",
+              "email": "api@nango.dev",
+              "status_reason__s": null,
+              "website": null,
+              "Modified_Time": "2026-05-14T11:35:10+03:00",
+              "mobile": null,
+              "last_name": "Developer",
+              "time_zone": "Africa/Nairobi",
+              "confirm": true,
+              "Next_Shift__s": null,
+              "date_format": "MM/dd/yyyy"
+            }
+          ],
+          "info": {
+            "per_page": 200,
+            "count": 1,
+            "page": 1,
+            "more_records": false
+          }
+        },
+        "status": 200,
+        "headers": {
+          "date": "Thu, 14 May 2026 09:51:50 GMT",
+          "content-type": "application/json;charset=UTF-8",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "0; mode=block",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=64072000; includeSubDomains; preload",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4913",
+          "x-ratelimit-reset": "1778752346",
+          "server": "ZGS",
+          "referrer-policy": "strict-origin",
+          "content-security-policy": "default-src 'none';frame-ancestors 'self'; report-uri https://logsapi.zoho.com/csplog?service=crm",
+          "set-cookie": "crmcsr=1f5aaa0d-566d-4d5a-b7c1-1d9ae01c3c06;path=/;SameSite=None;Secure;priority=high, _zcsr_tmp=1f5aaa0d-566d-4d5a-b7c1-1d9ae01c3c06;path=/;SameSite=Strict;Secure;priority=high",
+          "cache-control": "no-store, no-cache, must-revalidate, private",
+          "pragma": "no-cache",
+          "expires": "Thu, 01 Jan 1970 00:00:00 GMT",
+          "clientversion": "13385089",
+          "clientsubversion": "7432b849c14b9f458689de05f79d175e",
+          "x-accesstoken-reset": "2026-05-14T13:35:29+03:00",
+          "content-disposition": "attachment; filename=response.json",
+          "server-timing": "cpuTime;desc=\"CPU Time\";dur=19, totalTime;desc=\"Total Execution Time\";dur=28,murphySpanId;desc=\"\";dur=0",
+          "vary": "accept-encoding",
+          "content-language": "en-US"
+        },
+        "hash": "00f1b3b248832c2b8042e3e4620197e68507dc6b",
+        "request": {}
+      }
+    }
+  }
+}
