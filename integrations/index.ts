@@ -179,12 +179,36 @@ import './bill/actions/disable-user.js';
 import './bitdefender/actions/get-company-details.js';
 
 // -- Integration: box
-import './box/syncs/files.js';
+import './box/syncs/collaborations.js';
 import './box/syncs/folders.js';
-import './box/syncs/users.js';
+import './box/actions/copy-file.js';
+import './box/actions/copy-folder.js';
+import './box/actions/create-collaboration.js';
+import './box/actions/create-comment.js';
+import './box/actions/create-folder.js';
 import './box/actions/create-user.js';
+import './box/actions/delete-collaboration.js';
+import './box/actions/delete-comment.js';
 import './box/actions/delete-user.js';
+import './box/actions/delete-file.js';
+import './box/actions/delete-folder.js';
+import './box/actions/download-file.js';
 import './box/actions/folder-content.js';
+import './box/actions/get-collaboration.js';
+import './box/actions/get-comment.js';
+import './box/actions/get-file.js';
+import './box/actions/get-folder.js';
+import './box/actions/get-user.js';
+import './box/actions/list-collaborations.js';
+import './box/actions/list-comments.js';
+import './box/actions/list-files.js';
+import './box/actions/list-folders.js';
+import './box/actions/search.js';
+import './box/actions/update-collaboration.js';
+import './box/actions/update-comment.js';
+import './box/actions/update-file.js';
+import './box/actions/update-folder.js';
+import './box/actions/update-user.js';
 
 // -- Integration: brightcrowd
 import './brightcrowd/syncs/book-analytics.js';

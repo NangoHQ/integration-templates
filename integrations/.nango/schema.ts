@@ -4771,16 +4771,28 @@ export interface ActionOutput_bitdefender_getcompanydetails {
   sos: boolean;};
 };
 
-export interface BoxDocument {
+export interface Collaboration {
   id: string;
-  name: string;
-  download_url: string;
+  type: string;
+  item?: {  id: string;
+  type: string;
+  name?: string | undefined;};
+  accessible_by?: {  id?: string | undefined;
+  type: string;
+  name?: string | undefined;
+  login?: string | undefined;};
+  invite_email?: string | undefined;
+  role: string;
+  expires_at?: string | undefined;
+  is_access_only?: boolean | undefined;
+  status: string;
+  acknowledged_at?: string | undefined;
+  created_by?: {  id?: string | undefined;
+  type: string;
+  name?: string | undefined;
+  login?: string | undefined;};
+  created_at: string;
   modified_at: string;
-};
-
-export interface SyncMetadata_box_files {
-  files: string[];
-  folders: string[];
 };
 
 export interface Folder {
@@ -4790,68 +4802,1127 @@ export interface Folder {
   modifiedTime?: string | undefined;
 };
 
-export interface SyncMetadata_box_folders {
+export interface ActionInput_box_copyfile {
+  /**
+   * The ID of the file to copy. Example: "123456789"
+   */
+  file_id: string;
+  /**
+   * The ID of the destination folder. Example: "987654321"
+   */
+  parent_folder_id: string;
+  /**
+   * An optional new name for the copied file. If not provided, the original name is used.
+   */
+  name?: string | undefined;
 };
 
-export interface SyncMetadata_box_users {
+export interface ActionOutput_box_copyfile {
+  id: string;
+  name: string;
+  type: string;
+  description?: string | undefined;
+  size?: number | undefined;
+  created_at?: string | undefined;
+  modified_at?: string | undefined;
+  parent_folder_id?: string | undefined;
+};
+
+export interface ActionInput_box_copyfolder {
+  /**
+   * The ID of the folder to copy. Example: "382204778319"
+   */
+  folder_id: string;
+  /**
+   * The ID of the destination folder where the folder will be copied. Example: "0"
+   */
+  destination_folder_id: string;
+  /**
+   * Optional new name for the copied folder. If not provided, the original name will be used with " (copy)" appended.
+   */
+  name?: string | undefined;
+};
+
+export interface ActionOutput_box_copyfolder {
+  id: string;
+  name: string;
+  type: 'folder';
+  parent?: {  id: string;
+  name?: string | undefined;};
+  created_at?: string | undefined;
+  modified_at?: string | undefined;
+  description?: string | undefined;
+  size?: number | undefined;
+};
+
+export interface ActionInput_box_createcollaboration {
+  /**
+   * The type of item to grant access to. Example: "folder"
+   */
+  item_type: 'file' | 'folder';
+  /**
+   * The ID of the item to grant access to. Example: "382205380769"
+   */
+  item_id: string;
+  /**
+   * The type of collaborator to invite. Example: "user"
+   */
+  accessible_by_type: 'user' | 'group';
+  /**
+   * The ID of the user or group to invite. Use this OR accessible_by_login, not both. Example: "23522323"
+   */
+  accessible_by_id?: string | undefined;
+  /**
+   * The email address of the user to invite. Use this OR accessible_by_id, not both. Example: "john@example.com"
+   */
+  accessible_by_login?: string | undefined;
+  /**
+   * The level of access granted. Example: "editor"
+   */
+  role: 'editor' | 'viewer' | 'previewer' | 'uploader' | 'previewer uploader' | 'viewer uploader' | 'co-owner';
+  /**
+   * If true, collaborators have access but items are not visible in All Files list. Example: true
+   */
+  is_access_only?: boolean | undefined;
+  /**
+   * If true, invited users can see the entire parent path to the folder. Example: true
+   */
+  can_view_path?: boolean | undefined;
+  /**
+   * Expiration date for the collaboration in ISO 8601 format. Example: "2019-08-29T23:59:00-07:00"
+   */
+  expires_at?: string | undefined;
+  /**
+   * Whether to notify the user of the invitation. Example: true
+   */
+  notify?: boolean | undefined;
+};
+
+export interface ActionOutput_box_createcollaboration {
+  id: string;
+  type: string;
+  item?: {  id: string;
+  type: string;
+  name?: string | undefined;};
+  accessible_by?: {  id: string;
+  type: string;
+  login?: string | undefined;
+  name?: string | undefined;};
+  invite_email?: string | undefined;
+  role: string;
+  expires_at?: string | undefined;
+  is_access_only?: boolean | undefined;
+  status?: string | undefined;
+  acknowledged_at?: string | undefined;
+  created_at?: string | undefined;
+  modified_at?: string | undefined;
+};
+
+export interface ActionInput_box_createcomment {
+  /**
+   * The ID of the file to comment on. Example: "2231568666314"
+   */
+  file_id: string;
+  /**
+   * The text of the comment.
+   */
+  message: string;
+};
+
+export interface ActionOutput_box_createcomment {
+  id: string;
+  type: string;
+  message?: string | undefined;
+  tagged_message?: string | undefined;
+  is_reply_comment?: boolean | undefined;
+  created_by?: {  id: string;
+  type: string;
+  name?: string | undefined;
+  login?: string | undefined;};
+  created_at?: string | undefined;
+  modified_at?: string | undefined;
+  item?: {  id: string;
+  type: string;} | undefined;
+};
+
+export interface ActionInput_box_createfolder {
+  /**
+   * The name of the folder. Example: "My New Folder"
+   */
+  name: string;
+  /**
+   * The ID of the parent folder. Use "0" for the root folder. Example: "382205380769"
+   */
+  parent_folder_id: string;
+};
+
+export interface ActionOutput_box_createfolder {
+  /**
+   * The unique identifier of the folder
+   */
+  id: string;
+  /**
+   * The name of the folder
+   */
+  name: string;
+  /**
+   * The type of the item
+   */
+  type: 'folder';
+  /**
+   * The ID of the parent folder
+   */
+  parent_id?: string | undefined;
+  /**
+   * The timestamp when the folder was created
+   */
+  created_at?: string | undefined;
+  /**
+   * The timestamp when the folder was last modified
+   */
+  modified_at?: string | undefined;
+  /**
+   * The description of the folder
+   */
+  description?: string | undefined;
+  /**
+   * The path from the root to this folder
+   */
+  path_collection?: {  entries: ({  id: string;
+  name: string;})[];} | undefined;
 };
 
 export interface ActionInput_box_createuser {
-  firstName: string;
-  lastName: string;
-  email: string;
-  address?: string | undefined;
-  can_see_managed_users?: boolean | undefined;
-  external_app_user_id?: string | undefined;
-  is_exempt_from_device_limits?: boolean | undefined;
-  is_exempt_from_login_verification?: boolean | undefined;
-  is_external_collab_restricted?: boolean | undefined;
-  is_platform_access_only?: boolean | undefined;
-  is_sync_enabled?: boolean | undefined;
-  job_title?: string | undefined;
-  language?: string | undefined;
-  phone?: string | undefined;
+  /**
+   * The full name of the user. Example: "Jane Doe"
+   */
+  name: string;
+  /**
+   * The email address the user uses to log in. Example: "jane@example.com"
+   */
+  login: string;
+  /**
+   * The user's enterprise role.
+   */
   role?: 'coadmin' | 'user' | undefined;
+  /**
+   * The language of the user in ISO 639-1 format.
+   */
+  language?: string | undefined;
+  /**
+   * Whether the user can use Box Sync.
+   */
+  is_sync_enabled?: boolean | undefined;
+  /**
+   * The user's job title.
+   */
+  job_title?: string | undefined;
+  /**
+   * The user's phone number.
+   */
+  phone?: string | undefined;
+  /**
+   * The user's address.
+   */
+  address?: string | undefined;
+  /**
+   * The user's total available space in bytes.
+   */
   space_amount?: number | undefined;
-  status?: 'active' | 'inactive' | 'cannot_delete_edit' | 'cannot_delete_edit_upload' | undefined;
+  /**
+   * Whether the user can see other enterprise users in their contact list.
+   */
+  can_see_managed_users?: boolean | undefined;
+  /**
+   * The user's timezone.
+   */
   timezone?: string | undefined;
-  tracking_codes: ({  type?: 'tracking_code' | undefined;
+  /**
+   * Whether the user is restricted from collaborating with users outside their enterprise.
+   */
+  is_external_collab_restricted?: boolean | undefined;
+  /**
+   * Whether to exempt the user from enterprise device limits.
+   */
+  is_exempt_from_device_limits?: boolean | undefined;
+  /**
+   * Whether the user must use two-factor authentication.
+   */
+  is_exempt_from_login_verification?: boolean | undefined;
+  /**
+   * Whether the user is an App User.
+   */
+  is_platform_access_only?: boolean | undefined;
+  /**
+   * The user's account status.
+   */
+  status?: 'active' | 'inactive' | 'cannot_delete_edit' | 'cannot_delete_edit_upload' | undefined;
+  /**
+   * An external identifier for an app user.
+   */
+  external_app_user_id?: string | undefined;
+  /**
+   * Tracking codes for analytics purposes.
+   */
+  tracking_codes?: ({  type?: 'tracking_code' | undefined;
   name?: string | undefined;
   value?: string | undefined;})[];
 };
 
 export interface ActionOutput_box_createuser {
   id: string;
-  email: string;
-  firstName: string;
-  lastName: string;
+  name?: string | undefined;
+  login?: string | undefined;
+  role?: string | undefined;
+  language?: string | undefined;
+  timezone?: string | undefined;
+  space_amount?: number | undefined;
+  space_used?: number | undefined;
+  max_upload_size?: number | undefined;
+  status?: string | undefined;
+  job_title?: string | undefined;
+  phone?: string | undefined;
+  address?: string | undefined;
+  avatar_url?: string | undefined;
+  is_sync_enabled?: boolean | undefined;
+  can_see_managed_users?: boolean | undefined;
+  is_external_collab_restricted?: boolean | undefined;
+  is_exempt_from_device_limits?: boolean | undefined;
+  is_exempt_from_login_verification?: boolean | undefined;
+  is_platform_access_only?: boolean | undefined;
+  external_app_user_id?: string | undefined;
+  created_at?: string | undefined;
+  modified_at?: string | undefined;
+};
+
+export interface ActionInput_box_deletecollaboration {
+  /**
+   * The ID of the collaboration to delete. Example: "72837978884"
+   */
+  collaboration_id: string;
+};
+
+export interface ActionOutput_box_deletecollaboration {
+  success: boolean;
+  collaboration_id: string;
+};
+
+export interface ActionInput_box_deletecomment {
+  /**
+   * The ID of the comment to delete. Example: "12345"
+   */
+  commentId: string;
+};
+
+export interface ActionOutput_box_deletecomment {
+  /**
+   * Whether the comment was successfully deleted
+   */
+  success: boolean;
 };
 
 export interface ActionInput_box_deleteuser {
-  id: string;
+  /**
+   * The ID of the user to delete. Example: "12345"
+   */
+  user_id: string;
+  /**
+   * Whether to force the deletion even if the user has content. Defaults to false.
+   */
   force?: boolean | undefined;
+  /**
+   * Whether to notify the user that they have been removed. Defaults to false.
+   */
   notify?: boolean | undefined;
 };
 
 export interface ActionOutput_box_deleteuser {
+  /**
+   * Whether the user deletion succeeded
+   */
   success: boolean;
+  /**
+   * The ID of the deleted user
+   */
+  user_id: string;
+};
+
+export interface ActionInput_box_deletefile {
+  /**
+   * The unique identifier for the file to delete. Example: "123456789"
+   */
+  file_id: string;
+  /**
+   * If true, permanently deletes the file bypassing the trash. If false or omitted, the file is moved to trash.
+   */
+  force_delete?: boolean | undefined;
+};
+
+export interface ActionOutput_box_deletefile {
+  success: boolean;
+  file_id: string;
+  permanently_deleted: boolean;
+  message: string;
+};
+
+export interface ActionInput_box_deletefolder {
+  /**
+   * The ID of the folder to delete. Example: "382204778319"
+   */
+  folderId: string;
+  /**
+   * Whether to delete the folder and all its contents. If false and folder is not empty, the operation will fail. Defaults to true.
+   */
+  recursive?: boolean | undefined;
+};
+
+export interface ActionOutput_box_deletefolder {
+  /**
+   * Whether the folder deletion succeeded
+   */
+  success: boolean;
+  /**
+   * The ID of the deleted folder
+   */
+  folderId: string;
+};
+
+export interface ActionInput_box_downloadfile {
+  /**
+   * The ID of the file to download. Example: "123456789"
+   */
+  file_id: string;
+};
+
+export interface ActionOutput_box_downloadfile {
+  /**
+   * The file content as a base64-encoded string
+   */
+  content: string;
+  /**
+   * The ID of the downloaded file
+   */
+  file_id: string;
 };
 
 export interface ActionInput_box_foldercontent {
-  id?: string | undefined;
+  /**
+   * The ID of the folder to fetch content from. Defaults to the root folder ("0"). Example: "123456789"
+   */
+  folder_id?: string | undefined;
+  /**
+   * A pagination cursor returned by a previous call. Use this to fetch the next page of results.
+   */
   marker?: string | undefined;
 };
 
 export interface ActionOutput_box_foldercontent {
-  files: ({  id: string;
-  name: string;
-  download_url: string;
-  modified_at: string;})[];
   folders: ({  id: string;
   name: string;
   modified_at: string;
-  url: string | null;})[];
+  url?: string | undefined;})[];
+  files: ({  id: string;
+  name: string;
+  modified_at: string;
+  download_url: string;})[];
   next_marker?: string | undefined;
+};
+
+export interface ActionInput_box_getcollaboration {
+  /**
+   * The ID of the collaboration. Example: "1234"
+   */
+  collaboration_id: string;
+};
+
+export interface ActionOutput_box_getcollaboration {
+  id: string;
+  type: 'collaboration';
+  item?: {  id: string;
+  type: string;
+  name?: string | undefined;};
+  accessible_by?: {  id: string;
+  type: string;
+  login?: string | undefined;
+  name?: string | undefined;};
+  invite_email?: string | undefined;
+  role: string;
+  expires_at?: string | undefined;
+  is_access_only?: boolean | undefined;
+  status: 'accepted' | 'pending' | 'rejected';
+  acknowledged_at?: string | undefined;
+  created_by?: {  id: string;
+  type: string;
+  login?: string | undefined;
+  name?: string | undefined;};
+  created_at: string;
+  modified_at: string;
+};
+
+export interface ActionInput_box_getcomment {
+  /**
+   * The ID of the comment to retrieve. Example: "12345"
+   */
+  comment_id: string;
+};
+
+export interface ActionOutput_box_getcomment {
+  id: string;
+  type: 'comment';
+  is_reply_comment?: boolean | undefined;
+  message?: string | undefined;
+  tagged_message?: string | undefined;
+  created_by?: {  id: string;
+  type: 'user';
+  name?: string | undefined;
+  login?: string | undefined;};
+  created_at?: string | undefined;
+  modified_at?: string | undefined;
+  item?: {  id: string;
+  type: string;} | undefined;
+};
+
+export interface ActionInput_box_getfile {
+  /**
+   * The unique identifier of the file. Example: "12345"
+   */
+  file_id: string;
+};
+
+export interface ActionOutput_box_getfile {
+  id: string;
+  type: string;
+  name: string;
+  size: number;
+  created_at: string;
+  modified_at: string;
+  description?: string | undefined;
+  etag?: string | undefined;
+  parent?: {  id: string;
+  type: string;
+  name?: string | undefined;};
+  created_by?: {  id: string;
+  type: string;
+  name: string;
+  login?: string | undefined;};
+  modified_by?: {  id: string;
+  type: string;
+  name: string;
+  login?: string | undefined;};
+  owned_by?: {  id: string;
+  type: string;
+  name: string;
+  login?: string | undefined;};
+  item_status?: string | undefined;
+};
+
+export interface ActionInput_box_getfolder {
+  /**
+   * The unique identifier that represent a folder. The root folder is always represented by the ID 0. Example: "12345"
+   */
+  folder_id: string;
+};
+
+export interface ActionOutput_box_getfolder {
+  type: 'folder';
+  id: string;
+  sequence_id?: string | undefined;
+  etag?: string | undefined;
+  name: string;
+  created_at?: string | undefined;
+  modified_at?: string | undefined;
+  description?: string | undefined;
+  size?: number | undefined;
+  path_collection?: {  total_count: number;
+  entries: ({  type: 'folder';
+  id: string;
+  sequence_id?: string | undefined;
+  etag?: string | undefined;
+  name: string;})[];};
+  created_by?: {  type: 'user';
+  id: string;
+  name: string;
+  login?: string | undefined;};
+  modified_by?: {  type: 'user';
+  id: string;
+  name: string;
+  login?: string | undefined;};
+  trashed_at?: string | undefined;
+  purged_at?: string | undefined;
+  content_created_at?: string | undefined;
+  content_modified_at?: string | undefined;
+  owned_by?: {  type: 'user';
+  id: string;
+  name: string;
+  login?: string | undefined;};
+  shared_link?: {  url: string;
+  download_url?: string | undefined;
+  vanity_url?: string | undefined;
+  vanity_name?: string | undefined;
+  access?: string | undefined;
+  effective_access?: string | undefined;
+  effective_permission?: string | undefined;
+  is_password_enabled?: boolean | undefined;
+  download_count?: number | undefined;
+  preview_count?: number | undefined;};
+  folder_upload_email?: {  access: string;
+  email: string;} | undefined;
+  parent?: {  type: 'folder';
+  id: string;
+  sequence_id?: string | undefined;
+  etag?: string | undefined;
+  name: string;};
+  item_status?: string | undefined;
+  item_collection?: {  total_count: number;
+  entries: ({  type: string;
+  id: string;
+  name?: string | undefined;
+  sequence_id?: string | undefined;
+  etag?: string | undefined;})[];
+  offset?: number | undefined;
+  limit?: number | undefined;
+  order?: ({  by: string;
+  direction: string;})[] | undefined;};
+  has_collaborations?: boolean | undefined;
+  permissions?: {  can_delete?: boolean | undefined;
+  can_download?: boolean | undefined;
+  can_invite_collaborator?: boolean | undefined;
+  can_rename?: boolean | undefined;
+  can_set_share_access?: boolean | undefined;
+  can_share?: boolean | undefined;
+  can_upload?: boolean | undefined;
+  can_apply_watermark?: boolean | undefined;};
+  tags?: string[] | undefined;
+  can_non_owners_invite?: boolean | undefined;
+  is_externally_owned?: boolean | undefined;
+  is_collaboration_restricted_to_enterprise?: boolean | undefined;
+  allowed_shared_link_access_levels?: string[] | undefined;
+  allowed_invitee_roles?: string[] | undefined;
+  watermark_info?: {  is_watermarked: boolean;
+  is_watermark_inherited?: boolean | undefined;
+  is_watermarked_by_access_policy?: boolean | undefined;};
+  is_accessible_via_shared_link?: boolean | undefined;
+  can_non_owners_view_collaborators?: boolean | undefined;
+  classification?: {  name?: string | undefined;
+  definition?: string | undefined;
+  color?: string | undefined;};
+  is_associated_with_app_item?: boolean | undefined;
+};
+
+export interface ActionInput_box_getuser {
+  /**
+   * The ID of the user. Example: "123"
+   */
+  user_id: string;
+};
+
+export interface ActionOutput_box_getuser {
+  id: string;
+  name?: string | undefined;
+  login?: string | undefined;
+  created_at?: string | undefined;
+  modified_at?: string | undefined;
+  timezone?: string | undefined;
+  language?: string | undefined;
+  space_amount?: number | undefined;
+  space_used?: number | undefined;
+  max_upload_size?: number | undefined;
+  status?: string | undefined;
+  job_title?: string | undefined;
+  phone?: string | undefined;
+  address?: string | undefined;
+  avatar_url?: string | undefined;
+};
+
+export interface ActionInput_box_listcollaborations {
+  /**
+   * The status of the collaborations to retrieve. Defaults to pending.
+   */
+  status?: 'pending' | undefined;
+  /**
+   * The offset of the item at which to begin the response.
+   */
+  offset?: number | undefined;
+  /**
+   * The maximum number of items to return per page.
+   */
+  limit?: number | undefined;
+};
+
+export interface ActionOutput_box_listcollaborations {
+  collaborations: ({  id: string;
+  type: 'collaboration';
+  item?: {  id: string;
+  type: 'file' | 'folder' | 'web_link';
+  name?: string | undefined;};
+  accessible_by?: {  id: string;
+  type: 'user';
+  name?: string | undefined;
+  login?: string | undefined;};
+  invite_email?: string | undefined;
+  role?: string | undefined;
+  status?: 'accepted' | 'pending' | 'rejected' | undefined;
+  acknowledged_at?: string | undefined;
+  created_at?: string | undefined;
+  modified_at?: string | undefined;})[];
+  total_count?: number | undefined;
+  offset?: number | undefined;
+  limit?: number | undefined;
+  has_more?: boolean | undefined;
+};
+
+export interface ActionInput_box_listcomments {
+  /**
+   * The unique identifier of the file. Example: "12345"
+   */
+  file_id: string;
+  /**
+   * The maximum number of items to return per page. Default: 100.
+   */
+  limit?: number | undefined;
+  /**
+   * The 0-based offset of the first item to return. Default: 0.
+   */
+  offset?: number | undefined;
+};
+
+export interface ActionOutput_box_listcomments {
+  total_count?: number | undefined;
+  limit?: number | undefined;
+  offset?: number | undefined;
+  order?: ({  by?: string | undefined;
+  direction?: 'ASC' | 'DESC' | undefined;})[];
+  entries: ({  id: string;
+  type: 'comment';
+  is_reply_comment?: boolean | undefined;
+  message?: string | undefined;
+  tagged_message?: string | undefined;
+  created_by?: {  id: string;
+  type: 'user';
+  name: string;
+  login: string;} | undefined;
+  created_at?: string | undefined;
+  modified_at?: string | undefined;
+  item?: {  id: string;
+  type: string;} | undefined;})[];
+};
+
+export interface ActionInput_box_listfiles {
+  /**
+   * The unique identifier for the folder. The root folder is always represented by the ID `0`. Example: "0"
+   */
+  folder_id: string;
+  /**
+   * Pagination cursor from the previous response. Omit for the first page.
+   */
+  cursor?: string | undefined;
+  /**
+   * The maximum number of items to return per page. Maximum is 1000.
+   */
+  limit?: number | undefined;
+  /**
+   * Defines the second attribute by which items are sorted.
+   */
+  sort?: 'id' | 'name' | 'date' | 'size' | undefined;
+  /**
+   * The direction to sort results in.
+   */
+  direction?: 'ASC' | 'DESC' | undefined;
+};
+
+export interface ActionOutput_box_listfiles {
+  items: ({  id: string;
+  type: string;})[];
+  next_cursor?: string | undefined;
+};
+
+export interface ActionInput_box_listfolders {
+  /**
+   * The ID of the folder to list items from. Use "0" for the root folder. Defaults to "0".
+   */
+  folder_id?: string | undefined;
+  /**
+   * The maximum number of items to return per page. Maximum is 1000.
+   */
+  limit?: number | undefined;
+  /**
+   * Pagination cursor from the previous response. Omit for the first page.
+   */
+  cursor?: string | undefined;
+};
+
+export interface ActionOutput_box_listfolders {
+  folders: ({  id: string;
+  type: 'folder';
+  name: string;
+  sequence_id?: string | undefined;
+  etag?: string | undefined;})[];
+  next_cursor?: string | undefined;
+};
+
+export interface ActionInput_box_search {
+  /**
+   * The string to search for. This query is matched against item names, descriptions, text content of files, and various other fields.
+   */
+  query: string;
+  /**
+   * Limits the search results to items of this type.
+   */
+  type?: 'file' | 'folder' | 'web_link' | undefined;
+  /**
+   * Limits results to files matching any of the provided extensions (comma-separated list without dots).
+   */
+  file_extensions?: string[] | undefined;
+  /**
+   * Limits results to items within the given folders (comma-separated list of folder IDs).
+   */
+  ancestor_folder_ids?: string[] | undefined;
+  /**
+   * Limits results to items created within a date range (comma-separated RFC3339 timestamps).
+   */
+  created_at_range?: string[] | undefined;
+  /**
+   * Limits results to items updated within a date range (comma-separated RFC3339 timestamps).
+   */
+  updated_at_range?: string[] | undefined;
+  /**
+   * Limits results to items within a file size range (comma-separated byte sizes).
+   */
+  size_range?: number[] | undefined;
+  /**
+   * Limits results to items owned by the given users (comma-separated list of user IDs).
+   */
+  owner_user_ids?: string[] | undefined;
+  /**
+   * Limits results to items recently updated by the given users (comma-separated list of user IDs).
+   */
+  recent_updater_user_ids?: string[] | undefined;
+  /**
+   * Limits search to match specific content parts (comma-separated list).
+   */
+  content_types?: ({  0: 'name';
+  1: 'description';
+  2: 'file_content';
+  3: 'comments';
+  4: 'tags';})[] | undefined;
+  /**
+   * Determines if the search should look in trash. Defaults to non_trashed_only.
+   */
+  trash_content?: 'non_trashed_only' | 'trashed_only' | 'all_items' | undefined;
+  /**
+   * Defines the order of search results. Defaults to relevance.
+   */
+  sort?: 'relevance' | 'modified_at' | undefined;
+  /**
+   * Defines the direction of ordering. Defaults to DESC.
+   */
+  direction?: 'ASC' | 'DESC' | undefined;
+  /**
+   * Maximum number of items to return per page. Defaults to 30, max 200.
+   */
+  limit?: number | undefined;
+  /**
+   * The offset of the first item to return. Defaults to 0.
+   */
+  offset?: number | undefined;
+  /**
+   * Limits results to user content or enterprise content. Defaults to user_content.
+   */
+  scope?: 'user_content' | 'enterprise_content' | undefined;
+  /**
+   * Comma-separated list of attributes to include in the response.
+   */
+  fields?: string[] | undefined;
+  /**
+   * Whether to include items accessed through shared links.
+   */
+  include_recent_shared_links?: boolean | undefined;
+  /**
+   * Limits results to items deleted by the given users (requires trash_content=trashed_only).
+   */
+  deleted_user_ids?: string[] | undefined;
+  /**
+   * Limits results to items deleted within a date range (requires trash_content=trashed_only).
+   */
+  deleted_at_range?: string[] | undefined;
+};
+
+export interface ActionOutput_box_search {
+  total_count: number;
+  limit: number;
+  offset: number;
+  entries: ({  type: string;
+  id: string;
+  name?: string | undefined;
+  description?: string | undefined;
+  size?: number | undefined;
+  created_at?: string | undefined;
+  modified_at?: string | undefined;
+  path_collection?: {  entries: ({  type: string;
+  id: string;
+  name?: string | undefined;})[];};})[];
+};
+
+export interface ActionInput_box_updatecollaboration {
+  /**
+   * The ID of the collaboration. Example: "12345678"
+   */
+  collaboration_id: string;
+  /**
+   * The level of access granted.
+   */
+  role?: 'editor' | 'viewer' | 'previewer' | 'uploader' | 'previewer uploader' | 'viewer uploader' | 'co-owner' | 'owner' | undefined;
+  /**
+   * Set the status of a pending collaboration invitation, effectively accepting or rejecting the invite.
+   */
+  status?: 'pending' | 'accepted' | 'rejected' | undefined;
+  /**
+   * Update the expiration date for the collaboration. Format: ISO 8601 date-time. Example: "2019-08-29T23:59:00-07:00"
+   */
+  expires_at?: string | undefined;
+  /**
+   * Determines if the invited users can see the entire parent path to the associated folder. Only for folder collaborations.
+   */
+  can_view_path?: boolean | undefined;
+};
+
+export interface ActionOutput_box_updatecollaboration {
+  id: string;
+  type: 'collaboration';
+  item?: {  id: string;
+  type: 'file' | 'folder' | 'web_link';} | undefined;
+  accessible_by?: {  id: string;
+  type: 'user';
+  name: string;
+  login: string;} | undefined;
+  invite_email?: string | undefined;
+  role: string;
+  expires_at?: string | undefined;
+  is_access_only?: boolean | undefined;
+  status: 'accepted' | 'pending' | 'rejected';
+  acknowledged_at?: string | undefined;
+  created_by?: {  id: string;
+  type: 'user';
+  name: string;
+  login: string;} | undefined;
+  created_at?: string | undefined;
+  modified_at?: string | undefined;
+};
+
+export interface ActionInput_box_updatecomment {
+  /**
+   * The ID of the comment to update. Example: "12345"
+   */
+  commentId: string;
+  /**
+   * The new text of the comment. Example: "Updated comment message"
+   */
+  message: string;
+};
+
+export interface ActionOutput_box_updatecomment {
+  id: string;
+  type: string;
+  message: string;
+  isReplyComment?: boolean | undefined;
+  createdAt?: string | undefined;
+  modifiedAt?: string | undefined;
+  createdBy?: {  id: string;
+  type: string;
+  name?: string | undefined;
+  login?: string | undefined;};
+  item?: {  id: string;
+  type: string;} | undefined;
+  taggedMessage?: string | undefined;
+};
+
+export interface ActionInput_box_updatefile {
+  /**
+   * The unique identifier that represents a file. Example: "2231571097476"
+   */
+  file_id: string;
+  /**
+   * An optional different name for the file. This can be used to rename the file.
+   */
+  name?: string | undefined;
+  /**
+   * The description for a file. Max length 256 characters.
+   */
+  description?: string | undefined;
+  /**
+   * An optional new parent folder for the file. This can be used to move the file to a new folder.
+   */
+  parent?: {  /**
+   * The ID of parent folder. Use "0" for the root folder.
+   */
+  id: string;} | undefined;
+  /**
+   * The tags for this item. There is a limit of 100 tags per item.
+   */
+  tags?: string[] | undefined;
+};
+
+export interface ActionOutput_box_updatefile {
+  id: string;
+  type: string;
+  name?: string | undefined;
+  description?: string | undefined;
+  size?: number | undefined;
+  created_at?: string | undefined;
+  modified_at?: string | undefined;
+  parent?: {  id: string;
+  name?: string | undefined;};
+  tags?: string[] | undefined;
+};
+
+export interface ActionInput_box_updatefolder {
+  /**
+   * The unique identifier for the folder to update. Example: "12345"
+   */
+  folder_id: string;
+  /**
+   * The new name for the folder.
+   */
+  name?: string | undefined;
+  /**
+   * The optional description of this folder.
+   */
+  description?: string | undefined;
+  /**
+   * The ID of the new parent folder to move this folder into.
+   */
+  parent_id?: string | undefined;
+  /**
+   * The tags for this item.
+   */
+  tags?: string[] | undefined;
+  /**
+   * Specifies if users who are not the owner of the folder can invite new collaborators.
+   */
+  can_non_owners_invite?: boolean | undefined;
+  /**
+   * Specifies if new invites to this folder are restricted to users within the enterprise.
+   */
+  is_collaboration_restricted_to_enterprise?: boolean | undefined;
+  /**
+   * Restricts collaborators who are not the owner from viewing other collaborations on this folder.
+   */
+  can_non_owners_view_collaborators?: boolean | undefined;
+};
+
+export interface ActionOutput_box_updatefolder {
+  id: string;
+  type: string;
+  name: string;
+  description?: string | undefined;
+  parent_id?: string | undefined;
+  sync_state?: 'synced' | 'not_synced' | 'partially_synced' | undefined;
+  tags?: string[] | undefined;
+  can_non_owners_invite?: boolean | undefined;
+  is_collaboration_restricted_to_enterprise?: boolean | undefined;
+  can_non_owners_view_collaborators?: boolean | undefined;
+};
+
+export interface ActionInput_box_updateuser {
+  /**
+   * The ID of the user to update. Example: "12345"
+   */
+  user_id: string;
+  /**
+   * The name of the user.
+   */
+  name?: string | undefined;
+  /**
+   * The email address the user uses to log in.
+   */
+  login?: string | undefined;
+  /**
+   * The user's enterprise role.
+   */
+  role?: 'coadmin' | 'user' | undefined;
+  /**
+   * The language of the user in ISO 639-1 format.
+   */
+  language?: string | undefined;
+  /**
+   * Whether the user can use Box Sync.
+   */
+  is_sync_enabled?: boolean | undefined;
+  /**
+   * The user's job title.
+   */
+  job_title?: string | undefined;
+  /**
+   * The user's phone number.
+   */
+  phone?: string | undefined;
+  /**
+   * The user's address.
+   */
+  address?: string | undefined;
+  /**
+   * Whether the user can see other enterprise users in their contact list.
+   */
+  can_see_managed_users?: boolean | undefined;
+  /**
+   * The user's timezone.
+   */
+  timezone?: string | undefined;
+  /**
+   * Whether the user is allowed to collaborate with users outside their enterprise.
+   */
+  is_external_collab_restricted?: boolean | undefined;
+  /**
+   * Whether to exempt the user from enterprise device limits.
+   */
+  is_exempt_from_device_limits?: boolean | undefined;
+  /**
+   * Whether the user must use two-factor authentication.
+   */
+  is_exempt_from_login_verification?: boolean | undefined;
+  /**
+   * Whether the user is required to reset their password.
+   */
+  is_password_reset_required?: boolean | undefined;
+  /**
+   * The user's account status.
+   */
+  status?: 'active' | 'inactive' | 'cannot_delete_edit' | 'cannot_delete_edit_upload' | undefined;
+  /**
+   * The user's total available space in bytes. Set to -1 for unlimited storage.
+   */
+  space_amount?: number | undefined;
+  /**
+   * An external identifier for an app user.
+   */
+  external_app_user_id?: string | undefined;
+};
+
+export interface ActionOutput_box_updateuser {
+  id: string;
+  type: 'user';
+  name?: string | undefined;
+  login?: string | undefined;
+  role?: 'admin' | 'coadmin' | 'user' | undefined;
+  language?: string | undefined;
+  timezone?: string | undefined;
+  space_amount?: number | undefined;
+  space_used?: number | undefined;
+  max_upload_size?: number | undefined;
+  status?: 'active' | 'inactive' | 'cannot_delete_edit' | 'cannot_delete_edit_upload' | undefined;
+  job_title?: string | undefined;
+  phone?: string | undefined;
+  address?: string | undefined;
+  avatar_url?: string | undefined;
+  is_sync_enabled?: boolean | undefined;
+  can_see_managed_users?: boolean | undefined;
+  is_external_collab_restricted?: boolean | undefined;
+  is_exempt_from_device_limits?: boolean | undefined;
+  is_exempt_from_login_verification?: boolean | undefined;
+  is_platform_access_only?: boolean | undefined;
+  external_app_user_id?: string | undefined;
+  created_at?: string | undefined;
+  modified_at?: string | undefined;
 };
 
 export interface BookAnalytics {
