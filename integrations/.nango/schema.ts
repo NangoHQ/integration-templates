@@ -1381,17 +1381,19 @@ export interface Tag {
 
 export interface Task {
   id: string;
-  type?: string | undefined;
-  title?: string | undefined;
+  subject?: string | undefined;
+  status?: string | undefined;
   priority?: string | undefined;
-  assigneeId?: string | undefined;
-  dueDate?: string | undefined;
-  notes?: string | undefined;
-  contactIds: string[];
-  companyIds: string[];
-  dealIds: string[];
-  createdAt?: string | undefined;
-  updatedAt?: string | undefined;
+  owner_id?: string | undefined;
+  owner_name?: string | undefined;
+  created_by_id?: string | undefined;
+  modified_by_id?: string | undefined;
+  created_time?: string | undefined;
+  modified_time?: string | undefined;
+  due_date?: string | undefined;
+  description?: string | undefined;
+  related_module?: string | undefined;
+  related_record_id?: string | undefined;
 };
 
 export interface SyncMetadata_asana_tasks {
@@ -5135,34 +5137,23 @@ export interface SyncMetadata_cal_com_v2_eventtypes {
 
 export interface Event {
   id: string;
-  subject?: string | undefined;
-  bodyPreview?: string | undefined;
-  start?: {  dateTime: string;
-  timeZone: string;} | undefined;
-  end?: {  dateTime: string;
-  timeZone: string;} | undefined;
-  location?: string | undefined;
-  isAllDay?: boolean | undefined;
-  isCancelled?: boolean | undefined;
-  isDraft?: boolean | undefined;
-  isOnlineMeeting?: boolean | undefined;
-  onlineMeetingProvider?: string | undefined;
-  importance?: string | undefined;
-  sensitivity?: string | undefined;
-  showAs?: string | undefined;
-  webLink?: string | undefined;
-  iCalUId?: string | undefined;
-  type?: string | undefined;
-  seriesMasterId?: string | undefined;
-  organizerEmail?: string | undefined;
-  organizerName?: string | undefined;
-  categories?: string[] | undefined;
-  createdDateTime?: string | undefined;
-  lastModifiedDateTime?: string | undefined;
-  originalStartTimeZone?: string | undefined;
-  originalEndTimeZone?: string | undefined;
-  hasAttachments?: boolean | undefined;
-  changeKey?: string | undefined;
+  title?: string | undefined;
+  start_datetime?: string | undefined;
+  end_datetime?: string | undefined;
+  all_day?: boolean | undefined;
+  description?: string | undefined;
+  venue?: string | undefined;
+  owner_id?: string | undefined;
+  owner_name?: string | undefined;
+  owner_email?: string | undefined;
+  created_by_id?: string | undefined;
+  modified_by_id?: string | undefined;
+  created_time: string;
+  modified_time: string;
+  participants?: string[] | undefined;
+  related_record_id?: string | undefined;
+  related_record_type?: string | undefined;
+  tags?: string[] | undefined;
 };
 
 export interface SyncMetadata_cal_com_v2_events {
@@ -11340,17 +11331,49 @@ export interface SyncMetadata_freshdesk_articles {
 
 export interface Contact {
   id: string;
-  name: string;
-  external_id?: string | undefined;
+  first_name?: string | undefined;
+  last_name?: string | undefined;
+  full_name?: string | undefined;
   email?: string | undefined;
-  tax_number?: string | undefined;
-  address_line_1?: string | undefined;
-  address_line_2?: string | undefined;
-  city?: string | undefined;
-  zip?: string | undefined;
-  country?: string | undefined;
-  state?: string | undefined;
+  secondary_email?: string | undefined;
   phone?: string | undefined;
+  mobile?: string | undefined;
+  home_phone?: string | undefined;
+  other_phone?: string | undefined;
+  title?: string | undefined;
+  department?: string | undefined;
+  account_name?: string | undefined;
+  account_id?: string | undefined;
+  owner_name?: string | undefined;
+  owner_id?: string | undefined;
+  owner_email?: string | undefined;
+  created_time: string;
+  modified_time: string;
+  mailing_street?: string | undefined;
+  mailing_city?: string | undefined;
+  mailing_state?: string | undefined;
+  mailing_zip?: string | undefined;
+  mailing_country?: string | undefined;
+  other_street?: string | undefined;
+  other_city?: string | undefined;
+  other_state?: string | undefined;
+  other_zip?: string | undefined;
+  other_country?: string | undefined;
+  description?: string | undefined;
+  twitter?: string | undefined;
+  skype_id?: string | undefined;
+  date_of_birth?: string | undefined;
+  lead_source?: string | undefined;
+  email_opt_out?: boolean | undefined;
+  fax?: string | undefined;
+  assistant?: string | undefined;
+  asst_phone?: string | undefined;
+  reporting_to_name?: string | undefined;
+  reporting_to_id?: string | undefined;
+  created_by_name?: string | undefined;
+  created_by_id?: string | undefined;
+  modified_by_name?: string | undefined;
+  modified_by_id?: string | undefined;
 };
 
 export interface SyncMetadata_freshdesk_contacts {
@@ -20679,15 +20702,26 @@ export interface Company {
 
 export interface Deal {
   id: string;
-  name?: string | undefined;
-  amount?: number | undefined;
-  closeDate?: string | undefined;
+  dealName?: string | undefined;
   stage?: string | undefined;
+  amount?: number | undefined;
+  closingDate?: string | undefined;
+  accountName?: string | undefined;
+  accountId?: string | undefined;
+  contactName?: string | undefined;
+  contactId?: string | undefined;
+  ownerName?: string | undefined;
   ownerId?: string | undefined;
+  ownerEmail?: string | undefined;
+  createdTime: string;
+  modifiedTime: string;
+  probability?: string | number | undefined;
+  expectedRevenue?: number | undefined;
   description?: string | undefined;
-  companyIds: string[];
-  contactIds: string[];
-  updatedAt: string;
+  campaignSource?: string | undefined;
+  leadSource?: string | undefined;
+  type?: string | undefined;
+  nextStep?: string | undefined;
 };
 
 export interface MarketingEmail {
@@ -20716,15 +20750,39 @@ export interface Owner {
 
 export interface Product {
   id: string;
-  name?: string | undefined;
-  description?: string | undefined;
-  sku?: string | undefined;
-  price?: number | undefined;
-  costOfGoodsSold?: number | undefined;
-  billingFrequency?: string | undefined;
-  recurringBillingPeriod?: string | undefined;
-  createdAt?: string | undefined;
-  updatedAt?: string | undefined;
+  Product_Name?: string | undefined;
+  Product_Code?: string | undefined;
+  Product_Category?: string | undefined;
+  Unit_Price?: number | undefined;
+  Taxable?: boolean | undefined;
+  Description?: string | undefined;
+  Manufacturer?: string | undefined;
+  Usage_Unit?: string | undefined;
+  Qty_in_Stock?: number | undefined;
+  Qty_Ordered?: number | undefined;
+  Qty_in_Demand?: number | undefined;
+  Reorder_Level?: number | undefined;
+  Commission_Rate?: number | undefined;
+  Sales_Start_Date?: string | undefined;
+  Sales_End_Date?: string | undefined;
+  Support_Start_Date?: string | undefined;
+  Support_Expiry_Date?: string | undefined;
+  Handler?: {  name?: string | undefined;
+  id?: string | undefined;
+  email?: string | undefined;};
+  Owner?: {  name?: string | undefined;
+  id?: string | undefined;
+  email?: string | undefined;};
+  Created_By?: {  name?: string | undefined;
+  id?: string | undefined;
+  email?: string | undefined;};
+  Modified_By?: {  name?: string | undefined;
+  id?: string | undefined;
+  email?: string | undefined;};
+  Created_Time?: string | undefined;
+  Modified_Time?: string | undefined;
+  "$approved"?: boolean | undefined;
+  "$editable"?: boolean | undefined;
 };
 
 export interface ActionInput_hubspot_batchcreatecompanies {
@@ -32464,28 +32522,44 @@ export interface SyncMetadata_pipedrive_persons {
 };
 
 export interface Account {
-  /**
-   * Xero AccountID
-   */
   id: string;
-  Code?: string | undefined;
-  Name?: string | undefined;
-  Type?: string | undefined;
-  Status?: string | undefined;
-  Description?: string | undefined;
-  TaxType?: string | undefined;
-  BankAccountNumber?: string | undefined;
-  BankAccountType?: string | undefined;
-  CurrencyCode?: string | undefined;
-  EnablePaymentsToAccount?: boolean | undefined;
-  ShowInExpenseClaims?: boolean | undefined;
-  Class?: string | undefined;
-  SystemAccount?: string | undefined;
-  ReportingCode?: string | undefined;
-  ReportingCodeName?: string | undefined;
-  HasAttachments?: boolean | undefined;
-  UpdatedDateUTC?: string | undefined;
-  AddToWatchlist?: boolean | undefined;
+  accountName?: string | undefined;
+  accountNumber?: string | undefined;
+  accountType?: string | undefined;
+  annualRevenue?: number | undefined;
+  billingCity?: string | undefined;
+  billingCode?: string | undefined;
+  billingCountry?: string | undefined;
+  billingState?: string | undefined;
+  billingStreet?: string | undefined;
+  createdByName?: string | undefined;
+  createdById?: string | undefined;
+  createdByEmail?: string | undefined;
+  createdTime?: string | undefined;
+  description?: string | undefined;
+  employees?: number | undefined;
+  fax?: string | undefined;
+  industry?: string | undefined;
+  modifiedByName?: string | undefined;
+  modifiedById?: string | undefined;
+  modifiedByEmail?: string | undefined;
+  modifiedTime: string;
+  ownerName?: string | undefined;
+  ownerId?: string | undefined;
+  ownerEmail?: string | undefined;
+  ownership?: string | undefined;
+  parentAccountName?: string | undefined;
+  parentAccountId?: string | undefined;
+  phone?: string | undefined;
+  rating?: string | undefined;
+  shippingCity?: string | undefined;
+  shippingCode?: string | undefined;
+  shippingCountry?: string | undefined;
+  shippingState?: string | undefined;
+  shippingStreet?: string | undefined;
+  sicCode?: string | undefined;
+  tickerSymbol?: string | undefined;
+  website?: string | undefined;
 };
 
 export interface BillPayment {
@@ -44086,212 +44160,2966 @@ export interface ActionOutput_zendesk_updateuser {
   url?: string | undefined;
 };
 
-export interface ZohoCRMAccount {
-  Owner: {  name: string;
+export interface Call {
   id: string;
-  email: string;};
-  "$currency_symbol": string;
-  "$field_states": string;
-  Account_Type: string;
-  SIC_Code: string;
-  Last_Activity_Time: Date;
-  Industry: string;
-  Account_Site: string;
-  "$state": string;
-  "$process_flow": boolean;
-  Billing_Country: string;
-  "$locked_for_me": boolean;
-  id: string;
-  "$approved": boolean;
-  "$approval": {  delegate: boolean;
-  approve: boolean;
-  reject: boolean;
-  resubmit: boolean;};
-  Billing_Street: string;
-  Created_Time: Date;
-  "$editable": boolean;
-  Billing_Code: string;
-  Shipping_City: string;
-  Shipping_Country: string;
-  Shipping_Code: string;
-  Billing_City: string;
-  Created_By: {  name: string;
-  id: string;
-  email: string;};
-  "$zia_owner_assignment": string;
-  Annual_Revenue: number;
-  Shipping_Street: string;
-  Ownership: string;
-  Description: string;
-  Rating: number;
-  Shipping_State: string;
-  "$review_process": {  approve: boolean;
-  reject: boolean;
-  resubmit: boolean;};
-  Website: string;
-  Employees: number;
-  Record_Image: string;
-  Modified_By: {  name: string;
-  id: string;
-  email: string;};
-  "$review": string;
-  Phone: string;
-  Account_Name: string;
-  Account_Number: string;
-  Ticker_Symbol: string;
-  Modified_Time: Date;
-  "$orchestration": boolean;
-  Parent_Account: {  name: string;
-  id: string;};
-  "$in_merge": boolean;
-  Locked__s: boolean;
-  Billing_State: string;
-  Tag: any[];
-  Fax: string;
-  "$approval_state": string;
+  subject?: string | undefined;
+  callType?: string | undefined;
+  callPurpose?: string | undefined;
+  callResult?: string | undefined;
+  callDuration?: string | undefined;
+  callDurationInSeconds?: string | undefined;
+  callStartTime?: string | undefined;
+  description?: string | undefined;
+  dialledNumber?: string | undefined;
+  callerId?: string | undefined;
+  reminder?: string | undefined;
+  modifiedTime: string;
+  createdTime?: string | undefined;
+  ownerName?: string | undefined;
+  ownerId?: string | undefined;
+  ownerEmail?: string | undefined;
+  createdByName?: string | undefined;
+  createdById?: string | undefined;
+  modifiedByName?: string | undefined;
+  modifiedById?: string | undefined;
+  relatedToName?: string | undefined;
+  relatedToId?: string | undefined;
+  contactName?: string | undefined;
+  contactId?: string | undefined;
+  tags?: string[] | undefined;
 };
 
-export interface SyncMetadata_zoho_crm_accounts {
+export interface Lead {
+  id: string;
+  company?: string | undefined;
+  email?: string | undefined;
+  firstName?: string | undefined;
+  lastName: string;
+  fullName?: string | undefined;
+  phone?: string | undefined;
+  mobile?: string | undefined;
+  status?: string | undefined;
+  source?: string | undefined;
+  designation?: string | undefined;
+  website?: string | undefined;
+  industry?: string | undefined;
+  annualRevenue?: number | undefined;
+  employees?: number | undefined;
+  skypeId?: string | undefined;
+  twitter?: string | undefined;
+  street?: string | undefined;
+  city?: string | undefined;
+  state?: string | undefined;
+  zipCode?: string | undefined;
+  country?: string | undefined;
+  description?: string | undefined;
+  emailOptOut?: boolean | undefined;
+  createdTime: string;
+  modifiedTime: string;
+  createdById?: string | undefined;
+  createdByName?: string | undefined;
+  createdByEmail?: string | undefined;
+  modifiedById?: string | undefined;
+  modifiedByName?: string | undefined;
+  modifiedByEmail?: string | undefined;
+  ownerId?: string | undefined;
+  ownerName?: string | undefined;
+  ownerEmail?: string | undefined;
+  rating?: string | undefined;
+  fax?: string | undefined;
+  secondaryEmail?: string | undefined;
+  tags?: string[] | undefined;
 };
 
-export interface ZohoCRMContact {
-  Owner: {  name: string;
+export interface Note {
   id: string;
-  email: string;};
-  Email: string;
-  "$currency_symbol": string;
-  "$field_states": string;
-  Other_Phone: string;
-  Mailing_State: string;
-  Other_State: string;
-  Other_Country: string;
-  Last_Activity_Time: Date;
-  Department: string;
-  "$state": string;
-  Unsubscribed_Mode: string;
-  "$process_flow": boolean;
-  Assistant: string;
-  Mailing_Country: string;
-  "$locked_for_me": string;
-  id: string;
-  "$approved": boolean;
-  Reporting_To: {  name: string;
-  id: string;};
-  "$approval": {  delegate: boolean;
-  approve: boolean;
-  reject: boolean;
-  resubmit: boolean;};
-  Other_City: string;
-  Created_Time: Date;
-  "$editable": boolean;
-  Home_Phone: string;
-  Created_By: {  name: string;
-  id: string;
-  email: string;};
-  "$zia_owner_assignment": string;
-  Secondary_Email: string;
-  Description: string;
-  Vendor_Name: {  name: string;
-  id: string;};
-  Mailing_Zip: string;
-  "$review_process": {  approve: boolean;
-  reject: boolean;
-  resubmit: boolean;};
-  Twitter: string;
-  Other_Zip: string;
-  Mailing_Street: string;
-  Salutation: string;
-  First_Name: string;
-  Full_Name: string;
-  Asst_Phone: string;
-  Record_Image: string;
-  Modified_By: {  name: string;
-  id: string;
-  email: string;};
-  "$review": boolean;
-  Skype_ID: string;
-  Phone: string;
-  Account_Name: {  name: string;
-  id: string;};
-  Email_Opt_Out: boolean;
-  Modified_Time: Date;
-  Date_of_Birth: Date;
-  Mailing_City: string;
-  Unsubscribed_Time: Date;
-  Title: string;
-  Other_Street: string;
-  Mobile: string;
-  "$orchestration": boolean;
-  Last_Name: string;
-  "$in_merge": boolean;
-  Locked__s: boolean;
-  Lead_Source: string;
-  Tag: any[];
-  Fax: string;
-  "$approval_state": string;
+  note_title?: string | undefined;
+  note_content?: string | undefined;
+  parent_id?: string | undefined;
+  parent_name?: string | undefined;
+  parent_module?: string | undefined;
+  owner_id?: string | undefined;
+  owner_name?: string | undefined;
+  owner_email?: string | undefined;
+  created_by_id?: string | undefined;
+  created_by_name?: string | undefined;
+  modified_by_id?: string | undefined;
+  modified_by_name?: string | undefined;
+  created_time?: string | undefined;
+  modified_time?: string | undefined;
 };
 
-export interface SyncMetadata_zoho_crm_contacts {
-};
-
-export interface ZohoCRMDeal {
-  Owner: {  name: string;
-  id: string;
-  email: string;};
-  Description: string;
-  "$currency_symbol": string;
-  Campaign_Source: {  name: string;
-  id: string;};
-  "$field_states": string;
-  "$review_process": {  approve: boolean;
-  reject: boolean;
-  resubmit: boolean;};
-  Closing_Date: Date;
-  Reason_For_Loss__s: string;
-  Last_Activity_Time: Date;
-  Modified_By: {  name: string;
-  id: string;
-  email: string;};
-  "$review": string;
-  Lead_Conversion_Time: Date;
-  "$state": string;
-  "$process_flow": boolean;
+export interface ActionInput_zoho_crm_convertlead {
+  /**
+   * The unique ID of the lead to convert. Example: "1000000145990"
+   */
+  lead_id: string;
+  /**
+   * Overwrite lead details in Contact/Account/Deal based on lead conversion mapping. Default: false
+   */
+  overwrite?: boolean | undefined;
+  /**
+   * Notify the lead owner about conversion via email. Default: false
+   */
+  notify_lead_owner?: boolean | undefined;
+  /**
+   * Notify the user to whom the contact/account is assigned about conversion via email. Default: false
+   */
+  notify_new_entity_owner?: boolean | undefined;
+  /**
+   * Existing account ID to associate with the converted lead. Example: "4150868000003283003"
+   */
+  Accounts?: string | undefined;
+  /**
+   * Existing contact ID to associate with the converted lead. Example: "4150868000003283024"
+   */
+  Contacts?: string | undefined;
+  /**
+   * Contact role ID to assign to the associated contact. Example: "5545974000000006873"
+   */
+  Contact_Role?: string | undefined;
+  /**
+   * User ID to assign as the owner for the new contact and account. Example: "4150868000001248015"
+   */
+  assign_to?: string | undefined;
+  /**
+   * Deal details to create for the newly created account
+   */
+  Deals?: {  /**
+   * Name of the deal. Example: "New Business Opportunity"
+   */
   Deal_Name: string;
-  Expected_Revenue: number;
-  Overall_Sales_Duration: number;
+  /**
+   * Closing date of the deal in YYYY-MM-DD format. Example: "2024-12-31"
+   */
+  Closing_Date: string;
+  /**
+   * Stage of the deal. Example: "Closed Won"
+   */
   Stage: string;
-  "$locked_for_me": boolean;
-  Account_Name: {  name: string;
-  id: string;};
-  id: string;
-  "$approved": boolean;
-  "$approval": {  delegate: boolean;
-  approve: boolean;
-  reject: boolean;
-  resubmit: boolean;};
-  Modified_Time: Date;
-  Created_Time: Date;
-  Amount: number;
-  Next_Step: string;
-  Probability: number;
-  "$editable": boolean;
-  "$orchestration": boolean;
-  Contact_Name: {  name: string;
-  id: string;};
-  Sales_Cycle_Duration: number;
-  Type: string;
-  "$in_merge": boolean;
-  Locked__s: boolean;
-  Lead_Source: string;
-  Created_By: {  name: string;
-  id: string;
-  email: string;};
-  Tag: any[];
-  "$zia_owner_assignment": string;
-  "$approval_state": string;
+  /**
+   * Amount of the deal. Example: 1000.50
+   */
+  Amount?: number | undefined;
+  /**
+   * Pipeline name. Example: "Standard"
+   */
+  Pipeline?: string | undefined;
+  /**
+   * Contact role ID. Example: "5545974000000006873"
+   */
+  Contact_Role?: string | undefined;};
+  /**
+   * Tags to carry over from lead to contact, account, and deal
+   */
+  carry_over_tags?: {  /**
+   * Tags to carry over to Contacts
+   */
+  Contacts?: string[] | undefined;
+  /**
+   * Tags to carry over to Accounts
+   */
+  Accounts?: string[] | undefined;
+  /**
+   * Tags to carry over to Deals
+   */
+  Deals?: string[] | undefined;};
 };
 
-export interface SyncMetadata_zoho_crm_deals {
+export interface ActionOutput_zoho_crm_convertlead {
+  /**
+   * ID of the created/associated contact
+   */
+  contact_id?: string | undefined;
+  /**
+   * ID of the created deal
+   */
+  deal_id?: string | undefined;
+  /**
+   * ID of the created/associated account
+   */
+  account_id?: string | undefined;
+};
+
+export interface ActionInput_zoho_crm_createaccount {
+  /**
+   * The name of the account. Example: "Acme Corporation"
+   */
+  accountName: string;
+  /**
+   * Phone number of the account
+   */
+  phone?: string | undefined;
+  /**
+   * Website URL of the account
+   */
+  website?: string | undefined;
+  /**
+   * Industry type of the account
+   */
+  industry?: string | undefined;
+  /**
+   * Type of account (e.g., Customer, Partner, Competitor)
+   */
+  accountType?: string | undefined;
+  /**
+   * Billing street address
+   */
+  billingStreet?: string | undefined;
+  /**
+   * Billing city
+   */
+  billingCity?: string | undefined;
+  /**
+   * Billing state
+   */
+  billingState?: string | undefined;
+  /**
+   * Billing country
+   */
+  billingCountry?: string | undefined;
+  /**
+   * Billing postal/ZIP code
+   */
+  billingCode?: string | undefined;
+  /**
+   * Shipping street address
+   */
+  shippingStreet?: string | undefined;
+  /**
+   * Shipping city
+   */
+  shippingCity?: string | undefined;
+  /**
+   * Shipping state
+   */
+  shippingState?: string | undefined;
+  /**
+   * Shipping country
+   */
+  shippingCountry?: string | undefined;
+  /**
+   * Shipping postal/ZIP code
+   */
+  shippingCode?: string | undefined;
+  /**
+   * Annual revenue of the account
+   */
+  annualRevenue?: number | undefined;
+  /**
+   * Number of employees
+   */
+  employees?: number | undefined;
+  /**
+   * Description of the account
+   */
+  description?: string | undefined;
+  /**
+   * Standard Industrial Classification code
+   */
+  sicCode?: string | undefined;
+  /**
+   * Ownership type (e.g., Private, Public)
+   */
+  ownership?: string | undefined;
+  /**
+   * Stock ticker symbol
+   */
+  tickerSymbol?: string | undefined;
+  /**
+   * ID of the parent account
+   */
+  parentAccountId?: string | undefined;
+};
+
+export interface ActionOutput_zoho_crm_createaccount {
+  id: string;
+  accountName: string;
+  phone?: string | undefined;
+  website?: string | undefined;
+  industry?: string | undefined;
+  accountType?: string | undefined;
+  billingStreet?: string | undefined;
+  billingCity?: string | undefined;
+  billingState?: string | undefined;
+  billingCountry?: string | undefined;
+  billingCode?: string | undefined;
+  shippingStreet?: string | undefined;
+  shippingCity?: string | undefined;
+  shippingState?: string | undefined;
+  shippingCountry?: string | undefined;
+  shippingCode?: string | undefined;
+  annualRevenue?: number | undefined;
+  employees?: number | undefined;
+  description?: string | undefined;
+  sicCode?: string | undefined;
+  ownership?: string | undefined;
+  tickerSymbol?: string | undefined;
+  parentAccountId?: string | undefined;
+};
+
+export interface ActionInput_zoho_crm_createcall {
+  /**
+   * Subject of the call. Accepts up to 255 characters, alphanumeric and special characters.
+   */
+  Subject: string;
+  /**
+   * The type of call.
+   */
+  Call_Type: 'Inbound' | 'Outbound' | 'Missed';
+  /**
+   * The contact to associate the call with. Required for scheduled calls.
+   */
+  Who_Id?: {  /**
+   * ID of the contact. Example: "3652397000000649013"
+   */
+  id: string;
+  /**
+   * Name of the contact. Example: "Patricia Boyle"
+   */
+  name?: string | undefined;};
+  /**
+   * The record (other than Contact) to associate the call with. Required for scheduled calls.
+   */
+  What_Id?: {  /**
+   * ID of the record. Example: "3652397000000649013"
+   */
+  id: string;
+  /**
+   * Name of the record.
+   */
+  name?: string | undefined;};
+  /**
+   * The API name of the module of the record specified in What_Id. Required when What_Id is provided.
+   */
+  "$se_module"?: string | undefined;
+  /**
+   * The date and time at which the call started in ISO8601 format. Example: "2021-02-23T13:30:00+05:30". Required for scheduled and completed calls.
+   */
+  Call_Start_Time?: string | undefined;
+  /**
+   * The time duration in HH:mm format that the call lasted for. Required for completed calls.
+   */
+  Call_Duration?: string | undefined;
+  /**
+   * The status of the outbound call.
+   */
+  Outbound_Call_Status?: 'Scheduled' | 'Completed' | undefined;
+  /**
+   * The purpose of the call.
+   */
+  Call_Purpose?: string | undefined;
+  /**
+   * Description of the call.
+   */
+  Description?: string | undefined;
+};
+
+export interface ActionOutput_zoho_crm_createcall {
+  /**
+   * ID of the created call record.
+   */
+  id: string;
+  /**
+   * Whether the call was created successfully.
+   */
+  success: boolean;
+  /**
+   * Status message from the API.
+   */
+  message: string;
+};
+
+export interface ActionInput_zoho_crm_createcontact {
+  /**
+   * First name of the contact. Example: "John"
+   */
+  First_Name?: string | undefined;
+  /**
+   * Last name of the contact. Example: "Smith"
+   */
+  Last_Name: string;
+  /**
+   * Email address of the contact. Example: "john.smith@example.com"
+   */
+  Email?: string | undefined;
+  /**
+   * Phone number of the contact. Example: "+1-555-0123"
+   */
+  Phone?: string | undefined;
+  /**
+   * Mobile number of the contact. Example: "+1-555-0456"
+   */
+  Mobile?: string | undefined;
+  /**
+   * Job title of the contact. Example: "Sales Manager"
+   */
+  Title?: string | undefined;
+  /**
+   * Department of the contact. Example: "Sales"
+   */
+  Department?: string | undefined;
+  /**
+   * Account name associated with the contact. Example: "Acme Inc."
+   */
+  Account_Name?: string | undefined;
+  /**
+   * Mailing street address. Example: "123 Main St"
+   */
+  Mailing_Street?: string | undefined;
+  /**
+   * Mailing city. Example: "San Francisco"
+   */
+  Mailing_City?: string | undefined;
+  /**
+   * Mailing state. Example: "California"
+   */
+  Mailing_State?: string | undefined;
+  /**
+   * Mailing country. Example: "USA"
+   */
+  Mailing_Country?: string | undefined;
+  /**
+   * Mailing zip code. Example: "94102"
+   */
+  Mailing_Zip?: string | undefined;
+  /**
+   * Description or notes about the contact. Example: "Key decision maker"
+   */
+  Description?: string | undefined;
+};
+
+export interface ActionOutput_zoho_crm_createcontact {
+  /**
+   * Unique identifier of the created contact
+   */
+  id: string;
+  /**
+   * Whether the contact was created successfully
+   */
+  success: boolean;
+  /**
+   * Status message from the API
+   */
+  message?: string | undefined;
+  /**
+   * Timestamp when the contact was created
+   */
+  created_time?: string | undefined;
+};
+
+export interface ActionInput_zoho_crm_createdeal {
+  /**
+   * Name of the deal. Example: "Enterprise Software License 2024"
+   */
+  dealName: string;
+  /**
+   * Current stage of the deal. Example: "Qualification", "Negotiation", "Closed Won"
+   */
+  stage?: string | undefined;
+  /**
+   * Monetary value of the deal. Example: 50000
+   */
+  amount?: number | undefined;
+  /**
+   * Expected close date in YYYY-MM-DD format. Example: "2024-12-31"
+   */
+  closingDate?: string | undefined;
+  /**
+   * Description or notes about the deal
+   */
+  description?: string | undefined;
+  /**
+   * ID of the associated account. Example: "4150868000000225013"
+   */
+  accountId?: string | undefined;
+  /**
+   * ID of the associated contact. Example: "4150868000000225014"
+   */
+  contactId?: string | undefined;
+  /**
+   * ID of the source campaign. Example: "4150868000000584006"
+   */
+  campaignId?: string | undefined;
+  /**
+   * ID of the deal owner. Example: "4150868000000225013"
+   */
+  ownerId?: string | undefined;
+  /**
+   * Probability of closing the deal (0-100). Example: 75
+   */
+  probability?: number | undefined;
+  /**
+   * Type of deal. Example: "New Business", "Existing Business"
+   */
+  type?: string | undefined;
+  /**
+   * Source of the lead. Example: "Web", "Referral", "Advertisement"
+   */
+  leadSource?: string | undefined;
+};
+
+export interface ActionOutput_zoho_crm_createdeal {
+  id: string;
+  dealName: string;
+  stage?: string | undefined;
+  amount?: number | undefined;
+  closingDate?: string | undefined;
+  description?: string | undefined;
+  accountId?: string | undefined;
+  accountName?: string | undefined;
+  contactId?: string | undefined;
+  contactName?: string | undefined;
+  campaignId?: string | undefined;
+  campaignName?: string | undefined;
+  ownerId?: string | undefined;
+  ownerName?: string | undefined;
+  ownerEmail?: string | undefined;
+  probability?: number | undefined;
+  type?: string | undefined;
+  leadSource?: string | undefined;
+  createdTime?: string | undefined;
+  modifiedTime?: string | undefined;
+};
+
+export interface ActionInput_zoho_crm_createevent {
+  /**
+   * Title of the event. Maximum 255 characters.
+   */
+  event_title: string;
+  /**
+   * Start date and time in ISO8601 format. Example: "2024-08-02T15:30:00+05:30"
+   */
+  start_datetime: string;
+  /**
+   * End date and time in ISO8601 format. Example: "2024-08-02T16:30:00+05:30"
+   */
+  end_datetime: string;
+  /**
+   * Set to true if this is an all-day event.
+   */
+  all_day?: boolean | undefined;
+  /**
+   * Description of the event.
+   */
+  description?: string | undefined;
+  /**
+   * Venue where the event takes place. Maximum 255 characters.
+   */
+  venue?: string | undefined;
+  /**
+   * Postal code of the venue.
+   */
+  zip_code?: string | undefined;
+  /**
+   * Contact ID to associate with this event.
+   */
+  who_id?: {  /**
+   * The unique ID of the contact to associate with this event.
+   */
+  id: string;} | undefined;
+  /**
+   * Related record (Account, Deal, Lead, etc.) ID and module.
+   */
+  what_id?: {  /**
+   * The unique ID of the related record (Account, Deal, Lead, etc.).
+   */
+  id: string;
+  /**
+   * The API name of the module. Example: "Accounts", "Deals", "Leads"
+   */
+  module: string;} | undefined;
+  /**
+   * List of participants for the event.
+   */
+  participants?: ({  Email?: string | undefined;
+  name?: string | undefined;
+  participant?: string | undefined;
+  type?: 'lead' | 'contact' | 'user' | 'email' | undefined;
+  invited?: boolean | undefined;})[];
+  /**
+   * Reminder date and time in ISO8601 format.
+   */
+  remind_at?: string | undefined;
+  /**
+   * List of tags to associate with the event.
+   */
+  tag?: ({  name: string;})[] | undefined;
+  /**
+   * Set to true to send invitations to participants.
+   */
+  send_notification?: boolean | undefined;
+  /**
+   * Latitude of the event location.
+   */
+  latitude?: number | undefined;
+  /**
+   * Longitude of the event location.
+   */
+  longitude?: number | undefined;
+};
+
+export interface ActionOutput_zoho_crm_createevent {
+  /**
+   * Unique ID of the created event.
+   */
+  id: string;
+  /**
+   * Title of the event.
+   */
+  event_title: string;
+  /**
+   * Start date and time in ISO8601 format.
+   */
+  start_datetime: string;
+  /**
+   * End date and time in ISO8601 format.
+   */
+  end_datetime: string;
+  /**
+   * Whether this is an all-day event.
+   */
+  all_day?: boolean | undefined;
+  /**
+   * Description of the event.
+   */
+  description?: string | undefined;
+  /**
+   * Venue of the event.
+   */
+  venue?: string | undefined;
+  /**
+   * Postal code of the venue.
+   */
+  zip_code?: string | undefined;
+  /**
+   * ID of the event owner.
+   */
+  owner_id?: string | undefined;
+  /**
+   * ID of the associated contact.
+   */
+  who_id?: string | undefined;
+  /**
+   * ID of the related record (Account, Deal, Lead, etc.).
+   */
+  what_id?: string | undefined;
+  /**
+   * Module name of the related record.
+   */
+  what_module?: string | undefined;
+  /**
+   * Reminder time in ISO8601 format.
+   */
+  remind_at?: string | undefined;
+  /**
+   * Whether invitations were sent to participants.
+   */
+  send_notification?: boolean | undefined;
+  /**
+   * Latitude of the event location.
+   */
+  latitude?: number | undefined;
+  /**
+   * Longitude of the event location.
+   */
+  longitude?: number | undefined;
+  /**
+   * Time when the event was created.
+   */
+  created_time: string;
+  /**
+   * Time when the event was last modified.
+   */
+  modified_time: string;
+};
+
+export interface ActionInput_zoho_crm_createlead {
+  /**
+   * Company name of the lead. Example: "Zylker"
+   */
+  company: string;
+  /**
+   * Last name of the lead. Example: "Daly"
+   */
+  last_name: string;
+  /**
+   * First name of the lead. Example: "Paul"
+   */
+  first_name?: string | undefined;
+  /**
+   * Email address of the lead. Example: "p.daly@zylker.com"
+   */
+  email?: string | undefined;
+  /**
+   * Phone number of the lead.
+   */
+  phone?: string | undefined;
+  /**
+   * Mobile number of the lead.
+   */
+  mobile?: string | undefined;
+  /**
+   * Fax number of the lead.
+   */
+  fax?: string | undefined;
+  /**
+   * Website of the lead.
+   */
+  website?: string | undefined;
+  /**
+   * Source of the lead. Example: "Chat", "Employee Referral"
+   */
+  lead_source?: string | undefined;
+  /**
+   * Status of the lead.
+   */
+  lead_status?: string | undefined;
+  /**
+   * Industry the lead belongs to.
+   */
+  industry?: string | undefined;
+  /**
+   * Annual revenue of the company.
+   */
+  annual_revenue?: number | undefined;
+  /**
+   * Number of employees in the company.
+   */
+  no_of_employees?: number | undefined;
+  /**
+   * Skype ID of the lead.
+   */
+  skype_id?: string | undefined;
+  /**
+   * Secondary email address of the lead.
+   */
+  secondary_email?: string | undefined;
+  /**
+   * Street address of the lead.
+   */
+  street?: string | undefined;
+  /**
+   * City of the lead address.
+   */
+  city?: string | undefined;
+  /**
+   * State of the lead address.
+   */
+  state?: string | undefined;
+  /**
+   * Zip code of the lead address.
+   */
+  zip_code?: string | undefined;
+  /**
+   * Country of the lead address.
+   */
+  country?: string | undefined;
+  /**
+   * Additional details about the lead.
+   */
+  description?: string | undefined;
+};
+
+export interface ActionOutput_zoho_crm_createlead {
+  id: string;
+  company?: string | undefined;
+  last_name?: string | undefined;
+  first_name?: string | undefined;
+  email?: string | undefined;
+  phone?: string | undefined;
+  mobile?: string | undefined;
+  fax?: string | undefined;
+  website?: string | undefined;
+  lead_source?: string | undefined;
+  lead_status?: string | undefined;
+  industry?: string | undefined;
+  annual_revenue?: number | undefined;
+  no_of_employees?: number | undefined;
+  skype_id?: string | undefined;
+  secondary_email?: string | undefined;
+  street?: string | undefined;
+  city?: string | undefined;
+  state?: string | undefined;
+  zip_code?: string | undefined;
+  country?: string | undefined;
+  description?: string | undefined;
+  created_time?: string | undefined;
+  modified_time?: string | undefined;
+};
+
+export interface ActionInput_zoho_crm_createnote {
+  /**
+   * Title of the note. Example: "Follow-up call"
+   */
+  note_title?: string | undefined;
+  /**
+   * Content of the note. Example: "Discussed pricing options with the client"
+   */
+  note_content: string;
+  /**
+   * ID of the record to associate the note with. Example: "123456789"
+   */
+  parent_id: string;
+  /**
+   * Module API name of the parent record. Example: "Leads", "Contacts", "Deals", "Accounts"
+   */
+  se_module: string;
+};
+
+export interface ActionOutput_zoho_crm_createnote {
+  id: string;
+  created_time?: string | undefined;
+  modified_time?: string | undefined;
+  status: string;
+  message: string;
+};
+
+export interface ActionInput_zoho_crm_createproduct {
+  /**
+   * Name of the product. This is a mandatory field.
+   */
+  Product_Name: string;
+  /**
+   * Product identification code given manually by the user.
+   */
+  Product_Code?: string | undefined;
+  /**
+   * Category of the product.
+   */
+  Product_Category?: string | undefined;
+  /**
+   * Name of the product manufacturer.
+   */
+  Manufacturer?: string | undefined;
+  /**
+   * The price of each unit of the product.
+   */
+  Unit_Price?: number | undefined;
+  /**
+   * Description of the product.
+   */
+  Description?: string | undefined;
+  /**
+   * The number of product units in stock.
+   */
+  Qty_in_Stock?: number | undefined;
+  /**
+   * The quantity in demand.
+   */
+  Qty_in_Demand?: number | undefined;
+  /**
+   * The number of product units ordered.
+   */
+  Qty_Ordered?: number | undefined;
+  /**
+   * The reorder value.
+   */
+  Reorder_Level?: number | undefined;
+  /**
+   * Date on which the product sale starts (YYYY-MM-DD).
+   */
+  Sales_Start_Date?: string | undefined;
+  /**
+   * Date on which the product sale ends (YYYY-MM-DD).
+   */
+  Sales_End_Date?: string | undefined;
+  /**
+   * Date on which the product support starts (YYYY-MM-DD).
+   */
+  Support_Start_Date?: string | undefined;
+  /**
+   * The date on which the product support ends (YYYY-MM-DD).
+   */
+  Support_Expiry_Date?: string | undefined;
+  /**
+   * Usage unit of the product such as dozen, each, box, etc.
+   */
+  Usage_Unit?: string | undefined;
+  /**
+   * Whether the product is taxable.
+   */
+  Taxable?: boolean | undefined;
+  /**
+   * Whether the product is active.
+   */
+  Product_Active?: boolean | undefined;
+  /**
+   * Commission rate for selling the product.
+   */
+  Commission_Rate?: number | undefined;
+};
+
+export interface ActionOutput_zoho_crm_createproduct {
+  /**
+   * Unique ID of the created product.
+   */
+  id: string;
+  /**
+   * Name of the product.
+   */
+  Product_Name: string;
+  Product_Code?: string | undefined;
+  Product_Category?: string | undefined;
+  Manufacturer?: string | undefined;
+  Unit_Price?: number | undefined;
+  Description?: string | undefined;
+  Qty_in_Stock?: number | undefined;
+  Qty_in_Demand?: number | undefined;
+  Qty_Ordered?: number | undefined;
+  Reorder_Level?: number | undefined;
+  Sales_Start_Date?: string | undefined;
+  Sales_End_Date?: string | undefined;
+  Support_Start_Date?: string | undefined;
+  Support_Expiry_Date?: string | undefined;
+  Usage_Unit?: string | undefined;
+  Taxable?: boolean | undefined;
+  Product_Active?: boolean | undefined;
+  Commission_Rate?: number | undefined;
+  Owner?: {  name: string;
+  id: string;
+  email?: string | undefined;};
+  Created_By?: {  name: string;
+  id: string;
+  email?: string | undefined;};
+  Modified_By?: {  name: string;
+  id: string;
+  email?: string | undefined;};
+  Created_Time?: string | undefined;
+  Modified_Time?: string | undefined;
+};
+
+export interface ActionInput_zoho_crm_createtask {
+  /**
+   * Subject of the task. This is a mandatory field.
+   */
+  subject: string;
+  /**
+   * Description of the task.
+   */
+  description?: string | undefined;
+  /**
+   * Due date of the task in YYYY-MM-DD format.
+   */
+  due_date?: string | undefined;
+  /**
+   * Status of the task.
+   */
+  status?: 'Not Started' | 'Deferred' | 'In Progress' | 'Completed' | 'Waiting on someone else' | undefined;
+  /**
+   * Priority of the task. Default is High.
+   */
+  priority?: 'High' | 'Highest' | 'Low' | 'Lowest' | 'Normal' | undefined;
+  /**
+   * ID of the contact or lead the task is related to.
+   */
+  who_id?: string | undefined;
+  /**
+   * ID of the account, deal, or other module the task is related to.
+   */
+  what_id?: string | undefined;
+  /**
+   * API name of the parent module when who_id and what_id are used. Required when associating with a parent record.
+   */
+  se_module?: string | undefined;
+  /**
+   * Whether to send a notification email to the task owner.
+   */
+  send_notification_email?: boolean | undefined;
+};
+
+export interface ActionOutput_zoho_crm_createtask {
+  id: string;
+  subject: string;
+  description?: string | undefined;
+  due_date?: string | undefined;
+  status?: string | undefined;
+  priority?: string | undefined;
+  who_id?: string | undefined;
+  what_id?: string | undefined;
+  send_notification_email?: boolean | undefined;
+  created_time?: string | undefined;
+  modified_time?: string | undefined;
+};
+
+export interface ActionInput_zoho_crm_deleteaccount {
+  /**
+   * The unique ID of the account record to delete. Example: "123456789012345"
+   */
+  record_id: string;
+};
+
+export interface ActionOutput_zoho_crm_deleteaccount {
+  record_id: string;
+  success: boolean;
+  message?: string | undefined;
+};
+
+export interface ActionInput_zoho_crm_deletecall {
+  /**
+   * The ID of the call record to delete. Example: "1234567890123"
+   */
+  record_id: string;
+};
+
+export interface ActionOutput_zoho_crm_deletecall {
+  success: boolean;
+  message?: string | undefined;
+  record_id: string;
+};
+
+export interface ActionInput_zoho_crm_deletecontact {
+  /**
+   * The unique ID of the contact record to delete. Example: "410405000002264040"
+   */
+  recordId: string;
+  /**
+   * Whether to trigger workflow rules upon deletion. Default is true.
+   */
+  wfTrigger?: boolean | undefined;
+};
+
+export interface ActionOutput_zoho_crm_deletecontact {
+  /**
+   * The ID of the deleted contact
+   */
+  id: string;
+  /**
+   * Whether the deletion was successful
+   */
+  success: boolean;
+  /**
+   * Status message from the API
+   */
+  message: string;
+  /**
+   * Indicates the contact was moved to recycle bin (soft deleted) rather than permanently deleted
+   */
+  archived: boolean;
+};
+
+export interface ActionInput_zoho_crm_deletedeal {
+  /**
+   * The unique ID of the deal record to delete. Example: "415155000000074323"
+   */
+  record_id: string;
+};
+
+export interface ActionOutput_zoho_crm_deletedeal {
+  success: boolean;
+  message?: string | undefined;
+  record_id: string;
+};
+
+export interface ActionInput_zoho_crm_deleteevent {
+  /**
+   * The unique ID of the event record to delete. Example: "410405000002264040"
+   */
+  record_id: string;
+};
+
+export interface ActionOutput_zoho_crm_deleteevent {
+  /**
+   * The ID of the deleted event
+   */
+  id: string;
+  /**
+   * Whether the deletion was successful
+   */
+  success: boolean;
+  /**
+   * Status message from the API
+   */
+  message?: string | undefined;
+  /**
+   * Whether the record was permanently deleted from recycle bin
+   */
+  deleted_from_recycle_bin?: boolean | undefined;
+};
+
+export interface ActionInput_zoho_crm_deletelead {
+  /**
+   * Lead ID to delete. Example: "3642481000000187001"
+   */
+  record_id: string;
+};
+
+export interface ActionOutput_zoho_crm_deletelead {
+  success: boolean;
+  message?: string | undefined;
+  record_id: string;
+};
+
+export interface ActionInput_zoho_crm_deletenote {
+  /**
+   * The unique ID of the note to delete. Example: "518200000004111"
+   */
+  note_id: string;
+};
+
+export interface ActionOutput_zoho_crm_deletenote {
+  success: boolean;
+  message: string;
+  note_id: string;
+};
+
+export interface ActionInput_zoho_crm_deleteproduct {
+  /**
+   * The unique ID of the product to delete. Example: "1234567890123456"
+   */
+  id: string;
+};
+
+export interface ActionOutput_zoho_crm_deleteproduct {
+  success: boolean;
+  id: string;
+  message?: string | undefined;
+};
+
+export interface ActionInput_zoho_crm_deletetask {
+  /**
+   * The ID of the task to delete. Example: "410405000002264040"
+   */
+  task_id: string;
+};
+
+export interface ActionOutput_zoho_crm_deletetask {
+  success: boolean;
+  task_id: string;
+  message: string;
+};
+
+export interface ActionInput_zoho_crm_getaccount {
+  /**
+   * Account ID. Example: "4150868000002782004"
+   */
+  id: string;
+};
+
+export interface ActionOutput_zoho_crm_getaccount {
+  id: string;
+  account_name?: string | undefined;
+  account_type?: string | undefined;
+  account_site?: string | undefined;
+  account_number?: string | undefined;
+  owner_id?: string | undefined;
+  owner_name?: string | undefined;
+  owner_email?: string | undefined;
+  sic_code?: string | undefined;
+  industry?: string | undefined;
+  annual_revenue?: number | undefined;
+  employees?: number | undefined;
+  ownership?: string | undefined;
+  rating?: string | undefined;
+  website?: string | undefined;
+  phone?: string | undefined;
+  fax?: string | undefined;
+  description?: string | undefined;
+  ticker_symbol?: string | undefined;
+  billing_street?: string | undefined;
+  billing_city?: string | undefined;
+  billing_state?: string | undefined;
+  billing_country?: string | undefined;
+  billing_code?: string | undefined;
+  shipping_street?: string | undefined;
+  shipping_city?: string | undefined;
+  shipping_state?: string | undefined;
+  shipping_country?: string | undefined;
+  shipping_code?: string | undefined;
+  parent_account_id?: string | undefined;
+  parent_account_name?: string | undefined;
+  created_by_id?: string | undefined;
+  created_by_name?: string | undefined;
+  created_by_email?: string | undefined;
+  modified_by_id?: string | undefined;
+  modified_by_name?: string | undefined;
+  modified_by_email?: string | undefined;
+  created_time?: string | undefined;
+  modified_time?: string | undefined;
+  last_activity_time?: string | undefined;
+  record_image?: string | undefined;
+  currency?: string | undefined;
+  currency_symbol?: string | undefined;
+  exchange_rate?: number | undefined;
+  approved?: boolean | undefined;
+  editable?: boolean | undefined;
+  approval_state?: string | undefined;
+  territories?: string[] | undefined;
+  tags?: unknown[] | undefined;
+};
+
+export interface ActionInput_zoho_crm_getcall {
+  /**
+   * The unique ID of the call record to retrieve. Example: "4150868000002792048"
+   */
+  record_id: string;
+};
+
+export interface ActionOutput_zoho_crm_getcall {
+  id: string;
+  subject?: string | undefined;
+  call_type?: string | undefined;
+  call_status?: string | undefined;
+  call_purpose?: string | undefined;
+  call_result?: string | undefined;
+  call_duration?: string | undefined;
+  call_duration_in_seconds?: string | number | undefined;
+  call_start_time?: string | undefined;
+  call_agenda?: string | undefined;
+  description?: string | undefined;
+  owner?: {  name: string;
+  id: string;
+  email?: string | undefined;};
+  created_by?: {  name: string;
+  id: string;
+  email?: string | undefined;};
+  modified_by?: {  name: string;
+  id: string;
+  email?: string | undefined;};
+  who_id?: {  name: string;
+  id: string;} | undefined;
+  what_id?: {  name: string;
+  id: string;} | undefined;
+  created_time?: string | undefined;
+  modified_time?: string | undefined;
+};
+
+export interface ActionInput_zoho_crm_getcontact {
+  /**
+   * The unique ID of the contact to retrieve. Example: "4150868000001944196"
+   */
+  recordId: string;
+};
+
+export interface ActionOutput_zoho_crm_getcontact {
+  id: string;
+  ownerId: string;
+  ownerName: string;
+  ownerEmail: string;
+  createdById: string;
+  createdByName: string;
+  createdTime: string;
+  modifiedById: string;
+  modifiedByName: string;
+  modifiedTime: string;
+  firstName?: string | undefined;
+  lastName?: string | undefined;
+  fullName?: string | undefined;
+  email?: string | undefined;
+  phone?: string | undefined;
+  mobile?: string | undefined;
+  title?: string | undefined;
+  department?: string | undefined;
+  accountName?: string | undefined;
+  mailingStreet?: string | undefined;
+  mailingCity?: string | undefined;
+  mailingState?: string | undefined;
+  mailingZip?: string | undefined;
+  mailingCountry?: string | undefined;
+  description?: string | undefined;
+  approved: boolean;
+  editable: boolean;
+};
+
+export interface ActionInput_zoho_crm_getdeal {
+  /**
+   * The unique ID of the deal to retrieve. Example: "4150868000002782026"
+   */
+  id: string;
+};
+
+export interface ActionOutput_zoho_crm_getdeal {
+  id: string;
+  dealName: string;
+  stage: string;
+  closingDate: string;
+  amount?: number | undefined;
+  expectedRevenue?: number | undefined;
+  probability?: number | undefined;
+  nextStep?: string | undefined;
+  type?: string | undefined;
+  leadSource?: string | undefined;
+  description?: string | undefined;
+  campaignSource?: {  name: string;
+  id: string;} | undefined;
+  accountName?: {  name: string;
+  id: string;} | undefined;
+  contactName?: {  name: string;
+  id: string;} | undefined;
+  owner?: {  name: string;
+  id: string;
+  email: string;} | undefined;
+  layout?: {  name: string;
+  id: string;} | undefined;
+  currency?: string | undefined;
+  exchangeRate?: number | undefined;
+  currencySymbol?: string | undefined;
+  createdTime?: string | undefined;
+  modifiedTime?: string | undefined;
+  lastActivityTime?: string | undefined;
+  tags?: unknown[] | undefined;
+  territory?: string[] | undefined;
+  approved?: boolean | undefined;
+  editable?: boolean | undefined;
+};
+
+export interface ActionInput_zoho_crm_getevent {
+  /**
+   * The unique ID of the event to retrieve. Example: "4150868000002792020"
+   */
+  id: string;
+};
+
+export interface ActionOutput_zoho_crm_getevent {
+  id: string;
+  title?: string | undefined;
+  startDateTime?: string | undefined;
+  endDateTime?: string | undefined;
+  allDay?: boolean | undefined;
+  owner?: {  name?: string | undefined;
+  id: string;
+  email?: string | undefined;};
+  participants?: ({  email?: string | undefined;
+  name?: string | undefined;
+  invited?: boolean | undefined;
+  id: string;
+  type?: string | undefined;
+  participantId?: string | undefined;
+  status?: string | undefined;})[];
+  venue?: string | undefined;
+  description?: string | undefined;
+  remindAt?: string | undefined;
+  checkInStatus?: string | undefined;
+  checkInTime?: string | undefined;
+  checkInBy?: {  name?: string | undefined;
+  id: string;
+  email?: string | undefined;};
+  checkInCity?: string | undefined;
+  checkInCountry?: string | undefined;
+  checkInState?: string | undefined;
+  checkInAddress?: string | undefined;
+  checkInSubLocality?: string | undefined;
+  checkInComment?: string | undefined;
+  latitude?: number | undefined;
+  longitude?: number | undefined;
+  zipCode?: string | undefined;
+  recurringActivity?: {  rrule?: string | undefined;};
+  relatedTo?: {  name?: string | undefined;
+  id: string;
+  module?: string | undefined;};
+  relatedContact?: {  name?: string | undefined;
+  id: string;};
+  tags?: ({  name?: string | undefined;
+  id?: string | undefined;
+  color?: string | undefined;})[];
+  createdTime?: string | undefined;
+  modifiedTime?: string | undefined;
+  createdBy?: {  name?: string | undefined;
+  id: string;
+  email?: string | undefined;};
+  modifiedBy?: {  name?: string | undefined;
+  id: string;
+  email?: string | undefined;};
+  currency?: string | undefined;
+  exchangeRate?: number | undefined;
+  currencySymbol?: string | undefined;
+};
+
+export interface ActionInput_zoho_crm_getlead {
+  /**
+   * The unique ID of the lead record to retrieve. Example: "1306462000000888026"
+   */
+  recordId: string;
+};
+
+export interface ActionOutput_zoho_crm_getlead {
+  id: string;
+  fullName?: string | undefined;
+  firstName?: string | undefined;
+  lastName?: string | undefined;
+  email?: string | undefined;
+  phone?: string | undefined;
+  mobile?: string | undefined;
+  company?: string | undefined;
+  leadSource?: string | undefined;
+  leadStatus?: string | undefined;
+  industry?: string | undefined;
+  website?: string | undefined;
+  description?: string | undefined;
+  street?: string | undefined;
+  city?: string | undefined;
+  state?: string | undefined;
+  country?: string | undefined;
+  zipCode?: string | undefined;
+  annualRevenue?: number | undefined;
+  noOfEmployees?: number | undefined;
+  rating?: string | undefined;
+  skypeId?: string | undefined;
+  twitter?: string | undefined;
+  designation?: string | undefined;
+  salutation?: string | undefined;
+  fax?: string | undefined;
+  secondaryEmail?: string | undefined;
+  emailOptOut?: boolean | undefined;
+  leadClass?: string | undefined;
+  referredBy?: string | undefined;
+  recordImage?: string | undefined;
+  owner?: {  name: string;
+  id: string;
+  email?: string | undefined;};
+  createdBy?: {  name: string;
+  id: string;
+  email?: string | undefined;};
+  modifiedBy?: {  name: string;
+  id: string;
+  email?: string | undefined;};
+  createdTime?: string | undefined;
+  modifiedTime?: string | undefined;
+  lastActivityTime?: string | undefined;
+  currencySymbol?: string | undefined;
+  converted?: boolean | undefined;
+  approved?: boolean | undefined;
+  tags?: string[] | undefined;
+};
+
+export interface ActionInput_zoho_crm_getnote {
+  /**
+   * The unique ID of the note to retrieve. Example: "4150868000002748029"
+   */
+  record_id: string;
+};
+
+export interface ActionOutput_zoho_crm_getnote {
+  id: string;
+  note_title?: string | undefined;
+  note_content?: string | undefined;
+  owner?: {  name?: string | undefined;
+  id: string;
+  email?: string | undefined;};
+  created_by?: {  name?: string | undefined;
+  id: string;
+  email?: string | undefined;};
+  modified_by?: {  name?: string | undefined;
+  id: string;
+  email?: string | undefined;};
+  created_time?: string | undefined;
+  modified_time?: string | undefined;
+  parent_id?: {  name?: string | undefined;
+  id: string;};
+  editable?: boolean | undefined;
+  se_module?: string | undefined;
+  is_shared_to_client?: boolean | undefined;
+  voice_note?: boolean | undefined;
+};
+
+export interface ActionInput_zoho_crm_getproduct {
+  /**
+   * The unique ID of the product record to retrieve. Example: "4150868000000236379"
+   */
+  record_id: string;
+};
+
+export interface ActionOutput_zoho_crm_getproduct {
+  id: string;
+  Product_Name?: string | undefined;
+  Product_Code?: string | undefined;
+  Owner?: {  name?: string | undefined;
+  id?: string | undefined;
+  email?: string | undefined;};
+  Product_Category?: string | undefined;
+  Unit_Price?: number | undefined;
+  Qty_in_Stock?: number | undefined;
+  Qty_in_Demand?: number | undefined;
+  Qty_Ordered?: number | undefined;
+  Sales_Start_Date?: string | undefined;
+  Sales_End_Date?: string | undefined;
+  Support_Start_Date?: string | undefined;
+  Support_Expiry_Date?: string | undefined;
+  Description?: string | undefined;
+  Taxable?: boolean | undefined;
+  Product_Active?: boolean | undefined;
+  Vendor_Name?: {  name?: string | undefined;
+  id?: string | undefined;};
+  Created_By?: {  name?: string | undefined;
+  id?: string | undefined;
+  email?: string | undefined;};
+  Modified_By?: {  name?: string | undefined;
+  id?: string | undefined;
+  email?: string | undefined;};
+  Created_Time?: string | undefined;
+  Modified_Time?: string | undefined;
+  Usage_Unit?: string | undefined;
+  Tax?: string[] | undefined;
+  Reorder_Level?: number | undefined;
+  "$currency_symbol"?: string | undefined;
+  "$editable"?: boolean | undefined;
+  "$taxable"?: boolean | undefined;
+};
+
+export interface ActionInput_zoho_crm_gettask {
+  /**
+   * The unique ID of the task to retrieve. Example: "4150868000002738003"
+   */
+  id: string;
+};
+
+export interface ActionOutput_zoho_crm_gettask {
+  /**
+   * Unique ID of the task
+   */
+  id: string;
+  /**
+   * Subject/title of the task
+   */
+  subject: string;
+  /**
+   * Due date of the task
+   */
+  dueDate?: string | undefined;
+  /**
+   * Status of the task
+   */
+  status?: string | undefined;
+  /**
+   * Priority of the task
+   */
+  priority?: string | undefined;
+  /**
+   * Description of the task
+   */
+  description?: string | undefined;
+  owner?: {  name: string;
+  id: string;
+  email?: string | undefined;};
+  /**
+   * When the task was created
+   */
+  createdTime: string;
+  /**
+   * When the task was last modified
+   */
+  modifiedTime: string;
+  createdBy?: {  name: string;
+  id: string;
+  email?: string | undefined;};
+  modifiedBy?: {  name: string;
+  id: string;
+  email?: string | undefined;};
+  /**
+   * Module the task is related to
+   */
+  relatedModule?: string | undefined;
+  /**
+   * ID of related account/deal
+   */
+  relatedAccountId?: string | undefined;
+  /**
+   * ID of related contact/lead
+   */
+  relatedContactId?: string | undefined;
+  /**
+   * When the task was completed
+   */
+  closedTime?: string | undefined;
+  /**
+   * Reminder datetime
+   */
+  reminder?: string | undefined;
+};
+
+export interface ActionInput_zoho_crm_getuser {
+  /**
+   * The unique ID of the user to retrieve. Example: "4150868000000225013"
+   */
+  user_id: string;
+};
+
+export interface ActionOutput_zoho_crm_getuser {
+  id: string;
+  first_name?: string | undefined;
+  last_name?: string | undefined;
+  full_name?: string | undefined;
+  email?: string | undefined;
+  status?: string | undefined;
+  role?: {  name?: string | undefined;
+  id?: string | undefined;};
+  profile?: {  name?: string | undefined;
+  id?: string | undefined;};
+  phone?: string | undefined;
+  mobile?: string | undefined;
+  fax?: string | undefined;
+  street?: string | undefined;
+  city?: string | undefined;
+  state?: string | undefined;
+  zip?: string | undefined;
+  country?: string | undefined;
+  country_locale?: string | undefined;
+  website?: string | undefined;
+  time_zone?: string | undefined;
+  language?: string | undefined;
+  locale?: string | undefined;
+  date_format?: string | undefined;
+  time_format?: string | undefined;
+  decimal_separator?: string | undefined;
+  currency?: string | undefined;
+  alias?: string | undefined;
+  signature?: string | undefined;
+  name_format?: string | undefined;
+  zuid?: string | undefined;
+  confirm?: boolean | undefined;
+  microsoft?: boolean | undefined;
+  personal_account?: boolean | undefined;
+  is_online?: boolean | undefined;
+  dob?: string | undefined;
+  created_time?: string | undefined;
+  modified_time?: string | undefined;
+  created_by?: {  name?: string | undefined;
+  id?: string | undefined;};
+  modified_by?: {  name?: string | undefined;
+  id?: string | undefined;};
+  reporting_to?: {  name?: string | undefined;
+  id?: string | undefined;};
+  territories?: ({  manager?: boolean | undefined;
+  name?: string | undefined;
+  id?: string | undefined;})[];
+  theme?: {  normal_tab?: {  font_color?: string | undefined;
+  background?: string | undefined;};
+  selected_tab?: {  font_color?: string | undefined;
+  background?: string | undefined;};
+  new_background?: string | undefined;
+  background?: string | undefined;
+  screen?: string | undefined;
+  type?: string | undefined;};
+  customize_info?: {  notes_desc?: string | undefined;
+  show_right_panel?: boolean | undefined;
+  bc_view?: boolean | undefined;
+  show_home?: boolean | undefined;
+  show_detail_view?: boolean | undefined;
+  unpin_recent_item?: boolean | undefined;};
+  offset?: number | undefined;
+};
+
+export interface ActionInput_zoho_crm_listaccounts {
+  /**
+   * Pagination cursor (page number) from the previous response. Omit for the first page.
+   */
+  cursor?: string | undefined;
+  /**
+   * Number of records to fetch per page. Default is 200. Maximum is 200.
+   */
+  per_page?: number | undefined;
+  /**
+   * Field name to sort by. Example: "Account_Name"
+   */
+  sort_by?: string | undefined;
+  /**
+   * Sort order. Use "asc" for ascending or "desc" for descending.
+   */
+  sort_order?: 'asc' | 'desc' | undefined;
+  /**
+   * Comma-separated list of field API names to include in the response. Maximum 50 fields.
+   */
+  fields?: string | undefined;
+};
+
+export interface ActionOutput_zoho_crm_listaccounts {
+  items: ({})[];
+  next_cursor?: string | undefined;
+};
+
+export interface ActionInput_zoho_crm_listcalls {
+  /**
+   * Page number for pagination. Starts at 1.
+   */
+  page?: number | undefined;
+  /**
+   * Number of records per page. Max 200.
+   */
+  per_page?: number | undefined;
+  /**
+   * Comma-separated field API names to retrieve specific fields.
+   */
+  fields?: string | undefined;
+  /**
+   * Field API name to sort by.
+   */
+  sort_by?: string | undefined;
+  /**
+   * Sort order: asc or desc.
+   */
+  sort_order?: 'asc' | 'desc' | undefined;
+  /**
+   * Comma-separated record IDs to fetch specific records.
+   */
+  ids?: string | undefined;
+  /**
+   * Custom View ID to filter records.
+   */
+  cvid?: string | undefined;
+};
+
+export interface ActionOutput_zoho_crm_listcalls {
+  calls: ({  id: string;
+  subject?: string | undefined;
+  callType?: string | undefined;
+  callPurpose?: string | undefined;
+  callDuration?: string | undefined;
+  callDurationInSeconds?: number | undefined;
+  description?: string | undefined;
+  billable?: boolean | undefined;
+  callStartTime?: string | undefined;
+  callEndTime?: string | undefined;
+  callStatus?: string | undefined;
+  outgoingCallStatus?: string | undefined;
+  scheduledIn?: string | undefined;
+  createdTime?: string | undefined;
+  modifiedTime?: string | undefined;
+  owner?: {  name?: string | undefined;
+  id?: string | undefined;
+  email?: string | undefined;};
+  createdBy?: {  name?: string | undefined;
+  id?: string | undefined;
+  email?: string | undefined;};
+  modifiedBy?: {  name?: string | undefined;
+  id?: string | undefined;
+  email?: string | undefined;};
+  editable?: boolean | undefined;
+  approved?: boolean | undefined;})[];
+  page: number;
+  perPage: number;
+  count: number;
+  hasMore: boolean;
+};
+
+export interface ActionInput_zoho_crm_listcontacts {
+  /**
+   * Page number for pagination. Default is 1.
+   */
+  page?: number | undefined;
+  /**
+   * Number of records per page. Default is 200, maximum is 200.
+   */
+  per_page?: number | undefined;
+  /**
+   * Field name to sort by. Example: "Last_Name"
+   */
+  sort_by?: string | undefined;
+  /**
+   * Sort order. Default is "desc".
+   */
+  sort_order?: 'asc' | 'desc' | undefined;
+  /**
+   * Comma-separated field API names to retrieve. Example: "Last_Name,Email,Phone"
+   */
+  fields?: string | undefined;
+  /**
+   * Comma-separated contact IDs to retrieve specific records.
+   */
+  ids?: string | undefined;
+  /**
+   * Filter by converted status.
+   */
+  converted?: 'true' | 'false' | 'both' | undefined;
+  /**
+   * Filter by approval status.
+   */
+  approved?: 'true' | 'false' | 'both' | undefined;
+  /**
+   * Custom view ID to filter records.
+   */
+  cvid?: string | undefined;
+  /**
+   * Territory ID to filter records.
+   */
+  territory_id?: string | undefined;
+};
+
+export interface ActionOutput_zoho_crm_listcontacts {
+  contacts: ({  id: string;
+  owner_id?: string | undefined;
+  owner_name?: string | undefined;
+  owner_email?: string | undefined;
+  email?: string | undefined;
+  first_name?: string | undefined;
+  last_name: string;
+  full_name?: string | undefined;
+  phone?: string | undefined;
+  mobile?: string | undefined;
+  title?: string | undefined;
+  department?: string | undefined;
+  created_time?: string | undefined;
+  modified_time?: string | undefined;
+  created_by_id?: string | undefined;
+  created_by_name?: string | undefined;
+  modified_by_id?: string | undefined;
+  modified_by_name?: string | undefined;
+  account_id?: string | undefined;
+  account_name?: string | undefined;
+  description?: string | undefined;
+  secondary_email?: string | undefined;
+  skype_id?: string | undefined;
+  twitter?: string | undefined;
+  mailing_street?: string | undefined;
+  mailing_city?: string | undefined;
+  mailing_state?: string | undefined;
+  mailing_zip?: string | undefined;
+  mailing_country?: string | undefined;
+  email_opt_out?: boolean | undefined;})[];
+  page: number;
+  per_page: number;
+  count: number;
+  has_more: boolean;
+  /**
+   * Total number of contacts fetched in this request
+   */
+  total_fetched: number;
+};
+
+export interface ActionInput_zoho_crm_listdeals {
+  /**
+   * Page number for pagination. Default is 1.
+   */
+  page?: number | undefined;
+  /**
+   * Number of records per page. Default is 200, max is 200.
+   */
+  per_page?: number | undefined;
+  /**
+   * Field to sort by. Default is "id".
+   */
+  sort_by?: string | undefined;
+  /**
+   * Sort order: asc or desc. Default is desc.
+   */
+  sort_order?: 'asc' | 'desc' | undefined;
+};
+
+export interface ActionOutput_zoho_crm_listdeals {
+  deals: ({  id: string;
+  Deal_Name?: string | undefined;
+  Amount?: number | undefined;
+  Stage?: string | undefined;
+  Probability?: number | undefined;
+  Closing_Date?: string | undefined;
+  Owner?: {  name: string;
+  id: string;
+  email?: string | undefined;};
+  Account_Name?: {  name: string;
+  id: string;} | undefined;
+  Contact_Name?: {  name: string;
+  id: string;} | undefined;
+  Campaign_Source?: {  name: string;
+  id: string;} | undefined;
+  Type?: string | undefined;
+  Lead_Source?: string | undefined;
+  Description?: string | undefined;
+  Next_Step?: string | undefined;
+  Created_Time?: string | undefined;
+  Modified_Time?: string | undefined;
+  Created_By?: {  name: string;
+  id: string;
+  email?: string | undefined;};
+  Modified_By?: {  name: string;
+  id: string;
+  email?: string | undefined;};
+  Layout?: {  name: string;
+  id: string;} | undefined;
+  Tag?: ({  name: string;
+  id: string;})[] | undefined;})[];
+  info: {  per_page: number;
+  count: number;
+  page: number;
+  more_records: boolean;
+  sort_by?: string | undefined;
+  sort_order?: string | undefined;};
+};
+
+export interface ActionInput_zoho_crm_listevents {
+  /**
+   * Pagination cursor in the format "page:per_page". Omit for the first page.
+   */
+  cursor?: string | undefined;
+  /**
+   * Number of records per page. Default is 200, maximum is 200.
+   */
+  per_page?: number | undefined;
+  /**
+   * Field API name to sort by. Default is "id".
+   */
+  sort_by?: string | undefined;
+  /**
+   * Sort order: "asc" or "desc". Default is "desc".
+   */
+  sort_order?: 'asc' | 'desc' | undefined;
+  /**
+   * Comma-separated field API names to retrieve specific fields.
+   */
+  fields?: string | undefined;
+  /**
+   * Comma-separated record IDs to retrieve specific events.
+   */
+  ids?: string | undefined;
+  /**
+   * Custom view ID to filter records.
+   */
+  cvid?: string | undefined;
+};
+
+export interface ActionOutput_zoho_crm_listevents {
+  events: ({  id: string;
+  title?: string | undefined;
+  start_datetime?: string | undefined;
+  end_datetime?: string | undefined;
+  all_day?: boolean | undefined;
+  owner?: {  name: string;
+  id: string;
+  email?: string | undefined;};
+  venue?: string | undefined;
+  description?: string | undefined;
+  created_time?: string | undefined;
+  modified_time?: string | undefined;
+  created_by?: {  name: string;
+  id: string;
+  email?: string | undefined;};
+  modified_by?: {  name: string;
+  id: string;
+  email?: string | undefined;};
+  what_id?: {  name: string;
+  id: string;} | undefined;
+  editable?: boolean | undefined;
+  tags?: ({  name: string;
+  id: string;})[] | undefined;})[];
+  next_cursor?: string | undefined;
+  has_more: boolean;
+  total_count: number;
+};
+
+export interface ActionInput_zoho_crm_listleads {
+  /**
+   * Pagination cursor (page number). Omit for the first page.
+   */
+  cursor?: string | undefined;
+  /**
+   * Number of records per page. Maximum 200.
+   */
+  per_page?: number | undefined;
+  /**
+   * Comma-separated list of field API names to retrieve.
+   */
+  fields?: string | undefined;
+  /**
+   * Field to sort by.
+   */
+  sort_by?: string | undefined;
+  /**
+   * Sort order: asc or desc. Default is desc.
+   */
+  sort_order?: 'asc' | 'desc' | undefined;
+  /**
+   * Filter by converted status.
+   */
+  converted?: 'true' | 'false' | 'both' | undefined;
+  /**
+   * Filter by approved status.
+   */
+  approved?: 'true' | 'false' | 'both' | undefined;
+};
+
+export interface ActionOutput_zoho_crm_listleads {
+  leads: ({  id: string;
+  Owner?: {  name: string;
+  id: string;
+  email: string;} | undefined;
+  Company?: string | undefined;
+  Email?: string | undefined;
+  First_Name?: string | undefined;
+  Last_Name: string;
+  Full_Name?: string | undefined;
+  Phone?: string | undefined;
+  Mobile?: string | undefined;
+  Website?: string | undefined;
+  Lead_Status?: string | undefined;
+  Lead_Source?: string | undefined;
+  Industry?: string | undefined;
+  Annual_Revenue?: number | undefined;
+  No_of_Employees?: number | undefined;
+  Rating?: string | undefined;
+  Created_Time?: string | undefined;
+  Modified_Time?: string | undefined;
+  Created_By?: {  name: string;
+  id: string;
+  email: string;} | undefined;
+  Modified_By?: {  name: string;
+  id: string;
+  email: string;} | undefined;
+  Street?: string | undefined;
+  City?: string | undefined;
+  State?: string | undefined;
+  Zip_Code?: string | undefined;
+  Country?: string | undefined;
+  Description?: string | undefined;
+  Skype_ID?: string | undefined;
+  Twitter?: string | undefined;
+  Secondary_Email?: string | undefined;
+  Designation?: string | undefined;
+  Email_Opt_Out?: boolean | undefined;
+  "$converted"?: boolean | undefined;
+  "$approved"?: boolean | undefined;
+  Tag?: ({  name: string;
+  id: string;})[] | undefined;})[];
+  next_cursor?: string | undefined;
+  has_more: boolean;
+  total_count: number;
+};
+
+export interface ActionInput_zoho_crm_listnotes {
+  /**
+   * Page number for pagination. Default is 1.
+   */
+  page?: number | undefined;
+  /**
+   * Number of records per page. Default is 200, maximum is 200.
+   */
+  per_page?: number | undefined;
+  /**
+   * Comma-separated list of field API names to retrieve. Example: "id,Note_Title,Note_Content,Created_Time"
+   */
+  fields?: string | undefined;
+};
+
+export interface ActionOutput_zoho_crm_listnotes {
+  notes: ({  id: string;
+  title?: string | undefined;
+  content?: string | undefined;
+  owner_name?: string | undefined;
+  owner_id?: string | undefined;
+  owner_email?: string | undefined;
+  created_time?: string | undefined;
+  modified_time?: string | undefined;
+  parent_module?: string | undefined;
+  parent_record_name?: string | undefined;
+  parent_record_id?: string | undefined;})[];
+  pagination: {  page: number;
+  per_page: number;
+  count: number;
+  has_more: boolean;};
+};
+
+export interface ActionInput_zoho_crm_listproducts {
+  /**
+   * Pagination cursor from the previous response. Format: page number. Omit for the first page.
+   */
+  cursor?: string | undefined;
+  /**
+   * Number of records per page. Default: 200, Max: 200.
+   */
+  per_page?: number | undefined;
+};
+
+export interface ActionOutput_zoho_crm_listproducts {
+  items: ({  id: string;
+  Product_Name?: string | undefined;
+  Product_Code?: string | undefined;
+  Product_Category?: string | undefined;
+  Product_Active?: boolean | undefined;
+  Manufacturer?: string | undefined;
+  Description?: string | undefined;
+  Unit_Price?: number | undefined;
+  Usage_Unit?: string | undefined;
+  Qty_Ordered?: number | undefined;
+  Qty_in_Stock?: number | undefined;
+  Qty_in_Demand?: number | undefined;
+  Sales_Start_Date?: string | undefined;
+  Sales_End_Date?: string | undefined;
+  Support_Expiry_Date?: string | undefined;
+  Support_Start_Date?: string | undefined;
+  Owner?: {  name?: string | undefined;
+  id?: string | undefined;
+  email?: string | undefined;};
+  Vendor_Name?: {  name?: string | undefined;
+  id?: string | undefined;};
+  "$currency_symbol"?: string | undefined;})[];
+  next_cursor?: string | undefined;
+};
+
+export interface ActionInput_zoho_crm_listtasks {
+  /**
+   * Pagination cursor (page number). Example: "2"
+   */
+  cursor?: string | undefined;
+  /**
+   * Number of records per page. Default: 200. Max: 200.
+   */
+  per_page?: number | undefined;
+  /**
+   * Field API name to sort by. Example: "Due_Date"
+   */
+  sort_by?: string | undefined;
+  /**
+   * Sort order. Possible values: asc, desc. Default: desc.
+   */
+  sort_order?: 'asc' | 'desc' | undefined;
+  /**
+   * Filter by task status.
+   */
+  status?: 'Not Started' | 'Deferred' | 'In Progress' | 'Completed' | 'Waiting on someone else' | undefined;
+};
+
+export interface ActionOutput_zoho_crm_listtasks {
+  items: ({  id: string;
+  Subject: string;
+  Status?: string | undefined;
+  Priority?: string | undefined;
+  Due_Date?: string | undefined;
+  Description?: string | undefined;
+  Owner?: {  name?: string | undefined;
+  id: string;
+  email?: string | undefined;};
+  Who_Id?: {  name?: string | undefined;
+  id: string;};
+  What_Id?: {  name?: string | undefined;
+  id: string;};
+  Created_Time?: string | undefined;
+  Modified_Time?: string | undefined;
+  Created_By?: {  name?: string | undefined;
+  id: string;
+  email?: string | undefined;};
+  Modified_By?: {  name?: string | undefined;
+  id: string;
+  email?: string | undefined;};
+  Closed_Time?: string | undefined;
+  Remind_At?: unknown | undefined;
+  Recurring_Activity?: unknown | undefined;
+  Send_Notification_Email?: boolean | undefined;
+  Tag?: ({  name: string;
+  id: string;})[] | undefined;})[];
+  next_cursor?: string | undefined;
+};
+
+export interface ActionInput_zoho_crm_listusers {
+  /**
+   * Type of users to retrieve. Example: "ActiveUsers"
+   */
+  type?: 'AllUsers' | 'ActiveUsers' | 'DeactiveUsers' | 'ConfirmedUsers' | 'NotConfirmedUsers' | 'DeletedUsers' | 'ActiveConfirmedUsers' | 'AdminUsers' | 'ActiveConfirmedAdmins' | 'CurrentUser' | undefined;
+  /**
+   * Pagination page number from the previous response. Omit for the first page.
+   */
+  cursor?: string | undefined;
+  /**
+   * Number of records per page. Default and max is 200.
+   */
+  per_page?: number | undefined;
+  /**
+   * Comma-separated list of user IDs to filter by. Max 100 IDs.
+   */
+  ids?: string | undefined;
+};
+
+export interface ActionOutput_zoho_crm_listusers {
+  users: ({  id: string;
+  email?: string | undefined;
+  first_name?: string | undefined;
+  last_name?: string | undefined;
+  full_name?: string | undefined;
+  role?: {  name: string;
+  id: string;} | undefined;
+  profile?: {  name: string;
+  id: string;} | undefined;
+  status?: string | undefined;
+  confirm?: boolean | undefined;
+  zuid?: string | undefined;
+  time_zone?: string | undefined;
+  locale?: string | undefined;
+  language?: string | undefined;
+  mobile?: string | undefined;
+  phone?: string | undefined;
+  fax?: string | undefined;
+  street?: string | undefined;
+  city?: string | undefined;
+  state?: string | undefined;
+  country?: string | undefined;
+  zip?: string | undefined;
+  country_locale?: string | undefined;
+  website?: string | undefined;
+  dob?: string | undefined;
+  signature?: string | undefined;
+  created_time?: string | undefined;
+  modified_time?: string | undefined;
+  reporting_to?: {  name: string;
+  id: string;} | undefined;
+  created_by?: {  name: string;
+  id: string;} | undefined;
+  modified_by?: {  name: string;
+  id: string;} | undefined;
+  currency?: string | undefined;
+  alias?: string | undefined;
+  time_format?: string | undefined;
+  date_format?: string | undefined;
+  offset?: number | undefined;
+  is_online?: boolean | undefined;
+  microsoft?: boolean | undefined;
+  personal_account?: boolean | undefined;})[];
+  next_cursor?: string | undefined;
+  per_page?: number | undefined;
+  count?: number | undefined;
+  page?: number | undefined;
+  more_records?: boolean | undefined;
+};
+
+export interface ActionInput_zoho_crm_searchrecords {
+  /**
+   * The API name of the module to search. Example: "Leads", "Contacts", "Accounts"
+   */
+  module_api_name: string;
+  /**
+   * Search criteria in the format (field_name:operation:search_value). Example: "(Last_Name:equals:Smith)"
+   */
+  criteria?: string | undefined;
+  /**
+   * Email address to search for. Example: "john@example.com"
+   */
+  email?: string | undefined;
+  /**
+   * Phone number to search for. Example: "555-1234"
+   */
+  phone?: string | undefined;
+  /**
+   * Search for records containing this word across fields. Example: "Acme"
+   */
+  word?: string | undefined;
+  /**
+   * Offset for pagination. Example: 0
+   */
+  offset?: number | undefined;
+  /**
+   * Number of records per page (max 200). Example: 20
+   */
+  per_page?: number | undefined;
+};
+
+export interface ActionOutput_zoho_crm_searchrecords {
+  /**
+   * Array of matching records
+   */
+  data: ({  id: string;
+  created_by?: unknown | undefined;
+  modified_by?: unknown | undefined;
+  owner?: unknown | undefined;
+  created_time?: string | undefined;
+  modified_time?: string | undefined;})[];
+  /**
+   * Pagination and result metadata
+   */
+  info?: {  per_page?: number | undefined;
+  count?: number | undefined;
+  page?: number | undefined;
+  more_records?: boolean | undefined;};
+  /**
+   * The module that was searched
+   */
+  module_api_name: string;
+};
+
+export interface ActionInput_zoho_crm_updateaccount {
+  /**
+   * The unique ID of the account to update. Example: "1234567890123456789"
+   */
+  id: string;
+  /**
+   * The name of the account.
+   */
+  Account_Name?: string | undefined;
+  /**
+   * The phone number of the account.
+   */
+  Phone?: string | undefined;
+  /**
+   * The website URL of the account.
+   */
+  Website?: string | undefined;
+  /**
+   * The industry type of the account.
+   */
+  Industry?: string | undefined;
+  /**
+   * The billing street address.
+   */
+  Billing_Street?: string | undefined;
+  /**
+   * The billing city.
+   */
+  Billing_City?: string | undefined;
+  /**
+   * The billing state.
+   */
+  Billing_State?: string | undefined;
+  /**
+   * The billing country.
+   */
+  Billing_Country?: string | undefined;
+  /**
+   * The billing postal/ZIP code.
+   */
+  Billing_Code?: string | undefined;
+  /**
+   * The shipping street address.
+   */
+  Shipping_Street?: string | undefined;
+  /**
+   * The shipping city.
+   */
+  Shipping_City?: string | undefined;
+  /**
+   * The shipping state.
+   */
+  Shipping_State?: string | undefined;
+  /**
+   * The shipping country.
+   */
+  Shipping_Country?: string | undefined;
+  /**
+   * The shipping postal/ZIP code.
+   */
+  Shipping_Code?: string | undefined;
+  /**
+   * Number of employees.
+   */
+  Employees?: number | undefined;
+  /**
+   * Annual revenue of the account.
+   */
+  Annual_Revenue?: number | undefined;
+  /**
+   * Description of the account.
+   */
+  Description?: string | undefined;
+  /**
+   * Triggers to execute (approval, workflow, blueprint).
+   */
+  trigger?: ({  0: 'approval';
+  1: 'workflow';
+  2: 'blueprint';})[] | undefined;
+};
+
+export interface ActionOutput_zoho_crm_updateaccount {
+  id: string;
+};
+
+export interface ActionInput_zoho_crm_updatecall {
+  /**
+   * Unique ID of the call to update. Example: "4150868000002792048"
+   */
+  id: string;
+  /**
+   * Subject of the call. Example: "Outgoing call to Patricia Boyle"
+   */
+  Subject?: string | undefined;
+  /**
+   * Whether the call is inbound or outbound
+   */
+  Call_Type?: 'Inbound' | 'Outbound' | undefined;
+  /**
+   * Purpose of the call. Example: "Prospecting"
+   */
+  Call_Purpose?: string | undefined;
+  /**
+   * Status of the call. Example: "Attended Dialled"
+   */
+  Call_Status?: string | undefined;
+  /**
+   * Duration of the call in mm:ss format. Example: "10:00"
+   */
+  Call_Duration?: string | undefined;
+  /**
+   * Result of the call. Example: "Not interested"
+   */
+  Call_Result?: string | undefined;
+  /**
+   * Description of the call
+   */
+  Description?: string | undefined;
+  /**
+   * Start date and time of the call in ISO format. Example: "2020-08-02T21:30:00+05:30"
+   */
+  Call_Start_Time?: string | undefined;
+  /**
+   * ID of the Contact or Lead associated with the call
+   */
+  Who_Id?: string | undefined;
+  /**
+   * ID of the Account associated with the call
+   */
+  What_Id?: string | undefined;
+};
+
+export interface ActionOutput_zoho_crm_updatecall {
+  id: string;
+  Subject?: string | undefined;
+  Call_Type?: string | undefined;
+  Call_Purpose?: string | undefined;
+  Call_Status?: string | undefined;
+  Call_Duration?: string | undefined;
+  Call_Result?: string | undefined;
+  Description?: string | undefined;
+  Call_Start_Time?: string | undefined;
+  Owner?: {  name: string;
+  id: string;
+  email?: string | undefined;};
+  Who_Id?: {  name: string;
+  id: string;} | undefined;
+  What_Id?: {  name: string;
+  id: string;} | undefined;
+  Created_Time?: string | undefined;
+  Modified_Time?: string | undefined;
+};
+
+export interface ActionInput_zoho_crm_updatecontact {
+  /**
+   * The unique ID of the contact to update. Example: "3652397000003852095"
+   */
+  id: string;
+  /**
+   * Last name of the contact.
+   */
+  Last_Name?: string | undefined;
+  /**
+   * First name of the contact.
+   */
+  First_Name?: string | undefined;
+  /**
+   * Email address of the contact.
+   */
+  Email?: string | undefined;
+  /**
+   * Phone number of the contact.
+   */
+  Phone?: string | undefined;
+  /**
+   * Mobile number of the contact.
+   */
+  Mobile?: string | undefined;
+  /**
+   * Job title of the contact.
+   */
+  Title?: string | undefined;
+  /**
+   * Company name associated with the contact.
+   */
+  Company?: string | undefined;
+  /**
+   * Department of the contact.
+   */
+  Department?: string | undefined;
+  /**
+   * Fax number of the contact.
+   */
+  Fax?: string | undefined;
+  /**
+   * Website URL of the contact.
+   */
+  Website?: string | undefined;
+  /**
+   * Description or notes about the contact.
+   */
+  Description?: string | undefined;
+  /**
+   * Street address of the contact.
+   */
+  Street?: string | undefined;
+  /**
+   * City of the contact.
+   */
+  City?: string | undefined;
+  /**
+   * State of the contact.
+   */
+  State?: string | undefined;
+  /**
+   * Country of the contact.
+   */
+  Country?: string | undefined;
+  /**
+   * ZIP/Postal code of the contact.
+   */
+  Zip_Code?: string | undefined;
+};
+
+export interface ActionOutput_zoho_crm_updatecontact {
+  id: string;
+  lastName?: string | undefined;
+  firstName?: string | undefined;
+  email?: string | undefined;
+  phone?: string | undefined;
+  mobile?: string | undefined;
+  title?: string | undefined;
+  company?: string | undefined;
+  department?: string | undefined;
+  fax?: string | undefined;
+  website?: string | undefined;
+  description?: string | undefined;
+  street?: string | undefined;
+  city?: string | undefined;
+  state?: string | undefined;
+  country?: string | undefined;
+  zipCode?: string | undefined;
+};
+
+export interface ActionInput_zoho_crm_updatedeal {
+  /**
+   * The ID of the deal to update. Example: "7328395000000698002"
+   */
+  record_id: string;
+  /**
+   * Name of the deal.
+   */
+  deal_name?: string | undefined;
+  /**
+   * Sales stage of the deal. Example: "Closed Won"
+   */
+  stage?: string | undefined;
+  /**
+   * Deal amount value.
+   */
+  amount?: number | undefined;
+  /**
+   * Expected closing date of the deal. Format: YYYY-MM-DD
+   */
+  closing_date?: string | undefined;
+  /**
+   * ID of the account associated with the deal.
+   */
+  account_id?: string | undefined;
+  /**
+   * ID of the contact associated with the deal.
+   */
+  contact_id?: string | undefined;
+  /**
+   * ID of the campaign associated with the deal.
+   */
+  campaign_id?: string | undefined;
+  /**
+   * Source of the lead.
+   */
+  lead_source?: string | undefined;
+  /**
+   * Probability of deal closure (percentage).
+   */
+  probability?: number | undefined;
+  /**
+   * Next step to proceed with the deal.
+   */
+  next_step?: string | undefined;
+  /**
+   * Description of the deal. Use null to clear.
+   */
+  description?: string | undefined;
+};
+
+export interface ActionOutput_zoho_crm_updatedeal {
+  success: boolean;
+  deal_id: string;
+  message: string;
+  modified_time?: string | undefined;
+};
+
+export interface ActionInput_zoho_crm_updateevent {
+  /**
+   * The unique ID of the event to update. Example: "5545974000002858122"
+   */
+  record_id: string;
+  /**
+   * The title of the event. Example: "Team Meeting"
+   */
+  Event_Title?: string | undefined;
+  /**
+   * The start date and time of the event in ISO8601 format. Example: "2023-05-20T09:00:00+05:30"
+   */
+  Start_DateTime?: string | undefined;
+  /**
+   * The end date and time of the event in ISO8601 format. Example: "2023-05-20T10:00:00+05:30"
+   */
+  End_DateTime?: string | undefined;
+  /**
+   * Whether the event is an all-day event
+   */
+  All_day?: boolean | undefined;
+  /**
+   * Description of the event
+   */
+  Description?: string | undefined;
+  /**
+   * Location of the event
+   */
+  Venue?: string | undefined;
+  /**
+   * Array of participants for the event
+   */
+  Participants?: ({  participant: string;
+  type: 'contact' | 'lead' | 'user' | 'email';
+  name?: string | undefined;
+  Email?: string | undefined;})[];
+  /**
+   * Reminder settings for the event
+   */
+  Remind_At?: ({  unit: number;
+  period: 'minutes' | 'hours' | 'days';
+  time?: string | undefined;})[];
+  /**
+   * Recurring activity settings
+   */
+  Recurring_Activity?: {  /**
+   * Recurrence rule in iCalendar format. Example: "FREQ=DAILY;INTERVAL=1;UNTIL=2023-12-31"
+   */
+  RRULE: string;} | undefined;
+  /**
+   * Triggers to execute during update
+   */
+  trigger?: ({  0: 'approval';
+  1: 'workflow';
+  2: 'blueprint';})[] | undefined;
+};
+
+export interface ActionOutput_zoho_crm_updateevent {
+  /**
+   * The ID of the updated event
+   */
+  id: string;
+  /**
+   * Status message from the API
+   */
+  message: string;
+  /**
+   * Status of the update operation
+   */
+  status: string;
+  /**
+   * The time when the event was modified
+   */
+  Modified_Time?: string | undefined;
+  /**
+   * The time when the event was created
+   */
+  Created_Time?: string | undefined;
+};
+
+export interface ActionInput_zoho_crm_updatelead {
+  /**
+   * The unique ID of the lead record to update. Example: "410888000000698006"
+   */
+  record_id: string;
+  /**
+   * Company name of the lead.
+   */
+  Company?: string | undefined;
+  /**
+   * Last name of the lead.
+   */
+  Last_Name?: string | undefined;
+  /**
+   * First name of the lead.
+   */
+  First_Name?: string | undefined;
+  /**
+   * Email address of the lead.
+   */
+  Email?: string | undefined;
+  /**
+   * Phone number of the lead.
+   */
+  Phone?: string | undefined;
+  /**
+   * Mobile number of the lead.
+   */
+  Mobile?: string | undefined;
+  /**
+   * Job title of the lead.
+   */
+  Title?: string | undefined;
+  /**
+   * Department of the lead.
+   */
+  Department?: string | undefined;
+  /**
+   * Industry of the lead.
+   */
+  Industry?: string | undefined;
+  /**
+   * Website URL of the lead.
+   */
+  Website?: string | undefined;
+  /**
+   * City of the lead address.
+   */
+  City?: string | undefined;
+  /**
+   * State of the lead address.
+   */
+  State?: string | undefined;
+  /**
+   * Country of the lead address.
+   */
+  Country?: string | undefined;
+  /**
+   * Street address of the lead.
+   */
+  Street?: string | undefined;
+  /**
+   * ZIP/Postal code of the lead address.
+   */
+  Zip_Code?: string | undefined;
+  /**
+   * Status of the lead.
+   */
+  Lead_Status?: string | undefined;
+  /**
+   * Source of the lead.
+   */
+  Lead_Source?: string | undefined;
+  /**
+   * Rating of the lead.
+   */
+  Rating?: string | undefined;
+  /**
+   * Description or notes about the lead.
+   */
+  Description?: string | undefined;
+  /**
+   * Annual revenue of the company.
+   */
+  Annual_Revenue?: number | undefined;
+  /**
+   * Number of employees in the company.
+   */
+  No_of_Employees?: number | undefined;
+  /**
+   * Skype ID of the lead.
+   */
+  Skype_ID?: string | undefined;
+  /**
+   * Twitter handle of the lead.
+   */
+  Twitter?: string | undefined;
+  /**
+   * Secondary email of the lead.
+   */
+  Secondary_Email?: string | undefined;
+};
+
+export interface ActionOutput_zoho_crm_updatelead {
+  success: boolean;
+  record_id: string;
+  message: string;
+};
+
+export interface ActionInput_zoho_crm_updatenote {
+  /**
+   * The ID of the note to update. Example: "4150868000002975099"
+   */
+  id: string;
+  /**
+   * The updated title of the note. Example: "Contacted"
+   */
+  noteTitle?: string | undefined;
+  /**
+   * The updated content of the note. Example: "Tracking done. Happy with the customer"
+   */
+  noteContent?: string | undefined;
+};
+
+export interface ActionOutput_zoho_crm_updatenote {
+  /**
+   * The ID of the updated note
+   */
+  id: string;
+  /**
+   * The status of the update operation. Example: "success"
+   */
+  status: string;
+  /**
+   * A message describing the result. Example: "record updated"
+   */
+  message: string;
+  /**
+   * The timestamp when the note was last modified
+   */
+  modifiedTime?: string | undefined;
+  /**
+   * The timestamp when the note was created
+   */
+  createdTime?: string | undefined;
+};
+
+export interface ActionInput_zoho_crm_updateproduct {
+  /**
+   * The unique ID of the product to update. Example: "4150868000002795025"
+   */
+  id: string;
+  /**
+   * Name of the product
+   */
+  Product_Name?: string | undefined;
+  /**
+   * Product identification code
+   */
+  Product_Code?: string | undefined;
+  /**
+   * Category of the product
+   */
+  Product_Category?: string | undefined;
+  /**
+   * Description of the product
+   */
+  Description?: string | undefined;
+  /**
+   * Name of the product manufacturer
+   */
+  Manufacturer?: string | undefined;
+  /**
+   * Price of each unit of the product
+   */
+  Unit_Price?: number | undefined;
+  /**
+   * Usage unit such as dozen, each, box, etc
+   */
+  Usage_Unit?: string | undefined;
+  /**
+   * Number of product units in stock
+   */
+  Qty_in_Stock?: number | undefined;
+  /**
+   * Number of product units ordered
+   */
+  Qty_Ordered?: number | undefined;
+  /**
+   * Quantity in demand
+   */
+  Qty_in_Demand?: number | undefined;
+  /**
+   * Reorder value
+   */
+  Reorder_Level?: number | undefined;
+  /**
+   * Commission rate for selling the product
+   */
+  Commission_Rate?: number | undefined;
+  /**
+   * Whether the product is active
+   */
+  Product_Active?: boolean | undefined;
+  /**
+   * Whether the product is taxable
+   */
+  Taxable?: boolean | undefined;
+  /**
+   * Date on which product sale starts (YYYY-MM-DD)
+   */
+  Sales_Start_Date?: string | undefined;
+  /**
+   * Date on which product sale ends (YYYY-MM-DD)
+   */
+  Sales_End_Date?: string | undefined;
+  /**
+   * Date on which product support starts (YYYY-MM-DD)
+   */
+  Support_Start_Date?: string | undefined;
+  /**
+   * Date on which product support ends (YYYY-MM-DD)
+   */
+  Support_Expiry_Date?: string | undefined;
+  /**
+   * Vendor information with id
+   */
+  Vendor_Name?: {  id: string;} | undefined;
+  /**
+   * Owner information with id
+   */
+  Owner?: {  id: string;} | undefined;
+};
+
+export interface ActionOutput_zoho_crm_updateproduct {
+  /**
+   * The ID of the updated product
+   */
+  id: string;
+  /**
+   * Whether the update was successful
+   */
+  success: boolean;
+  /**
+   * Status message from the API
+   */
+  message?: string | undefined;
+};
+
+export interface ActionInput_zoho_crm_updatetask {
+  /**
+   * The unique ID of the task to update. Example: "5472636000003123001"
+   */
+  id: string;
+  /**
+   * The subject/title of the task. Example: "Follow up with lead"
+   */
+  subject?: string | undefined;
+  /**
+   * The status of the task. Example: "Not Started", "In Progress", "Completed"
+   */
+  status?: string | undefined;
+  /**
+   * The priority of the task. Example: "High", "Medium", "Low"
+   */
+  priority?: string | undefined;
+  /**
+   * The due date of the task in ISO 8601 format. Example: "2026-05-15"
+   */
+  due_date?: string | undefined;
+  /**
+   * The description of the task. Use null to clear.
+   */
+  description?: string | undefined;
+  /**
+   * The Contact ID to associate with this task (Who_Id). Example: "5472636000003123002"
+   */
+  who_id?: string | undefined;
+  /**
+   * The related record ID to associate with this task (What_Id). Example: "5472636000003123003"
+   */
+  what_id?: string | undefined;
+  /**
+   * The module name of the related record. Required when what_id is provided. Example: "Leads", "Accounts", "Deals"
+   */
+  se_module?: string | undefined;
+};
+
+export interface ActionOutput_zoho_crm_updatetask {
+  id: string;
+  success: boolean;
+  message?: string | undefined;
+};
+
+export interface ActionInput_zoho_crm_upsertrecords {
+  /**
+   * Zoho CRM module API name. Examples: "Leads", "Contacts", "Accounts", "Deals", "Tasks"
+   */
+  module: string;
+  /**
+   * Array of records to upsert. Each record should contain field values.
+   */
+  records: ({  [key: string]: unknown | undefined;})[];
+  /**
+   * Fields to use for duplicate checking during upsert. Examples: ["Email"], ["Last_Name", "Company"]
+   */
+  duplicateCheckFields?: string[] | undefined;
+};
+
+export interface ActionOutput_zoho_crm_upsertrecords {
+  records: ({  code: string;
+  details?: {  [key: string]: unknown | undefined;};
+  message: string;
+  status: string;})[];
+  /**
+   * Total number of records processed
+   */
+  totalCount: number;
 };
 
 export interface ZohoMailEmail {
