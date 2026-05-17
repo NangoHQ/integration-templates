@@ -1,0 +1,218 @@
+{
+  "nango": {
+    "batchSave": {
+      "Meeting": [
+        {
+          "id": "88233737762",
+          "topic": "Nice 2 Meet",
+          "start_time": "2026-06-02T08:40:00Z",
+          "duration": 40,
+          "timezone": "Africa/Nairobi",
+          "created_at": "2026-05-13T07:30:36Z",
+          "join_url": "https://us05web.zoom.us/j/88233737762?pwd=N5SaVIM0gCzg5k4a2kaOqyiR5XoYpK.1",
+          "type": 8,
+          "uuid": "P7G30EYzRIyNEIFnIsUQtA==",
+          "host_id": "_rvy35H7Sx2rTplFO1PgGg"
+        },
+        {
+          "id": "84807875789",
+          "topic": "Test Registration Meeting for Delete",
+          "start_time": "2026-05-13T07:57:10Z",
+          "duration": 30,
+          "timezone": "Africa/Nairobi",
+          "created_at": "2026-05-13T07:57:10Z",
+          "join_url": "https://us05web.zoom.us/j/84807875789?pwd=DobYUctzqT4mdEjGcHhQmXzaRxLrwX.1",
+          "type": 2,
+          "uuid": "v1lrArc8SiWDkYLMybXonA==",
+          "host_id": "_rvy35H7Sx2rTplFO1PgGg"
+        },
+        {
+          "id": "89862443123",
+          "topic": "First Meeting",
+          "start_time": "2026-05-13T08:00:00Z",
+          "duration": 40,
+          "timezone": "Africa/Nairobi",
+          "created_at": "2026-05-13T07:31:13Z",
+          "join_url": "https://us05web.zoom.us/j/89862443123?pwd=Cma5ts9Mh2iLNomqoDmp6DUMYjhg0k.1",
+          "type": 2,
+          "uuid": "imr1Pr6uTwWS4kegWE+nxQ==",
+          "host_id": "_rvy35H7Sx2rTplFO1PgGg"
+        },
+        {
+          "id": "85047333470",
+          "topic": "Test Meeting from Nango",
+          "start_time": "2026-05-14T10:00:00Z",
+          "duration": 30,
+          "timezone": "Africa/Nairobi",
+          "created_at": "2026-05-13T07:53:12Z",
+          "join_url": "https://us05web.zoom.us/j/85047333470?pwd=VTqCI4NXlA9Qk1mAUr6QbkY3kWttbz.1",
+          "type": 2,
+          "uuid": "XUyETGisSjenbZvxUYHDEw==",
+          "host_id": "_rvy35H7Sx2rTplFO1PgGg"
+        },
+        {
+          "id": "81418912311",
+          "topic": "Test Meeting from Nango",
+          "start_time": "2026-05-14T10:00:00Z",
+          "duration": 30,
+          "timezone": "Africa/Nairobi",
+          "created_at": "2026-05-13T07:53:19Z",
+          "join_url": "https://us05web.zoom.us/j/81418912311?pwd=HTuFIGHrA58mA7IRyYIMJoWNub3ZjY.1",
+          "type": 2,
+          "uuid": "eMWIqokRSQyRdgwM/cYe1Q==",
+          "host_id": "_rvy35H7Sx2rTplFO1PgGg"
+        },
+        {
+          "id": "85156895564",
+          "topic": "Updated Nango Test Meeting",
+          "start_time": "2026-05-14T10:00:00Z",
+          "duration": 30,
+          "timezone": "UTC",
+          "created_at": "2026-05-13T07:56:33Z",
+          "join_url": "https://us05web.zoom.us/j/85156895564?pwd=a54aAXalJVLlOzTiYkgNm9VVCbjGqZ.1",
+          "type": 2,
+          "uuid": "Ls7wViWLQP+7OhetIqjLqw==",
+          "host_id": "_rvy35H7Sx2rTplFO1PgGg"
+        },
+        {
+          "id": "85932946003",
+          "topic": "Test Meeting for Registrant Update",
+          "start_time": "2026-05-14T10:00:00Z",
+          "duration": 30,
+          "timezone": "Africa/Nairobi",
+          "created_at": "2026-05-13T07:56:56Z",
+          "join_url": "https://us05web.zoom.us/j/85932946003?pwd=g5dI7b4biBKxIYZKNDjf3LhZc1MJw0.1",
+          "type": 2,
+          "uuid": "OCiZ7CdqTIuRwy5iyU1l8A==",
+          "host_id": "_rvy35H7Sx2rTplFO1PgGg"
+        }
+      ]
+    },
+    "batchDelete": {
+      "Meeting": []
+    }
+  },
+  "api": {
+    "get": {
+      "/users/me/meetings": {
+        "response": {
+          "page_size": 300,
+          "total_records": 7,
+          "next_page_token": "",
+          "meetings": [
+            {
+              "uuid": "P7G30EYzRIyNEIFnIsUQtA==",
+              "id": 88233737762,
+              "host_id": "_rvy35H7Sx2rTplFO1PgGg",
+              "topic": "Nice 2 Meet",
+              "type": 8,
+              "start_time": "2026-06-02T08:40:00Z",
+              "duration": 40,
+              "timezone": "Africa/Nairobi",
+              "created_at": "2026-05-13T07:30:36Z",
+              "join_url": "https://us05web.zoom.us/j/88233737762?pwd=N5SaVIM0gCzg5k4a2kaOqyiR5XoYpK.1"
+            },
+            {
+              "uuid": "v1lrArc8SiWDkYLMybXonA==",
+              "id": 84807875789,
+              "host_id": "_rvy35H7Sx2rTplFO1PgGg",
+              "topic": "Test Registration Meeting for Delete",
+              "type": 2,
+              "start_time": "2026-05-13T07:57:10Z",
+              "duration": 30,
+              "timezone": "Africa/Nairobi",
+              "created_at": "2026-05-13T07:57:10Z",
+              "join_url": "https://us05web.zoom.us/j/84807875789?pwd=DobYUctzqT4mdEjGcHhQmXzaRxLrwX.1"
+            },
+            {
+              "uuid": "imr1Pr6uTwWS4kegWE+nxQ==",
+              "id": 89862443123,
+              "host_id": "_rvy35H7Sx2rTplFO1PgGg",
+              "topic": "First Meeting",
+              "type": 2,
+              "start_time": "2026-05-13T08:00:00Z",
+              "duration": 40,
+              "timezone": "Africa/Nairobi",
+              "created_at": "2026-05-13T07:31:13Z",
+              "join_url": "https://us05web.zoom.us/j/89862443123?pwd=Cma5ts9Mh2iLNomqoDmp6DUMYjhg0k.1"
+            },
+            {
+              "uuid": "XUyETGisSjenbZvxUYHDEw==",
+              "id": 85047333470,
+              "host_id": "_rvy35H7Sx2rTplFO1PgGg",
+              "topic": "Test Meeting from Nango",
+              "type": 2,
+              "start_time": "2026-05-14T10:00:00Z",
+              "duration": 30,
+              "timezone": "Africa/Nairobi",
+              "created_at": "2026-05-13T07:53:12Z",
+              "join_url": "https://us05web.zoom.us/j/85047333470?pwd=VTqCI4NXlA9Qk1mAUr6QbkY3kWttbz.1"
+            },
+            {
+              "uuid": "eMWIqokRSQyRdgwM/cYe1Q==",
+              "id": 81418912311,
+              "host_id": "_rvy35H7Sx2rTplFO1PgGg",
+              "topic": "Test Meeting from Nango",
+              "type": 2,
+              "start_time": "2026-05-14T10:00:00Z",
+              "duration": 30,
+              "timezone": "Africa/Nairobi",
+              "created_at": "2026-05-13T07:53:19Z",
+              "join_url": "https://us05web.zoom.us/j/81418912311?pwd=HTuFIGHrA58mA7IRyYIMJoWNub3ZjY.1"
+            },
+            {
+              "uuid": "Ls7wViWLQP+7OhetIqjLqw==",
+              "id": 85156895564,
+              "host_id": "_rvy35H7Sx2rTplFO1PgGg",
+              "topic": "Updated Nango Test Meeting",
+              "type": 2,
+              "start_time": "2026-05-14T10:00:00Z",
+              "duration": 30,
+              "timezone": "UTC",
+              "created_at": "2026-05-13T07:56:33Z",
+              "join_url": "https://us05web.zoom.us/j/85156895564?pwd=a54aAXalJVLlOzTiYkgNm9VVCbjGqZ.1"
+            },
+            {
+              "uuid": "OCiZ7CdqTIuRwy5iyU1l8A==",
+              "id": 85932946003,
+              "host_id": "_rvy35H7Sx2rTplFO1PgGg",
+              "topic": "Test Meeting for Registrant Update",
+              "type": 2,
+              "start_time": "2026-05-14T10:00:00Z",
+              "duration": 30,
+              "timezone": "Africa/Nairobi",
+              "created_at": "2026-05-13T07:56:56Z",
+              "join_url": "https://us05web.zoom.us/j/85932946003?pwd=g5dI7b4biBKxIYZKNDjf3LhZc1MJw0.1"
+            }
+          ]
+        },
+        "status": 200,
+        "headers": {
+          "date": "Wed, 13 May 2026 08:04:17 GMT",
+          "content-type": "application/json;charset=UTF-8",
+          "content-length": "2394",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=5184000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4988",
+          "x-ratelimit-reset": "1778659494",
+          "etag": "W/\"95a-wgMxL5wjoy1rfhuwmMly19p6H1E\""
+        },
+        "hash": "5fe6907b8e41d2f56b48d34350ca6debee33a16d",
+        "request": {
+          "params": {
+            "page_size": "300"
+          }
+        }
+      }
+    }
+  }
+}
