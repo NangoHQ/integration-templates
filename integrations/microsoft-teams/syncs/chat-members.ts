@@ -92,51 +92,51 @@ const sync = createSync({
         let chatsPageEndpoint = '/v1.0/me/chats';
 
         while (chatsPageEndpoint) {
-                // https://learn.microsoft.com/graph/api/chat-list
-                const chatsRequest = buildGraphRequest(chatsPageEndpoint, chatsPageEndpoint === '/v1.0/me/chats' ? { $top: '50' } : undefined);
-                const chatResponse = await nango.get({
-                    ...chatsRequest,
-                    retries: 3
-                });
+            // https://learn.microsoft.com/graph/api/chat-list
+            const chatsRequest = buildGraphRequest(chatsPageEndpoint, chatsPageEndpoint === '/v1.0/me/chats' ? { $top: '50' } : undefined);
+            const chatResponse = await nango.get({
+                ...chatsRequest,
+                retries: 3
+            });
 
-                const chatData = ChatListResponseSchema.parse(chatResponse.data);
-                const chats = chatData.value;
+            const chatData = ChatListResponseSchema.parse(chatResponse.data);
+            const chats = chatData.value;
 
-                for (let chatIndex = 0; chatIndex < chats.length; chatIndex += 1) {
-                    const chat = chats[chatIndex]!;
-                    let membersNextLink: string | undefined;
+            for (let chatIndex = 0; chatIndex < chats.length; chatIndex += 1) {
+                const chat = chats[chatIndex]!;
+                let membersNextLink: string | undefined;
 
-                    do {
-                        // https://learn.microsoft.com/graph/api/chat-list-members
-                        const membersRequest = buildGraphRequest(membersNextLink || `/v1.0/chats/${chat.id}/members`);
-                        const memberResponse = await nango.get({
-                            ...membersRequest,
-                            retries: 3
-                        });
+                do {
+                    // https://learn.microsoft.com/graph/api/chat-list-members
+                    const membersRequest = buildGraphRequest(membersNextLink || `/v1.0/chats/${chat.id}/members`);
+                    const memberResponse = await nango.get({
+                        ...membersRequest,
+                        retries: 3
+                    });
 
-                        const memberData = ChatMemberListResponseSchema.parse(memberResponse.data);
-                        const members = memberData.value;
+                    const memberData = ChatMemberListResponseSchema.parse(memberResponse.data);
+                    const members = memberData.value;
 
-                        for (const member of members) {
-                            const record = {
-                                id: `${chat.id}_${member.id}`,
-                                chatId: chat.id,
-                                ...(member.userId != null && { userId: member.userId }),
-                                ...(member.displayName != null && { displayName: member.displayName }),
-                                ...(member.roles != null && { roles: member.roles })
-                            };
-                            batch.push(record);
+                    for (const member of members) {
+                        const record = {
+                            id: `${chat.id}_${member.id}`,
+                            chatId: chat.id,
+                            ...(member.userId != null && { userId: member.userId }),
+                            ...(member.displayName != null && { displayName: member.displayName }),
+                            ...(member.roles != null && { roles: member.roles })
+                        };
+                        batch.push(record);
 
-                            if (batch.length >= batchSize) {
-                                await flushBatch();
-                            }
+                        if (batch.length >= batchSize) {
+                            await flushBatch();
                         }
+                    }
 
-                        membersNextLink = memberData['@odata.nextLink'];
-                    } while (membersNextLink);
-                }
+                    membersNextLink = memberData['@odata.nextLink'];
+                } while (membersNextLink);
+            }
 
-                chatsPageEndpoint = chatData['@odata.nextLink'] || '';
+            chatsPageEndpoint = chatData['@odata.nextLink'] || '';
         }
 
         await flushBatch();

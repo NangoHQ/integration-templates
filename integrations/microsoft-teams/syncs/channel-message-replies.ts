@@ -123,57 +123,57 @@ const sync = createSync<{ ChannelMessageReply: typeof ChannelMessageReplySchema 
         await nango.trackDeletesStart('ChannelMessageReply');
 
         for (let parentIndex = 0; parentIndex < parentMessagesParsed.length; parentIndex += 1) {
-                const parent = parentMessagesParsed[parentIndex];
+            const parent = parentMessagesParsed[parentIndex];
 
-                if (!parent) {
-                    continue;
+            if (!parent) {
+                continue;
+            }
+
+            await nango.log(`Fetching replies for message ${parent.messageId} in channel ${parent.channelId} (team ${parent.teamId})`);
+
+            let nextLink: string | undefined;
+
+            do {
+                // https://learn.microsoft.com/en-us/graph/api/chatmessage-list-replies
+                const endpoint = nextLink || `/teams/${parent.teamId}/channels/${parent.channelId}/messages/${parent.messageId}/replies`;
+
+                const proxyConfig: ProxyConfiguration = {
+                    // https://learn.microsoft.com/en-us/graph/api/chatmessage-list-replies
+                    endpoint,
+                    retries: 3
+                };
+
+                if (!nextLink) {
+                    proxyConfig.params = { $top: 50 };
                 }
 
-                await nango.log(`Fetching replies for message ${parent.messageId} in channel ${parent.channelId} (team ${parent.teamId})`);
+                const response = await nango.get(proxyConfig);
+                const parsed = ProviderReplyListSchema.parse(response.data);
 
-                let nextLink: string | undefined;
+                const replies = parsed.value.map((reply) => ({
+                    id: reply.id,
+                    parentMessageId: parent.messageId,
+                    channelId: reply.channelIdentity?.channelId ?? parent.channelId,
+                    teamId: reply.channelIdentity?.teamId ?? parent.teamId,
+                    createdDateTime: reply.createdDateTime,
+                    lastModifiedDateTime: reply.lastModifiedDateTime,
+                    deletedDateTime: reply.deletedDateTime ?? undefined,
+                    fromUserId: reply.from?.user?.id,
+                    fromUserDisplayName: reply.from?.user?.displayName,
+                    contentType: reply.body?.contentType,
+                    content: reply.body?.content,
+                    messageType: reply.messageType,
+                    importance: reply.importance,
+                    webUrl: reply.webUrl
+                }));
 
-                do {
-                    // https://learn.microsoft.com/en-us/graph/api/chatmessage-list-replies
-                    const endpoint = nextLink || `/teams/${parent.teamId}/channels/${parent.channelId}/messages/${parent.messageId}/replies`;
+                if (replies.length > 0) {
+                    await nango.batchSave(replies, 'ChannelMessageReply');
+                    await nango.log(`Saved ${replies.length} replies for message ${parent.messageId}`);
+                }
 
-                    const proxyConfig: ProxyConfiguration = {
-                        // https://learn.microsoft.com/en-us/graph/api/chatmessage-list-replies
-                        endpoint,
-                        retries: 3
-                    };
-
-                    if (!nextLink) {
-                        proxyConfig.params = { $top: 50 };
-                    }
-
-                    const response = await nango.get(proxyConfig);
-                    const parsed = ProviderReplyListSchema.parse(response.data);
-
-                    const replies = parsed.value.map((reply) => ({
-                        id: reply.id,
-                        parentMessageId: parent.messageId,
-                        channelId: reply.channelIdentity?.channelId ?? parent.channelId,
-                        teamId: reply.channelIdentity?.teamId ?? parent.teamId,
-                        createdDateTime: reply.createdDateTime,
-                        lastModifiedDateTime: reply.lastModifiedDateTime,
-                        deletedDateTime: reply.deletedDateTime ?? undefined,
-                        fromUserId: reply.from?.user?.id,
-                        fromUserDisplayName: reply.from?.user?.displayName,
-                        contentType: reply.body?.contentType,
-                        content: reply.body?.content,
-                        messageType: reply.messageType,
-                        importance: reply.importance,
-                        webUrl: reply.webUrl
-                    }));
-
-                    if (replies.length > 0) {
-                        await nango.batchSave(replies, 'ChannelMessageReply');
-                        await nango.log(`Saved ${replies.length} replies for message ${parent.messageId}`);
-                    }
-
-                    nextLink = parsed['@odata.nextLink'];
-                } while (nextLink);
+                nextLink = parsed['@odata.nextLink'];
+            } while (nextLink);
         }
         await nango.trackDeletesEnd('ChannelMessageReply');
     }
