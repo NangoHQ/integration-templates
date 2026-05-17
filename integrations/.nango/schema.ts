@@ -25498,6 +25498,228 @@ export interface ActionOutput_linkedin_post {
   succcess: boolean;
 };
 
+export interface ActionInput_linkedin_createcomment {
+  /**
+   * The URN of the share, ugcPost, or comment to comment on. Example: "urn:li:ugcPost:123"
+   */
+  target: string;
+  /**
+   * The URN of the entity authoring the comment. Example: "urn:li:person:abc" or "urn:li:organization:123"
+   */
+  actor: string;
+  /**
+   * The URN of the top-level share or ugcPost that contains the comment. Example: "urn:li:activity:123"
+   */
+  object: string;
+  message: {  /**
+   * The comment text.
+   */
+  text: string;
+  /**
+   * Mention attributes in the comment text.
+   */
+  attributes?: ({  length: number;
+  start: number;
+  value?: {  organization?: {  organization: string;} | undefined;
+  person?: {  person: string;} | undefined;};})[];};
+  /**
+   * For nested comments, the URN of the parent comment. Example: "urn:li:comment:(urn:li:activity:123,456)"
+   */
+  parentComment?: string | undefined;
+};
+
+export interface ActionOutput_linkedin_createcomment {
+  id: string;
+  commentUrn?: string | undefined;
+  actor?: string | undefined;
+  agent?: string | undefined;
+  object?: string | undefined;
+  message?: {  text?: string | undefined;
+  attributes?: unknown[] | undefined;};
+  created?: {  actor?: string | undefined;
+  impersonator?: string | undefined;
+  time?: number | undefined;};
+  lastModified?: {  actor?: string | undefined;
+  impersonator?: string | undefined;
+  time?: number | undefined;};
+};
+
+export interface ActionInput_linkedin_createlike {
+  /**
+   * The URN of the share, UGC post, or comment to like. Example: "urn:li:share:123"
+   */
+  target: string;
+  /**
+   * The URN of the person or organization performing the like. Example: "urn:li:person:abc"
+   */
+  actor: string;
+  /**
+   * The URN of the entity to which the like belongs. Example: "urn:li:share:123"
+   */
+  object: string;
+};
+
+export interface ActionOutput_linkedin_createlike {
+  id: string;
+  actor: string;
+  agent: string;
+  object: string;
+  created: {  actor: string;
+  time: number;};
+  lastModified: {  actor: string;
+  time: number;};
+};
+
+export interface ActionInput_linkedin_createpost {
+  /**
+   * Author URN. Example: "urn:li:organization:5515715"
+   */
+  author: string;
+  /**
+   * Post commentary text.
+   */
+  commentary: string;
+  /**
+   * Post visibility.
+   */
+  visibility: 'PUBLIC' | 'CONNECTIONS';
+  /**
+   * Lifecycle state of the post.
+   */
+  lifecycleState: 'PUBLISHED' | 'DRAFT' | 'PUBLISH_REQUESTED';
+  content?: {  article?: {  source: string;
+  thumbnail?: string | undefined;
+  title?: string | undefined;
+  description?: string | undefined;};
+  media?: {  id: string;
+  title?: string | undefined;};};
+  reshareContext?: {  parent: string;} | undefined;
+  isReshareDisabledByAuthor?: boolean | undefined;
+  distribution?: {  feedDistribution?: 'MAIN_FEED' | 'NONE' | undefined;
+  targetEntities?: unknown[] | undefined;
+  thirdPartyDistributionChannels?: string[] | undefined;};
+};
+
+export interface ActionOutput_linkedin_createpost {
+  /**
+   * Created post URN.
+   */
+  id: string;
+};
+
+export interface ActionInput_linkedin_deletecomment {
+  /**
+   * Target URN of the share, ugcPost, or comment. Example: "urn:li:ugcPost:7096760097833439232"
+   */
+  target: string;
+  /**
+   * Comment ID to delete. Example: "7102976128625123328"
+   */
+  commentId: string;
+  /**
+   * Organization URN when deleting on behalf of an organization. Example: "urn:li:organization:79988552"
+   */
+  actor?: string | undefined;
+};
+
+export interface ActionOutput_linkedin_deletecomment {
+  success: boolean;
+};
+
+export interface ActionInput_linkedin_deletelike {
+  /**
+   * The URN of the post or comment to unlike. Example: "urn:li:share:123" or "urn:li:ugcPost:123"
+   */
+  target: string;
+  /**
+   * The URN of the actor (person or organization) who created the like. Example: "urn:li:person:123"
+   */
+  actorUrn: string;
+};
+
+export interface ActionOutput_linkedin_deletelike {
+  success: boolean;
+  target: string;
+  actorUrn: string;
+};
+
+export interface ActionInput_linkedin_deletepost {
+  /**
+   * The LinkedIn post URN to delete. Example: "urn:li:share:123456789"
+   */
+  postUrn: string;
+};
+
+export interface ActionOutput_linkedin_deletepost {
+  success: boolean;
+  postUrn: string;
+};
+
+export interface ActionInput_linkedin_getcurrentmemberprofile {
+};
+
+export interface ActionOutput_linkedin_getcurrentmemberprofile {
+  id: string;
+  name?: string | undefined;
+  givenName?: string | undefined;
+  familyName?: string | undefined;
+  picture?: string | undefined;
+  email?: string | undefined;
+  emailVerified?: boolean | undefined;
+  locale?: {  country?: string | undefined;
+  language?: string | undefined;};
+};
+
+export interface ActionInput_linkedin_listpostlikes {
+  /**
+   * The URN of the share, UGC post, or comment. Example: "urn:li:share:123"
+   */
+  target: string;
+  /**
+   * Pagination start offset. Omit for the first page.
+   */
+  start?: number | undefined;
+  /**
+   * Number of reactions to return per page. Max recommended is 600.
+   */
+  count?: number | undefined;
+};
+
+export interface ActionOutput_linkedin_listpostlikes {
+  elements: ({  id?: string | undefined;
+  reactionType?: string | undefined;
+  root?: string | undefined;
+  created?: {  actor?: string | undefined;
+  time?: number | undefined;};
+  lastModified?: {  actor?: string | undefined;
+  time?: number | undefined;};})[];
+  paging?: {  start?: number | undefined;
+  count?: number | undefined;
+  links?: unknown[] | undefined;
+  total?: number | undefined;};
+  next_start?: number | undefined;
+};
+
+export interface ActionInput_linkedin_updatepost {
+  /**
+   * Encoded LinkedIn post URN. Example: urn%3Ali%3Ashare%3A12345
+   */
+  encodedPostUrn: string;
+  /**
+   * Updated post commentary/content.
+   */
+  commentary?: string | undefined;
+  /**
+   * Updated lifecycle state of the post.
+   */
+  lifecycleState?: 'PUBLISHED' | 'DRAFT' | 'ARCHIVED' | undefined;
+};
+
+export interface ActionOutput_linkedin_updatepost {
+  success: boolean;
+  urn?: string | undefined;
+};
+
 export interface SyncMetadata_luma_listevents {
 };
 

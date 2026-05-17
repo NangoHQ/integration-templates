@@ -77287,6 +77287,656 @@
       ],
       "additionalProperties": false
     },
+    "ActionInput_linkedin_createcomment": {
+      "type": "object",
+      "properties": {
+        "target": {
+          "type": "string",
+          "description": "The URN of the share, ugcPost, or comment to comment on. Example: \"urn:li:ugcPost:123\""
+        },
+        "actor": {
+          "type": "string",
+          "description": "The URN of the entity authoring the comment. Example: \"urn:li:person:abc\" or \"urn:li:organization:123\""
+        },
+        "object": {
+          "type": "string",
+          "description": "The URN of the top-level share or ugcPost that contains the comment. Example: \"urn:li:activity:123\""
+        },
+        "message": {
+          "type": "object",
+          "properties": {
+            "text": {
+              "type": "string"
+            },
+            "attributes": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "length": {
+                    "type": "number"
+                  },
+                  "start": {
+                    "type": "number"
+                  },
+                  "value": {
+                    "type": "object",
+                    "properties": {
+                      "organization": {
+                        "type": "object",
+                        "properties": {
+                          "organization": {
+                            "type": "string"
+                          }
+                        },
+                        "required": [
+                          "organization"
+                        ],
+                        "additionalProperties": false
+                      },
+                      "person": {
+                        "type": "object",
+                        "properties": {
+                          "person": {
+                            "type": "string"
+                          }
+                        },
+                        "required": [
+                          "person"
+                        ],
+                        "additionalProperties": false
+                      }
+                    },
+                    "additionalProperties": false
+                  }
+                },
+                "required": [
+                  "length",
+                  "start"
+                ],
+                "additionalProperties": false
+              },
+              "description": "Mention attributes in the comment text."
+            }
+          },
+          "required": [
+            "text"
+          ],
+          "additionalProperties": false
+        },
+        "parentComment": {
+          "type": "string",
+          "description": "For nested comments, the URN of the parent comment. Example: \"urn:li:comment:(urn:li:activity:123,456)\""
+        }
+      },
+      "required": [
+        "target",
+        "actor",
+        "object",
+        "message"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_linkedin_createcomment": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "commentUrn": {
+          "type": "string"
+        },
+        "actor": {
+          "type": "string"
+        },
+        "agent": {
+          "type": "string"
+        },
+        "object": {
+          "type": "string"
+        },
+        "message": {
+          "type": "object",
+          "properties": {
+            "text": {
+              "type": "string"
+            },
+            "attributes": {
+              "type": "array",
+              "items": {}
+            }
+          },
+          "additionalProperties": false
+        },
+        "created": {
+          "type": "object",
+          "properties": {
+            "actor": {
+              "type": "string"
+            },
+            "impersonator": {
+              "type": "string"
+            },
+            "time": {
+              "type": "number"
+            }
+          },
+          "additionalProperties": false
+        },
+        "lastModified": {
+          "type": "object",
+          "properties": {
+            "actor": {
+              "type": "string"
+            },
+            "impersonator": {
+              "type": "string"
+            },
+            "time": {
+              "type": "number"
+            }
+          },
+          "additionalProperties": false
+        }
+      },
+      "required": [
+        "id"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_linkedin_createlike": {
+      "type": "object",
+      "properties": {
+        "target": {
+          "type": "string",
+          "description": "The URN of the share, UGC post, or comment to like. Example: \"urn:li:share:123\""
+        },
+        "actor": {
+          "type": "string",
+          "description": "The URN of the person or organization performing the like. Example: \"urn:li:person:abc\""
+        },
+        "object": {
+          "type": "string",
+          "description": "The URN of the entity to which the like belongs. Example: \"urn:li:share:123\""
+        }
+      },
+      "required": [
+        "target",
+        "actor",
+        "object"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_linkedin_createlike": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "actor": {
+          "type": "string"
+        },
+        "agent": {
+          "type": "string"
+        },
+        "object": {
+          "type": "string"
+        },
+        "created": {
+          "type": "object",
+          "properties": {
+            "actor": {
+              "type": "string"
+            },
+            "time": {
+              "type": "number"
+            }
+          },
+          "required": [
+            "actor",
+            "time"
+          ],
+          "additionalProperties": false
+        },
+        "lastModified": {
+          "type": "object",
+          "properties": {
+            "actor": {
+              "type": "string"
+            },
+            "time": {
+              "type": "number"
+            }
+          },
+          "required": [
+            "actor",
+            "time"
+          ],
+          "additionalProperties": false
+        }
+      },
+      "required": [
+        "id",
+        "actor",
+        "agent",
+        "object",
+        "created",
+        "lastModified"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_linkedin_createpost": {
+      "type": "object",
+      "properties": {
+        "author": {
+          "type": "string",
+          "description": "Author URN. Example: \"urn:li:organization:5515715\""
+        },
+        "commentary": {
+          "type": "string",
+          "description": "Post commentary text."
+        },
+        "visibility": {
+          "type": "string",
+          "enum": [
+            "PUBLIC",
+            "CONNECTIONS"
+          ],
+          "description": "Post visibility."
+        },
+        "lifecycleState": {
+          "type": "string",
+          "enum": [
+            "PUBLISHED",
+            "DRAFT",
+            "PUBLISH_REQUESTED"
+          ],
+          "description": "Lifecycle state of the post."
+        },
+        "content": {
+          "type": "object",
+          "properties": {
+            "article": {
+              "type": "object",
+              "properties": {
+                "source": {
+                  "type": "string"
+                },
+                "thumbnail": {
+                  "type": "string"
+                },
+                "title": {
+                  "type": "string"
+                },
+                "description": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "source"
+              ],
+              "additionalProperties": false
+            },
+            "media": {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "string"
+                },
+                "title": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "id"
+              ],
+              "additionalProperties": false
+            }
+          },
+          "additionalProperties": false
+        },
+        "reshareContext": {
+          "type": "object",
+          "properties": {
+            "parent": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "parent"
+          ],
+          "additionalProperties": false
+        },
+        "isReshareDisabledByAuthor": {
+          "type": "boolean"
+        },
+        "distribution": {
+          "type": "object",
+          "properties": {
+            "feedDistribution": {
+              "type": "string",
+              "enum": [
+                "MAIN_FEED",
+                "NONE"
+              ]
+            },
+            "targetEntities": {
+              "type": "array",
+              "items": {}
+            },
+            "thirdPartyDistributionChannels": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            }
+          },
+          "additionalProperties": false
+        }
+      },
+      "required": [
+        "author",
+        "commentary",
+        "visibility",
+        "lifecycleState"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_linkedin_createpost": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "Created post URN."
+        }
+      },
+      "required": [
+        "id"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_linkedin_deletecomment": {
+      "type": "object",
+      "properties": {
+        "target": {
+          "type": "string",
+          "description": "Target URN of the share, ugcPost, or comment. Example: \"urn:li:ugcPost:7096760097833439232\""
+        },
+        "commentId": {
+          "type": "string",
+          "description": "Comment ID to delete. Example: \"7102976128625123328\""
+        },
+        "actor": {
+          "type": "string",
+          "description": "Organization URN when deleting on behalf of an organization. Example: \"urn:li:organization:79988552\""
+        }
+      },
+      "required": [
+        "target",
+        "commentId"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_linkedin_deletecomment": {
+      "type": "object",
+      "properties": {
+        "success": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "success"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_linkedin_deletelike": {
+      "type": "object",
+      "properties": {
+        "target": {
+          "type": "string",
+          "description": "The URN of the post or comment to unlike. Example: \"urn:li:share:123\" or \"urn:li:ugcPost:123\""
+        },
+        "actorUrn": {
+          "type": "string",
+          "description": "The URN of the actor (person or organization) who created the like. Example: \"urn:li:person:123\""
+        }
+      },
+      "required": [
+        "target",
+        "actorUrn"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_linkedin_deletelike": {
+      "type": "object",
+      "properties": {
+        "success": {
+          "type": "boolean"
+        },
+        "target": {
+          "type": "string"
+        },
+        "actorUrn": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "success",
+        "target",
+        "actorUrn"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_linkedin_deletepost": {
+      "type": "object",
+      "properties": {
+        "postUrn": {
+          "type": "string",
+          "description": "The LinkedIn post URN to delete. Example: \"urn:li:share:123456789\""
+        }
+      },
+      "required": [
+        "postUrn"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_linkedin_deletepost": {
+      "type": "object",
+      "properties": {
+        "success": {
+          "type": "boolean"
+        },
+        "postUrn": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "success",
+        "postUrn"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_linkedin_getcurrentmemberprofile": {
+      "type": "object",
+      "additionalProperties": false
+    },
+    "ActionOutput_linkedin_getcurrentmemberprofile": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "givenName": {
+          "type": "string"
+        },
+        "familyName": {
+          "type": "string"
+        },
+        "picture": {
+          "type": "string"
+        },
+        "email": {
+          "type": "string"
+        },
+        "emailVerified": {
+          "type": "boolean"
+        },
+        "locale": {
+          "type": "object",
+          "properties": {
+            "country": {
+              "type": "string"
+            },
+            "language": {
+              "type": "string"
+            }
+          },
+          "additionalProperties": false
+        }
+      },
+      "required": [
+        "id"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_linkedin_listpostlikes": {
+      "type": "object",
+      "properties": {
+        "target": {
+          "type": "string",
+          "description": "The URN of the share, UGC post, or comment. Example: \"urn:li:share:123\""
+        },
+        "start": {
+          "type": "number",
+          "description": "Pagination start offset. Omit for the first page."
+        },
+        "count": {
+          "type": "number",
+          "description": "Number of reactions to return per page. Max recommended is 600."
+        }
+      },
+      "required": [
+        "target"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_linkedin_listpostlikes": {
+      "type": "object",
+      "properties": {
+        "elements": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "reactionType": {
+                "type": "string"
+              },
+              "root": {
+                "type": "string"
+              },
+              "created": {
+                "type": "object",
+                "properties": {
+                  "actor": {
+                    "type": "string"
+                  },
+                  "time": {
+                    "type": "number"
+                  }
+                },
+                "additionalProperties": false
+              },
+              "lastModified": {
+                "type": "object",
+                "properties": {
+                  "actor": {
+                    "type": "string"
+                  },
+                  "time": {
+                    "type": "number"
+                  }
+                },
+                "additionalProperties": false
+              }
+            },
+            "additionalProperties": false
+          }
+        },
+        "paging": {
+          "type": "object",
+          "properties": {
+            "start": {
+              "type": "number"
+            },
+            "count": {
+              "type": "number"
+            },
+            "links": {
+              "type": "array",
+              "items": {}
+            },
+            "total": {
+              "type": "number"
+            }
+          },
+          "additionalProperties": false
+        },
+        "next_start": {
+          "type": "number"
+        }
+      },
+      "required": [
+        "elements"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_linkedin_updatepost": {
+      "type": "object",
+      "properties": {
+        "encodedPostUrn": {
+          "type": "string",
+          "description": "Encoded LinkedIn post URN. Example: urn%3Ali%3Ashare%3A12345"
+        },
+        "commentary": {
+          "type": "string",
+          "description": "Updated post commentary/content."
+        },
+        "lifecycleState": {
+          "type": "string",
+          "enum": [
+            "PUBLISHED",
+            "DRAFT",
+            "ARCHIVED"
+          ],
+          "description": "Updated lifecycle state of the post."
+        }
+      },
+      "required": [
+        "encodedPostUrn"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_linkedin_updatepost": {
+      "type": "object",
+      "properties": {
+        "success": {
+          "type": "boolean"
+        },
+        "urn": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "success"
+      ],
+      "additionalProperties": false
+    },
     "SyncMetadata_luma_listevents": {
       "type": "object",
       "additionalProperties": false

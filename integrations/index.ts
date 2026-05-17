@@ -952,6 +952,15 @@ import './linear/actions/update-project.js';
 // -- Integration: linkedin
 import './linkedin/syncs/messages.js';
 import './linkedin/actions/post.js';
+import './linkedin/actions/create-comment.js';
+import './linkedin/actions/create-like.js';
+import './linkedin/actions/create-post.js';
+import './linkedin/actions/delete-comment.js';
+import './linkedin/actions/delete-like.js';
+import './linkedin/actions/delete-post.js';
+import './linkedin/actions/get-current-member-profile.js';
+import './linkedin/actions/list-post-likes.js';
+import './linkedin/actions/update-post.js';
 
 // -- Integration: luma
 import './luma/syncs/list-events.js';
