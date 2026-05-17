@@ -86,7 +86,7 @@ const action = createAction({
             retries: 3
         });
 
-        if (!response.data) {
+        if (!response.data || !response.data.resource) {
             throw new nango.ActionError({
                 type: 'not_found',
                 message: 'Scheduled event not found',
@@ -94,7 +94,7 @@ const action = createAction({
             });
         }
 
-        const providerEvent = ProviderScheduledEventSchema.parse(response.data);
+        const providerEvent = ProviderScheduledEventSchema.parse(response.data.resource);
 
         return {
             uri: providerEvent.uri,

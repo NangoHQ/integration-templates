@@ -1,14 +1,24 @@
 import { z } from 'zod';
 import { createAction } from 'nango';
 
-const InputSchema = z.object({
-    url: z.string().url().describe('The callback URL. Example: "https://example.com/webhooks"'),
-    events: z.array(z.string()).describe('The events to subscribe to. Example: ["invitee.created", "invitee.canceled"]'),
-    organization: z.string().url().describe('The organization URI. Example: "https://api.calendly.com/organizations/ORG123"'),
-    scope: z.enum(['organization', 'user']).describe('The scope of the subscription.'),
-    user: z.string().url().optional().describe('The user URI. Required when scope is "user". Example: "https://api.calendly.com/users/USER123"'),
-    signing_key: z.string().optional().describe('An optional secret key used to sign webhook payloads.')
-});
+const InputSchema = z
+    .object({
+        url: z.string().url().describe('The callback URL. Example: "https://example.com/webhooks"'),
+        events: z.array(z.string()).describe('The events to subscribe to. Example: ["invitee.created", "invitee.canceled"]'),
+        organization: z.string().url().describe('The organization URI. Example: "https://api.calendly.com/organizations/ORG123"'),
+        scope: z.enum(['organization', 'user']).describe('The scope of the subscription.'),
+        user: z.string().url().optional().describe('The user URI. Required when scope is "user". Example: "https://api.calendly.com/users/USER123"'),
+        signing_key: z.string().optional().describe('An optional secret key used to sign webhook payloads.')
+    })
+    .superRefine((data, ctx) => {
+        if (data.scope === 'user' && !data.user) {
+            ctx.addIssue({
+                code: 'custom',
+                message: 'user is required when scope is "user"',
+                path: ['user']
+            });
+        }
+    });
 
 const WebhookSubscriptionSchema = z.object({
     uri: z.string().url(),

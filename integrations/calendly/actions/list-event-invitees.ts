@@ -10,6 +10,42 @@ const InputSchema = z.object({
     cursor: z.string().optional().describe('Pagination cursor from the previous response. Omit for the first page.')
 });
 
+const ProviderInviteeSchema = z.object({
+    uri: z.string(),
+    email: z.string(),
+    name: z.string().nullable().optional(),
+    status: z.enum(['active', 'canceled']),
+    timezone: z.string().nullable().optional(),
+    created_at: z.string(),
+    updated_at: z.string(),
+    event: z.string(),
+    questions_and_answers: z
+        .array(
+            z.object({
+                question: z.string(),
+                answer: z.string()
+            })
+        )
+        .optional(),
+    tracking: z
+        .object({
+            utm_campaign: z.string().nullable().optional(),
+            utm_source: z.string().nullable().optional(),
+            utm_medium: z.string().nullable().optional(),
+            utm_content: z.string().nullable().optional(),
+            utm_term: z.string().nullable().optional(),
+            salesforce_uuid: z.string().nullable().optional()
+        })
+        .nullable()
+        .optional(),
+    text_reminder_number: z.string().nullable().optional(),
+    rescheduled: z.boolean().nullable().optional(),
+    old_invitee: z.string().nullable().optional(),
+    new_invitee: z.string().nullable().optional(),
+    cancel_url: z.string().optional(),
+    reschedule_url: z.string().optional()
+});
+
 const InviteeSchema = z.object({
     uri: z.string().describe('Canonical reference for the invitee'),
     email: z.string().describe('Invitee email address'),
@@ -83,7 +119,7 @@ const action = createAction({
             pagination: z
                 .object({
                     count: z.number().optional(),
-                    next_page_token: z.string().optional()
+                    next_page_token: z.string().nullable().optional()
                 })
                 .optional()
         });
@@ -99,7 +135,34 @@ const action = createAction({
         const data = parseResult.data;
 
         const invitees = data.collection.map((item) => {
-            const invitee = InviteeSchema.parse(item);
+            const raw = ProviderInviteeSchema.parse(item);
+            const invitee: z.infer<typeof InviteeSchema> = {
+                uri: raw.uri,
+                email: raw.email,
+                status: raw.status,
+                created_at: raw.created_at,
+                updated_at: raw.updated_at,
+                event: raw.event,
+                ...(raw.name != null && { name: raw.name }),
+                ...(raw.timezone != null && { timezone: raw.timezone }),
+                ...(raw.questions_and_answers !== undefined && { questions_and_answers: raw.questions_and_answers }),
+                ...(raw.tracking != null && {
+                    tracking: {
+                        ...(raw.tracking.utm_campaign != null && { utm_campaign: raw.tracking.utm_campaign }),
+                        ...(raw.tracking.utm_source != null && { utm_source: raw.tracking.utm_source }),
+                        ...(raw.tracking.utm_medium != null && { utm_medium: raw.tracking.utm_medium }),
+                        ...(raw.tracking.utm_content != null && { utm_content: raw.tracking.utm_content }),
+                        ...(raw.tracking.utm_term != null && { utm_term: raw.tracking.utm_term }),
+                        ...(raw.tracking.salesforce_uuid != null && { salesforce_uuid: raw.tracking.salesforce_uuid })
+                    }
+                }),
+                ...(raw.text_reminder_number != null && { text_reminder_number: raw.text_reminder_number }),
+                ...(raw.rescheduled != null && { rescheduled: raw.rescheduled }),
+                ...(raw.old_invitee != null && { old_invitee: raw.old_invitee }),
+                ...(raw.new_invitee != null && { new_invitee: raw.new_invitee }),
+                ...(raw.cancel_url !== undefined && { cancel_url: raw.cancel_url }),
+                ...(raw.reschedule_url !== undefined && { reschedule_url: raw.reschedule_url })
+            };
             return invitee;
         });
 
