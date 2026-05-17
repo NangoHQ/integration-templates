@@ -87,7 +87,7 @@ const action = createAction({
         });
         const fileBuffer = Buffer.from(input.content, 'base64');
 
-        const chunks: Uint8Array[] = [];
+        const chunks: Buffer[] = [];
         const crlf = Buffer.from('\r\n');
 
         chunks.push(Buffer.from(`--${boundary}`));
