@@ -199,11 +199,21 @@ import './cal-com-v2/syncs/events.js';
 // -- Integration: calendly
 import './calendly/syncs/event-invitees.js';
 import './calendly/syncs/event-types.js';
-import './calendly/syncs/events.js';
-import './calendly/syncs/users.js';
+import './calendly/syncs/organization-memberships.js';
+import './calendly/syncs/routing-forms.js';
+import './calendly/syncs/scheduled-events.js';
+import './calendly/syncs/webhook-subscriptions.js';
 import './calendly/actions/create-user.js';
 import './calendly/actions/delete-user.js';
-import './calendly/actions/whoami.js';
+import './calendly/actions/get-current-organization.js';
+import './calendly/actions/get-current-user.js';
+import './calendly/actions/get-organization-membership.js';
+import './calendly/actions/get-routing-form.js';
+import './calendly/actions/list-event-types.js';
+import './calendly/actions/list-organization-memberships.js';
+import './calendly/actions/list-routing-forms.js';
+import './calendly/actions/list-scheduled-events.js';
+import './calendly/actions/list-webhook-subscriptions.js';
 
 // -- Integration: checkr-partner
 import './checkr-partner/syncs/background-checks.js';
