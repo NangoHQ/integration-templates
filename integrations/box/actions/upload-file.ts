@@ -85,31 +85,24 @@ const action = createAction({
             name: input.name,
             parent: { id: input.parent_id }
         });
-        const fileBuffer = Buffer.from(input.content, 'base64');
-
-        const chunks: Buffer[] = [];
-        const crlf = Buffer.from('\r\n');
-
-        chunks.push(Buffer.from(`--${boundary}`));
-        chunks.push(crlf);
-        chunks.push(Buffer.from('Content-Disposition: form-data; name="attributes"'));
-        chunks.push(crlf);
-        chunks.push(crlf);
-        chunks.push(Buffer.from(attributes));
-        chunks.push(crlf);
-        chunks.push(Buffer.from(`--${boundary}`));
-        chunks.push(crlf);
-        chunks.push(Buffer.from(`Content-Disposition: form-data; name="file"; filename="${input.name}"`));
-        chunks.push(crlf);
-        chunks.push(Buffer.from(`Content-Type: ${input.content_type || 'application/octet-stream'}`));
-        chunks.push(crlf);
-        chunks.push(crlf);
-        chunks.push(fileBuffer);
-        chunks.push(crlf);
-        chunks.push(Buffer.from(`--${boundary}--`));
-        chunks.push(crlf);
-
-        const body = Buffer.concat(chunks);
+        const enc = new TextEncoder();
+        const parts: Uint8Array<ArrayBufferLike>[] = [
+            enc.encode(`--${boundary}\r\n`),
+            enc.encode(`Content-Disposition: form-data; name="attributes"\r\n\r\n`),
+            enc.encode(attributes),
+            enc.encode(`\r\n--${boundary}\r\n`),
+            enc.encode(`Content-Disposition: form-data; name="file"; filename="${input.name}"\r\n`),
+            enc.encode(`Content-Type: ${input.content_type || 'application/octet-stream'}\r\n\r\n`),
+            new Uint8Array(Buffer.from(input.content, 'base64')),
+            enc.encode(`\r\n--${boundary}--\r\n`)
+        ];
+        const totalLength = parts.reduce((sum, p) => sum + p.length, 0);
+        const body = new Uint8Array(totalLength);
+        let offset = 0;
+        for (const part of parts) {
+            body.set(part, offset);
+            offset += part.length;
+        }
 
         // https://developer.box.com/reference/post-files-content/
         const url = new URL('https://upload.box.com/api/2.0/files/content');
