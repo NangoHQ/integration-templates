@@ -5914,34 +5914,6 @@ export interface ActionOutput_box_updateuser {
   modified_at?: string | undefined;
 };
 
-export interface ActionInput_box_uploadfile {
-  /**
-   * The name of the file to upload. Example: "document.pdf"
-   */
-  name: string;
-  /**
-   * The ID of the parent folder. Use "0" for the root folder. Example: "0"
-   */
-  parent_id: string;
-  /**
-   * The base64-encoded content of the file.
-   */
-  content: string;
-  /**
-   * The MIME type of the file. Defaults to application/octet-stream.
-   */
-  content_type?: string | undefined;
-};
-
-export interface ActionOutput_box_uploadfile {
-  id: string;
-  name: string;
-  type: string;
-  size?: number | undefined;
-  created_at?: string | undefined;
-  modified_at?: string | undefined;
-};
-
 export interface BookAnalytics {
   id: string;
   email: {  notifications: ({  uri: string;

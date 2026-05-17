@@ -209,7 +209,6 @@ import './box/actions/update-comment.js';
 import './box/actions/update-file.js';
 import './box/actions/update-folder.js';
 import './box/actions/update-user.js';
-import './box/actions/upload-file.js';
 
 // -- Integration: brightcrowd
 import './brightcrowd/syncs/book-analytics.js';

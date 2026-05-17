@@ -21050,62 +21050,6 @@
       ],
       "additionalProperties": false
     },
-    "ActionInput_box_uploadfile": {
-      "type": "object",
-      "properties": {
-        "name": {
-          "type": "string",
-          "description": "The name of the file to upload. Example: \"document.pdf\""
-        },
-        "parent_id": {
-          "type": "string",
-          "description": "The ID of the parent folder. Use \"0\" for the root folder. Example: \"0\""
-        },
-        "content": {
-          "type": "string",
-          "description": "The base64-encoded content of the file."
-        },
-        "content_type": {
-          "type": "string",
-          "description": "The MIME type of the file. Defaults to application/octet-stream."
-        }
-      },
-      "required": [
-        "name",
-        "parent_id",
-        "content"
-      ],
-      "additionalProperties": false
-    },
-    "ActionOutput_box_uploadfile": {
-      "type": "object",
-      "properties": {
-        "id": {
-          "type": "string"
-        },
-        "name": {
-          "type": "string"
-        },
-        "type": {
-          "type": "string"
-        },
-        "size": {
-          "type": "number"
-        },
-        "created_at": {
-          "type": "string"
-        },
-        "modified_at": {
-          "type": "string"
-        }
-      },
-      "required": [
-        "id",
-        "name",
-        "type"
-      ],
-      "additionalProperties": false
-    },
     "BookAnalytics": {
       "type": "object",
       "properties": {
