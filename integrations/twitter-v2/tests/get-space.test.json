@@ -1,0 +1,121 @@
+{
+  "input": {
+    "space_id": "1XXXXXXXXXXXXX01"
+  },
+  "output": {
+    "id": "1XXXXXXXXXXXXX01",
+    "state": "live",
+    "created_at": "2020-01-01T00:00:00.000Z",
+    "creator_id": "1000000000000000099",
+    "host_ids": [
+      "1000000000000000099",
+      "1000000000000000098",
+      "1000000000000000097"
+    ],
+    "lang": "other",
+    "is_ticketed": false,
+    "invited_user_ids": [
+      "1000000000000000091",
+      "1000000000000000092",
+      "1000000000000000093",
+      "1000000000000000094",
+      "1000000000000000095",
+      "1000000000000000096",
+      "1000000000000000086",
+      "1000000000000000087",
+      "1000000000000000088",
+      "1000000000000000089",
+      "1000000000000000090"
+    ],
+    "participant_count": 20,
+    "speaker_ids": [
+      "1000000000000000081",
+      "1000000000000000082",
+      "1000000000000000098"
+    ],
+    "started_at": "2020-01-01T00:00:00.000Z",
+    "title": "Example Space Title",
+    "updated_at": "2020-01-01T00:00:00.000Z"
+  },
+  "nango": {},
+  "api": {
+    "get": {
+      "/2/spaces/1XXXXXXXXXXXXX01": {
+        "response": {
+          "data": {
+            "id": "1XXXXXXXXXXXXX01",
+            "speaker_ids": [
+              "1000000000000000081",
+              "1000000000000000082",
+              "1000000000000000098"
+            ],
+            "is_ticketed": false,
+            "creator_id": "1000000000000000099",
+            "created_at": "2020-01-01T00:00:00.000Z",
+            "participant_count": 20,
+            "host_ids": [
+              "1000000000000000099",
+              "1000000000000000098",
+              "1000000000000000097"
+            ],
+            "title": "Example Space Title",
+            "started_at": "2020-01-01T00:00:00.000Z",
+            "invited_user_ids": [
+              "1000000000000000091",
+              "1000000000000000092",
+              "1000000000000000093",
+              "1000000000000000094",
+              "1000000000000000095",
+              "1000000000000000096",
+              "1000000000000000086",
+              "1000000000000000087",
+              "1000000000000000088",
+              "1000000000000000089",
+              "1000000000000000090"
+            ],
+            "updated_at": "2020-01-01T00:00:00.000Z",
+            "lang": "other",
+            "state": "live"
+          }
+        },
+        "status": 200,
+        "headers": {
+          "date": "Thu, 14 May 2026 19:22:20 GMT",
+          "content-type": "application/json; charset=utf-8",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=631138519; includeSubdomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4934",
+          "x-ratelimit-reset": "1778786565",
+          "perf": "7402827104",
+          "server": "cloudflare envoy",
+          "api-version": "2.163",
+          "cache-control": "no-cache, no-store, max-age=0",
+          "x-access-level": "read-write",
+          "x-rate-limit-limit": "300",
+          "x-rate-limit-reset": "1778787365",
+          "content-disposition": "attachment; filename=json.json",
+          "x-rate-limit-remaining": "295",
+          "x-response-time": "96",
+          "vary": "accept-encoding",
+          "cf-cache-status": "DYNAMIC"
+        },
+        "hash": "60773f837db810fde0ce39fb6f6a764de3bfe14d",
+        "request": {
+          "params": {
+            "space.fields": "created_at,creator_id,ended_at,host_ids,lang,is_ticketed,invited_user_ids,participant_count,scheduled_start,speaker_ids,started_at,state,title,topic_ids,updated_at"
+          }
+        }
+      }
+    }
+  }
+}
