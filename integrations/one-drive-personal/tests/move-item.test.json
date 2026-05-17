@@ -1,0 +1,120 @@
+{
+  "input": {
+    "item_id": "AB43234B783BB6C3!sc2595f4d06c2445abe96754c40b77fc3",
+    "name": "test-delete-permission-renamed.txt"
+  },
+  "output": {
+    "id": "AB43234B783BB6C3!sc2595f4d06c2445abe96754c40b77fc3",
+    "name": "test-delete-permission-renamed.txt",
+    "parent_reference": {
+      "id": "AB43234B783BB6C3!sea8cc6beffdb43d7976fbc7da445c639",
+      "path": "/drive/root:"
+    },
+    "web_url": "https://onedrive.live.com?cid=AB43234B783BB6C3&id=AB43234B783BB6C3!sc2595f4d06c2445abe96754c40b77fc3",
+    "size": 38,
+    "created_date_time": "2026-05-06T21:30:25Z",
+    "last_modified_date_time": "2026-05-08T09:37:24Z"
+  },
+  "nango": {},
+  "api": {
+    "patch": {
+      "/v1.0/drive/items/AB43234B783BB6C3!sc2595f4d06c2445abe96754c40b77fc3": {
+        "response": {
+          "@odata.context": "https://api.onedrive.com/v1.0/$metadata#items/$entity",
+          "@content.downloadUrl": "https://my.microsoftpersonalcontent.com/personal/ab43234b783bb6c3/_layouts/15/download.aspx?UniqueId=c2595f4d-06c2-445a-be96-754c40b77fc3&Translate=false&tempauth=v1e.eyJzaXRlaWQiOiJjZGRhZTAyYS04MmFiLTQ1ZjItOGQ5Zi1iN2U5MGJiYTZkOTMiLCJhcHBfZGlzcGxheW5hbWUiOiJPbmVkcml2ZVBlcnNvbmFsIiwiYXBwaWQiOiIyZGVhZWZlMS1lMTIxLTQ0ZGYtOTU2Zi0xZDVlZWFhODBmOWUiLCJhdWQiOiIwMDAwMDAwMy0wMDAwLTBmZjEtY2UwMC0wMDAwMDAwMDAwMDAvbXkubWljcm9zb2Z0cGVyc29uYWxjb250ZW50LmNvbUA5MTg4MDQwZC02YzY3LTRjNWItYjExMi0zNmEzMDRiNjZkYWQiLCJleHAiOiIxNzc4MjM2NjU3In0.2xJNaEoimXOYV06DMmlFnFBd63yznKhmU5UgSYrPIgUQvyMO8oXoy_54hHXBEhfd4I_up1fVA0676_JKZkiq_kBdKU_EqmO7iCWyslUjTC5ilgb5Hi3TjN4cgGVxLjm486oseJuE7A9gKl5OyqZNGPvCySNJ50kfbrWy_zIxPJmcaEy8oP5EJfV5AlCHoqXM1Yo0ejOt_liYsawhPx5yUXkdZwew1ZyrmOeXgnZbBXYsivE6HyLW2NkYeLe1aiPs7ycfcDYxjxPhA1hdh8-0ViCv43Ta3BZ4li6fwZS_Lfj0E2DIv3eVv2QFRv2hJkO9x3Zwh-XVSNxFI9s_CQD-2YwgL7ylJ6eFNAe9nYO7awSPDzAnoMBBSfD8QytK5CGOpoAQ92Hn5UORU3IGqPFOODCHMiCJtVacRSqi8Pf64Rnbr_y5FcWtVXDkZdORi6svl6VcvNg5uJDncFBQ67uomuQBOO-XToE3PtKhhI8xAYg.DhyRz5AzVOqPnmVzZzK2aw9iOYG7pqzCuD8w1uWmAA8&ApiVersion=2.0",
+          "createdBy": {
+            "application": {
+              "id": "052f364f-e5c3-45bd-8849-4175f81f6dbb",
+              "displayName": "i:0i.t|ms.sp.ext|052f364f-e5c3-45bd-8849-4175f81f6dbb@9188040d-6c67-4c5b-b112-36a304b66dad"
+            },
+            "user": {
+              "email": "apinangodev@outlook.com",
+              "id": "AB43234B783BB6C3",
+              "displayName": "Nango Dev"
+            }
+          },
+          "createdDateTime": "2026-05-06T21:30:25Z",
+          "eTag": "\"{C2595F4D-06C2-445A-BE96-754C40B77FC3},6\"",
+          "id": "AB43234B783BB6C3!sc2595f4d06c2445abe96754c40b77fc3",
+          "lastModifiedBy": {
+            "application": {
+              "id": "052f364f-e5c3-45bd-8849-4175f81f6dbb",
+              "displayName": "i:0i.t|ms.sp.ext|052f364f-e5c3-45bd-8849-4175f81f6dbb@9188040d-6c67-4c5b-b112-36a304b66dad"
+            },
+            "user": {
+              "email": "apinangodev@outlook.com",
+              "id": "AB43234B783BB6C3",
+              "displayName": "Nango Dev"
+            }
+          },
+          "lastModifiedDateTime": "2026-05-08T09:37:24Z",
+          "name": "test-delete-permission-renamed.txt",
+          "parentReference": {
+            "driveType": "personal",
+            "driveId": "AB43234B783BB6C3",
+            "id": "AB43234B783BB6C3!sea8cc6beffdb43d7976fbc7da445c639",
+            "name": "Documents",
+            "path": "/drive/root:",
+            "siteId": "cddae02a-82ab-45f2-8d9f-b7e90bba6d93"
+          },
+          "webUrl": "https://onedrive.live.com?cid=AB43234B783BB6C3&id=AB43234B783BB6C3!sc2595f4d06c2445abe96754c40b77fc3",
+          "cTag": "\"c:{C2595F4D-06C2-445A-BE96-754C40B77FC3},1\"",
+          "file": {
+            "fileExtension": ".txt",
+            "hashes": {
+              "quickXorHash": "wpyuMIoFyy50SZ8TKOxRHTzhgBY="
+            },
+            "irmEffectivelyEnabled": false,
+            "irmEnabled": false,
+            "mimeType": "text/plain"
+          },
+          "fileSystemInfo": {
+            "createdDateTime": "2026-05-06T21:30:25Z",
+            "lastModifiedDateTime": "2026-05-08T09:37:24Z"
+          },
+          "isAuthoritative": false,
+          "shared": {
+            "effectiveRoles": [
+              "write"
+            ],
+            "owner": {
+              "user": {
+                "email": "apinangodev@outlook.com",
+                "id": "AB43234B783BB6C3",
+                "displayName": "Nango Dev"
+              }
+            },
+            "scope": "users"
+          },
+          "size": 38
+        },
+        "status": 200,
+        "headers": {
+          "date": "Fri, 08 May 2026 09:37:37 GMT",
+          "content-type": "application/json;odata.metadata=minimal;odata.streaming=true;IEEE754Compatible=false;charset=utf-8",
+          "content-length": "2815",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=5184000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4960",
+          "x-ratelimit-reset": "1778233096",
+          "etag": "W/\"aff-Ce7g1bIomNTMyKLXP8InT28KXPg\""
+        },
+        "hash": "a8422b9eb07555294c6beadf5e5aa7b82083c40d",
+        "request": {
+          "data": {
+            "name": "test-delete-permission-renamed.txt"
+          }
+        }
+      }
+    }
+  }
+}

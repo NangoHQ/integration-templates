@@ -199,11 +199,29 @@ import './cal-com-v2/syncs/events.js';
 // -- Integration: calendly
 import './calendly/syncs/event-invitees.js';
 import './calendly/syncs/event-types.js';
-import './calendly/syncs/events.js';
-import './calendly/syncs/users.js';
+import './calendly/syncs/organization-memberships.js';
+import './calendly/syncs/routing-forms.js';
+import './calendly/syncs/scheduled-events.js';
+import './calendly/syncs/webhook-subscriptions.js';
 import './calendly/actions/create-user.js';
+import './calendly/actions/create-webhook-subscription.js';
+import './calendly/actions/delete-webhook-subscription.js';
+import './calendly/actions/get-event-invitee.js';
+import './calendly/actions/get-event-type.js';
+import './calendly/actions/get-scheduled-event.js';
+import './calendly/actions/get-webhook-subscription.js';
+import './calendly/actions/list-event-invitees.js';
+
 import './calendly/actions/delete-user.js';
-import './calendly/actions/whoami.js';
+import './calendly/actions/get-current-organization.js';
+import './calendly/actions/get-current-user.js';
+import './calendly/actions/get-organization-membership.js';
+import './calendly/actions/get-routing-form.js';
+import './calendly/actions/list-event-types.js';
+import './calendly/actions/list-organization-memberships.js';
+import './calendly/actions/list-routing-forms.js';
+import './calendly/actions/list-scheduled-events.js';
+import './calendly/actions/list-webhook-subscriptions.js';
 
 // -- Integration: checkr-partner
 import './checkr-partner/syncs/background-checks.js';
@@ -934,6 +952,15 @@ import './linear/actions/update-project.js';
 // -- Integration: linkedin
 import './linkedin/syncs/messages.js';
 import './linkedin/actions/post.js';
+import './linkedin/actions/create-comment.js';
+import './linkedin/actions/create-like.js';
+import './linkedin/actions/create-post.js';
+import './linkedin/actions/delete-comment.js';
+import './linkedin/actions/delete-like.js';
+import './linkedin/actions/delete-post.js';
+import './linkedin/actions/get-current-member-profile.js';
+import './linkedin/actions/list-post-likes.js';
+import './linkedin/actions/update-post.js';
 
 // -- Integration: luma
 import './luma/syncs/list-events.js';
@@ -1064,7 +1091,26 @@ import './one-drive/actions/update-item.js';
 import './one-drive/actions/upload-small-file.js';
 
 // -- Integration: one-drive-personal
+import './one-drive-personal/syncs/folder-children.js';
 import './one-drive-personal/syncs/user-files-selection.js';
+import './one-drive-personal/syncs/user-files.js';
+import './one-drive-personal/actions/create-folder.js';
+import './one-drive-personal/actions/create-sharing-link.js';
+import './one-drive-personal/actions/create-upload-session.js';
+import './one-drive-personal/actions/delete-item.js';
+import './one-drive-personal/actions/delete-permission.js';
+import './one-drive-personal/actions/download-item-content.js';
+import './one-drive-personal/actions/get-drive.js';
+import './one-drive-personal/actions/get-item.js';
+import './one-drive-personal/actions/get-permission.js';
+import './one-drive-personal/actions/invite-recipients.js';
+import './one-drive-personal/actions/list-children.js';
+import './one-drive-personal/actions/list-permissions.js';
+import './one-drive-personal/actions/list-versions.js';
+import './one-drive-personal/actions/move-item.js';
+import './one-drive-personal/actions/search-items.js';
+import './one-drive-personal/actions/update-item.js';
+import './one-drive-personal/actions/upload-small-file.js';
 
 // -- Integration: oracle-hcm
 import './oracle-hcm/syncs/employees.js';

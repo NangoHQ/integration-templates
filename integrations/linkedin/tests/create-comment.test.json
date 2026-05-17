@@ -1,0 +1,103 @@
+{
+  "input": {
+    "target": "urn:li:share:7460071015449071616",
+    "actor": "urn:li:person:cer9AVOqWG",
+    "object": "urn:li:share:7460071015449071616",
+    "message": {
+      "text": "This is a test comment created via Nango action"
+    }
+  },
+  "output": {
+    "id": "7460071200006991873",
+    "actor": "urn:li:person:cer9AVOqWG",
+    "object": "urn:li:activity:7460071015826649089",
+    "message": {
+      "text": "This is a test comment created via Nango action",
+      "attributes": []
+    },
+    "created": {
+      "actor": "urn:li:person:cer9AVOqWG",
+      "time": 1778619575503
+    },
+    "lastModified": {
+      "actor": "urn:li:person:cer9AVOqWG",
+      "time": 1778619575503
+    }
+  },
+  "nango": {},
+  "api": {
+    "post": {
+      "/v2/socialActions/urn%3Ali%3Ashare%3A7460071015449071616/comments": {
+        "response": {
+          "actor": "urn:li:person:cer9AVOqWG",
+          "created": {
+            "actor": "urn:li:person:cer9AVOqWG",
+            "time": 1778619575503
+          },
+          "lastModified": {
+            "actor": "urn:li:person:cer9AVOqWG",
+            "time": 1778619575503
+          },
+          "id": "7460071200006991873",
+          "$URN": "urn:li:comment:(urn:li:activity:7460071015826649089,7460071200006991873)",
+          "message": {
+            "attributes": [],
+            "text": "This is a test comment created via Nango action"
+          },
+          "likesSummary": {
+            "selectedLikes": [],
+            "aggregatedTotalLikes": 0,
+            "likedByCurrentUser": false,
+            "totalLikes": 0
+          },
+          "object": "urn:li:activity:7460071015826649089"
+        },
+        "status": 201,
+        "headers": {
+          "date": "Tue, 12 May 2026 20:59:35 GMT",
+          "content-type": "application/json",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=5184000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4980",
+          "x-ratelimit-reset": "1778619585",
+          "location": "/socialActions/urn%3Ali%3Ashare%3A7460071015449071616/comments/7460071200006991873",
+          "x-restli-id": "7460071200006991873",
+          "x-restli-protocol-version": "2.0.0",
+          "x-li-fabric": "prod-lva1",
+          "x-li-source-fabric": "prod-lor1",
+          "report-to": "{\"group\":\"network-errors\",\"max_age\":2592000,\"endpoints\":[{\"url\":\"https://www.linkedin.com/li/rep\"}],\"include_subdomains\":true}",
+          "nel": "{\"report_to\":\"network-errors\",\"max_age\":1296000,\"success_fraction\":0.00066,\"failure_fraction\":1,\"include_subdomains\":true}",
+          "x-li-pop": "prod-lor1-x",
+          "x-li-proto": "http/1.1",
+          "x-li-uuid": "AAZRpSP6NY8RRW+w+S+ANA==",
+          "set-cookie": "bcookie=\"v=2&668c59b3-7b1e-4d64-8b5a-f75ef03bf869\"; domain=.linkedin.com; Path=/; Secure; Expires=Wed, 12-May-2027 20:59:35 GMT; SameSite=None, lidc=\"b=VB92:s=V:r=V:a=V:p=V:g=4426:u=7:x=1:i=1778619575:t=1778704291:v=2:sig=AQEzbpWMwVKnZKFynhTynMcM-j2J8tF1\"",
+          "x-li-route-key": "\"b=VB92:s=V:r=V:a=V:p=V:g=4426:u=7:x=1:i=1778619575:t=1778704291:v=2:sig=AQEzbpWMwVKnZKFynhTynMcM-j2J8tF1\""
+        },
+        "hash": "bfabe4e511c8111f6ff47ba368c8a7e345d25dd4",
+        "request": {
+          "headers": {
+            "Linkedin-Version": "202604",
+            "X-Restli-Protocol-Version": "2.0.0"
+          },
+          "data": {
+            "actor": "urn:li:person:cer9AVOqWG",
+            "object": "urn:li:share:7460071015449071616",
+            "message": {
+              "text": "This is a test comment created via Nango action"
+            }
+          }
+        }
+      }
+    }
+  }
+}
