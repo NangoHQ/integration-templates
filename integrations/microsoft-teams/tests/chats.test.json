@@ -1,0 +1,345 @@
+{
+  "nango": {
+    "batchSave": {
+      "Chat": [
+        {
+          "id": "19:858062e21bfc4b319cbf095abf0f8a80@thread.v2",
+          "topic": "Nango Seed Chat",
+          "createdDateTime": "2026-05-14T16:47:09Z",
+          "lastUpdatedDateTime": "2026-05-14T16:47:09.234Z",
+          "chatType": "group",
+          "webUrl": "https://teams.microsoft.com/l/chat/19%3A858062e21bfc4b319cbf095abf0f8a80%40thread.v2/0?tenantId=56480ae2-88be-49cf-86f6-d62a45bf8758",
+          "tenantId": "56480ae2-88be-49cf-86f6-d62a45bf8758",
+          "isHiddenForAllMembers": false,
+          "isHidden": false,
+          "members": [
+            {
+              "id": "MCMjMCMjNTY0ODBhZTItODhiZS00OWNmLTg2ZjYtZDYyYTQ1YmY4NzU4IyMxOTo4NTgwNjJlMjFiZmM0YjMxOWNiZjA5NWFiZjBmOGE4MEB0aHJlYWQudjIjIzFmYTVlMzc1LTVhYmQtNDE2Zi04NWIxLTk5MTljMzU4YTQyNg==",
+              "displayName": "Kelvin Wari",
+              "userId": "1fa5e375-5abd-416f-85b1-9919c358a426",
+              "email": "kelvin@nango.dev",
+              "roles": [
+                "owner"
+              ]
+            },
+            {
+              "id": "MCMjMCMjNTY0ODBhZTItODhiZS00OWNmLTg2ZjYtZDYyYTQ1YmY4NzU4IyMxOTo4NTgwNjJlMjFiZmM0YjMxOWNiZjA5NWFiZjBmOGE4MEB0aHJlYWQudjIjI2FlYTBiYTQ3LTM1ZTgtNGE4NS05MmJiLTAzZWEzMmY5ZDNmNg==",
+              "displayName": "Robin Guldener",
+              "userId": "aea0ba47-35e8-4a85-92bb-03ea32f9d3f6",
+              "email": "api@nangodevelopers.onmicrosoft.com",
+              "roles": [
+                "owner"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "19:1f50872f8ab44089818f01193ea60f24@thread.v2",
+          "topic": "Test Group Chat",
+          "createdDateTime": "2026-05-14T16:35:09Z",
+          "lastUpdatedDateTime": "2026-05-14T16:35:09.178Z",
+          "chatType": "group",
+          "webUrl": "https://teams.microsoft.com/l/chat/19%3A1f50872f8ab44089818f01193ea60f24%40thread.v2/0?tenantId=56480ae2-88be-49cf-86f6-d62a45bf8758",
+          "tenantId": "56480ae2-88be-49cf-86f6-d62a45bf8758",
+          "isHiddenForAllMembers": false,
+          "isHidden": false,
+          "members": [
+            {
+              "id": "MCMjMCMjNTY0ODBhZTItODhiZS00OWNmLTg2ZjYtZDYyYTQ1YmY4NzU4IyMxOToxZjUwODcyZjhhYjQ0MDg5ODE4ZjAxMTkzZWE2MGYyNEB0aHJlYWQudjIjI2FlYTBiYTQ3LTM1ZTgtNGE4NS05MmJiLTAzZWEzMmY5ZDNmNg==",
+              "displayName": "Robin Guldener",
+              "userId": "aea0ba47-35e8-4a85-92bb-03ea32f9d3f6",
+              "email": "api@nangodevelopers.onmicrosoft.com",
+              "roles": [
+                "owner"
+              ]
+            },
+            {
+              "id": "MCMjMCMjNTY0ODBhZTItODhiZS00OWNmLTg2ZjYtZDYyYTQ1YmY4NzU4IyMxOToxZjUwODcyZjhhYjQ0MDg5ODE4ZjAxMTkzZWE2MGYyNEB0aHJlYWQudjIjIzFmYTVlMzc1LTVhYmQtNDE2Zi04NWIxLTk5MTljMzU4YTQyNg==",
+              "displayName": "Kelvin Wari",
+              "userId": "1fa5e375-5abd-416f-85b1-9919c358a426",
+              "email": "kelvin@nango.dev",
+              "roles": [
+                "owner"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "19:b90a650de0a745e2828279c4a6a8a36d@thread.v2",
+          "topic": "Test Group Chat",
+          "createdDateTime": "2026-05-14T16:35:18Z",
+          "lastUpdatedDateTime": "2026-05-14T16:35:18.552Z",
+          "chatType": "group",
+          "webUrl": "https://teams.microsoft.com/l/chat/19%3Ab90a650de0a745e2828279c4a6a8a36d%40thread.v2/0?tenantId=56480ae2-88be-49cf-86f6-d62a45bf8758",
+          "tenantId": "56480ae2-88be-49cf-86f6-d62a45bf8758",
+          "isHiddenForAllMembers": false,
+          "isHidden": false,
+          "members": [
+            {
+              "id": "MCMjMCMjNTY0ODBhZTItODhiZS00OWNmLTg2ZjYtZDYyYTQ1YmY4NzU4IyMxOTpiOTBhNjUwZGUwYTc0NWUyODI4Mjc5YzRhNmE4YTM2ZEB0aHJlYWQudjIjI2FlYTBiYTQ3LTM1ZTgtNGE4NS05MmJiLTAzZWEzMmY5ZDNmNg==",
+              "displayName": "Robin Guldener",
+              "userId": "aea0ba47-35e8-4a85-92bb-03ea32f9d3f6",
+              "email": "api@nangodevelopers.onmicrosoft.com",
+              "roles": [
+                "owner"
+              ]
+            },
+            {
+              "id": "MCMjMCMjNTY0ODBhZTItODhiZS00OWNmLTg2ZjYtZDYyYTQ1YmY4NzU4IyMxOTpiOTBhNjUwZGUwYTc0NWUyODI4Mjc5YzRhNmE4YTM2ZEB0aHJlYWQudjIjIzFmYTVlMzc1LTVhYmQtNDE2Zi04NWIxLTk5MTljMzU4YTQyNg==",
+              "displayName": "Kelvin Wari",
+              "userId": "1fa5e375-5abd-416f-85b1-9919c358a426",
+              "email": "kelvin@nango.dev",
+              "roles": [
+                "owner"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "19:1fa5e375-5abd-416f-85b1-9919c358a426_aea0ba47-35e8-4a85-92bb-03ea32f9d3f6@unq.gbl.spaces",
+          "createdDateTime": "2026-05-14T16:35:09Z",
+          "lastUpdatedDateTime": "2026-05-14T16:35:09.466Z",
+          "chatType": "oneOnOne",
+          "webUrl": "https://teams.microsoft.com/l/chat/19%3A1fa5e375-5abd-416f-85b1-9919c358a426_aea0ba47-35e8-4a85-92bb-03ea32f9d3f6%40unq.gbl.spaces/0?tenantId=56480ae2-88be-49cf-86f6-d62a45bf8758",
+          "tenantId": "56480ae2-88be-49cf-86f6-d62a45bf8758",
+          "isHiddenForAllMembers": false,
+          "isHidden": false,
+          "members": [
+            {
+              "id": "MCMjMCMjNTY0ODBhZTItODhiZS00OWNmLTg2ZjYtZDYyYTQ1YmY4NzU4IyMxOToxZmE1ZTM3NS01YWJkLTQxNmYtODViMS05OTE5YzM1OGE0MjZfYWVhMGJhNDctMzVlOC00YTg1LTkyYmItMDNlYTMyZjlkM2Y2QHVucS5nYmwuc3BhY2VzIyNhZWEwYmE0Ny0zNWU4LTRhODUtOTJiYi0wM2VhMzJmOWQzZjY=",
+              "displayName": "Robin Guldener",
+              "userId": "aea0ba47-35e8-4a85-92bb-03ea32f9d3f6",
+              "email": "api@nangodevelopers.onmicrosoft.com",
+              "roles": [
+                "owner"
+              ]
+            },
+            {
+              "id": "MCMjMCMjNTY0ODBhZTItODhiZS00OWNmLTg2ZjYtZDYyYTQ1YmY4NzU4IyMxOToxZmE1ZTM3NS01YWJkLTQxNmYtODViMS05OTE5YzM1OGE0MjZfYWVhMGJhNDctMzVlOC00YTg1LTkyYmItMDNlYTMyZjlkM2Y2QHVucS5nYmwuc3BhY2VzIyMxZmE1ZTM3NS01YWJkLTQxNmYtODViMS05OTE5YzM1OGE0MjY=",
+              "displayName": "Kelvin Wari",
+              "userId": "1fa5e375-5abd-416f-85b1-9919c358a426",
+              "email": "kelvin@nango.dev",
+              "roles": [
+                "owner"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "batchDelete": {
+      "Chat": []
+    }
+  },
+  "api": {
+    "get": {
+      "/v1.0/me/chats": {
+        "response": {
+          "@odata.context": "https://graph.microsoft.com/v1.0/$metadata#chats(members())",
+          "@odata.count": 4,
+          "value": [
+            {
+              "id": "19:858062e21bfc4b319cbf095abf0f8a80@thread.v2",
+              "topic": "Nango Seed Chat",
+              "createdDateTime": "2026-05-14T16:47:09Z",
+              "lastUpdatedDateTime": "2026-05-14T16:47:09.234Z",
+              "chatType": "group",
+              "webUrl": "https://teams.microsoft.com/l/chat/19%3A858062e21bfc4b319cbf095abf0f8a80%40thread.v2/0?tenantId=56480ae2-88be-49cf-86f6-d62a45bf8758",
+              "tenantId": "56480ae2-88be-49cf-86f6-d62a45bf8758",
+              "isHiddenForAllMembers": false,
+              "onlineMeetingInfo": null,
+              "viewpoint": {
+                "isHidden": false,
+                "lastMessageReadDateTime": "2026-05-14T17:35:48.453Z"
+              },
+              "members@odata.context": "https://graph.microsoft.com/v1.0/$metadata#users('aea0ba47-35e8-4a85-92bb-03ea32f9d3f6')/chats('19%3A858062e21bfc4b319cbf095abf0f8a80%40thread.v2')/members",
+              "members": [
+                {
+                  "@odata.type": "#microsoft.graph.aadUserConversationMember",
+                  "id": "MCMjMCMjNTY0ODBhZTItODhiZS00OWNmLTg2ZjYtZDYyYTQ1YmY4NzU4IyMxOTo4NTgwNjJlMjFiZmM0YjMxOWNiZjA5NWFiZjBmOGE4MEB0aHJlYWQudjIjIzFmYTVlMzc1LTVhYmQtNDE2Zi04NWIxLTk5MTljMzU4YTQyNg==",
+                  "roles": [
+                    "owner"
+                  ],
+                  "displayName": "Kelvin Wari",
+                  "visibleHistoryStartDateTime": "2026-05-14T16:47:09.072Z",
+                  "userId": "1fa5e375-5abd-416f-85b1-9919c358a426",
+                  "email": "kelvin@nango.dev",
+                  "tenantId": "56480ae2-88be-49cf-86f6-d62a45bf8758"
+                },
+                {
+                  "@odata.type": "#microsoft.graph.aadUserConversationMember",
+                  "id": "MCMjMCMjNTY0ODBhZTItODhiZS00OWNmLTg2ZjYtZDYyYTQ1YmY4NzU4IyMxOTo4NTgwNjJlMjFiZmM0YjMxOWNiZjA5NWFiZjBmOGE4MEB0aHJlYWQudjIjI2FlYTBiYTQ3LTM1ZTgtNGE4NS05MmJiLTAzZWEzMmY5ZDNmNg==",
+                  "roles": [
+                    "owner"
+                  ],
+                  "displayName": "Robin Guldener",
+                  "visibleHistoryStartDateTime": "2026-05-14T16:47:09.072Z",
+                  "userId": "aea0ba47-35e8-4a85-92bb-03ea32f9d3f6",
+                  "email": "api@nangodevelopers.onmicrosoft.com",
+                  "tenantId": "56480ae2-88be-49cf-86f6-d62a45bf8758"
+                }
+              ]
+            },
+            {
+              "id": "19:1f50872f8ab44089818f01193ea60f24@thread.v2",
+              "topic": "Test Group Chat",
+              "createdDateTime": "2026-05-14T16:35:09Z",
+              "lastUpdatedDateTime": "2026-05-14T16:35:09.178Z",
+              "chatType": "group",
+              "webUrl": "https://teams.microsoft.com/l/chat/19%3A1f50872f8ab44089818f01193ea60f24%40thread.v2/0?tenantId=56480ae2-88be-49cf-86f6-d62a45bf8758",
+              "tenantId": "56480ae2-88be-49cf-86f6-d62a45bf8758",
+              "isHiddenForAllMembers": false,
+              "onlineMeetingInfo": null,
+              "viewpoint": {
+                "isHidden": false,
+                "lastMessageReadDateTime": "2026-05-14T16:35:09.53Z"
+              },
+              "members@odata.context": "https://graph.microsoft.com/v1.0/$metadata#users('aea0ba47-35e8-4a85-92bb-03ea32f9d3f6')/chats('19%3A1f50872f8ab44089818f01193ea60f24%40thread.v2')/members",
+              "members": [
+                {
+                  "@odata.type": "#microsoft.graph.aadUserConversationMember",
+                  "id": "MCMjMCMjNTY0ODBhZTItODhiZS00OWNmLTg2ZjYtZDYyYTQ1YmY4NzU4IyMxOToxZjUwODcyZjhhYjQ0MDg5ODE4ZjAxMTkzZWE2MGYyNEB0aHJlYWQudjIjI2FlYTBiYTQ3LTM1ZTgtNGE4NS05MmJiLTAzZWEzMmY5ZDNmNg==",
+                  "roles": [
+                    "owner"
+                  ],
+                  "displayName": "Robin Guldener",
+                  "visibleHistoryStartDateTime": "2026-05-14T16:35:08.945Z",
+                  "userId": "aea0ba47-35e8-4a85-92bb-03ea32f9d3f6",
+                  "email": "api@nangodevelopers.onmicrosoft.com",
+                  "tenantId": "56480ae2-88be-49cf-86f6-d62a45bf8758"
+                },
+                {
+                  "@odata.type": "#microsoft.graph.aadUserConversationMember",
+                  "id": "MCMjMCMjNTY0ODBhZTItODhiZS00OWNmLTg2ZjYtZDYyYTQ1YmY4NzU4IyMxOToxZjUwODcyZjhhYjQ0MDg5ODE4ZjAxMTkzZWE2MGYyNEB0aHJlYWQudjIjIzFmYTVlMzc1LTVhYmQtNDE2Zi04NWIxLTk5MTljMzU4YTQyNg==",
+                  "roles": [
+                    "owner"
+                  ],
+                  "displayName": "Kelvin Wari",
+                  "visibleHistoryStartDateTime": "2026-05-14T16:35:08.945Z",
+                  "userId": "1fa5e375-5abd-416f-85b1-9919c358a426",
+                  "email": "kelvin@nango.dev",
+                  "tenantId": "56480ae2-88be-49cf-86f6-d62a45bf8758"
+                }
+              ]
+            },
+            {
+              "id": "19:b90a650de0a745e2828279c4a6a8a36d@thread.v2",
+              "topic": "Test Group Chat",
+              "createdDateTime": "2026-05-14T16:35:18Z",
+              "lastUpdatedDateTime": "2026-05-14T16:35:18.552Z",
+              "chatType": "group",
+              "webUrl": "https://teams.microsoft.com/l/chat/19%3Ab90a650de0a745e2828279c4a6a8a36d%40thread.v2/0?tenantId=56480ae2-88be-49cf-86f6-d62a45bf8758",
+              "tenantId": "56480ae2-88be-49cf-86f6-d62a45bf8758",
+              "isHiddenForAllMembers": false,
+              "onlineMeetingInfo": null,
+              "viewpoint": {
+                "isHidden": false,
+                "lastMessageReadDateTime": "2026-05-14T16:35:19.022Z"
+              },
+              "members@odata.context": "https://graph.microsoft.com/v1.0/$metadata#users('aea0ba47-35e8-4a85-92bb-03ea32f9d3f6')/chats('19%3Ab90a650de0a745e2828279c4a6a8a36d%40thread.v2')/members",
+              "members": [
+                {
+                  "@odata.type": "#microsoft.graph.aadUserConversationMember",
+                  "id": "MCMjMCMjNTY0ODBhZTItODhiZS00OWNmLTg2ZjYtZDYyYTQ1YmY4NzU4IyMxOTpiOTBhNjUwZGUwYTc0NWUyODI4Mjc5YzRhNmE4YTM2ZEB0aHJlYWQudjIjI2FlYTBiYTQ3LTM1ZTgtNGE4NS05MmJiLTAzZWEzMmY5ZDNmNg==",
+                  "roles": [
+                    "owner"
+                  ],
+                  "displayName": "Robin Guldener",
+                  "visibleHistoryStartDateTime": "2026-05-14T16:35:18.442Z",
+                  "userId": "aea0ba47-35e8-4a85-92bb-03ea32f9d3f6",
+                  "email": "api@nangodevelopers.onmicrosoft.com",
+                  "tenantId": "56480ae2-88be-49cf-86f6-d62a45bf8758"
+                },
+                {
+                  "@odata.type": "#microsoft.graph.aadUserConversationMember",
+                  "id": "MCMjMCMjNTY0ODBhZTItODhiZS00OWNmLTg2ZjYtZDYyYTQ1YmY4NzU4IyMxOTpiOTBhNjUwZGUwYTc0NWUyODI4Mjc5YzRhNmE4YTM2ZEB0aHJlYWQudjIjIzFmYTVlMzc1LTVhYmQtNDE2Zi04NWIxLTk5MTljMzU4YTQyNg==",
+                  "roles": [
+                    "owner"
+                  ],
+                  "displayName": "Kelvin Wari",
+                  "visibleHistoryStartDateTime": "2026-05-14T16:35:18.442Z",
+                  "userId": "1fa5e375-5abd-416f-85b1-9919c358a426",
+                  "email": "kelvin@nango.dev",
+                  "tenantId": "56480ae2-88be-49cf-86f6-d62a45bf8758"
+                }
+              ]
+            },
+            {
+              "id": "19:1fa5e375-5abd-416f-85b1-9919c358a426_aea0ba47-35e8-4a85-92bb-03ea32f9d3f6@unq.gbl.spaces",
+              "topic": null,
+              "createdDateTime": "2026-05-14T16:35:09Z",
+              "lastUpdatedDateTime": "2026-05-14T16:35:09.466Z",
+              "chatType": "oneOnOne",
+              "webUrl": "https://teams.microsoft.com/l/chat/19%3A1fa5e375-5abd-416f-85b1-9919c358a426_aea0ba47-35e8-4a85-92bb-03ea32f9d3f6%40unq.gbl.spaces/0?tenantId=56480ae2-88be-49cf-86f6-d62a45bf8758",
+              "tenantId": "56480ae2-88be-49cf-86f6-d62a45bf8758",
+              "isHiddenForAllMembers": false,
+              "onlineMeetingInfo": null,
+              "viewpoint": {
+                "isHidden": false,
+                "lastMessageReadDateTime": "2026-05-14T16:35:29.447Z"
+              },
+              "members@odata.context": "https://graph.microsoft.com/v1.0/$metadata#users('aea0ba47-35e8-4a85-92bb-03ea32f9d3f6')/chats('19%3A1fa5e375-5abd-416f-85b1-9919c358a426_aea0ba47-35e8-4a85-92bb-03ea32f9d3f6%40unq.gbl.spaces')/members",
+              "members": [
+                {
+                  "@odata.type": "#microsoft.graph.aadUserConversationMember",
+                  "id": "MCMjMCMjNTY0ODBhZTItODhiZS00OWNmLTg2ZjYtZDYyYTQ1YmY4NzU4IyMxOToxZmE1ZTM3NS01YWJkLTQxNmYtODViMS05OTE5YzM1OGE0MjZfYWVhMGJhNDctMzVlOC00YTg1LTkyYmItMDNlYTMyZjlkM2Y2QHVucS5nYmwuc3BhY2VzIyNhZWEwYmE0Ny0zNWU4LTRhODUtOTJiYi0wM2VhMzJmOWQzZjY=",
+                  "roles": [
+                    "owner"
+                  ],
+                  "displayName": "Robin Guldener",
+                  "visibleHistoryStartDateTime": "2026-05-14T16:35:08.949Z",
+                  "userId": "aea0ba47-35e8-4a85-92bb-03ea32f9d3f6",
+                  "email": "api@nangodevelopers.onmicrosoft.com",
+                  "tenantId": "56480ae2-88be-49cf-86f6-d62a45bf8758"
+                },
+                {
+                  "@odata.type": "#microsoft.graph.aadUserConversationMember",
+                  "id": "MCMjMCMjNTY0ODBhZTItODhiZS00OWNmLTg2ZjYtZDYyYTQ1YmY4NzU4IyMxOToxZmE1ZTM3NS01YWJkLTQxNmYtODViMS05OTE5YzM1OGE0MjZfYWVhMGJhNDctMzVlOC00YTg1LTkyYmItMDNlYTMyZjlkM2Y2QHVucS5nYmwuc3BhY2VzIyMxZmE1ZTM3NS01YWJkLTQxNmYtODViMS05OTE5YzM1OGE0MjY=",
+                  "roles": [
+                    "owner"
+                  ],
+                  "displayName": "Kelvin Wari",
+                  "visibleHistoryStartDateTime": "2026-05-14T16:35:08.949Z",
+                  "userId": "1fa5e375-5abd-416f-85b1-9919c358a426",
+                  "email": "kelvin@nango.dev",
+                  "tenantId": "56480ae2-88be-49cf-86f6-d62a45bf8758"
+                }
+              ]
+            }
+          ]
+        },
+        "status": 200,
+        "headers": {
+          "date": "Thu, 14 May 2026 18:57:27 GMT",
+          "content-type": "application/json;odata.metadata=minimal;odata.streaming=true;IEEE754Compatible=false;charset=utf-8",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=31536000",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4968",
+          "x-ratelimit-reset": "1778785048",
+          "vary": "Accept-Encoding",
+          "request-id": "07f714f4-d73f-47b7-8dc2-28e7af6dca2c",
+          "client-request-id": "07f714f4-d73f-47b7-8dc2-28e7af6dca2c",
+          "x-ms-ags-diagnostic": "{\"ServerInfo\":{\"DataCenter\":\"West US 2\",\"Slice\":\"E\",\"Ring\":\"4\",\"ScaleUnit\":\"000\",\"RoleInstance\":\"CO1PEPF000157AB\"}}",
+          "odata-version": "4.0"
+        },
+        "hash": "82f0a34eb936b5ffbc88815421b333c03b6aff33",
+        "request": {
+          "params": {
+            "$expand": "members",
+            "$top": "50"
+          }
+        }
+      }
+    }
+  }
+}

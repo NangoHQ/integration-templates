@@ -1015,9 +1015,41 @@ import './metabase/actions/fetch-user.js';
 import './metabase/actions/update-user.js';
 
 // -- Integration: microsoft-teams
-import './microsoft-teams/syncs/messages.js';
+import './microsoft-teams/syncs/channel-message-replies.js';
+import './microsoft-teams/syncs/channel-messages.js';
+import './microsoft-teams/syncs/chat-members.js';
+import './microsoft-teams/syncs/chat-messages.js';
+import './microsoft-teams/syncs/chats.js';
+import './microsoft-teams/syncs/joined-teams.js';
 import './microsoft-teams/syncs/org-units.js';
+import './microsoft-teams/syncs/team-channels.js';
+import './microsoft-teams/syncs/team-members.js';
 import './microsoft-teams/syncs/users.js';
+import './microsoft-teams/actions/add-team-member.js';
+import './microsoft-teams/actions/create-channel-message.js';
+import './microsoft-teams/actions/create-channel-tab.js';
+import './microsoft-teams/actions/create-channel.js';
+import './microsoft-teams/actions/create-chat-message.js';
+import './microsoft-teams/actions/create-chat.js';
+import './microsoft-teams/actions/create-team.js';
+import './microsoft-teams/actions/delete-channel.js';
+import './microsoft-teams/actions/get-channel-message.js';
+import './microsoft-teams/actions/get-channel.js';
+import './microsoft-teams/actions/get-chat-message.js';
+import './microsoft-teams/actions/get-chat.js';
+import './microsoft-teams/actions/get-team.js';
+import './microsoft-teams/actions/list-channel-messages.js';
+import './microsoft-teams/actions/list-channel-replies.js';
+import './microsoft-teams/actions/list-channel-tabs.js';
+import './microsoft-teams/actions/list-channels.js';
+import './microsoft-teams/actions/list-chat-members.js';
+import './microsoft-teams/actions/list-chat-messages.js';
+import './microsoft-teams/actions/list-chats.js';
+import './microsoft-teams/actions/list-joined-teams.js';
+import './microsoft-teams/actions/list-team-members.js';
+import './microsoft-teams/actions/remove-team-member.js';
+import './microsoft-teams/actions/reply-to-channel-message.js';
+import './microsoft-teams/actions/update-channel.js';
 
 // -- Integration: namely-pat
 import './namely-pat/syncs/unified-employees.js';

@@ -27502,53 +27502,1043 @@ export interface ActionOutput_metabase_updateuser {
   success: boolean;
 };
 
-export interface TeamsMessage {
+export interface ChannelMessageReply {
   id: string;
-  channelId: string | null;
-  chatId: string | null;
-  content: string | null;
+  parentMessageId: string;
+  channelId?: string | undefined;
+  teamId?: string | undefined;
+  createdDateTime?: string | undefined;
+  lastModifiedDateTime?: string | undefined;
+  deletedDateTime?: string | undefined;
+  fromUserId?: string | undefined;
+  fromUserDisplayName?: string | undefined;
+  contentType?: string | undefined;
+  content?: string | undefined;
+  messageType?: string | undefined;
+  importance?: string | undefined;
+  webUrl?: string | undefined;
+};
+
+export interface ChannelMessage {
+  id: string;
+  teamId: string;
+  channelId: string;
+  messageType?: string | undefined;
   createdDateTime: string;
-  lastModifiedDateTime: string | null;
-  deletedDateTime: string | null;
-  from: {  user: {  id: string | null;
-  displayName: string | null;
-  email: string | null;};};
-  importance: string | null;
-  messageType: string;
-  subject: string | null;
-  webUrl: string | null;
-  attachments: ({  id: string;
+  lastModifiedDateTime: string;
+  lastEditedDateTime?: string | undefined;
+  deletedDateTime?: string | undefined;
+  subject?: string | undefined;
+  summary?: string | undefined;
+  importance?: string | undefined;
+  locale?: string | undefined;
+  webUrl?: string | undefined;
+  contentType?: string | undefined;
+  content?: string | undefined;
+  fromUserId?: string | undefined;
+  fromUserDisplayName?: string | undefined;
+  replyToId?: string | undefined;
+};
+
+export interface SyncMetadata_microsoft_teams_channelmessages {
+  teams?: ({  teamId: string;
+  channelIds: string[];})[] | undefined;
+};
+
+export interface ChatMember {
+  id: string;
+  chatId: string;
+  userId?: string | undefined;
+  displayName?: string | undefined;
+  roles?: string[] | undefined;
+};
+
+export interface ChatMessage {
+  id: string;
+  chatId?: string | undefined;
+  messageId?: string | undefined;
+  createdDateTime?: string | undefined;
+  lastModifiedDateTime?: string | undefined;
+  lastEditedDateTime?: string | undefined;
+  fromDisplayName?: string | undefined;
+  bodyContent?: string | undefined;
+  bodyContentType?: string | undefined;
+  messageType?: string | undefined;
+  importance?: string | undefined;
+  subject?: string | undefined;
+  deletedDateTime?: string | undefined;
+  replyToId?: string | undefined;
+  webUrl?: string | undefined;
+};
+
+export interface Chat {
+  id: string;
+  topic?: string | undefined;
+  createdDateTime: string;
+  lastUpdatedDateTime: string;
+  chatType: string;
+  webUrl?: string | undefined;
+  tenantId?: string | undefined;
+  isHiddenForAllMembers?: boolean | undefined;
+  isHidden?: boolean | undefined;
+  members?: ({  id: string;
+  displayName?: string | undefined;
+  userId?: string | undefined;
+  email?: string | undefined;
+  roles?: string[] | undefined;})[];
+};
+
+export interface JoinedTeam {
+  id: string;
+  displayName?: string | undefined;
+  description?: string | undefined;
+  isArchived?: boolean | undefined;
+  tenantId?: string | undefined;
+};
+
+export interface OrgUnit {
+  id: string;
+  displayName?: string | undefined;
+  description?: string | undefined;
+  mail?: string | undefined;
+  mailNickname?: string | undefined;
+  groupTypes?: string[] | undefined;
+  securityEnabled?: boolean | undefined;
+  mailEnabled?: boolean | undefined;
+  visibility?: string | undefined;
+  createdDateTime?: string | undefined;
+  renewedDateTime?: string | undefined;
+  expirationDateTime?: string | undefined;
+  classification?: string | undefined;
+};
+
+export interface Channel {
+  id: string;
+  title?: string | undefined;
+  description?: string | undefined;
+  customUrl?: string | undefined;
+  publishedAt?: string | undefined;
+  thumbnailDefaultUrl?: string | undefined;
+  thumbnailMediumUrl?: string | undefined;
+  thumbnailHighUrl?: string | undefined;
+  viewCount?: number | undefined;
+  subscriberCount?: number | undefined;
+  hiddenSubscriberCount?: boolean | undefined;
+  videoCount?: number | undefined;
+  country?: string | undefined;
+  privacyStatus?: string | undefined;
+  isLinked?: boolean | undefined;
+  madeForKids?: boolean | undefined;
+  selfDeclaredMadeForKids?: boolean | undefined;
+};
+
+export interface TeamMember {
+  id: string;
+  teamId: string;
+  userId: string;
+  displayName?: string | undefined;
+  email?: string | undefined;
+  roles: string[];
+};
+
+export interface ActionInput_microsoft_teams_addteammember {
+  /**
+   * Team ID to add the member to. Example: "ee0f5ae2-8bc6-4ae5-8466-7daeebbfa062"
+   */
+  teamId: string;
+  /**
+   * User ID or user principal name (UPN) to add as a member. Example: "8b081ef6-4792-4def-b2c9-c363a1bf41d5" or "jacob@contoso.com"
+   */
+  userId: string;
+  /**
+   * Whether to add the user as an owner. Defaults to false (regular member).
+   */
+  isOwner?: boolean | undefined;
+};
+
+export interface ActionOutput_microsoft_teams_addteammember {
+  id: string;
+  roles: string[];
+  userId?: string | undefined;
+  displayName?: string | undefined;
+  email?: string | undefined;
+};
+
+export interface ActionInput_microsoft_teams_createchannelmessage {
+  /**
+   * Team ID. Example: "19:xxxxxxxxxxxxxxxxxxxxxxxxxx@thread.tacv2"
+   */
+  teamId: string;
+  /**
+   * Channel ID. Example: "19:xxxxxxxxxxxxxxxxxxxxxxxxxx@thread.tacv2"
+   */
+  channelId: string;
+  body: {  /**
+   * Content type. Example: "html"
+   */
+  contentType: 'html' | 'text';
+  /**
+   * Message content in HTML or plain text. Example: "<p>Hello team!</p>"
+   */
+  content: string;};
+  /**
+   * Optional attachments for the message
+   */
+  attachments?: ({  /**
+   * Unique ID for the attachment
+   */
+  id: string;
+  /**
+   * MIME type of the attachment. Example: "application/vnd.microsoft.card.hero"
+   */
   contentType: string;
-  contentUrl: string | null;
-  name: string | null;
-  thumbnailUrl: string | null;})[] | null;
-  reactions: ({  reactionType: string;
+  /**
+   * URL for the attachment
+   */
+  contentUrl?: string | undefined;
+  /**
+   * Name of the attachment
+   */
+  name?: string | undefined;
+  /**
+   * JSON-encoded content for adaptive cards
+   */
+  content?: string | undefined;})[];
+};
+
+export interface ActionOutput_microsoft_teams_createchannelmessage {
+  /**
+   * Message ID
+   */
+  id: string;
+  /**
+   * Creation timestamp
+   */
   createdDateTime: string;
-  user: {  id: string;
-  displayName: string | null;
-  email: string | null;};})[] | null;
-  replies: ({  id: string;
-  content: string | null;
-  createdDateTime: string;
-  from: {  user: {  id: string | null;
-  displayName: string | null;
-  email: string | null;};};})[] | null;
-  raw_json: string;
+  /**
+   * Sender information
+   */
+  from?: {  userId?: string | undefined;
+  displayName?: string | undefined;};
+  body: {  contentType: 'html' | 'text' | 'markdown';
+  content: string;};
+  attachments?: ({  id: string;
+  contentType: string;
+  contentUrl?: string | undefined;
+  name?: string | undefined;
+  content?: string | undefined;})[];
 };
 
-export interface SyncMetadata_microsoft_teams_messages {
-  orgsToSync: string[];
-  channelsLastSyncDate?: {} | undefined;
-  chatsLastSyncDate?: {} | undefined;
+export interface ActionInput_microsoft_teams_createchanneltab {
+  /**
+   * Team ID. Example: "02bd9fd6-8f93-4758-87c3-1fb73740a315"
+   */
+  teamId: string;
+  /**
+   * Channel ID. Example: "19:4b6bedd7427d44f6b46b1bf92ab9f5f2@thread.tacv2"
+   */
+  channelId: string;
+  /**
+   * Display name for the tab. Example: "My Tab"
+   */
+  displayName: string;
+  /**
+   * OData bind reference to the Teams app. Example: "https://graph.microsoft.com/v1.0/appCatalogs/teamsApps/com.microsoft.teamspace.tab.web"
+   */
+  teamsAppOdataBind: string;
+  /**
+   * Configuration properties for the tab
+   */
+  configuration: {  /**
+   * Entity ID for the tab content
+   */
+  entityId?: string | undefined;
+  /**
+   * Content URL for the tab. Example: "https://www.example.com/content"
+   */
+  contentUrl: string;
+  /**
+   * Remove URL for the tab
+   */
+  removeUrl?: string | undefined;
+  /**
+   * Website URL for the tab. Example: "https://www.example.com"
+   */
+  websiteUrl?: string | undefined;};
 };
 
-export interface SyncMetadata_microsoft_teams_orgunits {
+export interface ActionOutput_microsoft_teams_createchanneltab {
+  id: string;
+  displayName: string;
+  teamsAppId?: string | undefined;
+  teamsAppName?: string | undefined;
+  configuration?: {  entityId?: string | undefined;
+  contentUrl?: string | undefined;
+  removeUrl?: string | undefined;
+  websiteUrl?: string | undefined;};
+  sortOrderIndex?: string | undefined;
+  webUrl?: string | undefined;
 };
 
-export interface SyncMetadata_microsoft_teams_users {
-  orgsToSync: string[];
-  channelsLastSyncDate?: {} | undefined;
-  chatsLastSyncDate?: {} | undefined;
+export interface ActionInput_microsoft_teams_createchannel {
+  /**
+   * The ID of the team to create the channel in. Example: "19:xxxxxxxxxxxx"
+   */
+  teamId: string;
+  /**
+   * The display name of the channel. Example: "General"
+   */
+  displayName: string;
+  /**
+   * The description of the channel.
+   */
+  description?: string | undefined;
+  /**
+   * The type of the channel. Defaults to standard.
+   */
+  membershipType?: 'standard' | 'private' | 'shared' | 'unknownFutureValue' | undefined;
+};
+
+export interface ActionOutput_microsoft_teams_createchannel {
+  id: string;
+  displayName: string;
+  description?: string | undefined;
+  membershipType?: string | undefined;
+  createdDateTime?: string | undefined;
+  webUrl?: string | undefined;
+};
+
+export interface ActionInput_microsoft_teams_createchatmessage {
+  /**
+   * The unique identifier of the chat. Example: "19:2da4c29f6d7041eca70b638b43d45437@thread.v2"
+   */
+  chatId: string;
+  /**
+   * The body of the chat message
+   */
+  body: {  /**
+   * Content type of the message body
+   */
+  contentType?: 'text' | 'html' | undefined;
+  /**
+   * Content of the message body in plain text or HTML format. Example: "<p>Hello world</p>"
+   */
+  content: string;};
+};
+
+export interface ActionOutput_microsoft_teams_createchatmessage {
+  id: string;
+  chatId?: string | undefined;
+  body?: {  contentType: string;
+  content: string;} | undefined;
+  createdDateTime?: string | undefined;
+  lastModifiedDateTime?: string | undefined;
+  from?: {  id?: string | undefined;
+  displayName?: string | undefined;};
+  importance?: string | undefined;
+  messageType?: string | undefined;
+  webUrl?: string | undefined;
+};
+
+export interface ActionInput_microsoft_teams_createchat {
+  /**
+   * The type of chat. oneOnOne for 1:1 chats, group for group chats.
+   */
+  chatType: 'oneOnOne' | 'group';
+  /**
+   * The topic or title of the chat. Required for group chats.
+   */
+  topic?: string | undefined;
+  /**
+   * List of members to add to the chat. Must include at least one member for group chats.
+   */
+  members: ({  /**
+   * The Azure AD user ID of the member. Example: "a1b2c3d4-e5f6-7890-abcd-ef1234567890"
+   */
+  userId: string;
+  /**
+   * Roles for this member. Use "owner" to grant ownership; omit or pass [] for a regular member.
+   */
+  roles?: ({  0: 'owner';
+  1: 'guest';})[] | undefined;})[];
+};
+
+export interface ActionOutput_microsoft_teams_createchat {
+  /**
+   * The unique identifier of the chat.
+   */
+  id: string;
+  chatType: 'oneOnOne' | 'group' | 'meeting' | 'unknownFutureValue';
+  topic?: string | undefined;
+  createdDateTime?: string | undefined;
+  lastUpdatedDateTime?: string | undefined;
+  members?: ({  id: string;
+  displayName?: string | undefined;
+  roles?: string[] | undefined;})[];
+};
+
+export interface ActionInput_microsoft_teams_createteam {
+  /**
+   * Display name of the team. Example: "My Sample Team"
+   */
+  display_name: string;
+  /**
+   * Description of the team.
+   */
+  description?: string | undefined;
+  /**
+   * Template ID or name. Example: "standard" or "educationClass". Defaults to "standard".
+   */
+  template?: string | undefined;
+  /**
+   * Name of the first (General) channel. Defaults to "General".
+   */
+  first_channel_name?: string | undefined;
+  /**
+   * Team visibility.
+   */
+  visibility?: 'public' | 'private' | 'hiddenMembership' | undefined;
+  /**
+   * Existing group ID to create the team from. If provided, team is created from this group.
+   */
+  group_id?: string | undefined;
+  /**
+   * Members to add to the team. Required for application permissions.
+   */
+  members?: ({  /**
+   * User ID to add as a member. Example: "0040b377-61d8-43db-94f5-81374122dc7e"
+   */
+  user_id: string;
+  /**
+   * Member roles. Defaults to ["member"].
+   */
+  roles?: ({  0: 'owner';
+  1: 'member';})[] | undefined;})[];
+  /**
+   * Channels to create with the team.
+   */
+  channels?: ({  /**
+   * Channel display name.
+   */
+  display_name: string;
+  /**
+   * Channel description.
+   */
+  description?: string | undefined;
+  /**
+   * Whether the channel is favorited by default.
+   */
+  is_favorite_by_default?: boolean | undefined;
+  /**
+   * Tabs to install in the channel.
+   */
+  tabs?: ({  /**
+   * Teams app ID. Example: "com.microsoft.teamspace.tab.web"
+   */
+  teams_app_id: string;
+  /**
+   * Tab display name.
+   */
+  display_name: string;
+  configuration: {  /**
+   * Tab content URL.
+   */
+  content_url: string;
+  /**
+   * Tab website URL.
+   */
+  website_url?: string | undefined;};})[];})[];
+  /**
+   * Member settings for the team.
+   */
+  member_settings?: {  allow_create_update_channels?: boolean | undefined;
+  allow_delete_channels?: boolean | undefined;
+  allow_add_remove_apps?: boolean | undefined;
+  allow_create_update_remove_tabs?: boolean | undefined;
+  allow_create_update_remove_connectors?: boolean | undefined;};
+  /**
+   * Guest settings for the team.
+   */
+  guest_settings?: {  allow_create_update_channels?: boolean | undefined;
+  allow_delete_channels?: boolean | undefined;};
+  /**
+   * Fun settings for the team.
+   */
+  fun_settings?: {  allow_giphy?: boolean | undefined;
+  giphy_content_rating?: 'strict' | 'moderate' | undefined;
+  allow_stickers_and_memes?: boolean | undefined;
+  allow_custom_memes?: boolean | undefined;};
+  /**
+   * Messaging settings for the team.
+   */
+  messaging_settings?: {  allow_user_edit_messages?: boolean | undefined;
+  allow_user_delete_messages?: boolean | undefined;
+  allow_owner_delete_messages?: boolean | undefined;
+  allow_team_mentions?: boolean | undefined;
+  allow_channel_mentions?: boolean | undefined;};
+  /**
+   * Discovery settings for the team.
+   */
+  discovery_settings?: {  show_in_teams_search_and_suggestions?: boolean | undefined;};
+  /**
+   * Apps to install in the team.
+   */
+  installed_apps?: ({  /**
+   * Teams app ID to install. Example: "com.microsoft.teamspace.tab.vsts"
+   */
+  teams_app_id: string;})[] | undefined;
+};
+
+export interface ActionOutput_microsoft_teams_createteam {
+  /**
+   * ID of the created team (available after operation succeeds).
+   */
+  team_id?: string | undefined;
+  /**
+   * ID of the async operation.
+   */
+  operation_id: string;
+  /**
+   * URL to poll for operation status.
+   */
+  operation_url: string;
+  /**
+   * Current operation status.
+   */
+  status: 'notStarted' | 'inProgress' | 'succeeded' | 'failed';
+  /**
+   * Error details if the operation failed.
+   */
+  error?: {  code: string;
+  message: string;} | undefined;
+};
+
+export interface ActionInput_microsoft_teams_deletechannel {
+  /**
+   * The unique identifier of the team. Example: "19:1234567890abcdef@thread.tacv2"
+   */
+  teamId: string;
+  /**
+   * The unique identifier of the channel. Example: "19:abcdef1234567890@thread.tacv2"
+   */
+  channelId: string;
+};
+
+export interface ActionOutput_microsoft_teams_deletechannel {
+  success: boolean;
+  teamId: string;
+  channelId: string;
+};
+
+export interface ActionInput_microsoft_teams_getchannelmessage {
+  /**
+   * The unique identifier of the team. Example: "fbe2bf47-16c8-47cf-b4a5-4b9b187c508b"
+   */
+  teamId: string;
+  /**
+   * The unique identifier of the channel. Example: "19:4a95f7d8db4c4e7fae857bcebe0623e6@thread.tacv2"
+   */
+  channelId: string;
+  /**
+   * The unique identifier of the message. Example: "1614618259349"
+   */
+  messageId: string;
+};
+
+export interface ActionOutput_microsoft_teams_getchannelmessage {
+  id: string;
+  replyToId?: string | undefined;
+  messageType?: string | undefined;
+  createdDateTime?: string | undefined;
+  lastModifiedDateTime?: string | undefined;
+  lastEditedDateTime?: string | undefined;
+  deletedDateTime?: string | undefined;
+  subject?: string | undefined;
+  summary?: string | undefined;
+  importance?: string | undefined;
+  locale?: string | undefined;
+  webUrl?: string | undefined;
+  channelIdentity?: {  teamId?: string | undefined;
+  channelId?: string | undefined;};
+  from?: {  user?: {  id?: string | undefined;
+  displayName?: string | undefined;
+  userIdentityType?: string | undefined;
+  tenantId?: string | undefined;};};
+  body?: {  contentType?: string | undefined;
+  content?: string | undefined;};
+};
+
+export interface ActionInput_microsoft_teams_getchannel {
+  /**
+   * The unique identifier of the team. Example: "893075dd-2487-4122-925f-022c42e20265"
+   */
+  teamId: string;
+  /**
+   * The unique identifier of the channel. Example: "19:561fbdbbfca848a484f0a6f00ce9dbbd@thread.tacv2"
+   */
+  channelId: string;
+};
+
+export interface ActionOutput_microsoft_teams_getchannel {
+  id: string;
+  createdDateTime?: string | undefined;
+  description?: string | undefined;
+  displayName?: string | undefined;
+  email?: string | undefined;
+  isArchived?: boolean | undefined;
+  isFavoriteByDefault?: boolean | undefined;
+  layoutType?: string | undefined;
+  membershipType?: string | undefined;
+  tenantId?: string | undefined;
+  webUrl?: string | undefined;
+};
+
+export interface ActionInput_microsoft_teams_getchatmessage {
+  /**
+   * The ID of the chat containing the message. Example: "19:xxxxxxxxxxxxxxxxxxxxxxxxxxxx@thread.v2"
+   */
+  chatId: string;
+  /**
+   * The ID of the chat message to retrieve. Example: "1659458708524"
+   */
+  messageId: string;
+};
+
+export interface ActionOutput_microsoft_teams_getchatmessage {
+  id: string;
+  chatId: string;
+  createdDateTime?: string | undefined;
+  lastModifiedDateTime?: string | undefined;
+  deletedDateTime?: string | undefined;
+  from?: {  user?: {  id?: string | undefined;
+  displayName?: string | undefined;
+  email?: string | undefined;};
+  application?: {  id?: string | undefined;
+  displayName?: string | undefined;};};
+  body?: {  contentType?: 'text' | 'html' | undefined;
+  content?: string | undefined;};
+  importance?: 'normal' | 'high' | 'urgent' | undefined;
+  replyToId?: string | undefined;
+  messageType?: 'message' | 'chatEvent' | 'systemEventMessage' | 'typing' | 'unknownFutureValue' | undefined;
+};
+
+export interface ActionInput_microsoft_teams_getchat {
+  /**
+   * The ID of the chat. Example: "19:xxx@thread.v2"
+   */
+  id: string;
+};
+
+export interface ActionOutput_microsoft_teams_getchat {
+  id: string;
+  topic?: string | undefined;
+  chat_type?: 'oneOnOne' | 'group' | 'meeting' | 'unknownFutureValue' | undefined;
+  created_at?: string | undefined;
+  last_updated_at?: string | undefined;
+  join_url?: string | undefined;
+  tenant_id?: string | undefined;
+  web_url?: string | undefined;
+};
+
+export interface ActionInput_microsoft_teams_getteam {
+  /**
+   * The unique identifier of the team. Example: "893075dd-2487-4122-925f-022c42e20265"
+   */
+  teamId: string;
+};
+
+export interface ActionOutput_microsoft_teams_getteam {
+  id: string;
+  displayName?: string | undefined;
+  description?: string | undefined;
+  classification?: string | undefined;
+  visibility?: string | undefined;
+  isArchived?: boolean | undefined;
+  createdDateTime?: string | undefined;
+  internalId?: string | undefined;
+  tenantId?: string | undefined;
+  webUrl?: string | undefined;
+  funSettings?: {  allowGiphy?: boolean | undefined;
+  giphyContentRating?: string | undefined;
+  allowStickersAndMemes?: boolean | undefined;
+  allowCustomMemes?: boolean | undefined;};
+  guestSettings?: {  allowCreateUpdateChannels?: boolean | undefined;
+  allowDeleteChannels?: boolean | undefined;};
+  memberSettings?: {  allowCreateUpdateChannels?: boolean | undefined;
+  allowDeleteChannels?: boolean | undefined;
+  allowAddRemoveApps?: boolean | undefined;
+  allowCreateUpdateRemoveTabs?: boolean | undefined;
+  allowCreateUpdateRemoveConnectors?: boolean | undefined;};
+  messagingSettings?: {  allowUserEditMessages?: boolean | undefined;
+  allowUserDeleteMessages?: boolean | undefined;
+  allowOwnerDeleteMessages?: boolean | undefined;
+  allowTeamMentions?: boolean | undefined;
+  allowChannelMentions?: boolean | undefined;};
+  discoverySettings?: {  showInTeamsSearchAndSuggestions?: boolean | undefined;};
+  summary?: {  ownersCount?: number | undefined;
+  membersCount?: number | undefined;
+  guestsCount?: number | undefined;};
+};
+
+export interface ActionInput_microsoft_teams_listchannelmessages {
+  /**
+   * Team ID. Example: "a1b2c3d4-e5f6-7890-abcd-ef1234567890". Required when next_link is not provided.
+   */
+  team_id?: string | undefined;
+  /**
+   * Channel ID. Example: "19:abc123@thread.tacv2". Required when next_link is not provided.
+   */
+  channel_id?: string | undefined;
+  /**
+   * Pagination cursor (@odata.nextLink) from the previous response. Omit for the first page.
+   */
+  next_link?: string | undefined;
+};
+
+export interface ActionOutput_microsoft_teams_listchannelmessages {
+  messages: ({  id: string;
+  createdDateTime?: string | undefined;
+  lastModifiedDateTime?: string | undefined;
+  deletedDateTime?: string | undefined;
+  from?: {  user?: {  id?: string | undefined;
+  displayName?: string | undefined;
+  userIdentityType?: string | undefined;};};
+  body?: {  contentType?: string | undefined;
+  content?: string | undefined;};
+  importance?: string | undefined;
+  reactions?: ({  reactionType?: string | undefined;
+  user?: {  id?: string | undefined;
+  displayName?: string | undefined;};
+  createdDateTime?: string | undefined;})[];
+  attachments?: ({  id?: string | undefined;
+  contentType?: string | undefined;
+  contentUrl?: string | undefined;
+  name?: string | undefined;})[];
+  replyToId?: string | undefined;
+  messageType?: string | undefined;
+  subject?: string | undefined;
+  summary?: string | undefined;})[];
+  next_link?: string | undefined;
+};
+
+export interface ActionInput_microsoft_teams_listchannelreplies {
+  /**
+   * Team ID. Example: "5d7a3b3e-8c9d-4e0f-a1b2-c3d4e5f6a7b8"
+   */
+  teamId: string;
+  /**
+   * Channel ID. Example: "19:abc123@thread.tacv2"
+   */
+  channelId: string;
+  /**
+   * Parent message ID to fetch replies for. Example: "1234567890"
+   */
+  messageId: string;
+  /**
+   * Pagination cursor (full @odata.nextLink URL) from the previous response. Omit for the first page.
+   */
+  cursor?: string | undefined;
+};
+
+export interface ActionOutput_microsoft_teams_listchannelreplies {
+  items: ({  id: string;
+  replyToId?: string | undefined;
+  createdDateTime?: string | undefined;
+  lastModifiedDateTime?: string | undefined;
+  deletedDateTime?: string | undefined;
+  subject?: string | undefined;
+  bodyContentType?: 'text' | 'html' | undefined;
+  bodyContent?: string | undefined;
+  fromUserId?: string | undefined;
+  fromUserDisplayName?: string | undefined;
+  fromApplicationId?: string | undefined;
+  fromApplicationDisplayName?: string | undefined;
+  teamId?: string | undefined;
+  channelId?: string | undefined;
+  messageType?: string | undefined;
+  importance?: 'normal' | 'high' | 'urgent' | undefined;
+  reactions?: ({  reactionType?: string | undefined;
+  userId?: string | undefined;
+  userDisplayName?: string | undefined;
+  createdDateTime?: string | undefined;})[];})[];
+  /**
+   * Pagination cursor to fetch the next page. Pass this as the cursor input in the next request.
+   */
+  next_cursor?: string | undefined;
+};
+
+export interface ActionInput_microsoft_teams_listchanneltabs {
+  /**
+   * The ID of the team. Example: "6903fa93-605b-43ef-920e-77c4729f8258"
+   */
+  teamId: string;
+  /**
+   * The ID of the channel. Example: "19:33b76eea88574bd1969dca37e2b7a819@thread.skype"
+   */
+  channelId: string;
+  /**
+   * Pagination cursor from the previous response (@odata.nextLink). Omit for the first page.
+   */
+  cursor?: string | undefined;
+};
+
+export interface ActionOutput_microsoft_teams_listchanneltabs {
+  items: ({  id: string;
+  displayName?: string | undefined;
+  configuration?: {  entityId?: string | undefined;
+  contentUrl?: string | undefined;
+  websiteUrl?: string | undefined;
+  removeUrl?: string | undefined;};
+  sortOrderIndex?: string | undefined;
+  teamsApp?: {  id: string;
+  displayName?: string | undefined;
+  distributionMethod?: string | undefined;};
+  webUrl?: string | undefined;})[];
+  nextCursor?: string | undefined;
+};
+
+export interface ActionInput_microsoft_teams_listchannels {
+  /**
+   * The unique identifier of the team. Example: "893075dd-2487-4122-925f-022c42e20265"
+   */
+  teamId: string;
+  /**
+   * Pagination cursor from the previous response (@odata.nextLink). Omit for the first page.
+   */
+  cursor?: string | undefined;
+};
+
+export interface ActionOutput_microsoft_teams_listchannels {
+  items: ({  id: string;
+  createdDateTime?: string | undefined;
+  displayName?: string | undefined;
+  description?: string | undefined;
+  email?: string | undefined;
+  webUrl?: string | undefined;
+  membershipType?: string | undefined;
+  layoutType?: string | undefined;
+  isArchived?: boolean | undefined;
+  isFavoriteByDefault?: boolean | undefined;
+  tenantId?: string | undefined;})[];
+  nextCursor?: string | undefined;
+};
+
+export interface ActionInput_microsoft_teams_listchatmembers {
+  /**
+   * The unique identifier of the chat. Example: "19:xxxxx@thread.v2"
+   */
+  chat_id: string;
+  /**
+   * Full URL from @odata.nextLink for pagination. Omit for the first page.
+   */
+  cursor?: string | undefined;
+};
+
+export interface ActionOutput_microsoft_teams_listchatmembers {
+  members: ({  id?: string | undefined;
+  roles?: string[] | undefined;
+  display_name?: string | undefined;
+  visible_history_start_date_time?: string | undefined;
+  user_id?: string | undefined;
+  email?: string | undefined;
+  tenant_id?: string | undefined;})[];
+  next_cursor?: string | undefined;
+};
+
+export interface ActionInput_microsoft_teams_listchatmessages {
+  /**
+   * The unique identifier of the chat. Example: "19:2da4c29f6d7041eca70b638b43d45437@thread.v2"
+   */
+  chatId: string;
+  /**
+   * Pagination cursor (full @odata.nextLink URL) from the previous response. Omit for the first page.
+   */
+  cursor?: string | undefined;
+  /**
+   * Maximum number of messages to return per page (1-50). Default is determined by the API.
+   */
+  top?: number | undefined;
+};
+
+export interface ActionOutput_microsoft_teams_listchatmessages {
+  messages: ({  id: string;
+  replyToId?: string | undefined;
+  createdDateTime?: string | undefined;
+  lastModifiedDateTime?: string | undefined;
+  deletedDateTime?: string | undefined;
+  subject?: string | undefined;
+  summary?: string | undefined;
+  chatId?: string | undefined;
+  importance?: string | undefined;
+  messageType?: string | undefined;
+  fromUserId?: string | undefined;
+  fromUserDisplayName?: string | undefined;
+  bodyContentType?: string | undefined;
+  bodyContent?: string | undefined;})[];
+  /**
+   * Full URL for the next page. Pass this value as the cursor input for the next request.
+   */
+  nextLink?: string | undefined;
+};
+
+export interface ActionInput_microsoft_teams_listchats {
+  /**
+   * Pagination cursor from the previous response (@odata.nextLink). Omit for the first page.
+   */
+  cursor?: string | undefined;
+  /**
+   * User ID to scope chats to a specific user. Omit to use /me/chats.
+   */
+  userId?: string | undefined;
+};
+
+export interface ActionOutput_microsoft_teams_listchats {
+  items: ({  id: string;
+  topic?: string | undefined;
+  createdDateTime?: string | undefined;
+  lastUpdatedDateTime?: string | undefined;
+  chatType?: string | undefined;
+  webUrl?: string | undefined;
+  isHiddenForAllMembers?: boolean | undefined;
+  tenantId?: string | undefined;
+  viewpoint?: {  isHidden?: boolean | undefined;
+  lastMessageReadDateTime?: string | undefined;};})[];
+  nextLink?: string | undefined;
+};
+
+export interface ActionInput_microsoft_teams_listjoinedteams {
+  /**
+   * Pagination cursor from the previous response. For Microsoft Graph, this is the full @odata.nextLink URL. Omit for the first page.
+   */
+  cursor?: string | undefined;
+};
+
+export interface ActionOutput_microsoft_teams_listjoinedteams {
+  items: ({  /**
+   * The unique identifier of the team
+   */
+  id: string;
+  /**
+   * The display name of the team
+   */
+  display_name?: string | undefined;
+  /**
+   * The description of the team
+   */
+  description?: string | undefined;
+  /**
+   * The visibility of the team
+   */
+  visibility?: string | undefined;
+  /**
+   * Whether the team is archived
+   */
+  is_archived?: boolean | undefined;})[];
+  /**
+   * The full @odata.nextLink URL for fetching the next page, if more results exist
+   */
+  next_cursor?: string | undefined;
+};
+
+export interface ActionInput_microsoft_teams_listteammembers {
+  /**
+   * Team ID. Example: "ee0f5ae2-8bc6-4ae5-8466-7daeebbfa062"
+   */
+  teamId: string;
+  /**
+   * Full @odata.nextLink URL from the previous response. Omit for the first page.
+   */
+  cursor?: string | undefined;
+};
+
+export interface ActionOutput_microsoft_teams_listteammembers {
+  items: ({  id: string;
+  roles?: string[] | undefined;
+  displayName?: string | undefined;
+  userId?: string | undefined;
+  email?: string | undefined;
+  tenantId?: string | undefined;})[];
+  nextCursor?: string | undefined;
+};
+
+export interface ActionInput_microsoft_teams_removeteammember {
+  /**
+   * The unique identifier of the team. Example: "12345678-1234-1234-1234-123456789012"
+   */
+  teamId: string;
+  /**
+   * The unique identifier of the team membership. Example: "12345678-1234-1234-1234-123456789012"
+   */
+  membershipId: string;
+};
+
+export interface ActionOutput_microsoft_teams_removeteammember {
+  success: boolean;
+  teamId: string;
+  membershipId: string;
+};
+
+export interface ActionInput_microsoft_teams_replytochannelmessage {
+  /**
+   * Team ID. Example: "57fb72d0-d811-46f4-8947-305e6072eaa5"
+   */
+  teamId: string;
+  /**
+   * Channel ID. Example: "19:4b6bed8d24574f6a9e436813cb2617d8@thread.tacv2"
+   */
+  channelId: string;
+  /**
+   * Message ID to reply to. Example: "1590776551682"
+   */
+  messageId: string;
+  /**
+   * Message body content. Example: "Hello World"
+   */
+  bodyContent: string;
+  /**
+   * Content type of the body. Defaults to "html".
+   */
+  bodyContentType?: 'text' | 'html' | undefined;
+};
+
+export interface ActionOutput_microsoft_teams_replytochannelmessage {
+  id: string;
+  replyToId?: string | undefined;
+  createdDateTime?: string | undefined;
+  lastModifiedDateTime?: string | undefined;
+  bodyContentType?: string | undefined;
+  bodyContent?: string | undefined;
+};
+
+export interface ActionInput_microsoft_teams_updatechannel {
+  /**
+   * Team ID. Example: "3b254736-3eae-4ea8-a2d3-c2af15567230"
+   */
+  teamId: string;
+  /**
+   * Channel ID. Example: "19:Xlx3Yg8n-kzEJI9-t2-ahJx0QIOxmdKaM9SSMAVtnDE1@thread.tacv2"
+   */
+  channelId: string;
+  /**
+   * New display name for the channel.
+   */
+  displayName?: string | undefined;
+  /**
+   * New description for the channel.
+   */
+  description?: string | undefined;
+};
+
+export interface ActionOutput_microsoft_teams_updatechannel {
+  id: string;
+  displayName?: string | undefined;
+  description?: string | undefined;
+  email?: string | undefined;
+  webUrl?: string | undefined;
+  membershipType?: string | undefined;
+  createdDateTime?: string | undefined;
+  isArchived?: boolean | undefined;
+  isFavoriteByDefault?: boolean | undefined;
 };
 
 export interface SyncMetadata_namely_pat_unifiedemployees {

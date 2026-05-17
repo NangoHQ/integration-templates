@@ -1,0 +1,71 @@
+{
+  "input": {
+    "teamId": "59709978-aaf4-45d8-baf2-b9816b125911",
+    "channelId": "19:QG-NvZE-fUJsMbl5pyxZ-ZQwiFU7I1hXmXRc_6Sq2W41@thread.tacv2"
+  },
+  "output": {
+    "items": [
+      {
+        "id": "3ed5b337-c2c9-4d5d-b7b4-84ff09a8fc1c",
+        "displayName": "Files",
+        "configuration": {
+          "entityId": "FileBrowserTabApp",
+          "contentUrl": "https://{teamSiteDomain}{teamSitePath}/_layouts/15/filebrowser.aspx?fileBrowser=%7B%22sdk%22%3A%22v1.0%22%2C%22entry%22%3A%7B%22sharePoint%22%3A%7B%22byPath%22%3A%7B%22web%22%3A%22{teamSitePath}%22%2C%22folder%22%3A%22{channelRelativeUrl}%22%7D%7D%7D%7D&app=teamsfile&teamId={teamId}&channelId={channelId}&entityId={entityId}&theme={theme}&ringId={ringId}&locale={locale}&sid={sessionId}&asid={appSessionId}&subEntityId={subEntityId}&scenario=ChannelFiles&auth=none&p=31&hostName={hostName}",
+          "websiteUrl": null,
+          "removeUrl": null
+        },
+        "webUrl": "https://teams.microsoft.com/l/entity/3ed5b337-c2c9-4d5d-b7b4-84ff09a8fc1c/_djb2_msteams_prefix_2364260807?label=Files&context=%7b%0d%0a++%22canvasUrl%22%3a+%22https%3a%2f%2f%7bteamSiteDomain%7d%7bteamSitePath%7d%2f_layouts%2f15%2ffilebrowser.aspx%3ffileBrowser%3d%257B%2522sdk%2522%253A%2522v1.0%2522%252C%2522entry%2522%253A%257B%2522sharePoint%2522%253A%257B%2522byPath%2522%253A%257B%2522web%2522%253A%2522%7bteamSitePath%7d%2522%252C%2522folder%2522%253A%2522%7bchannelRelativeUrl%7d%2522%257D%257D%257D%257D%26app%3dteamsfile%26teamId%3d%7bteamId%7d%26channelId%3d%7bchannelId%7d%26entityId%3d%7bentityId%7d%26theme%3d%7btheme%7d%26ringId%3d%7bringId%7d%26locale%3d%7blocale%7d%26sid%3d%7bsessionId%7d%26asid%3d%7bappSessionId%7d%26subEntityId%3d%7bsubEntityId%7d%26scenario%3dChannelFiles%26auth%3dnone%26p%3d31%26hostName%3d%7bhostName%7d%22%2c%0d%0a++%22channelId%22%3a+%2219%3aQG-NvZE-fUJsMbl5pyxZ-ZQwiFU7I1hXmXRc_6Sq2W41%40thread.tacv2%22%2c%0d%0a++%22subEntityId%22%3a+null%0d%0a%7d&groupId=59709978-aaf4-45d8-baf2-b9816b125911&tenantId=56480ae2-88be-49cf-86f6-d62a45bf8758"
+      }
+    ]
+  },
+  "nango": {},
+  "api": {
+    "get": {
+      "/v1.0/teams/59709978-aaf4-45d8-baf2-b9816b125911/channels/19:QG-NvZE-fUJsMbl5pyxZ-ZQwiFU7I1hXmXRc_6Sq2W41@thread.tacv2/tabs": {
+        "response": {
+          "@odata.context": "https://graph.microsoft.com/v1.0/$metadata#teams('59709978-aaf4-45d8-baf2-b9816b125911')/channels('19%3AQG-NvZE-fUJsMbl5pyxZ-ZQwiFU7I1hXmXRc_6Sq2W41%40thread.tacv2')/tabs",
+          "@odata.count": 1,
+          "value": [
+            {
+              "id": "3ed5b337-c2c9-4d5d-b7b4-84ff09a8fc1c",
+              "displayName": "Files",
+              "webUrl": "https://teams.microsoft.com/l/entity/3ed5b337-c2c9-4d5d-b7b4-84ff09a8fc1c/_djb2_msteams_prefix_2364260807?label=Files&context=%7b%0d%0a++%22canvasUrl%22%3a+%22https%3a%2f%2f%7bteamSiteDomain%7d%7bteamSitePath%7d%2f_layouts%2f15%2ffilebrowser.aspx%3ffileBrowser%3d%257B%2522sdk%2522%253A%2522v1.0%2522%252C%2522entry%2522%253A%257B%2522sharePoint%2522%253A%257B%2522byPath%2522%253A%257B%2522web%2522%253A%2522%7bteamSitePath%7d%2522%252C%2522folder%2522%253A%2522%7bchannelRelativeUrl%7d%2522%257D%257D%257D%257D%26app%3dteamsfile%26teamId%3d%7bteamId%7d%26channelId%3d%7bchannelId%7d%26entityId%3d%7bentityId%7d%26theme%3d%7btheme%7d%26ringId%3d%7bringId%7d%26locale%3d%7blocale%7d%26sid%3d%7bsessionId%7d%26asid%3d%7bappSessionId%7d%26subEntityId%3d%7bsubEntityId%7d%26scenario%3dChannelFiles%26auth%3dnone%26p%3d31%26hostName%3d%7bhostName%7d%22%2c%0d%0a++%22channelId%22%3a+%2219%3aQG-NvZE-fUJsMbl5pyxZ-ZQwiFU7I1hXmXRc_6Sq2W41%40thread.tacv2%22%2c%0d%0a++%22subEntityId%22%3a+null%0d%0a%7d&groupId=59709978-aaf4-45d8-baf2-b9816b125911&tenantId=56480ae2-88be-49cf-86f6-d62a45bf8758",
+              "configuration": {
+                "entityId": "FileBrowserTabApp",
+                "contentUrl": "https://{teamSiteDomain}{teamSitePath}/_layouts/15/filebrowser.aspx?fileBrowser=%7B%22sdk%22%3A%22v1.0%22%2C%22entry%22%3A%7B%22sharePoint%22%3A%7B%22byPath%22%3A%7B%22web%22%3A%22{teamSitePath}%22%2C%22folder%22%3A%22{channelRelativeUrl}%22%7D%7D%7D%7D&app=teamsfile&teamId={teamId}&channelId={channelId}&entityId={entityId}&theme={theme}&ringId={ringId}&locale={locale}&sid={sessionId}&asid={appSessionId}&subEntityId={subEntityId}&scenario=ChannelFiles&auth=none&p=31&hostName={hostName}",
+                "removeUrl": null,
+                "websiteUrl": null
+              }
+            }
+          ]
+        },
+        "status": 200,
+        "headers": {
+          "date": "Thu, 14 May 2026 17:38:53 GMT",
+          "content-type": "application/json;odata.metadata=minimal;odata.streaming=true;IEEE754Compatible=false;charset=utf-8",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=31536000",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4989",
+          "x-ratelimit-reset": "1778780359",
+          "vary": "Accept-Encoding",
+          "request-id": "64003ec4-7691-415f-bbb0-92787b2a6751",
+          "client-request-id": "64003ec4-7691-415f-bbb0-92787b2a6751",
+          "x-ms-ags-diagnostic": "{\"ServerInfo\":{\"DataCenter\":\"West US 2\",\"Slice\":\"E\",\"Ring\":\"4\",\"ScaleUnit\":\"003\",\"RoleInstance\":\"CO1PEPF0000FA3A\"}}",
+          "odata-version": "4.0"
+        },
+        "hash": "6f214332ff79ccee3454d0588f8ee5a794d372aa",
+        "request": {}
+      }
+    }
+  }
+}
