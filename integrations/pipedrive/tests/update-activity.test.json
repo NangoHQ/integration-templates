@@ -1,0 +1,140 @@
+{
+  "input": {
+    "id": 3,
+    "subject": "Updated Activity Subject"
+  },
+  "output": {
+    "id": 3,
+    "subject": "Updated Activity Subject",
+    "type": "call",
+    "due_date": "2026-05-15",
+    "due_time": "",
+    "duration": "",
+    "done": false,
+    "add_time": "2026-05-15 10:14:58",
+    "update_time": "2026-05-15 10:42:28"
+  },
+  "nango": {},
+  "api": {
+    "put": {
+      "/v1/activities/3": {
+        "response": {
+          "success": true,
+          "data": {
+            "id": 3,
+            "user_id": 25760681,
+            "done": false,
+            "type": "call",
+            "reference_type": null,
+            "reference_id": null,
+            "conference_meeting_client": null,
+            "conference_meeting_url": null,
+            "due_date": "2026-05-15",
+            "due_time": "",
+            "duration": "",
+            "busy_flag": false,
+            "add_time": "2026-05-15 10:14:58",
+            "marked_as_done_time": "",
+            "last_notification_time": null,
+            "last_notification_user_id": null,
+            "notification_language_id": null,
+            "subject": "Updated Activity Subject",
+            "public_description": null,
+            "calendar_sync_include_context": null,
+            "location": null,
+            "org_id": null,
+            "person_id": null,
+            "deal_id": null,
+            "lead_id": null,
+            "active_flag": true,
+            "update_time": "2026-05-15 10:42:28",
+            "update_user_id": 25760681,
+            "source_timezone": null,
+            "rec_rule": null,
+            "rec_rule_extension": null,
+            "rec_master_activity_id": null,
+            "conference_meeting_id": null,
+            "original_start_time": null,
+            "private": false,
+            "priority": null,
+            "note": null,
+            "created_by_user_id": 25760681,
+            "location_subpremise": null,
+            "location_street_number": null,
+            "location_route": null,
+            "location_sublocality": null,
+            "location_locality": null,
+            "location_admin_area_level_1": null,
+            "location_admin_area_level_2": null,
+            "location_country": null,
+            "location_postal_code": null,
+            "location_formatted_address": null,
+            "attendees": null,
+            "participants": null,
+            "series": null,
+            "is_recurring": null,
+            "org_name": null,
+            "person_name": null,
+            "deal_title": null,
+            "lead_title": null,
+            "owner_name": "Nango",
+            "person_dropbox_bcc": null,
+            "deal_dropbox_bcc": null,
+            "assigned_to_user_id": 25760681,
+            "type_name": "Call",
+            "lead": null,
+            "company_id": 15043420
+          },
+          "related_objects": {
+            "user": {
+              "25760681": {
+                "id": 25760681,
+                "name": "Nango",
+                "email": "api@nango.dev",
+                "has_pic": 0,
+                "pic_hash": null,
+                "active_flag": true
+              }
+            }
+          }
+        },
+        "status": 200,
+        "headers": {
+          "date": "Fri, 15 May 2026 10:42:28 GMT",
+          "content-type": "application/json",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "1; mode=block",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=31536000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "X-RateLimit-Remaining, X-RateLimit-Limit, X-RateLimit-Reset, X-Daily-RateLimit-Token-Limit, X-Daily-RateLimit-Token-Remaining",
+          "x-ratelimit-limit": "80",
+          "x-ratelimit-remaining": "79",
+          "x-ratelimit-reset": "2",
+          "cf-ray": "9fc189413b3fdebd-PDX",
+          "cf-cache-status": "DYNAMIC",
+          "cache-control": "no-cache",
+          "server": "cloudflare",
+          "vary": "Accept-Encoding",
+          "badi": "Routing: lon-2=>lon-2; Version: 7cc8; Host: 7bdc7f4564-pswrn;",
+          "x-correlation-id": "1d6c310f-b637-4d80-97e9-95385bb951aa",
+          "x-daily-ratelimit-token-limit": "150000",
+          "x-daily-ratelimit-token-remaining": "145885",
+          "set-cookie": "pipedrive-cdl=lon-2;path=/;expires=Sat, 16 May 2026 10:42:28 GMT;secure, __cf_bm=LoMTQLOBK2hUiJskVDwQ7YNyGTStDLdL2Wk99Isx_nQ-1778841748.6732135-1.0.1.1-LXqbIoAp1Orcc5WieL51O3aZo0ajJqUjESPs2bIZrVb7e7LWU4exZs7yt_AIwi0oNFBVFbIGXKRrM0k5vbpjQDQa1RzuIYKVM8UjAO_7jUDegyU85i4dFUJRZk1ajWpl; HttpOnly; SameSite=None; Secure; Path=/; Domain=pipedrive.com; Expires=Fri, 15 May 2026 11:12:28 GMT",
+          "alt-svc": "h3=\":443\"; ma=86400"
+        },
+        "hash": "94bf3bf5ed78d2abebcca2f83eb0fc41c617fa81",
+        "request": {
+          "data": {
+            "subject": "Updated Activity Subject"
+          }
+        }
+      }
+    }
+  }
+}

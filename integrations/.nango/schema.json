@@ -85075,66 +85075,6 @@
       ],
       "additionalProperties": false
     },
-    "Channel": {
-      "type": "object",
-      "properties": {
-        "id": {
-          "type": "string"
-        },
-        "title": {
-          "type": "string"
-        },
-        "description": {
-          "type": "string"
-        },
-        "customUrl": {
-          "type": "string"
-        },
-        "publishedAt": {
-          "type": "string"
-        },
-        "thumbnailDefaultUrl": {
-          "type": "string"
-        },
-        "thumbnailMediumUrl": {
-          "type": "string"
-        },
-        "thumbnailHighUrl": {
-          "type": "string"
-        },
-        "viewCount": {
-          "type": "number"
-        },
-        "subscriberCount": {
-          "type": "number"
-        },
-        "hiddenSubscriberCount": {
-          "type": "boolean"
-        },
-        "videoCount": {
-          "type": "number"
-        },
-        "country": {
-          "type": "string"
-        },
-        "privacyStatus": {
-          "type": "string"
-        },
-        "isLinked": {
-          "type": "boolean"
-        },
-        "madeForKids": {
-          "type": "boolean"
-        },
-        "selfDeclaredMadeForKids": {
-          "type": "boolean"
-        }
-      },
-      "required": [
-        "id"
-      ],
-      "additionalProperties": false
-    },
     "TeamMember": {
       "type": "object",
       "properties": {
@@ -104072,176 +104012,2083 @@
       ],
       "additionalProperties": false
     },
-    "PipeDriveActivity": {
+    "Activity": {
       "type": "object",
       "properties": {
         "id": {
+          "type": "string"
+        },
+        "subject": {
+          "type": "string"
+        },
+        "type": {
           "type": "string"
         },
         "done": {
           "type": "boolean"
         },
-        "type": {
+        "due_date": {
+          "type": "string"
+        },
+        "due_time": {
           "type": "string"
         },
         "duration": {
-          "type": "string",
-          "format": "date-time"
-        },
-        "subject": {
           "type": "string"
-        },
-        "company_id": {
-          "type": "number"
-        },
-        "user_id": {
-          "type": "number"
-        },
-        "conference_meeting_client": {
-          "type": "string"
-        },
-        "conference_meeting_url": {
-          "type": "string"
-        },
-        "conference_meeting_id": {
-          "type": "string"
-        },
-        "due_date": {
-          "type": "string",
-          "format": "date-time"
-        },
-        "due_time": {
-          "type": "string",
-          "format": "date-time"
-        },
-        "busy_flag": {
-          "type": "boolean"
         },
         "add_time": {
-          "type": "string",
-          "format": "date-time"
-        },
-        "marked_as_done_time": {
-          "type": "string",
-          "format": "date-time"
-        },
-        "public_description": {
           "type": "string"
         },
-        "location": {
+        "update_time": {
           "type": "string"
         },
-        "org_id": {
-          "type": "number"
-        },
-        "person_id": {
+        "user_id": {
           "type": "number"
         },
         "deal_id": {
           "type": "number"
         },
-        "active_flag": {
-          "type": "boolean"
-        },
-        "update_time": {
-          "type": "string",
-          "format": "date-time"
-        },
-        "update_user_id": {
+        "person_id": {
           "type": "number"
         },
-        "source_timezone": {
-          "type": "string"
+        "org_id": {
+          "type": "number"
         },
         "lead_id": {
           "type": "string"
         },
-        "location_subpremise": {
+        "note": {
           "type": "string"
         },
-        "location_street_number": {
+        "active_flag": {
+          "type": "boolean"
+        },
+        "public_description": {
           "type": "string"
         },
-        "location_route": {
+        "busy_flag": {
+          "type": "boolean"
+        },
+        "marked_as_done_time": {
           "type": "string"
         },
-        "location_sublocality": {
-          "type": "string"
+        "created_by_user_id": {
+          "type": "number"
         },
-        "location_locality": {
-          "type": "string"
-        },
-        "location_admin_area_level_1": {
-          "type": "string"
-        },
-        "location_admin_area_level_2": {
-          "type": "string"
-        },
-        "location_country": {
-          "type": "string"
-        },
-        "location_postal_code": {
-          "type": "string"
-        },
-        "location_formatted_address": {
-          "type": "string"
-        },
-        "project_id": {
+        "assigned_to_user_id": {
           "type": "number"
         }
       },
       "required": [
-        "id",
-        "done",
-        "type",
-        "duration",
-        "subject",
-        "company_id",
-        "user_id",
-        "conference_meeting_client",
-        "conference_meeting_url",
-        "conference_meeting_id",
-        "due_date",
-        "due_time",
-        "busy_flag",
-        "add_time",
-        "marked_as_done_time",
-        "public_description",
-        "location",
-        "org_id",
-        "person_id",
-        "deal_id",
-        "active_flag",
-        "update_time",
-        "update_user_id",
-        "source_timezone",
-        "lead_id",
-        "location_subpremise",
-        "location_street_number",
-        "location_route",
-        "location_sublocality",
-        "location_locality",
-        "location_admin_area_level_1",
-        "location_admin_area_level_2",
-        "location_country",
-        "location_postal_code",
-        "location_formatted_address",
-        "project_id"
+        "id"
       ],
       "additionalProperties": false
     },
-    "SyncMetadata_pipedrive_activities": {
-      "type": "object",
-      "additionalProperties": false
-    },
-    "PipeDriveDeal": {
+    "Lead": {
       "type": "object",
       "properties": {
         "id": {
           "type": "string"
         },
-        "creator_user_id": {
+        "company": {
+          "type": "string"
+        },
+        "email": {
+          "type": "string"
+        },
+        "firstName": {
+          "type": "string"
+        },
+        "lastName": {
+          "type": "string"
+        },
+        "fullName": {
+          "type": "string"
+        },
+        "phone": {
+          "type": "string"
+        },
+        "mobile": {
+          "type": "string"
+        },
+        "status": {
+          "type": "string"
+        },
+        "source": {
+          "type": "string"
+        },
+        "designation": {
+          "type": "string"
+        },
+        "website": {
+          "type": "string"
+        },
+        "industry": {
+          "type": "string"
+        },
+        "annualRevenue": {
           "type": "number"
+        },
+        "employees": {
+          "type": "number"
+        },
+        "skypeId": {
+          "type": "string"
+        },
+        "twitter": {
+          "type": "string"
+        },
+        "street": {
+          "type": "string"
+        },
+        "city": {
+          "type": "string"
+        },
+        "state": {
+          "type": "string"
+        },
+        "zipCode": {
+          "type": "string"
+        },
+        "country": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        },
+        "emailOptOut": {
+          "type": "boolean"
+        },
+        "createdTime": {
+          "type": "string"
+        },
+        "modifiedTime": {
+          "type": "string"
+        },
+        "createdById": {
+          "type": "string"
+        },
+        "createdByName": {
+          "type": "string"
+        },
+        "createdByEmail": {
+          "type": "string"
+        },
+        "modifiedById": {
+          "type": "string"
+        },
+        "modifiedByName": {
+          "type": "string"
+        },
+        "modifiedByEmail": {
+          "type": "string"
+        },
+        "ownerId": {
+          "type": "string"
+        },
+        "ownerName": {
+          "type": "string"
+        },
+        "ownerEmail": {
+          "type": "string"
+        },
+        "rating": {
+          "type": "string"
+        },
+        "fax": {
+          "type": "string"
+        },
+        "secondaryEmail": {
+          "type": "string"
+        },
+        "tags": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      },
+      "required": [
+        "id",
+        "lastName",
+        "createdTime",
+        "modifiedTime"
+      ],
+      "additionalProperties": false
+    },
+    "Note": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "note_title": {
+          "type": "string"
+        },
+        "note_content": {
+          "type": "string"
+        },
+        "parent_id": {
+          "type": "string"
+        },
+        "parent_name": {
+          "type": "string"
+        },
+        "parent_module": {
+          "type": "string"
+        },
+        "owner_id": {
+          "type": "string"
+        },
+        "owner_name": {
+          "type": "string"
+        },
+        "owner_email": {
+          "type": "string"
+        },
+        "created_by_id": {
+          "type": "string"
+        },
+        "created_by_name": {
+          "type": "string"
+        },
+        "modified_by_id": {
+          "type": "string"
+        },
+        "modified_by_name": {
+          "type": "string"
+        },
+        "created_time": {
+          "type": "string"
+        },
+        "modified_time": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "id"
+      ],
+      "additionalProperties": false
+    },
+    "Organization": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "created_at": {
+          "type": "string"
+        },
+        "updated_at": {
+          "type": "string"
+        },
+        "url": {
+          "type": "string"
+        },
+        "external_id": {
+          "type": "string"
+        },
+        "domain_names": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "group_id": {
+          "type": "number"
+        },
+        "shared_comments": {
+          "type": "boolean"
+        },
+        "shared_tickets": {
+          "type": "boolean"
+        },
+        "tags": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "notes": {
+          "type": "string"
+        },
+        "details": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "id",
+        "name",
+        "created_at",
+        "updated_at",
+        "url"
+      ],
+      "additionalProperties": false
+    },
+    "Person": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "emails": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "value": {
+                "type": "string"
+              },
+              "primary": {
+                "type": "boolean"
+              },
+              "label": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "value"
+            ],
+            "additionalProperties": false
+          }
+        },
+        "phones": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "value": {
+                "type": "string"
+              },
+              "primary": {
+                "type": "boolean"
+              },
+              "label": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "value"
+            ],
+            "additionalProperties": false
+          }
+        },
+        "org_id": {
+          "type": "number"
+        },
+        "owner_id": {
+          "type": "number"
+        },
+        "add_time": {
+          "type": "string"
+        },
+        "update_time": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "id",
+        "name",
+        "update_time"
+      ],
+      "additionalProperties": false
+    },
+    "Pipeline": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "update_time": {
+          "type": "string"
+        },
+        "add_time": {
+          "type": "string"
+        },
+        "is_deal_probability_enabled": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "id",
+        "update_time"
+      ],
+      "additionalProperties": false
+    },
+    "Stage": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "pipeline_id": {
+          "type": "number"
+        },
+        "order_nr": {
+          "type": "number"
+        },
+        "is_deal_rot_enabled": {
+          "type": "boolean"
+        },
+        "days_to_rotten": {
+          "type": "number"
+        },
+        "deal_probability": {
+          "type": "number"
+        },
+        "add_time": {
+          "type": "string"
+        },
+        "update_time": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "id",
+        "name",
+        "pipeline_id",
+        "order_nr",
+        "add_time"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_pipedrive_createactivity": {
+      "type": "object",
+      "properties": {
+        "subject": {
+          "type": "string",
+          "description": "The subject of the activity. Example: \"Discuss revenue with John\""
+        },
+        "type": {
+          "type": "string",
+          "description": "The type of the activity. Example: \"call\", \"meeting\", \"lunch\". Use ActivityTypes API to get available types."
+        },
+        "owner_id": {
+          "type": "number",
+          "description": "The ID of the user who owns the activity. Example: 12345"
+        },
+        "deal_id": {
+          "type": "number",
+          "description": "The ID of the deal linked to the activity. Example: 98765"
+        },
+        "lead_id": {
+          "type": "string",
+          "description": "The ID of the lead linked to the activity. Example: \"a1b2c3d4e5f6\""
+        },
+        "person_id": {
+          "type": "number",
+          "description": "The ID of the person linked to the activity. Example: 56789"
+        },
+        "org_id": {
+          "type": "number",
+          "description": "The ID of the organization linked to the activity. Example: 34567"
+        },
+        "project_id": {
+          "type": "number",
+          "description": "The ID of the project linked to the activity. Example: 11122"
+        },
+        "due_date": {
+          "type": "string",
+          "description": "The due date of the activity in YYYY-MM-DD format. Example: \"2025-05-15\""
+        },
+        "due_time": {
+          "type": "string",
+          "description": "The due time of the activity in HH:MM format. Example: \"14:30\""
+        },
+        "duration": {
+          "type": "string",
+          "description": "The duration of the activity in HH:MM format. Example: \"01:00\""
+        },
+        "busy": {
+          "type": "boolean",
+          "description": "Whether the activity marks the assignee as busy or not in their calendar"
+        },
+        "done": {
+          "type": "boolean",
+          "description": "Whether the activity is marked as done or not"
+        },
+        "location": {
+          "type": "object",
+          "properties": {
+            "value": {
+              "type": "string"
+            },
+            "country": {
+              "type": "string",
+              "description": "Country of the activity"
+            },
+            "admin_area_level_1": {
+              "type": "string",
+              "description": "Admin area level 1 (e.g. state) of the activity"
+            },
+            "admin_area_level_2": {
+              "type": "string",
+              "description": "Admin area level 2 (e.g. county) of the activity"
+            },
+            "locality": {
+              "type": "string",
+              "description": "Locality (e.g. city) of the activity"
+            },
+            "sublocality": {
+              "type": "string",
+              "description": "Sublocality (e.g. neighborhood) of the activity"
+            },
+            "route": {
+              "type": "string",
+              "description": "Route (e.g. street) of the activity"
+            },
+            "street_number": {
+              "type": "string",
+              "description": "Street number of the activity"
+            },
+            "subpremise": {
+              "type": "string",
+              "description": "Subpremise (e.g. apartment/suite number) of the activity"
+            },
+            "postal_code": {
+              "type": "string",
+              "description": "Postal code of the activity"
+            }
+          },
+          "additionalProperties": false
+        },
+        "participants": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "person_id": {
+                "type": "number"
+              },
+              "primary": {
+                "type": "boolean",
+                "description": "Whether the person is the primary participant or not"
+              }
+            },
+            "required": [
+              "person_id"
+            ],
+            "additionalProperties": false
+          },
+          "description": "The participants of the activity"
+        },
+        "attendees": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "email": {
+                "type": "string"
+              },
+              "name": {
+                "type": "string",
+                "description": "The name of the attendee"
+              },
+              "status": {
+                "type": "string",
+                "description": "The status of the attendee"
+              },
+              "is_organizer": {
+                "type": "boolean",
+                "description": "Whether the attendee is the organizer or not"
+              },
+              "person_id": {
+                "type": "number",
+                "description": "The ID of the person if the attendee has a person record"
+              },
+              "user_id": {
+                "type": "number",
+                "description": "The ID of the user if the attendee is a user"
+              }
+            },
+            "required": [
+              "email"
+            ],
+            "additionalProperties": false
+          },
+          "description": "The attendees of the activity"
+        },
+        "public_description": {
+          "type": "string",
+          "description": "The public description of the activity that will be synced to external calendar"
+        },
+        "priority": {
+          "type": "number",
+          "description": "The priority of the activity. Mappable to a specific string using activityFields API. Example: 1"
+        },
+        "note": {
+          "type": "string",
+          "description": "The note of the activity"
+        }
+      },
+      "required": [
+        "subject",
+        "type"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_pipedrive_createactivity": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "number",
+          "description": "The ID of the created activity"
+        },
+        "subject": {
+          "type": "string",
+          "description": "The subject of the activity"
+        },
+        "type": {
+          "type": "string",
+          "description": "The type of the activity"
+        },
+        "done": {
+          "type": "boolean",
+          "description": "Whether the activity is marked as done"
+        },
+        "due_date": {
+          "type": "string",
+          "description": "The due date of the activity"
+        },
+        "due_time": {
+          "type": "string",
+          "description": "The due time of the activity"
+        },
+        "duration": {
+          "type": "string",
+          "description": "The duration of the activity"
+        },
+        "busy_flag": {
+          "type": "boolean",
+          "description": "Whether the activity marks the assignee as busy"
+        },
+        "owner_id": {
+          "type": "number",
+          "description": "The ID of the user who owns the activity"
+        },
+        "deal_id": {
+          "type": "number",
+          "description": "The ID of the deal linked to the activity"
+        },
+        "lead_id": {
+          "type": "string",
+          "description": "The ID of the lead linked to the activity"
+        },
+        "person_id": {
+          "type": "number",
+          "description": "The ID of the person linked to the activity"
+        },
+        "org_id": {
+          "type": "number",
+          "description": "The ID of the organization linked to the activity"
+        },
+        "project_id": {
+          "type": "number",
+          "description": "The ID of the project linked to the activity"
+        },
+        "public_description": {
+          "type": "string",
+          "description": "The public description of the activity"
+        },
+        "priority": {
+          "type": "number",
+          "description": "The priority of the activity"
+        },
+        "note": {
+          "type": "string",
+          "description": "The note of the activity"
+        },
+        "location": {
+          "type": "string",
+          "description": "The location of the activity"
+        },
+        "add_time": {
+          "type": "string",
+          "description": "The time when the activity was created"
+        }
+      },
+      "required": [
+        "id"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_pipedrive_createdeal": {
+      "type": "object",
+      "properties": {
+        "title": {
+          "type": "string",
+          "description": "The title of the deal. Example: \"Deal of the century\""
+        },
+        "value": {
+          "type": "number",
+          "description": "The value of the deal. Example: 10000"
+        },
+        "currency": {
+          "type": "string",
+          "description": "The currency of the deal. Accepts a 3-character currency code. Example: \"USD\""
+        },
+        "user_id": {
+          "type": "number",
+          "description": "The ID of the user which will be the owner of the created deal. Example: 123"
+        },
+        "person_id": {
+          "type": "number",
+          "description": "The ID of a person which this deal will be linked to. Example: 456"
+        },
+        "org_id": {
+          "type": "number",
+          "description": "The ID of an organization which this deal will be linked to. Example: 789"
+        },
+        "pipeline_id": {
+          "type": "number",
+          "description": "The ID of the pipeline this deal will be added to. Example: 1"
+        },
+        "stage_id": {
+          "type": "number",
+          "description": "The ID of the stage this deal will be added to. Example: 2"
+        },
+        "status": {
+          "type": "string",
+          "enum": [
+            "open",
+            "won",
+            "lost"
+          ],
+          "description": "The status of the deal. Values: open, won, lost"
+        },
+        "expected_close_date": {
+          "type": "string",
+          "description": "The expected close date of the deal. In ISO 8601 format: YYYY-MM-DD. Example: \"2025-12-31\""
+        },
+        "probability": {
+          "type": "number",
+          "description": "The success probability percentage of the deal. Example: 60"
+        },
+        "visible_to": {
+          "type": "number",
+          "description": "The visibility of the deal. 1 = Owner only, 3 = Owner and followers, 5 = Entire company"
+        },
+        "lost_reason": {
+          "type": "string",
+          "description": "The reason for losing the deal. Only used when status is lost"
+        },
+        "add_time": {
+          "type": "string",
+          "description": "The optional creation date and time of the deal in UTC. Format: YYYY-MM-DD HH:MM:SS"
+        }
+      },
+      "required": [
+        "title"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_pipedrive_createdeal": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "number",
+          "description": "The ID of the created deal"
+        },
+        "title": {
+          "type": "string",
+          "description": "The title of the deal"
+        },
+        "value": {
+          "type": "number",
+          "description": "The value of the deal"
+        },
+        "currency": {
+          "type": "string",
+          "description": "The currency of the deal"
+        },
+        "user_id": {
+          "type": "number",
+          "description": "The ID of the deal owner"
+        },
+        "person_id": {
+          "type": "number",
+          "description": "The ID of the linked person"
+        },
+        "org_id": {
+          "type": "number",
+          "description": "The ID of the linked organization"
+        },
+        "pipeline_id": {
+          "type": "number",
+          "description": "The ID of the pipeline"
+        },
+        "stage_id": {
+          "type": "number",
+          "description": "The ID of the stage"
+        },
+        "status": {
+          "type": "string",
+          "description": "The status of the deal"
+        },
+        "expected_close_date": {
+          "type": "string",
+          "description": "The expected close date"
+        },
+        "probability": {
+          "type": "number",
+          "description": "The success probability percentage"
+        },
+        "visible_to": {
+          "type": "number",
+          "description": "The visibility setting"
+        },
+        "lost_reason": {
+          "type": "string",
+          "description": "The reason for losing the deal"
+        },
+        "add_time": {
+          "type": "string",
+          "description": "The creation time of the deal"
+        },
+        "update_time": {
+          "type": "string",
+          "description": "The last update time of the deal"
+        }
+      },
+      "required": [
+        "id",
+        "title"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_pipedrive_createlead": {
+      "type": "object",
+      "properties": {
+        "title": {
+          "type": "string",
+          "description": "The name of the lead"
+        },
+        "person_id": {
+          "type": "number",
+          "description": "The ID of a person to link the lead to. Required unless organization_id is specified."
+        },
+        "organization_id": {
+          "type": "number",
+          "description": "The ID of an organization to link the lead to. Required unless person_id is specified."
+        },
+        "owner_id": {
+          "type": "number",
+          "description": "The ID of the user who will own the lead"
+        },
+        "label_ids": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "0": {
+                "type": "string"
+              },
+              "1": {
+                "type": "number"
+              }
+            },
+            "required": [
+              "0",
+              "1"
+            ],
+            "additionalProperties": false
+          },
+          "description": "The IDs of lead labels to associate with the lead"
+        },
+        "value": {
+          "type": "object",
+          "properties": {
+            "amount": {
+              "type": "number"
+            },
+            "currency": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "amount",
+            "currency"
+          ],
+          "additionalProperties": false,
+          "description": "The potential value of the lead"
+        },
+        "expected_close_date": {
+          "type": "string",
+          "description": "The expected close date in ISO 8601 format (YYYY-MM-DD)"
+        },
+        "visible_to": {
+          "type": "string",
+          "description": "The visibility of the lead"
+        },
+        "was_seen": {
+          "type": "boolean",
+          "description": "Whether the lead was seen in the Pipedrive UI"
+        },
+        "origin_id": {
+          "type": "string",
+          "description": "Optional ID to distinguish the origin of the lead"
+        },
+        "channel": {
+          "type": "number",
+          "description": "The ID of the marketing channel"
+        },
+        "channel_id": {
+          "type": "string",
+          "description": "Optional ID to further distinguish the marketing channel"
+        }
+      },
+      "required": [
+        "title"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_pipedrive_createlead": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "title": {
+          "type": "string"
+        },
+        "owner_id": {
+          "type": "number"
+        },
+        "creator_id": {
+          "type": "number"
+        },
+        "label_ids": {
+          "type": "array",
+          "items": {}
+        },
+        "person_id": {
+          "type": "number"
+        },
+        "organization_id": {
+          "type": "number"
+        },
+        "source_name": {
+          "type": "string"
+        },
+        "source_origin": {
+          "type": "string"
+        },
+        "value": {
+          "type": "object",
+          "properties": {
+            "amount": {
+              "type": "number"
+            },
+            "currency": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "amount",
+            "currency"
+          ],
+          "additionalProperties": false
+        },
+        "expected_close_date": {
+          "type": "string"
+        },
+        "visible_to": {
+          "type": "string"
+        },
+        "was_seen": {
+          "type": "boolean"
+        },
+        "next_activity_id": {
+          "type": "number"
+        },
+        "add_time": {
+          "type": "string"
+        },
+        "update_time": {
+          "type": "string"
+        },
+        "is_archived": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "id",
+        "title"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_pipedrive_createnote": {
+      "type": "object",
+      "properties": {
+        "content": {
+          "type": "string",
+          "description": "The content of the note in HTML format. Subject to sanitization on the back-end."
+        },
+        "deal_id": {
+          "type": "number",
+          "description": "The ID of the deal the note will be attached to."
+        },
+        "person_id": {
+          "type": "number",
+          "description": "The ID of the person the note will be attached to."
+        },
+        "org_id": {
+          "type": "number",
+          "description": "The ID of the organization the note will be attached to."
+        },
+        "lead_id": {
+          "type": "number",
+          "description": "The ID of the lead the note will be attached to."
+        },
+        "project_id": {
+          "type": "number",
+          "description": "The ID of the project the note will be attached to."
+        },
+        "task_id": {
+          "type": "number",
+          "description": "The ID of the task the note will be attached to."
+        },
+        "user_id": {
+          "type": "number",
+          "description": "The ID of the user who will be marked as the author of the note. Only an admin can change the author."
+        },
+        "add_time": {
+          "type": "string",
+          "description": "The optional creation date & time of the note in UTC. Can be set in the past or in the future. Format: YYYY-MM-DD HH:MM:SS"
+        },
+        "pinned_to_lead_flag": {
+          "type": "number",
+          "description": "If set to 1, the note will be pinned to the lead."
+        },
+        "pinned_to_project_flag": {
+          "type": "number",
+          "description": "If set to 1, the note will be pinned to the project."
+        }
+      },
+      "required": [
+        "content"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_pipedrive_createnote": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "number"
+        },
+        "content": {
+          "type": "string"
+        },
+        "deal_id": {
+          "type": "number"
+        },
+        "person_id": {
+          "type": "number"
+        },
+        "org_id": {
+          "type": "number"
+        },
+        "lead_id": {
+          "type": "number"
+        },
+        "project_id": {
+          "type": "number"
+        },
+        "task_id": {
+          "type": "number"
+        },
+        "user_id": {
+          "type": "number"
+        },
+        "add_time": {
+          "type": "string"
+        },
+        "update_time": {
+          "type": "string"
+        },
+        "active_flag": {
+          "type": "boolean"
+        },
+        "pinned_to_lead_flag": {
+          "type": "number"
+        },
+        "pinned_to_project_flag": {
+          "type": "number"
+        }
+      },
+      "required": [
+        "id",
+        "content",
+        "user_id",
+        "add_time",
+        "active_flag"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_pipedrive_createorganization": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string",
+          "description": "The name of the organization. Example: \"Acme Corp\""
+        },
+        "owner_id": {
+          "type": "number",
+          "description": "The ID of the user who owns the organization. Example: 12345"
+        },
+        "visible_to": {
+          "type": "number",
+          "description": "The visibility of the organization. 1 = owner and followers, 2 = entire company, 3 = owner only."
+        },
+        "label_ids": {
+          "type": "array",
+          "items": {
+            "type": "number"
+          },
+          "description": "The IDs of labels assigned to the organization."
+        },
+        "address": {
+          "type": "object",
+          "properties": {
+            "value": {
+              "type": "string"
+            },
+            "country": {
+              "type": "string",
+              "description": "Country of the organization."
+            },
+            "admin_area_level_1": {
+              "type": "string",
+              "description": "Admin area level 1 (e.g. state) of the organization."
+            },
+            "admin_area_level_2": {
+              "type": "string",
+              "description": "Admin area level 2 (e.g. county) of the organization."
+            },
+            "locality": {
+              "type": "string",
+              "description": "Locality (e.g. city) of the organization."
+            },
+            "sublocality": {
+              "type": "string",
+              "description": "Sublocality (e.g. neighborhood) of the organization."
+            },
+            "route": {
+              "type": "string",
+              "description": "Route (e.g. street) of the organization."
+            },
+            "street_number": {
+              "type": "string",
+              "description": "Street number of the organization."
+            },
+            "subpremise": {
+              "type": "string",
+              "description": "Subpremise (e.g. apartment/suite number) of the organization."
+            },
+            "postal_code": {
+              "type": "string",
+              "description": "Postal code of the organization."
+            }
+          },
+          "additionalProperties": false,
+          "description": "The address of the organization."
+        },
+        "custom_fields": {
+          "type": "object",
+          "additionalProperties": {
+            "anyOf": [
+              {},
+              {
+                "not": {}
+              }
+            ]
+          }
+        }
+      },
+      "required": [
+        "name"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_pipedrive_createorganization": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "number"
+        },
+        "name": {
+          "type": "string"
+        },
+        "owner_id": {
+          "type": "number"
+        },
+        "add_time": {
+          "type": "string"
+        },
+        "update_time": {
+          "type": "string"
+        },
+        "visible_to": {
+          "type": "number"
+        },
+        "label_ids": {
+          "type": "array",
+          "items": {
+            "type": "number"
+          }
+        },
+        "address": {
+          "type": "object",
+          "properties": {
+            "value": {
+              "type": "string"
+            },
+            "country": {
+              "type": "string"
+            },
+            "admin_area_level_1": {
+              "type": "string"
+            },
+            "admin_area_level_2": {
+              "type": "string"
+            },
+            "locality": {
+              "type": "string"
+            },
+            "sublocality": {
+              "type": "string"
+            },
+            "route": {
+              "type": "string"
+            },
+            "street_number": {
+              "type": "string"
+            },
+            "subpremise": {
+              "type": "string"
+            },
+            "postal_code": {
+              "type": "string"
+            }
+          },
+          "additionalProperties": false
+        }
+      },
+      "required": [
+        "id",
+        "name"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_pipedrive_createperson": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string",
+          "description": "The name of the person"
+        },
+        "owner_id": {
+          "type": "number",
+          "description": "The ID of the user who owns the person"
+        },
+        "org_id": {
+          "type": "number",
+          "description": "The ID of the organization linked to the person"
+        },
+        "email": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "value": {
+                "type": "string"
+              },
+              "primary": {
+                "type": "boolean"
+              },
+              "label": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "value"
+            ],
+            "additionalProperties": false
+          },
+          "description": "The emails of the person"
+        },
+        "phone": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "value": {
+                "type": "string"
+              },
+              "primary": {
+                "type": "boolean"
+              },
+              "label": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "value"
+            ],
+            "additionalProperties": false
+          },
+          "description": "The phones of the person"
+        },
+        "visible_to": {
+          "type": "number",
+          "description": "The visibility of the person"
+        },
+        "marketing_status": {
+          "type": "string",
+          "description": "The marketing status of the person"
+        }
+      },
+      "required": [
+        "name"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_pipedrive_createperson": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "number"
+        },
+        "name": {
+          "type": "string"
+        },
+        "email": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "value": {
+                "type": "string"
+              },
+              "primary": {
+                "type": "boolean"
+              },
+              "label": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "value"
+            ],
+            "additionalProperties": false
+          }
+        },
+        "phone": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "value": {
+                "type": "string"
+              },
+              "primary": {
+                "type": "boolean"
+              },
+              "label": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "value"
+            ],
+            "additionalProperties": false
+          }
+        },
+        "owner_id": {
+          "type": "number"
+        },
+        "org_id": {
+          "type": "number"
+        },
+        "visible_to": {
+          "type": [
+            "number",
+            "string"
+          ]
+        },
+        "marketing_status": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "id"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_pipedrive_createpipeline": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string",
+          "description": "The name of the pipeline. Example: \"Sales Pipeline\""
+        },
+        "deal_probability": {
+          "type": "boolean",
+          "description": "Whether deal probability is enabled for this pipeline"
+        }
+      },
+      "required": [
+        "name"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_pipedrive_createpipeline": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "deal_probability": {
+          "type": [
+            "boolean",
+            "number"
+          ]
+        },
+        "add_time": {
+          "type": "string"
+        },
+        "update_time": {
+          "type": "string"
+        },
+        "active": {
+          "type": "boolean"
+        },
+        "order_nr": {
+          "type": "number"
+        }
+      },
+      "required": [
+        "id",
+        "name"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_pipedrive_createproduct": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string",
+          "description": "The name of the product. Cannot be an empty string."
+        },
+        "code": {
+          "type": "string",
+          "description": "The product code."
+        },
+        "description": {
+          "type": "string",
+          "description": "The product description."
+        },
+        "unit": {
+          "type": "string",
+          "description": "The unit in which this product is sold."
+        },
+        "tax": {
+          "type": "number",
+          "description": "The tax percentage."
+        },
+        "category": {
+          "type": "number",
+          "description": "The category of the product."
+        },
+        "owner_id": {
+          "type": "number",
+          "description": "The ID of the user who will be marked as the owner of this product."
+        },
+        "is_linkable": {
+          "type": "boolean",
+          "description": "Whether this product can be added to a deal or not."
+        },
+        "visible_to": {
+          "type": "number",
+          "description": "The visibility of the product."
+        },
+        "prices": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "currency": {
+                "type": "string"
+              },
+              "price": {
+                "type": "number"
+              },
+              "cost": {
+                "type": "number"
+              },
+              "direct_cost": {
+                "type": "number"
+              }
+            },
+            "required": [
+              "currency",
+              "price"
+            ],
+            "additionalProperties": false
+          },
+          "description": "An array of price objects."
+        },
+        "custom_fields": {
+          "type": "object",
+          "additionalProperties": false,
+          "description": "Custom fields object."
+        },
+        "billing_frequency": {
+          "type": "string",
+          "description": "How often a customer is billed."
+        },
+        "billing_frequency_cycles": {
+          "type": "number",
+          "description": "The number of times the billing frequency repeats."
+        }
+      },
+      "required": [
+        "name"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_pipedrive_createproduct": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "number"
+        },
+        "name": {
+          "type": "string"
+        },
+        "code": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        },
+        "unit": {
+          "type": "string"
+        },
+        "tax": {
+          "type": "number"
+        },
+        "category": {
+          "type": "number"
+        },
+        "owner_id": {
+          "type": "number"
+        },
+        "is_linkable": {
+          "type": "boolean"
+        },
+        "visible_to": {
+          "type": "number"
+        },
+        "add_time": {
+          "type": "string"
+        },
+        "update_time": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "id",
+        "name"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_pipedrive_createstage": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string",
+          "description": "The name of the stage. Example: \"Qualified Lead\""
+        },
+        "pipeline_id": {
+          "type": "number",
+          "description": "The ID of the pipeline to add the stage to. Example: 1"
+        },
+        "deal_probability": {
+          "type": "number",
+          "description": "The success probability percentage of the deal. Used/shown when deal weighted values are used. Example: 50"
+        },
+        "is_deal_rot_enabled": {
+          "type": "boolean",
+          "description": "Whether deals in this stage can become rotten"
+        },
+        "days_to_rotten": {
+          "type": "number",
+          "description": "The number of days the deals not updated in this stage would become rotten. Applies only if is_deal_rot_enabled is set."
+        }
+      },
+      "required": [
+        "name",
+        "pipeline_id"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_pipedrive_createstage": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "pipeline_id": {
+          "type": "number"
+        },
+        "order_nr": {
+          "type": "number"
+        },
+        "deal_probability": {
+          "type": "number"
+        },
+        "is_deal_rot_enabled": {
+          "type": "boolean"
+        },
+        "days_to_rotten": {
+          "type": "number"
+        },
+        "add_time": {
+          "type": "string"
+        },
+        "update_time": {
+          "type": "string"
+        },
+        "active_flag": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "id",
+        "name",
+        "pipeline_id"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_pipedrive_deleteactivity": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "number",
+          "description": "The ID of the activity to delete. Example: 8"
+        }
+      },
+      "required": [
+        "id"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_pipedrive_deleteactivity": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "number"
+        },
+        "success": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "id"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_pipedrive_deletedeal": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "number",
+          "description": "The ID of the deal to delete. Example: 9"
+        }
+      },
+      "required": [
+        "id"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_pipedrive_deletedeal": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "number"
+        },
+        "deleted": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "id",
+        "deleted"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_pipedrive_deletelead": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "The ID of the lead to delete. Example: \"a1b2c3d4-e5f6-7890-abcd-ef1234567890\""
+        }
+      },
+      "required": [
+        "id"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_pipedrive_deletelead": {
+      "type": "object",
+      "properties": {
+        "success": {
+          "type": "boolean"
+        },
+        "id": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "success",
+        "id"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_pipedrive_deletenote": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "number",
+          "description": "The ID of the note to delete. Example: 123"
+        }
+      },
+      "required": [
+        "id"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_pipedrive_deletenote": {
+      "type": "object",
+      "properties": {
+        "success": {
+          "type": "boolean"
+        },
+        "deleted": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "success",
+        "deleted"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_pipedrive_deleteorganization": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "number",
+          "description": "The ID of the organization to delete. Example: 9"
+        }
+      },
+      "required": [
+        "id"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_pipedrive_deleteorganization": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "number"
+        },
+        "deleted": {
+          "type": "boolean"
+        },
+        "message": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "id"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_pipedrive_deleteperson": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "number",
+          "description": "The ID of the person to delete. Example: 11"
+        }
+      },
+      "required": [
+        "id"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_pipedrive_deleteperson": {
+      "type": "object",
+      "properties": {
+        "success": {
+          "type": "boolean"
+        },
+        "id": {
+          "type": "number"
+        }
+      },
+      "required": [
+        "success"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_pipedrive_deletepipeline": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "number",
+          "description": "The ID of the pipeline to delete. Example: 123"
+        }
+      },
+      "required": [
+        "id"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_pipedrive_deletepipeline": {
+      "type": "object",
+      "properties": {
+        "success": {
+          "type": "boolean"
+        },
+        "id": {
+          "type": "number"
+        }
+      },
+      "required": [
+        "success"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_pipedrive_deleteproduct": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "number",
+          "description": "The ID of the product to delete. Example: 7"
+        }
+      },
+      "required": [
+        "id"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_pipedrive_deleteproduct": {
+      "type": "object",
+      "properties": {
+        "success": {
+          "type": "boolean"
+        },
+        "id": {
+          "type": "number"
+        }
+      },
+      "required": [
+        "success"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_pipedrive_deletestage": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "number",
+          "description": "The ID of the stage to delete. Example: 13"
+        }
+      },
+      "required": [
+        "id"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_pipedrive_deletestage": {
+      "type": "object",
+      "properties": {
+        "success": {
+          "type": "boolean"
+        },
+        "id": {
+          "type": "number"
+        }
+      },
+      "required": [
+        "success"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_pipedrive_getactivity": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "number",
+          "description": "The ID of the activity. Example: 123"
+        }
+      },
+      "required": [
+        "id"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_pipedrive_getactivity": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "number"
+        },
+        "subject": {
+          "type": "string"
+        },
+        "type": {
+          "type": "string"
+        },
+        "ownerId": {
+          "type": "number"
+        },
+        "dealId": {
+          "type": "number"
+        },
+        "leadId": {
+          "type": "string"
+        },
+        "personId": {
+          "type": "number"
+        },
+        "orgId": {
+          "type": "number"
+        },
+        "projectId": {
+          "type": "number"
+        },
+        "dueDate": {
+          "type": "string"
+        },
+        "dueTime": {
+          "type": "string"
+        },
+        "duration": {
+          "type": "string"
+        },
+        "busy": {
+          "type": "boolean"
+        },
+        "done": {
+          "type": "boolean"
+        },
+        "location": {
+          "type": "object",
+          "properties": {
+            "value": {
+              "type": "string"
+            },
+            "country": {
+              "type": "string"
+            },
+            "adminAreaLevel1": {
+              "type": "string"
+            },
+            "adminAreaLevel2": {
+              "type": "string"
+            },
+            "locality": {
+              "type": "string"
+            },
+            "sublocality": {
+              "type": "string"
+            },
+            "route": {
+              "type": "string"
+            },
+            "streetNumber": {
+              "type": "string"
+            },
+            "subpremise": {
+              "type": "string"
+            },
+            "postalCode": {
+              "type": "string"
+            }
+          },
+          "additionalProperties": false
+        },
+        "publicDescription": {
+          "type": "string"
+        },
+        "priority": {
+          "type": "number"
+        },
+        "note": {
+          "type": "string"
+        },
+        "addTime": {
+          "type": "string"
+        },
+        "updateTime": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "id"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_pipedrive_getdeal": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "number",
+          "description": "The ID of the deal. Example: 123"
+        }
+      },
+      "required": [
+        "id"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_pipedrive_getdeal": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "number"
+        },
+        "title": {
+          "type": "string"
+        },
+        "value": {
+          "type": "number"
+        },
+        "currency": {
+          "type": "string"
         },
         "user_id": {
           "type": "number"
@@ -104255,94 +106102,791 @@
         "stage_id": {
           "type": "number"
         },
-        "title": {
-          "type": "string"
-        },
-        "value": {
+        "pipeline_id": {
           "type": "number"
-        },
-        "currency": {
-          "type": "string"
-        },
-        "add_time": {
-          "type": "string",
-          "format": "date-time"
-        },
-        "update_time": {
-          "type": "string",
-          "format": "date-time"
         },
         "status": {
           "type": "string"
         },
-        "probability": {
+        "add_time": {
+          "type": "string"
+        },
+        "update_time": {
+          "type": "string"
+        },
+        "next_activity_date": {
+          "type": "string"
+        },
+        "next_activity_time": {
+          "type": "string"
+        },
+        "next_activity_id": {
+          "type": "number"
+        },
+        "last_activity_id": {
+          "type": "number"
+        },
+        "last_activity_date": {
           "type": "string"
         },
         "lost_reason": {
           "type": "string"
         },
-        "visible_to": {
-          "type": "string"
-        },
         "close_time": {
-          "type": "string",
-          "format": "date-time"
-        },
-        "pipeline_id": {
-          "type": "number"
+          "type": "string"
         },
         "won_time": {
-          "type": "string",
-          "format": "date-time"
+          "type": "string"
+        },
+        "first_won_time": {
+          "type": "string"
         },
         "lost_time": {
-          "type": "string",
-          "format": "date-time"
+          "type": "string"
+        },
+        "probability": {
+          "type": "number"
+        },
+        "products_count": {
+          "type": "number"
+        },
+        "files_count": {
+          "type": "number"
+        },
+        "notes_count": {
+          "type": "number"
+        },
+        "followers_count": {
+          "type": "number"
+        },
+        "email_messages_count": {
+          "type": "number"
+        },
+        "activities_count": {
+          "type": "number"
+        },
+        "done_activities_count": {
+          "type": "number"
+        },
+        "undone_activities_count": {
+          "type": "number"
+        },
+        "participants_count": {
+          "type": "number"
         },
         "expected_close_date": {
-          "type": "string",
-          "format": "date-time"
-        },
-        "label": {
           "type": "string"
+        },
+        "cc_email": {
+          "type": "string"
+        },
+        "org_name": {
+          "type": "string"
+        },
+        "person_name": {
+          "type": "string"
+        },
+        "owner_name": {
+          "type": "string"
+        },
+        "origin": {
+          "type": "string"
+        },
+        "origin_id": {
+          "type": "string"
+        },
+        "is_archived": {
+          "type": "boolean"
         }
       },
       "required": [
-        "id",
-        "creator_user_id",
-        "user_id",
-        "person_id",
-        "org_id",
-        "stage_id",
-        "title",
-        "value",
-        "currency",
-        "add_time",
-        "update_time",
-        "status",
-        "probability",
-        "lost_reason",
-        "visible_to",
-        "close_time",
-        "pipeline_id",
-        "won_time",
-        "lost_time",
-        "expected_close_date",
-        "label"
+        "id"
       ],
       "additionalProperties": false
     },
-    "SyncMetadata_pipedrive_deals": {
+    "ActionInput_pipedrive_getlead": {
       "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "The ID of the lead. Example: \"e6e17c2f-1234-4567-890a-b1234567890c\""
+        }
+      },
+      "required": [
+        "id"
+      ],
       "additionalProperties": false
     },
-    "PipeDriveOrganization": {
+    "ActionOutput_pipedrive_getlead": {
       "type": "object",
       "properties": {
         "id": {
           "type": "string"
         },
+        "title": {
+          "type": "string"
+        },
         "owner_id": {
+          "type": "number"
+        },
+        "creator_id": {
+          "type": "number"
+        },
+        "person_id": {
+          "type": "number"
+        },
+        "organization_id": {
+          "type": "number"
+        },
+        "value": {
+          "type": "object",
+          "properties": {
+            "amount": {
+              "type": "number"
+            },
+            "currency": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "amount",
+            "currency"
+          ],
+          "additionalProperties": false
+        },
+        "expected_close_date": {
+          "type": "string"
+        },
+        "add_time": {
+          "type": "string"
+        },
+        "update_time": {
+          "type": "string"
+        },
+        "was_seen": {
+          "type": "boolean"
+        },
+        "is_archived": {
+          "type": "boolean"
+        },
+        "next_activity_id": {
+          "type": "number"
+        },
+        "label_ids": {
+          "type": "array",
+          "items": {
+            "type": "number"
+          }
+        }
+      },
+      "required": [
+        "id",
+        "title"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_pipedrive_getnote": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "number",
+          "description": "The ID of the note to retrieve. Example: 123"
+        }
+      },
+      "required": [
+        "id"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_pipedrive_getnote": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "number"
+        },
+        "content": {
+          "type": "string"
+        },
+        "user_id": {
+          "type": "number"
+        },
+        "deal_id": {
+          "type": "number"
+        },
+        "person_id": {
+          "type": "number"
+        },
+        "org_id": {
+          "type": "number"
+        },
+        "lead_id": {
+          "type": "string"
+        },
+        "project_id": {
+          "type": "number"
+        },
+        "task_id": {
+          "type": "number"
+        },
+        "add_time": {
+          "type": "string"
+        },
+        "update_time": {
+          "type": "string"
+        },
+        "active_flag": {
+          "type": "boolean"
+        },
+        "pinned_to_lead_flag": {
+          "type": "boolean"
+        },
+        "pinned_to_deal_flag": {
+          "type": "boolean"
+        },
+        "pinned_to_organization_flag": {
+          "type": "boolean"
+        },
+        "pinned_to_person_flag": {
+          "type": "boolean"
+        },
+        "pinned_to_project_flag": {
+          "type": "boolean"
+        },
+        "pinned_to_task_flag": {
+          "type": "boolean"
+        },
+        "last_update_user_id": {
+          "type": "number"
+        }
+      },
+      "required": [
+        "id"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_pipedrive_getorganization": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "number",
+          "description": "The ID of the organization to retrieve. Example: 123"
+        }
+      },
+      "required": [
+        "id"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_pipedrive_getorganization": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "number"
+        },
+        "name": {
+          "type": "string"
+        },
+        "owner_id": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "number"
+                },
+                "name": {
+                  "type": "string"
+                },
+                "email": {
+                  "type": "string"
+                },
+                "has_pic": {
+                  "type": "number"
+                },
+                "pic_hash": {
+                  "type": "string"
+                },
+                "active_flag": {
+                  "type": "boolean"
+                },
+                "value": {
+                  "type": "number"
+                }
+              },
+              "required": [
+                "id"
+              ],
+              "additionalProperties": false
+            }
+          ]
+        },
+        "add_time": {
+          "type": "string"
+        },
+        "update_time": {
+          "type": "string"
+        },
+        "visible_to": {
+          "type": "string"
+        },
+        "label_ids": {
+          "type": "array",
+          "items": {
+            "type": "number"
+          }
+        },
+        "address": {
+          "anyOf": [
+            {
+              "type": "object",
+              "properties": {
+                "value": {
+                  "type": "string"
+                },
+                "country": {
+                  "type": "string"
+                },
+                "admin_area_level_1": {
+                  "type": "string"
+                },
+                "admin_area_level_2": {
+                  "type": "string"
+                },
+                "locality": {
+                  "type": "string"
+                },
+                "sublocality": {
+                  "type": "string"
+                },
+                "route": {
+                  "type": "string"
+                },
+                "street_number": {
+                  "type": "string"
+                },
+                "subpremise": {
+                  "type": "string"
+                },
+                "postal_code": {
+                  "type": "string"
+                }
+              },
+              "additionalProperties": false
+            },
+            {
+              "type": "string"
+            }
+          ]
+        },
+        "people_count": {
+          "type": "number"
+        },
+        "open_deals_count": {
+          "type": "number"
+        },
+        "closed_deals_count": {
+          "type": "number"
+        },
+        "won_deals_count": {
+          "type": "number"
+        },
+        "lost_deals_count": {
+          "type": "number"
+        },
+        "activities_count": {
+          "type": "number"
+        },
+        "done_activities_count": {
+          "type": "number"
+        },
+        "undone_activities_count": {
+          "type": "number"
+        },
+        "email_messages_count": {
+          "type": "number"
+        },
+        "files_count": {
+          "type": "number"
+        },
+        "notes_count": {
+          "type": "number"
+        },
+        "followers_count": {
+          "type": "number"
+        },
+        "last_activity_id": {
+          "type": "number"
+        },
+        "next_activity_id": {
+          "type": "number"
+        }
+      },
+      "required": [
+        "id"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_pipedrive_getperson": {
+      "type": "object",
+      "properties": {
+        "person_id": {
+          "type": "number",
+          "description": "The ID of the person to retrieve. Example: 123"
+        }
+      },
+      "required": [
+        "person_id"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_pipedrive_getperson": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "number"
+        },
+        "name": {
+          "type": "string"
+        },
+        "owner_id": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "number"
+                },
+                "name": {
+                  "type": "string"
+                },
+                "email": {
+                  "type": "string"
+                },
+                "has_pic": {
+                  "type": "number"
+                },
+                "pic_hash": {
+                  "type": "string"
+                },
+                "active_flag": {
+                  "type": "boolean"
+                }
+              },
+              "required": [
+                "id"
+              ],
+              "additionalProperties": false
+            }
+          ]
+        },
+        "org_id": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "type": "object",
+              "properties": {
+                "name": {
+                  "type": "string"
+                },
+                "people_count": {
+                  "type": "number"
+                },
+                "owner_id": {
+                  "type": "number"
+                },
+                "address": {
+                  "type": "string"
+                },
+                "label_ids": {
+                  "type": "array",
+                  "items": {
+                    "type": "number"
+                  }
+                },
+                "active_flag": {
+                  "type": "boolean"
+                },
+                "cc_email": {
+                  "type": "string"
+                },
+                "owner_name": {
+                  "type": "string"
+                },
+                "value": {
+                  "type": "number"
+                }
+              },
+              "required": [
+                "name"
+              ],
+              "additionalProperties": false
+            }
+          ]
+        },
+        "emails": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "value": {
+                "type": "string"
+              },
+              "primary": {
+                "type": "boolean"
+              },
+              "label": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "value"
+            ],
+            "additionalProperties": false
+          }
+        },
+        "phones": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "value": {
+                "type": "string"
+              },
+              "primary": {
+                "type": "boolean"
+              },
+              "label": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "value"
+            ],
+            "additionalProperties": false
+          }
+        },
+        "add_time": {
+          "type": "string"
+        },
+        "update_time": {
+          "type": "string"
+        },
+        "visible_to": {
+          "type": [
+            "number",
+            "string"
+          ]
+        },
+        "label_ids": {
+          "type": "array",
+          "items": {
+            "type": "number"
+          }
+        },
+        "active": {
+          "type": "boolean"
+        },
+        "deleted": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "id"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_pipedrive_getpipeline": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "number",
+          "description": "The ID of the pipeline to retrieve. Example: 1"
+        }
+      },
+      "required": [
+        "id"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_pipedrive_getpipeline": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "number"
+        },
+        "name": {
+          "type": "string"
+        },
+        "is_deal_probability_enabled": {
+          "type": "boolean"
+        },
+        "add_time": {
+          "type": "string"
+        },
+        "update_time": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "id",
+        "name"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_pipedrive_getproduct": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "number",
+          "description": "The ID of the product. Example: 123"
+        }
+      },
+      "required": [
+        "id"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_pipedrive_getproduct": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "number"
+        },
+        "name": {
+          "type": "string"
+        },
+        "code": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        },
+        "unit": {
+          "type": "string"
+        },
+        "tax": {
+          "type": "number"
+        },
+        "category": {
+          "type": "number"
+        },
+        "owner_id": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "number"
+                },
+                "name": {
+                  "type": "string"
+                },
+                "email": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "id"
+              ],
+              "additionalProperties": false
+            }
+          ]
+        },
+        "is_linkable": {
+          "type": "boolean"
+        },
+        "visible_to": {
+          "type": [
+            "number",
+            "string"
+          ]
+        },
+        "prices": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "currency": {
+                "type": "string"
+              },
+              "price": {
+                "type": "number"
+              },
+              "cost": {
+                "type": "number"
+              },
+              "direct_cost": {
+                "type": "number"
+              }
+            },
+            "required": [
+              "currency",
+              "price"
+            ],
+            "additionalProperties": false
+          }
+        },
+        "custom_fields": {
+          "type": "object",
+          "additionalProperties": {
+            "anyOf": [
+              {},
+              {
+                "not": {}
+              }
+            ]
+          }
+        },
+        "billing_frequency": {
+          "type": "string"
+        },
+        "billing_frequency_cycles": {
+          "type": "number"
+        },
+        "add_time": {
+          "type": "string"
+        },
+        "update_time": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "id",
+        "name"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_pipedrive_getstage": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "number",
+          "description": "The ID of the stage. Example: 1"
+        }
+      },
+      "required": [
+        "id"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_pipedrive_getstage": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "number"
+        },
+        "order_nr": {
           "type": "number"
         },
         "name": {
@@ -104351,98 +106895,2225 @@
         "active_flag": {
           "type": "boolean"
         },
-        "update_time": {
-          "type": "string",
-          "format": "date-time"
+        "deal_probability": {
+          "type": "number"
         },
-        "delete_time": {
-          "type": "string",
-          "format": "date-time"
+        "pipeline_id": {
+          "type": "number"
+        },
+        "rotten_flag": {
+          "type": [
+            "number",
+            "boolean"
+          ]
+        },
+        "rotten_days": {
+          "type": "number"
         },
         "add_time": {
-          "type": "string",
-          "format": "date-time"
-        },
-        "visible_to": {
           "type": "string"
         },
-        "label": {
-          "type": "number"
-        },
-        "address": {
-          "type": "number"
-        },
-        "address_subpremise": {
-          "type": "string"
-        },
-        "address_street_number": {
-          "type": "string"
-        },
-        "address_route": {
-          "type": "string"
-        },
-        "address_sublocality": {
-          "type": "string"
-        },
-        "address_locality": {
-          "type": "string"
-        },
-        "address_admin_area_level_1": {
-          "type": "string"
-        },
-        "address_admin_area_level_2": {
-          "type": "string"
-        },
-        "address_country": {
-          "type": "string"
-        },
-        "address_postal_code": {
-          "type": "string"
-        },
-        "address_formatted_address": {
-          "type": "string"
-        },
-        "cc_email": {
+        "update_time": {
           "type": "string"
         }
       },
       "required": [
         "id",
-        "owner_id",
+        "order_nr",
         "name",
         "active_flag",
-        "update_time",
-        "delete_time",
-        "add_time",
-        "visible_to",
-        "label",
-        "address",
-        "address_subpremise",
-        "address_street_number",
-        "address_route",
-        "address_sublocality",
-        "address_locality",
-        "address_admin_area_level_1",
-        "address_admin_area_level_2",
-        "address_country",
-        "address_postal_code",
-        "address_formatted_address",
-        "cc_email"
+        "pipeline_id"
       ],
       "additionalProperties": false
     },
-    "SyncMetadata_pipedrive_organizations": {
+    "ActionInput_pipedrive_getuser": {
       "type": "object",
+      "properties": {
+        "id": {
+          "type": "number",
+          "description": "The ID of the user. Example: 123"
+        }
+      },
+      "required": [
+        "id"
+      ],
       "additionalProperties": false
     },
-    "PipeDrivePerson": {
+    "ActionOutput_pipedrive_getuser": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "number"
+        },
+        "name": {
+          "type": "string"
+        },
+        "email": {
+          "type": "string"
+        },
+        "active_flag": {
+          "type": "boolean"
+        },
+        "timezone_name": {
+          "type": "string"
+        },
+        "timezone_offset": {
+          "type": "string"
+        },
+        "lang": {
+          "type": [
+            "string",
+            "number"
+          ]
+        },
+        "locale": {
+          "type": "string"
+        },
+        "phone": {
+          "type": "string"
+        },
+        "created": {
+          "type": "string"
+        },
+        "modified": {
+          "type": "string"
+        },
+        "last_login": {
+          "type": "string"
+        },
+        "is_admin": {
+          "type": [
+            "boolean",
+            "number"
+          ]
+        },
+        "role_id": {
+          "type": "number"
+        },
+        "icon_url": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "id",
+        "name",
+        "email",
+        "active_flag"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_pipedrive_listactivities": {
+      "type": "object",
+      "properties": {
+        "cursor": {
+          "type": "string",
+          "description": "Pagination cursor from the previous response. Omit for the first page."
+        },
+        "limit": {
+          "type": "number",
+          "description": "Number of activities to return per page. Default: 100, max: 500."
+        },
+        "filter_id": {
+          "type": "number",
+          "description": "If supplied, only activities matching the specified filter are returned."
+        },
+        "user_id": {
+          "type": "number",
+          "description": "If supplied, only activities owned by the specified user are returned."
+        },
+        "deal_id": {
+          "type": "number",
+          "description": "If supplied, only activities linked to the specified deal are returned."
+        },
+        "person_id": {
+          "type": "number",
+          "description": "If supplied, only activities whose primary participant is the given person are returned."
+        },
+        "org_id": {
+          "type": "number",
+          "description": "If supplied, only activities linked to the specified organization are returned."
+        },
+        "done": {
+          "type": "boolean",
+          "description": "If supplied, only activities with specified done flag value are returned."
+        },
+        "type": {
+          "type": "string",
+          "description": "The type of the activity. Can be one type or multiple types separated by a comma."
+        },
+        "updated_since": {
+          "type": "string",
+          "description": "If set, only activities with an update_time later than or equal to this time are returned. In RFC3339 format, e.g. 2025-01-01T10:20:00Z."
+        },
+        "updated_until": {
+          "type": "string",
+          "description": "If set, only activities with an update_time earlier than this time are returned. In RFC3339 format, e.g. 2025-01-01T10:20:00Z."
+        },
+        "sort_by": {
+          "type": "string",
+          "description": "The field to sort by. Supported fields: id, update_time, add_time, due_date. Default: id."
+        },
+        "sort_direction": {
+          "type": "string",
+          "description": "The sorting direction. Supported values: asc, desc. Default: asc."
+        }
+      },
+      "additionalProperties": false
+    },
+    "ActionOutput_pipedrive_listactivities": {
+      "type": "object",
+      "properties": {
+        "activities": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "number"
+              },
+              "subject": {
+                "type": "string",
+                "description": "Subject of the activity"
+              },
+              "type": {
+                "type": "string",
+                "description": "Type of the activity"
+              },
+              "done": {
+                "type": "boolean",
+                "description": "Whether the activity is done"
+              },
+              "due_date": {
+                "type": "string",
+                "description": "Due date of the activity"
+              },
+              "due_time": {
+                "type": "string",
+                "description": "Due time of the activity"
+              },
+              "duration": {
+                "type": "string",
+                "description": "Duration of the activity"
+              },
+              "user_id": {
+                "type": "number",
+                "description": "ID of the user who owns the activity"
+              },
+              "deal_id": {
+                "type": "number",
+                "description": "ID of the deal linked to the activity"
+              },
+              "person_id": {
+                "type": "number",
+                "description": "ID of the person linked to the activity"
+              },
+              "org_id": {
+                "type": "number",
+                "description": "ID of the organization linked to the activity"
+              },
+              "add_time": {
+                "type": "string",
+                "description": "Time when the activity was added"
+              },
+              "update_time": {
+                "type": "string",
+                "description": "Time when the activity was last updated"
+              },
+              "location": {
+                "type": "string",
+                "description": "Location of the activity"
+              },
+              "public_description": {
+                "type": "string",
+                "description": "Public description of the activity"
+              },
+              "note": {
+                "type": "string",
+                "description": "Note of the activity"
+              }
+            },
+            "required": [
+              "id"
+            ],
+            "additionalProperties": false
+          },
+          "description": "List of activities"
+        },
+        "next_cursor": {
+          "type": "string",
+          "description": "Cursor for the next page of results"
+        }
+      },
+      "required": [
+        "activities"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_pipedrive_listdeals": {
+      "type": "object",
+      "properties": {
+        "cursor": {
+          "type": "string",
+          "description": "Pagination cursor from the previous response. Omit for the first page."
+        },
+        "filter_id": {
+          "type": "number",
+          "description": "If supplied, only deals matching the specified filter are returned."
+        },
+        "owner_id": {
+          "type": "number",
+          "description": "If supplied, only deals owned by the specified user are returned."
+        },
+        "person_id": {
+          "type": "number",
+          "description": "If supplied, only deals linked to the specified person are returned."
+        },
+        "org_id": {
+          "type": "number",
+          "description": "If supplied, only deals linked to the specified organization are returned."
+        },
+        "pipeline_id": {
+          "type": "number",
+          "description": "If supplied, only deals in the specified pipeline are returned."
+        },
+        "stage_id": {
+          "type": "number",
+          "description": "If supplied, only deals in the specified stage are returned."
+        },
+        "status": {
+          "type": "string",
+          "description": "Only fetch deals with a specific status. If omitted, all not deleted deals are returned."
+        },
+        "limit": {
+          "type": "number",
+          "description": "The number of items to return per page. Maximum 500."
+        }
+      },
+      "additionalProperties": false
+    },
+    "ActionOutput_pipedrive_listdeals": {
+      "type": "object",
+      "properties": {
+        "items": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "number"
+              },
+              "title": {
+                "type": "string"
+              },
+              "status": {
+                "type": "string"
+              },
+              "stage_id": {
+                "type": "number"
+              },
+              "pipeline_id": {
+                "type": "number"
+              },
+              "add_time": {
+                "type": "string"
+              },
+              "update_time": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "id"
+            ],
+            "additionalProperties": false
+          }
+        },
+        "next_cursor": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "items"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_pipedrive_listleads": {
+      "type": "object",
+      "properties": {
+        "cursor": {
+          "type": "string",
+          "description": "Pagination cursor from the previous response. Maps to the `start` parameter in the Pipedrive API."
+        },
+        "limit": {
+          "type": "number",
+          "description": "Number of leads to return per page. Default is 100, maximum is 500."
+        },
+        "owner_id": {
+          "type": "number",
+          "description": "If supplied, only leads matching the given user will be returned."
+        },
+        "person_id": {
+          "type": "number",
+          "description": "If supplied, only leads matching the given person will be returned."
+        },
+        "organization_id": {
+          "type": "number",
+          "description": "If supplied, only leads matching the given organization will be returned."
+        },
+        "filter_id": {
+          "type": "number",
+          "description": "The ID of the filter to use."
+        },
+        "updated_since": {
+          "type": "string",
+          "description": "If set, only leads with an update_time later than or equal to this time are returned. In ISO 8601 format, e.g., 2025-01-01T10:20:00Z."
+        },
+        "sort": {
+          "type": "string",
+          "description": "The field names and sorting mode separated by a comma (e.g., `add_time ASC`, `update_time DESC`). Only first-level field keys are supported."
+        }
+      },
+      "additionalProperties": false
+    },
+    "ActionOutput_pipedrive_listleads": {
+      "type": "object",
+      "properties": {
+        "leads": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "title": {
+                "type": "string",
+                "description": "The title of the lead."
+              },
+              "owner_id": {
+                "type": "number",
+                "description": "The ID of the user who owns the lead."
+              },
+              "person_id": {
+                "type": "number",
+                "description": "The ID of the person the lead is associated with."
+              },
+              "organization_id": {
+                "type": "number",
+                "description": "The ID of the organization the lead is associated with."
+              },
+              "add_time": {
+                "type": "string",
+                "description": "The date and time the lead was created."
+              },
+              "update_time": {
+                "type": "string",
+                "description": "The date and time the lead was last updated."
+              },
+              "was_seen": {
+                "type": "boolean",
+                "description": "Whether the lead has been seen."
+              },
+              "expected_close_date": {
+                "type": "string",
+                "description": "The expected close date of the lead."
+              },
+              "next_activity_id": {
+                "type": "number",
+                "description": "The ID of the next activity associated with the lead."
+              },
+              "source_name": {
+                "type": "string",
+                "description": "The source name of the lead."
+              },
+              "label_ids": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                },
+                "description": "The IDs of labels attached to the lead."
+              }
+            },
+            "required": [
+              "id",
+              "title"
+            ],
+            "additionalProperties": false
+          },
+          "description": "The list of leads."
+        },
+        "next_cursor": {
+          "type": "string",
+          "description": "The cursor for the next page of results. Null if there are no more results."
+        }
+      },
+      "required": [
+        "leads"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_pipedrive_listnotes": {
+      "type": "object",
+      "properties": {
+        "cursor": {
+          "type": "string",
+          "description": "Pagination cursor from the previous response. Omit for the first page."
+        },
+        "limit": {
+          "type": "number",
+          "description": "Number of items to return per page."
+        },
+        "user_id": {
+          "type": "number",
+          "description": "Filter by user ID who created the note."
+        },
+        "lead_id": {
+          "type": "string",
+          "description": "Filter by lead ID."
+        },
+        "deal_id": {
+          "type": "number",
+          "description": "Filter by deal ID."
+        },
+        "person_id": {
+          "type": "number",
+          "description": "Filter by person ID."
+        },
+        "org_id": {
+          "type": "number",
+          "description": "Filter by organization ID."
+        },
+        "project_id": {
+          "type": "number",
+          "description": "Filter by project ID."
+        },
+        "task_id": {
+          "type": "number",
+          "description": "Filter by task ID."
+        },
+        "start_date": {
+          "type": "string",
+          "description": "Filter by start date (YYYY-MM-DD)."
+        },
+        "end_date": {
+          "type": "string",
+          "description": "Filter by end date (YYYY-MM-DD)."
+        },
+        "updated_since": {
+          "type": "string",
+          "description": "Filter by updated since timestamp (RFC3339 format)."
+        },
+        "sort": {
+          "type": "string",
+          "description": "Sort field and direction (e.g., \"add_time DESC\")."
+        }
+      },
+      "additionalProperties": false
+    },
+    "ActionOutput_pipedrive_listnotes": {
+      "type": "object",
+      "properties": {
+        "items": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "number"
+              },
+              "user_id": {
+                "type": "number",
+                "description": "The ID of the user who created the note."
+              },
+              "deal_id": {
+                "type": "number",
+                "description": "The ID of the deal this note is attached to."
+              },
+              "person_id": {
+                "type": "number",
+                "description": "The ID of the person this note is attached to."
+              },
+              "org_id": {
+                "type": "number",
+                "description": "The ID of the organization this note is attached to."
+              },
+              "lead_id": {
+                "type": "string",
+                "description": "The ID of the lead this note is attached to."
+              },
+              "project_id": {
+                "type": "number",
+                "description": "The ID of the project this note is attached to."
+              },
+              "task_id": {
+                "type": "number",
+                "description": "The ID of the task this note is attached to."
+              },
+              "content": {
+                "type": "string",
+                "description": "The content of the note in HTML format."
+              },
+              "add_time": {
+                "type": "string",
+                "description": "The creation date and time of the note."
+              },
+              "update_time": {
+                "type": "string",
+                "description": "The last update date and time of the note."
+              },
+              "active_flag": {
+                "type": "boolean",
+                "description": "Whether the note is active."
+              },
+              "pinned_to_deal_flag": {
+                "type": "number",
+                "description": "Whether the note is pinned to a deal."
+              },
+              "pinned_to_person_flag": {
+                "type": "number",
+                "description": "Whether the note is pinned to a person."
+              },
+              "pinned_to_organization_flag": {
+                "type": "number",
+                "description": "Whether the note is pinned to an organization."
+              },
+              "pinned_to_lead_flag": {
+                "type": "number",
+                "description": "Whether the note is pinned to a lead."
+              },
+              "pinned_to_project_flag": {
+                "type": "number",
+                "description": "Whether the note is pinned to a project."
+              },
+              "pinned_to_task_flag": {
+                "type": "number",
+                "description": "Whether the note is pinned to a task."
+              }
+            },
+            "required": [
+              "id"
+            ],
+            "additionalProperties": false
+          },
+          "description": "The list of notes."
+        },
+        "next_cursor": {
+          "type": "string",
+          "description": "The cursor to fetch the next page of results."
+        }
+      },
+      "required": [
+        "items"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_pipedrive_listorganizations": {
+      "type": "object",
+      "properties": {
+        "filter_id": {
+          "type": "number",
+          "description": "Filter ID to apply. Only organizations matching the filter are returned."
+        },
+        "ids": {
+          "type": "string",
+          "description": "Comma-separated string of up to 100 organization IDs to fetch. Ignored if filter_id is provided."
+        },
+        "owner_id": {
+          "type": "number",
+          "description": "Owner user ID. Only organizations owned by this user are returned. Ignored if filter_id is provided."
+        },
+        "updated_since": {
+          "type": "string",
+          "description": "RFC3339 timestamp. Only organizations with update_time later than or equal to this are returned. Example: 2025-01-01T10:20:00Z"
+        },
+        "updated_until": {
+          "type": "string",
+          "description": "RFC3339 timestamp. Only organizations with update_time earlier than this are returned. Example: 2025-01-01T10:20:00Z"
+        },
+        "sort_by": {
+          "type": "string",
+          "enum": [
+            "id",
+            "update_time",
+            "add_time"
+          ],
+          "description": "Field to sort by. Default: id"
+        },
+        "sort_direction": {
+          "type": "string",
+          "enum": [
+            "asc",
+            "desc"
+          ],
+          "description": "Sort direction. Default: asc"
+        },
+        "include_fields": {
+          "type": "string",
+          "description": "Comma-separated additional fields to include (e.g., next_activity_id, last_activity_id, open_deals_count)."
+        },
+        "custom_fields": {
+          "type": "string",
+          "description": "Comma-separated custom field keys to include. Maximum 15 keys."
+        },
+        "include_option_labels": {
+          "type": "boolean",
+          "description": "When true, option custom fields return { id, label } objects instead of plain IDs."
+        },
+        "include_labels": {
+          "type": "boolean",
+          "description": "When true, response includes an array of label objects as { id, label }."
+        },
+        "limit": {
+          "type": "number",
+          "description": "Number of items to return per page. Default: 100, Maximum: 500."
+        },
+        "cursor": {
+          "type": "string",
+          "description": "Pagination cursor from the previous response. Omit for the first page."
+        }
+      },
+      "additionalProperties": false
+    },
+    "ActionOutput_pipedrive_listorganizations": {
+      "type": "object",
+      "properties": {
+        "organizations": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "number"
+              },
+              "name": {
+                "type": "string"
+              },
+              "owner_id": {},
+              "add_time": {
+                "type": "string"
+              },
+              "update_time": {
+                "type": "string"
+              },
+              "visible_to": {},
+              "label_ids": {
+                "type": "array",
+                "items": {
+                  "type": "number"
+                }
+              },
+              "labels": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "number"
+                    },
+                    "label": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "id",
+                    "label"
+                  ],
+                  "additionalProperties": false
+                }
+              },
+              "address": {},
+              "people_count": {
+                "type": "number"
+              },
+              "open_deals_count": {
+                "type": "number"
+              },
+              "closed_deals_count": {
+                "type": "number"
+              },
+              "won_deals_count": {
+                "type": "number"
+              },
+              "lost_deals_count": {
+                "type": "number"
+              },
+              "next_activity_id": {},
+              "last_activity_id": {},
+              "activities_count": {
+                "type": "number"
+              },
+              "done_activities_count": {
+                "type": "number"
+              },
+              "undone_activities_count": {
+                "type": "number"
+              },
+              "email_messages_count": {
+                "type": "number"
+              },
+              "files_count": {
+                "type": "number"
+              },
+              "notes_count": {
+                "type": "number"
+              },
+              "followers_count": {
+                "type": "number"
+              }
+            },
+            "required": [
+              "id",
+              "name"
+            ],
+            "additionalProperties": false
+          }
+        },
+        "next_cursor": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "organizations"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_pipedrive_listpersons": {
+      "type": "object",
+      "properties": {
+        "filter_id": {
+          "type": "number",
+          "description": "If supplied, only persons matching the specified filter are returned"
+        },
+        "owner_id": {
+          "type": "number",
+          "description": "If supplied, only persons owned by the specified user are returned"
+        },
+        "org_id": {
+          "type": "number",
+          "description": "If supplied, only persons linked to the specified organization are returned"
+        },
+        "deal_id": {
+          "type": "number",
+          "description": "If supplied, only persons linked to the specified deal are returned"
+        },
+        "updated_since": {
+          "type": "string",
+          "description": "If set, only persons with an update_time later than or equal to this time are returned. In RFC3339 format, e.g. 2025-01-15T10:20:00Z"
+        },
+        "updated_until": {
+          "type": "string",
+          "description": "If set, only persons with an update_time earlier than this time are returned. In RFC3339 format, e.g. 2025-01-15T10:20:00Z"
+        },
+        "sort_by": {
+          "type": "string",
+          "enum": [
+            "id",
+            "update_time",
+            "add_time"
+          ],
+          "description": "The field to sort by. Defaults to id"
+        },
+        "sort_direction": {
+          "type": "string",
+          "enum": [
+            "asc",
+            "desc"
+          ],
+          "description": "The sorting direction. Defaults to asc"
+        },
+        "limit": {
+          "type": "number",
+          "description": "For pagination, the limit of entries to be returned. Maximum value of 500"
+        },
+        "cursor": {
+          "type": "string",
+          "description": "Pagination cursor from the previous response. Omit for the first page."
+        }
+      },
+      "additionalProperties": false
+    },
+    "ActionOutput_pipedrive_listpersons": {
+      "type": "object",
+      "properties": {
+        "persons": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "number"
+              },
+              "name": {
+                "type": "string"
+              },
+              "emails": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "value": {
+                      "type": "string"
+                    },
+                    "primary": {
+                      "type": "boolean"
+                    },
+                    "label": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "value"
+                  ],
+                  "additionalProperties": false
+                }
+              },
+              "phones": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "value": {
+                      "type": "string"
+                    },
+                    "primary": {
+                      "type": "boolean"
+                    },
+                    "label": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "value"
+                  ],
+                  "additionalProperties": false
+                }
+              },
+              "org_id": {
+                "type": "number"
+              },
+              "org_name": {
+                "type": "string"
+              },
+              "owner_id": {
+                "type": "number"
+              },
+              "owner_name": {
+                "type": "string"
+              },
+              "add_time": {
+                "type": "string"
+              },
+              "update_time": {
+                "type": "string"
+              },
+              "visible_to": {
+                "type": [
+                  "number",
+                  "string"
+                ]
+              },
+              "label_ids": {
+                "type": "array",
+                "items": {
+                  "type": "number"
+                }
+              },
+              "labels": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "number"
+                    },
+                    "label": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "id",
+                    "label"
+                  ],
+                  "additionalProperties": false
+                }
+              }
+            },
+            "required": [
+              "id"
+            ],
+            "additionalProperties": false
+          }
+        },
+        "next_cursor": {
+          "type": "string",
+          "description": "Pagination cursor for the next page of results"
+        }
+      },
+      "required": [
+        "persons"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_pipedrive_listpipelines": {
+      "type": "object",
+      "properties": {
+        "cursor": {
+          "type": "string",
+          "description": "Pagination cursor from the previous response. Omit for the first page."
+        },
+        "limit": {
+          "type": "number",
+          "description": "Number of items to return. Maximum 500. Default 100."
+        },
+        "sort_by": {
+          "type": "string",
+          "enum": [
+            "id",
+            "update_time",
+            "add_time"
+          ],
+          "description": "Field to sort by. Default: id"
+        },
+        "sort_direction": {
+          "type": "string",
+          "enum": [
+            "asc",
+            "desc"
+          ],
+          "description": "Sort direction. Default: asc"
+        }
+      },
+      "additionalProperties": false
+    },
+    "ActionOutput_pipedrive_listpipelines": {
+      "type": "object",
+      "properties": {
+        "items": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "number"
+              },
+              "name": {
+                "type": "string"
+              },
+              "url": {
+                "type": "string"
+              },
+              "add_time": {
+                "type": "string"
+              },
+              "update_time": {
+                "type": "string"
+              },
+              "is_deal_probability_enabled": {
+                "type": "boolean"
+              }
+            },
+            "required": [
+              "id",
+              "name"
+            ],
+            "additionalProperties": false
+          }
+        },
+        "next_cursor": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "items"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_pipedrive_listproducts": {
+      "type": "object",
+      "properties": {
+        "start": {
+          "type": "number",
+          "description": "Pagination start. Omit for the first page."
+        },
+        "limit": {
+          "type": "number",
+          "description": "Number of items to return per page. Maximum is 500."
+        },
+        "owner_id": {
+          "type": "number",
+          "description": "If supplied, only products owned by the given user will be returned."
+        },
+        "filter_id": {
+          "type": "number",
+          "description": "The ID of the filter to use."
+        },
+        "ids": {
+          "type": "string",
+          "description": "Comma-separated string array of up to 100 entity IDs to fetch. If filter_id is provided, this is ignored."
+        },
+        "sort_by": {
+          "type": "string",
+          "enum": [
+            "id",
+            "name",
+            "add_time",
+            "update_time"
+          ],
+          "description": "The field to sort by. Supported fields: id, name, add_time, update_time."
+        },
+        "sort_direction": {
+          "type": "string",
+          "enum": [
+            "asc",
+            "desc"
+          ],
+          "description": "The sorting direction. Supported values: asc, desc."
+        }
+      },
+      "additionalProperties": false
+    },
+    "ActionOutput_pipedrive_listproducts": {
+      "type": "object",
+      "properties": {
+        "items": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "name": {
+                "type": "string"
+              },
+              "code": {
+                "type": "string"
+              },
+              "description": {
+                "type": "string"
+              },
+              "unit": {
+                "type": "string"
+              },
+              "tax": {
+                "type": "number"
+              },
+              "category": {
+                "type": "number"
+              },
+              "active_flag": {
+                "type": "boolean"
+              },
+              "selectable": {
+                "type": "boolean"
+              },
+              "visible_to": {
+                "type": [
+                  "number",
+                  "string"
+                ]
+              },
+              "owner_id": {
+                "anyOf": [
+                  {
+                    "type": "number"
+                  },
+                  {
+                    "type": "object",
+                    "additionalProperties": false
+                  }
+                ]
+              },
+              "add_time": {
+                "type": "string"
+              },
+              "update_time": {
+                "type": "string"
+              },
+              "prices": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "number"
+                    },
+                    "product_id": {
+                      "type": "number"
+                    },
+                    "currency": {
+                      "type": "string"
+                    },
+                    "price": {
+                      "type": "number"
+                    },
+                    "cost": {
+                      "type": "number"
+                    },
+                    "overhead_cost": {
+                      "type": "number"
+                    },
+                    "price_formatted": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "currency",
+                    "price"
+                  ],
+                  "additionalProperties": false
+                }
+              }
+            },
+            "required": [
+              "id",
+              "name"
+            ],
+            "additionalProperties": false
+          }
+        },
+        "next_start": {
+          "type": "number"
+        }
+      },
+      "required": [
+        "items"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_pipedrive_liststages": {
+      "type": "object",
+      "properties": {
+        "pipeline_id": {
+          "type": "number",
+          "description": "The ID of the pipeline to fetch stages for. If omitted, stages for all pipelines will be returned."
+        },
+        "sort_by": {
+          "type": "string",
+          "enum": [
+            "id",
+            "update_time",
+            "add_time",
+            "order_nr"
+          ],
+          "description": "The field to sort by."
+        },
+        "sort_direction": {
+          "type": "string",
+          "enum": [
+            "asc",
+            "desc"
+          ],
+          "description": "The sorting direction."
+        },
+        "limit": {
+          "type": "number",
+          "description": "For pagination, the limit of entries to be returned. Maximum value of 500 is allowed."
+        },
+        "cursor": {
+          "type": "string",
+          "description": "Pagination cursor from the previous response. Omit for the first page."
+        }
+      },
+      "additionalProperties": false
+    },
+    "ActionOutput_pipedrive_liststages": {
+      "type": "object",
+      "properties": {
+        "items": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "number"
+              },
+              "name": {
+                "type": "string"
+              },
+              "pipeline_id": {
+                "type": "number"
+              },
+              "order_nr": {
+                "type": "number"
+              },
+              "deal_probability": {
+                "type": "number"
+              },
+              "is_deal_rot_enabled": {
+                "type": "boolean"
+              },
+              "days_to_rotten": {
+                "type": "number"
+              },
+              "add_time": {
+                "type": "string"
+              },
+              "update_time": {
+                "type": "string"
+              },
+              "active_flag": {
+                "type": "boolean"
+              }
+            },
+            "required": [
+              "id",
+              "name",
+              "pipeline_id",
+              "order_nr"
+            ],
+            "additionalProperties": false
+          }
+        },
+        "next_cursor": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "items"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_pipedrive_listusers": {
+      "type": "object",
+      "properties": {
+        "start": {
+          "type": "number",
+          "description": "Pagination start offset. Example: 0"
+        },
+        "limit": {
+          "type": "number",
+          "description": "Number of items per page. Maximum 500. Example: 50"
+        }
+      },
+      "additionalProperties": false
+    },
+    "ActionOutput_pipedrive_listusers": {
+      "type": "object",
+      "properties": {
+        "items": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "number"
+              },
+              "name": {
+                "type": "string"
+              },
+              "email": {
+                "type": "string"
+              },
+              "phone": {
+                "type": "string"
+              },
+              "locale": {
+                "type": "string"
+              },
+              "timezone_name": {
+                "type": "string"
+              },
+              "timezone_offset": {
+                "type": "string"
+              },
+              "created": {
+                "type": "string"
+              },
+              "modified": {
+                "type": "string"
+              },
+              "last_login": {
+                "type": "string"
+              },
+              "activated": {
+                "type": "boolean"
+              },
+              "is_admin": {
+                "type": "number"
+              },
+              "role_id": {
+                "type": "number"
+              },
+              "icon_url": {
+                "type": "string"
+              },
+              "active_flag": {
+                "type": "boolean"
+              }
+            },
+            "required": [
+              "id"
+            ],
+            "additionalProperties": false
+          }
+        },
+        "success": {
+          "type": "boolean"
+        },
+        "additional_data": {
+          "type": "object",
+          "properties": {
+            "pagination": {
+              "type": "object",
+              "properties": {
+                "start": {
+                  "type": "number"
+                },
+                "limit": {
+                  "type": "number"
+                },
+                "more_items_in_collection": {
+                  "type": "boolean"
+                }
+              },
+              "required": [
+                "start",
+                "limit"
+              ],
+              "additionalProperties": false
+            }
+          },
+          "additionalProperties": false
+        }
+      },
+      "required": [
+        "items",
+        "success"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_pipedrive_updateactivity": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "number",
+          "description": "The ID of the activity to update. Example: 8"
+        },
+        "subject": {
+          "type": "string",
+          "description": "The subject of the activity"
+        },
+        "type": {
+          "type": "string",
+          "description": "The type of the activity"
+        },
+        "owner_id": {
+          "type": "number",
+          "description": "The ID of the user who owns the activity"
+        },
+        "deal_id": {
+          "type": "number",
+          "description": "The ID of the deal linked to the activity"
+        },
+        "lead_id": {
+          "type": "string",
+          "description": "The ID of the lead linked to the activity"
+        },
+        "person_id": {
+          "type": "number",
+          "description": "The ID of the person linked to the activity"
+        },
+        "org_id": {
+          "type": "number",
+          "description": "The ID of the organization linked to the activity"
+        },
+        "project_id": {
+          "type": "number",
+          "description": "The ID of the project linked to the activity"
+        },
+        "due_date": {
+          "type": "string",
+          "description": "The due date of the activity"
+        },
+        "due_time": {
+          "type": "string",
+          "description": "The due time of the activity"
+        },
+        "duration": {
+          "type": "string",
+          "description": "The duration of the activity"
+        },
+        "busy": {
+          "type": "boolean",
+          "description": "Whether the activity marks the assignee as busy or not in their calendar"
+        },
+        "done": {
+          "type": "boolean",
+          "description": "Whether the activity is marked as done or not"
+        },
+        "public_description": {
+          "type": "string",
+          "description": "The public description of the activity"
+        },
+        "priority": {
+          "type": "number",
+          "description": "The priority of the activity"
+        },
+        "note": {
+          "type": "string",
+          "description": "The note of the activity"
+        }
+      },
+      "required": [
+        "id"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_pipedrive_updateactivity": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "number"
+        },
+        "subject": {
+          "type": "string"
+        },
+        "type": {
+          "type": "string"
+        },
+        "owner_id": {
+          "type": "number"
+        },
+        "deal_id": {
+          "type": "number"
+        },
+        "lead_id": {
+          "type": "string"
+        },
+        "person_id": {
+          "type": "number"
+        },
+        "org_id": {
+          "type": "number"
+        },
+        "project_id": {
+          "type": "number"
+        },
+        "due_date": {
+          "type": "string"
+        },
+        "due_time": {
+          "type": "string"
+        },
+        "duration": {
+          "type": "string"
+        },
+        "busy": {
+          "type": "boolean"
+        },
+        "done": {
+          "type": "boolean"
+        },
+        "public_description": {
+          "type": "string"
+        },
+        "priority": {
+          "type": "number"
+        },
+        "note": {
+          "type": "string"
+        },
+        "add_time": {
+          "type": "string"
+        },
+        "update_time": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "id"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_pipedrive_updatedeal": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "number",
+          "description": "The ID of the deal to update. Example: 123"
+        },
+        "title": {
+          "type": "string",
+          "description": "The title of the deal"
+        },
+        "owner_id": {
+          "type": "number",
+          "description": "The ID of the user who owns the deal"
+        },
+        "person_id": {
+          "type": "number",
+          "description": "The ID of the person linked to the deal"
+        },
+        "org_id": {
+          "type": "number",
+          "description": "The ID of the organization linked to the deal"
+        },
+        "pipeline_id": {
+          "type": "number",
+          "description": "The ID of the pipeline associated with the deal"
+        },
+        "stage_id": {
+          "type": "number",
+          "description": "The ID of the deal stage"
+        },
+        "value": {
+          "type": "number",
+          "description": "The value of the deal"
+        },
+        "currency": {
+          "type": "string",
+          "description": "The currency associated with the deal (e.g., USD, EUR)"
+        },
+        "status": {
+          "type": "string",
+          "enum": [
+            "open",
+            "won",
+            "lost"
+          ],
+          "description": "The status of the deal"
+        },
+        "probability": {
+          "type": "number",
+          "description": "The success probability percentage of the deal"
+        },
+        "lost_reason": {
+          "type": "string",
+          "description": "The reason for losing the deal. Can only be set if deal status is lost"
+        },
+        "expected_close_date": {
+          "type": "string",
+          "description": "The expected close date of the deal in YYYY-MM-DD format"
+        },
+        "visible_to": {
+          "type": "number",
+          "description": "The visibility of the deal"
+        },
+        "label_ids": {
+          "type": "array",
+          "items": {
+            "type": "number"
+          },
+          "description": "The IDs of labels assigned to the deal"
+        },
+        "is_archived": {
+          "type": "boolean",
+          "description": "Whether the deal is archived or not"
+        },
+        "archive_time": {
+          "type": "string",
+          "description": "The optional date and time of archiving the deal in UTC. Format: YYYY-MM-DD HH:MM:SS"
+        }
+      },
+      "required": [
+        "id"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_pipedrive_updatedeal": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "number",
+          "description": "The ID of the updated deal"
+        },
+        "title": {
+          "type": "string",
+          "description": "The title of the deal"
+        },
+        "owner_id": {
+          "type": "number",
+          "description": "The ID of the user who owns the deal"
+        },
+        "person_id": {
+          "type": "number",
+          "description": "The ID of the person linked to the deal"
+        },
+        "org_id": {
+          "type": "number",
+          "description": "The ID of the organization linked to the deal"
+        },
+        "pipeline_id": {
+          "type": "number",
+          "description": "The ID of the pipeline associated with the deal"
+        },
+        "stage_id": {
+          "type": "number",
+          "description": "The ID of the deal stage"
+        },
+        "value": {
+          "type": "number",
+          "description": "The value of the deal"
+        },
+        "currency": {
+          "type": "string",
+          "description": "The currency associated with the deal"
+        },
+        "status": {
+          "type": "string",
+          "description": "The status of the deal"
+        },
+        "probability": {
+          "type": "number",
+          "description": "The success probability percentage of the deal"
+        },
+        "lost_reason": {
+          "type": "string",
+          "description": "The reason for losing the deal"
+        },
+        "expected_close_date": {
+          "type": "string",
+          "description": "The expected close date of the deal"
+        },
+        "visible_to": {
+          "type": "number",
+          "description": "The visibility of the deal"
+        },
+        "add_time": {
+          "type": "string",
+          "description": "The date and time when the deal was added"
+        },
+        "update_time": {
+          "type": "string",
+          "description": "The date and time when the deal was last updated"
+        }
+      },
+      "required": [
+        "id",
+        "title"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_pipedrive_updatelead": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "The ID of the lead to update. Example: \"a1b2c3d4-e5f6-7890-abcd-ef1234567890\""
+        },
+        "title": {
+          "type": "string",
+          "description": "The name of the lead"
+        },
+        "owner_id": {
+          "type": "number",
+          "description": "The ID of the user which will be the owner of the lead"
+        },
+        "label_ids": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "The IDs of the lead labels which will be associated with the lead"
+        },
+        "person_id": {
+          "type": "number",
+          "description": "The ID of a person which this lead will be linked to. Set to null to unlink."
+        },
+        "organization_id": {
+          "type": "number",
+          "description": "The ID of an organization which this lead will be linked to. Set to null to unlink."
+        },
+        "is_archived": {
+          "type": "boolean",
+          "description": "A flag indicating whether the lead is archived"
+        },
+        "value": {
+          "type": "object",
+          "properties": {
+            "amount": {
+              "type": "number"
+            },
+            "currency": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "amount",
+            "currency"
+          ],
+          "additionalProperties": false,
+          "description": "The potential value of the lead. Set to null to clear."
+        },
+        "expected_close_date": {
+          "type": "string",
+          "description": "The expected close date in ISO 8601 format (YYYY-MM-DD). Set to null to clear."
+        },
+        "visible_to": {
+          "type": "string",
+          "description": "The visibility of the lead"
+        },
+        "was_seen": {
+          "type": "boolean",
+          "description": "A flag indicating whether the lead was seen by someone in the Pipedrive UI"
+        },
+        "channel": {
+          "type": "number",
+          "description": "The ID of Marketing channel this lead was created from. Set to null to clear."
+        },
+        "channel_id": {
+          "type": "string",
+          "description": "The optional ID to further distinguish the Marketing channel. Set to null to clear."
+        }
+      },
+      "required": [
+        "id"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_pipedrive_updatelead": {
       "type": "object",
       "properties": {
         "id": {
           "type": "string"
         },
-        "active_flag": {
+        "title": {
+          "type": "string"
+        },
+        "owner_id": {
+          "type": "number"
+        },
+        "creator_id": {
+          "type": "number"
+        },
+        "label_ids": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "person_id": {
+          "type": "number"
+        },
+        "organization_id": {
+          "type": "number"
+        },
+        "is_archived": {
           "type": "boolean"
+        },
+        "value": {
+          "type": "object",
+          "properties": {
+            "amount": {
+              "type": "number"
+            },
+            "currency": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "amount",
+            "currency"
+          ],
+          "additionalProperties": false
+        },
+        "expected_close_date": {
+          "type": "string"
+        },
+        "visible_to": {
+          "type": "string"
+        },
+        "was_seen": {
+          "type": "boolean"
+        },
+        "channel": {
+          "type": "number"
+        },
+        "channel_id": {
+          "type": "string"
+        },
+        "add_time": {
+          "type": "string"
+        },
+        "update_time": {
+          "type": "string"
+        },
+        "notes": {
+          "type": "array",
+          "items": {}
+        }
+      },
+      "required": [
+        "id"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_pipedrive_updatenote": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "number",
+          "description": "The ID of the note to update. Example: 123"
+        },
+        "content": {
+          "type": "string",
+          "description": "The content of the note in HTML format. Subject to sanitization on the back-end."
+        },
+        "lead_id": {
+          "type": "string",
+          "description": "The ID of the lead the note will be attached to."
+        },
+        "deal_id": {
+          "type": "number",
+          "description": "The ID of the deal the note will be attached to."
+        },
+        "person_id": {
+          "type": "number",
+          "description": "The ID of the person the note will be attached to."
+        },
+        "org_id": {
+          "type": "number",
+          "description": "The ID of the organization the note will be attached to."
+        },
+        "project_id": {
+          "type": "number",
+          "description": "The ID of the project the note will be attached to."
+        },
+        "task_id": {
+          "type": "number",
+          "description": "The ID of the task the note will be attached to."
+        },
+        "user_id": {
+          "type": "number",
+          "description": "The ID of the user who will be marked as the author of the note. Only an admin can change the author."
+        },
+        "pinned_to_lead_flag": {
+          "type": "number",
+          "description": "Whether the note is pinned to the lead. Values: 0 or 1."
+        },
+        "pinned_to_deal_flag": {
+          "type": "number",
+          "description": "Whether the note is pinned to the deal. Values: 0 or 1."
+        },
+        "pinned_to_organization_flag": {
+          "type": "number",
+          "description": "Whether the note is pinned to the organization. Values: 0 or 1."
+        },
+        "pinned_to_person_flag": {
+          "type": "number",
+          "description": "Whether the note is pinned to the person. Values: 0 or 1."
+        },
+        "pinned_to_project_flag": {
+          "type": "number",
+          "description": "Whether the note is pinned to the project. Values: 0 or 1."
+        },
+        "pinned_to_task_flag": {
+          "type": "number",
+          "description": "Whether the note is pinned to the task. Values: 0 or 1."
+        }
+      },
+      "required": [
+        "id"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_pipedrive_updatenote": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "number"
+        },
+        "content": {
+          "type": "string"
+        },
+        "lead_id": {
+          "type": "string"
+        },
+        "deal_id": {
+          "type": "number"
+        },
+        "person_id": {
+          "type": "number"
+        },
+        "org_id": {
+          "type": "number"
+        },
+        "project_id": {
+          "type": "number"
+        },
+        "task_id": {
+          "type": "number"
+        },
+        "user_id": {
+          "type": "number"
+        },
+        "add_time": {
+          "type": "string"
+        },
+        "update_time": {
+          "type": "string"
+        },
+        "pinned_to_lead_flag": {
+          "type": "number"
+        },
+        "pinned_to_deal_flag": {
+          "type": "number"
+        },
+        "pinned_to_organization_flag": {
+          "type": "number"
+        },
+        "pinned_to_person_flag": {
+          "type": "number"
+        },
+        "pinned_to_project_flag": {
+          "type": "number"
+        },
+        "pinned_to_task_flag": {
+          "type": "number"
+        }
+      },
+      "required": [
+        "id"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_pipedrive_updateorganization": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "number",
+          "description": "The ID of the organization to update. Example: 123"
+        },
+        "name": {
+          "type": "string",
+          "description": "The name of the organization"
+        },
+        "owner_id": {
+          "type": "number",
+          "description": "The ID of the user who owns the organization"
+        },
+        "visible_to": {
+          "type": "number",
+          "description": "The visibility of the organization"
+        },
+        "label_ids": {
+          "type": "array",
+          "items": {
+            "type": "number"
+          },
+          "description": "The IDs of labels assigned to the organization"
+        },
+        "address": {
+          "type": "object",
+          "properties": {
+            "value": {
+              "type": "string"
+            },
+            "country": {
+              "type": "string",
+              "description": "Country of the organization"
+            },
+            "admin_area_level_1": {
+              "type": "string",
+              "description": "Admin area level 1 (e.g. state)"
+            },
+            "admin_area_level_2": {
+              "type": "string",
+              "description": "Admin area level 2 (e.g. county)"
+            },
+            "locality": {
+              "type": "string",
+              "description": "Locality (e.g. city)"
+            },
+            "sublocality": {
+              "type": "string",
+              "description": "Sublocality (e.g. neighborhood)"
+            },
+            "route": {
+              "type": "string",
+              "description": "Route (e.g. street)"
+            },
+            "street_number": {
+              "type": "string",
+              "description": "Street number"
+            },
+            "subpremise": {
+              "type": "string",
+              "description": "Subpremise (e.g. apartment/suite number)"
+            },
+            "postal_code": {
+              "type": "string",
+              "description": "Postal code"
+            }
+          },
+          "additionalProperties": false,
+          "description": "The address of the organization"
+        },
+        "custom_fields": {
+          "type": "object",
+          "additionalProperties": {
+            "anyOf": [
+              {},
+              {
+                "not": {}
+              }
+            ]
+          },
+          "description": "Custom fields as an object with 40-character hash keys"
+        }
+      },
+      "required": [
+        "id"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_pipedrive_updateorganization": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "number"
+        },
+        "name": {
+          "type": "string"
+        },
+        "owner_id": {
+          "type": "number"
+        },
+        "visible_to": {
+          "type": "number"
+        },
+        "label_ids": {
+          "type": "array",
+          "items": {
+            "type": "number"
+          }
+        },
+        "address": {
+          "type": "object",
+          "properties": {
+            "value": {
+              "type": "string"
+            },
+            "country": {
+              "type": "string"
+            },
+            "admin_area_level_1": {
+              "type": "string"
+            },
+            "admin_area_level_2": {
+              "type": "string"
+            },
+            "locality": {
+              "type": "string"
+            },
+            "sublocality": {
+              "type": "string"
+            },
+            "route": {
+              "type": "string"
+            },
+            "street_number": {
+              "type": "string"
+            },
+            "subpremise": {
+              "type": "string"
+            },
+            "postal_code": {
+              "type": "string"
+            }
+          },
+          "additionalProperties": false
+        },
+        "add_time": {
+          "type": "string"
+        },
+        "update_time": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "id"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_pipedrive_updateperson": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "number",
+          "description": "The ID of the person to update"
+        },
+        "name": {
+          "type": "string",
+          "description": "The name of the person"
+        },
+        "owner_id": {
+          "type": "number",
+          "description": "The ID of the user who owns the person"
+        },
+        "org_id": {
+          "type": "number",
+          "description": "The ID of the organization linked to the person"
+        },
+        "emails": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "value": {
+                "type": "string"
+              },
+              "primary": {
+                "type": "boolean"
+              },
+              "label": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "value"
+            ],
+            "additionalProperties": false
+          },
+          "description": "The emails of the person"
+        },
+        "phones": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "value": {
+                "type": "string"
+              },
+              "primary": {
+                "type": "boolean"
+              },
+              "label": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "value"
+            ],
+            "additionalProperties": false
+          },
+          "description": "The phones of the person"
+        },
+        "visible_to": {
+          "type": "number",
+          "description": "The visibility of the person"
+        },
+        "label_ids": {
+          "type": "array",
+          "items": {
+            "type": "number"
+          },
+          "description": "The IDs of labels assigned to the person"
+        }
+      },
+      "required": [
+        "id"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_pipedrive_updateperson": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "number"
+        },
+        "name": {
+          "type": "string"
         },
         "owner_id": {
           "type": "number"
@@ -104450,66 +109121,318 @@
         "org_id": {
           "type": "number"
         },
+        "emails": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "value": {
+                "type": "string"
+              },
+              "primary": {
+                "type": "boolean"
+              },
+              "label": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "value"
+            ],
+            "additionalProperties": false
+          }
+        },
+        "phones": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "value": {
+                "type": "string"
+              },
+              "primary": {
+                "type": "boolean"
+              },
+              "label": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "value"
+            ],
+            "additionalProperties": false
+          }
+        },
+        "visible_to": {
+          "type": "number"
+        },
+        "add_time": {
+          "type": "string"
+        },
+        "update_time": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "id"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_pipedrive_updatepipeline": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "number",
+          "description": "The ID of the pipeline to update. Example: 6"
+        },
+        "name": {
+          "type": "string",
+          "description": "The name of the pipeline"
+        },
+        "is_deal_probability_enabled": {
+          "type": "boolean",
+          "description": "Whether deal probability is disabled or enabled for this pipeline"
+        }
+      },
+      "required": [
+        "id"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_pipedrive_updatepipeline": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "number"
+        },
         "name": {
           "type": "string"
         },
-        "phone": {
-          "type": "array",
-          "items": {
-            "type": "string"
-          }
+        "is_deal_probability_enabled": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "id",
+        "name"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_pipedrive_updateproduct": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "number"
         },
-        "email": {
-          "type": "array",
-          "items": {
-            "type": "string"
-          }
-        },
-        "update_time": {
-          "type": "string",
-          "format": "date-time"
-        },
-        "delete_time": {
-          "type": "string",
-          "format": "date-time"
-        },
-        "add_time": {
-          "type": "string",
-          "format": "date-time"
-        },
-        "visible_to": {
+        "name": {
           "type": "string"
         },
-        "picture_id": {
+        "code": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        },
+        "unit": {
+          "type": "string"
+        },
+        "tax": {
           "type": "number"
         },
-        "label": {
+        "category": {
           "type": "number"
         },
-        "cc_email": {
+        "owner_id": {
+          "type": "number"
+        },
+        "is_linkable": {
+          "type": "boolean"
+        },
+        "visible_to": {
+          "type": "number"
+        },
+        "prices": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "currency": {
+                "type": "string"
+              },
+              "price": {
+                "type": "number"
+              },
+              "cost": {
+                "type": "number"
+              },
+              "direct_cost": {
+                "type": "number"
+              }
+            },
+            "required": [
+              "currency",
+              "price"
+            ],
+            "additionalProperties": false
+          }
+        },
+        "custom_fields": {
+          "type": "object",
+          "additionalProperties": {
+            "anyOf": [
+              {},
+              {
+                "not": {}
+              }
+            ]
+          }
+        },
+        "billing_frequency": {
+          "type": "string",
+          "enum": [
+            "one-time",
+            "annually",
+            "semi-annually",
+            "quarterly",
+            "monthly",
+            "weekly"
+          ]
+        },
+        "billing_frequency_cycles": {
+          "type": "number"
+        }
+      },
+      "required": [
+        "id"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_pipedrive_updateproduct": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "number"
+        },
+        "name": {
+          "type": "string"
+        },
+        "code": {},
+        "description": {},
+        "unit": {},
+        "tax": {},
+        "category": {},
+        "owner_id": {},
+        "is_linkable": {},
+        "visible_to": {},
+        "prices": {
+          "type": "array",
+          "items": {}
+        },
+        "custom_fields": {
+          "type": "object",
+          "additionalProperties": {
+            "anyOf": [
+              {},
+              {
+                "not": {}
+              }
+            ]
+          }
+        },
+        "billing_frequency": {},
+        "billing_frequency_cycles": {},
+        "add_time": {
+          "type": "string"
+        },
+        "update_time": {
           "type": "string"
         }
       },
       "required": [
         "id",
-        "active_flag",
-        "owner_id",
-        "org_id",
-        "name",
-        "phone",
-        "email",
-        "update_time",
-        "delete_time",
-        "add_time",
-        "visible_to",
-        "picture_id",
-        "label",
-        "cc_email"
+        "name"
       ],
       "additionalProperties": false
     },
-    "SyncMetadata_pipedrive_persons": {
+    "ActionInput_pipedrive_updatestage": {
       "type": "object",
+      "properties": {
+        "stage_id": {
+          "type": "number",
+          "description": "The ID of the stage to update. Example: 1"
+        },
+        "name": {
+          "type": "string",
+          "description": "The name of the stage. Example: \"Qualified Lead\""
+        },
+        "pipeline_id": {
+          "type": "number",
+          "description": "The ID of the pipeline the stage belongs to. Example: 1"
+        },
+        "deal_probability": {
+          "type": "number",
+          "description": "The success probability percentage of the deal. Used/shown when deal weighted values are used. Example: 50"
+        },
+        "is_deal_rot_enabled": {
+          "type": "boolean",
+          "description": "Whether deals in this stage can become rotten."
+        },
+        "days_to_rotten": {
+          "type": "number",
+          "description": "The number of days the deals not updated in this stage would become rotten. Applies only if the is_deal_rot_enabled is set. Example: 30"
+        }
+      },
+      "required": [
+        "stage_id"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_pipedrive_updatestage": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "number"
+        },
+        "name": {
+          "type": "string"
+        },
+        "pipeline_id": {
+          "type": "number"
+        },
+        "order_nr": {
+          "type": "number"
+        },
+        "deal_probability": {
+          "type": "number"
+        },
+        "active_flag": {
+          "type": "boolean"
+        },
+        "is_deal_rot_enabled": {
+          "type": "boolean"
+        },
+        "days_to_rotten": {
+          "type": "number"
+        },
+        "add_time": {
+          "type": "string"
+        },
+        "update_time": {
+          "type": "string"
+        },
+        "pipeline_name": {
+          "type": "string"
+        },
+        "pipeline_deal_probability": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "id",
+        "name",
+        "pipeline_id",
+        "order_nr"
+      ],
       "additionalProperties": false
     },
     "Account": {
@@ -134224,64 +139147,6 @@
       ],
       "additionalProperties": false
     },
-    "Organization": {
-      "type": "object",
-      "properties": {
-        "id": {
-          "type": "string"
-        },
-        "name": {
-          "type": "string"
-        },
-        "created_at": {
-          "type": "string"
-        },
-        "updated_at": {
-          "type": "string"
-        },
-        "url": {
-          "type": "string"
-        },
-        "external_id": {
-          "type": "string"
-        },
-        "domain_names": {
-          "type": "array",
-          "items": {
-            "type": "string"
-          }
-        },
-        "group_id": {
-          "type": "number"
-        },
-        "shared_comments": {
-          "type": "boolean"
-        },
-        "shared_tickets": {
-          "type": "boolean"
-        },
-        "tags": {
-          "type": "array",
-          "items": {
-            "type": "string"
-          }
-        },
-        "notes": {
-          "type": "string"
-        },
-        "details": {
-          "type": "string"
-        }
-      },
-      "required": [
-        "id",
-        "name",
-        "created_at",
-        "updated_at",
-        "url"
-      ],
-      "additionalProperties": false
-    },
     "TicketComment": {
       "type": "object",
       "properties": {
@@ -137613,192 +142478,6 @@
       "required": [
         "id",
         "modifiedTime"
-      ],
-      "additionalProperties": false
-    },
-    "Lead": {
-      "type": "object",
-      "properties": {
-        "id": {
-          "type": "string"
-        },
-        "company": {
-          "type": "string"
-        },
-        "email": {
-          "type": "string"
-        },
-        "firstName": {
-          "type": "string"
-        },
-        "lastName": {
-          "type": "string"
-        },
-        "fullName": {
-          "type": "string"
-        },
-        "phone": {
-          "type": "string"
-        },
-        "mobile": {
-          "type": "string"
-        },
-        "status": {
-          "type": "string"
-        },
-        "source": {
-          "type": "string"
-        },
-        "designation": {
-          "type": "string"
-        },
-        "website": {
-          "type": "string"
-        },
-        "industry": {
-          "type": "string"
-        },
-        "annualRevenue": {
-          "type": "number"
-        },
-        "employees": {
-          "type": "number"
-        },
-        "skypeId": {
-          "type": "string"
-        },
-        "twitter": {
-          "type": "string"
-        },
-        "street": {
-          "type": "string"
-        },
-        "city": {
-          "type": "string"
-        },
-        "state": {
-          "type": "string"
-        },
-        "zipCode": {
-          "type": "string"
-        },
-        "country": {
-          "type": "string"
-        },
-        "description": {
-          "type": "string"
-        },
-        "emailOptOut": {
-          "type": "boolean"
-        },
-        "createdTime": {
-          "type": "string"
-        },
-        "modifiedTime": {
-          "type": "string"
-        },
-        "createdById": {
-          "type": "string"
-        },
-        "createdByName": {
-          "type": "string"
-        },
-        "createdByEmail": {
-          "type": "string"
-        },
-        "modifiedById": {
-          "type": "string"
-        },
-        "modifiedByName": {
-          "type": "string"
-        },
-        "modifiedByEmail": {
-          "type": "string"
-        },
-        "ownerId": {
-          "type": "string"
-        },
-        "ownerName": {
-          "type": "string"
-        },
-        "ownerEmail": {
-          "type": "string"
-        },
-        "rating": {
-          "type": "string"
-        },
-        "fax": {
-          "type": "string"
-        },
-        "secondaryEmail": {
-          "type": "string"
-        },
-        "tags": {
-          "type": "array",
-          "items": {
-            "type": "string"
-          }
-        }
-      },
-      "required": [
-        "id",
-        "lastName",
-        "createdTime",
-        "modifiedTime"
-      ],
-      "additionalProperties": false
-    },
-    "Note": {
-      "type": "object",
-      "properties": {
-        "id": {
-          "type": "string"
-        },
-        "note_title": {
-          "type": "string"
-        },
-        "note_content": {
-          "type": "string"
-        },
-        "parent_id": {
-          "type": "string"
-        },
-        "parent_name": {
-          "type": "string"
-        },
-        "parent_module": {
-          "type": "string"
-        },
-        "owner_id": {
-          "type": "string"
-        },
-        "owner_name": {
-          "type": "string"
-        },
-        "owner_email": {
-          "type": "string"
-        },
-        "created_by_id": {
-          "type": "string"
-        },
-        "created_by_name": {
-          "type": "string"
-        },
-        "modified_by_id": {
-          "type": "string"
-        },
-        "modified_by_name": {
-          "type": "string"
-        },
-        "created_time": {
-          "type": "string"
-        },
-        "modified_time": {
-          "type": "string"
-        }
-      },
-      "required": [
-        "id"
       ],
       "additionalProperties": false
     },

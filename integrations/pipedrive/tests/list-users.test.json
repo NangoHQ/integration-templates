@@ -1,0 +1,110 @@
+{
+  "input": {},
+  "output": {
+    "items": [
+      {
+        "id": 25760681,
+        "name": "Nango",
+        "email": "api@nango.dev",
+        "locale": "en_US",
+        "timezone_name": "Africa/Nairobi",
+        "timezone_offset": "+03:00",
+        "created": "2026-05-15 09:12:14",
+        "modified": "2026-05-15 09:46:05",
+        "last_login": "2026-05-15 09:46:05",
+        "is_admin": 1,
+        "role_id": 1,
+        "active_flag": true
+      }
+    ],
+    "success": true,
+    "additional_data": {
+      "company_id": 15043420
+    }
+  },
+  "nango": {},
+  "api": {
+    "get": {
+      "/v1/users": {
+        "response": {
+          "success": true,
+          "data": [
+            {
+              "id": 25760681,
+              "name": "Nango",
+              "email": "api@nango.dev",
+              "lang": 1,
+              "locale": "en_US",
+              "timezone_name": "Africa/Nairobi",
+              "timezone_offset": "+03:00",
+              "default_currency": "USD",
+              "icon_url": null,
+              "active_flag": true,
+              "is_deleted": false,
+              "is_admin": 1,
+              "role_id": 1,
+              "created": "2026-05-15 09:12:14",
+              "has_created_company": true,
+              "is_you": true,
+              "access": [
+                {
+                  "app": "sales",
+                  "admin": true,
+                  "permission_set_id": "29c72ef0-503e-11f1-b3a6-eb22592a8a2c"
+                },
+                {
+                  "app": "global",
+                  "admin": true,
+                  "permission_set_id": "29ca8a50-503e-11f1-b3a6-eb22592a8a2c"
+                },
+                {
+                  "app": "account_settings",
+                  "admin": true,
+                  "permission_set_id": "29cd9790-503e-11f1-b3a6-eb22592a8a2c"
+                }
+              ],
+              "phone": null,
+              "modified": "2026-05-15 09:46:05",
+              "last_login": "2026-05-15 09:46:05"
+            }
+          ],
+          "additional_data": {
+            "company_id": 15043420
+          }
+        },
+        "status": 200,
+        "headers": {
+          "date": "Fri, 15 May 2026 10:43:34 GMT",
+          "content-type": "application/json",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "1; mode=block",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=31536000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "X-RateLimit-Remaining, X-RateLimit-Limit, X-RateLimit-Reset, X-Daily-RateLimit-Token-Limit, X-Daily-RateLimit-Token-Remaining",
+          "x-ratelimit-limit": "80",
+          "x-ratelimit-remaining": "79",
+          "x-ratelimit-reset": "2",
+          "cf-ray": "9fc18adbf9100d10-PDX",
+          "cf-cache-status": "DYNAMIC",
+          "cache-control": "no-cache",
+          "server": "cloudflare",
+          "vary": "Accept-Encoding",
+          "badi": "Routing: lon-2=>lon-2; Version: 7cc8; Host: 7bdc7f4564-kjmsp;",
+          "x-correlation-id": "e463484f-e50a-4cae-9294-a107bbb52e75",
+          "x-daily-ratelimit-token-limit": "150000",
+          "x-daily-ratelimit-token-remaining": "145825",
+          "set-cookie": "pipedrive-cdl=lon-2;path=/;expires=Sat, 16 May 2026 10:43:34 GMT;secure, __cf_bm=xIQ85WjcYNDYyVQLVZXTtylE5jLcDrprsI_5JZwGkd0-1778841814.3977463-1.0.1.1-CjBlnI.1rzVG7aAwpB7f0sITNhuoYtPckF2nRshI27K7e89gzbhz2gCx1LLMgWppeKH0QgxsaaQ3fTcm_LrtdV6X.Pzr.L24pHPQ8zXqJmqDfd5b9iF2MzpMoDNpWCDD; HttpOnly; SameSite=None; Secure; Path=/; Domain=pipedrive.com; Expires=Fri, 15 May 2026 11:13:34 GMT",
+          "alt-svc": "h3=\":443\"; ma=86400"
+        },
+        "hash": "19b6e92725877ff20dacb56fb25c254a6670ea49",
+        "request": {}
+      }
+    }
+  }
+}

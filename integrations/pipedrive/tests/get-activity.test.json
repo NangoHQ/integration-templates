@@ -1,0 +1,189 @@
+{
+  "input": {
+    "id": 1
+  },
+  "output": {
+    "id": 1,
+    "subject": "Discovery Call with Jane Smith",
+    "type": "call",
+    "dealId": 1,
+    "personId": 1,
+    "orgId": 1,
+    "dueDate": "2026-05-20",
+    "dueTime": "10:00",
+    "duration": "00:30",
+    "done": false,
+    "note": "Initial discovery call to understand Acme Corp's analytics requirements.",
+    "addTime": "2026-05-15 09:55:15",
+    "updateTime": "2026-05-15 09:55:15"
+  },
+  "nango": {},
+  "api": {
+    "get": {
+      "/v1/activities/1": {
+        "response": {
+          "success": true,
+          "data": {
+            "id": 1,
+            "user_id": 25760681,
+            "done": false,
+            "type": "call",
+            "reference_type": null,
+            "reference_id": null,
+            "conference_meeting_client": null,
+            "conference_meeting_url": null,
+            "due_date": "2026-05-20",
+            "due_time": "10:00",
+            "duration": "00:30",
+            "busy_flag": true,
+            "add_time": "2026-05-15 09:55:15",
+            "marked_as_done_time": "",
+            "last_notification_time": null,
+            "last_notification_user_id": null,
+            "notification_language_id": null,
+            "subject": "Discovery Call with Jane Smith",
+            "public_description": null,
+            "calendar_sync_include_context": null,
+            "location": null,
+            "org_id": 1,
+            "person_id": 1,
+            "deal_id": 1,
+            "lead_id": null,
+            "active_flag": true,
+            "update_time": "2026-05-15 09:55:15",
+            "update_user_id": null,
+            "source_timezone": null,
+            "rec_rule": null,
+            "rec_rule_extension": null,
+            "rec_master_activity_id": null,
+            "conference_meeting_id": null,
+            "original_start_time": null,
+            "private": false,
+            "priority": null,
+            "note": "Initial discovery call to understand Acme Corp's analytics requirements.",
+            "created_by_user_id": 25760681,
+            "location_subpremise": null,
+            "location_street_number": null,
+            "location_route": null,
+            "location_sublocality": null,
+            "location_locality": null,
+            "location_admin_area_level_1": null,
+            "location_admin_area_level_2": null,
+            "location_country": null,
+            "location_postal_code": null,
+            "location_formatted_address": null,
+            "attendees": null,
+            "participants": [
+              {
+                "person_id": 1,
+                "primary_flag": true
+              }
+            ],
+            "series": null,
+            "is_recurring": null,
+            "org_name": "Test Organization Updated",
+            "person_name": "Jane Smith Updated via Direct API",
+            "deal_title": "Test Deal Update",
+            "lead_title": null,
+            "owner_name": "Nango",
+            "person_dropbox_bcc": "nango-sandbox2@pipedrivemail.com",
+            "deal_dropbox_bcc": "nango-sandbox2+deal1@pipedrivemail.com",
+            "assigned_to_user_id": 25760681,
+            "type_name": "Call",
+            "lead": null,
+            "company_id": 15043420
+          },
+          "related_objects": {
+            "user": {
+              "25760681": {
+                "id": 25760681,
+                "name": "Nango",
+                "email": "api@nango.dev",
+                "has_pic": 0,
+                "pic_hash": null,
+                "active_flag": true
+              }
+            },
+            "person": {
+              "1": {
+                "id": 1,
+                "name": "Jane Smith Updated via Direct API",
+                "email": [
+                  {
+                    "label": "work",
+                    "value": "jane.smith@acme.com",
+                    "primary": true
+                  }
+                ],
+                "phone": [
+                  {
+                    "label": "work",
+                    "value": "+14155551234",
+                    "primary": true
+                  }
+                ],
+                "owner_id": 25760681
+              }
+            },
+            "organization": {
+              "1": {
+                "id": 1,
+                "name": "Test Organization Updated",
+                "people_count": 1,
+                "owner_id": 25760681,
+                "address": "123 Main St, San Francisco, CA 94105",
+                "cc_email": "nango-sandbox2@pipedrivemail.com"
+              }
+            },
+            "deal": {
+              "1": {
+                "id": 1,
+                "title": "Test Deal Update",
+                "status": "open",
+                "value": 25000,
+                "currency": "USD",
+                "stage_id": 3,
+                "pipeline_id": 1,
+                "user_id": 25760681,
+                "is_archived": false,
+                "archive_time": null
+              }
+            }
+          }
+        },
+        "status": 200,
+        "headers": {
+          "date": "Fri, 15 May 2026 10:24:49 GMT",
+          "content-type": "application/json",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "1; mode=block",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=31536000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "X-RateLimit-Remaining, X-RateLimit-Limit, X-RateLimit-Reset, X-Daily-RateLimit-Token-Limit, X-Daily-RateLimit-Token-Remaining",
+          "x-ratelimit-limit": "80",
+          "x-ratelimit-remaining": "79",
+          "x-ratelimit-reset": "2",
+          "cf-ray": "9fc16f6689141a0b-PDX",
+          "cf-cache-status": "DYNAMIC",
+          "cache-control": "no-cache",
+          "server": "cloudflare",
+          "vary": "Accept-Encoding",
+          "badi": "Routing: lon-2=>lon-2; Version: 7cc8; Host: 7bdc7f4564-d9vds;",
+          "x-correlation-id": "97321117-2316-496d-9ffa-55eede379d04",
+          "x-daily-ratelimit-token-limit": "150000",
+          "x-daily-ratelimit-token-remaining": "147468",
+          "set-cookie": "pipedrive-cdl=lon-2;path=/;expires=Sat, 16 May 2026 10:24:49 GMT;secure, __cf_bm=dGKzKirwvpUjt1v5ok16a1C2AQSLqh1UoWivwuMLR04-1778840689.6865668-1.0.1.1-J9iMo6nBWyx8zFcHX.7_XIko1Q2hRGP6JCzdrj8gYCU7VmF.nSSqyBXdfShnVACvpgRuCF.OpmsMqJZnUxocbMSa7a4kzm7NJM2sug4rrcfiP.OWVKCKOGV2w3dNtQMg; HttpOnly; SameSite=None; Secure; Path=/; Domain=pipedrive.com; Expires=Fri, 15 May 2026 10:54:49 GMT",
+          "alt-svc": "h3=\":443\"; ma=86400"
+        },
+        "hash": "d06fe6496679255f4bf9ee3ed4a927f9e82eff33",
+        "request": {}
+      }
+    }
+  }
+}

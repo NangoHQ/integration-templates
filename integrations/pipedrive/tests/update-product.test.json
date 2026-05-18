@@ -1,0 +1,135 @@
+{
+  "input": {
+    "id": 8,
+    "name": "Updated Product Name"
+  },
+  "output": {
+    "id": 8,
+    "name": "Updated Product Name",
+    "code": "DEL-PROD-B",
+    "description": null,
+    "unit": "license",
+    "tax": 0,
+    "category": null,
+    "owner_id": {
+      "id": 25760681,
+      "name": "Nango",
+      "email": "api@nango.dev",
+      "has_pic": 0,
+      "pic_hash": null,
+      "active_flag": true,
+      "value": 25760681
+    },
+    "visible_to": "3",
+    "prices": [
+      {
+        "id": 8,
+        "product_id": 8,
+        "price": 49.99,
+        "currency": "USD",
+        "cost": 0,
+        "overhead_cost": 0,
+        "notes": "",
+        "price_formatted": "$49.99"
+      }
+    ],
+    "add_time": "2026-05-15 10:31:24",
+    "update_time": "2026-05-15 11:07:54"
+  },
+  "nango": {},
+  "api": {
+    "put": {
+      "/v1/products/8": {
+        "response": {
+          "success": true,
+          "data": {
+            "id": 8,
+            "name": "Updated Product Name",
+            "code": "DEL-PROD-B",
+            "description": null,
+            "unit": "license",
+            "tax": 0,
+            "category": null,
+            "active_flag": true,
+            "selectable": true,
+            "first_char": "u",
+            "visible_to": "3",
+            "owner_id": {
+              "id": 25760681,
+              "name": "Nango",
+              "email": "api@nango.dev",
+              "has_pic": 0,
+              "pic_hash": null,
+              "active_flag": true,
+              "value": 25760681
+            },
+            "files_count": null,
+            "add_time": "2026-05-15 10:31:24",
+            "update_time": "2026-05-15 11:07:54",
+            "prices": [
+              {
+                "id": 8,
+                "product_id": 8,
+                "price": 49.99,
+                "currency": "USD",
+                "cost": 0,
+                "overhead_cost": 0,
+                "notes": "",
+                "price_formatted": "$49.99"
+              }
+            ],
+            "product_variations": []
+          },
+          "related_objects": {
+            "user": {
+              "25760681": {
+                "id": 25760681,
+                "name": "Nango",
+                "email": "api@nango.dev",
+                "has_pic": 0,
+                "pic_hash": null,
+                "active_flag": true
+              }
+            }
+          }
+        },
+        "status": 200,
+        "headers": {
+          "date": "Fri, 15 May 2026 11:07:54 GMT",
+          "content-type": "application/json",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "1; mode=block",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=31536000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "X-RateLimit-Remaining, X-RateLimit-Limit, X-RateLimit-Reset, X-Daily-RateLimit-Token-Limit, X-Daily-RateLimit-Token-Remaining",
+          "x-ratelimit-limit": "80",
+          "x-ratelimit-remaining": "79",
+          "x-ratelimit-reset": "2",
+          "cf-ray": "9fc1ae7f2fb9a60a-PDX",
+          "cf-cache-status": "DYNAMIC",
+          "cache-control": "no-cache",
+          "server": "cloudflare",
+          "vary": "Accept-Encoding",
+          "badi": "Routing: lon-2=>lon-2; Version: 7cc8; Host: 7bdc7f4564-w8nnf;",
+          "x-correlation-id": "348c4ad9-a94f-49a5-bbef-04b3b7a0bb90",
+          "x-daily-ratelimit-token-limit": "150000",
+          "x-daily-ratelimit-token-remaining": "145334",
+          "set-cookie": "pipedrive-cdl=lon-2;path=/;expires=Sat, 16 May 2026 11:07:54 GMT;secure, __cf_bm=734UcpGLHJ3fce4yBeVg4UXZ8wRT0I4TEpqRC7FLxEI-1778843274.107062-1.0.1.1-1YyNPTB1nhFsBuAhSQY31NrS2XBgf2ErKQe.hsU_yNk5bVmz7bXM56or8OX2q6eoL87vJzW6hhDvxLMEhnKGvNs3EOGXK4WOcJNTYkvTYi6xqdnoHyTQ5u4BFb3t9dM4; HttpOnly; SameSite=None; Secure; Path=/; Domain=pipedrive.com; Expires=Fri, 15 May 2026 11:37:54 GMT",
+          "alt-svc": "h3=\":443\"; ma=86400"
+        },
+        "hash": "86cfb34a1e0c306443c4f8a633116f0abd7802a5",
+        "request": {
+          "data": {
+            "name": "Updated Product Name"
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,66 @@
+{
+  "input": {
+    "id": 6,
+    "name": "Updated Pipeline"
+  },
+  "output": {
+    "id": 6,
+    "name": "Updated Pipeline",
+    "is_deal_probability_enabled": true
+  },
+  "nango": {},
+  "api": {
+    "patch": {
+      "/v2/pipelines/6": {
+        "response": {
+          "success": true,
+          "data": {
+            "id": 6,
+            "name": "Updated Pipeline",
+            "order_nr": 4,
+            "is_deleted": false,
+            "is_deal_probability_enabled": true,
+            "add_time": "2026-05-15T10:31:14Z",
+            "update_time": "2026-05-15T10:39:08Z"
+          }
+        },
+        "status": 200,
+        "headers": {
+          "date": "Fri, 15 May 2026 10:40:16 GMT",
+          "content-type": "application/json",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "1; mode=block",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=31536000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "X-RateLimit-Remaining, X-RateLimit-Limit, X-RateLimit-Reset, X-Daily-RateLimit-Token-Limit, X-Daily-RateLimit-Token-Remaining",
+          "x-ratelimit-limit": "80",
+          "x-ratelimit-remaining": "79",
+          "x-ratelimit-reset": "2",
+          "cf-ray": "9fc1860698c7debd-PDX",
+          "cf-cache-status": "DYNAMIC",
+          "cache-control": "no-cache, private",
+          "server": "cloudflare",
+          "vary": "accept-encoding",
+          "badi": "Routing: lon-2=>lon-2; Version: 7cc8; Host: 7bdc7f4564-qbxbw;",
+          "x-correlation-id": "2703ed1a-a8bb-445e-b885-6c791126e581",
+          "x-daily-ratelimit-token-limit": "150000",
+          "x-daily-ratelimit-token-remaining": "146112",
+          "set-cookie": "pipedrive-cdl=lon-2;path=/;expires=Sat, 16 May 2026 10:40:16 GMT;secure, __cf_bm=Vr.Qvlp9GPRfHgoGtyTqxNQ6iBkYPA2nccD4qLYzD.A-1778841616.414634-1.0.1.1-InsWEBFxLJieXtGUn0V94YlNkAro98bQeaEw.ipTC2pmMZu09PDPXu7txTrUOcd8ng1raBi.NQPTTV_2ncLYE3sZK0QYWzD__vY01ebPG1jkeuibQUhI3PrvHoamTKeT; HttpOnly; SameSite=None; Secure; Path=/; Domain=pipedrive.com; Expires=Fri, 15 May 2026 11:10:16 GMT",
+          "alt-svc": "h3=\":443\"; ma=86400"
+        },
+        "hash": "196c0e8db1c8a681d048fa6b925693e43aa02d06",
+        "request": {
+          "data": {
+            "name": "Updated Pipeline"
+          }
+        }
+      }
+    }
+  }
+}

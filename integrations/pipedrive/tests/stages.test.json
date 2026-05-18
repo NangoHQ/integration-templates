@@ -1,0 +1,327 @@
+{
+  "nango": {
+    "batchSave": {
+      "Stage": [
+        {
+          "id": "7",
+          "name": "Prospect Qualified",
+          "pipeline_id": 2,
+          "order_nr": 1,
+          "is_deal_rot_enabled": false,
+          "deal_probability": 30,
+          "add_time": "2026-05-15T09:58:01Z",
+          "update_time": "2026-05-15T09:58:01Z"
+        },
+        {
+          "id": "10",
+          "name": "Nango Create Stage Test",
+          "pipeline_id": 5,
+          "order_nr": 1,
+          "is_deal_rot_enabled": false,
+          "deal_probability": 100,
+          "add_time": "2026-05-15T10:38:59Z",
+          "update_time": "2026-05-15T10:38:59Z"
+        },
+        {
+          "id": "11",
+          "name": "Nango Create Stage Test",
+          "pipeline_id": 5,
+          "order_nr": 2,
+          "is_deal_rot_enabled": false,
+          "deal_probability": 100,
+          "add_time": "2026-05-15T10:39:07Z",
+          "update_time": "2026-05-15T10:39:07Z"
+        },
+        {
+          "id": "1",
+          "name": "Qualified Lead Updated",
+          "pipeline_id": 1,
+          "order_nr": 1,
+          "is_deal_rot_enabled": false,
+          "deal_probability": 100,
+          "add_time": "2026-05-15T09:12:16Z",
+          "update_time": "2026-05-15T11:00:26Z"
+        },
+        {
+          "id": "2",
+          "name": "Contact Made",
+          "pipeline_id": 1,
+          "order_nr": 2,
+          "is_deal_rot_enabled": false,
+          "deal_probability": 100,
+          "add_time": "2026-05-15T09:12:16Z",
+          "update_time": "2026-05-15T11:00:26Z"
+        },
+        {
+          "id": "3",
+          "name": "Prospect Qualified",
+          "pipeline_id": 1,
+          "order_nr": 3,
+          "is_deal_rot_enabled": false,
+          "deal_probability": 100,
+          "add_time": "2026-05-15T09:12:16Z",
+          "update_time": "2026-05-15T11:00:26Z"
+        },
+        {
+          "id": "4",
+          "name": "Needs Defined",
+          "pipeline_id": 1,
+          "order_nr": 4,
+          "is_deal_rot_enabled": false,
+          "deal_probability": 100,
+          "add_time": "2026-05-15T09:12:16Z",
+          "update_time": "2026-05-15T11:00:26Z"
+        },
+        {
+          "id": "5",
+          "name": "Proposal Made",
+          "pipeline_id": 1,
+          "order_nr": 5,
+          "is_deal_rot_enabled": false,
+          "deal_probability": 100,
+          "add_time": "2026-05-15T09:12:16Z",
+          "update_time": "2026-05-15T11:00:26Z"
+        },
+        {
+          "id": "6",
+          "name": "Negotiations Started",
+          "pipeline_id": 1,
+          "order_nr": 6,
+          "is_deal_rot_enabled": false,
+          "deal_probability": 100,
+          "add_time": "2026-05-15T09:12:16Z",
+          "update_time": "2026-05-15T11:00:26Z"
+        },
+        {
+          "id": "15",
+          "name": "Test Stage",
+          "pipeline_id": 1,
+          "order_nr": 10,
+          "is_deal_rot_enabled": false,
+          "deal_probability": 100,
+          "add_time": "2026-05-15T11:04:24Z",
+          "update_time": "2026-05-15T11:04:24Z"
+        },
+        {
+          "id": "16",
+          "name": "Test Stage",
+          "pipeline_id": 1,
+          "order_nr": 11,
+          "is_deal_rot_enabled": false,
+          "deal_probability": 100,
+          "add_time": "2026-05-15T11:05:01Z",
+          "update_time": "2026-05-15T11:05:01Z"
+        },
+        {
+          "id": "17",
+          "name": "Test Stage",
+          "pipeline_id": 1,
+          "order_nr": 12,
+          "is_deal_rot_enabled": false,
+          "deal_probability": 100,
+          "add_time": "2026-05-15T11:05:10Z",
+          "update_time": "2026-05-15T11:05:10Z"
+        }
+      ]
+    },
+    "batchDelete": {
+      "Stage": []
+    }
+  },
+  "api": {
+    "get": {
+      "/v2/stages": {
+        "response": {
+          "success": true,
+          "data": [
+            {
+              "id": 7,
+              "name": "Prospect Qualified",
+              "order_nr": 1,
+              "pipeline_id": 2,
+              "deal_probability": 30,
+              "is_deal_rot_enabled": false,
+              "days_to_rotten": null,
+              "is_deleted": false,
+              "add_time": "2026-05-15T09:58:01Z",
+              "update_time": "2026-05-15T09:58:01Z"
+            },
+            {
+              "id": 10,
+              "name": "Nango Create Stage Test",
+              "order_nr": 1,
+              "pipeline_id": 5,
+              "deal_probability": 100,
+              "is_deal_rot_enabled": false,
+              "days_to_rotten": null,
+              "is_deleted": false,
+              "add_time": "2026-05-15T10:38:59Z",
+              "update_time": "2026-05-15T10:38:59Z"
+            },
+            {
+              "id": 11,
+              "name": "Nango Create Stage Test",
+              "order_nr": 2,
+              "pipeline_id": 5,
+              "deal_probability": 100,
+              "is_deal_rot_enabled": false,
+              "days_to_rotten": null,
+              "is_deleted": false,
+              "add_time": "2026-05-15T10:39:07Z",
+              "update_time": "2026-05-15T10:39:07Z"
+            },
+            {
+              "id": 1,
+              "name": "Qualified Lead Updated",
+              "order_nr": 1,
+              "pipeline_id": 1,
+              "deal_probability": 100,
+              "is_deal_rot_enabled": false,
+              "days_to_rotten": null,
+              "is_deleted": false,
+              "add_time": "2026-05-15T09:12:16Z",
+              "update_time": "2026-05-15T11:00:26Z"
+            },
+            {
+              "id": 2,
+              "name": "Contact Made",
+              "order_nr": 2,
+              "pipeline_id": 1,
+              "deal_probability": 100,
+              "is_deal_rot_enabled": false,
+              "days_to_rotten": null,
+              "is_deleted": false,
+              "add_time": "2026-05-15T09:12:16Z",
+              "update_time": "2026-05-15T11:00:26Z"
+            },
+            {
+              "id": 3,
+              "name": "Prospect Qualified",
+              "order_nr": 3,
+              "pipeline_id": 1,
+              "deal_probability": 100,
+              "is_deal_rot_enabled": false,
+              "days_to_rotten": null,
+              "is_deleted": false,
+              "add_time": "2026-05-15T09:12:16Z",
+              "update_time": "2026-05-15T11:00:26Z"
+            },
+            {
+              "id": 4,
+              "name": "Needs Defined",
+              "order_nr": 4,
+              "pipeline_id": 1,
+              "deal_probability": 100,
+              "is_deal_rot_enabled": false,
+              "days_to_rotten": null,
+              "is_deleted": false,
+              "add_time": "2026-05-15T09:12:16Z",
+              "update_time": "2026-05-15T11:00:26Z"
+            },
+            {
+              "id": 5,
+              "name": "Proposal Made",
+              "order_nr": 5,
+              "pipeline_id": 1,
+              "deal_probability": 100,
+              "is_deal_rot_enabled": false,
+              "days_to_rotten": null,
+              "is_deleted": false,
+              "add_time": "2026-05-15T09:12:16Z",
+              "update_time": "2026-05-15T11:00:26Z"
+            },
+            {
+              "id": 6,
+              "name": "Negotiations Started",
+              "order_nr": 6,
+              "pipeline_id": 1,
+              "deal_probability": 100,
+              "is_deal_rot_enabled": false,
+              "days_to_rotten": null,
+              "is_deleted": false,
+              "add_time": "2026-05-15T09:12:16Z",
+              "update_time": "2026-05-15T11:00:26Z"
+            },
+            {
+              "id": 15,
+              "name": "Test Stage",
+              "order_nr": 10,
+              "pipeline_id": 1,
+              "deal_probability": 100,
+              "is_deal_rot_enabled": false,
+              "days_to_rotten": null,
+              "is_deleted": false,
+              "add_time": "2026-05-15T11:04:24Z",
+              "update_time": "2026-05-15T11:04:24Z"
+            },
+            {
+              "id": 16,
+              "name": "Test Stage",
+              "order_nr": 11,
+              "pipeline_id": 1,
+              "deal_probability": 100,
+              "is_deal_rot_enabled": false,
+              "days_to_rotten": null,
+              "is_deleted": false,
+              "add_time": "2026-05-15T11:05:01Z",
+              "update_time": "2026-05-15T11:05:01Z"
+            },
+            {
+              "id": 17,
+              "name": "Test Stage",
+              "order_nr": 12,
+              "pipeline_id": 1,
+              "deal_probability": 100,
+              "is_deal_rot_enabled": false,
+              "days_to_rotten": null,
+              "is_deleted": false,
+              "add_time": "2026-05-15T11:05:10Z",
+              "update_time": "2026-05-15T11:05:10Z"
+            }
+          ],
+          "additional_data": {
+            "next_cursor": null
+          }
+        },
+        "status": 200,
+        "headers": {
+          "date": "Fri, 15 May 2026 11:19:29 GMT",
+          "content-type": "application/json",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "1; mode=block",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=31536000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "X-RateLimit-Remaining, X-RateLimit-Limit, X-RateLimit-Reset, X-Daily-RateLimit-Token-Limit, X-Daily-RateLimit-Token-Remaining",
+          "x-ratelimit-limit": "80",
+          "x-ratelimit-remaining": "75",
+          "x-ratelimit-reset": "2",
+          "cf-ray": "9fc1bf766ffd816e-PDX",
+          "cf-cache-status": "DYNAMIC",
+          "cache-control": "no-cache, private",
+          "server": "cloudflare",
+          "vary": "accept-encoding",
+          "badi": "Routing: lon-2=>lon-2; Version: 7cc8; Host: 7bdc7f4564-66thj;",
+          "x-correlation-id": "ba226c6b-4e24-46e1-b2a2-54915a43860d",
+          "x-daily-ratelimit-token-limit": "150000",
+          "x-daily-ratelimit-token-remaining": "145263",
+          "set-cookie": "pipedrive-cdl=lon-2;path=/;expires=Sat, 16 May 2026 11:19:29 GMT;secure, __cf_bm=7AyEDK2ocWq8OsCnfOTIpSeRBoslI586fhmFtbsTE7c-1778843969.021073-1.0.1.1-XCIjHfB7imP0fP3EqjgnzTE78h7J3mJJkvdsXfvp9OS2jt29jMyqtPtNYYCm5f8nm_l2xv70Msz1EezZH4KGlw6TGnY8gm2zkwARwQMzyUoZGiToUnUdALYuDgmGFpoW; HttpOnly; SameSite=None; Secure; Path=/; Domain=pipedrive.com; Expires=Fri, 15 May 2026 11:49:29 GMT",
+          "alt-svc": "h3=\":443\"; ma=86400"
+        },
+        "hash": "02e266510950c332e3a06995974ca31ca67d03f5",
+        "request": {
+          "params": {
+            "limit": "500",
+            "sort_by": "update_time",
+            "sort_direction": "asc"
+          }
+        }
+      }
+    }
+  }
+}

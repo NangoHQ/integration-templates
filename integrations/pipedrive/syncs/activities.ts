@@ -1,97 +1,173 @@
 import { createSync } from 'nango';
-import type { ProxyConfiguration } from 'nango';
-import { PipeDriveActivity } from '../models.js';
 import { z } from 'zod';
 
-const sync = createSync({
-    description: 'Fetches a list of activities from pipedrive',
-    version: '1.0.0',
-    frequency: 'every hour',
+// Provider response schema for Pipedrive activities
+// https://developers.pipedrive.com/docs/api/v1/Activities
+const _PipedriveActivitySchema = z.object({
+    id: z.number(),
+    subject: z.string().optional(),
+    type: z.string().optional(),
+    done: z.boolean().optional(),
+    due_date: z.string().optional(),
+    due_time: z.string().optional(),
+    duration: z.string().optional(),
+    add_time: z.string().optional(),
+    update_time: z.string().optional(),
+    user_id: z.number().optional(),
+    deal_id: z.number().optional(),
+    person_id: z.number().optional(),
+    org_id: z.number().optional(),
+    lead_id: z.string().optional(),
+    note: z.string().optional(),
+    active_flag: z.boolean().optional(),
+    public_description: z.string().optional(),
+    busy_flag: z.boolean().optional(),
+    marked_as_done_time: z.string().optional(),
+    created_by_user_id: z.number().optional(),
+    assigned_to_user_id: z.number().optional()
+});
+
+type PipedriveActivity = z.infer<typeof _PipedriveActivitySchema>;
+
+// Normalized Activity model for the sync
+const ActivitySchema = z.object({
+    id: z.string(),
+    subject: z.string().optional(),
+    type: z.string().optional(),
+    done: z.boolean().optional(),
+    due_date: z.string().optional(),
+    due_time: z.string().optional(),
+    duration: z.string().optional(),
+    add_time: z.string().optional(),
+    update_time: z.string().optional(),
+    user_id: z.number().optional(),
+    deal_id: z.number().optional(),
+    person_id: z.number().optional(),
+    org_id: z.number().optional(),
+    lead_id: z.string().optional(),
+    note: z.string().optional(),
+    active_flag: z.boolean().optional(),
+    public_description: z.string().optional(),
+    busy_flag: z.boolean().optional(),
+    marked_as_done_time: z.string().optional(),
+    created_by_user_id: z.number().optional(),
+    assigned_to_user_id: z.number().optional()
+});
+
+// Checkpoint schema for incremental sync
+// ZodCheckpoint requires non-optional primitive types (string, number, boolean)
+const CheckpointSchema = z.object({
+    updated_after: z.string(),
+    cursor: z.string()
+});
+
+const sync = createSync<{ Activity: typeof ActivitySchema }, undefined, typeof CheckpointSchema>({
+    description: 'Sync activities from Pipedrive',
+    version: '2.0.0',
+    frequency: 'every 5 minutes',
     autoStart: true,
-    syncType: 'incremental',
+    checkpoint: CheckpointSchema,
+    models: {
+        Activity: ActivitySchema
+    },
 
     endpoints: [
         {
-            method: 'GET',
-            path: '/pipedrive/activities'
+            path: '/syncs/activities',
+            method: 'POST'
         }
     ],
 
-    scopes: ['activities:read'],
-
-    models: {
-        PipeDriveActivity: PipeDriveActivity
-    },
-
-    metadata: z.object({}),
-
     exec: async (nango) => {
-        let totalRecords = 0;
+        const checkpoint = await nango.getCheckpoint();
+        const updatedAfter = checkpoint?.updated_after || '';
+        const cursor = checkpoint?.cursor || '';
 
-        const config: ProxyConfiguration = {
-            // https://developers.pipedrive.com/docs/api/v1/Activities#getActivitiesCollection
-            endpoint: '/v1/activities/collection',
-            ...(nango.lastSyncDate ? { params: { since: nango.lastSyncDate?.toISOString() } } : {}),
-            paginate: {
-                type: 'cursor',
-                cursor_path_in_response: 'additional_data.next_cursor',
-                cursor_name_in_request: 'cursor',
-                limit_name_in_request: 'limit',
-                response_path: 'data',
-                limit: 100
-            }
+        // https://developers.pipedrive.com/docs/api/v1/Activities
+        // Define pagination config separately for type inference
+        const paginateConfig: {
+            type: 'cursor';
+            cursor_name_in_request: string;
+            cursor_path_in_response: string;
+            response_path: string;
+            limit_name_in_request: string;
+            limit: number;
+        } = {
+            type: 'cursor',
+            cursor_name_in_request: 'cursor',
+            cursor_path_in_response: 'additional_data.next_cursor',
+            response_path: 'data',
+            limit_name_in_request: 'limit',
+            limit: 100
         };
-        for await (const activity of nango.paginate(config)) {
-            const mappedActivity: PipeDriveActivity[] = activity.map(mapActivity) || [];
-            // Save Activitiy
-            const batchSize: number = mappedActivity.length;
-            totalRecords += batchSize;
-            await nango.log(`Saving batch of ${batchSize} activities (total activities: ${totalRecords})`);
-            await nango.batchSave(mappedActivity, 'PipeDriveActivity');
+
+        const proxyConfig = {
+            endpoint: '/v1/activities',
+            params: {
+                sort_by: 'update_time',
+                sort_direction: 'asc',
+                limit: '100',
+                ...(updatedAfter && { updated_since: updatedAfter }),
+                ...(cursor && { cursor })
+            },
+            paginate: paginateConfig,
+            retries: 3
+        };
+
+        let lastProcessedUpdatedAt: string | undefined;
+
+        for await (const page of nango.paginate<PipedriveActivity>(proxyConfig)) {
+            const activities = page
+                .filter((record) => record.id !== undefined)
+                .map((record) => {
+                    // Track the last update_time for checkpointing
+                    if (record.update_time) {
+                        if (!lastProcessedUpdatedAt || record.update_time > lastProcessedUpdatedAt) {
+                            lastProcessedUpdatedAt = record.update_time;
+                        }
+                    }
+
+                    return {
+                        id: String(record.id),
+                        ...(record.subject != null && { subject: record.subject }),
+                        ...(record.type != null && { type: record.type }),
+                        ...(record.done != null && { done: record.done }),
+                        ...(record.due_date != null && { due_date: record.due_date }),
+                        ...(record.due_time != null && { due_time: record.due_time }),
+                        ...(record.duration != null && { duration: record.duration }),
+                        ...(record.add_time != null && { add_time: record.add_time }),
+                        ...(record.update_time != null && { update_time: record.update_time }),
+                        ...(record.user_id != null && { user_id: record.user_id }),
+                        ...(record.deal_id != null && { deal_id: record.deal_id }),
+                        ...(record.person_id != null && { person_id: record.person_id }),
+                        ...(record.org_id != null && { org_id: record.org_id }),
+                        ...(record.lead_id != null && { lead_id: record.lead_id }),
+                        ...(record.note != null && { note: record.note }),
+                        ...(record.active_flag != null && { active_flag: record.active_flag }),
+                        ...(record.public_description != null && { public_description: record.public_description }),
+                        ...(record.busy_flag != null && { busy_flag: record.busy_flag }),
+                        ...(record.marked_as_done_time != null && { marked_as_done_time: record.marked_as_done_time }),
+                        ...(record.created_by_user_id != null && { created_by_user_id: record.created_by_user_id }),
+                        ...(record.assigned_to_user_id != null && { assigned_to_user_id: record.assigned_to_user_id })
+                    };
+                });
+
+            if (activities.length === 0) {
+                continue;
+            }
+
+            await nango.batchSave(activities, 'Activity');
+
+            // Save checkpoint with updated_after and cursor
+            if (lastProcessedUpdatedAt) {
+                await nango.saveCheckpoint({
+                    updated_after: lastProcessedUpdatedAt,
+                    cursor: ''
+                });
+            }
         }
     }
 });
 
 export type NangoSyncLocal = Parameters<(typeof sync)['exec']>[0];
 export default sync;
-
-function mapActivity(activity: any): PipeDriveActivity {
-    return {
-        id: activity.id,
-        done: activity.done,
-        type: activity.type,
-        duration: activity.duration,
-        subject: activity.subject,
-        company_id: activity.company_id,
-        user_id: activity.user_id,
-        conference_meeting_client: activity.conference_meeting_client,
-        conference_meeting_url: activity.conference_meeting_url,
-        conference_meeting_id: activity.conference_meeting_id,
-        due_date: activity.due_date,
-        due_time: activity.due_time,
-        busy_flag: activity.busy_flag,
-        add_time: activity.add_time,
-        marked_as_done_time: activity.marked_as_done_time,
-        public_description: activity.public_description,
-        location: activity.location,
-        org_id: activity.org_id,
-        person_id: activity.person_id,
-        deal_id: activity.deal_id,
-        active_flag: activity.active_flag,
-        update_time: activity.update_time,
-        update_user_id: activity.update_user_id,
-        source_timezone: activity.source_timezone,
-        lead_id: activity.lead_id,
-        location_subpremise: activity.location_subpremise,
-        location_street_number: activity.location_street_number,
-        location_route: activity.location_route,
-        location_sublocality: activity.location_sublocality,
-        location_locality: activity.location_locality,
-        location_admin_area_level_1: activity.location_admin_area_level_1,
-        location_admin_area_level_2: activity.location_admin_area_level_2,
-        location_country: activity.location_country,
-        location_postal_code: activity.location_postal_code,
-        location_formatted_address: activity.location_formatted_address,
-        project_id: activity.project_id
-    };
-}

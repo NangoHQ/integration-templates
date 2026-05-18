@@ -1,75 +1,140 @@
 import { createSync } from 'nango';
-import type { ProxyConfiguration } from 'nango';
-import { PipeDrivePerson } from '../models.js';
 import { z } from 'zod';
 
+// https://developers.pipedrive.com/docs/api/v1/Persons
+// The v1 API returns email/phone (singular) as arrays, and org_id/owner_id as objects with a .value property
+const ProviderPersonSchema = z.object({
+    id: z.number(),
+    name: z.string(),
+    email: z
+        .array(
+            z.object({
+                value: z.string(),
+                primary: z.boolean().optional(),
+                label: z.string().optional()
+            })
+        )
+        .optional(),
+    phone: z
+        .array(
+            z.object({
+                value: z.string(),
+                primary: z.boolean().optional(),
+                label: z.string().optional()
+            })
+        )
+        .optional(),
+    org_id: z
+        .union([z.number(), z.object({ value: z.number(), name: z.string().optional() }).catchall(z.unknown())])
+        .nullable()
+        .optional(),
+    owner_id: z
+        .union([z.number(), z.object({ value: z.number(), name: z.string().optional() }).catchall(z.unknown())])
+        .nullable()
+        .optional(),
+    add_time: z.string().optional(),
+    update_time: z.string()
+});
+
+const PersonSchema = z.object({
+    id: z.string(),
+    name: z.string(),
+    emails: z
+        .array(
+            z.object({
+                value: z.string(),
+                primary: z.boolean().optional(),
+                label: z.string().optional()
+            })
+        )
+        .optional(),
+    phones: z
+        .array(
+            z.object({
+                value: z.string(),
+                primary: z.boolean().optional(),
+                label: z.string().optional()
+            })
+        )
+        .optional(),
+    org_id: z.number().optional(),
+    owner_id: z.number().optional(),
+    add_time: z.string().optional(),
+    update_time: z.string()
+});
+
+// Checkpoint schema must match ZodCheckpoint type: non-optional fields with primitive types
+const CheckpointSchema = z.object({
+    updated_after: z.string()
+});
+
+type ProviderPerson = z.infer<typeof ProviderPersonSchema>;
+
 const sync = createSync({
-    description: 'Fetches persons from pipedrive',
-    version: '1.0.0',
-    frequency: 'every half hour',
+    description: 'Sync persons from Pipedrive.',
+    version: '2.0.0',
+    frequency: 'every 5 minutes',
     autoStart: true,
-    syncType: 'incremental',
-
-    endpoints: [
-        {
-            method: 'GET',
-            path: '/pipedrive/persons'
-        }
-    ],
-
-    scopes: ['contacts:read'],
-
+    endpoints: [{ method: 'POST', path: '/syncs/persons' }],
+    checkpoint: CheckpointSchema,
     models: {
-        PipeDrivePerson: PipeDrivePerson
+        Person: PersonSchema
     },
 
-    metadata: z.object({}),
-
     exec: async (nango) => {
-        let totalRecords = 0;
+        const checkpoint = await nango.getCheckpoint();
+        const updatedAfter = checkpoint?.updated_after;
 
-        const config: ProxyConfiguration = {
-            // https://developers.pipedrive.com/docs/api/v1/Persons#getPersonsCollection
-            endpoint: '/v1/persons/collection',
-            ...(nango.lastSyncDate ? { params: { since: nango.lastSyncDate?.toISOString() } } : {}),
-            paginate: {
-                type: 'cursor',
-                cursor_path_in_response: 'additional_data.next_cursor',
-                cursor_name_in_request: 'cursor',
-                limit_name_in_request: 'limit',
-                response_path: 'data',
-                limit: 100
-            }
+        // https://developers.pipedrive.com/docs/api/v1/Persons
+        const proxyConfig = {
+            endpoint: '/v1/persons',
+            params: {
+                sort_by: 'update_time',
+                sort_direction: 'asc',
+                ...(updatedAfter && { updated_since: updatedAfter })
+            },
+            paginate: { limit: 100 },
+            retries: 3
         };
-        for await (const person of nango.paginate(config)) {
-            const mappedPerson: PipeDrivePerson[] = person.map(mapPerson) || [];
-            // Save Person
-            const batchSize: number = mappedPerson.length;
-            totalRecords += batchSize;
-            await nango.log(`Saving batch of ${batchSize} persons (total persons: ${totalRecords})`);
-            await nango.batchSave(mappedPerson, 'PipeDrivePerson');
+
+        for await (const page of nango.paginate(proxyConfig)) {
+            const providerPersons = page
+                .map((item: unknown) => {
+                    const parsed = ProviderPersonSchema.safeParse(item);
+                    return parsed.success ? parsed.data : null;
+                })
+                .filter((item): item is ProviderPerson => item !== null);
+
+            if (providerPersons.length === 0) {
+                continue;
+            }
+
+            const persons = providerPersons.map((person) => {
+                const orgId = typeof person.org_id === 'object' && person.org_id !== null ? person.org_id.value : person.org_id;
+                const ownerId = typeof person.owner_id === 'object' && person.owner_id !== null ? person.owner_id.value : person.owner_id;
+                return {
+                    id: String(person.id),
+                    name: person.name,
+                    ...(person.email && { emails: person.email }),
+                    ...(person.phone && { phones: person.phone }),
+                    ...(orgId != null && { org_id: orgId }),
+                    ...(ownerId != null && { owner_id: ownerId }),
+                    ...(person.add_time != null && { add_time: person.add_time }),
+                    update_time: person.update_time
+                };
+            });
+
+            await nango.batchSave(persons, 'Person');
+
+            const lastPerson = providerPersons[providerPersons.length - 1];
+            if (lastPerson) {
+                await nango.saveCheckpoint({
+                    updated_after: lastPerson.update_time
+                });
+            }
         }
     }
 });
 
 export type NangoSyncLocal = Parameters<(typeof sync)['exec']>[0];
 export default sync;
-
-function mapPerson(person: any): PipeDrivePerson {
-    return {
-        id: person.id,
-        active_flag: person.active_flag,
-        owner_id: person.owner_id,
-        org_id: person.org_id,
-        name: person.name,
-        phone: person.phone,
-        email: person.email,
-        update_time: person.update_time,
-        delete_time: person.delete_time,
-        add_time: person.add_time,
-        visible_to: person.visible_to,
-        picture_id: person.picture_id,
-        label: person.picture_id,
-        cc_email: person.cc_email
-    };
-}
