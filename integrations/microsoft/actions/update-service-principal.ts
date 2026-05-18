@@ -2,7 +2,7 @@ import { z } from 'zod';
 import { createAction } from 'nango';
 
 const InputSchema = z.object({
-    servicePrincipalId: z.string().describe('The unique identifier for the service principal. Example: "8c7410b7-37cd-4463-981d-74cd6ab033a7"'),
+    servicePrincipalId: z.string().min(1).describe('The unique identifier for the service principal. Example: "8c7410b7-37cd-4463-981d-74cd6ab033a7"'),
     accountEnabled: z.boolean().optional().describe('Whether the service principal account is enabled.'),
     appRoleAssignmentRequired: z
         .boolean()

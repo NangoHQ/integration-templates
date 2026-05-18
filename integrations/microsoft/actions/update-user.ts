@@ -2,7 +2,7 @@ import { z } from 'zod';
 import { createAction } from 'nango';
 
 const InputSchema = z.object({
-    userId: z.string().describe('The unique identifier of the user to update. Example: "9fc4580d-5ed8-46c5-9fff-258fd68d533d"'),
+    userId: z.string().min(1).describe('The unique identifier of the user to update. Example: "9fc4580d-5ed8-46c5-9fff-258fd68d533d"'),
     displayName: z.string().optional().describe('The name displayed in the address book for the user.'),
     givenName: z.string().optional().describe('The given name (first name) of the user.'),
     surname: z.string().optional().describe('The surname (family name or last name) of the user.'),

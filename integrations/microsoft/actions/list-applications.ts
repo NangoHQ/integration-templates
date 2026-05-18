@@ -67,16 +67,14 @@ const action = createAction({
             params['$top'] = input.top;
         }
 
+        let response;
         if (input.cursor) {
-            params['$skiptoken'] = input.cursor;
+            // https://learn.microsoft.com/en-us/graph/api/application-list
+            response = await nango.get({ endpoint: input.cursor, retries: 3 });
+        } else {
+            // https://learn.microsoft.com/en-us/graph/api/application-list
+            response = await nango.get({ endpoint: '/v1.0/applications', params, retries: 3 });
         }
-
-        // https://learn.microsoft.com/en-us/graph/api/application-list
-        const response = await nango.get({
-            endpoint: '/v1.0/applications',
-            params,
-            retries: 3
-        });
 
         const providerData = ProviderResponseSchema.parse(response.data);
 
@@ -94,19 +92,9 @@ const action = createAction({
             };
         });
 
-        let nextCursor: string | undefined;
-        if (providerData['@odata.nextLink']) {
-            const nextLink = providerData['@odata.nextLink'];
-            const url = new URL(nextLink);
-            const skipToken = url.searchParams.get('$skiptoken');
-            if (skipToken) {
-                nextCursor = skipToken;
-            }
-        }
-
         return {
             applications,
-            ...(nextCursor !== undefined && { nextCursor })
+            ...(providerData['@odata.nextLink'] !== undefined && { nextCursor: providerData['@odata.nextLink'] })
         };
     }
 });

@@ -76,16 +76,14 @@ const action = createAction({
         if (input.orderby) {
             params['$orderby'] = input.orderby;
         }
+        let response;
         if (input.cursor) {
-            params['$skiptoken'] = input.cursor;
+            // https://learn.microsoft.com/en-us/graph/api/user-list
+            response = await nango.get({ endpoint: input.cursor, retries: 3 });
+        } else {
+            // https://learn.microsoft.com/en-us/graph/api/user-list
+            response = await nango.get({ endpoint: '/v1.0/users', params, retries: 3 });
         }
-
-        // https://learn.microsoft.com/en-us/graph/api/user-list
-        const response = await nango.get({
-            endpoint: '/v1.0/users',
-            params,
-            retries: 3
-        });
 
         const data = ProviderResponseSchema.parse(response.data);
 
@@ -107,15 +105,7 @@ const action = createAction({
             };
         });
 
-        // Extract skipToken from nextLink if present
-        let nextCursor: string | undefined;
-        if (data['@odata.nextLink']) {
-            const nextLink: string = data['@odata.nextLink'];
-            const skipTokenMatch = /\$skiptoken=([^&]+)/.exec(nextLink);
-            if (skipTokenMatch && skipTokenMatch[1]) {
-                nextCursor = decodeURIComponent(skipTokenMatch[1]);
-            }
-        }
+        const nextCursor = data['@odata.nextLink'] || undefined;
 
         return {
             users,

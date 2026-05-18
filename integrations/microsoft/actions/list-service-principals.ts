@@ -71,31 +71,14 @@ const action = createAction({
     scopes: ['Application.Read.All'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
-        // https://learn.microsoft.com/en-us/graph/api/serviceprincipal-list
-        const config: {
-            endpoint: string;
-            params: Record<string, string>;
-            retries: number;
-        } = {
-            endpoint: '/v1.0/servicePrincipals',
-            params: {},
-            retries: 3
-        };
-
-        // Handle cursor pagination - Microsoft Graph uses @odata.nextLink format
+        let response;
         if (input.cursor) {
-            // If cursor contains the full nextLink URL, extract just the relative path
-            if (input.cursor.includes('/servicePrincipals')) {
-                const url = new URL(input.cursor);
-                config.endpoint = url.pathname.replace('/v1.0', '');
-                // Parse query parameters from the URL
-                url.searchParams.forEach((value, key) => {
-                    config.params[key] = value;
-                });
-            }
+            // https://learn.microsoft.com/en-us/graph/api/serviceprincipal-list
+            response = await nango.get({ endpoint: input.cursor, retries: 3 });
+        } else {
+            // https://learn.microsoft.com/en-us/graph/api/serviceprincipal-list
+            response = await nango.get({ endpoint: '/v1.0/servicePrincipals', retries: 3 });
         }
-
-        const response = await nango.get(config);
 
         const data = ProviderResponseSchema.parse(response.data);
 

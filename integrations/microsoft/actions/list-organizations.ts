@@ -83,9 +83,9 @@ const OrganizationOutputSchema = z.object({
     street: z.string().optional(),
     technicalNotificationMails: z.array(z.string()).optional(),
     tenantType: z.string().optional(),
-    assignedPlans: z.array(z.unknown()).optional(),
-    verifiedDomains: z.array(z.unknown()).optional(),
-    provisionedPlans: z.array(z.unknown()).optional()
+    assignedPlans: z.array(AssignedPlanSchema).optional(),
+    verifiedDomains: z.array(VerifiedDomainSchema).optional(),
+    provisionedPlans: z.array(ProvisionedPlanSchema).optional()
 });
 
 const OutputSchema = z.object({
@@ -140,9 +140,15 @@ const action = createAction({
         }
 
         const data = response.data;
-        const value = 'value' in data && Array.isArray(data['value']) ? data['value'] : [];
+        const rawValue = 'value' in data ? data['value'] : undefined;
+        if (!Array.isArray(rawValue)) {
+            throw new nango.ActionError({
+                type: 'invalid_response',
+                message: 'Microsoft Graph API returned a response without a value array'
+            });
+        }
 
-        const organizations = value.map((item: unknown) => {
+        const organizations = rawValue.map((item: unknown) => {
             const org = ProviderOrganizationSchema.parse(item);
             return {
                 id: org.id,

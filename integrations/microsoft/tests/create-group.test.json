@@ -85,7 +85,7 @@
           "x-ms-resource-unit": "1",
           "odata-version": "4.0"
         },
-        "hash": "c7f1897a868f624587154779c436ca0cf8a5ee63",
+        "hash": "7c12f6d6f2836146d9fc464da3849e20c3205b31",
         "request": {
           "data": {
             "displayName": "Nango Test Group",

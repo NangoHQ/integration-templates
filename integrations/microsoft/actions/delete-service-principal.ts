@@ -2,7 +2,10 @@ import { z } from 'zod';
 import { createAction } from 'nango';
 
 const InputSchema = z.object({
-    service_principal_id: z.string().describe('The unique identifier of the service principal to delete. Example: "8c7410b7-37cd-4463-981d-74cd6ab033a7"')
+    service_principal_id: z
+        .string()
+        .min(1)
+        .describe('The unique identifier of the service principal to delete. Example: "8c7410b7-37cd-4463-981d-74cd6ab033a7"')
 });
 
 const OutputSchema = z.object({

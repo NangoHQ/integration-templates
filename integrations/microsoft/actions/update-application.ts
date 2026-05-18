@@ -2,7 +2,7 @@ import { z } from 'zod';
 import { createAction } from 'nango';
 
 const InputSchema = z.object({
-    id: z.string().describe('The unique identifier of the application object. Example: "cc67332f-dfd9-43f0-af0f-bc0ff5334965"'),
+    id: z.string().min(1).describe('The unique identifier of the application object. Example: "cc67332f-dfd9-43f0-af0f-bc0ff5334965"'),
     displayName: z.string().optional().describe('The display name for the application.'),
     description: z.string().nullable().optional().describe('An optional description of the application.'),
     signInAudience: z

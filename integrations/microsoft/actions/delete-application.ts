@@ -2,7 +2,7 @@ import { z } from 'zod';
 import { createAction } from 'nango';
 
 const InputSchema = z.object({
-    applicationId: z.string().describe('The unique identifier for the application object. Example: "cc67332f-dfd9-43f0-af0f-bc0ff5334965"')
+    applicationId: z.string().min(1).describe('The unique identifier for the application object. Example: "cc67332f-dfd9-43f0-af0f-bc0ff5334965"')
 });
 
 const OutputSchema = z.object({

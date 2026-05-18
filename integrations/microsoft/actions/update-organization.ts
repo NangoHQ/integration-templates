@@ -7,7 +7,7 @@ const PrivacyProfileSchema = z.object({
 });
 
 const InputSchema = z.object({
-    id: z.string().describe('The unique identifier of the organization.'),
+    id: z.string().min(1).describe('The unique identifier of the organization.'),
     marketingNotificationEmails: z.array(z.string()).optional().describe('Email addresses for marketing notifications.'),
     privacyProfile: PrivacyProfileSchema.optional().describe('Privacy profile with contact email and statement URL.'),
     securityComplianceNotificationMails: z.array(z.string()).optional().describe('Email addresses for security compliance notifications.'),

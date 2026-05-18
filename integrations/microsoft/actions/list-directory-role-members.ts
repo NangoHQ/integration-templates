@@ -2,7 +2,8 @@ import { z } from 'zod';
 import { createAction } from 'nango';
 
 const InputSchema = z.object({
-    directoryRoleId: z.string().describe('The unique identifier of the directory role. Example: "c35aa61d-9e3d-419e-84a9-24767a8a9988"')
+    directoryRoleId: z.string().min(1).describe('The unique identifier of the directory role. Example: "c35aa61d-9e3d-419e-84a9-24767a8a9988"'),
+    cursor: z.string().optional().describe('Pagination cursor (skipToken) from the previous response. Omit for the first page.')
 });
 
 const ProviderMemberSchema = z.object({
@@ -48,11 +49,17 @@ const action = createAction({
     scopes: ['RoleManagement.Read.Directory'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
-        // https://learn.microsoft.com/en-us/graph/api/directoryrole-list-members
-        const response = await nango.get({
-            endpoint: `/v1.0/directoryRoles/${encodeURIComponent(input.directoryRoleId)}/members`,
-            retries: 3
-        });
+        let response;
+        if (input.cursor) {
+            // https://learn.microsoft.com/en-us/graph/api/directoryrole-list-members
+            response = await nango.get({ endpoint: input.cursor, retries: 3 });
+        } else {
+            // https://learn.microsoft.com/en-us/graph/api/directoryrole-list-members
+            response = await nango.get({
+                endpoint: `/v1.0/directoryRoles/${encodeURIComponent(input.directoryRoleId)}/members`,
+                retries: 3
+            });
+        }
 
         const providerResponse = ProviderResponseSchema.parse(response.data);
 

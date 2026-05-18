@@ -2,7 +2,7 @@ import { z } from 'zod';
 import { createAction } from 'nango';
 
 const InputSchema = z.object({
-    id: z.string().describe('Organization ID. Example: "56480ae2-88be-49cf-86f6-d62a45bf8758"')
+    id: z.string().min(1).describe('Organization ID. Example: "56480ae2-88be-49cf-86f6-d62a45bf8758"')
 });
 
 const VerifiedDomainSchema = z

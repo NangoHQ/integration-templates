@@ -2,7 +2,7 @@ import { z } from 'zod';
 import { createAction } from 'nango';
 
 const InputSchema = z.object({
-    id: z.string().describe('The unique identifier of the group to delete. Example: "51d82e22-a356-4506-afa1-2c3992bed3d7"')
+    id: z.string().min(1).describe('The unique identifier of the group to delete. Example: "51d82e22-a356-4506-afa1-2c3992bed3d7"')
 });
 
 const OutputSchema = z.object({

@@ -87412,7 +87412,7 @@
         },
         "mailNickname": {
           "type": "string",
-          "description": "The mail alias for the group. If omitted, a default will be generated. Example: \"engineeringteam\""
+          "description": "The mail alias for the group. Required by Microsoft Graph. Example: \"engineeringteam\""
         },
         "mailEnabled": {
           "type": "boolean",
@@ -87431,7 +87431,8 @@
         }
       },
       "required": [
-        "displayName"
+        "displayName",
+        "mailNickname"
       ],
       "additionalProperties": false
     },
@@ -88418,6 +88419,10 @@
         "directoryRoleId": {
           "type": "string",
           "description": "The unique identifier of the directory role. Example: \"c35aa61d-9e3d-419e-84a9-24767a8a9988\""
+        },
+        "cursor": {
+          "type": "string",
+          "description": "Pagination cursor (skipToken) from the previous response. Omit for the first page."
         }
       },
       "required": [
@@ -88489,6 +88494,10 @@
         "top": {
           "type": "number",
           "description": "Maximum number of records to return per page."
+        },
+        "cursor": {
+          "type": "string",
+          "description": "Pagination cursor (skipToken) from the previous response. Omit for the first page."
         }
       },
       "additionalProperties": false
@@ -88538,6 +88547,10 @@
         "groupId": {
           "type": "string",
           "description": "The unique identifier of the group. Example: \"51d82e22-a356-4506-afa1-2c3992bed3d7\""
+        },
+        "cursor": {
+          "type": "string",
+          "description": "Pagination cursor (skipToken) from the previous response. Omit for the first page."
         }
       },
       "required": [
@@ -88787,15 +88800,66 @@
               },
               "assignedPlans": {
                 "type": "array",
-                "items": {}
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "assignedDateTime": {
+                      "type": "string"
+                    },
+                    "capabilityStatus": {
+                      "type": "string"
+                    },
+                    "service": {
+                      "type": "string"
+                    },
+                    "servicePlanId": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
               },
               "verifiedDomains": {
                 "type": "array",
-                "items": {}
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "capabilities": {
+                      "type": "string"
+                    },
+                    "isDefault": {
+                      "type": "boolean"
+                    },
+                    "isInitial": {
+                      "type": "boolean"
+                    },
+                    "name": {
+                      "type": "string"
+                    },
+                    "type": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
               },
               "provisionedPlans": {
                 "type": "array",
-                "items": {}
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "capabilityStatus": {
+                      "type": "string"
+                    },
+                    "provisioningStatus": {
+                      "type": "string"
+                    },
+                    "service": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
               }
             },
             "required": [

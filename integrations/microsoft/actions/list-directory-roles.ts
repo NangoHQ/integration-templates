@@ -7,7 +7,8 @@ const InputSchema = z.object({
         .string()
         .optional()
         .describe('OData select query parameter to specify which properties to include in the response. Example: id,displayName,description'),
-    top: z.number().int().min(1).max(999).optional().describe('Maximum number of records to return per page.')
+    top: z.number().int().min(1).max(999).optional().describe('Maximum number of records to return per page.'),
+    cursor: z.string().optional().describe('Pagination cursor (skipToken) from the previous response. Omit for the first page.')
 });
 
 const DirectoryRoleSchema = z.object({
@@ -60,13 +61,14 @@ const action = createAction({
         if (input.top) {
             params['$top'] = input.top;
         }
-
-        // https://learn.microsoft.com/en-us/graph/api/directoryrole-list
-        const response = await nango.get({
-            endpoint: '/v1.0/directoryRoles',
-            params,
-            retries: 3
-        });
+        let response;
+        if (input.cursor) {
+            // https://learn.microsoft.com/en-us/graph/api/directoryrole-list
+            response = await nango.get({ endpoint: input.cursor, retries: 3 });
+        } else {
+            // https://learn.microsoft.com/en-us/graph/api/directoryrole-list
+            response = await nango.get({ endpoint: '/v1.0/directoryRoles', params, retries: 3 });
+        }
 
         const providerResponse = ProviderResponseSchema.parse(response.data);
 
@@ -80,9 +82,7 @@ const action = createAction({
 
         return {
             items,
-            ...(providerResponse['@odata.nextLink'] != null && {
-                next_cursor: providerResponse['@odata.nextLink']
-            })
+            ...(providerResponse['@odata.nextLink'] != null && { next_cursor: providerResponse['@odata.nextLink'] })
         };
     }
 });

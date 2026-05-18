@@ -29497,9 +29497,9 @@ export interface ActionInput_microsoft_creategroup {
    */
   description?: string | undefined;
   /**
-   * The mail alias for the group. If omitted, a default will be generated. Example: "engineeringteam"
+   * The mail alias for the group. Required by Microsoft Graph. Example: "engineeringteam"
    */
-  mailNickname?: string | undefined;
+  mailNickname: string;
   /**
    * Whether the group is mail-enabled. Default: false for security groups
    */
@@ -29966,6 +29966,10 @@ export interface ActionInput_microsoft_listdirectoryrolemembers {
    * The unique identifier of the directory role. Example: "c35aa61d-9e3d-419e-84a9-24767a8a9988"
    */
   directoryRoleId: string;
+  /**
+   * Pagination cursor (skipToken) from the previous response. Omit for the first page.
+   */
+  cursor?: string | undefined;
 };
 
 export interface ActionOutput_microsoft_listdirectoryrolemembers {
@@ -29992,6 +29996,10 @@ export interface ActionInput_microsoft_listdirectoryroles {
    * Maximum number of records to return per page.
    */
   top?: number | undefined;
+  /**
+   * Pagination cursor (skipToken) from the previous response. Omit for the first page.
+   */
+  cursor?: string | undefined;
 };
 
 export interface ActionOutput_microsoft_listdirectoryroles {
@@ -30008,6 +30016,10 @@ export interface ActionInput_microsoft_listgroupmembers {
    * The unique identifier of the group. Example: "51d82e22-a356-4506-afa1-2c3992bed3d7"
    */
   groupId: string;
+  /**
+   * Pagination cursor (skipToken) from the previous response. Omit for the first page.
+   */
+  cursor?: string | undefined;
 };
 
 export interface ActionOutput_microsoft_listgroupmembers {
@@ -30122,9 +30134,18 @@ export interface ActionOutput_microsoft_listorganizations {
   street?: string | undefined;
   technicalNotificationMails?: string[] | undefined;
   tenantType?: string | undefined;
-  assignedPlans?: unknown[] | undefined;
-  verifiedDomains?: unknown[] | undefined;
-  provisionedPlans?: unknown[] | undefined;})[];
+  assignedPlans?: ({  assignedDateTime?: string | undefined;
+  capabilityStatus?: string | undefined;
+  service?: string | undefined;
+  servicePlanId?: string | undefined;})[];
+  verifiedDomains?: ({  capabilities?: string | undefined;
+  isDefault?: boolean | undefined;
+  isInitial?: boolean | undefined;
+  name?: string | undefined;
+  type?: string | undefined;})[];
+  provisionedPlans?: ({  capabilityStatus?: string | undefined;
+  provisioningStatus?: string | undefined;
+  service?: string | undefined;})[];})[];
   count?: number | undefined;
   nextLink?: string | undefined;
 };

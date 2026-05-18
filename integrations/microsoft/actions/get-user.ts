@@ -2,7 +2,7 @@ import { z } from 'zod';
 import { createAction } from 'nango';
 
 const InputSchema = z.object({
-    userId: z.string().describe('The ID of the user to retrieve. Example: "9fc4580d-5ed8-46c5-9fff-258fd68d533d"')
+    userId: z.string().min(1).describe('The ID of the user to retrieve. Example: "9fc4580d-5ed8-46c5-9fff-258fd68d533d"')
 });
 
 const ProviderUserSchema = z.object({

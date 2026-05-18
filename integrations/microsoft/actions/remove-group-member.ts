@@ -2,8 +2,8 @@ import { z } from 'zod';
 import { createAction } from 'nango';
 
 const InputSchema = z.object({
-    groupId: z.string().describe('The ID of the group from which to remove the member. Example: "51d82e22-a356-4506-afa1-2c3992bed3d7"'),
-    memberId: z.string().describe('The ID of the member to remove from the group. Example: "9fc4580d-5ed8-46c5-9fff-258fd68d533d"')
+    groupId: z.string().min(1).describe('The ID of the group from which to remove the member. Example: "51d82e22-a356-4506-afa1-2c3992bed3d7"'),
+    memberId: z.string().min(1).describe('The ID of the member to remove from the group. Example: "9fc4580d-5ed8-46c5-9fff-258fd68d533d"')
 });
 
 const OutputSchema = z.object({

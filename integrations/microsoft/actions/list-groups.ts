@@ -21,8 +21,7 @@ const ProviderGroupSchema = z.object({
     visibility: z.string().optional().nullable(),
     createdDateTime: z.string().optional().nullable(),
     renewedDateTime: z.string().optional().nullable(),
-    expirationDateTime: z.string().optional().nullable(),
-    '@odata.nextLink': z.string().optional().nullable()
+    expirationDateTime: z.string().optional().nullable()
 });
 
 const GroupSchema = z.object({
@@ -76,12 +75,14 @@ const action = createAction({
             params['$orderby'] = input.orderby;
         }
 
-        const response = await nango.get({
+        let response;
+        if (input.cursor) {
             // https://learn.microsoft.com/en-us/graph/api/group-list
-            endpoint: '/v1.0/groups',
-            params,
-            retries: 3
-        });
+            response = await nango.get({ endpoint: input.cursor, retries: 3 });
+        } else {
+            // https://learn.microsoft.com/en-us/graph/api/group-list
+            response = await nango.get({ endpoint: '/v1.0/groups', params, retries: 3 });
+        }
 
         const providerData = ProviderGroupSchema.array().safeParse(response.data?.value ?? []);
 

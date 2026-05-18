@@ -4,7 +4,7 @@ import { createAction } from 'nango';
 const InputSchema = z.object({
     displayName: z.string().describe('The display name for the group. Example: "Engineering Team"'),
     description: z.string().optional().describe('An optional description for the group. Example: "Team collaboration space"'),
-    mailNickname: z.string().optional().describe('The mail alias for the group. If omitted, a default will be generated. Example: "engineeringteam"'),
+    mailNickname: z.string().describe('The mail alias for the group. Required by Microsoft Graph. Example: "engineeringteam"'),
     mailEnabled: z.boolean().optional().describe('Whether the group is mail-enabled. Default: false for security groups'),
     securityEnabled: z.boolean().optional().describe('Whether the group is a security group. Default: true'),
     groupTypes: z.array(z.string()).optional().describe('Group type classification. Use ["Unified"] for Microsoft 365 groups, leave empty for security groups.')
@@ -47,13 +47,10 @@ const action = createAction({
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const requestBody: Record<string, unknown> = {
             displayName: input.displayName,
+            mailNickname: input.mailNickname,
             mailEnabled: input.mailEnabled ?? false,
             securityEnabled: input.securityEnabled ?? true
         };
-
-        if (input.mailNickname !== undefined) {
-            requestBody['mailNickname'] = input.mailNickname;
-        }
 
         if (input.description !== undefined) {
             requestBody['description'] = input.description;

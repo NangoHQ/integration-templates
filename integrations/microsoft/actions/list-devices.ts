@@ -51,14 +51,14 @@ const action = createAction({
     scopes: ['Device.Read.All'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
-        // https://learn.microsoft.com/en-us/graph/api/device-list
-        const response = await nango.get({
-            endpoint: '/v1.0/devices',
-            params: {
-                ...(input.cursor && { '@odata.nextLink': input.cursor })
-            },
-            retries: 3
-        });
+        let response;
+        if (input.cursor) {
+            // https://learn.microsoft.com/en-us/graph/api/device-list
+            response = await nango.get({ endpoint: input.cursor, retries: 3 });
+        } else {
+            // https://learn.microsoft.com/en-us/graph/api/device-list
+            response = await nango.get({ endpoint: '/v1.0/devices', retries: 3 });
+        }
 
         const parsed = ProviderDevicesResponseSchema.parse(response.data);
         const rawDevices = parsed.value ?? [];

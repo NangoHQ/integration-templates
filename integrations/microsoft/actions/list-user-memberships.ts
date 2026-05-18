@@ -67,26 +67,18 @@ const action = createAction({
     scopes: ['User.Read.All', 'Directory.Read.All'],
 
     exec: async (nango, input): Promise<MembershipOutput> => {
-        let endpoint = `/v1.0/users/${encodeURIComponent(input.userId)}/memberOf`;
-
-        if (input.filterType) {
-            endpoint = `/v1.0/users/${encodeURIComponent(input.userId)}/memberOf/microsoft.graph.${input.filterType}`;
-        }
-
-        const params: Record<string, string | number> = {
-            $top: 100
-        };
-
+        let response;
         if (input.cursor) {
-            params['$skiptoken'] = input.cursor;
+            // https://learn.microsoft.com/en-us/graph/api/user-list-memberof
+            response = await nango.get({ endpoint: input.cursor, retries: 3 });
+        } else {
+            let firstPageEndpoint = `/v1.0/users/${encodeURIComponent(input.userId)}/memberOf`;
+            if (input.filterType) {
+                firstPageEndpoint = `/v1.0/users/${encodeURIComponent(input.userId)}/memberOf/microsoft.graph.${input.filterType}`;
+            }
+            // https://learn.microsoft.com/en-us/graph/api/user-list-memberof
+            response = await nango.get({ endpoint: firstPageEndpoint, params: { $top: 100 }, retries: 3 });
         }
-
-        // https://learn.microsoft.com/en-us/graph/api/user-list-memberof
-        const response = await nango.get({
-            endpoint,
-            params,
-            retries: 3
-        });
 
         if (!isValidMembershipResponse(response.data)) {
             throw new nango.ActionError({
@@ -159,11 +151,7 @@ const action = createAction({
         let nextCursor: string | undefined;
 
         if (data['@odata.nextLink'] && typeof data['@odata.nextLink'] === 'string') {
-            const nextLink = data['@odata.nextLink'];
-            const skipTokenMatch = nextLink.match(/\$skiptoken=([^&]+)/);
-            if (skipTokenMatch) {
-                nextCursor = skipTokenMatch[1];
-            }
+            nextCursor = data['@odata.nextLink'];
         }
 
         return {

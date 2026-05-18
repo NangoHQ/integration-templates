@@ -2,7 +2,8 @@ import { z } from 'zod';
 import { createAction } from 'nango';
 
 const InputSchema = z.object({
-    groupId: z.string().describe('The unique identifier of the group. Example: "51d82e22-a356-4506-afa1-2c3992bed3d7"')
+    groupId: z.string().min(1).describe('The unique identifier of the group. Example: "51d82e22-a356-4506-afa1-2c3992bed3d7"'),
+    cursor: z.string().optional().describe('Pagination cursor (skipToken) from the previous response. Omit for the first page.')
 });
 
 const ProviderMemberSchema = z.object({
@@ -44,14 +45,18 @@ const action = createAction({
     scopes: ['GroupMember.Read.All'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
-        // https://learn.microsoft.com/en-us/graph/api/group-list-members
-        const response = await nango.get({
-            endpoint: `v1.0/groups/${encodeURIComponent(input.groupId)}/members`,
-            params: {
-                $select: 'id,displayName,mail,userPrincipalName'
-            },
-            retries: 3
-        });
+        let response;
+        if (input.cursor) {
+            // https://learn.microsoft.com/en-us/graph/api/group-list-members
+            response = await nango.get({ endpoint: input.cursor, retries: 3 });
+        } else {
+            // https://learn.microsoft.com/en-us/graph/api/group-list-members
+            response = await nango.get({
+                endpoint: `/v1.0/groups/${encodeURIComponent(input.groupId)}/members`,
+                params: { $select: 'id,displayName,mail,userPrincipalName' },
+                retries: 3
+            });
+        }
 
         const providerResponse = ProviderResponseSchema.parse(response.data);
 

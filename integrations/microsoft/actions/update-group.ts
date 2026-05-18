@@ -2,7 +2,7 @@ import { z } from 'zod';
 import { createAction } from 'nango';
 
 const InputSchema = z.object({
-    groupId: z.string().describe('The unique identifier for the group. Example: "51d82e22-a356-4506-afa1-2c3992bed3d7"'),
+    groupId: z.string().min(1).describe('The unique identifier for the group. Example: "51d82e22-a356-4506-afa1-2c3992bed3d7"'),
     description: z.string().optional().describe('An optional description for the group.'),
     displayName: z.string().optional().describe('The display name for the group.'),
     mailNickname: z.string().optional().describe('The mail alias for the group.'),
