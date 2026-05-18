@@ -29274,6 +29274,1269 @@ export interface ActionOutput_metabase_updateuser {
   success: boolean;
 };
 
+export interface MicrosoftApplication {
+  id: string;
+  appId: string;
+  displayName?: string | undefined;
+  createdDateTime?: string | undefined;
+  description?: string | undefined;
+  signInAudience?: string | undefined;
+  publisherDomain?: string | undefined;
+};
+
+export interface DirectoryRole {
+  id: string;
+  displayName?: string | undefined;
+  description?: string | undefined;
+  roleTemplateId?: string | undefined;
+};
+
+export interface Group {
+  id: string;
+  name: string;
+  description?: string | undefined;
+  isDefault?: boolean | undefined;
+  isDeleted?: boolean | undefined;
+  isPublic?: boolean | undefined;
+  createdAt?: string | undefined;
+  updatedAt?: string | undefined;
+  url?: string | undefined;
+};
+
+export interface Organization {
+  id: string;
+  name: string;
+  created_at: string;
+  updated_at: string;
+  url: string;
+  external_id?: string | undefined;
+  domain_names?: string[] | undefined;
+  group_id?: number | undefined;
+  shared_comments?: boolean | undefined;
+  shared_tickets?: boolean | undefined;
+  tags?: string[] | undefined;
+  notes?: string | undefined;
+  details?: string | undefined;
+};
+
+export interface ServicePrincipal {
+  id: string;
+  appId?: string | undefined;
+  displayName?: string | undefined;
+  createdDateTime?: string | undefined;
+};
+
+export interface ActionInput_microsoft_addgroupmember {
+  /**
+   * The ID of the group to add a member to. Example: "51d82e22-a356-4506-afa1-2c3992bed3d7"
+   */
+  groupId: string;
+  /**
+   * The ID of the user, group, or service principal to add as a member. Example: "9fc4580d-5ed8-46c5-9fff-258fd68d533d"
+   */
+  memberId: string;
+};
+
+export interface ActionOutput_microsoft_addgroupmember {
+  success: boolean;
+  groupId: string;
+  memberId: string;
+};
+
+export interface ActionInput_microsoft_createapplication {
+  /**
+   * The display name for the application. Example: "My Application"
+   */
+  displayName: string;
+  /**
+   * Free text field to provide a description of the application. Example: "Application description"
+   */
+  description?: string | undefined;
+  /**
+   * Specifies the Microsoft accounts supported. Example: "AzureADandPersonalMicrosoftAccount"
+   */
+  signInAudience?: 'AzureADMyOrg' | 'AzureADMultipleOrgs' | 'AzureADandPersonalMicrosoftAccount' | 'PersonalMicrosoftAccount' | undefined;
+  /**
+   * Also known as App ID URI, this value acts as the prefix for scopes. Example: ["api://myapp"]
+   */
+  identifierUris?: string[] | undefined;
+  /**
+   * Specifies settings for a web application.
+   */
+  web?: {  /**
+   * The redirect URIs for web applications.
+   */
+  redirectUris?: string[] | undefined;
+  /**
+   * Home page URL of the application.
+   */
+  homePageUrl?: string | undefined;
+  /**
+   * URL for logout.
+   */
+  logoutUrl?: string | undefined;
+  implicitGrantSettings?: {  enableIdTokenIssuance?: boolean | undefined;
+  enableAccessTokenIssuance?: boolean | undefined;};};
+  /**
+   * Specifies settings for a single-page application.
+   */
+  spa?: {  /**
+   * The redirect URIs for single-page applications.
+   */
+  redirectUris?: string[] | undefined;};
+  /**
+   * Specifies settings for public clients (mobile/desktop apps).
+   */
+  publicClient?: {  /**
+   * The redirect URIs for public client applications.
+   */
+  redirectUris?: string[] | undefined;};
+  /**
+   * Specifies settings for an application that implements a web API.
+   */
+  api?: {  /**
+   * The access token version expected.
+   */
+  requestedAccessTokenVersion?: number | undefined;
+  oauth2PermissionScopes?: ({  id: string;
+  value: string;
+  type?: string | undefined;
+  adminConsentDescription?: string | undefined;
+  adminConsentDisplayName?: string | undefined;
+  userConsentDescription?: string | undefined;
+  userConsentDisplayName?: string | undefined;
+  isEnabled?: boolean | undefined;})[];};
+  /**
+   * Custom strings to categorize the application. Example: ["production"]
+   */
+  tags?: string[] | undefined;
+  /**
+   * Configures the groups claim issued in tokens. Example: "SecurityGroup"
+   */
+  groupMembershipClaims?: 'None' | 'SecurityGroup' | 'All' | undefined;
+  /**
+   * Resources that the application needs to access.
+   */
+  requiredResourceAccess?: ({  resourceAppId: string;
+  resourceAccess: ({  id: string;
+  type: 'Scope' | 'Role';})[];})[] | undefined;
+  /**
+   * Password credentials for the application.
+   */
+  passwordCredentials?: ({  /**
+   * Display name for the password. Example: "Password 1"
+   */
+  displayName: string;
+  /**
+   * End date time in ISO 8601 format.
+   */
+  endDateTime?: string | undefined;
+  /**
+   * Start date time in ISO 8601 format.
+   */
+  startDateTime?: string | undefined;})[];
+  /**
+   * Specifies whether to fall back to public client type.
+   */
+  isFallbackPublicClient?: boolean | undefined;
+  /**
+   * Notes for management of the application.
+   */
+  notes?: string | undefined;
+  /**
+   * URL where the service exposes SAML metadata.
+   */
+  samlMetadataUrl?: string | undefined;
+  /**
+   * References app contact info from a Service Management database.
+   */
+  serviceManagementReference?: string | undefined;
+};
+
+export interface ActionOutput_microsoft_createapplication {
+  /**
+   * Unique identifier for the application object. Example: "03ef14b0-ca33-4840-8f4f-d6e91916010e"
+   */
+  id: string;
+  /**
+   * The unique identifier for the application assigned by Microsoft Entra ID. Example: "631a96bc-a705-4eda-9f99-fdaf9f54f6a2"
+   */
+  appId: string;
+  /**
+   * The display name for the application.
+   */
+  displayName: string;
+  description?: string | undefined;
+  createdDateTime?: string | undefined;
+  identifierUris?: string[] | undefined;
+  signInAudience?: string | undefined;
+  publisherDomain?: string | undefined;
+  tags?: string[] | undefined;
+  web?: {  [key: string]: unknown | undefined;};
+  spa?: {  [key: string]: unknown | undefined;};
+  publicClient?: {  [key: string]: unknown | undefined;};
+  api?: {  [key: string]: unknown | undefined;};
+  passwordCredentials?: ({  [key: string]: unknown | undefined;})[];
+  keyCredentials?: ({  [key: string]: unknown | undefined;})[];
+  appRoles?: ({  [key: string]: unknown | undefined;})[];
+  requiredResourceAccess?: ({  [key: string]: unknown | undefined;})[];
+  isFallbackPublicClient?: boolean | undefined;
+  groupMembershipClaims?: string | undefined;
+  notes?: string | undefined;
+  samlMetadataUrl?: string | undefined;
+  serviceManagementReference?: string | undefined;
+};
+
+export interface ActionInput_microsoft_creategroup {
+  /**
+   * The display name for the group. Example: "Engineering Team"
+   */
+  displayName: string;
+  /**
+   * An optional description for the group. Example: "Team collaboration space"
+   */
+  description?: string | undefined;
+  /**
+   * The mail alias for the group. If omitted, a default will be generated. Example: "engineeringteam"
+   */
+  mailNickname?: string | undefined;
+  /**
+   * Whether the group is mail-enabled. Default: false for security groups
+   */
+  mailEnabled?: boolean | undefined;
+  /**
+   * Whether the group is a security group. Default: true
+   */
+  securityEnabled?: boolean | undefined;
+  /**
+   * Group type classification. Use ["Unified"] for Microsoft 365 groups, leave empty for security groups.
+   */
+  groupTypes?: string[] | undefined;
+};
+
+export interface ActionOutput_microsoft_creategroup {
+  /**
+   * The unique identifier of the created group
+   */
+  id: string;
+  /**
+   * The display name of the group
+   */
+  displayName?: string | undefined;
+  /**
+   * The description of the group
+   */
+  description?: string | undefined;
+  /**
+   * The mail alias of the group
+   */
+  mailNickname?: string | undefined;
+  /**
+   * Whether the group is mail-enabled
+   */
+  mailEnabled?: boolean | undefined;
+  /**
+   * Whether the group is a security group
+   */
+  securityEnabled?: boolean | undefined;
+  /**
+   * Group type classification
+   */
+  groupTypes?: string[] | undefined;
+  /**
+   * The date and time the group was created
+   */
+  createdDateTime?: string | undefined;
+};
+
+export interface ActionInput_microsoft_createserviceprincipal {
+  /**
+   * The application ID to create a service principal for. Example: "dd6b0cea-e204-44c6-b2e0-1162323c22f4"
+   */
+  appId: string;
+};
+
+export interface ActionOutput_microsoft_createserviceprincipal {
+  id: string;
+  appId: string;
+  displayName?: string | undefined;
+  accountEnabled?: boolean | undefined;
+  appDisplayName?: string | undefined;
+  appOwnerOrganizationId?: string | undefined;
+  appRoleAssignmentRequired?: boolean | undefined;
+};
+
+export interface ActionInput_microsoft_createuser {
+  /**
+   * Whether the account is enabled. Example: true
+   */
+  accountEnabled?: boolean | undefined;
+  /**
+   * Display name of the user. Example: "John Doe"
+   */
+  displayName: string;
+  /**
+   * Mail alias for the user. Example: "johndoe"
+   */
+  mailNickname: string;
+  /**
+   * User principal name (UPN). Example: "johndoe@contoso.onmicrosoft.com"
+   */
+  userPrincipalName: string;
+  /**
+   * Password profile for the user
+   */
+  passwordProfile: {  /**
+   * Password for the user. Example: "Password123!"
+   */
+  password: string;
+  /**
+   * Whether user must change password at next sign-in. Example: true
+   */
+  forceChangePasswordNextSignIn?: boolean | undefined;};
+  /**
+   * First name of the user. Example: "John"
+   */
+  givenName?: string | undefined;
+  /**
+   * Last name of the user. Example: "Doe"
+   */
+  surname?: string | undefined;
+  /**
+   * Job title of the user. Example: "Software Engineer"
+   */
+  jobTitle?: string | undefined;
+  /**
+   * Department of the user. Example: "Engineering"
+   */
+  department?: string | undefined;
+  /**
+   * Mobile phone number. Example: "+1 555 555 5555"
+   */
+  mobilePhone?: string | undefined;
+  /**
+   * Office location. Example: "Building 1"
+   */
+  officeLocation?: string | undefined;
+};
+
+export interface ActionOutput_microsoft_createuser {
+  id: string;
+  displayName?: string | undefined;
+  userPrincipalName?: string | undefined;
+  accountEnabled?: boolean | undefined;
+  givenName?: string | undefined;
+  surname?: string | undefined;
+  jobTitle?: string | undefined;
+  department?: string | undefined;
+  mobilePhone?: string | undefined;
+  officeLocation?: string | undefined;
+  mail?: string | undefined;
+  createdDateTime?: string | undefined;
+};
+
+export interface ActionInput_microsoft_deleteapplication {
+  /**
+   * The unique identifier for the application object. Example: "cc67332f-dfd9-43f0-af0f-bc0ff5334965"
+   */
+  applicationId: string;
+};
+
+export interface ActionOutput_microsoft_deleteapplication {
+  success: boolean;
+  applicationId: string;
+};
+
+export interface ActionInput_microsoft_deletegroup {
+  /**
+   * The unique identifier of the group to delete. Example: "51d82e22-a356-4506-afa1-2c3992bed3d7"
+   */
+  id: string;
+};
+
+export interface ActionOutput_microsoft_deletegroup {
+  /**
+   * Whether the group was successfully deleted
+   */
+  success: boolean;
+};
+
+export interface ActionInput_microsoft_deleteserviceprincipal {
+  /**
+   * The unique identifier of the service principal to delete. Example: "8c7410b7-37cd-4463-981d-74cd6ab033a7"
+   */
+  service_principal_id: string;
+};
+
+export interface ActionOutput_microsoft_deleteserviceprincipal {
+  success: boolean;
+  service_principal_id: string;
+};
+
+export interface ActionInput_microsoft_deleteuser {
+  /**
+   * The unique identifier of the user to delete. Example: "9fc4580d-5ed8-46c5-9fff-258fd68d533d"
+   */
+  userId: string;
+};
+
+export interface ActionOutput_microsoft_deleteuser {
+  success: boolean;
+  userId: string;
+  message: string;
+};
+
+export interface ActionInput_microsoft_getapplication {
+  /**
+   * The unique identifier for the application. Example: "cc67332f-dfd9-43f0-af0f-bc0ff5334965"
+   */
+  id: string;
+};
+
+export interface ActionOutput_microsoft_getapplication {
+  id: string;
+  appId?: string | undefined;
+  displayName?: string | undefined;
+  description?: string | undefined;
+  createdDateTime?: string | undefined;
+  publisherDomain?: string | undefined;
+  signInAudience?: string | undefined;
+};
+
+export interface ActionInput_microsoft_getdirectoryrole {
+  /**
+   * The unique identifier for the directory role. Example: "c35aa61d-9e3d-419e-84a9-24767a8a9988"
+   */
+  directoryRoleId: string;
+};
+
+export interface ActionOutput_microsoft_getdirectoryrole {
+  id: string;
+  description?: string | undefined;
+  displayName?: string | undefined;
+  roleTemplateId?: string | undefined;
+};
+
+export interface ActionInput_microsoft_getgroup {
+  /**
+   * The unique identifier for the group. Example: "51d82e22-a356-4506-afa1-2c3992bed3d7"
+   */
+  id: string;
+};
+
+export interface ActionOutput_microsoft_getgroup {
+  id: string;
+  displayName: string;
+  description?: string | undefined;
+  groupTypes?: string[] | undefined;
+  mail?: string | undefined;
+  mailEnabled?: boolean | undefined;
+  mailNickname?: string | undefined;
+  securityEnabled?: boolean | undefined;
+  visibility?: string | undefined;
+  createdDateTime?: string | undefined;
+  renewedDateTime?: string | undefined;
+};
+
+export interface ActionInput_microsoft_getorganization {
+  /**
+   * Organization ID. Example: "56480ae2-88be-49cf-86f6-d62a45bf8758"
+   */
+  id: string;
+};
+
+export interface ActionOutput_microsoft_getorganization {
+  id: string;
+  displayName?: string | undefined;
+  businessPhones?: string[] | undefined;
+  city?: string | undefined;
+  country?: string | undefined;
+  countryLetterCode?: string | undefined;
+  createdDateTime?: string | undefined;
+  deletedDateTime?: string | undefined;
+  marketingNotificationEmails?: string[] | undefined;
+  onPremisesLastSyncDateTime?: string | undefined;
+  onPremisesSyncEnabled?: boolean | undefined;
+  postalCode?: string | undefined;
+  preferredLanguage?: string | undefined;
+  securityComplianceNotificationMails?: string[] | undefined;
+  securityComplianceNotificationPhones?: string[] | undefined;
+  state?: string | undefined;
+  street?: string | undefined;
+  technicalNotificationMails?: string[] | undefined;
+  tenantType?: string | undefined;
+  verifiedDomains?: ({  capabilities?: string | undefined;
+  isDefault?: boolean | undefined;
+  isInitial?: boolean | undefined;
+  name?: string | undefined;
+  type?: string | undefined;})[];
+  assignedPlans?: ({  assignedDateTime?: string | undefined;
+  capabilityStatus?: string | undefined;
+  service?: string | undefined;
+  servicePlanId?: string | undefined;})[];
+  provisionedPlans?: ({  capabilityStatus?: string | undefined;
+  provisioningStatus?: string | undefined;
+  service?: string | undefined;})[];
+};
+
+export interface ActionInput_microsoft_getserviceprincipal {
+  /**
+   * The unique identifier of the service principal. Example: "8c7410b7-37cd-4463-981d-74cd6ab033a7"
+   */
+  servicePrincipalId: string;
+};
+
+export interface ActionOutput_microsoft_getserviceprincipal {
+  /**
+   * The unique identifier for the service principal.
+   */
+  id: string;
+  appId?: string | undefined;
+  displayName?: string | undefined;
+  appDisplayName?: string | undefined;
+  servicePrincipalType?: string | undefined;
+  accountEnabled?: boolean | undefined;
+  alternativeNames?: string[] | undefined;
+  appDescription?: string | undefined;
+  appOwnerOrganizationId?: string | undefined;
+  description?: string | undefined;
+  loginUrl?: string | undefined;
+  logoutUrl?: string | undefined;
+  notificationEmailAddresses?: string[] | undefined;
+  preferredSingleSignOnMode?: string | undefined;
+  replyUrls?: string[] | undefined;
+  servicePrincipalNames?: string[] | undefined;
+  signInAudience?: string | undefined;
+  tags?: string[] | undefined;
+  addIns?: unknown | undefined;
+  appRoles?: unknown | undefined;
+  info?: unknown | undefined;
+  keyCredentials?: unknown | undefined;
+  oauth2PermissionScopes?: unknown | undefined;
+  passwordCredentials?: unknown | undefined;
+  verifiedPublisher?: unknown | undefined;
+  createdDateTime?: string | undefined;
+  deletedDateTime?: string | undefined;
+};
+
+export interface ActionInput_microsoft_getuser {
+  /**
+   * The ID of the user to retrieve. Example: "9fc4580d-5ed8-46c5-9fff-258fd68d533d"
+   */
+  userId: string;
+};
+
+export interface ActionOutput_microsoft_getuser {
+  id: string;
+  displayName?: string | undefined;
+  givenName?: string | undefined;
+  surname?: string | undefined;
+  mail?: string | undefined;
+  userPrincipalName?: string | undefined;
+  jobTitle?: string | undefined;
+  officeLocation?: string | undefined;
+  mobilePhone?: string | undefined;
+  businessPhones?: string[] | undefined;
+  preferredLanguage?: string | undefined;
+  createdDateTime?: string | undefined;
+  accountEnabled?: boolean | undefined;
+  department?: string | undefined;
+  companyName?: string | undefined;
+};
+
+export interface ActionInput_microsoft_listapplications {
+  /**
+   * OData filter expression to filter applications. Example: displayName eq 'MyApp'
+   */
+  filter?: string | undefined;
+  /**
+   * OData select expression to specify which properties to return. Example: id,displayName,appId
+   */
+  select?: string | undefined;
+  /**
+   * Number of items to return in a page (max 999). Example: 50
+   */
+  top?: number | undefined;
+  /**
+   * Pagination cursor from the previous response. Omit for the first page.
+   */
+  cursor?: string | undefined;
+};
+
+export interface ActionOutput_microsoft_listapplications {
+  applications: ({  id: string;
+  appId?: string | undefined;
+  displayName?: string | undefined;
+  description?: string | undefined;
+  signInAudience?: string | undefined;
+  publisherDomain?: string | undefined;
+  createdDateTime?: string | undefined;
+  identifierUris?: string[] | undefined;})[];
+  nextCursor?: string | undefined;
+};
+
+export interface ActionInput_microsoft_listdevices {
+  /**
+   * Pagination cursor (odata.nextLink) from the previous response. Omit for the first page.
+   */
+  cursor?: string | undefined;
+};
+
+export interface ActionOutput_microsoft_listdevices {
+  devices: ({  /**
+   * The unique identifier for the device.
+   */
+  id: string;
+  /**
+   * The device ID.
+   */
+  deviceId?: string | undefined;
+  /**
+   * The display name for the device.
+   */
+  displayName?: string | undefined;
+  /**
+   * The operating system of the device.
+   */
+  operatingSystem?: string | undefined;
+  /**
+   * The operating system version of the device.
+   */
+  operatingSystemVersion?: string | undefined;
+  /**
+   * Whether the device account is enabled.
+   */
+  accountEnabled?: boolean | undefined;
+  /**
+   * The timestamp of the approximate last sign-in.
+   */
+  approximateLastSignInDateTime?: string | undefined;
+  /**
+   * The enrollment profile name.
+   */
+  enrollmentProfileName?: string | undefined;
+  /**
+   * The device management type.
+   */
+  managementType?: string | undefined;
+  /**
+   * The timestamp when the device was registered.
+   */
+  registrationDateTime?: string | undefined;
+  /**
+   * The ownership of the device.
+   */
+  deviceOwnership?: string | undefined;
+  /**
+   * The domain name.
+   */
+  domainName?: string | undefined;
+  /**
+   * The profile type of the device.
+   */
+  profileType?: string | undefined;
+  /**
+   * The MDM application ID.
+   */
+  mdmAppId?: string | undefined;
+  /**
+   * The compliance expiration timestamp.
+   */
+  complianceExpirationDateTime?: string | undefined;
+  /**
+   * Whether on-premises sync is enabled.
+   */
+  onPremisesSyncEnabled?: boolean | undefined;
+  /**
+   * The trust type of the device.
+   */
+  trustType?: string | undefined;
+  /**
+   * Alternative security IDs for the device.
+   */
+  alternativeSecurityIds?: ({  [key: string]: unknown | undefined;})[];})[];
+  /**
+   * The odata.nextLink cursor for the next page of results.
+   */
+  next_cursor?: string | undefined;
+};
+
+export interface ActionInput_microsoft_listdirectoryrolemembers {
+  /**
+   * The unique identifier of the directory role. Example: "c35aa61d-9e3d-419e-84a9-24767a8a9988"
+   */
+  directoryRoleId: string;
+};
+
+export interface ActionOutput_microsoft_listdirectoryrolemembers {
+  members: ({  id: string;
+  type: 'user' | 'servicePrincipal';
+  displayName?: string | undefined;
+  email?: string | undefined;
+  userPrincipalName?: string | undefined;
+  appId?: string | undefined;
+  servicePrincipalType?: string | undefined;})[];
+  nextLink?: string | undefined;
+};
+
+export interface ActionInput_microsoft_listdirectoryroles {
+  /**
+   * OData filter query parameter using eq operator only. Example: displayName eq Global Administrator
+   */
+  filter?: string | undefined;
+  /**
+   * OData select query parameter to specify which properties to include in the response. Example: id,displayName,description
+   */
+  select?: string | undefined;
+  /**
+   * Maximum number of records to return per page.
+   */
+  top?: number | undefined;
+};
+
+export interface ActionOutput_microsoft_listdirectoryroles {
+  items: ({  id: string;
+  deletedDateTime?: string | undefined;
+  description?: string | undefined;
+  displayName?: string | undefined;
+  roleTemplateId?: string | undefined;})[];
+  next_cursor?: string | undefined;
+};
+
+export interface ActionInput_microsoft_listgroupmembers {
+  /**
+   * The unique identifier of the group. Example: "51d82e22-a356-4506-afa1-2c3992bed3d7"
+   */
+  groupId: string;
+};
+
+export interface ActionOutput_microsoft_listgroupmembers {
+  /**
+   * List of direct members of the group
+   */
+  members: ({  /**
+   * The unique identifier of the member
+   */
+  id: string;
+  /**
+   * The type of directory object (e.g., #microsoft.graph.user, #microsoft.graph.group)
+   */
+  type?: string | undefined;
+  /**
+   * The display name of the member
+   */
+  displayName?: string | undefined;
+  /**
+   * The email address of the member
+   */
+  mail?: string | undefined;
+  /**
+   * The user principal name of the member
+   */
+  userPrincipalName?: string | undefined;})[];
+  /**
+   * URL to retrieve the next page of results, if more members exist
+   */
+  nextLink?: string | undefined;
+};
+
+export interface ActionInput_microsoft_listgroups {
+  /**
+   * OData filter expression
+   */
+  filter?: string | undefined;
+  /**
+   * Comma-separated list of properties to return
+   */
+  select?: string | undefined;
+  /**
+   * Number of items to return per page (1-999). Default is 100.
+   */
+  top?: number | undefined;
+  /**
+   * OData orderby expression
+   */
+  orderby?: string | undefined;
+  /**
+   * Pagination URL from the previous response. Omit for the first page.
+   */
+  cursor?: string | undefined;
+};
+
+export interface ActionOutput_microsoft_listgroups {
+  items: ({  id: string;
+  displayName?: string | undefined;
+  description?: string | undefined;
+  mail?: string | undefined;
+  mailNickname?: string | undefined;
+  groupTypes?: string[] | undefined;
+  securityEnabled?: boolean | undefined;
+  mailEnabled?: boolean | undefined;
+  visibility?: string | undefined;
+  createdDateTime?: string | undefined;
+  renewedDateTime?: string | undefined;
+  expirationDateTime?: string | undefined;})[];
+  nextCursor?: string | undefined;
+};
+
+export interface ActionInput_microsoft_listorganizations {
+  /**
+   * Comma-separated list of properties to include in the response.
+   */
+  "$select"?: string | undefined;
+  /**
+   * OData filter to narrow results.
+   */
+  "$filter"?: string | undefined;
+  /**
+   * Number of items to return per page.
+   */
+  "$top"?: number | undefined;
+  /**
+   * Number of items to skip.
+   */
+  "$skip"?: number | undefined;
+  /**
+   * Include a count of the total number of items.
+   */
+  "$count"?: boolean | undefined;
+};
+
+export interface ActionOutput_microsoft_listorganizations {
+  organizations: ({  id: string;
+  displayName?: string | undefined;
+  createdDateTime?: string | undefined;
+  businessPhones?: string[] | undefined;
+  city?: string | undefined;
+  country?: string | undefined;
+  countryLetterCode?: string | undefined;
+  defaultUsageLocation?: string | undefined;
+  marketingNotificationEmails?: string[] | undefined;
+  onPremisesLastSyncDateTime?: string | undefined;
+  onPremisesSyncEnabled?: boolean | undefined;
+  postalCode?: string | undefined;
+  preferredLanguage?: string | undefined;
+  securityComplianceNotificationMails?: string[] | undefined;
+  securityComplianceNotificationPhones?: string[] | undefined;
+  state?: string | undefined;
+  street?: string | undefined;
+  technicalNotificationMails?: string[] | undefined;
+  tenantType?: string | undefined;
+  assignedPlans?: unknown[] | undefined;
+  verifiedDomains?: unknown[] | undefined;
+  provisionedPlans?: unknown[] | undefined;})[];
+  count?: number | undefined;
+  nextLink?: string | undefined;
+};
+
+export interface ActionInput_microsoft_listserviceprincipals {
+  /**
+   * Pagination cursor for the next page of results. Pass the value from @odata.nextLink or next_cursor.
+   */
+  cursor?: string | undefined;
+};
+
+export interface ActionOutput_microsoft_listserviceprincipals {
+  items: ({  /**
+   * The unique identifier for the service principal
+   */
+  id: string;
+  /**
+   * The application ID of the application associated with this service principal
+   */
+  appId: string;
+  /**
+   * The display name for the service principal
+   */
+  displayName?: string | undefined;
+  /**
+   * The application display name
+   */
+  appDisplayName?: string | undefined;
+  /**
+   * The type of service principal: Application or ManagedIdentity
+   */
+  servicePrincipalType?: string | undefined;
+  /**
+   * Whether the service principal account is enabled
+   */
+  accountEnabled?: boolean | undefined;
+  /**
+   * The date and time the service principal was created
+   */
+  createdDateTime?: string | undefined;
+  /**
+   * A description for the service principal
+   */
+  description?: string | undefined;
+  /**
+   * The URL that users are redirected to when signing in to the application
+   */
+  loginUrl?: string | undefined;
+  /**
+   * The URL that users are redirected to when signing out of the application
+   */
+  logoutUrl?: string | undefined;
+  /**
+   * Free text field to capture information about the service principal
+   */
+  notes?: string | undefined;
+  /**
+   * Email addresses to which notifications are sent
+   */
+  notificationEmailAddresses?: string[] | undefined;
+  /**
+   * The preferred single sign-on mode for the application
+   */
+  preferredSingleSignOnMode?: string | undefined;
+  /**
+   * The publisher name of the application associated with this service principal
+   */
+  publisherName?: string | undefined;
+  /**
+   * The sign-in audience for the application
+   */
+  signInAudience?: string | undefined;
+  /**
+   * Custom strings that can be used to categorize and identify the service principal
+   */
+  tags?: string[] | undefined;})[];
+  /**
+   * Pagination cursor to retrieve the next page of results. Pass this value as the cursor parameter in the next request.
+   */
+  nextCursor?: string | undefined;
+};
+
+export interface ActionInput_microsoft_listusermemberships {
+  /**
+   * The user ID or user principal name to list memberships for. Example: "9fc4580d-5ed8-46c5-9fff-258fd68d533d" or "user@contoso.com"
+   */
+  userId: string;
+  /**
+   * Pagination cursor from the previous response. Omit for the first page.
+   */
+  cursor?: string | undefined;
+  /**
+   * Optional filter to return only specific member types: group, directoryRole, or administrativeUnit. Omit to return all types.
+   */
+  filterType?: 'group' | 'directoryRole' | 'administrativeUnit' | undefined;
+};
+
+export interface ActionOutput_microsoft_listusermemberships {
+  items: ({  id: string;
+  type: 'group' | 'directoryRole' | 'administrativeUnit' | 'unknown';
+  displayName?: string | undefined;
+  description?: string | undefined;
+  groupDetails?: {  mail?: string | undefined;
+  mailEnabled?: boolean | undefined;
+  securityEnabled?: boolean | undefined;
+  groupTypes?: string[] | undefined;
+  visibility?: string | undefined;
+  createdDateTime?: string | undefined;};
+  directoryRoleDetails?: {  roleTemplateId?: string | undefined;};
+  administrativeUnitDetails?: {  visibility?: string | undefined;};})[];
+  /**
+   * Pagination cursor for the next page. Null if no more pages.
+   */
+  next_cursor?: string | undefined;
+};
+
+export interface ActionInput_microsoft_listusers {
+  /**
+   * OData filter query. Example: "startswith(displayName,'John')"
+   */
+  filter?: string | undefined;
+  /**
+   * Comma-separated list of properties to return. Example: "id,displayName,mail"
+   */
+  select?: string | undefined;
+  /**
+   * Number of users to return (1-999). Default: 100
+   */
+  top?: number | undefined;
+  /**
+   * Order by clause. Example: "displayName"
+   */
+  orderby?: string | undefined;
+  /**
+   * Pagination cursor (skipToken) from previous response. Omit for first page.
+   */
+  cursor?: string | undefined;
+};
+
+export interface ActionOutput_microsoft_listusers {
+  users: ({  id: string;
+  displayName?: string | undefined;
+  mail?: string | undefined;
+  userPrincipalName?: string | undefined;
+  givenName?: string | undefined;
+  surname?: string | undefined;
+  jobTitle?: string | undefined;
+  officeLocation?: string | undefined;
+  mobilePhone?: string | undefined;
+  businessPhones?: string[] | undefined;
+  accountEnabled?: boolean | undefined;
+  createdDateTime?: string | undefined;})[];
+  nextCursor?: string | undefined;
+};
+
+export interface ActionInput_microsoft_removegroupmember {
+  /**
+   * The ID of the group from which to remove the member. Example: "51d82e22-a356-4506-afa1-2c3992bed3d7"
+   */
+  groupId: string;
+  /**
+   * The ID of the member to remove from the group. Example: "9fc4580d-5ed8-46c5-9fff-258fd68d533d"
+   */
+  memberId: string;
+};
+
+export interface ActionOutput_microsoft_removegroupmember {
+  success: boolean;
+};
+
+export interface ActionInput_microsoft_updateapplication {
+  /**
+   * The unique identifier of the application object. Example: "cc67332f-dfd9-43f0-af0f-bc0ff5334965"
+   */
+  id: string;
+  /**
+   * The display name for the application.
+   */
+  displayName?: string | undefined;
+  /**
+   * An optional description of the application.
+   */
+  description?: string | undefined;
+  /**
+   * Specifies what Microsoft accounts are supported.
+   */
+  signInAudience?: 'AzureADMyOrg' | 'AzureADMultipleOrgs' | 'AzureADandPersonalMicrosoftAccount' | undefined;
+  /**
+   * Configures the groups claim issued in tokens.
+   */
+  groupMembershipClaims?: 'None' | 'SecurityGroup' | 'All' | undefined;
+  /**
+   * Custom strings to categorize and identify the application.
+   */
+  tags?: string[] | undefined;
+  /**
+   * Specifies the fallback application type as public client.
+   */
+  isFallbackPublicClient?: boolean | undefined;
+};
+
+export interface ActionOutput_microsoft_updateapplication {
+  id: string;
+  success: boolean;
+};
+
+export interface ActionInput_microsoft_updategroup {
+  /**
+   * The unique identifier for the group. Example: "51d82e22-a356-4506-afa1-2c3992bed3d7"
+   */
+  groupId: string;
+  /**
+   * An optional description for the group.
+   */
+  description?: string | undefined;
+  /**
+   * The display name for the group.
+   */
+  displayName?: string | undefined;
+  /**
+   * The mail alias for the group.
+   */
+  mailNickname?: string | undefined;
+  /**
+   * Specifies whether the group is a security group.
+   */
+  securityEnabled?: boolean | undefined;
+  /**
+   * Specifies the visibility of a Microsoft 365 group.
+   */
+  visibility?: 'Private' | 'Public' | undefined;
+  /**
+   * Indicates whether people external to the organization can send messages to the group.
+   */
+  allowExternalSenders?: boolean | undefined;
+  /**
+   * Indicates whether new members added to the group will be auto-subscribed to receive email notifications.
+   */
+  autoSubscribeNewMembers?: boolean | undefined;
+  /**
+   * The preferred data location for the Microsoft 365 group.
+   */
+  preferredDataLocation?: string | undefined;
+  /**
+   * The unique identifier that can be assigned to a group.
+   */
+  uniqueName?: string | undefined;
+};
+
+export interface ActionOutput_microsoft_updategroup {
+  success: boolean;
+  groupId: string;
+};
+
+export interface ActionInput_microsoft_updateorganization {
+  /**
+   * The unique identifier of the organization.
+   */
+  id: string;
+  /**
+   * Email addresses for marketing notifications.
+   */
+  marketingNotificationEmails?: string[] | undefined;
+  /**
+   * Privacy profile with contact email and statement URL.
+   */
+  privacyProfile?: {  /**
+   * Contact email for privacy issues.
+   */
+  contactEmail?: string | undefined;
+  /**
+   * URL to the privacy statement.
+   */
+  statementUrl?: string | undefined;};
+  /**
+   * Email addresses for security compliance notifications.
+   */
+  securityComplianceNotificationMails?: string[] | undefined;
+  /**
+   * Phone numbers for security compliance notifications.
+   */
+  securityComplianceNotificationPhones?: string[] | undefined;
+  /**
+   * Email addresses for technical notifications.
+   */
+  technicalNotificationMails?: string[] | undefined;
+};
+
+export interface ActionOutput_microsoft_updateorganization {
+  /**
+   * Whether the update was successful.
+   */
+  success: boolean;
+};
+
+export interface ActionInput_microsoft_updateserviceprincipal {
+  /**
+   * The unique identifier for the service principal. Example: "8c7410b7-37cd-4463-981d-74cd6ab033a7"
+   */
+  servicePrincipalId: string;
+  /**
+   * Whether the service principal account is enabled.
+   */
+  accountEnabled?: boolean | undefined;
+  /**
+   * Whether an appRoleAssignment is required before Microsoft Entra ID will issue a user or access token.
+   */
+  appRoleAssignmentRequired?: boolean | undefined;
+  /**
+   * The display name for the service principal.
+   */
+  displayName?: string | undefined;
+  /**
+   * Home page or landing page of the application.
+   */
+  homepage?: string | undefined;
+  /**
+   * URL used by Microsoft authorization service to log out a user.
+   */
+  logoutUrl?: string | undefined;
+  /**
+   * Single sign-on mode configured for this application. Values: password, saml, external, oidc.
+   */
+  preferredSingleSignOnMode?: string | undefined;
+  /**
+   * URLs that user tokens are sent to for sign in, or redirect URIs for OAuth 2.0 codes and tokens.
+   */
+  replyUrls?: string[] | undefined;
+  /**
+   * List of identifiersUris copied from the associated application.
+   */
+  servicePrincipalNames?: string[] | undefined;
+  /**
+   * Custom strings used to categorize and identify the application.
+   */
+  tags?: string[] | undefined;
+  /**
+   * Used to retrieve service principals by subscription, identify resource group and full resource IDs.
+   */
+  alternativeNames?: string[] | undefined;
+};
+
+export interface ActionOutput_microsoft_updateserviceprincipal {
+  success: boolean;
+  servicePrincipalId: string;
+  updatedFields: string[];
+};
+
+export interface ActionInput_microsoft_updateuser {
+  /**
+   * The unique identifier of the user to update. Example: "9fc4580d-5ed8-46c5-9fff-258fd68d533d"
+   */
+  userId: string;
+  /**
+   * The name displayed in the address book for the user.
+   */
+  displayName?: string | undefined;
+  /**
+   * The given name (first name) of the user.
+   */
+  givenName?: string | undefined;
+  /**
+   * The surname (family name or last name) of the user.
+   */
+  surname?: string | undefined;
+  /**
+   * The job title of the user.
+   */
+  jobTitle?: string | undefined;
+  /**
+   * The name of the department in which the user works.
+   */
+  department?: string | undefined;
+  /**
+   * The office location in the user's place of business.
+   */
+  officeLocation?: string | undefined;
+  /**
+   * The primary cellular telephone number for the user.
+   */
+  mobilePhone?: string | undefined;
+  /**
+   * The telephone numbers for the user.
+   */
+  businessPhones?: string[] | undefined;
+  /**
+   * The city in which the user is located.
+   */
+  city?: string | undefined;
+  /**
+   * The country/region in which the user is located.
+   */
+  country?: string | undefined;
+  /**
+   * The preferred language for the user. Should follow ISO 639-1 Code; for example, "en-US".
+   */
+  preferredLanguage?: string | undefined;
+  /**
+   * The mail alias for the user.
+   */
+  mailNickname?: string | undefined;
+  /**
+   * true if the account is enabled; otherwise, false.
+   */
+  accountEnabled?: boolean | undefined;
+};
+
+export interface ActionOutput_microsoft_updateuser {
+  success: boolean;
+  userId: string;
+};
+
 export interface ChannelMessageReply {
   id: string;
   parentMessageId: string;
@@ -35237,22 +36500,6 @@ export interface Lead {
   fax?: string | undefined;
   secondaryEmail?: string | undefined;
   tags?: string[] | undefined;
-};
-
-export interface Organization {
-  id: string;
-  name: string;
-  created_at: string;
-  updated_at: string;
-  url: string;
-  external_id?: string | undefined;
-  domain_names?: string[] | undefined;
-  group_id?: number | undefined;
-  shared_comments?: boolean | undefined;
-  shared_tickets?: boolean | undefined;
-  tags?: string[] | undefined;
-  notes?: string | undefined;
-  details?: string | undefined;
 };
 
 export interface Pipeline {
@@ -42859,18 +44106,6 @@ export interface ActionOutput_salesforce_upsertsobjectcollection {
 };
 
 export interface SyncMetadata_sap_success_factors_employees {
-};
-
-export interface Group {
-  id: string;
-  name: string;
-  description?: string | undefined;
-  isDefault?: boolean | undefined;
-  isDeleted?: boolean | undefined;
-  isPublic?: boolean | undefined;
-  createdAt?: string | undefined;
-  updatedAt?: string | undefined;
-  url?: string | undefined;
 };
 
 export interface SyncMetadata_sap_success_factors_groups {
