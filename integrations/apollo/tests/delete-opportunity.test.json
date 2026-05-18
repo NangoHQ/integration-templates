@@ -1,0 +1,113 @@
+{
+  "input": {
+    "id": "6a0af230e1fca200101291d9"
+  },
+  "output": {
+    "id": "6a0af230e1fca200101291d9",
+    "name": "Delete Me Deal A"
+  },
+  "nango": {},
+  "api": {
+    "patch": {
+      "/v1/opportunities/6a0af230e1fca200101291d9": {
+        "response": {
+          "opportunity": {
+            "id": "6a0af230e1fca200101291d9",
+            "team_id": "6a0aeb6d5e8f8e000c5e9d6a",
+            "owner_id": null,
+            "salesforce_owner_id": null,
+            "amount": 5000,
+            "closed_date": "2026-06-01T00:00:00.000+00:00",
+            "account_id": null,
+            "description": null,
+            "is_closed": null,
+            "is_won": null,
+            "name": "Delete Me Deal A",
+            "stage_name": null,
+            "opportunity_stage_id": null,
+            "source": "api",
+            "salesforce_id": null,
+            "opportunity_created_at": "2026-05-18T11:04:16.357+00:00",
+            "actual_close_date": null,
+            "next_step": null,
+            "next_step_date": null,
+            "closed_lost_reason": null,
+            "closed_won_reason": null,
+            "forecast_category": null,
+            "deal_probability": null,
+            "created_by_id": "6a0aeb6e5e8f8e000c5e9ebd",
+            "current_solutions": null,
+            "deal_source": null,
+            "manually_updated_probability": null,
+            "manually_updated_forecast": null,
+            "crm_id": null,
+            "crm_record_url": null,
+            "crm_owner_id": null,
+            "probability": null,
+            "opportunity_pipeline_id": "6a0aeb6e5e8f8e000c5e9e64",
+            "stage_updated_at": null,
+            "next_step_last_updated_at": null,
+            "exchange_rate_code": "USD",
+            "exchange_rate_value": 1,
+            "amount_in_team_currency": 5000,
+            "forecasted_revenue": 0,
+            "last_activity_date": "2026-05-18T11:04:16.357Z",
+            "existence_level": "full",
+            "typed_custom_fields": {},
+            "opportunity_contact_roles": [],
+            "currency": {
+              "name": "US Dollar",
+              "iso_code": "USD",
+              "symbol": "$"
+            }
+          }
+        },
+        "status": 200,
+        "headers": {
+          "date": "Mon, 18 May 2026 11:19:42 GMT",
+          "content-type": "application/json; charset=utf-8",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "ALLOWALL",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=31536000",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4921",
+          "x-ratelimit-reset": "1779103196",
+          "cache-control": "max-age=0, private, must-revalidate",
+          "content-security-policy": "frame-ancestors 'self' chrome-extension://alhgpfoeiimagjlnfekdhkjlkiomcapa chrome-extension://ececkagaccnfmkopaiemklekhoimmgpn *.salesforce.com *.lightning.force.com; report-uri https://o101058.ingest.us.sentry.io/api/222018/security/?sentry_key=86bb17dd8c2449719dd6b498f3431191&sentry_environment=production&sentry_release=921578f02cadce558872b59befb4057474aa1ff3",
+          "etag": "W/\"694d25b18264d8bf8051c5b463598b21\"",
+          "set-cookie": "X-CSRF-TOKEN=zQ9uR9uIsS8OCd5zduP1Sk93Tmy1vkq1GITw96KxOOEo-UwRCL4bkKc7IoOYPhVjcCMwB97ocMOAAd3qjeL2RQ; path=/; secure; SameSite=Lax, _leadgenie_session=Ie8BfDEx%2BGXgo0H7sX97Vw7JSwaMP2PAC4CV7Bu6te5r1lP4QwJ%2BWbm%2BvYa3em%2Bhi0gYg8bkZIBt%2FK7euYGy6zZqlhenTnqMC3KapUuXJXi8KUqpeJJTTuP%2BwBRhWFp9LJ5K%2BSxe1EJsJy2ELzmuEnGrJrH9Sqw9Arw%2BscP50i3uqaIiqFzNosvk0nV3XYflbnRMv92Xcb%2BGKZXrivakNRdRjXdSdgIK6Vm5X7cgtWnpE4kpqmazzhuzAUVJVAQGZ0EiFmIV6C%2B8KRAZmsx0klSvgCiv1Qqnw28%3D--QSaMbTAglR9IVktt--cE99M826kuuS9QMbh%2FU%2FlA%3D%3D; path=/; secure; HttpOnly; SameSite=None, __cf_bm=hUYTK95sn_GEHtpgtL3XHPNFvtIjGsT78_NvriUos9Y-1779103182.6351662-1.0.1.1-SqKqcBhqkTv8ILFb6mk2IdIy5kGfEuQJto5wpcOKuGuey7woXoc7zsw_W9KERUSJ968MZtoSwwrxy2fyzqijF0mTO_TQ2aR4n70021KrUvJy4zCWtu361g1wDvZ7V5ss; HttpOnly; SameSite=None; Secure; Path=/; Domain=apollo.io; Expires=Mon, 18 May 2026 11:49:42 GMT",
+          "vary": "Origin",
+          "x-24-hour-requests-left": "592",
+          "x-24-hour-usage": "8",
+          "x-hourly-requests-left": "192",
+          "x-hourly-usage": "8",
+          "x-minute-requests-left": "47",
+          "x-minute-usage": "3",
+          "x-rate-limit-24-hour": "600",
+          "x-rate-limit-hourly": "200",
+          "x-rate-limit-minute": "50",
+          "x-request-id": "c8017e25-b14b-4b33-a952-52292025d324",
+          "x-runtime": "0.077377",
+          "x-transaction-id": "f5af9281-7a9e-4922-8e2f-0ae5443dab42",
+          "cf-cache-status": "DYNAMIC",
+          "server": "cloudflare",
+          "cf-ray": "9fda77eb78fbc146-PDX"
+        },
+        "hash": "b91f9f19a6c0a237f376519659956649ec3f8b93",
+        "request": {
+          "data": {
+            "is_closed": true
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,196 @@
+{
+  "input": {
+    "q_organization_name": "apollo",
+    "per_page": 2
+  },
+  "output": {
+    "organizations": [
+      {
+        "id": "5a9cca64a6da98d977f00f51",
+        "name": "Apollo Hospitals",
+        "website_url": "http://www.apollohospitals.com",
+        "revenue": 2551200000
+      },
+      {
+        "id": "55920eb273696418b72a4100",
+        "name": "Apollo Global Management, Inc.",
+        "website_url": "http://www.apollo.com",
+        "revenue": 30299000000
+      }
+    ],
+    "pagination": {
+      "page": 1,
+      "per_page": 2,
+      "total_entries": 4348,
+      "total_pages": 2174
+    }
+  },
+  "nango": {},
+  "api": {
+    "post": {
+      "/v1/mixed_companies/search": {
+        "response": {
+          "breadcrumbs": [
+            {
+              "label": "Company Name",
+              "signal_field_name": "q_organization_name",
+              "value": "apollo",
+              "display_name": "apollo"
+            }
+          ],
+          "partial_results_only": false,
+          "has_join": false,
+          "disable_eu_prospecting": false,
+          "partial_results_limit": 10000,
+          "pagination": {
+            "page": 1,
+            "per_page": 2,
+            "total_entries": 4348,
+            "total_pages": 2174
+          },
+          "accounts": [],
+          "organizations": [
+            {
+              "id": "5a9cca64a6da98d977f00f51",
+              "name": "Apollo Hospitals",
+              "website_url": "http://www.apollohospitals.com",
+              "angellist_url": null,
+              "linkedin_url": "http://www.linkedin.com/company/theapollohospitals",
+              "twitter_url": "https://twitter.com/HospitalsApollo",
+              "facebook_url": "https://facebook.com/TheApolloHospitals",
+              "primary_phone": {
+                "number": "+91 44282 90200",
+                "source": "Owler",
+                "sanitized_number": "+914428290200"
+              },
+              "languages": [
+                "English",
+                "English"
+              ],
+              "alexa_ranking": 241735,
+              "phone": "+91 44282 90200",
+              "linkedin_uid": "15053",
+              "founded_year": 1983,
+              "publicly_traded_symbol": "APOLLOHOSP.NS",
+              "publicly_traded_exchange": "nse",
+              "logo_url": "https://zenprospect-production.s3.amazonaws.com/uploads/pictures/69833698715b3b00010bfa04/picture",
+              "crunchbase_url": null,
+              "primary_domain": "apollohospitals.com",
+              "sic_codes": [
+                "8000",
+                "8060"
+              ],
+              "sanitized_phone": "+914428290200",
+              "owned_by_organization_id": null,
+              "organization_revenue_printed": "2.6B",
+              "organization_revenue": 2551200000,
+              "intent_strength": null,
+              "show_intent": true,
+              "has_intent_signal_account": false,
+              "intent_signal_account": null,
+              "organization_headcount_six_month_growth": 0.01302697712585906,
+              "organization_headcount_twelve_month_growth": 0.03750393948944217,
+              "organization_headcount_twenty_four_month_growth": 0.08277601140225853
+            },
+            {
+              "id": "55920eb273696418b72a4100",
+              "name": "Apollo Global Management, Inc.",
+              "website_url": "http://www.apollo.com",
+              "angellist_url": "http://angel.co/apollo-global-management",
+              "linkedin_url": "http://www.linkedin.com/company/apollo-global-management-inc",
+              "twitter_url": "https://twitter.com/apolloglobal",
+              "facebook_url": "https://facebook.com/apolloglobalmanagement",
+              "primary_phone": {
+                "number": "+1 212-515-3200",
+                "source": "Owler",
+                "sanitized_number": "+12125153200"
+              },
+              "languages": [
+                "English"
+              ],
+              "alexa_ranking": 157575,
+              "phone": "+1 212-515-3200",
+              "linkedin_uid": "48414",
+              "founded_year": 1990,
+              "publicly_traded_symbol": "APO",
+              "publicly_traded_exchange": "nasdaq",
+              "logo_url": "https://zenprospect-production.s3.amazonaws.com/uploads/pictures/69a4423ddab2560001ac374b/picture",
+              "crunchbase_url": null,
+              "primary_domain": "apollo.com",
+              "sic_codes": [
+                "6732"
+              ],
+              "naics_codes": [
+                "5239"
+              ],
+              "sanitized_phone": "+12125153200",
+              "market_cap": "76.8B",
+              "owned_by_organization_id": null,
+              "organization_revenue_printed": "30.3B",
+              "organization_revenue": 30299000000,
+              "intent_strength": null,
+              "show_intent": true,
+              "has_intent_signal_account": false,
+              "intent_signal_account": null,
+              "organization_headcount_six_month_growth": 0.04260355029585799,
+              "organization_headcount_twelve_month_growth": 0.1734931734931735,
+              "organization_headcount_twenty_four_month_growth": 0.331318473743861
+            }
+          ],
+          "model_ids": [
+            "5a9cca64a6da98d977f00f51",
+            "55920eb273696418b72a4100"
+          ],
+          "num_fetch_result": null,
+          "derived_params": {}
+        },
+        "status": 200,
+        "headers": {
+          "date": "Mon, 18 May 2026 11:19:15 GMT",
+          "content-type": "application/json; charset=utf-8",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "ALLOWALL",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=31536000",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4953",
+          "x-ratelimit-reset": "1779103196",
+          "cf-ray": "9fda773ebc50ff0e-PDX",
+          "cf-cache-status": "DYNAMIC",
+          "cache-control": "max-age=0, private, must-revalidate",
+          "etag": "W/\"43c04903498c9d6a7fef23cf0a47851e\"",
+          "server": "cloudflare",
+          "x-transaction-id": "6767d99f-87aa-4e6c-8a02-1adba21cb8be",
+          "vary": "Origin",
+          "content-security-policy": "frame-ancestors 'self' chrome-extension://alhgpfoeiimagjlnfekdhkjlkiomcapa chrome-extension://ececkagaccnfmkopaiemklekhoimmgpn *.salesforce.com *.lightning.force.com; report-uri https://o101058.ingest.us.sentry.io/api/222018/security/?sentry_key=86bb17dd8c2449719dd6b498f3431191&sentry_environment=production&sentry_release=921578f02cadce558872b59befb4057474aa1ff3",
+          "x-24-hour-requests-left": "597",
+          "x-24-hour-usage": "3",
+          "x-hourly-requests-left": "197",
+          "x-hourly-usage": "3",
+          "x-minute-requests-left": "47",
+          "x-minute-usage": "3",
+          "x-rate-limit-24-hour": "600",
+          "x-rate-limit-hourly": "200",
+          "x-rate-limit-minute": "50",
+          "x-request-id": "68fe1f5b-6538-468e-8373-3cf7acd222b3",
+          "x-runtime": "0.088203",
+          "set-cookie": "<redacted>"
+        },
+        "hash": "c00d2619bc9f7be39460eb63435d4dba384f8bb1",
+        "request": {
+          "data": {
+            "q_organization_name": "apollo",
+            "per_page": 2
+          }
+        }
+      }
+    }
+  }
+}
