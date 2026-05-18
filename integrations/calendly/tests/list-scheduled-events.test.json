@@ -1,0 +1,118 @@
+{
+  "input": {},
+  "output": {
+    "events": []
+  },
+  "nango": {},
+  "api": {
+    "get": {
+      "/users/me": {
+        "response": {
+          "resource": {
+            "avatar_url": null,
+            "created_at": "2026-05-12T12:34:08.231012Z",
+            "current_organization": "https://api.calendly.com/organizations/0de71879-73df-4c1b-94af-2d9f6f7f7224",
+            "email": "api@nango.dev",
+            "locale": "en",
+            "name": "Nango Developer",
+            "resource_type": "User",
+            "scheduling_url": "https://calendly.com/api-nango",
+            "slug": "api-nango",
+            "time_notation": "24h",
+            "timezone": "Africa/Nairobi",
+            "updated_at": "2026-05-12T12:34:16.471286Z",
+            "uri": "https://api.calendly.com/users/785113db-e1d3-49d7-a2fe-6b567e670325"
+          }
+        },
+        "status": 200,
+        "headers": {
+          "date": "Tue, 12 May 2026 12:43:44 GMT",
+          "content-type": "application/json; charset=utf-8",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=31536000; includeSubDomains; preload",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "ETag",
+          "x-ratelimit-limit": "50",
+          "x-ratelimit-remaining": "25",
+          "x-ratelimit-reset": "60",
+          "access-control-allow-methods": "GET, POST, PATCH, PUT, DELETE, OPTIONS, HEAD",
+          "access-control-allow-headers": "*,x-requested-with,Content-Type,Accept,If-Modified-Since,If-None-Match,X-Token,Authorization",
+          "access-control-max-age": "86400",
+          "etag": "W/\"0ad47d81f82c0360a36daefda4e43f85\"",
+          "cache-control": "max-age=0, private, must-revalidate",
+          "x-request-id": "283f01c8-7391-4ae8-96a9-e43090605fd7",
+          "x-runtime": "0.091580",
+          "x-envoy-upstream-service-time": "94",
+          "x-ratelimit-key": "oauth:dZU5r2CekSP8X-k43qJ4pk4tBu6wxLFe1PFV3vJh3to:785113db-e1d3-49d7-a2fe-6b567e670325",
+          "x-ratelimit-tier": "free",
+          "vary": "Accept-Encoding",
+          "server": "cloudflare",
+          "set-cookie": "__cf_bm=ECHwZ8rbdmNDNp0cWKuxGRTa37OrY7mDebogyYUjOlA-1778589824.5557392-1.0.1.1-Fub6tU9fXpbGqDziIcgjtzqKIlf8KBySOaVE838XPTjER78fTq_BcV7QkSq6.EQLaGBq1El1B3Cgne.WUE3iKasFDiS_rpspf2uF.txekgiA4gcfufpdFQ9MlmFv9NuB; HttpOnly; SameSite=None; Secure; Path=/; Domain=calendly.com; Expires=Tue, 12 May 2026 13:13:44 GMT, _cfuvid=l8fekSHI28Fnk96syxXh0jW2zkTHmGPXbdq8AaqC._s-1778589824.5557392-1.0.1.1-vvgOVLemBh0sgxX_JLb_RellU2bJLFvlof7YVRxqFG4; HttpOnly; SameSite=None; Secure; Path=/; Domain=calendly.com",
+          "cf-cache-status": "DYNAMIC",
+          "cf-ray": "9fa982c37ae98f7a-PDX"
+        },
+        "hash": "2d9f0f0b3c7526330e1db6d80e71b978ffefdc26",
+        "request": {}
+      },
+      "/scheduled_events": {
+        "response": {
+          "collection": [],
+          "pagination": {
+            "count": 0,
+            "next_page": null,
+            "next_page_token": null,
+            "previous_page": null,
+            "previous_page_token": null
+          }
+        },
+        "status": 200,
+        "headers": {
+          "date": "Tue, 12 May 2026 12:43:44 GMT",
+          "content-type": "application/json; charset=utf-8",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=31536000; includeSubDomains; preload",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "ETag",
+          "x-ratelimit-limit": "50",
+          "x-ratelimit-remaining": "24",
+          "x-ratelimit-reset": "60",
+          "access-control-allow-methods": "GET, POST, PATCH, PUT, DELETE, OPTIONS, HEAD",
+          "access-control-allow-headers": "*,x-requested-with,Content-Type,Accept,If-Modified-Since,If-None-Match,X-Token,Authorization",
+          "access-control-max-age": "86400",
+          "etag": "W/\"744e73ff39515207ecf89f118be7cd7d\"",
+          "cache-control": "max-age=0, private, must-revalidate",
+          "x-request-id": "b49f1750-849d-4659-a8ee-f02cca884eb7",
+          "x-runtime": "0.072556",
+          "x-envoy-upstream-service-time": "81",
+          "x-ratelimit-key": "oauth:dZU5r2CekSP8X-k43qJ4pk4tBu6wxLFe1PFV3vJh3to:785113db-e1d3-49d7-a2fe-6b567e670325",
+          "x-ratelimit-tier": "free",
+          "vary": "Accept-Encoding",
+          "server": "cloudflare",
+          "set-cookie": "__cf_bm=gRBdssZu4QnZ_i3DpWtRl.iBPFuB6IXj5_kPeRAHG5I-1778589824.7763102-1.0.1.1-63ILMe9du8M_yBERaGte15seKPbRyvROBDQolpJy40aYeJ7iva.nAos_pG1O1jN0CW4ZnFw4QB7C3k.7qsf8vLMd.Sd9lToR4jgkHbRhlGikzKR939w0H..OREfGxhFi; HttpOnly; SameSite=None; Secure; Path=/; Domain=calendly.com; Expires=Tue, 12 May 2026 13:13:44 GMT, _cfuvid=f_IIjZrj1Myd2ko1U6FjOviuFcHKdNhddIQHk0V4jt8-1778589824.7763102-1.0.1.1-o3MswSDI2nxECLCi1bhQx4SirS19FwV_8ofRqOjVnH8; HttpOnly; SameSite=None; Secure; Path=/; Domain=calendly.com",
+          "cf-cache-status": "DYNAMIC",
+          "cf-ray": "9fa982c4d8d3ff02-PDX"
+        },
+        "hash": "7b7a32551d63ad18bda0691df517bb20afea6465",
+        "request": {
+          "params": {
+            "user": "https://api.calendly.com/users/785113db-e1d3-49d7-a2fe-6b567e670325"
+          }
+        }
+      }
+    }
+  }
+}

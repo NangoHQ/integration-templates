@@ -1,0 +1,182 @@
+{
+  "input": {
+    "userId": "1000000000000000001"
+  },
+  "output": {
+    "lists": [
+      {
+        "id": "1111111111100000005",
+        "name": "Updated list name",
+        "createdAt": "2020-01-01T00:00:00.000Z",
+        "description": "Example user description.",
+        "followerCount": 0,
+        "memberCount": 0,
+        "ownerId": "1000000000000000001",
+        "isPrivate": false
+      },
+      {
+        "id": "1111111111100000001",
+        "name": "Test List from Nango",
+        "createdAt": "2020-01-01T00:00:00.000Z",
+        "description": "",
+        "followerCount": 0,
+        "memberCount": 0,
+        "ownerId": "1000000000000000001",
+        "isPrivate": false
+      },
+      {
+        "id": "1111111111100000006",
+        "name": "Test List from Nango",
+        "createdAt": "2020-01-01T00:00:00.000Z",
+        "description": "",
+        "followerCount": 0,
+        "memberCount": 0,
+        "ownerId": "1000000000000000001",
+        "isPrivate": false
+      },
+      {
+        "id": "1111111111100000007",
+        "name": "ListC",
+        "createdAt": "2020-01-01T00:00:00.000Z",
+        "description": "",
+        "followerCount": 0,
+        "memberCount": 2,
+        "ownerId": "1000000000000000001",
+        "isPrivate": false
+      },
+      {
+        "id": "1111111111100000008",
+        "name": "ListB",
+        "createdAt": "2020-01-01T00:00:00.000Z",
+        "description": "",
+        "followerCount": 0,
+        "memberCount": 1,
+        "ownerId": "1000000000000000001",
+        "isPrivate": false
+      },
+      {
+        "id": "1111111111100000009",
+        "name": "listA",
+        "createdAt": "2020-01-01T00:00:00.000Z",
+        "description": "",
+        "followerCount": 0,
+        "memberCount": 1,
+        "ownerId": "1000000000000000001",
+        "isPrivate": false
+      }
+    ],
+    "resultCount": 6
+  },
+  "nango": {},
+  "api": {
+    "get": {
+      "/2/users/1000000000000000001/owned_lists": {
+        "response": {
+          "data": [
+            {
+              "id": "1111111111100000005",
+              "created_at": "2020-01-01T00:00:00.000Z",
+              "owner_id": "1000000000000000001",
+              "member_count": 0,
+              "follower_count": 0,
+              "description": "Example user description.",
+              "name": "Updated list name",
+              "private": false
+            },
+            {
+              "id": "1111111111100000001",
+              "created_at": "2020-01-01T00:00:00.000Z",
+              "owner_id": "1000000000000000001",
+              "member_count": 0,
+              "follower_count": 0,
+              "description": "",
+              "name": "Test List from Nango",
+              "private": false
+            },
+            {
+              "id": "1111111111100000006",
+              "created_at": "2020-01-01T00:00:00.000Z",
+              "owner_id": "1000000000000000001",
+              "member_count": 0,
+              "follower_count": 0,
+              "description": "",
+              "name": "Test List from Nango",
+              "private": false
+            },
+            {
+              "id": "1111111111100000007",
+              "created_at": "2020-01-01T00:00:00.000Z",
+              "owner_id": "1000000000000000001",
+              "member_count": 2,
+              "follower_count": 0,
+              "description": "",
+              "name": "ListC",
+              "private": false
+            },
+            {
+              "id": "1111111111100000008",
+              "created_at": "2020-01-01T00:00:00.000Z",
+              "owner_id": "1000000000000000001",
+              "member_count": 1,
+              "follower_count": 0,
+              "description": "",
+              "name": "ListB",
+              "private": false
+            },
+            {
+              "id": "1111111111100000009",
+              "created_at": "2020-01-01T00:00:00.000Z",
+              "owner_id": "1000000000000000001",
+              "member_count": 1,
+              "follower_count": 0,
+              "description": "",
+              "name": "listA",
+              "private": false
+            }
+          ],
+          "meta": {
+            "result_count": 6
+          }
+        },
+        "status": 200,
+        "headers": {
+          "date": "Thu, 14 May 2026 21:30:41 GMT",
+          "content-type": "application/json; charset=utf-8",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=631138519; includeSubdomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4997",
+          "x-ratelimit-reset": "1778794300",
+          "perf": "7402827104",
+          "server": "cloudflare envoy",
+          "api-version": "2.163",
+          "cache-control": "no-cache, no-store, max-age=0",
+          "x-access-level": "read-write",
+          "x-rate-limit-limit": "15",
+          "x-rate-limit-reset": "1778794918",
+          "content-disposition": "attachment; filename=json.json",
+          "x-rate-limit-remaining": "11",
+          "x-response-time": "94",
+          "vary": "accept-encoding",
+          "cf-cache-status": "DYNAMIC"
+        },
+        "hash": "e9fdac0079ef27bf01f35e65caf82cb0b35dbe16",
+        "request": {
+          "params": {
+            "list.fields": "created_at,description,follower_count,member_count,owner_id,private",
+            "max_results": "100"
+          }
+        }
+      }
+    }
+  }
+}

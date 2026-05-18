@@ -1,0 +1,641 @@
+{
+  "nango": {
+    "batchSave": {
+      "Product": [
+        {
+          "id": "7328395000000692004",
+          "Product_Name": "Test Product from Nango",
+          "Product_Code": null,
+          "Product_Category": null,
+          "Unit_Price": null,
+          "Taxable": true,
+          "Description": null,
+          "Manufacturer": null,
+          "Usage_Unit": null,
+          "Qty_in_Stock": 0,
+          "Qty_Ordered": 0,
+          "Qty_in_Demand": 0,
+          "Reorder_Level": 0,
+          "Commission_Rate": null,
+          "Sales_Start_Date": null,
+          "Sales_End_Date": null,
+          "Support_Start_Date": null,
+          "Support_Expiry_Date": null,
+          "Handler": null,
+          "Owner": {
+            "name": "Nango Developer",
+            "id": "7328395000000605001",
+            "email": "api@nango.dev"
+          },
+          "Created_By": {
+            "name": "Nango Developer",
+            "id": "7328395000000605001",
+            "email": "api@nango.dev"
+          },
+          "Modified_By": {
+            "name": "Nango Developer",
+            "id": "7328395000000605001",
+            "email": "api@nango.dev"
+          },
+          "Created_Time": "2026-05-14T12:52:05+03:00",
+          "Modified_Time": "2026-05-14T12:52:05+03:00",
+          "$approved": true,
+          "$editable": true
+        },
+        {
+          "id": "7328395000000689007",
+          "Product_Name": "Test Product",
+          "Product_Code": null,
+          "Product_Category": null,
+          "Unit_Price": null,
+          "Taxable": true,
+          "Description": null,
+          "Manufacturer": null,
+          "Usage_Unit": null,
+          "Qty_in_Stock": 0,
+          "Qty_Ordered": 0,
+          "Qty_in_Demand": 0,
+          "Reorder_Level": 0,
+          "Commission_Rate": null,
+          "Sales_Start_Date": null,
+          "Sales_End_Date": null,
+          "Support_Start_Date": null,
+          "Support_Expiry_Date": null,
+          "Handler": null,
+          "Owner": {
+            "name": "Nango Developer",
+            "id": "7328395000000605001",
+            "email": "api@nango.dev"
+          },
+          "Created_By": {
+            "name": "Nango Developer",
+            "id": "7328395000000605001",
+            "email": "api@nango.dev"
+          },
+          "Modified_By": {
+            "name": "Nango Developer",
+            "id": "7328395000000605001",
+            "email": "api@nango.dev"
+          },
+          "Created_Time": "2026-05-14T12:52:56+03:00",
+          "Modified_Time": "2026-05-14T12:52:56+03:00",
+          "$approved": true,
+          "$editable": true
+        },
+        {
+          "id": "7328395000000702002",
+          "Product_Name": "Test Product from Nango 2025-05-14-001",
+          "Product_Code": null,
+          "Product_Category": null,
+          "Unit_Price": null,
+          "Taxable": true,
+          "Description": null,
+          "Manufacturer": null,
+          "Usage_Unit": null,
+          "Qty_in_Stock": 0,
+          "Qty_Ordered": 0,
+          "Qty_in_Demand": 0,
+          "Reorder_Level": 0,
+          "Commission_Rate": null,
+          "Sales_Start_Date": null,
+          "Sales_End_Date": null,
+          "Support_Start_Date": null,
+          "Support_Expiry_Date": null,
+          "Handler": null,
+          "Owner": {
+            "name": "Nango Developer",
+            "id": "7328395000000605001",
+            "email": "api@nango.dev"
+          },
+          "Created_By": {
+            "name": "Nango Developer",
+            "id": "7328395000000605001",
+            "email": "api@nango.dev"
+          },
+          "Modified_By": {
+            "name": "Nango Developer",
+            "id": "7328395000000605001",
+            "email": "api@nango.dev"
+          },
+          "Created_Time": "2026-05-14T12:54:38+03:00",
+          "Modified_Time": "2026-05-14T12:54:38+03:00",
+          "$approved": true,
+          "$editable": true
+        },
+        {
+          "id": "7328395000000690023",
+          "Product_Name": "Test Product from Nango 2025-05-14-002",
+          "Product_Code": null,
+          "Product_Category": null,
+          "Unit_Price": null,
+          "Taxable": true,
+          "Description": null,
+          "Manufacturer": null,
+          "Usage_Unit": null,
+          "Qty_in_Stock": 0,
+          "Qty_Ordered": 0,
+          "Qty_in_Demand": 0,
+          "Reorder_Level": 0,
+          "Commission_Rate": null,
+          "Sales_Start_Date": null,
+          "Sales_End_Date": null,
+          "Support_Start_Date": null,
+          "Support_Expiry_Date": null,
+          "Handler": null,
+          "Owner": {
+            "name": "Nango Developer",
+            "id": "7328395000000605001",
+            "email": "api@nango.dev"
+          },
+          "Created_By": {
+            "name": "Nango Developer",
+            "id": "7328395000000605001",
+            "email": "api@nango.dev"
+          },
+          "Modified_By": {
+            "name": "Nango Developer",
+            "id": "7328395000000605001",
+            "email": "api@nango.dev"
+          },
+          "Created_Time": "2026-05-14T12:55:01+03:00",
+          "Modified_Time": "2026-05-14T12:55:01+03:00",
+          "$approved": true,
+          "$editable": true
+        },
+        {
+          "id": "7328395000000700003",
+          "Product_Name": "Test Product Updated",
+          "Product_Code": null,
+          "Product_Category": null,
+          "Unit_Price": 149.99,
+          "Taxable": true,
+          "Description": null,
+          "Manufacturer": null,
+          "Usage_Unit": null,
+          "Qty_in_Stock": 0,
+          "Qty_Ordered": 0,
+          "Qty_in_Demand": 0,
+          "Reorder_Level": 0,
+          "Commission_Rate": null,
+          "Sales_Start_Date": null,
+          "Sales_End_Date": null,
+          "Support_Start_Date": null,
+          "Support_Expiry_Date": null,
+          "Handler": null,
+          "Owner": {
+            "name": "Nango Developer",
+            "id": "7328395000000605001",
+            "email": "api@nango.dev"
+          },
+          "Created_By": {
+            "name": "Nango Developer",
+            "id": "7328395000000605001",
+            "email": "api@nango.dev"
+          },
+          "Modified_By": {
+            "name": "Nango Developer",
+            "id": "7328395000000605001",
+            "email": "api@nango.dev"
+          },
+          "Created_Time": "2026-05-14T12:55:12+03:00",
+          "Modified_Time": "2026-05-14T12:55:52+03:00",
+          "$approved": true,
+          "$editable": true
+        }
+      ]
+    },
+    "batchDelete": {
+      "Product": []
+    }
+  },
+  "api": {
+    "get": {
+      "/crm/v2/Products": {
+        "response": {
+          "data": [
+            {
+              "Product_Category": null,
+              "Qty_in_Demand": 0,
+              "Owner": {
+                "name": "Nango Developer",
+                "id": "7328395000000605001",
+                "email": "api@nango.dev"
+              },
+              "Description": null,
+              "$currency_symbol": "KES",
+              "Vendor_Name": null,
+              "$field_states": null,
+              "$review_process": {
+                "approve": false,
+                "reject": false,
+                "resubmit": false
+              },
+              "Sales_Start_Date": null,
+              "Tax": [],
+              "$layout_id": {
+                "display_label": "Standard",
+                "name": "Standard",
+                "id": "7328395000000091009"
+              },
+              "Product_Active": true,
+              "Last_Activity_Time": null,
+              "Record_Image": null,
+              "Modified_By": {
+                "name": "Nango Developer",
+                "id": "7328395000000605001",
+                "email": "api@nango.dev"
+              },
+              "$review": null,
+              "Product_Code": null,
+              "$state": "save",
+              "$process_flow": false,
+              "Manufacturer": null,
+              "$locked_for_me": false,
+              "id": "7328395000000692004",
+              "Support_Expiry_Date": null,
+              "$approved": true,
+              "$approval": {
+                "delegate": false,
+                "takeover": false,
+                "approve": false,
+                "reject": false,
+                "resubmit": false
+              },
+              "Modified_Time": "2026-05-14T12:52:05+03:00",
+              "Created_Time": "2026-05-14T12:52:05+03:00",
+              "Commission_Rate": null,
+              "Product_Name": "Test Product from Nango",
+              "Handler": null,
+              "$taxable": true,
+              "$editable": true,
+              "Support_Start_Date": null,
+              "$orchestration": false,
+              "Usage_Unit": null,
+              "Qty_Ordered": 0,
+              "$in_merge": false,
+              "Locked__s": false,
+              "Qty_in_Stock": 0,
+              "Created_By": {
+                "name": "Nango Developer",
+                "id": "7328395000000605001",
+                "email": "api@nango.dev"
+              },
+              "Tag": [],
+              "$approval_state": "approved",
+              "Sales_End_Date": null,
+              "Unit_Price": null,
+              "Reorder_Level": 0,
+              "Taxable": true
+            },
+            {
+              "Product_Category": null,
+              "Qty_in_Demand": 0,
+              "Owner": {
+                "name": "Nango Developer",
+                "id": "7328395000000605001",
+                "email": "api@nango.dev"
+              },
+              "Description": null,
+              "$currency_symbol": "KES",
+              "Vendor_Name": null,
+              "$field_states": null,
+              "$review_process": {
+                "approve": false,
+                "reject": false,
+                "resubmit": false
+              },
+              "Sales_Start_Date": null,
+              "Tax": [],
+              "$layout_id": {
+                "display_label": "Standard",
+                "name": "Standard",
+                "id": "7328395000000091009"
+              },
+              "Product_Active": true,
+              "Last_Activity_Time": null,
+              "Record_Image": null,
+              "Modified_By": {
+                "name": "Nango Developer",
+                "id": "7328395000000605001",
+                "email": "api@nango.dev"
+              },
+              "$review": null,
+              "Product_Code": null,
+              "$state": "save",
+              "$process_flow": false,
+              "Manufacturer": null,
+              "$locked_for_me": false,
+              "id": "7328395000000689007",
+              "Support_Expiry_Date": null,
+              "$approved": true,
+              "$approval": {
+                "delegate": false,
+                "takeover": false,
+                "approve": false,
+                "reject": false,
+                "resubmit": false
+              },
+              "Modified_Time": "2026-05-14T12:52:56+03:00",
+              "Created_Time": "2026-05-14T12:52:56+03:00",
+              "Commission_Rate": null,
+              "Product_Name": "Test Product",
+              "Handler": null,
+              "$taxable": true,
+              "$editable": true,
+              "Support_Start_Date": null,
+              "$orchestration": false,
+              "Usage_Unit": null,
+              "Qty_Ordered": 0,
+              "$in_merge": false,
+              "Locked__s": false,
+              "Qty_in_Stock": 0,
+              "Created_By": {
+                "name": "Nango Developer",
+                "id": "7328395000000605001",
+                "email": "api@nango.dev"
+              },
+              "Tag": [],
+              "$approval_state": "approved",
+              "Sales_End_Date": null,
+              "Unit_Price": null,
+              "Reorder_Level": 0,
+              "Taxable": true
+            },
+            {
+              "Product_Category": null,
+              "Qty_in_Demand": 0,
+              "Owner": {
+                "name": "Nango Developer",
+                "id": "7328395000000605001",
+                "email": "api@nango.dev"
+              },
+              "Description": null,
+              "$currency_symbol": "KES",
+              "Vendor_Name": null,
+              "$field_states": null,
+              "$review_process": {
+                "approve": false,
+                "reject": false,
+                "resubmit": false
+              },
+              "Sales_Start_Date": null,
+              "Tax": [],
+              "$layout_id": {
+                "display_label": "Standard",
+                "name": "Standard",
+                "id": "7328395000000091009"
+              },
+              "Product_Active": true,
+              "Last_Activity_Time": null,
+              "Record_Image": null,
+              "Modified_By": {
+                "name": "Nango Developer",
+                "id": "7328395000000605001",
+                "email": "api@nango.dev"
+              },
+              "$review": null,
+              "Product_Code": null,
+              "$state": "save",
+              "$process_flow": false,
+              "Manufacturer": null,
+              "$locked_for_me": false,
+              "id": "7328395000000702002",
+              "Support_Expiry_Date": null,
+              "$approved": true,
+              "$approval": {
+                "delegate": false,
+                "takeover": false,
+                "approve": false,
+                "reject": false,
+                "resubmit": false
+              },
+              "Modified_Time": "2026-05-14T12:54:38+03:00",
+              "Created_Time": "2026-05-14T12:54:38+03:00",
+              "Commission_Rate": null,
+              "Product_Name": "Test Product from Nango 2025-05-14-001",
+              "Handler": null,
+              "$taxable": true,
+              "$editable": true,
+              "Support_Start_Date": null,
+              "$orchestration": false,
+              "Usage_Unit": null,
+              "Qty_Ordered": 0,
+              "$in_merge": false,
+              "Locked__s": false,
+              "Qty_in_Stock": 0,
+              "Created_By": {
+                "name": "Nango Developer",
+                "id": "7328395000000605001",
+                "email": "api@nango.dev"
+              },
+              "Tag": [],
+              "$approval_state": "approved",
+              "Sales_End_Date": null,
+              "Unit_Price": null,
+              "Reorder_Level": 0,
+              "Taxable": true
+            },
+            {
+              "Product_Category": null,
+              "Qty_in_Demand": 0,
+              "Owner": {
+                "name": "Nango Developer",
+                "id": "7328395000000605001",
+                "email": "api@nango.dev"
+              },
+              "Description": null,
+              "$currency_symbol": "KES",
+              "Vendor_Name": null,
+              "$field_states": null,
+              "$review_process": {
+                "approve": false,
+                "reject": false,
+                "resubmit": false
+              },
+              "Sales_Start_Date": null,
+              "Tax": [],
+              "$layout_id": {
+                "display_label": "Standard",
+                "name": "Standard",
+                "id": "7328395000000091009"
+              },
+              "Product_Active": true,
+              "Last_Activity_Time": null,
+              "Record_Image": null,
+              "Modified_By": {
+                "name": "Nango Developer",
+                "id": "7328395000000605001",
+                "email": "api@nango.dev"
+              },
+              "$review": null,
+              "Product_Code": null,
+              "$state": "save",
+              "$process_flow": false,
+              "Manufacturer": null,
+              "$locked_for_me": false,
+              "id": "7328395000000690023",
+              "Support_Expiry_Date": null,
+              "$approved": true,
+              "$approval": {
+                "delegate": false,
+                "takeover": false,
+                "approve": false,
+                "reject": false,
+                "resubmit": false
+              },
+              "Modified_Time": "2026-05-14T12:55:01+03:00",
+              "Created_Time": "2026-05-14T12:55:01+03:00",
+              "Commission_Rate": null,
+              "Product_Name": "Test Product from Nango 2025-05-14-002",
+              "Handler": null,
+              "$taxable": true,
+              "$editable": true,
+              "Support_Start_Date": null,
+              "$orchestration": false,
+              "Usage_Unit": null,
+              "Qty_Ordered": 0,
+              "$in_merge": false,
+              "Locked__s": false,
+              "Qty_in_Stock": 0,
+              "Created_By": {
+                "name": "Nango Developer",
+                "id": "7328395000000605001",
+                "email": "api@nango.dev"
+              },
+              "Tag": [],
+              "$approval_state": "approved",
+              "Sales_End_Date": null,
+              "Unit_Price": null,
+              "Reorder_Level": 0,
+              "Taxable": true
+            },
+            {
+              "Product_Category": null,
+              "Qty_in_Demand": 0,
+              "Owner": {
+                "name": "Nango Developer",
+                "id": "7328395000000605001",
+                "email": "api@nango.dev"
+              },
+              "Description": null,
+              "$currency_symbol": "KES",
+              "Vendor_Name": null,
+              "$field_states": null,
+              "$review_process": {
+                "approve": false,
+                "reject": false,
+                "resubmit": false
+              },
+              "Sales_Start_Date": null,
+              "Tax": [],
+              "$layout_id": {
+                "display_label": "Standard",
+                "name": "Standard",
+                "id": "7328395000000091009"
+              },
+              "Product_Active": true,
+              "Last_Activity_Time": "2026-05-14T12:55:52+03:00",
+              "Record_Image": null,
+              "Modified_By": {
+                "name": "Nango Developer",
+                "id": "7328395000000605001",
+                "email": "api@nango.dev"
+              },
+              "$review": null,
+              "Product_Code": null,
+              "$state": "save",
+              "$process_flow": false,
+              "Manufacturer": null,
+              "$locked_for_me": false,
+              "id": "7328395000000700003",
+              "Support_Expiry_Date": null,
+              "$approved": true,
+              "$approval": {
+                "delegate": false,
+                "takeover": false,
+                "approve": false,
+                "reject": false,
+                "resubmit": false
+              },
+              "Modified_Time": "2026-05-14T12:55:52+03:00",
+              "Created_Time": "2026-05-14T12:55:12+03:00",
+              "Commission_Rate": null,
+              "Product_Name": "Test Product Updated",
+              "Handler": null,
+              "$taxable": true,
+              "$editable": true,
+              "Support_Start_Date": null,
+              "$orchestration": false,
+              "Usage_Unit": null,
+              "Qty_Ordered": 0,
+              "$in_merge": false,
+              "Locked__s": false,
+              "Qty_in_Stock": 0,
+              "Created_By": {
+                "name": "Nango Developer",
+                "id": "7328395000000605001",
+                "email": "api@nango.dev"
+              },
+              "Tag": [],
+              "$approval_state": "approved",
+              "Sales_End_Date": null,
+              "Unit_Price": 149.99,
+              "Reorder_Level": 0,
+              "Taxable": true
+            }
+          ],
+          "info": {
+            "per_page": 200,
+            "count": 5,
+            "page": 1,
+            "sort_by": "Modified_Time",
+            "sort_order": "asc",
+            "more_records": false
+          }
+        },
+        "status": 200,
+        "headers": {
+          "date": "Thu, 14 May 2026 10:39:27 GMT",
+          "content-type": "application/json;charset=UTF-8",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "0; mode=block",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=64072000; includeSubDomains; preload",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4985",
+          "x-ratelimit-reset": "1778755200",
+          "server": "ZGS",
+          "referrer-policy": "strict-origin",
+          "content-security-policy": "default-src 'none';frame-ancestors 'self'; report-uri https://logsapi.zoho.com/csplog?service=crm",
+          "set-cookie": "crmcsr=e136ba31-39c0-409c-9dbc-905c6b404fe2;path=/;SameSite=None;Secure;priority=high, _zcsr_tmp=e136ba31-39c0-409c-9dbc-905c6b404fe2;path=/;SameSite=Strict;Secure;priority=high",
+          "cache-control": "no-store, no-cache, must-revalidate, private",
+          "pragma": "no-cache",
+          "expires": "Thu, 01 Jan 1970 00:00:00 GMT",
+          "clientversion": "13385089",
+          "clientsubversion": "7432b849c14b9f458689de05f79d175e",
+          "x-accesstoken-reset": "2026-05-14T14:37:59+03:00",
+          "content-disposition": "attachment; filename=response.json",
+          "server-timing": "cpuTime;desc=\"CPU Time\";dur=84, totalTime;desc=\"Total Execution Time\";dur=126,murphySpanId;desc=\"\";dur=0",
+          "vary": "accept-encoding",
+          "content-language": "en-US"
+        },
+        "hash": "da75c012df9a5a048dce7a8ba6c7d846de0d6644",
+        "request": {
+          "params": {
+            "page": "1",
+            "per_page": "200",
+            "sort_by": "Modified_Time",
+            "sort_order": "asc"
+          }
+        }
+      }
+    }
+  }
+}

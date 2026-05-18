@@ -1,0 +1,152 @@
+{
+  "input": {
+    "record_id": "7328395000000680317"
+  },
+  "output": {
+    "id": "7328395000000680317",
+    "subject": "Call Customer on Potential",
+    "call_type": "Inbound",
+    "call_status": "Received",
+    "call_purpose": "Negotiation",
+    "call_result": "Interested",
+    "call_duration": "00:15",
+    "call_duration_in_seconds": 15,
+    "call_start_time": "2026-05-14T09:36:15+03:00",
+    "call_agenda": null,
+    "description": null,
+    "owner": {
+      "name": "Nango Developer",
+      "id": "7328395000000605001",
+      "email": "api@nango.dev"
+    },
+    "created_by": {
+      "name": "Nango Developer",
+      "id": "7328395000000605001",
+      "email": "api@nango.dev"
+    },
+    "modified_by": {
+      "name": "Nango Developer",
+      "id": "7328395000000605001",
+      "email": "api@nango.dev"
+    },
+    "who_id": {
+      "name": "Sage Wieser (Sample)",
+      "id": "7328395000000680155"
+    },
+    "what_id": {
+      "name": "King",
+      "id": "7328395000000680197"
+    },
+    "created_time": "2026-05-14T11:36:15+03:00",
+    "modified_time": "2026-05-14T11:36:15+03:00"
+  },
+  "nango": {},
+  "api": {
+    "get": {
+      "/crm/v2/Calls/7328395000000680317": {
+        "response": {
+          "data": [
+            {
+              "Call_Duration": "00:15",
+              "Owner": {
+                "name": "Nango Developer",
+                "id": "7328395000000605001",
+                "email": "api@nango.dev"
+              },
+              "Description": null,
+              "$currency_symbol": "KES",
+              "Caller_ID": null,
+              "$calendar_booking_call": false,
+              "$field_states": null,
+              "$review_process": null,
+              "Last_Activity_Time": null,
+              "Call_Agenda": null,
+              "Modified_By": {
+                "name": "Nango Developer",
+                "id": "7328395000000605001",
+                "email": "api@nango.dev"
+              },
+              "$review": null,
+              "$state": "save",
+              "$process_flow": false,
+              "Call_Purpose": "Negotiation",
+              "id": "7328395000000680317",
+              "Call_Status": "Received",
+              "$approved": true,
+              "Who_Id": {
+                "name": "Sage Wieser (Sample)",
+                "id": "7328395000000680155"
+              },
+              "$approval": {
+                "delegate": false,
+                "takeover": false,
+                "approve": false,
+                "reject": false,
+                "resubmit": false
+              },
+              "Modified_Time": "2026-05-14T11:36:15+03:00",
+              "Reminder": null,
+              "Created_Time": "2026-05-14T11:36:15+03:00",
+              "Call_Start_Time": "2026-05-14T09:36:15+03:00",
+              "$editable": true,
+              "Subject": "Call Customer on Potential",
+              "$orchestration": false,
+              "$se_module": "Deals",
+              "Call_Type": "Inbound",
+              "Call_Result": "Interested",
+              "What_Id": {
+                "name": "King",
+                "id": "7328395000000680197"
+              },
+              "$in_merge": false,
+              "Call_Duration_in_seconds": 15,
+              "Created_By": {
+                "name": "Nango Developer",
+                "id": "7328395000000605001",
+                "email": "api@nango.dev"
+              },
+              "Tag": [],
+              "Dialled_Number": null,
+              "$approval_state": "approved"
+            }
+          ]
+        },
+        "status": 200,
+        "headers": {
+          "date": "Thu, 14 May 2026 09:53:08 GMT",
+          "content-type": "application/json;charset=UTF-8",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "0; mode=block",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=64072000; includeSubDomains; preload",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4851",
+          "x-ratelimit-reset": "1778752407",
+          "server": "ZGS",
+          "referrer-policy": "strict-origin",
+          "content-security-policy": "default-src 'none';frame-ancestors 'self'; report-uri https://logsapi.zoho.com/csplog?service=crm",
+          "set-cookie": "crmcsr=4c785b92-f75a-4a27-8f16-7049e1d49f69;path=/;SameSite=None;Secure;priority=high, _zcsr_tmp=4c785b92-f75a-4a27-8f16-7049e1d49f69;path=/;SameSite=Strict;Secure;priority=high",
+          "cache-control": "no-store, no-cache, must-revalidate, private",
+          "pragma": "no-cache",
+          "expires": "Thu, 01 Jan 1970 00:00:00 GMT",
+          "clientversion": "13385089",
+          "clientsubversion": "7432b849c14b9f458689de05f79d175e",
+          "x-accesstoken-reset": "2026-05-14T13:35:29+03:00",
+          "content-disposition": "attachment; filename=response.json",
+          "server-timing": "cpuTime;desc=\"CPU Time\";dur=41, totalTime;desc=\"Total Execution Time\";dur=53,murphySpanId;desc=\"\";dur=0",
+          "vary": "accept-encoding",
+          "content-language": "en-US"
+        },
+        "hash": "3e7a708a2221967fd2c27c02a33218800be57091",
+        "request": {}
+      }
+    }
+  }
+}

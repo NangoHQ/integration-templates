@@ -57,9 +57,20 @@ export interface SyncMetadata_adp_unifiedemployees {
 
 export interface User {
   id: string;
-  firstName: string;
-  lastName: string;
-  email: string;
+  first_name?: string | undefined;
+  last_name?: string | undefined;
+  email?: string | undefined;
+  type?: number | undefined;
+  pmi?: number | undefined;
+  timezone?: string | undefined;
+  dept?: string | undefined;
+  created_at?: string | undefined;
+  last_login_time?: string | undefined;
+  last_client_version?: string | undefined;
+  group_ids?: string[] | undefined;
+  im_group_ids?: string[] | undefined;
+  status?: string | undefined;
+  role_id?: string | undefined;
 };
 
 export interface SyncMetadata_aircall_users {
@@ -143,20 +154,18 @@ export interface View {
 
 export interface Webhook {
   id: string;
-  baseId: string;
-  notificationUrl?: string | undefined;
-  isHookEnabled: boolean;
-  areNotificationsEnabled: boolean;
-  cursorForNextPayload: number;
-  expirationTime?: string | undefined;
-  lastSuccessfulNotificationTime?: string | undefined;
-  lastNotificationResult?: {  success?: boolean | undefined;
-  completionTimestamp?: string | undefined;
-  durationMs?: number | undefined;
-  retryNumber?: number | undefined;
-  willBeRetried?: boolean | undefined;
-  error?: {  message?: string | undefined;};};
-  specification?: {} | undefined;
+  type: number;
+  name?: string | undefined;
+  channel_id?: string | undefined;
+  guild_id?: string | undefined;
+  avatar?: string | undefined;
+  application_id?: string | undefined;
+  user_id?: string | undefined;
+  user_name?: string | undefined;
+  source_guild_id?: string | undefined;
+  source_guild_name?: string | undefined;
+  source_channel_id?: string | undefined;
+  source_channel_name?: string | undefined;
 };
 
 export interface SyncMetadata_airtable_webhooks {
@@ -1372,17 +1381,19 @@ export interface Tag {
 
 export interface Task {
   id: string;
-  type?: string | undefined;
-  title?: string | undefined;
+  subject?: string | undefined;
+  status?: string | undefined;
   priority?: string | undefined;
-  assigneeId?: string | undefined;
-  dueDate?: string | undefined;
-  notes?: string | undefined;
-  contactIds: string[];
-  companyIds: string[];
-  dealIds: string[];
-  createdAt?: string | undefined;
-  updatedAt?: string | undefined;
+  owner_id?: string | undefined;
+  owner_name?: string | undefined;
+  created_by_id?: string | undefined;
+  modified_by_id?: string | undefined;
+  created_time?: string | undefined;
+  modified_time?: string | undefined;
+  due_date?: string | undefined;
+  description?: string | undefined;
+  related_module?: string | undefined;
+  related_record_id?: string | undefined;
 };
 
 export interface SyncMetadata_asana_tasks {
@@ -4760,16 +4771,28 @@ export interface ActionOutput_bitdefender_getcompanydetails {
   sos: boolean;};
 };
 
-export interface BoxDocument {
+export interface Collaboration {
   id: string;
-  name: string;
-  download_url: string;
+  type: string;
+  item?: {  id: string;
+  type: string;
+  name?: string | undefined;};
+  accessible_by?: {  id?: string | undefined;
+  type: string;
+  name?: string | undefined;
+  login?: string | undefined;};
+  invite_email?: string | undefined;
+  role: string;
+  expires_at?: string | undefined;
+  is_access_only?: boolean | undefined;
+  status: string;
+  acknowledged_at?: string | undefined;
+  created_by?: {  id?: string | undefined;
+  type: string;
+  name?: string | undefined;
+  login?: string | undefined;};
+  created_at: string;
   modified_at: string;
-};
-
-export interface SyncMetadata_box_files {
-  files: string[];
-  folders: string[];
 };
 
 export interface Folder {
@@ -4779,68 +4802,1127 @@ export interface Folder {
   modifiedTime?: string | undefined;
 };
 
-export interface SyncMetadata_box_folders {
+export interface ActionInput_box_copyfile {
+  /**
+   * The ID of the file to copy. Example: "123456789"
+   */
+  file_id: string;
+  /**
+   * The ID of the destination folder. Example: "987654321"
+   */
+  parent_folder_id: string;
+  /**
+   * An optional new name for the copied file. If not provided, the original name is used.
+   */
+  name?: string | undefined;
 };
 
-export interface SyncMetadata_box_users {
+export interface ActionOutput_box_copyfile {
+  id: string;
+  name: string;
+  type: string;
+  description?: string | undefined;
+  size?: number | undefined;
+  created_at?: string | undefined;
+  modified_at?: string | undefined;
+  parent_folder_id?: string | undefined;
+};
+
+export interface ActionInput_box_copyfolder {
+  /**
+   * The ID of the folder to copy. Example: "382204778319"
+   */
+  folder_id: string;
+  /**
+   * The ID of the destination folder where the folder will be copied. Example: "0"
+   */
+  destination_folder_id: string;
+  /**
+   * Optional new name for the copied folder. If not provided, the original name will be used with " (copy)" appended.
+   */
+  name?: string | undefined;
+};
+
+export interface ActionOutput_box_copyfolder {
+  id: string;
+  name: string;
+  type: 'folder';
+  parent?: {  id: string;
+  name?: string | undefined;};
+  created_at?: string | undefined;
+  modified_at?: string | undefined;
+  description?: string | undefined;
+  size?: number | undefined;
+};
+
+export interface ActionInput_box_createcollaboration {
+  /**
+   * The type of item to grant access to. Example: "folder"
+   */
+  item_type: 'file' | 'folder';
+  /**
+   * The ID of the item to grant access to. Example: "382205380769"
+   */
+  item_id: string;
+  /**
+   * The type of collaborator to invite. Example: "user"
+   */
+  accessible_by_type: 'user' | 'group';
+  /**
+   * The ID of the user or group to invite. Use this OR accessible_by_login, not both. Example: "23522323"
+   */
+  accessible_by_id?: string | undefined;
+  /**
+   * The email address of the user to invite. Use this OR accessible_by_id, not both. Example: "john@example.com"
+   */
+  accessible_by_login?: string | undefined;
+  /**
+   * The level of access granted. Example: "editor"
+   */
+  role: 'editor' | 'viewer' | 'previewer' | 'uploader' | 'previewer uploader' | 'viewer uploader' | 'co-owner';
+  /**
+   * If true, collaborators have access but items are not visible in All Files list. Example: true
+   */
+  is_access_only?: boolean | undefined;
+  /**
+   * If true, invited users can see the entire parent path to the folder. Example: true
+   */
+  can_view_path?: boolean | undefined;
+  /**
+   * Expiration date for the collaboration in ISO 8601 format. Example: "2019-08-29T23:59:00-07:00"
+   */
+  expires_at?: string | undefined;
+  /**
+   * Whether to notify the user of the invitation. Example: true
+   */
+  notify?: boolean | undefined;
+};
+
+export interface ActionOutput_box_createcollaboration {
+  id: string;
+  type: string;
+  item?: {  id: string;
+  type: string;
+  name?: string | undefined;};
+  accessible_by?: {  id: string;
+  type: string;
+  login?: string | undefined;
+  name?: string | undefined;};
+  invite_email?: string | undefined;
+  role: string;
+  expires_at?: string | undefined;
+  is_access_only?: boolean | undefined;
+  status?: string | undefined;
+  acknowledged_at?: string | undefined;
+  created_at?: string | undefined;
+  modified_at?: string | undefined;
+};
+
+export interface ActionInput_box_createcomment {
+  /**
+   * The ID of the file to comment on. Example: "2231568666314"
+   */
+  file_id: string;
+  /**
+   * The text of the comment.
+   */
+  message: string;
+};
+
+export interface ActionOutput_box_createcomment {
+  id: string;
+  type: string;
+  message?: string | undefined;
+  tagged_message?: string | undefined;
+  is_reply_comment?: boolean | undefined;
+  created_by?: {  id: string;
+  type: string;
+  name?: string | undefined;
+  login?: string | undefined;};
+  created_at?: string | undefined;
+  modified_at?: string | undefined;
+  item?: {  id: string;
+  type: string;} | undefined;
+};
+
+export interface ActionInput_box_createfolder {
+  /**
+   * The name of the folder. Example: "My New Folder"
+   */
+  name: string;
+  /**
+   * The ID of the parent folder. Use "0" for the root folder. Example: "382205380769"
+   */
+  parent_folder_id: string;
+};
+
+export interface ActionOutput_box_createfolder {
+  /**
+   * The unique identifier of the folder
+   */
+  id: string;
+  /**
+   * The name of the folder
+   */
+  name: string;
+  /**
+   * The type of the item
+   */
+  type: 'folder';
+  /**
+   * The ID of the parent folder
+   */
+  parent_id?: string | undefined;
+  /**
+   * The timestamp when the folder was created
+   */
+  created_at?: string | undefined;
+  /**
+   * The timestamp when the folder was last modified
+   */
+  modified_at?: string | undefined;
+  /**
+   * The description of the folder
+   */
+  description?: string | undefined;
+  /**
+   * The path from the root to this folder
+   */
+  path_collection?: {  entries: ({  id: string;
+  name: string;})[];} | undefined;
 };
 
 export interface ActionInput_box_createuser {
-  firstName: string;
-  lastName: string;
-  email: string;
-  address?: string | undefined;
-  can_see_managed_users?: boolean | undefined;
-  external_app_user_id?: string | undefined;
-  is_exempt_from_device_limits?: boolean | undefined;
-  is_exempt_from_login_verification?: boolean | undefined;
-  is_external_collab_restricted?: boolean | undefined;
-  is_platform_access_only?: boolean | undefined;
-  is_sync_enabled?: boolean | undefined;
-  job_title?: string | undefined;
-  language?: string | undefined;
-  phone?: string | undefined;
+  /**
+   * The full name of the user. Example: "Jane Doe"
+   */
+  name: string;
+  /**
+   * The email address the user uses to log in. Example: "jane@example.com"
+   */
+  login: string;
+  /**
+   * The user's enterprise role.
+   */
   role?: 'coadmin' | 'user' | undefined;
+  /**
+   * The language of the user in ISO 639-1 format.
+   */
+  language?: string | undefined;
+  /**
+   * Whether the user can use Box Sync.
+   */
+  is_sync_enabled?: boolean | undefined;
+  /**
+   * The user's job title.
+   */
+  job_title?: string | undefined;
+  /**
+   * The user's phone number.
+   */
+  phone?: string | undefined;
+  /**
+   * The user's address.
+   */
+  address?: string | undefined;
+  /**
+   * The user's total available space in bytes.
+   */
   space_amount?: number | undefined;
-  status?: 'active' | 'inactive' | 'cannot_delete_edit' | 'cannot_delete_edit_upload' | undefined;
+  /**
+   * Whether the user can see other enterprise users in their contact list.
+   */
+  can_see_managed_users?: boolean | undefined;
+  /**
+   * The user's timezone.
+   */
   timezone?: string | undefined;
-  tracking_codes: ({  type?: 'tracking_code' | undefined;
+  /**
+   * Whether the user is restricted from collaborating with users outside their enterprise.
+   */
+  is_external_collab_restricted?: boolean | undefined;
+  /**
+   * Whether to exempt the user from enterprise device limits.
+   */
+  is_exempt_from_device_limits?: boolean | undefined;
+  /**
+   * Whether the user must use two-factor authentication.
+   */
+  is_exempt_from_login_verification?: boolean | undefined;
+  /**
+   * Whether the user is an App User.
+   */
+  is_platform_access_only?: boolean | undefined;
+  /**
+   * The user's account status.
+   */
+  status?: 'active' | 'inactive' | 'cannot_delete_edit' | 'cannot_delete_edit_upload' | undefined;
+  /**
+   * An external identifier for an app user.
+   */
+  external_app_user_id?: string | undefined;
+  /**
+   * Tracking codes for analytics purposes.
+   */
+  tracking_codes?: ({  type?: 'tracking_code' | undefined;
   name?: string | undefined;
   value?: string | undefined;})[];
 };
 
 export interface ActionOutput_box_createuser {
   id: string;
-  email: string;
-  firstName: string;
-  lastName: string;
+  name?: string | undefined;
+  login?: string | undefined;
+  role?: string | undefined;
+  language?: string | undefined;
+  timezone?: string | undefined;
+  space_amount?: number | undefined;
+  space_used?: number | undefined;
+  max_upload_size?: number | undefined;
+  status?: string | undefined;
+  job_title?: string | undefined;
+  phone?: string | undefined;
+  address?: string | undefined;
+  avatar_url?: string | undefined;
+  is_sync_enabled?: boolean | undefined;
+  can_see_managed_users?: boolean | undefined;
+  is_external_collab_restricted?: boolean | undefined;
+  is_exempt_from_device_limits?: boolean | undefined;
+  is_exempt_from_login_verification?: boolean | undefined;
+  is_platform_access_only?: boolean | undefined;
+  external_app_user_id?: string | undefined;
+  created_at?: string | undefined;
+  modified_at?: string | undefined;
+};
+
+export interface ActionInput_box_deletecollaboration {
+  /**
+   * The ID of the collaboration to delete. Example: "72837978884"
+   */
+  collaboration_id: string;
+};
+
+export interface ActionOutput_box_deletecollaboration {
+  success: boolean;
+  collaboration_id: string;
+};
+
+export interface ActionInput_box_deletecomment {
+  /**
+   * The ID of the comment to delete. Example: "12345"
+   */
+  commentId: string;
+};
+
+export interface ActionOutput_box_deletecomment {
+  /**
+   * Whether the comment was successfully deleted
+   */
+  success: boolean;
 };
 
 export interface ActionInput_box_deleteuser {
-  id: string;
+  /**
+   * The ID of the user to delete. Example: "12345"
+   */
+  user_id: string;
+  /**
+   * Whether to force the deletion even if the user has content. Defaults to false.
+   */
   force?: boolean | undefined;
+  /**
+   * Whether to notify the user that they have been removed. Defaults to false.
+   */
   notify?: boolean | undefined;
 };
 
 export interface ActionOutput_box_deleteuser {
+  /**
+   * Whether the user deletion succeeded
+   */
   success: boolean;
+  /**
+   * The ID of the deleted user
+   */
+  user_id: string;
+};
+
+export interface ActionInput_box_deletefile {
+  /**
+   * The unique identifier for the file to delete. Example: "123456789"
+   */
+  file_id: string;
+  /**
+   * If true, permanently deletes the file bypassing the trash. If false or omitted, the file is moved to trash.
+   */
+  force_delete?: boolean | undefined;
+};
+
+export interface ActionOutput_box_deletefile {
+  success: boolean;
+  file_id: string;
+  permanently_deleted: boolean;
+  message: string;
+};
+
+export interface ActionInput_box_deletefolder {
+  /**
+   * The ID of the folder to delete. Example: "382204778319"
+   */
+  folderId: string;
+  /**
+   * Whether to delete the folder and all its contents. If false and folder is not empty, the operation will fail. Defaults to true.
+   */
+  recursive?: boolean | undefined;
+};
+
+export interface ActionOutput_box_deletefolder {
+  /**
+   * Whether the folder deletion succeeded
+   */
+  success: boolean;
+  /**
+   * The ID of the deleted folder
+   */
+  folderId: string;
+};
+
+export interface ActionInput_box_downloadfile {
+  /**
+   * The ID of the file to download. Example: "123456789"
+   */
+  file_id: string;
+};
+
+export interface ActionOutput_box_downloadfile {
+  /**
+   * The file content as a base64-encoded string
+   */
+  content: string;
+  /**
+   * The ID of the downloaded file
+   */
+  file_id: string;
 };
 
 export interface ActionInput_box_foldercontent {
-  id?: string | undefined;
+  /**
+   * The ID of the folder to fetch content from. Defaults to the root folder ("0"). Example: "123456789"
+   */
+  folder_id?: string | undefined;
+  /**
+   * A pagination cursor returned by a previous call. Use this to fetch the next page of results.
+   */
   marker?: string | undefined;
 };
 
 export interface ActionOutput_box_foldercontent {
-  files: ({  id: string;
-  name: string;
-  download_url: string;
-  modified_at: string;})[];
   folders: ({  id: string;
   name: string;
   modified_at: string;
-  url: string | null;})[];
+  url?: string | undefined;})[];
+  files: ({  id: string;
+  name: string;
+  modified_at: string;
+  download_url: string;})[];
   next_marker?: string | undefined;
+};
+
+export interface ActionInput_box_getcollaboration {
+  /**
+   * The ID of the collaboration. Example: "1234"
+   */
+  collaboration_id: string;
+};
+
+export interface ActionOutput_box_getcollaboration {
+  id: string;
+  type: 'collaboration';
+  item?: {  id: string;
+  type: string;
+  name?: string | undefined;};
+  accessible_by?: {  id: string;
+  type: string;
+  login?: string | undefined;
+  name?: string | undefined;};
+  invite_email?: string | undefined;
+  role: string;
+  expires_at?: string | undefined;
+  is_access_only?: boolean | undefined;
+  status: 'accepted' | 'pending' | 'rejected';
+  acknowledged_at?: string | undefined;
+  created_by?: {  id: string;
+  type: string;
+  login?: string | undefined;
+  name?: string | undefined;};
+  created_at: string;
+  modified_at: string;
+};
+
+export interface ActionInput_box_getcomment {
+  /**
+   * The ID of the comment to retrieve. Example: "12345"
+   */
+  comment_id: string;
+};
+
+export interface ActionOutput_box_getcomment {
+  id: string;
+  type: 'comment';
+  is_reply_comment?: boolean | undefined;
+  message?: string | undefined;
+  tagged_message?: string | undefined;
+  created_by?: {  id: string;
+  type: 'user';
+  name?: string | undefined;
+  login?: string | undefined;};
+  created_at?: string | undefined;
+  modified_at?: string | undefined;
+  item?: {  id: string;
+  type: string;} | undefined;
+};
+
+export interface ActionInput_box_getfile {
+  /**
+   * The unique identifier of the file. Example: "12345"
+   */
+  file_id: string;
+};
+
+export interface ActionOutput_box_getfile {
+  id: string;
+  type: string;
+  name: string;
+  size: number;
+  created_at: string;
+  modified_at: string;
+  description?: string | undefined;
+  etag?: string | undefined;
+  parent?: {  id: string;
+  type: string;
+  name?: string | undefined;};
+  created_by?: {  id: string;
+  type: string;
+  name: string;
+  login?: string | undefined;};
+  modified_by?: {  id: string;
+  type: string;
+  name: string;
+  login?: string | undefined;};
+  owned_by?: {  id: string;
+  type: string;
+  name: string;
+  login?: string | undefined;};
+  item_status?: string | undefined;
+};
+
+export interface ActionInput_box_getfolder {
+  /**
+   * The unique identifier that represent a folder. The root folder is always represented by the ID 0. Example: "12345"
+   */
+  folder_id: string;
+};
+
+export interface ActionOutput_box_getfolder {
+  type: 'folder';
+  id: string;
+  sequence_id?: string | undefined;
+  etag?: string | undefined;
+  name: string;
+  created_at?: string | undefined;
+  modified_at?: string | undefined;
+  description?: string | undefined;
+  size?: number | undefined;
+  path_collection?: {  total_count: number;
+  entries: ({  type: 'folder';
+  id: string;
+  sequence_id?: string | undefined;
+  etag?: string | undefined;
+  name: string;})[];};
+  created_by?: {  type: 'user';
+  id: string;
+  name: string;
+  login?: string | undefined;};
+  modified_by?: {  type: 'user';
+  id: string;
+  name: string;
+  login?: string | undefined;};
+  trashed_at?: string | undefined;
+  purged_at?: string | undefined;
+  content_created_at?: string | undefined;
+  content_modified_at?: string | undefined;
+  owned_by?: {  type: 'user';
+  id: string;
+  name: string;
+  login?: string | undefined;};
+  shared_link?: {  url: string;
+  download_url?: string | undefined;
+  vanity_url?: string | undefined;
+  vanity_name?: string | undefined;
+  access?: string | undefined;
+  effective_access?: string | undefined;
+  effective_permission?: string | undefined;
+  is_password_enabled?: boolean | undefined;
+  download_count?: number | undefined;
+  preview_count?: number | undefined;};
+  folder_upload_email?: {  access: string;
+  email: string;} | undefined;
+  parent?: {  type: 'folder';
+  id: string;
+  sequence_id?: string | undefined;
+  etag?: string | undefined;
+  name: string;};
+  item_status?: string | undefined;
+  item_collection?: {  total_count: number;
+  entries: ({  type: string;
+  id: string;
+  name?: string | undefined;
+  sequence_id?: string | undefined;
+  etag?: string | undefined;})[];
+  offset?: number | undefined;
+  limit?: number | undefined;
+  order?: ({  by: string;
+  direction: string;})[] | undefined;};
+  has_collaborations?: boolean | undefined;
+  permissions?: {  can_delete?: boolean | undefined;
+  can_download?: boolean | undefined;
+  can_invite_collaborator?: boolean | undefined;
+  can_rename?: boolean | undefined;
+  can_set_share_access?: boolean | undefined;
+  can_share?: boolean | undefined;
+  can_upload?: boolean | undefined;
+  can_apply_watermark?: boolean | undefined;};
+  tags?: string[] | undefined;
+  can_non_owners_invite?: boolean | undefined;
+  is_externally_owned?: boolean | undefined;
+  is_collaboration_restricted_to_enterprise?: boolean | undefined;
+  allowed_shared_link_access_levels?: string[] | undefined;
+  allowed_invitee_roles?: string[] | undefined;
+  watermark_info?: {  is_watermarked: boolean;
+  is_watermark_inherited?: boolean | undefined;
+  is_watermarked_by_access_policy?: boolean | undefined;};
+  is_accessible_via_shared_link?: boolean | undefined;
+  can_non_owners_view_collaborators?: boolean | undefined;
+  classification?: {  name?: string | undefined;
+  definition?: string | undefined;
+  color?: string | undefined;};
+  is_associated_with_app_item?: boolean | undefined;
+};
+
+export interface ActionInput_box_getuser {
+  /**
+   * The ID of the user. Example: "123"
+   */
+  user_id: string;
+};
+
+export interface ActionOutput_box_getuser {
+  id: string;
+  name?: string | undefined;
+  login?: string | undefined;
+  created_at?: string | undefined;
+  modified_at?: string | undefined;
+  timezone?: string | undefined;
+  language?: string | undefined;
+  space_amount?: number | undefined;
+  space_used?: number | undefined;
+  max_upload_size?: number | undefined;
+  status?: string | undefined;
+  job_title?: string | undefined;
+  phone?: string | undefined;
+  address?: string | undefined;
+  avatar_url?: string | undefined;
+};
+
+export interface ActionInput_box_listcollaborations {
+  /**
+   * The status of the collaborations to retrieve. Defaults to pending.
+   */
+  status?: 'pending' | undefined;
+  /**
+   * The offset of the item at which to begin the response.
+   */
+  offset?: number | undefined;
+  /**
+   * The maximum number of items to return per page.
+   */
+  limit?: number | undefined;
+};
+
+export interface ActionOutput_box_listcollaborations {
+  collaborations: ({  id: string;
+  type: 'collaboration';
+  item?: {  id: string;
+  type: 'file' | 'folder' | 'web_link';
+  name?: string | undefined;};
+  accessible_by?: {  id: string;
+  type: 'user';
+  name?: string | undefined;
+  login?: string | undefined;};
+  invite_email?: string | undefined;
+  role?: string | undefined;
+  status?: 'accepted' | 'pending' | 'rejected' | undefined;
+  acknowledged_at?: string | undefined;
+  created_at?: string | undefined;
+  modified_at?: string | undefined;})[];
+  total_count?: number | undefined;
+  offset?: number | undefined;
+  limit?: number | undefined;
+  has_more?: boolean | undefined;
+};
+
+export interface ActionInput_box_listcomments {
+  /**
+   * The unique identifier of the file. Example: "12345"
+   */
+  file_id: string;
+  /**
+   * The maximum number of items to return per page. Default: 100.
+   */
+  limit?: number | undefined;
+  /**
+   * The 0-based offset of the first item to return. Default: 0.
+   */
+  offset?: number | undefined;
+};
+
+export interface ActionOutput_box_listcomments {
+  total_count?: number | undefined;
+  limit?: number | undefined;
+  offset?: number | undefined;
+  order?: ({  by?: string | undefined;
+  direction?: 'ASC' | 'DESC' | undefined;})[];
+  entries: ({  id: string;
+  type: 'comment';
+  is_reply_comment?: boolean | undefined;
+  message?: string | undefined;
+  tagged_message?: string | undefined;
+  created_by?: {  id: string;
+  type: 'user';
+  name: string;
+  login: string;} | undefined;
+  created_at?: string | undefined;
+  modified_at?: string | undefined;
+  item?: {  id: string;
+  type: string;} | undefined;})[];
+};
+
+export interface ActionInput_box_listfiles {
+  /**
+   * The unique identifier for the folder. The root folder is always represented by the ID `0`. Example: "0"
+   */
+  folder_id: string;
+  /**
+   * Pagination cursor from the previous response. Omit for the first page.
+   */
+  cursor?: string | undefined;
+  /**
+   * The maximum number of items to return per page. Maximum is 1000.
+   */
+  limit?: number | undefined;
+  /**
+   * Defines the second attribute by which items are sorted.
+   */
+  sort?: 'id' | 'name' | 'date' | 'size' | undefined;
+  /**
+   * The direction to sort results in.
+   */
+  direction?: 'ASC' | 'DESC' | undefined;
+};
+
+export interface ActionOutput_box_listfiles {
+  items: ({  id: string;
+  type: string;})[];
+  next_cursor?: string | undefined;
+};
+
+export interface ActionInput_box_listfolders {
+  /**
+   * The ID of the folder to list items from. Use "0" for the root folder. Defaults to "0".
+   */
+  folder_id?: string | undefined;
+  /**
+   * The maximum number of items to return per page. Maximum is 1000.
+   */
+  limit?: number | undefined;
+  /**
+   * Pagination cursor from the previous response. Omit for the first page.
+   */
+  cursor?: string | undefined;
+};
+
+export interface ActionOutput_box_listfolders {
+  folders: ({  id: string;
+  type: 'folder';
+  name: string;
+  sequence_id?: string | undefined;
+  etag?: string | undefined;})[];
+  next_cursor?: string | undefined;
+};
+
+export interface ActionInput_box_search {
+  /**
+   * The string to search for. This query is matched against item names, descriptions, text content of files, and various other fields.
+   */
+  query: string;
+  /**
+   * Limits the search results to items of this type.
+   */
+  type?: 'file' | 'folder' | 'web_link' | undefined;
+  /**
+   * Limits results to files matching any of the provided extensions (comma-separated list without dots).
+   */
+  file_extensions?: string[] | undefined;
+  /**
+   * Limits results to items within the given folders (comma-separated list of folder IDs).
+   */
+  ancestor_folder_ids?: string[] | undefined;
+  /**
+   * Limits results to items created within a date range (comma-separated RFC3339 timestamps).
+   */
+  created_at_range?: string[] | undefined;
+  /**
+   * Limits results to items updated within a date range (comma-separated RFC3339 timestamps).
+   */
+  updated_at_range?: string[] | undefined;
+  /**
+   * Limits results to items within a file size range (comma-separated byte sizes).
+   */
+  size_range?: number[] | undefined;
+  /**
+   * Limits results to items owned by the given users (comma-separated list of user IDs).
+   */
+  owner_user_ids?: string[] | undefined;
+  /**
+   * Limits results to items recently updated by the given users (comma-separated list of user IDs).
+   */
+  recent_updater_user_ids?: string[] | undefined;
+  /**
+   * Limits search to match specific content parts (comma-separated list).
+   */
+  content_types?: ({  0: 'name';
+  1: 'description';
+  2: 'file_content';
+  3: 'comments';
+  4: 'tags';})[] | undefined;
+  /**
+   * Determines if the search should look in trash. Defaults to non_trashed_only.
+   */
+  trash_content?: 'non_trashed_only' | 'trashed_only' | 'all_items' | undefined;
+  /**
+   * Defines the order of search results. Defaults to relevance.
+   */
+  sort?: 'relevance' | 'modified_at' | undefined;
+  /**
+   * Defines the direction of ordering. Defaults to DESC.
+   */
+  direction?: 'ASC' | 'DESC' | undefined;
+  /**
+   * Maximum number of items to return per page. Defaults to 30, max 200.
+   */
+  limit?: number | undefined;
+  /**
+   * The offset of the first item to return. Defaults to 0.
+   */
+  offset?: number | undefined;
+  /**
+   * Limits results to user content or enterprise content. Defaults to user_content.
+   */
+  scope?: 'user_content' | 'enterprise_content' | undefined;
+  /**
+   * Comma-separated list of attributes to include in the response.
+   */
+  fields?: string[] | undefined;
+  /**
+   * Whether to include items accessed through shared links.
+   */
+  include_recent_shared_links?: boolean | undefined;
+  /**
+   * Limits results to items deleted by the given users (requires trash_content=trashed_only).
+   */
+  deleted_user_ids?: string[] | undefined;
+  /**
+   * Limits results to items deleted within a date range (requires trash_content=trashed_only).
+   */
+  deleted_at_range?: string[] | undefined;
+};
+
+export interface ActionOutput_box_search {
+  total_count: number;
+  limit: number;
+  offset: number;
+  entries: ({  type: string;
+  id: string;
+  name?: string | undefined;
+  description?: string | undefined;
+  size?: number | undefined;
+  created_at?: string | undefined;
+  modified_at?: string | undefined;
+  path_collection?: {  entries: ({  type: string;
+  id: string;
+  name?: string | undefined;})[];};})[];
+};
+
+export interface ActionInput_box_updatecollaboration {
+  /**
+   * The ID of the collaboration. Example: "12345678"
+   */
+  collaboration_id: string;
+  /**
+   * The level of access granted.
+   */
+  role?: 'editor' | 'viewer' | 'previewer' | 'uploader' | 'previewer uploader' | 'viewer uploader' | 'co-owner' | 'owner' | undefined;
+  /**
+   * Set the status of a pending collaboration invitation, effectively accepting or rejecting the invite.
+   */
+  status?: 'pending' | 'accepted' | 'rejected' | undefined;
+  /**
+   * Update the expiration date for the collaboration. Format: ISO 8601 date-time. Example: "2019-08-29T23:59:00-07:00"
+   */
+  expires_at?: string | undefined;
+  /**
+   * Determines if the invited users can see the entire parent path to the associated folder. Only for folder collaborations.
+   */
+  can_view_path?: boolean | undefined;
+};
+
+export interface ActionOutput_box_updatecollaboration {
+  id: string;
+  type: 'collaboration';
+  item?: {  id: string;
+  type: 'file' | 'folder' | 'web_link';} | undefined;
+  accessible_by?: {  id: string;
+  type: 'user';
+  name: string;
+  login: string;} | undefined;
+  invite_email?: string | undefined;
+  role: string;
+  expires_at?: string | undefined;
+  is_access_only?: boolean | undefined;
+  status: 'accepted' | 'pending' | 'rejected';
+  acknowledged_at?: string | undefined;
+  created_by?: {  id: string;
+  type: 'user';
+  name: string;
+  login: string;} | undefined;
+  created_at?: string | undefined;
+  modified_at?: string | undefined;
+};
+
+export interface ActionInput_box_updatecomment {
+  /**
+   * The ID of the comment to update. Example: "12345"
+   */
+  commentId: string;
+  /**
+   * The new text of the comment. Example: "Updated comment message"
+   */
+  message: string;
+};
+
+export interface ActionOutput_box_updatecomment {
+  id: string;
+  type: string;
+  message: string;
+  isReplyComment?: boolean | undefined;
+  createdAt?: string | undefined;
+  modifiedAt?: string | undefined;
+  createdBy?: {  id: string;
+  type: string;
+  name?: string | undefined;
+  login?: string | undefined;};
+  item?: {  id: string;
+  type: string;} | undefined;
+  taggedMessage?: string | undefined;
+};
+
+export interface ActionInput_box_updatefile {
+  /**
+   * The unique identifier that represents a file. Example: "2231571097476"
+   */
+  file_id: string;
+  /**
+   * An optional different name for the file. This can be used to rename the file.
+   */
+  name?: string | undefined;
+  /**
+   * The description for a file. Max length 256 characters.
+   */
+  description?: string | undefined;
+  /**
+   * An optional new parent folder for the file. This can be used to move the file to a new folder.
+   */
+  parent?: {  /**
+   * The ID of parent folder. Use "0" for the root folder.
+   */
+  id: string;} | undefined;
+  /**
+   * The tags for this item. There is a limit of 100 tags per item.
+   */
+  tags?: string[] | undefined;
+};
+
+export interface ActionOutput_box_updatefile {
+  id: string;
+  type: string;
+  name?: string | undefined;
+  description?: string | undefined;
+  size?: number | undefined;
+  created_at?: string | undefined;
+  modified_at?: string | undefined;
+  parent?: {  id: string;
+  name?: string | undefined;};
+  tags?: string[] | undefined;
+};
+
+export interface ActionInput_box_updatefolder {
+  /**
+   * The unique identifier for the folder to update. Example: "12345"
+   */
+  folder_id: string;
+  /**
+   * The new name for the folder.
+   */
+  name?: string | undefined;
+  /**
+   * The optional description of this folder.
+   */
+  description?: string | undefined;
+  /**
+   * The ID of the new parent folder to move this folder into.
+   */
+  parent_id?: string | undefined;
+  /**
+   * The tags for this item.
+   */
+  tags?: string[] | undefined;
+  /**
+   * Specifies if users who are not the owner of the folder can invite new collaborators.
+   */
+  can_non_owners_invite?: boolean | undefined;
+  /**
+   * Specifies if new invites to this folder are restricted to users within the enterprise.
+   */
+  is_collaboration_restricted_to_enterprise?: boolean | undefined;
+  /**
+   * Restricts collaborators who are not the owner from viewing other collaborations on this folder.
+   */
+  can_non_owners_view_collaborators?: boolean | undefined;
+};
+
+export interface ActionOutput_box_updatefolder {
+  id: string;
+  type: string;
+  name: string;
+  description?: string | undefined;
+  parent_id?: string | undefined;
+  sync_state?: 'synced' | 'not_synced' | 'partially_synced' | undefined;
+  tags?: string[] | undefined;
+  can_non_owners_invite?: boolean | undefined;
+  is_collaboration_restricted_to_enterprise?: boolean | undefined;
+  can_non_owners_view_collaborators?: boolean | undefined;
+};
+
+export interface ActionInput_box_updateuser {
+  /**
+   * The ID of the user to update. Example: "12345"
+   */
+  user_id: string;
+  /**
+   * The name of the user.
+   */
+  name?: string | undefined;
+  /**
+   * The email address the user uses to log in.
+   */
+  login?: string | undefined;
+  /**
+   * The user's enterprise role.
+   */
+  role?: 'coadmin' | 'user' | undefined;
+  /**
+   * The language of the user in ISO 639-1 format.
+   */
+  language?: string | undefined;
+  /**
+   * Whether the user can use Box Sync.
+   */
+  is_sync_enabled?: boolean | undefined;
+  /**
+   * The user's job title.
+   */
+  job_title?: string | undefined;
+  /**
+   * The user's phone number.
+   */
+  phone?: string | undefined;
+  /**
+   * The user's address.
+   */
+  address?: string | undefined;
+  /**
+   * Whether the user can see other enterprise users in their contact list.
+   */
+  can_see_managed_users?: boolean | undefined;
+  /**
+   * The user's timezone.
+   */
+  timezone?: string | undefined;
+  /**
+   * Whether the user is allowed to collaborate with users outside their enterprise.
+   */
+  is_external_collab_restricted?: boolean | undefined;
+  /**
+   * Whether to exempt the user from enterprise device limits.
+   */
+  is_exempt_from_device_limits?: boolean | undefined;
+  /**
+   * Whether the user must use two-factor authentication.
+   */
+  is_exempt_from_login_verification?: boolean | undefined;
+  /**
+   * Whether the user is required to reset their password.
+   */
+  is_password_reset_required?: boolean | undefined;
+  /**
+   * The user's account status.
+   */
+  status?: 'active' | 'inactive' | 'cannot_delete_edit' | 'cannot_delete_edit_upload' | undefined;
+  /**
+   * The user's total available space in bytes. Set to -1 for unlimited storage.
+   */
+  space_amount?: number | undefined;
+  /**
+   * An external identifier for an app user.
+   */
+  external_app_user_id?: string | undefined;
+};
+
+export interface ActionOutput_box_updateuser {
+  id: string;
+  type: 'user';
+  name?: string | undefined;
+  login?: string | undefined;
+  role?: 'admin' | 'coadmin' | 'user' | undefined;
+  language?: string | undefined;
+  timezone?: string | undefined;
+  space_amount?: number | undefined;
+  space_used?: number | undefined;
+  max_upload_size?: number | undefined;
+  status?: 'active' | 'inactive' | 'cannot_delete_edit' | 'cannot_delete_edit_upload' | undefined;
+  job_title?: string | undefined;
+  phone?: string | undefined;
+  address?: string | undefined;
+  avatar_url?: string | undefined;
+  is_sync_enabled?: boolean | undefined;
+  can_see_managed_users?: boolean | undefined;
+  is_external_collab_restricted?: boolean | undefined;
+  is_exempt_from_device_limits?: boolean | undefined;
+  is_exempt_from_login_verification?: boolean | undefined;
+  is_platform_access_only?: boolean | undefined;
+  external_app_user_id?: string | undefined;
+  created_at?: string | undefined;
+  modified_at?: string | undefined;
 };
 
 export interface BookAnalytics {
@@ -5047,41 +6129,78 @@ export interface SyncMetadata_brightcrowd_pages {
 };
 
 export interface EventType {
+  /**
+   * Unique identifier for the event type
+   */
   id: string;
+  /**
+   * Canonical reference for the event type
+   */
   uri: string;
-  name: string | null;
+  /**
+   * Event type name
+   */
+  name?: string | undefined;
+  /**
+   * Indicates if the event type is active
+   */
   active: boolean;
-  booking_method: string;
-  slug: string | null;
-  scheduling_url: string;
-  duration: number;
-  duration_options: number[] | null;
-  kind: string;
-  pooling_type: string | null;
-  type: string;
-  color: string;
+  /**
+   * Booking method
+   */
+  booking_method?: 'instant' | 'poll' | undefined;
+  /**
+   * Hex color value
+   */
+  color?: string | undefined;
+  /**
+   * Creation timestamp
+   */
   created_at: string;
+  /**
+   * Last update timestamp
+   */
   updated_at: string;
-  internal_note: string | null;
-  description_plain: string | null;
-  description_html: string | null;
-  profile: {  type: string;
-  name: string;
-  owner: string;} | null;
-  secret: boolean;
-  deleted_at: string | null;
-  admin_managed: boolean;
-  locations: ({  kind: string;
-  phone_number?: number | null | undefined;
-  additional_info?: string | null | undefined;})[] | null;
-  custom_questions: ({  name: string;
-  type: string;
-  position: number;
-  enabled: boolean;
-  required: boolean;
-  answer_choices: string[];
-  include_other: boolean;})[];
-  position: number;
+  /**
+   * Deletion timestamp if deleted
+   */
+  deleted_at?: string | undefined;
+  /**
+   * Plain text description
+   */
+  description_plain?: string | undefined;
+  /**
+   * HTML description
+   */
+  description_html?: string | undefined;
+  /**
+   * Session duration in minutes
+   */
+  duration?: number | undefined;
+  /**
+   * Event type kind
+   */
+  kind?: 'solo' | undefined;
+  /**
+   * Pooling type for team event types
+   */
+  pooling_type?: 'round_robin' | 'collective' | 'multi_pool' | undefined;
+  /**
+   * Display position
+   */
+  position?: number | undefined;
+  /**
+   * Booking URL
+   */
+  scheduling_url?: string | undefined;
+  /**
+   * URL slug
+   */
+  slug?: string | undefined;
+  /**
+   * Event type category
+   */
+  type?: 'StandardEventType' | 'AdhocEventType' | undefined;
 };
 
 export interface SyncMetadata_cal_com_v2_eventtypes {
@@ -5089,120 +6208,1072 @@ export interface SyncMetadata_cal_com_v2_eventtypes {
 
 export interface Event {
   id: string;
-  subject?: string | undefined;
-  bodyPreview?: string | undefined;
-  start?: {  dateTime: string;
-  timeZone: string;} | undefined;
-  end?: {  dateTime: string;
-  timeZone: string;} | undefined;
-  location?: string | undefined;
-  isAllDay?: boolean | undefined;
-  isCancelled?: boolean | undefined;
-  isDraft?: boolean | undefined;
-  isOnlineMeeting?: boolean | undefined;
-  onlineMeetingProvider?: string | undefined;
-  importance?: string | undefined;
-  sensitivity?: string | undefined;
-  showAs?: string | undefined;
-  webLink?: string | undefined;
-  iCalUId?: string | undefined;
-  type?: string | undefined;
-  seriesMasterId?: string | undefined;
-  organizerEmail?: string | undefined;
-  organizerName?: string | undefined;
-  categories?: string[] | undefined;
-  createdDateTime?: string | undefined;
-  lastModifiedDateTime?: string | undefined;
-  originalStartTimeZone?: string | undefined;
-  originalEndTimeZone?: string | undefined;
-  hasAttachments?: boolean | undefined;
-  changeKey?: string | undefined;
+  title?: string | undefined;
+  start_datetime?: string | undefined;
+  end_datetime?: string | undefined;
+  all_day?: boolean | undefined;
+  description?: string | undefined;
+  venue?: string | undefined;
+  owner_id?: string | undefined;
+  owner_name?: string | undefined;
+  owner_email?: string | undefined;
+  created_by_id?: string | undefined;
+  modified_by_id?: string | undefined;
+  created_time: string;
+  modified_time: string;
+  participants?: string[] | undefined;
+  related_record_id?: string | undefined;
+  related_record_type?: string | undefined;
+  tags?: string[] | undefined;
 };
 
 export interface SyncMetadata_cal_com_v2_events {
 };
 
-export interface EventInvitee {
+export interface Invitee {
+  /**
+   * The URI of the invitee (used as unique identifier)
+   */
   id: string;
+  email: string;
+  name: string;
+  status: string;
+  created_at: string;
+  updated_at: string;
+  event: string;
+  canceled?: boolean | undefined;
+  rescheduled?: boolean | undefined;
+  cancel_url?: string | undefined;
+  reschedule_url?: string | undefined;
+  timezone?: string | undefined;
+  text_reminder_number?: string | undefined;
+  questions_and_answers?: ({  question: string;
+  answer: string;
+  position: number;})[] | undefined;
+  tracking?: {  utm_campaign?: string | undefined;
+  utm_source?: string | undefined;
+  utm_medium?: string | undefined;
+  utm_content?: string | undefined;
+  utm_term?: string | undefined;
+  salesforce_uuid?: string | undefined;};
+  payment?: {  external_id: string;
+  provider: string;
+  amount: number;
+  currency: string;
+  terms?: string | undefined;
+  successful: boolean;};
+};
+
+export interface OrganizationMembership {
+  id: string;
+  uri: string;
+  role: string;
+  organizationUri: string;
+  userUri: string;
+  userEmail?: string | undefined;
+  userName?: string | undefined;
+  createdAt?: string | undefined;
+  updatedAt?: string | undefined;
+};
+
+export interface RoutingForm {
+  id: string;
+  uri: string;
+  organization: string;
+  name: string;
+  status: string;
+  questions: ({  uuid: string;
+  name: string;
+  type: string;
+  required: boolean;
+  answer_choices: string[];})[];
+  created_at: string;
+  updated_at: string;
+};
+
+export interface ScheduledEvent {
+  id: string;
+  uri: string;
+  name?: string | undefined;
+  status?: 'active' | 'canceled' | undefined;
+  start_time: string;
+  end_time: string;
+  event_type?: string | undefined;
+  location?: {  type?: string | undefined;
+  location?: string | undefined;};
+  invitees_counter?: {  total?: number | undefined;
+  active?: number | undefined;
+  limit_reached?: boolean | undefined;};
+  created_at: string;
+  updated_at: string;
+  event_type_name?: string | undefined;
+  event_guests?: ({  email?: string | undefined;
+  display_name?: string | undefined;})[];
+  calendar_event?: {  kind?: string | undefined;
+  external_id?: string | undefined;};
+  cancellation?: {  canceled_by?: string | undefined;
+  reason?: string | undefined;
+  canceler_type?: string | undefined;};
+};
+
+export interface WebhookSubscription {
+  /**
+   * Unique identifier (extracted from URI)
+   */
+  id: string;
+  /**
+   * Full URI of the webhook subscription
+   */
+  uri: string;
+  /**
+   * URL that receives webhook events
+   */
+  callback_url: string;
+  /**
+   * Array of event types subscribed to
+   */
+  events: string[];
+  /**
+   * Scope of the webhook subscription
+   */
+  scope: 'organization' | 'user' | 'group';
+  /**
+   * URI of the organization
+   */
+  organization: string;
+  /**
+   * URI of the user (when scope is user)
+   */
+  user?: string | undefined;
+  /**
+   * URI of the group (when scope is group)
+   */
+  group?: string | undefined;
+  /**
+   * When the subscription was created
+   */
+  created_at: string;
+  /**
+   * When the subscription was last updated
+   */
+  updated_at: string;
+  /**
+   * When retries started for failed deliveries
+   */
+  retry_started_at?: string | undefined;
+  /**
+   * Current status of the webhook
+   */
+  status?: 'active' | 'disabled' | undefined;
+  /**
+   * Additional state information
+   */
+  state?: string | undefined;
+};
+
+export interface ActionInput_calendly_createuser {
+  /**
+   * Email address of the user to invite
+   */
+  email: string;
+};
+
+export interface ActionOutput_calendly_createuser {
+  /**
+   * Invitation UUID
+   */
+  id: string;
+  /**
+   * Email of the invited user
+   */
+  email: string;
+  /**
+   * First name (empty for pending invitations)
+   */
+  firstName: string;
+  /**
+   * Last name (empty for pending invitations)
+   */
+  lastName: string;
+};
+
+export interface ActionInput_calendly_createwebhooksubscription {
+  /**
+   * The callback URL. Example: "https://example.com/webhooks"
+   */
+  url: string;
+  /**
+   * The events to subscribe to. Example: ["invitee.created", "invitee.canceled"]
+   */
+  events: string[];
+  /**
+   * The organization URI. Example: "https://api.calendly.com/organizations/ORG123"
+   */
+  organization: string;
+  /**
+   * The scope of the subscription.
+   */
+  scope: 'organization' | 'user';
+  /**
+   * The user URI. Required when scope is "user". Example: "https://api.calendly.com/users/USER123"
+   */
+  user?: string | undefined;
+  /**
+   * An optional secret key used to sign webhook payloads.
+   */
+  signing_key?: string | undefined;
+};
+
+export interface ActionOutput_calendly_createwebhooksubscription {
+  /**
+   * The webhook subscription URI.
+   */
+  uri: string;
+  /**
+   * The callback URL.
+   */
+  callback_url: string;
+  /**
+   * The moment the webhook subscription was created.
+   */
+  created_at: string;
+  /**
+   * The moment the webhook subscription was last updated.
+   */
+  updated_at: string;
+  /**
+   * The moment retries started for a failing webhook subscription.
+   */
+  retry_started_at: string;
+  /**
+   * The state of the webhook subscription.
+   */
+  state: string;
+  /**
+   * The events the webhook subscription is subscribed to.
+   */
+  events: string[];
+  /**
+   * The scope of the webhook subscription.
+   */
+  scope: string;
+  /**
+   * The organization URI.
+   */
+  organization: string;
+  /**
+   * The user URI.
+   */
+  user: string;
+};
+
+export interface ActionInput_calendly_deletewebhooksubscription {
+  /**
+   * The unique identifier of the webhook subscription to delete. Example: "ABCD1234..."
+   */
+  uuid: string;
+};
+
+export interface ActionOutput_calendly_deletewebhooksubscription {
+  uuid: string;
+  deleted: boolean;
+};
+
+export interface ActionInput_calendly_geteventinvitee {
+  /**
+   * The UUID of the scheduled event. Example: "AAAAAAAAAAAAAAAA"
+   */
+  event_uuid: string;
+  /**
+   * The UUID of the invitee. Example: "BBBBBBBBBBBBBBBB"
+   */
+  invitee_uuid: string;
+};
+
+export interface ActionOutput_calendly_geteventinvitee {
   cancel_url: string;
   created_at: string;
   email: string;
   event: string;
   name: string;
-  first_name: string | null;
-  last_name: string | null;
-  new_invitee: string | null;
-  old_invitee: string | null;
+  first_name?: string | undefined;
+  last_name?: string | undefined;
+  new_invitee?: string | undefined;
+  old_invitee?: string | undefined;
   questions_and_answers: ({  answer: string;
   position: number;
   question: string;})[];
   reschedule_url: string;
   rescheduled: boolean;
   status: string;
-  text_reminder_number: string | null;
+  text_reminder_number?: string | undefined;
   timezone: string;
-  tracking: {  utm_campaign: string | null;
-  utm_source: string | null;
-  utm_medium: string | null;
-  utm_content: string | null;
-  utm_term: string | null;
-  salesforce_uuid: string | null;};
+  tracking: {  utm_campaign?: string | undefined;
+  utm_source?: string | undefined;
+  utm_medium?: string | undefined;
+  utm_content?: string | undefined;
+  utm_term?: string | undefined;
+  salesforce_uuid?: string | undefined;};
   updated_at: string;
   uri: string;
-  cancellation: {  canceled_by: string;
-  reason: string | null;
+  cancellation?: {  canceled_by: string;
+  reason?: string | undefined;
   canceler_type: string;
   created_at: string;};
-  routing_form_submission: string | null;
-  payment: {  external_id: string;
+  routing_form_submission?: string | undefined;
+  payment?: {  external_id: string;
   provider: string;
   amount: number;
   currency: string;
   terms: string;
-  successful: boolean;} | null;
-  no_show: string | null;
-  reconfirmation: {  created_at: string;
-  confirmed_at: string;} | null;
-  scheduling_method: string | null;
-  invitee_scheduled_by: string | null;
+  successful: boolean;} | undefined;
+  no_show?: string | undefined;
+  reconfirmation?: {  created_at: string;
+  confirmed_at: string;} | undefined;
+  scheduling_method?: string | undefined;
+  invitee_scheduled_by?: string | undefined;
 };
 
-export interface SyncMetadata_calendly_eventinvitees {
+export interface ActionInput_calendly_geteventtype {
+  /**
+   * The unique identifier (UUID) of the event type. Example: "AAAAAAAAAAAAAAAA"
+   */
+  uuid: string;
 };
 
-export interface SyncMetadata_calendly_eventtypes {
+export interface ActionOutput_calendly_geteventtype {
+  uri: string;
+  name?: string | undefined;
+  active: boolean;
+  slug?: string | undefined;
+  scheduling_url: string;
+  duration: number;
+  color?: string | undefined;
+  type: string;
+  kind?: string | undefined;
+  description_plain?: string | undefined;
+  description_html?: string | undefined;
+  internal_note?: string | undefined;
+  secret?: boolean | undefined;
+  booking_method?: string | undefined;
+  admin_managed?: boolean | undefined;
+  created_at?: string | undefined;
+  updated_at?: string | undefined;
+  deleted_at?: string | undefined;
+  custom_questions?: unknown[] | undefined;
+  duration_options?: number[] | undefined;
+  is_paid?: boolean | undefined;
+  locale?: string | undefined;
+  locations?: unknown[] | undefined;
+  pooling_type?: string | undefined;
+  position?: number | undefined;
+  profile?: {  type: string;
+  name: string;
+  owner: string;} | undefined;
 };
 
-export interface SyncMetadata_calendly_events {
+export interface ActionInput_calendly_getscheduledevent {
+  /**
+   * The unique identifier for the scheduled event. Example: "8pv58mskifkj5st9o6m2qqde74"
+   */
+  uuid: string;
 };
 
-export interface SyncMetadata_calendly_users {
+export interface ActionOutput_calendly_getscheduledevent {
+  uri: string;
+  event_type: string;
+  name: string;
+  status: 'active' | 'canceled';
+  start_time: string;
+  end_time: string;
+  created_at: string;
+  updated_at: string;
+  event_memberships?: ({  user: string;
+  user_email?: string | undefined;
+  user_name?: string | undefined;
+  buffered_start_time?: string | undefined;
+  buffered_end_time?: string | undefined;})[];
+  event_guests?: ({  [key: string]: unknown | undefined;})[];
+  invitees_counter?: {  active: number;
+  limit: number;
+  total: number;} | undefined;
+  location?: {  type: string;
+  status?: string | undefined;
+  join_url?: string | undefined;
+  data?: {  [key: string]: unknown | undefined;};};
+  calendar_event?: {  external_id?: string | undefined;
+  kind?: string | undefined;};
+  meeting_notes_html?: string | undefined;
+  meeting_notes_plain?: string | undefined;
 };
 
-export interface ActionInput_calendly_createuser {
+export interface ActionInput_calendly_getwebhooksubscription {
+  /**
+   * The unique identifier of the webhook subscription. Example: "AAAAAAAAAAAAAAAA"
+   */
+  uuid: string;
+};
+
+export interface ActionOutput_calendly_getwebhooksubscription {
+  /**
+   * Canonical reference (unique identifier) for the webhook subscription.
+   */
+  uri: string;
+  /**
+   * The callback URL to use when the event is triggered.
+   */
+  callback_url: string;
+  /**
+   * The moment when the webhook subscription was created.
+   */
+  created_at: string;
+  /**
+   * The moment when the webhook subscription was last updated.
+   */
+  updated_at: string;
+  /**
+   * The date and time the webhook subscription retry started.
+   */
+  retry_started_at?: string | undefined;
+  /**
+   * Indicates if the webhook subscription is active or disabled.
+   */
+  state: string;
+  /**
+   * A list of events to which the webhook is subscribed.
+   */
+  events: string[];
+  /**
+   * The scope of the webhook subscription.
+   */
+  scope: string;
+  /**
+   * The organization associated with the webhook subscription.
+   */
+  organization: string;
+  /**
+   * The user associated with the webhook subscription.
+   */
+  user?: string | undefined;
+  /**
+   * The user who created the webhook subscription.
+   */
+  creator?: string | undefined;
+  /**
+   * The group associated with the webhook subscription.
+   */
+  group?: string | undefined;
+};
+
+export interface ActionInput_calendly_listeventinvitees {
+  /**
+   * The unique identifier for the scheduled event. Example: "GBGBDCAADAEDCRZ2"
+   */
+  event_uuid: string;
+  /**
+   * Filter by invitee email address
+   */
+  email?: string | undefined;
+  /**
+   * Filter by invitee status
+   */
+  status?: 'active' | 'canceled' | undefined;
+  /**
+   * Sort order for results
+   */
+  sort?: 'created_at:asc' | 'created_at:desc' | 'updated_at:asc' | 'updated_at:desc' | undefined;
+  /**
+   * Number of results per page (1-100)
+   */
+  count?: number | undefined;
+  /**
+   * Pagination cursor from the previous response. Omit for the first page.
+   */
+  cursor?: string | undefined;
+};
+
+export interface ActionOutput_calendly_listeventinvitees {
+  /**
+   * List of event invitees
+   */
+  items: ({  /**
+   * Canonical reference for the invitee
+   */
+  uri: string;
+  /**
+   * Invitee email address
+   */
   email: string;
-};
-
-export interface ActionOutput_calendly_createuser {
-  id: string;
-  email: string;
-  firstName: string;
-  lastName: string;
+  /**
+   * Invitee display name
+   */
+  name?: string | undefined;
+  /**
+   * Status of the invitee
+   */
+  status: 'active' | 'canceled';
+  /**
+   * Invitee timezone
+   */
+  timezone?: string | undefined;
+  /**
+   * When the invitee was created
+   */
+  created_at: string;
+  /**
+   * When the invitee was last updated
+   */
+  updated_at: string;
+  /**
+   * Reference to the scheduled event
+   */
+  event: string;
+  /**
+   * Answers to custom questions
+   */
+  questions_and_answers?: ({  question: string;
+  answer: string;})[] | undefined;
+  /**
+   * UTM tracking parameters
+   */
+  tracking?: {  utm_campaign?: string | undefined;
+  utm_source?: string | undefined;
+  utm_medium?: string | undefined;
+  utm_content?: string | undefined;
+  utm_term?: string | undefined;
+  salesforce_uuid?: string | undefined;};
+  /**
+   * Phone number for text reminders
+   */
+  text_reminder_number?: string | undefined;
+  /**
+   * Whether the invitee rescheduled
+   */
+  rescheduled?: boolean | undefined;
+  /**
+   * Reference to the previous invitee if rescheduled
+   */
+  old_invitee?: string | undefined;
+  /**
+   * Reference to the new invitee if rescheduled
+   */
+  new_invitee?: string | undefined;
+  /**
+   * URL to cancel the invitee
+   */
+  cancel_url?: string | undefined;
+  /**
+   * URL to reschedule the invitee
+   */
+  reschedule_url?: string | undefined;})[];
+  /**
+   * Pagination cursor for the next page of results
+   */
+  next_cursor?: string | undefined;
 };
 
 export interface ActionInput_calendly_deleteuser {
+  /**
+   * Organization membership UUID to remove
+   */
   id: string;
 };
 
 export interface ActionOutput_calendly_deleteuser {
+  /**
+   * Whether the deletion was successful
+   */
   success: boolean;
 };
 
-export type ActionInput_calendly_whoami = void
+export interface ActionInput_calendly_getcurrentorganization {
+};
 
-export interface ActionOutput_calendly_whoami {
-  id: string;
+export interface ActionOutput_calendly_getcurrentorganization {
+  /**
+   * Organization URI. Example: "https://api.calendly.com/organizations/12345678-1234-1234-1234-123456789012"
+   */
+  uri: string;
+  /**
+   * Organization name. Example: "Acme Inc"
+   */
+  name: string;
+  /**
+   * Organization locale. Example: "en"
+   */
+  locale?: string | undefined;
+  /**
+   * Organization creation timestamp. Example: "2023-01-01T00:00:00Z"
+   */
+  created_at?: string | undefined;
+  /**
+   * Organization update timestamp. Example: "2023-01-01T00:00:00Z"
+   */
+  updated_at?: string | undefined;
+};
+
+export interface ActionInput_calendly_getcurrentuser {
+};
+
+export interface ActionOutput_calendly_getcurrentuser {
+  /**
+   * User URI
+   */
+  uri: string;
+  /**
+   * User email
+   */
   email: string;
+  /**
+   * User name
+   */
+  name: string;
+  /**
+   * User slug
+   */
+  slug: string;
+  /**
+   * User timezone
+   */
+  timezone: string;
+  /**
+   * User avatar URL
+   */
+  avatar_url?: string | undefined;
+  /**
+   * User creation timestamp
+   */
+  created_at: string;
+  /**
+   * User update timestamp
+   */
+  updated_at: string;
+  /**
+   * User scheduling URL
+   */
+  scheduling_url: string;
+  /**
+   * Organization URI
+   */
+  current_organization: string;
+};
+
+export interface ActionInput_calendly_getorganizationmembership {
+  /**
+   * The unique identifier (UUID) of the organization membership. Example: "12345678-1234-1234-1234-123456789012"
+   */
+  uuid: string;
+};
+
+export interface ActionOutput_calendly_getorganizationmembership {
+  /**
+   * Canonical reference (unique identifier) for the organization membership
+   */
+  uri: string;
+  /**
+   * Role of the user within the organization (e.g., owner, admin, user)
+   */
+  role: string;
+  /**
+   * Canonical reference (unique identifier) for the organization
+   */
+  organization: string;
+  /**
+   * Primary account details of the user
+   */
+  user: {  /**
+   * Canonical reference (unique identifier) for the user
+   */
+  uri: string;
+  /**
+   * Full name of the user
+   */
+  name?: string | undefined;
+  /**
+   * Unique slug of the user
+   */
+  slug?: string | undefined;
+  /**
+   * Email address of the user
+   */
+  email?: string | undefined;
+  /**
+   * Calendly URL for the user's scheduling page
+   */
+  scheduling_url?: string | undefined;
+  /**
+   * User's timezone
+   */
+  timezone?: string | undefined;
+  /**
+   * Timestamp when the user was created
+   */
+  created_at?: string | undefined;
+  /**
+   * Timestamp when the user was last updated
+   */
+  updated_at?: string | undefined;
+  /**
+   * User's locale
+   */
+  locale?: string | undefined;
+  /**
+   * User's time notation preference (12h or 24h)
+   */
+  time_notation?: string | undefined;
+  /**
+   * URL of the user's avatar image
+   */
+  avatar_url?: string | undefined;};
+  /**
+   * Timestamp when the organization membership was created
+   */
+  created_at?: string | undefined;
+  /**
+   * Timestamp when the organization membership was last updated
+   */
+  updated_at?: string | undefined;
+};
+
+export interface ActionInput_calendly_getroutingform {
+  /**
+   * The unique identifier of the routing form in UUID format. Example: "9f53ccd3-88e6-4c62-ad9e-91ea57d2187d"
+   */
+  uuid: string;
+};
+
+export interface ActionOutput_calendly_getroutingform {
+  uri: string;
+  organization: string;
+  name: string;
+  status: 'published' | 'unpublished';
+  questions: ({  uuid: string;
+  name: string;
+  type: string;
+  required: boolean;
+  answer_choices: string[];})[];
+  created_at: string;
+  updated_at: string;
+};
+
+export interface ActionInput_calendly_listeventtypes {
+  /**
+   * Filter by user URI. Example: "https://api.calendly.com/users/ABC123"
+   */
+  user?: string | undefined;
+  /**
+   * Filter by organization URI. Example: "https://api.calendly.com/organizations/XYZ789"
+   */
+  organization?: string | undefined;
+  /**
+   * Filter by active status. If true, returns only active event types. If false, returns only inactive event types.
+   */
+  active?: boolean | undefined;
+  /**
+   * Number of results per page. Maximum 100.
+   */
+  count?: number | undefined;
+  /**
+   * Pagination cursor from the previous response. Omit for the first page.
+   */
+  cursor?: string | undefined;
+  /**
+   * Sort order. Example: "created_at:asc" or "created_at:desc".
+   */
+  sort?: string | undefined;
+};
+
+export interface ActionOutput_calendly_listeventtypes {
+  event_types: ({  uri: string;
+  active: boolean;
+  booking_method: string;
+  color: string;
+  created_at: string;
+  description_html: string;
+  duration: number;
+  internal_note: string;
+  kind: string;
+  name: string;
+  pooling_type: string;
+  profile: {  name: string;
+  type: string;
+  owner: string;};
+  scheduling_url: string;
+  slug: string;
+  type: string;})[];
+  next_cursor?: string | undefined;
+};
+
+export interface ActionInput_calendly_listorganizationmemberships {
+  /**
+   * Organization URI to filter memberships. Example: "https://api.calendly.com/organizations/ABC123"
+   */
+  organization?: string | undefined;
+  /**
+   * User URI to filter memberships. Example: "https://api.calendly.com/users/XYZ789"
+   */
+  user?: string | undefined;
+  /**
+   * Email address to filter memberships. Example: "user@example.com"
+   */
+  email?: string | undefined;
+  /**
+   * Number of results per page (max 100). Default varies by Calendly.
+   */
+  count?: number | undefined;
+  /**
+   * Pagination token from a previous response to fetch the next page.
+   */
+  page_token?: string | undefined;
+};
+
+export interface ActionOutput_calendly_listorganizationmemberships {
+  /**
+   * Array of organization membership records.
+   */
+  collection: ({  /**
+   * Unique membership URI. Example: "https://api.calendly.com/organization_memberships/UUID"
+   */
+  uri: string;
+  /**
+   * Role of the user in the organization.
+   */
+  role: 'owner' | 'admin' | 'user';
+  user: {  /**
+   * User URI. Example: "https://api.calendly.com/users/XYZ789"
+   */
+  uri: string;
+  /**
+   * Full name of the user.
+   */
+  name: string;
+  /**
+   * Email address of the user.
+   */
+  email: string;
+  /**
+   * User scheduling URL.
+   */
+  scheduling_url: string;
+  /**
+   * User timezone.
+   */
+  timezone: string;
+  /**
+   * ISO 8601 timestamp when user was created.
+   */
+  created_at: string;
+  /**
+   * ISO 8601 timestamp when user was last updated.
+   */
+  updated_at: string;};
+  organization: {  /**
+   * Organization URI. Example: "https://api.calendly.com/organizations/ABC123"
+   */
+  uri: string;};
+  /**
+   * ISO 8601 timestamp when membership was created.
+   */
+  created_at: string;
+  /**
+   * ISO 8601 timestamp when membership was last updated.
+   */
+  updated_at: string;})[];
+  /**
+   * Pagination metadata for navigating results.
+   */
+  pagination: {  /**
+   * Number of items in the current page.
+   */
+  count: number;
+  /**
+   * Token to fetch the next page of results.
+   */
+  next_page_token?: string | undefined;};
+};
+
+export interface ActionInput_calendly_listroutingforms {
+  /**
+   * The URI of the organization to list routing forms for. If not provided, the action will fetch the current user's organization.
+   */
+  organization?: string | undefined;
+  /**
+   * Pagination cursor from the previous response. Omit for the first page.
+   */
+  cursor?: string | undefined;
+  /**
+   * Number of results per page. Default is 20.
+   */
+  count?: number | undefined;
+};
+
+export interface ActionOutput_calendly_listroutingforms {
+  items: ({  /**
+   * Canonical reference (unique identifier) for the routing form.
+   */
+  uri: string;
+  /**
+   * Unique identifier for the routing form.
+   */
+  uuid: string;
+  /**
+   * The routing form name (in human-readable format).
+   */
+  name: string;
+  /**
+   * The URI of the organization associated with the routing form.
+   */
+  organization: string;
+  /**
+   * The status of the routing form (e.g., active, disabled).
+   */
+  status: string;
+  /**
+   * ISO 8601 timestamp when the routing form was created.
+   */
+  created_at: string;
+  /**
+   * ISO 8601 timestamp when the routing form was last updated.
+   */
+  updated_at: string;})[];
+  /**
+   * Cursor for the next page of results.
+   */
+  next_cursor?: string | undefined;
+};
+
+export interface ActionInput_calendly_listscheduledevents {
+  /**
+   * Minimum start time for events in ISO 8601 format. Example: "2024-01-01T00:00:00Z"
+   */
+  min_start_time?: string | undefined;
+  /**
+   * Maximum start time for events in ISO 8601 format. Example: "2024-12-31T23:59:59Z"
+   */
+  max_start_time?: string | undefined;
+  /**
+   * Filter events by status: "active" or "canceled"
+   */
+  status?: 'active' | 'canceled' | undefined;
+  /**
+   * Filter events by invitee email address
+   */
+  invitee_email?: string | undefined;
+  /**
+   * Sort order for events. Default is "start_time:asc"
+   */
+  sort?: 'start_time:asc' | 'start_time:desc' | undefined;
+  /**
+   * Number of events to return per page (max 100)
+   */
+  count?: number | undefined;
+  /**
+   * Pagination cursor from the previous response. Omit for the first page.
+   */
+  cursor?: string | undefined;
+};
+
+export interface ActionOutput_calendly_listscheduledevents {
+  events: ({  uri: string;
+  name?: string | undefined;
+  status: 'active' | 'canceled';
+  start_time: string;
+  end_time: string;
+  event_type: string;
+  location: {  type: string;
+  status?: string | undefined;
+  location?: string | undefined;
+  join_url?: string | undefined;};
+  invitees_counter: {  active: number;
+  limit: number;
+  total: number;};
+  created_at: string;
+  updated_at: string;})[];
+  next_cursor?: string | undefined;
+};
+
+export interface ActionInput_calendly_listwebhooksubscriptions {
+  /**
+   * Filter by organization URL. Example: "https://api.calendly.com/organizations/ABC123"
+   */
+  organization_url?: string | undefined;
+  /**
+   * Filter by user URL. Example: "https://api.calendly.com/users/ABC123"
+   */
+  user_url?: string | undefined;
+  /**
+   * Scope of webhook subscriptions to return. Required when filtering by organization or user
+   */
+  scope?: 'organization' | 'user' | undefined;
+  /**
+   * Sort order for results. Default: created_at:desc
+   */
+  sort?: 'created_at:asc' | 'created_at:desc' | undefined;
+  /**
+   * Number of results per page. Max: 100, Default: 20
+   */
+  count?: number | undefined;
+  /**
+   * Pagination token from a previous response
+   */
+  page_token?: string | undefined;
+};
+
+export interface ActionOutput_calendly_listwebhooksubscriptions {
+  /**
+   * List of webhook subscriptions
+   */
+  collection: ({  /**
+   * Canonical reference for the webhook subscription
+   */
+  uri: string;
+  /**
+   * URL where webhook events are sent
+   */
+  callback_url: string;
+  /**
+   * List of event types subscribed to
+   */
+  events: string[];
+  /**
+   * URL of the associated organization
+   */
+  organization: string;
+  /**
+   * URL of the associated user, if scoped to user
+   */
+  user?: string | undefined;
+  /**
+   * Scope of the webhook subscription
+   */
+  scope: 'organization' | 'user';
+  /**
+   * ISO 8601 timestamp when the subscription was created
+   */
+  created_at: string;
+  /**
+   * ISO 8601 timestamp when the subscription was last updated
+   */
+  updated_at: string;
+  /**
+   * URL of the user who created the subscription
+   */
+  creator: string;
+  /**
+   * When retry attempts started, if applicable
+   */
+  retry_started_at?: string | undefined;
+  /**
+   * Current state of the webhook subscription
+   */
+  state: string;
+  /**
+   * Version of the webhook subscription
+   */
+  version: string;})[];
+  pagination?: {  count?: number | undefined;
+  next_page_token?: string | undefined;
+  previous_page_token?: string | undefined;};
 };
 
 export interface BackgroundCheck {
@@ -5546,14 +7617,21 @@ export interface SyncMetadata_confluence_pages {
 
 export interface Space {
   id: string;
-  key: string;
-  name: string;
-  type?: string | undefined;
-  status?: string | undefined;
-  authorId?: string | undefined;
-  createdAt?: string | undefined;
-  homepageId?: string | undefined;
-  currentActiveAlias?: string | undefined;
+  state: 'live' | 'scheduled' | 'ended';
+  title?: string | undefined;
+  created_at?: string | undefined;
+  updated_at?: string | undefined;
+  creator_id?: string | undefined;
+  host_ids?: string[] | undefined;
+  speaker_ids?: string[] | undefined;
+  invited_user_ids?: string[] | undefined;
+  participant_count?: number | undefined;
+  subscriber_count?: number | undefined;
+  is_ticketed?: boolean | undefined;
+  lang?: string | undefined;
+  scheduled_start?: string | undefined;
+  started_at?: string | undefined;
+  ended_at?: string | undefined;
 };
 
 export interface SyncMetadata_confluence_spaces {
@@ -7188,6 +9266,1678 @@ export interface ActionOutput_dialpad_deleteuser {
   success: boolean;
 };
 
+export interface Channel {
+  id: string;
+  title?: string | undefined;
+  description?: string | undefined;
+  customUrl?: string | undefined;
+  publishedAt?: string | undefined;
+  thumbnailDefaultUrl?: string | undefined;
+  thumbnailMediumUrl?: string | undefined;
+  thumbnailHighUrl?: string | undefined;
+  viewCount?: number | undefined;
+  subscriberCount?: number | undefined;
+  hiddenSubscriberCount?: boolean | undefined;
+  videoCount?: number | undefined;
+  country?: string | undefined;
+  privacyStatus?: string | undefined;
+  isLinked?: boolean | undefined;
+  madeForKids?: boolean | undefined;
+  selfDeclaredMadeForKids?: boolean | undefined;
+};
+
+export interface GuildMember {
+  id: string;
+  guild_id: string;
+  user_id: string;
+  username: string;
+  nick?: string | undefined;
+  avatar?: string | undefined;
+  banner?: string | undefined;
+  roles: string[];
+  joined_at?: string | undefined;
+  premium_since?: string | undefined;
+  deaf: boolean;
+  mute: boolean;
+  pending?: boolean | undefined;
+  flags: number;
+  communication_disabled_until?: string | undefined;
+};
+
+export interface Guild {
+  id: string;
+  name: string;
+  icon: string;
+  owner?: boolean | undefined;
+  permissions?: string | undefined;
+  permissions_new?: string | undefined;
+  features?: string[] | undefined;
+};
+
+export interface Message {
+  id: string;
+  channel_id: string;
+  channel_name: string;
+  user_id: string;
+  user_name?: string | undefined;
+  text: string;
+  timestamp: string;
+  thread_ts?: string | undefined;
+  parent_ts?: string | undefined;
+  is_thread_reply?: boolean | undefined;
+  reactions?: ({  name: string;
+  count: number;
+  users: string[];})[] | undefined;
+  reply_count?: number | undefined;
+  reply_users?: string[] | undefined;
+  created_at: string;
+};
+
+export interface SyncMetadata_discord_messages {
+  botToken: string;
+  channelId: string;
+};
+
+export interface Role {
+  id: string;
+  name: string;
+  color?: number | undefined;
+  colors?: {  primary_color: number;
+  secondary_color?: number | undefined;
+  tertiary_color?: number | undefined;};
+  hoist?: boolean | undefined;
+  icon?: string | undefined;
+  unicode_emoji?: string | undefined;
+  position?: number | undefined;
+  permissions?: string | undefined;
+  managed?: boolean | undefined;
+  mentionable?: boolean | undefined;
+  flags?: number | undefined;
+};
+
+export interface SyncMetadata_discord_roles {
+  botToken: string;
+  guildId: string;
+};
+
+export interface SyncMetadata_discord_webhooks {
+  botToken: string;
+  channelId: string;
+};
+
+export interface ActionInput_discord_addguildmemberrole {
+  /**
+   * Guild ID. Example: "123456789012345678"
+   */
+  guildId: string;
+  /**
+   * User ID. Example: "987654321098765432"
+   */
+  userId: string;
+  /**
+   * Role ID. Example: "111222333444555666"
+   */
+  roleId: string;
+};
+
+export interface ActionOutput_discord_addguildmemberrole {
+  success: boolean;
+};
+
+export interface ActionInput_discord_createchannel {
+  /**
+   * The ID of the guild to create the channel in. Example: "41771983423143937"
+   */
+  guildId: string;
+  /**
+   * Channel name (1-100 characters). Example: "general"
+   */
+  name: string;
+  /**
+   * The type of channel. Default is 0 (GUILD_TEXT). Options: 0 (GUILD_TEXT), 2 (GUILD_VOICE), 4 (GUILD_CATEGORY), 5 (GUILD_ANNOUNCEMENT), 13 (GUILD_STAGE_VOICE), 15 (GUILD_FORUM), 16 (GUILD_MEDIA).
+   */
+  type?: number | undefined;
+  /**
+   * Channel topic (0-1024 characters).
+   */
+  topic?: string | undefined;
+  /**
+   * The bitrate of the voice channel (min 8000).
+   */
+  bitrate?: number | undefined;
+  /**
+   * The user limit of the voice channel.
+   */
+  userLimit?: number | undefined;
+  /**
+   * Amount of seconds a user has to wait before sending another message (0-21600).
+   */
+  rateLimitPerUser?: number | undefined;
+  /**
+   * Sorting position of the channel.
+   */
+  position?: number | undefined;
+  permissionOverwrites?: unknown[] | undefined;
+  /**
+   * ID of the parent category for the channel.
+   */
+  parentId?: string | undefined;
+  /**
+   * Whether the channel is age-restricted.
+   */
+  nsfw?: boolean | undefined;
+  /**
+   * Channel voice region id, automatic when set to null.
+   */
+  rtcRegion?: string | undefined;
+  /**
+   * Camera video quality mode (1 for auto, 2 for 720p).
+   */
+  videoQualityMode?: number | undefined;
+  /**
+   * Default duration in minutes for newly created threads (60, 1440, 4320, 10080).
+   */
+  defaultAutoArchiveDuration?: number | undefined;
+  defaultReactionEmoji?: {} | undefined;
+  availableTags?: unknown[] | undefined;
+  /**
+   * Default sort order for forum/media channels (0 for latest activity, 1 for creation date).
+   */
+  defaultSortOrder?: number | undefined;
+  /**
+   * Default forum layout (0 not set, 1 list view, 2 gallery view).
+   */
+  defaultForumLayout?: number | undefined;
+  /**
+   * Initial rate limit per user for newly created threads.
+   */
+  defaultThreadRateLimitPerUser?: number | undefined;
+};
+
+export interface ActionOutput_discord_createchannel {
+  /**
+   * The ID of the created channel
+   */
+  id: string;
+  /**
+   * The ID of the guild the channel belongs to
+   */
+  guildId?: string | undefined;
+  /**
+   * The name of the channel
+   */
+  name?: string | undefined;
+  /**
+   * The type of the channel
+   */
+  type: number;
+  /**
+   * The sorting position of the channel
+   */
+  position?: number | undefined;
+  /**
+   * The channel topic
+   */
+  topic?: string | undefined;
+  /**
+   * Whether the channel is age-restricted
+   */
+  nsfw?: boolean | undefined;
+  /**
+   * The ID of the parent category
+   */
+  parentId?: string | undefined;
+  /**
+   * The bitrate of the voice channel
+   */
+  bitrate?: number | undefined;
+  /**
+   * The user limit of the voice channel
+   */
+  userLimit?: number | undefined;
+  /**
+   * The rate limit per user
+   */
+  rateLimitPerUser?: number | undefined;
+  /**
+   * The voice region ID
+   */
+  rtcRegion?: string | undefined;
+  /**
+   * The video quality mode
+   */
+  videoQualityMode?: number | undefined;
+  /**
+   * The default auto-archive duration
+   */
+  defaultAutoArchiveDuration?: number | undefined;
+};
+
+export interface ActionInput_discord_createmessage {
+  /**
+   * The ID of the channel to send the message to. Example: "1504353981911273533"
+   */
+  channelId: string;
+  /**
+   * The message content (max 2000 characters). One of content, embeds, components, sticker_ids, or files is required.
+   */
+  content?: string | undefined;
+  /**
+   * Array of embed objects. Up to 10 embeds.
+   */
+  embeds?: unknown[] | undefined;
+  /**
+   * Array of message component objects.
+   */
+  components?: unknown[] | undefined;
+  /**
+   * Array of sticker IDs (max 3).
+   */
+  stickerIds?: string[] | undefined;
+  /**
+   * Allowed mentions configuration.
+   */
+  allowedMentions?: {  parse?: ({  0: 'roles';
+  1: 'users';
+  2: 'everyone';})[] | undefined;
+  roles?: string[] | undefined;
+  users?: string[] | undefined;
+  replied_user?: boolean | undefined;};
+  /**
+   * Reference to a message to reply to.
+   */
+  messageReference?: {  message_id: string;
+  channel_id?: string | undefined;
+  guild_id?: string | undefined;
+  fail_if_not_exists?: boolean | undefined;};
+};
+
+export interface ActionOutput_discord_createmessage {
+  id: string;
+  channelId: string;
+  guildId?: string | undefined;
+  authorId: string;
+  authorUsername: string;
+  content: string;
+  timestamp: string;
+  editedTimestamp?: string | undefined;
+  tts?: boolean | undefined;
+  pinned?: boolean | undefined;
+  type?: number | undefined;
+};
+
+export interface ActionInput_discord_createreaction {
+  /**
+   * Channel ID where the message is located. Example: "1504364254634180618"
+   */
+  channel_id: string;
+  /**
+   * Message ID to add the reaction to. Example: "1234567890123456789"
+   */
+  message_id: string;
+  /**
+   * Emoji to add as a reaction. Can be a unicode emoji (e.g., "👍") or custom emoji format (e.g., "emoji_name:emoji_id"). Example: "👍" or "custom_emoji:123456789"
+   */
+  emoji: string;
+};
+
+export interface ActionOutput_discord_createreaction {
+  success: boolean;
+  channel_id: string;
+  message_id: string;
+  emoji: string;
+};
+
+export interface ActionInput_discord_createrole {
+  /**
+   * Guild ID (Snowflake). Example: "197038439483310086"
+   */
+  guildId: string;
+  /**
+   * Name of the role, max 100 characters. Example: "Moderators"
+   */
+  name: string;
+  /**
+   * Bitwise value of the enabled/disabled permissions. Example: "66321471"
+   */
+  permissions?: string | undefined;
+  /**
+   * Deprecated RGB color value. Default: 0
+   */
+  color?: number | undefined;
+  /**
+   * Role colors object with primary, secondary, and tertiary colors
+   */
+  colors?: {  primary_color: number;
+  secondary_color?: number | undefined;
+  tertiary_color?: number | undefined;};
+  /**
+   * Whether the role should be displayed separately in the sidebar. Default: false
+   */
+  hoist?: boolean | undefined;
+  /**
+   * The role's icon image data (if the guild has ROLE_ICONS feature)
+   */
+  icon?: string | undefined;
+  /**
+   * The role's unicode emoji as a standard emoji (if the guild has ROLE_ICONS feature)
+   */
+  unicode_emoji?: string | undefined;
+  /**
+   * Whether the role should be mentionable. Default: false
+   */
+  mentionable?: boolean | undefined;
+};
+
+export interface ActionOutput_discord_createrole {
+  id: string;
+  name: string;
+  color: number;
+  colors: {  primary_color: number;
+  secondary_color: number;
+  tertiary_color: number;};
+  hoist: boolean;
+  icon?: string | undefined;
+  unicode_emoji?: string | undefined;
+  position: number;
+  permissions: string;
+  managed: boolean;
+  mentionable: boolean;
+  tags?: {  bot_id?: string | undefined;
+  integration_id?: string | undefined;
+  premium_subscriber?: null | undefined;
+  subscription_listing_id?: string | undefined;
+  available_for_purchase?: null | undefined;
+  guild_connections?: null | undefined;};
+  flags: number;
+};
+
+export interface ActionInput_discord_createthreadfrommessage {
+  /**
+   * The ID of the channel containing the message. Example: "123456789012345678"
+   */
+  channel_id: string;
+  /**
+   * The ID of the message to create a thread from. Example: "987654321098765432"
+   */
+  message_id: string;
+  /**
+   * The name of the thread (1-100 characters). Example: "Discussion Thread"
+   */
+  name: string;
+  /**
+   * Duration in minutes to automatically archive the thread. One of: 60, 1440, 4320, 10080
+   */
+  auto_archive_duration?: 60 | 1440 | 4320 | 10080 | undefined;
+  /**
+   * Seconds to wait between messages (slowmode). Range: 0-21600
+   */
+  rate_limit_per_user?: number | undefined;
+};
+
+export interface ActionOutput_discord_createthreadfrommessage {
+  id: string;
+  type: number;
+  guild_id?: string | undefined;
+  name: string;
+  last_message_id?: string | undefined;
+  parent_id?: string | undefined;
+  owner_id?: string | undefined;
+  message_count?: number | undefined;
+  member_count?: number | undefined;
+  rate_limit_per_user?: number | undefined;
+  thread_metadata?: {  archived: boolean;
+  auto_archive_duration: number;
+  archive_timestamp?: string | undefined;
+  locked?: boolean | undefined;
+  invitable?: boolean | undefined;
+  create_timestamp?: string | undefined;};
+};
+
+export interface ActionInput_discord_createwebhook {
+  /**
+   * The channel ID where the webhook will be created. Can also be provided via metadata. Example: "199737254929760256"
+   */
+  channelId?: string | undefined;
+  /**
+   * Name of the webhook (1-80 characters). Must not contain "clyde" or "discord" (case-insensitive).
+   */
+  name: string;
+  /**
+   * Optional base64-encoded image data for the webhook avatar. Example: "data:image/png;base64,iVBORw0KGgo..."
+   */
+  avatar?: string | undefined;
+};
+
+export interface ActionOutput_discord_createwebhook {
+  id: string;
+  /**
+   * Webhook type: 1 = Incoming, 2 = Channel Follower, 3 = Application
+   */
+  type: number;
+  guildId?: string | undefined;
+  channelId?: string | undefined;
+  name?: string | undefined;
+  avatar?: string | undefined;
+  /**
+   * Webhook token (only for Incoming webhooks)
+   */
+  token?: string | undefined;
+  applicationId?: string | undefined;
+};
+
+export interface ActionInput_discord_deletechannel {
+  /**
+   * The ID of the channel to delete. Example: "41771983423143937"
+   */
+  channelId: string;
+};
+
+export interface ActionOutput_discord_deletechannel {
+  id: string;
+  type: number;
+  guildId?: string | undefined;
+  name?: string | undefined;
+  deleted: boolean;
+};
+
+export interface ActionInput_discord_deleteguild {
+  /**
+   * The ID of the guild for the bot to leave.
+   */
+  guild_id: string;
+};
+
+export interface ActionOutput_discord_deleteguild {
+  /**
+   * Whether the bot successfully left the guild
+   */
+  success: boolean;
+  /**
+   * The ID of the guild that was left
+   */
+  guild_id: string;
+};
+
+export interface ActionInput_discord_deleteguildmember {
+  /**
+   * Guild ID. Example: "123456789012345678"
+   */
+  guild_id: string;
+  /**
+   * User ID of the member to delete. Example: "987654321098765432"
+   */
+  user_id: string;
+};
+
+export interface ActionOutput_discord_deleteguildmember {
+  success: boolean;
+  message: string;
+};
+
+export interface ActionInput_discord_deletemessage {
+  /**
+   * Channel ID where the message exists. Example: "1234567890123456789"
+   */
+  channelId: string;
+  /**
+   * Message ID to delete. Example: "9876543210987654321"
+   */
+  messageId: string;
+};
+
+export interface ActionOutput_discord_deletemessage {
+  success: boolean;
+  /**
+   * ID of the deleted message
+   */
+  messageId: string;
+  /**
+   * Channel ID where the message was deleted
+   */
+  channelId: string;
+};
+
+export interface ActionInput_discord_deletereaction {
+  /**
+   * The ID of the channel containing the message. Example: "123456789012345678"
+   */
+  channel_id: string;
+  /**
+   * The ID of the message to remove the reaction from. Example: "987654321098765432"
+   */
+  message_id: string;
+  /**
+   * The emoji to remove. Provide the raw emoji character or name:id for custom emojis. Example: "👍" or "emojiName:123456789"
+   */
+  emoji: string;
+};
+
+export interface ActionOutput_discord_deletereaction {
+  success: boolean;
+};
+
+export interface ActionInput_discord_deleterole {
+  /**
+   * The ID of the guild containing the role. Example: "1234567890123456789"
+   */
+  guildId: string;
+  /**
+   * The ID of the role to delete. Example: "9876543210987654321"
+   */
+  roleId: string;
+};
+
+export interface ActionOutput_discord_deleterole {
+  /**
+   * The ID of the deleted role
+   */
+  id: string;
+  /**
+   * The name of the deleted role
+   */
+  name: string;
+  /**
+   * Whether the deletion was successful
+   */
+  success: boolean;
+};
+
+export interface ActionInput_discord_deletewebhook {
+  /**
+   * The ID of the webhook to delete. Example: "223704706495545344"
+   */
+  webhookId: string;
+};
+
+export interface ActionOutput_discord_deletewebhook {
+  /**
+   * Whether the webhook was successfully deleted
+   */
+  success: boolean;
+  /**
+   * The ID of the deleted webhook
+   */
+  webhookId: string;
+};
+
+export interface ActionInput_discord_getchannel {
+  /**
+   * The ID of the channel to retrieve. Example: "41771983423143937"
+   */
+  channelId: string;
+};
+
+export interface ActionOutput_discord_getchannel {
+  id: string;
+  type: number;
+  guildId?: string | undefined;
+  position?: number | undefined;
+  permissionOverwrites?: unknown[] | undefined;
+  name?: string | undefined;
+  topic?: string | undefined;
+  nsfw?: boolean | undefined;
+  lastMessageId?: string | undefined;
+  bitrate?: number | undefined;
+  userLimit?: number | undefined;
+  rateLimitPerUser?: number | undefined;
+  recipients?: unknown[] | undefined;
+  icon?: string | undefined;
+  ownerId?: string | undefined;
+  applicationId?: string | undefined;
+  managed?: boolean | undefined;
+  parentId?: string | undefined;
+  lastPinTimestamp?: string | undefined;
+  rtcRegion?: string | undefined;
+  videoQualityMode?: number | undefined;
+  messageCount?: number | undefined;
+  memberCount?: number | undefined;
+  threadMetadata?: unknown | undefined;
+  member?: unknown | undefined;
+  defaultAutoArchiveDuration?: number | undefined;
+  permissions?: string | undefined;
+  flags?: number | undefined;
+  totalMessageSent?: number | undefined;
+  availableTags?: unknown[] | undefined;
+  appliedTags?: string[] | undefined;
+  defaultReactionEmoji?: unknown | undefined;
+  defaultThreadRateLimitPerUser?: number | undefined;
+  defaultSortOrder?: number | undefined;
+  defaultForumLayout?: number | undefined;
+};
+
+export interface ActionInput_discord_getguildmember {
+  /**
+   * The ID of the guild. Example: "197038439483310086"
+   */
+  guild_id: string;
+  /**
+   * The ID of the user. Example: "73193882359173120"
+   */
+  user_id: string;
+};
+
+export interface ActionOutput_discord_getguildmember {
+  user?: {  id: string;
+  username: string;
+  discriminator: string;
+  global_name?: string | undefined;
+  avatar?: string | undefined;
+  bot?: boolean | undefined;
+  system?: boolean | undefined;
+  mfa_enabled?: boolean | undefined;
+  banner?: string | undefined;
+  accent_color?: number | undefined;
+  locale?: string | undefined;
+  verified?: boolean | undefined;
+  email?: string | undefined;
+  flags?: number | undefined;
+  premium_type?: number | undefined;
+  public_flags?: number | undefined;
+  avatar_decoration_data?: unknown | undefined;
+  collectibles?: unknown | undefined;};
+  nick?: string | undefined;
+  avatar?: string | undefined;
+  banner?: string | undefined;
+  roles: string[];
+  joined_at?: string | undefined;
+  premium_since?: string | undefined;
+  deaf: boolean;
+  mute: boolean;
+  flags: number;
+  pending?: boolean | undefined;
+  permissions?: string | undefined;
+  communication_disabled_until?: string | undefined;
+  avatar_decoration_data?: unknown | undefined;
+  collectibles?: unknown | undefined;
+};
+
+export interface ActionInput_discord_getguild {
+  /**
+   * Guild ID (snowflake). Example: "197038439483310086"
+   */
+  guildId: string;
+};
+
+export interface ActionOutput_discord_getguild {
+};
+
+export interface ActionInput_discord_getmessage {
+  /**
+   * The ID of the channel containing the message. Example: "1504364254634180618"
+   */
+  channelId: string;
+  /**
+   * The ID of the message to retrieve. Example: "1234567890123456789"
+   */
+  messageId: string;
+};
+
+export interface ActionOutput_discord_getmessage {
+  id: string;
+  channelId: string;
+  author: {  id: string;
+  username: string;
+  discriminator?: string | undefined;
+  globalName?: string | undefined;
+  avatar?: string | undefined;
+  bot?: boolean | undefined;
+  system?: boolean | undefined;};
+  content: string;
+  timestamp: string;
+  editedTimestamp?: string | undefined;
+  tts?: boolean | undefined;
+  mentionEveryone?: boolean | undefined;
+  mentions?: unknown[] | undefined;
+  mentionRoles?: string[] | undefined;
+  attachments?: unknown[] | undefined;
+  embeds?: unknown[] | undefined;
+  reactions?: unknown[] | undefined;
+  nonce?: string | number | undefined;
+  pinned?: boolean | undefined;
+  webhookId?: string | undefined;
+  type?: number | undefined;
+  activity?: unknown | undefined;
+  application?: unknown | undefined;
+  applicationId?: string | undefined;
+  messageReference?: unknown | undefined;
+  flags?: number | undefined;
+  referencedMessage?: unknown | undefined;
+  interaction?: unknown | undefined;
+  thread?: unknown | undefined;
+  components?: unknown[] | undefined;
+  stickerItems?: unknown[] | undefined;
+  stickers?: unknown[] | undefined;
+  position?: number | undefined;
+  roleSubscriptionData?: unknown | undefined;
+  resolved?: unknown | undefined;
+};
+
+export interface ActionInput_discord_getrole {
+  /**
+   * Guild ID (snowflake). Example: "41771983423143936"
+   */
+  guild_id: string;
+  /**
+   * Role ID (snowflake). Example: "41771983423143937"
+   */
+  role_id: string;
+};
+
+export interface ActionOutput_discord_getrole {
+  /**
+   * Role id
+   */
+  id: string;
+  /**
+   * Role name
+   */
+  name: string;
+  /**
+   * Deprecated integer representation of hexadecimal color code
+   */
+  color: number;
+  /**
+   * The role's colors
+   */
+  colors?: {  /**
+   * The primary color for the role
+   */
+  primary_color: number;
+  /**
+   * The secondary color for the role
+   */
+  secondary_color?: number | undefined;
+  /**
+   * The tertiary color for the role
+   */
+  tertiary_color?: number | undefined;};
+  /**
+   * If this role is pinned in the user listing
+   */
+  hoist: boolean;
+  /**
+   * Role icon hash
+   */
+  icon?: string | undefined;
+  /**
+   * Role unicode emoji
+   */
+  unicode_emoji?: string | undefined;
+  /**
+   * Position of this role
+   */
+  position: number;
+  /**
+   * Permission bit set
+   */
+  permissions: string;
+  /**
+   * Whether this role is managed by an integration
+   */
+  managed: boolean;
+  /**
+   * Whether this role is mentionable
+   */
+  mentionable: boolean;
+  /**
+   * The tags this role has
+   */
+  tags?: {  /**
+   * The id of the bot this role belongs to
+   */
+  bot_id?: string | undefined;
+  /**
+   * The id of the integration this role belongs to
+   */
+  integration_id?: string | undefined;
+  /**
+   * Whether this is the guild's Booster role
+   */
+  premium_subscriber?: null | undefined;
+  /**
+   * The id of this role's subscription sku and listing
+   */
+  subscription_listing_id?: string | undefined;
+  /**
+   * Whether this role is available for purchase
+   */
+  available_for_purchase?: null | undefined;
+  /**
+   * Whether this role is a guild's linked role
+   */
+  guild_connections?: null | undefined;};
+  /**
+   * Role flags combined as a bitfield
+   */
+  flags: number;
+};
+
+export interface ActionInput_discord_getwebhook {
+  /**
+   * The ID of the webhook to retrieve. Example: "123456789012345678"
+   */
+  webhookId: string;
+};
+
+export interface ActionOutput_discord_getwebhook {
+  /**
+   * The ID of the webhook.
+   */
+  id: string;
+  /**
+   * The type of the webhook (1 = Incoming, 2 = Channel Follower).
+   */
+  type: number;
+  /**
+   * The guild ID this webhook is for.
+   */
+  guildId?: string | undefined;
+  /**
+   * The channel ID this webhook is for.
+   */
+  channelId?: string | undefined;
+  /**
+   * The default name of the webhook.
+   */
+  name?: string | undefined;
+  /**
+   * The default user avatar hash of the webhook.
+   */
+  avatar?: string | undefined;
+  /**
+   * The secure token of the webhook (returned for incoming webhooks).
+   */
+  token?: string | undefined;
+  /**
+   * The application that created this webhook.
+   */
+  applicationId?: string | undefined;
+  /**
+   * The user that created this webhook.
+   */
+  user?: {  id: string;
+  username: string;
+  discriminator: string;
+  avatar?: string | undefined;
+  bot?: boolean | undefined;};
+  /**
+   * The URL used for executing the webhook (returned for incoming webhooks).
+   */
+  url?: string | undefined;
+};
+
+export interface ActionInput_discord_listchannels {
+  /**
+   * Guild (server) ID to list channels from. Example: "41771983423143937"
+   */
+  guild_id: string;
+};
+
+export interface ActionOutput_discord_listchannels {
+  channels: ({  id: string;
+  type: number;
+  guild_id?: string | undefined;
+  position?: number | undefined;
+  name?: string | undefined;
+  topic?: string | undefined;
+  nsfw?: boolean | undefined;
+  last_message_id?: string | undefined;
+  bitrate?: number | undefined;
+  user_limit?: number | undefined;
+  rate_limit_per_user?: number | undefined;
+  recipients?: unknown[] | undefined;
+  icon?: string | undefined;
+  owner_id?: string | undefined;
+  application_id?: string | undefined;
+  managed?: boolean | undefined;
+  parent_id?: string | undefined;
+  last_pin_timestamp?: string | undefined;
+  rtc_region?: string | undefined;
+  video_quality_mode?: number | undefined;
+  message_count?: number | undefined;
+  member_count?: number | undefined;
+  default_auto_archive_duration?: number | undefined;
+  permissions?: string | undefined;
+  flags?: number | undefined;
+  total_message_sent?: number | undefined;
+  permission_overwrites?: unknown[] | undefined;})[];
+};
+
+export interface ActionInput_discord_listguildmembers {
+  /**
+   * Guild ID. Example: "197038439483310086"
+   */
+  guild_id: string;
+  /**
+   * Max number of members to return (1-1000).
+   */
+  limit?: number | undefined;
+  /**
+   * The highest user id in the previous page. Omit for the first page.
+   */
+  after?: string | undefined;
+};
+
+export interface ActionOutput_discord_listguildmembers {
+  items: ({  user?: {  id: string;
+  username: string;
+  discriminator: string;
+  global_name?: string | undefined;
+  avatar?: string | undefined;
+  bot?: boolean | undefined;
+  system?: boolean | undefined;};
+  nick?: string | undefined;
+  avatar?: string | undefined;
+  banner?: string | undefined;
+  roles: string[];
+  joined_at?: string | undefined;
+  premium_since?: string | undefined;
+  deaf: boolean;
+  mute: boolean;
+  flags: number;
+  pending?: boolean | undefined;
+  permissions?: string | undefined;
+  communication_disabled_until?: string | undefined;})[];
+  next_after?: string | undefined;
+};
+
+export interface ActionInput_discord_listguilds {
+  /**
+   * Get guilds after this guild ID. Omit for the first page, or use the next_cursor from the previous response.
+   */
+  after?: string | undefined;
+  /**
+   * Maximum number of guilds to return (1-200, default: 200).
+   */
+  limit?: number | undefined;
+};
+
+export interface ActionOutput_discord_listguilds {
+  /**
+   * List of guilds.
+   */
+  items: ({  /**
+   * Guild ID.
+   */
+  id: string;
+  /**
+   * Guild name.
+   */
+  name: string;
+  /**
+   * Icon hash or null.
+   */
+  icon: string;
+  /**
+   * Whether the user is the owner of the guild.
+   */
+  owner: boolean;
+  /**
+   * Enabled guild features.
+   */
+  features: string[];
+  /**
+   * Permissions for the user in the guild.
+   */
+  permissions?: string | undefined;
+  /**
+   * Approximate number of members in the guild (if with_counts enabled).
+   */
+  approximate_member_count?: number | undefined;
+  /**
+   * Approximate number of online members (if with_counts enabled).
+   */
+  approximate_presence_count?: number | undefined;})[];
+  /**
+   * Cursor for the next page of results. Omit if there are no more pages.
+   */
+  next_cursor?: string | undefined;
+};
+
+export interface ActionInput_discord_listmessages {
+  /**
+   * The ID of the channel to list messages from. Example: "1504364254634180618"
+   */
+  channel_id: string;
+  /**
+   * Number of messages to return (1-100). Default: 50
+   */
+  limit?: number | undefined;
+  /**
+   * Return messages before this message ID
+   */
+  before?: string | undefined;
+  /**
+   * Return messages after this message ID
+   */
+  after?: string | undefined;
+  /**
+   * Return messages around this message ID (ignores limit, returns 25 by default)
+   */
+  around?: string | undefined;
+};
+
+export interface ActionOutput_discord_listmessages {
+  messages: ({  id: string;
+  channel_id: string;
+  guild_id?: string | undefined;
+  author: {  id?: string | undefined;
+  username: string;
+  global_name?: string | undefined;
+  avatar?: string | undefined;
+  bot?: boolean | undefined;};
+  content: string;
+  timestamp: string;
+  edited_timestamp?: string | undefined;
+  tts: boolean;
+  mention_everyone: boolean;
+  pinned: boolean;
+  type: number;
+  attachments: ({  id: string;
+  filename: string;
+  content_type?: string | undefined;
+  size: number;
+  url: string;
+  height?: number | undefined;
+  width?: number | undefined;})[];
+  mention_count: number;})[];
+  /**
+   * Whether more messages are available
+   */
+  has_more: boolean;
+};
+
+export interface ActionInput_discord_listroles {
+  /**
+   * Guild ID to list roles from. Example: "123456789012345678"
+   */
+  guild_id: string;
+};
+
+export interface ActionOutput_discord_listroles {
+  roles: ({  id: string;
+  name: string;
+  color: number;
+  colors?: {  primary_color: number;
+  secondary_color?: number | undefined;
+  tertiary_color?: number | undefined;};
+  hoist: boolean;
+  icon?: string | undefined;
+  unicode_emoji?: string | undefined;
+  position: number;
+  permissions: string;
+  managed: boolean;
+  mentionable: boolean;
+  tags?: {  bot_id?: string | undefined;
+  integration_id?: string | undefined;
+  premium_subscriber?: null | undefined;
+  subscription_listing_id?: string | undefined;
+  available_for_purchase?: null | undefined;
+  guild_connections?: null | undefined;};
+  flags: number;})[];
+};
+
+export interface ActionInput_discord_listwebhooks {
+  /**
+   * Discord channel ID. Example: "1504364254634180618"
+   */
+  channelId: string;
+};
+
+export interface ActionOutput_discord_listwebhooks {
+  webhooks: ({  id: string;
+  type: number;
+  guild_id?: string | undefined;
+  channel_id?: string | undefined;
+  name?: string | undefined;
+  avatar?: string | undefined;
+  token?: string | undefined;
+  application_id?: string | undefined;
+  user?: {  id: string;
+  username: string;
+  discriminator: string;
+  avatar?: string | undefined;
+  bot?: boolean | undefined;};
+  source_guild?: {  id: string;
+  name: string;
+  icon?: string | undefined;};
+  source_channel?: {  id: string;
+  name: string;} | undefined;
+  url?: string | undefined;})[];
+};
+
+export interface ActionInput_discord_removeguildmemberrole {
+  /**
+   * Guild ID. Example: "123456789"
+   */
+  guild_id: string;
+  /**
+   * User ID of the member. Example: "987654321"
+   */
+  user_id: string;
+  /**
+   * Role ID to remove from the member. Example: "456789123"
+   */
+  role_id: string;
+};
+
+export interface ActionOutput_discord_removeguildmemberrole {
+  success: boolean;
+  guild_id: string;
+  user_id: string;
+  role_id: string;
+};
+
+export interface ActionInput_discord_updatechannel {
+  /**
+   * The ID of the channel to update. Example: "1504364254634180618"
+   */
+  channel_id: string;
+  /**
+   * The name of the channel (1-100 characters).
+   */
+  name?: string | undefined;
+  /**
+   * The type of channel.
+   */
+  type?: number | undefined;
+  /**
+   * The position of the channel in the left-hand listing.
+   */
+  position?: number | undefined;
+  /**
+   * The channel topic (0-1024 characters).
+   */
+  topic?: string | undefined;
+  /**
+   * Whether the channel is NSFW.
+   */
+  nsfw?: boolean | undefined;
+  /**
+   * Amount of seconds a user has to wait before sending another message (0-21600).
+   */
+  rate_limit_per_user?: number | undefined;
+  /**
+   * The bitrate (in bits) of the voice channel.
+   */
+  bitrate?: number | undefined;
+  /**
+   * The user limit of the voice channel.
+   */
+  user_limit?: number | undefined;
+  /**
+   * Channel or category-specific permissions.
+   */
+  permission_overwrites?: ({  id: string;
+  type: number;
+  allow: string;
+  deny: string;})[] | undefined;
+  /**
+   * ID of the parent category for a channel.
+   */
+  parent_id?: string | undefined;
+  /**
+   * Default duration that the clients use (not the API) for newly created threads in the channel.
+   */
+  default_auto_archive_duration?: number | undefined;
+  /**
+   * Channel flags combined as a bitfield.
+   */
+  flags?: number | undefined;
+};
+
+export interface ActionOutput_discord_updatechannel {
+  id: string;
+  type: number;
+  guild_id?: string | undefined;
+  name?: string | undefined;
+  position?: number | undefined;
+  permission_overwrites?: ({  id: string;
+  type: number;
+  allow: string;
+  deny: string;})[] | undefined;
+  nsfw?: boolean | undefined;
+  parent_id?: string | undefined;
+  topic?: string | undefined;
+  last_message_id?: string | undefined;
+  bitrate?: number | undefined;
+  user_limit?: number | undefined;
+  rate_limit_per_user?: number | undefined;
+  default_auto_archive_duration?: number | undefined;
+  flags?: number | undefined;
+};
+
+export interface ActionInput_discord_updateguildmember {
+  /**
+   * Guild ID. Example: "1504364254634180618"
+   */
+  guild_id: string;
+  /**
+   * User ID of the member to update. Example: "1234567890123456789"
+   */
+  user_id: string;
+  /**
+   * Value to set user's nickname to
+   */
+  nick?: string | undefined;
+  /**
+   * Array of role IDs to assign to the member
+   */
+  roles?: string[] | undefined;
+  /**
+   * Whether the user is muted in voice channels
+   */
+  mute?: boolean | undefined;
+  /**
+   * Whether the user is deafened in voice channels
+   */
+  deaf?: boolean | undefined;
+  /**
+   * ID of channel to move user to (if they are connected to voice)
+   */
+  channel_id?: string | undefined;
+  /**
+   * ISO8601 timestamp when the user's timeout will expire (up to 28 days in the future), or null to remove timeout
+   */
+  communication_disabled_until?: string | undefined;
+  /**
+   * Guild member flags
+   */
+  flags?: number | undefined;
+  /**
+   * Optional reason for the audit log
+   */
+  reason?: string | undefined;
+};
+
+export interface ActionOutput_discord_updateguildmember {
+  /**
+   * The ID of the user
+   */
+  user_id: string;
+  nick?: string | undefined;
+  roles: string[];
+  deaf: boolean;
+  mute: boolean;
+  flags: number;
+  joined_at?: string | undefined;
+  premium_since?: string | undefined;
+  communication_disabled_until?: string | undefined;
+  pending?: boolean | undefined;
+  permissions?: string | undefined;
+};
+
+export interface ActionInput_discord_updateguild {
+  /**
+   * Guild ID to update. Example: "197038439483310086"
+   */
+  guild_id: string;
+  /**
+   * Guild name (2-100 characters)
+   */
+  name?: string | undefined;
+  /**
+   * Guild voice region id (deprecated)
+   */
+  region?: string | undefined;
+  /**
+   * Verification level (0-4)
+   */
+  verification_level?: number | undefined;
+  /**
+   * Default message notification level (0=ALL_MESSAGES, 1=ONLY_MENTIONS)
+   */
+  default_message_notifications?: number | undefined;
+  /**
+   * Explicit content filter level (0=DISABLED, 1=MEMBERS_WITHOUT_ROLES, 2=ALL_MEMBERS)
+   */
+  explicit_content_filter?: number | undefined;
+  /**
+   * ID of the AFK channel
+   */
+  afk_channel_id?: string | undefined;
+  /**
+   * AFK timeout in seconds (60, 300, 900, 1800, 3600)
+   */
+  afk_timeout?: number | undefined;
+  /**
+   * Base64 1024x1024 png/jpeg/gif image for the guild icon
+   */
+  icon?: string | undefined;
+  /**
+   * ID of the guild owner
+   */
+  owner_id?: string | undefined;
+  /**
+   * Base64 16:9 png/jpeg image for the guild splash
+   */
+  splash?: string | undefined;
+  /**
+   * Base64 16:9 png/jpeg image for the guild discovery splash
+   */
+  discovery_splash?: string | undefined;
+  /**
+   * Base64 16:9 png/jpeg image for the guild banner
+   */
+  banner?: string | undefined;
+  /**
+   * ID of the channel where guild notices are posted
+   */
+  system_channel_id?: string | undefined;
+  /**
+   * System channel flags
+   */
+  system_channel_flags?: number | undefined;
+  /**
+   * ID of the channel where Community guilds display rules
+   */
+  rules_channel_id?: string | undefined;
+  /**
+   * ID of the channel where admins/moderators receive notices
+   */
+  public_updates_channel_id?: string | undefined;
+  /**
+   * Preferred locale for Community guilds (e.g., "en-US")
+   */
+  preferred_locale?: string | undefined;
+  /**
+   * Enabled guild features
+   */
+  features?: string[] | undefined;
+  /**
+   * Guild description
+   */
+  description?: string | undefined;
+  /**
+   * Whether the boost progress bar should be enabled
+   */
+  premium_progress_bar_enabled?: boolean | undefined;
+  /**
+   * ID of the channel where safety alerts are received
+   */
+  safety_alerts_channel_id?: string | undefined;
+};
+
+export interface ActionOutput_discord_updateguild {
+  /**
+   * Guild ID
+   */
+  id: string;
+  /**
+   * Guild name
+   */
+  name: string;
+  /**
+   * Icon hash
+   */
+  icon: string;
+  /**
+   * Guild description
+   */
+  description: string;
+  /**
+   * Splash hash
+   */
+  splash: string;
+  /**
+   * Discovery splash hash
+   */
+  discovery_splash: string;
+  /**
+   * Banner hash
+   */
+  banner: string;
+  /**
+   * Owner ID
+   */
+  owner_id: string;
+  /**
+   * AFK channel ID
+   */
+  afk_channel_id: string;
+  /**
+   * AFK timeout in seconds
+   */
+  afk_timeout: number;
+  /**
+   * Verification level
+   */
+  verification_level: number;
+  /**
+   * Default message notifications level
+   */
+  default_message_notifications: number;
+  /**
+   * Explicit content filter level
+   */
+  explicit_content_filter: number;
+  /**
+   * System channel ID
+   */
+  system_channel_id: string;
+  /**
+   * System channel flags
+   */
+  system_channel_flags: number;
+  /**
+   * Rules channel ID
+   */
+  rules_channel_id: string;
+  /**
+   * Public updates channel ID
+   */
+  public_updates_channel_id: string;
+  /**
+   * Preferred locale
+   */
+  preferred_locale: string;
+  /**
+   * Enabled guild features
+   */
+  features: string[];
+  /**
+   * Whether boost progress bar is enabled
+   */
+  premium_progress_bar_enabled: boolean;
+  /**
+   * Safety alerts channel ID
+   */
+  safety_alerts_channel_id: string;
+};
+
+export interface ActionInput_discord_updatemessage {
+  /**
+   * The ID of the channel containing the message. Example: "1504383343142240278"
+   */
+  channel_id: string;
+  /**
+   * The ID of the message to update. Example: "1504385053805908058"
+   */
+  message_id: string;
+  /**
+   * Message contents (up to 2000 characters).
+   */
+  content?: string | undefined;
+  /**
+   * Up to 10 embed objects.
+   */
+  embeds?: ({})[] | undefined;
+  /**
+   * Message flags (SUPPRESS_EMBEDS and IS_COMPONENTS_V2 only).
+   */
+  flags?: number | undefined;
+  /**
+   * Allowed mentions object.
+   */
+  allowed_mentions?: {} | undefined;
+  /**
+   * Message components.
+   */
+  components?: ({})[] | undefined;
+  /**
+   * Attachments to retain on the message after edit.
+   */
+  attachments?: ({})[] | undefined;
+};
+
+export interface ActionOutput_discord_updatemessage {
+  id: string;
+  channel_id: string;
+  content?: string | undefined;
+  timestamp?: string | undefined;
+  edited_timestamp?: string | undefined;
+  author_id?: string | undefined;
+  author_username?: string | undefined;
+  author_bot?: boolean | undefined;
+  embeds?: ({})[] | undefined;
+  flags?: number | undefined;
+  components?: ({})[] | undefined;
+  attachments?: ({})[] | undefined;
+};
+
+export interface ActionInput_discord_updaterole {
+  /**
+   * Guild ID. Example: "197038439483310086"
+   */
+  guildId: string;
+  /**
+   * Role ID. Example: "41771983423143936"
+   */
+  roleId: string;
+  /**
+   * Name of the role, max 100 characters
+   */
+  name?: string | undefined;
+  /**
+   * Bitwise value of the enabled/disabled permissions
+   */
+  permissions?: string | undefined;
+  /**
+   * Deprecated RGB color value
+   */
+  color?: number | undefined;
+  /**
+   * The role's colors
+   */
+  colors?: {  primary_color?: number | undefined;
+  secondary_color?: number | undefined;
+  tertiary_color?: number | undefined;};
+  /**
+   * Whether the role should be displayed separately in the sidebar
+   */
+  hoist?: boolean | undefined;
+  /**
+   * The role's icon image (if the guild has the ROLE_ICONS feature)
+   */
+  icon?: string | undefined;
+  /**
+   * The role's unicode emoji as a standard emoji (if the guild has the ROLE_ICONS feature)
+   */
+  unicodeEmoji?: string | undefined;
+  /**
+   * Whether the role should be mentionable
+   */
+  mentionable?: boolean | undefined;
+};
+
+export interface ActionOutput_discord_updaterole {
+  /**
+   * Role ID
+   */
+  id: string;
+  /**
+   * Role name
+   */
+  name: string;
+  /**
+   * Deprecated integer representation of hexadecimal color code
+   */
+  color: number;
+  /**
+   * The role's colors
+   */
+  colors?: {  primary_color: number;
+  secondary_color: number;
+  tertiary_color: number;} | undefined;
+  /**
+   * If this role is pinned in the user listing
+   */
+  hoist: boolean;
+  /**
+   * Role icon hash
+   */
+  icon?: string | undefined;
+  /**
+   * Role unicode emoji
+   */
+  unicode_emoji?: string | undefined;
+  /**
+   * Position of this role (roles with the same position are sorted by id)
+   */
+  position: number;
+  /**
+   * Permission bit set
+   */
+  permissions: string;
+  /**
+   * Whether this role is managed by an integration
+   */
+  managed: boolean;
+  /**
+   * Whether this role is mentionable
+   */
+  mentionable: boolean;
+  /**
+   * The tags this role has
+   */
+  tags?: {  bot_id?: string | undefined;
+  integration_id?: string | undefined;
+  premium_subscriber?: null | undefined;
+  subscription_listing_id?: string | undefined;
+  available_for_purchase?: null | undefined;
+  guild_connections?: null | undefined;};
+  /**
+   * Role flags combined as a bitfield
+   */
+  flags: number;
+};
+
+export interface ActionInput_discord_updatewebhook {
+  /**
+   * The ID of the webhook to update. Example: "223704706495545344"
+   */
+  webhook_id: string;
+  /**
+   * The new name of the webhook (1-80 characters).
+   */
+  name?: string | undefined;
+  /**
+   * The base64-encoded image data for the webhook avatar, or null to remove.
+   */
+  avatar?: string | undefined;
+  /**
+   * The new channel ID to move the webhook to.
+   */
+  channel_id?: string | undefined;
+};
+
+export interface ActionOutput_discord_updatewebhook {
+  id: string;
+  type: number;
+  guild_id?: string | undefined;
+  channel_id?: string | undefined;
+  name?: string | undefined;
+  avatar?: string | undefined;
+  token?: string | undefined;
+  application_id?: string | undefined;
+  user?: {  id: string;
+  username: string;
+  discriminator: string;
+  avatar?: string | undefined;
+  public_flags?: number | undefined;};
+};
+
 export interface SyncMetadata_discourse_activeusers {
 };
 
@@ -8659,17 +12409,49 @@ export interface SyncMetadata_freshdesk_articles {
 
 export interface Contact {
   id: string;
-  name: string;
-  external_id?: string | undefined;
+  first_name?: string | undefined;
+  last_name?: string | undefined;
+  full_name?: string | undefined;
   email?: string | undefined;
-  tax_number?: string | undefined;
-  address_line_1?: string | undefined;
-  address_line_2?: string | undefined;
-  city?: string | undefined;
-  zip?: string | undefined;
-  country?: string | undefined;
-  state?: string | undefined;
+  secondary_email?: string | undefined;
   phone?: string | undefined;
+  mobile?: string | undefined;
+  home_phone?: string | undefined;
+  other_phone?: string | undefined;
+  title?: string | undefined;
+  department?: string | undefined;
+  account_name?: string | undefined;
+  account_id?: string | undefined;
+  owner_name?: string | undefined;
+  owner_id?: string | undefined;
+  owner_email?: string | undefined;
+  created_time: string;
+  modified_time: string;
+  mailing_street?: string | undefined;
+  mailing_city?: string | undefined;
+  mailing_state?: string | undefined;
+  mailing_zip?: string | undefined;
+  mailing_country?: string | undefined;
+  other_street?: string | undefined;
+  other_city?: string | undefined;
+  other_state?: string | undefined;
+  other_zip?: string | undefined;
+  other_country?: string | undefined;
+  description?: string | undefined;
+  twitter?: string | undefined;
+  skype_id?: string | undefined;
+  date_of_birth?: string | undefined;
+  lead_source?: string | undefined;
+  email_opt_out?: boolean | undefined;
+  fax?: string | undefined;
+  assistant?: string | undefined;
+  asst_phone?: string | undefined;
+  reporting_to_name?: string | undefined;
+  reporting_to_id?: string | undefined;
+  created_by_name?: string | undefined;
+  created_by_id?: string | undefined;
+  modified_by_name?: string | undefined;
+  modified_by_id?: string | undefined;
 };
 
 export interface SyncMetadata_freshdesk_contacts {
@@ -15171,25 +18953,6 @@ export interface Label {
   threadsUnread?: number | undefined;
 };
 
-export interface Message {
-  id: string;
-  channel_id: string;
-  channel_name: string;
-  user_id: string;
-  user_name?: string | undefined;
-  text: string;
-  timestamp: string;
-  thread_ts?: string | undefined;
-  parent_ts?: string | undefined;
-  is_thread_reply?: boolean | undefined;
-  reactions?: ({  name: string;
-  count: number;
-  users: string[];})[] | undefined;
-  reply_count?: number | undefined;
-  reply_users?: string[] | undefined;
-  created_at: string;
-};
-
 export interface SendAsAlias {
   id: string;
   sendAsEmail: string;
@@ -18017,15 +21780,26 @@ export interface Company {
 
 export interface Deal {
   id: string;
-  name?: string | undefined;
-  amount?: number | undefined;
-  closeDate?: string | undefined;
+  dealName?: string | undefined;
   stage?: string | undefined;
+  amount?: number | undefined;
+  closingDate?: string | undefined;
+  accountName?: string | undefined;
+  accountId?: string | undefined;
+  contactName?: string | undefined;
+  contactId?: string | undefined;
+  ownerName?: string | undefined;
   ownerId?: string | undefined;
+  ownerEmail?: string | undefined;
+  createdTime: string;
+  modifiedTime: string;
+  probability?: string | number | undefined;
+  expectedRevenue?: number | undefined;
   description?: string | undefined;
-  companyIds: string[];
-  contactIds: string[];
-  updatedAt: string;
+  campaignSource?: string | undefined;
+  leadSource?: string | undefined;
+  type?: string | undefined;
+  nextStep?: string | undefined;
 };
 
 export interface MarketingEmail {
@@ -18054,15 +21828,39 @@ export interface Owner {
 
 export interface Product {
   id: string;
-  name?: string | undefined;
-  description?: string | undefined;
-  sku?: string | undefined;
-  price?: number | undefined;
-  costOfGoodsSold?: number | undefined;
-  billingFrequency?: string | undefined;
-  recurringBillingPeriod?: string | undefined;
-  createdAt?: string | undefined;
-  updatedAt?: string | undefined;
+  Product_Name?: string | undefined;
+  Product_Code?: string | undefined;
+  Product_Category?: string | undefined;
+  Unit_Price?: number | undefined;
+  Taxable?: boolean | undefined;
+  Description?: string | undefined;
+  Manufacturer?: string | undefined;
+  Usage_Unit?: string | undefined;
+  Qty_in_Stock?: number | undefined;
+  Qty_Ordered?: number | undefined;
+  Qty_in_Demand?: number | undefined;
+  Reorder_Level?: number | undefined;
+  Commission_Rate?: number | undefined;
+  Sales_Start_Date?: string | undefined;
+  Sales_End_Date?: string | undefined;
+  Support_Start_Date?: string | undefined;
+  Support_Expiry_Date?: string | undefined;
+  Handler?: {  name?: string | undefined;
+  id?: string | undefined;
+  email?: string | undefined;};
+  Owner?: {  name?: string | undefined;
+  id?: string | undefined;
+  email?: string | undefined;};
+  Created_By?: {  name?: string | undefined;
+  id?: string | undefined;
+  email?: string | undefined;};
+  Modified_By?: {  name?: string | undefined;
+  id?: string | undefined;
+  email?: string | undefined;};
+  Created_Time?: string | undefined;
+  Modified_Time?: string | undefined;
+  "$approved"?: boolean | undefined;
+  "$editable"?: boolean | undefined;
 };
 
 export interface ActionInput_hubspot_batchcreatecompanies {
@@ -24498,6 +28296,228 @@ export interface ActionOutput_linkedin_post {
   succcess: boolean;
 };
 
+export interface ActionInput_linkedin_createcomment {
+  /**
+   * The URN of the share, ugcPost, or comment to comment on. Example: "urn:li:ugcPost:123"
+   */
+  target: string;
+  /**
+   * The URN of the entity authoring the comment. Example: "urn:li:person:abc" or "urn:li:organization:123"
+   */
+  actor: string;
+  /**
+   * The URN of the top-level share or ugcPost that contains the comment. Example: "urn:li:activity:123"
+   */
+  object: string;
+  message: {  /**
+   * The comment text.
+   */
+  text: string;
+  /**
+   * Mention attributes in the comment text.
+   */
+  attributes?: ({  length: number;
+  start: number;
+  value?: {  organization?: {  organization: string;} | undefined;
+  person?: {  person: string;} | undefined;};})[];};
+  /**
+   * For nested comments, the URN of the parent comment. Example: "urn:li:comment:(urn:li:activity:123,456)"
+   */
+  parentComment?: string | undefined;
+};
+
+export interface ActionOutput_linkedin_createcomment {
+  id: string;
+  commentUrn?: string | undefined;
+  actor?: string | undefined;
+  agent?: string | undefined;
+  object?: string | undefined;
+  message?: {  text?: string | undefined;
+  attributes?: unknown[] | undefined;};
+  created?: {  actor?: string | undefined;
+  impersonator?: string | undefined;
+  time?: number | undefined;};
+  lastModified?: {  actor?: string | undefined;
+  impersonator?: string | undefined;
+  time?: number | undefined;};
+};
+
+export interface ActionInput_linkedin_createlike {
+  /**
+   * The URN of the share, UGC post, or comment to like. Example: "urn:li:share:123"
+   */
+  target: string;
+  /**
+   * The URN of the person or organization performing the like. Example: "urn:li:person:abc"
+   */
+  actor: string;
+  /**
+   * The URN of the entity to which the like belongs. Example: "urn:li:share:123"
+   */
+  object: string;
+};
+
+export interface ActionOutput_linkedin_createlike {
+  id: string;
+  actor: string;
+  agent: string;
+  object: string;
+  created: {  actor: string;
+  time: number;};
+  lastModified: {  actor: string;
+  time: number;};
+};
+
+export interface ActionInput_linkedin_createpost {
+  /**
+   * Author URN. Example: "urn:li:organization:5515715"
+   */
+  author: string;
+  /**
+   * Post commentary text.
+   */
+  commentary: string;
+  /**
+   * Post visibility.
+   */
+  visibility: 'PUBLIC' | 'CONNECTIONS';
+  /**
+   * Lifecycle state of the post.
+   */
+  lifecycleState: 'PUBLISHED' | 'DRAFT' | 'PUBLISH_REQUESTED';
+  content?: {  article?: {  source: string;
+  thumbnail?: string | undefined;
+  title?: string | undefined;
+  description?: string | undefined;};
+  media?: {  id: string;
+  title?: string | undefined;};};
+  reshareContext?: {  parent: string;} | undefined;
+  isReshareDisabledByAuthor?: boolean | undefined;
+  distribution?: {  feedDistribution?: 'MAIN_FEED' | 'NONE' | undefined;
+  targetEntities?: unknown[] | undefined;
+  thirdPartyDistributionChannels?: string[] | undefined;};
+};
+
+export interface ActionOutput_linkedin_createpost {
+  /**
+   * Created post URN.
+   */
+  id: string;
+};
+
+export interface ActionInput_linkedin_deletecomment {
+  /**
+   * Target URN of the share, ugcPost, or comment. Example: "urn:li:ugcPost:7096760097833439232"
+   */
+  target: string;
+  /**
+   * Comment ID to delete. Example: "7102976128625123328"
+   */
+  commentId: string;
+  /**
+   * Organization URN when deleting on behalf of an organization. Example: "urn:li:organization:79988552"
+   */
+  actor?: string | undefined;
+};
+
+export interface ActionOutput_linkedin_deletecomment {
+  success: boolean;
+};
+
+export interface ActionInput_linkedin_deletelike {
+  /**
+   * The URN of the post or comment to unlike. Example: "urn:li:share:123" or "urn:li:ugcPost:123"
+   */
+  target: string;
+  /**
+   * The URN of the actor (person or organization) who created the like. Example: "urn:li:person:123"
+   */
+  actorUrn: string;
+};
+
+export interface ActionOutput_linkedin_deletelike {
+  success: boolean;
+  target: string;
+  actorUrn: string;
+};
+
+export interface ActionInput_linkedin_deletepost {
+  /**
+   * The LinkedIn post URN to delete. Example: "urn:li:share:123456789"
+   */
+  postUrn: string;
+};
+
+export interface ActionOutput_linkedin_deletepost {
+  success: boolean;
+  postUrn: string;
+};
+
+export interface ActionInput_linkedin_getcurrentmemberprofile {
+};
+
+export interface ActionOutput_linkedin_getcurrentmemberprofile {
+  id: string;
+  name?: string | undefined;
+  givenName?: string | undefined;
+  familyName?: string | undefined;
+  picture?: string | undefined;
+  email?: string | undefined;
+  emailVerified?: boolean | undefined;
+  locale?: {  country?: string | undefined;
+  language?: string | undefined;};
+};
+
+export interface ActionInput_linkedin_listpostlikes {
+  /**
+   * The URN of the share, UGC post, or comment. Example: "urn:li:share:123"
+   */
+  target: string;
+  /**
+   * Pagination start offset. Omit for the first page.
+   */
+  start?: number | undefined;
+  /**
+   * Number of reactions to return per page. Max recommended is 600.
+   */
+  count?: number | undefined;
+};
+
+export interface ActionOutput_linkedin_listpostlikes {
+  elements: ({  id?: string | undefined;
+  reactionType?: string | undefined;
+  root?: string | undefined;
+  created?: {  actor?: string | undefined;
+  time?: number | undefined;};
+  lastModified?: {  actor?: string | undefined;
+  time?: number | undefined;};})[];
+  paging?: {  start?: number | undefined;
+  count?: number | undefined;
+  links?: unknown[] | undefined;
+  total?: number | undefined;};
+  next_start?: number | undefined;
+};
+
+export interface ActionInput_linkedin_updatepost {
+  /**
+   * Encoded LinkedIn post URN. Example: urn%3Ali%3Ashare%3A12345
+   */
+  encodedPostUrn: string;
+  /**
+   * Updated post commentary/content.
+   */
+  commentary?: string | undefined;
+  /**
+   * Updated lifecycle state of the post.
+   */
+  lifecycleState?: 'PUBLISHED' | 'DRAFT' | 'ARCHIVED' | undefined;
+};
+
+export interface ActionOutput_linkedin_updatepost {
+  success: boolean;
+  urn?: string | undefined;
+};
+
 export interface SyncMetadata_luma_listevents {
 };
 
@@ -24560,53 +28580,1043 @@ export interface ActionOutput_metabase_updateuser {
   success: boolean;
 };
 
-export interface TeamsMessage {
+export interface ChannelMessageReply {
   id: string;
-  channelId: string | null;
-  chatId: string | null;
-  content: string | null;
+  parentMessageId: string;
+  channelId?: string | undefined;
+  teamId?: string | undefined;
+  createdDateTime?: string | undefined;
+  lastModifiedDateTime?: string | undefined;
+  deletedDateTime?: string | undefined;
+  fromUserId?: string | undefined;
+  fromUserDisplayName?: string | undefined;
+  contentType?: string | undefined;
+  content?: string | undefined;
+  messageType?: string | undefined;
+  importance?: string | undefined;
+  webUrl?: string | undefined;
+};
+
+export interface ChannelMessage {
+  id: string;
+  teamId: string;
+  channelId: string;
+  messageType?: string | undefined;
   createdDateTime: string;
-  lastModifiedDateTime: string | null;
-  deletedDateTime: string | null;
-  from: {  user: {  id: string | null;
-  displayName: string | null;
-  email: string | null;};};
-  importance: string | null;
-  messageType: string;
-  subject: string | null;
-  webUrl: string | null;
-  attachments: ({  id: string;
+  lastModifiedDateTime: string;
+  lastEditedDateTime?: string | undefined;
+  deletedDateTime?: string | undefined;
+  subject?: string | undefined;
+  summary?: string | undefined;
+  importance?: string | undefined;
+  locale?: string | undefined;
+  webUrl?: string | undefined;
+  contentType?: string | undefined;
+  content?: string | undefined;
+  fromUserId?: string | undefined;
+  fromUserDisplayName?: string | undefined;
+  replyToId?: string | undefined;
+};
+
+export interface SyncMetadata_microsoft_teams_channelmessages {
+  teams?: ({  teamId: string;
+  channelIds: string[];})[] | undefined;
+};
+
+export interface ChatMember {
+  id: string;
+  chatId: string;
+  userId?: string | undefined;
+  displayName?: string | undefined;
+  roles?: string[] | undefined;
+};
+
+export interface ChatMessage {
+  id: string;
+  chatId?: string | undefined;
+  messageId?: string | undefined;
+  createdDateTime?: string | undefined;
+  lastModifiedDateTime?: string | undefined;
+  lastEditedDateTime?: string | undefined;
+  fromDisplayName?: string | undefined;
+  bodyContent?: string | undefined;
+  bodyContentType?: string | undefined;
+  messageType?: string | undefined;
+  importance?: string | undefined;
+  subject?: string | undefined;
+  deletedDateTime?: string | undefined;
+  replyToId?: string | undefined;
+  webUrl?: string | undefined;
+};
+
+export interface Chat {
+  id: string;
+  topic?: string | undefined;
+  createdDateTime: string;
+  lastUpdatedDateTime: string;
+  chatType: string;
+  webUrl?: string | undefined;
+  tenantId?: string | undefined;
+  isHiddenForAllMembers?: boolean | undefined;
+  isHidden?: boolean | undefined;
+  members?: ({  id: string;
+  displayName?: string | undefined;
+  userId?: string | undefined;
+  email?: string | undefined;
+  roles?: string[] | undefined;})[];
+};
+
+export interface JoinedTeam {
+  id: string;
+  displayName?: string | undefined;
+  description?: string | undefined;
+  isArchived?: boolean | undefined;
+  tenantId?: string | undefined;
+};
+
+export interface OrgUnit {
+  id: string;
+  displayName?: string | undefined;
+  description?: string | undefined;
+  mail?: string | undefined;
+  mailNickname?: string | undefined;
+  groupTypes?: string[] | undefined;
+  securityEnabled?: boolean | undefined;
+  mailEnabled?: boolean | undefined;
+  visibility?: string | undefined;
+  createdDateTime?: string | undefined;
+  renewedDateTime?: string | undefined;
+  expirationDateTime?: string | undefined;
+  classification?: string | undefined;
+};
+
+export interface Channel {
+  id: string;
+  title?: string | undefined;
+  description?: string | undefined;
+  customUrl?: string | undefined;
+  publishedAt?: string | undefined;
+  thumbnailDefaultUrl?: string | undefined;
+  thumbnailMediumUrl?: string | undefined;
+  thumbnailHighUrl?: string | undefined;
+  viewCount?: number | undefined;
+  subscriberCount?: number | undefined;
+  hiddenSubscriberCount?: boolean | undefined;
+  videoCount?: number | undefined;
+  country?: string | undefined;
+  privacyStatus?: string | undefined;
+  isLinked?: boolean | undefined;
+  madeForKids?: boolean | undefined;
+  selfDeclaredMadeForKids?: boolean | undefined;
+};
+
+export interface TeamMember {
+  id: string;
+  teamId: string;
+  userId: string;
+  displayName?: string | undefined;
+  email?: string | undefined;
+  roles: string[];
+};
+
+export interface ActionInput_microsoft_teams_addteammember {
+  /**
+   * Team ID to add the member to. Example: "ee0f5ae2-8bc6-4ae5-8466-7daeebbfa062"
+   */
+  teamId: string;
+  /**
+   * User ID or user principal name (UPN) to add as a member. Example: "8b081ef6-4792-4def-b2c9-c363a1bf41d5" or "jacob@contoso.com"
+   */
+  userId: string;
+  /**
+   * Whether to add the user as an owner. Defaults to false (regular member).
+   */
+  isOwner?: boolean | undefined;
+};
+
+export interface ActionOutput_microsoft_teams_addteammember {
+  id: string;
+  roles: string[];
+  userId?: string | undefined;
+  displayName?: string | undefined;
+  email?: string | undefined;
+};
+
+export interface ActionInput_microsoft_teams_createchannelmessage {
+  /**
+   * Team ID. Example: "19:xxxxxxxxxxxxxxxxxxxxxxxxxx@thread.tacv2"
+   */
+  teamId: string;
+  /**
+   * Channel ID. Example: "19:xxxxxxxxxxxxxxxxxxxxxxxxxx@thread.tacv2"
+   */
+  channelId: string;
+  body: {  /**
+   * Content type. Example: "html"
+   */
+  contentType: 'html' | 'text';
+  /**
+   * Message content in HTML or plain text. Example: "<p>Hello team!</p>"
+   */
+  content: string;};
+  /**
+   * Optional attachments for the message
+   */
+  attachments?: ({  /**
+   * Unique ID for the attachment
+   */
+  id: string;
+  /**
+   * MIME type of the attachment. Example: "application/vnd.microsoft.card.hero"
+   */
   contentType: string;
-  contentUrl: string | null;
-  name: string | null;
-  thumbnailUrl: string | null;})[] | null;
-  reactions: ({  reactionType: string;
+  /**
+   * URL for the attachment
+   */
+  contentUrl?: string | undefined;
+  /**
+   * Name of the attachment
+   */
+  name?: string | undefined;
+  /**
+   * JSON-encoded content for adaptive cards
+   */
+  content?: string | undefined;})[];
+};
+
+export interface ActionOutput_microsoft_teams_createchannelmessage {
+  /**
+   * Message ID
+   */
+  id: string;
+  /**
+   * Creation timestamp
+   */
   createdDateTime: string;
-  user: {  id: string;
-  displayName: string | null;
-  email: string | null;};})[] | null;
-  replies: ({  id: string;
-  content: string | null;
-  createdDateTime: string;
-  from: {  user: {  id: string | null;
-  displayName: string | null;
-  email: string | null;};};})[] | null;
-  raw_json: string;
+  /**
+   * Sender information
+   */
+  from?: {  userId?: string | undefined;
+  displayName?: string | undefined;};
+  body: {  contentType: 'html' | 'text' | 'markdown';
+  content: string;};
+  attachments?: ({  id: string;
+  contentType: string;
+  contentUrl?: string | undefined;
+  name?: string | undefined;
+  content?: string | undefined;})[];
 };
 
-export interface SyncMetadata_microsoft_teams_messages {
-  orgsToSync: string[];
-  channelsLastSyncDate?: {} | undefined;
-  chatsLastSyncDate?: {} | undefined;
+export interface ActionInput_microsoft_teams_createchanneltab {
+  /**
+   * Team ID. Example: "02bd9fd6-8f93-4758-87c3-1fb73740a315"
+   */
+  teamId: string;
+  /**
+   * Channel ID. Example: "19:4b6bedd7427d44f6b46b1bf92ab9f5f2@thread.tacv2"
+   */
+  channelId: string;
+  /**
+   * Display name for the tab. Example: "My Tab"
+   */
+  displayName: string;
+  /**
+   * OData bind reference to the Teams app. Example: "https://graph.microsoft.com/v1.0/appCatalogs/teamsApps/com.microsoft.teamspace.tab.web"
+   */
+  teamsAppOdataBind: string;
+  /**
+   * Configuration properties for the tab
+   */
+  configuration: {  /**
+   * Entity ID for the tab content
+   */
+  entityId?: string | undefined;
+  /**
+   * Content URL for the tab. Example: "https://www.example.com/content"
+   */
+  contentUrl: string;
+  /**
+   * Remove URL for the tab
+   */
+  removeUrl?: string | undefined;
+  /**
+   * Website URL for the tab. Example: "https://www.example.com"
+   */
+  websiteUrl?: string | undefined;};
 };
 
-export interface SyncMetadata_microsoft_teams_orgunits {
+export interface ActionOutput_microsoft_teams_createchanneltab {
+  id: string;
+  displayName: string;
+  teamsAppId?: string | undefined;
+  teamsAppName?: string | undefined;
+  configuration?: {  entityId?: string | undefined;
+  contentUrl?: string | undefined;
+  removeUrl?: string | undefined;
+  websiteUrl?: string | undefined;};
+  sortOrderIndex?: string | undefined;
+  webUrl?: string | undefined;
 };
 
-export interface SyncMetadata_microsoft_teams_users {
-  orgsToSync: string[];
-  channelsLastSyncDate?: {} | undefined;
-  chatsLastSyncDate?: {} | undefined;
+export interface ActionInput_microsoft_teams_createchannel {
+  /**
+   * The ID of the team to create the channel in. Example: "19:xxxxxxxxxxxx"
+   */
+  teamId: string;
+  /**
+   * The display name of the channel. Example: "General"
+   */
+  displayName: string;
+  /**
+   * The description of the channel.
+   */
+  description?: string | undefined;
+  /**
+   * The type of the channel. Defaults to standard.
+   */
+  membershipType?: 'standard' | 'private' | 'shared' | 'unknownFutureValue' | undefined;
+};
+
+export interface ActionOutput_microsoft_teams_createchannel {
+  id: string;
+  displayName: string;
+  description?: string | undefined;
+  membershipType?: string | undefined;
+  createdDateTime?: string | undefined;
+  webUrl?: string | undefined;
+};
+
+export interface ActionInput_microsoft_teams_createchatmessage {
+  /**
+   * The unique identifier of the chat. Example: "19:2da4c29f6d7041eca70b638b43d45437@thread.v2"
+   */
+  chatId: string;
+  /**
+   * The body of the chat message
+   */
+  body: {  /**
+   * Content type of the message body
+   */
+  contentType?: 'text' | 'html' | undefined;
+  /**
+   * Content of the message body in plain text or HTML format. Example: "<p>Hello world</p>"
+   */
+  content: string;};
+};
+
+export interface ActionOutput_microsoft_teams_createchatmessage {
+  id: string;
+  chatId?: string | undefined;
+  body?: {  contentType: string;
+  content: string;} | undefined;
+  createdDateTime?: string | undefined;
+  lastModifiedDateTime?: string | undefined;
+  from?: {  id?: string | undefined;
+  displayName?: string | undefined;};
+  importance?: string | undefined;
+  messageType?: string | undefined;
+  webUrl?: string | undefined;
+};
+
+export interface ActionInput_microsoft_teams_createchat {
+  /**
+   * The type of chat. oneOnOne for 1:1 chats, group for group chats.
+   */
+  chatType: 'oneOnOne' | 'group';
+  /**
+   * The topic or title of the chat. Required for group chats.
+   */
+  topic?: string | undefined;
+  /**
+   * List of members to add to the chat. Must include at least one member for group chats.
+   */
+  members: ({  /**
+   * The Azure AD user ID of the member. Example: "a1b2c3d4-e5f6-7890-abcd-ef1234567890"
+   */
+  userId: string;
+  /**
+   * Roles for this member. Use "owner" to grant ownership; omit or pass [] for a regular member.
+   */
+  roles?: ({  0: 'owner';
+  1: 'guest';})[] | undefined;})[];
+};
+
+export interface ActionOutput_microsoft_teams_createchat {
+  /**
+   * The unique identifier of the chat.
+   */
+  id: string;
+  chatType: 'oneOnOne' | 'group' | 'meeting' | 'unknownFutureValue';
+  topic?: string | undefined;
+  createdDateTime?: string | undefined;
+  lastUpdatedDateTime?: string | undefined;
+  members?: ({  id: string;
+  displayName?: string | undefined;
+  roles?: string[] | undefined;})[];
+};
+
+export interface ActionInput_microsoft_teams_createteam {
+  /**
+   * Display name of the team. Example: "My Sample Team"
+   */
+  display_name: string;
+  /**
+   * Description of the team.
+   */
+  description?: string | undefined;
+  /**
+   * Template ID or name. Example: "standard" or "educationClass". Defaults to "standard".
+   */
+  template?: string | undefined;
+  /**
+   * Name of the first (General) channel. Defaults to "General".
+   */
+  first_channel_name?: string | undefined;
+  /**
+   * Team visibility.
+   */
+  visibility?: 'public' | 'private' | 'hiddenMembership' | undefined;
+  /**
+   * Existing group ID to create the team from. If provided, team is created from this group.
+   */
+  group_id?: string | undefined;
+  /**
+   * Members to add to the team. Required for application permissions.
+   */
+  members?: ({  /**
+   * User ID to add as a member. Example: "0040b377-61d8-43db-94f5-81374122dc7e"
+   */
+  user_id: string;
+  /**
+   * Member roles. Defaults to ["member"].
+   */
+  roles?: ({  0: 'owner';
+  1: 'member';})[] | undefined;})[];
+  /**
+   * Channels to create with the team.
+   */
+  channels?: ({  /**
+   * Channel display name.
+   */
+  display_name: string;
+  /**
+   * Channel description.
+   */
+  description?: string | undefined;
+  /**
+   * Whether the channel is favorited by default.
+   */
+  is_favorite_by_default?: boolean | undefined;
+  /**
+   * Tabs to install in the channel.
+   */
+  tabs?: ({  /**
+   * Teams app ID. Example: "com.microsoft.teamspace.tab.web"
+   */
+  teams_app_id: string;
+  /**
+   * Tab display name.
+   */
+  display_name: string;
+  configuration: {  /**
+   * Tab content URL.
+   */
+  content_url: string;
+  /**
+   * Tab website URL.
+   */
+  website_url?: string | undefined;};})[];})[];
+  /**
+   * Member settings for the team.
+   */
+  member_settings?: {  allow_create_update_channels?: boolean | undefined;
+  allow_delete_channels?: boolean | undefined;
+  allow_add_remove_apps?: boolean | undefined;
+  allow_create_update_remove_tabs?: boolean | undefined;
+  allow_create_update_remove_connectors?: boolean | undefined;};
+  /**
+   * Guest settings for the team.
+   */
+  guest_settings?: {  allow_create_update_channels?: boolean | undefined;
+  allow_delete_channels?: boolean | undefined;};
+  /**
+   * Fun settings for the team.
+   */
+  fun_settings?: {  allow_giphy?: boolean | undefined;
+  giphy_content_rating?: 'strict' | 'moderate' | undefined;
+  allow_stickers_and_memes?: boolean | undefined;
+  allow_custom_memes?: boolean | undefined;};
+  /**
+   * Messaging settings for the team.
+   */
+  messaging_settings?: {  allow_user_edit_messages?: boolean | undefined;
+  allow_user_delete_messages?: boolean | undefined;
+  allow_owner_delete_messages?: boolean | undefined;
+  allow_team_mentions?: boolean | undefined;
+  allow_channel_mentions?: boolean | undefined;};
+  /**
+   * Discovery settings for the team.
+   */
+  discovery_settings?: {  show_in_teams_search_and_suggestions?: boolean | undefined;};
+  /**
+   * Apps to install in the team.
+   */
+  installed_apps?: ({  /**
+   * Teams app ID to install. Example: "com.microsoft.teamspace.tab.vsts"
+   */
+  teams_app_id: string;})[] | undefined;
+};
+
+export interface ActionOutput_microsoft_teams_createteam {
+  /**
+   * ID of the created team (available after operation succeeds).
+   */
+  team_id?: string | undefined;
+  /**
+   * ID of the async operation.
+   */
+  operation_id: string;
+  /**
+   * URL to poll for operation status.
+   */
+  operation_url: string;
+  /**
+   * Current operation status.
+   */
+  status: 'notStarted' | 'inProgress' | 'succeeded' | 'failed';
+  /**
+   * Error details if the operation failed.
+   */
+  error?: {  code: string;
+  message: string;} | undefined;
+};
+
+export interface ActionInput_microsoft_teams_deletechannel {
+  /**
+   * The unique identifier of the team. Example: "19:1234567890abcdef@thread.tacv2"
+   */
+  teamId: string;
+  /**
+   * The unique identifier of the channel. Example: "19:abcdef1234567890@thread.tacv2"
+   */
+  channelId: string;
+};
+
+export interface ActionOutput_microsoft_teams_deletechannel {
+  success: boolean;
+  teamId: string;
+  channelId: string;
+};
+
+export interface ActionInput_microsoft_teams_getchannelmessage {
+  /**
+   * The unique identifier of the team. Example: "fbe2bf47-16c8-47cf-b4a5-4b9b187c508b"
+   */
+  teamId: string;
+  /**
+   * The unique identifier of the channel. Example: "19:4a95f7d8db4c4e7fae857bcebe0623e6@thread.tacv2"
+   */
+  channelId: string;
+  /**
+   * The unique identifier of the message. Example: "1614618259349"
+   */
+  messageId: string;
+};
+
+export interface ActionOutput_microsoft_teams_getchannelmessage {
+  id: string;
+  replyToId?: string | undefined;
+  messageType?: string | undefined;
+  createdDateTime?: string | undefined;
+  lastModifiedDateTime?: string | undefined;
+  lastEditedDateTime?: string | undefined;
+  deletedDateTime?: string | undefined;
+  subject?: string | undefined;
+  summary?: string | undefined;
+  importance?: string | undefined;
+  locale?: string | undefined;
+  webUrl?: string | undefined;
+  channelIdentity?: {  teamId?: string | undefined;
+  channelId?: string | undefined;};
+  from?: {  user?: {  id?: string | undefined;
+  displayName?: string | undefined;
+  userIdentityType?: string | undefined;
+  tenantId?: string | undefined;};};
+  body?: {  contentType?: string | undefined;
+  content?: string | undefined;};
+};
+
+export interface ActionInput_microsoft_teams_getchannel {
+  /**
+   * The unique identifier of the team. Example: "893075dd-2487-4122-925f-022c42e20265"
+   */
+  teamId: string;
+  /**
+   * The unique identifier of the channel. Example: "19:561fbdbbfca848a484f0a6f00ce9dbbd@thread.tacv2"
+   */
+  channelId: string;
+};
+
+export interface ActionOutput_microsoft_teams_getchannel {
+  id: string;
+  createdDateTime?: string | undefined;
+  description?: string | undefined;
+  displayName?: string | undefined;
+  email?: string | undefined;
+  isArchived?: boolean | undefined;
+  isFavoriteByDefault?: boolean | undefined;
+  layoutType?: string | undefined;
+  membershipType?: string | undefined;
+  tenantId?: string | undefined;
+  webUrl?: string | undefined;
+};
+
+export interface ActionInput_microsoft_teams_getchatmessage {
+  /**
+   * The ID of the chat containing the message. Example: "19:xxxxxxxxxxxxxxxxxxxxxxxxxxxx@thread.v2"
+   */
+  chatId: string;
+  /**
+   * The ID of the chat message to retrieve. Example: "1659458708524"
+   */
+  messageId: string;
+};
+
+export interface ActionOutput_microsoft_teams_getchatmessage {
+  id: string;
+  chatId: string;
+  createdDateTime?: string | undefined;
+  lastModifiedDateTime?: string | undefined;
+  deletedDateTime?: string | undefined;
+  from?: {  user?: {  id?: string | undefined;
+  displayName?: string | undefined;
+  email?: string | undefined;};
+  application?: {  id?: string | undefined;
+  displayName?: string | undefined;};};
+  body?: {  contentType?: 'text' | 'html' | undefined;
+  content?: string | undefined;};
+  importance?: 'normal' | 'high' | 'urgent' | undefined;
+  replyToId?: string | undefined;
+  messageType?: 'message' | 'chatEvent' | 'systemEventMessage' | 'typing' | 'unknownFutureValue' | undefined;
+};
+
+export interface ActionInput_microsoft_teams_getchat {
+  /**
+   * The ID of the chat. Example: "19:xxx@thread.v2"
+   */
+  id: string;
+};
+
+export interface ActionOutput_microsoft_teams_getchat {
+  id: string;
+  topic?: string | undefined;
+  chat_type?: 'oneOnOne' | 'group' | 'meeting' | 'unknownFutureValue' | undefined;
+  created_at?: string | undefined;
+  last_updated_at?: string | undefined;
+  join_url?: string | undefined;
+  tenant_id?: string | undefined;
+  web_url?: string | undefined;
+};
+
+export interface ActionInput_microsoft_teams_getteam {
+  /**
+   * The unique identifier of the team. Example: "893075dd-2487-4122-925f-022c42e20265"
+   */
+  teamId: string;
+};
+
+export interface ActionOutput_microsoft_teams_getteam {
+  id: string;
+  displayName?: string | undefined;
+  description?: string | undefined;
+  classification?: string | undefined;
+  visibility?: string | undefined;
+  isArchived?: boolean | undefined;
+  createdDateTime?: string | undefined;
+  internalId?: string | undefined;
+  tenantId?: string | undefined;
+  webUrl?: string | undefined;
+  funSettings?: {  allowGiphy?: boolean | undefined;
+  giphyContentRating?: string | undefined;
+  allowStickersAndMemes?: boolean | undefined;
+  allowCustomMemes?: boolean | undefined;};
+  guestSettings?: {  allowCreateUpdateChannels?: boolean | undefined;
+  allowDeleteChannels?: boolean | undefined;};
+  memberSettings?: {  allowCreateUpdateChannels?: boolean | undefined;
+  allowDeleteChannels?: boolean | undefined;
+  allowAddRemoveApps?: boolean | undefined;
+  allowCreateUpdateRemoveTabs?: boolean | undefined;
+  allowCreateUpdateRemoveConnectors?: boolean | undefined;};
+  messagingSettings?: {  allowUserEditMessages?: boolean | undefined;
+  allowUserDeleteMessages?: boolean | undefined;
+  allowOwnerDeleteMessages?: boolean | undefined;
+  allowTeamMentions?: boolean | undefined;
+  allowChannelMentions?: boolean | undefined;};
+  discoverySettings?: {  showInTeamsSearchAndSuggestions?: boolean | undefined;};
+  summary?: {  ownersCount?: number | undefined;
+  membersCount?: number | undefined;
+  guestsCount?: number | undefined;};
+};
+
+export interface ActionInput_microsoft_teams_listchannelmessages {
+  /**
+   * Team ID. Example: "a1b2c3d4-e5f6-7890-abcd-ef1234567890". Required when next_link is not provided.
+   */
+  team_id?: string | undefined;
+  /**
+   * Channel ID. Example: "19:abc123@thread.tacv2". Required when next_link is not provided.
+   */
+  channel_id?: string | undefined;
+  /**
+   * Pagination cursor (@odata.nextLink) from the previous response. Omit for the first page.
+   */
+  next_link?: string | undefined;
+};
+
+export interface ActionOutput_microsoft_teams_listchannelmessages {
+  messages: ({  id: string;
+  createdDateTime?: string | undefined;
+  lastModifiedDateTime?: string | undefined;
+  deletedDateTime?: string | undefined;
+  from?: {  user?: {  id?: string | undefined;
+  displayName?: string | undefined;
+  userIdentityType?: string | undefined;};};
+  body?: {  contentType?: string | undefined;
+  content?: string | undefined;};
+  importance?: string | undefined;
+  reactions?: ({  reactionType?: string | undefined;
+  user?: {  id?: string | undefined;
+  displayName?: string | undefined;};
+  createdDateTime?: string | undefined;})[];
+  attachments?: ({  id?: string | undefined;
+  contentType?: string | undefined;
+  contentUrl?: string | undefined;
+  name?: string | undefined;})[];
+  replyToId?: string | undefined;
+  messageType?: string | undefined;
+  subject?: string | undefined;
+  summary?: string | undefined;})[];
+  next_link?: string | undefined;
+};
+
+export interface ActionInput_microsoft_teams_listchannelreplies {
+  /**
+   * Team ID. Example: "5d7a3b3e-8c9d-4e0f-a1b2-c3d4e5f6a7b8"
+   */
+  teamId: string;
+  /**
+   * Channel ID. Example: "19:abc123@thread.tacv2"
+   */
+  channelId: string;
+  /**
+   * Parent message ID to fetch replies for. Example: "1234567890"
+   */
+  messageId: string;
+  /**
+   * Pagination cursor (full @odata.nextLink URL) from the previous response. Omit for the first page.
+   */
+  cursor?: string | undefined;
+};
+
+export interface ActionOutput_microsoft_teams_listchannelreplies {
+  items: ({  id: string;
+  replyToId?: string | undefined;
+  createdDateTime?: string | undefined;
+  lastModifiedDateTime?: string | undefined;
+  deletedDateTime?: string | undefined;
+  subject?: string | undefined;
+  bodyContentType?: 'text' | 'html' | undefined;
+  bodyContent?: string | undefined;
+  fromUserId?: string | undefined;
+  fromUserDisplayName?: string | undefined;
+  fromApplicationId?: string | undefined;
+  fromApplicationDisplayName?: string | undefined;
+  teamId?: string | undefined;
+  channelId?: string | undefined;
+  messageType?: string | undefined;
+  importance?: 'normal' | 'high' | 'urgent' | undefined;
+  reactions?: ({  reactionType?: string | undefined;
+  userId?: string | undefined;
+  userDisplayName?: string | undefined;
+  createdDateTime?: string | undefined;})[];})[];
+  /**
+   * Pagination cursor to fetch the next page. Pass this as the cursor input in the next request.
+   */
+  next_cursor?: string | undefined;
+};
+
+export interface ActionInput_microsoft_teams_listchanneltabs {
+  /**
+   * The ID of the team. Example: "6903fa93-605b-43ef-920e-77c4729f8258"
+   */
+  teamId: string;
+  /**
+   * The ID of the channel. Example: "19:33b76eea88574bd1969dca37e2b7a819@thread.skype"
+   */
+  channelId: string;
+  /**
+   * Pagination cursor from the previous response (@odata.nextLink). Omit for the first page.
+   */
+  cursor?: string | undefined;
+};
+
+export interface ActionOutput_microsoft_teams_listchanneltabs {
+  items: ({  id: string;
+  displayName?: string | undefined;
+  configuration?: {  entityId?: string | undefined;
+  contentUrl?: string | undefined;
+  websiteUrl?: string | undefined;
+  removeUrl?: string | undefined;};
+  sortOrderIndex?: string | undefined;
+  teamsApp?: {  id: string;
+  displayName?: string | undefined;
+  distributionMethod?: string | undefined;};
+  webUrl?: string | undefined;})[];
+  nextCursor?: string | undefined;
+};
+
+export interface ActionInput_microsoft_teams_listchannels {
+  /**
+   * The unique identifier of the team. Example: "893075dd-2487-4122-925f-022c42e20265"
+   */
+  teamId: string;
+  /**
+   * Pagination cursor from the previous response (@odata.nextLink). Omit for the first page.
+   */
+  cursor?: string | undefined;
+};
+
+export interface ActionOutput_microsoft_teams_listchannels {
+  items: ({  id: string;
+  createdDateTime?: string | undefined;
+  displayName?: string | undefined;
+  description?: string | undefined;
+  email?: string | undefined;
+  webUrl?: string | undefined;
+  membershipType?: string | undefined;
+  layoutType?: string | undefined;
+  isArchived?: boolean | undefined;
+  isFavoriteByDefault?: boolean | undefined;
+  tenantId?: string | undefined;})[];
+  nextCursor?: string | undefined;
+};
+
+export interface ActionInput_microsoft_teams_listchatmembers {
+  /**
+   * The unique identifier of the chat. Example: "19:xxxxx@thread.v2"
+   */
+  chat_id: string;
+  /**
+   * Full URL from @odata.nextLink for pagination. Omit for the first page.
+   */
+  cursor?: string | undefined;
+};
+
+export interface ActionOutput_microsoft_teams_listchatmembers {
+  members: ({  id?: string | undefined;
+  roles?: string[] | undefined;
+  display_name?: string | undefined;
+  visible_history_start_date_time?: string | undefined;
+  user_id?: string | undefined;
+  email?: string | undefined;
+  tenant_id?: string | undefined;})[];
+  next_cursor?: string | undefined;
+};
+
+export interface ActionInput_microsoft_teams_listchatmessages {
+  /**
+   * The unique identifier of the chat. Example: "19:2da4c29f6d7041eca70b638b43d45437@thread.v2"
+   */
+  chatId: string;
+  /**
+   * Pagination cursor (full @odata.nextLink URL) from the previous response. Omit for the first page.
+   */
+  cursor?: string | undefined;
+  /**
+   * Maximum number of messages to return per page (1-50). Default is determined by the API.
+   */
+  top?: number | undefined;
+};
+
+export interface ActionOutput_microsoft_teams_listchatmessages {
+  messages: ({  id: string;
+  replyToId?: string | undefined;
+  createdDateTime?: string | undefined;
+  lastModifiedDateTime?: string | undefined;
+  deletedDateTime?: string | undefined;
+  subject?: string | undefined;
+  summary?: string | undefined;
+  chatId?: string | undefined;
+  importance?: string | undefined;
+  messageType?: string | undefined;
+  fromUserId?: string | undefined;
+  fromUserDisplayName?: string | undefined;
+  bodyContentType?: string | undefined;
+  bodyContent?: string | undefined;})[];
+  /**
+   * Full URL for the next page. Pass this value as the cursor input for the next request.
+   */
+  nextLink?: string | undefined;
+};
+
+export interface ActionInput_microsoft_teams_listchats {
+  /**
+   * Pagination cursor from the previous response (@odata.nextLink). Omit for the first page.
+   */
+  cursor?: string | undefined;
+  /**
+   * User ID to scope chats to a specific user. Omit to use /me/chats.
+   */
+  userId?: string | undefined;
+};
+
+export interface ActionOutput_microsoft_teams_listchats {
+  items: ({  id: string;
+  topic?: string | undefined;
+  createdDateTime?: string | undefined;
+  lastUpdatedDateTime?: string | undefined;
+  chatType?: string | undefined;
+  webUrl?: string | undefined;
+  isHiddenForAllMembers?: boolean | undefined;
+  tenantId?: string | undefined;
+  viewpoint?: {  isHidden?: boolean | undefined;
+  lastMessageReadDateTime?: string | undefined;};})[];
+  nextLink?: string | undefined;
+};
+
+export interface ActionInput_microsoft_teams_listjoinedteams {
+  /**
+   * Pagination cursor from the previous response. For Microsoft Graph, this is the full @odata.nextLink URL. Omit for the first page.
+   */
+  cursor?: string | undefined;
+};
+
+export interface ActionOutput_microsoft_teams_listjoinedteams {
+  items: ({  /**
+   * The unique identifier of the team
+   */
+  id: string;
+  /**
+   * The display name of the team
+   */
+  display_name?: string | undefined;
+  /**
+   * The description of the team
+   */
+  description?: string | undefined;
+  /**
+   * The visibility of the team
+   */
+  visibility?: string | undefined;
+  /**
+   * Whether the team is archived
+   */
+  is_archived?: boolean | undefined;})[];
+  /**
+   * The full @odata.nextLink URL for fetching the next page, if more results exist
+   */
+  next_cursor?: string | undefined;
+};
+
+export interface ActionInput_microsoft_teams_listteammembers {
+  /**
+   * Team ID. Example: "ee0f5ae2-8bc6-4ae5-8466-7daeebbfa062"
+   */
+  teamId: string;
+  /**
+   * Full @odata.nextLink URL from the previous response. Omit for the first page.
+   */
+  cursor?: string | undefined;
+};
+
+export interface ActionOutput_microsoft_teams_listteammembers {
+  items: ({  id: string;
+  roles?: string[] | undefined;
+  displayName?: string | undefined;
+  userId?: string | undefined;
+  email?: string | undefined;
+  tenantId?: string | undefined;})[];
+  nextCursor?: string | undefined;
+};
+
+export interface ActionInput_microsoft_teams_removeteammember {
+  /**
+   * The unique identifier of the team. Example: "12345678-1234-1234-1234-123456789012"
+   */
+  teamId: string;
+  /**
+   * The unique identifier of the team membership. Example: "12345678-1234-1234-1234-123456789012"
+   */
+  membershipId: string;
+};
+
+export interface ActionOutput_microsoft_teams_removeteammember {
+  success: boolean;
+  teamId: string;
+  membershipId: string;
+};
+
+export interface ActionInput_microsoft_teams_replytochannelmessage {
+  /**
+   * Team ID. Example: "57fb72d0-d811-46f4-8947-305e6072eaa5"
+   */
+  teamId: string;
+  /**
+   * Channel ID. Example: "19:4b6bed8d24574f6a9e436813cb2617d8@thread.tacv2"
+   */
+  channelId: string;
+  /**
+   * Message ID to reply to. Example: "1590776551682"
+   */
+  messageId: string;
+  /**
+   * Message body content. Example: "Hello World"
+   */
+  bodyContent: string;
+  /**
+   * Content type of the body. Defaults to "html".
+   */
+  bodyContentType?: 'text' | 'html' | undefined;
+};
+
+export interface ActionOutput_microsoft_teams_replytochannelmessage {
+  id: string;
+  replyToId?: string | undefined;
+  createdDateTime?: string | undefined;
+  lastModifiedDateTime?: string | undefined;
+  bodyContentType?: string | undefined;
+  bodyContent?: string | undefined;
+};
+
+export interface ActionInput_microsoft_teams_updatechannel {
+  /**
+   * Team ID. Example: "3b254736-3eae-4ea8-a2d3-c2af15567230"
+   */
+  teamId: string;
+  /**
+   * Channel ID. Example: "19:Xlx3Yg8n-kzEJI9-t2-ahJx0QIOxmdKaM9SSMAVtnDE1@thread.tacv2"
+   */
+  channelId: string;
+  /**
+   * New display name for the channel.
+   */
+  displayName?: string | undefined;
+  /**
+   * New description for the channel.
+   */
+  description?: string | undefined;
+};
+
+export interface ActionOutput_microsoft_teams_updatechannel {
+  id: string;
+  displayName?: string | undefined;
+  description?: string | undefined;
+  email?: string | undefined;
+  webUrl?: string | undefined;
+  membershipType?: string | undefined;
+  createdDateTime?: string | undefined;
+  isArchived?: boolean | undefined;
+  isFavoriteByDefault?: boolean | undefined;
 };
 
 export interface SyncMetadata_namely_pat_unifiedemployees {
@@ -26568,17 +31578,15 @@ export interface DriveItem {
 
 export interface FolderChild {
   id: string;
-  folderId: string;
   name: string;
+  folderId: string;
   size?: number | undefined;
+  createdDateTime?: string | undefined;
+  lastModifiedDateTime?: string | undefined;
   webUrl?: string | undefined;
-  downloadUrl?: string | undefined;
-  createdDateTime: string;
-  lastModifiedDateTime: string;
-  driveId?: string | undefined;
-  parentPath?: string | undefined;
+  description?: string | undefined;
   isFolder: boolean;
-  mimeType?: string | undefined;
+  parentId?: string | undefined;
 };
 
 export interface SyncMetadata_one_drive_folderchildren {
@@ -26683,11 +31691,10 @@ export interface UserFile {
   webUrl?: string | undefined;
   downloadUrl?: string | undefined;
   mimeType?: string | undefined;
-  file?: {  mimeType?: string | undefined;};
-  folder?: {  childCount?: number | undefined;};
-  parentReference?: {  id?: string | undefined;
-  path?: string | undefined;};
-  deleted?: {  state?: string | undefined;};
+  isFolder?: boolean | undefined;
+  childCount?: number | undefined;
+  parentId?: string | undefined;
+  parentPath?: string | undefined;
 };
 
 export interface ActionInput_one_drive_copyitem {
@@ -27274,23 +32281,611 @@ export interface ActionOutput_one_drive_uploadsmallfile {
   download_url?: string | undefined;
 };
 
-export interface OneDriveFileSelection {
+export interface UserFileSelection {
   id: string;
-  name: string;
-  etag: string;
-  cTag: string;
-  is_folder: boolean;
-  mime_type: string | null;
-  path: string;
-  raw_source: {};
-  updated_at: string;
-  created_at: string;
-  blob_size: number;
-  drive_id: string;
+  fileId: string;
+  name?: string | undefined;
+  size?: number | undefined;
+  webUrl?: string | undefined;
+  downloadUrl?: string | undefined;
+  createdDateTime?: string | undefined;
+  lastModifiedDateTime?: string | undefined;
 };
 
-export interface SyncMetadata_one_drive_personal_userfilesselection {
-  fileIds: string[];
+export interface ActionInput_one_drive_personal_createfolder {
+  /**
+   * The ID of the parent item (folder) where the new folder should be created. Example: "root" or "01A1B2C3D4E5F6G7H8I9J0K"
+   */
+  parentItemId: string;
+  /**
+   * The name for the new folder. Example: "My New Folder"
+   */
+  folderName: string;
+  /**
+   * The conflict behavior if a folder with the same name exists. Default is "rename".
+   */
+  conflictBehavior?: 'rename' | 'fail' | 'replace' | undefined;
+};
+
+export interface ActionOutput_one_drive_personal_createfolder {
+  /**
+   * The ID of the newly created folder
+   */
+  id: string;
+  /**
+   * The name of the created folder
+   */
+  name: string;
+  size?: number | undefined;
+  webUrl?: string | undefined;
+  createdDateTime?: string | undefined;
+  lastModifiedDateTime?: string | undefined;
+  parentId?: string | undefined;
+};
+
+export interface ActionInput_one_drive_personal_createsharinglink {
+  /**
+   * The ID of the drive item (file or folder) to share. Example: "0123456789abc!123"
+   */
+  item_id: string;
+  /**
+   * The type of sharing link to create. "view" allows read-only access, "edit" allows read-write access.
+   */
+  type: 'view' | 'edit';
+  /**
+   * The scope of the sharing link. "anonymous" allows anyone with the link to access (no sign-in required), "users" restricts to existing organization users.
+   */
+  scope: 'anonymous' | 'users';
+};
+
+export interface ActionOutput_one_drive_personal_createsharinglink {
+  /**
+   * The unique ID of the permission created.
+   */
+  id?: string | undefined;
+  link?: {  type?: 'view' | 'edit' | undefined;
+  scope?: 'anonymous' | 'users' | 'organization' | undefined;
+  /**
+   * The URL that can be used to access the shared item.
+   */
+  webUrl?: string | undefined;};
+  /**
+   * A unique token for the share link.
+   */
+  share_id?: string | undefined;
+  /**
+   * The set of roles granted by the permission.
+   */
+  roles?: string[] | undefined;
+};
+
+export interface ActionInput_one_drive_personal_createuploadsession {
+  /**
+   * The ID of the parent folder where the file will be uploaded. Example: "01ABCDEF123456789"
+   */
+  parent_item_id: string;
+  /**
+   * The name of the file to be uploaded. Example: "document.pdf"
+   */
+  file_name: string;
+  /**
+   * Optional description for the file.
+   */
+  file_description?: string | undefined;
+  /**
+   * Optional file system info for the file.
+   */
+  file_system_info?: {  /**
+   * Optional created date time in ISO 8601 format.
+   */
+  created_date_time?: string | undefined;
+  /**
+   * Optional last modified date time in ISO 8601 format.
+   */
+  last_modified_date_time?: string | undefined;};
+};
+
+export interface ActionOutput_one_drive_personal_createuploadsession {
+  /**
+   * The URL endpoint for uploading file bytes via byte-range PUT requests.
+   */
+  upload_url: string;
+  /**
+   * The expiration date/time in ISO 8601 format for the upload session.
+   */
+  expiration_date_time: string;
+  /**
+   * Zero or more byte ranges indicating what data has been received.
+   */
+  next_expected_ranges?: string[] | undefined;
+};
+
+export interface ActionInput_one_drive_personal_deleteitem {
+  /**
+   * The ID of the drive item to delete. Example: "0123456789abc"
+   */
+  itemId: string;
+};
+
+export interface ActionOutput_one_drive_personal_deleteitem {
+  /**
+   * Whether the item was successfully deleted
+   */
+  success: boolean;
+  /**
+   * The ID of the deleted item
+   */
+  itemId: string;
+};
+
+export interface ActionInput_one_drive_personal_deletepermission {
+  /**
+   * The ID of the drive item. Example: "0123456789abc"
+   */
+  itemId: string;
+  /**
+   * The ID of the permission to delete. Example: "b123456789ab!123"
+   */
+  permissionId: string;
+};
+
+export interface ActionOutput_one_drive_personal_deletepermission {
+  success: boolean;
+  itemId: string;
+  permissionId: string;
+};
+
+export interface ActionInput_one_drive_personal_downloaditemcontent {
+  /**
+   * The ID of the file item to download. Example: "01A2B3C4D5E6F7G8H9I0J1K2L3M4N5O6P7Q8R9S0T1U2V3W4X5Y6Z7A8B9C0D1E2F3"
+   */
+  item_id: string;
+};
+
+export interface ActionOutput_one_drive_personal_downloaditemcontent {
+  /**
+   * Base64-encoded binary content of the file
+   */
+  content: string;
+  /**
+   * MIME type of the file content
+   */
+  content_type: string;
+  /**
+   * Size of the file content in bytes
+   */
+  size: number;
+  /**
+   * Name of the file
+   */
+  name?: string | undefined;
+};
+
+export interface ActionInput_one_drive_personal_getdrive {
+};
+
+export interface ActionOutput_one_drive_personal_getdrive {
+  id: string;
+  driveType: string;
+  owner?: {  user?: {  id?: string | undefined;
+  displayName?: string | undefined;};};
+  quota?: {  deleted?: number | undefined;
+  remaining?: number | undefined;
+  state?: string | undefined;
+  total?: number | undefined;
+  used?: number | undefined;};
+};
+
+export interface ActionInput_one_drive_personal_getitem {
+  /**
+   * The ID of the drive item to retrieve. Example: "123ABC"
+   */
+  itemId?: string | undefined;
+  /**
+   * The path to the drive item from the root. Example: "/Documents/file.txt"
+   */
+  path?: string | undefined;
+};
+
+export interface ActionOutput_one_drive_personal_getitem {
+  /**
+   * The unique identifier of the item
+   */
+  id: string;
+  /**
+   * The name of the item
+   */
+  name: string;
+  /**
+   * The type of the item
+   */
+  type: 'file' | 'folder';
+  /**
+   * Size of the file in bytes
+   */
+  size?: number | undefined;
+  /**
+   * Date and time of item creation
+   */
+  createdDateTime?: string | undefined;
+  /**
+   * Date and time the item was last modified
+   */
+  lastModifiedDateTime?: string | undefined;
+  /**
+   * URL to view the item in OneDrive
+   */
+  webUrl?: string | undefined;
+  /**
+   * Reference to the parent folder
+   */
+  parentReference?: {  id?: string | undefined;
+  path?: string | undefined;};
+  /**
+   * URL to download the file content
+   */
+  downloadUrl?: string | undefined;
+  /**
+   * File metadata if this is a file
+   */
+  file?: {  mimeType?: string | undefined;};
+  /**
+   * Folder metadata if this is a folder
+   */
+  folder?: {  childCount?: number | undefined;};
+};
+
+export interface ActionInput_one_drive_personal_getpermission {
+  /**
+   * The ID of the driveItem. Example: "12345ABC!123"
+   */
+  itemId: string;
+  /**
+   * The ID of the permission to retrieve. Example: "1"
+   */
+  permissionId: string;
+};
+
+export interface ActionOutput_one_drive_personal_getpermission {
+  id: string;
+  roles: string[];
+  grantedTo?: {  user?: {  displayName?: string | undefined;
+  id?: string | undefined;
+  email?: string | undefined;};
+  application?: {  displayName?: string | undefined;
+  id?: string | undefined;
+  email?: string | undefined;};
+  device?: {  displayName?: string | undefined;
+  id?: string | undefined;
+  email?: string | undefined;};};
+  grantedToIdentities?: ({  user?: {  displayName?: string | undefined;
+  id?: string | undefined;
+  email?: string | undefined;};
+  application?: {  displayName?: string | undefined;
+  id?: string | undefined;
+  email?: string | undefined;};
+  device?: {  displayName?: string | undefined;
+  id?: string | undefined;
+  email?: string | undefined;};})[];
+  inheritedFrom?: {  driveId?: string | undefined;
+  id?: string | undefined;
+  path?: string | undefined;};
+  invitation?: {  email?: string | undefined;
+  invitedBy?: {  user?: {  displayName?: string | undefined;
+  id?: string | undefined;
+  email?: string | undefined;};
+  application?: {  displayName?: string | undefined;
+  id?: string | undefined;
+  email?: string | undefined;};
+  device?: {  displayName?: string | undefined;
+  id?: string | undefined;
+  email?: string | undefined;};};
+  sentDateTime?: string | undefined;
+  redeemedBy?: {  user?: {  displayName?: string | undefined;
+  id?: string | undefined;
+  email?: string | undefined;};
+  application?: {  displayName?: string | undefined;
+  id?: string | undefined;
+  email?: string | undefined;};
+  device?: {  displayName?: string | undefined;
+  id?: string | undefined;
+  email?: string | undefined;};};};
+  link?: {  webUrl?: string | undefined;
+  type?: string | undefined;
+  scope?: string | undefined;
+  application?: {  displayName?: string | undefined;
+  id?: string | undefined;
+  email?: string | undefined;};};
+  shareId?: string | undefined;
+};
+
+export interface ActionInput_one_drive_personal_inviterecipients {
+  /**
+   * The ID of the drive item to grant access to. Example: "0123456789ABC!123"
+   */
+  itemId: string;
+  /**
+   * List of recipients to invite. For personal accounts, use email addresses only.
+   */
+  recipients: ({  /**
+   * Email address of the recipient. Example: "user@example.com"
+   */
+  email: string;})[];
+  /**
+   * Roles to grant to the recipients. Values: "read", "write".
+   */
+  roles: ({  0: 'read';
+  1: 'write';})[];
+  /**
+   * Whether to send an invitation email to the recipients. Defaults to true.
+   */
+  sendInvitation?: boolean | undefined;
+  /**
+   * Whether the recipient is required to sign in to access the item. Defaults to false.
+   */
+  requireSignIn?: boolean | undefined;
+};
+
+export interface ActionOutput_one_drive_personal_inviterecipients {
+  /**
+   * List of permissions granted to the recipients.
+   */
+  permissions: ({  id?: string | undefined;
+  roles?: string[] | undefined;
+  link?: {  type?: string | undefined;
+  scope?: string | undefined;
+  webUrl?: string | undefined;};
+  grantedTo?: {  user?: {  displayName?: string | undefined;
+  id?: string | undefined;
+  email?: string | undefined;};};
+  grantedToV2?: {  user?: {  displayName?: string | undefined;
+  id?: string | undefined;
+  email?: string | undefined;};};
+  grantedToIdentities?: ({  user?: {  displayName?: string | undefined;
+  id?: string | undefined;
+  email?: string | undefined;};})[];
+  grantedToIdentitiesV2?: ({  user?: {  displayName?: string | undefined;
+  id?: string | undefined;
+  email?: string | undefined;};})[];
+  invitedBy?: {  user?: {  displayName?: string | undefined;
+  id?: string | undefined;
+  email?: string | undefined;};};
+  invitation?: {  email?: string | undefined;
+  signInRequired?: boolean | undefined;};})[];
+};
+
+export interface ActionInput_one_drive_personal_listchildren {
+  /**
+   * The ID of the folder to list children for. Omit to list children of the root folder. Example: "01ABC123DEF456"
+   */
+  itemId?: string | undefined;
+  /**
+   * Pagination cursor (@odata.nextLink) from the previous response. Omit for the first page.
+   */
+  cursor?: string | undefined;
+};
+
+export interface ActionOutput_one_drive_personal_listchildren {
+  items: ({  id: string;
+  name: string;
+  size?: number | undefined;
+  createdDateTime?: string | undefined;
+  lastModifiedDateTime?: string | undefined;
+  webUrl?: string | undefined;
+  isFolder?: boolean | undefined;
+  childCount?: number | undefined;
+  mimeType?: string | undefined;
+  parentId?: string | undefined;})[];
+  nextLink?: string | undefined;
+};
+
+export interface ActionInput_one_drive_personal_listpermissions {
+  /**
+   * The ID of the drive item to list permissions for. Example: "123ABC!456"
+   */
+  itemId: string;
+};
+
+export interface ActionOutput_one_drive_personal_listpermissions {
+  permissions: ({  id: string;
+  roles?: string[] | undefined;
+  grantedTo?: {  user?: {  id?: string | undefined;
+  displayName?: string | undefined;};};
+  grantedToIdentities?: ({  user?: {  id?: string | undefined;
+  displayName?: string | undefined;};})[];
+  hasPassword?: boolean | undefined;
+  link?: {  type?: string | undefined;
+  scope?: string | undefined;
+  webUrl?: string | undefined;};
+  invitation?: {  email?: string | undefined;
+  signInRequired?: boolean | undefined;};
+  expirationDateTime?: string | undefined;
+  shareId?: string | undefined;})[];
+};
+
+export interface ActionInput_one_drive_personal_listversions {
+  /**
+   * The ID of the file item. Example: "0123456789abc"
+   */
+  itemId: string;
+};
+
+export interface ActionOutput_one_drive_personal_listversions {
+  versions: ({  id: string;
+  lastModifiedBy?: {  displayName?: string | undefined;
+  email?: string | undefined;};
+  lastModifiedDateTime?: string | undefined;
+  size?: number | undefined;})[];
+};
+
+export interface ActionInput_one_drive_personal_moveitem {
+  /**
+   * The ID of the driveItem to move or rename. Example: "0123456789abc!123"
+   */
+  item_id: string;
+  /**
+   * Reference to the new parent folder for moving the item. Provide either id or path.
+   */
+  parent_reference?: {  /**
+   * The ID of the new parent folder. Example: "0123456789abc!456"
+   */
+  id?: string | undefined;
+  /**
+   * The path to the new parent folder. Example: "/drive/root:/NewFolder"
+   */
+  path?: string | undefined;};
+  /**
+   * The new name for the item. Example: "NewFileName.txt"
+   */
+  name?: string | undefined;
+};
+
+export interface ActionOutput_one_drive_personal_moveitem {
+  id: string;
+  name: string;
+  parent_reference?: {  id?: string | undefined;
+  path?: string | undefined;};
+  web_url?: string | undefined;
+  size?: number | undefined;
+  created_date_time?: string | undefined;
+  last_modified_date_time?: string | undefined;
+};
+
+export interface ActionInput_one_drive_personal_searchitems {
+  query?: string | undefined;
+  /**
+   * Pagination link from the previous response. Omit for the first page.
+   */
+  cursor?: string | undefined;
+};
+
+export interface ActionOutput_one_drive_personal_searchitems {
+  /**
+   * Array of drive items matching the search query.
+   */
+  items: ({  /**
+   * The unique identifier of the item.
+   */
+  id: string;
+  /**
+   * The name of the item.
+   */
+  name: string;
+  /**
+   * The size of the item in bytes.
+   */
+  size?: number | undefined;
+  /**
+   * The date and time the item was created.
+   */
+  created_at?: string | undefined;
+  /**
+   * The date and time the item was last modified.
+   */
+  modified_at?: string | undefined;
+  /**
+   * The URL to view the item in OneDrive.
+   */
+  web_url?: string | undefined;
+  /**
+   * Whether the item is a folder.
+   */
+  is_folder?: boolean | undefined;
+  /**
+   * Whether the item is a file.
+   */
+  is_file?: boolean | undefined;
+  /**
+   * The ID of the parent folder.
+   */
+  parent_id?: string | undefined;
+  /**
+   * Whether the item has been deleted.
+   */
+  is_deleted?: boolean | undefined;})[];
+  /**
+   * Pagination cursor for the next page of results.
+   */
+  next_cursor?: string | undefined;
+};
+
+export interface ActionInput_one_drive_personal_updateitem {
+  /**
+   * The unique identifier of the drive item to update. Example: "0123456789abc"
+   */
+  itemId: string;
+  /**
+   * New name for the item.
+   */
+  name?: string | undefined;
+  /**
+   * New description for the item. Use null to clear.
+   */
+  description?: string | undefined;
+  /**
+   * New parent folder reference to move the item.
+   */
+  parentReference?: {  /**
+   * The ID of the parent folder.
+   */
+  id: string;
+  /**
+   * The ID of the drive containing the parent folder.
+   */
+  driveId?: string | undefined;};
+  /**
+   * File system info to update.
+   */
+  fileSystemInfo?: {  /**
+   * The UTC date and time the file was created on the client.
+   */
+  createdDateTime?: string | undefined;
+  /**
+   * The UTC date and time the file was last modified on the client.
+   */
+  lastModifiedDateTime?: string | undefined;};
+};
+
+export interface ActionOutput_one_drive_personal_updateitem {
+  id: string;
+  name: string;
+  description?: string | undefined;
+  parentReference?: {  id: string;
+  driveId?: string | undefined;};
+  fileSystemInfo?: {  createdDateTime?: string | undefined;
+  lastModifiedDateTime?: string | undefined;};
+  webUrl?: string | undefined;
+  size?: number | undefined;
+  createdDateTime?: string | undefined;
+  lastModifiedDateTime?: string | undefined;
+};
+
+export interface ActionInput_one_drive_personal_uploadsmallfile {
+  /**
+   * The ID of the parent item (folder) where the file will be uploaded. Example: "root" or a specific item ID.
+   */
+  parentItemId: string;
+  /**
+   * The name of the file to be uploaded. Example: "document.txt"
+   */
+  fileName: string;
+  /**
+   * The base64-encoded content of the file to upload. Always base64 encode the content before passing it here.
+   */
+  content: string;
+  /**
+   * The MIME type of the file content. Defaults to "text/plain" if not provided. Example: "application/json"
+   */
+  contentType?: string | undefined;
+};
+
+export interface ActionOutput_one_drive_personal_uploadsmallfile {
+  id: string;
+  name: string;
+  size?: number | undefined;
+  webUrl?: string | undefined;
+  createdDateTime?: string | undefined;
+  lastModifiedDateTime?: string | undefined;
 };
 
 export interface Employee {
@@ -28995,28 +34590,44 @@ export interface SyncMetadata_pipedrive_persons {
 };
 
 export interface Account {
-  /**
-   * Xero AccountID
-   */
   id: string;
-  Code?: string | undefined;
-  Name?: string | undefined;
-  Type?: string | undefined;
-  Status?: string | undefined;
-  Description?: string | undefined;
-  TaxType?: string | undefined;
-  BankAccountNumber?: string | undefined;
-  BankAccountType?: string | undefined;
-  CurrencyCode?: string | undefined;
-  EnablePaymentsToAccount?: boolean | undefined;
-  ShowInExpenseClaims?: boolean | undefined;
-  Class?: string | undefined;
-  SystemAccount?: string | undefined;
-  ReportingCode?: string | undefined;
-  ReportingCodeName?: string | undefined;
-  HasAttachments?: boolean | undefined;
-  UpdatedDateUTC?: string | undefined;
-  AddToWatchlist?: boolean | undefined;
+  accountName?: string | undefined;
+  accountNumber?: string | undefined;
+  accountType?: string | undefined;
+  annualRevenue?: number | undefined;
+  billingCity?: string | undefined;
+  billingCode?: string | undefined;
+  billingCountry?: string | undefined;
+  billingState?: string | undefined;
+  billingStreet?: string | undefined;
+  createdByName?: string | undefined;
+  createdById?: string | undefined;
+  createdByEmail?: string | undefined;
+  createdTime?: string | undefined;
+  description?: string | undefined;
+  employees?: number | undefined;
+  fax?: string | undefined;
+  industry?: string | undefined;
+  modifiedByName?: string | undefined;
+  modifiedById?: string | undefined;
+  modifiedByEmail?: string | undefined;
+  modifiedTime: string;
+  ownerName?: string | undefined;
+  ownerId?: string | undefined;
+  ownerEmail?: string | undefined;
+  ownership?: string | undefined;
+  parentAccountName?: string | undefined;
+  parentAccountId?: string | undefined;
+  phone?: string | undefined;
+  rating?: string | undefined;
+  shippingCity?: string | undefined;
+  shippingCode?: string | undefined;
+  shippingCountry?: string | undefined;
+  shippingState?: string | undefined;
+  shippingStreet?: string | undefined;
+  sicCode?: string | undefined;
+  tickerSymbol?: string | undefined;
+  website?: string | undefined;
 };
 
 export interface BillPayment {
@@ -34133,26 +39744,6 @@ export interface Order {
 export interface SyncMetadata_shopify_orders {
 };
 
-export interface Channel {
-  id: string;
-  title?: string | undefined;
-  description?: string | undefined;
-  customUrl?: string | undefined;
-  publishedAt?: string | undefined;
-  thumbnailDefaultUrl?: string | undefined;
-  thumbnailMediumUrl?: string | undefined;
-  thumbnailHighUrl?: string | undefined;
-  viewCount?: number | undefined;
-  subscriberCount?: number | undefined;
-  hiddenSubscriberCount?: boolean | undefined;
-  videoCount?: number | undefined;
-  country?: string | undefined;
-  privacyStatus?: string | undefined;
-  isLinked?: boolean | undefined;
-  madeForKids?: boolean | undefined;
-  selfDeclaredMadeForKids?: boolean | undefined;
-};
-
 export interface SyncMetadata_slack_channels {
   /**
    * Whether to auto-join public channels
@@ -35989,6 +41580,839 @@ export interface TeamtailorCandidate {
 };
 
 export interface SyncMetadata_teamtailor_candidates {
+};
+
+export interface LikedTweet {
+  id: string;
+  text: string;
+  author_id?: string | undefined;
+  created_at?: string | undefined;
+  public_metrics?: {  like_count?: number | undefined;
+  retweet_count?: number | undefined;
+  reply_count?: number | undefined;
+  quote_count?: number | undefined;
+  impression_count?: number | undefined;
+  bookmark_count?: number | undefined;};
+  edit_history_tweet_ids?: string[] | undefined;
+};
+
+export interface List {
+  id: string;
+  name: string;
+  description?: string | undefined;
+  created_at?: string | undefined;
+  private?: boolean | undefined;
+  owner_id?: string | undefined;
+  follower_count?: number | undefined;
+  member_count?: number | undefined;
+};
+
+export interface Mention {
+  id: string;
+  text?: string | undefined;
+  author_id?: string | undefined;
+  created_at?: string | undefined;
+  edit_history_tweet_ids?: string[] | undefined;
+  conversation_id?: string | undefined;
+  in_reply_to_user_id?: string | undefined;
+  public_metrics?: {  retweet_count?: number | undefined;
+  reply_count?: number | undefined;
+  like_count?: number | undefined;
+  quote_count?: number | undefined;
+  bookmark_count?: number | undefined;
+  impression_count?: number | undefined;};
+  lang?: string | undefined;
+  source?: string | undefined;
+};
+
+export interface Tweet {
+  id: string;
+  text: string;
+  author_id?: string | undefined;
+  created_at?: string | undefined;
+  conversation_id?: string | undefined;
+  in_reply_to_user_id?: string | undefined;
+  referenced_tweets?: ({  type: 'retweeted' | 'quoted' | 'replied_to';
+  id: string;})[] | undefined;
+  public_metrics?: {  retweet_count?: number | undefined;
+  reply_count?: number | undefined;
+  like_count?: number | undefined;
+  impression_count?: number | undefined;
+  bookmark_count?: number | undefined;
+  quote_count?: number | undefined;};
+};
+
+export interface ActionInput_twitter_v2_bookmarktweet {
+  /**
+   * The ID of the authenticated source User for whom to add bookmarks. Example: "2244994945"
+   */
+  userId: string;
+  /**
+   * The ID of the Tweet to bookmark. Example: "1460323737035677698"
+   */
+  tweetId: string;
+};
+
+export interface ActionOutput_twitter_v2_bookmarktweet {
+  bookmarked: boolean;
+};
+
+export interface ActionInput_twitter_v2_createlikedtweet {
+  /**
+   * The ID of the authenticated user that is requesting to like the Post. Must match the authenticated user.
+   */
+  userId: string;
+  /**
+   * The ID of the Post to like. Example: "1228393702244134912"
+   */
+  tweetId: string;
+};
+
+export interface ActionOutput_twitter_v2_createlikedtweet {
+  liked: boolean;
+};
+
+export interface ActionInput_twitter_v2_createlist {
+  /**
+   * Name of the list. Example: "Tech News"
+   */
+  name: string;
+  /**
+   * Description for the list. Example: "Top tech journalists and publications"
+   */
+  description?: string | undefined;
+  /**
+   * Whether the list is private. If true, only the owner can view the list.
+   */
+  private?: boolean | undefined;
+};
+
+export interface ActionOutput_twitter_v2_createlist {
+  /**
+   * Unique identifier of the created list.
+   */
+  id: string;
+  /**
+   * Name of the created list.
+   */
+  name: string;
+};
+
+export interface ActionInput_twitter_v2_createtweet {
+  /**
+   * The text content of the tweet. Maximum 280 characters.
+   */
+  text: string;
+  /**
+   * The ID of the tweet to reply to. If provided, creates a reply tweet.
+   */
+  replyToTweetId?: string | undefined;
+  /**
+   * The ID of the tweet to quote. If provided, creates a quote tweet.
+   */
+  quoteTweetId?: string | undefined;
+  /**
+   * Media IDs for media attachments to include in the tweet (from the upload endpoint).
+   */
+  mediaIds?: string[] | undefined;
+};
+
+export interface ActionOutput_twitter_v2_createtweet {
+  /**
+   * The unique identifier of the created tweet.
+   */
+  id: string;
+  /**
+   * The text content of the created tweet.
+   */
+  text: string;
+};
+
+export interface ActionInput_twitter_v2_deletelikedtweet {
+  /**
+   * The ID of the liked tweet to remove. Example: "1346889436626259968"
+   */
+  tweet_id: string;
+};
+
+export interface ActionOutput_twitter_v2_deletelikedtweet {
+  success: boolean;
+  liked?: boolean | undefined;
+};
+
+export interface ActionInput_twitter_v2_deletelist {
+  /**
+   * The ID of the List to delete. Example: "1234567890"
+   */
+  id: string;
+};
+
+export interface ActionOutput_twitter_v2_deletelist {
+  deleted: boolean;
+};
+
+export interface ActionInput_twitter_v2_deletetweet {
+  /**
+   * The ID of the tweet to be deleted. Example: "1346889436626259968"
+   */
+  id: string;
+};
+
+export interface ActionOutput_twitter_v2_deletetweet {
+  success: boolean;
+  deleted?: boolean | undefined;
+  error?: string | undefined;
+};
+
+export interface ActionInput_twitter_v2_followuser {
+  /**
+   * The user ID of the user to follow. Example: "2244994945"
+   */
+  target_user_id: string;
+};
+
+export interface ActionOutput_twitter_v2_followuser {
+  /**
+   * Whether the follow was successful
+   */
+  following: boolean;
+  /**
+   * Whether the follow is pending (target user has protected account and must accept the request)
+   */
+  pending_follow: boolean;
+};
+
+export interface ActionInput_twitter_v2_getlikedtweet {
+  /**
+   * The unique identifier of the tweet to retrieve. Example: "1346889436626259968"
+   */
+  tweet_id: string;
+};
+
+export interface ActionOutput_twitter_v2_getlikedtweet {
+  /**
+   * The unique identifier of this tweet. Example: "1346889436626259968"
+   */
+  id: string;
+  /**
+   * The content of the tweet. Example: "Learn how to use the user Tweet timeline..."
+   */
+  text: string;
+  /**
+   * The unique identifier of the author of this tweet.
+   */
+  author_id?: string | undefined;
+  /**
+   * Creation time of the tweet. Format: ISO 8601 date-time.
+   */
+  created_at?: string | undefined;
+  /**
+   * Language of the tweet, if detected by X.
+   */
+  lang?: string | undefined;
+  /**
+   * Indicates if the tweet contains URLs marked as sensitive.
+   */
+  possibly_sensitive?: boolean | undefined;
+  /**
+   * Shows who can reply to this tweet.
+   */
+  reply_settings?: string | undefined;
+  /**
+   * The source of the tweet.
+   */
+  source?: string | undefined;
+  /**
+   * The conversation ID for the tweet.
+   */
+  conversation_id?: string | undefined;
+  /**
+   * If this tweet is a reply, the ID of the user it is replying to.
+   */
+  in_reply_to_user_id?: string | undefined;
+  /**
+   * Engagement metrics for the tweet.
+   */
+  public_metrics?: {  like_count?: number | undefined;
+  retweet_count?: number | undefined;
+  reply_count?: number | undefined;
+  quote_count?: number | undefined;
+  impression_count?: number | undefined;
+  bookmark_count?: number | undefined;};
+  /**
+   * A list of tweets this tweet refers to (retweets, quotes, replies).
+   */
+  referenced_tweets?: ({  id: string;
+  type: 'retweeted' | 'quoted' | 'replied_to';})[] | undefined;
+};
+
+export interface ActionInput_twitter_v2_getlist {
+  /**
+   * The ID of the List to lookup. Example: "1355797419175383040"
+   */
+  id: string;
+};
+
+export interface ActionOutput_twitter_v2_getlist {
+  id: string;
+  name: string;
+  created_at?: string | undefined;
+  description?: string | undefined;
+  follower_count?: number | undefined;
+  member_count?: number | undefined;
+  owner_id?: string | undefined;
+  private?: boolean | undefined;
+};
+
+export interface ActionInput_twitter_v2_getmention {
+  /**
+   * The unique identifier of the Tweet to retrieve. Example: "1234567890"
+   */
+  id: string;
+};
+
+export interface ActionOutput_twitter_v2_getmention {
+  id: string;
+  text: string;
+  edit_history_tweet_ids: string[];
+  author_id?: string | undefined;
+  created_at?: string | undefined;
+  lang?: string | undefined;
+  possibly_sensitive?: boolean | undefined;
+  public_metrics?: {  retweet_count?: number | undefined;
+  reply_count?: number | undefined;
+  like_count?: number | undefined;
+  quote_count?: number | undefined;
+  bookmark_count?: number | undefined;
+  impression_count?: number | undefined;};
+  referenced_tweets?: ({  type: string;
+  id: string;})[] | undefined;
+  in_reply_to_user_id?: string | undefined;
+  conversation_id?: string | undefined;
+  reply_settings?: string | undefined;
+  source?: string | undefined;
+};
+
+export interface ActionInput_twitter_v2_getspace {
+  /**
+   * The unique identifier of the Space to retrieve. Example: "1zqKVXPQhvZJB"
+   */
+  space_id: string;
+};
+
+export interface ActionOutput_twitter_v2_getspace {
+  id: string;
+  state: 'live' | 'scheduled' | 'ended';
+  created_at?: string | undefined;
+  creator_id?: string | undefined;
+  ended_at?: string | undefined;
+  host_ids?: string[] | undefined;
+  lang?: string | undefined;
+  is_ticketed?: boolean | undefined;
+  invited_user_ids?: string[] | undefined;
+  participant_count?: number | undefined;
+  scheduled_start?: string | undefined;
+  speaker_ids?: string[] | undefined;
+  started_at?: string | undefined;
+  subscriber_count?: number | undefined;
+  title?: string | undefined;
+  topic_ids?: string[] | undefined;
+  updated_at?: string | undefined;
+};
+
+export interface ActionInput_twitter_v2_gettweet {
+  /**
+   * The unique identifier of the Tweet to retrieve. Example: "1050118621198921728"
+   */
+  id: string;
+};
+
+export interface ActionOutput_twitter_v2_gettweet {
+  id: string;
+  text: string;
+  authorId?: string | undefined;
+  createdAt?: string | undefined;
+  publicMetrics?: {  retweetCount?: number | undefined;
+  replyCount?: number | undefined;
+  likeCount?: number | undefined;
+  quoteCount?: number | undefined;
+  bookmarkCount?: number | undefined;
+  impressionCount?: number | undefined;};
+  lang?: string | undefined;
+  source?: string | undefined;
+  possiblySensitive?: boolean | undefined;
+  replySettings?: string | undefined;
+  conversationId?: string | undefined;
+  inReplyToUserId?: string | undefined;
+  referencedTweets?: ({  type: string;
+  id: string;})[] | undefined;
+  editHistoryTweetIds?: string[] | undefined;
+  editControls?: {  editTweetIds?: string[] | undefined;
+  editableUntil?: string | undefined;
+  editsRemaining?: number | undefined;
+  isEditEligible?: boolean | undefined;};
+};
+
+export interface ActionInput_twitter_v2_getuser {
+  /**
+   * The ID of the User to lookup. Example: "2244994945"
+   */
+  id: string;
+};
+
+export interface ActionOutput_twitter_v2_getuser {
+  id: string;
+  name: string;
+  username: string;
+  created_at?: string | undefined;
+  description?: string | undefined;
+  location?: string | undefined;
+  profile_image_url?: string | undefined;
+  protected?: boolean | undefined;
+  public_metrics?: {  followers_count?: number | undefined;
+  following_count?: number | undefined;
+  tweet_count?: number | undefined;
+  listed_count?: number | undefined;
+  like_count?: number | undefined;};
+  url?: string | undefined;
+  verified?: boolean | undefined;
+  verified_type?: string | undefined;
+  subscription_type?: string | undefined;
+  pinned_tweet_id?: string | undefined;
+  most_recent_tweet_id?: string | undefined;
+};
+
+export interface ActionInput_twitter_v2_liketweet {
+  /**
+   * The ID of the tweet to like. Example: "1346889436626259968"
+   */
+  tweetId: string;
+};
+
+export interface ActionOutput_twitter_v2_liketweet {
+  /**
+   * Whether the tweet was successfully liked
+   */
+  liked: boolean;
+};
+
+export interface ActionInput_twitter_v2_listlikedtweets {
+  /**
+   * The ID of the User to lookup liked tweets for. Example: "2244994945"
+   */
+  userId: string;
+  /**
+   * Pagination cursor token for the next page of results. Omit for the first page.
+   */
+  cursor?: string | undefined;
+  /**
+   * The maximum number of results per page (5-100). Default: 100.
+   */
+  maxResults?: number | undefined;
+};
+
+export interface ActionOutput_twitter_v2_listlikedtweets {
+  /**
+   * Array of liked tweets
+   */
+  tweets: ({  id: string;
+  text?: string | undefined;
+  author_id?: string | undefined;
+  created_at?: string | undefined;
+  conversation_id?: string | undefined;
+  public_metrics?: {  like_count?: number | undefined;
+  reply_count?: number | undefined;
+  retweet_count?: number | undefined;
+  quote_count?: number | undefined;
+  impression_count?: number | undefined;};
+  lang?: string | undefined;
+  source?: string | undefined;})[];
+  /**
+   * Token for the next page of results. Null if there are no more pages.
+   */
+  nextCursor?: string | undefined;
+  /**
+   * Token for the previous page of results.
+   */
+  previousCursor?: string | undefined;
+  /**
+   * Number of results returned in this response.
+   */
+  resultCount: number;
+};
+
+export interface ActionInput_twitter_v2_listlists {
+  /**
+   * The user ID whose owned Lists you would like to retrieve. Example: "123456789"
+   */
+  userId: string;
+  /**
+   * The maximum number of results to be returned per page. This can be a number between 1 and 100. Default: 100
+   */
+  maxResults?: number | undefined;
+  /**
+   * Pagination token from the previous response to get the next page of results
+   */
+  paginationToken?: string | undefined;
+};
+
+export interface ActionOutput_twitter_v2_listlists {
+  lists: ({  id: string;
+  name: string;
+  createdAt?: string | undefined;
+  description?: string | undefined;
+  followerCount?: number | undefined;
+  memberCount?: number | undefined;
+  ownerId?: string | undefined;
+  isPrivate?: boolean | undefined;})[];
+  nextToken?: string | undefined;
+  previousToken?: string | undefined;
+  resultCount: number;
+};
+
+export interface ActionInput_twitter_v2_listmentions {
+  /**
+   * The user ID whose mentions to retrieve. Example: "2244994945"
+   */
+  user_id: string;
+  /**
+   * Pagination token from the previous response (meta.next_token). Omit for the first page.
+   */
+  cursor?: string | undefined;
+  /**
+   * Maximum number of results per page (5-100). Default: 10.
+   */
+  max_results?: number | undefined;
+  /**
+   * Earliest UTC timestamp from which Tweets will be provided (ISO 8601). Example: "2024-01-01T00:00:00Z".
+   */
+  start_time?: string | undefined;
+  /**
+   * Latest UTC timestamp to which Tweets will be provided (ISO 8601). Example: "2024-12-31T23:59:59Z".
+   */
+  end_time?: string | undefined;
+  /**
+   * Minimum Tweet ID to be included in the result set. Takes precedence over start_time.
+   */
+  since_id?: string | undefined;
+  /**
+   * Maximum Tweet ID to be included in the result set. Takes precedence over end_time.
+   */
+  until_id?: string | undefined;
+  /**
+   * Types of Tweets to exclude from results.
+   */
+  exclude?: ({  0: 'replies';
+  1: 'retweets';})[] | undefined;
+  /**
+   * Comma-separated list of Tweet fields to return. Example: "created_at,public_metrics,author_id".
+   */
+  tweet_fields?: string | undefined;
+  /**
+   * Comma-separated list of fields to expand. Example: "author_id,referenced_tweets.id".
+   */
+  expansions?: string | undefined;
+  /**
+   * Comma-separated list of User fields to return for expanded users. Example: "username,verified,public_metrics".
+   */
+  user_fields?: string | undefined;
+  /**
+   * Comma-separated list of Media fields to return.
+   */
+  media_fields?: string | undefined;
+  /**
+   * Comma-separated list of Place fields to return.
+   */
+  place_fields?: string | undefined;
+  /**
+   * Comma-separated list of Poll fields to return.
+   */
+  poll_fields?: string | undefined;
+};
+
+export interface ActionOutput_twitter_v2_listmentions {
+  items: ({  id: string;
+  text: string;
+  edit_history_tweet_ids?: string[] | undefined;
+  author_id?: string | undefined;
+  created_at?: string | undefined;
+  conversation_id?: string | undefined;
+  in_reply_to_user_id?: string | undefined;
+  referenced_tweets?: ({  id: string;
+  type: 'retweeted' | 'quoted' | 'replied_to';})[] | undefined;
+  attachments?: {  media_keys?: string[] | undefined;
+  poll_ids?: string[] | undefined;};
+  public_metrics?: {  retweet_count?: number | undefined;
+  reply_count?: number | undefined;
+  like_count?: number | undefined;
+  quote_count?: number | undefined;
+  bookmark_count?: number | undefined;
+  impression_count?: number | undefined;};
+  lang?: string | undefined;
+  source?: string | undefined;
+  reply_settings?: string | undefined;
+  possibly_sensitive?: boolean | undefined;})[];
+  includes?: {  users?: ({  id: string;
+  username: string;
+  name: string;
+  verified?: boolean | undefined;
+  created_at?: string | undefined;
+  description?: string | undefined;
+  public_metrics?: {  followers_count?: number | undefined;
+  following_count?: number | undefined;
+  tweet_count?: number | undefined;
+  listed_count?: number | undefined;};
+  profile_image_url?: string | undefined;
+  url?: string | undefined;
+  location?: string | undefined;
+  pinned_tweet_id?: string | undefined;})[];
+  tweets?: ({  id: string;
+  text: string;
+  edit_history_tweet_ids?: string[] | undefined;
+  author_id?: string | undefined;
+  created_at?: string | undefined;
+  conversation_id?: string | undefined;
+  in_reply_to_user_id?: string | undefined;
+  referenced_tweets?: ({  id: string;
+  type: 'retweeted' | 'quoted' | 'replied_to';})[] | undefined;
+  attachments?: {  media_keys?: string[] | undefined;
+  poll_ids?: string[] | undefined;};
+  public_metrics?: {  retweet_count?: number | undefined;
+  reply_count?: number | undefined;
+  like_count?: number | undefined;
+  quote_count?: number | undefined;
+  bookmark_count?: number | undefined;
+  impression_count?: number | undefined;};
+  lang?: string | undefined;
+  source?: string | undefined;
+  reply_settings?: string | undefined;
+  possibly_sensitive?: boolean | undefined;})[];
+  media?: ({  media_key: string;
+  type: string;
+  url?: string | undefined;
+  preview_image_url?: string | undefined;
+  alt_text?: string | undefined;
+  variants?: ({  bit_rate?: number | undefined;
+  content_type: string;
+  url: string;})[];})[];
+  polls?: ({  id: string;})[] | undefined;
+  places?: ({  id: string;})[] | undefined;};
+  next_cursor?: string | undefined;
+  previous_cursor?: string | undefined;
+  newest_id?: string | undefined;
+  oldest_id?: string | undefined;
+  result_count: number;
+};
+
+export interface ActionInput_twitter_v2_listspaces {
+  /**
+   * Search term to filter Spaces by title. Example: "crypto"
+   */
+  query: string;
+  /**
+   * Filter by Space state: live, scheduled, or all. Default: all
+   */
+  state?: 'live' | 'scheduled' | 'all' | undefined;
+  /**
+   * Maximum number of results to return (1-100). Default: 100
+   */
+  max_results?: number | undefined;
+  /**
+   * Pagination cursor from previous response for fetching next page
+   */
+  cursor?: string | undefined;
+};
+
+export interface ActionOutput_twitter_v2_listspaces {
+  spaces: ({  id: string;
+  state: 'live' | 'scheduled';
+  title?: string | undefined;
+  created_at?: string | undefined;
+  creator_id?: string | undefined;
+  host_ids?: string[] | undefined;
+  invited_user_ids?: string[] | undefined;
+  speaker_ids?: string[] | undefined;
+  participant_count?: number | undefined;
+  subscriber_count?: number | undefined;
+  is_ticketed?: boolean | undefined;
+  scheduled_start?: string | undefined;
+  started_at?: string | undefined;
+  ended_at?: string | undefined;
+  lang?: string | undefined;
+  updated_at?: string | undefined;
+  topic_ids?: string[] | undefined;})[];
+  next_cursor?: string | undefined;
+};
+
+export interface ActionInput_twitter_v2_listtweets {
+  /**
+   * The ID of the User whose tweets to retrieve. Example: "2244994945"
+   */
+  user_id: string;
+  /**
+   * Maximum number of results per page (5-100).
+   */
+  max_results?: number | undefined;
+  /**
+   * Pagination token for fetching the next page of results.
+   */
+  pagination_token?: string | undefined;
+  /**
+   * Minimum tweet ID to include in the result set.
+   */
+  since_id?: string | undefined;
+  /**
+   * Maximum tweet ID to include in the result set.
+   */
+  until_id?: string | undefined;
+  /**
+   * ISO 8601 timestamp. Earliest UTC timestamp from which tweets will be provided.
+   */
+  start_time?: string | undefined;
+  /**
+   * ISO 8601 timestamp. Latest UTC timestamp to which tweets will be provided.
+   */
+  end_time?: string | undefined;
+  /**
+   * Entities to exclude from results (replies or retweets).
+   */
+  exclude?: ({  0: 'replies';
+  1: 'retweets';})[] | undefined;
+};
+
+export interface ActionOutput_twitter_v2_listtweets {
+  tweets: ({  id: string;
+  text: string;
+  edit_history_tweet_ids?: string[] | undefined;
+  author_id?: string | undefined;
+  created_at?: string | undefined;
+  conversation_id?: string | undefined;
+  in_reply_to_user_id?: string | undefined;
+  referenced_tweets?: ({  type: 'retweeted' | 'quoted' | 'replied_to';
+  id: string;})[] | undefined;
+  public_metrics?: {  retweet_count?: number | undefined;
+  reply_count?: number | undefined;
+  like_count?: number | undefined;
+  quote_count?: number | undefined;
+  bookmark_count?: number | undefined;
+  impression_count?: number | undefined;};
+  lang?: string | undefined;
+  possibly_sensitive?: boolean | undefined;
+  reply_settings?: 'everyone' | 'mentionedUsers' | 'following' | undefined;
+  source?: string | undefined;})[];
+  meta: {  newest_id?: string | undefined;
+  oldest_id?: string | undefined;
+  result_count: number;
+  next_token?: string | undefined;
+  previous_token?: string | undefined;};
+};
+
+export interface ActionInput_twitter_v2_listusers {
+  /**
+   * List of user IDs to look up. Up to 100 IDs can be provided. Example: ["2244994945", "783214"]
+   */
+  ids?: string[] | undefined;
+  /**
+   * List of usernames to look up. Up to 100 usernames can be provided. Example: ["XDevelopers", "X"]
+   */
+  usernames?: string[] | undefined;
+  /**
+   * Additional user fields to include in the response. Example: ["created_at", "description", "public_metrics", "verified", "location", "profile_image_url"]
+   */
+  userFields?: string[] | undefined;
+  /**
+   * Expansions to include in the response. Example: ["pinned_tweet_id"]
+   */
+  expansions?: string[] | undefined;
+};
+
+export interface ActionOutput_twitter_v2_listusers {
+  users: ({  id: string;
+  name: string;
+  username: string;
+  created_at?: string | undefined;
+  description?: string | undefined;
+  location?: string | undefined;
+  profile_image_url?: string | undefined;
+  verified?: boolean | undefined;
+  protected?: boolean | undefined;
+  url?: string | undefined;
+  pinned_tweet_id?: string | undefined;
+  public_metrics?: {  followers_count?: number | undefined;
+  following_count?: number | undefined;
+  tweet_count?: number | undefined;
+  listed_count?: number | undefined;};})[];
+  errors?: ({  value: string;
+  detail?: string | undefined;
+  title?: string | undefined;
+  resource_type?: string | undefined;
+  parameter?: string | undefined;
+  resource_id?: string | undefined;})[];
+};
+
+export interface ActionInput_twitter_v2_removebookmark {
+  /**
+   * The ID of the tweet to remove from bookmarks. Example: "1234567890"
+   */
+  tweet_id: string;
+};
+
+export interface ActionOutput_twitter_v2_removebookmark {
+  /**
+   * Whether the bookmark was successfully removed
+   */
+  bookmark_removed: boolean;
+  /**
+   * The ID of the tweet that was removed from bookmarks
+   */
+  tweet_id: string;
+};
+
+export interface ActionInput_twitter_v2_unfollowuser {
+  /**
+   * The user ID of the user to unfollow. Example: "123456789"
+   */
+  target_user_id: string;
+};
+
+export interface ActionOutput_twitter_v2_unfollowuser {
+  success: boolean;
+  following?: boolean | undefined;
+};
+
+export interface ActionInput_twitter_v2_unliketweet {
+  /**
+   * The unique identifier of the Tweet to unlike. Example: "1234567890123456789"
+   */
+  tweet_id: string;
+};
+
+export interface ActionOutput_twitter_v2_unliketweet {
+  success: boolean;
+  liked?: boolean | undefined;
+};
+
+export interface ActionInput_twitter_v2_updatelist {
+  /**
+   * The ID of the List to modify. Example: "1146654567674912769"
+   */
+  id: string;
+  /**
+   * The name of the List. Example: "test v2 update list"
+   */
+  name?: string | undefined;
+  /**
+   * The description of the List. Example: "example update"
+   */
+  description?: string | undefined;
+  /**
+   * Determines whether the List should be private.
+   */
+  private?: boolean | undefined;
+};
+
+export interface ActionOutput_twitter_v2_updatelist {
+  updated: boolean;
 };
 
 export interface SyncMetadata_ukg_pro_unifiedemployees {
@@ -40637,212 +47061,2966 @@ export interface ActionOutput_zendesk_updateuser {
   url?: string | undefined;
 };
 
-export interface ZohoCRMAccount {
-  Owner: {  name: string;
+export interface Call {
   id: string;
-  email: string;};
-  "$currency_symbol": string;
-  "$field_states": string;
-  Account_Type: string;
-  SIC_Code: string;
-  Last_Activity_Time: Date;
-  Industry: string;
-  Account_Site: string;
-  "$state": string;
-  "$process_flow": boolean;
-  Billing_Country: string;
-  "$locked_for_me": boolean;
-  id: string;
-  "$approved": boolean;
-  "$approval": {  delegate: boolean;
-  approve: boolean;
-  reject: boolean;
-  resubmit: boolean;};
-  Billing_Street: string;
-  Created_Time: Date;
-  "$editable": boolean;
-  Billing_Code: string;
-  Shipping_City: string;
-  Shipping_Country: string;
-  Shipping_Code: string;
-  Billing_City: string;
-  Created_By: {  name: string;
-  id: string;
-  email: string;};
-  "$zia_owner_assignment": string;
-  Annual_Revenue: number;
-  Shipping_Street: string;
-  Ownership: string;
-  Description: string;
-  Rating: number;
-  Shipping_State: string;
-  "$review_process": {  approve: boolean;
-  reject: boolean;
-  resubmit: boolean;};
-  Website: string;
-  Employees: number;
-  Record_Image: string;
-  Modified_By: {  name: string;
-  id: string;
-  email: string;};
-  "$review": string;
-  Phone: string;
-  Account_Name: string;
-  Account_Number: string;
-  Ticker_Symbol: string;
-  Modified_Time: Date;
-  "$orchestration": boolean;
-  Parent_Account: {  name: string;
-  id: string;};
-  "$in_merge": boolean;
-  Locked__s: boolean;
-  Billing_State: string;
-  Tag: any[];
-  Fax: string;
-  "$approval_state": string;
+  subject?: string | undefined;
+  callType?: string | undefined;
+  callPurpose?: string | undefined;
+  callResult?: string | undefined;
+  callDuration?: string | undefined;
+  callDurationInSeconds?: string | undefined;
+  callStartTime?: string | undefined;
+  description?: string | undefined;
+  dialledNumber?: string | undefined;
+  callerId?: string | undefined;
+  reminder?: string | undefined;
+  modifiedTime: string;
+  createdTime?: string | undefined;
+  ownerName?: string | undefined;
+  ownerId?: string | undefined;
+  ownerEmail?: string | undefined;
+  createdByName?: string | undefined;
+  createdById?: string | undefined;
+  modifiedByName?: string | undefined;
+  modifiedById?: string | undefined;
+  relatedToName?: string | undefined;
+  relatedToId?: string | undefined;
+  contactName?: string | undefined;
+  contactId?: string | undefined;
+  tags?: string[] | undefined;
 };
 
-export interface SyncMetadata_zoho_crm_accounts {
+export interface Lead {
+  id: string;
+  company?: string | undefined;
+  email?: string | undefined;
+  firstName?: string | undefined;
+  lastName: string;
+  fullName?: string | undefined;
+  phone?: string | undefined;
+  mobile?: string | undefined;
+  status?: string | undefined;
+  source?: string | undefined;
+  designation?: string | undefined;
+  website?: string | undefined;
+  industry?: string | undefined;
+  annualRevenue?: number | undefined;
+  employees?: number | undefined;
+  skypeId?: string | undefined;
+  twitter?: string | undefined;
+  street?: string | undefined;
+  city?: string | undefined;
+  state?: string | undefined;
+  zipCode?: string | undefined;
+  country?: string | undefined;
+  description?: string | undefined;
+  emailOptOut?: boolean | undefined;
+  createdTime: string;
+  modifiedTime: string;
+  createdById?: string | undefined;
+  createdByName?: string | undefined;
+  createdByEmail?: string | undefined;
+  modifiedById?: string | undefined;
+  modifiedByName?: string | undefined;
+  modifiedByEmail?: string | undefined;
+  ownerId?: string | undefined;
+  ownerName?: string | undefined;
+  ownerEmail?: string | undefined;
+  rating?: string | undefined;
+  fax?: string | undefined;
+  secondaryEmail?: string | undefined;
+  tags?: string[] | undefined;
 };
 
-export interface ZohoCRMContact {
-  Owner: {  name: string;
+export interface Note {
   id: string;
-  email: string;};
-  Email: string;
-  "$currency_symbol": string;
-  "$field_states": string;
-  Other_Phone: string;
-  Mailing_State: string;
-  Other_State: string;
-  Other_Country: string;
-  Last_Activity_Time: Date;
-  Department: string;
-  "$state": string;
-  Unsubscribed_Mode: string;
-  "$process_flow": boolean;
-  Assistant: string;
-  Mailing_Country: string;
-  "$locked_for_me": string;
-  id: string;
-  "$approved": boolean;
-  Reporting_To: {  name: string;
-  id: string;};
-  "$approval": {  delegate: boolean;
-  approve: boolean;
-  reject: boolean;
-  resubmit: boolean;};
-  Other_City: string;
-  Created_Time: Date;
-  "$editable": boolean;
-  Home_Phone: string;
-  Created_By: {  name: string;
-  id: string;
-  email: string;};
-  "$zia_owner_assignment": string;
-  Secondary_Email: string;
-  Description: string;
-  Vendor_Name: {  name: string;
-  id: string;};
-  Mailing_Zip: string;
-  "$review_process": {  approve: boolean;
-  reject: boolean;
-  resubmit: boolean;};
-  Twitter: string;
-  Other_Zip: string;
-  Mailing_Street: string;
-  Salutation: string;
-  First_Name: string;
-  Full_Name: string;
-  Asst_Phone: string;
-  Record_Image: string;
-  Modified_By: {  name: string;
-  id: string;
-  email: string;};
-  "$review": boolean;
-  Skype_ID: string;
-  Phone: string;
-  Account_Name: {  name: string;
-  id: string;};
-  Email_Opt_Out: boolean;
-  Modified_Time: Date;
-  Date_of_Birth: Date;
-  Mailing_City: string;
-  Unsubscribed_Time: Date;
-  Title: string;
-  Other_Street: string;
-  Mobile: string;
-  "$orchestration": boolean;
-  Last_Name: string;
-  "$in_merge": boolean;
-  Locked__s: boolean;
-  Lead_Source: string;
-  Tag: any[];
-  Fax: string;
-  "$approval_state": string;
+  note_title?: string | undefined;
+  note_content?: string | undefined;
+  parent_id?: string | undefined;
+  parent_name?: string | undefined;
+  parent_module?: string | undefined;
+  owner_id?: string | undefined;
+  owner_name?: string | undefined;
+  owner_email?: string | undefined;
+  created_by_id?: string | undefined;
+  created_by_name?: string | undefined;
+  modified_by_id?: string | undefined;
+  modified_by_name?: string | undefined;
+  created_time?: string | undefined;
+  modified_time?: string | undefined;
 };
 
-export interface SyncMetadata_zoho_crm_contacts {
-};
-
-export interface ZohoCRMDeal {
-  Owner: {  name: string;
-  id: string;
-  email: string;};
-  Description: string;
-  "$currency_symbol": string;
-  Campaign_Source: {  name: string;
-  id: string;};
-  "$field_states": string;
-  "$review_process": {  approve: boolean;
-  reject: boolean;
-  resubmit: boolean;};
-  Closing_Date: Date;
-  Reason_For_Loss__s: string;
-  Last_Activity_Time: Date;
-  Modified_By: {  name: string;
-  id: string;
-  email: string;};
-  "$review": string;
-  Lead_Conversion_Time: Date;
-  "$state": string;
-  "$process_flow": boolean;
+export interface ActionInput_zoho_crm_convertlead {
+  /**
+   * The unique ID of the lead to convert. Example: "1000000145990"
+   */
+  lead_id: string;
+  /**
+   * Overwrite lead details in Contact/Account/Deal based on lead conversion mapping. Default: false
+   */
+  overwrite?: boolean | undefined;
+  /**
+   * Notify the lead owner about conversion via email. Default: false
+   */
+  notify_lead_owner?: boolean | undefined;
+  /**
+   * Notify the user to whom the contact/account is assigned about conversion via email. Default: false
+   */
+  notify_new_entity_owner?: boolean | undefined;
+  /**
+   * Existing account ID to associate with the converted lead. Example: "4150868000003283003"
+   */
+  Accounts?: string | undefined;
+  /**
+   * Existing contact ID to associate with the converted lead. Example: "4150868000003283024"
+   */
+  Contacts?: string | undefined;
+  /**
+   * Contact role ID to assign to the associated contact. Example: "5545974000000006873"
+   */
+  Contact_Role?: string | undefined;
+  /**
+   * User ID to assign as the owner for the new contact and account. Example: "4150868000001248015"
+   */
+  assign_to?: string | undefined;
+  /**
+   * Deal details to create for the newly created account
+   */
+  Deals?: {  /**
+   * Name of the deal. Example: "New Business Opportunity"
+   */
   Deal_Name: string;
-  Expected_Revenue: number;
-  Overall_Sales_Duration: number;
+  /**
+   * Closing date of the deal in YYYY-MM-DD format. Example: "2024-12-31"
+   */
+  Closing_Date: string;
+  /**
+   * Stage of the deal. Example: "Closed Won"
+   */
   Stage: string;
-  "$locked_for_me": boolean;
-  Account_Name: {  name: string;
-  id: string;};
-  id: string;
-  "$approved": boolean;
-  "$approval": {  delegate: boolean;
-  approve: boolean;
-  reject: boolean;
-  resubmit: boolean;};
-  Modified_Time: Date;
-  Created_Time: Date;
-  Amount: number;
-  Next_Step: string;
-  Probability: number;
-  "$editable": boolean;
-  "$orchestration": boolean;
-  Contact_Name: {  name: string;
-  id: string;};
-  Sales_Cycle_Duration: number;
-  Type: string;
-  "$in_merge": boolean;
-  Locked__s: boolean;
-  Lead_Source: string;
-  Created_By: {  name: string;
-  id: string;
-  email: string;};
-  Tag: any[];
-  "$zia_owner_assignment": string;
-  "$approval_state": string;
+  /**
+   * Amount of the deal. Example: 1000.50
+   */
+  Amount?: number | undefined;
+  /**
+   * Pipeline name. Example: "Standard"
+   */
+  Pipeline?: string | undefined;
+  /**
+   * Contact role ID. Example: "5545974000000006873"
+   */
+  Contact_Role?: string | undefined;};
+  /**
+   * Tags to carry over from lead to contact, account, and deal
+   */
+  carry_over_tags?: {  /**
+   * Tags to carry over to Contacts
+   */
+  Contacts?: string[] | undefined;
+  /**
+   * Tags to carry over to Accounts
+   */
+  Accounts?: string[] | undefined;
+  /**
+   * Tags to carry over to Deals
+   */
+  Deals?: string[] | undefined;};
 };
 
-export interface SyncMetadata_zoho_crm_deals {
+export interface ActionOutput_zoho_crm_convertlead {
+  /**
+   * ID of the created/associated contact
+   */
+  contact_id?: string | undefined;
+  /**
+   * ID of the created deal
+   */
+  deal_id?: string | undefined;
+  /**
+   * ID of the created/associated account
+   */
+  account_id?: string | undefined;
+};
+
+export interface ActionInput_zoho_crm_createaccount {
+  /**
+   * The name of the account. Example: "Acme Corporation"
+   */
+  accountName: string;
+  /**
+   * Phone number of the account
+   */
+  phone?: string | undefined;
+  /**
+   * Website URL of the account
+   */
+  website?: string | undefined;
+  /**
+   * Industry type of the account
+   */
+  industry?: string | undefined;
+  /**
+   * Type of account (e.g., Customer, Partner, Competitor)
+   */
+  accountType?: string | undefined;
+  /**
+   * Billing street address
+   */
+  billingStreet?: string | undefined;
+  /**
+   * Billing city
+   */
+  billingCity?: string | undefined;
+  /**
+   * Billing state
+   */
+  billingState?: string | undefined;
+  /**
+   * Billing country
+   */
+  billingCountry?: string | undefined;
+  /**
+   * Billing postal/ZIP code
+   */
+  billingCode?: string | undefined;
+  /**
+   * Shipping street address
+   */
+  shippingStreet?: string | undefined;
+  /**
+   * Shipping city
+   */
+  shippingCity?: string | undefined;
+  /**
+   * Shipping state
+   */
+  shippingState?: string | undefined;
+  /**
+   * Shipping country
+   */
+  shippingCountry?: string | undefined;
+  /**
+   * Shipping postal/ZIP code
+   */
+  shippingCode?: string | undefined;
+  /**
+   * Annual revenue of the account
+   */
+  annualRevenue?: number | undefined;
+  /**
+   * Number of employees
+   */
+  employees?: number | undefined;
+  /**
+   * Description of the account
+   */
+  description?: string | undefined;
+  /**
+   * Standard Industrial Classification code
+   */
+  sicCode?: string | undefined;
+  /**
+   * Ownership type (e.g., Private, Public)
+   */
+  ownership?: string | undefined;
+  /**
+   * Stock ticker symbol
+   */
+  tickerSymbol?: string | undefined;
+  /**
+   * ID of the parent account
+   */
+  parentAccountId?: string | undefined;
+};
+
+export interface ActionOutput_zoho_crm_createaccount {
+  id: string;
+  accountName: string;
+  phone?: string | undefined;
+  website?: string | undefined;
+  industry?: string | undefined;
+  accountType?: string | undefined;
+  billingStreet?: string | undefined;
+  billingCity?: string | undefined;
+  billingState?: string | undefined;
+  billingCountry?: string | undefined;
+  billingCode?: string | undefined;
+  shippingStreet?: string | undefined;
+  shippingCity?: string | undefined;
+  shippingState?: string | undefined;
+  shippingCountry?: string | undefined;
+  shippingCode?: string | undefined;
+  annualRevenue?: number | undefined;
+  employees?: number | undefined;
+  description?: string | undefined;
+  sicCode?: string | undefined;
+  ownership?: string | undefined;
+  tickerSymbol?: string | undefined;
+  parentAccountId?: string | undefined;
+};
+
+export interface ActionInput_zoho_crm_createcall {
+  /**
+   * Subject of the call. Accepts up to 255 characters, alphanumeric and special characters.
+   */
+  Subject: string;
+  /**
+   * The type of call.
+   */
+  Call_Type: 'Inbound' | 'Outbound' | 'Missed';
+  /**
+   * The contact to associate the call with. Required for scheduled calls.
+   */
+  Who_Id?: {  /**
+   * ID of the contact. Example: "3652397000000649013"
+   */
+  id: string;
+  /**
+   * Name of the contact. Example: "Patricia Boyle"
+   */
+  name?: string | undefined;};
+  /**
+   * The record (other than Contact) to associate the call with. Required for scheduled calls.
+   */
+  What_Id?: {  /**
+   * ID of the record. Example: "3652397000000649013"
+   */
+  id: string;
+  /**
+   * Name of the record.
+   */
+  name?: string | undefined;};
+  /**
+   * The API name of the module of the record specified in What_Id. Required when What_Id is provided.
+   */
+  "$se_module"?: string | undefined;
+  /**
+   * The date and time at which the call started in ISO8601 format. Example: "2021-02-23T13:30:00+05:30". Required for scheduled and completed calls.
+   */
+  Call_Start_Time?: string | undefined;
+  /**
+   * The time duration in HH:mm format that the call lasted for. Required for completed calls.
+   */
+  Call_Duration?: string | undefined;
+  /**
+   * The status of the outbound call.
+   */
+  Outbound_Call_Status?: 'Scheduled' | 'Completed' | undefined;
+  /**
+   * The purpose of the call.
+   */
+  Call_Purpose?: string | undefined;
+  /**
+   * Description of the call.
+   */
+  Description?: string | undefined;
+};
+
+export interface ActionOutput_zoho_crm_createcall {
+  /**
+   * ID of the created call record.
+   */
+  id: string;
+  /**
+   * Whether the call was created successfully.
+   */
+  success: boolean;
+  /**
+   * Status message from the API.
+   */
+  message: string;
+};
+
+export interface ActionInput_zoho_crm_createcontact {
+  /**
+   * First name of the contact. Example: "John"
+   */
+  First_Name?: string | undefined;
+  /**
+   * Last name of the contact. Example: "Smith"
+   */
+  Last_Name: string;
+  /**
+   * Email address of the contact. Example: "john.smith@example.com"
+   */
+  Email?: string | undefined;
+  /**
+   * Phone number of the contact. Example: "+1-555-0123"
+   */
+  Phone?: string | undefined;
+  /**
+   * Mobile number of the contact. Example: "+1-555-0456"
+   */
+  Mobile?: string | undefined;
+  /**
+   * Job title of the contact. Example: "Sales Manager"
+   */
+  Title?: string | undefined;
+  /**
+   * Department of the contact. Example: "Sales"
+   */
+  Department?: string | undefined;
+  /**
+   * Account name associated with the contact. Example: "Acme Inc."
+   */
+  Account_Name?: string | undefined;
+  /**
+   * Mailing street address. Example: "123 Main St"
+   */
+  Mailing_Street?: string | undefined;
+  /**
+   * Mailing city. Example: "San Francisco"
+   */
+  Mailing_City?: string | undefined;
+  /**
+   * Mailing state. Example: "California"
+   */
+  Mailing_State?: string | undefined;
+  /**
+   * Mailing country. Example: "USA"
+   */
+  Mailing_Country?: string | undefined;
+  /**
+   * Mailing zip code. Example: "94102"
+   */
+  Mailing_Zip?: string | undefined;
+  /**
+   * Description or notes about the contact. Example: "Key decision maker"
+   */
+  Description?: string | undefined;
+};
+
+export interface ActionOutput_zoho_crm_createcontact {
+  /**
+   * Unique identifier of the created contact
+   */
+  id: string;
+  /**
+   * Whether the contact was created successfully
+   */
+  success: boolean;
+  /**
+   * Status message from the API
+   */
+  message?: string | undefined;
+  /**
+   * Timestamp when the contact was created
+   */
+  created_time?: string | undefined;
+};
+
+export interface ActionInput_zoho_crm_createdeal {
+  /**
+   * Name of the deal. Example: "Enterprise Software License 2024"
+   */
+  dealName: string;
+  /**
+   * Current stage of the deal. Example: "Qualification", "Negotiation", "Closed Won"
+   */
+  stage?: string | undefined;
+  /**
+   * Monetary value of the deal. Example: 50000
+   */
+  amount?: number | undefined;
+  /**
+   * Expected close date in YYYY-MM-DD format. Example: "2024-12-31"
+   */
+  closingDate?: string | undefined;
+  /**
+   * Description or notes about the deal
+   */
+  description?: string | undefined;
+  /**
+   * ID of the associated account. Example: "4150868000000225013"
+   */
+  accountId?: string | undefined;
+  /**
+   * ID of the associated contact. Example: "4150868000000225014"
+   */
+  contactId?: string | undefined;
+  /**
+   * ID of the source campaign. Example: "4150868000000584006"
+   */
+  campaignId?: string | undefined;
+  /**
+   * ID of the deal owner. Example: "4150868000000225013"
+   */
+  ownerId?: string | undefined;
+  /**
+   * Probability of closing the deal (0-100). Example: 75
+   */
+  probability?: number | undefined;
+  /**
+   * Type of deal. Example: "New Business", "Existing Business"
+   */
+  type?: string | undefined;
+  /**
+   * Source of the lead. Example: "Web", "Referral", "Advertisement"
+   */
+  leadSource?: string | undefined;
+};
+
+export interface ActionOutput_zoho_crm_createdeal {
+  id: string;
+  dealName: string;
+  stage?: string | undefined;
+  amount?: number | undefined;
+  closingDate?: string | undefined;
+  description?: string | undefined;
+  accountId?: string | undefined;
+  accountName?: string | undefined;
+  contactId?: string | undefined;
+  contactName?: string | undefined;
+  campaignId?: string | undefined;
+  campaignName?: string | undefined;
+  ownerId?: string | undefined;
+  ownerName?: string | undefined;
+  ownerEmail?: string | undefined;
+  probability?: number | undefined;
+  type?: string | undefined;
+  leadSource?: string | undefined;
+  createdTime?: string | undefined;
+  modifiedTime?: string | undefined;
+};
+
+export interface ActionInput_zoho_crm_createevent {
+  /**
+   * Title of the event. Maximum 255 characters.
+   */
+  event_title: string;
+  /**
+   * Start date and time in ISO8601 format. Example: "2024-08-02T15:30:00+05:30"
+   */
+  start_datetime: string;
+  /**
+   * End date and time in ISO8601 format. Example: "2024-08-02T16:30:00+05:30"
+   */
+  end_datetime: string;
+  /**
+   * Set to true if this is an all-day event.
+   */
+  all_day?: boolean | undefined;
+  /**
+   * Description of the event.
+   */
+  description?: string | undefined;
+  /**
+   * Venue where the event takes place. Maximum 255 characters.
+   */
+  venue?: string | undefined;
+  /**
+   * Postal code of the venue.
+   */
+  zip_code?: string | undefined;
+  /**
+   * Contact ID to associate with this event.
+   */
+  who_id?: {  /**
+   * The unique ID of the contact to associate with this event.
+   */
+  id: string;} | undefined;
+  /**
+   * Related record (Account, Deal, Lead, etc.) ID and module.
+   */
+  what_id?: {  /**
+   * The unique ID of the related record (Account, Deal, Lead, etc.).
+   */
+  id: string;
+  /**
+   * The API name of the module. Example: "Accounts", "Deals", "Leads"
+   */
+  module: string;} | undefined;
+  /**
+   * List of participants for the event.
+   */
+  participants?: ({  Email?: string | undefined;
+  name?: string | undefined;
+  participant?: string | undefined;
+  type?: 'lead' | 'contact' | 'user' | 'email' | undefined;
+  invited?: boolean | undefined;})[];
+  /**
+   * Reminder date and time in ISO8601 format.
+   */
+  remind_at?: string | undefined;
+  /**
+   * List of tags to associate with the event.
+   */
+  tag?: ({  name: string;})[] | undefined;
+  /**
+   * Set to true to send invitations to participants.
+   */
+  send_notification?: boolean | undefined;
+  /**
+   * Latitude of the event location.
+   */
+  latitude?: number | undefined;
+  /**
+   * Longitude of the event location.
+   */
+  longitude?: number | undefined;
+};
+
+export interface ActionOutput_zoho_crm_createevent {
+  /**
+   * Unique ID of the created event.
+   */
+  id: string;
+  /**
+   * Title of the event.
+   */
+  event_title: string;
+  /**
+   * Start date and time in ISO8601 format.
+   */
+  start_datetime: string;
+  /**
+   * End date and time in ISO8601 format.
+   */
+  end_datetime: string;
+  /**
+   * Whether this is an all-day event.
+   */
+  all_day?: boolean | undefined;
+  /**
+   * Description of the event.
+   */
+  description?: string | undefined;
+  /**
+   * Venue of the event.
+   */
+  venue?: string | undefined;
+  /**
+   * Postal code of the venue.
+   */
+  zip_code?: string | undefined;
+  /**
+   * ID of the event owner.
+   */
+  owner_id?: string | undefined;
+  /**
+   * ID of the associated contact.
+   */
+  who_id?: string | undefined;
+  /**
+   * ID of the related record (Account, Deal, Lead, etc.).
+   */
+  what_id?: string | undefined;
+  /**
+   * Module name of the related record.
+   */
+  what_module?: string | undefined;
+  /**
+   * Reminder time in ISO8601 format.
+   */
+  remind_at?: string | undefined;
+  /**
+   * Whether invitations were sent to participants.
+   */
+  send_notification?: boolean | undefined;
+  /**
+   * Latitude of the event location.
+   */
+  latitude?: number | undefined;
+  /**
+   * Longitude of the event location.
+   */
+  longitude?: number | undefined;
+  /**
+   * Time when the event was created.
+   */
+  created_time: string;
+  /**
+   * Time when the event was last modified.
+   */
+  modified_time: string;
+};
+
+export interface ActionInput_zoho_crm_createlead {
+  /**
+   * Company name of the lead. Example: "Zylker"
+   */
+  company: string;
+  /**
+   * Last name of the lead. Example: "Daly"
+   */
+  last_name: string;
+  /**
+   * First name of the lead. Example: "Paul"
+   */
+  first_name?: string | undefined;
+  /**
+   * Email address of the lead. Example: "p.daly@zylker.com"
+   */
+  email?: string | undefined;
+  /**
+   * Phone number of the lead.
+   */
+  phone?: string | undefined;
+  /**
+   * Mobile number of the lead.
+   */
+  mobile?: string | undefined;
+  /**
+   * Fax number of the lead.
+   */
+  fax?: string | undefined;
+  /**
+   * Website of the lead.
+   */
+  website?: string | undefined;
+  /**
+   * Source of the lead. Example: "Chat", "Employee Referral"
+   */
+  lead_source?: string | undefined;
+  /**
+   * Status of the lead.
+   */
+  lead_status?: string | undefined;
+  /**
+   * Industry the lead belongs to.
+   */
+  industry?: string | undefined;
+  /**
+   * Annual revenue of the company.
+   */
+  annual_revenue?: number | undefined;
+  /**
+   * Number of employees in the company.
+   */
+  no_of_employees?: number | undefined;
+  /**
+   * Skype ID of the lead.
+   */
+  skype_id?: string | undefined;
+  /**
+   * Secondary email address of the lead.
+   */
+  secondary_email?: string | undefined;
+  /**
+   * Street address of the lead.
+   */
+  street?: string | undefined;
+  /**
+   * City of the lead address.
+   */
+  city?: string | undefined;
+  /**
+   * State of the lead address.
+   */
+  state?: string | undefined;
+  /**
+   * Zip code of the lead address.
+   */
+  zip_code?: string | undefined;
+  /**
+   * Country of the lead address.
+   */
+  country?: string | undefined;
+  /**
+   * Additional details about the lead.
+   */
+  description?: string | undefined;
+};
+
+export interface ActionOutput_zoho_crm_createlead {
+  id: string;
+  company?: string | undefined;
+  last_name?: string | undefined;
+  first_name?: string | undefined;
+  email?: string | undefined;
+  phone?: string | undefined;
+  mobile?: string | undefined;
+  fax?: string | undefined;
+  website?: string | undefined;
+  lead_source?: string | undefined;
+  lead_status?: string | undefined;
+  industry?: string | undefined;
+  annual_revenue?: number | undefined;
+  no_of_employees?: number | undefined;
+  skype_id?: string | undefined;
+  secondary_email?: string | undefined;
+  street?: string | undefined;
+  city?: string | undefined;
+  state?: string | undefined;
+  zip_code?: string | undefined;
+  country?: string | undefined;
+  description?: string | undefined;
+  created_time?: string | undefined;
+  modified_time?: string | undefined;
+};
+
+export interface ActionInput_zoho_crm_createnote {
+  /**
+   * Title of the note. Example: "Follow-up call"
+   */
+  note_title?: string | undefined;
+  /**
+   * Content of the note. Example: "Discussed pricing options with the client"
+   */
+  note_content: string;
+  /**
+   * ID of the record to associate the note with. Example: "123456789"
+   */
+  parent_id: string;
+  /**
+   * Module API name of the parent record. Example: "Leads", "Contacts", "Deals", "Accounts"
+   */
+  se_module: string;
+};
+
+export interface ActionOutput_zoho_crm_createnote {
+  id: string;
+  created_time?: string | undefined;
+  modified_time?: string | undefined;
+  status: string;
+  message: string;
+};
+
+export interface ActionInput_zoho_crm_createproduct {
+  /**
+   * Name of the product. This is a mandatory field.
+   */
+  Product_Name: string;
+  /**
+   * Product identification code given manually by the user.
+   */
+  Product_Code?: string | undefined;
+  /**
+   * Category of the product.
+   */
+  Product_Category?: string | undefined;
+  /**
+   * Name of the product manufacturer.
+   */
+  Manufacturer?: string | undefined;
+  /**
+   * The price of each unit of the product.
+   */
+  Unit_Price?: number | undefined;
+  /**
+   * Description of the product.
+   */
+  Description?: string | undefined;
+  /**
+   * The number of product units in stock.
+   */
+  Qty_in_Stock?: number | undefined;
+  /**
+   * The quantity in demand.
+   */
+  Qty_in_Demand?: number | undefined;
+  /**
+   * The number of product units ordered.
+   */
+  Qty_Ordered?: number | undefined;
+  /**
+   * The reorder value.
+   */
+  Reorder_Level?: number | undefined;
+  /**
+   * Date on which the product sale starts (YYYY-MM-DD).
+   */
+  Sales_Start_Date?: string | undefined;
+  /**
+   * Date on which the product sale ends (YYYY-MM-DD).
+   */
+  Sales_End_Date?: string | undefined;
+  /**
+   * Date on which the product support starts (YYYY-MM-DD).
+   */
+  Support_Start_Date?: string | undefined;
+  /**
+   * The date on which the product support ends (YYYY-MM-DD).
+   */
+  Support_Expiry_Date?: string | undefined;
+  /**
+   * Usage unit of the product such as dozen, each, box, etc.
+   */
+  Usage_Unit?: string | undefined;
+  /**
+   * Whether the product is taxable.
+   */
+  Taxable?: boolean | undefined;
+  /**
+   * Whether the product is active.
+   */
+  Product_Active?: boolean | undefined;
+  /**
+   * Commission rate for selling the product.
+   */
+  Commission_Rate?: number | undefined;
+};
+
+export interface ActionOutput_zoho_crm_createproduct {
+  /**
+   * Unique ID of the created product.
+   */
+  id: string;
+  /**
+   * Name of the product.
+   */
+  Product_Name: string;
+  Product_Code?: string | undefined;
+  Product_Category?: string | undefined;
+  Manufacturer?: string | undefined;
+  Unit_Price?: number | undefined;
+  Description?: string | undefined;
+  Qty_in_Stock?: number | undefined;
+  Qty_in_Demand?: number | undefined;
+  Qty_Ordered?: number | undefined;
+  Reorder_Level?: number | undefined;
+  Sales_Start_Date?: string | undefined;
+  Sales_End_Date?: string | undefined;
+  Support_Start_Date?: string | undefined;
+  Support_Expiry_Date?: string | undefined;
+  Usage_Unit?: string | undefined;
+  Taxable?: boolean | undefined;
+  Product_Active?: boolean | undefined;
+  Commission_Rate?: number | undefined;
+  Owner?: {  name: string;
+  id: string;
+  email?: string | undefined;};
+  Created_By?: {  name: string;
+  id: string;
+  email?: string | undefined;};
+  Modified_By?: {  name: string;
+  id: string;
+  email?: string | undefined;};
+  Created_Time?: string | undefined;
+  Modified_Time?: string | undefined;
+};
+
+export interface ActionInput_zoho_crm_createtask {
+  /**
+   * Subject of the task. This is a mandatory field.
+   */
+  subject: string;
+  /**
+   * Description of the task.
+   */
+  description?: string | undefined;
+  /**
+   * Due date of the task in YYYY-MM-DD format.
+   */
+  due_date?: string | undefined;
+  /**
+   * Status of the task.
+   */
+  status?: 'Not Started' | 'Deferred' | 'In Progress' | 'Completed' | 'Waiting on someone else' | undefined;
+  /**
+   * Priority of the task. Default is High.
+   */
+  priority?: 'High' | 'Highest' | 'Low' | 'Lowest' | 'Normal' | undefined;
+  /**
+   * ID of the contact or lead the task is related to.
+   */
+  who_id?: string | undefined;
+  /**
+   * ID of the account, deal, or other module the task is related to.
+   */
+  what_id?: string | undefined;
+  /**
+   * API name of the parent module when who_id and what_id are used. Required when associating with a parent record.
+   */
+  se_module?: string | undefined;
+  /**
+   * Whether to send a notification email to the task owner.
+   */
+  send_notification_email?: boolean | undefined;
+};
+
+export interface ActionOutput_zoho_crm_createtask {
+  id: string;
+  subject: string;
+  description?: string | undefined;
+  due_date?: string | undefined;
+  status?: string | undefined;
+  priority?: string | undefined;
+  who_id?: string | undefined;
+  what_id?: string | undefined;
+  send_notification_email?: boolean | undefined;
+  created_time?: string | undefined;
+  modified_time?: string | undefined;
+};
+
+export interface ActionInput_zoho_crm_deleteaccount {
+  /**
+   * The unique ID of the account record to delete. Example: "123456789012345"
+   */
+  record_id: string;
+};
+
+export interface ActionOutput_zoho_crm_deleteaccount {
+  record_id: string;
+  success: boolean;
+  message?: string | undefined;
+};
+
+export interface ActionInput_zoho_crm_deletecall {
+  /**
+   * The ID of the call record to delete. Example: "1234567890123"
+   */
+  record_id: string;
+};
+
+export interface ActionOutput_zoho_crm_deletecall {
+  success: boolean;
+  message?: string | undefined;
+  record_id: string;
+};
+
+export interface ActionInput_zoho_crm_deletecontact {
+  /**
+   * The unique ID of the contact record to delete. Example: "410405000002264040"
+   */
+  recordId: string;
+  /**
+   * Whether to trigger workflow rules upon deletion. Default is true.
+   */
+  wfTrigger?: boolean | undefined;
+};
+
+export interface ActionOutput_zoho_crm_deletecontact {
+  /**
+   * The ID of the deleted contact
+   */
+  id: string;
+  /**
+   * Whether the deletion was successful
+   */
+  success: boolean;
+  /**
+   * Status message from the API
+   */
+  message: string;
+  /**
+   * Indicates the contact was moved to recycle bin (soft deleted) rather than permanently deleted
+   */
+  archived: boolean;
+};
+
+export interface ActionInput_zoho_crm_deletedeal {
+  /**
+   * The unique ID of the deal record to delete. Example: "415155000000074323"
+   */
+  record_id: string;
+};
+
+export interface ActionOutput_zoho_crm_deletedeal {
+  success: boolean;
+  message?: string | undefined;
+  record_id: string;
+};
+
+export interface ActionInput_zoho_crm_deleteevent {
+  /**
+   * The unique ID of the event record to delete. Example: "410405000002264040"
+   */
+  record_id: string;
+};
+
+export interface ActionOutput_zoho_crm_deleteevent {
+  /**
+   * The ID of the deleted event
+   */
+  id: string;
+  /**
+   * Whether the deletion was successful
+   */
+  success: boolean;
+  /**
+   * Status message from the API
+   */
+  message?: string | undefined;
+  /**
+   * Whether the record was permanently deleted from recycle bin
+   */
+  deleted_from_recycle_bin?: boolean | undefined;
+};
+
+export interface ActionInput_zoho_crm_deletelead {
+  /**
+   * Lead ID to delete. Example: "3642481000000187001"
+   */
+  record_id: string;
+};
+
+export interface ActionOutput_zoho_crm_deletelead {
+  success: boolean;
+  message?: string | undefined;
+  record_id: string;
+};
+
+export interface ActionInput_zoho_crm_deletenote {
+  /**
+   * The unique ID of the note to delete. Example: "518200000004111"
+   */
+  note_id: string;
+};
+
+export interface ActionOutput_zoho_crm_deletenote {
+  success: boolean;
+  message: string;
+  note_id: string;
+};
+
+export interface ActionInput_zoho_crm_deleteproduct {
+  /**
+   * The unique ID of the product to delete. Example: "1234567890123456"
+   */
+  id: string;
+};
+
+export interface ActionOutput_zoho_crm_deleteproduct {
+  success: boolean;
+  id: string;
+  message?: string | undefined;
+};
+
+export interface ActionInput_zoho_crm_deletetask {
+  /**
+   * The ID of the task to delete. Example: "410405000002264040"
+   */
+  task_id: string;
+};
+
+export interface ActionOutput_zoho_crm_deletetask {
+  success: boolean;
+  task_id: string;
+  message: string;
+};
+
+export interface ActionInput_zoho_crm_getaccount {
+  /**
+   * Account ID. Example: "4150868000002782004"
+   */
+  id: string;
+};
+
+export interface ActionOutput_zoho_crm_getaccount {
+  id: string;
+  account_name?: string | undefined;
+  account_type?: string | undefined;
+  account_site?: string | undefined;
+  account_number?: string | undefined;
+  owner_id?: string | undefined;
+  owner_name?: string | undefined;
+  owner_email?: string | undefined;
+  sic_code?: string | undefined;
+  industry?: string | undefined;
+  annual_revenue?: number | undefined;
+  employees?: number | undefined;
+  ownership?: string | undefined;
+  rating?: string | undefined;
+  website?: string | undefined;
+  phone?: string | undefined;
+  fax?: string | undefined;
+  description?: string | undefined;
+  ticker_symbol?: string | undefined;
+  billing_street?: string | undefined;
+  billing_city?: string | undefined;
+  billing_state?: string | undefined;
+  billing_country?: string | undefined;
+  billing_code?: string | undefined;
+  shipping_street?: string | undefined;
+  shipping_city?: string | undefined;
+  shipping_state?: string | undefined;
+  shipping_country?: string | undefined;
+  shipping_code?: string | undefined;
+  parent_account_id?: string | undefined;
+  parent_account_name?: string | undefined;
+  created_by_id?: string | undefined;
+  created_by_name?: string | undefined;
+  created_by_email?: string | undefined;
+  modified_by_id?: string | undefined;
+  modified_by_name?: string | undefined;
+  modified_by_email?: string | undefined;
+  created_time?: string | undefined;
+  modified_time?: string | undefined;
+  last_activity_time?: string | undefined;
+  record_image?: string | undefined;
+  currency?: string | undefined;
+  currency_symbol?: string | undefined;
+  exchange_rate?: number | undefined;
+  approved?: boolean | undefined;
+  editable?: boolean | undefined;
+  approval_state?: string | undefined;
+  territories?: string[] | undefined;
+  tags?: unknown[] | undefined;
+};
+
+export interface ActionInput_zoho_crm_getcall {
+  /**
+   * The unique ID of the call record to retrieve. Example: "4150868000002792048"
+   */
+  record_id: string;
+};
+
+export interface ActionOutput_zoho_crm_getcall {
+  id: string;
+  subject?: string | undefined;
+  call_type?: string | undefined;
+  call_status?: string | undefined;
+  call_purpose?: string | undefined;
+  call_result?: string | undefined;
+  call_duration?: string | undefined;
+  call_duration_in_seconds?: string | number | undefined;
+  call_start_time?: string | undefined;
+  call_agenda?: string | undefined;
+  description?: string | undefined;
+  owner?: {  name: string;
+  id: string;
+  email?: string | undefined;};
+  created_by?: {  name: string;
+  id: string;
+  email?: string | undefined;};
+  modified_by?: {  name: string;
+  id: string;
+  email?: string | undefined;};
+  who_id?: {  name: string;
+  id: string;} | undefined;
+  what_id?: {  name: string;
+  id: string;} | undefined;
+  created_time?: string | undefined;
+  modified_time?: string | undefined;
+};
+
+export interface ActionInput_zoho_crm_getcontact {
+  /**
+   * The unique ID of the contact to retrieve. Example: "4150868000001944196"
+   */
+  recordId: string;
+};
+
+export interface ActionOutput_zoho_crm_getcontact {
+  id: string;
+  ownerId: string;
+  ownerName: string;
+  ownerEmail: string;
+  createdById: string;
+  createdByName: string;
+  createdTime: string;
+  modifiedById: string;
+  modifiedByName: string;
+  modifiedTime: string;
+  firstName?: string | undefined;
+  lastName?: string | undefined;
+  fullName?: string | undefined;
+  email?: string | undefined;
+  phone?: string | undefined;
+  mobile?: string | undefined;
+  title?: string | undefined;
+  department?: string | undefined;
+  accountName?: string | undefined;
+  mailingStreet?: string | undefined;
+  mailingCity?: string | undefined;
+  mailingState?: string | undefined;
+  mailingZip?: string | undefined;
+  mailingCountry?: string | undefined;
+  description?: string | undefined;
+  approved: boolean;
+  editable: boolean;
+};
+
+export interface ActionInput_zoho_crm_getdeal {
+  /**
+   * The unique ID of the deal to retrieve. Example: "4150868000002782026"
+   */
+  id: string;
+};
+
+export interface ActionOutput_zoho_crm_getdeal {
+  id: string;
+  dealName: string;
+  stage: string;
+  closingDate: string;
+  amount?: number | undefined;
+  expectedRevenue?: number | undefined;
+  probability?: number | undefined;
+  nextStep?: string | undefined;
+  type?: string | undefined;
+  leadSource?: string | undefined;
+  description?: string | undefined;
+  campaignSource?: {  name: string;
+  id: string;} | undefined;
+  accountName?: {  name: string;
+  id: string;} | undefined;
+  contactName?: {  name: string;
+  id: string;} | undefined;
+  owner?: {  name: string;
+  id: string;
+  email: string;} | undefined;
+  layout?: {  name: string;
+  id: string;} | undefined;
+  currency?: string | undefined;
+  exchangeRate?: number | undefined;
+  currencySymbol?: string | undefined;
+  createdTime?: string | undefined;
+  modifiedTime?: string | undefined;
+  lastActivityTime?: string | undefined;
+  tags?: unknown[] | undefined;
+  territory?: string[] | undefined;
+  approved?: boolean | undefined;
+  editable?: boolean | undefined;
+};
+
+export interface ActionInput_zoho_crm_getevent {
+  /**
+   * The unique ID of the event to retrieve. Example: "4150868000002792020"
+   */
+  id: string;
+};
+
+export interface ActionOutput_zoho_crm_getevent {
+  id: string;
+  title?: string | undefined;
+  startDateTime?: string | undefined;
+  endDateTime?: string | undefined;
+  allDay?: boolean | undefined;
+  owner?: {  name?: string | undefined;
+  id: string;
+  email?: string | undefined;};
+  participants?: ({  email?: string | undefined;
+  name?: string | undefined;
+  invited?: boolean | undefined;
+  id: string;
+  type?: string | undefined;
+  participantId?: string | undefined;
+  status?: string | undefined;})[];
+  venue?: string | undefined;
+  description?: string | undefined;
+  remindAt?: string | undefined;
+  checkInStatus?: string | undefined;
+  checkInTime?: string | undefined;
+  checkInBy?: {  name?: string | undefined;
+  id: string;
+  email?: string | undefined;};
+  checkInCity?: string | undefined;
+  checkInCountry?: string | undefined;
+  checkInState?: string | undefined;
+  checkInAddress?: string | undefined;
+  checkInSubLocality?: string | undefined;
+  checkInComment?: string | undefined;
+  latitude?: number | undefined;
+  longitude?: number | undefined;
+  zipCode?: string | undefined;
+  recurringActivity?: {  rrule?: string | undefined;};
+  relatedTo?: {  name?: string | undefined;
+  id: string;
+  module?: string | undefined;};
+  relatedContact?: {  name?: string | undefined;
+  id: string;};
+  tags?: ({  name?: string | undefined;
+  id?: string | undefined;
+  color?: string | undefined;})[];
+  createdTime?: string | undefined;
+  modifiedTime?: string | undefined;
+  createdBy?: {  name?: string | undefined;
+  id: string;
+  email?: string | undefined;};
+  modifiedBy?: {  name?: string | undefined;
+  id: string;
+  email?: string | undefined;};
+  currency?: string | undefined;
+  exchangeRate?: number | undefined;
+  currencySymbol?: string | undefined;
+};
+
+export interface ActionInput_zoho_crm_getlead {
+  /**
+   * The unique ID of the lead record to retrieve. Example: "1306462000000888026"
+   */
+  recordId: string;
+};
+
+export interface ActionOutput_zoho_crm_getlead {
+  id: string;
+  fullName?: string | undefined;
+  firstName?: string | undefined;
+  lastName?: string | undefined;
+  email?: string | undefined;
+  phone?: string | undefined;
+  mobile?: string | undefined;
+  company?: string | undefined;
+  leadSource?: string | undefined;
+  leadStatus?: string | undefined;
+  industry?: string | undefined;
+  website?: string | undefined;
+  description?: string | undefined;
+  street?: string | undefined;
+  city?: string | undefined;
+  state?: string | undefined;
+  country?: string | undefined;
+  zipCode?: string | undefined;
+  annualRevenue?: number | undefined;
+  noOfEmployees?: number | undefined;
+  rating?: string | undefined;
+  skypeId?: string | undefined;
+  twitter?: string | undefined;
+  designation?: string | undefined;
+  salutation?: string | undefined;
+  fax?: string | undefined;
+  secondaryEmail?: string | undefined;
+  emailOptOut?: boolean | undefined;
+  leadClass?: string | undefined;
+  referredBy?: string | undefined;
+  recordImage?: string | undefined;
+  owner?: {  name: string;
+  id: string;
+  email?: string | undefined;};
+  createdBy?: {  name: string;
+  id: string;
+  email?: string | undefined;};
+  modifiedBy?: {  name: string;
+  id: string;
+  email?: string | undefined;};
+  createdTime?: string | undefined;
+  modifiedTime?: string | undefined;
+  lastActivityTime?: string | undefined;
+  currencySymbol?: string | undefined;
+  converted?: boolean | undefined;
+  approved?: boolean | undefined;
+  tags?: string[] | undefined;
+};
+
+export interface ActionInput_zoho_crm_getnote {
+  /**
+   * The unique ID of the note to retrieve. Example: "4150868000002748029"
+   */
+  record_id: string;
+};
+
+export interface ActionOutput_zoho_crm_getnote {
+  id: string;
+  note_title?: string | undefined;
+  note_content?: string | undefined;
+  owner?: {  name?: string | undefined;
+  id: string;
+  email?: string | undefined;};
+  created_by?: {  name?: string | undefined;
+  id: string;
+  email?: string | undefined;};
+  modified_by?: {  name?: string | undefined;
+  id: string;
+  email?: string | undefined;};
+  created_time?: string | undefined;
+  modified_time?: string | undefined;
+  parent_id?: {  name?: string | undefined;
+  id: string;};
+  editable?: boolean | undefined;
+  se_module?: string | undefined;
+  is_shared_to_client?: boolean | undefined;
+  voice_note?: boolean | undefined;
+};
+
+export interface ActionInput_zoho_crm_getproduct {
+  /**
+   * The unique ID of the product record to retrieve. Example: "4150868000000236379"
+   */
+  record_id: string;
+};
+
+export interface ActionOutput_zoho_crm_getproduct {
+  id: string;
+  Product_Name?: string | undefined;
+  Product_Code?: string | undefined;
+  Owner?: {  name?: string | undefined;
+  id?: string | undefined;
+  email?: string | undefined;};
+  Product_Category?: string | undefined;
+  Unit_Price?: number | undefined;
+  Qty_in_Stock?: number | undefined;
+  Qty_in_Demand?: number | undefined;
+  Qty_Ordered?: number | undefined;
+  Sales_Start_Date?: string | undefined;
+  Sales_End_Date?: string | undefined;
+  Support_Start_Date?: string | undefined;
+  Support_Expiry_Date?: string | undefined;
+  Description?: string | undefined;
+  Taxable?: boolean | undefined;
+  Product_Active?: boolean | undefined;
+  Vendor_Name?: {  name?: string | undefined;
+  id?: string | undefined;};
+  Created_By?: {  name?: string | undefined;
+  id?: string | undefined;
+  email?: string | undefined;};
+  Modified_By?: {  name?: string | undefined;
+  id?: string | undefined;
+  email?: string | undefined;};
+  Created_Time?: string | undefined;
+  Modified_Time?: string | undefined;
+  Usage_Unit?: string | undefined;
+  Tax?: string[] | undefined;
+  Reorder_Level?: number | undefined;
+  "$currency_symbol"?: string | undefined;
+  "$editable"?: boolean | undefined;
+  "$taxable"?: boolean | undefined;
+};
+
+export interface ActionInput_zoho_crm_gettask {
+  /**
+   * The unique ID of the task to retrieve. Example: "4150868000002738003"
+   */
+  id: string;
+};
+
+export interface ActionOutput_zoho_crm_gettask {
+  /**
+   * Unique ID of the task
+   */
+  id: string;
+  /**
+   * Subject/title of the task
+   */
+  subject: string;
+  /**
+   * Due date of the task
+   */
+  dueDate?: string | undefined;
+  /**
+   * Status of the task
+   */
+  status?: string | undefined;
+  /**
+   * Priority of the task
+   */
+  priority?: string | undefined;
+  /**
+   * Description of the task
+   */
+  description?: string | undefined;
+  owner?: {  name: string;
+  id: string;
+  email?: string | undefined;};
+  /**
+   * When the task was created
+   */
+  createdTime: string;
+  /**
+   * When the task was last modified
+   */
+  modifiedTime: string;
+  createdBy?: {  name: string;
+  id: string;
+  email?: string | undefined;};
+  modifiedBy?: {  name: string;
+  id: string;
+  email?: string | undefined;};
+  /**
+   * Module the task is related to
+   */
+  relatedModule?: string | undefined;
+  /**
+   * ID of related account/deal
+   */
+  relatedAccountId?: string | undefined;
+  /**
+   * ID of related contact/lead
+   */
+  relatedContactId?: string | undefined;
+  /**
+   * When the task was completed
+   */
+  closedTime?: string | undefined;
+  /**
+   * Reminder datetime
+   */
+  reminder?: string | undefined;
+};
+
+export interface ActionInput_zoho_crm_getuser {
+  /**
+   * The unique ID of the user to retrieve. Example: "4150868000000225013"
+   */
+  user_id: string;
+};
+
+export interface ActionOutput_zoho_crm_getuser {
+  id: string;
+  first_name?: string | undefined;
+  last_name?: string | undefined;
+  full_name?: string | undefined;
+  email?: string | undefined;
+  status?: string | undefined;
+  role?: {  name?: string | undefined;
+  id?: string | undefined;};
+  profile?: {  name?: string | undefined;
+  id?: string | undefined;};
+  phone?: string | undefined;
+  mobile?: string | undefined;
+  fax?: string | undefined;
+  street?: string | undefined;
+  city?: string | undefined;
+  state?: string | undefined;
+  zip?: string | undefined;
+  country?: string | undefined;
+  country_locale?: string | undefined;
+  website?: string | undefined;
+  time_zone?: string | undefined;
+  language?: string | undefined;
+  locale?: string | undefined;
+  date_format?: string | undefined;
+  time_format?: string | undefined;
+  decimal_separator?: string | undefined;
+  currency?: string | undefined;
+  alias?: string | undefined;
+  signature?: string | undefined;
+  name_format?: string | undefined;
+  zuid?: string | undefined;
+  confirm?: boolean | undefined;
+  microsoft?: boolean | undefined;
+  personal_account?: boolean | undefined;
+  is_online?: boolean | undefined;
+  dob?: string | undefined;
+  created_time?: string | undefined;
+  modified_time?: string | undefined;
+  created_by?: {  name?: string | undefined;
+  id?: string | undefined;};
+  modified_by?: {  name?: string | undefined;
+  id?: string | undefined;};
+  reporting_to?: {  name?: string | undefined;
+  id?: string | undefined;};
+  territories?: ({  manager?: boolean | undefined;
+  name?: string | undefined;
+  id?: string | undefined;})[];
+  theme?: {  normal_tab?: {  font_color?: string | undefined;
+  background?: string | undefined;};
+  selected_tab?: {  font_color?: string | undefined;
+  background?: string | undefined;};
+  new_background?: string | undefined;
+  background?: string | undefined;
+  screen?: string | undefined;
+  type?: string | undefined;};
+  customize_info?: {  notes_desc?: string | undefined;
+  show_right_panel?: boolean | undefined;
+  bc_view?: boolean | undefined;
+  show_home?: boolean | undefined;
+  show_detail_view?: boolean | undefined;
+  unpin_recent_item?: boolean | undefined;};
+  offset?: number | undefined;
+};
+
+export interface ActionInput_zoho_crm_listaccounts {
+  /**
+   * Pagination cursor (page number) from the previous response. Omit for the first page.
+   */
+  cursor?: string | undefined;
+  /**
+   * Number of records to fetch per page. Default is 200. Maximum is 200.
+   */
+  per_page?: number | undefined;
+  /**
+   * Field name to sort by. Example: "Account_Name"
+   */
+  sort_by?: string | undefined;
+  /**
+   * Sort order. Use "asc" for ascending or "desc" for descending.
+   */
+  sort_order?: 'asc' | 'desc' | undefined;
+  /**
+   * Comma-separated list of field API names to include in the response. Maximum 50 fields.
+   */
+  fields?: string | undefined;
+};
+
+export interface ActionOutput_zoho_crm_listaccounts {
+  items: ({})[];
+  next_cursor?: string | undefined;
+};
+
+export interface ActionInput_zoho_crm_listcalls {
+  /**
+   * Page number for pagination. Starts at 1.
+   */
+  page?: number | undefined;
+  /**
+   * Number of records per page. Max 200.
+   */
+  per_page?: number | undefined;
+  /**
+   * Comma-separated field API names to retrieve specific fields.
+   */
+  fields?: string | undefined;
+  /**
+   * Field API name to sort by.
+   */
+  sort_by?: string | undefined;
+  /**
+   * Sort order: asc or desc.
+   */
+  sort_order?: 'asc' | 'desc' | undefined;
+  /**
+   * Comma-separated record IDs to fetch specific records.
+   */
+  ids?: string | undefined;
+  /**
+   * Custom View ID to filter records.
+   */
+  cvid?: string | undefined;
+};
+
+export interface ActionOutput_zoho_crm_listcalls {
+  calls: ({  id: string;
+  subject?: string | undefined;
+  callType?: string | undefined;
+  callPurpose?: string | undefined;
+  callDuration?: string | undefined;
+  callDurationInSeconds?: number | undefined;
+  description?: string | undefined;
+  billable?: boolean | undefined;
+  callStartTime?: string | undefined;
+  callEndTime?: string | undefined;
+  callStatus?: string | undefined;
+  outgoingCallStatus?: string | undefined;
+  scheduledIn?: string | undefined;
+  createdTime?: string | undefined;
+  modifiedTime?: string | undefined;
+  owner?: {  name?: string | undefined;
+  id?: string | undefined;
+  email?: string | undefined;};
+  createdBy?: {  name?: string | undefined;
+  id?: string | undefined;
+  email?: string | undefined;};
+  modifiedBy?: {  name?: string | undefined;
+  id?: string | undefined;
+  email?: string | undefined;};
+  editable?: boolean | undefined;
+  approved?: boolean | undefined;})[];
+  page: number;
+  perPage: number;
+  count: number;
+  hasMore: boolean;
+};
+
+export interface ActionInput_zoho_crm_listcontacts {
+  /**
+   * Page number for pagination. Default is 1.
+   */
+  page?: number | undefined;
+  /**
+   * Number of records per page. Default is 200, maximum is 200.
+   */
+  per_page?: number | undefined;
+  /**
+   * Field name to sort by. Example: "Last_Name"
+   */
+  sort_by?: string | undefined;
+  /**
+   * Sort order. Default is "desc".
+   */
+  sort_order?: 'asc' | 'desc' | undefined;
+  /**
+   * Comma-separated field API names to retrieve. Example: "Last_Name,Email,Phone"
+   */
+  fields?: string | undefined;
+  /**
+   * Comma-separated contact IDs to retrieve specific records.
+   */
+  ids?: string | undefined;
+  /**
+   * Filter by converted status.
+   */
+  converted?: 'true' | 'false' | 'both' | undefined;
+  /**
+   * Filter by approval status.
+   */
+  approved?: 'true' | 'false' | 'both' | undefined;
+  /**
+   * Custom view ID to filter records.
+   */
+  cvid?: string | undefined;
+  /**
+   * Territory ID to filter records.
+   */
+  territory_id?: string | undefined;
+};
+
+export interface ActionOutput_zoho_crm_listcontacts {
+  contacts: ({  id: string;
+  owner_id?: string | undefined;
+  owner_name?: string | undefined;
+  owner_email?: string | undefined;
+  email?: string | undefined;
+  first_name?: string | undefined;
+  last_name: string;
+  full_name?: string | undefined;
+  phone?: string | undefined;
+  mobile?: string | undefined;
+  title?: string | undefined;
+  department?: string | undefined;
+  created_time?: string | undefined;
+  modified_time?: string | undefined;
+  created_by_id?: string | undefined;
+  created_by_name?: string | undefined;
+  modified_by_id?: string | undefined;
+  modified_by_name?: string | undefined;
+  account_id?: string | undefined;
+  account_name?: string | undefined;
+  description?: string | undefined;
+  secondary_email?: string | undefined;
+  skype_id?: string | undefined;
+  twitter?: string | undefined;
+  mailing_street?: string | undefined;
+  mailing_city?: string | undefined;
+  mailing_state?: string | undefined;
+  mailing_zip?: string | undefined;
+  mailing_country?: string | undefined;
+  email_opt_out?: boolean | undefined;})[];
+  page: number;
+  per_page: number;
+  count: number;
+  has_more: boolean;
+  /**
+   * Total number of contacts fetched in this request
+   */
+  total_fetched: number;
+};
+
+export interface ActionInput_zoho_crm_listdeals {
+  /**
+   * Page number for pagination. Default is 1.
+   */
+  page?: number | undefined;
+  /**
+   * Number of records per page. Default is 200, max is 200.
+   */
+  per_page?: number | undefined;
+  /**
+   * Field to sort by. Default is "id".
+   */
+  sort_by?: string | undefined;
+  /**
+   * Sort order: asc or desc. Default is desc.
+   */
+  sort_order?: 'asc' | 'desc' | undefined;
+};
+
+export interface ActionOutput_zoho_crm_listdeals {
+  deals: ({  id: string;
+  Deal_Name?: string | undefined;
+  Amount?: number | undefined;
+  Stage?: string | undefined;
+  Probability?: number | undefined;
+  Closing_Date?: string | undefined;
+  Owner?: {  name: string;
+  id: string;
+  email?: string | undefined;};
+  Account_Name?: {  name: string;
+  id: string;} | undefined;
+  Contact_Name?: {  name: string;
+  id: string;} | undefined;
+  Campaign_Source?: {  name: string;
+  id: string;} | undefined;
+  Type?: string | undefined;
+  Lead_Source?: string | undefined;
+  Description?: string | undefined;
+  Next_Step?: string | undefined;
+  Created_Time?: string | undefined;
+  Modified_Time?: string | undefined;
+  Created_By?: {  name: string;
+  id: string;
+  email?: string | undefined;};
+  Modified_By?: {  name: string;
+  id: string;
+  email?: string | undefined;};
+  Layout?: {  name: string;
+  id: string;} | undefined;
+  Tag?: ({  name: string;
+  id: string;})[] | undefined;})[];
+  info: {  per_page: number;
+  count: number;
+  page: number;
+  more_records: boolean;
+  sort_by?: string | undefined;
+  sort_order?: string | undefined;};
+};
+
+export interface ActionInput_zoho_crm_listevents {
+  /**
+   * Pagination cursor in the format "page:per_page". Omit for the first page.
+   */
+  cursor?: string | undefined;
+  /**
+   * Number of records per page. Default is 200, maximum is 200.
+   */
+  per_page?: number | undefined;
+  /**
+   * Field API name to sort by. Default is "id".
+   */
+  sort_by?: string | undefined;
+  /**
+   * Sort order: "asc" or "desc". Default is "desc".
+   */
+  sort_order?: 'asc' | 'desc' | undefined;
+  /**
+   * Comma-separated field API names to retrieve specific fields.
+   */
+  fields?: string | undefined;
+  /**
+   * Comma-separated record IDs to retrieve specific events.
+   */
+  ids?: string | undefined;
+  /**
+   * Custom view ID to filter records.
+   */
+  cvid?: string | undefined;
+};
+
+export interface ActionOutput_zoho_crm_listevents {
+  events: ({  id: string;
+  title?: string | undefined;
+  start_datetime?: string | undefined;
+  end_datetime?: string | undefined;
+  all_day?: boolean | undefined;
+  owner?: {  name: string;
+  id: string;
+  email?: string | undefined;};
+  venue?: string | undefined;
+  description?: string | undefined;
+  created_time?: string | undefined;
+  modified_time?: string | undefined;
+  created_by?: {  name: string;
+  id: string;
+  email?: string | undefined;};
+  modified_by?: {  name: string;
+  id: string;
+  email?: string | undefined;};
+  what_id?: {  name: string;
+  id: string;} | undefined;
+  editable?: boolean | undefined;
+  tags?: ({  name: string;
+  id: string;})[] | undefined;})[];
+  next_cursor?: string | undefined;
+  has_more: boolean;
+  total_count: number;
+};
+
+export interface ActionInput_zoho_crm_listleads {
+  /**
+   * Pagination cursor (page number). Omit for the first page.
+   */
+  cursor?: string | undefined;
+  /**
+   * Number of records per page. Maximum 200.
+   */
+  per_page?: number | undefined;
+  /**
+   * Comma-separated list of field API names to retrieve.
+   */
+  fields?: string | undefined;
+  /**
+   * Field to sort by.
+   */
+  sort_by?: string | undefined;
+  /**
+   * Sort order: asc or desc. Default is desc.
+   */
+  sort_order?: 'asc' | 'desc' | undefined;
+  /**
+   * Filter by converted status.
+   */
+  converted?: 'true' | 'false' | 'both' | undefined;
+  /**
+   * Filter by approved status.
+   */
+  approved?: 'true' | 'false' | 'both' | undefined;
+};
+
+export interface ActionOutput_zoho_crm_listleads {
+  leads: ({  id: string;
+  Owner?: {  name: string;
+  id: string;
+  email: string;} | undefined;
+  Company?: string | undefined;
+  Email?: string | undefined;
+  First_Name?: string | undefined;
+  Last_Name: string;
+  Full_Name?: string | undefined;
+  Phone?: string | undefined;
+  Mobile?: string | undefined;
+  Website?: string | undefined;
+  Lead_Status?: string | undefined;
+  Lead_Source?: string | undefined;
+  Industry?: string | undefined;
+  Annual_Revenue?: number | undefined;
+  No_of_Employees?: number | undefined;
+  Rating?: string | undefined;
+  Created_Time?: string | undefined;
+  Modified_Time?: string | undefined;
+  Created_By?: {  name: string;
+  id: string;
+  email: string;} | undefined;
+  Modified_By?: {  name: string;
+  id: string;
+  email: string;} | undefined;
+  Street?: string | undefined;
+  City?: string | undefined;
+  State?: string | undefined;
+  Zip_Code?: string | undefined;
+  Country?: string | undefined;
+  Description?: string | undefined;
+  Skype_ID?: string | undefined;
+  Twitter?: string | undefined;
+  Secondary_Email?: string | undefined;
+  Designation?: string | undefined;
+  Email_Opt_Out?: boolean | undefined;
+  "$converted"?: boolean | undefined;
+  "$approved"?: boolean | undefined;
+  Tag?: ({  name: string;
+  id: string;})[] | undefined;})[];
+  next_cursor?: string | undefined;
+  has_more: boolean;
+  total_count: number;
+};
+
+export interface ActionInput_zoho_crm_listnotes {
+  /**
+   * Page number for pagination. Default is 1.
+   */
+  page?: number | undefined;
+  /**
+   * Number of records per page. Default is 200, maximum is 200.
+   */
+  per_page?: number | undefined;
+  /**
+   * Comma-separated list of field API names to retrieve. Example: "id,Note_Title,Note_Content,Created_Time"
+   */
+  fields?: string | undefined;
+};
+
+export interface ActionOutput_zoho_crm_listnotes {
+  notes: ({  id: string;
+  title?: string | undefined;
+  content?: string | undefined;
+  owner_name?: string | undefined;
+  owner_id?: string | undefined;
+  owner_email?: string | undefined;
+  created_time?: string | undefined;
+  modified_time?: string | undefined;
+  parent_module?: string | undefined;
+  parent_record_name?: string | undefined;
+  parent_record_id?: string | undefined;})[];
+  pagination: {  page: number;
+  per_page: number;
+  count: number;
+  has_more: boolean;};
+};
+
+export interface ActionInput_zoho_crm_listproducts {
+  /**
+   * Pagination cursor from the previous response. Format: page number. Omit for the first page.
+   */
+  cursor?: string | undefined;
+  /**
+   * Number of records per page. Default: 200, Max: 200.
+   */
+  per_page?: number | undefined;
+};
+
+export interface ActionOutput_zoho_crm_listproducts {
+  items: ({  id: string;
+  Product_Name?: string | undefined;
+  Product_Code?: string | undefined;
+  Product_Category?: string | undefined;
+  Product_Active?: boolean | undefined;
+  Manufacturer?: string | undefined;
+  Description?: string | undefined;
+  Unit_Price?: number | undefined;
+  Usage_Unit?: string | undefined;
+  Qty_Ordered?: number | undefined;
+  Qty_in_Stock?: number | undefined;
+  Qty_in_Demand?: number | undefined;
+  Sales_Start_Date?: string | undefined;
+  Sales_End_Date?: string | undefined;
+  Support_Expiry_Date?: string | undefined;
+  Support_Start_Date?: string | undefined;
+  Owner?: {  name?: string | undefined;
+  id?: string | undefined;
+  email?: string | undefined;};
+  Vendor_Name?: {  name?: string | undefined;
+  id?: string | undefined;};
+  "$currency_symbol"?: string | undefined;})[];
+  next_cursor?: string | undefined;
+};
+
+export interface ActionInput_zoho_crm_listtasks {
+  /**
+   * Pagination cursor (page number). Example: "2"
+   */
+  cursor?: string | undefined;
+  /**
+   * Number of records per page. Default: 200. Max: 200.
+   */
+  per_page?: number | undefined;
+  /**
+   * Field API name to sort by. Example: "Due_Date"
+   */
+  sort_by?: string | undefined;
+  /**
+   * Sort order. Possible values: asc, desc. Default: desc.
+   */
+  sort_order?: 'asc' | 'desc' | undefined;
+  /**
+   * Filter by task status.
+   */
+  status?: 'Not Started' | 'Deferred' | 'In Progress' | 'Completed' | 'Waiting on someone else' | undefined;
+};
+
+export interface ActionOutput_zoho_crm_listtasks {
+  items: ({  id: string;
+  Subject: string;
+  Status?: string | undefined;
+  Priority?: string | undefined;
+  Due_Date?: string | undefined;
+  Description?: string | undefined;
+  Owner?: {  name?: string | undefined;
+  id: string;
+  email?: string | undefined;};
+  Who_Id?: {  name?: string | undefined;
+  id: string;};
+  What_Id?: {  name?: string | undefined;
+  id: string;};
+  Created_Time?: string | undefined;
+  Modified_Time?: string | undefined;
+  Created_By?: {  name?: string | undefined;
+  id: string;
+  email?: string | undefined;};
+  Modified_By?: {  name?: string | undefined;
+  id: string;
+  email?: string | undefined;};
+  Closed_Time?: string | undefined;
+  Remind_At?: unknown | undefined;
+  Recurring_Activity?: unknown | undefined;
+  Send_Notification_Email?: boolean | undefined;
+  Tag?: ({  name: string;
+  id: string;})[] | undefined;})[];
+  next_cursor?: string | undefined;
+};
+
+export interface ActionInput_zoho_crm_listusers {
+  /**
+   * Type of users to retrieve. Example: "ActiveUsers"
+   */
+  type?: 'AllUsers' | 'ActiveUsers' | 'DeactiveUsers' | 'ConfirmedUsers' | 'NotConfirmedUsers' | 'DeletedUsers' | 'ActiveConfirmedUsers' | 'AdminUsers' | 'ActiveConfirmedAdmins' | 'CurrentUser' | undefined;
+  /**
+   * Pagination page number from the previous response. Omit for the first page.
+   */
+  cursor?: string | undefined;
+  /**
+   * Number of records per page. Default and max is 200.
+   */
+  per_page?: number | undefined;
+  /**
+   * Comma-separated list of user IDs to filter by. Max 100 IDs.
+   */
+  ids?: string | undefined;
+};
+
+export interface ActionOutput_zoho_crm_listusers {
+  users: ({  id: string;
+  email?: string | undefined;
+  first_name?: string | undefined;
+  last_name?: string | undefined;
+  full_name?: string | undefined;
+  role?: {  name: string;
+  id: string;} | undefined;
+  profile?: {  name: string;
+  id: string;} | undefined;
+  status?: string | undefined;
+  confirm?: boolean | undefined;
+  zuid?: string | undefined;
+  time_zone?: string | undefined;
+  locale?: string | undefined;
+  language?: string | undefined;
+  mobile?: string | undefined;
+  phone?: string | undefined;
+  fax?: string | undefined;
+  street?: string | undefined;
+  city?: string | undefined;
+  state?: string | undefined;
+  country?: string | undefined;
+  zip?: string | undefined;
+  country_locale?: string | undefined;
+  website?: string | undefined;
+  dob?: string | undefined;
+  signature?: string | undefined;
+  created_time?: string | undefined;
+  modified_time?: string | undefined;
+  reporting_to?: {  name: string;
+  id: string;} | undefined;
+  created_by?: {  name: string;
+  id: string;} | undefined;
+  modified_by?: {  name: string;
+  id: string;} | undefined;
+  currency?: string | undefined;
+  alias?: string | undefined;
+  time_format?: string | undefined;
+  date_format?: string | undefined;
+  offset?: number | undefined;
+  is_online?: boolean | undefined;
+  microsoft?: boolean | undefined;
+  personal_account?: boolean | undefined;})[];
+  next_cursor?: string | undefined;
+  per_page?: number | undefined;
+  count?: number | undefined;
+  page?: number | undefined;
+  more_records?: boolean | undefined;
+};
+
+export interface ActionInput_zoho_crm_searchrecords {
+  /**
+   * The API name of the module to search. Example: "Leads", "Contacts", "Accounts"
+   */
+  module_api_name: string;
+  /**
+   * Search criteria in the format (field_name:operation:search_value). Example: "(Last_Name:equals:Smith)"
+   */
+  criteria?: string | undefined;
+  /**
+   * Email address to search for. Example: "john@example.com"
+   */
+  email?: string | undefined;
+  /**
+   * Phone number to search for. Example: "555-1234"
+   */
+  phone?: string | undefined;
+  /**
+   * Search for records containing this word across fields. Example: "Acme"
+   */
+  word?: string | undefined;
+  /**
+   * Offset for pagination. Example: 0
+   */
+  offset?: number | undefined;
+  /**
+   * Number of records per page (max 200). Example: 20
+   */
+  per_page?: number | undefined;
+};
+
+export interface ActionOutput_zoho_crm_searchrecords {
+  /**
+   * Array of matching records
+   */
+  data: ({  id: string;
+  created_by?: unknown | undefined;
+  modified_by?: unknown | undefined;
+  owner?: unknown | undefined;
+  created_time?: string | undefined;
+  modified_time?: string | undefined;})[];
+  /**
+   * Pagination and result metadata
+   */
+  info?: {  per_page?: number | undefined;
+  count?: number | undefined;
+  page?: number | undefined;
+  more_records?: boolean | undefined;};
+  /**
+   * The module that was searched
+   */
+  module_api_name: string;
+};
+
+export interface ActionInput_zoho_crm_updateaccount {
+  /**
+   * The unique ID of the account to update. Example: "1234567890123456789"
+   */
+  id: string;
+  /**
+   * The name of the account.
+   */
+  Account_Name?: string | undefined;
+  /**
+   * The phone number of the account.
+   */
+  Phone?: string | undefined;
+  /**
+   * The website URL of the account.
+   */
+  Website?: string | undefined;
+  /**
+   * The industry type of the account.
+   */
+  Industry?: string | undefined;
+  /**
+   * The billing street address.
+   */
+  Billing_Street?: string | undefined;
+  /**
+   * The billing city.
+   */
+  Billing_City?: string | undefined;
+  /**
+   * The billing state.
+   */
+  Billing_State?: string | undefined;
+  /**
+   * The billing country.
+   */
+  Billing_Country?: string | undefined;
+  /**
+   * The billing postal/ZIP code.
+   */
+  Billing_Code?: string | undefined;
+  /**
+   * The shipping street address.
+   */
+  Shipping_Street?: string | undefined;
+  /**
+   * The shipping city.
+   */
+  Shipping_City?: string | undefined;
+  /**
+   * The shipping state.
+   */
+  Shipping_State?: string | undefined;
+  /**
+   * The shipping country.
+   */
+  Shipping_Country?: string | undefined;
+  /**
+   * The shipping postal/ZIP code.
+   */
+  Shipping_Code?: string | undefined;
+  /**
+   * Number of employees.
+   */
+  Employees?: number | undefined;
+  /**
+   * Annual revenue of the account.
+   */
+  Annual_Revenue?: number | undefined;
+  /**
+   * Description of the account.
+   */
+  Description?: string | undefined;
+  /**
+   * Triggers to execute (approval, workflow, blueprint).
+   */
+  trigger?: ({  0: 'approval';
+  1: 'workflow';
+  2: 'blueprint';})[] | undefined;
+};
+
+export interface ActionOutput_zoho_crm_updateaccount {
+  id: string;
+};
+
+export interface ActionInput_zoho_crm_updatecall {
+  /**
+   * Unique ID of the call to update. Example: "4150868000002792048"
+   */
+  id: string;
+  /**
+   * Subject of the call. Example: "Outgoing call to Patricia Boyle"
+   */
+  Subject?: string | undefined;
+  /**
+   * Whether the call is inbound or outbound
+   */
+  Call_Type?: 'Inbound' | 'Outbound' | undefined;
+  /**
+   * Purpose of the call. Example: "Prospecting"
+   */
+  Call_Purpose?: string | undefined;
+  /**
+   * Status of the call. Example: "Attended Dialled"
+   */
+  Call_Status?: string | undefined;
+  /**
+   * Duration of the call in mm:ss format. Example: "10:00"
+   */
+  Call_Duration?: string | undefined;
+  /**
+   * Result of the call. Example: "Not interested"
+   */
+  Call_Result?: string | undefined;
+  /**
+   * Description of the call
+   */
+  Description?: string | undefined;
+  /**
+   * Start date and time of the call in ISO format. Example: "2020-08-02T21:30:00+05:30"
+   */
+  Call_Start_Time?: string | undefined;
+  /**
+   * ID of the Contact or Lead associated with the call
+   */
+  Who_Id?: string | undefined;
+  /**
+   * ID of the Account associated with the call
+   */
+  What_Id?: string | undefined;
+};
+
+export interface ActionOutput_zoho_crm_updatecall {
+  id: string;
+  Subject?: string | undefined;
+  Call_Type?: string | undefined;
+  Call_Purpose?: string | undefined;
+  Call_Status?: string | undefined;
+  Call_Duration?: string | undefined;
+  Call_Result?: string | undefined;
+  Description?: string | undefined;
+  Call_Start_Time?: string | undefined;
+  Owner?: {  name: string;
+  id: string;
+  email?: string | undefined;};
+  Who_Id?: {  name: string;
+  id: string;} | undefined;
+  What_Id?: {  name: string;
+  id: string;} | undefined;
+  Created_Time?: string | undefined;
+  Modified_Time?: string | undefined;
+};
+
+export interface ActionInput_zoho_crm_updatecontact {
+  /**
+   * The unique ID of the contact to update. Example: "3652397000003852095"
+   */
+  id: string;
+  /**
+   * Last name of the contact.
+   */
+  Last_Name?: string | undefined;
+  /**
+   * First name of the contact.
+   */
+  First_Name?: string | undefined;
+  /**
+   * Email address of the contact.
+   */
+  Email?: string | undefined;
+  /**
+   * Phone number of the contact.
+   */
+  Phone?: string | undefined;
+  /**
+   * Mobile number of the contact.
+   */
+  Mobile?: string | undefined;
+  /**
+   * Job title of the contact.
+   */
+  Title?: string | undefined;
+  /**
+   * Company name associated with the contact.
+   */
+  Company?: string | undefined;
+  /**
+   * Department of the contact.
+   */
+  Department?: string | undefined;
+  /**
+   * Fax number of the contact.
+   */
+  Fax?: string | undefined;
+  /**
+   * Website URL of the contact.
+   */
+  Website?: string | undefined;
+  /**
+   * Description or notes about the contact.
+   */
+  Description?: string | undefined;
+  /**
+   * Street address of the contact.
+   */
+  Street?: string | undefined;
+  /**
+   * City of the contact.
+   */
+  City?: string | undefined;
+  /**
+   * State of the contact.
+   */
+  State?: string | undefined;
+  /**
+   * Country of the contact.
+   */
+  Country?: string | undefined;
+  /**
+   * ZIP/Postal code of the contact.
+   */
+  Zip_Code?: string | undefined;
+};
+
+export interface ActionOutput_zoho_crm_updatecontact {
+  id: string;
+  lastName?: string | undefined;
+  firstName?: string | undefined;
+  email?: string | undefined;
+  phone?: string | undefined;
+  mobile?: string | undefined;
+  title?: string | undefined;
+  company?: string | undefined;
+  department?: string | undefined;
+  fax?: string | undefined;
+  website?: string | undefined;
+  description?: string | undefined;
+  street?: string | undefined;
+  city?: string | undefined;
+  state?: string | undefined;
+  country?: string | undefined;
+  zipCode?: string | undefined;
+};
+
+export interface ActionInput_zoho_crm_updatedeal {
+  /**
+   * The ID of the deal to update. Example: "7328395000000698002"
+   */
+  record_id: string;
+  /**
+   * Name of the deal.
+   */
+  deal_name?: string | undefined;
+  /**
+   * Sales stage of the deal. Example: "Closed Won"
+   */
+  stage?: string | undefined;
+  /**
+   * Deal amount value.
+   */
+  amount?: number | undefined;
+  /**
+   * Expected closing date of the deal. Format: YYYY-MM-DD
+   */
+  closing_date?: string | undefined;
+  /**
+   * ID of the account associated with the deal.
+   */
+  account_id?: string | undefined;
+  /**
+   * ID of the contact associated with the deal.
+   */
+  contact_id?: string | undefined;
+  /**
+   * ID of the campaign associated with the deal.
+   */
+  campaign_id?: string | undefined;
+  /**
+   * Source of the lead.
+   */
+  lead_source?: string | undefined;
+  /**
+   * Probability of deal closure (percentage).
+   */
+  probability?: number | undefined;
+  /**
+   * Next step to proceed with the deal.
+   */
+  next_step?: string | undefined;
+  /**
+   * Description of the deal. Use null to clear.
+   */
+  description?: string | undefined;
+};
+
+export interface ActionOutput_zoho_crm_updatedeal {
+  success: boolean;
+  deal_id: string;
+  message: string;
+  modified_time?: string | undefined;
+};
+
+export interface ActionInput_zoho_crm_updateevent {
+  /**
+   * The unique ID of the event to update. Example: "5545974000002858122"
+   */
+  record_id: string;
+  /**
+   * The title of the event. Example: "Team Meeting"
+   */
+  Event_Title?: string | undefined;
+  /**
+   * The start date and time of the event in ISO8601 format. Example: "2023-05-20T09:00:00+05:30"
+   */
+  Start_DateTime?: string | undefined;
+  /**
+   * The end date and time of the event in ISO8601 format. Example: "2023-05-20T10:00:00+05:30"
+   */
+  End_DateTime?: string | undefined;
+  /**
+   * Whether the event is an all-day event
+   */
+  All_day?: boolean | undefined;
+  /**
+   * Description of the event
+   */
+  Description?: string | undefined;
+  /**
+   * Location of the event
+   */
+  Venue?: string | undefined;
+  /**
+   * Array of participants for the event
+   */
+  Participants?: ({  participant: string;
+  type: 'contact' | 'lead' | 'user' | 'email';
+  name?: string | undefined;
+  Email?: string | undefined;})[];
+  /**
+   * Reminder settings for the event
+   */
+  Remind_At?: ({  unit: number;
+  period: 'minutes' | 'hours' | 'days';
+  time?: string | undefined;})[];
+  /**
+   * Recurring activity settings
+   */
+  Recurring_Activity?: {  /**
+   * Recurrence rule in iCalendar format. Example: "FREQ=DAILY;INTERVAL=1;UNTIL=2023-12-31"
+   */
+  RRULE: string;} | undefined;
+  /**
+   * Triggers to execute during update
+   */
+  trigger?: ({  0: 'approval';
+  1: 'workflow';
+  2: 'blueprint';})[] | undefined;
+};
+
+export interface ActionOutput_zoho_crm_updateevent {
+  /**
+   * The ID of the updated event
+   */
+  id: string;
+  /**
+   * Status message from the API
+   */
+  message: string;
+  /**
+   * Status of the update operation
+   */
+  status: string;
+  /**
+   * The time when the event was modified
+   */
+  Modified_Time?: string | undefined;
+  /**
+   * The time when the event was created
+   */
+  Created_Time?: string | undefined;
+};
+
+export interface ActionInput_zoho_crm_updatelead {
+  /**
+   * The unique ID of the lead record to update. Example: "410888000000698006"
+   */
+  record_id: string;
+  /**
+   * Company name of the lead.
+   */
+  Company?: string | undefined;
+  /**
+   * Last name of the lead.
+   */
+  Last_Name?: string | undefined;
+  /**
+   * First name of the lead.
+   */
+  First_Name?: string | undefined;
+  /**
+   * Email address of the lead.
+   */
+  Email?: string | undefined;
+  /**
+   * Phone number of the lead.
+   */
+  Phone?: string | undefined;
+  /**
+   * Mobile number of the lead.
+   */
+  Mobile?: string | undefined;
+  /**
+   * Job title of the lead.
+   */
+  Title?: string | undefined;
+  /**
+   * Department of the lead.
+   */
+  Department?: string | undefined;
+  /**
+   * Industry of the lead.
+   */
+  Industry?: string | undefined;
+  /**
+   * Website URL of the lead.
+   */
+  Website?: string | undefined;
+  /**
+   * City of the lead address.
+   */
+  City?: string | undefined;
+  /**
+   * State of the lead address.
+   */
+  State?: string | undefined;
+  /**
+   * Country of the lead address.
+   */
+  Country?: string | undefined;
+  /**
+   * Street address of the lead.
+   */
+  Street?: string | undefined;
+  /**
+   * ZIP/Postal code of the lead address.
+   */
+  Zip_Code?: string | undefined;
+  /**
+   * Status of the lead.
+   */
+  Lead_Status?: string | undefined;
+  /**
+   * Source of the lead.
+   */
+  Lead_Source?: string | undefined;
+  /**
+   * Rating of the lead.
+   */
+  Rating?: string | undefined;
+  /**
+   * Description or notes about the lead.
+   */
+  Description?: string | undefined;
+  /**
+   * Annual revenue of the company.
+   */
+  Annual_Revenue?: number | undefined;
+  /**
+   * Number of employees in the company.
+   */
+  No_of_Employees?: number | undefined;
+  /**
+   * Skype ID of the lead.
+   */
+  Skype_ID?: string | undefined;
+  /**
+   * Twitter handle of the lead.
+   */
+  Twitter?: string | undefined;
+  /**
+   * Secondary email of the lead.
+   */
+  Secondary_Email?: string | undefined;
+};
+
+export interface ActionOutput_zoho_crm_updatelead {
+  success: boolean;
+  record_id: string;
+  message: string;
+};
+
+export interface ActionInput_zoho_crm_updatenote {
+  /**
+   * The ID of the note to update. Example: "4150868000002975099"
+   */
+  id: string;
+  /**
+   * The updated title of the note. Example: "Contacted"
+   */
+  noteTitle?: string | undefined;
+  /**
+   * The updated content of the note. Example: "Tracking done. Happy with the customer"
+   */
+  noteContent?: string | undefined;
+};
+
+export interface ActionOutput_zoho_crm_updatenote {
+  /**
+   * The ID of the updated note
+   */
+  id: string;
+  /**
+   * The status of the update operation. Example: "success"
+   */
+  status: string;
+  /**
+   * A message describing the result. Example: "record updated"
+   */
+  message: string;
+  /**
+   * The timestamp when the note was last modified
+   */
+  modifiedTime?: string | undefined;
+  /**
+   * The timestamp when the note was created
+   */
+  createdTime?: string | undefined;
+};
+
+export interface ActionInput_zoho_crm_updateproduct {
+  /**
+   * The unique ID of the product to update. Example: "4150868000002795025"
+   */
+  id: string;
+  /**
+   * Name of the product
+   */
+  Product_Name?: string | undefined;
+  /**
+   * Product identification code
+   */
+  Product_Code?: string | undefined;
+  /**
+   * Category of the product
+   */
+  Product_Category?: string | undefined;
+  /**
+   * Description of the product
+   */
+  Description?: string | undefined;
+  /**
+   * Name of the product manufacturer
+   */
+  Manufacturer?: string | undefined;
+  /**
+   * Price of each unit of the product
+   */
+  Unit_Price?: number | undefined;
+  /**
+   * Usage unit such as dozen, each, box, etc
+   */
+  Usage_Unit?: string | undefined;
+  /**
+   * Number of product units in stock
+   */
+  Qty_in_Stock?: number | undefined;
+  /**
+   * Number of product units ordered
+   */
+  Qty_Ordered?: number | undefined;
+  /**
+   * Quantity in demand
+   */
+  Qty_in_Demand?: number | undefined;
+  /**
+   * Reorder value
+   */
+  Reorder_Level?: number | undefined;
+  /**
+   * Commission rate for selling the product
+   */
+  Commission_Rate?: number | undefined;
+  /**
+   * Whether the product is active
+   */
+  Product_Active?: boolean | undefined;
+  /**
+   * Whether the product is taxable
+   */
+  Taxable?: boolean | undefined;
+  /**
+   * Date on which product sale starts (YYYY-MM-DD)
+   */
+  Sales_Start_Date?: string | undefined;
+  /**
+   * Date on which product sale ends (YYYY-MM-DD)
+   */
+  Sales_End_Date?: string | undefined;
+  /**
+   * Date on which product support starts (YYYY-MM-DD)
+   */
+  Support_Start_Date?: string | undefined;
+  /**
+   * Date on which product support ends (YYYY-MM-DD)
+   */
+  Support_Expiry_Date?: string | undefined;
+  /**
+   * Vendor information with id
+   */
+  Vendor_Name?: {  id: string;} | undefined;
+  /**
+   * Owner information with id
+   */
+  Owner?: {  id: string;} | undefined;
+};
+
+export interface ActionOutput_zoho_crm_updateproduct {
+  /**
+   * The ID of the updated product
+   */
+  id: string;
+  /**
+   * Whether the update was successful
+   */
+  success: boolean;
+  /**
+   * Status message from the API
+   */
+  message?: string | undefined;
+};
+
+export interface ActionInput_zoho_crm_updatetask {
+  /**
+   * The unique ID of the task to update. Example: "5472636000003123001"
+   */
+  id: string;
+  /**
+   * The subject/title of the task. Example: "Follow up with lead"
+   */
+  subject?: string | undefined;
+  /**
+   * The status of the task. Example: "Not Started", "In Progress", "Completed"
+   */
+  status?: string | undefined;
+  /**
+   * The priority of the task. Example: "High", "Medium", "Low"
+   */
+  priority?: string | undefined;
+  /**
+   * The due date of the task in ISO 8601 format. Example: "2026-05-15"
+   */
+  due_date?: string | undefined;
+  /**
+   * The description of the task. Use null to clear.
+   */
+  description?: string | undefined;
+  /**
+   * The Contact ID to associate with this task (Who_Id). Example: "5472636000003123002"
+   */
+  who_id?: string | undefined;
+  /**
+   * The related record ID to associate with this task (What_Id). Example: "5472636000003123003"
+   */
+  what_id?: string | undefined;
+  /**
+   * The module name of the related record. Required when what_id is provided. Example: "Leads", "Accounts", "Deals"
+   */
+  se_module?: string | undefined;
+};
+
+export interface ActionOutput_zoho_crm_updatetask {
+  id: string;
+  success: boolean;
+  message?: string | undefined;
+};
+
+export interface ActionInput_zoho_crm_upsertrecords {
+  /**
+   * Zoho CRM module API name. Examples: "Leads", "Contacts", "Accounts", "Deals", "Tasks"
+   */
+  module: string;
+  /**
+   * Array of records to upsert. Each record should contain field values.
+   */
+  records: ({  [key: string]: unknown | undefined;})[];
+  /**
+   * Fields to use for duplicate checking during upsert. Examples: ["Email"], ["Last_Name", "Company"]
+   */
+  duplicateCheckFields?: string[] | undefined;
+};
+
+export interface ActionOutput_zoho_crm_upsertrecords {
+  records: ({  code: string;
+  details?: {  [key: string]: unknown | undefined;};
+  message: string;
+  status: string;})[];
+  /**
+   * Total number of records processed
+   */
+  totalCount: number;
 };
 
 export interface ZohoMailEmail {
@@ -40943,119 +50121,1059 @@ export interface ActionOutput_zoho_mail_sendemail {
 
 export interface Meeting {
   id: string;
-  topic: string;
-  startTime: string;
-  duration: number;
-  timezone: string;
-  joinUrl: string;
-  createdAt: string;
+  topic?: string | undefined;
+  start_time?: string | undefined;
+  duration?: number | undefined;
+  timezone?: string | undefined;
+  created_at?: string | undefined;
+  join_url?: string | undefined;
+  type?: number | undefined;
+  uuid?: string | undefined;
+  host_id?: string | undefined;
+  status?: string | undefined;
 };
 
-export interface SyncMetadata_zoom_meetings {
-};
-
-export interface RecordingFile {
+export interface Recording {
   id: string;
-  deletedTime?: string | undefined;
-  downloadUrl: string;
-  filePath?: string | undefined;
-  fileSize: number;
-  fileType: 'MP4' | 'M4A' | 'CHAT' | 'TRANSCRIPT' | 'CSV' | 'TB' | 'CC' | 'CHAT_MESSAGE' | 'SUMMARY' | 'TIMELINE';
-  fileExtension: 'MP4' | 'M4A' | 'TXT' | 'VTT' | 'CSV' | 'JSON' | 'JPG';
-  meetingId: string;
-  playUrl?: string | undefined;
-  recordingEnd: string;
-  recordingStart: string;
-  recordingType: 'shared_screen_with_speaker_view(CC)' | 'shared_screen_with_speaker_view' | 'shared_screen_with_gallery_view' | 'active_speaker' | 'gallery_view' | 'shared_screen' | 'audio_only' | 'audio_transcript' | 'chat_file' | 'poll' | 'host_video' | 'closed_caption' | 'timeline' | 'thumbnail' | 'audio_interpretation' | 'summary' | 'summary_next_steps' | 'summary_smart_chapters' | 'sign_interpretation' | 'production_studio';
-  status: 'completed';
-  autoDelete?: boolean | undefined;
-  autoDeleteDate?: string | undefined;
-  playPasscode: string;
+  uuid: string;
+  account_id?: string | undefined;
+  host_id?: string | undefined;
+  topic?: string | undefined;
+  type?: number | undefined;
+  start_time?: string | undefined;
+  duration?: number | undefined;
+  total_size?: number | undefined;
+  recording_count?: number | undefined;
+  share_url?: string | undefined;
 };
 
-export interface SyncMetadata_zoom_recordingfiles {
-  backfillPeriodDays: number;
+export interface Webinar {
+  id: string;
+  uuid?: string | undefined;
+  host_id?: string | undefined;
+  topic?: string | undefined;
+  agenda?: string | undefined;
+  type?: number | undefined;
+  duration?: number | undefined;
+  start_time?: string | undefined;
+  timezone?: string | undefined;
+  created_at?: string | undefined;
+  join_url?: string | undefined;
 };
 
-export interface SyncMetadata_zoom_users {
+export interface ActionInput_zoom_createmeetingregistrant {
+  /**
+   * The meeting ID or meeting number. Example: "85746065"
+   */
+  meeting_id: string;
+  /**
+   * Occurrence IDs. You can find these with the meeting get API. Multiple values separated by comma.
+   */
+  occurrence_ids?: string | undefined;
+  /**
+   * A valid email address of the registrant.
+   */
+  email: string;
+  /**
+   * The registrant's first name.
+   */
+  first_name: string;
+  /**
+   * The registrant's last name.
+   */
+  last_name?: string | undefined;
+  /**
+   * The registrant's address.
+   */
+  address?: string | undefined;
+  /**
+   * The registrant's city.
+   */
+  city?: string | undefined;
+  /**
+   * The registrant's country in two-letter abbreviated form.
+   */
+  country?: string | undefined;
+  /**
+   * The registrant's zip or postal code.
+   */
+  zip?: string | undefined;
+  /**
+   * The registrant's state or province.
+   */
+  state?: string | undefined;
+  /**
+   * The registrant's phone number.
+   */
+  phone?: string | undefined;
+  /**
+   * The registrant's industry.
+   */
+  industry?: string | undefined;
+  /**
+   * The registrant's organization.
+   */
+  org?: string | undefined;
+  /**
+   * The registrant's job title.
+   */
+  job_title?: string | undefined;
+  /**
+   * The registrant's purchasing time frame.
+   */
+  purchasing_time_frame?: string | undefined;
+  /**
+   * The registrant's role in the purchase process.
+   */
+  role_in_purchase_process?: string | undefined;
+  /**
+   * The registrant's number of employees.
+   */
+  no_of_employees?: string | undefined;
+  /**
+   * Any questions or comments from the registrant.
+   */
+  comments?: string | undefined;
+  /**
+   * Custom questions and answers from the registrant.
+   */
+  custom_questions?: ({  title?: string | undefined;
+  value?: string | undefined;})[];
+};
+
+export interface ActionOutput_zoom_createmeetingregistrant {
+  id?: number | undefined;
+  join_url?: string | undefined;
+  registrant_id?: string | undefined;
+  start_time?: string | undefined;
+  topic?: string | undefined;
 };
 
 export interface ActionInput_zoom_createmeeting {
-  topic: string;
-  type: 'instant' | 'scheduled' | 'recurringNoFixed' | 'recurring' | 'screenShareOnly';
-  agenda?: string | undefined;
-  default_password?: boolean | undefined;
+  /**
+   * The user ID or email address of the user. For user-level apps, pass `me` as the value for userId.
+   */
+  userId: string;
+  /**
+   * Meeting topic.
+   */
+  topic?: string | undefined;
+  /**
+   * Meeting Type: 1 - Instant meeting, 2 - Scheduled meeting, 3 - Recurring meeting with no fixed time, 8 - Recurring meeting with fixed time.
+   */
+  type?: number | undefined;
+  /**
+   * Meeting start time in ISO 8601 format (yyyy-MM-ddTHH:mm:ssZ).
+   */
+  start_time?: string | undefined;
+  /**
+   * Meeting duration in minutes. Used for scheduled meetings only.
+   */
   duration?: number | undefined;
+  /**
+   * Time zone to format start_time. For example, "America/Los_Angeles".
+   */
+  timezone?: string | undefined;
+  /**
+   * Passcode to join the meeting. Max 10 characters.
+   */
   password?: string | undefined;
-  pre_schedule?: boolean | undefined;
+  /**
+   * Meeting description.
+   */
+  agenda?: string | undefined;
+  /**
+   * Meeting settings.
+   */
+  settings?: {  host_video?: boolean | undefined;
+  participant_video?: boolean | undefined;
+  join_before_host?: boolean | undefined;
+  mute_upon_entry?: boolean | undefined;
+  waiting_room?: boolean | undefined;
+  auto_recording?: 'local' | 'cloud' | 'none' | undefined;};
+};
+
+export interface ActionOutput_zoom_createmeeting {
+  /**
+   * Meeting ID.
+   */
+  id: number;
+  topic?: string | undefined;
+  type?: number | undefined;
+  start_time?: string | undefined;
+  duration?: number | undefined;
+  timezone?: string | undefined;
+  password?: string | undefined;
+  agenda?: string | undefined;
+  host_id?: string | undefined;
+  host_email?: string | undefined;
+  join_url?: string | undefined;
+  start_url?: string | undefined;
+  created_at?: string | undefined;
+  settings?: {  host_video?: boolean | undefined;
+  participant_video?: boolean | undefined;
+  join_before_host?: boolean | undefined;
+  mute_upon_entry?: boolean | undefined;
+  waiting_room?: boolean | undefined;
+  auto_recording?: string | undefined;};
+};
+
+export interface ActionInput_zoom_createuser {
+  action: 'create' | 'autoCreate' | 'custCreate' | 'ssoCreate';
+  user_info: {  email: string;
+  first_name?: string | undefined;
+  last_name?: string | undefined;
+  password?: string | undefined;
+  type: 1 | 2 | 3 | 99;};
+};
+
+export interface ActionOutput_zoom_createuser {
+  id: string;
+  email: string;
+  first_name?: string | undefined;
+  last_name?: string | undefined;
+  type: 1 | 2 | 3 | 99;
+};
+
+export interface ActionInput_zoom_createwebinar {
+  /**
+   * The user ID or email address of the user. For user-level apps, pass "me". Defaults to "me".
+   */
+  userId?: string | undefined;
+  /**
+   * Webinar topic.
+   */
+  topic: string;
+  /**
+   * Webinar type: 5 (Webinar), 6 (Recurring no fixed time), 9 (Recurring fixed time). Defaults to 5.
+   */
+  type?: 5 | 6 | 9 | undefined;
+  /**
+   * Webinar start time in ISO 8601 format. Required for type 5 and 9.
+   */
+  start_time?: string | undefined;
+  /**
+   * Webinar duration in minutes.
+   */
+  duration?: number | undefined;
+  /**
+   * Webinar agenda.
+   */
+  agenda?: string | undefined;
+  /**
+   * Time zone to format start_time.
+   */
+  timezone?: string | undefined;
+  /**
+   * Webinar passcode.
+   */
+  password?: string | undefined;
+  /**
+   * Webinar settings.
+   */
+  settings?: {  host_video?: boolean | undefined;
+  panelists_video?: boolean | undefined;
+  practice_session?: boolean | undefined;
+  hd_video?: boolean | undefined;
+  auto_recording?: 'local' | 'cloud' | 'none' | undefined;
+  approval_type?: number | undefined;};
+};
+
+export interface ActionOutput_zoom_createwebinar {
+  host_email?: string | undefined;
+  host_id?: string | undefined;
+  id?: number | undefined;
+  uuid?: string | undefined;
+  agenda?: string | undefined;
+  created_at?: string | undefined;
+  duration?: number | undefined;
+  join_url?: string | undefined;
+  occurrences?: ({  duration?: number | undefined;
+  occurrence_id?: string | undefined;
+  start_time?: string | undefined;
+  status?: string | undefined;})[];
+  password?: string | undefined;
   recurrence?: {  end_date_time?: string | undefined;
   end_times?: number | undefined;
   monthly_day?: number | undefined;
   monthly_week?: number | undefined;
   monthly_week_day?: number | undefined;
   repeat_interval?: number | undefined;
-  type?: 'daily' | 'weekly' | 'monthly' | undefined;
-  weekly_days?: 'sunday' | 'monday' | 'tuesday' | 'wednesday' | 'thursday' | 'friday' | 'saturday' | undefined;};
-  settings?: {  host_video?: boolean | undefined;
-  participant_video?: boolean | undefined;
-  join_before_host?: boolean | undefined;
-  mute_upon_entry?: boolean | undefined;
-  approval_type?: 'automatic' | 'manually' | 'notRequired' | undefined;
-  registration_type?: 'registerOnceAttendAny' | 'registerEveryTime' | 'registerOnceSelectOccurrences' | undefined;
-  audio?: 'both' | 'telephony' | 'voip' | 'thirdParty' | undefined;
-  auto_recording?: 'local' | 'cloud' | 'none' | undefined;
-  waiting_room: boolean;};
-  schedule_for?: string | undefined;
+  type: number;
+  weekly_days?: string | undefined;};
+  settings?: {  allow_multiple_devices?: boolean | undefined;
+  alternative_hosts?: string | undefined;
+  approval_type?: number | undefined;
+  audio?: string | undefined;
+  auto_recording?: string | undefined;
+  close_registration?: boolean | undefined;
+  contact_email?: string | undefined;
+  contact_name?: string | undefined;
+  email_language?: string | undefined;
+  enforce_login?: boolean | undefined;
+  enforce_login_domains?: string | undefined;
+  hd_video?: boolean | undefined;
+  host_video?: boolean | undefined;
+  meeting_authentication?: boolean | undefined;
+  on_demand?: boolean | undefined;
+  panelists_invitation_email_notification?: boolean | undefined;
+  panelists_video?: boolean | undefined;
+  practice_session?: boolean | undefined;
+  registrants_confirmation_email?: boolean | undefined;
+  registrants_email_notification?: boolean | undefined;
+  registrants_restrict_number?: number | undefined;
+  registration_type?: number | undefined;
+  show_share_button?: boolean | undefined;
+  survey_url?: string | undefined;};
   start_time?: string | undefined;
-  template_id?: string | undefined;
+  start_url?: string | undefined;
   timezone?: string | undefined;
+  topic?: string | undefined;
+  tracking_fields?: ({  field?: string | undefined;
+  value?: string | undefined;})[];
+  type?: number | undefined;
 };
 
-export interface ActionOutput_zoom_createmeeting {
-  id: string;
-  topic: string;
-  startTime: string;
-  duration: number;
-  timezone: string;
-  joinUrl: string;
-  createdAt: string;
+export interface ActionInput_zoom_deletemeetingregistrant {
+  /**
+   * The meeting ID. Example: 123456789
+   */
+  meetingId: number;
+  /**
+   * The meeting registrant ID. Example: "abc123"
+   */
+  registrantId: string;
+  /**
+   * The meeting occurrence ID. Example: "def456"
+   */
+  occurrenceId?: string | undefined;
 };
 
-export interface ActionInput_zoom_createuser {
-  firstName: string;
-  lastName: string;
-  email: string;
-  action?: 'create' | 'autoCreate' | 'custCreate' | 'ssoCreate' | undefined;
-  display_name?: string | undefined;
-  type?: 'basic' | 'licensed' | 'UnassignedWithoutMeetingsBasic' | 'None' | undefined;
-};
-
-export interface ActionOutput_zoom_createuser {
-  id: string;
-  firstName: string;
-  lastName: string;
-  email: string;
+export interface ActionOutput_zoom_deletemeetingregistrant {
+  meetingId: number;
+  registrantId: string;
+  deleted: boolean;
 };
 
 export interface ActionInput_zoom_deletemeeting {
-  id: string;
+  /**
+   * The meeting ID to delete. Example: "123456789"
+   */
+  meetingId: string;
+  /**
+   * The meeting occurrence ID for recurring meetings. Example: "abc123"
+   */
+  occurrenceId?: string | undefined;
 };
 
 export interface ActionOutput_zoom_deletemeeting {
   success: boolean;
+  meetingId: string;
+};
+
+export interface ActionInput_zoom_deleterecording {
+  /**
+   * The meeting ID or meeting UUID. Example: "123456789"
+   */
+  meeting_id: string;
+  /**
+   * The recording delete action. "trash" moves the recording to trash (default), "delete" permanently deletes the recording.
+   */
+  action?: 'trash' | 'delete' | undefined;
+};
+
+export interface ActionOutput_zoom_deleterecording {
+  meeting_id: string;
+  action?: string | undefined;
+  deleted: boolean;
 };
 
 export interface ActionInput_zoom_deleteuser {
-  id: string;
+  /**
+   * The user ID or email address of the user to delete. Example: "user@example.com"
+   */
+  userId: string;
+  /**
+   * Delete action: disassociate (default) removes the user from the account; delete permanently removes the user.
+   */
+  action?: 'disassociate' | 'delete' | undefined;
+  /**
+   * Email address of the user to transfer meetings, webinars, and recordings to before deletion.
+   */
+  transfer_email?: string | undefined;
+  /**
+   * Whether to transfer meetings to the transfer_email user. Default: true.
+   */
+  transfer_meeting?: boolean | undefined;
+  /**
+   * Whether to transfer webinars to the transfer_email user. Default: true.
+   */
+  transfer_webinar?: boolean | undefined;
+  /**
+   * Whether to transfer cloud recordings to the transfer_email user. Default: true.
+   */
+  transfer_recording?: boolean | undefined;
 };
 
 export interface ActionOutput_zoom_deleteuser {
-  success: boolean;
+  /**
+   * The ID of the deleted or archived user.
+   */
+  userId: string;
 };
 
-export type ActionInput_zoom_whoami = void
+export interface ActionInput_zoom_deletewebinar {
+  /**
+   * The unique identifier of the webinar to delete. Example: "123456789"
+   */
+  webinar_id: string;
+};
 
-export interface ActionOutput_zoom_whoami {
+export interface ActionOutput_zoom_deletewebinar {
+  success: boolean;
+  webinar_id: string;
+};
+
+export interface ActionInput_zoom_getcurrentuser {
+};
+
+export interface ActionOutput_zoom_getcurrentuser {
   id: string;
+  first_name?: string | undefined;
+  last_name?: string | undefined;
   email: string;
+  type: number;
+  pmi?: string | undefined;
+  timezone?: string | undefined;
+  dept?: string | undefined;
+  created_at?: string | undefined;
+  last_login_time?: string | undefined;
+  last_client_version?: string | undefined;
+  account_id?: string | undefined;
+  pic_url?: string | undefined;
+  status?: string | undefined;
+  group_ids?: string[] | undefined;
+  im_group_ids?: string[] | undefined;
+};
+
+export interface ActionInput_zoom_getmeetingregistrant {
+  /**
+   * The meeting ID. Example: "88233737762"
+   */
+  meetingId: string;
+  /**
+   * The registrant ID. Example: "ESJWWYqvTDWFGNUqJzB_bQ"
+   */
+  registrantId: string;
+};
+
+export interface ActionOutput_zoom_getmeetingregistrant {
+  id: string;
+  first_name: string;
+  last_name?: string | undefined;
+  email: string;
+  address?: string | undefined;
+  city?: string | undefined;
+  country?: string | undefined;
+  zip?: string | undefined;
+  state?: string | undefined;
+  phone?: string | undefined;
+  industry?: string | undefined;
+  org?: string | undefined;
+  job_title?: string | undefined;
+  purchasing_time_frame?: string | undefined;
+  role_in_purchase_process?: string | undefined;
+  no_of_employees?: string | undefined;
+  comments?: string | undefined;
+  custom_questions?: ({  title?: string | undefined;
+  value?: string | undefined;})[];
+  status?: string | undefined;
+  create_time?: string | undefined;
+  join_url?: string | undefined;
+};
+
+export interface ActionInput_zoom_getmeeting {
+  /**
+   * The meeting ID in long format. Example: 1234555466
+   */
+  meeting_id: number;
+};
+
+export interface ActionOutput_zoom_getmeeting {
+  assistant_id?: string | undefined;
+  host_email?: string | undefined;
+  host_id: string;
+  id: number;
+  uuid: string;
+  agenda?: string | undefined;
+  created_at?: string | undefined;
+  duration?: number | undefined;
+  encrypted_password?: string | undefined;
+  h323_password?: string | undefined;
+  join_url?: string | undefined;
+  occurrences?: ({  duration?: number | undefined;
+  occurrence_id?: string | undefined;
+  start_time?: string | undefined;
+  status?: string | undefined;})[];
+  password?: string | undefined;
+  pmi?: string | undefined;
+  recurrence?: {  end_date_time?: string | undefined;
+  end_times?: number | undefined;
+  monthly_day?: number | undefined;
+  monthly_week?: number | undefined;
+  monthly_week_day?: number | undefined;
+  repeat_interval?: number | undefined;
+  type: number;
+  weekly_days?: string | undefined;};
+  settings?: {  [key: string]: unknown | undefined;};
+  start_time?: string | undefined;
+  start_url?: string | undefined;
+  status?: string | undefined;
+  timezone?: string | undefined;
+  topic?: string | undefined;
+  tracking_fields?: ({  field?: string | undefined;
+  value?: string | undefined;
+  visible?: boolean | undefined;})[];
+  type: number;
+};
+
+export interface ActionInput_zoom_getrecording {
+  /**
+   * The meeting ID or UUID. Example: "123456789"
+   */
+  meeting_id: string;
+};
+
+export interface ActionOutput_zoom_getrecording {
+  account_id?: string | undefined;
+  duration?: number | undefined;
+  host_id?: string | undefined;
+  id?: number | undefined;
+  recording_count?: number | undefined;
+  start_time?: string | undefined;
+  topic?: string | undefined;
+  total_size?: number | undefined;
+  type?: number | undefined;
+  uuid?: string | undefined;
+  recording_files?: ({  deleted_time?: string | undefined;
+  download_url?: string | undefined;
+  file_extension?: string | undefined;
+  file_path?: string | undefined;
+  file_size?: number | undefined;
+  file_type?: string | undefined;
+  id?: string | undefined;
+  meeting_id?: string | undefined;
+  play_url?: string | undefined;
+  recording_end?: string | undefined;
+  recording_start?: string | undefined;
+  recording_type?: string | undefined;
+  status?: string | undefined;})[];
+  participant_audio_files?: ({  deleted_time?: string | undefined;
+  download_url?: string | undefined;
+  file_extension?: string | undefined;
+  file_path?: string | undefined;
+  file_size?: number | undefined;
+  file_type?: string | undefined;
+  id?: string | undefined;
+  meeting_id?: string | undefined;
+  play_url?: string | undefined;
+  recording_end?: string | undefined;
+  recording_start?: string | undefined;
+  recording_type?: string | undefined;
+  status?: string | undefined;})[];
+  download_access_token?: string | undefined;
+  recording_play_passcode?: string | undefined;
+};
+
+export interface ActionInput_zoom_getuser {
+  /**
+   * The user ID or email address of the user. For user-level apps, pass "me" as the value for userId.
+   */
+  userId: string;
+};
+
+export interface ActionOutput_zoom_getuser {
+  id: string;
+  account_id?: string | undefined;
+  cms_user_id?: string | undefined;
+  company?: string | undefined;
+  created_at?: string | undefined;
+  custom_attributes?: ({  key?: string | undefined;
+  name?: string | undefined;
+  value?: string | undefined;})[];
+  dept?: string | undefined;
+  email?: string | undefined;
+  first_name?: string | undefined;
+  group_ids?: string[] | undefined;
+  host_key?: string | undefined;
+  im_group_ids?: string[] | undefined;
+  jid?: string | undefined;
+  job_title?: string | undefined;
+  language?: string | undefined;
+  last_client_version?: string | undefined;
+  last_login_time?: string | undefined;
+  last_name?: string | undefined;
+  location?: string | undefined;
+  login_type?: number | undefined;
+  manager?: string | undefined;
+  personal_meeting_url?: string | undefined;
+  phone_country?: string | undefined;
+  phone_number?: string | undefined;
+  phone_numbers?: ({  code?: string | undefined;
+  country?: string | undefined;
+  number?: string | undefined;
+  verified?: boolean | undefined;})[];
+  pic_url?: string | undefined;
+  plan_united_type?: string | undefined;
+  pmi?: number | undefined;
+  role_id?: string | undefined;
+  role_name?: string | undefined;
+  status?: string | undefined;
+  timezone?: string | undefined;
+  type?: number | undefined;
+  use_pmi?: boolean | undefined;
+  vanity_url?: string | undefined;
+  verified?: number | undefined;
+};
+
+export interface ActionInput_zoom_getwebinar {
+  /**
+   * The webinar ID in long format. Example: 123456789
+   */
+  webinarId: number;
+};
+
+export interface ActionOutput_zoom_getwebinar {
+  uuid: string;
+  id: number;
+  host_id: string;
+  host_email?: string | undefined;
+  topic: string;
+  type: number;
+  start_time?: string | undefined;
+  duration?: number | undefined;
+  timezone?: string | undefined;
+  created_at?: string | undefined;
+  agenda?: string | undefined;
+  start_url?: string | undefined;
+  join_url?: string | undefined;
+  password?: string | undefined;
+  occurrences?: ({  duration?: number | undefined;
+  occurrence_id?: string | undefined;
+  start_time?: string | undefined;
+  status?: string | undefined;})[];
+  recurrence?: {  end_date_time?: string | undefined;
+  end_times?: number | undefined;
+  monthly_day?: number | undefined;
+  monthly_week?: number | undefined;
+  monthly_week_day?: number | undefined;
+  repeat_interval?: number | undefined;
+  type?: number | undefined;
+  weekly_days?: string | undefined;};
+  settings?: {  [key: string]: unknown | undefined;};
+  tracking_fields?: ({  field?: string | undefined;
+  value?: string | undefined;})[];
+};
+
+export interface ActionInput_zoom_listmeetingregistrants {
+  /**
+   * Meeting ID or UUID. Example: "123456789"
+   */
+  meeting_id: string;
+  /**
+   * Registrant status filter. Values: approved, pending, denied
+   */
+  status?: string | undefined;
+  /**
+   * Number of records per page. Default: 30, Max: 300
+   */
+  page_size?: number | undefined;
+  /**
+   * Pagination cursor (next_page_token) from the previous response. Omit for the first page.
+   */
+  cursor?: string | undefined;
+};
+
+export interface ActionOutput_zoom_listmeetingregistrants {
+  registrants: ({  id?: string | undefined;
+  email: string;
+  first_name: string;
+  last_name?: string | undefined;
+  address?: string | undefined;
+  city?: string | undefined;
+  comments?: string | undefined;
+  country?: string | undefined;
+  custom_questions?: ({  title?: string | undefined;
+  value?: string | undefined;})[];
+  industry?: string | undefined;
+  job_title?: string | undefined;
+  no_of_employees?: string | undefined;
+  org?: string | undefined;
+  phone?: string | undefined;
+  purchasing_time_frame?: string | undefined;
+  role_in_purchase_process?: string | undefined;
+  state?: string | undefined;
+  status?: string | undefined;
+  zip?: string | undefined;
+  create_time?: string | undefined;
+  join_url?: string | undefined;})[];
+  next_page_token?: string | undefined;
+  page_size?: number | undefined;
+  total_records?: number | undefined;
+};
+
+export interface ActionInput_zoom_listmeetings {
+  /**
+   * The user ID or email address of the user. For user-level apps, pass `me` as the value for userId.
+   */
+  userId: string;
+  /**
+   * The meeting types to query.
+   */
+  type?: 'scheduled' | 'live' | 'upcoming' | undefined;
+  /**
+   * The number of records returned within a single API call. Max 300.
+   */
+  page_size?: number | undefined;
+  /**
+   * Pagination cursor (next_page_token) from the previous response. Omit for the first page.
+   */
+  cursor?: string | undefined;
+};
+
+export interface ActionOutput_zoom_listmeetings {
+  meetings: ({  agenda?: string | undefined;
+  created_at?: string | undefined;
+  duration?: number | undefined;
+  host_id?: string | undefined;
+  id?: number | undefined;
+  join_url?: string | undefined;
+  pmi?: string | undefined;
+  start_time?: string | undefined;
+  timezone?: string | undefined;
+  topic?: string | undefined;
+  type?: number | undefined;
+  uuid?: string | undefined;})[];
+  next_page_token?: string | undefined;
+  page_count?: number | undefined;
+  page_number?: number | undefined;
+  page_size?: number | undefined;
+  total_records?: number | undefined;
+};
+
+export interface ActionInput_zoom_listrecordings {
+  /**
+   * The user ID or email address of the user. For user-level apps, pass "me" as the value for userId.
+   */
+  user_id: string;
+  /**
+   * Pagination cursor from the previous response. Maps to next_page_token.
+   */
+  cursor?: string | undefined;
+  /**
+   * The number of records returned within a single API call. Max 300.
+   */
+  page_size?: number | undefined;
+  /**
+   * The start date in 'yyyy-mm-dd' UTC format.
+   */
+  from?: string | undefined;
+  /**
+   * The end date in 'yyyy-mm-dd' UTC format.
+   */
+  to?: string | undefined;
+  /**
+   * Query trash. true: List recordings from trash.
+   */
+  trash?: boolean | undefined;
+  /**
+   * The type of Cloud recording to retrieve from the trash.
+   */
+  trash_type?: string | undefined;
+};
+
+export interface ActionOutput_zoom_listrecordings {
+  from?: string | undefined;
+  to?: string | undefined;
+  meetings: ({  id: string;
+  uuid?: string | undefined;
+  account_id?: string | undefined;
+  host_id?: string | undefined;
+  topic?: string | undefined;
+  type?: string | undefined;
+  start_time?: string | undefined;
+  duration?: number | undefined;
+  total_size?: string | undefined;
+  recording_count?: string | undefined;
+  share_url?: string | undefined;
+  timezone?: string | undefined;
+  recording_files?: ({  id?: string | undefined;
+  meeting_id?: string | undefined;
+  recording_start?: string | undefined;
+  recording_end?: string | undefined;
+  file_type?: string | undefined;
+  file_size?: number | undefined;
+  play_url?: string | undefined;
+  download_url?: string | undefined;
+  recording_type?: string | undefined;
+  status?: string | undefined;
+  deleted_time?: string | undefined;})[];})[];
+  next_page_token?: string | undefined;
+  page_count?: number | undefined;
+  page_size?: number | undefined;
+  total_records?: number | undefined;
+};
+
+export interface ActionInput_zoom_listusers {
+  /**
+   * Pagination cursor (next_page_token) from the previous response. Omit for the first page.
+   */
+  cursor?: string | undefined;
+  /**
+   * User status filter.
+   */
+  status?: 'active' | 'inactive' | 'pending' | undefined;
+  /**
+   * Number of records per page. Default: 30, max: 300.
+   */
+  page_size?: number | undefined;
+};
+
+export interface ActionOutput_zoom_listusers {
+  users: ({  id: string;
+  first_name?: string | undefined;
+  last_name?: string | undefined;
+  email: string;
+  type: number;
+  pmi?: string | number | undefined;
+  timezone?: string | undefined;
+  dept?: string | undefined;
+  created_at?: string | undefined;
+  last_login_time?: string | undefined;
+  last_client_version?: string | undefined;
+  group_ids?: string[] | undefined;
+  im_group_ids?: string[] | undefined;
+  status?: string | undefined;
+  verified?: number | undefined;
+  pic_url?: string | undefined;
+  host_key?: string | undefined;
+  role_id?: string | undefined;
+  plan_united_type?: string | undefined;
+  custom_attributes?: unknown[] | undefined;})[];
+  next_page_token?: string | undefined;
+  total_records?: number | undefined;
+  page_number?: number | undefined;
+  page_count?: number | undefined;
+  page_size?: number | undefined;
+};
+
+export interface ActionInput_zoom_listwebinars {
+  /**
+   * The user ID or email address of the user. For user-level apps, pass `me`.
+   */
+  userId?: string | undefined;
+  /**
+   * Pagination cursor from the previous response. Omit for the first page.
+   */
+  cursor?: string | undefined;
+  /**
+   * The number of records returned within a single API call.
+   */
+  page_size?: number | undefined;
+};
+
+export interface ActionOutput_zoom_listwebinars {
+  webinars: ({  id: number;
+  uuid: string;
+  host_id: string;
+  topic: string;
+  type?: number | undefined;
+  start_time?: string | undefined;
+  duration?: number | undefined;
+  timezone?: string | undefined;
+  created_at?: string | undefined;
+  agenda?: string | undefined;
+  join_url?: string | undefined;})[];
+  next_page_token?: string | undefined;
+  page_size?: number | undefined;
+  total_records?: number | undefined;
+};
+
+export interface ActionInput_zoom_updatemeetingregistrant {
+  /**
+   * The meeting ID in long format. Example: "85746065"
+   */
+  meeting_id: string;
+  /**
+   * The registrant ID. Example: "ESJWWYqvTDWFGNUqJzB_bQ"
+   */
+  registrant_id: string;
+  /**
+   * The registrant email address. Example: "user@example.com"
+   */
+  email: string;
+  /**
+   * The status action to apply. Example: "approve"
+   */
+  action: 'approve' | 'cancel' | 'deny';
+  /**
+   * The meeting occurrence ID for recurring meetings.
+   */
+  occurrence_id?: string | undefined;
+};
+
+export interface ActionOutput_zoom_updatemeetingregistrant {
+  success: boolean;
+  meeting_id: string;
+  registrant_id: string;
+  action: 'approve' | 'cancel' | 'deny';
+};
+
+export interface ActionInput_zoom_updatemeeting {
+  /**
+   * The meeting ID in long format. Example: 1234567890
+   */
+  meetingId: number;
+  /**
+   * Meeting topic.
+   */
+  topic?: string | undefined;
+  /**
+   * Meeting type: 1=Instant, 2=Scheduled, 3=Recurring no fixed time, 8=Recurring with fixed time.
+   */
+  type?: number | undefined;
+  /**
+   * Meeting start time in ISO 8601 format. Example: 2024-01-15T10:00:00Z
+   */
+  start_time?: string | undefined;
+  /**
+   * Meeting duration in minutes.
+   */
+  duration?: number | undefined;
+  /**
+   * Time zone for start_time. Example: America/Los_Angeles
+   */
+  timezone?: string | undefined;
+  /**
+   * Meeting password.
+   */
+  password?: string | undefined;
+  /**
+   * Meeting description/agenda.
+   */
+  agenda?: string | undefined;
+};
+
+export type ActionOutput_zoom_updatemeeting = null
+
+export interface ActionInput_zoom_updateuser {
+  /**
+   * The user ID or "me" for the current user. Example: "me"
+   */
+  userId: string;
+  /**
+   * User's first name.
+   */
+  first_name?: string | undefined;
+  /**
+   * User's last name.
+   */
+  last_name?: string | undefined;
+  /**
+   * User's department.
+   */
+  dept?: string | undefined;
+  /**
+   * User's company.
+   */
+  company?: string | undefined;
+  /**
+   * User's job title.
+   */
+  job_title?: string | undefined;
+  /**
+   * The time zone ID for the user profile.
+   */
+  timezone?: string | undefined;
+  /**
+   * User's language.
+   */
+  language?: string | undefined;
+  /**
+   * User's location.
+   */
+  location?: string | undefined;
+  /**
+   * The manager for the user.
+   */
+  manager?: string | undefined;
+  /**
+   * Host key. It should be a 6-10 digit number.
+   */
+  host_key?: string | undefined;
+};
+
+export interface ActionOutput_zoom_updateuser {
+  userId: string;
+  updated: boolean;
+};
+
+export interface ActionInput_zoom_updatewebinar {
+  /**
+   * The webinar ID in long format. Example: 123456789
+   */
+  webinar_id: number;
+  /**
+   * Webinar occurrence id. Support change of agenda, start_time, duration, settings.
+   */
+  occurrence_id?: string | undefined;
+  /**
+   * Webinar description.
+   */
+  agenda?: string | undefined;
+  /**
+   * Webinar duration in minutes. Used for scheduled webinars only.
+   */
+  duration?: number | undefined;
+  /**
+   * Webinar passcode. Maximum 10 characters.
+   */
+  password?: string | undefined;
+  /**
+   * Webinar start time in ISO 8601 format. Example: 2024-01-15T10:00:00Z
+   */
+  start_time?: string | undefined;
+  /**
+   * Time zone for start_time. Example: America/Los_Angeles
+   */
+  timezone?: string | undefined;
+  /**
+   * Webinar topic.
+   */
+  topic?: string | undefined;
+  /**
+   * Webinar type: 5 (webinar), 6 (recurring no fixed time), 9 (recurring fixed time).
+   */
+  type?: number | undefined;
+  /**
+   * Webinar settings.
+   */
+  settings?: {  host_video?: boolean | undefined;
+  panelists_video?: boolean | undefined;
+  practice_session?: boolean | undefined;
+  hd_video?: boolean | undefined;
+  auto_recording?: 'local' | 'cloud' | 'none' | undefined;
+  meeting_authentication?: boolean | undefined;
+  approval_type?: number | undefined;
+  registration_type?: number | undefined;
+  on_demand?: boolean | undefined;
+  close_registration?: boolean | undefined;
+  contact_email?: string | undefined;
+  contact_name?: string | undefined;
+  alternative_hosts?: string | undefined;};
+};
+
+export interface ActionOutput_zoom_updatewebinar {
+  success: boolean;
+  webinar_id: number;
 };

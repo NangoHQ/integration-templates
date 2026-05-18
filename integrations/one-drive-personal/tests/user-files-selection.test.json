@@ -1,0 +1,65 @@
+{
+  "nango": {
+    "getMetadata": {
+      "pickedFiles": [
+        {
+          "fileId": "root"
+        }
+      ]
+    },
+    "batchSave": {
+      "UserFileSelection": [
+        {
+          "id": "AB43234B783BB6C3!sea8cc6beffdb43d7976fbc7da445c639",
+          "fileId": "AB43234B783BB6C3!sea8cc6beffdb43d7976fbc7da445c639",
+          "name": "root",
+          "size": 1152124,
+          "webUrl": "https://onedrive.live.com?cid=AB43234B783BB6C3&id=01YED5K7V6Y2GOVW7725BZO354PWSELRRZ",
+          "createdDateTime": "2026-03-04T06:13:47Z",
+          "lastModifiedDateTime": "2026-05-08T09:36:48Z"
+        }
+      ]
+    },
+    "batchDelete": {
+      "UserFileSelection": []
+    }
+  },
+  "api": {
+    "get": {
+      "/v1.0/drive/items/root": {
+        "response": {
+          "@odata.context": "https://api.onedrive.com/v1.0/$metadata#items/$entity",
+          "createdDateTime": "2026-03-04T06:13:47Z",
+          "id": "AB43234B783BB6C3!sea8cc6beffdb43d7976fbc7da445c639",
+          "lastModifiedDateTime": "2026-05-08T09:36:48Z",
+          "name": "root",
+          "webUrl": "https://onedrive.live.com?cid=AB43234B783BB6C3&id=01YED5K7V6Y2GOVW7725BZO354PWSELRRZ",
+          "size": 1152124
+        },
+        "status": 200,
+        "headers": {
+          "date": "Fri, 08 May 2026 09:36:50 GMT",
+          "content-type": "application/json;odata.metadata=minimal;odata.streaming=true;IEEE754Compatible=false;charset=utf-8",
+          "content-length": "344",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=5184000; includeSubDomains",
+          "access-control-allow-origin": "*",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4900",
+          "x-ratelimit-reset": "1778233035"
+        },
+        "hash": "a071c424ead62403f5db899561d2251fe27f6af5",
+        "request": {
+          "params": {
+            "select": "id,name,size,webUrl,content.downloadUrl,createdDateTime,lastModifiedDateTime"
+          }
+        }
+      }
+    }
+  }
+}

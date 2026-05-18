@@ -1,0 +1,99 @@
+{
+  "input": {
+    "tweet_id": "1111111111111111114"
+  },
+  "output": {
+    "success": true,
+    "liked": false
+  },
+  "nango": {},
+  "api": {
+    "get": {
+      "/2/users/me": {
+        "response": {
+          "data": {
+            "id": "1000000000000000001",
+            "name": "Test User",
+            "username": "testuser"
+          }
+        },
+        "status": 200,
+        "headers": {
+          "date": "Thu, 14 May 2026 19:23:59 GMT",
+          "content-type": "application/json; charset=utf-8",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=631138519; includeSubdomains",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4987",
+          "x-ratelimit-reset": "1778786687",
+          "perf": "7402827104",
+          "server": "cloudflare envoy",
+          "api-version": "2.163",
+          "cache-control": "no-cache, no-store, max-age=0",
+          "x-access-level": "read-write",
+          "x-rate-limit-limit": "75",
+          "x-rate-limit-reset": "1778787393",
+          "content-disposition": "attachment; filename=json.json",
+          "x-rate-limit-remaining": "60",
+          "x-response-time": "34",
+          "vary": "accept-encoding",
+          "cf-cache-status": "DYNAMIC"
+        },
+        "hash": "16f0be3f8bcf81363033ef9905a833cdddeedf92",
+        "request": {}
+      }
+    },
+    "delete": {
+      "/2/users/1000000000000000001/likes/1111111111111111114": {
+        "response": {
+          "data": {
+            "liked": false
+          }
+        },
+        "status": 200,
+        "headers": {
+          "date": "Thu, 14 May 2026 19:23:59 GMT",
+          "content-type": "application/json; charset=utf-8",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=631138519; includeSubdomains",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4986",
+          "x-ratelimit-reset": "1778786687",
+          "perf": "7402827104",
+          "server": "cloudflare envoy",
+          "api-version": "2.163",
+          "cache-control": "no-cache, no-store, max-age=0",
+          "x-access-level": "read-write",
+          "x-rate-limit-limit": "50",
+          "x-rate-limit-reset": "1778787447",
+          "content-disposition": "attachment; filename=json.json",
+          "x-rate-limit-remaining": "47",
+          "x-user-limit-24hour-limit": "1000",
+          "x-user-limit-24hour-reset": "1778872947",
+          "x-user-limit-24hour-remaining": "997",
+          "x-response-time": "33",
+          "vary": "accept-encoding",
+          "cf-cache-status": "DYNAMIC"
+        },
+        "hash": "d571071a3506a2c27a6cf2edded6763061466d57",
+        "request": {}
+      }
+    }
+  }
+}
