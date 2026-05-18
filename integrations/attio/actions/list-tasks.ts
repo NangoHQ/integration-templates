@@ -1,73 +1,112 @@
-/**
- * Instructions: Lists tasks.
- * API: https://docs.attio.com/rest-api/endpoint-reference/tasks/list-tasks
- */
-
 import { z } from 'zod';
 import { createAction } from 'nango';
-import type { ProxyConfiguration } from 'nango';
 
-// Inline schema definitions
-const ListTasksInput = z.object({
-    limit: z.number().optional().describe('Maximum number of tasks to return'),
-    offset: z.number().optional().describe('Number of tasks to skip')
+const InputSchema = z.object({
+    limit: z.number().optional().describe('The maximum number of results to return. Defaults to 500.'),
+    offset: z.number().optional().describe('The number of results to skip over before returning. Defaults to 0.'),
+    sort: z.enum(['created_at:asc', 'created_at:desc', 'completed_at:asc', 'completed_at:desc']).optional().describe('Optionally sort the results.'),
+    linked_object: z.string().optional().describe('Filter tasks by the object slug of linked records (e.g. people). Must be provided with linked_record_id.'),
+    linked_record_id: z.string().optional().describe('Filter tasks by the record ID of linked records. Must be provided with linked_object.'),
+    assignee: z.string().optional().describe('Filter tasks by workspace member assignee (email or ID). Pass null for unassigned tasks.'),
+    is_completed: z.boolean().optional().describe('Filter tasks by completion status.')
 });
 
-const TaskId = z.object({
+const TaskIdSchema = z.object({
     workspace_id: z.string(),
     task_id: z.string()
 });
 
-const Task = z.object({
-    id: TaskId,
+const LinkedRecordSchema = z.object({
+    target_object_id: z.string(),
+    target_record_id: z.string()
+});
+
+const AssigneeSchema = z.object({
+    referenced_actor_type: z.string(),
+    referenced_actor_id: z.string()
+});
+
+const CreatedByActorSchema = z.object({
+    id: z.string().nullable().optional(),
+    type: z.string().nullable().optional()
+});
+
+const TaskSchema = z.object({
+    id: TaskIdSchema,
     content_plaintext: z.string(),
-    deadline_at: z.union([z.string(), z.null()]),
+    deadline_at: z.string().nullable().optional(),
     is_completed: z.boolean(),
+    completed_at: z.string().nullable().optional(),
+    linked_records: z.array(LinkedRecordSchema),
+    assignees: z.array(AssigneeSchema),
+    created_by_actor: CreatedByActorSchema,
     created_at: z.string()
 });
 
-const ListTasksOutput = z.object({
-    data: z.array(Task).describe('Array of tasks')
+const OutputSchema = z.object({
+    data: z.array(TaskSchema),
+    next_offset: z.number().optional().describe('The offset to use for the next page of results, if available.')
 });
 
 const action = createAction({
-    description: 'Lists tasks.',
-    version: '1.0.0',
-
+    description: 'List tasks from Attio.',
+    version: '2.0.0',
     endpoint: {
         method: 'GET',
-        path: '/tasks',
+        path: '/actions/list-tasks',
         group: 'Tasks'
     },
+    input: InputSchema,
+    output: OutputSchema,
+    scopes: ['task:read', 'object_configuration:read', 'record_permission:read', 'user_management:read'],
 
-    input: ListTasksInput,
-    output: ListTasksOutput,
-    scopes: ['task:read'],
+    exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
+        const params: Record<string, string> = {};
+        if (input.limit !== undefined) {
+            params['limit'] = input.limit.toString();
+        }
+        if (input.offset !== undefined) {
+            params['offset'] = input.offset.toString();
+        }
+        if (input.sort !== undefined) {
+            params['sort'] = input.sort;
+        }
+        if (input.linked_object !== undefined) {
+            params['linked_object'] = input.linked_object;
+        }
+        if (input.linked_record_id !== undefined) {
+            params['linked_record_id'] = input.linked_record_id;
+        }
+        if (input.assignee !== undefined) {
+            params['assignee'] = input.assignee;
+        }
+        if (input.is_completed !== undefined) {
+            params['is_completed'] = input.is_completed.toString();
+        }
 
-    exec: async (nango, input): Promise<z.infer<typeof ListTasksOutput>> => {
-        const config: ProxyConfiguration = {
+        const response = await nango.get({
             // https://docs.attio.com/rest-api/endpoint-reference/tasks/list-tasks
             endpoint: 'v2/tasks',
-            params: {
-                ...(input.limit && { limit: input.limit.toString() }),
-                ...(input.offset && { offset: input.offset.toString() })
-            },
+            params,
             retries: 3
-        };
+        });
 
-        const response = await nango.get(config);
+        const providerResponse = z
+            .object({
+                data: z.array(z.unknown())
+            })
+            .parse(response.data);
+
+        const tasks = providerResponse.data.map((item) => {
+            return TaskSchema.parse(item);
+        });
+
+        const limit = input.limit ?? 500;
+        const nextOffset = tasks.length === limit ? (input.offset ?? 0) + limit : undefined;
 
         return {
-            data: response.data.data.map((task: any) => ({
-                id: {
-                    workspace_id: task.id.workspace_id,
-                    task_id: task.id.task_id
-                },
-                content_plaintext: task.content_plaintext,
-                deadline_at: task.deadline_at ?? null,
-                is_completed: task.is_completed,
-                created_at: task.created_at
-            }))
+            data: tasks,
+            ...(nextOffset !== undefined && { next_offset: nextOffset })
         };
     }
 });

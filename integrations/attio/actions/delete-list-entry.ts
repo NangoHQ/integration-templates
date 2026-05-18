@@ -1,47 +1,40 @@
-/**
- * Instructions: Removes an entry from a list.
- * API: https://docs.attio.com/rest-api/endpoint-reference/list-entries/delete-list-entry
- */
-
 import { z } from 'zod';
 import { createAction } from 'nango';
-import type { ProxyConfiguration } from 'nango';
 
-// Inline schema definitions
-const DeleteListEntryInput = z.object({
-    list_id: z.string().describe('The list slug or UUID. Example: "my-sales-list"'),
-    entry_id: z.string().describe('The entry ID to remove. Example: "abc123-def456"')
+const InputSchema = z.object({
+    list_id: z.string().describe('The ID of the list containing the entry to delete. Example: "39723680-f534-4fe7-ab80-c5278e20e37b"'),
+    entry_id: z.string().describe('The ID of the list entry to delete. Example: "e9a7b33a-6dfc-483d-9a3b-fbc20068c162"')
 });
 
-const DeleteListEntryOutput = z.object({
-    success: z.boolean().describe('Whether the deletion was successful')
+const OutputSchema = z.object({
+    success: z.boolean(),
+    deleted_entry_id: z.string(),
+    list_id: z.string()
 });
 
 const action = createAction({
-    description: 'Removes an entry from a list.',
-    version: '1.0.0',
-
+    description: 'Delete or archive a list entry in Attio',
+    version: '2.0.0',
     endpoint: {
-        method: 'DELETE',
-        path: '/lists/:list_id/entries/:entry_id',
-        group: 'Lists'
+        method: 'POST',
+        path: '/actions/delete-list-entry',
+        group: 'List Entries'
     },
+    input: InputSchema,
+    output: OutputSchema,
+    scopes: ['list_entry:read-write', 'list_configuration:read'],
 
-    input: DeleteListEntryInput,
-    output: DeleteListEntryOutput,
-    scopes: ['list_entry:read-write'],
-
-    exec: async (nango, input): Promise<z.infer<typeof DeleteListEntryOutput>> => {
-        const config: ProxyConfiguration = {
-            // https://docs.attio.com/rest-api/endpoint-reference/list-entries/delete-list-entry
-            endpoint: `v2/lists/${input.list_id}/entries/${input.entry_id}`,
+    exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
+        // https://docs.attio.com/rest-api/reference/delete-v2-lists-list-entries-entry-id
+        await nango.delete({
+            endpoint: `/v2/lists/${input.list_id}/entries/${input.entry_id}`,
             retries: 3
-        };
-
-        await nango.delete(config);
+        });
 
         return {
-            success: true
+            success: true,
+            deleted_entry_id: input.entry_id,
+            list_id: input.list_id
         };
     }
 });

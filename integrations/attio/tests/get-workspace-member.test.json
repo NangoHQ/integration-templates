@@ -1,0 +1,67 @@
+{
+  "input": {
+    "workspace_member_id": "641ecd33-0a48-4b7b-ba48-bbb7a649a8ee"
+  },
+  "output": {
+    "id": {
+      "workspace_id": "edbb5cd2-e046-4b4f-bd62-eeefa0a76787",
+      "workspace_member_id": "641ecd33-0a48-4b7b-ba48-bbb7a649a8ee"
+    },
+    "first_name": "API",
+    "last_name": "Nango",
+    "email_address": "api@nango.dev",
+    "created_at": "2026-05-15T20:39:12.453000000Z",
+    "access_level": "admin"
+  },
+  "nango": {},
+  "api": {
+    "get": {
+      "/v2/workspace_members/641ecd33-0a48-4b7b-ba48-bbb7a649a8ee": {
+        "response": {
+          "data": {
+            "id": {
+              "workspace_id": "edbb5cd2-e046-4b4f-bd62-eeefa0a76787",
+              "workspace_member_id": "641ecd33-0a48-4b7b-ba48-bbb7a649a8ee"
+            },
+            "first_name": "API",
+            "last_name": "Nango",
+            "avatar_url": null,
+            "email_address": "api@nango.dev",
+            "access_level": "admin",
+            "created_at": "2026-05-15T20:39:12.453000000Z"
+          }
+        },
+        "status": 200,
+        "headers": {
+          "date": "Fri, 15 May 2026 21:46:13 GMT",
+          "content-type": "application/json; charset=utf-8",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "DENY",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=7776000; includeSubDomains; preload",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "x-attio-client,x-attio-execution-id,x-attio-platform,x-attio-platform-version,x-attio-record-query-score,x-attio-app-installation-bundle-id,WWW-Authenticate",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4952",
+          "x-ratelimit-reset": "1778881588",
+          "x-attio-execution-id": "853de383-afb6-4234-b89a-dc18905e9afb",
+          "vary": "Origin",
+          "x-accurate-at": "2026-05-15T21:46:13.312029000Z",
+          "via": "1.1 google",
+          "alt-svc": "h3=\":443\"; ma=86400",
+          "cf-cache-status": "DYNAMIC",
+          "set-cookie": "_cfuvid=.lhTFq5Xku5OQfEQZ0kn8C9oARjXqzpL0iofTBIuIBA-1778881573.1747577-1.0.1.1-JkFoa6jCA10xNTcHOxPkxzbmgXmb3Qy7ZPHkFx4SyVo; HttpOnly; SameSite=None; Secure; Path=/; Domain=attio.com",
+          "server": "cloudflare",
+          "cf-ray": "9fc555885974121f-PDX"
+        },
+        "hash": "7c52f8de3ed55f394c7f2341d159861479ecf7e0",
+        "request": {}
+      }
+    }
+  }
+}

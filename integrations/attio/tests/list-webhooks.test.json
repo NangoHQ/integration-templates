@@ -1,0 +1,113 @@
+{
+  "input": {},
+  "output": {
+    "items": [
+      {
+        "id": {
+          "workspace_id": "edbb5cd2-e046-4b4f-bd62-eeefa0a76787",
+          "webhook_id": "3c089b11-e4af-4de1-8eb3-cc17c0ba5f48"
+        },
+        "target_url": "https://example.com/updated-webhook",
+        "subscriptions": [
+          {
+            "event_type": "note.created",
+            "filter": null
+          }
+        ],
+        "status": "active",
+        "created_at": "2026-05-15T21:47:01.586000000Z"
+      },
+      {
+        "id": {
+          "workspace_id": "edbb5cd2-e046-4b4f-bd62-eeefa0a76787",
+          "webhook_id": "e41a3c19-9e37-4f98-9d42-4d40a9b368a3"
+        },
+        "target_url": "https://example.com/webhook-test",
+        "subscriptions": [
+          {
+            "event_type": "note.created",
+            "filter": null
+          }
+        ],
+        "status": "active",
+        "created_at": "2026-05-15T21:46:38.532000000Z"
+      }
+    ]
+  },
+  "nango": {},
+  "api": {
+    "get": {
+      "/v2/webhooks": {
+        "response": {
+          "data": [
+            {
+              "id": {
+                "workspace_id": "edbb5cd2-e046-4b4f-bd62-eeefa0a76787",
+                "webhook_id": "3c089b11-e4af-4de1-8eb3-cc17c0ba5f48"
+              },
+              "target_url": "https://example.com/updated-webhook",
+              "status": "active",
+              "subscriptions": [
+                {
+                  "event_type": "note.created",
+                  "filter": null
+                }
+              ],
+              "created_at": "2026-05-15T21:47:01.586000000Z"
+            },
+            {
+              "id": {
+                "workspace_id": "edbb5cd2-e046-4b4f-bd62-eeefa0a76787",
+                "webhook_id": "e41a3c19-9e37-4f98-9d42-4d40a9b368a3"
+              },
+              "target_url": "https://example.com/webhook-test",
+              "status": "active",
+              "subscriptions": [
+                {
+                  "event_type": "note.created",
+                  "filter": null
+                }
+              ],
+              "created_at": "2026-05-15T21:46:38.532000000Z"
+            }
+          ]
+        },
+        "status": 200,
+        "headers": {
+          "date": "Fri, 15 May 2026 21:47:15 GMT",
+          "content-type": "application/json; charset=utf-8",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "DENY",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=7776000; includeSubDomains; preload",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "x-attio-client,x-attio-execution-id,x-attio-platform,x-attio-platform-version,x-attio-record-query-score,x-attio-app-installation-bundle-id,WWW-Authenticate",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4872",
+          "x-ratelimit-reset": "1778881648",
+          "x-attio-execution-id": "7154c45e-1981-4fa3-a4ab-ef8b8a34fee9",
+          "vary": "Origin",
+          "x-accurate-at": "2026-05-15T21:47:15.304581000Z",
+          "via": "1.1 google",
+          "alt-svc": "h3=\":443\"; ma=86400",
+          "cf-cache-status": "DYNAMIC",
+          "set-cookie": "_cfuvid=YErdajT9GhGVw70pN9cFQ9GtrkDYJKgaDsbzFNy7nHU-1778881635.1699595-1.0.1.1-ARH.4GST.D006hibd9jLOxW4Lcwu9hufmZzKwJyKOhA; HttpOnly; SameSite=None; Secure; Path=/; Domain=attio.com",
+          "server": "cloudflare",
+          "cf-ray": "9fc5570bcadbd82e-PDX"
+        },
+        "hash": "09a85cd64c6b7a9ccc3e4b9db2040e6196019156",
+        "request": {
+          "params": {
+            "limit": "10",
+            "offset": "0"
+          }
+        }
+      }
+    }
+  }
+}

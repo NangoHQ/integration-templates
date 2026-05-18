@@ -1,79 +1,131 @@
-/**
- * Instructions: Lists notes for a record.
- * API: https://docs.attio.com/rest-api/endpoint-reference/notes/list-notes
- */
-
+import type { ProxyConfiguration } from 'nango';
 import { z } from 'zod';
 import { createAction } from 'nango';
-import type { ProxyConfiguration } from 'nango';
 
-// Inline schema definitions
-const ListNotesInput = z.object({
-    parent_object: z.string().describe('The object type of the parent record. Example: "people" or "companies"'),
-    parent_record_id: z.string().describe('The record ID to list notes for. Example: "5829dd6c-0577-40dc-a858-8bd9a0d6aa58"'),
-    limit: z.number().optional().describe('Maximum number of notes to return'),
-    offset: z.number().optional().describe('Number of notes to skip')
+const InputSchema = z.object({
+    cursor: z.string().optional().describe('Pagination offset from the previous response. Omit for the first page.'),
+    limit: z.number().int().min(1).max(50).optional().describe('The maximum number of results to return. Default is 10, maximum is 50.'),
+    parent_object: z.string().optional().describe('The slug or ID of the parent object the notes belong to.'),
+    parent_record_id: z.string().uuid().optional().describe('The ID of the parent record the notes belong to.')
 });
 
-const NoteId = z.object({
-    workspace_id: z.string(),
-    note_id: z.string()
-});
+const TagSchema = z.union([
+    z.object({
+        type: z.literal('workspace-member'),
+        workspace_member_id: z.string().uuid()
+    }),
+    z.object({
+        type: z.literal('record'),
+        object: z.string(),
+        record_id: z.string().uuid()
+    })
+]);
 
-const Note = z.object({
-    id: NoteId,
-    title: z.union([z.string(), z.null()]),
-    content_plaintext: z.string(),
+const ProviderNoteSchema = z.object({
+    id: z.object({
+        workspace_id: z.string().uuid(),
+        note_id: z.string().uuid()
+    }),
     parent_object: z.string(),
-    parent_record_id: z.string(),
+    parent_record_id: z.string().uuid(),
+    title: z.string(),
+    meeting_id: z.string().uuid().nullable(),
+    content_plaintext: z.string(),
+    content_markdown: z.string(),
+    tags: z.array(TagSchema),
+    created_by_actor: z.object({
+        id: z.string().nullable().optional(),
+        type: z.string().nullable().optional()
+    }),
     created_at: z.string()
 });
 
-const ListNotesOutput = z.object({
-    data: z.array(Note).describe('Array of notes')
+const NoteSchema = z.object({
+    workspace_id: z.string().uuid(),
+    note_id: z.string().uuid(),
+    parent_object: z.string(),
+    parent_record_id: z.string().uuid(),
+    title: z.string(),
+    meeting_id: z.string().uuid().optional(),
+    content_plaintext: z.string(),
+    content_markdown: z.string(),
+    tags: z.array(TagSchema),
+    created_by_actor: z.object({
+        id: z.string().optional(),
+        type: z.string().optional()
+    }),
+    created_at: z.string()
+});
+
+const ListOutputSchema = z.object({
+    items: z.array(NoteSchema),
+    next_cursor: z.string().optional()
 });
 
 const action = createAction({
-    description: 'Lists notes for a record.',
-    version: '1.0.0',
-
+    description: 'List notes from Attio.',
+    version: '2.0.0',
     endpoint: {
         method: 'GET',
-        path: '/notes',
+        path: '/actions/list-notes',
         group: 'Notes'
     },
+    input: InputSchema,
+    output: ListOutputSchema,
+    scopes: ['note:read', 'object_configuration:read', 'record_permission:read'],
 
-    input: ListNotesInput,
-    output: ListNotesOutput,
-    scopes: ['note:read'],
+    exec: async (nango, input): Promise<z.infer<typeof ListOutputSchema>> => {
+        const parsedOffset = input.cursor ? parseInt(input.cursor, 10) : 0;
+        const offset = Number.isNaN(parsedOffset) ? 0 : parsedOffset;
+        const limit = input.limit ?? 10;
 
-    exec: async (nango, input): Promise<z.infer<typeof ListNotesOutput>> => {
         const config: ProxyConfiguration = {
             // https://docs.attio.com/rest-api/endpoint-reference/notes/list-notes
-            endpoint: 'v2/notes',
+            endpoint: '/v2/notes',
             params: {
-                parent_object: input.parent_object,
-                parent_record_id: input.parent_record_id,
-                ...(input.limit && { limit: input.limit.toString() }),
-                ...(input.offset && { offset: input.offset.toString() })
+                limit: String(limit),
+                offset: String(offset),
+                ...(input.parent_object !== undefined && { parent_object: input.parent_object }),
+                ...(input.parent_record_id !== undefined && { parent_record_id: input.parent_record_id })
             },
             retries: 3
         };
-
         const response = await nango.get(config);
 
-        return {
-            data: response.data.data.map((note: any) => ({
-                id: {
-                    workspace_id: note.id.workspace_id,
-                    note_id: note.id.note_id
-                },
-                title: note.title ?? null,
-                content_plaintext: note.content_plaintext,
+        const rawData = response.data;
+        if (!rawData || typeof rawData !== 'object' || Array.isArray(rawData) || !('data' in rawData) || !Array.isArray(rawData.data)) {
+            throw new nango.ActionError({
+                type: 'invalid_response',
+                message: 'Unexpected response format from Attio API.'
+            });
+        }
+
+        const providerData = z.object({ data: z.array(z.unknown()) }).parse(rawData);
+        const notes = providerData.data.map((item) => {
+            const note = ProviderNoteSchema.parse(item);
+            return {
+                workspace_id: note.id.workspace_id,
+                note_id: note.id.note_id,
                 parent_object: note.parent_object,
                 parent_record_id: note.parent_record_id,
+                title: note.title,
+                ...(note.meeting_id != null && { meeting_id: note.meeting_id }),
+                content_plaintext: note.content_plaintext,
+                content_markdown: note.content_markdown,
+                tags: note.tags,
+                created_by_actor: {
+                    ...(note.created_by_actor.id != null && { id: note.created_by_actor.id }),
+                    ...(note.created_by_actor.type != null && { type: note.created_by_actor.type })
+                },
                 created_at: note.created_at
-            }))
+            };
+        });
+
+        const nextCursor = notes.length === limit ? String(offset + limit) : undefined;
+
+        return {
+            items: notes,
+            ...(nextCursor !== undefined && { next_cursor: nextCursor })
         };
     }
 });

@@ -1,0 +1,794 @@
+{
+  "nango": {
+    "batchSave": {
+      "ListEntry": [
+        {
+          "id": "50fcd45b-76a4-56f1-846a-2d06005e3567",
+          "list_id": "39723680-f534-4fe7-ab80-c5278e20e37b",
+          "parent_record_id": "1f2f5b15-c7df-4843-8885-51c4d24fc61c",
+          "parent_object": "people",
+          "created_at": "2026-05-15T21:49:28.125000000Z",
+          "entry_values": {
+            "entry_id": [
+              {
+                "active_from": "2026-05-15T21:49:28.125000000Z",
+                "active_until": null,
+                "created_by_actor": {
+                  "type": "app",
+                  "id": "0061e423-8347-4ba0-a23c-286fdbd54a8c"
+                },
+                "value": "50fcd45b-76a4-56f1-846a-2d06005e3567",
+                "attribute_type": "text"
+              }
+            ],
+            "created_at": [
+              {
+                "active_from": "2026-05-15T21:49:28.125000000Z",
+                "active_until": null,
+                "created_by_actor": {
+                  "type": "app",
+                  "id": "0061e423-8347-4ba0-a23c-286fdbd54a8c"
+                },
+                "value": "2026-05-15T21:49:28.125000000Z",
+                "attribute_type": "timestamp"
+              }
+            ],
+            "created_by": [
+              {
+                "active_from": "2026-05-15T21:49:28.125000000Z",
+                "active_until": null,
+                "created_by_actor": {
+                  "type": "app",
+                  "id": "0061e423-8347-4ba0-a23c-286fdbd54a8c"
+                },
+                "referenced_actor_type": "app",
+                "referenced_actor_id": "0061e423-8347-4ba0-a23c-286fdbd54a8c",
+                "attribute_type": "actor-reference"
+              }
+            ],
+            "test_text_attribute": []
+          }
+        },
+        {
+          "id": "9e578106-8f64-509c-81f7-c7fc85f327bd",
+          "list_id": "39723680-f534-4fe7-ab80-c5278e20e37b",
+          "parent_record_id": "0e339d90-1b8d-436e-9305-7c08620dc212",
+          "parent_object": "people",
+          "created_at": "2026-05-15T21:50:07.515000000Z",
+          "entry_values": {
+            "entry_id": [
+              {
+                "active_from": "2026-05-15T21:50:07.515000000Z",
+                "active_until": null,
+                "created_by_actor": {
+                  "type": "app",
+                  "id": "0061e423-8347-4ba0-a23c-286fdbd54a8c"
+                },
+                "value": "9e578106-8f64-509c-81f7-c7fc85f327bd",
+                "attribute_type": "text"
+              }
+            ],
+            "created_at": [
+              {
+                "active_from": "2026-05-15T21:50:07.515000000Z",
+                "active_until": null,
+                "created_by_actor": {
+                  "type": "app",
+                  "id": "0061e423-8347-4ba0-a23c-286fdbd54a8c"
+                },
+                "value": "2026-05-15T21:50:07.515000000Z",
+                "attribute_type": "timestamp"
+              }
+            ],
+            "created_by": [
+              {
+                "active_from": "2026-05-15T21:50:07.515000000Z",
+                "active_until": null,
+                "created_by_actor": {
+                  "type": "app",
+                  "id": "0061e423-8347-4ba0-a23c-286fdbd54a8c"
+                },
+                "referenced_actor_type": "app",
+                "referenced_actor_id": "0061e423-8347-4ba0-a23c-286fdbd54a8c",
+                "attribute_type": "actor-reference"
+              }
+            ],
+            "test_text_attribute": []
+          }
+        },
+        {
+          "id": "c4dbecb3-f737-445b-99d5-375fa76ce7bd",
+          "list_id": "39723680-f534-4fe7-ab80-c5278e20e37b",
+          "parent_record_id": "0e339d90-1b8d-436e-9305-7c08620dc212",
+          "parent_object": "people",
+          "created_at": "2026-05-15T21:50:14.945000000Z",
+          "entry_values": {
+            "entry_id": [
+              {
+                "active_from": "2026-05-15T21:50:14.945000000Z",
+                "active_until": null,
+                "created_by_actor": {
+                  "type": "app",
+                  "id": "0061e423-8347-4ba0-a23c-286fdbd54a8c"
+                },
+                "value": "c4dbecb3-f737-445b-99d5-375fa76ce7bd",
+                "attribute_type": "text"
+              }
+            ],
+            "created_at": [
+              {
+                "active_from": "2026-05-15T21:50:14.945000000Z",
+                "active_until": null,
+                "created_by_actor": {
+                  "type": "app",
+                  "id": "0061e423-8347-4ba0-a23c-286fdbd54a8c"
+                },
+                "value": "2026-05-15T21:50:14.945000000Z",
+                "attribute_type": "timestamp"
+              }
+            ],
+            "created_by": [
+              {
+                "active_from": "2026-05-15T21:50:14.945000000Z",
+                "active_until": null,
+                "created_by_actor": {
+                  "type": "app",
+                  "id": "0061e423-8347-4ba0-a23c-286fdbd54a8c"
+                },
+                "referenced_actor_type": "app",
+                "referenced_actor_id": "0061e423-8347-4ba0-a23c-286fdbd54a8c",
+                "attribute_type": "actor-reference"
+              }
+            ],
+            "test_text_attribute": [
+              {
+                "active_from": "2026-05-15T21:50:41.891000000Z",
+                "active_until": null,
+                "created_by_actor": {
+                  "type": "app",
+                  "id": "0061e423-8347-4ba0-a23c-286fdbd54a8c"
+                },
+                "value": "Updated value",
+                "attribute_type": "text"
+              }
+            ]
+          }
+        },
+        {
+          "id": "b2c9200d-c9c2-4fa7-97ea-12a3cb79cf43",
+          "list_id": "39723680-f534-4fe7-ab80-c5278e20e37b",
+          "parent_record_id": "163be4a4-f4a1-40ea-8b46-e0316ade2f62",
+          "parent_object": "people",
+          "created_at": "2026-05-15T21:50:19.810000000Z",
+          "entry_values": {
+            "entry_id": [
+              {
+                "active_from": "2026-05-15T21:50:19.810000000Z",
+                "active_until": null,
+                "created_by_actor": {
+                  "type": "app",
+                  "id": "0061e423-8347-4ba0-a23c-286fdbd54a8c"
+                },
+                "value": "b2c9200d-c9c2-4fa7-97ea-12a3cb79cf43",
+                "attribute_type": "text"
+              }
+            ],
+            "created_at": [
+              {
+                "active_from": "2026-05-15T21:50:19.810000000Z",
+                "active_until": null,
+                "created_by_actor": {
+                  "type": "app",
+                  "id": "0061e423-8347-4ba0-a23c-286fdbd54a8c"
+                },
+                "value": "2026-05-15T21:50:19.810000000Z",
+                "attribute_type": "timestamp"
+              }
+            ],
+            "created_by": [
+              {
+                "active_from": "2026-05-15T21:50:19.810000000Z",
+                "active_until": null,
+                "created_by_actor": {
+                  "type": "app",
+                  "id": "0061e423-8347-4ba0-a23c-286fdbd54a8c"
+                },
+                "referenced_actor_type": "app",
+                "referenced_actor_id": "0061e423-8347-4ba0-a23c-286fdbd54a8c",
+                "attribute_type": "actor-reference"
+              }
+            ],
+            "test_text_attribute": []
+          }
+        },
+        {
+          "id": "7a675f91-8b99-482c-bb0b-d8f981258dd5",
+          "list_id": "39723680-f534-4fe7-ab80-c5278e20e37b",
+          "parent_record_id": "163be4a4-f4a1-40ea-8b46-e0316ade2f62",
+          "parent_object": "people",
+          "created_at": "2026-05-15T21:50:29.949000000Z",
+          "entry_values": {
+            "entry_id": [
+              {
+                "active_from": "2026-05-15T21:50:29.949000000Z",
+                "active_until": null,
+                "created_by_actor": {
+                  "type": "app",
+                  "id": "0061e423-8347-4ba0-a23c-286fdbd54a8c"
+                },
+                "value": "7a675f91-8b99-482c-bb0b-d8f981258dd5",
+                "attribute_type": "text"
+              }
+            ],
+            "created_at": [
+              {
+                "active_from": "2026-05-15T21:50:29.949000000Z",
+                "active_until": null,
+                "created_by_actor": {
+                  "type": "app",
+                  "id": "0061e423-8347-4ba0-a23c-286fdbd54a8c"
+                },
+                "value": "2026-05-15T21:50:29.949000000Z",
+                "attribute_type": "timestamp"
+              }
+            ],
+            "created_by": [
+              {
+                "active_from": "2026-05-15T21:50:29.949000000Z",
+                "active_until": null,
+                "created_by_actor": {
+                  "type": "app",
+                  "id": "0061e423-8347-4ba0-a23c-286fdbd54a8c"
+                },
+                "referenced_actor_type": "app",
+                "referenced_actor_id": "0061e423-8347-4ba0-a23c-286fdbd54a8c",
+                "attribute_type": "actor-reference"
+              }
+            ],
+            "test_text_attribute": []
+          }
+        }
+      ]
+    },
+    "batchDelete": {
+      "ListEntry": []
+    }
+  },
+  "api": {
+    "get": {
+      "/v2/lists": {
+        "response": {
+          "data": [
+            {
+              "id": {
+                "workspace_id": "edbb5cd2-e046-4b4f-bd62-eeefa0a76787",
+                "list_id": "39723680-f534-4fe7-ab80-c5278e20e37b"
+              },
+              "api_slug": "seed_list_1",
+              "created_at": "2026-05-15T21:08:01.386000000Z",
+              "name": "Updated Seed List 1",
+              "workspace_access": "full-access",
+              "workspace_member_access": [],
+              "parent_object": [
+                "people"
+              ],
+              "created_by_actor": {
+                "type": "app",
+                "id": "0061e423-8347-4ba0-a23c-286fdbd54a8c"
+              }
+            },
+            {
+              "id": {
+                "workspace_id": "edbb5cd2-e046-4b4f-bd62-eeefa0a76787",
+                "list_id": "1b3457c1-f722-41d6-9efb-206b2a6eca99"
+              },
+              "api_slug": "seed_list_2",
+              "created_at": "2026-05-15T21:08:05.675000000Z",
+              "name": "Seed List 2",
+              "workspace_access": "full-access",
+              "workspace_member_access": [],
+              "parent_object": [
+                "people"
+              ],
+              "created_by_actor": {
+                "type": "app",
+                "id": "0061e423-8347-4ba0-a23c-286fdbd54a8c"
+              }
+            },
+            {
+              "id": {
+                "workspace_id": "edbb5cd2-e046-4b4f-bd62-eeefa0a76787",
+                "list_id": "8172d146-a76c-4882-aec1-60cae9911979"
+              },
+              "api_slug": "test_list_1778881622",
+              "created_at": "2026-05-15T21:47:08.179000000Z",
+              "name": "Test List",
+              "workspace_access": "full-access",
+              "workspace_member_access": [],
+              "parent_object": [
+                "people"
+              ],
+              "created_by_actor": {
+                "type": "app",
+                "id": "0061e423-8347-4ba0-a23c-286fdbd54a8c"
+              }
+            },
+            {
+              "id": {
+                "workspace_id": "edbb5cd2-e046-4b4f-bd62-eeefa0a76787",
+                "list_id": "d4187d1d-7eac-43c5-9882-21eb779b78c2"
+              },
+              "api_slug": "test_list_1778881639",
+              "created_at": "2026-05-15T21:47:24.940000000Z",
+              "name": "Test List",
+              "workspace_access": "full-access",
+              "workspace_member_access": [],
+              "parent_object": [
+                "people"
+              ],
+              "created_by_actor": {
+                "type": "app",
+                "id": "0061e423-8347-4ba0-a23c-286fdbd54a8c"
+              }
+            }
+          ]
+        },
+        "status": 200,
+        "headers": {
+          "date": "Mon, 18 May 2026 06:18:15 GMT",
+          "content-type": "application/json; charset=utf-8",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "DENY",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=7776000; includeSubDomains; preload",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "x-attio-client,x-attio-execution-id,x-attio-platform,x-attio-platform-version,x-attio-record-query-score,x-attio-app-installation-bundle-id,WWW-Authenticate",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4978",
+          "x-ratelimit-reset": "1779085110",
+          "x-attio-execution-id": "b81dd5de-58da-4b6e-bb22-2bd4aee98c30",
+          "vary": "Origin",
+          "x-accurate-at": "2026-05-18T06:18:15.876430000Z",
+          "via": "1.1 google",
+          "alt-svc": "h3=\":443\"; ma=86400",
+          "cf-cache-status": "DYNAMIC",
+          "set-cookie": "_cfuvid=AvBHWGxDdvrUaAxOAXwIMZ3tMVkXQ0JHY.nLmOlnsIQ-1779085095.709694-1.0.1.1-l2ON7hNmwzU6LFHE4rl4e9CcQzatcg8Z.V.62g9oWaE; HttpOnly; SameSite=None; Secure; Path=/; Domain=attio.com",
+          "server": "cloudflare",
+          "cf-ray": "9fd8be582a5f12b1-PDX"
+        },
+        "hash": "2e46bcab681eea6a226675c2f60a0d18b66a53c5",
+        "request": {}
+      }
+    },
+    "post": {
+      "/v2/lists/39723680-f534-4fe7-ab80-c5278e20e37b/entries/query": {
+        "response": {
+          "data": [
+            {
+              "id": {
+                "workspace_id": "edbb5cd2-e046-4b4f-bd62-eeefa0a76787",
+                "list_id": "39723680-f534-4fe7-ab80-c5278e20e37b",
+                "entry_id": "50fcd45b-76a4-56f1-846a-2d06005e3567"
+              },
+              "parent_record_id": "1f2f5b15-c7df-4843-8885-51c4d24fc61c",
+              "parent_object": "people",
+              "created_at": "2026-05-15T21:49:28.125000000Z",
+              "entry_values": {
+                "entry_id": [
+                  {
+                    "active_from": "2026-05-15T21:49:28.125000000Z",
+                    "active_until": null,
+                    "created_by_actor": {
+                      "type": "app",
+                      "id": "0061e423-8347-4ba0-a23c-286fdbd54a8c"
+                    },
+                    "value": "50fcd45b-76a4-56f1-846a-2d06005e3567",
+                    "attribute_type": "text"
+                  }
+                ],
+                "created_at": [
+                  {
+                    "active_from": "2026-05-15T21:49:28.125000000Z",
+                    "active_until": null,
+                    "created_by_actor": {
+                      "type": "app",
+                      "id": "0061e423-8347-4ba0-a23c-286fdbd54a8c"
+                    },
+                    "value": "2026-05-15T21:49:28.125000000Z",
+                    "attribute_type": "timestamp"
+                  }
+                ],
+                "created_by": [
+                  {
+                    "active_from": "2026-05-15T21:49:28.125000000Z",
+                    "active_until": null,
+                    "created_by_actor": {
+                      "type": "app",
+                      "id": "0061e423-8347-4ba0-a23c-286fdbd54a8c"
+                    },
+                    "referenced_actor_type": "app",
+                    "referenced_actor_id": "0061e423-8347-4ba0-a23c-286fdbd54a8c",
+                    "attribute_type": "actor-reference"
+                  }
+                ],
+                "test_text_attribute": []
+              }
+            },
+            {
+              "id": {
+                "workspace_id": "edbb5cd2-e046-4b4f-bd62-eeefa0a76787",
+                "list_id": "39723680-f534-4fe7-ab80-c5278e20e37b",
+                "entry_id": "9e578106-8f64-509c-81f7-c7fc85f327bd"
+              },
+              "parent_record_id": "0e339d90-1b8d-436e-9305-7c08620dc212",
+              "parent_object": "people",
+              "created_at": "2026-05-15T21:50:07.515000000Z",
+              "entry_values": {
+                "entry_id": [
+                  {
+                    "active_from": "2026-05-15T21:50:07.515000000Z",
+                    "active_until": null,
+                    "created_by_actor": {
+                      "type": "app",
+                      "id": "0061e423-8347-4ba0-a23c-286fdbd54a8c"
+                    },
+                    "value": "9e578106-8f64-509c-81f7-c7fc85f327bd",
+                    "attribute_type": "text"
+                  }
+                ],
+                "created_at": [
+                  {
+                    "active_from": "2026-05-15T21:50:07.515000000Z",
+                    "active_until": null,
+                    "created_by_actor": {
+                      "type": "app",
+                      "id": "0061e423-8347-4ba0-a23c-286fdbd54a8c"
+                    },
+                    "value": "2026-05-15T21:50:07.515000000Z",
+                    "attribute_type": "timestamp"
+                  }
+                ],
+                "created_by": [
+                  {
+                    "active_from": "2026-05-15T21:50:07.515000000Z",
+                    "active_until": null,
+                    "created_by_actor": {
+                      "type": "app",
+                      "id": "0061e423-8347-4ba0-a23c-286fdbd54a8c"
+                    },
+                    "referenced_actor_type": "app",
+                    "referenced_actor_id": "0061e423-8347-4ba0-a23c-286fdbd54a8c",
+                    "attribute_type": "actor-reference"
+                  }
+                ],
+                "test_text_attribute": []
+              }
+            },
+            {
+              "id": {
+                "workspace_id": "edbb5cd2-e046-4b4f-bd62-eeefa0a76787",
+                "list_id": "39723680-f534-4fe7-ab80-c5278e20e37b",
+                "entry_id": "c4dbecb3-f737-445b-99d5-375fa76ce7bd"
+              },
+              "parent_record_id": "0e339d90-1b8d-436e-9305-7c08620dc212",
+              "parent_object": "people",
+              "created_at": "2026-05-15T21:50:14.945000000Z",
+              "entry_values": {
+                "entry_id": [
+                  {
+                    "active_from": "2026-05-15T21:50:14.945000000Z",
+                    "active_until": null,
+                    "created_by_actor": {
+                      "type": "app",
+                      "id": "0061e423-8347-4ba0-a23c-286fdbd54a8c"
+                    },
+                    "value": "c4dbecb3-f737-445b-99d5-375fa76ce7bd",
+                    "attribute_type": "text"
+                  }
+                ],
+                "created_at": [
+                  {
+                    "active_from": "2026-05-15T21:50:14.945000000Z",
+                    "active_until": null,
+                    "created_by_actor": {
+                      "type": "app",
+                      "id": "0061e423-8347-4ba0-a23c-286fdbd54a8c"
+                    },
+                    "value": "2026-05-15T21:50:14.945000000Z",
+                    "attribute_type": "timestamp"
+                  }
+                ],
+                "created_by": [
+                  {
+                    "active_from": "2026-05-15T21:50:14.945000000Z",
+                    "active_until": null,
+                    "created_by_actor": {
+                      "type": "app",
+                      "id": "0061e423-8347-4ba0-a23c-286fdbd54a8c"
+                    },
+                    "referenced_actor_type": "app",
+                    "referenced_actor_id": "0061e423-8347-4ba0-a23c-286fdbd54a8c",
+                    "attribute_type": "actor-reference"
+                  }
+                ],
+                "test_text_attribute": [
+                  {
+                    "active_from": "2026-05-15T21:50:41.891000000Z",
+                    "active_until": null,
+                    "created_by_actor": {
+                      "type": "app",
+                      "id": "0061e423-8347-4ba0-a23c-286fdbd54a8c"
+                    },
+                    "value": "Updated value",
+                    "attribute_type": "text"
+                  }
+                ]
+              }
+            },
+            {
+              "id": {
+                "workspace_id": "edbb5cd2-e046-4b4f-bd62-eeefa0a76787",
+                "list_id": "39723680-f534-4fe7-ab80-c5278e20e37b",
+                "entry_id": "b2c9200d-c9c2-4fa7-97ea-12a3cb79cf43"
+              },
+              "parent_record_id": "163be4a4-f4a1-40ea-8b46-e0316ade2f62",
+              "parent_object": "people",
+              "created_at": "2026-05-15T21:50:19.810000000Z",
+              "entry_values": {
+                "entry_id": [
+                  {
+                    "active_from": "2026-05-15T21:50:19.810000000Z",
+                    "active_until": null,
+                    "created_by_actor": {
+                      "type": "app",
+                      "id": "0061e423-8347-4ba0-a23c-286fdbd54a8c"
+                    },
+                    "value": "b2c9200d-c9c2-4fa7-97ea-12a3cb79cf43",
+                    "attribute_type": "text"
+                  }
+                ],
+                "created_at": [
+                  {
+                    "active_from": "2026-05-15T21:50:19.810000000Z",
+                    "active_until": null,
+                    "created_by_actor": {
+                      "type": "app",
+                      "id": "0061e423-8347-4ba0-a23c-286fdbd54a8c"
+                    },
+                    "value": "2026-05-15T21:50:19.810000000Z",
+                    "attribute_type": "timestamp"
+                  }
+                ],
+                "created_by": [
+                  {
+                    "active_from": "2026-05-15T21:50:19.810000000Z",
+                    "active_until": null,
+                    "created_by_actor": {
+                      "type": "app",
+                      "id": "0061e423-8347-4ba0-a23c-286fdbd54a8c"
+                    },
+                    "referenced_actor_type": "app",
+                    "referenced_actor_id": "0061e423-8347-4ba0-a23c-286fdbd54a8c",
+                    "attribute_type": "actor-reference"
+                  }
+                ],
+                "test_text_attribute": []
+              }
+            },
+            {
+              "id": {
+                "workspace_id": "edbb5cd2-e046-4b4f-bd62-eeefa0a76787",
+                "list_id": "39723680-f534-4fe7-ab80-c5278e20e37b",
+                "entry_id": "7a675f91-8b99-482c-bb0b-d8f981258dd5"
+              },
+              "parent_record_id": "163be4a4-f4a1-40ea-8b46-e0316ade2f62",
+              "parent_object": "people",
+              "created_at": "2026-05-15T21:50:29.949000000Z",
+              "entry_values": {
+                "entry_id": [
+                  {
+                    "active_from": "2026-05-15T21:50:29.949000000Z",
+                    "active_until": null,
+                    "created_by_actor": {
+                      "type": "app",
+                      "id": "0061e423-8347-4ba0-a23c-286fdbd54a8c"
+                    },
+                    "value": "7a675f91-8b99-482c-bb0b-d8f981258dd5",
+                    "attribute_type": "text"
+                  }
+                ],
+                "created_at": [
+                  {
+                    "active_from": "2026-05-15T21:50:29.949000000Z",
+                    "active_until": null,
+                    "created_by_actor": {
+                      "type": "app",
+                      "id": "0061e423-8347-4ba0-a23c-286fdbd54a8c"
+                    },
+                    "value": "2026-05-15T21:50:29.949000000Z",
+                    "attribute_type": "timestamp"
+                  }
+                ],
+                "created_by": [
+                  {
+                    "active_from": "2026-05-15T21:50:29.949000000Z",
+                    "active_until": null,
+                    "created_by_actor": {
+                      "type": "app",
+                      "id": "0061e423-8347-4ba0-a23c-286fdbd54a8c"
+                    },
+                    "referenced_actor_type": "app",
+                    "referenced_actor_id": "0061e423-8347-4ba0-a23c-286fdbd54a8c",
+                    "attribute_type": "actor-reference"
+                  }
+                ],
+                "test_text_attribute": []
+              }
+            }
+          ]
+        },
+        "status": 200,
+        "headers": {
+          "date": "Mon, 18 May 2026 06:18:16 GMT",
+          "content-type": "application/json; charset=utf-8",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "DENY",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=7776000; includeSubDomains; preload",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "x-attio-client,x-attio-execution-id,x-attio-platform,x-attio-platform-version,x-attio-record-query-score,x-attio-app-installation-bundle-id,WWW-Authenticate",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4977",
+          "x-ratelimit-reset": "1779085110",
+          "x-attio-execution-id": "3b827178-e995-4ab3-9057-c5e0ac117633",
+          "vary": "Origin",
+          "x-attio-record-query-score": "84",
+          "x-accurate-at": "2026-05-18T06:18:16.487000000Z",
+          "via": "1.1 google",
+          "alt-svc": "h3=\":443\"; ma=86400",
+          "cf-cache-status": "DYNAMIC",
+          "set-cookie": "_cfuvid=6bm07sXSL3UFCtHz_qO2Dwg5S1l7DUFPgL9ja8VO3Us-1779085096.334139-1.0.1.1-XumbbMZzRMt9XQsSeCSFg04ERV91yqdBiQzBl.94Y4I; HttpOnly; SameSite=None; Secure; Path=/; Domain=attio.com",
+          "server": "cloudflare",
+          "cf-ray": "9fd8be5c1cdfaee3-PDX"
+        },
+        "hash": "c80ce3fe0f5944f15d6f5972c76158186e63fe75",
+        "request": {
+          "data": {
+            "limit": 100,
+            "offset": 0,
+            "sorts": [
+              {
+                "direction": "asc",
+                "attribute": "created_at"
+              }
+            ]
+          }
+        }
+      },
+      "/v2/lists/1b3457c1-f722-41d6-9efb-206b2a6eca99/entries/query": {
+        "response": {
+          "data": []
+        },
+        "status": 200,
+        "headers": {
+          "date": "Mon, 18 May 2026 06:18:17 GMT",
+          "content-type": "application/json; charset=utf-8",
+          "content-length": "11",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=5184000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4976",
+          "x-ratelimit-reset": "1779085110",
+          "etag": "W/\"b-EFAlOux7Kcr/ZEgGkn2r+oFAbu4\""
+        },
+        "hash": "0a1a0a5f45806a5a3b729aa17c78b43c70ba8526",
+        "request": {
+          "data": {
+            "limit": 100,
+            "offset": 0,
+            "sorts": [
+              {
+                "direction": "asc",
+                "attribute": "created_at"
+              }
+            ]
+          }
+        }
+      },
+      "/v2/lists/8172d146-a76c-4882-aec1-60cae9911979/entries/query": {
+        "response": {
+          "data": []
+        },
+        "status": 200,
+        "headers": {
+          "date": "Mon, 18 May 2026 06:18:18 GMT",
+          "content-type": "application/json; charset=utf-8",
+          "content-length": "11",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=5184000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4975",
+          "x-ratelimit-reset": "1779085110",
+          "etag": "W/\"b-EFAlOux7Kcr/ZEgGkn2r+oFAbu4\""
+        },
+        "hash": "672a92cc6e9c7cf539cfe83b87b70062d0824283",
+        "request": {
+          "data": {
+            "limit": 100,
+            "offset": 0,
+            "sorts": [
+              {
+                "direction": "asc",
+                "attribute": "created_at"
+              }
+            ]
+          }
+        }
+      },
+      "/v2/lists/d4187d1d-7eac-43c5-9882-21eb779b78c2/entries/query": {
+        "response": {
+          "data": []
+        },
+        "status": 200,
+        "headers": {
+          "date": "Mon, 18 May 2026 06:18:19 GMT",
+          "content-type": "application/json; charset=utf-8",
+          "content-length": "11",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=5184000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4974",
+          "x-ratelimit-reset": "1779085110",
+          "etag": "W/\"b-EFAlOux7Kcr/ZEgGkn2r+oFAbu4\""
+        },
+        "hash": "bc2e6db26ff051e2ecc4d55620247d3f8618b28e",
+        "request": {
+          "data": {
+            "limit": 100,
+            "offset": 0,
+            "sorts": [
+              {
+                "direction": "asc",
+                "attribute": "created_at"
+              }
+            ]
+          }
+        }
+      }
+    }
+  }
+}

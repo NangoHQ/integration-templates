@@ -1,120 +1,103 @@
 import { z } from 'zod';
 import { createAction } from 'nango';
-import type { ProxyConfiguration } from 'nango';
 
-/**
- * Updates an existing webhook configuration in Attio.
- * API Docs: https://docs.attio.com/rest-api/endpoint-reference/webhooks/update-a-webhook
- */
-
-// Subscription filter schema for input
-const SubscriptionFilterInput = z.object({
+const SubscriptionFilterConditionSchema = z.object({
     field: z.string(),
-    operator: z.string(),
+    operator: z.enum(['equals', 'not_equals']),
     value: z.string()
 });
 
-const FilterGroupInput = z.object({
-    $and: z.array(SubscriptionFilterInput).optional(),
-    $or: z.array(SubscriptionFilterInput).optional()
-});
+const SubscriptionFilterSchema = z.union([
+    z.object({
+        $or: z.array(SubscriptionFilterConditionSchema)
+    }),
+    z.object({
+        $and: z.array(SubscriptionFilterConditionSchema)
+    }),
+    z.null()
+]);
 
-// Subscription schema for input
-const SubscriptionInput = z.object({
+const SubscriptionSchema = z.object({
     event_type: z.string(),
-    filter: z.union([FilterGroupInput, z.null()]).optional()
+    filter: SubscriptionFilterSchema
 });
 
-// Input schema
-const UpdateWebhookInput = z.object({
-    webhook_id: z.string(),
-    target_url: z.string().optional(),
-    subscriptions: z.array(SubscriptionInput).optional()
+const InputSchema = z.object({
+    webhook_id: z.string().uuid().describe('The ID of the webhook to update. Example: "45662666-3a96-4189-9ddb-6d6fe20bd076"'),
+    target_url: z.string().url().optional().describe('URL where the webhook events will be delivered to. Example: "https://example.com/webhook"'),
+    subscriptions: z.array(SubscriptionSchema).optional().describe('One or more events the webhook is subscribed to.')
 });
 
-// Subscription filter schema for output
-const SubscriptionFilter = z.object({
-    field: z.string(),
-    operator: z.string(),
-    value: z.string()
-});
-
-const FilterGroup = z.object({
-    $and: z.array(SubscriptionFilter).optional(),
-    $or: z.array(SubscriptionFilter).optional()
-});
-
-// Subscription schema for output
-const Subscription = z.object({
-    event_type: z.string(),
-    filter: z.union([FilterGroup, z.null()])
-});
-
-// Webhook ID schema
-const WebhookId = z.object({
+const ProviderWebhookIdSchema = z.object({
     workspace_id: z.string(),
     webhook_id: z.string()
 });
 
-// Output schema
-const UpdateWebhookOutput = z.object({
+const ProviderSubscriptionSchema = z.object({
+    event_type: z.string(),
+    filter: SubscriptionFilterSchema
+});
+
+const ProviderWebhookSchema = z.object({
     target_url: z.string(),
-    subscriptions: z.array(Subscription),
-    id: WebhookId,
+    subscriptions: z.array(ProviderSubscriptionSchema),
+    id: ProviderWebhookIdSchema,
+    status: z.enum(['active', 'degraded', 'inactive']),
+    created_at: z.string()
+});
+
+const ProviderResponseSchema = z.object({
+    data: ProviderWebhookSchema
+});
+
+const OutputSchema = z.object({
+    webhook_id: z.string(),
+    workspace_id: z.string(),
+    target_url: z.string(),
+    subscriptions: z.array(SubscriptionSchema),
     status: z.enum(['active', 'degraded', 'inactive']),
     created_at: z.string()
 });
 
 const action = createAction({
-    description: 'Updates an existing webhook configuration in Attio',
-    version: '1.0.0',
-
+    description: 'Update a webhook in Attio.',
+    version: '2.0.0',
     endpoint: {
-        method: 'PATCH',
-        path: '/webhooks/{webhook_id}',
+        method: 'POST',
+        path: '/actions/update-webhook',
         group: 'Webhooks'
     },
-
-    input: UpdateWebhookInput,
-    output: UpdateWebhookOutput,
+    input: InputSchema,
+    output: OutputSchema,
     scopes: ['webhook:read-write'],
 
-    exec: async (nango, input): Promise<z.infer<typeof UpdateWebhookOutput>> => {
-        const data: Record<string, any> = {};
+    exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
+        const data: { target_url?: string; subscriptions?: z.infer<typeof SubscriptionSchema>[] } = {};
 
-        if (input.target_url) {
-            data['target_url'] = input.target_url;
+        if (input.target_url !== undefined) {
+            data.target_url = input.target_url;
         }
 
-        if (input.subscriptions) {
-            data['subscriptions'] = input.subscriptions.map((sub) => ({
-                event_type: sub.event_type,
-                filter: sub.filter ?? null
-            }));
+        if (input.subscriptions !== undefined) {
+            data.subscriptions = input.subscriptions;
         }
 
-        const config: ProxyConfiguration = {
-            // https://docs.attio.com/rest-api/endpoint-reference/webhooks/update-a-webhook
-            endpoint: `v2/webhooks/${input.webhook_id}`,
+        // https://docs.attio.com/rest-api/endpoint-reference/webhooks/update-a-webhook
+        const response = await nango.patch({
+            endpoint: `/v2/webhooks/${input.webhook_id}`,
             data: { data },
             retries: 3
-        };
+        });
 
-        const response = await nango.patch(config);
-        const webhook = response.data.data;
+        const providerResponse = ProviderResponseSchema.parse(response.data);
 
         return {
-            target_url: webhook.target_url,
-            subscriptions: webhook.subscriptions.map((sub: any) => ({
-                event_type: sub.event_type,
-                filter: sub.filter ?? null
-            })),
-            id: {
-                workspace_id: webhook.id.workspace_id,
-                webhook_id: webhook.id.webhook_id
-            },
-            status: webhook.status,
-            created_at: webhook.created_at
+            webhook_id: providerResponse.data.id.webhook_id,
+            workspace_id: providerResponse.data.id.workspace_id,
+            target_url: providerResponse.data.target_url,
+            subscriptions: providerResponse.data.subscriptions,
+            status: providerResponse.data.status,
+            created_at: providerResponse.data.created_at
         };
     }
 });

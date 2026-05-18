@@ -1,72 +1,132 @@
-/**
- * Instructions: Lists records from a specific object type.
- * API: https://docs.attio.com/rest-api/endpoint-reference/records/list-records
- */
-
 import { z } from 'zod';
 import { createAction } from 'nango';
-import type { ProxyConfiguration } from 'nango';
 
-// Inline schema definitions
-const ListRecordsInput = z.object({
-    object_slug: z.string().describe('The object type slug to query records from. Example: "people" or "companies"'),
-    limit: z.number().optional().describe('Maximum number of records to return. Default: 25'),
-    offset: z.number().optional().describe('Number of records to skip. Default: 0')
+const InputSchema = z.object({
+    object: z.string(),
+    cursor: z.string().optional(),
+    limit: z.number().int().min(1).max(100).optional(),
+    filters: z.record(z.string(), z.unknown()).optional()
 });
 
-const RecordId = z.object({
-    workspace_id: z.string(),
-    object_id: z.string(),
-    record_id: z.string()
+const RecordValueSchema = z.object({
+    active_from: z.string(),
+    active_until: z.string().nullable().optional(),
+    attribute_type: z.string(),
+    created_at: z.string().optional(),
+    record_id: z.string().optional(),
+    updated_at: z.string().optional(),
+    value: z.unknown().optional()
 });
 
-const Record = z.object({
-    id: RecordId,
+const RecordSchema = z.object({
+    id: z.object({
+        record_id: z.string(),
+        object_id: z.string()
+    }),
     created_at: z.string(),
-    values: z.record(z.string(), z.any()).describe('Object containing attribute values keyed by attribute slug')
+    values: z.record(z.string(), z.array(RecordValueSchema)).optional()
 });
 
-const ListRecordsOutput = z.object({
-    data: z.array(Record).describe('Array of record objects')
+const ProviderResponseSchema = z.object({
+    data: z.array(RecordSchema),
+    next_cursor: z.string().optional(),
+    next_starting_after: z.string().optional()
+});
+
+const RecordValueOutputSchema = z.object({
+    active_from: z.string(),
+    active_until: z.string().optional(),
+    attribute_type: z.string(),
+    created_at: z.string().optional(),
+    record_id: z.string().optional(),
+    updated_at: z.string().optional(),
+    value: z.unknown().optional()
+});
+
+const OutputSchema = z.object({
+    records: z.array(
+        z.object({
+            id: z.string(),
+            object_id: z.string(),
+            created_at: z.string(),
+            values: z.record(z.string(), z.array(RecordValueOutputSchema)).optional()
+        })
+    ),
+    next_cursor: z.string().optional()
 });
 
 const action = createAction({
-    description: 'Lists records from a specific object type.',
-    version: '1.0.0',
-
+    description: 'List records from Attio',
+    version: '2.0.0',
     endpoint: {
         method: 'POST',
-        path: '/objects/:object_slug/records/query',
+        path: '/actions/list-records',
         group: 'Records'
     },
+    input: InputSchema,
+    output: OutputSchema,
+    scopes: ['record_permission:read', 'object_configuration:read'],
 
-    input: ListRecordsInput,
-    output: ListRecordsOutput,
-    scopes: ['record_permission:read'],
-
-    exec: async (nango, input): Promise<z.infer<typeof ListRecordsOutput>> => {
-        const config: ProxyConfiguration = {
-            // https://docs.attio.com/rest-api/endpoint-reference/records/list-records
-            endpoint: `v2/objects/${input.object_slug}/records/query`,
-            data: {
-                ...(input.limit && { limit: input.limit }),
-                ...(input.offset && { offset: input.offset })
-            },
-            retries: 3
+    exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
+        const requestBody: {
+            limit?: number;
+            starting_after?: string;
+            filter?: Record<string, unknown>;
+        } = {
+            ...(input.limit && { limit: input.limit }),
+            ...(input.cursor && { starting_after: input.cursor }),
+            ...(input.filters && { filter: input.filters })
         };
 
-        const response = await nango.post(config);
+        // https://docs.attio.com/rest-api/records/query-records
+        const response = await nango.post({
+            endpoint: `/v2/objects/${input.object}/records/query`,
+            data: requestBody,
+            retries: 3
+        });
+
+        const providerResponse = ProviderResponseSchema.parse(response.data);
 
         return {
-            data: response.data.data.map((record: any) => ({
-                id: {
-                    workspace_id: record.id.workspace_id,
+            records: providerResponse.data.map((record) => {
+                const mappedValues: Record<string, z.infer<typeof RecordValueOutputSchema>[]> = {};
+                if (record.values) {
+                    const entries = Object.entries(record.values);
+                    for (const [key, values] of entries) {
+                        const validatedValues = z.array(RecordValueSchema).parse(values);
+                        mappedValues[key] = validatedValues.map((value) => {
+                            const output: z.infer<typeof RecordValueOutputSchema> = {
+                                active_from: value.active_from,
+                                attribute_type: value.attribute_type
+                            };
+                            if (value.active_until != null) {
+                                output.active_until = value.active_until;
+                            }
+                            if (value.created_at != null) {
+                                output.created_at = value.created_at;
+                            }
+                            if (value.record_id != null) {
+                                output.record_id = value.record_id;
+                            }
+                            if (value.updated_at != null) {
+                                output.updated_at = value.updated_at;
+                            }
+                            if (value.value !== undefined) {
+                                output.value = value.value;
+                            }
+                            return output;
+                        });
+                    }
+                }
+
+                return {
+                    id: record.id.record_id,
                     object_id: record.id.object_id,
-                    record_id: record.id.record_id
-                },
-                created_at: record.created_at,
-                values: record.values
-            }))
+                    created_at: record.created_at,
+                    ...(Object.keys(mappedValues).length > 0 && { values: mappedValues })
+                };
+            }),
+            ...(providerResponse.next_cursor != null && { next_cursor: providerResponse.next_cursor })
         };
     }
 });

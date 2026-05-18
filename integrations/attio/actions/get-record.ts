@@ -1,65 +1,87 @@
-/**
- * Instructions: Gets a specific record by ID.
- * API: https://docs.attio.com/rest-api/endpoint-reference/records/get-a-record
- */
-
 import { z } from 'zod';
 import { createAction } from 'nango';
-import type { ProxyConfiguration } from 'nango';
 
-// Inline schema definitions
-const GetRecordInput = z.object({
-    object_slug: z.string().describe('The object type slug. Example: "people" or "companies"'),
-    record_id: z.string().describe('The record ID to retrieve. Example: "5829dd6c-0577-40dc-a858-8bd9a0d6aa58"')
+const InputSchema = z.object({
+    object: z.string().describe('A UUID or slug to identify the object. Example: "people"'),
+    record_id: z.string().describe('UUID of the record to retrieve. Example: "4c6ade84-19c7-4581-95aa-b1d5f4571c25"')
 });
 
-const RecordId = z.object({
+const RecordIdSchema = z.object({
     workspace_id: z.string(),
     object_id: z.string(),
     record_id: z.string()
 });
 
-const GetRecordOutput = z.object({
-    data: z.object({
-        id: RecordId,
-        created_at: z.string(),
-        values: z.record(z.string(), z.any())
+const ValueItemSchema = z
+    .object({
+        active_from: z.string(),
+        active_until: z.string().nullable().optional(),
+        created_by_actor: z.object({
+            id: z.string().nullable().optional(),
+            type: z.string().nullable().optional()
+        }),
+        attribute_type: z.string()
     })
+    .passthrough();
+
+const ArrayOfValueItemsSchema = z.array(ValueItemSchema);
+
+const ProviderRecordSchema = z.object({
+    id: RecordIdSchema,
+    created_at: z.string(),
+    web_url: z.string(),
+    values: z.record(z.string(), ArrayOfValueItemsSchema)
+});
+
+const OutputSchema = z.object({
+    id: RecordIdSchema,
+    created_at: z.string(),
+    web_url: z.string(),
+    values: z.record(z.string(), ArrayOfValueItemsSchema)
 });
 
 const action = createAction({
-    description: 'Gets a specific record by ID.',
-    version: '1.0.0',
-
+    description: 'Retrieve a single record from Attio.',
+    version: '2.0.0',
     endpoint: {
-        method: 'GET',
-        path: '/objects/:object_slug/records/:record_id',
+        method: 'POST',
+        path: '/actions/get-record',
         group: 'Records'
     },
+    input: InputSchema,
+    output: OutputSchema,
+    scopes: ['record_permission:read', 'object_configuration:read'],
 
-    input: GetRecordInput,
-    output: GetRecordOutput,
-    scopes: ['record_permission:read'],
-
-    exec: async (nango, input): Promise<z.infer<typeof GetRecordOutput>> => {
-        const config: ProxyConfiguration = {
-            // https://docs.attio.com/rest-api/endpoint-reference/records/get-a-record
-            endpoint: `v2/objects/${input.object_slug}/records/${input.record_id}`,
+    exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
+        // https://docs.attio.com/rest-api/endpoint-reference/records/get-a-record
+        const response = await nango.get({
+            endpoint: `/v2/objects/${input.object}/records/${input.record_id}`,
             retries: 3
-        };
+        });
 
-        const response = await nango.get(config);
+        if (!response.data) {
+            throw new nango.ActionError({
+                type: 'not_found',
+                message: 'Record not found',
+                object: input.object,
+                record_id: input.record_id
+            });
+        }
+
+        if (!response.data || typeof response.data !== 'object' || !('data' in response.data)) {
+            throw new nango.ActionError({
+                type: 'invalid_response',
+                message: 'Invalid response from API'
+            });
+        }
+
+        const providerRecord = ProviderRecordSchema.parse(response.data.data);
 
         return {
-            data: {
-                id: {
-                    workspace_id: response.data.data.id.workspace_id,
-                    object_id: response.data.data.id.object_id,
-                    record_id: response.data.data.id.record_id
-                },
-                created_at: response.data.data.created_at,
-                values: response.data.data.values
-            }
+            id: providerRecord.id,
+            created_at: providerRecord.created_at,
+            web_url: providerRecord.web_url,
+            values: providerRecord.values
         };
     }
 });

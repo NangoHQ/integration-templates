@@ -1,0 +1,108 @@
+{
+  "input": {
+    "format": "plaintext",
+    "content": "This is a test comment on the newly created person record",
+    "author": {
+      "type": "workspace-member",
+      "id": "641ecd33-0a48-4b7b-ba48-bbb7a649a8ee"
+    },
+    "record": {
+      "object": "30ff61f7-6b37-414e-8d6f-fb42f963e996",
+      "record_id": "51e9834b-1a89-4ebe-8158-7d786be4885f"
+    }
+  },
+  "output": {
+    "id": {
+      "workspace_id": "edbb5cd2-e046-4b4f-bd62-eeefa0a76787",
+      "comment_id": "c95de8d5-c72f-4203-9c2b-36bd87cc1641"
+    },
+    "thread_id": "c95de8d5-c72f-4203-9c2b-36bd87cc1641",
+    "content_plaintext": "This is a test comment on the newly created person record",
+    "record": {
+      "record_id": "51e9834b-1a89-4ebe-8158-7d786be4885f",
+      "object_id": "30ff61f7-6b37-414e-8d6f-fb42f963e996"
+    },
+    "entry": null,
+    "resolved_at": null,
+    "resolved_by": null,
+    "created_at": "2026-05-15T21:49:49.162000000Z",
+    "author": {
+      "id": "641ecd33-0a48-4b7b-ba48-bbb7a649a8ee",
+      "type": "workspace-member"
+    }
+  },
+  "nango": {},
+  "api": {
+    "post": {
+      "/v2/comments": {
+        "response": {
+          "data": {
+            "id": {
+              "workspace_id": "edbb5cd2-e046-4b4f-bd62-eeefa0a76787",
+              "comment_id": "c95de8d5-c72f-4203-9c2b-36bd87cc1641"
+            },
+            "thread_id": "c95de8d5-c72f-4203-9c2b-36bd87cc1641",
+            "created_at": "2026-05-15T21:49:49.162000000Z",
+            "resolved_at": null,
+            "record": {
+              "record_id": "51e9834b-1a89-4ebe-8158-7d786be4885f",
+              "object_id": "30ff61f7-6b37-414e-8d6f-fb42f963e996"
+            },
+            "entry": null,
+            "content_plaintext": "This is a test comment on the newly created person record",
+            "resolved_by": null,
+            "author": {
+              "type": "workspace-member",
+              "id": "641ecd33-0a48-4b7b-ba48-bbb7a649a8ee"
+            }
+          }
+        },
+        "status": 200,
+        "headers": {
+          "date": "Fri, 15 May 2026 21:49:49 GMT",
+          "content-type": "application/json; charset=utf-8",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "DENY",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=7776000; includeSubDomains; preload",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "x-attio-client,x-attio-execution-id,x-attio-platform,x-attio-platform-version,x-attio-record-query-score,x-attio-app-installation-bundle-id,WWW-Authenticate",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4968",
+          "x-ratelimit-reset": "1778881830",
+          "x-attio-execution-id": "a2b132df-3b2f-4289-9707-26d288e3adec",
+          "vary": "Origin",
+          "x-accurate-at": "2026-05-15T21:49:49.232180000Z",
+          "via": "1.1 google",
+          "alt-svc": "h3=\":443\"; ma=86400",
+          "cf-cache-status": "DYNAMIC",
+          "set-cookie": "_cfuvid=Fy4hncbK8D6TapIKXgua4lW7VA3veqyQD0eBcL56t8Y-1778881789.0198805-1.0.1.1-grNPgJQbUSid1sXl0GXeTf2tlduffTzbMDBfzuVOYBc; HttpOnly; SameSite=None; Secure; Path=/; Domain=attio.com",
+          "server": "cloudflare",
+          "cf-ray": "9fc55acd59123016-PDX"
+        },
+        "hash": "ad894bc1bcf73743a455026a5ecf3e193c13f0ef",
+        "request": {
+          "data": {
+            "data": {
+              "format": "plaintext",
+              "content": "This is a test comment on the newly created person record",
+              "author": {
+                "type": "workspace-member",
+                "id": "641ecd33-0a48-4b7b-ba48-bbb7a649a8ee"
+              },
+              "record": {
+                "object": "30ff61f7-6b37-414e-8d6f-fb42f963e996",
+                "record_id": "51e9834b-1a89-4ebe-8158-7d786be4885f"
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

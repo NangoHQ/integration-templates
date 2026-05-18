@@ -1,0 +1,87 @@
+{
+  "input": {
+    "list_id": "39723680-f534-4fe7-ab80-c5278e20e37b",
+    "name": "Updated Seed List 1"
+  },
+  "output": {
+    "id": {
+      "workspace_id": "edbb5cd2-e046-4b4f-bd62-eeefa0a76787",
+      "list_id": "39723680-f534-4fe7-ab80-c5278e20e37b"
+    },
+    "api_slug": "seed_list_1",
+    "name": "Updated Seed List 1",
+    "parent_object": [
+      "people"
+    ],
+    "workspace_access": "full-access",
+    "workspace_member_access": [],
+    "created_by_actor": {
+      "id": "0061e423-8347-4ba0-a23c-286fdbd54a8c",
+      "type": "app"
+    },
+    "created_at": "2026-05-15T21:08:01.386000000Z"
+  },
+  "nango": {},
+  "api": {
+    "patch": {
+      "/v2/lists/39723680-f534-4fe7-ab80-c5278e20e37b": {
+        "response": {
+          "data": {
+            "id": {
+              "workspace_id": "edbb5cd2-e046-4b4f-bd62-eeefa0a76787",
+              "list_id": "39723680-f534-4fe7-ab80-c5278e20e37b"
+            },
+            "api_slug": "seed_list_1",
+            "created_at": "2026-05-15T21:08:01.386000000Z",
+            "name": "Updated Seed List 1",
+            "workspace_access": "full-access",
+            "workspace_member_access": [],
+            "parent_object": [
+              "people"
+            ],
+            "created_by_actor": {
+              "type": "app",
+              "id": "0061e423-8347-4ba0-a23c-286fdbd54a8c"
+            }
+          }
+        },
+        "status": 200,
+        "headers": {
+          "date": "Fri, 15 May 2026 21:47:06 GMT",
+          "content-type": "application/json; charset=utf-8",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "DENY",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=7776000; includeSubDomains; preload",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "x-attio-client,x-attio-execution-id,x-attio-platform,x-attio-platform-version,x-attio-record-query-score,x-attio-app-installation-bundle-id,WWW-Authenticate",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4902",
+          "x-ratelimit-reset": "1778881648",
+          "x-attio-execution-id": "2d232f76-2f7c-411a-8c36-0079d3031b35",
+          "vary": "Origin",
+          "x-accurate-at": "2026-05-15T21:47:06.123148000Z",
+          "via": "1.1 google",
+          "alt-svc": "h3=\":443\"; ma=86400",
+          "cf-cache-status": "DYNAMIC",
+          "set-cookie": "_cfuvid=vbyFNTzDSTaQWVdqzxf.5R27DiPEE1oNt2ciOyJCyZg-1778881625.923835-1.0.1.1-.Jam.9hBLWE7MskvfhWXXgDMxLPhYg2pAYRLgKTdsvo; HttpOnly; SameSite=None; Secure; Path=/; Domain=attio.com",
+          "server": "cloudflare",
+          "cf-ray": "9fc556d208a887cd-PDX"
+        },
+        "hash": "d35b6516bc54edca038bdbf79d331e5401539744",
+        "request": {
+          "data": {
+            "data": {
+              "name": "Updated Seed List 1"
+            }
+          }
+        }
+      }
+    }
+  }
+}

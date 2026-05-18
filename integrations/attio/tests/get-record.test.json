@@ -1,0 +1,249 @@
+{
+  "input": {
+    "object": "people",
+    "record_id": "0e339d90-1b8d-436e-9305-7c08620dc212"
+  },
+  "output": {
+    "id": {
+      "workspace_id": "edbb5cd2-e046-4b4f-bd62-eeefa0a76787",
+      "object_id": "30ff61f7-6b37-414e-8d6f-fb42f963e996",
+      "record_id": "0e339d90-1b8d-436e-9305-7c08620dc212"
+    },
+    "created_at": "2026-05-15T21:49:04.642000000Z",
+    "web_url": "https://app.attio.com/nango-dev/person/0e339d90-1b8d-436e-9305-7c08620dc212",
+    "values": {
+      "record_id": [
+        {
+          "active_from": "2026-05-15T21:49:04.642000000Z",
+          "active_until": null,
+          "created_by_actor": {
+            "id": "0061e423-8347-4ba0-a23c-286fdbd54a8c",
+            "type": "app"
+          },
+          "attribute_type": "text",
+          "value": "0e339d90-1b8d-436e-9305-7c08620dc212"
+        }
+      ],
+      "name": [],
+      "email_addresses": [
+        {
+          "active_from": "2026-05-15T21:49:04.642000000Z",
+          "active_until": null,
+          "created_by_actor": {
+            "id": "0061e423-8347-4ba0-a23c-286fdbd54a8c",
+            "type": "app"
+          },
+          "attribute_type": "email-address",
+          "original_email_address": "test-action@example.com",
+          "email_address": "test-action@example.com",
+          "email_domain": "example.com",
+          "email_root_domain": "example.com",
+          "email_local_specifier": "test-action"
+        }
+      ],
+      "description": [],
+      "company": [
+        {
+          "active_from": "2026-05-15T21:49:05.131000000Z",
+          "active_until": null,
+          "created_by_actor": {
+            "id": null,
+            "type": "system"
+          },
+          "attribute_type": "record-reference",
+          "target_object": "companies",
+          "target_record_id": "9bd1ef0b-a4d1-4978-bc15-9c9e5cf382a2"
+        }
+      ],
+      "job_title": [],
+      "avatar_url": [],
+      "phone_numbers": [],
+      "primary_location": [],
+      "angellist": [],
+      "facebook": [],
+      "instagram": [],
+      "linkedin": [],
+      "twitter": [],
+      "twitter_follower_count": [],
+      "first_calendar_interaction": [],
+      "last_calendar_interaction": [],
+      "next_calendar_interaction": [],
+      "first_email_interaction": [],
+      "last_email_interaction": [],
+      "first_interaction": [],
+      "last_interaction": [],
+      "next_interaction": [],
+      "strongest_connection_strength_legacy": [],
+      "strongest_connection_strength": [],
+      "strongest_connection_user": [],
+      "associated_deals": [],
+      "associated_users": [],
+      "created_at": [
+        {
+          "active_from": "2026-05-15T21:49:04.642000000Z",
+          "active_until": null,
+          "created_by_actor": {
+            "id": "0061e423-8347-4ba0-a23c-286fdbd54a8c",
+            "type": "app"
+          },
+          "attribute_type": "timestamp",
+          "value": "2026-05-15T21:49:04.642000000Z"
+        }
+      ],
+      "created_by": [
+        {
+          "active_from": "2026-05-15T21:49:04.642000000Z",
+          "active_until": null,
+          "created_by_actor": {
+            "id": "0061e423-8347-4ba0-a23c-286fdbd54a8c",
+            "type": "app"
+          },
+          "attribute_type": "actor-reference",
+          "referenced_actor_type": "app",
+          "referenced_actor_id": "0061e423-8347-4ba0-a23c-286fdbd54a8c"
+        }
+      ]
+    }
+  },
+  "nango": {},
+  "api": {
+    "get": {
+      "/v2/objects/people/records/0e339d90-1b8d-436e-9305-7c08620dc212": {
+        "response": {
+          "data": {
+            "id": {
+              "workspace_id": "edbb5cd2-e046-4b4f-bd62-eeefa0a76787",
+              "object_id": "30ff61f7-6b37-414e-8d6f-fb42f963e996",
+              "record_id": "0e339d90-1b8d-436e-9305-7c08620dc212"
+            },
+            "created_at": "2026-05-15T21:49:04.642000000Z",
+            "web_url": "https://app.attio.com/nango-dev/person/0e339d90-1b8d-436e-9305-7c08620dc212",
+            "values": {
+              "record_id": [
+                {
+                  "active_from": "2026-05-15T21:49:04.642000000Z",
+                  "active_until": null,
+                  "created_by_actor": {
+                    "type": "app",
+                    "id": "0061e423-8347-4ba0-a23c-286fdbd54a8c"
+                  },
+                  "value": "0e339d90-1b8d-436e-9305-7c08620dc212",
+                  "attribute_type": "text"
+                }
+              ],
+              "name": [],
+              "email_addresses": [
+                {
+                  "active_from": "2026-05-15T21:49:04.642000000Z",
+                  "active_until": null,
+                  "created_by_actor": {
+                    "type": "app",
+                    "id": "0061e423-8347-4ba0-a23c-286fdbd54a8c"
+                  },
+                  "original_email_address": "test-action@example.com",
+                  "email_address": "test-action@example.com",
+                  "email_domain": "example.com",
+                  "email_root_domain": "example.com",
+                  "email_local_specifier": "test-action",
+                  "attribute_type": "email-address"
+                }
+              ],
+              "description": [],
+              "company": [
+                {
+                  "active_from": "2026-05-15T21:49:05.131000000Z",
+                  "active_until": null,
+                  "created_by_actor": {
+                    "type": "system",
+                    "id": null
+                  },
+                  "target_object": "companies",
+                  "target_record_id": "9bd1ef0b-a4d1-4978-bc15-9c9e5cf382a2",
+                  "attribute_type": "record-reference"
+                }
+              ],
+              "job_title": [],
+              "avatar_url": [],
+              "phone_numbers": [],
+              "primary_location": [],
+              "angellist": [],
+              "facebook": [],
+              "instagram": [],
+              "linkedin": [],
+              "twitter": [],
+              "twitter_follower_count": [],
+              "first_calendar_interaction": [],
+              "last_calendar_interaction": [],
+              "next_calendar_interaction": [],
+              "first_email_interaction": [],
+              "last_email_interaction": [],
+              "first_interaction": [],
+              "last_interaction": [],
+              "next_interaction": [],
+              "strongest_connection_strength_legacy": [],
+              "strongest_connection_strength": [],
+              "strongest_connection_user": [],
+              "associated_deals": [],
+              "associated_users": [],
+              "created_at": [
+                {
+                  "active_from": "2026-05-15T21:49:04.642000000Z",
+                  "active_until": null,
+                  "created_by_actor": {
+                    "type": "app",
+                    "id": "0061e423-8347-4ba0-a23c-286fdbd54a8c"
+                  },
+                  "value": "2026-05-15T21:49:04.642000000Z",
+                  "attribute_type": "timestamp"
+                }
+              ],
+              "created_by": [
+                {
+                  "active_from": "2026-05-15T21:49:04.642000000Z",
+                  "active_until": null,
+                  "created_by_actor": {
+                    "type": "app",
+                    "id": "0061e423-8347-4ba0-a23c-286fdbd54a8c"
+                  },
+                  "referenced_actor_type": "app",
+                  "referenced_actor_id": "0061e423-8347-4ba0-a23c-286fdbd54a8c",
+                  "attribute_type": "actor-reference"
+                }
+              ]
+            }
+          }
+        },
+        "status": 200,
+        "headers": {
+          "date": "Fri, 15 May 2026 21:49:37 GMT",
+          "content-type": "application/json; charset=utf-8",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "DENY",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=7776000; includeSubDomains; preload",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "x-attio-client,x-attio-execution-id,x-attio-platform,x-attio-platform-version,x-attio-record-query-score,x-attio-app-installation-bundle-id,WWW-Authenticate",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4979",
+          "x-ratelimit-reset": "1778881830",
+          "x-attio-execution-id": "c7f6471a-f9e8-445c-9bb7-1678dc48e9f2",
+          "vary": "Origin",
+          "x-accurate-at": "2026-05-15T21:49:37.831157000Z",
+          "via": "1.1 google",
+          "alt-svc": "h3=\":443\"; ma=86400",
+          "cf-cache-status": "DYNAMIC",
+          "set-cookie": "_cfuvid=iRIA8FTkIyDZKekidpEwfVkM6JoQxIgVNNdCQYRs.PI-1778881777.6933308-1.0.1.1-94ZtjqSJrfPNDBZyRfwgkF9VOnX9HouwfRULQOowYoU; HttpOnly; SameSite=None; Secure; Path=/; Domain=attio.com",
+          "server": "cloudflare",
+          "cf-ray": "9fc55a869e70eedd-PDX"
+        },
+        "hash": "496cd4b5ba3ab6f25eb786b18c1337618a8c62bf",
+        "request": {}
+      }
+    }
+  }
+}

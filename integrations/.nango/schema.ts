@@ -3585,607 +3585,1317 @@ export interface ActionOutput_ashby_interviewstage {
   interviewPlanId: string;})[];
 };
 
-export interface AttioCompany {
+export interface Company {
   id: string;
-  workspace_id: string;
-  created_at: string;
-  web_url: string;
   name?: string | undefined;
-  domains?: ({  domain: string;
-  root_domain: string;})[] | undefined;
-  description?: string | undefined;
-  team_member_ids?: string[] | undefined;
-  location?: {  country_code?: string | undefined;
-  line_1?: string | null | undefined;
-  line_2?: string | null | undefined;
-  city?: string | undefined;
-  state?: string | undefined;
-  postal_code?: string | undefined;};
-  categories?: string[] | undefined;
-  logo_url?: string | undefined;
-  twitter_follower_count?: number | undefined;
-  foundation_date?: string | undefined;
-  estimated_arr_usd?: number | undefined;
-  social_links?: {  linkedin?: string[] | undefined;
-  twitter?: string[] | undefined;
-  facebook?: string[] | undefined;
-  instagram?: string[] | undefined;
-  angellist?: string[] | undefined;};
-};
-
-export interface SyncMetadata_attio_companies {
-};
-
-export interface AttioDeal {
-  id: string;
-  workspace_id: string;
-  created_at: string;
-  web_url: string;
-  name?: string | undefined;
-  stage?: string | undefined;
-  stage_id?: string | undefined;
-  owner_id?: string | undefined;
-  value?: number | undefined;
-  currency?: string | undefined;
-  associated_people_ids?: string[] | undefined;
-  associated_company_id?: string | undefined;
-};
-
-export interface SyncMetadata_attio_deals {
-};
-
-export interface AttioPerson {
-  id: string;
-  workspace_id: string;
-  created_at: string;
-  web_url: string;
-  first_name?: string | undefined;
-  last_name?: string | undefined;
-  full_name?: string | undefined;
-  email_addresses?: ({  email: string;
-  domain: string;})[] | undefined;
-  phone_numbers?: ({  number: string;
-  country_code: string;})[] | undefined;
-  job_title?: ({  active_from: string;
-  active_until: string | null;
-  created_by_actor: {  type: string;
-  id: string | null;};
-  value: string;
-  attribute_type: string;})[] | undefined;
   company_id?: string | undefined;
-  description?: ({  active_from: string;
-  active_until: string | null;
-  created_by_actor: {  type: string;
-  id: string | null;};})[] | undefined;
-  avatar_url?: ({  active_from: string;
-  active_until: string | null;
-  created_by_actor: {  type: string;
-  id: string | null;};})[] | undefined;
-  social_links?: {  linkedin?: string[] | undefined;
-  twitter?: string[] | undefined;
-  facebook?: string[] | undefined;
-  instagram?: string[] | undefined;
-  angellist?: string[] | undefined;};
-  location?: {  line_1?: string | undefined;
-  line_2?: string | undefined;
-  city?: string | undefined;
-  state?: string | undefined;
-  postal_code?: string | undefined;
-  country_code?: string | undefined;};
+  created_at?: number | undefined;
+  updated_at?: number | undefined;
+  session_count?: number | undefined;
+  monthly_spend?: number | undefined;
+  user_count?: number | undefined;
+  plan?: string | undefined;
+  size?: number | undefined;
+  website?: string | undefined;
+  industry?: string | undefined;
 };
 
-export interface SyncMetadata_attio_people {
-};
-
-export interface ActionInput_attio_createcompany {
-  name: string;
-  domains?: string[] | undefined;
+export interface Deal {
+  id: string;
+  dealName?: string | undefined;
+  stage?: string | undefined;
+  amount?: number | undefined;
+  closingDate?: string | undefined;
+  accountName?: string | undefined;
+  accountId?: string | undefined;
+  contactName?: string | undefined;
+  contactId?: string | undefined;
+  ownerName?: string | undefined;
+  ownerId?: string | undefined;
+  ownerEmail?: string | undefined;
+  createdTime: string;
+  modifiedTime: string;
+  probability?: string | number | undefined;
+  expectedRevenue?: number | undefined;
   description?: string | undefined;
+  campaignSource?: string | undefined;
+  leadSource?: string | undefined;
+  type?: string | undefined;
+  nextStep?: string | undefined;
 };
 
-export interface ActionOutput_attio_createcompany {
-  id: {  workspace_id: string;
-  object_id: string;
-  record_id: string;};
-  name: string | null;
-  domains: string[];
-  description: string | null;
+export interface ListEntry {
+  id: string;
+  list_id: string;
+  parent_record_id?: string | undefined;
+  parent_object?: string | undefined;
   created_at: string;
-  web_url: string;
+  entry_values?: {  [key: string]: unknown[];} | undefined;
+};
+
+export interface List {
+  id: string;
+  name: string;
+  description?: string | undefined;
+  created_at?: string | undefined;
+  private?: boolean | undefined;
+  owner_id?: string | undefined;
+  follower_count?: number | undefined;
+  member_count?: number | undefined;
+};
+
+export interface Meeting {
+  id: string;
+  topic?: string | undefined;
+  start_time?: string | undefined;
+  duration?: number | undefined;
+  timezone?: string | undefined;
+  created_at?: string | undefined;
+  join_url?: string | undefined;
+  type?: number | undefined;
+  uuid?: string | undefined;
+  host_id?: string | undefined;
+  status?: string | undefined;
+};
+
+export interface Note {
+  id: string;
+  note_title?: string | undefined;
+  note_content?: string | undefined;
+  parent_id?: string | undefined;
+  parent_name?: string | undefined;
+  parent_module?: string | undefined;
+  owner_id?: string | undefined;
+  owner_name?: string | undefined;
+  owner_email?: string | undefined;
+  created_by_id?: string | undefined;
+  created_by_name?: string | undefined;
+  modified_by_id?: string | undefined;
+  modified_by_name?: string | undefined;
+  created_time?: string | undefined;
+  modified_time?: string | undefined;
+};
+
+export interface AttioObject {
+  /**
+   * The object_id UUID.
+   */
+  id: string;
+  /**
+   * A UUID to identify the workspace this object belongs to.
+   */
+  workspace_id: string;
+  /**
+   * A unique, human-readable slug to access the object through URLs and API calls.
+   */
+  api_slug?: string | undefined;
+  /**
+   * The singular form of the object's name.
+   */
+  singular_noun?: string | undefined;
+  /**
+   * The plural form of the object's name.
+   */
+  plural_noun?: string | undefined;
+  /**
+   * When the object was created.
+   */
+  created_at: string;
+};
+
+export interface Person {
+  id: string;
+  name: string;
+  emails?: ({  value: string;
+  primary?: boolean | undefined;
+  label?: string | undefined;})[];
+  phones?: ({  value: string;
+  primary?: boolean | undefined;
+  label?: string | undefined;})[];
+  org_id?: number | undefined;
+  owner_id?: number | undefined;
+  add_time?: string | undefined;
+  update_time: string;
+};
+
+export interface Record {
+  id: string;
+  raw: {  [key: string]: unknown | undefined;};
+};
+
+export interface WorkspaceMember {
+  id: string;
+  first_name: string;
+  last_name: string;
+  avatar_url?: string | undefined;
+  email_address: string;
+  created_at: string;
+  access_level: string;
+};
+
+export interface ActionInput_attio_createcomment {
+  /**
+   * The format of the comment content. Must be "plaintext".
+   */
+  format: 'plaintext';
+  /**
+   * The content of the comment. Workspace members can be mentioned using their email address.
+   */
+  content: string;
+  /**
+   * The workspace member who wrote this comment.
+   */
+  author: {  /**
+   * The type of actor. Must be workspace-member.
+   */
+  type: 'workspace-member';
+  /**
+   * The ID of the workspace member. Example: "641ecd33-0a48-4b7b-ba48-bbb7a649a8ee"
+   */
+  id: string;};
+  /**
+   * If responding to an existing thread, the ID of that thread. Example: "aa1dc1d9-93ac-4c6c-987e-16b6eea9aab2"
+   */
+  thread_id?: string | undefined;
+  /**
+   * Target record for the comment. Required if thread_id and entry are not provided.
+   */
+  record?: {  /**
+   * The slug or ID of the object. Example: "people" or "30ff61f7-6b37-414e-8d6f-fb42f963e996"
+   */
+  object: string;
+  /**
+   * The ID of the record. Example: "4c6ade84-19c7-4581-95aa-b1d5f4571c25"
+   */
+  record_id: string;} | undefined;
+  /**
+   * Target list entry for the comment. Required if thread_id and record are not provided.
+   */
+  entry?: {  /**
+   * The slug or ID of the list. Example: "39723680-f534-4fe7-ab80-c5278e20e37b"
+   */
+  list: string;
+  /**
+   * The ID of the entry. Example: "e9a7b33a-6dfc-483d-9a3b-fbc20068c162"
+   */
+  entry_id: string;} | undefined;
+  /**
+   * Optional ISO timestamp to backdate the comment. Defaults to current time.
+   */
+  created_at?: string | undefined;
+};
+
+export interface ActionOutput_attio_createcomment {
+  id: {  /**
+   * The ID of the workspace the comment belongs to.
+   */
+  workspace_id: string;
+  /**
+   * The ID of the comment.
+   */
+  comment_id: string;};
+  /**
+   * The ID of the thread the comment belongs to.
+   */
+  thread_id: string;
+  /**
+   * The plaintext content of the comment.
+   */
+  content_plaintext: string;
+  /**
+   * The record the comment belongs to.
+   */
+  record: {  /**
+   * The ID of the record the comment belongs to.
+   */
+  record_id: string;
+  /**
+   * The ID of the object the record belongs to.
+   */
+  object_id: string;};
+  /**
+   * The entry the comment belongs to, null for comments on records.
+   */
+  entry: {  /**
+   * The ID of the entry the comment belongs to.
+   */
+  entry_id: string;
+  /**
+   * The ID of the list the entry belongs to.
+   */
+  list_id: string;};
+  /**
+   * Whether the comment is resolved.
+   */
+  resolved_at: string;
+  /**
+   * The actor that resolved this comment.
+   */
+  resolved_by: {  /**
+   * The ID of the actor who resolved this comment.
+   */
+  id: string;
+  /**
+   * The type of actor who resolved this comment.
+   */
+  type: 'api-token' | 'workspace-member' | 'system' | 'app';};
+  /**
+   * When the comment was created.
+   */
+  created_at: string;
+  /**
+   * Who wrote this comment.
+   */
+  author: {  /**
+   * The ID of the actor who wrote this comment.
+   */
+  id: string;
+  /**
+   * The type of actor who wrote this comment.
+   */
+  type: 'api-token' | 'workspace-member' | 'system' | 'app';};
 };
 
 export interface ActionInput_attio_createlistentry {
   /**
-   * The list slug or UUID to add the entry to. Example: "my-sales-list"
+   * A UUID or slug identifying the list. Example: "seed_list_1" or "39723680-f534-4fe7-ab80-c5278e20e37b"
    */
-  list_id: string;
+  list: string;
   /**
-   * The record ID to add to the list. Example: "5829dd6c-0577-40dc-a858-8bd9a0d6aa58"
+   * A UUID identifying the record to add to the list. Example: "4c6ade84-19c7-4581-95aa-b1d5f4571c25"
    */
-  record_id: string;
+  parent_record_id: string;
+  /**
+   * A UUID or slug identifying the object that the parent record belongs to. Example: "people" or "30ff61f7-6b37-414e-8d6f-fb42f963e996"
+   */
+  parent_object: string;
+  /**
+   * Map of attribute keys (api_slug or attribute_id) to values. For multi-select attributes, use an array of values.
+   */
+  entry_values: {  [key: string]: unknown | undefined;};
 };
 
 export interface ActionOutput_attio_createlistentry {
-  data: {  id: {  workspace_id: string;
+  id: {  workspace_id: string;
   list_id: string;
   entry_id: string;};
-  record_id: string;
-  created_at: string;};
+  parent_record_id: string;
+  parent_object: string;
+  created_at: string;
+};
+
+export interface ActionInput_attio_createlist {
+  /**
+   * The human-readable name of the list. Example: "Enterprise Sales"
+   */
+  name: string;
+  /**
+   * A unique, human-readable slug to access the list through API calls. Should be formatted in snake case. Example: "enterprise_sales"
+   */
+  api_slug: string;
+  /**
+   * A UUID or slug to identify the allowed object type for records added to this list. Example: "people"
+   */
+  parent_object: string;
+  /**
+   * The level of access granted to all members of the workspace for this list. Pass null to keep the list private.
+   */
+  workspace_access: 'full-access' | 'read-and-write' | 'read-only';
+  /**
+   * The level of access granted to specific workspace members for this list. Pass an empty array to grant access to no workspace members.
+   */
+  workspace_member_access: ({  /**
+   * A UUID to identify the workspace member to grant access to. Example: "50cf242c-7fa3-4cad-87d0-75b1af71c57b"
+   */
+  workspace_member_id: string;
+  /**
+   * The level of access to the list.
+   */
+  level: 'full-access' | 'read-and-write' | 'read-only';})[];
+};
+
+export interface ActionOutput_attio_createlist {
+  id: {  workspace_id: string;
+  list_id: string;};
+  api_slug: string;
+  name: string;
+  parent_object: string[];
+  workspace_access?: 'full-access' | 'read-and-write' | 'read-only' | undefined;
+  workspace_member_access?: ({  /**
+   * A UUID to identify the workspace member to grant access to. Example: "50cf242c-7fa3-4cad-87d0-75b1af71c57b"
+   */
+  workspace_member_id: string;
+  /**
+   * The level of access to the list.
+   */
+  level: 'full-access' | 'read-and-write' | 'read-only';})[] | undefined;
+  created_by_actor?: {  id: string;
+  type: 'api-token' | 'workspace-member' | 'system' | 'app';} | undefined;
+  created_at?: string | undefined;
 };
 
 export interface ActionInput_attio_createnote {
   /**
-   * The object type of the parent record. Example: "people" or "companies"
+   * The ID or slug of the parent object the note belongs to. Example: "people"
    */
   parent_object: string;
   /**
-   * The record ID to attach the note to. Example: "5829dd6c-0577-40dc-a858-8bd9a0d6aa58"
+   * The ID of the parent record the note belongs to. Example: "891dcbfc-9141-415d-9b2a-2238a6cc012d"
    */
   parent_record_id: string;
   /**
-   * The note title. Example: "Meeting Notes"
+   * The note title. The title is plaintext only and has no formatting.
    */
   title: string;
   /**
-   * The note content in plain text or markdown. Example: "Discussed Q4 planning..."
+   * The format of the note content.
+   */
+  format: 'plaintext' | 'markdown';
+  /**
+   * The main content of the note, formatted according to the format field.
    */
   content: string;
+  /**
+   * Override the created_at timestamp. Example: "2023-01-01T15:00:00.000000000Z"
+   */
+  created_at?: string | undefined;
+  /**
+   * An optional ID to associate this note with a meeting.
+   */
+  meeting_id?: string | undefined;
 };
 
 export interface ActionOutput_attio_createnote {
-  data: {  id: {  workspace_id: string;
+  id: {  workspace_id: string;
   note_id: string;};
-  title: string;
-  content_plaintext: string;
   parent_object: string;
   parent_record_id: string;
-  created_at: string;};
+  title: string;
+  meeting_id?: string | undefined;
+  content_plaintext: string;
+  content_markdown: string;
+  tags: ({  0: {  type: 'workspace-member';
+  workspace_member_id: string;};
+  1: {  type: 'record';
+  object: string;
+  record_id: string;};})[];
+  created_by_actor: {  id: string;
+  type: 'api-token' | 'workspace-member' | 'system' | 'app';};
+  created_at: string;
 };
 
-export interface ActionInput_attio_createperson {
-  first_name: string;
-  last_name: string;
-  email_addresses?: string[] | undefined;
-  phone_numbers?: string[] | undefined;
-  job_title?: string | undefined;
+export interface ActionInput_attio_createobject {
+  /**
+   * A unique, human-readable slug to access the object through URLs and API calls. Should be formatted in snake case. Example: "people"
+   */
+  api_slug: string;
+  /**
+   * The singular form of the object's name. Example: "Person"
+   */
+  singular_noun: string;
+  /**
+   * The plural form of the object's name. Example: "People"
+   */
+  plural_noun: string;
 };
 
-export interface ActionOutput_attio_createperson {
+export interface ActionOutput_attio_createobject {
+  /**
+   * The UUID of the created object
+   */
+  id: string;
+  /**
+   * The UUID of the workspace
+   */
+  workspace_id: string;
+  /**
+   * The API slug of the object
+   */
+  api_slug: string;
+  /**
+   * The singular noun of the object
+   */
+  singular_noun: string;
+  /**
+   * The plural noun of the object
+   */
+  plural_noun: string;
+  /**
+   * ISO 8601 timestamp when the object was created
+   */
+  created_at: string;
+};
+
+export interface ActionInput_attio_createrecord {
+  object: string;
+  values: {  [key: string]: unknown[];};
+};
+
+export interface ActionOutput_attio_createrecord {
   id: {  workspace_id: string;
   object_id: string;
   record_id: string;};
-  name: string | null;
-  email: string | null;
-  phone: string | null;
-  job_title: string | null;
   created_at: string;
   web_url: string;
 };
 
-export interface ActionInput_attio_createrecord {
-  /**
-   * The object type slug to create record in. Example: "people" or "companies"
-   */
-  object_slug: string;
-  /**
-   * Object containing attribute values to set. Example: {"name": [{"first_name": "John", "last_name": "Doe"}]}
-   */
-  values: {  [key: string]: any | undefined;};
-};
-
-export interface ActionOutput_attio_createrecord {
-  data: {  id: {  workspace_id: string;
-  object_id: string;
-  record_id: string;};
-  created_at: string;
-  values: {  [key: string]: any | undefined;};};
-};
-
 export interface ActionInput_attio_createtask {
   /**
-   * Task description. Example: "Follow up with customer"
+   * The text content of the task. Example: "Follow up on current software solutions"
    */
   content: string;
   /**
-   * Due date in ISO format. Example: "2025-12-31T23:59:59.000Z"
+   * The format of the task content. Only "plaintext" is supported.
    */
-  deadline?: string | undefined;
+  format?: 'plaintext' | undefined;
   /**
-   * Array of workspace member IDs to assign. Example: ["user-id-123"]
+   * The deadline of the task, in ISO 8601 format. Example: "2023-01-01T15:00:00.000000000Z"
    */
-  assignee_ids?: string[] | undefined;
+  deadline_at?: string | undefined;
   /**
-   * Records to link to this task
+   * Whether the task has been completed. Defaults to false.
+   */
+  is_completed?: boolean | undefined;
+  /**
+   * Records linked to the task.
    */
   linked_records?: ({  /**
-   * Object type. Example: "people"
+   * The ID or slug of the parent object the task refers to. Example: "people"
    */
   target_object: string;
   /**
-   * Record ID
+   * The ID of the parent record the task refers to. Example: "891dcbfc-9141-415d-9b2a-2238a6cc012d"
    */
   target_record_id: string;})[] | undefined;
+  /**
+   * Workspace members assigned to this task.
+   */
+  assignees?: ({  /**
+   * The actor type of the task assignee. Only workspace-member actors can be assigned to tasks.
+   */
+  referenced_actor_type: 'workspace-member';
+  /**
+   * The ID of the actor assigned to this task. Example: "50cf242c-7fa3-4cad-87d0-75b1af71c57b"
+   */
+  referenced_actor_id: string;})[] | undefined;
 };
 
 export interface ActionOutput_attio_createtask {
-  data: {  id: {  workspace_id: string;
-  task_id: string;};
+  workspace_id: string;
+  task_id: string;
   content_plaintext: string;
-  deadline_at: string | null;
+  deadline_at?: string | undefined;
   is_completed: boolean;
-  created_at: string;};
+  completed_at?: string | undefined;
+  linked_records: ({  target_object_id: string;
+  target_record_id: string;})[];
+  assignees: ({  referenced_actor_type: string;
+  referenced_actor_id: string;})[];
+  created_by_actor: {  id?: string | undefined;
+  type?: string | undefined;};
+  created_at: string;
 };
 
 export interface ActionInput_attio_createwebhook {
+  /**
+   * URL where the webhook events will be delivered to. Example: "https://example.com/webhook"
+   */
   target_url: string;
-  subscriptions: ({  event_type: string;
-  filter?: {  "$and"?: ({  field: string;
-  operator: string;
-  value: string;})[] | undefined;
-  "$or"?: ({  field: string;
-  operator: string;
-  value: string;})[] | undefined;} | null;})[];
+  /**
+   * One or more events the webhook is subscribed to.
+   */
+  subscriptions: ({  /**
+   * Type of event the webhook is subscribed to. Example: "note.created"
+   */
+  event_type: string;
+  /**
+   * Filters to determine whether the webhook event should be sent. Use null for no filter.
+   */
+  filter: {  "$or": ({  field: string;
+  operator: 'equals' | 'not_equals';
+  value: string;})[];} | {  "$and": ({  field: string;
+  operator: 'equals' | 'not_equals';
+  value: string;})[];} | null;})[];
 };
 
 export interface ActionOutput_attio_createwebhook {
   target_url: string;
   subscriptions: ({  event_type: string;
-  filter: {  "$and"?: ({  field: string;
-  operator: string;
-  value: string;})[] | undefined;
-  "$or"?: ({  field: string;
-  operator: string;
-  value: string;})[] | undefined;} | null;})[];
-  id: {  workspace_id: string;
+  filter: {  "$or": ({  field: string;
+  operator: 'equals' | 'not_equals';
+  value: string;})[];} | {  "$and": ({  field: string;
+  operator: 'equals' | 'not_equals';
+  value: string;})[];} | null;})[];
+  id: {  /**
+   * The ID of the workspace the webhook belongs to.
+   */
+  workspace_id: string;
+  /**
+   * The ID of the webhook.
+   */
   webhook_id: string;};
-  status: 'active' | 'degraded' | 'inactive';
+  status: string;
   created_at: string;
   secret: string;
 };
 
+export interface ActionInput_attio_deletecomment {
+  /**
+   * The ID of the comment to delete. Example: "aa1dc1d9-93ac-4c6c-987e-16b6eea9aab2"
+   */
+  comment_id: string;
+};
+
+export interface ActionOutput_attio_deletecomment {
+  success: boolean;
+};
+
 export interface ActionInput_attio_deletelistentry {
   /**
-   * The list slug or UUID. Example: "my-sales-list"
+   * The ID of the list containing the entry to delete. Example: "39723680-f534-4fe7-ab80-c5278e20e37b"
    */
   list_id: string;
   /**
-   * The entry ID to remove. Example: "abc123-def456"
+   * The ID of the list entry to delete. Example: "e9a7b33a-6dfc-483d-9a3b-fbc20068c162"
    */
   entry_id: string;
 };
 
 export interface ActionOutput_attio_deletelistentry {
-  /**
-   * Whether the deletion was successful
-   */
   success: boolean;
+  deleted_entry_id: string;
+  list_id: string;
 };
 
 export interface ActionInput_attio_deletenote {
   /**
-   * The note ID to delete. Example: "abc123-def456"
+   * The ID of the note to delete. Example: "d1b66c4d-13f5-4489-8ce5-b4afd63dce36"
    */
   note_id: string;
 };
 
 export interface ActionOutput_attio_deletenote {
-  /**
-   * Whether the deletion was successful
-   */
-  success: boolean;
+  note_id: string;
+  deleted: boolean;
 };
 
 export interface ActionInput_attio_deleterecord {
   /**
-   * The object type slug. Example: "people" or "companies"
+   * The UUID or slug of the object the record belongs to. Example: "people", "companies", or a custom object UUID.
    */
   object_slug: string;
   /**
-   * The record ID to delete. Example: "5829dd6c-0577-40dc-a858-8bd9a0d6aa58"
+   * The UUID of the record to delete. Example: "891dcbfc-9141-415d-9b2a-2238a6cc012d"
    */
   record_id: string;
 };
 
 export interface ActionOutput_attio_deleterecord {
-  /**
-   * Whether the deletion was successful
-   */
   success: boolean;
+  record_id: string;
+  object_slug: string;
+};
+
+export interface ActionInput_attio_deletetask {
+  /**
+   * The unique ID of the task to delete. Example: "6805054f-0fef-478d-99a3-b864bd09ee2a"
+   */
+  task_id: string;
+};
+
+export interface ActionOutput_attio_deletetask {
+  success: boolean;
+  task_id: string;
 };
 
 export interface ActionInput_attio_deletewebhook {
+  /**
+   * The unique identifier of the webhook to delete. Example: "45662666-3a96-4189-9ddb-6d6fe20bd076"
+   */
   webhook_id: string;
 };
 
 export interface ActionOutput_attio_deletewebhook {
-  success: boolean;
+  /**
+   * The ID of the deleted webhook
+   */
+  webhook_id: string;
+  /**
+   * Whether the webhook was successfully deleted
+   */
+  deleted: boolean;
+};
+
+export interface ActionInput_attio_getcomment {
+  /**
+   * The unique identifier of the comment to retrieve. Example: "aa1dc1d9-93ac-4c6c-987e-16b6eea9aab2"
+   */
+  comment_id: string;
+};
+
+export interface ActionOutput_attio_getcomment {
+  id: {  workspace_id: string;
+  comment_id: string;};
+  thread_id: string;
+  content_plaintext: string;
+  entry: {  entry_id: string;
+  list_id: string;};
+  record: {  record_id: string;
+  object_id: string;};
+  resolved_at?: string | undefined;
+  resolved_by: {  id?: string | undefined;
+  type?: 'api-token' | 'workspace-member' | 'system' | 'app' | undefined;};
+  created_at: string;
+  author: {  id?: string | undefined;
+  type?: 'api-token' | 'workspace-member' | 'system' | 'app' | undefined;};
+};
+
+export interface ActionInput_attio_getlistentry {
+  /**
+   * A UUID or slug identifying the list the entry is in. Example: "33ebdbe9-e529-47c9-b894-0ba25e9c15c0"
+   */
+  list_id: string;
+  /**
+   * A UUID identifying the entry. Example: "2e6e29ea-c4e0-4f44-842d-78a891f8c156"
+   */
+  entry_id: string;
+};
+
+export interface ActionOutput_attio_getlistentry {
+  id: {  workspace_id: string;
+  list_id: string;
+  entry_id: string;};
+  parent_record_id: string;
+  parent_object: string;
+  created_at: string;
+  entry_values: {  [key: string]: ({  active_from: string;
+  active_until: string;
+  created_by_actor: {  id?: string | undefined;
+  type?: 'api-token' | 'workspace-member' | 'system' | 'app' | undefined;};
+  attribute_type: string;})[];};
+};
+
+export interface ActionInput_attio_getlist {
+  /**
+   * A UUID or slug identifying the list. Example: "39723680-f534-4fe7-ab80-c5278e20e37b"
+   */
+  list_id: string;
+};
+
+export interface ActionOutput_attio_getlist {
+  id: {  workspace_id: string;
+  list_id: string;};
+  api_slug: string;
+  name: string;
+  parent_object: string[];
+  workspace_access?: 'full-access' | 'read-and-write' | 'read-only' | undefined;
+  workspace_member_access: ({  workspace_member_id: string;
+  level: 'full-access' | 'read-and-write' | 'read-only';})[];
+  created_by_actor: {  id?: string | undefined;
+  type?: 'api-token' | 'workspace-member' | 'system' | 'app' | undefined;};
+  created_at: string;
+};
+
+export interface ActionInput_attio_getnote {
+  /**
+   * The ID of the note to retrieve. Example: "ff3f3bd4-40f4-4f80-8187-cd02385af424"
+   */
+  note_id: string;
+};
+
+export interface ActionOutput_attio_getnote {
+  id: {  workspace_id: string;
+  note_id: string;};
+  title?: string | undefined;
+  content?: string | {} | undefined;
+  format?: 'plaintext' | 'blocks' | undefined;
+  parent_object?: string | undefined;
+  parent_record_id?: string | undefined;
+  meeting_id?: string | undefined;
+  created_by_actor?: {  type: string;
+  id?: string | undefined;};
+  created_at?: string | undefined;
+  updated_at?: string | undefined;
+  users_mentioned?: ({  type: string;
+  object?: string | undefined;
+  record_id?: string | undefined;
+  workspace_member_id?: string | undefined;})[];
 };
 
 export interface ActionInput_attio_getobject {
   /**
-   * UUID or slug to identify the object. Example: "people" or "97052eb9-e65e-443f-a297-f2d9a4a7f795"
+   * A UUID or slug to identify the object. Example: "people"
    */
-  object_id: string;
+  object: string;
 };
 
 export interface ActionOutput_attio_getobject {
-  data: {  id: {  /**
-   * Workspace ID. Example: "6f73b7c5-b2d4-48a9-a82b-e68b48c315a6"
-   */
-  workspace_id: string;
-  /**
-   * Object ID. Example: "97052eb9-e65e-443f-a297-f2d9a4a7f795"
-   */
+  id: {  workspace_id: string;
   object_id: string;};
-  /**
-   * Unique, human-readable slug for the object. Example: "people"
-   */
-  api_slug: string;
-  /**
-   * Singular form of the object name. Example: "Person"
-   */
-  singular_noun: string;
-  /**
-   * Plural form of the object name. Example: "People"
-   */
-  plural_noun: string;
-  /**
-   * When the object was created. Example: "2023-01-01T00:00:00.000Z"
-   */
-  created_at: string;};
+  api_slug?: string | undefined;
+  singular_noun?: string | undefined;
+  plural_noun?: string | undefined;
+  created_at: string;
 };
 
 export interface ActionInput_attio_getrecord {
   /**
-   * The object type slug. Example: "people" or "companies"
+   * A UUID or slug to identify the object. Example: "people"
    */
-  object_slug: string;
+  object: string;
   /**
-   * The record ID to retrieve. Example: "5829dd6c-0577-40dc-a858-8bd9a0d6aa58"
+   * UUID of the record to retrieve. Example: "4c6ade84-19c7-4581-95aa-b1d5f4571c25"
    */
   record_id: string;
 };
 
 export interface ActionOutput_attio_getrecord {
-  data: {  id: {  workspace_id: string;
+  id: {  workspace_id: string;
   object_id: string;
   record_id: string;};
   created_at: string;
-  values: {  [key: string]: any | undefined;};};
+  web_url: string;
+  values: {  [key: string]: ({  active_from: string;
+  active_until?: string | undefined;
+  created_by_actor: {  id?: string | undefined;
+  type?: string | undefined;};
+  attribute_type: string;})[];};
+};
+
+export interface ActionInput_attio_gettask {
+  /**
+   * The ID of the task. Example: "649e34f4-c39a-4f4d-99ef-48a36bef8f04"
+   */
+  task_id: string;
+};
+
+export interface ActionOutput_attio_gettask {
+  id: {  workspace_id: string;
+  task_id: string;};
+  content_plaintext: string;
+  deadline_at: string;
+  is_completed: boolean;
+  completed_at: string;
+  linked_records: ({  target_object_id: string;
+  target_record_id: string;})[];
+  assignees: ({  referenced_actor_type: string;
+  referenced_actor_id: string;})[];
+  created_by_actor: {  id: string;
+  type: string;};
+  created_at: string;
 };
 
 export interface ActionInput_attio_getwebhook {
+  /**
+   * A UUID which identifies the webhook. Example: "23e42eaf-323a-41da-b5bb-fd67eebda553"
+   */
   webhook_id: string;
 };
 
 export interface ActionOutput_attio_getwebhook {
-  target_url: string;
-  subscriptions: ({  event_type: string;
-  filter: {  "$and"?: ({  field: string;
-  operator: string;
-  value: string;})[] | undefined;
-  "$or"?: ({  field: string;
-  operator: string;
-  value: string;})[] | undefined;} | null;})[];
   id: {  workspace_id: string;
   webhook_id: string;};
+  target_url: string;
+  subscriptions: ({  event_type: string;
+  filter: {  "$or": ({  field: string;
+  operator: 'equals' | 'not_equals';
+  value: string;})[];} | {  "$and": ({  field: string;
+  operator: 'equals' | 'not_equals';
+  value: string;})[];} | null;})[];
   status: 'active' | 'degraded' | 'inactive';
   created_at: string;
+};
+
+export interface ActionInput_attio_getworkspacemember {
+  /**
+   * The ID of the workspace member to retrieve. Example: "641ecd33-0a48-4b7b-ba48-bbb7a649a8ee"
+   */
+  workspace_member_id: string;
+};
+
+export interface ActionOutput_attio_getworkspacemember {
+  id: {  workspace_id: string;
+  workspace_member_id: string;};
+  first_name: string;
+  last_name: string;
+  avatar_url?: string | undefined;
+  email_address: string;
+  created_at: string;
+  access_level: 'admin' | 'member' | 'suspended';
+};
+
+export interface ActionInput_attio_listlistentries {
+  /**
+   * A UUID or slug to identify the list to retrieve entries from. Example: "33ebdbe9-e529-47c9-b894-0ba25e9c15c0"
+   */
+  list: string;
+  /**
+   * An object used to filter results to a subset of results. Cannot be used together with filter_view_id.
+   */
+  filter?: {  [key: string]: unknown | undefined;};
+  /**
+   * UUID of a saved view on this list. When set, results are filtered using that view's filter configuration. Cannot be used together with filter.
+   */
+  filter_view_id?: string | undefined;
+  sorts?: ({  0: {  direction: 'asc' | 'desc';
+  attribute: string;
+  field?: string | undefined;};
+  1: {  direction: 'asc' | 'desc';
+  path: string[];
+  field?: string | undefined;};})[];
+  /**
+   * The maximum number of results to return. Defaults to 500.
+   */
+  limit?: number | undefined;
+  /**
+   * Pagination cursor from the previous response. Omit for the first page.
+   */
+  cursor?: string | undefined;
+};
+
+export interface ActionOutput_attio_listlistentries {
+  entries: ({  id: {  workspace_id: string;
+  list_id: string;
+  entry_id: string;};
+  parent_record_id?: string | undefined;
+  parent_object?: string | undefined;
+  created_at?: string | undefined;
+  entry_values?: {  [key: string]: unknown[];} | undefined;})[];
+  next_cursor?: string | undefined;
 };
 
 export interface ActionInput_attio_listlists {
 };
 
 export interface ActionOutput_attio_listlists {
-  /**
-   * Array of list objects
-   */
-  data: ({  id: {  workspace_id: string;
+  items: ({  id: {  workspace_id: string;
   list_id: string;};
-  /**
-   * Unique slug for the list. Example: "my-sales-list"
-   */
   api_slug: string;
-  /**
-   * Display name of the list. Example: "My Sales List"
-   */
   name: string;
-  /**
-   * Object types this list is for. Example: ["people"]
-   */
   parent_object: string[];
-  /**
-   * When the list was created
-   */
+  workspace_access?: 'full-access' | 'read-and-write' | 'read-only' | undefined;
+  workspace_member_access: ({  workspace_member_id: string;
+  level: 'full-access' | 'read-and-write' | 'read-only';})[];
+  created_by_actor: {  id: string;
+  type: 'api-token' | 'workspace-member' | 'system' | 'app';};
   created_at: string;})[];
 };
 
 export interface ActionInput_attio_listnotes {
   /**
-   * The object type of the parent record. Example: "people" or "companies"
+   * Pagination offset from the previous response. Omit for the first page.
    */
-  parent_object: string;
+  cursor?: string | undefined;
   /**
-   * The record ID to list notes for. Example: "5829dd6c-0577-40dc-a858-8bd9a0d6aa58"
-   */
-  parent_record_id: string;
-  /**
-   * Maximum number of notes to return
+   * The maximum number of results to return. Default is 10, maximum is 50.
    */
   limit?: number | undefined;
   /**
-   * Number of notes to skip
+   * The slug or ID of the parent object the notes belong to.
    */
-  offset?: number | undefined;
+  parent_object?: string | undefined;
+  /**
+   * The ID of the parent record the notes belong to.
+   */
+  parent_record_id?: string | undefined;
 };
 
 export interface ActionOutput_attio_listnotes {
-  /**
-   * Array of notes
-   */
-  data: ({  id: {  workspace_id: string;
-  note_id: string;};
-  title: string | null;
-  content_plaintext: string;
+  items: ({  workspace_id: string;
+  note_id: string;
   parent_object: string;
   parent_record_id: string;
+  title: string;
+  meeting_id?: string | undefined;
+  content_plaintext: string;
+  content_markdown: string;
+  tags: ({  0: {  type: 'workspace-member';
+  workspace_member_id: string;};
+  1: {  type: 'record';
+  object: string;
+  record_id: string;};})[];
+  created_by_actor: {  id?: string | undefined;
+  type?: string | undefined;};
   created_at: string;})[];
+  next_cursor?: string | undefined;
 };
 
 export interface ActionInput_attio_listobjects {
 };
 
 export interface ActionOutput_attio_listobjects {
-  /**
-   * Array of object definitions
-   */
-  data: ({  id: {  /**
-   * Workspace ID. Example: "6f73b7c5-b2d4-48a9-a82b-e68b48c315a6"
-   */
-  workspace_id: string;
-  /**
-   * Object ID. Example: "97052eb9-e65e-443f-a297-f2d9a4a7f795"
-   */
-  object_id: string;};
-  /**
-   * Unique, human-readable slug for the object. Example: "people"
-   */
-  api_slug: string;
-  /**
-   * Singular form of the object name. Example: "Person"
-   */
-  singular_noun: string;
-  /**
-   * Plural form of the object name. Example: "People"
-   */
-  plural_noun: string;
-  /**
-   * When the object was created. Example: "2023-01-01T00:00:00.000Z"
-   */
+  objects: ({  workspace_id: string;
+  object_id: string;
+  api_slug?: string | undefined;
+  singular_noun?: string | undefined;
+  plural_noun?: string | undefined;
   created_at: string;})[];
 };
 
 export interface ActionInput_attio_listrecords {
-  /**
-   * The object type slug to query records from. Example: "people" or "companies"
-   */
-  object_slug: string;
-  /**
-   * Maximum number of records to return. Default: 25
-   */
+  object: string;
+  cursor?: string | undefined;
   limit?: number | undefined;
-  /**
-   * Number of records to skip. Default: 0
-   */
-  offset?: number | undefined;
+  filters?: {  [key: string]: unknown | undefined;};
 };
 
 export interface ActionOutput_attio_listrecords {
-  /**
-   * Array of record objects
-   */
-  data: ({  id: {  workspace_id: string;
+  records: ({  id: string;
   object_id: string;
-  record_id: string;};
   created_at: string;
-  /**
-   * Object containing attribute values keyed by attribute slug
-   */
-  values: {  [key: string]: any | undefined;};})[];
+  values?: {  [key: string]: ({  active_from: string;
+  active_until?: string | undefined;
+  attribute_type: string;
+  created_at?: string | undefined;
+  record_id?: string | undefined;
+  updated_at?: string | undefined;
+  value?: unknown | undefined;})[];};})[];
+  next_cursor?: string | undefined;
 };
 
 export interface ActionInput_attio_listtasks {
   /**
-   * Maximum number of tasks to return
+   * The maximum number of results to return. Defaults to 500.
    */
   limit?: number | undefined;
   /**
-   * Number of tasks to skip
+   * The number of results to skip over before returning. Defaults to 0.
    */
   offset?: number | undefined;
+  /**
+   * Optionally sort the results.
+   */
+  sort?: 'created_at:asc' | 'created_at:desc' | 'completed_at:asc' | 'completed_at:desc' | undefined;
+  /**
+   * Filter tasks by the object slug of linked records (e.g. people). Must be provided with linked_record_id.
+   */
+  linked_object?: string | undefined;
+  /**
+   * Filter tasks by the record ID of linked records. Must be provided with linked_object.
+   */
+  linked_record_id?: string | undefined;
+  /**
+   * Filter tasks by workspace member assignee (email or ID). Pass null for unassigned tasks.
+   */
+  assignee?: string | undefined;
+  /**
+   * Filter tasks by completion status.
+   */
+  is_completed?: boolean | undefined;
 };
 
 export interface ActionOutput_attio_listtasks {
-  /**
-   * Array of tasks
-   */
   data: ({  id: {  workspace_id: string;
   task_id: string;};
   content_plaintext: string;
-  deadline_at: string | null;
+  deadline_at?: string | undefined;
   is_completed: boolean;
+  completed_at?: string | undefined;
+  linked_records: ({  target_object_id: string;
+  target_record_id: string;})[];
+  assignees: ({  referenced_actor_type: string;
+  referenced_actor_id: string;})[];
+  created_by_actor: {  id?: string | undefined;
+  type?: string | undefined;};
   created_at: string;})[];
+  /**
+   * The offset to use for the next page of results, if available.
+   */
+  next_offset?: number | undefined;
 };
 
 export interface ActionInput_attio_listwebhooks {
+  /**
+   * The maximum number of results to return, between 10 and 100. Defaults to 10.
+   */
   limit?: number | undefined;
+  /**
+   * Pagination cursor from the previous response. Omit for the first page.
+   */
   cursor?: string | undefined;
 };
 
 export interface ActionOutput_attio_listwebhooks {
-  webhooks: ({  target_url: string;
-  subscriptions: ({  event_type: string;
-  filter: {  "$and"?: ({  field: string;
-  operator: string;
-  value: string;})[] | undefined;
-  "$or"?: ({  field: string;
-  operator: string;
-  value: string;})[] | undefined;} | null;})[];
-  id: {  workspace_id: string;
+  items: ({  id: {  workspace_id: string;
   webhook_id: string;};
-  status: 'active' | 'degraded' | 'inactive';
+  target_url: string;
+  subscriptions: ({  event_type: string;
+  filter?: unknown | undefined;})[];
+  status: string;
   created_at: string;})[];
-  next_cursor: string | null;
+  next_cursor?: string | undefined;
+};
+
+export interface ActionInput_attio_listworkspacemembers {
+};
+
+export interface ActionOutput_attio_listworkspacemembers {
+  items: ({  workspace_member_id: string;
+  workspace_id: string;
+  first_name: string;
+  last_name: string;
+  avatar_url?: string | undefined;
+  email_address: string;
+  created_at: string;
+  access_level: string;})[];
+};
+
+export interface ActionInput_attio_updatelistentry {
+  /**
+   * A UUID or slug of the list the entry belongs to. Example: "39723680-f534-4fe7-ab80-c5278e20e37b"
+   */
+  list_id: string;
+  /**
+   * A UUID of the list entry to update. Example: "e9a7b33a-6dfc-483d-9a3b-fbc20068c162"
+   */
+  entry_id: string;
+  /**
+   * An object mapping attribute API slugs or IDs to values to update.
+   */
+  entry_values: {  [key: string]: unknown | undefined;};
+};
+
+export interface ActionOutput_attio_updatelistentry {
+  id: {  workspace_id: string;
+  list_id: string;
+  entry_id: string;};
+  parent_record_id: string;
+  parent_object: string;
+  created_at: string;
+  entry_values: {  [key: string]: ({  active_from: string;
+  active_until: string;
+  created_by_actor: {  id: string;
+  type: 'api-token' | 'workspace-member' | 'system' | 'app';};
+  attribute_type: string;})[];};
+};
+
+export interface ActionInput_attio_updatelist {
+  /**
+   * A UUID or slug to identify the list to update. Example: "33ebdbe9-e529-47c9-b894-0ba25e9c15c0"
+   */
+  list_id: string;
+  /**
+   * The human-readable name of the list.
+   */
+  name?: string | undefined;
+  /**
+   * A unique, human-readable slug to access the list through API calls. Should be formatted in snake case.
+   */
+  api_slug?: string | undefined;
+  /**
+   * The level of access granted to all members of the workspace for this list. Pass null to keep the list private.
+   */
+  workspace_access?: 'full-access' | 'read-and-write' | 'read-only' | undefined;
+  /**
+   * The level of access granted to specific workspace members for this list. Pass an empty array to grant access to no workspace members.
+   */
+  workspace_member_access?: ({  /**
+   * A UUID to identify the workspace member to grant access to.
+   */
+  workspace_member_id: string;
+  /**
+   * The level of access to the list.
+   */
+  level: 'full-access' | 'read-and-write' | 'read-only';})[] | undefined;
+};
+
+export interface ActionOutput_attio_updatelist {
+  id: {  workspace_id: string;
+  list_id: string;};
+  api_slug: string;
+  name: string;
+  parent_object: string[];
+  workspace_access?: string | undefined;
+  workspace_member_access?: ({  workspace_member_id: string;
+  level: 'full-access' | 'read-and-write' | 'read-only';})[] | undefined;
+  created_by_actor?: {  id: string;
+  type: 'api-token' | 'workspace-member' | 'system' | 'app';} | undefined;
+  created_at?: string | undefined;
+};
+
+export interface ActionInput_attio_updateobject {
+  /**
+   * A UUID or slug to identify the object. Example: "people"
+   */
+  object: string;
+  /**
+   * A unique, human-readable slug to access the object through URLs and API calls. Formatted in snake case.
+   */
+  api_slug?: string | undefined;
+  /**
+   * The singular form of the object's name.
+   */
+  singular_noun?: string | undefined;
+  /**
+   * The plural form of the object's name.
+   */
+  plural_noun?: string | undefined;
+};
+
+export interface ActionOutput_attio_updateobject {
+  id: {  workspace_id: string;
+  object_id: string;};
+  api_slug?: string | undefined;
+  singular_noun?: string | undefined;
+  plural_noun?: string | undefined;
+  created_at: string;
 };
 
 export interface ActionInput_attio_updaterecord {
-  /**
-   * The object type slug. Example: "people" or "companies"
-   */
-  object_slug: string;
-  /**
-   * The record ID to update. Example: "5829dd6c-0577-40dc-a858-8bd9a0d6aa58"
-   */
+  object: string;
   record_id: string;
-  /**
-   * Object containing attribute values to update. Example: {"job_title": [{"value": "CTO"}]}
-   */
-  values: {  [key: string]: any | undefined;};
+  values: {};
 };
 
 export interface ActionOutput_attio_updaterecord {
-  data: {  id: {  workspace_id: string;
+  id: {  workspace_id: string;
   object_id: string;
   record_id: string;};
   created_at: string;
-  values: {  [key: string]: any | undefined;};};
+  web_url?: string | undefined;
+  values?: {} | undefined;
+};
+
+export interface ActionInput_attio_updatetask {
+  /**
+   * The ID of the task to update. Example: "649e34f4-c39a-4f4d-99ef-48a36bef8f04"
+   */
+  task_id: string;
+  /**
+   * The deadline of the task, in ISO 8601 format. Example: "2023-01-01T15:00:00.000000000Z"
+   */
+  deadline_at?: string | undefined;
+  /**
+   * Whether the task has been completed.
+   */
+  is_completed?: boolean | undefined;
+  /**
+   * Records linked to the task.
+   */
+  linked_records?: ({  /**
+   * The ID or slug of the parent object the task refers to. Example: "people"
+   */
+  target_object: string;
+  /**
+   * The ID of the parent record the task refers to. Example: "891dcbfc-9141-415d-9b2a-2238a6cc012d"
+   */
+  target_record_id: string;})[] | undefined;
+  /**
+   * Workspace members assigned to this task.
+   */
+  assignees?: ({  /**
+   * The actor type of the task assignee. Only "workspace-member" is supported for tasks.
+   */
+  referenced_actor_type: string;
+  /**
+   * The ID of the actor assigned to this task.
+   */
+  referenced_actor_id: string;})[] | undefined;
+};
+
+export interface ActionOutput_attio_updatetask {
+  task_id: string;
+  content_plaintext?: string | undefined;
+  deadline_at?: string | undefined;
+  is_completed?: boolean | undefined;
+  completed_at?: string | undefined;
+  linked_records?: ({  target_object_id: string;
+  target_record_id: string;})[] | undefined;
+  assignees?: ({  referenced_actor_type: string;
+  referenced_actor_id: string;})[] | undefined;
+  created_by_actor?: {  id?: string | undefined;
+  type?: string | undefined;};
+  created_at?: string | undefined;
 };
 
 export interface ActionInput_attio_updatewebhook {
+  /**
+   * The ID of the webhook to update. Example: "45662666-3a96-4189-9ddb-6d6fe20bd076"
+   */
   webhook_id: string;
+  /**
+   * URL where the webhook events will be delivered to. Example: "https://example.com/webhook"
+   */
   target_url?: string | undefined;
+  /**
+   * One or more events the webhook is subscribed to.
+   */
   subscriptions?: ({  event_type: string;
-  filter?: {  "$and"?: ({  field: string;
-  operator: string;
-  value: string;})[] | undefined;
-  "$or"?: ({  field: string;
-  operator: string;
-  value: string;})[] | undefined;} | null;})[];
+  filter: {  "$or": ({  field: string;
+  operator: 'equals' | 'not_equals';
+  value: string;})[];} | {  "$and": ({  field: string;
+  operator: 'equals' | 'not_equals';
+  value: string;})[];} | null;})[] | undefined;
 };
 
 export interface ActionOutput_attio_updatewebhook {
+  webhook_id: string;
+  workspace_id: string;
   target_url: string;
   subscriptions: ({  event_type: string;
-  filter: {  "$and"?: ({  field: string;
-  operator: string;
-  value: string;})[] | undefined;
-  "$or"?: ({  field: string;
-  operator: string;
-  value: string;})[] | undefined;} | null;})[];
-  id: {  workspace_id: string;
-  webhook_id: string;};
+  filter: {  "$or": ({  field: string;
+  operator: 'equals' | 'not_equals';
+  value: string;})[];} | {  "$and": ({  field: string;
+  operator: 'equals' | 'not_equals';
+  value: string;})[];} | null;})[];
   status: 'active' | 'degraded' | 'inactive';
   created_at: string;
+};
+
+export interface ActionInput_attio_upsertlistentry {
+  /**
+   * A UUID or slug of the list. Example: "39723680-f534-4fe7-ab80-c5278e20e37b"
+   */
+  list_id: string;
+  /**
+   * A UUID identifying the record to add to the list. Example: "4c6ade84-19c7-4581-95aa-b1d5f4571c25"
+   */
+  parent_record_id: string;
+  /**
+   * A UUID or slug identifying the object that the parent record belongs to. Example: "people"
+   */
+  parent_object: string;
+  /**
+   * Optional map of attribute API slugs to arrays of values.
+   */
+  entry_values?: {  [key: string]: unknown[];} | undefined;
+};
+
+export interface ActionOutput_attio_upsertlistentry {
+  id: {  workspace_id: string;
+  list_id: string;
+  entry_id: string;};
+  parent_record_id: string;
+  parent_object: string;
+  created_at: string;
+  entry_values: {  [key: string]: ({  active_from: string;
+  active_until: string;
+  created_by_actor: {  id: string;
+  type: string;};
+  attribute_type: string;})[];};
+};
+
+export interface ActionInput_attio_upsertrecord {
+  /**
+   * A UUID or slug to identify the object the record belongs to. Example: people
+   */
+  object: string;
+  /**
+   * The ID or slug of the attribute to use to check if a record already exists. Example: email_addresses
+   */
+  matching_attribute: string;
+  /**
+   * An object with attribute api_slug or attribute_id as the key, and an array of values as the values.
+   */
+  values: {  [key: string]: unknown[];};
+};
+
+export interface ActionOutput_attio_upsertrecord {
+  workspace_id: string;
+  object_id: string;
+  record_id: string;
+  created_at?: unknown | undefined;
+  values?: {  [key: string]: unknown | undefined;};
 };
 
 export interface Transaction {
@@ -21763,45 +22473,6 @@ export interface SyncMetadata_hibob_service_user_employees {
 export interface SyncMetadata_hibob_service_user_unifiedemployees {
 };
 
-export interface Company {
-  id: string;
-  name?: string | undefined;
-  company_id?: string | undefined;
-  created_at?: number | undefined;
-  updated_at?: number | undefined;
-  session_count?: number | undefined;
-  monthly_spend?: number | undefined;
-  user_count?: number | undefined;
-  plan?: string | undefined;
-  size?: number | undefined;
-  website?: string | undefined;
-  industry?: string | undefined;
-};
-
-export interface Deal {
-  id: string;
-  dealName?: string | undefined;
-  stage?: string | undefined;
-  amount?: number | undefined;
-  closingDate?: string | undefined;
-  accountName?: string | undefined;
-  accountId?: string | undefined;
-  contactName?: string | undefined;
-  contactId?: string | undefined;
-  ownerName?: string | undefined;
-  ownerId?: string | undefined;
-  ownerEmail?: string | undefined;
-  createdTime: string;
-  modifiedTime: string;
-  probability?: string | number | undefined;
-  expectedRevenue?: number | undefined;
-  description?: string | undefined;
-  campaignSource?: string | undefined;
-  leadSource?: string | undefined;
-  type?: string | undefined;
-  nextStep?: string | undefined;
-};
-
 export interface MarketingEmail {
   id: string;
   name?: string | undefined;
@@ -34519,24 +35190,6 @@ export interface Lead {
   tags?: string[] | undefined;
 };
 
-export interface Note {
-  id: string;
-  note_title?: string | undefined;
-  note_content?: string | undefined;
-  parent_id?: string | undefined;
-  parent_name?: string | undefined;
-  parent_module?: string | undefined;
-  owner_id?: string | undefined;
-  owner_name?: string | undefined;
-  owner_email?: string | undefined;
-  created_by_id?: string | undefined;
-  created_by_name?: string | undefined;
-  modified_by_id?: string | undefined;
-  modified_by_name?: string | undefined;
-  created_time?: string | undefined;
-  modified_time?: string | undefined;
-};
-
 export interface Organization {
   id: string;
   name: string;
@@ -34551,21 +35204,6 @@ export interface Organization {
   tags?: string[] | undefined;
   notes?: string | undefined;
   details?: string | undefined;
-};
-
-export interface Person {
-  id: string;
-  name: string;
-  emails?: ({  value: string;
-  primary?: boolean | undefined;
-  label?: string | undefined;})[];
-  phones?: ({  value: string;
-  primary?: boolean | undefined;
-  label?: string | undefined;})[];
-  org_id?: number | undefined;
-  owner_id?: number | undefined;
-  add_time?: string | undefined;
-  update_time: string;
 };
 
 export interface Pipeline {
@@ -41257,11 +41895,6 @@ export interface Opportunity {
   updated_at: string;
 };
 
-export interface Record {
-  id: string;
-  raw: {  [key: string]: unknown | undefined;};
-};
-
 export interface SyncMetadata_salesforce_recordsbysoql {
   soql_query: string;
   api_version?: string | undefined;
@@ -44128,17 +44761,6 @@ export interface LikedTweet {
   impression_count?: number | undefined;
   bookmark_count?: number | undefined;};
   edit_history_tweet_ids?: string[] | undefined;
-};
-
-export interface List {
-  id: string;
-  name: string;
-  description?: string | undefined;
-  created_at?: string | undefined;
-  private?: boolean | undefined;
-  owner_id?: string | undefined;
-  follower_count?: number | undefined;
-  member_count?: number | undefined;
 };
 
 export interface Mention {
@@ -52575,20 +53197,6 @@ export interface ActionInput_zoho_mail_sendemail {
 export interface ActionOutput_zoho_mail_sendemail {
   status: {};
   data: {};
-};
-
-export interface Meeting {
-  id: string;
-  topic?: string | undefined;
-  start_time?: string | undefined;
-  duration?: number | undefined;
-  timezone?: string | undefined;
-  created_at?: string | undefined;
-  join_url?: string | undefined;
-  type?: number | undefined;
-  uuid?: string | undefined;
-  host_id?: string | undefined;
-  status?: string | undefined;
 };
 
 export interface Recording {

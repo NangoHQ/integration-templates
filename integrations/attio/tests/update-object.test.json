@@ -1,0 +1,71 @@
+{
+  "input": {
+    "object": "c546cfe1-54eb-4934-810c-def25cc6b305",
+    "plural_noun": "Seed Object Ones"
+  },
+  "output": {
+    "id": {
+      "workspace_id": "edbb5cd2-e046-4b4f-bd62-eeefa0a76787",
+      "object_id": "c546cfe1-54eb-4934-810c-def25cc6b305"
+    },
+    "api_slug": "seed_object_1",
+    "singular_noun": "Seed Object One",
+    "plural_noun": "Seed Object Ones",
+    "created_at": "2026-05-15T21:07:09.403000000Z"
+  },
+  "nango": {},
+  "api": {
+    "patch": {
+      "/v2/objects/c546cfe1-54eb-4934-810c-def25cc6b305": {
+        "response": {
+          "data": {
+            "id": {
+              "workspace_id": "edbb5cd2-e046-4b4f-bd62-eeefa0a76787",
+              "object_id": "c546cfe1-54eb-4934-810c-def25cc6b305"
+            },
+            "api_slug": "seed_object_1",
+            "singular_noun": "Seed Object One",
+            "plural_noun": "Seed Object Ones",
+            "created_at": "2026-05-15T21:07:09.403000000Z"
+          }
+        },
+        "status": 200,
+        "headers": {
+          "date": "Fri, 15 May 2026 21:49:11 GMT",
+          "content-type": "application/json; charset=utf-8",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "DENY",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=7776000; includeSubDomains; preload",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "x-attio-client,x-attio-execution-id,x-attio-platform,x-attio-platform-version,x-attio-record-query-score,x-attio-app-installation-bundle-id,WWW-Authenticate",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4904",
+          "x-ratelimit-reset": "1778881770",
+          "x-attio-execution-id": "86989426-a96c-4071-b40e-067405fafbd6",
+          "vary": "Origin",
+          "x-accurate-at": "2026-05-15T21:49:11.125332000Z",
+          "via": "1.1 google",
+          "alt-svc": "h3=\":443\"; ma=86400",
+          "cf-cache-status": "DYNAMIC",
+          "set-cookie": "_cfuvid=rWfmORcBIAj99ILwdIhVH5IwgNMYB7I0hXcONB8eh6M-1778881750.93175-1.0.1.1-VjBNYtcCYgXCgNOPYOTk5XRj4.pNOPK6g.YF77dCX9I; HttpOnly; SameSite=None; Secure; Path=/; Domain=attio.com",
+          "server": "cloudflare",
+          "cf-ray": "9fc559df5a32d74d-PDX"
+        },
+        "hash": "da9094d4e9235f8dd2bc823266f74f256fa5065f",
+        "request": {
+          "data": {
+            "data": {
+              "plural_noun": "Seed Object Ones"
+            }
+          }
+        }
+      }
+    }
+  }
+}
