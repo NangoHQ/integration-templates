@@ -1622,7 +1622,7 @@ export interface ActionInput_apollo_createcontact {
   mobile_phone?: string | undefined;
   home_phone?: string | undefined;
   other_phone?: string | undefined;
-  typed_custom_fields?: any | undefined;
+  typed_custom_fields?: {  [key: string]: unknown | undefined;};
   run_dedupe?: boolean | undefined;
 };
 
@@ -1643,7 +1643,7 @@ export interface ActionOutput_apollo_createcontact {
   mobile_phone?: string | undefined;
   home_phone?: string | undefined;
   other_phone?: string | undefined;
-  typed_custom_fields?: any | undefined;
+  typed_custom_fields?: {  [key: string]: unknown | undefined;};
   created_at?: string | undefined;
   updated_at?: string | undefined;
 };
@@ -2019,7 +2019,7 @@ export interface ActionOutput_apollo_getopportunity {
   team_id: string;
   owner_id?: string | undefined;
   salesforce_owner_id?: string | undefined;
-  amount: number;
+  amount?: number | undefined;
   closed_date?: string | undefined;
   account_id?: string | undefined;
   description?: string | undefined;
@@ -2344,9 +2344,9 @@ export interface ActionOutput_apollo_listsequences {
 
 export interface ActionInput_apollo_listtasks {
   /**
-   * Pagination cursor from the previous response. Omit for the first page.
+   * Page number to retrieve. Default is 1.
    */
-  cursor?: string | undefined;
+  page?: number | undefined;
   /**
    * Number of results per page. Default is 25.
    */

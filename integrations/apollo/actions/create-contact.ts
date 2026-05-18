@@ -17,7 +17,7 @@ const InputSchema = z.object({
     mobile_phone: z.string().optional(),
     home_phone: z.string().optional(),
     other_phone: z.string().optional(),
-    typed_custom_fields: z.any().optional(),
+    typed_custom_fields: z.record(z.string(), z.unknown()).optional(),
     run_dedupe: z.boolean().optional()
 });
 
@@ -60,7 +60,7 @@ const OutputSchema = z.object({
     mobile_phone: z.string().optional(),
     home_phone: z.string().optional(),
     other_phone: z.string().optional(),
-    typed_custom_fields: z.any().optional(),
+    typed_custom_fields: z.record(z.string(), z.unknown()).optional(),
     created_at: z.string().optional(),
     updated_at: z.string().optional()
 });

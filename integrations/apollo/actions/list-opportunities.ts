@@ -128,8 +128,8 @@ const action = createAction({
                 if (description !== undefined && description !== null) {
                     result['description'] = String(description);
                 }
-                const createdAt = o['created_at'];
-                if (createdAt !== undefined) {
+                const createdAt = o['opportunity_created_at'] ?? o['created_at'];
+                if (createdAt !== undefined && createdAt !== null) {
                     result['created_at'] = String(createdAt);
                 }
                 return result;

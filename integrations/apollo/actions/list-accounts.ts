@@ -1,29 +1,37 @@
 import { z } from 'zod';
 import { createAction } from 'nango';
 
-const InputSchema = z.object({
-    cursor: z
-        .string()
-        .optional()
-        .describe(
-            'Pagination cursor from the previous response. Pass the value of `next_cursor` from the previous response to fetch the next page. Omit for the first page.'
-        ),
-    q_organization_name: z
-        .string()
-        .optional()
-        .describe('Keywords to narrow the search of accounts. Keywords should directly match at least part of an account name. Example: "apollo"'),
-    account_stage_ids: z
-        .array(z.string())
-        .optional()
-        .describe('Apollo IDs for account stages to include in search results. Call List Account Stages endpoint to retrieve available IDs.'),
-    account_label_ids: z.array(z.string()).optional().describe('Apollo IDs for labels to include in search results.'),
-    sort_by_field: z
-        .enum(['account_last_activity_date', 'account_created_at', 'account_updated_at'])
-        .optional()
-        .describe('Sort matching accounts by the specified field.'),
-    sort_ascending: z.boolean().optional().describe('Set to true to sort in ascending order. Must be used with sort_by_field. Defaults to false (descending).'),
-    per_page: z.number().int().min(1).max(100).optional().describe('Number of results per page. Max 100. Defaults to 100.')
-});
+const InputSchema = z
+    .object({
+        cursor: z
+            .string()
+            .optional()
+            .describe(
+                'Pagination cursor from the previous response. Pass the value of `next_cursor` from the previous response to fetch the next page. Omit for the first page.'
+            ),
+        q_organization_name: z
+            .string()
+            .optional()
+            .describe('Keywords to narrow the search of accounts. Keywords should directly match at least part of an account name. Example: "apollo"'),
+        account_stage_ids: z
+            .array(z.string())
+            .optional()
+            .describe('Apollo IDs for account stages to include in search results. Call List Account Stages endpoint to retrieve available IDs.'),
+        account_label_ids: z.array(z.string()).optional().describe('Apollo IDs for labels to include in search results.'),
+        sort_by_field: z
+            .enum(['account_last_activity_date', 'account_created_at', 'account_updated_at'])
+            .optional()
+            .describe('Sort matching accounts by the specified field.'),
+        sort_ascending: z
+            .boolean()
+            .optional()
+            .describe('Set to true to sort in ascending order. Must be used with sort_by_field. Defaults to false (descending).'),
+        per_page: z.number().int().min(1).max(100).optional().describe('Number of results per page. Max 100. Defaults to 100.')
+    })
+    .refine((data) => !data.sort_ascending || data.sort_by_field !== undefined, {
+        message: 'sort_by_field is required when sort_ascending is set',
+        path: ['sort_ascending']
+    });
 
 const PaginationSchema = z.object({
     page: z.number().describe('Current page number.'),
@@ -81,10 +89,10 @@ const action = createAction({
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const page = input.cursor ? parseInt(input.cursor, 10) : 1;
-        if (input.cursor && isNaN(page)) {
+        if (input.cursor && (!/^\d+$/.test(input.cursor) || isNaN(page) || page < 1)) {
             throw new nango.ActionError({
                 type: 'invalid_cursor',
-                message: 'Invalid cursor format. Cursor must be a valid page number.'
+                message: 'Invalid cursor format. Cursor must be a positive integer page number.'
             });
         }
 
@@ -119,8 +127,9 @@ const action = createAction({
             await nango.log('Warning: Pagination schema validation failed', { error: parsedPagination.error });
         }
 
-        const currentPage = pagination.page || page;
-        const totalPages = pagination.total_pages || currentPage;
+        const validatedPagination = parsedPagination.success ? parsedPagination.data : null;
+        const currentPage = validatedPagination?.page ?? pagination.page ?? page;
+        const totalPages = validatedPagination?.total_pages ?? pagination.total_pages ?? currentPage;
         const nextCursor = currentPage < totalPages ? String(currentPage + 1) : undefined;
 
         return {
@@ -161,9 +170,9 @@ const action = createAction({
                     })
             })),
             pagination: {
-                page: pagination['page'] || currentPage,
-                per_page: pagination['per_page'] || input.per_page || 100,
-                total_entries: pagination['total_entries'] || accounts.length,
+                page: validatedPagination?.page ?? currentPage,
+                per_page: validatedPagination?.per_page ?? input.per_page ?? 100,
+                total_entries: validatedPagination?.total_entries ?? accounts.length,
                 total_pages: totalPages
             },
             ...(nextCursor !== undefined && { next_cursor: nextCursor })

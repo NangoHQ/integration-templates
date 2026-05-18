@@ -1,19 +1,24 @@
 import { z } from 'zod';
 import { createAction } from 'nango';
 
-const InputSchema = z.object({
-    cursor: z.string().optional().describe('Pagination cursor from the previous response. Omit for the first page.'),
-    q_keywords: z.string().optional().describe('Keywords to narrow the search. Can include names, job titles, employers, and email addresses.'),
-    contact_stage_ids: z.array(z.string()).optional().describe('Contact stage IDs to filter by.'),
-    contact_label_ids: z.array(z.string()).optional().describe('Contact label IDs to filter by.'),
-    sort_by_field: z
-        .enum(['contact_last_activity_date', 'contact_email_last_opened_at', 'contact_email_last_clicked_at', 'contact_created_at', 'contact_updated_at'])
-        .optional()
-        .describe('Field to sort results by.'),
-    sort_ascending: z.boolean().optional().describe('Sort in ascending order. Requires sort_by_field.'),
-    per_page: z.number().int().min(1).max(100).optional().describe('Number of results per page (1-100).'),
-    page: z.number().int().min(1).optional().describe('Page number to retrieve.')
-});
+const InputSchema = z
+    .object({
+        cursor: z.string().optional().describe('Pagination cursor from the previous response. Omit for the first page.'),
+        q_keywords: z.string().optional().describe('Keywords to narrow the search. Can include names, job titles, employers, and email addresses.'),
+        contact_stage_ids: z.array(z.string()).optional().describe('Contact stage IDs to filter by.'),
+        contact_label_ids: z.array(z.string()).optional().describe('Contact label IDs to filter by.'),
+        sort_by_field: z
+            .enum(['contact_last_activity_date', 'contact_email_last_opened_at', 'contact_email_last_clicked_at', 'contact_created_at', 'contact_updated_at'])
+            .optional()
+            .describe('Field to sort results by.'),
+        sort_ascending: z.boolean().optional().describe('Sort in ascending order. Requires sort_by_field.'),
+        per_page: z.number().int().min(1).max(100).optional().describe('Number of results per page (1-100).'),
+        page: z.number().int().min(1).optional().describe('Page number to retrieve.')
+    })
+    .refine((data) => !data.sort_ascending || data.sort_by_field !== undefined, {
+        message: 'sort_by_field is required when sort_ascending is set',
+        path: ['sort_ascending']
+    });
 
 const PaginationSchema = z.object({
     page: z.number(),
@@ -79,6 +84,7 @@ const action = createAction({
     scopes: ['api'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
+        const page = input.cursor ? parseInt(input.cursor, 10) : input.page;
         // https://docs.apollo.io/reference/search-for-contacts
         const response = await nango.post({
             endpoint: '/v1/contacts/search',
@@ -89,7 +95,7 @@ const action = createAction({
                 ...(input.sort_by_field !== undefined && { sort_by_field: input.sort_by_field }),
                 ...(input.sort_ascending !== undefined && { sort_ascending: input.sort_ascending }),
                 ...(input.per_page !== undefined && { per_page: input.per_page }),
-                ...(input.page !== undefined && { page: input.page })
+                ...(page !== undefined && { page })
             },
             retries: 3
         });

@@ -5039,7 +5039,17 @@
         "other_phone": {
           "type": "string"
         },
-        "typed_custom_fields": {},
+        "typed_custom_fields": {
+          "type": "object",
+          "additionalProperties": {
+            "anyOf": [
+              {},
+              {
+                "not": {}
+              }
+            ]
+          }
+        },
         "run_dedupe": {
           "type": "boolean"
         }
@@ -5105,7 +5115,17 @@
         "other_phone": {
           "type": "string"
         },
-        "typed_custom_fields": {},
+        "typed_custom_fields": {
+          "type": "object",
+          "additionalProperties": {
+            "anyOf": [
+              {},
+              {
+                "not": {}
+              }
+            ]
+          }
+        },
         "created_at": {
           "type": "string"
         },
@@ -6282,7 +6302,6 @@
       "required": [
         "id",
         "team_id",
-        "amount",
         "name"
       ],
       "additionalProperties": false
@@ -6784,9 +6803,9 @@
     "ActionInput_apollo_listtasks": {
       "type": "object",
       "properties": {
-        "cursor": {
-          "type": "string",
-          "description": "Pagination cursor from the previous response. Omit for the first page."
+        "page": {
+          "type": "number",
+          "description": "Page number to retrieve. Default is 1."
         },
         "per_page": {
           "type": "number",

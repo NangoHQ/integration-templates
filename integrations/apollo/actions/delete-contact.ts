@@ -2,7 +2,7 @@ import { z } from 'zod';
 import { createAction } from 'nango';
 
 const InputSchema = z.object({
-    contactId: z.string().describe('Apollo contact ID to delete. Example: "6a0af20f499fdc0010dfadaf"')
+    contactId: z.string().min(1).describe('Apollo contact ID to delete. Example: "6a0af20f499fdc0010dfadaf"')
 });
 
 const DeleteResponseSchema = z.object({

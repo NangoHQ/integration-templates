@@ -7,21 +7,24 @@
         "name": "Test Opportunity from Nango",
         "is_closed": false,
         "is_won": false,
-        "account_id": "6a0af1f0c9f63c0018aed306"
+        "account_id": "6a0af1f0c9f63c0018aed306",
+        "created_at": "2026-05-18T11:18:15.455+00:00"
       },
       {
         "id": "6a0af56f1c2fa400182aa756",
         "name": "Test Opportunity from Nango",
         "is_closed": false,
         "is_won": false,
-        "account_id": "6a0af1f0c9f63c0018aed306"
+        "account_id": "6a0af1f0c9f63c0018aed306",
+        "created_at": "2026-05-18T11:18:07.847+00:00"
       },
       {
         "id": "6a0af54c0b02f8000c2ecd46",
         "name": "Test Opportunity from Nango",
         "is_closed": false,
         "is_won": false,
-        "account_id": "6a0af1f0c9f63c0018aed306"
+        "account_id": "6a0af1f0c9f63c0018aed306",
+        "created_at": "2026-05-18T11:17:32.565+00:00"
       },
       {
         "id": "6a0af24809fce4001cbd343a",
@@ -29,7 +32,8 @@
         "amount": 3000,
         "closed_date": "2026-06-15T00:00:00.000+00:00",
         "is_closed": false,
-        "is_won": false
+        "is_won": false,
+        "created_at": "2026-05-18T11:04:40.371+00:00"
       },
       {
         "id": "6a0af230e1fca200101291d9",
@@ -37,7 +41,8 @@
         "amount": 5000,
         "closed_date": "2026-06-01T00:00:00.000+00:00",
         "is_closed": false,
-        "is_won": false
+        "is_won": false,
+        "created_at": "2026-05-18T11:04:16.357+00:00"
       },
       {
         "id": "6a0af21285c69e000cc28695",
@@ -45,7 +50,8 @@
         "amount": 30000,
         "closed_date": "2026-07-01T00:00:00.000+00:00",
         "is_closed": false,
-        "is_won": false
+        "is_won": false,
+        "created_at": "2026-05-18T11:03:46.239+00:00"
       }
     ],
     "pagination": {

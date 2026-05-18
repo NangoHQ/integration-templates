@@ -30,8 +30,8 @@ const InputSchema = z.object({
     organization_num_jobs_range_max: z.number().optional().describe('Maximum number of active job postings.'),
     organization_job_posted_at_range_min: z.string().optional().describe('Earliest job posted date (YYYY-MM-DD).'),
     organization_job_posted_at_range_max: z.string().optional().describe('Latest job posted date (YYYY-MM-DD).'),
-    page: z.number().optional().describe('Page number for pagination. Default: 1.'),
-    per_page: z.number().optional().describe('Results per page (max 100). Default: 25.')
+    page: z.number().int().min(1).optional().describe('Page number for pagination. Default: 1.'),
+    per_page: z.number().int().min(1).max(100).optional().describe('Results per page (max 100). Default: 25.')
 });
 
 const PaginationSchema = z.object({
@@ -64,10 +64,10 @@ const OrganizationSchema = z.object({
     organization_currency: z.string().optional(),
     organization_alexa_ranking: z.number().optional(),
     organization_publicly_traded: z.boolean().optional(),
-    organization_ticker: z.string().optional(),
-    organization_social_linkedin: z.string().optional(),
-    organization_social_facebook: z.string().optional(),
-    organization_social_twitter: z.string().optional(),
+    ticker_symbol: z.string().optional(),
+    linkedin_url: z.string().optional(),
+    facebook_url: z.string().optional(),
+    twitter_url: z.string().optional(),
     organization_technologies: z.array(z.string()).optional(),
     organization_num_jobs: z.number().optional(),
     account_id: z.string().optional()
@@ -242,10 +242,10 @@ const action = createAction({
                 ...(org.organization_currency !== undefined && { currency: org.organization_currency }),
                 ...(org.organization_alexa_ranking !== undefined && { alexa_ranking: org.organization_alexa_ranking }),
                 ...(org.organization_publicly_traded !== undefined && { publicly_traded: org.organization_publicly_traded }),
-                ...(org.organization_ticker !== undefined && { ticker: org.organization_ticker }),
-                ...(org.organization_social_linkedin !== undefined && { linkedin_url: org.organization_social_linkedin }),
-                ...(org.organization_social_facebook !== undefined && { facebook_url: org.organization_social_facebook }),
-                ...(org.organization_social_twitter !== undefined && { twitter_url: org.organization_social_twitter }),
+                ...(org.ticker_symbol !== undefined && { ticker: org.ticker_symbol }),
+                ...(org.linkedin_url !== undefined && { linkedin_url: org.linkedin_url }),
+                ...(org.facebook_url !== undefined && { facebook_url: org.facebook_url }),
+                ...(org.twitter_url !== undefined && { twitter_url: org.twitter_url }),
                 ...(org.organization_technologies !== undefined && { technologies: org.organization_technologies }),
                 ...(org.organization_num_jobs !== undefined && { num_jobs: org.organization_num_jobs }),
                 ...(org.account_id !== undefined && { account_id: org.account_id })

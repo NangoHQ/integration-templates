@@ -7,21 +7,22 @@ const InputSchema = z.object({
 
 const AccountSchema = z.object({
     id: z.string(),
-    name: z.string().optional(),
-    domain: z.string().optional(),
-    phone: z.string().optional(),
-    raw_address: z.string().optional(),
-    owner_id: z.string().optional(),
-    account_stage_id: z.string().optional(),
-    created_at: z.string().optional(),
-    updated_at: z.string().optional(),
-    typed_custom_fields: z.record(z.string(), z.unknown()).optional(),
+    name: z.string().nullable().optional(),
+    domain: z.string().nullable().optional(),
+    phone: z.string().nullable().optional(),
+    raw_address: z.string().nullable().optional(),
+    owner_id: z.string().nullable().optional(),
+    account_stage_id: z.string().nullable().optional(),
+    created_at: z.string().nullable().optional(),
+    updated_at: z.string().nullable().optional(),
+    typed_custom_fields: z.record(z.string(), z.unknown()).nullable().optional(),
     organization: z
         .object({
-            id: z.string().optional(),
-            name: z.string().optional(),
-            domain: z.string().optional()
+            id: z.string().nullable().optional(),
+            name: z.string().nullable().optional(),
+            domain: z.string().nullable().optional()
         })
+        .nullable()
         .optional()
 });
 
@@ -87,16 +88,22 @@ const action = createAction({
 
         return {
             id: account.id,
-            ...(account.name !== undefined && { name: account.name }),
-            ...(account.domain !== undefined && { domain: account.domain }),
-            ...(account.phone !== undefined && { phone: account.phone }),
-            ...(account.raw_address !== undefined && { raw_address: account.raw_address }),
-            ...(account.owner_id !== undefined && { owner_id: account.owner_id }),
-            ...(account.account_stage_id !== undefined && { account_stage_id: account.account_stage_id }),
-            ...(account.created_at !== undefined && { created_at: account.created_at }),
-            ...(account.updated_at !== undefined && { updated_at: account.updated_at }),
-            ...(account.typed_custom_fields !== undefined && { typed_custom_fields: account.typed_custom_fields }),
-            ...(account.organization !== undefined && { organization: account.organization })
+            ...(account.name != null && { name: account.name }),
+            ...(account.domain != null && { domain: account.domain }),
+            ...(account.phone != null && { phone: account.phone }),
+            ...(account.raw_address != null && { raw_address: account.raw_address }),
+            ...(account.owner_id != null && { owner_id: account.owner_id }),
+            ...(account.account_stage_id != null && { account_stage_id: account.account_stage_id }),
+            ...(account.created_at != null && { created_at: account.created_at }),
+            ...(account.updated_at != null && { updated_at: account.updated_at }),
+            ...(account.typed_custom_fields != null && { typed_custom_fields: account.typed_custom_fields }),
+            ...(account.organization != null && {
+                organization: {
+                    ...(account.organization.id != null && { id: account.organization.id }),
+                    ...(account.organization.name != null && { name: account.organization.name }),
+                    ...(account.organization.domain != null && { domain: account.organization.domain })
+                }
+            })
         };
     }
 });

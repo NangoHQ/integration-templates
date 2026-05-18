@@ -2,8 +2,8 @@ import { z } from 'zod';
 import { createAction } from 'nango';
 
 const InputSchema = z.object({
-    cursor: z.string().optional().describe('Pagination cursor from the previous response. Omit for the first page.'),
-    per_page: z.number().optional().describe('Number of results per page. Default is 25.')
+    page: z.number().int().min(1).optional().describe('Page number to retrieve. Default is 1.'),
+    per_page: z.number().int().min(1).max(100).optional().describe('Number of results per page. Default is 25.')
 });
 
 const PaginationSchema = z.object({
@@ -50,8 +50,8 @@ const action = createAction({
         const response = await nango.get({
             endpoint: '/v1/tasks/search',
             params: {
-                ...(input.cursor && { cursor: input.cursor }),
-                ...(input.per_page && { per_page: String(input.per_page) })
+                ...(input.page !== undefined && { page: String(input.page) }),
+                ...(input.per_page !== undefined && { per_page: String(input.per_page) })
             },
             retries: 3
         });

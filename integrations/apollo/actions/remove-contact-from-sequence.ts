@@ -3,7 +3,7 @@ import { createAction } from 'nango';
 
 const InputSchema = z.object({
     emailer_campaign_id: z.string().describe('Apollo sequence (emailer campaign) ID. Example: "66e9e215ece19801b219997f"'),
-    contact_ids: z.array(z.string()).describe('Apollo contact IDs to remove or stop from the sequence. Example: ["66e34b81740c50074e3d1bd4"]'),
+    contact_ids: z.array(z.string()).min(1).describe('Apollo contact IDs to remove or stop from the sequence. Example: ["66e34b81740c50074e3d1bd4"]'),
     action: z.enum(['remove', 'stop']).optional().describe('Action to perform on the contacts in the sequence. Defaults to remove.')
 });
 
@@ -57,7 +57,7 @@ const action = createAction({
             data: {
                 emailer_campaign_ids: [input.emailer_campaign_id],
                 contact_ids: input.contact_ids,
-                ...(input.action !== undefined && { mode: input.action })
+                mode: input.action ?? 'remove'
             },
             retries: 3
         });

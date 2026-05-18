@@ -53,13 +53,13 @@ const ResponseSchema = z.object({
 });
 
 // Metadata schema for filters passed by user
-const _MetadataSchema = z.object({
+const MetadataSchema = z.object({
     q_keywords: z.string().optional(),
     organization_ids: z.array(z.string()).optional(),
     page: z.number().int().positive().optional()
 });
 
-type MetadataType = z.infer<typeof _MetadataSchema>;
+type MetadataType = z.infer<typeof MetadataSchema>;
 
 const CheckpointSchema = z.object({
     page: z.number().int().positive()
@@ -85,7 +85,13 @@ const sync = createSync({
         let metadata: MetadataType = {};
 
         try {
-            metadata = (await nango.getMetadata<MetadataType>()) ?? {};
+            const rawMetadata = (await nango.getMetadata<MetadataType>()) ?? {};
+            const parsedMetadata = MetadataSchema.safeParse(rawMetadata);
+            if (parsedMetadata.success) {
+                metadata = parsedMetadata.data;
+            } else {
+                await nango.log('Warning: Metadata schema validation failed, using defaults', { error: parsedMetadata.error });
+            }
         } catch (error) {
             const message = error instanceof Error ? error.message : String(error);
             if (!message.includes('Missing mock data for getMetadata')) {

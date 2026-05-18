@@ -9,12 +9,18 @@
         "id": "5a9cca64a6da98d977f00f51",
         "name": "Apollo Hospitals",
         "website_url": "http://www.apollohospitals.com",
+        "linkedin_url": "http://www.linkedin.com/company/theapollohospitals",
+        "twitter_url": "https://twitter.com/HospitalsApollo",
+        "facebook_url": "https://facebook.com/TheApolloHospitals",
         "revenue": 2551200000
       },
       {
         "id": "55920eb273696418b72a4100",
         "name": "Apollo Global Management, Inc.",
         "website_url": "http://www.apollo.com",
+        "linkedin_url": "http://www.linkedin.com/company/apollo-global-management-inc",
+        "twitter_url": "https://twitter.com/apolloglobal",
+        "facebook_url": "https://facebook.com/apolloglobalmanagement",
         "revenue": 30299000000
       }
     ],

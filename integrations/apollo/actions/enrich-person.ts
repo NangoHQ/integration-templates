@@ -139,10 +139,17 @@ const action = createAction({
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         // Validate that at least one identifying parameter is provided
-        if (!input.email && !input.id && !input.name && !input.linkedin_url) {
+        if (!input.email && !input.id && !input.name && !input.linkedin_url && !input.first_name && !input.hashed_email) {
             throw new nango.ActionError({
                 type: 'invalid_input',
-                message: 'At least one identifying parameter (email, id, name, or linkedin_url) is required to enrich a person.'
+                message: 'At least one identifying parameter (email, id, name, linkedin_url, first_name, or hashed_email) is required to enrich a person.'
+            });
+        }
+
+        if (input.reveal_phone_number && !input.webhook_url) {
+            throw new nango.ActionError({
+                type: 'invalid_input',
+                message: 'webhook_url is required when reveal_phone_number is true.'
             });
         }
 
