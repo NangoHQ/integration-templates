@@ -20157,6 +20157,51 @@
       ],
       "additionalProperties": false
     },
+    "BoxDocument": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "download_url": {
+          "type": "string"
+        },
+        "modified_at": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "id",
+        "name",
+        "modified_at"
+      ],
+      "additionalProperties": false
+    },
+    "SyncMetadata_box_files": {
+      "type": "object",
+      "properties": {
+        "files": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "folders": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      },
+      "required": [
+        "files",
+        "folders"
+      ],
+      "additionalProperties": false
+    },
     "ActionInput_box_copyfile": {
       "type": "object",
       "properties": {
@@ -38487,6 +38532,31 @@
       "required": [
         "name",
         "id"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_dropbox_deleteuser": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "The team member ID of the user to delete. Example: \"dbmid:abc123\""
+        }
+      },
+      "required": [
+        "id"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_dropbox_deleteuser": {
+      "type": "object",
+      "properties": {
+        "success": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "success"
       ],
       "additionalProperties": false
     },
@@ -93490,6 +93560,104 @@
       "required": [
         "id",
         "object"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_notion_createdatabase": {
+      "type": "object",
+      "properties": {
+        "parent": {
+          "type": "object",
+          "properties": {
+            "page_id": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "page_id"
+          ],
+          "additionalProperties": false,
+          "description": "Parent page where database will be created."
+        },
+        "title": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "text": {
+                "type": "object",
+                "properties": {
+                  "content": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "content"
+                ],
+                "additionalProperties": false
+              }
+            },
+            "required": [
+              "text"
+            ],
+            "additionalProperties": false
+          },
+          "description": "Database title as rich text array."
+        },
+        "properties": {
+          "type": "object",
+          "additionalProperties": {
+            "anyOf": [
+              {},
+              {
+                "not": {}
+              }
+            ]
+          },
+          "description": "Database property schema. Example: {\"Name\":{\"title\":{}},\"Description\":{\"rich_text\":{}}}"
+        }
+      },
+      "required": [
+        "parent",
+        "title",
+        "properties"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_notion_createdatabase": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "object": {
+          "type": "string"
+        },
+        "created_time": {
+          "type": "string"
+        },
+        "title": {
+          "type": "array",
+          "items": {}
+        },
+        "properties": {
+          "type": "object",
+          "additionalProperties": {
+            "anyOf": [
+              {},
+              {
+                "not": {}
+              }
+            ]
+          }
+        }
+      },
+      "required": [
+        "id",
+        "object",
+        "created_time",
+        "title",
+        "properties"
       ],
       "additionalProperties": false
     },

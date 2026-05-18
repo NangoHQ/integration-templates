@@ -5512,6 +5512,18 @@ export interface Folder {
   modifiedTime?: string | undefined;
 };
 
+export interface BoxDocument {
+  id: string;
+  name: string;
+  download_url?: string | undefined;
+  modified_at: string;
+};
+
+export interface SyncMetadata_box_files {
+  files: string[];
+  folders: string[];
+};
+
 export interface ActionInput_box_copyfile {
   /**
    * The ID of the file to copy. Example: "123456789"
@@ -12201,6 +12213,17 @@ export interface ActionOutput_dropbox_deletefileorfolder {
   size?: number | undefined;
   is_downloadable?: boolean | undefined;
   content_hash?: string | undefined;
+};
+
+export interface ActionInput_dropbox_deleteuser {
+  /**
+   * The team member ID of the user to delete. Example: "dbmid:abc123"
+   */
+  id: string;
+};
+
+export interface ActionOutput_dropbox_deleteuser {
+  success: boolean;
 };
 
 export interface ActionInput_dropbox_downloadfile {
@@ -31143,6 +31166,32 @@ export interface ActionOutput_notion_createcomment {
    */
   id: string;
   object: 'comment';
+};
+
+export interface ActionInput_notion_createdatabase {
+  /**
+   * Parent page where database will be created.
+   */
+  parent: {  /**
+   * Parent page ID. Example: "2b6ce298-3121-80ae-bfe1-f8984b993639"
+   */
+  page_id: string;};
+  /**
+   * Database title as rich text array.
+   */
+  title: ({  text: {  content: string;};})[];
+  /**
+   * Database property schema. Example: {"Name":{"title":{}},"Description":{"rich_text":{}}}
+   */
+  properties: {  [key: string]: any | undefined;};
+};
+
+export interface ActionOutput_notion_createdatabase {
+  id: string;
+  object: string;
+  created_time: string;
+  title: any[];
+  properties: {  [key: string]: any | undefined;};
 };
 
 export interface ActionInput_notion_createdatasource {
