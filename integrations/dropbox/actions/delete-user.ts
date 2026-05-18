@@ -2,7 +2,7 @@ import { z } from 'zod';
 import { createAction } from 'nango';
 
 const InputSchema = z.object({
-    id: z.string().describe('The team member ID of the user to delete. Example: "dbmid:abc123"')
+    id: z.string().min(1).describe('The team member ID of the user to delete. Example: "dbmid:abc123"')
 });
 
 const OutputSchema = z.object({
