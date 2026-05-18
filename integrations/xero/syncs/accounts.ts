@@ -50,7 +50,8 @@ const XeroAccountSchema = z.object({
 });
 
 function parseMsJsonDate(dateString: string): Date | null {
-    const match = dateString.match(/\/Date\((\d+)([+-]\d{4})\)\//);
+    // Allow negative timestamps for pre-1970 Xero dates (see general-ledger.ts parseDate).
+    const match = dateString.match(/\/Date\((-?\d+)([+-]\d{4})\)\//);
     if (!match) {
         return null;
     }
@@ -87,7 +88,7 @@ function mapAccount(record: z.infer<typeof XeroAccountSchema>): z.infer<typeof A
 
 const sync = createSync({
     description: 'Sync accounts from the Xero chart of accounts.',
-    version: '3.0.0',
+    version: '3.1.0',
     frequency: 'every hour',
     autoStart: true,
     endpoints: [{ method: 'GET', path: '/syncs/accounts' }],

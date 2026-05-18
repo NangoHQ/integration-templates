@@ -49,7 +49,8 @@ const InvoiceSchema = z.object({
 });
 
 function parseXeroDate(value: string): Date | null {
-    const match = value.match(/^\/Date\((\d+)(?:[+-]\d{4})?\)\/$/);
+    // Allow negative timestamps for pre-1970 Xero dates (see general-ledger.ts parseDate).
+    const match = value.match(/^\/Date\((-?\d+)(?:[+-]\d{4})?\)\/$/);
     if (match && match[1]) {
         return new Date(parseInt(match[1], 10));
     }
@@ -95,7 +96,7 @@ function mapInvoice(raw: unknown): z.infer<typeof InvoiceSchema> | null {
 
 const sync = createSync({
     description: 'Sync invoices from Xero.',
-    version: '3.0.0',
+    version: '3.1.0',
     endpoints: [{ method: 'GET', path: '/syncs/invoices' }],
     frequency: 'every hour',
     models: {
