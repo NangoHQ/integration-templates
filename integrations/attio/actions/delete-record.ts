@@ -1,47 +1,68 @@
-/**
- * Instructions: Deletes a record permanently.
- * API: https://docs.attio.com/rest-api/endpoint-reference/records/delete-a-record
- */
-
 import { z } from 'zod';
 import { createAction } from 'nango';
-import type { ProxyConfiguration } from 'nango';
 
-// Inline schema definitions
-const DeleteRecordInput = z.object({
-    object_slug: z.string().describe('The object type slug. Example: "people" or "companies"'),
-    record_id: z.string().describe('The record ID to delete. Example: "5829dd6c-0577-40dc-a858-8bd9a0d6aa58"')
+const InputSchema = z.object({
+    object_slug: z.string().describe('The UUID or slug of the object the record belongs to. Example: "people", "companies", or a custom object UUID.'),
+    record_id: z.string().describe('The UUID of the record to delete. Example: "891dcbfc-9141-415d-9b2a-2238a6cc012d"')
 });
 
-const DeleteRecordOutput = z.object({
-    success: z.boolean().describe('Whether the deletion was successful')
+const ProviderErrorSchema = z.object({
+    status_code: z.number().optional(),
+    type: z.string().optional(),
+    code: z.string().optional(),
+    message: z.string().optional()
+});
+
+const OutputSchema = z.object({
+    success: z.boolean(),
+    record_id: z.string(),
+    object_slug: z.string()
 });
 
 const action = createAction({
-    description: 'Deletes a record permanently.',
-    version: '1.0.0',
-
+    description: 'Delete or archive a record in Attio.',
+    version: '2.0.0',
     endpoint: {
-        method: 'DELETE',
-        path: '/objects/:object_slug/records/:record_id',
+        method: 'POST',
+        path: '/actions/delete-record',
         group: 'Records'
     },
+    input: InputSchema,
+    output: OutputSchema,
+    scopes: ['object_configuration:read', 'record_permission:read-write'],
 
-    input: DeleteRecordInput,
-    output: DeleteRecordOutput,
-    scopes: ['record_permission:read-write'],
-
-    exec: async (nango, input): Promise<z.infer<typeof DeleteRecordOutput>> => {
-        const config: ProxyConfiguration = {
-            // https://docs.attio.com/rest-api/endpoint-reference/records/delete-a-record
-            endpoint: `v2/objects/${input.object_slug}/records/${input.record_id}`,
+    exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
+        // https://docs.attio.com/rest-api/endpoint-reference/records/delete-a-record
+        const response = await nango.delete({
+            endpoint: `/v2/objects/${input.object_slug}/records/${input.record_id}`,
             retries: 3
-        };
+        });
 
-        await nango.delete(config);
+        if (response.status === 404) {
+            const errorData = ProviderErrorSchema.safeParse(response.data);
+            throw new nango.ActionError({
+                type: 'not_found',
+                message: errorData.success ? errorData.data.message : 'Record not found',
+                object_slug: input.object_slug,
+                record_id: input.record_id
+            });
+        }
+
+        // Attio returns 200 with empty object on success
+        if (response.status !== 200) {
+            const errorData = ProviderErrorSchema.safeParse(response.data);
+            throw new nango.ActionError({
+                type: 'api_error',
+                message: errorData.success ? errorData.data.message : `Failed to delete record (status ${response.status})`,
+                object_slug: input.object_slug,
+                record_id: input.record_id
+            });
+        }
 
         return {
-            success: true
+            success: true,
+            record_id: input.record_id,
+            object_slug: input.object_slug
         };
     }
 });

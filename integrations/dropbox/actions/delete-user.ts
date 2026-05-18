@@ -1,6 +1,13 @@
+import { z } from 'zod';
 import { createAction } from 'nango';
-import type { ProxyConfiguration } from 'nango';
-import { SuccessResponse, IdEntity } from '../models.js';
+
+const InputSchema = z.object({
+    id: z.string().min(1).describe('The team member ID of the user to delete. Example: "dbmid:abc123"')
+});
+
+const OutputSchema = z.object({
+    success: z.boolean()
+});
 
 const action = createAction({
     description: 'Deletes a user in Dropbox. Requires Dropbox Business.',
@@ -12,20 +19,14 @@ const action = createAction({
         group: 'Users'
     },
 
-    input: IdEntity,
-    output: SuccessResponse,
+    input: InputSchema,
+    output: OutputSchema,
     scopes: ['members.delete'],
 
-    exec: async (nango, input): Promise<SuccessResponse> => {
-        if (!input || !input.id) {
-            throw new nango.ActionError({
-                message: 'Id is required'
-            });
-        }
-
-        const config: ProxyConfiguration = {
-            // https://www.dropbox.com/developers/documentation/http/teams#team-members-remove
-            endpoint: `/2/team/members/remove`,
+    exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
+        // https://www.dropbox.com/developers/documentation/http/teams#team-members-remove
+        await nango.post({
+            endpoint: '/2/team/members/remove',
             data: {
                 user: {
                     '.tag': 'team_member_id',
@@ -33,13 +34,9 @@ const action = createAction({
                 }
             },
             retries: 3
-        };
+        });
 
-        await nango.post(config);
-
-        return {
-            success: true
-        };
+        return { success: true };
     }
 });
 

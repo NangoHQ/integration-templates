@@ -13167,217 +13167,425 @@
       ],
       "additionalProperties": false
     },
-    "AttioCompany": {
+    "Company": {
       "type": "object",
       "properties": {
         "id": {
           "type": "string"
         },
-        "workspace_id": {
-          "type": "string"
-        },
-        "created_at": {
-          "type": "string"
-        },
-        "web_url": {
-          "type": "string"
-        },
         "name": {
           "type": "string"
         },
-        "domains": {
-          "type": "array",
-          "items": {
-            "type": "object",
-            "properties": {
-              "domain": {
-                "type": "string"
-              },
-              "root_domain": {
-                "type": "string"
-              }
-            },
-            "required": [
-              "domain",
-              "root_domain"
-            ],
-            "additionalProperties": false
-          }
-        },
-        "description": {
+        "company_id": {
           "type": "string"
         },
-        "team_member_ids": {
-          "type": "array",
-          "items": {
-            "type": "string"
-          }
-        },
-        "location": {
-          "type": "object",
-          "properties": {
-            "country_code": {
-              "type": "string"
-            },
-            "line_1": {
-              "type": [
-                "string",
-                "null"
-              ]
-            },
-            "line_2": {
-              "type": [
-                "string",
-                "null"
-              ]
-            },
-            "city": {
-              "type": "string"
-            },
-            "state": {
-              "type": "string"
-            },
-            "postal_code": {
-              "type": "string"
-            }
-          },
-          "additionalProperties": false
-        },
-        "categories": {
-          "type": "array",
-          "items": {
-            "type": "string"
-          }
-        },
-        "logo_url": {
-          "type": "string"
-        },
-        "twitter_follower_count": {
+        "created_at": {
           "type": "number"
         },
-        "foundation_date": {
-          "type": "string"
-        },
-        "estimated_arr_usd": {
+        "updated_at": {
           "type": "number"
         },
-        "social_links": {
-          "type": "object",
-          "properties": {
-            "linkedin": {
-              "type": "array",
-              "items": {
-                "type": "string"
-              }
-            },
-            "twitter": {
-              "type": "array",
-              "items": {
-                "type": "string"
-              }
-            },
-            "facebook": {
-              "type": "array",
-              "items": {
-                "type": "string"
-              }
-            },
-            "instagram": {
-              "type": "array",
-              "items": {
-                "type": "string"
-              }
-            },
-            "angellist": {
-              "type": "array",
-              "items": {
-                "type": "string"
-              }
-            }
-          },
-          "additionalProperties": false
+        "session_count": {
+          "type": "number"
+        },
+        "monthly_spend": {
+          "type": "number"
+        },
+        "user_count": {
+          "type": "number"
+        },
+        "plan": {
+          "type": "string"
+        },
+        "size": {
+          "type": "number"
+        },
+        "website": {
+          "type": "string"
+        },
+        "industry": {
+          "type": "string"
         }
       },
       "required": [
-        "id",
-        "workspace_id",
-        "created_at",
-        "web_url"
+        "id"
       ],
       "additionalProperties": false
     },
-    "SyncMetadata_attio_companies": {
-      "type": "object",
-      "additionalProperties": false
-    },
-    "AttioDeal": {
+    "Deal": {
       "type": "object",
       "properties": {
         "id": {
           "type": "string"
         },
-        "workspace_id": {
-          "type": "string"
-        },
-        "created_at": {
-          "type": "string"
-        },
-        "web_url": {
-          "type": "string"
-        },
-        "name": {
+        "dealName": {
           "type": "string"
         },
         "stage": {
           "type": "string"
         },
-        "stage_id": {
-          "type": "string"
-        },
-        "owner_id": {
-          "type": "string"
-        },
-        "value": {
+        "amount": {
           "type": "number"
         },
-        "currency": {
+        "closingDate": {
           "type": "string"
         },
-        "associated_people_ids": {
-          "type": "array",
-          "items": {
-            "type": "string"
-          }
+        "accountName": {
+          "type": "string"
         },
-        "associated_company_id": {
+        "accountId": {
+          "type": "string"
+        },
+        "contactName": {
+          "type": "string"
+        },
+        "contactId": {
+          "type": "string"
+        },
+        "ownerName": {
+          "type": "string"
+        },
+        "ownerId": {
+          "type": "string"
+        },
+        "ownerEmail": {
+          "type": "string"
+        },
+        "createdTime": {
+          "type": "string"
+        },
+        "modifiedTime": {
+          "type": "string"
+        },
+        "probability": {
+          "type": [
+            "string",
+            "number"
+          ]
+        },
+        "expectedRevenue": {
+          "type": "number"
+        },
+        "description": {
+          "type": "string"
+        },
+        "campaignSource": {
+          "type": "string"
+        },
+        "leadSource": {
+          "type": "string"
+        },
+        "type": {
+          "type": "string"
+        },
+        "nextStep": {
           "type": "string"
         }
       },
       "required": [
         "id",
-        "workspace_id",
-        "created_at",
-        "web_url"
+        "createdTime",
+        "modifiedTime"
       ],
       "additionalProperties": false
     },
-    "SyncMetadata_attio_deals": {
-      "type": "object",
-      "additionalProperties": false
-    },
-    "AttioPerson": {
+    "ListEntry": {
       "type": "object",
       "properties": {
         "id": {
           "type": "string"
         },
-        "workspace_id": {
+        "list_id": {
+          "type": "string"
+        },
+        "parent_record_id": {
+          "type": "string"
+        },
+        "parent_object": {
           "type": "string"
         },
         "created_at": {
           "type": "string"
         },
-        "web_url": {
+        "entry_values": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "array",
+            "items": {}
+          }
+        }
+      },
+      "required": [
+        "id",
+        "list_id",
+        "created_at"
+      ],
+      "additionalProperties": false
+    },
+    "List": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        },
+        "created_at": {
+          "type": "string"
+        },
+        "private": {
+          "type": "boolean"
+        },
+        "owner_id": {
+          "type": "string"
+        },
+        "follower_count": {
+          "type": "number"
+        },
+        "member_count": {
+          "type": "number"
+        }
+      },
+      "required": [
+        "id",
+        "name"
+      ],
+      "additionalProperties": false
+    },
+    "Meeting": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "topic": {
+          "type": "string"
+        },
+        "start_time": {
+          "type": "string"
+        },
+        "duration": {
+          "type": "number"
+        },
+        "timezone": {
+          "type": "string"
+        },
+        "created_at": {
+          "type": "string"
+        },
+        "join_url": {
+          "type": "string"
+        },
+        "type": {
+          "type": "number"
+        },
+        "uuid": {
+          "type": "string"
+        },
+        "host_id": {
+          "type": "string"
+        },
+        "status": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "id"
+      ],
+      "additionalProperties": false
+    },
+    "Note": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "note_title": {
+          "type": "string"
+        },
+        "note_content": {
+          "type": "string"
+        },
+        "parent_id": {
+          "type": "string"
+        },
+        "parent_name": {
+          "type": "string"
+        },
+        "parent_module": {
+          "type": "string"
+        },
+        "owner_id": {
+          "type": "string"
+        },
+        "owner_name": {
+          "type": "string"
+        },
+        "owner_email": {
+          "type": "string"
+        },
+        "created_by_id": {
+          "type": "string"
+        },
+        "created_by_name": {
+          "type": "string"
+        },
+        "modified_by_id": {
+          "type": "string"
+        },
+        "modified_by_name": {
+          "type": "string"
+        },
+        "created_time": {
+          "type": "string"
+        },
+        "modified_time": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "id"
+      ],
+      "additionalProperties": false
+    },
+    "AttioObject": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "The object_id UUID."
+        },
+        "workspace_id": {
+          "type": "string",
+          "description": "A UUID to identify the workspace this object belongs to."
+        },
+        "api_slug": {
+          "type": "string",
+          "description": "A unique, human-readable slug to access the object through URLs and API calls."
+        },
+        "singular_noun": {
+          "type": "string",
+          "description": "The singular form of the object's name."
+        },
+        "plural_noun": {
+          "type": "string",
+          "description": "The plural form of the object's name."
+        },
+        "created_at": {
+          "type": "string",
+          "description": "When the object was created."
+        }
+      },
+      "required": [
+        "id",
+        "workspace_id",
+        "created_at"
+      ],
+      "additionalProperties": false
+    },
+    "Person": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "emails": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "value": {
+                "type": "string"
+              },
+              "primary": {
+                "type": "boolean"
+              },
+              "label": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "value"
+            ],
+            "additionalProperties": false
+          }
+        },
+        "phones": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "value": {
+                "type": "string"
+              },
+              "primary": {
+                "type": "boolean"
+              },
+              "label": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "value"
+            ],
+            "additionalProperties": false
+          }
+        },
+        "org_id": {
+          "type": "number"
+        },
+        "owner_id": {
+          "type": "number"
+        },
+        "add_time": {
+          "type": "string"
+        },
+        "update_time": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "id",
+        "name",
+        "update_time"
+      ],
+      "additionalProperties": false
+    },
+    "Record": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "raw": {
+          "type": "object",
+          "additionalProperties": {
+            "anyOf": [
+              {},
+              {
+                "not": {}
+              }
+            ]
+          }
+        }
+      },
+      "required": [
+        "id",
+        "raw"
+      ],
+      "additionalProperties": false
+    },
+    "WorkspaceMember": {
+      "type": "object",
+      "properties": {
+        "id": {
           "type": "string"
         },
         "first_name": {
@@ -13386,279 +13594,113 @@
         "last_name": {
           "type": "string"
         },
-        "full_name": {
-          "type": "string"
-        },
-        "email_addresses": {
-          "type": "array",
-          "items": {
-            "type": "object",
-            "properties": {
-              "email": {
-                "type": "string"
-              },
-              "domain": {
-                "type": "string"
-              }
-            },
-            "required": [
-              "email",
-              "domain"
-            ],
-            "additionalProperties": false
-          }
-        },
-        "phone_numbers": {
-          "type": "array",
-          "items": {
-            "type": "object",
-            "properties": {
-              "number": {
-                "type": "string"
-              },
-              "country_code": {
-                "type": "string"
-              }
-            },
-            "required": [
-              "number",
-              "country_code"
-            ],
-            "additionalProperties": false
-          }
-        },
-        "job_title": {
-          "type": "array",
-          "items": {
-            "type": "object",
-            "properties": {
-              "active_from": {
-                "type": "string"
-              },
-              "active_until": {
-                "type": [
-                  "string",
-                  "null"
-                ]
-              },
-              "created_by_actor": {
-                "type": "object",
-                "properties": {
-                  "type": {
-                    "type": "string"
-                  },
-                  "id": {
-                    "type": [
-                      "string",
-                      "null"
-                    ]
-                  }
-                },
-                "required": [
-                  "type",
-                  "id"
-                ],
-                "additionalProperties": false
-              },
-              "value": {
-                "type": "string"
-              },
-              "attribute_type": {
-                "type": "string"
-              }
-            },
-            "required": [
-              "active_from",
-              "active_until",
-              "created_by_actor",
-              "value",
-              "attribute_type"
-            ],
-            "additionalProperties": false
-          }
-        },
-        "company_id": {
-          "type": "string"
-        },
-        "description": {
-          "type": "array",
-          "items": {
-            "type": "object",
-            "properties": {
-              "active_from": {
-                "type": "string"
-              },
-              "active_until": {
-                "type": [
-                  "string",
-                  "null"
-                ]
-              },
-              "created_by_actor": {
-                "type": "object",
-                "properties": {
-                  "type": {
-                    "type": "string"
-                  },
-                  "id": {
-                    "type": [
-                      "string",
-                      "null"
-                    ]
-                  }
-                },
-                "required": [
-                  "type",
-                  "id"
-                ],
-                "additionalProperties": false
-              }
-            },
-            "required": [
-              "active_from",
-              "active_until",
-              "created_by_actor"
-            ],
-            "additionalProperties": false
-          }
-        },
         "avatar_url": {
-          "type": "array",
-          "items": {
-            "type": "object",
-            "properties": {
-              "active_from": {
-                "type": "string"
-              },
-              "active_until": {
-                "type": [
-                  "string",
-                  "null"
-                ]
-              },
-              "created_by_actor": {
-                "type": "object",
-                "properties": {
-                  "type": {
-                    "type": "string"
-                  },
-                  "id": {
-                    "type": [
-                      "string",
-                      "null"
-                    ]
-                  }
-                },
-                "required": [
-                  "type",
-                  "id"
-                ],
-                "additionalProperties": false
-              }
-            },
-            "required": [
-              "active_from",
-              "active_until",
-              "created_by_actor"
-            ],
-            "additionalProperties": false
-          }
+          "type": "string"
         },
-        "social_links": {
-          "type": "object",
-          "properties": {
-            "linkedin": {
-              "type": "array",
-              "items": {
-                "type": "string"
-              }
-            },
-            "twitter": {
-              "type": "array",
-              "items": {
-                "type": "string"
-              }
-            },
-            "facebook": {
-              "type": "array",
-              "items": {
-                "type": "string"
-              }
-            },
-            "instagram": {
-              "type": "array",
-              "items": {
-                "type": "string"
-              }
-            },
-            "angellist": {
-              "type": "array",
-              "items": {
-                "type": "string"
-              }
-            }
-          },
-          "additionalProperties": false
+        "email_address": {
+          "type": "string"
         },
-        "location": {
-          "type": "object",
-          "properties": {
-            "line_1": {
-              "type": "string"
-            },
-            "line_2": {
-              "type": "string"
-            },
-            "city": {
-              "type": "string"
-            },
-            "state": {
-              "type": "string"
-            },
-            "postal_code": {
-              "type": "string"
-            },
-            "country_code": {
-              "type": "string"
-            }
-          },
-          "additionalProperties": false
+        "created_at": {
+          "type": "string"
+        },
+        "access_level": {
+          "type": "string"
         }
       },
       "required": [
         "id",
-        "workspace_id",
+        "first_name",
+        "last_name",
+        "email_address",
         "created_at",
-        "web_url"
+        "access_level"
       ],
       "additionalProperties": false
     },
-    "SyncMetadata_attio_people": {
-      "type": "object",
-      "additionalProperties": false
-    },
-    "ActionInput_attio_createcompany": {
+    "ActionInput_attio_createcomment": {
       "type": "object",
       "properties": {
-        "name": {
-          "type": "string"
+        "format": {
+          "type": "string",
+          "const": "plaintext",
+          "description": "The format of the comment content. Must be \"plaintext\"."
         },
-        "domains": {
-          "type": "array",
-          "items": {
-            "type": "string"
-          }
+        "content": {
+          "type": "string",
+          "description": "The content of the comment. Workspace members can be mentioned using their email address."
         },
-        "description": {
-          "type": "string"
+        "author": {
+          "type": "object",
+          "properties": {
+            "type": {
+              "type": "string",
+              "const": "workspace-member"
+            },
+            "id": {
+              "type": "string",
+              "description": "The ID of the workspace member. Example: \"641ecd33-0a48-4b7b-ba48-bbb7a649a8ee\""
+            }
+          },
+          "required": [
+            "type",
+            "id"
+          ],
+          "additionalProperties": false,
+          "description": "The workspace member who wrote this comment."
+        },
+        "thread_id": {
+          "type": "string",
+          "description": "If responding to an existing thread, the ID of that thread. Example: \"aa1dc1d9-93ac-4c6c-987e-16b6eea9aab2\""
+        },
+        "record": {
+          "type": "object",
+          "properties": {
+            "object": {
+              "type": "string"
+            },
+            "record_id": {
+              "type": "string",
+              "description": "The ID of the record. Example: \"4c6ade84-19c7-4581-95aa-b1d5f4571c25\""
+            }
+          },
+          "required": [
+            "object",
+            "record_id"
+          ],
+          "additionalProperties": false,
+          "description": "Target record for the comment. Required if thread_id and entry are not provided."
+        },
+        "entry": {
+          "type": "object",
+          "properties": {
+            "list": {
+              "type": "string"
+            },
+            "entry_id": {
+              "type": "string",
+              "description": "The ID of the entry. Example: \"e9a7b33a-6dfc-483d-9a3b-fbc20068c162\""
+            }
+          },
+          "required": [
+            "list",
+            "entry_id"
+          ],
+          "additionalProperties": false,
+          "description": "Target list entry for the comment. Required if thread_id and record are not provided."
+        },
+        "created_at": {
+          "type": "string",
+          "description": "Optional ISO timestamp to backdate the comment. Defaults to current time."
         }
       },
       "required": [
-        "name"
+        "format",
+        "content",
+        "author"
       ],
       "additionalProperties": false
     },
-    "ActionOutput_attio_createcompany": {
+    "ActionOutput_attio_createcomment": {
       "type": "object",
       "properties": {
         "id": {
@@ -13667,305 +13709,147 @@
             "workspace_id": {
               "type": "string"
             },
-            "object_id": {
-              "type": "string"
-            },
-            "record_id": {
-              "type": "string"
+            "comment_id": {
+              "type": "string",
+              "description": "The ID of the comment."
             }
           },
           "required": [
             "workspace_id",
-            "object_id",
-            "record_id"
+            "comment_id"
           ],
           "additionalProperties": false
         },
-        "name": {
-          "type": [
-            "string",
-            "null"
-          ]
+        "thread_id": {
+          "type": "string",
+          "description": "The ID of the thread the comment belongs to."
         },
-        "domains": {
-          "type": "array",
-          "items": {
-            "type": "string"
-          }
+        "content_plaintext": {
+          "type": "string",
+          "description": "The plaintext content of the comment."
         },
-        "description": {
-          "type": [
-            "string",
-            "null"
-          ]
+        "record": {
+          "type": "object",
+          "properties": {
+            "record_id": {
+              "type": "string"
+            },
+            "object_id": {
+              "type": "string",
+              "description": "The ID of the object the record belongs to."
+            }
+          },
+          "required": [
+            "record_id",
+            "object_id"
+          ],
+          "additionalProperties": false,
+          "description": "The record the comment belongs to."
+        },
+        "entry": {
+          "type": "object",
+          "properties": {
+            "entry_id": {
+              "type": "string"
+            },
+            "list_id": {
+              "type": "string",
+              "description": "The ID of the list the entry belongs to."
+            }
+          },
+          "required": [
+            "entry_id",
+            "list_id"
+          ],
+          "additionalProperties": false,
+          "description": "The entry the comment belongs to, null for comments on records."
+        },
+        "resolved_at": {
+          "type": "string",
+          "description": "Whether the comment is resolved."
+        },
+        "resolved_by": {
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "string"
+            },
+            "type": {
+              "type": "string",
+              "enum": [
+                "api-token",
+                "workspace-member",
+                "system",
+                "app"
+              ],
+              "description": "The type of actor who resolved this comment."
+            }
+          },
+          "required": [
+            "id",
+            "type"
+          ],
+          "additionalProperties": false,
+          "description": "The actor that resolved this comment."
         },
         "created_at": {
-          "type": "string"
+          "type": "string",
+          "description": "When the comment was created."
         },
-        "web_url": {
-          "type": "string"
+        "author": {
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "string"
+            },
+            "type": {
+              "type": "string",
+              "enum": [
+                "api-token",
+                "workspace-member",
+                "system",
+                "app"
+              ],
+              "description": "The type of actor who wrote this comment."
+            }
+          },
+          "required": [
+            "id",
+            "type"
+          ],
+          "additionalProperties": false,
+          "description": "Who wrote this comment."
         }
       },
       "required": [
         "id",
-        "name",
-        "domains",
-        "description",
+        "thread_id",
+        "content_plaintext",
+        "record",
+        "entry",
+        "resolved_at",
+        "resolved_by",
         "created_at",
-        "web_url"
+        "author"
       ],
       "additionalProperties": false
     },
     "ActionInput_attio_createlistentry": {
       "type": "object",
       "properties": {
-        "list_id": {
+        "list": {
           "type": "string",
-          "description": "The list slug or UUID to add the entry to. Example: \"my-sales-list\""
-        },
-        "record_id": {
-          "type": "string",
-          "description": "The record ID to add to the list. Example: \"5829dd6c-0577-40dc-a858-8bd9a0d6aa58\""
-        }
-      },
-      "required": [
-        "list_id",
-        "record_id"
-      ],
-      "additionalProperties": false
-    },
-    "ActionOutput_attio_createlistentry": {
-      "type": "object",
-      "properties": {
-        "data": {
-          "type": "object",
-          "properties": {
-            "id": {
-              "type": "object",
-              "properties": {
-                "workspace_id": {
-                  "type": "string"
-                },
-                "list_id": {
-                  "type": "string"
-                },
-                "entry_id": {
-                  "type": "string"
-                }
-              },
-              "required": [
-                "workspace_id",
-                "list_id",
-                "entry_id"
-              ],
-              "additionalProperties": false
-            },
-            "record_id": {
-              "type": "string"
-            },
-            "created_at": {
-              "type": "string"
-            }
-          },
-          "required": [
-            "id",
-            "record_id",
-            "created_at"
-          ],
-          "additionalProperties": false
-        }
-      },
-      "required": [
-        "data"
-      ],
-      "additionalProperties": false
-    },
-    "ActionInput_attio_createnote": {
-      "type": "object",
-      "properties": {
-        "parent_object": {
-          "type": "string",
-          "description": "The object type of the parent record. Example: \"people\" or \"companies\""
+          "description": "A UUID or slug identifying the list. Example: \"seed_list_1\" or \"39723680-f534-4fe7-ab80-c5278e20e37b\""
         },
         "parent_record_id": {
           "type": "string",
-          "description": "The record ID to attach the note to. Example: \"5829dd6c-0577-40dc-a858-8bd9a0d6aa58\""
+          "description": "A UUID identifying the record to add to the list. Example: \"4c6ade84-19c7-4581-95aa-b1d5f4571c25\""
         },
-        "title": {
+        "parent_object": {
           "type": "string",
-          "description": "The note title. Example: \"Meeting Notes\""
+          "description": "A UUID or slug identifying the object that the parent record belongs to. Example: \"people\" or \"30ff61f7-6b37-414e-8d6f-fb42f963e996\""
         },
-        "content": {
-          "type": "string",
-          "description": "The note content in plain text or markdown. Example: \"Discussed Q4 planning...\""
-        }
-      },
-      "required": [
-        "parent_object",
-        "parent_record_id",
-        "title",
-        "content"
-      ],
-      "additionalProperties": false
-    },
-    "ActionOutput_attio_createnote": {
-      "type": "object",
-      "properties": {
-        "data": {
-          "type": "object",
-          "properties": {
-            "id": {
-              "type": "object",
-              "properties": {
-                "workspace_id": {
-                  "type": "string"
-                },
-                "note_id": {
-                  "type": "string"
-                }
-              },
-              "required": [
-                "workspace_id",
-                "note_id"
-              ],
-              "additionalProperties": false
-            },
-            "title": {
-              "type": "string"
-            },
-            "content_plaintext": {
-              "type": "string"
-            },
-            "parent_object": {
-              "type": "string"
-            },
-            "parent_record_id": {
-              "type": "string"
-            },
-            "created_at": {
-              "type": "string"
-            }
-          },
-          "required": [
-            "id",
-            "title",
-            "content_plaintext",
-            "parent_object",
-            "parent_record_id",
-            "created_at"
-          ],
-          "additionalProperties": false
-        }
-      },
-      "required": [
-        "data"
-      ],
-      "additionalProperties": false
-    },
-    "ActionInput_attio_createperson": {
-      "type": "object",
-      "properties": {
-        "first_name": {
-          "type": "string"
-        },
-        "last_name": {
-          "type": "string"
-        },
-        "email_addresses": {
-          "type": "array",
-          "items": {
-            "type": "string"
-          }
-        },
-        "phone_numbers": {
-          "type": "array",
-          "items": {
-            "type": "string"
-          }
-        },
-        "job_title": {
-          "type": "string"
-        }
-      },
-      "required": [
-        "first_name",
-        "last_name"
-      ],
-      "additionalProperties": false
-    },
-    "ActionOutput_attio_createperson": {
-      "type": "object",
-      "properties": {
-        "id": {
-          "type": "object",
-          "properties": {
-            "workspace_id": {
-              "type": "string"
-            },
-            "object_id": {
-              "type": "string"
-            },
-            "record_id": {
-              "type": "string"
-            }
-          },
-          "required": [
-            "workspace_id",
-            "object_id",
-            "record_id"
-          ],
-          "additionalProperties": false
-        },
-        "name": {
-          "type": [
-            "string",
-            "null"
-          ]
-        },
-        "email": {
-          "type": [
-            "string",
-            "null"
-          ]
-        },
-        "phone": {
-          "type": [
-            "string",
-            "null"
-          ]
-        },
-        "job_title": {
-          "type": [
-            "string",
-            "null"
-          ]
-        },
-        "created_at": {
-          "type": "string"
-        },
-        "web_url": {
-          "type": "string"
-        }
-      },
-      "required": [
-        "id",
-        "name",
-        "email",
-        "phone",
-        "job_title",
-        "created_at",
-        "web_url"
-      ],
-      "additionalProperties": false
-    },
-    "ActionInput_attio_createrecord": {
-      "type": "object",
-      "properties": {
-        "object_slug": {
-          "type": "string",
-          "description": "The object type slug to create record in. Example: \"people\" or \"companies\""
-        },
-        "values": {
+        "entry_values": {
           "type": "object",
           "additionalProperties": {
             "anyOf": [
@@ -13975,11 +13859,465 @@
               }
             ]
           },
-          "description": "Object containing attribute values to set. Example: {\"name\": [{\"first_name\": \"John\", \"last_name\": \"Doe\"}]}"
+          "description": "Map of attribute keys (api_slug or attribute_id) to values. For multi-select attributes, use an array of values."
         }
       },
       "required": [
-        "object_slug",
+        "list",
+        "parent_record_id",
+        "parent_object",
+        "entry_values"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_attio_createlistentry": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "object",
+          "properties": {
+            "workspace_id": {
+              "type": "string"
+            },
+            "list_id": {
+              "type": "string"
+            },
+            "entry_id": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "workspace_id",
+            "list_id",
+            "entry_id"
+          ],
+          "additionalProperties": false
+        },
+        "parent_record_id": {
+          "type": "string"
+        },
+        "parent_object": {
+          "type": "string"
+        },
+        "created_at": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "id",
+        "parent_record_id",
+        "parent_object",
+        "created_at"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_attio_createlist": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string",
+          "description": "The human-readable name of the list. Example: \"Enterprise Sales\""
+        },
+        "api_slug": {
+          "type": "string",
+          "description": "A unique, human-readable slug to access the list through API calls. Should be formatted in snake case. Example: \"enterprise_sales\""
+        },
+        "parent_object": {
+          "type": "string",
+          "description": "A UUID or slug to identify the allowed object type for records added to this list. Example: \"people\""
+        },
+        "workspace_access": {
+          "type": "string",
+          "enum": [
+            "full-access",
+            "read-and-write",
+            "read-only"
+          ],
+          "description": "The level of access granted to all members of the workspace for this list. Pass null to keep the list private."
+        },
+        "workspace_member_access": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "workspace_member_id": {
+                "type": "string"
+              },
+              "level": {
+                "type": "string",
+                "enum": [
+                  "full-access",
+                  "read-and-write",
+                  "read-only"
+                ],
+                "description": "The level of access to the list."
+              }
+            },
+            "required": [
+              "workspace_member_id",
+              "level"
+            ],
+            "additionalProperties": false
+          },
+          "description": "The level of access granted to specific workspace members for this list. Pass an empty array to grant access to no workspace members."
+        }
+      },
+      "required": [
+        "name",
+        "api_slug",
+        "parent_object",
+        "workspace_access",
+        "workspace_member_access"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_attio_createlist": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "object",
+          "properties": {
+            "workspace_id": {
+              "type": "string"
+            },
+            "list_id": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "workspace_id",
+            "list_id"
+          ],
+          "additionalProperties": false
+        },
+        "api_slug": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "parent_object": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "workspace_access": {
+          "type": "string",
+          "enum": [
+            "full-access",
+            "read-and-write",
+            "read-only"
+          ]
+        },
+        "workspace_member_access": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "workspace_member_id": {
+                "type": "string"
+              },
+              "level": {
+                "type": "string",
+                "enum": [
+                  "full-access",
+                  "read-and-write",
+                  "read-only"
+                ],
+                "description": "The level of access to the list."
+              }
+            },
+            "required": [
+              "workspace_member_id",
+              "level"
+            ],
+            "additionalProperties": false
+          }
+        },
+        "created_by_actor": {
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "string"
+            },
+            "type": {
+              "type": "string",
+              "enum": [
+                "api-token",
+                "workspace-member",
+                "system",
+                "app"
+              ]
+            }
+          },
+          "required": [
+            "id",
+            "type"
+          ],
+          "additionalProperties": false
+        },
+        "created_at": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "id",
+        "api_slug",
+        "name",
+        "parent_object"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_attio_createnote": {
+      "type": "object",
+      "properties": {
+        "parent_object": {
+          "type": "string",
+          "description": "The ID or slug of the parent object the note belongs to. Example: \"people\""
+        },
+        "parent_record_id": {
+          "type": "string",
+          "description": "The ID of the parent record the note belongs to. Example: \"891dcbfc-9141-415d-9b2a-2238a6cc012d\""
+        },
+        "title": {
+          "type": "string",
+          "description": "The note title. The title is plaintext only and has no formatting."
+        },
+        "format": {
+          "type": "string",
+          "enum": [
+            "plaintext",
+            "markdown"
+          ],
+          "description": "The format of the note content."
+        },
+        "content": {
+          "type": "string",
+          "description": "The main content of the note, formatted according to the format field."
+        },
+        "created_at": {
+          "type": "string",
+          "description": "Override the created_at timestamp. Example: \"2023-01-01T15:00:00.000000000Z\""
+        },
+        "meeting_id": {
+          "type": "string",
+          "description": "An optional ID to associate this note with a meeting."
+        }
+      },
+      "required": [
+        "parent_object",
+        "parent_record_id",
+        "title",
+        "format",
+        "content"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_attio_createnote": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "object",
+          "properties": {
+            "workspace_id": {
+              "type": "string"
+            },
+            "note_id": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "workspace_id",
+            "note_id"
+          ],
+          "additionalProperties": false
+        },
+        "parent_object": {
+          "type": "string"
+        },
+        "parent_record_id": {
+          "type": "string"
+        },
+        "title": {
+          "type": "string"
+        },
+        "meeting_id": {
+          "type": "string"
+        },
+        "content_plaintext": {
+          "type": "string"
+        },
+        "content_markdown": {
+          "type": "string"
+        },
+        "tags": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "0": {
+                "type": "object",
+                "properties": {
+                  "type": {
+                    "type": "string",
+                    "const": "workspace-member"
+                  },
+                  "workspace_member_id": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "type",
+                  "workspace_member_id"
+                ],
+                "additionalProperties": false
+              },
+              "1": {
+                "type": "object",
+                "properties": {
+                  "type": {
+                    "type": "string",
+                    "const": "record"
+                  },
+                  "object": {
+                    "type": "string"
+                  },
+                  "record_id": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "type",
+                  "object",
+                  "record_id"
+                ],
+                "additionalProperties": false
+              }
+            },
+            "required": [
+              "0",
+              "1"
+            ],
+            "additionalProperties": false
+          }
+        },
+        "created_by_actor": {
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "string"
+            },
+            "type": {
+              "type": "string",
+              "enum": [
+                "api-token",
+                "workspace-member",
+                "system",
+                "app"
+              ]
+            }
+          },
+          "required": [
+            "id",
+            "type"
+          ],
+          "additionalProperties": false
+        },
+        "created_at": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "id",
+        "parent_object",
+        "parent_record_id",
+        "title",
+        "content_plaintext",
+        "content_markdown",
+        "tags",
+        "created_by_actor",
+        "created_at"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_attio_createobject": {
+      "type": "object",
+      "properties": {
+        "api_slug": {
+          "type": "string",
+          "description": "A unique, human-readable slug to access the object through URLs and API calls. Should be formatted in snake case. Example: \"people\""
+        },
+        "singular_noun": {
+          "type": "string",
+          "description": "The singular form of the object's name. Example: \"Person\""
+        },
+        "plural_noun": {
+          "type": "string",
+          "description": "The plural form of the object's name. Example: \"People\""
+        }
+      },
+      "required": [
+        "api_slug",
+        "singular_noun",
+        "plural_noun"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_attio_createobject": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "The UUID of the created object"
+        },
+        "workspace_id": {
+          "type": "string",
+          "description": "The UUID of the workspace"
+        },
+        "api_slug": {
+          "type": "string",
+          "description": "The API slug of the object"
+        },
+        "singular_noun": {
+          "type": "string",
+          "description": "The singular noun of the object"
+        },
+        "plural_noun": {
+          "type": "string",
+          "description": "The plural noun of the object"
+        },
+        "created_at": {
+          "type": "string",
+          "description": "ISO 8601 timestamp when the object was created"
+        }
+      },
+      "required": [
+        "id",
+        "workspace_id",
+        "api_slug",
+        "singular_noun",
+        "plural_noun",
+        "created_at"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_attio_createrecord": {
+      "type": "object",
+      "properties": {
+        "object": {
+          "type": "string"
+        },
+        "values": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "array",
+            "items": {}
+          }
+        }
+      },
+      "required": [
+        "object",
         "values"
       ],
       "additionalProperties": false
@@ -13987,54 +14325,37 @@
     "ActionOutput_attio_createrecord": {
       "type": "object",
       "properties": {
-        "data": {
+        "id": {
           "type": "object",
           "properties": {
-            "id": {
-              "type": "object",
-              "properties": {
-                "workspace_id": {
-                  "type": "string"
-                },
-                "object_id": {
-                  "type": "string"
-                },
-                "record_id": {
-                  "type": "string"
-                }
-              },
-              "required": [
-                "workspace_id",
-                "object_id",
-                "record_id"
-              ],
-              "additionalProperties": false
-            },
-            "created_at": {
+            "workspace_id": {
               "type": "string"
             },
-            "values": {
-              "type": "object",
-              "additionalProperties": {
-                "anyOf": [
-                  {},
-                  {
-                    "not": {}
-                  }
-                ]
-              }
+            "object_id": {
+              "type": "string"
+            },
+            "record_id": {
+              "type": "string"
             }
           },
           "required": [
-            "id",
-            "created_at",
-            "values"
+            "workspace_id",
+            "object_id",
+            "record_id"
           ],
           "additionalProperties": false
+        },
+        "created_at": {
+          "type": "string"
+        },
+        "web_url": {
+          "type": "string"
         }
       },
       "required": [
-        "data"
+        "id",
+        "created_at",
+        "web_url"
       ],
       "additionalProperties": false
     },
@@ -14043,18 +14364,20 @@
       "properties": {
         "content": {
           "type": "string",
-          "description": "Task description. Example: \"Follow up with customer\""
+          "description": "The text content of the task. Example: \"Follow up on current software solutions\""
         },
-        "deadline": {
+        "format": {
           "type": "string",
-          "description": "Due date in ISO format. Example: \"2025-12-31T23:59:59.000Z\""
+          "const": "plaintext",
+          "description": "The format of the task content. Only \"plaintext\" is supported."
         },
-        "assignee_ids": {
-          "type": "array",
-          "items": {
-            "type": "string"
-          },
-          "description": "Array of workspace member IDs to assign. Example: [\"user-id-123\"]"
+        "deadline_at": {
+          "type": "string",
+          "description": "The deadline of the task, in ISO 8601 format. Example: \"2023-01-01T15:00:00.000000000Z\""
+        },
+        "is_completed": {
+          "type": "boolean",
+          "description": "Whether the task has been completed. Defaults to false."
         },
         "linked_records": {
           "type": "array",
@@ -14066,7 +14389,7 @@
               },
               "target_record_id": {
                 "type": "string",
-                "description": "Record ID"
+                "description": "The ID of the parent record the task refers to. Example: \"891dcbfc-9141-415d-9b2a-2238a6cc012d\""
               }
             },
             "required": [
@@ -14075,7 +14398,29 @@
             ],
             "additionalProperties": false
           },
-          "description": "Records to link to this task"
+          "description": "Records linked to the task."
+        },
+        "assignees": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "referenced_actor_type": {
+                "type": "string",
+                "const": "workspace-member"
+              },
+              "referenced_actor_id": {
+                "type": "string",
+                "description": "The ID of the actor assigned to this task. Example: \"50cf242c-7fa3-4cad-87d0-75b1af71c57b\""
+              }
+            },
+            "required": [
+              "referenced_actor_type",
+              "referenced_actor_id"
+            ],
+            "additionalProperties": false
+          },
+          "description": "Workspace members assigned to this task."
         }
       },
       "required": [
@@ -14086,53 +14431,87 @@
     "ActionOutput_attio_createtask": {
       "type": "object",
       "properties": {
-        "data": {
+        "workspace_id": {
+          "type": "string"
+        },
+        "task_id": {
+          "type": "string"
+        },
+        "content_plaintext": {
+          "type": "string"
+        },
+        "deadline_at": {
+          "type": "string"
+        },
+        "is_completed": {
+          "type": "boolean"
+        },
+        "completed_at": {
+          "type": "string"
+        },
+        "linked_records": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "target_object_id": {
+                "type": "string"
+              },
+              "target_record_id": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "target_object_id",
+              "target_record_id"
+            ],
+            "additionalProperties": false
+          }
+        },
+        "assignees": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "referenced_actor_type": {
+                "type": "string"
+              },
+              "referenced_actor_id": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "referenced_actor_type",
+              "referenced_actor_id"
+            ],
+            "additionalProperties": false
+          }
+        },
+        "created_by_actor": {
           "type": "object",
           "properties": {
             "id": {
-              "type": "object",
-              "properties": {
-                "workspace_id": {
-                  "type": "string"
-                },
-                "task_id": {
-                  "type": "string"
-                }
-              },
-              "required": [
-                "workspace_id",
-                "task_id"
-              ],
-              "additionalProperties": false
-            },
-            "content_plaintext": {
               "type": "string"
             },
-            "deadline_at": {
-              "type": [
-                "string",
-                "null"
-              ]
-            },
-            "is_completed": {
-              "type": "boolean"
-            },
-            "created_at": {
+            "type": {
               "type": "string"
             }
           },
-          "required": [
-            "id",
-            "content_plaintext",
-            "deadline_at",
-            "is_completed",
-            "created_at"
-          ],
           "additionalProperties": false
+        },
+        "created_at": {
+          "type": "string"
         }
       },
       "required": [
-        "data"
+        "workspace_id",
+        "task_id",
+        "content_plaintext",
+        "is_completed",
+        "linked_records",
+        "assignees",
+        "created_by_actor",
+        "created_at"
       ],
       "additionalProperties": false
     },
@@ -14140,7 +14519,8 @@
       "type": "object",
       "properties": {
         "target_url": {
-          "type": "string"
+          "type": "string",
+          "description": "URL where the webhook events will be delivered to. Example: \"https://example.com/webhook\""
         },
         "subscriptions": {
           "type": "array",
@@ -14155,29 +14535,6 @@
                   {
                     "type": "object",
                     "properties": {
-                      "$and": {
-                        "type": "array",
-                        "items": {
-                          "type": "object",
-                          "properties": {
-                            "field": {
-                              "type": "string"
-                            },
-                            "operator": {
-                              "type": "string"
-                            },
-                            "value": {
-                              "type": "string"
-                            }
-                          },
-                          "required": [
-                            "field",
-                            "operator",
-                            "value"
-                          ],
-                          "additionalProperties": false
-                        }
-                      },
                       "$or": {
                         "type": "array",
                         "items": {
@@ -14187,7 +14544,11 @@
                               "type": "string"
                             },
                             "operator": {
-                              "type": "string"
+                              "type": "string",
+                              "enum": [
+                                "equals",
+                                "not_equals"
+                              ]
                             },
                             "value": {
                               "type": "string"
@@ -14202,19 +14563,61 @@
                         }
                       }
                     },
+                    "required": [
+                      "$or"
+                    ],
+                    "additionalProperties": false
+                  },
+                  {
+                    "type": "object",
+                    "properties": {
+                      "$and": {
+                        "type": "array",
+                        "items": {
+                          "type": "object",
+                          "properties": {
+                            "field": {
+                              "type": "string"
+                            },
+                            "operator": {
+                              "type": "string",
+                              "enum": [
+                                "equals",
+                                "not_equals"
+                              ]
+                            },
+                            "value": {
+                              "type": "string"
+                            }
+                          },
+                          "required": [
+                            "field",
+                            "operator",
+                            "value"
+                          ],
+                          "additionalProperties": false
+                        }
+                      }
+                    },
+                    "required": [
+                      "$and"
+                    ],
                     "additionalProperties": false
                   },
                   {
                     "type": "null"
                   }
-                ]
+                ],
+                "description": "Filters to determine whether the webhook event should be sent. Use null for no filter."
               }
             },
             "required": [
-              "event_type"
+              "event_type",
+              "filter"
             ],
             "additionalProperties": false
-          }
+          },
+          "description": "One or more events the webhook is subscribed to."
         }
       },
       "required": [
@@ -14242,29 +14645,6 @@
                   {
                     "type": "object",
                     "properties": {
-                      "$and": {
-                        "type": "array",
-                        "items": {
-                          "type": "object",
-                          "properties": {
-                            "field": {
-                              "type": "string"
-                            },
-                            "operator": {
-                              "type": "string"
-                            },
-                            "value": {
-                              "type": "string"
-                            }
-                          },
-                          "required": [
-                            "field",
-                            "operator",
-                            "value"
-                          ],
-                          "additionalProperties": false
-                        }
-                      },
                       "$or": {
                         "type": "array",
                         "items": {
@@ -14274,7 +14654,11 @@
                               "type": "string"
                             },
                             "operator": {
-                              "type": "string"
+                              "type": "string",
+                              "enum": [
+                                "equals",
+                                "not_equals"
+                              ]
                             },
                             "value": {
                               "type": "string"
@@ -14289,6 +14673,45 @@
                         }
                       }
                     },
+                    "required": [
+                      "$or"
+                    ],
+                    "additionalProperties": false
+                  },
+                  {
+                    "type": "object",
+                    "properties": {
+                      "$and": {
+                        "type": "array",
+                        "items": {
+                          "type": "object",
+                          "properties": {
+                            "field": {
+                              "type": "string"
+                            },
+                            "operator": {
+                              "type": "string",
+                              "enum": [
+                                "equals",
+                                "not_equals"
+                              ]
+                            },
+                            "value": {
+                              "type": "string"
+                            }
+                          },
+                          "required": [
+                            "field",
+                            "operator",
+                            "value"
+                          ],
+                          "additionalProperties": false
+                        }
+                      }
+                    },
+                    "required": [
+                      "$and"
+                    ],
                     "additionalProperties": false
                   },
                   {
@@ -14311,7 +14734,8 @@
               "type": "string"
             },
             "webhook_id": {
-              "type": "string"
+              "type": "string",
+              "description": "The ID of the webhook."
             }
           },
           "required": [
@@ -14321,12 +14745,7 @@
           "additionalProperties": false
         },
         "status": {
-          "type": "string",
-          "enum": [
-            "active",
-            "degraded",
-            "inactive"
-          ]
+          "type": "string"
         },
         "created_at": {
           "type": "string"
@@ -14345,16 +14764,41 @@
       ],
       "additionalProperties": false
     },
+    "ActionInput_attio_deletecomment": {
+      "type": "object",
+      "properties": {
+        "comment_id": {
+          "type": "string",
+          "description": "The ID of the comment to delete. Example: \"aa1dc1d9-93ac-4c6c-987e-16b6eea9aab2\""
+        }
+      },
+      "required": [
+        "comment_id"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_attio_deletecomment": {
+      "type": "object",
+      "properties": {
+        "success": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "success"
+      ],
+      "additionalProperties": false
+    },
     "ActionInput_attio_deletelistentry": {
       "type": "object",
       "properties": {
         "list_id": {
           "type": "string",
-          "description": "The list slug or UUID. Example: \"my-sales-list\""
+          "description": "The ID of the list containing the entry to delete. Example: \"39723680-f534-4fe7-ab80-c5278e20e37b\""
         },
         "entry_id": {
           "type": "string",
-          "description": "The entry ID to remove. Example: \"abc123-def456\""
+          "description": "The ID of the list entry to delete. Example: \"e9a7b33a-6dfc-483d-9a3b-fbc20068c162\""
         }
       },
       "required": [
@@ -14367,12 +14811,19 @@
       "type": "object",
       "properties": {
         "success": {
-          "type": "boolean",
-          "description": "Whether the deletion was successful"
+          "type": "boolean"
+        },
+        "deleted_entry_id": {
+          "type": "string"
+        },
+        "list_id": {
+          "type": "string"
         }
       },
       "required": [
-        "success"
+        "success",
+        "deleted_entry_id",
+        "list_id"
       ],
       "additionalProperties": false
     },
@@ -14381,7 +14832,7 @@
       "properties": {
         "note_id": {
           "type": "string",
-          "description": "The note ID to delete. Example: \"abc123-def456\""
+          "description": "The ID of the note to delete. Example: \"d1b66c4d-13f5-4489-8ce5-b4afd63dce36\""
         }
       },
       "required": [
@@ -14392,13 +14843,16 @@
     "ActionOutput_attio_deletenote": {
       "type": "object",
       "properties": {
-        "success": {
-          "type": "boolean",
-          "description": "Whether the deletion was successful"
+        "note_id": {
+          "type": "string"
+        },
+        "deleted": {
+          "type": "boolean"
         }
       },
       "required": [
-        "success"
+        "note_id",
+        "deleted"
       ],
       "additionalProperties": false
     },
@@ -14407,11 +14861,11 @@
       "properties": {
         "object_slug": {
           "type": "string",
-          "description": "The object type slug. Example: \"people\" or \"companies\""
+          "description": "The UUID or slug of the object the record belongs to. Example: \"people\", \"companies\", or a custom object UUID."
         },
         "record_id": {
           "type": "string",
-          "description": "The record ID to delete. Example: \"5829dd6c-0577-40dc-a858-8bd9a0d6aa58\""
+          "description": "The UUID of the record to delete. Example: \"891dcbfc-9141-415d-9b2a-2238a6cc012d\""
         }
       },
       "required": [
@@ -14424,12 +14878,48 @@
       "type": "object",
       "properties": {
         "success": {
-          "type": "boolean",
-          "description": "Whether the deletion was successful"
+          "type": "boolean"
+        },
+        "record_id": {
+          "type": "string"
+        },
+        "object_slug": {
+          "type": "string"
         }
       },
       "required": [
-        "success"
+        "success",
+        "record_id",
+        "object_slug"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_attio_deletetask": {
+      "type": "object",
+      "properties": {
+        "task_id": {
+          "type": "string",
+          "description": "The unique ID of the task to delete. Example: \"6805054f-0fef-478d-99a3-b864bd09ee2a\""
+        }
+      },
+      "required": [
+        "task_id"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_attio_deletetask": {
+      "type": "object",
+      "properties": {
+        "success": {
+          "type": "boolean"
+        },
+        "task_id": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "success",
+        "task_id"
       ],
       "additionalProperties": false
     },
@@ -14437,7 +14927,8 @@
       "type": "object",
       "properties": {
         "webhook_id": {
-          "type": "string"
+          "type": "string",
+          "description": "The unique identifier of the webhook to delete. Example: \"45662666-3a96-4189-9ddb-6d6fe20bd076\""
         }
       },
       "required": [
@@ -14448,97 +14939,538 @@
     "ActionOutput_attio_deletewebhook": {
       "type": "object",
       "properties": {
-        "success": {
-          "type": "boolean"
+        "webhook_id": {
+          "type": "string",
+          "description": "The ID of the deleted webhook"
+        },
+        "deleted": {
+          "type": "boolean",
+          "description": "Whether the webhook was successfully deleted"
         }
       },
       "required": [
-        "success"
+        "webhook_id",
+        "deleted"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_attio_getcomment": {
+      "type": "object",
+      "properties": {
+        "comment_id": {
+          "type": "string",
+          "description": "The unique identifier of the comment to retrieve. Example: \"aa1dc1d9-93ac-4c6c-987e-16b6eea9aab2\""
+        }
+      },
+      "required": [
+        "comment_id"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_attio_getcomment": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "object",
+          "properties": {
+            "workspace_id": {
+              "type": "string"
+            },
+            "comment_id": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "workspace_id",
+            "comment_id"
+          ],
+          "additionalProperties": false
+        },
+        "thread_id": {
+          "type": "string"
+        },
+        "content_plaintext": {
+          "type": "string"
+        },
+        "entry": {
+          "type": "object",
+          "properties": {
+            "entry_id": {
+              "type": "string"
+            },
+            "list_id": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "entry_id",
+            "list_id"
+          ],
+          "additionalProperties": false
+        },
+        "record": {
+          "type": "object",
+          "properties": {
+            "record_id": {
+              "type": "string"
+            },
+            "object_id": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "record_id",
+            "object_id"
+          ],
+          "additionalProperties": false
+        },
+        "resolved_at": {
+          "type": "string"
+        },
+        "resolved_by": {
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "string"
+            },
+            "type": {
+              "type": "string",
+              "enum": [
+                "api-token",
+                "workspace-member",
+                "system",
+                "app"
+              ]
+            }
+          },
+          "additionalProperties": false
+        },
+        "created_at": {
+          "type": "string"
+        },
+        "author": {
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "string"
+            },
+            "type": {
+              "type": "string",
+              "enum": [
+                "api-token",
+                "workspace-member",
+                "system",
+                "app"
+              ]
+            }
+          },
+          "additionalProperties": false
+        }
+      },
+      "required": [
+        "id",
+        "thread_id",
+        "content_plaintext",
+        "entry",
+        "record",
+        "resolved_by",
+        "created_at",
+        "author"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_attio_getlistentry": {
+      "type": "object",
+      "properties": {
+        "list_id": {
+          "type": "string",
+          "description": "A UUID or slug identifying the list the entry is in. Example: \"33ebdbe9-e529-47c9-b894-0ba25e9c15c0\""
+        },
+        "entry_id": {
+          "type": "string",
+          "description": "A UUID identifying the entry. Example: \"2e6e29ea-c4e0-4f44-842d-78a891f8c156\""
+        }
+      },
+      "required": [
+        "list_id",
+        "entry_id"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_attio_getlistentry": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "object",
+          "properties": {
+            "workspace_id": {
+              "type": "string"
+            },
+            "list_id": {
+              "type": "string"
+            },
+            "entry_id": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "workspace_id",
+            "list_id",
+            "entry_id"
+          ],
+          "additionalProperties": false
+        },
+        "parent_record_id": {
+          "type": "string"
+        },
+        "parent_object": {
+          "type": "string"
+        },
+        "created_at": {
+          "type": "string"
+        },
+        "entry_values": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "active_from": {
+                  "type": "string"
+                },
+                "active_until": {
+                  "type": "string"
+                },
+                "created_by_actor": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "string"
+                    },
+                    "type": {
+                      "type": "string",
+                      "enum": [
+                        "api-token",
+                        "workspace-member",
+                        "system",
+                        "app"
+                      ]
+                    }
+                  },
+                  "additionalProperties": false
+                },
+                "attribute_type": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "active_from",
+                "active_until",
+                "created_by_actor",
+                "attribute_type"
+              ],
+              "additionalProperties": false
+            }
+          }
+        }
+      },
+      "required": [
+        "id",
+        "parent_record_id",
+        "parent_object",
+        "created_at",
+        "entry_values"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_attio_getlist": {
+      "type": "object",
+      "properties": {
+        "list_id": {
+          "type": "string",
+          "description": "A UUID or slug identifying the list. Example: \"39723680-f534-4fe7-ab80-c5278e20e37b\""
+        }
+      },
+      "required": [
+        "list_id"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_attio_getlist": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "object",
+          "properties": {
+            "workspace_id": {
+              "type": "string"
+            },
+            "list_id": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "workspace_id",
+            "list_id"
+          ],
+          "additionalProperties": false
+        },
+        "api_slug": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "parent_object": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "workspace_access": {
+          "type": "string",
+          "enum": [
+            "full-access",
+            "read-and-write",
+            "read-only"
+          ]
+        },
+        "workspace_member_access": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "workspace_member_id": {
+                "type": "string"
+              },
+              "level": {
+                "type": "string",
+                "enum": [
+                  "full-access",
+                  "read-and-write",
+                  "read-only"
+                ]
+              }
+            },
+            "required": [
+              "workspace_member_id",
+              "level"
+            ],
+            "additionalProperties": false
+          }
+        },
+        "created_by_actor": {
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "string"
+            },
+            "type": {
+              "type": "string",
+              "enum": [
+                "api-token",
+                "workspace-member",
+                "system",
+                "app"
+              ]
+            }
+          },
+          "additionalProperties": false
+        },
+        "created_at": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "id",
+        "api_slug",
+        "name",
+        "parent_object",
+        "workspace_member_access",
+        "created_by_actor",
+        "created_at"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_attio_getnote": {
+      "type": "object",
+      "properties": {
+        "note_id": {
+          "type": "string",
+          "description": "The ID of the note to retrieve. Example: \"ff3f3bd4-40f4-4f80-8187-cd02385af424\""
+        }
+      },
+      "required": [
+        "note_id"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_attio_getnote": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "object",
+          "properties": {
+            "workspace_id": {
+              "type": "string"
+            },
+            "note_id": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "workspace_id",
+            "note_id"
+          ],
+          "additionalProperties": false
+        },
+        "title": {
+          "type": "string"
+        },
+        "content": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "object",
+              "additionalProperties": false
+            }
+          ]
+        },
+        "format": {
+          "type": "string",
+          "enum": [
+            "plaintext",
+            "blocks"
+          ]
+        },
+        "parent_object": {
+          "type": "string"
+        },
+        "parent_record_id": {
+          "type": "string"
+        },
+        "meeting_id": {
+          "type": "string"
+        },
+        "created_by_actor": {
+          "type": "object",
+          "properties": {
+            "type": {
+              "type": "string"
+            },
+            "id": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "type"
+          ],
+          "additionalProperties": false
+        },
+        "created_at": {
+          "type": "string"
+        },
+        "updated_at": {
+          "type": "string"
+        },
+        "users_mentioned": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "type": {
+                "type": "string"
+              },
+              "object": {
+                "type": "string"
+              },
+              "record_id": {
+                "type": "string"
+              },
+              "workspace_member_id": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "type"
+            ],
+            "additionalProperties": false
+          }
+        }
+      },
+      "required": [
+        "id"
       ],
       "additionalProperties": false
     },
     "ActionInput_attio_getobject": {
       "type": "object",
       "properties": {
-        "object_id": {
+        "object": {
           "type": "string",
-          "description": "UUID or slug to identify the object. Example: \"people\" or \"97052eb9-e65e-443f-a297-f2d9a4a7f795\""
+          "description": "A UUID or slug to identify the object. Example: \"people\""
         }
       },
       "required": [
-        "object_id"
+        "object"
       ],
       "additionalProperties": false
     },
     "ActionOutput_attio_getobject": {
       "type": "object",
       "properties": {
-        "data": {
+        "id": {
           "type": "object",
           "properties": {
-            "id": {
-              "type": "object",
-              "properties": {
-                "workspace_id": {
-                  "type": "string"
-                },
-                "object_id": {
-                  "type": "string",
-                  "description": "Object ID. Example: \"97052eb9-e65e-443f-a297-f2d9a4a7f795\""
-                }
-              },
-              "required": [
-                "workspace_id",
-                "object_id"
-              ],
-              "additionalProperties": false
+            "workspace_id": {
+              "type": "string"
             },
-            "api_slug": {
-              "type": "string",
-              "description": "Unique, human-readable slug for the object. Example: \"people\""
-            },
-            "singular_noun": {
-              "type": "string",
-              "description": "Singular form of the object name. Example: \"Person\""
-            },
-            "plural_noun": {
-              "type": "string",
-              "description": "Plural form of the object name. Example: \"People\""
-            },
-            "created_at": {
-              "type": "string",
-              "description": "When the object was created. Example: \"2023-01-01T00:00:00.000Z\""
+            "object_id": {
+              "type": "string"
             }
           },
           "required": [
-            "id",
-            "api_slug",
-            "singular_noun",
-            "plural_noun",
-            "created_at"
+            "workspace_id",
+            "object_id"
           ],
           "additionalProperties": false
+        },
+        "api_slug": {
+          "type": "string"
+        },
+        "singular_noun": {
+          "type": "string"
+        },
+        "plural_noun": {
+          "type": "string"
+        },
+        "created_at": {
+          "type": "string"
         }
       },
       "required": [
-        "data"
+        "id",
+        "created_at"
       ],
       "additionalProperties": false
     },
     "ActionInput_attio_getrecord": {
       "type": "object",
       "properties": {
-        "object_slug": {
+        "object": {
           "type": "string",
-          "description": "The object type slug. Example: \"people\" or \"companies\""
+          "description": "A UUID or slug to identify the object. Example: \"people\""
         },
         "record_id": {
           "type": "string",
-          "description": "The record ID to retrieve. Example: \"5829dd6c-0577-40dc-a858-8bd9a0d6aa58\""
+          "description": "UUID of the record to retrieve. Example: \"4c6ade84-19c7-4581-95aa-b1d5f4571c25\""
         }
       },
       "required": [
-        "object_slug",
+        "object",
         "record_id"
       ],
       "additionalProperties": false
@@ -14546,54 +15478,191 @@
     "ActionOutput_attio_getrecord": {
       "type": "object",
       "properties": {
-        "data": {
+        "id": {
           "type": "object",
           "properties": {
-            "id": {
+            "workspace_id": {
+              "type": "string"
+            },
+            "object_id": {
+              "type": "string"
+            },
+            "record_id": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "workspace_id",
+            "object_id",
+            "record_id"
+          ],
+          "additionalProperties": false
+        },
+        "created_at": {
+          "type": "string"
+        },
+        "web_url": {
+          "type": "string"
+        },
+        "values": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "array",
+            "items": {
               "type": "object",
               "properties": {
-                "workspace_id": {
+                "active_from": {
                   "type": "string"
                 },
-                "object_id": {
+                "active_until": {
                   "type": "string"
                 },
-                "record_id": {
+                "created_by_actor": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "string"
+                    },
+                    "type": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                },
+                "attribute_type": {
                   "type": "string"
                 }
               },
               "required": [
-                "workspace_id",
-                "object_id",
-                "record_id"
+                "active_from",
+                "created_by_actor",
+                "attribute_type"
               ],
               "additionalProperties": false
-            },
-            "created_at": {
+            }
+          }
+        }
+      },
+      "required": [
+        "id",
+        "created_at",
+        "web_url",
+        "values"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_attio_gettask": {
+      "type": "object",
+      "properties": {
+        "task_id": {
+          "type": "string",
+          "description": "The ID of the task. Example: \"649e34f4-c39a-4f4d-99ef-48a36bef8f04\""
+        }
+      },
+      "required": [
+        "task_id"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_attio_gettask": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "object",
+          "properties": {
+            "workspace_id": {
               "type": "string"
             },
-            "values": {
-              "type": "object",
-              "additionalProperties": {
-                "anyOf": [
-                  {},
-                  {
-                    "not": {}
-                  }
-                ]
+            "task_id": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "workspace_id",
+            "task_id"
+          ],
+          "additionalProperties": false
+        },
+        "content_plaintext": {
+          "type": "string"
+        },
+        "deadline_at": {
+          "type": "string"
+        },
+        "is_completed": {
+          "type": "boolean"
+        },
+        "completed_at": {
+          "type": "string"
+        },
+        "linked_records": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "target_object_id": {
+                "type": "string"
+              },
+              "target_record_id": {
+                "type": "string"
               }
+            },
+            "required": [
+              "target_object_id",
+              "target_record_id"
+            ],
+            "additionalProperties": false
+          }
+        },
+        "assignees": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "referenced_actor_type": {
+                "type": "string"
+              },
+              "referenced_actor_id": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "referenced_actor_type",
+              "referenced_actor_id"
+            ],
+            "additionalProperties": false
+          }
+        },
+        "created_by_actor": {
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "string"
+            },
+            "type": {
+              "type": "string"
             }
           },
           "required": [
             "id",
-            "created_at",
-            "values"
+            "type"
           ],
           "additionalProperties": false
+        },
+        "created_at": {
+          "type": "string"
         }
       },
       "required": [
-        "data"
+        "id",
+        "content_plaintext",
+        "deadline_at",
+        "is_completed",
+        "completed_at",
+        "linked_records",
+        "assignees",
+        "created_by_actor",
+        "created_at"
       ],
       "additionalProperties": false
     },
@@ -14601,7 +15670,8 @@
       "type": "object",
       "properties": {
         "webhook_id": {
-          "type": "string"
+          "type": "string",
+          "description": "A UUID which identifies the webhook. Example: \"23e42eaf-323a-41da-b5bb-fd67eebda553\""
         }
       },
       "required": [
@@ -14612,84 +15682,6 @@
     "ActionOutput_attio_getwebhook": {
       "type": "object",
       "properties": {
-        "target_url": {
-          "type": "string"
-        },
-        "subscriptions": {
-          "type": "array",
-          "items": {
-            "type": "object",
-            "properties": {
-              "event_type": {
-                "type": "string"
-              },
-              "filter": {
-                "anyOf": [
-                  {
-                    "type": "object",
-                    "properties": {
-                      "$and": {
-                        "type": "array",
-                        "items": {
-                          "type": "object",
-                          "properties": {
-                            "field": {
-                              "type": "string"
-                            },
-                            "operator": {
-                              "type": "string"
-                            },
-                            "value": {
-                              "type": "string"
-                            }
-                          },
-                          "required": [
-                            "field",
-                            "operator",
-                            "value"
-                          ],
-                          "additionalProperties": false
-                        }
-                      },
-                      "$or": {
-                        "type": "array",
-                        "items": {
-                          "type": "object",
-                          "properties": {
-                            "field": {
-                              "type": "string"
-                            },
-                            "operator": {
-                              "type": "string"
-                            },
-                            "value": {
-                              "type": "string"
-                            }
-                          },
-                          "required": [
-                            "field",
-                            "operator",
-                            "value"
-                          ],
-                          "additionalProperties": false
-                        }
-                      }
-                    },
-                    "additionalProperties": false
-                  },
-                  {
-                    "type": "null"
-                  }
-                ]
-              }
-            },
-            "required": [
-              "event_type",
-              "filter"
-            ],
-            "additionalProperties": false
-          }
-        },
         "id": {
           "type": "object",
           "properties": {
@@ -14706,6 +15698,101 @@
           ],
           "additionalProperties": false
         },
+        "target_url": {
+          "type": "string"
+        },
+        "subscriptions": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "event_type": {
+                "type": "string"
+              },
+              "filter": {
+                "anyOf": [
+                  {
+                    "type": "object",
+                    "properties": {
+                      "$or": {
+                        "type": "array",
+                        "items": {
+                          "type": "object",
+                          "properties": {
+                            "field": {
+                              "type": "string"
+                            },
+                            "operator": {
+                              "type": "string",
+                              "enum": [
+                                "equals",
+                                "not_equals"
+                              ]
+                            },
+                            "value": {
+                              "type": "string"
+                            }
+                          },
+                          "required": [
+                            "field",
+                            "operator",
+                            "value"
+                          ],
+                          "additionalProperties": false
+                        }
+                      }
+                    },
+                    "required": [
+                      "$or"
+                    ],
+                    "additionalProperties": false
+                  },
+                  {
+                    "type": "object",
+                    "properties": {
+                      "$and": {
+                        "type": "array",
+                        "items": {
+                          "type": "object",
+                          "properties": {
+                            "field": {
+                              "type": "string"
+                            },
+                            "operator": {
+                              "type": "string",
+                              "enum": [
+                                "equals",
+                                "not_equals"
+                              ]
+                            },
+                            "value": {
+                              "type": "string"
+                            }
+                          },
+                          "required": [
+                            "field",
+                            "operator",
+                            "value"
+                          ],
+                          "additionalProperties": false
+                        }
+                      }
+                    },
+                    "required": [
+                      "$and"
+                    ],
+                    "additionalProperties": false
+                  }
+                ]
+              }
+            },
+            "required": [
+              "event_type",
+              "filter"
+            ],
+            "additionalProperties": false
+          }
+        },
         "status": {
           "type": "string",
           "enum": [
@@ -14719,11 +15806,236 @@
         }
       },
       "required": [
+        "id",
         "target_url",
         "subscriptions",
-        "id",
         "status",
         "created_at"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_attio_getworkspacemember": {
+      "type": "object",
+      "properties": {
+        "workspace_member_id": {
+          "type": "string",
+          "description": "The ID of the workspace member to retrieve. Example: \"641ecd33-0a48-4b7b-ba48-bbb7a649a8ee\""
+        }
+      },
+      "required": [
+        "workspace_member_id"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_attio_getworkspacemember": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "object",
+          "properties": {
+            "workspace_id": {
+              "type": "string"
+            },
+            "workspace_member_id": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "workspace_id",
+            "workspace_member_id"
+          ],
+          "additionalProperties": false
+        },
+        "first_name": {
+          "type": "string"
+        },
+        "last_name": {
+          "type": "string"
+        },
+        "avatar_url": {
+          "type": "string"
+        },
+        "email_address": {
+          "type": "string"
+        },
+        "created_at": {
+          "type": "string"
+        },
+        "access_level": {
+          "type": "string",
+          "enum": [
+            "admin",
+            "member",
+            "suspended"
+          ]
+        }
+      },
+      "required": [
+        "id",
+        "first_name",
+        "last_name",
+        "email_address",
+        "created_at",
+        "access_level"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_attio_listlistentries": {
+      "type": "object",
+      "properties": {
+        "list": {
+          "type": "string",
+          "description": "A UUID or slug to identify the list to retrieve entries from. Example: \"33ebdbe9-e529-47c9-b894-0ba25e9c15c0\""
+        },
+        "filter": {
+          "type": "object",
+          "additionalProperties": {
+            "anyOf": [
+              {},
+              {
+                "not": {}
+              }
+            ]
+          },
+          "description": "An object used to filter results to a subset of results. Cannot be used together with filter_view_id."
+        },
+        "filter_view_id": {
+          "type": "string",
+          "description": "UUID of a saved view on this list. When set, results are filtered using that view's filter configuration. Cannot be used together with filter."
+        },
+        "sorts": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "0": {
+                "type": "object",
+                "properties": {
+                  "direction": {
+                    "type": "string",
+                    "enum": [
+                      "asc",
+                      "desc"
+                    ]
+                  },
+                  "attribute": {
+                    "type": "string"
+                  },
+                  "field": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "direction",
+                  "attribute"
+                ],
+                "additionalProperties": false
+              },
+              "1": {
+                "type": "object",
+                "properties": {
+                  "direction": {
+                    "type": "string",
+                    "enum": [
+                      "asc",
+                      "desc"
+                    ]
+                  },
+                  "path": {
+                    "type": "array",
+                    "items": {
+                      "type": "string"
+                    }
+                  },
+                  "field": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "direction",
+                  "path"
+                ],
+                "additionalProperties": false
+              }
+            },
+            "required": [
+              "0",
+              "1"
+            ],
+            "additionalProperties": false
+          }
+        },
+        "limit": {
+          "type": "number",
+          "description": "The maximum number of results to return. Defaults to 500."
+        },
+        "cursor": {
+          "type": "string",
+          "description": "Pagination cursor from the previous response. Omit for the first page."
+        }
+      },
+      "required": [
+        "list"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_attio_listlistentries": {
+      "type": "object",
+      "properties": {
+        "entries": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "object",
+                "properties": {
+                  "workspace_id": {
+                    "type": "string"
+                  },
+                  "list_id": {
+                    "type": "string"
+                  },
+                  "entry_id": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "workspace_id",
+                  "list_id",
+                  "entry_id"
+                ],
+                "additionalProperties": false
+              },
+              "parent_record_id": {
+                "type": "string"
+              },
+              "parent_object": {
+                "type": "string"
+              },
+              "created_at": {
+                "type": "string"
+              },
+              "entry_values": {
+                "type": "object",
+                "additionalProperties": {
+                  "type": "array",
+                  "items": {}
+                }
+              }
+            },
+            "required": [
+              "id"
+            ],
+            "additionalProperties": false
+          }
+        },
+        "next_cursor": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "entries"
       ],
       "additionalProperties": false
     },
@@ -14734,7 +16046,7 @@
     "ActionOutput_attio_listlists": {
       "type": "object",
       "properties": {
-        "data": {
+        "items": {
           "type": "array",
           "items": {
             "type": "object",
@@ -14756,23 +16068,73 @@
                 "additionalProperties": false
               },
               "api_slug": {
-                "type": "string",
-                "description": "Unique slug for the list. Example: \"my-sales-list\""
+                "type": "string"
               },
               "name": {
-                "type": "string",
-                "description": "Display name of the list. Example: \"My Sales List\""
+                "type": "string"
               },
               "parent_object": {
                 "type": "array",
                 "items": {
                   "type": "string"
+                }
+              },
+              "workspace_access": {
+                "type": "string",
+                "enum": [
+                  "full-access",
+                  "read-and-write",
+                  "read-only"
+                ]
+              },
+              "workspace_member_access": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "workspace_member_id": {
+                      "type": "string"
+                    },
+                    "level": {
+                      "type": "string",
+                      "enum": [
+                        "full-access",
+                        "read-and-write",
+                        "read-only"
+                      ]
+                    }
+                  },
+                  "required": [
+                    "workspace_member_id",
+                    "level"
+                  ],
+                  "additionalProperties": false
+                }
+              },
+              "created_by_actor": {
+                "type": "object",
+                "properties": {
+                  "id": {
+                    "type": "string"
+                  },
+                  "type": {
+                    "type": "string",
+                    "enum": [
+                      "api-token",
+                      "workspace-member",
+                      "system",
+                      "app"
+                    ]
+                  }
                 },
-                "description": "Object types this list is for. Example: [\"people\"]"
+                "required": [
+                  "id",
+                  "type"
+                ],
+                "additionalProperties": false
               },
               "created_at": {
-                "type": "string",
-                "description": "When the list was created"
+                "type": "string"
               }
             },
             "required": [
@@ -14780,75 +16142,53 @@
               "api_slug",
               "name",
               "parent_object",
+              "workspace_member_access",
+              "created_by_actor",
               "created_at"
             ],
             "additionalProperties": false
-          },
-          "description": "Array of list objects"
+          }
         }
       },
       "required": [
-        "data"
+        "items"
       ],
       "additionalProperties": false
     },
     "ActionInput_attio_listnotes": {
       "type": "object",
       "properties": {
-        "parent_object": {
+        "cursor": {
           "type": "string",
-          "description": "The object type of the parent record. Example: \"people\" or \"companies\""
-        },
-        "parent_record_id": {
-          "type": "string",
-          "description": "The record ID to list notes for. Example: \"5829dd6c-0577-40dc-a858-8bd9a0d6aa58\""
+          "description": "Pagination offset from the previous response. Omit for the first page."
         },
         "limit": {
           "type": "number",
-          "description": "Maximum number of notes to return"
+          "description": "The maximum number of results to return. Default is 10, maximum is 50."
         },
-        "offset": {
-          "type": "number",
-          "description": "Number of notes to skip"
+        "parent_object": {
+          "type": "string",
+          "description": "The slug or ID of the parent object the notes belong to."
+        },
+        "parent_record_id": {
+          "type": "string",
+          "description": "The ID of the parent record the notes belong to."
         }
       },
-      "required": [
-        "parent_object",
-        "parent_record_id"
-      ],
       "additionalProperties": false
     },
     "ActionOutput_attio_listnotes": {
       "type": "object",
       "properties": {
-        "data": {
+        "items": {
           "type": "array",
           "items": {
             "type": "object",
             "properties": {
-              "id": {
-                "type": "object",
-                "properties": {
-                  "workspace_id": {
-                    "type": "string"
-                  },
-                  "note_id": {
-                    "type": "string"
-                  }
-                },
-                "required": [
-                  "workspace_id",
-                  "note_id"
-                ],
-                "additionalProperties": false
+              "workspace_id": {
+                "type": "string"
               },
-              "title": {
-                "type": [
-                  "string",
-                  "null"
-                ]
-              },
-              "content_plaintext": {
+              "note_id": {
                 "type": "string"
               },
               "parent_object": {
@@ -14857,25 +16197,106 @@
               "parent_record_id": {
                 "type": "string"
               },
+              "title": {
+                "type": "string"
+              },
+              "meeting_id": {
+                "type": "string"
+              },
+              "content_plaintext": {
+                "type": "string"
+              },
+              "content_markdown": {
+                "type": "string"
+              },
+              "tags": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "0": {
+                      "type": "object",
+                      "properties": {
+                        "type": {
+                          "type": "string",
+                          "const": "workspace-member"
+                        },
+                        "workspace_member_id": {
+                          "type": "string"
+                        }
+                      },
+                      "required": [
+                        "type",
+                        "workspace_member_id"
+                      ],
+                      "additionalProperties": false
+                    },
+                    "1": {
+                      "type": "object",
+                      "properties": {
+                        "type": {
+                          "type": "string",
+                          "const": "record"
+                        },
+                        "object": {
+                          "type": "string"
+                        },
+                        "record_id": {
+                          "type": "string"
+                        }
+                      },
+                      "required": [
+                        "type",
+                        "object",
+                        "record_id"
+                      ],
+                      "additionalProperties": false
+                    }
+                  },
+                  "required": [
+                    "0",
+                    "1"
+                  ],
+                  "additionalProperties": false
+                }
+              },
+              "created_by_actor": {
+                "type": "object",
+                "properties": {
+                  "id": {
+                    "type": "string"
+                  },
+                  "type": {
+                    "type": "string"
+                  }
+                },
+                "additionalProperties": false
+              },
               "created_at": {
                 "type": "string"
               }
             },
             "required": [
-              "id",
-              "title",
-              "content_plaintext",
+              "workspace_id",
+              "note_id",
               "parent_object",
               "parent_record_id",
+              "title",
+              "content_plaintext",
+              "content_markdown",
+              "tags",
+              "created_by_actor",
               "created_at"
             ],
             "additionalProperties": false
-          },
-          "description": "Array of notes"
+          }
+        },
+        "next_cursor": {
+          "type": "string"
         }
       },
       "required": [
-        "data"
+        "items"
       ],
       "additionalProperties": false
     },
@@ -14886,110 +16307,86 @@
     "ActionOutput_attio_listobjects": {
       "type": "object",
       "properties": {
-        "data": {
+        "objects": {
           "type": "array",
           "items": {
             "type": "object",
             "properties": {
-              "id": {
-                "type": "object",
-                "properties": {
-                  "workspace_id": {
-                    "type": "string"
-                  },
-                  "object_id": {
-                    "type": "string",
-                    "description": "Object ID. Example: \"97052eb9-e65e-443f-a297-f2d9a4a7f795\""
-                  }
-                },
-                "required": [
-                  "workspace_id",
-                  "object_id"
-                ],
-                "additionalProperties": false
+              "workspace_id": {
+                "type": "string"
+              },
+              "object_id": {
+                "type": "string"
               },
               "api_slug": {
-                "type": "string",
-                "description": "Unique, human-readable slug for the object. Example: \"people\""
+                "type": "string"
               },
               "singular_noun": {
-                "type": "string",
-                "description": "Singular form of the object name. Example: \"Person\""
+                "type": "string"
               },
               "plural_noun": {
-                "type": "string",
-                "description": "Plural form of the object name. Example: \"People\""
+                "type": "string"
               },
               "created_at": {
-                "type": "string",
-                "description": "When the object was created. Example: \"2023-01-01T00:00:00.000Z\""
+                "type": "string"
               }
             },
             "required": [
-              "id",
-              "api_slug",
-              "singular_noun",
-              "plural_noun",
+              "workspace_id",
+              "object_id",
               "created_at"
             ],
             "additionalProperties": false
-          },
-          "description": "Array of object definitions"
+          }
         }
       },
       "required": [
-        "data"
+        "objects"
       ],
       "additionalProperties": false
     },
     "ActionInput_attio_listrecords": {
       "type": "object",
       "properties": {
-        "object_slug": {
-          "type": "string",
-          "description": "The object type slug to query records from. Example: \"people\" or \"companies\""
+        "object": {
+          "type": "string"
+        },
+        "cursor": {
+          "type": "string"
         },
         "limit": {
-          "type": "number",
-          "description": "Maximum number of records to return. Default: 25"
+          "type": "number"
         },
-        "offset": {
-          "type": "number",
-          "description": "Number of records to skip. Default: 0"
+        "filters": {
+          "type": "object",
+          "additionalProperties": {
+            "anyOf": [
+              {},
+              {
+                "not": {}
+              }
+            ]
+          }
         }
       },
       "required": [
-        "object_slug"
+        "object"
       ],
       "additionalProperties": false
     },
     "ActionOutput_attio_listrecords": {
       "type": "object",
       "properties": {
-        "data": {
+        "records": {
           "type": "array",
           "items": {
             "type": "object",
             "properties": {
               "id": {
-                "type": "object",
-                "properties": {
-                  "workspace_id": {
-                    "type": "string"
-                  },
-                  "object_id": {
-                    "type": "string"
-                  },
-                  "record_id": {
-                    "type": "string"
-                  }
-                },
-                "required": [
-                  "workspace_id",
-                  "object_id",
-                  "record_id"
-                ],
-                "additionalProperties": false
+                "type": "string"
+              },
+              "object_id": {
+                "type": "string"
               },
               "created_at": {
                 "type": "string"
@@ -14997,28 +16394,53 @@
               "values": {
                 "type": "object",
                 "additionalProperties": {
-                  "anyOf": [
-                    {},
-                    {
-                      "not": {}
-                    }
-                  ]
-                },
-                "description": "Object containing attribute values keyed by attribute slug"
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "active_from": {
+                        "type": "string"
+                      },
+                      "active_until": {
+                        "type": "string"
+                      },
+                      "attribute_type": {
+                        "type": "string"
+                      },
+                      "created_at": {
+                        "type": "string"
+                      },
+                      "record_id": {
+                        "type": "string"
+                      },
+                      "updated_at": {
+                        "type": "string"
+                      },
+                      "value": {}
+                    },
+                    "required": [
+                      "active_from",
+                      "attribute_type"
+                    ],
+                    "additionalProperties": false
+                  }
+                }
               }
             },
             "required": [
               "id",
-              "created_at",
-              "values"
+              "object_id",
+              "created_at"
             ],
             "additionalProperties": false
-          },
-          "description": "Array of record objects"
+          }
+        },
+        "next_cursor": {
+          "type": "string"
         }
       },
       "required": [
-        "data"
+        "records"
       ],
       "additionalProperties": false
     },
@@ -15027,11 +16449,37 @@
       "properties": {
         "limit": {
           "type": "number",
-          "description": "Maximum number of tasks to return"
+          "description": "The maximum number of results to return. Defaults to 500."
         },
         "offset": {
           "type": "number",
-          "description": "Number of tasks to skip"
+          "description": "The number of results to skip over before returning. Defaults to 0."
+        },
+        "sort": {
+          "type": "string",
+          "enum": [
+            "created_at:asc",
+            "created_at:desc",
+            "completed_at:asc",
+            "completed_at:desc"
+          ],
+          "description": "Optionally sort the results."
+        },
+        "linked_object": {
+          "type": "string",
+          "description": "Filter tasks by the object slug of linked records (e.g. people). Must be provided with linked_record_id."
+        },
+        "linked_record_id": {
+          "type": "string",
+          "description": "Filter tasks by the record ID of linked records. Must be provided with linked_object."
+        },
+        "assignee": {
+          "type": "string",
+          "description": "Filter tasks by workspace member assignee (email or ID). Pass null for unassigned tasks."
+        },
+        "is_completed": {
+          "type": "boolean",
+          "description": "Filter tasks by completion status."
         }
       },
       "additionalProperties": false
@@ -15064,13 +16512,63 @@
                 "type": "string"
               },
               "deadline_at": {
-                "type": [
-                  "string",
-                  "null"
-                ]
+                "type": "string"
               },
               "is_completed": {
                 "type": "boolean"
+              },
+              "completed_at": {
+                "type": "string"
+              },
+              "linked_records": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "target_object_id": {
+                      "type": "string"
+                    },
+                    "target_record_id": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "target_object_id",
+                    "target_record_id"
+                  ],
+                  "additionalProperties": false
+                }
+              },
+              "assignees": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "referenced_actor_type": {
+                      "type": "string"
+                    },
+                    "referenced_actor_id": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "referenced_actor_type",
+                    "referenced_actor_id"
+                  ],
+                  "additionalProperties": false
+                }
+              },
+              "created_by_actor": {
+                "type": "object",
+                "properties": {
+                  "id": {
+                    "type": "string"
+                  },
+                  "type": {
+                    "type": "string"
+                  }
+                },
+                "additionalProperties": false
               },
               "created_at": {
                 "type": "string"
@@ -15079,13 +16577,18 @@
             "required": [
               "id",
               "content_plaintext",
-              "deadline_at",
               "is_completed",
+              "linked_records",
+              "assignees",
+              "created_by_actor",
               "created_at"
             ],
             "additionalProperties": false
-          },
-          "description": "Array of tasks"
+          }
+        },
+        "next_offset": {
+          "type": "number",
+          "description": "The offset to use for the next page of results, if available."
         }
       },
       "required": [
@@ -15097,10 +16600,12 @@
       "type": "object",
       "properties": {
         "limit": {
-          "type": "number"
+          "type": "number",
+          "description": "The maximum number of results to return, between 10 and 100. Defaults to 10."
         },
         "cursor": {
-          "type": "string"
+          "type": "string",
+          "description": "Pagination cursor from the previous response. Omit for the first page."
         }
       },
       "additionalProperties": false
@@ -15108,89 +16613,11 @@
     "ActionOutput_attio_listwebhooks": {
       "type": "object",
       "properties": {
-        "webhooks": {
+        "items": {
           "type": "array",
           "items": {
             "type": "object",
             "properties": {
-              "target_url": {
-                "type": "string"
-              },
-              "subscriptions": {
-                "type": "array",
-                "items": {
-                  "type": "object",
-                  "properties": {
-                    "event_type": {
-                      "type": "string"
-                    },
-                    "filter": {
-                      "anyOf": [
-                        {
-                          "type": "object",
-                          "properties": {
-                            "$and": {
-                              "type": "array",
-                              "items": {
-                                "type": "object",
-                                "properties": {
-                                  "field": {
-                                    "type": "string"
-                                  },
-                                  "operator": {
-                                    "type": "string"
-                                  },
-                                  "value": {
-                                    "type": "string"
-                                  }
-                                },
-                                "required": [
-                                  "field",
-                                  "operator",
-                                  "value"
-                                ],
-                                "additionalProperties": false
-                              }
-                            },
-                            "$or": {
-                              "type": "array",
-                              "items": {
-                                "type": "object",
-                                "properties": {
-                                  "field": {
-                                    "type": "string"
-                                  },
-                                  "operator": {
-                                    "type": "string"
-                                  },
-                                  "value": {
-                                    "type": "string"
-                                  }
-                                },
-                                "required": [
-                                  "field",
-                                  "operator",
-                                  "value"
-                                ],
-                                "additionalProperties": false
-                              }
-                            }
-                          },
-                          "additionalProperties": false
-                        },
-                        {
-                          "type": "null"
-                        }
-                      ]
-                    }
-                  },
-                  "required": [
-                    "event_type",
-                    "filter"
-                  ],
-                  "additionalProperties": false
-                }
-              },
               "id": {
                 "type": "object",
                 "properties": {
@@ -15207,22 +16634,36 @@
                 ],
                 "additionalProperties": false
               },
+              "target_url": {
+                "type": "string"
+              },
+              "subscriptions": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "event_type": {
+                      "type": "string"
+                    },
+                    "filter": {}
+                  },
+                  "required": [
+                    "event_type"
+                  ],
+                  "additionalProperties": false
+                }
+              },
               "status": {
-                "type": "string",
-                "enum": [
-                  "active",
-                  "degraded",
-                  "inactive"
-                ]
+                "type": "string"
               },
               "created_at": {
                 "type": "string"
               }
             },
             "required": [
+              "id",
               "target_url",
               "subscriptions",
-              "id",
               "status",
               "created_at"
             ],
@@ -15230,30 +16671,81 @@
           }
         },
         "next_cursor": {
-          "type": [
-            "string",
-            "null"
-          ]
+          "type": "string"
         }
       },
       "required": [
-        "webhooks",
-        "next_cursor"
+        "items"
       ],
       "additionalProperties": false
     },
-    "ActionInput_attio_updaterecord": {
+    "ActionInput_attio_listworkspacemembers": {
+      "type": "object",
+      "additionalProperties": false
+    },
+    "ActionOutput_attio_listworkspacemembers": {
       "type": "object",
       "properties": {
-        "object_slug": {
+        "items": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "workspace_member_id": {
+                "type": "string"
+              },
+              "workspace_id": {
+                "type": "string"
+              },
+              "first_name": {
+                "type": "string"
+              },
+              "last_name": {
+                "type": "string"
+              },
+              "avatar_url": {
+                "type": "string"
+              },
+              "email_address": {
+                "type": "string"
+              },
+              "created_at": {
+                "type": "string"
+              },
+              "access_level": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "workspace_member_id",
+              "workspace_id",
+              "first_name",
+              "last_name",
+              "email_address",
+              "created_at",
+              "access_level"
+            ],
+            "additionalProperties": false
+          }
+        }
+      },
+      "required": [
+        "items"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_attio_updatelistentry": {
+      "type": "object",
+      "properties": {
+        "list_id": {
           "type": "string",
-          "description": "The object type slug. Example: \"people\" or \"companies\""
+          "description": "A UUID or slug of the list the entry belongs to. Example: \"39723680-f534-4fe7-ab80-c5278e20e37b\""
         },
-        "record_id": {
+        "entry_id": {
           "type": "string",
-          "description": "The record ID to update. Example: \"5829dd6c-0577-40dc-a858-8bd9a0d6aa58\""
+          "description": "A UUID of the list entry to update. Example: \"e9a7b33a-6dfc-483d-9a3b-fbc20068c162\""
         },
-        "values": {
+        "entry_values": {
           "type": "object",
           "additionalProperties": {
             "anyOf": [
@@ -15263,11 +16755,334 @@
               }
             ]
           },
-          "description": "Object containing attribute values to update. Example: {\"job_title\": [{\"value\": \"CTO\"}]}"
+          "description": "An object mapping attribute API slugs or IDs to values to update."
         }
       },
       "required": [
-        "object_slug",
+        "list_id",
+        "entry_id",
+        "entry_values"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_attio_updatelistentry": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "object",
+          "properties": {
+            "workspace_id": {
+              "type": "string"
+            },
+            "list_id": {
+              "type": "string"
+            },
+            "entry_id": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "workspace_id",
+            "list_id",
+            "entry_id"
+          ],
+          "additionalProperties": false
+        },
+        "parent_record_id": {
+          "type": "string"
+        },
+        "parent_object": {
+          "type": "string"
+        },
+        "created_at": {
+          "type": "string"
+        },
+        "entry_values": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "active_from": {
+                  "type": "string"
+                },
+                "active_until": {
+                  "type": "string"
+                },
+                "created_by_actor": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "string"
+                    },
+                    "type": {
+                      "type": "string",
+                      "enum": [
+                        "api-token",
+                        "workspace-member",
+                        "system",
+                        "app"
+                      ]
+                    }
+                  },
+                  "required": [
+                    "id",
+                    "type"
+                  ],
+                  "additionalProperties": false
+                },
+                "attribute_type": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "active_from",
+                "active_until",
+                "created_by_actor",
+                "attribute_type"
+              ],
+              "additionalProperties": false
+            }
+          }
+        }
+      },
+      "required": [
+        "id",
+        "parent_record_id",
+        "parent_object",
+        "created_at",
+        "entry_values"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_attio_updatelist": {
+      "type": "object",
+      "properties": {
+        "list_id": {
+          "type": "string",
+          "description": "A UUID or slug to identify the list to update. Example: \"33ebdbe9-e529-47c9-b894-0ba25e9c15c0\""
+        },
+        "name": {
+          "type": "string",
+          "description": "The human-readable name of the list."
+        },
+        "api_slug": {
+          "type": "string",
+          "description": "A unique, human-readable slug to access the list through API calls. Should be formatted in snake case."
+        },
+        "workspace_access": {
+          "type": "string",
+          "enum": [
+            "full-access",
+            "read-and-write",
+            "read-only"
+          ],
+          "description": "The level of access granted to all members of the workspace for this list. Pass null to keep the list private."
+        },
+        "workspace_member_access": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "workspace_member_id": {
+                "type": "string"
+              },
+              "level": {
+                "type": "string",
+                "enum": [
+                  "full-access",
+                  "read-and-write",
+                  "read-only"
+                ],
+                "description": "The level of access to the list."
+              }
+            },
+            "required": [
+              "workspace_member_id",
+              "level"
+            ],
+            "additionalProperties": false
+          },
+          "description": "The level of access granted to specific workspace members for this list. Pass an empty array to grant access to no workspace members."
+        }
+      },
+      "required": [
+        "list_id"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_attio_updatelist": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "object",
+          "properties": {
+            "workspace_id": {
+              "type": "string"
+            },
+            "list_id": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "workspace_id",
+            "list_id"
+          ],
+          "additionalProperties": false
+        },
+        "api_slug": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "parent_object": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "workspace_access": {
+          "type": "string"
+        },
+        "workspace_member_access": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "workspace_member_id": {
+                "type": "string"
+              },
+              "level": {
+                "type": "string",
+                "enum": [
+                  "full-access",
+                  "read-and-write",
+                  "read-only"
+                ]
+              }
+            },
+            "required": [
+              "workspace_member_id",
+              "level"
+            ],
+            "additionalProperties": false
+          }
+        },
+        "created_by_actor": {
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "string"
+            },
+            "type": {
+              "type": "string",
+              "enum": [
+                "api-token",
+                "workspace-member",
+                "system",
+                "app"
+              ]
+            }
+          },
+          "required": [
+            "id",
+            "type"
+          ],
+          "additionalProperties": false
+        },
+        "created_at": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "id",
+        "api_slug",
+        "name",
+        "parent_object"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_attio_updateobject": {
+      "type": "object",
+      "properties": {
+        "object": {
+          "type": "string",
+          "description": "A UUID or slug to identify the object. Example: \"people\""
+        },
+        "api_slug": {
+          "type": "string",
+          "description": "A unique, human-readable slug to access the object through URLs and API calls. Formatted in snake case."
+        },
+        "singular_noun": {
+          "type": "string",
+          "description": "The singular form of the object's name."
+        },
+        "plural_noun": {
+          "type": "string",
+          "description": "The plural form of the object's name."
+        }
+      },
+      "required": [
+        "object"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_attio_updateobject": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "object",
+          "properties": {
+            "workspace_id": {
+              "type": "string"
+            },
+            "object_id": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "workspace_id",
+            "object_id"
+          ],
+          "additionalProperties": false
+        },
+        "api_slug": {
+          "type": "string"
+        },
+        "singular_noun": {
+          "type": "string"
+        },
+        "plural_noun": {
+          "type": "string"
+        },
+        "created_at": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "id",
+        "created_at"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_attio_updaterecord": {
+      "type": "object",
+      "properties": {
+        "object": {
+          "type": "string"
+        },
+        "record_id": {
+          "type": "string"
+        },
+        "values": {
+          "type": "object",
+          "additionalProperties": false
+        }
+      },
+      "required": [
+        "object",
         "record_id",
         "values"
       ],
@@ -15276,54 +17091,180 @@
     "ActionOutput_attio_updaterecord": {
       "type": "object",
       "properties": {
-        "data": {
+        "id": {
           "type": "object",
           "properties": {
-            "id": {
-              "type": "object",
-              "properties": {
-                "workspace_id": {
-                  "type": "string"
-                },
-                "object_id": {
-                  "type": "string"
-                },
-                "record_id": {
-                  "type": "string"
-                }
-              },
-              "required": [
-                "workspace_id",
-                "object_id",
-                "record_id"
-              ],
-              "additionalProperties": false
-            },
-            "created_at": {
+            "workspace_id": {
               "type": "string"
             },
-            "values": {
-              "type": "object",
-              "additionalProperties": {
-                "anyOf": [
-                  {},
-                  {
-                    "not": {}
-                  }
-                ]
-              }
+            "object_id": {
+              "type": "string"
+            },
+            "record_id": {
+              "type": "string"
             }
           },
           "required": [
-            "id",
-            "created_at",
-            "values"
+            "workspace_id",
+            "object_id",
+            "record_id"
           ],
+          "additionalProperties": false
+        },
+        "created_at": {
+          "type": "string"
+        },
+        "web_url": {
+          "type": "string"
+        },
+        "values": {
+          "type": "object",
           "additionalProperties": false
         }
       },
       "required": [
-        "data"
+        "id",
+        "created_at"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_attio_updatetask": {
+      "type": "object",
+      "properties": {
+        "task_id": {
+          "type": "string",
+          "description": "The ID of the task to update. Example: \"649e34f4-c39a-4f4d-99ef-48a36bef8f04\""
+        },
+        "deadline_at": {
+          "type": "string",
+          "description": "The deadline of the task, in ISO 8601 format. Example: \"2023-01-01T15:00:00.000000000Z\""
+        },
+        "is_completed": {
+          "type": "boolean",
+          "description": "Whether the task has been completed."
+        },
+        "linked_records": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "target_object": {
+                "type": "string"
+              },
+              "target_record_id": {
+                "type": "string",
+                "description": "The ID of the parent record the task refers to. Example: \"891dcbfc-9141-415d-9b2a-2238a6cc012d\""
+              }
+            },
+            "required": [
+              "target_object",
+              "target_record_id"
+            ],
+            "additionalProperties": false
+          },
+          "description": "Records linked to the task."
+        },
+        "assignees": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "referenced_actor_type": {
+                "type": "string"
+              },
+              "referenced_actor_id": {
+                "type": "string",
+                "description": "The ID of the actor assigned to this task."
+              }
+            },
+            "required": [
+              "referenced_actor_type",
+              "referenced_actor_id"
+            ],
+            "additionalProperties": false
+          },
+          "description": "Workspace members assigned to this task."
+        }
+      },
+      "required": [
+        "task_id"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_attio_updatetask": {
+      "type": "object",
+      "properties": {
+        "task_id": {
+          "type": "string"
+        },
+        "content_plaintext": {
+          "type": "string"
+        },
+        "deadline_at": {
+          "type": "string"
+        },
+        "is_completed": {
+          "type": "boolean"
+        },
+        "completed_at": {
+          "type": "string"
+        },
+        "linked_records": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "target_object_id": {
+                "type": "string"
+              },
+              "target_record_id": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "target_object_id",
+              "target_record_id"
+            ],
+            "additionalProperties": false
+          }
+        },
+        "assignees": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "referenced_actor_type": {
+                "type": "string"
+              },
+              "referenced_actor_id": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "referenced_actor_type",
+              "referenced_actor_id"
+            ],
+            "additionalProperties": false
+          }
+        },
+        "created_by_actor": {
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "string"
+            },
+            "type": {
+              "type": "string"
+            }
+          },
+          "additionalProperties": false
+        },
+        "created_at": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "task_id"
       ],
       "additionalProperties": false
     },
@@ -15331,10 +17272,12 @@
       "type": "object",
       "properties": {
         "webhook_id": {
-          "type": "string"
+          "type": "string",
+          "description": "The ID of the webhook to update. Example: \"45662666-3a96-4189-9ddb-6d6fe20bd076\""
         },
         "target_url": {
-          "type": "string"
+          "type": "string",
+          "description": "URL where the webhook events will be delivered to. Example: \"https://example.com/webhook\""
         },
         "subscriptions": {
           "type": "array",
@@ -15349,29 +17292,6 @@
                   {
                     "type": "object",
                     "properties": {
-                      "$and": {
-                        "type": "array",
-                        "items": {
-                          "type": "object",
-                          "properties": {
-                            "field": {
-                              "type": "string"
-                            },
-                            "operator": {
-                              "type": "string"
-                            },
-                            "value": {
-                              "type": "string"
-                            }
-                          },
-                          "required": [
-                            "field",
-                            "operator",
-                            "value"
-                          ],
-                          "additionalProperties": false
-                        }
-                      },
                       "$or": {
                         "type": "array",
                         "items": {
@@ -15381,7 +17301,11 @@
                               "type": "string"
                             },
                             "operator": {
-                              "type": "string"
+                              "type": "string",
+                              "enum": [
+                                "equals",
+                                "not_equals"
+                              ]
                             },
                             "value": {
                               "type": "string"
@@ -15396,19 +17320,57 @@
                         }
                       }
                     },
+                    "required": [
+                      "$or"
+                    ],
                     "additionalProperties": false
                   },
                   {
-                    "type": "null"
+                    "type": "object",
+                    "properties": {
+                      "$and": {
+                        "type": "array",
+                        "items": {
+                          "type": "object",
+                          "properties": {
+                            "field": {
+                              "type": "string"
+                            },
+                            "operator": {
+                              "type": "string",
+                              "enum": [
+                                "equals",
+                                "not_equals"
+                              ]
+                            },
+                            "value": {
+                              "type": "string"
+                            }
+                          },
+                          "required": [
+                            "field",
+                            "operator",
+                            "value"
+                          ],
+                          "additionalProperties": false
+                        }
+                      }
+                    },
+                    "required": [
+                      "$and"
+                    ],
+                    "additionalProperties": false
                   }
                 ]
               }
             },
             "required": [
-              "event_type"
+              "event_type",
+              "filter"
             ],
             "additionalProperties": false
-          }
+          },
+          "description": "One or more events the webhook is subscribed to."
         }
       },
       "required": [
@@ -15419,6 +17381,12 @@
     "ActionOutput_attio_updatewebhook": {
       "type": "object",
       "properties": {
+        "webhook_id": {
+          "type": "string"
+        },
+        "workspace_id": {
+          "type": "string"
+        },
         "target_url": {
           "type": "string"
         },
@@ -15435,29 +17403,6 @@
                   {
                     "type": "object",
                     "properties": {
-                      "$and": {
-                        "type": "array",
-                        "items": {
-                          "type": "object",
-                          "properties": {
-                            "field": {
-                              "type": "string"
-                            },
-                            "operator": {
-                              "type": "string"
-                            },
-                            "value": {
-                              "type": "string"
-                            }
-                          },
-                          "required": [
-                            "field",
-                            "operator",
-                            "value"
-                          ],
-                          "additionalProperties": false
-                        }
-                      },
                       "$or": {
                         "type": "array",
                         "items": {
@@ -15467,7 +17412,11 @@
                               "type": "string"
                             },
                             "operator": {
-                              "type": "string"
+                              "type": "string",
+                              "enum": [
+                                "equals",
+                                "not_equals"
+                              ]
                             },
                             "value": {
                               "type": "string"
@@ -15482,10 +17431,46 @@
                         }
                       }
                     },
+                    "required": [
+                      "$or"
+                    ],
                     "additionalProperties": false
                   },
                   {
-                    "type": "null"
+                    "type": "object",
+                    "properties": {
+                      "$and": {
+                        "type": "array",
+                        "items": {
+                          "type": "object",
+                          "properties": {
+                            "field": {
+                              "type": "string"
+                            },
+                            "operator": {
+                              "type": "string",
+                              "enum": [
+                                "equals",
+                                "not_equals"
+                              ]
+                            },
+                            "value": {
+                              "type": "string"
+                            }
+                          },
+                          "required": [
+                            "field",
+                            "operator",
+                            "value"
+                          ],
+                          "additionalProperties": false
+                        }
+                      }
+                    },
+                    "required": [
+                      "$and"
+                    ],
+                    "additionalProperties": false
                   }
                 ]
               }
@@ -15496,22 +17481,6 @@
             ],
             "additionalProperties": false
           }
-        },
-        "id": {
-          "type": "object",
-          "properties": {
-            "workspace_id": {
-              "type": "string"
-            },
-            "webhook_id": {
-              "type": "string"
-            }
-          },
-          "required": [
-            "workspace_id",
-            "webhook_id"
-          ],
-          "additionalProperties": false
         },
         "status": {
           "type": "string",
@@ -15526,11 +17495,187 @@
         }
       },
       "required": [
+        "webhook_id",
+        "workspace_id",
         "target_url",
         "subscriptions",
-        "id",
         "status",
         "created_at"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_attio_upsertlistentry": {
+      "type": "object",
+      "properties": {
+        "list_id": {
+          "type": "string",
+          "description": "A UUID or slug of the list. Example: \"39723680-f534-4fe7-ab80-c5278e20e37b\""
+        },
+        "parent_record_id": {
+          "type": "string",
+          "description": "A UUID identifying the record to add to the list. Example: \"4c6ade84-19c7-4581-95aa-b1d5f4571c25\""
+        },
+        "parent_object": {
+          "type": "string",
+          "description": "A UUID or slug identifying the object that the parent record belongs to. Example: \"people\""
+        },
+        "entry_values": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "array",
+            "items": {}
+          },
+          "description": "Optional map of attribute API slugs to arrays of values."
+        }
+      },
+      "required": [
+        "list_id",
+        "parent_record_id",
+        "parent_object"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_attio_upsertlistentry": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "object",
+          "properties": {
+            "workspace_id": {
+              "type": "string"
+            },
+            "list_id": {
+              "type": "string"
+            },
+            "entry_id": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "workspace_id",
+            "list_id",
+            "entry_id"
+          ],
+          "additionalProperties": false
+        },
+        "parent_record_id": {
+          "type": "string"
+        },
+        "parent_object": {
+          "type": "string"
+        },
+        "created_at": {
+          "type": "string"
+        },
+        "entry_values": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "active_from": {
+                  "type": "string"
+                },
+                "active_until": {
+                  "type": "string"
+                },
+                "created_by_actor": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "string"
+                    },
+                    "type": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "id",
+                    "type"
+                  ],
+                  "additionalProperties": false
+                },
+                "attribute_type": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "active_from",
+                "active_until",
+                "created_by_actor",
+                "attribute_type"
+              ],
+              "additionalProperties": false
+            }
+          }
+        }
+      },
+      "required": [
+        "id",
+        "parent_record_id",
+        "parent_object",
+        "created_at",
+        "entry_values"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_attio_upsertrecord": {
+      "type": "object",
+      "properties": {
+        "object": {
+          "type": "string",
+          "description": "A UUID or slug to identify the object the record belongs to. Example: people"
+        },
+        "matching_attribute": {
+          "type": "string",
+          "description": "The ID or slug of the attribute to use to check if a record already exists. Example: email_addresses"
+        },
+        "values": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "array",
+            "items": {}
+          },
+          "description": "An object with attribute api_slug or attribute_id as the key, and an array of values as the values."
+        }
+      },
+      "required": [
+        "object",
+        "matching_attribute",
+        "values"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_attio_upsertrecord": {
+      "type": "object",
+      "properties": {
+        "workspace_id": {
+          "type": "string"
+        },
+        "object_id": {
+          "type": "string"
+        },
+        "record_id": {
+          "type": "string"
+        },
+        "created_at": {},
+        "values": {
+          "type": "object",
+          "additionalProperties": {
+            "anyOf": [
+              {},
+              {
+                "not": {}
+              }
+            ]
+          }
+        }
+      },
+      "required": [
+        "workspace_id",
+        "object_id",
+        "record_id"
       ],
       "additionalProperties": false
     },
@@ -18009,6 +20154,51 @@
       },
       "required": [
         "id"
+      ],
+      "additionalProperties": false
+    },
+    "BoxDocument": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "download_url": {
+          "type": "string"
+        },
+        "modified_at": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "id",
+        "name",
+        "modified_at"
+      ],
+      "additionalProperties": false
+    },
+    "SyncMetadata_box_files": {
+      "type": "object",
+      "properties": {
+        "files": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "folders": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      },
+      "required": [
+        "files",
+        "folders"
       ],
       "additionalProperties": false
     },
@@ -36342,6 +38532,31 @@
       "required": [
         "name",
         "id"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_dropbox_deleteuser": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "The team member ID of the user to delete. Example: \"dbmid:abc123\""
+        }
+      },
+      "required": [
+        "id"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_dropbox_deleteuser": {
+      "type": "object",
+      "properties": {
+        "success": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "success"
       ],
       "additionalProperties": false
     },
@@ -65145,128 +67360,6 @@
       "type": "object",
       "additionalProperties": false
     },
-    "Company": {
-      "type": "object",
-      "properties": {
-        "id": {
-          "type": "string"
-        },
-        "name": {
-          "type": "string"
-        },
-        "company_id": {
-          "type": "string"
-        },
-        "created_at": {
-          "type": "number"
-        },
-        "updated_at": {
-          "type": "number"
-        },
-        "session_count": {
-          "type": "number"
-        },
-        "monthly_spend": {
-          "type": "number"
-        },
-        "user_count": {
-          "type": "number"
-        },
-        "plan": {
-          "type": "string"
-        },
-        "size": {
-          "type": "number"
-        },
-        "website": {
-          "type": "string"
-        },
-        "industry": {
-          "type": "string"
-        }
-      },
-      "required": [
-        "id"
-      ],
-      "additionalProperties": false
-    },
-    "Deal": {
-      "type": "object",
-      "properties": {
-        "id": {
-          "type": "string"
-        },
-        "dealName": {
-          "type": "string"
-        },
-        "stage": {
-          "type": "string"
-        },
-        "amount": {
-          "type": "number"
-        },
-        "closingDate": {
-          "type": "string"
-        },
-        "accountName": {
-          "type": "string"
-        },
-        "accountId": {
-          "type": "string"
-        },
-        "contactName": {
-          "type": "string"
-        },
-        "contactId": {
-          "type": "string"
-        },
-        "ownerName": {
-          "type": "string"
-        },
-        "ownerId": {
-          "type": "string"
-        },
-        "ownerEmail": {
-          "type": "string"
-        },
-        "createdTime": {
-          "type": "string"
-        },
-        "modifiedTime": {
-          "type": "string"
-        },
-        "probability": {
-          "type": [
-            "string",
-            "number"
-          ]
-        },
-        "expectedRevenue": {
-          "type": "number"
-        },
-        "description": {
-          "type": "string"
-        },
-        "campaignSource": {
-          "type": "string"
-        },
-        "leadSource": {
-          "type": "string"
-        },
-        "type": {
-          "type": "string"
-        },
-        "nextStep": {
-          "type": "string"
-        }
-      },
-      "required": [
-        "id",
-        "createdTime",
-        "modifiedTime"
-      ],
-      "additionalProperties": false
-    },
     "MarketingEmail": {
       "type": "object",
       "properties": {
@@ -91470,6 +93563,104 @@
       ],
       "additionalProperties": false
     },
+    "ActionInput_notion_createdatabase": {
+      "type": "object",
+      "properties": {
+        "parent": {
+          "type": "object",
+          "properties": {
+            "page_id": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "page_id"
+          ],
+          "additionalProperties": false,
+          "description": "Parent page where database will be created."
+        },
+        "title": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "text": {
+                "type": "object",
+                "properties": {
+                  "content": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "content"
+                ],
+                "additionalProperties": false
+              }
+            },
+            "required": [
+              "text"
+            ],
+            "additionalProperties": false
+          },
+          "description": "Database title as rich text array."
+        },
+        "properties": {
+          "type": "object",
+          "additionalProperties": {
+            "anyOf": [
+              {},
+              {
+                "not": {}
+              }
+            ]
+          },
+          "description": "Database property schema. Example: {\"Name\":{\"title\":{}},\"Description\":{\"rich_text\":{}}}"
+        }
+      },
+      "required": [
+        "parent",
+        "title",
+        "properties"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_notion_createdatabase": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "object": {
+          "type": "string"
+        },
+        "created_time": {
+          "type": "string"
+        },
+        "title": {
+          "type": "array",
+          "items": {}
+        },
+        "properties": {
+          "type": "object",
+          "additionalProperties": {
+            "anyOf": [
+              {},
+              {
+                "not": {}
+              }
+            ]
+          }
+        }
+      },
+      "required": [
+        "id",
+        "object",
+        "created_time",
+        "title",
+        "properties"
+      ],
+      "additionalProperties": false
+    },
     "ActionInput_notion_createdatasource": {
       "type": "object",
       "properties": {
@@ -104216,60 +106407,6 @@
       ],
       "additionalProperties": false
     },
-    "Note": {
-      "type": "object",
-      "properties": {
-        "id": {
-          "type": "string"
-        },
-        "note_title": {
-          "type": "string"
-        },
-        "note_content": {
-          "type": "string"
-        },
-        "parent_id": {
-          "type": "string"
-        },
-        "parent_name": {
-          "type": "string"
-        },
-        "parent_module": {
-          "type": "string"
-        },
-        "owner_id": {
-          "type": "string"
-        },
-        "owner_name": {
-          "type": "string"
-        },
-        "owner_email": {
-          "type": "string"
-        },
-        "created_by_id": {
-          "type": "string"
-        },
-        "created_by_name": {
-          "type": "string"
-        },
-        "modified_by_id": {
-          "type": "string"
-        },
-        "modified_by_name": {
-          "type": "string"
-        },
-        "created_time": {
-          "type": "string"
-        },
-        "modified_time": {
-          "type": "string"
-        }
-      },
-      "required": [
-        "id"
-      ],
-      "additionalProperties": false
-    },
     "Organization": {
       "type": "object",
       "properties": {
@@ -104325,77 +106462,6 @@
         "created_at",
         "updated_at",
         "url"
-      ],
-      "additionalProperties": false
-    },
-    "Person": {
-      "type": "object",
-      "properties": {
-        "id": {
-          "type": "string"
-        },
-        "name": {
-          "type": "string"
-        },
-        "emails": {
-          "type": "array",
-          "items": {
-            "type": "object",
-            "properties": {
-              "value": {
-                "type": "string"
-              },
-              "primary": {
-                "type": "boolean"
-              },
-              "label": {
-                "type": "string"
-              }
-            },
-            "required": [
-              "value"
-            ],
-            "additionalProperties": false
-          }
-        },
-        "phones": {
-          "type": "array",
-          "items": {
-            "type": "object",
-            "properties": {
-              "value": {
-                "type": "string"
-              },
-              "primary": {
-                "type": "boolean"
-              },
-              "label": {
-                "type": "string"
-              }
-            },
-            "required": [
-              "value"
-            ],
-            "additionalProperties": false
-          }
-        },
-        "org_id": {
-          "type": "number"
-        },
-        "owner_id": {
-          "type": "number"
-        },
-        "add_time": {
-          "type": "string"
-        },
-        "update_time": {
-          "type": "string"
-        }
-      },
-      "required": [
-        "id",
-        "name",
-        "update_time"
       ],
       "additionalProperties": false
     },
@@ -120568,30 +122634,6 @@
       ],
       "additionalProperties": false
     },
-    "Record": {
-      "type": "object",
-      "properties": {
-        "id": {
-          "type": "string"
-        },
-        "raw": {
-          "type": "object",
-          "additionalProperties": {
-            "anyOf": [
-              {},
-              {
-                "not": {}
-              }
-            ]
-          }
-        }
-      },
-      "required": [
-        "id",
-        "raw"
-      ],
-      "additionalProperties": false
-    },
     "SyncMetadata_salesforce_recordsbysoql": {
       "type": "object",
       "properties": {
@@ -127648,40 +129690,6 @@
       "required": [
         "id",
         "text"
-      ],
-      "additionalProperties": false
-    },
-    "List": {
-      "type": "object",
-      "properties": {
-        "id": {
-          "type": "string"
-        },
-        "name": {
-          "type": "string"
-        },
-        "description": {
-          "type": "string"
-        },
-        "created_at": {
-          "type": "string"
-        },
-        "private": {
-          "type": "boolean"
-        },
-        "owner_id": {
-          "type": "string"
-        },
-        "follower_count": {
-          "type": "number"
-        },
-        "member_count": {
-          "type": "number"
-        }
-      },
-      "required": [
-        "id",
-        "name"
       ],
       "additionalProperties": false
     },
@@ -149293,48 +151301,6 @@
       "required": [
         "status",
         "data"
-      ],
-      "additionalProperties": false
-    },
-    "Meeting": {
-      "type": "object",
-      "properties": {
-        "id": {
-          "type": "string"
-        },
-        "topic": {
-          "type": "string"
-        },
-        "start_time": {
-          "type": "string"
-        },
-        "duration": {
-          "type": "number"
-        },
-        "timezone": {
-          "type": "string"
-        },
-        "created_at": {
-          "type": "string"
-        },
-        "join_url": {
-          "type": "string"
-        },
-        "type": {
-          "type": "number"
-        },
-        "uuid": {
-          "type": "string"
-        },
-        "host_id": {
-          "type": "string"
-        },
-        "status": {
-          "type": "string"
-        }
-      },
-      "required": [
-        "id"
       ],
       "additionalProperties": false
     },

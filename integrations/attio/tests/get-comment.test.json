@@ -1,0 +1,83 @@
+{
+  "input": {
+    "comment_id": "f7f2e5f7-7d7a-4e14-9be8-9bbd53807fe6"
+  },
+  "output": {
+    "id": {
+      "workspace_id": "edbb5cd2-e046-4b4f-bd62-eeefa0a76787",
+      "comment_id": "f7f2e5f7-7d7a-4e14-9be8-9bbd53807fe6"
+    },
+    "thread_id": "f7f2e5f7-7d7a-4e14-9be8-9bbd53807fe6",
+    "content_plaintext": "Test comment for get-comment action validation",
+    "entry": null,
+    "record": {
+      "record_id": "002e639b-bc09-4548-912c-084f0e61c817",
+      "object_id": "30ff61f7-6b37-414e-8d6f-fb42f963e996"
+    },
+    "resolved_by": null,
+    "created_at": "2026-05-15T21:51:52.318000000Z",
+    "author": {
+      "id": "641ecd33-0a48-4b7b-ba48-bbb7a649a8ee",
+      "type": "workspace-member"
+    }
+  },
+  "nango": {},
+  "api": {
+    "get": {
+      "/v2/comments/f7f2e5f7-7d7a-4e14-9be8-9bbd53807fe6": {
+        "response": {
+          "data": {
+            "id": {
+              "workspace_id": "edbb5cd2-e046-4b4f-bd62-eeefa0a76787",
+              "comment_id": "f7f2e5f7-7d7a-4e14-9be8-9bbd53807fe6"
+            },
+            "thread_id": "f7f2e5f7-7d7a-4e14-9be8-9bbd53807fe6",
+            "created_at": "2026-05-15T21:51:52.318000000Z",
+            "resolved_at": null,
+            "record": {
+              "record_id": "002e639b-bc09-4548-912c-084f0e61c817",
+              "object_id": "30ff61f7-6b37-414e-8d6f-fb42f963e996"
+            },
+            "entry": null,
+            "content_plaintext": "Test comment for get-comment action validation",
+            "resolved_by": null,
+            "author": {
+              "type": "workspace-member",
+              "id": "641ecd33-0a48-4b7b-ba48-bbb7a649a8ee"
+            }
+          }
+        },
+        "status": 200,
+        "headers": {
+          "date": "Fri, 15 May 2026 21:53:55 GMT",
+          "content-type": "application/json; charset=utf-8",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "DENY",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=7776000; includeSubDomains; preload",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "x-attio-client,x-attio-execution-id,x-attio-platform,x-attio-platform-version,x-attio-record-query-score,x-attio-app-installation-bundle-id,WWW-Authenticate",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4992",
+          "x-ratelimit-reset": "1778882077",
+          "x-attio-execution-id": "d59f156c-7a9c-4cf2-9484-10ddaea3c261",
+          "vary": "Origin",
+          "x-accurate-at": "2026-05-15T21:53:55.275925000Z",
+          "via": "1.1 google",
+          "alt-svc": "h3=\":443\"; ma=86400",
+          "cf-cache-status": "DYNAMIC",
+          "set-cookie": "_cfuvid=wbbYZwiu58UW4pt7BmZYhT0hhGAU_Bg7qxJHMhjclj4-1778882035.15056-1.0.1.1-kIy78bWGQ7WJC6eSe3BPqLW6qkCkWSxMrqCRH68ol5U; HttpOnly; SameSite=None; Secure; Path=/; Domain=attio.com",
+          "server": "cloudflare",
+          "cf-ray": "9fc560cfa9441ef3-PDX"
+        },
+        "hash": "493e2ee0311174b1c4887a135e2df122ea3b94ec",
+        "request": {}
+      }
+    }
+  }
+}

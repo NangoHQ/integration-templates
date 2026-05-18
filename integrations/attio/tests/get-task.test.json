@@ -1,0 +1,78 @@
+{
+  "input": {
+    "task_id": "a5adf04d-13a3-4457-957c-023ea6d148bb"
+  },
+  "output": {
+    "id": {
+      "workspace_id": "edbb5cd2-e046-4b4f-bd62-eeefa0a76787",
+      "task_id": "a5adf04d-13a3-4457-957c-023ea6d148bb"
+    },
+    "content_plaintext": "Seed task 2",
+    "deadline_at": null,
+    "is_completed": false,
+    "completed_at": null,
+    "linked_records": [],
+    "assignees": [],
+    "created_by_actor": {
+      "id": "0061e423-8347-4ba0-a23c-286fdbd54a8c",
+      "type": "app"
+    },
+    "created_at": "2026-05-15T21:08:12.937000000Z"
+  },
+  "nango": {},
+  "api": {
+    "get": {
+      "/v2/tasks/a5adf04d-13a3-4457-957c-023ea6d148bb": {
+        "response": {
+          "data": {
+            "id": {
+              "workspace_id": "edbb5cd2-e046-4b4f-bd62-eeefa0a76787",
+              "task_id": "a5adf04d-13a3-4457-957c-023ea6d148bb"
+            },
+            "content_plaintext": "Seed task 2",
+            "is_completed": false,
+            "completed_at": null,
+            "deadline_at": null,
+            "linked_records": [],
+            "assignees": [],
+            "created_by_actor": {
+              "type": "app",
+              "id": "0061e423-8347-4ba0-a23c-286fdbd54a8c"
+            },
+            "created_at": "2026-05-15T21:08:12.937000000Z"
+          }
+        },
+        "status": 200,
+        "headers": {
+          "date": "Fri, 15 May 2026 21:49:36 GMT",
+          "content-type": "application/json; charset=utf-8",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "DENY",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=7776000; includeSubDomains; preload",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "x-attio-client,x-attio-execution-id,x-attio-platform,x-attio-platform-version,x-attio-record-query-score,x-attio-app-installation-bundle-id,WWW-Authenticate",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4982",
+          "x-ratelimit-reset": "1778881830",
+          "x-attio-execution-id": "9ed87cb1-91c6-4bf5-94d8-7370085aabab",
+          "vary": "Origin",
+          "x-accurate-at": "2026-05-15T21:49:36.757383000Z",
+          "via": "1.1 google",
+          "alt-svc": "h3=\":443\"; ma=86400",
+          "cf-cache-status": "DYNAMIC",
+          "set-cookie": "_cfuvid=.cVsoqN7pENUqYzUbzn_O9XX57gdsMAWxBjXE_8BPbw-1778881776.6279855-1.0.1.1-_GW258DsYcYJvNIkTDTFoqCAbi37OH2MUspVYL3j9Rs; HttpOnly; SameSite=None; Secure; Path=/; Domain=attio.com",
+          "server": "cloudflare",
+          "cf-ray": "9fc55a7fea91121f-PDX"
+        },
+        "hash": "c8e11ffd8bdf011de7aca67c732eed609bb6dee7",
+        "request": {}
+      }
+    }
+  }
+}

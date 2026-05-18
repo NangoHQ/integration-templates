@@ -1,0 +1,213 @@
+{
+  "nango": {
+    "batchSave": {
+      "AttioObject": [
+        {
+          "id": "1401be2b-6fe1-4180-ad72-434006376a6b",
+          "workspace_id": "edbb5cd2-e046-4b4f-bd62-eeefa0a76787",
+          "api_slug": "workspaces",
+          "singular_noun": "Workspace",
+          "plural_noun": "Workspaces",
+          "created_at": "2026-05-15T20:39:08.686000000Z"
+        },
+        {
+          "id": "1ad0fea2-f088-44ed-9474-a3af15533d15",
+          "workspace_id": "edbb5cd2-e046-4b4f-bd62-eeefa0a76787",
+          "api_slug": "users",
+          "singular_noun": "User",
+          "plural_noun": "Users",
+          "created_at": "2026-05-15T20:39:08.686000000Z"
+        },
+        {
+          "id": "30ff61f7-6b37-414e-8d6f-fb42f963e996",
+          "workspace_id": "edbb5cd2-e046-4b4f-bd62-eeefa0a76787",
+          "api_slug": "people",
+          "singular_noun": "Person",
+          "plural_noun": "People",
+          "created_at": "2026-05-15T20:39:08.686000000Z"
+        },
+        {
+          "id": "73184cdd-52cf-4f22-8b4e-1218642273eb",
+          "workspace_id": "edbb5cd2-e046-4b4f-bd62-eeefa0a76787",
+          "api_slug": "test_object_1778881611",
+          "singular_noun": "Test Object",
+          "plural_noun": "Test Objects",
+          "created_at": "2026-05-15T21:46:56.868000000Z"
+        },
+        {
+          "id": "79c4369c-428c-450e-9ec2-bc937c4354bd",
+          "workspace_id": "edbb5cd2-e046-4b4f-bd62-eeefa0a76787",
+          "api_slug": "seed_object_2",
+          "singular_noun": "Seed Object Two",
+          "plural_noun": "Seed Objects Two",
+          "created_at": "2026-05-15T21:07:13.147000000Z"
+        },
+        {
+          "id": "a647c4ce-4aa6-4b9d-8c8b-bc010e055c1c",
+          "workspace_id": "edbb5cd2-e046-4b4f-bd62-eeefa0a76787",
+          "api_slug": "deals",
+          "singular_noun": "Deal",
+          "plural_noun": "Deals",
+          "created_at": "2026-05-15T20:39:08.686000000Z"
+        },
+        {
+          "id": "c546cfe1-54eb-4934-810c-def25cc6b305",
+          "workspace_id": "edbb5cd2-e046-4b4f-bd62-eeefa0a76787",
+          "api_slug": "seed_object_1",
+          "singular_noun": "Seed Object One",
+          "plural_noun": "Seed Objects One",
+          "created_at": "2026-05-15T21:07:09.403000000Z"
+        },
+        {
+          "id": "c9422fd9-e54f-493d-a67d-e57166191b05",
+          "workspace_id": "edbb5cd2-e046-4b4f-bd62-eeefa0a76787",
+          "api_slug": "companies",
+          "singular_noun": "Company",
+          "plural_noun": "Companies",
+          "created_at": "2026-05-15T20:39:08.686000000Z"
+        },
+        {
+          "id": "c9c43adb-d1ec-4a42-8d99-393671dd4cb9",
+          "workspace_id": "edbb5cd2-e046-4b4f-bd62-eeefa0a76787",
+          "api_slug": "test_object_1778881603",
+          "singular_noun": "Test Object",
+          "plural_noun": "Test Objects",
+          "created_at": "2026-05-15T21:46:48.717000000Z"
+        }
+      ]
+    },
+    "batchDelete": {
+      "AttioObject": []
+    }
+  },
+  "api": {
+    "get": {
+      "/v2/objects": {
+        "response": {
+          "data": [
+            {
+              "id": {
+                "workspace_id": "edbb5cd2-e046-4b4f-bd62-eeefa0a76787",
+                "object_id": "1401be2b-6fe1-4180-ad72-434006376a6b"
+              },
+              "api_slug": "workspaces",
+              "singular_noun": "Workspace",
+              "plural_noun": "Workspaces",
+              "created_at": "2026-05-15T20:39:08.686000000Z"
+            },
+            {
+              "id": {
+                "workspace_id": "edbb5cd2-e046-4b4f-bd62-eeefa0a76787",
+                "object_id": "1ad0fea2-f088-44ed-9474-a3af15533d15"
+              },
+              "api_slug": "users",
+              "singular_noun": "User",
+              "plural_noun": "Users",
+              "created_at": "2026-05-15T20:39:08.686000000Z"
+            },
+            {
+              "id": {
+                "workspace_id": "edbb5cd2-e046-4b4f-bd62-eeefa0a76787",
+                "object_id": "30ff61f7-6b37-414e-8d6f-fb42f963e996"
+              },
+              "api_slug": "people",
+              "singular_noun": "Person",
+              "plural_noun": "People",
+              "created_at": "2026-05-15T20:39:08.686000000Z"
+            },
+            {
+              "id": {
+                "workspace_id": "edbb5cd2-e046-4b4f-bd62-eeefa0a76787",
+                "object_id": "73184cdd-52cf-4f22-8b4e-1218642273eb"
+              },
+              "api_slug": "test_object_1778881611",
+              "singular_noun": "Test Object",
+              "plural_noun": "Test Objects",
+              "created_at": "2026-05-15T21:46:56.868000000Z"
+            },
+            {
+              "id": {
+                "workspace_id": "edbb5cd2-e046-4b4f-bd62-eeefa0a76787",
+                "object_id": "79c4369c-428c-450e-9ec2-bc937c4354bd"
+              },
+              "api_slug": "seed_object_2",
+              "singular_noun": "Seed Object Two",
+              "plural_noun": "Seed Objects Two",
+              "created_at": "2026-05-15T21:07:13.147000000Z"
+            },
+            {
+              "id": {
+                "workspace_id": "edbb5cd2-e046-4b4f-bd62-eeefa0a76787",
+                "object_id": "a647c4ce-4aa6-4b9d-8c8b-bc010e055c1c"
+              },
+              "api_slug": "deals",
+              "singular_noun": "Deal",
+              "plural_noun": "Deals",
+              "created_at": "2026-05-15T20:39:08.686000000Z"
+            },
+            {
+              "id": {
+                "workspace_id": "edbb5cd2-e046-4b4f-bd62-eeefa0a76787",
+                "object_id": "c546cfe1-54eb-4934-810c-def25cc6b305"
+              },
+              "api_slug": "seed_object_1",
+              "singular_noun": "Seed Object One",
+              "plural_noun": "Seed Objects One",
+              "created_at": "2026-05-15T21:07:09.403000000Z"
+            },
+            {
+              "id": {
+                "workspace_id": "edbb5cd2-e046-4b4f-bd62-eeefa0a76787",
+                "object_id": "c9422fd9-e54f-493d-a67d-e57166191b05"
+              },
+              "api_slug": "companies",
+              "singular_noun": "Company",
+              "plural_noun": "Companies",
+              "created_at": "2026-05-15T20:39:08.686000000Z"
+            },
+            {
+              "id": {
+                "workspace_id": "edbb5cd2-e046-4b4f-bd62-eeefa0a76787",
+                "object_id": "c9c43adb-d1ec-4a42-8d99-393671dd4cb9"
+              },
+              "api_slug": "test_object_1778881603",
+              "singular_noun": "Test Object",
+              "plural_noun": "Test Objects",
+              "created_at": "2026-05-15T21:46:48.717000000Z"
+            }
+          ]
+        },
+        "status": 200,
+        "headers": {
+          "date": "Fri, 15 May 2026 21:48:36 GMT",
+          "content-type": "application/json; charset=utf-8",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "DENY",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=7776000; includeSubDomains; preload",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "x-attio-client,x-attio-execution-id,x-attio-platform,x-attio-platform-version,x-attio-record-query-score,x-attio-app-installation-bundle-id,WWW-Authenticate",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4985",
+          "x-ratelimit-reset": "1778881770",
+          "x-attio-execution-id": "0a8c67e5-4649-4701-a5d5-82e5922d1c08",
+          "vary": "Origin",
+          "x-accurate-at": "2026-05-15T21:48:36.683137000Z",
+          "via": "1.1 google",
+          "alt-svc": "h3=\":443\"; ma=86400",
+          "cf-cache-status": "DYNAMIC",
+          "set-cookie": "_cfuvid=5NoL9BIGs.HeBUe3VgmRhG5NWHdjPhd5BAObIRMK60E-1778881716.5502088-1.0.1.1-DaMhkwVVgYtKKKuS8wIvsXUPPrkbAbEKArLmXFLOAlc; HttpOnly; SameSite=None; Secure; Path=/; Domain=attio.com",
+          "server": "cloudflare",
+          "cf-ray": "9fc55908691ad74d-PDX"
+        },
+        "hash": "038fd4b33cc4ecc65ec86cf92905885772a799bf",
+        "request": {}
+      }
+    }
+  }
+}

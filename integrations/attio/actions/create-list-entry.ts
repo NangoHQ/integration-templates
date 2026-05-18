@@ -1,70 +1,97 @@
-/**
- * Instructions: Adds a record as an entry to a list.
- * API: https://docs.attio.com/rest-api/endpoint-reference/list-entries/add-entry-to-list
- */
-
 import { z } from 'zod';
 import { createAction } from 'nango';
-import type { ProxyConfiguration } from 'nango';
 
-// Inline schema definitions
-const CreateListEntryInput = z.object({
-    list_id: z.string().describe('The list slug or UUID to add the entry to. Example: "my-sales-list"'),
-    record_id: z.string().describe('The record ID to add to the list. Example: "5829dd6c-0577-40dc-a858-8bd9a0d6aa58"')
+const InputSchema = z.object({
+    list: z.string().describe('A UUID or slug identifying the list. Example: "seed_list_1" or "39723680-f534-4fe7-ab80-c5278e20e37b"'),
+    parent_record_id: z.string().describe('A UUID identifying the record to add to the list. Example: "4c6ade84-19c7-4581-95aa-b1d5f4571c25"'),
+    parent_object: z
+        .string()
+        .describe('A UUID or slug identifying the object that the parent record belongs to. Example: "people" or "30ff61f7-6b37-414e-8d6f-fb42f963e996"'),
+    entry_values: z
+        .record(z.string(), z.unknown())
+        .describe('Map of attribute keys (api_slug or attribute_id) to values. For multi-select attributes, use an array of values.')
 });
 
-const EntryId = z.object({
+const ActorSchema = z.object({
+    id: z.string().nullable(),
+    type: z.enum(['api-token', 'workspace-member', 'system', 'app'])
+});
+
+const EntryValueSchema = z
+    .object({
+        active_from: z.string(),
+        active_until: z.string().nullable(),
+        created_by_actor: ActorSchema,
+        attribute_type: z.string()
+    })
+    .passthrough();
+
+const EntryIdSchema = z.object({
     workspace_id: z.string(),
     list_id: z.string(),
     entry_id: z.string()
 });
 
-const CreateListEntryOutput = z.object({
-    data: z.object({
-        id: EntryId,
-        record_id: z.string(),
-        created_at: z.string()
-    })
+const ProviderEntrySchema = z.object({
+    id: EntryIdSchema,
+    parent_record_id: z.string(),
+    parent_object: z.string(),
+    created_at: z.string(),
+    entry_values: z.record(z.string(), z.array(EntryValueSchema))
+});
+
+const ProviderResponseSchema = z.object({
+    data: ProviderEntrySchema
+});
+
+const OutputSchema = z.object({
+    id: z.object({
+        workspace_id: z.string(),
+        list_id: z.string(),
+        entry_id: z.string()
+    }),
+    parent_record_id: z.string(),
+    parent_object: z.string(),
+    created_at: z.string()
 });
 
 const action = createAction({
-    description: 'Adds a record as an entry to a list.',
-    version: '1.0.0',
-
+    description: 'Create a list entry in Attio by adding a record to a list',
+    version: '2.0.0',
     endpoint: {
         method: 'POST',
-        path: '/lists/:list_id/entries',
-        group: 'Lists'
+        path: '/actions/create-list-entry',
+        group: 'List Entries'
     },
+    input: InputSchema,
+    output: OutputSchema,
+    scopes: ['list_entry:read-write', 'list_configuration:read'],
 
-    input: CreateListEntryInput,
-    output: CreateListEntryOutput,
-    scopes: ['list_entry:read-write'],
-
-    exec: async (nango, input): Promise<z.infer<typeof CreateListEntryOutput>> => {
-        const config: ProxyConfiguration = {
-            // https://docs.attio.com/rest-api/endpoint-reference/list-entries/add-entry-to-list
-            endpoint: `v2/lists/${input.list_id}/entries`,
+    exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
+        // https://developers.attio.com/reference/post_v2-lists-list-entries
+        const response = await nango.post({
+            endpoint: `/v2/lists/${input.list}/entries`,
             data: {
                 data: {
-                    parent_record_id: input.record_id
+                    parent_record_id: input.parent_record_id,
+                    parent_object: input.parent_object,
+                    entry_values: input.entry_values
                 }
             },
             retries: 3
-        };
+        });
 
-        const response = await nango.post(config);
+        const providerResponse = ProviderResponseSchema.parse(response.data);
 
         return {
-            data: {
-                id: {
-                    workspace_id: response.data.data.id.workspace_id,
-                    list_id: response.data.data.id.list_id,
-                    entry_id: response.data.data.id.entry_id
-                },
-                record_id: response.data.data.parent_record_id,
-                created_at: response.data.data.created_at
-            }
+            id: {
+                workspace_id: providerResponse.data.id.workspace_id,
+                list_id: providerResponse.data.id.list_id,
+                entry_id: providerResponse.data.id.entry_id
+            },
+            parent_record_id: providerResponse.data.parent_record_id,
+            parent_object: providerResponse.data.parent_object,
+            created_at: providerResponse.data.created_at
         };
     }
 });

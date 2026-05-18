@@ -1,0 +1,94 @@
+{
+  "input": {
+    "name": "Test List",
+    "api_slug": "test_list_1778881639",
+    "parent_object": "people",
+    "workspace_access": "full-access",
+    "workspace_member_access": []
+  },
+  "output": {
+    "id": {
+      "workspace_id": "edbb5cd2-e046-4b4f-bd62-eeefa0a76787",
+      "list_id": "d4187d1d-7eac-43c5-9882-21eb779b78c2"
+    },
+    "api_slug": "test_list_1778881639",
+    "name": "Test List",
+    "parent_object": [
+      "people"
+    ],
+    "workspace_member_access": [],
+    "workspace_access": "full-access",
+    "created_by_actor": {
+      "id": "0061e423-8347-4ba0-a23c-286fdbd54a8c",
+      "type": "app"
+    },
+    "created_at": "2026-05-15T21:47:24.940000000Z"
+  },
+  "nango": {},
+  "api": {
+    "post": {
+      "/v2/lists": {
+        "response": {
+          "data": {
+            "id": {
+              "workspace_id": "edbb5cd2-e046-4b4f-bd62-eeefa0a76787",
+              "list_id": "d4187d1d-7eac-43c5-9882-21eb779b78c2"
+            },
+            "api_slug": "test_list_1778881639",
+            "created_at": "2026-05-15T21:47:24.940000000Z",
+            "name": "Test List",
+            "workspace_access": "full-access",
+            "workspace_member_access": [],
+            "parent_object": [
+              "people"
+            ],
+            "created_by_actor": {
+              "type": "app",
+              "id": "0061e423-8347-4ba0-a23c-286fdbd54a8c"
+            }
+          }
+        },
+        "status": 200,
+        "headers": {
+          "date": "Fri, 15 May 2026 21:47:25 GMT",
+          "content-type": "application/json; charset=utf-8",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "DENY",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=7776000; includeSubDomains; preload",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "x-attio-client,x-attio-execution-id,x-attio-platform,x-attio-platform-version,x-attio-record-query-score,x-attio-app-installation-bundle-id,WWW-Authenticate",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4845",
+          "x-ratelimit-reset": "1778881648",
+          "x-attio-execution-id": "44d77e54-9f52-4b70-8ae5-829942d8abfa",
+          "vary": "Origin",
+          "x-accurate-at": "2026-05-15T21:47:25.129661000Z",
+          "via": "1.1 google",
+          "alt-svc": "h3=\":443\"; ma=86400",
+          "cf-cache-status": "DYNAMIC",
+          "set-cookie": "_cfuvid=1dCtOGt7WQTY9SkbbaJyMh_mkWw1fm9JYQN670STOUQ-1778881644.73564-1.0.1.1-UgS.vBqE90svX0yGmZFiVlcsG48XMZpvLQG8x01Ba0g; HttpOnly; SameSite=None; Secure; Path=/; Domain=attio.com",
+          "server": "cloudflare",
+          "cf-ray": "9fc5574799e81ef3-PDX"
+        },
+        "hash": "d23d80f5c5da141a20b79540162de04d9728ed50",
+        "request": {
+          "data": {
+            "data": {
+              "name": "Test List",
+              "api_slug": "test_list_1778881639",
+              "parent_object": "people",
+              "workspace_access": "full-access",
+              "workspace_member_access": []
+            }
+          }
+        }
+      }
+    }
+  }
+}

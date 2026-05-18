@@ -1,46 +1,37 @@
-/**
- * Instructions: Deletes a note.
- * API: https://docs.attio.com/rest-api/endpoint-reference/notes/delete-a-note
- */
-
 import { z } from 'zod';
 import { createAction } from 'nango';
-import type { ProxyConfiguration } from 'nango';
 
-// Inline schema definitions
-const DeleteNoteInput = z.object({
-    note_id: z.string().describe('The note ID to delete. Example: "abc123-def456"')
+const InputSchema = z.object({
+    note_id: z.string().uuid().describe('The ID of the note to delete. Example: "d1b66c4d-13f5-4489-8ce5-b4afd63dce36"')
 });
 
-const DeleteNoteOutput = z.object({
-    success: z.boolean().describe('Whether the deletion was successful')
+const OutputSchema = z.object({
+    note_id: z.string(),
+    deleted: z.boolean()
 });
 
 const action = createAction({
-    description: 'Deletes a note.',
-    version: '1.0.0',
-
+    description: 'Delete or archive a note in Attio.',
+    version: '2.0.0',
     endpoint: {
-        method: 'DELETE',
-        path: '/notes/:note_id',
+        method: 'POST',
+        path: '/actions/delete-note',
         group: 'Notes'
     },
-
-    input: DeleteNoteInput,
-    output: DeleteNoteOutput,
+    input: InputSchema,
+    output: OutputSchema,
     scopes: ['note:read-write'],
 
-    exec: async (nango, input): Promise<z.infer<typeof DeleteNoteOutput>> => {
-        const config: ProxyConfiguration = {
-            // https://docs.attio.com/rest-api/endpoint-reference/notes/delete-a-note
-            endpoint: `v2/notes/${input.note_id}`,
+    exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
+        // https://docs.attio.com/rest-api/endpoint-reference/notes/delete-a-note
+        await nango.delete({
+            endpoint: `/v2/notes/${input.note_id}`,
             retries: 3
-        };
-
-        await nango.delete(config);
+        });
 
         return {
-            success: true
+            note_id: input.note_id,
+            deleted: true
         };
     }
 });

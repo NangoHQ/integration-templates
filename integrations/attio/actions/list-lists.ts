@@ -1,64 +1,84 @@
-/**
- * Instructions: Lists all lists in the workspace.
- * API: https://docs.attio.com/rest-api/endpoint-reference/lists/list-all-lists
- */
-
 import { z } from 'zod';
-import { createAction } from 'nango';
-import type { ProxyConfiguration } from 'nango';
+import { createAction, ProxyConfiguration } from 'nango';
 
-// Inline schema definitions
-const ListListsInput = z.object({});
+const InputSchema = z.object({});
 
-const ListId = z.object({
+const ListIdSchema = z.object({
     workspace_id: z.string(),
     list_id: z.string()
 });
 
-const AttioList = z.object({
-    id: ListId,
-    api_slug: z.string().describe('Unique slug for the list. Example: "my-sales-list"'),
-    name: z.string().describe('Display name of the list. Example: "My Sales List"'),
-    parent_object: z.array(z.string()).describe('Object types this list is for. Example: ["people"]'),
-    created_at: z.string().describe('When the list was created')
+const WorkspaceMemberAccessSchema = z.object({
+    workspace_member_id: z.string(),
+    level: z.enum(['full-access', 'read-and-write', 'read-only'])
 });
 
-const ListListsOutput = z.object({
-    data: z.array(AttioList).describe('Array of list objects')
+const CreatedByActorSchema = z.object({
+    id: z.string().nullable(),
+    type: z.enum(['api-token', 'workspace-member', 'system', 'app']).nullable()
+});
+
+const ProviderListSchema = z.object({
+    id: ListIdSchema,
+    api_slug: z.string(),
+    name: z.string(),
+    parent_object: z.array(z.string()),
+    workspace_access: z.enum(['full-access', 'read-and-write', 'read-only']).nullable(),
+    workspace_member_access: z.array(WorkspaceMemberAccessSchema),
+    created_by_actor: CreatedByActorSchema,
+    created_at: z.string()
+});
+
+const OutputListSchema = z.object({
+    id: ListIdSchema,
+    api_slug: z.string(),
+    name: z.string(),
+    parent_object: z.array(z.string()),
+    workspace_access: z.enum(['full-access', 'read-and-write', 'read-only']).nullable().optional(),
+    workspace_member_access: z.array(WorkspaceMemberAccessSchema),
+    created_by_actor: CreatedByActorSchema,
+    created_at: z.string()
+});
+
+const OutputSchema = z.object({
+    items: z.array(OutputListSchema)
 });
 
 const action = createAction({
-    description: 'Lists all lists in the workspace.',
-    version: '1.0.0',
-
+    description: 'List lists from Attio.',
+    version: '2.0.0',
     endpoint: {
         method: 'GET',
-        path: '/lists',
+        path: '/actions/list-lists',
         group: 'Lists'
     },
-
-    input: ListListsInput,
-    output: ListListsOutput,
+    input: InputSchema,
+    output: OutputSchema,
     scopes: ['list_configuration:read'],
 
-    exec: async (nango, _input): Promise<z.infer<typeof ListListsOutput>> => {
+    exec: async (nango, _input): Promise<z.infer<typeof OutputSchema>> => {
         const config: ProxyConfiguration = {
-            // https://docs.attio.com/rest-api/endpoint-reference/lists/list-all-lists
-            endpoint: 'v2/lists',
+            // https://docs.attio.com/rest-api/endpoint-reference/lists
+            endpoint: '/v2/lists',
             retries: 3
         };
-
         const response = await nango.get(config);
 
+        const providerResponse = z
+            .object({
+                data: z.array(ProviderListSchema)
+            })
+            .parse(response.data);
+
         return {
-            data: response.data.data.map((list: any) => ({
-                id: {
-                    workspace_id: list.id.workspace_id,
-                    list_id: list.id.list_id
-                },
+            items: providerResponse.data.map((list) => ({
+                id: list.id,
                 api_slug: list.api_slug,
                 name: list.name,
                 parent_object: list.parent_object,
+                ...(list.workspace_access !== null && { workspace_access: list.workspace_access }),
+                workspace_member_access: list.workspace_member_access,
+                created_by_actor: list.created_by_actor,
                 created_at: list.created_at
             }))
         };

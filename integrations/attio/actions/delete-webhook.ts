@@ -1,47 +1,37 @@
 import { z } from 'zod';
 import { createAction } from 'nango';
-import type { ProxyConfiguration } from 'nango';
 
-/**
- * Deletes a webhook from the Attio workspace.
- * API Docs: https://docs.attio.com/rest-api/endpoint-reference/webhooks/delete-a-webhook
- */
-
-// Input schema
-const DeleteWebhookInput = z.object({
-    webhook_id: z.string()
+const InputSchema = z.object({
+    webhook_id: z.string().describe('The unique identifier of the webhook to delete. Example: "45662666-3a96-4189-9ddb-6d6fe20bd076"')
 });
 
-// Output schema - empty object on success
-const DeleteWebhookOutput = z.object({
-    success: z.boolean()
+const OutputSchema = z.object({
+    webhook_id: z.string().describe('The ID of the deleted webhook'),
+    deleted: z.boolean().describe('Whether the webhook was successfully deleted')
 });
 
 const action = createAction({
-    description: 'Deletes a webhook from the Attio workspace',
-    version: '1.0.0',
-
+    description: 'Delete or archive a webhook in Attio',
+    version: '2.0.0',
     endpoint: {
-        method: 'DELETE',
-        path: '/webhooks/{webhook_id}',
+        method: 'POST',
+        path: '/actions/delete-webhook',
         group: 'Webhooks'
     },
-
-    input: DeleteWebhookInput,
-    output: DeleteWebhookOutput,
+    input: InputSchema,
+    output: OutputSchema,
     scopes: ['webhook:read-write'],
 
-    exec: async (nango, input): Promise<z.infer<typeof DeleteWebhookOutput>> => {
-        const config: ProxyConfiguration = {
-            // https://docs.attio.com/rest-api/endpoint-reference/webhooks/delete-a-webhook
-            endpoint: `v2/webhooks/${input.webhook_id}`,
+    exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
+        // https://docs.attio.com/reference/delete_webhooks_webhook_id
+        await nango.delete({
+            endpoint: `/v2/webhooks/${input.webhook_id}`,
             retries: 3
-        };
-
-        await nango.delete(config);
+        });
 
         return {
-            success: true
+            webhook_id: input.webhook_id,
+            deleted: true
         };
     }
 });

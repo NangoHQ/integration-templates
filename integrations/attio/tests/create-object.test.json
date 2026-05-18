@@ -1,0 +1,72 @@
+{
+  "input": {
+    "api_slug": "test_object_1778881611",
+    "singular_noun": "Test Object",
+    "plural_noun": "Test Objects"
+  },
+  "output": {
+    "id": "73184cdd-52cf-4f22-8b4e-1218642273eb",
+    "workspace_id": "edbb5cd2-e046-4b4f-bd62-eeefa0a76787",
+    "api_slug": "test_object_1778881611",
+    "singular_noun": "Test Object",
+    "plural_noun": "Test Objects",
+    "created_at": "2026-05-15T21:46:56.868000000Z"
+  },
+  "nango": {},
+  "api": {
+    "post": {
+      "/v2/objects": {
+        "response": {
+          "data": {
+            "id": {
+              "workspace_id": "edbb5cd2-e046-4b4f-bd62-eeefa0a76787",
+              "object_id": "73184cdd-52cf-4f22-8b4e-1218642273eb"
+            },
+            "api_slug": "test_object_1778881611",
+            "singular_noun": "Test Object",
+            "plural_noun": "Test Objects",
+            "created_at": "2026-05-15T21:46:56.868000000Z"
+          }
+        },
+        "status": 200,
+        "headers": {
+          "date": "Fri, 15 May 2026 21:46:57 GMT",
+          "content-type": "application/json; charset=utf-8",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "DENY",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=7776000; includeSubDomains; preload",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "x-attio-client,x-attio-execution-id,x-attio-platform,x-attio-platform-version,x-attio-record-query-score,x-attio-app-installation-bundle-id,WWW-Authenticate",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4928",
+          "x-ratelimit-reset": "1778881648",
+          "x-attio-execution-id": "a95bc70e-ed14-4cca-9b57-e553bb57b0d0",
+          "vary": "Origin",
+          "x-accurate-at": "2026-05-15T21:46:57.104588000Z",
+          "via": "1.1 google",
+          "alt-svc": "h3=\":443\"; ma=86400",
+          "cf-cache-status": "DYNAMIC",
+          "set-cookie": "_cfuvid=AKxqq.k9i0P7ul9SL6O5rMurNFOFtZlDviHvnBW4His-1778881616.571616-1.0.1.1-6RLzMAqbkJVffqyKwdPNPrWvR0GnSye77IueWyNDNxQ; HttpOnly; SameSite=None; Secure; Path=/; Domain=attio.com",
+          "server": "cloudflare",
+          "cf-ray": "9fc5569799cf3016-PDX"
+        },
+        "hash": "2be0c6e69b0fdec5f16bb8407a79acd8381f5ab1",
+        "request": {
+          "data": {
+            "data": {
+              "api_slug": "test_object_1778881611",
+              "singular_noun": "Test Object",
+              "plural_noun": "Test Objects"
+            }
+          }
+        }
+      }
+    }
+  }
+}

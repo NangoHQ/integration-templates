@@ -1,0 +1,117 @@
+{
+  "input": {
+    "content": "Test task created by Nango",
+    "linked_records": [
+      {
+        "target_object": "people",
+        "target_record_id": "4c6ade84-19c7-4581-95aa-b1d5f4571c25"
+      }
+    ],
+    "assignees": [
+      {
+        "referenced_actor_type": "workspace-member",
+        "referenced_actor_id": "641ecd33-0a48-4b7b-ba48-bbb7a649a8ee"
+      }
+    ]
+  },
+  "output": {
+    "workspace_id": "edbb5cd2-e046-4b4f-bd62-eeefa0a76787",
+    "task_id": "2bdab1da-3ec7-41b4-bd9d-8a9b2d0d7cec",
+    "content_plaintext": "Test task created by Nango",
+    "is_completed": false,
+    "linked_records": [],
+    "assignees": [
+      {
+        "referenced_actor_type": "workspace-member",
+        "referenced_actor_id": "641ecd33-0a48-4b7b-ba48-bbb7a649a8ee"
+      }
+    ],
+    "created_by_actor": {
+      "id": "0061e423-8347-4ba0-a23c-286fdbd54a8c",
+      "type": "app"
+    },
+    "created_at": "2026-05-15T21:49:00.561000000Z"
+  },
+  "nango": {},
+  "api": {
+    "post": {
+      "/v2/tasks": {
+        "response": {
+          "data": {
+            "id": {
+              "workspace_id": "edbb5cd2-e046-4b4f-bd62-eeefa0a76787",
+              "task_id": "2bdab1da-3ec7-41b4-bd9d-8a9b2d0d7cec"
+            },
+            "content_plaintext": "Test task created by Nango",
+            "is_completed": false,
+            "completed_at": null,
+            "deadline_at": null,
+            "linked_records": [],
+            "assignees": [
+              {
+                "referenced_actor_type": "workspace-member",
+                "referenced_actor_id": "641ecd33-0a48-4b7b-ba48-bbb7a649a8ee"
+              }
+            ],
+            "created_by_actor": {
+              "type": "app",
+              "id": "0061e423-8347-4ba0-a23c-286fdbd54a8c"
+            },
+            "created_at": "2026-05-15T21:49:00.561000000Z"
+          }
+        },
+        "status": 200,
+        "headers": {
+          "date": "Fri, 15 May 2026 21:49:00 GMT",
+          "content-type": "application/json; charset=utf-8",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "DENY",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=7776000; includeSubDomains; preload",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "x-attio-client,x-attio-execution-id,x-attio-platform,x-attio-platform-version,x-attio-record-query-score,x-attio-app-installation-bundle-id,WWW-Authenticate",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4939",
+          "x-ratelimit-reset": "1778881770",
+          "x-attio-execution-id": "5162d012-0afd-4a45-8bcb-e29e61bf3e93",
+          "vary": "Origin",
+          "x-accurate-at": "2026-05-15T21:49:00.696476000Z",
+          "via": "1.1 google",
+          "alt-svc": "h3=\":443\"; ma=86400",
+          "cf-cache-status": "DYNAMIC",
+          "set-cookie": "_cfuvid=s3ardZJTikJzCrtQoNIgdrGBSu_LWXj484mNB6TCxXA-1778881740.2957227-1.0.1.1-c4gIBTiwmuvATeZp_G.wZ1kv3pbkpaBkabh2kkA3zjY; HttpOnly; SameSite=None; Secure; Path=/; Domain=attio.com",
+          "server": "cloudflare",
+          "cf-ray": "9fc5599cdef63016-PDX"
+        },
+        "hash": "2762bf701d7378190488937df8d1210d0f82e6e1",
+        "request": {
+          "data": {
+            "data": {
+              "content": "Test task created by Nango",
+              "format": "plaintext",
+              "deadline_at": null,
+              "is_completed": false,
+              "linked_records": [
+                {
+                  "target_object": "people",
+                  "target_record_id": "4c6ade84-19c7-4581-95aa-b1d5f4571c25"
+                }
+              ],
+              "assignees": [
+                {
+                  "referenced_actor_type": "workspace-member",
+                  "referenced_actor_id": "641ecd33-0a48-4b7b-ba48-bbb7a649a8ee"
+                }
+              ]
+            }
+          }
+        }
+      }
+    }
+  }
+}
