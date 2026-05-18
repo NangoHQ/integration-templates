@@ -6,7 +6,12 @@
   "output": {
     "id": 1,
     "name": "Test Organization Updated",
+    "owner_id": 25760681,
+    "visible_to": 3,
     "label_ids": [],
+    "address": {
+      "value": "123 Main St, San Francisco, CA 94105"
+    },
     "add_time": "2026-05-15 09:54:05",
     "update_time": "2026-05-15 10:36:22"
   },

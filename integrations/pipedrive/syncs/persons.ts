@@ -2,10 +2,11 @@ import { createSync } from 'nango';
 import { z } from 'zod';
 
 // https://developers.pipedrive.com/docs/api/v1/Persons
+// The v1 API returns email/phone (singular) as arrays, and org_id/owner_id as objects with a .value property
 const ProviderPersonSchema = z.object({
     id: z.number(),
     name: z.string(),
-    emails: z
+    email: z
         .array(
             z.object({
                 value: z.string(),
@@ -14,7 +15,7 @@ const ProviderPersonSchema = z.object({
             })
         )
         .optional(),
-    phones: z
+    phone: z
         .array(
             z.object({
                 value: z.string(),
@@ -23,8 +24,14 @@ const ProviderPersonSchema = z.object({
             })
         )
         .optional(),
-    org_id: z.number().nullable().optional(),
-    owner_id: z.number().optional(),
+    org_id: z
+        .union([z.number(), z.object({ value: z.number(), name: z.string().optional() }).catchall(z.unknown())])
+        .nullable()
+        .optional(),
+    owner_id: z
+        .union([z.number(), z.object({ value: z.number(), name: z.string().optional() }).catchall(z.unknown())])
+        .nullable()
+        .optional(),
     add_time: z.string().optional(),
     update_time: z.string()
 });
@@ -102,16 +109,20 @@ const sync = createSync({
                 continue;
             }
 
-            const persons = providerPersons.map((person) => ({
-                id: String(person.id),
-                name: person.name,
-                ...(person.emails && { emails: person.emails }),
-                ...(person.phones && { phones: person.phones }),
-                ...(person.org_id != null && { org_id: person.org_id }),
-                ...(person.owner_id != null && { owner_id: person.owner_id }),
-                ...(person.add_time != null && { add_time: person.add_time }),
-                update_time: person.update_time
-            }));
+            const persons = providerPersons.map((person) => {
+                const orgId = typeof person.org_id === 'object' && person.org_id !== null ? person.org_id.value : person.org_id;
+                const ownerId = typeof person.owner_id === 'object' && person.owner_id !== null ? person.owner_id.value : person.owner_id;
+                return {
+                    id: String(person.id),
+                    name: person.name,
+                    ...(person.email && { emails: person.email }),
+                    ...(person.phone && { phones: person.phone }),
+                    ...(orgId != null && { org_id: orgId }),
+                    ...(ownerId != null && { owner_id: ownerId }),
+                    ...(person.add_time != null && { add_time: person.add_time }),
+                    update_time: person.update_time
+                };
+            });
 
             await nango.batchSave(persons, 'Person');
 

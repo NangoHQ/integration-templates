@@ -96502,10 +96502,10 @@
         "active_flag": {
           "type": "boolean"
         },
-        "rotten_flag": {
+        "is_deal_rot_enabled": {
           "type": "boolean"
         },
-        "rotten_days": {
+        "days_to_rotten": {
           "type": "number"
         },
         "add_time": {

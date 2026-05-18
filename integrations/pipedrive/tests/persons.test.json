@@ -1,7 +1,152 @@
 {
   "nango": {
     "batchSave": {
-      "Person": []
+      "Person": [
+        {
+          "id": "2",
+          "name": "Jane Smith",
+          "emails": [
+            {
+              "label": "work",
+              "value": "jane.smith@acme.com",
+              "primary": true
+            }
+          ],
+          "phones": [
+            {
+              "label": "work",
+              "value": "+14155551234",
+              "primary": true
+            }
+          ],
+          "org_id": 2,
+          "owner_id": 25760681,
+          "add_time": "2026-05-15 09:58:20",
+          "update_time": "2026-05-15 10:11:04"
+        },
+        {
+          "id": "3",
+          "name": "Test Person",
+          "emails": [
+            {
+              "label": "work",
+              "value": "test@example.com",
+              "primary": true
+            }
+          ],
+          "phones": [
+            {
+              "value": "",
+              "primary": true
+            }
+          ],
+          "owner_id": 25760681,
+          "add_time": "2026-05-15 10:11:48",
+          "update_time": "2026-05-15 10:11:48"
+        },
+        {
+          "id": "4",
+          "name": "Test Person",
+          "emails": [
+            {
+              "label": "work",
+              "value": "test@example.com",
+              "primary": true
+            }
+          ],
+          "phones": [
+            {
+              "value": "",
+              "primary": true
+            }
+          ],
+          "owner_id": 25760681,
+          "add_time": "2026-05-15 10:14:24",
+          "update_time": "2026-05-15 10:14:24"
+        },
+        {
+          "id": "5",
+          "name": "Test Person",
+          "emails": [
+            {
+              "label": "work",
+              "value": "test@example.com",
+              "primary": true
+            }
+          ],
+          "phones": [
+            {
+              "value": "",
+              "primary": true
+            }
+          ],
+          "owner_id": 25760681,
+          "add_time": "2026-05-15 10:14:47",
+          "update_time": "2026-05-15 10:14:48"
+        },
+        {
+          "id": "1",
+          "name": "Jane Smith Updated via Direct API",
+          "emails": [
+            {
+              "label": "work",
+              "value": "jane.smith@acme.com",
+              "primary": true
+            }
+          ],
+          "phones": [
+            {
+              "label": "work",
+              "value": "+14155551234",
+              "primary": true
+            }
+          ],
+          "org_id": 1,
+          "owner_id": 25760681,
+          "add_time": "2026-05-15 09:54:31",
+          "update_time": "2026-05-15 10:16:44"
+        },
+        {
+          "id": "6",
+          "name": "Test Person",
+          "emails": [
+            {
+              "label": "work",
+              "value": "test@example.com",
+              "primary": true
+            }
+          ],
+          "phones": [
+            {
+              "value": "",
+              "primary": true
+            }
+          ],
+          "owner_id": 25760681,
+          "add_time": "2026-05-15 10:17:08",
+          "update_time": "2026-05-15 10:17:08"
+        },
+        {
+          "id": "7",
+          "name": "Test Person",
+          "emails": [
+            {
+              "label": "work",
+              "value": "test@example.com",
+              "primary": true
+            }
+          ],
+          "phones": [
+            {
+              "value": "",
+              "primary": true
+            }
+          ],
+          "owner_id": 25760681,
+          "add_time": "2026-05-15 10:17:30",
+          "update_time": "2026-05-15 10:17:31"
+        }
+      ]
     },
     "batchDelete": {
       "Person": []

@@ -68,25 +68,28 @@ const sync = createSync({
         };
 
         for await (const page of nango.paginate(proxyConfig)) {
-            const providerNotes = z.array(ProviderNoteSchema).safeParse(page);
+            const notes: Note[] = [];
 
-            if (!providerNotes.success) {
-                continue;
+            for (const item of page) {
+                const parsed = ProviderNoteSchema.safeParse(item);
+                if (!parsed.success) {
+                    continue;
+                }
+                const record = parsed.data;
+                notes.push({
+                    id: String(record.id),
+                    ...(record.content !== undefined && { content: record.content }),
+                    ...(record.add_time !== undefined && { add_time: record.add_time }),
+                    ...(record.update_time !== undefined && { update_time: record.update_time }),
+                    ...(record.user_id !== undefined && { user_id: record.user_id }),
+                    ...(record.deal_id !== undefined && { deal_id: record.deal_id }),
+                    ...(record.person_id !== undefined && { person_id: record.person_id }),
+                    ...(record.org_id !== undefined && { org_id: record.org_id }),
+                    ...(record.lead_id !== undefined && { lead_id: record.lead_id }),
+                    ...(record.project_id !== undefined && { project_id: record.project_id }),
+                    ...(record.task_id !== undefined && { task_id: record.task_id })
+                });
             }
-
-            const notes: Note[] = providerNotes.data.map((record) => ({
-                id: String(record.id),
-                ...(record.content !== undefined && { content: record.content }),
-                ...(record.add_time !== undefined && { add_time: record.add_time }),
-                ...(record.update_time !== undefined && { update_time: record.update_time }),
-                ...(record.user_id !== undefined && { user_id: record.user_id }),
-                ...(record.deal_id !== undefined && { deal_id: record.deal_id }),
-                ...(record.person_id !== undefined && { person_id: record.person_id }),
-                ...(record.org_id !== undefined && { org_id: record.org_id }),
-                ...(record.lead_id !== undefined && { lead_id: record.lead_id }),
-                ...(record.project_id !== undefined && { project_id: record.project_id }),
-                ...(record.task_id !== undefined && { task_id: record.task_id })
-            }));
 
             if (notes.length === 0) {
                 continue;

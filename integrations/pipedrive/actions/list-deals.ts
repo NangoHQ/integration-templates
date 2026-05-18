@@ -44,7 +44,7 @@ const action = createAction({
         let start: number | undefined;
         if (input.cursor !== undefined) {
             const parsed = parseInt(input.cursor, 10);
-            if (Number.isNaN(parsed) || parsed < 0) {
+            if (Number.isNaN(parsed) || parsed < 0 || String(parsed) !== input.cursor.trim()) {
                 throw new nango.ActionError({
                     type: 'invalid_cursor',
                     message: 'cursor must be a non-negative integer string'

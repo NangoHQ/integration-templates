@@ -16,23 +16,19 @@ const LocationSchema = z
     })
     .optional();
 
-const ParticipantSchema = z
-    .object({
-        person_id: z.number().describe('The ID of the person'),
-        primary: z.boolean().optional().describe('Whether the person is the primary participant or not')
-    })
-    .optional();
+const ParticipantSchema = z.object({
+    person_id: z.number().describe('The ID of the person'),
+    primary: z.boolean().optional().describe('Whether the person is the primary participant or not')
+});
 
-const AttendeeSchema = z
-    .object({
-        email: z.string().describe('The email address of the attendee'),
-        name: z.string().optional().describe('The name of the attendee'),
-        status: z.string().optional().describe('The status of the attendee'),
-        is_organizer: z.boolean().optional().describe('Whether the attendee is the organizer or not'),
-        person_id: z.number().optional().describe('The ID of the person if the attendee has a person record'),
-        user_id: z.number().optional().describe('The ID of the user if the attendee is a user')
-    })
-    .optional();
+const AttendeeSchema = z.object({
+    email: z.string().describe('The email address of the attendee'),
+    name: z.string().optional().describe('The name of the attendee'),
+    status: z.string().optional().describe('The status of the attendee'),
+    is_organizer: z.boolean().optional().describe('Whether the attendee is the organizer or not'),
+    person_id: z.number().optional().describe('The ID of the person if the attendee has a person record'),
+    user_id: z.number().optional().describe('The ID of the user if the attendee is a user')
+});
 
 const InputSchema = z.object({
     subject: z.string().describe('The subject of the activity. Example: "Discuss revenue with John"'),
@@ -137,7 +133,7 @@ const action = createAction({
         };
 
         if (input.owner_id !== undefined) {
-            requestBody['owner_id'] = input.owner_id;
+            requestBody['user_id'] = input.owner_id;
         }
         if (input.deal_id !== undefined) {
             requestBody['deal_id'] = input.deal_id;

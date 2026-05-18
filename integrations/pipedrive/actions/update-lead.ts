@@ -29,6 +29,7 @@ const ValueSchema = z
         amount: z.number(),
         currency: z.string()
     })
+    .nullable()
     .optional();
 
 const ProviderLeadSchema = z
@@ -151,7 +152,7 @@ const action = createAction({
             ...(providerLead.person_id != null && { person_id: providerLead.person_id }),
             ...(providerLead.organization_id != null && { organization_id: providerLead.organization_id }),
             ...(providerLead.is_archived !== undefined && { is_archived: providerLead.is_archived }),
-            ...(providerLead.value !== undefined && { value: providerLead.value }),
+            ...(providerLead.value != null && { value: providerLead.value }),
             ...(providerLead.expected_close_date != null && { expected_close_date: providerLead.expected_close_date }),
             ...(providerLead.visible_to !== undefined && { visible_to: providerLead.visible_to }),
             ...(providerLead.was_seen !== undefined && { was_seen: providerLead.was_seen }),

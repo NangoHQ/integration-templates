@@ -95,7 +95,7 @@ const sync = createSync<{ Activity: typeof ActivitySchema }, undefined, typeof C
         } = {
             type: 'cursor',
             cursor_name_in_request: 'cursor',
-            cursor_path_in_response: 'additional_data.pagination.next_cursor',
+            cursor_path_in_response: 'additional_data.next_cursor',
             response_path: 'data',
             limit_name_in_request: 'limit',
             limit: 100

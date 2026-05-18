@@ -99,8 +99,15 @@ const action = createAction({
             retries: 3
         });
 
-        const organizations = response.data?.data || [];
-        const nextCursor = response.data?.additional_data?.next_cursor;
+        if (!response.data?.success) {
+            throw new nango.ActionError({
+                type: 'api_error',
+                message: 'Pipedrive API returned an unsuccessful response'
+            });
+        }
+
+        const organizations = response.data.data || [];
+        const nextCursor = response.data.additional_data?.next_cursor;
 
         return {
             organizations,

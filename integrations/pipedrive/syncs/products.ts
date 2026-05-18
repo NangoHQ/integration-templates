@@ -55,16 +55,11 @@ const ProductSchema = z.object({
         .optional()
 });
 
-const CheckpointSchema = z.object({
-    start: z.number()
-});
-
 const sync = createSync({
     description: 'Sync products from Pipedrive.',
     version: '1.0.0',
     frequency: 'every hour',
     autoStart: true,
-    checkpoint: CheckpointSchema,
     models: {
         Product: ProductSchema
     },
@@ -77,13 +72,7 @@ const sync = createSync({
     ],
 
     exec: async (nango) => {
-        const checkpoint = await nango.getCheckpoint();
-        const offsetStartValue = checkpoint?.start ?? 0;
-        let nextStart: number | undefined;
-
-        // Blocker: Pipedrive v1 /products does not expose an updated-since
-        // filter, so this remains a checkpointed full refresh.
-
+        // Delete tracking requires full enumeration — always start from offset 0
         await nango.trackDeletesStart('Product');
 
         const proxyConfig: ProxyConfiguration = {
@@ -96,14 +85,11 @@ const sync = createSync({
             paginate: {
                 type: 'offset',
                 offset_name_in_request: 'start',
-                offset_start_value: offsetStartValue,
+                offset_start_value: 0,
                 offset_calculation_method: 'per-page',
                 limit_name_in_request: 'limit',
                 limit: 100,
-                response_path: 'data',
-                on_page: async ({ nextPageParam }) => {
-                    nextStart = typeof nextPageParam === 'number' ? nextPageParam : undefined;
-                }
+                response_path: 'data'
             },
             retries: 3
         };
@@ -147,13 +133,8 @@ const sync = createSync({
             if (products.length > 0) {
                 await nango.batchSave(products, 'Product');
             }
-
-            if (nextStart !== undefined) {
-                await nango.saveCheckpoint({ start: nextStart });
-            }
         }
 
-        await nango.clearCheckpoint();
         await nango.trackDeletesEnd('Product');
     }
 });

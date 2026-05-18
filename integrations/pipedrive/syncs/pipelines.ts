@@ -9,10 +9,6 @@ const PipelineSchema = z.object({
     is_deal_probability_enabled: z.boolean().optional()
 });
 
-const CheckpointSchema = z.object({
-    cursor: z.string()
-});
-
 const ProviderPipelineSchema = z.object({
     id: z.number(),
     name: z.string().optional(),
@@ -34,17 +30,12 @@ const sync = createSync({
             method: 'POST'
         }
     ],
-    checkpoint: CheckpointSchema,
     models: {
         Pipeline: PipelineSchema
     },
 
     exec: async (nango) => {
-        const checkpoint = await nango.getCheckpoint();
-        let cursor = checkpoint?.cursor;
-
-        // Blocker: the pipelines list endpoint only exposes cursor pagination,
-        // not an updated-since filter, so this remains a full refresh.
+        // Delete tracking requires full enumeration — never resume from a saved cursor
         await nango.trackDeletesStart('Pipeline');
 
         const proxyConfig: ProxyConfiguration = {
@@ -53,8 +44,7 @@ const sync = createSync({
             params: {
                 sort_by: 'update_time',
                 sort_direction: 'asc',
-                limit: 500,
-                ...(cursor ? { cursor } : {})
+                limit: 500
             },
             paginate: {
                 type: 'cursor',
@@ -62,10 +52,7 @@ const sync = createSync({
                 cursor_path_in_response: 'additional_data.next_cursor',
                 response_path: 'data',
                 limit_name_in_request: 'limit',
-                limit: 500,
-                on_page: async ({ nextPageParam }) => {
-                    cursor = typeof nextPageParam === 'string' ? nextPageParam : undefined;
-                }
+                limit: 500
             },
             retries: 3
         };
@@ -94,13 +81,8 @@ const sync = createSync({
             if (pipelines.length > 0) {
                 await nango.batchSave(pipelines, 'Pipeline');
             }
-
-            if (cursor) {
-                await nango.saveCheckpoint({ cursor });
-            }
         }
 
-        await nango.clearCheckpoint();
         await nango.trackDeletesEnd('Pipeline');
     }
 });

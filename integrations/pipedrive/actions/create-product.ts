@@ -9,7 +9,7 @@ const PriceSchema = z.object({
 });
 
 const InputSchema = z.object({
-    name: z.string().describe('The name of the product. Cannot be an empty string.'),
+    name: z.string().min(1).describe('The name of the product. Cannot be an empty string.'),
     code: z.string().optional().describe('The product code.'),
     description: z.string().optional().describe('The product description.'),
     unit: z.string().optional().describe('The unit in which this product is sold.'),

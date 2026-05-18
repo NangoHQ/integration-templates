@@ -67,7 +67,7 @@ const action = createAction({
             retries: 3
         });
 
-        if (!response.data) {
+        if (!response.data || !response.data.data) {
             throw new nango.ActionError({
                 type: 'creation_failed',
                 message: 'Failed to create stage',

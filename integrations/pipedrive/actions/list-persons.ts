@@ -60,8 +60,8 @@ const OrgObjectSchema = z.object({
 const ProviderPersonSchema = z.object({
     id: z.number(),
     name: z.string().optional().nullable(),
-    emails: z.array(PersonEmailSchema).optional().nullable(),
-    phones: z.array(PersonPhoneSchema).optional().nullable(),
+    email: z.array(PersonEmailSchema).optional().nullable(),
+    phone: z.array(PersonPhoneSchema).optional().nullable(),
     org_id: z.union([z.number(), OrgObjectSchema]).optional().nullable(),
     owner_id: z.union([z.number(), OwnerObjectSchema]).optional().nullable(),
     add_time: z.string().optional().nullable(),
@@ -194,11 +194,11 @@ const action = createAction({
             if (person.name != null) {
                 mappedPerson.name = person.name;
             }
-            if (person.emails != null) {
-                mappedPerson.emails = person.emails;
+            if (person.email != null) {
+                mappedPerson.emails = person.email;
             }
-            if (person.phones != null) {
-                mappedPerson.phones = person.phones;
+            if (person.phone != null) {
+                mappedPerson.phones = person.phone;
             }
             if (person.org_id != null) {
                 if (typeof person.org_id === 'number') {

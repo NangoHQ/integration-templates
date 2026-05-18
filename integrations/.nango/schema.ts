@@ -31528,8 +31528,8 @@ export interface ActionOutput_pipedrive_updatestage {
   order_nr: number;
   deal_probability?: number | undefined;
   active_flag?: boolean | undefined;
-  rotten_flag?: boolean | undefined;
-  rotten_days?: number | undefined;
+  is_deal_rot_enabled?: boolean | undefined;
+  days_to_rotten?: number | undefined;
   add_time?: string | undefined;
   update_time?: string | undefined;
   pipeline_name?: string | undefined;

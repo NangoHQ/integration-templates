@@ -13,27 +13,18 @@ const StageSchema = z.object({
     update_time: z.string().optional()
 });
 
-const CheckpointSchema = z.object({
-    cursor: z.string()
-});
-
 const sync = createSync({
     description: 'Sync stages from Pipedrive',
     version: '1.0.0',
     frequency: 'every hour',
     autoStart: true,
-    checkpoint: CheckpointSchema,
     models: {
         Stage: StageSchema
     },
     endpoints: [{ path: '/syncs/stages', method: 'POST' }],
 
     exec: async (nango) => {
-        const checkpoint = await nango.getCheckpoint();
-        let cursor = checkpoint?.cursor;
-
-        // Blocker: The /stages endpoint only exposes cursor pagination,
-        // so this remains a checkpointed full refresh.
+        // Delete tracking requires full enumeration — never resume from a saved cursor
         await nango.trackDeletesStart('Stage');
 
         const proxyConfig: ProxyConfiguration = {
@@ -42,8 +33,7 @@ const sync = createSync({
             params: {
                 sort_by: 'update_time',
                 sort_direction: 'asc',
-                limit: 500,
-                ...(cursor ? { cursor } : {})
+                limit: 500
             },
             paginate: {
                 type: 'cursor',
@@ -51,10 +41,7 @@ const sync = createSync({
                 cursor_path_in_response: 'additional_data.next_cursor',
                 response_path: 'data',
                 limit_name_in_request: 'limit',
-                limit: 500,
-                on_page: async ({ nextPageParam }) => {
-                    cursor = typeof nextPageParam === 'string' ? nextPageParam : undefined;
-                }
+                limit: 500
             },
             retries: 3
         };
@@ -85,13 +72,8 @@ const sync = createSync({
             if (normalizedStages.length > 0) {
                 await nango.batchSave(normalizedStages, 'Stage');
             }
-
-            if (cursor) {
-                await nango.saveCheckpoint({ cursor });
-            }
         }
 
-        await nango.clearCheckpoint();
         await nango.trackDeletesEnd('Stage');
     }
 });

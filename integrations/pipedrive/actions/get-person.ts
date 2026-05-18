@@ -90,7 +90,7 @@ const action = createAction({
             retries: 3
         });
 
-        if (!response.data) {
+        if (!response.data || !response.data.data) {
             throw new nango.ActionError({
                 type: 'not_found',
                 message: `Person with ID ${input.person_id} not found`,

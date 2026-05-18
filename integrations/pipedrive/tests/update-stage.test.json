@@ -9,6 +9,7 @@
     "pipeline_id": 1,
     "order_nr": 0,
     "deal_probability": 100,
+    "is_deal_rot_enabled": false,
     "add_time": "2026-05-15T09:12:16Z",
     "update_time": "2026-05-15T10:13:37Z"
   },

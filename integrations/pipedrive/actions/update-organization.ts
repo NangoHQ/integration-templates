@@ -60,16 +60,28 @@ const OutputSchema = z.object({
     update_time: z.string().optional()
 });
 
-// Helper function to safely extract number from unknown
+// Helper function to safely extract number from unknown (handles number, string, or {id: number} object)
 function extractNumber(value: unknown): number | undefined {
     if (typeof value === 'number') {
         return value;
     }
+    if (typeof value === 'string') {
+        const n = parseInt(value, 10);
+        return isNaN(n) ? undefined : n;
+    }
+    const parsed = z.object({ id: z.number() }).safeParse(value);
+    if (parsed.success) {
+        return parsed.data.id;
+    }
     return undefined;
 }
 
-// Helper function to safely extract address from unknown
+// Helper function to safely extract address from unknown (handles object or plain string)
 function extractAddress(value: unknown): z.infer<typeof AddressOutputSchema> | undefined {
+    if (typeof value === 'string') {
+        return value ? { value } : undefined;
+    }
+
     const AddressInputSchema = z.object({
         value: z.string().optional(),
         country: z.string().optional(),
