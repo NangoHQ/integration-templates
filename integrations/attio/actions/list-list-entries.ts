@@ -1,37 +1,46 @@
 import { z } from 'zod';
 import { createAction } from 'nango';
 
-const InputSchema = z.object({
-    list: z.string().describe('A UUID or slug to identify the list to retrieve entries from. Example: "33ebdbe9-e529-47c9-b894-0ba25e9c15c0"'),
-    filter: z
-        .record(z.string(), z.unknown())
-        .optional()
-        .describe('An object used to filter results to a subset of results. Cannot be used together with filter_view_id.'),
-    filter_view_id: z
-        .string()
-        .optional()
-        .describe(
-            "UUID of a saved view on this list. When set, results are filtered using that view's filter configuration. Cannot be used together with filter."
-        ),
-    sorts: z
-        .array(
-            z.union([
-                z.object({
-                    direction: z.enum(['asc', 'desc']),
-                    attribute: z.string(),
-                    field: z.string().optional()
-                }),
-                z.object({
-                    direction: z.enum(['asc', 'desc']),
-                    path: z.array(z.array(z.string())),
-                    field: z.string().optional()
-                })
-            ])
-        )
-        .optional(),
-    limit: z.number().optional().describe('The maximum number of results to return. Defaults to 500.'),
-    cursor: z.string().optional().describe('Pagination cursor from the previous response. Omit for the first page.')
-});
+const InputSchema = z
+    .object({
+        list: z.string().describe('A UUID or slug to identify the list to retrieve entries from. Example: "33ebdbe9-e529-47c9-b894-0ba25e9c15c0"'),
+        filter: z
+            .record(z.string(), z.unknown())
+            .optional()
+            .describe('An object used to filter results to a subset of results. Cannot be used together with filter_view_id.'),
+        filter_view_id: z
+            .string()
+            .optional()
+            .describe(
+                "UUID of a saved view on this list. When set, results are filtered using that view's filter configuration. Cannot be used together with filter."
+            ),
+        sorts: z
+            .array(
+                z.union([
+                    z.object({
+                        direction: z.enum(['asc', 'desc']),
+                        attribute: z.string(),
+                        field: z.string().optional()
+                    }),
+                    z.object({
+                        direction: z.enum(['asc', 'desc']),
+                        path: z.array(z.array(z.string())),
+                        field: z.string().optional()
+                    })
+                ])
+            )
+            .optional(),
+        limit: z.number().optional().describe('The maximum number of results to return. Defaults to 500.'),
+        cursor: z.string().optional().describe('Pagination cursor from the previous response. Omit for the first page.')
+    })
+    .superRefine((data, ctx) => {
+        if (data.filter !== undefined && data.filter_view_id !== undefined) {
+            ctx.addIssue({
+                code: 'custom',
+                message: 'filter and filter_view_id are mutually exclusive and cannot both be provided.'
+            });
+        }
+    });
 
 const ProviderEntrySchema = z.object({
     id: z.object({
@@ -80,7 +89,7 @@ const action = createAction({
 
     exec: async (nango, input) => {
         const offset = input.cursor ? parseInt(input.cursor, 10) : 0;
-        if (Number.isNaN(offset)) {
+        if (input.cursor && !/^\d+$/.test(input.cursor)) {
             throw new nango.ActionError({
                 type: 'invalid_input',
                 message: 'cursor must be a valid integer string'

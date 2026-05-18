@@ -4,6 +4,7 @@ import { createAction } from 'nango';
 const InputSchema = z.object({
     api_slug: z
         .string()
+        .min(1)
         .describe('A unique, human-readable slug to access the object through URLs and API calls. Should be formatted in snake case. Example: "people"'),
     singular_noun: z.string().min(1).describe('The singular form of the object\'s name. Example: "Person"'),
     plural_noun: z.string().min(1).describe('The plural form of the object\'s name. Example: "People"')

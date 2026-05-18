@@ -1,15 +1,29 @@
 import { z } from 'zod';
 import { createAction } from 'nango';
 
-const InputSchema = z.object({
-    limit: z.number().optional().describe('The maximum number of results to return. Defaults to 500.'),
-    offset: z.number().optional().describe('The number of results to skip over before returning. Defaults to 0.'),
-    sort: z.enum(['created_at:asc', 'created_at:desc', 'completed_at:asc', 'completed_at:desc']).optional().describe('Optionally sort the results.'),
-    linked_object: z.string().optional().describe('Filter tasks by the object slug of linked records (e.g. people). Must be provided with linked_record_id.'),
-    linked_record_id: z.string().optional().describe('Filter tasks by the record ID of linked records. Must be provided with linked_object.'),
-    assignee: z.string().optional().describe('Filter tasks by workspace member assignee (email or ID). Pass null for unassigned tasks.'),
-    is_completed: z.boolean().optional().describe('Filter tasks by completion status.')
-});
+const InputSchema = z
+    .object({
+        limit: z.number().optional().describe('The maximum number of results to return. Defaults to 500.'),
+        offset: z.number().optional().describe('The number of results to skip over before returning. Defaults to 0.'),
+        sort: z.enum(['created_at:asc', 'created_at:desc', 'completed_at:asc', 'completed_at:desc']).optional().describe('Optionally sort the results.'),
+        linked_object: z
+            .string()
+            .optional()
+            .describe('Filter tasks by the object slug of linked records (e.g. people). Must be provided with linked_record_id.'),
+        linked_record_id: z.string().optional().describe('Filter tasks by the record ID of linked records. Must be provided with linked_object.'),
+        assignee: z.string().nullable().optional().describe('Filter tasks by workspace member assignee (email or ID). Pass null for unassigned tasks.'),
+        is_completed: z.boolean().optional().describe('Filter tasks by completion status.')
+    })
+    .superRefine((data, ctx) => {
+        const hasLinkedObject = data.linked_object !== undefined;
+        const hasLinkedRecordId = data.linked_record_id !== undefined;
+        if (hasLinkedObject !== hasLinkedRecordId) {
+            ctx.addIssue({
+                code: 'custom',
+                message: 'linked_object and linked_record_id must both be provided together or both omitted.'
+            });
+        }
+    });
 
 const TaskIdSchema = z.object({
     workspace_id: z.string(),
@@ -78,7 +92,7 @@ const action = createAction({
             params['linked_record_id'] = input.linked_record_id;
         }
         if (input.assignee !== undefined) {
-            params['assignee'] = input.assignee;
+            params['assignee'] = input.assignee === null ? 'null' : input.assignee;
         }
         if (input.is_completed !== undefined) {
             params['is_completed'] = input.is_completed.toString();

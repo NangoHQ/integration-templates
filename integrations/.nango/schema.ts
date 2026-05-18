@@ -4401,7 +4401,7 @@ export interface ActionOutput_attio_getwebhook {
   operator: 'equals' | 'not_equals';
   value: string;})[];} | {  "$and": ({  field: string;
   operator: 'equals' | 'not_equals';
-  value: string;})[];} | null;})[];
+  value: string;})[];};})[];
   status: 'active' | 'degraded' | 'inactive';
   created_at: string;
 };
@@ -4825,7 +4825,7 @@ export interface ActionInput_attio_updatewebhook {
   operator: 'equals' | 'not_equals';
   value: string;})[];} | {  "$and": ({  field: string;
   operator: 'equals' | 'not_equals';
-  value: string;})[];} | null;})[] | undefined;
+  value: string;})[];};})[] | undefined;
 };
 
 export interface ActionOutput_attio_updatewebhook {
@@ -4837,7 +4837,7 @@ export interface ActionOutput_attio_updatewebhook {
   operator: 'equals' | 'not_equals';
   value: string;})[];} | {  "$and": ({  field: string;
   operator: 'equals' | 'not_equals';
-  value: string;})[];} | null;})[];
+  value: string;})[];};})[];
   status: 'active' | 'degraded' | 'inactive';
   created_at: string;
 };

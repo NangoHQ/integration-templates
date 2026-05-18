@@ -11,15 +11,16 @@ const FilterConditionSchema = z.object({
     value: z.string()
 });
 
-const FilterSchema = z.union([
-    z.object({
-        $or: z.array(FilterConditionSchema)
-    }),
-    z.object({
-        $and: z.array(FilterConditionSchema)
-    }),
-    z.null()
-]);
+const FilterSchema = z
+    .union([
+        z.object({
+            $or: z.array(FilterConditionSchema)
+        }),
+        z.object({
+            $and: z.array(FilterConditionSchema)
+        })
+    ])
+    .nullable();
 
 const SubscriptionSchema = z.object({
     event_type: z.string(),
@@ -52,11 +53,12 @@ const OutputSchema = z.object({
     subscriptions: z.array(
         z.object({
             event_type: z.string(),
-            filter: z.union([
-                z.object({ $or: z.array(z.object({ field: z.string(), operator: z.enum(['equals', 'not_equals']), value: z.string() })) }),
-                z.object({ $and: z.array(z.object({ field: z.string(), operator: z.enum(['equals', 'not_equals']), value: z.string() })) }),
-                z.null()
-            ])
+            filter: z
+                .union([
+                    z.object({ $or: z.array(z.object({ field: z.string(), operator: z.enum(['equals', 'not_equals']), value: z.string() })) }),
+                    z.object({ $and: z.array(z.object({ field: z.string(), operator: z.enum(['equals', 'not_equals']), value: z.string() })) })
+                ])
+                .nullable()
         })
     ),
     status: z.enum(['active', 'degraded', 'inactive']),

@@ -15782,9 +15782,6 @@
                       "$and"
                     ],
                     "additionalProperties": false
-                  },
-                  {
-                    "type": "null"
                   }
                 ]
               }
@@ -17363,9 +17360,6 @@
                       "$and"
                     ],
                     "additionalProperties": false
-                  },
-                  {
-                    "type": "null"
                   }
                 ]
               }
@@ -17477,9 +17471,6 @@
                       "$and"
                     ],
                     "additionalProperties": false
-                  },
-                  {
-                    "type": "null"
                   }
                 ]
               }

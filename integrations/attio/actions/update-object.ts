@@ -1,12 +1,21 @@
 import { z } from 'zod';
 import { createAction } from 'nango';
 
-const InputSchema = z.object({
-    object: z.string().describe('A UUID or slug to identify the object. Example: "people"'),
-    api_slug: z.string().optional().describe('A unique, human-readable slug to access the object through URLs and API calls. Formatted in snake case.'),
-    singular_noun: z.string().optional().describe("The singular form of the object's name."),
-    plural_noun: z.string().optional().describe("The plural form of the object's name.")
-});
+const InputSchema = z
+    .object({
+        object: z.string().describe('A UUID or slug to identify the object. Example: "people"'),
+        api_slug: z.string().optional().describe('A unique, human-readable slug to access the object through URLs and API calls. Formatted in snake case.'),
+        singular_noun: z.string().optional().describe("The singular form of the object's name."),
+        plural_noun: z.string().optional().describe("The plural form of the object's name.")
+    })
+    .superRefine((data, ctx) => {
+        if (data.api_slug === undefined && data.singular_noun === undefined && data.plural_noun === undefined) {
+            ctx.addIssue({
+                code: 'custom',
+                message: 'At least one of api_slug, singular_noun, or plural_noun must be provided.'
+            });
+        }
+    });
 
 const ObjectIdSchema = z.object({
     workspace_id: z.string(),

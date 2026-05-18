@@ -65,7 +65,7 @@ const action = createAction({
         const limit = input.limit ?? 10;
         const offset = input.cursor ? parseInt(input.cursor, 10) : 0;
 
-        if (Number.isNaN(offset)) {
+        if (input.cursor && !/^\d+$/.test(input.cursor)) {
             throw new nango.ActionError({
                 type: 'invalid_cursor',
                 message: 'cursor must be a valid integer string.'

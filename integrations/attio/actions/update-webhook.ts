@@ -7,15 +7,16 @@ const SubscriptionFilterConditionSchema = z.object({
     value: z.string()
 });
 
-const SubscriptionFilterSchema = z.union([
-    z.object({
-        $or: z.array(SubscriptionFilterConditionSchema)
-    }),
-    z.object({
-        $and: z.array(SubscriptionFilterConditionSchema)
-    }),
-    z.null()
-]);
+const SubscriptionFilterSchema = z
+    .union([
+        z.object({
+            $or: z.array(SubscriptionFilterConditionSchema)
+        }),
+        z.object({
+            $and: z.array(SubscriptionFilterConditionSchema)
+        })
+    ])
+    .nullable();
 
 const SubscriptionSchema = z.object({
     event_type: z.string(),
