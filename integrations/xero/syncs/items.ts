@@ -39,7 +39,8 @@ const XeroConnectionsResponseSchema = z.array(
 type NangoSyncLocal = Parameters<ReturnType<typeof createSync>['exec']>[0];
 
 function parseXeroDate(value: string): Date | null {
-    const match = value.match(/^\/Date\((\d+)(?:[+-]\d{4})?\)\/$/);
+    // Allow negative timestamps for pre-1970 Xero dates (see general-ledger.ts parseDate).
+    const match = value.match(/^\/Date\((-?\d+)(?:[+-]\d{4})?\)\/$/);
     if (match && match[1]) {
         return new Date(parseInt(match[1], 10));
     }
@@ -114,7 +115,7 @@ function mapXeroItem(xeroItem: z.infer<typeof XeroItemSchema>): z.infer<typeof I
 
 const sync = createSync({
     description: 'Sync inventory and catalog items from Xero.',
-    version: '3.0.0',
+    version: '3.1.0',
     frequency: 'every hour',
     autoStart: true,
     checkpoint: CheckpointSchema,

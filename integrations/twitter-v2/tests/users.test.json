@@ -1,0 +1,95 @@
+{
+  "nango": {
+    "batchSave": {
+      "User": [
+        {
+          "id": "1000000000000000001",
+          "name": "Test User",
+          "username": "testuser",
+          "created_at": "2020-01-01T00:00:00.000Z",
+          "description": "",
+          "profile_image_url": "https://pbs.twimg.com/profile_images/placeholder/photo_normal.png",
+          "protected": false,
+          "public_metrics": {
+            "followers_count": 0,
+            "following_count": 6,
+            "tweet_count": 6,
+            "listed_count": 0,
+            "like_count": 9
+          },
+          "verified": false,
+          "verified_type": "none",
+          "subscription_type": "None"
+        }
+      ]
+    },
+    "batchDelete": {
+      "User": []
+    }
+  },
+  "api": {
+    "get": {
+      "/2/users/me": {
+        "response": {
+          "data": {
+            "verified_type": "none",
+            "profile_image_url": "https://pbs.twimg.com/profile_images/placeholder/photo_normal.png",
+            "protected": false,
+            "verified": false,
+            "username": "testuser",
+            "name": "Test User",
+            "public_metrics": {
+              "followers_count": 0,
+              "following_count": 6,
+              "tweet_count": 6,
+              "listed_count": 0,
+              "like_count": 9,
+              "media_count": 0
+            },
+            "description": "",
+            "created_at": "2020-01-01T00:00:00.000Z",
+            "id": "1000000000000000001",
+            "subscription_type": "None"
+          }
+        },
+        "status": 200,
+        "headers": {
+          "date": "Thu, 14 May 2026 19:36:58 GMT",
+          "content-type": "application/json; charset=utf-8",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=631138519; includeSubdomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4992",
+          "x-ratelimit-reset": "1778787467",
+          "perf": "7402827104",
+          "server": "cloudflare envoy",
+          "api-version": "2.163",
+          "cache-control": "no-cache, no-store, max-age=0",
+          "x-access-level": "read-write",
+          "x-rate-limit-limit": "75",
+          "x-rate-limit-reset": "1778788310",
+          "content-disposition": "attachment; filename=json.json",
+          "x-rate-limit-remaining": "73",
+          "x-response-time": "44",
+          "vary": "accept-encoding",
+          "cf-cache-status": "DYNAMIC"
+        },
+        "hash": "f972ae1d7152ab411dc20d2c42a0f741f99670f0",
+        "request": {
+          "params": {
+            "user.fields": "created_at,description,location,profile_image_url,protected,public_metrics,url,verified,verified_type,subscription_type"
+          }
+        }
+      }
+    }
+  }
+}

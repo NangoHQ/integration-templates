@@ -1,16 +1,56 @@
 import { createSync } from 'nango';
-import type { BoxEntryItem, BoxFile } from '../types.js';
+import { z } from 'zod';
 
-import type { ProxyConfiguration } from 'nango';
-import { BoxDocument, BoxMetadata } from '../models.js';
+const BoxDocumentSchema = z.object({
+    id: z.string(),
+    name: z.string(),
+    download_url: z.string().optional(),
+    modified_at: z.string()
+});
 
-const sync = createSync({
-    description: 'Sync the metadata of a specified files or folders paths from Box. A file or folder id or path can be used.',
-    version: '2.0.0',
+type BoxDocument = z.infer<typeof BoxDocumentSchema>;
+
+const MetadataSchema = z.object({
+    files: z.array(z.string()),
+    folders: z.array(z.string())
+});
+
+const ModelsSchema = {
+    BoxDocument: BoxDocumentSchema
+};
+
+const EntryItemSchema = z.object({
+    id: z.string(),
+    type: z.string(),
+    name: z.string(),
+    modified_at: z.string().optional(),
+    shared_link: z
+        .object({
+            download_url: z.string().optional()
+        })
+        .optional()
+        .nullable()
+});
+
+type EntryItem = z.infer<typeof EntryItemSchema>;
+
+const FileMetadataSchema = z.object({
+    id: z.string(),
+    name: z.string(),
+    modified_at: z.string(),
+    shared_link: z
+        .object({
+            download_url: z.string().optional()
+        })
+        .optional()
+        .nullable()
+});
+
+const sync = createSync<typeof ModelsSchema, typeof MetadataSchema>({
+    description: 'Sync the metadata of specified files or folder paths from Box. A file or folder ID can be provided.',
+    version: '3.0.0',
     frequency: 'every day',
     autoStart: false,
-    syncType: 'full',
-
     endpoints: [
         {
             method: 'GET',
@@ -18,12 +58,8 @@ const sync = createSync({
             group: 'Files'
         }
     ],
-
-    models: {
-        BoxDocument: BoxDocument
-    },
-
-    metadata: BoxMetadata,
+    models: ModelsSchema,
+    metadata: MetadataSchema,
 
     exec: async (nango) => {
         const metadata = await nango.getMetadata();
@@ -35,18 +71,20 @@ const sync = createSync({
             throw new Error('Metadata for files or folders is required.');
         }
 
+        await nango.trackDeletesStart('BoxDocument');
+
         for (const folder of folders) {
             await fetchFolder(nango, folder);
         }
 
         let batch: BoxDocument[] = [];
-        for (const file of files) {
-            const metadata = await getFileMetadata(nango, file);
+        for (const fileId of files) {
+            const fileData = await getFileMetadata(nango, fileId);
             batch.push({
-                id: metadata.id,
-                name: metadata.name,
-                modified_at: metadata.modified_at,
-                download_url: metadata.shared_link?.download_url
+                id: fileData.id,
+                name: fileData.name,
+                modified_at: fileData.modified_at,
+                ...(fileData.shared_link?.download_url && { download_url: fileData.shared_link.download_url })
             });
             if (batch.length >= batchSize) {
                 await nango.batchSave(batch, 'BoxDocument');
@@ -57,7 +95,7 @@ const sync = createSync({
             await nango.batchSave(batch, 'BoxDocument');
         }
 
-        await nango.deleteRecordsFromPreviousExecutions('BoxDocument');
+        await nango.trackDeletesEnd('BoxDocument');
     }
 });
 
@@ -65,11 +103,13 @@ export type NangoSyncLocal = Parameters<(typeof sync)['exec']>[0];
 export default sync;
 
 async function fetchFolder(nango: NangoSyncLocal, folderId: string) {
-    const proxy: ProxyConfiguration = {
+    let batch: BoxDocument[] = [];
+    const batchSize = 100;
+
+    for await (const items of nango.paginate<EntryItem>({
         // https://developer.box.com/reference/get-folders-id-items/
         endpoint: `/2.0/folders/${folderId}/items`,
         params: {
-            userMarker: 'true',
             fields: 'id,name,modified_at,shared_link'
         },
         paginate: {
@@ -81,11 +121,7 @@ async function fetchFolder(nango: NangoSyncLocal, folderId: string) {
             limit: 100
         },
         retries: 10
-    };
-    let batch: BoxDocument[] = [];
-    const batchSize = 100;
-
-    for await (const items of nango.paginate<BoxEntryItem>(proxy)) {
+    })) {
         for (const item of items) {
             if (item.type === 'folder') {
                 await fetchFolder(nango, item.id);
@@ -96,15 +132,13 @@ async function fetchFolder(nango: NangoSyncLocal, folderId: string) {
                     continue;
                 }
 
-                await nango.log(`Processing file ${item.id}`, { level: 'debug' });
                 batch.push({
                     id: item.id,
                     name: item.name,
-                    modified_at: item.modified_at,
-                    download_url: item.shared_link?.download_url
+                    modified_at: item.modified_at ?? '',
+                    ...(item.shared_link?.download_url && { download_url: item.shared_link.download_url })
                 });
                 if (batch.length >= batchSize) {
-                    await nango.log(`Saving ${batch.length} files`, { level: 'debug' });
                     await nango.batchSave(batch, 'BoxDocument');
                     batch = [];
                 }
@@ -113,20 +147,18 @@ async function fetchFolder(nango: NangoSyncLocal, folderId: string) {
     }
 
     if (batch.length > 0) {
-        await nango.log(`Saving ${batch.length} files`, { level: 'debug' });
         await nango.batchSave(batch, 'BoxDocument');
     }
 }
 
 async function getFileMetadata(nango: NangoSyncLocal, fileId: string) {
-    const proxy: ProxyConfiguration = {
+    const response = await nango.get({
         // https://developer.box.com/reference/get-files-id/
         endpoint: `/2.0/files/${fileId}`,
         params: {
             fields: 'id,name,modified_at,shared_link'
         },
         retries: 10
-    };
-    const response = await nango.get<BoxFile>(proxy);
-    return response.data;
+    });
+    return FileMetadataSchema.parse(response.data);
 }

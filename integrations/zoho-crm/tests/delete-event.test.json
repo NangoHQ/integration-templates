@@ -1,0 +1,63 @@
+{
+  "input": {
+    "record_id": "7328395000000696007"
+  },
+  "output": {
+    "id": "7328395000000696007",
+    "success": true,
+    "message": "record deleted"
+  },
+  "nango": {},
+  "api": {
+    "delete": {
+      "/crm/v2/Events/7328395000000696007": {
+        "response": {
+          "data": [
+            {
+              "code": "SUCCESS",
+              "details": {
+                "id": "7328395000000696007"
+              },
+              "message": "record deleted",
+              "status": "success"
+            }
+          ]
+        },
+        "status": 200,
+        "headers": {
+          "date": "Thu, 14 May 2026 09:54:08 GMT",
+          "content-type": "application/json;charset=UTF-8",
+          "content-length": "114",
+          "connection": "keep-alive",
+          "x-xss-protection": "0; mode=block",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=64072000; includeSubDomains; preload",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4867",
+          "x-ratelimit-reset": "1778752467",
+          "server": "ZGS",
+          "referrer-policy": "strict-origin",
+          "content-security-policy": "default-src 'none';frame-ancestors 'self'; report-uri https://logsapi.zoho.com/csplog?service=crm",
+          "set-cookie": "crmcsr=4f16f12e-699d-4670-9593-32b310996e27;path=/;SameSite=None;Secure;priority=high, _zcsr_tmp=4f16f12e-699d-4670-9593-32b310996e27;path=/;SameSite=Strict;Secure;priority=high",
+          "cache-control": "no-store, no-cache, must-revalidate, private",
+          "pragma": "no-cache",
+          "expires": "Thu, 01 Jan 1970 00:00:00 GMT",
+          "clientversion": "13385089",
+          "clientsubversion": "7432b849c14b9f458689de05f79d175e",
+          "x-accesstoken-reset": "2026-05-14T13:35:29+03:00",
+          "content-disposition": "attachment; filename=response.json",
+          "server-timing": "cpuTime;desc=\"CPU Time\";dur=47, totalTime;desc=\"Total Execution Time\";dur=74,murphySpanId;desc=\"\";dur=0",
+          "content-language": "en-US"
+        },
+        "hash": "f1fab15ef348d4a7d5f08bbfe53e988ded4eebdd",
+        "request": {}
+      }
+    }
+  }
+}

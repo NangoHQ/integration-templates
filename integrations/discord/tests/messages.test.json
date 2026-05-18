@@ -1,0 +1,174 @@
+{
+  "nango": {
+    "getMetadata": {
+      "botToken": "DISCORD_BOT_TOKEN",
+      "channelId": "1504364254634180620"
+    },
+    "batchSave": {
+      "Message": [
+        {
+          "id": "1504382758137364630",
+          "channel_id": "1504364254634180620",
+          "author_id": "1504348286742564904",
+          "author_username": "NangoAPIBot",
+          "content": "Test message for reaction",
+          "timestamp": "2026-05-14T07:19:59.620000+00:00",
+          "type": 0
+        },
+        {
+          "id": "1504366058436558878",
+          "channel_id": "1504364254634180620",
+          "author_id": "1504348286742564904",
+          "author_username": "NangoAPIBot",
+          "content": "",
+          "timestamp": "2026-05-14T06:13:38.101000+00:00",
+          "type": 7
+        }
+      ]
+    },
+    "batchDelete": {
+      "Message": []
+    }
+  },
+  "api": {
+    "get": {
+      "/api/v10/channels/1504364254634180620/messages": {
+        "response": [
+          {
+            "type": 0,
+            "content": "Test message for reaction",
+            "mentions": [],
+            "mention_roles": [],
+            "attachments": [],
+            "embeds": [],
+            "timestamp": "2026-05-14T07:19:59.620000+00:00",
+            "edited_timestamp": null,
+            "flags": 32,
+            "components": [],
+            "id": "1504382758137364630",
+            "channel_id": "1504364254634180620",
+            "author": {
+              "id": "1504348286742564904",
+              "username": "NangoAPIBot",
+              "avatar": "c5072fb99e63ace46ec2e4a609037289",
+              "discriminator": "7363",
+              "public_flags": 0,
+              "flags": 0,
+              "bot": true,
+              "banner": null,
+              "accent_color": null,
+              "global_name": null,
+              "avatar_decoration_data": null,
+              "collectibles": null,
+              "display_name_styles": null,
+              "banner_color": null,
+              "clan": null,
+              "primary_guild": null
+            },
+            "pinned": false,
+            "mention_everyone": false,
+            "tts": false,
+            "thread": {
+              "id": "1504382758137364630",
+              "type": 11,
+              "last_message_id": "1504382948227551252",
+              "flags": 0,
+              "guild_id": "1504364254634180618",
+              "name": "Test Thread From Message",
+              "parent_id": "1504364254634180620",
+              "rate_limit_per_user": 0,
+              "bitrate": 64000,
+              "user_limit": 0,
+              "rtc_region": null,
+              "owner_id": "1504348286742564904",
+              "thread_metadata": {
+                "archived": false,
+                "archive_timestamp": "2026-05-14T07:20:44.932000+00:00",
+                "auto_archive_duration": 4320,
+                "locked": false,
+                "create_timestamp": "2026-05-14T07:20:44.932000+00:00"
+              },
+              "message_count": 0,
+              "member_count": 1,
+              "total_message_sent": 0
+            }
+          },
+          {
+            "type": 7,
+            "content": "",
+            "mentions": [],
+            "mention_roles": [],
+            "attachments": [],
+            "embeds": [],
+            "timestamp": "2026-05-14T06:13:38.101000+00:00",
+            "edited_timestamp": null,
+            "flags": 0,
+            "components": [],
+            "id": "1504366058436558878",
+            "channel_id": "1504364254634180620",
+            "author": {
+              "id": "1504348286742564904",
+              "username": "NangoAPIBot",
+              "avatar": "c5072fb99e63ace46ec2e4a609037289",
+              "discriminator": "7363",
+              "public_flags": 0,
+              "flags": 0,
+              "bot": true,
+              "banner": null,
+              "accent_color": null,
+              "global_name": null,
+              "avatar_decoration_data": null,
+              "collectibles": null,
+              "display_name_styles": null,
+              "banner_color": null,
+              "clan": null,
+              "primary_guild": null
+            },
+            "pinned": false,
+            "mention_everyone": false,
+            "tts": false
+          }
+        ],
+        "status": 200,
+        "headers": {
+          "date": "Thu, 14 May 2026 08:37:46 GMT",
+          "content-type": "application/json",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=31536000; includeSubDomains; preload",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5",
+          "x-ratelimit-remaining": "4",
+          "x-ratelimit-reset": "1778747867.368",
+          "server": "cloudflare",
+          "x-ratelimit-bucket": "f9f85e747f3e8c1f8f7728d616c030bf",
+          "x-ratelimit-reset-after": "1.000",
+          "x-discord-features": "chat",
+          "vary": "Accept-Encoding",
+          "via": "1.1 google",
+          "alt-svc": "h3=\":443\"; ma=86400",
+          "content-security-policy": "frame-ancestors 'none'; default-src https://o64374.ingest.sentry.io; report-to csp-sentry; report-uri https://o64374.ingest.sentry.io/api/5441894/security/?sentry_key=8fbbce30bf5244ec9429546beef21870&sentry_environment=stable",
+          "cf-cache-status": "BYPASS",
+          "set-cookie": "REDACTED",
+          "report-to": "{\"group\":\"cf-nel\",\"max_age\":604800,\"endpoints\":[{\"url\":\"https://a.nel.cloudflare.com/report/v4?s=CFSP3dVra2vAoJ9bELV%2BYrP1MxOsQEMUnnhl9SmMl0b7LKyK%2BI4AJ5QywvAflhbP4%2F6w0wYGTB%2FhagKQj551OEZek4%2FxT%2FAKWR83a%2B15JE36%2Bn49ktw7Jy%2FV72F6\"}]}",
+          "nel": "{\"report_to\":\"cf-nel\",\"success_fraction\":0.0,\"max_age\":604800}",
+          "reporting-endpoints": "csp-sentry=\"https://o64374.ingest.sentry.io/api/5441894/security/?sentry_key=8fbbce30bf5244ec9429546beef21870&sentry_environment=stable\"",
+          "cf-ray": "9fb8953438195332-PDX"
+        },
+        "hash": "a34e5787933f21ea20ada460f17c5a305b06c1ae",
+        "request": {
+          "params": {
+            "limit": "100"
+          }
+        }
+      }
+    }
+  }
+}

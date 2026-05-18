@@ -1,0 +1,214 @@
+{
+  "nango": {
+    "getMetadata": {
+      "botToken": "DISCORD_BOT_TOKEN",
+      "channelId": "1504364254634180620"
+    },
+    "batchSave": {
+      "Webhook": [
+        {
+          "id": "1504382823518306366",
+          "type": 1,
+          "name": "Test Webhook",
+          "channel_id": "1504364254634180620",
+          "guild_id": "1504364254634180618",
+          "application_id": "1504348286742564904",
+          "user_id": "1504348286742564904",
+          "user_name": "NangoAPIBot"
+        },
+        {
+          "id": "1504383149478645780",
+          "type": 1,
+          "name": "Test Webhook",
+          "channel_id": "1504364254634180620",
+          "guild_id": "1504364254634180618",
+          "application_id": "1504348286742564904",
+          "user_id": "1504348286742564904",
+          "user_name": "NangoAPIBot"
+        },
+        {
+          "id": "1504383215421358210",
+          "type": 1,
+          "name": "Test Webhook",
+          "channel_id": "1504364254634180620",
+          "guild_id": "1504364254634180618",
+          "application_id": "1504348286742564904",
+          "user_id": "1504348286742564904",
+          "user_name": "NangoAPIBot"
+        },
+        {
+          "id": "1504383285302923264",
+          "type": 1,
+          "name": "Test Webhook",
+          "channel_id": "1504364254634180620",
+          "guild_id": "1504364254634180618",
+          "application_id": "1504348286742564904",
+          "user_id": "1504348286742564904",
+          "user_name": "NangoAPIBot"
+        }
+      ]
+    },
+    "batchDelete": {
+      "Webhook": []
+    }
+  },
+  "api": {
+    "get": {
+      "/api/v10/channels/1504364254634180620/webhooks": {
+        "response": [
+          {
+            "application_id": "1504348286742564904",
+            "avatar": null,
+            "channel_id": "1504364254634180620",
+            "guild_id": "1504364254634180618",
+            "id": "1504382823518306366",
+            "name": "Test Webhook",
+            "type": 1,
+            "user": {
+              "id": "1504348286742564904",
+              "username": "NangoAPIBot",
+              "avatar": "c5072fb99e63ace46ec2e4a609037289",
+              "discriminator": "7363",
+              "public_flags": 0,
+              "flags": 0,
+              "bot": true,
+              "banner": null,
+              "accent_color": null,
+              "global_name": null,
+              "avatar_decoration_data": null,
+              "collectibles": null,
+              "display_name_styles": null,
+              "banner_color": null,
+              "clan": null,
+              "primary_guild": null
+            },
+            "token": "DISCORD_WEBHOOK_TOKEN",
+            "url": "https://discord.com/api/webhooks/1504382823518306366/DISCORD_WEBHOOK_TOKEN"
+          },
+          {
+            "application_id": "1504348286742564904",
+            "avatar": null,
+            "channel_id": "1504364254634180620",
+            "guild_id": "1504364254634180618",
+            "id": "1504383149478645780",
+            "name": "Test Webhook",
+            "type": 1,
+            "user": {
+              "id": "1504348286742564904",
+              "username": "NangoAPIBot",
+              "avatar": "c5072fb99e63ace46ec2e4a609037289",
+              "discriminator": "7363",
+              "public_flags": 0,
+              "flags": 0,
+              "bot": true,
+              "banner": null,
+              "accent_color": null,
+              "global_name": null,
+              "avatar_decoration_data": null,
+              "collectibles": null,
+              "display_name_styles": null,
+              "banner_color": null,
+              "clan": null,
+              "primary_guild": null
+            },
+            "token": "DISCORD_WEBHOOK_TOKEN",
+            "url": "https://discord.com/api/webhooks/1504383149478645780/DISCORD_WEBHOOK_TOKEN"
+          },
+          {
+            "application_id": "1504348286742564904",
+            "avatar": null,
+            "channel_id": "1504364254634180620",
+            "guild_id": "1504364254634180618",
+            "id": "1504383215421358210",
+            "name": "Test Webhook",
+            "type": 1,
+            "user": {
+              "id": "1504348286742564904",
+              "username": "NangoAPIBot",
+              "avatar": "c5072fb99e63ace46ec2e4a609037289",
+              "discriminator": "7363",
+              "public_flags": 0,
+              "flags": 0,
+              "bot": true,
+              "banner": null,
+              "accent_color": null,
+              "global_name": null,
+              "avatar_decoration_data": null,
+              "collectibles": null,
+              "display_name_styles": null,
+              "banner_color": null,
+              "clan": null,
+              "primary_guild": null
+            },
+            "token": "DISCORD_WEBHOOK_TOKEN",
+            "url": "https://discord.com/api/webhooks/1504383215421358210/DISCORD_WEBHOOK_TOKEN"
+          },
+          {
+            "application_id": "1504348286742564904",
+            "avatar": null,
+            "channel_id": "1504364254634180620",
+            "guild_id": "1504364254634180618",
+            "id": "1504383285302923264",
+            "name": "Test Webhook",
+            "type": 1,
+            "user": {
+              "id": "1504348286742564904",
+              "username": "NangoAPIBot",
+              "avatar": "c5072fb99e63ace46ec2e4a609037289",
+              "discriminator": "7363",
+              "public_flags": 0,
+              "flags": 0,
+              "bot": true,
+              "banner": null,
+              "accent_color": null,
+              "global_name": null,
+              "avatar_decoration_data": null,
+              "collectibles": null,
+              "display_name_styles": null,
+              "banner_color": null,
+              "clan": null,
+              "primary_guild": null
+            },
+            "token": "DISCORD_WEBHOOK_TOKEN",
+            "url": "https://discord.com/api/webhooks/1504383285302923264/DISCORD_WEBHOOK_TOKEN"
+          }
+        ],
+        "status": 200,
+        "headers": {
+          "date": "Thu, 14 May 2026 07:50:07 GMT",
+          "content-type": "application/json",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=31536000; includeSubDomains; preload",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "1000",
+          "x-ratelimit-remaining": "999",
+          "x-ratelimit-reset": "1778745007.860",
+          "server": "cloudflare",
+          "x-ratelimit-bucket": "a5823fec22cce7359b3a2bc470f87f64",
+          "x-ratelimit-reset-after": "0.001",
+          "x-discord-features": "webhooks",
+          "vary": "Accept-Encoding",
+          "via": "1.1 google",
+          "alt-svc": "h3=\":443\"; ma=86400",
+          "content-security-policy": "frame-ancestors 'none'; default-src https://o64374.ingest.sentry.io; report-to csp-sentry; report-uri https://o64374.ingest.sentry.io/api/5441894/security/?sentry_key=8fbbce30bf5244ec9429546beef21870&sentry_environment=stable",
+          "cf-cache-status": "BYPASS",
+          "set-cookie": "REDACTED",
+          "report-to": "{\"group\":\"cf-nel\",\"max_age\":604800,\"endpoints\":[{\"url\":\"https://a.nel.cloudflare.com/report/v4?s=qUBxzsbhCAz9gl%2Fyruo1h7BLljs5IQcPpGEuEYRd%2BIrO4%2FV%2BVdb%2FnOBWCz53e6VwKAb0lLTVBC7R5JY1Uklx3yAXKoEqbBZ%2BZiVhKzAoNbxGpAO35qXt5fcGfwy7\"}]}",
+          "nel": "{\"report_to\":\"cf-nel\",\"success_fraction\":0.0,\"max_age\":604800}",
+          "reporting-endpoints": "csp-sentry=\"https://o64374.ingest.sentry.io/api/5441894/security/?sentry_key=8fbbce30bf5244ec9429546beef21870&sentry_environment=stable\"",
+          "cf-ray": "9fb84f6a9a15ff13-PDX"
+        },
+        "hash": "e33c6769e98e25e0fe1a26e5ae991baad78ce08d",
+        "request": {}
+      }
+    }
+  }
+}

@@ -56,7 +56,8 @@ const XeroConnectionSchema = z.object({
 });
 
 function parseXeroDate(dateString: string): Date | null {
-    const match = dateString.match(/\/Date\((\d+)([+-]\d{4})\)\//);
+    // Allow negative timestamps for pre-1970 Xero dates (see general-ledger.ts parseDate).
+    const match = dateString.match(/\/Date\((-?\d+)([+-]\d{4})\)\//);
     if (match && match[1]) {
         return new Date(parseInt(match[1], 10));
     }
@@ -132,7 +133,7 @@ interface Config extends ProxyConfiguration {
 
 const sync = createSync({
     description: 'Sync contacts from Xero.',
-    version: '3.0.0',
+    version: '3.1.0',
     frequency: 'every hour',
     autoStart: true,
     checkpoint: CheckpointSchema,

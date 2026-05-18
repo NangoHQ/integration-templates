@@ -179,12 +179,36 @@ import './bill/actions/disable-user.js';
 import './bitdefender/actions/get-company-details.js';
 
 // -- Integration: box
-import './box/syncs/files.js';
+import './box/syncs/collaborations.js';
 import './box/syncs/folders.js';
-import './box/syncs/users.js';
+import './box/actions/copy-file.js';
+import './box/actions/copy-folder.js';
+import './box/actions/create-collaboration.js';
+import './box/actions/create-comment.js';
+import './box/actions/create-folder.js';
 import './box/actions/create-user.js';
+import './box/actions/delete-collaboration.js';
+import './box/actions/delete-comment.js';
 import './box/actions/delete-user.js';
+import './box/actions/delete-file.js';
+import './box/actions/delete-folder.js';
+import './box/actions/download-file.js';
 import './box/actions/folder-content.js';
+import './box/actions/get-collaboration.js';
+import './box/actions/get-comment.js';
+import './box/actions/get-file.js';
+import './box/actions/get-folder.js';
+import './box/actions/get-user.js';
+import './box/actions/list-collaborations.js';
+import './box/actions/list-comments.js';
+import './box/actions/list-files.js';
+import './box/actions/list-folders.js';
+import './box/actions/search.js';
+import './box/actions/update-collaboration.js';
+import './box/actions/update-comment.js';
+import './box/actions/update-file.js';
+import './box/actions/update-folder.js';
+import './box/actions/update-user.js';
 
 // -- Integration: brightcrowd
 import './brightcrowd/syncs/book-analytics.js';
@@ -199,11 +223,29 @@ import './cal-com-v2/syncs/events.js';
 // -- Integration: calendly
 import './calendly/syncs/event-invitees.js';
 import './calendly/syncs/event-types.js';
-import './calendly/syncs/events.js';
-import './calendly/syncs/users.js';
+import './calendly/syncs/organization-memberships.js';
+import './calendly/syncs/routing-forms.js';
+import './calendly/syncs/scheduled-events.js';
+import './calendly/syncs/webhook-subscriptions.js';
 import './calendly/actions/create-user.js';
+import './calendly/actions/create-webhook-subscription.js';
+import './calendly/actions/delete-webhook-subscription.js';
+import './calendly/actions/get-event-invitee.js';
+import './calendly/actions/get-event-type.js';
+import './calendly/actions/get-scheduled-event.js';
+import './calendly/actions/get-webhook-subscription.js';
+import './calendly/actions/list-event-invitees.js';
+
 import './calendly/actions/delete-user.js';
-import './calendly/actions/whoami.js';
+import './calendly/actions/get-current-organization.js';
+import './calendly/actions/get-current-user.js';
+import './calendly/actions/get-organization-membership.js';
+import './calendly/actions/get-routing-form.js';
+import './calendly/actions/list-event-types.js';
+import './calendly/actions/list-organization-memberships.js';
+import './calendly/actions/list-routing-forms.js';
+import './calendly/actions/list-scheduled-events.js';
+import './calendly/actions/list-webhook-subscriptions.js';
 
 // -- Integration: checkr-partner
 import './checkr-partner/syncs/background-checks.js';
@@ -279,6 +321,47 @@ import './datadog/actions/disable-user.js';
 import './dialpad/syncs/users.js';
 import './dialpad/actions/create-user.js';
 import './dialpad/actions/delete-user.js';
+
+// -- Integration: discord
+import './discord/syncs/channels.js';
+import './discord/syncs/guild-members.js';
+import './discord/syncs/guilds.js';
+import './discord/syncs/messages.js';
+import './discord/syncs/roles.js';
+import './discord/syncs/webhooks.js';
+import './discord/actions/add-guild-member-role.js';
+import './discord/actions/create-channel.js';
+import './discord/actions/create-message.js';
+import './discord/actions/create-reaction.js';
+import './discord/actions/create-role.js';
+import './discord/actions/create-thread-from-message.js';
+import './discord/actions/create-webhook.js';
+import './discord/actions/delete-channel.js';
+import './discord/actions/delete-guild.js';
+import './discord/actions/delete-guild-member.js';
+import './discord/actions/delete-message.js';
+import './discord/actions/delete-reaction.js';
+import './discord/actions/delete-role.js';
+import './discord/actions/delete-webhook.js';
+import './discord/actions/get-channel.js';
+import './discord/actions/get-guild-member.js';
+import './discord/actions/get-guild.js';
+import './discord/actions/get-message.js';
+import './discord/actions/get-role.js';
+import './discord/actions/get-webhook.js';
+import './discord/actions/list-channels.js';
+import './discord/actions/list-guild-members.js';
+import './discord/actions/list-guilds.js';
+import './discord/actions/list-messages.js';
+import './discord/actions/list-roles.js';
+import './discord/actions/list-webhooks.js';
+import './discord/actions/remove-guild-member-role.js';
+import './discord/actions/update-channel.js';
+import './discord/actions/update-guild-member.js';
+import './discord/actions/update-guild.js';
+import './discord/actions/update-message.js';
+import './discord/actions/update-role.js';
+import './discord/actions/update-webhook.js';
 
 // -- Integration: discourse
 import './discourse/syncs/active-users.js';
@@ -934,6 +1017,15 @@ import './linear/actions/update-project.js';
 // -- Integration: linkedin
 import './linkedin/syncs/messages.js';
 import './linkedin/actions/post.js';
+import './linkedin/actions/create-comment.js';
+import './linkedin/actions/create-like.js';
+import './linkedin/actions/create-post.js';
+import './linkedin/actions/delete-comment.js';
+import './linkedin/actions/delete-like.js';
+import './linkedin/actions/delete-post.js';
+import './linkedin/actions/get-current-member-profile.js';
+import './linkedin/actions/list-post-likes.js';
+import './linkedin/actions/update-post.js';
 
 // -- Integration: luma
 import './luma/syncs/list-events.js';
@@ -947,9 +1039,41 @@ import './metabase/actions/fetch-user.js';
 import './metabase/actions/update-user.js';
 
 // -- Integration: microsoft-teams
-import './microsoft-teams/syncs/messages.js';
+import './microsoft-teams/syncs/channel-message-replies.js';
+import './microsoft-teams/syncs/channel-messages.js';
+import './microsoft-teams/syncs/chat-members.js';
+import './microsoft-teams/syncs/chat-messages.js';
+import './microsoft-teams/syncs/chats.js';
+import './microsoft-teams/syncs/joined-teams.js';
 import './microsoft-teams/syncs/org-units.js';
+import './microsoft-teams/syncs/team-channels.js';
+import './microsoft-teams/syncs/team-members.js';
 import './microsoft-teams/syncs/users.js';
+import './microsoft-teams/actions/add-team-member.js';
+import './microsoft-teams/actions/create-channel-message.js';
+import './microsoft-teams/actions/create-channel-tab.js';
+import './microsoft-teams/actions/create-channel.js';
+import './microsoft-teams/actions/create-chat-message.js';
+import './microsoft-teams/actions/create-chat.js';
+import './microsoft-teams/actions/create-team.js';
+import './microsoft-teams/actions/delete-channel.js';
+import './microsoft-teams/actions/get-channel-message.js';
+import './microsoft-teams/actions/get-channel.js';
+import './microsoft-teams/actions/get-chat-message.js';
+import './microsoft-teams/actions/get-chat.js';
+import './microsoft-teams/actions/get-team.js';
+import './microsoft-teams/actions/list-channel-messages.js';
+import './microsoft-teams/actions/list-channel-replies.js';
+import './microsoft-teams/actions/list-channel-tabs.js';
+import './microsoft-teams/actions/list-channels.js';
+import './microsoft-teams/actions/list-chat-members.js';
+import './microsoft-teams/actions/list-chat-messages.js';
+import './microsoft-teams/actions/list-chats.js';
+import './microsoft-teams/actions/list-joined-teams.js';
+import './microsoft-teams/actions/list-team-members.js';
+import './microsoft-teams/actions/remove-team-member.js';
+import './microsoft-teams/actions/reply-to-channel-message.js';
+import './microsoft-teams/actions/update-channel.js';
 
 // -- Integration: namely-pat
 import './namely-pat/syncs/unified-employees.js';
@@ -1064,7 +1188,26 @@ import './one-drive/actions/update-item.js';
 import './one-drive/actions/upload-small-file.js';
 
 // -- Integration: one-drive-personal
+import './one-drive-personal/syncs/folder-children.js';
 import './one-drive-personal/syncs/user-files-selection.js';
+import './one-drive-personal/syncs/user-files.js';
+import './one-drive-personal/actions/create-folder.js';
+import './one-drive-personal/actions/create-sharing-link.js';
+import './one-drive-personal/actions/create-upload-session.js';
+import './one-drive-personal/actions/delete-item.js';
+import './one-drive-personal/actions/delete-permission.js';
+import './one-drive-personal/actions/download-item-content.js';
+import './one-drive-personal/actions/get-drive.js';
+import './one-drive-personal/actions/get-item.js';
+import './one-drive-personal/actions/get-permission.js';
+import './one-drive-personal/actions/invite-recipients.js';
+import './one-drive-personal/actions/list-children.js';
+import './one-drive-personal/actions/list-permissions.js';
+import './one-drive-personal/actions/list-versions.js';
+import './one-drive-personal/actions/move-item.js';
+import './one-drive-personal/actions/search-items.js';
+import './one-drive-personal/actions/update-item.js';
+import './one-drive-personal/actions/upload-small-file.js';
 
 // -- Integration: oracle-hcm
 import './oracle-hcm/syncs/employees.js';
@@ -1415,6 +1558,39 @@ import './stripe-app/syncs/subscriptions.js';
 // -- Integration: teamtailor
 import './teamtailor/syncs/candidates.js';
 
+// -- Integration: twitter-v2
+import './twitter-v2/syncs/liked-tweets.js';
+import './twitter-v2/syncs/lists.js';
+import './twitter-v2/syncs/mentions.js';
+import './twitter-v2/syncs/spaces.js';
+import './twitter-v2/syncs/tweets.js';
+import './twitter-v2/syncs/users.js';
+import './twitter-v2/actions/bookmark-tweet.js';
+import './twitter-v2/actions/create-liked-tweet.js';
+import './twitter-v2/actions/create-list.js';
+import './twitter-v2/actions/create-tweet.js';
+import './twitter-v2/actions/delete-liked-tweet.js';
+import './twitter-v2/actions/delete-list.js';
+import './twitter-v2/actions/delete-tweet.js';
+import './twitter-v2/actions/follow-user.js';
+import './twitter-v2/actions/get-liked-tweet.js';
+import './twitter-v2/actions/get-list.js';
+import './twitter-v2/actions/get-mention.js';
+import './twitter-v2/actions/get-space.js';
+import './twitter-v2/actions/get-tweet.js';
+import './twitter-v2/actions/get-user.js';
+import './twitter-v2/actions/like-tweet.js';
+import './twitter-v2/actions/list-liked-tweets.js';
+import './twitter-v2/actions/list-lists.js';
+import './twitter-v2/actions/list-mentions.js';
+import './twitter-v2/actions/list-spaces.js';
+import './twitter-v2/actions/list-tweets.js';
+import './twitter-v2/actions/list-users.js';
+import './twitter-v2/actions/remove-bookmark.js';
+import './twitter-v2/actions/unfollow-user.js';
+import './twitter-v2/actions/unlike-tweet.js';
+import './twitter-v2/actions/update-list.js';
+
 // -- Integration: ukg-pro
 import './ukg-pro/syncs/unified-employees.js';
 
@@ -1573,8 +1749,65 @@ import './zendesk/actions/update-user.js';
 
 // -- Integration: zoho-crm
 import './zoho-crm/syncs/accounts.js';
+import './zoho-crm/syncs/calls.js';
 import './zoho-crm/syncs/contacts.js';
 import './zoho-crm/syncs/deals.js';
+import './zoho-crm/syncs/events.js';
+import './zoho-crm/syncs/leads.js';
+import './zoho-crm/syncs/notes.js';
+import './zoho-crm/syncs/products.js';
+import './zoho-crm/syncs/tasks.js';
+import './zoho-crm/syncs/users.js';
+import './zoho-crm/actions/convert-lead.js';
+import './zoho-crm/actions/create-account.js';
+import './zoho-crm/actions/create-call.js';
+import './zoho-crm/actions/create-contact.js';
+import './zoho-crm/actions/create-deal.js';
+import './zoho-crm/actions/create-event.js';
+import './zoho-crm/actions/create-lead.js';
+import './zoho-crm/actions/create-note.js';
+import './zoho-crm/actions/create-product.js';
+import './zoho-crm/actions/create-task.js';
+import './zoho-crm/actions/delete-account.js';
+import './zoho-crm/actions/delete-call.js';
+import './zoho-crm/actions/delete-contact.js';
+import './zoho-crm/actions/delete-deal.js';
+import './zoho-crm/actions/delete-event.js';
+import './zoho-crm/actions/delete-lead.js';
+import './zoho-crm/actions/delete-note.js';
+import './zoho-crm/actions/delete-product.js';
+import './zoho-crm/actions/delete-task.js';
+import './zoho-crm/actions/get-account.js';
+import './zoho-crm/actions/get-call.js';
+import './zoho-crm/actions/get-contact.js';
+import './zoho-crm/actions/get-deal.js';
+import './zoho-crm/actions/get-event.js';
+import './zoho-crm/actions/get-lead.js';
+import './zoho-crm/actions/get-note.js';
+import './zoho-crm/actions/get-product.js';
+import './zoho-crm/actions/get-task.js';
+import './zoho-crm/actions/get-user.js';
+import './zoho-crm/actions/list-accounts.js';
+import './zoho-crm/actions/list-calls.js';
+import './zoho-crm/actions/list-contacts.js';
+import './zoho-crm/actions/list-deals.js';
+import './zoho-crm/actions/list-events.js';
+import './zoho-crm/actions/list-leads.js';
+import './zoho-crm/actions/list-notes.js';
+import './zoho-crm/actions/list-products.js';
+import './zoho-crm/actions/list-tasks.js';
+import './zoho-crm/actions/list-users.js';
+import './zoho-crm/actions/search-records.js';
+import './zoho-crm/actions/update-account.js';
+import './zoho-crm/actions/update-call.js';
+import './zoho-crm/actions/update-contact.js';
+import './zoho-crm/actions/update-deal.js';
+import './zoho-crm/actions/update-event.js';
+import './zoho-crm/actions/update-lead.js';
+import './zoho-crm/actions/update-note.js';
+import './zoho-crm/actions/update-product.js';
+import './zoho-crm/actions/update-task.js';
+import './zoho-crm/actions/upsert-records.js';
 
 // -- Integration: zoho-mail
 import './zoho-mail/syncs/emails.js';
@@ -1584,10 +1817,30 @@ import './zoho-mail/actions/send-email.js';
 
 // -- Integration: zoom
 import './zoom/syncs/meetings.js';
-import './zoom/syncs/recording-files.js';
+import './zoom/syncs/recordings.js';
 import './zoom/syncs/users.js';
+import './zoom/syncs/webinars.js';
+import './zoom/actions/create-meeting-registrant.js';
 import './zoom/actions/create-meeting.js';
 import './zoom/actions/create-user.js';
+import './zoom/actions/create-webinar.js';
+import './zoom/actions/delete-meeting-registrant.js';
 import './zoom/actions/delete-meeting.js';
+import './zoom/actions/delete-recording.js';
 import './zoom/actions/delete-user.js';
-import './zoom/actions/whoami.js';
+import './zoom/actions/delete-webinar.js';
+import './zoom/actions/get-current-user.js';
+import './zoom/actions/get-meeting-registrant.js';
+import './zoom/actions/get-meeting.js';
+import './zoom/actions/get-recording.js';
+import './zoom/actions/get-user.js';
+import './zoom/actions/get-webinar.js';
+import './zoom/actions/list-meeting-registrants.js';
+import './zoom/actions/list-meetings.js';
+import './zoom/actions/list-recordings.js';
+import './zoom/actions/list-users.js';
+import './zoom/actions/list-webinars.js';
+import './zoom/actions/update-meeting-registrant.js';
+import './zoom/actions/update-meeting.js';
+import './zoom/actions/update-user.js';
+import './zoom/actions/update-webinar.js';

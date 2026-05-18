@@ -1,0 +1,86 @@
+{
+  "input": {
+    "file_id": "2231568666314"
+  },
+  "output": {
+    "content": "VGVzdCBmaWxlIGNvbnRlbnQgZm9yIE5hbmdvIHRlc3RpbmcK",
+    "file_id": "2231568666314"
+  },
+  "nango": {},
+  "api": {
+    "get": {
+      "/2.0/files/2231568666314/content": {
+        "response": {
+          "type": "Buffer",
+          "data": [
+            84,
+            101,
+            115,
+            116,
+            32,
+            102,
+            105,
+            108,
+            101,
+            32,
+            99,
+            111,
+            110,
+            116,
+            101,
+            110,
+            116,
+            32,
+            102,
+            111,
+            114,
+            32,
+            78,
+            97,
+            110,
+            103,
+            111,
+            32,
+            116,
+            101,
+            115,
+            116,
+            105,
+            110,
+            103,
+            10
+          ]
+        },
+        "status": 200,
+        "headers": {
+          "date": "Fri, 15 May 2026 20:06:03 GMT",
+          "content-type": "text/plain",
+          "content-length": "36",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=31536000",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4963",
+          "x-ratelimit-reset": "1778875610",
+          "server": "nginx",
+          "accept-ranges": "bytes",
+          "cache-control": "private",
+          "x-envoy-upstream-service-time": "76",
+          "content-disposition": "attachment;filename=\"nango-test-file.txt\";filename*=UTF-8''nango-test-file.txt",
+          "x-robots-tag": "noindex, nofollow",
+          "via": "1.1 google",
+          "alt-svc": "h3=\":443\"; ma=2592000,h3-29=\":443\"; ma=2592000"
+        },
+        "hash": "6c8a750c48a534c001620b69b6774fc8dba1ce25",
+        "request": {}
+      }
+    }
+  }
+}

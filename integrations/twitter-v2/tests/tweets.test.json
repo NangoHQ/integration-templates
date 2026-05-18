@@ -1,0 +1,304 @@
+{
+  "nango": {
+    "batchSave": {
+      "Tweet": [
+        {
+          "id": "1111111111111111113",
+          "text": "Example tweet content.",
+          "author_id": "1000000000000000001",
+          "created_at": "2020-01-01T00:00:00.000Z",
+          "conversation_id": "1111111111111111113",
+          "public_metrics": {
+            "retweet_count": 0,
+            "reply_count": 0,
+            "like_count": 0,
+            "quote_count": 0,
+            "bookmark_count": 0,
+            "impression_count": 0
+          }
+        },
+        {
+          "id": "1111111111111111146",
+          "text": "Example tweet content.",
+          "author_id": "1000000000000000001",
+          "created_at": "2020-01-01T00:00:00.000Z",
+          "conversation_id": "1111111111111111146",
+          "public_metrics": {
+            "retweet_count": 0,
+            "reply_count": 0,
+            "like_count": 0,
+            "quote_count": 0,
+            "bookmark_count": 0,
+            "impression_count": 0
+          }
+        },
+        {
+          "id": "1111111111111111143",
+          "text": "Example tweet content.",
+          "author_id": "1000000000000000001",
+          "created_at": "2020-01-01T00:00:00.000Z",
+          "conversation_id": "1111111111111111143",
+          "public_metrics": {
+            "retweet_count": 0,
+            "reply_count": 1,
+            "like_count": 0,
+            "quote_count": 0,
+            "bookmark_count": 0,
+            "impression_count": 2
+          }
+        },
+        {
+          "id": "1111111111111111147",
+          "text": "Example tweet content.",
+          "author_id": "1000000000000000001",
+          "created_at": "2020-01-01T00:00:00.000Z",
+          "conversation_id": "1111111111111111147",
+          "public_metrics": {
+            "retweet_count": 0,
+            "reply_count": 0,
+            "like_count": 0,
+            "quote_count": 0,
+            "bookmark_count": 0,
+            "impression_count": 1
+          }
+        },
+        {
+          "id": "1111111111111111145",
+          "text": "Example tweet content.",
+          "author_id": "1000000000000000001",
+          "created_at": "2020-01-01T00:00:00.000Z",
+          "conversation_id": "1111111111111111145",
+          "public_metrics": {
+            "retweet_count": 0,
+            "reply_count": 1,
+            "like_count": 0,
+            "quote_count": 0,
+            "bookmark_count": 0,
+            "impression_count": 2
+          }
+        },
+        {
+          "id": "1111111111111111148",
+          "text": "Example tweet content.",
+          "author_id": "1000000000000000001",
+          "created_at": "2020-01-01T00:00:00.000Z",
+          "conversation_id": "1111111111111111148",
+          "public_metrics": {
+            "retweet_count": 0,
+            "reply_count": 0,
+            "like_count": 0,
+            "quote_count": 0,
+            "bookmark_count": 0,
+            "impression_count": 1
+          }
+        }
+      ]
+    },
+    "batchDelete": {
+      "Tweet": []
+    }
+  },
+  "api": {
+    "get": {
+      "/2/users/me": {
+        "response": {
+          "data": {
+            "id": "1000000000000000001",
+            "name": "Test User",
+            "username": "testuser"
+          }
+        },
+        "status": 200,
+        "headers": {
+          "date": "Thu, 14 May 2026 20:21:24 GMT",
+          "content-type": "application/json; charset=utf-8",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=631138519; includeSubdomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4993",
+          "x-ratelimit-reset": "1778790140",
+          "perf": "7402827104",
+          "server": "cloudflare envoy",
+          "api-version": "2.163",
+          "cache-control": "no-cache, no-store, max-age=0",
+          "x-access-level": "read-write",
+          "x-rate-limit-limit": "75",
+          "x-rate-limit-reset": "1778790533",
+          "content-disposition": "attachment; filename=json.json",
+          "x-rate-limit-remaining": "71",
+          "x-response-time": "34",
+          "vary": "accept-encoding",
+          "cf-cache-status": "DYNAMIC"
+        },
+        "hash": "16f0be3f8bcf81363033ef9905a833cdddeedf92",
+        "request": {}
+      },
+      "/2/users/1000000000000000001/tweets": {
+        "response": {
+          "data": [
+            {
+              "public_metrics": {
+                "retweet_count": 0,
+                "reply_count": 0,
+                "like_count": 0,
+                "quote_count": 0,
+                "bookmark_count": 0,
+                "impression_count": 0
+              },
+              "author_id": "1000000000000000001",
+              "created_at": "2020-01-01T00:00:00.000Z",
+              "text": "Example tweet content.",
+              "edit_history_tweet_ids": [
+                "1111111111111111113"
+              ],
+              "id": "1111111111111111113",
+              "conversation_id": "1111111111111111113"
+            },
+            {
+              "public_metrics": {
+                "retweet_count": 0,
+                "reply_count": 0,
+                "like_count": 0,
+                "quote_count": 0,
+                "bookmark_count": 0,
+                "impression_count": 0
+              },
+              "author_id": "1000000000000000001",
+              "created_at": "2020-01-01T00:00:00.000Z",
+              "text": "Example tweet content.",
+              "edit_history_tweet_ids": [
+                "1111111111111111146"
+              ],
+              "id": "1111111111111111146",
+              "conversation_id": "1111111111111111146"
+            },
+            {
+              "public_metrics": {
+                "retweet_count": 0,
+                "reply_count": 1,
+                "like_count": 0,
+                "quote_count": 0,
+                "bookmark_count": 0,
+                "impression_count": 2
+              },
+              "author_id": "1000000000000000001",
+              "created_at": "2020-01-01T00:00:00.000Z",
+              "text": "Example tweet content.",
+              "edit_history_tweet_ids": [
+                "1111111111111111143"
+              ],
+              "id": "1111111111111111143",
+              "conversation_id": "1111111111111111143"
+            },
+            {
+              "public_metrics": {
+                "retweet_count": 0,
+                "reply_count": 0,
+                "like_count": 0,
+                "quote_count": 0,
+                "bookmark_count": 0,
+                "impression_count": 1
+              },
+              "author_id": "1000000000000000001",
+              "created_at": "2020-01-01T00:00:00.000Z",
+              "text": "Example tweet content.",
+              "edit_history_tweet_ids": [
+                "1111111111111111147"
+              ],
+              "id": "1111111111111111147",
+              "conversation_id": "1111111111111111147"
+            },
+            {
+              "public_metrics": {
+                "retweet_count": 0,
+                "reply_count": 1,
+                "like_count": 0,
+                "quote_count": 0,
+                "bookmark_count": 0,
+                "impression_count": 2
+              },
+              "author_id": "1000000000000000001",
+              "created_at": "2020-01-01T00:00:00.000Z",
+              "text": "Example tweet content.",
+              "edit_history_tweet_ids": [
+                "1111111111111111145"
+              ],
+              "id": "1111111111111111145",
+              "conversation_id": "1111111111111111145"
+            },
+            {
+              "public_metrics": {
+                "retweet_count": 0,
+                "reply_count": 0,
+                "like_count": 0,
+                "quote_count": 0,
+                "bookmark_count": 0,
+                "impression_count": 1
+              },
+              "author_id": "1000000000000000001",
+              "created_at": "2020-01-01T00:00:00.000Z",
+              "text": "Example tweet content.",
+              "edit_history_tweet_ids": [
+                "1111111111111111148"
+              ],
+              "id": "1111111111111111148",
+              "conversation_id": "1111111111111111148"
+            }
+          ],
+          "meta": {
+            "result_count": 6,
+            "newest_id": "1111111111111111113",
+            "oldest_id": "1111111111111111148"
+          }
+        },
+        "status": 200,
+        "headers": {
+          "date": "Thu, 14 May 2026 20:21:25 GMT",
+          "content-type": "application/json; charset=utf-8",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=631138519; includeSubdomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4992",
+          "x-ratelimit-reset": "1778790140",
+          "perf": "7402827104",
+          "server": "cloudflare envoy",
+          "api-version": "2.163",
+          "cache-control": "no-cache, no-store, max-age=0",
+          "x-access-level": "read-write",
+          "x-rate-limit-limit": "900",
+          "x-rate-limit-reset": "1778790534",
+          "content-disposition": "attachment; filename=json.json",
+          "x-rate-limit-remaining": "896",
+          "x-response-time": "61",
+          "vary": "accept-encoding",
+          "cf-cache-status": "DYNAMIC"
+        },
+        "hash": "44a818e0668c38651bd1dbd3e6e8bb4a8f0b2b8e",
+        "request": {
+          "params": {
+            "max_results": "100",
+            "tweet.fields": "created_at,author_id,conversation_id,in_reply_to_user_id,referenced_tweets,public_metrics"
+          }
+        }
+      }
+    }
+  }
+}

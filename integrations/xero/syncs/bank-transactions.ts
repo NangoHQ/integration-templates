@@ -29,7 +29,8 @@ const BankTransactionSchema = z.object({
 });
 
 function parseXeroDate(value: string): Date | null {
-    const match = value.match(/^\/Date\((\d+)(?:[+-]\d{4})?\)\/$/);
+    // Allow negative timestamps for pre-1970 Xero dates (see general-ledger.ts parseDate).
+    const match = value.match(/^\/Date\((-?\d+)(?:[+-]\d{4})?\)\/$/);
     if (match && match[1]) {
         return new Date(parseInt(match[1], 10));
     }
@@ -48,7 +49,7 @@ function formatIfModifiedSince(date: Date): string {
 
 const sync = createSync({
     description: 'Sync bank transactions from Xero.',
-    version: '3.0.1',
+    version: '3.1.0',
     frequency: 'every hour',
     autoStart: true,
     endpoints: [
