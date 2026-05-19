@@ -1,9 +1,18 @@
-import { afterEach, vi, expect, it, describe } from 'vitest';
+import { afterEach, beforeEach, vi, expect, it, describe } from 'vitest';
 
 import createSync from '../syncs/time-entries.js';
 
+// Matches the end_date recorded in the fixture (1779210000000 is already aligned
+// to the 30-minute sync window, so alignToSyncWindow(NOW) === NOW).
+const FIXTURE_NOW = 1779210000000;
+
 describe('clickup time-entries tests', () => {
     const models = 'TimeEntry'.split(',');
+
+    beforeEach(() => {
+        vi.useFakeTimers();
+        vi.setSystemTime(FIXTURE_NOW);
+    });
 
     const createTestContext = () => {
         const nangoMock = new global.vitest.NangoSyncMock({
@@ -21,6 +30,7 @@ describe('clickup time-entries tests', () => {
     afterEach(() => {
         vi.clearAllMocks();
         vi.restoreAllMocks();
+        vi.useRealTimers();
     });
 
     it('should get, map correctly the data and batchSave the result', async () => {
