@@ -6,7 +6,8 @@ const InputSchema = z.object({
     since: z.string().optional().describe('Unix timestamp or ISO date. Posts created after this time.'),
     until: z.string().optional().describe('Unix timestamp or ISO date. Posts created before this time.'),
     limit: z.number().int().min(1).max(100).optional().describe('Number of posts to return per page. Max 100.'),
-    fields: z.string().optional().describe('Comma-separated list of fields to include. Example: "id,message,created_time,permalink_url"')
+    fields: z.string().optional().describe('Comma-separated list of fields to include. Example: "id,message,created_time,permalink_url"'),
+    cursor: z.string().optional().describe('Pagination cursor from the previous response. Omit for the first page.')
 });
 
 const PageAccountSchema = z.object({
@@ -112,6 +113,9 @@ const action = createAction({
         }
         if (input.fields !== undefined) {
             params['fields'] = input.fields;
+        }
+        if (input.cursor !== undefined) {
+            params['after'] = input.cursor;
         }
 
         // https://developers.facebook.com/docs/graph-api/reference/page/feed/

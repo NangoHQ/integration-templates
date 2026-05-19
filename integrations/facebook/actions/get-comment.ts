@@ -3,7 +3,13 @@ import { createAction } from 'nango';
 
 const InputSchema = z.object({
     commentId: z.string().describe('The ID of the comment to retrieve. Example: "122098284213327930_1544841897156600"'),
-    fields: z.string().optional().describe('Comma-separated list of fields to retrieve. Example: "id,message,created_time,from,like_count"')
+    fields: z.string().optional().describe('Comma-separated list of fields to retrieve. Example: "id,message,created_time,from,like_count"'),
+    pageId: z
+        .string()
+        .optional()
+        .describe(
+            'The Facebook Page ID that owns the comment. Required when the user manages multiple pages to ensure the correct page token is used. Example: "1148671018324630"'
+        )
 });
 
 const ProviderPageSchema = z.object({
@@ -62,21 +68,16 @@ const action = createAction({
 
         const accountsData = ProviderAccountsResponseSchema.parse(accountsResponse.data);
 
-        const firstPage = accountsData.data[0];
-        if (!firstPage) {
+        const page = input.pageId ? accountsData.data.find((p) => p.id === input.pageId) : accountsData.data[0];
+
+        if (!page) {
             throw new nango.ActionError({
-                type: 'no_pages',
-                message: 'No Facebook pages found for this user'
+                type: 'page_not_found',
+                message: input.pageId ? `Page with ID ${input.pageId} not found or not accessible` : 'No Facebook pages found for this user'
             });
         }
 
-        const pageToken = firstPage['access_token'];
-        if (!pageToken) {
-            throw new nango.ActionError({
-                type: 'no_page_token',
-                message: 'Could not retrieve page access token'
-            });
-        }
+        const pageToken = page.access_token;
 
         const params: Record<string, string> = {
             access_token: pageToken

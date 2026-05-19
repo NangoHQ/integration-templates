@@ -13287,6 +13287,10 @@ export interface ActionInput_facebook_deletecomment {
    * Facebook comment ID to delete. Example: "122098284213327930_1544841897156600"
    */
   commentId: string;
+  /**
+   * The Facebook Page ID that owns the comment. Required when the user manages multiple pages to ensure the correct page token is used. Example: "1148671018324630"
+   */
+  pageId?: string | undefined;
 };
 
 export interface ActionOutput_facebook_deletecomment {
@@ -13313,6 +13317,10 @@ export interface ActionInput_facebook_getcomment {
    * Comma-separated list of fields to retrieve. Example: "id,message,created_time,from,like_count"
    */
   fields?: string | undefined;
+  /**
+   * The Facebook Page ID that owns the comment. Required when the user manages multiple pages to ensure the correct page token is used. Example: "1148671018324630"
+   */
+  pageId?: string | undefined;
 };
 
 export interface ActionOutput_facebook_getcomment {
@@ -13438,6 +13446,10 @@ export interface ActionInput_facebook_listpageposts {
    * Comma-separated list of fields to include. Example: "id,message,created_time,permalink_url"
    */
   fields?: string | undefined;
+  /**
+   * Pagination cursor from the previous response. Omit for the first page.
+   */
+  cursor?: string | undefined;
 };
 
 export interface ActionOutput_facebook_listpageposts {

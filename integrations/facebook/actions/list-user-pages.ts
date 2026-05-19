@@ -1,5 +1,5 @@
 import { z } from 'zod';
-import { createAction } from 'nango';
+import { createAction, type ProxyConfiguration } from 'nango';
 
 // Provider schema for raw Facebook Page response
 const ProviderPageSchema = z.object({
@@ -21,22 +21,6 @@ const ProviderPageSchema = z.object({
             data: z.object({
                 url: z.string().optional()
             })
-        })
-        .optional()
-});
-
-// Provider response schema for the accounts edge
-const ProviderAccountsResponseSchema = z.object({
-    data: z.array(ProviderPageSchema),
-    paging: z
-        .object({
-            cursors: z
-                .object({
-                    before: z.string().optional(),
-                    after: z.string().optional()
-                })
-                .optional(),
-            next: z.string().optional()
         })
         .optional()
 });
@@ -76,18 +60,34 @@ const action = createAction({
     scopes: ['pages_show_list'],
 
     exec: async (nango): Promise<z.infer<typeof OutputSchema>> => {
-        // https://developers.facebook.com/docs/graph-api/reference/user/accounts/
-        const response = await nango.get({
+        const proxyConfig: ProxyConfiguration = {
+            // https://developers.facebook.com/docs/graph-api/reference/user/accounts/
             endpoint: '/me/accounts',
             params: {
                 fields: 'id,name,category,category_list,access_token,fan_count,picture'
             },
+            paginate: {
+                type: 'cursor',
+                cursor_path_in_response: 'paging.cursors.after',
+                cursor_name_in_request: 'after',
+                response_path: 'data',
+                limit_name_in_request: 'limit',
+                limit: 100
+            },
             retries: 3
-        });
+        };
 
-        const rawResponse = ProviderAccountsResponseSchema.parse(response.data);
+        const allProviderPages: z.infer<typeof ProviderPageSchema>[] = [];
+        for await (const batch of nango.paginate(proxyConfig)) {
+            for (const rawPage of batch) {
+                const parsed = ProviderPageSchema.safeParse(rawPage);
+                if (parsed.success) {
+                    allProviderPages.push(parsed.data);
+                }
+            }
+        }
 
-        const pages = rawResponse.data.map((page) => ({
+        const pages = allProviderPages.map((page) => ({
             id: page.id,
             name: page.name,
             ...(page.category !== undefined && { category: page.category }),

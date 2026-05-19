@@ -46,22 +46,16 @@ const action = createAction({
 
         const accountsData = PageAccountsResponseSchema.parse(accountsResponse.data);
 
-        if (accountsData.data.length === 0) {
+        const pageId = input.postId.split('_')[0];
+        const pageAccount = accountsData.data.find((p) => p.id === pageId);
+        if (!pageAccount) {
             throw new nango.ActionError({
-                type: 'no_pages',
-                message: 'No Facebook pages found for this user'
+                type: 'page_not_found',
+                message: `Page with ID ${pageId} not found or not accessible`
             });
         }
 
-        const firstPage = accountsData.data[0];
-        if (firstPage === undefined) {
-            throw new nango.ActionError({
-                type: 'no_pages',
-                message: 'No Facebook pages found for this user'
-            });
-        }
-
-        const pageToken = firstPage.access_token;
+        const pageToken = pageAccount.access_token;
 
         // https://developers.facebook.com/docs/graph-api/reference/post/
         const deleteResponse = await nango.delete({

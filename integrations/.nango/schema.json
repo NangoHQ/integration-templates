@@ -41347,6 +41347,10 @@
         "commentId": {
           "type": "string",
           "description": "Facebook comment ID to delete. Example: \"122098284213327930_1544841897156600\""
+        },
+        "pageId": {
+          "type": "string",
+          "description": "The Facebook Page ID that owns the comment. Required when the user manages multiple pages to ensure the correct page token is used. Example: \"1148671018324630\""
         }
       },
       "required": [
@@ -41401,6 +41405,10 @@
         "fields": {
           "type": "string",
           "description": "Comma-separated list of fields to retrieve. Example: \"id,message,created_time,from,like_count\""
+        },
+        "pageId": {
+          "type": "string",
+          "description": "The Facebook Page ID that owns the comment. Required when the user manages multiple pages to ensure the correct page token is used. Example: \"1148671018324630\""
         }
       },
       "required": [
@@ -41667,6 +41675,10 @@
         "fields": {
           "type": "string",
           "description": "Comma-separated list of fields to include. Example: \"id,message,created_time,permalink_url\""
+        },
+        "cursor": {
+          "type": "string",
+          "description": "Pagination cursor from the previous response. Omit for the first page."
         }
       },
       "required": [

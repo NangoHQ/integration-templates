@@ -21,65 +21,75 @@
   "nango": {},
   "api": {
     "get": {
-      "/me/accounts": {
-        "response": {
-          "data": [
-            {
-              "id": "1148671018324630",
-              "name": "Nango API",
-              "category": "Tech",
-              "category_list": [
-                {
-                  "id": "1358894969206191",
-                  "name": "Tech"
-                }
-              ],
-              "access_token": "EAAYADtuwsMkBRQBKUGWFi84Jc6ysgdzR2TIlLX8DrEZCQjNQImC5dgiZAAasrgKpXyt1Qr4Pe0F5lGIRKESFcQqQjhKpNxoq5JweqxC6spcrDXm1xTZChEYSvBxZC9LSku1jZCqZA8At9CXYyhl4MTRvXtbMiaHj82BuslnLGdLGQxs0nk3wJqAfKzaqX7CIfObTIx",
-              "fan_count": 0,
-              "picture": {
-                "data": {
-                  "height": 50,
-                  "is_silhouette": false,
-                  "url": "https://scontent-sea5-1.xx.fbcdn.net/v/t39.30808-1/702969074_122098283043327930_980769241480784673_n.png?stp=cp0_dst-png_s50x50&_nc_cat=100&ccb=1-7&_nc_sid=f907e8&_nc_ohc=K6ISjQI2ZCIQ7kNvwG-3ULa&_nc_oc=AdoTA52i9JXIPDJIy8uMzHL0caGw8p7oiG972NsyyJTtrKJG4VfVwBfIbwOOtofcR9s&_nc_zt=24&_nc_ht=scontent-sea5-1.xx&edm=AGaHXAAEAAAA&_nc_gid=l3G4CYyDGt_FiNvskRQyqw&_nc_tpa=Q5bMBQH6Nw5zuZzgIBIUwE3ZdeQyCV6O3XjqL6cpVRhgnds3CfGWzG_9XwiPs-BndpsytIuXy8oByQ2Utw&oh=00_Af6JEnx68hGkQAO05wTO-ZsMqffTwoh09z6uRwzZR7yZ4A&oe=6A11FDA7",
-                  "width": 50
+      "/me/accounts": [
+        {
+          "response": {
+            "data": [
+              {
+                "id": "1148671018324630",
+                "name": "Nango API",
+                "category": "Tech",
+                "category_list": [
+                  {
+                    "id": "1358894969206191",
+                    "name": "Tech"
+                  }
+                ],
+                "access_token": "EAAYADtuwsMkBRQBKUGWFi84Jc6ysgdzR2TIlLX8DrEZCQjNQImC5dgiZAAasrgKpXyt1Qr4Pe0F5lGIRKESFcQqQjhKpNxoq5JweqxC6spcrDXm1xTZChEYSvBxZC9LSku1jZCqZA8At9CXYyhl4MTRvXtbMiaHj82BuslnLGdLGQxs0nk3wJqAfKzaqX7CIfObTIx",
+                "fan_count": 0,
+                "picture": {
+                  "data": {
+                    "height": 50,
+                    "is_silhouette": false,
+                    "url": "https://scontent-sea5-1.xx.fbcdn.net/v/t39.30808-1/702969074_122098283043327930_980769241480784673_n.png?stp=cp0_dst-png_s50x50&_nc_cat=100&ccb=1-7&_nc_sid=f907e8&_nc_ohc=K6ISjQI2ZCIQ7kNvwG-3ULa&_nc_oc=AdoTA52i9JXIPDJIy8uMzHL0caGw8p7oiG972NsyyJTtrKJG4VfVwBfIbwOOtofcR9s&_nc_zt=24&_nc_ht=scontent-sea5-1.xx&edm=AGaHXAAEAAAA&_nc_gid=l3G4CYyDGt_FiNvskRQyqw&_nc_tpa=Q5bMBQH6Nw5zuZzgIBIUwE3ZdeQyCV6O3XjqL6cpVRhgnds3CfGWzG_9XwiPs-BndpsytIuXy8oByQ2Utw&oh=00_Af6JEnx68hGkQAO05wTO-ZsMqffTwoh09z6uRwzZR7yZ4A&oe=6A11FDA7",
+                    "width": 50
+                  }
                 }
               }
+            ],
+            "paging": {
+              "cursors": {
+                "before": "QVFIU1BqbXRBQzhXTU1kNS1seHYxSGtyS1FSamsxc2FNcWVpenpZAMTZAKLWJmcnNnVExDbHY3R3Q0VjZAFNEVqdE9MX3prcG1xdHlzdTBjWHRKdGpndE5teS13",
+                "after": "QVFIU1BqbXRBQzhXTU1kNS1seHYxSGtyS1FSamsxc2FNcWVpenpZAMTZAKLWJmcnNnVExDbHY3R3Q0VjZAFNEVqdE9MX3prcG1xdHlzdTBjWHRKdGpndE5teS13"
+              }
             }
-          ],
-          "paging": {
-            "cursors": {
-              "before": "QVFIU1BqbXRBQzhXTU1kNS1seHYxSGtyS1FSamsxc2FNcWVpenpZAMTZAKLWJmcnNnVExDbHY3R3Q0VjZAFNEVqdE9MX3prcG1xdHlzdTBjWHRKdGpndE5teS13",
-              "after": "QVFIU1BqbXRBQzhXTU1kNS1seHYxSGtyS1FSamsxc2FNcWVpenpZAMTZAKLWJmcnNnVExDbHY3R3Q0VjZAFNEVqdE9MX3prcG1xdHlzdTBjWHRKdGpndE5teS13"
+          },
+          "status": 200,
+          "headers": {
+            "date": "Tue, 19 May 2026 10:27:33 GMT",
+            "content-type": "application/json",
+            "content-length": "1243",
+            "connection": "keep-alive"
+          },
+          "hash": "29380e1b47c96e673e0206437780474c0dbecd8c",
+          "request": {
+            "params": {
+              "fields": "id,name,category,category_list,access_token,fan_count,picture",
+              "limit": "100"
             }
           }
         },
-        "status": 200,
-        "headers": {
-          "date": "Tue, 19 May 2026 10:27:33 GMT",
-          "content-type": "application/json",
-          "content-length": "1243",
-          "connection": "keep-alive",
-          "x-xss-protection": "0",
-          "x-content-type-options": "nosniff",
-          "x-download-options": "noopen",
-          "x-frame-options": "SAMEORIGIN",
-          "x-dns-prefetch-control": "off",
-          "strict-transport-security": "max-age=5184000; includeSubDomains",
-          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
-          "access-control-allow-origin": "*",
-          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
-          "x-ratelimit-limit": "5000",
-          "x-ratelimit-remaining": "4941",
-          "x-ratelimit-reset": "1779186499",
-          "etag": "W/\"4db-RYao42+1oglVMjvaEczRFk/czPI\""
-        },
-        "hash": "29380e1b47c96e673e0206437780474c0dbecd8c",
-        "request": {
-          "params": {
-            "fields": "id,name,category,category_list,access_token,fan_count,picture"
+        {
+          "response": {
+            "data": []
+          },
+          "status": 200,
+          "headers": {
+            "date": "Tue, 19 May 2026 10:27:33 GMT",
+            "content-type": "application/json",
+            "content-length": "11",
+            "connection": "keep-alive"
+          },
+          "hash": "terminatingpage",
+          "request": {
+            "params": {
+              "after": "QVFIU1BqbXRBQzhXTU1kNS1seHYxSGtyS1FSamsxc2FNcWVpenpZAMTZAKLWJmcnNnVExDbHY3R3Q0VjZAFNEVqdE9MX3prcG1xdHlzdTBjWHRKdGpndE5teS13",
+              "fields": "id,name,category,category_list,access_token,fan_count,picture",
+              "limit": "100"
+            }
           }
         }
-      }
+      ]
     }
   }
 }

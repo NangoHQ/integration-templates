@@ -2,7 +2,13 @@ import { z } from 'zod';
 import { createAction } from 'nango';
 
 const InputSchema = z.object({
-    commentId: z.string().describe('Facebook comment ID to delete. Example: "122098284213327930_1544841897156600"')
+    commentId: z.string().describe('Facebook comment ID to delete. Example: "122098284213327930_1544841897156600"'),
+    pageId: z
+        .string()
+        .optional()
+        .describe(
+            'The Facebook Page ID that owns the comment. Required when the user manages multiple pages to ensure the correct page token is used. Example: "1148671018324630"'
+        )
 });
 
 const PageAccountSchema = z.object({
@@ -44,16 +50,16 @@ const action = createAction({
 
         const pagesData = PagesResponseSchema.parse(pagesResponse.data);
 
-        const firstPage = pagesData.data[0];
+        const page = input.pageId ? pagesData.data.find((p) => p.id === input.pageId) : pagesData.data[0];
 
-        if (!firstPage) {
+        if (!page) {
             throw new nango.ActionError({
-                type: 'no_pages_found',
-                message: 'No Facebook pages found for this user'
+                type: 'page_not_found',
+                message: input.pageId ? `Page with ID ${input.pageId} not found or not accessible` : 'No Facebook pages found for this user'
             });
         }
 
-        const pageToken = firstPage.access_token;
+        const pageToken = page.access_token;
 
         // https://developers.facebook.com/docs/graph-api/reference/comment
         const response = await nango.delete({
