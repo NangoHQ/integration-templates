@@ -10,10 +10,6 @@ const PageAccountSchema = z.object({
     access_token: z.string()
 });
 
-const PageAccountsResponseSchema = z.object({
-    data: z.array(PageAccountSchema)
-});
-
 const DeletePostResponseSchema = z.object({
     success: z.boolean()
 });
@@ -36,18 +32,28 @@ const action = createAction({
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         // https://developers.facebook.com/docs/graph-api/reference/user/accounts/
-        const accountsResponse = await nango.get({
+        const pageId = input.postId.split('_')[0];
+        let pageAccount: z.infer<typeof PageAccountSchema> | undefined;
+        for await (const batch of nango.paginate<z.infer<typeof PageAccountSchema>>({
             endpoint: '/me/accounts',
-            params: {
-                fields: 'id,access_token'
+            params: { fields: 'id,access_token' },
+            paginate: {
+                type: 'cursor',
+                cursor_path_in_response: 'paging.cursors.after',
+                cursor_name_in_request: 'after',
+                response_path: 'data',
+                limit_name_in_request: 'limit',
+                limit: 100
             },
             retries: 3
-        });
+        })) {
+            const found = batch.find((p) => p.id === pageId);
+            if (found) {
+                pageAccount = PageAccountSchema.parse(found);
+                break;
+            }
+        }
 
-        const accountsData = PageAccountsResponseSchema.parse(accountsResponse.data);
-
-        const pageId = input.postId.split('_')[0];
-        const pageAccount = accountsData.data.find((p) => p.id === pageId);
         if (!pageAccount) {
             throw new nango.ActionError({
                 type: 'page_not_found',

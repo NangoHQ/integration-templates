@@ -3,16 +3,13 @@ import { createAction } from 'nango';
 
 const InputSchema = z.object({
     pageId: z.string().describe('Facebook Page ID. Example: "1148671018324630"'),
-    limit: z.number().optional().describe('Maximum number of scheduled posts to return. Default: 25')
+    limit: z.number().optional().describe('Maximum number of scheduled posts to return. Default: 25'),
+    cursor: z.string().optional().describe('Pagination cursor from the previous response. Omit for the first page.')
 });
 
 const PageAccountSchema = z.object({
     id: z.string(),
     access_token: z.string()
-});
-
-const PageAccountsResponseSchema = z.object({
-    data: z.array(PageAccountSchema)
 });
 
 const ProviderScheduledPostSchema = z.object({
@@ -60,13 +57,26 @@ const action = createAction({
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         // https://developers.facebook.com/docs/graph-api/reference/page/scheduled_posts/
-        const accountsResponse = await nango.get({
+        let pageAccount: z.infer<typeof PageAccountSchema> | undefined;
+        for await (const batch of nango.paginate<z.infer<typeof PageAccountSchema>>({
             endpoint: '/me/accounts',
+            params: { fields: 'id,access_token' },
+            paginate: {
+                type: 'cursor',
+                cursor_path_in_response: 'paging.cursors.after',
+                cursor_name_in_request: 'after',
+                response_path: 'data',
+                limit_name_in_request: 'limit',
+                limit: 100
+            },
             retries: 3
-        });
-
-        const accountsData = PageAccountsResponseSchema.parse(accountsResponse.data);
-        const pageAccount = accountsData.data.find((account) => account.id === input.pageId);
+        })) {
+            const found = batch.find((account) => account.id === input.pageId);
+            if (found) {
+                pageAccount = PageAccountSchema.parse(found);
+                break;
+            }
+        }
 
         if (!pageAccount) {
             throw new nango.ActionError({
@@ -81,6 +91,9 @@ const action = createAction({
         const params: Record<string, string | number> = {};
         if (input.limit !== undefined) {
             params['limit'] = input.limit;
+        }
+        if (input.cursor !== undefined) {
+            params['after'] = input.cursor;
         }
 
         // https://developers.facebook.com/docs/graph-api/reference/page/scheduled_posts/
@@ -106,7 +119,7 @@ const action = createAction({
             };
         });
 
-        const nextCursor = providerData.paging?.cursors?.after;
+        const nextCursor = providerData.paging?.next != null && providerData.paging?.cursors?.after != null ? providerData.paging.cursors.after : undefined;
 
         return {
             posts,

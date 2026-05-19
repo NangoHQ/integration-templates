@@ -20,10 +20,6 @@ const PageAccountSchema = z.object({
     access_token: z.string()
 });
 
-const PageAccountsResponseSchema = z.object({
-    data: z.array(PageAccountSchema)
-});
-
 const action = createAction({
     description: 'Subscribe the app to receive updates for a Facebook Page',
     version: '1.0.0',
@@ -39,13 +35,26 @@ const action = createAction({
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         // First, get the page access token by looking up the user's pages
         // https://developers.facebook.com/docs/graph-api/reference/user/accounts/
-        const accountsResponse = await nango.get({
+        let pageAccount: z.infer<typeof PageAccountSchema> | undefined;
+        for await (const batch of nango.paginate<z.infer<typeof PageAccountSchema>>({
             endpoint: '/me/accounts',
+            params: { fields: 'id,access_token' },
+            paginate: {
+                type: 'cursor',
+                cursor_path_in_response: 'paging.cursors.after',
+                cursor_name_in_request: 'after',
+                response_path: 'data',
+                limit_name_in_request: 'limit',
+                limit: 100
+            },
             retries: 3
-        });
-
-        const accountsData = PageAccountsResponseSchema.parse(accountsResponse.data);
-        const pageAccount = accountsData.data.find((page) => page.id === input.page_id);
+        })) {
+            const found = batch.find((page) => page.id === input.page_id);
+            if (found) {
+                pageAccount = PageAccountSchema.parse(found);
+                break;
+            }
+        }
 
         if (!pageAccount) {
             throw new nango.ActionError({

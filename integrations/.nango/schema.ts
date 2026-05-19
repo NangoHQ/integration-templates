@@ -13469,6 +13469,10 @@ export interface ActionInput_facebook_listpagescheduledposts {
    * Maximum number of scheduled posts to return. Default: 25
    */
   limit?: number | undefined;
+  /**
+   * Pagination cursor from the previous response. Omit for the first page.
+   */
+  cursor?: string | undefined;
 };
 
 export interface ActionOutput_facebook_listpagescheduledposts {

@@ -41732,6 +41732,10 @@
         "limit": {
           "type": "number",
           "description": "Maximum number of scheduled posts to return. Default: 25"
+        },
+        "cursor": {
+          "type": "string",
+          "description": "Pagination cursor from the previous response. Omit for the first page."
         }
       },
       "required": [

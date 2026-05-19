@@ -50,10 +50,7 @@ const action = createAction({
 
         const providerUser = ProviderUserSchema.parse(response.data);
 
-        return {
-            id: providerUser.id,
-            ...(providerUser.name !== undefined && { name: providerUser.name })
-        };
+        return providerUser;
     }
 });
 

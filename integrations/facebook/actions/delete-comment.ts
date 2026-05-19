@@ -17,10 +17,6 @@ const PageAccountSchema = z.object({
     access_token: z.string()
 });
 
-const PagesResponseSchema = z.object({
-    data: z.array(PageAccountSchema)
-});
-
 const ProviderSuccessSchema = z.object({
     success: z.boolean()
 });
@@ -43,19 +39,51 @@ const action = createAction({
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         // https://developers.facebook.com/docs/graph-api/reference/user/accounts
-        const pagesResponse = await nango.get({
+        let page: z.infer<typeof PageAccountSchema> | undefined;
+        let pagesCount = 0;
+        let firstPage: z.infer<typeof PageAccountSchema> | undefined;
+
+        outer: for await (const batch of nango.paginate<z.infer<typeof PageAccountSchema>>({
             endpoint: '/me/accounts',
+            params: { fields: 'id,name,access_token' },
+            paginate: {
+                type: 'cursor',
+                cursor_path_in_response: 'paging.cursors.after',
+                cursor_name_in_request: 'after',
+                response_path: 'data',
+                limit_name_in_request: 'limit',
+                limit: 100
+            },
             retries: 3
-        });
+        })) {
+            for (const p of batch) {
+                if (input.pageId) {
+                    if (p.id === input.pageId) {
+                        page = PageAccountSchema.parse(p);
+                        break outer;
+                    }
+                } else {
+                    pagesCount++;
+                    if (pagesCount === 1) firstPage = PageAccountSchema.parse(p);
+                    if (pagesCount > 1) break outer;
+                }
+            }
+        }
 
-        const pagesData = PagesResponseSchema.parse(pagesResponse.data);
-
-        const page = input.pageId ? pagesData.data.find((p) => p.id === input.pageId) : pagesData.data[0];
+        if (!input.pageId) {
+            if (pagesCount === 0) {
+                throw new nango.ActionError({ type: 'page_not_found', message: 'No Facebook pages found for this user' });
+            }
+            if (pagesCount > 1) {
+                throw new nango.ActionError({ type: 'page_id_required', message: 'pageId is required when multiple pages are accessible' });
+            }
+            page = firstPage;
+        }
 
         if (!page) {
             throw new nango.ActionError({
                 type: 'page_not_found',
-                message: input.pageId ? `Page with ID ${input.pageId} not found or not accessible` : 'No Facebook pages found for this user'
+                message: `Page with ID ${input.pageId} not found or not accessible`
             });
         }
 

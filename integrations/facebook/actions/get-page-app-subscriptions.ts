@@ -52,13 +52,26 @@ const action = createAction({
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         // https://developers.facebook.com/docs/graph-api/reference/page/subscribed_apps/
-        const tokenResponse = await nango.get({
+        let pageEntry: z.infer<typeof PageTokenResponseSchema>['data'][number] | undefined;
+        for await (const batch of nango.paginate<z.infer<typeof PageTokenResponseSchema>['data'][number]>({
             endpoint: '/me/accounts',
+            params: { fields: 'id,access_token' },
+            paginate: {
+                type: 'cursor',
+                cursor_path_in_response: 'paging.cursors.after',
+                cursor_name_in_request: 'after',
+                response_path: 'data',
+                limit_name_in_request: 'limit',
+                limit: 100
+            },
             retries: 3
-        });
-
-        const parsedTokenResponse = PageTokenResponseSchema.parse(tokenResponse.data);
-        const pageEntry = parsedTokenResponse.data.find((page) => page.id === input.pageId);
+        })) {
+            const found = batch.find((page) => page.id === input.pageId);
+            if (found) {
+                pageEntry = found;
+                break;
+            }
+        }
 
         if (!pageEntry) {
             throw new nango.ActionError({

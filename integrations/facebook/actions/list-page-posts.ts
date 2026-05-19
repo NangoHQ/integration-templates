@@ -153,7 +153,8 @@ const action = createAction({
             }
         }
 
-        const nextCursor = feedResult.data.paging?.cursors?.after;
+        const nextCursor =
+            feedResult.data.paging?.next != null && feedResult.data.paging?.cursors?.after != null ? feedResult.data.paging.cursors.after : undefined;
 
         return {
             posts,

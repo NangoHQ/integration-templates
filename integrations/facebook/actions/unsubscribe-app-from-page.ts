@@ -7,12 +7,7 @@ const InputSchema = z.object({
 
 const PageAccountSchema = z.object({
     id: z.string(),
-    name: z.string(),
     access_token: z.string()
-});
-
-const PageAccountsResponseSchema = z.object({
-    data: z.array(PageAccountSchema)
 });
 
 const ProviderResponseSchema = z.object({
@@ -37,14 +32,26 @@ const action = createAction({
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         // https://developers.facebook.com/docs/graph-api/reference/me/accounts
-        const accountsResponse = await nango.get({
+        let pageAccount: z.infer<typeof PageAccountSchema> | undefined;
+        for await (const batch of nango.paginate<z.infer<typeof PageAccountSchema>>({
             endpoint: '/me/accounts',
+            params: { fields: 'id,access_token' },
+            paginate: {
+                type: 'cursor',
+                cursor_path_in_response: 'paging.cursors.after',
+                cursor_name_in_request: 'after',
+                response_path: 'data',
+                limit_name_in_request: 'limit',
+                limit: 100
+            },
             retries: 3
-        });
-
-        const parsedAccounts = PageAccountsResponseSchema.parse(accountsResponse.data);
-
-        const pageAccount = parsedAccounts.data.find((page) => page.id === input.pageId);
+        })) {
+            const found = batch.find((page) => page.id === input.pageId);
+            if (found) {
+                pageAccount = PageAccountSchema.parse(found);
+                break;
+            }
+        }
 
         if (!pageAccount) {
             throw new nango.ActionError({

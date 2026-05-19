@@ -63,30 +63,29 @@ const action = createAction({
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         // https://developers.facebook.com/docs/graph-api/reference/page/videos/
         // First, get the page access token from the user's accounts
-        const accountsResponse = await nango.get({
+        const PageTokenSchema = z.object({ id: z.string(), access_token: z.string() });
+
+        let page: z.infer<typeof PageTokenSchema> | undefined;
+        for await (const batch of nango.paginate<z.infer<typeof PageTokenSchema>>({
             // https://developers.facebook.com/docs/graph-api/reference/me/accounts/
             endpoint: '/me/accounts',
+            params: { fields: 'id,access_token' },
+            paginate: {
+                type: 'cursor',
+                cursor_path_in_response: 'paging.cursors.after',
+                cursor_name_in_request: 'after',
+                response_path: 'data',
+                limit_name_in_request: 'limit',
+                limit: 100
+            },
             retries: 3
-        });
-
-        const PageAccountSchema = z.object({
-            id: z.string(),
-            access_token: z.string()
-        });
-
-        const AccountsResponseSchema = z.object({
-            data: z.array(PageAccountSchema.passthrough())
-        });
-
-        const validatedAccounts = AccountsResponseSchema.safeParse(accountsResponse.data);
-        if (!validatedAccounts.success) {
-            throw new nango.ActionError({
-                type: 'no_pages_found',
-                message: 'Unable to retrieve pages for this user'
-            });
+        })) {
+            const found = batch.find((p) => p.id === input.page_id);
+            if (found) {
+                page = PageTokenSchema.parse(found);
+                break;
+            }
         }
-
-        const page = validatedAccounts.data.data.find((p) => p.id === input.page_id);
 
         if (!page) {
             throw new nango.ActionError({
@@ -130,7 +129,7 @@ const action = createAction({
             ...(video.length != null && { length: video.length })
         }));
 
-        const nextCursor = parsed.paging?.cursors?.after != null ? parsed.paging.cursors.after : undefined;
+        const nextCursor = parsed.paging?.next != null && parsed.paging?.cursors?.after != null ? parsed.paging.cursors.after : undefined;
 
         return {
             videos,

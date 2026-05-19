@@ -13,12 +13,7 @@ const InputSchema = z.object({
 
 const PageAccountSchema = z.object({
     id: z.string(),
-    name: z.string().optional(),
     access_token: z.string()
-});
-
-const ListPageAccountsResponseSchema = z.object({
-    data: z.array(PageAccountSchema).optional()
 });
 
 const ProviderPostResponseSchema = z.object({
@@ -45,21 +40,26 @@ const action = createAction({
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         // https://developers.facebook.com/docs/graph-api/reference/me/accounts/
-        const accountsResponse = await nango.get({
+        let pageAccount: z.infer<typeof PageAccountSchema> | undefined;
+        for await (const batch of nango.paginate<z.infer<typeof PageAccountSchema>>({
             endpoint: '/me/accounts',
+            params: { fields: 'id,access_token' },
+            paginate: {
+                type: 'cursor',
+                cursor_path_in_response: 'paging.cursors.after',
+                cursor_name_in_request: 'after',
+                response_path: 'data',
+                limit_name_in_request: 'limit',
+                limit: 100
+            },
             retries: 3
-        });
-
-        const parsedAccounts = ListPageAccountsResponseSchema.safeParse(accountsResponse.data);
-        if (!parsedAccounts.success) {
-            throw new nango.ActionError({
-                type: 'invalid_response',
-                message: 'Failed to parse page accounts response'
-            });
+        })) {
+            const found = batch.find((account) => account.id === input.page_id);
+            if (found) {
+                pageAccount = PageAccountSchema.parse(found);
+                break;
+            }
         }
-
-        const accounts = parsedAccounts.data.data || [];
-        const pageAccount = accounts.find((account) => account.id === input.page_id);
 
         if (!pageAccount) {
             throw new nango.ActionError({
@@ -69,32 +69,44 @@ const action = createAction({
             });
         }
 
-        const postData: Record<string, string | number | boolean> = {
-            published: false,
-            scheduled_publish_time: input.scheduled_publish_time
-        };
-
-        if (input.message !== undefined) {
-            postData['message'] = input.message;
-        }
-
-        if (input.link !== undefined) {
-            postData['link'] = input.link;
-        }
+        let response;
 
         if (input.photo_url !== undefined) {
-            postData['url'] = input.photo_url;
+            // Photo posts must go to the /photos edge, not /feed
+            // https://developers.facebook.com/docs/graph-api/reference/page/photos/#Creating
+            const photoData: Record<string, string | number | boolean> = {
+                url: input.photo_url,
+                published: false,
+                scheduled_publish_time: input.scheduled_publish_time
+            };
+            if (input.message !== undefined) {
+                photoData['caption'] = input.message;
+            }
+            response = await nango.post({
+                endpoint: `/${encodeURIComponent(input.page_id)}/photos`,
+                params: { access_token: pageAccount.access_token },
+                data: photoData,
+                retries: 3
+            });
+        } else {
+            // https://developers.facebook.com/docs/graph-api/reference/page/feed/#publishing
+            const postData: Record<string, string | number | boolean> = {
+                published: false,
+                scheduled_publish_time: input.scheduled_publish_time
+            };
+            if (input.message !== undefined) {
+                postData['message'] = input.message;
+            }
+            if (input.link !== undefined) {
+                postData['link'] = input.link;
+            }
+            response = await nango.post({
+                endpoint: `/${encodeURIComponent(input.page_id)}/feed`,
+                params: { access_token: pageAccount.access_token },
+                data: postData,
+                retries: 3
+            });
         }
-
-        // https://developers.facebook.com/docs/graph-api/reference/page/feed/#publishing
-        const response = await nango.post({
-            endpoint: `/${encodeURIComponent(input.page_id)}/feed`,
-            params: {
-                access_token: pageAccount.access_token
-            },
-            data: postData,
-            retries: 3
-        });
 
         const parsedResponse = ProviderPostResponseSchema.safeParse(response.data);
         if (!parsedResponse.success) {
