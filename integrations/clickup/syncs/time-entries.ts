@@ -45,12 +45,7 @@ const TimeEntrySchema = z.object({
     task_name: z.string().optional()
 });
 
-const CheckpointSchema = z.object({
-    start_date: z.number()
-});
-
 const THIRTY_DAYS_MS = 30 * 24 * 60 * 60 * 1000;
-const CHECKPOINT_OVERLAP_MS = 1;
 const SYNC_INTERVAL_MS = 30 * 60 * 1000;
 
 const MetadataSchema = z.object({
@@ -64,7 +59,6 @@ const sync = createSync({
     frequency: 'every 30 minutes',
     autoStart: true,
     metadata: MetadataSchema,
-    checkpoint: CheckpointSchema,
     models: {
         TimeEntry: TimeEntrySchema
     },
@@ -77,25 +71,13 @@ const sync = createSync({
         }
 
         const teamId = metadata.team_id;
-        const checkpoint = await nango.getCheckpoint();
 
-        // Align to the sync cadence so incremental windows stay stable between
-        // dryrun fixture capture and test execution.
-        const now = alignToSyncWindow(Date.now());
-        const defaultStartDate = now - THIRTY_DAYS_MS;
-        let checkpointStartDate = checkpoint?.start_date ?? defaultStartDate;
-
-        if (checkpointStartDate > now) {
-            await nango.log('Checkpoint start_date is in the future, resetting to a rolling lookback window', {
-                level: 'warn',
-                checkpoint_start_date: checkpointStartDate,
-                now
-            });
-            checkpointStartDate = defaultStartDate;
-        }
-
-        const startDate = Math.max(0, checkpointStartDate - (checkpoint ? CHECKPOINT_OVERLAP_MS : 0));
-        const endDate = Math.min(startDate + THIRTY_DAYS_MS, now);
+        // Always query a rolling 30-day window ending now so that backfilled or
+        // edited entries are never permanently missed by a forward-only cursor.
+        // Align to the sync cadence so windows stay stable between dryrun fixture
+        // capture and test execution.
+        const endDate = alignToSyncWindow(Date.now());
+        const startDate = endDate - THIRTY_DAYS_MS;
 
         // https://developer.clickup.com/reference/gettimeentrieswithinadaterange
         const response = await nango.get({
@@ -118,7 +100,6 @@ const sync = createSync({
 
         if (entries.length === 0) {
             await nango.log('No time entries found in window', { start_date: startDate, end_date: endDate });
-            await nango.saveCheckpoint({ start_date: endDate });
             return;
         }
 
@@ -139,9 +120,6 @@ const sync = createSync({
         // full collection or a deleted-record feed, so deletion tracking would
         // be unsafe on incremental runs.
         await nango.batchSave(timeEntries, 'TimeEntry');
-
-        // Save the end_date as the next checkpoint start_date
-        await nango.saveCheckpoint({ start_date: endDate });
     }
 });
 

@@ -94,11 +94,16 @@ const ListSchema = z.object({
 
 type ClickUpList = z.infer<typeof ClickUpListSchema>;
 
+const MetadataSchema = z.object({
+    team_id: z.string()
+});
+
 const sync = createSync({
     description: 'Sync lists from ClickUp',
     version: '1.0.0',
     frequency: 'every hour',
-    autoStart: true,
+    autoStart: false,
+    metadata: MetadataSchema,
     models: {
         List: ListSchema
     },
@@ -110,6 +115,12 @@ const sync = createSync({
     ],
 
     exec: async (nango) => {
+        const metadata = await nango.getMetadata();
+        if (!metadata?.team_id) {
+            throw new Error('Missing required metadata: team_id');
+        }
+        const teamId = metadata.team_id;
+
         // Blocker: ClickUp lists have no updated_at field, so we must do a full refresh.
         // We'll use trackDeletesStart/trackDeletesEnd to detect deletions.
         await nango.trackDeletesStart('List');
@@ -119,7 +130,7 @@ const sync = createSync({
         // First, get all spaces in the team
         // https://developer.clickup.com/reference/getspaces
         const spacesResponse = await nango.get({
-            endpoint: `/api/v2/team/${encodeURIComponent(String(90152560096))}/space`,
+            endpoint: `/api/v2/team/${encodeURIComponent(teamId)}/space`,
             retries: 3
         });
 

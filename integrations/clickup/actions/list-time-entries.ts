@@ -44,7 +44,7 @@ const TimeEntrySchema = z.object({
     end: z.string(),
     duration: z.number(),
     description: z.string().optional(),
-    tags: z.array(z.any()).optional(),
+    tags: z.array(z.object({ name: z.string() }).passthrough()).optional(),
     source: z.string().optional(),
     task_location: TaskLocationSchema.optional(),
     workspace_id: z.number()

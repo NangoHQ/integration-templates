@@ -58,7 +58,7 @@ const sync = createSync({
     version: '1.0.0',
     endpoints: [{ path: '/syncs/goals', method: 'GET' }],
     frequency: 'every hour',
-    autoStart: true,
+    autoStart: false,
     metadata: MetadataSchema,
     models: {
         Goal: GoalSchema

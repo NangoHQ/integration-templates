@@ -3,8 +3,12 @@ import { createAction } from 'nango';
 
 const InputSchema = z
     .object({
-        folder_id: z.string().optional().describe('Folder ID to list lists within. Provide either folder_id or space_id, not both.'),
-        space_id: z.string().optional().describe('Space ID to list folderless lists directly in the space. Provide either folder_id or space_id, not both.'),
+        folder_id: z.string().min(1).optional().describe('Folder ID to list lists within. Provide either folder_id or space_id, not both.'),
+        space_id: z
+            .string()
+            .min(1)
+            .optional()
+            .describe('Space ID to list folderless lists directly in the space. Provide either folder_id or space_id, not both.'),
         archived: z.boolean().optional().describe('Whether to include archived lists. Default: false.')
     })
     .refine(

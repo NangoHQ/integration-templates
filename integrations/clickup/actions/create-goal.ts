@@ -2,7 +2,7 @@ import { z } from 'zod';
 import { createAction } from 'nango';
 
 const MetadataSchema = z.object({
-    team_id: z.string().describe('ClickUp team ID. Example: "90152560096"')
+    team_id: z.string().optional().describe('ClickUp team ID. Example: "90152560096"')
 });
 
 const InputSchema = z.object({

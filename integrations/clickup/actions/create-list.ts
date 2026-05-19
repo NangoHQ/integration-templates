@@ -19,7 +19,7 @@ const InputSchema = z.object({
     due_date: z.number().optional().describe('The due date for the list in milliseconds since epoch.'),
     due_date_time: z.boolean().optional().describe('Whether the due_date includes time information.'),
     priority: z.number().optional().describe('The priority level of the list (1-4, where 1 is Urgent).'),
-    assignee: z.string().optional().describe('The user ID to assign to this list.'),
+    assignee: z.number().optional().describe('The user ID to assign to this list.'),
     status: z.string().optional().describe('The status of the list (refers to list color, not task statuses).')
 });
 
@@ -36,9 +36,29 @@ const ProviderListSchema = z.object({
     name: z.string(),
     orderindex: z.number(),
     content: z.string().optional(),
-    status: z.string().nullable().optional(),
-    priority: z.number().nullable().optional(),
-    assignee: z.string().nullable().optional(),
+    status: z
+        .object({
+            status: z.string().optional(),
+            color: z.string().optional(),
+            hide_label: z.boolean().optional()
+        })
+        .nullable()
+        .optional(),
+    priority: z
+        .object({
+            priority: z.string().optional(),
+            color: z.string().optional()
+        })
+        .nullable()
+        .optional(),
+    assignee: z
+        .object({
+            id: z.number().optional(),
+            username: z.string().optional(),
+            email: z.string().optional()
+        })
+        .nullable()
+        .optional(),
     due_date: z.string().nullable().optional(),
     due_date_time: z.boolean().nullable().optional(),
     folder: z

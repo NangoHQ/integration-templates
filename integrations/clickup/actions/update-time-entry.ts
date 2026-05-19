@@ -53,7 +53,14 @@ const action = createAction({
     output: OutputSchema,
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
-        const teamId = '90152560096';
+        const metadata = await nango.getMetadata<{ team_id?: string }>();
+        const teamId = metadata?.team_id;
+        if (!teamId) {
+            throw new nango.ActionError({
+                type: 'invalid_metadata',
+                message: 'team_id is required in metadata.'
+            });
+        }
         const timerId = encodeURIComponent(input.timer_id);
 
         const requestBody: Record<string, unknown> = {};

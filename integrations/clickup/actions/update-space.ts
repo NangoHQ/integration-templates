@@ -39,7 +39,7 @@ const ProviderSpaceSchema = z.object({
     private: z.boolean().nullable().optional(),
     admin_can_manage: z.boolean().nullable().optional(),
     multiple_assignees: z.boolean().nullable().optional(),
-    features: z.any().optional(),
+    features: z.record(z.string(), z.unknown()).optional(),
     avatar: z.string().nullable().optional(),
     statuses: z.array(z.unknown()).optional()
 });

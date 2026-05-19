@@ -7,7 +7,9 @@
       {
         "id": "90150225615480",
         "comment": [
-          {}
+          {
+            "text": "Test comment created for update-comment validation"
+          }
         ],
         "comment_text": "Test comment created for update-comment validation",
         "user": {
@@ -23,7 +25,9 @@
       {
         "id": "90150225613706",
         "comment": [
-          {}
+          {
+            "text": "Test comment from Nango action validation"
+          }
         ],
         "comment_text": "Test comment from Nango action validation",
         "user": {
@@ -39,7 +43,9 @@
       {
         "id": "90150225613541",
         "comment": [
-          {}
+          {
+            "text": "Test comment from Nango action validation"
+          }
         ],
         "comment_text": "Test comment from Nango action validation",
         "user": {
@@ -55,7 +61,9 @@
       {
         "id": "90150225611555",
         "comment": [
-          {}
+          {
+            "text": "Test comment from Nango action validation"
+          }
         ],
         "comment_text": "Test comment from Nango action validation",
         "user": {

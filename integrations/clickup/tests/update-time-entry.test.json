@@ -16,7 +16,11 @@
     "billable": false,
     "tags": []
   },
-  "nango": {},
+  "nango": {
+    "getMetadata": {
+      "team_id": "90152560096"
+    }
+  },
   "api": {
     "put": {
       "/api/v2/team/90152560096/time_entries/5090290025624291206": {

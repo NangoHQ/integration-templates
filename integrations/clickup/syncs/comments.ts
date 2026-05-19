@@ -17,7 +17,7 @@ const sync = createSync({
     description: 'Sync comments from ClickUp',
     version: '1.0.0',
     frequency: 'every hour',
-    autoStart: true,
+    autoStart: false,
     syncType: 'full',
     metadata: SyncConfigSchema,
     models: {
@@ -88,79 +88,71 @@ const sync = createSync({
                     for (const list of lists) {
                         const listId = String(list.id);
 
+                        // Paginate list comments using cursor (start_id)
                         // https://developer.clickup.com/reference/getlistcomments
-                        const listCommentsResponse = await nango.get({
-                            endpoint: `/api/v2/list/${encodeURIComponent(listId)}/comment`,
-                            retries: 3
-                        });
-
-                        const listComments = listCommentsResponse.data.comments || [];
-                        for (const comment of listComments) {
-                            const mappedComment: {
-                                id: string;
-                                comment_text?: string;
-                                user?: unknown;
-                                date?: string;
-                                reply_count?: number;
-                            } = {
-                                id: String(comment.id)
-                            };
-                            if (comment.comment_text !== undefined) {
-                                mappedComment.comment_text = String(comment.comment_text);
-                            }
-                            if (comment.user !== undefined) {
-                                mappedComment.user = comment.user;
-                            }
-                            if (comment.date !== undefined) {
-                                mappedComment.date = String(comment.date);
-                            }
-                            if (comment.reply_count !== undefined) {
-                                mappedComment.reply_count = Number(comment.reply_count);
-                            }
-                            allComments.push(mappedComment);
-                        }
-
-                        // https://developer.clickup.com/reference/gettasks
-                        const tasksResponse = await nango.get({
-                            endpoint: `/api/v2/list/${encodeURIComponent(listId)}/task`,
-                            retries: 3
-                        });
-
-                        const tasks = tasksResponse.data.tasks || [];
-
-                        for (const task of tasks) {
-                            const taskId = String(task.id);
-
-                            // https://developer.clickup.com/reference/gettaskcomments
-                            const taskCommentsResponse = await nango.get({
-                                endpoint: `/api/v2/task/${encodeURIComponent(taskId)}/comment`,
+                        let listCommentCursor: string | undefined;
+                        do {
+                            const listCommentsResponse = await nango.get({
+                                endpoint: `/api/v2/list/${encodeURIComponent(listId)}/comment`,
+                                params: listCommentCursor ? { start_id: listCommentCursor } : {},
                                 retries: 3
                             });
 
-                            const taskComments = taskCommentsResponse.data.comments || [];
-                            for (const comment of taskComments) {
-                                const mappedComment: {
-                                    id: string;
-                                    comment_text?: string;
-                                    user?: unknown;
-                                    date?: string;
-                                    reply_count?: number;
-                                } = {
-                                    id: String(comment.id)
-                                };
-                                if (comment.comment_text !== undefined) {
-                                    mappedComment.comment_text = String(comment.comment_text);
-                                }
-                                if (comment.user !== undefined) {
-                                    mappedComment.user = comment.user;
-                                }
-                                if (comment.date !== undefined) {
-                                    mappedComment.date = String(comment.date);
-                                }
-                                if (comment.reply_count !== undefined) {
-                                    mappedComment.reply_count = Number(comment.reply_count);
-                                }
-                                allComments.push(mappedComment);
+                            const listComments = listCommentsResponse.data.comments || [];
+                            for (const comment of listComments) {
+                                allComments.push(mapComment(comment));
+                            }
+
+                            listCommentCursor = listCommentsResponse.data.next_id ?? undefined;
+                            if (listComments.length === 0) {
+                                break;
+                            }
+                        } while (listCommentCursor);
+
+                        // Paginate tasks with page-based pagination
+                        // https://developer.clickup.com/reference/gettasks
+                        let taskPage = 0;
+                        let hasMoreTasks = true;
+
+                        while (hasMoreTasks) {
+                            const tasksResponse = await nango.get({
+                                endpoint: `/api/v2/list/${encodeURIComponent(listId)}/task`,
+                                params: { page: taskPage, include_closed: 'true' },
+                                retries: 3
+                            });
+
+                            const tasks = tasksResponse.data.tasks || [];
+                            const lastPage = tasksResponse.data.last_page ?? false;
+
+                            for (const task of tasks) {
+                                const taskId = String(task.id);
+
+                                // Paginate task comments using cursor
+                                // https://developer.clickup.com/reference/gettaskcomments
+                                let taskCommentCursor: string | undefined;
+                                do {
+                                    const taskCommentsResponse = await nango.get({
+                                        endpoint: `/api/v2/task/${encodeURIComponent(taskId)}/comment`,
+                                        params: taskCommentCursor ? { start_id: taskCommentCursor } : {},
+                                        retries: 3
+                                    });
+
+                                    const taskComments = taskCommentsResponse.data.comments || [];
+                                    for (const comment of taskComments) {
+                                        allComments.push(mapComment(comment));
+                                    }
+
+                                    taskCommentCursor = taskCommentsResponse.data.next_id ?? undefined;
+                                    if (taskComments.length === 0) {
+                                        break;
+                                    }
+                                } while (taskCommentCursor);
+                            }
+
+                            if (lastPage || tasks.length === 0) {
+                                hasMoreTasks = false;
+                            } else {
+                                taskPage += 1;
                             }
                         }
                     }
@@ -175,5 +167,30 @@ const sync = createSync({
         await nango.trackDeletesEnd('Comment');
     }
 });
+
+function mapComment(comment: Record<string, unknown>): {
+    id: string;
+    comment_text?: string;
+    user?: unknown;
+    date?: string;
+    reply_count?: number;
+} {
+    const mapped: { id: string; comment_text?: string; user?: unknown; date?: string; reply_count?: number } = {
+        id: String(comment['id'])
+    };
+    if (comment['comment_text'] !== undefined) {
+        mapped.comment_text = String(comment['comment_text']);
+    }
+    if (comment['user'] !== undefined) {
+        mapped.user = comment['user'];
+    }
+    if (comment['date'] !== undefined) {
+        mapped.date = String(comment['date']);
+    }
+    if (comment['reply_count'] !== undefined) {
+        mapped.reply_count = Number(comment['reply_count']);
+    }
+    return mapped;
+}
 
 export default sync;

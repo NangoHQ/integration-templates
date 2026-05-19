@@ -18,11 +18,16 @@ const SyncFolderSchema = z.object({
     spaceId: z.string()
 });
 
+const MetadataSchema = z.object({
+    team_id: z.string()
+});
+
 const sync = createSync({
     description: 'Sync folders from ClickUp.',
     version: '1.0.0',
     frequency: 'every hour',
-    autoStart: true,
+    autoStart: false,
+    metadata: MetadataSchema,
     models: {
         Folder: SyncFolderSchema
     },
@@ -34,6 +39,12 @@ const sync = createSync({
     ],
 
     exec: async (nango) => {
+        const metadata = await nango.getMetadata();
+        if (!metadata?.team_id) {
+            throw new Error('Missing required metadata: team_id');
+        }
+        const teamId = metadata.team_id;
+
         // Blocker: ClickUp folders endpoint has no updated_at filter or incremental
         // support. Full refresh with deletion detection is required.
         await nango.trackDeletesStart('Folder');
@@ -41,7 +52,7 @@ const sync = createSync({
         // Get all spaces in the workspace
         // https://developer.clickup.com/reference/getspaces
         const spacesResponse = await nango.get({
-            endpoint: `/api/v2/team/${encodeURIComponent('90152560096')}/space`,
+            endpoint: `/api/v2/team/${encodeURIComponent(teamId)}/space`,
             retries: 3
         });
 

@@ -47,11 +47,16 @@ const SpaceSchema = z.object({
     adminCanManage: z.boolean().nullable().optional()
 });
 
+const MetadataSchema = z.object({
+    team_id: z.string()
+});
+
 const sync = createSync({
     description: 'Sync spaces from ClickUp.',
     version: '1.0.0',
     frequency: 'every hour',
-    autoStart: true,
+    autoStart: false,
+    metadata: MetadataSchema,
     models: {
         Space: SpaceSchema
     },
@@ -69,15 +74,17 @@ const sync = createSync({
 
         const metadata = z
             .object({
-                team_id: z.string().optional()
+                team_id: z.string()
             })
             .safeParse(metadataResult);
 
         if (!metadata.success || !metadata.data.team_id) {
-            await nango.log('Missing team_id in metadata, falling back to default', { level: 'warn' });
+            throw new Error('Missing required metadata: team_id');
         }
 
-        const teamId = metadata.success && metadata.data.team_id ? metadata.data.team_id : '90152560096';
+        const teamId = metadata.data.team_id;
+
+        await nango.trackDeletesStart('Space');
 
         // https://developer.clickup.com/reference/getspaces
         const response = await nango.get({
@@ -108,21 +115,18 @@ const sync = createSync({
 
         if (spaces.length === 0) {
             await nango.log('No spaces found', { level: 'info' });
-            return;
+        } else {
+            const mappedSpaces = spaces.map((space) => ({
+                id: space.id,
+                name: space.name,
+                ...(space.color !== undefined && { color: space.color }),
+                ...(space.private !== undefined && { private: space.private }),
+                ...(space.archived !== undefined && { archived: space.archived }),
+                ...(space.admin_can_manage !== undefined && { adminCanManage: space.admin_can_manage })
+            }));
+
+            await nango.batchSave(mappedSpaces, 'Space');
         }
-
-        await nango.trackDeletesStart('Space');
-
-        const mappedSpaces = spaces.map((space) => ({
-            id: space.id,
-            name: space.name,
-            ...(space.color !== undefined && { color: space.color }),
-            ...(space.private !== undefined && { private: space.private }),
-            ...(space.archived !== undefined && { archived: space.archived }),
-            ...(space.admin_can_manage !== undefined && { adminCanManage: space.admin_can_manage })
-        }));
-
-        await nango.batchSave(mappedSpaces, 'Space');
 
         await nango.trackDeletesEnd('Space');
     }

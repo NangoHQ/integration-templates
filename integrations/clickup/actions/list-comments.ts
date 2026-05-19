@@ -20,7 +20,7 @@ const ProviderUserSchema = z.object({
 
 const ProviderCommentSchema = z.object({
     id: z.string(),
-    comment: z.union([z.string(), z.array(z.object({})).optional()]).optional(),
+    comment: z.union([z.string(), z.array(z.object({}).passthrough()).optional()]).optional(),
     comment_text: z.string().optional(),
     user: ProviderUserSchema.optional(),
     date: z.string().optional(),
@@ -33,7 +33,7 @@ const ProviderResponseSchema = z.object({
 
 const CommentOutputSchema = z.object({
     id: z.string(),
-    comment: z.union([z.string(), z.array(z.object({})).optional()]).optional(),
+    comment: z.union([z.string(), z.array(z.object({}).passthrough()).optional()]).optional(),
     comment_text: z.string().optional(),
     user: ProviderUserSchema.optional(),
     date: z.string().optional(),

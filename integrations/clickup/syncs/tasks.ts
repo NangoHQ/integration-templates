@@ -369,7 +369,8 @@ async function processList(
     // Paginate tasks with page=0,1,2,... until last_page is true
     // Build base params
     const baseParams: Record<string, string | number | boolean> = {
-        subtasks: 'true'
+        subtasks: 'true',
+        include_closed: 'true'
     };
     if (updatedAfterMs) {
         baseParams['date_updated_gt'] = updatedAfterMs;

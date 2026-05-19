@@ -22,6 +22,9 @@
     },
     "batchDelete": {
       "Folder": []
+    },
+    "getMetadata": {
+      "team_id": "90152560096"
     }
   },
   "api": {

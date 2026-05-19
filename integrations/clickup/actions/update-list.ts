@@ -2,17 +2,31 @@ import { z } from 'zod';
 import { createAction } from 'nango';
 
 // Input schema for updating a list
-const InputSchema = z.object({
-    list_id: z.string().describe('The ID of the list to update. Example: "901523451693"'),
-    name: z.string().optional().describe('The new name of the list.'),
-    content: z.string().optional().describe('The new content/description of the list.'),
-    due_date: z.number().optional().describe('The due date as a Unix timestamp in milliseconds.'),
-    due_date_time: z.boolean().optional().describe('Whether the due_date includes a time component.'),
-    priority: z.number().optional().describe('The priority of the list (1-4, where 1 is Urgent).'),
-    assignee: z.number().optional().describe('The user ID to assign the list to.'),
-    status: z.string().optional().describe('The status of the list.'),
-    unset_status: z.boolean().optional().describe('Whether to unset the status.')
-});
+const InputSchema = z
+    .object({
+        list_id: z.string().describe('The ID of the list to update. Example: "901523451693"'),
+        name: z.string().optional().describe('The new name of the list.'),
+        content: z.string().optional().describe('The new content/description of the list.'),
+        due_date: z.number().optional().describe('The due date as a Unix timestamp in milliseconds.'),
+        due_date_time: z.boolean().optional().describe('Whether the due_date includes a time component.'),
+        priority: z.number().optional().describe('The priority of the list (1-4, where 1 is Urgent).'),
+        assignee: z.number().optional().describe('The user ID to assign the list to.'),
+        status: z.string().optional().describe('The status of the list.'),
+        unset_status: z.boolean().optional().describe('Whether to unset the status.')
+    })
+    .refine(
+        (data) =>
+            data.name !== undefined ||
+            data.content !== undefined ||
+            data.due_date !== undefined ||
+            data.priority !== undefined ||
+            data.assignee !== undefined ||
+            data.status !== undefined ||
+            data.unset_status !== undefined,
+        {
+            message: 'At least one field to update must be provided besides list_id'
+        }
+    );
 
 // Provider response schema for a list
 const ProviderListSchema = z.object({

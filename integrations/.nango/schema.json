@@ -28137,6 +28137,18 @@
       ],
       "additionalProperties": false
     },
+    "SyncMetadata_clickup_folders": {
+      "type": "object",
+      "properties": {
+        "team_id": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "team_id"
+      ],
+      "additionalProperties": false
+    },
     "Goal": {
       "type": "object",
       "properties": {
@@ -28225,6 +28237,18 @@
       ],
       "additionalProperties": false
     },
+    "SyncMetadata_clickup_lists": {
+      "type": "object",
+      "properties": {
+        "team_id": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "team_id"
+      ],
+      "additionalProperties": false
+    },
     "Space": {
       "type": "object",
       "properties": {
@@ -28294,6 +28318,18 @@
       "required": [
         "id",
         "state"
+      ],
+      "additionalProperties": false
+    },
+    "SyncMetadata_clickup_spaces": {
+      "type": "object",
+      "properties": {
+        "team_id": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "team_id"
       ],
       "additionalProperties": false
     },
@@ -28623,7 +28659,7 @@
           "description": "The priority level of the list (1-4, where 1 is Urgent)."
         },
         "assignee": {
-          "type": "string",
+          "type": "number",
           "description": "The user ID to assign to this list."
         },
         "status": {
@@ -29870,6 +29906,10 @@
         "custom_task_ids": {
           "type": "boolean",
           "description": "Set to true when using custom task IDs instead of ClickUp native IDs."
+        },
+        "team_id": {
+          "type": "string",
+          "description": "ClickUp team/workspace ID. Required when custom_task_ids is true. Example: \"90152560096\""
         }
       },
       "required": [
@@ -30107,9 +30147,7 @@
             }
           },
           "required": [
-            "id",
-            "username",
-            "email"
+            "id"
           ],
           "additionalProperties": false
         },
@@ -30160,14 +30198,8 @@
       },
       "required": [
         "id",
-        "workspace_id",
         "user",
-        "billable",
-        "start",
-        "end",
-        "duration",
-        "description",
-        "source"
+        "billable"
       ],
       "additionalProperties": false
     },
@@ -31149,7 +31181,18 @@
               },
               "tags": {
                 "type": "array",
-                "items": {}
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "name": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "name"
+                  ],
+                  "additionalProperties": false
+                }
               },
               "source": {
                 "type": "string"
@@ -31695,15 +31738,15 @@
             "add": {
               "type": "array",
               "items": {
-                "type": "string"
+                "type": "number"
               }
             },
             "rem": {
               "type": "array",
               "items": {
-                "type": "string"
+                "type": "number"
               },
-              "description": "Array of user IDs to remove from assignees"
+              "description": "Array of numeric user IDs to remove from assignees"
             }
           },
           "additionalProperties": false

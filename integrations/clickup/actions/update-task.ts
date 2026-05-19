@@ -8,8 +8,8 @@ const PriorityEnum = z
 
 const AssigneesSchema = z
     .object({
-        add: z.array(z.string()).optional().describe('Array of user IDs to add as assignees'),
-        rem: z.array(z.string()).optional().describe('Array of user IDs to remove from assignees')
+        add: z.array(z.number()).optional().describe('Array of numeric user IDs to add as assignees'),
+        rem: z.array(z.number()).optional().describe('Array of numeric user IDs to remove from assignees')
     })
     .optional();
 

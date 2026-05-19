@@ -1,10 +1,16 @@
 import { z } from 'zod';
 import { createAction } from 'nango';
 
-const InputSchema = z.object({
-    task_id: z.string().describe('The ClickUp task ID. Example: "86c9w2nke"'),
-    custom_task_ids: z.boolean().optional().describe('Set to true when using custom task IDs instead of ClickUp native IDs.')
-});
+const InputSchema = z
+    .object({
+        task_id: z.string().describe('The ClickUp task ID. Example: "86c9w2nke"'),
+        custom_task_ids: z.boolean().optional().describe('Set to true when using custom task IDs instead of ClickUp native IDs.'),
+        team_id: z.string().optional().describe('ClickUp team/workspace ID. Required when custom_task_ids is true. Example: "90152560096"')
+    })
+    .refine((data) => !data.custom_task_ids || data.team_id, {
+        message: 'team_id is required when custom_task_ids is true',
+        path: ['team_id']
+    });
 
 // Provider schema matching ClickUp API v2 task response
 const ProviderTaskSchema = z.object({
@@ -149,6 +155,7 @@ const action = createAction({
         const params: Record<string, string> = {};
         if (input.custom_task_ids) {
             params['custom_task_ids'] = 'true';
+            params['team_id'] = input.team_id!;
         }
 
         // https://developer.clickup.com/reference/get-task

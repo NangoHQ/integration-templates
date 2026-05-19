@@ -8242,6 +8242,10 @@ export interface SyncMetadata_clickup_comments {
   team_id: string;
 };
 
+export interface SyncMetadata_clickup_folders {
+  team_id: string;
+};
+
 export interface Goal {
   id: string;
   name: string;
@@ -8267,6 +8271,10 @@ export interface SyncMetadata_clickup_goals {
   team_id: string;
 };
 
+export interface SyncMetadata_clickup_lists {
+  team_id: string;
+};
+
 export interface Space {
   id: string;
   state: 'live' | 'scheduled' | 'ended';
@@ -8284,6 +8292,10 @@ export interface Space {
   scheduled_start?: string | undefined;
   started_at?: string | undefined;
   ended_at?: string | undefined;
+};
+
+export interface SyncMetadata_clickup_spaces {
+  team_id: string;
 };
 
 export interface TimeEntry {
@@ -8435,7 +8447,7 @@ export interface ActionInput_clickup_createlist {
   /**
    * The user ID to assign to this list.
    */
-  assignee?: string | undefined;
+  assignee?: number | undefined;
   /**
    * The status of the list (refers to list color, not task statuses).
    */
@@ -8851,6 +8863,10 @@ export interface ActionInput_clickup_gettask {
    * Set to true when using custom task IDs instead of ClickUp native IDs.
    */
   custom_task_ids?: boolean | undefined;
+  /**
+   * ClickUp team/workspace ID. Required when custom_task_ids is true. Example: "90152560096"
+   */
+  team_id?: string | undefined;
 };
 
 export interface ActionOutput_clickup_gettask {
@@ -8895,17 +8911,17 @@ export interface ActionOutput_clickup_gettimeentry {
   task?: {  id: string;
   name: string;
   status: string;} | undefined;
-  workspace_id: string;
+  workspace_id?: string | undefined;
   user: {  id: number;
-  username: string;
-  email: string;};
+  username?: string | undefined;
+  email?: string | undefined;};
   billable: boolean;
-  start: string;
-  end: string;
-  duration: string;
-  description: string;
+  start?: string | undefined;
+  end?: string | undefined;
+  duration?: string | undefined;
+  description?: string | undefined;
   tags?: string[] | undefined;
-  source: string;
+  source?: string | undefined;
   task_location?: {  list_id: string;
   folder_id: string;
   space_id: string;} | undefined;
@@ -9244,7 +9260,7 @@ export interface ActionOutput_clickup_listtimeentries {
   end: string;
   duration: number;
   description?: string | undefined;
-  tags?: any[] | undefined;
+  tags?: ({  name: string;})[] | undefined;
   source?: string | undefined;
   task_location?: {  list_id: number;
   folder_id: number;
@@ -9552,13 +9568,13 @@ export interface ActionInput_clickup_updatetask {
    */
   start_date_time?: boolean | undefined;
   assignees?: {  /**
-   * Array of user IDs to add as assignees
+   * Array of numeric user IDs to add as assignees
    */
-  add?: string[] | undefined;
+  add?: number[] | undefined;
   /**
-   * Array of user IDs to remove from assignees
+   * Array of numeric user IDs to remove from assignees
    */
-  rem?: string[] | undefined;};
+  rem?: number[] | undefined;};
   /**
    * Whether to archive the task
    */

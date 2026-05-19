@@ -31,23 +31,23 @@ const TagSchema = z.object({
 
 const TimeEntryDataSchema = z.object({
     id: z.string(),
-    task: TaskSchema.optional(),
-    wid: z.string(),
+    task: TaskSchema.optional().nullable(),
+    wid: z.string().optional(),
     user: z.object({
         id: z.number(),
-        username: z.string(),
-        email: z.string(),
-        color: z.string(),
-        initials: z.string(),
+        username: z.string().optional(),
+        email: z.string().optional(),
+        color: z.string().optional(),
+        initials: z.string().optional(),
         profilePicture: z.string().nullable().optional()
     }),
     billable: z.boolean(),
-    start: z.string(),
-    end: z.string(),
-    duration: z.string(),
-    description: z.string(),
+    start: z.string().optional(),
+    end: z.string().optional(),
+    duration: z.string().optional(),
+    description: z.string().optional(),
     tags: z.array(TagSchema).optional(),
-    source: z.string(),
+    source: z.string().optional(),
     task_location: TaskLocationSchema.optional()
 });
 
@@ -60,19 +60,19 @@ const OutputSchema = z.object({
             status: z.string()
         })
         .optional(),
-    workspace_id: z.string(),
+    workspace_id: z.string().optional(),
     user: z.object({
         id: z.number(),
-        username: z.string(),
-        email: z.string()
+        username: z.string().optional(),
+        email: z.string().optional()
     }),
     billable: z.boolean(),
-    start: z.string(),
-    end: z.string(),
-    duration: z.string(),
-    description: z.string(),
+    start: z.string().optional(),
+    end: z.string().optional(),
+    duration: z.string().optional(),
+    description: z.string().optional(),
     tags: z.array(z.string()).optional(),
-    source: z.string(),
+    source: z.string().optional(),
     task_location: z
         .object({
             list_id: z.string(),
@@ -129,27 +129,27 @@ const action = createAction({
                     status: timeEntry.task.status.status
                 }
             }),
-            workspace_id: timeEntry.wid,
+            ...(timeEntry.wid && { workspace_id: timeEntry.wid }),
             user: {
                 id: timeEntry.user.id,
-                username: timeEntry.user.username,
-                email: timeEntry.user.email
+                ...(timeEntry.user.username && { username: timeEntry.user.username }),
+                ...(timeEntry.user.email && { email: timeEntry.user.email })
             },
             billable: timeEntry.billable,
-            start: timeEntry.start,
-            end: timeEntry.end,
-            duration: timeEntry.duration,
-            description: timeEntry.description,
+            ...(timeEntry.start && { start: timeEntry.start }),
+            ...(timeEntry.end && { end: timeEntry.end }),
+            ...(timeEntry.duration && { duration: timeEntry.duration }),
+            ...(timeEntry.description && { description: timeEntry.description }),
             ...(timeEntry.tags && {
                 tags: timeEntry.tags.map((tag) => tag.name)
             }),
-            source: timeEntry.source,
+            ...(timeEntry.source && { source: timeEntry.source }),
             ...(timeEntry.task_location &&
                 timeEntry.task_location.list_id && {
                     task_location: {
                         list_id: timeEntry.task_location.list_id,
-                        folder_id: timeEntry.task_location.folder_id || '',
-                        space_id: timeEntry.task_location.space_id || ''
+                        folder_id: timeEntry.task_location.folder_id,
+                        space_id: timeEntry.task_location.space_id
                     }
                 })
         };

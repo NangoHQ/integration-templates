@@ -36,37 +36,6 @@ const ProviderListSchema = z.object({
     permission_level: z.string().optional()
 });
 
-const OutputSchema = z.object({
-    id: z.string(),
-    name: z.string(),
-    orderindex: z.number(),
-    task_count: z.number().optional(),
-    folder: z
-        .object({
-            id: z.string(),
-            name: z.string(),
-            hidden: z.boolean().optional(),
-            access: z.boolean().optional()
-        })
-        .optional(),
-    space: z.object({
-        id: z.string(),
-        name: z.string()
-    }),
-    statuses: z
-        .array(
-            z.object({
-                id: z.string(),
-                status: z.string(),
-                orderindex: z.number(),
-                color: z.string(),
-                type: z.string()
-            })
-        )
-        .optional(),
-    permission_level: z.string().optional()
-});
-
 const action = createAction({
     description: 'Retrieve a single list from ClickUp.',
     version: '1.0.0',
@@ -76,9 +45,9 @@ const action = createAction({
         group: 'Lists'
     },
     input: InputSchema,
-    output: OutputSchema,
+    output: ProviderListSchema,
 
-    exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
+    exec: async (nango, input): Promise<z.infer<typeof ProviderListSchema>> => {
         const response = await nango.get({
             // https://developer.clickup.com/reference/getlist
             endpoint: `/api/v2/list/${encodeURIComponent(input.listId)}`,
