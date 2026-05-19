@@ -11756,15 +11756,13 @@ export interface ActionOutput_docusign_deleteuser {
 
 export interface File {
   id: string;
-  name: string;
-  mimeType: string;
-  parents?: string[] | undefined;
-  driveId?: string | undefined;
-  createdTime: string;
-  modifiedTime: string;
-  size?: string | undefined;
-  webViewLink?: string | undefined;
-  trashed?: boolean | undefined;
+  object?: string | undefined;
+  bytes?: number | undefined;
+  created_at?: number | undefined;
+  filename?: string | undefined;
+  purpose?: string | undefined;
+  status?: string | undefined;
+  status_details?: string | undefined;
 };
 
 export interface SyncMetadata_dropbox_files {
@@ -33586,6 +33584,1259 @@ export interface ActionOutput_one_drive_personal_uploadsmallfile {
   webUrl?: string | undefined;
   createdDateTime?: string | undefined;
   lastModifiedDateTime?: string | undefined;
+};
+
+export interface Batch {
+  id: string;
+  object?: string | undefined;
+  endpoint?: string | undefined;
+  errors?: {  object?: string | undefined;
+  data?: ({  code?: string | undefined;
+  message?: string | undefined;
+  param?: string | undefined;
+  line?: number | undefined;})[];};
+  input_file_id?: string | undefined;
+  completion_window?: string | undefined;
+  status?: string | undefined;
+  output_file_id?: string | undefined;
+  error_file_id?: string | undefined;
+  created_at?: number | undefined;
+  in_progress_at?: number | undefined;
+  expires_at?: number | undefined;
+  finalizing_at?: number | undefined;
+  completed_at?: number | undefined;
+  failed_at?: number | undefined;
+  expired_at?: number | undefined;
+  cancelling_at?: number | undefined;
+  cancelled_at?: number | undefined;
+  request_counts?: {  total?: number | undefined;
+  completed?: number | undefined;
+  failed?: number | undefined;};
+  metadata?: {  [key: string]: unknown | undefined;};
+};
+
+export interface FineTuningJob {
+  id: string;
+  object: string;
+  model: string;
+  created_at: number;
+  finished_at?: number | undefined;
+  fine_tuned_model?: string | undefined;
+  organization_id: string;
+  status: string;
+  training_file: string;
+  validation_file?: string | undefined;
+  result_files: string[];
+  hyperparameters: {  n_epochs: number | string;
+  batch_size?: number | string | undefined;
+  learning_rate_multiplier?: number | string | undefined;};
+  metadata?: {  [key: string]: unknown | undefined;};
+  error?: unknown | undefined;
+};
+
+export interface Model {
+  id: string;
+  object?: string | undefined;
+  created?: number | undefined;
+  owned_by?: string | undefined;
+};
+
+export interface VectorStore {
+  id: string;
+  object: string;
+  created_at: number;
+  name?: string | undefined;
+  description?: string | undefined;
+  usage_bytes: number;
+  file_counts: {  in_progress: number;
+  completed: number;
+  failed: number;
+  cancelled: number;
+  total: number;};
+  status: 'in_progress' | 'completed' | 'cancelled' | 'failed';
+  expires_after?: {  anchor: string;
+  days: number;} | undefined;
+  expires_at?: number | undefined;
+  last_active_at?: number | undefined;
+  metadata?: {  [key: string]: unknown | undefined;};
+};
+
+export interface ActionInput_openai_addvectorstorefile {
+  /**
+   * The ID of the vector store to attach the file to. Example: "vs_abc123"
+   */
+  vector_store_id: string;
+  /**
+   * The ID of the file to attach. Must be a file that was previously uploaded. Example: "file-abc123"
+   */
+  file_id: string;
+  /**
+   * Chunking strategy for the file
+   */
+  chunking_strategy?: {  /**
+   * The type of chunking strategy
+   */
+  type: 'auto' | 'static';
+  /**
+   * Static chunking configuration (only used when type is "static")
+   */
+  static?: {  /**
+   * Maximum number of tokens per chunk
+   */
+  max_chunk_size_tokens: number;
+  /**
+   * Number of tokens to overlap between chunks
+   */
+  chunk_overlap_tokens: number;} | undefined;};
+  attributes?: {  [key: string]: any | undefined;};
+};
+
+export interface ActionOutput_openai_addvectorstorefile {
+  id: string;
+  vector_store_id: string;
+  status: 'in_progress' | 'completed' | 'failed' | 'cancelled';
+  created_at: number;
+  usage_bytes?: number | undefined;
+};
+
+export interface ActionInput_openai_cancelbatch {
+  /**
+   * The ID of the batch to cancel. Example: "batch_abc123"
+   */
+  batch_id: string;
+};
+
+export interface ActionOutput_openai_cancelbatch {
+  /**
+   * The batch ID
+   */
+  id: string;
+  /**
+   * The object type
+   */
+  object: 'batch';
+  /**
+   * The endpoint used for the batch
+   */
+  endpoint: string;
+  /**
+   * The ID of the input file
+   */
+  input_file_id: string;
+  /**
+   * The completion window for the batch
+   */
+  completion_window: string;
+  /**
+   * The status of the batch
+   */
+  status: 'validating' | 'failed' | 'in_progress' | 'finalizing' | 'completed' | 'expired' | 'cancelling' | 'cancelled';
+  /**
+   * The ID of the output file
+   */
+  output_file_id?: string | undefined;
+  /**
+   * The ID of the error file
+   */
+  error_file_id?: string | undefined;
+  /**
+   * Unix timestamp when the batch was created
+   */
+  created_at: number;
+  /**
+   * Unix timestamp when the batch started processing
+   */
+  in_progress_at?: number | undefined;
+  /**
+   * Unix timestamp when the batch expires
+   */
+  expires_at: number;
+  /**
+   * Unix timestamp when the batch started finalizing
+   */
+  finalizing_at?: number | undefined;
+  /**
+   * Unix timestamp when the batch completed
+   */
+  completed_at?: number | undefined;
+  /**
+   * Unix timestamp when the batch failed
+   */
+  failed_at?: number | undefined;
+  /**
+   * Unix timestamp when the batch expired
+   */
+  expired_at?: number | undefined;
+  /**
+   * Unix timestamp when the batch started cancelling
+   */
+  cancelling_at?: number | undefined;
+  /**
+   * Unix timestamp when the batch was cancelled
+   */
+  cancelled_at?: number | undefined;
+  /**
+   * Request count statistics
+   */
+  request_counts?: {  /**
+   * Total number of requests
+   */
+  total: number;
+  /**
+   * Number of completed requests
+   */
+  completed: number;
+  /**
+   * Number of failed requests
+   */
+  failed: number;} | undefined;
+  /**
+   * Optional metadata
+   */
+  metadata?: {  [key: string]: unknown | undefined;};
+};
+
+export interface ActionInput_openai_cancelfinetuningjob {
+  /**
+   * The ID of the fine-tuning job to cancel. Example: "ft-abc123"
+   */
+  fine_tuning_job_id: string;
+};
+
+export interface ActionOutput_openai_cancelfinetuningjob {
+  id: string;
+  object: string;
+  model: string;
+  created_at: number;
+  finished_at?: number | undefined;
+  fine_tuned_model?: string | undefined;
+  organization_id: string;
+  result_files: string[];
+  status: string;
+  validation_file?: string | undefined;
+  training_file: string;
+  hyperparameters: {  n_epochs?: number | 'auto' | undefined;
+  batch_size?: number | 'auto' | undefined;
+  learning_rate_multiplier?: number | 'auto' | undefined;};
+  trained_tokens?: number | undefined;
+  error?: unknown | undefined;
+};
+
+export interface ActionInput_openai_createbatch {
+  /**
+   * The ID of an uploaded file that contains requests for the new batch. Must be formatted as a JSONL file and uploaded with purpose=batch.
+   */
+  input_file_id: string;
+  /**
+   * The endpoint to be used for all requests in the batch.
+   */
+  endpoint: '/v1/responses' | '/v1/chat/completions' | '/v1/embeddings' | '/v1/completions' | '/v1/moderations' | '/v1/images/generations' | '/v1/images/edits' | '/v1/videos';
+  /**
+   * The time frame within which the batch should be processed. Currently only 24h is supported.
+   */
+  completion_window: '24h';
+  /**
+   * Optional set of key-value pairs that can be attached to the batch object.
+   */
+  metadata?: {  [key: string]: unknown | undefined;};
+};
+
+export interface ActionOutput_openai_createbatch {
+  id: string;
+  object: string;
+  completion_window: string;
+  created_at: number;
+  endpoint: string;
+  input_file_id: string;
+  status: string;
+  cancelled_at?: number | undefined;
+  cancelling_at?: number | undefined;
+  completed_at?: number | undefined;
+  error_file_id?: string | undefined;
+  errors?: {  data?: ({  code?: string | undefined;
+  line?: number | undefined;
+  message?: string | undefined;
+  param?: string | undefined;})[];
+  object?: string | undefined;};
+  expired_at?: number | undefined;
+  expires_at?: number | undefined;
+  failed_at?: number | undefined;
+  finalizing_at?: number | undefined;
+  in_progress_at?: number | undefined;
+  metadata?: {  [key: string]: unknown | undefined;};
+  output_file_id?: string | undefined;
+  request_counts?: {  completed: number;
+  failed: number;
+  total: number;} | undefined;
+};
+
+export interface ActionInput_openai_createchatcompletion {
+  model: string;
+  messages: ({  role: 'system' | 'user' | 'assistant' | 'tool' | 'function';
+  content: string;})[];
+  temperature?: number | undefined;
+  max_tokens?: number | undefined;
+  tools?: any[] | undefined;
+  tool_choice?: any | undefined;
+  response_format?: any | undefined;
+  stream?: boolean | undefined;
+};
+
+export interface ActionOutput_openai_createchatcompletion {
+  id: string;
+  object: string;
+  created: number;
+  model: string;
+  choices: ({  index: number;
+  message: {  role: string;
+  content: string;};
+  finish_reason?: string | undefined;})[];
+  usage?: {  prompt_tokens: number;
+  completion_tokens: number;
+  total_tokens: number;} | undefined;
+};
+
+export interface ActionInput_openai_createembedding {
+  /**
+   * The model to use for embeddings. Example: "text-embedding-3-small"
+   */
+  model: string;
+  /**
+   * The text to embed. Can be a single string or an array of strings.
+   */
+  input: string | string[];
+  /**
+   * The format to return the embeddings in. Can be "float" or "base64".
+   */
+  encoding_format?: 'float' | 'base64' | undefined;
+  /**
+   * The number of dimensions the resulting output embeddings should have.
+   */
+  dimensions?: number | undefined;
+};
+
+export interface ActionOutput_openai_createembedding {
+  object: string;
+  data: ({  object: string;
+  embedding: number[];
+  index: number;})[];
+  model: string;
+  usage: {  prompt_tokens: number;
+  total_tokens: number;};
+};
+
+export interface ActionInput_openai_createfile {
+  /**
+   * Base64-encoded file content. Example: "dGVzdCBjb250ZW50"
+   */
+  file: string;
+  /**
+   * Name of the file. Example: "training_data.jsonl"
+   */
+  filename: string;
+  /**
+   * Purpose of the file. One of: assistants, batch, fine-tune, vision
+   */
+  purpose: 'assistants' | 'batch' | 'fine-tune' | 'vision';
+};
+
+export interface ActionOutput_openai_createfile {
+  id: string;
+  bytes: number;
+  created_at: number;
+  filename: string;
+  purpose: 'assistants' | 'batch' | 'fine-tune' | 'vision';
+  status?: 'uploaded' | 'processed' | 'error' | undefined;
+  status_details?: string | undefined;
+};
+
+export interface ActionInput_openai_createfinetuningjob {
+  /**
+   * The name of the model to fine-tune. Example: "gpt-4o-mini"
+   */
+  model: string;
+  /**
+   * The ID of an uploaded file with purpose="fine-tune" containing training data. Example: "file-abc123"
+   */
+  training_file: string;
+  /**
+   * The ID of an uploaded file with purpose="fine-tune" containing validation data
+   */
+  validation_file?: string | undefined;
+  /**
+   * A string of up to 18 characters to add to the fine-tuned model name
+   */
+  suffix?: string | undefined;
+  /**
+   * The seed for the fine-tuning job. Controls reproducibility
+   */
+  seed?: number | undefined;
+  /**
+   * Hyperparameters for the fine-tuning job
+   */
+  hyperparameters?: {  /**
+   * The number of epochs to train the model for
+   */
+  n_epochs?: string | number | undefined;};
+  /**
+   * A list of integrations to enable for the fine-tuning job
+   */
+  integrations?: unknown[] | undefined;
+};
+
+export interface ActionOutput_openai_createfinetuningjob {
+  id: string;
+  model: string;
+  created_at: number;
+  finished_at?: number | undefined;
+  fine_tuned_model?: string | undefined;
+  organization_id: string;
+  result_files: string[];
+  status: 'validating_files' | 'queued' | 'running' | 'succeeded' | 'failed' | 'cancelled';
+  validation_file?: string | undefined;
+  training_file: string;
+  hyperparameters?: {  n_epochs?: string | number | undefined;
+  batch_size?: string | number | undefined;
+  learning_rate_multiplier?: string | number | undefined;};
+  trained_tokens?: number | undefined;
+  integrations?: unknown[] | undefined;
+  seed?: number | undefined;
+  estimated_finish?: number | undefined;
+  error?: {} | undefined;
+};
+
+export interface ActionInput_openai_createimage {
+  /**
+   * A text description of the desired image(s).
+   */
+  prompt: string;
+  /**
+   * The model to use for image generation. Defaults to dall-e-2.
+   */
+  model?: 'dall-e-2' | 'dall-e-3' | undefined;
+  /**
+   * The number of images to generate. Must be between 1 and 10.
+   */
+  n?: number | undefined;
+  /**
+   * The size of the generated images.
+   */
+  size?: '256x256' | '512x512' | '1024x1024' | '1792x1024' | '1024x1792' | undefined;
+  /**
+   * The quality of the image for dall-e-3.
+   */
+  quality?: 'standard' | 'hd' | undefined;
+  /**
+   * The format in which the generated images are returned.
+   */
+  response_format?: 'url' | 'b64_json' | undefined;
+};
+
+export interface ActionOutput_openai_createimage {
+  created: number;
+  data: ({  url?: string | undefined;
+  b64_json?: string | undefined;
+  revised_prompt?: string | undefined;})[];
+};
+
+export interface ActionInput_openai_createmoderation {
+  /**
+   * The input text or images to classify for moderation. Can be a single string, an array of strings, or an array of content objects.
+   */
+  input: string | string[] | ({  type: 'text';
+  text: string;})[] | ({  type: 'image_url';
+  image_url: {  url: string;};})[];
+  /**
+   * The moderation model to use. Defaults to omni-moderation-latest.
+   */
+  model?: 'omni-moderation-latest' | 'text-moderation-latest' | undefined;
+};
+
+export interface ActionOutput_openai_createmoderation {
+  /**
+   * The unique identifier for the moderation request.
+   */
+  id: string;
+  /**
+   * The model used to generate the moderation results.
+   */
+  model: string;
+  /**
+   * An array of moderation results for each input provided.
+   */
+  results: ({  /**
+   * Whether the content violates OpenAI usage policies.
+   */
+  flagged: boolean;
+  /**
+   * Dictionary of moderation categories and whether each was triggered.
+   */
+  categories: {  sexual: boolean;
+  "sexual/minors": boolean;
+  harassment: boolean;
+  "harassment/threatening": boolean;
+  hate: boolean;
+  "hate/threatening": boolean;
+  illicit: boolean;
+  "illicit/violent": boolean;
+  "self-harm": boolean;
+  "self-harm/intent": boolean;
+  "self-harm/instructions": boolean;
+  violence: boolean;
+  "violence/graphic": boolean;};
+  /**
+   * Dictionary of moderation categories with confidence scores.
+   */
+  category_scores: {  sexual: number;
+  "sexual/minors": number;
+  harassment: number;
+  "harassment/threatening": number;
+  hate: number;
+  "hate/threatening": number;
+  illicit: number;
+  "illicit/violent": number;
+  "self-harm": number;
+  "self-harm/intent": number;
+  "self-harm/instructions": number;
+  violence: number;
+  "violence/graphic": number;};})[];
+};
+
+export interface ActionInput_openai_createresponse {
+  /**
+   * Model ID to use. Example: "gpt-4o"
+   */
+  model: string;
+  /**
+   * Input text or array of content parts
+   */
+  input: string | ({  0: {  type: 'text';
+  text: string;};
+  1: {  type: 'image';
+  image_url: {  url: string;
+  detail?: 'low' | 'high' | 'auto' | undefined;};};})[];
+  /**
+   * System instructions
+   */
+  instructions?: string | undefined;
+  /**
+   * Sampling temperature (0-2)
+   */
+  temperature?: number | undefined;
+  /**
+   * Maximum tokens to generate
+   */
+  max_output_tokens?: number | undefined;
+  /**
+   * Whether to store the response for retrieval. Default: true
+   */
+  store?: boolean | undefined;
+  /**
+   * How the model should use tools
+   */
+  tool_choice?: 'none' | 'auto' | 'required' | {  type: 'function';
+  function: {  name: string;};} | undefined;
+  /**
+   * Array of tools the model may use
+   */
+  tools?: ({  type: 'function';
+  function: {  name: string;
+  description?: string | undefined;
+  parameters?: {} | undefined;};})[];
+};
+
+export interface ActionOutput_openai_createresponse {
+  id: string;
+  object: 'response';
+  created_at: number;
+  status: 'in_progress' | 'completed' | 'failed' | 'incomplete';
+  model: string;
+  output: ({})[];
+  usage?: {  input_tokens: number;
+  output_tokens: number;
+  total_tokens: number;} | undefined;
+};
+
+export interface ActionInput_openai_createspeech {
+  /**
+   * The text-to-speech model to use. Example: "tts-1"
+   */
+  model: 'tts-1' | 'tts-1-hd' | 'gpt-4o-mini-tts';
+  /**
+   * The text to generate audio for. Maximum 4096 characters. Example: "Hello world"
+   */
+  input: string;
+  /**
+   * The voice to use. Example: "alloy"
+   */
+  voice: 'alloy' | 'echo' | 'fable' | 'onyx' | 'nova' | 'shimmer';
+  /**
+   * The format of the audio output. Default: "mp3"
+   */
+  response_format?: 'mp3' | 'opus' | 'aac' | 'flac' | 'wav' | 'pcm' | undefined;
+  /**
+   * The speed of the generated audio. Range: 0.25 to 4.0. Default: 1.0
+   */
+  speed?: number | undefined;
+};
+
+export interface ActionOutput_openai_createspeech {
+  /**
+   * The MIME type of the audio content. Example: "audio/mpeg"
+   */
+  content_type: string;
+  /**
+   * The base64-encoded audio data
+   */
+  data: string;
+};
+
+export interface ActionInput_openai_createtranscription {
+  /**
+   * Local path to audio file (flac, mp3, mp4, mpeg, mpga, m4a, ogg, wav, webm, max 25MB)
+   */
+  filePath: string;
+  /**
+   * Transcription model to use
+   */
+  model: 'whisper-1' | 'gpt-4o-transcribe';
+  /**
+   * ISO-639-1 language code (e.g., "en", "es")
+   */
+  language?: string | undefined;
+  /**
+   * Optional prompt to guide transcription style
+   */
+  prompt?: string | undefined;
+  /**
+   * Output format
+   */
+  response_format?: 'json' | 'text' | 'srt' | 'verbose_json' | 'vtt' | undefined;
+  /**
+   * Sampling temperature
+   */
+  temperature?: number | undefined;
+};
+
+export interface ActionOutput_openai_createtranscription {
+  /**
+   * Transcribed text
+   */
+  text: string;
+  /**
+   * Implementation note about proxy requirement
+   */
+  note?: string | undefined;
+};
+
+export interface ActionInput_openai_createtranslation {
+  /**
+   * The audio file path or URL to translate.
+   */
+  file: string;
+  /**
+   * ID of the model to use. Defaults to whisper-1.
+   */
+  model?: string | undefined;
+  /**
+   * Optional text to guide the model.
+   */
+  prompt?: string | undefined;
+  /**
+   * The format of the output.
+   */
+  response_format?: 'json' | 'text' | 'srt' | 'verbose_json' | 'vtt' | undefined;
+  /**
+   * The sampling temperature, between 0 and 1.
+   */
+  temperature?: number | undefined;
+};
+
+export interface ActionOutput_openai_createtranslation {
+  /**
+   * The translated text in English.
+   */
+  text: string;
+};
+
+export interface ActionInput_openai_createvectorstore {
+  /**
+   * A name for the vector store
+   */
+  name?: string | undefined;
+  /**
+   * File IDs to attach to the vector store immediately
+   */
+  file_ids?: string[] | undefined;
+  /**
+   * Expiration policy for the vector store
+   */
+  expires_after?: {  anchor: 'last_active_at';
+  /**
+   * Number of days after last activity when the vector store expires
+   */
+  days: number;} | undefined;
+  /**
+   * Chunking strategy for parsing files
+   */
+  chunking_strategy?: {  type: 'auto';} | {  type: 'static';
+  static: {  max_chunk_size_tokens: number;
+  chunk_overlap_tokens: number;};} | undefined;
+  /**
+   * Metadata with up to 16 key-value pairs
+   */
+  metadata?: {} | undefined;
+};
+
+export interface ActionOutput_openai_createvectorstore {
+  id: string;
+  name?: string | undefined;
+  status: 'completed' | 'in_progress' | 'expired';
+  file_counts: {  in_progress: number;
+  completed: number;
+  failed: number;
+  cancelled: number;
+  total: number;};
+  usage_bytes: number;
+  created_at: number;
+  last_active_at?: number | undefined;
+  expires_after?: {  anchor: 'last_active_at';
+  /**
+   * Number of days after last activity when the vector store expires
+   */
+  days: number;} | undefined;
+  chunking_strategy?: {  type: 'auto';} | {  type: 'static';
+  static: {  max_chunk_size_tokens: number;
+  chunk_overlap_tokens: number;};} | undefined;
+  metadata?: {} | undefined;
+};
+
+export interface ActionInput_openai_deletefile {
+  /**
+   * The ID of the file to delete. Example: "file-abc123"
+   */
+  fileId: string;
+};
+
+export interface ActionOutput_openai_deletefile {
+  id: string;
+  object: string;
+  deleted: boolean;
+};
+
+export interface ActionInput_openai_deletemodel {
+  /**
+   * The fine-tuned model ID to delete. Example: ft:gpt-4o-mini:acme:custom:abc123
+   */
+  model: string;
+};
+
+export interface ActionOutput_openai_deletemodel {
+  id: string;
+  object: 'model';
+  deleted: boolean;
+};
+
+export interface ActionInput_openai_deleteresponse {
+  /**
+   * The ID of the response to delete. Example: "resp_abc123"
+   */
+  response_id: string;
+};
+
+export interface ActionOutput_openai_deleteresponse {
+  id: string;
+  object?: string | undefined;
+  deleted: boolean;
+};
+
+export interface ActionInput_openai_deletevectorstorefile {
+  /**
+   * The ID of the vector store. Example: "vs_abc123"
+   */
+  vector_store_id: string;
+  /**
+   * The ID of the file to remove from the vector store. Example: "file-abc123"
+   */
+  file_id: string;
+};
+
+export interface ActionOutput_openai_deletevectorstorefile {
+  id: string;
+  object: 'vector_store.file.deleted';
+  deleted: boolean;
+};
+
+export interface ActionInput_openai_deletevectorstore {
+  /**
+   * The ID of the vector store to delete. Example: "vs_abc123"
+   */
+  vector_store_id: string;
+};
+
+export interface ActionOutput_openai_deletevectorstore {
+  /**
+   * The ID of the deleted vector store
+   */
+  id: string;
+  /**
+   * The object type
+   */
+  object: 'vector_store.deleted';
+  /**
+   * Whether the vector store was successfully deleted
+   */
+  deleted: boolean;
+};
+
+export interface ActionInput_openai_getbatch {
+  /**
+   * The ID of the batch to retrieve. Example: "batch_abc123"
+   */
+  batch_id: string;
+};
+
+export interface ActionOutput_openai_getbatch {
+  id: string;
+  status: 'validating' | 'failed' | 'in_progress' | 'finalizing' | 'completed' | 'expired' | 'cancelling' | 'cancelled';
+  input_file_id: string;
+  output_file_id?: string | undefined;
+  error_file_id?: string | undefined;
+  endpoint: string;
+  request_counts: {  total: number;
+  completed: number;
+  failed: number;};
+  created_at: number;
+  expires_at?: number | undefined;
+  completed_at?: number | undefined;
+};
+
+export interface ActionInput_openai_getfile {
+  /**
+   * The ID of the file to retrieve. Example: "file-123"
+   */
+  file_id: string;
+};
+
+export interface ActionOutput_openai_getfile {
+  id: string;
+  filename: string;
+  purpose: string;
+  bytes: number;
+  created_at: number;
+  status: string;
+};
+
+export interface ActionInput_openai_getfinetuningjob {
+  /**
+   * Fine-tuning job ID. Example: "ftjob-abc123"
+   */
+  fine_tuning_job_id: string;
+};
+
+export interface ActionOutput_openai_getfinetuningjob {
+  id: string;
+  status: 'validating_files' | 'queued' | 'running' | 'succeeded' | 'failed' | 'cancelled';
+  model: string;
+  fine_tuned_model?: string | undefined;
+  training_file: string;
+  result_files: string[];
+  trained_tokens?: number | undefined;
+  created_at: number;
+  finished_at?: number | undefined;
+};
+
+export interface ActionInput_openai_getmodel {
+  /**
+   * Model ID. Example: "gpt-4o-mini"
+   */
+  model: string;
+};
+
+export interface ActionOutput_openai_getmodel {
+  id: string;
+  object: string;
+  created: number;
+  owned_by: string;
+};
+
+export interface ActionInput_openai_getresponse {
+  /**
+   * The ID of the response to retrieve. Example: "resp_abc123".
+   */
+  response_id: string;
+};
+
+export interface ActionOutput_openai_getresponse {
+  /**
+   * The unique identifier for the response.
+   */
+  id: string;
+  /**
+   * The object type, always "response".
+   */
+  object: string;
+  /**
+   * Unix timestamp (in seconds) when the response was created.
+   */
+  created_at: number;
+  /**
+   * The model used to generate the response.
+   */
+  model: string;
+  /**
+   * Array of output items from the response.
+   */
+  output: ({})[];
+  /**
+   * Token usage information for the response.
+   */
+  usage?: {  input_tokens?: number | undefined;
+  output_tokens?: number | undefined;
+  total_tokens?: number | undefined;};
+};
+
+export interface ActionInput_openai_getvectorstorefile {
+  /**
+   * The ID of the vector store. Example: "vs_abc123"
+   */
+  vector_store_id: string;
+  /**
+   * The ID of the file. Example: "file-abc123"
+   */
+  file_id: string;
+};
+
+export interface ActionOutput_openai_getvectorstorefile {
+  id: string;
+  object: string;
+  vector_store_id: string;
+  status: string;
+  created_at: number;
+  usage_bytes: number;
+  chunking_strategy?: {  type: string;
+  static?: {  max_chunk_size_tokens: number;
+  chunk_overlap_tokens: number;} | undefined;};
+  last_error?: string | undefined;
+};
+
+export interface ActionInput_openai_getvectorstore {
+  /**
+   * The ID of the vector store to retrieve. Example: "vs_abc123"
+   */
+  vector_store_id: string;
+};
+
+export interface ActionOutput_openai_getvectorstore {
+  id: string;
+  name?: string | undefined;
+  status: string;
+  file_counts?: {  in_progress?: number | undefined;
+  completed?: number | undefined;
+  failed?: number | undefined;
+  cancelled?: number | undefined;
+  total?: number | undefined;};
+  usage_bytes?: number | undefined;
+  created_at?: number | undefined;
+  last_active_at?: number | undefined;
+  expires_at?: number | undefined;
+  metadata?: {} | undefined;
+};
+
+export interface ActionInput_openai_listbatches {
+  /**
+   * A cursor for use in pagination. `after` is an object ID that defines your place in the list.
+   */
+  after?: string | undefined;
+};
+
+export interface ActionOutput_openai_listbatches {
+  batches: ({  id: string;
+  object: 'batch';
+  endpoint: string;
+  errors: {};
+  input_file_id: string;
+  completion_window: string;
+  status: 'validating' | 'failed' | 'in_progress' | 'finalizing' | 'completed' | 'expired' | 'cancelling' | 'cancelled';
+  output_file_id: string;
+  error_file_id: string;
+  created_at: number;
+  in_progress_at: number;
+  expires_at: number;
+  finalizing_at: number;
+  completed_at: number;
+  failed_at: number;
+  expired_at: number;
+  cancelling_at: number;
+  cancelled_at: number;
+  request_counts: {  total: number;
+  completed: number;
+  failed: number;};})[];
+  has_more: boolean;
+  next_cursor?: string | undefined;
+};
+
+export interface ActionInput_openai_listfiles {
+  /**
+   * Filter by file purpose. Example: "assistants"
+   */
+  purpose?: 'assistants' | 'batch' | 'fine-tune' | 'vision' | undefined;
+  /**
+   * Pagination cursor from the previous response (last_id). Omit for the first page.
+   */
+  cursor?: string | undefined;
+  /**
+   * Number of files to return (1-10000, default 10000).
+   */
+  limit?: number | undefined;
+  /**
+   * Sort order by created_at. Example: "desc"
+   */
+  order?: 'asc' | 'desc' | undefined;
+};
+
+export interface ActionOutput_openai_listfiles {
+  files: ({  id: string;
+  object: string;
+  bytes: number;
+  created_at: number;
+  filename: string;
+  purpose: string;
+  status: string;
+  status_details?: string | undefined;})[];
+  has_more: boolean;
+  next_cursor?: string | undefined;
+};
+
+export interface ActionInput_openai_listfinetuningcheckpoints {
+  /**
+   * The ID of the fine-tuning job. Example: "ftjob-abc123"
+   */
+  fine_tuning_job_id: string;
+  /**
+   * Pagination cursor for the next page. Use the last checkpoint ID from the previous response.
+   */
+  after?: string | undefined;
+  /**
+   * Number of checkpoints to return (1-100). Default is 10.
+   */
+  limit?: number | undefined;
+};
+
+export interface ActionOutput_openai_listfinetuningcheckpoints {
+  /**
+   * List of checkpoints for the fine-tuning job
+   */
+  data: ({  id: string;
+  created_at: number;
+  fine_tuned_model_checkpoint: string;
+  step_number: number;
+  metrics: {  step: number;
+  train_loss: number;
+  train_mean_token_accuracy: number;
+  valid_loss?: number | undefined;
+  valid_mean_token_accuracy?: number | undefined;
+  full_valid_loss?: number | undefined;
+  full_valid_mean_token_accuracy?: number | undefined;};
+  fine_tuning_job_id: string;})[];
+  /**
+   * Cursor for the next page of results. Use this value as the after parameter in subsequent requests.
+   */
+  after?: string | undefined;
+};
+
+export interface ActionInput_openai_listfinetuningevents {
+  /**
+   * Fine-tuning job ID. Example: "ft-1234567890"
+   */
+  fine_tuning_job_id: string;
+  /**
+   * Pagination cursor. Use the ID of the last event from the previous page.
+   */
+  after?: string | undefined;
+  /**
+   * Number of events to return (1-100, default 20).
+   */
+  limit?: number | undefined;
+};
+
+export interface ActionOutput_openai_listfinetuningevents {
+  events: ({  id: string;
+  object: 'fine_tuning.job.event';
+  created_at: number;
+  level: 'info' | 'warn' | 'error';
+  message: string;
+  type: string;})[];
+  has_more: boolean;
+  next_cursor?: string | undefined;
+};
+
+export interface ActionInput_openai_listfinetuningjobs {
+  /**
+   * Pagination cursor (job ID) from the previous response. Omit for the first page.
+   */
+  after?: string | undefined;
+  /**
+   * Number of jobs to return (1-100). Defaults to 20.
+   */
+  limit?: number | undefined;
+};
+
+export interface ActionOutput_openai_listfinetuningjobs {
+  items: ({  id: string;
+  object: string;
+  created_at: number;
+  finished_at?: number | undefined;
+  model: string;
+  fine_tuned_model?: string | undefined;
+  organization_id: string;
+  result_files?: string[] | undefined;
+  status: 'validating_files' | 'queued' | 'running' | 'succeeded' | 'failed' | 'cancelled';
+  validation_file?: string | undefined;
+  training_file: string;
+  hyperparameters?: {  n_epochs?: number | string | undefined;
+  batch_size?: number | string | undefined;
+  learning_rate_multiplier?: number | string | undefined;};
+  trained_tokens?: number | undefined;
+  error?: {  code: string;
+  message: string;
+  param?: string | undefined;};
+  metadata?: {  [key: string]: unknown | undefined;};
+  seed?: number | undefined;
+  estimated_finish?: number | undefined;
+  integrations?: string[] | undefined;})[];
+  has_more: boolean;
+  /**
+   * Use as the "after" parameter for the next page of results
+   */
+  next_cursor?: string | undefined;
+};
+
+export interface ActionInput_openai_listmodels {
+};
+
+export interface ActionOutput_openai_listmodels {
+  models: ({  id: string;
+  object: string;
+  created: number;
+  owned_by: string;})[];
+};
+
+export interface ActionInput_openai_listvectorstorefiles {
+  /**
+   * The ID of the vector store to list files from. Example: "vs_abc123"
+   */
+  vector_store_id: string;
+  /**
+   * Cursor for pagination. The ID of the file to start after.
+   */
+  after?: string | undefined;
+  /**
+   * Number of files to return (1-100, default 20).
+   */
+  limit?: number | undefined;
+  /**
+   * Sort order by created_at.
+   */
+  order?: 'asc' | 'desc' | undefined;
+  /**
+   * Filter by file status.
+   */
+  filter?: 'in_progress' | 'completed' | 'failed' | 'cancelled' | undefined;
+};
+
+export interface ActionOutput_openai_listvectorstorefiles {
+  data: ({  id: string;
+  object: string;
+  vector_store_id: string;
+  status: 'in_progress' | 'completed' | 'failed' | 'cancelled';
+  created_at: number;
+  usage_bytes: number;})[];
+  has_more: boolean;
+  first_id?: string | undefined;
+  last_id?: string | undefined;
+};
+
+export interface ActionInput_openai_listvectorstores {
+  /**
+   * Cursor for pagination. Use the `last_id` from the previous response to get the next page.
+   */
+  after?: string | undefined;
+  /**
+   * Number of vector stores to return. Default: 20, Max: 100.
+   */
+  limit?: number | undefined;
+  /**
+   * Sort order by created_at. Options: asc, desc. Default: desc.
+   */
+  order?: 'asc' | 'desc' | undefined;
+};
+
+export interface ActionOutput_openai_listvectorstores {
+  data: ({  id: string;
+  object: string;
+  created_at: number;
+  name: string;
+  bytes?: number | undefined;
+  file_counts?: {  in_progress: number;
+  completed: number;
+  failed: number;
+  cancelled: number;
+  total: number;} | undefined;
+  metadata?: any | undefined;
+  expires_after?: {  anchor: string;
+  days: number;} | undefined;
+  expires_at?: number | undefined;
+  last_active_at?: number | undefined;})[];
+  has_more: boolean;
+  first_id?: string | undefined;
+  last_id?: string | undefined;
+};
+
+export interface ActionInput_openai_searchvectorstore {
+  vector_store_id: string;
+  query: string;
+  max_num_results?: number | undefined;
+  filters?: {  [key: string]: unknown | undefined;};
+  ranking_options?: {  ranker?: string | undefined;
+  score_threshold?: number | undefined;};
+  rewrite_query?: boolean | undefined;
+  next_page?: string | undefined;
+};
+
+export interface ActionOutput_openai_searchvectorstore {
+  object: string;
+  search_query: string[];
+  data: ({  file_id: string;
+  filename?: string | undefined;
+  score: number;
+  attributes?: {  [key: string]: unknown | undefined;};
+  content?: ({  type?: string | undefined;
+  text?: string | undefined;})[];})[];
+  has_more: boolean;
+  next_page?: string | undefined;
+};
+
+export interface ActionInput_openai_updatevectorstore {
+  vector_store_id: string;
+  name?: string | undefined;
+  expires_after?: any | undefined;
+  metadata?: {  [key: string]: unknown | undefined;};
+};
+
+export interface ActionOutput_openai_updatevectorstore {
+  id: string;
+  object: string;
+  created_at: number;
+  name: string;
+  bytes?: number | undefined;
+  file_counts: {  total: number;
+  in_progress: number;
+  completed: number;
+  failed: number;
+  cancelled: number;};
+  expires_after?: any | undefined;
+  metadata?: {  [key: string]: unknown | undefined;};
 };
 
 export interface Employee {
