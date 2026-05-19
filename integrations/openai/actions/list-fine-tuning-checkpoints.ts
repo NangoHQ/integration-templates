@@ -2,9 +2,9 @@ import { z } from 'zod';
 import { createAction } from 'nango';
 
 const CheckpointMetricsSchema = z.object({
-    step: z.number(),
-    train_loss: z.number(),
-    train_mean_token_accuracy: z.number(),
+    step: z.number().optional(),
+    train_loss: z.number().optional(),
+    train_mean_token_accuracy: z.number().optional(),
     valid_loss: z.number().optional(),
     valid_mean_token_accuracy: z.number().optional(),
     full_valid_loss: z.number().optional(),

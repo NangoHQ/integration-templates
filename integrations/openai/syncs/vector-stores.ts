@@ -30,10 +30,6 @@ const VectorStoreSchema = z.object({
     metadata: z.record(z.string(), z.unknown()).optional()
 });
 
-const CheckpointSchema = z.object({
-    after: z.string()
-});
-
 const ListVectorStoresResponseSchema = z.object({
     object: z.string().optional(),
     data: z.array(VectorStoreSchema),
@@ -42,7 +38,7 @@ const ListVectorStoresResponseSchema = z.object({
     has_more: z.boolean()
 });
 
-const sync = createSync<{ VectorStore: typeof VectorStoreSchema }, undefined, typeof CheckpointSchema>({
+const sync = createSync({
     description: 'Sync vector stores from OpenAI',
     version: '1.0.0',
     frequency: 'every hour',
@@ -53,20 +49,17 @@ const sync = createSync<{ VectorStore: typeof VectorStoreSchema }, undefined, ty
             method: 'POST'
         }
     ],
-    checkpoint: CheckpointSchema,
     models: {
         VectorStore: VectorStoreSchema
     },
 
     exec: async (nango) => {
-        const checkpoint = await nango.getCheckpoint();
-
-        // The vector store list is a full refresh sync, but the cursor lets us resume
-        // pagination safely if a long run is interrupted before completion.
-        await nango.trackDeletesStart('VectorStore');
-
-        let after = checkpoint?.after;
+        // Full refresh with delete tracking — always enumerate from page 1.
+        // Resuming from a saved cursor skips earlier pages and causes trackDeletesEnd
+        // to falsely delete records that were never re-seen.
+        let after: string | undefined = undefined;
         let hasMore = true;
+        let deleteTrackingStarted = false;
 
         while (hasMore) {
             // https://platform.openai.com/docs/api-reference/vector-stores/list
@@ -86,6 +79,11 @@ const sync = createSync<{ VectorStore: typeof VectorStoreSchema }, undefined, ty
                 throw new Error(`Failed to parse vector stores page: ${parsedResponse.error.message}`);
             }
 
+            if (!deleteTrackingStarted) {
+                await nango.trackDeletesStart('VectorStore');
+                deleteTrackingStarted = true;
+            }
+
             const vectorStores = parsedResponse.data.data;
             const lastId = parsedResponse.data.last_id ?? vectorStores[vectorStores.length - 1]?.id;
 
@@ -93,7 +91,6 @@ const sync = createSync<{ VectorStore: typeof VectorStoreSchema }, undefined, ty
                 await nango.batchSave(vectorStores, 'VectorStore');
 
                 if (lastId) {
-                    await nango.saveCheckpoint({ after: lastId });
                     after = lastId;
                 }
             }
@@ -105,8 +102,9 @@ const sync = createSync<{ VectorStore: typeof VectorStoreSchema }, undefined, ty
             }
         }
 
-        await nango.clearCheckpoint();
-        await nango.trackDeletesEnd('VectorStore');
+        if (deleteTrackingStarted) {
+            await nango.trackDeletesEnd('VectorStore');
+        }
     }
 });
 

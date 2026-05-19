@@ -49,16 +49,21 @@ const action = createAction({
             retries: 3
         });
 
-        const contentType = response.headers['content-type'] || 'audio/mpeg';
+        const contentType = String(response.headers['content-type'] || 'audio/mpeg');
 
-        if (!(response.data instanceof ArrayBuffer)) {
+        let binaryData: Buffer;
+        if (Buffer.isBuffer(response.data)) {
+            binaryData = response.data;
+        } else if (response.data instanceof ArrayBuffer) {
+            binaryData = Buffer.from(response.data);
+        } else {
             throw new nango.ActionError({
                 type: 'invalid_response',
-                message: 'Expected ArrayBuffer response from audio/speech endpoint'
+                message: 'Expected binary response from audio/speech endpoint'
             });
         }
 
-        const base64Data = Buffer.from(response.data).toString('base64');
+        const base64Data = binaryData.toString('base64');
 
         return {
             content_type: contentType,

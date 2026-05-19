@@ -5,18 +5,18 @@ const InputSchema = z.object({
     vector_store_id: z.string().describe('The ID of the vector store to attach the file to. Example: "vs_abc123"'),
     file_id: z.string().describe('The ID of the file to attach. Must be a file that was previously uploaded. Example: "file-abc123"'),
     chunking_strategy: z
-        .object({
-            type: z.union([z.literal('auto'), z.literal('static')]).describe('The type of chunking strategy'),
-            static: z
-                .object({
+        .discriminatedUnion('type', [
+            z.object({ type: z.literal('auto') }),
+            z.object({
+                type: z.literal('static'),
+                static: z.object({
                     max_chunk_size_tokens: z.number().describe('Maximum number of tokens per chunk'),
                     chunk_overlap_tokens: z.number().describe('Number of tokens to overlap between chunks')
                 })
-                .optional()
-                .describe('Static chunking configuration (only used when type is "static")')
-        })
+            })
+        ])
         .optional()
-        .describe('Chunking strategy for the file'),
+        .describe('Chunking strategy for the file. Use "auto" or "static" with required static config.'),
     attributes: z.record(z.string(), z.any()).optional()
 });
 

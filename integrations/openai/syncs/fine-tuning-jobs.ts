@@ -50,17 +50,13 @@ const FineTuningJobModelSchema = z.object({
     error: z.unknown().optional()
 });
 
-const CheckpointSchema = z.object({
-    after: z.string()
-});
-
 const ListFineTuningJobsResponseSchema = z.object({
     object: z.string().optional(),
     data: z.array(FineTuningJobSchema),
     has_more: z.boolean()
 });
 
-const sync = createSync<{ FineTuningJob: typeof FineTuningJobModelSchema }, undefined, typeof CheckpointSchema>({
+const sync = createSync({
     description: 'Sync fine-tuning jobs from OpenAI',
     version: '1.0.0',
     frequency: 'every hour',
@@ -71,20 +67,19 @@ const sync = createSync<{ FineTuningJob: typeof FineTuningJobModelSchema }, unde
             path: '/syncs/fine-tuning-jobs'
         }
     ],
-    checkpoint: CheckpointSchema,
     models: {
         FineTuningJob: FineTuningJobModelSchema
     },
 
     exec: async (nango) => {
-        const checkpoint = await nango.getCheckpoint();
-
-        // Jobs can change status in-place, so we keep this as a full refresh.
-        // The cursor checkpoint is only used to resume a long refresh safely.
-        await nango.trackDeletesStart('FineTuningJob');
-
-        let after = checkpoint?.after;
+        // Full refresh with delete tracking — always enumerate from page 1.
+        // Resuming from a saved cursor skips earlier pages and causes trackDeletesEnd
+        // to falsely delete records that were never re-seen.
+        // Start delete tracking only after the first page parses successfully so a
+        // network or validation failure doesn't leave tracking open without a matching end.
+        let after: string | undefined = undefined;
         let hasMore = true;
+        let deleteTrackingStarted = false;
 
         while (hasMore) {
             // https://platform.openai.com/docs/api-reference/fine-tuning/list
@@ -101,6 +96,11 @@ const sync = createSync<{ FineTuningJob: typeof FineTuningJobModelSchema }, unde
 
             if (!parsedJobs.success) {
                 throw new Error(`Failed to parse fine-tuning jobs: ${parsedJobs.error.message}`);
+            }
+
+            if (!deleteTrackingStarted) {
+                await nango.trackDeletesStart('FineTuningJob');
+                deleteTrackingStarted = true;
             }
 
             const jobsArray = parsedJobs.data.data;
@@ -136,7 +136,6 @@ const sync = createSync<{ FineTuningJob: typeof FineTuningJobModelSchema }, unde
                 await nango.batchSave(records, 'FineTuningJob');
 
                 if (lastJobId) {
-                    await nango.saveCheckpoint({ after: lastJobId });
                     after = lastJobId;
                 }
             }
@@ -148,8 +147,9 @@ const sync = createSync<{ FineTuningJob: typeof FineTuningJobModelSchema }, unde
             }
         }
 
-        await nango.clearCheckpoint();
-        await nango.trackDeletesEnd('FineTuningJob');
+        if (deleteTrackingStarted) {
+            await nango.trackDeletesEnd('FineTuningJob');
+        }
     }
 });
 

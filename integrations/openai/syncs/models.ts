@@ -28,17 +28,17 @@ const sync = createSync({
     },
 
     exec: async (nango) => {
-        // Blocker: /v1/models returns full list with no pagination parameters,
-        // no updated_at field, and no resumable cursor. Always full refresh.
-        await nango.trackDeletesStart('Model');
-
         // https://platform.openai.com/docs/api-reference/models/list
+        // Start delete tracking only after a successful response so a network or parse
+        // failure doesn't leave tracking open without a matching trackDeletesEnd.
         const response = await nango.get({
             endpoint: '/v1/models',
             retries: 3
         });
 
         const validated = ProviderResponseSchema.parse(response.data);
+
+        await nango.trackDeletesStart('Model');
         const rawModels = validated.data;
 
         const models: Array<{

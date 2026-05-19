@@ -33671,23 +33671,17 @@ export interface ActionInput_openai_addvectorstorefile {
    */
   file_id: string;
   /**
-   * Chunking strategy for the file
+   * Chunking strategy for the file. Use "auto" or "static" with required static config.
    */
-  chunking_strategy?: {  /**
-   * The type of chunking strategy
-   */
-  type: 'auto' | 'static';
-  /**
-   * Static chunking configuration (only used when type is "static")
-   */
-  static?: {  /**
+  chunking_strategy?: {  type: 'auto';} | {  type: 'static';
+  static: {  /**
    * Maximum number of tokens per chunk
    */
   max_chunk_size_tokens: number;
   /**
    * Number of tokens to overlap between chunks
    */
-  chunk_overlap_tokens: number;} | undefined;};
+  chunk_overlap_tokens: number;};} | undefined;
   attributes?: {  [key: string]: any | undefined;};
 };
 
@@ -34015,15 +34009,15 @@ export interface ActionInput_openai_createimage {
    */
   model?: 'dall-e-2' | 'dall-e-3' | undefined;
   /**
-   * The number of images to generate. Must be between 1 and 10.
+   * The number of images to generate. dall-e-3 only supports n=1.
    */
   n?: number | undefined;
   /**
-   * The size of the generated images.
+   * The size of the generated images. dall-e-2: 256x256/512x512/1024x1024. dall-e-3: 1024x1024/1792x1024/1024x1792.
    */
   size?: '256x256' | '512x512' | '1024x1024' | '1792x1024' | '1024x1792' | undefined;
   /**
-   * The quality of the image for dall-e-3.
+   * The quality of the image. hd is only supported by dall-e-3.
    */
   quality?: 'standard' | 'hd' | undefined;
   /**
@@ -34041,11 +34035,12 @@ export interface ActionOutput_openai_createimage {
 
 export interface ActionInput_openai_createmoderation {
   /**
-   * The input text or images to classify for moderation. Can be a single string, an array of strings, or an array of content objects.
+   * The input to classify. Can be a string, array of strings, or mixed array of text and image_url objects.
    */
-  input: string | string[] | ({  type: 'text';
-  text: string;})[] | ({  type: 'image_url';
-  image_url: {  url: string;};})[];
+  input: string | string[] | ({  0: {  type: 'text';
+  text: string;};
+  1: {  type: 'image_url';
+  image_url: {  url: string;};};})[];
   /**
    * The moderation model to use. Defaults to omni-moderation-latest.
    */
@@ -34517,7 +34512,8 @@ export interface ActionOutput_openai_getvectorstorefile {
   chunking_strategy?: {  type: string;
   static?: {  max_chunk_size_tokens: number;
   chunk_overlap_tokens: number;} | undefined;};
-  last_error?: string | undefined;
+  last_error?: {  code: string;
+  message: string;} | undefined;
 };
 
 export interface ActionInput_openai_getvectorstore {
@@ -34554,7 +34550,11 @@ export interface ActionOutput_openai_listbatches {
   batches: ({  id: string;
   object: 'batch';
   endpoint: string;
-  errors: {};
+  errors: {  object?: string | undefined;
+  data?: ({  code?: string | undefined;
+  message?: string | undefined;
+  param?: string | undefined;
+  line?: number | undefined;})[];};
   input_file_id: string;
   completion_window: string;
   status: 'validating' | 'failed' | 'in_progress' | 'finalizing' | 'completed' | 'expired' | 'cancelling' | 'cancelled';
@@ -34631,9 +34631,9 @@ export interface ActionOutput_openai_listfinetuningcheckpoints {
   created_at: number;
   fine_tuned_model_checkpoint: string;
   step_number: number;
-  metrics: {  step: number;
-  train_loss: number;
-  train_mean_token_accuracy: number;
+  metrics: {  step?: number | undefined;
+  train_loss?: number | undefined;
+  train_mean_token_accuracy?: number | undefined;
   valid_loss?: number | undefined;
   valid_mean_token_accuracy?: number | undefined;
   full_valid_loss?: number | undefined;
@@ -34820,7 +34820,8 @@ export interface ActionOutput_openai_searchvectorstore {
 export interface ActionInput_openai_updatevectorstore {
   vector_store_id: string;
   name?: string | undefined;
-  expires_after?: any | undefined;
+  expires_after?: {  anchor: 'last_active_at';
+  days: number;} | undefined;
   metadata?: {  [key: string]: unknown | undefined;};
 };
 
@@ -34835,7 +34836,8 @@ export interface ActionOutput_openai_updatevectorstore {
   completed: number;
   failed: number;
   cancelled: number;};
-  expires_after?: any | undefined;
+  expires_after?: {  anchor: 'last_active_at';
+  days: number;} | undefined;
   metadata?: {  [key: string]: unknown | undefined;};
 };
 

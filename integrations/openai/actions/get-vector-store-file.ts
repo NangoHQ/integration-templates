@@ -6,6 +6,23 @@ const InputSchema = z.object({
     file_id: z.string().describe('The ID of the file. Example: "file-abc123"')
 });
 
+const LastErrorSchema = z.object({
+    code: z.string(),
+    message: z.string()
+});
+
+const ChunkingStrategySchema = z
+    .object({
+        type: z.string(),
+        static: z
+            .object({
+                max_chunk_size_tokens: z.number(),
+                chunk_overlap_tokens: z.number()
+            })
+            .optional()
+    })
+    .optional();
+
 const ProviderVectorStoreFileSchema = z.object({
     id: z.string(),
     object: z.string(),
@@ -13,18 +30,8 @@ const ProviderVectorStoreFileSchema = z.object({
     status: z.string(),
     created_at: z.number(),
     usage_bytes: z.number(),
-    chunking_strategy: z
-        .object({
-            type: z.string(),
-            static: z
-                .object({
-                    max_chunk_size_tokens: z.number(),
-                    chunk_overlap_tokens: z.number()
-                })
-                .optional()
-        })
-        .optional(),
-    last_error: z.string().nullable().optional()
+    chunking_strategy: ChunkingStrategySchema,
+    last_error: LastErrorSchema.nullable().optional()
 });
 
 const OutputSchema = z.object({
@@ -34,18 +41,8 @@ const OutputSchema = z.object({
     status: z.string(),
     created_at: z.number(),
     usage_bytes: z.number(),
-    chunking_strategy: z
-        .object({
-            type: z.string(),
-            static: z
-                .object({
-                    max_chunk_size_tokens: z.number(),
-                    chunk_overlap_tokens: z.number()
-                })
-                .optional()
-        })
-        .optional(),
-    last_error: z.string().optional()
+    chunking_strategy: ChunkingStrategySchema,
+    last_error: LastErrorSchema.optional()
 });
 
 const action = createAction({

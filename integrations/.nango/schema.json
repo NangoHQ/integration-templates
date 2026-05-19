@@ -100978,39 +100978,53 @@
           "description": "The ID of the file to attach. Must be a file that was previously uploaded. Example: \"file-abc123\""
         },
         "chunking_strategy": {
-          "type": "object",
-          "properties": {
-            "type": {
-              "type": "string",
-              "enum": [
-                "auto",
-                "static"
-              ]
-            },
-            "static": {
+          "anyOf": [
+            {
               "type": "object",
               "properties": {
-                "max_chunk_size_tokens": {
-                  "type": "number"
-                },
-                "chunk_overlap_tokens": {
-                  "type": "number",
-                  "description": "Number of tokens to overlap between chunks"
+                "type": {
+                  "type": "string",
+                  "const": "auto"
                 }
               },
               "required": [
-                "max_chunk_size_tokens",
-                "chunk_overlap_tokens"
+                "type"
               ],
-              "additionalProperties": false,
-              "description": "Static chunking configuration (only used when type is \"static\")"
+              "additionalProperties": false
+            },
+            {
+              "type": "object",
+              "properties": {
+                "type": {
+                  "type": "string",
+                  "const": "static"
+                },
+                "static": {
+                  "type": "object",
+                  "properties": {
+                    "max_chunk_size_tokens": {
+                      "type": "number"
+                    },
+                    "chunk_overlap_tokens": {
+                      "type": "number",
+                      "description": "Number of tokens to overlap between chunks"
+                    }
+                  },
+                  "required": [
+                    "max_chunk_size_tokens",
+                    "chunk_overlap_tokens"
+                  ],
+                  "additionalProperties": false
+                }
+              },
+              "required": [
+                "type",
+                "static"
+              ],
+              "additionalProperties": false
             }
-          },
-          "required": [
-            "type"
           ],
-          "additionalProperties": false,
-          "description": "Chunking strategy for the file"
+          "description": "Chunking strategy for the file. Use \"auto\" or \"static\" with required static config."
         },
         "attributes": {
           "type": "object",
@@ -101958,7 +101972,7 @@
         },
         "n": {
           "type": "number",
-          "description": "The number of images to generate. Must be between 1 and 10."
+          "description": "The number of images to generate. dall-e-3 only supports n=1."
         },
         "size": {
           "type": "string",
@@ -101969,7 +101983,7 @@
             "1792x1024",
             "1024x1792"
           ],
-          "description": "The size of the generated images."
+          "description": "The size of the generated images. dall-e-2: 256x256/512x512/1024x1024. dall-e-3: 1024x1024/1792x1024/1024x1792."
         },
         "quality": {
           "type": "string",
@@ -101977,7 +101991,7 @@
             "standard",
             "hd"
           ],
-          "description": "The quality of the image for dall-e-3."
+          "description": "The quality of the image. hd is only supported by dall-e-3."
         },
         "response_format": {
           "type": "string",
@@ -102043,52 +102057,59 @@
               "items": {
                 "type": "object",
                 "properties": {
-                  "type": {
-                    "type": "string",
-                    "const": "text"
-                  },
-                  "text": {
-                    "type": "string"
-                  }
-                },
-                "required": [
-                  "type",
-                  "text"
-                ],
-                "additionalProperties": false
-              }
-            },
-            {
-              "type": "array",
-              "items": {
-                "type": "object",
-                "properties": {
-                  "type": {
-                    "type": "string",
-                    "const": "image_url"
-                  },
-                  "image_url": {
+                  "0": {
                     "type": "object",
                     "properties": {
-                      "url": {
+                      "type": {
+                        "type": "string",
+                        "const": "text"
+                      },
+                      "text": {
                         "type": "string"
                       }
                     },
                     "required": [
-                      "url"
+                      "type",
+                      "text"
+                    ],
+                    "additionalProperties": false
+                  },
+                  "1": {
+                    "type": "object",
+                    "properties": {
+                      "type": {
+                        "type": "string",
+                        "const": "image_url"
+                      },
+                      "image_url": {
+                        "type": "object",
+                        "properties": {
+                          "url": {
+                            "type": "string"
+                          }
+                        },
+                        "required": [
+                          "url"
+                        ],
+                        "additionalProperties": false
+                      }
+                    },
+                    "required": [
+                      "type",
+                      "image_url"
                     ],
                     "additionalProperties": false
                   }
                 },
                 "required": [
-                  "type",
-                  "image_url"
+                  "0",
+                  "1"
                 ],
                 "additionalProperties": false
               }
             }
           ],
-          "description": "The input text or images to classify for moderation. Can be a single string, an array of strings, or an array of content objects."
+          "description": "The input to classify. Can be a string, array of strings, or mixed array of text and image_url objects."
         },
         "model": {
           "type": "string",
@@ -103451,7 +103472,20 @@
           "additionalProperties": false
         },
         "last_error": {
-          "type": "string"
+          "type": "object",
+          "properties": {
+            "code": {
+              "type": "string"
+            },
+            "message": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "code",
+            "message"
+          ],
+          "additionalProperties": false
         }
       },
       "required": [
@@ -103563,6 +103597,32 @@
               },
               "errors": {
                 "type": "object",
+                "properties": {
+                  "object": {
+                    "type": "string"
+                  },
+                  "data": {
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "properties": {
+                        "code": {
+                          "type": "string"
+                        },
+                        "message": {
+                          "type": "string"
+                        },
+                        "param": {
+                          "type": "string"
+                        },
+                        "line": {
+                          "type": "number"
+                        }
+                      },
+                      "additionalProperties": false
+                    }
+                  }
+                },
                 "additionalProperties": false
               },
               "input_file_id": {
@@ -103831,11 +103891,6 @@
                     "type": "number"
                   }
                 },
-                "required": [
-                  "step",
-                  "train_loss",
-                  "train_mean_token_accuracy"
-                ],
                 "additionalProperties": false
               },
               "fine_tuning_job_id": {
@@ -104497,7 +104552,23 @@
         "name": {
           "type": "string"
         },
-        "expires_after": {},
+        "expires_after": {
+          "type": "object",
+          "properties": {
+            "anchor": {
+              "type": "string",
+              "const": "last_active_at"
+            },
+            "days": {
+              "type": "number"
+            }
+          },
+          "required": [
+            "anchor",
+            "days"
+          ],
+          "additionalProperties": false
+        },
         "metadata": {
           "type": "object",
           "additionalProperties": {
@@ -104561,7 +104632,23 @@
           ],
           "additionalProperties": false
         },
-        "expires_after": {},
+        "expires_after": {
+          "type": "object",
+          "properties": {
+            "anchor": {
+              "type": "string",
+              "const": "last_active_at"
+            },
+            "days": {
+              "type": "number"
+            }
+          },
+          "required": [
+            "anchor",
+            "days"
+          ],
+          "additionalProperties": false
+        },
         "metadata": {
           "type": "object",
           "additionalProperties": {

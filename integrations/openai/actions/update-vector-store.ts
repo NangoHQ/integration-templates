@@ -9,7 +9,7 @@ const ExpiresAfterSchema = z.object({
 const InputSchema = z.object({
     vector_store_id: z.string(),
     name: z.string().optional(),
-    expires_after: z.any().optional(),
+    expires_after: ExpiresAfterSchema.nullable().optional(),
     metadata: z.record(z.string(), z.unknown()).optional()
 });
 
@@ -28,7 +28,7 @@ const ProviderVectorStoreSchema = z.object({
     name: z.string(),
     bytes: z.number().int().optional(),
     file_counts: ProviderFileCountsSchema,
-    expires_after: z.any().optional(),
+    expires_after: ExpiresAfterSchema.nullable().optional(),
     metadata: z.record(z.string(), z.unknown()).optional()
 });
 
@@ -39,20 +39,9 @@ const OutputSchema = z.object({
     name: z.string(),
     bytes: z.number().int().optional(),
     file_counts: ProviderFileCountsSchema,
-    expires_after: z.any().optional(),
+    expires_after: ExpiresAfterSchema.nullable().optional(),
     metadata: z.record(z.string(), z.unknown()).optional()
 });
-
-interface ExpiresAfter {
-    anchor: 'last_active_at';
-    days: number;
-}
-
-interface UpdateVectorStoreRequest {
-    name?: string;
-    expires_after?: ExpiresAfter | null;
-    metadata?: Record<string, unknown>;
-}
 
 const action = createAction({
     description: 'Update a vector store in OpenAI',
@@ -67,21 +56,18 @@ const action = createAction({
     scopes: ['vector_stores.write'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
-        const requestData: UpdateVectorStoreRequest = {};
+        const requestData: {
+            name?: string;
+            expires_after?: z.infer<typeof ExpiresAfterSchema> | null;
+            metadata?: Record<string, unknown>;
+        } = {};
 
         if (input.name !== undefined) {
             requestData.name = input.name;
         }
 
         if (input.expires_after !== undefined) {
-            if (input.expires_after === null) {
-                requestData.expires_after = null;
-            } else {
-                const parsed = ExpiresAfterSchema.safeParse(input.expires_after);
-                if (parsed.success) {
-                    requestData.expires_after = parsed.data;
-                }
-            }
+            requestData.expires_after = input.expires_after;
         }
 
         if (input.metadata !== undefined) {

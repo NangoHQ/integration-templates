@@ -1,29 +1,41 @@
 import { z } from 'zod';
 import { createAction } from 'nango';
 
-const InputSchema = z.object({
-    input: z
-        .union([
-            z.string(),
-            z.array(z.string()),
-            z.array(
-                z.object({
-                    type: z.literal('text'),
-                    text: z.string()
-                })
-            ),
-            z.array(
-                z.object({
-                    type: z.literal('image_url'),
-                    image_url: z.object({
-                        url: z.string()
-                    })
-                })
-            )
-        ])
-        .describe('The input text or images to classify for moderation. Can be a single string, an array of strings, or an array of content objects.'),
-    model: z.enum(['omni-moderation-latest', 'text-moderation-latest']).optional().describe('The moderation model to use. Defaults to omni-moderation-latest.')
+const TextItemSchema = z.object({
+    type: z.literal('text'),
+    text: z.string()
 });
+
+const ImageItemSchema = z.object({
+    type: z.literal('image_url'),
+    image_url: z.object({ url: z.string() })
+});
+
+const ContentItemSchema = z.union([TextItemSchema, ImageItemSchema]);
+
+const InputSchema = z
+    .object({
+        input: z
+            .union([z.string(), z.array(z.string()), z.array(ContentItemSchema)])
+            .describe('The input to classify. Can be a string, array of strings, or mixed array of text and image_url objects.'),
+        model: z
+            .enum(['omni-moderation-latest', 'text-moderation-latest'])
+            .optional()
+            .describe('The moderation model to use. Defaults to omni-moderation-latest.')
+    })
+    .superRefine((data, ctx) => {
+        if (data.model === 'text-moderation-latest') {
+            const hasImages =
+                Array.isArray(data.input) &&
+                data.input.some((item) => typeof item === 'object' && item !== null && 'type' in item && item.type === 'image_url');
+            if (hasImages) {
+                ctx.addIssue({
+                    code: z.ZodIssueCode.custom,
+                    message: 'text-moderation-latest does not support image inputs; use omni-moderation-latest for images'
+                });
+            }
+        }
+    });
 
 const CategoryScoresSchema = z.object({
     sexual: z.number(),

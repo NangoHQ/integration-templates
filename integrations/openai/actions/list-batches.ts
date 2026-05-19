@@ -9,7 +9,24 @@ const BatchSchema = z.object({
     id: z.string(),
     object: z.literal('batch'),
     endpoint: z.string(),
-    errors: z.object({}).nullable(),
+    errors: z
+        .object({
+            object: z.string().optional(),
+            data: z
+                .array(
+                    z
+                        .object({
+                            code: z.string().optional(),
+                            message: z.string().optional(),
+                            param: z.string().nullable().optional(),
+                            line: z.number().nullable().optional()
+                        })
+                        .passthrough()
+                )
+                .optional()
+        })
+        .passthrough()
+        .nullable(),
     input_file_id: z.string(),
     completion_window: z.string(),
     status: z.enum(['validating', 'failed', 'in_progress', 'finalizing', 'completed', 'expired', 'cancelling', 'cancelled']),

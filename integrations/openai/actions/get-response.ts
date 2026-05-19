@@ -22,6 +22,22 @@ const OutputSchema = z.object({
         .describe('Token usage information for the response.')
 });
 
+const ProviderResponseSchema = z.object({
+    id: z.string(),
+    object: z.string(),
+    created_at: z.number(),
+    model: z.string(),
+    output: z.array(z.object({}).passthrough()),
+    usage: z
+        .object({
+            input_tokens: z.number().optional(),
+            output_tokens: z.number().optional(),
+            total_tokens: z.number().optional()
+        })
+        .passthrough()
+        .optional()
+});
+
 const action = createAction({
     description: 'Retrieve a stored OpenAI response by ID.',
     version: '1.0.0',
@@ -41,8 +57,7 @@ const action = createAction({
             retries: 3
         });
 
-        const data = response.data;
-        if (!data || typeof data !== 'object') {
+        if (!response.data || typeof response.data !== 'object') {
             throw new nango.ActionError({
                 type: 'not_found',
                 message: 'Response not found or invalid data returned',
@@ -50,17 +65,7 @@ const action = createAction({
             });
         }
 
-        return {
-            id: String(data.id ?? ''),
-            object: String(data.object ?? ''),
-            created_at: Number(data.created_at ?? 0),
-            model: String(data.model ?? ''),
-            output: Array.isArray(data.output) ? data.output : [],
-            ...(data.usage !== undefined &&
-                data.usage !== null && {
-                    usage: data.usage
-                })
-        };
+        return ProviderResponseSchema.parse(response.data);
     }
 });
 
