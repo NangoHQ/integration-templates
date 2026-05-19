@@ -19,6 +19,7 @@ const InputSchema = z
             data.name !== undefined ||
             data.content !== undefined ||
             data.due_date !== undefined ||
+            data.due_date_time !== undefined ||
             data.priority !== undefined ||
             data.assignee !== undefined ||
             data.status !== undefined ||
