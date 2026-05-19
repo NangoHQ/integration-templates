@@ -1,0 +1,168 @@
+{
+  "input": {
+    "list_id": "901523453199",
+    "name": "Test Task from Create Action"
+  },
+  "output": {
+    "id": "86c9w41hk",
+    "name": "Test Task from Create Action",
+    "text_content": "",
+    "description": "",
+    "status": {
+      "status": "to do",
+      "color": "#87909e",
+      "orderindex": 0,
+      "type": "open"
+    },
+    "list": {
+      "id": "901523453199",
+      "name": "Temp List for Create Task Test"
+    },
+    "folder": {
+      "id": "901516079268",
+      "name": "hidden"
+    },
+    "space": {
+      "id": "901511023376"
+    },
+    "tags": [],
+    "assignees": [],
+    "url": "https://app.clickup.com/t/86c9w41hk",
+    "creator": {
+      "id": 302438666,
+      "username": "Nango Developer",
+      "email": "api@nango.dev",
+      "color": "#595d66",
+      "profilePicture": null
+    }
+  },
+  "nango": {},
+  "api": {
+    "post": {
+      "/api/v2/list/901523453199/task": {
+        "response": {
+          "id": "86c9w41hk",
+          "custom_id": null,
+          "custom_item_id": 0,
+          "name": "Test Task from Create Action",
+          "text_content": "",
+          "description": "",
+          "status": {
+            "id": "p901511023376_DCnaeiSB",
+            "status": "to do",
+            "color": "#87909e",
+            "orderindex": 0,
+            "type": "open"
+          },
+          "orderindex": "39908298.00000000000000000000000000000000",
+          "date_created": "1779205213210",
+          "date_updated": "1779205213210",
+          "date_closed": null,
+          "date_done": null,
+          "archived": false,
+          "creator": {
+            "id": 302438666,
+            "username": "Nango Developer",
+            "color": "#595d66",
+            "email": "api@nango.dev",
+            "profilePicture": null
+          },
+          "assignees": [],
+          "group_assignees": [],
+          "watchers": [
+            {
+              "id": 302438666,
+              "username": "Nango Developer",
+              "color": "#595d66",
+              "initials": "ND",
+              "email": "api@nango.dev",
+              "profilePicture": null
+            }
+          ],
+          "checklists": [],
+          "tags": [],
+          "parent": null,
+          "top_level_parent": null,
+          "priority": null,
+          "due_date": null,
+          "start_date": null,
+          "points": null,
+          "time_estimate": null,
+          "time_spent": 0,
+          "custom_fields": [],
+          "dependencies": [],
+          "linked_tasks": [],
+          "locations": [],
+          "team_id": "90152560096",
+          "url": "https://app.clickup.com/t/86c9w41hk",
+          "sharing": {
+            "public": false,
+            "public_share_expires_on": null,
+            "public_fields": [
+              "assignees",
+              "priority",
+              "due_date",
+              "content",
+              "comments",
+              "attachments",
+              "customFields",
+              "subtasks",
+              "tags",
+              "checklists",
+              "coverimage"
+            ],
+            "token": null,
+            "seo_optimized": false
+          },
+          "permission_level": "create",
+          "list": {
+            "id": "901523453199",
+            "name": "Temp List for Create Task Test",
+            "access": true
+          },
+          "project": {
+            "id": "901516079268",
+            "name": "hidden",
+            "hidden": true,
+            "access": true
+          },
+          "folder": {
+            "id": "901516079268",
+            "name": "hidden",
+            "hidden": true,
+            "access": true
+          },
+          "space": {
+            "id": "901511023376"
+          }
+        },
+        "status": 200,
+        "headers": {
+          "date": "Tue, 19 May 2026 15:40:13 GMT",
+          "content-type": "application/json; charset=utf-8",
+          "content-length": "1532",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=5184000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4997",
+          "x-ratelimit-reset": "1779205272",
+          "etag": "W/\"5fc-eCvM6NRuW2XRByJa+B7qPZE1IpI\""
+        },
+        "hash": "8f64b0db5b8ca39c8eb7adb675b2b69acf95da8c",
+        "request": {
+          "data": {
+            "name": "Test Task from Create Action"
+          }
+        }
+      }
+    }
+  }
+}

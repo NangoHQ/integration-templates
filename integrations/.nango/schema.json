@@ -28103,6 +28103,3760 @@
       ],
       "additionalProperties": false
     },
+    "Comment": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "comment_text": {
+          "type": "string"
+        },
+        "user": {},
+        "date": {
+          "type": "string"
+        },
+        "reply_count": {
+          "type": "number"
+        }
+      },
+      "required": [
+        "id"
+      ],
+      "additionalProperties": false
+    },
+    "SyncMetadata_clickup_comments": {
+      "type": "object",
+      "properties": {
+        "team_id": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "team_id"
+      ],
+      "additionalProperties": false
+    },
+    "Goal": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "color": {
+          "type": "string"
+        },
+        "date_created": {
+          "type": "string"
+        },
+        "date_updated": {
+          "type": "string"
+        },
+        "creator": {
+          "type": "number"
+        },
+        "team_id": {
+          "type": "string"
+        },
+        "pretty_id": {
+          "type": "string"
+        },
+        "archived": {
+          "type": "boolean"
+        },
+        "description": {
+          "type": "string"
+        },
+        "multiple_owners": {
+          "type": "boolean"
+        },
+        "due_date": {
+          "type": "string"
+        },
+        "start_date": {
+          "type": "string"
+        },
+        "folder_id": {
+          "type": "string"
+        },
+        "members": {
+          "type": "array",
+          "items": {
+            "type": "number"
+          }
+        },
+        "owners": {
+          "type": "array",
+          "items": {
+            "type": "number"
+          }
+        },
+        "percent_completed": {
+          "type": "number"
+        },
+        "pretty_url": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "id",
+        "name",
+        "date_created",
+        "date_updated",
+        "creator",
+        "team_id",
+        "members",
+        "owners"
+      ],
+      "additionalProperties": false
+    },
+    "SyncMetadata_clickup_goals": {
+      "type": "object",
+      "properties": {
+        "team_id": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "team_id"
+      ],
+      "additionalProperties": false
+    },
+    "Space": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "state": {
+          "type": "string",
+          "enum": [
+            "live",
+            "scheduled",
+            "ended"
+          ]
+        },
+        "title": {
+          "type": "string"
+        },
+        "created_at": {
+          "type": "string"
+        },
+        "updated_at": {
+          "type": "string"
+        },
+        "creator_id": {
+          "type": "string"
+        },
+        "host_ids": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "speaker_ids": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "invited_user_ids": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "participant_count": {
+          "type": "number"
+        },
+        "subscriber_count": {
+          "type": "number"
+        },
+        "is_ticketed": {
+          "type": "boolean"
+        },
+        "lang": {
+          "type": "string"
+        },
+        "scheduled_start": {
+          "type": "string"
+        },
+        "started_at": {
+          "type": "string"
+        },
+        "ended_at": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "id",
+        "state"
+      ],
+      "additionalProperties": false
+    },
+    "TimeEntry": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "start": {
+          "type": "string"
+        },
+        "end": {
+          "type": "string"
+        },
+        "duration": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        },
+        "user_id": {
+          "type": "number"
+        },
+        "user_username": {
+          "type": "string"
+        },
+        "user_email": {
+          "type": "string"
+        },
+        "task_id": {
+          "type": "string"
+        },
+        "task_name": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "id",
+        "start",
+        "end",
+        "duration"
+      ],
+      "additionalProperties": false
+    },
+    "SyncMetadata_clickup_timeentries": {
+      "type": "object",
+      "properties": {
+        "team_id": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "team_id"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_clickup_createcomment": {
+      "type": "object",
+      "properties": {
+        "task_id": {
+          "type": "string",
+          "description": "ClickUp Task ID to comment on. Example: \"86c9w2nke\""
+        },
+        "list_id": {
+          "type": "string",
+          "description": "ClickUp List ID to comment on. Example: \"901523451693\""
+        },
+        "comment_text": {
+          "type": "string",
+          "description": "The text content of the comment"
+        },
+        "notify_all": {
+          "type": "boolean",
+          "description": "Whether to notify all watchers"
+        }
+      },
+      "required": [
+        "comment_text"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_clickup_createcomment": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "Comment ID as string"
+        },
+        "hist_id": {
+          "type": "string"
+        },
+        "date": {
+          "type": "number",
+          "description": "Unix timestamp in milliseconds"
+        }
+      },
+      "required": [
+        "id",
+        "hist_id",
+        "date"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_clickup_createfolder": {
+      "type": "object",
+      "properties": {
+        "space_id": {
+          "type": "string",
+          "description": "Space ID where the folder will be created. Example: \"901511023604\""
+        },
+        "name": {
+          "type": "string",
+          "description": "Name of the folder to create. Example: \"New Folder\""
+        }
+      },
+      "required": [
+        "space_id",
+        "name"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_clickup_createfolder": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "space": {
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "string"
+            },
+            "name": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "id",
+            "name"
+          ],
+          "additionalProperties": false
+        },
+        "lists": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "name": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "id",
+              "name"
+            ],
+            "additionalProperties": false
+          }
+        },
+        "created_at": {
+          "type": "string"
+        },
+        "updated_at": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "id",
+        "name",
+        "space"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_clickup_creategoal": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string",
+          "description": "Name of the goal. Example: \"Q1 Revenue Target\""
+        },
+        "team_id": {
+          "type": "string",
+          "description": "ClickUp team ID. Optional - uses metadata if not provided. Example: \"90152560096\""
+        },
+        "due_date": {
+          "type": "number",
+          "description": "Due date in milliseconds since epoch. Example: 1704067200000"
+        },
+        "description": {
+          "type": "string",
+          "description": "Description of the goal. Example: \"Increase revenue by 20% in Q1\""
+        },
+        "multiple_owners": {
+          "type": "boolean",
+          "description": "Whether the goal can have multiple owners."
+        },
+        "color": {
+          "type": "string",
+          "description": "Color code for the goal in hex format. Example: \"#ff0000\""
+        },
+        "owners": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "type": {
+                "type": "string",
+                "enum": [
+                  "user",
+                  "team"
+                ]
+              }
+            },
+            "required": [
+              "id",
+              "type"
+            ],
+            "additionalProperties": false
+          },
+          "description": "Array of owners for the goal"
+        }
+      },
+      "required": [
+        "name"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_clickup_creategoal": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "team_id": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        },
+        "due_date": {
+          "type": "string"
+        },
+        "color": {
+          "type": "string"
+        },
+        "multiple_owners": {
+          "type": "boolean"
+        },
+        "owners": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "type": {
+                "type": "string"
+              },
+              "username": {
+                "type": "string"
+              },
+              "email": {
+                "type": "string"
+              },
+              "color": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "id",
+              "type"
+            ],
+            "additionalProperties": false
+          }
+        }
+      },
+      "required": [
+        "id",
+        "name",
+        "team_id"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_clickup_createlist": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string",
+          "description": "The name of the list to create. Example: \"My List\""
+        },
+        "folder_id": {
+          "type": "string",
+          "description": "The ID of the folder to create the list in. Use this to create a list inside a folder. Either folder_id or space_id must be provided. Example: \"901516078072\""
+        },
+        "space_id": {
+          "type": "string",
+          "description": "The ID of the space to create the list in. Use this to create a folderless list directly in a space. Either folder_id or space_id must be provided. Example: \"901511023376\""
+        },
+        "content": {
+          "type": "string",
+          "description": "The description or content of the list."
+        },
+        "due_date": {
+          "type": "number",
+          "description": "The due date for the list in milliseconds since epoch."
+        },
+        "due_date_time": {
+          "type": "boolean",
+          "description": "Whether the due_date includes time information."
+        },
+        "priority": {
+          "type": "number",
+          "description": "The priority level of the list (1-4, where 1 is Urgent)."
+        },
+        "assignee": {
+          "type": "string",
+          "description": "The user ID to assign to this list."
+        },
+        "status": {
+          "type": "string",
+          "description": "The status of the list (refers to list color, not task statuses)."
+        }
+      },
+      "required": [
+        "name"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_clickup_createlist": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "folder": {
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "string"
+            },
+            "name": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "id",
+            "name"
+          ],
+          "additionalProperties": false
+        },
+        "space": {
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "string"
+            },
+            "name": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "id",
+            "name"
+          ],
+          "additionalProperties": false
+        },
+        "statuses": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "status": {
+                "type": "string"
+              },
+              "orderindex": {
+                "type": "number"
+              },
+              "color": {
+                "type": "string"
+              },
+              "type": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "id",
+              "status",
+              "orderindex",
+              "color",
+              "type"
+            ],
+            "additionalProperties": false
+          }
+        }
+      },
+      "required": [
+        "id",
+        "name",
+        "space"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_clickup_createspace": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string",
+          "description": "Name of the space. Example: \"Engineering\""
+        },
+        "team_id": {
+          "type": "string",
+          "description": "ClickUp team ID (workspace). Uses connection metadata if not provided. Example: \"90152560096\""
+        },
+        "multiple_assignees": {
+          "type": "boolean",
+          "description": "Whether tasks can have multiple assignees"
+        },
+        "features": {
+          "type": "object",
+          "properties": {
+            "due_dates": {
+              "type": "object",
+              "properties": {
+                "enabled": {
+                  "type": "boolean"
+                },
+                "start_date": {
+                  "type": "boolean",
+                  "description": "Enable start dates"
+                }
+              },
+              "required": [
+                "enabled"
+              ],
+              "additionalProperties": false
+            },
+            "time_tracking": {
+              "type": "object",
+              "properties": {
+                "enabled": {
+                  "type": "boolean"
+                }
+              },
+              "required": [
+                "enabled"
+              ],
+              "additionalProperties": false
+            },
+            "tags": {
+              "type": "object",
+              "properties": {
+                "enabled": {
+                  "type": "boolean"
+                }
+              },
+              "required": [
+                "enabled"
+              ],
+              "additionalProperties": false
+            },
+            "priorities": {
+              "type": "object",
+              "properties": {
+                "enabled": {
+                  "type": "boolean"
+                }
+              },
+              "required": [
+                "enabled"
+              ],
+              "additionalProperties": false
+            }
+          },
+          "additionalProperties": false,
+          "description": "Space features configuration"
+        }
+      },
+      "required": [
+        "name"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_clickup_createspace": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "statuses": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "status": {
+                "type": "string"
+              },
+              "color": {
+                "type": "string"
+              },
+              "orderindex": {
+                "type": "number"
+              },
+              "type": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "id",
+              "status",
+              "color",
+              "orderindex",
+              "type"
+            ],
+            "additionalProperties": false
+          }
+        },
+        "features": {
+          "type": "object",
+          "properties": {
+            "due_dates": {
+              "type": "object",
+              "properties": {
+                "enabled": {
+                  "type": "boolean"
+                },
+                "start_date": {
+                  "type": "boolean"
+                }
+              },
+              "required": [
+                "enabled"
+              ],
+              "additionalProperties": false
+            },
+            "time_tracking": {
+              "type": "object",
+              "properties": {
+                "enabled": {
+                  "type": "boolean"
+                }
+              },
+              "required": [
+                "enabled"
+              ],
+              "additionalProperties": false
+            },
+            "tags": {
+              "type": "object",
+              "properties": {
+                "enabled": {
+                  "type": "boolean"
+                }
+              },
+              "required": [
+                "enabled"
+              ],
+              "additionalProperties": false
+            },
+            "priorities": {
+              "type": "object",
+              "properties": {
+                "enabled": {
+                  "type": "boolean"
+                }
+              },
+              "required": [
+                "enabled"
+              ],
+              "additionalProperties": false
+            }
+          },
+          "additionalProperties": false
+        },
+        "multiple_assignees": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "id",
+        "name",
+        "statuses"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_clickup_createtask": {
+      "type": "object",
+      "properties": {
+        "list_id": {
+          "type": "string",
+          "description": "The ID of the list to create the task in. Example: \"901523451693\""
+        },
+        "name": {
+          "type": "string",
+          "description": "The name of the task."
+        },
+        "description": {
+          "type": "string",
+          "description": "The description of the task (supports Markdown)."
+        },
+        "assignees": {
+          "type": "array",
+          "items": {
+            "type": "number"
+          },
+          "description": "Array of user IDs to assign to the task."
+        },
+        "status": {
+          "type": "string",
+          "description": "The status of the task (e.g., \"to do\", \"in progress\", \"complete\")."
+        },
+        "priority": {
+          "type": "number",
+          "description": "Priority level: 1=urgent, 2=high, 3=normal, 4=low."
+        },
+        "due_date": {
+          "type": "number",
+          "description": "Due date as Unix timestamp in milliseconds."
+        },
+        "start_date": {
+          "type": "number",
+          "description": "Start date as Unix timestamp in milliseconds."
+        },
+        "time_estimate": {
+          "type": "number",
+          "description": "Time estimate in milliseconds."
+        },
+        "tags": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "Array of tag names to apply to the task."
+        },
+        "parent": {
+          "type": "string",
+          "description": "ID of the parent task (for subtasks)."
+        }
+      },
+      "required": [
+        "list_id",
+        "name"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_clickup_createtask": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "text_content": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        },
+        "status": {
+          "type": "object",
+          "properties": {
+            "status": {
+              "type": "string"
+            },
+            "color": {
+              "type": "string"
+            },
+            "orderindex": {
+              "type": "number"
+            },
+            "type": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "status"
+          ],
+          "additionalProperties": false
+        },
+        "priority": {
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "string"
+            },
+            "priority": {
+              "type": "string"
+            },
+            "color": {
+              "type": "string"
+            },
+            "orderindex": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "id",
+            "priority",
+            "color",
+            "orderindex"
+          ],
+          "additionalProperties": false
+        },
+        "due_date": {
+          "type": "string"
+        },
+        "start_date": {
+          "type": "string"
+        },
+        "time_estimate": {
+          "type": "string"
+        },
+        "list": {
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "string"
+            },
+            "name": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "id",
+            "name"
+          ],
+          "additionalProperties": false
+        },
+        "folder": {
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "string"
+            },
+            "name": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "id",
+            "name"
+          ],
+          "additionalProperties": false
+        },
+        "space": {
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "string"
+            },
+            "name": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "id"
+          ],
+          "additionalProperties": false
+        },
+        "tags": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "name": {
+                "type": "string"
+              },
+              "tag_fg": {
+                "type": "string"
+              },
+              "tag_bg": {
+                "type": "string"
+              },
+              "creator": {
+                "type": "number"
+              }
+            },
+            "required": [
+              "name"
+            ],
+            "additionalProperties": false
+          }
+        },
+        "assignees": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "number"
+              },
+              "username": {
+                "type": "string"
+              },
+              "email": {
+                "type": "string"
+              },
+              "color": {
+                "type": "string"
+              },
+              "profilePicture": {
+                "type": "string"
+              },
+              "initials": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "id"
+            ],
+            "additionalProperties": false
+          }
+        },
+        "parent": {
+          "type": "string"
+        },
+        "url": {
+          "type": "string"
+        },
+        "creator": {
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "number"
+            },
+            "username": {
+              "type": "string"
+            },
+            "email": {
+              "type": "string"
+            },
+            "color": {
+              "type": "string"
+            },
+            "initials": {
+              "type": "string"
+            },
+            "profilePicture": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "id"
+          ],
+          "additionalProperties": false
+        },
+        "created_at": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "id",
+        "name"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_clickup_createtimeentry": {
+      "type": "object",
+      "properties": {
+        "team_id": {
+          "type": "string",
+          "description": "ClickUp Workspace/Team ID. Example: \"90152560096\""
+        },
+        "description": {
+          "type": "string",
+          "description": "Description of the time entry"
+        },
+        "start": {
+          "type": "number",
+          "description": "Start time in milliseconds since Unix epoch"
+        },
+        "duration": {
+          "type": "number",
+          "description": "Duration in milliseconds"
+        },
+        "task_id": {
+          "type": "string",
+          "description": "Task ID to associate with the time entry. Example: \"abc123\""
+        },
+        "billable": {
+          "type": "boolean",
+          "description": "Whether the time entry is billable"
+        },
+        "tags": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "name": {
+                "type": "string"
+              },
+              "tag_fg": {
+                "type": "string"
+              },
+              "tag_bg": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "name"
+            ],
+            "additionalProperties": false
+          },
+          "description": "Tags to associate with the time entry"
+        }
+      },
+      "required": [
+        "team_id",
+        "start",
+        "duration"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_clickup_createtimeentry": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "Time entry ID"
+        },
+        "task": {
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "string"
+            },
+            "name": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "id"
+          ],
+          "additionalProperties": false
+        },
+        "workspace_id": {
+          "type": "string"
+        },
+        "user": {
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "number"
+            },
+            "username": {
+              "type": "string"
+            },
+            "email": {
+              "type": "string"
+            }
+          },
+          "additionalProperties": false
+        },
+        "billable": {
+          "type": "boolean"
+        },
+        "start": {
+          "type": "number"
+        },
+        "end": {
+          "type": [
+            "number",
+            "string"
+          ]
+        },
+        "duration": {
+          "type": "number"
+        },
+        "description": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "id"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_clickup_deletecomment": {
+      "type": "object",
+      "properties": {
+        "comment_id": {
+          "type": "string",
+          "description": "The ID of the comment to delete. Example: \"90150225604615\""
+        }
+      },
+      "required": [
+        "comment_id"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_clickup_deletecomment": {
+      "type": "object",
+      "properties": {
+        "success": {
+          "type": "boolean",
+          "description": "Whether the comment was successfully deleted"
+        }
+      },
+      "required": [
+        "success"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_clickup_deletefolder": {
+      "type": "object",
+      "properties": {
+        "folder_id": {
+          "type": "string",
+          "description": "The ID of the folder to delete. Example: \"901516078072\""
+        }
+      },
+      "required": [
+        "folder_id"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_clickup_deletefolder": {
+      "type": "object",
+      "properties": {
+        "success": {
+          "type": "boolean",
+          "description": "Whether the deletion was successful"
+        }
+      },
+      "required": [
+        "success"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_clickup_deletegoal": {
+      "type": "object",
+      "properties": {
+        "goal_id": {
+          "type": "string",
+          "description": "The ID of the goal to delete. Example: \"2def2fe3-90cb-4332-8d3e-ba04e38c67ef\""
+        }
+      },
+      "required": [
+        "goal_id"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_clickup_deletegoal": {
+      "type": "object",
+      "properties": {
+        "success": {
+          "type": "boolean",
+          "description": "Whether the goal was successfully deleted"
+        }
+      },
+      "required": [
+        "success"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_clickup_deletelist": {
+      "type": "object",
+      "properties": {
+        "list_id": {
+          "type": "string",
+          "description": "The ID of the list to delete. Example: \"901523451693\""
+        }
+      },
+      "required": [
+        "list_id"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_clickup_deletelist": {
+      "type": "object",
+      "properties": {
+        "success": {
+          "type": "boolean",
+          "description": "Whether the deletion was successful"
+        }
+      },
+      "required": [
+        "success"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_clickup_deletespace": {
+      "type": "object",
+      "properties": {
+        "space_id": {
+          "type": "string",
+          "description": "Space ID to delete. Example: \"901511023604\""
+        }
+      },
+      "required": [
+        "space_id"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_clickup_deletespace": {
+      "type": "object",
+      "properties": {
+        "success": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "success"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_clickup_deletetask": {
+      "type": "object",
+      "properties": {
+        "taskId": {
+          "type": "string",
+          "description": "The ID of the task to delete. Example: \"86c9w2nke\""
+        }
+      },
+      "required": [
+        "taskId"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_clickup_deletetask": {
+      "type": "object",
+      "additionalProperties": false
+    },
+    "ActionInput_clickup_deletetimeentry": {
+      "type": "object",
+      "properties": {
+        "time_entry_id": {
+          "type": "string",
+          "description": "The ID of the time entry to delete. Example: \"5090290025624291206\""
+        }
+      },
+      "required": [
+        "time_entry_id"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_clickup_deletetimeentry": {
+      "type": "object",
+      "properties": {
+        "deleted": {
+          "type": "boolean"
+        },
+        "time_entry": {
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "string"
+            },
+            "task": {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "string"
+                },
+                "name": {
+                  "type": "string"
+                }
+              },
+              "additionalProperties": false
+            },
+            "user": {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "number"
+                },
+                "username": {
+                  "type": "string"
+                },
+                "email": {
+                  "type": "string"
+                }
+              },
+              "additionalProperties": false
+            },
+            "billable": {
+              "type": "boolean"
+            },
+            "start": {
+              "type": "string"
+            },
+            "end": {
+              "type": "string"
+            },
+            "duration": {
+              "type": "string"
+            },
+            "description": {
+              "type": "string"
+            },
+            "tags": {
+              "type": "array",
+              "items": {}
+            },
+            "source": {
+              "type": "string"
+            },
+            "at": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "id"
+          ],
+          "additionalProperties": false
+        }
+      },
+      "required": [
+        "deleted"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_clickup_getfolder": {
+      "type": "object",
+      "properties": {
+        "folder_id": {
+          "type": "string",
+          "description": "The ID of the folder to retrieve. Example: \"901516078072\""
+        }
+      },
+      "required": [
+        "folder_id"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_clickup_getfolder": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "override_statuses": {
+          "type": "boolean"
+        },
+        "hidden": {
+          "type": "boolean"
+        },
+        "space": {
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "string"
+            },
+            "name": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "id",
+            "name"
+          ],
+          "additionalProperties": false
+        },
+        "task_count": {
+          "type": "number"
+        },
+        "lists": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "name": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "id",
+              "name"
+            ],
+            "additionalProperties": false
+          }
+        },
+        "archived": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "id",
+        "name",
+        "space"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_clickup_getgoal": {
+      "type": "object",
+      "properties": {
+        "goal_id": {
+          "type": "string",
+          "description": "Goal ID. Example: \"2def2fe3-90cb-4332-8d3e-ba04e38c67ef\""
+        }
+      },
+      "required": [
+        "goal_id"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_clickup_getgoal": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "team_id": {
+          "type": "string"
+        },
+        "color": {
+          "type": "string"
+        },
+        "due_date": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        },
+        "private": {
+          "type": "boolean"
+        },
+        "archived": {
+          "type": "boolean"
+        },
+        "members": {
+          "type": "array",
+          "items": {}
+        },
+        "owners": {
+          "type": "array",
+          "items": {}
+        },
+        "key_results": {
+          "type": "array",
+          "items": {}
+        },
+        "percent_completed": {
+          "type": "number"
+        }
+      },
+      "required": [
+        "id",
+        "name",
+        "team_id",
+        "private",
+        "archived"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_clickup_getlist": {
+      "type": "object",
+      "properties": {
+        "listId": {
+          "type": "string",
+          "description": "The ID of the list to retrieve. Example: \"901523451693\""
+        }
+      },
+      "required": [
+        "listId"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_clickup_getlist": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "orderindex": {
+          "type": "number"
+        },
+        "task_count": {
+          "type": "number"
+        },
+        "folder": {
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "string"
+            },
+            "name": {
+              "type": "string"
+            },
+            "hidden": {
+              "type": "boolean"
+            },
+            "access": {
+              "type": "boolean"
+            }
+          },
+          "required": [
+            "id",
+            "name"
+          ],
+          "additionalProperties": false
+        },
+        "space": {
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "string"
+            },
+            "name": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "id",
+            "name"
+          ],
+          "additionalProperties": false
+        },
+        "statuses": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "status": {
+                "type": "string"
+              },
+              "orderindex": {
+                "type": "number"
+              },
+              "color": {
+                "type": "string"
+              },
+              "type": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "id",
+              "status",
+              "orderindex",
+              "color",
+              "type"
+            ],
+            "additionalProperties": false
+          }
+        },
+        "permission_level": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "id",
+        "name",
+        "orderindex",
+        "space"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_clickup_getspace": {
+      "type": "object",
+      "properties": {
+        "space_id": {
+          "type": "string",
+          "description": "Space ID. Example: \"901511023604\""
+        }
+      },
+      "required": [
+        "space_id"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_clickup_getspace": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "color": {
+          "type": "string"
+        },
+        "private": {
+          "type": "boolean"
+        },
+        "archived": {
+          "type": "boolean"
+        },
+        "statuses": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "status": {
+                "type": "string"
+              },
+              "orderindex": {
+                "type": "number"
+              },
+              "color": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "id",
+              "status",
+              "orderindex",
+              "color"
+            ],
+            "additionalProperties": false
+          }
+        },
+        "multiple_assignees": {
+          "type": "boolean"
+        },
+        "features": {
+          "type": "object",
+          "additionalProperties": false
+        }
+      },
+      "required": [
+        "id",
+        "name",
+        "private",
+        "archived",
+        "statuses",
+        "multiple_assignees"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_clickup_gettask": {
+      "type": "object",
+      "properties": {
+        "task_id": {
+          "type": "string",
+          "description": "The ClickUp task ID. Example: \"86c9w2nke\""
+        },
+        "custom_task_ids": {
+          "type": "boolean",
+          "description": "Set to true when using custom task IDs instead of ClickUp native IDs."
+        }
+      },
+      "required": [
+        "task_id"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_clickup_gettask": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "status": {
+          "type": "object",
+          "properties": {
+            "status": {
+              "type": "string"
+            },
+            "color": {
+              "type": "string"
+            },
+            "orderindex": {
+              "type": "number"
+            },
+            "type": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "status"
+          ],
+          "additionalProperties": false
+        },
+        "priority": {
+          "type": "object",
+          "properties": {
+            "priority": {
+              "type": "string"
+            },
+            "color": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "priority"
+          ],
+          "additionalProperties": false
+        },
+        "assignees": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "number"
+              },
+              "username": {
+                "type": "string"
+              },
+              "email": {
+                "type": "string"
+              },
+              "color": {
+                "type": "string"
+              },
+              "profilePicture": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "id"
+            ],
+            "additionalProperties": false
+          }
+        },
+        "due_date": {
+          "type": "string"
+        },
+        "start_date": {
+          "type": "string"
+        },
+        "time_estimate": {
+          "type": "number"
+        },
+        "time_spent": {
+          "type": "number"
+        },
+        "tags": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "name": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "name"
+            ],
+            "additionalProperties": false
+          }
+        },
+        "list": {
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "string"
+            },
+            "name": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "id",
+            "name"
+          ],
+          "additionalProperties": false
+        },
+        "folder": {
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "string"
+            },
+            "name": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "id",
+            "name"
+          ],
+          "additionalProperties": false
+        },
+        "space": {
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "string"
+            },
+            "name": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "id"
+          ],
+          "additionalProperties": false
+        },
+        "attachments": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "title": {
+                "type": "string"
+              },
+              "url": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "id"
+            ],
+            "additionalProperties": false
+          }
+        }
+      },
+      "required": [
+        "id",
+        "name"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_clickup_gettimeentry": {
+      "type": "object",
+      "properties": {
+        "time_entry_id": {
+          "type": "string",
+          "description": "The ID of the time entry to retrieve. Example: \"5090290025624291206\""
+        }
+      },
+      "required": [
+        "time_entry_id"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_clickup_gettimeentry": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "task": {
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "string"
+            },
+            "name": {
+              "type": "string"
+            },
+            "status": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "id",
+            "name",
+            "status"
+          ],
+          "additionalProperties": false
+        },
+        "workspace_id": {
+          "type": "string"
+        },
+        "user": {
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "number"
+            },
+            "username": {
+              "type": "string"
+            },
+            "email": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "id",
+            "username",
+            "email"
+          ],
+          "additionalProperties": false
+        },
+        "billable": {
+          "type": "boolean"
+        },
+        "start": {
+          "type": "string"
+        },
+        "end": {
+          "type": "string"
+        },
+        "duration": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        },
+        "tags": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "source": {
+          "type": "string"
+        },
+        "task_location": {
+          "type": "object",
+          "properties": {
+            "list_id": {
+              "type": "string"
+            },
+            "folder_id": {
+              "type": "string"
+            },
+            "space_id": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "list_id",
+            "folder_id",
+            "space_id"
+          ],
+          "additionalProperties": false
+        }
+      },
+      "required": [
+        "id",
+        "workspace_id",
+        "user",
+        "billable",
+        "start",
+        "end",
+        "duration",
+        "description",
+        "source"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_clickup_getuser": {
+      "type": "object",
+      "properties": {
+        "user_id": {
+          "type": "number",
+          "description": "User ID. Example: 302438666"
+        }
+      },
+      "required": [
+        "user_id"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_clickup_getuser": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "number"
+        },
+        "username": {
+          "type": "string"
+        },
+        "email": {
+          "type": "string"
+        },
+        "color": {
+          "type": "string"
+        },
+        "profile_picture": {
+          "type": "string"
+        },
+        "initials": {
+          "type": "string"
+        },
+        "role": {
+          "type": "number"
+        },
+        "role_key": {
+          "type": "string"
+        },
+        "last_active": {
+          "type": "string"
+        },
+        "date_joined": {
+          "type": "string"
+        },
+        "date_invited": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "id"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_clickup_listcomments": {
+      "type": "object",
+      "properties": {
+        "task_id": {
+          "type": "string",
+          "description": "Task ID to list comments from. Example: \"abc123\". Either task_id or list_id must be provided."
+        },
+        "list_id": {
+          "type": "string",
+          "description": "List ID to list comments from. Example: \"123\". Either task_id or list_id must be provided."
+        }
+      },
+      "additionalProperties": false
+    },
+    "ActionOutput_clickup_listcomments": {
+      "type": "object",
+      "properties": {
+        "comments": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "comment": {
+                "anyOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "additionalProperties": false
+                    }
+                  }
+                ]
+              },
+              "comment_text": {
+                "type": "string"
+              },
+              "user": {
+                "type": "object",
+                "properties": {
+                  "id": {
+                    "type": "number"
+                  },
+                  "username": {
+                    "type": "string"
+                  },
+                  "email": {
+                    "type": "string"
+                  },
+                  "color": {
+                    "type": "string"
+                  },
+                  "profilePicture": {
+                    "type": "string"
+                  }
+                },
+                "additionalProperties": false
+              },
+              "date": {
+                "type": "string"
+              },
+              "reply_count": {
+                "type": "number"
+              }
+            },
+            "required": [
+              "id"
+            ],
+            "additionalProperties": false
+          }
+        }
+      },
+      "required": [
+        "comments"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_clickup_listfolders": {
+      "type": "object",
+      "properties": {
+        "space_id": {
+          "type": "string",
+          "description": "The ID of the space to list folders from. Example: \"901511023604\""
+        },
+        "archived": {
+          "type": "boolean",
+          "description": "Include archived folders. Defaults to false."
+        }
+      },
+      "required": [
+        "space_id"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_clickup_listfolders": {
+      "type": "object",
+      "properties": {
+        "folders": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "name": {
+                "type": "string"
+              },
+              "orderindex": {
+                "type": "number"
+              },
+              "override_statuses": {
+                "type": "boolean"
+              },
+              "hidden": {
+                "type": "boolean"
+              },
+              "space": {
+                "type": "object",
+                "properties": {
+                  "id": {
+                    "type": "string"
+                  },
+                  "name": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "id",
+                  "name"
+                ],
+                "additionalProperties": false
+              },
+              "task_count": {
+                "type": "string"
+              },
+              "lists": {
+                "type": "array",
+                "items": {}
+              },
+              "archived": {
+                "type": "boolean"
+              },
+              "created_at": {
+                "type": "string"
+              },
+              "updated_at": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "id",
+              "name",
+              "orderindex"
+            ],
+            "additionalProperties": false
+          }
+        }
+      },
+      "required": [
+        "folders"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_clickup_listgoals": {
+      "type": "object",
+      "properties": {
+        "team_id": {
+          "type": "string",
+          "description": "ClickUp team/workspace ID. Example: \"90152560096\""
+        }
+      },
+      "required": [
+        "team_id"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_clickup_listgoals": {
+      "type": "object",
+      "properties": {
+        "goals": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "name": {
+                "type": "string"
+              },
+              "team_id": {
+                "type": "string"
+              },
+              "color": {
+                "type": "string"
+              },
+              "description": {
+                "type": "string"
+              },
+              "creator": {
+                "type": "number"
+              },
+              "date_created": {
+                "type": "string"
+              },
+              "date_updated": {
+                "type": "string"
+              },
+              "date_closed": {
+                "type": "string"
+              },
+              "archived": {
+                "type": "boolean"
+              },
+              "multiple_owners": {
+                "type": "boolean"
+              },
+              "watchers": {
+                "type": "array",
+                "items": {
+                  "type": "number"
+                }
+              },
+              "owners": {
+                "type": "array",
+                "items": {
+                  "type": "number"
+                }
+              },
+              "key_results": {
+                "type": "array",
+                "items": {}
+              },
+              "percent_completed": {
+                "type": "number"
+              },
+              "folder_id": {
+                "type": "string"
+              },
+              "type": {
+                "type": "string",
+                "enum": [
+                  "number",
+                  "currency",
+                  "boolean",
+                  "percentage"
+                ]
+              }
+            },
+            "required": [
+              "id",
+              "name",
+              "team_id",
+              "creator"
+            ],
+            "additionalProperties": false
+          }
+        },
+        "folders": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "name": {
+                "type": "string"
+              },
+              "team_id": {
+                "type": "string"
+              },
+              "creator": {
+                "type": "number"
+              },
+              "date_created": {
+                "type": "string"
+              },
+              "date_updated": {
+                "type": "string"
+              },
+              "archived": {
+                "type": "boolean"
+              }
+            },
+            "required": [
+              "id",
+              "name",
+              "team_id",
+              "creator"
+            ],
+            "additionalProperties": false
+          }
+        }
+      },
+      "required": [
+        "goals",
+        "folders"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_clickup_listlists": {
+      "type": "object",
+      "properties": {
+        "folder_id": {
+          "type": "string",
+          "description": "Folder ID to list lists within. Provide either folder_id or space_id, not both."
+        },
+        "space_id": {
+          "type": "string",
+          "description": "Space ID to list folderless lists directly in the space. Provide either folder_id or space_id, not both."
+        },
+        "archived": {
+          "type": "boolean",
+          "description": "Whether to include archived lists. Default: false."
+        }
+      },
+      "additionalProperties": false
+    },
+    "ActionOutput_clickup_listlists": {
+      "type": "object",
+      "properties": {
+        "lists": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "name": {
+                "type": "string"
+              },
+              "orderindex": {
+                "type": "number"
+              },
+              "content": {
+                "type": "string"
+              },
+              "status": {
+                "type": "object",
+                "properties": {
+                  "status": {
+                    "type": "string"
+                  },
+                  "color": {
+                    "type": "string"
+                  },
+                  "hide_label": {
+                    "type": "boolean"
+                  }
+                },
+                "additionalProperties": false
+              },
+              "priority": {
+                "type": "object",
+                "properties": {
+                  "priority": {
+                    "type": "string"
+                  },
+                  "color": {
+                    "type": "string"
+                  }
+                },
+                "additionalProperties": false
+              },
+              "assignee": {
+                "type": "string"
+              },
+              "task_count": {
+                "type": "number"
+              },
+              "due_date": {
+                "type": "string"
+              },
+              "start_date": {
+                "type": "string"
+              },
+              "folder": {
+                "type": "object",
+                "properties": {
+                  "id": {
+                    "type": "string"
+                  },
+                  "name": {
+                    "type": "string"
+                  },
+                  "hidden": {
+                    "type": "boolean"
+                  },
+                  "access": {
+                    "type": "boolean"
+                  }
+                },
+                "additionalProperties": false
+              },
+              "space": {
+                "type": "object",
+                "properties": {
+                  "id": {
+                    "type": "string"
+                  },
+                  "name": {
+                    "type": "string"
+                  }
+                },
+                "additionalProperties": false
+              },
+              "archived": {
+                "type": "boolean"
+              },
+              "override_statuses": {
+                "type": "boolean"
+              },
+              "permission_level": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "id",
+              "name",
+              "orderindex"
+            ],
+            "additionalProperties": false
+          }
+        }
+      },
+      "required": [
+        "lists"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_clickup_listspaces": {
+      "type": "object",
+      "properties": {
+        "team_id": {
+          "type": "string",
+          "description": "ClickUp team (workspace) ID. Example: \"90152560096\""
+        },
+        "archived": {
+          "type": "boolean",
+          "description": "Include archived spaces. Default: false"
+        }
+      },
+      "required": [
+        "team_id"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_clickup_listspaces": {
+      "type": "object",
+      "properties": {
+        "spaces": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "name": {
+                "type": "string"
+              },
+              "color": {
+                "type": "string"
+              },
+              "avatar": {
+                "type": "string"
+              },
+              "archived": {
+                "type": "boolean"
+              },
+              "private": {
+                "type": "boolean"
+              }
+            },
+            "required": [
+              "id",
+              "name"
+            ],
+            "additionalProperties": false
+          }
+        }
+      },
+      "required": [
+        "spaces"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_clickup_listtasks": {
+      "type": "object",
+      "properties": {
+        "list_id": {
+          "type": "string",
+          "description": "List ID to fetch tasks from. Example: \"901523451693\""
+        },
+        "archived": {
+          "type": "boolean",
+          "description": "Include archived tasks. Default: false"
+        },
+        "page": {
+          "type": "number",
+          "description": "Page number (0-based). Omit for first page"
+        },
+        "order_by": {
+          "type": "string",
+          "enum": [
+            "id",
+            "created",
+            "updated",
+            "due_date"
+          ],
+          "description": "Field to order by"
+        },
+        "reverse": {
+          "type": "boolean",
+          "description": "Reverse order. Default: false"
+        },
+        "subtasks": {
+          "type": "boolean",
+          "description": "Include subtasks. Default: false"
+        },
+        "statuses": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "Filter by status names"
+        },
+        "assignees": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "Filter by assignee user IDs"
+        },
+        "tags": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "Filter by tags"
+        },
+        "due_date_gt": {
+          "type": "number",
+          "description": "Filter by due date greater than (ms epoch)"
+        },
+        "due_date_lt": {
+          "type": "number",
+          "description": "Filter by due date less than (ms epoch)"
+        },
+        "date_created_gt": {
+          "type": "number",
+          "description": "Filter by date created greater than (ms epoch)"
+        },
+        "date_created_lt": {
+          "type": "number",
+          "description": "Filter by date created less than (ms epoch)"
+        },
+        "date_updated_gt": {
+          "type": "number",
+          "description": "Filter by date updated greater than (ms epoch)"
+        },
+        "date_updated_lt": {
+          "type": "number",
+          "description": "Filter by date updated less than (ms epoch)"
+        }
+      },
+      "required": [
+        "list_id"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_clickup_listtasks": {
+      "type": "object",
+      "properties": {
+        "tasks": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "name": {
+                "type": "string"
+              },
+              "text_content": {
+                "type": "string"
+              },
+              "description": {
+                "type": "string"
+              },
+              "status": {
+                "type": "object",
+                "properties": {
+                  "status": {
+                    "type": "string"
+                  },
+                  "color": {
+                    "type": "string"
+                  }
+                },
+                "additionalProperties": false
+              },
+              "orderindex": {
+                "type": "string"
+              },
+              "date_created": {
+                "type": "string"
+              },
+              "date_updated": {
+                "type": "string"
+              },
+              "date_closed": {
+                "type": "string"
+              },
+              "archived": {
+                "type": "boolean"
+              },
+              "creator": {
+                "type": "object",
+                "properties": {
+                  "id": {
+                    "type": "number"
+                  },
+                  "username": {
+                    "type": "string"
+                  },
+                  "color": {
+                    "type": "string"
+                  },
+                  "email": {
+                    "type": "string"
+                  },
+                  "profile_picture": {
+                    "type": "string"
+                  }
+                },
+                "additionalProperties": false
+              },
+              "assignees": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "number"
+                    },
+                    "username": {
+                      "type": "string"
+                    },
+                    "color": {
+                      "type": "string"
+                    },
+                    "email": {
+                      "type": "string"
+                    },
+                    "profile_picture": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              },
+              "watchers": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "number"
+                    },
+                    "username": {
+                      "type": "string"
+                    },
+                    "color": {
+                      "type": "string"
+                    },
+                    "email": {
+                      "type": "string"
+                    },
+                    "profile_picture": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              },
+              "tags": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "name": {
+                      "type": "string"
+                    },
+                    "tag_fg": {
+                      "type": "string"
+                    },
+                    "tag_bg": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              },
+              "parent": {
+                "type": "string"
+              },
+              "priority": {
+                "type": "object",
+                "properties": {
+                  "priority": {
+                    "type": "string"
+                  },
+                  "color": {
+                    "type": "string"
+                  }
+                },
+                "additionalProperties": false
+              },
+              "due_date": {
+                "type": "string"
+              },
+              "start_date": {
+                "type": "string"
+              },
+              "folder": {
+                "type": "object",
+                "properties": {
+                  "id": {
+                    "type": "string"
+                  },
+                  "name": {
+                    "type": "string"
+                  },
+                  "hidden": {
+                    "type": "boolean"
+                  },
+                  "access": {
+                    "type": "boolean"
+                  }
+                },
+                "additionalProperties": false
+              },
+              "space": {
+                "type": "object",
+                "properties": {
+                  "id": {
+                    "type": "string"
+                  },
+                  "name": {
+                    "type": "string"
+                  },
+                  "access": {
+                    "type": "boolean"
+                  }
+                },
+                "additionalProperties": false
+              },
+              "list": {
+                "type": "object",
+                "properties": {
+                  "id": {
+                    "type": "string"
+                  },
+                  "name": {
+                    "type": "string"
+                  },
+                  "access": {
+                    "type": "boolean"
+                  }
+                },
+                "additionalProperties": false
+              },
+              "url": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "id"
+            ],
+            "additionalProperties": false
+          }
+        },
+        "last_page": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "tasks",
+        "last_page"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_clickup_listtimeentries": {
+      "type": "object",
+      "properties": {
+        "start_date": {
+          "type": "number",
+          "description": "Start date in milliseconds since epoch to filter time entries"
+        },
+        "end_date": {
+          "type": "number",
+          "description": "End date in milliseconds since epoch to filter time entries"
+        },
+        "assignee": {
+          "type": "number",
+          "description": "User ID to filter time entries by assignee"
+        },
+        "include_task_tags": {
+          "type": "boolean",
+          "description": "Include task tags in the response"
+        },
+        "include_location_names": {
+          "type": "boolean",
+          "description": "Include location names in the response"
+        },
+        "space_id": {
+          "type": "number",
+          "description": "Space ID to filter time entries"
+        },
+        "folder_id": {
+          "type": "number",
+          "description": "Folder ID to filter time entries"
+        },
+        "list_id": {
+          "type": "number",
+          "description": "List ID to filter time entries"
+        },
+        "task_id": {
+          "type": "string",
+          "description": "Task ID to filter time entries"
+        }
+      },
+      "additionalProperties": false
+    },
+    "ActionOutput_clickup_listtimeentries": {
+      "type": "object",
+      "properties": {
+        "data": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "task": {
+                "type": "object",
+                "properties": {
+                  "id": {
+                    "type": "string"
+                  },
+                  "name": {
+                    "type": "string"
+                  },
+                  "status": {
+                    "type": "string"
+                  },
+                  "task_url": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "id",
+                  "name"
+                ],
+                "additionalProperties": false
+              },
+              "user": {
+                "type": "object",
+                "properties": {
+                  "id": {
+                    "type": "number"
+                  },
+                  "username": {
+                    "type": "string"
+                  },
+                  "email": {
+                    "type": "string"
+                  },
+                  "color": {
+                    "type": "string"
+                  },
+                  "profile_picture": {
+                    "type": "string"
+                  },
+                  "initials": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "id",
+                  "username",
+                  "email"
+                ],
+                "additionalProperties": false
+              },
+              "billable": {
+                "type": "boolean"
+              },
+              "start": {
+                "type": "string"
+              },
+              "end": {
+                "type": "string"
+              },
+              "duration": {
+                "type": "number"
+              },
+              "description": {
+                "type": "string"
+              },
+              "tags": {
+                "type": "array",
+                "items": {}
+              },
+              "source": {
+                "type": "string"
+              },
+              "task_location": {
+                "type": "object",
+                "properties": {
+                  "list_id": {
+                    "type": "number"
+                  },
+                  "folder_id": {
+                    "type": "number"
+                  },
+                  "space_id": {
+                    "type": "number"
+                  }
+                },
+                "required": [
+                  "list_id",
+                  "folder_id",
+                  "space_id"
+                ],
+                "additionalProperties": false
+              },
+              "workspace_id": {
+                "type": "number"
+              }
+            },
+            "required": [
+              "id",
+              "task",
+              "user",
+              "billable",
+              "start",
+              "end",
+              "duration",
+              "workspace_id"
+            ],
+            "additionalProperties": false
+          }
+        }
+      },
+      "required": [
+        "data"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_clickup_listusers": {
+      "type": "object",
+      "additionalProperties": false
+    },
+    "ActionOutput_clickup_listusers": {
+      "type": "object",
+      "properties": {
+        "users": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "username": {
+                "type": "string"
+              },
+              "email": {
+                "type": "string"
+              },
+              "color": {
+                "type": "string"
+              },
+              "role": {
+                "type": "number"
+              },
+              "role_key": {
+                "type": "string"
+              },
+              "last_active": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "id",
+              "username",
+              "email",
+              "color",
+              "role",
+              "role_key"
+            ],
+            "additionalProperties": false
+          }
+        }
+      },
+      "required": [
+        "users"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_clickup_updatecomment": {
+      "type": "object",
+      "properties": {
+        "comment_id": {
+          "type": "string",
+          "description": "The ID of the comment to update. Example: \"90150225604615\""
+        },
+        "comment_text": {
+          "type": "string",
+          "description": "The new text content of the comment."
+        },
+        "assignee": {
+          "type": "number",
+          "description": "The user ID to assign the comment to. Optional."
+        },
+        "resolved": {
+          "type": "boolean",
+          "description": "Whether the comment is resolved. Optional."
+        }
+      },
+      "required": [
+        "comment_id",
+        "comment_text"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_clickup_updatecomment": {
+      "type": "object",
+      "properties": {
+        "success": {
+          "type": "boolean",
+          "description": "Whether the update was successful."
+        }
+      },
+      "required": [
+        "success"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_clickup_updatefolder": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "The ID of the folder to update. Example: \"901516078072\""
+        },
+        "name": {
+          "type": "string",
+          "description": "The new name for the folder. Example: \"Updated Folder Name\""
+        }
+      },
+      "required": [
+        "id",
+        "name"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_clickup_updatefolder": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "orderindex": {
+          "type": "number"
+        },
+        "override_statuses": {
+          "type": "boolean"
+        },
+        "hidden": {
+          "type": "boolean"
+        },
+        "space_id": {
+          "type": "string"
+        },
+        "task_count": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "id",
+        "name"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_clickup_updategoal": {
+      "type": "object",
+      "properties": {
+        "goal_id": {
+          "type": "string",
+          "description": "The ID of the goal to update. Example: \"2def2fe3-90cb-4332-8d3e-ba04e38c67ef\""
+        },
+        "name": {
+          "type": "string",
+          "description": "The name of the goal"
+        },
+        "due_date": {
+          "type": "number",
+          "description": "The due date as a Unix timestamp in milliseconds"
+        },
+        "description": {
+          "type": "string",
+          "description": "The description of the goal"
+        },
+        "multiple_owners": {
+          "type": "boolean",
+          "description": "Whether the goal has multiple owners"
+        },
+        "color": {
+          "type": "string",
+          "description": "The color of the goal in hex format"
+        }
+      },
+      "required": [
+        "goal_id"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_clickup_updategoal": {
+      "type": "object",
+      "additionalProperties": false
+    },
+    "ActionInput_clickup_updatelist": {
+      "type": "object",
+      "properties": {
+        "list_id": {
+          "type": "string",
+          "description": "The ID of the list to update. Example: \"901523451693\""
+        },
+        "name": {
+          "type": "string",
+          "description": "The new name of the list."
+        },
+        "content": {
+          "type": "string",
+          "description": "The new content/description of the list."
+        },
+        "due_date": {
+          "type": "number",
+          "description": "The due date as a Unix timestamp in milliseconds."
+        },
+        "due_date_time": {
+          "type": "boolean",
+          "description": "Whether the due_date includes a time component."
+        },
+        "priority": {
+          "type": "number",
+          "description": "The priority of the list (1-4, where 1 is Urgent)."
+        },
+        "assignee": {
+          "type": "number",
+          "description": "The user ID to assign the list to."
+        },
+        "status": {
+          "type": "string",
+          "description": "The status of the list."
+        },
+        "unset_status": {
+          "type": "boolean",
+          "description": "Whether to unset the status."
+        }
+      },
+      "required": [
+        "list_id"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_clickup_updatelist": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "content": {
+          "type": "string"
+        },
+        "orderindex": {
+          "type": "number"
+        },
+        "status": {
+          "type": "string"
+        },
+        "priority": {
+          "type": "number"
+        },
+        "assignee": {
+          "type": "number"
+        },
+        "due_date": {
+          "type": "string"
+        },
+        "start_date": {
+          "type": "string"
+        },
+        "folder": {
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "string"
+            },
+            "name": {
+              "type": "string"
+            },
+            "hidden": {
+              "type": "boolean"
+            },
+            "access": {
+              "type": "boolean"
+            }
+          },
+          "required": [
+            "id",
+            "name"
+          ],
+          "additionalProperties": false
+        },
+        "space": {
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "id"
+          ],
+          "additionalProperties": false
+        },
+        "archived": {
+          "type": "boolean"
+        },
+        "override_statuses": {
+          "type": "boolean"
+        },
+        "permission_level": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "id",
+        "name"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_clickup_updatespace": {
+      "type": "object",
+      "properties": {
+        "space_id": {
+          "type": "string",
+          "description": "The ID of the space to update. Example: \"901511023604\""
+        },
+        "name": {
+          "type": "string",
+          "description": "The new name for the space."
+        },
+        "color": {
+          "type": "string",
+          "description": "The color of the space in hexadecimal format."
+        },
+        "private": {
+          "type": "boolean",
+          "description": "Whether the space is private."
+        },
+        "admin_can_manage": {
+          "type": "boolean",
+          "description": "Whether admins can manage the space."
+        },
+        "multiple_assignees": {
+          "type": "boolean",
+          "description": "Whether tasks in the space can have multiple assignees."
+        },
+        "features": {
+          "type": "object",
+          "properties": {
+            "due_dates": {
+              "type": "boolean"
+            },
+            "sprints": {
+              "type": "boolean",
+              "description": "Enable sprints feature."
+            },
+            "time_tracking": {
+              "type": "boolean",
+              "description": "Enable time tracking feature."
+            },
+            "points": {
+              "type": "boolean",
+              "description": "Enable points feature."
+            },
+            "custom_items": {
+              "type": "boolean",
+              "description": "Enable custom items feature."
+            },
+            "priorities": {
+              "type": "boolean",
+              "description": "Enable priorities feature."
+            },
+            "tags": {
+              "type": "boolean",
+              "description": "Enable tags feature."
+            },
+            "time_estimates": {
+              "type": "boolean",
+              "description": "Enable time estimates feature."
+            },
+            "checklists": {
+              "type": "boolean",
+              "description": "Enable checklists feature."
+            },
+            "zoom": {
+              "type": "boolean",
+              "description": "Enable zoom integration."
+            },
+            "milestones": {
+              "type": "boolean",
+              "description": "Enable milestones feature."
+            },
+            "reminders": {
+              "type": "boolean",
+              "description": "Enable reminders feature."
+            },
+            "custom_fields": {
+              "type": "boolean",
+              "description": "Enable custom fields feature."
+            },
+            "dependency_warning": {
+              "type": "boolean",
+              "description": "Enable dependency warning feature."
+            },
+            "status_pies": {
+              "type": "boolean",
+              "description": "Enable status pies feature."
+            },
+            "multiple_assignees": {
+              "type": "boolean",
+              "description": "Enable multiple assignees feature."
+            },
+            "emails": {
+              "type": "boolean",
+              "description": "Enable emails feature."
+            }
+          },
+          "additionalProperties": false,
+          "description": "Feature toggles for the space."
+        }
+      },
+      "required": [
+        "space_id"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_clickup_updatespace": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "color": {
+          "type": "string"
+        },
+        "private": {
+          "type": "boolean"
+        },
+        "admin_can_manage": {
+          "type": "boolean"
+        },
+        "multiple_assignees": {
+          "type": "boolean"
+        },
+        "features": {
+          "type": "object",
+          "additionalProperties": false
+        }
+      },
+      "required": [
+        "id",
+        "name"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_clickup_updatetask": {
+      "type": "object",
+      "properties": {
+        "task_id": {
+          "type": "string",
+          "description": "ClickUp task ID. Example: \"86c9w2nke\""
+        },
+        "name": {
+          "type": "string",
+          "description": "New name for the task"
+        },
+        "description": {
+          "type": "string",
+          "description": "New description for the task"
+        },
+        "status": {
+          "type": "string",
+          "description": "Status of the task"
+        },
+        "priority": {
+          "type": "number",
+          "enum": [
+            1,
+            2,
+            3,
+            4
+          ]
+        },
+        "due_date": {
+          "type": "number",
+          "description": "Due date in milliseconds since epoch"
+        },
+        "due_date_time": {
+          "type": "boolean",
+          "description": "Whether due_date includes time"
+        },
+        "parent": {
+          "type": "string",
+          "description": "Parent task ID"
+        },
+        "time_estimate": {
+          "type": "number",
+          "description": "Time estimate in milliseconds"
+        },
+        "start_date": {
+          "type": "number",
+          "description": "Start date in milliseconds since epoch"
+        },
+        "start_date_time": {
+          "type": "boolean",
+          "description": "Whether start_date includes time"
+        },
+        "assignees": {
+          "type": "object",
+          "properties": {
+            "add": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "rem": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              },
+              "description": "Array of user IDs to remove from assignees"
+            }
+          },
+          "additionalProperties": false
+        },
+        "archived": {
+          "type": "boolean",
+          "description": "Whether to archive the task"
+        }
+      },
+      "required": [
+        "task_id"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_clickup_updatetask": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        },
+        "status": {
+          "type": "string"
+        },
+        "priority": {
+          "type": "number"
+        },
+        "due_date": {
+          "type": "string"
+        },
+        "start_date": {
+          "type": "string"
+        },
+        "time_estimate": {
+          "type": "number"
+        },
+        "archived": {
+          "type": "boolean"
+        },
+        "parent": {
+          "type": "string"
+        },
+        "assignees": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "url": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "id"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_clickup_updatetimeentry": {
+      "type": "object",
+      "properties": {
+        "timer_id": {
+          "type": "string",
+          "description": "The ID of the time entry to update. Example: \"5090290025624291206\""
+        },
+        "description": {
+          "type": "string",
+          "description": "The description of the time entry."
+        },
+        "start": {
+          "type": "number",
+          "description": "The start time in Unix epoch milliseconds."
+        },
+        "duration": {
+          "type": "number",
+          "description": "Duration in milliseconds."
+        },
+        "billable": {
+          "type": "boolean",
+          "description": "Whether the time entry is billable."
+        },
+        "tid": {
+          "type": "string",
+          "description": "Task ID to associate the time entry with."
+        },
+        "tags": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "List of tag names to apply to the time entry."
+        }
+      },
+      "required": [
+        "timer_id"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_clickup_updatetimeentry": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "task_id": {
+          "type": "string"
+        },
+        "task_name": {
+          "type": "string"
+        },
+        "user_id": {
+          "type": "string"
+        },
+        "user_name": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        },
+        "start": {
+          "type": "number"
+        },
+        "end": {
+          "type": "number"
+        },
+        "duration": {
+          "type": "number"
+        },
+        "billable": {
+          "type": "boolean"
+        },
+        "tags": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      },
+      "required": [
+        "id",
+        "description",
+        "start",
+        "end",
+        "duration",
+        "billable",
+        "tags"
+      ],
+      "additionalProperties": false
+    },
     "Attachment": {
       "type": "object",
       "properties": {
@@ -28385,78 +32139,6 @@
           "type": "string"
         }
       },
-      "additionalProperties": false
-    },
-    "Space": {
-      "type": "object",
-      "properties": {
-        "id": {
-          "type": "string"
-        },
-        "state": {
-          "type": "string",
-          "enum": [
-            "live",
-            "scheduled",
-            "ended"
-          ]
-        },
-        "title": {
-          "type": "string"
-        },
-        "created_at": {
-          "type": "string"
-        },
-        "updated_at": {
-          "type": "string"
-        },
-        "creator_id": {
-          "type": "string"
-        },
-        "host_ids": {
-          "type": "array",
-          "items": {
-            "type": "string"
-          }
-        },
-        "speaker_ids": {
-          "type": "array",
-          "items": {
-            "type": "string"
-          }
-        },
-        "invited_user_ids": {
-          "type": "array",
-          "items": {
-            "type": "string"
-          }
-        },
-        "participant_count": {
-          "type": "number"
-        },
-        "subscriber_count": {
-          "type": "number"
-        },
-        "is_ticketed": {
-          "type": "boolean"
-        },
-        "lang": {
-          "type": "string"
-        },
-        "scheduled_start": {
-          "type": "string"
-        },
-        "started_at": {
-          "type": "string"
-        },
-        "ended_at": {
-          "type": "string"
-        }
-      },
-      "required": [
-        "id",
-        "state"
-      ],
       "additionalProperties": false
     },
     "SyncMetadata_confluence_spaces": {
