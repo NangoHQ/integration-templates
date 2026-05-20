@@ -53,20 +53,22 @@
           ]
         },
         "employmentStatus": {
-          "type": "string",
-          "enum": [
-            "ACTIVE",
-            "TERMINATED",
-            "ON_LEAVE",
-            "SUSPENDED",
-            "PENDING"
-          ]
+          "type": "string"
         },
         "startDate": {
           "type": "string"
         },
         "terminationDate": {
-          "type": "string"
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "terminationType": {
+          "type": [
+            "string",
+            "null"
+          ]
         },
         "manager": {
           "type": "object",
@@ -84,6 +86,12 @@
               "type": "string"
             }
           },
+          "required": [
+            "id",
+            "firstName",
+            "lastName",
+            "email"
+          ],
           "additionalProperties": false
         },
         "workLocation": {
@@ -127,6 +135,11 @@
                 }
               },
               "required": [
+                "street",
+                "city",
+                "state",
+                "country",
+                "postalCode",
                 "type"
               ],
               "additionalProperties": false
@@ -161,12 +174,17 @@
               "type": {
                 "type": "string",
                 "enum": [
-                  "WORK",
-                  "HOME"
+                  "HOME",
+                  "WORK"
                 ]
               }
             },
             "required": [
+              "street",
+              "city",
+              "state",
+              "country",
+              "postalCode",
               "type"
             ],
             "additionalProperties": false
@@ -219,9 +237,27 @@
             "additionalProperties": false
           }
         },
+        "customFields": {
+          "type": "object",
+          "additionalProperties": {
+            "anyOf": [
+              {},
+              {
+                "not": {}
+              }
+            ]
+          }
+        },
         "providerSpecific": {
           "type": "object",
-          "additionalProperties": false
+          "additionalProperties": {
+            "anyOf": [
+              {},
+              {
+                "not": {}
+              }
+            ]
+          }
         },
         "createdAt": {
           "type": "string"
@@ -236,10 +272,12 @@
         "lastName",
         "email",
         "displayName",
+        "title",
         "department",
         "employmentType",
-        "employmentStatus",
         "startDate",
+        "terminationDate",
+        "terminationType",
         "workLocation",
         "addresses",
         "phones",
@@ -43374,84 +43412,25 @@
         "name": {
           "type": "string"
         },
-        "description": {
-          "type": [
-            "string",
-            "null"
-          ]
+        "inactive": {
+          "type": "boolean"
         },
-        "city": {
-          "type": [
-            "string",
-            "null"
-          ]
-        },
-        "state": {
-          "anyOf": [
-            {
-              "type": "object",
-              "properties": {
-                "name": {
-                  "type": "string"
-                },
-                "abbrev": {
-                  "type": "string"
-                },
-                "iso_code": {
-                  "type": "string"
-                }
-              },
-              "required": [
-                "name",
-                "abbrev",
-                "iso_code"
-              ],
-              "additionalProperties": false
-            },
-            {
-              "type": "null"
-            }
-          ]
-        },
-        "country": {
-          "type": "object",
-          "properties": {
-            "name": {
-              "type": "string"
-            },
-            "iso_code": {
-              "type": "string"
-            }
-          },
-          "required": [
-            "name",
-            "iso_code"
-          ],
-          "additionalProperties": false
-        },
-        "zip_code": {
+        "location_type": {
           "type": "string"
         },
-        "address": {
+        "time_zone": {
           "type": "string"
         },
-        "phone_number": {
-          "type": [
-            "string",
-            "null"
-          ]
+        "usage": {
+          "type": "string"
+        },
+        "last_updated": {
+          "type": "string"
         }
       },
       "required": [
         "id",
-        "name",
-        "description",
-        "city",
-        "state",
-        "country",
-        "zip_code",
-        "address",
-        "phone_number"
+        "name"
       ],
       "additionalProperties": false
     },
@@ -100654,11 +100633,17 @@
         "id": {
           "type": "string"
         },
-        "user_name": {
-          "type": [
-            "string",
-            "null"
-          ]
+        "worker_id": {
+          "type": "string"
+        },
+        "employee_id": {
+          "type": "string"
+        },
+        "contingent_worker_id": {
+          "type": "string"
+        },
+        "user_id": {
+          "type": "string"
         },
         "first_name": {
           "type": "string"
@@ -100666,48 +100651,42 @@
         "last_name": {
           "type": "string"
         },
-        "active": {
-          "type": "boolean"
-        },
         "email": {
           "type": "string"
         },
-        "role": {
+        "phone": {
+          "type": "string"
+        },
+        "hire_date": {
+          "type": "string"
+        },
+        "termination_date": {
+          "type": "string"
+        },
+        "active": {
+          "type": "boolean"
+        },
+        "job_title": {
           "type": "string"
         },
         "department": {
           "type": "string"
         },
-        "site": {
+        "location": {
           "type": "string"
         },
-        "country": {
-          "type": [
-            "string",
-            "null"
-          ]
-        },
-        "external_id": {
+        "manager_id": {
           "type": "string"
         },
-        "employment_relationship": {
+        "employment_type": {
           "type": "string"
         },
-        "phone_number": {
-          "type": [
-            "string",
-            "null"
-          ]
+        "last_updated": {
+          "type": "string"
         }
       },
       "required": [
-        "id",
-        "user_name",
-        "email",
-        "role",
-        "department",
-        "site",
-        "phone_number"
+        "id"
       ],
       "additionalProperties": false
     },
@@ -134540,30 +134519,737 @@
       ],
       "additionalProperties": false
     },
-    "SyncMetadata_workday_employees": {
+    "JobProfile": {
       "type": "object",
       "properties": {
-        "lagMinutes": {
-          "type": "number"
+        "id": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        },
+        "summary": {
+          "type": "string"
+        },
+        "active": {
+          "type": "boolean"
+        },
+        "management_level_id": {
+          "type": "string"
+        },
+        "job_level_id": {
+          "type": "string"
+        },
+        "job_family_id": {
+          "type": "string"
+        },
+        "job_category_id": {
+          "type": "string"
+        },
+        "last_updated": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "id",
+        "name",
+        "active"
+      ],
+      "additionalProperties": false
+    },
+    "Position": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "Position ID (e.g., \"POS-001\")"
+        },
+        "name": {
+          "type": "string",
+          "description": "Position name"
+        },
+        "position_code": {
+          "type": "string",
+          "description": "Position code"
+        },
+        "effective_date": {
+          "type": "string",
+          "description": "Effective date of the position"
+        },
+        "inactive": {
+          "type": "boolean",
+          "description": "Whether the position is inactive"
+        },
+        "job_profile_id": {
+          "type": "string",
+          "description": "Job profile reference ID"
+        },
+        "job_profile_name": {
+          "type": "string",
+          "description": "Job profile name"
+        },
+        "location_id": {
+          "type": "string",
+          "description": "Location reference ID"
+        },
+        "location_name": {
+          "type": "string",
+          "description": "Location name"
+        },
+        "supervisory_org_id": {
+          "type": "string",
+          "description": "Supervisory organization reference ID"
+        },
+        "supervisory_org_name": {
+          "type": "string",
+          "description": "Supervisory organization name"
+        },
+        "worker_id": {
+          "type": "string",
+          "description": "Assigned worker ID"
+        },
+        "worker_name": {
+          "type": "string",
+          "description": "Assigned worker name"
+        },
+        "full_time_equivalent": {
+          "type": "string",
+          "description": "Full-time equivalent percentage"
+        },
+        "scheduled_weekly_hours": {
+          "type": "string",
+          "description": "Scheduled weekly hours"
+        },
+        "pay_rate": {
+          "type": "string",
+          "description": "Pay rate"
+        },
+        "currency": {
+          "type": "string",
+          "description": "Currency code"
+        },
+        "compensation_frequency": {
+          "type": "string",
+          "description": "Compensation frequency"
+        }
+      },
+      "required": [
+        "id"
+      ],
+      "additionalProperties": false
+    },
+    "Worker": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "Worker unique identifier"
+        },
+        "employee_id": {
+          "type": "string",
+          "description": "Employee ID from Workday"
+        },
+        "contingent_worker_id": {
+          "type": "string",
+          "description": "Contingent Worker ID from Workday"
+        },
+        "user_id": {
+          "type": "string",
+          "description": "User ID from Workday"
+        },
+        "first_name": {
+          "type": "string"
+        },
+        "last_name": {
+          "type": "string"
+        },
+        "email": {
+          "type": "string"
+        },
+        "phone": {
+          "type": "string"
+        },
+        "hire_date": {
+          "type": "string"
+        },
+        "termination_date": {
+          "type": "string"
+        },
+        "is_active": {
+          "type": "boolean"
+        },
+        "worker_type": {
+          "type": "string",
+          "description": "Employee or Contingent_Worker"
+        },
+        "job_title": {
+          "type": "string"
+        },
+        "business_title": {
+          "type": "string"
+        },
+        "job_profile_id": {
+          "type": "string"
+        },
+        "position_id": {
+          "type": "string"
+        },
+        "manager_id": {
+          "type": "string"
+        },
+        "location_id": {
+          "type": "string"
+        },
+        "company_id": {
+          "type": "string"
+        },
+        "cost_center_id": {
+          "type": "string"
+        },
+        "department_id": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "id"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_workday_getjobprofile": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "Job_Profile_ID. Example: \"JOB_PROFILE_001\""
+        }
+      },
+      "required": [
+        "id"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_workday_getjobprofile": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        },
+        "inactive": {
+          "type": "boolean"
+        },
+        "job_family": {
+          "type": "string"
+        },
+        "management_level": {
+          "type": "string"
+        },
+        "job_category": {
+          "type": "string"
+        },
+        "reference_id": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "id",
+        "name"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_workday_getlocation": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "Location_ID. Example: \"San_Francisco_Site\""
+        }
+      },
+      "required": [
+        "id"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_workday_getlocation": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "location_code": {
+          "type": "string"
+        },
+        "location_usage": {
+          "type": "string"
+        },
+        "inactive": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "id",
+        "name",
+        "inactive"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_workday_getorganization": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "Organization_Reference_ID. Example: \"HRIS_matrix\""
+        }
+      },
+      "required": [
+        "id"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_workday_getorganization": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "type": {
+          "type": "string"
+        },
+        "subtype": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        },
+        "external_id": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "id",
+        "name"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_workday_getposition": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "Position_ID. Example: \"P-00030\""
+        }
+      },
+      "required": [
+        "id"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_workday_getposition": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "position_code": {
+          "type": "string"
+        },
+        "effective_date": {
+          "type": "string"
+        },
+        "status": {
+          "type": "string"
+        },
+        "inactive": {
+          "type": "boolean"
+        },
+        "job_profile": {
+          "type": "string"
+        },
+        "location": {
+          "type": "string"
+        },
+        "worker": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "id",
+        "name"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_workday_getworker": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "Employee_ID. Example: \"21001\""
+        }
+      },
+      "required": [
+        "id"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_workday_getworker": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "employee_id": {
+          "type": "string"
+        },
+        "contingent_worker_id": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "email": {
+          "type": "string"
+        },
+        "user_id": {
+          "type": "string"
+        },
+        "active": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "id"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_workday_listjobprofiles": {
+      "type": "object",
+      "properties": {
+        "cursor": {
+          "type": "string",
+          "description": "Page number for pagination (1-based). Omit for the first page."
         }
       },
       "additionalProperties": false
     },
-    "SyncMetadata_workday_groups": {
-      "type": "object",
-      "additionalProperties": false
-    },
-    "SyncMetadata_workday_locations": {
-      "type": "object",
-      "additionalProperties": false
-    },
-    "SyncMetadata_workday_unifiedemployees": {
+    "ActionOutput_workday_listjobprofiles": {
       "type": "object",
       "properties": {
-        "lagMinutes": {
-          "type": "number"
+        "items": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "name": {
+                "type": "string"
+              },
+              "reference_id": {
+                "type": "string"
+              },
+              "inactive": {
+                "type": "boolean"
+              },
+              "description": {
+                "type": "string"
+              },
+              "effective_date": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "id",
+              "name",
+              "inactive"
+            ],
+            "additionalProperties": false
+          }
+        },
+        "next_cursor": {
+          "type": "string"
         }
       },
+      "required": [
+        "items"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_workday_listlocations": {
+      "type": "object",
+      "properties": {
+        "cursor": {
+          "type": "string",
+          "description": "Pagination cursor (page number). Omit for first page."
+        }
+      },
+      "additionalProperties": false
+    },
+    "ActionOutput_workday_listlocations": {
+      "type": "object",
+      "properties": {
+        "items": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "reference_id": {
+                "type": "string"
+              },
+              "name": {
+                "type": "string"
+              },
+              "location_usage": {
+                "type": "string"
+              },
+              "country": {
+                "type": "string"
+              },
+              "inactive": {
+                "type": "boolean"
+              }
+            },
+            "required": [
+              "id",
+              "name",
+              "inactive"
+            ],
+            "additionalProperties": false
+          }
+        },
+        "next_page": {
+          "type": "string",
+          "description": "Next page number for pagination."
+        }
+      },
+      "required": [
+        "items"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_workday_listorganizations": {
+      "type": "object",
+      "properties": {
+        "cursor": {
+          "type": "string",
+          "description": "Pagination cursor (page number). Omit for the first page."
+        }
+      },
+      "additionalProperties": false
+    },
+    "ActionOutput_workday_listorganizations": {
+      "type": "object",
+      "properties": {
+        "items": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "name": {
+                "type": "string"
+              },
+              "type": {
+                "type": "string"
+              },
+              "subtype": {
+                "type": "string"
+              },
+              "description": {
+                "type": "string"
+              },
+              "inactive": {
+                "type": "boolean"
+              },
+              "external_id": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "id",
+              "name",
+              "inactive"
+            ],
+            "additionalProperties": false
+          }
+        },
+        "next_cursor": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "items"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_workday_listpositions": {
+      "type": "object",
+      "additionalProperties": false
+    },
+    "ActionOutput_workday_listpositions": {
+      "type": "object",
+      "properties": {
+        "items": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "title": {
+                "type": "string"
+              },
+              "job_profile_id": {
+                "type": "string"
+              },
+              "job_profile_name": {
+                "type": "string"
+              },
+              "location_id": {
+                "type": "string"
+              },
+              "location_name": {
+                "type": "string"
+              },
+              "worker_id": {
+                "type": "string"
+              },
+              "worker_name": {
+                "type": "string"
+              },
+              "availability_date": {
+                "type": "string"
+              },
+              "inactive": {
+                "type": "boolean"
+              },
+              "organization_id": {
+                "type": "string"
+              },
+              "organization_name": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "id",
+              "title",
+              "inactive"
+            ],
+            "additionalProperties": false
+          }
+        }
+      },
+      "required": [
+        "items"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_workday_listworkers": {
+      "type": "object",
+      "properties": {
+        "cursor": {
+          "type": "string",
+          "description": "Pagination cursor (page number). Omit for the first page."
+        }
+      },
+      "additionalProperties": false
+    },
+    "ActionOutput_workday_listworkers": {
+      "type": "object",
+      "properties": {
+        "items": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "employee_id": {
+                "type": "string"
+              },
+              "contingent_worker_id": {
+                "type": "string"
+              },
+              "user_id": {
+                "type": "string"
+              },
+              "name": {
+                "type": "string"
+              },
+              "email": {
+                "type": "string"
+              },
+              "phone": {
+                "type": "string"
+              },
+              "hire_date": {
+                "type": "string"
+              },
+              "termination_date": {
+                "type": "string"
+              },
+              "worker_type": {
+                "type": "string"
+              },
+              "employment_status": {
+                "type": "string"
+              },
+              "business_title": {
+                "type": "string"
+              },
+              "job_profile": {
+                "type": "string"
+              },
+              "department": {
+                "type": "string"
+              },
+              "location": {
+                "type": "string"
+              },
+              "manager_id": {
+                "type": "string"
+              },
+              "is_active": {
+                "type": "boolean"
+              }
+            },
+            "required": [
+              "id"
+            ],
+            "additionalProperties": false
+          }
+        },
+        "next_cursor": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "items"
+      ],
       "additionalProperties": false
     },
     "BankTransaction": {

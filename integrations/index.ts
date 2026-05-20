@@ -1659,8 +1659,21 @@ import './workable/actions/create-comment.js';
 // -- Integration: workday
 import './workday/syncs/employees.js';
 import './workday/syncs/groups.js';
+import './workday/syncs/job-profiles.js';
 import './workday/syncs/locations.js';
-import './workday/syncs/unified-employees.js';
+import './workday/syncs/organizations.js';
+import './workday/syncs/positions.js';
+import './workday/syncs/workers.js';
+import './workday/actions/get-job-profile.js';
+import './workday/actions/get-location.js';
+import './workday/actions/get-organization.js';
+import './workday/actions/get-position.js';
+import './workday/actions/get-worker.js';
+import './workday/actions/list-job-profiles.js';
+import './workday/actions/list-locations.js';
+import './workday/actions/list-organizations.js';
+import './workday/actions/list-positions.js';
+import './workday/actions/list-workers.js';
 
 // -- Integration: xero
 import './xero/syncs/accounts.js';

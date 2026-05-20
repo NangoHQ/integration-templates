@@ -1,0 +1,13 @@
+{
+  "input": {
+    "id": "21001"
+  },
+  "output": {
+    "id": "21001",
+    "active": false
+  },
+  "nango": {
+    "getConnection": {}
+  },
+  "api": {}
+}

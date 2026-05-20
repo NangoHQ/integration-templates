@@ -18,36 +18,38 @@ export interface StandardEmployee {
   email: string;
   displayName: string;
   employeeNumber?: string | undefined;
-  title?: string | undefined;
+  title: string;
   department: {  id: string;
   name: string;};
   employmentType: 'FULL_TIME' | 'PART_TIME' | 'CONTRACTOR' | 'INTERN' | 'TEMPORARY' | 'OTHER';
-  employmentStatus: 'ACTIVE' | 'TERMINATED' | 'ON_LEAVE' | 'SUSPENDED' | 'PENDING';
+  employmentStatus?: string | undefined;
   startDate: string;
-  terminationDate?: string | undefined;
-  manager?: {  id?: string | undefined;
-  firstName?: string | undefined;
-  lastName?: string | undefined;
-  email?: string | undefined;};
+  terminationDate: string | null;
+  terminationType: string | null;
+  manager?: {  id: string;
+  firstName: string;
+  lastName: string;
+  email: string;} | undefined;
   workLocation: {  name: string;
   type: 'OFFICE' | 'REMOTE' | 'HYBRID';
-  primaryAddress?: {  street?: string | undefined;
-  city?: string | undefined;
-  state?: string | undefined;
-  country?: string | undefined;
-  postalCode?: string | undefined;
-  type: 'WORK' | 'HOME';};};
-  addresses: ({  street?: string | undefined;
-  city?: string | undefined;
-  state?: string | undefined;
-  country?: string | undefined;
-  postalCode?: string | undefined;
-  type: 'WORK' | 'HOME';})[];
+  primaryAddress?: {  street: string;
+  city: string;
+  state: string;
+  country: string;
+  postalCode: string;
+  type: 'WORK' | 'HOME';} | undefined;};
+  addresses: ({  street: string;
+  city: string;
+  state: string;
+  country: string;
+  postalCode: string;
+  type: 'HOME' | 'WORK';})[];
   phones: ({  type: 'WORK' | 'HOME' | 'MOBILE';
   number: string;})[];
   emails: ({  type: 'WORK' | 'PERSONAL';
   address: string;})[];
-  providerSpecific: {};
+  customFields?: {  [key: string]: any | undefined;};
+  providerSpecific: {  [key: string]: any | undefined;};
   createdAt: string;
   updatedAt: string;
 };
@@ -13585,16 +13587,11 @@ export interface SyncMetadata_gem_jobs {
 export interface Location {
   id: string;
   name: string;
-  description: string | null;
-  city: string | null;
-  state: {  name: string;
-  abbrev: string;
-  iso_code: string;} | null;
-  country: {  name: string;
-  iso_code: string;};
-  zip_code: string;
-  address: string;
-  phone_number: string | null;
+  inactive?: boolean | undefined;
+  location_type?: string | undefined;
+  time_zone?: string | undefined;
+  usage?: string | undefined;
+  last_updated?: string | undefined;
 };
 
 export interface SyncMetadata_gem_locations {
@@ -33590,18 +33587,23 @@ export interface ActionOutput_one_drive_personal_uploadsmallfile {
 
 export interface Employee {
   id: string;
-  user_name: string | null;
+  worker_id?: string | undefined;
+  employee_id?: string | undefined;
+  contingent_worker_id?: string | undefined;
+  user_id?: string | undefined;
   first_name?: string | undefined;
   last_name?: string | undefined;
+  email?: string | undefined;
+  phone?: string | undefined;
+  hire_date?: string | undefined;
+  termination_date?: string | undefined;
   active?: boolean | undefined;
-  email: string;
-  role: string;
-  department: string;
-  site: string;
-  country?: string | null | undefined;
-  external_id?: string | undefined;
-  employment_relationship?: string | undefined;
-  phone_number: string | null;
+  job_title?: string | undefined;
+  department?: string | undefined;
+  location?: string | undefined;
+  manager_id?: string | undefined;
+  employment_type?: string | undefined;
+  last_updated?: string | undefined;
 };
 
 export interface SyncMetadata_oracle_hcm_employees {
@@ -46269,18 +46271,317 @@ export interface ActionOutput_workable_createcomment {
   id: string;
 };
 
-export interface SyncMetadata_workday_employees {
-  lagMinutes?: number | undefined;
+export interface JobProfile {
+  id: string;
+  name: string;
+  description?: string | undefined;
+  summary?: string | undefined;
+  active: boolean;
+  management_level_id?: string | undefined;
+  job_level_id?: string | undefined;
+  job_family_id?: string | undefined;
+  job_category_id?: string | undefined;
+  last_updated?: string | undefined;
 };
 
-export interface SyncMetadata_workday_groups {
+export interface Position {
+  /**
+   * Position ID (e.g., "POS-001")
+   */
+  id: string;
+  /**
+   * Position name
+   */
+  name?: string | undefined;
+  /**
+   * Position code
+   */
+  position_code?: string | undefined;
+  /**
+   * Effective date of the position
+   */
+  effective_date?: string | undefined;
+  /**
+   * Whether the position is inactive
+   */
+  inactive?: boolean | undefined;
+  /**
+   * Job profile reference ID
+   */
+  job_profile_id?: string | undefined;
+  /**
+   * Job profile name
+   */
+  job_profile_name?: string | undefined;
+  /**
+   * Location reference ID
+   */
+  location_id?: string | undefined;
+  /**
+   * Location name
+   */
+  location_name?: string | undefined;
+  /**
+   * Supervisory organization reference ID
+   */
+  supervisory_org_id?: string | undefined;
+  /**
+   * Supervisory organization name
+   */
+  supervisory_org_name?: string | undefined;
+  /**
+   * Assigned worker ID
+   */
+  worker_id?: string | undefined;
+  /**
+   * Assigned worker name
+   */
+  worker_name?: string | undefined;
+  /**
+   * Full-time equivalent percentage
+   */
+  full_time_equivalent?: string | undefined;
+  /**
+   * Scheduled weekly hours
+   */
+  scheduled_weekly_hours?: string | undefined;
+  /**
+   * Pay rate
+   */
+  pay_rate?: string | undefined;
+  /**
+   * Currency code
+   */
+  currency?: string | undefined;
+  /**
+   * Compensation frequency
+   */
+  compensation_frequency?: string | undefined;
 };
 
-export interface SyncMetadata_workday_locations {
+export interface Worker {
+  /**
+   * Worker unique identifier
+   */
+  id: string;
+  /**
+   * Employee ID from Workday
+   */
+  employee_id?: string | undefined;
+  /**
+   * Contingent Worker ID from Workday
+   */
+  contingent_worker_id?: string | undefined;
+  /**
+   * User ID from Workday
+   */
+  user_id?: string | undefined;
+  first_name?: string | undefined;
+  last_name?: string | undefined;
+  email?: string | undefined;
+  phone?: string | undefined;
+  hire_date?: string | undefined;
+  termination_date?: string | undefined;
+  is_active?: boolean | undefined;
+  /**
+   * Employee or Contingent_Worker
+   */
+  worker_type?: string | undefined;
+  job_title?: string | undefined;
+  business_title?: string | undefined;
+  job_profile_id?: string | undefined;
+  position_id?: string | undefined;
+  manager_id?: string | undefined;
+  location_id?: string | undefined;
+  company_id?: string | undefined;
+  cost_center_id?: string | undefined;
+  department_id?: string | undefined;
 };
 
-export interface SyncMetadata_workday_unifiedemployees {
-  lagMinutes?: number | undefined;
+export interface ActionInput_workday_getjobprofile {
+  /**
+   * Job_Profile_ID. Example: "JOB_PROFILE_001"
+   */
+  id: string;
+};
+
+export interface ActionOutput_workday_getjobprofile {
+  id: string;
+  name: string;
+  description?: string | undefined;
+  inactive?: boolean | undefined;
+  job_family?: string | undefined;
+  management_level?: string | undefined;
+  job_category?: string | undefined;
+  reference_id?: string | undefined;
+};
+
+export interface ActionInput_workday_getlocation {
+  /**
+   * Location_ID. Example: "San_Francisco_Site"
+   */
+  id: string;
+};
+
+export interface ActionOutput_workday_getlocation {
+  id: string;
+  name: string;
+  location_code?: string | undefined;
+  location_usage?: string | undefined;
+  inactive: boolean;
+};
+
+export interface ActionInput_workday_getorganization {
+  /**
+   * Organization_Reference_ID. Example: "HRIS_matrix"
+   */
+  id: string;
+};
+
+export interface ActionOutput_workday_getorganization {
+  id: string;
+  name: string;
+  type?: string | undefined;
+  subtype?: string | undefined;
+  description?: string | undefined;
+  external_id?: string | undefined;
+};
+
+export interface ActionInput_workday_getposition {
+  /**
+   * Position_ID. Example: "P-00030"
+   */
+  id: string;
+};
+
+export interface ActionOutput_workday_getposition {
+  id: string;
+  name: string;
+  position_code?: string | undefined;
+  effective_date?: string | undefined;
+  status?: string | undefined;
+  inactive?: boolean | undefined;
+  job_profile?: string | undefined;
+  location?: string | undefined;
+  worker?: string | undefined;
+};
+
+export interface ActionInput_workday_getworker {
+  /**
+   * Employee_ID. Example: "21001"
+   */
+  id: string;
+};
+
+export interface ActionOutput_workday_getworker {
+  id: string;
+  employee_id?: string | undefined;
+  contingent_worker_id?: string | undefined;
+  name?: string | undefined;
+  email?: string | undefined;
+  user_id?: string | undefined;
+  active?: boolean | undefined;
+};
+
+export interface ActionInput_workday_listjobprofiles {
+  /**
+   * Page number for pagination (1-based). Omit for the first page.
+   */
+  cursor?: string | undefined;
+};
+
+export interface ActionOutput_workday_listjobprofiles {
+  items: ({  id: string;
+  name: string;
+  reference_id?: string | undefined;
+  inactive: boolean;
+  description?: string | undefined;
+  effective_date?: string | undefined;})[];
+  next_cursor?: string | undefined;
+};
+
+export interface ActionInput_workday_listlocations {
+  /**
+   * Pagination cursor (page number). Omit for first page.
+   */
+  cursor?: string | undefined;
+};
+
+export interface ActionOutput_workday_listlocations {
+  items: ({  id: string;
+  reference_id?: string | undefined;
+  name: string;
+  location_usage?: string | undefined;
+  country?: string | undefined;
+  inactive: boolean;})[];
+  /**
+   * Next page number for pagination.
+   */
+  next_page?: string | undefined;
+};
+
+export interface ActionInput_workday_listorganizations {
+  /**
+   * Pagination cursor (page number). Omit for the first page.
+   */
+  cursor?: string | undefined;
+};
+
+export interface ActionOutput_workday_listorganizations {
+  items: ({  id: string;
+  name: string;
+  type?: string | undefined;
+  subtype?: string | undefined;
+  description?: string | undefined;
+  inactive: boolean;
+  external_id?: string | undefined;})[];
+  next_cursor?: string | undefined;
+};
+
+export interface ActionInput_workday_listpositions {
+};
+
+export interface ActionOutput_workday_listpositions {
+  items: ({  id: string;
+  title: string;
+  job_profile_id?: string | undefined;
+  job_profile_name?: string | undefined;
+  location_id?: string | undefined;
+  location_name?: string | undefined;
+  worker_id?: string | undefined;
+  worker_name?: string | undefined;
+  availability_date?: string | undefined;
+  inactive: boolean;
+  organization_id?: string | undefined;
+  organization_name?: string | undefined;})[];
+};
+
+export interface ActionInput_workday_listworkers {
+  /**
+   * Pagination cursor (page number). Omit for the first page.
+   */
+  cursor?: string | undefined;
+};
+
+export interface ActionOutput_workday_listworkers {
+  items: ({  id: string;
+  employee_id?: string | undefined;
+  contingent_worker_id?: string | undefined;
+  user_id?: string | undefined;
+  name?: string | undefined;
+  email?: string | undefined;
+  phone?: string | undefined;
+  hire_date?: string | undefined;
+  termination_date?: string | undefined;
+  worker_type?: string | undefined;
+  employment_status?: string | undefined;
+  business_title?: string | undefined;
+  job_profile?: string | undefined;
+  department?: string | undefined;
+  location?: string | undefined;
+  manager_id?: string | undefined;
+  is_active?: boolean | undefined;})[];
+  next_cursor?: string | undefined;
 };
 
 export interface BankTransaction {
