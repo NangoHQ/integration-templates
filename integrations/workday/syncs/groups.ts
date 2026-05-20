@@ -56,15 +56,13 @@ const sync = createSync({
 
     exec: async (nango) => {
         const connection = await nango.getConnection();
-        // getSoapClient throws on invalid credentials — do this before trackDeletesStart
         const client = await getSoapClient('Human_Resources', connection);
 
         // Blocker: Workday Get_Organizations does not support a modified_since filter.
         // Full refresh with deletion tracking is required.
-        await nango.trackDeletesStart('Group');
-
         let page = 1;
         let hasMoreData = true;
+        let trackingStarted = false;
 
         do {
             await nango.log(`Fetching page ${page}`);
@@ -76,6 +74,11 @@ const sync = createSync({
                     Count: 100
                 }
             });
+
+            if (!trackingStarted) {
+                await nango.trackDeletesStart('Group');
+                trackingStarted = true;
+            }
 
             const totalPages = res.Response_Results?.Total_Pages ?? 1;
             hasMoreData = page < totalPages;

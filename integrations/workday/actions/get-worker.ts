@@ -132,7 +132,9 @@ const action = createAction({
             ...(formattedName !== undefined && formattedName !== '' && { name: formattedName }),
             ...(emailAddress !== undefined && emailAddress !== '' && { email: emailAddress }),
             ...(userId !== undefined && userId !== '' && { user_id: userId }),
-            active: employmentData?.Worker_Status_Data?.Active === '1' || employmentData?.Worker_Status_Data?.Active === true
+            ...(employmentData?.Worker_Status_Data?.Active !== undefined && {
+                active: employmentData.Worker_Status_Data.Active === '1' || employmentData.Worker_Status_Data.Active === true
+            })
         };
     }
 });

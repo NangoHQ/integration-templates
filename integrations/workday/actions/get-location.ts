@@ -69,7 +69,8 @@ const action = createAction({
             }
         });
 
-        const location = res?.Response_Data?.Location?.[0];
+        const rawLocation = res?.Response_Data?.Location;
+        const location = Array.isArray(rawLocation) ? rawLocation[0] : rawLocation;
         if (!location) {
             throw new nango.ActionError({
                 type: 'not_found',

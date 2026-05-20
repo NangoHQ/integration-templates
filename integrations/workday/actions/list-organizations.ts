@@ -64,46 +64,42 @@ const action = createAction({
             page = 1;
         }
 
-        let hasMoreData = true;
+        const [res]: [any, string] = await client['Get_OrganizationsAsync']({
+            Response_Filter: {
+                Page: page,
+                Count: pageSize
+            }
+        });
 
-        do {
-            const [res]: [any, string] = await client['Get_OrganizationsAsync']({
-                Response_Filter: {
-                    Page: page,
-                    Count: pageSize
-                }
-            });
+        const organizations = res?.Response_Data?.Organization ?? [];
 
-            const organizations = res?.Response_Data?.Organization ?? [];
-
-            for (const org of organizations) {
-                const data = org.Organization_Data;
-                if (!data) {
-                    continue;
-                }
-
-                const inactive = data?.Inactive === '1' || data?.Inactive === true;
-
-                items.push({
-                    id: findId(org.Organization_Reference?.ID, 'Organization_Reference_ID') ?? '',
-                    name: data?.Name ?? '',
-                    type: findId(data?.Organization_Type_Reference?.ID, 'Organization_Type_ID'),
-                    subtype: findId(data?.Organization_Subtype_Reference?.ID, 'Organization_Subtype_ID'),
-                    description: data?.Description ?? undefined,
-                    inactive: inactive,
-                    external_id: data?.External_IDs_Data?.ID?.[0]?.['$value'] ?? undefined
-                });
+        for (const org of organizations) {
+            const data = org.Organization_Data;
+            if (!data) {
+                continue;
             }
 
-            const responseResults = res?.Response_Results;
-            hasMoreData = responseResults && responseResults.Page < responseResults.Total_Pages;
+            const inactive = data?.Inactive === '1' || data?.Inactive === true;
 
-            page += 1;
-        } while (hasMoreData);
+            items.push({
+                id: findId(org.Organization_Reference?.ID, 'Organization_Reference_ID') ?? '',
+                name: data?.Name ?? '',
+                type: findId(data?.Organization_Type_Reference?.ID, 'Organization_Type_ID'),
+                subtype: findId(data?.Organization_Subtype_Reference?.ID, 'Organization_Subtype_ID'),
+                description: data?.Description ?? undefined,
+                inactive: inactive,
+                external_id: data?.External_IDs_Data?.ID?.[0]?.['$value'] ?? undefined
+            });
+        }
 
-        return {
-            items: items
-        };
+        const responseResults = res?.Response_Results;
+        const hasMoreData = responseResults && responseResults.Page < responseResults.Total_Pages;
+
+        const result: z.infer<typeof OutputSchema> = { items };
+        if (hasMoreData) {
+            result.next_cursor = String(page + 1);
+        }
+        return result;
     }
 });
 

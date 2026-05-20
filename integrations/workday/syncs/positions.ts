@@ -62,14 +62,12 @@ const sync = createSync({
 
     exec: async (nango) => {
         const connection = await nango.getConnection();
-        // getSoapClient throws on invalid credentials — do this before trackDeletesStart
         const client = await getSoapClient('Staffing', connection);
 
         // Blocker: Workday Staffing API Get_Positions does not support changed-since filtering.
-        await nango.trackDeletesStart('Position');
-
         let page = 1;
         let hasMoreData = true;
+        let trackingStarted = false;
 
         do {
             await nango.log(`Fetching page ${page}`);
@@ -82,11 +80,17 @@ const sync = createSync({
                 }
             });
 
+            if (!trackingStarted) {
+                await nango.trackDeletesStart('Position');
+                trackingStarted = true;
+            }
+
             const totalPages = res.Response_Results?.Total_Pages ?? 1;
             hasMoreData = page < totalPages;
             page += 1;
 
-            const positions = res.Response_Data?.Position ?? [];
+            const rawPositions = res.Response_Data?.Position;
+            const positions = Array.isArray(rawPositions) ? rawPositions : rawPositions ? [rawPositions] : [];
             const mapped: z.infer<typeof PositionSchema>[] = [];
 
             for (const pos of positions) {

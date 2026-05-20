@@ -52,26 +52,28 @@ interface WorkdayIdObject {
 const findId = (ids: WorkdayIdObject | WorkdayIdObject[] | undefined, type: string): string | undefined =>
     (Array.isArray(ids) ? ids : [ids]).find((r) => r?.attributes?.['wd:type'] === type)?.$value;
 
+interface PositionEntry {
+    Position_Reference?: {
+        ID?: WorkdayIdObject | WorkdayIdObject[];
+    };
+    Position_Data?: {
+        Effective_Date?: string;
+        Closed?: boolean | string;
+        Position_Definition_Data?: {
+            Position_ID?: string;
+            Job_Posting_Title?: string;
+        };
+        Position_Status_Reference?: Array<{ ID?: WorkdayIdObject | WorkdayIdObject[] }>;
+        Job_Profile_Reference?: { ID?: WorkdayIdObject | WorkdayIdObject[] };
+        Location_Reference?: { ID?: WorkdayIdObject | WorkdayIdObject[] };
+        Worker_Reference?: { ID?: WorkdayIdObject | WorkdayIdObject[] };
+    };
+}
+
 interface PositionResponse {
-    Response_Data?: Array<{
-        Position?: Array<{
-            Position_Reference?: {
-                ID?: WorkdayIdObject | WorkdayIdObject[];
-            };
-            Position_Data?: {
-                Effective_Date?: string;
-                Closed?: boolean | string;
-                Position_Definition_Data?: {
-                    Position_ID?: string;
-                    Job_Posting_Title?: string;
-                };
-                Position_Status_Reference?: Array<{ ID?: WorkdayIdObject | WorkdayIdObject[] }>;
-                Job_Profile_Reference?: { ID?: WorkdayIdObject | WorkdayIdObject[] };
-                Location_Reference?: { ID?: WorkdayIdObject | WorkdayIdObject[] };
-                Worker_Reference?: { ID?: WorkdayIdObject | WorkdayIdObject[] };
-            };
-        }>;
-    }>;
+    Response_Data?: {
+        Position?: PositionEntry | PositionEntry[];
+    };
 }
 
 const action = createAction({
@@ -100,22 +102,20 @@ const action = createAction({
         const client = await getSoapClient('Staffing', connection);
 
         // https://community.workday.com/sites/default/files/file-hosting/productionapi/Staffing/v44.0/Get_Positions.html
-        // Query positions and find the one matching the input Position_ID
-        const [listRes]: [PositionResponse, string] = await client['Get_PositionsAsync']({
-            Response_Filter: {
-                Page: 1,
-                Count: 100
+        const [res]: [PositionResponse, string] = await client['Get_PositionsAsync']({
+            Request_References: {
+                Position_Reference: {
+                    ID: {
+                        attributes: { 'wd:type': 'Position_ID' },
+                        $value: input.id
+                    }
+                }
             }
         });
 
-        // Response_Data is an array with one element
-        const positions = listRes?.Response_Data?.[0]?.Position ?? [];
-
-        // Find the position matching the input Position_ID
-        const position = positions.find((p) => {
-            const posId = findId(p.Position_Reference?.ID, 'Position_ID');
-            return posId === input.id;
-        });
+        const rawPositions = res?.Response_Data?.Position;
+        const positions = Array.isArray(rawPositions) ? rawPositions : rawPositions ? [rawPositions] : [];
+        const position = positions[0];
 
         if (!position) {
             throw new nango.ActionError({ type: 'not_found', message: `Position not found: ${input.id}` });

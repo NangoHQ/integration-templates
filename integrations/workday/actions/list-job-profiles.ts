@@ -63,49 +63,41 @@ const action = createAction({
         if (isNaN(page) || page < 1) {
             page = 1;
         }
-        let hasMoreData = true;
-        let lastPage = page;
 
-        do {
-            // https://community.workday.com/sites/default/files/file-hosting/productionapi/Human_Resources/v44.0/Get_Job_Profiles.html
-            const [res]: [any, string] = await client['Get_Job_ProfilesAsync']({
-                Response_Filter: {
-                    Page: page,
-                    Count: 100
-                }
-            });
+        // https://community.workday.com/sites/default/files/file-hosting/productionapi/Human_Resources/v44.0/Get_Job_Profiles.html
+        const [res]: [any, string] = await client['Get_Job_ProfilesAsync']({
+            Response_Filter: {
+                Page: page,
+                Count: 100
+            }
+        });
 
-            const jobProfiles = res?.Response_Data?.Job_Profile ?? [];
+        const jobProfiles = res?.Response_Data?.Job_Profile ?? [];
 
-            for (const profile of jobProfiles) {
-                const data = profile.Job_Profile_Data;
-                if (!data) {
-                    continue;
-                }
-
-                const inactive = data?.Inactive === '1' || data?.Inactive === true;
-
-                items.push({
-                    id: findId(profile.Job_Profile_Reference?.ID, 'WID') ?? '',
-                    name: data?.Name ?? '',
-                    reference_id: findId(profile.Job_Profile_Reference?.ID, 'Job_Profile_ID'),
-                    inactive: inactive,
-                    description: data?.Description ?? undefined,
-                    effective_date: data?.Effective_Date ?? undefined
-                });
+        for (const profile of jobProfiles) {
+            const data = profile.Job_Profile_Data;
+            if (!data) {
+                continue;
             }
 
-            const totalPages = res?.Response_Results?.Total_Pages ?? page;
-            hasMoreData = page < totalPages;
-            lastPage = page;
-            page += 1;
-        } while (hasMoreData);
+            const inactive = data?.Inactive === '1' || data?.Inactive === true;
 
-        const result: z.infer<typeof OutputSchema> = {
-            items: items
-        };
+            items.push({
+                id: findId(profile.Job_Profile_Reference?.ID, 'WID') ?? '',
+                name: data?.Name ?? '',
+                reference_id: findId(profile.Job_Profile_Reference?.ID, 'Job_Profile_ID'),
+                inactive: inactive,
+                description: data?.Description ?? undefined,
+                effective_date: data?.Effective_Date ?? undefined
+            });
+        }
+
+        const totalPages = res?.Response_Results?.Total_Pages ?? page;
+        const hasMoreData = page < totalPages;
+
+        const result: z.infer<typeof OutputSchema> = { items };
         if (hasMoreData) {
-            result.next_cursor = String(lastPage + 1);
+            result.next_cursor = String(page + 1);
         }
         return result;
     }

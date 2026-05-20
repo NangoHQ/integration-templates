@@ -53,16 +53,14 @@ const sync = createSync({
 
     exec: async (nango) => {
         const connection = await nango.getConnection();
-        // getSoapClient throws on invalid credentials — do this before trackDeletesStart
         const client = await getSoapClient('Human_Resources', connection);
 
         // Blocker: Workday Get_Organizations does not support modified_since filtering.
         // Must do a full scan; checkpointing would cause pages 1..N-1 to never be seen
         // on resume, triggering false deletions via trackDeletesEnd.
-        await nango.trackDeletesStart('Organization');
-
         let page = 1;
         let hasMoreData = true;
+        let trackingStarted = false;
 
         do {
             await nango.log(`Fetching page ${page}`);
@@ -75,6 +73,11 @@ const sync = createSync({
                 }
             });
 
+            if (!trackingStarted) {
+                await nango.trackDeletesStart('Organization');
+                trackingStarted = true;
+            }
+
             const totalPages = res.Response_Results?.Total_Pages ?? 1;
             hasMoreData = page < totalPages;
             page += 1;
@@ -84,8 +87,10 @@ const sync = createSync({
 
             for (const org of organizations) {
                 const data = org.Organization_Data;
+                const id = findId(org.Organization_Reference?.ID, 'Organization_Reference_ID') || findId(org.Organization_Reference?.ID, 'WID');
+                if (!id) continue;
                 mapped.push({
-                    id: findId(org.Organization_Reference?.ID, 'Organization_Reference_ID') || findId(org.Organization_Reference?.ID, 'WID') || '',
+                    id,
                     name: data?.Name ?? '',
                     type: findId(data?.Organization_Type_Reference?.ID, 'Organization_Type_ID'),
                     subtype: findId(data?.Organization_Subtype_Reference?.ID, 'Organization_Subtype_ID'),

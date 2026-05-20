@@ -93,64 +93,56 @@ const action = createAction({
         };
 
         let page = input.cursor ? parseInt(input.cursor, 10) : 1;
-        const allItems: z.infer<typeof LocationOutputSchema>[] = [];
-        let hasMoreData = true;
-        let nextPage: string | undefined;
+        if (isNaN(page) || page < 1) {
+            page = 1;
+        }
 
-        do {
-            // https://community.workday.com/sites/default/files/file-hosting/productionapi/Human_Resources/v44.0/Get_Locations.html
-            const [res]: [LocationResponse, string] = await client['Get_LocationsAsync']({
-                Response_Filter: {
-                    Page: page,
-                    Count: 100
-                }
-            });
-
-            const totalPages = res?.Response_Results?.Total_Pages ?? 1;
-            const currentPage = res?.Response_Results?.Page ?? page;
-
-            if (res?.Response_Data?.Location) {
-                const locations = Array.isArray(res.Response_Data.Location) ? res.Response_Data.Location : [res.Response_Data.Location];
-
-                for (const loc of locations) {
-                    const data = loc.Location_Data;
-                    if (!data) continue;
-
-                    const id = findId(loc.Location_Reference?.ID, 'Location_ID');
-                    const referenceId = findId(loc.Location_Reference?.ID, 'Location_Reference_ID');
-
-                    if (!id) continue;
-
-                    const addressData = data.Contact_Data?.Address_Data?.[0];
-                    const countryId = addressData?.Country_Reference?.ID;
-                    const countryIds = Array.isArray(countryId) ? countryId : countryId ? [countryId] : [];
-                    const country = countryIds.find((r) => r?.attributes?.['wd:type'] === 'ISO_3166-1_Alpha-2_Code')?.$value;
-
-                    allItems.push({
-                        id,
-                        reference_id: referenceId,
-                        name: data.Location_Name ?? '',
-                        location_usage: findId(data.Location_Usage_Reference?.ID, 'Location_Usage_ID'),
-                        country,
-                        inactive: data.Inactive === '1' || data.Inactive === true
-                    });
-                }
+        // https://community.workday.com/sites/default/files/file-hosting/productionapi/Human_Resources/v44.0/Get_Locations.html
+        const [res]: [LocationResponse, string] = await client['Get_LocationsAsync']({
+            Response_Filter: {
+                Page: page,
+                Count: 100
             }
+        });
 
-            hasMoreData = currentPage < totalPages;
+        const totalPages = res?.Response_Results?.Total_Pages ?? 1;
+        const currentPage = res?.Response_Results?.Page ?? page;
 
-            if (hasMoreData) {
-                nextPage = String(currentPage + 1);
-            } else {
-                nextPage = undefined;
+        const items: z.infer<typeof LocationOutputSchema>[] = [];
+
+        if (res?.Response_Data?.Location) {
+            const locations = Array.isArray(res.Response_Data.Location) ? res.Response_Data.Location : [res.Response_Data.Location];
+
+            for (const loc of locations) {
+                const data = loc.Location_Data;
+                if (!data) continue;
+
+                const id = findId(loc.Location_Reference?.ID, 'Location_ID');
+                const referenceId = findId(loc.Location_Reference?.ID, 'Location_Reference_ID');
+
+                if (!id) continue;
+
+                const addressData = data.Contact_Data?.Address_Data?.[0];
+                const countryId = addressData?.Country_Reference?.ID;
+                const countryIds = Array.isArray(countryId) ? countryId : countryId ? [countryId] : [];
+                const country = countryIds.find((r) => r?.attributes?.['wd:type'] === 'ISO_3166-1_Alpha-2_Code')?.$value;
+
+                items.push({
+                    id,
+                    reference_id: referenceId,
+                    name: data.Location_Name ?? '',
+                    location_usage: findId(data.Location_Usage_Reference?.ID, 'Location_Usage_ID'),
+                    country,
+                    inactive: data.Inactive === '1' || data.Inactive === true
+                });
             }
+        }
 
-            page += 1;
-        } while (hasMoreData);
+        const hasMoreData = currentPage < totalPages;
 
         return {
-            items: allItems,
-            ...(nextPage !== undefined && { next_page: nextPage })
+            items,
+            ...(hasMoreData && { next_page: String(currentPage + 1) })
         };
     }
 });

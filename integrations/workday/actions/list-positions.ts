@@ -115,7 +115,7 @@ const action = createAction({
             const totalPages = isRecord(responseResults) ? getNumber(responseResults['Total_Pages']) : undefined;
 
             const rawPositions = isRecord(responseData) ? responseData['Position'] : undefined;
-            const positionList = Array.isArray(rawPositions) ? rawPositions : [];
+            const positionList = Array.isArray(rawPositions) ? rawPositions : rawPositions ? [rawPositions] : [];
 
             for (const pos of positionList) {
                 if (!isRecord(pos)) {
