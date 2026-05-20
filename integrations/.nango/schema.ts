@@ -44647,6 +44647,1319 @@ export interface ActionOutput_smartsheet_disableuser {
   success: boolean;
 };
 
+export interface Album {
+  id: string;
+  name: string;
+  albumType?: string | undefined;
+  artists?: ({  id: string;
+  name: string;})[] | undefined;
+  spotifyUrl?: string | undefined;
+  images?: ({  url: string;
+  height?: number | undefined;
+  width?: number | undefined;})[];
+  releaseDate?: string | undefined;
+  totalTracks?: number | undefined;
+  addedAt: string;
+};
+
+export interface Artist {
+  id: string;
+  name: string;
+  genres?: string[] | undefined;
+  followers?: number | undefined;
+  popularity?: number | undefined;
+  external_urls?: {  [key: string]: string;} | undefined;
+  images?: ({  url: string;
+  height?: number | undefined;
+  width?: number | undefined;})[];
+  uri?: string | undefined;
+};
+
+export interface PlaylistTrack {
+  id: string;
+  playlist_id: string;
+  track_id?: string | undefined;
+  episode_id?: string | undefined;
+  name?: string | undefined;
+  type?: 'track' | 'episode' | undefined;
+  uri?: string | undefined;
+  added_at?: string | undefined;
+  added_by_id?: string | undefined;
+  is_local?: boolean | undefined;
+  duration_ms?: number | undefined;
+  explicit?: boolean | undefined;
+  artists?: string | undefined;
+  album_id?: string | undefined;
+  album_name?: string | undefined;
+  track_number?: number | undefined;
+  disc_number?: number | undefined;
+  show_id?: string | undefined;
+  show_name?: string | undefined;
+  description?: string | undefined;
+  html_description?: string | undefined;
+};
+
+export interface SyncMetadata_spotify_playlisttracks {
+  /**
+   * The Spotify ID of the playlist to sync tracks from
+   */
+  playlist_id: string;
+  /**
+   * Optional. An ISO 3166-1 alpha-2 country code for track relinking
+   */
+  market?: string | undefined;
+  /**
+   * Optional. Comma-separated list of fields to return (e.g., items(added_at,track(name)))
+   */
+  fields?: string | undefined;
+};
+
+export interface Playlist {
+  id: string;
+  name: string;
+  description?: string | undefined;
+  collaborative: boolean;
+  public?: boolean | undefined;
+  snapshot_id: string;
+  href: string;
+  uri: string;
+  owner_id: string;
+  owner_display_name?: string | undefined;
+  tracks_total: number;
+  images?: ({  url: string;
+  height?: number | undefined;
+  width?: number | undefined;})[];
+};
+
+export interface RecentlyPlayed {
+  id: string;
+  trackId: string;
+  trackName: string;
+  trackUri: string;
+  durationMs: number;
+  explicit: boolean;
+  previewUrl?: string | undefined;
+  artistIds: string[];
+  artistNames: string[];
+  albumId: string;
+  albumName: string;
+  playedAt: string;
+  contextType?: string | undefined;
+  contextUri?: string | undefined;
+};
+
+export interface SavedEpisode {
+  id: string;
+  name: string;
+  description?: string | undefined;
+  duration_ms: number;
+  explicit?: boolean | undefined;
+  added_at: string;
+  release_date?: string | undefined;
+  release_date_precision?: string | undefined;
+  show_id?: string | undefined;
+  show_name?: string | undefined;
+  show_publisher?: string | undefined;
+  images?: ({  url: string;
+  height: number;
+  width: number;})[] | undefined;
+  resume_point_fully_played?: boolean | undefined;
+  resume_position_ms?: number | undefined;
+};
+
+export interface SavedShow {
+  id: string;
+  name: string;
+  description?: string | undefined;
+  publisher?: string | undefined;
+  added_at: string;
+  type: string;
+  uri: string;
+  spotify_url?: string | undefined;
+  images?: ({  url: string;
+  height?: number | undefined;
+  width?: number | undefined;})[];
+  languages?: string[] | undefined;
+  explicit?: boolean | undefined;
+  available_markets?: string[] | undefined;
+};
+
+export interface SavedTrack {
+  id: string;
+  name: string;
+  uri: string;
+  artistName?: string | undefined;
+  albumName?: string | undefined;
+  durationMs?: number | undefined;
+  explicit?: boolean | undefined;
+  popularity?: number | undefined;
+  previewUrl?: string | undefined;
+  addedAt: string;
+  trackNumber?: number | undefined;
+  discNumber?: number | undefined;
+};
+
+export interface TopItem {
+  id: string;
+  name: string;
+  type: 'artist' | 'track';
+  time_range: 'short_term' | 'medium_term' | 'long_term';
+  popularity?: number | undefined;
+  uri?: string | undefined;
+  external_urls?: {  spotify?: string | undefined;};
+  genres?: string[] | undefined;
+  artists?: ({  id: string;
+  name: string;})[] | undefined;
+  album?: {  id: string;
+  name: string;
+  images?: ({  url: string;
+  height?: number | undefined;
+  width?: number | undefined;})[];};
+  duration_ms?: number | undefined;
+  explicit?: boolean | undefined;
+};
+
+export interface ActionInput_spotify_addtoqueue {
+  /**
+   * Spotify URI of the track or episode to add. Example: "spotify:track:70LcF31zb1H0PyJoS1Sx1r"
+   */
+  uri: string;
+  /**
+   * Optional ID of the device to target. If omitted, the user's currently active device is used.
+   */
+  device_id?: string | undefined;
+};
+
+export interface ActionOutput_spotify_addtoqueue {
+  success: boolean;
+};
+
+export interface ActionInput_spotify_createplaylisttrack {
+  /**
+   * The Spotify ID of the playlist. Example: "3cEYpjA9oz9GiPac4AsH4n"
+   */
+  playlistId: string;
+  /**
+   * An array of Spotify URIs to add. Can be track or episode URIs. Maximum 100 items. Example: ["spotify:track:4iV5W9uYEdYUVa79Axb7Rh", "spotify:track:1301WleyT98MSxVHPZCA6M"]
+   */
+  uris: string[];
+  /**
+   * The position to insert the items, a zero-based index. If omitted, items are appended to the end. Example: 0
+   */
+  position?: number | undefined;
+};
+
+export interface ActionOutput_spotify_createplaylisttrack {
+  /**
+   * A snapshot ID for the playlist after the addition
+   */
+  snapshotId: string;
+};
+
+export interface ActionInput_spotify_createplaylist {
+  /**
+   * The name for the new playlist. Example: "My Cool Playlist"
+   */
+  name: string;
+  /**
+   * Description for the playlist.
+   */
+  description?: string | undefined;
+  /**
+   * Whether the playlist should be public. Default: true
+   */
+  public?: boolean | undefined;
+  /**
+   * Whether the playlist should be collaborative.
+   */
+  collaborative?: boolean | undefined;
+  /**
+   * Optional user ID to create playlist for. If omitted, uses the current user.
+   */
+  user_id?: string | undefined;
+};
+
+export interface ActionOutput_spotify_createplaylist {
+  /**
+   * The Spotify ID of the created playlist
+   */
+  id: string;
+  /**
+   * The name of the playlist
+   */
+  name: string;
+  /**
+   * The description of the playlist
+   */
+  description?: string | undefined;
+  /**
+   * Whether the playlist is public
+   */
+  isPublic?: boolean | undefined;
+  /**
+   * Whether the playlist is collaborative
+   */
+  isCollaborative?: boolean | undefined;
+  /**
+   * The ID of the playlist owner
+   */
+  ownerId?: string | undefined;
+  /**
+   * The display name of the playlist owner
+   */
+  ownerName?: string | undefined;
+  /**
+   * A link to the Web API endpoint for full details of the playlist
+   */
+  href?: string | undefined;
+  /**
+   * The Spotify URI for the playlist
+   */
+  uri?: string | undefined;
+};
+
+export interface ActionInput_spotify_createsavedalbum {
+  /**
+   * Spotify album IDs to save to the user's library. Maximum 20.
+   */
+  ids: string[];
+};
+
+export interface ActionOutput_spotify_createsavedalbum {
+  /**
+   * Whether the albums were successfully saved.
+   */
+  success: boolean;
+};
+
+export interface ActionInput_spotify_createsavedtrack {
+  /**
+   * An array of Spotify track IDs to save. Maximum 50 IDs. Example: ["70LcF31zb1H0PyJoS1Sx1r"]
+   */
+  ids: string[];
+};
+
+export interface ActionOutput_spotify_createsavedtrack {
+  /**
+   * Whether the tracks were successfully saved to the library
+   */
+  success: boolean;
+};
+
+export interface ActionInput_spotify_deleteplaylisttrack {
+  /**
+   * Spotify playlist ID. Example: "0PUR2D6eCDOIjLIeu9kIcq"
+   */
+  playlist_id: string;
+  /**
+   * Array of track objects with URIs to remove from the playlist
+   */
+  tracks: ({  /**
+   * Spotify URI of the track to remove. Example: "spotify:track:70LcF31zb1H0PyJoS1Sx1r"
+   */
+  uri: string;})[];
+  /**
+   * Optional snapshot ID for the playlist. If provided, the tracks are only removed if they match the current state of the playlist.
+   */
+  snapshot_id?: string | undefined;
+};
+
+export interface ActionOutput_spotify_deleteplaylisttrack {
+  playlist_id: string;
+  snapshot_id: string;
+  tracks_removed: number;
+};
+
+export interface ActionInput_spotify_deleteplaylist {
+  /**
+   * The Spotify ID of the playlist to unfollow/remove from the user's library. Example: '5mBo6dx15GhupMndL3T2sk'
+   */
+  playlist_id: string;
+};
+
+export interface ActionOutput_spotify_deleteplaylist {
+  /**
+   * Whether the playlist was successfully removed from the user's library
+   */
+  success: boolean;
+};
+
+export interface ActionInput_spotify_deletesavedalbum {
+  /**
+   * Array of Spotify album IDs to remove from the user's library. Maximum 20.
+   */
+  ids: string[];
+};
+
+export interface ActionOutput_spotify_deletesavedalbum {
+  /**
+   * Whether the albums were successfully removed from the library.
+   */
+  success: boolean;
+};
+
+export interface ActionInput_spotify_deletesavedshow {
+  /**
+   * Array of Spotify show IDs to remove from the library. Maximum 50 IDs.
+   */
+  ids: string[];
+};
+
+export interface ActionOutput_spotify_deletesavedshow {
+  /**
+   * Whether the shows were successfully removed from the library.
+   */
+  success: boolean;
+};
+
+export interface ActionInput_spotify_deletesavedtrack {
+  /**
+   * Spotify track IDs to remove from the library. Example: ["70LcF31zb1H0PyJoS1Sx1r"]
+   */
+  ids: string[];
+};
+
+export interface ActionOutput_spotify_deletesavedtrack {
+  /**
+   * Whether the tracks were successfully removed
+   */
+  success: boolean;
+};
+
+export interface ActionInput_spotify_followartist {
+  /**
+   * Spotify artist IDs to follow. Example: ["4Z8W4fKeB5YxbusRsdQVPb"]
+   */
+  ids: string[];
+};
+
+export interface ActionOutput_spotify_followartist {
+  success: boolean;
+};
+
+export interface ActionInput_spotify_followplaylist {
+  /**
+   * The Spotify ID of the playlist to follow. Example: "5mBo6dx15GhupMndL3T2sk"
+   */
+  playlist_id: string;
+  /**
+   * If true, the playlist will be included in the user's public profile. Default: true
+   */
+  public?: boolean | undefined;
+};
+
+export interface ActionOutput_spotify_followplaylist {
+  /**
+   * Whether the playlist was successfully followed
+   */
+  success: boolean;
+  /**
+   * The ID of the playlist that was followed
+   */
+  playlist_id: string;
+};
+
+export interface ActionInput_spotify_getalbum {
+  /**
+   * The Spotify ID for the album. Example: "6dVIqQ8qmQ5GBnJ9shOYGE"
+   */
+  id: string;
+  /**
+   * An ISO 3166-1 alpha-2 country code. Provide this parameter if you want to apply Track Relinking.
+   */
+  market?: string | undefined;
+};
+
+export interface ActionOutput_spotify_getalbum {
+  id: string;
+  name: string;
+  album_type: string;
+  total_tracks: number;
+  release_date: string;
+  release_date_precision: string;
+  uri: string;
+  spotify_url?: string | undefined;
+  images: ({  url: string;
+  height?: number | undefined;
+  width?: number | undefined;})[];
+  artists: ({  id: string;
+  name: string;
+  type: string;
+  uri: string;
+  spotify_url?: string | undefined;})[];
+  tracks?: ({  id: string;
+  name: string;
+  type: string;
+  uri: string;
+  track_number: number;
+  duration_ms: number;
+  explicit: boolean;
+  artists: ({  id: string;
+  name: string;
+  type: string;
+  uri: string;
+  spotify_url?: string | undefined;})[];
+  spotify_url?: string | undefined;})[];
+};
+
+export interface ActionInput_spotify_getartist {
+  /**
+   * The Spotify ID for the artist. Example: "4Z8W4fKeB5YxbusRsdQVPb"
+   */
+  id: string;
+};
+
+export interface ActionOutput_spotify_getartist {
+  id: string;
+  name: string;
+  type: 'artist';
+  uri: string;
+  href: string;
+  external_urls?: {  spotify: string;} | undefined;
+  genres?: string[] | undefined;
+  images?: ({  url: string;
+  height?: number | undefined;
+  width?: number | undefined;})[];
+  followers?: {  href?: string | undefined;
+  total: number;};
+  popularity?: number | undefined;
+};
+
+export interface ActionInput_spotify_getcurrentplayback {
+  /**
+   * An ISO 3166-1 alpha-2 country code. Example: "US"
+   */
+  market?: string | undefined;
+  /**
+   * A comma-separated list of item types. Valid types are: track, episode. Example: "track,episode"
+   */
+  additional_types?: string | undefined;
+};
+
+export interface ActionOutput_spotify_getcurrentplayback {
+  device?: {  id?: string | undefined;
+  is_active?: boolean | undefined;
+  is_private_session?: boolean | undefined;
+  is_restricted?: boolean | undefined;
+  name?: string | undefined;
+  type?: string | undefined;
+  volume_percent?: number | undefined;
+  supports_volume?: boolean | undefined;};
+  repeat_state?: string | undefined;
+  shuffle_state?: boolean | undefined;
+  context?: {  type?: string | undefined;
+  href?: string | undefined;
+  external_urls?: {  [key: string]: string;} | undefined;
+  uri?: string | undefined;};
+  timestamp?: number | undefined;
+  progress_ms?: number | undefined;
+  is_playing?: boolean | undefined;
+  item?: {  album?: {  album_type?: string | undefined;
+  artists?: ({  external_urls?: {  [key: string]: string;} | undefined;
+  href?: string | undefined;
+  id?: string | undefined;
+  name?: string | undefined;
+  type?: string | undefined;
+  uri?: string | undefined;})[];
+  available_markets?: string[] | undefined;
+  external_urls?: {  [key: string]: string;} | undefined;
+  href?: string | undefined;
+  id?: string | undefined;
+  images?: ({  url?: string | undefined;
+  height?: number | undefined;
+  width?: number | undefined;})[];
+  name?: string | undefined;
+  release_date?: string | undefined;
+  release_date_precision?: string | undefined;
+  total_tracks?: number | undefined;
+  type?: string | undefined;
+  uri?: string | undefined;};
+  artists?: ({  external_urls?: {  [key: string]: string;} | undefined;
+  href?: string | undefined;
+  id?: string | undefined;
+  name?: string | undefined;
+  type?: string | undefined;
+  uri?: string | undefined;})[];
+  available_markets?: string[] | undefined;
+  disc_number?: number | undefined;
+  duration_ms?: number | undefined;
+  explicit?: boolean | undefined;
+  external_ids?: {  [key: string]: string;} | undefined;
+  external_urls?: {  [key: string]: string;} | undefined;
+  href?: string | undefined;
+  id?: string | undefined;
+  is_local?: boolean | undefined;
+  name?: string | undefined;
+  popularity?: number | undefined;
+  preview_url?: string | undefined;
+  track_number?: number | undefined;
+  type?: string | undefined;
+  uri?: string | undefined;} | {  audio_preview_url?: string | undefined;
+  description?: string | undefined;
+  duration_ms?: number | undefined;
+  explicit?: boolean | undefined;
+  external_urls?: {  [key: string]: string;} | undefined;
+  href?: string | undefined;
+  html_description?: string | undefined;
+  id?: string | undefined;
+  images?: ({  url?: string | undefined;
+  height?: number | undefined;
+  width?: number | undefined;})[];
+  is_externally_hosted?: boolean | undefined;
+  is_playable?: boolean | undefined;
+  language?: string | undefined;
+  languages?: string[] | undefined;
+  name?: string | undefined;
+  release_date?: string | undefined;
+  release_date_precision?: string | undefined;
+  resume_point?: {  fully_played?: boolean | undefined;
+  resume_position_ms?: number | undefined;};
+  type?: string | undefined;
+  uri?: string | undefined;};
+  currently_playing_type?: string | undefined;
+  actions?: {  disallows?: {  [key: string]: boolean;} | undefined;};
+};
+
+export interface ActionInput_spotify_getcurrentuser {
+};
+
+export interface ActionOutput_spotify_getcurrentuser {
+  id: string;
+  display_name?: string | undefined;
+  email?: string | undefined;
+  country?: string | undefined;
+  product?: string | undefined;
+  images?: ({  url: string;
+  height?: number | undefined;
+  width?: number | undefined;})[];
+  external_urls?: {  [key: string]: string;} | undefined;
+  followers?: {  href?: string | undefined;
+  total: number;};
+  href?: string | undefined;
+  type?: string | undefined;
+  uri?: string | undefined;
+};
+
+export interface ActionInput_spotify_getdevices {
+};
+
+export interface ActionOutput_spotify_getdevices {
+  devices: ({  id?: string | undefined;
+  name: string;
+  type: string;
+  is_active: boolean;
+  volume_percent?: number | undefined;})[];
+};
+
+export interface ActionInput_spotify_getepisode {
+  /**
+   * The Spotify ID for the episode. Example: "0AYabmryUy29iVTvK45dLw"
+   */
+  id: string;
+  /**
+   * An ISO 3166-1 alpha-2 country code. If specified, only content available in that market will be returned.
+   */
+  market?: string | undefined;
+};
+
+export interface ActionOutput_spotify_getepisode {
+  id: string;
+  name: string;
+  description?: string | undefined;
+  htmlDescription?: string | undefined;
+  durationMs: number;
+  explicit: boolean;
+  href: string;
+  uri: string;
+  type: 'episode';
+  releaseDate?: string | undefined;
+  releaseDatePrecision?: 'year' | 'month' | 'day' | undefined;
+  audioPreviewUrl?: string | undefined;
+  images?: ({  url: string;
+  height?: number | undefined;
+  width?: number | undefined;})[];
+  show?: {  id: string;
+  name: string;
+  href: string;
+  uri: string;} | undefined;
+  language?: string | undefined;
+  languages?: string[] | undefined;
+  isPlayable?: boolean | undefined;
+  resumePoint?: {  fullyPlayed: boolean;
+  resumePositionMs: number;} | undefined;
+};
+
+export interface ActionInput_spotify_getplaylist {
+  /**
+   * The Spotify ID of the playlist. Example: "0PUR2D6eCDOIjLIeu9kIcq"
+   */
+  playlist_id: string;
+  /**
+   * A comma-separated list of fields to return. Example: "name,description,owner"
+   */
+  fields?: string | undefined;
+  /**
+   * An ISO 3166-1 alpha-2 country code to filter results. Example: "US"
+   */
+  market?: string | undefined;
+};
+
+export interface ActionOutput_spotify_getplaylist {
+  id: string;
+  name: string;
+  description?: string | undefined;
+  owner_id?: string | undefined;
+  owner_name?: string | undefined;
+  track_count?: number | undefined;
+  is_public?: boolean | undefined;
+  is_collaborative?: boolean | undefined;
+};
+
+export interface ActionInput_spotify_getqueue {
+};
+
+export interface ActionOutput_spotify_getqueue {
+  currentlyPlaying?: {} | undefined;
+  queue?: ({})[] | undefined;
+};
+
+export interface ActionInput_spotify_getshow {
+  /**
+   * The Spotify ID for the show. Example: "18WzIf6SqovUQHHTeZaucQ"
+   */
+  id: string;
+  /**
+   * An ISO 3166-1 alpha-2 country code. If a country code is specified, only content that is available in that market will be returned.
+   */
+  market?: string | undefined;
+};
+
+export interface ActionOutput_spotify_getshow {
+  id: string;
+  name: string;
+  description: string;
+  publisher?: string | undefined;
+  images?: ({  url: string;
+  height?: number | undefined;
+  width?: number | undefined;})[];
+  explicit?: boolean | undefined;
+  total_episodes?: number | undefined;
+};
+
+export interface ActionInput_spotify_gettrack {
+  /**
+   * Spotify track ID. Example: "70LcF31zb1H0PyJoS1Sx1r"
+   */
+  id: string;
+  /**
+   * Optional ISO 3166-1 alpha-2 country code for content restrictions.
+   */
+  market?: string | undefined;
+};
+
+export interface ActionOutput_spotify_gettrack {
+  id: string;
+  name: string;
+  uri?: string | undefined;
+  href?: string | undefined;
+  duration_ms?: number | undefined;
+  explicit?: boolean | undefined;
+  popularity?: number | undefined;
+  preview_url?: string | undefined;
+  track_number?: number | undefined;
+  disc_number?: number | undefined;
+  type: 'track';
+  artists: ({  id: string;
+  name: string;
+  uri?: string | undefined;
+  href?: string | undefined;})[];
+  album?: {  id: string;
+  name: string;
+  album_type?: string | undefined;
+  total_tracks?: number | undefined;
+  uri?: string | undefined;
+  href?: string | undefined;};
+};
+
+export interface ActionInput_spotify_listalbums {
+  /**
+   * The maximum number of items to return. Default: 20. Minimum: 1. Maximum: 50.
+   */
+  limit?: number | undefined;
+  /**
+   * The index of the first item to return. Default: 0.
+   */
+  offset?: number | undefined;
+  /**
+   * An ISO 3166-1 alpha-2 country code. Provide this parameter if you want to apply Track Relinking.
+   */
+  market?: string | undefined;
+};
+
+export interface ActionOutput_spotify_listalbums {
+  albums: ({  id: string;
+  name: string;
+  artists?: ({  id: string;
+  name: string;})[] | undefined;
+  images?: ({  url: string;
+  height?: number | undefined;
+  width?: number | undefined;})[];
+  release_date?: string | undefined;
+  total_tracks?: number | undefined;
+  added_at?: string | undefined;})[];
+  /**
+   * The offset for the next page. Omit if no more pages.
+   */
+  next_offset?: number | undefined;
+};
+
+export interface ActionInput_spotify_listartists {
+  /**
+   * Pagination cursor (the `after` value from the previous response). Omit for the first page.
+   */
+  cursor?: string | undefined;
+};
+
+export interface ActionOutput_spotify_listartists {
+  artists: ({  id: string;
+  name: string;
+  uri: string;
+  href: string;
+  type: 'artist';
+  external_urls?: {  spotify?: string | undefined;};
+  followers?: {  total: number;} | undefined;
+  genres?: string[] | undefined;
+  images?: ({  url: string;
+  height?: number | undefined;
+  width?: number | undefined;})[];
+  popularity?: number | undefined;})[];
+  next_cursor?: string | undefined;
+};
+
+export interface ActionInput_spotify_listplaylisttracks {
+  /**
+   * The Spotify ID of the playlist. Example: "3cEYpjA9oz9GiPac4AsH4n"
+   */
+  playlist_id: string;
+  /**
+   * An ISO 3166-1 alpha-2 country code. If a country code is specified, only content that is available in that market will be returned.
+   */
+  market?: string | undefined;
+  /**
+   * Filters for the query: a comma-separated list of the fields to return. If omitted, all fields are returned.
+   */
+  fields?: string | undefined;
+  /**
+   * The maximum number of items to return. Default: 20. Minimum: 1. Maximum: 50.
+   */
+  limit?: number | undefined;
+  /**
+   * The index of the first item to return. Default:  0 (the first item). Use with limit to get the next set of items.
+   */
+  offset?: number | undefined;
+  /**
+   * A comma-separated list of item types that your client supports besides the default track type. Valid types are: track and episode.
+   */
+  additional_types?: string | undefined;
+};
+
+export interface ActionOutput_spotify_listplaylisttracks {
+  items: ({  id: string;
+  name: string;
+  uri: string;
+  href?: string | undefined;
+  duration_ms?: number | undefined;
+  explicit?: boolean | undefined;
+  popularity?: number | undefined;
+  preview_url?: string | undefined;
+  track_number?: number | undefined;
+  disc_number?: number | undefined;
+  is_local?: boolean | undefined;
+  is_playable?: boolean | undefined;
+  album?: {  id: string;
+  name: string;
+  uri: string;
+  href?: string | undefined;
+  album_type?: string | undefined;
+  total_tracks?: number | undefined;
+  release_date?: string | undefined;
+  release_date_precision?: string | undefined;
+  images?: ({  url: string;
+  height: number;
+  width: number;})[] | undefined;};
+  artists?: ({  id: string;
+  name: string;
+  uri: string;
+  href?: string | undefined;
+  external_urls?: {  spotify?: string | undefined;};})[];})[];
+  total: number;
+  next_offset?: number | undefined;
+};
+
+export interface ActionInput_spotify_listplaylists {
+  /**
+   * Maximum number of playlists to return. Default: 20, Max: 50.
+   */
+  limit?: number | undefined;
+  /**
+   * The index of the first playlist to return. Default: 0.
+   */
+  offset?: number | undefined;
+};
+
+export interface ActionOutput_spotify_listplaylists {
+  playlists: ({  id: string;
+  name: string;
+  description?: string | undefined;
+  owner_id: string;
+  owner_name?: string | undefined;
+  public?: boolean | undefined;
+  collaborative?: boolean | undefined;
+  href?: string | undefined;
+  uri?: string | undefined;
+  tracks_total?: number | undefined;})[];
+  total: number;
+  next_offset?: number | undefined;
+};
+
+export interface ActionInput_spotify_listsavedshows {
+  /**
+   * The maximum number of items to return. Default: 20. Minimum: 1. Maximum: 50.
+   */
+  limit?: number | undefined;
+  /**
+   * The index of the first item to return. Default: 0.
+   */
+  offset?: number | undefined;
+  /**
+   * An ISO 3166-1 alpha-2 country code. If a country code is specified, only content that is available in that market is returned.
+   */
+  market?: string | undefined;
+};
+
+export interface ActionOutput_spotify_listsavedshows {
+  items: ({  id: string;
+  name: string;
+  description?: string | undefined;
+  publisher?: string | undefined;
+  explicit?: boolean | undefined;
+  total_episodes?: number | undefined;})[];
+  /**
+   * Offset for the next page, if more results are available
+   */
+  next_offset?: number | undefined;
+};
+
+export interface ActionInput_spotify_listsavedtracks {
+  /**
+   * The maximum number of items to return. Default: 20, Maximum: 50.
+   */
+  limit?: number | undefined;
+  /**
+   * The index of the first item to return. Default: 0.
+   */
+  offset?: number | undefined;
+  /**
+   * An ISO 3166-1 alpha-2 country code.
+   */
+  market?: string | undefined;
+};
+
+export interface ActionOutput_spotify_listsavedtracks {
+  items: ({  added_at?: string | undefined;
+  track: {  id: string;
+  name: string;
+  uri?: string | undefined;
+  duration_ms?: number | undefined;
+  explicit?: boolean | undefined;
+  popularity?: number | undefined;
+  preview_url?: string | undefined;
+  track_number?: number | undefined;
+  disc_number?: number | undefined;
+  album?: {  id: string;
+  name: string;
+  uri?: string | undefined;
+  album_type?: string | undefined;
+  images?: ({  url: string;
+  height?: number | undefined;
+  width?: number | undefined;})[];};
+  artists?: ({  id: string;
+  name: string;
+  uri?: string | undefined;})[];};})[];
+  next_offset?: number | undefined;
+  total: number;
+};
+
+export interface ActionInput_spotify_pauseplayback {
+  /**
+   * The ID of the device to pause playback on. If omitted, playback pauses on the currently active device.
+   */
+  device_id?: string | undefined;
+};
+
+export interface ActionOutput_spotify_pauseplayback {
+  success: boolean;
+};
+
+export interface ActionInput_spotify_reorderplaylisttracks {
+  /**
+   * The Spotify ID of the playlist. Example: "0PUR2D6eCDOIjLIeu9kIcq"
+   */
+  playlist_id: string;
+  /**
+   * The position of the first track to be reordered.
+   */
+  range_start: number;
+  /**
+   * The position where the tracks should be inserted.
+   */
+  insert_before: number;
+  /**
+   * The amount of tracks to be reordered. Defaults to 1 if not supplied.
+   */
+  range_length?: number | undefined;
+  /**
+   * The playlist's snapshot ID against which you want to make the changes.
+   */
+  snapshot_id?: string | undefined;
+};
+
+export interface ActionOutput_spotify_reorderplaylisttracks {
+  snapshot_id?: string | undefined;
+};
+
+export interface ActionInput_spotify_search {
+  /**
+   * Search query string. Example: "Radiohead"
+   */
+  query: string;
+  /**
+   * Types of items to search for. At least one type is required.
+   */
+  type: ({  0: 'track';
+  1: 'album';
+  2: 'artist';
+  3: 'playlist';
+  4: 'show';
+  5: 'episode';})[];
+  /**
+   * ISO 3166-1 alpha-2 country code for content restriction. Example: "US"
+   */
+  market?: string | undefined;
+  /**
+   * Maximum number of results to return per type. Default: 20, Maximum: 50.
+   */
+  limit?: number | undefined;
+  /**
+   * Index of the first result to return. Default: 0.
+   */
+  offset?: number | undefined;
+  /**
+   * If "audio", response includes any playable audio content.
+   */
+  include_external?: 'audio' | undefined;
+};
+
+export interface ActionOutput_spotify_search {
+  query: string;
+  types: ({  0: 'track';
+  1: 'album';
+  2: 'artist';
+  3: 'playlist';
+  4: 'show';
+  5: 'episode';})[];
+  tracks?: {  items: ({  id: string;
+  name: string;
+  uri: string;
+  type: 'track';
+  popularity?: number | undefined;
+  explicit?: boolean | undefined;
+  durationMs?: number | undefined;
+  previewUrl?: string | undefined;
+  album?: {  id: string;
+  name: string;
+  images?: ({  url: string;
+  height: number;
+  width: number;})[] | undefined;};
+  artists?: ({  id: string;
+  name: string;})[] | undefined;})[];
+  paging: {  total: number;
+  offset: number;
+  limit: number;
+  nextOffset?: number | undefined;
+  hasMore: boolean;};};
+  albums?: {  items: ({  id: string;
+  name: string;
+  uri: string;
+  type: 'album';
+  albumType?: string | undefined;
+  totalTracks?: number | undefined;
+  images?: ({  url: string;
+  height: number;
+  width: number;})[] | undefined;
+  artists?: ({  id: string;
+  name: string;})[] | undefined;})[];
+  paging: {  total: number;
+  offset: number;
+  limit: number;
+  nextOffset?: number | undefined;
+  hasMore: boolean;};};
+  artists?: {  items: ({  id: string;
+  name: string;
+  uri: string;
+  type: 'artist';
+  popularity?: number | undefined;
+  images?: ({  url: string;
+  height: number;
+  width: number;})[] | undefined;
+  genres?: string[] | undefined;})[];
+  paging: {  total: number;
+  offset: number;
+  limit: number;
+  nextOffset?: number | undefined;
+  hasMore: boolean;};};
+  playlists?: {  items: ({  id: string;
+  name: string;
+  uri: string;
+  type: 'playlist';
+  description?: string | undefined;
+  owner?: {  id: string;
+  displayName?: string | undefined;};
+  images?: ({  url: string;
+  height: number;
+  width: number;})[] | undefined;
+  tracksTotal?: number | undefined;})[];
+  paging: {  total: number;
+  offset: number;
+  limit: number;
+  nextOffset?: number | undefined;
+  hasMore: boolean;};};
+  shows?: {  items: ({  id: string;
+  name: string;
+  uri: string;
+  type: 'show';
+  description?: string | undefined;
+  explicit?: boolean | undefined;
+  images?: ({  url: string;
+  height: number;
+  width: number;})[] | undefined;
+  languages?: string[] | undefined;
+  publisher?: string | undefined;
+  totalEpisodes?: number | undefined;})[];
+  paging: {  total: number;
+  offset: number;
+  limit: number;
+  nextOffset?: number | undefined;
+  hasMore: boolean;};};
+  episodes?: {  items: ({  id: string;
+  name: string;
+  uri: string;
+  type: 'episode';
+  description?: string | undefined;
+  explicit?: boolean | undefined;
+  durationMs?: number | undefined;
+  images?: ({  url: string;
+  height: number;
+  width: number;})[] | undefined;
+  releaseDate?: string | undefined;
+  show?: {  id: string;
+  name: string;} | undefined;})[];
+  paging: {  total: number;
+  offset: number;
+  limit: number;
+  nextOffset?: number | undefined;
+  hasMore: boolean;};};
+};
+
+export interface ActionInput_spotify_seektoposition {
+  /**
+   * Position in milliseconds to seek to. Example: 10000
+   */
+  position_ms: number;
+  /**
+   * Optional. The ID of the device this command is targeting.
+   */
+  device_id?: string | undefined;
+};
+
+export interface ActionOutput_spotify_seektoposition {
+  success: boolean;
+};
+
+export interface ActionInput_spotify_setrepeatmode {
+  /**
+   * The repeat mode to set. Can be track, context, or off.
+   */
+  state: 'track' | 'context' | 'off';
+  /**
+   * The ID of the device this command is targeting. If not supplied, the user’s currently active device is the target.
+   */
+  device_id?: string | undefined;
+};
+
+export interface ActionOutput_spotify_setrepeatmode {
+  /**
+   * Whether the repeat mode was successfully set.
+   */
+  success: boolean;
+};
+
+export interface ActionInput_spotify_setvolume {
+  /**
+   * The volume to set. Must be between 0 and 100 inclusive.
+   */
+  volume_percent: number;
+  /**
+   * The ID of the device this command is targeting. If not supplied, the user's currently active device is the target.
+   */
+  device_id?: string | undefined;
+};
+
+export interface ActionOutput_spotify_setvolume {
+  success: boolean;
+};
+
+export interface ActionInput_spotify_skiptonext {
+  /**
+   * The id of the device this command is targeting. If not supplied, the user's currently active device is the target.
+   */
+  deviceId?: string | undefined;
+};
+
+export interface ActionOutput_spotify_skiptonext {
+  /**
+   * Whether the playback was successfully skipped to the next track.
+   */
+  success: boolean;
+};
+
+export interface ActionInput_spotify_skiptoprevious {
+  /**
+   * The ID of the device this command is targeting. If not supplied, the user's currently active device is the target.
+   */
+  device_id?: string | undefined;
+};
+
+export interface ActionOutput_spotify_skiptoprevious {
+  /**
+   * Whether the operation was successful
+   */
+  success: boolean;
+};
+
+export interface ActionInput_spotify_startplayback {
+  /**
+   * The ID of the device to play on. If not provided, playback will start on the user's currently active device.
+   */
+  device_id?: string | undefined;
+  /**
+   * Spotify URI of the context to play. This can be an album, artist, or playlist URI. Example: "spotify:album:6dVIqQ8qmQ5GBnJ9shOYGE"
+   */
+  context_uri?: string | undefined;
+  /**
+   * An array of Spotify track URIs to play. If provided, context_uri should not be provided. Example: ["spotify:track:70LcF31zb1H0PyJoS1Sx1r"]
+   */
+  uris?: string[] | undefined;
+  /**
+   * Indicates from where in the context playback should start. Only available when context_uri corresponds to an album or playlist.
+   */
+  offset?: {  /**
+   * The index of the item in the context to play, starting from 0.
+   */
+  position?: number | undefined;
+  /**
+   * The URI of the item to start playback from.
+   */
+  uri?: string | undefined;};
+  /**
+   * The position in milliseconds to start playback from.
+   */
+  position_ms?: number | undefined;
+};
+
+export interface ActionOutput_spotify_startplayback {
+  /**
+   * Whether the playback was started successfully
+   */
+  success: boolean;
+};
+
+export interface ActionInput_spotify_toggleshuffle {
+  /**
+   * Whether shuffle should be enabled (true) or disabled (false)
+   */
+  state: boolean;
+  /**
+   * Optional device ID to target. If not provided, the user's currently active device is targeted
+   */
+  device_id?: string | undefined;
+};
+
+export interface ActionOutput_spotify_toggleshuffle {
+  success: boolean;
+};
+
+export interface ActionInput_spotify_transferplayback {
+  /**
+   * The ID of the device to transfer playback to. Example: "e26cf707-53c5-4640-a6d3-3eb0fb2239ad"
+   */
+  device_id: string;
+  /**
+   * Whether to ensure playback happens on the new device. Default: false
+   */
+  play?: boolean | undefined;
+};
+
+export interface ActionOutput_spotify_transferplayback {
+  success: boolean;
+};
+
+export interface ActionInput_spotify_unfollowplaylist {
+  /**
+   * The Spotify ID of the playlist to unfollow. Example: "5mBo6dx15GhupMndL3T2sk"
+   */
+  playlist_id: string;
+};
+
+export interface ActionOutput_spotify_unfollowplaylist {
+  /**
+   * Whether the playlist was successfully unfollowed
+   */
+  success: boolean;
+  /**
+   * The ID of the playlist that was unfollowed
+   */
+  playlist_id: string;
+};
+
+export interface ActionInput_spotify_updateplaylist {
+  /**
+   * The Spotify ID of the playlist. Example: "0PUR2D6eCDOIjLIeu9kIcq"
+   */
+  playlistId: string;
+  /**
+   * The new name for the playlist.
+   */
+  name?: string | undefined;
+  /**
+   * The new description for the playlist. Pass null to clear the description.
+   */
+  description?: string | undefined;
+  /**
+   * If true, the playlist will be public. If false, it will be private.
+   */
+  public?: boolean | undefined;
+  /**
+   * If true, the playlist will become collaborative and other users will be able to modify it.
+   */
+  collaborative?: boolean | undefined;
+};
+
+export interface ActionOutput_spotify_updateplaylist {
+  success: boolean;
+  playlistId: string;
+};
+
 export interface Subscription {
   id: string;
   automatic_tax: {  enabled: boolean;

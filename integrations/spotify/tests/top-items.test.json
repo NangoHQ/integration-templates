@@ -1,0 +1,1804 @@
+{
+  "nango": {
+    "batchSave": {
+      "TopItem": [
+        {
+          "id": "7d8UsuThQiOn5WZ5pdv0Ti_short_term",
+          "name": "Outlaw",
+          "time_range": "short_term",
+          "uri": "spotify:track:7d8UsuThQiOn5WZ5pdv0Ti",
+          "external_urls": {
+            "spotify": "https://open.spotify.com/track/7d8UsuThQiOn5WZ5pdv0Ti"
+          },
+          "type": "track",
+          "artists": [
+            {
+              "id": "6HCnsY0Rxi3cg53xreoAIm",
+              "name": "Emancipator"
+            }
+          ],
+          "album": {
+            "id": "5UBtUeQ9d4Vgf5qCZVw5fm",
+            "name": "Dusk to Dawn",
+            "images": [
+              {
+                "url": "https://i.scdn.co/image/ab67616d0000b273683812adb2b4eb20fb688c9d",
+                "height": 640,
+                "width": 640
+              },
+              {
+                "url": "https://i.scdn.co/image/ab67616d00001e02683812adb2b4eb20fb688c9d",
+                "height": 300,
+                "width": 300
+              },
+              {
+                "url": "https://i.scdn.co/image/ab67616d00004851683812adb2b4eb20fb688c9d",
+                "height": 64,
+                "width": 64
+              }
+            ]
+          },
+          "duration_ms": 218444,
+          "explicit": false
+        },
+        {
+          "id": "0oP2XkRvW12u8gCxpBfVVU_short_term",
+          "name": "High Noon",
+          "time_range": "short_term",
+          "uri": "spotify:track:0oP2XkRvW12u8gCxpBfVVU",
+          "external_urls": {
+            "spotify": "https://open.spotify.com/track/0oP2XkRvW12u8gCxpBfVVU"
+          },
+          "type": "track",
+          "artists": [
+            {
+              "id": "39ywlwtGw8RTGobakgb11L",
+              "name": "Kruder & Dorfmeister"
+            }
+          ],
+          "album": {
+            "id": "4AKnOEd9fx1pj36xAq5eUN",
+            "name": "G-Stoned",
+            "images": [
+              {
+                "url": "https://i.scdn.co/image/ab67616d0000b2736ae6067bd94d9f738a917697",
+                "height": 640,
+                "width": 640
+              },
+              {
+                "url": "https://i.scdn.co/image/ab67616d00001e026ae6067bd94d9f738a917697",
+                "height": 300,
+                "width": 300
+              },
+              {
+                "url": "https://i.scdn.co/image/ab67616d000048516ae6067bd94d9f738a917697",
+                "height": 64,
+                "width": 64
+              }
+            ]
+          },
+          "duration_ms": 386266,
+          "explicit": false
+        },
+        {
+          "id": "11mUt9hPLDxt7EsoYB2Ujc_short_term",
+          "name": "Mad Blunted Jazz",
+          "time_range": "short_term",
+          "uri": "spotify:track:11mUt9hPLDxt7EsoYB2Ujc",
+          "external_urls": {
+            "spotify": "https://open.spotify.com/track/11mUt9hPLDxt7EsoYB2Ujc"
+          },
+          "type": "track",
+          "artists": [
+            {
+              "id": "1hwAhXzyuEUjug2pyNVSvg",
+              "name": "DJ Cam"
+            }
+          ],
+          "album": {
+            "id": "3KbEXCBCtDk1gUIJrQirIA",
+            "name": "Underground Vibes",
+            "images": [
+              {
+                "url": "https://i.scdn.co/image/ab67616d0000b2738d04d492cc8de9452b1e54eb",
+                "height": 640,
+                "width": 640
+              },
+              {
+                "url": "https://i.scdn.co/image/ab67616d00001e028d04d492cc8de9452b1e54eb",
+                "height": 300,
+                "width": 300
+              },
+              {
+                "url": "https://i.scdn.co/image/ab67616d000048518d04d492cc8de9452b1e54eb",
+                "height": 64,
+                "width": 64
+              }
+            ]
+          },
+          "duration_ms": 312413,
+          "explicit": false
+        },
+        {
+          "id": "1a9maLxqpx3cxjY1lTj62B_short_term",
+          "name": "Midnight In A Perfect World",
+          "time_range": "short_term",
+          "uri": "spotify:track:1a9maLxqpx3cxjY1lTj62B",
+          "external_urls": {
+            "spotify": "https://open.spotify.com/track/1a9maLxqpx3cxjY1lTj62B"
+          },
+          "type": "track",
+          "artists": [
+            {
+              "id": "5CE2IfdYZEQGIDsfiRm8SI",
+              "name": "DJ Shadow"
+            }
+          ],
+          "album": {
+            "id": "4tUVkNYSFrrEqqrxBQW9PN",
+            "name": "Endtroducing.....",
+            "images": [
+              {
+                "url": "https://i.scdn.co/image/ab67616d0000b273c02294cf9b5ec88cd939a8a6",
+                "height": 640,
+                "width": 640
+              },
+              {
+                "url": "https://i.scdn.co/image/ab67616d00001e02c02294cf9b5ec88cd939a8a6",
+                "height": 300,
+                "width": 300
+              },
+              {
+                "url": "https://i.scdn.co/image/ab67616d00004851c02294cf9b5ec88cd939a8a6",
+                "height": 64,
+                "width": 64
+              }
+            ]
+          },
+          "duration_ms": 298373,
+          "explicit": false
+        },
+        {
+          "id": "2ahdXok2BdTmOB4mfNCRGw_short_term",
+          "name": "YMA",
+          "time_range": "short_term",
+          "uri": "spotify:track:2ahdXok2BdTmOB4mfNCRGw",
+          "external_urls": {
+            "spotify": "https://open.spotify.com/track/2ahdXok2BdTmOB4mfNCRGw"
+          },
+          "type": "track",
+          "artists": [
+            {
+              "id": "2I36EjIVz3vDfROgj1MfZ3",
+              "name": "Boozoo Bajou"
+            }
+          ],
+          "album": {
+            "id": "0ZR87OL6kj1s2MonZprzkn",
+            "name": "Satta",
+            "images": [
+              {
+                "url": "https://i.scdn.co/image/ab67616d0000b27317a128b115a05935dd3184e9",
+                "height": 640,
+                "width": 640
+              },
+              {
+                "url": "https://i.scdn.co/image/ab67616d00001e0217a128b115a05935dd3184e9",
+                "height": 300,
+                "width": 300
+              },
+              {
+                "url": "https://i.scdn.co/image/ab67616d0000485117a128b115a05935dd3184e9",
+                "height": 64,
+                "width": 64
+              }
+            ]
+          },
+          "duration_ms": 390000,
+          "explicit": false
+        },
+        {
+          "id": "31U21fwH5izi4fVA2f1HKa_short_term",
+          "name": "The Sensual Woman",
+          "time_range": "short_term",
+          "uri": "spotify:track:31U21fwH5izi4fVA2f1HKa",
+          "external_urls": {
+            "spotify": "https://open.spotify.com/track/31U21fwH5izi4fVA2f1HKa"
+          },
+          "type": "track",
+          "artists": [
+            {
+              "id": "1O7aMVbDeSXY2LiVBhb13w",
+              "name": "The Herbaliser"
+            }
+          ],
+          "album": {
+            "id": "1V3a7mBozraa6AXQmUNxFV",
+            "name": "Very Mercenary",
+            "images": [
+              {
+                "url": "https://i.scdn.co/image/ab67616d0000b27346d6181c9bd591a937d32e67",
+                "height": 640,
+                "width": 640
+              },
+              {
+                "url": "https://i.scdn.co/image/ab67616d00001e0246d6181c9bd591a937d32e67",
+                "height": 300,
+                "width": 300
+              },
+              {
+                "url": "https://i.scdn.co/image/ab67616d0000485146d6181c9bd591a937d32e67",
+                "height": 64,
+                "width": 64
+              }
+            ]
+          },
+          "duration_ms": 216001,
+          "explicit": false
+        },
+        {
+          "id": "4MzII8fszi8KkFl1ryv07L_short_term",
+          "name": "Interloper",
+          "time_range": "short_term",
+          "uri": "spotify:track:4MzII8fszi8KkFl1ryv07L",
+          "external_urls": {
+            "spotify": "https://open.spotify.com/track/4MzII8fszi8KkFl1ryv07L"
+          },
+          "type": "track",
+          "artists": [
+            {
+              "id": "38DX4hQVvPBs3PThDIAK11",
+              "name": "Carbon Based Lifeforms"
+            }
+          ],
+          "album": {
+            "id": "3g1Bz7vXLd0GgxHId19oqc",
+            "name": "Interloper",
+            "images": [
+              {
+                "url": "https://i.scdn.co/image/ab67616d0000b273ad0677f76f220c118226fd46",
+                "height": 640,
+                "width": 640
+              },
+              {
+                "url": "https://i.scdn.co/image/ab67616d00001e02ad0677f76f220c118226fd46",
+                "height": 300,
+                "width": 300
+              },
+              {
+                "url": "https://i.scdn.co/image/ab67616d00004851ad0677f76f220c118226fd46",
+                "height": 64,
+                "width": 64
+              }
+            ]
+          },
+          "duration_ms": 389325,
+          "explicit": false
+        },
+        {
+          "id": "4e9wkM5v3dUQ5hOnkIsE7b_short_term",
+          "name": "the rules of what an earthling can be",
+          "time_range": "short_term",
+          "uri": "spotify:track:4e9wkM5v3dUQ5hOnkIsE7b",
+          "external_urls": {
+            "spotify": "https://open.spotify.com/track/4e9wkM5v3dUQ5hOnkIsE7b"
+          },
+          "type": "track",
+          "artists": [
+            {
+              "id": "4ZE2UrQP3ATxcgwVTbnd7w",
+              "name": "mui zyu"
+            }
+          ],
+          "album": {
+            "id": "6XQydtJrolv08kmTKxFvZ7",
+            "name": "nothing or something to die for",
+            "images": [
+              {
+                "url": "https://i.scdn.co/image/ab67616d0000b2732ed838d22a3fc4d7b2e4e331",
+                "height": 640,
+                "width": 640
+              },
+              {
+                "url": "https://i.scdn.co/image/ab67616d00001e022ed838d22a3fc4d7b2e4e331",
+                "height": 300,
+                "width": 300
+              },
+              {
+                "url": "https://i.scdn.co/image/ab67616d000048512ed838d22a3fc4d7b2e4e331",
+                "height": 64,
+                "width": 64
+              }
+            ]
+          },
+          "duration_ms": 205386,
+          "explicit": false
+        },
+        {
+          "id": "6EOJjwcPgGWe98IDyCsBmY_short_term",
+          "name": "In The Waiting Line",
+          "time_range": "short_term",
+          "uri": "spotify:track:6EOJjwcPgGWe98IDyCsBmY",
+          "external_urls": {
+            "spotify": "https://open.spotify.com/track/6EOJjwcPgGWe98IDyCsBmY"
+          },
+          "type": "track",
+          "artists": [
+            {
+              "id": "14H7ag1wpQOsPPQJOD6Dqr",
+              "name": "Zero 7"
+            },
+            {
+              "id": "5338nAeek8WVCOPNnT7Qv2",
+              "name": "Sophie Barker"
+            }
+          ],
+          "album": {
+            "id": "291IqGpnrkekWf8hn0xB3x",
+            "name": "Simple Things",
+            "images": [
+              {
+                "url": "https://i.scdn.co/image/ab67616d0000b273e79a1017901613837ea0fca9",
+                "height": 640,
+                "width": 640
+              },
+              {
+                "url": "https://i.scdn.co/image/ab67616d00001e02e79a1017901613837ea0fca9",
+                "height": 300,
+                "width": 300
+              },
+              {
+                "url": "https://i.scdn.co/image/ab67616d00004851e79a1017901613837ea0fca9",
+                "height": 64,
+                "width": 64
+              }
+            ]
+          },
+          "duration_ms": 272240,
+          "explicit": false
+        },
+        {
+          "id": "2xK5rPVRQuBS3R1v7YXWU8_short_term",
+          "name": "Pure Easy",
+          "time_range": "short_term",
+          "uri": "spotify:track:2xK5rPVRQuBS3R1v7YXWU8",
+          "external_urls": {
+            "spotify": "https://open.spotify.com/track/2xK5rPVRQuBS3R1v7YXWU8"
+          },
+          "type": "track",
+          "artists": [
+            {
+              "id": "399t4qwl1M9sMlOtlxVP7e",
+              "name": "The Dining Rooms"
+            }
+          ],
+          "album": {
+            "id": "56qpUnH6KXKyGUWxhq0N1p",
+            "name": "Numero Deux",
+            "images": [
+              {
+                "url": "https://i.scdn.co/image/ab67616d0000b273c47b7b365218feb1a0743e4c",
+                "height": 640,
+                "width": 640
+              },
+              {
+                "url": "https://i.scdn.co/image/ab67616d00001e02c47b7b365218feb1a0743e4c",
+                "height": 300,
+                "width": 300
+              },
+              {
+                "url": "https://i.scdn.co/image/ab67616d00004851c47b7b365218feb1a0743e4c",
+                "height": 64,
+                "width": 64
+              }
+            ]
+          },
+          "duration_ms": 276375,
+          "explicit": false
+        },
+        {
+          "id": "08hBmJsQarUreIlbhT1GJ0_short_term",
+          "name": "The Whispering Wind",
+          "time_range": "short_term",
+          "uri": "spotify:track:08hBmJsQarUreIlbhT1GJ0",
+          "external_urls": {
+            "spotify": "https://open.spotify.com/track/08hBmJsQarUreIlbhT1GJ0"
+          },
+          "type": "track",
+          "artists": [
+            {
+              "id": "3OsRAKCvk37zwYcnzRf5XF",
+              "name": "Moby"
+            }
+          ],
+          "album": {
+            "id": "6vcm3ltupPkA4zt82auiKh",
+            "name": "Play: The Complete Recordings",
+            "images": [
+              {
+                "url": "https://i.scdn.co/image/ab67616d0000b2738211d82646eba36b26907b9a",
+                "height": 640,
+                "width": 640
+              },
+              {
+                "url": "https://i.scdn.co/image/ab67616d00001e028211d82646eba36b26907b9a",
+                "height": 300,
+                "width": 300
+              },
+              {
+                "url": "https://i.scdn.co/image/ab67616d000048518211d82646eba36b26907b9a",
+                "height": 64,
+                "width": 64
+              }
+            ]
+          },
+          "duration_ms": 362666,
+          "explicit": false
+        },
+        {
+          "id": "2DnAkOlDEm9oKvPd9Yc03q_short_term",
+          "name": "Farewell ferengistan",
+          "time_range": "short_term",
+          "uri": "spotify:track:2DnAkOlDEm9oKvPd9Yc03q",
+          "external_urls": {
+            "spotify": "https://open.spotify.com/track/2DnAkOlDEm9oKvPd9Yc03q"
+          },
+          "type": "track",
+          "artists": [
+            {
+              "id": "5Z8mapYkacgBN46TkH9L3M",
+              "name": "Banco De Gaia"
+            }
+          ],
+          "album": {
+            "id": "7AUP8Qfe245hM4oCfJnQ5t",
+            "name": "Farewell Ferengistan",
+            "images": [
+              {
+                "url": "https://i.scdn.co/image/ab67616d0000b2731ff717f2aa5cd27e9b1edd4f",
+                "height": 640,
+                "width": 640
+              },
+              {
+                "url": "https://i.scdn.co/image/ab67616d00001e021ff717f2aa5cd27e9b1edd4f",
+                "height": 300,
+                "width": 300
+              },
+              {
+                "url": "https://i.scdn.co/image/ab67616d000048511ff717f2aa5cd27e9b1edd4f",
+                "height": 64,
+                "width": 64
+              }
+            ]
+          },
+          "duration_ms": 377602,
+          "explicit": false
+        },
+        {
+          "id": "4o6Ufgnf7pT55tI4j78RkT_short_term",
+          "name": "Who Am I",
+          "time_range": "short_term",
+          "uri": "spotify:track:4o6Ufgnf7pT55tI4j78RkT",
+          "external_urls": {
+            "spotify": "https://open.spotify.com/track/4o6Ufgnf7pT55tI4j78RkT"
+          },
+          "type": "track",
+          "artists": [
+            {
+              "id": "1h5fdExX00l0ujyhHMwFHt",
+              "name": "Peace Orchestra"
+            }
+          ],
+          "album": {
+            "id": "0K3eGBMX9RMo9QuQtMEEoT",
+            "name": "Peace Orchestra",
+            "images": [
+              {
+                "url": "https://i.scdn.co/image/ab67616d0000b273d0e8225109806fd9be09175a",
+                "height": 640,
+                "width": 640
+              },
+              {
+                "url": "https://i.scdn.co/image/ab67616d00001e02d0e8225109806fd9be09175a",
+                "height": 300,
+                "width": 300
+              },
+              {
+                "url": "https://i.scdn.co/image/ab67616d00004851d0e8225109806fd9be09175a",
+                "height": 64,
+                "width": 64
+              }
+            ]
+          },
+          "duration_ms": 357826,
+          "explicit": false
+        }
+      ]
+    },
+    "batchDelete": {
+      "TopItem": []
+    }
+  },
+  "api": {
+    "get": {
+      "/v1/me/top/artists": [
+        {
+          "response": {
+            "items": [],
+            "total": 0,
+            "limit": 0,
+            "offset": 0,
+            "href": "https://api.spotify.com/v1/me/top/artists?offset=0&limit=50&time_range=short_term",
+            "next": null,
+            "previous": null
+          },
+          "status": 200,
+          "headers": {
+            "date": "Wed, 20 May 2026 10:10:03 GMT",
+            "content-type": "application/json; charset=utf-8",
+            "transfer-encoding": "chunked",
+            "connection": "keep-alive",
+            "x-xss-protection": "0",
+            "x-content-type-options": "nosniff",
+            "x-download-options": "noopen",
+            "x-frame-options": "SAMEORIGIN",
+            "x-dns-prefetch-control": "off",
+            "strict-transport-security": "max-age=31536000",
+            "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+            "access-control-allow-origin": "*",
+            "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+            "x-ratelimit-limit": "5000",
+            "x-ratelimit-remaining": "4980",
+            "x-ratelimit-reset": "1779271834",
+            "cache-control": "private, max-age=0",
+            "etag": "\"MC-IjIxNzk3OGMxMGViOTk4MmQ0ZGFiNzk1NjczZjlhZjRlIg==\"",
+            "x-robots-tag": "noindex, nofollow",
+            "access-control-allow-headers": "Accept, App-Platform, Authorization, Content-Type, Origin, Retry-After, Spotify-App-Version, X-Cloud-Trace-Context, client-token, content-access-token",
+            "access-control-allow-methods": "GET, POST, OPTIONS, PUT, DELETE, PATCH",
+            "access-control-allow-credentials": "true",
+            "access-control-max-age": "604800",
+            "alt-svc": "h3=\":443\"; ma=2592000,h3-29=\":443\"; ma=2592000, h3=\":443\"; ma=2592000,h3-29=\":443\"; ma=2592000",
+            "server": "envoy",
+            "via": "HTTP/2 edgeproxy, 1.1 google"
+          },
+          "hash": "74c99773e5a3ac80f03be30744aeb36fa5d6cea7",
+          "request": {
+            "params": {
+              "limit": "50",
+              "offset": "0",
+              "time_range": "short_term"
+            }
+          }
+        },
+        {
+          "response": {
+            "items": [],
+            "total": 0,
+            "limit": 0,
+            "offset": 0,
+            "href": "https://api.spotify.com/v1/me/top/artists?offset=0&limit=50&time_range=medium_term",
+            "next": null,
+            "previous": null
+          },
+          "status": 200,
+          "headers": {
+            "date": "Wed, 20 May 2026 10:10:04 GMT",
+            "content-type": "application/json; charset=utf-8",
+            "transfer-encoding": "chunked",
+            "connection": "keep-alive",
+            "x-xss-protection": "0",
+            "x-content-type-options": "nosniff",
+            "x-download-options": "noopen",
+            "x-frame-options": "SAMEORIGIN",
+            "x-dns-prefetch-control": "off",
+            "strict-transport-security": "max-age=31536000",
+            "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+            "access-control-allow-origin": "*",
+            "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+            "x-ratelimit-limit": "5000",
+            "x-ratelimit-remaining": "4979",
+            "x-ratelimit-reset": "1779271834",
+            "cache-control": "private, max-age=0",
+            "etag": "\"MC-IjIyNzMxODkwYTRkYzE4Y2UyOGY0YmFkM2VkZWVhOGE4Ig==\"",
+            "x-robots-tag": "noindex, nofollow",
+            "access-control-allow-headers": "Accept, App-Platform, Authorization, Content-Type, Origin, Retry-After, Spotify-App-Version, X-Cloud-Trace-Context, client-token, content-access-token",
+            "access-control-allow-methods": "GET, POST, OPTIONS, PUT, DELETE, PATCH",
+            "access-control-allow-credentials": "true",
+            "access-control-max-age": "604800",
+            "alt-svc": "h3=\":443\"; ma=2592000,h3-29=\":443\"; ma=2592000, h3=\":443\"; ma=2592000,h3-29=\":443\"; ma=2592000",
+            "server": "envoy",
+            "via": "HTTP/2 edgeproxy, 1.1 google"
+          },
+          "hash": "e87c21a6358a8093510c27f8368df61d7f352bbf",
+          "request": {
+            "params": {
+              "limit": "50",
+              "offset": "0",
+              "time_range": "medium_term"
+            }
+          }
+        },
+        {
+          "response": {
+            "items": [],
+            "total": 0,
+            "limit": 0,
+            "offset": 0,
+            "href": "https://api.spotify.com/v1/me/top/artists?offset=0&limit=50&time_range=long_term",
+            "next": null,
+            "previous": null
+          },
+          "status": 200,
+          "headers": {
+            "date": "Wed, 20 May 2026 10:10:05 GMT",
+            "content-type": "application/json; charset=utf-8",
+            "transfer-encoding": "chunked",
+            "connection": "keep-alive",
+            "x-xss-protection": "0",
+            "x-content-type-options": "nosniff",
+            "x-download-options": "noopen",
+            "x-frame-options": "SAMEORIGIN",
+            "x-dns-prefetch-control": "off",
+            "strict-transport-security": "max-age=31536000",
+            "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+            "access-control-allow-origin": "*",
+            "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+            "x-ratelimit-limit": "5000",
+            "x-ratelimit-remaining": "4978",
+            "x-ratelimit-reset": "1779271834",
+            "cache-control": "private, max-age=0",
+            "etag": "\"MC-IjYwMjlhNDE0YzhlYjE5NThmMjBjOGU0MmY4ZjEyYTMxIg==\"",
+            "x-robots-tag": "noindex, nofollow",
+            "access-control-allow-headers": "Accept, App-Platform, Authorization, Content-Type, Origin, Retry-After, Spotify-App-Version, X-Cloud-Trace-Context, client-token, content-access-token",
+            "access-control-allow-methods": "GET, POST, OPTIONS, PUT, DELETE, PATCH",
+            "access-control-allow-credentials": "true",
+            "access-control-max-age": "604800",
+            "alt-svc": "h3=\":443\"; ma=2592000,h3-29=\":443\"; ma=2592000, h3=\":443\"; ma=2592000",
+            "server": "envoy",
+            "via": "HTTP/2 edgeproxy, 1.1 google"
+          },
+          "hash": "dd1a1daaf88a680ba701b80eb6aec1d1c2f32902",
+          "request": {
+            "params": {
+              "limit": "50",
+              "offset": "0",
+              "time_range": "long_term"
+            }
+          }
+        }
+      ],
+      "/v1/me/top/tracks": [
+        {
+          "response": {
+            "items": [
+              {
+                "album": {
+                  "album_type": "album",
+                  "artists": [
+                    {
+                      "external_urls": {
+                        "spotify": "https://open.spotify.com/artist/6HCnsY0Rxi3cg53xreoAIm"
+                      },
+                      "href": "https://api.spotify.com/v1/artists/6HCnsY0Rxi3cg53xreoAIm",
+                      "id": "6HCnsY0Rxi3cg53xreoAIm",
+                      "name": "Emancipator",
+                      "type": "artist",
+                      "uri": "spotify:artist:6HCnsY0Rxi3cg53xreoAIm"
+                    }
+                  ],
+                  "external_urls": {
+                    "spotify": "https://open.spotify.com/album/5UBtUeQ9d4Vgf5qCZVw5fm"
+                  },
+                  "href": "https://api.spotify.com/v1/albums/5UBtUeQ9d4Vgf5qCZVw5fm",
+                  "id": "5UBtUeQ9d4Vgf5qCZVw5fm",
+                  "images": [
+                    {
+                      "height": 640,
+                      "url": "https://i.scdn.co/image/ab67616d0000b273683812adb2b4eb20fb688c9d",
+                      "width": 640
+                    },
+                    {
+                      "height": 300,
+                      "url": "https://i.scdn.co/image/ab67616d00001e02683812adb2b4eb20fb688c9d",
+                      "width": 300
+                    },
+                    {
+                      "height": 64,
+                      "url": "https://i.scdn.co/image/ab67616d00004851683812adb2b4eb20fb688c9d",
+                      "width": 64
+                    }
+                  ],
+                  "is_playable": true,
+                  "name": "Dusk to Dawn",
+                  "release_date": "2013-01-29",
+                  "release_date_precision": "day",
+                  "total_tracks": 10,
+                  "type": "album",
+                  "uri": "spotify:album:5UBtUeQ9d4Vgf5qCZVw5fm"
+                },
+                "artists": [
+                  {
+                    "external_urls": {
+                      "spotify": "https://open.spotify.com/artist/6HCnsY0Rxi3cg53xreoAIm"
+                    },
+                    "href": "https://api.spotify.com/v1/artists/6HCnsY0Rxi3cg53xreoAIm",
+                    "id": "6HCnsY0Rxi3cg53xreoAIm",
+                    "name": "Emancipator",
+                    "type": "artist",
+                    "uri": "spotify:artist:6HCnsY0Rxi3cg53xreoAIm"
+                  }
+                ],
+                "disc_number": 1,
+                "duration_ms": 218444,
+                "explicit": false,
+                "external_ids": {
+                  "isrc": "TCABL1389461"
+                },
+                "external_urls": {
+                  "spotify": "https://open.spotify.com/track/7d8UsuThQiOn5WZ5pdv0Ti"
+                },
+                "href": "https://api.spotify.com/v1/tracks/7d8UsuThQiOn5WZ5pdv0Ti",
+                "id": "7d8UsuThQiOn5WZ5pdv0Ti",
+                "is_local": false,
+                "is_playable": true,
+                "name": "Outlaw",
+                "track_number": 4,
+                "type": "track",
+                "uri": "spotify:track:7d8UsuThQiOn5WZ5pdv0Ti"
+              },
+              {
+                "album": {
+                  "album_type": "single",
+                  "artists": [
+                    {
+                      "external_urls": {
+                        "spotify": "https://open.spotify.com/artist/39ywlwtGw8RTGobakgb11L"
+                      },
+                      "href": "https://api.spotify.com/v1/artists/39ywlwtGw8RTGobakgb11L",
+                      "id": "39ywlwtGw8RTGobakgb11L",
+                      "name": "Kruder & Dorfmeister",
+                      "type": "artist",
+                      "uri": "spotify:artist:39ywlwtGw8RTGobakgb11L"
+                    }
+                  ],
+                  "external_urls": {
+                    "spotify": "https://open.spotify.com/album/4AKnOEd9fx1pj36xAq5eUN"
+                  },
+                  "href": "https://api.spotify.com/v1/albums/4AKnOEd9fx1pj36xAq5eUN",
+                  "id": "4AKnOEd9fx1pj36xAq5eUN",
+                  "images": [
+                    {
+                      "height": 640,
+                      "url": "https://i.scdn.co/image/ab67616d0000b2736ae6067bd94d9f738a917697",
+                      "width": 640
+                    },
+                    {
+                      "height": 300,
+                      "url": "https://i.scdn.co/image/ab67616d00001e026ae6067bd94d9f738a917697",
+                      "width": 300
+                    },
+                    {
+                      "height": 64,
+                      "url": "https://i.scdn.co/image/ab67616d000048516ae6067bd94d9f738a917697",
+                      "width": 64
+                    }
+                  ],
+                  "is_playable": true,
+                  "name": "G-Stoned",
+                  "release_date": "1993-09-12",
+                  "release_date_precision": "day",
+                  "total_tracks": 4,
+                  "type": "album",
+                  "uri": "spotify:album:4AKnOEd9fx1pj36xAq5eUN"
+                },
+                "artists": [
+                  {
+                    "external_urls": {
+                      "spotify": "https://open.spotify.com/artist/39ywlwtGw8RTGobakgb11L"
+                    },
+                    "href": "https://api.spotify.com/v1/artists/39ywlwtGw8RTGobakgb11L",
+                    "id": "39ywlwtGw8RTGobakgb11L",
+                    "name": "Kruder & Dorfmeister",
+                    "type": "artist",
+                    "uri": "spotify:artist:39ywlwtGw8RTGobakgb11L"
+                  }
+                ],
+                "disc_number": 1,
+                "duration_ms": 386266,
+                "explicit": false,
+                "external_ids": {
+                  "isrc": "ATG249301103"
+                },
+                "external_urls": {
+                  "spotify": "https://open.spotify.com/track/0oP2XkRvW12u8gCxpBfVVU"
+                },
+                "href": "https://api.spotify.com/v1/tracks/0oP2XkRvW12u8gCxpBfVVU",
+                "id": "0oP2XkRvW12u8gCxpBfVVU",
+                "is_local": false,
+                "is_playable": true,
+                "name": "High Noon",
+                "track_number": 3,
+                "type": "track",
+                "uri": "spotify:track:0oP2XkRvW12u8gCxpBfVVU"
+              },
+              {
+                "album": {
+                  "album_type": "album",
+                  "artists": [
+                    {
+                      "external_urls": {
+                        "spotify": "https://open.spotify.com/artist/1hwAhXzyuEUjug2pyNVSvg"
+                      },
+                      "href": "https://api.spotify.com/v1/artists/1hwAhXzyuEUjug2pyNVSvg",
+                      "id": "1hwAhXzyuEUjug2pyNVSvg",
+                      "name": "DJ Cam",
+                      "type": "artist",
+                      "uri": "spotify:artist:1hwAhXzyuEUjug2pyNVSvg"
+                    }
+                  ],
+                  "external_urls": {
+                    "spotify": "https://open.spotify.com/album/3KbEXCBCtDk1gUIJrQirIA"
+                  },
+                  "href": "https://api.spotify.com/v1/albums/3KbEXCBCtDk1gUIJrQirIA",
+                  "id": "3KbEXCBCtDk1gUIJrQirIA",
+                  "images": [
+                    {
+                      "height": 640,
+                      "url": "https://i.scdn.co/image/ab67616d0000b2738d04d492cc8de9452b1e54eb",
+                      "width": 640
+                    },
+                    {
+                      "height": 300,
+                      "url": "https://i.scdn.co/image/ab67616d00001e028d04d492cc8de9452b1e54eb",
+                      "width": 300
+                    },
+                    {
+                      "height": 64,
+                      "url": "https://i.scdn.co/image/ab67616d000048518d04d492cc8de9452b1e54eb",
+                      "width": 64
+                    }
+                  ],
+                  "is_playable": true,
+                  "name": "Underground Vibes",
+                  "release_date": "1995-05-20",
+                  "release_date_precision": "day",
+                  "total_tracks": 11,
+                  "type": "album",
+                  "uri": "spotify:album:3KbEXCBCtDk1gUIJrQirIA"
+                },
+                "artists": [
+                  {
+                    "external_urls": {
+                      "spotify": "https://open.spotify.com/artist/1hwAhXzyuEUjug2pyNVSvg"
+                    },
+                    "href": "https://api.spotify.com/v1/artists/1hwAhXzyuEUjug2pyNVSvg",
+                    "id": "1hwAhXzyuEUjug2pyNVSvg",
+                    "name": "DJ Cam",
+                    "type": "artist",
+                    "uri": "spotify:artist:1hwAhXzyuEUjug2pyNVSvg"
+                  }
+                ],
+                "disc_number": 1,
+                "duration_ms": 312413,
+                "explicit": false,
+                "external_ids": {
+                  "isrc": "FR6V89502266"
+                },
+                "external_urls": {
+                  "spotify": "https://open.spotify.com/track/11mUt9hPLDxt7EsoYB2Ujc"
+                },
+                "href": "https://api.spotify.com/v1/tracks/11mUt9hPLDxt7EsoYB2Ujc",
+                "id": "11mUt9hPLDxt7EsoYB2Ujc",
+                "is_local": false,
+                "is_playable": true,
+                "name": "Mad Blunted Jazz",
+                "track_number": 3,
+                "type": "track",
+                "uri": "spotify:track:11mUt9hPLDxt7EsoYB2Ujc"
+              },
+              {
+                "album": {
+                  "album_type": "album",
+                  "artists": [
+                    {
+                      "external_urls": {
+                        "spotify": "https://open.spotify.com/artist/5CE2IfdYZEQGIDsfiRm8SI"
+                      },
+                      "href": "https://api.spotify.com/v1/artists/5CE2IfdYZEQGIDsfiRm8SI",
+                      "id": "5CE2IfdYZEQGIDsfiRm8SI",
+                      "name": "DJ Shadow",
+                      "type": "artist",
+                      "uri": "spotify:artist:5CE2IfdYZEQGIDsfiRm8SI"
+                    }
+                  ],
+                  "external_urls": {
+                    "spotify": "https://open.spotify.com/album/4tUVkNYSFrrEqqrxBQW9PN"
+                  },
+                  "href": "https://api.spotify.com/v1/albums/4tUVkNYSFrrEqqrxBQW9PN",
+                  "id": "4tUVkNYSFrrEqqrxBQW9PN",
+                  "images": [
+                    {
+                      "height": 640,
+                      "url": "https://i.scdn.co/image/ab67616d0000b273c02294cf9b5ec88cd939a8a6",
+                      "width": 640
+                    },
+                    {
+                      "height": 300,
+                      "url": "https://i.scdn.co/image/ab67616d00001e02c02294cf9b5ec88cd939a8a6",
+                      "width": 300
+                    },
+                    {
+                      "height": 64,
+                      "url": "https://i.scdn.co/image/ab67616d00004851c02294cf9b5ec88cd939a8a6",
+                      "width": 64
+                    }
+                  ],
+                  "is_playable": true,
+                  "name": "Endtroducing.....",
+                  "release_date": "1996-01-01",
+                  "release_date_precision": "day",
+                  "total_tracks": 16,
+                  "type": "album",
+                  "uri": "spotify:album:4tUVkNYSFrrEqqrxBQW9PN"
+                },
+                "artists": [
+                  {
+                    "external_urls": {
+                      "spotify": "https://open.spotify.com/artist/5CE2IfdYZEQGIDsfiRm8SI"
+                    },
+                    "href": "https://api.spotify.com/v1/artists/5CE2IfdYZEQGIDsfiRm8SI",
+                    "id": "5CE2IfdYZEQGIDsfiRm8SI",
+                    "name": "DJ Shadow",
+                    "type": "artist",
+                    "uri": "spotify:artist:5CE2IfdYZEQGIDsfiRm8SI"
+                  }
+                ],
+                "disc_number": 1,
+                "duration_ms": 298373,
+                "explicit": false,
+                "external_ids": {
+                  "isrc": "GBAQH9600061"
+                },
+                "external_urls": {
+                  "spotify": "https://open.spotify.com/track/1a9maLxqpx3cxjY1lTj62B"
+                },
+                "href": "https://api.spotify.com/v1/tracks/1a9maLxqpx3cxjY1lTj62B",
+                "id": "1a9maLxqpx3cxjY1lTj62B",
+                "is_local": false,
+                "is_playable": true,
+                "name": "Midnight In A Perfect World",
+                "track_number": 13,
+                "type": "track",
+                "uri": "spotify:track:1a9maLxqpx3cxjY1lTj62B"
+              },
+              {
+                "album": {
+                  "album_type": "album",
+                  "artists": [
+                    {
+                      "external_urls": {
+                        "spotify": "https://open.spotify.com/artist/2I36EjIVz3vDfROgj1MfZ3"
+                      },
+                      "href": "https://api.spotify.com/v1/artists/2I36EjIVz3vDfROgj1MfZ3",
+                      "id": "2I36EjIVz3vDfROgj1MfZ3",
+                      "name": "Boozoo Bajou",
+                      "type": "artist",
+                      "uri": "spotify:artist:2I36EjIVz3vDfROgj1MfZ3"
+                    }
+                  ],
+                  "external_urls": {
+                    "spotify": "https://open.spotify.com/album/0ZR87OL6kj1s2MonZprzkn"
+                  },
+                  "href": "https://api.spotify.com/v1/albums/0ZR87OL6kj1s2MonZprzkn",
+                  "id": "0ZR87OL6kj1s2MonZprzkn",
+                  "images": [
+                    {
+                      "height": 640,
+                      "url": "https://i.scdn.co/image/ab67616d0000b27317a128b115a05935dd3184e9",
+                      "width": 640
+                    },
+                    {
+                      "height": 300,
+                      "url": "https://i.scdn.co/image/ab67616d00001e0217a128b115a05935dd3184e9",
+                      "width": 300
+                    },
+                    {
+                      "height": 64,
+                      "url": "https://i.scdn.co/image/ab67616d0000485117a128b115a05935dd3184e9",
+                      "width": 64
+                    }
+                  ],
+                  "is_playable": true,
+                  "name": "Satta",
+                  "release_date": "2001",
+                  "release_date_precision": "year",
+                  "total_tracks": 11,
+                  "type": "album",
+                  "uri": "spotify:album:0ZR87OL6kj1s2MonZprzkn"
+                },
+                "artists": [
+                  {
+                    "external_urls": {
+                      "spotify": "https://open.spotify.com/artist/2I36EjIVz3vDfROgj1MfZ3"
+                    },
+                    "href": "https://api.spotify.com/v1/artists/2I36EjIVz3vDfROgj1MfZ3",
+                    "id": "2I36EjIVz3vDfROgj1MfZ3",
+                    "name": "Boozoo Bajou",
+                    "type": "artist",
+                    "uri": "spotify:artist:2I36EjIVz3vDfROgj1MfZ3"
+                  }
+                ],
+                "disc_number": 1,
+                "duration_ms": 390000,
+                "explicit": false,
+                "external_ids": {
+                  "isrc": "DEAW10900147"
+                },
+                "external_urls": {
+                  "spotify": "https://open.spotify.com/track/2ahdXok2BdTmOB4mfNCRGw"
+                },
+                "href": "https://api.spotify.com/v1/tracks/2ahdXok2BdTmOB4mfNCRGw",
+                "id": "2ahdXok2BdTmOB4mfNCRGw",
+                "is_local": false,
+                "is_playable": true,
+                "name": "YMA",
+                "track_number": 1,
+                "type": "track",
+                "uri": "spotify:track:2ahdXok2BdTmOB4mfNCRGw"
+              },
+              {
+                "album": {
+                  "album_type": "album",
+                  "artists": [
+                    {
+                      "external_urls": {
+                        "spotify": "https://open.spotify.com/artist/1O7aMVbDeSXY2LiVBhb13w"
+                      },
+                      "href": "https://api.spotify.com/v1/artists/1O7aMVbDeSXY2LiVBhb13w",
+                      "id": "1O7aMVbDeSXY2LiVBhb13w",
+                      "name": "The Herbaliser",
+                      "type": "artist",
+                      "uri": "spotify:artist:1O7aMVbDeSXY2LiVBhb13w"
+                    }
+                  ],
+                  "external_urls": {
+                    "spotify": "https://open.spotify.com/album/1V3a7mBozraa6AXQmUNxFV"
+                  },
+                  "href": "https://api.spotify.com/v1/albums/1V3a7mBozraa6AXQmUNxFV",
+                  "id": "1V3a7mBozraa6AXQmUNxFV",
+                  "images": [
+                    {
+                      "height": 640,
+                      "url": "https://i.scdn.co/image/ab67616d0000b27346d6181c9bd591a937d32e67",
+                      "width": 640
+                    },
+                    {
+                      "height": 300,
+                      "url": "https://i.scdn.co/image/ab67616d00001e0246d6181c9bd591a937d32e67",
+                      "width": 300
+                    },
+                    {
+                      "height": 64,
+                      "url": "https://i.scdn.co/image/ab67616d0000485146d6181c9bd591a937d32e67",
+                      "width": 64
+                    }
+                  ],
+                  "is_playable": true,
+                  "name": "Very Mercenary",
+                  "release_date": "1999-04-01",
+                  "release_date_precision": "day",
+                  "total_tracks": 16,
+                  "type": "album",
+                  "uri": "spotify:album:1V3a7mBozraa6AXQmUNxFV"
+                },
+                "artists": [
+                  {
+                    "external_urls": {
+                      "spotify": "https://open.spotify.com/artist/1O7aMVbDeSXY2LiVBhb13w"
+                    },
+                    "href": "https://api.spotify.com/v1/artists/1O7aMVbDeSXY2LiVBhb13w",
+                    "id": "1O7aMVbDeSXY2LiVBhb13w",
+                    "name": "The Herbaliser",
+                    "type": "artist",
+                    "uri": "spotify:artist:1O7aMVbDeSXY2LiVBhb13w"
+                  }
+                ],
+                "disc_number": 1,
+                "duration_ms": 216001,
+                "explicit": false,
+                "external_ids": {
+                  "isrc": "GBCFB9900430"
+                },
+                "external_urls": {
+                  "spotify": "https://open.spotify.com/track/31U21fwH5izi4fVA2f1HKa"
+                },
+                "href": "https://api.spotify.com/v1/tracks/31U21fwH5izi4fVA2f1HKa",
+                "id": "31U21fwH5izi4fVA2f1HKa",
+                "is_local": false,
+                "is_playable": true,
+                "name": "The Sensual Woman",
+                "track_number": 12,
+                "type": "track",
+                "uri": "spotify:track:31U21fwH5izi4fVA2f1HKa"
+              },
+              {
+                "album": {
+                  "album_type": "album",
+                  "artists": [
+                    {
+                      "external_urls": {
+                        "spotify": "https://open.spotify.com/artist/38DX4hQVvPBs3PThDIAK11"
+                      },
+                      "href": "https://api.spotify.com/v1/artists/38DX4hQVvPBs3PThDIAK11",
+                      "id": "38DX4hQVvPBs3PThDIAK11",
+                      "name": "Carbon Based Lifeforms",
+                      "type": "artist",
+                      "uri": "spotify:artist:38DX4hQVvPBs3PThDIAK11"
+                    }
+                  ],
+                  "external_urls": {
+                    "spotify": "https://open.spotify.com/album/3g1Bz7vXLd0GgxHId19oqc"
+                  },
+                  "href": "https://api.spotify.com/v1/albums/3g1Bz7vXLd0GgxHId19oqc",
+                  "id": "3g1Bz7vXLd0GgxHId19oqc",
+                  "images": [
+                    {
+                      "height": 640,
+                      "url": "https://i.scdn.co/image/ab67616d0000b273ad0677f76f220c118226fd46",
+                      "width": 640
+                    },
+                    {
+                      "height": 300,
+                      "url": "https://i.scdn.co/image/ab67616d00001e02ad0677f76f220c118226fd46",
+                      "width": 300
+                    },
+                    {
+                      "height": 64,
+                      "url": "https://i.scdn.co/image/ab67616d00004851ad0677f76f220c118226fd46",
+                      "width": 64
+                    }
+                  ],
+                  "is_playable": true,
+                  "name": "Interloper",
+                  "release_date": "2010-05-03",
+                  "release_date_precision": "day",
+                  "total_tracks": 10,
+                  "type": "album",
+                  "uri": "spotify:album:3g1Bz7vXLd0GgxHId19oqc"
+                },
+                "artists": [
+                  {
+                    "external_urls": {
+                      "spotify": "https://open.spotify.com/artist/38DX4hQVvPBs3PThDIAK11"
+                    },
+                    "href": "https://api.spotify.com/v1/artists/38DX4hQVvPBs3PThDIAK11",
+                    "id": "38DX4hQVvPBs3PThDIAK11",
+                    "name": "Carbon Based Lifeforms",
+                    "type": "artist",
+                    "uri": "spotify:artist:38DX4hQVvPBs3PThDIAK11"
+                  }
+                ],
+                "disc_number": 1,
+                "duration_ms": 389325,
+                "explicit": false,
+                "external_ids": {
+                  "isrc": "SEYOK1507551"
+                },
+                "external_urls": {
+                  "spotify": "https://open.spotify.com/track/4MzII8fszi8KkFl1ryv07L"
+                },
+                "href": "https://api.spotify.com/v1/tracks/4MzII8fszi8KkFl1ryv07L",
+                "id": "4MzII8fszi8KkFl1ryv07L",
+                "is_local": false,
+                "is_playable": true,
+                "name": "Interloper",
+                "track_number": 1,
+                "type": "track",
+                "uri": "spotify:track:4MzII8fszi8KkFl1ryv07L"
+              },
+              {
+                "album": {
+                  "album_type": "album",
+                  "artists": [
+                    {
+                      "external_urls": {
+                        "spotify": "https://open.spotify.com/artist/4ZE2UrQP3ATxcgwVTbnd7w"
+                      },
+                      "href": "https://api.spotify.com/v1/artists/4ZE2UrQP3ATxcgwVTbnd7w",
+                      "id": "4ZE2UrQP3ATxcgwVTbnd7w",
+                      "name": "mui zyu",
+                      "type": "artist",
+                      "uri": "spotify:artist:4ZE2UrQP3ATxcgwVTbnd7w"
+                    }
+                  ],
+                  "external_urls": {
+                    "spotify": "https://open.spotify.com/album/6XQydtJrolv08kmTKxFvZ7"
+                  },
+                  "href": "https://api.spotify.com/v1/albums/6XQydtJrolv08kmTKxFvZ7",
+                  "id": "6XQydtJrolv08kmTKxFvZ7",
+                  "images": [
+                    {
+                      "height": 640,
+                      "url": "https://i.scdn.co/image/ab67616d0000b2732ed838d22a3fc4d7b2e4e331",
+                      "width": 640
+                    },
+                    {
+                      "height": 300,
+                      "url": "https://i.scdn.co/image/ab67616d00001e022ed838d22a3fc4d7b2e4e331",
+                      "width": 300
+                    },
+                    {
+                      "height": 64,
+                      "url": "https://i.scdn.co/image/ab67616d000048512ed838d22a3fc4d7b2e4e331",
+                      "width": 64
+                    }
+                  ],
+                  "is_playable": true,
+                  "name": "nothing or something to die for",
+                  "release_date": "2024-05-24",
+                  "release_date_precision": "day",
+                  "total_tracks": 15,
+                  "type": "album",
+                  "uri": "spotify:album:6XQydtJrolv08kmTKxFvZ7"
+                },
+                "artists": [
+                  {
+                    "external_urls": {
+                      "spotify": "https://open.spotify.com/artist/4ZE2UrQP3ATxcgwVTbnd7w"
+                    },
+                    "href": "https://api.spotify.com/v1/artists/4ZE2UrQP3ATxcgwVTbnd7w",
+                    "id": "4ZE2UrQP3ATxcgwVTbnd7w",
+                    "name": "mui zyu",
+                    "type": "artist",
+                    "uri": "spotify:artist:4ZE2UrQP3ATxcgwVTbnd7w"
+                  }
+                ],
+                "disc_number": 1,
+                "duration_ms": 205386,
+                "explicit": false,
+                "external_ids": {
+                  "isrc": "QMFD42400005"
+                },
+                "external_urls": {
+                  "spotify": "https://open.spotify.com/track/4e9wkM5v3dUQ5hOnkIsE7b"
+                },
+                "href": "https://api.spotify.com/v1/tracks/4e9wkM5v3dUQ5hOnkIsE7b",
+                "id": "4e9wkM5v3dUQ5hOnkIsE7b",
+                "is_local": false,
+                "is_playable": true,
+                "name": "the rules of what an earthling can be",
+                "track_number": 5,
+                "type": "track",
+                "uri": "spotify:track:4e9wkM5v3dUQ5hOnkIsE7b"
+              },
+              {
+                "album": {
+                  "album_type": "album",
+                  "artists": [
+                    {
+                      "external_urls": {
+                        "spotify": "https://open.spotify.com/artist/14H7ag1wpQOsPPQJOD6Dqr"
+                      },
+                      "href": "https://api.spotify.com/v1/artists/14H7ag1wpQOsPPQJOD6Dqr",
+                      "id": "14H7ag1wpQOsPPQJOD6Dqr",
+                      "name": "Zero 7",
+                      "type": "artist",
+                      "uri": "spotify:artist:14H7ag1wpQOsPPQJOD6Dqr"
+                    }
+                  ],
+                  "external_urls": {
+                    "spotify": "https://open.spotify.com/album/291IqGpnrkekWf8hn0xB3x"
+                  },
+                  "href": "https://api.spotify.com/v1/albums/291IqGpnrkekWf8hn0xB3x",
+                  "id": "291IqGpnrkekWf8hn0xB3x",
+                  "images": [
+                    {
+                      "height": 640,
+                      "url": "https://i.scdn.co/image/ab67616d0000b273e79a1017901613837ea0fca9",
+                      "width": 640
+                    },
+                    {
+                      "height": 300,
+                      "url": "https://i.scdn.co/image/ab67616d00001e02e79a1017901613837ea0fca9",
+                      "width": 300
+                    },
+                    {
+                      "height": 64,
+                      "url": "https://i.scdn.co/image/ab67616d00004851e79a1017901613837ea0fca9",
+                      "width": 64
+                    }
+                  ],
+                  "is_playable": true,
+                  "name": "Simple Things",
+                  "release_date": "2004-12-21",
+                  "release_date_precision": "day",
+                  "total_tracks": 12,
+                  "type": "album",
+                  "uri": "spotify:album:291IqGpnrkekWf8hn0xB3x"
+                },
+                "artists": [
+                  {
+                    "external_urls": {
+                      "spotify": "https://open.spotify.com/artist/14H7ag1wpQOsPPQJOD6Dqr"
+                    },
+                    "href": "https://api.spotify.com/v1/artists/14H7ag1wpQOsPPQJOD6Dqr",
+                    "id": "14H7ag1wpQOsPPQJOD6Dqr",
+                    "name": "Zero 7",
+                    "type": "artist",
+                    "uri": "spotify:artist:14H7ag1wpQOsPPQJOD6Dqr"
+                  },
+                  {
+                    "external_urls": {
+                      "spotify": "https://open.spotify.com/artist/5338nAeek8WVCOPNnT7Qv2"
+                    },
+                    "href": "https://api.spotify.com/v1/artists/5338nAeek8WVCOPNnT7Qv2",
+                    "id": "5338nAeek8WVCOPNnT7Qv2",
+                    "name": "Sophie Barker",
+                    "type": "artist",
+                    "uri": "spotify:artist:5338nAeek8WVCOPNnT7Qv2"
+                  }
+                ],
+                "disc_number": 1,
+                "duration_ms": 272240,
+                "explicit": false,
+                "external_ids": {
+                  "isrc": "GBCHV0150168"
+                },
+                "external_urls": {
+                  "spotify": "https://open.spotify.com/track/6EOJjwcPgGWe98IDyCsBmY"
+                },
+                "href": "https://api.spotify.com/v1/tracks/6EOJjwcPgGWe98IDyCsBmY",
+                "id": "6EOJjwcPgGWe98IDyCsBmY",
+                "is_local": false,
+                "is_playable": true,
+                "name": "In The Waiting Line",
+                "track_number": 8,
+                "type": "track",
+                "uri": "spotify:track:6EOJjwcPgGWe98IDyCsBmY"
+              },
+              {
+                "album": {
+                  "album_type": "album",
+                  "artists": [
+                    {
+                      "external_urls": {
+                        "spotify": "https://open.spotify.com/artist/399t4qwl1M9sMlOtlxVP7e"
+                      },
+                      "href": "https://api.spotify.com/v1/artists/399t4qwl1M9sMlOtlxVP7e",
+                      "id": "399t4qwl1M9sMlOtlxVP7e",
+                      "name": "The Dining Rooms",
+                      "type": "artist",
+                      "uri": "spotify:artist:399t4qwl1M9sMlOtlxVP7e"
+                    }
+                  ],
+                  "external_urls": {
+                    "spotify": "https://open.spotify.com/album/56qpUnH6KXKyGUWxhq0N1p"
+                  },
+                  "href": "https://api.spotify.com/v1/albums/56qpUnH6KXKyGUWxhq0N1p",
+                  "id": "56qpUnH6KXKyGUWxhq0N1p",
+                  "images": [
+                    {
+                      "height": 640,
+                      "url": "https://i.scdn.co/image/ab67616d0000b273c47b7b365218feb1a0743e4c",
+                      "width": 640
+                    },
+                    {
+                      "height": 300,
+                      "url": "https://i.scdn.co/image/ab67616d00001e02c47b7b365218feb1a0743e4c",
+                      "width": 300
+                    },
+                    {
+                      "height": 64,
+                      "url": "https://i.scdn.co/image/ab67616d00004851c47b7b365218feb1a0743e4c",
+                      "width": 64
+                    }
+                  ],
+                  "is_playable": true,
+                  "name": "Numero Deux",
+                  "release_date": "2001",
+                  "release_date_precision": "year",
+                  "total_tracks": 13,
+                  "type": "album",
+                  "uri": "spotify:album:56qpUnH6KXKyGUWxhq0N1p"
+                },
+                "artists": [
+                  {
+                    "external_urls": {
+                      "spotify": "https://open.spotify.com/artist/399t4qwl1M9sMlOtlxVP7e"
+                    },
+                    "href": "https://api.spotify.com/v1/artists/399t4qwl1M9sMlOtlxVP7e",
+                    "id": "399t4qwl1M9sMlOtlxVP7e",
+                    "name": "The Dining Rooms",
+                    "type": "artist",
+                    "uri": "spotify:artist:399t4qwl1M9sMlOtlxVP7e"
+                  }
+                ],
+                "disc_number": 1,
+                "duration_ms": 276375,
+                "explicit": false,
+                "external_ids": {
+                  "isrc": "ITO0P0100124"
+                },
+                "external_urls": {
+                  "spotify": "https://open.spotify.com/track/2xK5rPVRQuBS3R1v7YXWU8"
+                },
+                "href": "https://api.spotify.com/v1/tracks/2xK5rPVRQuBS3R1v7YXWU8",
+                "id": "2xK5rPVRQuBS3R1v7YXWU8",
+                "is_local": false,
+                "is_playable": true,
+                "name": "Pure Easy",
+                "track_number": 1,
+                "type": "track",
+                "uri": "spotify:track:2xK5rPVRQuBS3R1v7YXWU8"
+              },
+              {
+                "album": {
+                  "album_type": "album",
+                  "artists": [
+                    {
+                      "external_urls": {
+                        "spotify": "https://open.spotify.com/artist/3OsRAKCvk37zwYcnzRf5XF"
+                      },
+                      "href": "https://api.spotify.com/v1/artists/3OsRAKCvk37zwYcnzRf5XF",
+                      "id": "3OsRAKCvk37zwYcnzRf5XF",
+                      "name": "Moby",
+                      "type": "artist",
+                      "uri": "spotify:artist:3OsRAKCvk37zwYcnzRf5XF"
+                    }
+                  ],
+                  "external_urls": {
+                    "spotify": "https://open.spotify.com/album/6vcm3ltupPkA4zt82auiKh"
+                  },
+                  "href": "https://api.spotify.com/v1/albums/6vcm3ltupPkA4zt82auiKh",
+                  "id": "6vcm3ltupPkA4zt82auiKh",
+                  "images": [
+                    {
+                      "height": 640,
+                      "url": "https://i.scdn.co/image/ab67616d0000b2738211d82646eba36b26907b9a",
+                      "width": 640
+                    },
+                    {
+                      "height": 300,
+                      "url": "https://i.scdn.co/image/ab67616d00001e028211d82646eba36b26907b9a",
+                      "width": 300
+                    },
+                    {
+                      "height": 64,
+                      "url": "https://i.scdn.co/image/ab67616d000048518211d82646eba36b26907b9a",
+                      "width": 64
+                    }
+                  ],
+                  "is_playable": true,
+                  "name": "Play: The Complete Recordings",
+                  "release_date": "1999-05-17",
+                  "release_date_precision": "day",
+                  "total_tracks": 34,
+                  "type": "album",
+                  "uri": "spotify:album:6vcm3ltupPkA4zt82auiKh"
+                },
+                "artists": [
+                  {
+                    "external_urls": {
+                      "spotify": "https://open.spotify.com/artist/3OsRAKCvk37zwYcnzRf5XF"
+                    },
+                    "href": "https://api.spotify.com/v1/artists/3OsRAKCvk37zwYcnzRf5XF",
+                    "id": "3OsRAKCvk37zwYcnzRf5XF",
+                    "name": "Moby",
+                    "type": "artist",
+                    "uri": "spotify:artist:3OsRAKCvk37zwYcnzRf5XF"
+                  }
+                ],
+                "disc_number": 1,
+                "duration_ms": 362666,
+                "explicit": false,
+                "external_ids": {
+                  "isrc": "GBAJH0000380"
+                },
+                "external_urls": {
+                  "spotify": "https://open.spotify.com/track/08hBmJsQarUreIlbhT1GJ0"
+                },
+                "href": "https://api.spotify.com/v1/tracks/08hBmJsQarUreIlbhT1GJ0",
+                "id": "08hBmJsQarUreIlbhT1GJ0",
+                "is_local": false,
+                "is_playable": true,
+                "name": "The Whispering Wind",
+                "track_number": 22,
+                "type": "track",
+                "uri": "spotify:track:08hBmJsQarUreIlbhT1GJ0"
+              },
+              {
+                "album": {
+                  "album_type": "album",
+                  "artists": [
+                    {
+                      "external_urls": {
+                        "spotify": "https://open.spotify.com/artist/5Z8mapYkacgBN46TkH9L3M"
+                      },
+                      "href": "https://api.spotify.com/v1/artists/5Z8mapYkacgBN46TkH9L3M",
+                      "id": "5Z8mapYkacgBN46TkH9L3M",
+                      "name": "Banco De Gaia",
+                      "type": "artist",
+                      "uri": "spotify:artist:5Z8mapYkacgBN46TkH9L3M"
+                    }
+                  ],
+                  "external_urls": {
+                    "spotify": "https://open.spotify.com/album/7AUP8Qfe245hM4oCfJnQ5t"
+                  },
+                  "href": "https://api.spotify.com/v1/albums/7AUP8Qfe245hM4oCfJnQ5t",
+                  "id": "7AUP8Qfe245hM4oCfJnQ5t",
+                  "images": [
+                    {
+                      "height": 640,
+                      "url": "https://i.scdn.co/image/ab67616d0000b2731ff717f2aa5cd27e9b1edd4f",
+                      "width": 640
+                    },
+                    {
+                      "height": 300,
+                      "url": "https://i.scdn.co/image/ab67616d00001e021ff717f2aa5cd27e9b1edd4f",
+                      "width": 300
+                    },
+                    {
+                      "height": 64,
+                      "url": "https://i.scdn.co/image/ab67616d000048511ff717f2aa5cd27e9b1edd4f",
+                      "width": 64
+                    }
+                  ],
+                  "is_playable": true,
+                  "name": "Farewell Ferengistan",
+                  "release_date": "2006",
+                  "release_date_precision": "year",
+                  "total_tracks": 9,
+                  "type": "album",
+                  "uri": "spotify:album:7AUP8Qfe245hM4oCfJnQ5t"
+                },
+                "artists": [
+                  {
+                    "external_urls": {
+                      "spotify": "https://open.spotify.com/artist/5Z8mapYkacgBN46TkH9L3M"
+                    },
+                    "href": "https://api.spotify.com/v1/artists/5Z8mapYkacgBN46TkH9L3M",
+                    "id": "5Z8mapYkacgBN46TkH9L3M",
+                    "name": "Banco De Gaia",
+                    "type": "artist",
+                    "uri": "spotify:artist:5Z8mapYkacgBN46TkH9L3M"
+                  }
+                ],
+                "disc_number": 1,
+                "duration_ms": 377602,
+                "explicit": false,
+                "external_ids": {
+                  "isrc": "GBCSF0600100"
+                },
+                "external_urls": {
+                  "spotify": "https://open.spotify.com/track/2DnAkOlDEm9oKvPd9Yc03q"
+                },
+                "href": "https://api.spotify.com/v1/tracks/2DnAkOlDEm9oKvPd9Yc03q",
+                "id": "2DnAkOlDEm9oKvPd9Yc03q",
+                "is_local": false,
+                "is_playable": true,
+                "name": "Farewell ferengistan",
+                "track_number": 1,
+                "type": "track",
+                "uri": "spotify:track:2DnAkOlDEm9oKvPd9Yc03q"
+              },
+              {
+                "album": {
+                  "album_type": "album",
+                  "artists": [
+                    {
+                      "external_urls": {
+                        "spotify": "https://open.spotify.com/artist/1h5fdExX00l0ujyhHMwFHt"
+                      },
+                      "href": "https://api.spotify.com/v1/artists/1h5fdExX00l0ujyhHMwFHt",
+                      "id": "1h5fdExX00l0ujyhHMwFHt",
+                      "name": "Peace Orchestra",
+                      "type": "artist",
+                      "uri": "spotify:artist:1h5fdExX00l0ujyhHMwFHt"
+                    }
+                  ],
+                  "external_urls": {
+                    "spotify": "https://open.spotify.com/album/0K3eGBMX9RMo9QuQtMEEoT"
+                  },
+                  "href": "https://api.spotify.com/v1/albums/0K3eGBMX9RMo9QuQtMEEoT",
+                  "id": "0K3eGBMX9RMo9QuQtMEEoT",
+                  "images": [
+                    {
+                      "height": 640,
+                      "url": "https://i.scdn.co/image/ab67616d0000b273d0e8225109806fd9be09175a",
+                      "width": 640
+                    },
+                    {
+                      "height": 300,
+                      "url": "https://i.scdn.co/image/ab67616d00001e02d0e8225109806fd9be09175a",
+                      "width": 300
+                    },
+                    {
+                      "height": 64,
+                      "url": "https://i.scdn.co/image/ab67616d00004851d0e8225109806fd9be09175a",
+                      "width": 64
+                    }
+                  ],
+                  "is_playable": true,
+                  "name": "Peace Orchestra",
+                  "release_date": "1999-09-09",
+                  "release_date_precision": "day",
+                  "total_tracks": 9,
+                  "type": "album",
+                  "uri": "spotify:album:0K3eGBMX9RMo9QuQtMEEoT"
+                },
+                "artists": [
+                  {
+                    "external_urls": {
+                      "spotify": "https://open.spotify.com/artist/1h5fdExX00l0ujyhHMwFHt"
+                    },
+                    "href": "https://api.spotify.com/v1/artists/1h5fdExX00l0ujyhHMwFHt",
+                    "id": "1h5fdExX00l0ujyhHMwFHt",
+                    "name": "Peace Orchestra",
+                    "type": "artist",
+                    "uri": "spotify:artist:1h5fdExX00l0ujyhHMwFHt"
+                  }
+                ],
+                "disc_number": 1,
+                "duration_ms": 357826,
+                "explicit": false,
+                "external_ids": {
+                  "isrc": "ATG249900107"
+                },
+                "external_urls": {
+                  "spotify": "https://open.spotify.com/track/4o6Ufgnf7pT55tI4j78RkT"
+                },
+                "href": "https://api.spotify.com/v1/tracks/4o6Ufgnf7pT55tI4j78RkT",
+                "id": "4o6Ufgnf7pT55tI4j78RkT",
+                "is_local": false,
+                "is_playable": true,
+                "name": "Who Am I",
+                "track_number": 7,
+                "type": "track",
+                "uri": "spotify:track:4o6Ufgnf7pT55tI4j78RkT"
+              }
+            ],
+            "total": 13,
+            "limit": 50,
+            "offset": 0,
+            "href": "https://api.spotify.com/v1/me/top/tracks?offset=0&limit=50&time_range=short_term",
+            "next": null,
+            "previous": null
+          },
+          "status": 200,
+          "headers": {
+            "date": "Wed, 20 May 2026 10:10:05 GMT",
+            "content-type": "application/json; charset=utf-8",
+            "transfer-encoding": "chunked",
+            "connection": "keep-alive",
+            "x-xss-protection": "0",
+            "x-content-type-options": "nosniff",
+            "x-download-options": "noopen",
+            "x-frame-options": "SAMEORIGIN",
+            "x-dns-prefetch-control": "off",
+            "strict-transport-security": "max-age=31536000",
+            "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+            "access-control-allow-origin": "*",
+            "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+            "x-ratelimit-limit": "5000",
+            "x-ratelimit-remaining": "4977",
+            "x-ratelimit-reset": "1779271834",
+            "cache-control": "private, max-age=0",
+            "etag": "\"MC-IjRhODRlN2MxZDc0NGM2ZjQ3MTNkYjEyYTFjNGIzYTJkIg==\"",
+            "x-robots-tag": "noindex, nofollow",
+            "access-control-allow-headers": "Accept, App-Platform, Authorization, Content-Type, Origin, Retry-After, Spotify-App-Version, X-Cloud-Trace-Context, client-token, content-access-token",
+            "access-control-allow-methods": "GET, POST, OPTIONS, PUT, DELETE, PATCH",
+            "access-control-allow-credentials": "true",
+            "access-control-max-age": "604800",
+            "alt-svc": "h3=\":443\"; ma=2592000,h3-29=\":443\"; ma=2592000, h3=\":443\"; ma=2592000,h3-29=\":443\"; ma=2592000",
+            "server": "envoy",
+            "via": "HTTP/2 edgeproxy, 1.1 google"
+          },
+          "hash": "42aac366a8e52a7266554339c446493a9ec52878",
+          "request": {
+            "params": {
+              "limit": "50",
+              "offset": "0",
+              "time_range": "short_term"
+            }
+          }
+        },
+        {
+          "response": {
+            "items": [],
+            "total": 0,
+            "limit": 0,
+            "offset": 0,
+            "href": "https://api.spotify.com/v1/me/top/tracks?offset=0&limit=50&time_range=medium_term",
+            "next": null,
+            "previous": null
+          },
+          "status": 200,
+          "headers": {
+            "date": "Wed, 20 May 2026 10:10:06 GMT",
+            "content-type": "application/json; charset=utf-8",
+            "transfer-encoding": "chunked",
+            "connection": "keep-alive",
+            "x-xss-protection": "0",
+            "x-content-type-options": "nosniff",
+            "x-download-options": "noopen",
+            "x-frame-options": "SAMEORIGIN",
+            "x-dns-prefetch-control": "off",
+            "strict-transport-security": "max-age=31536000",
+            "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+            "access-control-allow-origin": "*",
+            "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+            "x-ratelimit-limit": "5000",
+            "x-ratelimit-remaining": "4976",
+            "x-ratelimit-reset": "1779271834",
+            "cache-control": "private, max-age=0",
+            "etag": "\"MC-IjIzYmIzNmZiNGU2MDk3MWI2YmE0ZDVhOTg1NWE0NWU2Ig==\"",
+            "x-robots-tag": "noindex, nofollow",
+            "access-control-allow-headers": "Accept, App-Platform, Authorization, Content-Type, Origin, Retry-After, Spotify-App-Version, X-Cloud-Trace-Context, client-token, content-access-token",
+            "access-control-allow-methods": "GET, POST, OPTIONS, PUT, DELETE, PATCH",
+            "access-control-allow-credentials": "true",
+            "access-control-max-age": "604800",
+            "alt-svc": "h3=\":443\"; ma=2592000,h3-29=\":443\"; ma=2592000, h3=\":443\"; ma=2592000,h3-29=\":443\"; ma=2592000",
+            "server": "envoy",
+            "via": "HTTP/2 edgeproxy, 1.1 google"
+          },
+          "hash": "9554bb4c8784228a41c05fc13de24ce62aaaaea6",
+          "request": {
+            "params": {
+              "limit": "50",
+              "offset": "0",
+              "time_range": "medium_term"
+            }
+          }
+        },
+        {
+          "response": {
+            "items": [],
+            "total": 0,
+            "limit": 0,
+            "offset": 0,
+            "href": "https://api.spotify.com/v1/me/top/tracks?offset=0&limit=50&time_range=long_term",
+            "next": null,
+            "previous": null
+          },
+          "status": 200,
+          "headers": {
+            "date": "Wed, 20 May 2026 10:10:07 GMT",
+            "content-type": "application/json; charset=utf-8",
+            "transfer-encoding": "chunked",
+            "connection": "keep-alive",
+            "x-xss-protection": "0",
+            "x-content-type-options": "nosniff",
+            "x-download-options": "noopen",
+            "x-frame-options": "SAMEORIGIN",
+            "x-dns-prefetch-control": "off",
+            "strict-transport-security": "max-age=31536000",
+            "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+            "access-control-allow-origin": "*",
+            "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+            "x-ratelimit-limit": "5000",
+            "x-ratelimit-remaining": "4975",
+            "x-ratelimit-reset": "1779271834",
+            "cache-control": "private, max-age=0",
+            "etag": "\"MC-IjljN2QxNDBmODlkNWM0YTZjM2Q2N2ExODM4OThlYmUwIg==\"",
+            "x-robots-tag": "noindex, nofollow",
+            "access-control-allow-headers": "Accept, App-Platform, Authorization, Content-Type, Origin, Retry-After, Spotify-App-Version, X-Cloud-Trace-Context, client-token, content-access-token",
+            "access-control-allow-methods": "GET, POST, OPTIONS, PUT, DELETE, PATCH",
+            "access-control-allow-credentials": "true",
+            "access-control-max-age": "604800",
+            "alt-svc": "h3=\":443\"; ma=2592000,h3-29=\":443\"; ma=2592000, h3=\":443\"; ma=2592000,h3-29=\":443\"; ma=2592000",
+            "server": "envoy",
+            "via": "HTTP/2 edgeproxy, 1.1 google"
+          },
+          "hash": "1e84375b298efd3e7b9194c75c0f0e9f2cea52c5",
+          "request": {
+            "params": {
+              "limit": "50",
+              "offset": "0",
+              "time_range": "long_term"
+            }
+          }
+        }
+      ]
+    }
+  }
+}

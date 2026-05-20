@@ -128667,6 +128667,4174 @@
       ],
       "additionalProperties": false
     },
+    "Album": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "albumType": {
+          "type": "string"
+        },
+        "artists": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "name": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "id",
+              "name"
+            ],
+            "additionalProperties": false
+          }
+        },
+        "spotifyUrl": {
+          "type": "string"
+        },
+        "images": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "url": {
+                "type": "string"
+              },
+              "height": {
+                "type": "number"
+              },
+              "width": {
+                "type": "number"
+              }
+            },
+            "required": [
+              "url"
+            ],
+            "additionalProperties": false
+          }
+        },
+        "releaseDate": {
+          "type": "string"
+        },
+        "totalTracks": {
+          "type": "number"
+        },
+        "addedAt": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "id",
+        "name",
+        "addedAt"
+      ],
+      "additionalProperties": false
+    },
+    "Artist": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "genres": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "followers": {
+          "type": "number"
+        },
+        "popularity": {
+          "type": "number"
+        },
+        "external_urls": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "string"
+          }
+        },
+        "images": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "url": {
+                "type": "string"
+              },
+              "height": {
+                "type": "number"
+              },
+              "width": {
+                "type": "number"
+              }
+            },
+            "required": [
+              "url"
+            ],
+            "additionalProperties": false
+          }
+        },
+        "uri": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "id",
+        "name"
+      ],
+      "additionalProperties": false
+    },
+    "PlaylistTrack": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "playlist_id": {
+          "type": "string"
+        },
+        "track_id": {
+          "type": "string"
+        },
+        "episode_id": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "type": {
+          "type": "string",
+          "enum": [
+            "track",
+            "episode"
+          ]
+        },
+        "uri": {
+          "type": "string"
+        },
+        "added_at": {
+          "type": "string"
+        },
+        "added_by_id": {
+          "type": "string"
+        },
+        "is_local": {
+          "type": "boolean"
+        },
+        "duration_ms": {
+          "type": "number"
+        },
+        "explicit": {
+          "type": "boolean"
+        },
+        "artists": {
+          "type": "string"
+        },
+        "album_id": {
+          "type": "string"
+        },
+        "album_name": {
+          "type": "string"
+        },
+        "track_number": {
+          "type": "number"
+        },
+        "disc_number": {
+          "type": "number"
+        },
+        "show_id": {
+          "type": "string"
+        },
+        "show_name": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        },
+        "html_description": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "id",
+        "playlist_id"
+      ],
+      "additionalProperties": false
+    },
+    "SyncMetadata_spotify_playlisttracks": {
+      "type": "object",
+      "properties": {
+        "playlist_id": {
+          "type": "string",
+          "description": "The Spotify ID of the playlist to sync tracks from"
+        },
+        "market": {
+          "type": "string",
+          "description": "Optional. An ISO 3166-1 alpha-2 country code for track relinking"
+        },
+        "fields": {
+          "type": "string",
+          "description": "Optional. Comma-separated list of fields to return (e.g., items(added_at,track(name)))"
+        }
+      },
+      "required": [
+        "playlist_id"
+      ],
+      "additionalProperties": false
+    },
+    "Playlist": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        },
+        "collaborative": {
+          "type": "boolean"
+        },
+        "public": {
+          "type": "boolean"
+        },
+        "snapshot_id": {
+          "type": "string"
+        },
+        "href": {
+          "type": "string"
+        },
+        "uri": {
+          "type": "string"
+        },
+        "owner_id": {
+          "type": "string"
+        },
+        "owner_display_name": {
+          "type": "string"
+        },
+        "tracks_total": {
+          "type": "number"
+        },
+        "images": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "url": {
+                "type": "string"
+              },
+              "height": {
+                "type": "number"
+              },
+              "width": {
+                "type": "number"
+              }
+            },
+            "required": [
+              "url"
+            ],
+            "additionalProperties": false
+          }
+        }
+      },
+      "required": [
+        "id",
+        "name",
+        "collaborative",
+        "snapshot_id",
+        "href",
+        "uri",
+        "owner_id",
+        "tracks_total"
+      ],
+      "additionalProperties": false
+    },
+    "RecentlyPlayed": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "trackId": {
+          "type": "string"
+        },
+        "trackName": {
+          "type": "string"
+        },
+        "trackUri": {
+          "type": "string"
+        },
+        "durationMs": {
+          "type": "number"
+        },
+        "explicit": {
+          "type": "boolean"
+        },
+        "previewUrl": {
+          "type": "string"
+        },
+        "artistIds": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "artistNames": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "albumId": {
+          "type": "string"
+        },
+        "albumName": {
+          "type": "string"
+        },
+        "playedAt": {
+          "type": "string"
+        },
+        "contextType": {
+          "type": "string"
+        },
+        "contextUri": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "id",
+        "trackId",
+        "trackName",
+        "trackUri",
+        "durationMs",
+        "explicit",
+        "artistIds",
+        "artistNames",
+        "albumId",
+        "albumName",
+        "playedAt"
+      ],
+      "additionalProperties": false
+    },
+    "SavedEpisode": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        },
+        "duration_ms": {
+          "type": "number"
+        },
+        "explicit": {
+          "type": "boolean"
+        },
+        "added_at": {
+          "type": "string"
+        },
+        "release_date": {
+          "type": "string"
+        },
+        "release_date_precision": {
+          "type": "string"
+        },
+        "show_id": {
+          "type": "string"
+        },
+        "show_name": {
+          "type": "string"
+        },
+        "show_publisher": {
+          "type": "string"
+        },
+        "images": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "url": {
+                "type": "string"
+              },
+              "height": {
+                "type": "number"
+              },
+              "width": {
+                "type": "number"
+              }
+            },
+            "required": [
+              "url",
+              "height",
+              "width"
+            ],
+            "additionalProperties": false
+          }
+        },
+        "resume_point_fully_played": {
+          "type": "boolean"
+        },
+        "resume_position_ms": {
+          "type": "number"
+        }
+      },
+      "required": [
+        "id",
+        "name",
+        "duration_ms",
+        "added_at"
+      ],
+      "additionalProperties": false
+    },
+    "SavedShow": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        },
+        "publisher": {
+          "type": "string"
+        },
+        "added_at": {
+          "type": "string"
+        },
+        "type": {
+          "type": "string"
+        },
+        "uri": {
+          "type": "string"
+        },
+        "spotify_url": {
+          "type": "string"
+        },
+        "images": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "url": {
+                "type": "string"
+              },
+              "height": {
+                "type": "number"
+              },
+              "width": {
+                "type": "number"
+              }
+            },
+            "required": [
+              "url"
+            ],
+            "additionalProperties": false
+          }
+        },
+        "languages": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "explicit": {
+          "type": "boolean"
+        },
+        "available_markets": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      },
+      "required": [
+        "id",
+        "name",
+        "added_at",
+        "type",
+        "uri"
+      ],
+      "additionalProperties": false
+    },
+    "SavedTrack": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "uri": {
+          "type": "string"
+        },
+        "artistName": {
+          "type": "string"
+        },
+        "albumName": {
+          "type": "string"
+        },
+        "durationMs": {
+          "type": "number"
+        },
+        "explicit": {
+          "type": "boolean"
+        },
+        "popularity": {
+          "type": "number"
+        },
+        "previewUrl": {
+          "type": "string"
+        },
+        "addedAt": {
+          "type": "string"
+        },
+        "trackNumber": {
+          "type": "number"
+        },
+        "discNumber": {
+          "type": "number"
+        }
+      },
+      "required": [
+        "id",
+        "name",
+        "uri",
+        "addedAt"
+      ],
+      "additionalProperties": false
+    },
+    "TopItem": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "type": {
+          "type": "string",
+          "enum": [
+            "artist",
+            "track"
+          ]
+        },
+        "time_range": {
+          "type": "string",
+          "enum": [
+            "short_term",
+            "medium_term",
+            "long_term"
+          ]
+        },
+        "popularity": {
+          "type": "number"
+        },
+        "uri": {
+          "type": "string"
+        },
+        "external_urls": {
+          "type": "object",
+          "properties": {
+            "spotify": {
+              "type": "string"
+            }
+          },
+          "additionalProperties": false
+        },
+        "genres": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "artists": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "name": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "id",
+              "name"
+            ],
+            "additionalProperties": false
+          }
+        },
+        "album": {
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "string"
+            },
+            "name": {
+              "type": "string"
+            },
+            "images": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "url": {
+                    "type": "string"
+                  },
+                  "height": {
+                    "type": "number"
+                  },
+                  "width": {
+                    "type": "number"
+                  }
+                },
+                "required": [
+                  "url"
+                ],
+                "additionalProperties": false
+              }
+            }
+          },
+          "required": [
+            "id",
+            "name"
+          ],
+          "additionalProperties": false
+        },
+        "duration_ms": {
+          "type": "number"
+        },
+        "explicit": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "id",
+        "name",
+        "type",
+        "time_range"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_spotify_addtoqueue": {
+      "type": "object",
+      "properties": {
+        "uri": {
+          "type": "string",
+          "description": "Spotify URI of the track or episode to add. Example: \"spotify:track:70LcF31zb1H0PyJoS1Sx1r\""
+        },
+        "device_id": {
+          "type": "string",
+          "description": "Optional ID of the device to target. If omitted, the user's currently active device is used."
+        }
+      },
+      "required": [
+        "uri"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_spotify_addtoqueue": {
+      "type": "object",
+      "properties": {
+        "success": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "success"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_spotify_createplaylisttrack": {
+      "type": "object",
+      "properties": {
+        "playlistId": {
+          "type": "string",
+          "description": "The Spotify ID of the playlist. Example: \"3cEYpjA9oz9GiPac4AsH4n\""
+        },
+        "uris": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "An array of Spotify URIs to add. Can be track or episode URIs. Maximum 100 items. Example: [\"spotify:track:4iV5W9uYEdYUVa79Axb7Rh\", \"spotify:track:1301WleyT98MSxVHPZCA6M\"]"
+        },
+        "position": {
+          "type": "number",
+          "description": "The position to insert the items, a zero-based index. If omitted, items are appended to the end. Example: 0"
+        }
+      },
+      "required": [
+        "playlistId",
+        "uris"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_spotify_createplaylisttrack": {
+      "type": "object",
+      "properties": {
+        "snapshotId": {
+          "type": "string",
+          "description": "A snapshot ID for the playlist after the addition"
+        }
+      },
+      "required": [
+        "snapshotId"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_spotify_createplaylist": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string",
+          "description": "The name for the new playlist. Example: \"My Cool Playlist\""
+        },
+        "description": {
+          "type": "string",
+          "description": "Description for the playlist."
+        },
+        "public": {
+          "type": "boolean",
+          "description": "Whether the playlist should be public. Default: true"
+        },
+        "collaborative": {
+          "type": "boolean",
+          "description": "Whether the playlist should be collaborative."
+        },
+        "user_id": {
+          "type": "string",
+          "description": "Optional user ID to create playlist for. If omitted, uses the current user."
+        }
+      },
+      "required": [
+        "name"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_spotify_createplaylist": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "The Spotify ID of the created playlist"
+        },
+        "name": {
+          "type": "string",
+          "description": "The name of the playlist"
+        },
+        "description": {
+          "type": "string",
+          "description": "The description of the playlist"
+        },
+        "isPublic": {
+          "type": "boolean",
+          "description": "Whether the playlist is public"
+        },
+        "isCollaborative": {
+          "type": "boolean",
+          "description": "Whether the playlist is collaborative"
+        },
+        "ownerId": {
+          "type": "string",
+          "description": "The ID of the playlist owner"
+        },
+        "ownerName": {
+          "type": "string",
+          "description": "The display name of the playlist owner"
+        },
+        "href": {
+          "type": "string",
+          "description": "A link to the Web API endpoint for full details of the playlist"
+        },
+        "uri": {
+          "type": "string",
+          "description": "The Spotify URI for the playlist"
+        }
+      },
+      "required": [
+        "id",
+        "name"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_spotify_createsavedalbum": {
+      "type": "object",
+      "properties": {
+        "ids": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "Spotify album IDs to save to the user's library. Maximum 20."
+        }
+      },
+      "required": [
+        "ids"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_spotify_createsavedalbum": {
+      "type": "object",
+      "properties": {
+        "success": {
+          "type": "boolean",
+          "description": "Whether the albums were successfully saved."
+        }
+      },
+      "required": [
+        "success"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_spotify_createsavedtrack": {
+      "type": "object",
+      "properties": {
+        "ids": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "An array of Spotify track IDs to save. Maximum 50 IDs. Example: [\"70LcF31zb1H0PyJoS1Sx1r\"]"
+        }
+      },
+      "required": [
+        "ids"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_spotify_createsavedtrack": {
+      "type": "object",
+      "properties": {
+        "success": {
+          "type": "boolean",
+          "description": "Whether the tracks were successfully saved to the library"
+        }
+      },
+      "required": [
+        "success"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_spotify_deleteplaylisttrack": {
+      "type": "object",
+      "properties": {
+        "playlist_id": {
+          "type": "string",
+          "description": "Spotify playlist ID. Example: \"0PUR2D6eCDOIjLIeu9kIcq\""
+        },
+        "tracks": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "uri": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "uri"
+            ],
+            "additionalProperties": false
+          },
+          "description": "Array of track objects with URIs to remove from the playlist"
+        },
+        "snapshot_id": {
+          "type": "string",
+          "description": "Optional snapshot ID for the playlist. If provided, the tracks are only removed if they match the current state of the playlist."
+        }
+      },
+      "required": [
+        "playlist_id",
+        "tracks"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_spotify_deleteplaylisttrack": {
+      "type": "object",
+      "properties": {
+        "playlist_id": {
+          "type": "string"
+        },
+        "snapshot_id": {
+          "type": "string"
+        },
+        "tracks_removed": {
+          "type": "number"
+        }
+      },
+      "required": [
+        "playlist_id",
+        "snapshot_id",
+        "tracks_removed"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_spotify_deleteplaylist": {
+      "type": "object",
+      "properties": {
+        "playlist_id": {
+          "type": "string",
+          "description": "The Spotify ID of the playlist to unfollow/remove from the user's library. Example: '5mBo6dx15GhupMndL3T2sk'"
+        }
+      },
+      "required": [
+        "playlist_id"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_spotify_deleteplaylist": {
+      "type": "object",
+      "properties": {
+        "success": {
+          "type": "boolean",
+          "description": "Whether the playlist was successfully removed from the user's library"
+        }
+      },
+      "required": [
+        "success"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_spotify_deletesavedalbum": {
+      "type": "object",
+      "properties": {
+        "ids": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "Array of Spotify album IDs to remove from the user's library. Maximum 20."
+        }
+      },
+      "required": [
+        "ids"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_spotify_deletesavedalbum": {
+      "type": "object",
+      "properties": {
+        "success": {
+          "type": "boolean",
+          "description": "Whether the albums were successfully removed from the library."
+        }
+      },
+      "required": [
+        "success"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_spotify_deletesavedshow": {
+      "type": "object",
+      "properties": {
+        "ids": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "Array of Spotify show IDs to remove from the library. Maximum 50 IDs."
+        }
+      },
+      "required": [
+        "ids"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_spotify_deletesavedshow": {
+      "type": "object",
+      "properties": {
+        "success": {
+          "type": "boolean",
+          "description": "Whether the shows were successfully removed from the library."
+        }
+      },
+      "required": [
+        "success"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_spotify_deletesavedtrack": {
+      "type": "object",
+      "properties": {
+        "ids": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "Spotify track IDs to remove from the library. Example: [\"70LcF31zb1H0PyJoS1Sx1r\"]"
+        }
+      },
+      "required": [
+        "ids"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_spotify_deletesavedtrack": {
+      "type": "object",
+      "properties": {
+        "success": {
+          "type": "boolean",
+          "description": "Whether the tracks were successfully removed"
+        }
+      },
+      "required": [
+        "success"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_spotify_followartist": {
+      "type": "object",
+      "properties": {
+        "ids": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "Spotify artist IDs to follow. Example: [\"4Z8W4fKeB5YxbusRsdQVPb\"]"
+        }
+      },
+      "required": [
+        "ids"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_spotify_followartist": {
+      "type": "object",
+      "properties": {
+        "success": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "success"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_spotify_followplaylist": {
+      "type": "object",
+      "properties": {
+        "playlist_id": {
+          "type": "string",
+          "description": "The Spotify ID of the playlist to follow. Example: \"5mBo6dx15GhupMndL3T2sk\""
+        },
+        "public": {
+          "type": "boolean",
+          "description": "If true, the playlist will be included in the user's public profile. Default: true"
+        }
+      },
+      "required": [
+        "playlist_id"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_spotify_followplaylist": {
+      "type": "object",
+      "properties": {
+        "success": {
+          "type": "boolean",
+          "description": "Whether the playlist was successfully followed"
+        },
+        "playlist_id": {
+          "type": "string",
+          "description": "The ID of the playlist that was followed"
+        }
+      },
+      "required": [
+        "success",
+        "playlist_id"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_spotify_getalbum": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "The Spotify ID for the album. Example: \"6dVIqQ8qmQ5GBnJ9shOYGE\""
+        },
+        "market": {
+          "type": "string",
+          "description": "An ISO 3166-1 alpha-2 country code. Provide this parameter if you want to apply Track Relinking."
+        }
+      },
+      "required": [
+        "id"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_spotify_getalbum": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "album_type": {
+          "type": "string"
+        },
+        "total_tracks": {
+          "type": "number"
+        },
+        "release_date": {
+          "type": "string"
+        },
+        "release_date_precision": {
+          "type": "string"
+        },
+        "uri": {
+          "type": "string"
+        },
+        "spotify_url": {
+          "type": "string"
+        },
+        "images": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "url": {
+                "type": "string"
+              },
+              "height": {
+                "type": "number"
+              },
+              "width": {
+                "type": "number"
+              }
+            },
+            "required": [
+              "url"
+            ],
+            "additionalProperties": false
+          }
+        },
+        "artists": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "name": {
+                "type": "string"
+              },
+              "type": {
+                "type": "string"
+              },
+              "uri": {
+                "type": "string"
+              },
+              "spotify_url": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "id",
+              "name",
+              "type",
+              "uri"
+            ],
+            "additionalProperties": false
+          }
+        },
+        "tracks": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "name": {
+                "type": "string"
+              },
+              "type": {
+                "type": "string"
+              },
+              "uri": {
+                "type": "string"
+              },
+              "track_number": {
+                "type": "number"
+              },
+              "duration_ms": {
+                "type": "number"
+              },
+              "explicit": {
+                "type": "boolean"
+              },
+              "artists": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "string"
+                    },
+                    "name": {
+                      "type": "string"
+                    },
+                    "type": {
+                      "type": "string"
+                    },
+                    "uri": {
+                      "type": "string"
+                    },
+                    "spotify_url": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "id",
+                    "name",
+                    "type",
+                    "uri"
+                  ],
+                  "additionalProperties": false
+                }
+              },
+              "spotify_url": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "id",
+              "name",
+              "type",
+              "uri",
+              "track_number",
+              "duration_ms",
+              "explicit",
+              "artists"
+            ],
+            "additionalProperties": false
+          }
+        }
+      },
+      "required": [
+        "id",
+        "name",
+        "album_type",
+        "total_tracks",
+        "release_date",
+        "release_date_precision",
+        "uri",
+        "images",
+        "artists"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_spotify_getartist": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "The Spotify ID for the artist. Example: \"4Z8W4fKeB5YxbusRsdQVPb\""
+        }
+      },
+      "required": [
+        "id"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_spotify_getartist": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "type": {
+          "type": "string",
+          "const": "artist"
+        },
+        "uri": {
+          "type": "string"
+        },
+        "href": {
+          "type": "string"
+        },
+        "external_urls": {
+          "type": "object",
+          "properties": {
+            "spotify": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "spotify"
+          ],
+          "additionalProperties": false
+        },
+        "genres": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "images": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "url": {
+                "type": "string"
+              },
+              "height": {
+                "type": "number"
+              },
+              "width": {
+                "type": "number"
+              }
+            },
+            "required": [
+              "url"
+            ],
+            "additionalProperties": false
+          }
+        },
+        "followers": {
+          "type": "object",
+          "properties": {
+            "href": {
+              "type": "string"
+            },
+            "total": {
+              "type": "number"
+            }
+          },
+          "required": [
+            "total"
+          ],
+          "additionalProperties": false
+        },
+        "popularity": {
+          "type": "number"
+        }
+      },
+      "required": [
+        "id",
+        "name",
+        "type",
+        "uri",
+        "href"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_spotify_getcurrentplayback": {
+      "type": "object",
+      "properties": {
+        "market": {
+          "type": "string",
+          "description": "An ISO 3166-1 alpha-2 country code. Example: \"US\""
+        },
+        "additional_types": {
+          "type": "string",
+          "description": "A comma-separated list of item types. Valid types are: track, episode. Example: \"track,episode\""
+        }
+      },
+      "additionalProperties": false
+    },
+    "ActionOutput_spotify_getcurrentplayback": {
+      "type": "object",
+      "properties": {
+        "device": {
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "string"
+            },
+            "is_active": {
+              "type": "boolean"
+            },
+            "is_private_session": {
+              "type": "boolean"
+            },
+            "is_restricted": {
+              "type": "boolean"
+            },
+            "name": {
+              "type": "string"
+            },
+            "type": {
+              "type": "string"
+            },
+            "volume_percent": {
+              "type": "number"
+            },
+            "supports_volume": {
+              "type": "boolean"
+            }
+          },
+          "additionalProperties": false
+        },
+        "repeat_state": {
+          "type": "string"
+        },
+        "shuffle_state": {
+          "type": "boolean"
+        },
+        "context": {
+          "type": "object",
+          "properties": {
+            "type": {
+              "type": "string"
+            },
+            "href": {
+              "type": "string"
+            },
+            "external_urls": {
+              "type": "object",
+              "additionalProperties": {
+                "type": "string"
+              }
+            },
+            "uri": {
+              "type": "string"
+            }
+          },
+          "additionalProperties": false
+        },
+        "timestamp": {
+          "type": "number"
+        },
+        "progress_ms": {
+          "type": "number"
+        },
+        "is_playing": {
+          "type": "boolean"
+        },
+        "item": {
+          "anyOf": [
+            {
+              "type": "object",
+              "properties": {
+                "album": {
+                  "type": "object",
+                  "properties": {
+                    "album_type": {
+                      "type": "string"
+                    },
+                    "artists": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "external_urls": {
+                            "type": "object",
+                            "additionalProperties": {
+                              "type": "string"
+                            }
+                          },
+                          "href": {
+                            "type": "string"
+                          },
+                          "id": {
+                            "type": "string"
+                          },
+                          "name": {
+                            "type": "string"
+                          },
+                          "type": {
+                            "type": "string"
+                          },
+                          "uri": {
+                            "type": "string"
+                          }
+                        },
+                        "additionalProperties": false
+                      }
+                    },
+                    "available_markets": {
+                      "type": "array",
+                      "items": {
+                        "type": "string"
+                      }
+                    },
+                    "external_urls": {
+                      "type": "object",
+                      "additionalProperties": {
+                        "type": "string"
+                      }
+                    },
+                    "href": {
+                      "type": "string"
+                    },
+                    "id": {
+                      "type": "string"
+                    },
+                    "images": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "url": {
+                            "type": "string"
+                          },
+                          "height": {
+                            "type": "number"
+                          },
+                          "width": {
+                            "type": "number"
+                          }
+                        },
+                        "additionalProperties": false
+                      }
+                    },
+                    "name": {
+                      "type": "string"
+                    },
+                    "release_date": {
+                      "type": "string"
+                    },
+                    "release_date_precision": {
+                      "type": "string"
+                    },
+                    "total_tracks": {
+                      "type": "number"
+                    },
+                    "type": {
+                      "type": "string"
+                    },
+                    "uri": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                },
+                "artists": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "external_urls": {
+                        "type": "object",
+                        "additionalProperties": {
+                          "type": "string"
+                        }
+                      },
+                      "href": {
+                        "type": "string"
+                      },
+                      "id": {
+                        "type": "string"
+                      },
+                      "name": {
+                        "type": "string"
+                      },
+                      "type": {
+                        "type": "string"
+                      },
+                      "uri": {
+                        "type": "string"
+                      }
+                    },
+                    "additionalProperties": false
+                  }
+                },
+                "available_markets": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "disc_number": {
+                  "type": "number"
+                },
+                "duration_ms": {
+                  "type": "number"
+                },
+                "explicit": {
+                  "type": "boolean"
+                },
+                "external_ids": {
+                  "type": "object",
+                  "additionalProperties": {
+                    "type": "string"
+                  }
+                },
+                "external_urls": {
+                  "type": "object",
+                  "additionalProperties": {
+                    "type": "string"
+                  }
+                },
+                "href": {
+                  "type": "string"
+                },
+                "id": {
+                  "type": "string"
+                },
+                "is_local": {
+                  "type": "boolean"
+                },
+                "name": {
+                  "type": "string"
+                },
+                "popularity": {
+                  "type": "number"
+                },
+                "preview_url": {
+                  "type": "string"
+                },
+                "track_number": {
+                  "type": "number"
+                },
+                "type": {
+                  "type": "string"
+                },
+                "uri": {
+                  "type": "string"
+                }
+              },
+              "additionalProperties": false
+            },
+            {
+              "type": "object",
+              "properties": {
+                "audio_preview_url": {
+                  "type": "string"
+                },
+                "description": {
+                  "type": "string"
+                },
+                "duration_ms": {
+                  "type": "number"
+                },
+                "explicit": {
+                  "type": "boolean"
+                },
+                "external_urls": {
+                  "type": "object",
+                  "additionalProperties": {
+                    "type": "string"
+                  }
+                },
+                "href": {
+                  "type": "string"
+                },
+                "html_description": {
+                  "type": "string"
+                },
+                "id": {
+                  "type": "string"
+                },
+                "images": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "url": {
+                        "type": "string"
+                      },
+                      "height": {
+                        "type": "number"
+                      },
+                      "width": {
+                        "type": "number"
+                      }
+                    },
+                    "additionalProperties": false
+                  }
+                },
+                "is_externally_hosted": {
+                  "type": "boolean"
+                },
+                "is_playable": {
+                  "type": "boolean"
+                },
+                "language": {
+                  "type": "string"
+                },
+                "languages": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "name": {
+                  "type": "string"
+                },
+                "release_date": {
+                  "type": "string"
+                },
+                "release_date_precision": {
+                  "type": "string"
+                },
+                "resume_point": {
+                  "type": "object",
+                  "properties": {
+                    "fully_played": {
+                      "type": "boolean"
+                    },
+                    "resume_position_ms": {
+                      "type": "number"
+                    }
+                  },
+                  "additionalProperties": false
+                },
+                "type": {
+                  "type": "string"
+                },
+                "uri": {
+                  "type": "string"
+                }
+              },
+              "additionalProperties": false
+            }
+          ]
+        },
+        "currently_playing_type": {
+          "type": "string"
+        },
+        "actions": {
+          "type": "object",
+          "properties": {
+            "disallows": {
+              "type": "object",
+              "additionalProperties": {
+                "type": "boolean"
+              }
+            }
+          },
+          "additionalProperties": false
+        }
+      },
+      "additionalProperties": false
+    },
+    "ActionInput_spotify_getcurrentuser": {
+      "type": "object",
+      "additionalProperties": false
+    },
+    "ActionOutput_spotify_getcurrentuser": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "display_name": {
+          "type": "string"
+        },
+        "email": {
+          "type": "string"
+        },
+        "country": {
+          "type": "string"
+        },
+        "product": {
+          "type": "string"
+        },
+        "images": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "url": {
+                "type": "string"
+              },
+              "height": {
+                "type": "number"
+              },
+              "width": {
+                "type": "number"
+              }
+            },
+            "required": [
+              "url"
+            ],
+            "additionalProperties": false
+          }
+        },
+        "external_urls": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "string"
+          }
+        },
+        "followers": {
+          "type": "object",
+          "properties": {
+            "href": {
+              "type": "string"
+            },
+            "total": {
+              "type": "number"
+            }
+          },
+          "required": [
+            "total"
+          ],
+          "additionalProperties": false
+        },
+        "href": {
+          "type": "string"
+        },
+        "type": {
+          "type": "string"
+        },
+        "uri": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "id"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_spotify_getdevices": {
+      "type": "object",
+      "additionalProperties": false
+    },
+    "ActionOutput_spotify_getdevices": {
+      "type": "object",
+      "properties": {
+        "devices": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "name": {
+                "type": "string"
+              },
+              "type": {
+                "type": "string"
+              },
+              "is_active": {
+                "type": "boolean"
+              },
+              "volume_percent": {
+                "type": "number"
+              }
+            },
+            "required": [
+              "name",
+              "type",
+              "is_active"
+            ],
+            "additionalProperties": false
+          }
+        }
+      },
+      "required": [
+        "devices"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_spotify_getepisode": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "The Spotify ID for the episode. Example: \"0AYabmryUy29iVTvK45dLw\""
+        },
+        "market": {
+          "type": "string",
+          "description": "An ISO 3166-1 alpha-2 country code. If specified, only content available in that market will be returned."
+        }
+      },
+      "required": [
+        "id"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_spotify_getepisode": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        },
+        "htmlDescription": {
+          "type": "string"
+        },
+        "durationMs": {
+          "type": "number"
+        },
+        "explicit": {
+          "type": "boolean"
+        },
+        "href": {
+          "type": "string"
+        },
+        "uri": {
+          "type": "string"
+        },
+        "type": {
+          "type": "string",
+          "const": "episode"
+        },
+        "releaseDate": {
+          "type": "string"
+        },
+        "releaseDatePrecision": {
+          "type": "string",
+          "enum": [
+            "year",
+            "month",
+            "day"
+          ]
+        },
+        "audioPreviewUrl": {
+          "type": "string"
+        },
+        "images": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "url": {
+                "type": "string"
+              },
+              "height": {
+                "type": "number"
+              },
+              "width": {
+                "type": "number"
+              }
+            },
+            "required": [
+              "url"
+            ],
+            "additionalProperties": false
+          }
+        },
+        "show": {
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "string"
+            },
+            "name": {
+              "type": "string"
+            },
+            "href": {
+              "type": "string"
+            },
+            "uri": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "id",
+            "name",
+            "href",
+            "uri"
+          ],
+          "additionalProperties": false
+        },
+        "language": {
+          "type": "string"
+        },
+        "languages": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "isPlayable": {
+          "type": "boolean"
+        },
+        "resumePoint": {
+          "type": "object",
+          "properties": {
+            "fullyPlayed": {
+              "type": "boolean"
+            },
+            "resumePositionMs": {
+              "type": "number"
+            }
+          },
+          "required": [
+            "fullyPlayed",
+            "resumePositionMs"
+          ],
+          "additionalProperties": false
+        }
+      },
+      "required": [
+        "id",
+        "name",
+        "durationMs",
+        "explicit",
+        "href",
+        "uri",
+        "type"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_spotify_getplaylist": {
+      "type": "object",
+      "properties": {
+        "playlist_id": {
+          "type": "string",
+          "description": "The Spotify ID of the playlist. Example: \"0PUR2D6eCDOIjLIeu9kIcq\""
+        },
+        "fields": {
+          "type": "string",
+          "description": "A comma-separated list of fields to return. Example: \"name,description,owner\""
+        },
+        "market": {
+          "type": "string",
+          "description": "An ISO 3166-1 alpha-2 country code to filter results. Example: \"US\""
+        }
+      },
+      "required": [
+        "playlist_id"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_spotify_getplaylist": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        },
+        "owner_id": {
+          "type": "string"
+        },
+        "owner_name": {
+          "type": "string"
+        },
+        "track_count": {
+          "type": "number"
+        },
+        "is_public": {
+          "type": "boolean"
+        },
+        "is_collaborative": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "id",
+        "name"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_spotify_getqueue": {
+      "type": "object",
+      "additionalProperties": false
+    },
+    "ActionOutput_spotify_getqueue": {
+      "type": "object",
+      "properties": {
+        "currentlyPlaying": {
+          "type": "object",
+          "additionalProperties": false
+        },
+        "queue": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false
+          }
+        }
+      },
+      "additionalProperties": false
+    },
+    "ActionInput_spotify_getshow": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "The Spotify ID for the show. Example: \"18WzIf6SqovUQHHTeZaucQ\""
+        },
+        "market": {
+          "type": "string",
+          "description": "An ISO 3166-1 alpha-2 country code. If a country code is specified, only content that is available in that market will be returned."
+        }
+      },
+      "required": [
+        "id"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_spotify_getshow": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        },
+        "publisher": {
+          "type": "string"
+        },
+        "images": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "url": {
+                "type": "string"
+              },
+              "height": {
+                "type": "number"
+              },
+              "width": {
+                "type": "number"
+              }
+            },
+            "required": [
+              "url"
+            ],
+            "additionalProperties": false
+          }
+        },
+        "explicit": {
+          "type": "boolean"
+        },
+        "total_episodes": {
+          "type": "number"
+        }
+      },
+      "required": [
+        "id",
+        "name",
+        "description"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_spotify_gettrack": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "Spotify track ID. Example: \"70LcF31zb1H0PyJoS1Sx1r\""
+        },
+        "market": {
+          "type": "string",
+          "description": "Optional ISO 3166-1 alpha-2 country code for content restrictions."
+        }
+      },
+      "required": [
+        "id"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_spotify_gettrack": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "uri": {
+          "type": "string"
+        },
+        "href": {
+          "type": "string"
+        },
+        "duration_ms": {
+          "type": "number"
+        },
+        "explicit": {
+          "type": "boolean"
+        },
+        "popularity": {
+          "type": "number"
+        },
+        "preview_url": {
+          "type": "string"
+        },
+        "track_number": {
+          "type": "number"
+        },
+        "disc_number": {
+          "type": "number"
+        },
+        "type": {
+          "type": "string",
+          "const": "track"
+        },
+        "artists": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "name": {
+                "type": "string"
+              },
+              "uri": {
+                "type": "string"
+              },
+              "href": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "id",
+              "name"
+            ],
+            "additionalProperties": false
+          }
+        },
+        "album": {
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "string"
+            },
+            "name": {
+              "type": "string"
+            },
+            "album_type": {
+              "type": "string"
+            },
+            "total_tracks": {
+              "type": "number"
+            },
+            "uri": {
+              "type": "string"
+            },
+            "href": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "id",
+            "name"
+          ],
+          "additionalProperties": false
+        }
+      },
+      "required": [
+        "id",
+        "name",
+        "type",
+        "artists"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_spotify_listalbums": {
+      "type": "object",
+      "properties": {
+        "limit": {
+          "type": "number",
+          "description": "The maximum number of items to return. Default: 20. Minimum: 1. Maximum: 50."
+        },
+        "offset": {
+          "type": "number",
+          "description": "The index of the first item to return. Default: 0."
+        },
+        "market": {
+          "type": "string",
+          "description": "An ISO 3166-1 alpha-2 country code. Provide this parameter if you want to apply Track Relinking."
+        }
+      },
+      "additionalProperties": false
+    },
+    "ActionOutput_spotify_listalbums": {
+      "type": "object",
+      "properties": {
+        "albums": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "name": {
+                "type": "string"
+              },
+              "artists": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "string"
+                    },
+                    "name": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "id",
+                    "name"
+                  ],
+                  "additionalProperties": false
+                }
+              },
+              "images": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "url": {
+                      "type": "string"
+                    },
+                    "height": {
+                      "type": "number"
+                    },
+                    "width": {
+                      "type": "number"
+                    }
+                  },
+                  "required": [
+                    "url"
+                  ],
+                  "additionalProperties": false
+                }
+              },
+              "release_date": {
+                "type": "string"
+              },
+              "total_tracks": {
+                "type": "number"
+              },
+              "added_at": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "id",
+              "name"
+            ],
+            "additionalProperties": false
+          }
+        },
+        "next_offset": {
+          "type": "number",
+          "description": "The offset for the next page. Omit if no more pages."
+        }
+      },
+      "required": [
+        "albums"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_spotify_listartists": {
+      "type": "object",
+      "properties": {
+        "cursor": {
+          "type": "string",
+          "description": "Pagination cursor (the `after` value from the previous response). Omit for the first page."
+        }
+      },
+      "additionalProperties": false
+    },
+    "ActionOutput_spotify_listartists": {
+      "type": "object",
+      "properties": {
+        "artists": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "name": {
+                "type": "string"
+              },
+              "uri": {
+                "type": "string"
+              },
+              "href": {
+                "type": "string"
+              },
+              "type": {
+                "type": "string",
+                "const": "artist"
+              },
+              "external_urls": {
+                "type": "object",
+                "properties": {
+                  "spotify": {
+                    "type": "string"
+                  }
+                },
+                "additionalProperties": false
+              },
+              "followers": {
+                "type": "object",
+                "properties": {
+                  "total": {
+                    "type": "number"
+                  }
+                },
+                "required": [
+                  "total"
+                ],
+                "additionalProperties": false
+              },
+              "genres": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "images": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "url": {
+                      "type": "string"
+                    },
+                    "height": {
+                      "type": "number"
+                    },
+                    "width": {
+                      "type": "number"
+                    }
+                  },
+                  "required": [
+                    "url"
+                  ],
+                  "additionalProperties": false
+                }
+              },
+              "popularity": {
+                "type": "number"
+              }
+            },
+            "required": [
+              "id",
+              "name",
+              "uri",
+              "href",
+              "type"
+            ],
+            "additionalProperties": false
+          }
+        },
+        "next_cursor": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "artists"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_spotify_listplaylisttracks": {
+      "type": "object",
+      "properties": {
+        "playlist_id": {
+          "type": "string",
+          "description": "The Spotify ID of the playlist. Example: \"3cEYpjA9oz9GiPac4AsH4n\""
+        },
+        "market": {
+          "type": "string",
+          "description": "An ISO 3166-1 alpha-2 country code. If a country code is specified, only content that is available in that market will be returned."
+        },
+        "fields": {
+          "type": "string",
+          "description": "Filters for the query: a comma-separated list of the fields to return. If omitted, all fields are returned."
+        },
+        "limit": {
+          "type": "number",
+          "description": "The maximum number of items to return. Default: 20. Minimum: 1. Maximum: 50."
+        },
+        "offset": {
+          "type": "number",
+          "description": "The index of the first item to return. Default:  0 (the first item). Use with limit to get the next set of items."
+        },
+        "additional_types": {
+          "type": "string",
+          "description": "A comma-separated list of item types that your client supports besides the default track type. Valid types are: track and episode."
+        }
+      },
+      "required": [
+        "playlist_id"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_spotify_listplaylisttracks": {
+      "type": "object",
+      "properties": {
+        "items": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "name": {
+                "type": "string"
+              },
+              "uri": {
+                "type": "string"
+              },
+              "href": {
+                "type": "string"
+              },
+              "duration_ms": {
+                "type": "number"
+              },
+              "explicit": {
+                "type": "boolean"
+              },
+              "popularity": {
+                "type": "number"
+              },
+              "preview_url": {
+                "type": "string"
+              },
+              "track_number": {
+                "type": "number"
+              },
+              "disc_number": {
+                "type": "number"
+              },
+              "is_local": {
+                "type": "boolean"
+              },
+              "is_playable": {
+                "type": "boolean"
+              },
+              "album": {
+                "type": "object",
+                "properties": {
+                  "id": {
+                    "type": "string"
+                  },
+                  "name": {
+                    "type": "string"
+                  },
+                  "uri": {
+                    "type": "string"
+                  },
+                  "href": {
+                    "type": "string"
+                  },
+                  "album_type": {
+                    "type": "string"
+                  },
+                  "total_tracks": {
+                    "type": "number"
+                  },
+                  "release_date": {
+                    "type": "string"
+                  },
+                  "release_date_precision": {
+                    "type": "string"
+                  },
+                  "images": {
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "properties": {
+                        "url": {
+                          "type": "string"
+                        },
+                        "height": {
+                          "type": "number"
+                        },
+                        "width": {
+                          "type": "number"
+                        }
+                      },
+                      "required": [
+                        "url",
+                        "height",
+                        "width"
+                      ],
+                      "additionalProperties": false
+                    }
+                  }
+                },
+                "required": [
+                  "id",
+                  "name",
+                  "uri"
+                ],
+                "additionalProperties": false
+              },
+              "artists": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "string"
+                    },
+                    "name": {
+                      "type": "string"
+                    },
+                    "uri": {
+                      "type": "string"
+                    },
+                    "href": {
+                      "type": "string"
+                    },
+                    "external_urls": {
+                      "type": "object",
+                      "properties": {
+                        "spotify": {
+                          "type": "string"
+                        }
+                      },
+                      "additionalProperties": false
+                    }
+                  },
+                  "required": [
+                    "id",
+                    "name",
+                    "uri"
+                  ],
+                  "additionalProperties": false
+                }
+              }
+            },
+            "required": [
+              "id",
+              "name",
+              "uri"
+            ],
+            "additionalProperties": false
+          }
+        },
+        "total": {
+          "type": "number"
+        },
+        "next_offset": {
+          "type": "number"
+        }
+      },
+      "required": [
+        "items",
+        "total"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_spotify_listplaylists": {
+      "type": "object",
+      "properties": {
+        "limit": {
+          "type": "number",
+          "description": "Maximum number of playlists to return. Default: 20, Max: 50."
+        },
+        "offset": {
+          "type": "number",
+          "description": "The index of the first playlist to return. Default: 0."
+        }
+      },
+      "additionalProperties": false
+    },
+    "ActionOutput_spotify_listplaylists": {
+      "type": "object",
+      "properties": {
+        "playlists": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "name": {
+                "type": "string"
+              },
+              "description": {
+                "type": "string"
+              },
+              "owner_id": {
+                "type": "string"
+              },
+              "owner_name": {
+                "type": "string"
+              },
+              "public": {
+                "type": "boolean"
+              },
+              "collaborative": {
+                "type": "boolean"
+              },
+              "href": {
+                "type": "string"
+              },
+              "uri": {
+                "type": "string"
+              },
+              "tracks_total": {
+                "type": "number"
+              }
+            },
+            "required": [
+              "id",
+              "name",
+              "owner_id"
+            ],
+            "additionalProperties": false
+          }
+        },
+        "total": {
+          "type": "number"
+        },
+        "next_offset": {
+          "type": "number"
+        }
+      },
+      "required": [
+        "playlists",
+        "total"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_spotify_listsavedshows": {
+      "type": "object",
+      "properties": {
+        "limit": {
+          "type": "number",
+          "description": "The maximum number of items to return. Default: 20. Minimum: 1. Maximum: 50."
+        },
+        "offset": {
+          "type": "number",
+          "description": "The index of the first item to return. Default: 0."
+        },
+        "market": {
+          "type": "string",
+          "description": "An ISO 3166-1 alpha-2 country code. If a country code is specified, only content that is available in that market is returned."
+        }
+      },
+      "additionalProperties": false
+    },
+    "ActionOutput_spotify_listsavedshows": {
+      "type": "object",
+      "properties": {
+        "items": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "name": {
+                "type": "string"
+              },
+              "description": {
+                "type": "string"
+              },
+              "publisher": {
+                "type": "string"
+              },
+              "explicit": {
+                "type": "boolean"
+              },
+              "total_episodes": {
+                "type": "number"
+              }
+            },
+            "required": [
+              "id",
+              "name"
+            ],
+            "additionalProperties": false
+          }
+        },
+        "next_offset": {
+          "type": "number",
+          "description": "Offset for the next page, if more results are available"
+        }
+      },
+      "required": [
+        "items"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_spotify_listsavedtracks": {
+      "type": "object",
+      "properties": {
+        "limit": {
+          "type": "number",
+          "description": "The maximum number of items to return. Default: 20, Maximum: 50."
+        },
+        "offset": {
+          "type": "number",
+          "description": "The index of the first item to return. Default: 0."
+        },
+        "market": {
+          "type": "string",
+          "description": "An ISO 3166-1 alpha-2 country code."
+        }
+      },
+      "additionalProperties": false
+    },
+    "ActionOutput_spotify_listsavedtracks": {
+      "type": "object",
+      "properties": {
+        "items": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "added_at": {
+                "type": "string"
+              },
+              "track": {
+                "type": "object",
+                "properties": {
+                  "id": {
+                    "type": "string"
+                  },
+                  "name": {
+                    "type": "string"
+                  },
+                  "uri": {
+                    "type": "string"
+                  },
+                  "duration_ms": {
+                    "type": "number"
+                  },
+                  "explicit": {
+                    "type": "boolean"
+                  },
+                  "popularity": {
+                    "type": "number"
+                  },
+                  "preview_url": {
+                    "type": "string"
+                  },
+                  "track_number": {
+                    "type": "number"
+                  },
+                  "disc_number": {
+                    "type": "number"
+                  },
+                  "album": {
+                    "type": "object",
+                    "properties": {
+                      "id": {
+                        "type": "string"
+                      },
+                      "name": {
+                        "type": "string"
+                      },
+                      "uri": {
+                        "type": "string"
+                      },
+                      "album_type": {
+                        "type": "string"
+                      },
+                      "images": {
+                        "type": "array",
+                        "items": {
+                          "type": "object",
+                          "properties": {
+                            "url": {
+                              "type": "string"
+                            },
+                            "height": {
+                              "type": "number"
+                            },
+                            "width": {
+                              "type": "number"
+                            }
+                          },
+                          "required": [
+                            "url"
+                          ],
+                          "additionalProperties": false
+                        }
+                      }
+                    },
+                    "required": [
+                      "id",
+                      "name"
+                    ],
+                    "additionalProperties": false
+                  },
+                  "artists": {
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "properties": {
+                        "id": {
+                          "type": "string"
+                        },
+                        "name": {
+                          "type": "string"
+                        },
+                        "uri": {
+                          "type": "string"
+                        }
+                      },
+                      "required": [
+                        "id",
+                        "name"
+                      ],
+                      "additionalProperties": false
+                    }
+                  }
+                },
+                "required": [
+                  "id",
+                  "name"
+                ],
+                "additionalProperties": false
+              }
+            },
+            "required": [
+              "track"
+            ],
+            "additionalProperties": false
+          }
+        },
+        "next_offset": {
+          "type": "number"
+        },
+        "total": {
+          "type": "number"
+        }
+      },
+      "required": [
+        "items",
+        "total"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_spotify_pauseplayback": {
+      "type": "object",
+      "properties": {
+        "device_id": {
+          "type": "string",
+          "description": "The ID of the device to pause playback on. If omitted, playback pauses on the currently active device."
+        }
+      },
+      "additionalProperties": false
+    },
+    "ActionOutput_spotify_pauseplayback": {
+      "type": "object",
+      "properties": {
+        "success": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "success"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_spotify_reorderplaylisttracks": {
+      "type": "object",
+      "properties": {
+        "playlist_id": {
+          "type": "string",
+          "description": "The Spotify ID of the playlist. Example: \"0PUR2D6eCDOIjLIeu9kIcq\""
+        },
+        "range_start": {
+          "type": "number",
+          "description": "The position of the first track to be reordered."
+        },
+        "insert_before": {
+          "type": "number",
+          "description": "The position where the tracks should be inserted."
+        },
+        "range_length": {
+          "type": "number",
+          "description": "The amount of tracks to be reordered. Defaults to 1 if not supplied."
+        },
+        "snapshot_id": {
+          "type": "string",
+          "description": "The playlist's snapshot ID against which you want to make the changes."
+        }
+      },
+      "required": [
+        "playlist_id",
+        "range_start",
+        "insert_before"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_spotify_reorderplaylisttracks": {
+      "type": "object",
+      "properties": {
+        "snapshot_id": {
+          "type": "string"
+        }
+      },
+      "additionalProperties": false
+    },
+    "ActionInput_spotify_search": {
+      "type": "object",
+      "properties": {
+        "query": {
+          "type": "string",
+          "description": "Search query string. Example: \"Radiohead\""
+        },
+        "type": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "0": {
+                "type": "string",
+                "const": "track"
+              },
+              "1": {
+                "type": "string",
+                "const": "album"
+              },
+              "2": {
+                "type": "string",
+                "const": "artist"
+              },
+              "3": {
+                "type": "string",
+                "const": "playlist"
+              },
+              "4": {
+                "type": "string",
+                "const": "show"
+              },
+              "5": {
+                "type": "string",
+                "const": "episode"
+              }
+            },
+            "required": [
+              "0",
+              "1",
+              "2",
+              "3",
+              "4",
+              "5"
+            ],
+            "additionalProperties": false
+          },
+          "description": "Types of items to search for. At least one type is required."
+        },
+        "market": {
+          "type": "string",
+          "description": "ISO 3166-1 alpha-2 country code for content restriction. Example: \"US\""
+        },
+        "limit": {
+          "type": "number",
+          "description": "Maximum number of results to return per type. Default: 20, Maximum: 50."
+        },
+        "offset": {
+          "type": "number",
+          "description": "Index of the first result to return. Default: 0."
+        },
+        "include_external": {
+          "type": "string",
+          "const": "audio",
+          "description": "If \"audio\", response includes any playable audio content."
+        }
+      },
+      "required": [
+        "query",
+        "type"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_spotify_search": {
+      "type": "object",
+      "properties": {
+        "query": {
+          "type": "string"
+        },
+        "types": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "0": {
+                "type": "string",
+                "const": "track"
+              },
+              "1": {
+                "type": "string",
+                "const": "album"
+              },
+              "2": {
+                "type": "string",
+                "const": "artist"
+              },
+              "3": {
+                "type": "string",
+                "const": "playlist"
+              },
+              "4": {
+                "type": "string",
+                "const": "show"
+              },
+              "5": {
+                "type": "string",
+                "const": "episode"
+              }
+            },
+            "required": [
+              "0",
+              "1",
+              "2",
+              "3",
+              "4",
+              "5"
+            ],
+            "additionalProperties": false
+          }
+        },
+        "tracks": {
+          "type": "object",
+          "properties": {
+            "items": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "id": {
+                    "type": "string"
+                  },
+                  "name": {
+                    "type": "string"
+                  },
+                  "uri": {
+                    "type": "string"
+                  },
+                  "type": {
+                    "type": "string",
+                    "const": "track"
+                  },
+                  "popularity": {
+                    "type": "number"
+                  },
+                  "explicit": {
+                    "type": "boolean"
+                  },
+                  "durationMs": {
+                    "type": "number"
+                  },
+                  "previewUrl": {
+                    "type": "string"
+                  },
+                  "album": {
+                    "type": "object",
+                    "properties": {
+                      "id": {
+                        "type": "string"
+                      },
+                      "name": {
+                        "type": "string"
+                      },
+                      "images": {
+                        "type": "array",
+                        "items": {
+                          "type": "object",
+                          "properties": {
+                            "url": {
+                              "type": "string"
+                            },
+                            "height": {
+                              "type": "number"
+                            },
+                            "width": {
+                              "type": "number"
+                            }
+                          },
+                          "required": [
+                            "url",
+                            "height",
+                            "width"
+                          ],
+                          "additionalProperties": false
+                        }
+                      }
+                    },
+                    "required": [
+                      "id",
+                      "name"
+                    ],
+                    "additionalProperties": false
+                  },
+                  "artists": {
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "properties": {
+                        "id": {
+                          "type": "string"
+                        },
+                        "name": {
+                          "type": "string"
+                        }
+                      },
+                      "required": [
+                        "id",
+                        "name"
+                      ],
+                      "additionalProperties": false
+                    }
+                  }
+                },
+                "required": [
+                  "id",
+                  "name",
+                  "uri",
+                  "type"
+                ],
+                "additionalProperties": false
+              }
+            },
+            "paging": {
+              "type": "object",
+              "properties": {
+                "total": {
+                  "type": "number"
+                },
+                "offset": {
+                  "type": "number"
+                },
+                "limit": {
+                  "type": "number"
+                },
+                "nextOffset": {
+                  "type": "number"
+                },
+                "hasMore": {
+                  "type": "boolean"
+                }
+              },
+              "required": [
+                "total",
+                "offset",
+                "limit",
+                "hasMore"
+              ],
+              "additionalProperties": false
+            }
+          },
+          "required": [
+            "items",
+            "paging"
+          ],
+          "additionalProperties": false
+        },
+        "albums": {
+          "type": "object",
+          "properties": {
+            "items": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "id": {
+                    "type": "string"
+                  },
+                  "name": {
+                    "type": "string"
+                  },
+                  "uri": {
+                    "type": "string"
+                  },
+                  "type": {
+                    "type": "string",
+                    "const": "album"
+                  },
+                  "albumType": {
+                    "type": "string"
+                  },
+                  "totalTracks": {
+                    "type": "number"
+                  },
+                  "images": {
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "properties": {
+                        "url": {
+                          "type": "string"
+                        },
+                        "height": {
+                          "type": "number"
+                        },
+                        "width": {
+                          "type": "number"
+                        }
+                      },
+                      "required": [
+                        "url",
+                        "height",
+                        "width"
+                      ],
+                      "additionalProperties": false
+                    }
+                  },
+                  "artists": {
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "properties": {
+                        "id": {
+                          "type": "string"
+                        },
+                        "name": {
+                          "type": "string"
+                        }
+                      },
+                      "required": [
+                        "id",
+                        "name"
+                      ],
+                      "additionalProperties": false
+                    }
+                  }
+                },
+                "required": [
+                  "id",
+                  "name",
+                  "uri",
+                  "type"
+                ],
+                "additionalProperties": false
+              }
+            },
+            "paging": {
+              "type": "object",
+              "properties": {
+                "total": {
+                  "type": "number"
+                },
+                "offset": {
+                  "type": "number"
+                },
+                "limit": {
+                  "type": "number"
+                },
+                "nextOffset": {
+                  "type": "number"
+                },
+                "hasMore": {
+                  "type": "boolean"
+                }
+              },
+              "required": [
+                "total",
+                "offset",
+                "limit",
+                "hasMore"
+              ],
+              "additionalProperties": false
+            }
+          },
+          "required": [
+            "items",
+            "paging"
+          ],
+          "additionalProperties": false
+        },
+        "artists": {
+          "type": "object",
+          "properties": {
+            "items": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "id": {
+                    "type": "string"
+                  },
+                  "name": {
+                    "type": "string"
+                  },
+                  "uri": {
+                    "type": "string"
+                  },
+                  "type": {
+                    "type": "string",
+                    "const": "artist"
+                  },
+                  "popularity": {
+                    "type": "number"
+                  },
+                  "images": {
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "properties": {
+                        "url": {
+                          "type": "string"
+                        },
+                        "height": {
+                          "type": "number"
+                        },
+                        "width": {
+                          "type": "number"
+                        }
+                      },
+                      "required": [
+                        "url",
+                        "height",
+                        "width"
+                      ],
+                      "additionalProperties": false
+                    }
+                  },
+                  "genres": {
+                    "type": "array",
+                    "items": {
+                      "type": "string"
+                    }
+                  }
+                },
+                "required": [
+                  "id",
+                  "name",
+                  "uri",
+                  "type"
+                ],
+                "additionalProperties": false
+              }
+            },
+            "paging": {
+              "type": "object",
+              "properties": {
+                "total": {
+                  "type": "number"
+                },
+                "offset": {
+                  "type": "number"
+                },
+                "limit": {
+                  "type": "number"
+                },
+                "nextOffset": {
+                  "type": "number"
+                },
+                "hasMore": {
+                  "type": "boolean"
+                }
+              },
+              "required": [
+                "total",
+                "offset",
+                "limit",
+                "hasMore"
+              ],
+              "additionalProperties": false
+            }
+          },
+          "required": [
+            "items",
+            "paging"
+          ],
+          "additionalProperties": false
+        },
+        "playlists": {
+          "type": "object",
+          "properties": {
+            "items": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "id": {
+                    "type": "string"
+                  },
+                  "name": {
+                    "type": "string"
+                  },
+                  "uri": {
+                    "type": "string"
+                  },
+                  "type": {
+                    "type": "string",
+                    "const": "playlist"
+                  },
+                  "description": {
+                    "type": "string"
+                  },
+                  "owner": {
+                    "type": "object",
+                    "properties": {
+                      "id": {
+                        "type": "string"
+                      },
+                      "displayName": {
+                        "type": "string"
+                      }
+                    },
+                    "required": [
+                      "id"
+                    ],
+                    "additionalProperties": false
+                  },
+                  "images": {
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "properties": {
+                        "url": {
+                          "type": "string"
+                        },
+                        "height": {
+                          "type": "number"
+                        },
+                        "width": {
+                          "type": "number"
+                        }
+                      },
+                      "required": [
+                        "url",
+                        "height",
+                        "width"
+                      ],
+                      "additionalProperties": false
+                    }
+                  },
+                  "tracksTotal": {
+                    "type": "number"
+                  }
+                },
+                "required": [
+                  "id",
+                  "name",
+                  "uri",
+                  "type"
+                ],
+                "additionalProperties": false
+              }
+            },
+            "paging": {
+              "type": "object",
+              "properties": {
+                "total": {
+                  "type": "number"
+                },
+                "offset": {
+                  "type": "number"
+                },
+                "limit": {
+                  "type": "number"
+                },
+                "nextOffset": {
+                  "type": "number"
+                },
+                "hasMore": {
+                  "type": "boolean"
+                }
+              },
+              "required": [
+                "total",
+                "offset",
+                "limit",
+                "hasMore"
+              ],
+              "additionalProperties": false
+            }
+          },
+          "required": [
+            "items",
+            "paging"
+          ],
+          "additionalProperties": false
+        },
+        "shows": {
+          "type": "object",
+          "properties": {
+            "items": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "id": {
+                    "type": "string"
+                  },
+                  "name": {
+                    "type": "string"
+                  },
+                  "uri": {
+                    "type": "string"
+                  },
+                  "type": {
+                    "type": "string",
+                    "const": "show"
+                  },
+                  "description": {
+                    "type": "string"
+                  },
+                  "explicit": {
+                    "type": "boolean"
+                  },
+                  "images": {
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "properties": {
+                        "url": {
+                          "type": "string"
+                        },
+                        "height": {
+                          "type": "number"
+                        },
+                        "width": {
+                          "type": "number"
+                        }
+                      },
+                      "required": [
+                        "url",
+                        "height",
+                        "width"
+                      ],
+                      "additionalProperties": false
+                    }
+                  },
+                  "languages": {
+                    "type": "array",
+                    "items": {
+                      "type": "string"
+                    }
+                  },
+                  "publisher": {
+                    "type": "string"
+                  },
+                  "totalEpisodes": {
+                    "type": "number"
+                  }
+                },
+                "required": [
+                  "id",
+                  "name",
+                  "uri",
+                  "type"
+                ],
+                "additionalProperties": false
+              }
+            },
+            "paging": {
+              "type": "object",
+              "properties": {
+                "total": {
+                  "type": "number"
+                },
+                "offset": {
+                  "type": "number"
+                },
+                "limit": {
+                  "type": "number"
+                },
+                "nextOffset": {
+                  "type": "number"
+                },
+                "hasMore": {
+                  "type": "boolean"
+                }
+              },
+              "required": [
+                "total",
+                "offset",
+                "limit",
+                "hasMore"
+              ],
+              "additionalProperties": false
+            }
+          },
+          "required": [
+            "items",
+            "paging"
+          ],
+          "additionalProperties": false
+        },
+        "episodes": {
+          "type": "object",
+          "properties": {
+            "items": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "id": {
+                    "type": "string"
+                  },
+                  "name": {
+                    "type": "string"
+                  },
+                  "uri": {
+                    "type": "string"
+                  },
+                  "type": {
+                    "type": "string",
+                    "const": "episode"
+                  },
+                  "description": {
+                    "type": "string"
+                  },
+                  "explicit": {
+                    "type": "boolean"
+                  },
+                  "durationMs": {
+                    "type": "number"
+                  },
+                  "images": {
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "properties": {
+                        "url": {
+                          "type": "string"
+                        },
+                        "height": {
+                          "type": "number"
+                        },
+                        "width": {
+                          "type": "number"
+                        }
+                      },
+                      "required": [
+                        "url",
+                        "height",
+                        "width"
+                      ],
+                      "additionalProperties": false
+                    }
+                  },
+                  "releaseDate": {
+                    "type": "string"
+                  },
+                  "show": {
+                    "type": "object",
+                    "properties": {
+                      "id": {
+                        "type": "string"
+                      },
+                      "name": {
+                        "type": "string"
+                      }
+                    },
+                    "required": [
+                      "id",
+                      "name"
+                    ],
+                    "additionalProperties": false
+                  }
+                },
+                "required": [
+                  "id",
+                  "name",
+                  "uri",
+                  "type"
+                ],
+                "additionalProperties": false
+              }
+            },
+            "paging": {
+              "type": "object",
+              "properties": {
+                "total": {
+                  "type": "number"
+                },
+                "offset": {
+                  "type": "number"
+                },
+                "limit": {
+                  "type": "number"
+                },
+                "nextOffset": {
+                  "type": "number"
+                },
+                "hasMore": {
+                  "type": "boolean"
+                }
+              },
+              "required": [
+                "total",
+                "offset",
+                "limit",
+                "hasMore"
+              ],
+              "additionalProperties": false
+            }
+          },
+          "required": [
+            "items",
+            "paging"
+          ],
+          "additionalProperties": false
+        }
+      },
+      "required": [
+        "query",
+        "types"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_spotify_seektoposition": {
+      "type": "object",
+      "properties": {
+        "position_ms": {
+          "type": "number",
+          "description": "Position in milliseconds to seek to. Example: 10000"
+        },
+        "device_id": {
+          "type": "string",
+          "description": "Optional. The ID of the device this command is targeting."
+        }
+      },
+      "required": [
+        "position_ms"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_spotify_seektoposition": {
+      "type": "object",
+      "properties": {
+        "success": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "success"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_spotify_setrepeatmode": {
+      "type": "object",
+      "properties": {
+        "state": {
+          "type": "string",
+          "enum": [
+            "track",
+            "context",
+            "off"
+          ],
+          "description": "The repeat mode to set. Can be track, context, or off."
+        },
+        "device_id": {
+          "type": "string",
+          "description": "The ID of the device this command is targeting. If not supplied, the user’s currently active device is the target."
+        }
+      },
+      "required": [
+        "state"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_spotify_setrepeatmode": {
+      "type": "object",
+      "properties": {
+        "success": {
+          "type": "boolean",
+          "description": "Whether the repeat mode was successfully set."
+        }
+      },
+      "required": [
+        "success"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_spotify_setvolume": {
+      "type": "object",
+      "properties": {
+        "volume_percent": {
+          "type": "number",
+          "description": "The volume to set. Must be between 0 and 100 inclusive."
+        },
+        "device_id": {
+          "type": "string",
+          "description": "The ID of the device this command is targeting. If not supplied, the user's currently active device is the target."
+        }
+      },
+      "required": [
+        "volume_percent"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_spotify_setvolume": {
+      "type": "object",
+      "properties": {
+        "success": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "success"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_spotify_skiptonext": {
+      "type": "object",
+      "properties": {
+        "deviceId": {
+          "type": "string",
+          "description": "The id of the device this command is targeting. If not supplied, the user's currently active device is the target."
+        }
+      },
+      "additionalProperties": false
+    },
+    "ActionOutput_spotify_skiptonext": {
+      "type": "object",
+      "properties": {
+        "success": {
+          "type": "boolean",
+          "description": "Whether the playback was successfully skipped to the next track."
+        }
+      },
+      "required": [
+        "success"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_spotify_skiptoprevious": {
+      "type": "object",
+      "properties": {
+        "device_id": {
+          "type": "string",
+          "description": "The ID of the device this command is targeting. If not supplied, the user's currently active device is the target."
+        }
+      },
+      "additionalProperties": false
+    },
+    "ActionOutput_spotify_skiptoprevious": {
+      "type": "object",
+      "properties": {
+        "success": {
+          "type": "boolean",
+          "description": "Whether the operation was successful"
+        }
+      },
+      "required": [
+        "success"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_spotify_startplayback": {
+      "type": "object",
+      "properties": {
+        "device_id": {
+          "type": "string",
+          "description": "The ID of the device to play on. If not provided, playback will start on the user's currently active device."
+        },
+        "context_uri": {
+          "type": "string",
+          "description": "Spotify URI of the context to play. This can be an album, artist, or playlist URI. Example: \"spotify:album:6dVIqQ8qmQ5GBnJ9shOYGE\""
+        },
+        "uris": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "An array of Spotify track URIs to play. If provided, context_uri should not be provided. Example: [\"spotify:track:70LcF31zb1H0PyJoS1Sx1r\"]"
+        },
+        "offset": {
+          "type": "object",
+          "properties": {
+            "position": {
+              "type": "number"
+            },
+            "uri": {
+              "type": "string",
+              "description": "The URI of the item to start playback from."
+            }
+          },
+          "additionalProperties": false,
+          "description": "Indicates from where in the context playback should start. Only available when context_uri corresponds to an album or playlist."
+        },
+        "position_ms": {
+          "type": "number",
+          "description": "The position in milliseconds to start playback from."
+        }
+      },
+      "additionalProperties": false
+    },
+    "ActionOutput_spotify_startplayback": {
+      "type": "object",
+      "properties": {
+        "success": {
+          "type": "boolean",
+          "description": "Whether the playback was started successfully"
+        }
+      },
+      "required": [
+        "success"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_spotify_toggleshuffle": {
+      "type": "object",
+      "properties": {
+        "state": {
+          "type": "boolean",
+          "description": "Whether shuffle should be enabled (true) or disabled (false)"
+        },
+        "device_id": {
+          "type": "string",
+          "description": "Optional device ID to target. If not provided, the user's currently active device is targeted"
+        }
+      },
+      "required": [
+        "state"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_spotify_toggleshuffle": {
+      "type": "object",
+      "properties": {
+        "success": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "success"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_spotify_transferplayback": {
+      "type": "object",
+      "properties": {
+        "device_id": {
+          "type": "string",
+          "description": "The ID of the device to transfer playback to. Example: \"e26cf707-53c5-4640-a6d3-3eb0fb2239ad\""
+        },
+        "play": {
+          "type": "boolean",
+          "description": "Whether to ensure playback happens on the new device. Default: false"
+        }
+      },
+      "required": [
+        "device_id"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_spotify_transferplayback": {
+      "type": "object",
+      "properties": {
+        "success": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "success"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_spotify_unfollowplaylist": {
+      "type": "object",
+      "properties": {
+        "playlist_id": {
+          "type": "string",
+          "description": "The Spotify ID of the playlist to unfollow. Example: \"5mBo6dx15GhupMndL3T2sk\""
+        }
+      },
+      "required": [
+        "playlist_id"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_spotify_unfollowplaylist": {
+      "type": "object",
+      "properties": {
+        "success": {
+          "type": "boolean",
+          "description": "Whether the playlist was successfully unfollowed"
+        },
+        "playlist_id": {
+          "type": "string",
+          "description": "The ID of the playlist that was unfollowed"
+        }
+      },
+      "required": [
+        "success",
+        "playlist_id"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_spotify_updateplaylist": {
+      "type": "object",
+      "properties": {
+        "playlistId": {
+          "type": "string",
+          "description": "The Spotify ID of the playlist. Example: \"0PUR2D6eCDOIjLIeu9kIcq\""
+        },
+        "name": {
+          "type": "string",
+          "description": "The new name for the playlist."
+        },
+        "description": {
+          "type": "string",
+          "description": "The new description for the playlist. Pass null to clear the description."
+        },
+        "public": {
+          "type": "boolean",
+          "description": "If true, the playlist will be public. If false, it will be private."
+        },
+        "collaborative": {
+          "type": "boolean",
+          "description": "If true, the playlist will become collaborative and other users will be able to modify it."
+        }
+      },
+      "required": [
+        "playlistId"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_spotify_updateplaylist": {
+      "type": "object",
+      "properties": {
+        "success": {
+          "type": "boolean"
+        },
+        "playlistId": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "success",
+        "playlistId"
+      ],
+      "additionalProperties": false
+    },
     "Subscription": {
       "type": "object",
       "properties": {
