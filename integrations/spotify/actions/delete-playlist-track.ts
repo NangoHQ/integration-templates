@@ -60,7 +60,7 @@ const action = createAction({
                 return {
                     playlist_id: input.playlist_id,
                     snapshot_id: 'quota-mode-restriction',
-                    tracks_removed: input.tracks.length
+                    tracks_removed: 0
                 };
             }
 
@@ -82,7 +82,7 @@ const action = createAction({
                 return {
                     playlist_id: input.playlist_id,
                     snapshot_id: 'quota-mode-restriction',
-                    tracks_removed: input.tracks.length
+                    tracks_removed: 0
                 };
             }
 
@@ -101,7 +101,7 @@ const action = createAction({
                 return {
                     playlist_id: input.playlist_id,
                     snapshot_id: 'quota-mode-restriction',
-                    tracks_removed: input.tracks.length
+                    tracks_removed: 0
                 };
             }
             throw error;

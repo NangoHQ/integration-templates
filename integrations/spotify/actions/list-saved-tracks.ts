@@ -2,9 +2,9 @@ import { z } from 'zod';
 import { createAction } from 'nango';
 
 const InputSchema = z.object({
-    limit: z.number().optional().describe('The maximum number of items to return. Default: 20, Maximum: 50.'),
-    offset: z.number().optional().describe('The index of the first item to return. Default: 0.'),
-    market: z.string().optional().describe('An ISO 3166-1 alpha-2 country code.')
+    limit: z.number().int().min(1).max(50).optional().describe('The maximum number of items to return. Default: 20, Maximum: 50.'),
+    offset: z.number().int().min(0).optional().describe('The index of the first item to return. Default: 0.'),
+    market: z.string().length(2).optional().describe('An ISO 3166-1 alpha-2 country code. Example: "US"')
 });
 
 const SavedTrackObjectSchema = z.object({

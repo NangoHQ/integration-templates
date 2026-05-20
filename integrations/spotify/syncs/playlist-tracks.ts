@@ -196,10 +196,15 @@ const sync = createSync({
             current_snapshot: currentSnapshotId
         });
 
-        // Start tracking deletes for this sync run
-        await nango.trackDeletesStart('PlaylistTrack');
-
         const startOffset = isResumingCurrentSnapshot ? (checkpoint?.['offset'] ?? 0) : 0;
+
+        // Only track deletes on a full run starting from the beginning.
+        // A resumed run (startOffset > 0) only sees a subset of tracks, so items
+        // from earlier pages would be falsely marked as deleted.
+        const trackDeletes = startOffset === 0;
+        if (trackDeletes) {
+            await nango.trackDeletesStart('PlaylistTrack');
+        }
 
         // Build pagination config with offset-based pagination
         // https://developer.spotify.com/documentation/web-api/reference/get-playlists-tracks
@@ -222,12 +227,14 @@ const sync = createSync({
             response_path: 'items'
         };
 
+        // Do not forward metadata.fields: a partial fields selector can exclude required
+        // properties (e.g. the track object itself) causing delete tracking to mark
+        // existing tracks as deleted.
         const proxyConfig = {
             endpoint: `/v1/playlists/${encodedPlaylistId}/items`,
             params: {
                 limit: '100',
-                ...(metadata.market && { market: metadata.market }),
-                ...(metadata.fields && { fields: metadata.fields })
+                ...(metadata.market && { market: metadata.market })
             },
             paginate: offsetPaginationConfig,
             retries: 3
@@ -316,7 +323,9 @@ const sync = createSync({
         }
 
         // Mark delete tracking complete after successful full sync
-        await nango.trackDeletesEnd('PlaylistTrack');
+        if (trackDeletes) {
+            await nango.trackDeletesEnd('PlaylistTrack');
+        }
 
         // Reset offset to 0 for next run (snapshot_id will be used to detect changes)
         await nango.saveCheckpoint({

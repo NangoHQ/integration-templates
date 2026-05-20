@@ -2,16 +2,7 @@ import { z } from 'zod';
 import { createAction } from 'nango';
 
 // https://developer.spotify.com/documentation/web-api/reference/get-queue
-const ProviderTrackSchema = z
-    .object({
-        id: z.string().optional(),
-        name: z.string().optional(),
-        type: z.string().optional(),
-        uri: z.string().optional()
-    })
-    .passthrough();
-
-const ProviderEpisodeSchema = z
+const ProviderQueueItemSchema = z
     .object({
         id: z.string().optional(),
         name: z.string().optional(),
@@ -21,8 +12,8 @@ const ProviderEpisodeSchema = z
     .passthrough();
 
 const ProviderQueueSchema = z.object({
-    currently_playing: z.union([ProviderTrackSchema, ProviderEpisodeSchema, z.null()]).optional(),
-    queue: z.array(z.union([ProviderTrackSchema, ProviderEpisodeSchema])).optional()
+    currently_playing: ProviderQueueItemSchema.nullable().optional(),
+    queue: z.array(ProviderQueueItemSchema).optional()
 });
 
 const InputSchema = z.object({});

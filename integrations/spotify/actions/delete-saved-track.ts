@@ -2,7 +2,7 @@ import { z } from 'zod';
 import { createAction } from 'nango';
 
 const InputSchema = z.object({
-    ids: z.array(z.string()).describe('Spotify track IDs to remove from the library. Example: ["70LcF31zb1H0PyJoS1Sx1r"]')
+    ids: z.array(z.string()).min(1).max(50).describe('Spotify track IDs to remove from the library. Between 1 and 50 IDs. Example: ["70LcF31zb1H0PyJoS1Sx1r"]')
 });
 
 const OutputSchema = z.object({

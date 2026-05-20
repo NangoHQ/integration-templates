@@ -112,9 +112,17 @@ const sync = createSync<
         let maxPlayedAtTimestamp: number | undefined;
 
         for await (const items of nango.paginate<z.infer<typeof _RecentlyPlayedItemSchema>>(proxyConfig)) {
-            const records = items.map((item) => {
+            const records = [];
+
+            for (const rawItem of items) {
+                const parseResult = _RecentlyPlayedItemSchema.safeParse(rawItem);
+                if (!parseResult.success) {
+                    await nango.log(`Failed to parse recently played item: ${parseResult.error.message}`);
+                    continue;
+                }
+                const item = parseResult.data;
                 const track = item.track;
-                return {
+                records.push({
                     id: `${track.id}_${item.played_at}`,
                     trackId: track.id,
                     trackName: track.name,
@@ -131,8 +139,8 @@ const sync = createSync<
                         contextType: item.context.type,
                         contextUri: item.context.uri
                     })
-                };
-            });
+                });
+            }
 
             if (records.length === 0) {
                 continue;

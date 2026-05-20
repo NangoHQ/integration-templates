@@ -44840,7 +44840,7 @@ export interface ActionInput_spotify_createplaylisttrack {
    */
   playlistId: string;
   /**
-   * An array of Spotify URIs to add. Can be track or episode URIs. Maximum 100 items. Example: ["spotify:track:4iV5W9uYEdYUVa79Axb7Rh", "spotify:track:1301WleyT98MSxVHPZCA6M"]
+   * An array of Spotify URIs to add. Can be track or episode URIs. Between 1 and 100 items. Example: ["spotify:track:4iV5W9uYEdYUVa79Axb7Rh", "spotify:track:1301WleyT98MSxVHPZCA6M"]
    */
   uris: string[];
   /**
@@ -44934,7 +44934,7 @@ export interface ActionOutput_spotify_createsavedalbum {
 
 export interface ActionInput_spotify_createsavedtrack {
   /**
-   * An array of Spotify track IDs to save. Maximum 50 IDs. Example: ["70LcF31zb1H0PyJoS1Sx1r"]
+   * An array of Spotify track IDs to save. Between 1 and 40 IDs. Example: ["70LcF31zb1H0PyJoS1Sx1r"]
    */
   ids: string[];
 };
@@ -44986,7 +44986,7 @@ export interface ActionOutput_spotify_deleteplaylist {
 
 export interface ActionInput_spotify_deletesavedalbum {
   /**
-   * Array of Spotify album IDs to remove from the user's library. Maximum 20.
+   * Array of Spotify album IDs to remove from the user's library. Between 1 and 40 IDs.
    */
   ids: string[];
 };
@@ -45000,7 +45000,7 @@ export interface ActionOutput_spotify_deletesavedalbum {
 
 export interface ActionInput_spotify_deletesavedshow {
   /**
-   * Array of Spotify show IDs to remove from the library. Maximum 50 IDs.
+   * Array of Spotify show IDs to remove from the library. Between 1 and 40 IDs.
    */
   ids: string[];
 };
@@ -45014,7 +45014,7 @@ export interface ActionOutput_spotify_deletesavedshow {
 
 export interface ActionInput_spotify_deletesavedtrack {
   /**
-   * Spotify track IDs to remove from the library. Example: ["70LcF31zb1H0PyJoS1Sx1r"]
+   * Spotify track IDs to remove from the library. Between 1 and 50 IDs. Example: ["70LcF31zb1H0PyJoS1Sx1r"]
    */
   ids: string[];
 };
@@ -45028,7 +45028,7 @@ export interface ActionOutput_spotify_deletesavedtrack {
 
 export interface ActionInput_spotify_followartist {
   /**
-   * Spotify artist IDs to follow. Example: ["4Z8W4fKeB5YxbusRsdQVPb"]
+   * Spotify artist IDs to follow. Between 1 and 50 IDs. Example: ["4Z8W4fKeB5YxbusRsdQVPb"]
    */
   ids: string[];
 };
@@ -45352,7 +45352,7 @@ export interface ActionInput_spotify_gettrack {
    */
   id: string;
   /**
-   * Optional ISO 3166-1 alpha-2 country code for content restrictions.
+   * Optional ISO 3166-1 alpha-2 country code for content restrictions. Example: "US"
    */
   market?: string | undefined;
 };
@@ -45560,7 +45560,7 @@ export interface ActionInput_spotify_listsavedtracks {
    */
   offset?: number | undefined;
   /**
-   * An ISO 3166-1 alpha-2 country code.
+   * An ISO 3166-1 alpha-2 country code. Example: "US"
    */
   market?: string | undefined;
 };

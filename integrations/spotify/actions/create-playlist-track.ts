@@ -5,10 +5,17 @@ const InputSchema = z.object({
     playlistId: z.string().describe('The Spotify ID of the playlist. Example: "3cEYpjA9oz9GiPac4AsH4n"'),
     uris: z
         .array(z.string())
+        .min(1)
+        .max(100)
         .describe(
-            'An array of Spotify URIs to add. Can be track or episode URIs. Maximum 100 items. Example: ["spotify:track:4iV5W9uYEdYUVa79Axb7Rh", "spotify:track:1301WleyT98MSxVHPZCA6M"]'
+            'An array of Spotify URIs to add. Can be track or episode URIs. Between 1 and 100 items. Example: ["spotify:track:4iV5W9uYEdYUVa79Axb7Rh", "spotify:track:1301WleyT98MSxVHPZCA6M"]'
         ),
-    position: z.number().optional().describe('The position to insert the items, a zero-based index. If omitted, items are appended to the end. Example: 0')
+    position: z
+        .number()
+        .int()
+        .min(0)
+        .optional()
+        .describe('The position to insert the items, a zero-based index. If omitted, items are appended to the end. Example: 0')
 });
 
 const ProviderOutputSchema = z.object({

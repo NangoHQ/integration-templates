@@ -2,7 +2,7 @@ import { z } from 'zod';
 import { createAction } from 'nango';
 
 const InputSchema = z.object({
-    ids: z.array(z.string()).describe('An array of Spotify track IDs to save. Maximum 50 IDs. Example: ["70LcF31zb1H0PyJoS1Sx1r"]')
+    ids: z.array(z.string()).min(1).max(40).describe('An array of Spotify track IDs to save. Between 1 and 40 IDs. Example: ["70LcF31zb1H0PyJoS1Sx1r"]')
 });
 
 // Spotify uses spotify:track:{id} format for URIs

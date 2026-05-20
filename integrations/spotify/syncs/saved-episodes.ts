@@ -118,8 +118,9 @@ const sync = createSync({
             for (const item of page) {
                 const parseResult = SpotifySavedEpisodeSchema.safeParse(item);
                 if (!parseResult.success) {
-                    await nango.log(`Failed to parse saved episode: ${parseResult.error.message}`);
-                    continue;
+                    // Fail the run rather than skip — skipping a row while delete tracking is
+                    // active would make that episode appear deleted on the next trackDeletesEnd.
+                    throw new Error(`Failed to parse saved episode: ${parseResult.error.message}`);
                 }
                 const savedEpisode = parseResult.data;
                 episodes.push({

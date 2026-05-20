@@ -8,15 +8,15 @@ const InputSchema = z.object({
 
 const PlaylistOwnerSchema = z.object({
     id: z.string(),
-    display_name: z.string().optional()
+    display_name: z.string().nullable().optional()
 });
 
 const PlaylistItemSchema = z.object({
     id: z.string(),
     name: z.string(),
-    description: z.string().optional(),
+    description: z.string().nullable().optional(),
     owner: PlaylistOwnerSchema,
-    public: z.boolean().optional(),
+    public: z.boolean().nullable().optional(),
     collaborative: z.boolean().optional(),
     href: z.string().optional(),
     uri: z.string().optional(),
@@ -84,10 +84,10 @@ const action = createAction({
         const playlists = validated.items.map((item) => ({
             id: item.id,
             name: item.name,
-            ...(item.description !== undefined && { description: item.description }),
+            ...(item.description != null && { description: item.description }),
             owner_id: item.owner.id,
-            ...(item.owner.display_name !== undefined && { owner_name: item.owner.display_name }),
-            ...(item.public !== undefined && { public: item.public }),
+            ...(item.owner.display_name != null && { owner_name: item.owner.display_name }),
+            ...(item.public != null && { public: item.public }),
             ...(item.collaborative !== undefined && { collaborative: item.collaborative }),
             ...(item.href !== undefined && { href: item.href }),
             ...(item.uri !== undefined && { uri: item.uri }),

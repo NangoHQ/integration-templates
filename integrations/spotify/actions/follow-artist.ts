@@ -2,7 +2,7 @@ import { z } from 'zod';
 import { createAction } from 'nango';
 
 const InputSchema = z.object({
-    ids: z.array(z.string()).max(50).describe('Spotify artist IDs to follow. Example: ["4Z8W4fKeB5YxbusRsdQVPb"]')
+    ids: z.array(z.string()).min(1).max(50).describe('Spotify artist IDs to follow. Between 1 and 50 IDs. Example: ["4Z8W4fKeB5YxbusRsdQVPb"]')
 });
 
 const OutputSchema = z.object({
@@ -14,6 +14,17 @@ function getStatusFromError(error: unknown): number | undefined {
         const status = Reflect.get(error, 'status');
         if (typeof status === 'number') {
             return status;
+        }
+        // Check nested payload (Nango wraps some errors as error.payload.error.status)
+        const payload = Reflect.get(error, 'payload');
+        if (typeof payload === 'object' && payload !== null) {
+            const payloadError = Reflect.get(payload, 'error');
+            if (typeof payloadError === 'object' && payloadError !== null) {
+                const payloadStatus = Reflect.get(payloadError, 'status');
+                if (typeof payloadStatus === 'number') {
+                    return payloadStatus;
+                }
+            }
         }
     }
     return undefined;

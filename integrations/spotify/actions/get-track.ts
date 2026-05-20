@@ -3,7 +3,7 @@ import { createAction } from 'nango';
 
 const InputSchema = z.object({
     id: z.string().describe('Spotify track ID. Example: "70LcF31zb1H0PyJoS1Sx1r"'),
-    market: z.string().optional().describe('Optional ISO 3166-1 alpha-2 country code for content restrictions.')
+    market: z.string().length(2).optional().describe('Optional ISO 3166-1 alpha-2 country code for content restrictions. Example: "US"')
 });
 
 // Raw Spotify Track response fields we care about

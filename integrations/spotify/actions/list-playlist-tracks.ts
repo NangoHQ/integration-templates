@@ -113,6 +113,11 @@ const TrackSchema = z.object({
     is_local: z.boolean()
 });
 
+// Episodes have a different shape than tracks; use a permissive fallback so that
+// additional_types=episode does not crash the parse. Non-track items are filtered
+// out before building the output.
+const AnyItemSchema = z.union([TrackSchema, z.object({ type: z.string() }).passthrough()]);
+
 const PlaylistTrackObjectSchema = z.object({
     added_at: z.string().nullable().optional(),
     added_by: z
@@ -130,8 +135,8 @@ const PlaylistTrackObjectSchema = z.object({
         .nullable()
         .optional(),
     is_local: z.boolean(),
-    track: TrackSchema.optional(),
-    item: TrackSchema.optional()
+    track: AnyItemSchema.nullable().optional(),
+    item: AnyItemSchema.nullable().optional()
 });
 
 const ProviderResponseSchema = z.object({
@@ -234,36 +239,44 @@ const action = createAction({
             items: validated.items
                 .map((item) => {
                     const track = item.item || item.track;
+                    // Skip null tracks and non-track items (e.g. episodes when
+                    // additional_types=episode is requested). Parse through TrackSchema
+                    // to narrow the type without casting.
                     if (!track) {
                         return null;
                     }
+                    const parsedTrack = TrackSchema.safeParse(track);
+                    if (!parsedTrack.success) {
+                        return null;
+                    }
+                    const t = parsedTrack.data;
                     return {
-                        id: track.id,
-                        name: track.name,
-                        uri: track.uri,
-                        href: track.href,
-                        duration_ms: track.duration_ms,
-                        explicit: track.explicit,
-                        popularity: track.popularity,
-                        preview_url: track.preview_url,
-                        track_number: track.track_number,
-                        disc_number: track.disc_number,
+                        id: t.id,
+                        name: t.name,
+                        uri: t.uri,
+                        href: t.href,
+                        duration_ms: t.duration_ms,
+                        explicit: t.explicit,
+                        popularity: t.popularity,
+                        preview_url: t.preview_url,
+                        track_number: t.track_number,
+                        disc_number: t.disc_number,
                         is_local: item.is_local,
-                        is_playable: track.is_playable,
-                        album: track.album
+                        is_playable: t.is_playable,
+                        album: t.album
                             ? {
-                                  id: track.album.id,
-                                  name: track.album.name,
-                                  uri: track.album.uri,
-                                  href: track.album.href,
-                                  album_type: track.album.album_type,
-                                  total_tracks: track.album.total_tracks,
-                                  release_date: track.album.release_date,
-                                  release_date_precision: track.album.release_date_precision,
-                                  images: track.album.images
+                                  id: t.album.id,
+                                  name: t.album.name,
+                                  uri: t.album.uri,
+                                  href: t.album.href,
+                                  album_type: t.album.album_type,
+                                  total_tracks: t.album.total_tracks,
+                                  release_date: t.album.release_date,
+                                  release_date_precision: t.album.release_date_precision,
+                                  images: t.album.images
                               }
                             : undefined,
-                        artists: track.artists?.map((artist) => ({
+                        artists: t.artists?.map((artist) => ({
                             id: artist.id,
                             name: artist.name,
                             uri: artist.uri,
@@ -278,7 +291,7 @@ const action = createAction({
                 })
                 .filter((item): item is NonNullable<typeof item> => item !== null),
             total: validated.total,
-            ...(validated.offset + validated.items.length < validated.total && validated.items.length > 1
+            ...(validated.offset + validated.items.length < validated.total && validated.items.length > 0
                 ? { next_offset: validated.offset + validated.items.length }
                 : undefined)
         };

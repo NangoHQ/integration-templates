@@ -40,6 +40,14 @@ const ProviderTrackItemSchema = z.object({
         .optional()
 });
 
+const ProviderTracksPageSchema = z.object({
+    items: z.array(ProviderTrackItemSchema),
+    total: z.number(),
+    limit: z.number(),
+    offset: z.number(),
+    next: z.string().nullable()
+});
+
 const ProviderAlbumSchema = z.object({
     id: z.string(),
     name: z.string(),
@@ -56,16 +64,7 @@ const ProviderAlbumSchema = z.object({
         .optional(),
     images: z.array(ProviderImageSchema),
     artists: z.array(ProviderArtistSchema),
-    tracks: z
-        .object({
-            items: z.array(ProviderTrackItemSchema),
-            total: z.number(),
-            limit: z.number(),
-            offset: z.number(),
-            next: z.string().nullable(),
-            previous: z.string().nullable()
-        })
-        .optional()
+    tracks: ProviderTracksPageSchema.optional()
 });
 
 const OutputSchema = z.object({
@@ -153,6 +152,27 @@ const action = createAction({
 
         const providerAlbum = ProviderAlbumSchema.parse(response.data);
 
+        // Fetch all track pages; the initial album response only contains the first page
+        const allTrackItems: z.infer<typeof ProviderTrackItemSchema>[] = [...(providerAlbum.tracks?.items ?? [])];
+        let nextTracksUrl = providerAlbum.tracks?.next ?? null;
+        let tracksOffset = providerAlbum.tracks ? providerAlbum.tracks.offset + providerAlbum.tracks.items.length : 0;
+
+        while (nextTracksUrl) {
+            const tracksResponse = await nango.get({
+                endpoint: `/v1/albums/${encodeURIComponent(input.id)}/tracks`,
+                params: {
+                    offset: String(tracksOffset),
+                    limit: '50',
+                    ...(input.market && { market: input.market })
+                },
+                retries: 3
+            });
+            const tracksPage = ProviderTracksPageSchema.parse(tracksResponse.data);
+            allTrackItems.push(...tracksPage.items);
+            nextTracksUrl = tracksPage.next;
+            tracksOffset += tracksPage.items.length;
+        }
+
         return {
             id: providerAlbum.id,
             name: providerAlbum.name,
@@ -174,8 +194,8 @@ const action = createAction({
                 uri: artist.uri,
                 ...(artist.external_urls?.spotify && { spotify_url: artist.external_urls.spotify })
             })),
-            ...(providerAlbum.tracks && {
-                tracks: providerAlbum.tracks.items.map((track) => ({
+            ...(allTrackItems.length > 0 && {
+                tracks: allTrackItems.map((track) => ({
                     id: track.id,
                     name: track.name,
                     type: track.type,

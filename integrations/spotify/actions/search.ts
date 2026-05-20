@@ -3,7 +3,10 @@ import { createAction } from 'nango';
 
 const InputSchema = z.object({
     query: z.string().describe('Search query string. Example: "Radiohead"'),
-    type: z.array(z.enum(['track', 'album', 'artist', 'playlist', 'show', 'episode'])).describe('Types of items to search for. At least one type is required.'),
+    type: z
+        .array(z.enum(['track', 'album', 'artist', 'playlist', 'show', 'episode']))
+        .min(1)
+        .describe('Types of items to search for. At least one type is required.'),
     market: z.string().optional().describe('ISO 3166-1 alpha-2 country code for content restriction. Example: "US"'),
     limit: z.number().int().min(1).max(50).optional().describe('Maximum number of results to return per type. Default: 20, Maximum: 50.'),
     offset: z.number().int().min(0).optional().describe('Index of the first result to return. Default: 0.'),
@@ -89,7 +92,7 @@ const SpotifyPlaylistSchema = z.object({
     uri: z.string(),
     href: z.string(),
     type: z.literal('playlist'),
-    description: z.string().optional(),
+    description: z.string().nullable().optional(),
     owner: z
         .object({
             id: z.string(),
@@ -401,7 +404,7 @@ const action = createAction({
                     name: playlist.name,
                     uri: playlist.uri,
                     type: playlist.type,
-                    ...(playlist.description !== undefined && { description: playlist.description }),
+                    ...(playlist.description != null && { description: playlist.description }),
                     ...(playlist.owner !== undefined && {
                         owner: {
                             id: playlist.owner.id,

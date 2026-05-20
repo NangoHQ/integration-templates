@@ -44,7 +44,13 @@ const sync = createSync({
         const checkpoint = await nango.getCheckpoint();
         let offset: number = checkpoint?.['offset'] ?? 0;
 
-        await nango.trackDeletesStart('Playlist');
+        // Only track deletes on a full run starting from the beginning.
+        // A resumed run (offset > 0) only sees a subset of playlists, so
+        // items from earlier pages would be falsely marked as deleted.
+        const trackDeletes = offset === 0;
+        if (trackDeletes) {
+            await nango.trackDeletesStart('Playlist');
+        }
 
         // https://developer.spotify.com/documentation/web-api/reference/get-a-list-of-current-users-playlists
         const proxyConfig: ProxyConfiguration = {
@@ -116,7 +122,9 @@ const sync = createSync({
         }
 
         await nango.clearCheckpoint();
-        await nango.trackDeletesEnd('Playlist');
+        if (trackDeletes) {
+            await nango.trackDeletesEnd('Playlist');
+        }
     }
 });
 

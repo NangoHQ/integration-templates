@@ -72,6 +72,10 @@ const action = createAction({
 
         if (input.collaborative !== undefined) {
             requestBody.collaborative = input.collaborative;
+            // Spotify requires collaborative playlists to be private
+            if (input.collaborative) {
+                requestBody.public = false;
+            }
         }
 
         // https://developer.spotify.com/documentation/web-api/reference/create-playlist

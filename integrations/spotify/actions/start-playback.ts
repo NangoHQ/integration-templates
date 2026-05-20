@@ -14,7 +14,7 @@ const InputSchema = z.object({
         .describe('An array of Spotify track URIs to play. If provided, context_uri should not be provided. Example: ["spotify:track:70LcF31zb1H0PyJoS1Sx1r"]'),
     offset: z
         .object({
-            position: z.number().optional().describe('The index of the item in the context to play, starting from 0.'),
+            position: z.number().int().min(0).optional().describe('The index of the item in the context to play, starting from 0.'),
             uri: z.string().optional().describe('The URI of the item to start playback from.')
         })
         .optional()
