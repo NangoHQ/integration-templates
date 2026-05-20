@@ -95,7 +95,10 @@ const sync = createSync({
                 })
             );
 
-            const totalPages = res.Response_Results?.Total_Pages ?? 1;
+            if (!res?.Response_Results) {
+                throw new Error('Unexpected Workday response: missing Response_Results');
+            }
+            const totalPages = res.Response_Results.Total_Pages ?? 1;
             hasMoreData = page < totalPages;
             page += 1;
 

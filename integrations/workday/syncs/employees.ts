@@ -94,7 +94,10 @@ const sync = createSync({
 
             const rawWorkers = res?.Response_Data?.Worker;
             const workers = Array.isArray(rawWorkers) ? rawWorkers : rawWorkers ? [rawWorkers] : [];
-            const totalPages = res?.Response_Results?.Total_Pages ?? 1;
+            if (!res?.Response_Results) {
+                throw new Error('Unexpected Workday response: missing Response_Results');
+            }
+            const totalPages = res.Response_Results.Total_Pages ?? 1;
             hasMoreData = page < totalPages;
             page += 1;
 

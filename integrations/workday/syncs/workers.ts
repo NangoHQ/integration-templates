@@ -216,7 +216,10 @@ const sync = createSync({
                 await nango.batchSave(mappedWorkers, 'Worker');
             }
 
-            hasMoreData = (res?.Response_Results?.Page ?? 0) < (res?.Response_Results?.Total_Pages ?? 1);
+            if (!res?.Response_Results) {
+                throw new Error('Unexpected Workday response: missing Response_Results');
+            }
+            hasMoreData = res.Response_Results.Page < res.Response_Results.Total_Pages;
 
             if (hasMoreData) {
                 page += 1;
