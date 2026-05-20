@@ -71,7 +71,8 @@ const action = createAction({
             }
         });
 
-        const organizations = res?.Response_Data?.Organization ?? [];
+        const rawOrganizations = res?.Response_Data?.Organization;
+        const organizations = Array.isArray(rawOrganizations) ? rawOrganizations : rawOrganizations ? [rawOrganizations] : [];
 
         for (const org of organizations) {
             const data = org.Organization_Data;

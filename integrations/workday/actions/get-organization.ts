@@ -4,6 +4,19 @@ import soap from 'soap';
 
 const WORKDAY_VERSION = '44.0';
 
+async function withRetry<T>(fn: () => Promise<T>, retries = 3): Promise<T> {
+    for (let attempt = 0; attempt < retries; attempt++) {
+        // @allowTryCatch
+        try {
+            return await fn();
+        } catch (err) {
+            if (attempt === retries - 1) throw err;
+            await new Promise((r) => setTimeout(r, 500 * 2 ** attempt));
+        }
+    }
+    throw new Error('unreachable');
+}
+
 const InputSchema = z.object({
     id: z.string().describe('Organization_Reference_ID. Example: "HRIS_matrix"')
 });
@@ -44,16 +57,18 @@ const action = createAction({
             (Array.isArray(ids) ? ids : [ids]).find((r: any) => r?.attributes?.['wd:type'] === type)?.$value;
 
         // https://community.workday.com/sites/default/files/file-hosting/productionapi/Human_Resources/v44.0/Get_Organizations.html
-        const [res]: [any, string] = await client['Get_OrganizationsAsync']({
-            Request_References: {
-                Organization_Reference: {
-                    ID: {
-                        attributes: { 'wd:type': 'Organization_Reference_ID' },
-                        $value: input.id
+        const [res]: [any, string] = await withRetry(() =>
+            client['Get_OrganizationsAsync']({
+                Request_References: {
+                    Organization_Reference: {
+                        ID: {
+                            attributes: { 'wd:type': 'Organization_Reference_ID' },
+                            $value: input.id
+                        }
                     }
                 }
-            }
-        });
+            })
+        );
 
         const org = res?.Response_Data?.Organization?.[0];
         if (!org) {

@@ -223,7 +223,7 @@ const action = createAction({
             items.push(mappedWorker);
         }
 
-        const hasMoreData = res.Response_Results.Page < totalPages;
+        const hasMoreData = (res?.Response_Results?.Page ?? 1) < totalPages;
 
         const result: z.infer<typeof OutputSchema> = { items };
         if (hasMoreData) {

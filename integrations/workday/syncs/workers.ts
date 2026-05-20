@@ -4,6 +4,19 @@ import soap from 'soap';
 
 const WORKDAY_VERSION = '44.0';
 
+async function withRetry<T>(fn: () => Promise<T>, retries = 3): Promise<T> {
+    for (let attempt = 0; attempt < retries; attempt++) {
+        // @allowTryCatch
+        try {
+            return await fn();
+        } catch (err) {
+            if (attempt === retries - 1) throw err;
+            await new Promise((r) => setTimeout(r, 500 * 2 ** attempt));
+        }
+    }
+    throw new Error('unreachable');
+}
+
 const WorkerSchema = z.object({
     id: z.string().describe('Worker unique identifier'),
     employee_id: z.string().optional().describe('Employee ID from Workday'),
@@ -136,18 +149,21 @@ const sync = createSync({
         do {
             // https://community.workday.com/sites/default/files/file-hosting/productionapi/Human_Resources/v44.0/Get_Workers.html
             // eslint-disable-next-line @typescript-eslint/no-explicit-any
-            const [res]: [any, string] = await client['Get_WorkersAsync']({
-                Response_Filter: {
-                    Page: page,
-                    Count: 100
-                },
-                Response_Group: {
-                    Include_Personal_Information: true,
-                    Include_Employment_Information: true
-                }
-            });
+            const [res]: [any, string] = await withRetry(() =>
+                client['Get_WorkersAsync']({
+                    Response_Filter: {
+                        Page: page,
+                        Count: 100
+                    },
+                    Response_Group: {
+                        Include_Personal_Information: true,
+                        Include_Employment_Information: true
+                    }
+                })
+            );
 
-            const workers = res?.Response_Data?.Worker ?? [];
+            const rawWorkers = res?.Response_Data?.Worker;
+            const workers = Array.isArray(rawWorkers) ? rawWorkers : rawWorkers ? [rawWorkers] : [];
             const mappedWorkers: z.infer<typeof WorkerSchema>[] = [];
 
             for (const worker of workers) {
@@ -200,7 +216,7 @@ const sync = createSync({
                 await nango.batchSave(mappedWorkers, 'Worker');
             }
 
-            hasMoreData = res.Response_Results.Page < res.Response_Results.Total_Pages;
+            hasMoreData = (res?.Response_Results?.Page ?? 0) < (res?.Response_Results?.Total_Pages ?? 1);
 
             if (hasMoreData) {
                 page += 1;

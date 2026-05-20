@@ -72,7 +72,8 @@ const action = createAction({
             }
         });
 
-        const jobProfiles = res?.Response_Data?.Job_Profile ?? [];
+        const rawJobProfiles = res?.Response_Data?.Job_Profile;
+        const jobProfiles = Array.isArray(rawJobProfiles) ? rawJobProfiles : rawJobProfiles ? [rawJobProfiles] : [];
 
         for (const profile of jobProfiles) {
             const data = profile.Job_Profile_Data;

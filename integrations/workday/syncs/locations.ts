@@ -3,6 +3,19 @@ import { z } from 'zod';
 import soap from 'soap';
 const WORKDAY_VERSION = '44.0';
 
+async function withRetry<T>(fn: () => Promise<T>, retries = 3): Promise<T> {
+    for (let attempt = 0; attempt < retries; attempt++) {
+        // @allowTryCatch
+        try {
+            return await fn();
+        } catch (err) {
+            if (attempt === retries - 1) throw err;
+            await new Promise((r) => setTimeout(r, 500 * 2 ** attempt));
+        }
+    }
+    throw new Error('unreachable');
+}
+
 // https://community.workday.com/sites/default/files/file-hosting/productionapi/Human_Resources/v44.0/index.html
 
 const LocationSchema = z.object({
@@ -63,18 +76,22 @@ const sync = createSync({
             await nango.log(`Fetching page ${page}`);
 
             // https://community.workday.com/sites/default/files/file-hosting/productionapi/Human_Resources/v44.0/Get_Locations.html
-            const [res]: [any, string] = await client['Get_LocationsAsync']({
-                Response_Filter: {
-                    Page: page,
-                    Count: 100
-                }
-            });
+            const [res]: [any, string] = await withRetry(() =>
+                client['Get_LocationsAsync']({
+                    Response_Filter: {
+                        Page: page,
+                        Count: 100
+                    }
+                })
+            );
 
             const totalPages = res.Response_Results?.Total_Pages ?? 1;
             hasMoreData = page < totalPages;
             page += 1;
 
-            const locations = (res.Response_Data?.Location ?? []).map((loc: any) => {
+            const rawLocations = res.Response_Data?.Location;
+            const locationList = Array.isArray(rawLocations) ? rawLocations : rawLocations ? [rawLocations] : [];
+            const locations = locationList.map((loc: any) => {
                 const data = loc.Location_Data;
                 const inactive = data?.Inactive === '1' || data?.Inactive === true;
 

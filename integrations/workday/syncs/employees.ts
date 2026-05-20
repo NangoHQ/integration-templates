@@ -3,6 +3,19 @@ import { z } from 'zod';
 import soap from 'soap';
 const WORKDAY_VERSION = '44.0';
 
+async function withRetry<T>(fn: () => Promise<T>, retries = 3): Promise<T> {
+    for (let attempt = 0; attempt < retries; attempt++) {
+        // @allowTryCatch
+        try {
+            return await fn();
+        } catch (err) {
+            if (attempt === retries - 1) throw err;
+            await new Promise((r) => setTimeout(r, 500 * 2 ** attempt));
+        }
+    }
+    throw new Error('unreachable');
+}
+
 const EmployeeSchema = z.object({
     id: z.string(),
     worker_id: z.string().optional(),
@@ -66,18 +79,21 @@ const sync = createSync({
             await nango.log(`Fetching page ${page}`);
 
             // https://community.workday.com/sites/default/files/file-hosting/productionapi/Human_Resources/v44.0/Get_Workers.html
-            const [res]: [any, string] = await client['Get_WorkersAsync']({
-                Response_Filter: {
-                    Page: page,
-                    Count: 100
-                },
-                Response_Group: {
-                    Include_Personal_Information: true,
-                    Include_Employment_Information: true
-                }
-            });
+            const [res]: [any, string] = await withRetry(() =>
+                client['Get_WorkersAsync']({
+                    Response_Filter: {
+                        Page: page,
+                        Count: 100
+                    },
+                    Response_Group: {
+                        Include_Personal_Information: true,
+                        Include_Employment_Information: true
+                    }
+                })
+            );
 
-            const workers = res?.Response_Data?.Worker ?? [];
+            const rawWorkers = res?.Response_Data?.Worker;
+            const workers = Array.isArray(rawWorkers) ? rawWorkers : rawWorkers ? [rawWorkers] : [];
             const totalPages = res?.Response_Results?.Total_Pages ?? 1;
             hasMoreData = page < totalPages;
             page += 1;

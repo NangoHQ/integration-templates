@@ -3,6 +3,19 @@ import { z } from 'zod';
 import soap from 'soap';
 const WORKDAY_VERSION = '44.0';
 
+async function withRetry<T>(fn: () => Promise<T>, retries = 3): Promise<T> {
+    for (let attempt = 0; attempt < retries; attempt++) {
+        // @allowTryCatch
+        try {
+            return await fn();
+        } catch (err) {
+            if (attempt === retries - 1) throw err;
+            await new Promise((r) => setTimeout(r, 500 * 2 ** attempt));
+        }
+    }
+    throw new Error('unreachable');
+}
+
 const PositionSchema = z.object({
     id: z.string().describe('Position ID (e.g., "POS-001")'),
     name: z.string().optional().describe('Position name'),
@@ -73,14 +86,19 @@ const sync = createSync({
             await nango.log(`Fetching page ${page}`);
 
             // https://community.workday.com/sites/default/files/file-hosting/productionapi/Staffing/v44.0/Get_Positions.html
-            const [res]: [any, string] = await client['Get_PositionsAsync']({
-                Response_Filter: {
-                    Page: page,
-                    Count: 100
-                }
-            });
+            const [res]: [any, string] = await withRetry(() =>
+                client['Get_PositionsAsync']({
+                    Response_Filter: {
+                        Page: page,
+                        Count: 100
+                    }
+                })
+            );
 
             if (!trackingStarted) {
+                if (!res?.Response_Results) {
+                    throw new Error('Unexpected Workday response: missing Response_Results');
+                }
                 await nango.trackDeletesStart('Position');
                 trackingStarted = true;
             }

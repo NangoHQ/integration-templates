@@ -3,6 +3,19 @@ import { z } from 'zod';
 import soap from 'soap';
 const WORKDAY_VERSION = '44.0';
 
+async function withRetry<T>(fn: () => Promise<T>, retries = 3): Promise<T> {
+    for (let attempt = 0; attempt < retries; attempt++) {
+        // @allowTryCatch
+        try {
+            return await fn();
+        } catch (err) {
+            if (attempt === retries - 1) throw err;
+            await new Promise((r) => setTimeout(r, 500 * 2 ** attempt));
+        }
+    }
+    throw new Error('unreachable');
+}
+
 async function getSoapClient(
     type: 'Human_Resources' | 'Staffing',
     connection: {
@@ -73,18 +86,21 @@ const sync = createSync({
             await nango.log(`Fetching page ${page}`);
 
             // https://community.workday.com/sites/default/files/file-hosting/productionapi/Human_Resources/v44.0/Get_Job_Profiles.html
-            const [res]: [any, string] = await client['Get_Job_ProfilesAsync']({
-                Response_Filter: {
-                    Page: page,
-                    Count: 100
-                }
-            });
+            const [res]: [any, string] = await withRetry(() =>
+                client['Get_Job_ProfilesAsync']({
+                    Response_Filter: {
+                        Page: page,
+                        Count: 100
+                    }
+                })
+            );
 
             const totalPages = res.Response_Results?.Total_Pages ?? 1;
             hasMoreData = page < totalPages;
             page += 1;
 
-            const jobProfiles = res.Response_Data?.Job_Profile ?? [];
+            const rawJobProfiles = res.Response_Data?.Job_Profile;
+            const jobProfiles = Array.isArray(rawJobProfiles) ? rawJobProfiles : rawJobProfiles ? [rawJobProfiles] : [];
             const mapped: z.infer<typeof JobProfileSchema>[] = [];
 
             for (const profile of jobProfiles) {

@@ -5,6 +5,19 @@ import { security } from 'soap';
 
 const WORKDAY_VERSION = '44.0';
 
+async function withRetry<T>(fn: () => Promise<T>, retries = 3): Promise<T> {
+    for (let attempt = 0; attempt < retries; attempt++) {
+        // @allowTryCatch
+        try {
+            return await fn();
+        } catch (err) {
+            if (attempt === retries - 1) throw err;
+            await new Promise((r) => setTimeout(r, 500 * 2 ** attempt));
+        }
+    }
+    throw new Error('unreachable');
+}
+
 interface WorkdayConnection {
     credentials: {
         type?: string;
@@ -100,12 +113,14 @@ const action = createAction({
 
         do {
             // https://community.workday.com/sites/default/files/file-hosting/productionapi/Staffing/v44.0/Get_Positions.html
-            const tuple = await client['Get_PositionsAsync']({
-                Response_Filter: {
-                    Page: page,
-                    Count: 100
-                }
-            });
+            const tuple = await withRetry<[any, string]>(() =>
+                client['Get_PositionsAsync']({
+                    Response_Filter: {
+                        Page: page,
+                        Count: 100
+                    }
+                })
+            );
             const res = tuple[0];
 
             const responseResults = isRecord(res) ? res['Response_Results'] : undefined;
