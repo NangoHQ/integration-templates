@@ -130,8 +130,7 @@ const CheckpointSchema = z.object({
 
 const MetadataSchema = z.object({
     playlist_id: z.string().describe('The Spotify ID of the playlist to sync tracks from'),
-    market: z.string().optional().describe('Optional. An ISO 3166-1 alpha-2 country code for track relinking'),
-    fields: z.string().optional().describe('Optional. Comma-separated list of fields to return (e.g., items(added_at,track(name)))')
+    market: z.string().optional().describe('Optional. An ISO 3166-1 alpha-2 country code for track relinking')
 });
 
 const sync = createSync({

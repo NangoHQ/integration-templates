@@ -44708,10 +44708,6 @@ export interface SyncMetadata_spotify_playlisttracks {
    * Optional. An ISO 3166-1 alpha-2 country code for track relinking
    */
   market?: string | undefined;
-  /**
-   * Optional. Comma-separated list of fields to return (e.g., items(added_at,track(name)))
-   */
-  fields?: string | undefined;
 };
 
 export interface Playlist {
@@ -45352,9 +45348,9 @@ export interface ActionInput_spotify_gettrack {
    */
   id: string;
   /**
-   * Optional ISO 3166-1 alpha-2 country code for content restrictions. Example: "US"
+   * Optional ISO 3166-1 alpha-2 country code for content restrictions, or "from_token". Example: "US"
    */
-  market?: string | undefined;
+  market?: string | 'from_token' | undefined;
 };
 
 export interface ActionOutput_spotify_gettrack {
