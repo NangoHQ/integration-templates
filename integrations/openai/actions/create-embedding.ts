@@ -1,11 +1,15 @@
 import { z } from 'zod';
 import { createAction } from 'nango';
 
+// https://platform.openai.com/docs/api-reference/embeddings/create
 const InputSchema = z.object({
-    model: z.string().describe('The model to use for embeddings. Example: "text-embedding-3-small"'),
-    input: z.union([z.string(), z.array(z.string())]).describe('The text to embed. Can be a single string or an array of strings.'),
-    encoding_format: z.enum(['float', 'base64']).optional().describe('The format to return the embeddings in. Can be "float" or "base64".'),
-    dimensions: z.number().optional().describe('The number of dimensions the resulting output embeddings should have.')
+    model: z.string().describe('ID of the model to use. Example: "text-embedding-3-small"'),
+    input: z.union([z.string(), z.array(z.string())]).describe('Input text to embed, encoded as a string or array of strings.'),
+    encodingFormat: z.enum(['float', 'base64']).optional().describe('The format to return the embeddings in. Can be "float" or "base64".'),
+    dimensions: z
+        .number()
+        .optional()
+        .describe('The number of dimensions the resulting output embeddings should have. Only supported in text-embedding-3 and later models.')
 });
 
 const EmbeddingDataSchema = z.object({
@@ -37,13 +41,13 @@ const OutputSchema = z.object({
     ),
     model: z.string(),
     usage: z.object({
-        prompt_tokens: z.number(),
-        total_tokens: z.number()
+        promptTokens: z.number(),
+        totalTokens: z.number()
     })
 });
 
 const action = createAction({
-    description: 'Create embeddings for text inputs',
+    description: 'Create embeddings for text inputs.',
     version: '1.0.0',
     endpoint: {
         method: 'POST',
@@ -55,30 +59,24 @@ const action = createAction({
     scopes: ['model.request'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
-        const requestBody: {
-            model: string;
-            input: string | string[];
-            encoding_format?: string;
-            dimensions?: number;
-        } = {
-            model: input.model,
-            input: input.input
-        };
-
-        if (input.encoding_format !== undefined) {
-            requestBody.encoding_format = input.encoding_format;
-        }
-
-        if (input.dimensions !== undefined) {
-            requestBody.dimensions = input.dimensions;
-        }
-
+        // https://platform.openai.com/docs/api-reference/embeddings/create
         const response = await nango.post({
-            // https://platform.openai.com/docs/api-reference/embeddings/create
             endpoint: '/v1/embeddings',
-            data: requestBody,
+            data: {
+                model: input.model,
+                input: input.input,
+                ...(input.encodingFormat !== undefined && { encoding_format: input.encodingFormat }),
+                ...(input.dimensions !== undefined && { dimensions: input.dimensions })
+            },
             retries: 3
         });
+
+        if (response.status === 429) {
+            throw new nango.ActionError({
+                type: 'insufficient_quota',
+                message: 'The API key does not have sufficient billing quota for this request.'
+            });
+        }
 
         const providerResponse = ProviderResponseSchema.parse(response.data);
 
@@ -91,8 +89,8 @@ const action = createAction({
             })),
             model: providerResponse.model,
             usage: {
-                prompt_tokens: providerResponse.usage.prompt_tokens,
-                total_tokens: providerResponse.usage.total_tokens
+                promptTokens: providerResponse.usage.prompt_tokens,
+                totalTokens: providerResponse.usage.total_tokens
             }
         };
     }

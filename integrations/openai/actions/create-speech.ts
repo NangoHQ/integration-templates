@@ -2,20 +2,20 @@ import { z } from 'zod';
 import { createAction } from 'nango';
 
 const InputSchema = z.object({
-    model: z.enum(['tts-1', 'tts-1-hd', 'gpt-4o-mini-tts']).describe('The text-to-speech model to use. Example: "tts-1"'),
-    input: z.string().max(4096).describe('The text to generate audio for. Maximum 4096 characters. Example: "Hello world"'),
-    voice: z.enum(['alloy', 'echo', 'fable', 'onyx', 'nova', 'shimmer']).describe('The voice to use. Example: "alloy"'),
-    response_format: z.enum(['mp3', 'opus', 'aac', 'flac', 'wav', 'pcm']).optional().describe('The format of the audio output. Default: "mp3"'),
-    speed: z.number().min(0.25).max(4.0).optional().describe('The speed of the generated audio. Range: 0.25 to 4.0. Default: 1.0')
+    model: z.enum(['tts-1', 'tts-1-hd', 'gpt-4o-mini-tts']).describe('TTS model to use. Example: "tts-1"'),
+    input: z.string().max(4096).describe('Text to synthesize into speech. Max 4096 characters. Example: "Hello world"'),
+    voice: z.enum(['alloy', 'echo', 'fable', 'onyx', 'nova', 'shimmer']).describe('Voice to use for synthesis. Example: "alloy"'),
+    response_format: z.enum(['mp3', 'opus', 'aac', 'flac', 'wav', 'pcm']).optional().describe('Audio format. Defaults to "mp3".'),
+    speed: z.number().min(0.25).max(4.0).optional().describe('Speech speed. 0.25 to 4.0. Defaults to 1.0.')
 });
 
 const OutputSchema = z.object({
-    content_type: z.string().describe('The MIME type of the audio content. Example: "audio/mpeg"'),
-    data: z.string().describe('The base64-encoded audio data')
+    audio_data: z.string().describe('Base64-encoded audio content.'),
+    content_type: z.string().describe('MIME type of the audio format.')
 });
 
 const action = createAction({
-    description: 'Generate speech audio from text',
+    description: 'Generate speech audio from text.',
     version: '1.0.0',
     endpoint: {
         method: 'POST',
@@ -27,47 +27,40 @@ const action = createAction({
     scopes: ['model.request'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
-        const requestBody: Record<string, unknown> = {
-            model: input.model,
-            input: input.input,
-            voice: input.voice
-        };
-
-        if (input.response_format !== undefined) {
-            requestBody['response_format'] = input.response_format;
-        }
-
-        if (input.speed !== undefined) {
-            requestBody['speed'] = input.speed;
-        }
-
         // https://platform.openai.com/docs/api-reference/audio/createSpeech
         const response = await nango.post({
             endpoint: '/v1/audio/speech',
-            data: requestBody,
-            responseType: 'arraybuffer',
-            retries: 3
+            data: {
+                model: input.model,
+                input: input.input,
+                voice: input.voice,
+                ...(input.response_format !== undefined && {
+                    response_format: input.response_format
+                }),
+                ...(input.speed !== undefined && { speed: input.speed })
+            },
+            retries: 3,
+            responseType: 'arraybuffer'
         });
 
-        const contentType = String(response.headers['content-type'] || 'audio/mpeg');
+        const audioBuffer = Buffer.from(response.data);
+        const audioData = audioBuffer.toString('base64');
 
-        let binaryData: Buffer;
-        if (Buffer.isBuffer(response.data)) {
-            binaryData = response.data;
-        } else if (response.data instanceof ArrayBuffer) {
-            binaryData = Buffer.from(response.data);
-        } else {
-            throw new nango.ActionError({
-                type: 'invalid_response',
-                message: 'Expected binary response from audio/speech endpoint'
-            });
-        }
+        const formatToContentType: Record<string, string> = {
+            mp3: 'audio/mpeg',
+            opus: 'audio/opus',
+            aac: 'audio/aac',
+            flac: 'audio/flac',
+            wav: 'audio/wav',
+            pcm: 'audio/pcm'
+        };
 
-        const base64Data = binaryData.toString('base64');
+        const responseFormat = input.response_format || 'mp3';
+        const contentType = formatToContentType[responseFormat] || 'audio/mpeg';
 
         return {
-            content_type: contentType,
-            data: base64Data
+            audio_data: audioData,
+            content_type: contentType
         };
     }
 });

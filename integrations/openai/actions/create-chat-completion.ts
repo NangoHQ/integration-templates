@@ -2,28 +2,34 @@ import { z } from 'zod';
 import { createAction } from 'nango';
 
 const MessageSchema = z.object({
-    role: z.enum(['system', 'user', 'assistant', 'tool', 'function']),
+    role: z.enum(['system', 'user', 'assistant', 'tool']),
     content: z.string()
 });
 
 const InputSchema = z.object({
-    model: z.string(),
-    messages: z.array(MessageSchema),
-    temperature: z.number().optional(),
-    max_tokens: z.number().optional(),
-    tools: z.array(z.any()).optional(),
-    tool_choice: z.any().optional(),
-    response_format: z.any().optional(),
-    stream: z.boolean().optional()
+    model: z.string().describe('Model ID. Example: "gpt-4o-mini"'),
+    messages: z.array(MessageSchema).describe('Array of messages with role and content'),
+    temperature: z.number().optional().describe('Sampling temperature (0-2)'),
+    max_tokens: z.number().optional().describe('Maximum tokens to generate'),
+    tools: z.array(z.unknown()).optional().describe('Tools available to the model'),
+    tool_choice: z.unknown().optional().describe('Tool choice strategy'),
+    response_format: z.unknown().optional().describe('Response format specification'),
+    stream: z.boolean().optional().describe('Stream response. Should be false for actions')
 });
 
 const ChoiceSchema = z.object({
     index: z.number(),
     message: z.object({
         role: z.string(),
-        content: z.string().nullable()
+        content: z.string().nullable().optional()
     }),
-    finish_reason: z.string().optional()
+    finish_reason: z.string().nullable().optional()
+});
+
+const UsageSchema = z.object({
+    prompt_tokens: z.number(),
+    completion_tokens: z.number(),
+    total_tokens: z.number()
 });
 
 const ProviderResponseSchema = z.object({
@@ -32,13 +38,7 @@ const ProviderResponseSchema = z.object({
     created: z.number(),
     model: z.string(),
     choices: z.array(ChoiceSchema),
-    usage: z
-        .object({
-            prompt_tokens: z.number(),
-            completion_tokens: z.number(),
-            total_tokens: z.number()
-        })
-        .optional()
+    usage: UsageSchema.optional()
 });
 
 const OutputSchema = z.object({
@@ -47,13 +47,7 @@ const OutputSchema = z.object({
     created: z.number(),
     model: z.string(),
     choices: z.array(ChoiceSchema),
-    usage: z
-        .object({
-            prompt_tokens: z.number(),
-            completion_tokens: z.number(),
-            total_tokens: z.number()
-        })
-        .optional()
+    usage: UsageSchema.optional()
 });
 
 const action = createAction({
@@ -80,20 +74,20 @@ const action = createAction({
                 ...(input.tools !== undefined && { tools: input.tools }),
                 ...(input.tool_choice !== undefined && { tool_choice: input.tool_choice }),
                 ...(input.response_format !== undefined && { response_format: input.response_format }),
-                stream: input.stream ?? false
+                ...(input.stream !== undefined && { stream: input.stream })
             },
             retries: 3
         });
 
-        const providerData = ProviderResponseSchema.parse(response.data);
+        const providerResponse = ProviderResponseSchema.parse(response.data);
 
         return {
-            id: providerData.id,
-            object: providerData.object,
-            created: providerData.created,
-            model: providerData.model,
-            choices: providerData.choices,
-            ...(providerData.usage !== undefined && { usage: providerData.usage })
+            id: providerResponse.id,
+            object: providerResponse.object,
+            created: providerResponse.created,
+            model: providerResponse.model,
+            choices: providerResponse.choices,
+            ...(providerResponse.usage !== undefined && { usage: providerResponse.usage })
         };
     }
 });

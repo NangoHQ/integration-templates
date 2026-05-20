@@ -1,0 +1,152 @@
+{
+  "input": {
+    "model": "gpt-4o",
+    "input": "Hello"
+  },
+  "output": {
+    "id": "resp_0cfcc1410d624b7a006a0d8c96ae8c8198a6ef70bd262f4487",
+    "output": [
+      {
+        "id": "msg_0cfcc1410d624b7a006a0d8c97cfa081989c9272260d4e6563",
+        "type": "message",
+        "status": "completed",
+        "content": [
+          {
+            "type": "output_text",
+            "annotations": [],
+            "logprobs": [],
+            "text": "Hi there! How can I assist you today?"
+          }
+        ],
+        "role": "assistant"
+      }
+    ],
+    "usage": {
+      "input_tokens": 8,
+      "output_tokens": 11,
+      "total_tokens": 19
+    }
+  },
+  "nango": {},
+  "api": {
+    "post": {
+      "/v1/responses": {
+        "response": {
+          "id": "resp_0cfcc1410d624b7a006a0d8c96ae8c8198a6ef70bd262f4487",
+          "object": "response",
+          "created_at": 1779272854,
+          "status": "completed",
+          "background": false,
+          "billing": {
+            "payer": "developer"
+          },
+          "completed_at": 1779272855,
+          "error": null,
+          "frequency_penalty": 0,
+          "incomplete_details": null,
+          "instructions": null,
+          "max_output_tokens": null,
+          "max_tool_calls": null,
+          "model": "gpt-4o-2024-08-06",
+          "moderation": null,
+          "output": [
+            {
+              "id": "msg_0cfcc1410d624b7a006a0d8c97cfa081989c9272260d4e6563",
+              "type": "message",
+              "status": "completed",
+              "content": [
+                {
+                  "type": "output_text",
+                  "annotations": [],
+                  "logprobs": [],
+                  "text": "Hi there! How can I assist you today?"
+                }
+              ],
+              "role": "assistant"
+            }
+          ],
+          "parallel_tool_calls": true,
+          "presence_penalty": 0,
+          "previous_response_id": null,
+          "prompt_cache_key": null,
+          "prompt_cache_retention": "in_memory",
+          "reasoning": {
+            "effort": null,
+            "summary": null
+          },
+          "safety_identifier": null,
+          "service_tier": "default",
+          "store": true,
+          "temperature": 1,
+          "text": {
+            "format": {
+              "type": "text"
+            },
+            "verbosity": "medium"
+          },
+          "tool_choice": "auto",
+          "tools": [],
+          "top_logprobs": 0,
+          "top_p": 1,
+          "truncation": "disabled",
+          "usage": {
+            "input_tokens": 8,
+            "input_tokens_details": {
+              "cached_tokens": 0
+            },
+            "output_tokens": 11,
+            "output_tokens_details": {
+              "reasoning_tokens": 0
+            },
+            "total_tokens": 19
+          },
+          "user": null,
+          "metadata": {}
+        },
+        "status": 200,
+        "headers": {
+          "date": "Wed, 20 May 2026 10:27:36 GMT",
+          "content-type": "application/json",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=31536000; includeSubDomains; preload",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "X-Request-ID, CF-Ray, CF-Ray",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4976",
+          "x-ratelimit-reset": "1779272883",
+          "cf-ray": "9feaa64d7e821509-PDX",
+          "cf-cache-status": "DYNAMIC",
+          "server": "cloudflare",
+          "openai-organization": "nangodev",
+          "openai-processing-ms": "1631",
+          "openai-project": "proj_bkqat9iXXSSrc8Kx228QbGL9",
+          "openai-version": "2020-10-01",
+          "x-ratelimit-limit-requests": "500",
+          "x-ratelimit-limit-tokens": "30000",
+          "x-ratelimit-remaining-requests": "499",
+          "x-ratelimit-remaining-tokens": "29973",
+          "x-ratelimit-reset-requests": "120ms",
+          "x-ratelimit-reset-tokens": "54ms",
+          "x-request-id": "req_e669027a93c545aca34d13735f778f7c",
+          "set-cookie": "__cf_bm=mnsg_cmHCwlyTl8.bb5jMVmTCthdkdwXgnSHqJrHZ3g-1779272854.6392374-1.0.1.1-pa3LXqfddlTUgrxizaQ8Lj7IGKbTdWE5ujN5ZfEk5MrhT32RBTZzfHptIH8w0nxJFOjMyBLyByCHrb2P1sN0RHqFC89FIY9CdE01GisyA9ScX5Cx6oXGEb1t2feLvaj0; HttpOnly; SameSite=None; Secure; Path=/; Domain=api.openai.com; Expires=Wed, 20 May 2026 10:57:36 GMT",
+          "alt-svc": "h3=\":443\"; ma=86400"
+        },
+        "hash": "3469bf852d884c3904bfa410245e033ae5de790d",
+        "request": {
+          "data": {
+            "model": "gpt-4o",
+            "input": "Hello",
+            "store": true
+          }
+        }
+      }
+    }
+  }
+}

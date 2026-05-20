@@ -5,7 +5,7 @@ const InputSchema = z.object({
     response_id: z.string().describe('The ID of the response to delete. Example: "resp_abc123"')
 });
 
-const ProviderOutputSchema = z.object({
+const ProviderResponseSchema = z.object({
     id: z.string(),
     object: z.string(),
     deleted: z.boolean()
@@ -13,12 +13,11 @@ const ProviderOutputSchema = z.object({
 
 const OutputSchema = z.object({
     id: z.string(),
-    object: z.string().optional(),
     deleted: z.boolean()
 });
 
 const action = createAction({
-    description: 'Delete a stored OpenAI response.',
+    description: 'Delete a stored OpenAI response',
     version: '1.0.0',
     endpoint: {
         method: 'POST',
@@ -30,18 +29,17 @@ const action = createAction({
     scopes: ['model.request'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
-        // https://platform.openai.com/docs/api-reference/responses/delete
         const response = await nango.delete({
+            // https://platform.openai.com/docs/api-reference/responses/delete
             endpoint: `/v1/responses/${encodeURIComponent(input.response_id)}`,
             retries: 3
         });
 
-        const providerData = ProviderOutputSchema.parse(response.data);
+        const providerResponse = ProviderResponseSchema.parse(response.data);
 
         return {
-            id: providerData.id,
-            ...(providerData.object !== undefined && { object: providerData.object }),
-            deleted: providerData.deleted
+            id: providerResponse.id,
+            deleted: providerResponse.deleted
         };
     }
 });

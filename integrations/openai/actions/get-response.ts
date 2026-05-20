@@ -2,47 +2,51 @@ import { z } from 'zod';
 import { createAction } from 'nango';
 
 const InputSchema = z.object({
-    response_id: z.string().describe('The ID of the response to retrieve. Example: "resp_abc123".')
+    response_id: z.string().describe('The ID of the response to retrieve. Must start with "resp_". Example: "resp_abc123"')
 });
 
-const OutputSchema = z.object({
-    id: z.string().describe('The unique identifier for the response.'),
-    object: z.string().describe('The object type, always "response".'),
-    created_at: z.number().describe('Unix timestamp (in seconds) when the response was created.'),
-    model: z.string().describe('The model used to generate the response.'),
-    output: z.array(z.object({}).passthrough()).describe('Array of output items from the response.'),
-    usage: z
-        .object({
-            input_tokens: z.number().optional(),
-            output_tokens: z.number().optional(),
-            total_tokens: z.number().optional()
-        })
-        .passthrough()
-        .optional()
-        .describe('Token usage information for the response.')
-});
+// Provider response schema - OpenAI uses snake_case
+// https://platform.openai.com/docs/api-reference/responses/get
+const ProviderResponseSchema = z
+    .object({
+        id: z.string(),
+        object: z.string().optional(),
+        model: z.string(),
+        output: z.array(z.record(z.string(), z.unknown())),
+        usage: z
+            .object({
+                input_tokens: z.number().optional(),
+                output_tokens: z.number().optional(),
+                total_tokens: z.number().optional()
+            })
+            .passthrough()
+            .optional(),
+        created_at: z.number()
+    })
+    .passthrough();
 
-const ProviderResponseSchema = z.object({
-    id: z.string(),
-    object: z.string(),
-    created_at: z.number(),
-    model: z.string(),
-    output: z.array(z.object({}).passthrough()),
-    usage: z
-        .object({
-            input_tokens: z.number().optional(),
-            output_tokens: z.number().optional(),
-            total_tokens: z.number().optional()
-        })
-        .passthrough()
-        .optional()
-});
+const OutputSchema = z
+    .object({
+        id: z.string().describe('The unique identifier of the response.'),
+        model: z.string().describe('The model used to generate the response.'),
+        output: z.array(z.record(z.string(), z.unknown())).describe('Array of output items from the response.'),
+        usage: z
+            .object({
+                input_tokens: z.number().optional(),
+                output_tokens: z.number().optional(),
+                total_tokens: z.number().optional()
+            })
+            .passthrough()
+            .optional(),
+        created_at: z.number().describe('Unix timestamp (in seconds) of when the response was created.')
+    })
+    .passthrough();
 
 const action = createAction({
     description: 'Retrieve a stored OpenAI response by ID.',
     version: '1.0.0',
     endpoint: {
-        method: 'POST',
+        method: 'GET',
         path: '/actions/get-response',
         group: 'Responses'
     },
@@ -57,15 +61,17 @@ const action = createAction({
             retries: 3
         });
 
-        if (!response.data || typeof response.data !== 'object') {
+        if (!response.data) {
             throw new nango.ActionError({
                 type: 'not_found',
-                message: 'Response not found or invalid data returned',
+                message: `Response with ID "${input.response_id}" not found.`,
                 response_id: input.response_id
             });
         }
 
-        return ProviderResponseSchema.parse(response.data);
+        const providerResponse = ProviderResponseSchema.parse(response.data);
+
+        return providerResponse;
     }
 });
 

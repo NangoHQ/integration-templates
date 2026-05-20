@@ -1,0 +1,11 @@
+{
+  "input": {
+    "message": "test"
+  },
+  "output": {
+    "message": "This endpoint requires multipart/form-data upload and cannot be implemented as a Nango action. Please use the proxy script at openai/proxy/upload-file.ts.",
+    "proxyScript": "openai/proxy/upload-file.ts"
+  },
+  "nango": {},
+  "api": {}
+}

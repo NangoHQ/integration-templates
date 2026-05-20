@@ -1,94 +1,65 @@
 import { z } from 'zod';
 import { createAction } from 'nango';
 
-const TextItemSchema = z.object({
-    type: z.literal('text'),
-    text: z.string()
-});
-
-const ImageItemSchema = z.object({
-    type: z.literal('image_url'),
-    image_url: z.object({ url: z.string() })
-});
-
-const ContentItemSchema = z.union([TextItemSchema, ImageItemSchema]);
-
-const InputSchema = z
-    .object({
-        input: z
-            .union([z.string(), z.array(z.string()), z.array(ContentItemSchema)])
-            .describe('The input to classify. Can be a string, array of strings, or mixed array of text and image_url objects.'),
-        model: z
-            .enum(['omni-moderation-latest', 'text-moderation-latest'])
-            .optional()
-            .describe('The moderation model to use. Defaults to omni-moderation-latest.')
-    })
-    .superRefine((data, ctx) => {
-        if (data.model === 'text-moderation-latest') {
-            const hasImages =
-                Array.isArray(data.input) &&
-                data.input.some((item) => typeof item === 'object' && item !== null && 'type' in item && item.type === 'image_url');
-            if (hasImages) {
-                ctx.addIssue({
-                    code: z.ZodIssueCode.custom,
-                    message: 'text-moderation-latest does not support image inputs; use omni-moderation-latest for images'
-                });
-            }
-        }
-    });
-
-const CategoryScoresSchema = z.object({
-    sexual: z.number(),
-    'sexual/minors': z.number(),
-    harassment: z.number(),
-    'harassment/threatening': z.number(),
-    hate: z.number(),
-    'hate/threatening': z.number(),
-    illicit: z.number(),
-    'illicit/violent': z.number(),
-    'self-harm': z.number(),
-    'self-harm/intent': z.number(),
-    'self-harm/instructions': z.number(),
-    violence: z.number(),
-    'violence/graphic': z.number()
-});
-
-const CategoriesSchema = z.object({
+const ModerationCategorySchema = z.object({
     sexual: z.boolean(),
-    'sexual/minors': z.boolean(),
-    harassment: z.boolean(),
-    'harassment/threatening': z.boolean(),
     hate: z.boolean(),
-    'hate/threatening': z.boolean(),
-    illicit: z.boolean(),
-    'illicit/violent': z.boolean(),
+    harassment: z.boolean(),
     'self-harm': z.boolean(),
+    'sexual/minors': z.boolean(),
+    'hate/threatening': z.boolean(),
+    'violence/graphic': z.boolean(),
     'self-harm/intent': z.boolean(),
     'self-harm/instructions': z.boolean(),
-    violence: z.boolean(),
-    'violence/graphic': z.boolean()
+    'harassment/threatening': z.boolean(),
+    violence: z.boolean()
+});
+
+const ModerationCategoryScoresSchema = z.object({
+    sexual: z.number(),
+    hate: z.number(),
+    harassment: z.number(),
+    'self-harm': z.number(),
+    'sexual/minors': z.number(),
+    'hate/threatening': z.number(),
+    'violence/graphic': z.number(),
+    'self-harm/intent': z.number(),
+    'self-harm/instructions': z.number(),
+    'harassment/threatening': z.number(),
+    violence: z.number()
 });
 
 const ModerationResultSchema = z.object({
-    flagged: z.boolean().describe('Whether the content violates OpenAI usage policies.'),
-    categories: CategoriesSchema.describe('Dictionary of moderation categories and whether each was triggered.'),
-    category_scores: CategoryScoresSchema.describe('Dictionary of moderation categories with confidence scores.')
+    flagged: z.boolean(),
+    categories: ModerationCategorySchema,
+    category_scores: ModerationCategoryScoresSchema
 });
 
-const ProviderModerationSchema = z.object({
+const ProviderModerationResponseSchema = z.object({
     id: z.string(),
     model: z.string(),
     results: z.array(ModerationResultSchema)
 });
 
+const InputSchema = z.object({
+    input: z.union([z.string(), z.array(z.string())]).describe('Text or array of text strings to classify. Example: "I want to hurt someone."'),
+    model: z.string().optional().describe('Model to use for moderation. Defaults to "omni-moderation-latest". Other option: "text-moderation-latest".')
+});
+
 const OutputSchema = z.object({
-    id: z.string().describe('The unique identifier for the moderation request.'),
-    model: z.string().describe('The model used to generate the moderation results.'),
-    results: z.array(ModerationResultSchema).describe('An array of moderation results for each input provided.')
+    id: z.string(),
+    model: z.string(),
+    results: z.array(
+        z.object({
+            flagged: z.boolean(),
+            categories: z.record(z.string(), z.boolean()),
+            category_scores: z.record(z.string(), z.number())
+        })
+    )
 });
 
 const action = createAction({
-    description: 'Classify whether text or images violate OpenAI usage policies.',
+    description: 'Classify whether text or images violate OpenAI usage policies',
     version: '1.0.0',
     endpoint: {
         method: 'POST',
@@ -110,12 +81,16 @@ const action = createAction({
             retries: 3
         });
 
-        const moderation = ProviderModerationSchema.parse(response.data);
+        const moderationResponse = ProviderModerationResponseSchema.parse(response.data);
 
         return {
-            id: moderation.id,
-            model: moderation.model,
-            results: moderation.results
+            id: moderationResponse.id,
+            model: moderationResponse.model,
+            results: moderationResponse.results.map((result) => ({
+                flagged: result.flagged,
+                categories: result.categories,
+                category_scores: result.category_scores
+            }))
         };
     }
 });
