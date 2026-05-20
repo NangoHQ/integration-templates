@@ -3,9 +3,7 @@ import { createAction } from 'nango';
 
 const InputSchema = z.object({
     input_file_id: z.string().describe('The ID of the uploaded file used as batch input. Example: "file-abc123"'),
-    endpoint: z
-        .enum(['/v1/chat/completions', '/v1/embeddings', '/v1/completions'])
-        .describe('The OpenAI endpoint to call for each request in the batch.'),
+    endpoint: z.enum(['/v1/chat/completions', '/v1/embeddings', '/v1/completions']).describe('The OpenAI endpoint to call for each request in the batch.'),
     completion_window: z.literal('24h').describe('The time window for batch completion. Only "24h" is currently supported.'),
     metadata: z.record(z.string(), z.string()).optional().describe('Optional key-value metadata to attach to the batch.')
 });
