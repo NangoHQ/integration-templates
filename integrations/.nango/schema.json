@@ -101192,19 +101192,29 @@
       "type": "object",
       "properties": {
         "input_file_id": {
-          "type": "string"
+          "type": "string",
+          "description": "The ID of the uploaded file used as batch input. Example: \"file-abc123\""
         },
         "endpoint": {
-          "type": "string"
+          "type": "string",
+          "enum": [
+            "/v1/chat/completions",
+            "/v1/embeddings",
+            "/v1/completions"
+          ],
+          "description": "The OpenAI endpoint to call for each request in the batch."
         },
         "completion_window": {
-          "type": "string"
+          "type": "string",
+          "const": "24h",
+          "description": "The time window for batch completion. Only \"24h\" is currently supported."
         },
         "metadata": {
           "type": "object",
           "additionalProperties": {
             "type": "string"
-          }
+          },
+          "description": "Optional key-value metadata to attach to the batch."
         }
       },
       "required": [

@@ -23,7 +23,7 @@ const ProviderVectorStoreSchema = z.object({
     created_at: z.number().optional(),
     last_active_at: z.number().optional(),
     expires_at: z.number().nullish(),
-    metadata: z.object({}).passthrough().nullish()
+    metadata: z.object({}).loose().nullish()
 });
 
 const OutputSchema = z.object({
@@ -35,7 +35,7 @@ const OutputSchema = z.object({
     created_at: z.number().optional(),
     last_active_at: z.number().optional(),
     expires_at: z.number().optional(),
-    metadata: z.object({}).passthrough().optional()
+    metadata: z.object({}).loose().optional()
 });
 
 const action = createAction({

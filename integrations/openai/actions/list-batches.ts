@@ -21,11 +21,11 @@ const BatchSchema = z.object({
                             param: z.string().nullable().optional(),
                             line: z.number().nullable().optional()
                         })
-                        .passthrough()
+                        .loose()
                 )
                 .optional()
         })
-        .passthrough()
+        .loose()
         .nullable(),
     input_file_id: z.string(),
     completion_window: z.string(),

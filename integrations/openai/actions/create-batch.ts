@@ -2,17 +2,37 @@ import * as z from 'zod';
 import { createAction } from 'nango';
 
 const InputSchema = z.object({
-    input_file_id: z.string(),
-    endpoint: z.string(),
-    completion_window: z.string(),
-    metadata: z.record(z.string(), z.string()).optional()
+    input_file_id: z.string().describe('The ID of the uploaded file used as batch input. Example: "file-abc123"'),
+    endpoint: z
+        .enum(['/v1/chat/completions', '/v1/embeddings', '/v1/completions'])
+        .describe('The OpenAI endpoint to call for each request in the batch.'),
+    completion_window: z.literal('24h').describe('The time window for batch completion. Only "24h" is currently supported.'),
+    metadata: z.record(z.string(), z.string()).optional().describe('Optional key-value metadata to attach to the batch.')
 });
 
 const BatchSchema = z.object({
     id: z.string(),
     object: z.string(),
     endpoint: z.string(),
-    errors: z.object({}).nullable().optional(),
+    errors: z
+        .object({
+            object: z.string().optional(),
+            data: z
+                .array(
+                    z
+                        .object({
+                            code: z.string().optional(),
+                            message: z.string().optional(),
+                            param: z.string().nullable().optional(),
+                            line: z.number().nullable().optional()
+                        })
+                        .loose()
+                )
+                .optional()
+        })
+        .loose()
+        .nullable()
+        .optional(),
     input_file_id: z.string(),
     completion_window: z.string(),
     status: z.string(),

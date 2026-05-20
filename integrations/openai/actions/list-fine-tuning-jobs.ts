@@ -24,7 +24,7 @@ const FineTuningJobSchema = z.object({
             batch_size: z.union([z.number(), z.string()]).optional(),
             learning_rate_multiplier: z.union([z.number(), z.string()]).optional()
         })
-        .passthrough()
+        .loose()
         .optional(),
     trained_tokens: z.number().nullable().optional(),
     error: z

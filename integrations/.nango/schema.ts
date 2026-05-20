@@ -33723,9 +33723,21 @@ export interface ActionOutput_openai_cancelfinetuningjob {
 };
 
 export interface ActionInput_openai_createbatch {
+  /**
+   * The ID of the uploaded file used as batch input. Example: "file-abc123"
+   */
   input_file_id: string;
-  endpoint: string;
-  completion_window: string;
+  /**
+   * The OpenAI endpoint to call for each request in the batch.
+   */
+  endpoint: '/v1/chat/completions' | '/v1/embeddings' | '/v1/completions';
+  /**
+   * The time window for batch completion. Only "24h" is currently supported.
+   */
+  completion_window: '24h';
+  /**
+   * Optional key-value metadata to attach to the batch.
+   */
   metadata?: {  [key: string]: string;} | undefined;
 };
 

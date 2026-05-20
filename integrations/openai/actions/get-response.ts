@@ -19,11 +19,11 @@ const ProviderResponseSchema = z
                 output_tokens: z.number().optional(),
                 total_tokens: z.number().optional()
             })
-            .passthrough()
+            .loose()
             .optional(),
         created_at: z.number()
     })
-    .passthrough();
+    .loose();
 
 const OutputSchema = z
     .object({
@@ -36,11 +36,11 @@ const OutputSchema = z
                 output_tokens: z.number().optional(),
                 total_tokens: z.number().optional()
             })
-            .passthrough()
+            .loose()
             .optional(),
         created_at: z.number().describe('Unix timestamp (in seconds) of when the response was created.')
     })
-    .passthrough();
+    .loose();
 
 const action = createAction({
     description: 'Retrieve a stored OpenAI response by ID.',

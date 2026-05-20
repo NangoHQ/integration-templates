@@ -11,7 +11,7 @@ const HyperparametersSchema = z
         batch_size: z.union([z.number(), z.string()]).optional(),
         learning_rate_multiplier: z.union([z.number(), z.string()]).optional()
     })
-    .passthrough();
+    .loose();
 
 const FineTuningJobErrorSchema = z
     .object({
@@ -20,7 +20,7 @@ const FineTuningJobErrorSchema = z
         param: z.string().nullable().optional(),
         line: z.number().nullable().optional()
     })
-    .passthrough()
+    .loose()
     .nullable()
     .optional();
 
@@ -41,7 +41,7 @@ const FineTuningJobSchema = z
         trained_tokens: z.number().nullable().optional(),
         error: FineTuningJobErrorSchema
     })
-    .passthrough();
+    .loose();
 
 const action = createAction({
     description: 'Cancel an OpenAI fine-tuning job.',

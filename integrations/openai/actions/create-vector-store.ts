@@ -17,7 +17,7 @@ const ChunkingStrategySchema = z.union([
     })
 ]);
 
-const MetadataSchema = z.object({}).passthrough();
+const MetadataSchema = z.object({}).loose();
 
 const FileIdSchema = z.string();
 
