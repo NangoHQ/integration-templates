@@ -1174,21 +1174,63 @@
           "items": {
             "type": "object",
             "properties": {
-              "op": {
-                "type": "string",
-                "enum": [
-                  "add",
-                  "remove",
-                  "replace"
-                ]
+              "0": {
+                "type": "object",
+                "properties": {
+                  "op": {
+                    "type": "string",
+                    "const": "add"
+                  },
+                  "path": {
+                    "type": "string"
+                  },
+                  "value": {}
+                },
+                "required": [
+                  "op"
+                ],
+                "additionalProperties": false
               },
-              "path": {
-                "type": "string"
+              "1": {
+                "type": "object",
+                "properties": {
+                  "op": {
+                    "type": "string",
+                    "const": "replace"
+                  },
+                  "path": {
+                    "type": "string"
+                  },
+                  "value": {}
+                },
+                "required": [
+                  "op"
+                ],
+                "additionalProperties": false
               },
-              "value": {}
+              "2": {
+                "type": "object",
+                "properties": {
+                  "op": {
+                    "type": "string",
+                    "const": "remove"
+                  },
+                  "path": {
+                    "type": "string"
+                  },
+                  "value": {}
+                },
+                "required": [
+                  "op",
+                  "path"
+                ],
+                "additionalProperties": false
+              }
             },
             "required": [
-              "op"
+              "0",
+              "1",
+              "2"
             ],
             "additionalProperties": false
           },
@@ -1286,21 +1328,63 @@
           "items": {
             "type": "object",
             "properties": {
-              "op": {
-                "type": "string",
-                "enum": [
-                  "add",
-                  "remove",
-                  "replace"
-                ]
+              "0": {
+                "type": "object",
+                "properties": {
+                  "op": {
+                    "type": "string",
+                    "const": "add"
+                  },
+                  "path": {
+                    "type": "string"
+                  },
+                  "value": {}
+                },
+                "required": [
+                  "op"
+                ],
+                "additionalProperties": false
               },
-              "path": {
-                "type": "string"
+              "1": {
+                "type": "object",
+                "properties": {
+                  "op": {
+                    "type": "string",
+                    "const": "replace"
+                  },
+                  "path": {
+                    "type": "string"
+                  },
+                  "value": {}
+                },
+                "required": [
+                  "op"
+                ],
+                "additionalProperties": false
               },
-              "value": {}
+              "2": {
+                "type": "object",
+                "properties": {
+                  "op": {
+                    "type": "string",
+                    "const": "remove"
+                  },
+                  "path": {
+                    "type": "string"
+                  },
+                  "value": {}
+                },
+                "required": [
+                  "op",
+                  "path"
+                ],
+                "additionalProperties": false
+              }
             },
             "required": [
-              "op"
+              "0",
+              "1",
+              "2"
             ],
             "additionalProperties": false
           },
@@ -1500,21 +1584,63 @@
           "items": {
             "type": "object",
             "properties": {
-              "op": {
-                "type": "string",
-                "enum": [
-                  "add",
-                  "replace",
-                  "remove"
-                ]
+              "0": {
+                "type": "object",
+                "properties": {
+                  "op": {
+                    "type": "string",
+                    "const": "add"
+                  },
+                  "path": {
+                    "type": "string"
+                  },
+                  "value": {}
+                },
+                "required": [
+                  "op"
+                ],
+                "additionalProperties": false
               },
-              "path": {
-                "type": "string"
+              "1": {
+                "type": "object",
+                "properties": {
+                  "op": {
+                    "type": "string",
+                    "const": "replace"
+                  },
+                  "path": {
+                    "type": "string"
+                  },
+                  "value": {}
+                },
+                "required": [
+                  "op"
+                ],
+                "additionalProperties": false
               },
-              "value": {}
+              "2": {
+                "type": "object",
+                "properties": {
+                  "op": {
+                    "type": "string",
+                    "const": "remove"
+                  },
+                  "path": {
+                    "type": "string"
+                  },
+                  "value": {}
+                },
+                "required": [
+                  "op",
+                  "path"
+                ],
+                "additionalProperties": false
+              }
             },
             "required": [
-              "op"
+              "0",
+              "1",
+              "2"
             ],
             "additionalProperties": false
           },

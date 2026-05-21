@@ -20,11 +20,11 @@ const InputSchema = z.object({
     group_id: z.string().describe('The SCIM group ID to patch. Example: "group-123"'),
     operations: z
         .array(
-            z.object({
-                op: z.enum(['add', 'remove', 'replace']),
-                path: z.string().optional(),
-                value: z.unknown().optional()
-            })
+            z.discriminatedUnion('op', [
+                z.object({ op: z.literal('add'), path: z.string().optional(), value: z.unknown().optional() }),
+                z.object({ op: z.literal('replace'), path: z.string().optional(), value: z.unknown().optional() }),
+                z.object({ op: z.literal('remove'), path: z.string(), value: z.unknown().optional() })
+            ])
         )
         .describe('SCIM PatchOp operations to apply.')
 });
@@ -64,15 +64,25 @@ const action = createAction({
             retries: 10
         });
 
-        if (!response.data) {
-            throw new nango.ActionError({
-                type: 'not_found',
-                message: 'Group not found or patch failed',
-                group_id: input.group_id
+        let rawData = response.data;
+        if (!rawData) {
+            // SCIM PATCH may return 204 No Content on success; fetch current state
+            const getResponse = await nango.get({
+                baseUrlOverride: 'https://provisioning.1password.com/scim',
+                endpoint: `/Groups/${encodeURIComponent(input.group_id)}`,
+                retries: 3
             });
+            if (!getResponse.data) {
+                throw new nango.ActionError({
+                    type: 'not_found',
+                    message: 'Group not found',
+                    group_id: input.group_id
+                });
+            }
+            rawData = getResponse.data;
         }
 
-        const providerGroup = OutputSchema.parse(response.data);
+        const providerGroup = OutputSchema.parse(rawData);
 
         return providerGroup;
     }

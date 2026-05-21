@@ -1,11 +1,11 @@
 import { z } from 'zod';
 import { createAction } from 'nango';
 
-const ScimOperationSchema = z.object({
-    op: z.enum(['add', 'replace', 'remove']),
-    path: z.string().optional(),
-    value: z.unknown().optional()
-});
+const ScimOperationSchema = z.discriminatedUnion('op', [
+    z.object({ op: z.literal('add'), path: z.string().optional(), value: z.unknown().optional() }),
+    z.object({ op: z.literal('replace'), path: z.string().optional(), value: z.unknown().optional() }),
+    z.object({ op: z.literal('remove'), path: z.string(), value: z.unknown().optional() })
+]);
 
 const InputSchema = z.object({
     id: z.string().describe('SCIM user ID. Example: "2819c223-7f76-453a-919d-413861904646"'),
@@ -102,7 +102,25 @@ const action = createAction({
             retries: 3
         });
 
-        const providerUser = ScimUserSchema.parse(response.data);
+        let rawData = response.data;
+        if (!rawData) {
+            // SCIM PATCH may return 204 No Content on success; fetch current state
+            const getResponse = await nango.get({
+                baseUrlOverride: 'https://provisioning.1password.com/scim',
+                endpoint: `/Users/${encodeURIComponent(input.id)}`,
+                retries: 3
+            });
+            if (!getResponse.data) {
+                throw new nango.ActionError({
+                    type: 'not_found',
+                    message: 'User not found',
+                    id: input.id
+                });
+            }
+            rawData = getResponse.data;
+        }
+
+        const providerUser = ScimUserSchema.parse(rawData);
 
         return {
             id: providerUser.id,

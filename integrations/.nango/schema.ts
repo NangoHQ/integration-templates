@@ -345,9 +345,15 @@ export interface ActionInput_1password_scim_patchscimgroup {
   /**
    * SCIM PatchOp operations to apply.
    */
-  operations: ({  op: 'add' | 'remove' | 'replace';
+  operations: ({  0: {  op: 'add';
   path?: string | undefined;
-  value?: unknown | undefined;})[];
+  value?: unknown | undefined;};
+  1: {  op: 'replace';
+  path?: string | undefined;
+  value?: unknown | undefined;};
+  2: {  op: 'remove';
+  path: string;
+  value?: unknown | undefined;};})[];
 };
 
 export interface ActionOutput_1password_scim_patchscimgroup {
@@ -374,9 +380,15 @@ export interface ActionInput_1password_scim_patchscimuser {
   /**
    * SCIM patch operations to apply.
    */
-  operations: ({  op: 'add' | 'remove' | 'replace';
+  operations: ({  0: {  op: 'add';
   path?: string | undefined;
-  value?: unknown | undefined;})[];
+  value?: unknown | undefined;};
+  1: {  op: 'replace';
+  path?: string | undefined;
+  value?: unknown | undefined;};
+  2: {  op: 'remove';
+  path: string;
+  value?: unknown | undefined;};})[];
 };
 
 export interface ActionOutput_1password_scim_patchscimuser {
@@ -440,9 +452,15 @@ export interface ActionInput_1password_scim_updatescimuser {
   /**
    * Array of SCIM PatchOp operations to apply
    */
-  operations: ({  op: 'add' | 'replace' | 'remove';
+  operations: ({  0: {  op: 'add';
   path?: string | undefined;
-  value?: unknown | undefined;})[];
+  value?: unknown | undefined;};
+  1: {  op: 'replace';
+  path?: string | undefined;
+  value?: unknown | undefined;};
+  2: {  op: 'remove';
+  path: string;
+  value?: unknown | undefined;};})[];
 };
 
 export interface ActionOutput_1password_scim_updatescimuser {

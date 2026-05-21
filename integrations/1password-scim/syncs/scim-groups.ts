@@ -110,8 +110,20 @@ const sync = createSync({
                     id: record.id,
                     ...(record.externalId != null && { externalId: record.externalId }),
                     ...(record.displayName != null && { displayName: record.displayName }),
-                    ...(record.meta != null && { meta: record.meta }),
-                    ...(record.members != null && { members: record.members })
+                    ...(record.meta != null && {
+                        meta: {
+                            ...(record.meta.resourceType != null && { resourceType: record.meta.resourceType }),
+                            ...(record.meta.created != null && { created: record.meta.created }),
+                            ...(record.meta.lastModified != null && { lastModified: record.meta.lastModified }),
+                            ...(record.meta.location != null && { location: record.meta.location })
+                        }
+                    }),
+                    ...(record.members != null && {
+                        members: record.members.map((m) => ({
+                            value: m.value,
+                            ...(m.display != null && { display: m.display })
+                        }))
+                    })
                 }));
 
             if (groups.length === 0) {

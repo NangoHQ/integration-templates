@@ -104,15 +104,25 @@ const action = createAction({
 
         const response = await nango.patch(config);
 
-        if (!response.data) {
-            throw new nango.ActionError({
-                type: 'not_found',
-                message: 'Group not found or update failed.',
-                groupId: input.groupId
+        let rawData = response.data;
+        if (!rawData) {
+            // SCIM PATCH may return 204 No Content on success; fetch current state
+            const getResponse = await nango.get({
+                baseUrlOverride: 'https://provisioning.1password.com/scim',
+                endpoint: `/Groups/${encodeURIComponent(input.groupId)}`,
+                retries: 3
             });
+            if (!getResponse.data) {
+                throw new nango.ActionError({
+                    type: 'not_found',
+                    message: 'Group not found',
+                    groupId: input.groupId
+                });
+            }
+            rawData = getResponse.data;
         }
 
-        const providerGroup = ProviderGroupSchema.parse(response.data);
+        const providerGroup = ProviderGroupSchema.parse(rawData);
 
         return {
             id: providerGroup.id,
