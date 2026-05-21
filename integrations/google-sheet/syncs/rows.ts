@@ -15,10 +15,10 @@ const RowSchema = z.object({
 
 const sync = createSync({
     description: 'Sync worksheet rows from a Google Sheet',
-    version: '1.0.0',
+    version: '1.1.0',
     endpoints: [{ method: 'POST', path: '/syncs/rows', group: 'Sheets' }],
     frequency: 'every hour',
-    autoStart: true,
+    autoStart: false,
     metadata: MetadataSchema,
 
     models: {

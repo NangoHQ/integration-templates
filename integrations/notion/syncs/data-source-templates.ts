@@ -31,9 +31,9 @@ const CheckpointSchema = z.object({
 
 const sync = createSync({
     description: 'Sync templates available for a Notion data source',
-    version: '1.0.1',
+    version: '1.1.0',
     frequency: 'every hour',
-    autoStart: true,
+    autoStart: false,
     checkpoint: CheckpointSchema,
     models: {
         DataSourceTemplate: DataSourceTemplateSchema
