@@ -1,6 +1,1649 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema#",
   "definitions": {
+    "ScimGroup": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "externalId": {
+          "type": "string"
+        },
+        "displayName": {
+          "type": "string"
+        },
+        "meta": {
+          "type": "object",
+          "properties": {
+            "resourceType": {
+              "type": "string"
+            },
+            "created": {
+              "type": "string"
+            },
+            "lastModified": {
+              "type": "string"
+            },
+            "location": {
+              "type": "string"
+            }
+          },
+          "additionalProperties": false
+        },
+        "members": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "value": {
+                "type": "string"
+              },
+              "display": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "value"
+            ],
+            "additionalProperties": false
+          }
+        }
+      },
+      "required": [
+        "id"
+      ],
+      "additionalProperties": false,
+      "description": "! ** DEPRECATION NOTICE ** ! This file will stop being generated in future versions of nango. ! For access to function types, please export types directly from your code. ! You can leverage `zod.infer` to generate types from your zod schemas. ! See the official zod documentation: https://zod.dev/basics?id=inferring-types"
+    },
+    "ScimUser": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "userName": {
+          "type": "string"
+        },
+        "displayName": {
+          "type": "string"
+        },
+        "name": {
+          "type": "object",
+          "properties": {
+            "formatted": {
+              "type": "string"
+            },
+            "familyName": {
+              "type": "string"
+            },
+            "givenName": {
+              "type": "string"
+            }
+          },
+          "additionalProperties": false
+        },
+        "emails": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "value": {
+                "type": "string"
+              },
+              "type": {
+                "type": "string"
+              },
+              "primary": {
+                "type": "boolean"
+              }
+            },
+            "required": [
+              "value"
+            ],
+            "additionalProperties": false
+          }
+        },
+        "externalId": {
+          "type": "string"
+        },
+        "active": {
+          "type": "boolean"
+        },
+        "meta": {
+          "type": "object",
+          "properties": {
+            "created": {
+              "type": "string"
+            },
+            "lastModified": {
+              "type": "string"
+            },
+            "resourceType": {
+              "type": "string"
+            }
+          },
+          "additionalProperties": false
+        }
+      },
+      "required": [
+        "id",
+        "userName"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_1password_scim_createscimgroup": {
+      "type": "object",
+      "properties": {
+        "displayName": {
+          "type": "string",
+          "description": "The display name of the SCIM group. Example: \"Engineering\""
+        },
+        "externalId": {
+          "type": "string",
+          "description": "The external identifier for the group. Example: \"group-123\""
+        },
+        "members": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "value": {
+                "type": "string"
+              },
+              "display": {
+                "type": "string",
+                "description": "The display name of the member. Example: \"John Doe\""
+              }
+            },
+            "required": [
+              "value"
+            ],
+            "additionalProperties": false
+          },
+          "description": "Array of group members to assign on creation"
+        }
+      },
+      "required": [
+        "displayName"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_1password_scim_createscimgroup": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "displayName": {
+          "type": "string"
+        },
+        "externalId": {
+          "type": "string"
+        },
+        "members": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "value": {
+                "type": "string"
+              },
+              "display": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "value"
+            ],
+            "additionalProperties": false
+          }
+        },
+        "meta": {
+          "type": "object",
+          "properties": {
+            "resourceType": {
+              "type": "string"
+            },
+            "created": {
+              "type": "string"
+            },
+            "lastModified": {
+              "type": "string"
+            },
+            "location": {
+              "type": "string"
+            },
+            "version": {
+              "type": "string"
+            }
+          },
+          "additionalProperties": false
+        }
+      },
+      "required": [
+        "id",
+        "displayName"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_1password_scim_createscimuser": {
+      "type": "object",
+      "properties": {
+        "userName": {
+          "type": "string",
+          "description": "SCIM userName. Example: \"user@example.com\""
+        },
+        "externalId": {
+          "type": "string",
+          "description": "External identifier for the user."
+        },
+        "displayName": {
+          "type": "string",
+          "description": "Display name for the user."
+        },
+        "name": {
+          "type": "object",
+          "properties": {
+            "formatted": {
+              "type": "string"
+            },
+            "familyName": {
+              "type": "string"
+            },
+            "givenName": {
+              "type": "string"
+            }
+          },
+          "additionalProperties": false
+        },
+        "emails": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "value": {
+                "type": "string"
+              },
+              "type": {
+                "type": "string"
+              },
+              "primary": {
+                "type": "boolean"
+              }
+            },
+            "required": [
+              "value"
+            ],
+            "additionalProperties": false
+          }
+        },
+        "active": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "userName"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_1password_scim_createscimuser": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "userName": {
+          "type": "string"
+        },
+        "externalId": {
+          "type": "string"
+        },
+        "displayName": {
+          "type": "string"
+        },
+        "name": {
+          "type": "object",
+          "properties": {
+            "formatted": {
+              "type": "string"
+            },
+            "familyName": {
+              "type": "string"
+            },
+            "givenName": {
+              "type": "string"
+            }
+          },
+          "additionalProperties": false
+        },
+        "emails": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "value": {
+                "type": "string"
+              },
+              "type": {
+                "type": "string"
+              },
+              "primary": {
+                "type": "boolean"
+              }
+            },
+            "required": [
+              "value"
+            ],
+            "additionalProperties": false
+          }
+        },
+        "active": {
+          "type": "boolean"
+        },
+        "meta": {
+          "type": "object",
+          "properties": {
+            "resourceType": {
+              "type": "string"
+            },
+            "created": {
+              "type": "string"
+            },
+            "lastModified": {
+              "type": "string"
+            },
+            "location": {
+              "type": "string"
+            }
+          },
+          "additionalProperties": false
+        }
+      },
+      "required": [
+        "id",
+        "userName"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_1password_scim_deletescimgroup": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "SCIM Group ID. Example: \"group-123\""
+        }
+      },
+      "required": [
+        "id"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_1password_scim_deletescimgroup": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "deleted": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "id",
+        "deleted"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_1password_scim_deletescimuser": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "SCIM user ID to delete. Example: \"123\""
+        }
+      },
+      "required": [
+        "id"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_1password_scim_deletescimuser": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "deleted": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "id",
+        "deleted"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_1password_scim_getscimgroup": {
+      "type": "object",
+      "properties": {
+        "groupId": {
+          "type": "string",
+          "description": "SCIM Group ID. Example: \"e9e30dba-f08f-4109-8486-d5c6a331660a\""
+        }
+      },
+      "required": [
+        "groupId"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_1password_scim_getscimgroup": {
+      "type": "object",
+      "properties": {
+        "schemas": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "id": {
+          "type": "string"
+        },
+        "externalId": {
+          "type": "string"
+        },
+        "displayName": {
+          "type": "string"
+        },
+        "members": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "value": {
+                "type": "string"
+              },
+              "display": {
+                "type": "string"
+              },
+              "$ref": {
+                "type": "string"
+              },
+              "type": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "value"
+            ],
+            "additionalProperties": false
+          }
+        },
+        "meta": {
+          "type": "object",
+          "properties": {
+            "resourceType": {
+              "type": "string"
+            },
+            "created": {
+              "type": "string"
+            },
+            "lastModified": {
+              "type": "string"
+            },
+            "location": {
+              "type": "string"
+            },
+            "version": {
+              "type": "string"
+            }
+          },
+          "additionalProperties": false
+        }
+      },
+      "required": [
+        "schemas",
+        "id",
+        "displayName"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_1password_scim_getscimuser": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "The SCIM user ID. Example: \"123\""
+        }
+      },
+      "required": [
+        "id"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_1password_scim_getscimuser": {
+      "type": "object",
+      "properties": {
+        "schemas": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "id": {
+          "type": "string"
+        },
+        "externalId": {
+          "type": "string"
+        },
+        "meta": {
+          "type": "object",
+          "properties": {
+            "resourceType": {
+              "type": "string"
+            },
+            "created": {
+              "type": "string"
+            },
+            "lastModified": {
+              "type": "string"
+            },
+            "location": {
+              "type": "string"
+            },
+            "version": {
+              "type": "string"
+            }
+          },
+          "additionalProperties": false
+        },
+        "userName": {
+          "type": "string"
+        },
+        "name": {
+          "type": "object",
+          "properties": {
+            "formatted": {
+              "type": "string"
+            },
+            "familyName": {
+              "type": "string"
+            },
+            "givenName": {
+              "type": "string"
+            },
+            "middleName": {
+              "type": "string"
+            },
+            "honorificPrefix": {
+              "type": "string"
+            },
+            "honorificSuffix": {
+              "type": "string"
+            }
+          },
+          "additionalProperties": false
+        },
+        "displayName": {
+          "type": "string"
+        },
+        "nickName": {
+          "type": "string"
+        },
+        "profileUrl": {
+          "type": "string"
+        },
+        "title": {
+          "type": "string"
+        },
+        "userType": {
+          "type": "string"
+        },
+        "preferredLanguage": {
+          "type": "string"
+        },
+        "locale": {
+          "type": "string"
+        },
+        "timezone": {
+          "type": "string"
+        },
+        "active": {
+          "type": "boolean"
+        },
+        "emails": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "value": {
+                "type": "string"
+              },
+              "display": {
+                "type": "string"
+              },
+              "type": {
+                "type": "string"
+              },
+              "primary": {
+                "type": "boolean"
+              }
+            },
+            "required": [
+              "value"
+            ],
+            "additionalProperties": false
+          }
+        },
+        "groups": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "value": {
+                "type": "string"
+              },
+              "display": {
+                "type": "string"
+              },
+              "type": {
+                "type": "string"
+              },
+              "$ref": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "value"
+            ],
+            "additionalProperties": false
+          }
+        },
+        "roles": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false
+          }
+        },
+        "entitlements": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false
+          }
+        }
+      },
+      "required": [
+        "schemas",
+        "id",
+        "userName"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_1password_scim_getserviceproviderconfig": {
+      "type": "object",
+      "additionalProperties": false
+    },
+    "ActionOutput_1password_scim_getserviceproviderconfig": {
+      "type": "object",
+      "properties": {
+        "schemas": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "id": {
+          "type": "string"
+        },
+        "meta": {
+          "type": "object",
+          "properties": {
+            "resourceType": {
+              "type": "string"
+            },
+            "created": {
+              "type": "string"
+            },
+            "lastModified": {
+              "type": "string"
+            },
+            "location": {
+              "type": "string"
+            },
+            "version": {
+              "type": "string"
+            }
+          },
+          "additionalProperties": false
+        },
+        "documentationUri": {
+          "type": "string"
+        },
+        "patch": {
+          "type": "object",
+          "properties": {
+            "supported": {
+              "type": "boolean"
+            }
+          },
+          "additionalProperties": false
+        },
+        "bulk": {
+          "type": "object",
+          "properties": {
+            "supported": {
+              "type": "boolean"
+            },
+            "maxOperations": {
+              "type": "number"
+            },
+            "maxPayloadSize": {
+              "type": "number"
+            }
+          },
+          "additionalProperties": false
+        },
+        "filter": {
+          "type": "object",
+          "properties": {
+            "supported": {
+              "type": "boolean"
+            },
+            "maxResults": {
+              "type": "number"
+            }
+          },
+          "additionalProperties": false
+        },
+        "changePassword": {
+          "type": "object",
+          "properties": {
+            "supported": {
+              "type": "boolean"
+            }
+          },
+          "additionalProperties": false
+        },
+        "sort": {
+          "type": "object",
+          "properties": {
+            "supported": {
+              "type": "boolean"
+            }
+          },
+          "additionalProperties": false
+        },
+        "etag": {
+          "type": "object",
+          "properties": {
+            "supported": {
+              "type": "boolean"
+            }
+          },
+          "additionalProperties": false
+        },
+        "authenticationSchemes": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "name": {
+                "type": "string"
+              },
+              "description": {
+                "type": "string"
+              },
+              "specUri": {
+                "type": "string"
+              },
+              "documentationUri": {
+                "type": "string"
+              },
+              "type": {
+                "type": "string"
+              },
+              "primary": {
+                "type": "boolean"
+              }
+            },
+            "additionalProperties": false
+          }
+        }
+      },
+      "additionalProperties": false
+    },
+    "ActionInput_1password_scim_listresourcetypes": {
+      "type": "object",
+      "additionalProperties": false
+    },
+    "ActionOutput_1password_scim_listresourcetypes": {
+      "type": "object",
+      "properties": {
+        "schemas": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "totalResults": {
+          "type": "number"
+        },
+        "itemsPerPage": {
+          "type": "number"
+        },
+        "startIndex": {
+          "type": "number"
+        },
+        "Resources": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "schemas": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "id": {
+                "type": "string"
+              },
+              "name": {
+                "type": "string"
+              },
+              "description": {
+                "type": "string"
+              },
+              "endpoint": {
+                "type": "string"
+              },
+              "schema": {
+                "type": "string"
+              },
+              "schemaExtensions": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "schema": {
+                      "type": "string"
+                    },
+                    "required": {
+                      "type": "boolean"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              },
+              "meta": {
+                "type": "object",
+                "properties": {
+                  "resourceType": {
+                    "type": "string"
+                  },
+                  "location": {
+                    "type": "string"
+                  }
+                },
+                "additionalProperties": false
+              }
+            },
+            "additionalProperties": false
+          }
+        }
+      },
+      "additionalProperties": false
+    },
+    "ActionInput_1password_scim_listschemas": {
+      "type": "object",
+      "additionalProperties": false
+    },
+    "ActionOutput_1password_scim_listschemas": {
+      "type": "object",
+      "properties": {
+        "schemas": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "totalResults": {
+          "type": "number"
+        },
+        "Resources": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "name": {
+                "type": "string"
+              },
+              "description": {
+                "type": "string"
+              },
+              "attributes": {
+                "type": "array",
+                "items": {}
+              }
+            },
+            "required": [
+              "id"
+            ],
+            "additionalProperties": false
+          }
+        }
+      },
+      "additionalProperties": false
+    },
+    "ActionInput_1password_scim_listscimgroups": {
+      "type": "object",
+      "properties": {
+        "cursor": {
+          "type": "string",
+          "description": "Pagination cursor from the previous response. Omit for the first page."
+        },
+        "filter": {
+          "type": "string",
+          "description": "SCIM filter expression. Example: 'displayName eq \"Engineering\"'"
+        },
+        "count": {
+          "type": "number",
+          "description": "Number of results per page (1-250). Defaults to 100."
+        }
+      },
+      "additionalProperties": false
+    },
+    "ActionOutput_1password_scim_listscimgroups": {
+      "type": "object",
+      "properties": {
+        "groups": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "displayName": {
+                "type": "string"
+              },
+              "members": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "value": {
+                      "type": "string"
+                    },
+                    "display": {
+                      "type": "string"
+                    },
+                    "type": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "value"
+                  ],
+                  "additionalProperties": false
+                }
+              },
+              "meta": {
+                "type": "object",
+                "properties": {
+                  "resourceType": {
+                    "type": "string"
+                  },
+                  "created": {
+                    "type": "string"
+                  },
+                  "lastModified": {
+                    "type": "string"
+                  },
+                  "location": {
+                    "type": "string"
+                  },
+                  "version": {
+                    "type": "string"
+                  }
+                },
+                "additionalProperties": false
+              },
+              "externalId": {
+                "type": "string"
+              },
+              "schemas": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              }
+            },
+            "required": [
+              "id",
+              "displayName"
+            ],
+            "additionalProperties": false
+          }
+        },
+        "next_cursor": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "groups"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_1password_scim_listscimusers": {
+      "type": "object",
+      "properties": {
+        "filter": {
+          "type": "string",
+          "description": "SCIM filter query. Example: userName eq \"john.doe@example.com\""
+        },
+        "start_index": {
+          "type": "number",
+          "description": "1-based index of the first result to return."
+        },
+        "count": {
+          "type": "number",
+          "description": "Number of results to return per page."
+        }
+      },
+      "additionalProperties": false
+    },
+    "ActionOutput_1password_scim_listscimusers": {
+      "type": "object",
+      "properties": {
+        "users": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "userName": {
+                "type": "string"
+              },
+              "name": {
+                "type": "object",
+                "properties": {
+                  "familyName": {
+                    "type": "string"
+                  },
+                  "givenName": {
+                    "type": "string"
+                  },
+                  "formatted": {
+                    "type": "string"
+                  }
+                },
+                "additionalProperties": false
+              },
+              "emails": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "value": {
+                      "type": "string"
+                    },
+                    "type": {
+                      "type": "string"
+                    },
+                    "primary": {
+                      "type": "boolean"
+                    }
+                  },
+                  "required": [
+                    "value"
+                  ],
+                  "additionalProperties": false
+                }
+              },
+              "active": {
+                "type": "boolean"
+              },
+              "externalId": {
+                "type": "string"
+              },
+              "meta": {
+                "type": "object",
+                "properties": {
+                  "created": {
+                    "type": "string"
+                  },
+                  "lastModified": {
+                    "type": "string"
+                  },
+                  "resourceType": {
+                    "type": "string"
+                  }
+                },
+                "additionalProperties": false
+              },
+              "schemas": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              }
+            },
+            "required": [
+              "id",
+              "userName"
+            ],
+            "additionalProperties": false
+          }
+        },
+        "total_results": {
+          "type": "number"
+        },
+        "start_index": {
+          "type": "number"
+        },
+        "items_per_page": {
+          "type": "number"
+        },
+        "next_start_index": {
+          "type": "number"
+        }
+      },
+      "required": [
+        "users",
+        "total_results"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_1password_scim_patchscimgroup": {
+      "type": "object",
+      "properties": {
+        "group_id": {
+          "type": "string",
+          "description": "The SCIM group ID to patch. Example: \"group-123\""
+        },
+        "operations": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "op": {
+                "type": "string",
+                "enum": [
+                  "add",
+                  "remove",
+                  "replace"
+                ]
+              },
+              "path": {
+                "type": "string"
+              },
+              "value": {}
+            },
+            "required": [
+              "op"
+            ],
+            "additionalProperties": false
+          },
+          "description": "SCIM PatchOp operations to apply."
+        }
+      },
+      "required": [
+        "group_id",
+        "operations"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_1password_scim_patchscimgroup": {
+      "type": "object",
+      "properties": {
+        "schemas": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "id": {
+          "type": "string"
+        },
+        "displayName": {
+          "type": "string"
+        },
+        "members": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "value": {
+                "type": "string"
+              },
+              "display": {
+                "type": "string"
+              },
+              "type": {
+                "type": "string"
+              },
+              "$ref": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "value"
+            ],
+            "additionalProperties": false
+          }
+        },
+        "meta": {
+          "type": "object",
+          "properties": {
+            "resourceType": {
+              "type": "string"
+            },
+            "created": {
+              "type": "string"
+            },
+            "lastModified": {
+              "type": "string"
+            },
+            "location": {
+              "type": "string"
+            },
+            "version": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "resourceType"
+          ],
+          "additionalProperties": false
+        },
+        "externalId": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "schemas",
+        "id"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_1password_scim_patchscimuser": {
+      "type": "object",
+      "properties": {
+        "userId": {
+          "type": "string",
+          "description": "The SCIM user ID to patch. Example: \"2819c223-7f76-453a-919d-413861904646\""
+        },
+        "operations": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "op": {
+                "type": "string",
+                "enum": [
+                  "add",
+                  "remove",
+                  "replace"
+                ]
+              },
+              "path": {
+                "type": "string"
+              },
+              "value": {}
+            },
+            "required": [
+              "op"
+            ],
+            "additionalProperties": false
+          },
+          "description": "SCIM patch operations to apply."
+        }
+      },
+      "required": [
+        "userId",
+        "operations"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_1password_scim_patchscimuser": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "userName": {
+          "type": "string"
+        },
+        "externalId": {
+          "type": "string"
+        },
+        "displayName": {
+          "type": "string"
+        },
+        "active": {
+          "type": "boolean"
+        },
+        "name": {
+          "type": "object",
+          "properties": {
+            "formatted": {
+              "type": "string"
+            },
+            "familyName": {
+              "type": "string"
+            },
+            "givenName": {
+              "type": "string"
+            }
+          },
+          "additionalProperties": false
+        },
+        "emails": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "value": {
+                "type": "string"
+              },
+              "type": {
+                "type": "string"
+              },
+              "primary": {
+                "type": "boolean"
+              }
+            },
+            "additionalProperties": false
+          }
+        },
+        "meta": {
+          "type": "object",
+          "properties": {
+            "resourceType": {
+              "type": "string"
+            },
+            "created": {
+              "type": "string"
+            },
+            "lastModified": {
+              "type": "string"
+            },
+            "location": {
+              "type": "string"
+            },
+            "version": {
+              "type": "string"
+            }
+          },
+          "additionalProperties": false
+        }
+      },
+      "required": [
+        "id"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_1password_scim_updatescimgroup": {
+      "type": "object",
+      "properties": {
+        "groupId": {
+          "type": "string",
+          "description": "The unique identifier of the SCIM group to update. Example: \"9067729b3d-f987ac4d-a175-44f0-a528-6d23c5d2ec4d\""
+        },
+        "displayName": {
+          "type": "string",
+          "description": "The new display name for the group."
+        },
+        "addMembers": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "Array of user IDs to add as members to the group."
+        },
+        "removeMembers": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "Array of user IDs to remove from the group."
+        }
+      },
+      "required": [
+        "groupId"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_1password_scim_updatescimgroup": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "schemas": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "displayName": {
+          "type": "string"
+        },
+        "members": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "value": {
+                "type": "string"
+              },
+              "display": {
+                "type": "string"
+              },
+              "$ref": {
+                "type": "string"
+              },
+              "type": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "value"
+            ],
+            "additionalProperties": false
+          }
+        },
+        "meta": {
+          "type": "object",
+          "properties": {
+            "resourceType": {
+              "type": "string"
+            },
+            "created": {
+              "type": "string"
+            },
+            "lastModified": {
+              "type": "string"
+            },
+            "location": {
+              "type": "string"
+            },
+            "version": {
+              "type": "string"
+            }
+          },
+          "additionalProperties": false
+        }
+      },
+      "required": [
+        "id"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_1password_scim_updatescimuser": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "SCIM user ID. Example: \"2819c223-7f76-453a-919d-413861904646\""
+        },
+        "operations": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "op": {
+                "type": "string",
+                "enum": [
+                  "add",
+                  "replace",
+                  "remove"
+                ]
+              },
+              "path": {
+                "type": "string"
+              },
+              "value": {}
+            },
+            "required": [
+              "op"
+            ],
+            "additionalProperties": false
+          },
+          "description": "Array of SCIM PatchOp operations to apply"
+        }
+      },
+      "required": [
+        "id",
+        "operations"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_1password_scim_updatescimuser": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "externalId": {
+          "type": "string"
+        },
+        "meta": {
+          "type": "object",
+          "properties": {
+            "resourceType": {
+              "type": "string"
+            },
+            "created": {
+              "type": "string"
+            },
+            "lastModified": {
+              "type": "string"
+            },
+            "location": {
+              "type": "string"
+            },
+            "version": {
+              "type": "string"
+            }
+          },
+          "additionalProperties": false
+        },
+        "schemas": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "userName": {
+          "type": "string"
+        },
+        "name": {
+          "type": "object",
+          "properties": {
+            "formatted": {
+              "type": "string"
+            },
+            "familyName": {
+              "type": "string"
+            },
+            "givenName": {
+              "type": "string"
+            },
+            "middleName": {
+              "type": "string"
+            },
+            "honorificPrefix": {
+              "type": "string"
+            },
+            "honorificSuffix": {
+              "type": "string"
+            }
+          },
+          "additionalProperties": false
+        },
+        "displayName": {
+          "type": "string"
+        },
+        "nickName": {
+          "type": "string"
+        },
+        "profileUrl": {
+          "type": "string"
+        },
+        "title": {
+          "type": "string"
+        },
+        "userType": {
+          "type": "string"
+        },
+        "preferredLanguage": {
+          "type": "string"
+        },
+        "locale": {
+          "type": "string"
+        },
+        "timezone": {
+          "type": "string"
+        },
+        "active": {
+          "type": "boolean"
+        },
+        "emails": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "value": {
+                "type": "string"
+              },
+              "display": {
+                "type": "string"
+              },
+              "type": {
+                "type": "string"
+              },
+              "primary": {
+                "type": "boolean"
+              }
+            },
+            "additionalProperties": false
+          }
+        }
+      },
+      "required": [
+        "id"
+      ],
+      "additionalProperties": false
+    },
     "StandardEmployee": {
       "type": "object",
       "properties": {
@@ -248,8 +1891,7 @@
         "createdAt",
         "updatedAt"
       ],
-      "additionalProperties": false,
-      "description": "! ** DEPRECATION NOTICE ** ! This file will stop being generated in future versions of nango. ! For access to function types, please export types directly from your code. ! You can leverage `zod.infer` to generate types from your zod schemas. ! See the official zod documentation: https://zod.dev/basics?id=inferring-types"
+      "additionalProperties": false
     },
     "SyncMetadata_adp_unifiedemployees": {
       "type": "object",
