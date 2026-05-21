@@ -56,9 +56,9 @@ const CheckpointSchema = z.object({
 
 const sync = createSync({
     description: 'Sync file metadata for a specific repository branch using the Git trees API recursively',
-    version: '1.0.0',
+    version: '1.1.0',
     frequency: 'every hour',
-    autoStart: true,
+    autoStart: false,
     endpoints: [{ method: 'POST', path: '/syncs/repository-files' }],
     metadata: MetadataSchema,
     checkpoint: CheckpointSchema,
