@@ -91,7 +91,6 @@ const action = createAction({
         const response = await nango.post({
             endpoint: '/Groups',
             data: requestBody,
-            baseUrlOverride: 'https://provisioning.1password.com/scim',
             retries: 3
         });
 

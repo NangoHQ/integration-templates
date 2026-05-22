@@ -46,7 +46,6 @@ const sync = createSync({
         const proxyConfig: ProxyConfiguration = {
             // https://support.1password.com/scim-endpoints/
             endpoint: '/Users',
-            baseUrlOverride: 'https://provisioning.1password.com/scim',
             paginate: {
                 type: 'offset',
                 offset_name_in_request: 'startIndex',

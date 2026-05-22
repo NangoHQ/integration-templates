@@ -27,7 +27,6 @@ const action = createAction({
         const config: ProxyConfiguration = {
             // https://support.1password.com/scim-endpoints/
             endpoint: `/Groups/${encodeURIComponent(input.id)}`,
-            baseUrlOverride: 'https://provisioning.1password.com/scim',
             retries: 3
         };
 

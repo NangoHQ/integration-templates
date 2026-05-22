@@ -67,7 +67,6 @@ const action = createAction({
         const response = await nango.get({
             // https://support.1password.com/scim-endpoints/
             endpoint: '/Users',
-            baseUrlOverride: 'https://provisioning.1password.com/scim',
             params: {
                 ...(input.filter !== undefined && { filter: input.filter }),
                 ...(input.start_index !== undefined && { startIndex: String(input.start_index) }),

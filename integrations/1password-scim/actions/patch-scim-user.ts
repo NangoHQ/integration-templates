@@ -94,7 +94,6 @@ const action = createAction({
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const response = await nango.patch({
             // https://support.1password.com/scim-endpoints/
-            baseUrlOverride: 'https://provisioning.1password.com/scim',
             endpoint: `/Users/${encodeURIComponent(input.userId)}`,
             data: {
                 schemas: ['urn:ietf:params:scim:api:messages:2.0:PatchOp'],
@@ -107,7 +106,6 @@ const action = createAction({
         if (!rawData) {
             // SCIM PATCH may return 204 No Content on success; fetch current state
             const getResponse = await nango.get({
-                baseUrlOverride: 'https://provisioning.1password.com/scim',
                 endpoint: `/Users/${encodeURIComponent(input.userId)}`,
                 retries: 3
             });

@@ -77,7 +77,6 @@ const action = createAction({
         const response = await nango.post({
             // https://support.1password.com/scim-endpoints/
             endpoint: '/Users',
-            baseUrlOverride: 'https://provisioning.1password.com/scim',
             data: payload,
             retries: 3
         });

@@ -86,7 +86,6 @@ const action = createAction({
         const response = await nango.get({
             // https://support.1password.com/scim-endpoints/
             endpoint: '/Groups',
-            baseUrlOverride: 'https://provisioning.1password.com/scim',
             params,
             retries: 3
         });

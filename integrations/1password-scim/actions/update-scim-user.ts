@@ -97,7 +97,6 @@ const action = createAction({
         const response = await nango.patch({
             // https://support.1password.com/scim-endpoints/
             endpoint: `/Users/${encodeURIComponent(input.id)}`,
-            baseUrlOverride: 'https://provisioning.1password.com/scim',
             data: patchBody,
             retries: 3
         });
@@ -106,7 +105,6 @@ const action = createAction({
         if (!rawData) {
             // SCIM PATCH may return 204 No Content on success; fetch current state
             const getResponse = await nango.get({
-                baseUrlOverride: 'https://provisioning.1password.com/scim',
                 endpoint: `/Users/${encodeURIComponent(input.id)}`,
                 retries: 3
             });

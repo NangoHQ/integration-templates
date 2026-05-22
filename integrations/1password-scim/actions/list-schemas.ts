@@ -34,7 +34,6 @@ const action = createAction({
         const response = await nango.get({
             // https://support.1password.com/scim-endpoints/
             endpoint: '/Schemas',
-            baseUrlOverride: 'https://provisioning.1password.com/scim',
             retries: 3
         });
 

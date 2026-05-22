@@ -25,7 +25,6 @@ const action = createAction({
         // https://support.1password.com/scim-endpoints/
         await nango.delete({
             endpoint: `/Users/${encodeURIComponent(input.id)}`,
-            baseUrlOverride: 'https://provisioning.1password.com/scim',
             retries: 3
         });
 

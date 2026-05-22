@@ -94,7 +94,6 @@ const action = createAction({
         const config: ProxyConfiguration = {
             // https://support.1password.com/scim-endpoints/
             endpoint: `/Groups/${encodeURIComponent(input.groupId)}`,
-            baseUrlOverride: 'https://provisioning.1password.com/scim',
             data: {
                 schemas: ['urn:ietf:params:scim:api:messages:2.0:PatchOp'],
                 Operations: operations
@@ -108,7 +107,6 @@ const action = createAction({
         if (!rawData) {
             // SCIM PATCH may return 204 No Content on success; fetch current state
             const getResponse = await nango.get({
-                baseUrlOverride: 'https://provisioning.1password.com/scim',
                 endpoint: `/Groups/${encodeURIComponent(input.groupId)}`,
                 retries: 3
             });

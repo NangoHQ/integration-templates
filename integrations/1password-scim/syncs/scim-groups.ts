@@ -78,7 +78,6 @@ const sync = createSync({
         const proxyConfig: ProxyConfiguration = {
             // https://support.1password.com/scim-endpoints/
             endpoint: '/Groups',
-            baseUrlOverride: 'https://provisioning.1password.com/scim',
             params: {
                 ...(updatedAfter && { filter: `meta.lastModified ge "${updatedAfter}"` })
             },

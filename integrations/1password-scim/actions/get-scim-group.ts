@@ -53,7 +53,6 @@ const action = createAction({
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         // https://support.1password.com/scim-endpoints/
         const response = await nango.get({
-            baseUrlOverride: 'https://provisioning.1password.com/scim',
             endpoint: '/Groups/' + encodeURIComponent(input.groupId),
             retries: 3
         });
