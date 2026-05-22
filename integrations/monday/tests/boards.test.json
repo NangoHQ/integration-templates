@@ -1,0 +1,361 @@
+{
+  "nango": {
+    "batchSave": {
+      "Board": [
+        {
+          "id": "5096998627",
+          "name": "Nango Test Board May22",
+          "state": "active",
+          "board_kind": "public",
+          "updated_at": "2026-05-22T05:48:51Z",
+          "workspace_id": "6502905",
+          "url": "https://nango-unit.monday.com/boards/5096998627"
+        },
+        {
+          "id": "5096998620",
+          "name": "Nango Test Board May22",
+          "state": "active",
+          "board_kind": "public",
+          "updated_at": "2026-05-22T05:48:37Z",
+          "workspace_id": "6502905",
+          "url": "https://nango-unit.monday.com/boards/5096998620"
+        },
+        {
+          "id": "5096998570",
+          "name": "Subitems of Test Duplicate Board",
+          "state": "active",
+          "board_kind": "public",
+          "updated_at": "2026-05-22T05:45:45Z",
+          "workspace_id": "6502905",
+          "url": "https://nango-unit.monday.com/boards/5096998570"
+        },
+        {
+          "id": "5096998568",
+          "name": "Test Duplicate Board",
+          "description": "",
+          "state": "active",
+          "board_kind": "public",
+          "updated_at": "2026-05-22T05:45:48Z",
+          "workspace_id": "6502905",
+          "url": "https://nango-unit.monday.com/boards/5096998568"
+        },
+        {
+          "id": "5096998558",
+          "name": "Subitems of Test Duplicate Board",
+          "state": "active",
+          "board_kind": "public",
+          "updated_at": "2026-05-22T05:45:29Z",
+          "workspace_id": "6502905",
+          "url": "https://nango-unit.monday.com/boards/5096998558"
+        },
+        {
+          "id": "5096998553",
+          "name": "Test Duplicate Board",
+          "description": "",
+          "state": "active",
+          "board_kind": "public",
+          "updated_at": "2026-05-22T05:45:33Z",
+          "workspace_id": "6502905",
+          "url": "https://nango-unit.monday.com/boards/5096998553"
+        },
+        {
+          "id": "5096982906",
+          "name": "Duplicate of Bugs Queue",
+          "description": "",
+          "state": "deleted",
+          "board_kind": "public",
+          "updated_at": "2026-05-21T20:38:17Z",
+          "workspace_id": "6502905",
+          "url": "https://nango-unit.monday.com/boards/5096982906"
+        },
+        {
+          "id": "5096982894",
+          "name": "Subitems of Tasks",
+          "state": "active",
+          "board_kind": "public",
+          "updated_at": "2026-05-22T05:47:42Z",
+          "workspace_id": "6502905",
+          "url": "https://nango-unit.monday.com/boards/5096982894"
+        },
+        {
+          "id": "5096980653",
+          "name": "Tasks",
+          "description": "Updated description for Tasks board via API test",
+          "state": "active",
+          "board_kind": "public",
+          "updated_at": "2026-05-22T05:49:24Z",
+          "workspace_id": "6502905",
+          "url": "https://nango-unit.monday.com/boards/5096980653"
+        },
+        {
+          "id": "5096980652",
+          "name": "Epics",
+          "description": "",
+          "state": "active",
+          "board_kind": "public",
+          "updated_at": "2026-05-22T05:48:57Z",
+          "workspace_id": "6502905",
+          "url": "https://nango-unit.monday.com/boards/5096980652"
+        },
+        {
+          "id": "5096980651",
+          "name": "Bugs Queue",
+          "description": "",
+          "state": "active",
+          "board_kind": "public",
+          "updated_at": "2026-05-21T20:03:49Z",
+          "workspace_id": "6502905",
+          "url": "https://nango-unit.monday.com/boards/5096980651"
+        },
+        {
+          "id": "5096980650",
+          "name": "Capacity",
+          "state": "active",
+          "board_kind": "public",
+          "updated_at": "2026-05-21T19:32:16Z",
+          "workspace_id": "6502905",
+          "url": "https://nango-unit.monday.com/boards/5096980650"
+        },
+        {
+          "id": "5096980649",
+          "name": "Sprints",
+          "state": "active",
+          "board_kind": "public",
+          "updated_at": "2026-05-21T19:32:15Z",
+          "workspace_id": "6502905",
+          "url": "https://nango-unit.monday.com/boards/5096980649"
+        },
+        {
+          "id": "5096980648",
+          "name": "Retrospectives",
+          "description": "",
+          "state": "active",
+          "board_kind": "public",
+          "updated_at": "2026-05-21T19:32:15Z",
+          "workspace_id": "6502905",
+          "url": "https://nango-unit.monday.com/boards/5096980648"
+        },
+        {
+          "id": "5096980647",
+          "name": "Getting Started",
+          "state": "active",
+          "board_kind": "public",
+          "updated_at": "2026-05-21T19:32:15Z",
+          "workspace_id": "6502905",
+          "url": "https://nango-unit.monday.com/boards/5096980647"
+        }
+      ]
+    },
+    "batchDelete": {
+      "Board": []
+    }
+  },
+  "api": {
+    "post": {
+      "/v2": {
+        "response": {
+          "data": {
+            "boards": [
+              {
+                "id": "5096998627",
+                "name": "Nango Test Board May22",
+                "description": null,
+                "state": "active",
+                "board_kind": "public",
+                "updated_at": "2026-05-22T05:48:51Z",
+                "workspace_id": "6502905",
+                "url": "https://nango-unit.monday.com/boards/5096998627"
+              },
+              {
+                "id": "5096998620",
+                "name": "Nango Test Board May22",
+                "description": null,
+                "state": "active",
+                "board_kind": "public",
+                "updated_at": "2026-05-22T05:48:37Z",
+                "workspace_id": "6502905",
+                "url": "https://nango-unit.monday.com/boards/5096998620"
+              },
+              {
+                "id": "5096998570",
+                "name": "Subitems of Test Duplicate Board",
+                "description": null,
+                "state": "active",
+                "board_kind": "public",
+                "updated_at": "2026-05-22T05:45:45Z",
+                "workspace_id": "6502905",
+                "url": "https://nango-unit.monday.com/boards/5096998570"
+              },
+              {
+                "id": "5096998568",
+                "name": "Test Duplicate Board",
+                "description": "",
+                "state": "active",
+                "board_kind": "public",
+                "updated_at": "2026-05-22T05:45:48Z",
+                "workspace_id": "6502905",
+                "url": "https://nango-unit.monday.com/boards/5096998568"
+              },
+              {
+                "id": "5096998558",
+                "name": "Subitems of Test Duplicate Board",
+                "description": null,
+                "state": "active",
+                "board_kind": "public",
+                "updated_at": "2026-05-22T05:45:29Z",
+                "workspace_id": "6502905",
+                "url": "https://nango-unit.monday.com/boards/5096998558"
+              },
+              {
+                "id": "5096998553",
+                "name": "Test Duplicate Board",
+                "description": "",
+                "state": "active",
+                "board_kind": "public",
+                "updated_at": "2026-05-22T05:45:33Z",
+                "workspace_id": "6502905",
+                "url": "https://nango-unit.monday.com/boards/5096998553"
+              },
+              {
+                "id": "5096982906",
+                "name": "Duplicate of Bugs Queue",
+                "description": "",
+                "state": "deleted",
+                "board_kind": "public",
+                "updated_at": "2026-05-21T20:38:17Z",
+                "workspace_id": "6502905",
+                "url": "https://nango-unit.monday.com/boards/5096982906"
+              },
+              {
+                "id": "5096982894",
+                "name": "Subitems of Tasks",
+                "description": null,
+                "state": "active",
+                "board_kind": "public",
+                "updated_at": "2026-05-22T05:47:42Z",
+                "workspace_id": "6502905",
+                "url": "https://nango-unit.monday.com/boards/5096982894"
+              },
+              {
+                "id": "5096980653",
+                "name": "Tasks",
+                "description": "Updated description for Tasks board via API test",
+                "state": "active",
+                "board_kind": "public",
+                "updated_at": "2026-05-22T05:49:24Z",
+                "workspace_id": "6502905",
+                "url": "https://nango-unit.monday.com/boards/5096980653"
+              },
+              {
+                "id": "5096980652",
+                "name": "Epics",
+                "description": "",
+                "state": "active",
+                "board_kind": "public",
+                "updated_at": "2026-05-22T05:48:57Z",
+                "workspace_id": "6502905",
+                "url": "https://nango-unit.monday.com/boards/5096980652"
+              },
+              {
+                "id": "5096980651",
+                "name": "Bugs Queue",
+                "description": "",
+                "state": "active",
+                "board_kind": "public",
+                "updated_at": "2026-05-21T20:03:49Z",
+                "workspace_id": "6502905",
+                "url": "https://nango-unit.monday.com/boards/5096980651"
+              },
+              {
+                "id": "5096980650",
+                "name": "Capacity",
+                "description": null,
+                "state": "active",
+                "board_kind": "public",
+                "updated_at": "2026-05-21T19:32:16Z",
+                "workspace_id": "6502905",
+                "url": "https://nango-unit.monday.com/boards/5096980650"
+              },
+              {
+                "id": "5096980649",
+                "name": "Sprints",
+                "description": null,
+                "state": "active",
+                "board_kind": "public",
+                "updated_at": "2026-05-21T19:32:15Z",
+                "workspace_id": "6502905",
+                "url": "https://nango-unit.monday.com/boards/5096980649"
+              },
+              {
+                "id": "5096980648",
+                "name": "Retrospectives",
+                "description": "",
+                "state": "active",
+                "board_kind": "public",
+                "updated_at": "2026-05-21T19:32:15Z",
+                "workspace_id": "6502905",
+                "url": "https://nango-unit.monday.com/boards/5096980648"
+              },
+              {
+                "id": "5096980647",
+                "name": "Getting Started",
+                "description": null,
+                "state": "active",
+                "board_kind": "public",
+                "updated_at": "2026-05-21T19:32:15Z",
+                "workspace_id": "6502905",
+                "url": "https://nango-unit.monday.com/boards/5096980647"
+              }
+            ]
+          },
+          "extensions": {
+            "request_id": "355b65d9-d81c-9315-9196-4d2090c5a852"
+          }
+        },
+        "status": 200,
+        "headers": {
+          "date": "Fri, 22 May 2026 05:51:16 GMT",
+          "content-type": "application/json",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=31536000; includeSubDomains",
+          "content-security-policy-report-only": "frame-ancestors https://*.monday.com; script-src 'self'; worker-src 'self'; connect-src 'self'; report-uri https://o916138.ingest.us.sentry.io/api/4507803872198656/security/?sentry_key=8e1fb7e952d4abfd146752c94791f51a&sentry_environment=production;",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4969",
+          "x-ratelimit-reset": "1779429113",
+          "api-version": "2026-04",
+          "vary": "origin, Accept-Encoding",
+          "x-api-gateway": "true",
+          "x-api-router": "true",
+          "x-request-id": "355b65d9-d81c-9315-9196-4d2090c5a852",
+          "x-envoy-upstream-service-time": "332",
+          "content-security-policy": ";",
+          "x-monday-rgn": "euc1, use1",
+          "server": "cloudflare",
+          "x-routed-from": "use1",
+          "x-routed-to": "euc1",
+          "set-cookie": "__cf_bm=qRVB9.NkjNS8YDSRzhI.d6Ezj5kUtH2zQP30Ww3k9kA-1779429075.5803926-1.0.1.1-1cxvraAYcjLwbcXEG8t727SKonkpZsoW5T.UMFy88URhMBlg3tT5f.WOqr0R3FnxrtAtkwVVxpTfJn9q__2Z8GnrcMmHbgGtWE7GfSSdNOziELM8HMkPeaDP5sgqqJKKf5ZkMWnSHXmUqChJ9T3qgQ; HttpOnly; SameSite=None; Secure; Path=/; Domain=monday.com; Expires=Fri, 22 May 2026 06:21:15 GMT, _cfuvid=tJ2s_I8WcruGsezBvJ8St0WbUgIusiO11xZfiDMvKCA-1779429075.5803926-1.0.1.1-b2wF_9EGEAUKO9m0uX6fv9eytq6vKuWKsVkQ0pN7sKI; HttpOnly; SameSite=None; Secure; Path=/; Domain=monday.com",
+          "cf-cache-status": "DYNAMIC",
+          "cf-ray": "9ff98c4a5c1b8bee-PDX"
+        },
+        "hash": "cdf24cb18c37507c0af7423e794185b0397e14dc",
+        "request": {
+          "data": {
+            "query": "\n                    query ($limit: Int!, $page: Int!) {\n                        boards(limit: $limit, page: $page, state: all) {\n                            id\n                            name\n                            description\n                            state\n                            board_kind\n                            updated_at\n                            workspace_id\n                            url\n                        }\n                    }\n                ",
+            "variables": {
+              "limit": 100,
+              "page": 1
+            }
+          }
+        }
+      }
+    }
+  }
+}

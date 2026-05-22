@@ -1,0 +1,102 @@
+{
+  "input": {
+    "userId": "104094154"
+  },
+  "output": {
+    "id": "104094154",
+    "name": "Nango Developer",
+    "email": "api@nango.dev",
+    "url": "https://nango-unit.monday.com/users/104094154",
+    "photo_thumb": "https://cdn1.monday.com/dapulse_default_photo.png",
+    "photo_original": "https://cdn1.monday.com/dapulse_default_photo.png",
+    "created_at": "2026-05-21T19:31:20Z",
+    "time_zone_identifier": "Africa/Nairobi",
+    "teams": [
+      {
+        "id": "13240071",
+        "name": "TestTeam"
+      },
+      {
+        "id": "13240072",
+        "name": "Team@2"
+      }
+    ]
+  },
+  "nango": {},
+  "api": {
+    "post": {
+      "/v2": {
+        "response": {
+          "data": {
+            "users": [
+              {
+                "id": "104094154",
+                "name": "Nango Developer",
+                "email": "api@nango.dev",
+                "url": "https://nango-unit.monday.com/users/104094154",
+                "photo_thumb": "https://cdn1.monday.com/dapulse_default_photo.png",
+                "photo_original": "https://cdn1.monday.com/dapulse_default_photo.png",
+                "created_at": "2026-05-21T19:31:20Z",
+                "location": null,
+                "time_zone_identifier": "Africa/Nairobi",
+                "title": null,
+                "teams": [
+                  {
+                    "id": "13240071",
+                    "name": "TestTeam"
+                  },
+                  {
+                    "id": "13240072",
+                    "name": "Team@2"
+                  }
+                ]
+              }
+            ]
+          },
+          "extensions": {
+            "request_id": "ef785d3d-0123-93ee-a0fc-77a4f0817c10"
+          }
+        },
+        "status": 200,
+        "headers": {
+          "date": "Fri, 22 May 2026 05:49:36 GMT",
+          "content-type": "application/json",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=31536000; includeSubDomains",
+          "content-security-policy-report-only": "frame-ancestors https://*.monday.com; script-src 'self'; worker-src 'self'; connect-src 'self'; report-uri https://o916138.ingest.us.sentry.io/api/4507803872198656/security/?sentry_key=8e1fb7e952d4abfd146752c94791f51a&sentry_environment=production;",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4960",
+          "x-ratelimit-reset": "1779428989",
+          "api-version": "2026-04",
+          "vary": "origin, Accept-Encoding",
+          "x-api-gateway": "true",
+          "x-api-router": "true",
+          "x-request-id": "ef785d3d-0123-93ee-a0fc-77a4f0817c10",
+          "x-envoy-upstream-service-time": "348",
+          "content-security-policy": ";",
+          "x-monday-rgn": "euc1, use1",
+          "server": "cloudflare",
+          "x-routed-from": "use1",
+          "x-routed-to": "euc1",
+          "set-cookie": "__cf_bm=bVoufLmpXtKc2qdUrFJmACGror_pEpM1dClJHXikMYE-1779428976.5066378-1.0.1.1-nGLPMm6FQZIGT6jeiWxPL2QMz8vErwiZWMYTuGpidceuX9u75XM6_uTbgNWRDjKyBn9zbgkmc0ZKM8.VpAMmb5Ftcg1LzhnGgjj1wCWzITiGWJjwyet1naQ86tfpUtlcYLnVmudu4CJnwLTft45Ppw; HttpOnly; SameSite=None; Secure; Path=/; Domain=monday.com; Expires=Fri, 22 May 2026 06:19:36 GMT, _cfuvid=zj4.D5rmXzyrBk9pSykTr9jOMrcizp8bt1qSF2Bt9QA-1779428976.5066378-1.0.1.1-SAAm6BgHqhEhFBpnJ9tNgDmgo3aMp8WfK.b9UPpntBA; HttpOnly; SameSite=None; Secure; Path=/; Domain=monday.com",
+          "cf-cache-status": "DYNAMIC",
+          "cf-ray": "9ff989df289161c8-PDX"
+        },
+        "hash": "84fda2a75b5e3e9fa683d850be6802562b6bf67f",
+        "request": {
+          "data": {
+            "query": "query { users(ids: [104094154]) { id name email url photo_thumb photo_original created_at location time_zone_identifier title teams { id name } } }"
+          }
+        }
+      }
+    }
+  }
+}

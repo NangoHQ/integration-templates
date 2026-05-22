@@ -1,0 +1,104 @@
+{
+  "input": {
+    "subitem_id": "2933645613"
+  },
+  "output": {
+    "id": "2933645613",
+    "name": "Second test subitem",
+    "board_id": "5096982894",
+    "column_values": [
+      {
+        "id": "person",
+        "text": ""
+      },
+      {
+        "id": "status"
+      },
+      {
+        "id": "date0",
+        "text": ""
+      }
+    ]
+  },
+  "nango": {},
+  "api": {
+    "post": {
+      "/v2": {
+        "response": {
+          "data": {
+            "items": [
+              {
+                "id": "2933645613",
+                "name": "Second test subitem",
+                "board": {
+                  "id": "5096982894"
+                },
+                "column_values": [
+                  {
+                    "id": "person",
+                    "text": ""
+                  },
+                  {
+                    "id": "status",
+                    "text": null
+                  },
+                  {
+                    "id": "date0",
+                    "text": ""
+                  }
+                ]
+              }
+            ]
+          },
+          "extensions": {
+            "request_id": "4c67ea9c-377e-9df5-ac27-d03e49ba8d60"
+          }
+        },
+        "status": 200,
+        "headers": {
+          "date": "Fri, 22 May 2026 05:45:45 GMT",
+          "content-type": "application/json",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=31536000; includeSubDomains",
+          "content-security-policy-report-only": "frame-ancestors https://*.monday.com; script-src 'self'; worker-src 'self'; connect-src 'self'; report-uri https://o916138.ingest.us.sentry.io/api/4507803872198656/security/?sentry_key=8e1fb7e952d4abfd146752c94791f51a&sentry_environment=production;",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4930",
+          "x-ratelimit-reset": "1779428745",
+          "api-version": "2026-04",
+          "vary": "origin, Accept-Encoding",
+          "x-api-gateway": "true",
+          "x-api-router": "true",
+          "x-request-id": "4c67ea9c-377e-9df5-ac27-d03e49ba8d60",
+          "x-envoy-upstream-service-time": "503",
+          "content-security-policy": ";",
+          "x-monday-rgn": "euc1, use1",
+          "server": "cloudflare",
+          "x-routed-from": "use1",
+          "x-routed-to": "euc1",
+          "set-cookie": "__cf_bm=NJ30QchtOsbMk9TpHrZWxFHJejYcQxo2tVw3DBNF3hA-1779428744.8582816-1.0.1.1-aUm2QQlhGWogbhgTf9Gzr0L02SkTGNu2U9zGiEeNsVDwyYRZ7h9_6tsIOf2Jwqr06ZlMbXhZ9LAmT69zXgvL5sW62h.sq2It5wW_C4d2txtY1GFTvCoazo.xpgm.B8x8k26nP0m7wuECUVYhlpuXlw; HttpOnly; SameSite=None; Secure; Path=/; Domain=monday.com; Expires=Fri, 22 May 2026 06:15:45 GMT, _cfuvid=fx5cpj4HVT_aNyuAvQ6v20Xz3nfJDlJMnIr30Y0B5ck-1779428744.8582816-1.0.1.1-Wh_xEsiWV6zzf0jHpP8W97E7t7oWYImxdYNaMVBfGnM; HttpOnly; SameSite=None; Secure; Path=/; Domain=monday.com",
+          "cf-cache-status": "DYNAMIC",
+          "cf-ray": "9ff984375dca3416-PDX"
+        },
+        "hash": "3b9dadfa5d690b9d1fc604891cd72fd26cffeb4e",
+        "request": {
+          "data": {
+            "query": "query ($ids: [ID!]) { items(ids: $ids) { id name board { id } column_values { id text } } }",
+            "variables": {
+              "ids": [
+                "2933645613"
+              ]
+            }
+          }
+        }
+      }
+    }
+  }
+}

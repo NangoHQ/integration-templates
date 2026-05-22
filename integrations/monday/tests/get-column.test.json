@@ -1,0 +1,222 @@
+{
+  "input": {
+    "board_id": "5096980653",
+    "column_id": "task_status"
+  },
+  "output": {
+    "id": "task_status",
+    "title": "Status",
+    "type": "status",
+    "description": "API test update",
+    "archived": false,
+    "settings": {
+      "labels": [
+        {
+          "id": 0,
+          "color": 0,
+          "label": "In Progress",
+          "index": 1,
+          "is_done": false,
+          "is_deactivated": false,
+          "hex": "#fdab3d"
+        },
+        {
+          "id": 1,
+          "color": 1,
+          "label": "Done",
+          "index": 4,
+          "is_done": true,
+          "is_deactivated": false,
+          "hex": "#00c875"
+        },
+        {
+          "id": 2,
+          "color": 18,
+          "label": "Pending Deploy",
+          "index": 3,
+          "is_done": false,
+          "is_deactivated": false,
+          "hex": "#7f5347"
+        },
+        {
+          "id": 3,
+          "color": 158,
+          "label": "Waiting for review",
+          "index": 2,
+          "is_done": false,
+          "is_deactivated": false,
+          "hex": "#a1e3f6"
+        },
+        {
+          "id": 5,
+          "color": 5,
+          "label": "",
+          "index": 6,
+          "is_done": false,
+          "is_deactivated": false,
+          "hex": "#c4c4c4"
+        },
+        {
+          "id": 11,
+          "color": 153,
+          "label": "Ready to start",
+          "index": 0,
+          "is_done": false,
+          "is_deactivated": false,
+          "hex": "#216edf"
+        },
+        {
+          "id": 103,
+          "color": 2,
+          "label": "Stuck",
+          "index": 5,
+          "is_done": false,
+          "is_deactivated": false,
+          "hex": "#df2f4a"
+        }
+      ]
+    }
+  },
+  "nango": {},
+  "api": {
+    "post": {
+      "/v2": {
+        "response": {
+          "data": {
+            "boards": [
+              {
+                "columns": [
+                  {
+                    "id": "task_status",
+                    "title": "Status",
+                    "type": "status",
+                    "description": "API test update",
+                    "archived": false,
+                    "width": null,
+                    "settings": {
+                      "labels": [
+                        {
+                          "id": 0,
+                          "color": 0,
+                          "label": "In Progress",
+                          "index": 1,
+                          "is_done": false,
+                          "is_deactivated": false,
+                          "hex": "#fdab3d"
+                        },
+                        {
+                          "id": 1,
+                          "color": 1,
+                          "label": "Done",
+                          "index": 4,
+                          "is_done": true,
+                          "is_deactivated": false,
+                          "hex": "#00c875"
+                        },
+                        {
+                          "id": 2,
+                          "color": 18,
+                          "label": "Pending Deploy",
+                          "index": 3,
+                          "is_done": false,
+                          "is_deactivated": false,
+                          "hex": "#7f5347"
+                        },
+                        {
+                          "id": 3,
+                          "color": 158,
+                          "label": "Waiting for review",
+                          "index": 2,
+                          "is_done": false,
+                          "is_deactivated": false,
+                          "hex": "#a1e3f6"
+                        },
+                        {
+                          "id": 5,
+                          "color": 5,
+                          "label": "",
+                          "index": 6,
+                          "is_done": false,
+                          "is_deactivated": false,
+                          "hex": "#c4c4c4"
+                        },
+                        {
+                          "id": 11,
+                          "color": 153,
+                          "label": "Ready to start",
+                          "index": 0,
+                          "is_done": false,
+                          "is_deactivated": false,
+                          "hex": "#216edf"
+                        },
+                        {
+                          "id": 103,
+                          "color": 2,
+                          "label": "Stuck",
+                          "index": 5,
+                          "is_done": false,
+                          "is_deactivated": false,
+                          "hex": "#df2f4a"
+                        }
+                      ]
+                    }
+                  }
+                ]
+              }
+            ]
+          },
+          "extensions": {
+            "request_id": "7a3f0f69-c987-92ac-9b67-18e65f665317"
+          }
+        },
+        "status": 200,
+        "headers": {
+          "date": "Fri, 22 May 2026 05:47:59 GMT",
+          "content-type": "application/json",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=31536000; includeSubDomains",
+          "content-security-policy-report-only": "frame-ancestors https://*.monday.com; script-src 'self'; worker-src 'self'; connect-src 'self'; report-uri https://o916138.ingest.us.sentry.io/api/4507803872198656/security/?sentry_key=8e1fb7e952d4abfd146752c94791f51a&sentry_environment=production;",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4974",
+          "x-ratelimit-reset": "1779428927",
+          "api-version": "2026-04",
+          "vary": "origin, Accept-Encoding",
+          "x-api-gateway": "true",
+          "x-api-router": "true",
+          "x-request-id": "7a3f0f69-c987-92ac-9b67-18e65f665317",
+          "x-envoy-upstream-service-time": "459",
+          "content-security-policy": ";",
+          "x-monday-rgn": "euc1, use1",
+          "server": "cloudflare",
+          "x-routed-from": "use1",
+          "x-routed-to": "euc1",
+          "set-cookie": "__cf_bm=13T_bmwVcjvyIhcEH2U07LseWrBIyY1utAOWVSLNVOk-1779428878.9257805-1.0.1.1-LuDx_fnky2HRlYU_ioghzMHaTI9bAHHidYcaDHsKLoarXwwHokZy2ykteIDlxnXSrbTQsASYlrIWIeTIULN_io625vKfdTXyV514NneUckHa0E8VteZ6CXLT4h2xiGGa7UuXlZTg9q_ZPzrMQVvYnQ; HttpOnly; SameSite=None; Secure; Path=/; Domain=monday.com; Expires=Fri, 22 May 2026 06:17:59 GMT, _cfuvid=.k_sCJt.IGdZLZbZW6p7mHaLswcRGgw64aofSSsoXbE-1779428878.9257805-1.0.1.1-KJO4pRDfjPJt4zzHmQkHuRyVio59NFJz3stR.v6Sw2w; HttpOnly; SameSite=None; Secure; Path=/; Domain=monday.com",
+          "cf-cache-status": "DYNAMIC",
+          "cf-ray": "9ff9877d4ea3fef8-PDX"
+        },
+        "hash": "84dd79690b77d945dcff5905debca670c3a0f7fb",
+        "request": {
+          "data": {
+            "query": "query ($boardIds: [ID!], $columnIds: [String]) {\n    boards(ids: $boardIds) {\n        columns(ids: $columnIds) {\n            id\n            title\n            type\n            description\n            archived\n            width\n            settings\n        }\n    }\n}",
+            "variables": {
+              "boardIds": [
+                "5096980653"
+              ],
+              "columnIds": [
+                "task_status"
+              ]
+            }
+          }
+        }
+      }
+    }
+  }
+}

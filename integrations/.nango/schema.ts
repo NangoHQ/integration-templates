@@ -1404,24 +1404,16 @@ export interface SyncMetadata_asana_tasks {
 
 export interface Team {
   id: string;
-  name?: string | undefined;
-  key?: string | undefined;
-  description?: string | undefined;
-  color?: string | undefined;
-  icon?: string | undefined;
-  private?: boolean | undefined;
-  createdAt?: string | undefined;
-  updatedAt?: string | undefined;
-  archivedAt?: string | undefined;
+  name: string;
+  picture_url?: string | undefined;
 };
 
 export interface Workspace {
   id: string;
-  gid: string;
   name?: string | undefined;
-  is_organization?: boolean | undefined;
-  email_domains?: string[] | undefined;
-  resource_type?: string | undefined;
+  description?: string | undefined;
+  kind?: string | undefined;
+  state?: string | undefined;
 };
 
 export interface ActionInput_asana_addprojecttotask {
@@ -30293,6 +30285,1063 @@ export interface ActionOutput_microsoft_teams_updatechannel {
   isFavoriteByDefault?: boolean | undefined;
 };
 
+export interface Board {
+  id: string;
+  name: string;
+  description?: string | undefined;
+  state: string;
+  board_kind: string;
+  updated_at: string;
+  workspace_id?: string | undefined;
+  url: string;
+};
+
+export interface Column {
+  id: string;
+  board_id: string;
+  column_id: string;
+  title: string;
+  type: string;
+  settings_str?: string | undefined;
+};
+
+export interface Group {
+  id: string;
+  name: string;
+  description?: string | undefined;
+  isDefault?: boolean | undefined;
+  isDeleted?: boolean | undefined;
+  isPublic?: boolean | undefined;
+  createdAt?: string | undefined;
+  updatedAt?: string | undefined;
+  url?: string | undefined;
+};
+
+export interface Subitem {
+  id: string;
+  name?: string | undefined;
+  board_id: string;
+  column_values?: ({  id: string;
+  text?: string | undefined;})[];
+};
+
+export interface Update {
+  id: string;
+  body?: string | undefined;
+  text_body?: string | undefined;
+  created_at?: string | undefined;
+  updated_at?: string | undefined;
+  edited_at?: string | undefined;
+  creator_id?: string | undefined;
+  creator_name?: string | undefined;
+  item_id?: string | undefined;
+  item_name?: string | undefined;
+  replies?: ({  id: string;
+  body?: string | undefined;
+  text_body?: string | undefined;
+  created_at?: string | undefined;
+  creator_id?: string | undefined;
+  creator_name?: string | undefined;})[];
+};
+
+export interface ActionInput_monday_addfiletocolumn {
+  /**
+   * The item ID to add the file to. Example: "2934134049"
+   */
+  item_id: string;
+  /**
+   * The file column ID. Example: "file_mm3ke3ht"
+   */
+  column_id: string;
+  /**
+   * The name of the file. Example: "document.txt"
+   */
+  file_name: string;
+  /**
+   * The file content. Provide plain text for text files.
+   */
+  file_content: string;
+  /**
+   * MIME type of the file. Defaults to "text/plain".
+   */
+  file_type?: string | undefined;
+};
+
+export interface ActionOutput_monday_addfiletocolumn {
+  id: string;
+  name?: string | undefined;
+  url?: string | undefined;
+  public_url?: string | undefined;
+  file_extension?: string | undefined;
+  file_size?: number | undefined;
+  uploaded_by?: {  id: string;
+  name?: string | undefined;};
+  url_thumbnail?: string | undefined;
+};
+
+export interface ActionInput_monday_archiveitem {
+  /**
+   * The ID of the item to archive. Example: "2933609588"
+   */
+  item_id: string;
+};
+
+export interface ActionOutput_monday_archiveitem {
+  id: string;
+  state?: string | undefined;
+};
+
+export interface ActionInput_monday_changecolumnvalue {
+  /**
+   * The ID of the item to update. Example: "2933609588"
+   */
+  item_id: string;
+  /**
+   * The ID of the column to update. Example: "task_status"
+   */
+  column_id: string;
+  /**
+   * The ID of the board containing the item. Example: "5096980653"
+   */
+  board_id: string;
+  /**
+   * The new column value as a JSON-formatted string. Example: "{\"label\":\"Done\"}"
+   */
+  value: string;
+  /**
+   * If true, creates new Status or Dropdown labels that do not already exist.
+   */
+  create_labels_if_missing?: boolean | undefined;
+};
+
+export interface ActionOutput_monday_changecolumnvalue {
+  /**
+   * The ID of the updated item.
+   */
+  id: string;
+  /**
+   * The name of the updated item.
+   */
+  name?: string | undefined;
+  /**
+   * The column values of the updated item.
+   */
+  column_values?: ({  id: string;
+  value?: string | undefined;
+  text?: string | undefined;})[];
+};
+
+export interface ActionInput_monday_createboard {
+  /**
+   * The new board's name. Example: "My Board"
+   */
+  board_name: string;
+  /**
+   * The type of board to create.
+   */
+  board_kind: 'private' | 'public' | 'share';
+  /**
+   * The new board's description.
+   */
+  description?: string | undefined;
+  /**
+   * The workspace ID to create the board in. Example: "6502905"
+   */
+  workspace_id?: string | undefined;
+  /**
+   * Creates an empty board without any default items.
+   */
+  empty?: boolean | undefined;
+  /**
+   * The board's folder ID.
+   */
+  folder_id?: string | undefined;
+  /**
+   * The board's template ID.
+   */
+  template_id?: string | undefined;
+  /**
+   * A list of user IDs who will be board owners.
+   */
+  board_owner_ids?: string[] | undefined;
+  /**
+   * A list of user IDs who will subscribe to the board.
+   */
+  board_subscriber_ids?: string[] | undefined;
+  /**
+   * An AI prompt to generate the board's structure and content.
+   */
+  prompt?: string | undefined;
+};
+
+export interface ActionOutput_monday_createboard {
+  id: string;
+  name: string;
+  state: string;
+  board_kind: string;
+  url: string;
+  description?: string | undefined;
+  workspace_id?: string | undefined;
+};
+
+export interface ActionInput_monday_createcolumn {
+  /**
+   * The ID of the board to add the column to. Example: "5096980653"
+   */
+  board_id: string;
+  /**
+   * The display title for the new column.
+   */
+  title: string;
+  /**
+   * The type of column to create. Example: "text", "status", "numbers"
+   */
+  column_type: string;
+  /**
+   * An optional description shown in the column header tooltip.
+   */
+  description?: string | undefined;
+};
+
+export interface ActionOutput_monday_createcolumn {
+  id: string;
+  title: string;
+  type: string;
+  description?: string | undefined;
+};
+
+export interface ActionInput_monday_creategroup {
+  /**
+   * Board ID. Example: "5096980653"
+   */
+  board_id: string;
+  /**
+   * Group name. Maximum 255 characters.
+   */
+  group_name: string;
+  /**
+   * Group color HEX code. Example: "#ff642e"
+   */
+  group_color?: string | undefined;
+  /**
+   * Group ID to position relative to.
+   */
+  relative_to?: string | undefined;
+  /**
+   * Position relative method.
+   */
+  position_relative_method?: 'before_at' | 'after_at' | undefined;
+};
+
+export interface ActionOutput_monday_creategroup {
+  id: string;
+  title?: string | undefined;
+  color?: string | undefined;
+  position?: string | undefined;
+};
+
+export interface ActionInput_monday_createitem {
+  /**
+   * The board ID to create the item on. Example: "5096980653"
+   */
+  board_id: string;
+  /**
+   * The group ID to create the item in. Example: "topics"
+   */
+  group_id?: string | undefined;
+  /**
+   * The name of the new item.
+   */
+  item_name: string;
+  /**
+   * Column values as a JSON object. Keys are column IDs, values are type-specific.
+   */
+  column_values?: {  [key: string]: unknown | undefined;};
+  /**
+   * Whether to create missing status/dropdown labels.
+   */
+  create_labels_if_missing?: boolean | undefined;
+  /**
+   * The item ID to position the new item relative to.
+   */
+  relative_to?: string | undefined;
+  /**
+   * Position relative to the specified item.
+   */
+  position_relative_method?: 'before_at' | 'after_at' | undefined;
+};
+
+export interface ActionOutput_monday_createitem {
+  id: string;
+  name?: string | undefined;
+  url?: string | undefined;
+  board_id?: string | undefined;
+  group_id?: string | undefined;
+  group_title?: string | undefined;
+};
+
+export interface ActionInput_monday_createsubitem {
+  /**
+   * The parent item ID. Example: "2933602562"
+   */
+  parent_item_id: string;
+  /**
+   * The new subitem name. Example: "Design mockup"
+   */
+  item_name: string;
+};
+
+export interface ActionOutput_monday_createsubitem {
+  id: string;
+  name?: string | undefined;
+  board_id: string;
+};
+
+export interface ActionInput_monday_createupdate {
+  /**
+   * The item ID to create the update on. Example: "2933609588"
+   */
+  item_id: string;
+  /**
+   * The update text. HTML formatting is supported.
+   */
+  body: string;
+  /**
+   * The parent update ID to reply to. Omit for top-level updates.
+   */
+  parent_id?: string | undefined;
+};
+
+export interface ActionOutput_monday_createupdate {
+  id: string;
+  body?: string | undefined;
+  created_at?: string | undefined;
+  creator_id?: string | undefined;
+  item_id?: string | undefined;
+  text_body?: string | undefined;
+  updated_at?: string | undefined;
+};
+
+export interface ActionInput_monday_deleteboard {
+  /**
+   * The unique identifier of the board to delete or archive. Example: "5096980653"
+   */
+  board_id: string;
+  /**
+   * If true, permanently deletes the board. If false or omitted, archives the board.
+   */
+  permanent?: boolean | undefined;
+};
+
+export interface ActionOutput_monday_deleteboard {
+  id: string;
+  state?: string | undefined;
+  archived?: boolean | undefined;
+  deleted?: boolean | undefined;
+};
+
+export interface ActionInput_monday_deletecolumn {
+  /**
+   * The unique identifier of the board that contains the column to delete. Example: "5096980653"
+   */
+  board_id: string;
+  /**
+   * The unique identifier of the column to delete. Example: "task_status"
+   */
+  column_id: string;
+};
+
+export interface ActionOutput_monday_deletecolumn {
+  /**
+   * The unique identifier of the deleted column.
+   */
+  id: string;
+};
+
+export interface ActionInput_monday_deletegroup {
+  /**
+   * The board's unique identifier. Example: "5096980653"
+   */
+  board_id: string;
+  /**
+   * The group's unique identifier. Example: "topics"
+   */
+  group_id: string;
+  /**
+   * If true, permanently deletes the group. If false or omitted, archives the group (soft delete).
+   */
+  permanent?: boolean | undefined;
+};
+
+export interface ActionOutput_monday_deletegroup {
+  id: string;
+  archived?: boolean | undefined;
+  deleted?: boolean | undefined;
+};
+
+export interface ActionInput_monday_deleteitem {
+  /**
+   * The item ID to delete or archive. Example: "2933609588"
+   */
+  item_id: string;
+  /**
+   * If true, permanently delete the item. If false or omitted, archive the item (recoverable).
+   */
+  permanent?: boolean | undefined;
+};
+
+export interface ActionOutput_monday_deleteitem {
+  item_id: string;
+  operation: 'archive' | 'delete';
+  success: boolean;
+};
+
+export interface ActionInput_monday_deleteupdate {
+  /**
+   * The unique identifier of the update to delete. Example: "1234567890"
+   */
+  updateId: string;
+};
+
+export interface ActionOutput_monday_deleteupdate {
+  /**
+   * The unique identifier of the deleted update.
+   */
+  id: string;
+};
+
+export interface ActionInput_monday_duplicateboard {
+  /**
+   * The ID of the board to duplicate. Example: "5096980653"
+   */
+  board_id: string;
+  /**
+   * The type of duplication to perform.
+   */
+  duplicate_type: 'duplicate_board_with_structure' | 'duplicate_board_with_pulses' | 'duplicate_board_with_pulses_and_updates';
+  /**
+   * The name for the duplicated board.
+   */
+  board_name?: string | undefined;
+  /**
+   * The workspace ID to place the duplicated board in.
+   */
+  workspace_id?: string | undefined;
+  /**
+   * The folder ID to place the duplicated board in.
+   */
+  folder_id?: string | undefined;
+  /**
+   * Whether to keep subscribers on the duplicated board.
+   */
+  keep_subscribers?: boolean | undefined;
+};
+
+export interface ActionOutput_monday_duplicateboard {
+  id: string;
+  name?: string | undefined;
+};
+
+export interface ActionInput_monday_getboard {
+  /**
+   * The unique identifier of the board to retrieve. Example: "5096980653"
+   */
+  board_id: string;
+};
+
+export interface ActionOutput_monday_getboard {
+  id: string;
+  name: string;
+  state?: string | undefined;
+  board_kind?: string | undefined;
+  description?: string | undefined;
+  updated_at?: string | undefined;
+  created_at?: string | undefined;
+  workspace?: {  id: string;
+  name: string;} | undefined;
+  groups?: ({  id: string;
+  title: string;
+  color?: string | undefined;
+  position?: string | undefined;})[];
+  columns?: ({  id: string;
+  title: string;
+  type: string;})[] | undefined;
+  items_count?: number | undefined;
+};
+
+export interface ActionInput_monday_getcolumn {
+  /**
+   * The board ID. Example: "5096980653"
+   */
+  board_id: string;
+  /**
+   * The column ID. Example: "task_status"
+   */
+  column_id: string;
+};
+
+export interface ActionOutput_monday_getcolumn {
+  id: string;
+  title: string;
+  type: string;
+  description?: string | undefined;
+  archived?: boolean | undefined;
+  width?: number | undefined;
+  settings?: unknown | undefined;
+};
+
+export interface ActionInput_monday_getgroup {
+  /**
+   * The board ID that contains the group. Example: "5096980653"
+   */
+  board_id: string;
+  /**
+   * The group ID to retrieve. Example: "topics"
+   */
+  group_id: string;
+};
+
+export interface ActionOutput_monday_getgroup {
+  id: string;
+  title: string;
+  color: string;
+  position: string;
+};
+
+export interface ActionInput_monday_getitem {
+  /**
+   * The unique identifier of the item to retrieve. Example: "2933609588"
+   */
+  item_id: string;
+};
+
+export interface ActionOutput_monday_getitem {
+  id: string;
+  name: string;
+  board_id?: string | undefined;
+  group_id?: string | undefined;
+  group_title?: string | undefined;
+  state?: string | undefined;
+  column_values?: ({  id?: string | undefined;
+  text?: string | undefined;
+  value?: string | undefined;
+  type?: string | undefined;})[];
+  creator?: {  id?: string | undefined;
+  name?: string | undefined;
+  email?: string | undefined;};
+  created_at?: string | undefined;
+  updated_at?: string | undefined;
+};
+
+export interface ActionInput_monday_getsubitem {
+  /**
+   * The ID of the subitem to retrieve. Example: "2933645613"
+   */
+  subitem_id: string;
+};
+
+export interface ActionOutput_monday_getsubitem {
+  id: string;
+  name?: string | undefined;
+  board_id?: string | undefined;
+  column_values?: ({  id: string;
+  text?: string | undefined;})[];
+};
+
+export interface ActionInput_monday_getteam {
+  /**
+   * The unique identifier of the team to retrieve. Example: "13240071"
+   */
+  team_id: string;
+};
+
+export interface ActionOutput_monday_getteam {
+  id: string;
+  name: string;
+  picture_url?: string | undefined;
+  owners?: ({  id: string;
+  name: string;
+  email?: string | undefined;})[];
+  users?: ({  id: string;
+  name: string;
+  email?: string | undefined;})[];
+};
+
+export interface ActionInput_monday_getupdate {
+  /**
+   * The unique identifier of the update. Example: "579526624"
+   */
+  update_id: string;
+};
+
+export interface ActionOutput_monday_getupdate {
+  id: string;
+  body: string;
+  text_body?: string | undefined;
+  created_at?: string | undefined;
+  updated_at?: string | undefined;
+  edited_at?: string | undefined;
+  creator_id?: string | undefined;
+  item_id?: string | undefined;
+  creator?: {  id: string;
+  name?: string | undefined;};
+};
+
+export interface ActionInput_monday_getuser {
+  /**
+   * The unique identifier of the user. Example: "104094154"
+   */
+  userId: string;
+};
+
+export interface ActionOutput_monday_getuser {
+  id: string;
+  name: string;
+  email: string;
+  url: string;
+  photo_thumb?: string | undefined;
+  photo_original?: string | undefined;
+  created_at?: string | undefined;
+  location?: string | undefined;
+  time_zone_identifier?: string | undefined;
+  title?: string | undefined;
+  teams?: ({  id: string;
+  name?: string | undefined;})[];
+};
+
+export interface ActionInput_monday_getworkspace {
+  /**
+   * The unique identifier of the monday.com workspace to retrieve.
+   */
+  workspaceId: string;
+};
+
+export interface ActionOutput_monday_getworkspace {
+  id: string;
+  name: string;
+  description?: string | undefined;
+  kind?: string | undefined;
+  created_at?: string | undefined;
+  state?: string | undefined;
+};
+
+export interface ActionInput_monday_listboards {
+  /**
+   * Specific board IDs to return. Example: ["5096980653"]
+   */
+  ids?: string[] | undefined;
+  /**
+   * The type of board to return.
+   */
+  board_kind?: 'private' | 'public' | 'share' | undefined;
+  /**
+   * The state of the board to return. Defaults to active.
+   */
+  state?: 'active' | 'all' | 'archived' | 'deleted' | undefined;
+  /**
+   * Workspace IDs that contain the boards to return. Example: ["6502905"]
+   */
+  workspace_ids?: string[] | undefined;
+  /**
+   * The number of boards to return. Defaults to 25.
+   */
+  limit?: number | undefined;
+  /**
+   * The page number to return. Starts at 1.
+   */
+  page?: number | undefined;
+};
+
+export interface ActionOutput_monday_listboards {
+  boards: ({  id: string;
+  name: string;
+  state?: string | undefined;
+  board_kind?: string | undefined;
+  workspace_id?: string | undefined;
+  updated_at?: string | undefined;})[];
+  next_page?: number | undefined;
+};
+
+export interface ActionInput_monday_listcolumns {
+  /**
+   * Board ID to filter columns by. Example: "5096980653"
+   */
+  board_id?: string | undefined;
+  /**
+   * Maximum number of boards to retrieve per page.
+   */
+  limit?: number | undefined;
+  /**
+   * Page number for board pagination. Omit for the first page.
+   */
+  page?: number | undefined;
+};
+
+export interface ActionOutput_monday_listcolumns {
+  columns: ({  id: string;
+  title: string;
+  type: string;
+  settings_str?: string | undefined;
+  board_id: string;
+  board_name: string;})[];
+  next_page?: number | undefined;
+};
+
+export interface ActionInput_monday_listgroups {
+  /**
+   * The board ID to list groups from. Example: "5096980653"
+   */
+  board_id: string;
+  /**
+   * Optional group IDs to filter by.
+   */
+  ids?: string[] | undefined;
+};
+
+export interface ActionOutput_monday_listgroups {
+  groups: ({  id: string;
+  title: string;
+  color?: string | undefined;
+  position?: string | undefined;
+  archived?: boolean | undefined;
+  deleted?: boolean | undefined;})[];
+};
+
+export interface ActionInput_monday_listitems {
+  /**
+   * The board ID to list items from. Example: "5096980653"
+   */
+  board_id: string;
+  /**
+   * Number of items to return. Maximum is 500. Default is 25.
+   */
+  limit?: number | undefined;
+  /**
+   * Pagination cursor from the previous response. Omit for the first page.
+   */
+  cursor?: string | undefined;
+  /**
+   * Filter, sort, and scope parameters. Cannot be used with cursor.
+   */
+  query_params?: {  rules?: ({  column_id: string;
+  compare_value?: string | number | ({  0: string;
+  1: number;})[] | undefined;
+  operator?: string | undefined;
+  compare_attribute?: string | undefined;})[];
+  operator?: 'and' | 'or' | undefined;
+  order_by?: ({  column_id: string;
+  direction?: 'asc' | 'desc' | undefined;})[];
+  ids?: string[] | undefined;};
+};
+
+export interface ActionOutput_monday_listitems {
+  items: ({  id: string;
+  name: string;
+  created_at?: string | undefined;
+  updated_at?: string | undefined;
+  state?: string | undefined;
+  board_id?: string | undefined;
+  group_id?: string | undefined;
+  group_title?: string | undefined;
+  column_values?: ({  id: string;
+  text?: string | undefined;
+  value?: string | undefined;})[];})[];
+  next_cursor?: string | undefined;
+};
+
+export interface ActionInput_monday_listsubitems {
+  /**
+   * Parent item ID. Example: "2933602562"
+   */
+  parent_item_id: string;
+};
+
+export interface ActionOutput_monday_listsubitems {
+  subitems: ({  id: string;
+  name: string;
+  board_id: string;
+  column_values?: ({  id: string;
+  text?: string | undefined;})[];})[];
+};
+
+export interface ActionInput_monday_listteams {
+  /**
+   * Pagination cursor (page number). Omit for the first page.
+   */
+  cursor?: string | undefined;
+  /**
+   * Filter by specific team IDs.
+   */
+  ids?: string[] | undefined;
+  /**
+   * Number of teams to return per page. Default: 25.
+   */
+  limit?: number | undefined;
+};
+
+export interface ActionOutput_monday_listteams {
+  teams: ({  id: string;
+  name: string;
+  picture_url?: string | undefined;
+  owners?: ({  id: string;
+  name?: string | undefined;})[];
+  users?: ({  id: string;
+  name?: string | undefined;})[];})[];
+  next_cursor?: string | undefined;
+};
+
+export interface ActionInput_monday_listupdates {
+  /**
+   * Pagination cursor (page number) from the previous response. Omit for the first page.
+   */
+  cursor?: string | undefined;
+  /**
+   * Number of updates to return per page. Default: 25. Maximum: 100.
+   */
+  limit?: number | undefined;
+  /**
+   * Start of date range filter in ISO 8601 format. Must be used with to_date.
+   */
+  from_date?: string | undefined;
+  /**
+   * End of date range filter in ISO 8601 format. Must be used with from_date.
+   */
+  to_date?: string | undefined;
+};
+
+export interface ActionOutput_monday_listupdates {
+  updates: ({  id: string;
+  body?: string | undefined;
+  text_body?: string | undefined;
+  created_at?: string | undefined;
+  updated_at?: string | undefined;
+  creator?: {  id?: string | undefined;
+  name?: string | undefined;};
+  replies?: ({  id: string;
+  body?: string | undefined;
+  text_body?: string | undefined;
+  created_at?: string | undefined;
+  creator?: {  id?: string | undefined;
+  name?: string | undefined;};})[];
+  item_id?: string | undefined;})[];
+  next_cursor?: string | undefined;
+};
+
+export interface ActionInput_monday_listusers {
+  /**
+   * The number of users to return. Maximum 1000.
+   */
+  limit?: number | undefined;
+  /**
+   * The page number to return. Starts at 1.
+   */
+  page?: number | undefined;
+  /**
+   * The unique identifiers of specific users to return.
+   */
+  ids?: string[] | undefined;
+  /**
+   * The specific user emails to return.
+   */
+  emails?: string[] | undefined;
+  /**
+   * A fuzzy search of users by name.
+   */
+  name?: string | undefined;
+};
+
+export interface ActionOutput_monday_listusers {
+  users: ({  id: string;
+  name: string;
+  email: string;
+  created_at?: string | undefined;
+  title?: string | undefined;
+  url?: string | undefined;
+  is_admin?: boolean | undefined;
+  is_guest?: boolean | undefined;
+  is_view_only?: boolean | undefined;
+  enabled?: boolean | undefined;
+  teams?: ({  id: string;
+  name?: string | undefined;})[];})[];
+  next_page?: number | undefined;
+};
+
+export interface ActionInput_monday_listworkspaces {
+  /**
+   * Filter by specific workspace IDs.
+   */
+  ids?: string[] | undefined;
+  /**
+   * Filter by workspace kind: closed, open, or template.
+   */
+  kind?: string | undefined;
+  /**
+   * Number of workspaces to return per page. Min: 1, max: 100, default: 25.
+   */
+  limit?: number | undefined;
+  /**
+   * Filter by workspace state: active, all, archived, or deleted. Default: active.
+   */
+  state?: string | undefined;
+  /**
+   * Pagination cursor (page number) from the previous response. Omit for the first page.
+   */
+  cursor?: string | undefined;
+};
+
+export interface ActionOutput_monday_listworkspaces {
+  items: ({  id: string;
+  name: string;
+  description?: string | undefined;
+  kind?: string | undefined;
+  state?: string | undefined;})[];
+  next_page?: string | undefined;
+};
+
+export interface ActionInput_monday_moveitemtoboard {
+  /**
+   * The unique identifier of the item to move. Example: "2933602562"
+   */
+  item_id: string;
+  /**
+   * The unique identifier of the target board. Example: "5096980652"
+   */
+  board_id: string;
+  /**
+   * The unique identifier of the target group on the target board. Example: "new_group"
+   */
+  group_id: string;
+};
+
+export interface ActionOutput_monday_moveitemtoboard {
+  id: string;
+  name?: string | undefined;
+  board_id?: string | undefined;
+  group_id?: string | undefined;
+  group_title?: string | undefined;
+};
+
+export interface ActionInput_monday_moveitemtogroup {
+  /**
+   * Item ID. Example: "2933609588"
+   */
+  item_id: string;
+  /**
+   * Group ID. Example: "topics", "new_group313"
+   */
+  group_id: string;
+};
+
+export interface ActionOutput_monday_moveitemtogroup {
+  id: string;
+  name?: string | undefined;
+};
+
+export interface ActionInput_monday_updateboard {
+  /**
+   * The board unique identifier. Example: "5096980653"
+   */
+  board_id: string;
+  /**
+   * The board attribute to update
+   */
+  board_attribute: 'name' | 'description' | 'communication' | 'item_nickname';
+  /**
+   * The new attribute value
+   */
+  new_value: string;
+};
+
+export interface ActionOutput_monday_updateboard {
+  id: string;
+  name?: string | undefined;
+  description?: string | undefined;
+  state?: string | undefined;
+  board_kind?: string | undefined;
+  workspace_id?: string | undefined;
+  updated_at?: string | undefined;
+};
+
+export interface ActionInput_monday_updatecolumn {
+  /**
+   * Board ID. Example: "5096980653"
+   */
+  board_id: string;
+  /**
+   * Column ID. Example: "task_status"
+   */
+  column_id: string;
+  /**
+   * Updated column title
+   */
+  title?: string | undefined;
+  /**
+   * Updated column description
+   */
+  description?: string | undefined;
+  /**
+   * Updated column width in pixels
+   */
+  width?: number | undefined;
+};
+
+export interface ActionOutput_monday_updatecolumn {
+  id: string;
+  title?: string | undefined;
+  type?: string | undefined;
+  description?: string | undefined;
+  width?: number | undefined;
+};
+
+export interface ActionInput_monday_updategroup {
+  /**
+   * Board ID. Example: "5096980653"
+   */
+  board_id: string;
+  /**
+   * Group ID. Example: "topics"
+   */
+  group_id: string;
+  /**
+   * The group attribute to update.
+   */
+  group_attribute: 'color' | 'position' | 'relative_position_after' | 'relative_position_before' | 'title';
+  /**
+   * The new attribute value.
+   */
+  new_value: string;
+};
+
+export interface ActionOutput_monday_updategroup {
+  id: string;
+  title?: string | undefined;
+  color?: string | undefined;
+  position?: string | undefined;
+};
+
+export interface ActionInput_monday_updateitem {
+  /**
+   * The unique identifier of the item to update. Example: "2933602562"
+   */
+  item_id: string;
+  /**
+   * The unique identifier of the board containing the item. Example: "5096980653"
+   */
+  board_id: string;
+  /**
+   * Column values to update keyed by column ID. Example: { "task_estimation": "5" }
+   */
+  column_values: {  [key: string]: unknown | undefined;};
+};
+
+export interface ActionOutput_monday_updateitem {
+  id: string;
+  name?: string | undefined;
+  column_values?: ({  id?: string | undefined;
+  text?: string | undefined;
+  value?: string | undefined;})[];
+};
+
 export interface SyncMetadata_namely_pat_unifiedemployees {
 };
 
@@ -42859,18 +43908,6 @@ export interface ActionOutput_salesforce_upsertsobjectcollection {
 };
 
 export interface SyncMetadata_sap_success_factors_employees {
-};
-
-export interface Group {
-  id: string;
-  name: string;
-  description?: string | undefined;
-  isDefault?: boolean | undefined;
-  isDeleted?: boolean | undefined;
-  isPublic?: boolean | undefined;
-  createdAt?: string | undefined;
-  updatedAt?: string | undefined;
-  url?: string | undefined;
 };
 
 export interface SyncMetadata_sap_success_factors_groups {

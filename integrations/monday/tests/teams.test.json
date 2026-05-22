@@ -1,0 +1,85 @@
+{
+  "nango": {
+    "batchSave": {
+      "Team": [
+        {
+          "id": "13240071",
+          "name": "TestTeam",
+          "picture_url": "https://cdn.monday.com/images/dapulse_team_default.png"
+        },
+        {
+          "id": "13240072",
+          "name": "Team@2",
+          "picture_url": "https://cdn.monday.com/images/dapulse_team_default.png"
+        }
+      ]
+    },
+    "batchDelete": {
+      "Team": []
+    }
+  },
+  "api": {
+    "post": {
+      "/v2": {
+        "response": {
+          "data": {
+            "teams": [
+              {
+                "id": "13240071",
+                "name": "TestTeam",
+                "picture_url": "https://cdn.monday.com/images/dapulse_team_default.png"
+              },
+              {
+                "id": "13240072",
+                "name": "Team@2",
+                "picture_url": "https://cdn.monday.com/images/dapulse_team_default.png"
+              }
+            ]
+          },
+          "extensions": {
+            "request_id": "2e1f6035-f057-91fe-9ff0-98c30f430be4"
+          }
+        },
+        "status": 200,
+        "headers": {
+          "date": "Fri, 22 May 2026 05:59:20 GMT",
+          "content-type": "application/json",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=31536000; includeSubDomains",
+          "content-security-policy-report-only": "frame-ancestors https://*.monday.com; script-src 'self'; worker-src 'self'; connect-src 'self'; report-uri https://o916138.ingest.us.sentry.io/api/4507803872198656/security/?sentry_key=8e1fb7e952d4abfd146752c94791f51a&sentry_environment=production;",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4995",
+          "x-ratelimit-reset": "1779429617",
+          "api-version": "2026-04",
+          "vary": "origin, Accept-Encoding",
+          "x-api-gateway": "true",
+          "x-api-router": "true",
+          "x-request-id": "2e1f6035-f057-91fe-9ff0-98c30f430be4",
+          "x-envoy-upstream-service-time": "423",
+          "content-security-policy": ";",
+          "x-monday-rgn": "euc1, use1",
+          "server": "cloudflare",
+          "x-routed-from": "use1",
+          "x-routed-to": "euc1",
+          "set-cookie": "<redacted>",
+          "cf-cache-status": "DYNAMIC",
+          "cf-ray": "9ff998202c3aff11-PDX"
+        },
+        "hash": "bf9529633a25cccfeec831873f4e1b079c92a364",
+        "request": {
+          "data": {
+            "query": "query { teams { id name picture_url } }"
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,509 @@
+{
+  "nango": {
+    "batchSave": {
+      "Group": [
+        {
+          "id": "5096998873-topics",
+          "board_id": "5096998873",
+          "title": "Subitems",
+          "color": "#579bfc",
+          "position": "65536",
+          "archived": false,
+          "deleted": false
+        },
+        {
+          "id": "5096998717-topics",
+          "board_id": "5096998717",
+          "title": "Group Title",
+          "color": "#037f4c",
+          "position": "65536",
+          "archived": false,
+          "deleted": false
+        },
+        {
+          "id": "5096998627-topics",
+          "board_id": "5096998627",
+          "title": "Group Title",
+          "color": "#037f4c",
+          "position": "65536",
+          "archived": false,
+          "deleted": false
+        },
+        {
+          "id": "5096998620-topics",
+          "board_id": "5096998620",
+          "title": "Group Title",
+          "color": "#037f4c",
+          "position": "65536",
+          "archived": false,
+          "deleted": false
+        },
+        {
+          "id": "5096998570-topics",
+          "board_id": "5096998570",
+          "title": "Subitems",
+          "color": "#579bfc",
+          "position": "65536",
+          "archived": false,
+          "deleted": false
+        },
+        {
+          "id": "5096998568-topics",
+          "board_id": "5096998568",
+          "title": "All Tasks",
+          "color": "#579bfc",
+          "position": "39744",
+          "archived": false,
+          "deleted": false
+        },
+        {
+          "id": "5096998558-topics",
+          "board_id": "5096998558",
+          "title": "Subitems",
+          "color": "#579bfc",
+          "position": "65536",
+          "archived": false,
+          "deleted": false
+        },
+        {
+          "id": "5096998553-topics",
+          "board_id": "5096998553",
+          "title": "All Tasks",
+          "color": "#579bfc",
+          "position": "39744",
+          "archived": false,
+          "deleted": false
+        },
+        {
+          "id": "5096982894-topics",
+          "board_id": "5096982894",
+          "title": "Subitems",
+          "color": "#579bfc",
+          "position": "65536",
+          "archived": false,
+          "deleted": false
+        },
+        {
+          "id": "5096980653-group_mm3k2zw0",
+          "board_id": "5096980653",
+          "title": "Test Group 1779429207598",
+          "color": "#fdab3d",
+          "position": "5055.5",
+          "archived": false,
+          "deleted": false
+        },
+        {
+          "id": "5096980653-group_mm3k40a7",
+          "board_id": "5096980653",
+          "title": "Test Group Create 2026",
+          "color": "#fdab3d",
+          "position": "10011.0",
+          "archived": false,
+          "deleted": false
+        },
+        {
+          "id": "5096980653-group_mm3k8ksb",
+          "board_id": "5096980653",
+          "title": "Test Group Create 2026",
+          "color": "#e2445c",
+          "position": "19922.0",
+          "archived": false,
+          "deleted": false
+        },
+        {
+          "id": "5096980653-topics",
+          "board_id": "5096980653",
+          "title": "All Tasks Updated",
+          "color": "#579bfc",
+          "position": "39744",
+          "archived": false,
+          "deleted": false
+        },
+        {
+          "id": "5096980652-new_group",
+          "board_id": "5096980652",
+          "title": "Epics Backlog",
+          "color": "#FF642E",
+          "position": "1952",
+          "archived": false,
+          "deleted": false
+        },
+        {
+          "id": "5096980651-topics",
+          "board_id": "5096980651",
+          "title": "Incoming  Bugs",
+          "color": "#FFCB00",
+          "position": "77824.0",
+          "archived": false,
+          "deleted": false
+        },
+        {
+          "id": "5096980651-group_title",
+          "board_id": "5096980651",
+          "title": "Resolved",
+          "color": "#00c875",
+          "position": "98304",
+          "archived": false,
+          "deleted": false
+        },
+        {
+          "id": "5096980651-new_group",
+          "board_id": "5096980651",
+          "title": "Managed in sprints",
+          "color": "#037f4c",
+          "position": "163840.0",
+          "archived": false,
+          "deleted": false
+        },
+        {
+          "id": "5096980650-topics",
+          "board_id": "5096980650",
+          "title": "Capacities",
+          "color": "#579bfc",
+          "position": "65536",
+          "archived": false,
+          "deleted": false
+        },
+        {
+          "id": "5096980649-topics",
+          "board_id": "5096980649",
+          "title": "Sprints",
+          "color": "#579bfc",
+          "position": "65536",
+          "archived": false,
+          "deleted": false
+        },
+        {
+          "id": "5096980648-group_title",
+          "board_id": "5096980648",
+          "title": "Sprint 1",
+          "color": "#a25ddc",
+          "position": "98304",
+          "archived": false,
+          "deleted": false
+        },
+        {
+          "id": "5096980647-topics",
+          "board_id": "5096980647",
+          "title": "Group Title",
+          "color": "#579bfc",
+          "position": "65536",
+          "archived": false,
+          "deleted": false
+        }
+      ]
+    },
+    "batchDelete": {
+      "Group": []
+    }
+  },
+  "api": {
+    "post": {
+      "/v2": {
+        "response": {
+          "data": {
+            "boards": [
+              {
+                "id": "5096998873",
+                "groups": [
+                  {
+                    "id": "topics",
+                    "title": "Subitems",
+                    "color": "#579bfc",
+                    "position": "65536",
+                    "archived": false,
+                    "deleted": false
+                  }
+                ]
+              },
+              {
+                "id": "5096998717",
+                "groups": [
+                  {
+                    "id": "topics",
+                    "title": "Group Title",
+                    "color": "#037f4c",
+                    "position": "65536",
+                    "archived": false,
+                    "deleted": false
+                  }
+                ]
+              },
+              {
+                "id": "5096998627",
+                "groups": [
+                  {
+                    "id": "topics",
+                    "title": "Group Title",
+                    "color": "#037f4c",
+                    "position": "65536",
+                    "archived": false,
+                    "deleted": false
+                  }
+                ]
+              },
+              {
+                "id": "5096998620",
+                "groups": [
+                  {
+                    "id": "topics",
+                    "title": "Group Title",
+                    "color": "#037f4c",
+                    "position": "65536",
+                    "archived": false,
+                    "deleted": false
+                  }
+                ]
+              },
+              {
+                "id": "5096998570",
+                "groups": [
+                  {
+                    "id": "topics",
+                    "title": "Subitems",
+                    "color": "#579bfc",
+                    "position": "65536",
+                    "archived": false,
+                    "deleted": false
+                  }
+                ]
+              },
+              {
+                "id": "5096998568",
+                "groups": [
+                  {
+                    "id": "topics",
+                    "title": "All Tasks",
+                    "color": "#579bfc",
+                    "position": "39744",
+                    "archived": false,
+                    "deleted": false
+                  }
+                ]
+              },
+              {
+                "id": "5096998558",
+                "groups": [
+                  {
+                    "id": "topics",
+                    "title": "Subitems",
+                    "color": "#579bfc",
+                    "position": "65536",
+                    "archived": false,
+                    "deleted": false
+                  }
+                ]
+              },
+              {
+                "id": "5096998553",
+                "groups": [
+                  {
+                    "id": "topics",
+                    "title": "All Tasks",
+                    "color": "#579bfc",
+                    "position": "39744",
+                    "archived": false,
+                    "deleted": false
+                  }
+                ]
+              },
+              {
+                "id": "5096982894",
+                "groups": [
+                  {
+                    "id": "topics",
+                    "title": "Subitems",
+                    "color": "#579bfc",
+                    "position": "65536",
+                    "archived": false,
+                    "deleted": false
+                  }
+                ]
+              },
+              {
+                "id": "5096980653",
+                "groups": [
+                  {
+                    "id": "group_mm3k2zw0",
+                    "title": "Test Group 1779429207598",
+                    "color": "#fdab3d",
+                    "position": "5055.5",
+                    "archived": false,
+                    "deleted": false
+                  },
+                  {
+                    "id": "group_mm3k40a7",
+                    "title": "Test Group Create 2026",
+                    "color": "#fdab3d",
+                    "position": "10011.0",
+                    "archived": false,
+                    "deleted": false
+                  },
+                  {
+                    "id": "group_mm3k8ksb",
+                    "title": "Test Group Create 2026",
+                    "color": "#e2445c",
+                    "position": "19922.0",
+                    "archived": false,
+                    "deleted": false
+                  },
+                  {
+                    "id": "topics",
+                    "title": "All Tasks Updated",
+                    "color": "#579bfc",
+                    "position": "39744",
+                    "archived": false,
+                    "deleted": false
+                  }
+                ]
+              },
+              {
+                "id": "5096980652",
+                "groups": [
+                  {
+                    "id": "new_group",
+                    "title": "Epics Backlog",
+                    "color": "#FF642E",
+                    "position": "1952",
+                    "archived": false,
+                    "deleted": false
+                  }
+                ]
+              },
+              {
+                "id": "5096980651",
+                "groups": [
+                  {
+                    "id": "topics",
+                    "title": "Incoming  Bugs",
+                    "color": "#FFCB00",
+                    "position": "77824.0",
+                    "archived": false,
+                    "deleted": false
+                  },
+                  {
+                    "id": "group_title",
+                    "title": "Resolved",
+                    "color": "#00c875",
+                    "position": "98304",
+                    "archived": false,
+                    "deleted": false
+                  },
+                  {
+                    "id": "new_group",
+                    "title": "Managed in sprints",
+                    "color": "#037f4c",
+                    "position": "163840.0",
+                    "archived": false,
+                    "deleted": false
+                  }
+                ]
+              },
+              {
+                "id": "5096980650",
+                "groups": [
+                  {
+                    "id": "topics",
+                    "title": "Capacities",
+                    "color": "#579bfc",
+                    "position": "65536",
+                    "archived": false,
+                    "deleted": false
+                  }
+                ]
+              },
+              {
+                "id": "5096980649",
+                "groups": [
+                  {
+                    "id": "topics",
+                    "title": "Sprints",
+                    "color": "#579bfc",
+                    "position": "65536",
+                    "archived": false,
+                    "deleted": false
+                  }
+                ]
+              },
+              {
+                "id": "5096980648",
+                "groups": [
+                  {
+                    "id": "group_title",
+                    "title": "Sprint 1",
+                    "color": "#a25ddc",
+                    "position": "98304",
+                    "archived": false,
+                    "deleted": false
+                  }
+                ]
+              },
+              {
+                "id": "5096980647",
+                "groups": [
+                  {
+                    "id": "topics",
+                    "title": "Group Title",
+                    "color": "#579bfc",
+                    "position": "65536",
+                    "archived": false,
+                    "deleted": false
+                  }
+                ]
+              }
+            ]
+          },
+          "extensions": {
+            "request_id": "17090a5c-f105-98fb-910c-5303968b1859"
+          }
+        },
+        "status": 200,
+        "headers": {
+          "date": "Fri, 22 May 2026 06:07:41 GMT",
+          "content-type": "application/json",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=31536000; includeSubDomains",
+          "content-security-policy-report-only": "frame-ancestors https://*.monday.com; script-src 'self'; worker-src 'self'; connect-src 'self'; report-uri https://o916138.ingest.us.sentry.io/api/4507803872198656/security/?sentry_key=8e1fb7e952d4abfd146752c94791f51a&sentry_environment=production;",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4996",
+          "x-ratelimit-reset": "1779430117",
+          "api-version": "2026-04",
+          "vary": "origin, Accept-Encoding",
+          "x-api-gateway": "true",
+          "x-api-router": "true",
+          "x-request-id": "17090a5c-f105-98fb-910c-5303968b1859",
+          "x-envoy-upstream-service-time": "361",
+          "content-security-policy": ";",
+          "x-monday-rgn": "euc1, use1",
+          "server": "cloudflare",
+          "x-routed-from": "use1",
+          "x-routed-to": "euc1",
+          "set-cookie": "<redacted>",
+          "cf-cache-status": "DYNAMIC",
+          "cf-ray": "9ff9a4571bb031df-PDX"
+        },
+        "hash": "dd0256ecc571ec75d341bdcf77e2ccc345d8eec8",
+        "request": {
+          "headers": {
+            "api-version": "2026-04"
+          },
+          "data": {
+            "query": "query ($page: Int!, $limit: Int!) {\n                    boards(limit: $limit, page: $page) {\n                        id\n                        groups {\n                            id\n                            title\n                            color\n                            position\n                            archived\n                            deleted\n                        }\n                    }\n                }",
+            "variables": {
+              "page": 1,
+              "limit": 25
+            }
+          }
+        }
+      }
+    }
+  }
+}
