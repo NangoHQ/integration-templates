@@ -34,7 +34,7 @@ const action = createAction({
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         // https://mailchimp.com/developer/marketing/api/campaigns/schedule-campaign/
         const response = await nango.post({
-            endpoint: `3.0/campaigns/${encodeURIComponent(input.campaign_id)}/actions/schedule`,
+            endpoint: `/3.0/campaigns/${encodeURIComponent(input.campaign_id)}/actions/schedule`,
             data: {
                 schedule_time: input.schedule_time
             },

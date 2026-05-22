@@ -87135,7 +87135,14 @@
       "properties": {
         "type": {
           "type": "string",
-          "description": "Campaign type. Allowed: regular, plaintext, absplit, rss, variate. Example: \"regular\""
+          "enum": [
+            "regular",
+            "plaintext",
+            "absplit",
+            "rss",
+            "variate"
+          ],
+          "description": "Campaign type. Example: \"regular\""
         },
         "recipients": {
           "type": "object",
@@ -87466,7 +87473,12 @@
         "merge_fields": {
           "type": "object",
           "additionalProperties": {
-            "type": "string"
+            "anyOf": [
+              {},
+              {
+                "not": {}
+              }
+            ]
           }
         },
         "interests": {

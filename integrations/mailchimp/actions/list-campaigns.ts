@@ -135,6 +135,12 @@ const action = createAction({
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const offset = input.cursor ? parseInt(input.cursor, 10) : 0;
+        if (Number.isNaN(offset)) {
+            throw new nango.ActionError({
+                type: 'invalid_cursor',
+                message: 'cursor must be a valid integer string representing an offset'
+            });
+        }
         const count = input.count ?? 10;
 
         // https://mailchimp.com/developer/marketing/api/campaigns/list-campaigns/

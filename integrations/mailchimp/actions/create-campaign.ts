@@ -51,7 +51,7 @@ const SocialCardSchema = z.object({
 });
 
 const InputSchema = z.object({
-    type: z.string().describe('Campaign type. Allowed: regular, plaintext, absplit, rss, variate. Example: "regular"'),
+    type: z.enum(['regular', 'plaintext', 'absplit', 'rss', 'variate']).describe('Campaign type. Example: "regular"'),
     recipients: RecipientsSchema,
     settings: SettingsSchema.optional(),
     tracking: TrackingSchema.optional(),

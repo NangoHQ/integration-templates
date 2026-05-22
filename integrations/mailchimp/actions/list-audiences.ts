@@ -3,7 +3,7 @@ import { createAction } from 'nango';
 
 const InputSchema = z.object({
     cursor: z.string().optional().describe('Pagination offset from the previous response. Omit for the first page.'),
-    count: z.number().optional().describe('Number of records to return. Default is 10. Maximum is 1000.')
+    count: z.number().int().min(1).max(1000).optional().describe('Number of records to return. Default is 10. Maximum is 1000.')
 });
 
 const ContactSchema = z.object({
@@ -86,7 +86,13 @@ const action = createAction({
     scopes: ['lists:read'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
-        const offset = input.cursor ? parseInt(input.cursor, 10) : 0;
+        const offset = input.cursor ? (/^\d+$/.test(input.cursor) ? parseInt(input.cursor, 10) : NaN) : 0;
+        if (Number.isNaN(offset)) {
+            throw new nango.ActionError({
+                type: 'invalid_cursor',
+                message: 'cursor must be a valid integer string representing an offset'
+            });
+        }
         const count = input.count ?? 10;
 
         // https://mailchimp.com/developer/marketing/api/lists/get-lists-info/

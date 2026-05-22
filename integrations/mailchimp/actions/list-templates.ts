@@ -75,7 +75,13 @@ const action = createAction({
     output: OutputSchema,
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
-        const offset = input.cursor ? parseInt(input.cursor, 10) : 0;
+        const offset = input.cursor ? (/^\d+$/.test(input.cursor) ? parseInt(input.cursor, 10) : NaN) : 0;
+        if (Number.isNaN(offset)) {
+            throw new nango.ActionError({
+                type: 'invalid_cursor',
+                message: 'cursor must be a valid integer string representing an offset'
+            });
+        }
         const count = input.count ?? 10;
 
         const params: { count: number; offset: number; folder_id?: string; type?: string } = {
@@ -102,7 +108,7 @@ const action = createAction({
         const templates = parsed.templates ?? [];
         const totalItems = parsed.total_items ?? 0;
         const nextOffset = offset + templates.length;
-        const hasMore = nextOffset < totalItems;
+        const hasMore = templates.length > 0 && nextOffset < totalItems;
 
         return {
             items: templates.map((template) => ({

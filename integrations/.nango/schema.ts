@@ -29367,9 +29367,9 @@ export interface ActionOutput_mailchimp_createaudience {
 
 export interface ActionInput_mailchimp_createcampaign {
   /**
-   * Campaign type. Allowed: regular, plaintext, absplit, rss, variate. Example: "regular"
+   * Campaign type. Example: "regular"
    */
-  type: string;
+  type: 'regular' | 'plaintext' | 'absplit' | 'rss' | 'variate';
   recipients: {  /**
    * Audience/list ID. Example: "a1b2c3d4e5"
    */
@@ -29484,7 +29484,7 @@ export interface ActionOutput_mailchimp_createmember {
   unique_email_id?: string | undefined;
   contact_id?: string | undefined;
   list_id?: string | undefined;
-  merge_fields?: {  [key: string]: string;} | undefined;
+  merge_fields?: {  [key: string]: unknown | undefined;};
   interests?: {  [key: string]: boolean;} | undefined;
   vip?: boolean | undefined;
   language?: string | undefined;

@@ -13,12 +13,19 @@ const OptionsSchema = z.object({
     conditions: z.array(ConditionSchema).optional()
 });
 
-const InputSchema = z.object({
-    list_id: z.string().describe('The unique ID for the list. Example: "16ed227135"'),
-    name: z.string().describe('The name of the segment. Example: "VIP Customers"'),
-    static_segment: z.array(z.string()).optional().describe('An array of emails to be used for a static segment. Cannot be provided with the options field.'),
-    options: OptionsSchema.optional().describe('The conditions of the segment. Static and fuzzy segments do not have conditions.')
-});
+const InputSchema = z
+    .object({
+        list_id: z.string().describe('The unique ID for the list. Example: "16ed227135"'),
+        name: z.string().describe('The name of the segment. Example: "VIP Customers"'),
+        static_segment: z
+            .array(z.string())
+            .optional()
+            .describe('An array of emails to be used for a static segment. Cannot be provided with the options field.'),
+        options: OptionsSchema.optional().describe('The conditions of the segment. Static and fuzzy segments do not have conditions.')
+    })
+    .refine((data) => !(data.static_segment !== undefined && data.options !== undefined), {
+        message: 'static_segment and options cannot both be provided'
+    });
 
 const ProviderSegmentSchema = z.object({
     id: z.number(),

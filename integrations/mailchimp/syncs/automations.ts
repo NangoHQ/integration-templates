@@ -1,6 +1,5 @@
 import { createSync, type ProxyConfiguration } from 'nango';
 import { z } from 'zod';
-import type { OffsetPagination } from '@nangohq/types';
 
 // Provider response schema for a single automation
 // https://mailchimp.com/developer/marketing/api/automation/list-automations/
@@ -48,19 +47,17 @@ const sync = createSync({
         // after creation, so a create-time checkpoint would miss legitimate updates.
         await nango.trackDeletesStart('Automation');
 
-        const paginateConfig: OffsetPagination = {
-            type: 'offset',
-            offset_name_in_request: 'offset',
-            offset_start_value: 0,
-            limit_name_in_request: 'count',
-            limit: 100,
-            response_path: 'automations'
-        };
-
         const proxyConfig: ProxyConfiguration = {
             // https://mailchimp.com/developer/marketing/api/automation/list-automations/
             endpoint: '/3.0/automations',
-            paginate: paginateConfig,
+            paginate: {
+                type: 'offset',
+                offset_name_in_request: 'offset',
+                offset_start_value: 0,
+                limit_name_in_request: 'count',
+                limit: 100,
+                response_path: 'automations'
+            },
             retries: 3
         };
 

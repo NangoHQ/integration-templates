@@ -99,7 +99,7 @@ const action = createAction({
     scopes: [],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
-        const offset = input.cursor ? parseInt(input.cursor, 10) : 0;
+        const offset = input.cursor ? (/^\d+$/.test(input.cursor) ? parseInt(input.cursor, 10) : NaN) : 0;
         if (Number.isNaN(offset)) {
             throw new nango.ActionError({
                 type: 'invalid_cursor',

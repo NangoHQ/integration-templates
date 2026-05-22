@@ -47,7 +47,7 @@ const OutputSchema = z.object({
     unique_email_id: z.string().optional(),
     contact_id: z.string().optional(),
     list_id: z.string().optional(),
-    merge_fields: z.record(z.string(), z.string()).optional(),
+    merge_fields: z.record(z.string(), z.unknown()).optional(),
     interests: z.record(z.string(), z.boolean()).optional(),
     vip: z.boolean().optional(),
     language: z.string().optional(),
@@ -106,9 +106,7 @@ const action = createAction({
             ...(member.unique_email_id !== undefined && { unique_email_id: member.unique_email_id }),
             ...(member.contact_id !== undefined && { contact_id: member.contact_id }),
             ...(member.list_id !== undefined && { list_id: member.list_id }),
-            ...(member.merge_fields !== undefined && {
-                merge_fields: Object.fromEntries(Object.entries(member.merge_fields).map(([k, v]) => [k, String(v)]))
-            }),
+            ...(member.merge_fields !== undefined && { merge_fields: member.merge_fields }),
             ...(member.interests !== undefined && {
                 interests: Object.fromEntries(Object.entries(member.interests).map(([k, v]) => [k, Boolean(v)]))
             }),
