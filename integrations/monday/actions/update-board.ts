@@ -79,6 +79,16 @@ const action = createAction({
             retries: 3
         });
 
+        const mutationParsed = MutationResponseSchema.parse(mutationResponse.data);
+
+        if (mutationParsed.data?.update_board === undefined) {
+            throw new nango.ActionError({
+                type: 'provider_error',
+                message: 'Board update mutation did not return expected data',
+                board_id: input.board_id
+            });
+        }
+
         const boardQuery = `
             query ($board_id: ID!) {
                 boards(ids: [$board_id]) {
@@ -107,16 +117,6 @@ const action = createAction({
             },
             retries: 3
         });
-
-        const mutationParsed = MutationResponseSchema.parse(mutationResponse.data);
-
-        if (mutationParsed.data?.update_board === undefined) {
-            throw new nango.ActionError({
-                type: 'provider_error',
-                message: 'Board update mutation did not return expected data',
-                board_id: input.board_id
-            });
-        }
 
         const queryParsed = QueryResponseSchema.parse(queryResponse.data);
         const boards = queryParsed.data?.boards;

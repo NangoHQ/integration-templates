@@ -55,6 +55,13 @@ const action = createAction({
     scopes: ['users:read'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
+        if (!/^\d+$/.test(input.userId)) {
+            throw new nango.ActionError({
+                type: 'invalid_input',
+                message: 'userId must be a numeric string'
+            });
+        }
+
         // https://developer.monday.com/api-reference/reference/users
         const response = await nango.post({
             endpoint: '/v2',
@@ -72,6 +79,15 @@ const action = createAction({
             throw new nango.ActionError({
                 type: 'invalid_response',
                 message: 'Invalid response from monday.com API'
+            });
+        }
+
+        if (Array.isArray(rawData['errors']) && rawData['errors'].length > 0) {
+            const firstError = rawData['errors'][0];
+            const message = isObject(firstError) && typeof firstError['message'] === 'string' ? firstError['message'] : 'GraphQL error';
+            throw new nango.ActionError({
+                type: 'provider_error',
+                message
             });
         }
 

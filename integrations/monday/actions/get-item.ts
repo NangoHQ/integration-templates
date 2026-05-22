@@ -72,6 +72,13 @@ const action = createAction({
     scopes: ['boards:read'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
+        if (!/^\d+$/.test(input.item_id)) {
+            throw new nango.ActionError({
+                type: 'invalid_input',
+                message: 'item_id must be a numeric string'
+            });
+        }
+
         const query = `
             query {
                 items(ids: [${input.item_id}]) {

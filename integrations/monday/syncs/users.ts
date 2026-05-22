@@ -52,8 +52,6 @@ const sync = createSync({
         // filters, cursors, or any resumable change-tracking. It only offers
         // limit/page offset pagination with no incremental filtering, so a full
         // refresh is required.
-        await nango.trackDeletesStart('User');
-
         const proxyConfig: ProxyConfiguration = {
             // https://developer.monday.com/api-reference/reference/users
             endpoint: '/v2',
@@ -80,9 +78,15 @@ const sync = createSync({
             retries: 3
         };
 
+        let trackingStarted = false;
         for await (const page of nango.paginate(proxyConfig)) {
             if (!Array.isArray(page)) {
                 throw new Error('Expected users page to be an array');
+            }
+
+            if (!trackingStarted) {
+                await nango.trackDeletesStart('User');
+                trackingStarted = true;
             }
 
             const users = page.map((user) => {
@@ -108,7 +112,9 @@ const sync = createSync({
             }
         }
 
-        await nango.trackDeletesEnd('User');
+        if (trackingStarted) {
+            await nango.trackDeletesEnd('User');
+        }
     }
 });
 

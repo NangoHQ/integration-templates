@@ -66,6 +66,19 @@ const action = createAction({
     scopes: ['boards:write'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
+        if (!/^\d+$/.test(input.board_id)) {
+            throw new nango.ActionError({
+                type: 'invalid_input',
+                message: 'board_id must be a numeric string'
+            });
+        }
+        if (!/^\d+$/.test(input.item_id)) {
+            throw new nango.ActionError({
+                type: 'invalid_input',
+                message: 'item_id must be a numeric string'
+            });
+        }
+
         const columnValuesJson = JSON.stringify(input.column_values);
         const graphQLLiteral = JSON.stringify(columnValuesJson);
 

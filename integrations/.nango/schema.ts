@@ -31137,17 +31137,17 @@ export interface ActionInput_monday_listworkspaces {
    */
   ids?: string[] | undefined;
   /**
-   * Filter by workspace kind: closed, open, or template.
+   * Filter by workspace kind.
    */
-  kind?: string | undefined;
+  kind?: 'closed' | 'open' | 'template' | undefined;
   /**
    * Number of workspaces to return per page. Min: 1, max: 100, default: 25.
    */
   limit?: number | undefined;
   /**
-   * Filter by workspace state: active, all, archived, or deleted. Default: active.
+   * Filter by workspace state. Default: active.
    */
-  state?: string | undefined;
+  state?: 'active' | 'all' | 'archived' | 'deleted' | undefined;
   /**
    * Pagination cursor (page number) from the previous response. Omit for the first page.
    */

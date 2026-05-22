@@ -163,8 +163,10 @@ const action = createAction({
             parsedBoards.push(item);
         }
 
-        const hasMore = input.limit !== undefined && boards.length === input.limit;
-        const nextPage = input.page !== undefined && hasMore ? input.page + 1 : undefined;
+        const effectiveLimit = input.limit ?? 25;
+        const hasMore = boards.length === effectiveLimit;
+        const currentPage = input.page ?? 1;
+        const nextPage = hasMore ? currentPage + 1 : undefined;
 
         return {
             boards: parsedBoards,

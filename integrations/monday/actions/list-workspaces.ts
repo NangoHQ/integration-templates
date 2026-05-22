@@ -3,9 +3,9 @@ import { createAction } from 'nango';
 
 const InputSchema = z.object({
     ids: z.array(z.string()).optional().describe('Filter by specific workspace IDs.'),
-    kind: z.string().optional().describe('Filter by workspace kind: closed, open, or template.'),
-    limit: z.number().int().optional().describe('Number of workspaces to return per page. Min: 1, max: 100, default: 25.'),
-    state: z.string().optional().describe('Filter by workspace state: active, all, archived, or deleted. Default: active.'),
+    kind: z.enum(['closed', 'open', 'template']).optional().describe('Filter by workspace kind.'),
+    limit: z.number().int().min(1).max(100).optional().describe('Number of workspaces to return per page. Min: 1, max: 100, default: 25.'),
+    state: z.enum(['active', 'all', 'archived', 'deleted']).optional().describe('Filter by workspace state. Default: active.'),
     cursor: z.string().optional().describe('Pagination cursor (page number) from the previous response. Omit for the first page.')
 });
 
@@ -51,6 +51,17 @@ const action = createAction({
                 type: 'invalid_input',
                 message: 'cursor must be a positive integer representing a page number.'
             });
+        }
+
+        if (input.ids) {
+            for (const id of input.ids) {
+                if (!/^\d+$/.test(id)) {
+                    throw new nango.ActionError({
+                        type: 'invalid_input',
+                        message: `Workspace ID must be numeric: ${id}`
+                    });
+                }
+            }
         }
 
         const args = [];

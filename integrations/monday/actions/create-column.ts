@@ -9,17 +9,19 @@ const InputSchema = z.object({
 });
 
 const ProviderResponseSchema = z.object({
-    data: z.object({
-        create_column: z
-            .object({
-                id: z.string(),
-                title: z.string(),
-                type: z.string(),
-                description: z.string().nullable().optional()
-            })
-            .nullable()
-            .optional()
-    }),
+    data: z
+        .object({
+            create_column: z
+                .object({
+                    id: z.string(),
+                    title: z.string(),
+                    type: z.string(),
+                    description: z.string().nullable().optional()
+                })
+                .nullable()
+                .optional()
+        })
+        .optional(),
     errors: z.array(z.object({ message: z.string() })).optional()
 });
 
@@ -85,7 +87,7 @@ const action = createAction({
             }
         }
 
-        const column = parsed.data.create_column;
+        const column = parsed.data?.create_column;
 
         if (!column) {
             throw new nango.ActionError({

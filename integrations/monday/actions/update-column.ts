@@ -146,7 +146,7 @@ const action = createAction({
             `board_id: ${input.board_id}`,
             `id: "${input.column_id}"`,
             `column_type: ${existingColumn.type}`,
-            `revision: "${existingColumn.revision}"`
+            ...(existingColumn.revision !== undefined ? [`revision: "${existingColumn.revision}"`] : [])
         ];
 
         if (input.title !== undefined) {

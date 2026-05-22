@@ -54,6 +54,13 @@ const action = createAction({
     scopes: ['boards:write'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
+        if (!/^\d+$/.test(input.board_id)) {
+            throw new nango.ActionError({
+                type: 'invalid_input',
+                message: 'board_id must be a numeric string'
+            });
+        }
+
         // Verify the board exists before attempting to delete or archive.
         // https://developer.monday.com/api-reference/reference/boards#query-boards
         const verifyResponse = await nango.post({
@@ -68,7 +75,14 @@ const action = createAction({
         });
 
         const verifyParsed = ProviderBoardsQuerySchema.safeParse(verifyResponse.data);
-        if (!verifyParsed.success || verifyParsed.data.data.boards.length === 0) {
+        if (!verifyParsed.success) {
+            throw new nango.ActionError({
+                type: 'provider_error',
+                message: 'Unexpected response format from monday.com API.',
+                board_id: input.board_id
+            });
+        }
+        if (verifyParsed.data.data.boards.length === 0) {
             throw new nango.ActionError({
                 type: 'not_found',
                 message: `Board with ID ${input.board_id} not found.`,

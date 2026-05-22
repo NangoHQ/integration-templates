@@ -57,7 +57,7 @@ const action = createAction({
         const args: string[] = [`board_id: ${input.board_id}`, `duplicate_type: ${input.duplicate_type}`];
 
         if (input.board_name !== undefined) {
-            args.push(`board_name: "${input.board_name}"`);
+            args.push(`board_name: ${JSON.stringify(input.board_name)}`);
         }
         if (input.workspace_id !== undefined) {
             args.push(`workspace_id: ${input.workspace_id}`);

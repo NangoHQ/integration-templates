@@ -45,14 +45,21 @@ const action = createAction({
     scopes: ['boards:write'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
-        const mutationArgs = [`board_id: "${input.board_id}"`, `group_name: "${input.group_name.replace(/\\/g, '\\\\').replace(/"/g, '\\"')}"`];
+        if (!/^\d+$/.test(input.board_id)) {
+            throw new nango.ActionError({
+                type: 'invalid_input',
+                message: 'board_id must be a numeric string'
+            });
+        }
+
+        const mutationArgs = [`board_id: ${input.board_id}`, `group_name: ${JSON.stringify(input.group_name)}`];
 
         if (input.group_color !== undefined) {
-            mutationArgs.push(`group_color: "${input.group_color.replace(/\\/g, '\\\\').replace(/"/g, '\\"')}"`);
+            mutationArgs.push(`group_color: ${JSON.stringify(input.group_color)}`);
         }
 
         if (input.relative_to !== undefined) {
-            mutationArgs.push(`relative_to: "${input.relative_to.replace(/\\/g, '\\\\').replace(/"/g, '\\"')}"`);
+            mutationArgs.push(`relative_to: ${JSON.stringify(input.relative_to)}`);
         }
 
         if (input.position_relative_method !== undefined) {

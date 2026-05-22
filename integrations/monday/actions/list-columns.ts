@@ -136,7 +136,7 @@ const action = createAction({
         }
 
         const currentPage = input.page || 1;
-        const nextPage = input.limit !== undefined && parsed.data.boards.length === input.limit ? currentPage + 1 : undefined;
+        const nextPage = input.board_id === undefined && input.limit !== undefined && parsed.data.boards.length === input.limit ? currentPage + 1 : undefined;
 
         return {
             columns: columns,

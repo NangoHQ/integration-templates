@@ -40,6 +40,13 @@ const action = createAction({
     scopes: ['boards:write'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
+        if (!/^\d+$/.test(input.board_id)) {
+            throw new nango.ActionError({
+                type: 'invalid_input',
+                message: 'board_id must be a numeric string'
+            });
+        }
+
         // https://developer.monday.com/api-reference/reference/columns#delete-column
         const response = await nango.post({
             endpoint: '/v2',

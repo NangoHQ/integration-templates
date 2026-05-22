@@ -48,11 +48,11 @@ const action = createAction({
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const args: string[] = [];
-        args.push(`board_name: "${input.board_name.replace(/"/g, '\\"')}"`);
+        args.push(`board_name: ${JSON.stringify(input.board_name)}`);
         args.push(`board_kind: ${input.board_kind}`);
 
         if (input.description !== undefined) {
-            args.push(`description: "${input.description.replace(/"/g, '\\"')}"`);
+            args.push(`description: ${JSON.stringify(input.description)}`);
         }
         if (input.workspace_id !== undefined) {
             args.push(`workspace_id: ${input.workspace_id}`);
@@ -73,7 +73,7 @@ const action = createAction({
             args.push(`board_subscriber_ids: [${input.board_subscriber_ids.join(', ')}]`);
         }
         if (input.prompt !== undefined) {
-            args.push(`prompt: "${input.prompt.replace(/"/g, '\\"')}"`);
+            args.push(`prompt: ${JSON.stringify(input.prompt)}`);
         }
 
         const query = `mutation { create_board(${args.join(', ')}) { id name state board_kind url description workspace_id } }`;

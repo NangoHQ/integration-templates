@@ -91792,7 +91792,12 @@
         },
         "kind": {
           "type": "string",
-          "description": "Filter by workspace kind: closed, open, or template."
+          "enum": [
+            "closed",
+            "open",
+            "template"
+          ],
+          "description": "Filter by workspace kind."
         },
         "limit": {
           "type": "number",
@@ -91800,7 +91805,13 @@
         },
         "state": {
           "type": "string",
-          "description": "Filter by workspace state: active, all, archived, or deleted. Default: active."
+          "enum": [
+            "active",
+            "all",
+            "archived",
+            "deleted"
+          ],
+          "description": "Filter by workspace state. Default: active."
         },
         "cursor": {
           "type": "string",

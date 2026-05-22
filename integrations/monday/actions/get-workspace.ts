@@ -46,6 +46,13 @@ const action = createAction({
     scopes: ['workspaces:read'],
 
     exec: async (nango, input) => {
+        if (!/^\d+$/.test(input.workspaceId)) {
+            throw new nango.ActionError({
+                type: 'invalid_input',
+                message: 'workspaceId must be a numeric string'
+            });
+        }
+
         const query = `
             query {
                 workspaces(ids: ${input.workspaceId}) {

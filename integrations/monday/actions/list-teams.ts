@@ -38,10 +38,27 @@ const action = createAction({
     scopes: ['teams:read'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
-        const limit = input.limit ?? 25;
+        const limit = Math.max(1, Math.floor(input.limit ?? 25));
         const page = input.cursor ? parseInt(input.cursor, 10) : 1;
+        if (input.cursor && (Number.isNaN(page) || !/^\d+$/.test(input.cursor) || page < 1)) {
+            throw new nango.ActionError({
+                type: 'invalid_input',
+                message: 'cursor must be a positive integer string'
+            });
+        }
 
-        const idsArg = input.ids && input.ids.length > 0 ? `ids: [${input.ids.map((id) => `"${id}"`).join(', ')}]` : '';
+        if (input.ids) {
+            for (const id of input.ids) {
+                if (!/^\d+$/.test(id)) {
+                    throw new nango.ActionError({
+                        type: 'invalid_input',
+                        message: `Team ID must be numeric: ${id}`
+                    });
+                }
+            }
+        }
+
+        const idsArg = input.ids && input.ids.length > 0 ? `ids: [${input.ids.join(', ')}]` : '';
         const args = idsArg ? `(${idsArg})` : '';
 
         const query = `
