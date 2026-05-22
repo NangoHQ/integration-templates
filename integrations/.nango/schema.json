@@ -70978,30 +70978,45 @@
       "type": "object",
       "properties": {
         "id": {
-          "type": "string"
+          "type": "string",
+          "description": "The unique id for the segment"
         },
         "name": {
           "type": "string"
+        },
+        "member_count": {
+          "type": "number"
         },
         "type": {
           "type": "string"
         },
         "created_at": {
-          "type": "number"
+          "type": "string",
+          "description": "ISO 8601 timestamp"
         },
         "updated_at": {
-          "type": "number"
+          "type": "string",
+          "description": "ISO 8601 timestamp"
         },
-        "person_type": {
-          "type": "string"
+        "list_id": {
+          "type": "string",
+          "description": "The list id"
         },
-        "count": {
-          "type": "number"
+        "options": {
+          "type": "object",
+          "additionalProperties": {
+            "anyOf": [
+              {},
+              {
+                "not": {}
+              }
+            ]
+          }
         }
       },
       "required": [
         "id",
-        "name"
+        "list_id"
       ],
       "additionalProperties": false
     },
@@ -86589,6 +86604,5446 @@
     },
     "SyncMetadata_luma_listevents": {
       "type": "object",
+      "additionalProperties": false
+    },
+    "Audience": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "date_created": {
+          "type": "string"
+        },
+        "list_rating": {
+          "type": "number"
+        },
+        "email_type_option": {
+          "type": "boolean"
+        },
+        "visibility": {
+          "type": "string"
+        },
+        "double_optin": {
+          "type": "boolean"
+        },
+        "has_welcome": {
+          "type": "boolean"
+        },
+        "marketing_permissions": {
+          "type": "boolean"
+        },
+        "permission_reminder": {
+          "type": "string"
+        },
+        "notify_on_subscribe": {
+          "type": "string"
+        },
+        "notify_on_unsubscribe": {
+          "type": "string"
+        },
+        "subscribe_url_short": {
+          "type": "string"
+        },
+        "subscribe_url_long": {
+          "type": "string"
+        },
+        "beamer_address": {
+          "type": "string"
+        },
+        "web_id": {
+          "type": "number"
+        },
+        "stats": {
+          "type": "object",
+          "additionalProperties": {
+            "anyOf": [
+              {},
+              {
+                "not": {}
+              }
+            ]
+          }
+        }
+      },
+      "required": [
+        "id",
+        "name"
+      ],
+      "additionalProperties": false
+    },
+    "Automation": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "create_time": {
+          "type": "string"
+        },
+        "start_time": {
+          "type": "string"
+        },
+        "status": {
+          "type": "string"
+        },
+        "emails_sent": {
+          "type": "number"
+        },
+        "title": {
+          "type": "string"
+        },
+        "from_name": {
+          "type": "string"
+        },
+        "reply_to": {
+          "type": "string"
+        },
+        "list_id": {
+          "type": "string"
+        },
+        "list_name": {
+          "type": "string"
+        },
+        "workflow_type": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "id",
+        "create_time",
+        "status"
+      ],
+      "additionalProperties": false
+    },
+    "Member": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "email_address": {
+          "type": "string"
+        },
+        "unique_email_id": {
+          "type": "string"
+        },
+        "contact_id": {
+          "type": "string"
+        },
+        "full_name": {
+          "type": "string"
+        },
+        "web_id": {
+          "type": "number"
+        },
+        "email_type": {
+          "type": "string"
+        },
+        "status": {
+          "type": "string"
+        },
+        "unsubscribe_reason": {
+          "type": "string"
+        },
+        "consents_to_one_to_one_messaging": {
+          "type": "boolean"
+        },
+        "merge_fields": {
+          "type": "object",
+          "additionalProperties": {
+            "anyOf": [
+              {},
+              {
+                "not": {}
+              }
+            ]
+          }
+        },
+        "interests": {
+          "type": "object",
+          "additionalProperties": {
+            "anyOf": [
+              {},
+              {
+                "not": {}
+              }
+            ]
+          }
+        },
+        "ip_signup": {
+          "type": "string"
+        },
+        "timestamp_signup": {
+          "type": "string"
+        },
+        "ip_opt": {
+          "type": "string"
+        },
+        "timestamp_opt": {
+          "type": "string"
+        },
+        "member_rating": {
+          "type": "number"
+        },
+        "last_changed": {
+          "type": "string"
+        },
+        "language": {
+          "type": "string"
+        },
+        "vip": {
+          "type": "boolean"
+        },
+        "email_client": {
+          "type": "string"
+        },
+        "location": {
+          "type": "object",
+          "properties": {
+            "latitude": {
+              "type": "number"
+            },
+            "longitude": {
+              "type": "number"
+            },
+            "gmtoff": {
+              "type": "number"
+            },
+            "dstoff": {
+              "type": "number"
+            },
+            "country_code": {
+              "type": "string"
+            },
+            "timezone": {
+              "type": "string"
+            },
+            "region": {
+              "type": "string"
+            }
+          },
+          "additionalProperties": false
+        },
+        "source": {
+          "type": "string"
+        },
+        "tags_count": {
+          "type": "number"
+        },
+        "tags": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "number"
+              },
+              "name": {
+                "type": "string"
+              }
+            },
+            "additionalProperties": false
+          }
+        },
+        "list_id": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "id"
+      ],
+      "additionalProperties": false
+    },
+    "Store": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "list_id": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "domain": {
+          "type": "string"
+        },
+        "email_address": {
+          "type": "string"
+        },
+        "currency_code": {
+          "type": "string"
+        },
+        "money_format": {
+          "type": "string"
+        },
+        "primary_locale": {
+          "type": "string"
+        },
+        "timezone": {
+          "type": "string"
+        },
+        "phone": {
+          "type": "string"
+        },
+        "address": {
+          "type": "object",
+          "properties": {
+            "address1": {
+              "type": "string"
+            },
+            "address2": {
+              "type": "string"
+            },
+            "city": {
+              "type": "string"
+            },
+            "province": {
+              "type": "string"
+            },
+            "province_code": {
+              "type": "string"
+            },
+            "postal_code": {
+              "type": "string"
+            },
+            "country": {
+              "type": "string"
+            },
+            "country_code": {
+              "type": "string"
+            },
+            "longitude": {
+              "type": "number"
+            },
+            "latitude": {
+              "type": "number"
+            }
+          },
+          "additionalProperties": false
+        },
+        "created_at": {
+          "type": "string"
+        },
+        "updated_at": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "id"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_mailchimp_createaudience": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "contact": {
+          "type": "object",
+          "properties": {
+            "company": {
+              "type": "string"
+            },
+            "address1": {
+              "type": "string"
+            },
+            "address2": {
+              "type": "string"
+            },
+            "city": {
+              "type": "string"
+            },
+            "state": {
+              "type": "string"
+            },
+            "zip": {
+              "type": "string"
+            },
+            "country": {
+              "type": "string"
+            },
+            "phone": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "company",
+            "address1",
+            "city",
+            "state",
+            "zip",
+            "country"
+          ],
+          "additionalProperties": false
+        },
+        "permission_reminder": {
+          "type": "string"
+        },
+        "campaign_defaults": {
+          "type": "object",
+          "properties": {
+            "from_name": {
+              "type": "string"
+            },
+            "from_email": {
+              "type": "string"
+            },
+            "subject": {
+              "type": "string"
+            },
+            "language": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "from_name",
+            "from_email",
+            "subject",
+            "language"
+          ],
+          "additionalProperties": false
+        },
+        "email_type_option": {
+          "type": "boolean"
+        },
+        "visibility": {
+          "type": "string",
+          "enum": [
+            "pub",
+            "prv"
+          ]
+        },
+        "notify_on_subscribe": {
+          "type": "string"
+        },
+        "notify_on_unsubscribe": {
+          "type": "string"
+        },
+        "use_archive_bar": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "name",
+        "contact",
+        "permission_reminder",
+        "campaign_defaults",
+        "email_type_option"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_mailchimp_createaudience": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "contact": {
+          "type": "object",
+          "properties": {
+            "company": {
+              "type": "string"
+            },
+            "address1": {
+              "type": "string"
+            },
+            "address2": {
+              "type": "string"
+            },
+            "city": {
+              "type": "string"
+            },
+            "state": {
+              "type": "string"
+            },
+            "zip": {
+              "type": "string"
+            },
+            "country": {
+              "type": "string"
+            },
+            "phone": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "company",
+            "address1",
+            "city",
+            "state",
+            "zip",
+            "country"
+          ],
+          "additionalProperties": false
+        },
+        "permission_reminder": {
+          "type": "string"
+        },
+        "campaign_defaults": {
+          "type": "object",
+          "properties": {
+            "from_name": {
+              "type": "string"
+            },
+            "from_email": {
+              "type": "string"
+            },
+            "subject": {
+              "type": "string"
+            },
+            "language": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "from_name",
+            "from_email",
+            "subject",
+            "language"
+          ],
+          "additionalProperties": false
+        },
+        "email_type_option": {
+          "type": "boolean"
+        },
+        "visibility": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "id",
+        "name",
+        "contact",
+        "permission_reminder",
+        "campaign_defaults",
+        "email_type_option"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_mailchimp_createcampaign": {
+      "type": "object",
+      "properties": {
+        "type": {
+          "type": "string",
+          "description": "Campaign type. Allowed: regular, plaintext, absplit, rss, variate. Example: \"regular\""
+        },
+        "recipients": {
+          "type": "object",
+          "properties": {
+            "list_id": {
+              "type": "string"
+            },
+            "segment_opts": {
+              "type": "object",
+              "properties": {
+                "saved_segment_id": {
+                  "type": "number"
+                },
+                "match": {
+                  "type": "string"
+                },
+                "conditions": {
+                  "type": "array",
+                  "items": {}
+                }
+              },
+              "additionalProperties": false
+            }
+          },
+          "required": [
+            "list_id"
+          ],
+          "additionalProperties": false
+        },
+        "settings": {
+          "type": "object",
+          "properties": {
+            "subject_line": {
+              "type": "string"
+            },
+            "preview_text": {
+              "type": "string"
+            },
+            "title": {
+              "type": "string"
+            },
+            "from_name": {
+              "type": "string"
+            },
+            "reply_to": {
+              "type": "string"
+            },
+            "template_id": {
+              "type": "number"
+            }
+          },
+          "additionalProperties": false
+        },
+        "tracking": {
+          "type": "object",
+          "properties": {
+            "opens": {
+              "type": "boolean"
+            },
+            "html_clicks": {
+              "type": "boolean"
+            },
+            "text_clicks": {
+              "type": "boolean"
+            },
+            "google_analytics": {
+              "type": "string"
+            }
+          },
+          "additionalProperties": false
+        },
+        "rss_opts": {
+          "type": "object",
+          "properties": {
+            "feed_url": {
+              "type": "string"
+            },
+            "frequency": {
+              "type": "string"
+            }
+          },
+          "additionalProperties": false
+        },
+        "variate_settings": {
+          "type": "object",
+          "properties": {
+            "winner_criteria": {
+              "type": "string"
+            },
+            "wait_time": {
+              "type": "number"
+            },
+            "test_size": {
+              "type": "number"
+            },
+            "subject_lines": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "send_times": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "from_names": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "reply_to_addresses": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            }
+          },
+          "additionalProperties": false
+        },
+        "social_card": {
+          "type": "object",
+          "properties": {
+            "image_url": {
+              "type": "string"
+            },
+            "description": {
+              "type": "string"
+            },
+            "title": {
+              "type": "string"
+            }
+          },
+          "additionalProperties": false
+        }
+      },
+      "required": [
+        "type",
+        "recipients"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_mailchimp_createcampaign": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "web_id": {
+          "type": "number"
+        },
+        "type": {
+          "type": "string"
+        },
+        "status": {
+          "type": "string"
+        },
+        "create_time": {
+          "type": "string"
+        },
+        "settings": {
+          "type": "object",
+          "properties": {
+            "subject_line": {
+              "type": "string"
+            },
+            "preview_text": {
+              "type": "string"
+            },
+            "title": {
+              "type": "string"
+            },
+            "from_name": {
+              "type": "string"
+            },
+            "reply_to": {
+              "type": "string"
+            },
+            "template_id": {
+              "type": "number"
+            }
+          },
+          "additionalProperties": false
+        },
+        "recipients": {
+          "type": "object",
+          "properties": {
+            "list_id": {
+              "type": "string"
+            },
+            "list_name": {
+              "type": "string"
+            },
+            "recipient_count": {
+              "type": "number"
+            }
+          },
+          "required": [
+            "list_id"
+          ],
+          "additionalProperties": false
+        }
+      },
+      "required": [
+        "id",
+        "web_id",
+        "type",
+        "status"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_mailchimp_createmember": {
+      "type": "object",
+      "properties": {
+        "list_id": {
+          "type": "string",
+          "description": "The unique ID for the list. Example: \"a1b2c3d4\""
+        },
+        "email_address": {
+          "type": "string",
+          "description": "Email address for the subscriber. Example: \"user@example.com\""
+        },
+        "status": {
+          "type": "string",
+          "enum": [
+            "subscribed",
+            "unsubscribed",
+            "cleaned",
+            "pending",
+            "transactional"
+          ],
+          "description": "Subscriber's current status."
+        },
+        "merge_fields": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "string"
+          },
+          "description": "An individual merge var and value for a member."
+        },
+        "interests": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "boolean"
+          },
+          "description": "The key of this object's properties is the ID of the interest in question."
+        },
+        "language": {
+          "type": "string",
+          "description": "If set/detected, the subscriber's language."
+        },
+        "vip": {
+          "type": "boolean",
+          "description": "VIP status for subscriber."
+        },
+        "tags": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "The tags that are associated with this member."
+        },
+        "location": {
+          "type": "object",
+          "properties": {
+            "latitude": {
+              "type": "number"
+            },
+            "longitude": {
+              "type": "number"
+            }
+          },
+          "required": [
+            "latitude",
+            "longitude"
+          ],
+          "additionalProperties": false,
+          "description": "Subscriber location information."
+        },
+        "ip_signup": {
+          "type": "string",
+          "description": "IP address the subscriber signed up from."
+        },
+        "timestamp_signup": {
+          "type": "string",
+          "description": "The date and time the subscriber signed up for the list in ISO 8601 format."
+        },
+        "ip_opt": {
+          "type": "string",
+          "description": "The IP address the subscriber used to confirm their opt-in status."
+        },
+        "timestamp_opt": {
+          "type": "string",
+          "description": "The date and time the subscriber confirmed their opt-in status in ISO 8601 format."
+        }
+      },
+      "required": [
+        "list_id",
+        "email_address",
+        "status"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_mailchimp_createmember": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "The MD5 hash of the lowercase version of the member's email address."
+        },
+        "email_address": {
+          "type": "string"
+        },
+        "status": {
+          "type": "string"
+        },
+        "unique_email_id": {
+          "type": "string"
+        },
+        "contact_id": {
+          "type": "string"
+        },
+        "list_id": {
+          "type": "string"
+        },
+        "merge_fields": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "string"
+          }
+        },
+        "interests": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "boolean"
+          }
+        },
+        "vip": {
+          "type": "boolean"
+        },
+        "language": {
+          "type": "string"
+        },
+        "timestamp_opt": {
+          "type": "string"
+        },
+        "timestamp_signup": {
+          "type": "string"
+        },
+        "ip_opt": {
+          "type": "string"
+        },
+        "ip_signup": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "id",
+        "email_address",
+        "status"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_mailchimp_createsegment": {
+      "type": "object",
+      "properties": {
+        "list_id": {
+          "type": "string",
+          "description": "The unique ID for the list. Example: \"16ed227135\""
+        },
+        "name": {
+          "type": "string",
+          "description": "The name of the segment. Example: \"VIP Customers\""
+        },
+        "static_segment": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "An array of emails to be used for a static segment. Cannot be provided with the options field."
+        },
+        "options": {
+          "type": "object",
+          "properties": {
+            "match": {
+              "type": "string",
+              "enum": [
+                "any",
+                "all"
+              ]
+            },
+            "conditions": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "condition_type": {
+                    "type": "string"
+                  },
+                  "field": {
+                    "type": "string"
+                  },
+                  "op": {
+                    "type": "string"
+                  },
+                  "value": {}
+                },
+                "additionalProperties": false
+              }
+            }
+          },
+          "additionalProperties": false,
+          "description": "The conditions of the segment. Static and fuzzy segments do not have conditions."
+        }
+      },
+      "required": [
+        "list_id",
+        "name"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_mailchimp_createsegment": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "number"
+        },
+        "name": {
+          "type": "string"
+        },
+        "member_count": {
+          "type": "number"
+        },
+        "type": {
+          "type": "string"
+        },
+        "created_at": {
+          "type": "string"
+        },
+        "updated_at": {
+          "type": "string"
+        },
+        "list_id": {
+          "type": "string"
+        },
+        "options": {
+          "type": "object",
+          "properties": {
+            "match": {
+              "type": "string",
+              "enum": [
+                "any",
+                "all"
+              ]
+            },
+            "conditions": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "condition_type": {
+                    "type": "string"
+                  },
+                  "field": {
+                    "type": "string"
+                  },
+                  "op": {
+                    "type": "string"
+                  },
+                  "value": {}
+                },
+                "additionalProperties": false
+              }
+            }
+          },
+          "additionalProperties": false
+        }
+      },
+      "required": [
+        "id",
+        "name",
+        "member_count",
+        "type"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_mailchimp_createstore": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "The unique identifier for the store. Example: \"my_store_001\""
+        },
+        "list_id": {
+          "type": "string",
+          "description": "The Mailchimp list ID to associate with the store. Example: \"a1b2c3d4e5\""
+        },
+        "name": {
+          "type": "string",
+          "description": "The name of the store. Example: \"My Online Store\""
+        },
+        "currency_code": {
+          "type": "string",
+          "description": "The three-letter ISO 4217 currency code. Example: \"USD\""
+        },
+        "platform": {
+          "type": "string",
+          "description": "The e-commerce platform of the store."
+        },
+        "domain": {
+          "type": "string",
+          "description": "The store domain."
+        },
+        "is_syncing": {
+          "type": "boolean",
+          "description": "Whether the store is currently syncing."
+        },
+        "email_address": {
+          "type": "string",
+          "description": "The email address for the store."
+        },
+        "money_format": {
+          "type": "string",
+          "description": "The currency format for the store."
+        },
+        "primary_locale": {
+          "type": "string",
+          "description": "The primary locale for the store. Example: \"en\""
+        },
+        "timezone": {
+          "type": "string",
+          "description": "The timezone for the store."
+        },
+        "phone": {
+          "type": "string",
+          "description": "The store phone number."
+        },
+        "address": {
+          "type": "object",
+          "properties": {
+            "address1": {
+              "type": "string"
+            },
+            "address2": {
+              "type": "string"
+            },
+            "city": {
+              "type": "string"
+            },
+            "province": {
+              "type": "string"
+            },
+            "province_code": {
+              "type": "string"
+            },
+            "postal_code": {
+              "type": "string"
+            },
+            "country": {
+              "type": "string"
+            },
+            "country_code": {
+              "type": "string"
+            },
+            "longitude": {
+              "type": "number"
+            },
+            "latitude": {
+              "type": "number"
+            }
+          },
+          "additionalProperties": false,
+          "description": "The store address."
+        }
+      },
+      "required": [
+        "id",
+        "list_id",
+        "name",
+        "currency_code"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_mailchimp_createstore": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "list_id": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "platform": {
+          "type": "string"
+        },
+        "domain": {
+          "type": "string"
+        },
+        "is_syncing": {
+          "type": "boolean"
+        },
+        "email_address": {
+          "type": "string"
+        },
+        "currency_code": {
+          "type": "string"
+        },
+        "money_format": {
+          "type": "string"
+        },
+        "primary_locale": {
+          "type": "string"
+        },
+        "timezone": {
+          "type": "string"
+        },
+        "phone": {
+          "type": "string"
+        },
+        "address": {
+          "type": "object",
+          "properties": {
+            "address1": {
+              "type": "string"
+            },
+            "address2": {
+              "type": "string"
+            },
+            "city": {
+              "type": "string"
+            },
+            "province": {
+              "type": "string"
+            },
+            "province_code": {
+              "type": "string"
+            },
+            "postal_code": {
+              "type": "string"
+            },
+            "country": {
+              "type": "string"
+            },
+            "country_code": {
+              "type": "string"
+            },
+            "longitude": {
+              "type": "number"
+            },
+            "latitude": {
+              "type": "number"
+            }
+          },
+          "additionalProperties": false
+        },
+        "list_is_active": {
+          "type": "boolean"
+        },
+        "created_at": {
+          "type": "string"
+        },
+        "updated_at": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "id",
+        "list_id",
+        "name",
+        "currency_code"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_mailchimp_createtemplate": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string",
+          "description": "The name for the template. Example: \"Welcome Email Template\""
+        },
+        "html": {
+          "type": "string",
+          "description": "The HTML content for the template. Example: \"<html><body>Hello</body></html>\""
+        },
+        "folder_id": {
+          "type": "number",
+          "description": "The ID of the folder to store the template in. Example: 42"
+        }
+      },
+      "required": [
+        "name",
+        "html"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_mailchimp_createtemplate": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "number"
+        },
+        "name": {
+          "type": "string"
+        },
+        "type": {
+          "type": "string"
+        },
+        "date_created": {
+          "type": "string"
+        },
+        "date_edited": {
+          "type": "string"
+        },
+        "active": {
+          "type": "boolean"
+        },
+        "thumbnail": {
+          "type": "string"
+        },
+        "share_url": {
+          "type": "string"
+        },
+        "folder_id": {
+          "type": "number"
+        }
+      },
+      "required": [
+        "id"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_mailchimp_deleteaudience": {
+      "type": "object",
+      "properties": {
+        "list_id": {
+          "type": "string",
+          "description": "The unique ID for the audience/list to delete. Example: \"a1b2c3d4e5\""
+        }
+      },
+      "required": [
+        "list_id"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_mailchimp_deleteaudience": {
+      "type": "object",
+      "properties": {
+        "success": {
+          "type": "boolean"
+        },
+        "list_id": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "success"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_mailchimp_deletecampaign": {
+      "type": "object",
+      "properties": {
+        "campaign_id": {
+          "type": "string",
+          "description": "The unique ID of the campaign to delete. Example: \"a1b2c3d4e5\""
+        }
+      },
+      "required": [
+        "campaign_id"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_mailchimp_deletecampaign": {
+      "type": "object",
+      "properties": {
+        "success": {
+          "type": "boolean"
+        },
+        "campaign_id": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "success",
+        "campaign_id"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_mailchimp_deletemember": {
+      "type": "object",
+      "properties": {
+        "list_id": {
+          "type": "string",
+          "description": "The unique ID for the list. Example: \"a1b2c3d4e5\""
+        },
+        "subscriber_hash": {
+          "type": "string",
+          "description": "The MD5 hash of the lowercase version of the list member's email address. Example: \"f52b1fb13b40f6b01297aa7e5c1d8e5c\""
+        }
+      },
+      "required": [
+        "list_id",
+        "subscriber_hash"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_mailchimp_deletemember": {
+      "type": "object",
+      "properties": {
+        "success": {
+          "type": "boolean"
+        },
+        "id": {
+          "type": "string",
+          "description": "The MD5 hash of the lowercase email address for the deleted member."
+        },
+        "status": {
+          "type": "string",
+          "description": "The subscription status of the deleted member."
+        }
+      },
+      "required": [
+        "success"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_mailchimp_deletesegment": {
+      "type": "object",
+      "properties": {
+        "list_id": {
+          "type": "string",
+          "description": "The unique ID of the Mailchimp audience/list. Example: \"16ed227135\""
+        },
+        "segment_id": {
+          "type": "string",
+          "description": "The unique ID of the segment to delete. Example: \"3730784\""
+        }
+      },
+      "required": [
+        "list_id",
+        "segment_id"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_mailchimp_deletesegment": {
+      "type": "object",
+      "properties": {
+        "success": {
+          "type": "boolean"
+        },
+        "list_id": {
+          "type": "string"
+        },
+        "segment_id": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "success",
+        "list_id",
+        "segment_id"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_mailchimp_deletetemplate": {
+      "type": "object",
+      "properties": {
+        "template_id": {
+          "type": "string",
+          "description": "The ID of the template to delete. Example: \"1234\""
+        }
+      },
+      "required": [
+        "template_id"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_mailchimp_deletetemplate": {
+      "type": "object",
+      "properties": {
+        "success": {
+          "type": "boolean"
+        },
+        "template_id": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "success"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_mailchimp_getaudience": {
+      "type": "object",
+      "properties": {
+        "list_id": {
+          "type": "string",
+          "description": "The unique ID for the list. Example: \"a1b2c3d4e5\""
+        }
+      },
+      "required": [
+        "list_id"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_mailchimp_getaudience": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "web_id": {
+          "type": "number"
+        },
+        "name": {
+          "type": "string"
+        },
+        "contact": {
+          "type": "object",
+          "properties": {
+            "company": {
+              "type": "string"
+            },
+            "address1": {
+              "type": "string"
+            },
+            "address2": {
+              "type": "string"
+            },
+            "city": {
+              "type": "string"
+            },
+            "state": {
+              "type": "string"
+            },
+            "zip": {
+              "type": "string"
+            },
+            "country": {
+              "type": "string"
+            },
+            "phone": {
+              "type": "string"
+            }
+          },
+          "additionalProperties": false
+        },
+        "permission_reminder": {
+          "type": "string"
+        },
+        "use_archive_bar": {
+          "type": "boolean"
+        },
+        "campaign_defaults": {
+          "type": "object",
+          "properties": {
+            "from_name": {
+              "type": "string"
+            },
+            "from_email": {
+              "type": "string"
+            },
+            "subject": {
+              "type": "string"
+            },
+            "language": {
+              "type": "string"
+            }
+          },
+          "additionalProperties": false
+        },
+        "notify_on_subscribe": {
+          "type": "string"
+        },
+        "notify_on_unsubscribe": {
+          "type": "string"
+        },
+        "date_created": {
+          "type": "string"
+        },
+        "list_rating": {
+          "type": "number"
+        },
+        "subscribe_url_short": {
+          "type": "string"
+        },
+        "subscribe_url_long": {
+          "type": "string"
+        },
+        "beamer_address": {
+          "type": "string"
+        },
+        "visibility": {
+          "type": "string"
+        },
+        "double_optin": {
+          "type": "boolean"
+        },
+        "use_custom_footer": {
+          "type": "boolean"
+        },
+        "forwards": {
+          "type": "object",
+          "additionalProperties": false
+        },
+        "facebook_page": {
+          "type": "string"
+        },
+        "rss_url": {
+          "type": "string"
+        },
+        "rss_email": {
+          "type": "object",
+          "additionalProperties": false
+        },
+        "twitter_handle": {
+          "type": "string"
+        },
+        "vip": {
+          "type": "boolean"
+        },
+        "modules": {
+          "type": "array",
+          "items": {}
+        },
+        "stats": {
+          "type": "object",
+          "properties": {
+            "member_count": {
+              "type": "number"
+            },
+            "total_contacts": {
+              "type": "number"
+            },
+            "unsubscribe_count": {
+              "type": "number"
+            },
+            "cleaned_count": {
+              "type": "number"
+            },
+            "member_count_since_send": {
+              "type": "number"
+            },
+            "unsubscribe_count_since_send": {
+              "type": "number"
+            },
+            "cleaned_count_since_send": {
+              "type": "number"
+            },
+            "campaign_count": {
+              "type": "number"
+            },
+            "campaign_last_sent": {
+              "type": "string"
+            },
+            "merge_field_count": {
+              "type": "number"
+            },
+            "avg_sub_rate": {
+              "type": "number"
+            },
+            "avg_unsub_rate": {
+              "type": "number"
+            },
+            "target_sub_rate": {
+              "type": "number"
+            },
+            "open_rate": {
+              "type": "number"
+            },
+            "click_rate": {
+              "type": "number"
+            },
+            "last_sub_date": {
+              "type": "string"
+            },
+            "last_unsub_date": {
+              "type": "string"
+            }
+          },
+          "additionalProperties": false
+        },
+        "_links": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "rel": {
+                "type": "string"
+              },
+              "href": {
+                "type": "string"
+              },
+              "method": {
+                "type": "string"
+              },
+              "targetSchema": {
+                "type": "string"
+              },
+              "schema": {
+                "type": "string"
+              }
+            },
+            "additionalProperties": false
+          }
+        }
+      },
+      "required": [
+        "id"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_mailchimp_getautomation": {
+      "type": "object",
+      "properties": {
+        "workflow_id": {
+          "type": "string",
+          "description": "The unique id for the Automation workflow. Example: \"1a2b3c4d5e\""
+        }
+      },
+      "required": [
+        "workflow_id"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_mailchimp_getautomation": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "create_time": {
+          "type": "string"
+        },
+        "start_time": {
+          "type": "string"
+        },
+        "status": {
+          "type": "string"
+        },
+        "emails_sent": {
+          "type": "number"
+        },
+        "recipients": {
+          "type": "object",
+          "properties": {
+            "list_id": {
+              "type": "string"
+            },
+            "list_is_active": {
+              "type": "boolean"
+            },
+            "list_name": {
+              "type": "string"
+            },
+            "segment_opts": {
+              "type": "object",
+              "properties": {
+                "saved_segment_id": {
+                  "type": "number"
+                },
+                "match": {
+                  "type": "string"
+                },
+                "conditions": {
+                  "type": "array",
+                  "items": {}
+                }
+              },
+              "additionalProperties": false
+            },
+            "store_id": {
+              "type": "string"
+            }
+          },
+          "additionalProperties": false
+        },
+        "settings": {
+          "type": "object",
+          "properties": {
+            "title": {
+              "type": "string"
+            },
+            "from_name": {
+              "type": "string"
+            },
+            "reply_to": {
+              "type": "string"
+            },
+            "use_conversation": {
+              "type": "boolean"
+            },
+            "to_name": {
+              "type": "string"
+            },
+            "authenticate": {
+              "type": "boolean"
+            },
+            "auto_footer": {
+              "type": "boolean"
+            },
+            "inline_css": {
+              "type": "boolean"
+            }
+          },
+          "additionalProperties": false
+        },
+        "tracking": {
+          "type": "object",
+          "properties": {
+            "opens": {
+              "type": "boolean"
+            },
+            "html_clicks": {
+              "type": "boolean"
+            },
+            "text_clicks": {
+              "type": "boolean"
+            },
+            "goal_tracking": {
+              "type": "boolean"
+            },
+            "ecomm360": {
+              "type": "boolean"
+            },
+            "google_analytics": {
+              "type": "string"
+            },
+            "clicktale": {
+              "type": "string"
+            },
+            "salesforce": {
+              "type": "object",
+              "properties": {
+                "campaign": {
+                  "type": "boolean"
+                },
+                "notes": {
+                  "type": "boolean"
+                }
+              },
+              "additionalProperties": false
+            },
+            "capsule": {
+              "type": "object",
+              "properties": {
+                "notes": {
+                  "type": "boolean"
+                }
+              },
+              "additionalProperties": false
+            }
+          },
+          "additionalProperties": false
+        },
+        "trigger_settings": {
+          "type": "object",
+          "properties": {
+            "workflow_type": {
+              "type": "string"
+            },
+            "workflow_title": {
+              "type": "string"
+            },
+            "runtime": {
+              "type": "object",
+              "properties": {
+                "days": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "hours": {
+                  "type": "object",
+                  "properties": {
+                    "type": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              },
+              "additionalProperties": false
+            },
+            "workflow_emails_count": {
+              "type": "number"
+            }
+          },
+          "additionalProperties": false
+        },
+        "report_summary": {
+          "type": "object",
+          "properties": {
+            "opens": {
+              "type": "number"
+            },
+            "unique_opens": {
+              "type": "number"
+            },
+            "open_rate": {
+              "type": "number"
+            },
+            "clicks": {
+              "type": "number"
+            },
+            "subscriber_clicks": {
+              "type": "number"
+            },
+            "click_rate": {
+              "type": "number"
+            }
+          },
+          "additionalProperties": false
+        },
+        "_links": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "rel": {
+                "type": "string"
+              },
+              "href": {
+                "type": "string"
+              },
+              "method": {
+                "type": "string"
+              },
+              "targetSchema": {
+                "type": "string"
+              },
+              "schema": {
+                "type": "string"
+              }
+            },
+            "additionalProperties": false
+          }
+        }
+      },
+      "required": [
+        "id"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_mailchimp_getcampaignreport": {
+      "type": "object",
+      "properties": {
+        "campaign_id": {
+          "type": "string",
+          "description": "The unique ID of the campaign. Example: \"abc123\""
+        }
+      },
+      "required": [
+        "campaign_id"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_mailchimp_getcampaignreport": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "campaign_title": {
+          "type": "string"
+        },
+        "type": {
+          "type": "string"
+        },
+        "list_id": {
+          "type": "string"
+        },
+        "list_is_active": {
+          "type": "boolean"
+        },
+        "list_name": {
+          "type": "string"
+        },
+        "subject_line": {
+          "type": "string"
+        },
+        "preview_text": {
+          "type": "string"
+        },
+        "emails_sent": {
+          "type": "number"
+        },
+        "abuse_reports": {
+          "type": "number"
+        },
+        "unsubscribed": {
+          "type": "number"
+        },
+        "send_time": {
+          "type": "string"
+        },
+        "bounces": {
+          "type": "object",
+          "properties": {
+            "hard_bounces": {
+              "type": "number"
+            },
+            "soft_bounces": {
+              "type": "number"
+            },
+            "syntax_errors": {
+              "type": "number"
+            }
+          },
+          "additionalProperties": false
+        },
+        "forwards": {
+          "type": "object",
+          "properties": {
+            "forwards_count": {
+              "type": "number"
+            },
+            "forwards_opens": {
+              "type": "number"
+            }
+          },
+          "additionalProperties": false
+        },
+        "opens": {
+          "type": "object",
+          "properties": {
+            "opens_total": {
+              "type": "number"
+            },
+            "unique_opens": {
+              "type": "number"
+            },
+            "open_rate": {
+              "type": "number"
+            },
+            "last_open": {
+              "type": "string"
+            }
+          },
+          "additionalProperties": false
+        },
+        "clicks": {
+          "type": "object",
+          "properties": {
+            "clicks_total": {
+              "type": "number"
+            },
+            "unique_clicks": {
+              "type": "number"
+            },
+            "unique_subscriber_clicks": {
+              "type": "number"
+            },
+            "click_rate": {
+              "type": "number"
+            },
+            "last_click": {
+              "type": "string"
+            }
+          },
+          "additionalProperties": false
+        },
+        "industry_stats": {
+          "type": "object",
+          "properties": {
+            "type": {
+              "type": "string"
+            },
+            "open_rate": {
+              "type": "number"
+            },
+            "click_rate": {
+              "type": "number"
+            },
+            "bounce_rate": {
+              "type": "number"
+            },
+            "unopen_rate": {
+              "type": "number"
+            },
+            "unsub_rate": {
+              "type": "number"
+            },
+            "abuse_rate": {
+              "type": "number"
+            }
+          },
+          "additionalProperties": false
+        },
+        "list_stats": {
+          "type": "object",
+          "properties": {
+            "sub_rate": {
+              "type": "number"
+            },
+            "unsub_rate": {
+              "type": "number"
+            },
+            "open_rate": {
+              "type": "number"
+            },
+            "click_rate": {
+              "type": "number"
+            }
+          },
+          "additionalProperties": false
+        },
+        "ecommerce": {
+          "type": "object",
+          "properties": {
+            "total_orders": {
+              "type": "number"
+            },
+            "total_spent": {
+              "type": "number"
+            },
+            "total_revenue": {
+              "type": "number"
+            },
+            "currency_code": {
+              "type": "string"
+            }
+          },
+          "additionalProperties": false
+        },
+        "delivery_status": {
+          "type": "object",
+          "properties": {
+            "enabled": {
+              "type": "boolean"
+            },
+            "can_cancel": {
+              "type": "boolean"
+            },
+            "status": {
+              "type": "string"
+            },
+            "emails_sent": {
+              "type": "number"
+            },
+            "emails_canceled": {
+              "type": "number"
+            }
+          },
+          "additionalProperties": false
+        }
+      },
+      "additionalProperties": false
+    },
+    "ActionInput_mailchimp_getcampaign": {
+      "type": "object",
+      "properties": {
+        "campaign_id": {
+          "type": "string",
+          "description": "The unique id for the campaign. Example: \"a1b2c3d4e5\""
+        }
+      },
+      "required": [
+        "campaign_id"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_mailchimp_getcampaign": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "web_id": {
+          "type": "number"
+        },
+        "parent_campaign_id": {
+          "type": "string"
+        },
+        "type": {
+          "type": "string"
+        },
+        "create_time": {
+          "type": "string"
+        },
+        "archive_url": {
+          "type": "string"
+        },
+        "long_archive_url": {
+          "type": "string"
+        },
+        "status": {
+          "type": "string"
+        },
+        "emails_sent": {
+          "type": "number"
+        },
+        "send_time": {
+          "type": "string"
+        },
+        "content_type": {
+          "type": "string"
+        },
+        "needs_block_refresh": {
+          "type": "boolean"
+        },
+        "resendable": {
+          "type": "boolean"
+        },
+        "recipients": {
+          "type": "object",
+          "properties": {
+            "list_id": {
+              "type": "string"
+            },
+            "list_is_active": {
+              "type": "boolean"
+            },
+            "list_name": {
+              "type": "string"
+            },
+            "segment_text": {
+              "type": "string"
+            },
+            "recipient_count": {
+              "type": "number"
+            },
+            "segment_opts": {
+              "type": "object",
+              "additionalProperties": {
+                "anyOf": [
+                  {},
+                  {
+                    "not": {}
+                  }
+                ]
+              }
+            }
+          },
+          "additionalProperties": false
+        },
+        "settings": {
+          "type": "object",
+          "properties": {
+            "subject_line": {
+              "type": "string"
+            },
+            "preview_text": {
+              "type": "string"
+            },
+            "title": {
+              "type": "string"
+            },
+            "from_name": {
+              "type": "string"
+            },
+            "reply_to": {
+              "type": "string"
+            },
+            "use_conversation": {
+              "type": "boolean"
+            },
+            "to_name": {
+              "type": "string"
+            },
+            "folder_id": {
+              "type": "string"
+            },
+            "authenticate": {
+              "type": "boolean"
+            },
+            "auto_footer": {
+              "type": "boolean"
+            },
+            "inline_css": {
+              "type": "boolean"
+            },
+            "auto_tweet": {
+              "type": "boolean"
+            },
+            "auto_fb_post": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "fb_comments": {
+              "type": "boolean"
+            },
+            "timewarp": {
+              "type": "boolean"
+            },
+            "template_id": {
+              "type": "number"
+            },
+            "drag_and_drop": {
+              "type": "boolean"
+            }
+          },
+          "additionalProperties": false
+        },
+        "variate_settings": {
+          "type": "object",
+          "properties": {
+            "winner_criteria": {
+              "type": "string"
+            },
+            "wait_time": {
+              "type": "number"
+            },
+            "test_size": {
+              "type": "number"
+            },
+            "subject_lines": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "send_times": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "from_names": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "reply_to_addresses": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "contents": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "combinations": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "additionalProperties": {
+                  "anyOf": [
+                    {},
+                    {
+                      "not": {}
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "additionalProperties": false
+        },
+        "tracking": {
+          "type": "object",
+          "properties": {
+            "opens": {
+              "type": "boolean"
+            },
+            "html_clicks": {
+              "type": "boolean"
+            },
+            "text_clicks": {
+              "type": "boolean"
+            },
+            "goal_tracking": {
+              "type": "boolean"
+            },
+            "ecomm360": {
+              "type": "boolean"
+            },
+            "google_analytics": {
+              "type": "string"
+            },
+            "clicktale": {
+              "type": "string"
+            },
+            "salesforce": {
+              "type": "object",
+              "additionalProperties": {
+                "anyOf": [
+                  {},
+                  {
+                    "not": {}
+                  }
+                ]
+              }
+            },
+            "capsule": {
+              "type": "object",
+              "additionalProperties": {
+                "anyOf": [
+                  {},
+                  {
+                    "not": {}
+                  }
+                ]
+              }
+            }
+          },
+          "additionalProperties": false
+        },
+        "rss_opts": {
+          "type": "object",
+          "properties": {
+            "feed_url": {
+              "type": "string"
+            },
+            "frequency": {
+              "type": "string"
+            },
+            "schedule": {
+              "type": "object",
+              "additionalProperties": {
+                "anyOf": [
+                  {},
+                  {
+                    "not": {}
+                  }
+                ]
+              }
+            },
+            "last_sent": {
+              "type": "string"
+            },
+            "constrain_rss_img": {
+              "type": "boolean"
+            }
+          },
+          "additionalProperties": false
+        },
+        "ab_split_opts": {
+          "type": "object",
+          "properties": {
+            "split_test": {
+              "type": "string"
+            },
+            "pick_winner": {
+              "type": "string"
+            },
+            "wait_units": {
+              "type": "string"
+            },
+            "wait_time": {
+              "type": "number"
+            },
+            "split_size": {
+              "type": "number"
+            },
+            "from_name_a": {
+              "type": "string"
+            },
+            "from_name_b": {
+              "type": "string"
+            },
+            "reply_email_a": {
+              "type": "string"
+            },
+            "reply_email_b": {
+              "type": "string"
+            },
+            "subject_a": {
+              "type": "string"
+            },
+            "subject_b": {
+              "type": "string"
+            },
+            "send_time_a": {
+              "type": "string"
+            },
+            "send_time_b": {
+              "type": "string"
+            }
+          },
+          "additionalProperties": false
+        },
+        "social_card": {
+          "type": "object",
+          "properties": {
+            "image_url": {
+              "type": "string"
+            },
+            "description": {
+              "type": "string"
+            },
+            "title": {
+              "type": "string"
+            }
+          },
+          "additionalProperties": false
+        },
+        "report_summary": {
+          "type": "object",
+          "properties": {
+            "opens": {
+              "type": "number"
+            },
+            "unique_opens": {
+              "type": "number"
+            },
+            "open_rate": {
+              "type": "number"
+            },
+            "clicks": {
+              "type": "number"
+            },
+            "subscriber_clicks": {
+              "type": "number"
+            },
+            "click_rate": {
+              "type": "number"
+            },
+            "ecommerce": {
+              "type": "object",
+              "additionalProperties": {
+                "anyOf": [
+                  {},
+                  {
+                    "not": {}
+                  }
+                ]
+              }
+            }
+          },
+          "additionalProperties": false
+        },
+        "delivery_status": {
+          "type": "object",
+          "properties": {
+            "enabled": {
+              "type": "boolean"
+            },
+            "can_cancel": {
+              "type": "boolean"
+            },
+            "status": {
+              "type": "string"
+            },
+            "emails_sent": {
+              "type": "number"
+            },
+            "emails_canceled": {
+              "type": "number"
+            }
+          },
+          "additionalProperties": false
+        },
+        "resend_shortcut_eligibility": {
+          "type": "object",
+          "properties": {
+            "to_non_openers": {
+              "type": "object",
+              "additionalProperties": {
+                "anyOf": [
+                  {},
+                  {
+                    "not": {}
+                  }
+                ]
+              }
+            },
+            "to_new_subscribers": {
+              "type": "object",
+              "additionalProperties": {
+                "anyOf": [
+                  {},
+                  {
+                    "not": {}
+                  }
+                ]
+              }
+            },
+            "to_non_clickers": {
+              "type": "object",
+              "additionalProperties": {
+                "anyOf": [
+                  {},
+                  {
+                    "not": {}
+                  }
+                ]
+              }
+            },
+            "to_non_purchasers": {
+              "type": "object",
+              "additionalProperties": {
+                "anyOf": [
+                  {},
+                  {
+                    "not": {}
+                  }
+                ]
+              }
+            }
+          },
+          "additionalProperties": false
+        },
+        "resend_shortcut_usage": {
+          "type": "object",
+          "properties": {
+            "shortcut_campaigns": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "additionalProperties": {
+                  "anyOf": [
+                    {},
+                    {
+                      "not": {}
+                    }
+                  ]
+                }
+              }
+            },
+            "original_campaign": {
+              "type": "object",
+              "additionalProperties": {
+                "anyOf": [
+                  {},
+                  {
+                    "not": {}
+                  }
+                ]
+              }
+            }
+          },
+          "additionalProperties": false
+        },
+        "_links": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "rel": {
+                "type": "string"
+              },
+              "href": {
+                "type": "string"
+              },
+              "method": {
+                "type": "string"
+              },
+              "targetSchema": {
+                "type": "string"
+              },
+              "schema": {
+                "type": "string"
+              }
+            },
+            "additionalProperties": false
+          }
+        }
+      },
+      "required": [
+        "id"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_mailchimp_getmember": {
+      "type": "object",
+      "properties": {
+        "list_id": {
+          "type": "string",
+          "description": "The unique ID for the list. Example: \"16ed227135\""
+        },
+        "email": {
+          "type": "string",
+          "description": "The email address of the member to retrieve. The subscriber hash will be computed automatically. Example: \"user@example.com\""
+        }
+      },
+      "required": [
+        "list_id",
+        "email"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_mailchimp_getmember": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "email_address": {
+          "type": "string"
+        },
+        "unique_email_id": {
+          "type": "string"
+        },
+        "contact_id": {
+          "type": "string"
+        },
+        "full_name": {
+          "type": "string"
+        },
+        "web_id": {
+          "type": "number"
+        },
+        "email_type": {
+          "type": "string"
+        },
+        "status": {
+          "type": "string"
+        },
+        "unsubscribe_reason": {
+          "type": "string"
+        },
+        "consents_to_one_to_one_messaging": {
+          "type": "boolean"
+        },
+        "sms_phone_number": {
+          "type": "string"
+        },
+        "sms_subscription_status": {
+          "type": "string"
+        },
+        "sms_subscription_last_updated": {
+          "type": "string"
+        },
+        "merge_fields": {
+          "type": "object",
+          "additionalProperties": {
+            "anyOf": [
+              {},
+              {
+                "not": {}
+              }
+            ]
+          }
+        },
+        "interests": {
+          "type": "object",
+          "additionalProperties": {
+            "anyOf": [
+              {},
+              {
+                "not": {}
+              }
+            ]
+          }
+        },
+        "stats": {
+          "type": "object",
+          "properties": {
+            "avg_open_rate": {
+              "type": "number"
+            },
+            "avg_click_rate": {
+              "type": "number"
+            },
+            "ecommerce_data": {
+              "type": "object",
+              "properties": {
+                "total_revenue": {
+                  "type": "number"
+                },
+                "number_of_orders": {
+                  "type": "number"
+                },
+                "currency_code": {
+                  "type": "string"
+                }
+              },
+              "additionalProperties": false
+            }
+          },
+          "additionalProperties": false
+        },
+        "ip_signup": {
+          "type": "string"
+        },
+        "timestamp_signup": {
+          "type": "string"
+        },
+        "ip_opt": {
+          "type": "string"
+        },
+        "timestamp_opt": {
+          "type": "string"
+        },
+        "member_rating": {
+          "type": [
+            "number",
+            "string"
+          ]
+        },
+        "last_changed": {
+          "type": "string"
+        },
+        "language": {
+          "type": "string"
+        },
+        "vip": {
+          "type": "boolean"
+        },
+        "email_client": {
+          "type": "string"
+        },
+        "location": {
+          "type": "object",
+          "properties": {
+            "latitude": {
+              "type": "number"
+            },
+            "longitude": {
+              "type": "number"
+            },
+            "gmtoff": {
+              "type": "number"
+            },
+            "dstoff": {
+              "type": "number"
+            },
+            "country_code": {
+              "type": "string"
+            },
+            "timezone": {
+              "type": "string"
+            },
+            "region": {
+              "type": "string"
+            }
+          },
+          "additionalProperties": false
+        },
+        "marketing_permissions": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "marketing_permission_id": {
+                "type": "string"
+              },
+              "text": {
+                "type": "string"
+              },
+              "enabled": {
+                "type": "boolean"
+              }
+            },
+            "additionalProperties": false
+          }
+        },
+        "last_note": {
+          "type": "object",
+          "properties": {
+            "note_id": {
+              "type": "number"
+            },
+            "created_at": {
+              "type": "string"
+            },
+            "created_by": {
+              "type": "string"
+            },
+            "note": {
+              "type": "string"
+            }
+          },
+          "additionalProperties": false
+        },
+        "source": {
+          "type": "string"
+        },
+        "tags_count": {
+          "type": "number"
+        },
+        "tags": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "number"
+              },
+              "name": {
+                "type": "string"
+              }
+            },
+            "additionalProperties": false
+          }
+        },
+        "list_id": {
+          "type": "string"
+        },
+        "_links": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "rel": {
+                "type": "string"
+              },
+              "href": {
+                "type": "string"
+              },
+              "method": {
+                "type": "string"
+              },
+              "targetSchema": {
+                "type": "string"
+              },
+              "schema": {
+                "type": "string"
+              }
+            },
+            "additionalProperties": false
+          }
+        }
+      },
+      "additionalProperties": false
+    },
+    "ActionInput_mailchimp_getsegment": {
+      "type": "object",
+      "properties": {
+        "list_id": {
+          "type": "string",
+          "description": "The unique ID for the list. Example: \"a1b2c3d4e5\""
+        },
+        "segment_id": {
+          "type": "number",
+          "description": "The unique ID for the segment. Example: 12345"
+        }
+      },
+      "required": [
+        "list_id",
+        "segment_id"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_mailchimp_getsegment": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "number"
+        },
+        "name": {
+          "type": "string"
+        },
+        "member_count": {
+          "type": "number"
+        },
+        "type": {
+          "type": "string"
+        },
+        "created_at": {
+          "type": "string"
+        },
+        "updated_at": {
+          "type": "string"
+        },
+        "options": {
+          "type": "object",
+          "properties": {
+            "match": {
+              "type": "string"
+            },
+            "conditions": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "additionalProperties": {
+                  "anyOf": [
+                    {},
+                    {
+                      "not": {}
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "additionalProperties": false
+        },
+        "list_id": {
+          "type": "string"
+        },
+        "_links": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "rel": {
+                "type": "string"
+              },
+              "href": {
+                "type": "string"
+              },
+              "method": {
+                "type": "string"
+              },
+              "targetSchema": {
+                "type": "string"
+              },
+              "schema": {
+                "type": "string"
+              }
+            },
+            "additionalProperties": false
+          }
+        }
+      },
+      "required": [
+        "id",
+        "name",
+        "member_count",
+        "type",
+        "created_at",
+        "updated_at",
+        "list_id"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_mailchimp_getstore": {
+      "type": "object",
+      "properties": {
+        "store_id": {
+          "type": "string",
+          "description": "The unique identifier for the store. Example: \"store123\""
+        }
+      },
+      "required": [
+        "store_id"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_mailchimp_getstore": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "list_id": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "platform": {
+          "type": "string"
+        },
+        "domain": {
+          "type": "string"
+        },
+        "is_syncing": {
+          "type": "boolean"
+        },
+        "currency_code": {
+          "type": "string"
+        },
+        "money_format": {
+          "type": "string"
+        },
+        "primary_locale": {
+          "type": "string"
+        },
+        "timezone": {
+          "type": "string"
+        },
+        "phone": {
+          "type": "string"
+        },
+        "email_address": {
+          "type": "string"
+        },
+        "address": {
+          "type": "object",
+          "properties": {
+            "address1": {
+              "type": "string"
+            },
+            "address2": {
+              "type": "string"
+            },
+            "city": {
+              "type": "string"
+            },
+            "province": {
+              "type": "string"
+            },
+            "province_code": {
+              "type": "string"
+            },
+            "postal_code": {
+              "type": "string"
+            },
+            "country": {
+              "type": "string"
+            },
+            "country_code": {
+              "type": "string"
+            },
+            "longitude": {
+              "type": "number"
+            },
+            "latitude": {
+              "type": "number"
+            }
+          },
+          "additionalProperties": false
+        },
+        "created_at": {
+          "type": "string"
+        },
+        "updated_at": {
+          "type": "string"
+        },
+        "list_is_active": {
+          "type": "boolean"
+        },
+        "automations": {
+          "type": "object",
+          "properties": {
+            "abandoned_cart": {
+              "type": "object",
+              "properties": {
+                "is_supported": {
+                  "type": "boolean"
+                },
+                "id": {
+                  "type": "string"
+                },
+                "status": {
+                  "type": "string"
+                }
+              },
+              "additionalProperties": false
+            },
+            "abandoned_browse": {
+              "type": "object",
+              "properties": {
+                "is_supported": {
+                  "type": "boolean"
+                },
+                "id": {
+                  "type": "string"
+                },
+                "status": {
+                  "type": "string"
+                }
+              },
+              "additionalProperties": false
+            }
+          },
+          "additionalProperties": false
+        },
+        "connected_site": {
+          "type": "object",
+          "properties": {
+            "site_foreign_id": {
+              "type": "string"
+            },
+            "site_script": {
+              "type": "object",
+              "properties": {
+                "url": {
+                  "type": "string"
+                },
+                "fragment": {
+                  "type": "string"
+                }
+              },
+              "additionalProperties": false
+            },
+            "domain": {
+              "type": "string"
+            },
+            "is_verified": {
+              "type": "boolean"
+            }
+          },
+          "additionalProperties": false
+        },
+        "syncing_flags": {
+          "type": "object",
+          "additionalProperties": {
+            "anyOf": [
+              {},
+              {
+                "not": {}
+              }
+            ]
+          }
+        },
+        "_links": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": {
+              "anyOf": [
+                {},
+                {
+                  "not": {}
+                }
+              ]
+            }
+          }
+        }
+      },
+      "required": [
+        "id",
+        "list_id",
+        "name",
+        "platform",
+        "domain",
+        "is_syncing",
+        "currency_code",
+        "money_format",
+        "primary_locale",
+        "created_at",
+        "updated_at"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_mailchimp_gettemplate": {
+      "type": "object",
+      "properties": {
+        "template_id": {
+          "type": "number",
+          "description": "The ID of the template to retrieve. Example: 12345"
+        }
+      },
+      "required": [
+        "template_id"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_mailchimp_gettemplate": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "number"
+        },
+        "type": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "drag_and_drop": {
+          "type": "boolean"
+        },
+        "responsive": {
+          "type": "boolean"
+        },
+        "category": {
+          "type": "string"
+        },
+        "date_created": {
+          "type": "string"
+        },
+        "date_edited": {
+          "type": "string"
+        },
+        "created_by": {
+          "type": "string"
+        },
+        "edited_by": {
+          "type": "string"
+        },
+        "active": {
+          "type": "boolean"
+        },
+        "folder_id": {
+          "type": "string"
+        },
+        "thumbnail": {
+          "type": "string"
+        },
+        "share_url": {
+          "type": "string"
+        },
+        "content_type": {
+          "type": "string"
+        },
+        "_links": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "rel": {
+                "type": "string"
+              },
+              "href": {
+                "type": "string"
+              },
+              "method": {
+                "type": "string"
+              },
+              "targetSchema": {
+                "type": "string"
+              },
+              "schema": {
+                "type": "string"
+              }
+            },
+            "additionalProperties": false
+          }
+        }
+      },
+      "required": [
+        "id"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_mailchimp_listaudiences": {
+      "type": "object",
+      "properties": {
+        "cursor": {
+          "type": "string",
+          "description": "Pagination offset from the previous response. Omit for the first page."
+        },
+        "count": {
+          "type": "number",
+          "description": "Number of records to return. Default is 10. Maximum is 1000."
+        }
+      },
+      "additionalProperties": false
+    },
+    "ActionOutput_mailchimp_listaudiences": {
+      "type": "object",
+      "properties": {
+        "lists": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "web_id": {
+                "type": "number"
+              },
+              "name": {
+                "type": "string"
+              },
+              "contact": {
+                "type": "object",
+                "properties": {
+                  "company": {
+                    "type": "string"
+                  },
+                  "address1": {
+                    "type": "string"
+                  },
+                  "address2": {
+                    "type": "string"
+                  },
+                  "city": {
+                    "type": "string"
+                  },
+                  "state": {
+                    "type": "string"
+                  },
+                  "zip": {
+                    "type": "string"
+                  },
+                  "country": {
+                    "type": "string"
+                  },
+                  "phone": {
+                    "type": "string"
+                  }
+                },
+                "additionalProperties": false
+              },
+              "permission_reminder": {
+                "type": "string"
+              },
+              "use_archive_bar": {
+                "type": "boolean"
+              },
+              "campaign_defaults": {
+                "type": "object",
+                "properties": {
+                  "from_name": {
+                    "type": "string"
+                  },
+                  "from_email": {
+                    "type": "string"
+                  },
+                  "subject": {
+                    "type": "string"
+                  },
+                  "language": {
+                    "type": "string"
+                  }
+                },
+                "additionalProperties": false
+              },
+              "notify_on_subscribe": {
+                "type": "string"
+              },
+              "notify_on_unsubscribe": {
+                "type": "string"
+              },
+              "date_created": {
+                "type": "string"
+              },
+              "list_rating": {
+                "type": "number"
+              },
+              "email_type_option": {
+                "type": "boolean"
+              },
+              "double_optin": {
+                "type": "boolean"
+              },
+              "marketing_permissions": {
+                "type": "boolean"
+              },
+              "stats": {
+                "type": "object",
+                "properties": {
+                  "member_count": {
+                    "type": "number"
+                  },
+                  "total_contacts": {
+                    "type": "number"
+                  },
+                  "unsubscribe_count": {
+                    "type": "number"
+                  },
+                  "cleaned_count": {
+                    "type": "number"
+                  },
+                  "member_count_since_send": {
+                    "type": "number"
+                  },
+                  "unsubscribe_count_since_send": {
+                    "type": "number"
+                  },
+                  "cleaned_count_since_send": {
+                    "type": "number"
+                  },
+                  "campaign_count": {
+                    "type": "number"
+                  },
+                  "campaign_last_sent": {
+                    "type": "string"
+                  },
+                  "merge_field_count": {
+                    "type": "number"
+                  },
+                  "avg_sub_rate": {
+                    "type": "number"
+                  },
+                  "avg_unsub_rate": {
+                    "type": "number"
+                  },
+                  "target_sub_rate": {
+                    "type": "number"
+                  },
+                  "open_rate": {
+                    "type": "number"
+                  },
+                  "click_rate": {
+                    "type": "number"
+                  },
+                  "last_sub_date": {
+                    "type": "string"
+                  },
+                  "last_unsub_date": {
+                    "type": "string"
+                  }
+                },
+                "additionalProperties": false
+              },
+              "visibility": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "id"
+            ],
+            "additionalProperties": false
+          }
+        },
+        "total_items": {
+          "type": "number"
+        },
+        "next_cursor": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "lists"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_mailchimp_listautomations": {
+      "type": "object",
+      "properties": {
+        "count": {
+          "type": "number"
+        },
+        "offset": {
+          "type": "number"
+        },
+        "before_create_time": {
+          "type": "string"
+        },
+        "since_create_time": {
+          "type": "string"
+        },
+        "before_start_time": {
+          "type": "string"
+        },
+        "since_start_time": {
+          "type": "string"
+        },
+        "status": {
+          "type": "string",
+          "enum": [
+            "save",
+            "paused",
+            "sending"
+          ]
+        }
+      },
+      "additionalProperties": false
+    },
+    "ActionOutput_mailchimp_listautomations": {
+      "type": "object",
+      "properties": {
+        "automations": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "create_time": {
+                "type": "string"
+              },
+              "start_time": {
+                "type": "string"
+              },
+              "status": {
+                "type": "string"
+              },
+              "emails_sent": {
+                "type": "number"
+              },
+              "recipients": {
+                "type": "object",
+                "additionalProperties": {
+                  "anyOf": [
+                    {},
+                    {
+                      "not": {}
+                    }
+                  ]
+                }
+              },
+              "settings": {
+                "type": "object",
+                "additionalProperties": {
+                  "anyOf": [
+                    {},
+                    {
+                      "not": {}
+                    }
+                  ]
+                }
+              },
+              "tracking": {
+                "type": "object",
+                "additionalProperties": {
+                  "anyOf": [
+                    {},
+                    {
+                      "not": {}
+                    }
+                  ]
+                }
+              },
+              "report_summary": {
+                "type": "object",
+                "additionalProperties": {
+                  "anyOf": [
+                    {},
+                    {
+                      "not": {}
+                    }
+                  ]
+                }
+              }
+            },
+            "required": [
+              "id"
+            ],
+            "additionalProperties": false
+          }
+        },
+        "total_items": {
+          "type": "number"
+        },
+        "next_offset": {
+          "type": "number"
+        }
+      },
+      "required": [
+        "automations",
+        "total_items"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_mailchimp_listcampaigns": {
+      "type": "object",
+      "properties": {
+        "cursor": {
+          "type": "string",
+          "description": "Pagination cursor (offset) from the previous response. Omit for the first page."
+        },
+        "count": {
+          "type": "number",
+          "description": "The number of records to return. Default is 10. Maximum is 1000."
+        },
+        "status": {
+          "type": "string",
+          "description": "The status of the campaign."
+        },
+        "type": {
+          "type": "string",
+          "description": "The campaign type."
+        },
+        "list_id": {
+          "type": "string",
+          "description": "The unique id for the list."
+        },
+        "folder_id": {
+          "type": "string",
+          "description": "The unique folder id."
+        },
+        "since_create_time": {
+          "type": "string",
+          "description": "Restrict results to campaigns created after this time (ISO 8601)."
+        },
+        "before_create_time": {
+          "type": "string",
+          "description": "Restrict results to campaigns created before this time (ISO 8601)."
+        },
+        "since_send_time": {
+          "type": "string",
+          "description": "Restrict results to campaigns sent after this time (ISO 8601)."
+        },
+        "before_send_time": {
+          "type": "string",
+          "description": "Restrict results to campaigns sent before this time (ISO 8601)."
+        }
+      },
+      "additionalProperties": false
+    },
+    "ActionOutput_mailchimp_listcampaigns": {
+      "type": "object",
+      "properties": {
+        "items": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "web_id": {
+                "type": "number"
+              },
+              "type": {
+                "type": "string"
+              },
+              "create_time": {
+                "type": "string"
+              },
+              "status": {
+                "type": "string"
+              },
+              "emails_sent": {
+                "type": "number"
+              },
+              "send_time": {
+                "type": "string"
+              },
+              "content_type": {
+                "type": "string"
+              },
+              "settings": {
+                "type": "object",
+                "properties": {
+                  "subject_line": {
+                    "type": "string"
+                  },
+                  "title": {
+                    "type": "string"
+                  },
+                  "from_name": {
+                    "type": "string"
+                  },
+                  "reply_to": {
+                    "type": "string"
+                  },
+                  "template_id": {
+                    "type": "number"
+                  }
+                },
+                "additionalProperties": false
+              },
+              "recipients": {
+                "type": "object",
+                "properties": {
+                  "list_id": {
+                    "type": "string"
+                  },
+                  "list_name": {
+                    "type": "string"
+                  },
+                  "recipient_count": {
+                    "type": "number"
+                  }
+                },
+                "additionalProperties": false
+              },
+              "report_summary": {
+                "type": "object",
+                "properties": {
+                  "opens": {
+                    "type": "number"
+                  },
+                  "unique_opens": {
+                    "type": "number"
+                  },
+                  "open_rate": {
+                    "type": "number"
+                  },
+                  "clicks": {
+                    "type": "number"
+                  },
+                  "subscriber_clicks": {
+                    "type": "number"
+                  },
+                  "click_rate": {
+                    "type": "number"
+                  }
+                },
+                "additionalProperties": false
+              }
+            },
+            "required": [
+              "id"
+            ],
+            "additionalProperties": false
+          }
+        },
+        "total_items": {
+          "type": "number"
+        },
+        "next_cursor": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "items",
+        "total_items"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_mailchimp_listmembers": {
+      "type": "object",
+      "properties": {
+        "list_id": {
+          "type": "string",
+          "description": "The unique ID for the list. Example: \"a1b2c3d4e5\""
+        },
+        "cursor": {
+          "type": "string",
+          "description": "Pagination cursor (offset) from the previous response. Omit for the first page."
+        },
+        "count": {
+          "type": "number",
+          "description": "The number of records to return. Default is 10. Maximum is 1000."
+        },
+        "status": {
+          "type": "string",
+          "enum": [
+            "subscribed",
+            "unsubscribed",
+            "cleaned",
+            "pending",
+            "transactional"
+          ],
+          "description": "The subscriber's status."
+        },
+        "since_timestamp_opt": {
+          "type": "string",
+          "description": "Restrict results to subscribers who opted-in after the set timeframe. Uses ISO 8601 time format: 2015-10-21T15:41:36+00:00."
+        },
+        "before_timestamp_opt": {
+          "type": "string",
+          "description": "Restrict results to subscribers who opted-in before the set timeframe. Uses ISO 8601 time format: 2015-10-21T15:41:36+00:00."
+        },
+        "since_last_changed": {
+          "type": "string",
+          "description": "Restrict results to subscribers whose information changed after the set timeframe. Uses ISO 8601 time format: 2015-10-21T15:41:36+00:00."
+        },
+        "before_last_changed": {
+          "type": "string",
+          "description": "Restrict results to subscribers whose information changed before the set timeframe. Uses ISO 8601 time format: 2015-10-21T15:41:36+00:00."
+        }
+      },
+      "required": [
+        "list_id"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_mailchimp_listmembers": {
+      "type": "object",
+      "properties": {
+        "members": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "email_address": {
+                "type": "string"
+              },
+              "unique_email_id": {
+                "type": "string"
+              },
+              "contact_id": {
+                "type": "string"
+              },
+              "full_name": {
+                "type": "string"
+              },
+              "web_id": {
+                "type": "number"
+              },
+              "email_type": {
+                "type": "string"
+              },
+              "status": {
+                "type": "string"
+              },
+              "unsubscribe_reason": {
+                "type": "string"
+              },
+              "consents_to_one_to_one_messaging": {
+                "type": "boolean"
+              },
+              "merge_fields": {
+                "type": "object",
+                "additionalProperties": {
+                  "anyOf": [
+                    {},
+                    {
+                      "not": {}
+                    }
+                  ]
+                }
+              },
+              "interests": {
+                "type": "object",
+                "additionalProperties": {
+                  "anyOf": [
+                    {},
+                    {
+                      "not": {}
+                    }
+                  ]
+                }
+              },
+              "stats": {
+                "type": "object",
+                "properties": {
+                  "avg_open_rate": {
+                    "type": "number"
+                  },
+                  "avg_click_rate": {
+                    "type": "number"
+                  }
+                },
+                "additionalProperties": false
+              },
+              "ip_signup": {
+                "type": "string"
+              },
+              "timestamp_signup": {
+                "type": "string"
+              },
+              "ip_opt": {
+                "type": "string"
+              },
+              "timestamp_opt": {
+                "type": "string"
+              },
+              "member_rating": {
+                "type": "number"
+              },
+              "last_changed": {
+                "type": "string"
+              },
+              "language": {
+                "type": "string"
+              },
+              "vip": {
+                "type": "boolean"
+              },
+              "email_client": {
+                "type": "string"
+              },
+              "location": {
+                "type": "object",
+                "properties": {
+                  "latitude": {
+                    "type": "number"
+                  },
+                  "longitude": {
+                    "type": "number"
+                  },
+                  "gmtoff": {
+                    "type": "number"
+                  },
+                  "dstoff": {
+                    "type": "number"
+                  },
+                  "country_code": {
+                    "type": "string"
+                  },
+                  "timezone": {
+                    "type": "string"
+                  },
+                  "region": {
+                    "type": "string"
+                  }
+                },
+                "additionalProperties": false
+              },
+              "source": {
+                "type": "string"
+              },
+              "tags_count": {
+                "type": "number"
+              },
+              "tags": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "number"
+                    },
+                    "name": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              },
+              "list_id": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "id",
+              "email_address"
+            ],
+            "additionalProperties": false
+          }
+        },
+        "next_cursor": {
+          "type": "string"
+        },
+        "total_items": {
+          "type": "number"
+        }
+      },
+      "required": [
+        "members"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_mailchimp_listsegments": {
+      "type": "object",
+      "properties": {
+        "list_id": {
+          "type": "string",
+          "description": "The unique ID for the list. Example: \"a1b2c3d4\""
+        },
+        "cursor": {
+          "type": "string",
+          "description": "Pagination cursor (offset) from the previous response. Omit for the first page."
+        },
+        "count": {
+          "type": "number",
+          "description": "The number of records to return. Default value is 10. Maximum value is 1000."
+        },
+        "type": {
+          "type": "string",
+          "description": "Limit results based on segment type."
+        },
+        "exclude_type": {
+          "type": "string",
+          "enum": [
+            "saved",
+            "static",
+            "fuzzy"
+          ],
+          "description": "Exclude results based on segment type."
+        },
+        "since_created_at": {
+          "type": "string",
+          "description": "Restrict results to segments created after the set time. Uses ISO 8601 time format."
+        },
+        "before_created_at": {
+          "type": "string",
+          "description": "Restrict results to segments created before the set time. Uses ISO 8601 time format."
+        },
+        "since_updated_at": {
+          "type": "string",
+          "description": "Restrict results to segments updated after the set time. Uses ISO 8601 time format."
+        },
+        "before_updated_at": {
+          "type": "string",
+          "description": "Restrict results to segments updated before the set time. Uses ISO 8601 time format."
+        },
+        "include_cleaned": {
+          "type": "boolean",
+          "description": "Include cleaned members in response."
+        },
+        "include_transactional": {
+          "type": "boolean",
+          "description": "Include transactional members in response."
+        },
+        "include_unsubscribed": {
+          "type": "boolean",
+          "description": "Include unsubscribed members in response."
+        }
+      },
+      "required": [
+        "list_id"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_mailchimp_listsegments": {
+      "type": "object",
+      "properties": {
+        "items": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "number"
+              },
+              "name": {
+                "type": "string"
+              },
+              "member_count": {
+                "type": "number"
+              },
+              "type": {
+                "type": "string",
+                "enum": [
+                  "saved",
+                  "static",
+                  "fuzzy"
+                ]
+              },
+              "created_at": {
+                "type": "string"
+              },
+              "updated_at": {
+                "type": "string"
+              },
+              "options": {
+                "type": "object",
+                "properties": {
+                  "match": {
+                    "type": "string",
+                    "enum": [
+                      "any",
+                      "all"
+                    ]
+                  },
+                  "conditions": {
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "properties": {
+                        "condition_type": {
+                          "type": "string"
+                        },
+                        "field": {
+                          "type": "string"
+                        },
+                        "op": {
+                          "type": "string"
+                        },
+                        "value": {
+                          "type": [
+                            "string",
+                            "number"
+                          ]
+                        },
+                        "extra": {
+                          "type": "string"
+                        }
+                      },
+                      "additionalProperties": false
+                    }
+                  }
+                },
+                "additionalProperties": false
+              }
+            },
+            "required": [
+              "id",
+              "name",
+              "member_count"
+            ],
+            "additionalProperties": false
+          }
+        },
+        "next_cursor": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "items"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_mailchimp_liststores": {
+      "type": "object",
+      "properties": {
+        "cursor": {
+          "type": "string",
+          "description": "Pagination cursor from the previous response. Omit for the first page."
+        },
+        "count": {
+          "type": "number",
+          "description": "The number of records to return. Maximum 1000, default 10."
+        },
+        "fields": {
+          "type": "string",
+          "description": "A comma-separated list of fields to return."
+        },
+        "exclude_fields": {
+          "type": "string",
+          "description": "A comma-separated list of fields to exclude."
+        }
+      },
+      "additionalProperties": false
+    },
+    "ActionOutput_mailchimp_liststores": {
+      "type": "object",
+      "properties": {
+        "items": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "list_id": {
+                "type": "string"
+              },
+              "name": {
+                "type": "string"
+              },
+              "domain": {
+                "type": "string"
+              },
+              "email_address": {
+                "type": "string"
+              },
+              "currency_code": {
+                "type": "string"
+              },
+              "money_format": {
+                "type": "string"
+              },
+              "primary_locale": {
+                "type": "string"
+              },
+              "timezone": {
+                "type": "string"
+              },
+              "phone": {
+                "type": "string"
+              },
+              "address": {
+                "type": "object",
+                "properties": {
+                  "address1": {
+                    "type": "string"
+                  },
+                  "address2": {
+                    "type": "string"
+                  },
+                  "city": {
+                    "type": "string"
+                  },
+                  "province": {
+                    "type": "string"
+                  },
+                  "province_code": {
+                    "type": "string"
+                  },
+                  "postal_code": {
+                    "type": "string"
+                  },
+                  "country": {
+                    "type": "string"
+                  },
+                  "country_code": {
+                    "type": "string"
+                  },
+                  "longitude": {
+                    "type": "number"
+                  },
+                  "latitude": {
+                    "type": "number"
+                  }
+                },
+                "additionalProperties": false
+              },
+              "created_at": {
+                "type": "string"
+              },
+              "updated_at": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "id"
+            ],
+            "additionalProperties": false
+          }
+        },
+        "next_cursor": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "items"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_mailchimp_listtemplates": {
+      "type": "object",
+      "properties": {
+        "cursor": {
+          "type": "string",
+          "description": "Pagination offset from the previous response. Omit for the first page."
+        },
+        "count": {
+          "type": "number",
+          "description": "Number of templates to return per page. Max 1000, default 10."
+        },
+        "folder_id": {
+          "type": "string",
+          "description": "Filter templates by folder ID."
+        },
+        "type": {
+          "type": "string",
+          "description": "Filter templates by type. Possible values: user, base, or gallery."
+        }
+      },
+      "additionalProperties": false
+    },
+    "ActionOutput_mailchimp_listtemplates": {
+      "type": "object",
+      "properties": {
+        "items": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "number"
+              },
+              "type": {
+                "type": "string",
+                "description": "The type of template (user, base, or gallery)."
+              },
+              "name": {
+                "type": "string",
+                "description": "The name of the template."
+              },
+              "drag_and_drop": {
+                "type": "boolean",
+                "description": "Whether the template uses the drag and drop editor."
+              },
+              "responsive": {
+                "type": "boolean",
+                "description": "Whether the template contains media queries to make it responsive."
+              },
+              "category": {
+                "type": "string",
+                "description": "If available, the category the template is listed in."
+              },
+              "date_created": {
+                "type": "string",
+                "description": "The date and time the template was created in ISO 8601 format."
+              },
+              "date_edited": {
+                "type": "string",
+                "description": "The date and time the template was edited in ISO 8601 format."
+              },
+              "created_by": {
+                "type": "string",
+                "description": "The login name for template's creator."
+              },
+              "edited_by": {
+                "type": "string",
+                "description": "The login name who last edited the template."
+              },
+              "active": {
+                "type": "boolean",
+                "description": "User templates are not deleted, but marked as inactive. Returns whether the template is still active."
+              },
+              "folder_id": {
+                "type": "string",
+                "description": "The id of the folder the template is currently in."
+              },
+              "thumbnail": {
+                "type": "string",
+                "description": "If available, the URL for a thumbnail of the template."
+              },
+              "share_url": {
+                "type": "string",
+                "description": "The URL used for template sharing."
+              },
+              "content_type": {
+                "type": "string",
+                "description": "How the template content is put together. Possible values: template, multichannel, html."
+              }
+            },
+            "required": [
+              "id"
+            ],
+            "additionalProperties": false
+          },
+          "description": "The list of templates."
+        },
+        "next_cursor": {
+          "type": "string",
+          "description": "Offset to request the next page. Omit if there are no more pages."
+        }
+      },
+      "required": [
+        "items"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_mailchimp_schedulecampaign": {
+      "type": "object",
+      "properties": {
+        "campaign_id": {
+          "type": "string",
+          "description": "The unique id for the campaign. Example: \"a1b2c3d4e5\""
+        },
+        "schedule_time": {
+          "type": "string",
+          "description": "The date and time to schedule the campaign in ISO 8601 format. Example: \"2026-05-25T14:00:00Z\""
+        }
+      },
+      "required": [
+        "campaign_id",
+        "schedule_time"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_mailchimp_schedulecampaign": {
+      "type": "object",
+      "properties": {
+        "campaign_id": {
+          "type": "string"
+        },
+        "status": {
+          "type": "string"
+        },
+        "schedule_time": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "campaign_id",
+        "schedule_time"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_mailchimp_tagmember": {
+      "type": "object",
+      "properties": {
+        "list_id": {
+          "type": "string",
+          "description": "The unique ID for the list. Example: \"a1b2c3d4e5\""
+        },
+        "email": {
+          "type": "string",
+          "description": "The email address of the list member. Example: \"user@example.com\""
+        },
+        "tags": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "name": {
+                "type": "string"
+              },
+              "status": {
+                "type": "string",
+                "enum": [
+                  "active",
+                  "inactive"
+                ],
+                "description": "Use \"active\" to add the tag, \"inactive\" to remove it."
+              }
+            },
+            "required": [
+              "name",
+              "status"
+            ],
+            "additionalProperties": false
+          },
+          "description": "Tags to add or remove on the member."
+        }
+      },
+      "required": [
+        "list_id",
+        "email",
+        "tags"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_mailchimp_tagmember": {
+      "type": "object",
+      "properties": {
+        "success": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "success"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_mailchimp_updateaudience": {
+      "type": "object",
+      "properties": {
+        "list_id": {
+          "type": "string",
+          "description": "The unique ID for the audience. Example: \"a1b2c3d4e5\""
+        },
+        "name": {
+          "type": "string",
+          "description": "The name of the audience."
+        },
+        "contact": {
+          "type": "object",
+          "properties": {
+            "company": {
+              "type": "string"
+            },
+            "address1": {
+              "type": "string"
+            },
+            "address2": {
+              "type": "string"
+            },
+            "city": {
+              "type": "string"
+            },
+            "state": {
+              "type": "string"
+            },
+            "zip": {
+              "type": "string"
+            },
+            "country": {
+              "type": "string"
+            },
+            "phone": {
+              "type": "string"
+            }
+          },
+          "additionalProperties": false,
+          "description": "The contact information for the audience."
+        },
+        "permission_reminder": {
+          "type": "string",
+          "description": "The permission reminder for the audience."
+        },
+        "campaign_defaults": {
+          "type": "object",
+          "properties": {
+            "from_name": {
+              "type": "string"
+            },
+            "from_email": {
+              "type": "string"
+            },
+            "subject": {
+              "type": "string"
+            },
+            "language": {
+              "type": "string"
+            }
+          },
+          "additionalProperties": false,
+          "description": "The default campaign settings for the audience."
+        },
+        "notify_on_subscribe": {
+          "type": "string",
+          "description": "The email address to notify when someone subscribes."
+        },
+        "notify_on_unsubscribe": {
+          "type": "string",
+          "description": "The email address to notify when someone unsubscribes."
+        },
+        "email_type_option": {
+          "type": "boolean",
+          "description": "Whether subscribers can choose the format of the email."
+        },
+        "visibility": {
+          "type": "string",
+          "enum": [
+            "pub",
+            "prv"
+          ],
+          "description": "The visibility of the audience."
+        }
+      },
+      "required": [
+        "list_id"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_mailchimp_updateaudience": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "contact": {
+          "type": "object",
+          "properties": {
+            "company": {
+              "type": "string"
+            },
+            "address1": {
+              "type": "string"
+            },
+            "address2": {
+              "type": "string"
+            },
+            "city": {
+              "type": "string"
+            },
+            "state": {
+              "type": "string"
+            },
+            "zip": {
+              "type": "string"
+            },
+            "country": {
+              "type": "string"
+            },
+            "phone": {
+              "type": "string"
+            }
+          },
+          "additionalProperties": false
+        },
+        "permission_reminder": {
+          "type": "string"
+        },
+        "campaign_defaults": {
+          "type": "object",
+          "properties": {
+            "from_name": {
+              "type": "string"
+            },
+            "from_email": {
+              "type": "string"
+            },
+            "subject": {
+              "type": "string"
+            },
+            "language": {
+              "type": "string"
+            }
+          },
+          "additionalProperties": false
+        },
+        "notify_on_subscribe": {
+          "type": "string"
+        },
+        "notify_on_unsubscribe": {
+          "type": "string"
+        },
+        "email_type_option": {
+          "type": "boolean"
+        },
+        "visibility": {
+          "type": "string"
+        },
+        "web_id": {
+          "type": "number"
+        },
+        "date_created": {
+          "type": "string"
+        },
+        "list_rating": {
+          "type": "number"
+        }
+      },
+      "required": [
+        "id",
+        "name",
+        "contact",
+        "permission_reminder",
+        "campaign_defaults",
+        "email_type_option"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_mailchimp_updatecampaign": {
+      "type": "object",
+      "properties": {
+        "campaign_id": {
+          "type": "string",
+          "description": "The unique ID of the campaign to update."
+        },
+        "recipients": {
+          "type": "object",
+          "properties": {
+            "list_id": {
+              "type": "string"
+            },
+            "segment_opts": {
+              "type": "object",
+              "properties": {
+                "match": {
+                  "type": "string"
+                },
+                "conditions": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "additionalProperties": {
+                      "anyOf": [
+                        {},
+                        {
+                          "not": {}
+                        }
+                      ]
+                    }
+                  }
+                },
+                "saved_segment_id": {
+                  "type": "number"
+                },
+                "prebuilt_segment_id": {
+                  "type": "string"
+                }
+              },
+              "additionalProperties": false
+            }
+          },
+          "additionalProperties": false
+        },
+        "settings": {
+          "type": "object",
+          "properties": {
+            "subject_line": {
+              "type": "string"
+            },
+            "preview_text": {
+              "type": "string"
+            },
+            "title": {
+              "type": "string"
+            },
+            "from_name": {
+              "type": "string"
+            },
+            "reply_to": {
+              "type": "string"
+            },
+            "use_conversation": {
+              "type": "boolean"
+            },
+            "to_name": {
+              "type": "string"
+            },
+            "folder_id": {
+              "type": "string"
+            },
+            "authenticate": {
+              "type": "boolean"
+            },
+            "auto_footer": {
+              "type": "boolean"
+            },
+            "inline_css": {
+              "type": "boolean"
+            },
+            "auto_tweet": {
+              "type": "boolean"
+            },
+            "fb_comments": {
+              "type": "boolean"
+            },
+            "template_id": {
+              "type": "number"
+            }
+          },
+          "additionalProperties": false
+        },
+        "variate_settings": {
+          "type": "object",
+          "properties": {
+            "winner_criteria": {
+              "type": "string"
+            },
+            "test_size": {
+              "type": "number"
+            },
+            "wait_time": {
+              "type": "number"
+            },
+            "from_names": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "send_times": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "subject_lines": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "reply_to_addresses": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            }
+          },
+          "additionalProperties": false
+        },
+        "tracking": {
+          "type": "object",
+          "properties": {
+            "goal_tracking": {
+              "type": "boolean"
+            }
+          },
+          "additionalProperties": false
+        },
+        "social_card": {
+          "type": "object",
+          "properties": {
+            "title": {
+              "type": "string"
+            },
+            "description": {
+              "type": "string"
+            },
+            "image_url": {
+              "type": "string"
+            }
+          },
+          "additionalProperties": false
+        }
+      },
+      "required": [
+        "campaign_id"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_mailchimp_updatecampaign": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "web_id": {
+          "type": "number"
+        },
+        "type": {
+          "type": "string"
+        },
+        "create_time": {
+          "type": "string"
+        },
+        "archive_url": {
+          "type": "string"
+        },
+        "long_archive_url": {
+          "type": "string"
+        },
+        "status": {
+          "type": "string"
+        },
+        "emails_sent": {
+          "type": "number"
+        },
+        "send_time": {
+          "type": "string"
+        },
+        "content_type": {
+          "type": "string"
+        },
+        "needs_block_refresh": {
+          "type": "boolean"
+        },
+        "recipients": {
+          "type": "object",
+          "properties": {
+            "list_id": {
+              "type": "string"
+            },
+            "list_is_active": {
+              "type": "boolean"
+            },
+            "list_name": {
+              "type": "string"
+            },
+            "segment_text": {
+              "type": "string"
+            },
+            "recipient_count": {
+              "type": "number"
+            }
+          },
+          "additionalProperties": false
+        },
+        "settings": {
+          "type": "object",
+          "properties": {
+            "subject_line": {
+              "type": "string"
+            },
+            "preview_text": {
+              "type": "string"
+            },
+            "title": {
+              "type": "string"
+            },
+            "from_name": {
+              "type": "string"
+            },
+            "reply_to": {
+              "type": "string"
+            },
+            "use_conversation": {
+              "type": "boolean"
+            },
+            "to_name": {
+              "type": "string"
+            },
+            "folder_id": {
+              "type": "string"
+            },
+            "authenticate": {
+              "type": "boolean"
+            },
+            "auto_footer": {
+              "type": "boolean"
+            },
+            "inline_css": {
+              "type": "boolean"
+            },
+            "auto_tweet": {
+              "type": "boolean"
+            },
+            "fb_comments": {
+              "type": "boolean"
+            },
+            "template_id": {
+              "type": "number"
+            }
+          },
+          "additionalProperties": false
+        },
+        "tracking": {
+          "type": "object",
+          "properties": {
+            "goal_tracking": {
+              "type": "boolean"
+            }
+          },
+          "additionalProperties": false
+        }
+      },
+      "required": [
+        "id"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_mailchimp_updatemember": {
+      "type": "object",
+      "properties": {
+        "list_id": {
+          "type": "string",
+          "description": "The unique ID for the list. Example: \"16ed227135\""
+        },
+        "subscriber_hash": {
+          "type": "string",
+          "description": "The MD5 hash of the lowercase version of the list member's email address. Example: \"0f8c53293177b8e9f1658ae7951a468e\""
+        },
+        "email_address": {
+          "type": "string",
+          "description": "Email address for a subscriber."
+        },
+        "email_type": {
+          "type": "string",
+          "description": "Type of email this member asked to get (\"html\" or \"text\")."
+        },
+        "status": {
+          "type": "string",
+          "enum": [
+            "subscribed",
+            "unsubscribed",
+            "cleaned",
+            "pending",
+            "transactional"
+          ],
+          "description": "Subscriber's current status."
+        },
+        "merge_fields": {
+          "type": "object",
+          "additionalProperties": {
+            "anyOf": [
+              {},
+              {
+                "not": {}
+              }
+            ]
+          },
+          "description": "An individual merge var and value for a member."
+        },
+        "interests": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "boolean"
+          },
+          "description": "The key of this object's properties is the ID of the interest in question."
+        },
+        "language": {
+          "type": "string",
+          "description": "If set/detected, the subscriber's language."
+        },
+        "vip": {
+          "type": "boolean",
+          "description": "VIP status for subscriber."
+        },
+        "location": {
+          "type": "object",
+          "properties": {
+            "latitude": {
+              "type": "number"
+            },
+            "longitude": {
+              "type": "number"
+            },
+            "gmtoff": {
+              "type": "number"
+            },
+            "dstoff": {
+              "type": "number"
+            },
+            "country_code": {
+              "type": "string"
+            },
+            "timezone": {
+              "type": "string"
+            },
+            "region": {
+              "type": "string"
+            }
+          },
+          "additionalProperties": false,
+          "description": "Subscriber location information."
+        },
+        "ip_signup": {
+          "type": "string",
+          "description": "IP address the subscriber signed up from."
+        },
+        "timestamp_signup": {
+          "type": "string",
+          "description": "The date and time the subscriber signed up for the list in ISO 8601 format."
+        },
+        "ip_opt": {
+          "type": "string",
+          "description": "The IP address the subscriber used to confirm their opt-in status."
+        },
+        "timestamp_opt": {
+          "type": "string",
+          "description": "The date and time the subscriber confirmed their opt-in status in ISO 8601 format."
+        }
+      },
+      "required": [
+        "list_id",
+        "subscriber_hash"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_mailchimp_updatemember": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "email_address": {
+          "type": "string"
+        },
+        "status": {
+          "type": "string"
+        },
+        "list_id": {
+          "type": "string"
+        },
+        "vip": {
+          "type": "boolean"
+        },
+        "language": {
+          "type": "string"
+        },
+        "merge_fields": {
+          "type": "object",
+          "additionalProperties": {
+            "anyOf": [
+              {},
+              {
+                "not": {}
+              }
+            ]
+          }
+        },
+        "last_changed": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "id",
+        "email_address",
+        "status",
+        "list_id"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_mailchimp_updatesegment": {
+      "type": "object",
+      "properties": {
+        "list_id": {
+          "type": "string",
+          "description": "The unique ID for the list. Example: \"a1b2c3d4e5\""
+        },
+        "segment_id": {
+          "type": "string",
+          "description": "The unique id for the segment. Example: \"12345\""
+        },
+        "name": {
+          "type": "string",
+          "description": "The name of the segment."
+        },
+        "options": {
+          "type": "object",
+          "properties": {
+            "match": {
+              "type": "string",
+              "enum": [
+                "any",
+                "all"
+              ]
+            },
+            "conditions": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "additionalProperties": {
+                  "anyOf": [
+                    {},
+                    {
+                      "not": {}
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "additionalProperties": false
+        },
+        "static_segment": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      },
+      "required": [
+        "list_id",
+        "segment_id",
+        "name"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_mailchimp_updatesegment": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "number"
+        },
+        "name": {
+          "type": "string"
+        },
+        "member_count": {
+          "type": "number"
+        },
+        "type": {
+          "type": "string",
+          "enum": [
+            "saved",
+            "static",
+            "fuzzy"
+          ]
+        },
+        "created_at": {
+          "type": "string"
+        },
+        "updated_at": {
+          "type": "string"
+        },
+        "options": {
+          "type": "object",
+          "properties": {
+            "match": {
+              "type": "string",
+              "enum": [
+                "any",
+                "all"
+              ]
+            },
+            "conditions": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "additionalProperties": {
+                  "anyOf": [
+                    {},
+                    {
+                      "not": {}
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "additionalProperties": false
+        }
+      },
+      "required": [
+        "id",
+        "name"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_mailchimp_updatestore": {
+      "type": "object",
+      "properties": {
+        "store_id": {
+          "type": "string",
+          "description": "The unique identifier for the store. Example: \"example_store\""
+        },
+        "name": {
+          "type": "string",
+          "description": "The name of the store."
+        },
+        "platform": {
+          "type": "string",
+          "description": "The e-commerce platform of the store."
+        },
+        "domain": {
+          "type": "string",
+          "description": "The store domain."
+        },
+        "is_syncing": {
+          "type": "boolean",
+          "description": "Whether to disable automations because the store is currently syncing."
+        },
+        "email_address": {
+          "type": "string",
+          "description": "The email address for the store."
+        },
+        "currency_code": {
+          "type": "string",
+          "description": "The three-letter ISO 4217 code for the currency that the store accepts."
+        },
+        "money_format": {
+          "type": "string",
+          "description": "The currency format for the store."
+        },
+        "primary_locale": {
+          "type": "string",
+          "description": "The primary locale for the store."
+        },
+        "timezone": {
+          "type": "string",
+          "description": "The timezone for the store."
+        },
+        "phone": {
+          "type": "string",
+          "description": "The store phone number."
+        },
+        "address": {
+          "type": "object",
+          "properties": {
+            "address1": {
+              "type": "string"
+            },
+            "address2": {
+              "type": "string"
+            },
+            "city": {
+              "type": "string"
+            },
+            "province": {
+              "type": "string"
+            },
+            "province_code": {
+              "type": "string"
+            },
+            "postal_code": {
+              "type": "string"
+            },
+            "country": {
+              "type": "string"
+            },
+            "country_code": {
+              "type": "string"
+            },
+            "longitude": {
+              "type": "number"
+            },
+            "latitude": {
+              "type": "number"
+            }
+          },
+          "additionalProperties": false,
+          "description": "The store address."
+        }
+      },
+      "required": [
+        "store_id"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_mailchimp_updatestore": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "list_id": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "platform": {
+          "type": "string"
+        },
+        "domain": {
+          "type": "string"
+        },
+        "is_syncing": {
+          "type": "boolean"
+        },
+        "email_address": {
+          "type": "string"
+        },
+        "currency_code": {
+          "type": "string"
+        },
+        "money_format": {
+          "type": "string"
+        },
+        "primary_locale": {
+          "type": "string"
+        },
+        "timezone": {
+          "type": "string"
+        },
+        "phone": {
+          "type": "string"
+        },
+        "address": {
+          "type": "object",
+          "properties": {
+            "address1": {
+              "type": "string"
+            },
+            "address2": {
+              "type": "string"
+            },
+            "city": {
+              "type": "string"
+            },
+            "province": {
+              "type": "string"
+            },
+            "province_code": {
+              "type": "string"
+            },
+            "postal_code": {
+              "type": "string"
+            },
+            "country": {
+              "type": "string"
+            },
+            "country_code": {
+              "type": "string"
+            },
+            "longitude": {
+              "type": "number"
+            },
+            "latitude": {
+              "type": "number"
+            }
+          },
+          "additionalProperties": false
+        },
+        "connected_site": {
+          "type": "object",
+          "properties": {
+            "site_foreign_id": {
+              "type": "string"
+            },
+            "site_script": {
+              "type": "object",
+              "properties": {
+                "url": {
+                  "type": "string"
+                },
+                "fragment": {
+                  "type": "string"
+                }
+              },
+              "additionalProperties": false
+            }
+          },
+          "additionalProperties": false
+        },
+        "automations": {
+          "type": "object",
+          "properties": {
+            "abandoned_cart": {
+              "type": "object",
+              "properties": {
+                "is_supported": {
+                  "type": "boolean"
+                },
+                "id": {
+                  "type": "string"
+                },
+                "status": {
+                  "type": "string"
+                }
+              },
+              "additionalProperties": false
+            },
+            "abandoned_browse": {
+              "type": "object",
+              "properties": {
+                "is_supported": {
+                  "type": "boolean"
+                },
+                "id": {
+                  "type": "string"
+                },
+                "status": {
+                  "type": "string"
+                }
+              },
+              "additionalProperties": false
+            }
+          },
+          "additionalProperties": false
+        },
+        "list_is_active": {
+          "type": "boolean"
+        },
+        "created_at": {
+          "type": "string"
+        },
+        "updated_at": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "id"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_mailchimp_updatetemplate": {
+      "type": "object",
+      "properties": {
+        "template_id": {
+          "type": "string",
+          "description": "Template ID. Example: \"123\""
+        },
+        "name": {
+          "type": "string",
+          "description": "The name of the template."
+        },
+        "html": {
+          "type": "string",
+          "description": "The raw HTML for the template."
+        },
+        "folder_id": {
+          "type": "string",
+          "description": "The folder ID to organize the template in."
+        }
+      },
+      "required": [
+        "template_id"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_mailchimp_updatetemplate": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "type": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "drag_and_drop": {
+          "type": "boolean"
+        },
+        "responsive": {
+          "type": "boolean"
+        },
+        "category": {
+          "type": "string"
+        },
+        "date_created": {
+          "type": "string"
+        },
+        "date_edited": {
+          "type": "string"
+        },
+        "created_by": {
+          "type": "string"
+        },
+        "edited_by": {
+          "type": "string"
+        },
+        "active": {
+          "type": "boolean"
+        },
+        "folder_id": {
+          "type": "string"
+        },
+        "thumbnail": {
+          "type": "string"
+        },
+        "share_url": {
+          "type": "string"
+        },
+        "content_type": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "id"
+      ],
       "additionalProperties": false
     },
     "SyncMetadata_metabase_users": {

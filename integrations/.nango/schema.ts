@@ -24114,13 +24114,26 @@ export interface Collection {
 };
 
 export interface Segment {
+  /**
+   * The unique id for the segment
+   */
   id: string;
-  name: string;
+  name?: string | undefined;
+  member_count?: number | undefined;
   type?: string | undefined;
-  created_at?: number | undefined;
-  updated_at?: number | undefined;
-  person_type?: string | undefined;
-  count?: number | undefined;
+  /**
+   * ISO 8601 timestamp
+   */
+  created_at?: string | undefined;
+  /**
+   * ISO 8601 timestamp
+   */
+  updated_at?: string | undefined;
+  /**
+   * The list id
+   */
+  list_id: string;
+  options?: {  [key: string]: unknown | undefined;};
 };
 
 export interface ActionInput_intercom_attachcontacttocompany {
@@ -29213,6 +29226,1819 @@ export interface ActionOutput_linkedin_updatepost {
 };
 
 export interface SyncMetadata_luma_listevents {
+};
+
+export interface Audience {
+  id: string;
+  name: string;
+  date_created?: string | undefined;
+  list_rating?: number | undefined;
+  email_type_option?: boolean | undefined;
+  visibility?: string | undefined;
+  double_optin?: boolean | undefined;
+  has_welcome?: boolean | undefined;
+  marketing_permissions?: boolean | undefined;
+  permission_reminder?: string | undefined;
+  notify_on_subscribe?: string | undefined;
+  notify_on_unsubscribe?: string | undefined;
+  subscribe_url_short?: string | undefined;
+  subscribe_url_long?: string | undefined;
+  beamer_address?: string | undefined;
+  web_id?: number | undefined;
+  stats?: {  [key: string]: unknown | undefined;};
+};
+
+export interface Automation {
+  id: string;
+  create_time: string;
+  start_time?: string | undefined;
+  status: string;
+  emails_sent?: number | undefined;
+  title?: string | undefined;
+  from_name?: string | undefined;
+  reply_to?: string | undefined;
+  list_id?: string | undefined;
+  list_name?: string | undefined;
+  workflow_type?: string | undefined;
+};
+
+export interface Member {
+  id: string;
+  email_address?: string | undefined;
+  unique_email_id?: string | undefined;
+  contact_id?: string | undefined;
+  full_name?: string | undefined;
+  web_id?: number | undefined;
+  email_type?: string | undefined;
+  status?: string | undefined;
+  unsubscribe_reason?: string | undefined;
+  consents_to_one_to_one_messaging?: boolean | undefined;
+  merge_fields?: {  [key: string]: unknown | undefined;};
+  interests?: {  [key: string]: unknown | undefined;};
+  ip_signup?: string | undefined;
+  timestamp_signup?: string | undefined;
+  ip_opt?: string | undefined;
+  timestamp_opt?: string | undefined;
+  member_rating?: number | undefined;
+  last_changed?: string | undefined;
+  language?: string | undefined;
+  vip?: boolean | undefined;
+  email_client?: string | undefined;
+  location?: {  latitude?: number | undefined;
+  longitude?: number | undefined;
+  gmtoff?: number | undefined;
+  dstoff?: number | undefined;
+  country_code?: string | undefined;
+  timezone?: string | undefined;
+  region?: string | undefined;};
+  source?: string | undefined;
+  tags_count?: number | undefined;
+  tags?: ({  id?: number | undefined;
+  name?: string | undefined;})[];
+  list_id?: string | undefined;
+};
+
+export interface Store {
+  id: string;
+  list_id?: string | undefined;
+  name?: string | undefined;
+  domain?: string | undefined;
+  email_address?: string | undefined;
+  currency_code?: string | undefined;
+  money_format?: string | undefined;
+  primary_locale?: string | undefined;
+  timezone?: string | undefined;
+  phone?: string | undefined;
+  address?: {  address1?: string | undefined;
+  address2?: string | undefined;
+  city?: string | undefined;
+  province?: string | undefined;
+  province_code?: string | undefined;
+  postal_code?: string | undefined;
+  country?: string | undefined;
+  country_code?: string | undefined;
+  longitude?: number | undefined;
+  latitude?: number | undefined;};
+  created_at?: string | undefined;
+  updated_at?: string | undefined;
+};
+
+export interface ActionInput_mailchimp_createaudience {
+  name: string;
+  contact: {  company: string;
+  address1: string;
+  address2?: string | undefined;
+  city: string;
+  state: string;
+  zip: string;
+  country: string;
+  phone?: string | undefined;};
+  permission_reminder: string;
+  campaign_defaults: {  from_name: string;
+  from_email: string;
+  subject: string;
+  language: string;};
+  email_type_option: boolean;
+  visibility?: 'pub' | 'prv' | undefined;
+  notify_on_subscribe?: string | undefined;
+  notify_on_unsubscribe?: string | undefined;
+  use_archive_bar?: boolean | undefined;
+};
+
+export interface ActionOutput_mailchimp_createaudience {
+  id: string;
+  name: string;
+  contact: {  company: string;
+  address1: string;
+  address2?: string | undefined;
+  city: string;
+  state: string;
+  zip: string;
+  country: string;
+  phone?: string | undefined;};
+  permission_reminder: string;
+  campaign_defaults: {  from_name: string;
+  from_email: string;
+  subject: string;
+  language: string;};
+  email_type_option: boolean;
+  visibility?: string | undefined;
+};
+
+export interface ActionInput_mailchimp_createcampaign {
+  /**
+   * Campaign type. Allowed: regular, plaintext, absplit, rss, variate. Example: "regular"
+   */
+  type: string;
+  recipients: {  /**
+   * Audience/list ID. Example: "a1b2c3d4e5"
+   */
+  list_id: string;
+  segment_opts?: {  saved_segment_id?: number | undefined;
+  match?: string | undefined;
+  conditions?: unknown[] | undefined;};};
+  settings?: {  subject_line?: string | undefined;
+  preview_text?: string | undefined;
+  title?: string | undefined;
+  from_name?: string | undefined;
+  reply_to?: string | undefined;
+  template_id?: number | undefined;};
+  tracking?: {  opens?: boolean | undefined;
+  html_clicks?: boolean | undefined;
+  text_clicks?: boolean | undefined;
+  google_analytics?: string | undefined;};
+  rss_opts?: {  feed_url?: string | undefined;
+  frequency?: string | undefined;};
+  variate_settings?: {  winner_criteria?: string | undefined;
+  wait_time?: number | undefined;
+  test_size?: number | undefined;
+  subject_lines?: string[] | undefined;
+  send_times?: string[] | undefined;
+  from_names?: string[] | undefined;
+  reply_to_addresses?: string[] | undefined;};
+  social_card?: {  image_url?: string | undefined;
+  description?: string | undefined;
+  title?: string | undefined;};
+};
+
+export interface ActionOutput_mailchimp_createcampaign {
+  id: string;
+  web_id: number;
+  type: string;
+  status: string;
+  create_time?: string | undefined;
+  settings?: {  subject_line?: string | undefined;
+  preview_text?: string | undefined;
+  title?: string | undefined;
+  from_name?: string | undefined;
+  reply_to?: string | undefined;
+  template_id?: number | undefined;};
+  recipients?: {  list_id: string;
+  list_name?: string | undefined;
+  recipient_count?: number | undefined;};
+};
+
+export interface ActionInput_mailchimp_createmember {
+  /**
+   * The unique ID for the list. Example: "a1b2c3d4"
+   */
+  list_id: string;
+  /**
+   * Email address for the subscriber. Example: "user@example.com"
+   */
+  email_address: string;
+  /**
+   * Subscriber's current status.
+   */
+  status: 'subscribed' | 'unsubscribed' | 'cleaned' | 'pending' | 'transactional';
+  /**
+   * An individual merge var and value for a member.
+   */
+  merge_fields?: {  [key: string]: string;} | undefined;
+  /**
+   * The key of this object's properties is the ID of the interest in question.
+   */
+  interests?: {  [key: string]: boolean;} | undefined;
+  /**
+   * If set/detected, the subscriber's language.
+   */
+  language?: string | undefined;
+  /**
+   * VIP status for subscriber.
+   */
+  vip?: boolean | undefined;
+  /**
+   * The tags that are associated with this member.
+   */
+  tags?: string[] | undefined;
+  /**
+   * Subscriber location information.
+   */
+  location?: {  latitude: number;
+  longitude: number;} | undefined;
+  /**
+   * IP address the subscriber signed up from.
+   */
+  ip_signup?: string | undefined;
+  /**
+   * The date and time the subscriber signed up for the list in ISO 8601 format.
+   */
+  timestamp_signup?: string | undefined;
+  /**
+   * The IP address the subscriber used to confirm their opt-in status.
+   */
+  ip_opt?: string | undefined;
+  /**
+   * The date and time the subscriber confirmed their opt-in status in ISO 8601 format.
+   */
+  timestamp_opt?: string | undefined;
+};
+
+export interface ActionOutput_mailchimp_createmember {
+  /**
+   * The MD5 hash of the lowercase version of the member's email address.
+   */
+  id: string;
+  email_address: string;
+  status: string;
+  unique_email_id?: string | undefined;
+  contact_id?: string | undefined;
+  list_id?: string | undefined;
+  merge_fields?: {  [key: string]: string;} | undefined;
+  interests?: {  [key: string]: boolean;} | undefined;
+  vip?: boolean | undefined;
+  language?: string | undefined;
+  timestamp_opt?: string | undefined;
+  timestamp_signup?: string | undefined;
+  ip_opt?: string | undefined;
+  ip_signup?: string | undefined;
+};
+
+export interface ActionInput_mailchimp_createsegment {
+  /**
+   * The unique ID for the list. Example: "16ed227135"
+   */
+  list_id: string;
+  /**
+   * The name of the segment. Example: "VIP Customers"
+   */
+  name: string;
+  /**
+   * An array of emails to be used for a static segment. Cannot be provided with the options field.
+   */
+  static_segment?: string[] | undefined;
+  /**
+   * The conditions of the segment. Static and fuzzy segments do not have conditions.
+   */
+  options?: {  match?: 'any' | 'all' | undefined;
+  conditions?: ({  condition_type?: string | undefined;
+  field?: string | undefined;
+  op?: string | undefined;
+  value?: unknown | undefined;})[];};
+};
+
+export interface ActionOutput_mailchimp_createsegment {
+  id: number;
+  name: string;
+  member_count: number;
+  type: string;
+  created_at?: string | undefined;
+  updated_at?: string | undefined;
+  list_id?: string | undefined;
+  options?: {  match?: 'any' | 'all' | undefined;
+  conditions?: ({  condition_type?: string | undefined;
+  field?: string | undefined;
+  op?: string | undefined;
+  value?: unknown | undefined;})[];};
+};
+
+export interface ActionInput_mailchimp_createstore {
+  /**
+   * The unique identifier for the store. Example: "my_store_001"
+   */
+  id: string;
+  /**
+   * The Mailchimp list ID to associate with the store. Example: "a1b2c3d4e5"
+   */
+  list_id: string;
+  /**
+   * The name of the store. Example: "My Online Store"
+   */
+  name: string;
+  /**
+   * The three-letter ISO 4217 currency code. Example: "USD"
+   */
+  currency_code: string;
+  /**
+   * The e-commerce platform of the store.
+   */
+  platform?: string | undefined;
+  /**
+   * The store domain.
+   */
+  domain?: string | undefined;
+  /**
+   * Whether the store is currently syncing.
+   */
+  is_syncing?: boolean | undefined;
+  /**
+   * The email address for the store.
+   */
+  email_address?: string | undefined;
+  /**
+   * The currency format for the store.
+   */
+  money_format?: string | undefined;
+  /**
+   * The primary locale for the store. Example: "en"
+   */
+  primary_locale?: string | undefined;
+  /**
+   * The timezone for the store.
+   */
+  timezone?: string | undefined;
+  /**
+   * The store phone number.
+   */
+  phone?: string | undefined;
+  /**
+   * The store address.
+   */
+  address?: {  address1?: string | undefined;
+  address2?: string | undefined;
+  city?: string | undefined;
+  province?: string | undefined;
+  province_code?: string | undefined;
+  postal_code?: string | undefined;
+  country?: string | undefined;
+  country_code?: string | undefined;
+  longitude?: number | undefined;
+  latitude?: number | undefined;};
+};
+
+export interface ActionOutput_mailchimp_createstore {
+  id: string;
+  list_id: string;
+  name: string;
+  platform?: string | undefined;
+  domain?: string | undefined;
+  is_syncing?: boolean | undefined;
+  email_address?: string | undefined;
+  currency_code: string;
+  money_format?: string | undefined;
+  primary_locale?: string | undefined;
+  timezone?: string | undefined;
+  phone?: string | undefined;
+  address?: {  address1?: string | undefined;
+  address2?: string | undefined;
+  city?: string | undefined;
+  province?: string | undefined;
+  province_code?: string | undefined;
+  postal_code?: string | undefined;
+  country?: string | undefined;
+  country_code?: string | undefined;
+  longitude?: number | undefined;
+  latitude?: number | undefined;};
+  list_is_active?: boolean | undefined;
+  created_at?: string | undefined;
+  updated_at?: string | undefined;
+};
+
+export interface ActionInput_mailchimp_createtemplate {
+  /**
+   * The name for the template. Example: "Welcome Email Template"
+   */
+  name: string;
+  /**
+   * The HTML content for the template. Example: "<html><body>Hello</body></html>"
+   */
+  html: string;
+  /**
+   * The ID of the folder to store the template in. Example: 42
+   */
+  folder_id?: number | undefined;
+};
+
+export interface ActionOutput_mailchimp_createtemplate {
+  id: number;
+  name?: string | undefined;
+  type?: string | undefined;
+  date_created?: string | undefined;
+  date_edited?: string | undefined;
+  active?: boolean | undefined;
+  thumbnail?: string | undefined;
+  share_url?: string | undefined;
+  folder_id?: number | undefined;
+};
+
+export interface ActionInput_mailchimp_deleteaudience {
+  /**
+   * The unique ID for the audience/list to delete. Example: "a1b2c3d4e5"
+   */
+  list_id: string;
+};
+
+export interface ActionOutput_mailchimp_deleteaudience {
+  success: boolean;
+  list_id?: string | undefined;
+};
+
+export interface ActionInput_mailchimp_deletecampaign {
+  /**
+   * The unique ID of the campaign to delete. Example: "a1b2c3d4e5"
+   */
+  campaign_id: string;
+};
+
+export interface ActionOutput_mailchimp_deletecampaign {
+  success: boolean;
+  campaign_id: string;
+};
+
+export interface ActionInput_mailchimp_deletemember {
+  /**
+   * The unique ID for the list. Example: "a1b2c3d4e5"
+   */
+  list_id: string;
+  /**
+   * The MD5 hash of the lowercase version of the list member's email address. Example: "f52b1fb13b40f6b01297aa7e5c1d8e5c"
+   */
+  subscriber_hash: string;
+};
+
+export interface ActionOutput_mailchimp_deletemember {
+  success: boolean;
+  /**
+   * The MD5 hash of the lowercase email address for the deleted member.
+   */
+  id?: string | undefined;
+  /**
+   * The subscription status of the deleted member.
+   */
+  status?: string | undefined;
+};
+
+export interface ActionInput_mailchimp_deletesegment {
+  /**
+   * The unique ID of the Mailchimp audience/list. Example: "16ed227135"
+   */
+  list_id: string;
+  /**
+   * The unique ID of the segment to delete. Example: "3730784"
+   */
+  segment_id: string;
+};
+
+export interface ActionOutput_mailchimp_deletesegment {
+  success: boolean;
+  list_id: string;
+  segment_id: string;
+};
+
+export interface ActionInput_mailchimp_deletetemplate {
+  /**
+   * The ID of the template to delete. Example: "1234"
+   */
+  template_id: string;
+};
+
+export interface ActionOutput_mailchimp_deletetemplate {
+  success: boolean;
+  template_id?: string | undefined;
+};
+
+export interface ActionInput_mailchimp_getaudience {
+  /**
+   * The unique ID for the list. Example: "a1b2c3d4e5"
+   */
+  list_id: string;
+};
+
+export interface ActionOutput_mailchimp_getaudience {
+  id: string;
+  web_id?: number | undefined;
+  name?: string | undefined;
+  contact?: {  company?: string | undefined;
+  address1?: string | undefined;
+  address2?: string | undefined;
+  city?: string | undefined;
+  state?: string | undefined;
+  zip?: string | undefined;
+  country?: string | undefined;
+  phone?: string | undefined;};
+  permission_reminder?: string | undefined;
+  use_archive_bar?: boolean | undefined;
+  campaign_defaults?: {  from_name?: string | undefined;
+  from_email?: string | undefined;
+  subject?: string | undefined;
+  language?: string | undefined;};
+  notify_on_subscribe?: string | undefined;
+  notify_on_unsubscribe?: string | undefined;
+  date_created?: string | undefined;
+  list_rating?: number | undefined;
+  subscribe_url_short?: string | undefined;
+  subscribe_url_long?: string | undefined;
+  beamer_address?: string | undefined;
+  visibility?: string | undefined;
+  double_optin?: boolean | undefined;
+  use_custom_footer?: boolean | undefined;
+  forwards?: {} | undefined;
+  facebook_page?: string | undefined;
+  rss_url?: string | undefined;
+  rss_email?: {} | undefined;
+  twitter_handle?: string | undefined;
+  vip?: boolean | undefined;
+  modules?: unknown[] | undefined;
+  stats?: {  member_count?: number | undefined;
+  total_contacts?: number | undefined;
+  unsubscribe_count?: number | undefined;
+  cleaned_count?: number | undefined;
+  member_count_since_send?: number | undefined;
+  unsubscribe_count_since_send?: number | undefined;
+  cleaned_count_since_send?: number | undefined;
+  campaign_count?: number | undefined;
+  campaign_last_sent?: string | undefined;
+  merge_field_count?: number | undefined;
+  avg_sub_rate?: number | undefined;
+  avg_unsub_rate?: number | undefined;
+  target_sub_rate?: number | undefined;
+  open_rate?: number | undefined;
+  click_rate?: number | undefined;
+  last_sub_date?: string | undefined;
+  last_unsub_date?: string | undefined;};
+  _links?: ({  rel?: string | undefined;
+  href?: string | undefined;
+  method?: string | undefined;
+  targetSchema?: string | undefined;
+  schema?: string | undefined;})[];
+};
+
+export interface ActionInput_mailchimp_getautomation {
+  /**
+   * The unique id for the Automation workflow. Example: "1a2b3c4d5e"
+   */
+  workflow_id: string;
+};
+
+export interface ActionOutput_mailchimp_getautomation {
+  id: string;
+  create_time?: string | undefined;
+  start_time?: string | undefined;
+  status?: string | undefined;
+  emails_sent?: number | undefined;
+  recipients?: {  list_id?: string | undefined;
+  list_is_active?: boolean | undefined;
+  list_name?: string | undefined;
+  segment_opts?: {  saved_segment_id?: number | undefined;
+  match?: string | undefined;
+  conditions?: unknown[] | undefined;};
+  store_id?: string | undefined;};
+  settings?: {  title?: string | undefined;
+  from_name?: string | undefined;
+  reply_to?: string | undefined;
+  use_conversation?: boolean | undefined;
+  to_name?: string | undefined;
+  authenticate?: boolean | undefined;
+  auto_footer?: boolean | undefined;
+  inline_css?: boolean | undefined;};
+  tracking?: {  opens?: boolean | undefined;
+  html_clicks?: boolean | undefined;
+  text_clicks?: boolean | undefined;
+  goal_tracking?: boolean | undefined;
+  ecomm360?: boolean | undefined;
+  google_analytics?: string | undefined;
+  clicktale?: string | undefined;
+  salesforce?: {  campaign?: boolean | undefined;
+  notes?: boolean | undefined;};
+  capsule?: {  notes?: boolean | undefined;};};
+  trigger_settings?: {  workflow_type?: string | undefined;
+  workflow_title?: string | undefined;
+  runtime?: {  days?: string[] | undefined;
+  hours?: {  type?: string | undefined;};};
+  workflow_emails_count?: number | undefined;};
+  report_summary?: {  opens?: number | undefined;
+  unique_opens?: number | undefined;
+  open_rate?: number | undefined;
+  clicks?: number | undefined;
+  subscriber_clicks?: number | undefined;
+  click_rate?: number | undefined;};
+  _links?: ({  rel?: string | undefined;
+  href?: string | undefined;
+  method?: string | undefined;
+  targetSchema?: string | undefined;
+  schema?: string | undefined;})[];
+};
+
+export interface ActionInput_mailchimp_getcampaignreport {
+  /**
+   * The unique ID of the campaign. Example: "abc123"
+   */
+  campaign_id: string;
+};
+
+export interface ActionOutput_mailchimp_getcampaignreport {
+  id?: string | undefined;
+  campaign_title?: string | undefined;
+  type?: string | undefined;
+  list_id?: string | undefined;
+  list_is_active?: boolean | undefined;
+  list_name?: string | undefined;
+  subject_line?: string | undefined;
+  preview_text?: string | undefined;
+  emails_sent?: number | undefined;
+  abuse_reports?: number | undefined;
+  unsubscribed?: number | undefined;
+  send_time?: string | undefined;
+  bounces?: {  hard_bounces?: number | undefined;
+  soft_bounces?: number | undefined;
+  syntax_errors?: number | undefined;};
+  forwards?: {  forwards_count?: number | undefined;
+  forwards_opens?: number | undefined;};
+  opens?: {  opens_total?: number | undefined;
+  unique_opens?: number | undefined;
+  open_rate?: number | undefined;
+  last_open?: string | undefined;};
+  clicks?: {  clicks_total?: number | undefined;
+  unique_clicks?: number | undefined;
+  unique_subscriber_clicks?: number | undefined;
+  click_rate?: number | undefined;
+  last_click?: string | undefined;};
+  industry_stats?: {  type?: string | undefined;
+  open_rate?: number | undefined;
+  click_rate?: number | undefined;
+  bounce_rate?: number | undefined;
+  unopen_rate?: number | undefined;
+  unsub_rate?: number | undefined;
+  abuse_rate?: number | undefined;};
+  list_stats?: {  sub_rate?: number | undefined;
+  unsub_rate?: number | undefined;
+  open_rate?: number | undefined;
+  click_rate?: number | undefined;};
+  ecommerce?: {  total_orders?: number | undefined;
+  total_spent?: number | undefined;
+  total_revenue?: number | undefined;
+  currency_code?: string | undefined;};
+  delivery_status?: {  enabled?: boolean | undefined;
+  can_cancel?: boolean | undefined;
+  status?: string | undefined;
+  emails_sent?: number | undefined;
+  emails_canceled?: number | undefined;};
+};
+
+export interface ActionInput_mailchimp_getcampaign {
+  /**
+   * The unique id for the campaign. Example: "a1b2c3d4e5"
+   */
+  campaign_id: string;
+};
+
+export interface ActionOutput_mailchimp_getcampaign {
+  id: string;
+  web_id?: number | undefined;
+  parent_campaign_id?: string | undefined;
+  type?: string | undefined;
+  create_time?: string | undefined;
+  archive_url?: string | undefined;
+  long_archive_url?: string | undefined;
+  status?: string | undefined;
+  emails_sent?: number | undefined;
+  send_time?: string | undefined;
+  content_type?: string | undefined;
+  needs_block_refresh?: boolean | undefined;
+  resendable?: boolean | undefined;
+  recipients?: {  list_id?: string | undefined;
+  list_is_active?: boolean | undefined;
+  list_name?: string | undefined;
+  segment_text?: string | undefined;
+  recipient_count?: number | undefined;
+  segment_opts?: {  [key: string]: unknown | undefined;};};
+  settings?: {  subject_line?: string | undefined;
+  preview_text?: string | undefined;
+  title?: string | undefined;
+  from_name?: string | undefined;
+  reply_to?: string | undefined;
+  use_conversation?: boolean | undefined;
+  to_name?: string | undefined;
+  folder_id?: string | undefined;
+  authenticate?: boolean | undefined;
+  auto_footer?: boolean | undefined;
+  inline_css?: boolean | undefined;
+  auto_tweet?: boolean | undefined;
+  auto_fb_post?: string[] | undefined;
+  fb_comments?: boolean | undefined;
+  timewarp?: boolean | undefined;
+  template_id?: number | undefined;
+  drag_and_drop?: boolean | undefined;};
+  variate_settings?: {  winner_criteria?: string | undefined;
+  wait_time?: number | undefined;
+  test_size?: number | undefined;
+  subject_lines?: string[] | undefined;
+  send_times?: string[] | undefined;
+  from_names?: string[] | undefined;
+  reply_to_addresses?: string[] | undefined;
+  contents?: string[] | undefined;
+  combinations?: ({  [key: string]: unknown | undefined;})[];};
+  tracking?: {  opens?: boolean | undefined;
+  html_clicks?: boolean | undefined;
+  text_clicks?: boolean | undefined;
+  goal_tracking?: boolean | undefined;
+  ecomm360?: boolean | undefined;
+  google_analytics?: string | undefined;
+  clicktale?: string | undefined;
+  salesforce?: {  [key: string]: unknown | undefined;};
+  capsule?: {  [key: string]: unknown | undefined;};};
+  rss_opts?: {  feed_url?: string | undefined;
+  frequency?: string | undefined;
+  schedule?: {  [key: string]: unknown | undefined;};
+  last_sent?: string | undefined;
+  constrain_rss_img?: boolean | undefined;};
+  ab_split_opts?: {  split_test?: string | undefined;
+  pick_winner?: string | undefined;
+  wait_units?: string | undefined;
+  wait_time?: number | undefined;
+  split_size?: number | undefined;
+  from_name_a?: string | undefined;
+  from_name_b?: string | undefined;
+  reply_email_a?: string | undefined;
+  reply_email_b?: string | undefined;
+  subject_a?: string | undefined;
+  subject_b?: string | undefined;
+  send_time_a?: string | undefined;
+  send_time_b?: string | undefined;};
+  social_card?: {  image_url?: string | undefined;
+  description?: string | undefined;
+  title?: string | undefined;};
+  report_summary?: {  opens?: number | undefined;
+  unique_opens?: number | undefined;
+  open_rate?: number | undefined;
+  clicks?: number | undefined;
+  subscriber_clicks?: number | undefined;
+  click_rate?: number | undefined;
+  ecommerce?: {  [key: string]: unknown | undefined;};};
+  delivery_status?: {  enabled?: boolean | undefined;
+  can_cancel?: boolean | undefined;
+  status?: string | undefined;
+  emails_sent?: number | undefined;
+  emails_canceled?: number | undefined;};
+  resend_shortcut_eligibility?: {  to_non_openers?: {  [key: string]: unknown | undefined;};
+  to_new_subscribers?: {  [key: string]: unknown | undefined;};
+  to_non_clickers?: {  [key: string]: unknown | undefined;};
+  to_non_purchasers?: {  [key: string]: unknown | undefined;};};
+  resend_shortcut_usage?: {  shortcut_campaigns?: ({  [key: string]: unknown | undefined;})[];
+  original_campaign?: {  [key: string]: unknown | undefined;};};
+  _links?: ({  rel?: string | undefined;
+  href?: string | undefined;
+  method?: string | undefined;
+  targetSchema?: string | undefined;
+  schema?: string | undefined;})[];
+};
+
+export interface ActionInput_mailchimp_getmember {
+  /**
+   * The unique ID for the list. Example: "16ed227135"
+   */
+  list_id: string;
+  /**
+   * The email address of the member to retrieve. The subscriber hash will be computed automatically. Example: "user@example.com"
+   */
+  email: string;
+};
+
+export interface ActionOutput_mailchimp_getmember {
+  id?: string | undefined;
+  email_address?: string | undefined;
+  unique_email_id?: string | undefined;
+  contact_id?: string | undefined;
+  full_name?: string | undefined;
+  web_id?: number | undefined;
+  email_type?: string | undefined;
+  status?: string | undefined;
+  unsubscribe_reason?: string | undefined;
+  consents_to_one_to_one_messaging?: boolean | undefined;
+  sms_phone_number?: string | undefined;
+  sms_subscription_status?: string | undefined;
+  sms_subscription_last_updated?: string | undefined;
+  merge_fields?: {  [key: string]: unknown | undefined;};
+  interests?: {  [key: string]: unknown | undefined;};
+  stats?: {  avg_open_rate?: number | undefined;
+  avg_click_rate?: number | undefined;
+  ecommerce_data?: {  total_revenue?: number | undefined;
+  number_of_orders?: number | undefined;
+  currency_code?: string | undefined;};};
+  ip_signup?: string | undefined;
+  timestamp_signup?: string | undefined;
+  ip_opt?: string | undefined;
+  timestamp_opt?: string | undefined;
+  member_rating?: number | string | undefined;
+  last_changed?: string | undefined;
+  language?: string | undefined;
+  vip?: boolean | undefined;
+  email_client?: string | undefined;
+  location?: {  latitude?: number | undefined;
+  longitude?: number | undefined;
+  gmtoff?: number | undefined;
+  dstoff?: number | undefined;
+  country_code?: string | undefined;
+  timezone?: string | undefined;
+  region?: string | undefined;};
+  marketing_permissions?: ({  marketing_permission_id?: string | undefined;
+  text?: string | undefined;
+  enabled?: boolean | undefined;})[];
+  last_note?: {  note_id?: number | undefined;
+  created_at?: string | undefined;
+  created_by?: string | undefined;
+  note?: string | undefined;};
+  source?: string | undefined;
+  tags_count?: number | undefined;
+  tags?: ({  id?: number | undefined;
+  name?: string | undefined;})[];
+  list_id?: string | undefined;
+  _links?: ({  rel?: string | undefined;
+  href?: string | undefined;
+  method?: string | undefined;
+  targetSchema?: string | undefined;
+  schema?: string | undefined;})[];
+};
+
+export interface ActionInput_mailchimp_getsegment {
+  /**
+   * The unique ID for the list. Example: "a1b2c3d4e5"
+   */
+  list_id: string;
+  /**
+   * The unique ID for the segment. Example: 12345
+   */
+  segment_id: number;
+};
+
+export interface ActionOutput_mailchimp_getsegment {
+  id: number;
+  name: string;
+  member_count: number;
+  type: string;
+  created_at: string;
+  updated_at: string;
+  options?: {  match?: string | undefined;
+  conditions?: ({  [key: string]: unknown | undefined;})[];};
+  list_id: string;
+  _links?: ({  rel?: string | undefined;
+  href?: string | undefined;
+  method?: string | undefined;
+  targetSchema?: string | undefined;
+  schema?: string | undefined;})[];
+};
+
+export interface ActionInput_mailchimp_getstore {
+  /**
+   * The unique identifier for the store. Example: "store123"
+   */
+  store_id: string;
+};
+
+export interface ActionOutput_mailchimp_getstore {
+  id: string;
+  list_id: string;
+  name: string;
+  platform: string;
+  domain: string;
+  is_syncing: boolean;
+  currency_code: string;
+  money_format: string;
+  primary_locale: string;
+  timezone?: string | undefined;
+  phone?: string | undefined;
+  email_address?: string | undefined;
+  address?: {  address1?: string | undefined;
+  address2?: string | undefined;
+  city?: string | undefined;
+  province?: string | undefined;
+  province_code?: string | undefined;
+  postal_code?: string | undefined;
+  country?: string | undefined;
+  country_code?: string | undefined;
+  longitude?: number | undefined;
+  latitude?: number | undefined;};
+  created_at: string;
+  updated_at: string;
+  list_is_active?: boolean | undefined;
+  automations?: {  abandoned_cart?: {  is_supported?: boolean | undefined;
+  id?: string | undefined;
+  status?: string | undefined;};
+  abandoned_browse?: {  is_supported?: boolean | undefined;
+  id?: string | undefined;
+  status?: string | undefined;};};
+  connected_site?: {  site_foreign_id?: string | undefined;
+  site_script?: {  url?: string | undefined;
+  fragment?: string | undefined;};
+  domain?: string | undefined;
+  is_verified?: boolean | undefined;};
+  syncing_flags?: {  [key: string]: unknown | undefined;};
+  _links?: ({  [key: string]: unknown | undefined;})[];
+};
+
+export interface ActionInput_mailchimp_gettemplate {
+  /**
+   * The ID of the template to retrieve. Example: 12345
+   */
+  template_id: number;
+};
+
+export interface ActionOutput_mailchimp_gettemplate {
+  id: number;
+  type?: string | undefined;
+  name?: string | undefined;
+  drag_and_drop?: boolean | undefined;
+  responsive?: boolean | undefined;
+  category?: string | undefined;
+  date_created?: string | undefined;
+  date_edited?: string | undefined;
+  created_by?: string | undefined;
+  edited_by?: string | undefined;
+  active?: boolean | undefined;
+  folder_id?: string | undefined;
+  thumbnail?: string | undefined;
+  share_url?: string | undefined;
+  content_type?: string | undefined;
+  _links?: ({  rel?: string | undefined;
+  href?: string | undefined;
+  method?: string | undefined;
+  targetSchema?: string | undefined;
+  schema?: string | undefined;})[];
+};
+
+export interface ActionInput_mailchimp_listaudiences {
+  /**
+   * Pagination offset from the previous response. Omit for the first page.
+   */
+  cursor?: string | undefined;
+  /**
+   * Number of records to return. Default is 10. Maximum is 1000.
+   */
+  count?: number | undefined;
+};
+
+export interface ActionOutput_mailchimp_listaudiences {
+  lists: ({  id: string;
+  web_id?: number | undefined;
+  name?: string | undefined;
+  contact?: {  company?: string | undefined;
+  address1?: string | undefined;
+  address2?: string | undefined;
+  city?: string | undefined;
+  state?: string | undefined;
+  zip?: string | undefined;
+  country?: string | undefined;
+  phone?: string | undefined;};
+  permission_reminder?: string | undefined;
+  use_archive_bar?: boolean | undefined;
+  campaign_defaults?: {  from_name?: string | undefined;
+  from_email?: string | undefined;
+  subject?: string | undefined;
+  language?: string | undefined;};
+  notify_on_subscribe?: string | undefined;
+  notify_on_unsubscribe?: string | undefined;
+  date_created?: string | undefined;
+  list_rating?: number | undefined;
+  email_type_option?: boolean | undefined;
+  double_optin?: boolean | undefined;
+  marketing_permissions?: boolean | undefined;
+  stats?: {  member_count?: number | undefined;
+  total_contacts?: number | undefined;
+  unsubscribe_count?: number | undefined;
+  cleaned_count?: number | undefined;
+  member_count_since_send?: number | undefined;
+  unsubscribe_count_since_send?: number | undefined;
+  cleaned_count_since_send?: number | undefined;
+  campaign_count?: number | undefined;
+  campaign_last_sent?: string | undefined;
+  merge_field_count?: number | undefined;
+  avg_sub_rate?: number | undefined;
+  avg_unsub_rate?: number | undefined;
+  target_sub_rate?: number | undefined;
+  open_rate?: number | undefined;
+  click_rate?: number | undefined;
+  last_sub_date?: string | undefined;
+  last_unsub_date?: string | undefined;};
+  visibility?: string | undefined;})[];
+  total_items?: number | undefined;
+  next_cursor?: string | undefined;
+};
+
+export interface ActionInput_mailchimp_listautomations {
+  count?: number | undefined;
+  offset?: number | undefined;
+  before_create_time?: string | undefined;
+  since_create_time?: string | undefined;
+  before_start_time?: string | undefined;
+  since_start_time?: string | undefined;
+  status?: 'save' | 'paused' | 'sending' | undefined;
+};
+
+export interface ActionOutput_mailchimp_listautomations {
+  automations: ({  id: string;
+  create_time?: string | undefined;
+  start_time?: string | undefined;
+  status?: string | undefined;
+  emails_sent?: number | undefined;
+  recipients?: {  [key: string]: unknown | undefined;};
+  settings?: {  [key: string]: unknown | undefined;};
+  tracking?: {  [key: string]: unknown | undefined;};
+  report_summary?: {  [key: string]: unknown | undefined;};})[];
+  total_items: number;
+  next_offset?: number | undefined;
+};
+
+export interface ActionInput_mailchimp_listcampaigns {
+  /**
+   * Pagination cursor (offset) from the previous response. Omit for the first page.
+   */
+  cursor?: string | undefined;
+  /**
+   * The number of records to return. Default is 10. Maximum is 1000.
+   */
+  count?: number | undefined;
+  /**
+   * The status of the campaign.
+   */
+  status?: string | undefined;
+  /**
+   * The campaign type.
+   */
+  type?: string | undefined;
+  /**
+   * The unique id for the list.
+   */
+  list_id?: string | undefined;
+  /**
+   * The unique folder id.
+   */
+  folder_id?: string | undefined;
+  /**
+   * Restrict results to campaigns created after this time (ISO 8601).
+   */
+  since_create_time?: string | undefined;
+  /**
+   * Restrict results to campaigns created before this time (ISO 8601).
+   */
+  before_create_time?: string | undefined;
+  /**
+   * Restrict results to campaigns sent after this time (ISO 8601).
+   */
+  since_send_time?: string | undefined;
+  /**
+   * Restrict results to campaigns sent before this time (ISO 8601).
+   */
+  before_send_time?: string | undefined;
+};
+
+export interface ActionOutput_mailchimp_listcampaigns {
+  items: ({  id: string;
+  web_id?: number | undefined;
+  type?: string | undefined;
+  create_time?: string | undefined;
+  status?: string | undefined;
+  emails_sent?: number | undefined;
+  send_time?: string | undefined;
+  content_type?: string | undefined;
+  settings?: {  subject_line?: string | undefined;
+  title?: string | undefined;
+  from_name?: string | undefined;
+  reply_to?: string | undefined;
+  template_id?: number | undefined;};
+  recipients?: {  list_id?: string | undefined;
+  list_name?: string | undefined;
+  recipient_count?: number | undefined;};
+  report_summary?: {  opens?: number | undefined;
+  unique_opens?: number | undefined;
+  open_rate?: number | undefined;
+  clicks?: number | undefined;
+  subscriber_clicks?: number | undefined;
+  click_rate?: number | undefined;};})[];
+  total_items: number;
+  next_cursor?: string | undefined;
+};
+
+export interface ActionInput_mailchimp_listmembers {
+  /**
+   * The unique ID for the list. Example: "a1b2c3d4e5"
+   */
+  list_id: string;
+  /**
+   * Pagination cursor (offset) from the previous response. Omit for the first page.
+   */
+  cursor?: string | undefined;
+  /**
+   * The number of records to return. Default is 10. Maximum is 1000.
+   */
+  count?: number | undefined;
+  /**
+   * The subscriber's status.
+   */
+  status?: 'subscribed' | 'unsubscribed' | 'cleaned' | 'pending' | 'transactional' | undefined;
+  /**
+   * Restrict results to subscribers who opted-in after the set timeframe. Uses ISO 8601 time format: 2015-10-21T15:41:36+00:00.
+   */
+  since_timestamp_opt?: string | undefined;
+  /**
+   * Restrict results to subscribers who opted-in before the set timeframe. Uses ISO 8601 time format: 2015-10-21T15:41:36+00:00.
+   */
+  before_timestamp_opt?: string | undefined;
+  /**
+   * Restrict results to subscribers whose information changed after the set timeframe. Uses ISO 8601 time format: 2015-10-21T15:41:36+00:00.
+   */
+  since_last_changed?: string | undefined;
+  /**
+   * Restrict results to subscribers whose information changed before the set timeframe. Uses ISO 8601 time format: 2015-10-21T15:41:36+00:00.
+   */
+  before_last_changed?: string | undefined;
+};
+
+export interface ActionOutput_mailchimp_listmembers {
+  members: ({  id: string;
+  email_address: string;
+  unique_email_id?: string | undefined;
+  contact_id?: string | undefined;
+  full_name?: string | undefined;
+  web_id?: number | undefined;
+  email_type?: string | undefined;
+  status?: string | undefined;
+  unsubscribe_reason?: string | undefined;
+  consents_to_one_to_one_messaging?: boolean | undefined;
+  merge_fields?: {  [key: string]: unknown | undefined;};
+  interests?: {  [key: string]: unknown | undefined;};
+  stats?: {  avg_open_rate?: number | undefined;
+  avg_click_rate?: number | undefined;};
+  ip_signup?: string | undefined;
+  timestamp_signup?: string | undefined;
+  ip_opt?: string | undefined;
+  timestamp_opt?: string | undefined;
+  member_rating?: number | undefined;
+  last_changed?: string | undefined;
+  language?: string | undefined;
+  vip?: boolean | undefined;
+  email_client?: string | undefined;
+  location?: {  latitude?: number | undefined;
+  longitude?: number | undefined;
+  gmtoff?: number | undefined;
+  dstoff?: number | undefined;
+  country_code?: string | undefined;
+  timezone?: string | undefined;
+  region?: string | undefined;};
+  source?: string | undefined;
+  tags_count?: number | undefined;
+  tags?: ({  id?: number | undefined;
+  name?: string | undefined;})[];
+  list_id?: string | undefined;})[];
+  next_cursor?: string | undefined;
+  total_items?: number | undefined;
+};
+
+export interface ActionInput_mailchimp_listsegments {
+  /**
+   * The unique ID for the list. Example: "a1b2c3d4"
+   */
+  list_id: string;
+  /**
+   * Pagination cursor (offset) from the previous response. Omit for the first page.
+   */
+  cursor?: string | undefined;
+  /**
+   * The number of records to return. Default value is 10. Maximum value is 1000.
+   */
+  count?: number | undefined;
+  /**
+   * Limit results based on segment type.
+   */
+  type?: string | undefined;
+  /**
+   * Exclude results based on segment type.
+   */
+  exclude_type?: 'saved' | 'static' | 'fuzzy' | undefined;
+  /**
+   * Restrict results to segments created after the set time. Uses ISO 8601 time format.
+   */
+  since_created_at?: string | undefined;
+  /**
+   * Restrict results to segments created before the set time. Uses ISO 8601 time format.
+   */
+  before_created_at?: string | undefined;
+  /**
+   * Restrict results to segments updated after the set time. Uses ISO 8601 time format.
+   */
+  since_updated_at?: string | undefined;
+  /**
+   * Restrict results to segments updated before the set time. Uses ISO 8601 time format.
+   */
+  before_updated_at?: string | undefined;
+  /**
+   * Include cleaned members in response.
+   */
+  include_cleaned?: boolean | undefined;
+  /**
+   * Include transactional members in response.
+   */
+  include_transactional?: boolean | undefined;
+  /**
+   * Include unsubscribed members in response.
+   */
+  include_unsubscribed?: boolean | undefined;
+};
+
+export interface ActionOutput_mailchimp_listsegments {
+  items: ({  id: number;
+  name: string;
+  member_count: number;
+  type?: 'saved' | 'static' | 'fuzzy' | undefined;
+  created_at?: string | undefined;
+  updated_at?: string | undefined;
+  options?: {  match?: 'any' | 'all' | undefined;
+  conditions?: ({  condition_type?: string | undefined;
+  field?: string | undefined;
+  op?: string | undefined;
+  value?: string | number | undefined;
+  extra?: string | undefined;})[];};})[];
+  next_cursor?: string | undefined;
+};
+
+export interface ActionInput_mailchimp_liststores {
+  /**
+   * Pagination cursor from the previous response. Omit for the first page.
+   */
+  cursor?: string | undefined;
+  /**
+   * The number of records to return. Maximum 1000, default 10.
+   */
+  count?: number | undefined;
+  /**
+   * A comma-separated list of fields to return.
+   */
+  fields?: string | undefined;
+  /**
+   * A comma-separated list of fields to exclude.
+   */
+  exclude_fields?: string | undefined;
+};
+
+export interface ActionOutput_mailchimp_liststores {
+  items: ({  id: string;
+  list_id?: string | undefined;
+  name?: string | undefined;
+  domain?: string | undefined;
+  email_address?: string | undefined;
+  currency_code?: string | undefined;
+  money_format?: string | undefined;
+  primary_locale?: string | undefined;
+  timezone?: string | undefined;
+  phone?: string | undefined;
+  address?: {  address1?: string | undefined;
+  address2?: string | undefined;
+  city?: string | undefined;
+  province?: string | undefined;
+  province_code?: string | undefined;
+  postal_code?: string | undefined;
+  country?: string | undefined;
+  country_code?: string | undefined;
+  longitude?: number | undefined;
+  latitude?: number | undefined;};
+  created_at?: string | undefined;
+  updated_at?: string | undefined;})[];
+  next_cursor?: string | undefined;
+};
+
+export interface ActionInput_mailchimp_listtemplates {
+  /**
+   * Pagination offset from the previous response. Omit for the first page.
+   */
+  cursor?: string | undefined;
+  /**
+   * Number of templates to return per page. Max 1000, default 10.
+   */
+  count?: number | undefined;
+  /**
+   * Filter templates by folder ID.
+   */
+  folder_id?: string | undefined;
+  /**
+   * Filter templates by type. Possible values: user, base, or gallery.
+   */
+  type?: string | undefined;
+};
+
+export interface ActionOutput_mailchimp_listtemplates {
+  /**
+   * The list of templates.
+   */
+  items: ({  /**
+   * The individual id for the template.
+   */
+  id: number;
+  /**
+   * The type of template (user, base, or gallery).
+   */
+  type?: string | undefined;
+  /**
+   * The name of the template.
+   */
+  name?: string | undefined;
+  /**
+   * Whether the template uses the drag and drop editor.
+   */
+  drag_and_drop?: boolean | undefined;
+  /**
+   * Whether the template contains media queries to make it responsive.
+   */
+  responsive?: boolean | undefined;
+  /**
+   * If available, the category the template is listed in.
+   */
+  category?: string | undefined;
+  /**
+   * The date and time the template was created in ISO 8601 format.
+   */
+  date_created?: string | undefined;
+  /**
+   * The date and time the template was edited in ISO 8601 format.
+   */
+  date_edited?: string | undefined;
+  /**
+   * The login name for template's creator.
+   */
+  created_by?: string | undefined;
+  /**
+   * The login name who last edited the template.
+   */
+  edited_by?: string | undefined;
+  /**
+   * User templates are not deleted, but marked as inactive. Returns whether the template is still active.
+   */
+  active?: boolean | undefined;
+  /**
+   * The id of the folder the template is currently in.
+   */
+  folder_id?: string | undefined;
+  /**
+   * If available, the URL for a thumbnail of the template.
+   */
+  thumbnail?: string | undefined;
+  /**
+   * The URL used for template sharing.
+   */
+  share_url?: string | undefined;
+  /**
+   * How the template content is put together. Possible values: template, multichannel, html.
+   */
+  content_type?: string | undefined;})[];
+  /**
+   * Offset to request the next page. Omit if there are no more pages.
+   */
+  next_cursor?: string | undefined;
+};
+
+export interface ActionInput_mailchimp_schedulecampaign {
+  /**
+   * The unique id for the campaign. Example: "a1b2c3d4e5"
+   */
+  campaign_id: string;
+  /**
+   * The date and time to schedule the campaign in ISO 8601 format. Example: "2026-05-25T14:00:00Z"
+   */
+  schedule_time: string;
+};
+
+export interface ActionOutput_mailchimp_schedulecampaign {
+  campaign_id: string;
+  status?: string | undefined;
+  schedule_time: string;
+};
+
+export interface ActionInput_mailchimp_tagmember {
+  /**
+   * The unique ID for the list. Example: "a1b2c3d4e5"
+   */
+  list_id: string;
+  /**
+   * The email address of the list member. Example: "user@example.com"
+   */
+  email: string;
+  /**
+   * Tags to add or remove on the member.
+   */
+  tags: ({  /**
+   * The name of the tag. Example: "VIP"
+   */
+  name: string;
+  /**
+   * Use "active" to add the tag, "inactive" to remove it.
+   */
+  status: 'active' | 'inactive';})[];
+};
+
+export interface ActionOutput_mailchimp_tagmember {
+  success: boolean;
+};
+
+export interface ActionInput_mailchimp_updateaudience {
+  /**
+   * The unique ID for the audience. Example: "a1b2c3d4e5"
+   */
+  list_id: string;
+  /**
+   * The name of the audience.
+   */
+  name?: string | undefined;
+  /**
+   * The contact information for the audience.
+   */
+  contact?: {  company?: string | undefined;
+  address1?: string | undefined;
+  address2?: string | undefined;
+  city?: string | undefined;
+  state?: string | undefined;
+  zip?: string | undefined;
+  country?: string | undefined;
+  phone?: string | undefined;};
+  /**
+   * The permission reminder for the audience.
+   */
+  permission_reminder?: string | undefined;
+  /**
+   * The default campaign settings for the audience.
+   */
+  campaign_defaults?: {  from_name?: string | undefined;
+  from_email?: string | undefined;
+  subject?: string | undefined;
+  language?: string | undefined;};
+  /**
+   * The email address to notify when someone subscribes.
+   */
+  notify_on_subscribe?: string | undefined;
+  /**
+   * The email address to notify when someone unsubscribes.
+   */
+  notify_on_unsubscribe?: string | undefined;
+  /**
+   * Whether subscribers can choose the format of the email.
+   */
+  email_type_option?: boolean | undefined;
+  /**
+   * The visibility of the audience.
+   */
+  visibility?: 'pub' | 'prv' | undefined;
+};
+
+export interface ActionOutput_mailchimp_updateaudience {
+  id: string;
+  name: string;
+  contact: {  company?: string | undefined;
+  address1?: string | undefined;
+  address2?: string | undefined;
+  city?: string | undefined;
+  state?: string | undefined;
+  zip?: string | undefined;
+  country?: string | undefined;
+  phone?: string | undefined;};
+  permission_reminder: string;
+  campaign_defaults: {  from_name?: string | undefined;
+  from_email?: string | undefined;
+  subject?: string | undefined;
+  language?: string | undefined;};
+  notify_on_subscribe?: string | undefined;
+  notify_on_unsubscribe?: string | undefined;
+  email_type_option: boolean;
+  visibility?: string | undefined;
+  web_id?: number | undefined;
+  date_created?: string | undefined;
+  list_rating?: number | undefined;
+};
+
+export interface ActionInput_mailchimp_updatecampaign {
+  /**
+   * The unique ID of the campaign to update.
+   */
+  campaign_id: string;
+  recipients?: {  list_id?: string | undefined;
+  segment_opts?: {  match?: string | undefined;
+  conditions?: ({  [key: string]: unknown | undefined;})[];
+  saved_segment_id?: number | undefined;
+  prebuilt_segment_id?: string | undefined;};};
+  settings?: {  subject_line?: string | undefined;
+  preview_text?: string | undefined;
+  title?: string | undefined;
+  from_name?: string | undefined;
+  reply_to?: string | undefined;
+  use_conversation?: boolean | undefined;
+  to_name?: string | undefined;
+  folder_id?: string | undefined;
+  authenticate?: boolean | undefined;
+  auto_footer?: boolean | undefined;
+  inline_css?: boolean | undefined;
+  auto_tweet?: boolean | undefined;
+  fb_comments?: boolean | undefined;
+  template_id?: number | undefined;};
+  variate_settings?: {  winner_criteria?: string | undefined;
+  test_size?: number | undefined;
+  wait_time?: number | undefined;
+  from_names?: string[] | undefined;
+  send_times?: string[] | undefined;
+  subject_lines?: string[] | undefined;
+  reply_to_addresses?: string[] | undefined;};
+  tracking?: {  goal_tracking?: boolean | undefined;};
+  social_card?: {  title?: string | undefined;
+  description?: string | undefined;
+  image_url?: string | undefined;};
+};
+
+export interface ActionOutput_mailchimp_updatecampaign {
+  id: string;
+  web_id?: number | undefined;
+  type?: string | undefined;
+  create_time?: string | undefined;
+  archive_url?: string | undefined;
+  long_archive_url?: string | undefined;
+  status?: string | undefined;
+  emails_sent?: number | undefined;
+  send_time?: string | undefined;
+  content_type?: string | undefined;
+  needs_block_refresh?: boolean | undefined;
+  recipients?: {  list_id?: string | undefined;
+  list_is_active?: boolean | undefined;
+  list_name?: string | undefined;
+  segment_text?: string | undefined;
+  recipient_count?: number | undefined;};
+  settings?: {  subject_line?: string | undefined;
+  preview_text?: string | undefined;
+  title?: string | undefined;
+  from_name?: string | undefined;
+  reply_to?: string | undefined;
+  use_conversation?: boolean | undefined;
+  to_name?: string | undefined;
+  folder_id?: string | undefined;
+  authenticate?: boolean | undefined;
+  auto_footer?: boolean | undefined;
+  inline_css?: boolean | undefined;
+  auto_tweet?: boolean | undefined;
+  fb_comments?: boolean | undefined;
+  template_id?: number | undefined;};
+  tracking?: {  goal_tracking?: boolean | undefined;};
+};
+
+export interface ActionInput_mailchimp_updatemember {
+  /**
+   * The unique ID for the list. Example: "16ed227135"
+   */
+  list_id: string;
+  /**
+   * The MD5 hash of the lowercase version of the list member's email address. Example: "0f8c53293177b8e9f1658ae7951a468e"
+   */
+  subscriber_hash: string;
+  /**
+   * Email address for a subscriber.
+   */
+  email_address?: string | undefined;
+  /**
+   * Type of email this member asked to get ("html" or "text").
+   */
+  email_type?: string | undefined;
+  /**
+   * Subscriber's current status.
+   */
+  status?: 'subscribed' | 'unsubscribed' | 'cleaned' | 'pending' | 'transactional' | undefined;
+  /**
+   * An individual merge var and value for a member.
+   */
+  merge_fields?: {  [key: string]: unknown | undefined;};
+  /**
+   * The key of this object's properties is the ID of the interest in question.
+   */
+  interests?: {  [key: string]: boolean;} | undefined;
+  /**
+   * If set/detected, the subscriber's language.
+   */
+  language?: string | undefined;
+  /**
+   * VIP status for subscriber.
+   */
+  vip?: boolean | undefined;
+  /**
+   * Subscriber location information.
+   */
+  location?: {  latitude?: number | undefined;
+  longitude?: number | undefined;
+  gmtoff?: number | undefined;
+  dstoff?: number | undefined;
+  country_code?: string | undefined;
+  timezone?: string | undefined;
+  region?: string | undefined;};
+  /**
+   * IP address the subscriber signed up from.
+   */
+  ip_signup?: string | undefined;
+  /**
+   * The date and time the subscriber signed up for the list in ISO 8601 format.
+   */
+  timestamp_signup?: string | undefined;
+  /**
+   * The IP address the subscriber used to confirm their opt-in status.
+   */
+  ip_opt?: string | undefined;
+  /**
+   * The date and time the subscriber confirmed their opt-in status in ISO 8601 format.
+   */
+  timestamp_opt?: string | undefined;
+};
+
+export interface ActionOutput_mailchimp_updatemember {
+  id: string;
+  email_address: string;
+  status: string;
+  list_id: string;
+  vip?: boolean | undefined;
+  language?: string | undefined;
+  merge_fields?: {  [key: string]: unknown | undefined;};
+  last_changed?: string | undefined;
+};
+
+export interface ActionInput_mailchimp_updatesegment {
+  /**
+   * The unique ID for the list. Example: "a1b2c3d4e5"
+   */
+  list_id: string;
+  /**
+   * The unique id for the segment. Example: "12345"
+   */
+  segment_id: string;
+  /**
+   * The name of the segment.
+   */
+  name: string;
+  options?: {  match?: 'any' | 'all' | undefined;
+  conditions?: ({  [key: string]: unknown | undefined;})[];};
+  static_segment?: string[] | undefined;
+};
+
+export interface ActionOutput_mailchimp_updatesegment {
+  id: number;
+  name: string;
+  member_count?: number | undefined;
+  type?: 'saved' | 'static' | 'fuzzy' | undefined;
+  created_at?: string | undefined;
+  updated_at?: string | undefined;
+  options?: {  match?: 'any' | 'all' | undefined;
+  conditions?: ({  [key: string]: unknown | undefined;})[];};
+};
+
+export interface ActionInput_mailchimp_updatestore {
+  /**
+   * The unique identifier for the store. Example: "example_store"
+   */
+  store_id: string;
+  /**
+   * The name of the store.
+   */
+  name?: string | undefined;
+  /**
+   * The e-commerce platform of the store.
+   */
+  platform?: string | undefined;
+  /**
+   * The store domain.
+   */
+  domain?: string | undefined;
+  /**
+   * Whether to disable automations because the store is currently syncing.
+   */
+  is_syncing?: boolean | undefined;
+  /**
+   * The email address for the store.
+   */
+  email_address?: string | undefined;
+  /**
+   * The three-letter ISO 4217 code for the currency that the store accepts.
+   */
+  currency_code?: string | undefined;
+  /**
+   * The currency format for the store.
+   */
+  money_format?: string | undefined;
+  /**
+   * The primary locale for the store.
+   */
+  primary_locale?: string | undefined;
+  /**
+   * The timezone for the store.
+   */
+  timezone?: string | undefined;
+  /**
+   * The store phone number.
+   */
+  phone?: string | undefined;
+  /**
+   * The store address.
+   */
+  address?: {  address1?: string | undefined;
+  address2?: string | undefined;
+  city?: string | undefined;
+  province?: string | undefined;
+  province_code?: string | undefined;
+  postal_code?: string | undefined;
+  country?: string | undefined;
+  country_code?: string | undefined;
+  longitude?: number | undefined;
+  latitude?: number | undefined;};
+};
+
+export interface ActionOutput_mailchimp_updatestore {
+  id: string;
+  list_id?: string | undefined;
+  name?: string | undefined;
+  platform?: string | undefined;
+  domain?: string | undefined;
+  is_syncing?: boolean | undefined;
+  email_address?: string | undefined;
+  currency_code?: string | undefined;
+  money_format?: string | undefined;
+  primary_locale?: string | undefined;
+  timezone?: string | undefined;
+  phone?: string | undefined;
+  address?: {  address1?: string | undefined;
+  address2?: string | undefined;
+  city?: string | undefined;
+  province?: string | undefined;
+  province_code?: string | undefined;
+  postal_code?: string | undefined;
+  country?: string | undefined;
+  country_code?: string | undefined;
+  longitude?: number | undefined;
+  latitude?: number | undefined;};
+  connected_site?: {  site_foreign_id?: string | undefined;
+  site_script?: {  url?: string | undefined;
+  fragment?: string | undefined;};};
+  automations?: {  abandoned_cart?: {  is_supported?: boolean | undefined;
+  id?: string | undefined;
+  status?: string | undefined;};
+  abandoned_browse?: {  is_supported?: boolean | undefined;
+  id?: string | undefined;
+  status?: string | undefined;};};
+  list_is_active?: boolean | undefined;
+  created_at?: string | undefined;
+  updated_at?: string | undefined;
+};
+
+export interface ActionInput_mailchimp_updatetemplate {
+  /**
+   * Template ID. Example: "123"
+   */
+  template_id: string;
+  /**
+   * The name of the template.
+   */
+  name?: string | undefined;
+  /**
+   * The raw HTML for the template.
+   */
+  html?: string | undefined;
+  /**
+   * The folder ID to organize the template in.
+   */
+  folder_id?: string | undefined;
+};
+
+export interface ActionOutput_mailchimp_updatetemplate {
+  id: string;
+  type?: string | undefined;
+  name?: string | undefined;
+  drag_and_drop?: boolean | undefined;
+  responsive?: boolean | undefined;
+  category?: string | undefined;
+  date_created?: string | undefined;
+  date_edited?: string | undefined;
+  created_by?: string | undefined;
+  edited_by?: string | undefined;
+  active?: boolean | undefined;
+  folder_id?: string | undefined;
+  thumbnail?: string | undefined;
+  share_url?: string | undefined;
+  content_type?: string | undefined;
 };
 
 export interface SyncMetadata_metabase_users {

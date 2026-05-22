@@ -1059,6 +1059,47 @@ import './linkedin/actions/update-post.js';
 // -- Integration: luma
 import './luma/syncs/list-events.js';
 
+// -- Integration: mailchimp
+import './mailchimp/syncs/audiences.js';
+import './mailchimp/syncs/automations.js';
+import './mailchimp/syncs/members.js';
+import './mailchimp/syncs/segments.js';
+import './mailchimp/syncs/stores.js';
+import './mailchimp/actions/create-audience.js';
+import './mailchimp/actions/create-campaign.js';
+import './mailchimp/actions/create-member.js';
+import './mailchimp/actions/create-segment.js';
+import './mailchimp/actions/create-store.js';
+import './mailchimp/actions/create-template.js';
+import './mailchimp/actions/delete-audience.js';
+import './mailchimp/actions/delete-campaign.js';
+import './mailchimp/actions/delete-member.js';
+import './mailchimp/actions/delete-segment.js';
+import './mailchimp/actions/delete-template.js';
+import './mailchimp/actions/get-audience.js';
+import './mailchimp/actions/get-automation.js';
+import './mailchimp/actions/get-campaign-report.js';
+import './mailchimp/actions/get-campaign.js';
+import './mailchimp/actions/get-member.js';
+import './mailchimp/actions/get-segment.js';
+import './mailchimp/actions/get-store.js';
+import './mailchimp/actions/get-template.js';
+import './mailchimp/actions/list-audiences.js';
+import './mailchimp/actions/list-automations.js';
+import './mailchimp/actions/list-campaigns.js';
+import './mailchimp/actions/list-members.js';
+import './mailchimp/actions/list-segments.js';
+import './mailchimp/actions/list-stores.js';
+import './mailchimp/actions/list-templates.js';
+import './mailchimp/actions/schedule-campaign.js';
+import './mailchimp/actions/tag-member.js';
+import './mailchimp/actions/update-audience.js';
+import './mailchimp/actions/update-campaign.js';
+import './mailchimp/actions/update-member.js';
+import './mailchimp/actions/update-segment.js';
+import './mailchimp/actions/update-store.js';
+import './mailchimp/actions/update-template.js';
+
 // -- Integration: metabase
 import './metabase/syncs/users.js';
 import './metabase/actions/create-user.js';
