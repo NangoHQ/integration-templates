@@ -27,13 +27,14 @@ const action = createAction({
         const connection = await nango.getConnection();
         const storeUrl = connection.connection_config?.['storeURL'];
 
+        const normalizedStoreUrl = storeUrl && typeof storeUrl === 'string' ? storeUrl.replace(/^https?:\/\//, '').replace(/\/$/, '') : undefined;
+
         const response = await nango.get({
             // https://woocommerce.github.io/woocommerce-rest-api-docs/#retrieve-customers-totals
             endpoint: 'reports/customers/totals',
-            ...(storeUrl &&
-                typeof storeUrl === 'string' && {
-                    baseUrlOverride: `https://${encodeURIComponent(storeUrl)}/wp-json/wc/v3`
-                }),
+            ...(normalizedStoreUrl && {
+                baseUrlOverride: `https://${normalizedStoreUrl}/wp-json/wc/v3`
+            }),
             retries: 3
         });
 

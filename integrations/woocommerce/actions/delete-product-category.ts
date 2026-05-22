@@ -2,8 +2,7 @@ import { z } from 'zod';
 import { createAction } from 'nango';
 
 const InputSchema = z.object({
-    id: z.number().describe('Unique identifier for the product category to delete. Example: 17'),
-    force: z.boolean().optional().describe('Required to be true, as the resource does not support trashing.')
+    id: z.number().describe('Unique identifier for the product category to delete. Example: 17')
 });
 
 const ImageSchema = z.object({
@@ -69,7 +68,7 @@ const action = createAction({
             // https://woocommerce.github.io/woocommerce-rest-api-docs/#delete-a-product-category
             endpoint: `/wp-json/wc/v3/products/categories/${encodeURIComponent(String(input.id))}`,
             params: {
-                force: String(input.force ?? true)
+                force: 'true'
             },
             retries: 10
         });

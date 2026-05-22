@@ -75,7 +75,6 @@ const sync = createSync({
         // modified_after, since_id, cursor, or any change-tracking mechanism.
         // The `after` parameter only filters by published/created date, not
         // modification date. Full refresh is required to capture all changes.
-        await nango.trackDeletesStart('ProductVariation');
 
         const productsConfig: ProxyConfiguration = {
             // https://woocommerce.github.io/woocommerce-rest-api-docs/#list-all-products
@@ -95,9 +94,15 @@ const sync = createSync({
             retries: 3
         };
 
+        let deleteTrackingStarted = false;
         for await (const productsPage of nango.paginate<unknown>(productsConfig)) {
             if (!Array.isArray(productsPage)) {
                 throw new Error('Unexpected products response: expected array');
+            }
+
+            if (!deleteTrackingStarted) {
+                await nango.trackDeletesStart('ProductVariation');
+                deleteTrackingStarted = true;
             }
 
             const variableProductIds: string[] = [];
@@ -228,7 +233,9 @@ const sync = createSync({
             }
         }
 
-        await nango.trackDeletesEnd('ProductVariation');
+        if (deleteTrackingStarted) {
+            await nango.trackDeletesEnd('ProductVariation');
+        }
     }
 });
 

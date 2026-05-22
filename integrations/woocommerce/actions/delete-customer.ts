@@ -2,7 +2,7 @@ import { z } from 'zod';
 import { createAction } from 'nango';
 
 const InputSchema = z.object({
-    id: z.number().describe('Customer ID to delete. Example: 3')
+    id: z.number().int().positive().describe('Customer ID to delete. Example: 3')
 });
 
 const ProviderCustomerSchema = z

@@ -34,7 +34,6 @@ const sync = createSync({
         // WooCommerce reviews can be updated and deleted, but the collection endpoint
         // only exposes created-date filters (`after`/`before`), not a modification filter.
         // A full refresh is required to avoid missing review updates.
-        await nango.trackDeletesStart('ProductReview');
 
         const proxyConfig: ProxyConfiguration = {
             // https://woocommerce.github.io/woocommerce-rest-api-docs/#product-reviews
@@ -56,7 +55,12 @@ const sync = createSync({
             retries: 3
         };
 
+        let deleteTrackingStarted = false;
         for await (const page of nango.paginate(proxyConfig)) {
+            if (!deleteTrackingStarted) {
+                await nango.trackDeletesStart('ProductReview');
+                deleteTrackingStarted = true;
+            }
             const reviews = page.map(
                 (record: {
                     id: number;
@@ -90,7 +94,9 @@ const sync = createSync({
             await nango.batchSave(reviews, 'ProductReview');
         }
 
-        await nango.trackDeletesEnd('ProductReview');
+        if (deleteTrackingStarted) {
+            await nango.trackDeletesEnd('ProductReview');
+        }
     }
 });
 

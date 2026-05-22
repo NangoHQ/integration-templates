@@ -3,7 +3,7 @@ import { createAction } from 'nango';
 
 const InputSchema = z.object({
     order_id: z.number().int().positive().describe('Order ID. Example: 18'),
-    amount: z.string().describe('Refund amount. Example: "10.00"'),
+    amount: z.string().optional().describe('Refund amount. Example: "10.00". Omit to let WooCommerce compute the total from line_items.'),
     reason: z.string().optional().describe('Reason for refund.'),
     api_refund: z.boolean().optional().describe('Use payment gateway API to generate refund. Default true.'),
     api_restock: z.boolean().optional().describe('Restock selected line items. Default true.'),
@@ -79,7 +79,7 @@ const action = createAction({
     output: OutputSchema,
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const payload: Record<string, unknown> = {
-            amount: input.amount
+            ...(input.amount !== undefined && { amount: input.amount })
         };
 
         if (input.reason !== undefined) {

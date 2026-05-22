@@ -2,15 +2,21 @@ import { z } from 'zod';
 import { createAction } from 'nango';
 import type { ProxyConfiguration } from 'nango';
 
-const OrderInputSchema = z
+const CreateOrderInputSchema = z
     .object({
-        id: z.number().optional().describe('Order ID. Required for update operations.')
+        id: z.number().optional().describe('Order ID.')
+    })
+    .passthrough();
+
+const UpdateOrderInputSchema = z
+    .object({
+        id: z.number().describe('Order ID. Required for update operations.')
     })
     .passthrough();
 
 const BatchUpdateOrdersInputSchema = z.object({
-    create: z.array(OrderInputSchema).optional(),
-    update: z.array(OrderInputSchema).optional(),
+    create: z.array(CreateOrderInputSchema).optional(),
+    update: z.array(UpdateOrderInputSchema).optional(),
     delete: z.array(z.number()).optional()
 });
 

@@ -36,6 +36,7 @@ const action = createAction({
         const config: ProxyConfiguration = {
             // https://woocommerce.github.io/woocommerce-rest-api-docs/#delete-a-product-variation
             endpoint: `/wp-json/wc/v3/products/${encodeURIComponent(String(input.product_id))}/variations/${encodeURIComponent(String(input.variation_id))}`,
+            params: { force: 'true' },
             retries: 3
         };
 

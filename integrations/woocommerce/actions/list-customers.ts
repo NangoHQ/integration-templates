@@ -97,7 +97,19 @@ const action = createAction({
     output: OutputSchema,
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
+        if (input.cursor && !/^\d+$/.test(input.cursor)) {
+            throw new nango.ActionError({
+                type: 'invalid_input',
+                message: 'cursor must be a positive integer string representing a page number.'
+            });
+        }
         const page = input.cursor ? parseInt(input.cursor, 10) : 1;
+        if (page < 1) {
+            throw new nango.ActionError({
+                type: 'invalid_input',
+                message: 'cursor must be a positive integer string representing a page number.'
+            });
+        }
 
         const params: Record<string, string> = {
             page: String(page)

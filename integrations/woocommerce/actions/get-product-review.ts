@@ -2,7 +2,7 @@ import { z } from 'zod';
 import { createAction, ProxyConfiguration } from 'nango';
 
 const InputSchema = z.object({
-    id: z.number().describe('Unique identifier for the product review. Example: 3')
+    id: z.number().int().positive().describe('Unique identifier for the product review. Example: 3')
 });
 
 const ProviderReviewSchema = z.object({

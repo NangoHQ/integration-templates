@@ -75,7 +75,7 @@ const ProviderVariationSchema = z
     .passthrough();
 
 const InputSchema = z.object({
-    product_id: z.number().describe('Product ID. Example: 13'),
+    product_id: z.number().int().positive().describe('Product ID. Example: 13'),
     cursor: z.string().optional().describe('Pagination cursor (page number) from the previous response. Omit for the first page.'),
     per_page: z.number().optional().describe('Maximum number of items to be returned in result set. Default is 10.'),
     context: z.string().optional().describe('Scope under which the request is made; determines fields present in response. Options: view, edit.'),
@@ -122,8 +122,14 @@ const action = createAction({
     scopes: [],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
+        if (input.cursor && !/^\d+$/.test(input.cursor)) {
+            throw new nango.ActionError({
+                type: 'invalid_input',
+                message: 'cursor must be a positive integer string representing a page number.'
+            });
+        }
         const page = input.cursor ? parseInt(input.cursor, 10) : 1;
-        if (input.cursor && (Number.isNaN(page) || page < 1)) {
+        if (page < 1) {
             throw new nango.ActionError({
                 type: 'invalid_input',
                 message: 'cursor must be a positive integer string representing a page number.'

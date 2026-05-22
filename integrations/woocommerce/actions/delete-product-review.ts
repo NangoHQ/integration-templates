@@ -22,6 +22,11 @@ const ProviderReviewSchema = z.object({
     reviewer_avatar_urls: z.record(z.string(), z.string()).optional()
 });
 
+const DeleteResponseSchema = z.object({
+    deleted: z.boolean(),
+    previous: ProviderReviewSchema
+});
+
 const OutputSchema = z.object({
     id: z.number(),
     date_created: z.string().optional(),
@@ -63,7 +68,12 @@ const action = createAction({
             });
         }
 
-        const providerReview = ProviderReviewSchema.parse(response.data);
+        // WooCommerce returns {deleted, previous} when force=true, or the updated
+        // review object directly when trashing (force=false / omitted).
+        const providerReview =
+            typeof response.data === 'object' && response.data !== null && 'deleted' in response.data
+                ? DeleteResponseSchema.parse(response.data).previous
+                : ProviderReviewSchema.parse(response.data);
 
         return {
             id: providerReview.id,

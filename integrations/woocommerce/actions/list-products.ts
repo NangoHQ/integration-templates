@@ -104,8 +104,14 @@ const action = createAction({
     scopes: ['read'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
+        if (input.cursor && !/^\d+$/.test(input.cursor)) {
+            throw new nango.ActionError({
+                type: 'invalid_cursor',
+                message: 'cursor must be a positive integer string'
+            });
+        }
         const page = input.cursor ? parseInt(input.cursor, 10) : 1;
-        if (Number.isNaN(page) || page < 1) {
+        if (page < 1) {
             throw new nango.ActionError({
                 type: 'invalid_cursor',
                 message: 'cursor must be a positive integer string'

@@ -29,7 +29,8 @@ const RefundSchema = z.object({
 });
 
 const CheckpointSchema = z.object({
-    updated_after: z.string()
+    updated_after: z.string(),
+    last_id: z.number()
 });
 
 const sync = createSync({
@@ -46,16 +47,23 @@ const sync = createSync({
 
     exec: async (nango) => {
         const checkpoint = await nango.getCheckpoint();
-        const updatedAfter = checkpoint?.updated_after;
+        const updatedAfter = typeof checkpoint?.['updated_after'] === 'string' ? checkpoint['updated_after'] : undefined;
+        const rawLastId = checkpoint?.['last_id'];
+        const lastId = typeof rawLastId === 'number' ? rawLastId : 0;
+        let isFirstPage = true;
+
+        const params: Record<string, string> = {
+            orderby: 'date',
+            order: 'asc'
+        };
+        if (updatedAfter !== undefined) {
+            params['after'] = updatedAfter;
+        }
 
         const proxyConfig: ProxyConfiguration = {
             // https://woocommerce.github.io/woocommerce-rest-api-docs/#refunds
             endpoint: '/wp-json/wc/v3/refunds',
-            params: {
-                orderby: 'date',
-                order: 'asc',
-                ...(updatedAfter !== undefined && { after: updatedAfter })
-            },
+            params,
             paginate: {
                 type: 'offset',
                 offset_name_in_request: 'page',
@@ -68,41 +76,48 @@ const sync = createSync({
         };
 
         for await (const page of nango.paginate(proxyConfig)) {
-            const refunds = z
-                .array(ProviderRefundSchema)
-                .parse(page)
-                .map((refund) => {
-                    const mapped: {
-                        id: string;
-                        order_id: string;
-                        date_created: string;
-                        date_created_gmt: string;
-                        amount?: string;
-                        reason?: string;
-                        refunded_by?: number;
-                        refunded_payment?: boolean;
-                    } = {
-                        id: String(refund.id),
-                        order_id: String(refund.parent_id ?? ''),
-                        date_created: refund.date_created,
-                        date_created_gmt: refund.date_created_gmt
-                    };
+            const providerRefunds = z.array(ProviderRefundSchema).parse(page);
 
-                    if (refund.amount !== null && refund.amount !== undefined) {
-                        mapped.amount = refund.amount;
-                    }
-                    if (refund.reason !== null && refund.reason !== undefined) {
-                        mapped.reason = refund.reason;
-                    }
-                    if (refund.refunded_by !== null && refund.refunded_by !== undefined) {
-                        mapped.refunded_by = refund.refunded_by;
-                    }
-                    if (refund.refunded_payment !== null && refund.refunded_payment !== undefined) {
-                        mapped.refunded_payment = refund.refunded_payment;
-                    }
+            // On the first page of a resumed sync, skip boundary records already processed
+            // in the previous run to prevent missing refunds that share the same timestamp.
+            const toProcess =
+                isFirstPage && updatedAfter !== undefined && lastId > 0
+                    ? providerRefunds.filter((r) => !(r.date_created_gmt === updatedAfter && r.id <= lastId))
+                    : providerRefunds;
+            isFirstPage = false;
 
-                    return mapped;
-                });
+            const refunds = toProcess.map((refund) => {
+                const mapped: {
+                    id: string;
+                    order_id: string;
+                    date_created: string;
+                    date_created_gmt: string;
+                    amount?: string;
+                    reason?: string;
+                    refunded_by?: number;
+                    refunded_payment?: boolean;
+                } = {
+                    id: String(refund.id),
+                    order_id: String(refund.parent_id ?? ''),
+                    date_created: refund.date_created,
+                    date_created_gmt: refund.date_created_gmt
+                };
+
+                if (refund.amount !== null && refund.amount !== undefined) {
+                    mapped.amount = refund.amount;
+                }
+                if (refund.reason !== null && refund.reason !== undefined) {
+                    mapped.reason = refund.reason;
+                }
+                if (refund.refunded_by !== null && refund.refunded_by !== undefined) {
+                    mapped.refunded_by = refund.refunded_by;
+                }
+                if (refund.refunded_payment !== null && refund.refunded_payment !== undefined) {
+                    mapped.refunded_payment = refund.refunded_payment;
+                }
+
+                return mapped;
+            });
 
             if (refunds.length === 0) {
                 continue;
@@ -110,10 +125,12 @@ const sync = createSync({
 
             await nango.batchSave(refunds, 'Refund');
 
+            const lastProviderRefund = toProcess.at(-1);
             const lastRefund = refunds.at(-1);
-            if (lastRefund !== undefined) {
+            if (lastRefund !== undefined && lastProviderRefund !== undefined) {
                 await nango.saveCheckpoint({
-                    updated_after: lastRefund.date_created_gmt
+                    updated_after: lastRefund.date_created_gmt,
+                    last_id: lastProviderRefund.id
                 });
             }
         }

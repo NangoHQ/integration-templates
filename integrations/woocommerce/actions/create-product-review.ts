@@ -2,11 +2,11 @@ import { z } from 'zod';
 import { createAction } from 'nango';
 
 const InputSchema = z.object({
-    product_id: z.number().describe('Product ID to review. Example: 13'),
+    product_id: z.number().int().positive().describe('Product ID to review. Example: 13'),
     reviewer: z.string().describe('Name of the reviewer. Example: "John Doe"'),
     reviewer_email: z.string().email().describe('Email address of the reviewer. Example: "john@example.com"'),
     review: z.string().optional().describe('Review content text.'),
-    rating: z.number().min(1).max(5).optional().describe('Star rating from 1 to 5.'),
+    rating: z.number().int().min(1).max(5).optional().describe('Star rating from 1 to 5.'),
     verified: z.boolean().optional().describe('Whether the review is verified.')
 });
 

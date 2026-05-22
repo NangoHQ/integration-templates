@@ -181,9 +181,9 @@ const sync = createSync({
                 offset_start_value: nextPage ?? 1,
                 offset_calculation_method: 'per-page',
                 limit_name_in_request: 'per_page',
-                limit: 2,
+                limit: 100,
                 on_page: async ({ nextPageParam }) => {
-                    nextPage = typeof nextPageParam === 'number' ? nextPageParam + 1 : undefined;
+                    nextPage = typeof nextPageParam === 'number' ? nextPageParam : undefined;
                 }
             },
             retries: 3
