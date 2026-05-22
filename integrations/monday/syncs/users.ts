@@ -63,7 +63,10 @@ const sync = createSync({
             },
             data: {
                 query: 'query ($limit: Int, $page: Int) { users(limit: $limit, page: $page) { id name email created_at url photo_thumb title location phone mobile_phone time_zone_identifier utc_hours_diff } }',
-                variables: {}
+                variables: {
+                    limit: 100,
+                    page: 1
+                }
             },
             paginate: {
                 type: 'offset',

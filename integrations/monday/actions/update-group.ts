@@ -54,6 +54,9 @@ const action = createAction({
         const response = await nango.post({
             // https://developer.monday.com/api-reference/reference/groups#update-group
             endpoint: '/v2',
+            headers: {
+                'api-version': '2026-04'
+            },
             data: { query },
             retries: 3
         });

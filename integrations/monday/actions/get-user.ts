@@ -58,6 +58,9 @@ const action = createAction({
         // https://developer.monday.com/api-reference/reference/users
         const response = await nango.post({
             endpoint: '/v2',
+            headers: {
+                'api-version': '2026-04'
+            },
             data: {
                 query: `query { users(ids: [${input.userId}]) { id name email url photo_thumb photo_original created_at location time_zone_identifier title teams { id name } } }`
             },

@@ -43,6 +43,9 @@ const action = createAction({
         // https://developer.monday.com/api-reference/docs/items#move_item_to_group
         const response = await nango.post({
             endpoint: '/v2',
+            headers: {
+                'api-version': '2026-04'
+            },
             data: {
                 query: 'mutation($item_id: ID!, $group_id: String!) { move_item_to_group(item_id: $item_id, group_id: $group_id) { id name } }',
                 variables: {

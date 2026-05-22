@@ -65,6 +65,9 @@ const action = createAction({
         const config: ProxyConfiguration = {
             // https://developer.monday.com/api-reference/reference/groups
             endpoint: '/v2',
+            headers: {
+                'api-version': '2026-04'
+            },
             data: {
                 query
             },

@@ -97,6 +97,9 @@ const action = createAction({
         // https://developer.monday.com/api-reference/docs/change-column-values
         const response = await nango.post({
             endpoint: '/v2',
+            headers: {
+                'api-version': '2026-04'
+            },
             data: {
                 query,
                 variables

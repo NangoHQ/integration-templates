@@ -91,6 +91,9 @@ const action = createAction({
         // https://developer.monday.com/api-reference/reference/columns
         const queryResponse = await nango.post({
             endpoint: '/v2',
+            headers: {
+                'api-version': '2026-04'
+            },
             data: {
                 query: `query { boards(ids: [${input.board_id}]) { columns(ids: ["${input.column_id}"]) { id title type description width revision } } }`
             },
@@ -161,6 +164,9 @@ const action = createAction({
         // https://developer.monday.com/api-reference/reference/columns
         const updateResponse = await nango.post({
             endpoint: '/v2',
+            headers: {
+                'api-version': '2026-04'
+            },
             data: {
                 query: mutationQuery
             },

@@ -1113,7 +1113,6 @@ import './monday/syncs/teams.js';
 import './monday/syncs/updates.js';
 import './monday/syncs/users.js';
 import './monday/syncs/workspaces.js';
-import './monday/actions/add-file-to-column.js';
 import './monday/actions/archive-item.js';
 import './monday/actions/change-column-value.js';
 import './monday/actions/create-board.js';

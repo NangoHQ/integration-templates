@@ -77,6 +77,9 @@ const action = createAction({
         // https://developer.monday.com/api-reference/reference/updates
         const response = await nango.post({
             endpoint: '/v2',
+            headers: {
+                'api-version': '2026-04'
+            },
             data: {
                 query: 'query($ids: [ID!]) { updates(ids: $ids) { id body text_body created_at updated_at edited_at creator_id item_id creator { id name } } }',
                 variables: { ids: [input.update_id] }

@@ -44,6 +44,9 @@ const sync = createSync({
         // https://developer.monday.com/api-reference/reference/teams
         const response = await nango.post({
             endpoint: '/v2',
+            headers: {
+                'api-version': '2026-04'
+            },
             data: {
                 query: 'query { teams { id name picture_url } }'
             },

@@ -36,6 +36,9 @@ const action = createAction({
         const config: ProxyConfiguration = {
             // https://developer.monday.com/api-reference/docs/updates#delete-update
             endpoint: '/v2',
+            headers: {
+                'api-version': '2026-04'
+            },
             data: {
                 query: 'mutation ($id: ID!) { delete_update(id: $id) { id } }',
                 variables: {

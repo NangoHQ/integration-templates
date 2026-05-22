@@ -45,6 +45,9 @@ const sync = createSync({
             // https://developer.monday.com/api-reference/reference/boards
             endpoint: '/v2',
             method: 'POST',
+            headers: {
+                'api-version': '2026-04'
+            },
             data: {
                 query: `
                     query ($limit: Int!, $page: Int!) {

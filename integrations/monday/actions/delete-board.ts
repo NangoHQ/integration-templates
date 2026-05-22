@@ -58,6 +58,9 @@ const action = createAction({
         // https://developer.monday.com/api-reference/reference/boards#query-boards
         const verifyResponse = await nango.post({
             endpoint: '/v2',
+            headers: {
+                'api-version': '2026-04'
+            },
             data: {
                 query: `query { boards(ids: ${input.board_id}) { id state } }`
             },
@@ -79,6 +82,9 @@ const action = createAction({
         // https://developer.monday.com/api-reference/reference/boards#delete-board
         const response = await nango.post({
             endpoint: '/v2',
+            headers: {
+                'api-version': '2026-04'
+            },
             data: {
                 query: `mutation { ${mutation}(board_id: ${input.board_id}) { id state } }`
             },

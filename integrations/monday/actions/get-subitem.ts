@@ -51,6 +51,9 @@ const action = createAction({
         const response = await nango.post({
             // https://developer.monday.com/api-reference/docs/subitems
             endpoint: '/v2',
+            headers: {
+                'api-version': '2026-04'
+            },
             data: {
                 query: 'query ($ids: [ID!]) { items(ids: $ids) { id name board { id } column_values { id text } } }',
                 variables: {

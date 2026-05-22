@@ -65,6 +65,9 @@ const action = createAction({
         // https://developer.monday.com/api-reference/reference/boards#update-board
         const mutationResponse = await nango.post({
             endpoint: '/v2',
+            headers: {
+                'api-version': '2026-04'
+            },
             data: {
                 query: mutationQuery,
                 variables: {
@@ -93,6 +96,9 @@ const action = createAction({
         // https://developer.monday.com/api-reference/reference/boards#get-boards
         const queryResponse = await nango.post({
             endpoint: '/v2',
+            headers: {
+                'api-version': '2026-04'
+            },
             data: {
                 query: boardQuery,
                 variables: {

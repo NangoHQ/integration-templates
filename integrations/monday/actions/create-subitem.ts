@@ -55,6 +55,9 @@ const action = createAction({
         const response = await nango.post({
             // https://developer.monday.com/api-reference/reference/subitems#create-a-subitem
             endpoint: '/v2',
+            headers: {
+                'api-version': '2026-04'
+            },
             data: {
                 query: `
                     mutation ($parentItemId: ID!, $itemName: String!) {

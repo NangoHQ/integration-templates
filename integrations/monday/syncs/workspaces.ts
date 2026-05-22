@@ -27,30 +27,28 @@ const sync = createSync({
     ],
 
     exec: async (nango) => {
-        let page: number | undefined = 1;
-
         const proxyConfig: ProxyConfiguration = {
             // https://developer.monday.com/api-reference/reference/workspaces
             endpoint: '/v2',
             method: 'POST',
+            headers: {
+                'api-version': '2026-04'
+            },
             data: {
                 query: 'query ($limit: Int, $page: Int) { workspaces(limit: $limit, page: $page) { id name description kind state } }',
                 variables: {
                     limit: 100,
-                    page: page
+                    page: 1
                 }
             },
             paginate: {
                 type: 'offset',
                 offset_name_in_request: 'variables.page',
-                offset_start_value: page,
+                offset_start_value: 1,
                 offset_calculation_method: 'per-page',
                 limit_name_in_request: 'variables.limit',
                 limit: 100,
-                response_path: 'data.workspaces',
-                on_page: async ({ nextPageParam }) => {
-                    page = typeof nextPageParam === 'number' ? nextPageParam : undefined;
-                }
+                response_path: 'data.workspaces'
             },
             retries: 3
         };

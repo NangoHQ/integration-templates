@@ -81,6 +81,9 @@ const action = createAction({
         // https://developer.monday.com/api-reference/reference/boards#create-a-board
         const response = await nango.post({
             endpoint: '/v2',
+            headers: {
+                'api-version': '2026-04'
+            },
             data: {
                 query
             },

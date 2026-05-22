@@ -159,6 +159,9 @@ const action = createAction({
         // https://developer.monday.com/api-reference/reference/items-page
         const response = await nango.post({
             endpoint: '/v2',
+            headers: {
+                'api-version': '2026-04'
+            },
             data: {
                 query: query,
                 variables: variables

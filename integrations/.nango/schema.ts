@@ -30344,41 +30344,6 @@ export interface Update {
   creator_name?: string | undefined;})[];
 };
 
-export interface ActionInput_monday_addfiletocolumn {
-  /**
-   * The item ID to add the file to. Example: "2934134049"
-   */
-  item_id: string;
-  /**
-   * The file column ID. Example: "file_mm3ke3ht"
-   */
-  column_id: string;
-  /**
-   * The name of the file. Example: "document.txt"
-   */
-  file_name: string;
-  /**
-   * The file content. Provide plain text for text files.
-   */
-  file_content: string;
-  /**
-   * MIME type of the file. Defaults to "text/plain".
-   */
-  file_type?: string | undefined;
-};
-
-export interface ActionOutput_monday_addfiletocolumn {
-  id: string;
-  name?: string | undefined;
-  url?: string | undefined;
-  public_url?: string | undefined;
-  file_extension?: string | undefined;
-  file_size?: number | undefined;
-  uploaded_by?: {  id: string;
-  name?: string | undefined;};
-  url_thumbnail?: string | undefined;
-};
-
 export interface ActionInput_monday_archiveitem {
   /**
    * The ID of the item to archive. Example: "2933609588"

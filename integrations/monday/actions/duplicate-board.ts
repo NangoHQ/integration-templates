@@ -74,6 +74,9 @@ const action = createAction({
         const response = await nango.post({
             // https://developer.monday.com/api-reference/reference/boards#duplicate-a-board
             endpoint: '/v2',
+            headers: {
+                'api-version': '2026-04'
+            },
             data: {
                 query: query
             },
