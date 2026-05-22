@@ -1,0 +1,166 @@
+{
+  "input": {
+    "product_id": 13,
+    "variation_id": 16
+  },
+  "output": {
+    "id": 16,
+    "date_created": "2026-05-22T08:59:09",
+    "date_created_gmt": "2026-05-22T08:59:09",
+    "date_modified": "2026-05-22T09:54:32",
+    "date_modified_gmt": "2026-05-22T09:54:32",
+    "permalink": "https://woocommerce-test.local/product/test-t-shirt/?attribute_size=L",
+    "price": "25.00",
+    "regular_price": "25.00",
+    "on_sale": false,
+    "status": "publish",
+    "purchasable": true,
+    "virtual": false,
+    "downloadable": false,
+    "downloads": [],
+    "download_limit": -1,
+    "download_expiry": -1,
+    "tax_status": "taxable",
+    "manage_stock": false,
+    "stock_status": "instock",
+    "backorders": "no",
+    "backorders_allowed": false,
+    "backordered": false,
+    "dimensions": {
+      "length": "",
+      "width": "",
+      "height": ""
+    },
+    "shipping_class_id": 0,
+    "attributes": [
+      {
+        "id": 0,
+        "name": "Size",
+        "option": "L"
+      }
+    ],
+    "menu_order": 0,
+    "meta_data": []
+  },
+  "nango": {},
+  "api": {
+    "get": {
+      "/wp-json/wc/v3/products/13/variations/16": {
+        "response": {
+          "id": 16,
+          "type": "variation",
+          "date_created": "2026-05-22T08:59:09",
+          "date_created_gmt": "2026-05-22T08:59:09",
+          "date_modified": "2026-05-22T09:54:32",
+          "date_modified_gmt": "2026-05-22T09:54:32",
+          "description": "",
+          "permalink": "https://woocommerce-test.local/product/test-t-shirt/?attribute_size=L",
+          "sku": "",
+          "global_unique_id": "",
+          "price": "25.00",
+          "regular_price": "25.00",
+          "sale_price": "",
+          "date_on_sale_from": null,
+          "date_on_sale_from_gmt": null,
+          "date_on_sale_to": null,
+          "date_on_sale_to_gmt": null,
+          "on_sale": false,
+          "status": "publish",
+          "purchasable": true,
+          "virtual": false,
+          "downloadable": false,
+          "downloads": [],
+          "download_limit": -1,
+          "download_expiry": -1,
+          "tax_status": "taxable",
+          "tax_class": "",
+          "manage_stock": false,
+          "stock_quantity": null,
+          "stock_status": "instock",
+          "backorders": "no",
+          "backorders_allowed": false,
+          "backordered": false,
+          "low_stock_amount": null,
+          "weight": "",
+          "dimensions": {
+            "length": "",
+            "width": "",
+            "height": ""
+          },
+          "shipping_class": "",
+          "shipping_class_id": 0,
+          "image": null,
+          "attributes": [
+            {
+              "id": 0,
+              "name": "Size",
+              "slug": "size",
+              "option": "L"
+            }
+          ],
+          "menu_order": 0,
+          "meta_data": [],
+          "name": "L",
+          "parent_id": 13,
+          "_links": {
+            "self": [
+              {
+                "href": "https://woocommerce-test.local/wp-json/wc/v3/products/13/variations/16",
+                "targetHints": {
+                  "allow": [
+                    "GET",
+                    "POST",
+                    "PUT",
+                    "PATCH",
+                    "DELETE"
+                  ]
+                }
+              }
+            ],
+            "collection": [
+              {
+                "href": "https://woocommerce-test.local/wp-json/wc/v3/products/13/variations"
+              }
+            ],
+            "up": [
+              {
+                "href": "https://woocommerce-test.local/wp-json/wc/v3/products/13"
+              }
+            ]
+          }
+        },
+        "status": 200,
+        "headers": {
+          "date": "Fri, 22 May 2026 10:05:26 GMT",
+          "content-type": "application/json; charset=UTF-8",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=5184000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "X-WP-Total, X-WP-TotalPages, Link",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4968",
+          "x-ratelimit-reset": "1779444332",
+          "access-control-allow-headers": "Authorization, X-WP-Nonce, Content-Disposition, Content-MD5, Content-Type",
+          "allow": "GET, POST, PUT, PATCH, DELETE",
+          "cache-control": "no-cache, must-revalidate, max-age=0, no-store, private",
+          "expires": "Wed, 11 Jan 1984 05:00:00 GMT",
+          "link": "<https://woocommerce-test.local/wp-json/>; rel=\"https://api.w.org/\"",
+          "ngrok-agent-ips": "105.161.152.132",
+          "server": "nginx/1.26.1",
+          "vary": "Accept-Encoding",
+          "x-powered-by": "PHP/8.2.29",
+          "x-robots-tag": "noindex"
+        },
+        "hash": "a26521c434b1b8f9a47c1cddc61ade03d6903f0b",
+        "request": {}
+      }
+    }
+  }
+}

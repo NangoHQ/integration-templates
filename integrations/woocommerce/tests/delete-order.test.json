@@ -1,0 +1,198 @@
+{
+  "input": {
+    "id": 24
+  },
+  "output": {
+    "id": 24,
+    "status": "pending",
+    "number": "24",
+    "total": "49.99",
+    "date_created": "2026-05-22T09:06:28",
+    "date_modified": "2026-05-22T13:26:15"
+  },
+  "nango": {},
+  "api": {
+    "delete": {
+      "/wp-json/wc/v3/orders/24": {
+        "response": {
+          "id": 24,
+          "parent_id": 0,
+          "status": "pending",
+          "currency": "USD",
+          "version": "10.7.0",
+          "prices_include_tax": false,
+          "date_created": "2026-05-22T09:06:28",
+          "date_modified": "2026-05-22T13:26:15",
+          "discount_total": "0.00",
+          "discount_tax": "0.00",
+          "shipping_total": "0.00",
+          "shipping_tax": "0.00",
+          "cart_tax": "0.00",
+          "total": "49.99",
+          "total_tax": "0.00",
+          "customer_id": 2,
+          "order_key": "wc_order_46E5QOzQ0wG6Z",
+          "billing": {
+            "first_name": "Test",
+            "last_name": "Customer",
+            "company": "",
+            "address_1": "",
+            "address_2": "",
+            "city": "",
+            "state": "",
+            "postcode": "",
+            "country": "US",
+            "email": "test@nango.dev",
+            "phone": ""
+          },
+          "shipping": {
+            "first_name": "",
+            "last_name": "",
+            "company": "",
+            "address_1": "",
+            "address_2": "",
+            "city": "",
+            "state": "",
+            "postcode": "",
+            "country": "",
+            "phone": ""
+          },
+          "payment_method": "",
+          "payment_method_title": "",
+          "transaction_id": "",
+          "customer_ip_address": "",
+          "customer_user_agent": "",
+          "created_via": "rest-api",
+          "customer_note": "",
+          "date_completed": null,
+          "date_paid": null,
+          "cart_hash": "",
+          "number": "24",
+          "meta_data": [
+            {
+              "id": 120,
+              "key": "_wp_trash_meta_status",
+              "value": "wc-pending"
+            },
+            {
+              "id": 122,
+              "key": "_wp_trash_meta_status",
+              "value": "wc-pending"
+            },
+            {
+              "id": 121,
+              "key": "_wp_trash_meta_time",
+              "value": "1779456216"
+            },
+            {
+              "id": 123,
+              "key": "_wp_trash_meta_time",
+              "value": "1779456344"
+            }
+          ],
+          "line_items": [
+            {
+              "id": 2,
+              "name": "Test Hoodie",
+              "product_id": 0,
+              "variation_id": 0,
+              "quantity": 1,
+              "tax_class": "",
+              "subtotal": "49.99",
+              "subtotal_tax": "0.00",
+              "total": "49.99",
+              "total_tax": "0.00",
+              "taxes": [],
+              "meta_data": [],
+              "sku": null,
+              "global_unique_id": null,
+              "price": 49.99,
+              "image": {
+                "id": 0,
+                "src": ""
+              },
+              "parent_name": null
+            }
+          ],
+          "tax_lines": [],
+          "shipping_lines": [],
+          "fee_lines": [],
+          "coupon_lines": [],
+          "refunds": [],
+          "payment_url": "https://woocommerce-test.local/checkout/order-pay/24/?pay_for_order=true&key=wc_order_46E5QOzQ0wG6Z",
+          "is_editable": true,
+          "needs_payment": true,
+          "needs_processing": true,
+          "date_created_gmt": "2026-05-22T09:06:28",
+          "date_modified_gmt": "2026-05-22T13:26:15",
+          "date_completed_gmt": null,
+          "date_paid_gmt": null,
+          "currency_symbol": "$",
+          "_links": {
+            "self": [
+              {
+                "href": "https://woocommerce-test.local/wp-json/wc/v3/orders/24",
+                "targetHints": {
+                  "allow": [
+                    "GET",
+                    "POST",
+                    "PUT",
+                    "PATCH",
+                    "DELETE"
+                  ]
+                }
+              }
+            ],
+            "collection": [
+              {
+                "href": "https://woocommerce-test.local/wp-json/wc/v3/orders"
+              }
+            ],
+            "email_templates": [
+              {
+                "embeddable": true,
+                "href": "https://woocommerce-test.local/wp-json/wc/v3/orders/24/actions/email_templates"
+              }
+            ],
+            "customer": [
+              {
+                "href": "https://woocommerce-test.local/wp-json/wc/v3/customers/2"
+              }
+            ]
+          }
+        },
+        "status": 200,
+        "headers": {
+          "date": "Fri, 22 May 2026 13:26:25 GMT",
+          "content-type": "application/json; charset=UTF-8",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=5184000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "X-WP-Total, X-WP-TotalPages, Link",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4997",
+          "x-ratelimit-reset": "1779456444",
+          "access-control-allow-headers": "Authorization, X-WP-Nonce, Content-Disposition, Content-MD5, Content-Type",
+          "allow": "GET, POST, PUT, PATCH, DELETE",
+          "cache-control": "no-cache, must-revalidate, max-age=0, no-store, private",
+          "expires": "Wed, 11 Jan 1984 05:00:00 GMT",
+          "link": "<https://woocommerce-test.local/wp-json/>; rel=\"https://api.w.org/\"",
+          "ngrok-agent-ips": "105.161.152.132",
+          "server": "nginx/1.26.1",
+          "vary": "Accept-Encoding",
+          "x-powered-by": "PHP/8.2.29",
+          "x-robots-tag": "noindex"
+        },
+        "hash": "584b1a901919a2d45193aa18d8fc152ccdaed8bf",
+        "request": {}
+      }
+    }
+  }
+}

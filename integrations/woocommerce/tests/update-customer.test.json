@@ -1,0 +1,160 @@
+{
+  "input": {
+    "id": 2,
+    "first_name": "Updated Test"
+  },
+  "output": {
+    "id": 2,
+    "email": "test@nango.dev",
+    "first_name": "Updated Test",
+    "last_name": "Customer",
+    "username": "test_customer",
+    "billing": {
+      "first_name": "Test",
+      "last_name": "Customer",
+      "company": "",
+      "address_1": "",
+      "address_2": "",
+      "city": "",
+      "state": "",
+      "postcode": "",
+      "country": "US",
+      "email": "test@nango.dev",
+      "phone": ""
+    },
+    "shipping": {
+      "first_name": "",
+      "last_name": "",
+      "company": "",
+      "address_1": "",
+      "address_2": "",
+      "city": "",
+      "state": "",
+      "postcode": "",
+      "country": ""
+    },
+    "avatar_url": "https://secure.gravatar.com/avatar/aadb7a83a344cd33abe4e6cd2147978547cf87406eb7def814e46a7fb2269aa7?s=96&d=mm&r=g",
+    "is_paying_customer": true,
+    "date_created": "2026-05-22T08:59:13",
+    "date_created_gmt": "2026-05-22T08:59:13",
+    "date_modified": "2026-05-22T13:23:37",
+    "date_modified_gmt": "2026-05-22T13:23:37",
+    "role": "customer",
+    "meta_data": [
+      {
+        "id": 34,
+        "key": "default_password_nag",
+        "value": "1"
+      }
+    ]
+  },
+  "nango": {},
+  "api": {
+    "patch": {
+      "/wp-json/wc/v3/customers/2": {
+        "response": {
+          "id": 2,
+          "date_created": "2026-05-22T08:59:13",
+          "date_created_gmt": "2026-05-22T08:59:13",
+          "date_modified": "2026-05-22T13:23:37",
+          "date_modified_gmt": "2026-05-22T13:23:37",
+          "email": "test@nango.dev",
+          "first_name": "Updated Test",
+          "last_name": "Customer",
+          "role": "customer",
+          "username": "test_customer",
+          "billing": {
+            "first_name": "Test",
+            "last_name": "Customer",
+            "company": "",
+            "address_1": "",
+            "address_2": "",
+            "city": "",
+            "postcode": "",
+            "country": "US",
+            "state": "",
+            "email": "test@nango.dev",
+            "phone": ""
+          },
+          "shipping": {
+            "first_name": "",
+            "last_name": "",
+            "company": "",
+            "address_1": "",
+            "address_2": "",
+            "city": "",
+            "postcode": "",
+            "country": "",
+            "state": "",
+            "phone": ""
+          },
+          "is_paying_customer": true,
+          "avatar_url": "https://secure.gravatar.com/avatar/aadb7a83a344cd33abe4e6cd2147978547cf87406eb7def814e46a7fb2269aa7?s=96&d=mm&r=g",
+          "meta_data": [
+            {
+              "id": 34,
+              "key": "default_password_nag",
+              "value": "1"
+            }
+          ],
+          "_links": {
+            "self": [
+              {
+                "href": "https://woocommerce-test.local/wp-json/wc/v3/customers/2",
+                "targetHints": {
+                  "allow": [
+                    "GET",
+                    "POST",
+                    "PUT",
+                    "PATCH",
+                    "DELETE"
+                  ]
+                }
+              }
+            ],
+            "collection": [
+              {
+                "href": "https://woocommerce-test.local/wp-json/wc/v3/customers"
+              }
+            ]
+          }
+        },
+        "status": 200,
+        "headers": {
+          "date": "Fri, 22 May 2026 13:23:37 GMT",
+          "content-type": "application/json; charset=UTF-8",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=5184000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "X-WP-Total, X-WP-TotalPages, Link",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4984",
+          "x-ratelimit-reset": "1779456228",
+          "access-control-allow-headers": "Authorization, X-WP-Nonce, Content-Disposition, Content-MD5, Content-Type",
+          "allow": "GET, POST, PUT, PATCH, DELETE",
+          "cache-control": "no-cache, must-revalidate, max-age=0, no-store, private",
+          "expires": "Wed, 11 Jan 1984 05:00:00 GMT",
+          "link": "<https://woocommerce-test.local/wp-json/>; rel=\"https://api.w.org/\"",
+          "ngrok-agent-ips": "105.161.152.132",
+          "server": "nginx/1.26.1",
+          "vary": "Accept-Encoding",
+          "x-powered-by": "PHP/8.2.29",
+          "x-robots-tag": "noindex"
+        },
+        "hash": "b76760c2a9f7b685a90c62cd99e6898e61ce3d89",
+        "request": {
+          "data": {
+            "first_name": "Updated Test"
+          }
+        }
+      }
+    }
+  }
+}

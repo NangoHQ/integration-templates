@@ -1,0 +1,132 @@
+{
+  "input": {
+    "order_id": 18,
+    "amount": "1.00",
+    "reason": "Test refund",
+    "api_refund": false
+  },
+  "output": {
+    "id": 47,
+    "date_created": "2026-05-22T10:01:57",
+    "date_created_gmt": "2026-05-22T10:01:57",
+    "amount": "1.00",
+    "reason": "Test refund",
+    "refunded_by": 1,
+    "refunded_payment": false,
+    "meta_data": [
+      {
+        "id": 102,
+        "key": "_refund_type",
+        "value": "partial"
+      }
+    ],
+    "line_items": [],
+    "tax_lines": [],
+    "shipping_lines": [],
+    "fee_lines": [],
+    "_links": {
+      "self": [
+        {
+          "href": "https://woocommerce-test.local/wp-json/wc/v3/orders/18/refunds/47"
+        }
+      ],
+      "collection": [
+        {
+          "href": "https://woocommerce-test.local/wp-json/wc/v3/orders/18/refunds"
+        }
+      ],
+      "up": [
+        {
+          "href": "https://woocommerce-test.local/wp-json/wc/v3/orders/18"
+        }
+      ]
+    }
+  },
+  "nango": {},
+  "api": {
+    "post": {
+      "/wp-json/wc/v3/orders/18/refunds": {
+        "response": {
+          "id": 47,
+          "date_created": "2026-05-22T10:01:57",
+          "date_created_gmt": "2026-05-22T10:01:57",
+          "amount": "1.00",
+          "reason": "Test refund",
+          "refunded_by": 1,
+          "refunded_payment": false,
+          "meta_data": [
+            {
+              "id": 102,
+              "key": "_refund_type",
+              "value": "partial"
+            }
+          ],
+          "line_items": [],
+          "shipping_lines": [],
+          "tax_lines": [],
+          "fee_lines": [],
+          "_links": {
+            "self": [
+              {
+                "href": "https://woocommerce-test.local/wp-json/wc/v3/orders/18/refunds/47",
+                "targetHints": {
+                  "allow": [
+                    "GET",
+                    "DELETE"
+                  ]
+                }
+              }
+            ],
+            "collection": [
+              {
+                "href": "https://woocommerce-test.local/wp-json/wc/v3/orders/18/refunds"
+              }
+            ],
+            "up": [
+              {
+                "href": "https://woocommerce-test.local/wp-json/wc/v3/orders/18"
+              }
+            ]
+          }
+        },
+        "status": 201,
+        "headers": {
+          "date": "Fri, 22 May 2026 10:01:58 GMT",
+          "content-type": "application/json; charset=UTF-8",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=5184000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "X-WP-Total, X-WP-TotalPages, Link",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4992",
+          "x-ratelimit-reset": "1779444151",
+          "access-control-allow-headers": "Authorization, X-WP-Nonce, Content-Disposition, Content-MD5, Content-Type",
+          "allow": "GET, POST",
+          "cache-control": "no-cache, must-revalidate, max-age=0, no-store, private",
+          "expires": "Wed, 11 Jan 1984 05:00:00 GMT",
+          "link": "<https://woocommerce-test.local/wp-json/>; rel=\"https://api.w.org/\"",
+          "location": "https://woocommerce-test.local/wp-json/wc/v3/orders/(?P<order_id>[\\d]+)/refunds/47",
+          "ngrok-agent-ips": "105.161.152.132",
+          "server": "nginx/1.26.1",
+          "x-powered-by": "PHP/8.2.29",
+          "x-robots-tag": "noindex"
+        },
+        "hash": "9397db4b13597b8e0bca8b4223d51cc1eacc0d84",
+        "request": {
+          "data": {
+            "amount": "1.00",
+            "reason": "Test refund",
+            "api_refund": false
+          }
+        }
+      }
+    }
+  }
+}

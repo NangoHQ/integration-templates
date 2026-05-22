@@ -1,0 +1,618 @@
+{
+  "nango": {
+    "batchSave": {
+      "ProductVariation": [
+        {
+          "id": "55",
+          "product_id": "13",
+          "date_created": "2026-05-22T11:17:28",
+          "date_modified": "2026-05-22T11:17:28",
+          "permalink": "https://woocommerce-test.local/product/test-t-shirt/",
+          "price": "19.99",
+          "regular_price": "19.99",
+          "status": "publish",
+          "stock_status": "instock",
+          "manage_stock": false,
+          "dimensions": {
+            "length": "",
+            "width": "",
+            "height": ""
+          },
+          "attributes": [],
+          "meta_data": []
+        },
+        {
+          "id": "54",
+          "product_id": "13",
+          "date_created": "2026-05-22T11:17:16",
+          "date_modified": "2026-05-22T11:17:16",
+          "permalink": "https://woocommerce-test.local/product/test-t-shirt/",
+          "price": "19.99",
+          "regular_price": "19.99",
+          "status": "publish",
+          "stock_status": "instock",
+          "manage_stock": false,
+          "dimensions": {
+            "length": "",
+            "width": "",
+            "height": ""
+          },
+          "attributes": [],
+          "meta_data": []
+        },
+        {
+          "id": "53",
+          "product_id": "13",
+          "date_created": "2026-05-22T11:16:19",
+          "date_modified": "2026-05-22T11:16:19",
+          "permalink": "https://woocommerce-test.local/product/test-t-shirt/",
+          "price": "19.99",
+          "regular_price": "19.99",
+          "status": "publish",
+          "stock_status": "instock",
+          "manage_stock": false,
+          "dimensions": {
+            "length": "",
+            "width": "",
+            "height": ""
+          },
+          "attributes": [],
+          "meta_data": []
+        },
+        {
+          "id": "16",
+          "product_id": "13",
+          "date_created": "2026-05-22T08:59:09",
+          "date_modified": "2026-05-22T09:54:32",
+          "permalink": "https://woocommerce-test.local/product/test-t-shirt/?attribute_size=L",
+          "price": "25.00",
+          "regular_price": "25.00",
+          "status": "publish",
+          "stock_status": "instock",
+          "manage_stock": false,
+          "dimensions": {
+            "length": "",
+            "width": "",
+            "height": ""
+          },
+          "attributes": [
+            {
+              "id": 0,
+              "name": "Size",
+              "option": "L"
+            }
+          ],
+          "meta_data": []
+        }
+      ]
+    },
+    "batchDelete": {
+      "ProductVariation": []
+    }
+  },
+  "api": {
+    "get": {
+      "/wp-json/wc/v3/products": {
+        "response": [
+          {
+            "id": 13,
+            "name": "Updated Test T-Shirt",
+            "slug": "test-t-shirt",
+            "permalink": "https://woocommerce-test.local/product/test-t-shirt/",
+            "date_created": "2026-05-22T08:58:56",
+            "date_created_gmt": "2026-05-22T08:58:56",
+            "date_modified": "2026-05-22T11:18:58",
+            "date_modified_gmt": "2026-05-22T11:18:58",
+            "type": "variable",
+            "status": "publish",
+            "featured": false,
+            "catalog_visibility": "visible",
+            "description": "<p>This product has been updated via API</p>\n",
+            "short_description": "<p>Test product with variations.</p>\n",
+            "sku": "",
+            "price": "19.99",
+            "regular_price": "",
+            "sale_price": "",
+            "date_on_sale_from": null,
+            "date_on_sale_from_gmt": null,
+            "date_on_sale_to": null,
+            "date_on_sale_to_gmt": null,
+            "on_sale": false,
+            "purchasable": true,
+            "total_sales": 1,
+            "virtual": false,
+            "downloadable": false,
+            "downloads": [],
+            "download_limit": -1,
+            "download_expiry": -1,
+            "external_url": "",
+            "button_text": "",
+            "tax_status": "taxable",
+            "tax_class": "",
+            "manage_stock": false,
+            "stock_quantity": null,
+            "backorders": "no",
+            "backorders_allowed": false,
+            "backordered": false,
+            "low_stock_amount": null,
+            "sold_individually": false,
+            "weight": "",
+            "dimensions": {
+              "length": "",
+              "width": "",
+              "height": ""
+            },
+            "shipping_required": true,
+            "shipping_taxable": true,
+            "shipping_class": "",
+            "shipping_class_id": 0,
+            "reviews_allowed": true,
+            "average_rating": "4.50",
+            "rating_count": 2,
+            "upsell_ids": [],
+            "cross_sell_ids": [],
+            "parent_id": 0,
+            "purchase_note": "",
+            "categories": [
+              {
+                "id": 15,
+                "name": "Uncategorized",
+                "slug": "uncategorized"
+              }
+            ],
+            "brands": [],
+            "tags": [],
+            "images": [],
+            "attributes": [
+              {
+                "id": 0,
+                "name": "Size",
+                "slug": "Size",
+                "position": 0,
+                "visible": true,
+                "variation": true,
+                "options": [
+                  "S",
+                  "M",
+                  "L"
+                ]
+              }
+            ],
+            "default_attributes": [],
+            "variations": [
+              16,
+              53,
+              54,
+              55
+            ],
+            "grouped_products": [],
+            "menu_order": 0,
+            "price_html": "<span class=\"woocommerce-Price-amount amount\" aria-hidden=\"true\"><bdi><span class=\"woocommerce-Price-currencySymbol\">&#36;</span>19.99</bdi></span> <span aria-hidden=\"true\">&ndash;</span> <span class=\"woocommerce-Price-amount amount\" aria-hidden=\"true\"><bdi><span class=\"woocommerce-Price-currencySymbol\">&#36;</span>25.00</bdi></span><span class=\"screen-reader-text\">Price range: &#36;19.99 through &#36;25.00</span>",
+            "related_ids": [
+              56,
+              57
+            ],
+            "meta_data": [],
+            "stock_status": "instock",
+            "has_options": true,
+            "post_password": "",
+            "global_unique_id": "",
+            "_links": {
+              "self": [
+                {
+                  "href": "https://woocommerce-test.local/wp-json/wc/v3/products/13",
+                  "targetHints": {
+                    "allow": [
+                      "GET",
+                      "POST",
+                      "PUT",
+                      "PATCH",
+                      "DELETE"
+                    ]
+                  }
+                }
+              ],
+              "collection": [
+                {
+                  "href": "https://woocommerce-test.local/wp-json/wc/v3/products"
+                }
+              ]
+            }
+          }
+        ],
+        "status": 200,
+        "headers": {
+          "date": "Fri, 22 May 2026 13:39:01 GMT",
+          "content-type": "application/json; charset=UTF-8",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=5184000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "X-WP-Total, X-WP-TotalPages, Link",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4984",
+          "x-ratelimit-reset": "1779457151",
+          "access-control-allow-headers": "Authorization, X-WP-Nonce, Content-Disposition, Content-MD5, Content-Type",
+          "allow": "GET, POST",
+          "cache-control": "no-cache, must-revalidate, max-age=0, no-store, private",
+          "expires": "Wed, 11 Jan 1984 05:00:00 GMT",
+          "link": "<https://woocommerce-test.local/wp-json/>; rel=\"https://api.w.org/\"",
+          "ngrok-agent-ips": "105.161.152.132",
+          "server": "nginx/1.26.1",
+          "vary": "Accept-Encoding",
+          "x-powered-by": "PHP/8.2.29",
+          "x-robots-tag": "noindex",
+          "x-wp-total": "1",
+          "x-wp-totalpages": "1"
+        },
+        "hash": "5e3ac5f00cfafe52eb82afdada9eb19e28a1b7ca",
+        "request": {
+          "params": {
+            "page": "1",
+            "per_page": "100",
+            "type": "variable"
+          }
+        }
+      },
+      "/wp-json/wc/v3/products/13/variations": {
+        "response": [
+          {
+            "id": 55,
+            "type": "variation",
+            "date_created": "2026-05-22T11:17:28",
+            "date_created_gmt": "2026-05-22T11:17:28",
+            "date_modified": "2026-05-22T11:17:28",
+            "date_modified_gmt": "2026-05-22T11:17:28",
+            "description": "",
+            "permalink": "https://woocommerce-test.local/product/test-t-shirt/",
+            "sku": "",
+            "global_unique_id": "",
+            "price": "19.99",
+            "regular_price": "19.99",
+            "sale_price": "",
+            "date_on_sale_from": null,
+            "date_on_sale_from_gmt": null,
+            "date_on_sale_to": null,
+            "date_on_sale_to_gmt": null,
+            "on_sale": false,
+            "status": "publish",
+            "purchasable": true,
+            "virtual": false,
+            "downloadable": false,
+            "downloads": [],
+            "download_limit": -1,
+            "download_expiry": -1,
+            "tax_status": "taxable",
+            "tax_class": "",
+            "manage_stock": false,
+            "stock_quantity": null,
+            "stock_status": "instock",
+            "backorders": "no",
+            "backorders_allowed": false,
+            "backordered": false,
+            "low_stock_amount": null,
+            "weight": "",
+            "dimensions": {
+              "length": "",
+              "width": "",
+              "height": ""
+            },
+            "shipping_class": "",
+            "shipping_class_id": 0,
+            "image": null,
+            "attributes": [],
+            "menu_order": 0,
+            "meta_data": [],
+            "name": "",
+            "parent_id": 13,
+            "_links": {
+              "self": [
+                {
+                  "href": "https://woocommerce-test.local/wp-json/wc/v3/products/13/variations/55",
+                  "targetHints": {
+                    "allow": [
+                      "GET",
+                      "POST",
+                      "PUT",
+                      "PATCH",
+                      "DELETE"
+                    ]
+                  }
+                }
+              ],
+              "collection": [
+                {
+                  "href": "https://woocommerce-test.local/wp-json/wc/v3/products/13/variations"
+                }
+              ],
+              "up": [
+                {
+                  "href": "https://woocommerce-test.local/wp-json/wc/v3/products/13"
+                }
+              ]
+            }
+          },
+          {
+            "id": 54,
+            "type": "variation",
+            "date_created": "2026-05-22T11:17:16",
+            "date_created_gmt": "2026-05-22T11:17:16",
+            "date_modified": "2026-05-22T11:17:16",
+            "date_modified_gmt": "2026-05-22T11:17:16",
+            "description": "",
+            "permalink": "https://woocommerce-test.local/product/test-t-shirt/",
+            "sku": "",
+            "global_unique_id": "",
+            "price": "19.99",
+            "regular_price": "19.99",
+            "sale_price": "",
+            "date_on_sale_from": null,
+            "date_on_sale_from_gmt": null,
+            "date_on_sale_to": null,
+            "date_on_sale_to_gmt": null,
+            "on_sale": false,
+            "status": "publish",
+            "purchasable": true,
+            "virtual": false,
+            "downloadable": false,
+            "downloads": [],
+            "download_limit": -1,
+            "download_expiry": -1,
+            "tax_status": "taxable",
+            "tax_class": "",
+            "manage_stock": false,
+            "stock_quantity": null,
+            "stock_status": "instock",
+            "backorders": "no",
+            "backorders_allowed": false,
+            "backordered": false,
+            "low_stock_amount": null,
+            "weight": "",
+            "dimensions": {
+              "length": "",
+              "width": "",
+              "height": ""
+            },
+            "shipping_class": "",
+            "shipping_class_id": 0,
+            "image": null,
+            "attributes": [],
+            "menu_order": 0,
+            "meta_data": [],
+            "name": "",
+            "parent_id": 13,
+            "_links": {
+              "self": [
+                {
+                  "href": "https://woocommerce-test.local/wp-json/wc/v3/products/13/variations/54",
+                  "targetHints": {
+                    "allow": [
+                      "GET",
+                      "POST",
+                      "PUT",
+                      "PATCH",
+                      "DELETE"
+                    ]
+                  }
+                }
+              ],
+              "collection": [
+                {
+                  "href": "https://woocommerce-test.local/wp-json/wc/v3/products/13/variations"
+                }
+              ],
+              "up": [
+                {
+                  "href": "https://woocommerce-test.local/wp-json/wc/v3/products/13"
+                }
+              ]
+            }
+          },
+          {
+            "id": 53,
+            "type": "variation",
+            "date_created": "2026-05-22T11:16:19",
+            "date_created_gmt": "2026-05-22T11:16:19",
+            "date_modified": "2026-05-22T11:16:19",
+            "date_modified_gmt": "2026-05-22T11:16:19",
+            "description": "",
+            "permalink": "https://woocommerce-test.local/product/test-t-shirt/",
+            "sku": "",
+            "global_unique_id": "",
+            "price": "19.99",
+            "regular_price": "19.99",
+            "sale_price": "",
+            "date_on_sale_from": null,
+            "date_on_sale_from_gmt": null,
+            "date_on_sale_to": null,
+            "date_on_sale_to_gmt": null,
+            "on_sale": false,
+            "status": "publish",
+            "purchasable": true,
+            "virtual": false,
+            "downloadable": false,
+            "downloads": [],
+            "download_limit": -1,
+            "download_expiry": -1,
+            "tax_status": "taxable",
+            "tax_class": "",
+            "manage_stock": false,
+            "stock_quantity": null,
+            "stock_status": "instock",
+            "backorders": "no",
+            "backorders_allowed": false,
+            "backordered": false,
+            "low_stock_amount": null,
+            "weight": "",
+            "dimensions": {
+              "length": "",
+              "width": "",
+              "height": ""
+            },
+            "shipping_class": "",
+            "shipping_class_id": 0,
+            "image": null,
+            "attributes": [],
+            "menu_order": 0,
+            "meta_data": [],
+            "name": "",
+            "parent_id": 13,
+            "_links": {
+              "self": [
+                {
+                  "href": "https://woocommerce-test.local/wp-json/wc/v3/products/13/variations/53",
+                  "targetHints": {
+                    "allow": [
+                      "GET",
+                      "POST",
+                      "PUT",
+                      "PATCH",
+                      "DELETE"
+                    ]
+                  }
+                }
+              ],
+              "collection": [
+                {
+                  "href": "https://woocommerce-test.local/wp-json/wc/v3/products/13/variations"
+                }
+              ],
+              "up": [
+                {
+                  "href": "https://woocommerce-test.local/wp-json/wc/v3/products/13"
+                }
+              ]
+            }
+          },
+          {
+            "id": 16,
+            "type": "variation",
+            "date_created": "2026-05-22T08:59:09",
+            "date_created_gmt": "2026-05-22T08:59:09",
+            "date_modified": "2026-05-22T09:54:32",
+            "date_modified_gmt": "2026-05-22T09:54:32",
+            "description": "",
+            "permalink": "https://woocommerce-test.local/product/test-t-shirt/?attribute_size=L",
+            "sku": "",
+            "global_unique_id": "",
+            "price": "25.00",
+            "regular_price": "25.00",
+            "sale_price": "",
+            "date_on_sale_from": null,
+            "date_on_sale_from_gmt": null,
+            "date_on_sale_to": null,
+            "date_on_sale_to_gmt": null,
+            "on_sale": false,
+            "status": "publish",
+            "purchasable": true,
+            "virtual": false,
+            "downloadable": false,
+            "downloads": [],
+            "download_limit": -1,
+            "download_expiry": -1,
+            "tax_status": "taxable",
+            "tax_class": "",
+            "manage_stock": false,
+            "stock_quantity": null,
+            "stock_status": "instock",
+            "backorders": "no",
+            "backorders_allowed": false,
+            "backordered": false,
+            "low_stock_amount": null,
+            "weight": "",
+            "dimensions": {
+              "length": "",
+              "width": "",
+              "height": ""
+            },
+            "shipping_class": "",
+            "shipping_class_id": 0,
+            "image": null,
+            "attributes": [
+              {
+                "id": 0,
+                "name": "Size",
+                "slug": "size",
+                "option": "L"
+              }
+            ],
+            "menu_order": 0,
+            "meta_data": [],
+            "name": "L",
+            "parent_id": 13,
+            "_links": {
+              "self": [
+                {
+                  "href": "https://woocommerce-test.local/wp-json/wc/v3/products/13/variations/16",
+                  "targetHints": {
+                    "allow": [
+                      "GET",
+                      "POST",
+                      "PUT",
+                      "PATCH",
+                      "DELETE"
+                    ]
+                  }
+                }
+              ],
+              "collection": [
+                {
+                  "href": "https://woocommerce-test.local/wp-json/wc/v3/products/13/variations"
+                }
+              ],
+              "up": [
+                {
+                  "href": "https://woocommerce-test.local/wp-json/wc/v3/products/13"
+                }
+              ]
+            }
+          }
+        ],
+        "status": 200,
+        "headers": {
+          "date": "Fri, 22 May 2026 13:39:02 GMT",
+          "content-type": "application/json; charset=UTF-8",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=5184000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "X-WP-Total, X-WP-TotalPages, Link",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4983",
+          "x-ratelimit-reset": "1779457151",
+          "access-control-allow-headers": "Authorization, X-WP-Nonce, Content-Disposition, Content-MD5, Content-Type",
+          "allow": "GET, POST",
+          "cache-control": "no-cache, must-revalidate, max-age=0, no-store, private",
+          "expires": "Wed, 11 Jan 1984 05:00:00 GMT",
+          "link": "<https://woocommerce-test.local/wp-json/>; rel=\"https://api.w.org/\"",
+          "ngrok-agent-ips": "105.161.152.132",
+          "server": "nginx/1.26.1",
+          "vary": "Accept-Encoding",
+          "x-powered-by": "PHP/8.2.29",
+          "x-robots-tag": "noindex",
+          "x-wp-total": "4",
+          "x-wp-totalpages": "1"
+        },
+        "hash": "58af96bb2626c628ac31bd4d155213210d42c534",
+        "request": {
+          "params": {
+            "page": "1",
+            "per_page": "100"
+          }
+        }
+      }
+    }
+  }
+}
