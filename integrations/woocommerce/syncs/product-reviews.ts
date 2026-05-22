@@ -55,12 +55,9 @@ const sync = createSync({
             retries: 3
         };
 
-        let deleteTrackingStarted = false;
+        await nango.trackDeletesStart('ProductReview');
+
         for await (const page of nango.paginate(proxyConfig)) {
-            if (!deleteTrackingStarted) {
-                await nango.trackDeletesStart('ProductReview');
-                deleteTrackingStarted = true;
-            }
             const reviews = page.map(
                 (record: {
                     id: number;
@@ -94,9 +91,7 @@ const sync = createSync({
             await nango.batchSave(reviews, 'ProductReview');
         }
 
-        if (deleteTrackingStarted) {
-            await nango.trackDeletesEnd('ProductReview');
-        }
+        await nango.trackDeletesEnd('ProductReview');
     }
 });
 

@@ -672,51 +672,7 @@
                   }
                 ]
               }
-            }
-          ],
-          "status": 200,
-          "headers": {
-            "date": "Fri, 22 May 2026 10:29:17 GMT",
-            "content-type": "application/json; charset=UTF-8",
-            "transfer-encoding": "chunked",
-            "connection": "keep-alive",
-            "x-xss-protection": "0",
-            "x-content-type-options": "nosniff",
-            "x-download-options": "noopen",
-            "x-frame-options": "SAMEORIGIN",
-            "x-dns-prefetch-control": "off",
-            "strict-transport-security": "max-age=5184000; includeSubDomains",
-            "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
-            "access-control-allow-origin": "*",
-            "access-control-expose-headers": "X-WP-Total, X-WP-TotalPages, Link",
-            "x-ratelimit-limit": "5000",
-            "x-ratelimit-remaining": "4992",
-            "x-ratelimit-reset": "1779445791",
-            "access-control-allow-headers": "Authorization, X-WP-Nonce, Content-Disposition, Content-MD5, Content-Type",
-            "allow": "GET, POST",
-            "cache-control": "no-cache, must-revalidate, max-age=0, no-store, private",
-            "expires": "Wed, 11 Jan 1984 05:00:00 GMT",
-            "link": "<https://woocommerce-test.local/wp-json/wc/v3/orders?orderby=modified&order=asc&per_page=2&page=2&status%5B0%5D=any&dp=2&context=view>; rel=\"next\"",
-            "ngrok-agent-ips": "105.161.152.132",
-            "server": "nginx/1.26.1",
-            "vary": "Accept-Encoding",
-            "x-powered-by": "PHP/8.2.29",
-            "x-robots-tag": "noindex",
-            "x-wp-total": "4",
-            "x-wp-totalpages": "2"
-          },
-          "hash": "0d4c9180f0f8c4b851451498393bc1aae0ad6c13",
-          "request": {
-            "params": {
-              "order": "asc",
-              "orderby": "modified",
-              "page": "1",
-              "per_page": "2"
-            }
-          }
-        },
-        {
-          "response": [
+            },
             {
               "id": 49,
               "parent_id": 0,
@@ -972,7 +928,7 @@
           ],
           "status": 200,
           "headers": {
-            "date": "Fri, 22 May 2026 10:29:18 GMT",
+            "date": "Fri, 22 May 2026 10:29:17 GMT",
             "content-type": "application/json; charset=UTF-8",
             "transfer-encoding": "chunked",
             "connection": "keep-alive",
@@ -986,71 +942,28 @@
             "access-control-allow-origin": "*",
             "access-control-expose-headers": "X-WP-Total, X-WP-TotalPages, Link",
             "x-ratelimit-limit": "5000",
-            "x-ratelimit-remaining": "4991",
+            "x-ratelimit-remaining": "4992",
             "x-ratelimit-reset": "1779445791",
             "access-control-allow-headers": "Authorization, X-WP-Nonce, Content-Disposition, Content-MD5, Content-Type",
             "allow": "GET, POST",
             "cache-control": "no-cache, must-revalidate, max-age=0, no-store, private",
             "expires": "Wed, 11 Jan 1984 05:00:00 GMT",
-            "link": "<https://woocommerce-test.local/wp-json/wc/v3/orders?orderby=modified&order=asc&per_page=2&page=1&status%5B0%5D=any&dp=2&context=view>; rel=\"prev\"",
+            "link": "<https://woocommerce-test.local/wp-json/wc/v3/orders?orderby=modified&order=asc&per_page=2&page=2&status%5B0%5D=any&dp=2&context=view>; rel=\"next\"",
             "ngrok-agent-ips": "105.161.152.132",
             "server": "nginx/1.26.1",
             "vary": "Accept-Encoding",
             "x-powered-by": "PHP/8.2.29",
             "x-robots-tag": "noindex",
             "x-wp-total": "4",
-            "x-wp-totalpages": "2"
+            "x-wp-totalpages": "1"
           },
-          "hash": "b382ce78c52232414c200f30097049efbc7d0e17",
+          "hash": "316cd2a5de95459f7662db547680af8dcb2ae489",
           "request": {
             "params": {
               "order": "asc",
               "orderby": "modified",
-              "page": "2",
-              "per_page": "2"
-            }
-          }
-        },
-        {
-          "response": [],
-          "status": 200,
-          "headers": {
-            "date": "Fri, 22 May 2026 10:29:19 GMT",
-            "content-type": "application/json; charset=UTF-8",
-            "transfer-encoding": "chunked",
-            "connection": "keep-alive",
-            "x-xss-protection": "0",
-            "x-content-type-options": "nosniff",
-            "x-download-options": "noopen",
-            "x-frame-options": "SAMEORIGIN",
-            "x-dns-prefetch-control": "off",
-            "strict-transport-security": "max-age=5184000; includeSubDomains",
-            "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
-            "access-control-allow-origin": "*",
-            "access-control-expose-headers": "X-WP-Total, X-WP-TotalPages, Link",
-            "x-ratelimit-limit": "5000",
-            "x-ratelimit-remaining": "4990",
-            "x-ratelimit-reset": "1779445791",
-            "access-control-allow-headers": "Authorization, X-WP-Nonce, Content-Disposition, Content-MD5, Content-Type",
-            "allow": "GET, POST",
-            "cache-control": "no-cache, must-revalidate, max-age=0, no-store, private",
-            "expires": "Wed, 11 Jan 1984 05:00:00 GMT",
-            "link": "<https://woocommerce-test.local/wp-json/wc/v3/orders?orderby=modified&order=asc&per_page=2&page=0&status%5B0%5D=any>; rel=\"prev\"",
-            "ngrok-agent-ips": "105.161.152.132",
-            "server": "nginx/1.26.1",
-            "vary": "Accept-Encoding",
-            "x-powered-by": "PHP/8.2.29",
-            "x-robots-tag": "noindex",
-            "x-wp-total": "0",
-            "x-wp-totalpages": "0"
-          },
-          "hash": "c30feec0faad13ddf1e30c5deba90ab87ec26237",
-          "request": {
-            "params": {
-              "order": "asc",
-              "orderby": "modified",
-              "page": "3",
-              "per_page": "2"
+              "page": "1",
+              "per_page": "100"
             }
           }
         }

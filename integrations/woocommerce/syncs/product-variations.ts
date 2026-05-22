@@ -94,15 +94,11 @@ const sync = createSync({
             retries: 3
         };
 
-        let deleteTrackingStarted = false;
+        await nango.trackDeletesStart('ProductVariation');
+
         for await (const productsPage of nango.paginate<unknown>(productsConfig)) {
             if (!Array.isArray(productsPage)) {
                 throw new Error('Unexpected products response: expected array');
-            }
-
-            if (!deleteTrackingStarted) {
-                await nango.trackDeletesStart('ProductVariation');
-                deleteTrackingStarted = true;
             }
 
             const variableProductIds: string[] = [];
@@ -233,9 +229,7 @@ const sync = createSync({
             }
         }
 
-        if (deleteTrackingStarted) {
-            await nango.trackDeletesEnd('ProductVariation');
-        }
+        await nango.trackDeletesEnd('ProductVariation');
     }
 });
 
