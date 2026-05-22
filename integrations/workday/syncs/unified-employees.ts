@@ -6,12 +6,19 @@ import { getIncrementalDateRange } from '../helpers/timeUtils.js';
 
 import { StandardEmployee, SyncConfiguration } from '../models.js';
 
+import { z } from 'zod';
+const CheckpointSchema = z.object({
+    updated_from: z.string(),
+    updated_through: z.string(),
+    page: z.number()
+});
+
 const sync = createSync({
     description: 'Fetches a list of current employees from Workday and maps them to the standard HRIS model',
     version: '2.0.0',
     frequency: 'every hour',
     autoStart: true,
-    syncType: 'incremental',
+    checkpoint: CheckpointSchema,
 
     endpoints: [
         {
@@ -28,11 +35,14 @@ const sync = createSync({
     metadata: SyncConfiguration,
 
     exec: async (nango) => {
+        const rawCheckpoint = await nango.getCheckpoint();
+        const checkpoint = rawCheckpoint ? CheckpointSchema.parse(rawCheckpoint) : undefined;
+        const runStartedAt = new Date().toISOString();
         const connection = await nango.getConnection();
         const metadata: SyncConfiguration | null = connection.metadata;
         const client = await getSoapClient('Human_Resources', connection);
 
-        let page = 1;
+        let page = checkpoint?.page ?? 1;
         let hasMoreData = true;
         let totalProcessed = 0;
 
@@ -40,8 +50,11 @@ const sync = createSync({
         let updatedFrom: string | undefined;
         let updatedThrough: string | undefined;
 
-        if (nango.lastSyncDate) {
-            ({ updatedFrom, updatedThrough } = getIncrementalDateRange(nango.lastSyncDate, metadata?.lagMinutes));
+        if (checkpoint?.updated_through) {
+            updatedFrom = checkpoint.updated_from;
+            updatedThrough = checkpoint.updated_through;
+        } else if (checkpoint?.updated_from) {
+            ({ updatedFrom, updatedThrough } = getIncrementalDateRange(checkpoint.updated_from, metadata?.lagMinutes));
         }
 
         do {
@@ -86,8 +99,17 @@ const sync = createSync({
             page++;
 
             await nango.log(`Processed page ${res.Response_Results.Page} of ${res.Response_Results.Total_Pages} (${res.Response_Results.Total_Results} total)`);
+
+            if (hasMoreData) {
+                await nango.saveCheckpoint({
+                    updated_from: updatedFrom ?? '',
+                    updated_through: updatedThrough ?? '',
+                    page
+                });
+            }
         } while (hasMoreData);
 
+        await nango.saveCheckpoint({ updated_from: updatedThrough ?? runStartedAt, updated_through: '', page: 1 });
         await nango.log(`Sync completed. Total workers processed: ${totalProcessed}`);
     }
 });

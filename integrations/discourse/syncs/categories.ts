@@ -27,6 +27,8 @@ const sync = createSync({
     metadata: z.object({}),
 
     exec: async (nango) => {
+        await nango.trackDeletesStart('Category');
+
         const config: ProxyConfiguration = {
             retries: 10,
             // https://docs.discourse.org/#tag/Categories/operation/listCategories
@@ -50,7 +52,7 @@ const sync = createSync({
 
         await nango.batchSave(createCategories, 'Category');
 
-        await nango.deleteRecordsFromPreviousExecutions('Category');
+        await nango.trackDeletesEnd('Category');
     }
 });
 

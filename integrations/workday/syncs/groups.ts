@@ -28,6 +28,8 @@ const sync = createSync({
     metadata: z.object({}),
 
     exec: async (nango) => {
+        await nango.trackDeletesStart('Group');
+
         const connection = await nango.getConnection();
 
         const client = await getSoapClient('Human_Resources', connection);
@@ -65,7 +67,7 @@ const sync = createSync({
 
         await nango.log('Saving records', { count: records.length });
         await nango.batchSave(records, 'Group');
-        await nango.deleteRecordsFromPreviousExecutions('Group');
+        await nango.trackDeletesEnd('Group');
     }
 });
 

@@ -10,7 +10,7 @@ const sync = createSync({
     version: '2.0.0',
     frequency: 'every hour',
     autoStart: true,
-    syncType: 'incremental',
+    syncType: 'full',
 
     endpoints: [
         {
@@ -26,6 +26,7 @@ const sync = createSync({
     metadata: z.object({}),
 
     exec: async (nango) => {
+        // No checkpoint is used because the invitations endpoint is only offset-paginated and does not expose a changed-since filter.
         const config = await constructRequest(nango, '/v1/invitations');
 
         for await (const invitations of nango.paginate(config)) {

@@ -10,12 +10,17 @@ import { shouldAbortSync } from '../helpers/exceed-time-limit-check.js';
 import type { ProxyConfiguration } from 'nango';
 import { GithubPullRequest, GithubMetadataInput } from '../models.js';
 
+import { z } from 'zod';
+const CheckpointSchema = z.object({
+    updated_after: z.string()
+});
+
 const sync = createSync({
     description: 'Get all pull requests from a Github repository.',
     version: '2.0.0',
     frequency: 'every hour',
     autoStart: false,
-    syncType: 'incremental',
+    checkpoint: CheckpointSchema,
 
     endpoints: [
         {
@@ -32,6 +37,11 @@ const sync = createSync({
     metadata: GithubMetadataInput,
 
     exec: async (nango) => {
+        const rawCheckpoint = await nango.getCheckpoint();
+        const checkpoint = rawCheckpoint ? CheckpointSchema.parse(rawCheckpoint) : undefined;
+        const checkpointUpdatedAfter = checkpoint?.updated_after ? new Date(checkpoint.updated_after) : undefined;
+        const runStartedAt = new Date().toISOString();
+
         const metadata = await nango.getMetadata();
         await nango.zodValidateInput({ zodSchema: githubMetadataInputSchema, input: metadata });
 
@@ -78,11 +88,11 @@ const sync = createSync({
                     // since Github can't filter we need to cut the sync
                     // if we have reached a record that is older than the last sync date
                     const prLastUpdated = new Date(pr.updatedAt);
-                    if ((nango.lastSyncDate && prLastUpdated < nango.lastSyncDate) || prLastUpdated < syncWindow) {
+                    if ((checkpointUpdatedAfter && prLastUpdated < checkpointUpdatedAfter) || prLastUpdated < syncWindow) {
                         if (prLastUpdated < syncWindow) {
                             await nango.log(`Syncing stopped because sync window reached`);
                         } else {
-                            await nango.log(`Stopping sync early: PR ${pr.id} ${pr.updatedAt} is older than last sync date ${nango.lastSyncDate?.toString()}`, {
+                            await nango.log(`Stopping sync early: PR ${pr.id} ${pr.updatedAt} is older than last sync date ${checkpointUpdatedAfter?.toString()}`, {
                                 level: 'warn'
                             });
                         }
@@ -112,6 +122,8 @@ const sync = createSync({
         await nango.log(`Pull requests fetched: open ${open}, closed ${closed}`, {
             level: 'info'
         });
+        await nango.saveCheckpoint({ updated_after: runStartedAt });
+
     }
 });
 

@@ -29,6 +29,8 @@ const sync = createSync({
     metadata: z.object({}),
 
     exec: async (nango) => {
+        await nango.trackDeletesStart('ExpsensifyNullableUser');
+
         const credentials = await getCredentials(nango);
         const policy = await getAdminPolicy(nango);
 
@@ -73,7 +75,7 @@ const sync = createSync({
 
         await nango.batchSave(users, 'ExpsensifyNullableUser');
 
-        await nango.deleteRecordsFromPreviousExecutions('ExpsensifyNullableUser');
+        await nango.trackDeletesEnd('ExpsensifyNullableUser');
     }
 });
 

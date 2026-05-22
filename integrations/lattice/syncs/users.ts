@@ -27,6 +27,8 @@ const sync = createSync({
     metadata: z.object({}),
 
     exec: async (nango) => {
+        await nango.trackDeletesStart('User');
+
         const proxyConfiguration: ProxyConfiguration = {
             // https://developers.lattice.com/reference/api_users
             endpoint: '/developer/v1/users',
@@ -58,7 +60,7 @@ const sync = createSync({
 
             await nango.batchSave(users, 'User');
         }
-        await nango.deleteRecordsFromPreviousExecutions('User');
+        await nango.trackDeletesEnd('User');
     }
 });
 

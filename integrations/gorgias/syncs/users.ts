@@ -38,6 +38,8 @@ const sync = createSync({
     metadata: z.object({}),
 
     exec: async (nango) => {
+        await nango.trackDeletesStart('GorgiasUser');
+
         const config: ProxyConfiguration = {
             // https://developers.gorgias.com/reference/list-users
             endpoint: `/api/users`,
@@ -64,7 +66,7 @@ const sync = createSync({
 
             await nango.batchSave(users, 'GorgiasUser');
         }
-        await nango.deleteRecordsFromPreviousExecutions('GorgiasUser');
+        await nango.trackDeletesEnd('GorgiasUser');
     }
 });
 

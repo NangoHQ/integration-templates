@@ -28,6 +28,8 @@ const sync = createSync({
     metadata: z.object({}),
 
     exec: async (nango) => {
+        await nango.trackDeletesStart('Location');
+
         const proxyConfig: ProxyConfiguration = {
             // https://api.gem.com/ats/v0/reference#tag/Location/paths/~1ats~1v0~1offices~1/get
             endpoint: '/ats/v0/offices',
@@ -56,7 +58,7 @@ const sync = createSync({
             }
         }
 
-        await nango.deleteRecordsFromPreviousExecutions('Location');
+        await nango.trackDeletesEnd('Location');
     }
 });
 

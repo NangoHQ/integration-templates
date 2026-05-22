@@ -41,6 +41,8 @@ const sync = createSync({
     metadata: z.object({}),
 
     exec: async (nango) => {
+        await nango.trackDeletesStart('OrganizationalUnit');
+
         const endpoint = '/admin/directory/v1/customer/my_customer/orgunits';
         let pageToken: string | undefined;
 
@@ -104,7 +106,7 @@ const sync = createSync({
 
             pageToken = response.data.nextPageToken;
         } while (pageToken);
-        await nango.deleteRecordsFromPreviousExecutions('OrganizationalUnit');
+        await nango.trackDeletesEnd('OrganizationalUnit');
     }
 });
 

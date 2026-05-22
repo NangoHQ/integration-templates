@@ -6,12 +6,16 @@ import type { ProxyConfiguration } from 'nango';
 import { Sms } from '../models.js';
 import { z } from 'zod';
 
+const CheckpointSchema = z.object({
+    updated_after: z.string()
+});
+
 const sync = createSync({
     description: 'Fetches the history of SMS messages sent through ClickSend.',
     version: '2.0.0',
     frequency: 'every half hour',
     autoStart: true,
-    syncType: 'incremental',
+    checkpoint: CheckpointSchema,
 
     endpoints: [
         {
@@ -28,10 +32,15 @@ const sync = createSync({
     metadata: z.object({}),
 
     exec: async (nango) => {
+        const rawCheckpoint = await nango.getCheckpoint();
+        const checkpoint = rawCheckpoint ? CheckpointSchema.parse(rawCheckpoint) : undefined;
+        const checkpointUpdatedAfter = checkpoint?.updated_after ? new Date(checkpoint.updated_after) : undefined;
+        const runStartedAt = new Date().toISOString();
+
         const params: Record<string, any> = {};
 
-        if (nango.lastSyncDate) {
-            params['date_from'] = Math.floor(new Date(nango.lastSyncDate).getTime() / 1000);
+        if (checkpointUpdatedAfter) {
+            params['date_from'] = Math.floor(new Date(checkpointUpdatedAfter).getTime() / 1000);
         }
 
         const config: ProxyConfiguration = {
@@ -60,6 +69,8 @@ const sync = createSync({
                 await nango.batchSave(smsArray, 'Sms');
             }
         }
+        await nango.saveCheckpoint({ updated_after: runStartedAt });
+
     }
 });
 

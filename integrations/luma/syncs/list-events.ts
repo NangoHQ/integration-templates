@@ -14,13 +14,17 @@ import { z } from 'zod';
  * @param nango An instance of NangoSync for handling synchronization tasks.
  * @returns Promise that resolves when all events are fetched and saved.
  */
+const CheckpointSchema = z.object({
+    updated_after: z.string()
+});
+
 const sync = createSync({
     description:
         'This sync will be used to sync all of the events managed by your Calendar. See https://docs.lu.ma/reference/calendar-list-events for more details.',
     version: '1.0.0',
     frequency: 'every day',
     autoStart: true,
-    syncType: 'incremental',
+    checkpoint: CheckpointSchema,
 
     endpoints: [
         {
@@ -36,11 +40,16 @@ const sync = createSync({
     metadata: z.object({}),
 
     exec: async (nango) => {
+        const rawCheckpoint = await nango.getCheckpoint();
+        const checkpoint = rawCheckpoint ? CheckpointSchema.parse(rawCheckpoint) : undefined;
+        const checkpointUpdatedAfter = checkpoint?.updated_after ? new Date(checkpoint.updated_after) : undefined;
+        const runStartedAt = new Date().toISOString();
+
         const config: ProxyConfiguration = {
             // https://docs.lu.ma/reference/get_public-v1-calendar-list-events
             endpoint: '/public/v1/calendar/list-events',
-            // Include 'after' parameter with the lastSyncDate if available
-            ...(nango.lastSyncDate ? { params: { after: nango.lastSyncDate?.toISOString() } } : {}),
+            // Include 'after' parameter with the checkpoint if available
+            ...(checkpointUpdatedAfter ? { params: { after: checkpointUpdatedAfter?.toISOString() } } : {}),
             paginate: {
                 type: 'cursor',
                 cursor_path_in_response: 'next_cursor',
@@ -56,6 +65,8 @@ const sync = createSync({
             const formattedEvents = events.map((event: LumaEvent) => toEvent(event));
             await nango.batchSave(formattedEvents, 'Event');
         }
+        await nango.saveCheckpoint({ updated_after: runStartedAt });
+
     }
 });
 

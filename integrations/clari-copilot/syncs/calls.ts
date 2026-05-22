@@ -5,12 +5,16 @@ import { z } from 'zod';
 
 const LIMIT = 100;
 
+const CheckpointSchema = z.object({
+    updated_after: z.string()
+});
+
 const sync = createSync({
     description: 'Fetches a list of calls from your account. For the first sync, it will go back to the past one year',
     version: '2.0.0',
     frequency: 'every hour',
     autoStart: true,
-    syncType: 'incremental',
+    checkpoint: CheckpointSchema,
 
     endpoints: [
         {
@@ -26,9 +30,13 @@ const sync = createSync({
     metadata: z.object({}),
 
     exec: async (nango) => {
+        const rawCheckpoint = await nango.getCheckpoint();
+        const checkpoint = rawCheckpoint ? CheckpointSchema.parse(rawCheckpoint) : undefined;
+        const checkpointUpdatedAfter = checkpoint?.updated_after ? new Date(checkpoint.updated_after) : undefined;
+        const runStartedAt = new Date().toISOString();
         let totalRecords = 0;
 
-        const calls: any[] = await getAllCalls(nango);
+        const calls: any[] = await getAllCalls(nango, checkpointUpdatedAfter);
 
         for (const Specificall of calls) {
             const call = await getSpecificCall(nango, Specificall.id);
@@ -40,23 +48,24 @@ const sync = createSync({
                 await nango.batchSave([mappedCall], 'ClariCopilotCall');
             }
         }
+
+        await nango.saveCheckpoint({ updated_after: runStartedAt });
     }
 });
 
 export type NangoSyncLocal = Parameters<(typeof sync)['exec']>[0];
 export default sync;
 
-async function getAllCalls(nango: NangoSyncLocal) {
+async function getAllCalls(nango: NangoSyncLocal, checkpointUpdatedAfter?: Date) {
     const records: any[] = [];
 
-    //first run to get all calls from the past 1 year
-    const lastSyncDate = nango.lastSyncDate;
-    const queryDate = lastSyncDate ? lastSyncDate.toISOString() : new Date(new Date().setFullYear(new Date().getFullYear() - 1)).toISOString();
+    // First run gets calls from the past year; later runs use the checkpoint.
+    const queryDate = checkpointUpdatedAfter ? checkpointUpdatedAfter.toISOString() : new Date(new Date().setFullYear(new Date().getFullYear() - 1)).toISOString();
 
     const config: ProxyConfiguration = {
         // https://api-doc.copilot.clari.com/#tag/call/paths/~1calls/get
         endpoint: '/calls',
-        params: { filterTimeGt: queryDate }, // filter calls after lastSyncDate
+        params: { filterTimeGt: queryDate },
         paginate: {
             type: 'offset',
             offset_name_in_request: 'skip',

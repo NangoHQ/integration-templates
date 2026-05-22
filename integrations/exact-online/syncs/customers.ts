@@ -27,6 +27,8 @@ const sync = createSync({
     metadata: z.object({}),
 
     exec: async (nango) => {
+        await nango.trackDeletesStart('ExactCustomer');
+
         const { division } = await getUser(nango);
 
         // List the accounts inside the user's Division
@@ -58,7 +60,7 @@ const sync = createSync({
             await nango.batchSave(customers, 'ExactCustomer');
         }
 
-        await nango.deleteRecordsFromPreviousExecutions('ExactCustomer');
+        await nango.trackDeletesEnd('ExactCustomer');
     }
 });
 

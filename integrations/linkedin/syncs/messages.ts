@@ -8,12 +8,16 @@ import { z } from 'zod';
  *
  * This sync captures all LinkedIn messages for archiving purposes,
  */
+const CheckpointSchema = z.object({
+    processed_after: z.number()
+});
+
 const sync = createSync({
     description: 'This sync captures all LinkedIn messages for a Linkedin member for archiving purposes',
     version: '1.0.0',
     frequency: 'every 1h',
     autoStart: true,
-    syncType: 'incremental',
+    checkpoint: CheckpointSchema,
 
     endpoints: [
         {
@@ -32,8 +36,10 @@ const sync = createSync({
     metadata: z.object({}),
 
     exec: async (nango) => {
+        const rawCheckpoint = await nango.getCheckpoint();
+        const checkpoint = rawCheckpoint ? CheckpointSchema.parse(rawCheckpoint) : undefined;
         const twentyEightDaysAgo = Date.now() - 28 * 24 * 60 * 60 * 1000; // 28 days ago
-        const lastProcessedAt = nango.lastSyncDate ?? twentyEightDaysAgo;
+        const lastProcessedAt = checkpoint?.processed_after ?? twentyEightDaysAgo;
 
         const config: ProxyConfiguration = {
             //https://learn.microsoft.com/en-us/linkedin/dma/member-data-portability/shared/member-changelog-api?view=li-dma-data-portability-2025-02&tabs=curl
@@ -126,6 +132,8 @@ const sync = createSync({
         await nango.log(
             `Sync complete: ${totalCreated} messages created, ${totalDeleted} messages deleted. Latest processedAt: ${new Date(latestProcessedAt).toISOString()}`
         );
+
+        await nango.saveCheckpoint({ processed_after: latestProcessedAt });
     }
 });
 

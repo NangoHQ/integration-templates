@@ -28,6 +28,8 @@ const sync = createSync({
     metadata: z.object({}),
 
     exec: async (nango) => {
+        await nango.trackDeletesStart('User');
+
         // Set AWS IAM parameters
         const requestParams: AWSIAMRequestParams = {
             method: 'GET',
@@ -60,7 +62,7 @@ const sync = createSync({
             await nango.batchSave(users, 'User');
         }
 
-        await nango.deleteRecordsFromPreviousExecutions('User');
+        await nango.trackDeletesEnd('User');
     }
 });
 

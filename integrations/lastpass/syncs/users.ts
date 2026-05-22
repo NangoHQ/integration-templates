@@ -29,6 +29,8 @@ const sync = createSync({
     metadata: z.object({}),
 
     exec: async (nango) => {
+        await nango.trackDeletesStart('User');
+
         const credentials = await getCredentials(nango);
         const paginationParams = {
             // https://support.lastpass.com/s/document-item?language=en_US&bundleId=lastpass&topicId=LastPass%2Fapi_get_user_data.html&_LANG=enus
@@ -44,7 +46,7 @@ const sync = createSync({
             const users: User[] = toUser(results);
             await nango.batchSave(users, 'User');
         }
-        await nango.deleteRecordsFromPreviousExecutions('User');
+        await nango.trackDeletesEnd('User');
     }
 });
 

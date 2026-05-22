@@ -3,12 +3,16 @@ import type { ProxyConfiguration } from 'nango';
 import { WorkableCandidate } from '../models.js';
 import { z } from 'zod';
 
+const CheckpointSchema = z.object({
+    updated_after: z.string()
+});
+
 const sync = createSync({
     description: 'Fetches a list of candidates from workable',
     version: '2.0.0',
     frequency: 'every 6 hours',
     autoStart: true,
-    syncType: 'incremental',
+    checkpoint: CheckpointSchema,
 
     endpoints: [
         {
@@ -27,12 +31,17 @@ const sync = createSync({
     metadata: z.object({}),
 
     exec: async (nango) => {
+        const rawCheckpoint = await nango.getCheckpoint();
+        const checkpoint = rawCheckpoint ? CheckpointSchema.parse(rawCheckpoint) : undefined;
+        const checkpointUpdatedAfter = checkpoint?.updated_after ? new Date(checkpoint.updated_after) : undefined;
+        const runStartedAt = new Date().toISOString();
+
         let totalRecords = 0;
 
         const config: ProxyConfiguration = {
             // https://workable.readme.io/reference/job-candidates-index
             endpoint: '/spi/v3/candidates',
-            ...(nango.lastSyncDate ? { params: { created_after: nango.lastSyncDate?.toISOString() } } : {}),
+            ...(checkpointUpdatedAfter ? { params: { created_after: checkpointUpdatedAfter?.toISOString() } } : {}),
             paginate: {
                 type: 'link',
                 link_path_in_response_body: 'paging.next',
@@ -49,6 +58,8 @@ const sync = createSync({
             await nango.log(`Saving batch of ${batchSize} candidate(s) (total candidate(s): ${totalRecords})`);
             await nango.batchSave(mappedCandidate, 'WorkableCandidate');
         }
+        await nango.saveCheckpoint({ updated_after: runStartedAt });
+
     }
 });
 

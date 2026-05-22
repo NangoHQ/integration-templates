@@ -25,6 +25,8 @@ const sync = createSync({
     metadata: z.object({}),
 
     exec: async (nango) => {
+        await nango.trackDeletesStart('User');
+
         const config: ProxyConfiguration = {
             // https://www.metabase.com/docs/latest/api/user
             endpoint: '/api/user',
@@ -43,7 +45,7 @@ const sync = createSync({
             });
             await nango.batchSave(validatedUsers, 'User');
         }
-        await nango.deleteRecordsFromPreviousExecutions('User');
+        await nango.trackDeletesEnd('User');
     }
 });
 

@@ -36,6 +36,8 @@ const sync = createSync({
     metadata: z.object({}),
 
     exec: async (nango) => {
+        await nango.trackDeletesStart('StandardEmployee');
+
         const proxyConfig: ProxyConfiguration = {
             // https://apidocs.hibob.com/reference/post_people-search
             endpoint: '/v1/people/search',
@@ -64,7 +66,7 @@ const sync = createSync({
 
         await nango.log(`Found ${employees.length} employees`);
         await nango.batchSave(employees, 'StandardEmployee');
-        await nango.deleteRecordsFromPreviousExecutions('StandardEmployee');
+        await nango.trackDeletesEnd('StandardEmployee');
     }
 });
 

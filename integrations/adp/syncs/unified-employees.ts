@@ -28,6 +28,8 @@ const sync = createSync({
     metadata: z.object({}),
 
     exec: async (nango) => {
+        await nango.trackDeletesStart('StandardEmployee');
+
         let total = 0;
 
         const proxyConfig: ProxyConfiguration = {
@@ -59,7 +61,7 @@ const sync = createSync({
         }
 
         await nango.log(`Total unified employee(s) processed: ${total}`);
-        await nango.deleteRecordsFromPreviousExecutions('StandardEmployee');
+        await nango.trackDeletesEnd('StandardEmployee');
     }
 });
 

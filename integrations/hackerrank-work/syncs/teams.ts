@@ -8,7 +8,7 @@ const sync = createSync({
     version: '2.0.0',
     frequency: 'every 6 hours',
     autoStart: true,
-    syncType: 'incremental',
+    syncType: 'full',
 
     endpoints: [
         {
@@ -24,6 +24,7 @@ const sync = createSync({
     metadata: z.object({}),
 
     exec: async (nango) => {
+        // No checkpoint is used because the HackerRank teams endpoint does not expose a server-side changed-since filter.
         let totalRecords = 0;
 
         const config: ProxyConfiguration = {
@@ -38,13 +39,9 @@ const sync = createSync({
             }
         };
 
-        const lastSyncDate = nango.lastSyncDate;
         for await (const team of nango.paginate(config)) {
             const teamsToSave = [];
             for (const item of team) {
-                if (lastSyncDate !== undefined && new Date(item.created_at) < lastSyncDate) {
-                    continue; // Skip teams created before lastSyncDate
-                }
                 const mappedTeam: HackerRankWorkTeam = mapTeam(item);
 
                 totalRecords++;

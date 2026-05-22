@@ -27,6 +27,8 @@ const sync = createSync({
     metadata: z.object({}),
 
     exec: async (nango) => {
+        await nango.trackDeletesStart('RecruiterFlowJob');
+
         const proxyConfig: ProxyConfiguration = {
             // https://recruiterflow.com/api#/Job%20APIs/get_api_external_job_list
             endpoint: '/api/external/job/list',
@@ -48,7 +50,7 @@ const sync = createSync({
             await nango.batchSave(jobs.map(toJob), 'RecruiterFlowJob');
         }
 
-        await nango.deleteRecordsFromPreviousExecutions('RecruiterFlowJob');
+        await nango.trackDeletesEnd('RecruiterFlowJob');
     }
 });
 

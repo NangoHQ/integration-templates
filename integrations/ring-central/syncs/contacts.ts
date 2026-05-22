@@ -29,6 +29,8 @@ const sync = createSync({
     metadata: z.object({}),
 
     exec: async (nango) => {
+        await nango.trackDeletesStart('Contact');
+
         const config: ProxyConfiguration = {
             // https://developers.ringcentral.com/api-reference/External-Contacts/listContacts
             endpoint: '/restapi/v1.0/account/~/extension/~/address-book/contact',
@@ -60,7 +62,7 @@ const sync = createSync({
 
             await nango.batchSave(contacts, 'Contact');
         }
-        await nango.deleteRecordsFromPreviousExecutions('Contact');
+        await nango.trackDeletesEnd('Contact');
     }
 });
 

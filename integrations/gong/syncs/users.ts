@@ -7,12 +7,16 @@ import { z } from 'zod';
 
 const BATCH_SIZE = 100;
 
+const CheckpointSchema = z.object({
+    updated_after: z.string()
+});
+
 const sync = createSync({
     description: 'Fetches the list of gong users',
     version: '2.0.0',
     frequency: 'every day',
     autoStart: true,
-    syncType: 'incremental',
+    checkpoint: CheckpointSchema,
 
     endpoints: [
         {
@@ -31,13 +35,18 @@ const sync = createSync({
     metadata: z.object({}),
 
     exec: async (nango) => {
+        const rawCheckpoint = await nango.getCheckpoint();
+        const checkpoint = rawCheckpoint ? CheckpointSchema.parse(rawCheckpoint) : undefined;
+        const checkpointUpdatedAfter = checkpoint?.updated_after ? new Date(checkpoint.updated_after) : undefined;
+        const runStartedAt = new Date().toISOString();
+
         const config: ProxyConfiguration = {
             // https://gong.app.gong.io/settings/api/documentation#post-/v2/users/extensive
             endpoint: `/v2/users/extensive`,
             data: {
                 filter: {
-                    ...(nango.lastSyncDate && {
-                        createdFromDateTime: nango.lastSyncDate.toISOString()
+                    ...(checkpointUpdatedAfter && {
+                        createdFromDateTime: checkpointUpdatedAfter.toISOString()
                     })
                 }
             },
@@ -83,6 +92,8 @@ const sync = createSync({
                 throw error;
             }
         }
+        await nango.saveCheckpoint({ updated_after: runStartedAt });
+
     }
 });
 

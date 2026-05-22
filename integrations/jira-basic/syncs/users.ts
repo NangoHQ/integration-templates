@@ -27,6 +27,8 @@ const sync = createSync({
     metadata: z.object({}),
 
     exec: async (nango) => {
+        await nango.trackDeletesStart('User');
+
         const config: ProxyConfiguration = {
             // https://developer.atlassian.com/cloud/jira/platform/rest/v3/api-group-users/#api-rest-api-3-users-search-get
             endpoint: '/rest/api/3/users/search',
@@ -52,7 +54,7 @@ const sync = createSync({
 
             await nango.batchSave(users, 'User');
         }
-        await nango.deleteRecordsFromPreviousExecutions('User');
+        await nango.trackDeletesEnd('User');
     }
 });
 

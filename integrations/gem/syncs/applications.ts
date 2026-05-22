@@ -6,12 +6,16 @@ import type { ProxyConfiguration } from 'nango';
 import { Application } from '../models.js';
 import { z } from 'zod';
 
+const CheckpointSchema = z.object({
+    updated_after: z.string()
+});
+
 const sync = createSync({
     description: 'Get a list of all applications from Gem ATS',
     version: '1.0.0',
     frequency: 'every 1h',
     autoStart: true,
-    syncType: 'incremental',
+    checkpoint: CheckpointSchema,
 
     endpoints: [
         {
@@ -28,6 +32,11 @@ const sync = createSync({
     metadata: z.object({}),
 
     exec: async (nango) => {
+        const rawCheckpoint = await nango.getCheckpoint();
+        const checkpoint = rawCheckpoint ? CheckpointSchema.parse(rawCheckpoint) : undefined;
+        const checkpointUpdatedAfter = checkpoint?.updated_after ? new Date(checkpoint.updated_after) : undefined;
+        const runStartedAt = new Date().toISOString();
+
         const proxyConfig: ProxyConfiguration = {
             // https://api.gem.com/ats/v0/reference#tag/Application/paths/~1ats~1v0~1applications~1/get
             endpoint: '/ats/v0/applications',
@@ -40,7 +49,7 @@ const sync = createSync({
             },
             params: {
                 include_deleted: 'true',
-                ...(nango.lastSyncDate && { last_activity_after: nango.lastSyncDate.toISOString() })
+                ...(checkpointUpdatedAfter && { last_activity_after: checkpointUpdatedAfter.toISOString() })
             },
             retries: 10
         };
@@ -58,6 +67,8 @@ const sync = createSync({
                 await nango.batchSave(activeApplications, 'Application');
             }
         }
+        await nango.saveCheckpoint({ updated_after: runStartedAt });
+
     }
 });
 

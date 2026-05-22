@@ -27,6 +27,8 @@ const sync = createSync({
     metadata: z.object({}),
 
     exec: async (nango) => {
+        await nango.trackDeletesStart('RecruiterFlowJobStatus');
+
         const proxyConfig: ProxyConfiguration = {
             // https://recruiterflow.com/api#/Job%20APIs/get_api_external_job_status_list
             endpoint: '/api/external/job-status/list',
@@ -37,7 +39,7 @@ const sync = createSync({
         const statuses = response.data.data;
 
         await nango.batchSave(statuses.map(toJobStatus), 'RecruiterFlowJobStatus');
-        await nango.deleteRecordsFromPreviousExecutions('RecruiterFlowJobStatus');
+        await nango.trackDeletesEnd('RecruiterFlowJobStatus');
     }
 });
 

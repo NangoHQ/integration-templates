@@ -33,6 +33,8 @@ const sync = createSync({
     metadata: z.object({}),
 
     exec: async (nango) => {
+        await nango.trackDeletesStart('Book');
+
         const proxyConfig: ProxyConfiguration = {
             // https://brightcrowd.com/partner-api#/operations/listBooks
             endpoint: '/books',
@@ -50,7 +52,7 @@ const sync = createSync({
             await nango.batchSave(mappedBooks, 'Book');
         }
 
-        await nango.deleteRecordsFromPreviousExecutions('Book');
+        await nango.trackDeletesEnd('Book');
     }
 });
 

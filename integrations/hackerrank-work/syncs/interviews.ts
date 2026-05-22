@@ -3,12 +3,16 @@ import type { ProxyConfiguration } from 'nango';
 import { HackerRankWorkInterview } from '../models.js';
 import { z } from 'zod';
 
+const CheckpointSchema = z.object({
+    updated_after: z.string()
+});
+
 const sync = createSync({
     description: 'Fetches a list of interviews from hackerrank work',
     version: '2.0.0',
     frequency: 'every 6 hours',
     autoStart: true,
-    syncType: 'incremental',
+    checkpoint: CheckpointSchema,
 
     endpoints: [
         {
@@ -25,6 +29,11 @@ const sync = createSync({
     metadata: z.object({}),
 
     exec: async (nango) => {
+        const rawCheckpoint = await nango.getCheckpoint();
+        const checkpoint = rawCheckpoint ? CheckpointSchema.parse(rawCheckpoint) : undefined;
+        const checkpointUpdatedAfter = checkpoint?.updated_after ? new Date(checkpoint.updated_after) : undefined;
+        const runStartedAt = new Date().toISOString();
+
         let totalRecords = 0;
 
         const now = new Date();
@@ -32,7 +41,7 @@ const sync = createSync({
             // https://www.hackerrank.com/work/apidocs#!/Interviews/get_x_api_v3_interviews
             endpoint: '/x/api/v3/interviews',
             //datetime filter is offered
-            ...(nango.lastSyncDate ? { params: { updated_at: nango.lastSyncDate?.toISOString() + '..' + now.toISOString() } } : {}),
+            ...(checkpointUpdatedAfter ? { params: { updated_at: checkpointUpdatedAfter?.toISOString() + '..' + now.toISOString() } } : {}),
 
             paginate: {
                 type: 'link',
@@ -50,6 +59,8 @@ const sync = createSync({
             await nango.log(`Saving batch of ${batchSize} interview(s) (total interview(s): ${totalRecords})`);
             await nango.batchSave(mappedInterview, 'HackerRankWorkInterview');
         }
+        await nango.saveCheckpoint({ updated_after: runStartedAt });
+
     }
 });
 

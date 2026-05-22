@@ -25,6 +25,8 @@ const sync = createSync({
     metadata: z.object({}),
 
     exec: async (nango) => {
+        await nango.trackDeletesStart('RecruiterFlowCandidateActivityType');
+
         const proxyConfig: ProxyConfiguration = {
             // https://recruiterflow.com/api#/Candidate%20APIs/get_api_external_candidate_activity_type_list
             endpoint: '/api/external/candidate/activity-type/list',
@@ -40,7 +42,7 @@ const sync = createSync({
         }));
 
         await nango.batchSave(updatedActivityTypes, 'RecruiterFlowCandidateActivityType');
-        await nango.deleteRecordsFromPreviousExecutions('RecruiterFlowCandidateActivityType');
+        await nango.trackDeletesEnd('RecruiterFlowCandidateActivityType');
     }
 });
 

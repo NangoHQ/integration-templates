@@ -6,12 +6,16 @@ import type { ProxyConfiguration } from 'nango';
 import { StandardEmployee } from '../models.js';
 import * as z from 'zod';
 
+const CheckpointSchema = z.object({
+    updated_after: z.string()
+});
+
 const sync = createSync({
     description: 'Fetch all employees from UKG Pro and maps them to the standard HRIS model',
     version: '0.0.1',
     frequency: 'every hour',
     autoStart: true,
-    syncType: 'incremental',
+    checkpoint: CheckpointSchema,
 
     endpoints: [
         {
@@ -28,12 +32,17 @@ const sync = createSync({
     metadata: z.object({}),
 
     exec: async (nango) => {
+        const rawCheckpoint = await nango.getCheckpoint();
+        const checkpoint = rawCheckpoint ? CheckpointSchema.parse(rawCheckpoint) : undefined;
+        const checkpointUpdatedAfter = checkpoint?.updated_after ? new Date(checkpoint.updated_after) : undefined;
+        const runStartedAt = new Date().toISOString();
+
         const baseConfig: ProxyConfiguration = {
             // https://developer.ukg.com/hcm/reference/employeechanges_get_all
             endpoint: '/personnel/v1/employee-changes',
             params: {
-                ...(nango.lastSyncDate && {
-                    startDate: nango.lastSyncDate.toISOString(),
+                ...(checkpointUpdatedAfter && {
+                    startDate: checkpointUpdatedAfter.toISOString(),
                     endDate: new Date().toISOString()
                 })
             },
@@ -52,6 +61,8 @@ const sync = createSync({
             const standardEmployees = response.map(toEmployee);
             await nango.batchSave(standardEmployees, 'StandardEmployee');
         }
+        await nango.saveCheckpoint({ updated_after: runStartedAt });
+
     }
 });
 

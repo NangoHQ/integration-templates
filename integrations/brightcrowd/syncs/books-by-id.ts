@@ -30,6 +30,8 @@ const sync = createSync({
     metadata: Metadata,
 
     exec: async (nango) => {
+        await nango.trackDeletesStart('BookById');
+
         const metadata = await nango.getMetadata();
         if (!metadata) {
             await nango.log('No Metadata found.', { level: 'warn' });
@@ -62,7 +64,7 @@ const sync = createSync({
             await nango.batchSave(books, 'BookById');
         }
 
-        await nango.deleteRecordsFromPreviousExecutions('BookById');
+        await nango.trackDeletesEnd('BookById');
     }
 });
 

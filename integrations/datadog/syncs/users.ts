@@ -29,6 +29,8 @@ const sync = createSync({
     metadata: z.object({}),
 
     exec: async (nango) => {
+        await nango.trackDeletesStart('User');
+
         const config: ProxyConfiguration = {
             // https://docs.datadoghq.com/api/latest/users/#list-all-users
             endpoint: '/v2/users',
@@ -64,7 +66,7 @@ const sync = createSync({
             await nango.batchSave(users, 'User');
         }
 
-        await nango.deleteRecordsFromPreviousExecutions('User');
+        await nango.trackDeletesEnd('User');
     }
 });
 

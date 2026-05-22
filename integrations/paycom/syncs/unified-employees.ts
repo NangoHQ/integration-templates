@@ -28,6 +28,8 @@ const sync = createSync({
     metadata: z.object({}),
 
     exec: async (nango) => {
+        await nango.trackDeletesStart('StandardEmployee');
+
         const directoryConfig: ProxyConfiguration = {
             // https://www.postman.com/motorwerks/motorwerks-s-public-workspace/documentation/abkrg5d/paycom-api?entity=request-8871016-c3e6163a-6650-4751-83f9-f286b5863ebc
             endpoint: '/v4/rest/index.php/api/v1/employeedirectory',
@@ -99,7 +101,7 @@ const sync = createSync({
         }
 
         await nango.log(`Total employees processed: ${totalEmployeesProcessed}`);
-        await nango.deleteRecordsFromPreviousExecutions('StandardEmployee');
+        await nango.trackDeletesEnd('StandardEmployee');
     }
 });
 

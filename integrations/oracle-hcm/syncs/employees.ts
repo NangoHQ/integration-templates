@@ -10,14 +10,18 @@ import { z } from 'zod';
  * Fetches all employees from Oracle HCM and saves them in the lowerCamelCase Oracle data model.
  * Uses valid expand parameters and supports incremental sync using LastUpdateDate.
  * Uses onlyData: true to exclude links, and offset/limit for pagination.
- * Incremental: Uses nango.lastSyncDate and exits if a record is older than lastSyncDate.
+ * Incremental: Uses the checkpoint and exits if a record is older than the saved timestamp.
  */
+const CheckpointSchema = z.object({
+    updated_after: z.string()
+});
+
 const sync = createSync({
     description: 'Fetch all employees from Oracle HCM in the native Oracle data model',
     version: '1.0.0',
     frequency: 'every hour',
     autoStart: true,
-    syncType: 'incremental',
+    checkpoint: CheckpointSchema,
 
     endpoints: [
         {
@@ -34,11 +38,16 @@ const sync = createSync({
     metadata: z.object({}),
 
     exec: async (nango) => {
+        const rawCheckpoint = await nango.getCheckpoint();
+        const checkpoint = rawCheckpoint ? CheckpointSchema.parse(rawCheckpoint) : undefined;
+        const checkpointUpdatedAfter = checkpoint?.updated_after ? new Date(checkpoint.updated_after) : undefined;
+        const runStartedAt = new Date().toISOString();
+
         const expand = 'names,addresses,emails,phones';
         const limit = 100;
         let total = 0;
 
-        const lastSyncDate = nango.lastSyncDate ? new Date(nango.lastSyncDate) : null;
+        const checkpointDate = checkpointUpdatedAfter ? new Date(checkpointUpdatedAfter) : null;
 
         const proxyConfig: ProxyConfiguration = {
             // https://docs.oracle.com/en/cloud/saas/human-resources/24d/farws/op-workers-get.html
@@ -70,10 +79,10 @@ const sync = createSync({
                 break;
             }
 
-            if (lastSyncDate) {
+            if (checkpointDate) {
                 employees = employees.filter((emp) => {
                     const updated = emp.LastUpdateDate ? new Date(emp.LastUpdateDate) : null;
-                    if (updated && updated < lastSyncDate) {
+                    if (updated && updated < checkpointDate) {
                         shouldExit = true;
                         return false;
                     }
@@ -89,11 +98,13 @@ const sync = createSync({
             }
 
             if (shouldExit) {
-                await nango.log('Encountered record older than lastSyncDate, exiting early.', { level: 'info' });
+                await nango.log('Encountered record older than checkpoint, exiting early.', { level: 'info' });
                 break;
             }
         }
         await nango.log(`Sync complete. Total Oracle employees saved: ${total}`);
+        await nango.saveCheckpoint({ updated_after: runStartedAt });
+
     }
 });
 

@@ -40,6 +40,8 @@ const sync = createSync({
     metadata: z.object({}),
 
     exec: async (nango) => {
+        await nango.trackDeletesStart('Customer');
+
         const config: ProxyConfiguration = {
             // https://woocommerce.github.io/woocommerce-rest-api-docs/#list-all-customers
             endpoint: '/wp-json/wc/v3/customers',
@@ -55,7 +57,7 @@ const sync = createSync({
         for await (const customers of nango.paginate<WooCommerceCustomer>(config)) {
             await nango.batchSave(customers.map(toCustomer), 'Customer');
         }
-        await nango.deleteRecordsFromPreviousExecutions('Customer');
+        await nango.trackDeletesEnd('Customer');
     }
 });
 

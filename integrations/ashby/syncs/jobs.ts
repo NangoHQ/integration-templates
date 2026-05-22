@@ -2,14 +2,19 @@ import { createSync } from 'nango';
 import type { ProxyConfiguration } from 'nango';
 import { AshbyJob, AshbyJobMetadata } from '../models.js';
 
-let nextCursor: string | null = null;
+import { z } from 'zod';
+
+const CheckpointSchema = z.object({
+    sync_token: z.string(),
+    cursor: z.string()
+});
 
 const sync = createSync({
     description: 'Fetches a list of all jobs from your ashby account',
     version: '1.0.0',
     frequency: 'every hour',
     autoStart: true,
-    syncType: 'incremental',
+    checkpoint: CheckpointSchema,
 
     endpoints: [
         {
@@ -28,18 +33,21 @@ const sync = createSync({
     metadata: AshbyJobMetadata,
 
     exec: async (nango) => {
+        const rawCheckpoint = await nango.getCheckpoint();
+        const checkpoint = rawCheckpoint ? CheckpointSchema.parse(rawCheckpoint) : undefined;
         const metadata = (await nango.getMetadata()) || {};
-        const jobslastsyncToken = metadata['jobslastsyncToken'] ? String(metadata['jobslastsyncToken']) : '';
+        const jobslastsyncToken = checkpoint?.sync_token ?? (metadata['jobslastsyncToken'] ? String(metadata['jobslastsyncToken']) : '');
 
-        await saveAllJobs(nango, jobslastsyncToken);
+        await saveAllJobs(nango, jobslastsyncToken, checkpoint?.cursor);
     }
 });
 
 export type NangoSyncLocal = Parameters<(typeof sync)['exec']>[0];
 export default sync;
 
-async function saveAllJobs(nango: NangoSyncLocal, jobslastsyncToken: string) {
+async function saveAllJobs(nango: NangoSyncLocal, jobslastsyncToken: string, checkpointCursor?: string) {
     let totalRecords = 0;
+    let cursor: string | null = checkpointCursor || null;
 
     // eslint-disable-next-line @nangohq/custom-integrations-linting/no-while-true
     while (true) {
@@ -48,7 +56,7 @@ async function saveAllJobs(nango: NangoSyncLocal, jobslastsyncToken: string) {
             endpoint: '/job.list',
             data: {
                 ...(jobslastsyncToken && { syncToken: jobslastsyncToken }),
-                cursor: nextCursor,
+                cursor,
                 limit: 100
             },
             retries: 10
@@ -63,16 +71,14 @@ async function saveAllJobs(nango: NangoSyncLocal, jobslastsyncToken: string) {
             await nango.log(`Saving batch of ${batchSize} job(s) (total jobs(s): ${totalRecords})`);
         }
         if (response.data.moreDataAvailable) {
-            nextCursor = response.data.nextCursor;
+            cursor = response.data.nextCursor;
+            await nango.saveCheckpoint({ sync_token: jobslastsyncToken, cursor: cursor ?? '' });
         } else {
             jobslastsyncToken = response.data.syncToken;
+            await nango.saveCheckpoint({ sync_token: jobslastsyncToken, cursor: '' });
             break;
         }
     }
-
-    const metadata = (await nango.getMetadata()) || {};
-    metadata['jobslastsyncToken'] = jobslastsyncToken;
-    await nango.setMetadata(metadata);
 }
 
 function mapJob(jobs: any[]): AshbyJob[] {

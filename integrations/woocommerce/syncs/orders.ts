@@ -17,12 +17,16 @@ import { z } from 'zod';
  * @param nango - An instance of NangoSync for managing API interactions and processing.
  * @returns A Promise that resolves when all orders have been successfully fetched and saved.
  */
+const CheckpointSchema = z.object({
+    updated_after: z.string()
+});
+
 const sync = createSync({
     description: 'Periodically fetches all the Woo orders.',
     version: '1.0.0',
     frequency: 'every 5 minutes',
     autoStart: true,
-    syncType: 'incremental',
+    checkpoint: CheckpointSchema,
 
     endpoints: [
         {
@@ -40,13 +44,18 @@ const sync = createSync({
     metadata: z.object({}),
 
     exec: async (nango) => {
+        const rawCheckpoint = await nango.getCheckpoint();
+        const checkpoint = rawCheckpoint ? CheckpointSchema.parse(rawCheckpoint) : undefined;
+        const checkpointUpdatedAfter = checkpoint?.updated_after ? new Date(checkpoint.updated_after) : undefined;
+        const runStartedAt = new Date().toISOString();
+
         const config: ProxyConfiguration = {
             // https://woocommerce.github.io/woocommerce-rest-api-docs/#list-all-orders
             endpoint: '/wp-json/wc/v3/orders',
             retries: 10,
-            params: nango.lastSyncDate
+            params: checkpointUpdatedAfter
                 ? {
-                      modified_after: nango.lastSyncDate.toISOString(),
+                      modified_after: checkpointUpdatedAfter.toISOString(),
                       dates_are_gmt: 'true'
                   }
                 : { dates_are_gmt: 'true' },
@@ -61,6 +70,8 @@ const sync = createSync({
         for await (const orders of nango.paginate<WooCommerceOrder>(config)) {
             await nango.batchSave(orders.map(toOrder), 'Order');
         }
+        await nango.saveCheckpoint({ updated_after: runStartedAt });
+
     }
 });
 

@@ -39,6 +39,8 @@ const sync = createSync({
     metadata: z.object({}),
 
     exec: async (nango) => {
+        await nango.trackDeletesStart('Ticket');
+
         const ticketsConfig: ProxyConfiguration = {
             // https://developers.gorgias.com/reference/list-tickets
             endpoint: '/api/tickets',
@@ -70,7 +72,7 @@ const sync = createSync({
             }
             await nango.batchSave(processedTickets, 'Ticket');
         }
-        await nango.deleteRecordsFromPreviousExecutions('Ticket');
+        await nango.trackDeletesEnd('Ticket');
     }
 });
 

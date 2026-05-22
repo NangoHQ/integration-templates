@@ -19,12 +19,16 @@ import { z } from 'zod';
  * @param nango An instance of NangoSync for synchronization tasks.
  * @returns Promise that resolves when all users are fetched and saved.
  */
+const CheckpointSchema = z.object({
+    updated_after: z.string()
+});
+
 const sync = createSync({
     description: 'Fetches the list of users in Harvest',
     version: '1.0.0',
     frequency: 'every day',
     autoStart: true,
-    syncType: 'full',
+    checkpoint: CheckpointSchema,
 
     endpoints: [
         {
@@ -43,6 +47,11 @@ const sync = createSync({
     metadata: z.object({}),
 
     exec: async (nango) => {
+        const rawCheckpoint = await nango.getCheckpoint();
+        const checkpoint = rawCheckpoint ? CheckpointSchema.parse(rawCheckpoint) : undefined;
+        const checkpointUpdatedAfter = checkpoint?.updated_after ? new Date(checkpoint.updated_after) : undefined;
+        const runStartedAt = new Date().toISOString();
+
         const config: ProxyConfiguration = {
             // https://help.getharvest.com/api-v2/users-api/users/users/#list-all-users
             endpoint: '/v2/users',
@@ -58,8 +67,8 @@ const sync = createSync({
             is_active: 'true'
         };
 
-        if (nango.lastSyncDate) {
-            params['updated_since'] = nango.lastSyncDate.toISOString();
+        if (checkpointUpdatedAfter) {
+            params['updated_since'] = checkpointUpdatedAfter.toISOString();
         }
 
         config.params = params;
@@ -69,6 +78,8 @@ const sync = createSync({
 
             await nango.batchSave(users, 'User');
         }
+        await nango.saveCheckpoint({ updated_after: runStartedAt });
+
     }
 });
 

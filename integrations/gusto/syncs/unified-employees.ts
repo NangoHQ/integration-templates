@@ -14,7 +14,7 @@ const sync = createSync({
     version: '1.0.0',
     frequency: 'every 5m',
     autoStart: false,
-    syncType: 'incremental',
+    syncType: 'full',
 
     endpoints: [
         {
@@ -31,6 +31,7 @@ const sync = createSync({
     metadata: z.object({}),
 
     exec: async (nango) => {
+        // No checkpoint is used because the Gusto employees endpoint is only offset-paginated and does not expose a changed-since filter.
         const connection = await nango.getConnection();
 
         const companyUuid = connection.connection_config['companyUuid'];

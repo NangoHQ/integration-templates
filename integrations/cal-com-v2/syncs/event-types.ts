@@ -25,6 +25,8 @@ const sync = createSync({
     metadata: z.object({}),
 
     exec: async (nango) => {
+        await nango.trackDeletesStart('EventType');
+
         const response = await nango.get<EventTypeResponse>({
             endpoint: '/event-types',
             retries: 10
@@ -41,7 +43,7 @@ const sync = createSync({
             await nango.batchSave(eventTypes, 'EventType');
         }
 
-        await nango.deleteRecordsFromPreviousExecutions('EventType');
+        await nango.trackDeletesEnd('EventType');
     }
 });
 

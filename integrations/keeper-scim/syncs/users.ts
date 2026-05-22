@@ -41,6 +41,8 @@ const sync = createSync({
     metadata: z.object({}),
 
     exec: async (nango) => {
+        await nango.trackDeletesStart('User');
+
         const config: ProxyConfiguration = {
             // https://docs.keeper.io/en/enterprise-guide/user-and-team-provisioning/automated-provisioning-with-scim
             endpoint: '/Users',
@@ -61,7 +63,7 @@ const sync = createSync({
 
             await nango.batchSave(users, 'User');
         }
-        await nango.deleteRecordsFromPreviousExecutions('User');
+        await nango.trackDeletesEnd('User');
     }
 });
 

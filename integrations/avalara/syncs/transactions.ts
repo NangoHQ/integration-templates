@@ -4,14 +4,19 @@ import { getCompany } from '../helpers/get-company.js';
 import type { ProxyConfiguration } from 'nango';
 import { Transaction, ConnectionMetadata } from '../models.js';
 
+import { z } from 'zod';
 const DEFAULT_BACKFILL_MS = 365 * 24 * 60 * 60 * 1000;
+
+const CheckpointSchema = z.object({
+    updated_after: z.string()
+});
 
 const sync = createSync({
     description: 'List all transactions with a default backfill date of one year.',
     version: '2.0.0',
     frequency: 'every hour',
     autoStart: true,
-    syncType: 'full',
+    checkpoint: CheckpointSchema,
 
     endpoints: [
         {
@@ -28,12 +33,17 @@ const sync = createSync({
     metadata: ConnectionMetadata,
 
     exec: async (nango) => {
+        const rawCheckpoint = await nango.getCheckpoint();
+        const checkpoint = rawCheckpoint ? CheckpointSchema.parse(rawCheckpoint) : undefined;
+        const checkpointUpdatedAfter = checkpoint?.updated_after ? new Date(checkpoint.updated_after) : undefined;
+        const runStartedAt = new Date().toISOString();
+
         const company = await getCompany(nango);
 
         let dateFilter: string | undefined = '';
 
-        if (nango.lastSyncDate) {
-            dateFilter = nango.lastSyncDate.toISOString().split('T')[0];
+        if (checkpointUpdatedAfter) {
+            dateFilter = checkpointUpdatedAfter.toISOString().split('T')[0];
         } else {
             const metadata = await nango.getMetadata();
             const backfillMilliseconds = metadata?.backfillPeriodMs || DEFAULT_BACKFILL_MS;
@@ -65,6 +75,8 @@ const sync = createSync({
 
             await nango.batchSave(transactions, 'Transaction');
         }
+        await nango.saveCheckpoint({ updated_after: runStartedAt });
+
     }
 });
 

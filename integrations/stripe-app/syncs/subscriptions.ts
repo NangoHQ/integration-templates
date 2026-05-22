@@ -32,6 +32,8 @@ const sync = createSync({
     metadata: z.object({}),
 
     exec: async (nango) => {
+        await nango.trackDeletesStart('Subscription');
+
         const params: Record<string, string | number> = {
             limit: LIMIT
         };
@@ -78,7 +80,7 @@ const sync = createSync({
                 hasMore = false;
             }
         }
-        await nango.deleteRecordsFromPreviousExecutions('Subscription');
+        await nango.trackDeletesEnd('Subscription');
     }
 });
 

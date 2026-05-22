@@ -43,6 +43,8 @@ const sync = createSync({
     metadata: z.object({}),
 
     exec: async (nango) => {
+        await nango.trackDeletesStart('User');
+
         const config: ProxyConfiguration = {
             // https://developers.ringcentral.com/api-reference/SCIM/scimSearchViaPost2
             endpoint: '/scim/v2/Users/.search',
@@ -67,7 +69,7 @@ const sync = createSync({
 
             await nango.batchSave(users, 'User');
         }
-        await nango.deleteRecordsFromPreviousExecutions('User');
+        await nango.trackDeletesEnd('User');
     }
 });
 

@@ -28,6 +28,8 @@ const sync = createSync({
     metadata: z.object({}),
 
     exec: async (nango) => {
+        await nango.trackDeletesStart('Conversation');
+
         const config: ProxyConfiguration = {
             // https://dev.frontapp.com/reference/list-conversations
             endpoint: '/conversations',
@@ -45,7 +47,7 @@ const sync = createSync({
             await nango.batchSave(mappedConversations, 'Conversation');
         }
 
-        await nango.deleteRecordsFromPreviousExecutions('Conversation');
+        await nango.trackDeletesEnd('Conversation');
     }
 });
 

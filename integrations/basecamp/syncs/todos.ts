@@ -32,6 +32,8 @@ const sync = createSync({
     metadata: TodosMetadata,
 
     exec: async (nango) => {
+        await nango.trackDeletesStart('BasecampTodo');
+
         const rawMetadata = await nango.getMetadata();
         const parsed = await nango.zodValidateInput({
             zodSchema: todosMetadataSchema,
@@ -108,7 +110,7 @@ const sync = createSync({
             }
         }
 
-        await nango.deleteRecordsFromPreviousExecutions('BasecampTodo');
+        await nango.trackDeletesEnd('BasecampTodo');
     }
 });
 

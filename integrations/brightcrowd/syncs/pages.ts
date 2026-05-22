@@ -31,6 +31,8 @@ const sync = createSync({
     metadata: Metadata,
 
     exec: async (nango) => {
+        await nango.trackDeletesStart('Page');
+
         const metadata = await nango.getMetadata();
 
         if (!metadata) {
@@ -48,7 +50,7 @@ const sync = createSync({
             await fetchPages(nango, bookId);
         }
 
-        await nango.deleteRecordsFromPreviousExecutions('Page');
+        await nango.trackDeletesEnd('Page');
     }
 });
 

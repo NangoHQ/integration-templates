@@ -33,6 +33,8 @@ const sync = createSync({
     metadata: z.object({}),
 
     exec: async (nango) => {
+        await nango.trackDeletesStart('User');
+
         let totalRecords = 0;
         const { baseUri, accountId } = await getRequestInfo(nango);
 
@@ -63,7 +65,7 @@ const sync = createSync({
             await nango.batchSave(users, 'User');
         }
 
-        await nango.deleteRecordsFromPreviousExecutions('User');
+        await nango.trackDeletesEnd('User');
     }
 });
 

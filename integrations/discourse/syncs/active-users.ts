@@ -39,6 +39,8 @@ const sync = createSync({
     metadata: z.object({}),
 
     exec: async (nango) => {
+        await nango.trackDeletesStart('User');
+
         const config: ProxyConfiguration = {
             // https://docs.discourse.org/#tag/Users/operation/adminListUsers
             endpoint: '/admin/users/list/active',
@@ -59,7 +61,7 @@ const sync = createSync({
             await nango.batchSave(users.map(toUser), 'User');
         }
 
-        await nango.deleteRecordsFromPreviousExecutions('User');
+        await nango.trackDeletesEnd('User');
     }
 });
 
