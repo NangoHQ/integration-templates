@@ -58,7 +58,7 @@
           "cf-cache-status": "DYNAMIC",
           "cf-ray": "9ff9842a1c1c8e12-PDX"
         },
-        "hash": "3b1c7b0fa0d41b15c21890e60b33fd8552bcaf28",
+        "hash": "486c461b8ce9c6bb8fa20c08ac3983b901f5a6d4",
         "request": {
           "data": {
             "query": "mutation { duplicate_board(board_id: 5096980653, duplicate_type: duplicate_board_with_structure, board_name: \"Test Duplicate Board\") { board { id name } } }"

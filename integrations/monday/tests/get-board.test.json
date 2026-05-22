@@ -300,7 +300,7 @@
           "cf-cache-status": "DYNAMIC",
           "cf-ray": "9ff987a87a274e7c-PDX"
         },
-        "hash": "4bdbbea3edda8bbbd2df5c7898e8d8249a0ef6eb",
+        "hash": "62010df39270ae3ec8b100294acf08a1be543325",
         "request": {
           "data": {
             "query": "\n            query {\n                boards(ids: [5096980653]) {\n                    id\n                    name\n                    state\n                    board_kind\n                    description\n                    updated_at\n                    created_at\n                    workspace {\n                        id\n                        name\n                    }\n                    groups {\n                        id\n                        title\n                        color\n                        position\n                    }\n                    columns {\n                        id\n                        title\n                        type\n                    }\n                    items_count\n                }\n            }\n        "

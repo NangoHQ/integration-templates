@@ -55,7 +55,7 @@
           "cf-cache-status": "DYNAMIC",
           "cf-ray": "9ff984ac8ba4a11a-PDX"
         },
-        "hash": "172e8aeae8a8b30f836d16cd57778418edced190",
+        "hash": "6cac07303f6ad3a447d6ddee22cb237342bcb8d8",
         "request": {
           "data": {
             "query": "mutation($item_id: ID!, $group_id: String!) { move_item_to_group(item_id: $item_id, group_id: $group_id) { id name } }",

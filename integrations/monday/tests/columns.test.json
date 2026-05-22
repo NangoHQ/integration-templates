@@ -1639,7 +1639,7 @@
           "cf-cache-status": "DYNAMIC",
           "cf-ray": "9ff987307cc11fb9-PDX"
         },
-        "hash": "706c3a3e8a5a7ffb730e271cd9f9e55b06118f98",
+        "hash": "b6d854dd03621de17b0c274dba022354d4f37b61",
         "request": {
           "data": {
             "query": "query ($limit: Int!, $page: Int!) {\n                    boards(limit: $limit, page: $page) {\n                        id\n                        columns {\n                            id\n                            title\n                            type\n                            settings_str\n                        }\n                    }\n                }",

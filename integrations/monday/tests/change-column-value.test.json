@@ -216,7 +216,7 @@
           "cf-cache-status": "DYNAMIC",
           "cf-ray": "9ff986b51f854e7c-PDX"
         },
-        "hash": "823788fdaab5dfdf78c9cd0150260316ac819a6c",
+        "hash": "4c496572f55f5de88bae22cecbb3b3f68c87c87d",
         "request": {
           "data": {
             "query": "\n            mutation ($item_id: ID!, $column_id: String!, $value: JSON!, $board_id: ID!, $create_labels_if_missing: Boolean) {\n                change_column_value(\n                    item_id: $item_id,\n                    column_id: $column_id,\n                    value: $value,\n                    board_id: $board_id,\n                    create_labels_if_missing: $create_labels_if_missing\n                ) {\n                    id\n                    name\n                    column_values {\n                        id\n                        value\n                        text\n                    }\n                }\n            }\n        ",

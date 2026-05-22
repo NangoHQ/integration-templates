@@ -65,7 +65,7 @@
           "set-cookie": "__cf_bm=5MrjzaDyHWKuwJjdEft6CQMCCDIFuPUZrvjUz9A9CIk-1779428782.116266-1.0.1.1-TLhxCdbT2DqXZ30KBAwoS_dP2D3nsKOaGNNOqIIjaiOJ28WG21SkzqrpG_OlyZZERYFMYyRRL61RFmjI36i7rlnLwPRjM3t8Ayzy7wPLM_0lA7svRbp2P.k_v9X5U0whRe2kJ5Sk34wZqzKE89DAfA; HttpOnly; SameSite=None; Secure; Path=/; Domain=monday.com; Expires=Fri, 22 May 2026 06:16:22 GMT, _cfuvid=o4bG3fkoqVFDx3QWlY9RMRm5uhuhksQqjiGJp6Fjd3k-1779428782.116266-1.0.1.1-30rMWkUe.LjOr7uS5S37lKk56pK9uE.YdSWW5BKeozc; HttpOnly; SameSite=None; Secure; Path=/; Domain=monday.com",
           "cf-ray": "9ff985203ba7c654-PDX"
         },
-        "hash": "e222fa3b2f14fd9a002c546281ee32b5b0797066",
+        "hash": "cf45784834c657e66880a7f9553d20dab0cd89cf",
         "request": {
           "data": {
             "query": "query {\n            boards(ids: [5096980653]) {\n                groups(ids: [\"topics\"]) {\n                    id\n                    title\n                    color\n                    position\n                }\n            }\n        }"

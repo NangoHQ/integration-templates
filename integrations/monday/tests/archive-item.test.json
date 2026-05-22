@@ -54,7 +54,7 @@
           "cf-cache-status": "DYNAMIC",
           "cf-ray": "9ff9843cadaeb298-PDX"
         },
-        "hash": "bde62720a1cda6f1978b7751674d0560c3b8b73a",
+        "hash": "2a166420cf99615b8752536175b1019440968a09",
         "request": {
           "data": {
             "query": "\n                    mutation ($item_id: ID!) {\n                        archive_item(item_id: $item_id) {\n                            id\n                            state\n                        }\n                    }\n                ",

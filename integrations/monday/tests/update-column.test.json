@@ -69,7 +69,7 @@
             "cf-cache-status": "DYNAMIC",
             "cf-ray": "9ff98755feb4e6e0-PDX"
           },
-          "hash": "42d06c656b18456d381748268208fbc15400d2c4",
+          "hash": "52d0de67af589207b8b6f247e5832acfd803601e",
           "request": {
             "data": {
               "query": "query { boards(ids: [5096980653]) { columns(ids: [\"task_status\"]) { id title type description width revision } } }"
@@ -124,7 +124,7 @@
             "set-cookie": "__cf_bm=QBOXllxfdUT1_BIQiDI3IuDWPTRECU1J8q2uK7W5x.4-1779428873.5117354-1.0.1.1-.dPNLQiqgoTBPHEd3se7ADx7PmCXW1Z46vw_Sm_610nfPPjO6jX9BITuDVppBM7bRgCHlxUC5860qkxmWp_Xe5mEnp.TOw3is1uIbgqo6e3ttt7wiomFudU0YHmzOVnOyAH24V1nnrPG_y3FeAUUFw; HttpOnly; SameSite=None; Secure; Path=/; Domain=monday.com; Expires=Fri, 22 May 2026 06:17:54 GMT, _cfuvid=OHP2Hc8FH9BAtuNyivGiH_BK6zzISdZsGKvkNegB_PY-1779428873.5117354-1.0.1.1-q_xwkBWB9OSRmeLQbwBj2dVCFo2rxDcfrqBfrihkGho; HttpOnly; SameSite=None; Secure; Path=/; Domain=monday.com",
             "cf-ray": "9ff9875b7d7c4e7c-PDX"
           },
-          "hash": "ef9136a4bdd9b35b2f6285adfd2b3f53cafbd813",
+          "hash": "edaa251907dc876307d6b73cca1ad9ab91696411",
           "request": {
             "data": {
               "query": "mutation { update_column(board_id: 5096980653, id: \"task_status\", column_type: status, revision: \"27bb4d2dd1390d9b78d4f007ad7cc1cb\", description: \"API test update\") { id title description type width } }"

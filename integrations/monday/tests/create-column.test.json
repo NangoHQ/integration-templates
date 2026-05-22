@@ -59,7 +59,7 @@
           "cf-cache-status": "DYNAMIC",
           "cf-ray": "9ff9948c295828b9-PDX"
         },
-        "hash": "ee7c0cbc7b6a3c7e8d88166ba349bb5eea58d580",
+        "hash": "24f73b7ab3623d557afe99d32a604e5382739ad4",
         "request": {
           "data": {
             "query": "\n            mutation ($boardId: ID!, $title: String!, $columnType: ColumnType!, $description: String) {\n                create_column(board_id: $boardId, title: $title, column_type: $columnType, description: $description) {\n                    id\n                    title\n                    type\n                    description\n                }\n            }\n        ",

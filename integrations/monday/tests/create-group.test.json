@@ -59,7 +59,7 @@
           "cf-cache-status": "DYNAMIC",
           "cf-ray": "9ff984633ed1fef8-PDX"
         },
-        "hash": "5879084950dfe08d780077aa778d65a9f0b1593e",
+        "hash": "ca5a510f0d571f1f700103f73d3315ce22ffc392",
         "request": {
           "data": {
             "query": "mutation { create_group(board_id: \"5096980653\", group_name: \"Test Group Create 2026\") { id title color position } }"

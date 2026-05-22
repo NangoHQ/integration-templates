@@ -260,7 +260,7 @@
           "cf-cache-status": "DYNAMIC",
           "cf-ray": "9ff998a60f753d49-PDX"
         },
-        "hash": "3df5e72ca40ebb6ab88d2a94e3ac0f1557408803",
+        "hash": "c8d845f71b1cddc372aed9987afd997ca53a077c",
         "request": {
           "data": {
             "query": "mutation {\n    change_multiple_column_values(\n        board_id: \"5096980653\"\n        item_id: \"2933602562\"\n        column_values: \"{\\\"task_estimation\\\":\\\"5\\\"}\"\n    ) {\n        id\n        name\n        column_values {\n            id\n            text\n            value\n        }\n    }\n}"

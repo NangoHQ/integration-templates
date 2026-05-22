@@ -73,7 +73,7 @@
           "cf-cache-status": "DYNAMIC",
           "cf-ray": "9ff998202c3aff11-PDX"
         },
-        "hash": "bf9529633a25cccfeec831873f4e1b079c92a364",
+        "hash": "f1d75067ece39e0c44289e1ff2cfbba03bffc9fb",
         "request": {
           "data": {
             "query": "query { teams { id name picture_url } }"

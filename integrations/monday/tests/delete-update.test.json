@@ -52,7 +52,7 @@
           "set-cookie": "__cf_bm=f.qHpzmpHJAfgKB.tTzbf8TZBCKgHNcYXuRSajlb4ww-1779428791.5619657-1.0.1.1-eE_mvl_f5jU7osXEAGGGj1JcCiHNoNRjQZ_t3gYBkh2eet3QOcYmagCVN1OfnYcFsCrMsUeR5_1_REAr2D6Fk_ZWfcUnubcC8YA7JjHkHiPVHAtmiOAXK._V5RB.CT8AnT5D0gwQ4Dxgl54NQRN0hw; HttpOnly; SameSite=None; Secure; Path=/; Domain=monday.com; Expires=Fri, 22 May 2026 06:16:32 GMT, _cfuvid=NjXlzNnEkaG2S1kfA_3i9xpbIjG8CDWrQsshVkK.QW0-1779428791.5619657-1.0.1.1-4ylToEO3Si76GYNmjS52raNdeydFrO8wtcGMhYQJPzA; HttpOnly; SameSite=None; Secure; Path=/; Domain=monday.com",
           "cf-ray": "9ff9855b481f4e7c-PDX"
         },
-        "hash": "5ee7d6fc2084a5c77e8e905ca6b75b29b2f89bf9",
+        "hash": "99f64ec41c37af95ce8ef555b043a2ab3dcec44f",
         "request": {
           "data": {
             "query": "mutation ($id: ID!) { delete_update(id: $id) { id } }",

@@ -345,7 +345,7 @@
           "cf-cache-status": "DYNAMIC",
           "cf-ray": "9ff98c4a5c1b8bee-PDX"
         },
-        "hash": "cdf24cb18c37507c0af7423e794185b0397e14dc",
+        "hash": "2a9a245ca8ba8e7d279f7d4301261fa4bd98cf34",
         "request": {
           "data": {
             "query": "\n                    query ($limit: Int!, $page: Int!) {\n                        boards(limit: $limit, page: $page, state: all) {\n                            id\n                            name\n                            description\n                            state\n                            board_kind\n                            updated_at\n                            workspace_id\n                            url\n                        }\n                    }\n                ",

@@ -59,7 +59,7 @@
             "cf-cache-status": "DYNAMIC",
             "cf-ray": "9ff98adf99cbe6e0-PDX"
           },
-          "hash": "03414a655f407f5b816889ce7d60e750827bfa87",
+          "hash": "67c86afe82078e8e0a576e35ddbe8970f11024f9",
           "request": {
             "data": {
               "query": "\n            mutation ($board_id: ID!, $board_attribute: BoardAttributes!, $new_value: String!) {\n                update_board(board_id: $board_id, board_attribute: $board_attribute, new_value: $new_value)\n            }\n        ",
@@ -123,7 +123,7 @@
             "cf-cache-status": "DYNAMIC",
             "cf-ray": "9ff98ae4d9cb3416-PDX"
           },
-          "hash": "de91b7e9f0918087d8d333cf8d169fa1275f4f60",
+          "hash": "41eda2b239cce18884b0cf406c9334a381dcaba5",
           "request": {
             "data": {
               "query": "\n            query ($board_id: ID!) {\n                boards(ids: [$board_id]) {\n                    id\n                    name\n                    description\n                    state\n                    board_kind\n                    workspace_id\n                    updated_at\n                }\n            }\n        ",

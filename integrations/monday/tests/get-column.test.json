@@ -202,7 +202,7 @@
           "cf-cache-status": "DYNAMIC",
           "cf-ray": "9ff9877d4ea3fef8-PDX"
         },
-        "hash": "84dd79690b77d945dcff5905debca670c3a0f7fb",
+        "hash": "2023cd9237cc7a42d4d922cb4f97b13a44f45920",
         "request": {
           "data": {
             "query": "query ($boardIds: [ID!], $columnIds: [String]) {\n    boards(ids: $boardIds) {\n        columns(ids: $columnIds) {\n            id\n            title\n            type\n            description\n            archived\n            width\n            settings\n        }\n    }\n}",

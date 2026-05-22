@@ -59,7 +59,7 @@
             "cf-cache-status": "DYNAMIC",
             "cf-ray": "9ff98fb8c962ad66-PDX"
           },
-          "hash": "54fe64b3548667fe44cbb75038c1a5ff2cb8279e",
+          "hash": "0cba2e93cb0ea99e156a0a785d1fdcf49330bf7d",
           "request": {
             "data": {
               "query": "query { boards(ids: 5096998797) { id state } }"
@@ -111,7 +111,7 @@
             "cf-cache-status": "DYNAMIC",
             "cf-ray": "9ff98fbb9f191fb9-PDX"
           },
-          "hash": "a1fa06549baaab78ba12a6ca8e81179831808c1c",
+          "hash": "fad54bd50d12227c79161a3b24e422c0362925ed",
           "request": {
             "data": {
               "query": "mutation { archive_board(board_id: 5096998797) { id state } }"

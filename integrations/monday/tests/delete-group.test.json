@@ -55,7 +55,7 @@
           "cf-cache-status": "DYNAMIC",
           "cf-ray": "9ff993bddd148636-PDX"
         },
-        "hash": "2199649edee844f6fdd63821f406bb2bd81cb81a",
+        "hash": "57a370a53e8122969c356c89daa69eb34ced0e70",
         "request": {
           "data": {
             "query": "mutation ($boardId: ID!, $groupId: String!) { archive_group(board_id: $boardId, group_id: $groupId) { id archived } }",

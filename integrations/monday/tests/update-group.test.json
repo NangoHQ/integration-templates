@@ -61,7 +61,7 @@
           "cf-cache-status": "DYNAMIC",
           "cf-ray": "9ff9862f58834e7c-PDX"
         },
-        "hash": "0c8010141612263d8a8470bf790ef99cc81462ce",
+        "hash": "c1918741088d2e7f4d664cca6b8f41268af88d24",
         "request": {
           "data": {
             "query": "\n            mutation {\n                update_group(\n                    board_id: 5096980653,\n                    group_id: \"topics\",\n                    group_attribute: title,\n                    new_value: \"All Tasks Updated\"\n                ) {\n                    id\n                    title\n                    color\n                    position\n                }\n            }\n        "

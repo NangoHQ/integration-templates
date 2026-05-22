@@ -64,7 +64,7 @@
           "cf-cache-status": "DYNAMIC",
           "cf-ray": "9ff988bc3f866c17-PDX"
         },
-        "hash": "eef201575f718c81fab8c4c67d61df03f6a680ad",
+        "hash": "07d33ade25258ff7671ab980f1e6138a9f37bc50",
         "request": {
           "data": {
             "query": "mutation { create_board(board_name: \"Nango Test Board May22\", board_kind: public) { id name state board_kind url description workspace_id } }"

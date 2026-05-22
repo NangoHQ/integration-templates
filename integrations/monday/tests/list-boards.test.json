@@ -242,7 +242,7 @@
           "cf-cache-status": "DYNAMIC",
           "cf-ray": "9ff984598a5eb298-PDX"
         },
-        "hash": "bb71a200c183c8385b4b9d475f78284f8181d5c4",
+        "hash": "f9a7edc7141c48a1138e099bd172f20170f8ff58",
         "request": {
           "data": {
             "query": "\n            query ($ids: [ID!], $board_kind: BoardKind, $state: State, $workspace_ids: [ID], $limit: Int, $page: Int) {\n                boards(ids: $ids, board_kind: $board_kind, state: $state, workspace_ids: $workspace_ids, limit: $limit, page: $page) {\n                    id\n                    name\n                    state\n                    board_kind\n                    workspace_id\n                    updated_at\n                }\n            }\n        ",

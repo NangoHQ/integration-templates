@@ -104,7 +104,7 @@
           "cf-cache-status": "DYNAMIC",
           "cf-ray": "9ff98b68ba186c17-PDX"
         },
-        "hash": "8f492d0bf5d860fcf84faf8cc443d2d467e7d508",
+        "hash": "1aeca7ae7586b9b4778839494fef88321d22d6f7",
         "request": {
           "data": {
             "query": "\n            query {\n                boards(ids: 5096980653) {\n                    groups {\n                        id\n                        title\n                        color\n                        position\n                        archived\n                        deleted\n                    }\n                }\n            }\n        "
