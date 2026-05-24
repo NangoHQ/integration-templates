@@ -1,0 +1,84 @@
+{
+  "input": {
+    "vector_store_id": "vs_6a0cb67e028081918ccec0ba7278ffd0",
+    "file_id": "file-nonexistent"
+  },
+  "output": {
+    "id": "file-nonexistent",
+    "object": "vector_store.file",
+    "vector_store_id": "vs_6a0cb67e028081918ccec0ba7278ffd0",
+    "status": "failed",
+    "created_at": 1779272563,
+    "usage_bytes": 0,
+    "chunking_strategy": {
+      "type": "static",
+      "static": {
+        "max_chunk_size_tokens": 800,
+        "chunk_overlap_tokens": 400
+      }
+    },
+    "last_error": {
+      "code": "invalid_file",
+      "message": "The file could not be parsed."
+    }
+  },
+  "nango": {},
+  "api": {
+    "get": {
+      "/v1/vector_stores/vs_6a0cb67e028081918ccec0ba7278ffd0/files/file-nonexistent": {
+        "response": {
+          "id": "file-nonexistent",
+          "object": "vector_store.file",
+          "usage_bytes": 0,
+          "created_at": 1779272563,
+          "vector_store_id": "vs_6a0cb67e028081918ccec0ba7278ffd0",
+          "status": "failed",
+          "last_error": {
+            "code": "invalid_file",
+            "message": "The file could not be parsed."
+          },
+          "chunking_strategy": {
+            "type": "static",
+            "static": {
+              "max_chunk_size_tokens": 800,
+              "chunk_overlap_tokens": 400
+            }
+          },
+          "attributes": {}
+        },
+        "status": 200,
+        "headers": {
+          "date": "Wed, 20 May 2026 10:28:34 GMT",
+          "content-type": "application/json",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=31536000; includeSubDomains; preload",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "CF-Ray",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4992",
+          "x-ratelimit-reset": "1779272953",
+          "server": "cloudflare",
+          "openai-version": "2020-10-01",
+          "openai-organization": "nangodev",
+          "openai-project": "proj_bkqat9iXXSSrc8Kx228QbGL9",
+          "x-request-id": "req_e99d00b0cbdb4cfc895dd0fa4f5d38f9",
+          "openai-processing-ms": "208",
+          "x-openai-proxy-wasm": "v0.1",
+          "cf-cache-status": "DYNAMIC",
+          "set-cookie": "__cf_bm=16s8spz8lPEAl6B7ioJya8NK21i13ThecPF6y3GI_aY-1779272914.1346433-1.0.1.1-oC.UcJwe15_RgQOi8sUujC5QkcgVTM_6OUkF3m3y3iPqQSWaoM0VmKoPLzlbFIpxKo1Iy3O4jjcJ2CyfoMKF6AEDdrEZs2o62zLIKgbp1lN.VFVRGPcJR2CVvd7ilAaQ; HttpOnly; SameSite=None; Secure; Path=/; Domain=api.openai.com; Expires=Wed, 20 May 2026 10:58:34 GMT",
+          "cf-ray": "9feaa7c15f89054d-PDX",
+          "alt-svc": "h3=\":443\"; ma=86400"
+        },
+        "hash": "68fd8aecb0f745c7a5a0c2f1925734677791a447",
+        "request": {}
+      }
+    }
+  }
+}

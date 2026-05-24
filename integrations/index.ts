@@ -1383,6 +1383,42 @@ import './one-drive-personal/actions/search-items.js';
 import './one-drive-personal/actions/update-item.js';
 import './one-drive-personal/actions/upload-small-file.js';
 
+// -- Integration: openai
+import './openai/syncs/batches.js';
+import './openai/syncs/files.js';
+import './openai/syncs/fine-tuning-jobs.js';
+import './openai/syncs/models.js';
+import './openai/syncs/vector-stores.js';
+import './openai/actions/add-vector-store-file.js';
+import './openai/actions/cancel-fine-tuning-job.js';
+import './openai/actions/create-batch.js';
+import './openai/actions/create-chat-completion.js';
+import './openai/actions/create-embedding.js';
+import './openai/actions/create-file.js';
+import './openai/actions/create-image.js';
+import './openai/actions/create-moderation.js';
+import './openai/actions/create-response.js';
+import './openai/actions/create-speech.js';
+import './openai/actions/create-transcription.js';
+import './openai/actions/create-vector-store.js';
+import './openai/actions/delete-response.js';
+import './openai/actions/delete-vector-store-file.js';
+import './openai/actions/delete-vector-store.js';
+import './openai/actions/get-batch.js';
+import './openai/actions/get-file.js';
+import './openai/actions/get-model.js';
+import './openai/actions/get-response.js';
+import './openai/actions/get-vector-store-file.js';
+import './openai/actions/get-vector-store.js';
+import './openai/actions/list-batches.js';
+import './openai/actions/list-files.js';
+import './openai/actions/list-fine-tuning-jobs.js';
+import './openai/actions/list-models.js';
+import './openai/actions/list-vector-store-files.js';
+import './openai/actions/list-vector-stores.js';
+import './openai/actions/search-vector-store.js';
+import './openai/actions/update-vector-store.js';
+
 // -- Integration: oracle-hcm
 import './oracle-hcm/syncs/employees.js';
 import './oracle-hcm/syncs/unified-employees.js';
