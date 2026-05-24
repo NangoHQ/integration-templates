@@ -1,0 +1,76 @@
+{
+  "input": {
+    "name": "Test Goal",
+    "team_id": "90152560096"
+  },
+  "output": {
+    "id": "16773a7a-d93c-4b2e-9608-18ce6fa963ab",
+    "name": "Test Goal",
+    "team_id": "90152560096",
+    "description": "\n",
+    "owners": []
+  },
+  "nango": {},
+  "api": {
+    "post": {
+      "/api/v2/team/90152560096/goal": {
+        "response": {
+          "goal": {
+            "id": "16773a7a-d93c-4b2e-9608-18ce6fa963ab",
+            "pretty_id": "4",
+            "name": "Test Goal",
+            "team_id": "90152560096",
+            "creator": 302438666,
+            "color": null,
+            "date_created": "1779204194541",
+            "start_date": null,
+            "due_date": null,
+            "description": "\n",
+            "private": false,
+            "archived": false,
+            "multiple_owners": null,
+            "editor_token": "goal:16773a7a-d93c-4b2e-9608-18ce6fa963ab:de69493f-b01c-499e-8ef7-75b942af5afc:58ae2cbb-cf55-4499-85cc-d9b37331b329",
+            "date_updated": "1779204194541",
+            "folder_id": null,
+            "folder_name": null,
+            "role_subtype": 0,
+            "members": [],
+            "group_members": [],
+            "owners": [],
+            "key_results": [],
+            "key_result_count": 0,
+            "percent_completed": 0,
+            "history": [],
+            "pretty_url": "https://app.clickup.com/90152560096/goals/4"
+          }
+        },
+        "status": 200,
+        "headers": {
+          "date": "Tue, 19 May 2026 15:23:14 GMT",
+          "content-type": "application/json; charset=utf-8",
+          "content-length": "679",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=5184000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4991",
+          "x-ratelimit-reset": "1779204246",
+          "etag": "W/\"2a7-V+Otc8UeQUJbyCzB7aA+EoI0MHQ\""
+        },
+        "hash": "89f7e9647976b778428f80fcdc011192e6ebc912",
+        "request": {
+          "data": {
+            "name": "Test Goal"
+          }
+        }
+      }
+    }
+  }
+}

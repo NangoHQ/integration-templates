@@ -9665,6 +9665,1417 @@ export interface ActionOutput_clicksend_sendsms {
   updatedAt: string;
 };
 
+export interface Comment {
+  id: string;
+  comment_text?: string | undefined;
+  user?: unknown | undefined;
+  date?: string | undefined;
+  reply_count?: number | undefined;
+};
+
+export interface SyncMetadata_clickup_comments {
+  team_id: string;
+};
+
+export interface SyncMetadata_clickup_folders {
+  team_id: string;
+};
+
+export interface Goal {
+  id: string;
+  name: string;
+  color?: string | undefined;
+  date_created: string;
+  date_updated: string;
+  creator: number;
+  team_id: string;
+  pretty_id?: string | undefined;
+  archived?: boolean | undefined;
+  description?: string | undefined;
+  multiple_owners?: boolean | undefined;
+  due_date?: string | undefined;
+  start_date?: string | undefined;
+  folder_id?: string | undefined;
+  members: number[];
+  owners: number[];
+  percent_completed?: number | undefined;
+  pretty_url?: string | undefined;
+};
+
+export interface SyncMetadata_clickup_goals {
+  team_id: string;
+};
+
+export interface SyncMetadata_clickup_lists {
+  team_id: string;
+};
+
+export interface Space {
+  id: string;
+  state: 'live' | 'scheduled' | 'ended';
+  title?: string | undefined;
+  created_at?: string | undefined;
+  updated_at?: string | undefined;
+  creator_id?: string | undefined;
+  host_ids?: string[] | undefined;
+  speaker_ids?: string[] | undefined;
+  invited_user_ids?: string[] | undefined;
+  participant_count?: number | undefined;
+  subscriber_count?: number | undefined;
+  is_ticketed?: boolean | undefined;
+  lang?: string | undefined;
+  scheduled_start?: string | undefined;
+  started_at?: string | undefined;
+  ended_at?: string | undefined;
+};
+
+export interface SyncMetadata_clickup_spaces {
+  team_id: string;
+};
+
+export interface TimeEntry {
+  id: string;
+  start: string;
+  end: string;
+  duration: string;
+  description?: string | undefined;
+  user_id?: number | undefined;
+  user_username?: string | undefined;
+  user_email?: string | undefined;
+  task_id?: string | undefined;
+  task_name?: string | undefined;
+};
+
+export interface SyncMetadata_clickup_timeentries {
+  team_id: string;
+};
+
+export interface ActionInput_clickup_createcomment {
+  /**
+   * ClickUp Task ID to comment on. Example: "86c9w2nke"
+   */
+  task_id?: string | undefined;
+  /**
+   * ClickUp List ID to comment on. Example: "901523451693"
+   */
+  list_id?: string | undefined;
+  /**
+   * The text content of the comment
+   */
+  comment_text: string;
+  /**
+   * Whether to notify all watchers
+   */
+  notify_all?: boolean | undefined;
+};
+
+export interface ActionOutput_clickup_createcomment {
+  /**
+   * Comment ID as string
+   */
+  id: string;
+  hist_id: string;
+  /**
+   * Unix timestamp in milliseconds
+   */
+  date: number;
+};
+
+export interface ActionInput_clickup_createfolder {
+  /**
+   * Space ID where the folder will be created. Example: "901511023604"
+   */
+  space_id: string;
+  /**
+   * Name of the folder to create. Example: "New Folder"
+   */
+  name: string;
+};
+
+export interface ActionOutput_clickup_createfolder {
+  id: string;
+  name: string;
+  space: {  id: string;
+  name: string;};
+  lists?: ({  id: string;
+  name: string;})[] | undefined;
+  created_at?: string | undefined;
+  updated_at?: string | undefined;
+};
+
+export interface ActionInput_clickup_creategoal {
+  /**
+   * Name of the goal. Example: "Q1 Revenue Target"
+   */
+  name: string;
+  /**
+   * ClickUp team ID. Optional - uses metadata if not provided. Example: "90152560096"
+   */
+  team_id?: string | undefined;
+  /**
+   * Due date in milliseconds since epoch. Example: 1704067200000
+   */
+  due_date?: number | undefined;
+  /**
+   * Description of the goal. Example: "Increase revenue by 20% in Q1"
+   */
+  description?: string | undefined;
+  /**
+   * Whether the goal can have multiple owners.
+   */
+  multiple_owners?: boolean | undefined;
+  /**
+   * Color code for the goal in hex format. Example: "#ff0000"
+   */
+  color?: string | undefined;
+  /**
+   * Array of owners for the goal
+   */
+  owners?: ({  id: string;
+  type: 'user' | 'team';})[] | undefined;
+};
+
+export interface ActionOutput_clickup_creategoal {
+  id: string;
+  name: string;
+  team_id: string;
+  description?: string | undefined;
+  due_date?: string | undefined;
+  color?: string | undefined;
+  multiple_owners?: boolean | undefined;
+  owners?: ({  id: string;
+  type: string;
+  username?: string | undefined;
+  email?: string | undefined;
+  color?: string | undefined;})[];
+};
+
+export interface ActionInput_clickup_createlist {
+  /**
+   * The name of the list to create. Example: "My List"
+   */
+  name: string;
+  /**
+   * The ID of the folder to create the list in. Use this to create a list inside a folder. Either folder_id or space_id must be provided. Example: "901516078072"
+   */
+  folder_id?: string | undefined;
+  /**
+   * The ID of the space to create the list in. Use this to create a folderless list directly in a space. Either folder_id or space_id must be provided. Example: "901511023376"
+   */
+  space_id?: string | undefined;
+  /**
+   * The description or content of the list.
+   */
+  content?: string | undefined;
+  /**
+   * The due date for the list in milliseconds since epoch.
+   */
+  due_date?: number | undefined;
+  /**
+   * Whether the due_date includes time information.
+   */
+  due_date_time?: boolean | undefined;
+  /**
+   * The priority level of the list (1-4, where 1 is Urgent).
+   */
+  priority?: number | undefined;
+  /**
+   * The user ID to assign to this list.
+   */
+  assignee?: number | undefined;
+  /**
+   * The status of the list (refers to list color, not task statuses).
+   */
+  status?: string | undefined;
+};
+
+export interface ActionOutput_clickup_createlist {
+  id: string;
+  name: string;
+  folder?: {  id: string;
+  name: string;} | undefined;
+  space: {  id: string;
+  name: string;};
+  statuses?: ({  id: string;
+  status: string;
+  orderindex: number;
+  color: string;
+  type: string;})[] | undefined;
+};
+
+export interface ActionInput_clickup_createspace {
+  /**
+   * Name of the space. Example: "Engineering"
+   */
+  name: string;
+  /**
+   * ClickUp team ID (workspace). Uses connection metadata if not provided. Example: "90152560096"
+   */
+  team_id?: string | undefined;
+  /**
+   * Whether tasks can have multiple assignees
+   */
+  multiple_assignees?: boolean | undefined;
+  /**
+   * Space features configuration
+   */
+  features?: {  due_dates?: {  /**
+   * Enable due dates
+   */
+  enabled: boolean;
+  /**
+   * Enable start dates
+   */
+  start_date?: boolean | undefined;};
+  time_tracking?: {  /**
+   * Enable time tracking
+   */
+  enabled: boolean;} | undefined;
+  tags?: {  /**
+   * Enable tags
+   */
+  enabled: boolean;} | undefined;
+  priorities?: {  /**
+   * Enable priorities
+   */
+  enabled: boolean;} | undefined;};
+};
+
+export interface ActionOutput_clickup_createspace {
+  id: string;
+  name: string;
+  statuses: ({  id: string;
+  status: string;
+  color: string;
+  orderindex: number;
+  type: string;})[];
+  features?: {  due_dates?: {  enabled: boolean;
+  start_date?: boolean | undefined;};
+  time_tracking?: {  enabled: boolean;} | undefined;
+  tags?: {  enabled: boolean;} | undefined;
+  priorities?: {  enabled: boolean;} | undefined;};
+  multiple_assignees?: boolean | undefined;
+};
+
+export interface ActionInput_clickup_createtask {
+  /**
+   * The ID of the list to create the task in. Example: "901523451693"
+   */
+  list_id: string;
+  /**
+   * The name of the task.
+   */
+  name: string;
+  /**
+   * The description of the task (supports Markdown).
+   */
+  description?: string | undefined;
+  /**
+   * Array of user IDs to assign to the task.
+   */
+  assignees?: number[] | undefined;
+  /**
+   * The status of the task (e.g., "to do", "in progress", "complete").
+   */
+  status?: string | undefined;
+  /**
+   * Priority level: 1=urgent, 2=high, 3=normal, 4=low.
+   */
+  priority?: number | undefined;
+  /**
+   * Due date as Unix timestamp in milliseconds.
+   */
+  due_date?: number | undefined;
+  /**
+   * Start date as Unix timestamp in milliseconds.
+   */
+  start_date?: number | undefined;
+  /**
+   * Time estimate in milliseconds.
+   */
+  time_estimate?: number | undefined;
+  /**
+   * Array of tag names to apply to the task.
+   */
+  tags?: string[] | undefined;
+  /**
+   * ID of the parent task (for subtasks).
+   */
+  parent?: string | undefined;
+};
+
+export interface ActionOutput_clickup_createtask {
+  id: string;
+  name: string;
+  text_content?: string | undefined;
+  description?: string | undefined;
+  status?: {  status: string;
+  color?: string | undefined;
+  orderindex?: number | undefined;
+  type?: string | undefined;};
+  priority?: {  id: string;
+  priority: string;
+  color: string;
+  orderindex: string;} | undefined;
+  due_date?: string | undefined;
+  start_date?: string | undefined;
+  time_estimate?: string | undefined;
+  list?: {  id: string;
+  name: string;} | undefined;
+  folder?: {  id: string;
+  name: string;} | undefined;
+  space?: {  id: string;
+  name?: string | undefined;};
+  tags?: ({  name: string;
+  tag_fg?: string | undefined;
+  tag_bg?: string | undefined;
+  creator?: number | undefined;})[];
+  assignees?: ({  id: number;
+  username?: string | undefined;
+  email?: string | undefined;
+  color?: string | undefined;
+  profilePicture?: string | undefined;
+  initials?: string | undefined;})[];
+  parent?: string | undefined;
+  url?: string | undefined;
+  creator?: {  id: number;
+  username?: string | undefined;
+  email?: string | undefined;
+  color?: string | undefined;
+  initials?: string | undefined;
+  profilePicture?: string | undefined;};
+  created_at?: string | undefined;
+};
+
+export interface ActionInput_clickup_createtimeentry {
+  /**
+   * ClickUp Workspace/Team ID. Example: "90152560096"
+   */
+  team_id: string;
+  /**
+   * Description of the time entry
+   */
+  description?: string | undefined;
+  /**
+   * Start time in milliseconds since Unix epoch
+   */
+  start: number;
+  /**
+   * Duration in milliseconds
+   */
+  duration: number;
+  /**
+   * Task ID to associate with the time entry. Example: "abc123"
+   */
+  task_id?: string | undefined;
+  /**
+   * Whether the time entry is billable
+   */
+  billable?: boolean | undefined;
+  /**
+   * Tags to associate with the time entry
+   */
+  tags?: ({  name: string;
+  tag_fg?: string | undefined;
+  tag_bg?: string | undefined;})[];
+};
+
+export interface ActionOutput_clickup_createtimeentry {
+  /**
+   * Time entry ID
+   */
+  id: string;
+  task?: {  id: string;
+  name?: string | undefined;};
+  workspace_id?: string | undefined;
+  user?: {  id?: number | undefined;
+  username?: string | undefined;
+  email?: string | undefined;};
+  billable?: boolean | undefined;
+  start?: number | undefined;
+  end?: number | string | undefined;
+  duration?: number | undefined;
+  description?: string | undefined;
+};
+
+export interface ActionInput_clickup_deletecomment {
+  /**
+   * The ID of the comment to delete. Example: "90150225604615"
+   */
+  comment_id: string;
+};
+
+export interface ActionOutput_clickup_deletecomment {
+  /**
+   * Whether the comment was successfully deleted
+   */
+  success: boolean;
+};
+
+export interface ActionInput_clickup_deletefolder {
+  /**
+   * The ID of the folder to delete. Example: "901516078072"
+   */
+  folder_id: string;
+};
+
+export interface ActionOutput_clickup_deletefolder {
+  /**
+   * Whether the deletion was successful
+   */
+  success: boolean;
+};
+
+export interface ActionInput_clickup_deletegoal {
+  /**
+   * The ID of the goal to delete. Example: "2def2fe3-90cb-4332-8d3e-ba04e38c67ef"
+   */
+  goal_id: string;
+};
+
+export interface ActionOutput_clickup_deletegoal {
+  /**
+   * Whether the goal was successfully deleted
+   */
+  success: boolean;
+};
+
+export interface ActionInput_clickup_deletelist {
+  /**
+   * The ID of the list to delete. Example: "901523451693"
+   */
+  list_id: string;
+};
+
+export interface ActionOutput_clickup_deletelist {
+  /**
+   * Whether the deletion was successful
+   */
+  success: boolean;
+};
+
+export interface ActionInput_clickup_deletespace {
+  /**
+   * Space ID to delete. Example: "901511023604"
+   */
+  space_id: string;
+};
+
+export interface ActionOutput_clickup_deletespace {
+  success: boolean;
+};
+
+export interface ActionInput_clickup_deletetask {
+  /**
+   * The ID of the task to delete. Example: "86c9w2nke"
+   */
+  taskId: string;
+};
+
+export interface ActionOutput_clickup_deletetask {
+};
+
+export interface ActionInput_clickup_deletetimeentry {
+  /**
+   * The ID of the time entry to delete. Example: "5090290025624291206"
+   */
+  time_entry_id: string;
+};
+
+export interface ActionOutput_clickup_deletetimeentry {
+  deleted: boolean;
+  time_entry?: {  id: string;
+  task?: {  id?: string | undefined;
+  name?: string | undefined;};
+  user?: {  id?: number | undefined;
+  username?: string | undefined;
+  email?: string | undefined;};
+  billable?: boolean | undefined;
+  start?: string | undefined;
+  end?: string | undefined;
+  duration?: string | undefined;
+  description?: string | undefined;
+  tags?: any[] | undefined;
+  source?: string | undefined;
+  at?: string | undefined;};
+};
+
+export interface ActionInput_clickup_getfolder {
+  /**
+   * The ID of the folder to retrieve. Example: "901516078072"
+   */
+  folder_id: string;
+};
+
+export interface ActionOutput_clickup_getfolder {
+  id: string;
+  name: string;
+  override_statuses?: boolean | undefined;
+  hidden?: boolean | undefined;
+  space: {  id: string;
+  name: string;};
+  task_count?: number | undefined;
+  lists?: ({  id: string;
+  name: string;})[] | undefined;
+  archived?: boolean | undefined;
+};
+
+export interface ActionInput_clickup_getgoal {
+  /**
+   * Goal ID. Example: "2def2fe3-90cb-4332-8d3e-ba04e38c67ef"
+   */
+  goal_id: string;
+};
+
+export interface ActionOutput_clickup_getgoal {
+  id: string;
+  name: string;
+  team_id: string;
+  color?: string | undefined;
+  due_date?: string | undefined;
+  description?: string | undefined;
+  private: boolean;
+  archived: boolean;
+  members?: unknown[] | undefined;
+  owners?: unknown[] | undefined;
+  key_results?: unknown[] | undefined;
+  percent_completed?: number | undefined;
+};
+
+export interface ActionInput_clickup_getlist {
+  /**
+   * The ID of the list to retrieve. Example: "901523451693"
+   */
+  listId: string;
+};
+
+export interface ActionOutput_clickup_getlist {
+  id: string;
+  name: string;
+  orderindex: number;
+  task_count?: number | undefined;
+  folder?: {  id: string;
+  name: string;
+  hidden?: boolean | undefined;
+  access?: boolean | undefined;};
+  space: {  id: string;
+  name: string;};
+  statuses?: ({  id: string;
+  status: string;
+  orderindex: number;
+  color: string;
+  type: string;})[] | undefined;
+  permission_level?: string | undefined;
+};
+
+export interface ActionInput_clickup_getspace {
+  /**
+   * Space ID. Example: "901511023604"
+   */
+  space_id: string;
+};
+
+export interface ActionOutput_clickup_getspace {
+  id: string;
+  name: string;
+  color?: string | undefined;
+  private: boolean;
+  archived: boolean;
+  statuses: ({  id: string;
+  status: string;
+  orderindex: number;
+  color: string;})[];
+  multiple_assignees: boolean;
+  features?: {} | undefined;
+};
+
+export interface ActionInput_clickup_gettask {
+  /**
+   * The ClickUp task ID. Example: "86c9w2nke"
+   */
+  task_id: string;
+  /**
+   * Set to true when using custom task IDs instead of ClickUp native IDs.
+   */
+  custom_task_ids?: boolean | undefined;
+  /**
+   * ClickUp team/workspace ID. Required when custom_task_ids is true. Example: "90152560096"
+   */
+  team_id?: string | undefined;
+};
+
+export interface ActionOutput_clickup_gettask {
+  id: string;
+  name: string;
+  status?: {  status: string;
+  color?: string | undefined;
+  orderindex?: number | undefined;
+  type?: string | undefined;};
+  priority?: {  priority: string;
+  color?: string | undefined;};
+  assignees?: ({  id: number;
+  username?: string | undefined;
+  email?: string | undefined;
+  color?: string | undefined;
+  profilePicture?: string | undefined;})[];
+  due_date?: string | undefined;
+  start_date?: string | undefined;
+  time_estimate?: number | undefined;
+  time_spent?: number | undefined;
+  tags?: ({  name: string;})[] | undefined;
+  list?: {  id: string;
+  name: string;} | undefined;
+  folder?: {  id: string;
+  name: string;} | undefined;
+  space?: {  id: string;
+  name?: string | undefined;};
+  attachments?: ({  id: string;
+  title?: string | undefined;
+  url?: string | undefined;})[];
+};
+
+export interface ActionInput_clickup_gettimeentry {
+  /**
+   * The ID of the time entry to retrieve. Example: "5090290025624291206"
+   */
+  time_entry_id: string;
+};
+
+export interface ActionOutput_clickup_gettimeentry {
+  id: string;
+  task?: {  id: string;
+  name: string;
+  status: string;} | undefined;
+  workspace_id?: string | undefined;
+  user: {  id: number;
+  username?: string | undefined;
+  email?: string | undefined;};
+  billable: boolean;
+  start?: string | undefined;
+  end?: string | undefined;
+  duration?: string | undefined;
+  description?: string | undefined;
+  tags?: string[] | undefined;
+  source?: string | undefined;
+  task_location?: {  list_id: string;
+  folder_id: string;
+  space_id: string;} | undefined;
+};
+
+export interface ActionInput_clickup_getuser {
+  /**
+   * User ID. Example: 302438666
+   */
+  user_id: number;
+};
+
+export interface ActionOutput_clickup_getuser {
+  id: number;
+  username?: string | undefined;
+  email?: string | undefined;
+  color?: string | undefined;
+  profile_picture?: string | undefined;
+  initials?: string | undefined;
+  role?: number | undefined;
+  role_key?: string | undefined;
+  last_active?: string | undefined;
+  date_joined?: string | undefined;
+  date_invited?: string | undefined;
+};
+
+export interface ActionInput_clickup_listcomments {
+  /**
+   * Task ID to list comments from. Example: "abc123". Either task_id or list_id must be provided.
+   */
+  task_id?: string | undefined;
+  /**
+   * List ID to list comments from. Example: "123". Either task_id or list_id must be provided.
+   */
+  list_id?: string | undefined;
+};
+
+export interface ActionOutput_clickup_listcomments {
+  comments: ({  id: string;
+  comment?: string | ({})[] | undefined;
+  comment_text?: string | undefined;
+  user?: {  id?: number | undefined;
+  username?: string | undefined;
+  email?: string | undefined;
+  color?: string | undefined;
+  profilePicture?: string | undefined;};
+  date?: string | undefined;
+  reply_count?: number | undefined;})[];
+};
+
+export interface ActionInput_clickup_listfolders {
+  /**
+   * The ID of the space to list folders from. Example: "901511023604"
+   */
+  space_id: string;
+  /**
+   * Include archived folders. Defaults to false.
+   */
+  archived?: boolean | undefined;
+};
+
+export interface ActionOutput_clickup_listfolders {
+  folders: ({  id: string;
+  name: string;
+  orderindex: number;
+  override_statuses?: boolean | undefined;
+  hidden?: boolean | undefined;
+  space?: {  id: string;
+  name: string;} | undefined;
+  task_count?: string | undefined;
+  lists?: unknown[] | undefined;
+  archived?: boolean | undefined;
+  created_at?: string | undefined;
+  updated_at?: string | undefined;})[];
+};
+
+export interface ActionInput_clickup_listgoals {
+  /**
+   * ClickUp team/workspace ID. Example: "90152560096"
+   */
+  team_id: string;
+};
+
+export interface ActionOutput_clickup_listgoals {
+  goals: ({  id: string;
+  name: string;
+  team_id: string;
+  color?: string | undefined;
+  description?: string | undefined;
+  creator: number;
+  date_created?: string | undefined;
+  date_updated?: string | undefined;
+  date_closed?: string | undefined;
+  archived?: boolean | undefined;
+  multiple_owners?: boolean | undefined;
+  watchers?: number[] | undefined;
+  owners?: number[] | undefined;
+  key_results?: unknown[] | undefined;
+  percent_completed?: number | undefined;
+  folder_id?: string | undefined;
+  type?: 'number' | 'currency' | 'boolean' | 'percentage' | undefined;})[];
+  folders: ({  id: string;
+  name: string;
+  team_id: string;
+  creator: number;
+  date_created?: string | undefined;
+  date_updated?: string | undefined;
+  archived?: boolean | undefined;})[];
+};
+
+export interface ActionInput_clickup_listlists {
+  /**
+   * Folder ID to list lists within. Provide either folder_id or space_id, not both.
+   */
+  folder_id?: string | undefined;
+  /**
+   * Space ID to list folderless lists directly in the space. Provide either folder_id or space_id, not both.
+   */
+  space_id?: string | undefined;
+  /**
+   * Whether to include archived lists. Default: false.
+   */
+  archived?: boolean | undefined;
+};
+
+export interface ActionOutput_clickup_listlists {
+  lists: ({  id: string;
+  name: string;
+  orderindex: number;
+  content?: string | undefined;
+  status?: {  status?: string | undefined;
+  color?: string | undefined;
+  hide_label?: boolean | undefined;};
+  priority?: {  priority?: string | undefined;
+  color?: string | undefined;};
+  assignee?: string | undefined;
+  task_count?: number | undefined;
+  due_date?: string | undefined;
+  start_date?: string | undefined;
+  folder?: {  id?: string | undefined;
+  name?: string | undefined;
+  hidden?: boolean | undefined;
+  access?: boolean | undefined;};
+  space?: {  id?: string | undefined;
+  name?: string | undefined;};
+  archived?: boolean | undefined;
+  override_statuses?: boolean | undefined;
+  permission_level?: string | undefined;})[];
+};
+
+export interface ActionInput_clickup_listspaces {
+  /**
+   * ClickUp team (workspace) ID. Example: "90152560096"
+   */
+  team_id: string;
+  /**
+   * Include archived spaces. Default: false
+   */
+  archived?: boolean | undefined;
+};
+
+export interface ActionOutput_clickup_listspaces {
+  spaces: ({  id: string;
+  name: string;
+  color?: string | undefined;
+  avatar?: string | undefined;
+  archived?: boolean | undefined;
+  private?: boolean | undefined;})[];
+};
+
+export interface ActionInput_clickup_listtasks {
+  /**
+   * List ID to fetch tasks from. Example: "901523451693"
+   */
+  list_id: string;
+  /**
+   * Include archived tasks. Default: false
+   */
+  archived?: boolean | undefined;
+  /**
+   * Page number (0-based). Omit for first page
+   */
+  page?: number | undefined;
+  /**
+   * Field to order by
+   */
+  order_by?: 'id' | 'created' | 'updated' | 'due_date' | undefined;
+  /**
+   * Reverse order. Default: false
+   */
+  reverse?: boolean | undefined;
+  /**
+   * Include subtasks. Default: false
+   */
+  subtasks?: boolean | undefined;
+  /**
+   * Filter by status names
+   */
+  statuses?: string[] | undefined;
+  /**
+   * Filter by assignee user IDs
+   */
+  assignees?: string[] | undefined;
+  /**
+   * Filter by tags
+   */
+  tags?: string[] | undefined;
+  /**
+   * Filter by due date greater than (ms epoch)
+   */
+  due_date_gt?: number | undefined;
+  /**
+   * Filter by due date less than (ms epoch)
+   */
+  due_date_lt?: number | undefined;
+  /**
+   * Filter by date created greater than (ms epoch)
+   */
+  date_created_gt?: number | undefined;
+  /**
+   * Filter by date created less than (ms epoch)
+   */
+  date_created_lt?: number | undefined;
+  /**
+   * Filter by date updated greater than (ms epoch)
+   */
+  date_updated_gt?: number | undefined;
+  /**
+   * Filter by date updated less than (ms epoch)
+   */
+  date_updated_lt?: number | undefined;
+};
+
+export interface ActionOutput_clickup_listtasks {
+  tasks: ({  id: string;
+  name?: string | undefined;
+  text_content?: string | undefined;
+  description?: string | undefined;
+  status?: {  status?: string | undefined;
+  color?: string | undefined;};
+  orderindex?: string | undefined;
+  date_created?: string | undefined;
+  date_updated?: string | undefined;
+  date_closed?: string | undefined;
+  archived?: boolean | undefined;
+  creator?: {  id?: number | undefined;
+  username?: string | undefined;
+  color?: string | undefined;
+  email?: string | undefined;
+  profile_picture?: string | undefined;};
+  assignees?: ({  id?: number | undefined;
+  username?: string | undefined;
+  color?: string | undefined;
+  email?: string | undefined;
+  profile_picture?: string | undefined;})[];
+  watchers?: ({  id?: number | undefined;
+  username?: string | undefined;
+  color?: string | undefined;
+  email?: string | undefined;
+  profile_picture?: string | undefined;})[];
+  tags?: ({  name?: string | undefined;
+  tag_fg?: string | undefined;
+  tag_bg?: string | undefined;})[];
+  parent?: string | undefined;
+  priority?: {  priority?: string | undefined;
+  color?: string | undefined;};
+  due_date?: string | undefined;
+  start_date?: string | undefined;
+  folder?: {  id?: string | undefined;
+  name?: string | undefined;
+  hidden?: boolean | undefined;
+  access?: boolean | undefined;};
+  space?: {  id?: string | undefined;
+  name?: string | undefined;
+  access?: boolean | undefined;};
+  list?: {  id?: string | undefined;
+  name?: string | undefined;
+  access?: boolean | undefined;};
+  url?: string | undefined;})[];
+  last_page: boolean;
+};
+
+export interface ActionInput_clickup_listtimeentries {
+  /**
+   * Start date in milliseconds since epoch to filter time entries
+   */
+  start_date?: number | undefined;
+  /**
+   * End date in milliseconds since epoch to filter time entries
+   */
+  end_date?: number | undefined;
+  /**
+   * User ID to filter time entries by assignee
+   */
+  assignee?: number | undefined;
+  /**
+   * Include task tags in the response
+   */
+  include_task_tags?: boolean | undefined;
+  /**
+   * Include location names in the response
+   */
+  include_location_names?: boolean | undefined;
+  /**
+   * Space ID to filter time entries
+   */
+  space_id?: number | undefined;
+  /**
+   * Folder ID to filter time entries
+   */
+  folder_id?: number | undefined;
+  /**
+   * List ID to filter time entries
+   */
+  list_id?: number | undefined;
+  /**
+   * Task ID to filter time entries
+   */
+  task_id?: string | undefined;
+};
+
+export interface ActionOutput_clickup_listtimeentries {
+  data: ({  id: string;
+  task: {  id: string;
+  name: string;
+  status?: string | undefined;
+  task_url?: string | undefined;};
+  user: {  id: number;
+  username: string;
+  email: string;
+  color?: string | undefined;
+  profile_picture?: string | undefined;
+  initials?: string | undefined;};
+  billable: boolean;
+  start: string;
+  end: string;
+  duration: number;
+  description?: string | undefined;
+  tags?: ({  name: string;})[] | undefined;
+  source?: string | undefined;
+  task_location?: {  list_id: number;
+  folder_id: number;
+  space_id: number;} | undefined;
+  workspace_id: number;})[];
+};
+
+export interface ActionInput_clickup_listusers {
+};
+
+export interface ActionOutput_clickup_listusers {
+  users: ({  id: string;
+  username: string;
+  email: string;
+  color: string;
+  role: number;
+  role_key: string;
+  last_active?: string | undefined;})[];
+};
+
+export interface ActionInput_clickup_updatecomment {
+  /**
+   * The ID of the comment to update. Example: "90150225604615"
+   */
+  comment_id: string;
+  /**
+   * The new text content of the comment.
+   */
+  comment_text: string;
+  /**
+   * The user ID to assign the comment to. Optional.
+   */
+  assignee?: number | undefined;
+  /**
+   * Whether the comment is resolved. Optional.
+   */
+  resolved?: boolean | undefined;
+};
+
+export interface ActionOutput_clickup_updatecomment {
+  /**
+   * Whether the update was successful.
+   */
+  success: boolean;
+};
+
+export interface ActionInput_clickup_updatefolder {
+  /**
+   * The ID of the folder to update. Example: "901516078072"
+   */
+  id: string;
+  /**
+   * The new name for the folder. Example: "Updated Folder Name"
+   */
+  name: string;
+};
+
+export interface ActionOutput_clickup_updatefolder {
+  id: string;
+  name: string;
+  orderindex?: number | undefined;
+  override_statuses?: boolean | undefined;
+  hidden?: boolean | undefined;
+  space_id?: string | undefined;
+  task_count?: string | undefined;
+};
+
+export interface ActionInput_clickup_updategoal {
+  /**
+   * The ID of the goal to update. Example: "2def2fe3-90cb-4332-8d3e-ba04e38c67ef"
+   */
+  goal_id: string;
+  /**
+   * The name of the goal
+   */
+  name?: string | undefined;
+  /**
+   * The due date as a Unix timestamp in milliseconds
+   */
+  due_date?: number | undefined;
+  /**
+   * The description of the goal
+   */
+  description?: string | undefined;
+  /**
+   * Whether the goal has multiple owners
+   */
+  multiple_owners?: boolean | undefined;
+  /**
+   * The color of the goal in hex format
+   */
+  color?: string | undefined;
+};
+
+export interface ActionOutput_clickup_updategoal {
+};
+
+export interface ActionInput_clickup_updatelist {
+  /**
+   * The ID of the list to update. Example: "901523451693"
+   */
+  list_id: string;
+  /**
+   * The new name of the list.
+   */
+  name?: string | undefined;
+  /**
+   * The new content/description of the list.
+   */
+  content?: string | undefined;
+  /**
+   * The due date as a Unix timestamp in milliseconds.
+   */
+  due_date?: number | undefined;
+  /**
+   * Whether the due_date includes a time component.
+   */
+  due_date_time?: boolean | undefined;
+  /**
+   * The priority of the list (1-4, where 1 is Urgent).
+   */
+  priority?: number | undefined;
+  /**
+   * The user ID to assign the list to.
+   */
+  assignee?: number | undefined;
+  /**
+   * The status of the list.
+   */
+  status?: string | undefined;
+  /**
+   * Whether to unset the status.
+   */
+  unset_status?: boolean | undefined;
+};
+
+export interface ActionOutput_clickup_updatelist {
+  id: string;
+  name: string;
+  content?: string | undefined;
+  orderindex?: number | undefined;
+  status?: string | undefined;
+  priority?: number | undefined;
+  assignee?: number | undefined;
+  due_date?: string | undefined;
+  start_date?: string | undefined;
+  folder?: {  id: string;
+  name: string;
+  hidden?: boolean | undefined;
+  access?: boolean | undefined;};
+  space?: {  id: string;} | undefined;
+  archived?: boolean | undefined;
+  override_statuses?: boolean | undefined;
+  permission_level?: string | undefined;
+};
+
+export interface ActionInput_clickup_updatespace {
+  /**
+   * The ID of the space to update. Example: "901511023604"
+   */
+  space_id: string;
+  /**
+   * The new name for the space.
+   */
+  name?: string | undefined;
+  /**
+   * The color of the space in hexadecimal format.
+   */
+  color?: string | undefined;
+  /**
+   * Whether the space is private.
+   */
+  private?: boolean | undefined;
+  /**
+   * Whether admins can manage the space.
+   */
+  admin_can_manage?: boolean | undefined;
+  /**
+   * Whether tasks in the space can have multiple assignees.
+   */
+  multiple_assignees?: boolean | undefined;
+  /**
+   * Feature toggles for the space.
+   */
+  features?: {  /**
+   * Enable due dates feature.
+   */
+  due_dates?: boolean | undefined;
+  /**
+   * Enable sprints feature.
+   */
+  sprints?: boolean | undefined;
+  /**
+   * Enable time tracking feature.
+   */
+  time_tracking?: boolean | undefined;
+  /**
+   * Enable points feature.
+   */
+  points?: boolean | undefined;
+  /**
+   * Enable custom items feature.
+   */
+  custom_items?: boolean | undefined;
+  /**
+   * Enable priorities feature.
+   */
+  priorities?: boolean | undefined;
+  /**
+   * Enable tags feature.
+   */
+  tags?: boolean | undefined;
+  /**
+   * Enable time estimates feature.
+   */
+  time_estimates?: boolean | undefined;
+  /**
+   * Enable checklists feature.
+   */
+  checklists?: boolean | undefined;
+  /**
+   * Enable zoom integration.
+   */
+  zoom?: boolean | undefined;
+  /**
+   * Enable milestones feature.
+   */
+  milestones?: boolean | undefined;
+  /**
+   * Enable reminders feature.
+   */
+  reminders?: boolean | undefined;
+  /**
+   * Enable custom fields feature.
+   */
+  custom_fields?: boolean | undefined;
+  /**
+   * Enable dependency warning feature.
+   */
+  dependency_warning?: boolean | undefined;
+  /**
+   * Enable status pies feature.
+   */
+  status_pies?: boolean | undefined;
+  /**
+   * Enable multiple assignees feature.
+   */
+  multiple_assignees?: boolean | undefined;
+  /**
+   * Enable emails feature.
+   */
+  emails?: boolean | undefined;};
+};
+
+export interface ActionOutput_clickup_updatespace {
+  id: string;
+  name: string;
+  color?: string | undefined;
+  private?: boolean | undefined;
+  admin_can_manage?: boolean | undefined;
+  multiple_assignees?: boolean | undefined;
+  features?: {} | undefined;
+};
+
+export interface ActionInput_clickup_updatetask {
+  /**
+   * ClickUp task ID. Example: "86c9w2nke"
+   */
+  task_id: string;
+  /**
+   * New name for the task
+   */
+  name?: string | undefined;
+  /**
+   * New description for the task
+   */
+  description?: string | undefined;
+  /**
+   * Status of the task
+   */
+  status?: string | undefined;
+  priority?: 1 | 2 | 3 | 4 | undefined;
+  /**
+   * Due date in milliseconds since epoch
+   */
+  due_date?: number | undefined;
+  /**
+   * Whether due_date includes time
+   */
+  due_date_time?: boolean | undefined;
+  /**
+   * Parent task ID
+   */
+  parent?: string | undefined;
+  /**
+   * Time estimate in milliseconds
+   */
+  time_estimate?: number | undefined;
+  /**
+   * Start date in milliseconds since epoch
+   */
+  start_date?: number | undefined;
+  /**
+   * Whether start_date includes time
+   */
+  start_date_time?: boolean | undefined;
+  assignees?: {  /**
+   * Array of numeric user IDs to add as assignees
+   */
+  add?: number[] | undefined;
+  /**
+   * Array of numeric user IDs to remove from assignees
+   */
+  rem?: number[] | undefined;};
+  /**
+   * Whether to archive the task
+   */
+  archived?: boolean | undefined;
+};
+
+export interface ActionOutput_clickup_updatetask {
+  id: string;
+  name?: string | undefined;
+  description?: string | undefined;
+  status?: string | undefined;
+  priority?: number | undefined;
+  due_date?: string | undefined;
+  start_date?: string | undefined;
+  time_estimate?: number | undefined;
+  archived?: boolean | undefined;
+  parent?: string | undefined;
+  assignees?: string[] | undefined;
+  url?: string | undefined;
+};
+
+export interface ActionInput_clickup_updatetimeentry {
+  /**
+   * The ID of the time entry to update. Example: "5090290025624291206"
+   */
+  timer_id: string;
+  /**
+   * The description of the time entry.
+   */
+  description?: string | undefined;
+  /**
+   * The start time in Unix epoch milliseconds.
+   */
+  start?: number | undefined;
+  /**
+   * Duration in milliseconds.
+   */
+  duration?: number | undefined;
+  /**
+   * Whether the time entry is billable.
+   */
+  billable?: boolean | undefined;
+  /**
+   * Task ID to associate the time entry with.
+   */
+  tid?: string | undefined;
+  /**
+   * List of tag names to apply to the time entry.
+   */
+  tags?: string[] | undefined;
+};
+
+export interface ActionOutput_clickup_updatetimeentry {
+  id: string;
+  task_id?: string | undefined;
+  task_name?: string | undefined;
+  user_id?: string | undefined;
+  user_name?: string | undefined;
+  description: string;
+  start: number;
+  end: number;
+  duration: number;
+  billable: boolean;
+  tags: string[];
+};
+
 export interface Attachment {
   id: string;
   status?: string | undefined;
@@ -9770,25 +11181,6 @@ export interface SyncMetadata_confluence_inlinecomments {
 export interface SyncMetadata_confluence_pages {
   spaceIds?: string[] | undefined;
   cloudId?: string | undefined;
-};
-
-export interface Space {
-  id: string;
-  state: 'live' | 'scheduled' | 'ended';
-  title?: string | undefined;
-  created_at?: string | undefined;
-  updated_at?: string | undefined;
-  creator_id?: string | undefined;
-  host_ids?: string[] | undefined;
-  speaker_ids?: string[] | undefined;
-  invited_user_ids?: string[] | undefined;
-  participant_count?: number | undefined;
-  subscriber_count?: number | undefined;
-  is_ticketed?: boolean | undefined;
-  lang?: string | undefined;
-  scheduled_start?: string | undefined;
-  started_at?: string | undefined;
-  ended_at?: string | undefined;
 };
 
 export interface SyncMetadata_confluence_spaces {
