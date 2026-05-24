@@ -28150,45 +28150,20 @@
         "id": {
           "type": "string"
         },
-        "status": {
+        "name": {
           "type": "string"
         },
-        "title": {
+        "category": {
           "type": "string"
         },
-        "spaceId": {
-          "type": "string"
-        },
-        "parentId": {
-          "type": "string"
-        },
-        "parentType": {
-          "type": "string"
-        },
-        "authorId": {
-          "type": "string"
-        },
-        "ownerId": {
-          "type": "string"
-        },
-        "createdAt": {
-          "type": "string"
-        },
-        "updatedAt": {
-          "type": "string"
-        },
-        "versionNumber": {
-          "type": "number"
-        },
-        "bodyStorage": {
-          "type": "string"
-        },
-        "url": {
+        "access_token": {
           "type": "string"
         }
       },
       "required": [
-        "id"
+        "id",
+        "name",
+        "access_token"
       ],
       "additionalProperties": false
     },
@@ -44608,6 +44583,1098 @@
       },
       "required": [
         "policies"
+      ],
+      "additionalProperties": false
+    },
+    "PagePost": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "pageId": {
+          "type": "string"
+        },
+        "message": {
+          "type": "string"
+        },
+        "createdTime": {
+          "type": "string"
+        },
+        "updatedTime": {
+          "type": "string"
+        },
+        "permalinkUrl": {
+          "type": "string"
+        },
+        "statusType": {
+          "type": "string"
+        },
+        "isPublished": {
+          "type": "boolean"
+        },
+        "isHidden": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "id",
+        "pageId",
+        "createdTime",
+        "updatedTime"
+      ],
+      "additionalProperties": false
+    },
+    "SyncMetadata_facebook_pageposts": {
+      "type": "object",
+      "properties": {
+        "pageIds": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      },
+      "additionalProperties": false
+    },
+    "PageScheduledPost": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "page_id": {
+          "type": "string"
+        },
+        "page_name": {
+          "type": "string"
+        },
+        "message": {
+          "type": "string"
+        },
+        "scheduled_publish_time": {
+          "type": "number"
+        },
+        "created_time": {
+          "type": "string"
+        },
+        "published": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "id",
+        "page_id",
+        "published"
+      ],
+      "additionalProperties": false
+    },
+    "SyncMetadata_facebook_pagescheduledposts": {
+      "type": "object",
+      "properties": {
+        "pageIds": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      },
+      "additionalProperties": false
+    },
+    "PageVideo": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "page_id": {
+          "type": "string"
+        },
+        "title": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        },
+        "created_time": {
+          "type": "string"
+        },
+        "updated_time": {
+          "type": "string"
+        },
+        "length": {
+          "type": "number"
+        },
+        "permalink_url": {
+          "type": "string"
+        },
+        "picture": {
+          "type": "string"
+        },
+        "source": {
+          "type": "string"
+        },
+        "views": {
+          "type": "number"
+        }
+      },
+      "required": [
+        "id",
+        "page_id",
+        "created_time"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_facebook_createpagephoto": {
+      "type": "object",
+      "properties": {
+        "pageId": {
+          "type": "string",
+          "description": "The Facebook Page ID to post the photo to. Example: \"1148671018324630\""
+        },
+        "url": {
+          "type": "string",
+          "description": "The URL of the photo to upload. Example: \"https://example.com/photo.jpg\""
+        },
+        "caption": {
+          "type": "string",
+          "description": "Caption text for the photo. Example: \"Check out our new product!\""
+        },
+        "published": {
+          "type": "boolean",
+          "description": "Whether the photo should be published immediately. Set to false to create an unpublished photo (draft). Defaults to true."
+        }
+      },
+      "required": [
+        "pageId",
+        "url"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_facebook_createpagephoto": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "The ID of the created photo."
+        },
+        "postId": {
+          "type": "string",
+          "description": "The ID of the post associated with the photo (if published)."
+        }
+      },
+      "required": [
+        "id"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_facebook_createpagepost": {
+      "type": "object",
+      "properties": {
+        "pageId": {
+          "type": "string",
+          "description": "Facebook Page ID to post to. Example: \"1148671018324630\""
+        },
+        "message": {
+          "type": "string",
+          "description": "The message content of the post."
+        },
+        "link": {
+          "type": "string",
+          "description": "URL to share in the post."
+        },
+        "published": {
+          "type": "boolean",
+          "description": "Whether to publish immediately (true) or schedule (false). Default: true"
+        },
+        "scheduledPublishTime": {
+          "type": "number",
+          "description": "Unix timestamp for scheduled post publishing. Required if published=false."
+        }
+      },
+      "required": [
+        "pageId"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_facebook_createpagepost": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "The ID of the created post."
+        }
+      },
+      "required": [
+        "id"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_facebook_createpagevideo": {
+      "type": "object",
+      "properties": {
+        "page_id": {
+          "type": "string",
+          "description": "Facebook Page ID to upload the video to. Example: \"1148671018324630\""
+        },
+        "file_url": {
+          "type": "string",
+          "description": "URL of the video to upload. Must be a publicly accessible URL. Example: \"https://example.com/video.mp4\""
+        },
+        "title": {
+          "type": "string",
+          "description": "Title of the video."
+        },
+        "description": {
+          "type": "string",
+          "description": "Description or message for the video post."
+        },
+        "published": {
+          "type": "boolean",
+          "description": "Whether the video should be published immediately. Set to false to create a draft. Defaults to true."
+        }
+      },
+      "required": [
+        "page_id",
+        "file_url"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_facebook_createpagevideo": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "The video ID."
+        },
+        "post_id": {
+          "type": "string",
+          "description": "The ID of the post that was created for this video."
+        }
+      },
+      "required": [
+        "id"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_facebook_createpostcomment": {
+      "type": "object",
+      "properties": {
+        "pageId": {
+          "type": "string",
+          "description": "The ID of the page that owns the post. Example: \"1148671018324630\""
+        },
+        "postId": {
+          "type": "string",
+          "description": "The ID of the post to comment on. Example: \"1148671018324630_122098284213327930\""
+        },
+        "message": {
+          "type": "string",
+          "description": "The comment text message. Example: \"Great post!\""
+        }
+      },
+      "required": [
+        "pageId",
+        "postId",
+        "message"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_facebook_createpostcomment": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "id"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_facebook_createscheduledpagepost": {
+      "type": "object",
+      "properties": {
+        "page_id": {
+          "type": "string",
+          "description": "Facebook Page ID to post on. Example: \"123456789012345\""
+        },
+        "message": {
+          "type": "string",
+          "description": "The message text for the post"
+        },
+        "scheduled_publish_time": {
+          "type": "number",
+          "description": "Unix timestamp when the post should be published. Must be at least 10 minutes and at most 6 months in the future."
+        },
+        "link": {
+          "type": "string",
+          "description": "URL to attach to the post"
+        },
+        "photo_url": {
+          "type": "string",
+          "description": "URL of a photo to attach to the post"
+        }
+      },
+      "required": [
+        "page_id",
+        "scheduled_publish_time"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_facebook_createscheduledpagepost": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "The ID of the scheduled post"
+        },
+        "post_id": {
+          "type": "string",
+          "description": "The post ID (if immediately published)"
+        }
+      },
+      "required": [
+        "id"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_facebook_deletecomment": {
+      "type": "object",
+      "properties": {
+        "commentId": {
+          "type": "string",
+          "description": "Facebook comment ID to delete. Example: \"122098284213327930_1544841897156600\""
+        },
+        "pageId": {
+          "type": "string",
+          "description": "The Facebook Page ID that owns the comment. Required when the user manages multiple pages to ensure the correct page token is used. Example: \"1148671018324630\""
+        }
+      },
+      "required": [
+        "commentId"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_facebook_deletecomment": {
+      "type": "object",
+      "properties": {
+        "success": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "success"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_facebook_deletepost": {
+      "type": "object",
+      "properties": {
+        "postId": {
+          "type": "string",
+          "description": "The ID of the Facebook post to delete. Example: \"1148671018324630_122098284213327930\""
+        }
+      },
+      "required": [
+        "postId"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_facebook_deletepost": {
+      "type": "object",
+      "properties": {
+        "success": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "success"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_facebook_getcomment": {
+      "type": "object",
+      "properties": {
+        "commentId": {
+          "type": "string",
+          "description": "The ID of the comment to retrieve. Example: \"122098284213327930_1544841897156600\""
+        },
+        "fields": {
+          "type": "string",
+          "description": "Comma-separated list of fields to retrieve. Example: \"id,message,created_time,from,like_count\""
+        },
+        "pageId": {
+          "type": "string",
+          "description": "The Facebook Page ID that owns the comment. Required when the user manages multiple pages to ensure the correct page token is used. Example: \"1148671018324630\""
+        }
+      },
+      "required": [
+        "commentId"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_facebook_getcomment": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "message": {
+          "type": "string"
+        },
+        "createdTime": {
+          "type": "string"
+        },
+        "from": {
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "string"
+            },
+            "name": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "id",
+            "name"
+          ],
+          "additionalProperties": false
+        },
+        "likeCount": {
+          "type": "number"
+        }
+      },
+      "required": [
+        "id"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_facebook_getpageappsubscriptions": {
+      "type": "object",
+      "properties": {
+        "pageId": {
+          "type": "string",
+          "description": "Facebook Page ID. Example: \"1148671018324630\""
+        },
+        "fields": {
+          "type": "string",
+          "description": "Comma-separated list of fields to return for each subscribed app. Example: \"id,name,link,subscribed_fields\""
+        }
+      },
+      "required": [
+        "pageId"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_facebook_getpageappsubscriptions": {
+      "type": "object",
+      "properties": {
+        "data": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "name": {
+                "type": "string",
+                "description": "App name"
+              },
+              "link": {
+                "type": "string",
+                "description": "App link URL"
+              },
+              "subscribed_fields": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                },
+                "description": "List of subscribed webhook fields"
+              }
+            },
+            "required": [
+              "id"
+            ],
+            "additionalProperties": false
+          },
+          "description": "List of apps subscribed to the page"
+        },
+        "paging": {
+          "type": "object",
+          "properties": {
+            "cursors": {
+              "type": "object",
+              "properties": {
+                "before": {
+                  "type": "string"
+                },
+                "after": {
+                  "type": "string"
+                }
+              },
+              "additionalProperties": false
+            },
+            "next": {
+              "type": "string",
+              "description": "URL for the next page of results"
+            }
+          },
+          "additionalProperties": false,
+          "description": "Pagination information"
+        }
+      },
+      "required": [
+        "data"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_facebook_getpage": {
+      "type": "object",
+      "properties": {
+        "pageId": {
+          "type": "string",
+          "description": "Facebook Page ID. Example: \"1148671018324630\""
+        },
+        "fields": {
+          "type": "string",
+          "description": "Comma-separated fields to retrieve. Example: \"id,name,category,fan_count,about,link\""
+        }
+      },
+      "required": [
+        "pageId"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_facebook_getpage": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "category": {
+          "type": "string"
+        },
+        "fanCount": {
+          "type": "number"
+        },
+        "about": {
+          "type": "string"
+        },
+        "link": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "id"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_facebook_getpost": {
+      "type": "object",
+      "properties": {
+        "post_id": {
+          "type": "string",
+          "description": "The ID of the Facebook post to retrieve. Example: \"1148671018324630_122098284213327930\""
+        },
+        "fields": {
+          "type": "string",
+          "description": "Comma-separated list of fields to retrieve. Example: \"id,message,created_time,from\""
+        }
+      },
+      "required": [
+        "post_id"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_facebook_getpost": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "message": {
+          "type": "string"
+        },
+        "created_time": {
+          "type": "string"
+        },
+        "from": {
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "string"
+            },
+            "name": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "id",
+            "name"
+          ],
+          "additionalProperties": false
+        }
+      },
+      "required": [
+        "id"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_facebook_getuserprofile": {
+      "type": "object",
+      "properties": {
+        "fields": {
+          "type": "string",
+          "description": "Comma-separated list of fields to retrieve. Example: \"id,name,email,picture\""
+        }
+      },
+      "additionalProperties": false
+    },
+    "ActionOutput_facebook_getuserprofile": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "id"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_facebook_listpageposts": {
+      "type": "object",
+      "properties": {
+        "pageId": {
+          "type": "string",
+          "description": "Facebook Page ID. Example: \"1148671018324630\""
+        },
+        "since": {
+          "type": "string",
+          "description": "Unix timestamp or ISO date. Posts created after this time."
+        },
+        "until": {
+          "type": "string",
+          "description": "Unix timestamp or ISO date. Posts created before this time."
+        },
+        "limit": {
+          "type": "number",
+          "description": "Number of posts to return per page. Max 100."
+        },
+        "fields": {
+          "type": "string",
+          "description": "Comma-separated list of fields to include. Example: \"id,message,created_time,permalink_url\""
+        },
+        "cursor": {
+          "type": "string",
+          "description": "Pagination cursor from the previous response. Omit for the first page."
+        }
+      },
+      "required": [
+        "pageId"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_facebook_listpageposts": {
+      "type": "object",
+      "properties": {
+        "posts": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "message": {
+                "type": "string"
+              },
+              "createdTime": {
+                "type": "string"
+              },
+              "permalinkUrl": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "id"
+            ],
+            "additionalProperties": false
+          }
+        },
+        "nextCursor": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "posts"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_facebook_listpagescheduledposts": {
+      "type": "object",
+      "properties": {
+        "pageId": {
+          "type": "string",
+          "description": "Facebook Page ID. Example: \"1148671018324630\""
+        },
+        "limit": {
+          "type": "number",
+          "description": "Maximum number of scheduled posts to return. Default: 25"
+        },
+        "cursor": {
+          "type": "string",
+          "description": "Pagination cursor from the previous response. Omit for the first page."
+        }
+      },
+      "required": [
+        "pageId"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_facebook_listpagescheduledposts": {
+      "type": "object",
+      "properties": {
+        "posts": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "message": {
+                "type": "string"
+              },
+              "scheduledPublishTime": {
+                "type": "number"
+              }
+            },
+            "required": [
+              "id"
+            ],
+            "additionalProperties": false
+          }
+        },
+        "nextCursor": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "posts"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_facebook_listpagevideos": {
+      "type": "object",
+      "properties": {
+        "page_id": {
+          "type": "string",
+          "description": "Facebook Page ID. Example: \"1234567890\""
+        },
+        "limit": {
+          "type": "number",
+          "description": "Maximum number of videos to return. Default: 25"
+        },
+        "fields": {
+          "type": "string",
+          "description": "Comma-separated list of fields to return. Example: \"id,title,description,created_time,source\""
+        },
+        "cursor": {
+          "type": "string",
+          "description": "Pagination cursor from the previous response. Omit for the first page."
+        }
+      },
+      "required": [
+        "page_id"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_facebook_listpagevideos": {
+      "type": "object",
+      "properties": {
+        "videos": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "title": {
+                "type": "string"
+              },
+              "description": {
+                "type": "string"
+              },
+              "created_time": {
+                "type": "string"
+              },
+              "updated_time": {
+                "type": "string"
+              },
+              "source": {
+                "type": "string"
+              },
+              "length": {
+                "type": "number"
+              }
+            },
+            "required": [
+              "id"
+            ],
+            "additionalProperties": false
+          }
+        },
+        "next_cursor": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "videos"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_facebook_listpostcomments": {
+      "type": "object",
+      "properties": {
+        "postId": {
+          "type": "string",
+          "description": "The post ID to list comments for. Example: \"1148671018324630_122098284213327930\""
+        },
+        "filter": {
+          "type": "string",
+          "enum": [
+            "toplevel",
+            "stream"
+          ],
+          "description": "Filter for comments. \"toplevel\" (default) returns top-level comments only. \"stream\" returns all comments including replies."
+        },
+        "order": {
+          "type": "string",
+          "enum": [
+            "chronological",
+            "reverse_chronological"
+          ],
+          "description": "Order of comments. \"chronological\" = oldest first, \"reverse_chronological\" = newest first."
+        },
+        "summary": {
+          "type": "boolean",
+          "description": "Include summary metadata (total_count, order, can_comment)."
+        },
+        "cursor": {
+          "type": "string",
+          "description": "Pagination cursor from the previous response. Omit for the first page."
+        }
+      },
+      "required": [
+        "postId"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_facebook_listpostcomments": {
+      "type": "object",
+      "properties": {
+        "comments": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "message": {
+                "type": "string"
+              },
+              "createdTime": {
+                "type": "string"
+              },
+              "from": {
+                "type": "object",
+                "properties": {
+                  "id": {
+                    "type": "string"
+                  },
+                  "name": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "id"
+                ],
+                "additionalProperties": false
+              }
+            },
+            "required": [
+              "id",
+              "createdTime"
+            ],
+            "additionalProperties": false
+          }
+        },
+        "nextCursor": {
+          "type": "string"
+        },
+        "summary": {
+          "type": "object",
+          "properties": {
+            "order": {
+              "type": "string",
+              "enum": [
+                "chronological",
+                "reverse_chronological",
+                "ranked"
+              ]
+            },
+            "totalCount": {
+              "type": "number"
+            },
+            "canComment": {
+              "type": "boolean"
+            }
+          },
+          "additionalProperties": false
+        }
+      },
+      "required": [
+        "comments"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_facebook_listuserpages": {
+      "type": "object",
+      "additionalProperties": false
+    },
+    "ActionOutput_facebook_listuserpages": {
+      "type": "object",
+      "properties": {
+        "pages": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "name": {
+                "type": "string",
+                "description": "Page name. Example: \"My Business Page\""
+              },
+              "category": {
+                "type": "string",
+                "description": "Page category. Example: \"Retail Company\""
+              },
+              "categoryList": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "string"
+                    },
+                    "name": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "id",
+                    "name"
+                  ],
+                  "additionalProperties": false
+                },
+                "description": "Detailed category list"
+              },
+              "accessToken": {
+                "type": "string",
+                "description": "Page access token for API calls"
+              },
+              "fanCount": {
+                "type": "number",
+                "description": "Number of fans/likes"
+              },
+              "pictureUrl": {
+                "type": "string",
+                "description": "Page profile picture URL"
+              }
+            },
+            "required": [
+              "id",
+              "name"
+            ],
+            "additionalProperties": false
+          },
+          "description": "List of Facebook Pages accessible to the user"
+        }
+      },
+      "required": [
+        "pages"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_facebook_subscribeapptopage": {
+      "type": "object",
+      "properties": {
+        "page_id": {
+          "type": "string",
+          "description": "Facebook Page ID to subscribe the app to. Example: \"1148671018324630\""
+        },
+        "subscribed_fields": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "Array of webhook event types to subscribe to. Example: [\"feed\", \"messages\", \"mention\", \"name\", \"picture\"]"
+        }
+      },
+      "required": [
+        "page_id",
+        "subscribed_fields"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_facebook_subscribeapptopage": {
+      "type": "object",
+      "properties": {
+        "success": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "success"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_facebook_unsubscribeappfrompage": {
+      "type": "object",
+      "properties": {
+        "pageId": {
+          "type": "string",
+          "description": "Facebook Page ID. Example: \"123456789012345\""
+        }
+      },
+      "required": [
+        "pageId"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_facebook_unsubscribeappfrompage": {
+      "type": "object",
+      "properties": {
+        "success": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "success"
       ],
       "additionalProperties": false
     },

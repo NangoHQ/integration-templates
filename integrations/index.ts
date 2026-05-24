@@ -495,6 +495,31 @@ import './expensify/actions/create-user.js';
 import './expensify/actions/disable-user.js';
 import './expensify/actions/list-policies.js';
 
+// -- Integration: facebook
+import './facebook/syncs/page-posts.js';
+import './facebook/syncs/page-scheduled-posts.js';
+import './facebook/syncs/page-videos.js';
+import './facebook/syncs/pages.js';
+import './facebook/actions/create-page-photo.js';
+import './facebook/actions/create-page-post.js';
+import './facebook/actions/create-page-video.js';
+import './facebook/actions/create-post-comment.js';
+import './facebook/actions/create-scheduled-page-post.js';
+import './facebook/actions/delete-comment.js';
+import './facebook/actions/delete-post.js';
+import './facebook/actions/get-comment.js';
+import './facebook/actions/get-page-app-subscriptions.js';
+import './facebook/actions/get-page.js';
+import './facebook/actions/get-post.js';
+import './facebook/actions/get-user-profile.js';
+import './facebook/actions/list-page-posts.js';
+import './facebook/actions/list-page-scheduled-posts.js';
+import './facebook/actions/list-page-videos.js';
+import './facebook/actions/list-post-comments.js';
+import './facebook/actions/list-user-pages.js';
+import './facebook/actions/subscribe-app-to-page.js';
+import './facebook/actions/unsubscribe-app-from-page.js';
+
 // -- Integration: fireflies
 import './fireflies/actions/add-to-live.js';
 

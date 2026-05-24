@@ -8275,18 +8275,9 @@ export interface SyncMetadata_brightcrowd_booksbyid {
 
 export interface Page {
   id: string;
-  status?: string | undefined;
-  title?: string | undefined;
-  spaceId?: string | undefined;
-  parentId?: string | undefined;
-  parentType?: string | undefined;
-  authorId?: string | undefined;
-  ownerId?: string | undefined;
-  createdAt?: string | undefined;
-  updatedAt?: string | undefined;
-  versionNumber?: number | undefined;
-  bodyStorage?: string | undefined;
-  url?: string | undefined;
+  name: string;
+  category?: string | undefined;
+  access_token: string;
 };
 
 export interface SyncMetadata_brightcrowd_pages {
@@ -14542,6 +14533,526 @@ export interface ActionOutput_expensify_listpolicies {
   isPolicyExpenseChatEnabled: string;
   ownerAccountID: number;
   areTagsEnabled: boolean;})[];
+};
+
+export interface PagePost {
+  id: string;
+  pageId: string;
+  message?: string | undefined;
+  createdTime: string;
+  updatedTime: string;
+  permalinkUrl?: string | undefined;
+  statusType?: string | undefined;
+  isPublished?: boolean | undefined;
+  isHidden?: boolean | undefined;
+};
+
+export interface SyncMetadata_facebook_pageposts {
+  pageIds?: string[] | undefined;
+};
+
+export interface PageScheduledPost {
+  id: string;
+  page_id: string;
+  page_name?: string | undefined;
+  message?: string | undefined;
+  scheduled_publish_time?: number | undefined;
+  created_time?: string | undefined;
+  published: boolean;
+};
+
+export interface SyncMetadata_facebook_pagescheduledposts {
+  pageIds?: string[] | undefined;
+};
+
+export interface PageVideo {
+  id: string;
+  page_id: string;
+  title?: string | undefined;
+  description?: string | undefined;
+  created_time: string;
+  updated_time?: string | undefined;
+  length?: number | undefined;
+  permalink_url?: string | undefined;
+  picture?: string | undefined;
+  source?: string | undefined;
+  views?: number | undefined;
+};
+
+export interface ActionInput_facebook_createpagephoto {
+  /**
+   * The Facebook Page ID to post the photo to. Example: "1148671018324630"
+   */
+  pageId: string;
+  /**
+   * The URL of the photo to upload. Example: "https://example.com/photo.jpg"
+   */
+  url: string;
+  /**
+   * Caption text for the photo. Example: "Check out our new product!"
+   */
+  caption?: string | undefined;
+  /**
+   * Whether the photo should be published immediately. Set to false to create an unpublished photo (draft). Defaults to true.
+   */
+  published?: boolean | undefined;
+};
+
+export interface ActionOutput_facebook_createpagephoto {
+  /**
+   * The ID of the created photo.
+   */
+  id: string;
+  /**
+   * The ID of the post associated with the photo (if published).
+   */
+  postId?: string | undefined;
+};
+
+export interface ActionInput_facebook_createpagepost {
+  /**
+   * Facebook Page ID to post to. Example: "1148671018324630"
+   */
+  pageId: string;
+  /**
+   * The message content of the post.
+   */
+  message?: string | undefined;
+  /**
+   * URL to share in the post.
+   */
+  link?: string | undefined;
+  /**
+   * Whether to publish immediately (true) or schedule (false). Default: true
+   */
+  published?: boolean | undefined;
+  /**
+   * Unix timestamp for scheduled post publishing. Required if published=false.
+   */
+  scheduledPublishTime?: number | undefined;
+};
+
+export interface ActionOutput_facebook_createpagepost {
+  /**
+   * The ID of the created post.
+   */
+  id: string;
+};
+
+export interface ActionInput_facebook_createpagevideo {
+  /**
+   * Facebook Page ID to upload the video to. Example: "1148671018324630"
+   */
+  page_id: string;
+  /**
+   * URL of the video to upload. Must be a publicly accessible URL. Example: "https://example.com/video.mp4"
+   */
+  file_url: string;
+  /**
+   * Title of the video.
+   */
+  title?: string | undefined;
+  /**
+   * Description or message for the video post.
+   */
+  description?: string | undefined;
+  /**
+   * Whether the video should be published immediately. Set to false to create a draft. Defaults to true.
+   */
+  published?: boolean | undefined;
+};
+
+export interface ActionOutput_facebook_createpagevideo {
+  /**
+   * The video ID.
+   */
+  id: string;
+  /**
+   * The ID of the post that was created for this video.
+   */
+  post_id?: string | undefined;
+};
+
+export interface ActionInput_facebook_createpostcomment {
+  /**
+   * The ID of the page that owns the post. Example: "1148671018324630"
+   */
+  pageId: string;
+  /**
+   * The ID of the post to comment on. Example: "1148671018324630_122098284213327930"
+   */
+  postId: string;
+  /**
+   * The comment text message. Example: "Great post!"
+   */
+  message: string;
+};
+
+export interface ActionOutput_facebook_createpostcomment {
+  id: string;
+};
+
+export interface ActionInput_facebook_createscheduledpagepost {
+  /**
+   * Facebook Page ID to post on. Example: "123456789012345"
+   */
+  page_id: string;
+  /**
+   * The message text for the post
+   */
+  message?: string | undefined;
+  /**
+   * Unix timestamp when the post should be published. Must be at least 10 minutes and at most 6 months in the future.
+   */
+  scheduled_publish_time: number;
+  /**
+   * URL to attach to the post
+   */
+  link?: string | undefined;
+  /**
+   * URL of a photo to attach to the post
+   */
+  photo_url?: string | undefined;
+};
+
+export interface ActionOutput_facebook_createscheduledpagepost {
+  /**
+   * The ID of the scheduled post
+   */
+  id: string;
+  /**
+   * The post ID (if immediately published)
+   */
+  post_id?: string | undefined;
+};
+
+export interface ActionInput_facebook_deletecomment {
+  /**
+   * Facebook comment ID to delete. Example: "122098284213327930_1544841897156600"
+   */
+  commentId: string;
+  /**
+   * The Facebook Page ID that owns the comment. Required when the user manages multiple pages to ensure the correct page token is used. Example: "1148671018324630"
+   */
+  pageId?: string | undefined;
+};
+
+export interface ActionOutput_facebook_deletecomment {
+  success: boolean;
+};
+
+export interface ActionInput_facebook_deletepost {
+  /**
+   * The ID of the Facebook post to delete. Example: "1148671018324630_122098284213327930"
+   */
+  postId: string;
+};
+
+export interface ActionOutput_facebook_deletepost {
+  success: boolean;
+};
+
+export interface ActionInput_facebook_getcomment {
+  /**
+   * The ID of the comment to retrieve. Example: "122098284213327930_1544841897156600"
+   */
+  commentId: string;
+  /**
+   * Comma-separated list of fields to retrieve. Example: "id,message,created_time,from,like_count"
+   */
+  fields?: string | undefined;
+  /**
+   * The Facebook Page ID that owns the comment. Required when the user manages multiple pages to ensure the correct page token is used. Example: "1148671018324630"
+   */
+  pageId?: string | undefined;
+};
+
+export interface ActionOutput_facebook_getcomment {
+  id: string;
+  message?: string | undefined;
+  createdTime?: string | undefined;
+  from?: {  id: string;
+  name: string;} | undefined;
+  likeCount?: number | undefined;
+};
+
+export interface ActionInput_facebook_getpageappsubscriptions {
+  /**
+   * Facebook Page ID. Example: "1148671018324630"
+   */
+  pageId: string;
+  /**
+   * Comma-separated list of fields to return for each subscribed app. Example: "id,name,link,subscribed_fields"
+   */
+  fields?: string | undefined;
+};
+
+export interface ActionOutput_facebook_getpageappsubscriptions {
+  /**
+   * List of apps subscribed to the page
+   */
+  data: ({  /**
+   * App ID
+   */
+  id: string;
+  /**
+   * App name
+   */
+  name?: string | undefined;
+  /**
+   * App link URL
+   */
+  link?: string | undefined;
+  /**
+   * List of subscribed webhook fields
+   */
+  subscribed_fields?: string[] | undefined;})[];
+  /**
+   * Pagination information
+   */
+  paging?: {  cursors?: {  before?: string | undefined;
+  after?: string | undefined;};
+  /**
+   * URL for the next page of results
+   */
+  next?: string | undefined;};
+};
+
+export interface ActionInput_facebook_getpage {
+  /**
+   * Facebook Page ID. Example: "1148671018324630"
+   */
+  pageId: string;
+  /**
+   * Comma-separated fields to retrieve. Example: "id,name,category,fan_count,about,link"
+   */
+  fields?: string | undefined;
+};
+
+export interface ActionOutput_facebook_getpage {
+  id: string;
+  name?: string | undefined;
+  category?: string | undefined;
+  fanCount?: number | undefined;
+  about?: string | undefined;
+  link?: string | undefined;
+};
+
+export interface ActionInput_facebook_getpost {
+  /**
+   * The ID of the Facebook post to retrieve. Example: "1148671018324630_122098284213327930"
+   */
+  post_id: string;
+  /**
+   * Comma-separated list of fields to retrieve. Example: "id,message,created_time,from"
+   */
+  fields?: string | undefined;
+};
+
+export interface ActionOutput_facebook_getpost {
+  id: string;
+  message?: string | undefined;
+  created_time?: string | undefined;
+  from?: {  id: string;
+  name: string;} | undefined;
+};
+
+export interface ActionInput_facebook_getuserprofile {
+  /**
+   * Comma-separated list of fields to retrieve. Example: "id,name,email,picture"
+   */
+  fields?: string | undefined;
+};
+
+export interface ActionOutput_facebook_getuserprofile {
+  id: string;
+  name?: string | undefined;
+};
+
+export interface ActionInput_facebook_listpageposts {
+  /**
+   * Facebook Page ID. Example: "1148671018324630"
+   */
+  pageId: string;
+  /**
+   * Unix timestamp or ISO date. Posts created after this time.
+   */
+  since?: string | undefined;
+  /**
+   * Unix timestamp or ISO date. Posts created before this time.
+   */
+  until?: string | undefined;
+  /**
+   * Number of posts to return per page. Max 100.
+   */
+  limit?: number | undefined;
+  /**
+   * Comma-separated list of fields to include. Example: "id,message,created_time,permalink_url"
+   */
+  fields?: string | undefined;
+  /**
+   * Pagination cursor from the previous response. Omit for the first page.
+   */
+  cursor?: string | undefined;
+};
+
+export interface ActionOutput_facebook_listpageposts {
+  posts: ({  id: string;
+  message?: string | undefined;
+  createdTime?: string | undefined;
+  permalinkUrl?: string | undefined;})[];
+  nextCursor?: string | undefined;
+};
+
+export interface ActionInput_facebook_listpagescheduledposts {
+  /**
+   * Facebook Page ID. Example: "1148671018324630"
+   */
+  pageId: string;
+  /**
+   * Maximum number of scheduled posts to return. Default: 25
+   */
+  limit?: number | undefined;
+  /**
+   * Pagination cursor from the previous response. Omit for the first page.
+   */
+  cursor?: string | undefined;
+};
+
+export interface ActionOutput_facebook_listpagescheduledposts {
+  posts: ({  id: string;
+  message?: string | undefined;
+  scheduledPublishTime?: number | undefined;})[];
+  nextCursor?: string | undefined;
+};
+
+export interface ActionInput_facebook_listpagevideos {
+  /**
+   * Facebook Page ID. Example: "1234567890"
+   */
+  page_id: string;
+  /**
+   * Maximum number of videos to return. Default: 25
+   */
+  limit?: number | undefined;
+  /**
+   * Comma-separated list of fields to return. Example: "id,title,description,created_time,source"
+   */
+  fields?: string | undefined;
+  /**
+   * Pagination cursor from the previous response. Omit for the first page.
+   */
+  cursor?: string | undefined;
+};
+
+export interface ActionOutput_facebook_listpagevideos {
+  videos: ({  id: string;
+  title?: string | undefined;
+  description?: string | undefined;
+  created_time?: string | undefined;
+  updated_time?: string | undefined;
+  source?: string | undefined;
+  length?: number | undefined;})[];
+  next_cursor?: string | undefined;
+};
+
+export interface ActionInput_facebook_listpostcomments {
+  /**
+   * The post ID to list comments for. Example: "1148671018324630_122098284213327930"
+   */
+  postId: string;
+  /**
+   * Filter for comments. "toplevel" (default) returns top-level comments only. "stream" returns all comments including replies.
+   */
+  filter?: 'toplevel' | 'stream' | undefined;
+  /**
+   * Order of comments. "chronological" = oldest first, "reverse_chronological" = newest first.
+   */
+  order?: 'chronological' | 'reverse_chronological' | undefined;
+  /**
+   * Include summary metadata (total_count, order, can_comment).
+   */
+  summary?: boolean | undefined;
+  /**
+   * Pagination cursor from the previous response. Omit for the first page.
+   */
+  cursor?: string | undefined;
+};
+
+export interface ActionOutput_facebook_listpostcomments {
+  comments: ({  id: string;
+  message?: string | undefined;
+  createdTime: string;
+  from?: {  id: string;
+  name?: string | undefined;};})[];
+  nextCursor?: string | undefined;
+  summary?: {  order?: 'chronological' | 'reverse_chronological' | 'ranked' | undefined;
+  totalCount?: number | undefined;
+  canComment?: boolean | undefined;};
+};
+
+export interface ActionInput_facebook_listuserpages {
+};
+
+export interface ActionOutput_facebook_listuserpages {
+  /**
+   * List of Facebook Pages accessible to the user
+   */
+  pages: ({  /**
+   * Page ID. Example: "123456789"
+   */
+  id: string;
+  /**
+   * Page name. Example: "My Business Page"
+   */
+  name: string;
+  /**
+   * Page category. Example: "Retail Company"
+   */
+  category?: string | undefined;
+  /**
+   * Detailed category list
+   */
+  categoryList?: ({  id: string;
+  name: string;})[] | undefined;
+  /**
+   * Page access token for API calls
+   */
+  accessToken?: string | undefined;
+  /**
+   * Number of fans/likes
+   */
+  fanCount?: number | undefined;
+  /**
+   * Page profile picture URL
+   */
+  pictureUrl?: string | undefined;})[];
+};
+
+export interface ActionInput_facebook_subscribeapptopage {
+  /**
+   * Facebook Page ID to subscribe the app to. Example: "1148671018324630"
+   */
+  page_id: string;
+  /**
+   * Array of webhook event types to subscribe to. Example: ["feed", "messages", "mention", "name", "picture"]
+   */
+  subscribed_fields: string[];
+};
+
+export interface ActionOutput_facebook_subscribeapptopage {
+  success: boolean;
+};
+
+export interface ActionInput_facebook_unsubscribeappfrompage {
+  /**
+   * Facebook Page ID. Example: "123456789012345"
+   */
+  pageId: string;
+};
+
+export interface ActionOutput_facebook_unsubscribeappfrompage {
+  success: boolean;
 };
 
 export interface ActionInput_fireflies_addtolive {
