@@ -1,0 +1,101 @@
+{
+  "input": {
+    "displayName": "Nango Test Group",
+    "description": "Test group created via Nango dryrun",
+    "mailNickname": "nangotestgroup",
+    "mailEnabled": false,
+    "securityEnabled": true
+  },
+  "output": {
+    "id": "f91ab752-b76a-4b7a-8860-64cb659a5625",
+    "displayName": "Nango Test Group",
+    "description": "Test group created via Nango dryrun",
+    "mailNickname": "nangotestgroup",
+    "mailEnabled": false,
+    "securityEnabled": true,
+    "groupTypes": [],
+    "createdDateTime": "2026-05-18T22:06:17Z"
+  },
+  "nango": {},
+  "api": {
+    "post": {
+      "/v1.0/groups": {
+        "response": {
+          "@odata.context": "https://graph.microsoft.com/v1.0/$metadata#groups/$entity",
+          "id": "f91ab752-b76a-4b7a-8860-64cb659a5625",
+          "deletedDateTime": null,
+          "classification": null,
+          "createdDateTime": "2026-05-18T22:06:17Z",
+          "creationOptions": [],
+          "description": "Test group created via Nango dryrun",
+          "displayName": "Nango Test Group",
+          "expirationDateTime": null,
+          "groupTypes": [],
+          "infoCatalogs": [],
+          "isAssignableToRole": null,
+          "mail": null,
+          "mailEnabled": false,
+          "mailNickname": "nangotestgroup",
+          "membershipRule": null,
+          "membershipRuleProcessingState": null,
+          "onPremisesDomainName": null,
+          "onPremisesLastSyncDateTime": null,
+          "onPremisesNetBiosName": null,
+          "onPremisesSamAccountName": null,
+          "onPremisesSecurityIdentifier": null,
+          "onPremisesSyncEnabled": null,
+          "preferredDataLocation": null,
+          "preferredLanguage": null,
+          "proxyAddresses": [],
+          "renewedDateTime": "2026-05-18T22:06:17Z",
+          "resourceBehaviorOptions": [],
+          "resourceProvisioningOptions": [],
+          "securityEnabled": true,
+          "securityIdentifier": "S-1-12-1-4179277650-1266333546-3412353160-626432613",
+          "theme": null,
+          "uniqueName": null,
+          "visibility": null,
+          "onPremisesProvisioningErrors": [],
+          "serviceProvisioningErrors": []
+        },
+        "status": 201,
+        "headers": {
+          "date": "Mon, 18 May 2026 22:06:17 GMT",
+          "content-type": "application/json;odata.metadata=minimal;odata.streaming=true;IEEE754Compatible=false;charset=utf-8",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=31536000",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4884",
+          "x-ratelimit-reset": "1779141993",
+          "cache-control": "no-cache",
+          "location": "https://graph.microsoft.com/v1.0/56480ae2-88be-49cf-86f6-d62a45bf8758/directoryObjects/f91ab752-b76a-4b7a-8860-64cb659a5625/Microsoft.DirectoryServices.Group",
+          "vary": "Accept-Encoding",
+          "request-id": "ab843037-4988-443a-b1ea-9d545520e9a4",
+          "client-request-id": "ab843037-4988-443a-b1ea-9d545520e9a4",
+          "x-ms-ags-diagnostic": "{\"ServerInfo\":{\"DataCenter\":\"West US 2\",\"Slice\":\"E\",\"Ring\":\"4\",\"ScaleUnit\":\"002\",\"RoleInstance\":\"MWH0EPF000BC238\"}}",
+          "x-ms-resource-unit": "1",
+          "odata-version": "4.0"
+        },
+        "hash": "7c12f6d6f2836146d9fc464da3849e20c3205b31",
+        "request": {
+          "data": {
+            "displayName": "Nango Test Group",
+            "mailEnabled": false,
+            "securityEnabled": true,
+            "mailNickname": "nangotestgroup",
+            "description": "Test group created via Nango dryrun"
+          }
+        }
+      }
+    }
+  }
+}

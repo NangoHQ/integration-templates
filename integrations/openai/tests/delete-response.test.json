@@ -1,0 +1,52 @@
+{
+  "input": {
+    "response_id": "resp_0036fcb2ca0de4ef006a0d8b80c69c819bac28a90e92e2434e"
+  },
+  "output": {
+    "id": "resp_0036fcb2ca0de4ef006a0d8b80c69c819bac28a90e92e2434e",
+    "deleted": true
+  },
+  "nango": {},
+  "api": {
+    "delete": {
+      "/v1/responses/resp_0036fcb2ca0de4ef006a0d8b80c69c819bac28a90e92e2434e": {
+        "response": {
+          "id": "resp_0036fcb2ca0de4ef006a0d8b80c69c819bac28a90e92e2434e",
+          "object": "response.deleted",
+          "deleted": true
+        },
+        "status": 200,
+        "headers": {
+          "date": "Wed, 20 May 2026 10:23:14 GMT",
+          "content-type": "application/json",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=31536000; includeSubDomains; preload",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "X-Request-ID, CF-Ray, CF-Ray",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4932",
+          "x-ratelimit-reset": "1779272621",
+          "cf-ray": "9fea9ff03f49b74e-PDX",
+          "cf-cache-status": "DYNAMIC",
+          "server": "cloudflare",
+          "openai-organization": "nangodev",
+          "openai-processing-ms": "171",
+          "openai-project": "proj_bkqat9iXXSSrc8Kx228QbGL9",
+          "openai-version": "2020-10-01",
+          "x-request-id": "req_ba4253c330e14b6385bebcbd7aef48aa",
+          "set-cookie": "__cf_bm=YN8uxjzQ5KsOkwHGlrLBrN6zfTSw9US48RXh1htfAdo-1779272593.9540904-1.0.1.1-tY0rlk4myTEyzqoCkjCjLqyhRF1NtwRn1kTgBYOB.1QBXnipcfppOu0iF4qgBfLsuzQHQ_pUd29Qkptx9MSVeW0vPtpyoGaiBrlD6AuSAys6Lw12AsYq_kyhBPM04Uiw; HttpOnly; SameSite=None; Secure; Path=/; Domain=api.openai.com; Expires=Wed, 20 May 2026 10:53:14 GMT",
+          "alt-svc": "h3=\":443\"; ma=86400"
+        },
+        "hash": "bfd9b129f6860af4c33c2943c059275f2b946b26",
+        "request": {}
+      }
+    }
+  }
+}

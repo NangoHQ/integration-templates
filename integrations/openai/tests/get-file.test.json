@@ -1,0 +1,34 @@
+{
+  "input": {
+    "file_id": "file-test-id"
+  },
+  "output": {
+    "id": "file-test-id",
+    "filename": "test-data.jsonl",
+    "purpose": "fine-tune",
+    "bytes": 1024,
+    "created_at": 1700000000,
+    "status": "processed"
+  },
+  "nango": {},
+  "api": {
+    "get": {
+      "/v1/files/file-test-id": {
+        "response": {
+          "id": "file-test-id",
+          "object": "file",
+          "bytes": 1024,
+          "created_at": 1700000000,
+          "filename": "test-data.jsonl",
+          "purpose": "fine-tune",
+          "status": "processed"
+        },
+        "status": 200,
+        "headers": {
+          "content-type": "application/json"
+        },
+        "hash": "test-hash-12345"
+      }
+    }
+  }
+}

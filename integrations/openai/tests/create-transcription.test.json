@@ -1,0 +1,12 @@
+{
+  "input": {
+    "filePath": "/tmp/test.mp3",
+    "model": "whisper-1"
+  },
+  "output": {
+    "text": "[Use proxy script openai/proxy/transcribe-audio.ts for actual audio transcription]",
+    "note": "File uploads require proxy script. See openai/proxy/transcribe-audio.ts"
+  },
+  "nango": {},
+  "api": {}
+}

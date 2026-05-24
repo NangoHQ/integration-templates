@@ -1,0 +1,128 @@
+{
+  "input": {
+    "fine_tuning_job_id": "ftjob-5RKxasEwxKsPMoVllUOv01eE"
+  },
+  "output": {
+    "id": "ftjob-5RKxasEwxKsPMoVllUOv01eE",
+    "object": "fine_tuning.job",
+    "created_at": 1779276016,
+    "finished_at": null,
+    "model": "gpt-4o-mini-2024-07-18",
+    "fine_tuned_model": null,
+    "organization_id": "org-RDBrKBVjXQsscdfZBUcrk5iV",
+    "result_files": [],
+    "status": "cancelled",
+    "validation_file": null,
+    "training_file": "file-GRTmR9ARqajcz79DWZLQVL",
+    "hyperparameters": {
+      "n_epochs": "auto",
+      "batch_size": "auto",
+      "learning_rate_multiplier": "auto"
+    },
+    "trained_tokens": null,
+    "error": {},
+    "user_provided_suffix": null,
+    "seed": 1766749783,
+    "estimated_finish": null,
+    "integrations": [],
+    "metadata": null,
+    "usage_metrics": null,
+    "shared_with_openai": false,
+    "eval_id": null,
+    "internal_worker_backend": null,
+    "internal_peashooter_execution": null,
+    "train_experiment_id": null,
+    "eval_experiment_id": null,
+    "method": {
+      "type": "supervised",
+      "supervised": {
+        "hyperparameters": {
+          "n_epochs": "auto",
+          "batch_size": "auto",
+          "learning_rate_multiplier": "auto"
+        }
+      }
+    }
+  },
+  "nango": {},
+  "api": {
+    "post": {
+      "/v1/fine_tuning/jobs/ftjob-5RKxasEwxKsPMoVllUOv01eE/cancel": {
+        "response": {
+          "object": "fine_tuning.job",
+          "id": "ftjob-5RKxasEwxKsPMoVllUOv01eE",
+          "model": "gpt-4o-mini-2024-07-18",
+          "created_at": 1779276016,
+          "finished_at": null,
+          "fine_tuned_model": null,
+          "organization_id": "org-RDBrKBVjXQsscdfZBUcrk5iV",
+          "result_files": [],
+          "status": "cancelled",
+          "validation_file": null,
+          "training_file": "file-GRTmR9ARqajcz79DWZLQVL",
+          "hyperparameters": {
+            "n_epochs": "auto",
+            "batch_size": "auto",
+            "learning_rate_multiplier": "auto"
+          },
+          "trained_tokens": null,
+          "error": {},
+          "user_provided_suffix": null,
+          "seed": 1766749783,
+          "estimated_finish": null,
+          "integrations": [],
+          "metadata": null,
+          "usage_metrics": null,
+          "shared_with_openai": false,
+          "eval_id": null,
+          "internal_worker_backend": null,
+          "internal_peashooter_execution": null,
+          "train_experiment_id": null,
+          "eval_experiment_id": null,
+          "method": {
+            "type": "supervised",
+            "supervised": {
+              "hyperparameters": {
+                "n_epochs": "auto",
+                "batch_size": "auto",
+                "learning_rate_multiplier": "auto"
+              }
+            }
+          }
+        },
+        "status": 200,
+        "headers": {
+          "date": "Wed, 20 May 2026 11:20:50 GMT",
+          "content-type": "application/json",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=31536000; includeSubDomains; preload",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "CF-Ray",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4993",
+          "x-ratelimit-reset": "1779276097",
+          "server": "cloudflare",
+          "openai-version": "2020-10-01",
+          "openai-organization": "nangodev",
+          "openai-project": "proj_bkqat9iXXSSrc8Kx228QbGL9",
+          "x-request-id": "req_620c0cf76f8a4762a30f0aa4f26abe23",
+          "openai-processing-ms": "76",
+          "x-openai-proxy-wasm": "v0.1",
+          "cf-cache-status": "DYNAMIC",
+          "set-cookie": "__cf_bm=gaawZ1W4q4A_J_1bqqUFy7p_VeQQsB3bPTl3lGgXasg-1779276050.1911602-1.0.1.1-7Sjub9Fox1UlBRY28y4k8j0vdb5NvRQ9rMQn82_9QqINXm977ijq0SeGDtxMW7rx_YsJRD.qHbUhEk1Mud7yVTNVFF9bzk37qwg3n.Ii89eCd7lZcP9hpEk8M_m_dhEJ; HttpOnly; SameSite=None; Secure; Path=/; Domain=api.openai.com; Expires=Wed, 20 May 2026 11:50:50 GMT",
+          "cf-ray": "9feaf451ba648736-PDX",
+          "alt-svc": "h3=\":443\"; ma=86400"
+        },
+        "hash": "dbc93c37322502d48b2d1097f24c7c465cb368ac",
+        "request": {}
+      }
+    }
+  }
+}

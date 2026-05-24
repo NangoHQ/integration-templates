@@ -1,0 +1,116 @@
+{
+  "input": {
+    "id": "6a0af21285c69e000cc28695",
+    "name": "Updated Nango Expansion Deal"
+  },
+  "output": {
+    "id": "6a0af21285c69e000cc28695",
+    "name": "Updated Nango Expansion Deal",
+    "amount": 30000,
+    "closed_date": "2026-07-01T00:00:00.000+00:00"
+  },
+  "nango": {},
+  "api": {
+    "patch": {
+      "/v1/opportunities/6a0af21285c69e000cc28695": {
+        "response": {
+          "opportunity": {
+            "id": "6a0af21285c69e000cc28695",
+            "team_id": "6a0aeb6d5e8f8e000c5e9d6a",
+            "owner_id": null,
+            "salesforce_owner_id": null,
+            "amount": 30000,
+            "closed_date": "2026-07-01T00:00:00.000+00:00",
+            "account_id": null,
+            "description": null,
+            "is_closed": null,
+            "is_won": null,
+            "name": "Updated Nango Expansion Deal",
+            "stage_name": null,
+            "opportunity_stage_id": null,
+            "source": "api",
+            "salesforce_id": null,
+            "opportunity_created_at": "2026-05-18T11:03:46.239+00:00",
+            "actual_close_date": null,
+            "next_step": null,
+            "next_step_date": null,
+            "closed_lost_reason": null,
+            "closed_won_reason": null,
+            "forecast_category": null,
+            "deal_probability": null,
+            "created_by_id": "6a0aeb6e5e8f8e000c5e9ebd",
+            "current_solutions": null,
+            "deal_source": null,
+            "manually_updated_probability": null,
+            "manually_updated_forecast": null,
+            "crm_id": null,
+            "crm_record_url": null,
+            "crm_owner_id": null,
+            "probability": null,
+            "opportunity_pipeline_id": "6a0aeb6e5e8f8e000c5e9e64",
+            "stage_updated_at": null,
+            "next_step_last_updated_at": null,
+            "exchange_rate_code": "USD",
+            "exchange_rate_value": 1,
+            "amount_in_team_currency": 30000,
+            "forecasted_revenue": 0,
+            "last_activity_date": "2026-05-18T11:18:03.246Z",
+            "existence_level": "full",
+            "typed_custom_fields": {},
+            "opportunity_contact_roles": [],
+            "currency": {
+              "name": "US Dollar",
+              "iso_code": "USD",
+              "symbol": "$"
+            }
+          }
+        },
+        "status": 200,
+        "headers": {
+          "date": "Mon, 18 May 2026 11:18:20 GMT",
+          "content-type": "application/json; charset=utf-8",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "ALLOWALL",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=31536000",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4947",
+          "x-ratelimit-reset": "1779103134",
+          "cache-control": "max-age=0, private, must-revalidate",
+          "content-security-policy": "frame-ancestors 'self' chrome-extension://alhgpfoeiimagjlnfekdhkjlkiomcapa chrome-extension://ececkagaccnfmkopaiemklekhoimmgpn *.salesforce.com *.lightning.force.com; report-uri https://o101058.ingest.us.sentry.io/api/222018/security/?sentry_key=86bb17dd8c2449719dd6b498f3431191&sentry_environment=production&sentry_release=921578f02cadce558872b59befb4057474aa1ff3",
+          "etag": "W/\"517d56bd89c4d71d5868271cab78f43c\"",
+          "set-cookie": "X-CSRF-TOKEN=0EzOMgZqqTSCOqL4U4-IDlhVP7NG1S7zG_sLqczq1XO-Y8OWGYVfFo_NsWTJCcXw_rdL3eiKFK26DHMk5AgXlA; path=/; secure; SameSite=Lax, _leadgenie_session=dad3q2mMCl8ES3w0oqugAE2scu9MFym862VB%2BhDJ9koJIDFfJYk9JKRYohd2AyJLeJG6fyLwjGh6DT4Nt7qcZd61jE0mkbUE7cZtIg6OwVMqa%2Bfmi9HNFhuzikeAPDZcw2rq61nWOI9eRgwSaoo4pXr7R4di3z5p1k0Dld6NWBUQy7g5jyxxMdUd%2F4Q0ktGyqqaFrCo%2FxBy3GYCV8UABhGreS%2BLq08xpzUIF1Jg0lmauNIthRzDSvT%2FOz865Dmk3N1yQeSMEQ7NUAWL4VDga8V2gFowZNm8Udmw%3D--df6sD2rZTRCJKNv1--5PY7S81Au5kv8newZsF5sA%3D%3D; path=/; secure; HttpOnly; SameSite=None, __cf_bm=70i1jHuEo7LyHneOyMyj8RN7I5ShDEZSc8MUrHs_0HI-1779103100.8067012-1.0.1.1-CkxaCuRTe1fLhZyHUUnK7N_L94I7my5AdxqTnGDcC3oCoGqdk1E9IFpo5_mA_Pc.WwoY7oG50m3NwW.u6jCGC4PYcCCT5jpWzv_RnckRISAnRY0HaMDZM4TyNqcgJr8h; HttpOnly; SameSite=None; Secure; Path=/; Domain=apollo.io; Expires=Mon, 18 May 2026 11:48:20 GMT",
+          "vary": "Origin",
+          "x-24-hour-requests-left": "595",
+          "x-24-hour-usage": "5",
+          "x-hourly-requests-left": "195",
+          "x-hourly-usage": "5",
+          "x-minute-requests-left": "48",
+          "x-minute-usage": "2",
+          "x-rate-limit-24-hour": "600",
+          "x-rate-limit-hourly": "200",
+          "x-rate-limit-minute": "50",
+          "x-request-id": "ff43f671-699b-4228-8887-915e861ee4fa",
+          "x-runtime": "0.073092",
+          "x-transaction-id": "358edeaf-472d-468c-a69b-ceaae1360dc1",
+          "cf-cache-status": "DYNAMIC",
+          "server": "cloudflare",
+          "cf-ray": "9fda75ec0b09dd6a-PDX"
+        },
+        "hash": "1c711d4b780b65424ef5b212434b05f4c3bc93a6",
+        "request": {
+          "data": {
+            "name": "Updated Nango Expansion Deal"
+          }
+        }
+      }
+    }
+  }
+}
