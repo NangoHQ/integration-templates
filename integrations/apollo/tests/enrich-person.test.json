@@ -1,0 +1,95 @@
+{
+  "input": {
+    "email": "alice@nango-test.io"
+  },
+  "output": {
+    "id": "6a0af5984eaea10018dbf543",
+    "name": "",
+    "email": "alice@nango-test.io",
+    "employmentHistory": [],
+    "departments": [],
+    "subdepartments": [],
+    "functions": []
+  },
+  "nango": {},
+  "api": {
+    "post": {
+      "/v1/people/match": {
+        "response": {
+          "person": {
+            "id": "6a0af5984eaea10018dbf543",
+            "first_name": null,
+            "last_name": null,
+            "name": "",
+            "linkedin_url": null,
+            "title": null,
+            "photo_url": null,
+            "twitter_url": null,
+            "github_url": null,
+            "facebook_url": null,
+            "extrapolated_email_confidence": null,
+            "headline": null,
+            "organization_id": null,
+            "employment_history": [],
+            "email": "alice@nango-test.io",
+            "email_status": null,
+            "intent_strength": null,
+            "show_intent": false,
+            "email_domain_catchall": false,
+            "revealed_for_current_team": true,
+            "departments": [],
+            "subdepartments": [],
+            "functions": [],
+            "seniority": null
+          },
+          "request_id": -5625285838247958000
+        },
+        "status": 200,
+        "headers": {
+          "date": "Mon, 18 May 2026 11:18:48 GMT",
+          "content-type": "application/json; charset=utf-8",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "ALLOWALL",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=31536000",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4909",
+          "x-ratelimit-reset": "1779103134",
+          "cf-ray": "9fda76971cf2c146-PDX",
+          "cf-cache-status": "DYNAMIC",
+          "cache-control": "max-age=0, private, must-revalidate",
+          "etag": "W/\"678b179b4bd302e0b7257396ec90bf05\"",
+          "server": "cloudflare",
+          "x-transaction-id": "59d2171e-54b8-4c4d-be77-de022c8f4c21",
+          "vary": "Origin",
+          "content-security-policy": "frame-ancestors 'self' chrome-extension://alhgpfoeiimagjlnfekdhkjlkiomcapa chrome-extension://ececkagaccnfmkopaiemklekhoimmgpn *.salesforce.com *.lightning.force.com; report-uri https://o101058.ingest.us.sentry.io/api/222018/security/?sentry_key=86bb17dd8c2449719dd6b498f3431191&sentry_environment=production&sentry_release=921578f02cadce558872b59befb4057474aa1ff3",
+          "x-24-hour-requests-left": "597",
+          "x-24-hour-usage": "3",
+          "x-hourly-requests-left": "197",
+          "x-hourly-usage": "3",
+          "x-minute-requests-left": "48",
+          "x-minute-usage": "2",
+          "x-rate-limit-24-hour": "600",
+          "x-rate-limit-hourly": "200",
+          "x-rate-limit-minute": "50",
+          "x-request-id": "eba053a9-3cf6-49b4-b608-81181fa88ea5",
+          "x-runtime": "0.076727",
+          "set-cookie": "X-CSRF-TOKEN=Pq8uhUvt76B0Hkol3BT_i8Pne6Y3rMtVFNuIPiERmsCZlWkSYNYJu9TDEfUejaC0N0pqD4K3Bh10u3q46cszDg; path=/; secure; SameSite=Lax, _leadgenie_session=6LFZkM2PEtsTj5ljVWlykiC15OO8dtF%2B45RzTaatLJ120D5PQeWVEMLldSDonelrd2i1unXFlxXjKegK1%2F7PfcZ%2Bwfa8VhoPUa3Vm5Qi%2B9Y88mVjh7n7L5BSdd%2BnYpJLgINEDpr947T4JM5hyc%2F5S0%2FVkYGXCHSl%2BVetYD7qHkqI6L8%2FW5p4282zPfOECQj7F9W1qyQHJmKcINCb3352ozgNk7C%2FYExS8B8pQq%2FGhIlgUQx3PHxcPvnKWBy7G5qfrQ%2BCo%2FvotKXDFxGw8i%2BNIpVnYwwKOUhOBaY%3D--X9y8KSRTjmYC%2FJrK--rDkc4wzKvwydja7d77Zssw%3D%3D; path=/; secure; HttpOnly; SameSite=None, __cf_bm=hQ8M8U1HU9GROP7aM5EmudUy_L9c1dnWbfYCTqKx5uA-1779103128.1796315-1.0.1.1-UAmeG4uc7nMn2LWMkB18kPQnKgobM6_CLh.RmEmg_qckb_.yaBQIMcYim8HufcgJ0vMFTFOECStvhcHoR1uW0Q1yfq7AJUHNS.DO.Z_ZOYRMnEL2N.5Qjl8VfmH7fAhm; HttpOnly; SameSite=None; Secure; Path=/; Domain=apollo.io; Expires=Mon, 18 May 2026 11:48:48 GMT"
+        },
+        "hash": "fddd6412a592fc2ce13ed733e6886de78d3750d5",
+        "request": {
+          "params": {
+            "email": "alice@nango-test.io"
+          }
+        }
+      }
+    }
+  }
+}

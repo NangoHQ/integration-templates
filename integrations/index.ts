@@ -54,6 +54,40 @@ import './anrok/actions/create-or-update-transaction.js';
 import './anrok/actions/negate-transaction.js';
 import './anrok/actions/void-transaction.js';
 
+// -- Integration: apollo
+import './apollo/syncs/accounts.js';
+import './apollo/syncs/contacts.js';
+import './apollo/syncs/opportunities.js';
+import './apollo/syncs/organization-search.js';
+import './apollo/syncs/sequences.js';
+import './apollo/syncs/tasks.js';
+import './apollo/actions/bulk-enrich-people.js';
+import './apollo/actions/create-account.js';
+import './apollo/actions/create-contact.js';
+import './apollo/actions/create-opportunity.js';
+import './apollo/actions/create-task.js';
+import './apollo/actions/delete-account.js';
+import './apollo/actions/delete-contact.js';
+import './apollo/actions/delete-opportunity.js';
+import './apollo/actions/enrich-organization.js';
+import './apollo/actions/enrich-person.js';
+import './apollo/actions/get-account.js';
+import './apollo/actions/get-contact.js';
+import './apollo/actions/get-opportunity.js';
+import './apollo/actions/list-accounts.js';
+import './apollo/actions/list-contacts.js';
+import './apollo/actions/list-opportunities.js';
+import './apollo/actions/list-sequences.js';
+import './apollo/actions/list-tasks.js';
+import './apollo/actions/list-users.js';
+import './apollo/actions/remove-contact-from-sequence.js';
+import './apollo/actions/search-organizations.js';
+import './apollo/actions/search-people.js';
+import './apollo/actions/update-account.js';
+import './apollo/actions/update-contact.js';
+import './apollo/actions/update-opportunity.js';
+import './apollo/actions/update-task.js';
+
 // -- Integration: asana
 import './asana/syncs/projects.js';
 import './asana/syncs/sections.js';
