@@ -1762,6 +1762,58 @@ import './smartsheet/actions/create-user.js';
 import './smartsheet/actions/delete-user.js';
 import './smartsheet/actions/disable-user.js';
 
+// -- Integration: spotify
+import './spotify/syncs/albums.js';
+import './spotify/syncs/artists.js';
+import './spotify/syncs/playlist-tracks.js';
+import './spotify/syncs/playlists.js';
+import './spotify/syncs/recently-played.js';
+import './spotify/syncs/saved-episodes.js';
+import './spotify/syncs/saved-shows.js';
+import './spotify/syncs/saved-tracks.js';
+import './spotify/syncs/top-items.js';
+import './spotify/actions/add-to-queue.js';
+import './spotify/actions/create-playlist-track.js';
+import './spotify/actions/create-playlist.js';
+import './spotify/actions/create-saved-album.js';
+import './spotify/actions/create-saved-track.js';
+import './spotify/actions/delete-playlist-track.js';
+import './spotify/actions/delete-playlist.js';
+import './spotify/actions/delete-saved-album.js';
+import './spotify/actions/delete-saved-show.js';
+import './spotify/actions/delete-saved-track.js';
+import './spotify/actions/follow-artist.js';
+import './spotify/actions/follow-playlist.js';
+import './spotify/actions/get-album.js';
+import './spotify/actions/get-artist.js';
+import './spotify/actions/get-current-playback.js';
+import './spotify/actions/get-current-user.js';
+import './spotify/actions/get-devices.js';
+import './spotify/actions/get-episode.js';
+import './spotify/actions/get-playlist.js';
+import './spotify/actions/get-queue.js';
+import './spotify/actions/get-show.js';
+import './spotify/actions/get-track.js';
+import './spotify/actions/list-albums.js';
+import './spotify/actions/list-artists.js';
+import './spotify/actions/list-playlist-tracks.js';
+import './spotify/actions/list-playlists.js';
+import './spotify/actions/list-saved-shows.js';
+import './spotify/actions/list-saved-tracks.js';
+import './spotify/actions/pause-playback.js';
+import './spotify/actions/reorder-playlist-tracks.js';
+import './spotify/actions/search.js';
+import './spotify/actions/seek-to-position.js';
+import './spotify/actions/set-repeat-mode.js';
+import './spotify/actions/set-volume.js';
+import './spotify/actions/skip-to-next.js';
+import './spotify/actions/skip-to-previous.js';
+import './spotify/actions/start-playback.js';
+import './spotify/actions/toggle-shuffle.js';
+import './spotify/actions/transfer-playback.js';
+import './spotify/actions/unfollow-playlist.js';
+import './spotify/actions/update-playlist.js';
+
 // -- Integration: stripe-app
 import './stripe-app/syncs/subscriptions.js';
 
