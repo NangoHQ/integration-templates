@@ -83,9 +83,9 @@ function serializeCheckpoint(
 
 const sync = createSync({
     description: 'Sync page entries from a Notion data source with properties and timestamps',
-    version: '1.0.0',
+    version: '1.1.0',
     frequency: 'every 5 minutes',
-    autoStart: true,
+    autoStart: false,
     endpoints: [{ path: '/syncs/data-source-entries', method: 'POST' }],
     checkpoint: CheckpointSchema,
     models: {

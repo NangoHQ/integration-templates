@@ -1,0 +1,106 @@
+{
+  "input": {},
+  "output": {
+    "tasks": [],
+    "pagination": {
+      "page": 1,
+      "per_page": 10,
+      "total_entries": 0,
+      "total_pages": 1
+    }
+  },
+  "nango": {},
+  "api": {
+    "get": {
+      "/v1/tasks/search": {
+        "response": {
+          "tasks": [],
+          "breadcrumbs": [],
+          "pagination": {
+            "page": 1,
+            "per_page": 10,
+            "total_entries": 0,
+            "total_pages": 0
+          },
+          "faceting": {
+            "playbook_step_facets": [],
+            "person_function_facets": [],
+            "person_seniority_facets": [],
+            "normalized_person_title_facets": [],
+            "organization_ids_facets": [],
+            "organization_ids_in_query_facets": [],
+            "person_persona_facets": [],
+            "contact_email_status_v2_facets": [],
+            "organization_keywords_facets": [],
+            "linkedin_industry_facets": [],
+            "num_employees_facets": [],
+            "revenues_facets": [],
+            "currently_using_any_of_technology_uids_facets": [],
+            "currently_using_all_of_technology_uids_facets": [],
+            "currently_not_using_any_of_technology_uids_facets": [],
+            "added_technology_uids_facets": [],
+            "dropped_technology_uids_facets": [],
+            "latest_funding_stage_facets": [],
+            "organization_trading_status_facets": [],
+            "person_city_facets": [],
+            "person_state_facets": [],
+            "person_country_facets": [],
+            "organization_hq_city_facets": [],
+            "organization_hq_state_facets": [],
+            "organization_hq_country_facets": [],
+            "organization_intent_scoring_facets": [],
+            "forecast_category_facets": [],
+            "intent_topic_count_facets": [],
+            "task_types": [],
+            "total_facets": [],
+            "linkedin_task": [],
+            "contact_stage_facets": []
+          },
+          "pipeline_total": 0,
+          "num_fetch_result": null
+        },
+        "status": 200,
+        "headers": {
+          "date": "Mon, 18 May 2026 11:18:40 GMT",
+          "content-type": "application/json; charset=utf-8",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "ALLOWALL",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=31536000",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4921",
+          "x-ratelimit-reset": "1779103134",
+          "cache-control": "max-age=0, private, must-revalidate",
+          "content-security-policy": "frame-ancestors 'self' chrome-extension://alhgpfoeiimagjlnfekdhkjlkiomcapa chrome-extension://ececkagaccnfmkopaiemklekhoimmgpn *.salesforce.com *.lightning.force.com; report-uri https://o101058.ingest.us.sentry.io/api/222018/security/?sentry_key=86bb17dd8c2449719dd6b498f3431191&sentry_environment=production&sentry_release=921578f02cadce558872b59befb4057474aa1ff3",
+          "etag": "W/\"fcbbaec284f8da075ae2382b1fad649d\"",
+          "set-cookie": "X-CSRF-TOKEN=LrgpZ1RjHXOywOt_ygS2zpXU9szxz0Eo1nXydp405nIuldgnbA-ldKFsypFoHy3Ueejqh7BPeCvJ2pgOjcmQGg; path=/; secure; SameSite=Lax, _leadgenie_session=QWo%2Fvf0Qgs8G6b%2FXdwK3VRLCUP%2FSBlP7myNO23VksiBni0T7kLjSZpYVcg03rZl26EMunQ4oh9Ym80tsf9ubcdoPZDN746x9XUVmo9styN7m2%2F2UEkV0xtNaKCu3JIQg6HovsBxs%2FpchjSeoRj3cR1DQMDPa60Gh4SaY69naU8plrrntULqTcCcexroF0BFTy%2F2TdgEz0ENc8ll49m2lt551I2zhNKgkhF2iFHkdHqP%2Fl1S8IYmrrWtwJsoRFGsDxfUJPNhsOIqR0pLbX9rQE%2Bk0NpecPzJ5g38%3D--3I355pB78B%2FgPHCq--zVOrGItkn7PV9Bs2xEjYLw%3D%3D; path=/; secure; HttpOnly; SameSite=None, __cf_bm=GY2dPVCW4V8HOpJrnSFRi7L899qYER4Fouc2whHzu.w-1779103119.8805194-1.0.1.1-3w9LE89POS_hlCOt6izr4EKwbowbyd3cLxd2EKSxO03kltzu0glMXMwO0u_D_Tw_l.HksQHmqiK8pVSNc4jrg8Mz8XEvnFhcTkZZ7RiolxDFacNXaX9V1w39aN_7nDVT; HttpOnly; SameSite=None; Secure; Path=/; Domain=apollo.io; Expires=Mon, 18 May 2026 11:48:40 GMT",
+          "vary": "Origin",
+          "x-24-hour-requests-left": "590",
+          "x-24-hour-usage": "10",
+          "x-hourly-requests-left": "190",
+          "x-hourly-usage": "10",
+          "x-minute-requests-left": "49",
+          "x-minute-usage": "1",
+          "x-rate-limit-24-hour": "600",
+          "x-rate-limit-hourly": "200",
+          "x-rate-limit-minute": "50",
+          "x-request-id": "0837fd71-0832-4e62-a7ef-b305954062be",
+          "x-runtime": "0.101383",
+          "x-transaction-id": "88b960cf-5fed-4170-b1f2-022d8bef23e2",
+          "cf-cache-status": "DYNAMIC",
+          "server": "cloudflare",
+          "cf-ray": "9fda76633fa8dd6a-PDX"
+        },
+        "hash": "1058bf4aa49219a00f98bdc93bb02187288866bd",
+        "request": {}
+      }
+    }
+  }
+}
