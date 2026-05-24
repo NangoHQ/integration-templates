@@ -1,0 +1,54 @@
+{
+  "input": {
+    "directoryRoleId": "c35aa61d-9e3d-419e-84a9-24767a8a9988"
+  },
+  "output": {
+    "id": "c35aa61d-9e3d-419e-84a9-24767a8a9988",
+    "description": "Can manage all aspects of Microsoft Entra ID and Microsoft services that use Microsoft Entra identities.",
+    "displayName": "Global Administrator",
+    "roleTemplateId": "62e90394-69f5-4237-9190-012177145e10"
+  },
+  "nango": {},
+  "api": {
+    "get": {
+      "/v1.0/directoryRoles/c35aa61d-9e3d-419e-84a9-24767a8a9988": {
+        "response": {
+          "@odata.context": "https://graph.microsoft.com/v1.0/$metadata#directoryRoles/$entity",
+          "id": "c35aa61d-9e3d-419e-84a9-24767a8a9988",
+          "deletedDateTime": null,
+          "description": "Can manage all aspects of Microsoft Entra ID and Microsoft services that use Microsoft Entra identities.",
+          "displayName": "Global Administrator",
+          "roleTemplateId": "62e90394-69f5-4237-9190-012177145e10"
+        },
+        "status": 200,
+        "headers": {
+          "date": "Mon, 18 May 2026 22:05:50 GMT",
+          "content-type": "application/json;odata.metadata=minimal;odata.streaming=true;IEEE754Compatible=false;charset=utf-8",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=31536000",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4960",
+          "x-ratelimit-reset": "1779141993",
+          "cache-control": "no-cache",
+          "vary": "Accept-Encoding",
+          "request-id": "e7eafcd2-e88c-4219-8aa8-22bd0b4f557d",
+          "client-request-id": "e7eafcd2-e88c-4219-8aa8-22bd0b4f557d",
+          "x-ms-ags-diagnostic": "{\"ServerInfo\":{\"DataCenter\":\"West US 2\",\"Slice\":\"E\",\"Ring\":\"4\",\"ScaleUnit\":\"004\",\"RoleInstance\":\"MW2PEPF0000E05A\"}}",
+          "x-ms-resource-unit": "1",
+          "odata-version": "4.0"
+        },
+        "hash": "e5aceaedba318879da2d0c21ac2bab13f638835f",
+        "request": {}
+      }
+    }
+  }
+}

@@ -1101,6 +1101,45 @@ import './metabase/actions/enable-user.js';
 import './metabase/actions/fetch-user.js';
 import './metabase/actions/update-user.js';
 
+// -- Integration: microsoft
+import './microsoft/syncs/applications.js';
+import './microsoft/syncs/directory-roles.js';
+import './microsoft/syncs/groups.js';
+import './microsoft/syncs/organizations.js';
+import './microsoft/syncs/service-principals.js';
+import './microsoft/syncs/users.js';
+import './microsoft/actions/add-group-member.js';
+import './microsoft/actions/create-application.js';
+import './microsoft/actions/create-group.js';
+import './microsoft/actions/create-service-principal.js';
+import './microsoft/actions/create-user.js';
+import './microsoft/actions/delete-application.js';
+import './microsoft/actions/delete-group.js';
+import './microsoft/actions/delete-service-principal.js';
+import './microsoft/actions/delete-user.js';
+import './microsoft/actions/get-application.js';
+import './microsoft/actions/get-directory-role.js';
+import './microsoft/actions/get-group.js';
+import './microsoft/actions/get-organization.js';
+import './microsoft/actions/get-service-principal.js';
+import './microsoft/actions/get-user.js';
+import './microsoft/actions/list-applications.js';
+import './microsoft/actions/list-devices.js';
+import './microsoft/actions/list-directory-role-members.js';
+import './microsoft/actions/list-directory-roles.js';
+import './microsoft/actions/list-group-members.js';
+import './microsoft/actions/list-groups.js';
+import './microsoft/actions/list-organizations.js';
+import './microsoft/actions/list-service-principals.js';
+import './microsoft/actions/list-user-memberships.js';
+import './microsoft/actions/list-users.js';
+import './microsoft/actions/remove-group-member.js';
+import './microsoft/actions/update-application.js';
+import './microsoft/actions/update-group.js';
+import './microsoft/actions/update-organization.js';
+import './microsoft/actions/update-service-principal.js';
+import './microsoft/actions/update-user.js';
+
 // -- Integration: microsoft-teams
 import './microsoft-teams/syncs/channel-message-replies.js';
 import './microsoft-teams/syncs/channel-messages.js';
