@@ -1,0 +1,748 @@
+{
+  "input": {},
+  "output": {
+    "items": [
+      {
+        "id": "168b7eb7-4139-41c4-a3b9-d9ebd284be7c",
+        "displayName": "All Company",
+        "description": "This is the default group for everyone in the network",
+        "mail": "allcompany@nango.dev",
+        "mailNickname": "allcompany",
+        "groupTypes": [
+          "Unified"
+        ],
+        "securityEnabled": false,
+        "mailEnabled": true,
+        "visibility": "Public",
+        "createdDateTime": "2026-05-14T16:17:39Z",
+        "renewedDateTime": "2026-05-14T16:17:39Z"
+      },
+      {
+        "id": "1c1a49ab-0bcc-4536-8c85-954414c7c85f",
+        "displayName": "Test Team Created by Nango",
+        "description": "A test team for validation",
+        "mail": "TestTeamCreatedbyNango_81d794@nango.dev",
+        "mailNickname": "TestTeamCreatedbyNango_81d794",
+        "groupTypes": [
+          "Unified"
+        ],
+        "securityEnabled": false,
+        "mailEnabled": true,
+        "visibility": "Public",
+        "createdDateTime": "2026-05-14T17:01:48Z",
+        "renewedDateTime": "2026-05-14T17:01:48Z"
+      },
+      {
+        "id": "33eece37-7979-4dde-bcaf-d3ff5c490340",
+        "displayName": "Nango Test Group",
+        "description": "Test group created via Nango dryrun",
+        "mailNickname": "nangotestgroup",
+        "groupTypes": [],
+        "securityEnabled": true,
+        "mailEnabled": false,
+        "createdDateTime": "2026-05-18T22:06:06Z",
+        "renewedDateTime": "2026-05-18T22:06:06Z"
+      },
+      {
+        "id": "3b254736-3eae-4ea8-a2d3-c2af15567230",
+        "displayName": "Test Team Created by Nango",
+        "description": "A test team for validation",
+        "mail": "TestTeamCreatedbyNango_228365@nango.dev",
+        "mailNickname": "TestTeamCreatedbyNango_228365",
+        "groupTypes": [
+          "Unified"
+        ],
+        "securityEnabled": false,
+        "mailEnabled": true,
+        "visibility": "Public",
+        "createdDateTime": "2026-05-14T17:03:46Z",
+        "renewedDateTime": "2026-05-14T17:03:46Z"
+      },
+      {
+        "id": "4036e980-5247-4833-8431-89ad70832765",
+        "displayName": "Test Team Created by Nango",
+        "description": "A test team for validation",
+        "mail": "TestTeamCreatedbyNango_d2d98c@nango.dev",
+        "mailNickname": "TestTeamCreatedbyNango_d2d98c",
+        "groupTypes": [
+          "Unified"
+        ],
+        "securityEnabled": false,
+        "mailEnabled": true,
+        "visibility": "Public",
+        "createdDateTime": "2026-05-14T17:02:37Z",
+        "renewedDateTime": "2026-05-14T17:02:37Z"
+      },
+      {
+        "id": "59709978-aaf4-45d8-baf2-b9816b125911",
+        "displayName": "TestTeam",
+        "description": "This is a demo",
+        "mail": "TestTeam@nango.dev",
+        "mailNickname": "TestTeam",
+        "groupTypes": [
+          "Unified"
+        ],
+        "securityEnabled": false,
+        "mailEnabled": true,
+        "visibility": "Public",
+        "createdDateTime": "2026-05-14T16:22:50Z",
+        "renewedDateTime": "2026-05-14T16:22:50Z"
+      },
+      {
+        "id": "7d29f98c-423a-43c6-a787-7c119d2f305d",
+        "displayName": "Nango Inc",
+        "description": "Nango Inc",
+        "mail": "NangoInc@nango.dev",
+        "mailNickname": "NangoInc",
+        "groupTypes": [
+          "Unified"
+        ],
+        "securityEnabled": false,
+        "mailEnabled": true,
+        "visibility": "Public",
+        "createdDateTime": "2026-05-14T16:16:37Z",
+        "renewedDateTime": "2026-05-14T16:16:37Z"
+      },
+      {
+        "id": "86cf964e-586a-4ff4-824f-4480865bea14",
+        "displayName": "Test Team Created by Nango",
+        "description": "A test team for validation",
+        "mail": "TestTeamCreatedbyNango_fe0c02@nango.dev",
+        "mailNickname": "TestTeamCreatedbyNango_fe0c02",
+        "groupTypes": [
+          "Unified"
+        ],
+        "securityEnabled": false,
+        "mailEnabled": true,
+        "visibility": "Public",
+        "createdDateTime": "2026-05-14T17:00:48Z",
+        "renewedDateTime": "2026-05-14T17:00:48Z"
+      },
+      {
+        "id": "97a9daf6-270f-43bb-96e4-e8980518fd0b",
+        "displayName": "Nango Test Team",
+        "description": "Seeded by seed-test-data",
+        "mail": "NangoTestTeam@nango.dev",
+        "mailNickname": "NangoTestTeam",
+        "groupTypes": [
+          "Unified"
+        ],
+        "securityEnabled": false,
+        "mailEnabled": true,
+        "visibility": "Public",
+        "createdDateTime": "2026-05-14T16:40:53Z",
+        "renewedDateTime": "2026-05-14T16:40:53Z"
+      },
+      {
+        "id": "a434bf52-2623-46e5-8361-e4a47dd0fe25",
+        "displayName": "Test Team Created by Nango",
+        "description": "A test team for validation",
+        "mail": "TestTeamCreatedbyNango@nango.dev",
+        "mailNickname": "TestTeamCreatedbyNango",
+        "groupTypes": [
+          "Unified"
+        ],
+        "securityEnabled": false,
+        "mailEnabled": true,
+        "visibility": "Public",
+        "createdDateTime": "2026-05-14T16:59:40Z",
+        "renewedDateTime": "2026-05-14T16:59:40Z"
+      },
+      {
+        "id": "f91ab752-b76a-4b7a-8860-64cb659a5625",
+        "displayName": "Nango Test Group",
+        "description": "Test group created via Nango dryrun",
+        "mailNickname": "nangotestgroup",
+        "groupTypes": [],
+        "securityEnabled": true,
+        "mailEnabled": false,
+        "createdDateTime": "2026-05-18T22:06:17Z",
+        "renewedDateTime": "2026-05-18T22:06:17Z"
+      }
+    ]
+  },
+  "nango": {},
+  "api": {
+    "get": {
+      "/v1.0/groups": {
+        "response": {
+          "@odata.context": "https://graph.microsoft.com/v1.0/$metadata#groups",
+          "value": [
+            {
+              "id": "168b7eb7-4139-41c4-a3b9-d9ebd284be7c",
+              "deletedDateTime": null,
+              "classification": null,
+              "createdDateTime": "2026-05-14T16:17:39Z",
+              "creationOptions": [
+                "YammerProvisioning"
+              ],
+              "description": "This is the default group for everyone in the network",
+              "displayName": "All Company",
+              "expirationDateTime": null,
+              "groupTypes": [
+                "Unified"
+              ],
+              "infoCatalogs": [],
+              "isAssignableToRole": null,
+              "mail": "allcompany@nango.dev",
+              "mailEnabled": true,
+              "mailNickname": "allcompany",
+              "membershipRule": null,
+              "membershipRuleProcessingState": null,
+              "onPremisesDomainName": null,
+              "onPremisesLastSyncDateTime": null,
+              "onPremisesNetBiosName": null,
+              "onPremisesSamAccountName": null,
+              "onPremisesSecurityIdentifier": null,
+              "onPremisesSyncEnabled": null,
+              "preferredDataLocation": null,
+              "preferredLanguage": null,
+              "proxyAddresses": [
+                "SPO:SPO_a76cd1fc-820e-48d4-852c-a523b8daab8e@SPO_56480ae2-88be-49cf-86f6-d62a45bf8758",
+                "smtp:allcompany@nangodevelopers.onmicrosoft.com",
+                "SMTP:allcompany@nango.dev"
+              ],
+              "renewedDateTime": "2026-05-14T16:17:39Z",
+              "resourceBehaviorOptions": [
+                "CalendarMemberReadOnly"
+              ],
+              "resourceProvisioningOptions": [],
+              "securityEnabled": false,
+              "securityIdentifier": "S-1-12-1-378240695-1103380793-3956914595-2092860626",
+              "theme": null,
+              "uniqueName": null,
+              "visibility": "Public",
+              "onPremisesProvisioningErrors": [],
+              "serviceProvisioningErrors": []
+            },
+            {
+              "id": "1c1a49ab-0bcc-4536-8c85-954414c7c85f",
+              "deletedDateTime": null,
+              "classification": null,
+              "createdDateTime": "2026-05-14T17:01:48Z",
+              "creationOptions": [
+                "Team",
+                "ExchangeProvisioningFlags:3552"
+              ],
+              "description": "A test team for validation",
+              "displayName": "Test Team Created by Nango",
+              "expirationDateTime": null,
+              "groupTypes": [
+                "Unified"
+              ],
+              "infoCatalogs": [],
+              "isAssignableToRole": null,
+              "mail": "TestTeamCreatedbyNango_81d794@nango.dev",
+              "mailEnabled": true,
+              "mailNickname": "TestTeamCreatedbyNango_81d794",
+              "membershipRule": null,
+              "membershipRuleProcessingState": null,
+              "onPremisesDomainName": null,
+              "onPremisesLastSyncDateTime": null,
+              "onPremisesNetBiosName": null,
+              "onPremisesSamAccountName": null,
+              "onPremisesSecurityIdentifier": null,
+              "onPremisesSyncEnabled": null,
+              "preferredDataLocation": null,
+              "preferredLanguage": null,
+              "proxyAddresses": [
+                "smtp:TestTeamCreatedbyNango_81d794@nangodevelopers.onmicrosoft.com",
+                "SPO:SPO_5a0488a1-2035-411d-a51b-a2fc5e88d520@SPO_56480ae2-88be-49cf-86f6-d62a45bf8758",
+                "smtp:TestTeamCreatedbyNango_81d7940f5@nangodevelopers.onmicrosoft.com",
+                "SMTP:TestTeamCreatedbyNango_81d794@nango.dev"
+              ],
+              "renewedDateTime": "2026-05-14T17:01:48Z",
+              "resourceBehaviorOptions": [
+                "HideGroupInOutlook",
+                "SubscribeMembersToCalendarEventsDisabled",
+                "WelcomeEmailDisabled"
+              ],
+              "resourceProvisioningOptions": [
+                "Team"
+              ],
+              "securityEnabled": false,
+              "securityIdentifier": "S-1-12-1-471484843-1161169868-1150649740-1606993684",
+              "theme": null,
+              "uniqueName": null,
+              "visibility": "Public",
+              "onPremisesProvisioningErrors": [],
+              "serviceProvisioningErrors": []
+            },
+            {
+              "id": "33eece37-7979-4dde-bcaf-d3ff5c490340",
+              "deletedDateTime": null,
+              "classification": null,
+              "createdDateTime": "2026-05-18T22:06:06Z",
+              "creationOptions": [],
+              "description": "Test group created via Nango dryrun",
+              "displayName": "Nango Test Group",
+              "expirationDateTime": null,
+              "groupTypes": [],
+              "infoCatalogs": [],
+              "isAssignableToRole": null,
+              "mail": null,
+              "mailEnabled": false,
+              "mailNickname": "nangotestgroup",
+              "membershipRule": null,
+              "membershipRuleProcessingState": null,
+              "onPremisesDomainName": null,
+              "onPremisesLastSyncDateTime": null,
+              "onPremisesNetBiosName": null,
+              "onPremisesSamAccountName": null,
+              "onPremisesSecurityIdentifier": null,
+              "onPremisesSyncEnabled": null,
+              "preferredDataLocation": null,
+              "preferredLanguage": null,
+              "proxyAddresses": [],
+              "renewedDateTime": "2026-05-18T22:06:06Z",
+              "resourceBehaviorOptions": [],
+              "resourceProvisioningOptions": [],
+              "securityEnabled": true,
+              "securityIdentifier": "S-1-12-1-871288375-1306425721-4292063164-1073957212",
+              "theme": null,
+              "uniqueName": null,
+              "visibility": null,
+              "onPremisesProvisioningErrors": [],
+              "serviceProvisioningErrors": []
+            },
+            {
+              "id": "3b254736-3eae-4ea8-a2d3-c2af15567230",
+              "deletedDateTime": null,
+              "classification": null,
+              "createdDateTime": "2026-05-14T17:03:46Z",
+              "creationOptions": [
+                "Team",
+                "ExchangeProvisioningFlags:3552"
+              ],
+              "description": "A test team for validation",
+              "displayName": "Test Team Created by Nango",
+              "expirationDateTime": null,
+              "groupTypes": [
+                "Unified"
+              ],
+              "infoCatalogs": [],
+              "isAssignableToRole": null,
+              "mail": "TestTeamCreatedbyNango_228365@nango.dev",
+              "mailEnabled": true,
+              "mailNickname": "TestTeamCreatedbyNango_228365",
+              "membershipRule": null,
+              "membershipRuleProcessingState": null,
+              "onPremisesDomainName": null,
+              "onPremisesLastSyncDateTime": null,
+              "onPremisesNetBiosName": null,
+              "onPremisesSamAccountName": null,
+              "onPremisesSecurityIdentifier": null,
+              "onPremisesSyncEnabled": null,
+              "preferredDataLocation": null,
+              "preferredLanguage": null,
+              "proxyAddresses": [
+                "smtp:TestTeamCreatedbyNango_228365@nangodevelopers.onmicrosoft.com",
+                "SPO:SPO_76f3bd5f-1795-499d-94b7-458677472bc0@SPO_56480ae2-88be-49cf-86f6-d62a45bf8758",
+                "smtp:TestTeamCreatedbyNango_228365e5b@nangodevelopers.onmicrosoft.com",
+                "SMTP:TestTeamCreatedbyNango_228365@nango.dev"
+              ],
+              "renewedDateTime": "2026-05-14T17:03:46Z",
+              "resourceBehaviorOptions": [
+                "HideGroupInOutlook",
+                "SubscribeMembersToCalendarEventsDisabled",
+                "WelcomeEmailDisabled"
+              ],
+              "resourceProvisioningOptions": [
+                "Team"
+              ],
+              "securityEnabled": false,
+              "securityIdentifier": "S-1-12-1-992298806-1319648942-2948780962-812799509",
+              "theme": null,
+              "uniqueName": null,
+              "visibility": "Public",
+              "onPremisesProvisioningErrors": [],
+              "serviceProvisioningErrors": []
+            },
+            {
+              "id": "4036e980-5247-4833-8431-89ad70832765",
+              "deletedDateTime": null,
+              "classification": null,
+              "createdDateTime": "2026-05-14T17:02:37Z",
+              "creationOptions": [
+                "Team",
+                "ExchangeProvisioningFlags:3552"
+              ],
+              "description": "A test team for validation",
+              "displayName": "Test Team Created by Nango",
+              "expirationDateTime": null,
+              "groupTypes": [
+                "Unified"
+              ],
+              "infoCatalogs": [],
+              "isAssignableToRole": null,
+              "mail": "TestTeamCreatedbyNango_d2d98c@nango.dev",
+              "mailEnabled": true,
+              "mailNickname": "TestTeamCreatedbyNango_d2d98c",
+              "membershipRule": null,
+              "membershipRuleProcessingState": null,
+              "onPremisesDomainName": null,
+              "onPremisesLastSyncDateTime": null,
+              "onPremisesNetBiosName": null,
+              "onPremisesSamAccountName": null,
+              "onPremisesSecurityIdentifier": null,
+              "onPremisesSyncEnabled": null,
+              "preferredDataLocation": null,
+              "preferredLanguage": null,
+              "proxyAddresses": [
+                "smtp:TestTeamCreatedbyNango_d2d98c@nangodevelopers.onmicrosoft.com",
+                "SPO:SPO_b18ec9a7-4578-4044-a78a-2f010525cca8@SPO_56480ae2-88be-49cf-86f6-d62a45bf8758",
+                "smtp:TestTeamCreatedbyNango_d2d98cdf8@nangodevelopers.onmicrosoft.com",
+                "SMTP:TestTeamCreatedbyNango_d2d98c@nango.dev"
+              ],
+              "renewedDateTime": "2026-05-14T17:02:37Z",
+              "resourceBehaviorOptions": [
+                "HideGroupInOutlook",
+                "SubscribeMembersToCalendarEventsDisabled",
+                "WelcomeEmailDisabled"
+              ],
+              "resourceProvisioningOptions": [
+                "Team"
+              ],
+              "securityEnabled": false,
+              "securityIdentifier": "S-1-12-1-1077340544-1211322951-2911449476-1697088368",
+              "theme": null,
+              "uniqueName": null,
+              "visibility": "Public",
+              "onPremisesProvisioningErrors": [],
+              "serviceProvisioningErrors": []
+            },
+            {
+              "id": "59709978-aaf4-45d8-baf2-b9816b125911",
+              "deletedDateTime": null,
+              "classification": null,
+              "createdDateTime": "2026-05-14T16:22:50Z",
+              "creationOptions": [
+                "Team",
+                "ExchangeProvisioningFlags:3552"
+              ],
+              "description": "This is a demo",
+              "displayName": "TestTeam",
+              "expirationDateTime": null,
+              "groupTypes": [
+                "Unified"
+              ],
+              "infoCatalogs": [],
+              "isAssignableToRole": null,
+              "mail": "TestTeam@nango.dev",
+              "mailEnabled": true,
+              "mailNickname": "TestTeam",
+              "membershipRule": null,
+              "membershipRuleProcessingState": null,
+              "onPremisesDomainName": null,
+              "onPremisesLastSyncDateTime": null,
+              "onPremisesNetBiosName": null,
+              "onPremisesSamAccountName": null,
+              "onPremisesSecurityIdentifier": null,
+              "onPremisesSyncEnabled": null,
+              "preferredDataLocation": null,
+              "preferredLanguage": null,
+              "proxyAddresses": [
+                "smtp:TestTeam@nangodevelopers.onmicrosoft.com",
+                "SPO:SPO_c065a473-52e0-4efd-a8fa-4869f5670c79@SPO_56480ae2-88be-49cf-86f6-d62a45bf8758",
+                "smtp:TestTeam9a7@nangodevelopers.onmicrosoft.com",
+                "SMTP:TestTeam@nango.dev"
+              ],
+              "renewedDateTime": "2026-05-14T16:22:50Z",
+              "resourceBehaviorOptions": [
+                "HideGroupInOutlook",
+                "SubscribeMembersToCalendarEventsDisabled",
+                "WelcomeEmailDisabled"
+              ],
+              "resourceProvisioningOptions": [
+                "Team"
+              ],
+              "securityEnabled": false,
+              "securityIdentifier": "S-1-12-1-1500551544-1171827444-2176447162-291050091",
+              "theme": null,
+              "uniqueName": null,
+              "visibility": "Public",
+              "onPremisesProvisioningErrors": [],
+              "serviceProvisioningErrors": []
+            },
+            {
+              "id": "7d29f98c-423a-43c6-a787-7c119d2f305d",
+              "deletedDateTime": null,
+              "classification": null,
+              "createdDateTime": "2026-05-14T16:16:37Z",
+              "creationOptions": [
+                "Team",
+                "ExchangeProvisioningFlags:3552"
+              ],
+              "description": "Nango Inc",
+              "displayName": "Nango Inc",
+              "expirationDateTime": null,
+              "groupTypes": [
+                "Unified"
+              ],
+              "infoCatalogs": [],
+              "isAssignableToRole": null,
+              "mail": "NangoInc@nango.dev",
+              "mailEnabled": true,
+              "mailNickname": "NangoInc",
+              "membershipRule": null,
+              "membershipRuleProcessingState": null,
+              "onPremisesDomainName": null,
+              "onPremisesLastSyncDateTime": null,
+              "onPremisesNetBiosName": null,
+              "onPremisesSamAccountName": null,
+              "onPremisesSecurityIdentifier": null,
+              "onPremisesSyncEnabled": null,
+              "preferredDataLocation": null,
+              "preferredLanguage": null,
+              "proxyAddresses": [
+                "SPO:SPO_aa08a992-cea5-457f-ba7a-2425c6161d84@SPO_56480ae2-88be-49cf-86f6-d62a45bf8758",
+                "smtp:NangoInc@nangodevelopers.onmicrosoft.com",
+                "SMTP:NangoInc@nango.dev"
+              ],
+              "renewedDateTime": "2026-05-14T16:16:37Z",
+              "resourceBehaviorOptions": [
+                "HideGroupInOutlook",
+                "SubscribeMembersToCalendarEventsDisabled",
+                "WelcomeEmailDisabled"
+              ],
+              "resourceProvisioningOptions": [
+                "Team"
+              ],
+              "securityEnabled": false,
+              "securityIdentifier": "S-1-12-1-2099902860-1137066554-293373863-1563439005",
+              "theme": null,
+              "uniqueName": null,
+              "visibility": "Public",
+              "onPremisesProvisioningErrors": [],
+              "serviceProvisioningErrors": []
+            },
+            {
+              "id": "86cf964e-586a-4ff4-824f-4480865bea14",
+              "deletedDateTime": null,
+              "classification": null,
+              "createdDateTime": "2026-05-14T17:00:48Z",
+              "creationOptions": [
+                "Team",
+                "ExchangeProvisioningFlags:3552"
+              ],
+              "description": "A test team for validation",
+              "displayName": "Test Team Created by Nango",
+              "expirationDateTime": null,
+              "groupTypes": [
+                "Unified"
+              ],
+              "infoCatalogs": [],
+              "isAssignableToRole": null,
+              "mail": "TestTeamCreatedbyNango_fe0c02@nango.dev",
+              "mailEnabled": true,
+              "mailNickname": "TestTeamCreatedbyNango_fe0c02",
+              "membershipRule": null,
+              "membershipRuleProcessingState": null,
+              "onPremisesDomainName": null,
+              "onPremisesLastSyncDateTime": null,
+              "onPremisesNetBiosName": null,
+              "onPremisesSamAccountName": null,
+              "onPremisesSecurityIdentifier": null,
+              "onPremisesSyncEnabled": null,
+              "preferredDataLocation": null,
+              "preferredLanguage": null,
+              "proxyAddresses": [
+                "smtp:TestTeamCreatedbyNango_fe0c02@nangodevelopers.onmicrosoft.com",
+                "SPO:SPO_3e223165-9e83-4bed-800a-f93dc01a4a1a@SPO_56480ae2-88be-49cf-86f6-d62a45bf8758",
+                "smtp:TestTeamCreatedbyNango_fe0c0276e@nangodevelopers.onmicrosoft.com",
+                "SMTP:TestTeamCreatedbyNango_fe0c02@nango.dev"
+              ],
+              "renewedDateTime": "2026-05-14T17:00:48Z",
+              "resourceBehaviorOptions": [
+                "HideGroupInOutlook",
+                "SubscribeMembersToCalendarEventsDisabled",
+                "WelcomeEmailDisabled"
+              ],
+              "resourceProvisioningOptions": [
+                "Team"
+              ],
+              "securityEnabled": false,
+              "securityIdentifier": "S-1-12-1-2261751374-1341413482-2151960450-350903174",
+              "theme": null,
+              "uniqueName": null,
+              "visibility": "Public",
+              "onPremisesProvisioningErrors": [],
+              "serviceProvisioningErrors": []
+            },
+            {
+              "id": "97a9daf6-270f-43bb-96e4-e8980518fd0b",
+              "deletedDateTime": null,
+              "classification": null,
+              "createdDateTime": "2026-05-14T16:40:53Z",
+              "creationOptions": [
+                "Team",
+                "ExchangeProvisioningFlags:3552"
+              ],
+              "description": "Seeded by seed-test-data",
+              "displayName": "Nango Test Team",
+              "expirationDateTime": null,
+              "groupTypes": [
+                "Unified"
+              ],
+              "infoCatalogs": [],
+              "isAssignableToRole": null,
+              "mail": "NangoTestTeam@nango.dev",
+              "mailEnabled": true,
+              "mailNickname": "NangoTestTeam",
+              "membershipRule": null,
+              "membershipRuleProcessingState": null,
+              "onPremisesDomainName": null,
+              "onPremisesLastSyncDateTime": null,
+              "onPremisesNetBiosName": null,
+              "onPremisesSamAccountName": null,
+              "onPremisesSecurityIdentifier": null,
+              "onPremisesSyncEnabled": null,
+              "preferredDataLocation": null,
+              "preferredLanguage": null,
+              "proxyAddresses": [
+                "smtp:NangoTestTeam@nangodevelopers.onmicrosoft.com",
+                "SPO:SPO_4c97403e-1663-4673-90fa-d2f8690b4510@SPO_56480ae2-88be-49cf-86f6-d62a45bf8758",
+                "smtp:NangoTestTeamb5a@nangodevelopers.onmicrosoft.com",
+                "SMTP:NangoTestTeam@nango.dev"
+              ],
+              "renewedDateTime": "2026-05-14T16:40:53Z",
+              "resourceBehaviorOptions": [
+                "HideGroupInOutlook",
+                "SubscribeMembersToCalendarEventsDisabled",
+                "WelcomeEmailDisabled"
+              ],
+              "resourceProvisioningOptions": [
+                "Team"
+              ],
+              "securityEnabled": false,
+              "securityIdentifier": "S-1-12-1-2544491254-1136338703-2565399702-201136133",
+              "theme": null,
+              "uniqueName": null,
+              "visibility": "Public",
+              "onPremisesProvisioningErrors": [],
+              "serviceProvisioningErrors": []
+            },
+            {
+              "id": "a434bf52-2623-46e5-8361-e4a47dd0fe25",
+              "deletedDateTime": null,
+              "classification": null,
+              "createdDateTime": "2026-05-14T16:59:40Z",
+              "creationOptions": [
+                "Team",
+                "ExchangeProvisioningFlags:3552"
+              ],
+              "description": "A test team for validation",
+              "displayName": "Test Team Created by Nango",
+              "expirationDateTime": null,
+              "groupTypes": [
+                "Unified"
+              ],
+              "infoCatalogs": [],
+              "isAssignableToRole": null,
+              "mail": "TestTeamCreatedbyNango@nango.dev",
+              "mailEnabled": true,
+              "mailNickname": "TestTeamCreatedbyNango",
+              "membershipRule": null,
+              "membershipRuleProcessingState": null,
+              "onPremisesDomainName": null,
+              "onPremisesLastSyncDateTime": null,
+              "onPremisesNetBiosName": null,
+              "onPremisesSamAccountName": null,
+              "onPremisesSecurityIdentifier": null,
+              "onPremisesSyncEnabled": null,
+              "preferredDataLocation": null,
+              "preferredLanguage": null,
+              "proxyAddresses": [
+                "smtp:TestTeamCreatedbyNango@nangodevelopers.onmicrosoft.com",
+                "SPO:SPO_f13b0765-9658-435c-9c26-b9a9ce295fe3@SPO_56480ae2-88be-49cf-86f6-d62a45bf8758",
+                "smtp:TestTeamCreatedbyNango5d8@nangodevelopers.onmicrosoft.com",
+                "SMTP:TestTeamCreatedbyNango@nango.dev"
+              ],
+              "renewedDateTime": "2026-05-14T16:59:40Z",
+              "resourceBehaviorOptions": [
+                "HideGroupInOutlook",
+                "SubscribeMembersToCalendarEventsDisabled",
+                "WelcomeEmailDisabled"
+              ],
+              "resourceProvisioningOptions": [
+                "Team"
+              ],
+              "securityEnabled": false,
+              "securityIdentifier": "S-1-12-1-2754920274-1189422627-2766430595-637456509",
+              "theme": null,
+              "uniqueName": null,
+              "visibility": "Public",
+              "onPremisesProvisioningErrors": [],
+              "serviceProvisioningErrors": []
+            },
+            {
+              "id": "f91ab752-b76a-4b7a-8860-64cb659a5625",
+              "deletedDateTime": null,
+              "classification": null,
+              "createdDateTime": "2026-05-18T22:06:17Z",
+              "creationOptions": [],
+              "description": "Test group created via Nango dryrun",
+              "displayName": "Nango Test Group",
+              "expirationDateTime": null,
+              "groupTypes": [],
+              "infoCatalogs": [],
+              "isAssignableToRole": null,
+              "mail": null,
+              "mailEnabled": false,
+              "mailNickname": "nangotestgroup",
+              "membershipRule": null,
+              "membershipRuleProcessingState": null,
+              "onPremisesDomainName": null,
+              "onPremisesLastSyncDateTime": null,
+              "onPremisesNetBiosName": null,
+              "onPremisesSamAccountName": null,
+              "onPremisesSecurityIdentifier": null,
+              "onPremisesSyncEnabled": null,
+              "preferredDataLocation": null,
+              "preferredLanguage": null,
+              "proxyAddresses": [],
+              "renewedDateTime": "2026-05-18T22:06:17Z",
+              "resourceBehaviorOptions": [],
+              "resourceProvisioningOptions": [],
+              "securityEnabled": true,
+              "securityIdentifier": "S-1-12-1-4179277650-1266333546-3412353160-626432613",
+              "theme": null,
+              "uniqueName": null,
+              "visibility": null,
+              "onPremisesProvisioningErrors": [],
+              "serviceProvisioningErrors": []
+            }
+          ]
+        },
+        "status": 200,
+        "headers": {
+          "date": "Mon, 18 May 2026 22:07:16 GMT",
+          "content-type": "application/json;odata.metadata=minimal;odata.streaming=true;IEEE754Compatible=false;charset=utf-8",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=31536000",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4835",
+          "x-ratelimit-reset": "1779142053",
+          "cache-control": "no-cache",
+          "vary": "Accept-Encoding",
+          "request-id": "c6b5b849-486b-4254-be6e-8f1d82fbc657",
+          "client-request-id": "c6b5b849-486b-4254-be6e-8f1d82fbc657",
+          "x-ms-ags-diagnostic": "{\"ServerInfo\":{\"DataCenter\":\"West US 2\",\"Slice\":\"E\",\"Ring\":\"4\",\"ScaleUnit\":\"001\",\"RoleInstance\":\"MW2PEPF00014007\"}}",
+          "x-ms-resource-unit": "1",
+          "odata-version": "4.0"
+        },
+        "hash": "8bf042cf9f734229d7a650ffe818b3a1610ec5c0",
+        "request": {}
+      }
+    }
+  }
+}

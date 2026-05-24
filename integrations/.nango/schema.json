@@ -4211,6 +4211,3655 @@
       ],
       "additionalProperties": false
     },
+    "Account": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "accountName": {
+          "type": "string"
+        },
+        "accountNumber": {
+          "type": "string"
+        },
+        "accountType": {
+          "type": "string"
+        },
+        "annualRevenue": {
+          "type": "number"
+        },
+        "billingCity": {
+          "type": "string"
+        },
+        "billingCode": {
+          "type": "string"
+        },
+        "billingCountry": {
+          "type": "string"
+        },
+        "billingState": {
+          "type": "string"
+        },
+        "billingStreet": {
+          "type": "string"
+        },
+        "createdByName": {
+          "type": "string"
+        },
+        "createdById": {
+          "type": "string"
+        },
+        "createdByEmail": {
+          "type": "string"
+        },
+        "createdTime": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        },
+        "employees": {
+          "type": "number"
+        },
+        "fax": {
+          "type": "string"
+        },
+        "industry": {
+          "type": "string"
+        },
+        "modifiedByName": {
+          "type": "string"
+        },
+        "modifiedById": {
+          "type": "string"
+        },
+        "modifiedByEmail": {
+          "type": "string"
+        },
+        "modifiedTime": {
+          "type": "string"
+        },
+        "ownerName": {
+          "type": "string"
+        },
+        "ownerId": {
+          "type": "string"
+        },
+        "ownerEmail": {
+          "type": "string"
+        },
+        "ownership": {
+          "type": "string"
+        },
+        "parentAccountName": {
+          "type": "string"
+        },
+        "parentAccountId": {
+          "type": "string"
+        },
+        "phone": {
+          "type": "string"
+        },
+        "rating": {
+          "type": "string"
+        },
+        "shippingCity": {
+          "type": "string"
+        },
+        "shippingCode": {
+          "type": "string"
+        },
+        "shippingCountry": {
+          "type": "string"
+        },
+        "shippingState": {
+          "type": "string"
+        },
+        "shippingStreet": {
+          "type": "string"
+        },
+        "sicCode": {
+          "type": "string"
+        },
+        "tickerSymbol": {
+          "type": "string"
+        },
+        "website": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "id",
+        "modifiedTime"
+      ],
+      "additionalProperties": false
+    },
+    "Contact": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "first_name": {
+          "type": "string"
+        },
+        "last_name": {
+          "type": "string"
+        },
+        "full_name": {
+          "type": "string"
+        },
+        "email": {
+          "type": "string"
+        },
+        "secondary_email": {
+          "type": "string"
+        },
+        "phone": {
+          "type": "string"
+        },
+        "mobile": {
+          "type": "string"
+        },
+        "home_phone": {
+          "type": "string"
+        },
+        "other_phone": {
+          "type": "string"
+        },
+        "title": {
+          "type": "string"
+        },
+        "department": {
+          "type": "string"
+        },
+        "account_name": {
+          "type": "string"
+        },
+        "account_id": {
+          "type": "string"
+        },
+        "owner_name": {
+          "type": "string"
+        },
+        "owner_id": {
+          "type": "string"
+        },
+        "owner_email": {
+          "type": "string"
+        },
+        "created_time": {
+          "type": "string"
+        },
+        "modified_time": {
+          "type": "string"
+        },
+        "mailing_street": {
+          "type": "string"
+        },
+        "mailing_city": {
+          "type": "string"
+        },
+        "mailing_state": {
+          "type": "string"
+        },
+        "mailing_zip": {
+          "type": "string"
+        },
+        "mailing_country": {
+          "type": "string"
+        },
+        "other_street": {
+          "type": "string"
+        },
+        "other_city": {
+          "type": "string"
+        },
+        "other_state": {
+          "type": "string"
+        },
+        "other_zip": {
+          "type": "string"
+        },
+        "other_country": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        },
+        "twitter": {
+          "type": "string"
+        },
+        "skype_id": {
+          "type": "string"
+        },
+        "date_of_birth": {
+          "type": "string"
+        },
+        "lead_source": {
+          "type": "string"
+        },
+        "email_opt_out": {
+          "type": "boolean"
+        },
+        "fax": {
+          "type": "string"
+        },
+        "assistant": {
+          "type": "string"
+        },
+        "asst_phone": {
+          "type": "string"
+        },
+        "reporting_to_name": {
+          "type": "string"
+        },
+        "reporting_to_id": {
+          "type": "string"
+        },
+        "created_by_name": {
+          "type": "string"
+        },
+        "created_by_id": {
+          "type": "string"
+        },
+        "modified_by_name": {
+          "type": "string"
+        },
+        "modified_by_id": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "id",
+        "created_time",
+        "modified_time"
+      ],
+      "additionalProperties": false
+    },
+    "Opportunity": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "amount": {
+          "type": "number"
+        },
+        "stage": {
+          "type": "string"
+        },
+        "close_date": {
+          "type": "string"
+        },
+        "owner_id": {
+          "type": "string"
+        },
+        "updated_at": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "id",
+        "updated_at"
+      ],
+      "additionalProperties": false
+    },
+    "Organization": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "created_at": {
+          "type": "string"
+        },
+        "updated_at": {
+          "type": "string"
+        },
+        "url": {
+          "type": "string"
+        },
+        "external_id": {
+          "type": "string"
+        },
+        "domain_names": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "group_id": {
+          "type": "number"
+        },
+        "shared_comments": {
+          "type": "boolean"
+        },
+        "shared_tickets": {
+          "type": "boolean"
+        },
+        "tags": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "notes": {
+          "type": "string"
+        },
+        "details": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "id",
+        "name",
+        "created_at",
+        "updated_at",
+        "url"
+      ],
+      "additionalProperties": false
+    },
+    "Sequence": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "active": {
+          "type": "boolean"
+        },
+        "created_at": {
+          "type": "string"
+        },
+        "updated_at": {
+          "type": "string"
+        },
+        "num_steps": {
+          "type": "number"
+        },
+        "unique_scheduled": {
+          "type": "number"
+        },
+        "unique_delivered": {
+          "type": "number"
+        },
+        "unique_opened": {
+          "type": "number"
+        },
+        "unique_replied": {
+          "type": "number"
+        },
+        "unique_bounced": {
+          "type": "number"
+        },
+        "user_id": {
+          "type": "string"
+        },
+        "email_account_id": {
+          "type": "string"
+        },
+        "label_ids": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "folder_id": {
+          "type": "string"
+        },
+        "tags": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "archived": {
+          "type": "boolean"
+        },
+        "scheduling_status": {
+          "type": "string"
+        },
+        "pause_on_out_of_office": {
+          "type": "boolean"
+        },
+        "pause_on_holiday": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "id"
+      ],
+      "additionalProperties": false
+    },
+    "Task": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "subject": {
+          "type": "string"
+        },
+        "status": {
+          "type": "string"
+        },
+        "priority": {
+          "type": "string"
+        },
+        "owner_id": {
+          "type": "string"
+        },
+        "owner_name": {
+          "type": "string"
+        },
+        "created_by_id": {
+          "type": "string"
+        },
+        "modified_by_id": {
+          "type": "string"
+        },
+        "created_time": {
+          "type": "string"
+        },
+        "modified_time": {
+          "type": "string"
+        },
+        "due_date": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        },
+        "related_module": {
+          "type": "string"
+        },
+        "related_record_id": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "id"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_apollo_bulkenrichpeople": {
+      "type": "object",
+      "properties": {
+        "details": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "email": {
+                "type": "string",
+                "description": "Email address to look up."
+              },
+              "first_name": {
+                "type": "string",
+                "description": "First name for name-based lookup."
+              },
+              "last_name": {
+                "type": "string",
+                "description": "Last name for name-based lookup."
+              },
+              "organization_name": {
+                "type": "string",
+                "description": "Organization name for name-based lookup."
+              },
+              "linkedin_url": {
+                "type": "string",
+                "description": "LinkedIn URL to look up."
+              },
+              "domain": {
+                "type": "string",
+                "description": "Organization domain to look up."
+              }
+            },
+            "additionalProperties": false
+          },
+          "description": "Array of person lookup details. Maximum 10 people per request."
+        },
+        "reveal_personal_emails": {
+          "type": "boolean",
+          "description": "Whether to reveal personal email addresses in the response."
+        },
+        "reveal_phone_number": {
+          "type": "boolean",
+          "description": "Whether to reveal phone numbers in the response."
+        }
+      },
+      "required": [
+        "details"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_apollo_bulkenrichpeople": {
+      "type": "object",
+      "properties": {
+        "status": {
+          "type": "string"
+        },
+        "total_requested": {
+          "type": "number"
+        },
+        "unique_enriched": {
+          "type": "number"
+        },
+        "missing_records": {
+          "type": "number"
+        },
+        "credits_consumed": {
+          "type": "number"
+        },
+        "matches": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "first_name": {
+                "type": "string"
+              },
+              "last_name": {
+                "type": "string"
+              },
+              "name": {
+                "type": "string"
+              },
+              "linkedin_url": {
+                "type": "string"
+              },
+              "title": {
+                "type": "string"
+              },
+              "email_status": {
+                "type": "string"
+              },
+              "photo_url": {
+                "type": "string"
+              },
+              "email": {
+                "type": "string"
+              },
+              "organization_id": {
+                "type": "string"
+              },
+              "employment_history": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "string"
+                    },
+                    "created_at": {
+                      "type": "string"
+                    },
+                    "current": {
+                      "type": "boolean"
+                    },
+                    "degree": {
+                      "type": "string"
+                    },
+                    "description": {
+                      "type": "string"
+                    },
+                    "emails": {
+                      "type": "array",
+                      "items": {
+                        "type": "string"
+                      }
+                    },
+                    "end_date": {
+                      "type": "string"
+                    },
+                    "grade_level": {
+                      "type": "string"
+                    },
+                    "kind": {
+                      "type": "string"
+                    },
+                    "major": {
+                      "type": "string"
+                    },
+                    "org_matched_by_name": {
+                      "type": "boolean"
+                    },
+                    "organization_id": {
+                      "type": "string"
+                    },
+                    "organization_name": {
+                      "type": "string"
+                    },
+                    "raw_address": {
+                      "type": "string"
+                    },
+                    "start_date": {
+                      "type": "string"
+                    },
+                    "title": {
+                      "type": "string"
+                    },
+                    "updated_at": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "id"
+                  ],
+                  "additionalProperties": false
+                }
+              }
+            },
+            "required": [
+              "id"
+            ],
+            "additionalProperties": false
+          }
+        }
+      },
+      "required": [
+        "status",
+        "total_requested",
+        "unique_enriched",
+        "missing_records",
+        "credits_consumed",
+        "matches"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_apollo_createaccount": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string",
+          "description": "Account name. Example: \"Acme Corporation\""
+        },
+        "domain": {
+          "type": "string",
+          "description": "Account domain. Example: \"acme.com\""
+        },
+        "phone": {
+          "type": "string",
+          "description": "Account phone number. Example: \"+1-555-123-4567\""
+        },
+        "raw_address": {
+          "type": "string",
+          "description": "Account address. Example: \"123 Main St, San Francisco, CA 94105\""
+        },
+        "industry": {
+          "type": "string",
+          "description": "Account industry. Example: \"Software\""
+        },
+        "number_of_employees": {
+          "type": "number",
+          "description": "Number of employees. Example: 500"
+        },
+        "annual_revenue": {
+          "type": "number",
+          "description": "Annual revenue. Example: 1000000"
+        },
+        "website_url": {
+          "type": "string",
+          "description": "Account website URL. Example: \"https://acme.com\""
+        },
+        "owner_id": {
+          "type": "string",
+          "description": "ID of the user who owns this account. Example: \"6a0af1f0c9f63c0018aed306\""
+        },
+        "account_stage_id": {
+          "type": "string",
+          "description": "ID of the account stage. Example: \"6a0af1f0c9f63c0018aed307\""
+        },
+        "crm_id": {
+          "type": "string",
+          "description": "CRM ID for the account. Example: \"0015000000ABC123\""
+        }
+      },
+      "required": [
+        "name"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_apollo_createaccount": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "domain": {
+          "type": "string"
+        },
+        "phone": {
+          "type": "string"
+        },
+        "raw_address": {
+          "type": "string"
+        },
+        "industry": {
+          "type": "string"
+        },
+        "number_of_employees": {
+          "type": "number"
+        },
+        "annual_revenue": {
+          "type": "number"
+        },
+        "website_url": {
+          "type": "string"
+        },
+        "owner_id": {
+          "type": "string"
+        },
+        "account_stage_id": {
+          "type": "string"
+        },
+        "crm_id": {
+          "type": "string"
+        },
+        "created_at": {
+          "type": "string"
+        },
+        "updated_at": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "id"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_apollo_createcontact": {
+      "type": "object",
+      "properties": {
+        "first_name": {
+          "type": "string"
+        },
+        "last_name": {
+          "type": "string"
+        },
+        "email": {
+          "type": "string"
+        },
+        "title": {
+          "type": "string"
+        },
+        "organization_name": {
+          "type": "string"
+        },
+        "account_id": {
+          "type": "string"
+        },
+        "website_url": {
+          "type": "string"
+        },
+        "label_names": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "contact_stage_id": {
+          "type": "string"
+        },
+        "present_raw_address": {
+          "type": "string"
+        },
+        "direct_phone": {
+          "type": "string"
+        },
+        "corporate_phone": {
+          "type": "string"
+        },
+        "mobile_phone": {
+          "type": "string"
+        },
+        "home_phone": {
+          "type": "string"
+        },
+        "other_phone": {
+          "type": "string"
+        },
+        "typed_custom_fields": {
+          "type": "object",
+          "additionalProperties": {
+            "anyOf": [
+              {},
+              {
+                "not": {}
+              }
+            ]
+          }
+        },
+        "run_dedupe": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "first_name",
+        "last_name",
+        "email"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_apollo_createcontact": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "first_name": {
+          "type": "string"
+        },
+        "last_name": {
+          "type": "string"
+        },
+        "email": {
+          "type": "string"
+        },
+        "title": {
+          "type": "string"
+        },
+        "organization_name": {
+          "type": "string"
+        },
+        "account_id": {
+          "type": "string"
+        },
+        "website_url": {
+          "type": "string"
+        },
+        "label_names": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "contact_stage_id": {
+          "type": "string"
+        },
+        "present_raw_address": {
+          "type": "string"
+        },
+        "direct_phone": {
+          "type": "string"
+        },
+        "corporate_phone": {
+          "type": "string"
+        },
+        "mobile_phone": {
+          "type": "string"
+        },
+        "home_phone": {
+          "type": "string"
+        },
+        "other_phone": {
+          "type": "string"
+        },
+        "typed_custom_fields": {
+          "type": "object",
+          "additionalProperties": {
+            "anyOf": [
+              {},
+              {
+                "not": {}
+              }
+            ]
+          }
+        },
+        "created_at": {
+          "type": "string"
+        },
+        "updated_at": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "id"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_apollo_createopportunity": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string",
+          "description": "Name of the deal (human-readable). Example: Massive Q3 Deal"
+        },
+        "owner_id": {
+          "type": "string",
+          "description": "ID of the deal owner in your Apollo team. Retrieve via Get a List of Users. Example: 66302798d03b9601c7934ebf"
+        },
+        "account_id": {
+          "type": "string",
+          "description": "ID of the target account (company) in Apollo. Find via Organization Search (organization_id). Example: 5e66b6381e05b4008c8331b8"
+        },
+        "amount": {
+          "type": "string",
+          "description": "Monetary value as a string. Do not include commas or currency symbols; commas cause the amount to be left blank. Example: 55123478"
+        },
+        "opportunity_stage_id": {
+          "type": "string",
+          "description": "ID of the deal stage in your Apollo team. Retrieve via List Deal Stages. Example: 6095a710bd01d100a506d4bd"
+        },
+        "closed_date": {
+          "type": "string",
+          "description": "Estimated close date in YYYY-MM-DD format. Example: 2025-10-30"
+        },
+        "typed_custom_fields": {
+          "type": "object",
+          "additionalProperties": {
+            "anyOf": [
+              {},
+              {
+                "not": {}
+              }
+            ]
+          }
+        }
+      },
+      "required": [
+        "name"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_apollo_createopportunity": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "amount": {
+          "type": "number"
+        },
+        "closed_date": {
+          "type": "string"
+        },
+        "account_id": {
+          "type": "string"
+        },
+        "owner_id": {
+          "type": "string"
+        },
+        "opportunity_stage_id": {
+          "type": "string"
+        },
+        "is_closed": {
+          "type": "boolean"
+        },
+        "is_won": {
+          "type": "boolean"
+        },
+        "created_at": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "id",
+        "name"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_apollo_createtask": {
+      "type": "object",
+      "properties": {
+        "user_id": {
+          "type": "string",
+          "description": "The ID of the user who owns the task. Example: \"6a0af1f0c9f63c0018aed306\""
+        },
+        "type": {
+          "type": "string",
+          "enum": [
+            "action_item",
+            "call",
+            "email",
+            "meeting"
+          ],
+          "description": "The type of task. Example: \"action_item\""
+        },
+        "priority": {
+          "type": "string",
+          "enum": [
+            "low",
+            "medium",
+            "high"
+          ],
+          "description": "The priority of the task. Example: \"medium\""
+        },
+        "due_at": {
+          "type": "string",
+          "description": "The due date of the task in ISO 8601 format. Example: \"2026-05-20T12:00:00Z\""
+        },
+        "note": {
+          "type": "string",
+          "description": "The note or description for the task. Example: \"Follow up with prospect\""
+        },
+        "contact_id": {
+          "type": "string",
+          "description": "The ID of the contact this task is for. Example: \"6a0af1f3f1ce1100203b8047\""
+        },
+        "account_id": {
+          "type": "string",
+          "description": "The ID of the account this task is for. Example: \"6a0af1f0c9f63c0018aed306\""
+        },
+        "opportunity_id": {
+          "type": "string",
+          "description": "The ID of the opportunity this task is for. Example: \"6a0af21285c69e000cc28695\""
+        }
+      },
+      "required": [
+        "user_id",
+        "type",
+        "priority",
+        "due_at",
+        "note"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_apollo_createtask": {
+      "type": "object",
+      "properties": {
+        "task": {
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "string"
+            },
+            "user_id": {
+              "type": "string"
+            },
+            "type": {
+              "type": "string"
+            },
+            "priority": {
+              "type": "string"
+            },
+            "due_at": {
+              "type": "string"
+            },
+            "note": {
+              "type": "string"
+            },
+            "contact_id": {
+              "type": "string"
+            },
+            "account_id": {
+              "type": "string"
+            },
+            "opportunity_id": {
+              "type": "string"
+            },
+            "created_at": {
+              "type": "string"
+            },
+            "updated_at": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "id",
+            "user_id",
+            "type",
+            "priority"
+          ],
+          "additionalProperties": false
+        }
+      },
+      "required": [
+        "task"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_apollo_deleteaccount": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "The Apollo ID for the account to archive. Example: \"6a0af20b832cec00105fb3a7\""
+        }
+      },
+      "required": [
+        "id"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_apollo_deleteaccount": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "archived": {
+          "type": "boolean"
+        },
+        "name": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "id",
+        "archived"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_apollo_deletecontact": {
+      "type": "object",
+      "properties": {
+        "contactId": {
+          "type": "string",
+          "description": "Apollo contact ID to delete. Example: \"6a0af20f499fdc0010dfadaf\""
+        }
+      },
+      "required": [
+        "contactId"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_apollo_deletecontact": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "deleted": {
+          "type": "boolean"
+        },
+        "archived": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "id",
+        "deleted"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_apollo_deleteopportunity": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "Apollo opportunity ID. Example: \"6a0af21285c69e000cc28695\""
+        }
+      },
+      "required": [
+        "id"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_apollo_deleteopportunity": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "is_closed": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "id"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_apollo_enrichorganization": {
+      "type": "object",
+      "properties": {
+        "domain": {
+          "type": "string",
+          "description": "The domain of the company to enrich. Example: \"apollo.io\" or \"microsoft.com\". Do not include \"www.\", the \"@\" symbol, or similar."
+        },
+        "id": {
+          "type": "string",
+          "description": "The Apollo ID of the organization to enrich. Example: \"5e66b6381e05b4008c8331b8\""
+        }
+      },
+      "additionalProperties": false
+    },
+    "ActionOutput_apollo_enrichorganization": {
+      "type": "object",
+      "properties": {
+        "organization": {
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "string"
+            },
+            "name": {
+              "type": "string"
+            },
+            "website_url": {
+              "type": "string"
+            },
+            "blog_url": {
+              "type": "string"
+            },
+            "angellist_url": {
+              "type": "string"
+            },
+            "linkedin_url": {
+              "type": "string"
+            },
+            "twitter_url": {
+              "type": "string"
+            },
+            "facebook_url": {
+              "type": "string"
+            },
+            "primary_phone": {},
+            "languages": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "alexa_ranking": {
+              "type": "number"
+            },
+            "phone": {
+              "type": "string"
+            },
+            "linkedin_uid": {
+              "type": "string"
+            },
+            "founded_year": {
+              "type": "number"
+            },
+            "publicly_traded_symbol": {
+              "type": "string"
+            },
+            "publicly_traded_exchange": {
+              "type": "string"
+            },
+            "logo_url": {
+              "type": "string"
+            },
+            "crunchbase_url": {
+              "type": "string"
+            },
+            "primary_domain": {
+              "type": "string"
+            },
+            "industry": {
+              "type": "string"
+            },
+            "keywords": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "estimated_num_employees": {
+              "type": "number"
+            },
+            "industry_tag_id": {
+              "type": "string"
+            },
+            "industry_tag_hash": {
+              "type": "object",
+              "additionalProperties": {
+                "anyOf": [
+                  {},
+                  {
+                    "not": {}
+                  }
+                ]
+              }
+            },
+            "retail_location_count": {
+              "type": "number"
+            },
+            "raw_address": {
+              "type": "string"
+            },
+            "street_address": {
+              "type": "string"
+            },
+            "city": {
+              "type": "string"
+            },
+            "state": {
+              "type": "string"
+            },
+            "country": {
+              "type": "string"
+            },
+            "postal_code": {
+              "type": "string"
+            },
+            "owned_by_organization_id": {
+              "type": "string"
+            },
+            "owned_by_organization": {},
+            "num_organizations_owned": {
+              "type": "number"
+            },
+            "num_subsidiaries": {
+              "type": "number"
+            },
+            "total_funding": {
+              "type": "number"
+            },
+            "total_funding_printed": {
+              "type": "string"
+            },
+            "latest_funding_round_date": {
+              "type": "string"
+            },
+            "latest_funding_stage": {
+              "type": "string"
+            },
+            "funding_events": {
+              "type": "array",
+              "items": {}
+            },
+            "intent_strength": {
+              "type": "number"
+            },
+            "intent_topic": {
+              "type": "string"
+            },
+            "intent_signal_score": {
+              "type": "number"
+            },
+            "intent_score_normalized": {
+              "type": "number"
+            },
+            "intent_score_bucket": {
+              "type": "string"
+            },
+            "intent_surge_from": {
+              "type": "string"
+            },
+            "intent_surge_to": {
+              "type": "string"
+            },
+            "sic_codes": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "naics_codes": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "technology_names": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "technology_categories": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "short_description": {
+              "type": "string"
+            },
+            "seo_description": {
+              "type": "string"
+            },
+            "annual_revenue_printed": {
+              "type": "string"
+            },
+            "annual_revenue": {
+              "type": "number"
+            },
+            "department_head_count": {
+              "type": "object",
+              "additionalProperties": {
+                "type": "number"
+              }
+            }
+          },
+          "required": [
+            "id"
+          ],
+          "additionalProperties": false
+        }
+      },
+      "additionalProperties": false
+    },
+    "ActionInput_apollo_enrichperson": {
+      "type": "object",
+      "properties": {
+        "email": {
+          "type": "string",
+          "description": "The email address of the person. Example: \"alice@nango-test.io\""
+        },
+        "id": {
+          "type": "string",
+          "description": "The Apollo ID for the person. Example: \"587cf802f65125cad923a266\""
+        },
+        "first_name": {
+          "type": "string",
+          "description": "The first name of the person. Example: \"Tim\""
+        },
+        "last_name": {
+          "type": "string",
+          "description": "The last name of the person. Example: \"Zheng\""
+        },
+        "name": {
+          "type": "string",
+          "description": "The full name of the person. Example: \"Tim Zheng\""
+        },
+        "domain": {
+          "type": "string",
+          "description": "The domain name for the person's employer. Example: \"apollo.io\""
+        },
+        "organization_name": {
+          "type": "string",
+          "description": "The name of the person's employer. Example: \"Apollo\""
+        },
+        "linkedin_url": {
+          "type": "string",
+          "description": "The URL for the person's LinkedIn profile. Example: \"http://www.linkedin.com/in/tim-zheng-677ba010\""
+        },
+        "hashed_email": {
+          "type": "string",
+          "description": "The hashed email of the person (MD5 or SHA-256)."
+        },
+        "reveal_personal_emails": {
+          "type": "boolean",
+          "description": "Set to true to reveal personal emails."
+        },
+        "reveal_phone_number": {
+          "type": "boolean",
+          "description": "Set to true to reveal phone numbers."
+        },
+        "webhook_url": {
+          "type": "string",
+          "description": "Webhook URL for phone number delivery (required if reveal_phone_number is true)."
+        },
+        "run_waterfall_email": {
+          "type": "boolean",
+          "description": "Set to true to enable email waterfall enrichment."
+        },
+        "run_waterfall_phone": {
+          "type": "boolean",
+          "description": "Set to true to enable phone waterfall enrichment."
+        }
+      },
+      "additionalProperties": false
+    },
+    "ActionOutput_apollo_enrichperson": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "firstName": {
+          "type": "string"
+        },
+        "lastName": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "email": {
+          "type": "string"
+        },
+        "organizationId": {
+          "type": "string"
+        },
+        "organizationName": {
+          "type": "string"
+        },
+        "organizationWebsiteUrl": {
+          "type": "string"
+        },
+        "title": {
+          "type": "string"
+        },
+        "linkedinUrl": {
+          "type": "string"
+        },
+        "twitterUrl": {
+          "type": "string"
+        },
+        "country": {
+          "type": "string"
+        },
+        "state": {
+          "type": "string"
+        },
+        "city": {
+          "type": "string"
+        },
+        "employmentHistory": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "organizationId": {
+                "type": "string"
+              },
+              "organizationName": {
+                "type": "string"
+              },
+              "organizationWebsiteUrl": {
+                "type": "string"
+              },
+              "title": {
+                "type": "string"
+              },
+              "startDate": {
+                "type": "string"
+              },
+              "endDate": {
+                "type": "string"
+              },
+              "current": {
+                "type": "boolean"
+              }
+            },
+            "additionalProperties": false
+          }
+        },
+        "emailStatus": {
+          "type": "string"
+        },
+        "emailTrueStatus": {
+          "type": "string"
+        },
+        "emails": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "email": {
+                "type": "string"
+              },
+              "type": {
+                "type": "string"
+              },
+              "status": {
+                "type": "string"
+              }
+            },
+            "additionalProperties": false
+          }
+        },
+        "phoneNumbers": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "number": {
+                "type": "string"
+              },
+              "type": {
+                "type": "string"
+              },
+              "status": {
+                "type": "string"
+              }
+            },
+            "additionalProperties": false
+          }
+        },
+        "isLikelyToRespond": {
+          "type": "boolean"
+        },
+        "departments": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "subdepartments": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "functions": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "seniority": {
+          "type": "string"
+        },
+        "photoUrl": {
+          "type": "string"
+        },
+        "tenureInMonths": {
+          "type": "number"
+        }
+      },
+      "additionalProperties": false
+    },
+    "ActionInput_apollo_getaccount": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "The Apollo ID for the account. Example: \"6a0af1f0c9f63c0018aed306\""
+        }
+      },
+      "required": [
+        "id"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_apollo_getaccount": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "domain": {
+          "type": "string"
+        },
+        "phone": {
+          "type": "string"
+        },
+        "raw_address": {
+          "type": "string"
+        },
+        "owner_id": {
+          "type": "string"
+        },
+        "account_stage_id": {
+          "type": "string"
+        },
+        "created_at": {
+          "type": "string"
+        },
+        "updated_at": {
+          "type": "string"
+        },
+        "typed_custom_fields": {
+          "type": "object",
+          "additionalProperties": {
+            "anyOf": [
+              {},
+              {
+                "not": {}
+              }
+            ]
+          }
+        },
+        "organization": {
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "string"
+            },
+            "name": {
+              "type": "string"
+            },
+            "domain": {
+              "type": "string"
+            }
+          },
+          "additionalProperties": false
+        }
+      },
+      "required": [
+        "id"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_apollo_getcontact": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "The ID of the contact to retrieve. Example: \"6a0af1f3f1ce1100203b8047\""
+        }
+      },
+      "required": [
+        "id"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_apollo_getcontact": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "first_name": {
+          "type": "string"
+        },
+        "last_name": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "email": {
+          "type": "string"
+        },
+        "title": {
+          "type": "string"
+        },
+        "organization_name": {
+          "type": "string"
+        },
+        "organization_id": {
+          "type": "string"
+        },
+        "account_id": {
+          "type": "string"
+        },
+        "linkedin_url": {
+          "type": "string"
+        },
+        "contact_stage_id": {
+          "type": "string"
+        },
+        "owner_id": {
+          "type": "string"
+        },
+        "creator_id": {
+          "type": "string"
+        },
+        "source": {
+          "type": "string"
+        },
+        "original_source": {
+          "type": "string"
+        },
+        "headline": {
+          "type": "string"
+        },
+        "photo_url": {
+          "type": "string"
+        },
+        "present_raw_address": {
+          "type": "string"
+        },
+        "created_at": {
+          "type": "string"
+        },
+        "updated_at": {
+          "type": "string"
+        },
+        "email_status": {
+          "type": "string"
+        },
+        "sanitized_phone": {
+          "type": "string"
+        },
+        "existence_level": {
+          "type": "string"
+        },
+        "twitter_url": {
+          "type": "string"
+        },
+        "label_ids": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "contact_roles": {
+          "type": "array",
+          "items": {}
+        },
+        "emailer_campaign_ids": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "typed_custom_fields": {
+          "type": "object",
+          "additionalProperties": {
+            "anyOf": [
+              {},
+              {
+                "not": {}
+              }
+            ]
+          }
+        }
+      },
+      "required": [
+        "id"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_apollo_getopportunity": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "The ID of the opportunity to retrieve. Example: \"6a0af21285c69e000cc28695\""
+        }
+      },
+      "required": [
+        "id"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_apollo_getopportunity": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "team_id": {
+          "type": "string"
+        },
+        "owner_id": {
+          "type": "string"
+        },
+        "salesforce_owner_id": {
+          "type": "string"
+        },
+        "amount": {
+          "type": "number"
+        },
+        "closed_date": {
+          "type": "string"
+        },
+        "account_id": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        },
+        "is_closed": {
+          "type": "boolean"
+        },
+        "is_won": {
+          "type": "boolean"
+        },
+        "name": {
+          "type": "string"
+        },
+        "stage_name": {
+          "type": "string"
+        },
+        "opportunity_stage_id": {
+          "type": "string"
+        },
+        "source": {
+          "type": "string"
+        },
+        "salesforce_id": {
+          "type": "string"
+        },
+        "created_at": {
+          "type": "string"
+        },
+        "actual_close_date": {
+          "type": "string"
+        },
+        "next_step": {
+          "type": "string"
+        },
+        "next_step_date": {
+          "type": "string"
+        },
+        "closed_lost_reason": {
+          "type": "string"
+        },
+        "closed_won_reason": {
+          "type": "string"
+        },
+        "forecast_category": {
+          "type": "string"
+        },
+        "deal_probability": {
+          "type": "number"
+        },
+        "created_by_id": {
+          "type": "string"
+        },
+        "current_solutions": {
+          "type": "string"
+        },
+        "deal_source": {
+          "type": "string"
+        },
+        "manually_updated_probability": {
+          "type": "string"
+        },
+        "manually_updated_forecast": {
+          "type": "string"
+        },
+        "crm_id": {
+          "type": "string"
+        },
+        "crm_record_url": {
+          "type": "string"
+        },
+        "crm_owner_id": {
+          "type": "string"
+        },
+        "probability": {
+          "type": "string"
+        },
+        "opportunity_pipeline_id": {
+          "type": "string"
+        },
+        "stage_updated_at": {
+          "type": "string"
+        },
+        "next_step_last_updated_at": {
+          "type": "string"
+        },
+        "exchange_rate_code": {
+          "type": "string"
+        },
+        "exchange_rate_value": {
+          "type": "number"
+        },
+        "amount_in_team_currency": {
+          "type": "number"
+        },
+        "forecasted_revenue": {
+          "type": "number"
+        },
+        "last_activity_date": {
+          "type": "string"
+        },
+        "existence_level": {
+          "type": "string"
+        },
+        "typed_custom_fields": {
+          "type": "object",
+          "additionalProperties": {
+            "anyOf": [
+              {},
+              {
+                "not": {}
+              }
+            ]
+          }
+        },
+        "opportunity_rule_config_statuses": {
+          "type": "array",
+          "items": {}
+        },
+        "opportunity_contact_roles": {
+          "type": "array",
+          "items": {}
+        },
+        "currency": {
+          "type": "object",
+          "properties": {
+            "name": {
+              "type": "string"
+            },
+            "iso_code": {
+              "type": "string"
+            },
+            "symbol": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "name",
+            "iso_code",
+            "symbol"
+          ],
+          "additionalProperties": false
+        },
+        "num_contacts": {
+          "type": "number"
+        },
+        "account": {
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "string"
+            },
+            "name": {
+              "type": "string"
+            },
+            "domain": {
+              "type": "string"
+            },
+            "team_id": {
+              "type": "string"
+            },
+            "organization_id": {
+              "type": "string"
+            },
+            "account_stage_id": {
+              "type": "string"
+            },
+            "source": {
+              "type": "string"
+            },
+            "original_source": {
+              "type": "string"
+            },
+            "creator_id": {
+              "type": "string"
+            },
+            "owner_id": {
+              "type": "string"
+            },
+            "created_at": {
+              "type": "string"
+            },
+            "phone": {
+              "type": "string"
+            },
+            "phone_status": {
+              "type": "string"
+            },
+            "hubspot_id": {
+              "type": "string"
+            },
+            "salesforce_id": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "id",
+            "name",
+            "team_id"
+          ],
+          "additionalProperties": false
+        }
+      },
+      "required": [
+        "id",
+        "team_id",
+        "name"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_apollo_listaccounts": {
+      "type": "object",
+      "properties": {
+        "cursor": {
+          "type": "string",
+          "description": "Pagination cursor from the previous response. Pass the value of `next_cursor` from the previous response to fetch the next page. Omit for the first page."
+        },
+        "q_organization_name": {
+          "type": "string",
+          "description": "Keywords to narrow the search of accounts. Keywords should directly match at least part of an account name. Example: \"apollo\""
+        },
+        "account_stage_ids": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "Apollo IDs for account stages to include in search results. Call List Account Stages endpoint to retrieve available IDs."
+        },
+        "account_label_ids": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "Apollo IDs for labels to include in search results."
+        },
+        "sort_by_field": {
+          "type": "string",
+          "enum": [
+            "account_last_activity_date",
+            "account_created_at",
+            "account_updated_at"
+          ],
+          "description": "Sort matching accounts by the specified field."
+        },
+        "sort_ascending": {
+          "type": "boolean",
+          "description": "Set to true to sort in ascending order. Must be used with sort_by_field. Defaults to false (descending)."
+        },
+        "per_page": {
+          "type": "number",
+          "description": "Number of results per page. Max 100. Defaults to 100."
+        }
+      },
+      "additionalProperties": false
+    },
+    "ActionOutput_apollo_listaccounts": {
+      "type": "object",
+      "properties": {
+        "accounts": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "name": {
+                "type": "string",
+                "description": "Name of the account/company."
+              },
+              "domain": {
+                "type": "string",
+                "description": "Primary domain of the account."
+              },
+              "organization_id": {
+                "type": "string",
+                "description": "Apollo organization ID."
+              },
+              "account_stage_id": {
+                "type": "string",
+                "description": "ID of the account stage."
+              },
+              "owner_id": {
+                "type": "string",
+                "description": "ID of the user who owns this account."
+              },
+              "created_at": {
+                "type": "string",
+                "description": "ISO 8601 timestamp when the account was created."
+              },
+              "updated_at": {
+                "type": "string",
+                "description": "ISO 8601 timestamp when the account was last updated."
+              },
+              "last_activity_at": {
+                "type": "string",
+                "description": "ISO 8601 timestamp of the most recent activity."
+              },
+              "phone": {
+                "type": "string",
+                "description": "Phone number associated with the account."
+              },
+              "address": {
+                "type": "string",
+                "description": "Physical address of the account."
+              },
+              "city": {
+                "type": "string",
+                "description": "City of the account."
+              },
+              "state": {
+                "type": "string",
+                "description": "State of the account."
+              },
+              "country": {
+                "type": "string",
+                "description": "Country of the account."
+              },
+              "postal_code": {
+                "type": "string",
+                "description": "Postal code of the account."
+              },
+              "industry": {
+                "type": "string",
+                "description": "Industry of the account."
+              },
+              "employees": {
+                "type": "number",
+                "description": "Number of employees at the account."
+              },
+              "annual_revenue": {
+                "type": "number",
+                "description": "Annual revenue of the account."
+              },
+              "description": {
+                "type": "string",
+                "description": "Description of the account."
+              },
+              "website": {
+                "type": "string",
+                "description": "Website URL of the account."
+              },
+              "linkedin_url": {
+                "type": "string",
+                "description": "LinkedIn URL of the account."
+              },
+              "twitter_url": {
+                "type": "string",
+                "description": "Twitter URL of the account."
+              },
+              "facebook_url": {
+                "type": "string",
+                "description": "Facebook URL of the account."
+              },
+              "labels": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "string"
+                    },
+                    "name": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "id",
+                    "name"
+                  ],
+                  "additionalProperties": false
+                },
+                "description": "Labels attached to the account."
+              }
+            },
+            "required": [
+              "id",
+              "name"
+            ],
+            "additionalProperties": false
+          },
+          "description": "List of accounts matching the search criteria."
+        },
+        "pagination": {
+          "type": "object",
+          "properties": {
+            "page": {
+              "type": "number"
+            },
+            "per_page": {
+              "type": "number",
+              "description": "Number of results per page."
+            },
+            "total_entries": {
+              "type": "number",
+              "description": "Total number of accounts matching the query."
+            },
+            "total_pages": {
+              "type": "number",
+              "description": "Total number of pages available."
+            }
+          },
+          "required": [
+            "page",
+            "per_page",
+            "total_entries",
+            "total_pages"
+          ],
+          "additionalProperties": false,
+          "description": "Pagination information for the results."
+        },
+        "next_cursor": {
+          "type": "string",
+          "description": "Cursor to fetch the next page of results. Null if there are no more pages."
+        }
+      },
+      "required": [
+        "accounts",
+        "pagination"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_apollo_listcontacts": {
+      "type": "object",
+      "properties": {
+        "cursor": {
+          "type": "string",
+          "description": "Pagination cursor from the previous response. Omit for the first page."
+        },
+        "q_keywords": {
+          "type": "string",
+          "description": "Keywords to narrow the search. Can include names, job titles, employers, and email addresses."
+        },
+        "contact_stage_ids": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "Contact stage IDs to filter by."
+        },
+        "contact_label_ids": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "Contact label IDs to filter by."
+        },
+        "sort_by_field": {
+          "type": "string",
+          "enum": [
+            "contact_last_activity_date",
+            "contact_email_last_opened_at",
+            "contact_email_last_clicked_at",
+            "contact_created_at",
+            "contact_updated_at"
+          ],
+          "description": "Field to sort results by."
+        },
+        "sort_ascending": {
+          "type": "boolean",
+          "description": "Sort in ascending order. Requires sort_by_field."
+        },
+        "per_page": {
+          "type": "number",
+          "description": "Number of results per page (1-100)."
+        },
+        "page": {
+          "type": "number",
+          "description": "Page number to retrieve."
+        }
+      },
+      "additionalProperties": false
+    },
+    "ActionOutput_apollo_listcontacts": {
+      "type": "object",
+      "properties": {
+        "contacts": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "first_name": {
+                "type": "string"
+              },
+              "last_name": {
+                "type": "string"
+              },
+              "name": {
+                "type": "string"
+              },
+              "email": {
+                "type": "string"
+              },
+              "organization_name": {
+                "type": "string"
+              },
+              "title": {
+                "type": "string"
+              },
+              "phone": {
+                "type": "string"
+              },
+              "created_at": {
+                "type": "string"
+              },
+              "updated_at": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "id"
+            ],
+            "additionalProperties": false
+          }
+        },
+        "pagination": {
+          "type": "object",
+          "properties": {
+            "page": {
+              "type": "number"
+            },
+            "per_page": {
+              "type": "number"
+            },
+            "total_entries": {
+              "type": "number"
+            },
+            "total_pages": {
+              "type": "number"
+            },
+            "next_cursor": {
+              "type": "string",
+              "description": "Cursor for the next page. Omit if on the last page."
+            }
+          },
+          "required": [
+            "page",
+            "per_page",
+            "total_entries",
+            "total_pages"
+          ],
+          "additionalProperties": false
+        }
+      },
+      "required": [
+        "contacts",
+        "pagination"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_apollo_listopportunities": {
+      "type": "object",
+      "properties": {
+        "page": {
+          "type": "number",
+          "description": "Page number to retrieve. Defaults to 1."
+        },
+        "per_page": {
+          "type": "number",
+          "description": "Number of results per page. Defaults to 25."
+        },
+        "sort_by_field": {
+          "type": "string",
+          "enum": [
+            "amount",
+            "is_closed",
+            "is_won"
+          ],
+          "description": "Sort deals by amount (largest first), is_closed (closed deals first), or is_won (won deals first)."
+        }
+      },
+      "additionalProperties": false
+    },
+    "ActionOutput_apollo_listopportunities": {
+      "type": "object",
+      "properties": {
+        "opportunities": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "name": {
+                "type": "string"
+              },
+              "amount": {
+                "type": "number"
+              },
+              "closed_date": {
+                "type": "string"
+              },
+              "is_closed": {
+                "type": "boolean"
+              },
+              "is_won": {
+                "type": "boolean"
+              },
+              "stage_name": {
+                "type": "string"
+              },
+              "account_id": {
+                "type": "string"
+              },
+              "owner_id": {
+                "type": "string"
+              },
+              "description": {
+                "type": "string"
+              },
+              "created_at": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "id"
+            ],
+            "additionalProperties": false
+          }
+        },
+        "pagination": {
+          "type": "object",
+          "properties": {
+            "page": {
+              "type": "number"
+            },
+            "per_page": {
+              "type": "number"
+            },
+            "total_entries": {
+              "type": "number"
+            },
+            "total_pages": {
+              "type": "number"
+            }
+          },
+          "required": [
+            "page",
+            "per_page",
+            "total_entries",
+            "total_pages"
+          ],
+          "additionalProperties": false
+        }
+      },
+      "required": [
+        "opportunities",
+        "pagination"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_apollo_listsequences": {
+      "type": "object",
+      "properties": {
+        "cursor": {
+          "type": "string",
+          "description": "Pagination cursor from the previous response. Omit for the first page."
+        }
+      },
+      "additionalProperties": false
+    },
+    "ActionOutput_apollo_listsequences": {
+      "type": "object",
+      "properties": {
+        "sequences": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "name": {
+                "type": "string"
+              },
+              "status": {
+                "type": "string"
+              },
+              "created_at": {
+                "type": "string"
+              },
+              "updated_at": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "id"
+            ],
+            "additionalProperties": false
+          }
+        },
+        "next_cursor": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "sequences"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_apollo_listtasks": {
+      "type": "object",
+      "properties": {
+        "page": {
+          "type": "number",
+          "description": "Page number to retrieve. Default is 1."
+        },
+        "per_page": {
+          "type": "number",
+          "description": "Number of results per page. Default is 25."
+        }
+      },
+      "additionalProperties": false
+    },
+    "ActionOutput_apollo_listtasks": {
+      "type": "object",
+      "properties": {
+        "tasks": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "type": {
+                "type": "string"
+              },
+              "title": {
+                "type": "string"
+              },
+              "note": {
+                "type": "string"
+              },
+              "due_date": {
+                "type": "string"
+              },
+              "priority": {
+                "type": "string"
+              },
+              "status": {
+                "type": "string"
+              },
+              "contact_id": {
+                "type": "string"
+              },
+              "account_id": {
+                "type": "string"
+              },
+              "opportunity_id": {
+                "type": "string"
+              },
+              "owner_id": {
+                "type": "string"
+              },
+              "created_at": {
+                "type": "string"
+              },
+              "updated_at": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "id"
+            ],
+            "additionalProperties": false
+          }
+        },
+        "pagination": {
+          "type": "object",
+          "properties": {
+            "page": {
+              "type": "number"
+            },
+            "per_page": {
+              "type": "number"
+            },
+            "total_entries": {
+              "type": "number"
+            },
+            "total_pages": {
+              "type": "number"
+            }
+          },
+          "required": [
+            "page",
+            "per_page",
+            "total_entries",
+            "total_pages"
+          ],
+          "additionalProperties": false
+        }
+      },
+      "required": [
+        "tasks",
+        "pagination"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_apollo_listusers": {
+      "type": "object",
+      "properties": {
+        "page": {
+          "type": "number",
+          "description": "Page number for pagination. Defaults to 1."
+        }
+      },
+      "additionalProperties": false
+    },
+    "ActionOutput_apollo_listusers": {
+      "type": "object",
+      "properties": {
+        "users": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "email": {
+                "type": "string"
+              },
+              "firstName": {
+                "type": "string"
+              },
+              "lastName": {
+                "type": "string"
+              },
+              "name": {
+                "type": "string"
+              },
+              "phone": {
+                "type": "string"
+              },
+              "teamId": {
+                "type": "string"
+              },
+              "createdAt": {
+                "type": "string"
+              },
+              "updatedAt": {
+                "type": "string"
+              },
+              "userType": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "id"
+            ],
+            "additionalProperties": false
+          }
+        },
+        "nextPage": {
+          "type": "number"
+        },
+        "totalPages": {
+          "type": "number"
+        },
+        "totalEntries": {
+          "type": "number"
+        }
+      },
+      "required": [
+        "users"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_apollo_removecontactfromsequence": {
+      "type": "object",
+      "properties": {
+        "emailer_campaign_id": {
+          "type": "string",
+          "description": "Apollo sequence (emailer campaign) ID. Example: \"66e9e215ece19801b219997f\""
+        },
+        "contact_ids": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "Apollo contact IDs to remove or stop from the sequence. Example: [\"66e34b81740c50074e3d1bd4\"]"
+        },
+        "action": {
+          "type": "string",
+          "enum": [
+            "remove",
+            "stop"
+          ],
+          "description": "Action to perform on the contacts in the sequence. Defaults to remove."
+        }
+      },
+      "required": [
+        "emailer_campaign_id",
+        "contact_ids"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_apollo_removecontactfromsequence": {
+      "type": "object",
+      "properties": {
+        "contacts": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "name": {
+                "type": "string"
+              },
+              "email": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "id"
+            ],
+            "additionalProperties": false
+          }
+        },
+        "emailer_campaigns": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "name": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "id"
+            ],
+            "additionalProperties": false
+          }
+        }
+      },
+      "required": [
+        "contacts",
+        "emailer_campaigns"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_apollo_searchorganizations": {
+      "type": "object",
+      "properties": {
+        "q_organization_domains_list": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "Domain names for the organization (e.g., \"apollo.io\", \"microsoft.com\"). Up to 1,000 domains."
+        },
+        "organization_num_employees_ranges": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "Employee count ranges (e.g., \"1,10\", \"250,500\")."
+        },
+        "organization_locations": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "HQ locations to include (e.g., \"texas\", \"tokyo\", \"spain\")."
+        },
+        "organization_not_locations": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "HQ locations to exclude."
+        },
+        "q_organization_keyword_tags": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "Keyword tags to filter by (e.g., \"mining\", \"consulting\")."
+        },
+        "q_organization_name": {
+          "type": "string",
+          "description": "Organization name to search for. Partial matches accepted."
+        },
+        "organization_ids": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "Specific Apollo organization IDs to include."
+        },
+        "currently_using_any_of_technology_uids": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "Technologies the organization uses (e.g., \"salesforce\", \"google_analytics\")."
+        },
+        "revenue_range_min": {
+          "type": "number",
+          "description": "Minimum revenue filter (no currency symbols, commas, or decimals)."
+        },
+        "revenue_range_max": {
+          "type": "number",
+          "description": "Maximum revenue filter."
+        },
+        "latest_funding_amount_range_min": {
+          "type": "number",
+          "description": "Minimum latest funding amount."
+        },
+        "latest_funding_amount_range_max": {
+          "type": "number",
+          "description": "Maximum latest funding amount."
+        },
+        "total_funding_range_min": {
+          "type": "number",
+          "description": "Minimum total funding amount."
+        },
+        "total_funding_range_max": {
+          "type": "number",
+          "description": "Maximum total funding amount."
+        },
+        "latest_funding_date_range_min": {
+          "type": "string",
+          "description": "Minimum latest funding date (YYYY-MM-DD)."
+        },
+        "latest_funding_date_range_max": {
+          "type": "string",
+          "description": "Maximum latest funding date (YYYY-MM-DD)."
+        },
+        "q_organization_job_titles": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "Job titles in active job postings."
+        },
+        "organization_job_locations": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "Locations of jobs being recruited."
+        },
+        "organization_num_jobs_range_min": {
+          "type": "number",
+          "description": "Minimum number of active job postings."
+        },
+        "organization_num_jobs_range_max": {
+          "type": "number",
+          "description": "Maximum number of active job postings."
+        },
+        "organization_job_posted_at_range_min": {
+          "type": "string",
+          "description": "Earliest job posted date (YYYY-MM-DD)."
+        },
+        "organization_job_posted_at_range_max": {
+          "type": "string",
+          "description": "Latest job posted date (YYYY-MM-DD)."
+        },
+        "page": {
+          "type": "number",
+          "description": "Page number for pagination. Default: 1."
+        },
+        "per_page": {
+          "type": "number",
+          "description": "Results per page (max 100). Default: 25."
+        }
+      },
+      "additionalProperties": false
+    },
+    "ActionOutput_apollo_searchorganizations": {
+      "type": "object",
+      "properties": {
+        "organizations": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "name": {
+                "type": "string"
+              },
+              "domain": {
+                "type": "string"
+              },
+              "website_url": {
+                "type": "string"
+              },
+              "city": {
+                "type": "string"
+              },
+              "state": {
+                "type": "string"
+              },
+              "country": {
+                "type": "string"
+              },
+              "location": {
+                "type": "string"
+              },
+              "num_employees": {
+                "type": "number"
+              },
+              "description": {
+                "type": "string"
+              },
+              "phone": {
+                "type": "string"
+              },
+              "industry": {
+                "type": "string"
+              },
+              "founded_year": {
+                "type": "number"
+              },
+              "revenue": {
+                "type": "number"
+              },
+              "revenue_range": {
+                "type": "string"
+              },
+              "total_funding": {
+                "type": "number"
+              },
+              "latest_funding_amount": {
+                "type": "number"
+              },
+              "latest_funding_date": {
+                "type": "string"
+              },
+              "funding_currency": {
+                "type": "string"
+              },
+              "currency": {
+                "type": "string"
+              },
+              "alexa_ranking": {
+                "type": "number"
+              },
+              "publicly_traded": {
+                "type": "boolean"
+              },
+              "ticker": {
+                "type": "string"
+              },
+              "linkedin_url": {
+                "type": "string"
+              },
+              "facebook_url": {
+                "type": "string"
+              },
+              "twitter_url": {
+                "type": "string"
+              },
+              "technologies": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "num_jobs": {
+                "type": "number"
+              },
+              "account_id": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "id"
+            ],
+            "additionalProperties": false
+          }
+        },
+        "pagination": {
+          "type": "object",
+          "properties": {
+            "page": {
+              "type": "number"
+            },
+            "per_page": {
+              "type": "number"
+            },
+            "total_entries": {
+              "type": "number"
+            },
+            "total_pages": {
+              "type": "number"
+            }
+          },
+          "required": [
+            "page",
+            "per_page",
+            "total_entries",
+            "total_pages"
+          ],
+          "additionalProperties": false
+        }
+      },
+      "required": [
+        "organizations"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_apollo_searchpeople": {
+      "type": "object",
+      "properties": {
+        "person_titles": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "Job titles to search for. Example: [\"sales director\", \"vp sales\"]"
+        },
+        "person_seniorities": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "Seniority levels to filter by. Example: [\"c_suite\", \"director\", \"manager\"]"
+        },
+        "q_organization_domains_list": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "Organization domains to filter by. Example: [\"apollo.io\", \"nango.dev\"]"
+        },
+        "person_locations": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "Person locations to filter by. Example: [\"California, US\", \"New York, US\"]"
+        },
+        "organization_locations": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "Organization headquarters locations. Example: [\"California, US\"]"
+        },
+        "per_page": {
+          "type": "number",
+          "description": "Number of results per page (1-100). Default: 25"
+        },
+        "page": {
+          "type": "number",
+          "description": "Page number for pagination. Default: 1"
+        }
+      },
+      "additionalProperties": false
+    },
+    "ActionOutput_apollo_searchpeople": {
+      "type": "object",
+      "properties": {
+        "people": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "first_name": {
+                "type": "string"
+              },
+              "last_name": {
+                "type": "string"
+              },
+              "name": {
+                "type": "string"
+              },
+              "title": {
+                "type": "string"
+              },
+              "email": {
+                "type": "string"
+              },
+              "organization_name": {
+                "type": "string"
+              },
+              "organization_domain": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "id"
+            ],
+            "additionalProperties": false
+          }
+        },
+        "pagination": {
+          "type": "object",
+          "properties": {
+            "page": {
+              "type": "number"
+            },
+            "per_page": {
+              "type": "number"
+            },
+            "total_entries": {
+              "type": "number"
+            },
+            "total_pages": {
+              "type": "number"
+            },
+            "next_page": {
+              "type": "number"
+            }
+          },
+          "additionalProperties": false
+        }
+      },
+      "required": [
+        "people"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_apollo_updateaccount": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "domain": {
+          "type": "string"
+        },
+        "owner_id": {
+          "type": "string"
+        },
+        "account_stage_id": {
+          "type": "string"
+        },
+        "raw_address": {
+          "type": "string"
+        },
+        "phone": {
+          "type": "string"
+        },
+        "typed_custom_fields": {
+          "type": "object",
+          "additionalProperties": {
+            "anyOf": [
+              {},
+              {
+                "not": {}
+              }
+            ]
+          }
+        }
+      },
+      "required": [
+        "id"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_apollo_updateaccount": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "domain": {
+          "type": "string"
+        },
+        "owner_id": {
+          "type": "string"
+        },
+        "account_stage_id": {
+          "type": "string"
+        },
+        "raw_address": {
+          "type": "string"
+        },
+        "phone": {
+          "type": "string"
+        },
+        "typed_custom_fields": {
+          "type": "object",
+          "additionalProperties": {
+            "anyOf": [
+              {},
+              {
+                "not": {}
+              }
+            ]
+          }
+        }
+      },
+      "required": [
+        "id"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_apollo_updatecontact": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "The Apollo ID for the contact to update. Example: \"6a0af1f3f1ce1100203b8047\""
+        },
+        "first_name": {
+          "type": "string"
+        },
+        "last_name": {
+          "type": "string"
+        },
+        "organization_name": {
+          "type": "string"
+        },
+        "title": {
+          "type": "string"
+        },
+        "account_id": {
+          "type": "string"
+        },
+        "email": {
+          "type": "string"
+        },
+        "website_url": {
+          "type": "string"
+        },
+        "label_names": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "contact_stage_id": {
+          "type": "string"
+        },
+        "present_raw_address": {
+          "type": "string"
+        },
+        "direct_phone": {
+          "type": "string"
+        },
+        "corporate_phone": {
+          "type": "string"
+        },
+        "mobile_phone": {
+          "type": "string"
+        },
+        "home_phone": {
+          "type": "string"
+        },
+        "other_phone": {
+          "type": "string"
+        },
+        "typed_custom_fields": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "string"
+          }
+        }
+      },
+      "required": [
+        "id"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_apollo_updatecontact": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "first_name": {
+          "type": "string"
+        },
+        "last_name": {
+          "type": "string"
+        },
+        "email": {
+          "type": "string"
+        },
+        "organization_name": {
+          "type": "string"
+        },
+        "title": {
+          "type": "string"
+        },
+        "account_id": {
+          "type": "string"
+        },
+        "website_url": {
+          "type": "string"
+        },
+        "label_names": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "contact_stage_id": {
+          "type": "string"
+        },
+        "present_raw_address": {
+          "type": "string"
+        },
+        "direct_phone": {
+          "type": "string"
+        },
+        "corporate_phone": {
+          "type": "string"
+        },
+        "mobile_phone": {
+          "type": "string"
+        },
+        "home_phone": {
+          "type": "string"
+        },
+        "other_phone": {
+          "type": "string"
+        },
+        "typed_custom_fields": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "string"
+          }
+        }
+      },
+      "required": [
+        "id"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_apollo_updateopportunity": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "The ID of the opportunity to update. Example: \"6a0af21285c69e000cc28695\""
+        },
+        "owner_id": {
+          "type": "string",
+          "description": "The ID for the deal owner within your team's Apollo account."
+        },
+        "name": {
+          "type": "string",
+          "description": "The name of the deal."
+        },
+        "amount": {
+          "type": "number",
+          "description": "The monetary value of the deal."
+        },
+        "opportunity_stage_id": {
+          "type": "string",
+          "description": "The ID for the deal stage within your team's Apollo account."
+        },
+        "closed_date": {
+          "type": "string",
+          "description": "The estimated close date for the deal. Format: YYYY-MM-DD."
+        },
+        "typed_custom_fields": {
+          "type": "object",
+          "additionalProperties": false
+        }
+      },
+      "required": [
+        "id"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_apollo_updateopportunity": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "owner_id": {
+          "type": "string"
+        },
+        "account_id": {
+          "type": "string"
+        },
+        "amount": {
+          "type": "number"
+        },
+        "opportunity_stage_id": {
+          "type": "string"
+        },
+        "closed_date": {
+          "type": "string"
+        },
+        "created_at": {
+          "type": "string"
+        },
+        "updated_at": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "id"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_apollo_updatetask": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "The Apollo ID of the task to update. This is used for reference only since the original task cannot be modified via OAuth. Example: 6a0af245e3c1270014ee8e23"
+        },
+        "user_id": {
+          "type": "string",
+          "description": "The Apollo user_id for the task owner. Example: 66a3d80d4238fe02d2baaaaf"
+        },
+        "contact_id": {
+          "type": "string",
+          "description": "The Apollo contact_id to associate with the task. Either contact_id, account_id, or opportunity_id is required. Example: 6a0af1f3f1ce1100203b8047"
+        },
+        "account_id": {
+          "type": "string",
+          "description": "The Apollo account_id to associate with the task. Either contact_id, account_id, or opportunity_id is required."
+        },
+        "opportunity_id": {
+          "type": "string",
+          "description": "The Apollo opportunity_id to associate with the task. Either contact_id, account_id, or opportunity_id is required."
+        },
+        "type": {
+          "type": "string",
+          "enum": [
+            "call",
+            "outreach_manual_email",
+            "linkedin_step_connect",
+            "linkedin_step_message",
+            "linkedin_step_view_profile",
+            "linkedin_step_interact_post",
+            "action_item"
+          ],
+          "description": "The type of task to create."
+        },
+        "status": {
+          "type": "string",
+          "enum": [
+            "scheduled",
+            "completed",
+            "skipped"
+          ],
+          "description": "The status of the task. Use scheduled for future tasks, completed or skipped for past tasks."
+        },
+        "due_at": {
+          "type": "string",
+          "description": "The due date and time in ISO 8601 format. Apollo uses GMT by default. Example: 2025-02-15T08:10:30Z"
+        },
+        "priority": {
+          "type": "string",
+          "enum": [
+            "high",
+            "medium",
+            "low"
+          ],
+          "description": "The priority of the task. Defaults to medium."
+        },
+        "title": {
+          "type": "string",
+          "description": "A title for the task. If omitted, Apollo auto-generates a title. Example: Follow up on demo request"
+        },
+        "note": {
+          "type": "string",
+          "description": "A description or note for the task. Example: Discuss product demo results and next steps."
+        }
+      },
+      "required": [
+        "id",
+        "user_id",
+        "type",
+        "status",
+        "due_at"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_apollo_updatetask": {
+      "type": "object",
+      "properties": {
+        "task": {
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "string"
+            },
+            "user_id": {
+              "type": "string"
+            },
+            "contact_id": {
+              "type": "string"
+            },
+            "account_id": {
+              "type": "string"
+            },
+            "opportunity_id": {
+              "type": "string"
+            },
+            "type": {
+              "type": "string"
+            },
+            "status": {
+              "type": "string"
+            },
+            "priority": {
+              "type": "string"
+            },
+            "due_at": {
+              "type": "string"
+            },
+            "title": {
+              "type": "string"
+            },
+            "note": {
+              "type": "string"
+            },
+            "created_at": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "id",
+            "user_id",
+            "contact_id",
+            "account_id",
+            "opportunity_id",
+            "type",
+            "status",
+            "priority",
+            "due_at",
+            "title",
+            "note",
+            "created_at"
+          ],
+          "additionalProperties": false
+        },
+        "original_task_id": {
+          "type": "string",
+          "description": "The ID of the task that was requested to be updated. Note: The original task still exists and should be manually deleted in the Apollo UI."
+        }
+      },
+      "required": [
+        "task",
+        "original_task_id"
+      ],
+      "additionalProperties": false
+    },
     "Project": {
       "type": "object",
       "properties": {
@@ -4460,57 +8109,6 @@
         "id",
         "name",
         "type"
-      ],
-      "additionalProperties": false
-    },
-    "Task": {
-      "type": "object",
-      "properties": {
-        "id": {
-          "type": "string"
-        },
-        "subject": {
-          "type": "string"
-        },
-        "status": {
-          "type": "string"
-        },
-        "priority": {
-          "type": "string"
-        },
-        "owner_id": {
-          "type": "string"
-        },
-        "owner_name": {
-          "type": "string"
-        },
-        "created_by_id": {
-          "type": "string"
-        },
-        "modified_by_id": {
-          "type": "string"
-        },
-        "created_time": {
-          "type": "string"
-        },
-        "modified_time": {
-          "type": "string"
-        },
-        "due_date": {
-          "type": "string"
-        },
-        "description": {
-          "type": "string"
-        },
-        "related_module": {
-          "type": "string"
-        },
-        "related_record_id": {
-          "type": "string"
-        }
-      },
-      "required": [
-        "id"
       ],
       "additionalProperties": false
     },
@@ -42213,149 +45811,6 @@
     },
     "SyncMetadata_freshdesk_articles": {
       "type": "object",
-      "additionalProperties": false
-    },
-    "Contact": {
-      "type": "object",
-      "properties": {
-        "id": {
-          "type": "string"
-        },
-        "first_name": {
-          "type": "string"
-        },
-        "last_name": {
-          "type": "string"
-        },
-        "full_name": {
-          "type": "string"
-        },
-        "email": {
-          "type": "string"
-        },
-        "secondary_email": {
-          "type": "string"
-        },
-        "phone": {
-          "type": "string"
-        },
-        "mobile": {
-          "type": "string"
-        },
-        "home_phone": {
-          "type": "string"
-        },
-        "other_phone": {
-          "type": "string"
-        },
-        "title": {
-          "type": "string"
-        },
-        "department": {
-          "type": "string"
-        },
-        "account_name": {
-          "type": "string"
-        },
-        "account_id": {
-          "type": "string"
-        },
-        "owner_name": {
-          "type": "string"
-        },
-        "owner_id": {
-          "type": "string"
-        },
-        "owner_email": {
-          "type": "string"
-        },
-        "created_time": {
-          "type": "string"
-        },
-        "modified_time": {
-          "type": "string"
-        },
-        "mailing_street": {
-          "type": "string"
-        },
-        "mailing_city": {
-          "type": "string"
-        },
-        "mailing_state": {
-          "type": "string"
-        },
-        "mailing_zip": {
-          "type": "string"
-        },
-        "mailing_country": {
-          "type": "string"
-        },
-        "other_street": {
-          "type": "string"
-        },
-        "other_city": {
-          "type": "string"
-        },
-        "other_state": {
-          "type": "string"
-        },
-        "other_zip": {
-          "type": "string"
-        },
-        "other_country": {
-          "type": "string"
-        },
-        "description": {
-          "type": "string"
-        },
-        "twitter": {
-          "type": "string"
-        },
-        "skype_id": {
-          "type": "string"
-        },
-        "date_of_birth": {
-          "type": "string"
-        },
-        "lead_source": {
-          "type": "string"
-        },
-        "email_opt_out": {
-          "type": "boolean"
-        },
-        "fax": {
-          "type": "string"
-        },
-        "assistant": {
-          "type": "string"
-        },
-        "asst_phone": {
-          "type": "string"
-        },
-        "reporting_to_name": {
-          "type": "string"
-        },
-        "reporting_to_id": {
-          "type": "string"
-        },
-        "created_by_name": {
-          "type": "string"
-        },
-        "created_by_id": {
-          "type": "string"
-        },
-        "modified_by_name": {
-          "type": "string"
-        },
-        "modified_by_id": {
-          "type": "string"
-        }
-      },
-      "required": [
-        "id",
-        "created_time",
-        "modified_time"
-      ],
       "additionalProperties": false
     },
     "SyncMetadata_freshdesk_contacts": {
@@ -87862,6 +91317,2805 @@
       ],
       "additionalProperties": false
     },
+    "MicrosoftApplication": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "appId": {
+          "type": "string"
+        },
+        "displayName": {
+          "type": "string"
+        },
+        "createdDateTime": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        },
+        "signInAudience": {
+          "type": "string"
+        },
+        "publisherDomain": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "id",
+        "appId"
+      ],
+      "additionalProperties": false
+    },
+    "DirectoryRole": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "displayName": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        },
+        "roleTemplateId": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "id"
+      ],
+      "additionalProperties": false
+    },
+    "Group": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        },
+        "isDefault": {
+          "type": "boolean"
+        },
+        "isDeleted": {
+          "type": "boolean"
+        },
+        "isPublic": {
+          "type": "boolean"
+        },
+        "createdAt": {
+          "type": "string"
+        },
+        "updatedAt": {
+          "type": "string"
+        },
+        "url": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "id",
+        "name"
+      ],
+      "additionalProperties": false
+    },
+    "Organization": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "created_at": {
+          "type": "string"
+        },
+        "updated_at": {
+          "type": "string"
+        },
+        "url": {
+          "type": "string"
+        },
+        "external_id": {
+          "type": "string"
+        },
+        "domain_names": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "group_id": {
+          "type": "number"
+        },
+        "shared_comments": {
+          "type": "boolean"
+        },
+        "shared_tickets": {
+          "type": "boolean"
+        },
+        "tags": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "notes": {
+          "type": "string"
+        },
+        "details": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "id",
+        "name",
+        "created_at",
+        "updated_at",
+        "url"
+      ],
+      "additionalProperties": false
+    },
+    "ServicePrincipal": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "appId": {
+          "type": "string"
+        },
+        "displayName": {
+          "type": "string"
+        },
+        "createdDateTime": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "id"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_microsoft_addgroupmember": {
+      "type": "object",
+      "properties": {
+        "groupId": {
+          "type": "string",
+          "description": "The ID of the group to add a member to. Example: \"51d82e22-a356-4506-afa1-2c3992bed3d7\""
+        },
+        "memberId": {
+          "type": "string",
+          "description": "The ID of the user, group, or service principal to add as a member. Example: \"9fc4580d-5ed8-46c5-9fff-258fd68d533d\""
+        }
+      },
+      "required": [
+        "groupId",
+        "memberId"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_microsoft_addgroupmember": {
+      "type": "object",
+      "properties": {
+        "success": {
+          "type": "boolean"
+        },
+        "groupId": {
+          "type": "string"
+        },
+        "memberId": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "success",
+        "groupId",
+        "memberId"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_microsoft_createapplication": {
+      "type": "object",
+      "properties": {
+        "displayName": {
+          "type": "string",
+          "description": "The display name for the application. Example: \"My Application\""
+        },
+        "description": {
+          "type": "string",
+          "description": "Free text field to provide a description of the application. Example: \"Application description\""
+        },
+        "signInAudience": {
+          "type": "string",
+          "enum": [
+            "AzureADMyOrg",
+            "AzureADMultipleOrgs",
+            "AzureADandPersonalMicrosoftAccount",
+            "PersonalMicrosoftAccount"
+          ],
+          "description": "Specifies the Microsoft accounts supported. Example: \"AzureADandPersonalMicrosoftAccount\""
+        },
+        "identifierUris": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "Also known as App ID URI, this value acts as the prefix for scopes. Example: [\"api://myapp\"]"
+        },
+        "web": {
+          "type": "object",
+          "properties": {
+            "redirectUris": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "homePageUrl": {
+              "type": "string",
+              "description": "Home page URL of the application."
+            },
+            "logoutUrl": {
+              "type": "string",
+              "description": "URL for logout."
+            },
+            "implicitGrantSettings": {
+              "type": "object",
+              "properties": {
+                "enableIdTokenIssuance": {
+                  "type": "boolean"
+                },
+                "enableAccessTokenIssuance": {
+                  "type": "boolean"
+                }
+              },
+              "additionalProperties": false
+            }
+          },
+          "additionalProperties": false,
+          "description": "Specifies settings for a web application."
+        },
+        "spa": {
+          "type": "object",
+          "properties": {
+            "redirectUris": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            }
+          },
+          "additionalProperties": false,
+          "description": "Specifies settings for a single-page application."
+        },
+        "publicClient": {
+          "type": "object",
+          "properties": {
+            "redirectUris": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            }
+          },
+          "additionalProperties": false,
+          "description": "Specifies settings for public clients (mobile/desktop apps)."
+        },
+        "api": {
+          "type": "object",
+          "properties": {
+            "requestedAccessTokenVersion": {
+              "type": "number"
+            },
+            "oauth2PermissionScopes": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "id": {
+                    "type": "string"
+                  },
+                  "value": {
+                    "type": "string"
+                  },
+                  "type": {
+                    "type": "string"
+                  },
+                  "adminConsentDescription": {
+                    "type": "string"
+                  },
+                  "adminConsentDisplayName": {
+                    "type": "string"
+                  },
+                  "userConsentDescription": {
+                    "type": "string"
+                  },
+                  "userConsentDisplayName": {
+                    "type": "string"
+                  },
+                  "isEnabled": {
+                    "type": "boolean"
+                  }
+                },
+                "required": [
+                  "id",
+                  "value"
+                ],
+                "additionalProperties": false
+              }
+            }
+          },
+          "additionalProperties": false,
+          "description": "Specifies settings for an application that implements a web API."
+        },
+        "tags": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "Custom strings to categorize the application. Example: [\"production\"]"
+        },
+        "groupMembershipClaims": {
+          "type": "string",
+          "enum": [
+            "None",
+            "SecurityGroup",
+            "All"
+          ],
+          "description": "Configures the groups claim issued in tokens. Example: \"SecurityGroup\""
+        },
+        "requiredResourceAccess": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "resourceAppId": {
+                "type": "string"
+              },
+              "resourceAccess": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "string"
+                    },
+                    "type": {
+                      "type": "string",
+                      "enum": [
+                        "Scope",
+                        "Role"
+                      ]
+                    }
+                  },
+                  "required": [
+                    "id",
+                    "type"
+                  ],
+                  "additionalProperties": false
+                }
+              }
+            },
+            "required": [
+              "resourceAppId",
+              "resourceAccess"
+            ],
+            "additionalProperties": false
+          },
+          "description": "Resources that the application needs to access."
+        },
+        "passwordCredentials": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "displayName": {
+                "type": "string"
+              },
+              "endDateTime": {
+                "type": "string",
+                "description": "End date time in ISO 8601 format."
+              },
+              "startDateTime": {
+                "type": "string",
+                "description": "Start date time in ISO 8601 format."
+              }
+            },
+            "required": [
+              "displayName"
+            ],
+            "additionalProperties": false
+          },
+          "description": "Password credentials for the application."
+        },
+        "isFallbackPublicClient": {
+          "type": "boolean",
+          "description": "Specifies whether to fall back to public client type."
+        },
+        "notes": {
+          "type": "string",
+          "description": "Notes for management of the application."
+        },
+        "samlMetadataUrl": {
+          "type": "string",
+          "description": "URL where the service exposes SAML metadata."
+        },
+        "serviceManagementReference": {
+          "type": "string",
+          "description": "References app contact info from a Service Management database."
+        }
+      },
+      "required": [
+        "displayName"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_microsoft_createapplication": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "Unique identifier for the application object. Example: \"03ef14b0-ca33-4840-8f4f-d6e91916010e\""
+        },
+        "appId": {
+          "type": "string",
+          "description": "The unique identifier for the application assigned by Microsoft Entra ID. Example: \"631a96bc-a705-4eda-9f99-fdaf9f54f6a2\""
+        },
+        "displayName": {
+          "type": "string",
+          "description": "The display name for the application."
+        },
+        "description": {
+          "type": "string"
+        },
+        "createdDateTime": {
+          "type": "string"
+        },
+        "identifierUris": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "signInAudience": {
+          "type": "string"
+        },
+        "publisherDomain": {
+          "type": "string"
+        },
+        "tags": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "web": {
+          "type": "object",
+          "additionalProperties": {
+            "anyOf": [
+              {},
+              {
+                "not": {}
+              }
+            ]
+          }
+        },
+        "spa": {
+          "type": "object",
+          "additionalProperties": {
+            "anyOf": [
+              {},
+              {
+                "not": {}
+              }
+            ]
+          }
+        },
+        "publicClient": {
+          "type": "object",
+          "additionalProperties": {
+            "anyOf": [
+              {},
+              {
+                "not": {}
+              }
+            ]
+          }
+        },
+        "api": {
+          "type": "object",
+          "additionalProperties": {
+            "anyOf": [
+              {},
+              {
+                "not": {}
+              }
+            ]
+          }
+        },
+        "passwordCredentials": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": {
+              "anyOf": [
+                {},
+                {
+                  "not": {}
+                }
+              ]
+            }
+          }
+        },
+        "keyCredentials": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": {
+              "anyOf": [
+                {},
+                {
+                  "not": {}
+                }
+              ]
+            }
+          }
+        },
+        "appRoles": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": {
+              "anyOf": [
+                {},
+                {
+                  "not": {}
+                }
+              ]
+            }
+          }
+        },
+        "requiredResourceAccess": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": {
+              "anyOf": [
+                {},
+                {
+                  "not": {}
+                }
+              ]
+            }
+          }
+        },
+        "isFallbackPublicClient": {
+          "type": "boolean"
+        },
+        "groupMembershipClaims": {
+          "type": "string"
+        },
+        "notes": {
+          "type": "string"
+        },
+        "samlMetadataUrl": {
+          "type": "string"
+        },
+        "serviceManagementReference": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "id",
+        "appId",
+        "displayName"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_microsoft_creategroup": {
+      "type": "object",
+      "properties": {
+        "displayName": {
+          "type": "string",
+          "description": "The display name for the group. Example: \"Engineering Team\""
+        },
+        "description": {
+          "type": "string",
+          "description": "An optional description for the group. Example: \"Team collaboration space\""
+        },
+        "mailNickname": {
+          "type": "string",
+          "description": "The mail alias for the group. Required by Microsoft Graph. Example: \"engineeringteam\""
+        },
+        "mailEnabled": {
+          "type": "boolean",
+          "description": "Whether the group is mail-enabled. Default: false for security groups"
+        },
+        "securityEnabled": {
+          "type": "boolean",
+          "description": "Whether the group is a security group. Default: true"
+        },
+        "groupTypes": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "Group type classification. Use [\"Unified\"] for Microsoft 365 groups, leave empty for security groups."
+        }
+      },
+      "required": [
+        "displayName",
+        "mailNickname"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_microsoft_creategroup": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "The unique identifier of the created group"
+        },
+        "displayName": {
+          "type": "string",
+          "description": "The display name of the group"
+        },
+        "description": {
+          "type": "string",
+          "description": "The description of the group"
+        },
+        "mailNickname": {
+          "type": "string",
+          "description": "The mail alias of the group"
+        },
+        "mailEnabled": {
+          "type": "boolean",
+          "description": "Whether the group is mail-enabled"
+        },
+        "securityEnabled": {
+          "type": "boolean",
+          "description": "Whether the group is a security group"
+        },
+        "groupTypes": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "Group type classification"
+        },
+        "createdDateTime": {
+          "type": "string",
+          "description": "The date and time the group was created"
+        }
+      },
+      "required": [
+        "id"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_microsoft_createserviceprincipal": {
+      "type": "object",
+      "properties": {
+        "appId": {
+          "type": "string",
+          "description": "The application ID to create a service principal for. Example: \"dd6b0cea-e204-44c6-b2e0-1162323c22f4\""
+        }
+      },
+      "required": [
+        "appId"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_microsoft_createserviceprincipal": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "appId": {
+          "type": "string"
+        },
+        "displayName": {
+          "type": "string"
+        },
+        "accountEnabled": {
+          "type": "boolean"
+        },
+        "appDisplayName": {
+          "type": "string"
+        },
+        "appOwnerOrganizationId": {
+          "type": "string"
+        },
+        "appRoleAssignmentRequired": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "id",
+        "appId"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_microsoft_createuser": {
+      "type": "object",
+      "properties": {
+        "accountEnabled": {
+          "type": "boolean",
+          "description": "Whether the account is enabled. Example: true"
+        },
+        "displayName": {
+          "type": "string",
+          "description": "Display name of the user. Example: \"John Doe\""
+        },
+        "mailNickname": {
+          "type": "string",
+          "description": "Mail alias for the user. Example: \"johndoe\""
+        },
+        "userPrincipalName": {
+          "type": "string",
+          "description": "User principal name (UPN). Example: \"johndoe@contoso.onmicrosoft.com\""
+        },
+        "passwordProfile": {
+          "type": "object",
+          "properties": {
+            "password": {
+              "type": "string"
+            },
+            "forceChangePasswordNextSignIn": {
+              "type": "boolean",
+              "description": "Whether user must change password at next sign-in. Example: true"
+            }
+          },
+          "required": [
+            "password"
+          ],
+          "additionalProperties": false,
+          "description": "Password profile for the user"
+        },
+        "givenName": {
+          "type": "string",
+          "description": "First name of the user. Example: \"John\""
+        },
+        "surname": {
+          "type": "string",
+          "description": "Last name of the user. Example: \"Doe\""
+        },
+        "jobTitle": {
+          "type": "string",
+          "description": "Job title of the user. Example: \"Software Engineer\""
+        },
+        "department": {
+          "type": "string",
+          "description": "Department of the user. Example: \"Engineering\""
+        },
+        "mobilePhone": {
+          "type": "string",
+          "description": "Mobile phone number. Example: \"+1 555 555 5555\""
+        },
+        "officeLocation": {
+          "type": "string",
+          "description": "Office location. Example: \"Building 1\""
+        }
+      },
+      "required": [
+        "displayName",
+        "mailNickname",
+        "userPrincipalName",
+        "passwordProfile"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_microsoft_createuser": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "displayName": {
+          "type": "string"
+        },
+        "userPrincipalName": {
+          "type": "string"
+        },
+        "accountEnabled": {
+          "type": "boolean"
+        },
+        "givenName": {
+          "type": "string"
+        },
+        "surname": {
+          "type": "string"
+        },
+        "jobTitle": {
+          "type": "string"
+        },
+        "department": {
+          "type": "string"
+        },
+        "mobilePhone": {
+          "type": "string"
+        },
+        "officeLocation": {
+          "type": "string"
+        },
+        "mail": {
+          "type": "string"
+        },
+        "createdDateTime": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "id"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_microsoft_deleteapplication": {
+      "type": "object",
+      "properties": {
+        "applicationId": {
+          "type": "string",
+          "description": "The unique identifier for the application object. Example: \"cc67332f-dfd9-43f0-af0f-bc0ff5334965\""
+        }
+      },
+      "required": [
+        "applicationId"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_microsoft_deleteapplication": {
+      "type": "object",
+      "properties": {
+        "success": {
+          "type": "boolean"
+        },
+        "applicationId": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "success",
+        "applicationId"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_microsoft_deletegroup": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "The unique identifier of the group to delete. Example: \"51d82e22-a356-4506-afa1-2c3992bed3d7\""
+        }
+      },
+      "required": [
+        "id"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_microsoft_deletegroup": {
+      "type": "object",
+      "properties": {
+        "success": {
+          "type": "boolean",
+          "description": "Whether the group was successfully deleted"
+        }
+      },
+      "required": [
+        "success"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_microsoft_deleteserviceprincipal": {
+      "type": "object",
+      "properties": {
+        "service_principal_id": {
+          "type": "string",
+          "description": "The unique identifier of the service principal to delete. Example: \"8c7410b7-37cd-4463-981d-74cd6ab033a7\""
+        }
+      },
+      "required": [
+        "service_principal_id"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_microsoft_deleteserviceprincipal": {
+      "type": "object",
+      "properties": {
+        "success": {
+          "type": "boolean"
+        },
+        "service_principal_id": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "success",
+        "service_principal_id"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_microsoft_deleteuser": {
+      "type": "object",
+      "properties": {
+        "userId": {
+          "type": "string",
+          "description": "The unique identifier of the user to delete. Example: \"9fc4580d-5ed8-46c5-9fff-258fd68d533d\""
+        }
+      },
+      "required": [
+        "userId"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_microsoft_deleteuser": {
+      "type": "object",
+      "properties": {
+        "success": {
+          "type": "boolean"
+        },
+        "userId": {
+          "type": "string"
+        },
+        "message": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "success",
+        "userId",
+        "message"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_microsoft_getapplication": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "The unique identifier for the application. Example: \"cc67332f-dfd9-43f0-af0f-bc0ff5334965\""
+        }
+      },
+      "required": [
+        "id"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_microsoft_getapplication": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "appId": {
+          "type": "string"
+        },
+        "displayName": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        },
+        "createdDateTime": {
+          "type": "string"
+        },
+        "publisherDomain": {
+          "type": "string"
+        },
+        "signInAudience": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "id"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_microsoft_getdirectoryrole": {
+      "type": "object",
+      "properties": {
+        "directoryRoleId": {
+          "type": "string",
+          "description": "The unique identifier for the directory role. Example: \"c35aa61d-9e3d-419e-84a9-24767a8a9988\""
+        }
+      },
+      "required": [
+        "directoryRoleId"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_microsoft_getdirectoryrole": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        },
+        "displayName": {
+          "type": "string"
+        },
+        "roleTemplateId": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "id"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_microsoft_getgroup": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "The unique identifier for the group. Example: \"51d82e22-a356-4506-afa1-2c3992bed3d7\""
+        }
+      },
+      "required": [
+        "id"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_microsoft_getgroup": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "displayName": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        },
+        "groupTypes": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "mail": {
+          "type": "string"
+        },
+        "mailEnabled": {
+          "type": "boolean"
+        },
+        "mailNickname": {
+          "type": "string"
+        },
+        "securityEnabled": {
+          "type": "boolean"
+        },
+        "visibility": {
+          "type": "string"
+        },
+        "createdDateTime": {
+          "type": "string"
+        },
+        "renewedDateTime": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "id",
+        "displayName"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_microsoft_getorganization": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "Organization ID. Example: \"56480ae2-88be-49cf-86f6-d62a45bf8758\""
+        }
+      },
+      "required": [
+        "id"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_microsoft_getorganization": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "displayName": {
+          "type": "string"
+        },
+        "businessPhones": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "city": {
+          "type": "string"
+        },
+        "country": {
+          "type": "string"
+        },
+        "countryLetterCode": {
+          "type": "string"
+        },
+        "createdDateTime": {
+          "type": "string"
+        },
+        "deletedDateTime": {
+          "type": "string"
+        },
+        "marketingNotificationEmails": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "onPremisesLastSyncDateTime": {
+          "type": "string"
+        },
+        "onPremisesSyncEnabled": {
+          "type": "boolean"
+        },
+        "postalCode": {
+          "type": "string"
+        },
+        "preferredLanguage": {
+          "type": "string"
+        },
+        "securityComplianceNotificationMails": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "securityComplianceNotificationPhones": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "state": {
+          "type": "string"
+        },
+        "street": {
+          "type": "string"
+        },
+        "technicalNotificationMails": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "tenantType": {
+          "type": "string"
+        },
+        "verifiedDomains": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "capabilities": {
+                "type": "string"
+              },
+              "isDefault": {
+                "type": "boolean"
+              },
+              "isInitial": {
+                "type": "boolean"
+              },
+              "name": {
+                "type": "string"
+              },
+              "type": {
+                "type": "string"
+              }
+            },
+            "additionalProperties": false
+          }
+        },
+        "assignedPlans": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "assignedDateTime": {
+                "type": "string"
+              },
+              "capabilityStatus": {
+                "type": "string"
+              },
+              "service": {
+                "type": "string"
+              },
+              "servicePlanId": {
+                "type": "string"
+              }
+            },
+            "additionalProperties": false
+          }
+        },
+        "provisionedPlans": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "capabilityStatus": {
+                "type": "string"
+              },
+              "provisioningStatus": {
+                "type": "string"
+              },
+              "service": {
+                "type": "string"
+              }
+            },
+            "additionalProperties": false
+          }
+        }
+      },
+      "required": [
+        "id"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_microsoft_getserviceprincipal": {
+      "type": "object",
+      "properties": {
+        "servicePrincipalId": {
+          "type": "string",
+          "description": "The unique identifier of the service principal. Example: \"8c7410b7-37cd-4463-981d-74cd6ab033a7\""
+        }
+      },
+      "required": [
+        "servicePrincipalId"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_microsoft_getserviceprincipal": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "The unique identifier for the service principal."
+        },
+        "appId": {
+          "type": "string"
+        },
+        "displayName": {
+          "type": "string"
+        },
+        "appDisplayName": {
+          "type": "string"
+        },
+        "servicePrincipalType": {
+          "type": "string"
+        },
+        "accountEnabled": {
+          "type": "boolean"
+        },
+        "alternativeNames": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "appDescription": {
+          "type": "string"
+        },
+        "appOwnerOrganizationId": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        },
+        "loginUrl": {
+          "type": "string"
+        },
+        "logoutUrl": {
+          "type": "string"
+        },
+        "notificationEmailAddresses": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "preferredSingleSignOnMode": {
+          "type": "string"
+        },
+        "replyUrls": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "servicePrincipalNames": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "signInAudience": {
+          "type": "string"
+        },
+        "tags": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "addIns": {},
+        "appRoles": {},
+        "info": {},
+        "keyCredentials": {},
+        "oauth2PermissionScopes": {},
+        "passwordCredentials": {},
+        "verifiedPublisher": {},
+        "createdDateTime": {
+          "type": "string"
+        },
+        "deletedDateTime": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "id"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_microsoft_getuser": {
+      "type": "object",
+      "properties": {
+        "userId": {
+          "type": "string",
+          "description": "The ID of the user to retrieve. Example: \"9fc4580d-5ed8-46c5-9fff-258fd68d533d\""
+        }
+      },
+      "required": [
+        "userId"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_microsoft_getuser": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "displayName": {
+          "type": "string"
+        },
+        "givenName": {
+          "type": "string"
+        },
+        "surname": {
+          "type": "string"
+        },
+        "mail": {
+          "type": "string"
+        },
+        "userPrincipalName": {
+          "type": "string"
+        },
+        "jobTitle": {
+          "type": "string"
+        },
+        "officeLocation": {
+          "type": "string"
+        },
+        "mobilePhone": {
+          "type": "string"
+        },
+        "businessPhones": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "preferredLanguage": {
+          "type": "string"
+        },
+        "createdDateTime": {
+          "type": "string"
+        },
+        "accountEnabled": {
+          "type": "boolean"
+        },
+        "department": {
+          "type": "string"
+        },
+        "companyName": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "id"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_microsoft_listapplications": {
+      "type": "object",
+      "properties": {
+        "filter": {
+          "type": "string",
+          "description": "OData filter expression to filter applications. Example: displayName eq 'MyApp'"
+        },
+        "select": {
+          "type": "string",
+          "description": "OData select expression to specify which properties to return. Example: id,displayName,appId"
+        },
+        "top": {
+          "type": "number",
+          "description": "Number of items to return in a page (max 999). Example: 50"
+        },
+        "cursor": {
+          "type": "string",
+          "description": "Pagination cursor from the previous response. Omit for the first page."
+        }
+      },
+      "additionalProperties": false
+    },
+    "ActionOutput_microsoft_listapplications": {
+      "type": "object",
+      "properties": {
+        "applications": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "appId": {
+                "type": "string"
+              },
+              "displayName": {
+                "type": "string"
+              },
+              "description": {
+                "type": "string"
+              },
+              "signInAudience": {
+                "type": "string"
+              },
+              "publisherDomain": {
+                "type": "string"
+              },
+              "createdDateTime": {
+                "type": "string"
+              },
+              "identifierUris": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              }
+            },
+            "required": [
+              "id"
+            ],
+            "additionalProperties": false
+          }
+        },
+        "nextCursor": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "applications"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_microsoft_listdevices": {
+      "type": "object",
+      "properties": {
+        "cursor": {
+          "type": "string",
+          "description": "Pagination cursor (odata.nextLink) from the previous response. Omit for the first page."
+        }
+      },
+      "additionalProperties": false
+    },
+    "ActionOutput_microsoft_listdevices": {
+      "type": "object",
+      "properties": {
+        "devices": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "deviceId": {
+                "type": "string",
+                "description": "The device ID."
+              },
+              "displayName": {
+                "type": "string",
+                "description": "The display name for the device."
+              },
+              "operatingSystem": {
+                "type": "string",
+                "description": "The operating system of the device."
+              },
+              "operatingSystemVersion": {
+                "type": "string",
+                "description": "The operating system version of the device."
+              },
+              "accountEnabled": {
+                "type": "boolean",
+                "description": "Whether the device account is enabled."
+              },
+              "approximateLastSignInDateTime": {
+                "type": "string",
+                "description": "The timestamp of the approximate last sign-in."
+              },
+              "enrollmentProfileName": {
+                "type": "string",
+                "description": "The enrollment profile name."
+              },
+              "managementType": {
+                "type": "string",
+                "description": "The device management type."
+              },
+              "registrationDateTime": {
+                "type": "string",
+                "description": "The timestamp when the device was registered."
+              },
+              "deviceOwnership": {
+                "type": "string",
+                "description": "The ownership of the device."
+              },
+              "domainName": {
+                "type": "string",
+                "description": "The domain name."
+              },
+              "profileType": {
+                "type": "string",
+                "description": "The profile type of the device."
+              },
+              "mdmAppId": {
+                "type": "string",
+                "description": "The MDM application ID."
+              },
+              "complianceExpirationDateTime": {
+                "type": "string",
+                "description": "The compliance expiration timestamp."
+              },
+              "onPremisesSyncEnabled": {
+                "type": "boolean",
+                "description": "Whether on-premises sync is enabled."
+              },
+              "trustType": {
+                "type": "string",
+                "description": "The trust type of the device."
+              },
+              "alternativeSecurityIds": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "additionalProperties": {
+                    "anyOf": [
+                      {},
+                      {
+                        "not": {}
+                      }
+                    ]
+                  }
+                },
+                "description": "Alternative security IDs for the device."
+              }
+            },
+            "required": [
+              "id"
+            ],
+            "additionalProperties": false
+          }
+        },
+        "next_cursor": {
+          "type": "string",
+          "description": "The odata.nextLink cursor for the next page of results."
+        }
+      },
+      "required": [
+        "devices"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_microsoft_listdirectoryrolemembers": {
+      "type": "object",
+      "properties": {
+        "directoryRoleId": {
+          "type": "string",
+          "description": "The unique identifier of the directory role. Example: \"c35aa61d-9e3d-419e-84a9-24767a8a9988\""
+        },
+        "cursor": {
+          "type": "string",
+          "description": "Pagination cursor (skipToken) from the previous response. Omit for the first page."
+        }
+      },
+      "required": [
+        "directoryRoleId"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_microsoft_listdirectoryrolemembers": {
+      "type": "object",
+      "properties": {
+        "members": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "type": {
+                "type": "string",
+                "enum": [
+                  "user",
+                  "servicePrincipal"
+                ]
+              },
+              "displayName": {
+                "type": "string"
+              },
+              "email": {
+                "type": "string"
+              },
+              "userPrincipalName": {
+                "type": "string"
+              },
+              "appId": {
+                "type": "string"
+              },
+              "servicePrincipalType": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "id",
+              "type"
+            ],
+            "additionalProperties": false
+          }
+        },
+        "nextLink": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "members"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_microsoft_listdirectoryroles": {
+      "type": "object",
+      "properties": {
+        "filter": {
+          "type": "string",
+          "description": "OData filter query parameter using eq operator only. Example: displayName eq Global Administrator"
+        },
+        "select": {
+          "type": "string",
+          "description": "OData select query parameter to specify which properties to include in the response. Example: id,displayName,description"
+        },
+        "top": {
+          "type": "number",
+          "description": "Maximum number of records to return per page."
+        },
+        "cursor": {
+          "type": "string",
+          "description": "Pagination cursor (skipToken) from the previous response. Omit for the first page."
+        }
+      },
+      "additionalProperties": false
+    },
+    "ActionOutput_microsoft_listdirectoryroles": {
+      "type": "object",
+      "properties": {
+        "items": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "deletedDateTime": {
+                "type": "string"
+              },
+              "description": {
+                "type": "string"
+              },
+              "displayName": {
+                "type": "string"
+              },
+              "roleTemplateId": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "id"
+            ],
+            "additionalProperties": false
+          }
+        },
+        "next_cursor": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "items"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_microsoft_listgroupmembers": {
+      "type": "object",
+      "properties": {
+        "groupId": {
+          "type": "string",
+          "description": "The unique identifier of the group. Example: \"51d82e22-a356-4506-afa1-2c3992bed3d7\""
+        },
+        "cursor": {
+          "type": "string",
+          "description": "Pagination cursor (skipToken) from the previous response. Omit for the first page."
+        }
+      },
+      "required": [
+        "groupId"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_microsoft_listgroupmembers": {
+      "type": "object",
+      "properties": {
+        "members": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "type": {
+                "type": "string",
+                "description": "The type of directory object (e.g., #microsoft.graph.user, #microsoft.graph.group)"
+              },
+              "displayName": {
+                "type": "string",
+                "description": "The display name of the member"
+              },
+              "mail": {
+                "type": "string",
+                "description": "The email address of the member"
+              },
+              "userPrincipalName": {
+                "type": "string",
+                "description": "The user principal name of the member"
+              }
+            },
+            "required": [
+              "id"
+            ],
+            "additionalProperties": false
+          },
+          "description": "List of direct members of the group"
+        },
+        "nextLink": {
+          "type": "string",
+          "description": "URL to retrieve the next page of results, if more members exist"
+        }
+      },
+      "required": [
+        "members"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_microsoft_listgroups": {
+      "type": "object",
+      "properties": {
+        "filter": {
+          "type": "string",
+          "description": "OData filter expression"
+        },
+        "select": {
+          "type": "string",
+          "description": "Comma-separated list of properties to return"
+        },
+        "top": {
+          "type": "number",
+          "description": "Number of items to return per page (1-999). Default is 100."
+        },
+        "orderby": {
+          "type": "string",
+          "description": "OData orderby expression"
+        },
+        "cursor": {
+          "type": "string",
+          "description": "Pagination URL from the previous response. Omit for the first page."
+        }
+      },
+      "additionalProperties": false
+    },
+    "ActionOutput_microsoft_listgroups": {
+      "type": "object",
+      "properties": {
+        "items": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "displayName": {
+                "type": "string"
+              },
+              "description": {
+                "type": "string"
+              },
+              "mail": {
+                "type": "string"
+              },
+              "mailNickname": {
+                "type": "string"
+              },
+              "groupTypes": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "securityEnabled": {
+                "type": "boolean"
+              },
+              "mailEnabled": {
+                "type": "boolean"
+              },
+              "visibility": {
+                "type": "string"
+              },
+              "createdDateTime": {
+                "type": "string"
+              },
+              "renewedDateTime": {
+                "type": "string"
+              },
+              "expirationDateTime": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "id"
+            ],
+            "additionalProperties": false
+          }
+        },
+        "nextCursor": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "items"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_microsoft_listorganizations": {
+      "type": "object",
+      "properties": {
+        "$select": {
+          "type": "string",
+          "description": "Comma-separated list of properties to include in the response."
+        },
+        "$filter": {
+          "type": "string",
+          "description": "OData filter to narrow results."
+        },
+        "$top": {
+          "type": "number",
+          "description": "Number of items to return per page."
+        },
+        "$skip": {
+          "type": "number",
+          "description": "Number of items to skip."
+        },
+        "$count": {
+          "type": "boolean",
+          "description": "Include a count of the total number of items."
+        }
+      },
+      "additionalProperties": false
+    },
+    "ActionOutput_microsoft_listorganizations": {
+      "type": "object",
+      "properties": {
+        "organizations": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "displayName": {
+                "type": "string"
+              },
+              "createdDateTime": {
+                "type": "string"
+              },
+              "businessPhones": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "city": {
+                "type": "string"
+              },
+              "country": {
+                "type": "string"
+              },
+              "countryLetterCode": {
+                "type": "string"
+              },
+              "defaultUsageLocation": {
+                "type": "string"
+              },
+              "marketingNotificationEmails": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "onPremisesLastSyncDateTime": {
+                "type": "string"
+              },
+              "onPremisesSyncEnabled": {
+                "type": "boolean"
+              },
+              "postalCode": {
+                "type": "string"
+              },
+              "preferredLanguage": {
+                "type": "string"
+              },
+              "securityComplianceNotificationMails": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "securityComplianceNotificationPhones": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "state": {
+                "type": "string"
+              },
+              "street": {
+                "type": "string"
+              },
+              "technicalNotificationMails": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "tenantType": {
+                "type": "string"
+              },
+              "assignedPlans": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "assignedDateTime": {
+                      "type": "string"
+                    },
+                    "capabilityStatus": {
+                      "type": "string"
+                    },
+                    "service": {
+                      "type": "string"
+                    },
+                    "servicePlanId": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              },
+              "verifiedDomains": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "capabilities": {
+                      "type": "string"
+                    },
+                    "isDefault": {
+                      "type": "boolean"
+                    },
+                    "isInitial": {
+                      "type": "boolean"
+                    },
+                    "name": {
+                      "type": "string"
+                    },
+                    "type": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              },
+              "provisionedPlans": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "capabilityStatus": {
+                      "type": "string"
+                    },
+                    "provisioningStatus": {
+                      "type": "string"
+                    },
+                    "service": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            },
+            "required": [
+              "id"
+            ],
+            "additionalProperties": false
+          }
+        },
+        "count": {
+          "type": "number"
+        },
+        "nextLink": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "organizations"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_microsoft_listserviceprincipals": {
+      "type": "object",
+      "properties": {
+        "cursor": {
+          "type": "string",
+          "description": "Pagination cursor for the next page of results. Pass the value from"
+        }
+      },
+      "additionalProperties": false
+    },
+    "ActionOutput_microsoft_listserviceprincipals": {
+      "type": "object",
+      "properties": {
+        "items": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "appId": {
+                "type": "string",
+                "description": "The application ID of the application associated with this service principal"
+              },
+              "displayName": {
+                "type": "string",
+                "description": "The display name for the service principal"
+              },
+              "appDisplayName": {
+                "type": "string",
+                "description": "The application display name"
+              },
+              "servicePrincipalType": {
+                "type": "string",
+                "description": "The type of service principal: Application or ManagedIdentity"
+              },
+              "accountEnabled": {
+                "type": "boolean",
+                "description": "Whether the service principal account is enabled"
+              },
+              "createdDateTime": {
+                "type": "string",
+                "description": "The date and time the service principal was created"
+              },
+              "description": {
+                "type": "string",
+                "description": "A description for the service principal"
+              },
+              "loginUrl": {
+                "type": "string",
+                "description": "The URL that users are redirected to when signing in to the application"
+              },
+              "logoutUrl": {
+                "type": "string",
+                "description": "The URL that users are redirected to when signing out of the application"
+              },
+              "notes": {
+                "type": "string",
+                "description": "Free text field to capture information about the service principal"
+              },
+              "notificationEmailAddresses": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                },
+                "description": "Email addresses to which notifications are sent"
+              },
+              "preferredSingleSignOnMode": {
+                "type": "string",
+                "description": "The preferred single sign-on mode for the application"
+              },
+              "publisherName": {
+                "type": "string",
+                "description": "The publisher name of the application associated with this service principal"
+              },
+              "signInAudience": {
+                "type": "string",
+                "description": "The sign-in audience for the application"
+              },
+              "tags": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                },
+                "description": "Custom strings that can be used to categorize and identify the service principal"
+              }
+            },
+            "required": [
+              "id",
+              "appId"
+            ],
+            "additionalProperties": false
+          }
+        },
+        "nextCursor": {
+          "type": "string",
+          "description": "Pagination cursor to retrieve the next page of results. Pass this value as the cursor parameter in the next request."
+        }
+      },
+      "required": [
+        "items"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_microsoft_listusermemberships": {
+      "type": "object",
+      "properties": {
+        "userId": {
+          "type": "string",
+          "description": "The user ID or user principal name to list memberships for. Example: \"9fc4580d-5ed8-46c5-9fff-258fd68d533d\" or \"user@contoso.com\""
+        },
+        "cursor": {
+          "type": "string",
+          "description": "Pagination cursor from the previous response. Omit for the first page."
+        },
+        "filterType": {
+          "type": "string",
+          "enum": [
+            "group",
+            "directoryRole",
+            "administrativeUnit"
+          ],
+          "description": "Optional filter to return only specific member types: group, directoryRole, or administrativeUnit. Omit to return all types."
+        }
+      },
+      "required": [
+        "userId"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_microsoft_listusermemberships": {
+      "type": "object",
+      "properties": {
+        "items": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "type": {
+                "type": "string",
+                "enum": [
+                  "group",
+                  "directoryRole",
+                  "administrativeUnit",
+                  "unknown"
+                ]
+              },
+              "displayName": {
+                "type": "string"
+              },
+              "description": {
+                "type": "string"
+              },
+              "groupDetails": {
+                "type": "object",
+                "properties": {
+                  "mail": {
+                    "type": "string"
+                  },
+                  "mailEnabled": {
+                    "type": "boolean"
+                  },
+                  "securityEnabled": {
+                    "type": "boolean"
+                  },
+                  "groupTypes": {
+                    "type": "array",
+                    "items": {
+                      "type": "string"
+                    }
+                  },
+                  "visibility": {
+                    "type": "string"
+                  },
+                  "createdDateTime": {
+                    "type": "string"
+                  }
+                },
+                "additionalProperties": false
+              },
+              "directoryRoleDetails": {
+                "type": "object",
+                "properties": {
+                  "roleTemplateId": {
+                    "type": "string"
+                  }
+                },
+                "additionalProperties": false
+              },
+              "administrativeUnitDetails": {
+                "type": "object",
+                "properties": {
+                  "visibility": {
+                    "type": "string"
+                  }
+                },
+                "additionalProperties": false
+              }
+            },
+            "required": [
+              "id",
+              "type"
+            ],
+            "additionalProperties": false
+          }
+        },
+        "next_cursor": {
+          "type": "string",
+          "description": "Pagination cursor for the next page. Null if no more pages."
+        }
+      },
+      "required": [
+        "items"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_microsoft_listusers": {
+      "type": "object",
+      "properties": {
+        "filter": {
+          "type": "string",
+          "description": "OData filter query. Example: \"startswith(displayName,'John')\""
+        },
+        "select": {
+          "type": "string",
+          "description": "Comma-separated list of properties to return. Example: \"id,displayName,mail\""
+        },
+        "top": {
+          "type": "number",
+          "description": "Number of users to return (1-999). Default: 100"
+        },
+        "orderby": {
+          "type": "string",
+          "description": "Order by clause. Example: \"displayName\""
+        },
+        "cursor": {
+          "type": "string",
+          "description": "Pagination cursor (skipToken) from previous response. Omit for first page."
+        }
+      },
+      "additionalProperties": false
+    },
+    "ActionOutput_microsoft_listusers": {
+      "type": "object",
+      "properties": {
+        "users": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "displayName": {
+                "type": "string"
+              },
+              "mail": {
+                "type": "string"
+              },
+              "userPrincipalName": {
+                "type": "string"
+              },
+              "givenName": {
+                "type": "string"
+              },
+              "surname": {
+                "type": "string"
+              },
+              "jobTitle": {
+                "type": "string"
+              },
+              "officeLocation": {
+                "type": "string"
+              },
+              "mobilePhone": {
+                "type": "string"
+              },
+              "businessPhones": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "accountEnabled": {
+                "type": "boolean"
+              },
+              "createdDateTime": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "id"
+            ],
+            "additionalProperties": false
+          }
+        },
+        "nextCursor": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "users"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_microsoft_removegroupmember": {
+      "type": "object",
+      "properties": {
+        "groupId": {
+          "type": "string",
+          "description": "The ID of the group from which to remove the member. Example: \"51d82e22-a356-4506-afa1-2c3992bed3d7\""
+        },
+        "memberId": {
+          "type": "string",
+          "description": "The ID of the member to remove from the group. Example: \"9fc4580d-5ed8-46c5-9fff-258fd68d533d\""
+        }
+      },
+      "required": [
+        "groupId",
+        "memberId"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_microsoft_removegroupmember": {
+      "type": "object",
+      "properties": {
+        "success": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "success"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_microsoft_updateapplication": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "The unique identifier of the application object. Example: \"cc67332f-dfd9-43f0-af0f-bc0ff5334965\""
+        },
+        "displayName": {
+          "type": "string",
+          "description": "The display name for the application."
+        },
+        "description": {
+          "type": "string",
+          "description": "An optional description of the application."
+        },
+        "signInAudience": {
+          "type": "string",
+          "enum": [
+            "AzureADMyOrg",
+            "AzureADMultipleOrgs",
+            "AzureADandPersonalMicrosoftAccount"
+          ],
+          "description": "Specifies what Microsoft accounts are supported."
+        },
+        "groupMembershipClaims": {
+          "type": "string",
+          "enum": [
+            "None",
+            "SecurityGroup",
+            "All"
+          ],
+          "description": "Configures the groups claim issued in tokens."
+        },
+        "tags": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "Custom strings to categorize and identify the application."
+        },
+        "isFallbackPublicClient": {
+          "type": "boolean",
+          "description": "Specifies the fallback application type as public client."
+        }
+      },
+      "required": [
+        "id"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_microsoft_updateapplication": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "success": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "id",
+        "success"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_microsoft_updategroup": {
+      "type": "object",
+      "properties": {
+        "groupId": {
+          "type": "string",
+          "description": "The unique identifier for the group. Example: \"51d82e22-a356-4506-afa1-2c3992bed3d7\""
+        },
+        "description": {
+          "type": "string",
+          "description": "An optional description for the group."
+        },
+        "displayName": {
+          "type": "string",
+          "description": "The display name for the group."
+        },
+        "mailNickname": {
+          "type": "string",
+          "description": "The mail alias for the group."
+        },
+        "securityEnabled": {
+          "type": "boolean",
+          "description": "Specifies whether the group is a security group."
+        },
+        "visibility": {
+          "type": "string",
+          "enum": [
+            "Private",
+            "Public"
+          ],
+          "description": "Specifies the visibility of a Microsoft 365 group."
+        },
+        "allowExternalSenders": {
+          "type": "boolean",
+          "description": "Indicates whether people external to the organization can send messages to the group."
+        },
+        "autoSubscribeNewMembers": {
+          "type": "boolean",
+          "description": "Indicates whether new members added to the group will be auto-subscribed to receive email notifications."
+        },
+        "preferredDataLocation": {
+          "type": "string",
+          "description": "The preferred data location for the Microsoft 365 group."
+        },
+        "uniqueName": {
+          "type": "string",
+          "description": "The unique identifier that can be assigned to a group."
+        }
+      },
+      "required": [
+        "groupId"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_microsoft_updategroup": {
+      "type": "object",
+      "properties": {
+        "success": {
+          "type": "boolean"
+        },
+        "groupId": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "success",
+        "groupId"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_microsoft_updateorganization": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "The unique identifier of the organization."
+        },
+        "marketingNotificationEmails": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "Email addresses for marketing notifications."
+        },
+        "privacyProfile": {
+          "type": "object",
+          "properties": {
+            "contactEmail": {
+              "type": "string"
+            },
+            "statementUrl": {
+              "type": "string",
+              "description": "URL to the privacy statement."
+            }
+          },
+          "additionalProperties": false,
+          "description": "Privacy profile with contact email and statement URL."
+        },
+        "securityComplianceNotificationMails": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "Email addresses for security compliance notifications."
+        },
+        "securityComplianceNotificationPhones": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "Phone numbers for security compliance notifications."
+        },
+        "technicalNotificationMails": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "Email addresses for technical notifications."
+        }
+      },
+      "required": [
+        "id"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_microsoft_updateorganization": {
+      "type": "object",
+      "properties": {
+        "success": {
+          "type": "boolean",
+          "description": "Whether the update was successful."
+        }
+      },
+      "required": [
+        "success"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_microsoft_updateserviceprincipal": {
+      "type": "object",
+      "properties": {
+        "servicePrincipalId": {
+          "type": "string",
+          "description": "The unique identifier for the service principal. Example: \"8c7410b7-37cd-4463-981d-74cd6ab033a7\""
+        },
+        "accountEnabled": {
+          "type": "boolean",
+          "description": "Whether the service principal account is enabled."
+        },
+        "appRoleAssignmentRequired": {
+          "type": "boolean",
+          "description": "Whether an appRoleAssignment is required before Microsoft Entra ID will issue a user or access token."
+        },
+        "displayName": {
+          "type": "string",
+          "description": "The display name for the service principal."
+        },
+        "homepage": {
+          "type": "string",
+          "description": "Home page or landing page of the application."
+        },
+        "logoutUrl": {
+          "type": "string",
+          "description": "URL used by Microsoft authorization service to log out a user."
+        },
+        "preferredSingleSignOnMode": {
+          "type": "string",
+          "description": "Single sign-on mode configured for this application. Values: password, saml, external, oidc."
+        },
+        "replyUrls": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "URLs that user tokens are sent to for sign in, or redirect URIs for OAuth 2.0 codes and tokens."
+        },
+        "servicePrincipalNames": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "List of identifiersUris copied from the associated application."
+        },
+        "tags": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "Custom strings used to categorize and identify the application."
+        },
+        "alternativeNames": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "Used to retrieve service principals by subscription, identify resource group and full resource IDs."
+        }
+      },
+      "required": [
+        "servicePrincipalId"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_microsoft_updateserviceprincipal": {
+      "type": "object",
+      "properties": {
+        "success": {
+          "type": "boolean"
+        },
+        "servicePrincipalId": {
+          "type": "string"
+        },
+        "updatedFields": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      },
+      "required": [
+        "success",
+        "servicePrincipalId",
+        "updatedFields"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_microsoft_updateuser": {
+      "type": "object",
+      "properties": {
+        "userId": {
+          "type": "string",
+          "description": "The unique identifier of the user to update. Example: \"9fc4580d-5ed8-46c5-9fff-258fd68d533d\""
+        },
+        "displayName": {
+          "type": "string",
+          "description": "The name displayed in the address book for the user."
+        },
+        "givenName": {
+          "type": "string",
+          "description": "The given name (first name) of the user."
+        },
+        "surname": {
+          "type": "string",
+          "description": "The surname (family name or last name) of the user."
+        },
+        "jobTitle": {
+          "type": "string",
+          "description": "The job title of the user."
+        },
+        "department": {
+          "type": "string",
+          "description": "The name of the department in which the user works."
+        },
+        "officeLocation": {
+          "type": "string",
+          "description": "The office location in the user's place of business."
+        },
+        "mobilePhone": {
+          "type": "string",
+          "description": "The primary cellular telephone number for the user."
+        },
+        "businessPhones": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "The telephone numbers for the user."
+        },
+        "city": {
+          "type": "string",
+          "description": "The city in which the user is located."
+        },
+        "country": {
+          "type": "string",
+          "description": "The country/region in which the user is located."
+        },
+        "preferredLanguage": {
+          "type": "string",
+          "description": "The preferred language for the user. Should follow ISO 639-1 Code; for example, \"en-US\"."
+        },
+        "mailNickname": {
+          "type": "string",
+          "description": "The mail alias for the user."
+        },
+        "accountEnabled": {
+          "type": "boolean",
+          "description": "true if the account is enabled; otherwise, false."
+        }
+      },
+      "required": [
+        "userId"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_microsoft_updateuser": {
+      "type": "object",
+      "properties": {
+        "success": {
+          "type": "boolean"
+        },
+        "userId": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "success",
+        "userId"
+      ],
+      "additionalProperties": false
+    },
     "ChannelMessageReply": {
       "type": "object",
       "properties": {
@@ -107474,64 +113728,6 @@
       ],
       "additionalProperties": false
     },
-    "Organization": {
-      "type": "object",
-      "properties": {
-        "id": {
-          "type": "string"
-        },
-        "name": {
-          "type": "string"
-        },
-        "created_at": {
-          "type": "string"
-        },
-        "updated_at": {
-          "type": "string"
-        },
-        "url": {
-          "type": "string"
-        },
-        "external_id": {
-          "type": "string"
-        },
-        "domain_names": {
-          "type": "array",
-          "items": {
-            "type": "string"
-          }
-        },
-        "group_id": {
-          "type": "number"
-        },
-        "shared_comments": {
-          "type": "boolean"
-        },
-        "shared_tickets": {
-          "type": "boolean"
-        },
-        "tags": {
-          "type": "array",
-          "items": {
-            "type": "string"
-          }
-        },
-        "notes": {
-          "type": "string"
-        },
-        "details": {
-          "type": "string"
-        }
-      },
-      "required": [
-        "id",
-        "name",
-        "created_at",
-        "updated_at",
-        "url"
-      ],
-      "additionalProperties": false
-    },
     "Pipeline": {
       "type": "object",
       "properties": {
@@ -112565,130 +118761,6 @@
         "name",
         "pipeline_id",
         "order_nr"
-      ],
-      "additionalProperties": false
-    },
-    "Account": {
-      "type": "object",
-      "properties": {
-        "id": {
-          "type": "string"
-        },
-        "accountName": {
-          "type": "string"
-        },
-        "accountNumber": {
-          "type": "string"
-        },
-        "accountType": {
-          "type": "string"
-        },
-        "annualRevenue": {
-          "type": "number"
-        },
-        "billingCity": {
-          "type": "string"
-        },
-        "billingCode": {
-          "type": "string"
-        },
-        "billingCountry": {
-          "type": "string"
-        },
-        "billingState": {
-          "type": "string"
-        },
-        "billingStreet": {
-          "type": "string"
-        },
-        "createdByName": {
-          "type": "string"
-        },
-        "createdById": {
-          "type": "string"
-        },
-        "createdByEmail": {
-          "type": "string"
-        },
-        "createdTime": {
-          "type": "string"
-        },
-        "description": {
-          "type": "string"
-        },
-        "employees": {
-          "type": "number"
-        },
-        "fax": {
-          "type": "string"
-        },
-        "industry": {
-          "type": "string"
-        },
-        "modifiedByName": {
-          "type": "string"
-        },
-        "modifiedById": {
-          "type": "string"
-        },
-        "modifiedByEmail": {
-          "type": "string"
-        },
-        "modifiedTime": {
-          "type": "string"
-        },
-        "ownerName": {
-          "type": "string"
-        },
-        "ownerId": {
-          "type": "string"
-        },
-        "ownerEmail": {
-          "type": "string"
-        },
-        "ownership": {
-          "type": "string"
-        },
-        "parentAccountName": {
-          "type": "string"
-        },
-        "parentAccountId": {
-          "type": "string"
-        },
-        "phone": {
-          "type": "string"
-        },
-        "rating": {
-          "type": "string"
-        },
-        "shippingCity": {
-          "type": "string"
-        },
-        "shippingCode": {
-          "type": "string"
-        },
-        "shippingCountry": {
-          "type": "string"
-        },
-        "shippingState": {
-          "type": "string"
-        },
-        "shippingStreet": {
-          "type": "string"
-        },
-        "sicCode": {
-          "type": "string"
-        },
-        "tickerSymbol": {
-          "type": "string"
-        },
-        "website": {
-          "type": "string"
-        }
-      },
-      "required": [
-        "id",
-        "modifiedTime"
       ],
       "additionalProperties": false
     },
@@ -123670,37 +129742,6 @@
       ],
       "additionalProperties": false
     },
-    "Opportunity": {
-      "type": "object",
-      "properties": {
-        "id": {
-          "type": "string"
-        },
-        "name": {
-          "type": "string"
-        },
-        "amount": {
-          "type": "number"
-        },
-        "stage": {
-          "type": "string"
-        },
-        "close_date": {
-          "type": "string"
-        },
-        "owner_id": {
-          "type": "string"
-        },
-        "updated_at": {
-          "type": "string"
-        }
-      },
-      "required": [
-        "id",
-        "updated_at"
-      ],
-      "additionalProperties": false
-    },
     "SyncMetadata_salesforce_recordsbysoql": {
       "type": "object",
       "properties": {
@@ -125732,43 +131773,6 @@
     },
     "SyncMetadata_sap_success_factors_employees": {
       "type": "object",
-      "additionalProperties": false
-    },
-    "Group": {
-      "type": "object",
-      "properties": {
-        "id": {
-          "type": "string"
-        },
-        "name": {
-          "type": "string"
-        },
-        "description": {
-          "type": "string"
-        },
-        "isDefault": {
-          "type": "boolean"
-        },
-        "isDeleted": {
-          "type": "boolean"
-        },
-        "isPublic": {
-          "type": "boolean"
-        },
-        "createdAt": {
-          "type": "string"
-        },
-        "updatedAt": {
-          "type": "string"
-        },
-        "url": {
-          "type": "string"
-        }
-      },
-      "required": [
-        "id",
-        "name"
-      ],
       "additionalProperties": false
     },
     "SyncMetadata_sap_success_factors_groups": {

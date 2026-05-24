@@ -1311,6 +1311,1467 @@ export interface ActionOutput_anrok_voidtransaction {
   validation_errors?: any | undefined;})[];
 };
 
+export interface Account {
+  id: string;
+  accountName?: string | undefined;
+  accountNumber?: string | undefined;
+  accountType?: string | undefined;
+  annualRevenue?: number | undefined;
+  billingCity?: string | undefined;
+  billingCode?: string | undefined;
+  billingCountry?: string | undefined;
+  billingState?: string | undefined;
+  billingStreet?: string | undefined;
+  createdByName?: string | undefined;
+  createdById?: string | undefined;
+  createdByEmail?: string | undefined;
+  createdTime?: string | undefined;
+  description?: string | undefined;
+  employees?: number | undefined;
+  fax?: string | undefined;
+  industry?: string | undefined;
+  modifiedByName?: string | undefined;
+  modifiedById?: string | undefined;
+  modifiedByEmail?: string | undefined;
+  modifiedTime: string;
+  ownerName?: string | undefined;
+  ownerId?: string | undefined;
+  ownerEmail?: string | undefined;
+  ownership?: string | undefined;
+  parentAccountName?: string | undefined;
+  parentAccountId?: string | undefined;
+  phone?: string | undefined;
+  rating?: string | undefined;
+  shippingCity?: string | undefined;
+  shippingCode?: string | undefined;
+  shippingCountry?: string | undefined;
+  shippingState?: string | undefined;
+  shippingStreet?: string | undefined;
+  sicCode?: string | undefined;
+  tickerSymbol?: string | undefined;
+  website?: string | undefined;
+};
+
+export interface Contact {
+  id: string;
+  first_name?: string | undefined;
+  last_name?: string | undefined;
+  full_name?: string | undefined;
+  email?: string | undefined;
+  secondary_email?: string | undefined;
+  phone?: string | undefined;
+  mobile?: string | undefined;
+  home_phone?: string | undefined;
+  other_phone?: string | undefined;
+  title?: string | undefined;
+  department?: string | undefined;
+  account_name?: string | undefined;
+  account_id?: string | undefined;
+  owner_name?: string | undefined;
+  owner_id?: string | undefined;
+  owner_email?: string | undefined;
+  created_time: string;
+  modified_time: string;
+  mailing_street?: string | undefined;
+  mailing_city?: string | undefined;
+  mailing_state?: string | undefined;
+  mailing_zip?: string | undefined;
+  mailing_country?: string | undefined;
+  other_street?: string | undefined;
+  other_city?: string | undefined;
+  other_state?: string | undefined;
+  other_zip?: string | undefined;
+  other_country?: string | undefined;
+  description?: string | undefined;
+  twitter?: string | undefined;
+  skype_id?: string | undefined;
+  date_of_birth?: string | undefined;
+  lead_source?: string | undefined;
+  email_opt_out?: boolean | undefined;
+  fax?: string | undefined;
+  assistant?: string | undefined;
+  asst_phone?: string | undefined;
+  reporting_to_name?: string | undefined;
+  reporting_to_id?: string | undefined;
+  created_by_name?: string | undefined;
+  created_by_id?: string | undefined;
+  modified_by_name?: string | undefined;
+  modified_by_id?: string | undefined;
+};
+
+export interface Opportunity {
+  id: string;
+  name?: string | undefined;
+  amount?: number | undefined;
+  stage?: string | undefined;
+  close_date?: string | undefined;
+  owner_id?: string | undefined;
+  updated_at: string;
+};
+
+export interface Organization {
+  id: string;
+  name: string;
+  created_at: string;
+  updated_at: string;
+  url: string;
+  external_id?: string | undefined;
+  domain_names?: string[] | undefined;
+  group_id?: number | undefined;
+  shared_comments?: boolean | undefined;
+  shared_tickets?: boolean | undefined;
+  tags?: string[] | undefined;
+  notes?: string | undefined;
+  details?: string | undefined;
+};
+
+export interface Sequence {
+  id: string;
+  name?: string | undefined;
+  active?: boolean | undefined;
+  created_at?: string | undefined;
+  updated_at?: string | undefined;
+  num_steps?: number | undefined;
+  unique_scheduled?: number | undefined;
+  unique_delivered?: number | undefined;
+  unique_opened?: number | undefined;
+  unique_replied?: number | undefined;
+  unique_bounced?: number | undefined;
+  user_id?: string | undefined;
+  email_account_id?: string | undefined;
+  label_ids?: string[] | undefined;
+  folder_id?: string | undefined;
+  tags?: string[] | undefined;
+  archived?: boolean | undefined;
+  scheduling_status?: string | undefined;
+  pause_on_out_of_office?: boolean | undefined;
+  pause_on_holiday?: boolean | undefined;
+};
+
+export interface Task {
+  id: string;
+  subject?: string | undefined;
+  status?: string | undefined;
+  priority?: string | undefined;
+  owner_id?: string | undefined;
+  owner_name?: string | undefined;
+  created_by_id?: string | undefined;
+  modified_by_id?: string | undefined;
+  created_time?: string | undefined;
+  modified_time?: string | undefined;
+  due_date?: string | undefined;
+  description?: string | undefined;
+  related_module?: string | undefined;
+  related_record_id?: string | undefined;
+};
+
+export interface ActionInput_apollo_bulkenrichpeople {
+  /**
+   * Array of person lookup details. Maximum 10 people per request.
+   */
+  details: ({  /**
+   * Apollo person ID. Example: "64a7ff0cc4dfae00013df1a5"
+   */
+  id?: string | undefined;
+  /**
+   * Email address to look up.
+   */
+  email?: string | undefined;
+  /**
+   * First name for name-based lookup.
+   */
+  first_name?: string | undefined;
+  /**
+   * Last name for name-based lookup.
+   */
+  last_name?: string | undefined;
+  /**
+   * Organization name for name-based lookup.
+   */
+  organization_name?: string | undefined;
+  /**
+   * LinkedIn URL to look up.
+   */
+  linkedin_url?: string | undefined;
+  /**
+   * Organization domain to look up.
+   */
+  domain?: string | undefined;})[];
+  /**
+   * Whether to reveal personal email addresses in the response.
+   */
+  reveal_personal_emails?: boolean | undefined;
+  /**
+   * Whether to reveal phone numbers in the response.
+   */
+  reveal_phone_number?: boolean | undefined;
+};
+
+export interface ActionOutput_apollo_bulkenrichpeople {
+  status: string;
+  total_requested: number;
+  unique_enriched: number;
+  missing_records: number;
+  credits_consumed: number;
+  matches: ({  id: string;
+  first_name?: string | undefined;
+  last_name?: string | undefined;
+  name?: string | undefined;
+  linkedin_url?: string | undefined;
+  title?: string | undefined;
+  email_status?: string | undefined;
+  photo_url?: string | undefined;
+  email?: string | undefined;
+  organization_id?: string | undefined;
+  employment_history?: ({  id: string;
+  created_at?: string | undefined;
+  current?: boolean | undefined;
+  degree?: string | undefined;
+  description?: string | undefined;
+  emails?: string[] | undefined;
+  end_date?: string | undefined;
+  grade_level?: string | undefined;
+  kind?: string | undefined;
+  major?: string | undefined;
+  org_matched_by_name?: boolean | undefined;
+  organization_id?: string | undefined;
+  organization_name?: string | undefined;
+  raw_address?: string | undefined;
+  start_date?: string | undefined;
+  title?: string | undefined;
+  updated_at?: string | undefined;})[];})[];
+};
+
+export interface ActionInput_apollo_createaccount {
+  /**
+   * Account name. Example: "Acme Corporation"
+   */
+  name: string;
+  /**
+   * Account domain. Example: "acme.com"
+   */
+  domain?: string | undefined;
+  /**
+   * Account phone number. Example: "+1-555-123-4567"
+   */
+  phone?: string | undefined;
+  /**
+   * Account address. Example: "123 Main St, San Francisco, CA 94105"
+   */
+  raw_address?: string | undefined;
+  /**
+   * Account industry. Example: "Software"
+   */
+  industry?: string | undefined;
+  /**
+   * Number of employees. Example: 500
+   */
+  number_of_employees?: number | undefined;
+  /**
+   * Annual revenue. Example: 1000000
+   */
+  annual_revenue?: number | undefined;
+  /**
+   * Account website URL. Example: "https://acme.com"
+   */
+  website_url?: string | undefined;
+  /**
+   * ID of the user who owns this account. Example: "6a0af1f0c9f63c0018aed306"
+   */
+  owner_id?: string | undefined;
+  /**
+   * ID of the account stage. Example: "6a0af1f0c9f63c0018aed307"
+   */
+  account_stage_id?: string | undefined;
+  /**
+   * CRM ID for the account. Example: "0015000000ABC123"
+   */
+  crm_id?: string | undefined;
+};
+
+export interface ActionOutput_apollo_createaccount {
+  id: string;
+  name?: string | undefined;
+  domain?: string | undefined;
+  phone?: string | undefined;
+  raw_address?: string | undefined;
+  industry?: string | undefined;
+  number_of_employees?: number | undefined;
+  annual_revenue?: number | undefined;
+  website_url?: string | undefined;
+  owner_id?: string | undefined;
+  account_stage_id?: string | undefined;
+  crm_id?: string | undefined;
+  created_at?: string | undefined;
+  updated_at?: string | undefined;
+};
+
+export interface ActionInput_apollo_createcontact {
+  first_name: string;
+  last_name: string;
+  email: string;
+  title?: string | undefined;
+  organization_name?: string | undefined;
+  account_id?: string | undefined;
+  website_url?: string | undefined;
+  label_names?: string[] | undefined;
+  contact_stage_id?: string | undefined;
+  present_raw_address?: string | undefined;
+  direct_phone?: string | undefined;
+  corporate_phone?: string | undefined;
+  mobile_phone?: string | undefined;
+  home_phone?: string | undefined;
+  other_phone?: string | undefined;
+  typed_custom_fields?: {  [key: string]: unknown | undefined;};
+  run_dedupe?: boolean | undefined;
+};
+
+export interface ActionOutput_apollo_createcontact {
+  id: string;
+  first_name?: string | undefined;
+  last_name?: string | undefined;
+  email?: string | undefined;
+  title?: string | undefined;
+  organization_name?: string | undefined;
+  account_id?: string | undefined;
+  website_url?: string | undefined;
+  label_names?: string[] | undefined;
+  contact_stage_id?: string | undefined;
+  present_raw_address?: string | undefined;
+  direct_phone?: string | undefined;
+  corporate_phone?: string | undefined;
+  mobile_phone?: string | undefined;
+  home_phone?: string | undefined;
+  other_phone?: string | undefined;
+  typed_custom_fields?: {  [key: string]: unknown | undefined;};
+  created_at?: string | undefined;
+  updated_at?: string | undefined;
+};
+
+export interface ActionInput_apollo_createopportunity {
+  /**
+   * Name of the deal (human-readable). Example: Massive Q3 Deal
+   */
+  name: string;
+  /**
+   * ID of the deal owner in your Apollo team. Retrieve via Get a List of Users. Example: 66302798d03b9601c7934ebf
+   */
+  owner_id?: string | undefined;
+  /**
+   * ID of the target account (company) in Apollo. Find via Organization Search (organization_id). Example: 5e66b6381e05b4008c8331b8
+   */
+  account_id?: string | undefined;
+  /**
+   * Monetary value as a string. Do not include commas or currency symbols; commas cause the amount to be left blank. Example: 55123478
+   */
+  amount?: string | undefined;
+  /**
+   * ID of the deal stage in your Apollo team. Retrieve via List Deal Stages. Example: 6095a710bd01d100a506d4bd
+   */
+  opportunity_stage_id?: string | undefined;
+  /**
+   * Estimated close date in YYYY-MM-DD format. Example: 2025-10-30
+   */
+  closed_date?: string | undefined;
+  typed_custom_fields?: {  [key: string]: any | undefined;};
+};
+
+export interface ActionOutput_apollo_createopportunity {
+  id: string;
+  name: string;
+  amount?: number | undefined;
+  closed_date?: string | undefined;
+  account_id?: string | undefined;
+  owner_id?: string | undefined;
+  opportunity_stage_id?: string | undefined;
+  is_closed?: boolean | undefined;
+  is_won?: boolean | undefined;
+  created_at?: string | undefined;
+};
+
+export interface ActionInput_apollo_createtask {
+  /**
+   * The ID of the user who owns the task. Example: "6a0af1f0c9f63c0018aed306"
+   */
+  user_id: string;
+  /**
+   * The type of task. Example: "action_item"
+   */
+  type: 'action_item' | 'call' | 'email' | 'meeting';
+  /**
+   * The priority of the task. Example: "medium"
+   */
+  priority: 'low' | 'medium' | 'high';
+  /**
+   * The due date of the task in ISO 8601 format. Example: "2026-05-20T12:00:00Z"
+   */
+  due_at: string;
+  /**
+   * The note or description for the task. Example: "Follow up with prospect"
+   */
+  note: string;
+  /**
+   * The ID of the contact this task is for. Example: "6a0af1f3f1ce1100203b8047"
+   */
+  contact_id?: string | undefined;
+  /**
+   * The ID of the account this task is for. Example: "6a0af1f0c9f63c0018aed306"
+   */
+  account_id?: string | undefined;
+  /**
+   * The ID of the opportunity this task is for. Example: "6a0af21285c69e000cc28695"
+   */
+  opportunity_id?: string | undefined;
+};
+
+export interface ActionOutput_apollo_createtask {
+  task: {  id: string;
+  user_id: string;
+  type: string;
+  priority: string;
+  due_at?: string | undefined;
+  note?: string | undefined;
+  contact_id?: string | undefined;
+  account_id?: string | undefined;
+  opportunity_id?: string | undefined;
+  created_at?: string | undefined;
+  updated_at?: string | undefined;};
+};
+
+export interface ActionInput_apollo_deleteaccount {
+  /**
+   * The Apollo ID for the account to archive. Example: "6a0af20b832cec00105fb3a7"
+   */
+  id: string;
+};
+
+export interface ActionOutput_apollo_deleteaccount {
+  id: string;
+  archived: boolean;
+  name?: string | undefined;
+};
+
+export interface ActionInput_apollo_deletecontact {
+  /**
+   * Apollo contact ID to delete. Example: "6a0af20f499fdc0010dfadaf"
+   */
+  contactId: string;
+};
+
+export interface ActionOutput_apollo_deletecontact {
+  id: string;
+  deleted: boolean;
+  archived?: boolean | undefined;
+};
+
+export interface ActionInput_apollo_deleteopportunity {
+  /**
+   * Apollo opportunity ID. Example: "6a0af21285c69e000cc28695"
+   */
+  id: string;
+};
+
+export interface ActionOutput_apollo_deleteopportunity {
+  id: string;
+  name?: string | undefined;
+  is_closed?: boolean | undefined;
+};
+
+export interface ActionInput_apollo_enrichorganization {
+  /**
+   * The domain of the company to enrich. Example: "apollo.io" or "microsoft.com". Do not include "www.", the "@" symbol, or similar.
+   */
+  domain?: string | undefined;
+  /**
+   * The Apollo ID of the organization to enrich. Example: "5e66b6381e05b4008c8331b8"
+   */
+  id?: string | undefined;
+};
+
+export interface ActionOutput_apollo_enrichorganization {
+  organization?: {  id: string;
+  name?: string | undefined;
+  website_url?: string | undefined;
+  blog_url?: string | undefined;
+  angellist_url?: string | undefined;
+  linkedin_url?: string | undefined;
+  twitter_url?: string | undefined;
+  facebook_url?: string | undefined;
+  primary_phone?: unknown | undefined;
+  languages?: string[] | undefined;
+  alexa_ranking?: number | undefined;
+  phone?: string | undefined;
+  linkedin_uid?: string | undefined;
+  founded_year?: number | undefined;
+  publicly_traded_symbol?: string | undefined;
+  publicly_traded_exchange?: string | undefined;
+  logo_url?: string | undefined;
+  crunchbase_url?: string | undefined;
+  primary_domain?: string | undefined;
+  industry?: string | undefined;
+  keywords?: string[] | undefined;
+  estimated_num_employees?: number | undefined;
+  industry_tag_id?: string | undefined;
+  industry_tag_hash?: {  [key: string]: unknown | undefined;};
+  retail_location_count?: number | undefined;
+  raw_address?: string | undefined;
+  street_address?: string | undefined;
+  city?: string | undefined;
+  state?: string | undefined;
+  country?: string | undefined;
+  postal_code?: string | undefined;
+  owned_by_organization_id?: string | undefined;
+  owned_by_organization?: unknown | undefined;
+  num_organizations_owned?: number | undefined;
+  num_subsidiaries?: number | undefined;
+  total_funding?: number | undefined;
+  total_funding_printed?: string | undefined;
+  latest_funding_round_date?: string | undefined;
+  latest_funding_stage?: string | undefined;
+  funding_events?: unknown[] | undefined;
+  intent_strength?: number | undefined;
+  intent_topic?: string | undefined;
+  intent_signal_score?: number | undefined;
+  intent_score_normalized?: number | undefined;
+  intent_score_bucket?: string | undefined;
+  intent_surge_from?: string | undefined;
+  intent_surge_to?: string | undefined;
+  sic_codes?: string[] | undefined;
+  naics_codes?: string[] | undefined;
+  technology_names?: string[] | undefined;
+  technology_categories?: string[] | undefined;
+  short_description?: string | undefined;
+  seo_description?: string | undefined;
+  annual_revenue_printed?: string | undefined;
+  annual_revenue?: number | undefined;
+  department_head_count?: {  [key: string]: number;} | undefined;};
+};
+
+export interface ActionInput_apollo_enrichperson {
+  /**
+   * The email address of the person. Example: "alice@nango-test.io"
+   */
+  email?: string | undefined;
+  /**
+   * The Apollo ID for the person. Example: "587cf802f65125cad923a266"
+   */
+  id?: string | undefined;
+  /**
+   * The first name of the person. Example: "Tim"
+   */
+  first_name?: string | undefined;
+  /**
+   * The last name of the person. Example: "Zheng"
+   */
+  last_name?: string | undefined;
+  /**
+   * The full name of the person. Example: "Tim Zheng"
+   */
+  name?: string | undefined;
+  /**
+   * The domain name for the person's employer. Example: "apollo.io"
+   */
+  domain?: string | undefined;
+  /**
+   * The name of the person's employer. Example: "Apollo"
+   */
+  organization_name?: string | undefined;
+  /**
+   * The URL for the person's LinkedIn profile. Example: "http://www.linkedin.com/in/tim-zheng-677ba010"
+   */
+  linkedin_url?: string | undefined;
+  /**
+   * The hashed email of the person (MD5 or SHA-256).
+   */
+  hashed_email?: string | undefined;
+  /**
+   * Set to true to reveal personal emails.
+   */
+  reveal_personal_emails?: boolean | undefined;
+  /**
+   * Set to true to reveal phone numbers.
+   */
+  reveal_phone_number?: boolean | undefined;
+  /**
+   * Webhook URL for phone number delivery (required if reveal_phone_number is true).
+   */
+  webhook_url?: string | undefined;
+  /**
+   * Set to true to enable email waterfall enrichment.
+   */
+  run_waterfall_email?: boolean | undefined;
+  /**
+   * Set to true to enable phone waterfall enrichment.
+   */
+  run_waterfall_phone?: boolean | undefined;
+};
+
+export interface ActionOutput_apollo_enrichperson {
+  id?: string | undefined;
+  firstName?: string | undefined;
+  lastName?: string | undefined;
+  name?: string | undefined;
+  email?: string | undefined;
+  organizationId?: string | undefined;
+  organizationName?: string | undefined;
+  organizationWebsiteUrl?: string | undefined;
+  title?: string | undefined;
+  linkedinUrl?: string | undefined;
+  twitterUrl?: string | undefined;
+  country?: string | undefined;
+  state?: string | undefined;
+  city?: string | undefined;
+  employmentHistory?: ({  id?: string | undefined;
+  organizationId?: string | undefined;
+  organizationName?: string | undefined;
+  organizationWebsiteUrl?: string | undefined;
+  title?: string | undefined;
+  startDate?: string | undefined;
+  endDate?: string | undefined;
+  current?: boolean | undefined;})[];
+  emailStatus?: string | undefined;
+  emailTrueStatus?: string | undefined;
+  emails?: ({  email?: string | undefined;
+  type?: string | undefined;
+  status?: string | undefined;})[];
+  phoneNumbers?: ({  number?: string | undefined;
+  type?: string | undefined;
+  status?: string | undefined;})[];
+  isLikelyToRespond?: boolean | undefined;
+  departments?: string[] | undefined;
+  subdepartments?: string[] | undefined;
+  functions?: string[] | undefined;
+  seniority?: string | undefined;
+  photoUrl?: string | undefined;
+  tenureInMonths?: number | undefined;
+};
+
+export interface ActionInput_apollo_getaccount {
+  /**
+   * The Apollo ID for the account. Example: "6a0af1f0c9f63c0018aed306"
+   */
+  id: string;
+};
+
+export interface ActionOutput_apollo_getaccount {
+  id: string;
+  name?: string | undefined;
+  domain?: string | undefined;
+  phone?: string | undefined;
+  raw_address?: string | undefined;
+  owner_id?: string | undefined;
+  account_stage_id?: string | undefined;
+  created_at?: string | undefined;
+  updated_at?: string | undefined;
+  typed_custom_fields?: {  [key: string]: unknown | undefined;};
+  organization?: {  id?: string | undefined;
+  name?: string | undefined;
+  domain?: string | undefined;};
+};
+
+export interface ActionInput_apollo_getcontact {
+  /**
+   * The ID of the contact to retrieve. Example: "6a0af1f3f1ce1100203b8047"
+   */
+  id: string;
+};
+
+export interface ActionOutput_apollo_getcontact {
+  id: string;
+  first_name?: string | undefined;
+  last_name?: string | undefined;
+  name?: string | undefined;
+  email?: string | undefined;
+  title?: string | undefined;
+  organization_name?: string | undefined;
+  organization_id?: string | undefined;
+  account_id?: string | undefined;
+  linkedin_url?: string | undefined;
+  contact_stage_id?: string | undefined;
+  owner_id?: string | undefined;
+  creator_id?: string | undefined;
+  source?: string | undefined;
+  original_source?: string | undefined;
+  headline?: string | undefined;
+  photo_url?: string | undefined;
+  present_raw_address?: string | undefined;
+  created_at?: string | undefined;
+  updated_at?: string | undefined;
+  email_status?: string | undefined;
+  sanitized_phone?: string | undefined;
+  existence_level?: string | undefined;
+  twitter_url?: string | undefined;
+  label_ids?: string[] | undefined;
+  contact_roles?: unknown[] | undefined;
+  emailer_campaign_ids?: string[] | undefined;
+  typed_custom_fields?: {  [key: string]: unknown | undefined;};
+};
+
+export interface ActionInput_apollo_getopportunity {
+  /**
+   * The ID of the opportunity to retrieve. Example: "6a0af21285c69e000cc28695"
+   */
+  id: string;
+};
+
+export interface ActionOutput_apollo_getopportunity {
+  id: string;
+  team_id: string;
+  owner_id?: string | undefined;
+  salesforce_owner_id?: string | undefined;
+  amount?: number | undefined;
+  closed_date?: string | undefined;
+  account_id?: string | undefined;
+  description?: string | undefined;
+  is_closed?: boolean | undefined;
+  is_won?: boolean | undefined;
+  name: string;
+  stage_name?: string | undefined;
+  opportunity_stage_id?: string | undefined;
+  source?: string | undefined;
+  salesforce_id?: string | undefined;
+  created_at?: string | undefined;
+  actual_close_date?: string | undefined;
+  next_step?: string | undefined;
+  next_step_date?: string | undefined;
+  closed_lost_reason?: string | undefined;
+  closed_won_reason?: string | undefined;
+  forecast_category?: string | undefined;
+  deal_probability?: number | undefined;
+  created_by_id?: string | undefined;
+  current_solutions?: string | undefined;
+  deal_source?: string | undefined;
+  manually_updated_probability?: string | undefined;
+  manually_updated_forecast?: string | undefined;
+  crm_id?: string | undefined;
+  crm_record_url?: string | undefined;
+  crm_owner_id?: string | undefined;
+  probability?: string | undefined;
+  opportunity_pipeline_id?: string | undefined;
+  stage_updated_at?: string | undefined;
+  next_step_last_updated_at?: string | undefined;
+  exchange_rate_code?: string | undefined;
+  exchange_rate_value?: number | undefined;
+  amount_in_team_currency?: number | undefined;
+  forecasted_revenue?: number | undefined;
+  last_activity_date?: string | undefined;
+  existence_level?: string | undefined;
+  typed_custom_fields?: {  [key: string]: unknown | undefined;};
+  opportunity_rule_config_statuses?: unknown[] | undefined;
+  opportunity_contact_roles?: unknown[] | undefined;
+  currency?: {  name: string;
+  iso_code: string;
+  symbol: string;} | undefined;
+  num_contacts?: number | undefined;
+  account?: {  id: string;
+  name: string;
+  domain?: string | undefined;
+  team_id: string;
+  organization_id?: string | undefined;
+  account_stage_id?: string | undefined;
+  source?: string | undefined;
+  original_source?: string | undefined;
+  creator_id?: string | undefined;
+  owner_id?: string | undefined;
+  created_at?: string | undefined;
+  phone?: string | undefined;
+  phone_status?: string | undefined;
+  hubspot_id?: string | undefined;
+  salesforce_id?: string | undefined;};
+};
+
+export interface ActionInput_apollo_listaccounts {
+  /**
+   * Pagination cursor from the previous response. Pass the value of `next_cursor` from the previous response to fetch the next page. Omit for the first page.
+   */
+  cursor?: string | undefined;
+  /**
+   * Keywords to narrow the search of accounts. Keywords should directly match at least part of an account name. Example: "apollo"
+   */
+  q_organization_name?: string | undefined;
+  /**
+   * Apollo IDs for account stages to include in search results. Call List Account Stages endpoint to retrieve available IDs.
+   */
+  account_stage_ids?: string[] | undefined;
+  /**
+   * Apollo IDs for labels to include in search results.
+   */
+  account_label_ids?: string[] | undefined;
+  /**
+   * Sort matching accounts by the specified field.
+   */
+  sort_by_field?: 'account_last_activity_date' | 'account_created_at' | 'account_updated_at' | undefined;
+  /**
+   * Set to true to sort in ascending order. Must be used with sort_by_field. Defaults to false (descending).
+   */
+  sort_ascending?: boolean | undefined;
+  /**
+   * Number of results per page. Max 100. Defaults to 100.
+   */
+  per_page?: number | undefined;
+};
+
+export interface ActionOutput_apollo_listaccounts {
+  /**
+   * List of accounts matching the search criteria.
+   */
+  accounts: ({  /**
+   * Apollo ID for the account.
+   */
+  id: string;
+  /**
+   * Name of the account/company.
+   */
+  name: string;
+  /**
+   * Primary domain of the account.
+   */
+  domain?: string | undefined;
+  /**
+   * Apollo organization ID.
+   */
+  organization_id?: string | undefined;
+  /**
+   * ID of the account stage.
+   */
+  account_stage_id?: string | undefined;
+  /**
+   * ID of the user who owns this account.
+   */
+  owner_id?: string | undefined;
+  /**
+   * ISO 8601 timestamp when the account was created.
+   */
+  created_at?: string | undefined;
+  /**
+   * ISO 8601 timestamp when the account was last updated.
+   */
+  updated_at?: string | undefined;
+  /**
+   * ISO 8601 timestamp of the most recent activity.
+   */
+  last_activity_at?: string | undefined;
+  /**
+   * Phone number associated with the account.
+   */
+  phone?: string | undefined;
+  /**
+   * Physical address of the account.
+   */
+  address?: string | undefined;
+  /**
+   * City of the account.
+   */
+  city?: string | undefined;
+  /**
+   * State of the account.
+   */
+  state?: string | undefined;
+  /**
+   * Country of the account.
+   */
+  country?: string | undefined;
+  /**
+   * Postal code of the account.
+   */
+  postal_code?: string | undefined;
+  /**
+   * Industry of the account.
+   */
+  industry?: string | undefined;
+  /**
+   * Number of employees at the account.
+   */
+  employees?: number | undefined;
+  /**
+   * Annual revenue of the account.
+   */
+  annual_revenue?: number | undefined;
+  /**
+   * Description of the account.
+   */
+  description?: string | undefined;
+  /**
+   * Website URL of the account.
+   */
+  website?: string | undefined;
+  /**
+   * LinkedIn URL of the account.
+   */
+  linkedin_url?: string | undefined;
+  /**
+   * Twitter URL of the account.
+   */
+  twitter_url?: string | undefined;
+  /**
+   * Facebook URL of the account.
+   */
+  facebook_url?: string | undefined;
+  /**
+   * Labels attached to the account.
+   */
+  labels?: ({  id: string;
+  name: string;})[] | undefined;})[];
+  /**
+   * Pagination information for the results.
+   */
+  pagination: {  /**
+   * Current page number.
+   */
+  page: number;
+  /**
+   * Number of results per page.
+   */
+  per_page: number;
+  /**
+   * Total number of accounts matching the query.
+   */
+  total_entries: number;
+  /**
+   * Total number of pages available.
+   */
+  total_pages: number;};
+  /**
+   * Cursor to fetch the next page of results. Null if there are no more pages.
+   */
+  next_cursor?: string | undefined;
+};
+
+export interface ActionInput_apollo_listcontacts {
+  /**
+   * Pagination cursor from the previous response. Omit for the first page.
+   */
+  cursor?: string | undefined;
+  /**
+   * Keywords to narrow the search. Can include names, job titles, employers, and email addresses.
+   */
+  q_keywords?: string | undefined;
+  /**
+   * Contact stage IDs to filter by.
+   */
+  contact_stage_ids?: string[] | undefined;
+  /**
+   * Contact label IDs to filter by.
+   */
+  contact_label_ids?: string[] | undefined;
+  /**
+   * Field to sort results by.
+   */
+  sort_by_field?: 'contact_last_activity_date' | 'contact_email_last_opened_at' | 'contact_email_last_clicked_at' | 'contact_created_at' | 'contact_updated_at' | undefined;
+  /**
+   * Sort in ascending order. Requires sort_by_field.
+   */
+  sort_ascending?: boolean | undefined;
+  /**
+   * Number of results per page (1-100).
+   */
+  per_page?: number | undefined;
+  /**
+   * Page number to retrieve.
+   */
+  page?: number | undefined;
+};
+
+export interface ActionOutput_apollo_listcontacts {
+  contacts: ({  id: string;
+  first_name?: string | undefined;
+  last_name?: string | undefined;
+  name?: string | undefined;
+  email?: string | undefined;
+  organization_name?: string | undefined;
+  title?: string | undefined;
+  phone?: string | undefined;
+  created_at?: string | undefined;
+  updated_at?: string | undefined;})[];
+  pagination: {  page: number;
+  per_page: number;
+  total_entries: number;
+  total_pages: number;
+  /**
+   * Cursor for the next page. Omit if on the last page.
+   */
+  next_cursor?: string | undefined;};
+};
+
+export interface ActionInput_apollo_listopportunities {
+  /**
+   * Page number to retrieve. Defaults to 1.
+   */
+  page?: number | undefined;
+  /**
+   * Number of results per page. Defaults to 25.
+   */
+  per_page?: number | undefined;
+  /**
+   * Sort deals by amount (largest first), is_closed (closed deals first), or is_won (won deals first).
+   */
+  sort_by_field?: 'amount' | 'is_closed' | 'is_won' | undefined;
+};
+
+export interface ActionOutput_apollo_listopportunities {
+  opportunities: ({  id: string;
+  name?: string | undefined;
+  amount?: number | undefined;
+  closed_date?: string | undefined;
+  is_closed?: boolean | undefined;
+  is_won?: boolean | undefined;
+  stage_name?: string | undefined;
+  account_id?: string | undefined;
+  owner_id?: string | undefined;
+  description?: string | undefined;
+  created_at?: string | undefined;})[];
+  pagination: {  page: number;
+  per_page: number;
+  total_entries: number;
+  total_pages: number;};
+};
+
+export interface ActionInput_apollo_listsequences {
+  /**
+   * Pagination cursor from the previous response. Omit for the first page.
+   */
+  cursor?: string | undefined;
+};
+
+export interface ActionOutput_apollo_listsequences {
+  sequences: ({  id: string;
+  name?: string | undefined;
+  status?: string | undefined;
+  created_at?: string | undefined;
+  updated_at?: string | undefined;})[];
+  next_cursor?: string | undefined;
+};
+
+export interface ActionInput_apollo_listtasks {
+  /**
+   * Page number to retrieve. Default is 1.
+   */
+  page?: number | undefined;
+  /**
+   * Number of results per page. Default is 25.
+   */
+  per_page?: number | undefined;
+};
+
+export interface ActionOutput_apollo_listtasks {
+  tasks: ({  id: string;
+  type?: string | undefined;
+  title?: string | undefined;
+  note?: string | undefined;
+  due_date?: string | undefined;
+  priority?: string | undefined;
+  status?: string | undefined;
+  contact_id?: string | undefined;
+  account_id?: string | undefined;
+  opportunity_id?: string | undefined;
+  owner_id?: string | undefined;
+  created_at?: string | undefined;
+  updated_at?: string | undefined;})[];
+  pagination: {  page: number;
+  per_page: number;
+  total_entries: number;
+  total_pages: number;};
+};
+
+export interface ActionInput_apollo_listusers {
+  /**
+   * Page number for pagination. Defaults to 1.
+   */
+  page?: number | undefined;
+};
+
+export interface ActionOutput_apollo_listusers {
+  users: ({  id: string;
+  email?: string | undefined;
+  firstName?: string | undefined;
+  lastName?: string | undefined;
+  name?: string | undefined;
+  phone?: string | undefined;
+  teamId?: string | undefined;
+  createdAt?: string | undefined;
+  updatedAt?: string | undefined;
+  userType?: string | undefined;})[];
+  nextPage?: number | undefined;
+  totalPages?: number | undefined;
+  totalEntries?: number | undefined;
+};
+
+export interface ActionInput_apollo_removecontactfromsequence {
+  /**
+   * Apollo sequence (emailer campaign) ID. Example: "66e9e215ece19801b219997f"
+   */
+  emailer_campaign_id: string;
+  /**
+   * Apollo contact IDs to remove or stop from the sequence. Example: ["66e34b81740c50074e3d1bd4"]
+   */
+  contact_ids: string[];
+  /**
+   * Action to perform on the contacts in the sequence. Defaults to remove.
+   */
+  action?: 'remove' | 'stop' | undefined;
+};
+
+export interface ActionOutput_apollo_removecontactfromsequence {
+  contacts: ({  id: string;
+  name?: string | undefined;
+  email?: string | undefined;})[];
+  emailer_campaigns: ({  id: string;
+  name?: string | undefined;})[];
+};
+
+export interface ActionInput_apollo_searchorganizations {
+  /**
+   * Domain names for the organization (e.g., "apollo.io", "microsoft.com"). Up to 1,000 domains.
+   */
+  q_organization_domains_list?: string[] | undefined;
+  /**
+   * Employee count ranges (e.g., "1,10", "250,500").
+   */
+  organization_num_employees_ranges?: string[] | undefined;
+  /**
+   * HQ locations to include (e.g., "texas", "tokyo", "spain").
+   */
+  organization_locations?: string[] | undefined;
+  /**
+   * HQ locations to exclude.
+   */
+  organization_not_locations?: string[] | undefined;
+  /**
+   * Keyword tags to filter by (e.g., "mining", "consulting").
+   */
+  q_organization_keyword_tags?: string[] | undefined;
+  /**
+   * Organization name to search for. Partial matches accepted.
+   */
+  q_organization_name?: string | undefined;
+  /**
+   * Specific Apollo organization IDs to include.
+   */
+  organization_ids?: string[] | undefined;
+  /**
+   * Technologies the organization uses (e.g., "salesforce", "google_analytics").
+   */
+  currently_using_any_of_technology_uids?: string[] | undefined;
+  /**
+   * Minimum revenue filter (no currency symbols, commas, or decimals).
+   */
+  revenue_range_min?: number | undefined;
+  /**
+   * Maximum revenue filter.
+   */
+  revenue_range_max?: number | undefined;
+  /**
+   * Minimum latest funding amount.
+   */
+  latest_funding_amount_range_min?: number | undefined;
+  /**
+   * Maximum latest funding amount.
+   */
+  latest_funding_amount_range_max?: number | undefined;
+  /**
+   * Minimum total funding amount.
+   */
+  total_funding_range_min?: number | undefined;
+  /**
+   * Maximum total funding amount.
+   */
+  total_funding_range_max?: number | undefined;
+  /**
+   * Minimum latest funding date (YYYY-MM-DD).
+   */
+  latest_funding_date_range_min?: string | undefined;
+  /**
+   * Maximum latest funding date (YYYY-MM-DD).
+   */
+  latest_funding_date_range_max?: string | undefined;
+  /**
+   * Job titles in active job postings.
+   */
+  q_organization_job_titles?: string[] | undefined;
+  /**
+   * Locations of jobs being recruited.
+   */
+  organization_job_locations?: string[] | undefined;
+  /**
+   * Minimum number of active job postings.
+   */
+  organization_num_jobs_range_min?: number | undefined;
+  /**
+   * Maximum number of active job postings.
+   */
+  organization_num_jobs_range_max?: number | undefined;
+  /**
+   * Earliest job posted date (YYYY-MM-DD).
+   */
+  organization_job_posted_at_range_min?: string | undefined;
+  /**
+   * Latest job posted date (YYYY-MM-DD).
+   */
+  organization_job_posted_at_range_max?: string | undefined;
+  /**
+   * Page number for pagination. Default: 1.
+   */
+  page?: number | undefined;
+  /**
+   * Results per page (max 100). Default: 25.
+   */
+  per_page?: number | undefined;
+};
+
+export interface ActionOutput_apollo_searchorganizations {
+  organizations: ({  id: string;
+  name?: string | undefined;
+  domain?: string | undefined;
+  website_url?: string | undefined;
+  city?: string | undefined;
+  state?: string | undefined;
+  country?: string | undefined;
+  location?: string | undefined;
+  num_employees?: number | undefined;
+  description?: string | undefined;
+  phone?: string | undefined;
+  industry?: string | undefined;
+  founded_year?: number | undefined;
+  revenue?: number | undefined;
+  revenue_range?: string | undefined;
+  total_funding?: number | undefined;
+  latest_funding_amount?: number | undefined;
+  latest_funding_date?: string | undefined;
+  funding_currency?: string | undefined;
+  currency?: string | undefined;
+  alexa_ranking?: number | undefined;
+  publicly_traded?: boolean | undefined;
+  ticker?: string | undefined;
+  linkedin_url?: string | undefined;
+  facebook_url?: string | undefined;
+  twitter_url?: string | undefined;
+  technologies?: string[] | undefined;
+  num_jobs?: number | undefined;
+  account_id?: string | undefined;})[];
+  pagination?: {  page: number;
+  per_page: number;
+  total_entries: number;
+  total_pages: number;} | undefined;
+};
+
+export interface ActionInput_apollo_searchpeople {
+  /**
+   * Job titles to search for. Example: ["sales director", "vp sales"]
+   */
+  person_titles?: string[] | undefined;
+  /**
+   * Seniority levels to filter by. Example: ["c_suite", "director", "manager"]
+   */
+  person_seniorities?: string[] | undefined;
+  /**
+   * Organization domains to filter by. Example: ["apollo.io", "nango.dev"]
+   */
+  q_organization_domains_list?: string[] | undefined;
+  /**
+   * Person locations to filter by. Example: ["California, US", "New York, US"]
+   */
+  person_locations?: string[] | undefined;
+  /**
+   * Organization headquarters locations. Example: ["California, US"]
+   */
+  organization_locations?: string[] | undefined;
+  /**
+   * Number of results per page (1-100). Default: 25
+   */
+  per_page?: number | undefined;
+  /**
+   * Page number for pagination. Default: 1
+   */
+  page?: number | undefined;
+};
+
+export interface ActionOutput_apollo_searchpeople {
+  people: ({  id: string;
+  first_name?: string | undefined;
+  last_name?: string | undefined;
+  name?: string | undefined;
+  title?: string | undefined;
+  email?: string | undefined;
+  organization_name?: string | undefined;
+  organization_domain?: string | undefined;})[];
+  pagination?: {  page?: number | undefined;
+  per_page?: number | undefined;
+  total_entries?: number | undefined;
+  total_pages?: number | undefined;
+  next_page?: number | undefined;};
+};
+
+export interface ActionInput_apollo_updateaccount {
+  id: string;
+  name?: string | undefined;
+  domain?: string | undefined;
+  owner_id?: string | undefined;
+  account_stage_id?: string | undefined;
+  raw_address?: string | undefined;
+  phone?: string | undefined;
+  typed_custom_fields?: {  [key: string]: unknown | undefined;};
+};
+
+export interface ActionOutput_apollo_updateaccount {
+  id: string;
+  name?: string | undefined;
+  domain?: string | undefined;
+  owner_id?: string | undefined;
+  account_stage_id?: string | undefined;
+  raw_address?: string | undefined;
+  phone?: string | undefined;
+  typed_custom_fields?: {  [key: string]: unknown | undefined;};
+};
+
+export interface ActionInput_apollo_updatecontact {
+  /**
+   * The Apollo ID for the contact to update. Example: "6a0af1f3f1ce1100203b8047"
+   */
+  id: string;
+  first_name?: string | undefined;
+  last_name?: string | undefined;
+  organization_name?: string | undefined;
+  title?: string | undefined;
+  account_id?: string | undefined;
+  email?: string | undefined;
+  website_url?: string | undefined;
+  label_names?: string[] | undefined;
+  contact_stage_id?: string | undefined;
+  present_raw_address?: string | undefined;
+  direct_phone?: string | undefined;
+  corporate_phone?: string | undefined;
+  mobile_phone?: string | undefined;
+  home_phone?: string | undefined;
+  other_phone?: string | undefined;
+  typed_custom_fields?: {  [key: string]: string;} | undefined;
+};
+
+export interface ActionOutput_apollo_updatecontact {
+  id: string;
+  first_name?: string | undefined;
+  last_name?: string | undefined;
+  email?: string | undefined;
+  organization_name?: string | undefined;
+  title?: string | undefined;
+  account_id?: string | undefined;
+  website_url?: string | undefined;
+  label_names?: string[] | undefined;
+  contact_stage_id?: string | undefined;
+  present_raw_address?: string | undefined;
+  direct_phone?: string | undefined;
+  corporate_phone?: string | undefined;
+  mobile_phone?: string | undefined;
+  home_phone?: string | undefined;
+  other_phone?: string | undefined;
+  typed_custom_fields?: {  [key: string]: string;} | undefined;
+};
+
+export interface ActionInput_apollo_updateopportunity {
+  /**
+   * The ID of the opportunity to update. Example: "6a0af21285c69e000cc28695"
+   */
+  id: string;
+  /**
+   * The ID for the deal owner within your team's Apollo account.
+   */
+  owner_id?: string | undefined;
+  /**
+   * The name of the deal.
+   */
+  name?: string | undefined;
+  /**
+   * The monetary value of the deal.
+   */
+  amount?: number | undefined;
+  /**
+   * The ID for the deal stage within your team's Apollo account.
+   */
+  opportunity_stage_id?: string | undefined;
+  /**
+   * The estimated close date for the deal. Format: YYYY-MM-DD.
+   */
+  closed_date?: string | undefined;
+  typed_custom_fields?: {} | undefined;
+};
+
+export interface ActionOutput_apollo_updateopportunity {
+  id: string;
+  name?: string | undefined;
+  owner_id?: string | undefined;
+  account_id?: string | undefined;
+  amount?: number | undefined;
+  opportunity_stage_id?: string | undefined;
+  closed_date?: string | undefined;
+  created_at?: string | undefined;
+  updated_at?: string | undefined;
+};
+
+export interface ActionInput_apollo_updatetask {
+  /**
+   * The Apollo ID of the task to update. This is used for reference only since the original task cannot be modified via OAuth. Example: 6a0af245e3c1270014ee8e23
+   */
+  id: string;
+  /**
+   * The Apollo user_id for the task owner. Example: 66a3d80d4238fe02d2baaaaf
+   */
+  user_id: string;
+  /**
+   * The Apollo contact_id to associate with the task. Either contact_id, account_id, or opportunity_id is required. Example: 6a0af1f3f1ce1100203b8047
+   */
+  contact_id?: string | undefined;
+  /**
+   * The Apollo account_id to associate with the task. Either contact_id, account_id, or opportunity_id is required.
+   */
+  account_id?: string | undefined;
+  /**
+   * The Apollo opportunity_id to associate with the task. Either contact_id, account_id, or opportunity_id is required.
+   */
+  opportunity_id?: string | undefined;
+  /**
+   * The type of task to create.
+   */
+  type: 'call' | 'outreach_manual_email' | 'linkedin_step_connect' | 'linkedin_step_message' | 'linkedin_step_view_profile' | 'linkedin_step_interact_post' | 'action_item';
+  /**
+   * The status of the task. Use scheduled for future tasks, completed or skipped for past tasks.
+   */
+  status: 'scheduled' | 'completed' | 'skipped';
+  /**
+   * The due date and time in ISO 8601 format. Apollo uses GMT by default. Example: 2025-02-15T08:10:30Z
+   */
+  due_at: string;
+  /**
+   * The priority of the task. Defaults to medium.
+   */
+  priority?: 'high' | 'medium' | 'low' | undefined;
+  /**
+   * A title for the task. If omitted, Apollo auto-generates a title. Example: Follow up on demo request
+   */
+  title?: string | undefined;
+  /**
+   * A description or note for the task. Example: Discuss product demo results and next steps.
+   */
+  note?: string | undefined;
+};
+
+export interface ActionOutput_apollo_updatetask {
+  task: {  id: string;
+  user_id: string;
+  contact_id: string;
+  account_id: string;
+  opportunity_id: string;
+  type: string;
+  status: string;
+  priority: string;
+  due_at: string;
+  title: string;
+  note: string;
+  created_at: string;};
+  /**
+   * The ID of the task that was requested to be updated. Note: The original task still exists and should be manually deleted in the Apollo UI.
+   */
+  original_task_id: string;
+};
+
 export interface Project {
   id: string;
   name: string;
@@ -1377,23 +2838,6 @@ export interface Tag {
   type: string;
   created_at?: number | undefined;
   updated_at?: number | undefined;
-};
-
-export interface Task {
-  id: string;
-  subject?: string | undefined;
-  status?: string | undefined;
-  priority?: string | undefined;
-  owner_id?: string | undefined;
-  owner_name?: string | undefined;
-  created_by_id?: string | undefined;
-  modified_by_id?: string | undefined;
-  created_time?: string | undefined;
-  modified_time?: string | undefined;
-  due_date?: string | undefined;
-  description?: string | undefined;
-  related_module?: string | undefined;
-  related_record_id?: string | undefined;
 };
 
 export interface SyncMetadata_asana_tasks {
@@ -13649,53 +15093,6 @@ export interface Article {
 };
 
 export interface SyncMetadata_freshdesk_articles {
-};
-
-export interface Contact {
-  id: string;
-  first_name?: string | undefined;
-  last_name?: string | undefined;
-  full_name?: string | undefined;
-  email?: string | undefined;
-  secondary_email?: string | undefined;
-  phone?: string | undefined;
-  mobile?: string | undefined;
-  home_phone?: string | undefined;
-  other_phone?: string | undefined;
-  title?: string | undefined;
-  department?: string | undefined;
-  account_name?: string | undefined;
-  account_id?: string | undefined;
-  owner_name?: string | undefined;
-  owner_id?: string | undefined;
-  owner_email?: string | undefined;
-  created_time: string;
-  modified_time: string;
-  mailing_street?: string | undefined;
-  mailing_city?: string | undefined;
-  mailing_state?: string | undefined;
-  mailing_zip?: string | undefined;
-  mailing_country?: string | undefined;
-  other_street?: string | undefined;
-  other_city?: string | undefined;
-  other_state?: string | undefined;
-  other_zip?: string | undefined;
-  other_country?: string | undefined;
-  description?: string | undefined;
-  twitter?: string | undefined;
-  skype_id?: string | undefined;
-  date_of_birth?: string | undefined;
-  lead_source?: string | undefined;
-  email_opt_out?: boolean | undefined;
-  fax?: string | undefined;
-  assistant?: string | undefined;
-  asst_phone?: string | undefined;
-  reporting_to_name?: string | undefined;
-  reporting_to_id?: string | undefined;
-  created_by_name?: string | undefined;
-  created_by_id?: string | undefined;
-  modified_by_name?: string | undefined;
-  modified_by_id?: string | undefined;
 };
 
 export interface SyncMetadata_freshdesk_contacts {
@@ -29785,6 +31182,1290 @@ export interface ActionOutput_metabase_updateuser {
   success: boolean;
 };
 
+export interface MicrosoftApplication {
+  id: string;
+  appId: string;
+  displayName?: string | undefined;
+  createdDateTime?: string | undefined;
+  description?: string | undefined;
+  signInAudience?: string | undefined;
+  publisherDomain?: string | undefined;
+};
+
+export interface DirectoryRole {
+  id: string;
+  displayName?: string | undefined;
+  description?: string | undefined;
+  roleTemplateId?: string | undefined;
+};
+
+export interface Group {
+  id: string;
+  name: string;
+  description?: string | undefined;
+  isDefault?: boolean | undefined;
+  isDeleted?: boolean | undefined;
+  isPublic?: boolean | undefined;
+  createdAt?: string | undefined;
+  updatedAt?: string | undefined;
+  url?: string | undefined;
+};
+
+export interface Organization {
+  id: string;
+  name: string;
+  created_at: string;
+  updated_at: string;
+  url: string;
+  external_id?: string | undefined;
+  domain_names?: string[] | undefined;
+  group_id?: number | undefined;
+  shared_comments?: boolean | undefined;
+  shared_tickets?: boolean | undefined;
+  tags?: string[] | undefined;
+  notes?: string | undefined;
+  details?: string | undefined;
+};
+
+export interface ServicePrincipal {
+  id: string;
+  appId?: string | undefined;
+  displayName?: string | undefined;
+  createdDateTime?: string | undefined;
+};
+
+export interface ActionInput_microsoft_addgroupmember {
+  /**
+   * The ID of the group to add a member to. Example: "51d82e22-a356-4506-afa1-2c3992bed3d7"
+   */
+  groupId: string;
+  /**
+   * The ID of the user, group, or service principal to add as a member. Example: "9fc4580d-5ed8-46c5-9fff-258fd68d533d"
+   */
+  memberId: string;
+};
+
+export interface ActionOutput_microsoft_addgroupmember {
+  success: boolean;
+  groupId: string;
+  memberId: string;
+};
+
+export interface ActionInput_microsoft_createapplication {
+  /**
+   * The display name for the application. Example: "My Application"
+   */
+  displayName: string;
+  /**
+   * Free text field to provide a description of the application. Example: "Application description"
+   */
+  description?: string | undefined;
+  /**
+   * Specifies the Microsoft accounts supported. Example: "AzureADandPersonalMicrosoftAccount"
+   */
+  signInAudience?: 'AzureADMyOrg' | 'AzureADMultipleOrgs' | 'AzureADandPersonalMicrosoftAccount' | 'PersonalMicrosoftAccount' | undefined;
+  /**
+   * Also known as App ID URI, this value acts as the prefix for scopes. Example: ["api://myapp"]
+   */
+  identifierUris?: string[] | undefined;
+  /**
+   * Specifies settings for a web application.
+   */
+  web?: {  /**
+   * The redirect URIs for web applications.
+   */
+  redirectUris?: string[] | undefined;
+  /**
+   * Home page URL of the application.
+   */
+  homePageUrl?: string | undefined;
+  /**
+   * URL for logout.
+   */
+  logoutUrl?: string | undefined;
+  implicitGrantSettings?: {  enableIdTokenIssuance?: boolean | undefined;
+  enableAccessTokenIssuance?: boolean | undefined;};};
+  /**
+   * Specifies settings for a single-page application.
+   */
+  spa?: {  /**
+   * The redirect URIs for single-page applications.
+   */
+  redirectUris?: string[] | undefined;};
+  /**
+   * Specifies settings for public clients (mobile/desktop apps).
+   */
+  publicClient?: {  /**
+   * The redirect URIs for public client applications.
+   */
+  redirectUris?: string[] | undefined;};
+  /**
+   * Specifies settings for an application that implements a web API.
+   */
+  api?: {  /**
+   * The access token version expected.
+   */
+  requestedAccessTokenVersion?: number | undefined;
+  oauth2PermissionScopes?: ({  id: string;
+  value: string;
+  type?: string | undefined;
+  adminConsentDescription?: string | undefined;
+  adminConsentDisplayName?: string | undefined;
+  userConsentDescription?: string | undefined;
+  userConsentDisplayName?: string | undefined;
+  isEnabled?: boolean | undefined;})[];};
+  /**
+   * Custom strings to categorize the application. Example: ["production"]
+   */
+  tags?: string[] | undefined;
+  /**
+   * Configures the groups claim issued in tokens. Example: "SecurityGroup"
+   */
+  groupMembershipClaims?: 'None' | 'SecurityGroup' | 'All' | undefined;
+  /**
+   * Resources that the application needs to access.
+   */
+  requiredResourceAccess?: ({  resourceAppId: string;
+  resourceAccess: ({  id: string;
+  type: 'Scope' | 'Role';})[];})[] | undefined;
+  /**
+   * Password credentials for the application.
+   */
+  passwordCredentials?: ({  /**
+   * Display name for the password. Example: "Password 1"
+   */
+  displayName: string;
+  /**
+   * End date time in ISO 8601 format.
+   */
+  endDateTime?: string | undefined;
+  /**
+   * Start date time in ISO 8601 format.
+   */
+  startDateTime?: string | undefined;})[];
+  /**
+   * Specifies whether to fall back to public client type.
+   */
+  isFallbackPublicClient?: boolean | undefined;
+  /**
+   * Notes for management of the application.
+   */
+  notes?: string | undefined;
+  /**
+   * URL where the service exposes SAML metadata.
+   */
+  samlMetadataUrl?: string | undefined;
+  /**
+   * References app contact info from a Service Management database.
+   */
+  serviceManagementReference?: string | undefined;
+};
+
+export interface ActionOutput_microsoft_createapplication {
+  /**
+   * Unique identifier for the application object. Example: "03ef14b0-ca33-4840-8f4f-d6e91916010e"
+   */
+  id: string;
+  /**
+   * The unique identifier for the application assigned by Microsoft Entra ID. Example: "631a96bc-a705-4eda-9f99-fdaf9f54f6a2"
+   */
+  appId: string;
+  /**
+   * The display name for the application.
+   */
+  displayName: string;
+  description?: string | undefined;
+  createdDateTime?: string | undefined;
+  identifierUris?: string[] | undefined;
+  signInAudience?: string | undefined;
+  publisherDomain?: string | undefined;
+  tags?: string[] | undefined;
+  web?: {  [key: string]: unknown | undefined;};
+  spa?: {  [key: string]: unknown | undefined;};
+  publicClient?: {  [key: string]: unknown | undefined;};
+  api?: {  [key: string]: unknown | undefined;};
+  passwordCredentials?: ({  [key: string]: unknown | undefined;})[];
+  keyCredentials?: ({  [key: string]: unknown | undefined;})[];
+  appRoles?: ({  [key: string]: unknown | undefined;})[];
+  requiredResourceAccess?: ({  [key: string]: unknown | undefined;})[];
+  isFallbackPublicClient?: boolean | undefined;
+  groupMembershipClaims?: string | undefined;
+  notes?: string | undefined;
+  samlMetadataUrl?: string | undefined;
+  serviceManagementReference?: string | undefined;
+};
+
+export interface ActionInput_microsoft_creategroup {
+  /**
+   * The display name for the group. Example: "Engineering Team"
+   */
+  displayName: string;
+  /**
+   * An optional description for the group. Example: "Team collaboration space"
+   */
+  description?: string | undefined;
+  /**
+   * The mail alias for the group. Required by Microsoft Graph. Example: "engineeringteam"
+   */
+  mailNickname: string;
+  /**
+   * Whether the group is mail-enabled. Default: false for security groups
+   */
+  mailEnabled?: boolean | undefined;
+  /**
+   * Whether the group is a security group. Default: true
+   */
+  securityEnabled?: boolean | undefined;
+  /**
+   * Group type classification. Use ["Unified"] for Microsoft 365 groups, leave empty for security groups.
+   */
+  groupTypes?: string[] | undefined;
+};
+
+export interface ActionOutput_microsoft_creategroup {
+  /**
+   * The unique identifier of the created group
+   */
+  id: string;
+  /**
+   * The display name of the group
+   */
+  displayName?: string | undefined;
+  /**
+   * The description of the group
+   */
+  description?: string | undefined;
+  /**
+   * The mail alias of the group
+   */
+  mailNickname?: string | undefined;
+  /**
+   * Whether the group is mail-enabled
+   */
+  mailEnabled?: boolean | undefined;
+  /**
+   * Whether the group is a security group
+   */
+  securityEnabled?: boolean | undefined;
+  /**
+   * Group type classification
+   */
+  groupTypes?: string[] | undefined;
+  /**
+   * The date and time the group was created
+   */
+  createdDateTime?: string | undefined;
+};
+
+export interface ActionInput_microsoft_createserviceprincipal {
+  /**
+   * The application ID to create a service principal for. Example: "dd6b0cea-e204-44c6-b2e0-1162323c22f4"
+   */
+  appId: string;
+};
+
+export interface ActionOutput_microsoft_createserviceprincipal {
+  id: string;
+  appId: string;
+  displayName?: string | undefined;
+  accountEnabled?: boolean | undefined;
+  appDisplayName?: string | undefined;
+  appOwnerOrganizationId?: string | undefined;
+  appRoleAssignmentRequired?: boolean | undefined;
+};
+
+export interface ActionInput_microsoft_createuser {
+  /**
+   * Whether the account is enabled. Example: true
+   */
+  accountEnabled?: boolean | undefined;
+  /**
+   * Display name of the user. Example: "John Doe"
+   */
+  displayName: string;
+  /**
+   * Mail alias for the user. Example: "johndoe"
+   */
+  mailNickname: string;
+  /**
+   * User principal name (UPN). Example: "johndoe@contoso.onmicrosoft.com"
+   */
+  userPrincipalName: string;
+  /**
+   * Password profile for the user
+   */
+  passwordProfile: {  /**
+   * Password for the user. Example: "Password123!"
+   */
+  password: string;
+  /**
+   * Whether user must change password at next sign-in. Example: true
+   */
+  forceChangePasswordNextSignIn?: boolean | undefined;};
+  /**
+   * First name of the user. Example: "John"
+   */
+  givenName?: string | undefined;
+  /**
+   * Last name of the user. Example: "Doe"
+   */
+  surname?: string | undefined;
+  /**
+   * Job title of the user. Example: "Software Engineer"
+   */
+  jobTitle?: string | undefined;
+  /**
+   * Department of the user. Example: "Engineering"
+   */
+  department?: string | undefined;
+  /**
+   * Mobile phone number. Example: "+1 555 555 5555"
+   */
+  mobilePhone?: string | undefined;
+  /**
+   * Office location. Example: "Building 1"
+   */
+  officeLocation?: string | undefined;
+};
+
+export interface ActionOutput_microsoft_createuser {
+  id: string;
+  displayName?: string | undefined;
+  userPrincipalName?: string | undefined;
+  accountEnabled?: boolean | undefined;
+  givenName?: string | undefined;
+  surname?: string | undefined;
+  jobTitle?: string | undefined;
+  department?: string | undefined;
+  mobilePhone?: string | undefined;
+  officeLocation?: string | undefined;
+  mail?: string | undefined;
+  createdDateTime?: string | undefined;
+};
+
+export interface ActionInput_microsoft_deleteapplication {
+  /**
+   * The unique identifier for the application object. Example: "cc67332f-dfd9-43f0-af0f-bc0ff5334965"
+   */
+  applicationId: string;
+};
+
+export interface ActionOutput_microsoft_deleteapplication {
+  success: boolean;
+  applicationId: string;
+};
+
+export interface ActionInput_microsoft_deletegroup {
+  /**
+   * The unique identifier of the group to delete. Example: "51d82e22-a356-4506-afa1-2c3992bed3d7"
+   */
+  id: string;
+};
+
+export interface ActionOutput_microsoft_deletegroup {
+  /**
+   * Whether the group was successfully deleted
+   */
+  success: boolean;
+};
+
+export interface ActionInput_microsoft_deleteserviceprincipal {
+  /**
+   * The unique identifier of the service principal to delete. Example: "8c7410b7-37cd-4463-981d-74cd6ab033a7"
+   */
+  service_principal_id: string;
+};
+
+export interface ActionOutput_microsoft_deleteserviceprincipal {
+  success: boolean;
+  service_principal_id: string;
+};
+
+export interface ActionInput_microsoft_deleteuser {
+  /**
+   * The unique identifier of the user to delete. Example: "9fc4580d-5ed8-46c5-9fff-258fd68d533d"
+   */
+  userId: string;
+};
+
+export interface ActionOutput_microsoft_deleteuser {
+  success: boolean;
+  userId: string;
+  message: string;
+};
+
+export interface ActionInput_microsoft_getapplication {
+  /**
+   * The unique identifier for the application. Example: "cc67332f-dfd9-43f0-af0f-bc0ff5334965"
+   */
+  id: string;
+};
+
+export interface ActionOutput_microsoft_getapplication {
+  id: string;
+  appId?: string | undefined;
+  displayName?: string | undefined;
+  description?: string | undefined;
+  createdDateTime?: string | undefined;
+  publisherDomain?: string | undefined;
+  signInAudience?: string | undefined;
+};
+
+export interface ActionInput_microsoft_getdirectoryrole {
+  /**
+   * The unique identifier for the directory role. Example: "c35aa61d-9e3d-419e-84a9-24767a8a9988"
+   */
+  directoryRoleId: string;
+};
+
+export interface ActionOutput_microsoft_getdirectoryrole {
+  id: string;
+  description?: string | undefined;
+  displayName?: string | undefined;
+  roleTemplateId?: string | undefined;
+};
+
+export interface ActionInput_microsoft_getgroup {
+  /**
+   * The unique identifier for the group. Example: "51d82e22-a356-4506-afa1-2c3992bed3d7"
+   */
+  id: string;
+};
+
+export interface ActionOutput_microsoft_getgroup {
+  id: string;
+  displayName: string;
+  description?: string | undefined;
+  groupTypes?: string[] | undefined;
+  mail?: string | undefined;
+  mailEnabled?: boolean | undefined;
+  mailNickname?: string | undefined;
+  securityEnabled?: boolean | undefined;
+  visibility?: string | undefined;
+  createdDateTime?: string | undefined;
+  renewedDateTime?: string | undefined;
+};
+
+export interface ActionInput_microsoft_getorganization {
+  /**
+   * Organization ID. Example: "56480ae2-88be-49cf-86f6-d62a45bf8758"
+   */
+  id: string;
+};
+
+export interface ActionOutput_microsoft_getorganization {
+  id: string;
+  displayName?: string | undefined;
+  businessPhones?: string[] | undefined;
+  city?: string | undefined;
+  country?: string | undefined;
+  countryLetterCode?: string | undefined;
+  createdDateTime?: string | undefined;
+  deletedDateTime?: string | undefined;
+  marketingNotificationEmails?: string[] | undefined;
+  onPremisesLastSyncDateTime?: string | undefined;
+  onPremisesSyncEnabled?: boolean | undefined;
+  postalCode?: string | undefined;
+  preferredLanguage?: string | undefined;
+  securityComplianceNotificationMails?: string[] | undefined;
+  securityComplianceNotificationPhones?: string[] | undefined;
+  state?: string | undefined;
+  street?: string | undefined;
+  technicalNotificationMails?: string[] | undefined;
+  tenantType?: string | undefined;
+  verifiedDomains?: ({  capabilities?: string | undefined;
+  isDefault?: boolean | undefined;
+  isInitial?: boolean | undefined;
+  name?: string | undefined;
+  type?: string | undefined;})[];
+  assignedPlans?: ({  assignedDateTime?: string | undefined;
+  capabilityStatus?: string | undefined;
+  service?: string | undefined;
+  servicePlanId?: string | undefined;})[];
+  provisionedPlans?: ({  capabilityStatus?: string | undefined;
+  provisioningStatus?: string | undefined;
+  service?: string | undefined;})[];
+};
+
+export interface ActionInput_microsoft_getserviceprincipal {
+  /**
+   * The unique identifier of the service principal. Example: "8c7410b7-37cd-4463-981d-74cd6ab033a7"
+   */
+  servicePrincipalId: string;
+};
+
+export interface ActionOutput_microsoft_getserviceprincipal {
+  /**
+   * The unique identifier for the service principal.
+   */
+  id: string;
+  appId?: string | undefined;
+  displayName?: string | undefined;
+  appDisplayName?: string | undefined;
+  servicePrincipalType?: string | undefined;
+  accountEnabled?: boolean | undefined;
+  alternativeNames?: string[] | undefined;
+  appDescription?: string | undefined;
+  appOwnerOrganizationId?: string | undefined;
+  description?: string | undefined;
+  loginUrl?: string | undefined;
+  logoutUrl?: string | undefined;
+  notificationEmailAddresses?: string[] | undefined;
+  preferredSingleSignOnMode?: string | undefined;
+  replyUrls?: string[] | undefined;
+  servicePrincipalNames?: string[] | undefined;
+  signInAudience?: string | undefined;
+  tags?: string[] | undefined;
+  addIns?: unknown | undefined;
+  appRoles?: unknown | undefined;
+  info?: unknown | undefined;
+  keyCredentials?: unknown | undefined;
+  oauth2PermissionScopes?: unknown | undefined;
+  passwordCredentials?: unknown | undefined;
+  verifiedPublisher?: unknown | undefined;
+  createdDateTime?: string | undefined;
+  deletedDateTime?: string | undefined;
+};
+
+export interface ActionInput_microsoft_getuser {
+  /**
+   * The ID of the user to retrieve. Example: "9fc4580d-5ed8-46c5-9fff-258fd68d533d"
+   */
+  userId: string;
+};
+
+export interface ActionOutput_microsoft_getuser {
+  id: string;
+  displayName?: string | undefined;
+  givenName?: string | undefined;
+  surname?: string | undefined;
+  mail?: string | undefined;
+  userPrincipalName?: string | undefined;
+  jobTitle?: string | undefined;
+  officeLocation?: string | undefined;
+  mobilePhone?: string | undefined;
+  businessPhones?: string[] | undefined;
+  preferredLanguage?: string | undefined;
+  createdDateTime?: string | undefined;
+  accountEnabled?: boolean | undefined;
+  department?: string | undefined;
+  companyName?: string | undefined;
+};
+
+export interface ActionInput_microsoft_listapplications {
+  /**
+   * OData filter expression to filter applications. Example: displayName eq 'MyApp'
+   */
+  filter?: string | undefined;
+  /**
+   * OData select expression to specify which properties to return. Example: id,displayName,appId
+   */
+  select?: string | undefined;
+  /**
+   * Number of items to return in a page (max 999). Example: 50
+   */
+  top?: number | undefined;
+  /**
+   * Pagination cursor from the previous response. Omit for the first page.
+   */
+  cursor?: string | undefined;
+};
+
+export interface ActionOutput_microsoft_listapplications {
+  applications: ({  id: string;
+  appId?: string | undefined;
+  displayName?: string | undefined;
+  description?: string | undefined;
+  signInAudience?: string | undefined;
+  publisherDomain?: string | undefined;
+  createdDateTime?: string | undefined;
+  identifierUris?: string[] | undefined;})[];
+  nextCursor?: string | undefined;
+};
+
+export interface ActionInput_microsoft_listdevices {
+  /**
+   * Pagination cursor (odata.nextLink) from the previous response. Omit for the first page.
+   */
+  cursor?: string | undefined;
+};
+
+export interface ActionOutput_microsoft_listdevices {
+  devices: ({  /**
+   * The unique identifier for the device.
+   */
+  id: string;
+  /**
+   * The device ID.
+   */
+  deviceId?: string | undefined;
+  /**
+   * The display name for the device.
+   */
+  displayName?: string | undefined;
+  /**
+   * The operating system of the device.
+   */
+  operatingSystem?: string | undefined;
+  /**
+   * The operating system version of the device.
+   */
+  operatingSystemVersion?: string | undefined;
+  /**
+   * Whether the device account is enabled.
+   */
+  accountEnabled?: boolean | undefined;
+  /**
+   * The timestamp of the approximate last sign-in.
+   */
+  approximateLastSignInDateTime?: string | undefined;
+  /**
+   * The enrollment profile name.
+   */
+  enrollmentProfileName?: string | undefined;
+  /**
+   * The device management type.
+   */
+  managementType?: string | undefined;
+  /**
+   * The timestamp when the device was registered.
+   */
+  registrationDateTime?: string | undefined;
+  /**
+   * The ownership of the device.
+   */
+  deviceOwnership?: string | undefined;
+  /**
+   * The domain name.
+   */
+  domainName?: string | undefined;
+  /**
+   * The profile type of the device.
+   */
+  profileType?: string | undefined;
+  /**
+   * The MDM application ID.
+   */
+  mdmAppId?: string | undefined;
+  /**
+   * The compliance expiration timestamp.
+   */
+  complianceExpirationDateTime?: string | undefined;
+  /**
+   * Whether on-premises sync is enabled.
+   */
+  onPremisesSyncEnabled?: boolean | undefined;
+  /**
+   * The trust type of the device.
+   */
+  trustType?: string | undefined;
+  /**
+   * Alternative security IDs for the device.
+   */
+  alternativeSecurityIds?: ({  [key: string]: unknown | undefined;})[];})[];
+  /**
+   * The odata.nextLink cursor for the next page of results.
+   */
+  next_cursor?: string | undefined;
+};
+
+export interface ActionInput_microsoft_listdirectoryrolemembers {
+  /**
+   * The unique identifier of the directory role. Example: "c35aa61d-9e3d-419e-84a9-24767a8a9988"
+   */
+  directoryRoleId: string;
+  /**
+   * Pagination cursor (skipToken) from the previous response. Omit for the first page.
+   */
+  cursor?: string | undefined;
+};
+
+export interface ActionOutput_microsoft_listdirectoryrolemembers {
+  members: ({  id: string;
+  type: 'user' | 'servicePrincipal';
+  displayName?: string | undefined;
+  email?: string | undefined;
+  userPrincipalName?: string | undefined;
+  appId?: string | undefined;
+  servicePrincipalType?: string | undefined;})[];
+  nextLink?: string | undefined;
+};
+
+export interface ActionInput_microsoft_listdirectoryroles {
+  /**
+   * OData filter query parameter using eq operator only. Example: displayName eq Global Administrator
+   */
+  filter?: string | undefined;
+  /**
+   * OData select query parameter to specify which properties to include in the response. Example: id,displayName,description
+   */
+  select?: string | undefined;
+  /**
+   * Maximum number of records to return per page.
+   */
+  top?: number | undefined;
+  /**
+   * Pagination cursor (skipToken) from the previous response. Omit for the first page.
+   */
+  cursor?: string | undefined;
+};
+
+export interface ActionOutput_microsoft_listdirectoryroles {
+  items: ({  id: string;
+  deletedDateTime?: string | undefined;
+  description?: string | undefined;
+  displayName?: string | undefined;
+  roleTemplateId?: string | undefined;})[];
+  next_cursor?: string | undefined;
+};
+
+export interface ActionInput_microsoft_listgroupmembers {
+  /**
+   * The unique identifier of the group. Example: "51d82e22-a356-4506-afa1-2c3992bed3d7"
+   */
+  groupId: string;
+  /**
+   * Pagination cursor (skipToken) from the previous response. Omit for the first page.
+   */
+  cursor?: string | undefined;
+};
+
+export interface ActionOutput_microsoft_listgroupmembers {
+  /**
+   * List of direct members of the group
+   */
+  members: ({  /**
+   * The unique identifier of the member
+   */
+  id: string;
+  /**
+   * The type of directory object (e.g., #microsoft.graph.user, #microsoft.graph.group)
+   */
+  type?: string | undefined;
+  /**
+   * The display name of the member
+   */
+  displayName?: string | undefined;
+  /**
+   * The email address of the member
+   */
+  mail?: string | undefined;
+  /**
+   * The user principal name of the member
+   */
+  userPrincipalName?: string | undefined;})[];
+  /**
+   * URL to retrieve the next page of results, if more members exist
+   */
+  nextLink?: string | undefined;
+};
+
+export interface ActionInput_microsoft_listgroups {
+  /**
+   * OData filter expression
+   */
+  filter?: string | undefined;
+  /**
+   * Comma-separated list of properties to return
+   */
+  select?: string | undefined;
+  /**
+   * Number of items to return per page (1-999). Default is 100.
+   */
+  top?: number | undefined;
+  /**
+   * OData orderby expression
+   */
+  orderby?: string | undefined;
+  /**
+   * Pagination URL from the previous response. Omit for the first page.
+   */
+  cursor?: string | undefined;
+};
+
+export interface ActionOutput_microsoft_listgroups {
+  items: ({  id: string;
+  displayName?: string | undefined;
+  description?: string | undefined;
+  mail?: string | undefined;
+  mailNickname?: string | undefined;
+  groupTypes?: string[] | undefined;
+  securityEnabled?: boolean | undefined;
+  mailEnabled?: boolean | undefined;
+  visibility?: string | undefined;
+  createdDateTime?: string | undefined;
+  renewedDateTime?: string | undefined;
+  expirationDateTime?: string | undefined;})[];
+  nextCursor?: string | undefined;
+};
+
+export interface ActionInput_microsoft_listorganizations {
+  /**
+   * Comma-separated list of properties to include in the response.
+   */
+  "$select"?: string | undefined;
+  /**
+   * OData filter to narrow results.
+   */
+  "$filter"?: string | undefined;
+  /**
+   * Number of items to return per page.
+   */
+  "$top"?: number | undefined;
+  /**
+   * Number of items to skip.
+   */
+  "$skip"?: number | undefined;
+  /**
+   * Include a count of the total number of items.
+   */
+  "$count"?: boolean | undefined;
+};
+
+export interface ActionOutput_microsoft_listorganizations {
+  organizations: ({  id: string;
+  displayName?: string | undefined;
+  createdDateTime?: string | undefined;
+  businessPhones?: string[] | undefined;
+  city?: string | undefined;
+  country?: string | undefined;
+  countryLetterCode?: string | undefined;
+  defaultUsageLocation?: string | undefined;
+  marketingNotificationEmails?: string[] | undefined;
+  onPremisesLastSyncDateTime?: string | undefined;
+  onPremisesSyncEnabled?: boolean | undefined;
+  postalCode?: string | undefined;
+  preferredLanguage?: string | undefined;
+  securityComplianceNotificationMails?: string[] | undefined;
+  securityComplianceNotificationPhones?: string[] | undefined;
+  state?: string | undefined;
+  street?: string | undefined;
+  technicalNotificationMails?: string[] | undefined;
+  tenantType?: string | undefined;
+  assignedPlans?: ({  assignedDateTime?: string | undefined;
+  capabilityStatus?: string | undefined;
+  service?: string | undefined;
+  servicePlanId?: string | undefined;})[];
+  verifiedDomains?: ({  capabilities?: string | undefined;
+  isDefault?: boolean | undefined;
+  isInitial?: boolean | undefined;
+  name?: string | undefined;
+  type?: string | undefined;})[];
+  provisionedPlans?: ({  capabilityStatus?: string | undefined;
+  provisioningStatus?: string | undefined;
+  service?: string | undefined;})[];})[];
+  count?: number | undefined;
+  nextLink?: string | undefined;
+};
+
+export interface ActionInput_microsoft_listserviceprincipals {
+  /**
+   * Pagination cursor for the next page of results. Pass the value from @odata.nextLink or next_cursor.
+   */
+  cursor?: string | undefined;
+};
+
+export interface ActionOutput_microsoft_listserviceprincipals {
+  items: ({  /**
+   * The unique identifier for the service principal
+   */
+  id: string;
+  /**
+   * The application ID of the application associated with this service principal
+   */
+  appId: string;
+  /**
+   * The display name for the service principal
+   */
+  displayName?: string | undefined;
+  /**
+   * The application display name
+   */
+  appDisplayName?: string | undefined;
+  /**
+   * The type of service principal: Application or ManagedIdentity
+   */
+  servicePrincipalType?: string | undefined;
+  /**
+   * Whether the service principal account is enabled
+   */
+  accountEnabled?: boolean | undefined;
+  /**
+   * The date and time the service principal was created
+   */
+  createdDateTime?: string | undefined;
+  /**
+   * A description for the service principal
+   */
+  description?: string | undefined;
+  /**
+   * The URL that users are redirected to when signing in to the application
+   */
+  loginUrl?: string | undefined;
+  /**
+   * The URL that users are redirected to when signing out of the application
+   */
+  logoutUrl?: string | undefined;
+  /**
+   * Free text field to capture information about the service principal
+   */
+  notes?: string | undefined;
+  /**
+   * Email addresses to which notifications are sent
+   */
+  notificationEmailAddresses?: string[] | undefined;
+  /**
+   * The preferred single sign-on mode for the application
+   */
+  preferredSingleSignOnMode?: string | undefined;
+  /**
+   * The publisher name of the application associated with this service principal
+   */
+  publisherName?: string | undefined;
+  /**
+   * The sign-in audience for the application
+   */
+  signInAudience?: string | undefined;
+  /**
+   * Custom strings that can be used to categorize and identify the service principal
+   */
+  tags?: string[] | undefined;})[];
+  /**
+   * Pagination cursor to retrieve the next page of results. Pass this value as the cursor parameter in the next request.
+   */
+  nextCursor?: string | undefined;
+};
+
+export interface ActionInput_microsoft_listusermemberships {
+  /**
+   * The user ID or user principal name to list memberships for. Example: "9fc4580d-5ed8-46c5-9fff-258fd68d533d" or "user@contoso.com"
+   */
+  userId: string;
+  /**
+   * Pagination cursor from the previous response. Omit for the first page.
+   */
+  cursor?: string | undefined;
+  /**
+   * Optional filter to return only specific member types: group, directoryRole, or administrativeUnit. Omit to return all types.
+   */
+  filterType?: 'group' | 'directoryRole' | 'administrativeUnit' | undefined;
+};
+
+export interface ActionOutput_microsoft_listusermemberships {
+  items: ({  id: string;
+  type: 'group' | 'directoryRole' | 'administrativeUnit' | 'unknown';
+  displayName?: string | undefined;
+  description?: string | undefined;
+  groupDetails?: {  mail?: string | undefined;
+  mailEnabled?: boolean | undefined;
+  securityEnabled?: boolean | undefined;
+  groupTypes?: string[] | undefined;
+  visibility?: string | undefined;
+  createdDateTime?: string | undefined;};
+  directoryRoleDetails?: {  roleTemplateId?: string | undefined;};
+  administrativeUnitDetails?: {  visibility?: string | undefined;};})[];
+  /**
+   * Pagination cursor for the next page. Null if no more pages.
+   */
+  next_cursor?: string | undefined;
+};
+
+export interface ActionInput_microsoft_listusers {
+  /**
+   * OData filter query. Example: "startswith(displayName,'John')"
+   */
+  filter?: string | undefined;
+  /**
+   * Comma-separated list of properties to return. Example: "id,displayName,mail"
+   */
+  select?: string | undefined;
+  /**
+   * Number of users to return (1-999). Default: 100
+   */
+  top?: number | undefined;
+  /**
+   * Order by clause. Example: "displayName"
+   */
+  orderby?: string | undefined;
+  /**
+   * Pagination cursor (skipToken) from previous response. Omit for first page.
+   */
+  cursor?: string | undefined;
+};
+
+export interface ActionOutput_microsoft_listusers {
+  users: ({  id: string;
+  displayName?: string | undefined;
+  mail?: string | undefined;
+  userPrincipalName?: string | undefined;
+  givenName?: string | undefined;
+  surname?: string | undefined;
+  jobTitle?: string | undefined;
+  officeLocation?: string | undefined;
+  mobilePhone?: string | undefined;
+  businessPhones?: string[] | undefined;
+  accountEnabled?: boolean | undefined;
+  createdDateTime?: string | undefined;})[];
+  nextCursor?: string | undefined;
+};
+
+export interface ActionInput_microsoft_removegroupmember {
+  /**
+   * The ID of the group from which to remove the member. Example: "51d82e22-a356-4506-afa1-2c3992bed3d7"
+   */
+  groupId: string;
+  /**
+   * The ID of the member to remove from the group. Example: "9fc4580d-5ed8-46c5-9fff-258fd68d533d"
+   */
+  memberId: string;
+};
+
+export interface ActionOutput_microsoft_removegroupmember {
+  success: boolean;
+};
+
+export interface ActionInput_microsoft_updateapplication {
+  /**
+   * The unique identifier of the application object. Example: "cc67332f-dfd9-43f0-af0f-bc0ff5334965"
+   */
+  id: string;
+  /**
+   * The display name for the application.
+   */
+  displayName?: string | undefined;
+  /**
+   * An optional description of the application.
+   */
+  description?: string | undefined;
+  /**
+   * Specifies what Microsoft accounts are supported.
+   */
+  signInAudience?: 'AzureADMyOrg' | 'AzureADMultipleOrgs' | 'AzureADandPersonalMicrosoftAccount' | undefined;
+  /**
+   * Configures the groups claim issued in tokens.
+   */
+  groupMembershipClaims?: 'None' | 'SecurityGroup' | 'All' | undefined;
+  /**
+   * Custom strings to categorize and identify the application.
+   */
+  tags?: string[] | undefined;
+  /**
+   * Specifies the fallback application type as public client.
+   */
+  isFallbackPublicClient?: boolean | undefined;
+};
+
+export interface ActionOutput_microsoft_updateapplication {
+  id: string;
+  success: boolean;
+};
+
+export interface ActionInput_microsoft_updategroup {
+  /**
+   * The unique identifier for the group. Example: "51d82e22-a356-4506-afa1-2c3992bed3d7"
+   */
+  groupId: string;
+  /**
+   * An optional description for the group.
+   */
+  description?: string | undefined;
+  /**
+   * The display name for the group.
+   */
+  displayName?: string | undefined;
+  /**
+   * The mail alias for the group.
+   */
+  mailNickname?: string | undefined;
+  /**
+   * Specifies whether the group is a security group.
+   */
+  securityEnabled?: boolean | undefined;
+  /**
+   * Specifies the visibility of a Microsoft 365 group.
+   */
+  visibility?: 'Private' | 'Public' | undefined;
+  /**
+   * Indicates whether people external to the organization can send messages to the group.
+   */
+  allowExternalSenders?: boolean | undefined;
+  /**
+   * Indicates whether new members added to the group will be auto-subscribed to receive email notifications.
+   */
+  autoSubscribeNewMembers?: boolean | undefined;
+  /**
+   * The preferred data location for the Microsoft 365 group.
+   */
+  preferredDataLocation?: string | undefined;
+  /**
+   * The unique identifier that can be assigned to a group.
+   */
+  uniqueName?: string | undefined;
+};
+
+export interface ActionOutput_microsoft_updategroup {
+  success: boolean;
+  groupId: string;
+};
+
+export interface ActionInput_microsoft_updateorganization {
+  /**
+   * The unique identifier of the organization.
+   */
+  id: string;
+  /**
+   * Email addresses for marketing notifications.
+   */
+  marketingNotificationEmails?: string[] | undefined;
+  /**
+   * Privacy profile with contact email and statement URL.
+   */
+  privacyProfile?: {  /**
+   * Contact email for privacy issues.
+   */
+  contactEmail?: string | undefined;
+  /**
+   * URL to the privacy statement.
+   */
+  statementUrl?: string | undefined;};
+  /**
+   * Email addresses for security compliance notifications.
+   */
+  securityComplianceNotificationMails?: string[] | undefined;
+  /**
+   * Phone numbers for security compliance notifications.
+   */
+  securityComplianceNotificationPhones?: string[] | undefined;
+  /**
+   * Email addresses for technical notifications.
+   */
+  technicalNotificationMails?: string[] | undefined;
+};
+
+export interface ActionOutput_microsoft_updateorganization {
+  /**
+   * Whether the update was successful.
+   */
+  success: boolean;
+};
+
+export interface ActionInput_microsoft_updateserviceprincipal {
+  /**
+   * The unique identifier for the service principal. Example: "8c7410b7-37cd-4463-981d-74cd6ab033a7"
+   */
+  servicePrincipalId: string;
+  /**
+   * Whether the service principal account is enabled.
+   */
+  accountEnabled?: boolean | undefined;
+  /**
+   * Whether an appRoleAssignment is required before Microsoft Entra ID will issue a user or access token.
+   */
+  appRoleAssignmentRequired?: boolean | undefined;
+  /**
+   * The display name for the service principal.
+   */
+  displayName?: string | undefined;
+  /**
+   * Home page or landing page of the application.
+   */
+  homepage?: string | undefined;
+  /**
+   * URL used by Microsoft authorization service to log out a user.
+   */
+  logoutUrl?: string | undefined;
+  /**
+   * Single sign-on mode configured for this application. Values: password, saml, external, oidc.
+   */
+  preferredSingleSignOnMode?: string | undefined;
+  /**
+   * URLs that user tokens are sent to for sign in, or redirect URIs for OAuth 2.0 codes and tokens.
+   */
+  replyUrls?: string[] | undefined;
+  /**
+   * List of identifiersUris copied from the associated application.
+   */
+  servicePrincipalNames?: string[] | undefined;
+  /**
+   * Custom strings used to categorize and identify the application.
+   */
+  tags?: string[] | undefined;
+  /**
+   * Used to retrieve service principals by subscription, identify resource group and full resource IDs.
+   */
+  alternativeNames?: string[] | undefined;
+};
+
+export interface ActionOutput_microsoft_updateserviceprincipal {
+  success: boolean;
+  servicePrincipalId: string;
+  updatedFields: string[];
+};
+
+export interface ActionInput_microsoft_updateuser {
+  /**
+   * The unique identifier of the user to update. Example: "9fc4580d-5ed8-46c5-9fff-258fd68d533d"
+   */
+  userId: string;
+  /**
+   * The name displayed in the address book for the user.
+   */
+  displayName?: string | undefined;
+  /**
+   * The given name (first name) of the user.
+   */
+  givenName?: string | undefined;
+  /**
+   * The surname (family name or last name) of the user.
+   */
+  surname?: string | undefined;
+  /**
+   * The job title of the user.
+   */
+  jobTitle?: string | undefined;
+  /**
+   * The name of the department in which the user works.
+   */
+  department?: string | undefined;
+  /**
+   * The office location in the user's place of business.
+   */
+  officeLocation?: string | undefined;
+  /**
+   * The primary cellular telephone number for the user.
+   */
+  mobilePhone?: string | undefined;
+  /**
+   * The telephone numbers for the user.
+   */
+  businessPhones?: string[] | undefined;
+  /**
+   * The city in which the user is located.
+   */
+  city?: string | undefined;
+  /**
+   * The country/region in which the user is located.
+   */
+  country?: string | undefined;
+  /**
+   * The preferred language for the user. Should follow ISO 639-1 Code; for example, "en-US".
+   */
+  preferredLanguage?: string | undefined;
+  /**
+   * The mail alias for the user.
+   */
+  mailNickname?: string | undefined;
+  /**
+   * true if the account is enabled; otherwise, false.
+   */
+  accountEnabled?: boolean | undefined;
+};
+
+export interface ActionOutput_microsoft_updateuser {
+  success: boolean;
+  userId: string;
+};
+
 export interface ChannelMessageReply {
   id: string;
   parentMessageId: string;
@@ -35750,22 +38431,6 @@ export interface Lead {
   tags?: string[] | undefined;
 };
 
-export interface Organization {
-  id: string;
-  name: string;
-  created_at: string;
-  updated_at: string;
-  url: string;
-  external_id?: string | undefined;
-  domain_names?: string[] | undefined;
-  group_id?: number | undefined;
-  shared_comments?: boolean | undefined;
-  shared_tickets?: boolean | undefined;
-  tags?: string[] | undefined;
-  notes?: string | undefined;
-  details?: string | undefined;
-};
-
 export interface Pipeline {
   id: string;
   name?: string | undefined;
@@ -38319,47 +40984,6 @@ export interface ActionOutput_pipedrive_updatestage {
   update_time?: string | undefined;
   pipeline_name?: string | undefined;
   pipeline_deal_probability?: boolean | undefined;
-};
-
-export interface Account {
-  id: string;
-  accountName?: string | undefined;
-  accountNumber?: string | undefined;
-  accountType?: string | undefined;
-  annualRevenue?: number | undefined;
-  billingCity?: string | undefined;
-  billingCode?: string | undefined;
-  billingCountry?: string | undefined;
-  billingState?: string | undefined;
-  billingStreet?: string | undefined;
-  createdByName?: string | undefined;
-  createdById?: string | undefined;
-  createdByEmail?: string | undefined;
-  createdTime?: string | undefined;
-  description?: string | undefined;
-  employees?: number | undefined;
-  fax?: string | undefined;
-  industry?: string | undefined;
-  modifiedByName?: string | undefined;
-  modifiedById?: string | undefined;
-  modifiedByEmail?: string | undefined;
-  modifiedTime: string;
-  ownerName?: string | undefined;
-  ownerId?: string | undefined;
-  ownerEmail?: string | undefined;
-  ownership?: string | undefined;
-  parentAccountName?: string | undefined;
-  parentAccountId?: string | undefined;
-  phone?: string | undefined;
-  rating?: string | undefined;
-  shippingCity?: string | undefined;
-  shippingCode?: string | undefined;
-  shippingCountry?: string | undefined;
-  shippingState?: string | undefined;
-  shippingStreet?: string | undefined;
-  sicCode?: string | undefined;
-  tickerSymbol?: string | undefined;
-  website?: string | undefined;
 };
 
 export interface BillPayment {
@@ -42445,16 +45069,6 @@ export interface Case {
   is_escalated?: boolean | undefined;
 };
 
-export interface Opportunity {
-  id: string;
-  name?: string | undefined;
-  amount?: number | undefined;
-  stage?: string | undefined;
-  close_date?: string | undefined;
-  owner_id?: string | undefined;
-  updated_at: string;
-};
-
 export interface SyncMetadata_salesforce_recordsbysoql {
   soql_query: string;
   api_version?: string | undefined;
@@ -43370,18 +45984,6 @@ export interface ActionOutput_salesforce_upsertsobjectcollection {
 };
 
 export interface SyncMetadata_sap_success_factors_employees {
-};
-
-export interface Group {
-  id: string;
-  name: string;
-  description?: string | undefined;
-  isDefault?: boolean | undefined;
-  isDeleted?: boolean | undefined;
-  isPublic?: boolean | undefined;
-  createdAt?: string | undefined;
-  updatedAt?: string | undefined;
-  url?: string | undefined;
 };
 
 export interface SyncMetadata_sap_success_factors_groups {
