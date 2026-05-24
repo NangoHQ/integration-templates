@@ -1,0 +1,95 @@
+{
+  "input": {},
+  "output": {
+    "pages": [
+      {
+        "id": "1148671018324630",
+        "name": "Nango API",
+        "category": "Tech",
+        "categoryList": [
+          {
+            "id": "1358894969206191",
+            "name": "Tech"
+          }
+        ],
+        "accessToken": "EAAYADtuwsMkBRQBKUGWFi84Jc6ysgdzR2TIlLX8DrEZCQjNQImC5dgiZAAasrgKpXyt1Qr4Pe0F5lGIRKESFcQqQjhKpNxoq5JweqxC6spcrDXm1xTZChEYSvBxZC9LSku1jZCqZA8At9CXYyhl4MTRvXtbMiaHj82BuslnLGdLGQxs0nk3wJqAfKzaqX7CIfObTIx",
+        "fanCount": 0,
+        "pictureUrl": "https://scontent-sea5-1.xx.fbcdn.net/v/t39.30808-1/702969074_122098283043327930_980769241480784673_n.png?stp=cp0_dst-png_s50x50&_nc_cat=100&ccb=1-7&_nc_sid=f907e8&_nc_ohc=K6ISjQI2ZCIQ7kNvwG-3ULa&_nc_oc=AdoTA52i9JXIPDJIy8uMzHL0caGw8p7oiG972NsyyJTtrKJG4VfVwBfIbwOOtofcR9s&_nc_zt=24&_nc_ht=scontent-sea5-1.xx&edm=AGaHXAAEAAAA&_nc_gid=l3G4CYyDGt_FiNvskRQyqw&_nc_tpa=Q5bMBQH6Nw5zuZzgIBIUwE3ZdeQyCV6O3XjqL6cpVRhgnds3CfGWzG_9XwiPs-BndpsytIuXy8oByQ2Utw&oh=00_Af6JEnx68hGkQAO05wTO-ZsMqffTwoh09z6uRwzZR7yZ4A&oe=6A11FDA7"
+      }
+    ]
+  },
+  "nango": {},
+  "api": {
+    "get": {
+      "/me/accounts": [
+        {
+          "response": {
+            "data": [
+              {
+                "id": "1148671018324630",
+                "name": "Nango API",
+                "category": "Tech",
+                "category_list": [
+                  {
+                    "id": "1358894969206191",
+                    "name": "Tech"
+                  }
+                ],
+                "access_token": "EAAYADtuwsMkBRQBKUGWFi84Jc6ysgdzR2TIlLX8DrEZCQjNQImC5dgiZAAasrgKpXyt1Qr4Pe0F5lGIRKESFcQqQjhKpNxoq5JweqxC6spcrDXm1xTZChEYSvBxZC9LSku1jZCqZA8At9CXYyhl4MTRvXtbMiaHj82BuslnLGdLGQxs0nk3wJqAfKzaqX7CIfObTIx",
+                "fan_count": 0,
+                "picture": {
+                  "data": {
+                    "height": 50,
+                    "is_silhouette": false,
+                    "url": "https://scontent-sea5-1.xx.fbcdn.net/v/t39.30808-1/702969074_122098283043327930_980769241480784673_n.png?stp=cp0_dst-png_s50x50&_nc_cat=100&ccb=1-7&_nc_sid=f907e8&_nc_ohc=K6ISjQI2ZCIQ7kNvwG-3ULa&_nc_oc=AdoTA52i9JXIPDJIy8uMzHL0caGw8p7oiG972NsyyJTtrKJG4VfVwBfIbwOOtofcR9s&_nc_zt=24&_nc_ht=scontent-sea5-1.xx&edm=AGaHXAAEAAAA&_nc_gid=l3G4CYyDGt_FiNvskRQyqw&_nc_tpa=Q5bMBQH6Nw5zuZzgIBIUwE3ZdeQyCV6O3XjqL6cpVRhgnds3CfGWzG_9XwiPs-BndpsytIuXy8oByQ2Utw&oh=00_Af6JEnx68hGkQAO05wTO-ZsMqffTwoh09z6uRwzZR7yZ4A&oe=6A11FDA7",
+                    "width": 50
+                  }
+                }
+              }
+            ],
+            "paging": {
+              "cursors": {
+                "before": "QVFIU1BqbXRBQzhXTU1kNS1seHYxSGtyS1FSamsxc2FNcWVpenpZAMTZAKLWJmcnNnVExDbHY3R3Q0VjZAFNEVqdE9MX3prcG1xdHlzdTBjWHRKdGpndE5teS13",
+                "after": "QVFIU1BqbXRBQzhXTU1kNS1seHYxSGtyS1FSamsxc2FNcWVpenpZAMTZAKLWJmcnNnVExDbHY3R3Q0VjZAFNEVqdE9MX3prcG1xdHlzdTBjWHRKdGpndE5teS13"
+              }
+            }
+          },
+          "status": 200,
+          "headers": {
+            "date": "Tue, 19 May 2026 10:27:33 GMT",
+            "content-type": "application/json",
+            "content-length": "1243",
+            "connection": "keep-alive"
+          },
+          "hash": "29380e1b47c96e673e0206437780474c0dbecd8c",
+          "request": {
+            "params": {
+              "fields": "id,name,category,category_list,access_token,fan_count,picture",
+              "limit": "100"
+            }
+          }
+        },
+        {
+          "response": {
+            "data": []
+          },
+          "status": 200,
+          "headers": {
+            "date": "Tue, 19 May 2026 10:27:33 GMT",
+            "content-type": "application/json",
+            "content-length": "11",
+            "connection": "keep-alive"
+          },
+          "hash": "terminatingpage",
+          "request": {
+            "params": {
+              "after": "QVFIU1BqbXRBQzhXTU1kNS1seHYxSGtyS1FSamsxc2FNcWVpenpZAMTZAKLWJmcnNnVExDbHY3R3Q0VjZAFNEVqdE9MX3prcG1xdHlzdTBjWHRKdGpndE5teS13",
+              "fields": "id,name,category,category_list,access_token,fan_count,picture",
+              "limit": "100"
+            }
+          }
+        }
+      ]
+    }
+  }
+}

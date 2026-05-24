@@ -1,0 +1,284 @@
+{
+  "nango": {
+    "batchSave": {
+      "MicrosoftApplication": [
+        {
+          "id": "fe34e2af-1e02-4b56-a979-ab6f9ee6c306",
+          "appId": "2e70988e-e92f-46e6-ba47-1f01dbc650e3",
+          "displayName": "NangoTeams",
+          "createdDateTime": "2026-05-12T10:10:35Z",
+          "signInAudience": "AzureADandPersonalMicrosoftAccount",
+          "publisherDomain": "nango.dev"
+        },
+        {
+          "id": "ffcd890e-c094-4f59-96b3-2cd384ac2e03",
+          "appId": "abe05e12-a08b-4d0d-ae66-51e7ca2b08d0",
+          "displayName": "NangoMicrosoft",
+          "createdDateTime": "2026-05-18T21:22:02Z",
+          "signInAudience": "AzureADandPersonalMicrosoftAccount",
+          "publisherDomain": "nango.dev"
+        },
+        {
+          "id": "ecb1a2e8-5e58-4889-b968-1be1d01f45ee",
+          "appId": "91e06239-2f2f-4cc3-9e17-63df4f732a76",
+          "displayName": "Nango Test App for SP",
+          "createdDateTime": "2026-05-18T22:06:45Z",
+          "signInAudience": "AzureADMyOrg",
+          "publisherDomain": "nango.dev"
+        },
+        {
+          "id": "2581f14e-833f-4658-9a9c-cfa283eef115",
+          "appId": "99cdec45-2d45-45ba-a475-e3bb6a69063a",
+          "displayName": "Nango Test App for SP Save",
+          "createdDateTime": "2026-05-18T22:07:11Z",
+          "signInAudience": "AzureADMyOrg",
+          "publisherDomain": "nango.dev"
+        },
+        {
+          "id": "f9326558-52b9-46b9-ba06-c7671d1ab4de",
+          "appId": "54cd96d3-4df6-45fb-9241-9c4e490110b9",
+          "displayName": "Updated Test Application",
+          "createdDateTime": "2026-05-18T22:07:01Z",
+          "signInAudience": "AzureADMyOrg",
+          "publisherDomain": "nango.dev"
+        },
+        {
+          "id": "1f1a5494-570f-4a8a-bfe2-a0dd8a615a27",
+          "appId": "d38379f3-a696-4cc2-b502-212bf9265e35",
+          "displayName": "Nango Test Get Application",
+          "createdDateTime": "2026-05-18T22:07:39Z",
+          "signInAudience": "AzureADMyOrg",
+          "publisherDomain": "nango.dev"
+        },
+        {
+          "id": "fb166ba5-e945-4903-a0a3-6f2dc8c5a48f",
+          "appId": "7be3afde-5102-496c-9387-c0729b9f14f5",
+          "displayName": "NangoTempApp",
+          "createdDateTime": "2026-05-18T22:08:23Z",
+          "signInAudience": "AzureADMyOrg",
+          "publisherDomain": "nango.dev"
+        },
+        {
+          "id": "a40c9d37-632c-4074-b837-a9680082757e",
+          "appId": "7fc2ffdd-1cc2-4d0f-acf1-98ad371eb46c",
+          "displayName": "Nango Test Application",
+          "createdDateTime": "2026-05-18T22:10:05Z",
+          "signInAudience": "AzureADMyOrg",
+          "publisherDomain": "nango.dev"
+        },
+        {
+          "id": "c42f108e-7670-4530-a1e0-8681abb7fd5d",
+          "appId": "85bef02f-89ac-4d15-9bbb-f0e1db4815ca",
+          "displayName": "Nango Test Application 2",
+          "createdDateTime": "2026-05-18T22:10:28Z",
+          "signInAudience": "AzureADMyOrg",
+          "publisherDomain": "nango.dev"
+        },
+        {
+          "id": "ba499780-1b6c-4bc5-a127-9228742dbd0b",
+          "appId": "c2c0df55-9838-4d7a-9cad-830dbb0eb64d",
+          "displayName": "Nango Test Application 3",
+          "createdDateTime": "2026-05-18T22:10:38Z",
+          "signInAudience": "AzureADMyOrg",
+          "publisherDomain": "nango.dev"
+        }
+      ]
+    },
+    "batchDelete": {
+      "MicrosoftApplication": [
+        {
+          "id": "a300488c-4a6a-4fd9-bacb-416cbf6150e8"
+        },
+        {
+          "id": "cc67332f-dfd9-43f0-af0f-bc0ff5334965"
+        },
+        {
+          "id": "e1433fd4-6bc8-4f62-802c-36063846d312"
+        }
+      ]
+    }
+  },
+  "api": {
+    "get": {
+      "/v1.0/applications/delta": [
+        {
+          "response": {
+            "@odata.context": "https://graph.microsoft.com/v1.0/$metadata#applications(id,appId,displayName,createdDateTime,description,signInAudience,publisherDomain)",
+            "@odata.nextLink": "https://graph.microsoft.com/v1.0/applications/delta?$skiptoken=BNCISwsxbs4E_DUI3aMA3IvlZoR_JfH2c812HnhCld4CuqMP1u0KDga-mBCsB1DOaP8asgtHDM95MTSAoO-gbt58qw6bpVsUWKlstmS_B3tqS_m7zbXli9lzu1BPbGhL7b7PRBu734tU0Z1pcpm1ji0IR6g1mGCQC8_OEE1SZ2sH9DyRx6bNukCh15K_oJjY_XpASKdC3C-FGRINChvQYur3k5j-xAFau3m-kSYUDx22wOXer_HQ2dKm1LqnBg1HztKvDt1jEbKss7FM37KOmHx95-SwfMRHABY3FY1Edb4hBgo62hp0wHBvRuvxlwec3BCxfIUPF5tCiFz75jeQYNmAdUYsX5OtGHYkKHv65iY0Qn4I9EMJQUmc0lYp0N9mO9tAxod3-mbxQ7ScGCHBzwCa3CNaCtuWoOo2DZXcCW4SEAyLUaZSBW62VZ0xkmwLOJuErj6b9vxrV3YzHCUj5mA9CfGqWnOftYGf8hr3VzY2FQhPvG1d-PKxm6j3nCK5df9-246BIF4kWEuDSf-oRe4L4mhKXIYsdhxGHtRlr79p2fD0MZu3-iqVsoFJGV_znHm7urO1ptRh8jU6n0dWuujik0n9JH7fQsldWC3VV-lcHmapRhvUqCN2SfF7ac0CjHSyjyVw_uBAuqg9qAUcxxGgUX67bQxyYa78g7FClxcYpSnaY6AoGctF4gvaW9WXPwkMlGJ7YZf4wn3AaG2Jetl_MuYPNbmvOpgWGSa8P-tGyH0QYcvXYF8OyBUPMod006gsRt-yfqUTd5GC__cPcUkgjXD8efjs-BrBI5xzWNz9p7SVP03b51uU4lPLUGzEaztYf0d79NIIy01SHS_zng-v9XtaU-l12-WEg9bWVZW73UFuwYwA6CglB8wfH0Pq5myIt4q1rso0wbVrS9aIK390i1oFIWhS-kxc3LsFu2IUOwckCNu2nsukW-xJC-7mkdPbOdjVCPTQTFWtzRiIUgj5Ew4eG48JiPaNU5nQ1eHsMnv2-jXPcITNwqjbAV31ZMNwDUZETFEfCh1vj7nJJ3t0EQnbf8i8BmxqvzIH8FDUvBj8EH4dnbDKVbPScUHMLHgCLUGvwvOBeFVQmPy9SD7HpDUxEKEM3GqLKvCaa7S7f9gyG9oXpj_ATDVEYYeG33fGSsR-rxbPQjTIZN6BxDAaR2NE3vLPO3qmEqzFXNstDCB2a26ixsWh364wSt3RtCvAgJvihSJhwuvduiRiUYXLIO-9NKztKaXuUMmniYfMDf9ofwqFbt08zfedhxf0heAbGpl10sCt12YesS7y7FxeUwkTw7nPIQGiRM89tL-DqyJFsgmrH19v9JCUr7wL2au57RC5qMJJSo3JTvTg39wKRAz3IG8wmvBKSMiTSUeUgAMl3wusomfjayA8dtttA6aJY6B61sP-jJ1y8V-yy4539ZyeHd6LWjz9wBcv1q3FKLTRzoVHai2TRH296eFUCYQXFKY1uCdR4R6q342IuLE6nIawsGi1yYJbryB0HBsdRUxPPkqf-jhEmPOwrzcbw6luoCyN5a9i6m9wcVlVDpz6jQTWr9I_tnIyWIdxHf7FFoan8-zaYCDud83FlUFgMOkSFd25a6hH79usQY-Mk47ZlqZC3Le254aqxRU1BENzIew3QlS3IOLsVefgQDlo6JbUIh91eSMPdoEhjlnMTZStubGSRxmNUpEHWNIM7vechO2oTzRDyKpAxi90bE04EP5LSHfdxPFzi_l3YnhkUaTxSF-kSI05UIBMqER0g7TAqsjeGdnmdolwClFUdpsvmBn-xX6R-DYJDHr_rk0u9wCq1dhvBKImboV9CsksVl_RwNrlIhR5B8LV5TyL_fnD5VaW1uBQzvYSQrExfwsrcJKFwF707KnCffMA4IkqENxuMjffs_ijGgT5qiC3EU9KbKccDUeCPQjiK2aulr4EP5tzFv_Q_7ZB6RqeVgt_ioqVT2YY3xRe8iqSisTYpHC7InePho6FaQl9Gqs_aVEt6qUp6mEx9uB7FOOdVItydHc_5CAQbteuEuCq_Gm9aTsu806mwSq4s-jO9EpWXdNyauFemiBlrwZRH81gx_oBYNUJoCsXMkKQu3tnC268Igg9.JvYnsHE7y-aJcqDfJAnI1JpkoUjCq7GlXzzgiX2ytfw",
+            "value": [
+              {
+                "appId": "2e70988e-e92f-46e6-ba47-1f01dbc650e3",
+                "displayName": "NangoTeams",
+                "createdDateTime": "2026-05-12T10:10:35Z",
+                "signInAudience": "AzureADandPersonalMicrosoftAccount",
+                "publisherDomain": "nango.dev",
+                "id": "fe34e2af-1e02-4b56-a979-ab6f9ee6c306"
+              },
+              {
+                "appId": "abe05e12-a08b-4d0d-ae66-51e7ca2b08d0",
+                "displayName": "NangoMicrosoft",
+                "createdDateTime": "2026-05-18T21:22:02Z",
+                "signInAudience": "AzureADandPersonalMicrosoftAccount",
+                "publisherDomain": "nango.dev",
+                "id": "ffcd890e-c094-4f59-96b3-2cd384ac2e03"
+              },
+              {
+                "appId": "91e06239-2f2f-4cc3-9e17-63df4f732a76",
+                "displayName": "Nango Test App for SP",
+                "createdDateTime": "2026-05-18T22:06:45Z",
+                "signInAudience": "AzureADMyOrg",
+                "publisherDomain": "nango.dev",
+                "id": "ecb1a2e8-5e58-4889-b968-1be1d01f45ee"
+              },
+              {
+                "appId": "99cdec45-2d45-45ba-a475-e3bb6a69063a",
+                "displayName": "Nango Test App for SP Save",
+                "createdDateTime": "2026-05-18T22:07:11Z",
+                "signInAudience": "AzureADMyOrg",
+                "publisherDomain": "nango.dev",
+                "id": "2581f14e-833f-4658-9a9c-cfa283eef115"
+              },
+              {
+                "appId": "54cd96d3-4df6-45fb-9241-9c4e490110b9",
+                "displayName": "Updated Test Application",
+                "createdDateTime": "2026-05-18T22:07:01Z",
+                "signInAudience": "AzureADMyOrg",
+                "publisherDomain": "nango.dev",
+                "id": "f9326558-52b9-46b9-ba06-c7671d1ab4de"
+              },
+              {
+                "appId": "d38379f3-a696-4cc2-b502-212bf9265e35",
+                "displayName": "Nango Test Get Application",
+                "createdDateTime": "2026-05-18T22:07:39Z",
+                "signInAudience": "AzureADMyOrg",
+                "publisherDomain": "nango.dev",
+                "id": "1f1a5494-570f-4a8a-bfe2-a0dd8a615a27"
+              },
+              {
+                "appId": "7be3afde-5102-496c-9387-c0729b9f14f5",
+                "displayName": "NangoTempApp",
+                "createdDateTime": "2026-05-18T22:08:23Z",
+                "signInAudience": "AzureADMyOrg",
+                "publisherDomain": "nango.dev",
+                "id": "fb166ba5-e945-4903-a0a3-6f2dc8c5a48f"
+              },
+              {
+                "appId": "7fc2ffdd-1cc2-4d0f-acf1-98ad371eb46c",
+                "displayName": "Nango Test Application",
+                "createdDateTime": "2026-05-18T22:10:05Z",
+                "signInAudience": "AzureADMyOrg",
+                "publisherDomain": "nango.dev",
+                "id": "a40c9d37-632c-4074-b837-a9680082757e"
+              },
+              {
+                "appId": "85bef02f-89ac-4d15-9bbb-f0e1db4815ca",
+                "displayName": "Nango Test Application 2",
+                "createdDateTime": "2026-05-18T22:10:28Z",
+                "signInAudience": "AzureADMyOrg",
+                "publisherDomain": "nango.dev",
+                "id": "c42f108e-7670-4530-a1e0-8681abb7fd5d"
+              },
+              {
+                "appId": "c2c0df55-9838-4d7a-9cad-830dbb0eb64d",
+                "displayName": "Nango Test Application 3",
+                "createdDateTime": "2026-05-18T22:10:38Z",
+                "signInAudience": "AzureADMyOrg",
+                "publisherDomain": "nango.dev",
+                "id": "ba499780-1b6c-4bc5-a127-9228742dbd0b"
+              },
+              {
+                "id": "a300488c-4a6a-4fd9-bacb-416cbf6150e8",
+                "@removed": {
+                  "reason": "changed"
+                }
+              },
+              {
+                "id": "cc67332f-dfd9-43f0-af0f-bc0ff5334965",
+                "@removed": {
+                  "reason": "changed"
+                }
+              },
+              {
+                "id": "e1433fd4-6bc8-4f62-802c-36063846d312",
+                "@removed": {
+                  "reason": "changed"
+                }
+              }
+            ]
+          },
+          "status": 200,
+          "headers": {
+            "date": "Mon, 18 May 2026 22:31:56 GMT",
+            "content-type": "application/json;odata.metadata=minimal;odata.streaming=true;IEEE754Compatible=false;charset=utf-8",
+            "transfer-encoding": "chunked",
+            "connection": "keep-alive",
+            "x-xss-protection": "0",
+            "x-content-type-options": "nosniff",
+            "x-download-options": "noopen",
+            "x-frame-options": "SAMEORIGIN",
+            "x-dns-prefetch-control": "off",
+            "strict-transport-security": "max-age=31536000",
+            "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+            "access-control-allow-origin": "*",
+            "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+            "x-ratelimit-limit": "5000",
+            "x-ratelimit-remaining": "4977",
+            "x-ratelimit-reset": "1779143570",
+            "cache-control": "no-cache",
+            "vary": "Accept-Encoding",
+            "request-id": "964534d7-09f1-4ebd-99cf-2a1f24c9e51f",
+            "client-request-id": "964534d7-09f1-4ebd-99cf-2a1f24c9e51f",
+            "x-ms-ags-diagnostic": "{\"ServerInfo\":{\"DataCenter\":\"West US 2\",\"Slice\":\"E\",\"Ring\":\"4\",\"ScaleUnit\":\"003\",\"RoleInstance\":\"CO1PEPF00004BE6\"}}",
+            "preference-applied": "odata.track-changes",
+            "odata-version": "4.0"
+          },
+          "hash": "a69357469fc37e03152d85670b07e0201bf0cb1c",
+          "request": {
+            "params": {
+              "$select": "id,appId,displayName,createdDateTime,description,signInAudience,publisherDomain"
+            }
+          }
+        },
+        {
+          "response": {
+            "@odata.context": "https://graph.microsoft.com/v1.0/$metadata#applications",
+            "@odata.deltaLink": "https://graph.microsoft.com/v1.0/applications/delta?$deltatoken=BNCISwsxbs4E_DUI3aMA3IvlZoR_JfH2c812HnhCld5xm0bXxstqxnczxHiukscGjHls2saqB-q5q_s057_EmSEX9SH5G2vEY4TfLrOBFtjZyq-qn_7MsmhJP5bQ44Rubratk563mdhFKj1Mff77ns-ZApld_-WVoif_hLSYFyHOFHD8LuB-gZHXiy_L2NFIlizGppSy2L5trPkhNhN8cx62PGCkuGkaeWqjsElp1fQDgnzj1xULNKZxXuPdJr2Bi5iS_zXbNZlmXONCqIQL1sLLzxPq0Z8mOH3vZuuw3XW2zut6QL7Wfl7Xzzu9IcevbVK_PlBm-9svw_e2YgpPAgErAieCdYn19gr1Kv7x42S6uQcvX1I0vWXFg7tfbkUrmEsOPbyQQX4KXKZXATzxC-aTgoHxFOZBjz5KDu6_EEU__5_0kUOJYYT9V-Z9AYU4kbvjzgOckMTPljw1WkYvzIe9jb5UzagwCDbzIJHPu7uVa7XU6ruph2nH9zL8JP1fCpOhI2gFmaUyXTTQw1jW9jbH04-VCv0MpaGEU1xMLLo_JSPoLyNXE0ZxGZEvSkGGDsbGVeR1bpmvp4fCgXvUk7_yuM9ofgggUkRWNgF8NGL1miHr0Im4O29FZgk2OcAI-yx_qfuA5TFTyH5pKVFJmvmnrk9ASu-mt1JBD6nZuQli0-bpBjNYDDxGCFhL3IL2-iIrDP4LYqvOBj_dNBYHyTgSqviN4RU7ChARYVTEtGa9PmRWwMLmKO-VcKYYh2ovg1qLG2IC3B-XtllRD4vn8I6pm0Oe5lEKoF6kmYw1TqtBtc19f1oU5W6kvtFkcy80-fo8Rw1TFPtY5TmqRi71GfeYxv9U7JC0Qt0VVhmrwaiUt03Y9fPo-00zlUPCzFnuVKP1HBd6lbj4kImbVfriUmCjyjwRpLBm37s8n5UWUF0jnf6ZfMi69bHoqwml0GXI67mdoHMA525LCIJqjb-Joa1yKdp-ecZ9lV-sMUe65TgscufBIFvTFtEACBYu-V-VWhgXCWing5wvua_7mS7SIQjjwHgut2_LUiUrLQIwViVaPfdU4L_EpMr7TmA8l-T91NV98ha_cOYazKhZG4wJeAD9vzuNQjbRHuUqVsn7Kgd7hQ_Zt6ynWcr7nqfZEoiaaR5A59mk4Ay5t-DKX0EvjDpArNC0QLcKFvfYd94iEnkLvH6kXQt74npM4NgwawqeC198vswLJSaGT3omMliUEHk7IYhdre9zfLXk11Ln-aDDS3KsL8x8r62tB6HjUvv8sOc0okgGWK069yUAp4x3y4OrW7B9QixrxiaFG1J8FsrpTIbeeDJFAE4aRtyJ3EeI6H-UVHuCB6pxp4AX8DrhP8aFoWvMnr82IbGKy0tZCczOmQHXo7gKVAFGZ-68ZNPtCySE0jIWVK3-7mS13jXruMO58EVIpibr8HRx_bNrN3vHL8TqfCDrXfqeMM0Lgq4Tc-1c_GEtzp57OLhnIPdWGmqV9-7DPmbtmQkYI2UnmdIDkfhNrQM3CPuWVp8KcoapvOI9NbTyvJfEVxu7i_jSwQA0HSuAhBfJ8qPUx_IfkwMImyUpqBTFlxjszr9LMbH86yDv2lDOczBOL0DXKJkzZRVozYRZytHkXyIu4nDai2bEQoK8Na_ziUnzhwuqhECex_JaDwoi6NSkFsK9DmfV6rGxiB2SLdOnel6w4leAy2U0KGR9lveCM64Y_ty7c9ggOCYqPc9kELOhPdQzP-gEvH7VmXuNu6dGLBZI_30E79Uryr7VgP5IhP9IQp3VM0X4v7wOwJBzBCi3DBj-N23MufX9X05NvCvEIDwJtyW8mBa_f74UuGiA_GRZISBTOJLSNhwj34OxdB2Bght-YBb6vbuhPvNwD3WROsyy2qjqIWj-8G9phW87C-Ngzw-uBWkatdnRHaUgB367Qs6jz3rRe255RW-a2eTXAAEpvW4sWTv5ddKRRtntAJLRf5mKJK-i8Ce6jmvBeaiigyzeTlZXI_dCrmX03xEBsGRDuC8qmBrDG0meryR2za1fMW7JNy-8URKNtK6ZijYm7WNjF9qC-DWK0xsA4KAmECpol5mvRAEvk5tPmYdAQl_9bcOrBxzj.8YZVWJ1nC1nksCt4iEtBUxiYuHBSETroSykFMxlstys",
+            "value": []
+          },
+          "status": 200,
+          "headers": {
+            "date": "Mon, 18 May 2026 22:31:56 GMT",
+            "content-type": "application/json;odata.metadata=minimal;odata.streaming=true;IEEE754Compatible=false;charset=utf-8",
+            "transfer-encoding": "chunked",
+            "connection": "keep-alive",
+            "x-xss-protection": "0",
+            "x-content-type-options": "nosniff",
+            "x-download-options": "noopen",
+            "x-frame-options": "SAMEORIGIN",
+            "x-dns-prefetch-control": "off",
+            "strict-transport-security": "max-age=31536000",
+            "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+            "access-control-allow-origin": "*",
+            "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+            "x-ratelimit-limit": "5000",
+            "x-ratelimit-remaining": "4973",
+            "x-ratelimit-reset": "1779143570",
+            "cache-control": "no-cache",
+            "vary": "Accept-Encoding",
+            "request-id": "497cd9f8-f4b9-4132-bc14-f2ab9b000ec4",
+            "client-request-id": "497cd9f8-f4b9-4132-bc14-f2ab9b000ec4",
+            "x-ms-ags-diagnostic": "{\"ServerInfo\":{\"DataCenter\":\"West US 2\",\"Slice\":\"E\",\"Ring\":\"4\",\"ScaleUnit\":\"000\",\"RoleInstance\":\"CO1PEPF000018B8\"}}",
+            "preference-applied": "odata.track-changes",
+            "odata-version": "4.0"
+          },
+          "hash": "7eacb2cf80acc4bc6d2589373d44dbc7d906c5b0",
+          "request": {
+            "params": {
+              "$skiptoken": "BNCISwsxbs4E_DUI3aMA3IvlZoR_JfH2c812HnhCld4CuqMP1u0KDga-mBCsB1DOaP8asgtHDM95MTSAoO-gbt58qw6bpVsUWKlstmS_B3tqS_m7zbXli9lzu1BPbGhL7b7PRBu734tU0Z1pcpm1ji0IR6g1mGCQC8_OEE1SZ2sH9DyRx6bNukCh15K_oJjY_XpASKdC3C-FGRINChvQYur3k5j-xAFau3m-kSYUDx22wOXer_HQ2dKm1LqnBg1HztKvDt1jEbKss7FM37KOmHx95-SwfMRHABY3FY1Edb4hBgo62hp0wHBvRuvxlwec3BCxfIUPF5tCiFz75jeQYNmAdUYsX5OtGHYkKHv65iY0Qn4I9EMJQUmc0lYp0N9mO9tAxod3-mbxQ7ScGCHBzwCa3CNaCtuWoOo2DZXcCW4SEAyLUaZSBW62VZ0xkmwLOJuErj6b9vxrV3YzHCUj5mA9CfGqWnOftYGf8hr3VzY2FQhPvG1d-PKxm6j3nCK5df9-246BIF4kWEuDSf-oRe4L4mhKXIYsdhxGHtRlr79p2fD0MZu3-iqVsoFJGV_znHm7urO1ptRh8jU6n0dWuujik0n9JH7fQsldWC3VV-lcHmapRhvUqCN2SfF7ac0CjHSyjyVw_uBAuqg9qAUcxxGgUX67bQxyYa78g7FClxcYpSnaY6AoGctF4gvaW9WXPwkMlGJ7YZf4wn3AaG2Jetl_MuYPNbmvOpgWGSa8P-tGyH0QYcvXYF8OyBUPMod006gsRt-yfqUTd5GC__cPcUkgjXD8efjs-BrBI5xzWNz9p7SVP03b51uU4lPLUGzEaztYf0d79NIIy01SHS_zng-v9XtaU-l12-WEg9bWVZW73UFuwYwA6CglB8wfH0Pq5myIt4q1rso0wbVrS9aIK390i1oFIWhS-kxc3LsFu2IUOwckCNu2nsukW-xJC-7mkdPbOdjVCPTQTFWtzRiIUgj5Ew4eG48JiPaNU5nQ1eHsMnv2-jXPcITNwqjbAV31ZMNwDUZETFEfCh1vj7nJJ3t0EQnbf8i8BmxqvzIH8FDUvBj8EH4dnbDKVbPScUHMLHgCLUGvwvOBeFVQmPy9SD7HpDUxEKEM3GqLKvCaa7S7f9gyG9oXpj_ATDVEYYeG33fGSsR-rxbPQjTIZN6BxDAaR2NE3vLPO3qmEqzFXNstDCB2a26ixsWh364wSt3RtCvAgJvihSJhwuvduiRiUYXLIO-9NKztKaXuUMmniYfMDf9ofwqFbt08zfedhxf0heAbGpl10sCt12YesS7y7FxeUwkTw7nPIQGiRM89tL-DqyJFsgmrH19v9JCUr7wL2au57RC5qMJJSo3JTvTg39wKRAz3IG8wmvBKSMiTSUeUgAMl3wusomfjayA8dtttA6aJY6B61sP-jJ1y8V-yy4539ZyeHd6LWjz9wBcv1q3FKLTRzoVHai2TRH296eFUCYQXFKY1uCdR4R6q342IuLE6nIawsGi1yYJbryB0HBsdRUxPPkqf-jhEmPOwrzcbw6luoCyN5a9i6m9wcVlVDpz6jQTWr9I_tnIyWIdxHf7FFoan8-zaYCDud83FlUFgMOkSFd25a6hH79usQY-Mk47ZlqZC3Le254aqxRU1BENzIew3QlS3IOLsVefgQDlo6JbUIh91eSMPdoEhjlnMTZStubGSRxmNUpEHWNIM7vechO2oTzRDyKpAxi90bE04EP5LSHfdxPFzi_l3YnhkUaTxSF-kSI05UIBMqER0g7TAqsjeGdnmdolwClFUdpsvmBn-xX6R-DYJDHr_rk0u9wCq1dhvBKImboV9CsksVl_RwNrlIhR5B8LV5TyL_fnD5VaW1uBQzvYSQrExfwsrcJKFwF707KnCffMA4IkqENxuMjffs_ijGgT5qiC3EU9KbKccDUeCPQjiK2aulr4EP5tzFv_Q_7ZB6RqeVgt_ioqVT2YY3xRe8iqSisTYpHC7InePho6FaQl9Gqs_aVEt6qUp6mEx9uB7FOOdVItydHc_5CAQbteuEuCq_Gm9aTsu806mwSq4s-jO9EpWXdNyauFemiBlrwZRH81gx_oBYNUJoCsXMkKQu3tnC268Igg9.JvYnsHE7y-aJcqDfJAnI1JpkoUjCq7GlXzzgiX2ytfw"
+            }
+          }
+        }
+      ]
+    }
+  }
+}
