@@ -1,0 +1,213 @@
+{
+  "input": {
+    "per_page": 5,
+    "page": 1
+  },
+  "output": {
+    "people": [
+      {
+        "id": "59fe56a7a6da9861955e1ec1",
+        "first_name": "Mike",
+        "title": "Chief Growth Officer and Board of Directors",
+        "organization_name": "Intempo Health"
+      },
+      {
+        "id": "6867cec58eea26000153fa61",
+        "first_name": "Bill",
+        "title": "Founder",
+        "organization_name": "Breakthrough Energy"
+      },
+      {
+        "id": "57de5363a6da987ae8cce6c6",
+        "first_name": "Bobby",
+        "title": "Customer Care & Aftersales Purchasing",
+        "organization_name": "Hyundai Motor Company"
+      },
+      {
+        "id": "655f2d21dc8b5c0001866810",
+        "first_name": "Christian",
+        "title": "Product Designer",
+        "organization_name": "NovaTaste"
+      },
+      {
+        "id": "6143462ef5833b0001cadc0f",
+        "first_name": "Yunming",
+        "title": "Managing Director",
+        "organization_name": "The Hina Group"
+      }
+    ]
+  },
+  "nango": {},
+  "api": {
+    "post": {
+      "/v1/mixed_people/api_search": {
+        "response": {
+          "total_entries": 243009131,
+          "people": [
+            {
+              "id": "59fe56a7a6da9861955e1ec1",
+              "first_name": "Mike",
+              "last_name_obfuscated": "Br***m",
+              "title": "Chief Growth Officer and Board of Directors",
+              "last_refreshed_at": "2026-05-10T09:31:34.998+00:00",
+              "has_email": true,
+              "has_city": true,
+              "has_state": true,
+              "has_country": true,
+              "has_direct_phone": "Yes",
+              "organization": {
+                "name": "Intempo Health",
+                "has_industry": true,
+                "has_phone": false,
+                "has_city": true,
+                "has_state": true,
+                "has_country": true,
+                "has_zip_code": true,
+                "has_revenue": false,
+                "has_employee_count": true
+              }
+            },
+            {
+              "id": "6867cec58eea26000153fa61",
+              "first_name": "Bill",
+              "last_name_obfuscated": "Ga***s",
+              "title": "Founder",
+              "last_refreshed_at": "2026-05-08T03:06:21.000+00:00",
+              "has_email": true,
+              "has_city": true,
+              "has_state": true,
+              "has_country": true,
+              "has_direct_phone": "Yes",
+              "organization": {
+                "name": "Breakthrough Energy",
+                "has_industry": true,
+                "has_phone": true,
+                "has_city": true,
+                "has_state": true,
+                "has_country": true,
+                "has_zip_code": false,
+                "has_revenue": true,
+                "has_employee_count": true
+              }
+            },
+            {
+              "id": "57de5363a6da987ae8cce6c6",
+              "first_name": "Bobby",
+              "last_name_obfuscated": "Pu***a",
+              "title": "Customer Care & Aftersales Purchasing",
+              "last_refreshed_at": "2026-05-05T11:59:10.975+00:00",
+              "has_email": true,
+              "has_city": false,
+              "has_state": true,
+              "has_country": true,
+              "has_direct_phone": "Maybe: please request direct dial via people/bulk_match",
+              "organization": {
+                "name": "Hyundai Motor Company",
+                "has_industry": true,
+                "has_phone": true,
+                "has_city": false,
+                "has_state": true,
+                "has_country": true,
+                "has_zip_code": true,
+                "has_revenue": true,
+                "has_employee_count": true
+              }
+            },
+            {
+              "id": "655f2d21dc8b5c0001866810",
+              "first_name": "Christian",
+              "last_name_obfuscated": "Lu***s",
+              "title": "Product Designer",
+              "last_refreshed_at": "2026-04-22T22:12:36.000+00:00",
+              "has_email": true,
+              "has_city": true,
+              "has_state": true,
+              "has_country": true,
+              "has_direct_phone": "Yes",
+              "organization": {
+                "name": "NovaTaste",
+                "has_industry": true,
+                "has_phone": true,
+                "has_city": true,
+                "has_state": true,
+                "has_country": true,
+                "has_zip_code": true,
+                "has_revenue": false,
+                "has_employee_count": true
+              }
+            },
+            {
+              "id": "6143462ef5833b0001cadc0f",
+              "first_name": "Yunming",
+              "last_name_obfuscated": "Sh***o",
+              "title": "Managing Director",
+              "last_refreshed_at": "2026-04-03T20:19:41.000+00:00",
+              "has_email": true,
+              "has_city": false,
+              "has_state": false,
+              "has_country": true,
+              "has_direct_phone": "Yes",
+              "organization": {
+                "name": "The Hina Group",
+                "has_industry": true,
+                "has_phone": true,
+                "has_city": true,
+                "has_state": true,
+                "has_country": true,
+                "has_zip_code": true,
+                "has_revenue": true,
+                "has_employee_count": true
+              }
+            }
+          ]
+        },
+        "status": 200,
+        "headers": {
+          "date": "Mon, 18 May 2026 11:23:55 GMT",
+          "content-type": "application/json; charset=utf-8",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "ALLOWALL",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=31536000",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4987",
+          "x-ratelimit-reset": "1779103458",
+          "cache-control": "max-age=0, private, must-revalidate",
+          "content-security-policy": "frame-ancestors 'self' chrome-extension://alhgpfoeiimagjlnfekdhkjlkiomcapa chrome-extension://ececkagaccnfmkopaiemklekhoimmgpn *.salesforce.com *.lightning.force.com; report-uri https://o101058.ingest.us.sentry.io/api/222018/security/?sentry_key=86bb17dd8c2449719dd6b498f3431191&sentry_environment=production&sentry_release=921578f02cadce558872b59befb4057474aa1ff3",
+          "etag": "W/\"fb67e7250a17f1d266627d02e10cb5bb\"",
+          "set-cookie": "X-CSRF-TOKEN=C9EQhX2hjKDyUtgT48UvFUzV9HpP--G54C8JO3xwGo60Nj1hHwZvk_cHXcR4QYRP_dyN93t2f8eMjLwiGEskYw; path=/; secure; SameSite=Lax, _leadgenie_session=EFkrL9xm0GrSe%2BwGdPWD9RkOBXaSdIIoHbBadKm2bauHbvDCdK0M09TC7GRiIaKDdT4eDUO6lcu6ISajWp6ClubRrWAopGcgkqbPXWK4Q24eIddj05z0EnuvJGVR%2BqBUjjYAt4lKS4SFEJP7SKWNSpfAEdDJ4cAfsj4IAZWefGASVKhOTrxiQ7BMnEFkCsGK57Re3w9vZiQ4Ykw0C7x99Qzvjea3knK1e%2Fg23R0KfCDPXjFYU%2BfajVpN5AH7z%2BuqFqShoZ4hjFOuR2IN2zr%2B9fsmy31fSoK7ZyM%3D--Bp9DgBjzRP0%2F0U%2FF--XmjZ0VlMN5Bc3DU37e7bQA%3D%3D; path=/; secure; HttpOnly; SameSite=None, __cf_bm=RhF9TpnVc0LfQuatvovafQRxVAqWhoObwaMik0YuC_w-1779103435.0273254-1.0.1.1-NXXXX9ZsGAZaBiOjvKHACghZp9xT9M6GIPqD5jS4a5nCK3FyqVBTqyJpa81sTQxQw8HoWsahIhAhOac49fGG45fTUjt3RnzJdeIB.7QG77xo7ibE1honmploK6Nyzier; HttpOnly; SameSite=None; Secure; Path=/; Domain=apollo.io; Expires=Mon, 18 May 2026 11:53:55 GMT",
+          "vary": "Origin",
+          "x-24-hour-requests-left": "598",
+          "x-24-hour-usage": "2",
+          "x-hourly-requests-left": "198",
+          "x-hourly-usage": "2",
+          "x-minute-requests-left": "48",
+          "x-minute-usage": "2",
+          "x-rate-limit-24-hour": "600",
+          "x-rate-limit-hourly": "200",
+          "x-rate-limit-minute": "50",
+          "x-request-id": "3f8640e5-1595-45fa-8b67-40a271e6bc11",
+          "x-runtime": "0.179572",
+          "x-transaction-id": "f589a221-bfbe-4d1f-81e2-f1fe00b43cee",
+          "cf-cache-status": "DYNAMIC",
+          "server": "cloudflare",
+          "cf-ray": "9fda7e14e929c146-PDX"
+        },
+        "hash": "ef519a86096e8a0799e61783c94897e2f454b54c",
+        "request": {
+          "data": {
+            "per_page": 5,
+            "page": 1
+          }
+        }
+      }
+    }
+  }
+}

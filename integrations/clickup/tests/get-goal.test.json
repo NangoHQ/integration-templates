@@ -1,0 +1,76 @@
+{
+  "input": {
+    "goal_id": "fcbbb0b7-d463-4cf1-9333-1ec659548735"
+  },
+  "output": {
+    "id": "fcbbb0b7-d463-4cf1-9333-1ec659548735",
+    "name": "Updated Test Goal",
+    "team_id": "90152560096",
+    "description": "Test description updated",
+    "private": false,
+    "archived": false,
+    "members": [],
+    "owners": [],
+    "key_results": [],
+    "percent_completed": 0
+  },
+  "nango": {},
+  "api": {
+    "get": {
+      "/api/v2/goal/fcbbb0b7-d463-4cf1-9333-1ec659548735": {
+        "response": {
+          "goal": {
+            "id": "fcbbb0b7-d463-4cf1-9333-1ec659548735",
+            "pretty_id": "1",
+            "name": "Updated Test Goal",
+            "team_id": "90152560096",
+            "creator": 302438666,
+            "color": null,
+            "date_created": "1779202754163",
+            "start_date": null,
+            "due_date": null,
+            "description": "Test description updated",
+            "private": false,
+            "archived": false,
+            "multiple_owners": null,
+            "editor_token": "goal:fcbbb0b7-d463-4cf1-9333-1ec659548735:3c0daa96-90b8-4aed-bb92-f207c97eee4e:59302b6e-8e64-4c2b-a045-b36ed43ab192",
+            "date_updated": "1779203112674",
+            "folder_id": null,
+            "folder_name": null,
+            "role_subtype": 0,
+            "members": [],
+            "group_members": [],
+            "owners": [],
+            "key_results": [],
+            "key_result_count": 0,
+            "percent_completed": 0,
+            "history": [],
+            "pretty_url": "https://app.clickup.com/90152560096/goals/1"
+          }
+        },
+        "status": 200,
+        "headers": {
+          "date": "Tue, 19 May 2026 15:39:15 GMT",
+          "content-type": "application/json; charset=utf-8",
+          "content-length": "709",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=5184000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4996",
+          "x-ratelimit-reset": "1779205209",
+          "etag": "W/\"2c5-frh96lT5gHuVeSWNYPg6fv+Brdg\""
+        },
+        "hash": "fcad0f918afc8c40a98d6521a3fb7c2ecc606132",
+        "request": {}
+      }
+    }
+  }
+}
