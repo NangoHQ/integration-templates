@@ -1,0 +1,12 @@
+{
+  "nango": {
+    "getConnection": {},
+    "batchSave": {
+      "Group": []
+    },
+    "batchDelete": {
+      "Group": []
+    }
+  },
+  "api": {}
+}
