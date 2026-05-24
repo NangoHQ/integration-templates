@@ -1,0 +1,103 @@
+{
+  "input": {
+    "name": "Test Account Creation"
+  },
+  "output": {
+    "id": "6a0af519da990000187bdbd5",
+    "name": "Test Account Creation",
+    "owner_id": "6a0aeb6e5e8f8e000c5e9ebd",
+    "account_stage_id": "6a0aeb6d5e8f8e000c5e9d75",
+    "created_at": "2026-05-18T11:16:41.359Z"
+  },
+  "nango": {},
+  "api": {
+    "post": {
+      "/v1/accounts": {
+        "response": {
+          "account": {
+            "id": "6a0af519da990000187bdbd5",
+            "domain": null,
+            "name": "Test Account Creation",
+            "team_id": "6a0aeb6d5e8f8e000c5e9d6a",
+            "organization_id": null,
+            "account_stage_id": "6a0aeb6d5e8f8e000c5e9d75",
+            "source": "api",
+            "original_source": "api",
+            "creator_id": "6a0aeb6e5e8f8e000c5e9ebd",
+            "owner_id": "6a0aeb6e5e8f8e000c5e9ebd",
+            "created_at": "2026-05-18T11:16:41.359Z",
+            "phone": null,
+            "phone_status": "no_status",
+            "hubspot_id": null,
+            "salesforce_id": null,
+            "crm_owner_id": null,
+            "parent_account_id": null,
+            "linkedin_url": null,
+            "suggested_from_rule_engine_config_id": null,
+            "godmode_apollo_creator": null,
+            "account_playbook_statuses": [],
+            "existence_level": "full",
+            "label_ids": [],
+            "typed_custom_fields": {},
+            "custom_field_errors": {},
+            "modality": "account",
+            "source_display_name": "Created from API",
+            "crm_record_url": null,
+            "twitter_url": null,
+            "facebook_url": null,
+            "intent_strength": null,
+            "show_intent": false,
+            "organization_headcount_six_month_growth": null,
+            "organization_headcount_twelve_month_growth": null,
+            "organization_headcount_twenty_four_month_growth": null
+          }
+        },
+        "status": 200,
+        "headers": {
+          "date": "Mon, 18 May 2026 11:16:41 GMT",
+          "content-type": "application/json; charset=utf-8",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "ALLOWALL",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=31536000",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4949",
+          "x-ratelimit-reset": "1779103014",
+          "cache-control": "max-age=0, private, must-revalidate",
+          "content-security-policy": "frame-ancestors 'self' chrome-extension://alhgpfoeiimagjlnfekdhkjlkiomcapa chrome-extension://ececkagaccnfmkopaiemklekhoimmgpn *.salesforce.com *.lightning.force.com; report-uri https://o101058.ingest.us.sentry.io/api/222018/security/?sentry_key=86bb17dd8c2449719dd6b498f3431191&sentry_environment=production&sentry_release=921578f02cadce558872b59befb4057474aa1ff3",
+          "etag": "W/\"1ac97a323ab8378c114474c0c00dc5d8\"",
+          "set-cookie": "X-CSRF-TOKEN=BeckJvNfXnMEKpspZ0XGZbtrbLdmDlv_B9XDnoDyUhvpcmw6rYLska3Jm3GzfvpMnm4RarVh3ztHQROGpLZa_Q; path=/; secure; SameSite=Lax, _leadgenie_session=%2FuWRb4dU72Vm1RAMPkCOdmnw61UK0QG7sVr9f7uP8MzyZ8muvD%2FDNH23aKNBg5P52ePfajWjNtdmx97wHWZ9shmfw4c9beAus7PYf3ZY4Uw6BZmlxzuShecgI4%2FTRYRo8C5krEzIVj3DmGG%2B2k77yIvLWkhkjt9aygm%2B399OmnW8ElCun8mKuBzjk4aCADRkyVk7MOKrDmJiGsM%2Be5h3oGwQgMNtR7nOCm%2FamPgTcvMJ12aJousJEUynIe6pF8wHH10%2BN9JxlrEx1%2FysdxaBXCS5%2BMTbM%2FDS190%3D--1NPKQ1m7w6vLQ%2BTd--Xc3%2BM%2BcZuDLBwUfz2J%2FATA%3D%3D; path=/; secure; HttpOnly; SameSite=None, __cf_bm=So1tmTA9B0__LQ_S.bL_TnqiakTdzORASkkFJEgOb58-1779103001.2298677-1.0.1.1-agS.z.GToMh8o1wgDVgS2cRxtPIwBFqk.3jjzUh69QCG9WCK4PLc_f6iEVFYT6JGGw7504MOeBfyG6sVGLyGQ2kFBLAU_y9_PW6NqaIGUG9uCqx.HN7LesUiOq9u1BKM; HttpOnly; SameSite=None; Secure; Path=/; Domain=apollo.io; Expires=Mon, 18 May 2026 11:46:41 GMT",
+          "vary": "Origin",
+          "x-24-hour-requests-left": "595",
+          "x-24-hour-usage": "5",
+          "x-hourly-requests-left": "195",
+          "x-hourly-usage": "5",
+          "x-minute-requests-left": "48",
+          "x-minute-usage": "2",
+          "x-rate-limit-24-hour": "600",
+          "x-rate-limit-hourly": "200",
+          "x-rate-limit-minute": "50",
+          "x-request-id": "90387f5e-02cb-449f-988b-63b716e1186b",
+          "x-runtime": "0.108213",
+          "x-transaction-id": "deb515b3-3ac1-4e42-8850-6ca1b4c077e6",
+          "cf-cache-status": "DYNAMIC",
+          "server": "cloudflare",
+          "cf-ray": "9fda737da8c6aee3-PDX"
+        },
+        "hash": "434f1c2e9137a6fb077f44dbebfe2cf53ccd091c",
+        "request": {
+          "data": {
+            "name": "Test Account Creation"
+          }
+        }
+      }
+    }
+  }
+}

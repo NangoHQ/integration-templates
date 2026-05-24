@@ -1,0 +1,115 @@
+{
+  "input": {
+    "id": "6a0af1f0c9f63c0018aed306",
+    "name": "Nango Test Corp Updated"
+  },
+  "output": {
+    "id": "6a0af1f0c9f63c0018aed306",
+    "name": "Nango Test Corp Updated",
+    "domain": "nango-test.io",
+    "owner_id": "6a0aeb6e5e8f8e000c5e9ebd",
+    "account_stage_id": "6a0aeb6d5e8f8e000c5e9d75",
+    "raw_address": "340 Pine St, San Francisco, CA 94104",
+    "phone": "+14155550199",
+    "typed_custom_fields": {}
+  },
+  "nango": {},
+  "api": {
+    "patch": {
+      "/v1/accounts/6a0af1f0c9f63c0018aed306": {
+        "response": {
+          "account": {
+            "raw_address": "340 Pine St, San Francisco, CA 94104",
+            "street_address": "340 Pine Street",
+            "city": "San Francisco",
+            "state": "California",
+            "country": "United States",
+            "postal_code": "94104",
+            "id": "6a0af1f0c9f63c0018aed306",
+            "domain": "nango-test.io",
+            "name": "Nango Test Corp Updated",
+            "team_id": "6a0aeb6d5e8f8e000c5e9d6a",
+            "organization_id": null,
+            "account_stage_id": "6a0aeb6d5e8f8e000c5e9d75",
+            "source": "api",
+            "original_source": "api",
+            "creator_id": "6a0aeb6e5e8f8e000c5e9ebd",
+            "owner_id": "6a0aeb6e5e8f8e000c5e9ebd",
+            "created_at": "2026-05-18T11:03:12.228Z",
+            "phone": "+14155550199",
+            "phone_status": "no_status",
+            "hubspot_id": null,
+            "salesforce_id": null,
+            "crm_owner_id": null,
+            "parent_account_id": null,
+            "linkedin_url": null,
+            "suggested_from_rule_engine_config_id": null,
+            "godmode_apollo_creator": null,
+            "sanitized_phone": "+14155550199",
+            "account_playbook_statuses": [],
+            "existence_level": "full",
+            "label_ids": [],
+            "typed_custom_fields": {},
+            "custom_field_errors": {},
+            "modality": "account",
+            "source_display_name": "Created from API",
+            "crm_record_url": null,
+            "twitter_url": null,
+            "facebook_url": null,
+            "intent_strength": null,
+            "show_intent": false,
+            "organization_headcount_six_month_growth": null,
+            "organization_headcount_twelve_month_growth": null,
+            "organization_headcount_twenty_four_month_growth": null
+          },
+          "labels": []
+        },
+        "status": 200,
+        "headers": {
+          "date": "Mon, 18 May 2026 11:21:26 GMT",
+          "content-type": "application/json; charset=utf-8",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "ALLOWALL",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=31536000",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4964",
+          "x-ratelimit-reset": "1779103319",
+          "cache-control": "max-age=0, private, must-revalidate",
+          "content-security-policy": "frame-ancestors 'self' chrome-extension://alhgpfoeiimagjlnfekdhkjlkiomcapa chrome-extension://ececkagaccnfmkopaiemklekhoimmgpn *.salesforce.com *.lightning.force.com; report-uri https://o101058.ingest.us.sentry.io/api/222018/security/?sentry_key=86bb17dd8c2449719dd6b498f3431191&sentry_environment=production&sentry_release=921578f02cadce558872b59befb4057474aa1ff3",
+          "etag": "W/\"f48ebe6cdf5e771681ac7fa4a1ce6e42\"",
+          "set-cookie": "X-CSRF-TOKEN=hTFIZm_4ILREfRQR8aXgAyoDr_fbPTmEO0hZDqV97peJJG7WBDc7Mq8bwCzwsQ2unx379-CiHKYwxiSqgkQAbA; path=/; secure; SameSite=Lax, _leadgenie_session=N960NYmkPubsjRpCSwrAJmwKyZU%2ByAq1nsxC3f8WLfw8LJvwm0a0fjZCavT4tcr8qE7G1U%2B0T0WwkcM9VIrUotCaootbMoTKlJLbeRrT7DgTCGoXjHwxgZb1oQ8eF1JEhkkGuwu%2FUseRfb2yHf4AAGqRcEAboFJ3qWHUXjP7DwUIixde2K1Iy%2BpUvzVdf3M8SLn1Zigyr7oWGEx196P4X4KlaF4sU0wmGE%2Bi4bXuj3qi2Ej6R9wXjb%2FyVbLXENxvcGFh8gq09lhtSbplvG1kgu31DMrKUge%2BpeE%3D--gkRjJFxbh5YLyxL5--R7Y%2BDJLFezr1O0HfRaPQ%2FA%3D%3D; path=/; secure; HttpOnly; SameSite=None, __cf_bm=NN3p4CMJsnvVTFq6BrKBoy1h5ZmBN0CoVlwdjhRNgOw-1779103285.986743-1.0.1.1-eCL_aUmALiGlqQ.XyviUzJoJ_5_wATOW.Gh6o9K2HBCi_JvJn58qJ8FEWr.bH8tP42UzFbOjz.ZzXlrfQ7MxH_mGKNbzbxtWWS596OiVQxkydy1qcwQcWOcBacYN77rS; HttpOnly; SameSite=None; Secure; Path=/; Domain=apollo.io; Expires=Mon, 18 May 2026 11:51:26 GMT",
+          "vary": "Origin",
+          "x-24-hour-requests-left": "593",
+          "x-24-hour-usage": "7",
+          "x-hourly-requests-left": "193",
+          "x-hourly-usage": "7",
+          "x-minute-requests-left": "49",
+          "x-minute-usage": "1",
+          "x-rate-limit-24-hour": "600",
+          "x-rate-limit-hourly": "200",
+          "x-rate-limit-minute": "50",
+          "x-request-id": "92e67ce6-63d0-4df7-8d4a-d7182109026a",
+          "x-runtime": "0.057822",
+          "x-transaction-id": "3d0a338f-0c46-46d4-8d4e-6fde73f24dad",
+          "cf-cache-status": "DYNAMIC",
+          "server": "cloudflare",
+          "cf-ray": "9fda7a716c66ca84-PDX"
+        },
+        "hash": "51799de9bc8097d292f19a3f9b6f097968bef79b",
+        "request": {
+          "data": {
+            "name": "Nango Test Corp Updated"
+          }
+        }
+      }
+    }
+  }
+}

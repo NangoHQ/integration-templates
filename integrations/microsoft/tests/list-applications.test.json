@@ -1,0 +1,434 @@
+{
+  "input": {},
+  "output": {
+    "applications": [
+      {
+        "id": "fe34e2af-1e02-4b56-a979-ab6f9ee6c306",
+        "appId": "2e70988e-e92f-46e6-ba47-1f01dbc650e3",
+        "displayName": "NangoTeams",
+        "signInAudience": "AzureADandPersonalMicrosoftAccount",
+        "publisherDomain": "nango.dev",
+        "createdDateTime": "2026-05-12T10:10:35Z",
+        "identifierUris": []
+      },
+      {
+        "id": "ffcd890e-c094-4f59-96b3-2cd384ac2e03",
+        "appId": "abe05e12-a08b-4d0d-ae66-51e7ca2b08d0",
+        "displayName": "NangoMicrosoft",
+        "signInAudience": "AzureADandPersonalMicrosoftAccount",
+        "publisherDomain": "nango.dev",
+        "createdDateTime": "2026-05-18T21:22:02Z",
+        "identifierUris": []
+      }
+    ]
+  },
+  "nango": {},
+  "api": {
+    "get": {
+      "/v1.0/applications": {
+        "response": {
+          "@odata.context": "https://graph.microsoft.com/v1.0/$metadata#applications",
+          "value": [
+            {
+              "id": "fe34e2af-1e02-4b56-a979-ab6f9ee6c306",
+              "deletedDateTime": null,
+              "appId": "2e70988e-e92f-46e6-ba47-1f01dbc650e3",
+              "applicationTemplateId": null,
+              "disabledByMicrosoftStatus": null,
+              "createdByAppId": "18ed3507-a475-4ccb-b669-d66bc9f2a36e",
+              "createdDateTime": "2026-05-12T10:10:35Z",
+              "displayName": "NangoTeams",
+              "description": null,
+              "groupMembershipClaims": null,
+              "identifierUris": [],
+              "isDeviceOnlyAuthSupported": null,
+              "isDisabled": null,
+              "isFallbackPublicClient": null,
+              "nativeAuthenticationApisEnabled": null,
+              "notes": null,
+              "publisherDomain": "nango.dev",
+              "serviceManagementReference": null,
+              "signInAudience": "AzureADandPersonalMicrosoftAccount",
+              "tags": [],
+              "tokenEncryptionKeyId": null,
+              "uniqueName": null,
+              "samlMetadataUrl": null,
+              "defaultRedirectUri": null,
+              "certification": null,
+              "optionalClaims": null,
+              "requestSignatureVerification": null,
+              "addIns": [],
+              "api": {
+                "acceptMappedClaims": null,
+                "knownClientApplications": [],
+                "requestedAccessTokenVersion": 2,
+                "oauth2PermissionScopes": [],
+                "preAuthorizedApplications": []
+              },
+              "appRoles": [],
+              "info": {
+                "logoUrl": "https://aadcdn.msftauthimages.net/dbd5a2dd-6a6gpwwe3fczxu9w7mlx4uhpjxp-qlqzs01iq3afs/appbranding/mq-bi-ztnfg0k7ddinswki-mwpukp2rkppepfgagolm/1033/bannerlogo?ts=639143595992568845",
+                "marketingUrl": null,
+                "privacyStatementUrl": "https://nango.dev/privacy-policy",
+                "supportUrl": null,
+                "termsOfServiceUrl": "https://nango.dev/terms"
+              },
+              "keyCredentials": [],
+              "parentalControlSettings": {
+                "countriesBlockedForMinors": [],
+                "legalAgeGroupRule": "Allow"
+              },
+              "passwordCredentials": [
+                {
+                  "customKeyIdentifier": null,
+                  "displayName": "c2",
+                  "endDateTime": "2026-11-10T14:06:10.851Z",
+                  "hint": "4mH",
+                  "keyId": "af20a6e8-a787-489d-a156-3be4d4fd66ed",
+                  "secretText": null,
+                  "startDateTime": "2026-05-14T14:06:10.851Z"
+                },
+                {
+                  "customKeyIdentifier": null,
+                  "displayName": "c1",
+                  "endDateTime": "2026-11-10T13:49:04.199Z",
+                  "hint": "z~c",
+                  "keyId": "ad40f663-8f30-421f-9828-8a68cc477473",
+                  "secretText": null,
+                  "startDateTime": "2026-05-14T13:49:04.199Z"
+                }
+              ],
+              "publicClient": {
+                "redirectUris": []
+              },
+              "requiredResourceAccess": [
+                {
+                  "resourceAppId": "00000003-0000-0000-c000-000000000000",
+                  "resourceAccess": [
+                    {
+                      "id": "101147cf-4178-4455-9d58-02b5c164e759",
+                      "type": "Scope"
+                    },
+                    {
+                      "id": "cc83893a-e232-4723-b5af-bd0b01bcfe65",
+                      "type": "Scope"
+                    },
+                    {
+                      "id": "9d8982ae-4365-4f57-95e9-d6032a4c0b87",
+                      "type": "Scope"
+                    },
+                    {
+                      "id": "767156cb-16ae-4d10-8f8b-41b657c8c8c8",
+                      "type": "Scope"
+                    },
+                    {
+                      "id": "5922d31f-46c8-4404-9eaf-2117e390a8a4",
+                      "type": "Scope"
+                    },
+                    {
+                      "id": "ebf0f66e-9fb1-49e4-a278-222f76911cf4",
+                      "type": "Scope"
+                    },
+                    {
+                      "id": "d649fb7c-72b4-4eec-b2b4-b15acf79e378",
+                      "type": "Scope"
+                    },
+                    {
+                      "id": "cdcdac3a-fd45-410d-83ef-554db620e5c7",
+                      "type": "Scope"
+                    },
+                    {
+                      "id": "06da0dbc-49e2-44d2-8312-53f166ab848a",
+                      "type": "Scope"
+                    },
+                    {
+                      "id": "5f8c59db-677d-491f-a6b8-5f174b11ec1d",
+                      "type": "Scope"
+                    },
+                    {
+                      "id": "7427e0e9-2fba-42fe-b0c0-848c9e6a8182",
+                      "type": "Scope"
+                    },
+                    {
+                      "id": "7825d5d6-6049-4ce7-bdf6-3b8d53f4bcd0",
+                      "type": "Scope"
+                    },
+                    {
+                      "id": "485be79e-c497-4b35-9400-0e3fa7f2a5d4",
+                      "type": "Scope"
+                    },
+                    {
+                      "id": "2497278c-d82d-46a2-b1ce-39d4cdde5570",
+                      "type": "Scope"
+                    },
+                    {
+                      "id": "4a06efd2-f825-4e34-813e-82a57b03d1ee",
+                      "type": "Scope"
+                    },
+                    {
+                      "id": "a9ff19c2-f369-4a95-9a25-ba9d460efc8e",
+                      "type": "Scope"
+                    },
+                    {
+                      "id": "59dacb05-e88d-4c13-a684-59f1afc8cc98",
+                      "type": "Scope"
+                    },
+                    {
+                      "id": "e1fe6dd8-ba31-4d61-89e7-88639da4683d",
+                      "type": "Scope"
+                    },
+                    {
+                      "id": "a154be20-db9c-4678-8ab7-66f6cc099a59",
+                      "type": "Scope"
+                    },
+                    {
+                      "id": "38826093-1258-4dea-98f0-00003be2b8d0",
+                      "type": "Scope"
+                    },
+                    {
+                      "id": "f501c180-9344-439a-bca0-6cbf209fd270",
+                      "type": "Scope"
+                    },
+                    {
+                      "id": "9547fcb5-d03f-419d-9948-5928bbf71b0f",
+                      "type": "Scope"
+                    },
+                    {
+                      "id": "c5a9e2b1-faf6-41d4-8875-d381aa549b24",
+                      "type": "Scope"
+                    },
+                    {
+                      "id": "116b7235-7cc6-461e-b163-8e55691d839e",
+                      "type": "Scope"
+                    }
+                  ]
+                }
+              ],
+              "verifiedPublisher": {
+                "displayName": "Nango Inc.",
+                "verifiedPublisherId": "7113839",
+                "addedDateTime": "2026-05-14T12:40:19Z"
+              },
+              "web": {
+                "homePageUrl": "https://nango.dev",
+                "logoutUrl": null,
+                "redirectUris": [
+                  "https://api.nango.dev/oauth/callback"
+                ],
+                "implicitGrantSettings": {
+                  "enableAccessTokenIssuance": false,
+                  "enableIdTokenIssuance": false
+                },
+                "redirectUriSettings": [
+                  {
+                    "uri": "https://api.nango.dev/oauth/callback",
+                    "index": null
+                  }
+                ]
+              },
+              "servicePrincipalLockConfiguration": {
+                "isEnabled": true,
+                "allProperties": true,
+                "credentialsWithUsageVerify": true,
+                "credentialsWithUsageSign": true,
+                "identifierUris": false,
+                "tokenEncryptionKeyId": true
+              },
+              "spa": {
+                "redirectUris": []
+              }
+            },
+            {
+              "id": "ffcd890e-c094-4f59-96b3-2cd384ac2e03",
+              "deletedDateTime": null,
+              "appId": "abe05e12-a08b-4d0d-ae66-51e7ca2b08d0",
+              "applicationTemplateId": null,
+              "disabledByMicrosoftStatus": null,
+              "createdByAppId": "18ed3507-a475-4ccb-b669-d66bc9f2a36e",
+              "createdDateTime": "2026-05-18T21:22:02Z",
+              "displayName": "NangoMicrosoft",
+              "description": null,
+              "groupMembershipClaims": null,
+              "identifierUris": [],
+              "isDeviceOnlyAuthSupported": null,
+              "isDisabled": null,
+              "isFallbackPublicClient": null,
+              "nativeAuthenticationApisEnabled": null,
+              "notes": null,
+              "publisherDomain": "nango.dev",
+              "serviceManagementReference": null,
+              "signInAudience": "AzureADandPersonalMicrosoftAccount",
+              "tags": [],
+              "tokenEncryptionKeyId": null,
+              "uniqueName": null,
+              "samlMetadataUrl": null,
+              "defaultRedirectUri": null,
+              "certification": null,
+              "optionalClaims": null,
+              "requestSignatureVerification": null,
+              "addIns": [],
+              "api": {
+                "acceptMappedClaims": null,
+                "knownClientApplications": [],
+                "requestedAccessTokenVersion": 2,
+                "oauth2PermissionScopes": [],
+                "preAuthorizedApplications": []
+              },
+              "appRoles": [],
+              "info": {
+                "logoUrl": null,
+                "marketingUrl": null,
+                "privacyStatementUrl": null,
+                "supportUrl": null,
+                "termsOfServiceUrl": null
+              },
+              "keyCredentials": [],
+              "parentalControlSettings": {
+                "countriesBlockedForMinors": [],
+                "legalAgeGroupRule": "Allow"
+              },
+              "passwordCredentials": [
+                {
+                  "customKeyIdentifier": null,
+                  "displayName": "nangoAPI",
+                  "endDateTime": "2026-11-14T21:26:20.858Z",
+                  "hint": "~Rd",
+                  "keyId": "789bcaf5-c617-4c97-8f7a-88854c201c7a",
+                  "secretText": null,
+                  "startDateTime": "2026-05-18T21:26:20.858Z"
+                }
+              ],
+              "publicClient": {
+                "redirectUris": []
+              },
+              "requiredResourceAccess": [
+                {
+                  "resourceAppId": "00000003-0000-0000-c000-000000000000",
+                  "resourceAccess": [
+                    {
+                      "id": "c79f8feb-a9db-4090-85f9-90d820caa0eb",
+                      "type": "Scope"
+                    },
+                    {
+                      "id": "bdfbf15f-ee85-4955-8675-146e8e5296b5",
+                      "type": "Scope"
+                    },
+                    {
+                      "id": "951183d1-1a61-466f-a6d1-1fde911bfd95",
+                      "type": "Scope"
+                    },
+                    {
+                      "id": "5f8c59db-677d-491f-a6b8-5f174b11ec1d",
+                      "type": "Scope"
+                    },
+                    {
+                      "id": "4e46008b-f24c-477d-8fff-7bb4ec7aafe0",
+                      "type": "Scope"
+                    },
+                    {
+                      "id": "7427e0e9-2fba-42fe-b0c0-848c9e6a8182",
+                      "type": "Scope"
+                    },
+                    {
+                      "id": "4908d5b9-3fb2-4b1e-9336-1888b7937185",
+                      "type": "Scope"
+                    },
+                    {
+                      "id": "46ca0847-7e6b-426e-9775-ea810a948356",
+                      "type": "Scope"
+                    },
+                    {
+                      "id": "741c54c3-0c1e-44a1-818b-3f97ab4e8c83",
+                      "type": "Scope"
+                    },
+                    {
+                      "id": "d01b97e9-cbc0-49fe-810a-750afd5527a3",
+                      "type": "Scope"
+                    },
+                    {
+                      "id": "e1fe6dd8-ba31-4d61-89e7-88639da4683d",
+                      "type": "Scope"
+                    },
+                    {
+                      "id": "a154be20-db9c-4678-8ab7-66f6cc099a59",
+                      "type": "Scope"
+                    },
+                    {
+                      "id": "204e0828-b5ca-4ad8-b9f3-f32a958e7cc4",
+                      "type": "Scope"
+                    },
+                    {
+                      "id": "1138cb37-bd11-4084-a2b7-9f71582aeddb",
+                      "type": "Role"
+                    }
+                  ]
+                }
+              ],
+              "verifiedPublisher": {
+                "displayName": null,
+                "verifiedPublisherId": null,
+                "addedDateTime": null
+              },
+              "web": {
+                "homePageUrl": null,
+                "logoutUrl": null,
+                "redirectUris": [
+                  "https://api.nango.dev/oauth/callback"
+                ],
+                "implicitGrantSettings": {
+                  "enableAccessTokenIssuance": false,
+                  "enableIdTokenIssuance": false
+                },
+                "redirectUriSettings": [
+                  {
+                    "uri": "https://api.nango.dev/oauth/callback",
+                    "index": null
+                  }
+                ]
+              },
+              "servicePrincipalLockConfiguration": {
+                "isEnabled": true,
+                "allProperties": true,
+                "credentialsWithUsageVerify": true,
+                "credentialsWithUsageSign": true,
+                "identifierUris": false,
+                "tokenEncryptionKeyId": true
+              },
+              "spa": {
+                "redirectUris": []
+              }
+            }
+          ]
+        },
+        "status": 200,
+        "headers": {
+          "date": "Mon, 18 May 2026 22:06:09 GMT",
+          "content-type": "application/json;odata.metadata=minimal;odata.streaming=true;IEEE754Compatible=false;charset=utf-8",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=31536000",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4906",
+          "x-ratelimit-reset": "1779141993",
+          "cache-control": "no-cache",
+          "vary": "Accept-Encoding",
+          "request-id": "cfae1c6f-38c7-473f-82c2-83d98b8846cf",
+          "client-request-id": "cfae1c6f-38c7-473f-82c2-83d98b8846cf",
+          "x-ms-ags-diagnostic": "{\"ServerInfo\":{\"DataCenter\":\"West US 2\",\"Slice\":\"E\",\"Ring\":\"4\",\"ScaleUnit\":\"002\",\"RoleInstance\":\"MWH0EPF000A30DA\"}}",
+          "x-ms-resource-unit": "2",
+          "odata-version": "4.0"
+        },
+        "hash": "439029f16a8ffb8116586e461d4a4c331a033280",
+        "request": {}
+      }
+    }
+  }
+}

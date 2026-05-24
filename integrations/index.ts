@@ -54,6 +54,40 @@ import './anrok/actions/create-or-update-transaction.js';
 import './anrok/actions/negate-transaction.js';
 import './anrok/actions/void-transaction.js';
 
+// -- Integration: apollo
+import './apollo/syncs/accounts.js';
+import './apollo/syncs/contacts.js';
+import './apollo/syncs/opportunities.js';
+import './apollo/syncs/organization-search.js';
+import './apollo/syncs/sequences.js';
+import './apollo/syncs/tasks.js';
+import './apollo/actions/bulk-enrich-people.js';
+import './apollo/actions/create-account.js';
+import './apollo/actions/create-contact.js';
+import './apollo/actions/create-opportunity.js';
+import './apollo/actions/create-task.js';
+import './apollo/actions/delete-account.js';
+import './apollo/actions/delete-contact.js';
+import './apollo/actions/delete-opportunity.js';
+import './apollo/actions/enrich-organization.js';
+import './apollo/actions/enrich-person.js';
+import './apollo/actions/get-account.js';
+import './apollo/actions/get-contact.js';
+import './apollo/actions/get-opportunity.js';
+import './apollo/actions/list-accounts.js';
+import './apollo/actions/list-contacts.js';
+import './apollo/actions/list-opportunities.js';
+import './apollo/actions/list-sequences.js';
+import './apollo/actions/list-tasks.js';
+import './apollo/actions/list-users.js';
+import './apollo/actions/remove-contact-from-sequence.js';
+import './apollo/actions/search-organizations.js';
+import './apollo/actions/search-people.js';
+import './apollo/actions/update-account.js';
+import './apollo/actions/update-contact.js';
+import './apollo/actions/update-opportunity.js';
+import './apollo/actions/update-task.js';
+
 // -- Integration: asana
 import './asana/syncs/projects.js';
 import './asana/syncs/sections.js';
@@ -506,6 +540,31 @@ import './expensify/syncs/users.js';
 import './expensify/actions/create-user.js';
 import './expensify/actions/disable-user.js';
 import './expensify/actions/list-policies.js';
+
+// -- Integration: facebook
+import './facebook/syncs/page-posts.js';
+import './facebook/syncs/page-scheduled-posts.js';
+import './facebook/syncs/page-videos.js';
+import './facebook/syncs/pages.js';
+import './facebook/actions/create-page-photo.js';
+import './facebook/actions/create-page-post.js';
+import './facebook/actions/create-page-video.js';
+import './facebook/actions/create-post-comment.js';
+import './facebook/actions/create-scheduled-page-post.js';
+import './facebook/actions/delete-comment.js';
+import './facebook/actions/delete-post.js';
+import './facebook/actions/get-comment.js';
+import './facebook/actions/get-page-app-subscriptions.js';
+import './facebook/actions/get-page.js';
+import './facebook/actions/get-post.js';
+import './facebook/actions/get-user-profile.js';
+import './facebook/actions/list-page-posts.js';
+import './facebook/actions/list-page-scheduled-posts.js';
+import './facebook/actions/list-page-videos.js';
+import './facebook/actions/list-post-comments.js';
+import './facebook/actions/list-user-pages.js';
+import './facebook/actions/subscribe-app-to-page.js';
+import './facebook/actions/unsubscribe-app-from-page.js';
 
 // -- Integration: fireflies
 import './fireflies/actions/add-to-live.js';
@@ -1112,6 +1171,45 @@ import './metabase/actions/disable-user.js';
 import './metabase/actions/enable-user.js';
 import './metabase/actions/fetch-user.js';
 import './metabase/actions/update-user.js';
+
+// -- Integration: microsoft
+import './microsoft/syncs/applications.js';
+import './microsoft/syncs/directory-roles.js';
+import './microsoft/syncs/groups.js';
+import './microsoft/syncs/organizations.js';
+import './microsoft/syncs/service-principals.js';
+import './microsoft/syncs/users.js';
+import './microsoft/actions/add-group-member.js';
+import './microsoft/actions/create-application.js';
+import './microsoft/actions/create-group.js';
+import './microsoft/actions/create-service-principal.js';
+import './microsoft/actions/create-user.js';
+import './microsoft/actions/delete-application.js';
+import './microsoft/actions/delete-group.js';
+import './microsoft/actions/delete-service-principal.js';
+import './microsoft/actions/delete-user.js';
+import './microsoft/actions/get-application.js';
+import './microsoft/actions/get-directory-role.js';
+import './microsoft/actions/get-group.js';
+import './microsoft/actions/get-organization.js';
+import './microsoft/actions/get-service-principal.js';
+import './microsoft/actions/get-user.js';
+import './microsoft/actions/list-applications.js';
+import './microsoft/actions/list-devices.js';
+import './microsoft/actions/list-directory-role-members.js';
+import './microsoft/actions/list-directory-roles.js';
+import './microsoft/actions/list-group-members.js';
+import './microsoft/actions/list-groups.js';
+import './microsoft/actions/list-organizations.js';
+import './microsoft/actions/list-service-principals.js';
+import './microsoft/actions/list-user-memberships.js';
+import './microsoft/actions/list-users.js';
+import './microsoft/actions/remove-group-member.js';
+import './microsoft/actions/update-application.js';
+import './microsoft/actions/update-group.js';
+import './microsoft/actions/update-organization.js';
+import './microsoft/actions/update-service-principal.js';
+import './microsoft/actions/update-user.js';
 
 // -- Integration: microsoft-teams
 import './microsoft-teams/syncs/channel-message-replies.js';
