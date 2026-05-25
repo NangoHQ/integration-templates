@@ -16,7 +16,7 @@ import { z } from 'zod';
  */
 const sync = createSync({
     description: 'Fetches the list of users',
-    version: '1.0.0',
+    version: '1.1.0',
     frequency: 'every 6 hours',
     autoStart: true,
     syncType: 'full',
@@ -38,6 +38,8 @@ const sync = createSync({
     metadata: z.object({}),
 
     exec: async (nango) => {
+        await nango.trackDeletesStart('GorgiasUser');
+
         const config: ProxyConfiguration = {
             // https://developers.gorgias.com/reference/list-users
             endpoint: `/api/users`,
@@ -64,7 +66,7 @@ const sync = createSync({
 
             await nango.batchSave(users, 'GorgiasUser');
         }
-        await nango.deleteRecordsFromPreviousExecutions('GorgiasUser');
+        await nango.trackDeletesEnd('GorgiasUser');
     }
 });
 

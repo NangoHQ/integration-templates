@@ -17,12 +17,16 @@ interface CustomReportData {
     fields: string[];
 }
 
+const CheckpointSchema = z.object({
+    updated_after: z.string()
+});
+
 const sync = createSync({
     description: 'Fetches a list of current employees from bamboohr and maps them to the standard HRIS model',
-    version: '1.0.0',
+    version: '1.1.0',
     frequency: 'every 6 hours',
     autoStart: true,
-    syncType: 'incremental',
+    checkpoint: CheckpointSchema,
 
     endpoints: [
         {
@@ -39,12 +43,17 @@ const sync = createSync({
     metadata: z.object({}),
 
     exec: async (nango) => {
+        const rawCheckpoint = await nango.getCheckpoint();
+        const checkpoint = rawCheckpoint ? CheckpointSchema.parse(rawCheckpoint) : undefined;
+        const checkpointUpdatedAfter = checkpoint?.updated_after ? new Date(checkpoint.updated_after) : undefined;
+        const runStartedAt = new Date().toISOString();
+
         const customReportData: CustomReportData = {
             title: 'Current Employees',
             filters: {
                 lastChanged: {
                     includeNull: 'no',
-                    ...(nango.lastSyncDate ? { value: nango.lastSyncDate?.toISOString().split('.')[0] + 'Z' } : {})
+                    ...(checkpointUpdatedAfter ? { value: checkpointUpdatedAfter?.toISOString().split('.')[0] + 'Z' } : {})
                 }
             },
             fields: [
@@ -104,6 +113,7 @@ const sync = createSync({
         }
 
         await nango.log(`Total unified employee(s) processed: ${employees.length}`);
+        await nango.saveCheckpoint({ updated_after: runStartedAt });
     }
 });
 

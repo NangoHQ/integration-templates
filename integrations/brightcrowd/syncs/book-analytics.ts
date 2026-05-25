@@ -12,7 +12,7 @@ import { BookAnalytics, Metadata } from '../models.js';
  */
 const sync = createSync({
     description: 'Fetches analytics for a specified list of books from Brightcrowd.',
-    version: '2.0.0',
+    version: '2.1.0',
     frequency: 'every day',
     autoStart: false,
     syncType: 'full',
@@ -45,6 +45,9 @@ const sync = createSync({
             await nango.log('No books found.', { level: 'warn' });
             return;
         }
+
+        await nango.trackDeletesStart('BookAnalytics');
+
         const bookAnalytics: BookAnalytics[] = [];
 
         for (const bookId of bookIds) {
@@ -70,7 +73,7 @@ const sync = createSync({
             await nango.batchSave(bookAnalytics, 'BookAnalytics');
         }
 
-        await nango.deleteRecordsFromPreviousExecutions('BookAnalytics');
+        await nango.trackDeletesEnd('BookAnalytics');
     }
 });
 

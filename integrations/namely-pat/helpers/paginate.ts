@@ -6,7 +6,7 @@ export interface PaginationParams {
     limit?: number;
     responseDataPath: string;
     additionalFilters?: Record<string, string | number | string[] | number[]>;
-    lastSyncDate?: Date | undefined;
+    updatedAfter?: Date | undefined;
 }
 
 interface NamelyPaginatedResult {
@@ -16,7 +16,7 @@ interface NamelyPaginatedResult {
 
 export async function* paginate(
     nango: NangoSync,
-    { endpoint, limit = 100, responseDataPath, additionalFilters = {}, lastSyncDate }: PaginationParams
+    { endpoint, limit = 100, responseDataPath, additionalFilters = {}, updatedAfter }: PaginationParams
 ): AsyncGenerator<NamelyPaginatedResult, void, undefined> {
     let currentPage = 1;
 
@@ -55,14 +55,14 @@ export async function* paginate(
         }
 
         let filteredProfiles = profiles;
-        if (lastSyncDate) {
+        if (updatedAfter) {
             filteredProfiles = profiles.filter((profile) => {
                 const updatedAt = new Date(profile.updated_at * 1000);
-                return updatedAt >= lastSyncDate;
+                return updatedAt >= updatedAfter;
             });
 
             if (filteredProfiles.length === 0) {
-                await nango.log('Reached profiles older than lastSyncDate, stopping pagination.');
+                await nango.log('Reached profiles older than checkpoint, stopping pagination.');
                 break;
             }
         }

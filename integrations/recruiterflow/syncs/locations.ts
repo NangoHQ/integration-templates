@@ -7,7 +7,7 @@ import { z } from 'zod';
 
 const sync = createSync({
     description: 'Syncs all locations from RecruiterFlow',
-    version: '2.0.0',
+    version: '2.1.0',
     frequency: 'every hour',
     autoStart: true,
     syncType: 'full',
@@ -27,6 +27,8 @@ const sync = createSync({
     metadata: z.object({}),
 
     exec: async (nango) => {
+        await nango.trackDeletesStart('RecruiterFlowLocation');
+
         const proxyConfig: ProxyConfiguration = {
             // https://recruiterflow.com/api#/Job%20APIs/get_api_external_location_list
             endpoint: '/api/external/location/list',
@@ -37,7 +39,7 @@ const sync = createSync({
         const locations = response.data.data;
 
         await nango.batchSave(locations.map(toLocation), 'RecruiterFlowLocation');
-        await nango.deleteRecordsFromPreviousExecutions('RecruiterFlowLocation');
+        await nango.trackDeletesEnd('RecruiterFlowLocation');
     }
 });
 

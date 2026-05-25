@@ -20,7 +20,7 @@ interface OrganizationUnitResponse {
 
 const sync = createSync({
     description: 'Sync all workspace org units',
-    version: '2.0.0',
+    version: '2.1.0',
     frequency: 'every 6 hours',
     autoStart: true,
     syncType: 'full',
@@ -43,6 +43,7 @@ const sync = createSync({
     exec: async (nango) => {
         const endpoint = '/admin/directory/v1/customer/my_customer/orgunits';
         let pageToken: string | undefined;
+        let deleteTrackingStarted = false;
 
         const rootUnit: OrganizationalUnit = {
             name: '{Root Directory}',
@@ -68,6 +69,11 @@ const sync = createSync({
             if (!response) {
                 await nango.log('No response from the Google API');
                 return;
+            }
+
+            if (!deleteTrackingStarted) {
+                await nango.trackDeletesStart('OrganizationalUnit');
+                deleteTrackingStarted = true;
             }
 
             const { data } = response;
@@ -104,7 +110,10 @@ const sync = createSync({
 
             pageToken = response.data.nextPageToken;
         } while (pageToken);
-        await nango.deleteRecordsFromPreviousExecutions('OrganizationalUnit');
+
+        if (deleteTrackingStarted) {
+            await nango.trackDeletesEnd('OrganizationalUnit');
+        }
     }
 });
 

@@ -7,7 +7,7 @@ import { z } from 'zod';
 
 const sync = createSync({
     description: 'Fetches all customers in Exact Online',
-    version: '2.0.0',
+    version: '2.1.0',
     frequency: 'every hour',
     autoStart: true,
     syncType: 'full',
@@ -28,6 +28,7 @@ const sync = createSync({
 
     exec: async (nango) => {
         const { division } = await getUser(nango);
+        await nango.trackDeletesStart('ExactCustomer');
 
         // List the accounts inside the user's Division
         for await (const accounts of nango.paginate<EO_Account>({
@@ -58,7 +59,7 @@ const sync = createSync({
             await nango.batchSave(customers, 'ExactCustomer');
         }
 
-        await nango.deleteRecordsFromPreviousExecutions('ExactCustomer');
+        await nango.trackDeletesEnd('ExactCustomer');
     }
 });
 

@@ -5,7 +5,7 @@ import { z } from 'zod';
 
 const sync = createSync({
     description: 'Fetches a list of users from Metabase, including active and inactive users.',
-    version: '1.0.0',
+    version: '1.1.0',
     frequency: 'every day',
     autoStart: true,
     syncType: 'full',
@@ -25,6 +25,8 @@ const sync = createSync({
     metadata: z.object({}),
 
     exec: async (nango) => {
+        await nango.trackDeletesStart('User');
+
         const config: ProxyConfiguration = {
             // https://www.metabase.com/docs/latest/api/user
             endpoint: '/api/user',
@@ -43,7 +45,7 @@ const sync = createSync({
             });
             await nango.batchSave(validatedUsers, 'User');
         }
-        await nango.deleteRecordsFromPreviousExecutions('User');
+        await nango.trackDeletesEnd('User');
     }
 });
 

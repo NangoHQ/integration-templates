@@ -21,7 +21,7 @@ import { z } from 'zod';
  */
 const sync = createSync({
     description: 'Fetches the list of users from Perimeter81',
-    version: '1.0.0',
+    version: '1.1.0',
     frequency: 'every day',
     autoStart: true,
     syncType: 'full',
@@ -41,6 +41,8 @@ const sync = createSync({
     metadata: z.object({}),
 
     exec: async (nango) => {
+        await nango.trackDeletesStart('User');
+
         const config: ProxyConfiguration = {
             // https://support.perimeter81.com/docs/get-list-users
             endpoint: '/v1/users',
@@ -62,7 +64,7 @@ const sync = createSync({
             await nango.batchSave(users, 'User');
         }
 
-        await nango.deleteRecordsFromPreviousExecutions('User');
+        await nango.trackDeletesEnd('User');
     }
 });
 

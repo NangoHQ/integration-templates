@@ -7,7 +7,7 @@ import { z } from 'zod';
 
 const sync = createSync({
     description: 'Fetches a list of users from Grammarly',
-    version: '1.0.0',
+    version: '1.1.0',
     frequency: 'every day',
     autoStart: true,
     syncType: 'full',
@@ -27,6 +27,8 @@ const sync = createSync({
     metadata: z.object({}),
 
     exec: async (nango) => {
+        await nango.trackDeletesStart('User');
+
         const config: ProxyConfiguration = {
             // https://developer.grammarly.com/license-management-api.html#get-a-list-of-users
             endpoint: '/users',
@@ -46,7 +48,7 @@ const sync = createSync({
                 await nango.batchSave(users, 'User');
             }
         }
-        await nango.deleteRecordsFromPreviousExecutions('User');
+        await nango.trackDeletesEnd('User');
     }
 });
 
