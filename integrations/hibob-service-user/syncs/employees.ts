@@ -7,7 +7,7 @@ import { z } from 'zod';
 
 const sync = createSync({
     description: 'Fetches a list of all active employees',
-    version: '1.0.0',
+    version: '1.1.0',
     frequency: 'every hour',
     autoStart: true,
     syncType: 'full',
@@ -27,6 +27,8 @@ const sync = createSync({
     metadata: z.object({}),
 
     exec: async (nango) => {
+        await nango.trackDeletesStart('HibobEmployee');
+
         const proxyConfig: ProxyConfiguration = {
             // https://api.hibob.com/v1/people/search
             endpoint: '/v1/people/search',
@@ -48,7 +50,7 @@ const sync = createSync({
         }
 
         await nango.log(`Total employee(s) processed: ${employees.length}`);
-        await nango.deleteRecordsFromPreviousExecutions('HibobEmployee');
+        await nango.trackDeletesEnd('HibobEmployee');
     }
 });
 

@@ -6,12 +6,16 @@ import type { ProxyConfiguration } from 'nango';
 import { User } from '../models.js';
 import { z } from 'zod';
 
+const CheckpointSchema = z.object({
+    updated_after: z.string()
+});
+
 const sync = createSync({
     description: 'Fetches a list of users from Bill sandbox',
-    version: '1.0.0',
+    version: '1.1.0',
     frequency: 'every day',
     autoStart: true,
-    syncType: 'incremental',
+    checkpoint: CheckpointSchema,
 
     endpoints: [
         {
@@ -28,12 +32,17 @@ const sync = createSync({
     metadata: z.object({}),
 
     exec: async (nango) => {
+        const rawCheckpoint = await nango.getCheckpoint();
+        const checkpoint = rawCheckpoint ? CheckpointSchema.parse(rawCheckpoint) : undefined;
+        const checkpointUpdatedAfter = checkpoint?.updated_after ? new Date(checkpoint.updated_after) : undefined;
+        const runStartedAt = new Date().toISOString();
+
         const headers = await getHeaders(nango);
 
         const filters = ['archived:eq:false'];
 
-        if (nango.lastSyncDate) {
-            filters.push(`updatedTime:gte:"${nango.lastSyncDate.toISOString()}"`);
+        if (checkpointUpdatedAfter) {
+            filters.push(`updatedTime:gte:"${checkpointUpdatedAfter.toISOString()}"`);
         }
 
         const config: ProxyConfiguration = {
@@ -69,6 +78,7 @@ const sync = createSync({
 
             await nango.batchSave(users, 'User');
         }
+        await nango.saveCheckpoint({ updated_after: runStartedAt });
     }
 });
 

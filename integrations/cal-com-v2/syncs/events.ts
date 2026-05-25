@@ -4,7 +4,7 @@ import { z } from 'zod';
 
 const sync = createSync({
     description: 'Retrieve all upcoming events per a user',
-    version: '2.0.0',
+    version: '2.1.0',
     frequency: 'every hour',
     autoStart: true,
     syncType: 'full',
@@ -23,6 +23,8 @@ const sync = createSync({
     metadata: z.object({}),
 
     exec: async (nango) => {
+        await nango.trackDeletesStart('Event');
+
         for await (const eventResponse of nango.paginate<Event>({
             endpoint: '/bookings',
             params: {
@@ -36,7 +38,7 @@ const sync = createSync({
             await nango.batchSave(eventResponse, 'Event');
         }
 
-        await nango.deleteRecordsFromPreviousExecutions('Event');
+        await nango.trackDeletesEnd('Event');
     }
 });
 

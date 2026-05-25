@@ -6,12 +6,16 @@ import type { ProxyConfiguration } from 'nango';
 import { Contact } from '../models.js';
 import { z } from 'zod';
 
+const CheckpointSchema = z.object({
+    updated_after: z.string()
+});
+
 const sync = createSync({
     description: 'Fetches the list of contacts.',
-    version: '2.0.0',
+    version: '2.1.0',
     frequency: 'every day',
     autoStart: true,
-    syncType: 'incremental',
+    checkpoint: CheckpointSchema,
 
     endpoints: [
         {
@@ -28,6 +32,11 @@ const sync = createSync({
     metadata: z.object({}),
 
     exec: async (nango) => {
+        const rawCheckpoint = await nango.getCheckpoint();
+        const checkpoint = rawCheckpoint ? CheckpointSchema.parse(rawCheckpoint) : undefined;
+        const checkpointUpdatedAfter = checkpoint?.updated_after ? new Date(checkpoint.updated_after) : undefined;
+        const runStartedAt = new Date().toISOString();
+
         const proxyConfiguration: ProxyConfiguration = {
             // https://developer.freshdesk.com/api/#list_all_contacts
             endpoint: '/api/v2/contacts',
@@ -39,9 +48,9 @@ const sync = createSync({
             }
         };
 
-        if (nango.lastSyncDate) {
+        if (checkpointUpdatedAfter) {
             proxyConfiguration.params = {
-                updated_since: nango.lastSyncDate.toISOString()
+                updated_since: checkpointUpdatedAfter.toISOString()
             };
         }
 
@@ -50,6 +59,7 @@ const sync = createSync({
 
             await nango.batchSave(contacts, 'Contact');
         }
+        await nango.saveCheckpoint({ updated_after: runStartedAt });
     }
 });
 

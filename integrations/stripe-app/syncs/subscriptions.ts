@@ -10,7 +10,7 @@ const LIMIT = 100;
 
 const sync = createSync({
     description: 'Fetches a list of subscriptions',
-    version: '1.0.0',
+    version: '1.1.0',
     frequency: 'every 2h',
     autoStart: true,
     syncType: 'full',
@@ -32,6 +32,8 @@ const sync = createSync({
     metadata: z.object({}),
 
     exec: async (nango) => {
+        await nango.trackDeletesStart('Subscription');
+
         const params: Record<string, string | number> = {
             limit: LIMIT
         };
@@ -78,7 +80,7 @@ const sync = createSync({
                 hasMore = false;
             }
         }
-        await nango.deleteRecordsFromPreviousExecutions('Subscription');
+        await nango.trackDeletesEnd('Subscription');
     }
 });
 
