@@ -1,0 +1,87 @@
+{
+  "input": {
+    "file_key": "UzYlOaPNPL2c7zmHCEljOs"
+  },
+  "output": {
+    "items": [
+      {
+        "id": "1774450119",
+        "file_key": "UzYlOaPNPL2c7zmHCEljOs",
+        "user": {
+          "id": "1639747346696283667",
+          "handle": "nango api",
+          "img_url": "https://s3-alpha.figma.com/profile/b3c8c4ad-29dd-482a-a14e-e41f94c5157c"
+        },
+        "created_at": "2026-05-25T12:44:34.051Z",
+        "message": "Nango test comment 1 - API validation",
+        "reactions": [],
+        "client_meta": {
+          "node_id": "91:1",
+          "node_offset": {
+            "x": 0,
+            "y": 0
+          }
+        },
+        "parent_id": "",
+        "order_id": "1"
+      }
+    ]
+  },
+  "nango": {},
+  "api": {
+    "get": {
+      "/v1/files/UzYlOaPNPL2c7zmHCEljOs/comments": {
+        "response": {
+          "comments": [
+            {
+              "id": "1774450119",
+              "uuid": null,
+              "file_key": "UzYlOaPNPL2c7zmHCEljOs",
+              "parent_id": "",
+              "user": {
+                "handle": "nango api",
+                "img_url": "https://s3-alpha.figma.com/profile/b3c8c4ad-29dd-482a-a14e-e41f94c5157c",
+                "id": "1639747346696283667"
+              },
+              "created_at": "2026-05-25T12:44:34.051Z",
+              "resolved_at": null,
+              "message": "Nango test comment 1 - API validation",
+              "reactions": [],
+              "client_meta": {
+                "node_id": "91:1",
+                "node_offset": {
+                  "x": 0,
+                  "y": 0
+                },
+                "stable_path": null
+              },
+              "order_id": "1"
+            }
+          ]
+        },
+        "status": 200,
+        "headers": {
+          "date": "Mon, 25 May 2026 13:12:39 GMT",
+          "content-type": "application/json; charset=utf-8",
+          "content-length": "457",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=5184000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4962",
+          "x-ratelimit-reset": "1779714801",
+          "etag": "W/\"1c9-TzDd9CoxmPo3xDjQ8GnqLXadulc\""
+        },
+        "hash": "044295aaa6c170dd5945d8217dd724e67c624a4c",
+        "request": {}
+      }
+    }
+  }
+}

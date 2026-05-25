@@ -639,18 +639,16 @@ export interface View {
 
 export interface Webhook {
   id: string;
-  type: number;
-  name?: string | undefined;
-  channel_id?: string | undefined;
-  guild_id?: string | undefined;
-  avatar?: string | undefined;
-  application_id?: string | undefined;
-  user_id?: string | undefined;
-  user_name?: string | undefined;
-  source_guild_id?: string | undefined;
-  source_guild_name?: string | undefined;
-  source_channel_id?: string | undefined;
-  source_channel_name?: string | undefined;
+  event_type: string;
+  team_id: string;
+  context: string;
+  context_id: string;
+  plan_api_id: string;
+  status: string;
+  client_id: string;
+  passcode: string;
+  endpoint: string;
+  description: string;
 };
 
 export interface SyncMetadata_airtable_webhooks {
@@ -10144,10 +10142,19 @@ export interface ActionOutput_clicksend_sendsms {
 
 export interface Comment {
   id: string;
-  comment_text?: string | undefined;
-  user?: unknown | undefined;
-  date?: string | undefined;
-  reply_count?: number | undefined;
+  file_key: string;
+  parent_id?: string | undefined;
+  user_id: string;
+  user_handle?: string | undefined;
+  user_img_url?: string | undefined;
+  created_at: string;
+  resolved_at?: string | undefined;
+  message: string;
+  order_id?: string | undefined;
+  node_id?: string | undefined;
+  node_offset_x?: number | undefined;
+  node_offset_y?: number | undefined;
+  reactions?: ({})[] | undefined;
 };
 
 export interface SyncMetadata_clickup_comments {
@@ -16920,6 +16927,843 @@ export interface ActionInput_facebook_unsubscribeappfrompage {
 
 export interface ActionOutput_facebook_unsubscribeappfrompage {
   success: boolean;
+};
+
+export interface SyncMetadata_figma_comments {
+  team_id: string;
+};
+
+export interface ComponentSet {
+  id: string;
+  key?: string | undefined;
+  file_key?: string | undefined;
+  node_id?: string | undefined;
+  thumbnail_url?: string | undefined;
+  name?: string | undefined;
+  description?: string | undefined;
+  updated_at?: string | undefined;
+  created_at?: string | undefined;
+  user?: unknown | undefined;
+  containing_frame?: unknown | undefined;
+};
+
+export interface SyncMetadata_figma_componentsets {
+  team_id: string;
+};
+
+export interface Component {
+  id: string;
+  file_key: string;
+  node_id: string;
+  thumbnail_url?: string | undefined;
+  name: string;
+  description?: string | undefined;
+  created_at: string;
+  updated_at: string;
+  user?: {  id: string;
+  handle: string;
+  img_url?: string | undefined;};
+  containing_frame?: {  nodeId?: string | undefined;
+  name?: string | undefined;
+  backgroundColor?: string | undefined;
+  pageId: string;
+  pageName: string;
+  containingStateGroup?: {  nodeId?: string | undefined;
+  name?: string | undefined;};
+  containingComponentSet?: {  nodeId?: string | undefined;
+  name?: string | undefined;};};
+};
+
+export interface SyncMetadata_figma_components {
+  team_id: string;
+};
+
+export interface SyncMetadata_figma_files {
+  project_id: string;
+};
+
+export interface SyncMetadata_figma_projects {
+  team_id: string;
+};
+
+export interface Style {
+  id: string;
+  key: string;
+  file_key: string;
+  node_id?: string | undefined;
+  style_type?: string | undefined;
+  thumbnail_url?: string | undefined;
+  name?: string | undefined;
+  description?: string | undefined;
+  created_at?: string | undefined;
+  updated_at?: string | undefined;
+  sort_position?: string | undefined;
+  user_id?: string | undefined;
+  user_handle?: string | undefined;
+  user_img_url?: string | undefined;
+};
+
+export interface SyncMetadata_figma_styles {
+  team_id: string;
+};
+
+export interface Version {
+  id: string;
+  file_key: string;
+  created_at: string;
+  label?: string | undefined;
+  description?: string | undefined;
+  thumbnail_url?: string | undefined;
+  user?: {  id: string;
+  handle?: string | undefined;
+  img_url?: string | undefined;};
+};
+
+export interface SyncMetadata_figma_versions {
+  file_key?: string | undefined;
+  team_id?: string | undefined;
+};
+
+export interface SyncMetadata_figma_webhooks {
+  team_id: string;
+};
+
+export interface ActionInput_figma_createcommentreaction {
+  /**
+   * The key of the file containing the comment. Example: "UzYlOaPNPL2c7zmHCEljOs"
+   */
+  file_key: string;
+  /**
+   * The ID of the comment to react to. Example: "1774450119"
+   */
+  comment_id: string;
+  /**
+   * The emoji shortcode for the reaction. Example: ":thumbsup:"
+   */
+  emoji: string;
+};
+
+export interface ActionOutput_figma_createcommentreaction {
+  status: number;
+  error: boolean;
+};
+
+export interface ActionInput_figma_createcomment {
+  /**
+   * The file key to add the comment to. Example: "UzYlOaPNPL2c7zmHCEljOs"
+   */
+  file_key: string;
+  /**
+   * The text contents of the comment to post.
+   */
+  message: string;
+  /**
+   * The ID of the comment to reply to, if any. This must be a root comment.
+   */
+  comment_id?: string | undefined;
+  /**
+   * The node ID to attach the comment to. Example: "91:1"
+   */
+  node_id?: string | undefined;
+  /**
+   * X coordinate offset within the node from the top-left corner.
+   */
+  node_offset_x?: number | undefined;
+  /**
+   * Y coordinate offset within the node from the top-left corner.
+   */
+  node_offset_y?: number | undefined;
+};
+
+export interface ActionOutput_figma_createcomment {
+  id: string;
+  client_meta?: {  x: number;
+  y: number;} | {  node_id: string;
+  node_offset: {  x: number;
+  y: number;};} | {  x: number;
+  y: number;
+  region_height: number;
+  region_width: number;
+  comment_pin_corner?: string | undefined;} | {  node_id: string;
+  node_offset: {  x: number;
+  y: number;};
+  region_height: number;
+  region_width: number;
+  comment_pin_corner?: string | undefined;};
+  file_key?: string | undefined;
+  parent_id?: string | undefined;
+  user?: {  id: string;
+  handle: string;
+  img_url?: string | undefined;};
+  created_at?: string | undefined;
+  resolved_at?: string | undefined;
+  message?: string | undefined;
+  order_id?: string | undefined;
+  reactions?: ({  user: {  id: string;
+  handle: string;
+  img_url?: string | undefined;};
+  emoji: string;
+  created_at?: string | undefined;})[];
+};
+
+export interface ActionInput_figma_createdevresources {
+  dev_resources: ({  name: string;
+  url: string;
+  file_key: string;
+  node_id: string;})[];
+};
+
+export interface ActionOutput_figma_createdevresources {
+  links_created: ({  id: string;
+  name: string;
+  url: string;
+  file_key: string;
+  node_id: string;})[];
+  errors?: ({  file_key: string;
+  node_id: string;
+  error: string;})[] | undefined;
+};
+
+export interface ActionInput_figma_deletecommentreaction {
+  /**
+   * File key of the file to delete the comment reaction from. Example: "UzYlOaPNPL2c7zmHCEljOs"
+   */
+  file_key: string;
+  /**
+   * ID of the comment to delete the reaction from. Example: "1774450119"
+   */
+  comment_id: string;
+  /**
+   * Emoji shortcode of the reaction to delete. Example: ":thumbsup:"
+   */
+  emoji: string;
+};
+
+export interface ActionOutput_figma_deletecommentreaction {
+  success: boolean;
+};
+
+export interface ActionInput_figma_deletecomment {
+  /**
+   * The key of the Figma file containing the comment. Example: "UzYlOaPNPL2c7zmHCEljOs"
+   */
+  file_key: string;
+  /**
+   * The ID of the comment to delete. Example: "1774450194"
+   */
+  comment_id: string;
+};
+
+export interface ActionOutput_figma_deletecomment {
+  success: boolean;
+};
+
+export interface ActionInput_figma_getcomment {
+  /**
+   * Figma file key. Example: "UzYlOaPNPL2c7zmHCEljOs"
+   */
+  file_key: string;
+  /**
+   * Comment ID. Example: "1774450119"
+   */
+  comment_id: string;
+};
+
+export interface ActionOutput_figma_getcomment {
+  id: string;
+  file_key?: string | undefined;
+  parent_id?: string | undefined;
+  user: {  id: string;
+  handle: string;
+  img_url?: string | undefined;
+  email?: string | undefined;};
+  created_at: string;
+  resolved_at?: string | undefined;
+  message: string;
+  client_meta?: {  node_id?: string | undefined;
+  node_type?: string | undefined;
+  node_offset?: {  x: number;
+  y: number;} | undefined;};
+  order_id?: string | undefined;
+};
+
+export interface ActionInput_figma_getcurrentuser {
+};
+
+export interface ActionOutput_figma_getcurrentuser {
+  id: string;
+  email: string;
+  handle: string;
+  img_url?: string | undefined;
+};
+
+export interface ActionInput_figma_getfilecomponentsets {
+  /**
+   * The unique identifier of the Figma file to retrieve component sets from. Example: "UzYlOaPNPL2c7zmHCEljOs"
+   */
+  file_key: string;
+};
+
+export interface ActionOutput_figma_getfilecomponentsets {
+  status: number;
+  error: boolean;
+  meta: {  component_sets: ({  key: string;
+  file_key: string;
+  node_id: string;
+  thumbnail_url?: string | undefined;
+  name: string;
+  description: string;
+  created_at: string;
+  updated_at: string;
+  user: {  id: string;
+  handle: string;
+  img_url: string;};
+  containing_frame?: {  nodeId?: string | undefined;
+  name?: string | undefined;
+  backgroundColor?: string | undefined;
+  pageId: string;
+  pageName: string;
+  containingStateGroup?: {  nodeId: string;
+  name: string;} | null | undefined;
+  containingComponentSet?: {  nodeId: string;
+  name: string;} | null | undefined;};})[];};
+};
+
+export interface ActionInput_figma_getfilecomponents {
+  /**
+   * The key of the Figma file to retrieve components from. Example: "UzYlOaPNPL2c7zmHCEljOs"
+   */
+  file_key: string;
+};
+
+export interface ActionOutput_figma_getfilecomponents {
+  components: ({  key: string;
+  file_key: string;
+  node_id: string;
+  thumbnail_url?: string | undefined;
+  name: string;
+  description: string;
+  created_at: string;
+  updated_at: string;
+  user: {  id: string;
+  handle: string;
+  img_url: string;};
+  containing_frame?: {  nodeId?: string | undefined;
+  name?: string | undefined;
+  backgroundColor?: string | undefined;
+  pageId: string;
+  pageName: string;};})[];
+};
+
+export interface ActionInput_figma_getfilenode {
+  /**
+   * The Figma file key. Example: "UzYlOaPNPL2c7zmHCEljOs"
+   */
+  file_key: string;
+  /**
+   * The ID of the node to retrieve. Example: "91:1"
+   */
+  node_id: string;
+};
+
+export interface ActionOutput_figma_getfilenode {
+  /**
+   * The requested node as a JSON object
+   */
+  document: {  [key: string]: unknown | undefined;};
+  /**
+   * A mapping from component IDs to component metadata
+   */
+  components: {  [key: string]: {  key: string;
+  name: string;
+  description: string;
+  componentSetId?: string | undefined;
+  documentationLinks: ({  uri: string;})[];
+  remote: boolean;};};
+  /**
+   * A mapping from component set IDs to component set metadata
+   */
+  componentSets: {  [key: string]: {  key: string;
+  name: string;
+  description: string;
+  documentationLinks: ({  uri: string;})[];
+  remote: boolean;};};
+  /**
+   * The version of the file schema that this file uses
+   */
+  schemaVersion: number;
+  /**
+   * A mapping from style IDs to style metadata
+   */
+  styles: {  [key: string]: {  key: string;
+  name: string;
+  description: string;
+  remote: boolean;
+  styleType: string;};};
+};
+
+export interface ActionInput_figma_getfilestyles {
+  /**
+   * The unique identifier of the Figma file. Example: "UzYlOaPNPL2c7zmHCEljOs"
+   */
+  file_key: string;
+};
+
+export interface ActionOutput_figma_getfilestyles {
+  status: number;
+  error: boolean;
+  meta: {  styles: ({  key: string;
+  file_key: string;
+  node_id: string;
+  style_type: 'FILL' | 'TEXT' | 'EFFECT' | 'GRID';
+  thumbnail_url?: string | undefined;
+  name: string;
+  description: string;
+  created_at: string;
+  updated_at: string;
+  user: {  id: string;
+  handle: string;
+  img_url: string;};
+  sort_position: string;})[];};
+};
+
+export interface ActionInput_figma_getproject {
+  /**
+   * Figma team ID. Example: "1639747348117609063"
+   */
+  team_id: string;
+  /**
+   * The ID of the project to retrieve. Example: "604829489"
+   */
+  project_id: string;
+};
+
+export interface ActionOutput_figma_getproject {
+  id: string;
+  name: string;
+};
+
+export interface ActionInput_figma_getstyle {
+  /**
+   * The unique identifier of the style. Example: "0f6da13a103e47271a3c8c6d52187ca4587ae898"
+   */
+  key: string;
+};
+
+export interface ActionOutput_figma_getstyle {
+  key: string;
+  file_key: string;
+  node_id: string;
+  style_type: 'FILL' | 'TEXT' | 'EFFECT' | 'GRID';
+  thumbnail_url?: string | undefined;
+  name: string;
+  description: string;
+  created_at: string;
+  updated_at: string;
+  user: {  id: string;
+  handle: string;
+  img_url: string;};
+  sort_position: string;
+};
+
+export interface ActionInput_figma_getversion {
+  /**
+   * The file key for the Figma file. Example: "UzYlOaPNPL2c7zmHCEljOs"
+   */
+  file_key: string;
+  /**
+   * The unique identifier for the version. Example: "2356506860085774014"
+   */
+  version_id: string;
+};
+
+export interface ActionOutput_figma_getversion {
+  id: string;
+  created_at: string;
+  label?: string | undefined;
+  description?: string | undefined;
+  user?: {  id: string;
+  handle: string;
+  img_url?: string | undefined;
+  email?: string | undefined;};
+};
+
+export interface ActionInput_figma_listcommentreactions {
+  /**
+   * File key or branch key. Example: "UzYlOaPNPL2c7zmHCEljOs"
+   */
+  file_key: string;
+  /**
+   * Comment ID. Example: "1774450119"
+   */
+  comment_id: string;
+  /**
+   * Pagination cursor from the previous response. Omit for the first page.
+   */
+  cursor?: string | undefined;
+};
+
+export interface ActionOutput_figma_listcommentreactions {
+  reactions: ({  user: {  id: string;
+  handle: string;
+  img_url: string;};
+  emoji: string;
+  created_at: string;})[];
+  next_cursor?: string | undefined;
+};
+
+export interface ActionInput_figma_listcomments {
+  /**
+   * File key to list comments from. Example: "UzYlOaPNPL2c7zmHCEljOs"
+   */
+  file_key: string;
+  /**
+   * If enabled, returns comments as markdown equivalents when applicable.
+   */
+  as_md?: boolean | undefined;
+  /**
+   * Pagination cursor. Not used by this endpoint; reserved for future compatibility.
+   */
+  cursor?: string | undefined;
+};
+
+export interface ActionOutput_figma_listcomments {
+  items: ({  id: string;
+  file_key: string;
+  client_meta?: {  x: number;
+  y: number;} | {  node_id: string;
+  node_offset: {  x: number;
+  y: number;};} | {  x: number;
+  y: number;
+  region_height: number;
+  region_width: number;
+  comment_pin_corner?: string | undefined;} | {  node_id: string;
+  node_offset: {  x: number;
+  y: number;};
+  region_height: number;
+  region_width: number;
+  comment_pin_corner?: string | undefined;};
+  parent_id?: string | undefined;
+  user: {  id: string;
+  handle: string;
+  img_url: string;};
+  created_at: string;
+  resolved_at?: string | undefined;
+  message: string;
+  order_id?: string | undefined;
+  reactions: ({  user: {  id: string;
+  handle: string;
+  img_url: string;};
+  emoji: string;
+  created_at: string;})[];})[];
+  next_cursor?: string | undefined;
+};
+
+export interface ActionInput_figma_listcomponentsets {
+  /**
+   * Figma team ID. Example: "1639747348117609063"
+   */
+  team_id: string;
+  /**
+   * Pagination cursor from the previous response. Maps to the after query parameter. Omit for the first page.
+   */
+  cursor?: string | undefined;
+  /**
+   * Number of items per page. Default: 30. Maximum: 1000.
+   */
+  page_size?: number | undefined;
+};
+
+export interface ActionOutput_figma_listcomponentsets {
+  component_sets: ({  key: string;
+  file_key: string;
+  node_id: string;
+  thumbnail_url?: string | undefined;
+  name: string;
+  description?: string | undefined;
+  created_at: string;
+  updated_at: string;
+  user?: {  id: string;
+  handle: string;
+  img_url: string;
+  email?: string | undefined;};
+  containing_frame?: {  node_id?: string | undefined;
+  name?: string | undefined;
+  backgroundColor?: string | undefined;
+  pageId?: string | undefined;
+  pageName?: string | undefined;
+  containingStateGroup?: string | undefined;
+  containingComponentSet?: string | undefined;};})[];
+  next_cursor?: string | undefined;
+};
+
+export interface ActionInput_figma_listcomponents {
+  /**
+   * Team ID. Example: "1639747348117609063"
+   */
+  team_id: string;
+  /**
+   * Pagination cursor from the previous response. Omit for the first page.
+   */
+  cursor?: string | undefined;
+  /**
+   * Number of items to return per page. Defaults to 30. Maximum of 1000.
+   */
+  page_size?: number | undefined;
+};
+
+export interface ActionOutput_figma_listcomponents {
+  components: ({  key: string;
+  file_key: string;
+  node_id: string;
+  thumbnail_url?: string | undefined;
+  name: string;
+  description?: string | undefined;
+  created_at?: string | undefined;
+  updated_at?: string | undefined;
+  user?: {  id: string;
+  email?: string | undefined;
+  handle?: string | undefined;
+  img_url?: string | undefined;
+  name?: string | undefined;};
+  containing_frame?: {  node_id?: string | undefined;
+  name?: string | undefined;
+  page_id?: string | undefined;
+  page_name?: string | undefined;};})[];
+  next_cursor?: string | undefined;
+};
+
+export interface ActionInput_figma_listfilenodes {
+  /**
+   * File to export JSON from. This can be a file key or branch key. Example: "UzYlOaPNPL2c7zmHCEljOs"
+   */
+  file_key: string;
+  /**
+   * Node IDs to retrieve. Example: ["91:1", "1:2"]
+   */
+  ids: string[];
+  /**
+   * A specific version ID to get. Omitting this will get the current version of the file.
+   */
+  version?: string | undefined;
+  /**
+   * Positive integer representing how deep into the node tree to traverse.
+   */
+  depth?: number | undefined;
+  /**
+   * Set to "paths" to export vector data.
+   */
+  geometry?: string | undefined;
+  /**
+   * A comma separated list of plugin IDs and/or the string "shared".
+   */
+  plugin_data?: string | undefined;
+};
+
+export interface ActionOutput_figma_listfilenodes {
+  name?: string | undefined;
+  role?: string | undefined;
+  lastModified?: string | undefined;
+  editorType?: string | undefined;
+  thumbnailUrl?: string | undefined;
+  version?: string | undefined;
+  err?: string | undefined;
+  nodes?: {  [key: string]: {  document?: unknown | undefined;
+  components?: {  [key: string]: unknown | undefined;};
+  componentSets?: {  [key: string]: unknown | undefined;};
+  schemaVersion?: number | undefined;
+  styles?: {  [key: string]: unknown | undefined;};} | null;};
+};
+
+export interface ActionInput_figma_listfiles {
+  /**
+   * ID of the project to list files from. Example: "604829489"
+   */
+  project_id: string;
+  /**
+   * Returns branch metadata in the response for each main file with a branch inside the project.
+   */
+  branch_data?: boolean | undefined;
+};
+
+export interface ActionOutput_figma_listfiles {
+  name: string;
+  files: ({  key: string;
+  name: string;
+  thumbnail_url?: string | undefined;
+  last_modified: string;})[];
+};
+
+export interface ActionInput_figma_listprojects {
+  /**
+   * Pagination cursor from the previous response. Omit for the first page.
+   */
+  cursor?: string | undefined;
+};
+
+export interface ActionOutput_figma_listprojects {
+  team_name: string;
+  projects: ({  id: string;
+  name: string;})[];
+  next_cursor?: string | undefined;
+};
+
+export interface ActionInput_figma_liststyles {
+  /**
+   * Pagination cursor from the previous response. Omit for the first page.
+   */
+  cursor?: string | undefined;
+  /**
+   * Number of items to return in a paged list of results. Defaults to 30.
+   */
+  page_size?: number | undefined;
+};
+
+export interface ActionOutput_figma_liststyles {
+  styles: ({  key: string;
+  file_key: string;
+  node_id: string;
+  style_type: string;
+  thumbnail_url?: string | undefined;
+  name: string;
+  description?: string | undefined;
+  created_at: string;
+  updated_at: string;
+  user: {  id: string;
+  handle: string;
+  img_url?: string | undefined;};
+  sort_position?: string | undefined;})[];
+  next_cursor?: string | undefined;
+};
+
+export interface ActionInput_figma_listversions {
+  /**
+   * File key or branch key. Example: "UzYlOaPNPL2c7zmHCEljOs"
+   */
+  file_key: string;
+  /**
+   * Number of items per page. Max 50.
+   */
+  page_size?: number | undefined;
+  /**
+   * Pagination cursor (version ID) from the previous response. Omit for the first page.
+   */
+  cursor?: string | undefined;
+};
+
+export interface ActionOutput_figma_listversions {
+  versions: ({  id: string;
+  created_at: string;
+  label?: string | undefined;
+  description?: string | undefined;
+  user: {  id: string;
+  handle: string;
+  img_url: string;};
+  thumbnail_url?: string | undefined;})[];
+  next_cursor?: string | undefined;
+};
+
+export interface ActionInput_figma_listwebhooks {
+  /**
+   * ID of the Figma team to list webhooks for. Example: "1639747348117609063"
+   */
+  team_id: string;
+};
+
+export interface ActionOutput_figma_listwebhooks {
+  webhooks: ({  id: string;
+  event_type: string;
+  team_id: string;
+  context: string;
+  context_id: string;
+  plan_api_id: string;
+  status: string;
+  client_id?: string | undefined;
+  passcode: string;
+  endpoint: string;
+  description?: string | undefined;})[];
+};
+
+export interface ActionInput_figma_renderimages {
+  /**
+   * The file key to render images from. Example: "UzYlOaPNPL2c7zmHCEljOs"
+   */
+  file_key: string;
+  /**
+   * Node IDs to render. Example: ["91:1"]
+   */
+  node_ids: string[];
+  /**
+   * Image scaling factor between 0.01 and 4.
+   */
+  scale?: number | undefined;
+  /**
+   * Image output format. Defaults to png.
+   */
+  format?: 'jpg' | 'png' | 'svg' | 'pdf' | undefined;
+  /**
+   * Whether text elements are rendered as outlines in SVGs. Defaults to true.
+   */
+  svg_outline_text?: boolean | undefined;
+  /**
+   * Whether to include id attributes for all SVG elements. Defaults to false.
+   */
+  svg_include_id?: boolean | undefined;
+  /**
+   * Whether to include node id attributes for all SVG elements. Defaults to false.
+   */
+  svg_include_node_id?: boolean | undefined;
+  /**
+   * Whether to simplify inside/outside strokes in SVGs. Defaults to true.
+   */
+  svg_simplify_stroke?: boolean | undefined;
+  /**
+   * Whether content that overlaps the node should be excluded. Defaults to true.
+   */
+  contents_only?: boolean | undefined;
+  /**
+   * Use full dimensions of the node regardless of cropping. Defaults to false.
+   */
+  use_absolute_bounds?: boolean | undefined;
+  /**
+   * A specific version ID to use. Omit for the current version.
+   */
+  version?: string | undefined;
+};
+
+export interface ActionOutput_figma_renderimages {
+  images: {  [key: string]: string;};
+  err?: string | undefined;
+};
+
+export interface ActionInput_figma_updatedevresources {
+  /**
+   * A list of dev resources that you want to update.
+   */
+  dev_resources: ({  /**
+   * Unique identifier of the dev resource. Example: "devres_123"
+   */
+  id: string;
+  /**
+   * The name of the dev resource.
+   */
+  name?: string | undefined;
+  /**
+   * The URL of the dev resource.
+   */
+  url?: string | undefined;})[];
+};
+
+export interface ActionOutput_figma_updatedevresources {
+  /**
+   * Ids for dev resources that were successfully updated.
+   */
+  links_updated: string[];
+  /**
+   * Errors for dev resources that could not be updated.
+   */
+  errors?: ({  id: string;
+  error: string;})[] | undefined;
 };
 
 export interface ActionInput_fireflies_addtolive {
@@ -34899,22 +35743,6 @@ export interface Group {
   url?: string | undefined;
 };
 
-export interface Organization {
-  id: string;
-  name: string;
-  created_at: string;
-  updated_at: string;
-  url: string;
-  external_id?: string | undefined;
-  domain_names?: string[] | undefined;
-  group_id?: number | undefined;
-  shared_comments?: boolean | undefined;
-  shared_tickets?: boolean | undefined;
-  tags?: string[] | undefined;
-  notes?: string | undefined;
-  details?: string | undefined;
-};
-
 export interface ServicePrincipal {
   id: string;
   appId?: string | undefined;
@@ -37191,18 +38019,6 @@ export interface Column {
   title: string;
   type: string;
   settings_str?: string | undefined;
-};
-
-export interface Group {
-  id: string;
-  name: string;
-  description?: string | undefined;
-  isDefault?: boolean | undefined;
-  isDeleted?: boolean | undefined;
-  isPublic?: boolean | undefined;
-  createdAt?: string | undefined;
-  updatedAt?: string | undefined;
-  url?: string | undefined;
 };
 
 export interface Subitem {
@@ -56241,13 +57057,13 @@ export interface Refund {
 
 export interface ActionInput_woocommerce_batchupdateorders {
   create?: ({  /**
-   * Order ID. Required for update operations.
+   * Order ID.
    */
   id?: number | undefined;})[];
   update?: ({  /**
    * Order ID. Required for update operations.
    */
-  id?: number | undefined;})[];
+  id: number;})[] | undefined;
   delete?: number[] | undefined;
 };
 
@@ -57004,9 +57820,9 @@ export interface ActionInput_woocommerce_createrefund {
    */
   order_id: number;
   /**
-   * Refund amount. Example: "10.00"
+   * Refund amount. Example: "10.00". Omit to let WooCommerce compute the total from line_items.
    */
-  amount: string;
+  amount?: string | undefined;
   /**
    * Reason for refund.
    */
@@ -57176,10 +57992,6 @@ export interface ActionInput_woocommerce_deleteproductcategory {
    * Unique identifier for the product category to delete. Example: 17
    */
   id: number;
-  /**
-   * Required to be true, as the resource does not support trashing.
-   */
-  force?: boolean | undefined;
 };
 
 export interface ActionOutput_woocommerce_deleteproductcategory {
