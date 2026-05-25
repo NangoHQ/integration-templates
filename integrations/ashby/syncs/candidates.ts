@@ -2,14 +2,19 @@ import { createSync } from 'nango';
 import type { ProxyConfiguration } from 'nango';
 import { AshbyCandidate, AshbyCandidateMetadata } from '../models.js';
 
-let nextCursor: string | null = null;
+import { z } from 'zod';
+
+const CheckpointSchema = z.object({
+    sync_token: z.string(),
+    cursor: z.string()
+});
 
 const sync = createSync({
     description: 'Fetches a list of all candidates from your ashby account',
-    version: '1.0.0',
+    version: '1.1.0',
     frequency: 'every hour',
     autoStart: true,
-    syncType: 'incremental',
+    checkpoint: CheckpointSchema,
 
     endpoints: [
         {
@@ -28,18 +33,21 @@ const sync = createSync({
     metadata: AshbyCandidateMetadata,
 
     exec: async (nango) => {
+        const rawCheckpoint = await nango.getCheckpoint();
+        const checkpoint = rawCheckpoint ? CheckpointSchema.parse(rawCheckpoint) : undefined;
         const metadata = (await nango.getMetadata()) || {};
-        const candidatelastsyncToken = metadata['candidatelastsyncToken'] ? String(metadata['candidatelastsyncToken']) : '';
+        const candidatelastsyncToken = checkpoint?.sync_token ?? (metadata['candidatelastsyncToken'] ? String(metadata['candidatelastsyncToken']) : '');
 
-        await saveAllCandidates(nango, candidatelastsyncToken);
+        await saveAllCandidates(nango, candidatelastsyncToken, checkpoint?.cursor);
     }
 });
 
 export type NangoSyncLocal = Parameters<(typeof sync)['exec']>[0];
 export default sync;
 
-async function saveAllCandidates(nango: NangoSyncLocal, candidatelastsyncToken: string) {
+async function saveAllCandidates(nango: NangoSyncLocal, candidatelastsyncToken: string, checkpointCursor?: string) {
     let totalRecords = 0;
+    let cursor: string | null = checkpointCursor || null;
 
     // eslint-disable-next-line @nangohq/custom-integrations-linting/no-while-true
     while (true) {
@@ -48,7 +56,7 @@ async function saveAllCandidates(nango: NangoSyncLocal, candidatelastsyncToken: 
             endpoint: '/candidate.list',
             data: {
                 ...(candidatelastsyncToken && { syncToken: candidatelastsyncToken }),
-                cursor: nextCursor,
+                cursor,
                 limit: 100
             },
             retries: 10
@@ -63,16 +71,14 @@ async function saveAllCandidates(nango: NangoSyncLocal, candidatelastsyncToken: 
             await nango.log(`Saving batch of ${batchSize} candidate(s) (total candidate(s): ${totalRecords})`);
         }
         if (response.data.moreDataAvailable) {
-            nextCursor = response.data.nextCursor;
+            cursor = response.data.nextCursor;
+            await nango.saveCheckpoint({ sync_token: candidatelastsyncToken, cursor: cursor ?? '' });
         } else {
             candidatelastsyncToken = response.data.syncToken;
+            await nango.saveCheckpoint({ sync_token: candidatelastsyncToken, cursor: '' });
             break;
         }
     }
-
-    const metadata = (await nango.getMetadata()) || {};
-    metadata['candidatelastsyncToken'] = candidatelastsyncToken;
-    await nango.setMetadata(metadata);
 }
 
 function mapCandidate(candidates: any[]): AshbyCandidate[] {

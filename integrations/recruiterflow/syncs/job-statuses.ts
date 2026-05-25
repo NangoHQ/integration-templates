@@ -7,7 +7,7 @@ import { z } from 'zod';
 
 const sync = createSync({
     description: 'Syncs all job statuses from RecruiterFlow',
-    version: '2.0.0',
+    version: '2.1.0',
     frequency: 'every hour',
     autoStart: true,
     syncType: 'full',
@@ -27,6 +27,8 @@ const sync = createSync({
     metadata: z.object({}),
 
     exec: async (nango) => {
+        await nango.trackDeletesStart('RecruiterFlowJobStatus');
+
         const proxyConfig: ProxyConfiguration = {
             // https://recruiterflow.com/api#/Job%20APIs/get_api_external_job_status_list
             endpoint: '/api/external/job-status/list',
@@ -37,7 +39,7 @@ const sync = createSync({
         const statuses = response.data.data;
 
         await nango.batchSave(statuses.map(toJobStatus), 'RecruiterFlowJobStatus');
-        await nango.deleteRecordsFromPreviousExecutions('RecruiterFlowJobStatus');
+        await nango.trackDeletesEnd('RecruiterFlowJobStatus');
     }
 });
 

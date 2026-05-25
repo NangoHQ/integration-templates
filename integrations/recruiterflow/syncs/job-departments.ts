@@ -5,7 +5,7 @@ import { z } from 'zod';
 
 const sync = createSync({
     description: 'Syncs all job departments from RecruiterFlow',
-    version: '2.0.0',
+    version: '2.1.0',
     frequency: 'every hour',
     autoStart: true,
     syncType: 'full',
@@ -25,6 +25,8 @@ const sync = createSync({
     metadata: z.object({}),
 
     exec: async (nango) => {
+        await nango.trackDeletesStart('RecruiterFlowJobDepartment');
+
         const proxyConfig: ProxyConfiguration = {
             // https://recruiterflow.com/api#/Job%20APIs/get_api_external_job_department_list
             endpoint: '/api/external/job/department/list',
@@ -40,7 +42,7 @@ const sync = createSync({
         }));
 
         await nango.batchSave(mappedDepartments, 'RecruiterFlowJobDepartment');
-        await nango.deleteRecordsFromPreviousExecutions('RecruiterFlowJobDepartment');
+        await nango.trackDeletesEnd('RecruiterFlowJobDepartment');
     }
 });
 

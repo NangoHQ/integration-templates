@@ -6,16 +6,21 @@ import { ExposedFieldsKeys } from '../types.js';
 import type { ProxyConfiguration } from 'nango';
 import { GongCallOutput, GongConnectionMetadata } from '../models.js';
 
+import { z } from 'zod';
 const DEFAULT_BACKFILL_MS = 365 * 24 * 60 * 60 * 1000;
 const DEFAULT_BACKFILL_DAYS = 14;
 const BATCH_SIZE = 100; //just incase gong fails to honour the 100 records per page limit
 
+const CheckpointSchema = z.object({
+    updated_after: z.string()
+});
+
 const sync = createSync({
     description: 'Fetches a list of calls from Gong',
-    version: '2.0.0',
+    version: '2.1.0',
     frequency: 'every 1h',
     autoStart: true,
-    syncType: 'incremental',
+    checkpoint: CheckpointSchema,
 
     endpoints: [
         {
@@ -34,13 +39,18 @@ const sync = createSync({
     metadata: GongConnectionMetadata,
 
     exec: async (nango) => {
+        const rawCheckpoint = await nango.getCheckpoint();
+        const checkpoint = rawCheckpoint ? CheckpointSchema.parse(rawCheckpoint) : undefined;
+        const checkpointUpdatedAfter = checkpoint?.updated_after ? new Date(checkpoint.updated_after) : undefined;
+        const runStartedAt = new Date().toISOString();
+
         const metadata = await nango.getMetadata();
         let fetchSince: Date;
-        if (nango.lastSyncDate) {
-            const lastSyncDate = new Date(nango.lastSyncDate);
+        if (checkpointUpdatedAfter) {
+            const checkpointDate = new Date(checkpointUpdatedAfter);
             const backfillDays = metadata?.lastSyncBackfillPeriod || DEFAULT_BACKFILL_DAYS;
             const backfillMs = backfillDays * 24 * 60 * 60 * 1000;
-            fetchSince = new Date(lastSyncDate.getTime() - backfillMs);
+            fetchSince = new Date(checkpointDate.getTime() - backfillMs);
         } else {
             const backfillMilliseconds = metadata?.backfillPeriodMs || DEFAULT_BACKFILL_MS;
             fetchSince = new Date(Date.now() - backfillMilliseconds);
@@ -95,6 +105,7 @@ const sync = createSync({
                 throw error;
             }
         }
+        await nango.saveCheckpoint({ updated_after: runStartedAt });
     }
 }); //just incase gong fails to honour the 100 records per page limit
 

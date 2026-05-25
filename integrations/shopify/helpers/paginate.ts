@@ -4,12 +4,16 @@ import type { ShopifyPaginationParams, ShopifyResponse, PageInfo } from '../type
 
 const BATCH_SIZE = 100;
 
-export async function* paginate(nango: NangoSync, tableName: string, topLevelFields: string[], paginatedFields: { field: string; fields: string[] }[]) {
+export async function* paginate(
+    nango: NangoSync,
+    tableName: string,
+    topLevelFields: string[],
+    paginatedFields: { field: string; fields: string[] }[],
+    updatedAfter?: Date
+) {
     let cursor: string | null = null;
     let hasNextPage = true;
     let batch: any[] = [];
-
-    const lastSyncDate = nango.lastSyncDate || undefined;
 
     do {
         const variables: ShopifyPaginationParams = { first: 250, after: cursor };
@@ -18,7 +22,7 @@ export async function* paginate(nango: NangoSync, tableName: string, topLevelFie
             variables[`${field}First`] = 250;
         }
 
-        const query = buildGraphQLQuery(tableName, topLevelFields, paginatedFields, lastSyncDate);
+        const query = buildGraphQLQuery(tableName, topLevelFields, paginatedFields, updatedAfter);
         const config: ProxyConfiguration = {
             // https://shopify.dev/docs/api/admin-graphql
             endpoint: `/admin/api/2024-01/graphql.json`,
@@ -46,7 +50,7 @@ export async function* paginate(nango: NangoSync, tableName: string, topLevelFie
 
                 while (nestedHasNextPage) {
                     variables[`${field}After`] = nestedCursor;
-                    const nestedQuery = buildGraphQLQuery(tableName, topLevelFields, paginatedFields, lastSyncDate);
+                    const nestedQuery = buildGraphQLQuery(tableName, topLevelFields, paginatedFields, updatedAfter);
                     const nestedConfig: ProxyConfiguration = {
                         // https://shopify.dev/docs/api/admin-graphql
                         endpoint: `/admin/api/2024-01/graphql.json`,
