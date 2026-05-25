@@ -1,0 +1,19 @@
+.gitignore
+  s_07470ee9df92f4::t_adc093ff08205f 14-16
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.5.1",
+  "base_commit_sha": "0e092377f4708a91ffa70e768819923dafa15983",
+  "prompts": {},
+  "sessions": {
+    "s_07470ee9df92f4": {
+      "agent_id": {
+        "tool": "codex",
+        "id": "019e5066-ad12-7983-a016-ab2496c03987",
+        "model": "gpt-5.5"
+      },
+      "human_author": "Marcin Dobrowolski <marcindobry@hotmail.com>"
+    }
+  }
+}
