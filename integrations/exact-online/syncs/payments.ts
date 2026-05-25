@@ -26,9 +26,8 @@ const sync = createSync({
     metadata: z.object({}),
 
     exec: async (nango) => {
-        await nango.trackDeletesStart('ExactPayment');
-
         const { division } = await getUser(nango);
+        await nango.trackDeletesStart('ExactPayment');
 
         // List the accounts inside the user's Division
         for await (const paymentItems of nango.paginate<EO_Payment>({

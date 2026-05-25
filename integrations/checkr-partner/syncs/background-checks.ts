@@ -28,6 +28,7 @@ const sync = createSync({
     exec: async (nango) => {
         // No checkpoint is used because the invitations endpoint is only offset-paginated and does not expose a changed-since filter.
         const config = await constructRequest(nango, '/v1/invitations');
+        await nango.trackDeletesStart('BackgroundCheck');
 
         for await (const invitations of nango.paginate(config)) {
             const backgroundChecks = invitations.map((invitation) => {
@@ -35,6 +36,8 @@ const sync = createSync({
             });
             await nango.batchSave(backgroundChecks, 'BackgroundCheck');
         }
+
+        await nango.trackDeletesEnd('BackgroundCheck');
     }
 });
 

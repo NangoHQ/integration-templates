@@ -6,7 +6,7 @@ import { z } from 'zod';
 const LIMIT = 100;
 
 const CheckpointSchema = z.object({
-    updated_after: z.string()
+    updated_after: z.string().datetime()
 });
 
 const sync = createSync({
@@ -67,6 +67,7 @@ async function getAllCalls(nango: NangoSyncLocal, checkpointUpdatedAfter?: Date)
     const config: ProxyConfiguration = {
         // https://api-doc.copilot.clari.com/#tag/call/paths/~1calls/get
         endpoint: '/calls',
+        retries: 10,
         params: { filterTimeGt: queryDate },
         paginate: {
             type: 'offset',

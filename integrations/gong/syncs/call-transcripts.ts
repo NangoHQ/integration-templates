@@ -12,7 +12,7 @@ const DEFAULT_BACKFILL_DAYS = 14;
 const BATCH_SIZE = 100; //just incase gong fails to honour the 100 records per page limit
 
 const CheckpointSchema = z.object({
-    updated_after: z.string()
+    updated_after: z.string().datetime()
 });
 
 const sync = createSync({
