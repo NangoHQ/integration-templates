@@ -17,7 +17,7 @@ const CheckpointSchema = z.object({
 
 const sync = createSync({
     description: 'Fetches a list of call transcripts from Gong',
-    version: '2.0.0',
+    version: '2.1.0',
     frequency: 'every 1h',
     autoStart: true,
     checkpoint: CheckpointSchema,
@@ -105,6 +105,7 @@ const sync = createSync({
 
             if (emptyResult) {
                 await nango.log('No calls found for the given filters', { level: 'error' });
+                await nango.saveCheckpoint({ updated_after: runStartedAt });
                 return;
             }
 

@@ -16,7 +16,7 @@ import { z } from 'zod';
  */
 const sync = createSync({
     description: 'Fetches the list of users',
-    version: '1.0.0',
+    version: '1.1.0',
     frequency: 'every 6 hours',
     autoStart: true,
     syncType: 'full',

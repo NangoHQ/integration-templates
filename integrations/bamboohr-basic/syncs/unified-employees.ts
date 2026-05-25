@@ -23,7 +23,7 @@ const CheckpointSchema = z.object({
 
 const sync = createSync({
     description: 'Fetches a list of current employees from bamboohr and maps them to the standard HRIS model',
-    version: '1.0.0',
+    version: '1.1.0',
     frequency: 'every 6 hours',
     autoStart: true,
     checkpoint: CheckpointSchema,

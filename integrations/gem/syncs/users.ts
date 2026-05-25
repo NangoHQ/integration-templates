@@ -8,7 +8,7 @@ import { z } from 'zod';
 
 const sync = createSync({
     description: 'Get a list of all users from Gem',
-    version: '1.0.0',
+    version: '1.1.0',
     frequency: 'every 1h',
     autoStart: true,
     syncType: 'full',

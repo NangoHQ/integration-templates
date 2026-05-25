@@ -10,7 +10,7 @@ const LIMIT = 100;
 
 const sync = createSync({
     description: 'Fetches a list of subscriptions',
-    version: '1.0.0',
+    version: '1.1.0',
     frequency: 'every 2h',
     autoStart: true,
     syncType: 'full',

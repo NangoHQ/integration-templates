@@ -37,7 +37,7 @@ const toOverlappingCheckpoint = (timestamp: string): string => {
 
 const sync = createSync({
     description: 'Get all pull commits from a Github repository.',
-    version: '2.0.0',
+    version: '2.1.0',
     frequency: 'every hour',
     autoStart: false,
     checkpoint: CheckpointSchema,
@@ -86,10 +86,12 @@ const sync = createSync({
         let cursor: string | undefined;
         let commitCount = 0;
         let latestCommitTimestamp: string | undefined;
+        let checkpointSafeToAdvance = true;
 
         while (hasNextPage) {
             if (shouldAbortSync(startTime)) {
                 await nango.log('Aborting sync due to 20 hours time limit', { level: 'warn' });
+                checkpointSafeToAdvance = false;
                 break;
             }
             if (cursor) {
@@ -114,6 +116,7 @@ const sync = createSync({
 
             if (!repository) {
                 await nango.log(`Repository not found. Full response: ${JSON.stringify(response.data, null, 2)}`, { level: 'error' });
+                checkpointSafeToAdvance = false;
                 break;
             }
 
@@ -121,6 +124,7 @@ const sync = createSync({
             const branchData = repository.ref ?? repository.defaultBranchRef;
             if (!branchData?.target) {
                 await nango.log('Branch or commit not found', { level: 'error' });
+                checkpointSafeToAdvance = false;
                 break;
             }
 
@@ -142,7 +146,7 @@ const sync = createSync({
         }
 
         await nango.log(`Total commits fetched: ${commitCount}`, { level: 'info' });
-        if (latestCommitTimestamp) {
+        if (checkpointSafeToAdvance && latestCommitTimestamp) {
             await nango.saveCheckpoint({ since: toOverlappingCheckpoint(latestCommitTimestamp) });
         }
     }

@@ -5,7 +5,7 @@ import { z } from 'zod';
 
 const sync = createSync({
     description: 'Fetches a list of tests from hackerrank work',
-    version: '2.0.0',
+    version: '2.1.0',
     frequency: 'every 6 hours',
     autoStart: true,
     syncType: 'full',

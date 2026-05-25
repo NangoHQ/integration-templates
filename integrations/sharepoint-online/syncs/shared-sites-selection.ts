@@ -18,7 +18,7 @@ const CheckpointSchema = z.object({
 
 const sync = createSync({
     description: 'This sync will be used to sync file metadata from SharePoint site based on the ones the user has picked.',
-    version: '3.0.0',
+    version: '3.1.0',
     frequency: 'every 1 hour',
     autoStart: false,
     checkpoint: CheckpointSchema,

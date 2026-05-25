@@ -12,7 +12,7 @@ const CheckpointSchema = z.object({
 
 const sync = createSync({
     description: 'Get a list of all job stages from Gem ATS',
-    version: '1.0.0',
+    version: '1.1.0',
     frequency: 'every 1h',
     autoStart: true,
     checkpoint: CheckpointSchema,

@@ -25,7 +25,7 @@ const CheckpointSchema = z.object({
 
 const sync = createSync({
     description: 'Fetches the list of users in Harvest',
-    version: '1.0.0',
+    version: '1.1.0',
     frequency: 'every day',
     autoStart: true,
     checkpoint: CheckpointSchema,

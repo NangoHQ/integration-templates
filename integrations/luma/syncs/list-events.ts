@@ -21,7 +21,7 @@ const CheckpointSchema = z.object({
 const sync = createSync({
     description:
         'This sync will be used to sync all of the events managed by your Calendar. See https://docs.lu.ma/reference/calendar-list-events for more details.',
-    version: '1.0.0',
+    version: '1.1.0',
     frequency: 'every day',
     autoStart: true,
     checkpoint: CheckpointSchema,

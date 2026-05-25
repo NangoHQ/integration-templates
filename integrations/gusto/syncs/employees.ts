@@ -10,7 +10,7 @@ import { z } from 'zod';
  */
 const sync = createSync({
     description: 'Fetches all employees from Gusto',
-    version: '1.0.0',
+    version: '1.1.0',
     frequency: 'every 5m',
     autoStart: false,
     syncType: 'full',

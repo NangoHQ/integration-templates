@@ -14,7 +14,7 @@ const CheckpointSchema = z.object({
 
 const sync = createSync({
     description: 'This sync captures all LinkedIn messages for a Linkedin member for archiving purposes',
-    version: '1.0.0',
+    version: '1.1.0',
     frequency: 'every 1h',
     autoStart: true,
     checkpoint: CheckpointSchema,

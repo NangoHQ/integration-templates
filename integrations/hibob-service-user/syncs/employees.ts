@@ -7,7 +7,7 @@ import { z } from 'zod';
 
 const sync = createSync({
     description: 'Fetches a list of all active employees',
-    version: '1.0.0',
+    version: '1.1.0',
     frequency: 'every hour',
     autoStart: true,
     syncType: 'full',

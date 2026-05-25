@@ -16,7 +16,7 @@ const CheckpointSchema = z.object({
 
 const sync = createSync({
     description: 'Fetches all credit notes in Netsuite',
-    version: '2.0.0',
+    version: '2.1.0',
     frequency: 'every hour',
     autoStart: false,
     checkpoint: CheckpointSchema,

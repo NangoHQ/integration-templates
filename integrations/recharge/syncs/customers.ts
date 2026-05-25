@@ -12,7 +12,7 @@ const CheckpointSchema = z.object({
 
 const sync = createSync({
     description: 'Incrementally fetch all Recharge customers and their subscription details.',
-    version: '2.0.0',
+    version: '2.1.0',
     frequency: 'every 1 hour',
     autoStart: true,
     checkpoint: CheckpointSchema,

@@ -184,7 +184,7 @@ const CheckpointSchema = z.object({
 
 const sync = createSync({
     description: 'Sync Xero general ledger journals, each containing journal lines with account and tax details.',
-    version: '3.1.0',
+    version: '3.2.0',
     frequency: 'every hour',
     autoStart: true,
     checkpoint: CheckpointSchema,

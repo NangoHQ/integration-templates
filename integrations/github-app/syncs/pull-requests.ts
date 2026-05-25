@@ -17,7 +17,7 @@ const CheckpointSchema = z.object({
 
 const sync = createSync({
     description: 'Get all pull requests from a Github repository.',
-    version: '2.0.0',
+    version: '2.1.0',
     frequency: 'every hour',
     autoStart: false,
     checkpoint: CheckpointSchema,
@@ -54,6 +54,7 @@ const sync = createSync({
 
         let endCursor = '';
         let hasNextPage = true;
+        let aborted = false;
 
         const variables = {
             owner: metadata.owner,
@@ -65,6 +66,7 @@ const sync = createSync({
         while (hasNextPage) {
             if (shouldAbortSync(startTime)) {
                 await nango.log('Aborting sync due to 20 hours time limit', { level: 'warn' });
+                aborted = true;
                 break;
             }
             const mappedPullRequests: GithubPullRequest[] = [];
@@ -125,7 +127,9 @@ const sync = createSync({
         await nango.log(`Pull requests fetched: open ${open}, closed ${closed}`, {
             level: 'info'
         });
-        await nango.saveCheckpoint({ updated_after: runStartedAt });
+        if (!aborted) {
+            await nango.saveCheckpoint({ updated_after: runStartedAt });
+        }
     }
 });
 

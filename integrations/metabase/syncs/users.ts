@@ -5,7 +5,7 @@ import { z } from 'zod';
 
 const sync = createSync({
     description: 'Fetches a list of users from Metabase, including active and inactive users.',
-    version: '1.0.0',
+    version: '1.1.0',
     frequency: 'every day',
     autoStart: true,
     syncType: 'full',

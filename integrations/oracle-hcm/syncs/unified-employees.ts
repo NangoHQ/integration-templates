@@ -18,7 +18,7 @@ const CheckpointSchema = z.object({
 
 const sync = createSync({
     description: 'Fetch all employees from Oracle HCM',
-    version: '1.0.0',
+    version: '1.1.0',
     frequency: 'every hour',
     autoStart: true,
     checkpoint: CheckpointSchema,

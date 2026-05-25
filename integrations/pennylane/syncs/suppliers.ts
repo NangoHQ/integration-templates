@@ -11,7 +11,7 @@ const CheckpointSchema = z.object({
 
 const sync = createSync({
     description: 'Fetches a list of suppliers from pennylane',
-    version: '2.0.0',
+    version: '2.1.0',
     frequency: 'every 6 hours',
     autoStart: true,
     checkpoint: CheckpointSchema,

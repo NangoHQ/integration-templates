@@ -9,7 +9,7 @@ import { z } from 'zod';
 
 const sync = createSync({
     description: 'Fetches a list of users from Lastpass.',
-    version: '1.0.0',
+    version: '1.1.0',
     frequency: 'every day',
     autoStart: true,
     syncType: 'full',
@@ -29,9 +29,9 @@ const sync = createSync({
     metadata: z.object({}),
 
     exec: async (nango) => {
+        const credentials = await getCredentials(nango);
         await nango.trackDeletesStart('User');
 
-        const credentials = await getCredentials(nango);
         const paginationParams = {
             // https://support.lastpass.com/s/document-item?language=en_US&bundleId=lastpass&topicId=LastPass%2Fapi_get_user_data.html&_LANG=enus
             endpoint: '/enterpriseapi.php',

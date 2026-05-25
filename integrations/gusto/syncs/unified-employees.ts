@@ -11,7 +11,7 @@ import { z } from 'zod';
  */
 const sync = createSync({
     description: 'Fetches all employees from Gusto and maps them to the standard HRIS model',
-    version: '1.0.0',
+    version: '1.1.0',
     frequency: 'every 5m',
     autoStart: false,
     syncType: 'full',

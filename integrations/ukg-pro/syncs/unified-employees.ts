@@ -12,7 +12,7 @@ const CheckpointSchema = z.object({
 
 const sync = createSync({
     description: 'Fetch all employees from UKG Pro and maps them to the standard HRIS model',
-    version: '0.0.1',
+    version: '0.1.0',
     frequency: 'every hour',
     autoStart: true,
     checkpoint: CheckpointSchema,

@@ -5,7 +5,7 @@ import { z } from 'zod';
 
 const sync = createSync({
     description: 'Syncs all job stage names from RecruiterFlow',
-    version: '2.0.0',
+    version: '2.1.0',
     frequency: 'every hour',
     autoStart: true,
     syncType: 'full',
@@ -25,8 +25,6 @@ const sync = createSync({
     metadata: z.object({}),
 
     exec: async (nango) => {
-        await nango.trackDeletesStart('RecruiterFlowLeanJobStageName');
-
         const proxyConfig: ProxyConfiguration = {
             // https://recruiterflow.com/api#/Job%20APIs/get_api_external_job_stage_names
             endpoint: '/api/external/job/stage_names',
@@ -35,7 +33,12 @@ const sync = createSync({
 
         const response = await nango.get<{ data: string[] }>(proxyConfig);
         const stages = response.data.data;
+        if (!Array.isArray(stages)) {
+            await nango.log('Invalid response format: data is not an array');
+            return;
+        }
 
+        await nango.trackDeletesStart('RecruiterFlowLeanJobStageName');
         await nango.batchSave(stages.map(toJobStageName), 'RecruiterFlowLeanJobStageName');
         await nango.trackDeletesEnd('RecruiterFlowLeanJobStageName');
     }
