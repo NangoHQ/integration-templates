@@ -46653,11 +46653,40 @@ export interface CreditMemo {
 
 export interface Customer {
   id: string;
-  name: string;
   email: string;
-  is_paying_customer: boolean;
-  created_at: string;
-  modified_at: string;
+  first_name?: string | undefined;
+  last_name?: string | undefined;
+  role?: string | undefined;
+  username?: string | undefined;
+  date_created?: string | undefined;
+  date_created_gmt?: string | undefined;
+  date_modified?: string | undefined;
+  date_modified_gmt?: string | undefined;
+  billing?: {  first_name?: string | undefined;
+  last_name?: string | undefined;
+  company?: string | undefined;
+  address_1?: string | undefined;
+  address_2?: string | undefined;
+  city?: string | undefined;
+  state?: string | undefined;
+  postcode?: string | undefined;
+  country?: string | undefined;
+  email?: string | undefined;
+  phone?: string | undefined;};
+  shipping?: {  first_name?: string | undefined;
+  last_name?: string | undefined;
+  company?: string | undefined;
+  address_1?: string | undefined;
+  address_2?: string | undefined;
+  city?: string | undefined;
+  state?: string | undefined;
+  postcode?: string | undefined;
+  country?: string | undefined;};
+  is_paying_customer?: boolean | undefined;
+  avatar_url?: string | undefined;
+  meta_data?: ({  id?: number | undefined;
+  key?: string | undefined;
+  value?: unknown | undefined;})[];
 };
 
 export interface Deposit {
@@ -51663,11 +51692,64 @@ export interface ActionOutput_sharepoint_online_listsharedsites {
 
 export interface Order {
   id: string;
-  status: string;
-  total_amount: number;
-  currency: string;
-  created_at: string;
-  modified_at: string;
+  parent_id?: string | undefined;
+  number?: string | undefined;
+  order_key?: string | undefined;
+  created_via?: string | undefined;
+  version?: string | undefined;
+  status?: string | undefined;
+  currency?: string | undefined;
+  date_created?: string | undefined;
+  date_created_gmt?: string | undefined;
+  date_modified?: string | undefined;
+  date_modified_gmt?: string | undefined;
+  discount_total?: string | undefined;
+  discount_tax?: string | undefined;
+  shipping_total?: string | undefined;
+  shipping_tax?: string | undefined;
+  cart_tax?: string | undefined;
+  total?: string | undefined;
+  total_tax?: string | undefined;
+  prices_include_tax?: boolean | undefined;
+  customer_id?: string | undefined;
+  customer_ip_address?: string | undefined;
+  customer_user_agent?: string | undefined;
+  customer_note?: string | undefined;
+  billing?: {  first_name?: string | undefined;
+  last_name?: string | undefined;
+  company?: string | undefined;
+  address_1?: string | undefined;
+  address_2?: string | undefined;
+  city?: string | undefined;
+  state?: string | undefined;
+  postcode?: string | undefined;
+  country?: string | undefined;
+  email?: string | undefined;
+  phone?: string | undefined;};
+  shipping?: {  first_name?: string | undefined;
+  last_name?: string | undefined;
+  company?: string | undefined;
+  address_1?: string | undefined;
+  address_2?: string | undefined;
+  city?: string | undefined;
+  state?: string | undefined;
+  postcode?: string | undefined;
+  country?: string | undefined;};
+  payment_method?: string | undefined;
+  payment_method_title?: string | undefined;
+  transaction_id?: string | undefined;
+  date_paid?: string | undefined;
+  date_paid_gmt?: string | undefined;
+  date_completed?: string | undefined;
+  date_completed_gmt?: string | undefined;
+  cart_hash?: string | undefined;
+  meta_data?: unknown[] | undefined;
+  line_items?: unknown[] | undefined;
+  tax_lines?: unknown[] | undefined;
+  shipping_lines?: unknown[] | undefined;
+  fee_lines?: unknown[] | undefined;
+  coupon_lines?: unknown[] | undefined;
+  refunds?: unknown[] | undefined;
 };
 
 export interface SyncMetadata_shopify_orders {
@@ -56046,10 +56128,3202 @@ export interface WildixPbxColleague {
 export interface SyncMetadata_wildix_pbx_colleagues {
 };
 
-export interface SyncMetadata_woocommerce_customers {
+export interface Coupon {
+  id: string;
+  code: string;
+  amount?: string | undefined;
+  date_created?: string | undefined;
+  date_modified?: string | undefined;
+  discount_type?: string | undefined;
+  description?: string | undefined;
+  date_expires?: string | undefined;
+  usage_count?: number | undefined;
+  individual_use?: boolean | undefined;
+  product_ids?: number[] | undefined;
+  excluded_product_ids?: number[] | undefined;
+  usage_limit?: number | undefined;
+  usage_limit_per_user?: number | undefined;
+  limit_usage_to_x_items?: number | undefined;
+  free_shipping?: boolean | undefined;
+  product_categories?: number[] | undefined;
+  excluded_product_categories?: number[] | undefined;
+  exclude_sale_items?: boolean | undefined;
+  minimum_amount?: string | undefined;
+  maximum_amount?: string | undefined;
+  email_restrictions?: string[] | undefined;
+  used_by?: string[] | undefined;
+  meta_data?: ({  id?: number | undefined;
+  key?: string | undefined;
+  value?: unknown | undefined;})[];
 };
 
-export interface SyncMetadata_woocommerce_orders {
+export interface ProductCategory {
+  id: string;
+  name: string;
+  slug?: string | undefined;
+  parent?: number | undefined;
+  description?: string | undefined;
+  display?: string | undefined;
+  image?: {  id?: number | undefined;
+  date_created?: string | undefined;
+  date_created_gmt?: string | undefined;
+  date_modified?: string | undefined;
+  date_modified_gmt?: string | undefined;
+  src?: string | undefined;
+  name?: string | undefined;
+  alt?: string | undefined;};
+  menu_order?: number | undefined;
+  count?: number | undefined;
+};
+
+export interface ProductReview {
+  id: string;
+  product_id: string;
+  product_name?: string | undefined;
+  reviewer?: string | undefined;
+  reviewer_email?: string | undefined;
+  review?: string | undefined;
+  rating?: number | undefined;
+  verified?: boolean | undefined;
+  date_created?: string | undefined;
+  date_created_gmt?: string | undefined;
+};
+
+export interface ProductTag {
+  id: string;
+  name?: string | undefined;
+  slug?: string | undefined;
+  description?: string | undefined;
+  count?: number | undefined;
+};
+
+export interface ProductVariation {
+  id: string;
+  product_id: string;
+  date_created?: string | undefined;
+  date_modified: string;
+  description?: string | undefined;
+  permalink?: string | undefined;
+  sku?: string | undefined;
+  price?: string | undefined;
+  regular_price?: string | undefined;
+  sale_price?: string | undefined;
+  status?: string | undefined;
+  stock_status?: string | undefined;
+  stock_quantity?: number | undefined;
+  manage_stock?: boolean | string | undefined;
+  weight?: string | undefined;
+  dimensions?: {  length?: string | undefined;
+  width?: string | undefined;
+  height?: string | undefined;};
+  attributes?: ({  id?: number | undefined;
+  name?: string | undefined;
+  option?: string | undefined;})[];
+  image?: {  id?: number | undefined;
+  src?: string | undefined;
+  name?: string | undefined;
+  alt?: string | undefined;};
+  meta_data?: ({  id?: number | undefined;
+  key?: string | undefined;
+  value?: unknown | undefined;})[];
+};
+
+export interface Refund {
+  id: string;
+  order_id: string;
+  date_created: string;
+  date_created_gmt: string;
+  amount?: string | undefined;
+  reason?: string | undefined;
+  refunded_by?: number | undefined;
+  refunded_payment?: boolean | undefined;
+};
+
+export interface ActionInput_woocommerce_batchupdateorders {
+  create?: ({  /**
+   * Order ID. Required for update operations.
+   */
+  id?: number | undefined;})[];
+  update?: ({  /**
+   * Order ID. Required for update operations.
+   */
+  id?: number | undefined;})[];
+  delete?: number[] | undefined;
+};
+
+export interface ActionOutput_woocommerce_batchupdateorders {
+  create?: ({  id: number;})[] | undefined;
+  update?: ({  id: number;})[] | undefined;
+  delete?: ({  id: number;})[] | undefined;
+};
+
+export interface ActionInput_woocommerce_batchupdateproducts {
+  create?: ({})[] | undefined;
+  update?: ({  id: number;})[] | undefined;
+  delete?: number[] | undefined;
+};
+
+export interface ActionOutput_woocommerce_batchupdateproducts {
+  create?: ({  id: number;
+  name?: string | undefined;
+  slug?: string | undefined;
+  permalink?: string | undefined;
+  date_created?: string | undefined;
+  date_created_gmt?: string | undefined;
+  date_modified?: string | undefined;
+  date_modified_gmt?: string | undefined;
+  type?: string | undefined;
+  status?: string | undefined;
+  featured?: boolean | undefined;
+  catalog_visibility?: string | undefined;
+  description?: string | undefined;
+  short_description?: string | undefined;
+  sku?: string | undefined;
+  price?: string | undefined;
+  regular_price?: string | undefined;
+  sale_price?: string | undefined;
+  date_on_sale_from?: string | undefined;
+  date_on_sale_from_gmt?: string | undefined;
+  date_on_sale_to?: string | undefined;
+  date_on_sale_to_gmt?: string | undefined;
+  price_html?: string | undefined;
+  on_sale?: boolean | undefined;
+  purchasable?: boolean | undefined;
+  total_sales?: number | undefined;
+  virtual?: boolean | undefined;
+  downloadable?: boolean | undefined;
+  downloads?: ({  [key: string]: unknown | undefined;})[];
+  download_limit?: number | undefined;
+  download_expiry?: number | undefined;
+  external_url?: string | undefined;
+  button_text?: string | undefined;
+  tax_status?: string | undefined;
+  tax_class?: string | undefined;
+  manage_stock?: boolean | undefined;
+  stock_quantity?: number | undefined;
+  stock_status?: string | undefined;
+  backorders?: string | undefined;
+  backorders_allowed?: boolean | undefined;
+  backordered?: boolean | undefined;
+  sold_individually?: boolean | undefined;
+  weight?: string | undefined;
+  dimensions?: {  length?: string | undefined;
+  width?: string | undefined;
+  height?: string | undefined;};
+  shipping_required?: boolean | undefined;
+  shipping_taxable?: boolean | undefined;
+  shipping_class?: string | undefined;
+  shipping_class_id?: number | undefined;
+  reviews_allowed?: boolean | undefined;
+  average_rating?: string | undefined;
+  rating_count?: number | undefined;
+  related_ids?: number[] | undefined;
+  upsell_ids?: number[] | undefined;
+  cross_sell_ids?: number[] | undefined;
+  parent_id?: number | undefined;
+  purchase_note?: string | undefined;
+  categories?: ({  id?: number | undefined;
+  name?: string | undefined;
+  slug?: string | undefined;})[];
+  tags?: ({  id?: number | undefined;
+  name?: string | undefined;
+  slug?: string | undefined;})[];
+  images?: ({  id?: number | undefined;
+  date_created?: string | undefined;
+  date_modified?: string | undefined;
+  src?: string | undefined;
+  name?: string | undefined;
+  alt?: string | undefined;})[];
+  attributes?: ({  [key: string]: unknown | undefined;})[];
+  default_attributes?: ({  [key: string]: unknown | undefined;})[];
+  variations?: number[] | undefined;
+  grouped_products?: number[] | undefined;
+  menu_order?: number | undefined;
+  meta_data?: ({  [key: string]: unknown | undefined;})[];})[];
+  update?: ({  id: number;
+  name?: string | undefined;
+  slug?: string | undefined;
+  permalink?: string | undefined;
+  date_created?: string | undefined;
+  date_created_gmt?: string | undefined;
+  date_modified?: string | undefined;
+  date_modified_gmt?: string | undefined;
+  type?: string | undefined;
+  status?: string | undefined;
+  featured?: boolean | undefined;
+  catalog_visibility?: string | undefined;
+  description?: string | undefined;
+  short_description?: string | undefined;
+  sku?: string | undefined;
+  price?: string | undefined;
+  regular_price?: string | undefined;
+  sale_price?: string | undefined;
+  date_on_sale_from?: string | undefined;
+  date_on_sale_from_gmt?: string | undefined;
+  date_on_sale_to?: string | undefined;
+  date_on_sale_to_gmt?: string | undefined;
+  price_html?: string | undefined;
+  on_sale?: boolean | undefined;
+  purchasable?: boolean | undefined;
+  total_sales?: number | undefined;
+  virtual?: boolean | undefined;
+  downloadable?: boolean | undefined;
+  downloads?: ({  [key: string]: unknown | undefined;})[];
+  download_limit?: number | undefined;
+  download_expiry?: number | undefined;
+  external_url?: string | undefined;
+  button_text?: string | undefined;
+  tax_status?: string | undefined;
+  tax_class?: string | undefined;
+  manage_stock?: boolean | undefined;
+  stock_quantity?: number | undefined;
+  stock_status?: string | undefined;
+  backorders?: string | undefined;
+  backorders_allowed?: boolean | undefined;
+  backordered?: boolean | undefined;
+  sold_individually?: boolean | undefined;
+  weight?: string | undefined;
+  dimensions?: {  length?: string | undefined;
+  width?: string | undefined;
+  height?: string | undefined;};
+  shipping_required?: boolean | undefined;
+  shipping_taxable?: boolean | undefined;
+  shipping_class?: string | undefined;
+  shipping_class_id?: number | undefined;
+  reviews_allowed?: boolean | undefined;
+  average_rating?: string | undefined;
+  rating_count?: number | undefined;
+  related_ids?: number[] | undefined;
+  upsell_ids?: number[] | undefined;
+  cross_sell_ids?: number[] | undefined;
+  parent_id?: number | undefined;
+  purchase_note?: string | undefined;
+  categories?: ({  id?: number | undefined;
+  name?: string | undefined;
+  slug?: string | undefined;})[];
+  tags?: ({  id?: number | undefined;
+  name?: string | undefined;
+  slug?: string | undefined;})[];
+  images?: ({  id?: number | undefined;
+  date_created?: string | undefined;
+  date_modified?: string | undefined;
+  src?: string | undefined;
+  name?: string | undefined;
+  alt?: string | undefined;})[];
+  attributes?: ({  [key: string]: unknown | undefined;})[];
+  default_attributes?: ({  [key: string]: unknown | undefined;})[];
+  variations?: number[] | undefined;
+  grouped_products?: number[] | undefined;
+  menu_order?: number | undefined;
+  meta_data?: ({  [key: string]: unknown | undefined;})[];})[];
+  delete?: ({  id: number;
+  name?: string | undefined;
+  slug?: string | undefined;
+  permalink?: string | undefined;
+  date_created?: string | undefined;
+  date_created_gmt?: string | undefined;
+  date_modified?: string | undefined;
+  date_modified_gmt?: string | undefined;
+  type?: string | undefined;
+  status?: string | undefined;
+  featured?: boolean | undefined;
+  catalog_visibility?: string | undefined;
+  description?: string | undefined;
+  short_description?: string | undefined;
+  sku?: string | undefined;
+  price?: string | undefined;
+  regular_price?: string | undefined;
+  sale_price?: string | undefined;
+  date_on_sale_from?: string | undefined;
+  date_on_sale_from_gmt?: string | undefined;
+  date_on_sale_to?: string | undefined;
+  date_on_sale_to_gmt?: string | undefined;
+  price_html?: string | undefined;
+  on_sale?: boolean | undefined;
+  purchasable?: boolean | undefined;
+  total_sales?: number | undefined;
+  virtual?: boolean | undefined;
+  downloadable?: boolean | undefined;
+  downloads?: ({  [key: string]: unknown | undefined;})[];
+  download_limit?: number | undefined;
+  download_expiry?: number | undefined;
+  external_url?: string | undefined;
+  button_text?: string | undefined;
+  tax_status?: string | undefined;
+  tax_class?: string | undefined;
+  manage_stock?: boolean | undefined;
+  stock_quantity?: number | undefined;
+  stock_status?: string | undefined;
+  backorders?: string | undefined;
+  backorders_allowed?: boolean | undefined;
+  backordered?: boolean | undefined;
+  sold_individually?: boolean | undefined;
+  weight?: string | undefined;
+  dimensions?: {  length?: string | undefined;
+  width?: string | undefined;
+  height?: string | undefined;};
+  shipping_required?: boolean | undefined;
+  shipping_taxable?: boolean | undefined;
+  shipping_class?: string | undefined;
+  shipping_class_id?: number | undefined;
+  reviews_allowed?: boolean | undefined;
+  average_rating?: string | undefined;
+  rating_count?: number | undefined;
+  related_ids?: number[] | undefined;
+  upsell_ids?: number[] | undefined;
+  cross_sell_ids?: number[] | undefined;
+  parent_id?: number | undefined;
+  purchase_note?: string | undefined;
+  categories?: ({  id?: number | undefined;
+  name?: string | undefined;
+  slug?: string | undefined;})[];
+  tags?: ({  id?: number | undefined;
+  name?: string | undefined;
+  slug?: string | undefined;})[];
+  images?: ({  id?: number | undefined;
+  date_created?: string | undefined;
+  date_modified?: string | undefined;
+  src?: string | undefined;
+  name?: string | undefined;
+  alt?: string | undefined;})[];
+  attributes?: ({  [key: string]: unknown | undefined;})[];
+  default_attributes?: ({  [key: string]: unknown | undefined;})[];
+  variations?: number[] | undefined;
+  grouped_products?: number[] | undefined;
+  menu_order?: number | undefined;
+  meta_data?: ({  [key: string]: unknown | undefined;})[];})[];
+};
+
+export interface ActionInput_woocommerce_createordernote {
+  /**
+   * Order ID. Example: 18
+   */
+  order_id: number;
+  /**
+   * Order note content.
+   */
+  note: string;
+  /**
+   * If true, the note will be shown to customers and they will be notified. Default is false.
+   */
+  customer_note?: boolean | undefined;
+  /**
+   * If true, this note will be attributed to the current user. Default is false.
+   */
+  added_by_user?: boolean | undefined;
+};
+
+export interface ActionOutput_woocommerce_createordernote {
+  id: number;
+  author?: string | undefined;
+  date_created?: string | undefined;
+  date_created_gmt?: string | undefined;
+  note: string;
+  customer_note?: boolean | undefined;
+  added_by_user?: boolean | undefined;
+};
+
+export interface ActionInput_woocommerce_createorder {
+  status?: 'pending' | 'processing' | 'on-hold' | 'completed' | 'cancelled' | 'refunded' | 'failed' | 'trash' | 'checkout-draft' | undefined;
+  currency?: string | undefined;
+  customer_id?: number | undefined;
+  customer_note?: string | undefined;
+  billing?: {  first_name?: string | undefined;
+  last_name?: string | undefined;
+  company?: string | undefined;
+  address_1?: string | undefined;
+  address_2?: string | undefined;
+  city?: string | undefined;
+  state?: string | undefined;
+  postcode?: string | undefined;
+  country?: string | undefined;
+  email?: string | undefined;
+  phone?: string | undefined;};
+  shipping?: {  first_name?: string | undefined;
+  last_name?: string | undefined;
+  company?: string | undefined;
+  address_1?: string | undefined;
+  address_2?: string | undefined;
+  city?: string | undefined;
+  state?: string | undefined;
+  postcode?: string | undefined;
+  country?: string | undefined;};
+  line_items?: ({  product_id?: number | undefined;
+  variation_id?: number | undefined;
+  quantity?: number | undefined;
+  price?: string | undefined;})[];
+  shipping_lines?: ({  method_id?: string | undefined;
+  method_title?: string | undefined;
+  total?: string | undefined;})[];
+  coupon_lines?: ({  code?: string | undefined;})[];
+  payment_method?: string | undefined;
+  payment_method_title?: string | undefined;
+  set_paid?: boolean | undefined;
+};
+
+export interface ActionOutput_woocommerce_createorder {
+  id: number;
+  parent_id?: number | undefined;
+  status: string;
+  currency?: string | undefined;
+  total?: string | undefined;
+  customer_id?: number | undefined;
+  customer_note?: string | undefined;
+  billing?: {} | undefined;
+  shipping?: {} | undefined;
+  payment_method?: string | undefined;
+  payment_method_title?: string | undefined;
+  date_created?: string | undefined;
+  date_modified?: string | undefined;
+  line_items?: ({})[] | undefined;
+  shipping_lines?: ({})[] | undefined;
+  coupon_lines?: ({})[] | undefined;
+};
+
+export interface ActionInput_woocommerce_createproductcategory {
+  name: string;
+  slug?: string | undefined;
+  parent?: number | undefined;
+  description?: string | undefined;
+  display?: string | undefined;
+  image?: {  src?: string | undefined;
+  name?: string | undefined;
+  alt?: string | undefined;};
+  menu_order?: number | undefined;
+};
+
+export interface ActionOutput_woocommerce_createproductcategory {
+  id: number;
+  name: string;
+  slug?: string | undefined;
+  parent?: number | undefined;
+  description?: string | undefined;
+  display?: string | undefined;
+  image?: {  id?: number | undefined;
+  date_created?: string | undefined;
+  date_created_gmt?: string | undefined;
+  date_modified?: string | undefined;
+  date_modified_gmt?: string | undefined;
+  src?: string | undefined;
+  name?: string | undefined;
+  alt?: string | undefined;};
+  menu_order?: number | undefined;
+  count?: number | undefined;
+};
+
+export interface ActionInput_woocommerce_createproductreview {
+  /**
+   * Product ID to review. Example: 13
+   */
+  product_id: number;
+  /**
+   * Name of the reviewer. Example: "John Doe"
+   */
+  reviewer: string;
+  /**
+   * Email address of the reviewer. Example: "john@example.com"
+   */
+  reviewer_email: string;
+  /**
+   * Review content text.
+   */
+  review?: string | undefined;
+  /**
+   * Star rating from 1 to 5.
+   */
+  rating?: number | undefined;
+  /**
+   * Whether the review is verified.
+   */
+  verified?: boolean | undefined;
+};
+
+export interface ActionOutput_woocommerce_createproductreview {
+  id: number;
+  product_id: number;
+  reviewer: string;
+  reviewer_email: string;
+  review?: string | undefined;
+  rating?: number | undefined;
+  verified: boolean;
+  date_created: string;
+  date_created_gmt: string;
+};
+
+export interface ActionInput_woocommerce_createproducttag {
+  /**
+   * Product tag name. Example: "New Arrival"
+   */
+  name: string;
+  /**
+   * An alphanumeric identifier for the tag unique to its type. Example: "new-arrival"
+   */
+  slug?: string | undefined;
+  /**
+   * HTML description of the tag. Example: "Latest products in our store"
+   */
+  description?: string | undefined;
+};
+
+export interface ActionOutput_woocommerce_createproducttag {
+  id: number;
+  name: string;
+  slug?: string | undefined;
+  description?: string | undefined;
+  count?: number | undefined;
+};
+
+export interface ActionInput_woocommerce_createproductvariation {
+  /**
+   * Product ID of the parent variable product. Example: 13
+   */
+  product_id: number;
+  description?: string | undefined;
+  sku?: string | undefined;
+  regular_price?: string | undefined;
+  sale_price?: string | undefined;
+  date_on_sale_from?: string | undefined;
+  date_on_sale_to?: string | undefined;
+  status?: 'draft' | 'pending' | 'private' | 'publish' | undefined;
+  virtual?: boolean | undefined;
+  downloadable?: boolean | undefined;
+  download_limit?: number | undefined;
+  download_expiry?: number | undefined;
+  tax_status?: 'taxable' | 'shipping' | 'none' | undefined;
+  tax_class?: string | undefined;
+  manage_stock?: boolean | 'parent' | undefined;
+  stock_quantity?: number | undefined;
+  stock_status?: 'instock' | 'outofstock' | 'onbackorder' | undefined;
+  backorders?: 'no' | 'notify' | 'yes' | undefined;
+  weight?: string | undefined;
+  dimensions?: {  length?: string | undefined;
+  width?: string | undefined;
+  height?: string | undefined;};
+  shipping_class?: string | undefined;
+  image?: {  id?: number | undefined;
+  src?: string | undefined;
+  name?: string | undefined;
+  alt?: string | undefined;};
+  attributes?: ({  id?: number | undefined;
+  name?: string | undefined;
+  option?: string | undefined;})[];
+  menu_order?: number | undefined;
+  meta_data?: ({  id?: number | undefined;
+  key?: string | undefined;
+  value?: unknown | undefined;})[];
+};
+
+export interface ActionOutput_woocommerce_createproductvariation {
+  id: number;
+  date_created?: string | undefined;
+  date_created_gmt?: string | undefined;
+  date_modified?: string | undefined;
+  date_modified_gmt?: string | undefined;
+  description?: string | undefined;
+  permalink?: string | undefined;
+  sku?: string | undefined;
+  global_unique_id?: string | undefined;
+  price?: string | undefined;
+  regular_price?: string | undefined;
+  sale_price?: string | undefined;
+  date_on_sale_from?: string | undefined;
+  date_on_sale_from_gmt?: string | undefined;
+  date_on_sale_to?: string | undefined;
+  date_on_sale_to_gmt?: string | undefined;
+  on_sale?: boolean | undefined;
+  status?: string | undefined;
+  purchasable?: boolean | undefined;
+  virtual?: boolean | undefined;
+  downloadable?: boolean | undefined;
+  downloads?: unknown[] | undefined;
+  download_limit?: number | undefined;
+  download_expiry?: number | undefined;
+  tax_status?: string | undefined;
+  tax_class?: string | undefined;
+  manage_stock?: boolean | 'parent' | undefined;
+  stock_quantity?: number | undefined;
+  stock_status?: string | undefined;
+  backorders?: string | undefined;
+  backorders_allowed?: boolean | undefined;
+  backordered?: boolean | undefined;
+  weight?: string | undefined;
+  dimensions?: {  length?: string | undefined;
+  width?: string | undefined;
+  height?: string | undefined;};
+  shipping_class?: string | undefined;
+  shipping_class_id?: number | undefined;
+  image?: {  id?: number | undefined;
+  date_created?: string | undefined;
+  date_created_gmt?: string | undefined;
+  date_modified?: string | undefined;
+  date_modified_gmt?: string | undefined;
+  src?: string | undefined;
+  name?: string | undefined;
+  alt?: string | undefined;};
+  attributes?: ({  id?: number | undefined;
+  name?: string | undefined;
+  option?: string | undefined;})[];
+  menu_order?: number | undefined;
+  meta_data?: ({  id?: number | undefined;
+  key?: string | undefined;
+  value?: unknown | undefined;})[];
+};
+
+export interface ActionInput_woocommerce_createproduct {
+  /**
+   * Product name.
+   */
+  name: string;
+  /**
+   * Product type. Default: simple
+   */
+  type?: 'simple' | 'grouped' | 'external' | 'variable' | undefined;
+  /**
+   * Product status. Default: publish
+   */
+  status?: 'draft' | 'pending' | 'private' | 'publish' | undefined;
+  /**
+   * Featured product. Default: false
+   */
+  featured?: boolean | undefined;
+  /**
+   * Catalog visibility. Default: visible
+   */
+  catalog_visibility?: 'visible' | 'catalog' | 'search' | 'hidden' | undefined;
+  /**
+   * Product description.
+   */
+  description?: string | undefined;
+  /**
+   * Product short description.
+   */
+  short_description?: string | undefined;
+  /**
+   * Unique identifier.
+   */
+  sku?: string | undefined;
+  /**
+   * Product regular price.
+   */
+  regular_price?: string | undefined;
+  /**
+   * Product sale price.
+   */
+  sale_price?: string | undefined;
+  /**
+   * List of categories.
+   */
+  categories?: ({  /**
+   * Category ID. Example: 9
+   */
+  id: number;})[] | undefined;
+  /**
+   * List of tags.
+   */
+  tags?: ({  /**
+   * Tag ID. Example: 19
+   */
+  id: number;})[] | undefined;
+  /**
+   * List of images.
+   */
+  images?: ({  /**
+   * Attachment ID from the Media Library.
+   */
+  id?: number | undefined;
+  /**
+   * Image URL.
+   */
+  src?: string | undefined;})[];
+  /**
+   * List of attributes.
+   */
+  attributes?: ({  id?: number | undefined;
+  name?: string | undefined;
+  position?: number | undefined;
+  visible?: boolean | undefined;
+  variation?: boolean | undefined;
+  options?: string[] | undefined;})[];
+  /**
+   * Default variation attributes.
+   */
+  default_attributes?: ({  id?: number | undefined;
+  name?: string | undefined;
+  option?: string | undefined;})[];
+  /**
+   * Stock status. Default: instock
+   */
+  stock_status?: 'instock' | 'outofstock' | 'onbackorder' | undefined;
+  /**
+   * Stock management at product level. Default: false
+   */
+  manage_stock?: boolean | undefined;
+  /**
+   * Stock quantity.
+   */
+  stock_quantity?: number | undefined;
+  /**
+   * Product weight.
+   */
+  weight?: string | undefined;
+  /**
+   * Product dimensions.
+   */
+  dimensions?: {  length?: string | undefined;
+  width?: string | undefined;
+  height?: string | undefined;};
+  /**
+   * If the product is virtual. Default: false
+   */
+  virtual?: boolean | undefined;
+  /**
+   * If the product is downloadable. Default: false
+   */
+  downloadable?: boolean | undefined;
+  /**
+   * Tax status. Default: taxable
+   */
+  tax_status?: 'taxable' | 'shipping' | 'none' | undefined;
+  /**
+   * Tax class.
+   */
+  tax_class?: string | undefined;
+  /**
+   * Product external URL. Only for external products.
+   */
+  external_url?: string | undefined;
+  /**
+   * Product external button text. Only for external products.
+   */
+  button_text?: string | undefined;
+  /**
+   * List of up-sell product IDs.
+   */
+  upsell_ids?: number[] | undefined;
+  /**
+   * List of cross-sell product IDs.
+   */
+  cross_sell_ids?: number[] | undefined;
+  /**
+   * List of grouped product IDs.
+   */
+  grouped_products?: number[] | undefined;
+  /**
+   * Product parent ID.
+   */
+  parent_id?: number | undefined;
+  /**
+   * Optional note to send the customer after purchase.
+   */
+  purchase_note?: string | undefined;
+  /**
+   * Allow reviews. Default: true
+   */
+  reviews_allowed?: boolean | undefined;
+  /**
+   * Menu order.
+   */
+  menu_order?: number | undefined;
+  /**
+   * Meta data.
+   */
+  meta_data?: ({  key?: string | undefined;
+  value?: string | undefined;})[];
+};
+
+export interface ActionOutput_woocommerce_createproduct {
+  /**
+   * Unique identifier for the resource.
+   */
+  id: number;
+  name?: string | undefined;
+  slug?: string | undefined;
+  permalink?: string | undefined;
+  type?: string | undefined;
+  status?: string | undefined;
+  featured?: boolean | undefined;
+  catalog_visibility?: string | undefined;
+  description?: string | undefined;
+  short_description?: string | undefined;
+  sku?: string | undefined;
+  price?: string | undefined;
+  regular_price?: string | undefined;
+  sale_price?: string | undefined;
+  on_sale?: boolean | undefined;
+  purchasable?: boolean | undefined;
+  virtual?: boolean | undefined;
+  downloadable?: boolean | undefined;
+  tax_status?: string | undefined;
+  tax_class?: string | undefined;
+  manage_stock?: boolean | undefined;
+  stock_quantity?: number | undefined;
+  stock_status?: string | undefined;
+  weight?: string | undefined;
+  dimensions?: {  length?: string | undefined;
+  width?: string | undefined;
+  height?: string | undefined;};
+  shipping_required?: boolean | undefined;
+  shipping_taxable?: boolean | undefined;
+  shipping_class?: string | undefined;
+  shipping_class_id?: number | undefined;
+  reviews_allowed?: boolean | undefined;
+  average_rating?: string | undefined;
+  rating_count?: number | undefined;
+  parent_id?: number | undefined;
+  purchase_note?: string | undefined;
+  categories?: ({  id: number;
+  name?: string | undefined;
+  slug?: string | undefined;})[];
+  tags?: ({  id: number;
+  name?: string | undefined;
+  slug?: string | undefined;})[];
+  images?: ({  id: number;
+  src?: string | undefined;
+  name?: string | undefined;
+  alt?: string | undefined;})[];
+  attributes?: ({  id?: number | undefined;
+  name?: string | undefined;
+  position?: number | undefined;
+  visible?: boolean | undefined;
+  variation?: boolean | undefined;
+  options?: string[] | undefined;})[];
+  default_attributes?: ({  id?: number | undefined;
+  name?: string | undefined;
+  option?: string | undefined;})[];
+  variations?: number[] | undefined;
+  grouped_products?: number[] | undefined;
+  menu_order?: number | undefined;
+  meta_data?: ({  id?: number | undefined;
+  key?: string | undefined;
+  value?: string | undefined;})[];
+};
+
+export interface ActionInput_woocommerce_createrefund {
+  /**
+   * Order ID. Example: 18
+   */
+  order_id: number;
+  /**
+   * Refund amount. Example: "10.00"
+   */
+  amount: string;
+  /**
+   * Reason for refund.
+   */
+  reason?: string | undefined;
+  /**
+   * Use payment gateway API to generate refund. Default true.
+   */
+  api_refund?: boolean | undefined;
+  /**
+   * Restock selected line items. Default true.
+   */
+  api_restock?: boolean | undefined;
+  /**
+   * Line items to refund.
+   */
+  line_items?: ({  id: number;
+  refund_total?: number | undefined;
+  quantity?: number | undefined;
+  refund_tax?: ({  id: number;
+  refund_total?: number | undefined;})[];})[];
+};
+
+export interface ActionOutput_woocommerce_createrefund {
+  id: number;
+  date_created?: string | undefined;
+  date_created_gmt?: string | undefined;
+  amount: string;
+  reason?: string | undefined;
+  refunded_by?: number | undefined;
+  refunded_payment?: boolean | undefined;
+  meta_data?: ({  id?: number | undefined;
+  key?: string | undefined;
+  value?: unknown | undefined;})[];
+  line_items?: ({  id: number;
+  name?: string | undefined;
+  product_id?: number | undefined;
+  variation_id?: number | undefined;
+  quantity?: number | undefined;
+  tax_class?: string | undefined;
+  subtotal?: string | undefined;
+  subtotal_tax?: string | undefined;
+  total?: string | undefined;
+  total_tax?: string | undefined;
+  taxes?: unknown[] | undefined;
+  meta_data?: ({  id?: number | undefined;
+  key?: string | undefined;
+  value?: unknown | undefined;})[];
+  sku?: string | undefined;
+  price?: number | undefined;
+  refund_total?: number | undefined;})[];
+  tax_lines?: unknown[] | undefined;
+  shipping_lines?: unknown[] | undefined;
+  fee_lines?: unknown[] | undefined;
+  _links?: {  [key: string]: ({  href: string;})[];} | undefined;
+};
+
+export interface ActionInput_woocommerce_createwebhook {
+  /**
+   * A friendly name for the webhook.
+   */
+  name?: string | undefined;
+  /**
+   * Webhook topic. Example: "order.updated"
+   */
+  topic: string;
+  /**
+   * The URL where the webhook payload is delivered. Example: "https://example.com/webhook"
+   */
+  delivery_url: string;
+  /**
+   * Webhook status. Default is "active".
+   */
+  status?: 'active' | 'paused' | 'disabled' | undefined;
+  /**
+   * Secret key used to generate a hash of the delivered webhook.
+   */
+  secret?: string | undefined;
+};
+
+export interface ActionOutput_woocommerce_createwebhook {
+  id: number;
+  name?: string | undefined;
+  status?: string | undefined;
+  topic?: string | undefined;
+  resource?: string | undefined;
+  event?: string | undefined;
+  hooks?: string[] | undefined;
+  delivery_url?: string | undefined;
+  secret?: string | undefined;
+  date_created?: string | undefined;
+  date_created_gmt?: string | undefined;
+  date_modified?: string | undefined;
+  date_modified_gmt?: string | undefined;
+};
+
+export interface ActionInput_woocommerce_deletecoupon {
+  /**
+   * Coupon ID. Example: 22
+   */
+  id: number;
+  /**
+   * Whether to permanently delete the coupon. Defaults to false (moved to trash).
+   */
+  force?: boolean | undefined;
+};
+
+export interface ActionOutput_woocommerce_deletecoupon {
+  id: number;
+  code?: string | undefined;
+  deleted: boolean;
+};
+
+export interface ActionInput_woocommerce_deletecustomer {
+  /**
+   * Customer ID to delete. Example: 3
+   */
+  id: number;
+};
+
+export interface ActionOutput_woocommerce_deletecustomer {
+  id: number;
+  email?: string | undefined;
+  first_name?: string | undefined;
+  last_name?: string | undefined;
+  deleted: boolean;
+};
+
+export interface ActionInput_woocommerce_deleteordernote {
+  /**
+   * Order ID. Example: 18
+   */
+  order_id: number;
+  /**
+   * Order note ID. Example: 4
+   */
+  id: number;
+};
+
+export interface ActionOutput_woocommerce_deleteordernote {
+  id: number;
+  order_id: number;
+  deleted: boolean;
+};
+
+export interface ActionInput_woocommerce_deleteorder {
+  /**
+   * Order ID. Example: 24
+   */
+  id: number;
+  /**
+   * Whether to permanently delete the order. Defaults to false (trash/archive).
+   */
+  force?: boolean | undefined;
+};
+
+export interface ActionOutput_woocommerce_deleteorder {
+  id: number;
+  status: string;
+  number?: string | undefined;
+  total?: string | undefined;
+  date_created?: string | undefined;
+  date_modified?: string | undefined;
+};
+
+export interface ActionInput_woocommerce_deleteproductcategory {
+  /**
+   * Unique identifier for the product category to delete. Example: 17
+   */
+  id: number;
+  /**
+   * Required to be true, as the resource does not support trashing.
+   */
+  force?: boolean | undefined;
+};
+
+export interface ActionOutput_woocommerce_deleteproductcategory {
+  id: number;
+  name?: string | undefined;
+  slug?: string | undefined;
+  parent?: number | undefined;
+  description?: string | undefined;
+  display?: string | undefined;
+  image?: {  id?: number | undefined;
+  date_created?: string | undefined;
+  date_created_gmt?: string | undefined;
+  date_modified?: string | undefined;
+  date_modified_gmt?: string | undefined;
+  src?: string | undefined;
+  name?: string | undefined;
+  alt?: string | undefined;};
+  menu_order?: number | undefined;
+  count?: number | undefined;
+  _links?: {  self?: ({  href: string;})[] | undefined;
+  collection?: ({  href: string;})[] | undefined;};
+};
+
+export interface ActionInput_woocommerce_deleteproductreview {
+  /**
+   * The product review ID. Example: 5
+   */
+  id: number;
+  /**
+   * Whether to permanently delete the review. Defaults to false (trash/archive).
+   */
+  force?: boolean | undefined;
+};
+
+export interface ActionOutput_woocommerce_deleteproductreview {
+  id: number;
+  date_created?: string | undefined;
+  product_id?: number | undefined;
+  status?: string | undefined;
+  reviewer?: string | undefined;
+  reviewer_email?: string | undefined;
+  review?: string | undefined;
+  rating?: number | undefined;
+  verified?: boolean | undefined;
+};
+
+export interface ActionInput_woocommerce_deleteproductvariation {
+  /**
+   * The product ID the variation belongs to. Example: 13
+   */
+  product_id: number;
+  /**
+   * The variation ID to delete. Example: 14
+   */
+  variation_id: number;
+};
+
+export interface ActionOutput_woocommerce_deleteproductvariation {
+  id: number;
+  deleted: boolean;
+  previous?: {  [key: string]: unknown | undefined;};
+};
+
+export interface ActionInput_woocommerce_deleteproduct {
+  /**
+   * The ID of the product to delete. Example: 21
+   */
+  product_id: number;
+  /**
+   * If true, permanently delete the product. If false or omitted, the product is moved to trash. Default: false
+   */
+  force?: boolean | undefined;
+};
+
+export interface ActionOutput_woocommerce_deleteproduct {
+  id: number;
+  name?: string | undefined;
+  type?: string | undefined;
+  status?: string | undefined;
+  /**
+   * True if the product was permanently deleted, false if moved to trash
+   */
+  deleted: boolean;
+  message?: string | undefined;
+};
+
+export interface ActionInput_woocommerce_deleterefund {
+  /**
+   * The order ID. Example: 18
+   */
+  order_id: number;
+  /**
+   * The refund ID. Example: 23
+   */
+  refund_id: number;
+};
+
+export interface ActionOutput_woocommerce_deleterefund {
+  id: number;
+  order_id: number;
+  deleted: boolean;
+};
+
+export interface ActionInput_woocommerce_deletewebhook {
+  /**
+   * Webhook ID. Example: 1
+   */
+  id: number;
+};
+
+export interface ActionOutput_woocommerce_deletewebhook {
+  id: number;
+  name?: string | undefined;
+  status?: string | undefined;
+  deleted?: boolean | undefined;
+};
+
+export interface ActionInput_woocommerce_getcoupon {
+  /**
+   * Coupon ID. Example: 17
+   */
+  id: number;
+};
+
+export interface ActionOutput_woocommerce_getcoupon {
+  id: number;
+  code: string;
+  amount: string;
+  date_created: string;
+  date_created_gmt: string;
+  date_modified: string;
+  date_modified_gmt: string;
+  discount_type: string;
+  description?: string | undefined;
+  date_expires?: string | undefined;
+  date_expires_gmt?: string | undefined;
+  usage_count: number;
+  individual_use: boolean;
+  product_ids: number[];
+  excluded_product_ids: number[];
+  usage_limit?: number | undefined;
+  usage_limit_per_user?: number | undefined;
+  limit_usage_to_x_items?: number | undefined;
+  free_shipping: boolean;
+  product_categories: number[];
+  excluded_product_categories: number[];
+  exclude_sale_items: boolean;
+  minimum_amount: string;
+  maximum_amount: string;
+  email_restrictions: string[];
+  used_by: ({  0: number;
+  1: string;})[];
+  meta_data: ({  id: number;
+  key: string;
+  value: string;})[];
+  _links?: {  [key: string]: ({  href: string;})[];} | undefined;
+};
+
+export interface ActionInput_woocommerce_getcouponstotalsreport {
+};
+
+export interface ActionOutput_woocommerce_getcouponstotalsreport {
+  totals: ({  /**
+   * An alphanumeric identifier for the coupon type. Example: "percent"
+   */
+  slug: string;
+  /**
+   * Coupon type name. Example: "Percentage discount"
+   */
+  name: string;
+  /**
+   * Amount of coupons for this type.
+   */
+  total: number;})[];
+};
+
+export interface ActionInput_woocommerce_getcustomer {
+  /**
+   * Customer ID. Example: 2
+   */
+  id: number;
+};
+
+export interface ActionOutput_woocommerce_getcustomer {
+  id: number;
+  date_created?: string | undefined;
+  date_created_gmt?: string | undefined;
+  date_modified?: string | undefined;
+  date_modified_gmt?: string | undefined;
+  email: string;
+  first_name?: string | undefined;
+  last_name?: string | undefined;
+  role?: string | undefined;
+  username?: string | undefined;
+  billing?: {  first_name?: string | undefined;
+  last_name?: string | undefined;
+  company?: string | undefined;
+  address_1?: string | undefined;
+  address_2?: string | undefined;
+  city?: string | undefined;
+  state?: string | undefined;
+  postcode?: string | undefined;
+  country?: string | undefined;
+  email?: string | undefined;
+  phone?: string | undefined;};
+  shipping?: {  first_name?: string | undefined;
+  last_name?: string | undefined;
+  company?: string | undefined;
+  address_1?: string | undefined;
+  address_2?: string | undefined;
+  city?: string | undefined;
+  state?: string | undefined;
+  postcode?: string | undefined;
+  country?: string | undefined;};
+  is_paying_customer?: boolean | undefined;
+  avatar_url?: string | undefined;
+  meta_data?: ({  id?: number | undefined;
+  key?: string | undefined;
+  value?: unknown | undefined;})[];
+};
+
+export interface ActionInput_woocommerce_getcustomerstotalsreport {
+};
+
+export interface ActionOutput_woocommerce_getcustomerstotalsreport {
+  0: {  /**
+   * An alphanumeric identifier for the resource. Example: "paying"
+   */
+  slug: string;
+  /**
+   * Customer type name. Example: "Paying customer"
+   */
+  name: string;
+  /**
+   * Amount of customers. Example: 2
+   */
+  total: number;};
+};
+
+export interface ActionInput_woocommerce_getordernote {
+  /**
+   * Order ID. Example: 18
+   */
+  order_id: number;
+  /**
+   * Order note ID. Example: 2
+   */
+  id: number;
+};
+
+export interface ActionOutput_woocommerce_getordernote {
+  id: number;
+  author?: string | undefined;
+  date_created?: string | undefined;
+  date_created_gmt?: string | undefined;
+  note?: string | undefined;
+  customer_note?: boolean | undefined;
+  added_by_user?: boolean | undefined;
+};
+
+export interface ActionInput_woocommerce_getorder {
+  /**
+   * Order ID. Example: 18
+   */
+  id: number;
+};
+
+export interface ActionOutput_woocommerce_getorder {
+  id: number;
+  parent_id?: number | undefined;
+  number?: string | undefined;
+  order_key?: string | undefined;
+  created_via?: string | undefined;
+  version?: string | undefined;
+  status?: string | undefined;
+  currency?: string | undefined;
+  date_created?: string | undefined;
+  date_created_gmt?: string | undefined;
+  date_modified?: string | undefined;
+  date_modified_gmt?: string | undefined;
+  discount_total?: string | undefined;
+  discount_tax?: string | undefined;
+  shipping_total?: string | undefined;
+  shipping_tax?: string | undefined;
+  cart_tax?: string | undefined;
+  total?: string | undefined;
+  total_tax?: string | undefined;
+  prices_include_tax?: boolean | undefined;
+  customer_id?: number | undefined;
+  customer_ip_address?: string | undefined;
+  customer_user_agent?: string | undefined;
+  customer_note?: string | undefined;
+  billing?: {  first_name?: string | undefined;
+  last_name?: string | undefined;
+  company?: string | undefined;
+  address_1?: string | undefined;
+  address_2?: string | undefined;
+  city?: string | undefined;
+  state?: string | undefined;
+  postcode?: string | undefined;
+  country?: string | undefined;
+  email?: string | undefined;
+  phone?: string | undefined;};
+  shipping?: {  first_name?: string | undefined;
+  last_name?: string | undefined;
+  company?: string | undefined;
+  address_1?: string | undefined;
+  address_2?: string | undefined;
+  city?: string | undefined;
+  state?: string | undefined;
+  postcode?: string | undefined;
+  country?: string | undefined;
+  email?: string | undefined;
+  phone?: string | undefined;};
+  payment_method?: string | undefined;
+  payment_method_title?: string | undefined;
+  transaction_id?: string | undefined;
+  date_completed?: string | undefined;
+  date_completed_gmt?: string | undefined;
+  date_paid?: string | undefined;
+  date_paid_gmt?: string | undefined;
+  cart_hash?: string | undefined;
+  line_items?: ({  id: number;
+  name: string;
+  product_id: number;
+  variation_id?: number | undefined;
+  quantity: number;
+  tax_class?: string | undefined;
+  subtotal?: string | undefined;
+  subtotal_tax?: string | undefined;
+  total?: string | undefined;
+  total_tax?: string | undefined;
+  sku?: string | undefined;
+  price?: number | undefined;})[];
+  tax_lines?: unknown[] | undefined;
+  shipping_lines?: unknown[] | undefined;
+  fee_lines?: unknown[] | undefined;
+  coupon_lines?: unknown[] | undefined;
+  refunds?: unknown[] | undefined;
+};
+
+export interface ActionInput_woocommerce_getorderstotalsreport {
+};
+
+export interface ActionOutput_woocommerce_getorderstotalsreport {
+  0: {  /**
+   * Order status slug. Example: "pending", "processing", "completed"
+   */
+  slug: string;
+  /**
+   * Human-readable order status name. Example: "Pending payment"
+   */
+  name: string;
+  /**
+   * Number of orders with this status
+   */
+  total: number;};
+};
+
+export interface ActionInput_woocommerce_getproductcategory {
+  /**
+   * Product category ID. Example: 15
+   */
+  id: number;
+};
+
+export interface ActionOutput_woocommerce_getproductcategory {
+  id: number;
+  name: string;
+  slug?: string | undefined;
+  parent?: number | undefined;
+  description?: string | undefined;
+  display?: string | undefined;
+  image?: {  id: number;
+  date_created?: string | undefined;
+  date_created_gmt?: string | undefined;
+  date_modified?: string | undefined;
+  date_modified_gmt?: string | undefined;
+  src?: string | undefined;
+  name?: string | undefined;
+  alt?: string | undefined;};
+  menu_order?: number | undefined;
+  count?: number | undefined;
+};
+
+export interface ActionInput_woocommerce_getproductreview {
+  /**
+   * Unique identifier for the product review. Example: 3
+   */
+  id: number;
+};
+
+export interface ActionOutput_woocommerce_getproductreview {
+  id: number;
+  date_created?: string | undefined;
+  date_created_gmt?: string | undefined;
+  product_id?: number | undefined;
+  status?: string | undefined;
+  reviewer?: string | undefined;
+  reviewer_email?: string | undefined;
+  review?: string | undefined;
+  rating?: number | undefined;
+  verified?: boolean | undefined;
+  reviewer_avatar_urls?: {  [key: string]: string;} | undefined;
+  _links?: {  [key: string]: unknown | undefined;};
+};
+
+export interface ActionInput_woocommerce_getproducttag {
+  /**
+   * Product tag ID. Example: 19
+   */
+  id: number;
+};
+
+export interface ActionOutput_woocommerce_getproducttag {
+  id: number;
+  name: string;
+  slug?: string | undefined;
+  description?: string | undefined;
+  count?: number | undefined;
+};
+
+export interface ActionInput_woocommerce_getproductvariation {
+  /**
+   * The ID of the parent variable product. Example: 13
+   */
+  product_id: number;
+  /**
+   * The ID of the product variation to retrieve. Example: 16
+   */
+  variation_id: number;
+};
+
+export interface ActionOutput_woocommerce_getproductvariation {
+  id: number;
+  date_created?: string | undefined;
+  date_created_gmt?: string | undefined;
+  date_modified?: string | undefined;
+  date_modified_gmt?: string | undefined;
+  description?: string | undefined;
+  permalink?: string | undefined;
+  sku?: string | undefined;
+  price?: string | undefined;
+  regular_price?: string | undefined;
+  sale_price?: string | undefined;
+  date_on_sale_from?: string | undefined;
+  date_on_sale_from_gmt?: string | undefined;
+  date_on_sale_to?: string | undefined;
+  date_on_sale_to_gmt?: string | undefined;
+  on_sale?: boolean | undefined;
+  status?: 'draft' | 'pending' | 'private' | 'publish' | undefined;
+  purchasable?: boolean | undefined;
+  virtual?: boolean | undefined;
+  downloadable?: boolean | undefined;
+  downloads?: unknown[] | undefined;
+  download_limit?: number | undefined;
+  download_expiry?: number | undefined;
+  tax_status?: 'taxable' | 'shipping' | 'none' | undefined;
+  tax_class?: string | undefined;
+  manage_stock?: boolean | undefined;
+  stock_quantity?: number | undefined;
+  stock_status?: 'instock' | 'outofstock' | 'onbackorder' | undefined;
+  backorders?: 'no' | 'notify' | 'yes' | undefined;
+  backorders_allowed?: boolean | undefined;
+  backordered?: boolean | undefined;
+  weight?: string | undefined;
+  dimensions?: {  length?: string | undefined;
+  width?: string | undefined;
+  height?: string | undefined;};
+  shipping_class?: string | undefined;
+  shipping_class_id?: number | undefined;
+  image?: {  id?: number | undefined;
+  date_created?: string | undefined;
+  date_created_gmt?: string | undefined;
+  date_modified?: string | undefined;
+  date_modified_gmt?: string | undefined;
+  src?: string | undefined;
+  name?: string | undefined;
+  alt?: string | undefined;};
+  attributes?: ({  id?: number | undefined;
+  name?: string | undefined;
+  option?: string | undefined;})[];
+  menu_order?: number | undefined;
+  meta_data?: ({  id?: number | undefined;
+  key?: string | undefined;
+  value?: unknown | undefined;})[];
+};
+
+export interface ActionInput_woocommerce_getproduct {
+  /**
+   * The unique identifier for the product. Example: 13
+   */
+  id: number;
+};
+
+export interface ActionOutput_woocommerce_getproduct {
+  id: number;
+  name: string;
+  slug: string;
+  permalink: string;
+  date_created: string;
+  date_created_gmt: string;
+  date_modified: string;
+  date_modified_gmt: string;
+  type: string;
+  status: string;
+  featured: boolean;
+  catalog_visibility: string;
+  description: string;
+  short_description: string;
+  sku: string;
+  price: string;
+  regular_price: string;
+  sale_price?: string | undefined;
+  date_on_sale_from?: string | undefined;
+  date_on_sale_from_gmt?: string | undefined;
+  date_on_sale_to?: string | undefined;
+  date_on_sale_to_gmt?: string | undefined;
+  price_html: string;
+  on_sale: boolean;
+  purchasable: boolean;
+  total_sales: number;
+  virtual: boolean;
+  downloadable: boolean;
+  downloads?: unknown[] | undefined;
+  download_limit: number;
+  download_expiry: number;
+  external_url: string;
+  button_text: string;
+  tax_status: string;
+  tax_class: string;
+  manage_stock: boolean;
+  stock_quantity?: number | undefined;
+  stock_status: string;
+  backorders: string;
+  backorders_allowed: boolean;
+  backordered: boolean;
+  sold_individually: boolean;
+  weight: string;
+  dimensions?: {  length: string;
+  width: string;
+  height: string;} | undefined;
+  shipping_required: boolean;
+  shipping_taxable: boolean;
+  shipping_class: string;
+  shipping_class_id: number;
+  reviews_allowed: boolean;
+  average_rating: string;
+  rating_count: number;
+  related_ids?: number[] | undefined;
+  upsell_ids?: number[] | undefined;
+  cross_sell_ids?: number[] | undefined;
+  parent_id: number;
+  purchase_note: string;
+  categories?: ({  id: number;
+  name: string;
+  slug: string;})[] | undefined;
+  tags?: ({  id: number;
+  name: string;
+  slug: string;})[] | undefined;
+  images?: ({  id: number;
+  date_created: string;
+  date_created_gmt: string;
+  date_modified: string;
+  date_modified_gmt: string;
+  src: string;
+  name: string;
+  alt: string;})[] | undefined;
+  attributes?: ({  id: number;
+  name: string;
+  position: number;
+  visible: boolean;
+  variation: boolean;
+  options: string[];})[] | undefined;
+  default_attributes?: unknown[] | undefined;
+  variations?: number[] | undefined;
+  grouped_products?: number[] | undefined;
+  menu_order: number;
+  meta_data?: ({  id: number;
+  key: string;
+  value?: unknown | undefined;})[];
+};
+
+export interface ActionInput_woocommerce_getproductstotalsreport {
+};
+
+export interface ActionOutput_woocommerce_getproductstotalsreport {
+  0: {  slug: string;
+  name: string;
+  total: string;};
+};
+
+export interface ActionInput_woocommerce_getsalesreport {
+  /**
+   * Report period. Options: week, month, last_month, year
+   */
+  period?: string | undefined;
+  /**
+   * Start date in YYYY-MM-DD format
+   */
+  date_min?: string | undefined;
+  /**
+   * End date in YYYY-MM-DD format
+   */
+  date_max?: string | undefined;
+};
+
+export interface ActionOutput_woocommerce_getsalesreport {
+  0: {  total_sales: string;
+  net_sales: string;
+  average_sales: string;
+  total_orders: number;
+  total_items: number;
+  total_tax: string;
+  total_shipping: string;
+  total_refunds: number;
+  total_discount: string;
+  totals_grouped_by: string;
+  totals: {  [key: string]: {  sales: string;
+  orders: number;
+  items: number;
+  tax: string;
+  shipping: string;
+  discount: string;
+  customers: number;};};
+  total_customers: number;};
+};
+
+export interface ActionInput_woocommerce_gettopsellersreport {
+  /**
+   * Report period. Example: "week"
+   */
+  period?: 'week' | 'month' | 'last_month' | 'year' | undefined;
+  /**
+   * Start date in YYYY-MM-DD format. Example: "2024-01-01"
+   */
+  date_min?: string | undefined;
+  /**
+   * End date in YYYY-MM-DD format. Example: "2024-01-31"
+   */
+  date_max?: string | undefined;
+};
+
+export interface ActionOutput_woocommerce_gettopsellersreport {
+  0: {  title: string;
+  product_id: number;
+  quantity: number;};
+};
+
+export interface ActionInput_woocommerce_listcoupons {
+  /**
+   * Current page of the collection. Default: 1
+   */
+  page?: number | undefined;
+  /**
+   * Maximum number of items to be returned in result set. Default: 10
+   */
+  per_page?: number | undefined;
+  /**
+   * Limit results to those matching a string.
+   */
+  search?: string | undefined;
+  /**
+   * Limit response to resources published after a given ISO8601 compliant date.
+   */
+  after?: string | undefined;
+  /**
+   * Limit response to resources published before a given ISO8601 compliant date.
+   */
+  before?: string | undefined;
+  /**
+   * Ensure result set excludes specific IDs.
+   */
+  exclude?: number[] | undefined;
+  /**
+   * Limit result set to specific IDs.
+   */
+  include?: number[] | undefined;
+  /**
+   * Offset the result set by a specific number of items.
+   */
+  offset?: number | undefined;
+  /**
+   * Order sort attribute ascending or descending.
+   */
+  order?: 'asc' | 'desc' | undefined;
+  /**
+   * Sort collection by object attribute.
+   */
+  orderby?: 'id' | 'include' | 'name' | 'date' | 'modified' | 'code' | undefined;
+  /**
+   * Limit result set to resources with a specific code.
+   */
+  code?: string | undefined;
+};
+
+export interface ActionOutput_woocommerce_listcoupons {
+  /**
+   * List of coupons.
+   */
+  coupons: ({  /**
+   * Unique identifier for the coupon.
+   */
+  id: number;
+  /**
+   * Coupon code.
+   */
+  code: string;
+  /**
+   * The amount of discount.
+   */
+  amount?: string | undefined;
+  /**
+   * Determines the type of discount that will be applied.
+   */
+  discount_type?: 'percent' | 'fixed_cart' | 'fixed_product' | undefined;
+  /**
+   * Coupon description.
+   */
+  description?: string | undefined;
+  /**
+   * The date the coupon was created, in the sites timezone.
+   */
+  date_created?: string | undefined;
+  /**
+   * The date the coupon was created, as GMT.
+   */
+  date_created_gmt?: string | undefined;
+  /**
+   * The date the coupon was last modified, in the sites timezone.
+   */
+  date_modified?: string | undefined;
+  /**
+   * The date the coupon was last modified, as GMT.
+   */
+  date_modified_gmt?: string | undefined;
+  /**
+   * The date the coupon expires.
+   */
+  date_expires?: string | undefined;
+  /**
+   * The date the coupon expires, as GMT.
+   */
+  date_expires_gmt?: string | undefined;
+  /**
+   * Number of times the coupon has been used already.
+   */
+  usage_count?: number | undefined;
+  /**
+   * Whether the coupon is for individual use only.
+   */
+  individual_use?: boolean | undefined;
+  /**
+   * List of product IDs the coupon can be applied to.
+   */
+  product_ids?: number[] | undefined;
+  /**
+   * List of product IDs the coupon cannot be applied to.
+   */
+  excluded_product_ids?: number[] | undefined;
+  /**
+   * How many times the coupon can be used.
+   */
+  usage_limit?: number | undefined;
+  /**
+   * How many times the coupon can be used per customer.
+   */
+  usage_limit_per_user?: number | undefined;
+  /**
+   * Max number of items in the cart the coupon can be applied to.
+   */
+  limit_usage_to_x_items?: number | undefined;
+  /**
+   * Whether the coupon grants free shipping.
+   */
+  free_shipping?: boolean | undefined;
+  /**
+   * List of category IDs the coupon applies to.
+   */
+  product_categories?: number[] | undefined;
+  /**
+   * List of category IDs the coupon does not apply to.
+   */
+  excluded_product_categories?: number[] | undefined;
+  /**
+   * Whether the coupon excludes sale items.
+   */
+  exclude_sale_items?: boolean | undefined;
+  /**
+   * Minimum order amount that needs to be in the cart before coupon applies.
+   */
+  minimum_amount?: string | undefined;
+  /**
+   * Maximum order amount allowed when using the coupon.
+   */
+  maximum_amount?: string | undefined;
+  /**
+   * List of email addresses that can use this coupon.
+   */
+  email_restrictions?: string[] | undefined;
+  /**
+   * List of user IDs who have used the coupon.
+   */
+  used_by?: string[] | undefined;})[];
+  /**
+   * Total number of pages.
+   */
+  total_pages?: number | undefined;
+  /**
+   * Total number of coupons.
+   */
+  total?: number | undefined;
+};
+
+export interface ActionInput_woocommerce_listcustomers {
+  /**
+   * Pagination cursor (page number). Omit for the first page.
+   */
+  cursor?: string | undefined;
+  /**
+   * Number of items per page. Default: 10.
+   */
+  per_page?: number | undefined;
+  /**
+   * Search by customer name or email.
+   */
+  search?: string | undefined;
+  /**
+   * Filter by customer role (customer, subscriber, etc.).
+   */
+  role?: string | undefined;
+  /**
+   * Sort by field (id, name, registered_date, etc.).
+   */
+  orderby?: string | undefined;
+  /**
+   * Sort order.
+   */
+  order?: 'asc' | 'desc' | undefined;
+  /**
+   * Filter by email address.
+   */
+  email?: string | undefined;
+};
+
+export interface ActionOutput_woocommerce_listcustomers {
+  customers: ({  id: number;
+  email: string;
+  first_name: string;
+  last_name: string;
+  role: string;
+  username: string;
+  billing?: {  [key: string]: unknown | undefined;};
+  shipping?: {  [key: string]: unknown | undefined;};
+  is_paying_customer?: boolean | undefined;
+  avatar_url?: string | undefined;
+  date_created?: string | undefined;
+  date_modified?: string | undefined;})[];
+  next_cursor?: string | undefined;
+};
+
+export interface ActionInput_woocommerce_listordernotes {
+  /**
+   * WooCommerce order ID. Example: 18
+   */
+  order_id: number;
+  /**
+   * Limit result to customers or internal notes. Default is any.
+   */
+  type?: 'any' | 'customer' | 'internal' | undefined;
+  /**
+   * Scope under which the request is made. Default is view.
+   */
+  context?: 'view' | 'edit' | undefined;
+};
+
+export interface ActionOutput_woocommerce_listordernotes {
+  items: ({  id: number;
+  author?: string | undefined;
+  date_created?: string | undefined;
+  date_created_gmt?: string | undefined;
+  note?: string | undefined;
+  customer_note?: boolean | undefined;
+  added_by_user?: boolean | undefined;})[];
+};
+
+export interface ActionInput_woocommerce_listorders {
+  /**
+   * Current page of the collection. Default: 1
+   */
+  page?: number | undefined;
+  /**
+   * Maximum number of items to be returned. Default: 10
+   */
+  per_page?: number | undefined;
+  /**
+   * Limit results to those matching a string
+   */
+  search?: string | undefined;
+  /**
+   * Limit results to orders with a specific status. Default: any
+   */
+  status?: 'any' | 'pending' | 'processing' | 'on-hold' | 'completed' | 'cancelled' | 'refunded' | 'failed' | 'trash' | undefined;
+  /**
+   * Limit results to orders assigned a specific customer ID
+   */
+  customer?: number | undefined;
+  /**
+   * Limit results to orders assigned a specific product ID
+   */
+  product?: number | undefined;
+  /**
+   * Limit response to resources published after a given ISO8601 compliant date
+   */
+  after?: string | undefined;
+  /**
+   * Limit response to resources published before a given ISO8601 compliant date
+   */
+  before?: string | undefined;
+  /**
+   * Limit response to resources modified after a given ISO8601 compliant date
+   */
+  modified_after?: string | undefined;
+  /**
+   * Limit response to resources modified before a given ISO8601 compliant date
+   */
+  modified_before?: string | undefined;
+  /**
+   * Whether to interpret dates as GMT when limiting response by date
+   */
+  dates_are_gmt?: boolean | undefined;
+  /**
+   * Order sort attribute. Default: desc
+   */
+  order?: 'asc' | 'desc' | undefined;
+  /**
+   * Sort collection by object attribute. Default: date
+   */
+  orderby?: 'date' | 'modified' | 'id' | 'include' | 'title' | 'slug' | undefined;
+};
+
+export interface ActionOutput_woocommerce_listorders {
+  orders: ({  id: number;
+  parent_id?: number | undefined;
+  number?: string | undefined;
+  order_key?: string | undefined;
+  created_via?: string | undefined;
+  version?: string | undefined;
+  status?: string | undefined;
+  currency?: string | undefined;
+  date_created?: string | undefined;
+  date_created_gmt?: string | undefined;
+  date_modified?: string | undefined;
+  date_modified_gmt?: string | undefined;
+  discount_total?: string | undefined;
+  discount_tax?: string | undefined;
+  shipping_total?: string | undefined;
+  shipping_tax?: string | undefined;
+  cart_tax?: string | undefined;
+  total?: string | undefined;
+  total_tax?: string | undefined;
+  prices_include_tax?: boolean | undefined;
+  customer_id?: number | undefined;
+  customer_ip_address?: string | undefined;
+  customer_user_agent?: string | undefined;
+  customer_note?: string | undefined;
+  billing?: {  first_name?: string | undefined;
+  last_name?: string | undefined;
+  company?: string | undefined;
+  address_1?: string | undefined;
+  address_2?: string | undefined;
+  city?: string | undefined;
+  state?: string | undefined;
+  postcode?: string | undefined;
+  country?: string | undefined;
+  email?: string | undefined;
+  phone?: string | undefined;};
+  shipping?: {  first_name?: string | undefined;
+  last_name?: string | undefined;
+  company?: string | undefined;
+  address_1?: string | undefined;
+  address_2?: string | undefined;
+  city?: string | undefined;
+  state?: string | undefined;
+  postcode?: string | undefined;
+  country?: string | undefined;};
+  payment_method?: string | undefined;
+  payment_method_title?: string | undefined;
+  transaction_id?: string | undefined;
+  date_paid?: string | undefined;
+  date_paid_gmt?: string | undefined;
+  date_completed?: string | undefined;
+  date_completed_gmt?: string | undefined;
+  cart_hash?: string | undefined;
+  line_items?: ({  id: number;
+  name?: string | undefined;
+  product_id?: number | undefined;
+  variation_id?: number | undefined;
+  quantity?: number | undefined;
+  tax_class?: string | undefined;
+  subtotal?: string | undefined;
+  subtotal_tax?: string | undefined;
+  total?: string | undefined;
+  total_tax?: string | undefined;
+  sku?: string | undefined;
+  price?: number | undefined;})[];})[];
+  total_pages?: number | undefined;
+  total_count?: number | undefined;
+};
+
+export interface ActionInput_woocommerce_listproductcategories {
+  /**
+   * Pagination cursor (page number). Omit for the first page.
+   */
+  cursor?: string | undefined;
+  /**
+   * Maximum number of items to return. Default is 10.
+   */
+  per_page?: number | undefined;
+  /**
+   * Order sort attribute ascending or descending. Default is asc.
+   */
+  order?: 'asc' | 'desc' | undefined;
+  /**
+   * Sort collection by resource attribute. Default is name.
+   */
+  orderby?: 'id' | 'include' | 'name' | 'slug' | 'term_group' | 'description' | 'count' | undefined;
+  /**
+   * Whether to hide resources not assigned to any products. Default is false.
+   */
+  hide_empty?: boolean | undefined;
+  /**
+   * Limit result set to resources assigned to a specific parent ID.
+   */
+  parent?: number | undefined;
+  /**
+   * Limit result set to resources assigned to a specific product ID.
+   */
+  product?: number | undefined;
+  /**
+   * Limit result set to resources with a specific slug.
+   */
+  slug?: string | undefined;
+  /**
+   * Limit results to those matching a string.
+   */
+  search?: string | undefined;
+};
+
+export interface ActionOutput_woocommerce_listproductcategories {
+  categories: ({  id: number;
+  name: string;
+  slug: string;
+  parent: number;
+  description: string;
+  display: string;
+  image?: unknown[] | {  id?: number | undefined;
+  date_created?: string | undefined;
+  date_created_gmt?: string | undefined;
+  date_modified?: string | undefined;
+  date_modified_gmt?: string | undefined;
+  src?: string | undefined;
+  name?: string | undefined;
+  alt?: string | undefined;};
+  menu_order: number;
+  count: number;})[];
+  /**
+   * Cursor to fetch the next page. Omit if there are no more pages.
+   */
+  next_cursor?: string | undefined;
+};
+
+export interface ActionInput_woocommerce_listproductreviews {
+  /**
+   * Pagination cursor (page number). Omit for the first page.
+   */
+  cursor?: string | undefined;
+  /**
+   * Maximum number of items to be returned in result set. Default is 10.
+   */
+  per_page?: number | undefined;
+  /**
+   * Limit results to those matching a string.
+   */
+  search?: string | undefined;
+  /**
+   * Limit response to reviews published after a given ISO8601 compliant date.
+   */
+  after?: string | undefined;
+  /**
+   * Limit response to reviews published before a given ISO8601 compliant date.
+   */
+  before?: string | undefined;
+  /**
+   * Interpret after and before as UTC dates when true.
+   */
+  dates_are_gmt?: boolean | undefined;
+  /**
+   * Ensure result set excludes specific IDs.
+   */
+  exclude?: number[] | undefined;
+  /**
+   * Limit result set to specific IDs.
+   */
+  include?: number[] | undefined;
+  /**
+   * Offset the result set by a specific number of items.
+   */
+  offset?: number | undefined;
+  /**
+   * Order sort attribute ascending or descending. Default is desc.
+   */
+  order?: 'asc' | 'desc' | undefined;
+  /**
+   * Sort collection by resource attribute. Default is date_gmt.
+   */
+  orderby?: 'date' | 'date_gmt' | 'id' | 'slug' | 'include' | 'product' | undefined;
+  /**
+   * Limit result set to reviews assigned to specific user IDs.
+   */
+  reviewer?: number[] | undefined;
+  /**
+   * Ensure result set excludes reviews assigned to specific user IDs.
+   */
+  reviewer_exclude?: number[] | undefined;
+  /**
+   * Limit result set to that from a specific author email.
+   */
+  reviewer_email?: string[] | undefined;
+  /**
+   * Limit result set to reviews assigned to specific product IDs.
+   */
+  product?: number[] | undefined;
+  /**
+   * Limit result set to reviews assigned a specific status. Default is approved.
+   */
+  status?: 'all' | 'hold' | 'approved' | 'spam' | 'trash' | undefined;
+};
+
+export interface ActionOutput_woocommerce_listproductreviews {
+  items: ({  id: number;
+  date_created?: string | undefined;
+  date_created_gmt?: string | undefined;
+  product_id?: number | undefined;
+  status?: string | undefined;
+  reviewer?: string | undefined;
+  reviewer_email?: string | undefined;
+  review?: string | undefined;
+  rating?: number | undefined;
+  verified?: boolean | undefined;
+  reviewer_avatar_urls?: {  [key: string]: string;} | undefined;})[];
+  next_cursor?: string | undefined;
+};
+
+export interface ActionInput_woocommerce_listproductvariations {
+  /**
+   * Product ID. Example: 13
+   */
+  product_id: number;
+  /**
+   * Pagination cursor (page number) from the previous response. Omit for the first page.
+   */
+  cursor?: string | undefined;
+  /**
+   * Maximum number of items to be returned in result set. Default is 10.
+   */
+  per_page?: number | undefined;
+  /**
+   * Scope under which the request is made; determines fields present in response. Options: view, edit.
+   */
+  context?: string | undefined;
+  /**
+   * Limit results to those matching a string.
+   */
+  search?: string | undefined;
+  /**
+   * Limit response to resources published after a given ISO8601 compliant date.
+   */
+  after?: string | undefined;
+  /**
+   * Limit response to resources published before a given ISO8601 compliant date.
+   */
+  before?: string | undefined;
+  /**
+   * Interpret after and before as UTC dates when true.
+   */
+  dates_are_gmt?: boolean | undefined;
+  /**
+   * Ensure result set excludes specific IDs.
+   */
+  exclude?: number[] | undefined;
+  /**
+   * Limit result set to specific ids.
+   */
+  include?: number[] | undefined;
+  /**
+   * Offset the result set by a specific number of items.
+   */
+  offset?: number | undefined;
+  /**
+   * Order sort attribute ascending or descending. Options: asc, desc.
+   */
+  order?: string | undefined;
+  /**
+   * Sort collection by object attribute. Options: date, modified, id, include, title, slug.
+   */
+  orderby?: string | undefined;
+  /**
+   * Limit result set to those of particular parent IDs.
+   */
+  parent?: number[] | undefined;
+  /**
+   * Limit result set to all items except those of a particular parent ID.
+   */
+  parent_exclude?: number[] | undefined;
+  /**
+   * Limit result set to products with a specific slug.
+   */
+  slug?: string | undefined;
+  /**
+   * Limit result set to products assigned a specific status. Options: any, draft, pending, private, publish.
+   */
+  status?: string | undefined;
+  /**
+   * Limit result set to product variations with any of the specified statuses.
+   */
+  include_status?: string | undefined;
+  /**
+   * Exclude product variations from result set with any of the specified statuses.
+   */
+  exclude_status?: string | undefined;
+  /**
+   * Limit result set to products with a specific SKU.
+   */
+  sku?: string | undefined;
+  /**
+   * Limit result set to products with a specific tax class.
+   */
+  tax_class?: string | undefined;
+  /**
+   * Limit result set to products on sale.
+   */
+  on_sale?: boolean | undefined;
+  /**
+   * Limit result set to products based on a minimum price.
+   */
+  min_price?: string | undefined;
+  /**
+   * Limit result set to products based on a maximum price.
+   */
+  max_price?: string | undefined;
+  /**
+   * Limit result set to products with specified stock status. Options: instock, outofstock, onbackorder.
+   */
+  stock_status?: string | undefined;
+  /**
+   * Limit result set to virtual product variations.
+   */
+  virtual?: boolean | undefined;
+  /**
+   * Limit result set to downloadable product variations.
+   */
+  downloadable?: boolean | undefined;
+};
+
+export interface ActionOutput_woocommerce_listproductvariations {
+  items: ({  id: number;
+  date_created?: string | undefined;
+  date_created_gmt?: string | undefined;
+  date_modified?: string | undefined;
+  date_modified_gmt?: string | undefined;
+  description?: string | undefined;
+  permalink?: string | undefined;
+  sku?: string | undefined;
+  price?: string | undefined;
+  regular_price?: string | undefined;
+  sale_price?: string | undefined;
+  date_on_sale_from?: string | undefined;
+  date_on_sale_from_gmt?: string | undefined;
+  date_on_sale_to?: string | undefined;
+  date_on_sale_to_gmt?: string | undefined;
+  on_sale?: boolean | undefined;
+  status?: string | undefined;
+  purchasable?: boolean | undefined;
+  virtual?: boolean | undefined;
+  downloadable?: boolean | undefined;
+  downloads?: unknown[] | undefined;
+  download_limit?: number | undefined;
+  download_expiry?: number | undefined;
+  tax_status?: string | undefined;
+  tax_class?: string | undefined;
+  manage_stock?: boolean | undefined;
+  stock_quantity?: number | undefined;
+  stock_status?: string | undefined;
+  backorders?: string | undefined;
+  backorders_allowed?: boolean | undefined;
+  backordered?: boolean | undefined;
+  weight?: string | undefined;
+  dimensions?: {  length?: string | undefined;
+  width?: string | undefined;
+  height?: string | undefined;};
+  shipping_class?: string | undefined;
+  shipping_class_id?: number | undefined;
+  image?: {  id?: number | undefined;
+  date_created?: string | undefined;
+  date_created_gmt?: string | undefined;
+  date_modified?: string | undefined;
+  date_modified_gmt?: string | undefined;
+  src?: string | undefined;
+  name?: string | undefined;
+  alt?: string | undefined;};
+  attributes?: ({  id?: number | undefined;
+  name?: string | undefined;
+  option?: string | undefined;})[];
+  menu_order?: number | undefined;
+  meta_data?: unknown[] | undefined;
+  _links?: unknown | undefined;})[];
+  next_cursor?: string | undefined;
+};
+
+export interface ActionInput_woocommerce_listproducts {
+  /**
+   * Pagination cursor (page number) from the previous response. Omit for the first page.
+   */
+  cursor?: string | undefined;
+  /**
+   * Maximum number of items to be returned. Default is 10.
+   */
+  per_page?: number | undefined;
+  /**
+   * Limit results to those matching a string.
+   */
+  search?: string | undefined;
+  /**
+   * Product status. Options: any, draft, pending, private, publish. Default is any.
+   */
+  status?: string | undefined;
+  /**
+   * Product type. Options: simple, grouped, external, variable.
+   */
+  type?: string | undefined;
+  /**
+   * Limit result set to products assigned a specific category ID.
+   */
+  category?: string | undefined;
+  /**
+   * Limit result set to products assigned a specific tag ID.
+   */
+  tag?: string | undefined;
+  /**
+   * Limit result set to products with a specific SKU.
+   */
+  sku?: string | undefined;
+  /**
+   * Limit result set to products based on a minimum price.
+   */
+  min_price?: string | undefined;
+  /**
+   * Limit result set to products based on a maximum price.
+   */
+  max_price?: string | undefined;
+  /**
+   * Sort collection by object attribute. Options: date, modified, id, include, title, slug, price, popularity, rating, menu_order. Default is date.
+   */
+  orderby?: string | undefined;
+  /**
+   * Order sort attribute ascending or descending. Options: asc, desc. Default is desc.
+   */
+  order?: string | undefined;
+  /**
+   * Limit result set to products with specified stock status. Options: instock, outofstock, onbackorder.
+   */
+  stock_status?: string | undefined;
+  /**
+   * Limit result set to featured products.
+   */
+  featured?: boolean | undefined;
+};
+
+export interface ActionOutput_woocommerce_listproducts {
+  items: ({  id: number;
+  name: string;
+  slug?: string | undefined;
+  permalink?: string | undefined;
+  date_created?: string | undefined;
+  date_modified?: string | undefined;
+  type?: string | undefined;
+  status?: string | undefined;
+  featured?: boolean | undefined;
+  catalog_visibility?: string | undefined;
+  description?: string | undefined;
+  short_description?: string | undefined;
+  sku?: string | undefined;
+  price?: string | undefined;
+  regular_price?: string | undefined;
+  sale_price?: string | undefined;
+  date_on_sale_from?: string | undefined;
+  date_on_sale_to?: string | undefined;
+  on_sale?: boolean | undefined;
+  purchasable?: boolean | undefined;
+  total_sales?: number | undefined;
+  virtual?: boolean | undefined;
+  downloadable?: boolean | undefined;
+  downloads?: ({  [key: string]: unknown | undefined;})[];
+  external_url?: string | undefined;
+  button_text?: string | undefined;
+  tax_status?: string | undefined;
+  tax_class?: string | undefined;
+  manage_stock?: boolean | undefined;
+  stock_quantity?: number | undefined;
+  stock_status?: string | undefined;
+  backorders?: string | undefined;
+  backorders_allowed?: boolean | undefined;
+  backordered?: boolean | undefined;
+  sold_individually?: boolean | undefined;
+  weight?: string | undefined;
+  dimensions?: {  [key: string]: unknown | undefined;};
+  shipping_required?: boolean | undefined;
+  shipping_taxable?: boolean | undefined;
+  shipping_class?: string | undefined;
+  shipping_class_id?: number | undefined;
+  reviews_allowed?: boolean | undefined;
+  average_rating?: string | undefined;
+  rating_count?: number | undefined;
+  related_ids?: number[] | undefined;
+  upsell_ids?: number[] | undefined;
+  cross_sell_ids?: number[] | undefined;
+  parent_id?: number | undefined;
+  purchase_note?: string | undefined;
+  categories?: ({  [key: string]: unknown | undefined;})[];
+  tags?: ({  [key: string]: unknown | undefined;})[];
+  images?: ({  [key: string]: unknown | undefined;})[];
+  attributes?: ({  [key: string]: unknown | undefined;})[];
+  default_attributes?: ({  [key: string]: unknown | undefined;})[];
+  variations?: number[] | undefined;
+  grouped_products?: number[] | undefined;
+  menu_order?: number | undefined;
+  meta_data?: ({  [key: string]: unknown | undefined;})[];})[];
+  next_cursor?: string | undefined;
+};
+
+export interface ActionInput_woocommerce_listrefunds {
+  /**
+   * Order ID to list refunds for. Example: 18
+   */
+  orderId: number;
+  /**
+   * Page number for pagination. Starts at 1.
+   */
+  page?: number | undefined;
+  /**
+   * Number of refunds per page. Maximum 100.
+   */
+  perPage?: number | undefined;
+};
+
+export interface ActionOutput_woocommerce_listrefunds {
+  refunds: ({  id: number;
+  date_created?: string | undefined;
+  date_created_gmt?: string | undefined;
+  amount?: string | undefined;
+  reason?: string | undefined;
+  refunded_by?: number | undefined;
+  refunded_payment?: boolean | undefined;
+  meta_data?: ({  [key: string]: unknown | undefined;})[];
+  line_items?: ({  id: number;
+  name?: string | undefined;
+  product_id?: number | undefined;
+  variation_id?: number | undefined;
+  quantity?: number | undefined;
+  subtotal?: string | undefined;
+  subtotal_tax?: string | undefined;
+  total?: string | undefined;
+  total_tax?: string | undefined;
+  sku?: string | undefined;
+  price?: number | undefined;})[];
+  api_refund?: boolean | undefined;})[];
+  totalPages?: number | undefined;
+  totalItems?: number | undefined;
+  currentPage?: number | undefined;
+};
+
+export interface ActionInput_woocommerce_listreports {
+};
+
+export interface ActionOutput_woocommerce_listreports {
+  items: ({  slug: string;
+  description: string;
+  _links?: {  self: ({  href: string;})[];
+  collection: ({  href: string;})[];} | undefined;})[];
+};
+
+export interface ActionInput_woocommerce_listwebhooks {
+  /**
+   * Pagination cursor (page number). Omit for the first page.
+   */
+  cursor?: string | undefined;
+  /**
+   * Maximum number of items to return per page. Default is 10.
+   */
+  per_page?: number | undefined;
+  /**
+   * Limit results to webhooks with a specific status. Options: all, active, paused, disabled.
+   */
+  status?: string | undefined;
+  /**
+   * Limit results to those matching a string.
+   */
+  search?: string | undefined;
+  /**
+   * Limit response to resources published after a given ISO8601 compliant date.
+   */
+  after?: string | undefined;
+  /**
+   * Limit response to resources published before a given ISO8601 compliant date.
+   */
+  before?: string | undefined;
+  /**
+   * Order sort attribute ascending or descending. Options: asc, desc.
+   */
+  order?: string | undefined;
+  /**
+   * Sort collection by object attribute. Options: date, id, include, title, slug.
+   */
+  orderby?: string | undefined;
+};
+
+export interface ActionOutput_woocommerce_listwebhooks {
+  items: ({  id: number;
+  name: string;
+  status: string;
+  topic: string;
+  resource: string;
+  event: string;
+  hooks: string[];
+  delivery_url: string;
+  secret?: string | undefined;
+  date_created?: string | undefined;
+  date_created_gmt?: string | undefined;
+  date_modified?: string | undefined;
+  date_modified_gmt?: string | undefined;})[];
+  next_cursor?: string | undefined;
+};
+
+export interface ActionInput_woocommerce_updatecustomer {
+  /**
+   * Unique identifier for the customer. Example: 2
+   */
+  id: number;
+  email?: string | undefined;
+  first_name?: string | undefined;
+  last_name?: string | undefined;
+  username?: string | undefined;
+  password?: string | undefined;
+  billing?: {  first_name?: string | undefined;
+  last_name?: string | undefined;
+  company?: string | undefined;
+  address_1?: string | undefined;
+  address_2?: string | undefined;
+  city?: string | undefined;
+  state?: string | undefined;
+  postcode?: string | undefined;
+  country?: string | undefined;
+  email?: string | undefined;
+  phone?: string | undefined;};
+  shipping?: {  first_name?: string | undefined;
+  last_name?: string | undefined;
+  company?: string | undefined;
+  address_1?: string | undefined;
+  address_2?: string | undefined;
+  city?: string | undefined;
+  state?: string | undefined;
+  postcode?: string | undefined;
+  country?: string | undefined;};
+  meta_data?: ({  id?: number | undefined;
+  key?: string | undefined;
+  value?: unknown | undefined;})[];
+};
+
+export interface ActionOutput_woocommerce_updatecustomer {
+  id: number;
+  email: string;
+  first_name?: string | undefined;
+  last_name?: string | undefined;
+  username?: string | undefined;
+  billing?: {  first_name?: string | undefined;
+  last_name?: string | undefined;
+  company?: string | undefined;
+  address_1?: string | undefined;
+  address_2?: string | undefined;
+  city?: string | undefined;
+  state?: string | undefined;
+  postcode?: string | undefined;
+  country?: string | undefined;
+  email?: string | undefined;
+  phone?: string | undefined;};
+  shipping?: {  first_name?: string | undefined;
+  last_name?: string | undefined;
+  company?: string | undefined;
+  address_1?: string | undefined;
+  address_2?: string | undefined;
+  city?: string | undefined;
+  state?: string | undefined;
+  postcode?: string | undefined;
+  country?: string | undefined;};
+  avatar_url?: string | undefined;
+  is_paying_customer?: boolean | undefined;
+  date_created?: string | undefined;
+  date_created_gmt?: string | undefined;
+  date_modified?: string | undefined;
+  date_modified_gmt?: string | undefined;
+  role?: string | undefined;
+  meta_data?: ({  id?: number | undefined;
+  key?: string | undefined;
+  value?: unknown | undefined;})[];
+};
+
+export interface ActionInput_woocommerce_updateproductcategory {
+  /**
+   * Unique identifier for the product category. Example: 16
+   */
+  id: number;
+  /**
+   * Category name.
+   */
+  name?: string | undefined;
+  /**
+   * An alphanumeric identifier for the resource unique to its type.
+   */
+  slug?: string | undefined;
+  /**
+   * The ID for the parent of the resource.
+   */
+  parent?: number | undefined;
+  /**
+   * HTML description of the resource.
+   */
+  description?: string | undefined;
+  /**
+   * Category archive display type. Options: default, products, subcategories and both. Default is default.
+   */
+  display?: string | undefined;
+  /**
+   * Image data.
+   */
+  image?: {  /**
+   * Image ID.
+   */
+  id?: number | undefined;};
+  /**
+   * Menu order, used to custom sort the resource.
+   */
+  menu_order?: number | undefined;
+};
+
+export interface ActionOutput_woocommerce_updateproductcategory {
+  id: number;
+  name: string;
+  slug?: string | undefined;
+  parent?: number | undefined;
+  description?: string | undefined;
+  display?: string | undefined;
+  image?: {  id?: number | undefined;
+  date_created?: string | undefined;
+  date_created_gmt?: string | undefined;
+  date_modified?: string | undefined;
+  date_modified_gmt?: string | undefined;
+  src?: string | undefined;
+  name?: string | undefined;
+  alt?: string | undefined;};
+  menu_order?: number | undefined;
+  count?: number | undefined;
+};
+
+export interface ActionInput_woocommerce_updateproductreview {
+  /**
+   * Unique identifier for the product review. Example: 3
+   */
+  id: number;
+  /**
+   * Unique identifier for the product the review belongs to.
+   */
+  product_id?: number | undefined;
+  /**
+   * The content of the review.
+   */
+  review?: string | undefined;
+  /**
+   * Reviewer name.
+   */
+  reviewer?: string | undefined;
+  /**
+   * Reviewer email.
+   */
+  reviewer_email?: string | undefined;
+  /**
+   * Review rating (0-5).
+   */
+  rating?: number | undefined;
+  /**
+   * Whether the reviewer is a verified customer.
+   */
+  verified?: boolean | undefined;
+  /**
+   * Status of the review.
+   */
+  status?: 'approved' | 'hold' | 'spam' | 'unspam' | 'trash' | 'untrash' | undefined;
+};
+
+export interface ActionOutput_woocommerce_updateproductreview {
+  /**
+   * Unique identifier for the product review.
+   */
+  id: number;
+  /**
+   * Unique identifier for the product the review belongs to.
+   */
+  product_id: number;
+  /**
+   * Product name.
+   */
+  product_name?: string | undefined;
+  /**
+   * The content of the review.
+   */
+  review?: string | undefined;
+  /**
+   * Reviewer name.
+   */
+  reviewer?: string | undefined;
+  /**
+   * Reviewer email.
+   */
+  reviewer_email?: string | undefined;
+  /**
+   * Review rating (0-5).
+   */
+  rating?: number | undefined;
+  /**
+   * Whether the reviewer is a verified customer.
+   */
+  verified?: boolean | undefined;
+  /**
+   * Status of the review.
+   */
+  status?: string | undefined;
+  /**
+   * The date the review was created, in the site timezone.
+   */
+  date_created?: string | undefined;
+  /**
+   * The date the review was created, as GMT.
+   */
+  date_created_gmt?: string | undefined;
+};
+
+export interface ActionInput_woocommerce_updateproducttag {
+  /**
+   * Unique identifier for the product tag. Example: 19
+   */
+  id: number;
+  /**
+   * Tag name.
+   */
+  name?: string | undefined;
+  /**
+   * Tag slug.
+   */
+  slug?: string | undefined;
+  /**
+   * Tag description.
+   */
+  description?: string | undefined;
+};
+
+export interface ActionOutput_woocommerce_updateproducttag {
+  id: number;
+  name?: string | undefined;
+  slug?: string | undefined;
+  description?: string | undefined;
+  count?: number | undefined;
+};
+
+export interface ActionInput_woocommerce_updateproductvariation {
+  /**
+   * Parent product ID. Example: 13
+   */
+  product_id: number;
+  /**
+   * Product variation ID. Example: 16
+   */
+  variation_id: number;
+  /**
+   * Variation regular price.
+   */
+  regular_price?: string | undefined;
+  /**
+   * Variation sale price.
+   */
+  sale_price?: string | undefined;
+  /**
+   * Stock quantity.
+   */
+  stock_quantity?: number | undefined;
+  /**
+   * Stock status. Options: instock, outofstock, onbackorder.
+   */
+  stock_status?: string | undefined;
+  /**
+   * Variation weight.
+   */
+  weight?: string | undefined;
+  /**
+   * Variation description.
+   */
+  description?: string | undefined;
+  /**
+   * Unique identifier.
+   */
+  sku?: string | undefined;
+  /**
+   * Stock management at variation level.
+   */
+  manage_stock?: boolean | undefined;
+  /**
+   * Tax status. Options: taxable, shipping, none.
+   */
+  tax_status?: string | undefined;
+  /**
+   * Tax class.
+   */
+  tax_class?: string | undefined;
+  /**
+   * Variation status. Options: draft, pending, private, publish.
+   */
+  status?: string | undefined;
+  /**
+   * Menu order.
+   */
+  menu_order?: number | undefined;
+};
+
+export interface ActionOutput_woocommerce_updateproductvariation {
+  id: number;
+  sku?: string | undefined;
+  price?: string | undefined;
+  regular_price?: string | undefined;
+  sale_price?: string | undefined;
+  stock_quantity?: number | undefined;
+  stock_status?: string | undefined;
+  status?: string | undefined;
+  weight?: string | undefined;
+  description?: string | undefined;
+};
+
+export interface ActionInput_woocommerce_updateproduct {
+  /**
+   * Product ID. Example: 13
+   */
+  id: number;
+  /**
+   * Product name
+   */
+  name?: string | undefined;
+  /**
+   * Product slug
+   */
+  slug?: string | undefined;
+  /**
+   * Product type
+   */
+  type?: 'simple' | 'grouped' | 'external' | 'variable' | undefined;
+  /**
+   * Product status
+   */
+  status?: 'draft' | 'pending' | 'private' | 'publish' | undefined;
+  /**
+   * Whether the product is featured
+   */
+  featured?: boolean | undefined;
+  /**
+   * Catalog visibility
+   */
+  catalog_visibility?: 'visible' | 'catalog' | 'search' | 'hidden' | undefined;
+  /**
+   * Product description
+   */
+  description?: string | undefined;
+  /**
+   * Product short description
+   */
+  short_description?: string | undefined;
+  /**
+   * SKU
+   */
+  sku?: string | undefined;
+  /**
+   * Regular price
+   */
+  regular_price?: string | undefined;
+  /**
+   * Sale price
+   */
+  sale_price?: string | undefined;
+  /**
+   * Start date of sale price
+   */
+  date_on_sale_from?: string | undefined;
+  /**
+   * End date of sale price
+   */
+  date_on_sale_to?: string | undefined;
+  /**
+   * Whether the product is virtual
+   */
+  virtual?: boolean | undefined;
+  /**
+   * Whether the product is downloadable
+   */
+  downloadable?: boolean | undefined;
+  /**
+   * Download limit
+   */
+  download_limit?: number | undefined;
+  /**
+   * Download expiry days
+   */
+  download_expiry?: number | undefined;
+  /**
+   * External URL for external products
+   */
+  external_url?: string | undefined;
+  /**
+   * Button text for external products
+   */
+  button_text?: string | undefined;
+  /**
+   * Tax status
+   */
+  tax_status?: 'taxable' | 'shipping' | 'none' | undefined;
+  /**
+   * Tax class
+   */
+  tax_class?: string | undefined;
+  /**
+   * Whether to manage stock
+   */
+  manage_stock?: boolean | undefined;
+  /**
+   * Stock quantity
+   */
+  stock_quantity?: number | undefined;
+  /**
+   * Stock status
+   */
+  stock_status?: 'instock' | 'outofstock' | 'onbackorder' | undefined;
+  /**
+   * Backorders setting
+   */
+  backorders?: 'no' | 'notify' | 'yes' | undefined;
+  /**
+   * Whether to sell individually
+   */
+  sold_individually?: boolean | undefined;
+  /**
+   * Product weight
+   */
+  weight?: string | undefined;
+  /**
+   * Product dimensions
+   */
+  dimensions?: {  length?: string | undefined;
+  width?: string | undefined;
+  height?: string | undefined;};
+  /**
+   * Shipping class slug
+   */
+  shipping_class?: string | undefined;
+  /**
+   * Whether reviews are allowed
+   */
+  reviews_allowed?: boolean | undefined;
+  /**
+   * Parent product ID for variations
+   */
+  parent_id?: number | undefined;
+  /**
+   * Purchase note
+   */
+  purchase_note?: string | undefined;
+  /**
+   * Product categories
+   */
+  categories?: ({  id: number;})[] | undefined;
+  /**
+   * Product tags
+   */
+  tags?: ({  id: number;})[] | undefined;
+  /**
+   * Product images
+   */
+  images?: ({  id?: number | undefined;
+  src?: string | undefined;
+  name?: string | undefined;
+  alt?: string | undefined;})[];
+  /**
+   * Product attributes
+   */
+  attributes?: ({  id?: number | undefined;
+  name: string;
+  position?: number | undefined;
+  visible?: boolean | undefined;
+  variation?: boolean | undefined;
+  options: string[];})[];
+  /**
+   * Default attributes for variations
+   */
+  default_attributes?: ({  id?: number | undefined;
+  name: string;
+  option: string;})[];
+  /**
+   * Menu order
+   */
+  menu_order?: number | undefined;
+  /**
+   * Meta data
+   */
+  meta_data?: ({  id?: number | undefined;
+  key: string;
+  value: string;})[];
+};
+
+export interface ActionOutput_woocommerce_updateproduct {
+  id: number;
+  name: string;
+  slug: string;
+  permalink: string;
+  type: 'simple' | 'grouped' | 'external' | 'variable';
+  status: 'draft' | 'pending' | 'private' | 'publish';
+  featured: boolean;
+  catalog_visibility: 'visible' | 'catalog' | 'search' | 'hidden';
+  description: string;
+  short_description: string;
+  sku: string;
+  price: string;
+  regular_price: string;
+  sale_price?: string | undefined;
+  date_on_sale_from?: string | undefined;
+  date_on_sale_to?: string | undefined;
+  on_sale: boolean;
+  purchasable: boolean;
+  total_sales: number;
+  virtual: boolean;
+  downloadable: boolean;
+  download_limit?: number | undefined;
+  download_expiry?: number | undefined;
+  external_url: string;
+  button_text: string;
+  tax_status: 'taxable' | 'shipping' | 'none';
+  tax_class: string;
+  manage_stock: boolean;
+  stock_quantity?: number | undefined;
+  stock_status: 'instock' | 'outofstock' | 'onbackorder';
+  backorders: 'no' | 'notify' | 'yes';
+  backorders_allowed: boolean;
+  backordered: boolean;
+  sold_individually: boolean;
+  weight: string;
+  dimensions: {  length: string;
+  width: string;
+  height: string;};
+  shipping_required: boolean;
+  shipping_taxable: boolean;
+  shipping_class: string;
+  shipping_class_id: number;
+  reviews_allowed: boolean;
+  average_rating: string;
+  rating_count: number;
+  parent_id: number;
+  purchase_note: string;
+  categories: ({  id: number;
+  name: string;
+  slug: string;})[];
+  tags: ({  id: number;
+  name: string;
+  slug: string;})[];
+  images: ({  id: number;
+  src: string;
+  name: string;
+  alt: string;})[];
+  attributes: ({  id: number;
+  name: string;
+  position: number;
+  visible: boolean;
+  variation: boolean;
+  options: string[];})[];
+  default_attributes: ({  id: number;
+  name: string;
+  option: string;})[];
+  variations: number[];
+  grouped_products: number[];
+  menu_order: number;
+};
+
+export interface ActionInput_woocommerce_updatewebhook {
+  /**
+   * Webhook ID. Example: 1
+   */
+  id: number;
+  /**
+   * A friendly name for the webhook.
+   */
+  name?: string | undefined;
+  /**
+   * Webhook status. Options: active, paused, disabled.
+   */
+  status?: 'active' | 'paused' | 'disabled' | undefined;
+  /**
+   * Webhook topic. Example: order.updated
+   */
+  topic?: string | undefined;
+  /**
+   * The URL where the webhook payload is delivered.
+   */
+  delivery_url?: string | undefined;
+  /**
+   * Secret key used to generate a hash of the delivered webhook.
+   */
+  secret?: string | undefined;
+};
+
+export interface ActionOutput_woocommerce_updatewebhook {
+  id: number;
+  name: string;
+  status: string;
+  topic: string;
+  resource: string;
+  event: string;
+  hooks: string[];
+  delivery_url: string;
+  date_created?: string | undefined;
+  date_created_gmt?: string | undefined;
+  date_modified?: string | undefined;
+  date_modified_gmt?: string | undefined;
 };
 
 export interface WorkableCandidate {

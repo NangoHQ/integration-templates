@@ -1,0 +1,162 @@
+{
+  "nango": {
+    "batchSave": {
+      "ProductTag": [
+        {
+          "id": "21",
+          "name": "clearance",
+          "slug": "clearance",
+          "description": "",
+          "count": 0
+        },
+        {
+          "id": "19",
+          "name": "featured",
+          "slug": "featured",
+          "description": "Featured items in the store.",
+          "count": 0
+        },
+        {
+          "id": "20",
+          "name": "new-arrival",
+          "slug": "new-arrival",
+          "description": "",
+          "count": 0
+        }
+      ]
+    },
+    "batchDelete": {
+      "ProductTag": []
+    }
+  },
+  "api": {
+    "get": {
+      "/wp-json/wc/v3/products/tags": {
+        "response": [
+          {
+            "id": 21,
+            "name": "clearance",
+            "slug": "clearance",
+            "description": "",
+            "count": 0,
+            "_links": {
+              "self": [
+                {
+                  "href": "https://woocommerce-test.local/wp-json/wc/v3/products/tags/21",
+                  "targetHints": {
+                    "allow": [
+                      "GET",
+                      "POST",
+                      "PUT",
+                      "PATCH",
+                      "DELETE"
+                    ]
+                  }
+                }
+              ],
+              "collection": [
+                {
+                  "href": "https://woocommerce-test.local/wp-json/wc/v3/products/tags"
+                }
+              ]
+            }
+          },
+          {
+            "id": 19,
+            "name": "featured",
+            "slug": "featured",
+            "description": "Featured items in the store.",
+            "count": 0,
+            "_links": {
+              "self": [
+                {
+                  "href": "https://woocommerce-test.local/wp-json/wc/v3/products/tags/19",
+                  "targetHints": {
+                    "allow": [
+                      "GET",
+                      "POST",
+                      "PUT",
+                      "PATCH",
+                      "DELETE"
+                    ]
+                  }
+                }
+              ],
+              "collection": [
+                {
+                  "href": "https://woocommerce-test.local/wp-json/wc/v3/products/tags"
+                }
+              ]
+            }
+          },
+          {
+            "id": 20,
+            "name": "new-arrival",
+            "slug": "new-arrival",
+            "description": "",
+            "count": 0,
+            "_links": {
+              "self": [
+                {
+                  "href": "https://woocommerce-test.local/wp-json/wc/v3/products/tags/20",
+                  "targetHints": {
+                    "allow": [
+                      "GET",
+                      "POST",
+                      "PUT",
+                      "PATCH",
+                      "DELETE"
+                    ]
+                  }
+                }
+              ],
+              "collection": [
+                {
+                  "href": "https://woocommerce-test.local/wp-json/wc/v3/products/tags"
+                }
+              ]
+            }
+          }
+        ],
+        "status": 200,
+        "headers": {
+          "date": "Fri, 22 May 2026 09:56:45 GMT",
+          "content-type": "application/json; charset=UTF-8",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=5184000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "X-WP-Total, X-WP-TotalPages, Link",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4964",
+          "x-ratelimit-reset": "1779443826",
+          "access-control-allow-headers": "Authorization, X-WP-Nonce, Content-Disposition, Content-MD5, Content-Type",
+          "allow": "GET, POST",
+          "cache-control": "no-cache, must-revalidate, max-age=0, no-store, private",
+          "expires": "Wed, 11 Jan 1984 05:00:00 GMT",
+          "link": "<https://woocommerce-test.local/wp-json/>; rel=\"https://api.w.org/\"",
+          "ngrok-agent-ips": "105.161.152.132",
+          "server": "nginx/1.26.1",
+          "vary": "Accept-Encoding",
+          "x-powered-by": "PHP/8.2.29",
+          "x-robots-tag": "noindex",
+          "x-wp-total": "3",
+          "x-wp-totalpages": "1"
+        },
+        "hash": "899c6ec760766d444f376f9b5a01bc09802fd6df",
+        "request": {
+          "params": {
+            "page": "1",
+            "per_page": "100"
+          }
+        }
+      }
+    }
+  }
+}

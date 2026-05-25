@@ -1,0 +1,100 @@
+{
+  "input": {},
+  "output": [
+    {
+      "total_sales": "0.00",
+      "net_sales": "0.00",
+      "average_sales": "0.00",
+      "total_orders": 0,
+      "total_items": 0,
+      "total_tax": "0.00",
+      "total_shipping": "0.00",
+      "total_refunds": 0,
+      "total_discount": "0.00",
+      "totals_grouped_by": "day",
+      "totals": {
+        "2026-05-22": {
+          "sales": "0.00",
+          "orders": 0,
+          "items": 0,
+          "tax": "0.00",
+          "shipping": "0.00",
+          "discount": "0.00",
+          "customers": 0
+        }
+      },
+      "total_customers": 0
+    }
+  ],
+  "nango": {},
+  "api": {
+    "get": {
+      "/wp-json/wc/v3/reports/sales": {
+        "response": [
+          {
+            "total_sales": "0.00",
+            "net_sales": "0.00",
+            "average_sales": "0.00",
+            "total_orders": 0,
+            "total_items": 0,
+            "total_tax": "0.00",
+            "total_shipping": "0.00",
+            "total_refunds": 0,
+            "total_discount": "0.00",
+            "totals_grouped_by": "day",
+            "totals": {
+              "2026-05-22": {
+                "sales": "0.00",
+                "orders": 0,
+                "items": 0,
+                "tax": "0.00",
+                "shipping": "0.00",
+                "discount": "0.00",
+                "customers": 0
+              }
+            },
+            "total_customers": 0,
+            "_links": {
+              "about": [
+                {
+                  "href": "https://woocommerce-test.local/wp-json/wc/v3/reports"
+                }
+              ]
+            }
+          }
+        ],
+        "status": 200,
+        "headers": {
+          "date": "Fri, 22 May 2026 10:12:19 GMT",
+          "content-type": "application/json; charset=UTF-8",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=5184000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "X-WP-Total, X-WP-TotalPages, Link",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4984",
+          "x-ratelimit-reset": "1779444754",
+          "access-control-allow-headers": "Authorization, X-WP-Nonce, Content-Disposition, Content-MD5, Content-Type",
+          "allow": "GET",
+          "cache-control": "no-cache, must-revalidate, max-age=0, no-store, private",
+          "expires": "Wed, 11 Jan 1984 05:00:00 GMT",
+          "link": "<https://woocommerce-test.local/wp-json/>; rel=\"https://api.w.org/\"",
+          "ngrok-agent-ips": "105.161.152.132",
+          "server": "nginx/1.26.1",
+          "vary": "Accept-Encoding",
+          "x-powered-by": "PHP/8.2.29",
+          "x-robots-tag": "noindex"
+        },
+        "hash": "4a035a07931b90d467ab659f8253fdb86d2a5a97",
+        "request": {}
+      }
+    }
+  }
+}

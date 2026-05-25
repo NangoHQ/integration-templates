@@ -1,0 +1,309 @@
+{
+  "input": {
+    "id": 18
+  },
+  "output": {
+    "id": 18,
+    "parent_id": 0,
+    "number": "18",
+    "order_key": "wc_order_Nd25UBg5yRa3h",
+    "created_via": "rest-api",
+    "version": "10.7.0",
+    "status": "completed",
+    "currency": "USD",
+    "date_created": "2026-05-22T08:59:30",
+    "date_created_gmt": "2026-05-22T08:59:30",
+    "date_modified": "2026-05-22T13:31:36",
+    "date_modified_gmt": "2026-05-22T13:31:36",
+    "discount_total": "0.00",
+    "discount_tax": "0.00",
+    "shipping_total": "0.00",
+    "shipping_tax": "0.00",
+    "cart_tax": "0.00",
+    "total": "24.99",
+    "total_tax": "0.00",
+    "prices_include_tax": false,
+    "customer_id": 2,
+    "customer_ip_address": "",
+    "customer_user_agent": "",
+    "customer_note": "Batch test note",
+    "billing": {
+      "first_name": "Test",
+      "last_name": "Customer",
+      "company": "",
+      "address_1": "",
+      "address_2": "",
+      "city": "",
+      "state": "",
+      "postcode": "",
+      "country": "US",
+      "email": "test@nango.dev",
+      "phone": ""
+    },
+    "shipping": {
+      "first_name": "",
+      "last_name": "",
+      "company": "",
+      "address_1": "",
+      "address_2": "",
+      "city": "",
+      "state": "",
+      "postcode": "",
+      "country": "",
+      "phone": ""
+    },
+    "payment_method": "",
+    "payment_method_title": "",
+    "transaction_id": "",
+    "date_completed": "2026-05-22T08:59:30",
+    "date_completed_gmt": "2026-05-22T08:59:30",
+    "date_paid": "2026-05-22T08:59:30",
+    "date_paid_gmt": "2026-05-22T08:59:30",
+    "cart_hash": "",
+    "line_items": [
+      {
+        "id": 1,
+        "name": "Test T-Shirt - M",
+        "product_id": 13,
+        "variation_id": 15,
+        "quantity": 1,
+        "tax_class": "",
+        "subtotal": "24.99",
+        "subtotal_tax": "0.00",
+        "total": "24.99",
+        "total_tax": "0.00",
+        "sku": "",
+        "price": 24.99
+      }
+    ],
+    "tax_lines": [],
+    "shipping_lines": [],
+    "fee_lines": [],
+    "coupon_lines": [],
+    "refunds": [
+      {
+        "id": 48,
+        "reason": "Test refund",
+        "total": "-1.00"
+      },
+      {
+        "id": 47,
+        "reason": "Test refund",
+        "total": "-1.00"
+      },
+      {
+        "id": 46,
+        "reason": "Test refund",
+        "total": "-1.00"
+      },
+      {
+        "id": 41,
+        "reason": "Test refund",
+        "total": "-1.00"
+      },
+      {
+        "id": 40,
+        "reason": "Test refund",
+        "total": "-1.00"
+      }
+    ]
+  },
+  "nango": {},
+  "api": {
+    "get": {
+      "/wp-json/wc/v3/orders/18": {
+        "response": {
+          "id": 18,
+          "parent_id": 0,
+          "status": "completed",
+          "currency": "USD",
+          "version": "10.7.0",
+          "prices_include_tax": false,
+          "date_created": "2026-05-22T08:59:30",
+          "date_modified": "2026-05-22T13:31:36",
+          "discount_total": "0.00",
+          "discount_tax": "0.00",
+          "shipping_total": "0.00",
+          "shipping_tax": "0.00",
+          "cart_tax": "0.00",
+          "total": "24.99",
+          "total_tax": "0.00",
+          "customer_id": 2,
+          "order_key": "wc_order_Nd25UBg5yRa3h",
+          "billing": {
+            "first_name": "Test",
+            "last_name": "Customer",
+            "company": "",
+            "address_1": "",
+            "address_2": "",
+            "city": "",
+            "state": "",
+            "postcode": "",
+            "country": "US",
+            "email": "test@nango.dev",
+            "phone": ""
+          },
+          "shipping": {
+            "first_name": "",
+            "last_name": "",
+            "company": "",
+            "address_1": "",
+            "address_2": "",
+            "city": "",
+            "state": "",
+            "postcode": "",
+            "country": "",
+            "phone": ""
+          },
+          "payment_method": "",
+          "payment_method_title": "",
+          "transaction_id": "",
+          "customer_ip_address": "",
+          "customer_user_agent": "",
+          "created_via": "rest-api",
+          "customer_note": "Batch test note",
+          "date_completed": "2026-05-22T08:59:30",
+          "date_paid": "2026-05-22T08:59:30",
+          "cart_hash": "",
+          "number": "18",
+          "meta_data": [],
+          "line_items": [
+            {
+              "id": 1,
+              "name": "Test T-Shirt - M",
+              "product_id": 13,
+              "variation_id": 15,
+              "quantity": 1,
+              "tax_class": "",
+              "subtotal": "24.99",
+              "subtotal_tax": "0.00",
+              "total": "24.99",
+              "total_tax": "0.00",
+              "taxes": [],
+              "meta_data": [
+                {
+                  "id": 10,
+                  "key": "size",
+                  "value": "M",
+                  "display_key": "Size",
+                  "display_value": "M"
+                }
+              ],
+              "sku": "",
+              "global_unique_id": "",
+              "price": 24.99,
+              "image": {
+                "id": 0,
+                "src": ""
+              },
+              "parent_name": "Updated Test T-Shirt"
+            }
+          ],
+          "tax_lines": [],
+          "shipping_lines": [],
+          "fee_lines": [],
+          "coupon_lines": [],
+          "refunds": [
+            {
+              "id": 48,
+              "reason": "Test refund",
+              "total": "-1.00"
+            },
+            {
+              "id": 47,
+              "reason": "Test refund",
+              "total": "-1.00"
+            },
+            {
+              "id": 46,
+              "reason": "Test refund",
+              "total": "-1.00"
+            },
+            {
+              "id": 41,
+              "reason": "Test refund",
+              "total": "-1.00"
+            },
+            {
+              "id": 40,
+              "reason": "Test refund",
+              "total": "-1.00"
+            }
+          ],
+          "payment_url": "https://woocommerce-test.local/checkout/order-pay/18/?pay_for_order=true&key=wc_order_Nd25UBg5yRa3h",
+          "is_editable": false,
+          "needs_payment": false,
+          "needs_processing": true,
+          "date_created_gmt": "2026-05-22T08:59:30",
+          "date_modified_gmt": "2026-05-22T13:31:36",
+          "date_completed_gmt": "2026-05-22T08:59:30",
+          "date_paid_gmt": "2026-05-22T08:59:30",
+          "currency_symbol": "$",
+          "_links": {
+            "self": [
+              {
+                "href": "https://woocommerce-test.local/wp-json/wc/v3/orders/18",
+                "targetHints": {
+                  "allow": [
+                    "GET",
+                    "POST",
+                    "PUT",
+                    "PATCH",
+                    "DELETE"
+                  ]
+                }
+              }
+            ],
+            "collection": [
+              {
+                "href": "https://woocommerce-test.local/wp-json/wc/v3/orders"
+              }
+            ],
+            "email_templates": [
+              {
+                "embeddable": true,
+                "href": "https://woocommerce-test.local/wp-json/wc/v3/orders/18/actions/email_templates"
+              }
+            ],
+            "customer": [
+              {
+                "href": "https://woocommerce-test.local/wp-json/wc/v3/customers/2"
+              }
+            ]
+          }
+        },
+        "status": 200,
+        "headers": {
+          "date": "Fri, 22 May 2026 14:39:51 GMT",
+          "content-type": "application/json; charset=UTF-8",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=5184000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "X-WP-Total, X-WP-TotalPages, Link",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4988",
+          "x-ratelimit-reset": "1779460827",
+          "access-control-allow-headers": "Authorization, X-WP-Nonce, Content-Disposition, Content-MD5, Content-Type",
+          "allow": "GET, POST, PUT, PATCH, DELETE",
+          "cache-control": "no-cache, must-revalidate, max-age=0, no-store, private",
+          "expires": "Wed, 11 Jan 1984 05:00:00 GMT",
+          "link": "<https://woocommerce-test.local/wp-json/>; rel=\"https://api.w.org/\"",
+          "ngrok-agent-ips": "105.161.152.132",
+          "server": "nginx/1.26.1",
+          "vary": "Accept-Encoding",
+          "x-powered-by": "PHP/8.2.29",
+          "x-robots-tag": "noindex"
+        },
+        "hash": "3da5b405d5277f62b5e81a6530dc8ea4954a3e5a",
+        "request": {}
+      }
+    }
+  }
+}

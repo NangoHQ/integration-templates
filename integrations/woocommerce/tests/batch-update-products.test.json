@@ -1,0 +1,311 @@
+{
+  "input": {
+    "update": [
+      {
+        "id": 13,
+        "name": "Test T-Shirt"
+      }
+    ]
+  },
+  "output": {
+    "update": [
+      {
+        "id": 13,
+        "name": "Test T-Shirt",
+        "slug": "test-t-shirt",
+        "permalink": "https://woocommerce-test.local/product/test-t-shirt/",
+        "date_created": "2026-05-22T08:58:56",
+        "date_created_gmt": "2026-05-22T08:58:56",
+        "date_modified": "2026-05-22T10:00:28",
+        "date_modified_gmt": "2026-05-22T10:00:28",
+        "type": "variable",
+        "status": "publish",
+        "featured": false,
+        "catalog_visibility": "visible",
+        "description": "A test variable product for Nango integration testing.",
+        "short_description": "Test product with variations.",
+        "sku": "",
+        "price": "25.00",
+        "regular_price": "",
+        "sale_price": "",
+        "date_on_sale_from": null,
+        "date_on_sale_from_gmt": null,
+        "date_on_sale_to": null,
+        "date_on_sale_to_gmt": null,
+        "price_html": "<span class=\"woocommerce-Price-amount amount\"><bdi><span class=\"woocommerce-Price-currencySymbol\">&#36;</span>25.00</bdi></span>",
+        "on_sale": false,
+        "purchasable": true,
+        "total_sales": 1,
+        "virtual": false,
+        "downloadable": false,
+        "downloads": [],
+        "download_limit": -1,
+        "download_expiry": -1,
+        "external_url": "",
+        "button_text": "",
+        "tax_status": "taxable",
+        "tax_class": "",
+        "manage_stock": false,
+        "stock_quantity": null,
+        "stock_status": "instock",
+        "backorders": "no",
+        "backorders_allowed": false,
+        "backordered": false,
+        "sold_individually": false,
+        "weight": "",
+        "dimensions": {
+          "length": "",
+          "width": "",
+          "height": ""
+        },
+        "shipping_required": true,
+        "shipping_taxable": true,
+        "shipping_class": "",
+        "shipping_class_id": 0,
+        "reviews_allowed": true,
+        "average_rating": "5.00",
+        "rating_count": 1,
+        "related_ids": [
+          21
+        ],
+        "upsell_ids": [],
+        "cross_sell_ids": [],
+        "parent_id": 0,
+        "purchase_note": "",
+        "categories": [
+          {
+            "id": 15,
+            "name": "Uncategorized",
+            "slug": "uncategorized"
+          }
+        ],
+        "tags": [],
+        "images": [],
+        "attributes": [
+          {
+            "id": 0,
+            "name": "Size",
+            "slug": "Size",
+            "position": 0,
+            "visible": true,
+            "variation": true,
+            "options": [
+              "S",
+              "M",
+              "L"
+            ]
+          }
+        ],
+        "default_attributes": [],
+        "variations": [
+          16
+        ],
+        "grouped_products": [],
+        "menu_order": 0,
+        "meta_data": [],
+        "low_stock_amount": null,
+        "brands": [],
+        "has_options": true,
+        "post_password": "",
+        "global_unique_id": "",
+        "permalink_template": "https://woocommerce-test.local/product/%pagename%/",
+        "generated_slug": "test-t-shirt",
+        "_links": {
+          "self": [
+            {
+              "href": "https://woocommerce-test.local/wp-json/wc/v3/products/13",
+              "targetHints": {
+                "allow": [
+                  "GET",
+                  "POST",
+                  "PUT",
+                  "PATCH",
+                  "DELETE"
+                ]
+              }
+            }
+          ],
+          "collection": [
+            {
+              "href": "https://woocommerce-test.local/wp-json/wc/v3/products"
+            }
+          ]
+        }
+      }
+    ]
+  },
+  "nango": {},
+  "api": {
+    "post": {
+      "/wp-json/wc/v3/products/batch": {
+        "response": {
+          "update": [
+            {
+              "id": 13,
+              "name": "Test T-Shirt",
+              "slug": "test-t-shirt",
+              "permalink": "https://woocommerce-test.local/product/test-t-shirt/",
+              "date_created": "2026-05-22T08:58:56",
+              "date_created_gmt": "2026-05-22T08:58:56",
+              "date_modified": "2026-05-22T10:00:28",
+              "date_modified_gmt": "2026-05-22T10:00:28",
+              "type": "variable",
+              "status": "publish",
+              "featured": false,
+              "catalog_visibility": "visible",
+              "description": "A test variable product for Nango integration testing.",
+              "short_description": "Test product with variations.",
+              "sku": "",
+              "price": "25.00",
+              "regular_price": "",
+              "sale_price": "",
+              "date_on_sale_from": null,
+              "date_on_sale_from_gmt": null,
+              "date_on_sale_to": null,
+              "date_on_sale_to_gmt": null,
+              "on_sale": false,
+              "purchasable": true,
+              "total_sales": 1,
+              "virtual": false,
+              "downloadable": false,
+              "downloads": [],
+              "download_limit": -1,
+              "download_expiry": -1,
+              "external_url": "",
+              "button_text": "",
+              "tax_status": "taxable",
+              "tax_class": "",
+              "manage_stock": false,
+              "stock_quantity": null,
+              "backorders": "no",
+              "backorders_allowed": false,
+              "backordered": false,
+              "low_stock_amount": null,
+              "sold_individually": false,
+              "weight": "",
+              "dimensions": {
+                "length": "",
+                "width": "",
+                "height": ""
+              },
+              "shipping_required": true,
+              "shipping_taxable": true,
+              "shipping_class": "",
+              "shipping_class_id": 0,
+              "reviews_allowed": true,
+              "average_rating": "5.00",
+              "rating_count": 1,
+              "upsell_ids": [],
+              "cross_sell_ids": [],
+              "parent_id": 0,
+              "purchase_note": "",
+              "categories": [
+                {
+                  "id": 15,
+                  "name": "Uncategorized",
+                  "slug": "uncategorized"
+                }
+              ],
+              "brands": [],
+              "tags": [],
+              "images": [],
+              "attributes": [
+                {
+                  "id": 0,
+                  "name": "Size",
+                  "slug": "Size",
+                  "position": 0,
+                  "visible": true,
+                  "variation": true,
+                  "options": [
+                    "S",
+                    "M",
+                    "L"
+                  ]
+                }
+              ],
+              "default_attributes": [],
+              "variations": [
+                16
+              ],
+              "grouped_products": [],
+              "menu_order": 0,
+              "price_html": "<span class=\"woocommerce-Price-amount amount\"><bdi><span class=\"woocommerce-Price-currencySymbol\">&#36;</span>25.00</bdi></span>",
+              "related_ids": [
+                21
+              ],
+              "meta_data": [],
+              "stock_status": "instock",
+              "has_options": true,
+              "post_password": "",
+              "global_unique_id": "",
+              "permalink_template": "https://woocommerce-test.local/product/%pagename%/",
+              "generated_slug": "test-t-shirt",
+              "_links": {
+                "self": [
+                  {
+                    "href": "https://woocommerce-test.local/wp-json/wc/v3/products/13",
+                    "targetHints": {
+                      "allow": [
+                        "GET",
+                        "POST",
+                        "PUT",
+                        "PATCH",
+                        "DELETE"
+                      ]
+                    }
+                  }
+                ],
+                "collection": [
+                  {
+                    "href": "https://woocommerce-test.local/wp-json/wc/v3/products"
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        "status": 200,
+        "headers": {
+          "date": "Fri, 22 May 2026 10:00:29 GMT",
+          "content-type": "application/json; charset=UTF-8",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=5184000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "X-WP-Total, X-WP-TotalPages, Link",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4996",
+          "x-ratelimit-reset": "1779444084",
+          "access-control-allow-headers": "Authorization, X-WP-Nonce, Content-Disposition, Content-MD5, Content-Type",
+          "allow": "POST, PUT, PATCH",
+          "cache-control": "no-cache, must-revalidate, max-age=0, no-store, private",
+          "expires": "Wed, 11 Jan 1984 05:00:00 GMT",
+          "link": "<https://woocommerce-test.local/wp-json/>; rel=\"https://api.w.org/\"",
+          "ngrok-agent-ips": "105.161.152.132",
+          "server": "nginx/1.26.1",
+          "vary": "Accept-Encoding",
+          "x-powered-by": "PHP/8.2.29",
+          "x-robots-tag": "noindex"
+        },
+        "hash": "edeb31fa457f3266f57d73ea76e404e4cbc545c5",
+        "request": {
+          "data": {
+            "update": [
+              {
+                "id": 13,
+                "name": "Test T-Shirt"
+              }
+            ]
+          }
+        }
+      }
+    }
+  }
+}
