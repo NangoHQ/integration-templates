@@ -1,0 +1,1508 @@
+{
+  "nango": {
+    "getConnection": {},
+    "batchSave": {
+      "JobProfile": [
+        {
+          "id": "25000",
+          "name": "",
+          "active": true
+        },
+        {
+          "id": "26000",
+          "name": "",
+          "active": true
+        },
+        {
+          "id": "27000",
+          "name": "",
+          "active": true
+        },
+        {
+          "id": "28000",
+          "name": "",
+          "active": true
+        },
+        {
+          "id": "24000",
+          "name": "",
+          "active": true
+        },
+        {
+          "id": "23000",
+          "name": "",
+          "active": true
+        },
+        {
+          "id": "30100",
+          "name": "",
+          "active": true
+        },
+        {
+          "id": "30200",
+          "name": "",
+          "active": true
+        },
+        {
+          "id": "30300",
+          "name": "",
+          "active": true
+        },
+        {
+          "id": "30400",
+          "name": "",
+          "active": true
+        },
+        {
+          "id": "30150",
+          "name": "",
+          "active": true
+        },
+        {
+          "id": "30250",
+          "name": "",
+          "active": true
+        },
+        {
+          "id": "30350",
+          "name": "",
+          "active": true
+        },
+        {
+          "id": "30450",
+          "name": "",
+          "active": true
+        },
+        {
+          "id": "30110",
+          "name": "",
+          "active": true
+        },
+        {
+          "id": "30500",
+          "name": "",
+          "active": true
+        },
+        {
+          "id": "30310",
+          "name": "",
+          "active": true
+        },
+        {
+          "id": "30210",
+          "name": "",
+          "active": true
+        },
+        {
+          "id": "30410",
+          "name": "",
+          "active": true
+        },
+        {
+          "id": "30550",
+          "name": "",
+          "active": true
+        },
+        {
+          "id": "30510",
+          "name": "",
+          "active": true
+        },
+        {
+          "id": "34100",
+          "name": "",
+          "active": true
+        },
+        {
+          "id": "34110",
+          "name": "",
+          "active": true
+        },
+        {
+          "id": "34120",
+          "name": "",
+          "active": true
+        },
+        {
+          "id": "34130",
+          "name": "",
+          "active": true
+        },
+        {
+          "id": "37110",
+          "name": "",
+          "active": true
+        },
+        {
+          "id": "35100",
+          "name": "",
+          "active": true
+        },
+        {
+          "id": "36100",
+          "name": "",
+          "active": true
+        },
+        {
+          "id": "37100",
+          "name": "",
+          "active": true
+        },
+        {
+          "id": "38100",
+          "name": "",
+          "active": true
+        },
+        {
+          "id": "37120",
+          "name": "",
+          "active": true
+        },
+        {
+          "id": "29000",
+          "name": "",
+          "active": true
+        },
+        {
+          "id": "35000",
+          "name": "",
+          "active": true
+        },
+        {
+          "id": "39100",
+          "name": "",
+          "active": true
+        },
+        {
+          "id": "39200",
+          "name": "",
+          "active": true
+        },
+        {
+          "id": "39300",
+          "name": "",
+          "active": true
+        },
+        {
+          "id": "36120",
+          "name": "",
+          "active": true
+        },
+        {
+          "id": "36110",
+          "name": "",
+          "active": true
+        },
+        {
+          "id": "35110",
+          "name": "",
+          "active": true
+        },
+        {
+          "id": "35120",
+          "name": "",
+          "active": true
+        },
+        {
+          "id": "35121",
+          "name": "",
+          "active": true
+        },
+        {
+          "id": "35111",
+          "name": "",
+          "active": true
+        },
+        {
+          "id": "35122",
+          "name": "",
+          "active": true
+        },
+        {
+          "id": "39050",
+          "name": "",
+          "active": true
+        },
+        {
+          "id": "39150",
+          "name": "",
+          "active": true
+        },
+        {
+          "id": "39115",
+          "name": "",
+          "active": true
+        },
+        {
+          "id": "39145",
+          "name": "",
+          "active": true
+        },
+        {
+          "id": "39125",
+          "name": "",
+          "active": true
+        },
+        {
+          "id": "39180",
+          "name": "",
+          "active": true
+        },
+        {
+          "id": "38500",
+          "name": "",
+          "active": true
+        },
+        {
+          "id": "39500",
+          "name": "",
+          "active": true
+        },
+        {
+          "id": "39510",
+          "name": "",
+          "active": true
+        },
+        {
+          "id": "39560",
+          "name": "",
+          "active": true
+        },
+        {
+          "id": "39610",
+          "name": "",
+          "active": true
+        },
+        {
+          "id": "35750",
+          "name": "",
+          "active": true
+        },
+        {
+          "id": "37650",
+          "name": "",
+          "active": true
+        },
+        {
+          "id": "37780",
+          "name": "",
+          "active": true
+        },
+        {
+          "id": "38600",
+          "name": "",
+          "active": true
+        },
+        {
+          "id": "38700",
+          "name": "",
+          "active": true
+        },
+        {
+          "id": "38550",
+          "name": "",
+          "active": true
+        },
+        {
+          "id": "38850",
+          "name": "",
+          "active": true
+        },
+        {
+          "id": "38950",
+          "name": "",
+          "active": true
+        },
+        {
+          "id": "39875",
+          "name": "",
+          "active": true
+        },
+        {
+          "id": "38955",
+          "name": "",
+          "active": true
+        },
+        {
+          "id": "38520",
+          "name": "",
+          "active": true
+        },
+        {
+          "id": "39250",
+          "name": "",
+          "active": true
+        },
+        {
+          "id": "39260",
+          "name": "",
+          "active": true
+        },
+        {
+          "id": "40000",
+          "name": "",
+          "active": true
+        },
+        {
+          "id": "40100",
+          "name": "",
+          "active": true
+        },
+        {
+          "id": "40200",
+          "name": "",
+          "active": true
+        },
+        {
+          "id": "39855",
+          "name": "",
+          "active": true
+        },
+        {
+          "id": "39885",
+          "name": "",
+          "active": true
+        },
+        {
+          "id": "21000",
+          "name": "",
+          "active": true
+        },
+        {
+          "id": "39255",
+          "name": "",
+          "active": true
+        },
+        {
+          "id": "39045",
+          "name": "",
+          "active": true
+        },
+        {
+          "id": "39025",
+          "name": "",
+          "active": true
+        },
+        {
+          "id": "37525",
+          "name": "",
+          "active": true
+        },
+        {
+          "id": "38405",
+          "name": "",
+          "active": true
+        },
+        {
+          "id": "37980",
+          "name": "",
+          "active": true
+        },
+        {
+          "id": "39160",
+          "name": "",
+          "active": true
+        },
+        {
+          "id": "39895",
+          "name": "",
+          "active": true
+        },
+        {
+          "id": "39905",
+          "name": "",
+          "active": true
+        },
+        {
+          "id": "35225",
+          "name": "",
+          "active": true
+        },
+        {
+          "id": "35113",
+          "name": "",
+          "active": true
+        },
+        {
+          "id": "37950",
+          "name": "",
+          "active": true
+        },
+        {
+          "id": "39620",
+          "name": "",
+          "active": true
+        },
+        {
+          "id": "35140",
+          "name": "",
+          "active": true
+        },
+        {
+          "id": "35180",
+          "name": "",
+          "active": true
+        },
+        {
+          "id": "39035",
+          "name": "",
+          "active": true
+        },
+        {
+          "id": "38420",
+          "name": "",
+          "active": true
+        },
+        {
+          "id": "38410",
+          "name": "",
+          "active": true
+        },
+        {
+          "id": "37485",
+          "name": "",
+          "active": true
+        },
+        {
+          "id": "33200",
+          "name": "",
+          "active": true
+        },
+        {
+          "id": "35850",
+          "name": "",
+          "active": true
+        },
+        {
+          "id": "45100",
+          "name": "",
+          "active": true
+        },
+        {
+          "id": "40300",
+          "name": "",
+          "active": true
+        },
+        {
+          "id": "45300",
+          "name": "",
+          "active": true
+        },
+        {
+          "id": "45500",
+          "name": "",
+          "active": true
+        },
+        {
+          "id": "45700",
+          "name": "",
+          "active": true
+        },
+        {
+          "id": "45200",
+          "name": "",
+          "active": true
+        },
+        {
+          "id": "45400",
+          "name": "",
+          "active": true
+        },
+        {
+          "id": "FS001",
+          "name": "",
+          "active": true
+        },
+        {
+          "id": "37900",
+          "name": "",
+          "active": true
+        },
+        {
+          "id": "30460",
+          "name": "",
+          "active": true
+        },
+        {
+          "id": "37600",
+          "name": "",
+          "active": true
+        },
+        {
+          "id": "37130",
+          "name": "",
+          "active": true
+        },
+        {
+          "id": "9120",
+          "name": "",
+          "active": true
+        },
+        {
+          "id": "9130",
+          "name": "",
+          "active": true
+        },
+        {
+          "id": "9100",
+          "name": "",
+          "active": true
+        },
+        {
+          "id": "9110",
+          "name": "",
+          "active": true
+        },
+        {
+          "id": "30260",
+          "name": "",
+          "active": true
+        },
+        {
+          "id": "50100",
+          "name": "",
+          "active": true
+        },
+        {
+          "id": "50200",
+          "name": "",
+          "active": true
+        },
+        {
+          "id": "50300",
+          "name": "",
+          "active": true
+        },
+        {
+          "id": "50400",
+          "name": "",
+          "active": true
+        },
+        {
+          "id": "50500",
+          "name": "",
+          "active": true
+        },
+        {
+          "id": "39054",
+          "name": "",
+          "active": true
+        },
+        {
+          "id": "37140",
+          "name": "",
+          "active": true
+        },
+        {
+          "id": "38415",
+          "name": "",
+          "active": true
+        },
+        {
+          "id": "38419",
+          "name": "",
+          "active": true
+        },
+        {
+          "id": "40210",
+          "name": "",
+          "active": true
+        },
+        {
+          "id": "38450",
+          "name": "",
+          "active": true
+        },
+        {
+          "id": "38430",
+          "name": "",
+          "active": true
+        },
+        {
+          "id": "37486",
+          "name": "",
+          "active": true
+        },
+        {
+          "id": "wd_consultant_008",
+          "name": "",
+          "active": true
+        },
+        {
+          "id": "R-00042",
+          "name": "",
+          "active": true
+        },
+        {
+          "id": "R-00043",
+          "name": "",
+          "active": true
+        },
+        {
+          "id": "R-00044",
+          "name": "",
+          "active": true
+        },
+        {
+          "id": "R-00045",
+          "name": "",
+          "active": true
+        },
+        {
+          "id": "R-00046",
+          "name": "",
+          "active": true
+        },
+        {
+          "id": "R-00047",
+          "name": "",
+          "active": true
+        },
+        {
+          "id": "CEO",
+          "name": "",
+          "active": true
+        },
+        {
+          "id": "Sales-Business Development",
+          "name": "",
+          "active": true
+        },
+        {
+          "id": "SALES ADMIN ASSISTANCE",
+          "name": "",
+          "active": true
+        },
+        {
+          "id": "IMPLEMENTATION SPECIALIST",
+          "name": "",
+          "active": true
+        },
+        {
+          "id": "Logistics Manager",
+          "name": "",
+          "active": true
+        },
+        {
+          "id": "Test Engineer",
+          "name": "",
+          "active": true
+        },
+        {
+          "id": "IMPLEMENTATION LEAD",
+          "name": "",
+          "active": true
+        },
+        {
+          "id": "Technical Support",
+          "name": "",
+          "active": true
+        },
+        {
+          "id": "Sales Account Executive",
+          "name": "",
+          "active": true
+        },
+        {
+          "id": "Hardware Support",
+          "name": "",
+          "active": true
+        },
+        {
+          "id": "HR",
+          "name": "",
+          "active": true
+        },
+        {
+          "id": "Development Manager",
+          "name": "",
+          "active": true
+        },
+        {
+          "id": "Development Engineer",
+          "name": "",
+          "active": true
+        },
+        {
+          "id": "Graphic Designer",
+          "name": "",
+          "active": true
+        },
+        {
+          "id": "Intern",
+          "name": "",
+          "active": true
+        },
+        {
+          "id": "Account Executive",
+          "name": "",
+          "active": true
+        },
+        {
+          "id": "VP Business Development -Engineering",
+          "name": "",
+          "active": true
+        },
+        {
+          "id": "Support Technician",
+          "name": "",
+          "active": true
+        },
+        {
+          "id": "Tech Support ZK Access",
+          "name": "",
+          "active": true
+        },
+        {
+          "id": "Sales Latin America",
+          "name": "",
+          "active": true
+        },
+        {
+          "id": "VP of Sales",
+          "name": "",
+          "active": true
+        },
+        {
+          "id": "software Architect",
+          "name": "",
+          "active": true
+        },
+        {
+          "id": "Software Developer",
+          "name": "",
+          "active": true
+        },
+        {
+          "id": "R-00048",
+          "name": "",
+          "active": true
+        },
+        {
+          "id": "R-00049",
+          "name": "",
+          "active": true
+        },
+        {
+          "id": "Mango_executive",
+          "name": "",
+          "active": true
+        },
+        {
+          "id": "MANGO_CXO",
+          "name": "",
+          "active": true
+        },
+        {
+          "id": "MANGO_MANAGER",
+          "name": "",
+          "active": true
+        },
+        {
+          "id": "R-00050",
+          "name": "",
+          "active": true
+        },
+        {
+          "id": "R-00051",
+          "name": "",
+          "active": true
+        },
+        {
+          "id": "R-00052",
+          "name": "",
+          "active": true
+        },
+        {
+          "id": "R-00053",
+          "name": "",
+          "active": true
+        },
+        {
+          "id": "R-00054",
+          "name": "",
+          "active": true
+        },
+        {
+          "id": "R-00055",
+          "name": "",
+          "active": true
+        },
+        {
+          "id": "R-00056",
+          "name": "",
+          "active": true
+        },
+        {
+          "id": "R-00057",
+          "name": "",
+          "active": true
+        },
+        {
+          "id": "R-00058",
+          "name": "",
+          "active": true
+        },
+        {
+          "id": "R-00059",
+          "name": "",
+          "active": true
+        },
+        {
+          "id": "R-00060",
+          "name": "",
+          "active": true
+        },
+        {
+          "id": "R-00061",
+          "name": "",
+          "active": true
+        },
+        {
+          "id": "R-00062",
+          "name": "",
+          "active": true
+        },
+        {
+          "id": "R-00063",
+          "name": "",
+          "active": true
+        },
+        {
+          "id": "CEO_PROFILE",
+          "name": "",
+          "active": true
+        },
+        {
+          "id": "SNOW EVP",
+          "name": "",
+          "active": true
+        },
+        {
+          "id": "CONTRACTOR",
+          "name": "",
+          "active": true
+        },
+        {
+          "id": "SNOW VICE PRESIDENT",
+          "name": "",
+          "active": true
+        },
+        {
+          "id": "SNOW DIRECTOR",
+          "name": "",
+          "active": true
+        },
+        {
+          "id": "SN MANAGER",
+          "name": "",
+          "active": true
+        },
+        {
+          "id": "SNOW SUPERVISOR",
+          "name": "",
+          "active": true
+        },
+        {
+          "id": "SNOW WORKDAY CONSULTATANT",
+          "name": "",
+          "active": true
+        },
+        {
+          "id": "R-00064",
+          "name": "",
+          "active": true
+        },
+        {
+          "id": "R-00065",
+          "name": "",
+          "active": true
+        },
+        {
+          "id": "R-00066",
+          "name": "",
+          "active": true
+        },
+        {
+          "id": "R-00067",
+          "name": "",
+          "active": true
+        },
+        {
+          "id": "R-00068",
+          "name": "",
+          "active": true
+        },
+        {
+          "id": "R-00069",
+          "name": "",
+          "active": true
+        },
+        {
+          "id": "R-00073",
+          "name": "",
+          "active": true
+        },
+        {
+          "id": "SI-1",
+          "name": "",
+          "active": true
+        },
+        {
+          "id": "SI2",
+          "name": "",
+          "active": true
+        },
+        {
+          "id": "SI-2",
+          "name": "",
+          "active": true
+        },
+        {
+          "id": "SI-3",
+          "name": "",
+          "active": true
+        },
+        {
+          "id": "R-00081",
+          "name": "",
+          "active": true
+        },
+        {
+          "id": "SI-5",
+          "name": "",
+          "active": true
+        },
+        {
+          "id": "SI-7",
+          "name": "",
+          "active": true
+        },
+        {
+          "id": "SI-8",
+          "name": "",
+          "active": true
+        },
+        {
+          "id": "SI-9",
+          "name": "",
+          "active": true
+        },
+        {
+          "id": "SI-10",
+          "name": "",
+          "active": true
+        },
+        {
+          "id": "SIS-2",
+          "name": "",
+          "active": true
+        },
+        {
+          "id": "R-00086",
+          "name": "",
+          "active": true
+        },
+        {
+          "id": "R-00087",
+          "name": "",
+          "active": true
+        },
+        {
+          "id": "R-00088",
+          "name": "",
+          "active": true
+        },
+        {
+          "id": "R-00089",
+          "name": "",
+          "active": true
+        },
+        {
+          "id": "R-00090",
+          "name": "",
+          "active": true
+        },
+        {
+          "id": "R-00091",
+          "name": "",
+          "active": true
+        },
+        {
+          "id": "R-00095",
+          "name": "",
+          "active": true
+        },
+        {
+          "id": "R-00092",
+          "name": "",
+          "active": true
+        },
+        {
+          "id": "R-00096",
+          "name": "",
+          "active": true
+        },
+        {
+          "id": "LOR-01",
+          "name": "",
+          "active": true
+        },
+        {
+          "id": "Lor-2",
+          "name": "",
+          "active": true
+        },
+        {
+          "id": "Lor-3",
+          "name": "",
+          "active": true
+        },
+        {
+          "id": "Lor-4",
+          "name": "",
+          "active": true
+        },
+        {
+          "id": "Lor-5",
+          "name": "",
+          "active": true
+        },
+        {
+          "id": "Lor-6",
+          "name": "",
+          "active": true
+        },
+        {
+          "id": "lor-7",
+          "name": "",
+          "active": true
+        },
+        {
+          "id": "Lor-1-1",
+          "name": "",
+          "active": true
+        },
+        {
+          "id": "R-00102",
+          "name": "",
+          "active": true
+        },
+        {
+          "id": "R-00103",
+          "name": "",
+          "active": true
+        },
+        {
+          "id": "R-00117",
+          "name": "",
+          "active": true
+        },
+        {
+          "id": "R-00120",
+          "name": "",
+          "active": true
+        },
+        {
+          "id": "R-00121",
+          "name": "",
+          "active": true
+        },
+        {
+          "id": "Net2Apps001",
+          "name": "",
+          "active": true
+        },
+        {
+          "id": "Net2Apps0002",
+          "name": "",
+          "active": true
+        },
+        {
+          "id": "Net2Apps0003",
+          "name": "",
+          "active": true
+        },
+        {
+          "id": "Net2Apps0004",
+          "name": "",
+          "active": true
+        },
+        {
+          "id": "Net2Apps0005",
+          "name": "",
+          "active": true
+        },
+        {
+          "id": "Net2Apps0006",
+          "name": "",
+          "active": true
+        },
+        {
+          "id": "Net2Apps0007",
+          "name": "",
+          "active": true
+        },
+        {
+          "id": "Net2Apps0008",
+          "name": "",
+          "active": true
+        },
+        {
+          "id": "Net2Apps0009",
+          "name": "",
+          "active": true
+        },
+        {
+          "id": "L2",
+          "name": "",
+          "active": true
+        },
+        {
+          "id": "L3",
+          "name": "",
+          "active": true
+        },
+        {
+          "id": "L4",
+          "name": "",
+          "active": true
+        },
+        {
+          "id": "L5",
+          "name": "",
+          "active": true
+        },
+        {
+          "id": "L6",
+          "name": "",
+          "active": true
+        },
+        {
+          "id": "L7",
+          "name": "",
+          "active": true
+        },
+        {
+          "id": "L8",
+          "name": "",
+          "active": true
+        },
+        {
+          "id": "L9",
+          "name": "",
+          "active": true
+        },
+        {
+          "id": "Test_DCS_01",
+          "name": "",
+          "active": true
+        },
+        {
+          "id": "PM001",
+          "name": "",
+          "active": true
+        },
+        {
+          "id": "SPM 002",
+          "name": "",
+          "active": true
+        },
+        {
+          "id": "R-00199",
+          "name": "",
+          "active": true
+        },
+        {
+          "id": "R-00200",
+          "name": "",
+          "active": true
+        },
+        {
+          "id": "R-00205",
+          "name": "",
+          "active": true
+        },
+        {
+          "id": "R-00206",
+          "name": "",
+          "active": true
+        },
+        {
+          "id": "ML003",
+          "name": "",
+          "active": true
+        },
+        {
+          "id": "R-00273",
+          "name": "",
+          "active": true
+        },
+        {
+          "id": "R-00277",
+          "name": "",
+          "active": true
+        },
+        {
+          "id": "R-00354",
+          "name": "",
+          "active": true
+        },
+        {
+          "id": "R-00429",
+          "name": "",
+          "active": true
+        },
+        {
+          "id": "R-00430",
+          "name": "",
+          "active": true
+        },
+        {
+          "id": "R-00431",
+          "name": "",
+          "active": true
+        },
+        {
+          "id": "R-00432",
+          "name": "",
+          "active": true
+        },
+        {
+          "id": "R-00433",
+          "name": "",
+          "active": true
+        },
+        {
+          "id": "R-00434",
+          "name": "",
+          "active": true
+        },
+        {
+          "id": "R-00435",
+          "name": "",
+          "active": true
+        },
+        {
+          "id": "R-00436",
+          "name": "",
+          "active": true
+        },
+        {
+          "id": "R-00437",
+          "name": "",
+          "active": true
+        },
+        {
+          "id": "R-00438",
+          "name": "",
+          "active": true
+        },
+        {
+          "id": "R-00484",
+          "name": "",
+          "active": true
+        },
+        {
+          "id": "R-00491",
+          "name": "",
+          "active": true
+        },
+        {
+          "id": "WDAYINTD",
+          "name": "",
+          "active": true
+        },
+        {
+          "id": "R-00546",
+          "name": "",
+          "active": true
+        },
+        {
+          "id": "R-00548",
+          "name": "",
+          "active": true
+        },
+        {
+          "id": "R-00561",
+          "name": "",
+          "active": true
+        },
+        {
+          "id": "sym001",
+          "name": "",
+          "active": true
+        },
+        {
+          "id": "SIGMA001",
+          "name": "",
+          "active": true
+        },
+        {
+          "id": "DG001",
+          "name": "",
+          "active": true
+        },
+        {
+          "id": "R-00577",
+          "name": "",
+          "active": true
+        },
+        {
+          "id": "003",
+          "name": "",
+          "active": true
+        },
+        {
+          "id": "008",
+          "name": "",
+          "active": true
+        },
+        {
+          "id": "001",
+          "name": "",
+          "active": true
+        },
+        {
+          "id": "002",
+          "name": "",
+          "active": true
+        },
+        {
+          "id": "004",
+          "name": "",
+          "active": true
+        },
+        {
+          "id": "005",
+          "name": "",
+          "active": true
+        },
+        {
+          "id": "006",
+          "name": "",
+          "active": true
+        },
+        {
+          "id": "007",
+          "name": "",
+          "active": true
+        },
+        {
+          "id": "R-00619",
+          "name": "",
+          "active": true
+        },
+        {
+          "id": "R-00626",
+          "name": "",
+          "active": true
+        },
+        {
+          "id": "R-00627",
+          "name": "",
+          "active": true
+        },
+        {
+          "id": "R-00629",
+          "name": "",
+          "active": true
+        },
+        {
+          "id": "R-00630",
+          "name": "",
+          "active": true
+        },
+        {
+          "id": "R-00631",
+          "name": "",
+          "active": true
+        },
+        {
+          "id": "R-00632",
+          "name": "",
+          "active": true
+        },
+        {
+          "id": "R-00639",
+          "name": "",
+          "active": true
+        },
+        {
+          "id": "R-00676",
+          "name": "",
+          "active": true
+        },
+        {
+          "id": "R-00677",
+          "name": "",
+          "active": true
+        },
+        {
+          "id": "R-00678",
+          "name": "",
+          "active": true
+        },
+        {
+          "id": "6254",
+          "name": "",
+          "active": true
+        },
+        {
+          "id": "R-00720",
+          "name": "",
+          "active": true
+        },
+        {
+          "id": "ABS_MD_001",
+          "name": "",
+          "active": true
+        },
+        {
+          "id": "ABS_JP_003",
+          "name": "",
+          "active": true
+        },
+        {
+          "id": "ABS_JP_007",
+          "name": "",
+          "active": true
+        },
+        {
+          "id": "ABS_CEO_002",
+          "name": "",
+          "active": true
+        },
+        {
+          "id": "ABS_JP_004",
+          "name": "",
+          "active": true
+        },
+        {
+          "id": "ABS_JP_005",
+          "name": "",
+          "active": true
+        },
+        {
+          "id": "ABS_JP_006",
+          "name": "",
+          "active": true
+        },
+        {
+          "id": "ABS_JP_008",
+          "name": "",
+          "active": true
+        },
+        {
+          "id": "ABS_V_001",
+          "name": "",
+          "active": true
+        }
+      ]
+    },
+    "batchDelete": {
+      "JobProfile": []
+    }
+  },
+  "api": {}
+}

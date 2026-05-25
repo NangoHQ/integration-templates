@@ -1,0 +1,12 @@
+{
+  "nango": {
+    "getConnection": {},
+    "batchSave": {
+      "Worker": []
+    },
+    "batchDelete": {
+      "Worker": []
+    }
+  },
+  "api": {}
+}

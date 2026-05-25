@@ -1,0 +1,187 @@
+{
+  "input": {
+    "response_id": "resp_02c128772b283384006a0d8b6fd27c8199bd625d3ac6448c4b"
+  },
+  "output": {
+    "id": "resp_02c128772b283384006a0d8b6fd27c8199bd625d3ac6448c4b",
+    "object": "response",
+    "model": "gpt-4o-mini-2024-07-18",
+    "output": [
+      {
+        "id": "msg_02c128772b283384006a0d8b71a31081999db300d1e0ecd4fa",
+        "type": "message",
+        "status": "completed",
+        "content": [
+          {
+            "type": "output_text",
+            "annotations": [],
+            "logprobs": [],
+            "text": "Hello! It looks like you're testing a response. How can I assist you today?"
+          }
+        ],
+        "role": "assistant"
+      }
+    ],
+    "usage": {
+      "input_tokens": 18,
+      "output_tokens": 18,
+      "total_tokens": 36,
+      "input_tokens_details": {
+        "cached_tokens": 0
+      },
+      "output_tokens_details": {
+        "reasoning_tokens": 0
+      }
+    },
+    "created_at": 1779272559,
+    "status": "completed",
+    "background": false,
+    "billing": {
+      "payer": "developer"
+    },
+    "completed_at": 1779272561,
+    "error": null,
+    "frequency_penalty": 0,
+    "incomplete_details": null,
+    "instructions": null,
+    "max_output_tokens": null,
+    "max_tool_calls": null,
+    "moderation": null,
+    "parallel_tool_calls": true,
+    "presence_penalty": 0,
+    "previous_response_id": null,
+    "prompt_cache_key": null,
+    "prompt_cache_retention": "in_memory",
+    "reasoning": {
+      "effort": null,
+      "summary": null
+    },
+    "safety_identifier": null,
+    "service_tier": "default",
+    "store": true,
+    "temperature": 1,
+    "text": {
+      "format": {
+        "type": "text"
+      },
+      "verbosity": "medium"
+    },
+    "tool_choice": "auto",
+    "tools": [],
+    "top_logprobs": 0,
+    "top_p": 1,
+    "truncation": "disabled",
+    "user": null,
+    "metadata": {}
+  },
+  "nango": {},
+  "api": {
+    "get": {
+      "/v1/responses/resp_02c128772b283384006a0d8b6fd27c8199bd625d3ac6448c4b": {
+        "response": {
+          "id": "resp_02c128772b283384006a0d8b6fd27c8199bd625d3ac6448c4b",
+          "object": "response",
+          "created_at": 1779272559,
+          "status": "completed",
+          "background": false,
+          "billing": {
+            "payer": "developer"
+          },
+          "completed_at": 1779272561,
+          "error": null,
+          "frequency_penalty": 0,
+          "incomplete_details": null,
+          "instructions": null,
+          "max_output_tokens": null,
+          "max_tool_calls": null,
+          "model": "gpt-4o-mini-2024-07-18",
+          "moderation": null,
+          "output": [
+            {
+              "id": "msg_02c128772b283384006a0d8b71a31081999db300d1e0ecd4fa",
+              "type": "message",
+              "status": "completed",
+              "content": [
+                {
+                  "type": "output_text",
+                  "annotations": [],
+                  "logprobs": [],
+                  "text": "Hello! It looks like you're testing a response. How can I assist you today?"
+                }
+              ],
+              "role": "assistant"
+            }
+          ],
+          "parallel_tool_calls": true,
+          "presence_penalty": 0,
+          "previous_response_id": null,
+          "prompt_cache_key": null,
+          "prompt_cache_retention": "in_memory",
+          "reasoning": {
+            "effort": null,
+            "summary": null
+          },
+          "safety_identifier": null,
+          "service_tier": "default",
+          "store": true,
+          "temperature": 1,
+          "text": {
+            "format": {
+              "type": "text"
+            },
+            "verbosity": "medium"
+          },
+          "tool_choice": "auto",
+          "tools": [],
+          "top_logprobs": 0,
+          "top_p": 1,
+          "truncation": "disabled",
+          "usage": {
+            "input_tokens": 18,
+            "input_tokens_details": {
+              "cached_tokens": 0
+            },
+            "output_tokens": 18,
+            "output_tokens_details": {
+              "reasoning_tokens": 0
+            },
+            "total_tokens": 36
+          },
+          "user": null,
+          "metadata": {}
+        },
+        "status": 200,
+        "headers": {
+          "date": "Wed, 20 May 2026 10:23:13 GMT",
+          "content-type": "application/json",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=31536000; includeSubDomains; preload",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "X-Request-ID, CF-Ray, CF-Ray",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4936",
+          "x-ratelimit-reset": "1779272621",
+          "cf-ray": "9fea9feaab24ca84-PDX",
+          "cf-cache-status": "DYNAMIC",
+          "server": "cloudflare",
+          "openai-organization": "nangodev",
+          "openai-processing-ms": "83",
+          "openai-project": "proj_bkqat9iXXSSrc8Kx228QbGL9",
+          "openai-version": "2020-10-01",
+          "x-request-id": "req_6e2af8b66b6f4e038fb5f68e31cde74b",
+          "set-cookie": "__cf_bm=8s_T5rK3pIx0uz8aAiVz00ViFdliJNrlef3TOA_VS9k-1779272593.062047-1.0.1.1-2RjKp1VwMqmh2pQKBgNS5lToX6l9.1HfAthrzeNOWrI9TfJ_vNFbsBmPJJBY1kdNmxn6rK3xC3GSTppfljkNOzTOMQhNot8sdQIafPJ519qTcD_Ddgi6_FSZr3CD5XwH; HttpOnly; SameSite=None; Secure; Path=/; Domain=api.openai.com; Expires=Wed, 20 May 2026 10:53:13 GMT",
+          "alt-svc": "h3=\":443\"; ma=86400"
+        },
+        "hash": "fcb44e1e687efb3331b029d2ad0eadcc6fe17a8d",
+        "request": {}
+      }
+    }
+  }
+}
