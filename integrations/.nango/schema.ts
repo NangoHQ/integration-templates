@@ -1831,31 +1831,218 @@ export interface Model {
   owned_by?: string | undefined;
 };
 
-export interface ActionInput_anthropic_createfile {
+export interface ActionInput_anthropic_cancelmessagebatch {
   /**
-   * Original filename of the uploaded file. Example: "document.pdf"
+   * ID of the Message Batch to cancel. Example: "msgbatch_013Zva2CMHLNnXjNJJKqJ2EF"
    */
-  filename: string;
-  /**
-   * Base64-encoded file content.
-   */
-  content: string;
-  /**
-   * MIME type of the file. Example: "application/pdf"
-   */
-  mime_type?: string | undefined;
+  message_batch_id: string;
 };
 
-export interface ActionOutput_anthropic_createfile {
+export interface ActionOutput_anthropic_cancelmessagebatch {
   id: string;
+  archived_at?: string | undefined;
+  cancel_initiated_at?: string | undefined;
   created_at: string;
-  filename: string;
-  mime_type: string;
-  size_bytes: number;
-  type: 'file';
-  downloadable?: boolean | undefined;
-  scope?: {  id: string;
-  type: 'session';} | undefined;
+  ended_at?: string | undefined;
+  expires_at: string;
+  processing_status: 'in_progress' | 'canceling' | 'ended';
+  request_counts: {  canceled: number;
+  errored: number;
+  expired: number;
+  processing: number;
+  succeeded: number;};
+  results_url?: string | undefined;
+  type: 'message_batch';
+};
+
+export interface ActionInput_anthropic_countmessagetokens {
+  /**
+   * The model that will count tokens. Example: "claude-sonnet-4-0"
+   */
+  model: string;
+  /**
+   * Input messages to count tokens for.
+   */
+  messages: ({  role: 'user' | 'assistant';
+  content: string | unknown[];})[];
+  /**
+   * System prompt.
+   */
+  system?: string | unknown[] | undefined;
+  /**
+   * Thinking configuration.
+   */
+  thinking?: unknown | undefined;
+  /**
+   * Tool definitions.
+   */
+  tools?: unknown[] | undefined;
+  /**
+   * Tool choice configuration.
+   */
+  tool_choice?: unknown | undefined;
+  /**
+   * Cache control configuration.
+   */
+  cache_control?: unknown | undefined;
+  /**
+   * Output format configuration.
+   */
+  output_config?: unknown | undefined;
+};
+
+export interface ActionOutput_anthropic_countmessagetokens {
+  /**
+   * The total number of tokens across the provided list of messages, system prompt, and tools.
+   */
+  input_tokens: number;
+};
+
+export interface ActionInput_anthropic_createmessagebatch {
+  /**
+   * List of requests for prompt completion. Each is an individual request to create a Message.
+   */
+  requests: ({  /**
+   * Unique identifier for the request within the batch. Must be unique. Example: "my-request-1"
+   */
+  custom_id: string;
+  /**
+   * Messages API creation parameters for the individual request. See https://docs.anthropic.com/en/api/messages
+   */
+  params: {};})[];
+};
+
+export interface ActionOutput_anthropic_createmessagebatch {
+  id: string;
+  type: string;
+  processing_status: string;
+  request_counts: {  processing: number;
+  succeeded: number;
+  errored: number;
+  canceled: number;
+  expired: number;};
+  created_at: string;
+  expires_at: string;
+  ended_at?: string | undefined;
+  cancel_initiated_at?: string | undefined;
+  results_url?: string | undefined;
+};
+
+export interface ActionInput_anthropic_createmessage {
+  /**
+   * Anthropic model ID. Example: "claude-3-5-sonnet-20241022"
+   */
+  model: string;
+  /**
+   * Maximum tokens to generate. Example: 1024
+   */
+  max_tokens: number;
+  /**
+   * Conversation messages
+   */
+  messages: ({  role: 'user' | 'assistant';
+  content: string | ({  0: {  type: 'text';
+  text: string;};
+  1: {  type: 'image';
+  source: {  type: string;
+  media_type: string;
+  data: string;};};
+  2: {  type: 'tool_use';
+  id: string;
+  name: string;
+  input: {  [key: string]: unknown | undefined;};};
+  3: {  type: 'tool_result';
+  tool_use_id: string;
+  content?: string | ({  0: {  type: 'text';
+  text: string;};
+  1: {  type: 'image';
+  source: {  type: string;
+  media_type: string;
+  data: string;};};})[] | undefined;
+  is_error?: boolean | undefined;};})[];})[];
+  /**
+   * System prompt
+   */
+  system?: string | ({  type: 'text';
+  text: string;})[] | undefined;
+  /**
+   * Tools available to the model
+   */
+  tools?: ({  name: string;
+  description: string;
+  input_schema: {  type: 'object';
+  properties?: {  [key: string]: unknown | undefined;};
+  required?: string[] | undefined;};})[];
+  /**
+   * Tool choice configuration
+   */
+  tool_choice?: {  /**
+   * Tool choice type. Example: "auto", "any", "tool"
+   */
+  type: string;
+  /**
+   * Tool name when type is "tool". Example: "my_tool"
+   */
+  name?: string | undefined;};
+  /**
+   * Thinking configuration
+   */
+  thinking?: {  /**
+   * Thinking configuration type. Example: "enabled"
+   */
+  type: string;
+  /**
+   * Token budget for thinking. Example: 1024
+   */
+  budget_tokens: number;} | undefined;
+  /**
+   * Enable streaming response
+   */
+  stream?: boolean | undefined;
+  /**
+   * Sampling temperature
+   */
+  temperature?: number | undefined;
+  /**
+   * Top-k sampling parameter
+   */
+  top_k?: number | undefined;
+  /**
+   * Top-p sampling parameter
+   */
+  top_p?: number | undefined;
+  /**
+   * Stop sequences
+   */
+  stop_sequences?: string[] | undefined;
+  /**
+   * Metadata key-value pairs
+   */
+  metadata?: {  [key: string]: string;} | undefined;
+};
+
+export interface ActionOutput_anthropic_createmessage {
+  id: string;
+  type: 'message';
+  role: 'assistant';
+  content: ({  0: {  type: 'text';
+  text: string;};
+  1: {  type: 'tool_use';
+  id: string;
+  name: string;
+  input: {  [key: string]: unknown | undefined;};};
+  2: {  type: 'thinking';
+  thinking: string;
+  signature?: string | undefined;};
+  3: {  type: 'redacted_thinking';
+  data: string;};})[];
+  model: string;
+  stop_reason?: string | null | undefined;
+  stop_sequence?: string | null | undefined;
+  usage: {  input_tokens: number;
+  output_tokens: number;
+  cache_creation_input_tokens?: number | undefined;
+  cache_read_input_tokens?: number | undefined;};
 };
 
 export interface ActionInput_anthropic_deletefile {
@@ -1887,6 +2074,30 @@ export interface ActionOutput_anthropic_getfile {
   downloadable?: boolean | undefined;
   scope?: {  id: string;
   type: 'session';} | undefined;
+};
+
+export interface ActionInput_anthropic_getmessagebatch {
+  /**
+   * The ID of the message batch to retrieve. Example: "msgbatch_01Ab2cDe3Fg4hIj5Kl6mNo7Pq8r"
+   */
+  message_batch_id: string;
+};
+
+export interface ActionOutput_anthropic_getmessagebatch {
+  id: string;
+  archived_at?: string | undefined;
+  cancel_initiated_at?: string | undefined;
+  created_at: string;
+  ended_at?: string | undefined;
+  expires_at: string;
+  processing_status: 'in_progress' | 'canceling' | 'ended';
+  request_counts: {  canceled: number;
+  errored: number;
+  expired: number;
+  processing: number;
+  succeeded: number;};
+  results_url?: string | undefined;
+  type: 'message_batch';
 };
 
 export interface ActionInput_anthropic_getmodel {
@@ -1950,6 +2161,18 @@ export interface ActionOutput_anthropic_listfiles {
   scope?: {  id: string;
   type: string;} | undefined;})[];
   next_cursor?: string | undefined;
+};
+
+export interface ActionInput_anthropic_listmessagebatchresults {
+  /**
+   * The ID of the Message Batch to retrieve results for. Example: "msgbatch_01AbCdEfGhIjKlMnOpQrStUv"
+   */
+  message_batch_id: string;
+};
+
+export interface ActionOutput_anthropic_listmessagebatchresults {
+  results: ({  custom_id: string;
+  result: {  [key: string]: unknown | undefined;};})[];
 };
 
 export interface ActionInput_anthropic_listmessagebatches {
