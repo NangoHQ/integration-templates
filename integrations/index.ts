@@ -1,3 +1,22 @@
+// -- Integration: 1password-scim
+import './1password-scim/syncs/scim-groups.js';
+import './1password-scim/syncs/scim-users.js';
+import './1password-scim/actions/create-scim-group.js';
+import './1password-scim/actions/create-scim-user.js';
+import './1password-scim/actions/delete-scim-group.js';
+import './1password-scim/actions/delete-scim-user.js';
+import './1password-scim/actions/get-scim-group.js';
+import './1password-scim/actions/get-scim-user.js';
+import './1password-scim/actions/get-service-provider-config.js';
+import './1password-scim/actions/list-resource-types.js';
+import './1password-scim/actions/list-schemas.js';
+import './1password-scim/actions/list-scim-groups.js';
+import './1password-scim/actions/list-scim-users.js';
+import './1password-scim/actions/patch-scim-group.js';
+import './1password-scim/actions/patch-scim-user.js';
+import './1password-scim/actions/update-scim-group.js';
+import './1password-scim/actions/update-scim-user.js';
+
 // -- Integration: adp
 import './adp/syncs/unified-employees.js';
 

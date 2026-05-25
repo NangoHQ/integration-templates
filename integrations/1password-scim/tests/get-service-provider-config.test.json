@@ -1,0 +1,110 @@
+{
+  "input": {},
+  "output": {
+    "schemas": [
+      "urn:ietf:params:scim:schemas:core:2.0:ServiceProviderConfig"
+    ],
+    "meta": {
+      "resourceType": "ServiceProviderConfig",
+      "location": "/scim/v2/ServiceProviderConfig"
+    },
+    "patch": {
+      "supported": true
+    },
+    "bulk": {
+      "supported": false,
+      "maxOperations": 0,
+      "maxPayloadSize": 0
+    },
+    "filter": {
+      "supported": true,
+      "maxResults": 10000
+    },
+    "changePassword": {
+      "supported": false
+    },
+    "sort": {
+      "supported": false
+    },
+    "etag": {
+      "supported": false
+    },
+    "authenticationSchemes": [
+      {
+        "name": "OAuth Bearer Token",
+        "description": "Authentication using the OAuth Bearer Token standard",
+        "specUri": "https://tools.ietf.org/html/rfc6750",
+        "documentationUri": "",
+        "type": "oauthbearertoken"
+      }
+    ]
+  },
+  "nango": {},
+  "api": {
+    "get": {
+      "/ServiceProviderConfig": {
+        "response": {
+          "authenticationSchemes": [
+            {
+              "description": "Authentication using the OAuth Bearer Token standard",
+              "documentationUri": "",
+              "name": "OAuth Bearer Token",
+              "specUri": "https://tools.ietf.org/html/rfc6750",
+              "type": "oauthbearertoken"
+            }
+          ],
+          "bulk": {
+            "maxOperations": 0,
+            "maxPayloadSize": 0,
+            "supported": false
+          },
+          "changePassword": {
+            "supported": false
+          },
+          "etag": {
+            "supported": false
+          },
+          "filter": {
+            "maxResults": 10000,
+            "supported": true
+          },
+          "meta": {
+            "location": "/scim/v2/ServiceProviderConfig",
+            "resourceType": "ServiceProviderConfig"
+          },
+          "patch": {
+            "supported": true
+          },
+          "schemas": [
+            "urn:ietf:params:scim:schemas:core:2.0:ServiceProviderConfig"
+          ],
+          "sort": {
+            "supported": false
+          }
+        },
+        "status": 200,
+        "headers": {
+          "date": "Thu, 21 May 2026 14:12:24 GMT",
+          "content-type": "application/scim+json",
+          "content-length": "618",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=5184000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4988",
+          "x-ratelimit-reset": "1779372787",
+          "etag": "W/\"26a-w0+4oAS0AeoXKyujVcfXuuWu7cs\""
+        },
+        "hash": "d767f2df4600c78829583fd233635afb1465cc7b",
+        "request": {}
+      }
+    }
+  }
+}
