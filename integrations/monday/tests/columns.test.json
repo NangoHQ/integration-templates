@@ -1,0 +1,1655 @@
+{
+  "nango": {
+    "batchSave": {
+      "Column": [
+        {
+          "id": "5096998570_name",
+          "board_id": "5096998570",
+          "column_id": "name",
+          "title": "Name",
+          "type": "name",
+          "settings_str": "{}"
+        },
+        {
+          "id": "5096998570_person",
+          "board_id": "5096998570",
+          "column_id": "person",
+          "title": "Owner",
+          "type": "people",
+          "settings_str": "{}"
+        },
+        {
+          "id": "5096998570_status",
+          "board_id": "5096998570",
+          "column_id": "status",
+          "title": "Status",
+          "type": "status",
+          "settings_str": "{\"done_colors\":[1],\"hide_footer\":true,\"labels\":{\"0\":\"Working on it\",\"1\":\"Done\",\"2\":\"Stuck\"},\"labels_positions_v2\":{\"0\":1,\"1\":2,\"2\":0,\"3\":3,\"4\":4,\"5\":9,\"6\":5,\"8\":6,\"9\":7,\"10\":8},\"labels_colors\":{\"0\":{\"color\":\"#fdab3d\",\"border\":\"#e99729\",\"var_name\":\"orange\"},\"1\":{\"color\":\"#00c875\",\"border\":\"#00b461\",\"var_name\":\"green-shadow\"},\"2\":{\"color\":\"#df2f4a\",\"border\":\"#ce3048\",\"var_name\":\"red-shadow\"}}}"
+        },
+        {
+          "id": "5096998570_date0",
+          "board_id": "5096998570",
+          "column_id": "date0",
+          "title": "Date",
+          "type": "date",
+          "settings_str": "{}"
+        },
+        {
+          "id": "5096998568_name",
+          "board_id": "5096998568",
+          "column_id": "name",
+          "title": "Name",
+          "type": "name",
+          "settings_str": "{}"
+        },
+        {
+          "id": "5096998568_task_owner",
+          "board_id": "5096998568",
+          "column_id": "task_owner",
+          "title": "Owner",
+          "type": "people",
+          "settings_str": "{}"
+        },
+        {
+          "id": "5096998568_task_status",
+          "board_id": "5096998568",
+          "column_id": "task_status",
+          "title": "Status",
+          "type": "status",
+          "settings_str": "{\"done_colors\":[1],\"color_mapping\":{\"0\":0,\"2\":18,\"3\":158,\"4\":15,\"9\":104,\"11\":153,\"15\":106,\"18\":103,\"103\":2,\"104\":4,\"106\":11,\"107\":152,\"152\":9,\"153\":107,\"158\":3},\"labels\":{\"0\":\"In Progress\",\"1\":\"Done\",\"2\":\"Pending Deploy\",\"3\":\"Waiting for review\",\"5\":\"\",\"11\":\"Ready to start\",\"103\":\"Stuck\"},\"labels_positions_v2\":{\"0\":1,\"1\":4,\"2\":3,\"3\":2,\"5\":6,\"11\":0,\"103\":5},\"labels_colors\":{\"0\":{\"color\":\"#fdab3d\",\"border\":\"#e99729\",\"var_name\":\"orange\"},\"1\":{\"color\":\"#00c875\",\"border\":\"#00b461\",\"var_name\":\"green-shadow\"},\"2\":{\"color\":\"#7f5347\",\"border\":\"#70493e\",\"var_name\":\"brown\"},\"3\":{\"color\":\"#a1e3f6\",\"border\":\"#a1e3f6\",\"var_name\":\"sail\"},\"5\":{\"color\":\"#c4c4c4\",\"border\":\"#b0b0b0\",\"var_name\":\"grey\"},\"11\":{\"color\":\"#216edf\",\"border\":\"#216edf\",\"var_name\":\"sky\"},\"103\":{\"color\":\"#df2f4a\",\"border\":\"#ce3048\",\"var_name\":\"red-shadow\"}}}"
+        },
+        {
+          "id": "5096998568_task_priority",
+          "board_id": "5096998568",
+          "column_id": "task_priority",
+          "title": "Priority",
+          "type": "status",
+          "settings_str": "{\"done_colors\":[],\"color_mapping\":{\"0\":2,\"1\":17,\"2\":9,\"9\":0,\"10\":15,\"12\":1,\"15\":12,\"17\":10,\"103\":103},\"labels\":{\"0\":\"Critical\",\"1\":\"Best Effort\",\"2\":\"High\",\"5\":\"Missing\",\"7\":\"Medium\",\"12\":\"Low\"},\"labels_positions_v2\":{\"0\":0,\"1\":4,\"2\":1,\"5\":5,\"7\":2,\"12\":3},\"labels_colors\":{\"0\":{\"color\":\"#df2f4a\",\"border\":\"#ce3048\",\"var_name\":\"red-shadow\"},\"1\":{\"color\":\"#757575\",\"border\":\"#707070\",\"var_name\":\"trolley-grey\"},\"2\":{\"color\":\"#ffcb00\",\"border\":\"#c0ab1b\",\"var_name\":\"yellow\"},\"5\":{\"color\":\"#c4c4c4\",\"border\":\"#b0b0b0\",\"var_name\":\"grey\"},\"7\":{\"color\":\"#579bfc\",\"border\":\"#4387e8\",\"var_name\":\"bright-blue\"},\"12\":{\"color\":\"#00c875\",\"border\":\"#00b461\",\"var_name\":\"green-shadow\"}}}"
+        },
+        {
+          "id": "5096998568_task_type",
+          "board_id": "5096998568",
+          "column_id": "task_type",
+          "title": "Type",
+          "type": "status",
+          "settings_str": "{\"done_colors\":[1],\"color_mapping\":{\"0\":102,\"3\":3,\"9\":9,\"10\":12,\"12\":10,\"102\":0},\"labels\":{\"0\":\"Quality\",\"1\":\"Feature\",\"2\":\"Bug\",\"3\":\"Other\",\"5\":\"\",\"6\":\"Security\",\"12\":\"Test\"},\"labels_positions_v2\":{\"0\":0,\"1\":1,\"2\":2,\"3\":5,\"5\":6,\"6\":4,\"12\":3},\"labels_colors\":{\"0\":{\"color\":\"#faa1f1\",\"border\":\"#faa1f1\",\"var_name\":\"bubble\"},\"1\":{\"color\":\"#00c875\",\"border\":\"#00b461\",\"var_name\":\"green-shadow\"},\"2\":{\"color\":\"#df2f4a\",\"border\":\"#ce3048\",\"var_name\":\"red-shadow\"},\"3\":{\"color\":\"#007eb5\",\"border\":\"#3db0df\",\"var_name\":\"blue-links\"},\"5\":{\"color\":\"#c4c4c4\",\"border\":\"#b0b0b0\",\"var_name\":\"grey\"},\"6\":{\"color\":\"#037f4c\",\"border\":\"#006b38\",\"var_name\":\"grass-green\"},\"12\":{\"color\":\"#333333\",\"border\":\"#000\",\"var_name\":\"soft-black\"}}}"
+        },
+        {
+          "id": "5096998568_task_estimation",
+          "board_id": "5096998568",
+          "column_id": "task_estimation",
+          "title": "Estimated SP",
+          "type": "numbers",
+          "settings_str": "{\"unit\":{\"symbol\":\"custom\",\"custom_unit\":\" SP\",\"direction\":\"right\"}}"
+        },
+        {
+          "id": "5096998568_task_actual_effort",
+          "board_id": "5096998568",
+          "column_id": "task_actual_effort",
+          "title": "Actual SP",
+          "type": "numbers",
+          "settings_str": "{}"
+        },
+        {
+          "id": "5096998568_link",
+          "board_id": "5096998568",
+          "column_id": "link",
+          "title": "GitHub link",
+          "type": "link",
+          "settings_str": "{}"
+        },
+        {
+          "id": "5096998568_check",
+          "board_id": "5096998568",
+          "column_id": "check",
+          "title": "Unplanned?",
+          "type": "checkbox",
+          "settings_str": "{}"
+        },
+        {
+          "id": "5096998568_item_id",
+          "board_id": "5096998568",
+          "column_id": "item_id",
+          "title": "Task ID",
+          "type": "item_id",
+          "settings_str": "{\"displayType\":\"pulseId\"}"
+        },
+        {
+          "id": "5096998568_task_epic",
+          "board_id": "5096998568",
+          "column_id": "task_epic",
+          "title": "Epic",
+          "type": "board_relation",
+          "settings_str": "{\"allowMultipleItems\":false,\"allowCreateReflectionColumn\":true,\"boardIds\":[5096980652],\"displayType\":\"CUSTOM\",\"layout\":\"epicItemLayout\",\"boardId\":null}"
+        },
+        {
+          "id": "5096998568_task_sprint",
+          "board_id": "5096998568",
+          "column_id": "task_sprint",
+          "title": "Sprint",
+          "type": "board_relation",
+          "settings_str": "{\"allowMultipleItems\":false,\"allowCreateReflectionColumn\":false,\"boardIds\":[5096980649],\"boardId\":null,\"displayType\":\"CUSTOM\",\"dataSourceLayoutConfigs\":{\"5096980649\":{\"name\":{\"refId\":\"name\"},\"description\":{\"refId\":\"sprint_timeline\"},\"info1\":{\"refId\":\"sprint_activation\"}}},\"layout\":\"sprintItemLayout\"}"
+        },
+        {
+          "id": "5096998568_mirror",
+          "board_id": "5096998568",
+          "column_id": "mirror",
+          "title": "Active sprint",
+          "type": "mirror",
+          "settings_str": "{\"relation_column\":{\"task_sprint\":true},\"displayed_column\":{},\"displayed_linked_columns\":{\"5096980649\":[\"sprint_activation\"]}}"
+        },
+        {
+          "id": "5096998568_monday_doc_v2",
+          "board_id": "5096998568",
+          "column_id": "monday_doc_v2",
+          "title": "monday Doc v2",
+          "type": "direct_doc",
+          "settings_str": "{\"doc_type\":1,\"auto_map_on_move\":true}"
+        },
+        {
+          "id": "5096998568_mirror__1",
+          "board_id": "5096998568",
+          "column_id": "mirror__1",
+          "title": "Sprint Completed?",
+          "type": "mirror",
+          "settings_str": "{\"relation_column\":{\"task_sprint\":true},\"displayed_column\":{},\"displayed_linked_columns\":{\"5096980649\":[\"sprint_completion\"]}}"
+        },
+        {
+          "id": "5096998568_subtasks_mm3jpjfr",
+          "board_id": "5096998568",
+          "column_id": "subtasks_mm3jpjfr",
+          "title": "Subitems",
+          "type": "subtasks",
+          "settings_str": "{\"displayType\":\"BOARD_INLINE\",\"itemTypeName\":\"column.subtasks.title\",\"allowMultipleItems\":true,\"boardIds\":[5096998570]}"
+        },
+        {
+          "id": "5096998558_name",
+          "board_id": "5096998558",
+          "column_id": "name",
+          "title": "Name",
+          "type": "name",
+          "settings_str": "{}"
+        },
+        {
+          "id": "5096998558_person",
+          "board_id": "5096998558",
+          "column_id": "person",
+          "title": "Owner",
+          "type": "people",
+          "settings_str": "{}"
+        },
+        {
+          "id": "5096998558_status",
+          "board_id": "5096998558",
+          "column_id": "status",
+          "title": "Status",
+          "type": "status",
+          "settings_str": "{\"done_colors\":[1],\"hide_footer\":true,\"labels\":{\"0\":\"Working on it\",\"1\":\"Done\",\"2\":\"Stuck\"},\"labels_positions_v2\":{\"0\":1,\"1\":2,\"2\":0,\"3\":3,\"4\":4,\"5\":9,\"6\":5,\"8\":6,\"9\":7,\"10\":8},\"labels_colors\":{\"0\":{\"color\":\"#fdab3d\",\"border\":\"#e99729\",\"var_name\":\"orange\"},\"1\":{\"color\":\"#00c875\",\"border\":\"#00b461\",\"var_name\":\"green-shadow\"},\"2\":{\"color\":\"#df2f4a\",\"border\":\"#ce3048\",\"var_name\":\"red-shadow\"}}}"
+        },
+        {
+          "id": "5096998558_date0",
+          "board_id": "5096998558",
+          "column_id": "date0",
+          "title": "Date",
+          "type": "date",
+          "settings_str": "{}"
+        },
+        {
+          "id": "5096998553_name",
+          "board_id": "5096998553",
+          "column_id": "name",
+          "title": "Name",
+          "type": "name",
+          "settings_str": "{}"
+        },
+        {
+          "id": "5096998553_task_owner",
+          "board_id": "5096998553",
+          "column_id": "task_owner",
+          "title": "Owner",
+          "type": "people",
+          "settings_str": "{}"
+        },
+        {
+          "id": "5096998553_task_status",
+          "board_id": "5096998553",
+          "column_id": "task_status",
+          "title": "Status",
+          "type": "status",
+          "settings_str": "{\"done_colors\":[1],\"color_mapping\":{\"0\":0,\"2\":18,\"3\":158,\"4\":15,\"9\":104,\"11\":153,\"15\":106,\"18\":103,\"103\":2,\"104\":4,\"106\":11,\"107\":152,\"152\":9,\"153\":107,\"158\":3},\"labels\":{\"0\":\"In Progress\",\"1\":\"Done\",\"2\":\"Pending Deploy\",\"3\":\"Waiting for review\",\"5\":\"\",\"11\":\"Ready to start\",\"103\":\"Stuck\"},\"labels_positions_v2\":{\"0\":1,\"1\":4,\"2\":3,\"3\":2,\"5\":6,\"11\":0,\"103\":5},\"labels_colors\":{\"0\":{\"color\":\"#fdab3d\",\"border\":\"#e99729\",\"var_name\":\"orange\"},\"1\":{\"color\":\"#00c875\",\"border\":\"#00b461\",\"var_name\":\"green-shadow\"},\"2\":{\"color\":\"#7f5347\",\"border\":\"#70493e\",\"var_name\":\"brown\"},\"3\":{\"color\":\"#a1e3f6\",\"border\":\"#a1e3f6\",\"var_name\":\"sail\"},\"5\":{\"color\":\"#c4c4c4\",\"border\":\"#b0b0b0\",\"var_name\":\"grey\"},\"11\":{\"color\":\"#216edf\",\"border\":\"#216edf\",\"var_name\":\"sky\"},\"103\":{\"color\":\"#df2f4a\",\"border\":\"#ce3048\",\"var_name\":\"red-shadow\"}}}"
+        },
+        {
+          "id": "5096998553_task_priority",
+          "board_id": "5096998553",
+          "column_id": "task_priority",
+          "title": "Priority",
+          "type": "status",
+          "settings_str": "{\"done_colors\":[],\"color_mapping\":{\"0\":2,\"1\":17,\"2\":9,\"9\":0,\"10\":15,\"12\":1,\"15\":12,\"17\":10,\"103\":103},\"labels\":{\"0\":\"Critical\",\"1\":\"Best Effort\",\"2\":\"High\",\"5\":\"Missing\",\"7\":\"Medium\",\"12\":\"Low\"},\"labels_positions_v2\":{\"0\":0,\"1\":4,\"2\":1,\"5\":5,\"7\":2,\"12\":3},\"labels_colors\":{\"0\":{\"color\":\"#df2f4a\",\"border\":\"#ce3048\",\"var_name\":\"red-shadow\"},\"1\":{\"color\":\"#757575\",\"border\":\"#707070\",\"var_name\":\"trolley-grey\"},\"2\":{\"color\":\"#ffcb00\",\"border\":\"#c0ab1b\",\"var_name\":\"yellow\"},\"5\":{\"color\":\"#c4c4c4\",\"border\":\"#b0b0b0\",\"var_name\":\"grey\"},\"7\":{\"color\":\"#579bfc\",\"border\":\"#4387e8\",\"var_name\":\"bright-blue\"},\"12\":{\"color\":\"#00c875\",\"border\":\"#00b461\",\"var_name\":\"green-shadow\"}}}"
+        },
+        {
+          "id": "5096998553_task_type",
+          "board_id": "5096998553",
+          "column_id": "task_type",
+          "title": "Type",
+          "type": "status",
+          "settings_str": "{\"done_colors\":[1],\"color_mapping\":{\"0\":102,\"3\":3,\"9\":9,\"10\":12,\"12\":10,\"102\":0},\"labels\":{\"0\":\"Quality\",\"1\":\"Feature\",\"2\":\"Bug\",\"3\":\"Other\",\"5\":\"\",\"6\":\"Security\",\"12\":\"Test\"},\"labels_positions_v2\":{\"0\":0,\"1\":1,\"2\":2,\"3\":5,\"5\":6,\"6\":4,\"12\":3},\"labels_colors\":{\"0\":{\"color\":\"#faa1f1\",\"border\":\"#faa1f1\",\"var_name\":\"bubble\"},\"1\":{\"color\":\"#00c875\",\"border\":\"#00b461\",\"var_name\":\"green-shadow\"},\"2\":{\"color\":\"#df2f4a\",\"border\":\"#ce3048\",\"var_name\":\"red-shadow\"},\"3\":{\"color\":\"#007eb5\",\"border\":\"#3db0df\",\"var_name\":\"blue-links\"},\"5\":{\"color\":\"#c4c4c4\",\"border\":\"#b0b0b0\",\"var_name\":\"grey\"},\"6\":{\"color\":\"#037f4c\",\"border\":\"#006b38\",\"var_name\":\"grass-green\"},\"12\":{\"color\":\"#333333\",\"border\":\"#000\",\"var_name\":\"soft-black\"}}}"
+        },
+        {
+          "id": "5096998553_task_estimation",
+          "board_id": "5096998553",
+          "column_id": "task_estimation",
+          "title": "Estimated SP",
+          "type": "numbers",
+          "settings_str": "{\"unit\":{\"symbol\":\"custom\",\"custom_unit\":\" SP\",\"direction\":\"right\"}}"
+        },
+        {
+          "id": "5096998553_task_actual_effort",
+          "board_id": "5096998553",
+          "column_id": "task_actual_effort",
+          "title": "Actual SP",
+          "type": "numbers",
+          "settings_str": "{}"
+        },
+        {
+          "id": "5096998553_link",
+          "board_id": "5096998553",
+          "column_id": "link",
+          "title": "GitHub link",
+          "type": "link",
+          "settings_str": "{}"
+        },
+        {
+          "id": "5096998553_check",
+          "board_id": "5096998553",
+          "column_id": "check",
+          "title": "Unplanned?",
+          "type": "checkbox",
+          "settings_str": "{}"
+        },
+        {
+          "id": "5096998553_item_id",
+          "board_id": "5096998553",
+          "column_id": "item_id",
+          "title": "Task ID",
+          "type": "item_id",
+          "settings_str": "{\"displayType\":\"pulseId\"}"
+        },
+        {
+          "id": "5096998553_task_epic",
+          "board_id": "5096998553",
+          "column_id": "task_epic",
+          "title": "Epic",
+          "type": "board_relation",
+          "settings_str": "{\"allowMultipleItems\":false,\"allowCreateReflectionColumn\":true,\"boardIds\":[5096980652],\"displayType\":\"CUSTOM\",\"layout\":\"epicItemLayout\",\"boardId\":null}"
+        },
+        {
+          "id": "5096998553_task_sprint",
+          "board_id": "5096998553",
+          "column_id": "task_sprint",
+          "title": "Sprint",
+          "type": "board_relation",
+          "settings_str": "{\"allowMultipleItems\":false,\"allowCreateReflectionColumn\":false,\"boardIds\":[5096980649],\"boardId\":null,\"displayType\":\"CUSTOM\",\"dataSourceLayoutConfigs\":{\"5096980649\":{\"name\":{\"refId\":\"name\"},\"description\":{\"refId\":\"sprint_timeline\"},\"info1\":{\"refId\":\"sprint_activation\"}}},\"layout\":\"sprintItemLayout\"}"
+        },
+        {
+          "id": "5096998553_mirror",
+          "board_id": "5096998553",
+          "column_id": "mirror",
+          "title": "Active sprint",
+          "type": "mirror",
+          "settings_str": "{\"relation_column\":{\"task_sprint\":true},\"displayed_column\":{},\"displayed_linked_columns\":{\"5096980649\":[\"sprint_activation\"]}}"
+        },
+        {
+          "id": "5096998553_monday_doc_v2",
+          "board_id": "5096998553",
+          "column_id": "monday_doc_v2",
+          "title": "monday Doc v2",
+          "type": "direct_doc",
+          "settings_str": "{\"doc_type\":1,\"auto_map_on_move\":true}"
+        },
+        {
+          "id": "5096998553_mirror__1",
+          "board_id": "5096998553",
+          "column_id": "mirror__1",
+          "title": "Sprint Completed?",
+          "type": "mirror",
+          "settings_str": "{\"relation_column\":{\"task_sprint\":true},\"displayed_column\":{},\"displayed_linked_columns\":{\"5096980649\":[\"sprint_completion\"]}}"
+        },
+        {
+          "id": "5096998553_subtasks_mm3jpjfr",
+          "board_id": "5096998553",
+          "column_id": "subtasks_mm3jpjfr",
+          "title": "Subitems",
+          "type": "subtasks",
+          "settings_str": "{\"displayType\":\"BOARD_INLINE\",\"itemTypeName\":\"column.subtasks.title\",\"allowMultipleItems\":true,\"boardIds\":[5096998558]}"
+        },
+        {
+          "id": "5096982894_name",
+          "board_id": "5096982894",
+          "column_id": "name",
+          "title": "Name",
+          "type": "name",
+          "settings_str": "{}"
+        },
+        {
+          "id": "5096982894_person",
+          "board_id": "5096982894",
+          "column_id": "person",
+          "title": "Owner",
+          "type": "people",
+          "settings_str": "{}"
+        },
+        {
+          "id": "5096982894_status",
+          "board_id": "5096982894",
+          "column_id": "status",
+          "title": "Status",
+          "type": "status",
+          "settings_str": "{\"done_colors\":[1],\"hide_footer\":true,\"labels\":{\"0\":\"Working on it\",\"1\":\"Done\",\"2\":\"Stuck\"},\"labels_positions_v2\":{\"0\":1,\"1\":2,\"2\":0,\"3\":3,\"4\":4,\"5\":9,\"6\":5,\"8\":6,\"9\":7,\"10\":8},\"labels_colors\":{\"0\":{\"color\":\"#fdab3d\",\"border\":\"#e99729\",\"var_name\":\"orange\"},\"1\":{\"color\":\"#00c875\",\"border\":\"#00b461\",\"var_name\":\"green-shadow\"},\"2\":{\"color\":\"#df2f4a\",\"border\":\"#ce3048\",\"var_name\":\"red-shadow\"}}}"
+        },
+        {
+          "id": "5096982894_date0",
+          "board_id": "5096982894",
+          "column_id": "date0",
+          "title": "Date",
+          "type": "date",
+          "settings_str": "{}"
+        },
+        {
+          "id": "5096980653_name",
+          "board_id": "5096980653",
+          "column_id": "name",
+          "title": "Name",
+          "type": "name",
+          "settings_str": "{}"
+        },
+        {
+          "id": "5096980653_task_owner",
+          "board_id": "5096980653",
+          "column_id": "task_owner",
+          "title": "Owner",
+          "type": "people",
+          "settings_str": "{}"
+        },
+        {
+          "id": "5096980653_task_status",
+          "board_id": "5096980653",
+          "column_id": "task_status",
+          "title": "Status",
+          "type": "status",
+          "settings_str": "{\"done_colors\":[1],\"color_mapping\":{\"0\":0,\"2\":18,\"3\":158,\"4\":15,\"9\":104,\"11\":153,\"15\":106,\"18\":103,\"103\":2,\"104\":4,\"106\":11,\"107\":152,\"152\":9,\"153\":107,\"158\":3},\"labels\":{\"0\":\"In Progress\",\"1\":\"Done\",\"2\":\"Pending Deploy\",\"3\":\"Waiting for review\",\"5\":\"\",\"11\":\"Ready to start\",\"103\":\"Stuck\"},\"labels_positions_v2\":{\"0\":1,\"1\":4,\"2\":3,\"3\":2,\"5\":6,\"11\":0,\"103\":5},\"labels_colors\":{\"0\":{\"color\":\"#fdab3d\",\"border\":\"#e99729\",\"var_name\":\"orange\"},\"1\":{\"color\":\"#00c875\",\"border\":\"#00b461\",\"var_name\":\"green-shadow\"},\"2\":{\"color\":\"#7f5347\",\"border\":\"#70493e\",\"var_name\":\"brown\"},\"3\":{\"color\":\"#a1e3f6\",\"border\":\"#a1e3f6\",\"var_name\":\"sail\"},\"5\":{\"color\":\"#c4c4c4\",\"border\":\"#b0b0b0\",\"var_name\":\"grey\"},\"11\":{\"color\":\"#216edf\",\"border\":\"#216edf\",\"var_name\":\"sky\"},\"103\":{\"color\":\"#df2f4a\",\"border\":\"#ce3048\",\"var_name\":\"red-shadow\"}}}"
+        },
+        {
+          "id": "5096980653_task_priority",
+          "board_id": "5096980653",
+          "column_id": "task_priority",
+          "title": "Priority",
+          "type": "status",
+          "settings_str": "{\"done_colors\":[],\"color_mapping\":{\"0\":2,\"1\":17,\"2\":9,\"9\":0,\"10\":15,\"12\":1,\"15\":12,\"17\":10,\"103\":103},\"labels\":{\"0\":\"Critical\",\"1\":\"Best Effort\",\"2\":\"High\",\"5\":\"Missing\",\"7\":\"Medium\",\"12\":\"Low\"},\"labels_positions_v2\":{\"0\":0,\"1\":4,\"2\":1,\"5\":5,\"7\":2,\"12\":3},\"labels_colors\":{\"0\":{\"color\":\"#df2f4a\",\"border\":\"#ce3048\",\"var_name\":\"red-shadow\"},\"1\":{\"color\":\"#757575\",\"border\":\"#707070\",\"var_name\":\"trolley-grey\"},\"2\":{\"color\":\"#ffcb00\",\"border\":\"#c0ab1b\",\"var_name\":\"yellow\"},\"5\":{\"color\":\"#c4c4c4\",\"border\":\"#b0b0b0\",\"var_name\":\"grey\"},\"7\":{\"color\":\"#579bfc\",\"border\":\"#4387e8\",\"var_name\":\"bright-blue\"},\"12\":{\"color\":\"#00c875\",\"border\":\"#00b461\",\"var_name\":\"green-shadow\"}}}"
+        },
+        {
+          "id": "5096980653_task_type",
+          "board_id": "5096980653",
+          "column_id": "task_type",
+          "title": "Type",
+          "type": "status",
+          "settings_str": "{\"done_colors\":[1],\"color_mapping\":{\"0\":102,\"3\":3,\"9\":9,\"10\":12,\"12\":10,\"102\":0},\"labels\":{\"0\":\"Quality\",\"1\":\"Feature\",\"2\":\"Bug\",\"3\":\"Other\",\"5\":\"\",\"6\":\"Security\",\"12\":\"Test\"},\"labels_positions_v2\":{\"0\":0,\"1\":1,\"2\":2,\"3\":5,\"5\":6,\"6\":4,\"12\":3},\"labels_colors\":{\"0\":{\"color\":\"#faa1f1\",\"border\":\"#faa1f1\",\"var_name\":\"bubble\"},\"1\":{\"color\":\"#00c875\",\"border\":\"#00b461\",\"var_name\":\"green-shadow\"},\"2\":{\"color\":\"#df2f4a\",\"border\":\"#ce3048\",\"var_name\":\"red-shadow\"},\"3\":{\"color\":\"#007eb5\",\"border\":\"#3db0df\",\"var_name\":\"blue-links\"},\"5\":{\"color\":\"#c4c4c4\",\"border\":\"#b0b0b0\",\"var_name\":\"grey\"},\"6\":{\"color\":\"#037f4c\",\"border\":\"#006b38\",\"var_name\":\"grass-green\"},\"12\":{\"color\":\"#333333\",\"border\":\"#000\",\"var_name\":\"soft-black\"}}}"
+        },
+        {
+          "id": "5096980653_task_estimation",
+          "board_id": "5096980653",
+          "column_id": "task_estimation",
+          "title": "Estimated SP",
+          "type": "numbers",
+          "settings_str": "{\"unit\":{\"symbol\":\"custom\",\"custom_unit\":\" SP\",\"direction\":\"right\"}}"
+        },
+        {
+          "id": "5096980653_task_actual_effort",
+          "board_id": "5096980653",
+          "column_id": "task_actual_effort",
+          "title": "Actual SP",
+          "type": "numbers",
+          "settings_str": "{}"
+        },
+        {
+          "id": "5096980653_link",
+          "board_id": "5096980653",
+          "column_id": "link",
+          "title": "GitHub link",
+          "type": "link",
+          "settings_str": "{}"
+        },
+        {
+          "id": "5096980653_check",
+          "board_id": "5096980653",
+          "column_id": "check",
+          "title": "Unplanned?",
+          "type": "checkbox",
+          "settings_str": "{}"
+        },
+        {
+          "id": "5096980653_item_id",
+          "board_id": "5096980653",
+          "column_id": "item_id",
+          "title": "Task ID",
+          "type": "item_id",
+          "settings_str": "{\"customKeySettings\":{\"padding\":2,\"prefix\":\"TNAN\",\"counterId\":\"850bb5ba-ebc2-41be-92ed-da70f214772f\"},\"displayType\":\"customKey\"}"
+        },
+        {
+          "id": "5096980653_task_epic",
+          "board_id": "5096980653",
+          "column_id": "task_epic",
+          "title": "Epic",
+          "type": "board_relation",
+          "settings_str": "{\"allowMultipleItems\":false,\"allowCreateReflectionColumn\":true,\"boardIds\":[5096980652],\"displayType\":\"CUSTOM\",\"layout\":\"epicItemLayout\",\"boardId\":null}"
+        },
+        {
+          "id": "5096980653_task_sprint",
+          "board_id": "5096980653",
+          "column_id": "task_sprint",
+          "title": "Sprint",
+          "type": "board_relation",
+          "settings_str": "{\"allowMultipleItems\":false,\"allowCreateReflectionColumn\":false,\"boardIds\":[5096980649],\"boardId\":null,\"displayType\":\"CUSTOM\",\"dataSourceLayoutConfigs\":{\"5096980649\":{\"name\":{\"refId\":\"name\"},\"description\":{\"refId\":\"sprint_timeline\"},\"info1\":{\"refId\":\"sprint_activation\"}}},\"layout\":\"sprintItemLayout\"}"
+        },
+        {
+          "id": "5096980653_mirror",
+          "board_id": "5096980653",
+          "column_id": "mirror",
+          "title": "Active sprint",
+          "type": "mirror",
+          "settings_str": "{\"relation_column\":{\"task_sprint\":true},\"displayed_column\":{},\"displayed_linked_columns\":{\"5096980649\":[\"sprint_activation\"]}}"
+        },
+        {
+          "id": "5096980653_monday_doc_v2",
+          "board_id": "5096980653",
+          "column_id": "monday_doc_v2",
+          "title": "monday Doc v2",
+          "type": "direct_doc",
+          "settings_str": "{\"doc_type\":1,\"auto_map_on_move\":true}"
+        },
+        {
+          "id": "5096980653_mirror__1",
+          "board_id": "5096980653",
+          "column_id": "mirror__1",
+          "title": "Sprint Completed?",
+          "type": "mirror",
+          "settings_str": "{\"relation_column\":{\"task_sprint\":true},\"displayed_column\":{},\"displayed_linked_columns\":{\"5096980649\":[\"sprint_completion\"]}}"
+        },
+        {
+          "id": "5096980653_subtasks_mm3jpjfr",
+          "board_id": "5096980653",
+          "column_id": "subtasks_mm3jpjfr",
+          "title": "Subitems",
+          "type": "subtasks",
+          "settings_str": "{\"displayType\":\"BOARD_INLINE\",\"itemTypeName\":\"column.subtasks.title\",\"allowMultipleItems\":true,\"boardIds\":[5096982894]}"
+        },
+        {
+          "id": "5096980653_text_mm3kz5mh",
+          "board_id": "5096980653",
+          "column_id": "text_mm3kz5mh",
+          "title": "Temp Delete Column",
+          "type": "text",
+          "settings_str": "{}"
+        },
+        {
+          "id": "5096980653_text_mm3kmqah",
+          "board_id": "5096980653",
+          "column_id": "text_mm3kmqah",
+          "title": "Temp Delete Column",
+          "type": "text",
+          "settings_str": "{}"
+        },
+        {
+          "id": "5096980652_name",
+          "board_id": "5096980652",
+          "column_id": "name",
+          "title": "Name",
+          "type": "name",
+          "settings_str": "{}"
+        },
+        {
+          "id": "5096980652_epic_owner",
+          "board_id": "5096980652",
+          "column_id": "epic_owner",
+          "title": "Owner",
+          "type": "people",
+          "settings_str": "{}"
+        },
+        {
+          "id": "5096980652_timeline",
+          "board_id": "5096980652",
+          "column_id": "timeline",
+          "title": "Planned timeline",
+          "type": "timeline",
+          "settings_str": "{\"hide_footer\":false,\"show_set_as_milestone\":false}"
+        },
+        {
+          "id": "5096980652_epic_status",
+          "board_id": "5096980652",
+          "column_id": "epic_status",
+          "title": "Phase",
+          "type": "status",
+          "settings_str": "{\"done_colors\":[1],\"color_mapping\":{\"3\":7,\"4\":12,\"6\":15,\"7\":160,\"8\":153,\"9\":107,\"12\":4,\"15\":6,\"107\":9,\"153\":8,\"160\":3},\"labels\":{\"0\":\"Product discovery\",\"1\":\"Full release\",\"2\":\"Ready to design\",\"3\":\"Dev discovery\",\"4\":\"Design WIP\",\"5\":\"Backlog\",\"6\":\"Beta\",\"7\":\"Dev deploy\",\"8\":\"Dev discovery done\",\"9\":\"Dev WIP\"},\"labels_positions_v2\":{\"0\":1,\"1\":9,\"2\":2,\"3\":4,\"4\":3,\"5\":0,\"6\":8,\"7\":7,\"8\":5,\"9\":6},\"labels_colors\":{\"0\":{\"color\":\"#fdab3d\",\"border\":\"#e99729\",\"var_name\":\"orange\"},\"1\":{\"color\":\"#00c875\",\"border\":\"#00b461\",\"var_name\":\"green-shadow\"},\"2\":{\"color\":\"#df2f4a\",\"border\":\"#ce3048\",\"var_name\":\"red-shadow\"},\"3\":{\"color\":\"#579bfc\",\"border\":\"#4387e8\",\"var_name\":\"bright-blue\"},\"4\":{\"color\":\"#ff007f\",\"border\":\"#e01279\",\"var_name\":\"dark-pink\"},\"5\":{\"color\":\"#c4c4c4\",\"border\":\"#b0b0b0\",\"var_name\":\"grey\"},\"6\":{\"color\":\"#9cd326\",\"border\":\"#89b921\",\"var_name\":\"lime-green\"},\"7\":{\"color\":\"#175a63\",\"border\":\"#175a63\",\"var_name\":\"eden\"},\"8\":{\"color\":\"#216edf\",\"border\":\"#216edf\",\"var_name\":\"sky\"},\"9\":{\"color\":\"#225091\",\"border\":\"#225091\",\"var_name\":\"navy\"}}}"
+        },
+        {
+          "id": "5096980652_epic_priority",
+          "board_id": "5096980652",
+          "column_id": "epic_priority",
+          "title": "Priority",
+          "type": "status",
+          "settings_str": "{\"done_colors\":[1],\"hide_footer\":true,\"color_mapping\":{\"0\":16,\"1\":12,\"2\":109,\"3\":2,\"4\":6,\"6\":13,\"12\":1,\"13\":4,\"16\":0,\"105\":3,\"109\":105},\"labels\":{\"0\":\"Must Have\",\"2\":\"Nice to Have\",\"3\":\"Critical\",\"4\":\"Best Effort\"},\"labels_positions_v2\":{\"0\":1,\"2\":2,\"3\":0,\"4\":3,\"5\":4},\"labels_colors\":{\"0\":{\"color\":\"#66ccff\",\"border\":\"#5ab3e0\",\"var_name\":\"turquoise\"},\"2\":{\"color\":\"#5559df\",\"border\":\"#5559df\",\"var_name\":\"indigo\"},\"3\":{\"color\":\"#df2f4a\",\"border\":\"#ce3048\",\"var_name\":\"red-shadow\"},\"4\":{\"color\":\"#037f4c\",\"border\":\"#006b38\",\"var_name\":\"grass-green\"}}}"
+        },
+        {
+          "id": "5096980652_monday_doc_mkmt8122",
+          "board_id": "5096980652",
+          "column_id": "monday_doc_mkmt8122",
+          "title": "Product requirements",
+          "type": "doc",
+          "settings_str": "{\"template\":{\"objectId\":5096980669,\"fileType\":\"MONDAY_DOC\",\"name\":\"Product requirement document\",\"linkToFile\":\"https://nango-unit.monday.com/boards/5096980652/columns/monday_doc_mkmt8122?doc_id=5096980669\",\"isImage\":false,\"fileId\":\"8d18e819-76c0-42f5-a93c-82c5bec87d60\",\"createdAt\":1779391928,\"createdBy\":104094154,\"docColumnTemplate\":true,\"columnId\":\"monday_doc_mkmt8122\"}}"
+        },
+        {
+          "id": "5096980652_epic_tasks",
+          "board_id": "5096980652",
+          "column_id": "epic_tasks",
+          "title": "Connected tasks",
+          "type": "board_relation",
+          "settings_str": "{\"allowCreateReflectionColumn\":true,\"boardIds\":[5096980653,5096998553,5096998568],\"boardId\":5096980653}"
+        },
+        {
+          "id": "5096980652_mirror_2",
+          "board_id": "5096980652",
+          "column_id": "mirror_2",
+          "title": "Estimated effort",
+          "type": "mirror",
+          "settings_str": "{\"relation_column\":{\"epic_tasks\":true},\"displayed_column\":{},\"displayed_linked_columns\":{\"5096980653\":[\"task_estimation\"],\"5096998553\":[\"task_estimation\"],\"5096998568\":[\"task_estimation\"]},\"function\":\"sum\"}"
+        },
+        {
+          "id": "5096980652_monday_doc_v2",
+          "board_id": "5096980652",
+          "column_id": "monday_doc_v2",
+          "title": "monday Doc v2",
+          "type": "direct_doc",
+          "settings_str": "{\"doc_type\":1,\"auto_map_on_move\":true}"
+        },
+        {
+          "id": "5096980652_item_id",
+          "board_id": "5096980652",
+          "column_id": "item_id",
+          "title": "Epic ID",
+          "type": "item_id",
+          "settings_str": "{\"customKeySettings\":{\"padding\":2,\"prefix\":\"ENAN\",\"counterId\":\"ce91c485-b9b2-4f5b-89ed-e84b27d62843\"},\"displayType\":\"customKey\"}"
+        },
+        {
+          "id": "5096980651_name",
+          "board_id": "5096980651",
+          "column_id": "name",
+          "title": "Name",
+          "type": "name",
+          "settings_str": "{}"
+        },
+        {
+          "id": "5096980651_people1",
+          "board_id": "5096980651",
+          "column_id": "people1",
+          "title": "Reporter",
+          "type": "people",
+          "settings_str": "{}"
+        },
+        {
+          "id": "5096980651_time_tracking",
+          "board_id": "5096980651",
+          "column_id": "time_tracking",
+          "title": "Time until resolution",
+          "type": "time_tracking",
+          "settings_str": "{\"hide_footer\":true}"
+        },
+        {
+          "id": "5096980651_bug_status",
+          "board_id": "5096980651",
+          "column_id": "bug_status",
+          "title": "Status",
+          "type": "status",
+          "settings_str": "{\"done_colors\":[1],\"color_mapping\":{\"0\":16,\"3\":6,\"4\":8,\"6\":3,\"7\":18,\"8\":4,\"12\":155,\"14\":153,\"15\":15,\"16\":107,\"18\":103,\"103\":7,\"106\":14,\"107\":0,\"152\":106,\"153\":152,\"155\":12},\"labels\":{\"0\":\"Fixing\",\"1\":\"Fixed\",\"2\":\"Missing Info\",\"3\":\"Move to 'Sprints'\",\"4\":\"Known Bug\",\"5\":\"\",\"7\":\"Pending Deploy\",\"8\":\"Duplicated\",\"9\":\"Awaiting Review\",\"14\":\"Ready for Dev\"},\"labels_positions_v2\":{\"0\":2,\"1\":3,\"2\":4,\"3\":8,\"4\":6,\"5\":9,\"7\":5,\"8\":7,\"9\":0,\"14\":1},\"labels_colors\":{\"0\":{\"color\":\"#66ccff\",\"border\":\"#5ab3e0\",\"var_name\":\"turquoise\"},\"1\":{\"color\":\"#00c875\",\"border\":\"#00b461\",\"var_name\":\"green-shadow\"},\"2\":{\"color\":\"#df2f4a\",\"border\":\"#ce3048\",\"var_name\":\"red-shadow\"},\"3\":{\"color\":\"#037f4c\",\"border\":\"#006b38\",\"var_name\":\"grass-green\"},\"4\":{\"color\":\"#cab641\",\"border\":\"#c0ab31\",\"var_name\":\"mustered\"},\"5\":{\"color\":\"#c4c4c4\",\"border\":\"#b0b0b0\",\"var_name\":\"grey\"},\"7\":{\"color\":\"#7f5347\",\"border\":\"#70493e\",\"var_name\":\"brown\"},\"8\":{\"color\":\"#9d50dd\",\"border\":\"#9238af\",\"var_name\":\"purple\"},\"9\":{\"color\":\"#ffcb00\",\"border\":\"#c0ab1b\",\"var_name\":\"yellow\"},\"14\":{\"color\":\"#216edf\",\"border\":\"#216edf\",\"var_name\":\"sky\"}}}"
+        },
+        {
+          "id": "5096980651_priority_1",
+          "board_id": "5096980651",
+          "column_id": "priority_1",
+          "title": "Priority",
+          "type": "status",
+          "settings_str": "{\"done_colors\":[1],\"color_mapping\":{\"0\":2,\"1\":1,\"2\":9,\"3\":108,\"9\":0,\"10\":15,\"12\":10,\"15\":12,\"108\":3},\"labels\":{\"0\":\"Critical\",\"1\":\"Low\",\"2\":\"High\",\"5\":\"\",\"7\":\"Medium\"},\"labels_positions_v2\":{\"0\":0,\"1\":3,\"2\":1,\"5\":4,\"7\":2},\"labels_colors\":{\"0\":{\"color\":\"#df2f4a\",\"border\":\"#ce3048\",\"var_name\":\"red-shadow\"},\"1\":{\"color\":\"#00c875\",\"border\":\"#00b461\",\"var_name\":\"green-shadow\"},\"2\":{\"color\":\"#ffcb00\",\"border\":\"#c0ab1b\",\"var_name\":\"yellow\"},\"5\":{\"color\":\"#c4c4c4\",\"border\":\"#b0b0b0\",\"var_name\":\"grey\"},\"7\":{\"color\":\"#579bfc\",\"border\":\"#4387e8\",\"var_name\":\"bright-blue\"}}}"
+        },
+        {
+          "id": "5096980651_bug_tasks",
+          "board_id": "5096980651",
+          "column_id": "bug_tasks",
+          "title": "Connected tasks",
+          "type": "board_relation",
+          "settings_str": "{\"allowCreateReflectionColumn\":false,\"boardIds\":[5096980653],\"boardId\":5096980653}"
+        },
+        {
+          "id": "5096980651_item_id",
+          "board_id": "5096980651",
+          "column_id": "item_id",
+          "title": "Bug ID",
+          "type": "item_id",
+          "settings_str": "{\"customKeySettings\":{\"padding\":2,\"prefix\":\"BNAN\",\"counterId\":\"a4b23171-5a82-42a9-99eb-8ea426b06399\"},\"displayType\":\"customKey\"}"
+        },
+        {
+          "id": "5096980650_name",
+          "board_id": "5096980650",
+          "column_id": "name",
+          "title": "Name",
+          "type": "name",
+          "settings_str": "{}"
+        },
+        {
+          "id": "5096980650_owner",
+          "board_id": "5096980650",
+          "column_id": "owner",
+          "title": "Owner",
+          "type": "people",
+          "settings_str": "{\"hide_footer\":false}"
+        },
+        {
+          "id": "5096980650_days_off",
+          "board_id": "5096980650",
+          "column_id": "days_off",
+          "title": "Vacation days",
+          "type": "numbers",
+          "settings_str": "{}"
+        },
+        {
+          "id": "5096980650_team_days_off",
+          "board_id": "5096980650",
+          "column_id": "team_days_off",
+          "title": "Team days off",
+          "type": "numbers",
+          "settings_str": "{}"
+        },
+        {
+          "id": "5096980650_velocity",
+          "board_id": "5096980650",
+          "column_id": "velocity",
+          "title": "Avg. velocity",
+          "type": "numbers",
+          "settings_str": "{}"
+        },
+        {
+          "id": "5096980650_sprint_working_days",
+          "board_id": "5096980650",
+          "column_id": "sprint_working_days",
+          "title": "Total working days",
+          "type": "formula",
+          "settings_str": "{\"formula\":\"WORKDAYS({timeline#End},{timeline#Start})\"}"
+        },
+        {
+          "id": "5096980650_total_sp",
+          "board_id": "5096980650",
+          "column_id": "total_sp",
+          "title": "Capacity",
+          "type": "formula",
+          "settings_str": "{\"formula\":\"MULTIPLY(\\n  MAX(0, \\n    MINUS(\\n      {sprint_working_days}, \\n        SUM(\\n          {days_off}, \\n          {team_days_off}\\n        )\\n      )\\n    ),\\n  {velocity}\\n)\"}"
+        },
+        {
+          "id": "5096980650_sprint",
+          "board_id": "5096980650",
+          "column_id": "sprint",
+          "title": "Sprint",
+          "type": "board_relation",
+          "settings_str": "{\"allowMultipleItems\":false,\"allowCreateReflectionColumn\":true,\"reflectionColumnId\":\"sprint_capacity\",\"boardIds\":[5096980649],\"boardId\":5096980649}"
+        },
+        {
+          "id": "5096980650_approved",
+          "board_id": "5096980650",
+          "column_id": "approved",
+          "title": "Approved",
+          "type": "checkbox",
+          "settings_str": "{}"
+        },
+        {
+          "id": "5096980650_hidden",
+          "board_id": "5096980650",
+          "column_id": "hidden",
+          "title": "Hidden",
+          "type": "checkbox",
+          "settings_str": "{}"
+        },
+        {
+          "id": "5096980650_actual_velocity",
+          "board_id": "5096980650",
+          "column_id": "actual_velocity",
+          "title": "Actual Velocity",
+          "type": "numbers",
+          "settings_str": "{}"
+        },
+        {
+          "id": "5096980650_timeline",
+          "board_id": "5096980650",
+          "column_id": "timeline",
+          "title": "Sprint timeline",
+          "type": "mirror",
+          "settings_str": "{\"relation_column\":{\"sprint\":true},\"displayed_linked_columns\":{\"5096980649\":[\"sprint_timeline\"]}}"
+        },
+        {
+          "id": "5096980650_velocity_override",
+          "board_id": "5096980650",
+          "column_id": "velocity_override",
+          "title": "Override",
+          "type": "checkbox",
+          "settings_str": "{}"
+        },
+        {
+          "id": "5096980649_name",
+          "board_id": "5096980649",
+          "column_id": "name",
+          "title": "Name",
+          "type": "name",
+          "settings_str": "{}"
+        },
+        {
+          "id": "5096980649_sprint_goals",
+          "board_id": "5096980649",
+          "column_id": "sprint_goals",
+          "title": "Sprint goals",
+          "type": "long_text",
+          "settings_str": "{}"
+        },
+        {
+          "id": "5096980649_sprint_activation",
+          "board_id": "5096980649",
+          "column_id": "sprint_activation",
+          "title": "Active sprint",
+          "type": "checkbox",
+          "settings_str": "{}"
+        },
+        {
+          "id": "5096980649_sprint_timeline",
+          "board_id": "5096980649",
+          "column_id": "sprint_timeline",
+          "title": "Sprint timeline",
+          "type": "timeline",
+          "settings_str": "{\"show_set_as_milestone\":false}"
+        },
+        {
+          "id": "5096980649_sprint_tasks",
+          "board_id": "5096980649",
+          "column_id": "sprint_tasks",
+          "title": "Connected tasks",
+          "type": "board_relation",
+          "settings_str": "{\"allowCreateReflectionColumn\":true,\"boardIds\":[5096980653,5096998553,5096998568],\"boardId\":5096980653}"
+        },
+        {
+          "id": "5096980649_sprint_completion",
+          "board_id": "5096980649",
+          "column_id": "sprint_completion",
+          "title": "Completed?",
+          "type": "checkbox",
+          "settings_str": "{}"
+        },
+        {
+          "id": "5096980649_sprint_start_date",
+          "board_id": "5096980649",
+          "column_id": "sprint_start_date",
+          "title": "Sprint start date",
+          "type": "date",
+          "settings_str": "{\"hide_footer\":false}"
+        },
+        {
+          "id": "5096980649_sprint_end_date",
+          "board_id": "5096980649",
+          "column_id": "sprint_end_date",
+          "title": "Sprint end date",
+          "type": "date",
+          "settings_str": "{\"hide_footer\":false}"
+        },
+        {
+          "id": "5096980649_sprint_capacity",
+          "board_id": "5096980649",
+          "column_id": "sprint_capacity",
+          "title": "link to Capacity",
+          "type": "board_relation",
+          "settings_str": "{\"allowCreateReflectionColumn\":true,\"boardIds\":[5096980650],\"boardId\":null}"
+        },
+        {
+          "id": "5096980648_name",
+          "board_id": "5096980648",
+          "column_id": "name",
+          "title": "Name",
+          "type": "name",
+          "settings_str": "{}"
+        },
+        {
+          "id": "5096980648_people1",
+          "board_id": "5096980648",
+          "column_id": "people1",
+          "title": "Submitter",
+          "type": "people",
+          "settings_str": "{\"hide_footer\":false}"
+        },
+        {
+          "id": "5096980648_status",
+          "board_id": "5096980648",
+          "column_id": "status",
+          "title": "Type",
+          "type": "status",
+          "settings_str": "{\"done_colors\":[1],\"color_mapping\":{\"0\":6,\"1\":1,\"2\":160,\"3\":0,\"6\":3,\"107\":107,\"108\":108,\"155\":2,\"160\":155},\"labels\":{\"0\":\"Discussion\",\"1\":\"Keep\",\"2\":\"Improve\"},\"labels_positions_v2\":{\"0\":0,\"1\":2,\"2\":1,\"5\":3},\"labels_colors\":{\"0\":{\"color\":\"#037f4c\",\"border\":\"#006b38\",\"var_name\":\"grass-green\"},\"1\":{\"color\":\"#00c875\",\"border\":\"#00b461\",\"var_name\":\"green-shadow\"},\"2\":{\"color\":\"#175a63\",\"border\":\"#175a63\",\"var_name\":\"eden\"}}}"
+        },
+        {
+          "id": "5096980648_check",
+          "board_id": "5096980648",
+          "column_id": "check",
+          "title": "Repeating?",
+          "type": "checkbox",
+          "settings_str": "{}"
+        },
+        {
+          "id": "5096980648_vote",
+          "board_id": "5096980648",
+          "column_id": "vote",
+          "title": "Vote",
+          "type": "vote",
+          "settings_str": "{}"
+        },
+        {
+          "id": "5096980648_people",
+          "board_id": "5096980648",
+          "column_id": "people",
+          "title": "Owner",
+          "type": "people",
+          "settings_str": "{\"hide_footer\":false}"
+        },
+        {
+          "id": "5096980647_name",
+          "board_id": "5096980647",
+          "column_id": "name",
+          "title": "Name",
+          "type": "name",
+          "settings_str": "{}"
+        },
+        {
+          "id": "5096980647_files",
+          "board_id": "5096980647",
+          "column_id": "files",
+          "title": "Files",
+          "type": "file",
+          "settings_str": "{\"hide_footer\":false}"
+        }
+      ]
+    },
+    "batchDelete": {
+      "Column": []
+    }
+  },
+  "api": {
+    "post": {
+      "/v2": {
+        "response": {
+          "data": {
+            "boards": [
+              {
+                "id": "5096998570",
+                "columns": [
+                  {
+                    "id": "name",
+                    "title": "Name",
+                    "type": "name",
+                    "settings_str": "{}"
+                  },
+                  {
+                    "id": "person",
+                    "title": "Owner",
+                    "type": "people",
+                    "settings_str": "{}"
+                  },
+                  {
+                    "id": "status",
+                    "title": "Status",
+                    "type": "status",
+                    "settings_str": "{\"done_colors\":[1],\"hide_footer\":true,\"labels\":{\"0\":\"Working on it\",\"1\":\"Done\",\"2\":\"Stuck\"},\"labels_positions_v2\":{\"0\":1,\"1\":2,\"2\":0,\"3\":3,\"4\":4,\"5\":9,\"6\":5,\"8\":6,\"9\":7,\"10\":8},\"labels_colors\":{\"0\":{\"color\":\"#fdab3d\",\"border\":\"#e99729\",\"var_name\":\"orange\"},\"1\":{\"color\":\"#00c875\",\"border\":\"#00b461\",\"var_name\":\"green-shadow\"},\"2\":{\"color\":\"#df2f4a\",\"border\":\"#ce3048\",\"var_name\":\"red-shadow\"}}}"
+                  },
+                  {
+                    "id": "date0",
+                    "title": "Date",
+                    "type": "date",
+                    "settings_str": "{}"
+                  }
+                ]
+              },
+              {
+                "id": "5096998568",
+                "columns": [
+                  {
+                    "id": "name",
+                    "title": "Name",
+                    "type": "name",
+                    "settings_str": "{}"
+                  },
+                  {
+                    "id": "task_owner",
+                    "title": "Owner",
+                    "type": "people",
+                    "settings_str": "{}"
+                  },
+                  {
+                    "id": "task_status",
+                    "title": "Status",
+                    "type": "status",
+                    "settings_str": "{\"done_colors\":[1],\"color_mapping\":{\"0\":0,\"2\":18,\"3\":158,\"4\":15,\"9\":104,\"11\":153,\"15\":106,\"18\":103,\"103\":2,\"104\":4,\"106\":11,\"107\":152,\"152\":9,\"153\":107,\"158\":3},\"labels\":{\"0\":\"In Progress\",\"1\":\"Done\",\"2\":\"Pending Deploy\",\"3\":\"Waiting for review\",\"5\":\"\",\"11\":\"Ready to start\",\"103\":\"Stuck\"},\"labels_positions_v2\":{\"0\":1,\"1\":4,\"2\":3,\"3\":2,\"5\":6,\"11\":0,\"103\":5},\"labels_colors\":{\"0\":{\"color\":\"#fdab3d\",\"border\":\"#e99729\",\"var_name\":\"orange\"},\"1\":{\"color\":\"#00c875\",\"border\":\"#00b461\",\"var_name\":\"green-shadow\"},\"2\":{\"color\":\"#7f5347\",\"border\":\"#70493e\",\"var_name\":\"brown\"},\"3\":{\"color\":\"#a1e3f6\",\"border\":\"#a1e3f6\",\"var_name\":\"sail\"},\"5\":{\"color\":\"#c4c4c4\",\"border\":\"#b0b0b0\",\"var_name\":\"grey\"},\"11\":{\"color\":\"#216edf\",\"border\":\"#216edf\",\"var_name\":\"sky\"},\"103\":{\"color\":\"#df2f4a\",\"border\":\"#ce3048\",\"var_name\":\"red-shadow\"}}}"
+                  },
+                  {
+                    "id": "task_priority",
+                    "title": "Priority",
+                    "type": "status",
+                    "settings_str": "{\"done_colors\":[],\"color_mapping\":{\"0\":2,\"1\":17,\"2\":9,\"9\":0,\"10\":15,\"12\":1,\"15\":12,\"17\":10,\"103\":103},\"labels\":{\"0\":\"Critical\",\"1\":\"Best Effort\",\"2\":\"High\",\"5\":\"Missing\",\"7\":\"Medium\",\"12\":\"Low\"},\"labels_positions_v2\":{\"0\":0,\"1\":4,\"2\":1,\"5\":5,\"7\":2,\"12\":3},\"labels_colors\":{\"0\":{\"color\":\"#df2f4a\",\"border\":\"#ce3048\",\"var_name\":\"red-shadow\"},\"1\":{\"color\":\"#757575\",\"border\":\"#707070\",\"var_name\":\"trolley-grey\"},\"2\":{\"color\":\"#ffcb00\",\"border\":\"#c0ab1b\",\"var_name\":\"yellow\"},\"5\":{\"color\":\"#c4c4c4\",\"border\":\"#b0b0b0\",\"var_name\":\"grey\"},\"7\":{\"color\":\"#579bfc\",\"border\":\"#4387e8\",\"var_name\":\"bright-blue\"},\"12\":{\"color\":\"#00c875\",\"border\":\"#00b461\",\"var_name\":\"green-shadow\"}}}"
+                  },
+                  {
+                    "id": "task_type",
+                    "title": "Type",
+                    "type": "status",
+                    "settings_str": "{\"done_colors\":[1],\"color_mapping\":{\"0\":102,\"3\":3,\"9\":9,\"10\":12,\"12\":10,\"102\":0},\"labels\":{\"0\":\"Quality\",\"1\":\"Feature\",\"2\":\"Bug\",\"3\":\"Other\",\"5\":\"\",\"6\":\"Security\",\"12\":\"Test\"},\"labels_positions_v2\":{\"0\":0,\"1\":1,\"2\":2,\"3\":5,\"5\":6,\"6\":4,\"12\":3},\"labels_colors\":{\"0\":{\"color\":\"#faa1f1\",\"border\":\"#faa1f1\",\"var_name\":\"bubble\"},\"1\":{\"color\":\"#00c875\",\"border\":\"#00b461\",\"var_name\":\"green-shadow\"},\"2\":{\"color\":\"#df2f4a\",\"border\":\"#ce3048\",\"var_name\":\"red-shadow\"},\"3\":{\"color\":\"#007eb5\",\"border\":\"#3db0df\",\"var_name\":\"blue-links\"},\"5\":{\"color\":\"#c4c4c4\",\"border\":\"#b0b0b0\",\"var_name\":\"grey\"},\"6\":{\"color\":\"#037f4c\",\"border\":\"#006b38\",\"var_name\":\"grass-green\"},\"12\":{\"color\":\"#333333\",\"border\":\"#000\",\"var_name\":\"soft-black\"}}}"
+                  },
+                  {
+                    "id": "task_estimation",
+                    "title": "Estimated SP",
+                    "type": "numbers",
+                    "settings_str": "{\"unit\":{\"symbol\":\"custom\",\"custom_unit\":\" SP\",\"direction\":\"right\"}}"
+                  },
+                  {
+                    "id": "task_actual_effort",
+                    "title": "Actual SP",
+                    "type": "numbers",
+                    "settings_str": "{}"
+                  },
+                  {
+                    "id": "link",
+                    "title": "GitHub link",
+                    "type": "link",
+                    "settings_str": "{}"
+                  },
+                  {
+                    "id": "check",
+                    "title": "Unplanned?",
+                    "type": "checkbox",
+                    "settings_str": "{}"
+                  },
+                  {
+                    "id": "item_id",
+                    "title": "Task ID",
+                    "type": "item_id",
+                    "settings_str": "{\"displayType\":\"pulseId\"}"
+                  },
+                  {
+                    "id": "task_epic",
+                    "title": "Epic",
+                    "type": "board_relation",
+                    "settings_str": "{\"allowMultipleItems\":false,\"allowCreateReflectionColumn\":true,\"boardIds\":[5096980652],\"displayType\":\"CUSTOM\",\"layout\":\"epicItemLayout\",\"boardId\":null}"
+                  },
+                  {
+                    "id": "task_sprint",
+                    "title": "Sprint",
+                    "type": "board_relation",
+                    "settings_str": "{\"allowMultipleItems\":false,\"allowCreateReflectionColumn\":false,\"boardIds\":[5096980649],\"boardId\":null,\"displayType\":\"CUSTOM\",\"dataSourceLayoutConfigs\":{\"5096980649\":{\"name\":{\"refId\":\"name\"},\"description\":{\"refId\":\"sprint_timeline\"},\"info1\":{\"refId\":\"sprint_activation\"}}},\"layout\":\"sprintItemLayout\"}"
+                  },
+                  {
+                    "id": "mirror",
+                    "title": "Active sprint",
+                    "type": "mirror",
+                    "settings_str": "{\"relation_column\":{\"task_sprint\":true},\"displayed_column\":{},\"displayed_linked_columns\":{\"5096980649\":[\"sprint_activation\"]}}"
+                  },
+                  {
+                    "id": "monday_doc_v2",
+                    "title": "monday Doc v2",
+                    "type": "direct_doc",
+                    "settings_str": "{\"doc_type\":1,\"auto_map_on_move\":true}"
+                  },
+                  {
+                    "id": "mirror__1",
+                    "title": "Sprint Completed?",
+                    "type": "mirror",
+                    "settings_str": "{\"relation_column\":{\"task_sprint\":true},\"displayed_column\":{},\"displayed_linked_columns\":{\"5096980649\":[\"sprint_completion\"]}}"
+                  },
+                  {
+                    "id": "subtasks_mm3jpjfr",
+                    "title": "Subitems",
+                    "type": "subtasks",
+                    "settings_str": "{\"displayType\":\"BOARD_INLINE\",\"itemTypeName\":\"column.subtasks.title\",\"allowMultipleItems\":true,\"boardIds\":[5096998570]}"
+                  }
+                ]
+              },
+              {
+                "id": "5096998558",
+                "columns": [
+                  {
+                    "id": "name",
+                    "title": "Name",
+                    "type": "name",
+                    "settings_str": "{}"
+                  },
+                  {
+                    "id": "person",
+                    "title": "Owner",
+                    "type": "people",
+                    "settings_str": "{}"
+                  },
+                  {
+                    "id": "status",
+                    "title": "Status",
+                    "type": "status",
+                    "settings_str": "{\"done_colors\":[1],\"hide_footer\":true,\"labels\":{\"0\":\"Working on it\",\"1\":\"Done\",\"2\":\"Stuck\"},\"labels_positions_v2\":{\"0\":1,\"1\":2,\"2\":0,\"3\":3,\"4\":4,\"5\":9,\"6\":5,\"8\":6,\"9\":7,\"10\":8},\"labels_colors\":{\"0\":{\"color\":\"#fdab3d\",\"border\":\"#e99729\",\"var_name\":\"orange\"},\"1\":{\"color\":\"#00c875\",\"border\":\"#00b461\",\"var_name\":\"green-shadow\"},\"2\":{\"color\":\"#df2f4a\",\"border\":\"#ce3048\",\"var_name\":\"red-shadow\"}}}"
+                  },
+                  {
+                    "id": "date0",
+                    "title": "Date",
+                    "type": "date",
+                    "settings_str": "{}"
+                  }
+                ]
+              },
+              {
+                "id": "5096998553",
+                "columns": [
+                  {
+                    "id": "name",
+                    "title": "Name",
+                    "type": "name",
+                    "settings_str": "{}"
+                  },
+                  {
+                    "id": "task_owner",
+                    "title": "Owner",
+                    "type": "people",
+                    "settings_str": "{}"
+                  },
+                  {
+                    "id": "task_status",
+                    "title": "Status",
+                    "type": "status",
+                    "settings_str": "{\"done_colors\":[1],\"color_mapping\":{\"0\":0,\"2\":18,\"3\":158,\"4\":15,\"9\":104,\"11\":153,\"15\":106,\"18\":103,\"103\":2,\"104\":4,\"106\":11,\"107\":152,\"152\":9,\"153\":107,\"158\":3},\"labels\":{\"0\":\"In Progress\",\"1\":\"Done\",\"2\":\"Pending Deploy\",\"3\":\"Waiting for review\",\"5\":\"\",\"11\":\"Ready to start\",\"103\":\"Stuck\"},\"labels_positions_v2\":{\"0\":1,\"1\":4,\"2\":3,\"3\":2,\"5\":6,\"11\":0,\"103\":5},\"labels_colors\":{\"0\":{\"color\":\"#fdab3d\",\"border\":\"#e99729\",\"var_name\":\"orange\"},\"1\":{\"color\":\"#00c875\",\"border\":\"#00b461\",\"var_name\":\"green-shadow\"},\"2\":{\"color\":\"#7f5347\",\"border\":\"#70493e\",\"var_name\":\"brown\"},\"3\":{\"color\":\"#a1e3f6\",\"border\":\"#a1e3f6\",\"var_name\":\"sail\"},\"5\":{\"color\":\"#c4c4c4\",\"border\":\"#b0b0b0\",\"var_name\":\"grey\"},\"11\":{\"color\":\"#216edf\",\"border\":\"#216edf\",\"var_name\":\"sky\"},\"103\":{\"color\":\"#df2f4a\",\"border\":\"#ce3048\",\"var_name\":\"red-shadow\"}}}"
+                  },
+                  {
+                    "id": "task_priority",
+                    "title": "Priority",
+                    "type": "status",
+                    "settings_str": "{\"done_colors\":[],\"color_mapping\":{\"0\":2,\"1\":17,\"2\":9,\"9\":0,\"10\":15,\"12\":1,\"15\":12,\"17\":10,\"103\":103},\"labels\":{\"0\":\"Critical\",\"1\":\"Best Effort\",\"2\":\"High\",\"5\":\"Missing\",\"7\":\"Medium\",\"12\":\"Low\"},\"labels_positions_v2\":{\"0\":0,\"1\":4,\"2\":1,\"5\":5,\"7\":2,\"12\":3},\"labels_colors\":{\"0\":{\"color\":\"#df2f4a\",\"border\":\"#ce3048\",\"var_name\":\"red-shadow\"},\"1\":{\"color\":\"#757575\",\"border\":\"#707070\",\"var_name\":\"trolley-grey\"},\"2\":{\"color\":\"#ffcb00\",\"border\":\"#c0ab1b\",\"var_name\":\"yellow\"},\"5\":{\"color\":\"#c4c4c4\",\"border\":\"#b0b0b0\",\"var_name\":\"grey\"},\"7\":{\"color\":\"#579bfc\",\"border\":\"#4387e8\",\"var_name\":\"bright-blue\"},\"12\":{\"color\":\"#00c875\",\"border\":\"#00b461\",\"var_name\":\"green-shadow\"}}}"
+                  },
+                  {
+                    "id": "task_type",
+                    "title": "Type",
+                    "type": "status",
+                    "settings_str": "{\"done_colors\":[1],\"color_mapping\":{\"0\":102,\"3\":3,\"9\":9,\"10\":12,\"12\":10,\"102\":0},\"labels\":{\"0\":\"Quality\",\"1\":\"Feature\",\"2\":\"Bug\",\"3\":\"Other\",\"5\":\"\",\"6\":\"Security\",\"12\":\"Test\"},\"labels_positions_v2\":{\"0\":0,\"1\":1,\"2\":2,\"3\":5,\"5\":6,\"6\":4,\"12\":3},\"labels_colors\":{\"0\":{\"color\":\"#faa1f1\",\"border\":\"#faa1f1\",\"var_name\":\"bubble\"},\"1\":{\"color\":\"#00c875\",\"border\":\"#00b461\",\"var_name\":\"green-shadow\"},\"2\":{\"color\":\"#df2f4a\",\"border\":\"#ce3048\",\"var_name\":\"red-shadow\"},\"3\":{\"color\":\"#007eb5\",\"border\":\"#3db0df\",\"var_name\":\"blue-links\"},\"5\":{\"color\":\"#c4c4c4\",\"border\":\"#b0b0b0\",\"var_name\":\"grey\"},\"6\":{\"color\":\"#037f4c\",\"border\":\"#006b38\",\"var_name\":\"grass-green\"},\"12\":{\"color\":\"#333333\",\"border\":\"#000\",\"var_name\":\"soft-black\"}}}"
+                  },
+                  {
+                    "id": "task_estimation",
+                    "title": "Estimated SP",
+                    "type": "numbers",
+                    "settings_str": "{\"unit\":{\"symbol\":\"custom\",\"custom_unit\":\" SP\",\"direction\":\"right\"}}"
+                  },
+                  {
+                    "id": "task_actual_effort",
+                    "title": "Actual SP",
+                    "type": "numbers",
+                    "settings_str": "{}"
+                  },
+                  {
+                    "id": "link",
+                    "title": "GitHub link",
+                    "type": "link",
+                    "settings_str": "{}"
+                  },
+                  {
+                    "id": "check",
+                    "title": "Unplanned?",
+                    "type": "checkbox",
+                    "settings_str": "{}"
+                  },
+                  {
+                    "id": "item_id",
+                    "title": "Task ID",
+                    "type": "item_id",
+                    "settings_str": "{\"displayType\":\"pulseId\"}"
+                  },
+                  {
+                    "id": "task_epic",
+                    "title": "Epic",
+                    "type": "board_relation",
+                    "settings_str": "{\"allowMultipleItems\":false,\"allowCreateReflectionColumn\":true,\"boardIds\":[5096980652],\"displayType\":\"CUSTOM\",\"layout\":\"epicItemLayout\",\"boardId\":null}"
+                  },
+                  {
+                    "id": "task_sprint",
+                    "title": "Sprint",
+                    "type": "board_relation",
+                    "settings_str": "{\"allowMultipleItems\":false,\"allowCreateReflectionColumn\":false,\"boardIds\":[5096980649],\"boardId\":null,\"displayType\":\"CUSTOM\",\"dataSourceLayoutConfigs\":{\"5096980649\":{\"name\":{\"refId\":\"name\"},\"description\":{\"refId\":\"sprint_timeline\"},\"info1\":{\"refId\":\"sprint_activation\"}}},\"layout\":\"sprintItemLayout\"}"
+                  },
+                  {
+                    "id": "mirror",
+                    "title": "Active sprint",
+                    "type": "mirror",
+                    "settings_str": "{\"relation_column\":{\"task_sprint\":true},\"displayed_column\":{},\"displayed_linked_columns\":{\"5096980649\":[\"sprint_activation\"]}}"
+                  },
+                  {
+                    "id": "monday_doc_v2",
+                    "title": "monday Doc v2",
+                    "type": "direct_doc",
+                    "settings_str": "{\"doc_type\":1,\"auto_map_on_move\":true}"
+                  },
+                  {
+                    "id": "mirror__1",
+                    "title": "Sprint Completed?",
+                    "type": "mirror",
+                    "settings_str": "{\"relation_column\":{\"task_sprint\":true},\"displayed_column\":{},\"displayed_linked_columns\":{\"5096980649\":[\"sprint_completion\"]}}"
+                  },
+                  {
+                    "id": "subtasks_mm3jpjfr",
+                    "title": "Subitems",
+                    "type": "subtasks",
+                    "settings_str": "{\"displayType\":\"BOARD_INLINE\",\"itemTypeName\":\"column.subtasks.title\",\"allowMultipleItems\":true,\"boardIds\":[5096998558]}"
+                  }
+                ]
+              },
+              {
+                "id": "5096982894",
+                "columns": [
+                  {
+                    "id": "name",
+                    "title": "Name",
+                    "type": "name",
+                    "settings_str": "{}"
+                  },
+                  {
+                    "id": "person",
+                    "title": "Owner",
+                    "type": "people",
+                    "settings_str": "{}"
+                  },
+                  {
+                    "id": "status",
+                    "title": "Status",
+                    "type": "status",
+                    "settings_str": "{\"done_colors\":[1],\"hide_footer\":true,\"labels\":{\"0\":\"Working on it\",\"1\":\"Done\",\"2\":\"Stuck\"},\"labels_positions_v2\":{\"0\":1,\"1\":2,\"2\":0,\"3\":3,\"4\":4,\"5\":9,\"6\":5,\"8\":6,\"9\":7,\"10\":8},\"labels_colors\":{\"0\":{\"color\":\"#fdab3d\",\"border\":\"#e99729\",\"var_name\":\"orange\"},\"1\":{\"color\":\"#00c875\",\"border\":\"#00b461\",\"var_name\":\"green-shadow\"},\"2\":{\"color\":\"#df2f4a\",\"border\":\"#ce3048\",\"var_name\":\"red-shadow\"}}}"
+                  },
+                  {
+                    "id": "date0",
+                    "title": "Date",
+                    "type": "date",
+                    "settings_str": "{}"
+                  }
+                ]
+              },
+              {
+                "id": "5096980653",
+                "columns": [
+                  {
+                    "id": "name",
+                    "title": "Name",
+                    "type": "name",
+                    "settings_str": "{}"
+                  },
+                  {
+                    "id": "task_owner",
+                    "title": "Owner",
+                    "type": "people",
+                    "settings_str": "{}"
+                  },
+                  {
+                    "id": "task_status",
+                    "title": "Status",
+                    "type": "status",
+                    "settings_str": "{\"done_colors\":[1],\"color_mapping\":{\"0\":0,\"2\":18,\"3\":158,\"4\":15,\"9\":104,\"11\":153,\"15\":106,\"18\":103,\"103\":2,\"104\":4,\"106\":11,\"107\":152,\"152\":9,\"153\":107,\"158\":3},\"labels\":{\"0\":\"In Progress\",\"1\":\"Done\",\"2\":\"Pending Deploy\",\"3\":\"Waiting for review\",\"5\":\"\",\"11\":\"Ready to start\",\"103\":\"Stuck\"},\"labels_positions_v2\":{\"0\":1,\"1\":4,\"2\":3,\"3\":2,\"5\":6,\"11\":0,\"103\":5},\"labels_colors\":{\"0\":{\"color\":\"#fdab3d\",\"border\":\"#e99729\",\"var_name\":\"orange\"},\"1\":{\"color\":\"#00c875\",\"border\":\"#00b461\",\"var_name\":\"green-shadow\"},\"2\":{\"color\":\"#7f5347\",\"border\":\"#70493e\",\"var_name\":\"brown\"},\"3\":{\"color\":\"#a1e3f6\",\"border\":\"#a1e3f6\",\"var_name\":\"sail\"},\"5\":{\"color\":\"#c4c4c4\",\"border\":\"#b0b0b0\",\"var_name\":\"grey\"},\"11\":{\"color\":\"#216edf\",\"border\":\"#216edf\",\"var_name\":\"sky\"},\"103\":{\"color\":\"#df2f4a\",\"border\":\"#ce3048\",\"var_name\":\"red-shadow\"}}}"
+                  },
+                  {
+                    "id": "task_priority",
+                    "title": "Priority",
+                    "type": "status",
+                    "settings_str": "{\"done_colors\":[],\"color_mapping\":{\"0\":2,\"1\":17,\"2\":9,\"9\":0,\"10\":15,\"12\":1,\"15\":12,\"17\":10,\"103\":103},\"labels\":{\"0\":\"Critical\",\"1\":\"Best Effort\",\"2\":\"High\",\"5\":\"Missing\",\"7\":\"Medium\",\"12\":\"Low\"},\"labels_positions_v2\":{\"0\":0,\"1\":4,\"2\":1,\"5\":5,\"7\":2,\"12\":3},\"labels_colors\":{\"0\":{\"color\":\"#df2f4a\",\"border\":\"#ce3048\",\"var_name\":\"red-shadow\"},\"1\":{\"color\":\"#757575\",\"border\":\"#707070\",\"var_name\":\"trolley-grey\"},\"2\":{\"color\":\"#ffcb00\",\"border\":\"#c0ab1b\",\"var_name\":\"yellow\"},\"5\":{\"color\":\"#c4c4c4\",\"border\":\"#b0b0b0\",\"var_name\":\"grey\"},\"7\":{\"color\":\"#579bfc\",\"border\":\"#4387e8\",\"var_name\":\"bright-blue\"},\"12\":{\"color\":\"#00c875\",\"border\":\"#00b461\",\"var_name\":\"green-shadow\"}}}"
+                  },
+                  {
+                    "id": "task_type",
+                    "title": "Type",
+                    "type": "status",
+                    "settings_str": "{\"done_colors\":[1],\"color_mapping\":{\"0\":102,\"3\":3,\"9\":9,\"10\":12,\"12\":10,\"102\":0},\"labels\":{\"0\":\"Quality\",\"1\":\"Feature\",\"2\":\"Bug\",\"3\":\"Other\",\"5\":\"\",\"6\":\"Security\",\"12\":\"Test\"},\"labels_positions_v2\":{\"0\":0,\"1\":1,\"2\":2,\"3\":5,\"5\":6,\"6\":4,\"12\":3},\"labels_colors\":{\"0\":{\"color\":\"#faa1f1\",\"border\":\"#faa1f1\",\"var_name\":\"bubble\"},\"1\":{\"color\":\"#00c875\",\"border\":\"#00b461\",\"var_name\":\"green-shadow\"},\"2\":{\"color\":\"#df2f4a\",\"border\":\"#ce3048\",\"var_name\":\"red-shadow\"},\"3\":{\"color\":\"#007eb5\",\"border\":\"#3db0df\",\"var_name\":\"blue-links\"},\"5\":{\"color\":\"#c4c4c4\",\"border\":\"#b0b0b0\",\"var_name\":\"grey\"},\"6\":{\"color\":\"#037f4c\",\"border\":\"#006b38\",\"var_name\":\"grass-green\"},\"12\":{\"color\":\"#333333\",\"border\":\"#000\",\"var_name\":\"soft-black\"}}}"
+                  },
+                  {
+                    "id": "task_estimation",
+                    "title": "Estimated SP",
+                    "type": "numbers",
+                    "settings_str": "{\"unit\":{\"symbol\":\"custom\",\"custom_unit\":\" SP\",\"direction\":\"right\"}}"
+                  },
+                  {
+                    "id": "task_actual_effort",
+                    "title": "Actual SP",
+                    "type": "numbers",
+                    "settings_str": "{}"
+                  },
+                  {
+                    "id": "link",
+                    "title": "GitHub link",
+                    "type": "link",
+                    "settings_str": "{}"
+                  },
+                  {
+                    "id": "check",
+                    "title": "Unplanned?",
+                    "type": "checkbox",
+                    "settings_str": "{}"
+                  },
+                  {
+                    "id": "item_id",
+                    "title": "Task ID",
+                    "type": "item_id",
+                    "settings_str": "{\"customKeySettings\":{\"padding\":2,\"prefix\":\"TNAN\",\"counterId\":\"850bb5ba-ebc2-41be-92ed-da70f214772f\"},\"displayType\":\"customKey\"}"
+                  },
+                  {
+                    "id": "task_epic",
+                    "title": "Epic",
+                    "type": "board_relation",
+                    "settings_str": "{\"allowMultipleItems\":false,\"allowCreateReflectionColumn\":true,\"boardIds\":[5096980652],\"displayType\":\"CUSTOM\",\"layout\":\"epicItemLayout\",\"boardId\":null}"
+                  },
+                  {
+                    "id": "task_sprint",
+                    "title": "Sprint",
+                    "type": "board_relation",
+                    "settings_str": "{\"allowMultipleItems\":false,\"allowCreateReflectionColumn\":false,\"boardIds\":[5096980649],\"boardId\":null,\"displayType\":\"CUSTOM\",\"dataSourceLayoutConfigs\":{\"5096980649\":{\"name\":{\"refId\":\"name\"},\"description\":{\"refId\":\"sprint_timeline\"},\"info1\":{\"refId\":\"sprint_activation\"}}},\"layout\":\"sprintItemLayout\"}"
+                  },
+                  {
+                    "id": "mirror",
+                    "title": "Active sprint",
+                    "type": "mirror",
+                    "settings_str": "{\"relation_column\":{\"task_sprint\":true},\"displayed_column\":{},\"displayed_linked_columns\":{\"5096980649\":[\"sprint_activation\"]}}"
+                  },
+                  {
+                    "id": "monday_doc_v2",
+                    "title": "monday Doc v2",
+                    "type": "direct_doc",
+                    "settings_str": "{\"doc_type\":1,\"auto_map_on_move\":true}"
+                  },
+                  {
+                    "id": "mirror__1",
+                    "title": "Sprint Completed?",
+                    "type": "mirror",
+                    "settings_str": "{\"relation_column\":{\"task_sprint\":true},\"displayed_column\":{},\"displayed_linked_columns\":{\"5096980649\":[\"sprint_completion\"]}}"
+                  },
+                  {
+                    "id": "subtasks_mm3jpjfr",
+                    "title": "Subitems",
+                    "type": "subtasks",
+                    "settings_str": "{\"displayType\":\"BOARD_INLINE\",\"itemTypeName\":\"column.subtasks.title\",\"allowMultipleItems\":true,\"boardIds\":[5096982894]}"
+                  },
+                  {
+                    "id": "text_mm3kz5mh",
+                    "title": "Temp Delete Column",
+                    "type": "text",
+                    "settings_str": "{}"
+                  },
+                  {
+                    "id": "text_mm3kmqah",
+                    "title": "Temp Delete Column",
+                    "type": "text",
+                    "settings_str": "{}"
+                  }
+                ]
+              },
+              {
+                "id": "5096980652",
+                "columns": [
+                  {
+                    "id": "name",
+                    "title": "Name",
+                    "type": "name",
+                    "settings_str": "{}"
+                  },
+                  {
+                    "id": "epic_owner",
+                    "title": "Owner",
+                    "type": "people",
+                    "settings_str": "{}"
+                  },
+                  {
+                    "id": "timeline",
+                    "title": "Planned timeline",
+                    "type": "timeline",
+                    "settings_str": "{\"hide_footer\":false,\"show_set_as_milestone\":false}"
+                  },
+                  {
+                    "id": "epic_status",
+                    "title": "Phase",
+                    "type": "status",
+                    "settings_str": "{\"done_colors\":[1],\"color_mapping\":{\"3\":7,\"4\":12,\"6\":15,\"7\":160,\"8\":153,\"9\":107,\"12\":4,\"15\":6,\"107\":9,\"153\":8,\"160\":3},\"labels\":{\"0\":\"Product discovery\",\"1\":\"Full release\",\"2\":\"Ready to design\",\"3\":\"Dev discovery\",\"4\":\"Design WIP\",\"5\":\"Backlog\",\"6\":\"Beta\",\"7\":\"Dev deploy\",\"8\":\"Dev discovery done\",\"9\":\"Dev WIP\"},\"labels_positions_v2\":{\"0\":1,\"1\":9,\"2\":2,\"3\":4,\"4\":3,\"5\":0,\"6\":8,\"7\":7,\"8\":5,\"9\":6},\"labels_colors\":{\"0\":{\"color\":\"#fdab3d\",\"border\":\"#e99729\",\"var_name\":\"orange\"},\"1\":{\"color\":\"#00c875\",\"border\":\"#00b461\",\"var_name\":\"green-shadow\"},\"2\":{\"color\":\"#df2f4a\",\"border\":\"#ce3048\",\"var_name\":\"red-shadow\"},\"3\":{\"color\":\"#579bfc\",\"border\":\"#4387e8\",\"var_name\":\"bright-blue\"},\"4\":{\"color\":\"#ff007f\",\"border\":\"#e01279\",\"var_name\":\"dark-pink\"},\"5\":{\"color\":\"#c4c4c4\",\"border\":\"#b0b0b0\",\"var_name\":\"grey\"},\"6\":{\"color\":\"#9cd326\",\"border\":\"#89b921\",\"var_name\":\"lime-green\"},\"7\":{\"color\":\"#175a63\",\"border\":\"#175a63\",\"var_name\":\"eden\"},\"8\":{\"color\":\"#216edf\",\"border\":\"#216edf\",\"var_name\":\"sky\"},\"9\":{\"color\":\"#225091\",\"border\":\"#225091\",\"var_name\":\"navy\"}}}"
+                  },
+                  {
+                    "id": "epic_priority",
+                    "title": "Priority",
+                    "type": "status",
+                    "settings_str": "{\"done_colors\":[1],\"hide_footer\":true,\"color_mapping\":{\"0\":16,\"1\":12,\"2\":109,\"3\":2,\"4\":6,\"6\":13,\"12\":1,\"13\":4,\"16\":0,\"105\":3,\"109\":105},\"labels\":{\"0\":\"Must Have\",\"2\":\"Nice to Have\",\"3\":\"Critical\",\"4\":\"Best Effort\"},\"labels_positions_v2\":{\"0\":1,\"2\":2,\"3\":0,\"4\":3,\"5\":4},\"labels_colors\":{\"0\":{\"color\":\"#66ccff\",\"border\":\"#5ab3e0\",\"var_name\":\"turquoise\"},\"2\":{\"color\":\"#5559df\",\"border\":\"#5559df\",\"var_name\":\"indigo\"},\"3\":{\"color\":\"#df2f4a\",\"border\":\"#ce3048\",\"var_name\":\"red-shadow\"},\"4\":{\"color\":\"#037f4c\",\"border\":\"#006b38\",\"var_name\":\"grass-green\"}}}"
+                  },
+                  {
+                    "id": "monday_doc_mkmt8122",
+                    "title": "Product requirements",
+                    "type": "doc",
+                    "settings_str": "{\"template\":{\"objectId\":5096980669,\"fileType\":\"MONDAY_DOC\",\"name\":\"Product requirement document\",\"linkToFile\":\"https://nango-unit.monday.com/boards/5096980652/columns/monday_doc_mkmt8122?doc_id=5096980669\",\"isImage\":false,\"fileId\":\"8d18e819-76c0-42f5-a93c-82c5bec87d60\",\"createdAt\":1779391928,\"createdBy\":104094154,\"docColumnTemplate\":true,\"columnId\":\"monday_doc_mkmt8122\"}}"
+                  },
+                  {
+                    "id": "epic_tasks",
+                    "title": "Connected tasks",
+                    "type": "board_relation",
+                    "settings_str": "{\"allowCreateReflectionColumn\":true,\"boardIds\":[5096980653,5096998553,5096998568],\"boardId\":5096980653}"
+                  },
+                  {
+                    "id": "mirror_2",
+                    "title": "Estimated effort",
+                    "type": "mirror",
+                    "settings_str": "{\"relation_column\":{\"epic_tasks\":true},\"displayed_column\":{},\"displayed_linked_columns\":{\"5096980653\":[\"task_estimation\"],\"5096998553\":[\"task_estimation\"],\"5096998568\":[\"task_estimation\"]},\"function\":\"sum\"}"
+                  },
+                  {
+                    "id": "monday_doc_v2",
+                    "title": "monday Doc v2",
+                    "type": "direct_doc",
+                    "settings_str": "{\"doc_type\":1,\"auto_map_on_move\":true}"
+                  },
+                  {
+                    "id": "item_id",
+                    "title": "Epic ID",
+                    "type": "item_id",
+                    "settings_str": "{\"customKeySettings\":{\"padding\":2,\"prefix\":\"ENAN\",\"counterId\":\"ce91c485-b9b2-4f5b-89ed-e84b27d62843\"},\"displayType\":\"customKey\"}"
+                  }
+                ]
+              },
+              {
+                "id": "5096980651",
+                "columns": [
+                  {
+                    "id": "name",
+                    "title": "Name",
+                    "type": "name",
+                    "settings_str": "{}"
+                  },
+                  {
+                    "id": "people1",
+                    "title": "Reporter",
+                    "type": "people",
+                    "settings_str": "{}"
+                  },
+                  {
+                    "id": "time_tracking",
+                    "title": "Time until resolution",
+                    "type": "time_tracking",
+                    "settings_str": "{\"hide_footer\":true}"
+                  },
+                  {
+                    "id": "bug_status",
+                    "title": "Status",
+                    "type": "status",
+                    "settings_str": "{\"done_colors\":[1],\"color_mapping\":{\"0\":16,\"3\":6,\"4\":8,\"6\":3,\"7\":18,\"8\":4,\"12\":155,\"14\":153,\"15\":15,\"16\":107,\"18\":103,\"103\":7,\"106\":14,\"107\":0,\"152\":106,\"153\":152,\"155\":12},\"labels\":{\"0\":\"Fixing\",\"1\":\"Fixed\",\"2\":\"Missing Info\",\"3\":\"Move to 'Sprints'\",\"4\":\"Known Bug\",\"5\":\"\",\"7\":\"Pending Deploy\",\"8\":\"Duplicated\",\"9\":\"Awaiting Review\",\"14\":\"Ready for Dev\"},\"labels_positions_v2\":{\"0\":2,\"1\":3,\"2\":4,\"3\":8,\"4\":6,\"5\":9,\"7\":5,\"8\":7,\"9\":0,\"14\":1},\"labels_colors\":{\"0\":{\"color\":\"#66ccff\",\"border\":\"#5ab3e0\",\"var_name\":\"turquoise\"},\"1\":{\"color\":\"#00c875\",\"border\":\"#00b461\",\"var_name\":\"green-shadow\"},\"2\":{\"color\":\"#df2f4a\",\"border\":\"#ce3048\",\"var_name\":\"red-shadow\"},\"3\":{\"color\":\"#037f4c\",\"border\":\"#006b38\",\"var_name\":\"grass-green\"},\"4\":{\"color\":\"#cab641\",\"border\":\"#c0ab31\",\"var_name\":\"mustered\"},\"5\":{\"color\":\"#c4c4c4\",\"border\":\"#b0b0b0\",\"var_name\":\"grey\"},\"7\":{\"color\":\"#7f5347\",\"border\":\"#70493e\",\"var_name\":\"brown\"},\"8\":{\"color\":\"#9d50dd\",\"border\":\"#9238af\",\"var_name\":\"purple\"},\"9\":{\"color\":\"#ffcb00\",\"border\":\"#c0ab1b\",\"var_name\":\"yellow\"},\"14\":{\"color\":\"#216edf\",\"border\":\"#216edf\",\"var_name\":\"sky\"}}}"
+                  },
+                  {
+                    "id": "priority_1",
+                    "title": "Priority",
+                    "type": "status",
+                    "settings_str": "{\"done_colors\":[1],\"color_mapping\":{\"0\":2,\"1\":1,\"2\":9,\"3\":108,\"9\":0,\"10\":15,\"12\":10,\"15\":12,\"108\":3},\"labels\":{\"0\":\"Critical\",\"1\":\"Low\",\"2\":\"High\",\"5\":\"\",\"7\":\"Medium\"},\"labels_positions_v2\":{\"0\":0,\"1\":3,\"2\":1,\"5\":4,\"7\":2},\"labels_colors\":{\"0\":{\"color\":\"#df2f4a\",\"border\":\"#ce3048\",\"var_name\":\"red-shadow\"},\"1\":{\"color\":\"#00c875\",\"border\":\"#00b461\",\"var_name\":\"green-shadow\"},\"2\":{\"color\":\"#ffcb00\",\"border\":\"#c0ab1b\",\"var_name\":\"yellow\"},\"5\":{\"color\":\"#c4c4c4\",\"border\":\"#b0b0b0\",\"var_name\":\"grey\"},\"7\":{\"color\":\"#579bfc\",\"border\":\"#4387e8\",\"var_name\":\"bright-blue\"}}}"
+                  },
+                  {
+                    "id": "bug_tasks",
+                    "title": "Connected tasks",
+                    "type": "board_relation",
+                    "settings_str": "{\"allowCreateReflectionColumn\":false,\"boardIds\":[5096980653],\"boardId\":5096980653}"
+                  },
+                  {
+                    "id": "item_id",
+                    "title": "Bug ID",
+                    "type": "item_id",
+                    "settings_str": "{\"customKeySettings\":{\"padding\":2,\"prefix\":\"BNAN\",\"counterId\":\"a4b23171-5a82-42a9-99eb-8ea426b06399\"},\"displayType\":\"customKey\"}"
+                  }
+                ]
+              },
+              {
+                "id": "5096980650",
+                "columns": [
+                  {
+                    "id": "name",
+                    "title": "Name",
+                    "type": "name",
+                    "settings_str": "{}"
+                  },
+                  {
+                    "id": "owner",
+                    "title": "Owner",
+                    "type": "people",
+                    "settings_str": "{\"hide_footer\":false}"
+                  },
+                  {
+                    "id": "days_off",
+                    "title": "Vacation days",
+                    "type": "numbers",
+                    "settings_str": "{}"
+                  },
+                  {
+                    "id": "team_days_off",
+                    "title": "Team days off",
+                    "type": "numbers",
+                    "settings_str": "{}"
+                  },
+                  {
+                    "id": "velocity",
+                    "title": "Avg. velocity",
+                    "type": "numbers",
+                    "settings_str": "{}"
+                  },
+                  {
+                    "id": "sprint_working_days",
+                    "title": "Total working days",
+                    "type": "formula",
+                    "settings_str": "{\"formula\":\"WORKDAYS({timeline#End},{timeline#Start})\"}"
+                  },
+                  {
+                    "id": "total_sp",
+                    "title": "Capacity",
+                    "type": "formula",
+                    "settings_str": "{\"formula\":\"MULTIPLY(\\n  MAX(0, \\n    MINUS(\\n      {sprint_working_days}, \\n        SUM(\\n          {days_off}, \\n          {team_days_off}\\n        )\\n      )\\n    ),\\n  {velocity}\\n)\"}"
+                  },
+                  {
+                    "id": "sprint",
+                    "title": "Sprint",
+                    "type": "board_relation",
+                    "settings_str": "{\"allowMultipleItems\":false,\"allowCreateReflectionColumn\":true,\"reflectionColumnId\":\"sprint_capacity\",\"boardIds\":[5096980649],\"boardId\":5096980649}"
+                  },
+                  {
+                    "id": "approved",
+                    "title": "Approved",
+                    "type": "checkbox",
+                    "settings_str": "{}"
+                  },
+                  {
+                    "id": "hidden",
+                    "title": "Hidden",
+                    "type": "checkbox",
+                    "settings_str": "{}"
+                  },
+                  {
+                    "id": "actual_velocity",
+                    "title": "Actual Velocity",
+                    "type": "numbers",
+                    "settings_str": "{}"
+                  },
+                  {
+                    "id": "timeline",
+                    "title": "Sprint timeline",
+                    "type": "mirror",
+                    "settings_str": "{\"relation_column\":{\"sprint\":true},\"displayed_linked_columns\":{\"5096980649\":[\"sprint_timeline\"]}}"
+                  },
+                  {
+                    "id": "velocity_override",
+                    "title": "Override",
+                    "type": "checkbox",
+                    "settings_str": "{}"
+                  }
+                ]
+              },
+              {
+                "id": "5096980649",
+                "columns": [
+                  {
+                    "id": "name",
+                    "title": "Name",
+                    "type": "name",
+                    "settings_str": "{}"
+                  },
+                  {
+                    "id": "sprint_goals",
+                    "title": "Sprint goals",
+                    "type": "long_text",
+                    "settings_str": "{}"
+                  },
+                  {
+                    "id": "sprint_activation",
+                    "title": "Active sprint",
+                    "type": "checkbox",
+                    "settings_str": "{}"
+                  },
+                  {
+                    "id": "sprint_timeline",
+                    "title": "Sprint timeline",
+                    "type": "timeline",
+                    "settings_str": "{\"show_set_as_milestone\":false}"
+                  },
+                  {
+                    "id": "sprint_tasks",
+                    "title": "Connected tasks",
+                    "type": "board_relation",
+                    "settings_str": "{\"allowCreateReflectionColumn\":true,\"boardIds\":[5096980653,5096998553,5096998568],\"boardId\":5096980653}"
+                  },
+                  {
+                    "id": "sprint_completion",
+                    "title": "Completed?",
+                    "type": "checkbox",
+                    "settings_str": "{}"
+                  },
+                  {
+                    "id": "sprint_start_date",
+                    "title": "Sprint start date",
+                    "type": "date",
+                    "settings_str": "{\"hide_footer\":false}"
+                  },
+                  {
+                    "id": "sprint_end_date",
+                    "title": "Sprint end date",
+                    "type": "date",
+                    "settings_str": "{\"hide_footer\":false}"
+                  },
+                  {
+                    "id": "sprint_capacity",
+                    "title": "link to Capacity",
+                    "type": "board_relation",
+                    "settings_str": "{\"allowCreateReflectionColumn\":true,\"boardIds\":[5096980650],\"boardId\":null}"
+                  }
+                ]
+              },
+              {
+                "id": "5096980648",
+                "columns": [
+                  {
+                    "id": "name",
+                    "title": "Name",
+                    "type": "name",
+                    "settings_str": "{}"
+                  },
+                  {
+                    "id": "people1",
+                    "title": "Submitter",
+                    "type": "people",
+                    "settings_str": "{\"hide_footer\":false}"
+                  },
+                  {
+                    "id": "status",
+                    "title": "Type",
+                    "type": "status",
+                    "settings_str": "{\"done_colors\":[1],\"color_mapping\":{\"0\":6,\"1\":1,\"2\":160,\"3\":0,\"6\":3,\"107\":107,\"108\":108,\"155\":2,\"160\":155},\"labels\":{\"0\":\"Discussion\",\"1\":\"Keep\",\"2\":\"Improve\"},\"labels_positions_v2\":{\"0\":0,\"1\":2,\"2\":1,\"5\":3},\"labels_colors\":{\"0\":{\"color\":\"#037f4c\",\"border\":\"#006b38\",\"var_name\":\"grass-green\"},\"1\":{\"color\":\"#00c875\",\"border\":\"#00b461\",\"var_name\":\"green-shadow\"},\"2\":{\"color\":\"#175a63\",\"border\":\"#175a63\",\"var_name\":\"eden\"}}}"
+                  },
+                  {
+                    "id": "check",
+                    "title": "Repeating?",
+                    "type": "checkbox",
+                    "settings_str": "{}"
+                  },
+                  {
+                    "id": "vote",
+                    "title": "Vote",
+                    "type": "vote",
+                    "settings_str": "{}"
+                  },
+                  {
+                    "id": "people",
+                    "title": "Owner",
+                    "type": "people",
+                    "settings_str": "{\"hide_footer\":false}"
+                  }
+                ]
+              },
+              {
+                "id": "5096980647",
+                "columns": [
+                  {
+                    "id": "name",
+                    "title": "Name",
+                    "type": "name",
+                    "settings_str": "{}"
+                  },
+                  {
+                    "id": "files",
+                    "title": "Files",
+                    "type": "file",
+                    "settings_str": "{\"hide_footer\":false}"
+                  }
+                ]
+              }
+            ]
+          },
+          "extensions": {
+            "request_id": "8d0250ee-2543-9795-b407-59698b3a14e3"
+          }
+        },
+        "status": 200,
+        "headers": {
+          "date": "Fri, 22 May 2026 05:47:47 GMT",
+          "content-type": "application/json",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=31536000; includeSubDomains",
+          "content-security-policy-report-only": "frame-ancestors https://*.monday.com; script-src 'self'; worker-src 'self'; connect-src 'self'; report-uri https://o916138.ingest.us.sentry.io/api/4507803872198656/security/?sentry_key=8e1fb7e952d4abfd146752c94791f51a&sentry_environment=production;",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4912",
+          "x-ratelimit-reset": "1779428867",
+          "api-version": "2026-04",
+          "vary": "origin, Accept-Encoding",
+          "x-api-gateway": "true",
+          "x-api-router": "true",
+          "x-request-id": "8d0250ee-2543-9795-b407-59698b3a14e3",
+          "x-envoy-upstream-service-time": "794",
+          "content-security-policy": ";",
+          "x-monday-rgn": "euc1, use1",
+          "server": "cloudflare",
+          "x-routed-from": "use1",
+          "x-routed-to": "euc1",
+          "set-cookie": "__cf_bm=xuFycRNQHcng_kaTrMbC0H76HLwHGYAbK6Vd6HeCR4g-1779428866.6393614-1.0.1.1-mCkVra9jV7PKHSrAco7aRsVw_mBNSSLdY7it19qOUAXtp1K1VmVh.CCFzoDwxoZRkloVAaSyp5Z5OYrG2k1L3bbsQiV.QCp2CGw.LBqyxfwK03vsp6EHm5Vi5Kqxa2d25DG43r7z33XAT.vOTiDElA; HttpOnly; SameSite=None; Secure; Path=/; Domain=monday.com; Expires=Fri, 22 May 2026 06:17:47 GMT, _cfuvid=q_DRbpXo.JtURkFWngHLT25tN6d3g9lCuMh68SlE4M4-1779428866.6393614-1.0.1.1-zPcPM_UQkb_GlvaY2mc81.rKWvuNfaHDp3KoYrdyxuo; HttpOnly; SameSite=None; Secure; Path=/; Domain=monday.com",
+          "cf-cache-status": "DYNAMIC",
+          "cf-ray": "9ff987307cc11fb9-PDX"
+        },
+        "hash": "b6d854dd03621de17b0c274dba022354d4f37b61",
+        "request": {
+          "data": {
+            "query": "query ($limit: Int!, $page: Int!) {\n                    boards(limit: $limit, page: $page) {\n                        id\n                        columns {\n                            id\n                            title\n                            type\n                            settings_str\n                        }\n                    }\n                }",
+            "variables": {
+              "limit": 25,
+              "page": 1
+            }
+          }
+        }
+      }
+    }
+  }
+}

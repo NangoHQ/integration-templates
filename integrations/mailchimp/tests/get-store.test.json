@@ -1,0 +1,235 @@
+{
+  "input": {
+    "store_id": "nango-test-store-001"
+  },
+  "output": {
+    "id": "nango-test-store-001",
+    "list_id": "16ed227135",
+    "name": "Nango Test Store",
+    "platform": "Shopify",
+    "domain": "nango-test-store.example.com",
+    "is_syncing": false,
+    "currency_code": "USD",
+    "money_format": "$",
+    "primary_locale": "en",
+    "timezone": "",
+    "phone": "",
+    "email_address": "",
+    "address": {
+      "address1": "",
+      "address2": "",
+      "city": "",
+      "province": "",
+      "province_code": "",
+      "postal_code": "",
+      "country": "",
+      "country_code": "",
+      "longitude": 0,
+      "latitude": 0
+    },
+    "created_at": "2026-05-21T19:16:41+00:00",
+    "updated_at": "2026-05-21T19:16:41+00:00",
+    "list_is_active": true,
+    "automations": {
+      "abandoned_cart": {
+        "is_supported": true
+      },
+      "abandoned_browse": {
+        "is_supported": false
+      }
+    },
+    "connected_site": {
+      "site_foreign_id": "nango-test-store-001",
+      "site_script": {
+        "url": "https://chimpstatic.com/mcjs-connected/js/users/d8ba0a687ccbd9857e68a507c/43deecf9047b2969c45808f1c.js",
+        "fragment": "<script id=\"mcjs\">!function(c,h,i,m,p){m=c.createElement(h),p=c.getElementsByTagName(h)[0],m.async=1,m.src=i,p.parentNode.insertBefore(m,p)}(document,\"script\",\"https://chimpstatic.com/mcjs-connected/js/users/d8ba0a687ccbd9857e68a507c/43deecf9047b2969c45808f1c.js\");</script>"
+      }
+    },
+    "_links": [
+      {
+        "rel": "self",
+        "href": "https://us3.api.mailchimp.com/3.0/ecommerce/stores/nango-test-store-001",
+        "method": "GET",
+        "targetSchema": "https://us3.api.mailchimp.com/schema/3.0/Definitions/Ecommerce/Stores/Response.json"
+      },
+      {
+        "rel": "parent",
+        "href": "https://us3.api.mailchimp.com/3.0/ecommerce/stores",
+        "method": "GET",
+        "targetSchema": "https://us3.api.mailchimp.com/schema/3.0/Definitions/Ecommerce/Stores/CollectionResponse.json"
+      },
+      {
+        "rel": "update",
+        "href": "https://us3.api.mailchimp.com/3.0/ecommerce/stores/nango-test-store-001",
+        "method": "PATCH",
+        "targetSchema": "https://us3.api.mailchimp.com/schema/3.0/Definitions/Ecommerce/Stores/Response.json",
+        "schema": "https://us3.api.mailchimp.com/schema/3.0/Definitions/Ecommerce/Stores/PATCH.json"
+      },
+      {
+        "rel": "delete",
+        "href": "https://us3.api.mailchimp.com/3.0/ecommerce/stores/nango-test-store-001",
+        "method": "DELETE"
+      },
+      {
+        "rel": "customers",
+        "href": "https://us3.api.mailchimp.com/3.0/ecommerce/stores/nango-test-store-001/customers",
+        "method": "GET",
+        "targetSchema": "https://us3.api.mailchimp.com/schema/3.0/Definitions/Ecommerce/Stores/Customers/CollectionResponse.json"
+      },
+      {
+        "rel": "products",
+        "href": "https://us3.api.mailchimp.com/3.0/ecommerce/stores/nango-test-store-001/products",
+        "method": "GET",
+        "targetSchema": "https://us3.api.mailchimp.com/schema/3.0/Definitions/Ecommerce/Stores/Products/CollectionResponse.json"
+      },
+      {
+        "rel": "promo-rules",
+        "href": "https://us3.api.mailchimp.com/3.0/ecommerce/stores/nango-test-store-001/promo-rules",
+        "method": "GET",
+        "targetSchema": "https://us3.api.mailchimp.com/schema/3.0/Definitions/Ecommerce/Stores/Promorules/CollectionResponse.json"
+      },
+      {
+        "rel": "orders",
+        "href": "https://us3.api.mailchimp.com/3.0/ecommerce/stores/nango-test-store-001/orders",
+        "method": "GET",
+        "targetSchema": "https://us3.api.mailchimp.com/schema/3.0/Definitions/Ecommerce/Stores/Orders/CollectionResponse.json"
+      },
+      {
+        "rel": "carts",
+        "href": "https://us3.api.mailchimp.com/3.0/ecommerce/stores/nango-test-store-001/carts",
+        "method": "GET",
+        "targetSchema": "https://us3.api.mailchimp.com/schema/3.0/Definitions/Ecommerce/Stores/Carts/CollectionResponse.json"
+      }
+    ]
+  },
+  "nango": {},
+  "api": {
+    "get": {
+      "/3.0/ecommerce/stores/nango-test-store-001": {
+        "response": {
+          "id": "nango-test-store-001",
+          "list_id": "16ed227135",
+          "name": "Nango Test Store",
+          "platform": "Shopify",
+          "domain": "nango-test-store.example.com",
+          "is_syncing": false,
+          "email_address": "",
+          "currency_code": "USD",
+          "money_format": "$",
+          "primary_locale": "en",
+          "timezone": "",
+          "phone": "",
+          "address": {
+            "address1": "",
+            "address2": "",
+            "city": "",
+            "province": "",
+            "province_code": "",
+            "postal_code": "",
+            "country": "",
+            "country_code": "",
+            "longitude": 0,
+            "latitude": 0
+          },
+          "connected_site": {
+            "site_foreign_id": "nango-test-store-001",
+            "site_script": {
+              "url": "https://chimpstatic.com/mcjs-connected/js/users/d8ba0a687ccbd9857e68a507c/43deecf9047b2969c45808f1c.js",
+              "fragment": "<script id=\"mcjs\">!function(c,h,i,m,p){m=c.createElement(h),p=c.getElementsByTagName(h)[0],m.async=1,m.src=i,p.parentNode.insertBefore(m,p)}(document,\"script\",\"https://chimpstatic.com/mcjs-connected/js/users/d8ba0a687ccbd9857e68a507c/43deecf9047b2969c45808f1c.js\");</script>"
+            }
+          },
+          "automations": {
+            "abandoned_cart": {
+              "is_supported": true
+            },
+            "abandoned_browse": {
+              "is_supported": false
+            }
+          },
+          "list_is_active": true,
+          "created_at": "2026-05-21T19:16:41+00:00",
+          "updated_at": "2026-05-21T19:16:41+00:00",
+          "_links": [
+            {
+              "rel": "self",
+              "href": "https://us3.api.mailchimp.com/3.0/ecommerce/stores/nango-test-store-001",
+              "method": "GET",
+              "targetSchema": "https://us3.api.mailchimp.com/schema/3.0/Definitions/Ecommerce/Stores/Response.json"
+            },
+            {
+              "rel": "parent",
+              "href": "https://us3.api.mailchimp.com/3.0/ecommerce/stores",
+              "method": "GET",
+              "targetSchema": "https://us3.api.mailchimp.com/schema/3.0/Definitions/Ecommerce/Stores/CollectionResponse.json"
+            },
+            {
+              "rel": "update",
+              "href": "https://us3.api.mailchimp.com/3.0/ecommerce/stores/nango-test-store-001",
+              "method": "PATCH",
+              "targetSchema": "https://us3.api.mailchimp.com/schema/3.0/Definitions/Ecommerce/Stores/Response.json",
+              "schema": "https://us3.api.mailchimp.com/schema/3.0/Definitions/Ecommerce/Stores/PATCH.json"
+            },
+            {
+              "rel": "delete",
+              "href": "https://us3.api.mailchimp.com/3.0/ecommerce/stores/nango-test-store-001",
+              "method": "DELETE"
+            },
+            {
+              "rel": "customers",
+              "href": "https://us3.api.mailchimp.com/3.0/ecommerce/stores/nango-test-store-001/customers",
+              "method": "GET",
+              "targetSchema": "https://us3.api.mailchimp.com/schema/3.0/Definitions/Ecommerce/Stores/Customers/CollectionResponse.json"
+            },
+            {
+              "rel": "products",
+              "href": "https://us3.api.mailchimp.com/3.0/ecommerce/stores/nango-test-store-001/products",
+              "method": "GET",
+              "targetSchema": "https://us3.api.mailchimp.com/schema/3.0/Definitions/Ecommerce/Stores/Products/CollectionResponse.json"
+            },
+            {
+              "rel": "promo-rules",
+              "href": "https://us3.api.mailchimp.com/3.0/ecommerce/stores/nango-test-store-001/promo-rules",
+              "method": "GET",
+              "targetSchema": "https://us3.api.mailchimp.com/schema/3.0/Definitions/Ecommerce/Stores/Promorules/CollectionResponse.json"
+            },
+            {
+              "rel": "orders",
+              "href": "https://us3.api.mailchimp.com/3.0/ecommerce/stores/nango-test-store-001/orders",
+              "method": "GET",
+              "targetSchema": "https://us3.api.mailchimp.com/schema/3.0/Definitions/Ecommerce/Stores/Orders/CollectionResponse.json"
+            },
+            {
+              "rel": "carts",
+              "href": "https://us3.api.mailchimp.com/3.0/ecommerce/stores/nango-test-store-001/carts",
+              "method": "GET",
+              "targetSchema": "https://us3.api.mailchimp.com/schema/3.0/Definitions/Ecommerce/Stores/Carts/CollectionResponse.json"
+            }
+          ]
+        },
+        "status": 200,
+        "headers": {
+          "date": "Thu, 21 May 2026 19:19:00 GMT",
+          "content-type": "application/json; charset=utf-8",
+          "content-length": "3171",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=5184000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4996",
+          "x-ratelimit-reset": "1779391196",
+          "x-request-id": "1-6a0f5aa4-09e330de6ce38f4a200c6e5b",
+          "etag": "W/\"c63-zQDZXAzjSbuHz1PGYkmHFYhpdHM\""
+        },
+        "hash": "11817582dac7826d5d0a86f4411da8f9649259c8",
+        "request": {}
+      }
+    }
+  }
+}

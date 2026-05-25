@@ -1,0 +1,272 @@
+{
+  "input": {
+    "item_id": "2933602562",
+    "board_id": "5096980653",
+    "column_values": {
+      "task_estimation": "5"
+    }
+  },
+  "output": {
+    "id": "2933602562",
+    "name": "Deploy",
+    "column_values": [
+      {
+        "id": "task_owner",
+        "text": ""
+      },
+      {
+        "id": "task_status",
+        "text": ""
+      },
+      {
+        "id": "task_priority",
+        "text": "Missing",
+        "value": "{\"index\":5,\"post_id\":null,\"changed_at\":\"2024-01-10T09:16:05.096Z\"}"
+      },
+      {
+        "id": "task_type",
+        "text": ""
+      },
+      {
+        "id": "task_estimation",
+        "text": "5",
+        "value": "\"5\""
+      },
+      {
+        "id": "task_actual_effort",
+        "text": ""
+      },
+      {
+        "id": "link",
+        "text": ""
+      },
+      {
+        "id": "check",
+        "text": "",
+        "value": "{\"checked\":false}"
+      },
+      {
+        "id": "item_id",
+        "text": "TNAN-005",
+        "value": "{\"item_id\":\"TNAN-005\"}"
+      },
+      {
+        "id": "task_epic"
+      },
+      {
+        "id": "task_sprint"
+      },
+      {
+        "id": "mirror"
+      },
+      {
+        "id": "monday_doc_v2",
+        "text": "",
+        "value": "{\"files\":null}"
+      },
+      {
+        "id": "mirror__1"
+      },
+      {
+        "id": "subtasks_mm3jpjfr"
+      },
+      {
+        "id": "text_mm3kz5mh",
+        "text": ""
+      },
+      {
+        "id": "text_mm3k4qb1",
+        "text": ""
+      },
+      {
+        "id": "text_mm3kpt0e",
+        "text": ""
+      },
+      {
+        "id": "text_mm3knpsn",
+        "text": ""
+      },
+      {
+        "id": "text_mm3knbh2",
+        "text": ""
+      },
+      {
+        "id": "file_mm3ke3ht",
+        "text": ""
+      },
+      {
+        "id": "text_mm3k7081",
+        "text": ""
+      }
+    ]
+  },
+  "nango": {},
+  "api": {
+    "post": {
+      "/v2": {
+        "response": {
+          "data": {
+            "change_multiple_column_values": {
+              "id": "2933602562",
+              "name": "Deploy",
+              "column_values": [
+                {
+                  "id": "task_owner",
+                  "text": "",
+                  "value": null
+                },
+                {
+                  "id": "task_status",
+                  "text": "",
+                  "value": null
+                },
+                {
+                  "id": "task_priority",
+                  "text": "Missing",
+                  "value": "{\"index\":5,\"post_id\":null,\"changed_at\":\"2024-01-10T09:16:05.096Z\"}"
+                },
+                {
+                  "id": "task_type",
+                  "text": "",
+                  "value": null
+                },
+                {
+                  "id": "task_estimation",
+                  "text": "5",
+                  "value": "\"5\""
+                },
+                {
+                  "id": "task_actual_effort",
+                  "text": "",
+                  "value": null
+                },
+                {
+                  "id": "link",
+                  "text": "",
+                  "value": null
+                },
+                {
+                  "id": "check",
+                  "text": "",
+                  "value": "{\"checked\":false}"
+                },
+                {
+                  "id": "item_id",
+                  "text": "TNAN-005",
+                  "value": "{\"item_id\":\"TNAN-005\"}"
+                },
+                {
+                  "id": "task_epic",
+                  "text": null,
+                  "value": null
+                },
+                {
+                  "id": "task_sprint",
+                  "text": null,
+                  "value": null
+                },
+                {
+                  "id": "mirror",
+                  "text": null,
+                  "value": null
+                },
+                {
+                  "id": "monday_doc_v2",
+                  "text": "",
+                  "value": "{\"files\":null}"
+                },
+                {
+                  "id": "mirror__1",
+                  "text": null,
+                  "value": null
+                },
+                {
+                  "id": "subtasks_mm3jpjfr",
+                  "text": null,
+                  "value": null
+                },
+                {
+                  "id": "text_mm3kz5mh",
+                  "text": "",
+                  "value": null
+                },
+                {
+                  "id": "text_mm3k4qb1",
+                  "text": "",
+                  "value": null
+                },
+                {
+                  "id": "text_mm3kpt0e",
+                  "text": "",
+                  "value": null
+                },
+                {
+                  "id": "text_mm3knpsn",
+                  "text": "",
+                  "value": null
+                },
+                {
+                  "id": "text_mm3knbh2",
+                  "text": "",
+                  "value": null
+                },
+                {
+                  "id": "file_mm3ke3ht",
+                  "text": "",
+                  "value": null
+                },
+                {
+                  "id": "text_mm3k7081",
+                  "text": "",
+                  "value": null
+                }
+              ]
+            }
+          },
+          "extensions": {
+            "request_id": "651b198c-d5eb-9212-b9ed-42c479824f87"
+          }
+        },
+        "status": 200,
+        "headers": {
+          "date": "Fri, 22 May 2026 05:59:42 GMT",
+          "content-type": "application/json",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=31536000; includeSubDomains",
+          "content-security-policy-report-only": "frame-ancestors https://*.monday.com; script-src 'self'; worker-src 'self'; connect-src 'self'; report-uri https://o916138.ingest.us.sentry.io/api/4507803872198656/security/?sentry_key=8e1fb7e952d4abfd146752c94791f51a&sentry_environment=production;",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4987",
+          "x-ratelimit-reset": "1779429617",
+          "api-version": "2026-04",
+          "vary": "origin, Accept-Encoding",
+          "x-api-gateway": "true",
+          "x-api-router": "true",
+          "x-request-id": "651b198c-d5eb-9212-b9ed-42c479824f87",
+          "x-envoy-upstream-service-time": "808",
+          "content-security-policy": ";",
+          "x-monday-rgn": "euc1, use1",
+          "server": "cloudflare",
+          "x-routed-from": "use1",
+          "x-routed-to": "euc1",
+          "set-cookie": "__cf_bm=Tl_qcz2mgHBuGuBDqQBnFnG9.CcQQ8WRYHTgGe0PkfM-1779429581.762918-1.0.1.1-ljFQjiTgJBoYLFFUEhz39ChIiiL.JzQG6W0NME5RRSWFcJ_PBYXCw5SIVXrcBsWVx1Kdp.xxkcXWadHuZHiEiswE1IBNWuXS7jmjGHgXr8P29.8zfrF7RglN9LnhkoGlHm900AkcModXIfMkE63hpA; HttpOnly; SameSite=None; Secure; Path=/; Domain=monday.com; Expires=Fri, 22 May 2026 06:29:42 GMT, _cfuvid=eVeWoad2uNpaFV8DDyE25GJLEanuF5maSPoO0TbI4HQ-1779429581.762918-1.0.1.1-Tu9kLgA.PPMkk403oFB1i3lh6UqysbYP3Q0RVQdPnqY; HttpOnly; SameSite=None; Secure; Path=/; Domain=monday.com",
+          "cf-cache-status": "DYNAMIC",
+          "cf-ray": "9ff998a60f753d49-PDX"
+        },
+        "hash": "c8d845f71b1cddc372aed9987afd997ca53a077c",
+        "request": {
+          "data": {
+            "query": "mutation {\n    change_multiple_column_values(\n        board_id: \"5096980653\"\n        item_id: \"2933602562\"\n        column_values: \"{\\\"task_estimation\\\":\\\"5\\\"}\"\n    ) {\n        id\n        name\n        column_values {\n            id\n            text\n            value\n        }\n    }\n}"
+          }
+        }
+      }
+    }
+  }
+}

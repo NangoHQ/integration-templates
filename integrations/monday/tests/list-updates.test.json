@@ -1,0 +1,143 @@
+{
+  "input": {},
+  "output": {
+    "updates": [
+      {
+        "id": "579577494",
+        "body": "Test update from Nango action",
+        "text_body": "Test update from Nango action",
+        "created_at": "2026-05-22T05:48:02.000Z",
+        "updated_at": "2026-05-22T05:48:02.000Z",
+        "creator": {
+          "id": "104094154",
+          "name": "Nango Developer"
+        },
+        "replies": [],
+        "item_id": "2933602562"
+      },
+      {
+        "id": "579577470",
+        "body": "Test update from Nango action",
+        "text_body": "Test update from Nango action",
+        "created_at": "2026-05-22T05:47:48.000Z",
+        "updated_at": "2026-05-22T05:47:48.000Z",
+        "creator": {
+          "id": "104094154",
+          "name": "Nango Developer"
+        },
+        "replies": [],
+        "item_id": "2933602562"
+      },
+      {
+        "id": "579577445",
+        "body": "Test update 2",
+        "text_body": "Test update 2",
+        "created_at": "2026-05-22T05:47:31.000Z",
+        "updated_at": "2026-05-22T05:47:31.000Z",
+        "creator": {
+          "id": "104094154",
+          "name": "Nango Developer"
+        },
+        "replies": [],
+        "item_id": "2933602562"
+      }
+    ]
+  },
+  "nango": {},
+  "api": {
+    "post": {
+      "/v2": {
+        "response": {
+          "data": {
+            "updates": [
+              {
+                "id": "579577494",
+                "body": "Test update from Nango action",
+                "text_body": "Test update from Nango action",
+                "created_at": "2026-05-22T05:48:02.000Z",
+                "updated_at": "2026-05-22T05:48:02.000Z",
+                "creator": {
+                  "id": "104094154",
+                  "name": "Nango Developer"
+                },
+                "replies": [],
+                "item_id": "2933602562"
+              },
+              {
+                "id": "579577470",
+                "body": "Test update from Nango action",
+                "text_body": "Test update from Nango action",
+                "created_at": "2026-05-22T05:47:48.000Z",
+                "updated_at": "2026-05-22T05:47:48.000Z",
+                "creator": {
+                  "id": "104094154",
+                  "name": "Nango Developer"
+                },
+                "replies": [],
+                "item_id": "2933602562"
+              },
+              {
+                "id": "579577445",
+                "body": "Test update 2",
+                "text_body": "Test update 2",
+                "created_at": "2026-05-22T05:47:31.000Z",
+                "updated_at": "2026-05-22T05:47:31.000Z",
+                "creator": {
+                  "id": "104094154",
+                  "name": "Nango Developer"
+                },
+                "replies": [],
+                "item_id": "2933602562"
+              }
+            ]
+          },
+          "extensions": {
+            "request_id": "b1438446-29aa-931c-8fa7-d945094158dd"
+          }
+        },
+        "status": 200,
+        "headers": {
+          "date": "Fri, 22 May 2026 05:52:27 GMT",
+          "content-type": "application/json",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=31536000; includeSubDomains",
+          "content-security-policy-report-only": "frame-ancestors https://*.monday.com; script-src 'self'; worker-src 'self'; connect-src 'self'; report-uri https://o916138.ingest.us.sentry.io/api/4507803872198656/security/?sentry_key=8e1fb7e952d4abfd146752c94791f51a&sentry_environment=production;",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4979",
+          "x-ratelimit-reset": "1779429177",
+          "api-version": "2026-04",
+          "vary": "origin, Accept-Encoding",
+          "x-api-gateway": "true",
+          "x-api-router": "true",
+          "x-request-id": "b1438446-29aa-931c-8fa7-d945094158dd",
+          "x-envoy-upstream-service-time": "613",
+          "content-security-policy": ";",
+          "x-monday-rgn": "euc1, use1",
+          "server": "cloudflare",
+          "x-routed-from": "use1",
+          "x-routed-to": "euc1",
+          "cf-cache-status": "DYNAMIC",
+          "set-cookie": "__cf_bm=h2sOCSE7Zd6WRajnD6STJjEw4kIgNxWw0lzM9jehReA-1779429146.4027615-1.0.1.1-d0vjXzl9.T.eLV7sMp1OW7KFZpalI0uY431TrrQHaal8iZdta6XLs6gRlSKjjrnbTLYwfAcDHy8j1Uu1mO.AoJ1Lq5oCUrudAgLx1qSgmhhIkTPdUlPTDHir5InaScn9QQAHBQguzeyg7QhGtTRYVw; HttpOnly; SameSite=None; Secure; Path=/; Domain=monday.com; Expires=Fri, 22 May 2026 06:22:27 GMT, _cfuvid=GeLxMDDwgwiPTbbfpAtBSpH2n5nI3a48q4ZQWK3sRR4-1779429146.4027615-1.0.1.1-sGJA6RgaOJhXuMJO4rjv0ds2cwRbEZF0xtLri8lpguM; HttpOnly; SameSite=None; Secure; Path=/; Domain=monday.com",
+          "cf-ray": "9ff98e050980ef4f-PDX"
+        },
+        "hash": "97e9892318f24e5fb6189d8f9e127da592058fae",
+        "request": {
+          "data": {
+            "query": "\n            query ($limit: Int, $page: Int, $from_date: String, $to_date: String) {\n                updates(limit: $limit, page: $page, from_date: $from_date, to_date: $to_date) {\n                    id\n                    body\n                    text_body\n                    created_at\n                    updated_at\n                    creator {\n                        id\n                        name\n                    }\n                    replies {\n                        id\n                        body\n                        text_body\n                        created_at\n                        creator {\n                            id\n                            name\n                        }\n                    }\n                    item_id\n                }\n            }\n        ",
+            "variables": {
+              "page": 1
+            }
+          }
+        }
+      }
+    }
+  }
+}

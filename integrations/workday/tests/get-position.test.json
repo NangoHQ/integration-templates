@@ -1,0 +1,16 @@
+{
+  "input": {
+    "id": "P-00030"
+  },
+  "output": {
+    "id": "P-00030",
+    "name": "Senior IT Analyst",
+    "position_code": "P-00030",
+    "effective_date": "Thu Jun 11 2020 00:00:00 GMT+0000 (Coordinated Universal Time)",
+    "inactive": false
+  },
+  "nango": {
+    "getConnection": {}
+  },
+  "api": {}
+}

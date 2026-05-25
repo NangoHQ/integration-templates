@@ -1,0 +1,235 @@
+{
+  "input": {
+    "item_id": "2933602562",
+    "column_id": "task_status",
+    "board_id": "5096980653",
+    "value": "{\"label\":\"Done\"}",
+    "create_labels_if_missing": true
+  },
+  "output": {
+    "id": "2933602562",
+    "name": "Deploy",
+    "column_values": [
+      {
+        "id": "task_owner",
+        "text": ""
+      },
+      {
+        "id": "task_status",
+        "value": "{\"index\":1,\"changed_at\":\"2026-05-22T05:47:17.769Z\"}",
+        "text": "Done"
+      },
+      {
+        "id": "task_priority",
+        "value": "{\"index\":7,\"post_id\":null,\"changed_at\":\"2024-01-10T09:16:05.096Z\"}",
+        "text": "Medium"
+      },
+      {
+        "id": "task_type",
+        "value": "{\"index\":3,\"changed_at\":\"2026-05-21T19:33:14.204Z\"}",
+        "text": "Other"
+      },
+      {
+        "id": "task_estimation",
+        "text": ""
+      },
+      {
+        "id": "task_actual_effort",
+        "text": ""
+      },
+      {
+        "id": "link",
+        "text": ""
+      },
+      {
+        "id": "check",
+        "value": "{\"checked\":false}",
+        "text": ""
+      },
+      {
+        "id": "item_id",
+        "value": "{\"item_id\":\"TNAN-002\"}",
+        "text": "TNAN-002"
+      },
+      {
+        "id": "task_epic"
+      },
+      {
+        "id": "task_sprint"
+      },
+      {
+        "id": "mirror"
+      },
+      {
+        "id": "monday_doc_v2",
+        "value": "{\"files\":null}",
+        "text": ""
+      },
+      {
+        "id": "mirror__1"
+      },
+      {
+        "id": "subtasks_mm3jpjfr"
+      },
+      {
+        "id": "text_mm3kz5mh",
+        "text": ""
+      },
+      {
+        "id": "text_mm3kmqah",
+        "text": ""
+      }
+    ]
+  },
+  "nango": {},
+  "api": {
+    "post": {
+      "/v2": {
+        "response": {
+          "data": {
+            "change_column_value": {
+              "id": "2933602562",
+              "name": "Deploy",
+              "column_values": [
+                {
+                  "id": "task_owner",
+                  "value": null,
+                  "text": ""
+                },
+                {
+                  "id": "task_status",
+                  "value": "{\"index\":1,\"changed_at\":\"2026-05-22T05:47:17.769Z\"}",
+                  "text": "Done"
+                },
+                {
+                  "id": "task_priority",
+                  "value": "{\"index\":7,\"post_id\":null,\"changed_at\":\"2024-01-10T09:16:05.096Z\"}",
+                  "text": "Medium"
+                },
+                {
+                  "id": "task_type",
+                  "value": "{\"index\":3,\"changed_at\":\"2026-05-21T19:33:14.204Z\"}",
+                  "text": "Other"
+                },
+                {
+                  "id": "task_estimation",
+                  "value": null,
+                  "text": ""
+                },
+                {
+                  "id": "task_actual_effort",
+                  "value": null,
+                  "text": ""
+                },
+                {
+                  "id": "link",
+                  "value": null,
+                  "text": ""
+                },
+                {
+                  "id": "check",
+                  "value": "{\"checked\":false}",
+                  "text": ""
+                },
+                {
+                  "id": "item_id",
+                  "value": "{\"item_id\":\"TNAN-002\"}",
+                  "text": "TNAN-002"
+                },
+                {
+                  "id": "task_epic",
+                  "value": null,
+                  "text": null
+                },
+                {
+                  "id": "task_sprint",
+                  "value": null,
+                  "text": null
+                },
+                {
+                  "id": "mirror",
+                  "value": null,
+                  "text": null
+                },
+                {
+                  "id": "monday_doc_v2",
+                  "value": "{\"files\":null}",
+                  "text": ""
+                },
+                {
+                  "id": "mirror__1",
+                  "value": null,
+                  "text": null
+                },
+                {
+                  "id": "subtasks_mm3jpjfr",
+                  "value": null,
+                  "text": null
+                },
+                {
+                  "id": "text_mm3kz5mh",
+                  "value": null,
+                  "text": ""
+                },
+                {
+                  "id": "text_mm3kmqah",
+                  "value": null,
+                  "text": ""
+                }
+              ]
+            }
+          },
+          "extensions": {
+            "request_id": "25a6ed00-d106-9917-bfc3-b63f2c3b2065"
+          }
+        },
+        "status": 200,
+        "headers": {
+          "date": "Fri, 22 May 2026 05:47:27 GMT",
+          "content-type": "application/json",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=31536000; includeSubDomains",
+          "content-security-policy-report-only": "frame-ancestors https://*.monday.com; script-src 'self'; worker-src 'self'; connect-src 'self'; report-uri https://o916138.ingest.us.sentry.io/api/4507803872198656/security/?sentry_key=8e1fb7e952d4abfd146752c94791f51a&sentry_environment=production;",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4945",
+          "x-ratelimit-reset": "1779428867",
+          "api-version": "2026-04",
+          "vary": "origin, Accept-Encoding",
+          "x-api-gateway": "true",
+          "x-api-router": "true",
+          "x-request-id": "25a6ed00-d106-9917-bfc3-b63f2c3b2065",
+          "x-envoy-upstream-service-time": "698",
+          "content-security-policy": ";",
+          "x-monday-rgn": "euc1, use1",
+          "server": "cloudflare",
+          "x-routed-from": "use1",
+          "x-routed-to": "euc1",
+          "set-cookie": "__cf_bm=9kT1re961rzF5fXo0MWuj4EGIL_DcEzfNMqwLMhpsow-1779428846.8917844-1.0.1.1-Rvui6K0EL7YX1PjexcAaM0TvHT42VFkEkeJfug_VK8N5AnqyHbzlJZpsfJUbNWMHnvK5_b5cxoESiMaVKCCFWVGMnS.0PcojX57yqetZ8Kc1SHmZJLPxnVT3o4mp9S.LPnasa26HIeQ2mExmYQld6Q; HttpOnly; SameSite=None; Secure; Path=/; Domain=monday.com; Expires=Fri, 22 May 2026 06:17:27 GMT, _cfuvid=2Er1Lgu1.uB4oMu54D1bXj3nzZJ0LqhKdri_sEhiJ6Q-1779428846.8917844-1.0.1.1-zs5lT_yX2jWQREkIAPPm0k8BLDmgrAeAY3c4USGMAIY; HttpOnly; SameSite=None; Secure; Path=/; Domain=monday.com",
+          "cf-cache-status": "DYNAMIC",
+          "cf-ray": "9ff986b51f854e7c-PDX"
+        },
+        "hash": "4c496572f55f5de88bae22cecbb3b3f68c87c87d",
+        "request": {
+          "data": {
+            "query": "\n            mutation ($item_id: ID!, $column_id: String!, $value: JSON!, $board_id: ID!, $create_labels_if_missing: Boolean) {\n                change_column_value(\n                    item_id: $item_id,\n                    column_id: $column_id,\n                    value: $value,\n                    board_id: $board_id,\n                    create_labels_if_missing: $create_labels_if_missing\n                ) {\n                    id\n                    name\n                    column_values {\n                        id\n                        value\n                        text\n                    }\n                }\n            }\n        ",
+            "variables": {
+              "item_id": "2933602562",
+              "column_id": "task_status",
+              "value": "{\"label\":\"Done\"}",
+              "board_id": "5096980653",
+              "create_labels_if_missing": true
+            }
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,255 @@
+{
+  "input": {},
+  "output": {
+    "boards": [
+      {
+        "id": "5096998570",
+        "name": "Subitems of Test Duplicate Board",
+        "state": "active",
+        "board_kind": "public",
+        "workspace_id": "6502905",
+        "updated_at": "2026-05-22T05:45:45Z"
+      },
+      {
+        "id": "5096998568",
+        "name": "Test Duplicate Board",
+        "state": "active",
+        "board_kind": "public",
+        "workspace_id": "6502905",
+        "updated_at": "2026-05-22T05:45:48Z"
+      },
+      {
+        "id": "5096998558",
+        "name": "Subitems of Test Duplicate Board",
+        "state": "active",
+        "board_kind": "public",
+        "workspace_id": "6502905",
+        "updated_at": "2026-05-22T05:45:29Z"
+      },
+      {
+        "id": "5096998553",
+        "name": "Test Duplicate Board",
+        "state": "active",
+        "board_kind": "public",
+        "workspace_id": "6502905",
+        "updated_at": "2026-05-22T05:45:33Z"
+      },
+      {
+        "id": "5096982894",
+        "name": "Subitems of Tasks",
+        "state": "active",
+        "board_kind": "public",
+        "workspace_id": "6502905",
+        "updated_at": "2026-05-21T20:38:17Z"
+      },
+      {
+        "id": "5096980653",
+        "name": "Tasks",
+        "state": "active",
+        "board_kind": "public",
+        "workspace_id": "6502905",
+        "updated_at": "2026-05-22T05:45:46Z"
+      },
+      {
+        "id": "5096980652",
+        "name": "Epics",
+        "state": "active",
+        "board_kind": "public",
+        "workspace_id": "6502905",
+        "updated_at": "2026-05-22T05:45:46Z"
+      },
+      {
+        "id": "5096980651",
+        "name": "Bugs Queue",
+        "state": "active",
+        "board_kind": "public",
+        "workspace_id": "6502905",
+        "updated_at": "2026-05-21T20:03:49Z"
+      },
+      {
+        "id": "5096980650",
+        "name": "Capacity",
+        "state": "active",
+        "board_kind": "public",
+        "workspace_id": "6502905",
+        "updated_at": "2026-05-21T19:32:16Z"
+      },
+      {
+        "id": "5096980649",
+        "name": "Sprints",
+        "state": "active",
+        "board_kind": "public",
+        "workspace_id": "6502905",
+        "updated_at": "2026-05-21T19:32:15Z"
+      },
+      {
+        "id": "5096980648",
+        "name": "Retrospectives",
+        "state": "active",
+        "board_kind": "public",
+        "workspace_id": "6502905",
+        "updated_at": "2026-05-21T19:32:15Z"
+      },
+      {
+        "id": "5096980647",
+        "name": "Getting Started",
+        "state": "active",
+        "board_kind": "public",
+        "workspace_id": "6502905",
+        "updated_at": "2026-05-21T19:32:15Z"
+      }
+    ]
+  },
+  "nango": {},
+  "api": {
+    "post": {
+      "/v2": {
+        "response": {
+          "data": {
+            "boards": [
+              {
+                "id": "5096998570",
+                "name": "Subitems of Test Duplicate Board",
+                "state": "active",
+                "board_kind": "public",
+                "workspace_id": "6502905",
+                "updated_at": "2026-05-22T05:45:45Z"
+              },
+              {
+                "id": "5096998568",
+                "name": "Test Duplicate Board",
+                "state": "active",
+                "board_kind": "public",
+                "workspace_id": "6502905",
+                "updated_at": "2026-05-22T05:45:48Z"
+              },
+              {
+                "id": "5096998558",
+                "name": "Subitems of Test Duplicate Board",
+                "state": "active",
+                "board_kind": "public",
+                "workspace_id": "6502905",
+                "updated_at": "2026-05-22T05:45:29Z"
+              },
+              {
+                "id": "5096998553",
+                "name": "Test Duplicate Board",
+                "state": "active",
+                "board_kind": "public",
+                "workspace_id": "6502905",
+                "updated_at": "2026-05-22T05:45:33Z"
+              },
+              {
+                "id": "5096982894",
+                "name": "Subitems of Tasks",
+                "state": "active",
+                "board_kind": "public",
+                "workspace_id": "6502905",
+                "updated_at": "2026-05-21T20:38:17Z"
+              },
+              {
+                "id": "5096980653",
+                "name": "Tasks",
+                "state": "active",
+                "board_kind": "public",
+                "workspace_id": "6502905",
+                "updated_at": "2026-05-22T05:45:46Z"
+              },
+              {
+                "id": "5096980652",
+                "name": "Epics",
+                "state": "active",
+                "board_kind": "public",
+                "workspace_id": "6502905",
+                "updated_at": "2026-05-22T05:45:46Z"
+              },
+              {
+                "id": "5096980651",
+                "name": "Bugs Queue",
+                "state": "active",
+                "board_kind": "public",
+                "workspace_id": "6502905",
+                "updated_at": "2026-05-21T20:03:49Z"
+              },
+              {
+                "id": "5096980650",
+                "name": "Capacity",
+                "state": "active",
+                "board_kind": "public",
+                "workspace_id": "6502905",
+                "updated_at": "2026-05-21T19:32:16Z"
+              },
+              {
+                "id": "5096980649",
+                "name": "Sprints",
+                "state": "active",
+                "board_kind": "public",
+                "workspace_id": "6502905",
+                "updated_at": "2026-05-21T19:32:15Z"
+              },
+              {
+                "id": "5096980648",
+                "name": "Retrospectives",
+                "state": "active",
+                "board_kind": "public",
+                "workspace_id": "6502905",
+                "updated_at": "2026-05-21T19:32:15Z"
+              },
+              {
+                "id": "5096980647",
+                "name": "Getting Started",
+                "state": "active",
+                "board_kind": "public",
+                "workspace_id": "6502905",
+                "updated_at": "2026-05-21T19:32:15Z"
+              }
+            ]
+          },
+          "extensions": {
+            "request_id": "c782ebcf-02fb-95ac-abfc-dd772a72d9ee"
+          }
+        },
+        "status": 200,
+        "headers": {
+          "date": "Fri, 22 May 2026 05:45:50 GMT",
+          "content-type": "application/json",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=31536000; includeSubDomains",
+          "content-security-policy-report-only": "frame-ancestors https://*.monday.com; script-src 'self'; worker-src 'self'; connect-src 'self'; report-uri https://o916138.ingest.us.sentry.io/api/4507803872198656/security/?sentry_key=8e1fb7e952d4abfd146752c94791f51a&sentry_environment=production;",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4988",
+          "x-ratelimit-reset": "1779428805",
+          "api-version": "2026-04",
+          "vary": "origin, Accept-Encoding",
+          "x-api-gateway": "true",
+          "x-api-router": "true",
+          "x-request-id": "c782ebcf-02fb-95ac-abfc-dd772a72d9ee",
+          "x-envoy-upstream-service-time": "379",
+          "content-security-policy": ";",
+          "x-monday-rgn": "euc1, use1",
+          "server": "cloudflare",
+          "x-routed-from": "use1",
+          "x-routed-to": "euc1",
+          "set-cookie": "__cf_bm=F8SMxXKInGOINHWoG96xtCFcYK17JDVFty1QI.JGJbE-1779428750.3261776-1.0.1.1-sfms0tm6iGnTKTL3M_yI87n2bY1siyJqImay3CuETvAXTLtxth2pPBuCu397VxmvI6SYYLDxEi1lv0r5AJy3NUQRCE5lMBgoW7hmAyekwlfNlUi.JNMk3Ez0hlv5xklKmBrDMvbU9uXzgSclvKR8LQ; HttpOnly; SameSite=None; Secure; Path=/; Domain=monday.com; Expires=Fri, 22 May 2026 06:15:50 GMT, _cfuvid=Wo2Az3kOLUBuj578JOyeEoQRxb9Q7FYmHApm.BMF4qE-1779428750.3261776-1.0.1.1-dQI_dk0PDCajiGFVvU5ZRRA3UefJM3E9xAr_rdKtf9A; HttpOnly; SameSite=None; Secure; Path=/; Domain=monday.com",
+          "cf-cache-status": "DYNAMIC",
+          "cf-ray": "9ff984598a5eb298-PDX"
+        },
+        "hash": "f9a7edc7141c48a1138e099bd172f20170f8ff58",
+        "request": {
+          "data": {
+            "query": "\n            query ($ids: [ID!], $board_kind: BoardKind, $state: State, $workspace_ids: [ID], $limit: Int, $page: Int) {\n                boards(ids: $ids, board_kind: $board_kind, state: $state, workspace_ids: $workspace_ids, limit: $limit, page: $page) {\n                    id\n                    name\n                    state\n                    board_kind\n                    workspace_id\n                    updated_at\n                }\n            }\n        ",
+            "variables": {}
+          }
+        }
+      }
+    }
+  }
+}

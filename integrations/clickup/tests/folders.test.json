@@ -1,0 +1,525 @@
+{
+  "nango": {
+    "batchSave": {
+      "Folder": [
+        {
+          "id": "901516078282",
+          "name": "Test Folder from Dryrun",
+          "orderindex": 0,
+          "overrideStatuses": false,
+          "hidden": false,
+          "spaceId": "901511023376"
+        },
+        {
+          "id": "901516078408",
+          "name": "Test Folder 1747666082",
+          "orderindex": 1,
+          "overrideStatuses": false,
+          "hidden": false,
+          "spaceId": "901511023376"
+        }
+      ]
+    },
+    "batchDelete": {
+      "Folder": []
+    },
+    "getMetadata": {
+      "team_id": "90152560096"
+    }
+  },
+  "api": {
+    "get": {
+      "/api/v2/team/90152560096/space": {
+        "response": {
+          "spaces": [
+            {
+              "id": "901511023376",
+              "name": "Team Space",
+              "color": "#03A2FD",
+              "private": false,
+              "avatar": null,
+              "admin_can_manage": true,
+              "statuses": [
+                {
+                  "id": "p901511023376_DCnaeiSB",
+                  "status": "to do",
+                  "type": "open",
+                  "orderindex": 0,
+                  "color": "#87909e"
+                },
+                {
+                  "id": "p901511023376_g9uxhsQM",
+                  "status": "in progress",
+                  "type": "custom",
+                  "orderindex": 1,
+                  "color": "#1090e0"
+                },
+                {
+                  "id": "p901511023376_syqLtYOY",
+                  "status": "complete",
+                  "type": "closed",
+                  "orderindex": 2,
+                  "color": "#008844"
+                }
+              ],
+              "multiple_assignees": true,
+              "features": {
+                "due_dates": {
+                  "enabled": true,
+                  "start_date": true,
+                  "remap_due_dates": false,
+                  "remap_closed_due_date": false
+                },
+                "sprints": {
+                  "enabled": true
+                },
+                "time_tracking": {
+                  "enabled": true,
+                  "harvest": false,
+                  "rollup": false,
+                  "default_to_billable": 2
+                },
+                "points": {
+                  "enabled": true
+                },
+                "custom_items": {
+                  "enabled": false
+                },
+                "priorities": {
+                  "enabled": true,
+                  "priorities": [
+                    {
+                      "color": "#f50000",
+                      "id": "1",
+                      "orderindex": "1",
+                      "priority": "urgent"
+                    },
+                    {
+                      "color": "#f8ae00",
+                      "id": "2",
+                      "orderindex": "2",
+                      "priority": "high"
+                    },
+                    {
+                      "color": "#6fddff",
+                      "id": "3",
+                      "orderindex": "3",
+                      "priority": "normal"
+                    },
+                    {
+                      "color": "#d8d8d8",
+                      "id": "4",
+                      "orderindex": "4",
+                      "priority": "low"
+                    }
+                  ]
+                },
+                "tags": {
+                  "enabled": true
+                },
+                "check_unresolved": {
+                  "enabled": true,
+                  "subtasks": null,
+                  "checklists": null,
+                  "comments": null
+                },
+                "milestones": {
+                  "enabled": false
+                },
+                "custom_fields": {
+                  "enabled": true
+                },
+                "dependency_warning": {
+                  "enabled": true
+                },
+                "status_pies": {
+                  "enabled": false
+                },
+                "multiple_assignees": {
+                  "enabled": true
+                },
+                "emails": {
+                  "enabled": true
+                },
+                "scheduler_enabled": false,
+                "dependency_type_enabled": false,
+                "dependency_enforcement": {
+                  "enforcement_enabled": false,
+                  "enforcement_mode": 0
+                },
+                "reschedule_closed_dependencies": {
+                  "enabled": true
+                }
+              },
+              "archived": false
+            },
+            {
+              "id": "901511023604",
+              "name": "Seed Space A",
+              "color": null,
+              "private": false,
+              "avatar": null,
+              "admin_can_manage": null,
+              "statuses": [
+                {
+                  "id": "p901511023604_DxqI3Ubd",
+                  "status": "to do",
+                  "type": "open",
+                  "orderindex": 0,
+                  "color": "#87909e"
+                },
+                {
+                  "id": "p901511023604_hMkfVItg",
+                  "status": "complete",
+                  "type": "closed",
+                  "orderindex": 1,
+                  "color": "#008844"
+                }
+              ],
+              "multiple_assignees": true,
+              "features": {
+                "due_dates": {
+                  "enabled": true,
+                  "start_date": true,
+                  "remap_due_dates": true,
+                  "remap_closed_due_date": false
+                },
+                "sprints": {
+                  "enabled": false
+                },
+                "time_tracking": {
+                  "enabled": true,
+                  "harvest": false,
+                  "rollup": true,
+                  "default_to_billable": 2
+                },
+                "points": {
+                  "enabled": false
+                },
+                "custom_items": {
+                  "enabled": false
+                },
+                "priorities": {
+                  "enabled": true,
+                  "priorities": [
+                    {
+                      "color": "#f50000",
+                      "id": "1",
+                      "orderindex": "1",
+                      "priority": "urgent"
+                    },
+                    {
+                      "color": "#f8ae00",
+                      "id": "2",
+                      "orderindex": "2",
+                      "priority": "high"
+                    },
+                    {
+                      "color": "#6fddff",
+                      "id": "3",
+                      "orderindex": "3",
+                      "priority": "normal"
+                    },
+                    {
+                      "color": "#d8d8d8",
+                      "id": "4",
+                      "orderindex": "4",
+                      "priority": "low"
+                    }
+                  ]
+                },
+                "tags": {
+                  "enabled": true
+                },
+                "milestones": {
+                  "enabled": false
+                },
+                "remap_dependencies": {
+                  "enabled": true
+                },
+                "dependency_warning": {
+                  "enabled": true
+                },
+                "status_pies": {
+                  "enabled": false
+                },
+                "multiple_assignees": {
+                  "enabled": true
+                },
+                "emails": {
+                  "enabled": true
+                },
+                "scheduler_enabled": false,
+                "dependency_type_enabled": false,
+                "dependency_enforcement": {
+                  "enforcement_enabled": false,
+                  "enforcement_mode": 0
+                },
+                "reschedule_closed_dependencies": {
+                  "enabled": true
+                }
+              },
+              "archived": false
+            },
+            {
+              "id": "901511024101",
+              "name": "Test Space from Dryrun",
+              "color": null,
+              "private": false,
+              "avatar": null,
+              "admin_can_manage": null,
+              "statuses": [
+                {
+                  "id": "p901511024101_1hxtgvAd",
+                  "status": "to do",
+                  "type": "open",
+                  "orderindex": 0,
+                  "color": "#87909e"
+                },
+                {
+                  "id": "p901511024101_NNx8sGTJ",
+                  "status": "complete",
+                  "type": "closed",
+                  "orderindex": 1,
+                  "color": "#008844"
+                }
+              ],
+              "multiple_assignees": true,
+              "features": {
+                "due_dates": {
+                  "enabled": true,
+                  "start_date": true,
+                  "remap_due_dates": true,
+                  "remap_closed_due_date": false
+                },
+                "sprints": {
+                  "enabled": false
+                },
+                "time_tracking": {
+                  "enabled": true,
+                  "harvest": false,
+                  "rollup": true,
+                  "default_to_billable": 2
+                },
+                "points": {
+                  "enabled": false
+                },
+                "custom_items": {
+                  "enabled": false
+                },
+                "priorities": {
+                  "enabled": true,
+                  "priorities": [
+                    {
+                      "color": "#f50000",
+                      "id": "1",
+                      "orderindex": "1",
+                      "priority": "urgent"
+                    },
+                    {
+                      "color": "#f8ae00",
+                      "id": "2",
+                      "orderindex": "2",
+                      "priority": "high"
+                    },
+                    {
+                      "color": "#6fddff",
+                      "id": "3",
+                      "orderindex": "3",
+                      "priority": "normal"
+                    },
+                    {
+                      "color": "#d8d8d8",
+                      "id": "4",
+                      "orderindex": "4",
+                      "priority": "low"
+                    }
+                  ]
+                },
+                "tags": {
+                  "enabled": true
+                },
+                "milestones": {
+                  "enabled": false
+                },
+                "remap_dependencies": {
+                  "enabled": true
+                },
+                "dependency_warning": {
+                  "enabled": true
+                },
+                "status_pies": {
+                  "enabled": false
+                },
+                "multiple_assignees": {
+                  "enabled": true
+                },
+                "emails": {
+                  "enabled": true
+                },
+                "scheduler_enabled": false,
+                "dependency_type_enabled": false,
+                "dependency_enforcement": {
+                  "enforcement_enabled": false,
+                  "enforcement_mode": 0
+                },
+                "reschedule_closed_dependencies": {
+                  "enabled": true
+                }
+              },
+              "archived": false
+            }
+          ]
+        },
+        "status": 200,
+        "headers": {
+          "date": "Tue, 19 May 2026 15:22:13 GMT",
+          "content-type": "application/json; charset=utf-8",
+          "content-length": "4311",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=5184000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4987",
+          "x-ratelimit-reset": "1779204135",
+          "etag": "W/\"10d7-ROlxwSTURL/1FxmqHStPzOEcK3E\""
+        },
+        "hash": "edbad5810ec73532afc4ed0c2236f62906046f16",
+        "request": {}
+      },
+      "/api/v2/space/901511023376/folder": {
+        "response": {
+          "folders": [
+            {
+              "id": "901516078282",
+              "name": "Test Folder from Dryrun",
+              "orderindex": 0,
+              "override_statuses": false,
+              "hidden": false,
+              "space": {
+                "id": "901511023376",
+                "name": "Team Space"
+              },
+              "task_count": "0",
+              "archived": false,
+              "statuses": [],
+              "lists": [],
+              "permission_level": "create"
+            },
+            {
+              "id": "901516078408",
+              "name": "Test Folder 1747666082",
+              "orderindex": 1,
+              "override_statuses": false,
+              "hidden": false,
+              "space": {
+                "id": "901511023376",
+                "name": "Team Space"
+              },
+              "task_count": "0",
+              "archived": false,
+              "statuses": [],
+              "lists": [],
+              "permission_level": "create"
+            }
+          ]
+        },
+        "status": 200,
+        "headers": {
+          "date": "Tue, 19 May 2026 15:22:14 GMT",
+          "content-type": "application/json; charset=utf-8",
+          "content-length": "508",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=5184000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4982",
+          "x-ratelimit-reset": "1779204135",
+          "etag": "W/\"1fc-Ucv53N3DQuPhh+E3ijmbz3Odgvc\""
+        },
+        "hash": "8be7eaca0ed6b823009b732c90d5b071e14fd391",
+        "request": {
+          "params": {
+            "archived": "false"
+          }
+        }
+      },
+      "/api/v2/space/901511023604/folder": {
+        "response": {
+          "folders": []
+        },
+        "status": 200,
+        "headers": {
+          "date": "Tue, 19 May 2026 15:22:14 GMT",
+          "content-type": "application/json; charset=utf-8",
+          "content-length": "14",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=5184000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4981",
+          "x-ratelimit-reset": "1779204135",
+          "etag": "W/\"e-F3Q+ubMFuKk66TbTG2xsDo0MqcY\""
+        },
+        "hash": "dbd3409f22d686342f881fb35098b43d656517cf",
+        "request": {
+          "params": {
+            "archived": "false"
+          }
+        }
+      },
+      "/api/v2/space/901511024101/folder": {
+        "response": {
+          "folders": []
+        },
+        "status": 200,
+        "headers": {
+          "date": "Tue, 19 May 2026 15:22:14 GMT",
+          "content-type": "application/json; charset=utf-8",
+          "content-length": "14",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=5184000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4980",
+          "x-ratelimit-reset": "1779204135",
+          "etag": "W/\"e-F3Q+ubMFuKk66TbTG2xsDo0MqcY\""
+        },
+        "hash": "62f1efed4e654784631f67724feae3c27701be6d",
+        "request": {
+          "params": {
+            "archived": "false"
+          }
+        }
+      }
+    }
+  }
+}

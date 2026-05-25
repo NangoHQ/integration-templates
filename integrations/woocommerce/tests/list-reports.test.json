@@ -1,0 +1,402 @@
+{
+  "input": {},
+  "output": {
+    "items": [
+      {
+        "slug": "sales",
+        "description": "List of sales reports.",
+        "_links": {
+          "self": [
+            {
+              "href": "https://woocommerce-test.local/wp-json/wc/v3/reports/sales"
+            }
+          ],
+          "collection": [
+            {
+              "href": "https://woocommerce-test.local/wp-json/wc/v3/reports"
+            }
+          ]
+        }
+      },
+      {
+        "slug": "top_sellers",
+        "description": "List of top sellers products.",
+        "_links": {
+          "self": [
+            {
+              "href": "https://woocommerce-test.local/wp-json/wc/v3/reports/top_sellers"
+            }
+          ],
+          "collection": [
+            {
+              "href": "https://woocommerce-test.local/wp-json/wc/v3/reports"
+            }
+          ]
+        }
+      },
+      {
+        "slug": "orders/totals",
+        "description": "Orders totals.",
+        "_links": {
+          "self": [
+            {
+              "href": "https://woocommerce-test.local/wp-json/wc/v3/reports/orders/totals"
+            }
+          ],
+          "collection": [
+            {
+              "href": "https://woocommerce-test.local/wp-json/wc/v3/reports"
+            }
+          ]
+        }
+      },
+      {
+        "slug": "products/totals",
+        "description": "Products totals.",
+        "_links": {
+          "self": [
+            {
+              "href": "https://woocommerce-test.local/wp-json/wc/v3/reports/products/totals"
+            }
+          ],
+          "collection": [
+            {
+              "href": "https://woocommerce-test.local/wp-json/wc/v3/reports"
+            }
+          ]
+        }
+      },
+      {
+        "slug": "customers/totals",
+        "description": "Customers totals.",
+        "_links": {
+          "self": [
+            {
+              "href": "https://woocommerce-test.local/wp-json/wc/v3/reports/customers/totals"
+            }
+          ],
+          "collection": [
+            {
+              "href": "https://woocommerce-test.local/wp-json/wc/v3/reports"
+            }
+          ]
+        }
+      },
+      {
+        "slug": "coupons/totals",
+        "description": "Coupons totals.",
+        "_links": {
+          "self": [
+            {
+              "href": "https://woocommerce-test.local/wp-json/wc/v3/reports/coupons/totals"
+            }
+          ],
+          "collection": [
+            {
+              "href": "https://woocommerce-test.local/wp-json/wc/v3/reports"
+            }
+          ]
+        }
+      },
+      {
+        "slug": "reviews/totals",
+        "description": "Reviews totals.",
+        "_links": {
+          "self": [
+            {
+              "href": "https://woocommerce-test.local/wp-json/wc/v3/reports/reviews/totals"
+            }
+          ],
+          "collection": [
+            {
+              "href": "https://woocommerce-test.local/wp-json/wc/v3/reports"
+            }
+          ]
+        }
+      },
+      {
+        "slug": "categories/totals",
+        "description": "Categories totals.",
+        "_links": {
+          "self": [
+            {
+              "href": "https://woocommerce-test.local/wp-json/wc/v3/reports/categories/totals"
+            }
+          ],
+          "collection": [
+            {
+              "href": "https://woocommerce-test.local/wp-json/wc/v3/reports"
+            }
+          ]
+        }
+      },
+      {
+        "slug": "tags/totals",
+        "description": "Tags totals.",
+        "_links": {
+          "self": [
+            {
+              "href": "https://woocommerce-test.local/wp-json/wc/v3/reports/tags/totals"
+            }
+          ],
+          "collection": [
+            {
+              "href": "https://woocommerce-test.local/wp-json/wc/v3/reports"
+            }
+          ]
+        }
+      },
+      {
+        "slug": "attributes/totals",
+        "description": "Attributes totals.",
+        "_links": {
+          "self": [
+            {
+              "href": "https://woocommerce-test.local/wp-json/wc/v3/reports/attributes/totals"
+            }
+          ],
+          "collection": [
+            {
+              "href": "https://woocommerce-test.local/wp-json/wc/v3/reports"
+            }
+          ]
+        }
+      }
+    ]
+  },
+  "nango": {},
+  "api": {
+    "get": {
+      "/wp-json/wc/v3/reports": {
+        "response": [
+          {
+            "slug": "sales",
+            "description": "List of sales reports.",
+            "_links": {
+              "self": [
+                {
+                  "href": "https://woocommerce-test.local/wp-json/wc/v3/reports/sales",
+                  "targetHints": {
+                    "allow": [
+                      "GET"
+                    ]
+                  }
+                }
+              ],
+              "collection": [
+                {
+                  "href": "https://woocommerce-test.local/wp-json/wc/v3/reports"
+                }
+              ]
+            }
+          },
+          {
+            "slug": "top_sellers",
+            "description": "List of top sellers products.",
+            "_links": {
+              "self": [
+                {
+                  "href": "https://woocommerce-test.local/wp-json/wc/v3/reports/top_sellers",
+                  "targetHints": {
+                    "allow": [
+                      "GET"
+                    ]
+                  }
+                }
+              ],
+              "collection": [
+                {
+                  "href": "https://woocommerce-test.local/wp-json/wc/v3/reports"
+                }
+              ]
+            }
+          },
+          {
+            "slug": "orders/totals",
+            "description": "Orders totals.",
+            "_links": {
+              "self": [
+                {
+                  "href": "https://woocommerce-test.local/wp-json/wc/v3/reports/orders/totals",
+                  "targetHints": {
+                    "allow": [
+                      "GET"
+                    ]
+                  }
+                }
+              ],
+              "collection": [
+                {
+                  "href": "https://woocommerce-test.local/wp-json/wc/v3/reports"
+                }
+              ]
+            }
+          },
+          {
+            "slug": "products/totals",
+            "description": "Products totals.",
+            "_links": {
+              "self": [
+                {
+                  "href": "https://woocommerce-test.local/wp-json/wc/v3/reports/products/totals",
+                  "targetHints": {
+                    "allow": [
+                      "GET"
+                    ]
+                  }
+                }
+              ],
+              "collection": [
+                {
+                  "href": "https://woocommerce-test.local/wp-json/wc/v3/reports"
+                }
+              ]
+            }
+          },
+          {
+            "slug": "customers/totals",
+            "description": "Customers totals.",
+            "_links": {
+              "self": [
+                {
+                  "href": "https://woocommerce-test.local/wp-json/wc/v3/reports/customers/totals",
+                  "targetHints": {
+                    "allow": [
+                      "GET"
+                    ]
+                  }
+                }
+              ],
+              "collection": [
+                {
+                  "href": "https://woocommerce-test.local/wp-json/wc/v3/reports"
+                }
+              ]
+            }
+          },
+          {
+            "slug": "coupons/totals",
+            "description": "Coupons totals.",
+            "_links": {
+              "self": [
+                {
+                  "href": "https://woocommerce-test.local/wp-json/wc/v3/reports/coupons/totals",
+                  "targetHints": {
+                    "allow": [
+                      "GET"
+                    ]
+                  }
+                }
+              ],
+              "collection": [
+                {
+                  "href": "https://woocommerce-test.local/wp-json/wc/v3/reports"
+                }
+              ]
+            }
+          },
+          {
+            "slug": "reviews/totals",
+            "description": "Reviews totals.",
+            "_links": {
+              "self": [
+                {
+                  "href": "https://woocommerce-test.local/wp-json/wc/v3/reports/reviews/totals",
+                  "targetHints": {
+                    "allow": [
+                      "GET"
+                    ]
+                  }
+                }
+              ],
+              "collection": [
+                {
+                  "href": "https://woocommerce-test.local/wp-json/wc/v3/reports"
+                }
+              ]
+            }
+          },
+          {
+            "slug": "categories/totals",
+            "description": "Categories totals.",
+            "_links": {
+              "self": [
+                {
+                  "href": "https://woocommerce-test.local/wp-json/wc/v3/reports/categories/totals"
+                }
+              ],
+              "collection": [
+                {
+                  "href": "https://woocommerce-test.local/wp-json/wc/v3/reports"
+                }
+              ]
+            }
+          },
+          {
+            "slug": "tags/totals",
+            "description": "Tags totals.",
+            "_links": {
+              "self": [
+                {
+                  "href": "https://woocommerce-test.local/wp-json/wc/v3/reports/tags/totals"
+                }
+              ],
+              "collection": [
+                {
+                  "href": "https://woocommerce-test.local/wp-json/wc/v3/reports"
+                }
+              ]
+            }
+          },
+          {
+            "slug": "attributes/totals",
+            "description": "Attributes totals.",
+            "_links": {
+              "self": [
+                {
+                  "href": "https://woocommerce-test.local/wp-json/wc/v3/reports/attributes/totals"
+                }
+              ],
+              "collection": [
+                {
+                  "href": "https://woocommerce-test.local/wp-json/wc/v3/reports"
+                }
+              ]
+            }
+          }
+        ],
+        "status": 200,
+        "headers": {
+          "date": "Fri, 22 May 2026 09:51:36 GMT",
+          "content-type": "application/json; charset=UTF-8",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=5184000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "X-WP-Total, X-WP-TotalPages, Link",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4954",
+          "x-ratelimit-reset": "1779443514",
+          "access-control-allow-headers": "Authorization, X-WP-Nonce, Content-Disposition, Content-MD5, Content-Type",
+          "allow": "GET",
+          "cache-control": "no-cache, must-revalidate, max-age=0, no-store, private",
+          "expires": "Wed, 11 Jan 1984 05:00:00 GMT",
+          "link": "<https://woocommerce-test.local/wp-json/>; rel=\"https://api.w.org/\"",
+          "ngrok-agent-ips": "105.161.152.132",
+          "server": "nginx/1.26.1",
+          "vary": "Accept-Encoding",
+          "x-powered-by": "PHP/8.2.29",
+          "x-robots-tag": "noindex"
+        },
+        "hash": "8e5bbe018d0d81df21fb35919450bb4e6690fa33",
+        "request": {}
+      }
+    }
+  }
+}

@@ -1,0 +1,250 @@
+{
+  "input": {
+    "campaign_id": "58d6d094d5"
+  },
+  "output": {
+    "id": "58d6d094d5",
+    "campaign_title": "Test Campaign",
+    "type": "regular",
+    "list_id": "16ed227135",
+    "list_is_active": true,
+    "list_name": "NangoDev",
+    "subject_line": "Test Campaign",
+    "preview_text": "",
+    "emails_sent": 1,
+    "abuse_reports": 0,
+    "unsubscribed": 0,
+    "send_time": "2026-05-21T19:10:48+00:00",
+    "bounces": {
+      "hard_bounces": 0,
+      "soft_bounces": 0,
+      "syntax_errors": 0
+    },
+    "forwards": {
+      "forwards_count": 0,
+      "forwards_opens": 0
+    },
+    "opens": {
+      "opens_total": 0,
+      "unique_opens": 0,
+      "open_rate": 0,
+      "last_open": ""
+    },
+    "clicks": {
+      "clicks_total": 0,
+      "unique_clicks": 0,
+      "unique_subscriber_clicks": 0,
+      "click_rate": 0,
+      "last_click": ""
+    },
+    "list_stats": {
+      "sub_rate": 0,
+      "unsub_rate": 0,
+      "open_rate": 0,
+      "click_rate": 0
+    },
+    "ecommerce": {
+      "total_orders": 0,
+      "total_spent": 0,
+      "total_revenue": 0,
+      "currency_code": "USD"
+    },
+    "delivery_status": {
+      "enabled": true,
+      "can_cancel": false,
+      "status": "delivering",
+      "emails_sent": 0,
+      "emails_canceled": 0
+    }
+  },
+  "nango": {},
+  "api": {
+    "get": {
+      "/3.0/reports/58d6d094d5": {
+        "response": {
+          "id": "58d6d094d5",
+          "campaign_title": "Test Campaign",
+          "type": "regular",
+          "list_id": "16ed227135",
+          "list_is_active": true,
+          "list_name": "NangoDev",
+          "subject_line": "Test Campaign",
+          "preview_text": "",
+          "emails_sent": 1,
+          "abuse_reports": 0,
+          "unsubscribed": 0,
+          "send_time": "2026-05-21T19:10:48+00:00",
+          "bounces": {
+            "hard_bounces": 0,
+            "soft_bounces": 0,
+            "syntax_errors": 0
+          },
+          "forwards": {
+            "forwards_count": 0,
+            "forwards_opens": 0
+          },
+          "opens": {
+            "opens_total": 0,
+            "proxy_excluded_opens": 0,
+            "unique_opens": 0,
+            "proxy_excluded_unique_opens": 0,
+            "open_rate": 0,
+            "proxy_excluded_open_rate": 0,
+            "last_open": ""
+          },
+          "clicks": {
+            "clicks_total": 0,
+            "unique_clicks": 0,
+            "unique_subscriber_clicks": 0,
+            "click_rate": 0,
+            "last_click": ""
+          },
+          "facebook_likes": {
+            "recipient_likes": 0,
+            "unique_likes": 0,
+            "facebook_likes": 0
+          },
+          "list_stats": {
+            "sub_rate": 0,
+            "unsub_rate": 0,
+            "open_rate": 0,
+            "proxy_excluded_open_rate": 0,
+            "click_rate": 0
+          },
+          "timeseries": [
+            {
+              "timestamp": "2026-05-21T19:00:00+00:00",
+              "emails_sent": 0,
+              "unique_opens": 0,
+              "proxy_excluded_unique_opens": 0,
+              "recipients_clicks": 0
+            }
+          ],
+          "ecommerce": {
+            "total_orders": 0,
+            "total_spent": 0,
+            "total_revenue": 0,
+            "currency_code": "USD"
+          },
+          "delivery_status": {
+            "enabled": true,
+            "can_cancel": false,
+            "status": "delivering",
+            "emails_sent": 0,
+            "emails_canceled": 0
+          },
+          "_links": [
+            {
+              "rel": "parent",
+              "href": "https://us3.api.mailchimp.com/3.0/reports",
+              "method": "GET",
+              "targetSchema": "https://us3.api.mailchimp.com/schema/3.0/Definitions/Reports/CollectionResponse.json",
+              "schema": "https://us3.api.mailchimp.com/schema/3.0/Paths/Reports/Collection.json"
+            },
+            {
+              "rel": "self",
+              "href": "https://us3.api.mailchimp.com/3.0/reports/58d6d094d5",
+              "method": "GET",
+              "targetSchema": "https://us3.api.mailchimp.com/schema/3.0/Definitions/Reports/Response.json"
+            },
+            {
+              "rel": "campaign",
+              "href": "https://us3.api.mailchimp.com/3.0/campaigns/58d6d094d5",
+              "method": "GET",
+              "targetSchema": "https://us3.api.mailchimp.com/schema/3.0/Definitions/Campaigns/Response.json"
+            },
+            {
+              "rel": "sub-reports",
+              "href": "https://us3.api.mailchimp.com/3.0/reports/58d6d094d5/sub-reports",
+              "method": "GET",
+              "targetSchema": "https://us3.api.mailchimp.com/schema/3.0/Definitions/Reports/Sub/Response.json"
+            },
+            {
+              "rel": "abuse-reports",
+              "href": "https://us3.api.mailchimp.com/3.0/reports/58d6d094d5/abuse-reports",
+              "method": "GET",
+              "targetSchema": "https://us3.api.mailchimp.com/schema/3.0/Definitions/Reports/Abuse/CollectionResponse.json"
+            },
+            {
+              "rel": "advice",
+              "href": "https://us3.api.mailchimp.com/3.0/reports/58d6d094d5/advice",
+              "method": "GET",
+              "targetSchema": "https://us3.api.mailchimp.com/schema/3.0/Definitions/Reports/Advice/Response.json"
+            },
+            {
+              "rel": "open-details",
+              "href": "https://us3.api.mailchimp.com/3.0/reports/58d6d094d5/open-details",
+              "method": "GET",
+              "targetSchema": "https://us3.api.mailchimp.com/schema/3.0/Definitions/Reports/OpenDetails/CollectionResponse.json"
+            },
+            {
+              "rel": "click-details",
+              "href": "https://us3.api.mailchimp.com/3.0/reports/58d6d094d5/click-details",
+              "method": "GET",
+              "targetSchema": "https://us3.api.mailchimp.com/schema/3.0/Definitions/Reports/ClickDetails/CollectionResponse.json"
+            },
+            {
+              "rel": "domain-performance",
+              "href": "https://us3.api.mailchimp.com/3.0/reports/58d6d094d5/domain-performance",
+              "method": "GET",
+              "targetSchema": "https://us3.api.mailchimp.com/schema/3.0/Definitions/Reports/DomainPerformance/Response.json"
+            },
+            {
+              "rel": "eepurl",
+              "href": "https://us3.api.mailchimp.com/3.0/reports/58d6d094d5/eepurl",
+              "method": "GET",
+              "targetSchema": "https://us3.api.mailchimp.com/schema/3.0/Definitions/Reports/Eepurl/CollectionResponse.json"
+            },
+            {
+              "rel": "email-activity",
+              "href": "https://us3.api.mailchimp.com/3.0/reports/58d6d094d5/email-activity",
+              "method": "GET",
+              "targetSchema": "https://us3.api.mailchimp.com/schema/3.0/Definitions/Reports/EmailActivity/CollectionResponse.json"
+            },
+            {
+              "rel": "locations",
+              "href": "https://us3.api.mailchimp.com/3.0/reports/58d6d094d5/locations",
+              "method": "GET",
+              "targetSchema": "https://us3.api.mailchimp.com/schema/3.0/Definitions/Reports/Locations/Response.json"
+            },
+            {
+              "rel": "sent-to",
+              "href": "https://us3.api.mailchimp.com/3.0/reports/58d6d094d5/sent-to",
+              "method": "GET",
+              "targetSchema": "https://us3.api.mailchimp.com/schema/3.0/Definitions/Reports/SentTo/CollectionResponse.json"
+            },
+            {
+              "rel": "unsubscribed",
+              "href": "https://us3.api.mailchimp.com/3.0/reports/58d6d094d5/unsubscribed",
+              "method": "GET",
+              "targetSchema": "https://us3.api.mailchimp.com/schema/3.0/Definitions/Reports/Unsubs/CollectionResponse.json"
+            }
+          ]
+        },
+        "status": 200,
+        "headers": {
+          "date": "Thu, 21 May 2026 19:11:19 GMT",
+          "content-type": "application/json; charset=utf-8",
+          "content-length": "4237",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=5184000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4996",
+          "x-ratelimit-reset": "1779390735",
+          "x-request-id": "1-6a0f58d6-026c0b125b02db7435b3e312",
+          "etag": "W/\"108d-1LMBMqxsqTAFZXFNwU/+eftfAPI\""
+        },
+        "hash": "7dfc51181a550857b505c5f04c18a00fede5bafc",
+        "request": {}
+      }
+    }
+  }
+}

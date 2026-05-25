@@ -1,0 +1,15 @@
+{
+  "input": {
+    "id": "25000"
+  },
+  "output": {
+    "id": "25000",
+    "name": "",
+    "inactive": false,
+    "reference_id": "25000"
+  },
+  "nango": {
+    "getConnection": {}
+  },
+  "api": {}
+}

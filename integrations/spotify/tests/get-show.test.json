@@ -1,0 +1,2088 @@
+{
+  "input": {
+    "id": "18WzIf6SqovUQHHTeZaucQ"
+  },
+  "output": {
+    "id": "18WzIf6SqovUQHHTeZaucQ",
+    "name": "Radio Rental",
+    "description": "Discover real-life horror stories, from bizarre crimes to paranormal activity. These true stories are set inside the fictional world of Radio Rental, an 80's video rental shop. This imaginative, cult classic-inspired horror brand blurs the lines of reality, with cutting-edge documentary storytelling and a splash of comedy. From the mind of Payne Lindsey— this is Radio Rental.",
+    "images": [
+      {
+        "url": "https://i.scdn.co/image/ab6765630000ba8aa0c7680b4f92382f2b1e1831",
+        "height": 640,
+        "width": 640
+      },
+      {
+        "url": "https://i.scdn.co/image/ab67656300005f1fa0c7680b4f92382f2b1e1831",
+        "height": 300,
+        "width": 300
+      },
+      {
+        "url": "https://i.scdn.co/image/ab6765630000f68da0c7680b4f92382f2b1e1831",
+        "height": 64,
+        "width": 64
+      }
+    ],
+    "explicit": true,
+    "total_episodes": 143
+  },
+  "nango": {},
+  "api": {
+    "get": {
+      "/v1/shows/18WzIf6SqovUQHHTeZaucQ": {
+        "response": {
+          "copyrights": [],
+          "description": "Discover real-life horror stories, from bizarre crimes to paranormal activity. These true stories are set inside the fictional world of Radio Rental, an 80's video rental shop. This imaginative, cult classic-inspired horror brand blurs the lines of reality, with cutting-edge documentary storytelling and a splash of comedy. From the mind of Payne Lindsey— this is Radio Rental.",
+          "html_description": "<p>Discover real-life horror stories, from bizarre crimes to paranormal activity. These true stories are set inside the fictional world of Radio Rental, an 80&#39;s video rental shop. This imaginative, cult classic-inspired horror brand blurs the lines of reality, with cutting-edge documentary storytelling and a splash of comedy. From the mind of Payne Lindsey— this is Radio Rental.</p>",
+          "explicit": true,
+          "external_urls": {
+            "spotify": "https://open.spotify.com/show/18WzIf6SqovUQHHTeZaucQ"
+          },
+          "href": "https://api.spotify.com/v1/shows/18WzIf6SqovUQHHTeZaucQ",
+          "id": "18WzIf6SqovUQHHTeZaucQ",
+          "images": [
+            {
+              "height": 640,
+              "url": "https://i.scdn.co/image/ab6765630000ba8aa0c7680b4f92382f2b1e1831",
+              "width": 640
+            },
+            {
+              "height": 300,
+              "url": "https://i.scdn.co/image/ab67656300005f1fa0c7680b4f92382f2b1e1831",
+              "width": 300
+            },
+            {
+              "height": 64,
+              "url": "https://i.scdn.co/image/ab6765630000f68da0c7680b4f92382f2b1e1831",
+              "width": 64
+            }
+          ],
+          "is_externally_hosted": false,
+          "languages": [
+            "en"
+          ],
+          "media_type": "audio",
+          "name": "Radio Rental",
+          "type": "show",
+          "uri": "spotify:show:18WzIf6SqovUQHHTeZaucQ",
+          "total_episodes": 143,
+          "episodes": {
+            "href": "https://api.spotify.com/v1/shows/18WzIf6SqovUQHHTeZaucQ/episodes?offset=0&limit=50",
+            "limit": 50,
+            "next": "https://api.spotify.com/v1/shows/18WzIf6SqovUQHHTeZaucQ/episodes?offset=50&limit=50",
+            "offset": 0,
+            "previous": null,
+            "total": 143,
+            "items": [
+              {
+                "description": "Welcome to Radio Rental, a mysterious video rental shop with an exclusive collection of VHS tapes. On these tapes are TRUE scary stories, narrated by the people who experienced them...    On today's tapes:    >> Camp Creature >> Two camp counselors see something horrifying stalking the camp at night.    >> The Falcon Found Us >> A man suffering out in the desert is sent an unlikely guide.    Meanwhile, at the store:    There's a bird stuck in the store. And Jared the repairman is here to... get it out I guess? Okay.    Want more Radio Rental?     Follow the show at @radiorental    Visit the website at ⁠⁠⁠⁠⁠⁠radiorentalusa.com",
+                "html_description": "<p>Welcome to Radio Rental, a mysterious video rental shop with an exclusive collection of VHS tapes. On these tapes are TRUE scary stories, narrated by the people who experienced them...</p><br/><p><br /></p><br/><p>On today&#39;s tapes:</p><br/><p><br /></p><br/><p>&gt;&gt; Camp Creature &gt;&gt; Two camp counselors see something horrifying stalking the camp at night.</p><br/><p><br /></p><br/><p>&gt;&gt; The Falcon Found Us &gt;&gt; A man suffering out in the desert is sent an unlikely guide.</p><br/><p><br /></p><br/><p>Meanwhile, at the store:</p><br/><p><br /></p><br/><p>There&#39;s a bird stuck in the store. And Jared the repairman is here to... get it out I guess? Okay.</p><br/><p><br /></p><br/><p>Want more Radio Rental?</p><br/><ul><li>Follow the show at &#64;radiorental</li><li>Visit the website at <a href=\"https://radiorentalusa.com/\" rel=\"nofollow\">⁠⁠⁠⁠⁠⁠radiorentalusa.com</a><br/></li></ul>",
+                "duration_ms": 1733564,
+                "explicit": true,
+                "external_urls": {
+                  "spotify": "https://open.spotify.com/episode/3krNYBmSKp18fq8uMie3SN"
+                },
+                "href": "https://api.spotify.com/v1/episodes/3krNYBmSKp18fq8uMie3SN",
+                "id": "3krNYBmSKp18fq8uMie3SN",
+                "images": [
+                  {
+                    "url": "https://i.scdn.co/image/ab6765630000ba8a081016e1b9e3df925fd81493",
+                    "height": 640,
+                    "width": 640
+                  },
+                  {
+                    "url": "https://i.scdn.co/image/ab67656300005f1f081016e1b9e3df925fd81493",
+                    "height": 300,
+                    "width": 300
+                  },
+                  {
+                    "url": "https://i.scdn.co/image/ab6765630000f68d081016e1b9e3df925fd81493",
+                    "height": 64,
+                    "width": 64
+                  }
+                ],
+                "is_externally_hosted": false,
+                "is_playable": false,
+                "language": "en",
+                "languages": [
+                  "en"
+                ],
+                "name": "Episode 107",
+                "release_date": "2026-05-15",
+                "release_date_precision": "day",
+                "type": "episode",
+                "uri": "spotify:episode:3krNYBmSKp18fq8uMie3SN",
+                "restrictions": {
+                  "reason": "payment_required"
+                }
+              },
+              {
+                "description": "Welcome to Radio Rental, a mysterious video rental shop with an exclusive collection of VHS tapes. On these tapes are TRUE scary stories, narrated by the people who experienced them...    On today's tapes:    >> Cave of Munits >> This cave comes with a legend. And that legend comes with horrifying sounds.    >> Uinta Basin >> Did this storyteller make the right call? Or did she leave a poor, defenseless child to fend for themselves?    Meanwhile, at the store:    Jeremy BETTER be getting paid for this... Also, Vince sees an angel.    Want more Radio Rental?     For early access and ad-free listening, subscribe to Tenderfoot+ at ⁠⁠⁠⁠⁠https://tenderfoot.tv/plus/⁠⁠⁠⁠⁠.    Follow the show at @radiorental    Visit the website at ⁠⁠⁠⁠⁠radiorentalusa.com      To learn more about listener data and our privacy practices visit: https://www.audacyinc.com/privacy-policy     Learn more about your ad choices. Visit https://podcastchoices.com/adchoices",
+                "html_description": "<p>Welcome to Radio Rental, a mysterious video rental shop with an exclusive collection of VHS tapes. On these tapes are TRUE scary stories, narrated by the people who experienced them...</p><br/><p><br /></p><br/><p>On today&#39;s tapes:</p><br/><p><br /></p><br/><p>&gt;&gt; Cave of Munits &gt;&gt; This cave comes with a legend. And that legend comes with horrifying sounds.</p><br/><p><br /></p><br/><p>&gt;&gt; Uinta Basin &gt;&gt; Did this storyteller make the right call? Or did she leave a poor, defenseless child to fend for themselves?</p><br/><p><br /></p><br/><p>Meanwhile, at the store:</p><br/><p><br /></p><br/><p>Jeremy BETTER be getting paid for this... Also, Vince sees an angel.</p><br/><p><br /></p><br/><p>Want more Radio Rental?</p><br/><ul><li>For early access and ad-free listening, subscribe to Tenderfoot&#43; at <a href=\"https://tenderfoot.tv/plus/\" rel=\"nofollow\">⁠⁠⁠⁠⁠https://tenderfoot.tv/plus/⁠⁠⁠⁠⁠</a>.</li><li>Follow the show at &#64;radiorental</li><li>Visit the website at <a href=\"https://radiorentalusa.com/\" rel=\"nofollow\">⁠⁠⁠⁠⁠radiorentalusa.com</a><br/></li></ul><p> </p><p> </p><p>To learn more about listener data and our privacy practices visit: <a href=\"https://www.audacyinc.com/privacy-policy\" rel=\"nofollow\">https://www.audacyinc.com/privacy-policy</a></p> <p> </p> <p>Learn more about your ad choices. Visit <a href=\"https://podcastchoices.com/adchoices\" rel=\"nofollow\">https://podcastchoices.com/adchoices</a></p>",
+                "duration_ms": 2238223,
+                "explicit": true,
+                "external_urls": {
+                  "spotify": "https://open.spotify.com/episode/1iWJe58zO38bzX18HKCbjB"
+                },
+                "href": "https://api.spotify.com/v1/episodes/1iWJe58zO38bzX18HKCbjB",
+                "id": "1iWJe58zO38bzX18HKCbjB",
+                "images": [
+                  {
+                    "url": "https://i.scdn.co/image/ab6765630000ba8a80e09d1fd63bb1e3f3b96bc4",
+                    "height": 640,
+                    "width": 640
+                  },
+                  {
+                    "url": "https://i.scdn.co/image/ab67656300005f1f80e09d1fd63bb1e3f3b96bc4",
+                    "height": 300,
+                    "width": 300
+                  },
+                  {
+                    "url": "https://i.scdn.co/image/ab6765630000f68d80e09d1fd63bb1e3f3b96bc4",
+                    "height": 64,
+                    "width": 64
+                  }
+                ],
+                "is_externally_hosted": true,
+                "is_playable": true,
+                "language": "en",
+                "languages": [
+                  "en"
+                ],
+                "name": "Episode 106",
+                "release_date": "2026-05-15",
+                "release_date_precision": "day",
+                "type": "episode",
+                "uri": "spotify:episode:1iWJe58zO38bzX18HKCbjB"
+              },
+              {
+                "description": "Welcome to Radio Rental, a mysterious video rental shop with an exclusive collection of VHS tapes. On these tapes are TRUE scary stories, narrated by the people who experienced them...    On today's tapes:    >> CCTV >> What's on TV tonight? Hopefully it's not you.    >> Scrapbooking >> This storyteller finds out she's part of someone's rather creepy art project.    Meanwhile, at the store:    Vince is back and being very totally normal.    Want more Radio Rental?     For early access and ad-free listening, subscribe to Tenderfoot+ at ⁠⁠⁠⁠⁠https://tenderfoot.tv/plus/⁠⁠⁠⁠⁠.    Follow the show at @radiorental    Visit the website at ⁠⁠⁠⁠⁠radiorentalusa.com      To learn more about listener data and our privacy practices visit: https://www.audacyinc.com/privacy-policy     Learn more about your ad choices. Visit https://podcastchoices.com/adchoices",
+                "html_description": "<p>Welcome to Radio Rental, a mysterious video rental shop with an exclusive collection of VHS tapes. On these tapes are TRUE scary stories, narrated by the people who experienced them...</p><br/><p><br /></p><br/><p>On today&#39;s tapes:</p><br/><p><br /></p><br/><p>&gt;&gt; CCTV &gt;&gt; What&#39;s on TV tonight? Hopefully it&#39;s not you.</p><br/><p><br /></p><br/><p>&gt;&gt; Scrapbooking &gt;&gt; This storyteller finds out she&#39;s part of someone&#39;s rather creepy art project.</p><br/><p><br /></p><br/><p>Meanwhile, at the store:</p><br/><p><br /></p><br/><p>Vince is back and being very totally normal.</p><br/><p><br /></p><br/><p>Want more Radio Rental?</p><br/><ul><li>For early access and ad-free listening, subscribe to Tenderfoot&#43; at <a href=\"https://tenderfoot.tv/plus/\" rel=\"nofollow\">⁠⁠⁠⁠⁠https://tenderfoot.tv/plus/⁠⁠⁠⁠⁠</a>.</li><li>Follow the show at &#64;radiorental</li><li>Visit the website at <a href=\"https://radiorentalusa.com/\" rel=\"nofollow\">⁠⁠⁠⁠⁠radiorentalusa.com</a><br/></li></ul><p> </p><p> </p><p>To learn more about listener data and our privacy practices visit: <a href=\"https://www.audacyinc.com/privacy-policy\" rel=\"nofollow\">https://www.audacyinc.com/privacy-policy</a></p> <p> </p> <p>Learn more about your ad choices. Visit <a href=\"https://podcastchoices.com/adchoices\" rel=\"nofollow\">https://podcastchoices.com/adchoices</a></p>",
+                "duration_ms": 1758380,
+                "explicit": true,
+                "external_urls": {
+                  "spotify": "https://open.spotify.com/episode/4N2We8foj0gOnaJEHoSpDA"
+                },
+                "href": "https://api.spotify.com/v1/episodes/4N2We8foj0gOnaJEHoSpDA",
+                "id": "4N2We8foj0gOnaJEHoSpDA",
+                "images": [
+                  {
+                    "url": "https://i.scdn.co/image/ab6765630000ba8a4cd614a50ebe7022296d8f38",
+                    "height": 640,
+                    "width": 640
+                  },
+                  {
+                    "url": "https://i.scdn.co/image/ab67656300005f1f4cd614a50ebe7022296d8f38",
+                    "height": 300,
+                    "width": 300
+                  },
+                  {
+                    "url": "https://i.scdn.co/image/ab6765630000f68d4cd614a50ebe7022296d8f38",
+                    "height": 64,
+                    "width": 64
+                  }
+                ],
+                "is_externally_hosted": true,
+                "is_playable": true,
+                "language": "en",
+                "languages": [
+                  "en"
+                ],
+                "name": "Episode 105",
+                "release_date": "2026-05-08",
+                "release_date_precision": "day",
+                "type": "episode",
+                "uri": "spotify:episode:4N2We8foj0gOnaJEHoSpDA"
+              },
+              {
+                "description": "Welcome to Radio Rental, a mysterious video rental shop with an exclusive collection of VHS tapes. On these tapes are TRUE scary stories, narrated by the people who experienced them...    On today's tapes:    >> Alien Dots >> Kind of tough when the best case scenario is \"bed bugs.\"    >> Booby Traps >> This guy was ready to go \"Home Alone\" on your ass.    Meanwhile, at the store:    Jeremy reappears! Against his will! Stop doing that to Jeremy!    Want more Radio Rental?     For early access and ad-free listening, subscribe to Tenderfoot+ at ⁠⁠⁠⁠⁠https://tenderfoot.tv/plus/⁠⁠⁠⁠⁠.    Follow the show at @radiorental    Visit the website at ⁠⁠⁠⁠⁠radiorentalusa.com      To learn more about listener data and our privacy practices visit: https://www.audacyinc.com/privacy-policy     Learn more about your ad choices. Visit https://podcastchoices.com/adchoices",
+                "html_description": "<p>Welcome to Radio Rental, a mysterious video rental shop with an exclusive collection of VHS tapes. On these tapes are TRUE scary stories, narrated by the people who experienced them...</p><br/><p><br /></p><br/><p>On today&#39;s tapes:</p><br/><p><br /></p><br/><p>&gt;&gt; Alien Dots &gt;&gt; Kind of tough when the best case scenario is &#34;bed bugs.&#34;</p><br/><p><br /></p><br/><p>&gt;&gt; Booby Traps &gt;&gt; This guy was ready to go &#34;Home Alone&#34; on your ass.</p><br/><p><br /></p><br/><p>Meanwhile, at the store:</p><br/><p><br /></p><br/><p>Jeremy reappears! Against his will! Stop doing that to Jeremy!</p><br/><p><br /></p><br/><p>Want more Radio Rental?</p><br/><ul><li>For early access and ad-free listening, subscribe to Tenderfoot&#43; at <a href=\"https://tenderfoot.tv/plus/\" rel=\"nofollow\">⁠⁠⁠⁠⁠https://tenderfoot.tv/plus/⁠⁠⁠⁠⁠</a>.</li><li>Follow the show at &#64;radiorental</li><li>Visit the website at <a href=\"https://radiorentalusa.com/\" rel=\"nofollow\">⁠⁠⁠⁠⁠radiorentalusa.com</a><br/></li></ul><p> </p><p> </p><p>To learn more about listener data and our privacy practices visit: <a href=\"https://www.audacyinc.com/privacy-policy\" rel=\"nofollow\">https://www.audacyinc.com/privacy-policy</a></p> <p> </p> <p>Learn more about your ad choices. Visit <a href=\"https://podcastchoices.com/adchoices\" rel=\"nofollow\">https://podcastchoices.com/adchoices</a></p>",
+                "duration_ms": 2250788,
+                "explicit": true,
+                "external_urls": {
+                  "spotify": "https://open.spotify.com/episode/3HwEpL7yaoeSmkW1Lk3Obj"
+                },
+                "href": "https://api.spotify.com/v1/episodes/3HwEpL7yaoeSmkW1Lk3Obj",
+                "id": "3HwEpL7yaoeSmkW1Lk3Obj",
+                "images": [
+                  {
+                    "url": "https://i.scdn.co/image/ab6765630000ba8a4f06cc508a694322fa9b73d3",
+                    "height": 640,
+                    "width": 640
+                  },
+                  {
+                    "url": "https://i.scdn.co/image/ab67656300005f1f4f06cc508a694322fa9b73d3",
+                    "height": 300,
+                    "width": 300
+                  },
+                  {
+                    "url": "https://i.scdn.co/image/ab6765630000f68d4f06cc508a694322fa9b73d3",
+                    "height": 64,
+                    "width": 64
+                  }
+                ],
+                "is_externally_hosted": true,
+                "is_playable": true,
+                "language": "en",
+                "languages": [
+                  "en"
+                ],
+                "name": "Episode 104",
+                "release_date": "2026-05-01",
+                "release_date_precision": "day",
+                "type": "episode",
+                "uri": "spotify:episode:3HwEpL7yaoeSmkW1Lk3Obj"
+              },
+              {
+                "description": "Welcome to Radio Rental, a mysterious video rental shop with an exclusive collection of VHS tapes. On these tapes are TRUE scary stories, narrated by the people who experienced them...    On today's tapes:    >> Found Footage Forest >> A couple kids try to go Blair Witch-ing and end up regretting it.    >> She Watches >> This biologist gets up-close and personal with (life-threatening) nature.    Meanwhile, at the store:    Ricky reads Vince's Tarot cards. Seems like Vince is surrounded by a dark energy. Shocker.    Want more Radio Rental?     For early access and ad-free listening, subscribe to Tenderfoot+ at ⁠⁠⁠⁠⁠https://tenderfoot.tv/plus/⁠⁠⁠⁠⁠.    Follow the show at @radiorental    Visit the website at ⁠⁠⁠⁠⁠radiorentalusa.com      To learn more about listener data and our privacy practices visit: https://www.audacyinc.com/privacy-policy     Learn more about your ad choices. Visit https://podcastchoices.com/adchoices",
+                "html_description": "<p>Welcome to Radio Rental, a mysterious video rental shop with an exclusive collection of VHS tapes. On these tapes are TRUE scary stories, narrated by the people who experienced them...</p><br/><p><br /></p><br/><p>On today&#39;s tapes:</p><br/><p><br /></p><br/><p>&gt;&gt; Found Footage Forest &gt;&gt; A couple kids try to go Blair Witch-ing and end up regretting it.</p><br/><p><br /></p><br/><p>&gt;&gt; She Watches &gt;&gt; This biologist gets up-close and personal with (life-threatening) nature.</p><br/><p><br /></p><br/><p>Meanwhile, at the store:</p><br/><p><br /></p><br/><p>Ricky reads Vince&#39;s Tarot cards. Seems like Vince is surrounded by a dark energy. Shocker.</p><br/><p><br /></p><br/><p>Want more Radio Rental?</p><br/><ul><li>For early access and ad-free listening, subscribe to Tenderfoot&#43; at <a href=\"https://tenderfoot.tv/plus/\" rel=\"nofollow\">⁠⁠⁠⁠⁠https://tenderfoot.tv/plus/⁠⁠⁠⁠⁠</a>.</li><li>Follow the show at &#64;radiorental</li><li>Visit the website at <a href=\"https://radiorentalusa.com/\" rel=\"nofollow\">⁠⁠⁠⁠⁠radiorentalusa.com</a><br/></li></ul><p> </p><p> </p><p>To learn more about listener data and our privacy practices visit: <a href=\"https://www.audacyinc.com/privacy-policy\" rel=\"nofollow\">https://www.audacyinc.com/privacy-policy</a></p> <p> </p> <p>Learn more about your ad choices. Visit <a href=\"https://podcastchoices.com/adchoices\" rel=\"nofollow\">https://podcastchoices.com/adchoices</a></p>",
+                "duration_ms": 2456921,
+                "explicit": true,
+                "external_urls": {
+                  "spotify": "https://open.spotify.com/episode/3JcglPOC0T7PbKVjj4PFsP"
+                },
+                "href": "https://api.spotify.com/v1/episodes/3JcglPOC0T7PbKVjj4PFsP",
+                "id": "3JcglPOC0T7PbKVjj4PFsP",
+                "images": [
+                  {
+                    "url": "https://i.scdn.co/image/ab6765630000ba8a690397424b396a5906f78436",
+                    "height": 640,
+                    "width": 640
+                  },
+                  {
+                    "url": "https://i.scdn.co/image/ab67656300005f1f690397424b396a5906f78436",
+                    "height": 300,
+                    "width": 300
+                  },
+                  {
+                    "url": "https://i.scdn.co/image/ab6765630000f68d690397424b396a5906f78436",
+                    "height": 64,
+                    "width": 64
+                  }
+                ],
+                "is_externally_hosted": true,
+                "is_playable": true,
+                "language": "en",
+                "languages": [
+                  "en"
+                ],
+                "name": "Episode 103",
+                "release_date": "2026-04-24",
+                "release_date_precision": "day",
+                "type": "episode",
+                "uri": "spotify:episode:3JcglPOC0T7PbKVjj4PFsP"
+              },
+              {
+                "description": "Welcome to Radio Rental, a mysterious video rental shop with an exclusive collection of VHS tapes. On these tapes are TRUE scary stories, narrated by the people who experienced them...    On today's tapes:    >> Body Removal >> Sometimes you don't want to be left in a room alone with the \"client.\"    >> Whispers >> Sounds like an over-active childhood imagination... until they discover something unsettling about the house.    Meanwhile, at the store:    Vince does a real bang-up job running the store today. Good job, Vince. Way to be slightly less off-putting.    Want more Radio Rental?     For early access and ad-free listening, subscribe to Tenderfoot+ at ⁠⁠⁠⁠⁠⁠⁠https://tenderfoot.tv/plus/⁠⁠⁠⁠⁠⁠⁠.    Follow the show at @radiorental    Visit the website at ⁠⁠⁠⁠⁠⁠⁠radiorentalusa.com      To learn more about listener data and our privacy practices visit: https://www.audacyinc.com/privacy-policy     Learn more about your ad choices. Visit https://podcastchoices.com/adchoices",
+                "html_description": "<p>Welcome to Radio Rental, a mysterious video rental shop with an exclusive collection of VHS tapes. On these tapes are TRUE scary stories, narrated by the people who experienced them...</p><br/><p><br /></p><br/><p>On today&#39;s tapes:</p><br/><p><br /></p><br/><p>&gt;&gt; Body Removal &gt;&gt; Sometimes you don&#39;t want to be left in a room alone with the &#34;client.&#34;</p><br/><p><br /></p><br/><p>&gt;&gt; Whispers &gt;&gt; Sounds like an over-active childhood imagination... until they discover something unsettling about the house.</p><br/><p><br /></p><br/><p>Meanwhile, at the store:</p><br/><p><br /></p><br/><p>Vince does a real bang-up job running the store today. Good job, Vince. Way to be slightly less off-putting.</p><br/><p><br /></p><br/><p>Want more Radio Rental?</p><br/><ul><li>For early access and ad-free listening, subscribe to Tenderfoot&#43; at <a href=\"https://tenderfoot.tv/plus/\" rel=\"nofollow\">⁠⁠⁠⁠⁠⁠⁠https://tenderfoot.tv/plus/⁠⁠⁠⁠⁠⁠⁠</a>.</li><li>Follow the show at &#64;radiorental</li><li>Visit the website at <a href=\"https://radiorentalusa.com/\" rel=\"nofollow\">⁠⁠⁠⁠⁠⁠⁠radiorentalusa.com</a><br/></li></ul><p> </p><p> </p><p>To learn more about listener data and our privacy practices visit: <a href=\"https://www.audacyinc.com/privacy-policy\" rel=\"nofollow\">https://www.audacyinc.com/privacy-policy</a></p> <p> </p> <p>Learn more about your ad choices. Visit <a href=\"https://podcastchoices.com/adchoices\" rel=\"nofollow\">https://podcastchoices.com/adchoices</a></p>",
+                "duration_ms": 2056150,
+                "explicit": true,
+                "external_urls": {
+                  "spotify": "https://open.spotify.com/episode/74fqGqPZJOruTNpnf2lVCm"
+                },
+                "href": "https://api.spotify.com/v1/episodes/74fqGqPZJOruTNpnf2lVCm",
+                "id": "74fqGqPZJOruTNpnf2lVCm",
+                "images": [
+                  {
+                    "url": "https://i.scdn.co/image/ab6765630000ba8a84a88a5ab89ee7aec299dad9",
+                    "height": 640,
+                    "width": 640
+                  },
+                  {
+                    "url": "https://i.scdn.co/image/ab67656300005f1f84a88a5ab89ee7aec299dad9",
+                    "height": 300,
+                    "width": 300
+                  },
+                  {
+                    "url": "https://i.scdn.co/image/ab6765630000f68d84a88a5ab89ee7aec299dad9",
+                    "height": 64,
+                    "width": 64
+                  }
+                ],
+                "is_externally_hosted": true,
+                "is_playable": true,
+                "language": "en",
+                "languages": [
+                  "en"
+                ],
+                "name": "Episode 102",
+                "release_date": "2026-04-17",
+                "release_date_precision": "day",
+                "type": "episode",
+                "uri": "spotify:episode:74fqGqPZJOruTNpnf2lVCm"
+              },
+              {
+                "description": "Welcome to Radio Rental, a mysterious video rental shop with an exclusive collection of VHS tapes. On these tapes are TRUE scary stories, narrated by the people who experienced them...    On today's tapes:    >> Headlamp >> Sometimes there's scary people doing sketchy stuff - even in Canada.    >> My Friend, The Woods >> Hey, kid. Maybe pick another place to practice whistling.    Meanwhile, at the store:    Ricky Lee gives the store a light makeover. Groovy, baby.    Want more Radio Rental?     For early access and ad-free listening, subscribe to Tenderfoot+ at ⁠⁠⁠⁠⁠⁠⁠https://tenderfoot.tv/plus/⁠⁠⁠⁠⁠⁠⁠.    Follow the show at @radiorental    Visit the website at ⁠⁠⁠⁠⁠⁠⁠radiorentalusa.com      To learn more about listener data and our privacy practices visit: https://www.audacyinc.com/privacy-policy     Learn more about your ad choices. Visit https://podcastchoices.com/adchoices",
+                "html_description": "<p>Welcome to Radio Rental, a mysterious video rental shop with an exclusive collection of VHS tapes. On these tapes are TRUE scary stories, narrated by the people who experienced them...</p><br/><p><br /></p><br/><p>On today&#39;s tapes:</p><br/><p><br /></p><br/><p>&gt;&gt; Headlamp &gt;&gt; Sometimes there&#39;s scary people doing sketchy stuff - even in Canada.</p><br/><p><br /></p><br/><p>&gt;&gt; My Friend, The Woods &gt;&gt; Hey, kid. Maybe pick another place to practice whistling.</p><br/><p><br /></p><br/><p>Meanwhile, at the store:</p><br/><p><br /></p><br/><p>Ricky Lee gives the store a light makeover. Groovy, baby.</p><br/><p><br /></p><br/><p>Want more Radio Rental?</p><br/><ul><li>For early access and ad-free listening, subscribe to Tenderfoot&#43; at <a href=\"https://tenderfoot.tv/plus/\" rel=\"nofollow\">⁠⁠⁠⁠⁠⁠⁠https://tenderfoot.tv/plus/⁠⁠⁠⁠⁠⁠⁠</a>.</li><li>Follow the show at &#64;radiorental</li><li>Visit the website at <a href=\"https://radiorentalusa.com/\" rel=\"nofollow\">⁠⁠⁠⁠⁠⁠⁠radiorentalusa.com</a><br/></li></ul><p> </p><p> </p><p>To learn more about listener data and our privacy practices visit: <a href=\"https://www.audacyinc.com/privacy-policy\" rel=\"nofollow\">https://www.audacyinc.com/privacy-policy</a></p> <p> </p> <p>Learn more about your ad choices. Visit <a href=\"https://podcastchoices.com/adchoices\" rel=\"nofollow\">https://podcastchoices.com/adchoices</a></p>",
+                "duration_ms": 1758197,
+                "explicit": true,
+                "external_urls": {
+                  "spotify": "https://open.spotify.com/episode/0vMg33UM8YBddO8uLVVDHW"
+                },
+                "href": "https://api.spotify.com/v1/episodes/0vMg33UM8YBddO8uLVVDHW",
+                "id": "0vMg33UM8YBddO8uLVVDHW",
+                "images": [
+                  {
+                    "url": "https://i.scdn.co/image/ab6765630000ba8ac5f9bbb2c41685e85def330a",
+                    "height": 640,
+                    "width": 640
+                  },
+                  {
+                    "url": "https://i.scdn.co/image/ab67656300005f1fc5f9bbb2c41685e85def330a",
+                    "height": 300,
+                    "width": 300
+                  },
+                  {
+                    "url": "https://i.scdn.co/image/ab6765630000f68dc5f9bbb2c41685e85def330a",
+                    "height": 64,
+                    "width": 64
+                  }
+                ],
+                "is_externally_hosted": true,
+                "is_playable": true,
+                "language": "en",
+                "languages": [
+                  "en"
+                ],
+                "name": "Episode 101",
+                "release_date": "2026-04-10",
+                "release_date_precision": "day",
+                "type": "episode",
+                "uri": "spotify:episode:0vMg33UM8YBddO8uLVVDHW"
+              },
+              {
+                "description": "Welcome to Radio Rental, a mysterious video rental shop with an exclusive collection of VHS tapes. On these tapes are TRUE scary stories, narrated by the people who experienced them...    HAPPY 100th EPISODE!    On today's tapes:    >> Roof of the Car >> A quick pitstop goes poorly when this man loses track of his keys.    >> Cosmic Keurig >> Expect a dose of caffeine. Receive a dose of wisdom.    And finally...     >> Laura of the Woods >> A young boy makes a new friend in the woods… but is she who she claims to be?    Meanwhile, at the store:    You-Know-Who makes a special appearance to commemorate our 100th episode.    Want more Radio Rental?     For early access and ad-free listening, subscribe to Tenderfoot+ at ⁠⁠⁠⁠⁠⁠⁠https://tenderfoot.tv/plus/⁠⁠⁠⁠⁠⁠⁠.    Follow the show at @radiorental    Visit the website at ⁠⁠⁠⁠⁠⁠⁠radiorentalusa.com      To learn more about listener data and our privacy practices visit: https://www.audacyinc.com/privacy-policy     Learn more about your ad choices. Visit https://podcastchoices.com/adchoices",
+                "html_description": "<p>Welcome to Radio Rental, a mysterious video rental shop with an exclusive collection of VHS tapes. On these tapes are TRUE scary stories, narrated by the people who experienced them...</p><br/><p><br /></p><br/><p>HAPPY 100th EPISODE!</p><br/><p><br /></p><br/><p>On today&#39;s tapes:</p><br/><p><br /></p><br/><p>&gt;&gt; Roof of the Car &gt;&gt; A quick pitstop goes poorly when this man loses track of his keys.</p><br/><p><br /></p><br/><p>&gt;&gt; Cosmic Keurig &gt;&gt; Expect a dose of caffeine. Receive a dose of wisdom.</p><br/><p><br /></p><br/><p>And finally... </p><br/><p><br /></p><br/><p>&gt;&gt; Laura of the Woods &gt;&gt; A young boy makes a new friend in the woods… but is she who she claims to be?</p><br/><p><br /></p><br/><p>Meanwhile, at the store:</p><br/><p><br /></p><br/><p>You-Know-Who makes a special appearance to commemorate our 100th episode.</p><br/><p><br /></p><br/><p>Want more Radio Rental?</p><br/><ul><li>For early access and ad-free listening, subscribe to Tenderfoot&#43; at <a href=\"https://tenderfoot.tv/plus/\" rel=\"nofollow\">⁠⁠⁠⁠⁠⁠⁠https://tenderfoot.tv/plus/⁠⁠⁠⁠⁠⁠⁠</a>.</li><li>Follow the show at &#64;radiorental</li><li>Visit the website at <a href=\"https://radiorentalusa.com/\" rel=\"nofollow\">⁠⁠⁠⁠⁠⁠⁠radiorentalusa.com</a><br/></li></ul><p> </p><p> </p><p>To learn more about listener data and our privacy practices visit: <a href=\"https://www.audacyinc.com/privacy-policy\" rel=\"nofollow\">https://www.audacyinc.com/privacy-policy</a></p> <p> </p> <p>Learn more about your ad choices. Visit <a href=\"https://podcastchoices.com/adchoices\" rel=\"nofollow\">https://podcastchoices.com/adchoices</a></p>",
+                "duration_ms": 2828329,
+                "explicit": true,
+                "external_urls": {
+                  "spotify": "https://open.spotify.com/episode/4iBswWnr6CCn0ofShMjqlF"
+                },
+                "href": "https://api.spotify.com/v1/episodes/4iBswWnr6CCn0ofShMjqlF",
+                "id": "4iBswWnr6CCn0ofShMjqlF",
+                "images": [
+                  {
+                    "url": "https://i.scdn.co/image/ab6765630000ba8a34871faf4b9d00796418c58d",
+                    "height": 640,
+                    "width": 640
+                  },
+                  {
+                    "url": "https://i.scdn.co/image/ab67656300005f1f34871faf4b9d00796418c58d",
+                    "height": 300,
+                    "width": 300
+                  },
+                  {
+                    "url": "https://i.scdn.co/image/ab6765630000f68d34871faf4b9d00796418c58d",
+                    "height": 64,
+                    "width": 64
+                  }
+                ],
+                "is_externally_hosted": true,
+                "is_playable": true,
+                "language": "en",
+                "languages": [
+                  "en"
+                ],
+                "name": "Episode 100 !!!!!!",
+                "release_date": "2026-04-03",
+                "release_date_precision": "day",
+                "type": "episode",
+                "uri": "spotify:episode:4iBswWnr6CCn0ofShMjqlF"
+              },
+              {
+                "description": "The store re-opens with all new stories on April 3rd! Episodes drop every Friday. To get early access, ad-free listening, and bonuses, subscribe to Tenderfoot+    To learn more about listener data and our privacy practices visit: https://www.audacyinc.com/privacy-policy     Learn more about your ad choices. Visit https://podcastchoices.com/adchoices",
+                "html_description": "<p>The store re-opens with all new stories on April 3rd! Episodes drop every Friday. To get early access, ad-free listening, and bonuses, subscribe to Tenderfoot&#43; </p><p> </p><p> </p><p>To learn more about listener data and our privacy practices visit: <a href=\"https://www.audacyinc.com/privacy-policy\" rel=\"nofollow\">https://www.audacyinc.com/privacy-policy</a></p> <p> </p> <p>Learn more about your ad choices. Visit <a href=\"https://podcastchoices.com/adchoices\" rel=\"nofollow\">https://podcastchoices.com/adchoices</a></p>",
+                "duration_ms": 55954,
+                "explicit": false,
+                "external_urls": {
+                  "spotify": "https://open.spotify.com/episode/6iaT7THMzHIthfEpeauMQc"
+                },
+                "href": "https://api.spotify.com/v1/episodes/6iaT7THMzHIthfEpeauMQc",
+                "id": "6iaT7THMzHIthfEpeauMQc",
+                "images": [
+                  {
+                    "url": "https://i.scdn.co/image/ab6765630000ba8aa0c7680b4f92382f2b1e1831",
+                    "height": 640,
+                    "width": 640
+                  },
+                  {
+                    "url": "https://i.scdn.co/image/ab67656300005f1fa0c7680b4f92382f2b1e1831",
+                    "height": 300,
+                    "width": 300
+                  },
+                  {
+                    "url": "https://i.scdn.co/image/ab6765630000f68da0c7680b4f92382f2b1e1831",
+                    "height": 64,
+                    "width": 64
+                  }
+                ],
+                "is_externally_hosted": true,
+                "is_playable": true,
+                "language": "en",
+                "languages": [
+                  "en"
+                ],
+                "name": "Radio Rental Returns April 3rd!",
+                "release_date": "2026-03-28",
+                "release_date_precision": "day",
+                "type": "episode",
+                "uri": "spotify:episode:6iaT7THMzHIthfEpeauMQc"
+              },
+              {
+                "description": "You're here early. The store doesn't open back up for a few more weeks... But while you're here, let Vince tell you about A24's new horror movie UNDERTONE. In theaters March 13th.   To learn more about listener data and our privacy practices visit: https://www.audacyinc.com/privacy-policy     Learn more about your ad choices. Visit https://podcastchoices.com/adchoices",
+                "html_description": "<p>You&#39;re here early. The store doesn&#39;t open back up for a few more weeks... But while you&#39;re here, let Vince tell you about A24&#39;s new horror movie UNDERTONE. In theaters March 13th.</p><p> </p><p> </p><p>To learn more about listener data and our privacy practices visit: <a href=\"https://www.audacyinc.com/privacy-policy\" rel=\"nofollow\">https://www.audacyinc.com/privacy-policy</a></p> <p> </p> <p>Learn more about your ad choices. Visit <a href=\"https://podcastchoices.com/adchoices\" rel=\"nofollow\">https://podcastchoices.com/adchoices</a></p>",
+                "duration_ms": 315637,
+                "explicit": false,
+                "external_urls": {
+                  "spotify": "https://open.spotify.com/episode/56Ij0fIuqqRC1KkEXa1oqO"
+                },
+                "href": "https://api.spotify.com/v1/episodes/56Ij0fIuqqRC1KkEXa1oqO",
+                "id": "56Ij0fIuqqRC1KkEXa1oqO",
+                "images": [
+                  {
+                    "url": "https://i.scdn.co/image/ab6765630000ba8aa0c7680b4f92382f2b1e1831",
+                    "height": 640,
+                    "width": 640
+                  },
+                  {
+                    "url": "https://i.scdn.co/image/ab67656300005f1fa0c7680b4f92382f2b1e1831",
+                    "height": 300,
+                    "width": 300
+                  },
+                  {
+                    "url": "https://i.scdn.co/image/ab6765630000f68da0c7680b4f92382f2b1e1831",
+                    "height": 64,
+                    "width": 64
+                  }
+                ],
+                "is_externally_hosted": true,
+                "is_playable": true,
+                "language": "en",
+                "languages": [
+                  "en"
+                ],
+                "name": "Undertone",
+                "release_date": "2026-03-13",
+                "release_date_precision": "day",
+                "type": "episode",
+                "uri": "spotify:episode:56Ij0fIuqqRC1KkEXa1oqO"
+              },
+              {
+                "description": "Bonus Tape:>> Honolulu Haunted House << When someone tells you, \"Don't move the rocks\"... Don't move the rocks.    Want more Radio Rental?Follow the show at @radiorentalVisit the website at ⁠radiorentalusa.com",
+                "html_description": "<p>Bonus Tape:<br />&gt;&gt; Honolulu Haunted House &lt;&lt; When someone tells you, &#34;Don&#39;t move the rocks&#34;... Don&#39;t move the rocks.</p><br/><p><br /></p><br/><p>Want more Radio Rental?<br />Follow the show at &#64;radiorental<br />Visit the website at ⁠radiorentalusa.com</p>",
+                "duration_ms": 885733,
+                "explicit": true,
+                "external_urls": {
+                  "spotify": "https://open.spotify.com/episode/6Z8osXiNNDsZQ6CcgAJLbN"
+                },
+                "href": "https://api.spotify.com/v1/episodes/6Z8osXiNNDsZQ6CcgAJLbN",
+                "id": "6Z8osXiNNDsZQ6CcgAJLbN",
+                "images": [
+                  {
+                    "url": "https://i.scdn.co/image/ab6765630000ba8a6d3934265ced004c0ce64b20",
+                    "height": 640,
+                    "width": 640
+                  },
+                  {
+                    "url": "https://i.scdn.co/image/ab67656300005f1f6d3934265ced004c0ce64b20",
+                    "height": 300,
+                    "width": 300
+                  },
+                  {
+                    "url": "https://i.scdn.co/image/ab6765630000f68d6d3934265ced004c0ce64b20",
+                    "height": 64,
+                    "width": 64
+                  }
+                ],
+                "is_externally_hosted": false,
+                "is_playable": false,
+                "language": "en",
+                "languages": [
+                  "en"
+                ],
+                "name": "Bonus Tape: Honolulu Haunted House",
+                "release_date": "2026-03-13",
+                "release_date_precision": "day",
+                "type": "episode",
+                "uri": "spotify:episode:6Z8osXiNNDsZQ6CcgAJLbN",
+                "restrictions": {
+                  "reason": "payment_required"
+                }
+              },
+              {
+                "description": "Bonus Tape:    >> La Güera << Sometimes you regret offering to help... This is one of those times.    Want more Radio Rental?  Follow the show at @radiorental  Visit the website at ⁠radiorentalusa.com",
+                "html_description": "<p>Bonus Tape:</p><br/><p><br /></p><br/><p>&gt;&gt; La Güera &lt;&lt; Sometimes you regret offering to help... This is one of those times.</p><br/><p><br /></p><br/><p>Want more Radio Rental?</p><br/><p>Follow the show at &#64;radiorental</p><br/><p>Visit the website at ⁠<a href=\"radiorentalusa.com\" rel=\"nofollow\">radiorentalusa.com</a></p>",
+                "duration_ms": 1197426,
+                "explicit": true,
+                "external_urls": {
+                  "spotify": "https://open.spotify.com/episode/1ueF7vAnXNQf1k3oqAfBS7"
+                },
+                "href": "https://api.spotify.com/v1/episodes/1ueF7vAnXNQf1k3oqAfBS7",
+                "id": "1ueF7vAnXNQf1k3oqAfBS7",
+                "images": [
+                  {
+                    "url": "https://i.scdn.co/image/ab6765630000ba8a4ea6725fb4fa170e1f170ec5",
+                    "height": 640,
+                    "width": 640
+                  },
+                  {
+                    "url": "https://i.scdn.co/image/ab67656300005f1f4ea6725fb4fa170e1f170ec5",
+                    "height": 300,
+                    "width": 300
+                  },
+                  {
+                    "url": "https://i.scdn.co/image/ab6765630000f68d4ea6725fb4fa170e1f170ec5",
+                    "height": 64,
+                    "width": 64
+                  }
+                ],
+                "is_externally_hosted": false,
+                "is_playable": false,
+                "language": "en",
+                "languages": [
+                  "en"
+                ],
+                "name": "Bonus Tape: La Güera",
+                "release_date": "2026-02-13",
+                "release_date_precision": "day",
+                "type": "episode",
+                "uri": "spotify:episode:1ueF7vAnXNQf1k3oqAfBS7",
+                "restrictions": {
+                  "reason": "payment_required"
+                }
+              },
+              {
+                "description": "This special episode is brought to you by High Strange, a new podcast from Tenderfoot TV, where we investigate UFOs, paranormal encounters, and the people who experienced them firsthand.   Go check out High Strange now on your podcast app.   To learn more about listener data and our privacy practices visit: https://www.audacyinc.com/privacy-policy     Learn more about your ad choices. Visit https://podcastchoices.com/adchoices",
+                "html_description": "<p>This special episode is brought to you by High Strange, a new podcast from Tenderfoot TV, where we investigate UFOs, paranormal encounters, and the people who experienced them firsthand. </p><br/><p>Go check out High Strange now on your podcast app.</p><p> </p><p> </p><p>To learn more about listener data and our privacy practices visit: <a href=\"https://www.audacyinc.com/privacy-policy\" rel=\"nofollow\">https://www.audacyinc.com/privacy-policy</a></p> <p> </p> <p>Learn more about your ad choices. Visit <a href=\"https://podcastchoices.com/adchoices\" rel=\"nofollow\">https://podcastchoices.com/adchoices</a></p>",
+                "duration_ms": 844382,
+                "explicit": true,
+                "external_urls": {
+                  "spotify": "https://open.spotify.com/episode/3TYQKTS3dfAWYnif9lyDwD"
+                },
+                "href": "https://api.spotify.com/v1/episodes/3TYQKTS3dfAWYnif9lyDwD",
+                "id": "3TYQKTS3dfAWYnif9lyDwD",
+                "images": [
+                  {
+                    "url": "https://i.scdn.co/image/ab6765630000ba8aa0c7680b4f92382f2b1e1831",
+                    "height": 640,
+                    "width": 640
+                  },
+                  {
+                    "url": "https://i.scdn.co/image/ab67656300005f1fa0c7680b4f92382f2b1e1831",
+                    "height": 300,
+                    "width": 300
+                  },
+                  {
+                    "url": "https://i.scdn.co/image/ab6765630000f68da0c7680b4f92382f2b1e1831",
+                    "height": 64,
+                    "width": 64
+                  }
+                ],
+                "is_externally_hosted": true,
+                "is_playable": true,
+                "language": "en",
+                "languages": [
+                  "en"
+                ],
+                "name": "The Schoolyard",
+                "release_date": "2026-02-06",
+                "release_date_precision": "day",
+                "type": "episode",
+                "uri": "spotify:episode:3TYQKTS3dfAWYnif9lyDwD"
+              },
+              {
+                "description": "Bonus Tape:    >> BigThickDude << A friendly AIM chat turns into an IRL nightmare.     Want more Radio Rental?  Follow the show at @radiorental  Visit the website at ⁠radiorentalusa.com",
+                "html_description": "<p>Bonus Tape:</p><br/><p><br /></p><br/><p>&gt;&gt; BigThickDude &lt;&lt; A friendly AIM chat turns into an IRL nightmare. </p><br/><p><br /></p><br/><p>Want more Radio Rental?</p><br/><p>Follow the show at &#64;radiorental</p><br/><p>Visit the website at <a href=\"%E2%81%A0radiorentalusa.com\" rel=\"nofollow\">⁠radiorentalusa.com</a></p>",
+                "duration_ms": 907284,
+                "explicit": true,
+                "external_urls": {
+                  "spotify": "https://open.spotify.com/episode/16Ec6kNdUe4FJJYGCWg7bb"
+                },
+                "href": "https://api.spotify.com/v1/episodes/16Ec6kNdUe4FJJYGCWg7bb",
+                "id": "16Ec6kNdUe4FJJYGCWg7bb",
+                "images": [
+                  {
+                    "url": "https://i.scdn.co/image/ab6765630000ba8a49bdac6d5cb17fc673514909",
+                    "height": 640,
+                    "width": 640
+                  },
+                  {
+                    "url": "https://i.scdn.co/image/ab67656300005f1f49bdac6d5cb17fc673514909",
+                    "height": 300,
+                    "width": 300
+                  },
+                  {
+                    "url": "https://i.scdn.co/image/ab6765630000f68d49bdac6d5cb17fc673514909",
+                    "height": 64,
+                    "width": 64
+                  }
+                ],
+                "is_externally_hosted": false,
+                "is_playable": false,
+                "language": "en",
+                "languages": [
+                  "en"
+                ],
+                "name": "Bonus Tape: BigThickDude",
+                "release_date": "2026-01-16",
+                "release_date_precision": "day",
+                "type": "episode",
+                "uri": "spotify:episode:16Ec6kNdUe4FJJYGCWg7bb",
+                "restrictions": {
+                  "reason": "payment_required"
+                }
+              },
+              {
+                "description": "Bonus Tape:  >> Cabin Fever << A night of ice fishing that will send ice through your veins...    Want more Radio Rental?Follow the show at @radiorentalVisit the website at ⁠radiorentalusa.com",
+                "html_description": "<p>Bonus Tape:</p><br/><p><br />&gt;&gt; Cabin Fever &lt;&lt; A night of ice fishing that will send ice through your veins...</p><br/><p><br /></p><br/><p>Want more Radio Rental?<br />Follow the show at &#64;radiorental<br />Visit the website at ⁠radiorentalusa.com</p>",
+                "duration_ms": 1037766,
+                "explicit": true,
+                "external_urls": {
+                  "spotify": "https://open.spotify.com/episode/1orMvNGhPp3MWcBFEjDUcg"
+                },
+                "href": "https://api.spotify.com/v1/episodes/1orMvNGhPp3MWcBFEjDUcg",
+                "id": "1orMvNGhPp3MWcBFEjDUcg",
+                "images": [
+                  {
+                    "url": "https://i.scdn.co/image/ab6765630000ba8a49bdac6d5cb17fc673514909",
+                    "height": 640,
+                    "width": 640
+                  },
+                  {
+                    "url": "https://i.scdn.co/image/ab67656300005f1f49bdac6d5cb17fc673514909",
+                    "height": 300,
+                    "width": 300
+                  },
+                  {
+                    "url": "https://i.scdn.co/image/ab6765630000f68d49bdac6d5cb17fc673514909",
+                    "height": 64,
+                    "width": 64
+                  }
+                ],
+                "is_externally_hosted": false,
+                "is_playable": false,
+                "language": "en",
+                "languages": [
+                  "en"
+                ],
+                "name": "Christmas Special Tape: Cabin Fever",
+                "release_date": "2025-12-24",
+                "release_date_precision": "day",
+                "type": "episode",
+                "uri": "spotify:episode:1orMvNGhPp3MWcBFEjDUcg",
+                "restrictions": {
+                  "reason": "payment_required"
+                }
+              },
+              {
+                "description": "Radio Rental is closing its doors for now... but we'll be back soon...   To learn more about listener data and our privacy practices visit: https://www.audacyinc.com/privacy-policy     Learn more about your ad choices. Visit https://podcastchoices.com/adchoices",
+                "html_description": "<p>Radio Rental is closing its doors for now... but we&#39;ll be back soon...</p><p> </p><p> </p><p>To learn more about listener data and our privacy practices visit: <a href=\"https://www.audacyinc.com/privacy-policy\" rel=\"nofollow\">https://www.audacyinc.com/privacy-policy</a></p> <p> </p> <p>Learn more about your ad choices. Visit <a href=\"https://podcastchoices.com/adchoices\" rel=\"nofollow\">https://podcastchoices.com/adchoices</a></p>",
+                "duration_ms": 35108,
+                "explicit": false,
+                "external_urls": {
+                  "spotify": "https://open.spotify.com/episode/0CrXlMFJSc8lT4bwykkLgF"
+                },
+                "href": "https://api.spotify.com/v1/episodes/0CrXlMFJSc8lT4bwykkLgF",
+                "id": "0CrXlMFJSc8lT4bwykkLgF",
+                "images": [
+                  {
+                    "url": "https://i.scdn.co/image/ab6765630000ba8aa0c7680b4f92382f2b1e1831",
+                    "height": 640,
+                    "width": 640
+                  },
+                  {
+                    "url": "https://i.scdn.co/image/ab67656300005f1fa0c7680b4f92382f2b1e1831",
+                    "height": 300,
+                    "width": 300
+                  },
+                  {
+                    "url": "https://i.scdn.co/image/ab6765630000f68da0c7680b4f92382f2b1e1831",
+                    "height": 64,
+                    "width": 64
+                  }
+                ],
+                "is_externally_hosted": true,
+                "is_playable": true,
+                "language": "en",
+                "languages": [
+                  "en"
+                ],
+                "name": "Beeeeeeeeeeep",
+                "release_date": "2025-12-12",
+                "release_date_precision": "day",
+                "type": "episode",
+                "uri": "spotify:episode:0CrXlMFJSc8lT4bwykkLgF"
+              },
+              {
+                "description": "Welcome to Radio Rental, a mysterious video rental shop with a collection of VHS tapes with TRUE scary stories narrated by the people who experienced them...    On today's tapes:    >> Pokémon GO << A couple of Pokémon hunters sense a predatory threat themselves.    >> Umbrella Man << It's like being chased by Mary Poppins... but much worse.    Meanwhile, at the store:    Ricky Lee and Vince prepare to close up the shop for the winter.    Want more Radio Rental?     For early access and ad-free listening, subscribe to Tenderfoot+ at ⁠⁠⁠⁠⁠⁠https://tenderfoot.tv/plus/⁠⁠⁠⁠⁠⁠.    Follow the show at @radiorental    Visit the website at ⁠⁠⁠⁠⁠⁠radiorentalusa.com      To learn more about listener data and our privacy practices visit: https://www.audacyinc.com/privacy-policy     Learn more about your ad choices. Visit https://podcastchoices.com/adchoices",
+                "html_description": "<p>Welcome to Radio Rental, a mysterious video rental shop with a collection of VHS tapes with TRUE scary stories narrated by the people who experienced them...</p><br/><p><br /></p><br/><p>On today&#39;s tapes:</p><br/><p><br /></p><br/><p>&gt;&gt; Pokémon GO &lt;&lt; A couple of Pokémon hunters sense a predatory threat themselves.</p><br/><p><br /></p><br/><p>&gt;&gt; Umbrella Man &lt;&lt; It&#39;s like being chased by Mary Poppins... but much worse.</p><br/><p><br /></p><br/><p>Meanwhile, at the store:</p><br/><p><br /></p><br/><p>Ricky Lee and Vince prepare to close up the shop for the winter.</p><br/><p><br /></p><br/><p>Want more Radio Rental?</p><br/><ul><li>For early access and ad-free listening, subscribe to Tenderfoot&#43; at <a href=\"https://tenderfoot.tv/plus/\" rel=\"nofollow\">⁠⁠⁠⁠⁠⁠https://tenderfoot.tv/plus/⁠⁠⁠⁠⁠⁠</a>.</li><li>Follow the show at &#64;radiorental</li><li>Visit the website at <a href=\"https://radiorentalusa.com/\" rel=\"nofollow\">⁠⁠⁠⁠⁠⁠radiorentalusa.com</a><br/></li></ul><p> </p><p> </p><p>To learn more about listener data and our privacy practices visit: <a href=\"https://www.audacyinc.com/privacy-policy\" rel=\"nofollow\">https://www.audacyinc.com/privacy-policy</a></p> <p> </p> <p>Learn more about your ad choices. Visit <a href=\"https://podcastchoices.com/adchoices\" rel=\"nofollow\">https://podcastchoices.com/adchoices</a></p>",
+                "duration_ms": 2481893,
+                "explicit": true,
+                "external_urls": {
+                  "spotify": "https://open.spotify.com/episode/7LJqrsPfKBB7eHn8Ao1mVL"
+                },
+                "href": "https://api.spotify.com/v1/episodes/7LJqrsPfKBB7eHn8Ao1mVL",
+                "id": "7LJqrsPfKBB7eHn8Ao1mVL",
+                "images": [
+                  {
+                    "url": "https://i.scdn.co/image/ab6765630000ba8a5a1be29f3997ba2080951677",
+                    "height": 640,
+                    "width": 640
+                  },
+                  {
+                    "url": "https://i.scdn.co/image/ab67656300005f1f5a1be29f3997ba2080951677",
+                    "height": 300,
+                    "width": 300
+                  },
+                  {
+                    "url": "https://i.scdn.co/image/ab6765630000f68d5a1be29f3997ba2080951677",
+                    "height": 64,
+                    "width": 64
+                  }
+                ],
+                "is_externally_hosted": true,
+                "is_playable": true,
+                "language": "en",
+                "languages": [
+                  "en"
+                ],
+                "name": "Episode 99",
+                "release_date": "2025-12-05",
+                "release_date_precision": "day",
+                "type": "episode",
+                "uri": "spotify:episode:7LJqrsPfKBB7eHn8Ao1mVL"
+              },
+              {
+                "description": "Welcome to Radio Rental, a mysterious video rental shop with a collection of VHS tapes with TRUE scary stories narrated by the people who experienced them...    On today's tapes:    >> Last Resort << When they went on holiday, they wanted to get away from it all... but they didn't mean it this way.    >> Double Shift << Honey, I'm home...?    Meanwhile, at the store:    Vince has a hard time with accents.    Want more Radio Rental?     For early access and ad-free listening, subscribe to Tenderfoot+ at ⁠⁠⁠⁠https://tenderfoot.tv/plus/⁠⁠⁠⁠.    Follow the show at @radiorental    Visit the website at ⁠⁠⁠⁠radiorentalusa.com      To learn more about listener data and our privacy practices visit: https://www.audacyinc.com/privacy-policy     Learn more about your ad choices. Visit https://podcastchoices.com/adchoices",
+                "html_description": "<p>Welcome to Radio Rental, a mysterious video rental shop with a collection of VHS tapes with TRUE scary stories narrated by the people who experienced them...</p><br/><p><br /></p><br/><p>On today&#39;s tapes:</p><br/><p><br /></p><br/><p>&gt;&gt; Last Resort &lt;&lt; When they went on holiday, they wanted to get away from it all... but they didn&#39;t mean it this way.</p><br/><p><br /></p><br/><p>&gt;&gt; Double Shift &lt;&lt; Honey, I&#39;m home...?</p><br/><p><br /></p><br/><p>Meanwhile, at the store:</p><br/><p><br /></p><br/><p>Vince has a hard time with accents.</p><br/><p><br /></p><br/><p>Want more Radio Rental?</p><br/><ul><li>For early access and ad-free listening, subscribe to Tenderfoot&#43; at <a href=\"https://tenderfoot.tv/plus/\" rel=\"nofollow\">⁠⁠⁠⁠https://tenderfoot.tv/plus/⁠⁠⁠⁠</a>.</li><li>Follow the show at &#64;radiorental</li><li>Visit the website at <a href=\"https://radiorentalusa.com/\" rel=\"nofollow\">⁠⁠⁠⁠radiorentalusa.com</a><br/></li></ul><p> </p><p> </p><p>To learn more about listener data and our privacy practices visit: <a href=\"https://www.audacyinc.com/privacy-policy\" rel=\"nofollow\">https://www.audacyinc.com/privacy-policy</a></p> <p> </p> <p>Learn more about your ad choices. Visit <a href=\"https://podcastchoices.com/adchoices\" rel=\"nofollow\">https://podcastchoices.com/adchoices</a></p>",
+                "duration_ms": 2031804,
+                "explicit": true,
+                "external_urls": {
+                  "spotify": "https://open.spotify.com/episode/0Xhz3Cvu0RhufYEgzdVM3P"
+                },
+                "href": "https://api.spotify.com/v1/episodes/0Xhz3Cvu0RhufYEgzdVM3P",
+                "id": "0Xhz3Cvu0RhufYEgzdVM3P",
+                "images": [
+                  {
+                    "url": "https://i.scdn.co/image/ab6765630000ba8ace2dd3930a02e84f1a433b78",
+                    "height": 640,
+                    "width": 640
+                  },
+                  {
+                    "url": "https://i.scdn.co/image/ab67656300005f1fce2dd3930a02e84f1a433b78",
+                    "height": 300,
+                    "width": 300
+                  },
+                  {
+                    "url": "https://i.scdn.co/image/ab6765630000f68dce2dd3930a02e84f1a433b78",
+                    "height": 64,
+                    "width": 64
+                  }
+                ],
+                "is_externally_hosted": true,
+                "is_playable": true,
+                "language": "en",
+                "languages": [
+                  "en"
+                ],
+                "name": "Episode 98",
+                "release_date": "2025-11-28",
+                "release_date_precision": "day",
+                "type": "episode",
+                "uri": "spotify:episode:0Xhz3Cvu0RhufYEgzdVM3P"
+              },
+              {
+                "description": "Welcome to Radio Rental, a mysterious video rental shop with a collection of VHS tapes with TRUE scary stories narrated by the people who experienced them...    On today's tapes:    >> 666 << A trip into a tunnel by the railroad tracks quickly goes off the rails...    >> He's In There << A few bored college kids go explore a tunnel near their college campus... but they didn't realize HE was in there.    Meanwhile, at the store:    Ricky Lee hires a new helper, Vince... who seems really well adjusted and normal.    Want more Radio Rental?     For early access and ad-free listening, subscribe to Tenderfoot+ at ⁠⁠⁠⁠https://tenderfoot.tv/plus/⁠⁠⁠⁠.    Follow the show at @radiorental    Visit the website at ⁠⁠⁠⁠radiorentalusa.com      To learn more about listener data and our privacy practices visit: https://www.audacyinc.com/privacy-policy     Learn more about your ad choices. Visit https://podcastchoices.com/adchoices",
+                "html_description": "<p>Welcome to Radio Rental, a mysterious video rental shop with a collection of VHS tapes with TRUE scary stories narrated by the people who experienced them...</p><br/><p><br /></p><br/><p>On today&#39;s tapes:</p><br/><p><br /></p><br/><p>&gt;&gt; 666 &lt;&lt; A trip into a tunnel by the railroad tracks quickly goes off the rails...</p><br/><p><br /></p><br/><p>&gt;&gt; He&#39;s In There &lt;&lt; A few bored college kids go explore a tunnel near their college campus... but they didn&#39;t realize HE was in there.</p><br/><p><br /></p><br/><p>Meanwhile, at the store:</p><br/><p><br /></p><br/><p>Ricky Lee hires a new helper, Vince... who seems really well adjusted and normal.</p><br/><p><br /></p><br/><p>Want more Radio Rental?</p><br/><ul><li>For early access and ad-free listening, subscribe to Tenderfoot&#43; at <a href=\"https://tenderfoot.tv/plus/\" rel=\"nofollow\">⁠⁠⁠⁠https://tenderfoot.tv/plus/⁠⁠⁠⁠</a>.</li><li>Follow the show at &#64;radiorental</li><li>Visit the website at <a href=\"https://radiorentalusa.com/\" rel=\"nofollow\">⁠⁠⁠⁠radiorentalusa.com</a><br/></li></ul><p> </p><p> </p><p>To learn more about listener data and our privacy practices visit: <a href=\"https://www.audacyinc.com/privacy-policy\" rel=\"nofollow\">https://www.audacyinc.com/privacy-policy</a></p> <p> </p> <p>Learn more about your ad choices. Visit <a href=\"https://podcastchoices.com/adchoices\" rel=\"nofollow\">https://podcastchoices.com/adchoices</a></p>",
+                "duration_ms": 1876898,
+                "explicit": true,
+                "external_urls": {
+                  "spotify": "https://open.spotify.com/episode/5CtnSB40BR1eUS9hlrkGeM"
+                },
+                "href": "https://api.spotify.com/v1/episodes/5CtnSB40BR1eUS9hlrkGeM",
+                "id": "5CtnSB40BR1eUS9hlrkGeM",
+                "images": [
+                  {
+                    "url": "https://i.scdn.co/image/ab6765630000ba8a3a67fe06ade08e87575747d2",
+                    "height": 640,
+                    "width": 640
+                  },
+                  {
+                    "url": "https://i.scdn.co/image/ab67656300005f1f3a67fe06ade08e87575747d2",
+                    "height": 300,
+                    "width": 300
+                  },
+                  {
+                    "url": "https://i.scdn.co/image/ab6765630000f68d3a67fe06ade08e87575747d2",
+                    "height": 64,
+                    "width": 64
+                  }
+                ],
+                "is_externally_hosted": true,
+                "is_playable": true,
+                "language": "en",
+                "languages": [
+                  "en"
+                ],
+                "name": "Episode 97",
+                "release_date": "2025-11-21",
+                "release_date_precision": "day",
+                "type": "episode",
+                "uri": "spotify:episode:5CtnSB40BR1eUS9hlrkGeM"
+              },
+              {
+                "description": "Bonus Tape    >> One Night in Essex << A young stand-up comedian walks into a bar... but the punchline turns into the scariest night of his life.    Want more Radio Rental?     For early access and ad-free listening, subscribe to Tenderfoot+ at ⁠⁠⁠⁠⁠⁠https://tenderfoot.tv/plus/⁠⁠⁠⁠⁠⁠.    Follow the show at @radiorental    Visit the website at ⁠⁠⁠⁠⁠⁠radiorentalusa.com      To learn more about listener data and our privacy practices visit: https://www.audacyinc.com/privacy-policy     Learn more about your ad choices. Visit https://podcastchoices.com/adchoices",
+                "html_description": "<p>Bonus Tape</p><br/><p><br /></p><br/><p>&gt;&gt; One Night in Essex &lt;&lt; A young stand-up comedian walks into a bar... but the punchline turns into the scariest night of his life.</p><br/><p><br /></p><br/><p>Want more Radio Rental?</p><br/><ul><li>For early access and ad-free listening, subscribe to Tenderfoot&#43; at <a href=\"https://tenderfoot.tv/plus/\" rel=\"nofollow\">⁠⁠⁠⁠⁠⁠https://tenderfoot.tv/plus/⁠⁠⁠⁠⁠⁠</a>.</li><li>Follow the show at &#64;radiorental</li><li>Visit the website at <a href=\"https://radiorentalusa.com/\" rel=\"nofollow\">⁠⁠⁠⁠⁠⁠radiorentalusa.com</a><br/></li></ul><p> </p><p> </p><p>To learn more about listener data and our privacy practices visit: <a href=\"https://www.audacyinc.com/privacy-policy\" rel=\"nofollow\">https://www.audacyinc.com/privacy-policy</a></p> <p> </p> <p>Learn more about your ad choices. Visit <a href=\"https://podcastchoices.com/adchoices\" rel=\"nofollow\">https://podcastchoices.com/adchoices</a></p>",
+                "duration_ms": 1217410,
+                "explicit": true,
+                "external_urls": {
+                  "spotify": "https://open.spotify.com/episode/0jvTwURMKZefIzsaEfv93t"
+                },
+                "href": "https://api.spotify.com/v1/episodes/0jvTwURMKZefIzsaEfv93t",
+                "id": "0jvTwURMKZefIzsaEfv93t",
+                "images": [
+                  {
+                    "url": "https://i.scdn.co/image/ab6765630000ba8aa0c7680b4f92382f2b1e1831",
+                    "height": 640,
+                    "width": 640
+                  },
+                  {
+                    "url": "https://i.scdn.co/image/ab67656300005f1fa0c7680b4f92382f2b1e1831",
+                    "height": 300,
+                    "width": 300
+                  },
+                  {
+                    "url": "https://i.scdn.co/image/ab6765630000f68da0c7680b4f92382f2b1e1831",
+                    "height": 64,
+                    "width": 64
+                  }
+                ],
+                "is_externally_hosted": true,
+                "is_playable": true,
+                "language": "en",
+                "languages": [
+                  "en"
+                ],
+                "name": "Bonus Tape: One Night in Essex",
+                "release_date": "2025-11-19",
+                "release_date_precision": "day",
+                "type": "episode",
+                "uri": "spotify:episode:0jvTwURMKZefIzsaEfv93t"
+              },
+              {
+                "description": "Welcome to Radio Rental, a mysterious video rental shop with a collection of VHS tapes with TRUE scary stories narrated by the people who experienced them...    On today's tapes:    >> Goodwill Haunting << Goodwill is a great place to pick up vintage jackets... and threatening entities.    >> Not Alone << While on a road trip, this woman experienced a scene straight out of a horror movie.    Meanwhile, at the store:    Ricky Lee needs to get a tooth pulled (probably due to all the Halloween candy). Next week, Malachai will have a babysitter... Malachai is not pleased.    Want more Radio Rental?     For early access and ad-free listening, subscribe to Tenderfoot+ at ⁠⁠⁠⁠⁠⁠https://tenderfoot.tv/plus/⁠⁠⁠⁠⁠⁠.    Follow the show at @radiorental    Visit the website at ⁠⁠⁠⁠⁠⁠radiorentalusa.com      To learn more about listener data and our privacy practices visit: https://www.audacyinc.com/privacy-policy     Learn more about your ad choices. Visit https://podcastchoices.com/adchoices",
+                "html_description": "<p>Welcome to Radio Rental, a mysterious video rental shop with a collection of VHS tapes with TRUE scary stories narrated by the people who experienced them...</p><br/><p><br /></p><br/><p>On today&#39;s tapes:</p><br/><p><br /></p><br/><p>&gt;&gt; Goodwill Haunting &lt;&lt; Goodwill is a great place to pick up vintage jackets... and threatening entities.</p><br/><p><br /></p><br/><p>&gt;&gt; Not Alone &lt;&lt; While on a road trip, this woman experienced a scene straight out of a horror movie.</p><br/><p><br /></p><br/><p>Meanwhile, at the store:</p><br/><p><br /></p><br/><p>Ricky Lee needs to get a tooth pulled (probably due to all the Halloween candy). Next week, Malachai will have a babysitter... Malachai is not pleased.</p><br/><p><br /></p><br/><p>Want more Radio Rental?</p><br/><ul><li>For early access and ad-free listening, subscribe to Tenderfoot&#43; at <a href=\"https://tenderfoot.tv/plus/\" rel=\"nofollow\">⁠⁠⁠⁠⁠⁠https://tenderfoot.tv/plus/⁠⁠⁠⁠⁠⁠</a>.</li><li>Follow the show at &#64;radiorental</li><li>Visit the website at <a href=\"https://radiorentalusa.com/\" rel=\"nofollow\">⁠⁠⁠⁠⁠⁠radiorentalusa.com</a><br/></li></ul><p> </p><p> </p><p>To learn more about listener data and our privacy practices visit: <a href=\"https://www.audacyinc.com/privacy-policy\" rel=\"nofollow\">https://www.audacyinc.com/privacy-policy</a></p> <p> </p> <p>Learn more about your ad choices. Visit <a href=\"https://podcastchoices.com/adchoices\" rel=\"nofollow\">https://podcastchoices.com/adchoices</a></p>",
+                "duration_ms": 1728679,
+                "explicit": true,
+                "external_urls": {
+                  "spotify": "https://open.spotify.com/episode/4fyjzm9oHNqomZFUigF0RF"
+                },
+                "href": "https://api.spotify.com/v1/episodes/4fyjzm9oHNqomZFUigF0RF",
+                "id": "4fyjzm9oHNqomZFUigF0RF",
+                "images": [
+                  {
+                    "url": "https://i.scdn.co/image/ab6765630000ba8abfbeabf1fd4642bd42c6249b",
+                    "height": 640,
+                    "width": 640
+                  },
+                  {
+                    "url": "https://i.scdn.co/image/ab67656300005f1fbfbeabf1fd4642bd42c6249b",
+                    "height": 300,
+                    "width": 300
+                  },
+                  {
+                    "url": "https://i.scdn.co/image/ab6765630000f68dbfbeabf1fd4642bd42c6249b",
+                    "height": 64,
+                    "width": 64
+                  }
+                ],
+                "is_externally_hosted": true,
+                "is_playable": true,
+                "language": "en",
+                "languages": [
+                  "en"
+                ],
+                "name": "Episode 96",
+                "release_date": "2025-11-14",
+                "release_date_precision": "day",
+                "type": "episode",
+                "uri": "spotify:episode:4fyjzm9oHNqomZFUigF0RF"
+              },
+              {
+                "description": "Welcome to Radio Rental, a mysterious video rental shop with a collection of VHS tapes with TRUE scary stories narrated by the people who experienced them...    On today's tapes:    >> Steve << Talk about a bad roommate... Was he f*cking with them? Or was something darker afoot?    >> Bobby Corey << This man really redefines what it means to be a hometown legend.    Meanwhile, at the store:    Jared the Repairman stops by to fix a chair or a light or something. But he stays for the spooky stories. And then subsequently leaves... because of the spooky stories.    Want more Radio Rental?     For early access and ad-free listening, subscribe to Tenderfoot+ at ⁠⁠⁠⁠https://tenderfoot.tv/plus/⁠⁠⁠⁠.    Follow the show at @radiorental    Visit the website at ⁠⁠⁠⁠radiorentalusa.com      To learn more about listener data and our privacy practices visit: https://www.audacyinc.com/privacy-policy     Learn more about your ad choices. Visit https://podcastchoices.com/adchoices",
+                "html_description": "<p>Welcome to Radio Rental, a mysterious video rental shop with a collection of VHS tapes with TRUE scary stories narrated by the people who experienced them...</p><br/><p><br /></p><br/><p>On today&#39;s tapes:</p><br/><p><br /></p><br/><p>&gt;&gt; Steve &lt;&lt; Talk about a bad roommate... Was he f*cking with them? Or was something darker afoot?</p><br/><p><br /></p><br/><p>&gt;&gt; Bobby Corey &lt;&lt; This man really redefines what it means to be a hometown legend.</p><br/><p><br /></p><br/><p>Meanwhile, at the store:</p><br/><p><br /></p><br/><p>Jared the Repairman stops by to fix a chair or a light or something. But he stays for the spooky stories. And then subsequently leaves... because of the spooky stories.</p><br/><p><br /></p><br/><p>Want more Radio Rental?</p><br/><ul><li>For early access and ad-free listening, subscribe to Tenderfoot&#43; at <a href=\"https://tenderfoot.tv/plus/\" rel=\"nofollow\">⁠⁠⁠⁠https://tenderfoot.tv/plus/⁠⁠⁠⁠</a>.</li><li>Follow the show at &#64;radiorental</li><li>Visit the website at <a href=\"https://radiorentalusa.com/\" rel=\"nofollow\">⁠⁠⁠⁠radiorentalusa.com</a><br/></li></ul><p> </p><p> </p><p>To learn more about listener data and our privacy practices visit: <a href=\"https://www.audacyinc.com/privacy-policy\" rel=\"nofollow\">https://www.audacyinc.com/privacy-policy</a></p> <p> </p> <p>Learn more about your ad choices. Visit <a href=\"https://podcastchoices.com/adchoices\" rel=\"nofollow\">https://podcastchoices.com/adchoices</a></p>",
+                "duration_ms": 2363951,
+                "explicit": true,
+                "external_urls": {
+                  "spotify": "https://open.spotify.com/episode/1kcjbk0GsHLiQXbvt8G1HI"
+                },
+                "href": "https://api.spotify.com/v1/episodes/1kcjbk0GsHLiQXbvt8G1HI",
+                "id": "1kcjbk0GsHLiQXbvt8G1HI",
+                "images": [
+                  {
+                    "url": "https://i.scdn.co/image/ab6765630000ba8a03eecfd4758418052b8d1b26",
+                    "height": 640,
+                    "width": 640
+                  },
+                  {
+                    "url": "https://i.scdn.co/image/ab67656300005f1f03eecfd4758418052b8d1b26",
+                    "height": 300,
+                    "width": 300
+                  },
+                  {
+                    "url": "https://i.scdn.co/image/ab6765630000f68d03eecfd4758418052b8d1b26",
+                    "height": 64,
+                    "width": 64
+                  }
+                ],
+                "is_externally_hosted": true,
+                "is_playable": true,
+                "language": "en",
+                "languages": [
+                  "en"
+                ],
+                "name": "Episode 95",
+                "release_date": "2025-11-07",
+                "release_date_precision": "day",
+                "type": "episode",
+                "uri": "spotify:episode:1kcjbk0GsHLiQXbvt8G1HI"
+              },
+              {
+                "description": "Welcome to Radio Rental, a mysterious video rental shop with a collection of VHS tapes with TRUE scary stories narrated by the people who experienced them...    On today's tapes:    >> Devil Mask << Trick-or-Treat, Smell my Feet, Come and Worship up the Street.    >> Dress << This man is convinced that a dress owned by his girlfriend is the source of their problems.    Meanwhile, at the store:    Happy Halloween! Ricky Lee and Malachai show off their costumes. Lookin good, boys.    Want more Radio Rental?     For early access and ad-free listening, subscribe to Tenderfoot+ at ⁠⁠⁠⁠https://tenderfoot.tv/plus/⁠⁠⁠⁠.    Follow the show at @radiorental    Visit the website at ⁠⁠⁠⁠radiorentalusa.com      To learn more about listener data and our privacy practices visit: https://www.audacyinc.com/privacy-policy     Learn more about your ad choices. Visit https://podcastchoices.com/adchoices",
+                "html_description": "<p>Welcome to Radio Rental, a mysterious video rental shop with a collection of VHS tapes with TRUE scary stories narrated by the people who experienced them...</p><br/><p><br /></p><br/><p>On today&#39;s tapes:</p><br/><p><br /></p><br/><p>&gt;&gt; Devil Mask &lt;&lt; Trick-or-Treat, Smell my Feet, Come and Worship up the Street.</p><br/><p><br /></p><br/><p>&gt;&gt; Dress &lt;&lt; This man is convinced that a dress owned by his girlfriend is the source of their problems.</p><br/><p><br /></p><br/><p>Meanwhile, at the store:</p><br/><p><br /></p><br/><p>Happy Halloween! Ricky Lee and Malachai show off their costumes. Lookin good, boys.</p><br/><p><br /></p><br/><p>Want more Radio Rental?</p><br/><ul><li>For early access and ad-free listening, subscribe to Tenderfoot&#43; at <a href=\"https://tenderfoot.tv/plus/\" rel=\"nofollow\">⁠⁠⁠⁠https://tenderfoot.tv/plus/⁠⁠⁠⁠</a>.</li><li>Follow the show at &#64;radiorental</li><li>Visit the website at <a href=\"https://radiorentalusa.com/\" rel=\"nofollow\">⁠⁠⁠⁠radiorentalusa.com</a><br/></li></ul><p> </p><p> </p><p>To learn more about listener data and our privacy practices visit: <a href=\"https://www.audacyinc.com/privacy-policy\" rel=\"nofollow\">https://www.audacyinc.com/privacy-policy</a></p> <p> </p> <p>Learn more about your ad choices. Visit <a href=\"https://podcastchoices.com/adchoices\" rel=\"nofollow\">https://podcastchoices.com/adchoices</a></p>",
+                "duration_ms": 2274847,
+                "explicit": true,
+                "external_urls": {
+                  "spotify": "https://open.spotify.com/episode/5Cz31MLx1jUQNw4Bim7RRc"
+                },
+                "href": "https://api.spotify.com/v1/episodes/5Cz31MLx1jUQNw4Bim7RRc",
+                "id": "5Cz31MLx1jUQNw4Bim7RRc",
+                "images": [
+                  {
+                    "url": "https://i.scdn.co/image/ab6765630000ba8aef7ef31e2adc673083900e9d",
+                    "height": 640,
+                    "width": 640
+                  },
+                  {
+                    "url": "https://i.scdn.co/image/ab67656300005f1fef7ef31e2adc673083900e9d",
+                    "height": 300,
+                    "width": 300
+                  },
+                  {
+                    "url": "https://i.scdn.co/image/ab6765630000f68def7ef31e2adc673083900e9d",
+                    "height": 64,
+                    "width": 64
+                  }
+                ],
+                "is_externally_hosted": true,
+                "is_playable": true,
+                "language": "en",
+                "languages": [
+                  "en"
+                ],
+                "name": "Episode 94",
+                "release_date": "2025-10-31",
+                "release_date_precision": "day",
+                "type": "episode",
+                "uri": "spotify:episode:5Cz31MLx1jUQNw4Bim7RRc"
+              },
+              {
+                "description": "Bonus Tape    >> Basement Boy << Surprisingly, for this barista, the creepiest thing at her bar ISN'T sleazy, drunken patrons...    Want more Radio Rental?     Follow the show at @radiorental    Visit the website at ⁠⁠⁠⁠⁠⁠⁠radiorentalusa.com",
+                "html_description": "<p>Bonus Tape</p><br/><p><br /></p><br/><p>&gt;&gt; Basement Boy &lt;&lt; Surprisingly, for this barista, the creepiest thing at her bar ISN&#39;T sleazy, drunken patrons...</p><br/><p><br /></p><br/><p>Want more Radio Rental?</p><br/><ul><li>Follow the show at &#64;radiorental</li><li>Visit the website at <a href=\"https://radiorentalusa.com/\" rel=\"nofollow\">⁠⁠⁠⁠⁠⁠⁠radiorentalusa.com</a><br/></li></ul>",
+                "duration_ms": 556564,
+                "explicit": true,
+                "external_urls": {
+                  "spotify": "https://open.spotify.com/episode/5RxXv87e1QW22blvOv8Iqo"
+                },
+                "href": "https://api.spotify.com/v1/episodes/5RxXv87e1QW22blvOv8Iqo",
+                "id": "5RxXv87e1QW22blvOv8Iqo",
+                "images": [
+                  {
+                    "url": "https://i.scdn.co/image/ab6765630000ba8a49bdac6d5cb17fc673514909",
+                    "height": 640,
+                    "width": 640
+                  },
+                  {
+                    "url": "https://i.scdn.co/image/ab67656300005f1f49bdac6d5cb17fc673514909",
+                    "height": 300,
+                    "width": 300
+                  },
+                  {
+                    "url": "https://i.scdn.co/image/ab6765630000f68d49bdac6d5cb17fc673514909",
+                    "height": 64,
+                    "width": 64
+                  }
+                ],
+                "is_externally_hosted": false,
+                "is_playable": false,
+                "language": "en",
+                "languages": [
+                  "en"
+                ],
+                "name": "Bonus Tape: Basement Boy",
+                "release_date": "2025-10-31",
+                "release_date_precision": "day",
+                "type": "episode",
+                "uri": "spotify:episode:5RxXv87e1QW22blvOv8Iqo",
+                "restrictions": {
+                  "reason": "payment_required"
+                }
+              },
+              {
+                "description": "Welcome to Radio Rental, a mysterious video rental shop with a collection of VHS tapes with TRUE scary stories narrated by the people who experienced them...  On today's tapes:  >> Virginia City << Think about this story next time your hotel neighbors are being too loud.  >> Roar << It's hard to prove a sighting... but this story comes with real audio footage.  Meanwhile, at the store:  Ricky Lee has a special delivery for Capricorns. He and Malachai hint at their halloween costumes... perhaps a couples costume? Oh, and reminder: Bigfoot is an AQUARIUS.    Want more Radio Rental?     For early access and ad-free listening, subscribe to Tenderfoot+ at ⁠⁠⁠⁠⁠https://tenderfoot.tv/plus/⁠⁠⁠⁠⁠.    Follow the show at @radiorental    Visit the website at ⁠⁠⁠⁠⁠radiorentalusa.com      To learn more about listener data and our privacy practices visit: https://www.audacyinc.com/privacy-policy     Learn more about your ad choices. Visit https://podcastchoices.com/adchoices",
+                "html_description": "<p>Welcome to Radio Rental, a mysterious video rental shop with a collection of VHS tapes with TRUE scary stories narrated by the people who experienced them...</p><br/><p><br />On today&#39;s tapes:</p><br/><p><br />&gt;&gt; Virginia City &lt;&lt; Think about this story next time your hotel neighbors are being too loud.</p><br/><p><br />&gt;&gt; Roar &lt;&lt; It&#39;s hard to prove a sighting... but this story comes with real audio footage.</p><br/><p><br />Meanwhile, at the store:</p><br/><p><br />Ricky Lee has a special delivery for Capricorns. He and Malachai hint at their halloween costumes... perhaps a couples costume? Oh, and reminder: Bigfoot is an AQUARIUS.</p><br/><p><br /></p><br/><p>Want more Radio Rental?</p><br/><ul><li>For early access and ad-free listening, subscribe to Tenderfoot&#43; at <a href=\"https://tenderfoot.tv/plus/\" rel=\"nofollow\">⁠⁠⁠⁠⁠https://tenderfoot.tv/plus/⁠⁠⁠⁠⁠</a>.</li><li>Follow the show at &#64;radiorental</li><li>Visit the website at <a href=\"https://radiorentalusa.com/\" rel=\"nofollow\">⁠⁠⁠⁠⁠radiorentalusa.com</a><br/></li></ul><p> </p><p> </p><p>To learn more about listener data and our privacy practices visit: <a href=\"https://www.audacyinc.com/privacy-policy\" rel=\"nofollow\">https://www.audacyinc.com/privacy-policy</a></p> <p> </p> <p>Learn more about your ad choices. Visit <a href=\"https://podcastchoices.com/adchoices\" rel=\"nofollow\">https://podcastchoices.com/adchoices</a></p>",
+                "duration_ms": 1982929,
+                "explicit": true,
+                "external_urls": {
+                  "spotify": "https://open.spotify.com/episode/5HO6XGS0pMBRRb0OPRgc3i"
+                },
+                "href": "https://api.spotify.com/v1/episodes/5HO6XGS0pMBRRb0OPRgc3i",
+                "id": "5HO6XGS0pMBRRb0OPRgc3i",
+                "images": [
+                  {
+                    "url": "https://i.scdn.co/image/ab6765630000ba8aca64267ceac217b398211f6a",
+                    "height": 640,
+                    "width": 640
+                  },
+                  {
+                    "url": "https://i.scdn.co/image/ab67656300005f1fca64267ceac217b398211f6a",
+                    "height": 300,
+                    "width": 300
+                  },
+                  {
+                    "url": "https://i.scdn.co/image/ab6765630000f68dca64267ceac217b398211f6a",
+                    "height": 64,
+                    "width": 64
+                  }
+                ],
+                "is_externally_hosted": true,
+                "is_playable": true,
+                "language": "en",
+                "languages": [
+                  "en"
+                ],
+                "name": "Episode 93",
+                "release_date": "2025-10-24",
+                "release_date_precision": "day",
+                "type": "episode",
+                "uri": "spotify:episode:5HO6XGS0pMBRRb0OPRgc3i"
+              },
+              {
+                "description": "Welcome to Radio Rental, a mysterious video rental shop with a collection of VHS tapes with TRUE scary stories narrated by the people who experienced them...    On today's tapes:    >>Triangular Craft << This woman blacks out after her otherworldly encounter. But then she meets someone who validates her experience.    >> Airball << They always tell kids to never get in a car with a stranger... This little girl narrowly avoids a possible \"abduction.\"    Meanwhile, at the store:    Ricky Lee offers more unsolicited cosmological forecasts. And he lets us know he's not afraid of our \"extra-testical\" brethren.    Want more Radio Rental?     For early access and ad-free listening, subscribe to Tenderfoot+ at ⁠⁠⁠https://tenderfoot.tv/plus/⁠⁠⁠.    Follow the show at @radiorental    Visit the website at ⁠⁠⁠radiorentalusa.com      To learn more about listener data and our privacy practices visit: https://www.audacyinc.com/privacy-policy     Learn more about your ad choices. Visit https://podcastchoices.com/adchoices",
+                "html_description": "<p>Welcome to Radio Rental, a mysterious video rental shop with a collection of VHS tapes with TRUE scary stories narrated by the people who experienced them...</p><br/><p><br /></p><br/><p>On today&#39;s tapes:</p><br/><p><br /></p><br/><p>&gt;&gt;Triangular Craft &lt;&lt; This woman blacks out after her otherworldly encounter. But then she meets someone who validates her experience.</p><br/><p><br /></p><br/><p>&gt;&gt; Airball &lt;&lt; They always tell kids to never get in a car with a stranger... This little girl narrowly avoids a possible &#34;abduction.&#34;</p><br/><p><br /></p><br/><p>Meanwhile, at the store:</p><br/><p><br /></p><br/><p>Ricky Lee offers more unsolicited cosmological forecasts. And he lets us know he&#39;s not afraid of our &#34;extra-testical&#34; brethren.</p><br/><p><br /></p><br/><p>Want more Radio Rental?</p><br/><ul><li>For early access and ad-free listening, subscribe to Tenderfoot&#43; at <a href=\"https://tenderfoot.tv/plus/\" rel=\"nofollow\">⁠⁠⁠https://tenderfoot.tv/plus/⁠⁠⁠</a>.</li><li>Follow the show at &#64;radiorental</li><li>Visit the website at <a href=\"https://radiorentalusa.com/\" rel=\"nofollow\">⁠⁠⁠radiorentalusa.com</a><br/></li></ul><p> </p><p> </p><p>To learn more about listener data and our privacy practices visit: <a href=\"https://www.audacyinc.com/privacy-policy\" rel=\"nofollow\">https://www.audacyinc.com/privacy-policy</a></p> <p> </p> <p>Learn more about your ad choices. Visit <a href=\"https://podcastchoices.com/adchoices\" rel=\"nofollow\">https://podcastchoices.com/adchoices</a></p>",
+                "duration_ms": 1946618,
+                "explicit": true,
+                "external_urls": {
+                  "spotify": "https://open.spotify.com/episode/6NmCzEUidBRwNZLPbUnosQ"
+                },
+                "href": "https://api.spotify.com/v1/episodes/6NmCzEUidBRwNZLPbUnosQ",
+                "id": "6NmCzEUidBRwNZLPbUnosQ",
+                "images": [
+                  {
+                    "url": "https://i.scdn.co/image/ab6765630000ba8a2d5ca4068be4dacde0992265",
+                    "height": 640,
+                    "width": 640
+                  },
+                  {
+                    "url": "https://i.scdn.co/image/ab67656300005f1f2d5ca4068be4dacde0992265",
+                    "height": 300,
+                    "width": 300
+                  },
+                  {
+                    "url": "https://i.scdn.co/image/ab6765630000f68d2d5ca4068be4dacde0992265",
+                    "height": 64,
+                    "width": 64
+                  }
+                ],
+                "is_externally_hosted": true,
+                "is_playable": true,
+                "language": "en",
+                "languages": [
+                  "en"
+                ],
+                "name": "Episode 92",
+                "release_date": "2025-10-17",
+                "release_date_precision": "day",
+                "type": "episode",
+                "uri": "spotify:episode:6NmCzEUidBRwNZLPbUnosQ"
+              },
+              {
+                "description": "Welcome to Radio Rental, a mysterious video rental shop with a collection of VHS tapes with TRUE scary stories narrated by the people who experienced them...    On today's tapes:    >> Late Night at the Lab << She's a scientist. She deals with hard facts. But how else do you explain this...    >> Fixer Upper << These kids thought they finally had a party house to themselves. Except there might be something else there.    Meanwhile, at the store:    Ricky Lee settles into his new role. And his mold-induced sinus infection.    Want more Radio Rental?     For early access and ad-free listening, subscribe to Tenderfoot+ at ⁠⁠⁠https://tenderfoot.tv/plus/⁠⁠⁠.    Follow the show at @radiorental    Visit the website at ⁠⁠⁠radiorentalusa.com      To learn more about listener data and our privacy practices visit: https://www.audacyinc.com/privacy-policy     Learn more about your ad choices. Visit https://podcastchoices.com/adchoices",
+                "html_description": "<p>Welcome to Radio Rental, a mysterious video rental shop with a collection of VHS tapes with TRUE scary stories narrated by the people who experienced them...</p><br/><p><br /></p><br/><p>On today&#39;s tapes:</p><br/><p><br /></p><br/><p>&gt;&gt; Late Night at the Lab &lt;&lt; She&#39;s a scientist. She deals with hard facts. But how else do you explain this...</p><br/><p><br /></p><br/><p>&gt;&gt; Fixer Upper &lt;&lt; These kids thought they finally had a party house to themselves. Except there might be something else there.</p><br/><p><br /></p><br/><p>Meanwhile, at the store:</p><br/><p><br /></p><br/><p>Ricky Lee settles into his new role. And his mold-induced sinus infection.</p><br/><p><br /></p><br/><p>Want more Radio Rental?</p><br/><ul><li>For early access and ad-free listening, subscribe to Tenderfoot&#43; at <a href=\"https://tenderfoot.tv/plus/\" rel=\"nofollow\">⁠⁠⁠https://tenderfoot.tv/plus/⁠⁠⁠</a>.</li><li>Follow the show at &#64;radiorental</li><li>Visit the website at <a href=\"https://radiorentalusa.com/\" rel=\"nofollow\">⁠⁠⁠radiorentalusa.com</a><br/></li></ul><p> </p><p> </p><p>To learn more about listener data and our privacy practices visit: <a href=\"https://www.audacyinc.com/privacy-policy\" rel=\"nofollow\">https://www.audacyinc.com/privacy-policy</a></p> <p> </p> <p>Learn more about your ad choices. Visit <a href=\"https://podcastchoices.com/adchoices\" rel=\"nofollow\">https://podcastchoices.com/adchoices</a></p>",
+                "duration_ms": 2277799,
+                "explicit": true,
+                "external_urls": {
+                  "spotify": "https://open.spotify.com/episode/663liF8iCYvcSAhgKc2owu"
+                },
+                "href": "https://api.spotify.com/v1/episodes/663liF8iCYvcSAhgKc2owu",
+                "id": "663liF8iCYvcSAhgKc2owu",
+                "images": [
+                  {
+                    "url": "https://i.scdn.co/image/ab6765630000ba8a6b7faa75e9d0030b2808dee1",
+                    "height": 640,
+                    "width": 640
+                  },
+                  {
+                    "url": "https://i.scdn.co/image/ab67656300005f1f6b7faa75e9d0030b2808dee1",
+                    "height": 300,
+                    "width": 300
+                  },
+                  {
+                    "url": "https://i.scdn.co/image/ab6765630000f68d6b7faa75e9d0030b2808dee1",
+                    "height": 64,
+                    "width": 64
+                  }
+                ],
+                "is_externally_hosted": true,
+                "is_playable": true,
+                "language": "en",
+                "languages": [
+                  "en"
+                ],
+                "name": "Episode 91",
+                "release_date": "2025-10-10",
+                "release_date_precision": "day",
+                "type": "episode",
+                "uri": "spotify:episode:663liF8iCYvcSAhgKc2owu"
+              },
+              {
+                "description": "Welcome to Radio Rental, a mysterious video rental shop with a collection of VHS tapes with TRUE scary stories narrated by the people who experienced them...    On today's tapes:    >> Headlights << Next time lights hit your rearview mirror on an empty road... consider it a message.    >> They're Making Me Throw Up << Who are they? What were they doing with him? ...And are the cops in on it, too?    Meanwhile, at the store:    Terry Carnation says his final farewell.    Want more Radio Rental?     For early access and ad-free listening, subscribe to Tenderfoot+ at ⁠⁠⁠⁠⁠https://tenderfoot.tv/plus/⁠⁠⁠⁠⁠.    Follow the show at @radiorental    Visit the website at ⁠⁠⁠⁠⁠radiorentalusa.com      To learn more about listener data and our privacy practices visit: https://www.audacyinc.com/privacy-policy     Learn more about your ad choices. Visit https://podcastchoices.com/adchoices",
+                "html_description": "<p>Welcome to Radio Rental, a mysterious video rental shop with a collection of VHS tapes with TRUE scary stories narrated by the people who experienced them...</p><br/><p><br /></p><br/><p>On today&#39;s tapes:</p><br/><p><br /></p><br/><p>&gt;&gt; Headlights &lt;&lt; Next time lights hit your rearview mirror on an empty road... consider it a message.</p><br/><p><br /></p><br/><p>&gt;&gt; They&#39;re Making Me Throw Up &lt;&lt; Who are they? What were they doing with him? ...And are the cops in on it, too?</p><br/><p><br /></p><br/><p>Meanwhile, at the store:</p><br/><p><br /></p><br/><p>Terry Carnation says his final farewell.</p><br/><p><br /></p><br/><p>Want more Radio Rental?</p><br/><ul><li>For early access and ad-free listening, subscribe to Tenderfoot&#43; at <a href=\"https://tenderfoot.tv/plus/\" rel=\"nofollow\">⁠⁠⁠⁠⁠https://tenderfoot.tv/plus/⁠⁠⁠⁠⁠</a>.</li><li>Follow the show at &#64;radiorental</li><li>Visit the website at <a href=\"https://radiorentalusa.com/\" rel=\"nofollow\">⁠⁠⁠⁠⁠radiorentalusa.com</a><br/></li></ul><p> </p><p> </p><p>To learn more about listener data and our privacy practices visit: <a href=\"https://www.audacyinc.com/privacy-policy\" rel=\"nofollow\">https://www.audacyinc.com/privacy-policy</a></p> <p> </p> <p>Learn more about your ad choices. Visit <a href=\"https://podcastchoices.com/adchoices\" rel=\"nofollow\">https://podcastchoices.com/adchoices</a></p>",
+                "duration_ms": 2459820,
+                "explicit": true,
+                "external_urls": {
+                  "spotify": "https://open.spotify.com/episode/43iEDcOO11c2qTbNeeLmFZ"
+                },
+                "href": "https://api.spotify.com/v1/episodes/43iEDcOO11c2qTbNeeLmFZ",
+                "id": "43iEDcOO11c2qTbNeeLmFZ",
+                "images": [
+                  {
+                    "url": "https://i.scdn.co/image/ab6765630000ba8aacf1e4ee728918496f1338de",
+                    "height": 640,
+                    "width": 640
+                  },
+                  {
+                    "url": "https://i.scdn.co/image/ab67656300005f1facf1e4ee728918496f1338de",
+                    "height": 300,
+                    "width": 300
+                  },
+                  {
+                    "url": "https://i.scdn.co/image/ab6765630000f68dacf1e4ee728918496f1338de",
+                    "height": 64,
+                    "width": 64
+                  }
+                ],
+                "is_externally_hosted": true,
+                "is_playable": true,
+                "language": "en",
+                "languages": [
+                  "en"
+                ],
+                "name": "Episode 90",
+                "release_date": "2025-10-03",
+                "release_date_precision": "day",
+                "type": "episode",
+                "uri": "spotify:episode:43iEDcOO11c2qTbNeeLmFZ"
+              },
+              {
+                "description": "The store re-opens with all new stories on October 3rd! Episodes drop every Friday. To get early access, ad-free listening, and bonuses, subscribe to Tenderfoot+ !   To learn more about listener data and our privacy practices visit: https://www.audacyinc.com/privacy-policy     Learn more about your ad choices. Visit https://podcastchoices.com/adchoices",
+                "html_description": "<p>The store re-opens with all new stories on October 3rd! Episodes drop every Friday. To get early access, ad-free listening, and bonuses, subscribe to <a href=\"https://tenderfoot.tv/plus/\" rel=\"nofollow\">Tenderfoot&#43;</a> !</p><p> </p><p> </p><p>To learn more about listener data and our privacy practices visit: <a href=\"https://www.audacyinc.com/privacy-policy\" rel=\"nofollow\">https://www.audacyinc.com/privacy-policy</a></p> <p> </p> <p>Learn more about your ad choices. Visit <a href=\"https://podcastchoices.com/adchoices\" rel=\"nofollow\">https://podcastchoices.com/adchoices</a></p>",
+                "duration_ms": 96496,
+                "explicit": false,
+                "external_urls": {
+                  "spotify": "https://open.spotify.com/episode/1SnxFF5hET6MMYvrhjphID"
+                },
+                "href": "https://api.spotify.com/v1/episodes/1SnxFF5hET6MMYvrhjphID",
+                "id": "1SnxFF5hET6MMYvrhjphID",
+                "images": [
+                  {
+                    "url": "https://i.scdn.co/image/ab6765630000ba8aa0c7680b4f92382f2b1e1831",
+                    "height": 640,
+                    "width": 640
+                  },
+                  {
+                    "url": "https://i.scdn.co/image/ab67656300005f1fa0c7680b4f92382f2b1e1831",
+                    "height": 300,
+                    "width": 300
+                  },
+                  {
+                    "url": "https://i.scdn.co/image/ab6765630000f68da0c7680b4f92382f2b1e1831",
+                    "height": 64,
+                    "width": 64
+                  }
+                ],
+                "is_externally_hosted": true,
+                "is_playable": true,
+                "language": "en",
+                "languages": [
+                  "en"
+                ],
+                "name": "Open for Business in October",
+                "release_date": "2025-09-26",
+                "release_date_precision": "day",
+                "type": "episode",
+                "uri": "spotify:episode:1SnxFF5hET6MMYvrhjphID"
+              },
+              {
+                "description": "Welcome to Radio Rental, a mysterious video rental shop with a collection of VHS tapes containing TRUE scary stories, narrated by the people who experienced them...  On today's tapes...  >> Personal Effects << Not your average smash and grab. This one feels a little more... personal.  Meanwhile, at the store...  Terry's Astrological Advisor, Ricky Lee Bagley (Jeff Foxworthy) steps in to man the store, as well as offer a few celestial readings. And right at the eleventh hour, guess who shows up...    Want more Radio Rental?     For early access and ad-free listening, subscribe to Tenderfoot+ at ⁠⁠⁠https://tenderfoot.tv/plus/⁠⁠⁠.    Follow the show at @radiorental    Visit the website at ⁠⁠⁠radiorentalusa.com      To learn more about listener data and our privacy practices visit: https://www.audacyinc.com/privacy-policy     Learn more about your ad choices. Visit https://podcastchoices.com/adchoices",
+                "html_description": "<p>Welcome to Radio Rental, a mysterious video rental shop with a collection of VHS tapes containing TRUE scary stories, narrated by the people who experienced them...</p><br/><p><br />On today&#39;s tapes...</p><br/><p><br />&gt;&gt; Personal Effects &lt;&lt; Not your average smash and grab. This one feels a little more... personal.</p><br/><p><br />Meanwhile, at the store...</p><br/><p><br />Terry&#39;s Astrological Advisor, Ricky Lee Bagley (Jeff Foxworthy) steps in to man the store, as well as offer a few celestial readings. And right at the eleventh hour, guess who shows up...</p><br/><p><br /></p><br/><p>Want more Radio Rental?</p><br/><ul><li>For early access and ad-free listening, subscribe to Tenderfoot&#43; at <a href=\"https://tenderfoot.tv/plus/\" rel=\"nofollow\">⁠⁠⁠https://tenderfoot.tv/plus/⁠⁠⁠</a>.</li><li>Follow the show at &#64;radiorental</li><li>Visit the website at <a href=\"https://radiorentalusa.com/\" rel=\"nofollow\">⁠⁠⁠radiorentalusa.com</a><br/></li></ul><p> </p><p> </p><p>To learn more about listener data and our privacy practices visit: <a href=\"https://www.audacyinc.com/privacy-policy\" rel=\"nofollow\">https://www.audacyinc.com/privacy-policy</a></p> <p> </p> <p>Learn more about your ad choices. Visit <a href=\"https://podcastchoices.com/adchoices\" rel=\"nofollow\">https://podcastchoices.com/adchoices</a></p>",
+                "duration_ms": 1659559,
+                "explicit": true,
+                "external_urls": {
+                  "spotify": "https://open.spotify.com/episode/1fZBl2BceWrTADPRbCyzqN"
+                },
+                "href": "https://api.spotify.com/v1/episodes/1fZBl2BceWrTADPRbCyzqN",
+                "id": "1fZBl2BceWrTADPRbCyzqN",
+                "images": [
+                  {
+                    "url": "https://i.scdn.co/image/ab6765630000ba8a61b6c2f1785379b992d7b91a",
+                    "height": 640,
+                    "width": 640
+                  },
+                  {
+                    "url": "https://i.scdn.co/image/ab67656300005f1f61b6c2f1785379b992d7b91a",
+                    "height": 300,
+                    "width": 300
+                  },
+                  {
+                    "url": "https://i.scdn.co/image/ab6765630000f68d61b6c2f1785379b992d7b91a",
+                    "height": 64,
+                    "width": 64
+                  }
+                ],
+                "is_externally_hosted": true,
+                "is_playable": true,
+                "language": "en",
+                "languages": [
+                  "en"
+                ],
+                "name": "Episode 89",
+                "release_date": "2025-09-05",
+                "release_date_precision": "day",
+                "type": "episode",
+                "uri": "spotify:episode:1fZBl2BceWrTADPRbCyzqN"
+              },
+              {
+                "description": "Welcome to Radio Rental, a mysterious video rental shop with a collection of VHS tapes containing TRUE scary stories, narrated by the people who experienced them...  On today's tapes...  >> Bigfoot << Not your usual Bigfoot sighting... this one is a bit more aggressive.  >> Backing Away << This hunter isn't easily spooked, but he hasn't been back since...  Meanwhile, at the store...  Thank your lucky stars. Terry's Astrological Advisor, Ricky Lee Bagley (Jeff Foxworthy) presents this week's tapes... as well as unsolicited \"transmissions\" from the cosmos.    Want more Radio Rental?     For early access and ad-free listening, subscribe to Tenderfoot+ at ⁠⁠⁠⁠https://tenderfoot.tv/plus/⁠⁠⁠⁠.    Follow the show at @radiorental    Visit the website at ⁠⁠⁠⁠radiorentalusa.com      To learn more about listener data and our privacy practices visit: https://www.audacyinc.com/privacy-policy     Learn more about your ad choices. Visit https://podcastchoices.com/adchoices",
+                "html_description": "<p>Welcome to Radio Rental, a mysterious video rental shop with a collection of VHS tapes containing TRUE scary stories, narrated by the people who experienced them...</p><br/><p><br />On today&#39;s tapes...</p><br/><p><br />&gt;&gt; Bigfoot &lt;&lt; Not your usual Bigfoot sighting... this one is a bit more aggressive.</p><br/><p><br />&gt;&gt; Backing Away &lt;&lt; This hunter isn&#39;t easily spooked, but he hasn&#39;t been back since...</p><br/><p><br />Meanwhile, at the store...</p><br/><p><br />Thank your lucky stars. Terry&#39;s Astrological Advisor, Ricky Lee Bagley (Jeff Foxworthy) presents this week&#39;s tapes... as well as unsolicited &#34;transmissions&#34; from the cosmos.</p><br/><p><br /></p><br/><p>Want more Radio Rental?</p><br/><ul><li>For early access and ad-free listening, subscribe to Tenderfoot&#43; at <a href=\"https://tenderfoot.tv/plus/\" rel=\"nofollow\">⁠⁠⁠⁠https://tenderfoot.tv/plus/⁠⁠⁠⁠</a>.</li><li>Follow the show at &#64;radiorental</li><li>Visit the website at <a href=\"https://radiorentalusa.com/\" rel=\"nofollow\">⁠⁠⁠⁠radiorentalusa.com</a><br/></li></ul><p> </p><p> </p><p>To learn more about listener data and our privacy practices visit: <a href=\"https://www.audacyinc.com/privacy-policy\" rel=\"nofollow\">https://www.audacyinc.com/privacy-policy</a></p> <p> </p> <p>Learn more about your ad choices. Visit <a href=\"https://podcastchoices.com/adchoices\" rel=\"nofollow\">https://podcastchoices.com/adchoices</a></p>",
+                "duration_ms": 2473378,
+                "explicit": true,
+                "external_urls": {
+                  "spotify": "https://open.spotify.com/episode/5GF5UZ6WQlWAQzJkKGDF21"
+                },
+                "href": "https://api.spotify.com/v1/episodes/5GF5UZ6WQlWAQzJkKGDF21",
+                "id": "5GF5UZ6WQlWAQzJkKGDF21",
+                "images": [
+                  {
+                    "url": "https://i.scdn.co/image/ab6765630000ba8a205025ddf9cf4b1604243d77",
+                    "height": 640,
+                    "width": 640
+                  },
+                  {
+                    "url": "https://i.scdn.co/image/ab67656300005f1f205025ddf9cf4b1604243d77",
+                    "height": 300,
+                    "width": 300
+                  },
+                  {
+                    "url": "https://i.scdn.co/image/ab6765630000f68d205025ddf9cf4b1604243d77",
+                    "height": 64,
+                    "width": 64
+                  }
+                ],
+                "is_externally_hosted": true,
+                "is_playable": true,
+                "language": "en",
+                "languages": [
+                  "en"
+                ],
+                "name": "Episode 88",
+                "release_date": "2025-08-29",
+                "release_date_precision": "day",
+                "type": "episode",
+                "uri": "spotify:episode:5GF5UZ6WQlWAQzJkKGDF21"
+              },
+              {
+                "description": "Welcome to Radio Rental, a mysterious video rental shop with a collection of VHS tapes containing TRUE scary stories, narrated by the people who experienced them...  On today's tapes...  >> Groundhog Day << Unfortunately, this one doesn't star Bill Murray. We hope.  >> The Ticket << Like father, like son.  Meanwhile, at the store...  All-around fixer-upper repairman Jared (Josh Radnor) is suckered into watching the store after receiving a voicemail from Terry.    Want more Radio Rental?     For early access and ad-free listening, subscribe to Tenderfoot+ at ⁠⁠https://tenderfoot.tv/plus/⁠⁠.    Follow the show at @radiorental    Visit the website at ⁠⁠radiorentalusa.com      To learn more about listener data and our privacy practices visit: https://www.audacyinc.com/privacy-policy     Learn more about your ad choices. Visit https://podcastchoices.com/adchoices",
+                "html_description": "<p>Welcome to Radio Rental, a mysterious video rental shop with a collection of VHS tapes containing TRUE scary stories, narrated by the people who experienced them...</p><br/><p><br />On today&#39;s tapes...</p><br/><p><br />&gt;&gt; Groundhog Day &lt;&lt; Unfortunately, this one doesn&#39;t star Bill Murray. We hope.</p><br/><p><br />&gt;&gt; The Ticket &lt;&lt; Like father, like son.</p><br/><p><br />Meanwhile, at the store...</p><br/><p><br />All-around fixer-upper repairman Jared (Josh Radnor) is suckered into watching the store after receiving a voicemail from Terry.</p><br/><p><br /></p><br/><p>Want more Radio Rental?</p><br/><ul><li>For early access and ad-free listening, subscribe to Tenderfoot&#43; at <a href=\"https://tenderfoot.tv/plus/\" rel=\"nofollow\">⁠⁠https://tenderfoot.tv/plus/⁠⁠</a>.</li><li>Follow the show at &#64;radiorental</li><li>Visit the website at <a href=\"https://radiorentalusa.com/\" rel=\"nofollow\">⁠⁠radiorentalusa.com</a><br/></li></ul><p> </p><p> </p><p>To learn more about listener data and our privacy practices visit: <a href=\"https://www.audacyinc.com/privacy-policy\" rel=\"nofollow\">https://www.audacyinc.com/privacy-policy</a></p> <p> </p> <p>Learn more about your ad choices. Visit <a href=\"https://podcastchoices.com/adchoices\" rel=\"nofollow\">https://podcastchoices.com/adchoices</a></p>",
+                "duration_ms": 1895523,
+                "explicit": true,
+                "external_urls": {
+                  "spotify": "https://open.spotify.com/episode/019Ze1IeQpGyUeQwolVOPv"
+                },
+                "href": "https://api.spotify.com/v1/episodes/019Ze1IeQpGyUeQwolVOPv",
+                "id": "019Ze1IeQpGyUeQwolVOPv",
+                "images": [
+                  {
+                    "url": "https://i.scdn.co/image/ab6765630000ba8aa00f1d467311b83304d5f7fc",
+                    "height": 640,
+                    "width": 640
+                  },
+                  {
+                    "url": "https://i.scdn.co/image/ab67656300005f1fa00f1d467311b83304d5f7fc",
+                    "height": 300,
+                    "width": 300
+                  },
+                  {
+                    "url": "https://i.scdn.co/image/ab6765630000f68da00f1d467311b83304d5f7fc",
+                    "height": 64,
+                    "width": 64
+                  }
+                ],
+                "is_externally_hosted": true,
+                "is_playable": true,
+                "language": "en",
+                "languages": [
+                  "en"
+                ],
+                "name": "Episode 87",
+                "release_date": "2025-08-22",
+                "release_date_precision": "day",
+                "type": "episode",
+                "uri": "spotify:episode:019Ze1IeQpGyUeQwolVOPv"
+              },
+              {
+                "description": "Welcome to Radio Rental, a mysterious video rental shop with a collection of VHS tapes containing TRUE scary stories, narrated by the people who experienced them...    On today's tapes...    >> The Family Curse << This one gives a whole new meaning to \"generational trauma.\"    >> Family in the Street << Just a little family field trip to the graveyard? Or...?    Meanwhile, at the store...    Local librarian -- and #1 obsessed Terry Carnation fan -- Sandy Van Duzer (Rachel Dratch) discovers why Terry is currently out... he's looking for his long-lost wife. Sandy flips her lid. But at least she still remembers to play some tapes.    Want more Radio Rental?     For early access and ad-free listening, subscribe to Tenderfoot+ at ⁠⁠https://tenderfoot.tv/plus/⁠⁠.    Follow the show at @radiorental    Visit the website at ⁠⁠radiorentalusa.com      To learn more about listener data and our privacy practices visit: https://www.audacyinc.com/privacy-policy     Learn more about your ad choices. Visit https://podcastchoices.com/adchoices",
+                "html_description": "<p>Welcome to Radio Rental, a mysterious video rental shop with a collection of VHS tapes containing TRUE scary stories, narrated by the people who experienced them...</p><br/><p><br /></p><br/><p>On today&#39;s tapes...</p><br/><p><br /></p><br/><p>&gt;&gt; The Family Curse &lt;&lt; This one gives a whole new meaning to &#34;generational trauma.&#34;</p><br/><p><br /></p><br/><p>&gt;&gt; Family in the Street &lt;&lt; Just a little family field trip to the graveyard? Or...?</p><br/><p><br /></p><br/><p>Meanwhile, at the store...</p><br/><p><br /></p><br/><p>Local librarian -- and #1 obsessed Terry Carnation fan -- Sandy Van Duzer (Rachel Dratch) discovers why Terry is currently out... he&#39;s looking for his long-lost wife. Sandy flips her lid. But at least she still remembers to play some tapes.</p><br/><p><br /></p><br/><p>Want more Radio Rental?</p><br/><ul><li>For early access and ad-free listening, subscribe to Tenderfoot&#43; at <a href=\"https://tenderfoot.tv/plus/\" rel=\"nofollow\">⁠⁠https://tenderfoot.tv/plus/⁠⁠</a>.</li><li>Follow the show at &#64;radiorental</li><li>Visit the website at <a href=\"https://radiorentalusa.com/\" rel=\"nofollow\">⁠⁠radiorentalusa.com</a><br/></li></ul><p> </p><p> </p><p>To learn more about listener data and our privacy practices visit: <a href=\"https://www.audacyinc.com/privacy-policy\" rel=\"nofollow\">https://www.audacyinc.com/privacy-policy</a></p> <p> </p> <p>Learn more about your ad choices. Visit <a href=\"https://podcastchoices.com/adchoices\" rel=\"nofollow\">https://podcastchoices.com/adchoices</a></p>",
+                "duration_ms": 1784946,
+                "explicit": true,
+                "external_urls": {
+                  "spotify": "https://open.spotify.com/episode/2nP6zVbGMFA1qVeBTj6u4M"
+                },
+                "href": "https://api.spotify.com/v1/episodes/2nP6zVbGMFA1qVeBTj6u4M",
+                "id": "2nP6zVbGMFA1qVeBTj6u4M",
+                "images": [
+                  {
+                    "url": "https://i.scdn.co/image/ab6765630000ba8ae18c07139acef900e7e19310",
+                    "height": 640,
+                    "width": 640
+                  },
+                  {
+                    "url": "https://i.scdn.co/image/ab67656300005f1fe18c07139acef900e7e19310",
+                    "height": 300,
+                    "width": 300
+                  },
+                  {
+                    "url": "https://i.scdn.co/image/ab6765630000f68de18c07139acef900e7e19310",
+                    "height": 64,
+                    "width": 64
+                  }
+                ],
+                "is_externally_hosted": true,
+                "is_playable": true,
+                "language": "en",
+                "languages": [
+                  "en"
+                ],
+                "name": "Episode 86",
+                "release_date": "2025-08-15",
+                "release_date_precision": "day",
+                "type": "episode",
+                "uri": "spotify:episode:2nP6zVbGMFA1qVeBTj6u4M"
+              },
+              {
+                "description": "Welcome to Radio Rental, a mysterious video rental shop with a collection of VHS tapes containing TRUE scary stories, narrated by the people who experienced them...  On today's tapes...  >> In the Basement << She should have known something was off when she heard the one house rule: you can't install locks.  >> Lens Cap << No lens caps left behind. Except in this case.  Meanwhile, at the store...  Local librarian -- and obsessive Terry fan -- Sandy Van Duzer (Rachel Dratch) takes a shift at Radio Rental. If you get on her bad side (or her good side, apparently) you may just end up in HER basement.    Want more Radio Rental?     For early access and ad-free listening, subscribe to Tenderfoot+ at ⁠⁠⁠⁠https://tenderfoot.tv/plus/⁠⁠⁠⁠.    Follow the show at @radiorental    Visit the website at ⁠⁠⁠⁠radiorentalusa.com      To learn more about listener data and our privacy practices visit: https://www.audacyinc.com/privacy-policy     Learn more about your ad choices. Visit https://podcastchoices.com/adchoices",
+                "html_description": "<p>Welcome to Radio Rental, a mysterious video rental shop with a collection of VHS tapes containing TRUE scary stories, narrated by the people who experienced them...</p><br/><p><br />On today&#39;s tapes...</p><br/><p><br />&gt;&gt; In the Basement &lt;&lt; She should have known something was off when she heard the one house rule: you can&#39;t install locks.</p><br/><p><br />&gt;&gt; Lens Cap &lt;&lt; No lens caps left behind. Except in this case.</p><br/><p><br />Meanwhile, at the store...</p><br/><p><br />Local librarian -- and obsessive Terry fan -- Sandy Van Duzer (Rachel Dratch) takes a shift at Radio Rental. If you get on her bad side (or her good side, apparently) you may just end up in HER basement.</p><br/><p><br /></p><br/><p>Want more Radio Rental?</p><br/><ul><li>For early access and ad-free listening, subscribe to Tenderfoot&#43; at <a href=\"https://tenderfoot.tv/plus/\" rel=\"nofollow\">⁠⁠⁠⁠https://tenderfoot.tv/plus/⁠⁠⁠⁠</a>.</li><li>Follow the show at &#64;radiorental</li><li>Visit the website at <a href=\"https://radiorentalusa.com/\" rel=\"nofollow\">⁠⁠⁠⁠radiorentalusa.com</a><br/></li></ul><p> </p><p> </p><p>To learn more about listener data and our privacy practices visit: <a href=\"https://www.audacyinc.com/privacy-policy\" rel=\"nofollow\">https://www.audacyinc.com/privacy-policy</a></p> <p> </p> <p>Learn more about your ad choices. Visit <a href=\"https://podcastchoices.com/adchoices\" rel=\"nofollow\">https://podcastchoices.com/adchoices</a></p>",
+                "duration_ms": 2551640,
+                "explicit": true,
+                "external_urls": {
+                  "spotify": "https://open.spotify.com/episode/4TqUfUMyniyC3DGMAyqzZv"
+                },
+                "href": "https://api.spotify.com/v1/episodes/4TqUfUMyniyC3DGMAyqzZv",
+                "id": "4TqUfUMyniyC3DGMAyqzZv",
+                "images": [
+                  {
+                    "url": "https://i.scdn.co/image/ab6765630000ba8a8576e6976c81dd06dbfcf780",
+                    "height": 640,
+                    "width": 640
+                  },
+                  {
+                    "url": "https://i.scdn.co/image/ab67656300005f1f8576e6976c81dd06dbfcf780",
+                    "height": 300,
+                    "width": 300
+                  },
+                  {
+                    "url": "https://i.scdn.co/image/ab6765630000f68d8576e6976c81dd06dbfcf780",
+                    "height": 64,
+                    "width": 64
+                  }
+                ],
+                "is_externally_hosted": true,
+                "is_playable": true,
+                "language": "en",
+                "languages": [
+                  "en"
+                ],
+                "name": "Episode 85",
+                "release_date": "2025-08-08",
+                "release_date_precision": "day",
+                "type": "episode",
+                "uri": "spotify:episode:4TqUfUMyniyC3DGMAyqzZv"
+              },
+              {
+                "description": "Welcome to Radio Rental, a mysterious video rental shop with a collection of VHS tapes containing TRUE scary stories, narrated by the people who experienced them...  On today's tapes...  >> Missing Time << Drugs? Aliens? Sinister intentions? That's the last time this couple tries to make new friends.  >> Gas Station Glitch << Gas up and get out... or you just might be doomed to repeat this pit stop for all eternity.  Meanwhile, at the store...  Unsuspecting former customer Jeremy (Chris Redd) returns to Radio Rental (somehow) to host again (without his consent). He just blinked his eyes and he was there in the store, with the vest on. He swears it. Trippy. Kind of like this week's stories...    Want more Radio Rental?     For early access and ad-free listening, subscribe to Tenderfoot+ at ⁠⁠⁠https://tenderfoot.tv/plus/⁠⁠⁠.    Follow the show at @radiorental    Visit the website at ⁠⁠⁠radiorentalusa.com      To learn more about listener data and our privacy practices visit: https://www.audacyinc.com/privacy-policy     Learn more about your ad choices. Visit https://podcastchoices.com/adchoices",
+                "html_description": "<p>Welcome to Radio Rental, a mysterious video rental shop with a collection of VHS tapes containing TRUE scary stories, narrated by the people who experienced them...</p><br/><p><br />On today&#39;s tapes...</p><br/><p><br />&gt;&gt; Missing Time &lt;&lt; Drugs? Aliens? Sinister intentions? That&#39;s the last time this couple tries to make new friends.</p><br/><p><br />&gt;&gt; Gas Station Glitch &lt;&lt; Gas up and get out... or you just might be doomed to repeat this pit stop for all eternity.</p><br/><p><br />Meanwhile, at the store...</p><br/><p><br />Unsuspecting former customer Jeremy (Chris Redd) returns to Radio Rental (somehow) to host again (without his consent). He just blinked his eyes and he was there in the store, with the vest on. He swears it. Trippy. Kind of like this week&#39;s stories...</p><br/><p><br /></p><br/><p>Want more Radio Rental?</p><br/><ul><li>For early access and ad-free listening, subscribe to Tenderfoot&#43; at <a href=\"https://tenderfoot.tv/plus/\" rel=\"nofollow\">⁠⁠⁠https://tenderfoot.tv/plus/⁠⁠⁠</a>.</li><li>Follow the show at &#64;radiorental</li><li>Visit the website at <a href=\"https://radiorentalusa.com/\" rel=\"nofollow\">⁠⁠⁠radiorentalusa.com</a><br/></li></ul><p> </p><p> </p><p>To learn more about listener data and our privacy practices visit: <a href=\"https://www.audacyinc.com/privacy-policy\" rel=\"nofollow\">https://www.audacyinc.com/privacy-policy</a></p> <p> </p> <p>Learn more about your ad choices. Visit <a href=\"https://podcastchoices.com/adchoices\" rel=\"nofollow\">https://podcastchoices.com/adchoices</a></p>",
+                "duration_ms": 2631340,
+                "explicit": true,
+                "external_urls": {
+                  "spotify": "https://open.spotify.com/episode/5Lzj53SwQSZk3GMuiMRHpU"
+                },
+                "href": "https://api.spotify.com/v1/episodes/5Lzj53SwQSZk3GMuiMRHpU",
+                "id": "5Lzj53SwQSZk3GMuiMRHpU",
+                "images": [
+                  {
+                    "url": "https://i.scdn.co/image/ab6765630000ba8a6fbb14c82aa564e558a22f94",
+                    "height": 640,
+                    "width": 640
+                  },
+                  {
+                    "url": "https://i.scdn.co/image/ab67656300005f1f6fbb14c82aa564e558a22f94",
+                    "height": 300,
+                    "width": 300
+                  },
+                  {
+                    "url": "https://i.scdn.co/image/ab6765630000f68d6fbb14c82aa564e558a22f94",
+                    "height": 64,
+                    "width": 64
+                  }
+                ],
+                "is_externally_hosted": true,
+                "is_playable": true,
+                "language": "en",
+                "languages": [
+                  "en"
+                ],
+                "name": "Episode 84",
+                "release_date": "2025-08-01",
+                "release_date_precision": "day",
+                "type": "episode",
+                "uri": "spotify:episode:5Lzj53SwQSZk3GMuiMRHpU"
+              },
+              {
+                "description": "Welcome to Radio Rental, a mysterious video rental shop with a collection of VHS tapes containing TRUE scary stories, narrated by the people who experienced them...    On today's tapes...    >> Flight of the Valkyries << During a quaint, peaceful vacation, this family finds themselves surrounded.    >> RJ << She never liked her Aunt's boyfriend. Now she knows why.    Meanwhile, at the store...    Unsuspecting customer Jeremy (Chris Redd) stumbles into Radio Rental... and into a new part-time gig. Congrats Jeremy!    Want more Radio Rental?     For early access and ad-free listening, subscribe to Tenderfoot+ at ⁠https://tenderfoot.tv/plus/⁠.    Follow the show at @radiorental    Visit the website at ⁠radiorentalusa.com      To learn more about listener data and our privacy practices visit: https://www.audacyinc.com/privacy-policy     Learn more about your ad choices. Visit https://podcastchoices.com/adchoices",
+                "html_description": "<p>Welcome to Radio Rental, a mysterious video rental shop with a collection of VHS tapes containing TRUE scary stories, narrated by the people who experienced them...</p><br/><p><br /></p><br/><p>On today&#39;s tapes...</p><br/><p><br /></p><br/><p>&gt;&gt; Flight of the Valkyries &lt;&lt; During a quaint, peaceful vacation, this family finds themselves surrounded.</p><br/><p><br /></p><br/><p>&gt;&gt; RJ &lt;&lt; She never liked her Aunt&#39;s boyfriend. Now she knows why.</p><br/><p><br /></p><br/><p>Meanwhile, at the store...</p><br/><p><br /></p><br/><p>Unsuspecting customer Jeremy (Chris Redd) stumbles into Radio Rental... and into a new part-time gig. Congrats Jeremy!</p><br/><p><br /></p><br/><p>Want more Radio Rental?</p><br/><ul><li>For early access and ad-free listening, subscribe to Tenderfoot&#43; at <a href=\"https://tenderfoot.tv/plus/\" rel=\"nofollow\">⁠https://tenderfoot.tv/plus/⁠</a>.</li><li>Follow the show at &#64;radiorental</li><li>Visit the website at <a href=\"https://radiorentalusa.com/\" rel=\"nofollow\">⁠radiorentalusa.com</a><br/></li></ul><p> </p><p> </p><p>To learn more about listener data and our privacy practices visit: <a href=\"https://www.audacyinc.com/privacy-policy\" rel=\"nofollow\">https://www.audacyinc.com/privacy-policy</a></p> <p> </p> <p>Learn more about your ad choices. Visit <a href=\"https://podcastchoices.com/adchoices\" rel=\"nofollow\">https://podcastchoices.com/adchoices</a></p>",
+                "duration_ms": 2480300,
+                "explicit": true,
+                "external_urls": {
+                  "spotify": "https://open.spotify.com/episode/6vFQjF4rIjzBqkyw4qAQy7"
+                },
+                "href": "https://api.spotify.com/v1/episodes/6vFQjF4rIjzBqkyw4qAQy7",
+                "id": "6vFQjF4rIjzBqkyw4qAQy7",
+                "images": [
+                  {
+                    "url": "https://i.scdn.co/image/ab6765630000ba8adf92c3e198674729b2b89c3c",
+                    "height": 640,
+                    "width": 640
+                  },
+                  {
+                    "url": "https://i.scdn.co/image/ab67656300005f1fdf92c3e198674729b2b89c3c",
+                    "height": 300,
+                    "width": 300
+                  },
+                  {
+                    "url": "https://i.scdn.co/image/ab6765630000f68ddf92c3e198674729b2b89c3c",
+                    "height": 64,
+                    "width": 64
+                  }
+                ],
+                "is_externally_hosted": true,
+                "is_playable": true,
+                "language": "en",
+                "languages": [
+                  "en"
+                ],
+                "name": "Episode 83",
+                "release_date": "2025-07-25",
+                "release_date_precision": "day",
+                "type": "episode",
+                "uri": "spotify:episode:6vFQjF4rIjzBqkyw4qAQy7"
+              },
+              {
+                "description": "Welcome to Radio Rental, a mysterious video rental shop with a collection of VHS tapes with TRUE scary stories narrated by the people who experienced them...  On today's tapes...  >> The Jar << A few friends gather at a campsite... with a weird owner... near an abandoned theme park. Should be fine.  >> Warts << Sometimes you need something stronger than ointment. Just hope it doesn't linger.  Meanwhile, at the store...  Malachai (Tig Notaro) presents some disgusting tales of 'Body Horror' while enjoying his final hours with a human voice.    Want more Radio Rental?     For early access and ad-free listening, subscribe to Tenderfoot+ at ⁠⁠⁠https://tenderfoot.tv/plus/⁠⁠⁠.    Follow the show at @radiorental    Visit the website at ⁠⁠⁠radiorentalusa.com      To learn more about listener data and our privacy practices visit: https://www.audacyinc.com/privacy-policy     Learn more about your ad choices. Visit https://podcastchoices.com/adchoices",
+                "html_description": "<p>Welcome to Radio Rental, a mysterious video rental shop with a collection of VHS tapes with TRUE scary stories narrated by the people who experienced them...</p><br/><p><br />On today&#39;s tapes...</p><br/><p><br />&gt;&gt; The Jar &lt;&lt; A few friends gather at a campsite... with a weird owner... near an abandoned theme park. Should be fine.</p><br/><p><br />&gt;&gt; Warts &lt;&lt; Sometimes you need something stronger than ointment. Just hope it doesn&#39;t linger.</p><br/><p><br />Meanwhile, at the store...</p><br/><p><br />Malachai (Tig Notaro) presents some disgusting tales of &#39;Body Horror&#39; while enjoying his final hours with a human voice.</p><br/><p><br /></p><br/><p>Want more Radio Rental?</p><br/><ul><li>For early access and ad-free listening, subscribe to Tenderfoot&#43; at <a href=\"https://tenderfoot.tv/plus/\" rel=\"nofollow\">⁠⁠⁠https://tenderfoot.tv/plus/⁠⁠⁠</a>.</li><li>Follow the show at &#64;radiorental</li><li>Visit the website at <a href=\"https://radiorentalusa.com/\" rel=\"nofollow\">⁠⁠⁠radiorentalusa.com</a><br/></li></ul><p> </p><p> </p><p>To learn more about listener data and our privacy practices visit: <a href=\"https://www.audacyinc.com/privacy-policy\" rel=\"nofollow\">https://www.audacyinc.com/privacy-policy</a></p> <p> </p> <p>Learn more about your ad choices. Visit <a href=\"https://podcastchoices.com/adchoices\" rel=\"nofollow\">https://podcastchoices.com/adchoices</a></p>",
+                "duration_ms": 2135954,
+                "explicit": true,
+                "external_urls": {
+                  "spotify": "https://open.spotify.com/episode/5RXFIxbrsYHAKKVYStC9df"
+                },
+                "href": "https://api.spotify.com/v1/episodes/5RXFIxbrsYHAKKVYStC9df",
+                "id": "5RXFIxbrsYHAKKVYStC9df",
+                "images": [
+                  {
+                    "url": "https://i.scdn.co/image/ab6765630000ba8a6bd26d2d627c28c83c173284",
+                    "height": 640,
+                    "width": 640
+                  },
+                  {
+                    "url": "https://i.scdn.co/image/ab67656300005f1f6bd26d2d627c28c83c173284",
+                    "height": 300,
+                    "width": 300
+                  },
+                  {
+                    "url": "https://i.scdn.co/image/ab6765630000f68d6bd26d2d627c28c83c173284",
+                    "height": 64,
+                    "width": 64
+                  }
+                ],
+                "is_externally_hosted": true,
+                "is_playable": true,
+                "language": "en",
+                "languages": [
+                  "en"
+                ],
+                "name": "Episode 82",
+                "release_date": "2025-07-18",
+                "release_date_precision": "day",
+                "type": "episode",
+                "uri": "spotify:episode:5RXFIxbrsYHAKKVYStC9df"
+              },
+              {
+                "description": "Welcome to Radio Rental, a mysterious video rental shop with a collection of VHS tapes with TRUE scary stories narrated by the people who experienced them...  On today's tapes...  >> Underneath the Dock << Creepy crawlies all over your body.  >> Bottom of the Lake << Time to face what's under foot.  Meanwhile, at the store...  Malachai encounters a witch who puts a spell on him, and now he temporarily has a voice (Tig Notaro's) but still no thumbs. :(    Want more Radio Rental?     For early access and ad-free listening, subscribe to Tenderfoot+ at ⁠⁠https://tenderfoot.tv/plus/⁠⁠.    Follow the show at @radiorental    Visit the website at ⁠⁠radiorentalusa.com      To learn more about listener data and our privacy practices visit: https://www.audacyinc.com/privacy-policy     Learn more about your ad choices. Visit https://podcastchoices.com/adchoices",
+                "html_description": "<p>Welcome to Radio Rental, a mysterious video rental shop with a collection of VHS tapes with TRUE scary stories narrated by the people who experienced them...</p><br/><p><br />On today&#39;s tapes...</p><br/><p><br />&gt;&gt; Underneath the Dock &lt;&lt; Creepy crawlies all over your body.</p><br/><p><br />&gt;&gt; Bottom of the Lake &lt;&lt; Time to face what&#39;s under foot.</p><br/><p><br />Meanwhile, at the store...</p><br/><p><br />Malachai encounters a witch who puts a spell on him, and now he temporarily has a voice (Tig Notaro&#39;s) but still no thumbs. :(</p><br/><p><br /></p><br/><p>Want more Radio Rental?</p><br/><ul><li>For early access and ad-free listening, subscribe to Tenderfoot&#43; at <a href=\"https://tenderfoot.tv/plus/\" rel=\"nofollow\">⁠⁠https://tenderfoot.tv/plus/⁠⁠</a>.</li><li>Follow the show at &#64;radiorental</li><li>Visit the website at <a href=\"https://radiorentalusa.com/\" rel=\"nofollow\">⁠⁠radiorentalusa.com</a><br/></li></ul><p> </p><p> </p><p>To learn more about listener data and our privacy practices visit: <a href=\"https://www.audacyinc.com/privacy-policy\" rel=\"nofollow\">https://www.audacyinc.com/privacy-policy</a></p> <p> </p> <p>Learn more about your ad choices. Visit <a href=\"https://podcastchoices.com/adchoices\" rel=\"nofollow\">https://podcastchoices.com/adchoices</a></p>",
+                "duration_ms": 1550053,
+                "explicit": true,
+                "external_urls": {
+                  "spotify": "https://open.spotify.com/episode/3JKDbgduar4dJzVF2ZjniE"
+                },
+                "href": "https://api.spotify.com/v1/episodes/3JKDbgduar4dJzVF2ZjniE",
+                "id": "3JKDbgduar4dJzVF2ZjniE",
+                "images": [
+                  {
+                    "url": "https://i.scdn.co/image/ab6765630000ba8a188f2b3db16dc5174402226a",
+                    "height": 640,
+                    "width": 640
+                  },
+                  {
+                    "url": "https://i.scdn.co/image/ab67656300005f1f188f2b3db16dc5174402226a",
+                    "height": 300,
+                    "width": 300
+                  },
+                  {
+                    "url": "https://i.scdn.co/image/ab6765630000f68d188f2b3db16dc5174402226a",
+                    "height": 64,
+                    "width": 64
+                  }
+                ],
+                "is_externally_hosted": true,
+                "is_playable": true,
+                "language": "en",
+                "languages": [
+                  "en"
+                ],
+                "name": "Episode 81",
+                "release_date": "2025-07-11",
+                "release_date_precision": "day",
+                "type": "episode",
+                "uri": "spotify:episode:3JKDbgduar4dJzVF2ZjniE"
+              },
+              {
+                "description": "Welcome to Radio Rental, a mysterious video rental shop with a collection of VHS tapes with TRUE scary stories narrated by the people who experienced them...  On today's tapes...  >> Liminal Store << A quick run to the pharmacy? More like a quick run the The Backrooms.  >> Walk Around the World << While walking a familiar path, this duo sees strange lights in the trees... but that's just the beginning.  Meanwhile, at the store...  Terry Carnation's massage therapist, Chirpy Fitzhammer (Tony Cavalero), finishes his puzzle! Huge news. Later, Chirpy heads out for his next gig (i.e. stealing money from his stepmom).    Want more Radio Rental?     For early access and ad-free listening, subscribe to Tenderfoot+ at ⁠⁠https://tenderfoot.tv/plus/⁠⁠.    Follow the show at @radiorental    Visit the website at ⁠⁠radiorentalusa.com      To learn more about listener data and our privacy practices visit: https://www.audacyinc.com/privacy-policy     Learn more about your ad choices. Visit https://podcastchoices.com/adchoices",
+                "html_description": "<p>Welcome to Radio Rental, a mysterious video rental shop with a collection of VHS tapes with TRUE scary stories narrated by the people who experienced them...</p><br/><p><br />On today&#39;s tapes...</p><br/><p><br />&gt;&gt; Liminal Store &lt;&lt; A quick run to the pharmacy? More like a quick run the The Backrooms.</p><br/><p><br />&gt;&gt; Walk Around the World &lt;&lt; While walking a familiar path, this duo sees strange lights in the trees... but that&#39;s just the beginning.</p><br/><p><br />Meanwhile, at the store...</p><br/><p><br />Terry Carnation&#39;s massage therapist, Chirpy Fitzhammer (Tony Cavalero), finishes his puzzle! Huge news. Later, Chirpy heads out for his next gig (i.e. stealing money from his stepmom).</p><br/><p><br /></p><br/><p>Want more Radio Rental?</p><br/><ul><li>For early access and ad-free listening, subscribe to Tenderfoot&#43; at <a href=\"https://tenderfoot.tv/plus/\" rel=\"nofollow\">⁠⁠https://tenderfoot.tv/plus/⁠⁠</a>.</li><li>Follow the show at &#64;radiorental</li><li>Visit the website at <a href=\"https://radiorentalusa.com/\" rel=\"nofollow\">⁠⁠radiorentalusa.com</a><br/></li></ul><p> </p><p> </p><p>To learn more about listener data and our privacy practices visit: <a href=\"https://www.audacyinc.com/privacy-policy\" rel=\"nofollow\">https://www.audacyinc.com/privacy-policy</a></p> <p> </p> <p>Learn more about your ad choices. Visit <a href=\"https://podcastchoices.com/adchoices\" rel=\"nofollow\">https://podcastchoices.com/adchoices</a></p>",
+                "duration_ms": 2112992,
+                "explicit": true,
+                "external_urls": {
+                  "spotify": "https://open.spotify.com/episode/3LwISPMqvjM3RexWsOB1VM"
+                },
+                "href": "https://api.spotify.com/v1/episodes/3LwISPMqvjM3RexWsOB1VM",
+                "id": "3LwISPMqvjM3RexWsOB1VM",
+                "images": [
+                  {
+                    "url": "https://i.scdn.co/image/ab6765630000ba8a3d8795b561381cc9f1a7bbb3",
+                    "height": 640,
+                    "width": 640
+                  },
+                  {
+                    "url": "https://i.scdn.co/image/ab67656300005f1f3d8795b561381cc9f1a7bbb3",
+                    "height": 300,
+                    "width": 300
+                  },
+                  {
+                    "url": "https://i.scdn.co/image/ab6765630000f68d3d8795b561381cc9f1a7bbb3",
+                    "height": 64,
+                    "width": 64
+                  }
+                ],
+                "is_externally_hosted": true,
+                "is_playable": true,
+                "language": "en",
+                "languages": [
+                  "en"
+                ],
+                "name": "Episode 80",
+                "release_date": "2025-07-04",
+                "release_date_precision": "day",
+                "type": "episode",
+                "uri": "spotify:episode:3LwISPMqvjM3RexWsOB1VM"
+              },
+              {
+                "description": "Welcome to Radio Rental, a mysterious video rental shop with a collection of VHS tapes with TRUE scary stories narrated by the people who experienced them...  On today's tapes...  >> Steak 'n Shaking << A touring band gets rocked.  >> The Aeronaut << You know when you're in a potentially life-threatening situation, but all you can talk about is propeller speed?  Meanwhile, at the store...  Terry Carnation's masseuse - sorry, Massage Therapist - Chirpy Fitzhammer (Tony Cavalero) stops by to take on a couple shifts at the store. Sweet gig! Mostly he plays Tetris, drinks slushies, and talks about his stepmom. Pretty chill guy.    Want more Radio Rental?     For early access and ad-free listening, subscribe to Tenderfoot+ at ⁠⁠https://tenderfoot.tv/plus/⁠⁠.    Follow the show at @radiorental    Visit the website at ⁠⁠radiorentalusa.com      To learn more about listener data and our privacy practices visit: https://www.audacyinc.com/privacy-policy     Learn more about your ad choices. Visit https://podcastchoices.com/adchoices",
+                "html_description": "<p>Welcome to Radio Rental, a mysterious video rental shop with a collection of VHS tapes with TRUE scary stories narrated by the people who experienced them...</p><br/><p><br />On today&#39;s tapes...</p><br/><p><br />&gt;&gt; Steak &#39;n Shaking &lt;&lt; A touring band gets rocked.</p><br/><p><br />&gt;&gt; The Aeronaut &lt;&lt; You know when you&#39;re in a potentially life-threatening situation, but all you can talk about is propeller speed?</p><br/><p><br />Meanwhile, at the store...</p><br/><p><br />Terry Carnation&#39;s masseuse - sorry, Massage Therapist - Chirpy Fitzhammer (Tony Cavalero) stops by to take on a couple shifts at the store. Sweet gig! Mostly he plays Tetris, drinks slushies, and talks about his stepmom. Pretty chill guy.</p><br/><p><br /></p><br/><p>Want more Radio Rental?</p><br/><ul><li>For early access and ad-free listening, subscribe to Tenderfoot&#43; at <a href=\"https://tenderfoot.tv/plus/\" rel=\"nofollow\">⁠⁠https://tenderfoot.tv/plus/⁠⁠</a>.</li><li>Follow the show at &#64;radiorental</li><li>Visit the website at <a href=\"https://radiorentalusa.com/\" rel=\"nofollow\">⁠⁠radiorentalusa.com</a><br/></li></ul><p> </p><p> </p><p>To learn more about listener data and our privacy practices visit: <a href=\"https://www.audacyinc.com/privacy-policy\" rel=\"nofollow\">https://www.audacyinc.com/privacy-policy</a></p> <p> </p> <p>Learn more about your ad choices. Visit <a href=\"https://podcastchoices.com/adchoices\" rel=\"nofollow\">https://podcastchoices.com/adchoices</a></p>",
+                "duration_ms": 2282997,
+                "explicit": true,
+                "external_urls": {
+                  "spotify": "https://open.spotify.com/episode/18VPL7iuBlRwNCCJT5nNAH"
+                },
+                "href": "https://api.spotify.com/v1/episodes/18VPL7iuBlRwNCCJT5nNAH",
+                "id": "18VPL7iuBlRwNCCJT5nNAH",
+                "images": [
+                  {
+                    "url": "https://i.scdn.co/image/ab6765630000ba8aae80a99f03a65b6a998b9688",
+                    "height": 640,
+                    "width": 640
+                  },
+                  {
+                    "url": "https://i.scdn.co/image/ab67656300005f1fae80a99f03a65b6a998b9688",
+                    "height": 300,
+                    "width": 300
+                  },
+                  {
+                    "url": "https://i.scdn.co/image/ab6765630000f68dae80a99f03a65b6a998b9688",
+                    "height": 64,
+                    "width": 64
+                  }
+                ],
+                "is_externally_hosted": true,
+                "is_playable": true,
+                "language": "en",
+                "languages": [
+                  "en"
+                ],
+                "name": "Episode 79",
+                "release_date": "2025-06-27",
+                "release_date_precision": "day",
+                "type": "episode",
+                "uri": "spotify:episode:18VPL7iuBlRwNCCJT5nNAH"
+              },
+              {
+                "description": "Welcome to Radio Rental, a mysterious video rental shop with a collection of VHS tapes with TRUE scary stories narrated by the people who experienced them...  On today's tapes...  >> Figure in the Window << It's a classic \"Entity Next Door\" story.  >> Growl << Man, animal... or other?  Meanwhile, at the store...  Terry Carnation's old work \"friend\" Ed stops by to manage the store for Terry. Unfortunately for Ed, he wasn't really briefed on the genre.    Want more Radio Rental?     For early access and ad-free listening, subscribe to Tenderfoot+ at ⁠⁠https://tenderfoot.tv/plus/⁠⁠.    Follow the show at @radiorental    Visit the website at ⁠⁠radiorentalusa.com      To learn more about listener data and our privacy practices visit: https://www.audacyinc.com/privacy-policy     Learn more about your ad choices. Visit https://podcastchoices.com/adchoices",
+                "html_description": "<p>Welcome to Radio Rental, a mysterious video rental shop with a collection of VHS tapes with TRUE scary stories narrated by the people who experienced them...</p><br/><p><br />On today&#39;s tapes...</p><br/><p><br />&gt;&gt; Figure in the Window &lt;&lt; It&#39;s a classic &#34;Entity Next Door&#34; story.</p><br/><p><br />&gt;&gt; Growl &lt;&lt; Man, animal... or other?</p><br/><p><br />Meanwhile, at the store...</p><br/><p><br />Terry Carnation&#39;s old work &#34;friend&#34; Ed stops by to manage the store for Terry. Unfortunately for Ed, he wasn&#39;t really briefed on the genre.</p><br/><p><br /></p><br/><p>Want more Radio Rental?</p><br/><ul><li>For early access and ad-free listening, subscribe to Tenderfoot&#43; at <a href=\"https://tenderfoot.tv/plus/\" rel=\"nofollow\">⁠⁠https://tenderfoot.tv/plus/⁠⁠</a>.</li><li>Follow the show at &#64;radiorental</li><li>Visit the website at <a href=\"https://radiorentalusa.com/\" rel=\"nofollow\">⁠⁠radiorentalusa.com</a><br/></li></ul><p> </p><p> </p><p>To learn more about listener data and our privacy practices visit: <a href=\"https://www.audacyinc.com/privacy-policy\" rel=\"nofollow\">https://www.audacyinc.com/privacy-policy</a></p> <p> </p> <p>Learn more about your ad choices. Visit <a href=\"https://podcastchoices.com/adchoices\" rel=\"nofollow\">https://podcastchoices.com/adchoices</a></p>",
+                "duration_ms": 1899180,
+                "explicit": true,
+                "external_urls": {
+                  "spotify": "https://open.spotify.com/episode/6zOBtDMeFSMREglScwOUx8"
+                },
+                "href": "https://api.spotify.com/v1/episodes/6zOBtDMeFSMREglScwOUx8",
+                "id": "6zOBtDMeFSMREglScwOUx8",
+                "images": [
+                  {
+                    "url": "https://i.scdn.co/image/ab6765630000ba8af103f7075be3e43e3f27c805",
+                    "height": 640,
+                    "width": 640
+                  },
+                  {
+                    "url": "https://i.scdn.co/image/ab67656300005f1ff103f7075be3e43e3f27c805",
+                    "height": 300,
+                    "width": 300
+                  },
+                  {
+                    "url": "https://i.scdn.co/image/ab6765630000f68df103f7075be3e43e3f27c805",
+                    "height": 64,
+                    "width": 64
+                  }
+                ],
+                "is_externally_hosted": true,
+                "is_playable": true,
+                "language": "en",
+                "languages": [
+                  "en"
+                ],
+                "name": "Episode 78",
+                "release_date": "2025-06-20",
+                "release_date_precision": "day",
+                "type": "episode",
+                "uri": "spotify:episode:6zOBtDMeFSMREglScwOUx8"
+              },
+              {
+                "description": "Welcome to Radio Rental, a mysterious video rental shop with a collection of VHS tapes with TRUE scary stories narrated by the people who experienced them...  On today's tapes...  >> No Body's Nokia << He was silenced... but his phone wasn't.   >> Laughing into the Phone << This couple chats on the phone all night. Wait. Didn't we say \"couple\"? So, then who...?  Meanwhile, at the store...  Terry Carnation receives a mysterious \"ransom\" note. He must leave the Radio Rental store on an unexpected mission. What will happen next? Stay tuned.    Want more Radio Rental?     For early access and ad-free listening, subscribe to Tenderfoot+ at ⁠https://tenderfoot.tv/plus/⁠.    Follow the show at @radiorental    Visit the website at ⁠radiorentalusa.com      To learn more about listener data and our privacy practices visit: https://www.audacyinc.com/privacy-policy     Learn more about your ad choices. Visit https://podcastchoices.com/adchoices",
+                "html_description": "<p>Welcome to Radio Rental, a mysterious video rental shop with a collection of VHS tapes with TRUE scary stories narrated by the people who experienced them...</p><br/><p><br />On today&#39;s tapes...</p><br/><p><br />&gt;&gt; No Body&#39;s Nokia &lt;&lt; He was silenced... but his phone wasn&#39;t. </p><br/><p><br />&gt;&gt; Laughing into the Phone &lt;&lt; This couple chats on the phone all night. Wait. Didn&#39;t we say &#34;couple&#34;? So, then who...?</p><br/><p><br />Meanwhile, at the store...</p><br/><p><br />Terry Carnation receives a mysterious &#34;ransom&#34; note. He must leave the Radio Rental store on an unexpected mission. What will happen next? Stay tuned.</p><br/><p><br /></p><br/><p>Want more Radio Rental?</p><br/><ul><li>For early access and ad-free listening, subscribe to Tenderfoot&#43; at <a href=\"https://tenderfoot.tv/plus/\" rel=\"nofollow\">⁠https://tenderfoot.tv/plus/⁠</a>.</li><li>Follow the show at &#64;radiorental</li><li>Visit the website at <a href=\"https://radiorentalusa.com/\" rel=\"nofollow\">⁠radiorentalusa.com</a><br/></li></ul><p> </p><p> </p><p>To learn more about listener data and our privacy practices visit: <a href=\"https://www.audacyinc.com/privacy-policy\" rel=\"nofollow\">https://www.audacyinc.com/privacy-policy</a></p> <p> </p> <p>Learn more about your ad choices. Visit <a href=\"https://podcastchoices.com/adchoices\" rel=\"nofollow\">https://podcastchoices.com/adchoices</a></p>",
+                "duration_ms": 2555193,
+                "explicit": true,
+                "external_urls": {
+                  "spotify": "https://open.spotify.com/episode/5p7lg05lsK6hurWU5FaKpx"
+                },
+                "href": "https://api.spotify.com/v1/episodes/5p7lg05lsK6hurWU5FaKpx",
+                "id": "5p7lg05lsK6hurWU5FaKpx",
+                "images": [
+                  {
+                    "url": "https://i.scdn.co/image/ab6765630000ba8acc8d9822a2d072e32cc007fb",
+                    "height": 640,
+                    "width": 640
+                  },
+                  {
+                    "url": "https://i.scdn.co/image/ab67656300005f1fcc8d9822a2d072e32cc007fb",
+                    "height": 300,
+                    "width": 300
+                  },
+                  {
+                    "url": "https://i.scdn.co/image/ab6765630000f68dcc8d9822a2d072e32cc007fb",
+                    "height": 64,
+                    "width": 64
+                  }
+                ],
+                "is_externally_hosted": true,
+                "is_playable": true,
+                "language": "en",
+                "languages": [
+                  "en"
+                ],
+                "name": "Episode 77",
+                "release_date": "2025-06-13",
+                "release_date_precision": "day",
+                "type": "episode",
+                "uri": "spotify:episode:5p7lg05lsK6hurWU5FaKpx"
+              },
+              {
+                "description": "Welcome to Radio Rental, a mysterious video rental shop with a collection of VHS tapes with TRUE scary stories narrated by the people who experienced them...  On today's tapes...  >> Fair Weather Stalker << It started with a few weird phone calls... and then it REALLY escalated.  >> Edge of My Bed << This one will make you think twice when your foot bumps something in the middle of the night.  Meanwhile, at the store...  Terry Carnation receives creepy phone calls of his own (complete with heavy breathing). He thinks he sees someone skulking around the store... maybe just a trick of the mind.    Want more Radio Rental?     For early access and ad-free listening, subscribe to Tenderfoot+ at ⁠https://tenderfoot.tv/plus/⁠.    Follow the show at @radiorental    Visit the website at ⁠radiorentalusa.com      To learn more about listener data and our privacy practices visit: https://www.audacyinc.com/privacy-policy     Learn more about your ad choices. Visit https://podcastchoices.com/adchoices",
+                "html_description": "<p>Welcome to Radio Rental, a mysterious video rental shop with a collection of VHS tapes with TRUE scary stories narrated by the people who experienced them...</p><br/><p><br />On today&#39;s tapes...</p><br/><p><br />&gt;&gt; Fair Weather Stalker &lt;&lt; It started with a few weird phone calls... and then it REALLY escalated.</p><br/><p><br />&gt;&gt; Edge of My Bed &lt;&lt; This one will make you think twice when your foot bumps something in the middle of the night.</p><br/><p><br />Meanwhile, at the store...</p><br/><p><br />Terry Carnation receives creepy phone calls of his own (complete with heavy breathing). He thinks he sees someone skulking around the store... maybe just a trick of the mind.</p><br/><p><br /></p><br/><p>Want more Radio Rental?</p><br/><ul><li>For early access and ad-free listening, subscribe to Tenderfoot&#43; at <a href=\"https://tenderfoot.tv/plus/\" rel=\"nofollow\">⁠https://tenderfoot.tv/plus/⁠</a>.</li><li>Follow the show at &#64;radiorental</li><li>Visit the website at <a href=\"https://radiorentalusa.com/\" rel=\"nofollow\">⁠radiorentalusa.com</a><br /><br/></li></ul><p> </p><p> </p><p>To learn more about listener data and our privacy practices visit: <a href=\"https://www.audacyinc.com/privacy-policy\" rel=\"nofollow\">https://www.audacyinc.com/privacy-policy</a></p> <p> </p> <p>Learn more about your ad choices. Visit <a href=\"https://podcastchoices.com/adchoices\" rel=\"nofollow\">https://podcastchoices.com/adchoices</a></p>",
+                "duration_ms": 2961188,
+                "explicit": true,
+                "external_urls": {
+                  "spotify": "https://open.spotify.com/episode/5v9lE61MRtGNj46nQd1K93"
+                },
+                "href": "https://api.spotify.com/v1/episodes/5v9lE61MRtGNj46nQd1K93",
+                "id": "5v9lE61MRtGNj46nQd1K93",
+                "images": [
+                  {
+                    "url": "https://i.scdn.co/image/ab6765630000ba8a8edd9a91bc2935175fd06ddb",
+                    "height": 640,
+                    "width": 640
+                  },
+                  {
+                    "url": "https://i.scdn.co/image/ab67656300005f1f8edd9a91bc2935175fd06ddb",
+                    "height": 300,
+                    "width": 300
+                  },
+                  {
+                    "url": "https://i.scdn.co/image/ab6765630000f68d8edd9a91bc2935175fd06ddb",
+                    "height": 64,
+                    "width": 64
+                  }
+                ],
+                "is_externally_hosted": true,
+                "is_playable": true,
+                "language": "en",
+                "languages": [
+                  "en"
+                ],
+                "name": "Episode 76",
+                "release_date": "2025-06-06",
+                "release_date_precision": "day",
+                "type": "episode",
+                "uri": "spotify:episode:5v9lE61MRtGNj46nQd1K93"
+              },
+              {
+                "description": "It's scary story time. Radio Rental re-opens June 6th.   To learn more about listener data and our privacy practices visit: https://www.audacyinc.com/privacy-policy     Learn more about your ad choices. Visit https://podcastchoices.com/adchoices",
+                "html_description": "<p>It&#39;s scary story time. Radio Rental re-opens June 6th.</p><p> </p><p> </p><p>To learn more about listener data and our privacy practices visit: <a href=\"https://www.audacyinc.com/privacy-policy\" rel=\"nofollow\">https://www.audacyinc.com/privacy-policy</a></p> <p> </p> <p>Learn more about your ad choices. Visit <a href=\"https://podcastchoices.com/adchoices\" rel=\"nofollow\">https://podcastchoices.com/adchoices</a></p>",
+                "duration_ms": 81998,
+                "explicit": false,
+                "external_urls": {
+                  "spotify": "https://open.spotify.com/episode/74huuLYSjsYHPXpatdsgk7"
+                },
+                "href": "https://api.spotify.com/v1/episodes/74huuLYSjsYHPXpatdsgk7",
+                "id": "74huuLYSjsYHPXpatdsgk7",
+                "images": [
+                  {
+                    "url": "https://i.scdn.co/image/ab6765630000ba8aa0c7680b4f92382f2b1e1831",
+                    "height": 640,
+                    "width": 640
+                  },
+                  {
+                    "url": "https://i.scdn.co/image/ab67656300005f1fa0c7680b4f92382f2b1e1831",
+                    "height": 300,
+                    "width": 300
+                  },
+                  {
+                    "url": "https://i.scdn.co/image/ab6765630000f68da0c7680b4f92382f2b1e1831",
+                    "height": 64,
+                    "width": 64
+                  }
+                ],
+                "is_externally_hosted": true,
+                "is_playable": true,
+                "language": "en",
+                "languages": [
+                  "en"
+                ],
+                "name": "Do you know what time it is?",
+                "release_date": "2025-05-24",
+                "release_date_precision": "day",
+                "type": "episode",
+                "uri": "spotify:episode:74huuLYSjsYHPXpatdsgk7"
+              },
+              {
+                "description": "On today's tapes...    >> Have You Seen My Brother? << It really makes you wonder... did he even have a brother?    Want more Radio Rental?     Follow the show at @radiorental    Visit the website at ⁠radiorentalusa.com",
+                "html_description": "<p>On today&#39;s tapes...</p><br/><p><br /></p><br/><p>&gt;&gt; Have You Seen My Brother? &lt;&lt; It really makes you wonder... did he even have a brother?</p><br/><p><br /></p><br/><p>Want more Radio Rental?</p><br/><ul><li>Follow the show at &#64;radiorental</li><li>Visit the website at <a href=\"https://radiorentalusa.com/\" rel=\"nofollow\">⁠radiorentalusa.com</a><br/></li></ul>",
+                "duration_ms": 884088,
+                "explicit": true,
+                "external_urls": {
+                  "spotify": "https://open.spotify.com/episode/5lXpTKMoAqgN7aCe5mhctg"
+                },
+                "href": "https://api.spotify.com/v1/episodes/5lXpTKMoAqgN7aCe5mhctg",
+                "id": "5lXpTKMoAqgN7aCe5mhctg",
+                "images": [
+                  {
+                    "url": "https://i.scdn.co/image/ab6765630000ba8a49bdac6d5cb17fc673514909",
+                    "height": 640,
+                    "width": 640
+                  },
+                  {
+                    "url": "https://i.scdn.co/image/ab67656300005f1f49bdac6d5cb17fc673514909",
+                    "height": 300,
+                    "width": 300
+                  },
+                  {
+                    "url": "https://i.scdn.co/image/ab6765630000f68d49bdac6d5cb17fc673514909",
+                    "height": 64,
+                    "width": 64
+                  }
+                ],
+                "is_externally_hosted": false,
+                "is_playable": false,
+                "language": "en",
+                "languages": [
+                  "en"
+                ],
+                "name": "Bonus Tape: Have You Seen My Brother?",
+                "release_date": "2025-05-02",
+                "release_date_precision": "day",
+                "type": "episode",
+                "uri": "spotify:episode:5lXpTKMoAqgN7aCe5mhctg",
+                "restrictions": {
+                  "reason": "payment_required"
+                }
+              },
+              {
+                "description": "On today's tapes...  >> The Dunes << A strange encounter on the sand dunes in Death Valley brings these highschoolers closer to \"death\" than they'd bargained for.  Want more Radio Rental?  Follow the show at @radiorental  Visit the website at radiorentalusa.com",
+                "html_description": "<p>On today&#39;s tapes...</p><p><br /></p><p>&gt;&gt; The Dunes &lt;&lt; A strange encounter on the sand dunes in Death Valley brings these highschoolers closer to &#34;death&#34; than they&#39;d bargained for.</p><p><br /></p><p>Want more Radio Rental?</p><ul><li>Follow the show at &#64;radiorental</li><li>Visit the website at <a href=\"https://radiorentalusa.com/\" rel=\"nofollow\">radiorentalusa.com</a><br/></li></ul>",
+                "duration_ms": 771160,
+                "explicit": false,
+                "external_urls": {
+                  "spotify": "https://open.spotify.com/episode/1x6xF4jw5JPCC3iVvG6YUI"
+                },
+                "href": "https://api.spotify.com/v1/episodes/1x6xF4jw5JPCC3iVvG6YUI",
+                "id": "1x6xF4jw5JPCC3iVvG6YUI",
+                "images": [
+                  {
+                    "url": "https://i.scdn.co/image/ab6765630000ba8a49bdac6d5cb17fc673514909",
+                    "height": 640,
+                    "width": 640
+                  },
+                  {
+                    "url": "https://i.scdn.co/image/ab67656300005f1f49bdac6d5cb17fc673514909",
+                    "height": 300,
+                    "width": 300
+                  },
+                  {
+                    "url": "https://i.scdn.co/image/ab6765630000f68d49bdac6d5cb17fc673514909",
+                    "height": 64,
+                    "width": 64
+                  }
+                ],
+                "is_externally_hosted": false,
+                "is_playable": false,
+                "language": "en",
+                "languages": [
+                  "en"
+                ],
+                "name": "Bonus Tape: The Dunes",
+                "release_date": "2025-01-16",
+                "release_date_precision": "day",
+                "type": "episode",
+                "uri": "spotify:episode:1x6xF4jw5JPCC3iVvG6YUI",
+                "restrictions": {
+                  "reason": "payment_required"
+                }
+              },
+              {
+                "description": "On today's tapes...  >> Watching Me Sleep << Check your utility closets, folks.  >> Road Rage << You never know who's on a rampage...  Want more Radio Rental?  For early access and ad-free listening, subscribe to Tenderfoot+ at https://tenderfoot.tv/plus/.  Follow the show at @radiorental  Visit the website at radiorentalusa.com      To learn more about listener data and our privacy practices visit: https://www.audacyinc.com/privacy-policy     Learn more about your ad choices. Visit https://podcastchoices.com/adchoices",
+                "html_description": "<p>On today&#39;s tapes...</p><p><br /></p><p>&gt;&gt; Watching Me Sleep &lt;&lt; Check your utility closets, folks.</p><p><br /></p><p>&gt;&gt; Road Rage &lt;&lt; You never know who&#39;s on a rampage...</p><p><br /></p><p>Want more Radio Rental?</p><ul><li>For early access and ad-free listening, subscribe to Tenderfoot&#43; at <a href=\"https://tenderfoot.tv/plus/\" rel=\"nofollow\">https://tenderfoot.tv/plus/</a>.</li><li>Follow the show at &#64;radiorental</li><li>Visit the website at <a href=\"https://radiorentalusa.com/\" rel=\"nofollow\">radiorentalusa.com</a><br/></li></ul><p> </p><p> </p><p>To learn more about listener data and our privacy practices visit: <a href=\"https://www.audacyinc.com/privacy-policy\" rel=\"nofollow\">https://www.audacyinc.com/privacy-policy</a></p> <p> </p> <p>Learn more about your ad choices. Visit <a href=\"https://podcastchoices.com/adchoices\" rel=\"nofollow\">https://podcastchoices.com/adchoices</a></p>",
+                "duration_ms": 1707964,
+                "explicit": true,
+                "external_urls": {
+                  "spotify": "https://open.spotify.com/episode/2blR7si5kaTMBEXK5wmCr1"
+                },
+                "href": "https://api.spotify.com/v1/episodes/2blR7si5kaTMBEXK5wmCr1",
+                "id": "2blR7si5kaTMBEXK5wmCr1",
+                "images": [
+                  {
+                    "url": "https://i.scdn.co/image/ab6765630000ba8a0d9e1e6b7572a752ec1b8397",
+                    "height": 640,
+                    "width": 640
+                  },
+                  {
+                    "url": "https://i.scdn.co/image/ab67656300005f1f0d9e1e6b7572a752ec1b8397",
+                    "height": 300,
+                    "width": 300
+                  },
+                  {
+                    "url": "https://i.scdn.co/image/ab6765630000f68d0d9e1e6b7572a752ec1b8397",
+                    "height": 64,
+                    "width": 64
+                  }
+                ],
+                "is_externally_hosted": true,
+                "is_playable": true,
+                "language": "en",
+                "languages": [
+                  "en"
+                ],
+                "name": "Episode 75",
+                "release_date": "2024-12-06",
+                "release_date_precision": "day",
+                "type": "episode",
+                "uri": "spotify:episode:2blR7si5kaTMBEXK5wmCr1"
+              },
+              {
+                "description": "On today's tapes...  >> Do You Think She'll Do? << A night at the theater includes a couple of bad actors...  >> The Disappearing House << Don't go in the closet.  Want more Radio Rental?  For early access and ad-free listening, subscribe to Tenderfoot+ at https://tenderfoot.tv/plus/.  Follow the show at @radiorental  Visit the website at radiorentalusa.com      To learn more about listener data and our privacy practices visit: https://www.audacyinc.com/privacy-policy     Learn more about your ad choices. Visit https://podcastchoices.com/adchoices",
+                "html_description": "<p>On today&#39;s tapes...</p><p><br /></p><p>&gt;&gt; Do You Think She&#39;ll Do? &lt;&lt; A night at the theater includes a couple of bad actors...</p><p><br /></p><p>&gt;&gt; The Disappearing House &lt;&lt; Don&#39;t go in the closet.</p><p><br /></p><p>Want more Radio Rental?</p><ul><li>For early access and ad-free listening, subscribe to Tenderfoot&#43; at <a href=\"https://tenderfoot.tv/plus/\" rel=\"nofollow\">https://tenderfoot.tv/plus/</a>.</li><li>Follow the show at &#64;radiorental</li><li>Visit the website at <a href=\"https://radiorentalusa.com/\" rel=\"nofollow\">radiorentalusa.com</a><br/></li></ul><p> </p><p> </p><p>To learn more about listener data and our privacy practices visit: <a href=\"https://www.audacyinc.com/privacy-policy\" rel=\"nofollow\">https://www.audacyinc.com/privacy-policy</a></p> <p> </p> <p>Learn more about your ad choices. Visit <a href=\"https://podcastchoices.com/adchoices\" rel=\"nofollow\">https://podcastchoices.com/adchoices</a></p>",
+                "duration_ms": 2376254,
+                "explicit": true,
+                "external_urls": {
+                  "spotify": "https://open.spotify.com/episode/5YmlBOoldFmXVnuQRsEvnp"
+                },
+                "href": "https://api.spotify.com/v1/episodes/5YmlBOoldFmXVnuQRsEvnp",
+                "id": "5YmlBOoldFmXVnuQRsEvnp",
+                "images": [
+                  {
+                    "url": "https://i.scdn.co/image/ab6765630000ba8ad9a358e1487a1876e52263e5",
+                    "height": 640,
+                    "width": 640
+                  },
+                  {
+                    "url": "https://i.scdn.co/image/ab67656300005f1fd9a358e1487a1876e52263e5",
+                    "height": 300,
+                    "width": 300
+                  },
+                  {
+                    "url": "https://i.scdn.co/image/ab6765630000f68dd9a358e1487a1876e52263e5",
+                    "height": 64,
+                    "width": 64
+                  }
+                ],
+                "is_externally_hosted": true,
+                "is_playable": true,
+                "language": "en",
+                "languages": [
+                  "en"
+                ],
+                "name": "Episode 74",
+                "release_date": "2024-11-29",
+                "release_date_precision": "day",
+                "type": "episode",
+                "uri": "spotify:episode:5YmlBOoldFmXVnuQRsEvnp"
+              },
+              {
+                "description": "On today's tapes...  >> Business Trip << A confident businessman learns why you should heed the warnings.  >> Grindr Guy << Hard to trust anyone you meet online when they do this to you.  Want more Radio Rental?  For early access and ad-free listening, subscribe to Tenderfoot+ at https://tenderfoot.tv/plus/.  Follow the show at @radiorental  Visit the website at radiorentalusa.com      To learn more about listener data and our privacy practices visit: https://www.audacyinc.com/privacy-policy     Learn more about your ad choices. Visit https://podcastchoices.com/adchoices",
+                "html_description": "<p>On today&#39;s tapes...</p><p><br /></p><p>&gt;&gt; Business Trip &lt;&lt; A confident businessman learns why you should heed the warnings.</p><p><br /></p><p>&gt;&gt; Grindr Guy &lt;&lt; Hard to trust anyone you meet online when they do this to you.</p><p><br /></p><p>Want more Radio Rental?</p><ul><li>For early access and ad-free listening, subscribe to Tenderfoot&#43; at <a href=\"https://tenderfoot.tv/plus/\" rel=\"nofollow\">https://tenderfoot.tv/plus/</a>.</li><li>Follow the show at &#64;radiorental</li><li>Visit the website at <a href=\"https://radiorentalusa.com/\" rel=\"nofollow\">radiorentalusa.com</a><br/></li></ul><p> </p><p> </p><p>To learn more about listener data and our privacy practices visit: <a href=\"https://www.audacyinc.com/privacy-policy\" rel=\"nofollow\">https://www.audacyinc.com/privacy-policy</a></p> <p> </p> <p>Learn more about your ad choices. Visit <a href=\"https://podcastchoices.com/adchoices\" rel=\"nofollow\">https://podcastchoices.com/adchoices</a></p>",
+                "duration_ms": 2456842,
+                "explicit": true,
+                "external_urls": {
+                  "spotify": "https://open.spotify.com/episode/0rSum9JRNsKvyXQyBpyDOh"
+                },
+                "href": "https://api.spotify.com/v1/episodes/0rSum9JRNsKvyXQyBpyDOh",
+                "id": "0rSum9JRNsKvyXQyBpyDOh",
+                "images": [
+                  {
+                    "url": "https://i.scdn.co/image/ab6765630000ba8a44f0a6e81c9b91d8f0b969f4",
+                    "height": 640,
+                    "width": 640
+                  },
+                  {
+                    "url": "https://i.scdn.co/image/ab67656300005f1f44f0a6e81c9b91d8f0b969f4",
+                    "height": 300,
+                    "width": 300
+                  },
+                  {
+                    "url": "https://i.scdn.co/image/ab6765630000f68d44f0a6e81c9b91d8f0b969f4",
+                    "height": 64,
+                    "width": 64
+                  }
+                ],
+                "is_externally_hosted": true,
+                "is_playable": true,
+                "language": "en",
+                "languages": [
+                  "en"
+                ],
+                "name": "Episode 73",
+                "release_date": "2024-11-22",
+                "release_date_precision": "day",
+                "type": "episode",
+                "uri": "spotify:episode:0rSum9JRNsKvyXQyBpyDOh"
+              },
+              {
+                "description": "On today's tapes...  >> The Mug << \"Well, a boy's best friend is his mother.\"  >> Searching for an Apartment << All the flags were red, but not everyone was paying attention...  Want more Radio Rental?  For early access and ad-free listening, subscribe to Tenderfoot+ at https://tenderfoot.tv/plus/.  Follow the show at @radiorental  Visit the website at radiorentalusa.com      To learn more about listener data and our privacy practices visit: https://www.audacyinc.com/privacy-policy     Learn more about your ad choices. Visit https://podcastchoices.com/adchoices",
+                "html_description": "<p>On today&#39;s tapes...</p><p><br /></p><p>&gt;&gt; The Mug &lt;&lt; &#34;Well, a boy&#39;s best friend is his mother.&#34;</p><p><br /></p><p>&gt;&gt; Searching for an Apartment &lt;&lt; All the flags were red, but not everyone was paying attention...</p><p><br /></p><p>Want more Radio Rental?</p><ul><li>For early access and ad-free listening, subscribe to Tenderfoot&#43; at <a href=\"https://tenderfoot.tv/plus/\" rel=\"nofollow\">https://tenderfoot.tv/plus/</a>.</li><li>Follow the show at &#64;radiorental</li><li>Visit the website at <a href=\"https://radiorentalusa.com/\" rel=\"nofollow\">radiorentalusa.com</a><br/></li></ul><p> </p><p> </p><p>To learn more about listener data and our privacy practices visit: <a href=\"https://www.audacyinc.com/privacy-policy\" rel=\"nofollow\">https://www.audacyinc.com/privacy-policy</a></p> <p> </p> <p>Learn more about your ad choices. Visit <a href=\"https://podcastchoices.com/adchoices\" rel=\"nofollow\">https://podcastchoices.com/adchoices</a></p>",
+                "duration_ms": 2888986,
+                "explicit": true,
+                "external_urls": {
+                  "spotify": "https://open.spotify.com/episode/2pB4Uu14pYFo5mV5lbEibv"
+                },
+                "href": "https://api.spotify.com/v1/episodes/2pB4Uu14pYFo5mV5lbEibv",
+                "id": "2pB4Uu14pYFo5mV5lbEibv",
+                "images": [
+                  {
+                    "url": "https://i.scdn.co/image/ab6765630000ba8a0eed796830cff4bd8d040fc2",
+                    "height": 640,
+                    "width": 640
+                  },
+                  {
+                    "url": "https://i.scdn.co/image/ab67656300005f1f0eed796830cff4bd8d040fc2",
+                    "height": 300,
+                    "width": 300
+                  },
+                  {
+                    "url": "https://i.scdn.co/image/ab6765630000f68d0eed796830cff4bd8d040fc2",
+                    "height": 64,
+                    "width": 64
+                  }
+                ],
+                "is_externally_hosted": true,
+                "is_playable": true,
+                "language": "en",
+                "languages": [
+                  "en"
+                ],
+                "name": "Episode 72",
+                "release_date": "2024-11-15",
+                "release_date_precision": "day",
+                "type": "episode",
+                "uri": "spotify:episode:2pB4Uu14pYFo5mV5lbEibv"
+              }
+            ]
+          }
+        },
+        "status": 200,
+        "headers": {
+          "date": "Wed, 20 May 2026 08:38:57 GMT",
+          "content-type": "application/json; charset=utf-8",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=31536000",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4957",
+          "x-ratelimit-reset": "1779266364",
+          "cache-control": "public, max-age=0",
+          "etag": "\"MC-ImE1YTNiOWQyZmU3NTU0ZTliMzcyYTJkNWU1ZGNkZGU3Ig==\"",
+          "x-robots-tag": "noindex, nofollow",
+          "access-control-allow-headers": "Accept, App-Platform, Authorization, Content-Type, Origin, Retry-After, Spotify-App-Version, X-Cloud-Trace-Context, client-token, content-access-token",
+          "access-control-allow-methods": "GET, POST, OPTIONS, PUT, DELETE, PATCH",
+          "access-control-allow-credentials": "true",
+          "access-control-max-age": "604800",
+          "alt-svc": "h3=\":443\"; ma=2592000,h3-29=\":443\"; ma=2592000, h3=\":443\"; ma=2592000,h3-29=\":443\"; ma=2592000",
+          "server": "envoy",
+          "via": "HTTP/2 edgeproxy, 1.1 google"
+        },
+        "hash": "a42cbc673c0376578583987b2a57e4223e4f3ec4",
+        "request": {}
+      }
+    }
+  }
+}

@@ -1,0 +1,99 @@
+{
+  "input": {
+    "id": 11
+  },
+  "output": {
+    "id": 11,
+    "date_created": "2026-05-22T09:58:34",
+    "product_id": 13,
+    "status": "trash",
+    "reviewer": "Temp Tester",
+    "reviewer_email": "temp@test.com",
+    "review": "Temporary review for deletion test",
+    "rating": 3,
+    "verified": false
+  },
+  "nango": {},
+  "api": {
+    "delete": {
+      "/wp-json/wc/v3/products/reviews/11": {
+        "response": {
+          "id": 11,
+          "date_created": "2026-05-22T09:58:34",
+          "date_created_gmt": "2026-05-22T09:58:34",
+          "product_id": 13,
+          "product_name": "Test T-Shirt",
+          "product_permalink": "https://woocommerce-test.local/product/test-t-shirt/",
+          "status": "trash",
+          "reviewer": "Temp Tester",
+          "reviewer_email": "temp@test.com",
+          "review": "Temporary review for deletion test",
+          "rating": 3,
+          "verified": false,
+          "reviewer_avatar_urls": {
+            "24": "https://secure.gravatar.com/avatar/2f82beb05aac4c617e9d4ff2193419c635045b10063198649611f1a1e5ff2bd7?s=24&d=mm&r=g",
+            "48": "https://secure.gravatar.com/avatar/2f82beb05aac4c617e9d4ff2193419c635045b10063198649611f1a1e5ff2bd7?s=48&d=mm&r=g",
+            "96": "https://secure.gravatar.com/avatar/2f82beb05aac4c617e9d4ff2193419c635045b10063198649611f1a1e5ff2bd7?s=96&d=mm&r=g"
+          },
+          "_links": {
+            "self": [
+              {
+                "href": "https://woocommerce-test.local/wp-json/wc/v3/products/reviews/11",
+                "targetHints": {
+                  "allow": [
+                    "GET",
+                    "POST",
+                    "PUT",
+                    "PATCH",
+                    "DELETE"
+                  ]
+                }
+              }
+            ],
+            "collection": [
+              {
+                "href": "https://woocommerce-test.local/wp-json/wc/v3/products/reviews"
+              }
+            ],
+            "up": [
+              {
+                "href": "https://woocommerce-test.local/wp-json/wc/v3/products/13"
+              }
+            ]
+          }
+        },
+        "status": 200,
+        "headers": {
+          "date": "Fri, 22 May 2026 09:58:48 GMT",
+          "content-type": "application/json; charset=UTF-8",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=5184000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "X-WP-Total, X-WP-TotalPages, Link",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4981",
+          "x-ratelimit-reset": "1779443951",
+          "access-control-allow-headers": "Authorization, X-WP-Nonce, Content-Disposition, Content-MD5, Content-Type",
+          "allow": "GET, POST, PUT, PATCH, DELETE",
+          "cache-control": "no-cache, must-revalidate, max-age=0, no-store, private",
+          "expires": "Wed, 11 Jan 1984 05:00:00 GMT",
+          "link": "<https://woocommerce-test.local/wp-json/>; rel=\"https://api.w.org/\"",
+          "ngrok-agent-ips": "105.161.152.132",
+          "server": "nginx/1.26.1",
+          "vary": "Accept-Encoding",
+          "x-powered-by": "PHP/8.2.29",
+          "x-robots-tag": "noindex"
+        },
+        "hash": "ab882b7cb6b3b591c4002cc823dc633ffb760d82",
+        "request": {}
+      }
+    }
+  }
+}

@@ -1,0 +1,106 @@
+{
+  "input": {},
+  "output": {
+    "items": [
+      {
+        "id": 1,
+        "name": "Test Webhook A",
+        "status": "active",
+        "topic": "order.created",
+        "resource": "order",
+        "event": "created",
+        "hooks": [
+          "woocommerce_new_order"
+        ],
+        "delivery_url": "https://httpbin.org/post",
+        "date_created": "2026-05-22T09:04:40",
+        "date_created_gmt": "2026-05-22T09:04:40",
+        "date_modified": "2026-05-22T09:07:35",
+        "date_modified_gmt": "2026-05-22T09:07:35"
+      }
+    ]
+  },
+  "nango": {},
+  "api": {
+    "get": {
+      "/wp-json/wc/v3/webhooks": {
+        "response": [
+          {
+            "id": 1,
+            "name": "Test Webhook A",
+            "status": "active",
+            "topic": "order.created",
+            "resource": "order",
+            "event": "created",
+            "hooks": [
+              "woocommerce_new_order"
+            ],
+            "delivery_url": "https://httpbin.org/post",
+            "date_created": "2026-05-22T09:04:40",
+            "date_created_gmt": "2026-05-22T09:04:40",
+            "date_modified": "2026-05-22T09:07:35",
+            "date_modified_gmt": "2026-05-22T09:07:35",
+            "_links": {
+              "self": [
+                {
+                  "href": "https://woocommerce-test.local/wp-json/wc/v3/webhooks/1",
+                  "targetHints": {
+                    "allow": [
+                      "GET",
+                      "POST",
+                      "PUT",
+                      "PATCH",
+                      "DELETE"
+                    ]
+                  }
+                }
+              ],
+              "collection": [
+                {
+                  "href": "https://woocommerce-test.local/wp-json/wc/v3/webhooks"
+                }
+              ]
+            }
+          }
+        ],
+        "status": 200,
+        "headers": {
+          "date": "Fri, 22 May 2026 09:54:10 GMT",
+          "content-type": "application/json; charset=UTF-8",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=5184000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "X-WP-Total, X-WP-TotalPages, Link",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4989",
+          "x-ratelimit-reset": "1779443704",
+          "access-control-allow-headers": "Authorization, X-WP-Nonce, Content-Disposition, Content-MD5, Content-Type",
+          "allow": "GET, POST",
+          "cache-control": "no-cache, must-revalidate, max-age=0, no-store, private",
+          "expires": "Wed, 11 Jan 1984 05:00:00 GMT",
+          "link": "<https://woocommerce-test.local/wp-json/>; rel=\"https://api.w.org/\"",
+          "ngrok-agent-ips": "105.161.152.132",
+          "server": "nginx/1.26.1",
+          "vary": "Accept-Encoding",
+          "x-powered-by": "PHP/8.2.29",
+          "x-robots-tag": "noindex",
+          "x-wp-total": "1",
+          "x-wp-totalpages": "1"
+        },
+        "hash": "13485efd67b752683dc76ce03803e13cb53a9ea8",
+        "request": {
+          "params": {
+            "page": "1"
+          }
+        }
+      }
+    }
+  }
+}

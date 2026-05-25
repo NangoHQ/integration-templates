@@ -1,0 +1,102 @@
+{
+  "input": {
+    "id": "6a0af20b832cec00105fb3a7"
+  },
+  "output": {
+    "id": "6a0af20b832cec00105fb3a7",
+    "archived": false,
+    "name": "Delete Me Corp A"
+  },
+  "nango": {},
+  "api": {
+    "patch": {
+      "/v1/accounts/6a0af20b832cec00105fb3a7": {
+        "response": {
+          "account": {
+            "id": "6a0af20b832cec00105fb3a7",
+            "domain": "delete-me-a.io",
+            "name": "Delete Me Corp A",
+            "team_id": "6a0aeb6d5e8f8e000c5e9d6a",
+            "organization_id": null,
+            "account_stage_id": "6a0aeb6d5e8f8e000c5e9d75",
+            "source": "api",
+            "original_source": "api",
+            "creator_id": "6a0aeb6e5e8f8e000c5e9ebd",
+            "owner_id": "6a0aeb6e5e8f8e000c5e9ebd",
+            "created_at": "2026-05-18T11:03:39.878Z",
+            "phone": null,
+            "phone_status": "no_status",
+            "hubspot_id": null,
+            "salesforce_id": null,
+            "crm_owner_id": null,
+            "parent_account_id": null,
+            "linkedin_url": null,
+            "suggested_from_rule_engine_config_id": null,
+            "godmode_apollo_creator": null,
+            "account_playbook_statuses": [],
+            "existence_level": "full",
+            "label_ids": [],
+            "typed_custom_fields": {},
+            "custom_field_errors": {},
+            "modality": "account",
+            "source_display_name": "Created from API",
+            "crm_record_url": null,
+            "twitter_url": null,
+            "facebook_url": null,
+            "intent_strength": null,
+            "show_intent": false,
+            "organization_headcount_six_month_growth": null,
+            "organization_headcount_twelve_month_growth": null,
+            "organization_headcount_twenty_four_month_growth": null
+          },
+          "labels": []
+        },
+        "status": 200,
+        "headers": {
+          "date": "Mon, 18 May 2026 11:17:51 GMT",
+          "content-type": "application/json; charset=utf-8",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "ALLOWALL",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=31536000",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4913",
+          "x-ratelimit-reset": "1779103074",
+          "cache-control": "max-age=0, private, must-revalidate",
+          "content-security-policy": "frame-ancestors 'self' chrome-extension://alhgpfoeiimagjlnfekdhkjlkiomcapa chrome-extension://ececkagaccnfmkopaiemklekhoimmgpn *.salesforce.com *.lightning.force.com; report-uri https://o101058.ingest.us.sentry.io/api/222018/security/?sentry_key=86bb17dd8c2449719dd6b498f3431191&sentry_environment=production&sentry_release=921578f02cadce558872b59befb4057474aa1ff3",
+          "etag": "W/\"3ab58e47a563918794cba8524767e56e\"",
+          "set-cookie": "X-CSRF-TOKEN=F_CSYrKxDD-S_8U8W9hvaWBE4D5cCcTMkTJlmZrW_gN0EhTuTlLBF5nBwk0IWcdFQySYs5-_j6S_pon3yitOHQ; path=/; secure; SameSite=Lax, _leadgenie_session=6FQlipm4AwjjKEplvkGOiaF0LHj0HNmiDIzIlc4KEn4fMhZc8H41ioa6I9SwLKINkIa95bG3EbbDxSk4hDw1OB4lSfG%2FAh5qHRThP%2Bv%2F4r4v%2F%2FFHcSKadRADHQkeAJOiVe7RVHDBLQ9YV1A4OKcnI4x7lvXqtIgx9jPetC9t96QElP%2FuyOnLOi1MeG765w%2BwuOFHyQCeOUqJTjThcMD1AAGQ7IQOMDCJUGn%2FP9FmdLZ1N9vqquJKXXJAEz0qTArGDzmsvJkZxftvZmowzXFYEA3M40PPBnbwFKk%3D--8XOsppNv9QDW3zUu--ql2D%2BxUKBEk%2Fwx0DcRH1BA%3D%3D; path=/; secure; HttpOnly; SameSite=None, __cf_bm=Pmk93RPcinfD.lu7E_gEIus0EdeZXg2VjLe0UD0ssXU-1779103071.5998635-1.0.1.1-vUhMZNqmc1as7y9P4aRlh1oc7XPYz_3YswwHvXcdcxK.WvBXHsv0qUZzdAdijP2uz4ii90W9LjxNJkcm00cmQCm1U1BzgEFIltWCdQmFIH6vVwIk.gJ5LAOvlWGAvs3l; HttpOnly; SameSite=None; Secure; Path=/; Domain=apollo.io; Expires=Mon, 18 May 2026 11:47:51 GMT",
+          "vary": "Origin",
+          "x-24-hour-requests-left": "596",
+          "x-24-hour-usage": "4",
+          "x-hourly-requests-left": "196",
+          "x-hourly-usage": "4",
+          "x-minute-requests-left": "49",
+          "x-minute-usage": "1",
+          "x-rate-limit-24-hour": "600",
+          "x-rate-limit-hourly": "200",
+          "x-rate-limit-minute": "50",
+          "x-request-id": "df09c885-ef59-4dc0-8697-3a259e77cf2c",
+          "x-runtime": "0.050599",
+          "x-transaction-id": "ec1ac369-1d3e-4c7e-abfb-79e4f713e3af",
+          "cf-cache-status": "DYNAMIC",
+          "server": "cloudflare",
+          "cf-ray": "9fda75357ee1dd6a-PDX"
+        },
+        "hash": "64bd235484003d6a219e5c47b8f3eb7f252d7f5f",
+        "request": {
+          "data": {
+            "existence_level": "none"
+          }
+        }
+      }
+    }
+  }
+}
