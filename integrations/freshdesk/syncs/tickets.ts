@@ -72,7 +72,6 @@ const sync = createSync({
             await nango.batchSave(tickets, 'Ticket');
         }
         await nango.saveCheckpoint({ updated_after: runStartedAt });
-
     }
 });
 

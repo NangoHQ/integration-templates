@@ -63,7 +63,6 @@ const sync = createSync({
             await nango.batchSave(mappedRecords, 'Group');
         }
         await nango.saveCheckpoint({ updated_after: runStartedAt });
-
     }
 });
 

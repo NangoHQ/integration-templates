@@ -60,7 +60,6 @@ const sync = createSync({
             await nango.batchSave(contacts, 'Contact');
         }
         await nango.saveCheckpoint({ updated_after: runStartedAt });
-
     }
 });
 

@@ -115,7 +115,6 @@ const sync = createSync({
 
         await nango.log(`Total employee(s) processed: ${employees.length}`);
         await nango.saveCheckpoint({ updated_after: runStartedAt });
-
     }
 });
 

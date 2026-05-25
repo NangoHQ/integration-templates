@@ -64,7 +64,6 @@ const sync = createSync({
             await nango.batchSave(mappedRecords, 'Location');
         }
         await nango.saveCheckpoint({ updated_after: runStartedAt });
-
     }
 });
 

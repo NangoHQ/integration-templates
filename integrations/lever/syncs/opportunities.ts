@@ -62,7 +62,6 @@ const sync = createSync({
             await nango.batchSave(mappedOpportunity, 'LeverOpportunity');
         }
         await nango.saveCheckpoint({ updated_after: runStartedAt });
-
     }
 });
 

@@ -92,9 +92,12 @@ const sync = createSync({
                         if (prLastUpdated < syncWindow) {
                             await nango.log(`Syncing stopped because sync window reached`);
                         } else {
-                            await nango.log(`Stopping sync early: PR ${pr.id} ${pr.updatedAt} is older than last sync date ${checkpointUpdatedAfter?.toString()}`, {
-                                level: 'warn'
-                            });
+                            await nango.log(
+                                `Stopping sync early: PR ${pr.id} ${pr.updatedAt} is older than last sync date ${checkpointUpdatedAfter?.toString()}`,
+                                {
+                                    level: 'warn'
+                                }
+                            );
                         }
                         hasNextPage = false;
                         earlyExit = true;
@@ -123,7 +126,6 @@ const sync = createSync({
             level: 'info'
         });
         await nango.saveCheckpoint({ updated_after: runStartedAt });
-
     }
 });
 

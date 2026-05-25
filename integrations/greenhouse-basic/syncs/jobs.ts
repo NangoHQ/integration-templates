@@ -55,7 +55,6 @@ const sync = createSync({
             await nango.batchSave(mappedJob, 'GreenhouseJob');
         }
         await nango.saveCheckpoint({ updated_after: runStartedAt });
-
     }
 });
 

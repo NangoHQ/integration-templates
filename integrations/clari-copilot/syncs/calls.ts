@@ -60,7 +60,9 @@ async function getAllCalls(nango: NangoSyncLocal, checkpointUpdatedAfter?: Date)
     const records: any[] = [];
 
     // First run gets calls from the past year; later runs use the checkpoint.
-    const queryDate = checkpointUpdatedAfter ? checkpointUpdatedAfter.toISOString() : new Date(new Date().setFullYear(new Date().getFullYear() - 1)).toISOString();
+    const queryDate = checkpointUpdatedAfter
+        ? checkpointUpdatedAfter.toISOString()
+        : new Date(new Date().setFullYear(new Date().getFullYear() - 1)).toISOString();
 
     const config: ProxyConfiguration = {
         // https://api-doc.copilot.clari.com/#tag/call/paths/~1calls/get

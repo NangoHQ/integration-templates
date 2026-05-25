@@ -104,7 +104,6 @@ const sync = createSync({
         }
         await nango.log(`Sync complete. Total Oracle employees saved: ${total}`);
         await nango.saveCheckpoint({ updated_after: runStartedAt });
-
     }
 });
 

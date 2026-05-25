@@ -59,7 +59,6 @@ const sync = createSync({
             await nango.batchSave(mappedCandidate, 'WorkableCandidate');
         }
         await nango.saveCheckpoint({ updated_after: runStartedAt });
-
     }
 });
 

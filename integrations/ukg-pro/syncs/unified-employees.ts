@@ -62,7 +62,6 @@ const sync = createSync({
             await nango.batchSave(standardEmployees, 'StandardEmployee');
         }
         await nango.saveCheckpoint({ updated_after: runStartedAt });
-
     }
 });
 

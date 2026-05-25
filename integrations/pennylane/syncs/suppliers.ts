@@ -66,7 +66,6 @@ const sync = createSync({
             await nango.batchSave(suppliers, 'PennylaneSupplier');
         }
         await nango.saveCheckpoint({ updated_after: runStartedAt });
-
     }
 });
 

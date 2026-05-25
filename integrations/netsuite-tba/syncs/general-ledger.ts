@@ -84,7 +84,6 @@ const sync = createSync({
             await nango.batchSave(mappedEntries, 'GeneralLedger');
         }
         await nango.saveCheckpoint({ updated_after: runStartedAt });
-
     }
 });
 

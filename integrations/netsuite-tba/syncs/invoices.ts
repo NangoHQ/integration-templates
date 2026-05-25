@@ -97,7 +97,6 @@ const sync = createSync({
             await nango.batchSave(mappedInvoices, 'NetsuiteInvoice');
         }
         await nango.saveCheckpoint({ updated_after: runStartedAt });
-
     }
 });
 

@@ -67,7 +67,6 @@ const sync = createSync({
             }
         }
         await nango.saveCheckpoint({ updated_after: runStartedAt });
-
     }
 });
 

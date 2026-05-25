@@ -66,7 +66,6 @@ const sync = createSync({
             await nango.batchSave(invoices, 'PennylaneInvoice');
         }
         await nango.saveCheckpoint({ updated_after: runStartedAt });
-
     }
 });
 

@@ -106,7 +106,6 @@ const sync = createSync({
             }
         }
         await nango.saveCheckpoint({ updated_after: runStartedAt });
-
     }
 }); //just incase gong fails to honour the 100 records per page limit
 
