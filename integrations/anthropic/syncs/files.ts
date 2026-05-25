@@ -65,7 +65,7 @@ const sync = createSync({
         const rawCheckpoint = await nango.getCheckpoint();
         let afterId: string | undefined;
 
-        if (rawCheckpoint !== null) {
+        if (rawCheckpoint != null) {
             const parsedCheckpoint = CheckpointSchema.safeParse(rawCheckpoint);
             if (parsedCheckpoint.success) {
                 if (parsedCheckpoint.data.full_refresh) {
