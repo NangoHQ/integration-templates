@@ -17702,7 +17702,7 @@ export interface ActionInput_figma_listcomponents {
    */
   team_id: string;
   /**
-   * Pagination cursor from the previous response. Omit for the first page.
+   * Pagination cursor from the previous response (numeric). Omit for the first page.
    */
   cursor?: string | undefined;
   /**

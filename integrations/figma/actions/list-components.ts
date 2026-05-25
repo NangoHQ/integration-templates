@@ -3,7 +3,7 @@ import { createAction } from 'nango';
 
 const InputSchema = z.object({
     team_id: z.string().describe('Team ID. Example: "1639747348117609063"'),
-    cursor: z.string().optional().describe('Pagination cursor from the previous response. Omit for the first page.'),
+    cursor: z.string().regex(/^\d+$/).optional().describe('Pagination cursor from the previous response (numeric). Omit for the first page.'),
     page_size: z.number().int().positive().max(1000).optional().describe('Number of items to return per page. Defaults to 30. Maximum of 1000.')
 });
 

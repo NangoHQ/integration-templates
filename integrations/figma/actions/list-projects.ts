@@ -16,7 +16,8 @@ const ProviderProjectSchema = z.object({
 
 const ProviderResponseSchema = z.object({
     name: z.string(),
-    projects: z.array(ProviderProjectSchema)
+    projects: z.array(ProviderProjectSchema),
+    cursor: z.string().optional()
 });
 
 const OutputSchema = z.object({
@@ -77,7 +78,8 @@ const action = createAction({
             projects: parsed.data.projects.map((project) => ({
                 id: project.id,
                 name: project.name
-            }))
+            })),
+            ...(parsed.data.cursor !== undefined && { next_cursor: parsed.data.cursor })
         };
     }
 });

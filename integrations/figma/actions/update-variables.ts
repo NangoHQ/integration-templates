@@ -48,13 +48,27 @@ const VariableModeValueSchema = z.object({
     value: z.union([z.boolean(), z.number(), z.string(), ColorSchema, VariableAliasSchema, z.null()])
 });
 
-const InputSchema = z.object({
-    file_key: z.string().describe('File key or branch key. Example: "UzYlOaPNPL2c7zmHCEljOs"'),
-    variableCollections: z.array(VariableCollectionChangeSchema).optional(),
-    variableModes: z.array(VariableModeChangeSchema).optional(),
-    variables: z.array(VariableChangeSchema).optional(),
-    variableModeValues: z.array(VariableModeValueSchema).optional()
-});
+const InputSchema = z
+    .object({
+        file_key: z.string().describe('File key or branch key. Example: "UzYlOaPNPL2c7zmHCEljOs"'),
+        variableCollections: z.array(VariableCollectionChangeSchema).optional(),
+        variableModes: z.array(VariableModeChangeSchema).optional(),
+        variables: z.array(VariableChangeSchema).optional(),
+        variableModeValues: z.array(VariableModeValueSchema).optional()
+    })
+    .superRefine((data, ctx) => {
+        const hasMutations =
+            (data.variableCollections?.length ?? 0) > 0 ||
+            (data.variableModes?.length ?? 0) > 0 ||
+            (data.variables?.length ?? 0) > 0 ||
+            (data.variableModeValues?.length ?? 0) > 0;
+        if (!hasMutations) {
+            ctx.addIssue({
+                code: 'custom',
+                message: 'At least one of variableCollections, variableModes, variables, or variableModeValues must be provided and non-empty.'
+            });
+        }
+    });
 
 const OutputSchema = z.object({
     status: z.number(),

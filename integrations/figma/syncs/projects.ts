@@ -49,8 +49,9 @@ const sync = createSync({
         };
 
         for await (const page of nango.paginate(proxyConfig)) {
-            const projects = page.map((project) => ({
-                id: String(project.id),
+            const parsed = z.array(ProjectSchema).parse(page);
+            const projects = parsed.map((project) => ({
+                id: project.id,
                 name: project.name
             }));
 

@@ -1,14 +1,25 @@
 import { z } from 'zod';
 import { createAction } from 'nango';
 
-const InputSchema = z.object({
-    file_key: z.string().describe('The file key to add the comment to. Example: "UzYlOaPNPL2c7zmHCEljOs"'),
-    message: z.string().describe('The text contents of the comment to post.'),
-    comment_id: z.string().optional().describe('The ID of the comment to reply to, if any. This must be a root comment.'),
-    node_id: z.string().optional().describe('The node ID to attach the comment to. Example: "91:1"'),
-    node_offset_x: z.number().optional().describe('X coordinate offset within the node from the top-left corner.'),
-    node_offset_y: z.number().optional().describe('Y coordinate offset within the node from the top-left corner.')
-});
+const InputSchema = z
+    .object({
+        file_key: z.string().describe('The file key to add the comment to. Example: "UzYlOaPNPL2c7zmHCEljOs"'),
+        message: z.string().describe('The text contents of the comment to post.'),
+        comment_id: z.string().optional().describe('The ID of the comment to reply to, if any. This must be a root comment.'),
+        node_id: z.string().optional().describe('The node ID to attach the comment to. Example: "91:1"'),
+        node_offset_x: z.number().optional().describe('X coordinate offset within the node from the top-left corner.'),
+        node_offset_y: z.number().optional().describe('Y coordinate offset within the node from the top-left corner.')
+    })
+    .superRefine((data, ctx) => {
+        const fields = [data.node_id, data.node_offset_x, data.node_offset_y];
+        const provided = fields.filter((f) => f !== undefined).length;
+        if (provided > 0 && provided < 3) {
+            ctx.addIssue({
+                code: 'custom',
+                message: 'node_id, node_offset_x, and node_offset_y must all be provided together or not at all.'
+            });
+        }
+    });
 
 const UserSchema = z.object({
     id: z.string(),
