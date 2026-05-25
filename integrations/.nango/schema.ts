@@ -17007,6 +17007,21 @@ export interface SyncMetadata_figma_styles {
   team_id: string;
 };
 
+export interface Variable {
+  id: string;
+  subscribed_id: string;
+  name: string;
+  key: string;
+  variableCollectionId: string;
+  resolvedDataType: 'BOOLEAN' | 'FLOAT' | 'STRING' | 'COLOR';
+  updatedAt: string;
+  fileKey: string;
+};
+
+export interface SyncMetadata_figma_variables {
+  team_id: string;
+};
+
 export interface Version {
   id: string;
   file_key: string;
@@ -17158,6 +17173,52 @@ export interface ActionOutput_figma_deletecomment {
   success: boolean;
 };
 
+export interface ActionInput_figma_deletedevresource {
+  /**
+   * The Figma file key to delete the dev resource from. Example: "UzYlOaPNPL2c7zmHCEljOs"
+   */
+  file_key: string;
+  /**
+   * The ID of the dev resource to delete. Example: "1234567890"
+   */
+  dev_resource_id: string;
+};
+
+export interface ActionOutput_figma_deletedevresource {
+  success: boolean;
+};
+
+export interface ActionInput_figma_deletewebhook {
+  /**
+   * The ID of the webhook to delete. Example: "12345"
+   */
+  webhook_id: string;
+};
+
+export interface ActionOutput_figma_deletewebhook {
+  id: string;
+  event_type?: string | undefined;
+  context?: string | undefined;
+  context_id?: string | undefined;
+  status?: string | undefined;
+  endpoint?: string | undefined;
+  description?: string | undefined;
+};
+
+export interface FileNode {
+  id: string;
+  file_key: string;
+  file_name?: string | undefined;
+  node_id: string;
+  name?: string | undefined;
+  type: string;
+  last_modified: string;
+};
+
+export interface SyncMetadata_figma_filenodes {
+  team_id: string;
+};
+
 export interface ActionInput_figma_getcomment {
   /**
    * Figma file key. Example: "UzYlOaPNPL2c7zmHCEljOs"
@@ -17185,6 +17246,36 @@ export interface ActionOutput_figma_getcomment {
   node_offset?: {  x: number;
   y: number;} | undefined;};
   order_id?: string | undefined;
+};
+
+export interface ActionInput_figma_getcomponent {
+  /**
+   * The unique identifier of the component. Example: "abc123"
+   */
+  key: string;
+};
+
+export interface ActionOutput_figma_getcomponent {
+  key: string;
+  file_key: string;
+  node_id: string;
+  thumbnail_url?: string | undefined;
+  name: string;
+  description?: string | undefined;
+  created_at: string;
+  updated_at: string;
+  user: {  id: string;
+  handle: string;
+  img_url: string;};
+  containing_frame?: {  nodeId?: string | undefined;
+  name?: string | undefined;
+  backgroundColor?: string | undefined;
+  pageId?: string | undefined;
+  pageName?: string | undefined;
+  containingStateGroup?: {  nodeId?: string | undefined;
+  name?: string | undefined;};
+  containingComponentSet?: {  nodeId?: string | undefined;
+  name?: string | undefined;};};
 };
 
 export interface ActionInput_figma_getcurrentuser {
@@ -17327,6 +17418,39 @@ export interface ActionOutput_figma_getfilestyles {
   sort_position: string;})[];};
 };
 
+export interface ActionInput_figma_getlocalvariables {
+  /**
+   * The key of the Figma file. Example: "UzYlOaPNPL2c7zmHCEljOs"
+   */
+  file_key: string;
+};
+
+export interface ActionOutput_figma_getlocalvariables {
+  status: number;
+  error: boolean;
+  meta: {  variableCollections: {  [key: string]: {  id: string;
+  name: string;
+  hiddenFromPublishing?: boolean | undefined;
+  key?: string | undefined;
+  defaultModeId?: string | undefined;
+  modes?: ({  name: string;
+  modeId: string;})[] | undefined;
+  remote?: boolean | undefined;
+  variableIds?: string[] | undefined;
+  localVariableIds?: string[] | undefined;};};
+  variables: {  [key: string]: {  id: string;
+  name: string;
+  description?: string | undefined;
+  variableCollectionId?: string | undefined;
+  key?: string | undefined;
+  remote?: boolean | undefined;
+  resolvedType?: string | undefined;
+  valuesByMode?: {  [key: string]: unknown | undefined;};
+  scopes?: string[] | undefined;
+  hiddenFromPublishing?: boolean | undefined;
+  codeSyntax?: {  [key: string]: unknown | undefined;};};};};
+};
+
 export interface ActionInput_figma_getproject {
   /**
    * Figma team ID. Example: "1639747348117609063"
@@ -17341,6 +17465,30 @@ export interface ActionInput_figma_getproject {
 export interface ActionOutput_figma_getproject {
   id: string;
   name: string;
+};
+
+export interface ActionInput_figma_getpublishedvariables {
+  /**
+   * Figma file key to retrieve published variables from. Example: "UzYlOaPNPL2c7zmHCEljOs"
+   */
+  file_key: string;
+};
+
+export interface ActionOutput_figma_getpublishedvariables {
+  status: number;
+  error: boolean;
+  meta: {  variables: {  [key: string]: {  id: string;
+  subscribed_id: string;
+  name: string;
+  key: string;
+  variableCollectionId: string;
+  resolvedDataType: 'BOOLEAN' | 'FLOAT' | 'STRING' | 'COLOR';
+  updatedAt: string;};};
+  variableCollections: {  [key: string]: {  id: string;
+  subscribed_id: string;
+  name: string;
+  key: string;
+  updatedAt: string;};};};
 };
 
 export interface ActionInput_figma_getstyle {
@@ -17386,6 +17534,27 @@ export interface ActionOutput_figma_getversion {
   handle: string;
   img_url?: string | undefined;
   email?: string | undefined;};
+};
+
+export interface ActionInput_figma_getwebhook {
+  /**
+   * The ID of the webhook to retrieve. Example: "123456789"
+   */
+  webhook_id: string;
+};
+
+export interface ActionOutput_figma_getwebhook {
+  id: string;
+  event_type: 'PING' | 'FILE_UPDATE' | 'FILE_VERSION_UPDATE' | 'FILE_DELETE' | 'LIBRARY_PUBLISH' | 'FILE_COMMENT' | 'DEV_MODE_STATUS_UPDATE';
+  team_id: string;
+  context: string;
+  context_id: string;
+  plan_api_id: string;
+  status: 'ACTIVE' | 'PAUSED';
+  client_id: string;
+  passcode: string;
+  endpoint: string;
+  description: string;
 };
 
 export interface ActionInput_figma_listcommentreactions {
@@ -17531,6 +17700,25 @@ export interface ActionOutput_figma_listcomponents {
   page_id?: string | undefined;
   page_name?: string | undefined;};})[];
   next_cursor?: string | undefined;
+};
+
+export interface ActionInput_figma_listdevresources {
+  /**
+   * The file to get dev resources from. This must be a main file key, not a branch key.
+   */
+  file_key: string;
+  /**
+   * Optional list of node IDs to filter dev resources by. Only dev resources attached to these nodes will be returned.
+   */
+  node_ids?: string[] | undefined;
+};
+
+export interface ActionOutput_figma_listdevresources {
+  dev_resources: ({  id: string;
+  name: string;
+  url: string;
+  file_key: string;
+  node_id: string;})[];
 };
 
 export interface ActionInput_figma_listfilenodes {
@@ -17736,34 +17924,85 @@ export interface ActionOutput_figma_renderimages {
   err?: string | undefined;
 };
 
-export interface ActionInput_figma_updatedevresources {
+export interface ActionInput_figma_updatevariables {
   /**
-   * A list of dev resources that you want to update.
+   * File key or branch key. Example: "UzYlOaPNPL2c7zmHCEljOs"
    */
-  dev_resources: ({  /**
-   * Unique identifier of the dev resource. Example: "devres_123"
-   */
-  id: string;
-  /**
-   * The name of the dev resource.
-   */
+  file_key: string;
+  variableCollections?: ({  action: 'CREATE' | 'UPDATE' | 'DELETE';
+  id?: string | undefined;
   name?: string | undefined;
-  /**
-   * The URL of the dev resource.
-   */
-  url?: string | undefined;})[];
+  parentVariableCollectionId?: string | undefined;
+  initialModeId?: string | undefined;
+  initialModeIdToParentModeIdMapping?: {  [key: string]: string;} | undefined;
+  hiddenFromPublishing?: boolean | undefined;})[];
+  variableModes?: ({  action: 'CREATE' | 'UPDATE' | 'DELETE';
+  id?: string | undefined;
+  name?: string | undefined;
+  variableCollectionId: string;})[];
+  variables?: ({  action: 'CREATE' | 'UPDATE' | 'DELETE';
+  id?: string | undefined;
+  name?: string | undefined;
+  variableCollectionId?: string | undefined;
+  resolvedType?: 'BOOLEAN' | 'FLOAT' | 'STRING' | 'COLOR' | undefined;
+  description?: string | undefined;
+  hiddenFromPublishing?: boolean | undefined;
+  scopes?: string[] | undefined;
+  codeSyntax?: {  [key: string]: string;} | undefined;})[];
+  variableModeValues?: ({  variableId: string;
+  modeId: string;
+  value: boolean | number | string | {  r: number;
+  g: number;
+  b: number;
+  a?: number | undefined;} | {  type: 'VARIABLE_ALIAS';
+  id: string;} | null;})[];
 };
 
-export interface ActionOutput_figma_updatedevresources {
+export interface ActionOutput_figma_updatevariables {
+  status: number;
+  error: boolean;
+  meta?: {  tempIdToRealId?: {  [key: string]: string;} | undefined;};
+};
+
+export interface ActionInput_figma_updatewebhook {
   /**
-   * Ids for dev resources that were successfully updated.
+   * The ID of the webhook to update. Example: "123456789"
    */
-  links_updated: string[];
+  webhook_id: string;
   /**
-   * Errors for dev resources that could not be updated.
+   * The type of event that will trigger this webhook to fire.
    */
-  errors?: ({  id: string;
-  error: string;})[] | undefined;
+  event_type?: 'PING' | 'FILE_UPDATE' | 'FILE_VERSION_UPDATE' | 'FILE_DELETE' | 'LIBRARY_PUBLISH' | 'FILE_COMMENT' | 'DEV_MODE_STATUS_UPDATE' | undefined;
+  /**
+   * The HTTP endpoint that will receive a POST request when the event triggers. Max length 2048 characters.
+   */
+  endpoint?: string | undefined;
+  /**
+   * String that will be passed back to your webhook endpoint to verify that it is being called by Figma. Max length 100 characters.
+   */
+  passcode?: string | undefined;
+  /**
+   * State to put the webhook in. The webhook cannot be put into an error state this way.
+   */
+  status?: 'ACTIVE' | 'PAUSED' | undefined;
+  /**
+   * User-provided description or name for the webhook. Max length 140 characters. Providing an empty string will delete the description.
+   */
+  description?: string | undefined;
+};
+
+export interface ActionOutput_figma_updatewebhook {
+  id: string;
+  event_type: string;
+  team_id: string;
+  context: string;
+  context_id: string;
+  plan_api_id: string;
+  status: string;
+  client_id?: string | undefined;
+  passcode: string;
+  endpoint: string;
+  description?: string | undefined;
 };
 
 export interface ActionInput_fireflies_addtolive {
