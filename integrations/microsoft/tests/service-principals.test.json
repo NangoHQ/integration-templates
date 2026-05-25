@@ -1,0 +1,2231 @@
+{
+  "nango": {
+    "batchSave": {
+      "ServicePrincipal": [
+        {
+          "id": "393826e9-81c1-4917-b034-26ff253f0554",
+          "appId": "00000002-0000-0000-c000-000000000000",
+          "displayName": "Windows Azure Active Directory",
+          "createdDateTime": "2026-05-12T09:07:44Z"
+        },
+        {
+          "id": "91ef3646-3045-43a5-b691-068935807ba0",
+          "appId": "0000000c-0000-0000-c000-000000000000",
+          "displayName": "Microsoft App Access Panel",
+          "createdDateTime": "2026-05-12T09:07:44Z"
+        },
+        {
+          "id": "9e0f64b1-4c61-4cdf-93e6-7e5aa48dbd20",
+          "appId": "aa9ecb1e-fd53-4aaa-a8fe-7a54de2c1334",
+          "displayName": "Office 365 Configure",
+          "createdDateTime": "2026-05-12T09:07:44Z"
+        },
+        {
+          "id": "7f78c6fa-2bce-4db3-9a0c-05e2711c9ad6",
+          "appId": "797f4846-ba00-4fd7-ba43-dac1f8f63013",
+          "displayName": "Azure Resource Manager",
+          "createdDateTime": "2026-05-12T09:07:44Z"
+        },
+        {
+          "id": "71d7e564-e261-4aa5-9c2d-4677d0abb551",
+          "appId": "b4bddae8-ab25-483e-8670-df09b9f1d0ea",
+          "displayName": "Signup",
+          "createdDateTime": "2026-05-12T09:07:44Z"
+        },
+        {
+          "id": "2f4f776a-dd62-41c5-ac44-fdb3253ed818",
+          "appId": "00000001-0000-0000-c000-000000000000",
+          "displayName": "Azure ESTS Service",
+          "createdDateTime": "2026-05-12T09:07:45Z"
+        },
+        {
+          "id": "160d0cfc-5c07-4a4f-98c7-32ad642439ee",
+          "appId": "00000003-0000-0000-c000-000000000000",
+          "displayName": "Microsoft Graph",
+          "createdDateTime": "2026-05-12T09:07:45Z"
+        },
+        {
+          "id": "5f50586f-1e4d-418c-a3c9-05afb778d57c",
+          "appId": "c728155f-7b2a-4502-a08b-b8af9b269319",
+          "displayName": "AAD Request Verification Service - PROD",
+          "createdDateTime": "2026-05-12T09:07:50Z"
+        },
+        {
+          "id": "f2bdf0b4-3da9-4b1a-81dc-4657b6221bae",
+          "appId": "37182072-3c9c-4f6a-a4b3-b3f91cacffce",
+          "displayName": "AzureSupportCenter",
+          "createdDateTime": "2026-05-12T09:07:50Z"
+        },
+        {
+          "id": "cdf56d39-641a-4512-8d6b-26887642efd6",
+          "appId": "d73f4b35-55c9-48c7-8b10-651f6f2acb2e",
+          "displayName": "MCAPI Authorization Prod",
+          "createdDateTime": "2026-05-12T09:07:51Z"
+        },
+        {
+          "id": "74815c7a-ceac-41f4-b33b-2e387ff97b22",
+          "appId": "8fca0a66-c008-4564-a876-ab3ae0fd5cff",
+          "displayName": "Microsoft.SMIT",
+          "createdDateTime": "2026-05-12T09:07:51Z"
+        },
+        {
+          "id": "1b7b6eea-ba56-4dd7-a061-7d768e707d1c",
+          "appId": "a57aca87-cbc0-4f3c-8b9e-dc095fdc8978",
+          "displayName": "IAM Supportability",
+          "createdDateTime": "2026-05-12T09:07:51Z"
+        },
+        {
+          "id": "13822bea-0c24-4eb4-b298-e50df4401784",
+          "appId": "0bf30f3b-4a52-48df-9a82-234910c4a086",
+          "displayName": "Microsoft Graph Change Tracking",
+          "createdDateTime": "2026-05-12T09:07:51Z"
+        },
+        {
+          "id": "6a6b619b-4949-4aed-8cb2-1434b18b7e0c",
+          "appId": "3829f069-1c33-45dd-84ab-2465f4282677",
+          "displayName": "Azure Signup Api",
+          "createdDateTime": "2026-05-12T09:11:42Z"
+        },
+        {
+          "id": "7561ec20-e5b9-4983-afcc-9ae4f8f70141",
+          "appId": "509e4652-da8d-478d-a730-e9d4a1996ca4",
+          "displayName": "Azure Resource Graph",
+          "createdDateTime": "2026-05-12T09:11:57Z"
+        },
+        {
+          "id": "5087d4b1-7924-4a6b-bae9-82fc8d33be71",
+          "appId": "f2c304cf-8e7e-4c3f-8164-16299ad9d272",
+          "displayName": "Azure Management Groups",
+          "createdDateTime": "2026-05-12T09:12:00Z"
+        },
+        {
+          "id": "8b6f813b-29c6-449a-9a02-f2b4a0170759",
+          "appId": "0469d4cd-df37-4d93-8a61-f8c75b809164",
+          "displayName": "Policy Administration Service",
+          "createdDateTime": "2026-05-12T09:12:01Z"
+        },
+        {
+          "id": "72299785-4813-461f-83ac-0c2593ace3b0",
+          "appId": "ea890292-c8c8-4433-b5ea-b09d0668e1a6",
+          "displayName": "Azure Credential Configuration Endpoint Service",
+          "createdDateTime": "2026-05-12T09:12:53Z"
+        },
+        {
+          "id": "b23ed1cf-2e6f-4dec-85fc-38515af916c1",
+          "appId": "01cb2876-7ebd-4aa4-9cc9-d28bd4d359a9",
+          "displayName": "Device Registration Service",
+          "createdDateTime": "2026-05-12T09:12:56Z"
+        },
+        {
+          "id": "a13fb4dc-729b-47ae-82f5-17a6da9f095d",
+          "appId": "b5a60e17-278b-4c92-a4e2-b9262e66bb28",
+          "displayName": "Azure MFA StrongAuthenticationService",
+          "createdDateTime": "2026-05-12T09:14:27Z"
+        },
+        {
+          "id": "ae3dd41d-cc65-4abe-b58f-7e37263fcc4a",
+          "appId": "fa3d9a0c-3fb0-42cc-9193-47c7ecd2edbd",
+          "displayName": "Microsoft Partner Center",
+          "createdDateTime": "2026-05-12T09:16:04Z"
+        },
+        {
+          "id": "3bf95b51-d223-4cab-996c-5c79c3a3b4e8",
+          "appId": "fabfbdc4-5751-471c-ac43-3826fa1afc31",
+          "displayName": "Microsoft Partner Center",
+          "createdDateTime": "2026-05-12T09:31:12Z"
+        },
+        {
+          "id": "08c61139-f11b-4555-a54e-9a7e29c65a01",
+          "appId": "3e53edf8-185f-4fb1-b849-97faed43d817",
+          "displayName": "Partner Accounts Graph",
+          "createdDateTime": "2026-05-12T09:31:20Z"
+        },
+        {
+          "id": "48529db8-dcbd-46dd-b4a5-cd83fef4e38c",
+          "appId": "224a7b82-46c9-4d6b-8db0-7360fb444681",
+          "displayName": "Microsoft Modern Contact Master",
+          "createdDateTime": "2026-05-12T09:43:28Z"
+        },
+        {
+          "id": "94de64b0-2ec4-4f5c-9bf3-903e1a157c05",
+          "appId": "bb2a2e3a-c5e7-4f0a-88e0-8e01fd3fc1f4",
+          "displayName": "CPIM Service",
+          "createdDateTime": "2026-05-12T10:09:03Z"
+        },
+        {
+          "id": "82295cf3-8f5c-4921-a659-671ed75edf49",
+          "appId": "67a65d0c-1fdb-4698-acd3-4ea44058e1c3",
+          "displayName": "Azure AD Publisher Service",
+          "createdDateTime": "2026-05-12T13:50:41Z"
+        },
+        {
+          "id": "10d0a9f7-9783-4b71-a96b-d924e7b6e374",
+          "appId": "01fc33a7-78ba-4d2f-a4b7-768e336e890e",
+          "displayName": "MS-PIM",
+          "createdDateTime": "2026-05-12T14:10:15Z"
+        },
+        {
+          "id": "de50e8d0-0c24-4b49-8cd1-4dbf2bab13be",
+          "appId": "1b912ec3-a9dd-4c4d-a53e-76aa7adb28d7",
+          "displayName": "AADReporting",
+          "createdDateTime": "2026-05-12T14:12:05Z"
+        },
+        {
+          "id": "aaab9e70-9211-4875-b5ad-2ad8644c4b33",
+          "appId": "a3dfc3c6-2c7d-4f42-aeec-b2877f9bce97",
+          "displayName": "Microsoft Azure AD Identity Protection",
+          "createdDateTime": "2026-05-12T14:12:24Z"
+        },
+        {
+          "id": "24997ade-f9a6-424e-bd40-1ad641fd626a",
+          "appId": "8d3a7d3c-c034-4f19-a2ef-8412952a9671",
+          "displayName": "Microsoft Office Licensing Service",
+          "createdDateTime": "2026-05-12T14:23:40Z"
+        },
+        {
+          "id": "0c651f45-2114-45b3-a9ec-9ff2c98e4dff",
+          "appId": "9ea1ad79-fdb6-4f9a-8bc3-2b70f96e34c7",
+          "displayName": "Bing",
+          "createdDateTime": "2026-05-12T14:23:57Z"
+        },
+        {
+          "id": "2c07c923-2380-4298-8d23-5e98a643f170",
+          "appId": "f0ae4899-d877-4d3c-ae25-679e38eea492",
+          "displayName": "AAD App Management",
+          "createdDateTime": "2026-05-12T14:31:18Z"
+        },
+        {
+          "id": "fa43506a-5991-4021-b87d-acdba6b41a7d",
+          "appId": "eace8149-b661-472f-b40d-939f89085bd4",
+          "displayName": "Substrate Instant Revocation Pipeline",
+          "createdDateTime": "2026-05-12T14:38:33Z"
+        },
+        {
+          "id": "8c5d39b2-0e74-467e-b517-5420053b9ec5",
+          "appId": "7557eb47-c689-4224-abcf-aef9bd7573df",
+          "displayName": "Skype for Business",
+          "createdDateTime": "2026-05-14T08:14:26Z"
+        },
+        {
+          "id": "b2377d83-0c6f-460b-b149-ee57ef6db606",
+          "appId": "a68e1e61-ad4f-45b6-897d-0a1ea8786345",
+          "displayName": "Office365 Shell WCSS-Server Default",
+          "createdDateTime": "2026-05-14T09:37:51Z"
+        },
+        {
+          "id": "55a07f7b-155d-419a-88a4-a18bd07de8cf",
+          "appId": "65d91a3d-ab74-42e6-8a2f-0add61688c74",
+          "displayName": "Microsoft Approval Management",
+          "createdDateTime": "2026-05-14T09:37:52Z"
+        },
+        {
+          "id": "f5d66e4f-3407-4370-998a-7950d2937a3c",
+          "appId": "93625bc8-bfe2-437a-97e0-3d0060024faa",
+          "displayName": "Microsoft password reset service",
+          "createdDateTime": "2026-05-14T09:37:56Z"
+        },
+        {
+          "id": "499ecefb-fe2e-4fdc-9169-f11b78cd9bc4",
+          "appId": "6872b314-67ab-4a16-98e7-a663b0f772c3",
+          "displayName": "Office365 Shell SS-Server Default",
+          "createdDateTime": "2026-05-14T13:47:28Z"
+        },
+        {
+          "id": "a3294d5d-f870-4eba-9e3e-092b0a38af43",
+          "appId": "aeb86249-8ea3-49e2-900b-54cc8e308f85",
+          "displayName": "M365 License Manager",
+          "createdDateTime": "2026-05-14T15:28:00Z"
+        },
+        {
+          "id": "ea893146-9bbc-4573-bdbd-2f23886fecae",
+          "appId": "00000006-0000-0ff1-ce00-000000000000",
+          "displayName": "Microsoft Office 365 Portal",
+          "createdDateTime": "2026-05-14T16:07:06Z"
+        },
+        {
+          "id": "30634219-3e2e-4f05-b4f2-39daa5a029ad",
+          "appId": "6b91db1b-f05b-405a-a0b2-e3f60b28d645",
+          "displayName": "M365 Admin Services",
+          "createdDateTime": "2026-05-14T16:07:19Z"
+        },
+        {
+          "id": "1423fde1-ec0b-4483-93b2-d34b0f7f45da",
+          "appId": "0517ffae-825d-4aff-999e-3f2336b8a20a",
+          "displayName": "M365 App Management Service",
+          "createdDateTime": "2026-05-14T16:07:19Z"
+        },
+        {
+          "id": "7c1912fc-5c97-4001-8c29-2709fdf68ab3",
+          "appId": "cb1bda4c-1213-4e8b-911a-0a8c83c5d3b7",
+          "displayName": "o365.servicecommunications.microsoft.com",
+          "createdDateTime": "2026-05-14T16:07:19Z"
+        },
+        {
+          "id": "a61aeb30-9550-4ec3-9e74-c96f9f8f8af4",
+          "appId": "8ad61c39-5b6e-447c-b26a-a64eee436502",
+          "displayName": "M365AdminAgent",
+          "createdDateTime": "2026-05-14T16:07:21Z"
+        },
+        {
+          "id": "db39f980-c312-4bd4-a66e-87b40e1ebc3c",
+          "appId": "982bda36-4632-4165-a46a-9863b1bbcf7d",
+          "displayName": "O365 Demeter",
+          "createdDateTime": "2026-05-14T16:07:22Z"
+        },
+        {
+          "id": "4c229c2c-3cf7-4c46-b814-bf866e749767",
+          "appId": "89e7f920-bdc3-4e71-99e5-30d84827b610",
+          "displayName": "Dunloe Dataplane Service",
+          "createdDateTime": "2026-05-14T16:07:22Z"
+        },
+        {
+          "id": "361ed31e-981b-4bde-a1a2-9a4dce0cfbaa",
+          "appId": "50d8616b-fd4f-4fac-a1c9-a6a9440d7fe0",
+          "displayName": "OMSAuthorizationServicePROD",
+          "createdDateTime": "2026-05-14T16:07:28Z"
+        },
+        {
+          "id": "bc28a7ae-ba10-4369-9187-e6c79d143358",
+          "appId": "02d2a314-8dbb-47d3-8a77-1677403097de",
+          "displayName": "Microsoft SaaS Hub Resource Provider",
+          "createdDateTime": "2026-05-14T16:08:10Z"
+        },
+        {
+          "id": "7689fa12-b3ec-4ce3-a3c1-7d1f5cc3cb98",
+          "appId": "b513474b-6307-4686-b541-ed4d130cdf84",
+          "displayName": "Microsoft SaaS Hub Resource Provider AirCapi",
+          "createdDateTime": "2026-05-14T16:08:10Z"
+        },
+        {
+          "id": "a9c3110a-ca06-40bf-b940-debe33cf2c5a",
+          "appId": "00000002-0000-0ff1-ce00-000000000000",
+          "displayName": "Office 365 Exchange Online",
+          "createdDateTime": "2026-05-14T16:11:23Z"
+        },
+        {
+          "id": "a8b63937-ce97-496b-8f67-44275381ded6",
+          "appId": "00000009-0000-0000-c000-000000000000",
+          "displayName": "Power BI Service",
+          "createdDateTime": "2026-05-14T16:11:24Z"
+        },
+        {
+          "id": "4a1f5d8f-33ce-4d1e-ae1c-6deb1d630531",
+          "appId": "3c896ded-22c5-450f-91f6-3d1ef0848f6e",
+          "displayName": "WeveEngine",
+          "createdDateTime": "2026-05-14T16:11:24Z"
+        },
+        {
+          "id": "8c2c492f-db3d-4593-b0c7-e8f7c5c631c1",
+          "appId": "00000005-0000-0ff1-ce00-000000000000",
+          "displayName": "Viva Engage",
+          "createdDateTime": "2026-05-14T16:11:25Z"
+        },
+        {
+          "id": "26b16143-999f-4b4b-9b5f-5659b9923a0d",
+          "appId": "00000012-0000-0000-c000-000000000000",
+          "displayName": "Microsoft Rights Management Services",
+          "createdDateTime": "2026-05-14T16:11:25Z"
+        },
+        {
+          "id": "6d5b3d7b-7045-4942-921a-65905180a603",
+          "appId": "f53895d3-095d-408f-8e93-8f94b391404e",
+          "displayName": "Portfolios",
+          "createdDateTime": "2026-05-14T16:11:25Z"
+        },
+        {
+          "id": "56a37608-1897-4ffa-a1df-efcafb9792db",
+          "appId": "cc15fd57-2c6c-4117-a88c-83b1d56b4bbe",
+          "displayName": "Microsoft Teams Services",
+          "createdDateTime": "2026-05-14T16:11:26Z"
+        },
+        {
+          "id": "55976d28-2450-49fb-8718-2a8fbdc31402",
+          "appId": "09abbdfd-ed23-44ee-a2d9-a627aa1c90f3",
+          "displayName": "ProjectWorkManagement",
+          "createdDateTime": "2026-05-14T16:11:26Z"
+        },
+        {
+          "id": "e15bdfcc-d91a-493a-a81f-0d16321f74df",
+          "appId": "905fcf26-4eb7-48a0-9ff0-8dcc7194b5ba",
+          "displayName": "Sway",
+          "createdDateTime": "2026-05-14T16:11:26Z"
+        },
+        {
+          "id": "fc3b8fe2-47f4-4231-ae8b-3a12d667f783",
+          "appId": "0000000a-0000-0000-c000-000000000000",
+          "displayName": "Microsoft Intune",
+          "createdDateTime": "2026-05-14T16:11:26Z"
+        },
+        {
+          "id": "9eadaaca-b668-4309-8cff-aefdb3f12e29",
+          "appId": "00000004-0000-0ff1-ce00-000000000000",
+          "displayName": "Skype for Business Online",
+          "createdDateTime": "2026-05-14T16:11:27Z"
+        },
+        {
+          "id": "adbb7680-f3c4-4894-b6b2-52691e30cf21",
+          "appId": "de247707-4e4a-47d6-89fd-3c632f870b34",
+          "displayName": "CloudLicensingSystem",
+          "createdDateTime": "2026-05-14T16:11:27Z"
+        },
+        {
+          "id": "6f3b628a-e9a6-470a-9f9f-0e002ac158e6",
+          "appId": "51b5e278-ed7e-42c6-8787-7ff93e92f577",
+          "displayName": "Narada Notification Service",
+          "createdDateTime": "2026-05-14T16:11:29Z"
+        },
+        {
+          "id": "1023ef66-3803-48b6-a0e7-e53a6c23777e",
+          "appId": "2a486b53-dbd2-49c0-a2bc-278bdfc30833",
+          "displayName": "Cortana at Work Service",
+          "createdDateTime": "2026-05-14T16:11:32Z"
+        },
+        {
+          "id": "7931dd97-1cf5-4f3e-a0cb-195c778e3551",
+          "appId": "4c8f074c-e32b-4ba7-b072-0f39d71daf51",
+          "displayName": "IPSubstrate",
+          "createdDateTime": "2026-05-14T16:11:33Z"
+        },
+        {
+          "id": "6e79366a-9e9e-417b-86ed-461f009ebcc0",
+          "appId": "00000007-0000-0ff1-ce00-000000000000",
+          "displayName": "Microsoft Exchange Online Protection",
+          "createdDateTime": "2026-05-14T16:11:33Z"
+        },
+        {
+          "id": "7a2c73e0-6515-4f4e-b469-fd8168a74e28",
+          "appId": "0f698dd4-f011-4d23-a33e-b36416dcb1e6",
+          "displayName": "OfficeClientService",
+          "createdDateTime": "2026-05-14T16:11:33Z"
+        },
+        {
+          "id": "c50ad4b0-b328-459b-8119-3c970e16e914",
+          "appId": "c5393580-f805-4401-95e8-94b7a6ef2fc2",
+          "displayName": "Office 365 Management APIs",
+          "createdDateTime": "2026-05-14T16:11:33Z"
+        },
+        {
+          "id": "e5cf6709-5f55-4a5d-aaf3-cbcb2cd9fa51",
+          "appId": "8b3391f4-af01-4ee8-b4ea-9871b2499735",
+          "displayName": "O365 Secure Score",
+          "createdDateTime": "2026-05-14T16:11:34Z"
+        },
+        {
+          "id": "33b46e43-84bb-48ca-bf46-07d779f20ee5",
+          "appId": "b2cc270f-563e-4d8a-af47-f00963a71dcd",
+          "displayName": "OneProfile Service",
+          "createdDateTime": "2026-05-14T16:11:34Z"
+        },
+        {
+          "id": "be48d6a4-a85e-4b02-be00-64db7f0ac8f0",
+          "appId": "d6fdaa33-e821-4211-83d0-cf74736489e1",
+          "displayName": "Microsoft Service Trust",
+          "createdDateTime": "2026-05-14T16:11:34Z"
+        },
+        {
+          "id": "ca68c8e1-8763-4528-84ac-c3e3cb465d80",
+          "appId": "48af08dc-f6d2-435f-b2a7-069abd99c086",
+          "displayName": "Connectors",
+          "createdDateTime": "2026-05-14T16:11:35Z"
+        },
+        {
+          "id": "08016a00-1372-471e-89de-f12043567138",
+          "appId": "870c4f2e-85b6-4d43-bdda-6ed9a579b725",
+          "displayName": "Microsoft Information Protection Sync Service",
+          "createdDateTime": "2026-05-14T16:11:35Z"
+        },
+        {
+          "id": "c31b3599-d930-4aa3-83a9-1a192f638b1b",
+          "appId": "2f3f02c9-5679-4a5c-a605-0de55b07d135",
+          "displayName": "Office 365 Information Protection",
+          "createdDateTime": "2026-05-14T16:11:35Z"
+        },
+        {
+          "id": "991260d1-e0a3-4856-91d9-c2c3869871cb",
+          "appId": "0d38933a-0bbd-41ca-9ebd-28c4b5ba7cb7",
+          "displayName": "M365PurvieweDiscoveryService",
+          "createdDateTime": "2026-05-14T16:11:35Z"
+        },
+        {
+          "id": "691d77cb-02a8-454e-9ef2-e593669f68de",
+          "appId": "81473081-50b9-469a-b9d8-303109583ecb",
+          "displayName": "Cortana Runtime Service",
+          "createdDateTime": "2026-05-14T16:11:36Z"
+        },
+        {
+          "id": "0ad79819-aa56-48ae-8ebc-3fce40c37881",
+          "appId": "c2ada927-a9e2-4564-aae2-70775a2fa0af",
+          "displayName": "OCaaS Client Interaction Service",
+          "createdDateTime": "2026-05-14T16:11:36Z"
+        },
+        {
+          "id": "9314d778-c212-419a-83b1-6bb740df31a4",
+          "appId": "167e2ded-f32d-49f5-8a10-308b921bc7ee",
+          "displayName": "OCaaS Worker Services",
+          "createdDateTime": "2026-05-14T16:11:36Z"
+        },
+        {
+          "id": "951d38b9-d689-41e9-bb83-fd96abc57dc1",
+          "appId": "6e99704e-62d5-40f6-b2fe-90aafbe3a710",
+          "displayName": "OCaaS Experience Management Service",
+          "createdDateTime": "2026-05-14T16:11:36Z"
+        },
+        {
+          "id": "aa6d922b-7540-4788-b0d6-d682dca41c74",
+          "appId": "0af06dc6-e4b5-4f28-818e-e78e62d137a5",
+          "displayName": "Windows 365",
+          "createdDateTime": "2026-05-14T16:11:37Z"
+        },
+        {
+          "id": "b6a2510d-3ed5-4cc9-9749-213b468194d8",
+          "appId": "9cdead84-a844-4324-93f2-b2e6bb768d07",
+          "displayName": "Azure Virtual Desktop",
+          "createdDateTime": "2026-05-14T16:11:37Z"
+        },
+        {
+          "id": "27370e76-5d27-4c9f-ac4e-06727eb6ee59",
+          "appId": "50e95039-b200-4007-bc97-8d5790743a63",
+          "displayName": "Azure Virtual Desktop ARM Provider",
+          "createdDateTime": "2026-05-14T16:11:37Z"
+        },
+        {
+          "id": "da23e462-a609-4e84-acd2-274ffbe17e9d",
+          "appId": "00000005-0000-0000-c000-000000000000",
+          "displayName": "Microsoft Azure Workflow",
+          "createdDateTime": "2026-05-14T16:11:37Z"
+        },
+        {
+          "id": "2b682318-4840-440b-8538-168066b08ff5",
+          "appId": "3138fe80-4087-4b04-80a6-8866c738028a",
+          "displayName": "SharePoint Notification Service",
+          "createdDateTime": "2026-05-14T16:11:37Z"
+        },
+        {
+          "id": "a77ab151-05d6-4d0d-bd7a-19471f2f589f",
+          "appId": "4747d38e-36c5-4bc3-979b-b0ef74df54d1",
+          "displayName": "PushChannel",
+          "createdDateTime": "2026-05-14T16:11:39Z"
+        },
+        {
+          "id": "abd02c59-149a-4571-9985-39ec6444e344",
+          "appId": "b97b6bd4-a49f-4a0c-af18-af507d1da76c",
+          "displayName": "Office Shredding Service",
+          "createdDateTime": "2026-05-14T16:11:39Z"
+        },
+        {
+          "id": "2991d343-d067-4f2e-a7ce-c0e306b23ef7",
+          "appId": "dcad865d-9257-4521-ad4d-bae3e137b345",
+          "displayName": "Microsoft SharePoint Online - SharePoint Home",
+          "createdDateTime": "2026-05-14T16:11:41Z"
+        },
+        {
+          "id": "e50610ea-83ad-4951-bafb-3f408405c6cf",
+          "appId": "3340b944-b12e-47d0-b46b-35f08ec1d8ee",
+          "displayName": "SPAuthEvent",
+          "createdDateTime": "2026-05-14T16:11:41Z"
+        },
+        {
+          "id": "4aacadfc-79ed-4393-a58d-dab25db9cd6a",
+          "appId": "fbb0ac1a-82dd-478b-a0e5-0b2b98ef38fe",
+          "displayName": "Substrate-FileWatcher",
+          "createdDateTime": "2026-05-14T16:11:41Z"
+        },
+        {
+          "id": "d8b75004-cd50-43fb-8471-b43ee09cc06c",
+          "appId": "4e445925-163e-42ca-b801-9073bfa46d17",
+          "displayName": "SharePoint Home Notifier",
+          "createdDateTime": "2026-05-14T16:11:41Z"
+        },
+        {
+          "id": "9c6148ed-c240-4638-a7b4-5eaaf96b3a33",
+          "appId": "944f0bd1-117b-4b1c-af26-804ed95e767e",
+          "displayName": "Media Analysis and Transformation Service",
+          "createdDateTime": "2026-05-14T16:11:42Z"
+        },
+        {
+          "id": "db499eab-674c-4fe8-bc5f-a3091a5909ce",
+          "appId": "5a4a238f-f186-4fff-95bd-d3e70f9e1a08",
+          "displayName": "Privacy Management",
+          "createdDateTime": "2026-05-14T16:11:47Z"
+        },
+        {
+          "id": "977d8232-dabe-4a08-bfff-0b39fa84e944",
+          "appId": "00000007-0000-0000-c000-000000000000",
+          "displayName": "Dataverse",
+          "createdDateTime": "2026-05-14T16:11:48Z"
+        },
+        {
+          "id": "86594a40-3d6b-47ba-bc29-666f96a21b63",
+          "appId": "c9a559d2-7aab-4f13-a6ed-e7e9c52aec87",
+          "displayName": "Microsoft Forms",
+          "createdDateTime": "2026-05-14T16:11:48Z"
+        },
+        {
+          "id": "73605cd2-f4b5-431f-b55a-c674b6b18a5c",
+          "appId": "40775b29-2688-46b6-a3b5-b256bd04df9f",
+          "displayName": "Microsoft Information Protection API",
+          "createdDateTime": "2026-05-14T16:11:49Z"
+        },
+        {
+          "id": "0c049bbc-ac50-4962-bf82-f939e9eb5d6d",
+          "appId": "913c6de4-2a4a-4a61-a9ce-945d2b2ce2e0",
+          "displayName": "Dynamics Lifecycle services",
+          "createdDateTime": "2026-05-14T16:11:49Z"
+        },
+        {
+          "id": "ec0e0c10-faae-418d-8959-735daf4b9f73",
+          "appId": "2e49aa60-1bd3-43b6-8ab6-03ada3d9f08b",
+          "displayName": "Dynamics Data Integration",
+          "createdDateTime": "2026-05-14T16:11:49Z"
+        },
+        {
+          "id": "6e009a7a-7f81-4394-80a0-6458045c2c76",
+          "appId": "c9299480-c13a-49db-a7ae-cdfe54fe0313",
+          "displayName": "PowerApps-Advisor",
+          "createdDateTime": "2026-05-14T16:11:50Z"
+        },
+        {
+          "id": "b9dff16a-df1b-4430-9d8e-6e60d19a61ee",
+          "appId": "b20d0d3a-dc90-485b-ad11-6031e769e221",
+          "displayName": "SalesInsightsWebApp",
+          "createdDateTime": "2026-05-14T16:11:50Z"
+        },
+        {
+          "id": "66892172-6ceb-4c49-9185-4f5db71373bc",
+          "appId": "2220bbc4-4518-4fef-aac6-c6f32e9f9fd1",
+          "displayName": "Customer Experience Platform PROD",
+          "createdDateTime": "2026-05-14T16:11:50Z"
+        },
+        {
+          "id": "8b6f26a2-305b-414f-98f6-c7237ae1cdaf",
+          "appId": "944861d3-5975-4f8b-afd4-3422c0b1b6ce",
+          "displayName": "Customer Service Trial PVA",
+          "createdDateTime": "2026-05-14T16:11:50Z"
+        },
+        {
+          "id": "004e5e43-2e3a-4ae8-aeff-63100129edf9",
+          "appId": "6abc93dc-978e-48a3-8e54-458e593ed8cf",
+          "displayName": "Customer Service Trial PVA - readonly",
+          "createdDateTime": "2026-05-14T16:11:51Z"
+        },
+        {
+          "id": "b90ed2e5-3d6e-4c0f-b913-c8730cca76fb",
+          "appId": "8578e004-a5c6-46e7-913e-12f58912df43",
+          "displayName": "Power Platform API",
+          "createdDateTime": "2026-05-14T16:11:51Z"
+        },
+        {
+          "id": "467cbfc4-e56f-4edd-ab65-6e19d17dc321",
+          "appId": "a164aee5-7d0a-46bb-9404-37421d58bdf7",
+          "displayName": "Microsoft Teams AuthSvc",
+          "createdDateTime": "2026-05-14T16:11:54Z"
+        },
+        {
+          "id": "a7964789-88d7-481a-8a0a-765e2f817dfe",
+          "appId": "c830ddb0-63e6-4f22-bd71-2ad47198a23e",
+          "displayName": "Microsoft To-Do",
+          "createdDateTime": "2026-05-14T16:11:51Z"
+        },
+        {
+          "id": "5ae15b09-601f-40a8-8fc4-8e61d9d5c238",
+          "appId": "7df0a125-d3be-4c96-aa54-591f83ff541c",
+          "displayName": "Microsoft Flow Service",
+          "createdDateTime": "2026-05-14T16:11:51Z"
+        },
+        {
+          "id": "cc3a35f5-acb7-4d54-a01a-6351cd5e61e8",
+          "appId": "0eda3b13-ddc9-4c25-b7dd-2f6ea073d6b7",
+          "displayName": "Microsoft Flow CDS Integration Service",
+          "createdDateTime": "2026-05-14T16:11:51Z"
+        },
+        {
+          "id": "21bc1dfe-0858-450e-bcea-5995b9e541b6",
+          "appId": "b1379a75-ce5e-4fa3-80c6-89bb39bf646c",
+          "displayName": "Microsoft Teams Chat Aggregator",
+          "createdDateTime": "2026-05-14T16:11:51Z"
+        },
+        {
+          "id": "94097783-1844-455f-b627-97e9c8fe3a02",
+          "appId": "26a18ebc-cdf7-4a6a-91cb-beb352805e81",
+          "displayName": "Skype Teams Calling API Service",
+          "createdDateTime": "2026-05-14T16:11:52Z"
+        },
+        {
+          "id": "0502197a-460a-4d58-8d72-9291a2ada960",
+          "appId": "1e70cd27-4707-4589-8ec5-9bd20c472a46",
+          "displayName": "Skype Presence Service",
+          "createdDateTime": "2026-05-14T16:11:52Z"
+        },
+        {
+          "id": "841d0782-e05a-4c48-b2bd-598b9f5caaef",
+          "appId": "b55b276d-2b09-4ad2-8de5-f09cf24ffba9",
+          "displayName": "Microsoft Teams - Teams And Channels Service",
+          "createdDateTime": "2026-05-14T16:11:53Z"
+        },
+        {
+          "id": "c4d06c79-50ff-4920-8f0e-720bf86dc12d",
+          "appId": "1996141e-2b07-4491-927a-5a024b335c78",
+          "displayName": "Microsoft Teams UIS",
+          "createdDateTime": "2026-05-14T16:11:53Z"
+        },
+        {
+          "id": "cc4a19bf-f9a2-445a-8a95-51e58c9ec61d",
+          "appId": "c9224372-5534-42cb-a48b-8db4f4a3892e",
+          "displayName": "MS Teams Griffin Assistant",
+          "createdDateTime": "2026-05-14T16:11:53Z"
+        },
+        {
+          "id": "3bf24c40-691f-4a01-9036-04aeb60b79f7",
+          "appId": "48ac35b8-9aa8-4d74-927d-1f4a14a0b239",
+          "displayName": "Skype and Teams Tenant Admin API",
+          "createdDateTime": "2026-05-14T16:11:53Z"
+        },
+        {
+          "id": "0d1a0ce6-aae6-4ebf-932f-75aab7988b5d",
+          "appId": "21a8a852-89f4-4947-a374-b26b2db3d365",
+          "displayName": "IC3 Long Running Operations Service",
+          "createdDateTime": "2026-05-14T16:11:53Z"
+        },
+        {
+          "id": "c78db3d5-112f-44e6-9ead-d32fadfc7474",
+          "appId": "9e133cac-5238-4d1e-aaa0-d8ff4ca23f4e",
+          "displayName": "Conferencing Virtual Assistant",
+          "createdDateTime": "2026-05-14T16:11:54Z"
+        },
+        {
+          "id": "e1b7dc56-6bd1-4f66-8561-501e379eeb0c",
+          "appId": "207a6836-d031-4764-a9d8-c1193f455f21",
+          "displayName": "Conference Auto Attendant",
+          "createdDateTime": "2026-05-14T16:11:54Z"
+        },
+        {
+          "id": "ad5185d7-33a0-48b7-a6c5-58a84436fe1f",
+          "appId": "00edd498-7c0c-4e68-859c-5a55d518c9c0",
+          "displayName": "Teams Biometric Service",
+          "createdDateTime": "2026-05-14T16:11:54Z"
+        },
+        {
+          "id": "bf210480-b89a-46f7-8afc-e8601485ef7f",
+          "appId": "0fa37baf-7afc-4baf-ab2d-d5bb891d53ef",
+          "displayName": "Microsoft Teams ATP Service",
+          "createdDateTime": "2026-05-14T16:11:54Z"
+        },
+        {
+          "id": "6fa59a46-c1a3-471b-9fba-625df07c6e5f",
+          "appId": "66c23536-2118-49d3-bc66-54730b057680",
+          "displayName": "Skype Core Calling Service",
+          "createdDateTime": "2026-05-14T16:11:54Z"
+        },
+        {
+          "id": "c9ea0580-e70c-424a-a07e-9cef19b2b16d",
+          "appId": "2b479c68-8d9b-4e27-9d85-5d74803de734",
+          "displayName": "Virtual Visits App",
+          "createdDateTime": "2026-05-14T16:11:54Z"
+        },
+        {
+          "id": "4ffa1074-55d7-40f1-a44b-2591d105f70d",
+          "appId": "7a274595-3618-4e6f-b54e-05bb353e0153",
+          "displayName": "Teams NRT DLP Service",
+          "createdDateTime": "2026-05-14T16:11:55Z"
+        },
+        {
+          "id": "24cc5fb2-6869-4662-8475-eb4aeff2be52",
+          "appId": "0ef94e72-e4fc-4aa0-a8f4-ff27deb3e6eb",
+          "displayName": "Teams NRT DLP Ingestion Service",
+          "createdDateTime": "2026-05-14T16:11:55Z"
+        },
+        {
+          "id": "591e643a-1411-4222-b9e9-1422629ca5e3",
+          "appId": "5a807f24-c9de-44ee-a3a7-329e88a00ffc",
+          "displayName": "Messaging Bot API Application",
+          "createdDateTime": "2026-05-14T16:11:55Z"
+        },
+        {
+          "id": "aa723a06-822d-4a4f-af87-feaac32410b1",
+          "appId": "c161e42e-d4df-4a3d-9b42-e7a3c31f59d4",
+          "displayName": "Microsoft Intune API",
+          "createdDateTime": "2026-05-14T16:11:55Z"
+        },
+        {
+          "id": "05f919c3-da77-4cb2-8225-4310e07de160",
+          "appId": "9cb77803-d937-493e-9a3b-4b49de3f5a74",
+          "displayName": "Microsoft Intune Service Discovery",
+          "createdDateTime": "2026-05-14T16:11:55Z"
+        },
+        {
+          "id": "6bdfa09f-238c-45bd-840b-5fdc72b1cde5",
+          "appId": "0a5f63c0-b750-4f38-a71c-4fc0d58b89e2",
+          "displayName": "Microsoft Mobile Application Management",
+          "createdDateTime": "2026-05-14T16:11:56Z"
+        },
+        {
+          "id": "31d24129-7239-44c5-8607-33a77a891c05",
+          "appId": "62b732f7-fc71-40bc-b27d-35efcb0509de",
+          "displayName": "Microsoft Teams AadSync",
+          "createdDateTime": "2026-05-14T16:11:56Z"
+        },
+        {
+          "id": "7d484c9f-ef5d-4440-a92c-25add0f61d8c",
+          "appId": "794ded15-70c6-4bcd-a0bb-9b7ad530a01a",
+          "displayName": "Microsoft Intune Advanced Threat Protection Integration",
+          "createdDateTime": "2026-05-14T16:11:56Z"
+        },
+        {
+          "id": "8611ea43-fae7-4be8-9df5-e26fc0e8563a",
+          "appId": "8bbf8725-b3ca-4468-a217-7c8da873186e",
+          "displayName": "DeploymentScheduler",
+          "createdDateTime": "2026-05-14T16:11:56Z"
+        },
+        {
+          "id": "6ade3142-6801-4282-9d63-a19b4ceea67a",
+          "appId": "14452459-6fa6-4ec0-bc50-1528a1a06bf0",
+          "displayName": "Intune CMDeviceService",
+          "createdDateTime": "2026-05-14T16:11:56Z"
+        },
+        {
+          "id": "730f0b05-d1b8-408e-8b3c-aaee314113d1",
+          "appId": "63e61dc2-f593-4a6f-92b9-92e4d2c03d4f",
+          "displayName": "Microsoft Intune SCCM Connector",
+          "createdDateTime": "2026-05-14T16:11:56Z"
+        },
+        {
+          "id": "27c6915e-2df5-48b1-9cfe-b2f438f9f5eb",
+          "appId": "8ae6a0b1-a07f-4ec9-927a-afb8d39da81c",
+          "displayName": "Microsoft Device Management EMM API",
+          "createdDateTime": "2026-05-14T16:11:57Z"
+        },
+        {
+          "id": "ce22151c-c50d-4a6d-926e-7a090b16d4db",
+          "appId": "ca0a114d-6fbc-46b3-90fa-2ec954794ddb",
+          "displayName": "Microsoft Device Management Checkin",
+          "createdDateTime": "2026-05-14T16:11:57Z"
+        },
+        {
+          "id": "edc9a719-ef3b-4c76-b0a0-dd46883175ef",
+          "appId": "cbfda01c-c883-45aa-aedc-e7a484615620",
+          "displayName": "Microsoft Windows AutoPilot Service API",
+          "createdDateTime": "2026-05-14T16:11:57Z"
+        },
+        {
+          "id": "aa6f6b58-1e8e-43c3-8790-6f50770eaa1d",
+          "appId": "557c67cf-c916-4293-8373-d584996f60ae",
+          "displayName": "Configuration Manager Microservice",
+          "createdDateTime": "2026-05-14T16:11:57Z"
+        },
+        {
+          "id": "73a74c31-89e2-4c0a-9e21-60de0a0a774e",
+          "appId": "6f0478d5-61a3-4897-a2f2-de09a5a90c7f",
+          "displayName": "WindowsUpdate-Service",
+          "createdDateTime": "2026-05-14T16:11:58Z"
+        },
+        {
+          "id": "1cb5e5f3-c878-43d0-87b6-cc8d8c0c2bf2",
+          "appId": "f9d02341-e7aa-456d-926d-4a0ca599fbee",
+          "displayName": "Office 365 Enterprise Insights",
+          "createdDateTime": "2026-05-14T16:11:58Z"
+        },
+        {
+          "id": "871e1f47-31be-48f2-a779-b23eae824298",
+          "appId": "82f45fb0-18b4-4d68-8bed-9e44909e3890",
+          "displayName": "Meeting Migration Service",
+          "createdDateTime": "2026-05-14T16:11:58Z"
+        },
+        {
+          "id": "9978ce4d-ea5b-4fc6-b83b-0ce3c52ed7b4",
+          "appId": "e29b5c86-b9ab-4a86-9a20-d10842007599",
+          "displayName": "SharePoint Framework Azure AD Helper",
+          "createdDateTime": "2026-05-14T16:12:33Z"
+        },
+        {
+          "id": "4cf61c35-f984-4399-bc77-92ecc08d1f85",
+          "appId": "00000003-0000-0ff1-ce00-000000000000",
+          "displayName": "Office 365 SharePoint Online",
+          "createdDateTime": "2026-05-14T16:11:25Z"
+        },
+        {
+          "id": "fd52ffce-1715-42d3-9739-cfea10e47266",
+          "appId": "98db8bd6-0cc0-4e67-9de5-f187f1cd1b41",
+          "displayName": "Microsoft Substrate Management",
+          "createdDateTime": "2026-05-14T16:12:57Z"
+        },
+        {
+          "id": "58afce26-3a7e-4ca4-8f7e-a2186814ec89",
+          "appId": "ab3be6b7-f5df-413d-ac2d-abf1e3fd9c0b",
+          "displayName": "Microsoft Teams Graph Service",
+          "createdDateTime": "2026-05-14T16:13:07Z"
+        },
+        {
+          "id": "ee7d5460-eb5c-432a-ac36-fee9df2481f1",
+          "appId": "65c8bd9e-caac-4816-be98-0692f41191bc",
+          "displayName": "People Profile Event Proxy",
+          "createdDateTime": "2026-05-14T16:13:20Z"
+        },
+        {
+          "id": "f57fa304-6675-4f51-958c-862e65721ef1",
+          "appId": "1690c5aa-925a-4d0e-836b-722c795bd0d0",
+          "displayName": "Group Configuration Processor",
+          "createdDateTime": "2026-05-14T16:16:39Z"
+        },
+        {
+          "id": "fc9122c4-0076-45ed-9861-72af7c361ea3",
+          "appId": "a47591ab-e23e-4ffa-9e1b-809b9067e726",
+          "displayName": "Microsoft Teams User Profile Search Service",
+          "createdDateTime": "2026-05-14T16:16:44Z"
+        },
+        {
+          "id": "f3a4245f-dc4b-4cc6-84de-baa4fa74081d",
+          "appId": "cdccd920-384b-4a25-897d-75161a4b74c1",
+          "displayName": "Skype Teams Firehose",
+          "createdDateTime": "2026-05-14T16:16:46Z"
+        },
+        {
+          "id": "8a3db2df-3c98-4ae7-bdb5-cbd84b67ce08",
+          "appId": "978877ea-b2d6-458b-80c7-05df932f3723",
+          "displayName": "Microsoft Teams AuditService",
+          "createdDateTime": "2026-05-14T16:16:45Z"
+        },
+        {
+          "id": "73c4d6c4-4d80-4676-a6ec-8a64b2771826",
+          "appId": "475226c6-020e-4fb2-8a90-7a972cbfc1d4",
+          "displayName": "PowerApps Service",
+          "createdDateTime": "2026-05-14T16:16:47Z"
+        },
+        {
+          "id": "cc1583d5-e0b9-4f43-95d4-c50e932c942c",
+          "appId": "394866fc-eedb-4f01-8536-3ff84b16be2a",
+          "displayName": "Microsoft People Cards Service",
+          "createdDateTime": "2026-05-14T16:21:36Z"
+        },
+        {
+          "id": "2ebbe2cf-b41f-4d19-8f28-07da68d37063",
+          "appId": "e8be65d6-d430-4289-a665-51bf2a194bda",
+          "displayName": "Microsoft 365 App Catalog Services",
+          "createdDateTime": "2026-05-14T16:21:36Z"
+        },
+        {
+          "id": "8b8fab04-83d6-4069-97d0-db58c2a8fbdf",
+          "appId": "644c1b11-f63f-45fa-826b-a9d2801db711",
+          "displayName": "CompliancePolicy",
+          "createdDateTime": "2026-05-14T16:23:23Z"
+        },
+        {
+          "id": "ffcf9a29-b565-49e2-800d-6c9abc0daa8e",
+          "appId": "11cd3e2e-fccb-42ad-ad00-878b93575e07",
+          "displayName": "Automated Call Distribution",
+          "createdDateTime": "2026-05-14T16:23:55Z"
+        },
+        {
+          "id": "84c4d501-cefb-49aa-a140-61be424e2b6a",
+          "appId": "2d4d3d8e-2be3-4bef-9f87-7875a61c29de",
+          "displayName": "OneNote",
+          "createdDateTime": "2026-05-14T16:25:02Z"
+        },
+        {
+          "id": "95a0e5e8-14dd-439c-86ee-2ee946d4dd97",
+          "appId": "7c99d979-3b9c-4342-97dd-3239678fb300",
+          "displayName": "Data Classification Service",
+          "createdDateTime": "2026-05-14T16:34:41Z"
+        },
+        {
+          "id": "d7084aee-3e75-48c0-9a68-224e33e41cfa",
+          "appId": "6d32b7f8-782e-43e0-ac47-aaad9f4eb839",
+          "displayName": "Permission Service O365",
+          "createdDateTime": "2026-05-14T16:35:09Z"
+        },
+        {
+          "id": "3878c477-300a-47cc-8e0a-66bacf983c51",
+          "appId": "86b4b4b4-db10-481c-876b-07447e7f204f",
+          "displayName": "Groups Service",
+          "createdDateTime": "2026-05-14T16:40:55Z"
+        },
+        {
+          "id": "27f6a29b-36cb-4803-9827-72dbcc03eef6",
+          "appId": "934d626a-1ead-4a36-a77d-12ec63b87a0d",
+          "displayName": "Microsoft Rights Management Services Default",
+          "createdDateTime": "2026-05-14T16:42:54Z"
+        },
+        {
+          "id": "714deec4-17c1-4798-a873-4d34c5edd075",
+          "appId": "f8f7a2aa-e116-4ba6-8aea-ca162cfa310d",
+          "displayName": "Microsoft Graph Connectors Core",
+          "createdDateTime": "2026-05-14T16:43:03Z"
+        },
+        {
+          "id": "3364ef0c-3687-4e4f-8e46-37b04ff4b8ab",
+          "appId": "f569b9c7-be15-4e87-86f7-87d30d02090b",
+          "displayName": "O365 LinkedIn Connection",
+          "createdDateTime": "2026-05-14T16:21:48Z"
+        },
+        {
+          "id": "d0f7abae-ec2d-4a0d-89ca-948796ebb6fb",
+          "appId": "2b5e68f0-bdc2-45b0-920a-217d5cbbd505",
+          "displayName": "Power Platform Policy TIRPS CM - PROD",
+          "createdDateTime": "2026-05-14T17:00:02Z"
+        },
+        {
+          "id": "cd99c425-4b5f-4cd6-bc43-66c5c1999cfa",
+          "appId": "d29a4c00-4966-492a-84dd-47e779578fb7",
+          "displayName": "Discovery Service",
+          "createdDateTime": "2026-05-14T17:20:37Z"
+        },
+        {
+          "id": "e823e0fe-538e-4c10-a907-aad5df53f5b9",
+          "appId": "dee7ba80-6a55-4f3b-a86c-746a9231ae49",
+          "displayName": "Microsoft AppPlat EMA",
+          "createdDateTime": "2026-05-14T17:35:44Z"
+        },
+        {
+          "id": "8e39772b-d74b-4665-b628-4e57e6d15c6f",
+          "appId": "789e8929-0390-42a2-8934-0f9dafb8ec89",
+          "displayName": "Exchange Rbac",
+          "createdDateTime": "2026-05-14T17:37:15Z"
+        },
+        {
+          "id": "10eee6c6-b6bd-4736-b771-4931b9473744",
+          "appId": "32b6d34b-c894-4971-8223-e17b86e9ad26",
+          "displayName": "Signal B2 Service",
+          "createdDateTime": "2026-05-14T17:49:20Z"
+        },
+        {
+          "id": "3bb23d8a-ee27-4a7d-bdbb-1c9e5f15a19c",
+          "appId": "2e70988e-e92f-46e6-ba47-1f01dbc650e3",
+          "displayName": "NangoTeams",
+          "createdDateTime": "2026-05-12T10:10:37Z"
+        },
+        {
+          "id": "e0ea2e0e-469c-4eeb-aa4a-f2ac49a786cf",
+          "appId": "66a88757-258c-4c72-893c-3e8bed4d6899",
+          "displayName": "Office 365 Search Service",
+          "createdDateTime": "2026-05-14T18:38:13Z"
+        },
+        {
+          "id": "87ede68d-647d-4504-81ed-8f2baffe7a2a",
+          "appId": "1c2909a7-6432-4263-a70d-929a3c1f9ee5",
+          "displayName": "Common Data Service License Management",
+          "createdDateTime": "2026-05-14T19:49:12Z"
+        },
+        {
+          "id": "f39731d5-adc0-461d-b75e-c51361ec5e12",
+          "appId": "18af356b-c4fd-4f52-9899-d09d21397ab7",
+          "displayName": "Office365DirectorySynchronizationService",
+          "createdDateTime": "2026-05-14T23:43:13Z"
+        },
+        {
+          "id": "315dd667-2998-4539-b4c9-1cef5c7bbf40",
+          "appId": "fc03f97a-9db0-4627-a216-ec98ce54e018",
+          "displayName": "Azure AD Notification",
+          "createdDateTime": "2026-05-15T01:58:06Z"
+        },
+        {
+          "id": "681115f1-0826-4910-a11f-68ebdedf713c",
+          "appId": "ab158d9a-0b5c-4cc3-bb2b-f6646581e4e4",
+          "displayName": "CAP Neptune Prod CM Prod ",
+          "createdDateTime": "2026-05-15T02:33:20Z"
+        },
+        {
+          "id": "8fe91c86-2214-4a57-b617-402f15ddc99d",
+          "appId": "08e18876-6177-487e-b8b5-cf950c1e598c",
+          "displayName": "SharePoint Online Web Client Extensibility",
+          "createdDateTime": "2026-05-14T16:12:32Z"
+        },
+        {
+          "id": "c60090be-c3c8-449b-883d-0ee0924d6215",
+          "appId": "abe05e12-a08b-4d0d-ae66-51e7ca2b08d0",
+          "displayName": "NangoMicrosoft",
+          "createdDateTime": "2026-05-18T21:22:08Z"
+        },
+        {
+          "id": "e0581fd2-fb78-4bce-a86a-2664111d59b9",
+          "appId": "91e06239-2f2f-4cc3-9e17-63df4f732a76",
+          "displayName": "Nango Test App for SP",
+          "createdDateTime": "2026-05-18T22:06:53Z"
+        },
+        {
+          "id": "c140e3e5-b0a8-467a-9669-0fc55427b0b9",
+          "appId": "7be3afde-5102-496c-9387-c0729b9f14f5",
+          "displayName": "NangoTempApp",
+          "createdDateTime": "2026-05-18T22:08:23Z"
+        }
+      ]
+    },
+    "batchDelete": {
+      "ServicePrincipal": [
+        {
+          "id": "15b564ef-d90d-4318-b80e-65f1abf48da2"
+        },
+        {
+          "id": "8c7410b7-37cd-4463-981d-74cd6ab033a7"
+        },
+        {
+          "id": "afa06287-fd67-435a-ad4d-fc7457430c1e"
+        },
+        {
+          "id": "0f6e916c-d4c6-4f5b-99f5-22442166505a"
+        },
+        {
+          "id": "68d56820-cc72-446a-9802-3522882b09bc"
+        }
+      ]
+    }
+  },
+  "api": {
+    "get": {
+      "/v1.0/servicePrincipals/delta": [
+        {
+          "response": {
+            "@odata.context": "https://graph.microsoft.com/v1.0/$metadata#servicePrincipals(id,appId,displayName,createdDateTime)",
+            "@odata.nextLink": "https://graph.microsoft.com/v1.0/servicePrincipals/delta?$skiptoken=v12ygeT0LVPgNsQiCun4557lsQaaldcEbbY0JB5fqcBNwIBlFfzmGoXxrT7wjPFNAyn504HLmqbbKYj8YDjpDYDeqvQ4UWjC01HqHXQak4SaQ58ZwsIElraT9D3gPVk58XGf27QTD37G95tLi7kcJT2eCSNkqVN4MYhCtwMEkysRbVW7hUh-vYrfubHSiaXcNK_Zsfr1rcOoINFOVCjBdUfqEoFvo3-t5ijmb_6niJMA9DT_QLkMGBoWfFv8DerayNJm1QgoQbQBoKw-cWCjbMt2zg8ei9z63g89IJhzAizQg5hrONo62_ahddzp5b6TLlU0cuKFyuSecozpp9T-xbOJMu46pJMp8N2GL8954aCUeQj50cPvyalU2gttMRPjmK7jtFQxtLsI-AoGMY9iaezSh-WBSrtLALEEQhZni__UW9-3r6QD-k3xUluViLalMYhI6X394cau7rAlYXwV4_Xrh4QhPdBvgMIoGwhDYLuQni95FbuH0XvZKV0gjEP-_978VH0LGmIPYmJMsGOwCU1o1sPM9SeLcdHs3Bi64MBsccY2htQwkJUtHyH14h7K1Tgr-Cb7Noieoz4NKH1TeXgZoipE0TjQzZwdnu_WcDyZjXwlraPGwuWIkE8dpCCmE5fv10rGt9vXPM2DLuCvVB2hIM2kA-zAX1id05Ca-Nn4t4DJjaxctyNlZPxhzvxmAsbbUpfDTZchH6gJX6_bXPRfYQiDqWcord9WYu-S3Hr8QwfoNTak_XIeJ2zh_arsj3WEN3jNlbkRiiKjxpI_IEIWJjV4DblG14JqhEKR56K1RuARjePHcyCNYlJk__Tv_yBikGliKYyikR8f3FSvxc6L43U5blGzHEt6q745v6bOAaGgCH1vslPsdlpjWocOCvtm9UgF6ao-awuu9IRuT0sXaa67tK-qu3_9Ecs4NHGuES-hANksk9VgJHVRsKWP5HjC6X1TFf3E11M-TBVyNWOpyaSlPJ5nNrvRZdS65k3YWrGmq3guNFLALsD2lmcVMm6cWurHL98YA__Ft7NgwY4A5DiHRSrk-GykcSZNfNOCXQdqQXpZbKNJRkjSJwYAtwVMl5p5lJ3D8MsEa6zR5XX8t0rHEeP3GkdCPMe-XetFdIrEQhAwYLHnICBKYqiwDPYkL6v8E6lsy3FiRUMMUIHhSLRIEz5NzkcC-bWVpQ6MpYR5Qg3iWwgBjMxTGUrGmAfWrGkZLaWXdA_KbgG8UQW-uobn5ABEnqxBHgeHHIYjvLn0fsSTJ5iaRhYhD2Ht-RbqK6OXrkl_Hwt83DejxH1e711gfITkWF6QYbxtpI2VlPYUu0v95isKvI4hbw9U49unG6BexVlTZKH4YUYLVPskobAdtMZFGmAvQUVR97r6aVTi6qYOdij1l89bvDNyDuKa9Esvuy62O3zduMpbPH5lO5L_16AQKbsJAMwQ1Xpu69XoatLKUgn14N8Fct19PhX-jDHG1DCLxGHW0wFC7NwUSSxUnnMC9jfZCsthN7guuUPP-VjkXLoeHpLlXZbOvZ3Wyz89qVhc13ealsrdmrCMtAGOFIkMs_M51UqssNuavNZf-1n8uJ8A_B-PK2IG7oOkMZfYwAohd5ck4tKZIFPoeSj4tLShPlHdQnd4yl3nASTY-UaCBwXWMEUYpFUjpw7pU1-_lOzM52_4jPf0fT_QB7cW9Rx9JUzxpR0MHZ4cRFUVsJKNbKo_wW055p5BZqzBwikssJv8ILrws4jTA5ScXVdYMDm_NiVwFdUqPOxgP-bUkbWefpdG_CiDJRfW-osj8UjHiEbxlKWNVz4fMFOGNRV4rPLvR_VD7xcj25vc2yFpyY4EOUL55Sn9krY3_zHEp_KHYNmMFiYCq0gIxLgTEgrMbiH0RH062k5jphXt90qPfXPQop0zqIDEtRd4jUPXh4R9ZRW0s48OvcEHBTWRAstz2tpbA2RW-eClxECqEkARiw2H09ANk-OirXA0DOZRVPCfmiYNpllcewIB5rYTE3x-M2DIfsEwRoO7qMnkkhxaHNIa1dBmZOA1cmPzKfyUndp4SeeAEQtb0UeXfM8X1CLOeMTAnPGKbyqBzVHFVpI6rImfIyhwcnmgkCLV.9aWylkoPvRZnUrEFWiXb_0PAVpVH9NoSv0kCodl3X10",
+            "value": [
+              {
+                "appId": "00000002-0000-0000-c000-000000000000",
+                "displayName": "Windows Azure Active Directory",
+                "createdDateTime": "2026-05-12T09:07:44Z",
+                "id": "393826e9-81c1-4917-b034-26ff253f0554"
+              },
+              {
+                "appId": "0000000c-0000-0000-c000-000000000000",
+                "displayName": "Microsoft App Access Panel",
+                "createdDateTime": "2026-05-12T09:07:44Z",
+                "id": "91ef3646-3045-43a5-b691-068935807ba0"
+              },
+              {
+                "appId": "aa9ecb1e-fd53-4aaa-a8fe-7a54de2c1334",
+                "displayName": "Office 365 Configure",
+                "createdDateTime": "2026-05-12T09:07:44Z",
+                "id": "9e0f64b1-4c61-4cdf-93e6-7e5aa48dbd20"
+              },
+              {
+                "appId": "797f4846-ba00-4fd7-ba43-dac1f8f63013",
+                "displayName": "Azure Resource Manager",
+                "createdDateTime": "2026-05-12T09:07:44Z",
+                "id": "7f78c6fa-2bce-4db3-9a0c-05e2711c9ad6"
+              },
+              {
+                "appId": "b4bddae8-ab25-483e-8670-df09b9f1d0ea",
+                "displayName": "Signup",
+                "createdDateTime": "2026-05-12T09:07:44Z",
+                "id": "71d7e564-e261-4aa5-9c2d-4677d0abb551"
+              },
+              {
+                "appId": "00000001-0000-0000-c000-000000000000",
+                "displayName": "Azure ESTS Service",
+                "createdDateTime": "2026-05-12T09:07:45Z",
+                "id": "2f4f776a-dd62-41c5-ac44-fdb3253ed818"
+              },
+              {
+                "appId": "00000003-0000-0000-c000-000000000000",
+                "displayName": "Microsoft Graph",
+                "createdDateTime": "2026-05-12T09:07:45Z",
+                "id": "160d0cfc-5c07-4a4f-98c7-32ad642439ee"
+              },
+              {
+                "appId": "c728155f-7b2a-4502-a08b-b8af9b269319",
+                "displayName": "AAD Request Verification Service - PROD",
+                "createdDateTime": "2026-05-12T09:07:50Z",
+                "id": "5f50586f-1e4d-418c-a3c9-05afb778d57c"
+              },
+              {
+                "appId": "37182072-3c9c-4f6a-a4b3-b3f91cacffce",
+                "displayName": "AzureSupportCenter",
+                "createdDateTime": "2026-05-12T09:07:50Z",
+                "id": "f2bdf0b4-3da9-4b1a-81dc-4657b6221bae"
+              },
+              {
+                "appId": "d73f4b35-55c9-48c7-8b10-651f6f2acb2e",
+                "displayName": "MCAPI Authorization Prod",
+                "createdDateTime": "2026-05-12T09:07:51Z",
+                "id": "cdf56d39-641a-4512-8d6b-26887642efd6"
+              },
+              {
+                "appId": "8fca0a66-c008-4564-a876-ab3ae0fd5cff",
+                "displayName": "Microsoft.SMIT",
+                "createdDateTime": "2026-05-12T09:07:51Z",
+                "id": "74815c7a-ceac-41f4-b33b-2e387ff97b22"
+              },
+              {
+                "appId": "a57aca87-cbc0-4f3c-8b9e-dc095fdc8978",
+                "displayName": "IAM Supportability",
+                "createdDateTime": "2026-05-12T09:07:51Z",
+                "id": "1b7b6eea-ba56-4dd7-a061-7d768e707d1c"
+              },
+              {
+                "appId": "0bf30f3b-4a52-48df-9a82-234910c4a086",
+                "displayName": "Microsoft Graph Change Tracking",
+                "createdDateTime": "2026-05-12T09:07:51Z",
+                "id": "13822bea-0c24-4eb4-b298-e50df4401784"
+              },
+              {
+                "appId": "3829f069-1c33-45dd-84ab-2465f4282677",
+                "displayName": "Azure Signup Api",
+                "createdDateTime": "2026-05-12T09:11:42Z",
+                "id": "6a6b619b-4949-4aed-8cb2-1434b18b7e0c"
+              },
+              {
+                "appId": "509e4652-da8d-478d-a730-e9d4a1996ca4",
+                "displayName": "Azure Resource Graph",
+                "createdDateTime": "2026-05-12T09:11:57Z",
+                "id": "7561ec20-e5b9-4983-afcc-9ae4f8f70141"
+              },
+              {
+                "appId": "f2c304cf-8e7e-4c3f-8164-16299ad9d272",
+                "displayName": "Azure Management Groups",
+                "createdDateTime": "2026-05-12T09:12:00Z",
+                "id": "5087d4b1-7924-4a6b-bae9-82fc8d33be71"
+              },
+              {
+                "appId": "0469d4cd-df37-4d93-8a61-f8c75b809164",
+                "displayName": "Policy Administration Service",
+                "createdDateTime": "2026-05-12T09:12:01Z",
+                "id": "8b6f813b-29c6-449a-9a02-f2b4a0170759"
+              },
+              {
+                "appId": "ea890292-c8c8-4433-b5ea-b09d0668e1a6",
+                "displayName": "Azure Credential Configuration Endpoint Service",
+                "createdDateTime": "2026-05-12T09:12:53Z",
+                "id": "72299785-4813-461f-83ac-0c2593ace3b0"
+              },
+              {
+                "appId": "01cb2876-7ebd-4aa4-9cc9-d28bd4d359a9",
+                "displayName": "Device Registration Service",
+                "createdDateTime": "2026-05-12T09:12:56Z",
+                "id": "b23ed1cf-2e6f-4dec-85fc-38515af916c1"
+              },
+              {
+                "appId": "b5a60e17-278b-4c92-a4e2-b9262e66bb28",
+                "displayName": "Azure MFA StrongAuthenticationService",
+                "createdDateTime": "2026-05-12T09:14:27Z",
+                "id": "a13fb4dc-729b-47ae-82f5-17a6da9f095d"
+              },
+              {
+                "appId": "fa3d9a0c-3fb0-42cc-9193-47c7ecd2edbd",
+                "displayName": "Microsoft Partner Center",
+                "createdDateTime": "2026-05-12T09:16:04Z",
+                "id": "ae3dd41d-cc65-4abe-b58f-7e37263fcc4a"
+              },
+              {
+                "appId": "fabfbdc4-5751-471c-ac43-3826fa1afc31",
+                "displayName": "Microsoft Partner Center",
+                "createdDateTime": "2026-05-12T09:31:12Z",
+                "id": "3bf95b51-d223-4cab-996c-5c79c3a3b4e8"
+              },
+              {
+                "appId": "3e53edf8-185f-4fb1-b849-97faed43d817",
+                "displayName": "Partner Accounts Graph",
+                "createdDateTime": "2026-05-12T09:31:20Z",
+                "id": "08c61139-f11b-4555-a54e-9a7e29c65a01"
+              },
+              {
+                "appId": "224a7b82-46c9-4d6b-8db0-7360fb444681",
+                "displayName": "Microsoft Modern Contact Master",
+                "createdDateTime": "2026-05-12T09:43:28Z",
+                "id": "48529db8-dcbd-46dd-b4a5-cd83fef4e38c"
+              },
+              {
+                "appId": "bb2a2e3a-c5e7-4f0a-88e0-8e01fd3fc1f4",
+                "displayName": "CPIM Service",
+                "createdDateTime": "2026-05-12T10:09:03Z",
+                "id": "94de64b0-2ec4-4f5c-9bf3-903e1a157c05"
+              },
+              {
+                "appId": "67a65d0c-1fdb-4698-acd3-4ea44058e1c3",
+                "displayName": "Azure AD Publisher Service",
+                "createdDateTime": "2026-05-12T13:50:41Z",
+                "id": "82295cf3-8f5c-4921-a659-671ed75edf49"
+              },
+              {
+                "appId": "01fc33a7-78ba-4d2f-a4b7-768e336e890e",
+                "displayName": "MS-PIM",
+                "createdDateTime": "2026-05-12T14:10:15Z",
+                "id": "10d0a9f7-9783-4b71-a96b-d924e7b6e374"
+              },
+              {
+                "appId": "1b912ec3-a9dd-4c4d-a53e-76aa7adb28d7",
+                "displayName": "AADReporting",
+                "createdDateTime": "2026-05-12T14:12:05Z",
+                "id": "de50e8d0-0c24-4b49-8cd1-4dbf2bab13be"
+              },
+              {
+                "appId": "a3dfc3c6-2c7d-4f42-aeec-b2877f9bce97",
+                "displayName": "Microsoft Azure AD Identity Protection",
+                "createdDateTime": "2026-05-12T14:12:24Z",
+                "id": "aaab9e70-9211-4875-b5ad-2ad8644c4b33"
+              },
+              {
+                "appId": "8d3a7d3c-c034-4f19-a2ef-8412952a9671",
+                "displayName": "Microsoft Office Licensing Service",
+                "createdDateTime": "2026-05-12T14:23:40Z",
+                "id": "24997ade-f9a6-424e-bd40-1ad641fd626a"
+              },
+              {
+                "appId": "9ea1ad79-fdb6-4f9a-8bc3-2b70f96e34c7",
+                "displayName": "Bing",
+                "createdDateTime": "2026-05-12T14:23:57Z",
+                "id": "0c651f45-2114-45b3-a9ec-9ff2c98e4dff"
+              },
+              {
+                "appId": "f0ae4899-d877-4d3c-ae25-679e38eea492",
+                "displayName": "AAD App Management",
+                "createdDateTime": "2026-05-12T14:31:18Z",
+                "id": "2c07c923-2380-4298-8d23-5e98a643f170"
+              },
+              {
+                "appId": "eace8149-b661-472f-b40d-939f89085bd4",
+                "displayName": "Substrate Instant Revocation Pipeline",
+                "createdDateTime": "2026-05-12T14:38:33Z",
+                "id": "fa43506a-5991-4021-b87d-acdba6b41a7d"
+              },
+              {
+                "appId": "7557eb47-c689-4224-abcf-aef9bd7573df",
+                "displayName": "Skype for Business",
+                "createdDateTime": "2026-05-14T08:14:26Z",
+                "id": "8c5d39b2-0e74-467e-b517-5420053b9ec5"
+              },
+              {
+                "appId": "a68e1e61-ad4f-45b6-897d-0a1ea8786345",
+                "displayName": "Office365 Shell WCSS-Server Default",
+                "createdDateTime": "2026-05-14T09:37:51Z",
+                "id": "b2377d83-0c6f-460b-b149-ee57ef6db606"
+              },
+              {
+                "appId": "65d91a3d-ab74-42e6-8a2f-0add61688c74",
+                "displayName": "Microsoft Approval Management",
+                "createdDateTime": "2026-05-14T09:37:52Z",
+                "id": "55a07f7b-155d-419a-88a4-a18bd07de8cf"
+              },
+              {
+                "appId": "93625bc8-bfe2-437a-97e0-3d0060024faa",
+                "displayName": "Microsoft password reset service",
+                "createdDateTime": "2026-05-14T09:37:56Z",
+                "id": "f5d66e4f-3407-4370-998a-7950d2937a3c"
+              },
+              {
+                "appId": "6872b314-67ab-4a16-98e7-a663b0f772c3",
+                "displayName": "Office365 Shell SS-Server Default",
+                "createdDateTime": "2026-05-14T13:47:28Z",
+                "id": "499ecefb-fe2e-4fdc-9169-f11b78cd9bc4"
+              },
+              {
+                "appId": "aeb86249-8ea3-49e2-900b-54cc8e308f85",
+                "displayName": "M365 License Manager",
+                "createdDateTime": "2026-05-14T15:28:00Z",
+                "id": "a3294d5d-f870-4eba-9e3e-092b0a38af43"
+              },
+              {
+                "appId": "00000006-0000-0ff1-ce00-000000000000",
+                "displayName": "Microsoft Office 365 Portal",
+                "createdDateTime": "2026-05-14T16:07:06Z",
+                "id": "ea893146-9bbc-4573-bdbd-2f23886fecae"
+              },
+              {
+                "appId": "6b91db1b-f05b-405a-a0b2-e3f60b28d645",
+                "displayName": "M365 Admin Services",
+                "createdDateTime": "2026-05-14T16:07:19Z",
+                "id": "30634219-3e2e-4f05-b4f2-39daa5a029ad"
+              },
+              {
+                "appId": "0517ffae-825d-4aff-999e-3f2336b8a20a",
+                "displayName": "M365 App Management Service",
+                "createdDateTime": "2026-05-14T16:07:19Z",
+                "id": "1423fde1-ec0b-4483-93b2-d34b0f7f45da"
+              },
+              {
+                "appId": "cb1bda4c-1213-4e8b-911a-0a8c83c5d3b7",
+                "displayName": "o365.servicecommunications.microsoft.com",
+                "createdDateTime": "2026-05-14T16:07:19Z",
+                "id": "7c1912fc-5c97-4001-8c29-2709fdf68ab3"
+              },
+              {
+                "appId": "8ad61c39-5b6e-447c-b26a-a64eee436502",
+                "displayName": "M365AdminAgent",
+                "createdDateTime": "2026-05-14T16:07:21Z",
+                "id": "a61aeb30-9550-4ec3-9e74-c96f9f8f8af4"
+              },
+              {
+                "appId": "982bda36-4632-4165-a46a-9863b1bbcf7d",
+                "displayName": "O365 Demeter",
+                "createdDateTime": "2026-05-14T16:07:22Z",
+                "id": "db39f980-c312-4bd4-a66e-87b40e1ebc3c"
+              },
+              {
+                "appId": "89e7f920-bdc3-4e71-99e5-30d84827b610",
+                "displayName": "Dunloe Dataplane Service",
+                "createdDateTime": "2026-05-14T16:07:22Z",
+                "id": "4c229c2c-3cf7-4c46-b814-bf866e749767"
+              },
+              {
+                "appId": "50d8616b-fd4f-4fac-a1c9-a6a9440d7fe0",
+                "displayName": "OMSAuthorizationServicePROD",
+                "createdDateTime": "2026-05-14T16:07:28Z",
+                "id": "361ed31e-981b-4bde-a1a2-9a4dce0cfbaa"
+              },
+              {
+                "appId": "02d2a314-8dbb-47d3-8a77-1677403097de",
+                "displayName": "Microsoft SaaS Hub Resource Provider",
+                "createdDateTime": "2026-05-14T16:08:10Z",
+                "id": "bc28a7ae-ba10-4369-9187-e6c79d143358"
+              },
+              {
+                "appId": "b513474b-6307-4686-b541-ed4d130cdf84",
+                "displayName": "Microsoft SaaS Hub Resource Provider AirCapi",
+                "createdDateTime": "2026-05-14T16:08:10Z",
+                "id": "7689fa12-b3ec-4ce3-a3c1-7d1f5cc3cb98"
+              },
+              {
+                "appId": "00000002-0000-0ff1-ce00-000000000000",
+                "displayName": "Office 365 Exchange Online",
+                "createdDateTime": "2026-05-14T16:11:23Z",
+                "id": "a9c3110a-ca06-40bf-b940-debe33cf2c5a"
+              },
+              {
+                "appId": "00000009-0000-0000-c000-000000000000",
+                "displayName": "Power BI Service",
+                "createdDateTime": "2026-05-14T16:11:24Z",
+                "id": "a8b63937-ce97-496b-8f67-44275381ded6"
+              },
+              {
+                "appId": "3c896ded-22c5-450f-91f6-3d1ef0848f6e",
+                "displayName": "WeveEngine",
+                "createdDateTime": "2026-05-14T16:11:24Z",
+                "id": "4a1f5d8f-33ce-4d1e-ae1c-6deb1d630531"
+              },
+              {
+                "appId": "00000005-0000-0ff1-ce00-000000000000",
+                "displayName": "Viva Engage",
+                "createdDateTime": "2026-05-14T16:11:25Z",
+                "id": "8c2c492f-db3d-4593-b0c7-e8f7c5c631c1"
+              },
+              {
+                "appId": "00000012-0000-0000-c000-000000000000",
+                "displayName": "Microsoft Rights Management Services",
+                "createdDateTime": "2026-05-14T16:11:25Z",
+                "id": "26b16143-999f-4b4b-9b5f-5659b9923a0d"
+              },
+              {
+                "appId": "f53895d3-095d-408f-8e93-8f94b391404e",
+                "displayName": "Portfolios",
+                "createdDateTime": "2026-05-14T16:11:25Z",
+                "id": "6d5b3d7b-7045-4942-921a-65905180a603"
+              },
+              {
+                "appId": "cc15fd57-2c6c-4117-a88c-83b1d56b4bbe",
+                "displayName": "Microsoft Teams Services",
+                "createdDateTime": "2026-05-14T16:11:26Z",
+                "id": "56a37608-1897-4ffa-a1df-efcafb9792db"
+              },
+              {
+                "appId": "09abbdfd-ed23-44ee-a2d9-a627aa1c90f3",
+                "displayName": "ProjectWorkManagement",
+                "createdDateTime": "2026-05-14T16:11:26Z",
+                "id": "55976d28-2450-49fb-8718-2a8fbdc31402"
+              },
+              {
+                "appId": "905fcf26-4eb7-48a0-9ff0-8dcc7194b5ba",
+                "displayName": "Sway",
+                "createdDateTime": "2026-05-14T16:11:26Z",
+                "id": "e15bdfcc-d91a-493a-a81f-0d16321f74df"
+              },
+              {
+                "appId": "0000000a-0000-0000-c000-000000000000",
+                "displayName": "Microsoft Intune",
+                "createdDateTime": "2026-05-14T16:11:26Z",
+                "id": "fc3b8fe2-47f4-4231-ae8b-3a12d667f783"
+              },
+              {
+                "appId": "00000004-0000-0ff1-ce00-000000000000",
+                "displayName": "Skype for Business Online",
+                "createdDateTime": "2026-05-14T16:11:27Z",
+                "id": "9eadaaca-b668-4309-8cff-aefdb3f12e29"
+              },
+              {
+                "appId": "de247707-4e4a-47d6-89fd-3c632f870b34",
+                "displayName": "CloudLicensingSystem",
+                "createdDateTime": "2026-05-14T16:11:27Z",
+                "id": "adbb7680-f3c4-4894-b6b2-52691e30cf21"
+              },
+              {
+                "appId": "51b5e278-ed7e-42c6-8787-7ff93e92f577",
+                "displayName": "Narada Notification Service",
+                "createdDateTime": "2026-05-14T16:11:29Z",
+                "id": "6f3b628a-e9a6-470a-9f9f-0e002ac158e6"
+              },
+              {
+                "appId": "2a486b53-dbd2-49c0-a2bc-278bdfc30833",
+                "displayName": "Cortana at Work Service",
+                "createdDateTime": "2026-05-14T16:11:32Z",
+                "id": "1023ef66-3803-48b6-a0e7-e53a6c23777e"
+              },
+              {
+                "appId": "4c8f074c-e32b-4ba7-b072-0f39d71daf51",
+                "displayName": "IPSubstrate",
+                "createdDateTime": "2026-05-14T16:11:33Z",
+                "id": "7931dd97-1cf5-4f3e-a0cb-195c778e3551"
+              },
+              {
+                "appId": "00000007-0000-0ff1-ce00-000000000000",
+                "displayName": "Microsoft Exchange Online Protection",
+                "createdDateTime": "2026-05-14T16:11:33Z",
+                "id": "6e79366a-9e9e-417b-86ed-461f009ebcc0"
+              },
+              {
+                "appId": "0f698dd4-f011-4d23-a33e-b36416dcb1e6",
+                "displayName": "OfficeClientService",
+                "createdDateTime": "2026-05-14T16:11:33Z",
+                "id": "7a2c73e0-6515-4f4e-b469-fd8168a74e28"
+              },
+              {
+                "appId": "c5393580-f805-4401-95e8-94b7a6ef2fc2",
+                "displayName": "Office 365 Management APIs",
+                "createdDateTime": "2026-05-14T16:11:33Z",
+                "id": "c50ad4b0-b328-459b-8119-3c970e16e914"
+              },
+              {
+                "appId": "8b3391f4-af01-4ee8-b4ea-9871b2499735",
+                "displayName": "O365 Secure Score",
+                "createdDateTime": "2026-05-14T16:11:34Z",
+                "id": "e5cf6709-5f55-4a5d-aaf3-cbcb2cd9fa51"
+              },
+              {
+                "appId": "b2cc270f-563e-4d8a-af47-f00963a71dcd",
+                "displayName": "OneProfile Service",
+                "createdDateTime": "2026-05-14T16:11:34Z",
+                "id": "33b46e43-84bb-48ca-bf46-07d779f20ee5"
+              },
+              {
+                "appId": "d6fdaa33-e821-4211-83d0-cf74736489e1",
+                "displayName": "Microsoft Service Trust",
+                "createdDateTime": "2026-05-14T16:11:34Z",
+                "id": "be48d6a4-a85e-4b02-be00-64db7f0ac8f0"
+              },
+              {
+                "appId": "48af08dc-f6d2-435f-b2a7-069abd99c086",
+                "displayName": "Connectors",
+                "createdDateTime": "2026-05-14T16:11:35Z",
+                "id": "ca68c8e1-8763-4528-84ac-c3e3cb465d80"
+              },
+              {
+                "appId": "870c4f2e-85b6-4d43-bdda-6ed9a579b725",
+                "displayName": "Microsoft Information Protection Sync Service",
+                "createdDateTime": "2026-05-14T16:11:35Z",
+                "id": "08016a00-1372-471e-89de-f12043567138"
+              },
+              {
+                "appId": "2f3f02c9-5679-4a5c-a605-0de55b07d135",
+                "displayName": "Office 365 Information Protection",
+                "createdDateTime": "2026-05-14T16:11:35Z",
+                "id": "c31b3599-d930-4aa3-83a9-1a192f638b1b"
+              },
+              {
+                "appId": "0d38933a-0bbd-41ca-9ebd-28c4b5ba7cb7",
+                "displayName": "M365PurvieweDiscoveryService",
+                "createdDateTime": "2026-05-14T16:11:35Z",
+                "id": "991260d1-e0a3-4856-91d9-c2c3869871cb"
+              },
+              {
+                "appId": "81473081-50b9-469a-b9d8-303109583ecb",
+                "displayName": "Cortana Runtime Service",
+                "createdDateTime": "2026-05-14T16:11:36Z",
+                "id": "691d77cb-02a8-454e-9ef2-e593669f68de"
+              },
+              {
+                "appId": "c2ada927-a9e2-4564-aae2-70775a2fa0af",
+                "displayName": "OCaaS Client Interaction Service",
+                "createdDateTime": "2026-05-14T16:11:36Z",
+                "id": "0ad79819-aa56-48ae-8ebc-3fce40c37881"
+              },
+              {
+                "appId": "167e2ded-f32d-49f5-8a10-308b921bc7ee",
+                "displayName": "OCaaS Worker Services",
+                "createdDateTime": "2026-05-14T16:11:36Z",
+                "id": "9314d778-c212-419a-83b1-6bb740df31a4"
+              },
+              {
+                "appId": "6e99704e-62d5-40f6-b2fe-90aafbe3a710",
+                "displayName": "OCaaS Experience Management Service",
+                "createdDateTime": "2026-05-14T16:11:36Z",
+                "id": "951d38b9-d689-41e9-bb83-fd96abc57dc1"
+              },
+              {
+                "appId": "0af06dc6-e4b5-4f28-818e-e78e62d137a5",
+                "displayName": "Windows 365",
+                "createdDateTime": "2026-05-14T16:11:37Z",
+                "id": "aa6d922b-7540-4788-b0d6-d682dca41c74"
+              },
+              {
+                "appId": "9cdead84-a844-4324-93f2-b2e6bb768d07",
+                "displayName": "Azure Virtual Desktop",
+                "createdDateTime": "2026-05-14T16:11:37Z",
+                "id": "b6a2510d-3ed5-4cc9-9749-213b468194d8"
+              },
+              {
+                "appId": "50e95039-b200-4007-bc97-8d5790743a63",
+                "displayName": "Azure Virtual Desktop ARM Provider",
+                "createdDateTime": "2026-05-14T16:11:37Z",
+                "id": "27370e76-5d27-4c9f-ac4e-06727eb6ee59"
+              },
+              {
+                "appId": "00000005-0000-0000-c000-000000000000",
+                "displayName": "Microsoft Azure Workflow",
+                "createdDateTime": "2026-05-14T16:11:37Z",
+                "id": "da23e462-a609-4e84-acd2-274ffbe17e9d"
+              },
+              {
+                "appId": "3138fe80-4087-4b04-80a6-8866c738028a",
+                "displayName": "SharePoint Notification Service",
+                "createdDateTime": "2026-05-14T16:11:37Z",
+                "id": "2b682318-4840-440b-8538-168066b08ff5"
+              },
+              {
+                "appId": "4747d38e-36c5-4bc3-979b-b0ef74df54d1",
+                "displayName": "PushChannel",
+                "createdDateTime": "2026-05-14T16:11:39Z",
+                "id": "a77ab151-05d6-4d0d-bd7a-19471f2f589f"
+              },
+              {
+                "appId": "b97b6bd4-a49f-4a0c-af18-af507d1da76c",
+                "displayName": "Office Shredding Service",
+                "createdDateTime": "2026-05-14T16:11:39Z",
+                "id": "abd02c59-149a-4571-9985-39ec6444e344"
+              },
+              {
+                "appId": "dcad865d-9257-4521-ad4d-bae3e137b345",
+                "displayName": "Microsoft SharePoint Online - SharePoint Home",
+                "createdDateTime": "2026-05-14T16:11:41Z",
+                "id": "2991d343-d067-4f2e-a7ce-c0e306b23ef7"
+              },
+              {
+                "appId": "3340b944-b12e-47d0-b46b-35f08ec1d8ee",
+                "displayName": "SPAuthEvent",
+                "createdDateTime": "2026-05-14T16:11:41Z",
+                "id": "e50610ea-83ad-4951-bafb-3f408405c6cf"
+              },
+              {
+                "appId": "fbb0ac1a-82dd-478b-a0e5-0b2b98ef38fe",
+                "displayName": "Substrate-FileWatcher",
+                "createdDateTime": "2026-05-14T16:11:41Z",
+                "id": "4aacadfc-79ed-4393-a58d-dab25db9cd6a"
+              },
+              {
+                "appId": "4e445925-163e-42ca-b801-9073bfa46d17",
+                "displayName": "SharePoint Home Notifier",
+                "createdDateTime": "2026-05-14T16:11:41Z",
+                "id": "d8b75004-cd50-43fb-8471-b43ee09cc06c"
+              },
+              {
+                "appId": "944f0bd1-117b-4b1c-af26-804ed95e767e",
+                "displayName": "Media Analysis and Transformation Service",
+                "createdDateTime": "2026-05-14T16:11:42Z",
+                "id": "9c6148ed-c240-4638-a7b4-5eaaf96b3a33"
+              },
+              {
+                "appId": "5a4a238f-f186-4fff-95bd-d3e70f9e1a08",
+                "displayName": "Privacy Management",
+                "createdDateTime": "2026-05-14T16:11:47Z",
+                "id": "db499eab-674c-4fe8-bc5f-a3091a5909ce"
+              },
+              {
+                "appId": "00000007-0000-0000-c000-000000000000",
+                "displayName": "Dataverse",
+                "createdDateTime": "2026-05-14T16:11:48Z",
+                "id": "977d8232-dabe-4a08-bfff-0b39fa84e944"
+              },
+              {
+                "appId": "c9a559d2-7aab-4f13-a6ed-e7e9c52aec87",
+                "displayName": "Microsoft Forms",
+                "createdDateTime": "2026-05-14T16:11:48Z",
+                "id": "86594a40-3d6b-47ba-bc29-666f96a21b63"
+              },
+              {
+                "appId": "40775b29-2688-46b6-a3b5-b256bd04df9f",
+                "displayName": "Microsoft Information Protection API",
+                "createdDateTime": "2026-05-14T16:11:49Z",
+                "id": "73605cd2-f4b5-431f-b55a-c674b6b18a5c"
+              },
+              {
+                "appId": "913c6de4-2a4a-4a61-a9ce-945d2b2ce2e0",
+                "displayName": "Dynamics Lifecycle services",
+                "createdDateTime": "2026-05-14T16:11:49Z",
+                "id": "0c049bbc-ac50-4962-bf82-f939e9eb5d6d"
+              },
+              {
+                "appId": "2e49aa60-1bd3-43b6-8ab6-03ada3d9f08b",
+                "displayName": "Dynamics Data Integration",
+                "createdDateTime": "2026-05-14T16:11:49Z",
+                "id": "ec0e0c10-faae-418d-8959-735daf4b9f73"
+              },
+              {
+                "appId": "c9299480-c13a-49db-a7ae-cdfe54fe0313",
+                "displayName": "PowerApps-Advisor",
+                "createdDateTime": "2026-05-14T16:11:50Z",
+                "id": "6e009a7a-7f81-4394-80a0-6458045c2c76"
+              },
+              {
+                "appId": "b20d0d3a-dc90-485b-ad11-6031e769e221",
+                "displayName": "SalesInsightsWebApp",
+                "createdDateTime": "2026-05-14T16:11:50Z",
+                "id": "b9dff16a-df1b-4430-9d8e-6e60d19a61ee"
+              },
+              {
+                "appId": "2220bbc4-4518-4fef-aac6-c6f32e9f9fd1",
+                "displayName": "Customer Experience Platform PROD",
+                "createdDateTime": "2026-05-14T16:11:50Z",
+                "id": "66892172-6ceb-4c49-9185-4f5db71373bc"
+              },
+              {
+                "appId": "944861d3-5975-4f8b-afd4-3422c0b1b6ce",
+                "displayName": "Customer Service Trial PVA",
+                "createdDateTime": "2026-05-14T16:11:50Z",
+                "id": "8b6f26a2-305b-414f-98f6-c7237ae1cdaf"
+              },
+              {
+                "appId": "6abc93dc-978e-48a3-8e54-458e593ed8cf",
+                "displayName": "Customer Service Trial PVA - readonly",
+                "createdDateTime": "2026-05-14T16:11:51Z",
+                "id": "004e5e43-2e3a-4ae8-aeff-63100129edf9"
+              },
+              {
+                "appId": "8578e004-a5c6-46e7-913e-12f58912df43",
+                "displayName": "Power Platform API",
+                "createdDateTime": "2026-05-14T16:11:51Z",
+                "id": "b90ed2e5-3d6e-4c0f-b913-c8730cca76fb"
+              },
+              {
+                "appId": "a164aee5-7d0a-46bb-9404-37421d58bdf7",
+                "displayName": "Microsoft Teams AuthSvc",
+                "createdDateTime": "2026-05-14T16:11:54Z",
+                "id": "467cbfc4-e56f-4edd-ab65-6e19d17dc321"
+              },
+              {
+                "appId": "c830ddb0-63e6-4f22-bd71-2ad47198a23e",
+                "displayName": "Microsoft To-Do",
+                "createdDateTime": "2026-05-14T16:11:51Z",
+                "id": "a7964789-88d7-481a-8a0a-765e2f817dfe"
+              },
+              {
+                "appId": "7df0a125-d3be-4c96-aa54-591f83ff541c",
+                "displayName": "Microsoft Flow Service",
+                "createdDateTime": "2026-05-14T16:11:51Z",
+                "id": "5ae15b09-601f-40a8-8fc4-8e61d9d5c238"
+              },
+              {
+                "appId": "0eda3b13-ddc9-4c25-b7dd-2f6ea073d6b7",
+                "displayName": "Microsoft Flow CDS Integration Service",
+                "createdDateTime": "2026-05-14T16:11:51Z",
+                "id": "cc3a35f5-acb7-4d54-a01a-6351cd5e61e8"
+              },
+              {
+                "appId": "b1379a75-ce5e-4fa3-80c6-89bb39bf646c",
+                "displayName": "Microsoft Teams Chat Aggregator",
+                "createdDateTime": "2026-05-14T16:11:51Z",
+                "id": "21bc1dfe-0858-450e-bcea-5995b9e541b6"
+              },
+              {
+                "appId": "26a18ebc-cdf7-4a6a-91cb-beb352805e81",
+                "displayName": "Skype Teams Calling API Service",
+                "createdDateTime": "2026-05-14T16:11:52Z",
+                "id": "94097783-1844-455f-b627-97e9c8fe3a02"
+              },
+              {
+                "appId": "1e70cd27-4707-4589-8ec5-9bd20c472a46",
+                "displayName": "Skype Presence Service",
+                "createdDateTime": "2026-05-14T16:11:52Z",
+                "id": "0502197a-460a-4d58-8d72-9291a2ada960"
+              },
+              {
+                "appId": "b55b276d-2b09-4ad2-8de5-f09cf24ffba9",
+                "displayName": "Microsoft Teams - Teams And Channels Service",
+                "createdDateTime": "2026-05-14T16:11:53Z",
+                "id": "841d0782-e05a-4c48-b2bd-598b9f5caaef"
+              },
+              {
+                "appId": "1996141e-2b07-4491-927a-5a024b335c78",
+                "displayName": "Microsoft Teams UIS",
+                "createdDateTime": "2026-05-14T16:11:53Z",
+                "id": "c4d06c79-50ff-4920-8f0e-720bf86dc12d"
+              },
+              {
+                "appId": "c9224372-5534-42cb-a48b-8db4f4a3892e",
+                "displayName": "MS Teams Griffin Assistant",
+                "createdDateTime": "2026-05-14T16:11:53Z",
+                "id": "cc4a19bf-f9a2-445a-8a95-51e58c9ec61d"
+              },
+              {
+                "appId": "48ac35b8-9aa8-4d74-927d-1f4a14a0b239",
+                "displayName": "Skype and Teams Tenant Admin API",
+                "createdDateTime": "2026-05-14T16:11:53Z",
+                "id": "3bf24c40-691f-4a01-9036-04aeb60b79f7"
+              },
+              {
+                "appId": "21a8a852-89f4-4947-a374-b26b2db3d365",
+                "displayName": "IC3 Long Running Operations Service",
+                "createdDateTime": "2026-05-14T16:11:53Z",
+                "id": "0d1a0ce6-aae6-4ebf-932f-75aab7988b5d"
+              },
+              {
+                "appId": "9e133cac-5238-4d1e-aaa0-d8ff4ca23f4e",
+                "displayName": "Conferencing Virtual Assistant",
+                "createdDateTime": "2026-05-14T16:11:54Z",
+                "id": "c78db3d5-112f-44e6-9ead-d32fadfc7474"
+              },
+              {
+                "appId": "207a6836-d031-4764-a9d8-c1193f455f21",
+                "displayName": "Conference Auto Attendant",
+                "createdDateTime": "2026-05-14T16:11:54Z",
+                "id": "e1b7dc56-6bd1-4f66-8561-501e379eeb0c"
+              },
+              {
+                "appId": "00edd498-7c0c-4e68-859c-5a55d518c9c0",
+                "displayName": "Teams Biometric Service",
+                "createdDateTime": "2026-05-14T16:11:54Z",
+                "id": "ad5185d7-33a0-48b7-a6c5-58a84436fe1f"
+              },
+              {
+                "appId": "0fa37baf-7afc-4baf-ab2d-d5bb891d53ef",
+                "displayName": "Microsoft Teams ATP Service",
+                "createdDateTime": "2026-05-14T16:11:54Z",
+                "id": "bf210480-b89a-46f7-8afc-e8601485ef7f"
+              },
+              {
+                "appId": "66c23536-2118-49d3-bc66-54730b057680",
+                "displayName": "Skype Core Calling Service",
+                "createdDateTime": "2026-05-14T16:11:54Z",
+                "id": "6fa59a46-c1a3-471b-9fba-625df07c6e5f"
+              },
+              {
+                "appId": "2b479c68-8d9b-4e27-9d85-5d74803de734",
+                "displayName": "Virtual Visits App",
+                "createdDateTime": "2026-05-14T16:11:54Z",
+                "id": "c9ea0580-e70c-424a-a07e-9cef19b2b16d"
+              },
+              {
+                "appId": "7a274595-3618-4e6f-b54e-05bb353e0153",
+                "displayName": "Teams NRT DLP Service",
+                "createdDateTime": "2026-05-14T16:11:55Z",
+                "id": "4ffa1074-55d7-40f1-a44b-2591d105f70d"
+              },
+              {
+                "appId": "0ef94e72-e4fc-4aa0-a8f4-ff27deb3e6eb",
+                "displayName": "Teams NRT DLP Ingestion Service",
+                "createdDateTime": "2026-05-14T16:11:55Z",
+                "id": "24cc5fb2-6869-4662-8475-eb4aeff2be52"
+              },
+              {
+                "appId": "5a807f24-c9de-44ee-a3a7-329e88a00ffc",
+                "displayName": "Messaging Bot API Application",
+                "createdDateTime": "2026-05-14T16:11:55Z",
+                "id": "591e643a-1411-4222-b9e9-1422629ca5e3"
+              },
+              {
+                "appId": "c161e42e-d4df-4a3d-9b42-e7a3c31f59d4",
+                "displayName": "Microsoft Intune API",
+                "createdDateTime": "2026-05-14T16:11:55Z",
+                "id": "aa723a06-822d-4a4f-af87-feaac32410b1"
+              },
+              {
+                "appId": "9cb77803-d937-493e-9a3b-4b49de3f5a74",
+                "displayName": "Microsoft Intune Service Discovery",
+                "createdDateTime": "2026-05-14T16:11:55Z",
+                "id": "05f919c3-da77-4cb2-8225-4310e07de160"
+              },
+              {
+                "appId": "0a5f63c0-b750-4f38-a71c-4fc0d58b89e2",
+                "displayName": "Microsoft Mobile Application Management",
+                "createdDateTime": "2026-05-14T16:11:56Z",
+                "id": "6bdfa09f-238c-45bd-840b-5fdc72b1cde5"
+              },
+              {
+                "appId": "62b732f7-fc71-40bc-b27d-35efcb0509de",
+                "displayName": "Microsoft Teams AadSync",
+                "createdDateTime": "2026-05-14T16:11:56Z",
+                "id": "31d24129-7239-44c5-8607-33a77a891c05"
+              },
+              {
+                "appId": "794ded15-70c6-4bcd-a0bb-9b7ad530a01a",
+                "displayName": "Microsoft Intune Advanced Threat Protection Integration",
+                "createdDateTime": "2026-05-14T16:11:56Z",
+                "id": "7d484c9f-ef5d-4440-a92c-25add0f61d8c"
+              },
+              {
+                "appId": "8bbf8725-b3ca-4468-a217-7c8da873186e",
+                "displayName": "DeploymentScheduler",
+                "createdDateTime": "2026-05-14T16:11:56Z",
+                "id": "8611ea43-fae7-4be8-9df5-e26fc0e8563a"
+              },
+              {
+                "appId": "14452459-6fa6-4ec0-bc50-1528a1a06bf0",
+                "displayName": "Intune CMDeviceService",
+                "createdDateTime": "2026-05-14T16:11:56Z",
+                "id": "6ade3142-6801-4282-9d63-a19b4ceea67a"
+              },
+              {
+                "appId": "63e61dc2-f593-4a6f-92b9-92e4d2c03d4f",
+                "displayName": "Microsoft Intune SCCM Connector",
+                "createdDateTime": "2026-05-14T16:11:56Z",
+                "id": "730f0b05-d1b8-408e-8b3c-aaee314113d1"
+              },
+              {
+                "appId": "8ae6a0b1-a07f-4ec9-927a-afb8d39da81c",
+                "displayName": "Microsoft Device Management EMM API",
+                "createdDateTime": "2026-05-14T16:11:57Z",
+                "id": "27c6915e-2df5-48b1-9cfe-b2f438f9f5eb"
+              },
+              {
+                "appId": "ca0a114d-6fbc-46b3-90fa-2ec954794ddb",
+                "displayName": "Microsoft Device Management Checkin",
+                "createdDateTime": "2026-05-14T16:11:57Z",
+                "id": "ce22151c-c50d-4a6d-926e-7a090b16d4db"
+              },
+              {
+                "appId": "cbfda01c-c883-45aa-aedc-e7a484615620",
+                "displayName": "Microsoft Windows AutoPilot Service API",
+                "createdDateTime": "2026-05-14T16:11:57Z",
+                "id": "edc9a719-ef3b-4c76-b0a0-dd46883175ef"
+              },
+              {
+                "appId": "557c67cf-c916-4293-8373-d584996f60ae",
+                "displayName": "Configuration Manager Microservice",
+                "createdDateTime": "2026-05-14T16:11:57Z",
+                "id": "aa6f6b58-1e8e-43c3-8790-6f50770eaa1d"
+              },
+              {
+                "appId": "6f0478d5-61a3-4897-a2f2-de09a5a90c7f",
+                "displayName": "WindowsUpdate-Service",
+                "createdDateTime": "2026-05-14T16:11:58Z",
+                "id": "73a74c31-89e2-4c0a-9e21-60de0a0a774e"
+              },
+              {
+                "appId": "f9d02341-e7aa-456d-926d-4a0ca599fbee",
+                "displayName": "Office 365 Enterprise Insights",
+                "createdDateTime": "2026-05-14T16:11:58Z",
+                "id": "1cb5e5f3-c878-43d0-87b6-cc8d8c0c2bf2"
+              },
+              {
+                "appId": "82f45fb0-18b4-4d68-8bed-9e44909e3890",
+                "displayName": "Meeting Migration Service",
+                "createdDateTime": "2026-05-14T16:11:58Z",
+                "id": "871e1f47-31be-48f2-a779-b23eae824298"
+              },
+              {
+                "appId": "e29b5c86-b9ab-4a86-9a20-d10842007599",
+                "displayName": "SharePoint Framework Azure AD Helper",
+                "createdDateTime": "2026-05-14T16:12:33Z",
+                "id": "9978ce4d-ea5b-4fc6-b83b-0ce3c52ed7b4"
+              },
+              {
+                "appId": "00000003-0000-0ff1-ce00-000000000000",
+                "displayName": "Office 365 SharePoint Online",
+                "createdDateTime": "2026-05-14T16:11:25Z",
+                "id": "4cf61c35-f984-4399-bc77-92ecc08d1f85"
+              },
+              {
+                "appId": "98db8bd6-0cc0-4e67-9de5-f187f1cd1b41",
+                "displayName": "Microsoft Substrate Management",
+                "createdDateTime": "2026-05-14T16:12:57Z",
+                "id": "fd52ffce-1715-42d3-9739-cfea10e47266"
+              },
+              {
+                "appId": "ab3be6b7-f5df-413d-ac2d-abf1e3fd9c0b",
+                "displayName": "Microsoft Teams Graph Service",
+                "createdDateTime": "2026-05-14T16:13:07Z",
+                "id": "58afce26-3a7e-4ca4-8f7e-a2186814ec89"
+              },
+              {
+                "appId": "65c8bd9e-caac-4816-be98-0692f41191bc",
+                "displayName": "People Profile Event Proxy",
+                "createdDateTime": "2026-05-14T16:13:20Z",
+                "id": "ee7d5460-eb5c-432a-ac36-fee9df2481f1"
+              },
+              {
+                "appId": "1690c5aa-925a-4d0e-836b-722c795bd0d0",
+                "displayName": "Group Configuration Processor",
+                "createdDateTime": "2026-05-14T16:16:39Z",
+                "id": "f57fa304-6675-4f51-958c-862e65721ef1"
+              },
+              {
+                "appId": "a47591ab-e23e-4ffa-9e1b-809b9067e726",
+                "displayName": "Microsoft Teams User Profile Search Service",
+                "createdDateTime": "2026-05-14T16:16:44Z",
+                "id": "fc9122c4-0076-45ed-9861-72af7c361ea3"
+              },
+              {
+                "appId": "cdccd920-384b-4a25-897d-75161a4b74c1",
+                "displayName": "Skype Teams Firehose",
+                "createdDateTime": "2026-05-14T16:16:46Z",
+                "id": "f3a4245f-dc4b-4cc6-84de-baa4fa74081d"
+              },
+              {
+                "appId": "978877ea-b2d6-458b-80c7-05df932f3723",
+                "displayName": "Microsoft Teams AuditService",
+                "createdDateTime": "2026-05-14T16:16:45Z",
+                "id": "8a3db2df-3c98-4ae7-bdb5-cbd84b67ce08"
+              },
+              {
+                "appId": "475226c6-020e-4fb2-8a90-7a972cbfc1d4",
+                "displayName": "PowerApps Service",
+                "createdDateTime": "2026-05-14T16:16:47Z",
+                "id": "73c4d6c4-4d80-4676-a6ec-8a64b2771826"
+              },
+              {
+                "appId": "394866fc-eedb-4f01-8536-3ff84b16be2a",
+                "displayName": "Microsoft People Cards Service",
+                "createdDateTime": "2026-05-14T16:21:36Z",
+                "id": "cc1583d5-e0b9-4f43-95d4-c50e932c942c"
+              },
+              {
+                "appId": "e8be65d6-d430-4289-a665-51bf2a194bda",
+                "displayName": "Microsoft 365 App Catalog Services",
+                "createdDateTime": "2026-05-14T16:21:36Z",
+                "id": "2ebbe2cf-b41f-4d19-8f28-07da68d37063"
+              },
+              {
+                "appId": "644c1b11-f63f-45fa-826b-a9d2801db711",
+                "displayName": "CompliancePolicy",
+                "createdDateTime": "2026-05-14T16:23:23Z",
+                "id": "8b8fab04-83d6-4069-97d0-db58c2a8fbdf"
+              },
+              {
+                "appId": "11cd3e2e-fccb-42ad-ad00-878b93575e07",
+                "displayName": "Automated Call Distribution",
+                "createdDateTime": "2026-05-14T16:23:55Z",
+                "id": "ffcf9a29-b565-49e2-800d-6c9abc0daa8e"
+              },
+              {
+                "appId": "2d4d3d8e-2be3-4bef-9f87-7875a61c29de",
+                "displayName": "OneNote",
+                "createdDateTime": "2026-05-14T16:25:02Z",
+                "id": "84c4d501-cefb-49aa-a140-61be424e2b6a"
+              },
+              {
+                "appId": "7c99d979-3b9c-4342-97dd-3239678fb300",
+                "displayName": "Data Classification Service",
+                "createdDateTime": "2026-05-14T16:34:41Z",
+                "id": "95a0e5e8-14dd-439c-86ee-2ee946d4dd97"
+              },
+              {
+                "appId": "6d32b7f8-782e-43e0-ac47-aaad9f4eb839",
+                "displayName": "Permission Service O365",
+                "createdDateTime": "2026-05-14T16:35:09Z",
+                "id": "d7084aee-3e75-48c0-9a68-224e33e41cfa"
+              },
+              {
+                "appId": "86b4b4b4-db10-481c-876b-07447e7f204f",
+                "displayName": "Groups Service",
+                "createdDateTime": "2026-05-14T16:40:55Z",
+                "id": "3878c477-300a-47cc-8e0a-66bacf983c51"
+              },
+              {
+                "appId": "934d626a-1ead-4a36-a77d-12ec63b87a0d",
+                "displayName": "Microsoft Rights Management Services Default",
+                "createdDateTime": "2026-05-14T16:42:54Z",
+                "id": "27f6a29b-36cb-4803-9827-72dbcc03eef6"
+              },
+              {
+                "appId": "f8f7a2aa-e116-4ba6-8aea-ca162cfa310d",
+                "displayName": "Microsoft Graph Connectors Core",
+                "createdDateTime": "2026-05-14T16:43:03Z",
+                "id": "714deec4-17c1-4798-a873-4d34c5edd075"
+              },
+              {
+                "appId": "f569b9c7-be15-4e87-86f7-87d30d02090b",
+                "displayName": "O365 LinkedIn Connection",
+                "createdDateTime": "2026-05-14T16:21:48Z",
+                "id": "3364ef0c-3687-4e4f-8e46-37b04ff4b8ab"
+              },
+              {
+                "appId": "2b5e68f0-bdc2-45b0-920a-217d5cbbd505",
+                "displayName": "Power Platform Policy TIRPS CM - PROD",
+                "createdDateTime": "2026-05-14T17:00:02Z",
+                "id": "d0f7abae-ec2d-4a0d-89ca-948796ebb6fb"
+              },
+              {
+                "appId": "d29a4c00-4966-492a-84dd-47e779578fb7",
+                "displayName": "Discovery Service",
+                "createdDateTime": "2026-05-14T17:20:37Z",
+                "id": "cd99c425-4b5f-4cd6-bc43-66c5c1999cfa"
+              },
+              {
+                "appId": "dee7ba80-6a55-4f3b-a86c-746a9231ae49",
+                "displayName": "Microsoft AppPlat EMA",
+                "createdDateTime": "2026-05-14T17:35:44Z",
+                "id": "e823e0fe-538e-4c10-a907-aad5df53f5b9"
+              },
+              {
+                "appId": "789e8929-0390-42a2-8934-0f9dafb8ec89",
+                "displayName": "Exchange Rbac",
+                "createdDateTime": "2026-05-14T17:37:15Z",
+                "id": "8e39772b-d74b-4665-b628-4e57e6d15c6f"
+              },
+              {
+                "appId": "32b6d34b-c894-4971-8223-e17b86e9ad26",
+                "displayName": "Signal B2 Service",
+                "createdDateTime": "2026-05-14T17:49:20Z",
+                "id": "10eee6c6-b6bd-4736-b771-4931b9473744"
+              },
+              {
+                "appId": "2e70988e-e92f-46e6-ba47-1f01dbc650e3",
+                "displayName": "NangoTeams",
+                "createdDateTime": "2026-05-12T10:10:37Z",
+                "id": "3bb23d8a-ee27-4a7d-bdbb-1c9e5f15a19c"
+              },
+              {
+                "appId": "66a88757-258c-4c72-893c-3e8bed4d6899",
+                "displayName": "Office 365 Search Service",
+                "createdDateTime": "2026-05-14T18:38:13Z",
+                "id": "e0ea2e0e-469c-4eeb-aa4a-f2ac49a786cf"
+              },
+              {
+                "appId": "1c2909a7-6432-4263-a70d-929a3c1f9ee5",
+                "displayName": "Common Data Service License Management",
+                "createdDateTime": "2026-05-14T19:49:12Z",
+                "id": "87ede68d-647d-4504-81ed-8f2baffe7a2a"
+              },
+              {
+                "appId": "18af356b-c4fd-4f52-9899-d09d21397ab7",
+                "displayName": "Office365DirectorySynchronizationService",
+                "createdDateTime": "2026-05-14T23:43:13Z",
+                "id": "f39731d5-adc0-461d-b75e-c51361ec5e12"
+              },
+              {
+                "appId": "fc03f97a-9db0-4627-a216-ec98ce54e018",
+                "displayName": "Azure AD Notification",
+                "createdDateTime": "2026-05-15T01:58:06Z",
+                "id": "315dd667-2998-4539-b4c9-1cef5c7bbf40"
+              },
+              {
+                "appId": "ab158d9a-0b5c-4cc3-bb2b-f6646581e4e4",
+                "displayName": "CAP Neptune Prod CM Prod ",
+                "createdDateTime": "2026-05-15T02:33:20Z",
+                "id": "681115f1-0826-4910-a11f-68ebdedf713c"
+              },
+              {
+                "appId": "08e18876-6177-487e-b8b5-cf950c1e598c",
+                "displayName": "SharePoint Online Web Client Extensibility",
+                "createdDateTime": "2026-05-14T16:12:32Z",
+                "id": "8fe91c86-2214-4a57-b617-402f15ddc99d"
+              },
+              {
+                "appId": "abe05e12-a08b-4d0d-ae66-51e7ca2b08d0",
+                "displayName": "NangoMicrosoft",
+                "createdDateTime": "2026-05-18T21:22:08Z",
+                "id": "c60090be-c3c8-449b-883d-0ee0924d6215"
+              },
+              {
+                "appId": "91e06239-2f2f-4cc3-9e17-63df4f732a76",
+                "displayName": "Nango Test App for SP",
+                "createdDateTime": "2026-05-18T22:06:53Z",
+                "id": "e0581fd2-fb78-4bce-a86a-2664111d59b9"
+              },
+              {
+                "appId": "7be3afde-5102-496c-9387-c0729b9f14f5",
+                "displayName": "NangoTempApp",
+                "createdDateTime": "2026-05-18T22:08:23Z",
+                "id": "c140e3e5-b0a8-467a-9669-0fc55427b0b9"
+              }
+            ]
+          },
+          "status": 200,
+          "headers": {
+            "date": "Mon, 18 May 2026 22:33:05 GMT",
+            "content-type": "application/json;odata.metadata=minimal;odata.streaming=true;IEEE754Compatible=false;charset=utf-8",
+            "transfer-encoding": "chunked",
+            "connection": "keep-alive",
+            "x-xss-protection": "0",
+            "x-content-type-options": "nosniff",
+            "x-download-options": "noopen",
+            "x-frame-options": "SAMEORIGIN",
+            "x-dns-prefetch-control": "off",
+            "strict-transport-security": "max-age=31536000",
+            "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+            "access-control-allow-origin": "*",
+            "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+            "x-ratelimit-limit": "5000",
+            "x-ratelimit-remaining": "4993",
+            "x-ratelimit-reset": "1779143637",
+            "cache-control": "no-cache",
+            "vary": "Accept-Encoding",
+            "request-id": "fa43e299-43cd-4c3a-912d-0f542d7e93a5",
+            "client-request-id": "fa43e299-43cd-4c3a-912d-0f542d7e93a5",
+            "x-ms-ags-diagnostic": "{\"ServerInfo\":{\"DataCenter\":\"West US 2\",\"Slice\":\"E\",\"Ring\":\"4\",\"ScaleUnit\":\"005\",\"RoleInstance\":\"MWH0EPF000B6188\"}}",
+            "preference-applied": "odata.track-changes",
+            "odata-version": "4.0"
+          },
+          "hash": "ae57561f41f7119b155b1ad872c2db211b49392b",
+          "request": {
+            "params": {
+              "$select": "id,appId,displayName,createdDateTime"
+            }
+          }
+        },
+        {
+          "response": {
+            "@odata.context": "https://graph.microsoft.com/v1.0/$metadata#servicePrincipals",
+            "@odata.deltaLink": "https://graph.microsoft.com/v1.0/servicePrincipals/delta?$deltatoken=ORTFvDTMvcM1GgFNvQriALF5MLLBXYFz6YoD91rWkMTNTtZ0s3C_kFKpAAoIzuVYtc7WSWRJiqLNBRlMg1wCK80IejrNImxLY6RmIVdpqWAkhPawr5vbF-FqjPC2H1YYA5fStBsLeold-BObj8pPERXo0zp0jZ1SMjOwYUJYgl2CVKI9hxsW2WXPBeOXBvwCGQDivlpnBL9TR4-1FfZtZPYI8tGWMMImXq1tJU-KkBbNA431bBm8hUcNf-BH4dIKP1-KWyKH2oW1cDLia5cTTq0X2krEJc7Xqf18MBwSazFvl5aVqsVha0Pltfdc1NKfOi6CgJaTL2ISkZOeKaEXLTk1RdoQsjMdvVFMqpds-46fzjQUxpxXS_cSMCsbHOz9pYEOvq18f6BiEHwgfVPnqMsPaqz4hx4yZItcBVgbE5FOA9bSBUJZNIdNPUsUh6JugFmBTAtvCcmT-lwZ6u2mh3irS0-vh5QbMEChFYoDQdbZQC6xCdhX0LDKRxWFUb0Q9ByaHoixh0t9dSoMrOmz_7J_HHwLOe7YWUSjCYzGXBt3NBoVfMHgccw-W55keM6HWcS_4cAP6zfz98toVJfMeXH6JFMeda80rrAmwa3DovrUsrqGrKtPAz8XOZkEo8uO1WyojN5fJCF-trTn8qkrSqvnbLeZNJbm2kapgMGOM7TyqCaZ6jsz270ITZYaoXuzsyUThDYzGhs7__Wz8aP3tJHKl-p5ViVLyySG8G8Efu4WtgAYP1DN0qDKDSEa9Wg8LM71OyfbvQXI4W956BiyE9LPSN5M5srDKvi2XuAICaF_LyoTzclq9fYRTLCa5tzxKIDU8-6HtvjYWkslar1cQAWOktGxTByMOrqA9v2KRflEEy_XQprb5kfuVlt9Z0LPJnkZY1u9apPD1mkWYFpu3Xo2oFKn_Tn8vS6ZdWTb60f7mlysDLSA410OvQlnXwewpg6to_AVK_gS9TCmsr9lyq1S6Abf6pJv6BJENWG4q-BP1WEOfxDZ7Ef3nPzVxIP_ITLykFJncI4LiaTwcAjVt2wxKZCgpxb5eIzHxzmGNbr0V1NZSPJwT9eclkcgaDN_cU5vyB-z0RJyWt2bRAKz1mqvu06qIoCm2ruhFeoNv8yb4CxLlHte3rYUJHWTcGjp-0B_Ne-Ou0EZIn7KHILj55IatLC25uBk05gc3Q4X_cL971OuoeA10sMvNjp0UY82HBKi6Qlexlo7053Gd50VJNcuRNcLk5DvKzQG1cCzE4IjOaQNJVwVoaJN0EvS2QsUsB-dHgSjdYlcS73TH5V86ZRUIh2dpxjBGLusX67WaOOONfcpW0N_zodel3ny_tQWpoas8AvXqaZupQY6vG4RB_GbCb8aFc3RWka7gTjvBhB9nNaAichD3AcasyDLjgOHe7mlJvENSZ0Spu6CCKE_Lohw5pVaM63xgXcvB4JCHIrsYNZebfRcCU7OEEFcCSROEGX8D2oIIiRvnPKlybzQATmGPh43nkU74T835xmUTGNbdlBbNFRuJoqm9YdzFO5lYxs_Rfs273PhO66V9Qvg1WBjgaHZI2cPU530hjC49EZB62UrKPhXo3j7sgAUu_z7qqBDRJLdKFdORT6QgiVzY1ltR7bskU96GKuI_GGGW1HZmXXH87kULp_1SETRQ9T9l1zJVCAhucJ_x7gYFOPmEDtNF3YQGx3IaI9sb9L_kRD25CFSsLuEizfNthAhVVeZgYrafVTjxS-r4kn5wA_g3m-Ourd46UwS3bbGT1BeOddyPgovXlwZ58ccyZqg2iwFRvZu_kP26qyCyAyo2dWnLsX540bLv91TScf6-zswBVYLMuwPawoFmj8N4o1IaV9xafCmxt_st7vVwrAeNtlwgvE4khoClaF4NHzLGkBvZJWFl_di8SUV9kMfZlnP-_tyoCKqAp79FHXVg9GbVmL-iDvYQ69kD3ng4lNCazy2I1kJyHmh6Rwv18tpS5uq3K_T.jLGIbhVQbJygcyiYsCdrZH-H6sfgV_HBFpYUfucKp6w",
+            "value": [
+              {
+                "id": "15b564ef-d90d-4318-b80e-65f1abf48da2",
+                "@removed": {
+                  "reason": "changed"
+                }
+              },
+              {
+                "id": "8c7410b7-37cd-4463-981d-74cd6ab033a7",
+                "@removed": {
+                  "reason": "changed"
+                }
+              },
+              {
+                "id": "afa06287-fd67-435a-ad4d-fc7457430c1e",
+                "@removed": {
+                  "reason": "changed"
+                }
+              },
+              {
+                "id": "0f6e916c-d4c6-4f5b-99f5-22442166505a",
+                "@removed": {
+                  "reason": "changed"
+                }
+              },
+              {
+                "id": "68d56820-cc72-446a-9802-3522882b09bc",
+                "@removed": {
+                  "reason": "changed"
+                }
+              }
+            ]
+          },
+          "status": 200,
+          "headers": {
+            "date": "Mon, 18 May 2026 22:33:05 GMT",
+            "content-type": "application/json;odata.metadata=minimal;odata.streaming=true;IEEE754Compatible=false;charset=utf-8",
+            "transfer-encoding": "chunked",
+            "connection": "keep-alive",
+            "x-xss-protection": "0",
+            "x-content-type-options": "nosniff",
+            "x-download-options": "noopen",
+            "x-frame-options": "SAMEORIGIN",
+            "x-dns-prefetch-control": "off",
+            "strict-transport-security": "max-age=31536000",
+            "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+            "access-control-allow-origin": "*",
+            "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+            "x-ratelimit-limit": "5000",
+            "x-ratelimit-remaining": "4992",
+            "x-ratelimit-reset": "1779143637",
+            "cache-control": "no-cache",
+            "vary": "Accept-Encoding",
+            "request-id": "cab1e2db-a783-4757-8b58-0cc38d81bd4b",
+            "client-request-id": "cab1e2db-a783-4757-8b58-0cc38d81bd4b",
+            "x-ms-ags-diagnostic": "{\"ServerInfo\":{\"DataCenter\":\"West US 2\",\"Slice\":\"E\",\"Ring\":\"4\",\"ScaleUnit\":\"000\",\"RoleInstance\":\"CO1PEPF0000E17B\"}}",
+            "preference-applied": "odata.track-changes",
+            "odata-version": "4.0"
+          },
+          "hash": "2683163d79ef2f53815b755740c03efb3a7bd462",
+          "request": {
+            "params": {
+              "$skiptoken": "v12ygeT0LVPgNsQiCun4557lsQaaldcEbbY0JB5fqcBNwIBlFfzmGoXxrT7wjPFNAyn504HLmqbbKYj8YDjpDYDeqvQ4UWjC01HqHXQak4SaQ58ZwsIElraT9D3gPVk58XGf27QTD37G95tLi7kcJT2eCSNkqVN4MYhCtwMEkysRbVW7hUh-vYrfubHSiaXcNK_Zsfr1rcOoINFOVCjBdUfqEoFvo3-t5ijmb_6niJMA9DT_QLkMGBoWfFv8DerayNJm1QgoQbQBoKw-cWCjbMt2zg8ei9z63g89IJhzAizQg5hrONo62_ahddzp5b6TLlU0cuKFyuSecozpp9T-xbOJMu46pJMp8N2GL8954aCUeQj50cPvyalU2gttMRPjmK7jtFQxtLsI-AoGMY9iaezSh-WBSrtLALEEQhZni__UW9-3r6QD-k3xUluViLalMYhI6X394cau7rAlYXwV4_Xrh4QhPdBvgMIoGwhDYLuQni95FbuH0XvZKV0gjEP-_978VH0LGmIPYmJMsGOwCU1o1sPM9SeLcdHs3Bi64MBsccY2htQwkJUtHyH14h7K1Tgr-Cb7Noieoz4NKH1TeXgZoipE0TjQzZwdnu_WcDyZjXwlraPGwuWIkE8dpCCmE5fv10rGt9vXPM2DLuCvVB2hIM2kA-zAX1id05Ca-Nn4t4DJjaxctyNlZPxhzvxmAsbbUpfDTZchH6gJX6_bXPRfYQiDqWcord9WYu-S3Hr8QwfoNTak_XIeJ2zh_arsj3WEN3jNlbkRiiKjxpI_IEIWJjV4DblG14JqhEKR56K1RuARjePHcyCNYlJk__Tv_yBikGliKYyikR8f3FSvxc6L43U5blGzHEt6q745v6bOAaGgCH1vslPsdlpjWocOCvtm9UgF6ao-awuu9IRuT0sXaa67tK-qu3_9Ecs4NHGuES-hANksk9VgJHVRsKWP5HjC6X1TFf3E11M-TBVyNWOpyaSlPJ5nNrvRZdS65k3YWrGmq3guNFLALsD2lmcVMm6cWurHL98YA__Ft7NgwY4A5DiHRSrk-GykcSZNfNOCXQdqQXpZbKNJRkjSJwYAtwVMl5p5lJ3D8MsEa6zR5XX8t0rHEeP3GkdCPMe-XetFdIrEQhAwYLHnICBKYqiwDPYkL6v8E6lsy3FiRUMMUIHhSLRIEz5NzkcC-bWVpQ6MpYR5Qg3iWwgBjMxTGUrGmAfWrGkZLaWXdA_KbgG8UQW-uobn5ABEnqxBHgeHHIYjvLn0fsSTJ5iaRhYhD2Ht-RbqK6OXrkl_Hwt83DejxH1e711gfITkWF6QYbxtpI2VlPYUu0v95isKvI4hbw9U49unG6BexVlTZKH4YUYLVPskobAdtMZFGmAvQUVR97r6aVTi6qYOdij1l89bvDNyDuKa9Esvuy62O3zduMpbPH5lO5L_16AQKbsJAMwQ1Xpu69XoatLKUgn14N8Fct19PhX-jDHG1DCLxGHW0wFC7NwUSSxUnnMC9jfZCsthN7guuUPP-VjkXLoeHpLlXZbOvZ3Wyz89qVhc13ealsrdmrCMtAGOFIkMs_M51UqssNuavNZf-1n8uJ8A_B-PK2IG7oOkMZfYwAohd5ck4tKZIFPoeSj4tLShPlHdQnd4yl3nASTY-UaCBwXWMEUYpFUjpw7pU1-_lOzM52_4jPf0fT_QB7cW9Rx9JUzxpR0MHZ4cRFUVsJKNbKo_wW055p5BZqzBwikssJv8ILrws4jTA5ScXVdYMDm_NiVwFdUqPOxgP-bUkbWefpdG_CiDJRfW-osj8UjHiEbxlKWNVz4fMFOGNRV4rPLvR_VD7xcj25vc2yFpyY4EOUL55Sn9krY3_zHEp_KHYNmMFiYCq0gIxLgTEgrMbiH0RH062k5jphXt90qPfXPQop0zqIDEtRd4jUPXh4R9ZRW0s48OvcEHBTWRAstz2tpbA2RW-eClxECqEkARiw2H09ANk-OirXA0DOZRVPCfmiYNpllcewIB5rYTE3x-M2DIfsEwRoO7qMnkkhxaHNIa1dBmZOA1cmPzKfyUndp4SeeAEQtb0UeXfM8X1CLOeMTAnPGKbyqBzVHFVpI6rImfIyhwcnmgkCLV.9aWylkoPvRZnUrEFWiXb_0PAVpVH9NoSv0kCodl3X10"
+            }
+          }
+        }
+      ]
+    }
+  }
+}

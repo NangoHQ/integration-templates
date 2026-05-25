@@ -1,0 +1,3014 @@
+{
+  "nango": {
+    "getConnection": {},
+    "getMetadata": {
+      "team_id": "90152560096"
+    },
+    "batchSave": {
+      "Task": [
+        {
+          "id": "86c9w41hk",
+          "name": "Test Task from Create Action",
+          "status": "to do",
+          "orderindex": "39908298.00000000000000000000000000000000",
+          "date_created": "1779205213210",
+          "date_updated": "1779205213210",
+          "archived": false,
+          "creator_id": 302438666,
+          "creator_username": "Nango Developer",
+          "list_id": "901523453199",
+          "list_name": "Temp List for Create Task Test",
+          "folder_id": "901516079268",
+          "folder_name": "hidden",
+          "space_id": "901511023376",
+          "url": "https://app.clickup.com/t/86c9w41hk"
+        },
+        {
+          "id": "86c9w414y",
+          "name": "Test Task from Create Action",
+          "status": "to do",
+          "orderindex": "39908297.00000000000000000000000000000000",
+          "date_created": "1779205166099",
+          "date_updated": "1779205166099",
+          "archived": false,
+          "creator_id": 302438666,
+          "creator_username": "Nango Developer",
+          "list_id": "901523453199",
+          "list_name": "Temp List for Create Task Test",
+          "folder_id": "901516079268",
+          "folder_name": "hidden",
+          "space_id": "901511023376",
+          "url": "https://app.clickup.com/t/86c9w414y"
+        },
+        {
+          "id": "86c9w3w4v",
+          "name": "Test Task from Create Action",
+          "status": "to do",
+          "orderindex": "39908295.00000000000000000000000000000000",
+          "date_created": "1779204672554",
+          "date_updated": "1779204672554",
+          "archived": false,
+          "creator_id": 302438666,
+          "creator_username": "Nango Developer",
+          "list_id": "901523453199",
+          "list_name": "Temp List for Create Task Test",
+          "folder_id": "901516079268",
+          "folder_name": "hidden",
+          "space_id": "901511023376",
+          "url": "https://app.clickup.com/t/86c9w3w4v"
+        },
+        {
+          "id": "86c9w247f",
+          "name": "Task 1",
+          "status": "in progress",
+          "orderindex": "39908288.00000000000000000000000000000000",
+          "date_created": "1779199552982",
+          "date_updated": "1779199552982",
+          "archived": false,
+          "creator_id": 302438666,
+          "creator_username": "Nango Developer",
+          "list_id": "901523450955",
+          "list_name": "Project 2",
+          "folder_id": "901516077510",
+          "folder_name": "hidden",
+          "space_id": "901511023376",
+          "url": "https://app.clickup.com/t/86c9w247f"
+        },
+        {
+          "id": "86c9w2478",
+          "name": "Task 3",
+          "status": "to do",
+          "orderindex": "39908290.00000000000000000000000000000000",
+          "date_created": "1779199552682",
+          "date_updated": "1779199552682",
+          "archived": false,
+          "creator_id": 302438666,
+          "creator_username": "Nango Developer",
+          "list_id": "901523450955",
+          "list_name": "Project 2",
+          "folder_id": "901516077510",
+          "folder_name": "hidden",
+          "space_id": "901511023376",
+          "url": "https://app.clickup.com/t/86c9w2478"
+        },
+        {
+          "id": "86c9w2477",
+          "name": "Task 2",
+          "status": "to do",
+          "orderindex": "39908289.00000000000000000000000000000000",
+          "date_created": "1779199552680",
+          "date_updated": "1779199552680",
+          "archived": false,
+          "creator_id": 302438666,
+          "creator_username": "Nango Developer",
+          "list_id": "901523450955",
+          "list_name": "Project 2",
+          "folder_id": "901516077510",
+          "folder_name": "hidden",
+          "space_id": "901511023376",
+          "url": "https://app.clickup.com/t/86c9w2477"
+        },
+        {
+          "id": "86c9w2474",
+          "name": "Task 3",
+          "status": "to do",
+          "orderindex": "39908287.00000000000000000000000000000000",
+          "date_created": "1779199552474",
+          "date_updated": "1779199552474",
+          "archived": false,
+          "creator_id": 302438666,
+          "creator_username": "Nango Developer",
+          "list_id": "901523450954",
+          "list_name": "Project 1",
+          "folder_id": "901516077511",
+          "folder_name": "hidden",
+          "space_id": "901511023376",
+          "url": "https://app.clickup.com/t/86c9w2474"
+        },
+        {
+          "id": "86c9w2472",
+          "name": "\u200eTask 1",
+          "status": "to do",
+          "orderindex": "39908285.00000000000000000000000000000000",
+          "date_created": "1779199552315",
+          "date_updated": "1779199552315",
+          "archived": false,
+          "creator_id": 302438666,
+          "creator_username": "Nango Developer",
+          "list_id": "901523450954",
+          "list_name": "Project 1",
+          "folder_id": "901516077511",
+          "folder_name": "hidden",
+          "space_id": "901511023376",
+          "url": "https://app.clickup.com/t/86c9w2472"
+        },
+        {
+          "id": "86c9w2471",
+          "name": "\u200eTask 2",
+          "status": "to do",
+          "orderindex": "39908286.00000000000000000000000000000000",
+          "date_created": "1779199552313",
+          "date_updated": "1779199552313",
+          "archived": false,
+          "creator_id": 302438666,
+          "creator_username": "Nango Developer",
+          "list_id": "901523450954",
+          "list_name": "Project 1",
+          "folder_id": "901516077511",
+          "folder_name": "hidden",
+          "space_id": "901511023376",
+          "url": "https://app.clickup.com/t/86c9w2471"
+        },
+        {
+          "id": "86c9w249g",
+          "name": "\ud83e\udde0 Work Smarter with ClickUp AI",
+          "description": "Ready to unlock a new level of productivity? Meet ClickUp AI \u2013 your intelligent co-pilot, seamlessly integrated into your workspace to help you write, summarize, brainstorm, get instant answers, and even take meeting notes right where you need them.\n\u00a0\nClickUp AI learns from your workspace, providing contextual, relevant help across all your tasks, Docs, and conversations. It's truly one AI to replace them all, saving you countless hours!\nHere\u2019s what to do:\n\u00a0\nWrite smarter, faster:\nClick anywhere in the description of this task (or any task where you're typing).\nLook for the AI button in the text editor toolbar (it appears when you highlight text or start a new line).\nSelect some text, click the AI button (It should look something like this: ), and try \"Improve Writing\" or \"Make shorter.\" Witness the instant transformation!\n\u00a0\nAsk anything, get answers instantly:\nIn the top right corner of your Workspace, next to your profile, you'll see an icon that looks something like this: . Click it to activate ClickUp Brain from anywhere in your Workspace.\nAsk a question like: \"What's the purpose of a ClickUp Space?\" or \"How do I add a Custom Field to a task?\" ClickUp AI will provide quick, contextual answers based on our knowledge base!\n\u00a0\nBrainstorm & generate ideas on demand:\nIn the comments section below, type a prompt like: \"ClickUp AI, give me 3 creative ideas for a team-building activity for remote teams.\"\nHighlight your prompt, click the AI button, and select \"Brainstorm\" or \"Generate Ideas.\" Get ready for fresh inspiration!\n\u00a0\nCreate Tasks with AI Magic:\nIn a new comment, type: \"ClickUp AI, create a task to [your next personal goal, e.g., 'plan my dream vacation'].\"\nHighlight the text, click the AI button, and choose \"Create Task\". Watch it transform your idea into an actionable item, complete with a title and description!\nWhy this matters:\n\u2705 Save time: Automate writing, editing, and task creation.\n\u2705 Work smarter: Get instant, contextual answers anywhere.\n\u2705 Keep moving: No switching tabs\u2014AI is built right in.",
+          "status": "to do",
+          "orderindex": "39908290.00000533000000000000000000000000",
+          "date_created": "1779199558581",
+          "date_updated": "1779199558581",
+          "archived": false,
+          "creator_id": 302438666,
+          "creator_username": "Nango Developer",
+          "assignees": [
+            {
+              "id": 302438666,
+              "username": "Nango Developer",
+              "email": "api@nango.dev"
+            }
+          ],
+          "priority": "high",
+          "due_date": "1779523195463",
+          "list_id": "901523450959",
+          "list_name": "Get Started with ClickUp",
+          "folder_id": "901516077513",
+          "folder_name": "hidden",
+          "space_id": "901511023376",
+          "url": "https://app.clickup.com/t/86c9w249g"
+        },
+        {
+          "id": "86c9w2494",
+          "name": "\ud83d\ude80 Set up Your Tasks in Just 5 Minutes",
+          "description": "We're thrilled to have you here. This quick-start task will help you set up your Workspace for maximum productivity\u2014fast. Let\u2019s get started!\nHere's what to do:\n\u00a0\nMeet your first task:\nYou're looking at it right now. Notice the due date (that\u2019s tomorrow!), assignee (that\u2019s you!), and priority (we\u2019ve set this one as \"High\" to get you going!).\n\u00a0\nUpdate your status:\nSee the \"To Do\" status at the top? Click it and change it to \"In Progress\" to keep everyone (including you!) updated on your work.\n\u00a0\nAdd a subtask:\nBreak down big tasks into smaller, manageable steps. Click the \"Subtask\" tab below this task description, click \"+ Add Task\" and name it \"Learn about my Inbox\".\n\u00a0\nMark this task complete!\nWhen you\u2019ve done the above, change the statuses of this task and the subtask you created to \"Complete\". You\u2019ll feel a tiny rush of productivity!\nWhy this matters:\n\u2705 Stay organized: Keep track of what needs to be done and by when.\n\u2705 Gain clarity: See exactly what\u2019s expected of you.\n\u2705 Boost focus: Break down big goals into actionable steps.\n\u00a0\n\u00a0\nFor a bit more on tasks, check out this quick video walkthrough:",
+          "status": "to do",
+          "orderindex": "39908285.00000389000000000000000000000000",
+          "date_created": "1779199557632",
+          "date_updated": "1779199557632",
+          "archived": false,
+          "creator_id": 302438666,
+          "creator_username": "Nango Developer",
+          "assignees": [
+            {
+              "id": 302438666,
+              "username": "Nango Developer",
+              "email": "api@nango.dev"
+            }
+          ],
+          "priority": "high",
+          "due_date": "1779177595463",
+          "list_id": "901523450959",
+          "list_name": "Get Started with ClickUp",
+          "folder_id": "901516077513",
+          "folder_name": "hidden",
+          "space_id": "901511023376",
+          "url": "https://app.clickup.com/t/86c9w2494"
+        },
+        {
+          "id": "86c9w2493",
+          "name": "\ud83c\udfa8 Design a Workflow That Works for You",
+          "description": "ClickUp\u2019s flexibility lets you to create a Workspace that fits your unique workflow. Ready to customize your experience? Follow these simple steps to unlock the full potential of ClickUp:\nHere\u2019s what to do:\n\u00a0\nPersonalize your statuses\nEvery List in ClickUp comes with customizable statuses. Click the current status of this task, then select the Settings icon (\u2699\ufe0e) to make changes. Add a new status like \"Awaiting Review\" or \"Ready for Launch\" to track your process.\n\ud83d\udc49 Learn more about ClickUp statuses\n\nAdd a Custom Field\nTrack the details that matter most with Custom Fields. For this task, scroll down to the \"Add fields\" button and click the \"+\" icon. Add a \"Text\" Custom Field named \"Project Lead\" and enter your name.\n\ud83d\udc49 All about Custom Fields\n\nSwitch views\nSee your tasks your way! Exit this task, click the \"List\" view at the top of your screen and switch to \"Board\" or \"Calendar\" view for a fresh perspective.\n\ud83d\udc49 Explore all ClickUp views \n\nCreate a New List\nOrganize your work by creating a new List. Exit this task, hover over your current Space or Folder in the left sidebar, click the \"+\" icon, and select \"New List.\" Name it something relevant, like \"My Projects\" or \"Marketing Campaigns.\"\n\nWhy this matters:\n\u2705 Adapt to your needs: ClickUp molds to your process, not the other way around.\n\u2705 Track anything: Custom Fields ensure you capture all the critical details.\n\u2705 Work your way: Different views help you see your tasks the way you think.",
+          "status": "to do",
+          "orderindex": "39908286.00000756000000000000000000000000",
+          "date_created": "1779199557629",
+          "date_updated": "1779199557629",
+          "archived": false,
+          "creator_id": 302438666,
+          "creator_username": "Nango Developer",
+          "assignees": [
+            {
+              "id": 302438666,
+              "username": "Nango Developer",
+              "email": "api@nango.dev"
+            }
+          ],
+          "priority": "high",
+          "due_date": "1779263995463",
+          "list_id": "901523450959",
+          "list_name": "Get Started with ClickUp",
+          "folder_id": "901516077513",
+          "folder_name": "hidden",
+          "space_id": "901511023376",
+          "url": "https://app.clickup.com/t/86c9w2493"
+        },
+        {
+          "id": "86c9w2492",
+          "name": "\ud83e\udd1d Bring Your Team Onboard in Minutes",
+          "description": "ClickUp truly shines when you collaborate with your team! Supercharge your productivity with these simple steps to bring your colleagues into your workspace and start working together effortlessly.\nHere\u2019s what to do:\n\u00a0\nInvite a teammate (or two!):\nClick the \"Invite\" button in the bottom left hand side of your sidebar. Send an invite to at least one colleague. They'll instantly get access to your workspace and this task!\n\ud83d\udc49 How to invite your team to ClickUp\n\nMention a teammate in a comment:\nIn the comments section below, type \"@\" followed by your teammate's name (or your own if you're testing). This will send them a notification and draw their attention to your comment.\n\nAssign a comment as an action item:\nReply to your comment (or a new one), and click the \"Assign Comment\" icon (looks like a person with a checkmark) to turn it into an actionable item for yourself or a teammate.\n\u00a0\nShare this task:\nClick the \"Share\" button at the top right of this task. Explore the sharing options \u2013 you can share this task with external guests or get a public link!\n\ud83d\udc49 Learn more about public sharing\nWhy This Matters:\n\u2705 Unified Communication: Keep all project discussions in one place, linked to your work.\n\u2705 Clear Ownership: Assign comments and tasks to ensure nothing falls through the cracks.\n\u2705 Faster Feedback: Get quick responses and approvals from stakeholders.",
+          "status": "to do",
+          "orderindex": "39908287.00000935000000000000000000000000",
+          "date_created": "1779199557627",
+          "date_updated": "1779199557627",
+          "archived": false,
+          "creator_id": 302438666,
+          "creator_username": "Nango Developer",
+          "assignees": [
+            {
+              "id": 302438666,
+              "username": "Nango Developer",
+              "email": "api@nango.dev"
+            }
+          ],
+          "priority": "high",
+          "due_date": "1779350395463",
+          "list_id": "901523450959",
+          "list_name": "Get Started with ClickUp",
+          "folder_id": "901516077513",
+          "folder_name": "hidden",
+          "space_id": "901511023376",
+          "url": "https://app.clickup.com/t/86c9w2492"
+        },
+        {
+          "id": "86c9w2491",
+          "name": "\ud83d\udd17 Integrate Your Favorite Tools in ClickUp",
+          "description": "ClickUp integrates with thousands of your favorite apps, bringing all your work into one central hub. Ready to maximize your efficiency? Let\u2019s get started!\nHere\u2019s what to do:\n\u00a0\nSync Your Google Calendar\nKeep your tasks front and center by syncing ClickUp with your Google Calendar. Click the \"Planner\" with the calendar icon in your left sidebar and select the \"Google Calendar\" option to get started.\n\ud83d\udc49 Check out a full list of calendar apps you can sync with ClickUp\n\u00a0\nExplore Popular Integrations\nThink about a tool you use daily (e.g., Slack, Google Drive, Gmail, HubSpot). Click the Settings (\u26ed) icon in your left sidebar, go to \"App Center\", and search for your favorite app.\n\ud83d\udc49 Learn how to connect all your apps in one place\n\u00a0\nAutomate Your Workflow\nImagine tasks moving statuses automatically or emails being sent when a task is completed. While we won't set one up now, explore the Automations section (click the\u26a1\ufe0f icon at the top of a List or Space).\n\ud83d\udc49 Get a quick intro to Automations in ClickUp\n\u00a0\nBrainstorm in Docs\nHead to your Docs (access it from your sidebar\u2014you might have to click the \"More\" option to see it) and create a new Doc titled \"My Next Big Idea.\" Start jotting down thoughts, and convert text directly into tasks!\n\ud83d\udc49 How to use Docs in ClickUp.\nWhy this matters:\n\u2705 Centralized Work: Stop switching between apps and keep everything in ClickUp.\n\u2705 Automate Repetitive Tasks: Save time and focus on what matters most.\n\u2705 Seamless Workflow: Connect your calendar, email, and other tools for a unified experience.",
+          "status": "to do",
+          "orderindex": "39908288.00000618000000000000000000000000",
+          "date_created": "1779199557625",
+          "date_updated": "1779199557625",
+          "archived": false,
+          "creator_id": 302438666,
+          "creator_username": "Nango Developer",
+          "assignees": [
+            {
+              "id": 302438666,
+              "username": "Nango Developer",
+              "email": "api@nango.dev"
+            }
+          ],
+          "priority": "high",
+          "due_date": "1779436795463",
+          "list_id": "901523450959",
+          "list_name": "Get Started with ClickUp",
+          "folder_id": "901516077513",
+          "folder_name": "hidden",
+          "space_id": "901511023376",
+          "url": "https://app.clickup.com/t/86c9w2491"
+        },
+        {
+          "id": "86c9w2490",
+          "name": "\ud83d\udce5 Import Your Work into ClickUp",
+          "description": "You don\u2019t have to start from scratch in ClickUp. If you already have work tracked elsewhere, you can import tasks, documents, and chat channels in just a few steps and keep your projects moving.\nHere\u2019s what to do:\n\u00a0\nDecide what you want to bring into ClickUp\nImport tasks from spreadsheets, monday.com, Notion, Trello, and more.\nImport documents from local files, Notion, and Confluence.\nImport chat channels and invite users directly from Slack.\n\ud83d\udc49 Learn more about all the tools you can import from\nOpen ClickUp\u2019s import tools\nClick your Workspace avatar (top left) and go to Settings.\nIn the left sidebar, select Imports / Exports.\nIf you don\u2019t see Imports / Exports, you may need an admin to enable import permissions for you.\nSelect where you want to import from.\nFollow the guided import process\nClickUp will walk you through the import step by step.\nOnce it\u2019s done, your work will be in ClickUp so you can continue without a hitch.\nWhy this matters:\n\u2705 Move faster: Bring your existing work over instead of recreating it.\n\u2705 Preserve history: Keep your context and past activity.\n\u2705 Centralize data: Bring everything into one place in ClickUp.",
+          "status": "to do",
+          "orderindex": "39908289.00000840000000000000000000000000",
+          "date_created": "1779199557622",
+          "date_updated": "1779199557622",
+          "archived": false,
+          "creator_id": 302438666,
+          "creator_username": "Nango Developer",
+          "assignees": [
+            {
+              "id": 302438666,
+              "username": "Nango Developer",
+              "email": "api@nango.dev"
+            }
+          ],
+          "priority": "high",
+          "due_date": "1779353995463",
+          "list_id": "901523450959",
+          "list_name": "Get Started with ClickUp",
+          "folder_id": "901516077513",
+          "folder_name": "hidden",
+          "space_id": "901511023376",
+          "url": "https://app.clickup.com/t/86c9w2490"
+        },
+        {
+          "id": "86c9w3exf",
+          "name": "Test Task for get-task action",
+          "status": "to do",
+          "orderindex": "39908294.00000000000000000000000000000000",
+          "date_created": "1779203289147",
+          "date_updated": "1779203289147",
+          "archived": false,
+          "creator_id": 302438666,
+          "creator_username": "Nango Developer",
+          "list_id": "901523452618",
+          "list_name": "Test List for get-task action",
+          "folder_id": "901516078814",
+          "folder_name": "hidden",
+          "space_id": "901511023604",
+          "url": "https://app.clickup.com/t/86c9w3exf"
+        }
+      ]
+    },
+    "batchDelete": {
+      "Task": []
+    }
+  },
+  "api": {
+    "get": {
+      "/api/v2/team/90152560096/space": {
+        "response": {
+          "spaces": [
+            {
+              "id": "901511023376",
+              "name": "Team Space",
+              "color": "#03A2FD",
+              "private": false,
+              "avatar": null,
+              "admin_can_manage": true,
+              "statuses": [
+                {
+                  "id": "p901511023376_DCnaeiSB",
+                  "status": "to do",
+                  "type": "open",
+                  "orderindex": 0,
+                  "color": "#87909e"
+                },
+                {
+                  "id": "p901511023376_g9uxhsQM",
+                  "status": "in progress",
+                  "type": "custom",
+                  "orderindex": 1,
+                  "color": "#1090e0"
+                },
+                {
+                  "id": "p901511023376_syqLtYOY",
+                  "status": "complete",
+                  "type": "closed",
+                  "orderindex": 2,
+                  "color": "#008844"
+                }
+              ],
+              "multiple_assignees": true,
+              "features": {
+                "due_dates": {
+                  "enabled": true,
+                  "start_date": true,
+                  "remap_due_dates": false,
+                  "remap_closed_due_date": false
+                },
+                "sprints": {
+                  "enabled": true
+                },
+                "time_tracking": {
+                  "enabled": true,
+                  "harvest": false,
+                  "rollup": false,
+                  "default_to_billable": 2
+                },
+                "points": {
+                  "enabled": true
+                },
+                "custom_items": {
+                  "enabled": false
+                },
+                "priorities": {
+                  "enabled": true,
+                  "priorities": [
+                    {
+                      "color": "#f50000",
+                      "id": "1",
+                      "orderindex": "1",
+                      "priority": "urgent"
+                    },
+                    {
+                      "color": "#f8ae00",
+                      "id": "2",
+                      "orderindex": "2",
+                      "priority": "high"
+                    },
+                    {
+                      "color": "#6fddff",
+                      "id": "3",
+                      "orderindex": "3",
+                      "priority": "normal"
+                    },
+                    {
+                      "color": "#d8d8d8",
+                      "id": "4",
+                      "orderindex": "4",
+                      "priority": "low"
+                    }
+                  ]
+                },
+                "tags": {
+                  "enabled": true
+                },
+                "check_unresolved": {
+                  "enabled": true,
+                  "subtasks": null,
+                  "checklists": null,
+                  "comments": null
+                },
+                "milestones": {
+                  "enabled": false
+                },
+                "custom_fields": {
+                  "enabled": true
+                },
+                "dependency_warning": {
+                  "enabled": true
+                },
+                "status_pies": {
+                  "enabled": false
+                },
+                "multiple_assignees": {
+                  "enabled": true
+                },
+                "emails": {
+                  "enabled": true
+                },
+                "scheduler_enabled": false,
+                "dependency_type_enabled": false,
+                "dependency_enforcement": {
+                  "enforcement_enabled": false,
+                  "enforcement_mode": 0
+                },
+                "reschedule_closed_dependencies": {
+                  "enabled": true
+                }
+              },
+              "archived": false
+            },
+            {
+              "id": "901511023604",
+              "name": "Updated Seed Space A",
+              "color": null,
+              "private": false,
+              "avatar": null,
+              "admin_can_manage": null,
+              "statuses": [
+                {
+                  "id": "p901511023604_DxqI3Ubd",
+                  "status": "to do",
+                  "type": "open",
+                  "orderindex": 0,
+                  "color": "#87909e"
+                },
+                {
+                  "id": "p901511023604_hMkfVItg",
+                  "status": "complete",
+                  "type": "closed",
+                  "orderindex": 1,
+                  "color": "#008844"
+                }
+              ],
+              "multiple_assignees": false,
+              "features": {
+                "due_dates": {
+                  "enabled": true,
+                  "start_date": true,
+                  "remap_due_dates": true,
+                  "remap_closed_due_date": false
+                },
+                "sprints": {
+                  "enabled": false
+                },
+                "time_tracking": {
+                  "enabled": true,
+                  "harvest": false,
+                  "rollup": true,
+                  "default_to_billable": 2
+                },
+                "points": {
+                  "enabled": false
+                },
+                "custom_items": {
+                  "enabled": false
+                },
+                "priorities": {
+                  "enabled": true,
+                  "priorities": [
+                    {
+                      "color": "#f50000",
+                      "id": "1",
+                      "orderindex": "1",
+                      "priority": "urgent"
+                    },
+                    {
+                      "color": "#f8ae00",
+                      "id": "2",
+                      "orderindex": "2",
+                      "priority": "high"
+                    },
+                    {
+                      "color": "#6fddff",
+                      "id": "3",
+                      "orderindex": "3",
+                      "priority": "normal"
+                    },
+                    {
+                      "color": "#d8d8d8",
+                      "id": "4",
+                      "orderindex": "4",
+                      "priority": "low"
+                    }
+                  ]
+                },
+                "tags": {
+                  "enabled": true
+                },
+                "milestones": {
+                  "enabled": false
+                },
+                "remap_dependencies": {
+                  "enabled": true
+                },
+                "dependency_warning": {
+                  "enabled": true
+                },
+                "status_pies": {
+                  "enabled": false
+                },
+                "emails": {
+                  "enabled": true
+                },
+                "scheduler_enabled": false,
+                "dependency_type_enabled": false,
+                "dependency_enforcement": {
+                  "enforcement_enabled": false,
+                  "enforcement_mode": 0
+                },
+                "reschedule_closed_dependencies": {
+                  "enabled": true
+                }
+              },
+              "archived": false
+            },
+            {
+              "id": "901511024101",
+              "name": "Test Space from Dryrun",
+              "color": null,
+              "private": false,
+              "avatar": null,
+              "admin_can_manage": null,
+              "statuses": [
+                {
+                  "id": "p901511024101_1hxtgvAd",
+                  "status": "to do",
+                  "type": "open",
+                  "orderindex": 0,
+                  "color": "#87909e"
+                },
+                {
+                  "id": "p901511024101_NNx8sGTJ",
+                  "status": "complete",
+                  "type": "closed",
+                  "orderindex": 1,
+                  "color": "#008844"
+                }
+              ],
+              "multiple_assignees": true,
+              "features": {
+                "due_dates": {
+                  "enabled": true,
+                  "start_date": true,
+                  "remap_due_dates": true,
+                  "remap_closed_due_date": false
+                },
+                "sprints": {
+                  "enabled": false
+                },
+                "time_tracking": {
+                  "enabled": true,
+                  "harvest": false,
+                  "rollup": true,
+                  "default_to_billable": 2
+                },
+                "points": {
+                  "enabled": false
+                },
+                "custom_items": {
+                  "enabled": false
+                },
+                "priorities": {
+                  "enabled": true,
+                  "priorities": [
+                    {
+                      "color": "#f50000",
+                      "id": "1",
+                      "orderindex": "1",
+                      "priority": "urgent"
+                    },
+                    {
+                      "color": "#f8ae00",
+                      "id": "2",
+                      "orderindex": "2",
+                      "priority": "high"
+                    },
+                    {
+                      "color": "#6fddff",
+                      "id": "3",
+                      "orderindex": "3",
+                      "priority": "normal"
+                    },
+                    {
+                      "color": "#d8d8d8",
+                      "id": "4",
+                      "orderindex": "4",
+                      "priority": "low"
+                    }
+                  ]
+                },
+                "tags": {
+                  "enabled": true
+                },
+                "milestones": {
+                  "enabled": false
+                },
+                "remap_dependencies": {
+                  "enabled": true
+                },
+                "dependency_warning": {
+                  "enabled": true
+                },
+                "status_pies": {
+                  "enabled": false
+                },
+                "multiple_assignees": {
+                  "enabled": true
+                },
+                "emails": {
+                  "enabled": true
+                },
+                "scheduler_enabled": false,
+                "dependency_type_enabled": false,
+                "dependency_enforcement": {
+                  "enforcement_enabled": false,
+                  "enforcement_mode": 0
+                },
+                "reschedule_closed_dependencies": {
+                  "enabled": true
+                }
+              },
+              "archived": false
+            },
+            {
+              "id": "901511024154",
+              "name": "Test Space $(date +%s)",
+              "color": null,
+              "private": false,
+              "avatar": null,
+              "admin_can_manage": null,
+              "statuses": [
+                {
+                  "id": "p901511024154_ZCllqXpw",
+                  "status": "to do",
+                  "type": "open",
+                  "orderindex": 0,
+                  "color": "#87909e"
+                },
+                {
+                  "id": "p901511024154_dyViZhTT",
+                  "status": "complete",
+                  "type": "closed",
+                  "orderindex": 1,
+                  "color": "#008844"
+                }
+              ],
+              "multiple_assignees": true,
+              "features": {
+                "due_dates": {
+                  "enabled": true,
+                  "start_date": true,
+                  "remap_due_dates": true,
+                  "remap_closed_due_date": false
+                },
+                "sprints": {
+                  "enabled": false
+                },
+                "time_tracking": {
+                  "enabled": true,
+                  "harvest": false,
+                  "rollup": true,
+                  "default_to_billable": 2
+                },
+                "points": {
+                  "enabled": false
+                },
+                "custom_items": {
+                  "enabled": false
+                },
+                "priorities": {
+                  "enabled": true,
+                  "priorities": [
+                    {
+                      "color": "#f50000",
+                      "id": "1",
+                      "orderindex": "1",
+                      "priority": "urgent"
+                    },
+                    {
+                      "color": "#f8ae00",
+                      "id": "2",
+                      "orderindex": "2",
+                      "priority": "high"
+                    },
+                    {
+                      "color": "#6fddff",
+                      "id": "3",
+                      "orderindex": "3",
+                      "priority": "normal"
+                    },
+                    {
+                      "color": "#d8d8d8",
+                      "id": "4",
+                      "orderindex": "4",
+                      "priority": "low"
+                    }
+                  ]
+                },
+                "tags": {
+                  "enabled": true
+                },
+                "milestones": {
+                  "enabled": false
+                },
+                "remap_dependencies": {
+                  "enabled": true
+                },
+                "dependency_warning": {
+                  "enabled": true
+                },
+                "status_pies": {
+                  "enabled": false
+                },
+                "multiple_assignees": {
+                  "enabled": true
+                },
+                "emails": {
+                  "enabled": true
+                },
+                "scheduler_enabled": false,
+                "dependency_type_enabled": false,
+                "dependency_enforcement": {
+                  "enforcement_enabled": false,
+                  "enforcement_mode": 0
+                },
+                "reschedule_closed_dependencies": {
+                  "enabled": true
+                }
+              },
+              "archived": false
+            }
+          ]
+        },
+        "status": 200,
+        "headers": {
+          "date": "Tue, 19 May 2026 17:15:00 GMT",
+          "content-type": "application/json; charset=utf-8",
+          "content-length": "5659",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=5184000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4960",
+          "x-ratelimit-reset": "1779210941",
+          "etag": "W/\"161b-R/QKQGk+l8JSLkTR2LabUWS9o4s\""
+        },
+        "hash": "edbad5810ec73532afc4ed0c2236f62906046f16",
+        "request": {}
+      },
+      "/api/v2/space/901511023376/list": {
+        "response": {
+          "lists": [
+            {
+              "id": "901523453199",
+              "name": "Temp List for Create Task Test",
+              "orderindex": 0,
+              "content": "",
+              "status": null,
+              "priority": null,
+              "assignee": null,
+              "task_count": 3,
+              "due_date": null,
+              "start_date": null,
+              "folder": {
+                "id": "901516079268",
+                "name": "hidden",
+                "hidden": true,
+                "archived": false,
+                "access": true
+              },
+              "space": {
+                "id": "901511023376",
+                "name": "Team Space",
+                "archived": false,
+                "access": true
+              },
+              "archived": false,
+              "override_statuses": false,
+              "permission_level": "create"
+            },
+            {
+              "id": "901523453440",
+              "name": "Temp List for Update Test",
+              "orderindex": 0,
+              "content": "",
+              "status": null,
+              "priority": null,
+              "assignee": null,
+              "task_count": 0,
+              "due_date": null,
+              "start_date": null,
+              "folder": {
+                "id": "901516079413",
+                "name": "hidden",
+                "hidden": true,
+                "archived": false,
+                "access": true
+              },
+              "space": {
+                "id": "901511023376",
+                "name": "Team Space",
+                "archived": false,
+                "access": true
+              },
+              "archived": false,
+              "override_statuses": false,
+              "permission_level": "create"
+            },
+            {
+              "id": "901523450955",
+              "name": "Project 2",
+              "orderindex": 0,
+              "status": null,
+              "priority": null,
+              "assignee": null,
+              "task_count": 3,
+              "due_date": null,
+              "start_date": null,
+              "folder": {
+                "id": "901516077510",
+                "name": "hidden",
+                "hidden": true,
+                "archived": false,
+                "access": true
+              },
+              "space": {
+                "id": "901511023376",
+                "name": "Team Space",
+                "archived": false,
+                "access": true
+              },
+              "archived": false,
+              "override_statuses": false,
+              "permission_level": "create"
+            },
+            {
+              "id": "901523450954",
+              "name": "Project 1",
+              "orderindex": 0,
+              "status": null,
+              "priority": null,
+              "assignee": null,
+              "task_count": 3,
+              "due_date": null,
+              "start_date": null,
+              "folder": {
+                "id": "901516077511",
+                "name": "hidden",
+                "hidden": true,
+                "archived": false,
+                "access": true
+              },
+              "space": {
+                "id": "901511023376",
+                "name": "Team Space",
+                "archived": false,
+                "access": true
+              },
+              "archived": false,
+              "override_statuses": false,
+              "permission_level": "create"
+            },
+            {
+              "id": "901523450959",
+              "name": "Get Started with ClickUp",
+              "orderindex": 0,
+              "content": "",
+              "status": null,
+              "priority": null,
+              "assignee": null,
+              "task_count": 6,
+              "due_date": null,
+              "start_date": null,
+              "folder": {
+                "id": "901516077513",
+                "name": "hidden",
+                "hidden": true,
+                "archived": false,
+                "access": true
+              },
+              "space": {
+                "id": "901511023376",
+                "name": "Team Space",
+                "archived": false,
+                "access": true
+              },
+              "archived": false,
+              "override_statuses": true,
+              "permission_level": "create"
+            }
+          ]
+        },
+        "status": 200,
+        "headers": {
+          "date": "Tue, 19 May 2026 17:15:02 GMT",
+          "content-type": "application/json; charset=utf-8",
+          "content-length": "2076",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=5184000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4959",
+          "x-ratelimit-reset": "1779210941",
+          "etag": "W/\"81c-60RyKvRzUpi0hY1D4ff43xc2lUg\""
+        },
+        "hash": "08597cfcff2d35eb869dc36616fb94cf881e1b4b",
+        "request": {}
+      },
+      "/api/v2/list/901523453199/task": {
+        "response": {
+          "tasks": [
+            {
+              "id": "86c9w41hk",
+              "custom_id": null,
+              "custom_item_id": 0,
+              "name": "Test Task from Create Action",
+              "text_content": "",
+              "description": "",
+              "status": {
+                "status": "to do",
+                "id": "p901511023376_DCnaeiSB",
+                "color": "#87909e",
+                "type": "open",
+                "orderindex": 0
+              },
+              "orderindex": "39908298.00000000000000000000000000000000",
+              "date_created": "1779205213210",
+              "date_updated": "1779205213210",
+              "date_closed": null,
+              "date_done": null,
+              "archived": false,
+              "creator": {
+                "id": 302438666,
+                "username": "Nango Developer",
+                "color": "#595d66",
+                "email": "api@nango.dev",
+                "profilePicture": null
+              },
+              "assignees": [],
+              "group_assignees": [],
+              "watchers": [
+                {
+                  "id": 302438666,
+                  "username": "Nango Developer",
+                  "color": "#595d66",
+                  "initials": "ND",
+                  "email": "api@nango.dev",
+                  "profilePicture": null
+                }
+              ],
+              "checklists": [],
+              "tags": [],
+              "parent": null,
+              "top_level_parent": null,
+              "priority": null,
+              "due_date": null,
+              "start_date": null,
+              "points": null,
+              "time_estimate": null,
+              "custom_fields": [],
+              "dependencies": [],
+              "linked_tasks": [],
+              "locations": [],
+              "team_id": "90152560096",
+              "url": "https://app.clickup.com/t/86c9w41hk",
+              "sharing": {
+                "public": false,
+                "public_share_expires_on": null,
+                "public_fields": [
+                  "assignees",
+                  "priority",
+                  "due_date",
+                  "content",
+                  "comments",
+                  "attachments",
+                  "customFields",
+                  "subtasks",
+                  "tags",
+                  "checklists",
+                  "coverimage"
+                ],
+                "token": null,
+                "seo_optimized": false
+              },
+              "permission_level": "create",
+              "list": {
+                "id": "901523453199",
+                "name": "Temp List for Create Task Test",
+                "access": true
+              },
+              "project": {
+                "id": "901516079268",
+                "name": "hidden",
+                "hidden": true,
+                "access": true
+              },
+              "folder": {
+                "id": "901516079268",
+                "name": "hidden",
+                "hidden": true,
+                "access": true
+              },
+              "space": {
+                "id": "901511023376"
+              }
+            },
+            {
+              "id": "86c9w414y",
+              "custom_id": null,
+              "custom_item_id": 0,
+              "name": "Test Task from Create Action",
+              "text_content": "",
+              "description": "",
+              "status": {
+                "status": "to do",
+                "id": "p901511023376_DCnaeiSB",
+                "color": "#87909e",
+                "type": "open",
+                "orderindex": 0
+              },
+              "orderindex": "39908297.00000000000000000000000000000000",
+              "date_created": "1779205166099",
+              "date_updated": "1779205166099",
+              "date_closed": null,
+              "date_done": null,
+              "archived": false,
+              "creator": {
+                "id": 302438666,
+                "username": "Nango Developer",
+                "color": "#595d66",
+                "email": "api@nango.dev",
+                "profilePicture": null
+              },
+              "assignees": [],
+              "group_assignees": [],
+              "watchers": [
+                {
+                  "id": 302438666,
+                  "username": "Nango Developer",
+                  "color": "#595d66",
+                  "initials": "ND",
+                  "email": "api@nango.dev",
+                  "profilePicture": null
+                }
+              ],
+              "checklists": [],
+              "tags": [],
+              "parent": null,
+              "top_level_parent": null,
+              "priority": null,
+              "due_date": null,
+              "start_date": null,
+              "points": null,
+              "time_estimate": null,
+              "custom_fields": [],
+              "dependencies": [],
+              "linked_tasks": [],
+              "locations": [],
+              "team_id": "90152560096",
+              "url": "https://app.clickup.com/t/86c9w414y",
+              "sharing": {
+                "public": false,
+                "public_share_expires_on": null,
+                "public_fields": [
+                  "assignees",
+                  "priority",
+                  "due_date",
+                  "content",
+                  "comments",
+                  "attachments",
+                  "customFields",
+                  "subtasks",
+                  "tags",
+                  "checklists",
+                  "coverimage"
+                ],
+                "token": null,
+                "seo_optimized": false
+              },
+              "permission_level": "create",
+              "list": {
+                "id": "901523453199",
+                "name": "Temp List for Create Task Test",
+                "access": true
+              },
+              "project": {
+                "id": "901516079268",
+                "name": "hidden",
+                "hidden": true,
+                "access": true
+              },
+              "folder": {
+                "id": "901516079268",
+                "name": "hidden",
+                "hidden": true,
+                "access": true
+              },
+              "space": {
+                "id": "901511023376"
+              }
+            },
+            {
+              "id": "86c9w3w4v",
+              "custom_id": null,
+              "custom_item_id": 0,
+              "name": "Test Task from Create Action",
+              "text_content": "",
+              "description": "",
+              "status": {
+                "status": "to do",
+                "id": "p901511023376_DCnaeiSB",
+                "color": "#87909e",
+                "type": "open",
+                "orderindex": 0
+              },
+              "orderindex": "39908295.00000000000000000000000000000000",
+              "date_created": "1779204672554",
+              "date_updated": "1779204672554",
+              "date_closed": null,
+              "date_done": null,
+              "archived": false,
+              "creator": {
+                "id": 302438666,
+                "username": "Nango Developer",
+                "color": "#595d66",
+                "email": "api@nango.dev",
+                "profilePicture": null
+              },
+              "assignees": [],
+              "group_assignees": [],
+              "watchers": [
+                {
+                  "id": 302438666,
+                  "username": "Nango Developer",
+                  "color": "#595d66",
+                  "initials": "ND",
+                  "email": "api@nango.dev",
+                  "profilePicture": null
+                }
+              ],
+              "checklists": [],
+              "tags": [],
+              "parent": null,
+              "top_level_parent": null,
+              "priority": null,
+              "due_date": null,
+              "start_date": null,
+              "points": null,
+              "time_estimate": null,
+              "custom_fields": [],
+              "dependencies": [],
+              "linked_tasks": [],
+              "locations": [],
+              "team_id": "90152560096",
+              "url": "https://app.clickup.com/t/86c9w3w4v",
+              "sharing": {
+                "public": false,
+                "public_share_expires_on": null,
+                "public_fields": [
+                  "assignees",
+                  "priority",
+                  "due_date",
+                  "content",
+                  "comments",
+                  "attachments",
+                  "customFields",
+                  "subtasks",
+                  "tags",
+                  "checklists",
+                  "coverimage"
+                ],
+                "token": null,
+                "seo_optimized": false
+              },
+              "permission_level": "create",
+              "list": {
+                "id": "901523453199",
+                "name": "Temp List for Create Task Test",
+                "access": true
+              },
+              "project": {
+                "id": "901516079268",
+                "name": "hidden",
+                "hidden": true,
+                "access": true
+              },
+              "folder": {
+                "id": "901516079268",
+                "name": "hidden",
+                "hidden": true,
+                "access": true
+              },
+              "space": {
+                "id": "901511023376"
+              }
+            }
+          ],
+          "last_page": true
+        },
+        "status": 200,
+        "headers": {
+          "date": "Tue, 19 May 2026 17:15:03 GMT",
+          "content-type": "application/json; charset=utf-8",
+          "content-length": "4582",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=5184000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4958",
+          "x-ratelimit-reset": "1779210941",
+          "etag": "W/\"11e6-Um1HW5f4j78uucWfTnMdkgm+C74\""
+        },
+        "hash": "f7771362dd7ec072d6e6a457a0853c99103fb5c0",
+        "request": {
+          "params": {
+            "page": "0",
+            "subtasks": "true",
+            "include_closed": "true"
+          }
+        }
+      },
+      "/api/v2/list/901523453440/task": {
+        "response": {
+          "tasks": [],
+          "last_page": true
+        },
+        "status": 200,
+        "headers": {
+          "date": "Tue, 19 May 2026 17:15:04 GMT",
+          "content-type": "application/json; charset=utf-8",
+          "content-length": "29",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=5184000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4957",
+          "x-ratelimit-reset": "1779210941",
+          "etag": "W/\"1d-XMP3NL5lOfLbMzopx2xuR5AS6aM\""
+        },
+        "hash": "cb1a33186811020c33499dcf923979972a7feb18",
+        "request": {
+          "params": {
+            "page": "0",
+            "subtasks": "true",
+            "include_closed": "true"
+          }
+        }
+      },
+      "/api/v2/list/901523450955/task": {
+        "response": {
+          "tasks": [
+            {
+              "id": "86c9w247f",
+              "custom_id": null,
+              "custom_item_id": 0,
+              "name": "Task 1",
+              "text_content": "",
+              "description": "",
+              "status": {
+                "status": "in progress",
+                "id": "p901511023376_g9uxhsQM",
+                "color": "#1090e0",
+                "type": "custom",
+                "orderindex": 1
+              },
+              "orderindex": "39908288.00000000000000000000000000000000",
+              "date_created": "1779199552982",
+              "date_updated": "1779199552982",
+              "date_closed": null,
+              "date_done": null,
+              "archived": false,
+              "creator": {
+                "id": 302438666,
+                "username": "Nango Developer",
+                "color": "#595d66",
+                "email": "api@nango.dev",
+                "profilePicture": null
+              },
+              "assignees": [],
+              "group_assignees": [],
+              "watchers": [],
+              "checklists": [],
+              "tags": [],
+              "parent": null,
+              "top_level_parent": null,
+              "priority": null,
+              "due_date": null,
+              "start_date": null,
+              "points": null,
+              "time_estimate": null,
+              "custom_fields": [],
+              "dependencies": [],
+              "linked_tasks": [],
+              "locations": [],
+              "team_id": "90152560096",
+              "url": "https://app.clickup.com/t/86c9w247f",
+              "sharing": {
+                "public": false,
+                "public_share_expires_on": null,
+                "public_fields": [
+                  "assignees",
+                  "priority",
+                  "due_date",
+                  "content",
+                  "comments",
+                  "attachments",
+                  "customFields",
+                  "subtasks",
+                  "tags",
+                  "checklists",
+                  "coverimage"
+                ],
+                "token": null,
+                "seo_optimized": false
+              },
+              "permission_level": "create",
+              "list": {
+                "id": "901523450955",
+                "name": "Project 2",
+                "access": true
+              },
+              "project": {
+                "id": "901516077510",
+                "name": "hidden",
+                "hidden": true,
+                "access": true
+              },
+              "folder": {
+                "id": "901516077510",
+                "name": "hidden",
+                "hidden": true,
+                "access": true
+              },
+              "space": {
+                "id": "901511023376"
+              }
+            },
+            {
+              "id": "86c9w2478",
+              "custom_id": null,
+              "custom_item_id": 0,
+              "name": "Task 3",
+              "text_content": "",
+              "description": "",
+              "status": {
+                "status": "to do",
+                "id": "p901511023376_DCnaeiSB",
+                "color": "#87909e",
+                "type": "open",
+                "orderindex": 0
+              },
+              "orderindex": "39908290.00000000000000000000000000000000",
+              "date_created": "1779199552682",
+              "date_updated": "1779199552682",
+              "date_closed": null,
+              "date_done": null,
+              "archived": false,
+              "creator": {
+                "id": 302438666,
+                "username": "Nango Developer",
+                "color": "#595d66",
+                "email": "api@nango.dev",
+                "profilePicture": null
+              },
+              "assignees": [],
+              "group_assignees": [],
+              "watchers": [],
+              "checklists": [],
+              "tags": [],
+              "parent": null,
+              "top_level_parent": null,
+              "priority": null,
+              "due_date": null,
+              "start_date": null,
+              "points": null,
+              "time_estimate": null,
+              "custom_fields": [],
+              "dependencies": [],
+              "linked_tasks": [],
+              "locations": [],
+              "team_id": "90152560096",
+              "url": "https://app.clickup.com/t/86c9w2478",
+              "sharing": {
+                "public": false,
+                "public_share_expires_on": null,
+                "public_fields": [
+                  "assignees",
+                  "priority",
+                  "due_date",
+                  "content",
+                  "comments",
+                  "attachments",
+                  "customFields",
+                  "subtasks",
+                  "tags",
+                  "checklists",
+                  "coverimage"
+                ],
+                "token": null,
+                "seo_optimized": false
+              },
+              "permission_level": "create",
+              "list": {
+                "id": "901523450955",
+                "name": "Project 2",
+                "access": true
+              },
+              "project": {
+                "id": "901516077510",
+                "name": "hidden",
+                "hidden": true,
+                "access": true
+              },
+              "folder": {
+                "id": "901516077510",
+                "name": "hidden",
+                "hidden": true,
+                "access": true
+              },
+              "space": {
+                "id": "901511023376"
+              }
+            },
+            {
+              "id": "86c9w2477",
+              "custom_id": null,
+              "custom_item_id": 0,
+              "name": "Task 2",
+              "text_content": "",
+              "description": "",
+              "status": {
+                "status": "to do",
+                "id": "p901511023376_DCnaeiSB",
+                "color": "#87909e",
+                "type": "open",
+                "orderindex": 0
+              },
+              "orderindex": "39908289.00000000000000000000000000000000",
+              "date_created": "1779199552680",
+              "date_updated": "1779199552680",
+              "date_closed": null,
+              "date_done": null,
+              "archived": false,
+              "creator": {
+                "id": 302438666,
+                "username": "Nango Developer",
+                "color": "#595d66",
+                "email": "api@nango.dev",
+                "profilePicture": null
+              },
+              "assignees": [],
+              "group_assignees": [],
+              "watchers": [],
+              "checklists": [],
+              "tags": [],
+              "parent": null,
+              "top_level_parent": null,
+              "priority": null,
+              "due_date": null,
+              "start_date": null,
+              "points": null,
+              "time_estimate": null,
+              "custom_fields": [],
+              "dependencies": [],
+              "linked_tasks": [],
+              "locations": [],
+              "team_id": "90152560096",
+              "url": "https://app.clickup.com/t/86c9w2477",
+              "sharing": {
+                "public": false,
+                "public_share_expires_on": null,
+                "public_fields": [
+                  "assignees",
+                  "priority",
+                  "due_date",
+                  "content",
+                  "comments",
+                  "attachments",
+                  "customFields",
+                  "subtasks",
+                  "tags",
+                  "checklists",
+                  "coverimage"
+                ],
+                "token": null,
+                "seo_optimized": false
+              },
+              "permission_level": "create",
+              "list": {
+                "id": "901523450955",
+                "name": "Project 2",
+                "access": true
+              },
+              "project": {
+                "id": "901516077510",
+                "name": "hidden",
+                "hidden": true,
+                "access": true
+              },
+              "folder": {
+                "id": "901516077510",
+                "name": "hidden",
+                "hidden": true,
+                "access": true
+              },
+              "space": {
+                "id": "901511023376"
+              }
+            }
+          ],
+          "last_page": true
+        },
+        "status": 200,
+        "headers": {
+          "date": "Tue, 19 May 2026 17:15:05 GMT",
+          "content-type": "application/json; charset=utf-8",
+          "content-length": "4086",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=5184000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4956",
+          "x-ratelimit-reset": "1779210941",
+          "etag": "W/\"ff6-WtGJAVvEQRpqKHufd3p3gxCKRDc\""
+        },
+        "hash": "a81797771b2ded3e9ee4c87d5c6794ea681955c1",
+        "request": {
+          "params": {
+            "page": "0",
+            "subtasks": "true",
+            "include_closed": "true"
+          }
+        }
+      },
+      "/api/v2/list/901523450954/task": {
+        "response": {
+          "tasks": [
+            {
+              "id": "86c9w2474",
+              "custom_id": null,
+              "custom_item_id": 0,
+              "name": "Task 3",
+              "text_content": "",
+              "description": "",
+              "status": {
+                "status": "to do",
+                "id": "p901511023376_DCnaeiSB",
+                "color": "#87909e",
+                "type": "open",
+                "orderindex": 0
+              },
+              "orderindex": "39908287.00000000000000000000000000000000",
+              "date_created": "1779199552474",
+              "date_updated": "1779199552474",
+              "date_closed": null,
+              "date_done": null,
+              "archived": false,
+              "creator": {
+                "id": 302438666,
+                "username": "Nango Developer",
+                "color": "#595d66",
+                "email": "api@nango.dev",
+                "profilePicture": null
+              },
+              "assignees": [],
+              "group_assignees": [],
+              "watchers": [],
+              "checklists": [],
+              "tags": [],
+              "parent": null,
+              "top_level_parent": null,
+              "priority": null,
+              "due_date": null,
+              "start_date": null,
+              "points": null,
+              "time_estimate": null,
+              "custom_fields": [],
+              "dependencies": [],
+              "linked_tasks": [],
+              "locations": [],
+              "team_id": "90152560096",
+              "url": "https://app.clickup.com/t/86c9w2474",
+              "sharing": {
+                "public": false,
+                "public_share_expires_on": null,
+                "public_fields": [
+                  "assignees",
+                  "priority",
+                  "due_date",
+                  "content",
+                  "comments",
+                  "attachments",
+                  "customFields",
+                  "subtasks",
+                  "tags",
+                  "checklists",
+                  "coverimage"
+                ],
+                "token": null,
+                "seo_optimized": false
+              },
+              "permission_level": "create",
+              "list": {
+                "id": "901523450954",
+                "name": "Project 1",
+                "access": true
+              },
+              "project": {
+                "id": "901516077511",
+                "name": "hidden",
+                "hidden": true,
+                "access": true
+              },
+              "folder": {
+                "id": "901516077511",
+                "name": "hidden",
+                "hidden": true,
+                "access": true
+              },
+              "space": {
+                "id": "901511023376"
+              }
+            },
+            {
+              "id": "86c9w2472",
+              "custom_id": null,
+              "custom_item_id": 0,
+              "name": "\u200eTask 1",
+              "text_content": "",
+              "description": "",
+              "status": {
+                "status": "to do",
+                "id": "p901511023376_DCnaeiSB",
+                "color": "#87909e",
+                "type": "open",
+                "orderindex": 0
+              },
+              "orderindex": "39908285.00000000000000000000000000000000",
+              "date_created": "1779199552315",
+              "date_updated": "1779199552315",
+              "date_closed": null,
+              "date_done": null,
+              "archived": false,
+              "creator": {
+                "id": 302438666,
+                "username": "Nango Developer",
+                "color": "#595d66",
+                "email": "api@nango.dev",
+                "profilePicture": null
+              },
+              "assignees": [],
+              "group_assignees": [],
+              "watchers": [],
+              "checklists": [],
+              "tags": [],
+              "parent": null,
+              "top_level_parent": null,
+              "priority": null,
+              "due_date": null,
+              "start_date": null,
+              "points": null,
+              "time_estimate": null,
+              "custom_fields": [],
+              "dependencies": [],
+              "linked_tasks": [],
+              "locations": [],
+              "team_id": "90152560096",
+              "url": "https://app.clickup.com/t/86c9w2472",
+              "sharing": {
+                "public": false,
+                "public_share_expires_on": null,
+                "public_fields": [
+                  "assignees",
+                  "priority",
+                  "due_date",
+                  "content",
+                  "comments",
+                  "attachments",
+                  "customFields",
+                  "subtasks",
+                  "tags",
+                  "checklists",
+                  "coverimage"
+                ],
+                "token": null,
+                "seo_optimized": false
+              },
+              "permission_level": "create",
+              "list": {
+                "id": "901523450954",
+                "name": "Project 1",
+                "access": true
+              },
+              "project": {
+                "id": "901516077511",
+                "name": "hidden",
+                "hidden": true,
+                "access": true
+              },
+              "folder": {
+                "id": "901516077511",
+                "name": "hidden",
+                "hidden": true,
+                "access": true
+              },
+              "space": {
+                "id": "901511023376"
+              }
+            },
+            {
+              "id": "86c9w2471",
+              "custom_id": null,
+              "custom_item_id": 0,
+              "name": "\u200eTask 2",
+              "text_content": "",
+              "description": "",
+              "status": {
+                "status": "to do",
+                "id": "p901511023376_DCnaeiSB",
+                "color": "#87909e",
+                "type": "open",
+                "orderindex": 0
+              },
+              "orderindex": "39908286.00000000000000000000000000000000",
+              "date_created": "1779199552313",
+              "date_updated": "1779199552313",
+              "date_closed": null,
+              "date_done": null,
+              "archived": false,
+              "creator": {
+                "id": 302438666,
+                "username": "Nango Developer",
+                "color": "#595d66",
+                "email": "api@nango.dev",
+                "profilePicture": null
+              },
+              "assignees": [],
+              "group_assignees": [],
+              "watchers": [],
+              "checklists": [],
+              "tags": [],
+              "parent": null,
+              "top_level_parent": null,
+              "priority": null,
+              "due_date": null,
+              "start_date": null,
+              "points": null,
+              "time_estimate": null,
+              "custom_fields": [],
+              "dependencies": [],
+              "linked_tasks": [],
+              "locations": [],
+              "team_id": "90152560096",
+              "url": "https://app.clickup.com/t/86c9w2471",
+              "sharing": {
+                "public": false,
+                "public_share_expires_on": null,
+                "public_fields": [
+                  "assignees",
+                  "priority",
+                  "due_date",
+                  "content",
+                  "comments",
+                  "attachments",
+                  "customFields",
+                  "subtasks",
+                  "tags",
+                  "checklists",
+                  "coverimage"
+                ],
+                "token": null,
+                "seo_optimized": false
+              },
+              "permission_level": "create",
+              "list": {
+                "id": "901523450954",
+                "name": "Project 1",
+                "access": true
+              },
+              "project": {
+                "id": "901516077511",
+                "name": "hidden",
+                "hidden": true,
+                "access": true
+              },
+              "folder": {
+                "id": "901516077511",
+                "name": "hidden",
+                "hidden": true,
+                "access": true
+              },
+              "space": {
+                "id": "901511023376"
+              }
+            }
+          ],
+          "last_page": true
+        },
+        "status": 200,
+        "headers": {
+          "date": "Tue, 19 May 2026 17:15:06 GMT",
+          "content-type": "application/json; charset=utf-8",
+          "content-length": "4084",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=5184000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4955",
+          "x-ratelimit-reset": "1779210941",
+          "etag": "W/\"ff4-bJzwLLEFFr4QAjvFRLJcuo8fx6o\""
+        },
+        "hash": "9b85da5bea47baa8f1740be5da39d369672c0763",
+        "request": {
+          "params": {
+            "page": "0",
+            "subtasks": "true",
+            "include_closed": "true"
+          }
+        }
+      },
+      "/api/v2/list/901523450959/task": {
+        "response": {
+          "tasks": [
+            {
+              "id": "86c9w249g",
+              "custom_id": null,
+              "custom_item_id": 0,
+              "name": "\ud83e\udde0 Work Smarter with ClickUp AI",
+              "text_content": "Ready to unlock a new level of productivity? Meet ClickUp AI \u2013 your intelligent co-pilot, seamlessly integrated into your workspace to help you write, summarize, brainstorm, get instant answers, and even take meeting notes right where you need them.\n\u00a0\nClickUp AI learns from your workspace, providing contextual, relevant help across all your tasks, Docs, and conversations. It's truly one AI to replace them all, saving you countless hours!\nHere\u2019s what to do:\n\u00a0\nWrite smarter, faster:\nClick anywhere in the description of this task (or any task where you're typing).\nLook for the AI button in the text editor toolbar (it appears when you highlight text or start a new line).\nSelect some text, click the AI button (It should look something like this: ), and try \"Improve Writing\" or \"Make shorter.\" Witness the instant transformation!\n\u00a0\nAsk anything, get answers instantly:\nIn the top right corner of your Workspace, next to your profile, you'll see an icon that looks something like this: . Click it to activate ClickUp Brain from anywhere in your Workspace.\nAsk a question like: \"What's the purpose of a ClickUp Space?\" or \"How do I add a Custom Field to a task?\" ClickUp AI will provide quick, contextual answers based on our knowledge base!\n\u00a0\nBrainstorm & generate ideas on demand:\nIn the comments section below, type a prompt like: \"ClickUp AI, give me 3 creative ideas for a team-building activity for remote teams.\"\nHighlight your prompt, click the AI button, and select \"Brainstorm\" or \"Generate Ideas.\" Get ready for fresh inspiration!\n\u00a0\nCreate Tasks with AI Magic:\nIn a new comment, type: \"ClickUp AI, create a task to [your next personal goal, e.g., 'plan my dream vacation'].\"\nHighlight the text, click the AI button, and choose \"Create Task\". Watch it transform your idea into an actionable item, complete with a title and description!\nWhy this matters:\n\u2705 Save time: Automate writing, editing, and task creation.\n\u2705 Work smarter: Get instant, contextual answers anywhere.\n\u2705 Keep moving: No switching tabs\u2014AI is built right in.",
+              "description": "Ready to unlock a new level of productivity? Meet ClickUp AI \u2013 your intelligent co-pilot, seamlessly integrated into your workspace to help you write, summarize, brainstorm, get instant answers, and even take meeting notes right where you need them.\n\u00a0\nClickUp AI learns from your workspace, providing contextual, relevant help across all your tasks, Docs, and conversations. It's truly one AI to replace them all, saving you countless hours!\nHere\u2019s what to do:\n\u00a0\nWrite smarter, faster:\nClick anywhere in the description of this task (or any task where you're typing).\nLook for the AI button in the text editor toolbar (it appears when you highlight text or start a new line).\nSelect some text, click the AI button (It should look something like this: ), and try \"Improve Writing\" or \"Make shorter.\" Witness the instant transformation!\n\u00a0\nAsk anything, get answers instantly:\nIn the top right corner of your Workspace, next to your profile, you'll see an icon that looks something like this: . Click it to activate ClickUp Brain from anywhere in your Workspace.\nAsk a question like: \"What's the purpose of a ClickUp Space?\" or \"How do I add a Custom Field to a task?\" ClickUp AI will provide quick, contextual answers based on our knowledge base!\n\u00a0\nBrainstorm & generate ideas on demand:\nIn the comments section below, type a prompt like: \"ClickUp AI, give me 3 creative ideas for a team-building activity for remote teams.\"\nHighlight your prompt, click the AI button, and select \"Brainstorm\" or \"Generate Ideas.\" Get ready for fresh inspiration!\n\u00a0\nCreate Tasks with AI Magic:\nIn a new comment, type: \"ClickUp AI, create a task to [your next personal goal, e.g., 'plan my dream vacation'].\"\nHighlight the text, click the AI button, and choose \"Create Task\". Watch it transform your idea into an actionable item, complete with a title and description!\nWhy this matters:\n\u2705 Save time: Automate writing, editing, and task creation.\n\u2705 Work smarter: Get instant, contextual answers anywhere.\n\u2705 Keep moving: No switching tabs\u2014AI is built right in.",
+              "status": {
+                "status": "to do",
+                "id": "sc901523450959_DCnaeiSB",
+                "color": "#87909e",
+                "type": "open",
+                "orderindex": 0
+              },
+              "orderindex": "39908290.00000533000000000000000000000000",
+              "date_created": "1779199558581",
+              "date_updated": "1779199558581",
+              "date_closed": null,
+              "date_done": null,
+              "archived": false,
+              "creator": {
+                "id": 302438666,
+                "username": "Nango Developer",
+                "color": "#595d66",
+                "email": "api@nango.dev",
+                "profilePicture": null
+              },
+              "assignees": [
+                {
+                  "id": 302438666,
+                  "username": "Nango Developer",
+                  "color": "#595d66",
+                  "initials": "ND",
+                  "email": "api@nango.dev",
+                  "profilePicture": null
+                }
+              ],
+              "group_assignees": [],
+              "watchers": [],
+              "checklists": [],
+              "tags": [],
+              "parent": null,
+              "top_level_parent": null,
+              "priority": {
+                "color": "#f8ae00",
+                "id": "2",
+                "orderindex": "2",
+                "priority": "high"
+              },
+              "due_date": "1779523195463",
+              "start_date": null,
+              "points": null,
+              "time_estimate": null,
+              "custom_fields": [],
+              "dependencies": [],
+              "linked_tasks": [],
+              "locations": [],
+              "team_id": "90152560096",
+              "url": "https://app.clickup.com/t/86c9w249g",
+              "sharing": {
+                "public": false,
+                "public_share_expires_on": null,
+                "public_fields": [
+                  "assignees",
+                  "priority",
+                  "due_date",
+                  "content",
+                  "comments",
+                  "attachments",
+                  "customFields",
+                  "subtasks",
+                  "tags",
+                  "checklists",
+                  "coverimage"
+                ],
+                "token": null,
+                "seo_optimized": false
+              },
+              "permission_level": "create",
+              "list": {
+                "id": "901523450959",
+                "name": "Get Started with ClickUp",
+                "access": true
+              },
+              "project": {
+                "id": "901516077513",
+                "name": "hidden",
+                "hidden": true,
+                "access": true
+              },
+              "folder": {
+                "id": "901516077513",
+                "name": "hidden",
+                "hidden": true,
+                "access": true
+              },
+              "space": {
+                "id": "901511023376"
+              }
+            },
+            {
+              "id": "86c9w2494",
+              "custom_id": null,
+              "custom_item_id": 0,
+              "name": "\ud83d\ude80 Set up Your Tasks in Just 5 Minutes",
+              "text_content": "We're thrilled to have you here. This quick-start task will help you set up your Workspace for maximum productivity\u2014fast. Let\u2019s get started!\nHere's what to do:\n\u00a0\nMeet your first task:\nYou're looking at it right now. Notice the due date (that\u2019s tomorrow!), assignee (that\u2019s you!), and priority (we\u2019ve set this one as \"High\" to get you going!).\n\u00a0\nUpdate your status:\nSee the \"To Do\" status at the top? Click it and change it to \"In Progress\" to keep everyone (including you!) updated on your work.\n\u00a0\nAdd a subtask:\nBreak down big tasks into smaller, manageable steps. Click the \"Subtask\" tab below this task description, click \"+ Add Task\" and name it \"Learn about my Inbox\".\n\u00a0\nMark this task complete!\nWhen you\u2019ve done the above, change the statuses of this task and the subtask you created to \"Complete\". You\u2019ll feel a tiny rush of productivity!\nWhy this matters:\n\u2705 Stay organized: Keep track of what needs to be done and by when.\n\u2705 Gain clarity: See exactly what\u2019s expected of you.\n\u2705 Boost focus: Break down big goals into actionable steps.\n\u00a0\n\u00a0\nFor a bit more on tasks, check out this quick video walkthrough:",
+              "description": "We're thrilled to have you here. This quick-start task will help you set up your Workspace for maximum productivity\u2014fast. Let\u2019s get started!\nHere's what to do:\n\u00a0\nMeet your first task:\nYou're looking at it right now. Notice the due date (that\u2019s tomorrow!), assignee (that\u2019s you!), and priority (we\u2019ve set this one as \"High\" to get you going!).\n\u00a0\nUpdate your status:\nSee the \"To Do\" status at the top? Click it and change it to \"In Progress\" to keep everyone (including you!) updated on your work.\n\u00a0\nAdd a subtask:\nBreak down big tasks into smaller, manageable steps. Click the \"Subtask\" tab below this task description, click \"+ Add Task\" and name it \"Learn about my Inbox\".\n\u00a0\nMark this task complete!\nWhen you\u2019ve done the above, change the statuses of this task and the subtask you created to \"Complete\". You\u2019ll feel a tiny rush of productivity!\nWhy this matters:\n\u2705 Stay organized: Keep track of what needs to be done and by when.\n\u2705 Gain clarity: See exactly what\u2019s expected of you.\n\u2705 Boost focus: Break down big goals into actionable steps.\n\u00a0\n\u00a0\nFor a bit more on tasks, check out this quick video walkthrough:",
+              "status": {
+                "status": "to do",
+                "id": "sc901523450959_DCnaeiSB",
+                "color": "#87909e",
+                "type": "open",
+                "orderindex": 0
+              },
+              "orderindex": "39908285.00000389000000000000000000000000",
+              "date_created": "1779199557632",
+              "date_updated": "1779199557632",
+              "date_closed": null,
+              "date_done": null,
+              "archived": false,
+              "creator": {
+                "id": 302438666,
+                "username": "Nango Developer",
+                "color": "#595d66",
+                "email": "api@nango.dev",
+                "profilePicture": null
+              },
+              "assignees": [
+                {
+                  "id": 302438666,
+                  "username": "Nango Developer",
+                  "color": "#595d66",
+                  "initials": "ND",
+                  "email": "api@nango.dev",
+                  "profilePicture": null
+                }
+              ],
+              "group_assignees": [],
+              "watchers": [],
+              "checklists": [],
+              "tags": [],
+              "parent": null,
+              "top_level_parent": null,
+              "priority": {
+                "color": "#f8ae00",
+                "id": "2",
+                "orderindex": "2",
+                "priority": "high"
+              },
+              "due_date": "1779177595463",
+              "start_date": null,
+              "points": null,
+              "time_estimate": null,
+              "custom_fields": [],
+              "dependencies": [],
+              "linked_tasks": [],
+              "locations": [],
+              "team_id": "90152560096",
+              "url": "https://app.clickup.com/t/86c9w2494",
+              "sharing": {
+                "public": false,
+                "public_share_expires_on": null,
+                "public_fields": [
+                  "assignees",
+                  "priority",
+                  "due_date",
+                  "content",
+                  "comments",
+                  "attachments",
+                  "customFields",
+                  "subtasks",
+                  "tags",
+                  "checklists",
+                  "coverimage"
+                ],
+                "token": null,
+                "seo_optimized": false
+              },
+              "permission_level": "create",
+              "list": {
+                "id": "901523450959",
+                "name": "Get Started with ClickUp",
+                "access": true
+              },
+              "project": {
+                "id": "901516077513",
+                "name": "hidden",
+                "hidden": true,
+                "access": true
+              },
+              "folder": {
+                "id": "901516077513",
+                "name": "hidden",
+                "hidden": true,
+                "access": true
+              },
+              "space": {
+                "id": "901511023376"
+              }
+            },
+            {
+              "id": "86c9w2493",
+              "custom_id": null,
+              "custom_item_id": 0,
+              "name": "\ud83c\udfa8 Design a Workflow That Works for You",
+              "text_content": "ClickUp\u2019s flexibility lets you to create a Workspace that fits your unique workflow. Ready to customize your experience? Follow these simple steps to unlock the full potential of ClickUp:\nHere\u2019s what to do:\n\u00a0\nPersonalize your statuses\nEvery List in ClickUp comes with customizable statuses. Click the current status of this task, then select the Settings icon (\u2699\ufe0e) to make changes. Add a new status like \"Awaiting Review\" or \"Ready for Launch\" to track your process.\n\ud83d\udc49 Learn more about ClickUp statuses\n\nAdd a Custom Field\nTrack the details that matter most with Custom Fields. For this task, scroll down to the \"Add fields\" button and click the \"+\" icon. Add a \"Text\" Custom Field named \"Project Lead\" and enter your name.\n\ud83d\udc49 All about Custom Fields\n\nSwitch views\nSee your tasks your way! Exit this task, click the \"List\" view at the top of your screen and switch to \"Board\" or \"Calendar\" view for a fresh perspective.\n\ud83d\udc49 Explore all ClickUp views \n\nCreate a New List\nOrganize your work by creating a new List. Exit this task, hover over your current Space or Folder in the left sidebar, click the \"+\" icon, and select \"New List.\" Name it something relevant, like \"My Projects\" or \"Marketing Campaigns.\"\n\nWhy this matters:\n\u2705 Adapt to your needs: ClickUp molds to your process, not the other way around.\n\u2705 Track anything: Custom Fields ensure you capture all the critical details.\n\u2705 Work your way: Different views help you see your tasks the way you think.",
+              "description": "ClickUp\u2019s flexibility lets you to create a Workspace that fits your unique workflow. Ready to customize your experience? Follow these simple steps to unlock the full potential of ClickUp:\nHere\u2019s what to do:\n\u00a0\nPersonalize your statuses\nEvery List in ClickUp comes with customizable statuses. Click the current status of this task, then select the Settings icon (\u2699\ufe0e) to make changes. Add a new status like \"Awaiting Review\" or \"Ready for Launch\" to track your process.\n\ud83d\udc49 Learn more about ClickUp statuses\n\nAdd a Custom Field\nTrack the details that matter most with Custom Fields. For this task, scroll down to the \"Add fields\" button and click the \"+\" icon. Add a \"Text\" Custom Field named \"Project Lead\" and enter your name.\n\ud83d\udc49 All about Custom Fields\n\nSwitch views\nSee your tasks your way! Exit this task, click the \"List\" view at the top of your screen and switch to \"Board\" or \"Calendar\" view for a fresh perspective.\n\ud83d\udc49 Explore all ClickUp views \n\nCreate a New List\nOrganize your work by creating a new List. Exit this task, hover over your current Space or Folder in the left sidebar, click the \"+\" icon, and select \"New List.\" Name it something relevant, like \"My Projects\" or \"Marketing Campaigns.\"\n\nWhy this matters:\n\u2705 Adapt to your needs: ClickUp molds to your process, not the other way around.\n\u2705 Track anything: Custom Fields ensure you capture all the critical details.\n\u2705 Work your way: Different views help you see your tasks the way you think.",
+              "status": {
+                "status": "to do",
+                "id": "sc901523450959_DCnaeiSB",
+                "color": "#87909e",
+                "type": "open",
+                "orderindex": 0
+              },
+              "orderindex": "39908286.00000756000000000000000000000000",
+              "date_created": "1779199557629",
+              "date_updated": "1779199557629",
+              "date_closed": null,
+              "date_done": null,
+              "archived": false,
+              "creator": {
+                "id": 302438666,
+                "username": "Nango Developer",
+                "color": "#595d66",
+                "email": "api@nango.dev",
+                "profilePicture": null
+              },
+              "assignees": [
+                {
+                  "id": 302438666,
+                  "username": "Nango Developer",
+                  "color": "#595d66",
+                  "initials": "ND",
+                  "email": "api@nango.dev",
+                  "profilePicture": null
+                }
+              ],
+              "group_assignees": [],
+              "watchers": [],
+              "checklists": [],
+              "tags": [],
+              "parent": null,
+              "top_level_parent": null,
+              "priority": {
+                "color": "#f8ae00",
+                "id": "2",
+                "orderindex": "2",
+                "priority": "high"
+              },
+              "due_date": "1779263995463",
+              "start_date": null,
+              "points": null,
+              "time_estimate": null,
+              "custom_fields": [],
+              "dependencies": [],
+              "linked_tasks": [],
+              "locations": [],
+              "team_id": "90152560096",
+              "url": "https://app.clickup.com/t/86c9w2493",
+              "sharing": {
+                "public": false,
+                "public_share_expires_on": null,
+                "public_fields": [
+                  "assignees",
+                  "priority",
+                  "due_date",
+                  "content",
+                  "comments",
+                  "attachments",
+                  "customFields",
+                  "subtasks",
+                  "tags",
+                  "checklists",
+                  "coverimage"
+                ],
+                "token": null,
+                "seo_optimized": false
+              },
+              "permission_level": "create",
+              "list": {
+                "id": "901523450959",
+                "name": "Get Started with ClickUp",
+                "access": true
+              },
+              "project": {
+                "id": "901516077513",
+                "name": "hidden",
+                "hidden": true,
+                "access": true
+              },
+              "folder": {
+                "id": "901516077513",
+                "name": "hidden",
+                "hidden": true,
+                "access": true
+              },
+              "space": {
+                "id": "901511023376"
+              }
+            },
+            {
+              "id": "86c9w2492",
+              "custom_id": null,
+              "custom_item_id": 0,
+              "name": "\ud83e\udd1d Bring Your Team Onboard in Minutes",
+              "text_content": "ClickUp truly shines when you collaborate with your team! Supercharge your productivity with these simple steps to bring your colleagues into your workspace and start working together effortlessly.\nHere\u2019s what to do:\n\u00a0\nInvite a teammate (or two!):\nClick the \"Invite\" button in the bottom left hand side of your sidebar. Send an invite to at least one colleague. They'll instantly get access to your workspace and this task!\n\ud83d\udc49 How to invite your team to ClickUp\n\nMention a teammate in a comment:\nIn the comments section below, type \"@\" followed by your teammate's name (or your own if you're testing). This will send them a notification and draw their attention to your comment.\n\nAssign a comment as an action item:\nReply to your comment (or a new one), and click the \"Assign Comment\" icon (looks like a person with a checkmark) to turn it into an actionable item for yourself or a teammate.\n\u00a0\nShare this task:\nClick the \"Share\" button at the top right of this task. Explore the sharing options \u2013 you can share this task with external guests or get a public link!\n\ud83d\udc49 Learn more about public sharing\nWhy This Matters:\n\u2705 Unified Communication: Keep all project discussions in one place, linked to your work.\n\u2705 Clear Ownership: Assign comments and tasks to ensure nothing falls through the cracks.\n\u2705 Faster Feedback: Get quick responses and approvals from stakeholders.",
+              "description": "ClickUp truly shines when you collaborate with your team! Supercharge your productivity with these simple steps to bring your colleagues into your workspace and start working together effortlessly.\nHere\u2019s what to do:\n\u00a0\nInvite a teammate (or two!):\nClick the \"Invite\" button in the bottom left hand side of your sidebar. Send an invite to at least one colleague. They'll instantly get access to your workspace and this task!\n\ud83d\udc49 How to invite your team to ClickUp\n\nMention a teammate in a comment:\nIn the comments section below, type \"@\" followed by your teammate's name (or your own if you're testing). This will send them a notification and draw their attention to your comment.\n\nAssign a comment as an action item:\nReply to your comment (or a new one), and click the \"Assign Comment\" icon (looks like a person with a checkmark) to turn it into an actionable item for yourself or a teammate.\n\u00a0\nShare this task:\nClick the \"Share\" button at the top right of this task. Explore the sharing options \u2013 you can share this task with external guests or get a public link!\n\ud83d\udc49 Learn more about public sharing\nWhy This Matters:\n\u2705 Unified Communication: Keep all project discussions in one place, linked to your work.\n\u2705 Clear Ownership: Assign comments and tasks to ensure nothing falls through the cracks.\n\u2705 Faster Feedback: Get quick responses and approvals from stakeholders.",
+              "status": {
+                "status": "to do",
+                "id": "sc901523450959_DCnaeiSB",
+                "color": "#87909e",
+                "type": "open",
+                "orderindex": 0
+              },
+              "orderindex": "39908287.00000935000000000000000000000000",
+              "date_created": "1779199557627",
+              "date_updated": "1779199557627",
+              "date_closed": null,
+              "date_done": null,
+              "archived": false,
+              "creator": {
+                "id": 302438666,
+                "username": "Nango Developer",
+                "color": "#595d66",
+                "email": "api@nango.dev",
+                "profilePicture": null
+              },
+              "assignees": [
+                {
+                  "id": 302438666,
+                  "username": "Nango Developer",
+                  "color": "#595d66",
+                  "initials": "ND",
+                  "email": "api@nango.dev",
+                  "profilePicture": null
+                }
+              ],
+              "group_assignees": [],
+              "watchers": [],
+              "checklists": [],
+              "tags": [],
+              "parent": null,
+              "top_level_parent": null,
+              "priority": {
+                "color": "#f8ae00",
+                "id": "2",
+                "orderindex": "2",
+                "priority": "high"
+              },
+              "due_date": "1779350395463",
+              "start_date": null,
+              "points": null,
+              "time_estimate": null,
+              "custom_fields": [],
+              "dependencies": [],
+              "linked_tasks": [],
+              "locations": [],
+              "team_id": "90152560096",
+              "url": "https://app.clickup.com/t/86c9w2492",
+              "sharing": {
+                "public": false,
+                "public_share_expires_on": null,
+                "public_fields": [
+                  "assignees",
+                  "priority",
+                  "due_date",
+                  "content",
+                  "comments",
+                  "attachments",
+                  "customFields",
+                  "subtasks",
+                  "tags",
+                  "checklists",
+                  "coverimage"
+                ],
+                "token": null,
+                "seo_optimized": false
+              },
+              "permission_level": "create",
+              "list": {
+                "id": "901523450959",
+                "name": "Get Started with ClickUp",
+                "access": true
+              },
+              "project": {
+                "id": "901516077513",
+                "name": "hidden",
+                "hidden": true,
+                "access": true
+              },
+              "folder": {
+                "id": "901516077513",
+                "name": "hidden",
+                "hidden": true,
+                "access": true
+              },
+              "space": {
+                "id": "901511023376"
+              }
+            },
+            {
+              "id": "86c9w2491",
+              "custom_id": null,
+              "custom_item_id": 0,
+              "name": "\ud83d\udd17 Integrate Your Favorite Tools in ClickUp",
+              "text_content": "ClickUp integrates with thousands of your favorite apps, bringing all your work into one central hub. Ready to maximize your efficiency? Let\u2019s get started!\nHere\u2019s what to do:\n\u00a0\nSync Your Google Calendar\nKeep your tasks front and center by syncing ClickUp with your Google Calendar. Click the \"Planner\" with the calendar icon in your left sidebar and select the \"Google Calendar\" option to get started.\n\ud83d\udc49 Check out a full list of calendar apps you can sync with ClickUp\n\u00a0\nExplore Popular Integrations\nThink about a tool you use daily (e.g., Slack, Google Drive, Gmail, HubSpot). Click the Settings (\u26ed) icon in your left sidebar, go to \"App Center\", and search for your favorite app.\n\ud83d\udc49 Learn how to connect all your apps in one place\n\u00a0\nAutomate Your Workflow\nImagine tasks moving statuses automatically or emails being sent when a task is completed. While we won't set one up now, explore the Automations section (click the\u26a1\ufe0f icon at the top of a List or Space).\n\ud83d\udc49 Get a quick intro to Automations in ClickUp\n\u00a0\nBrainstorm in Docs\nHead to your Docs (access it from your sidebar\u2014you might have to click the \"More\" option to see it) and create a new Doc titled \"My Next Big Idea.\" Start jotting down thoughts, and convert text directly into tasks!\n\ud83d\udc49 How to use Docs in ClickUp.\nWhy this matters:\n\u2705 Centralized Work: Stop switching between apps and keep everything in ClickUp.\n\u2705 Automate Repetitive Tasks: Save time and focus on what matters most.\n\u2705 Seamless Workflow: Connect your calendar, email, and other tools for a unified experience.",
+              "description": "ClickUp integrates with thousands of your favorite apps, bringing all your work into one central hub. Ready to maximize your efficiency? Let\u2019s get started!\nHere\u2019s what to do:\n\u00a0\nSync Your Google Calendar\nKeep your tasks front and center by syncing ClickUp with your Google Calendar. Click the \"Planner\" with the calendar icon in your left sidebar and select the \"Google Calendar\" option to get started.\n\ud83d\udc49 Check out a full list of calendar apps you can sync with ClickUp\n\u00a0\nExplore Popular Integrations\nThink about a tool you use daily (e.g., Slack, Google Drive, Gmail, HubSpot). Click the Settings (\u26ed) icon in your left sidebar, go to \"App Center\", and search for your favorite app.\n\ud83d\udc49 Learn how to connect all your apps in one place\n\u00a0\nAutomate Your Workflow\nImagine tasks moving statuses automatically or emails being sent when a task is completed. While we won't set one up now, explore the Automations section (click the\u26a1\ufe0f icon at the top of a List or Space).\n\ud83d\udc49 Get a quick intro to Automations in ClickUp\n\u00a0\nBrainstorm in Docs\nHead to your Docs (access it from your sidebar\u2014you might have to click the \"More\" option to see it) and create a new Doc titled \"My Next Big Idea.\" Start jotting down thoughts, and convert text directly into tasks!\n\ud83d\udc49 How to use Docs in ClickUp.\nWhy this matters:\n\u2705 Centralized Work: Stop switching between apps and keep everything in ClickUp.\n\u2705 Automate Repetitive Tasks: Save time and focus on what matters most.\n\u2705 Seamless Workflow: Connect your calendar, email, and other tools for a unified experience.",
+              "status": {
+                "status": "to do",
+                "id": "sc901523450959_DCnaeiSB",
+                "color": "#87909e",
+                "type": "open",
+                "orderindex": 0
+              },
+              "orderindex": "39908288.00000618000000000000000000000000",
+              "date_created": "1779199557625",
+              "date_updated": "1779199557625",
+              "date_closed": null,
+              "date_done": null,
+              "archived": false,
+              "creator": {
+                "id": 302438666,
+                "username": "Nango Developer",
+                "color": "#595d66",
+                "email": "api@nango.dev",
+                "profilePicture": null
+              },
+              "assignees": [
+                {
+                  "id": 302438666,
+                  "username": "Nango Developer",
+                  "color": "#595d66",
+                  "initials": "ND",
+                  "email": "api@nango.dev",
+                  "profilePicture": null
+                }
+              ],
+              "group_assignees": [],
+              "watchers": [],
+              "checklists": [],
+              "tags": [],
+              "parent": null,
+              "top_level_parent": null,
+              "priority": {
+                "color": "#f8ae00",
+                "id": "2",
+                "orderindex": "2",
+                "priority": "high"
+              },
+              "due_date": "1779436795463",
+              "start_date": null,
+              "points": null,
+              "time_estimate": null,
+              "custom_fields": [],
+              "dependencies": [],
+              "linked_tasks": [],
+              "locations": [],
+              "team_id": "90152560096",
+              "url": "https://app.clickup.com/t/86c9w2491",
+              "sharing": {
+                "public": false,
+                "public_share_expires_on": null,
+                "public_fields": [
+                  "assignees",
+                  "priority",
+                  "due_date",
+                  "content",
+                  "comments",
+                  "attachments",
+                  "customFields",
+                  "subtasks",
+                  "tags",
+                  "checklists",
+                  "coverimage"
+                ],
+                "token": null,
+                "seo_optimized": false
+              },
+              "permission_level": "create",
+              "list": {
+                "id": "901523450959",
+                "name": "Get Started with ClickUp",
+                "access": true
+              },
+              "project": {
+                "id": "901516077513",
+                "name": "hidden",
+                "hidden": true,
+                "access": true
+              },
+              "folder": {
+                "id": "901516077513",
+                "name": "hidden",
+                "hidden": true,
+                "access": true
+              },
+              "space": {
+                "id": "901511023376"
+              }
+            },
+            {
+              "id": "86c9w2490",
+              "custom_id": null,
+              "custom_item_id": 0,
+              "name": "\ud83d\udce5 Import Your Work into ClickUp",
+              "text_content": "You don\u2019t have to start from scratch in ClickUp. If you already have work tracked elsewhere, you can import tasks, documents, and chat channels in just a few steps and keep your projects moving.\nHere\u2019s what to do:\n\u00a0\nDecide what you want to bring into ClickUp\nImport tasks from spreadsheets, monday.com, Notion, Trello, and more.\nImport documents from local files, Notion, and Confluence.\nImport chat channels and invite users directly from Slack.\n\ud83d\udc49 Learn more about all the tools you can import from\nOpen ClickUp\u2019s import tools\nClick your Workspace avatar (top left) and go to Settings.\nIn the left sidebar, select Imports / Exports.\nIf you don\u2019t see Imports / Exports, you may need an admin to enable import permissions for you.\nSelect where you want to import from.\nFollow the guided import process\nClickUp will walk you through the import step by step.\nOnce it\u2019s done, your work will be in ClickUp so you can continue without a hitch.\nWhy this matters:\n\u2705 Move faster: Bring your existing work over instead of recreating it.\n\u2705 Preserve history: Keep your context and past activity.\n\u2705 Centralize data: Bring everything into one place in ClickUp.",
+              "description": "You don\u2019t have to start from scratch in ClickUp. If you already have work tracked elsewhere, you can import tasks, documents, and chat channels in just a few steps and keep your projects moving.\nHere\u2019s what to do:\n\u00a0\nDecide what you want to bring into ClickUp\nImport tasks from spreadsheets, monday.com, Notion, Trello, and more.\nImport documents from local files, Notion, and Confluence.\nImport chat channels and invite users directly from Slack.\n\ud83d\udc49 Learn more about all the tools you can import from\nOpen ClickUp\u2019s import tools\nClick your Workspace avatar (top left) and go to Settings.\nIn the left sidebar, select Imports / Exports.\nIf you don\u2019t see Imports / Exports, you may need an admin to enable import permissions for you.\nSelect where you want to import from.\nFollow the guided import process\nClickUp will walk you through the import step by step.\nOnce it\u2019s done, your work will be in ClickUp so you can continue without a hitch.\nWhy this matters:\n\u2705 Move faster: Bring your existing work over instead of recreating it.\n\u2705 Preserve history: Keep your context and past activity.\n\u2705 Centralize data: Bring everything into one place in ClickUp.",
+              "status": {
+                "status": "to do",
+                "id": "sc901523450959_DCnaeiSB",
+                "color": "#87909e",
+                "type": "open",
+                "orderindex": 0
+              },
+              "orderindex": "39908289.00000840000000000000000000000000",
+              "date_created": "1779199557622",
+              "date_updated": "1779199557622",
+              "date_closed": null,
+              "date_done": null,
+              "archived": false,
+              "creator": {
+                "id": 302438666,
+                "username": "Nango Developer",
+                "color": "#595d66",
+                "email": "api@nango.dev",
+                "profilePicture": null
+              },
+              "assignees": [
+                {
+                  "id": 302438666,
+                  "username": "Nango Developer",
+                  "color": "#595d66",
+                  "initials": "ND",
+                  "email": "api@nango.dev",
+                  "profilePicture": null
+                }
+              ],
+              "group_assignees": [],
+              "watchers": [],
+              "checklists": [],
+              "tags": [],
+              "parent": null,
+              "top_level_parent": null,
+              "priority": {
+                "color": "#f8ae00",
+                "id": "2",
+                "orderindex": "2",
+                "priority": "high"
+              },
+              "due_date": "1779353995463",
+              "start_date": null,
+              "points": null,
+              "time_estimate": null,
+              "custom_fields": [],
+              "dependencies": [],
+              "linked_tasks": [],
+              "locations": [],
+              "team_id": "90152560096",
+              "url": "https://app.clickup.com/t/86c9w2490",
+              "sharing": {
+                "public": false,
+                "public_share_expires_on": null,
+                "public_fields": [
+                  "assignees",
+                  "priority",
+                  "due_date",
+                  "content",
+                  "comments",
+                  "attachments",
+                  "customFields",
+                  "subtasks",
+                  "tags",
+                  "checklists",
+                  "coverimage"
+                ],
+                "token": null,
+                "seo_optimized": false
+              },
+              "permission_level": "create",
+              "list": {
+                "id": "901523450959",
+                "name": "Get Started with ClickUp",
+                "access": true
+              },
+              "project": {
+                "id": "901516077513",
+                "name": "hidden",
+                "hidden": true,
+                "access": true
+              },
+              "folder": {
+                "id": "901516077513",
+                "name": "hidden",
+                "hidden": true,
+                "access": true
+              },
+              "space": {
+                "id": "901511023376"
+              }
+            }
+          ],
+          "last_page": true
+        },
+        "status": 200,
+        "headers": {
+          "date": "Tue, 19 May 2026 17:15:07 GMT",
+          "content-type": "application/json; charset=utf-8",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=31536000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "100",
+          "x-ratelimit-remaining": "99",
+          "x-ratelimit-reset": "1779210967",
+          "x-received-from": "shard-prod-eu-west-1-3",
+          "cache-control": "no-cache, no-store",
+          "content-security-policy": "frame-ancestors 'self';",
+          "expect-ct": "max-age=0",
+          "expires": "0",
+          "pragma": "no-cache",
+          "server": "nginx",
+          "vary": "Origin",
+          "via": "1.1 05cf67c96e96cd376921ba5b65795a56.cloudfront.net (CloudFront), 1.1 c28e01aa413e9ea602538ccda1511062.cloudfront.net (CloudFront)",
+          "x-amz-cf-pop": "HIO52-P2, HIO52-P1",
+          "x-datadog-trace-id": "3800910933197782308",
+          "x-krakend": "Version undefined, Version undefined",
+          "x-krakend-completed": "false, false",
+          "x-permitted-cross-domain-policies": "none",
+          "x-cache": "Miss from cloudfront",
+          "alt-svc": "h3=\":443\"; ma=86400",
+          "x-amz-cf-id": "hgSBCFseZi51vN8ZcpIFnfi9bECigsDhVt6dET3Q9pFstiNGgm2YUQ==",
+          "server-timing": "cdn-upstream-layer;desc=\"EDGE\",cdn-upstream-dns;dur=0,cdn-upstream-connect;dur=0,cdn-upstream-fbl;dur=601,cdn-upstream-layer;desc=\"EDGE\",cdn-upstream-dns;dur=0,cdn-upstream-connect;dur=0,cdn-upstream-fbl;dur=556,cdn-cache-miss,cdn-pop;desc=\"HIO52-P2\",cdn-rid;desc=\"TJF0GG2LRw4RGUw_bRsezulNHRfMAchVCYNd6kRgtJ_SVeHAV4LzUQ==\",cdn-downstream-fbl;dur=560,cdn-cache-miss,cdn-pop;desc=\"HIO52-P1\",cdn-rid;desc=\"hgSBCFseZi51vN8ZcpIFnfi9bECigsDhVt6dET3Q9pFstiNGgm2YUQ==\",cdn-downstream-fbl;dur=605"
+        },
+        "hash": "9ece24bac8e319518589fb3e6dda991ef62a8470",
+        "request": {
+          "params": {
+            "page": "0",
+            "subtasks": "true",
+            "include_closed": "true"
+          }
+        }
+      },
+      "/api/v2/space/901511023376/folder": {
+        "response": {
+          "folders": [
+            {
+              "id": "901516078282",
+              "name": "Test Folder from Dryrun",
+              "orderindex": 0,
+              "override_statuses": false,
+              "hidden": false,
+              "space": {
+                "id": "901511023376",
+                "name": "Team Space"
+              },
+              "task_count": "0",
+              "archived": false,
+              "statuses": [],
+              "lists": [],
+              "permission_level": "create"
+            },
+            {
+              "id": "901516078408",
+              "name": "Test Folder 1747666082",
+              "orderindex": 1,
+              "override_statuses": false,
+              "hidden": false,
+              "space": {
+                "id": "901511023376",
+                "name": "Team Space"
+              },
+              "task_count": "0",
+              "archived": false,
+              "statuses": [],
+              "lists": [],
+              "permission_level": "create"
+            }
+          ]
+        },
+        "status": 200,
+        "headers": {
+          "date": "Tue, 19 May 2026 17:15:08 GMT",
+          "content-type": "application/json; charset=utf-8",
+          "content-length": "508",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=5184000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4953",
+          "x-ratelimit-reset": "1779210941",
+          "etag": "W/\"1fc-Ucv53N3DQuPhh+E3ijmbz3Odgvc\""
+        },
+        "hash": "720cf7ac9d893329236510a2cf8500df7453911d",
+        "request": {}
+      },
+      "/api/v2/folder/901516078282/list": {
+        "response": {
+          "lists": []
+        },
+        "status": 200,
+        "headers": {
+          "date": "Tue, 19 May 2026 17:15:09 GMT",
+          "content-type": "application/json; charset=utf-8",
+          "content-length": "12",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=5184000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4952",
+          "x-ratelimit-reset": "1779210941",
+          "etag": "W/\"c-rgBUT6dMghk5BEX2dOlNL8Ah1nc\""
+        },
+        "hash": "ef0043661acb7013e788d986a35db9ac048a888a",
+        "request": {}
+      },
+      "/api/v2/folder/901516078408/list": {
+        "response": {
+          "lists": []
+        },
+        "status": 200,
+        "headers": {
+          "date": "Tue, 19 May 2026 17:15:10 GMT",
+          "content-type": "application/json; charset=utf-8",
+          "content-length": "12",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=5184000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4951",
+          "x-ratelimit-reset": "1779210941",
+          "etag": "W/\"c-rgBUT6dMghk5BEX2dOlNL8Ah1nc\""
+        },
+        "hash": "44bc0e932edb60e01778d25a0fc7b5edd378640f",
+        "request": {}
+      },
+      "/api/v2/space/901511023604/list": {
+        "response": {
+          "lists": [
+            {
+              "id": "901523452618",
+              "name": "Test List for get-task action",
+              "orderindex": 0,
+              "content": "",
+              "status": null,
+              "priority": null,
+              "assignee": null,
+              "task_count": 1,
+              "due_date": null,
+              "start_date": null,
+              "folder": {
+                "id": "901516078814",
+                "name": "hidden",
+                "hidden": true,
+                "archived": false,
+                "access": true
+              },
+              "space": {
+                "id": "901511023604",
+                "name": "Updated Seed Space A",
+                "archived": false,
+                "access": true
+              },
+              "archived": false,
+              "override_statuses": false,
+              "permission_level": "create"
+            }
+          ]
+        },
+        "status": 200,
+        "headers": {
+          "date": "Tue, 19 May 2026 17:15:11 GMT",
+          "content-type": "application/json; charset=utf-8",
+          "content-length": "449",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=5184000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4950",
+          "x-ratelimit-reset": "1779210941",
+          "etag": "W/\"1c1-N3Ks+zyKh1Cn7JdSNzCUxqe3IKY\""
+        },
+        "hash": "d558f267054fca78ecff7521000cbf8e1af22995",
+        "request": {}
+      },
+      "/api/v2/list/901523452618/task": {
+        "response": {
+          "tasks": [
+            {
+              "id": "86c9w3exf",
+              "custom_id": null,
+              "custom_item_id": 0,
+              "name": "Test Task for get-task action",
+              "text_content": "",
+              "description": "",
+              "status": {
+                "status": "to do",
+                "id": "p901511023604_DxqI3Ubd",
+                "color": "#87909e",
+                "type": "open",
+                "orderindex": 0
+              },
+              "orderindex": "39908294.00000000000000000000000000000000",
+              "date_created": "1779203289147",
+              "date_updated": "1779203289147",
+              "date_closed": null,
+              "date_done": null,
+              "archived": false,
+              "creator": {
+                "id": 302438666,
+                "username": "Nango Developer",
+                "color": "#595d66",
+                "email": "api@nango.dev",
+                "profilePicture": null
+              },
+              "assignees": [],
+              "group_assignees": [],
+              "watchers": [
+                {
+                  "id": 302438666,
+                  "username": "Nango Developer",
+                  "color": "#595d66",
+                  "initials": "ND",
+                  "email": "api@nango.dev",
+                  "profilePicture": null
+                }
+              ],
+              "checklists": [],
+              "tags": [],
+              "parent": null,
+              "top_level_parent": null,
+              "priority": null,
+              "due_date": null,
+              "start_date": null,
+              "points": null,
+              "time_estimate": null,
+              "custom_fields": [],
+              "dependencies": [],
+              "linked_tasks": [],
+              "locations": [],
+              "team_id": "90152560096",
+              "url": "https://app.clickup.com/t/86c9w3exf",
+              "sharing": {
+                "public": false,
+                "public_share_expires_on": null,
+                "public_fields": [
+                  "assignees",
+                  "priority",
+                  "due_date",
+                  "content",
+                  "comments",
+                  "attachments",
+                  "customFields",
+                  "subtasks",
+                  "tags",
+                  "checklists",
+                  "coverimage"
+                ],
+                "token": null,
+                "seo_optimized": false
+              },
+              "permission_level": "create",
+              "list": {
+                "id": "901523452618",
+                "name": "Test List for get-task action",
+                "access": true
+              },
+              "project": {
+                "id": "901516078814",
+                "name": "hidden",
+                "hidden": true,
+                "access": true
+              },
+              "folder": {
+                "id": "901516078814",
+                "name": "hidden",
+                "hidden": true,
+                "access": true
+              },
+              "space": {
+                "id": "901511023604"
+              }
+            }
+          ],
+          "last_page": true
+        },
+        "status": 200,
+        "headers": {
+          "date": "Tue, 19 May 2026 17:15:12 GMT",
+          "content-type": "application/json; charset=utf-8",
+          "content-length": "1546",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=5184000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4949",
+          "x-ratelimit-reset": "1779210941",
+          "etag": "W/\"60a-Om9KzV1Q1oG3yMzJDHtKaZ5xGxc\""
+        },
+        "hash": "47e4db1b46e6f11ab79fac1e29cfbf0f5edfe618",
+        "request": {
+          "params": {
+            "page": "0",
+            "subtasks": "true",
+            "include_closed": "true"
+          }
+        }
+      },
+      "/api/v2/space/901511023604/folder": {
+        "response": {
+          "folders": []
+        },
+        "status": 200,
+        "headers": {
+          "date": "Tue, 19 May 2026 17:15:13 GMT",
+          "content-type": "application/json; charset=utf-8",
+          "content-length": "14",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=5184000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4948",
+          "x-ratelimit-reset": "1779210941",
+          "etag": "W/\"e-F3Q+ubMFuKk66TbTG2xsDo0MqcY\""
+        },
+        "hash": "568ac179efb7cf302a0e692fe4b64aa43d26656a",
+        "request": {}
+      },
+      "/api/v2/space/901511024101/list": {
+        "response": {
+          "lists": []
+        },
+        "status": 200,
+        "headers": {
+          "date": "Tue, 19 May 2026 17:15:13 GMT",
+          "content-type": "application/json; charset=utf-8",
+          "content-length": "12",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=5184000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4947",
+          "x-ratelimit-reset": "1779210941",
+          "etag": "W/\"c-rgBUT6dMghk5BEX2dOlNL8Ah1nc\""
+        },
+        "hash": "7feb7513b8054e22e23888b78dedf44c859631cf",
+        "request": {}
+      },
+      "/api/v2/space/901511024101/folder": {
+        "response": {
+          "folders": []
+        },
+        "status": 200,
+        "headers": {
+          "date": "Tue, 19 May 2026 17:15:14 GMT",
+          "content-type": "application/json; charset=utf-8",
+          "content-length": "14",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=5184000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4946",
+          "x-ratelimit-reset": "1779210941",
+          "etag": "W/\"e-F3Q+ubMFuKk66TbTG2xsDo0MqcY\""
+        },
+        "hash": "772a6fbf7dcd16f0dde94857196453071dee964f",
+        "request": {}
+      },
+      "/api/v2/space/901511024154/list": {
+        "response": {
+          "lists": []
+        },
+        "status": 200,
+        "headers": {
+          "date": "Tue, 19 May 2026 17:15:15 GMT",
+          "content-type": "application/json; charset=utf-8",
+          "content-length": "12",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=5184000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4945",
+          "x-ratelimit-reset": "1779210941",
+          "etag": "W/\"c-rgBUT6dMghk5BEX2dOlNL8Ah1nc\""
+        },
+        "hash": "263b35119dc680761b69a6f4ad1d8b5efc53e325",
+        "request": {}
+      },
+      "/api/v2/space/901511024154/folder": {
+        "response": {
+          "folders": []
+        },
+        "status": 200,
+        "headers": {
+          "date": "Tue, 19 May 2026 17:15:15 GMT",
+          "content-type": "application/json; charset=utf-8",
+          "content-length": "14",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=5184000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4944",
+          "x-ratelimit-reset": "1779210941",
+          "etag": "W/\"e-F3Q+ubMFuKk66TbTG2xsDo0MqcY\""
+        },
+        "hash": "7bc4b4d640416d8403019b12c14e91b1024f7e41",
+        "request": {}
+      }
+    }
+  }
+}

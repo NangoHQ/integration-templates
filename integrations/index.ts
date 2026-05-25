@@ -1,3 +1,22 @@
+// -- Integration: 1password-scim
+import './1password-scim/syncs/scim-groups.js';
+import './1password-scim/syncs/scim-users.js';
+import './1password-scim/actions/create-scim-group.js';
+import './1password-scim/actions/create-scim-user.js';
+import './1password-scim/actions/delete-scim-group.js';
+import './1password-scim/actions/delete-scim-user.js';
+import './1password-scim/actions/get-scim-group.js';
+import './1password-scim/actions/get-scim-user.js';
+import './1password-scim/actions/get-service-provider-config.js';
+import './1password-scim/actions/list-resource-types.js';
+import './1password-scim/actions/list-schemas.js';
+import './1password-scim/actions/list-scim-groups.js';
+import './1password-scim/actions/list-scim-users.js';
+import './1password-scim/actions/patch-scim-group.js';
+import './1password-scim/actions/patch-scim-user.js';
+import './1password-scim/actions/update-scim-group.js';
+import './1password-scim/actions/update-scim-user.js';
+
 // -- Integration: adp
 import './adp/syncs/unified-employees.js';
 
@@ -53,6 +72,40 @@ import './anrok/actions/create-ephemeral-transaction.js';
 import './anrok/actions/create-or-update-transaction.js';
 import './anrok/actions/negate-transaction.js';
 import './anrok/actions/void-transaction.js';
+
+// -- Integration: apollo
+import './apollo/syncs/accounts.js';
+import './apollo/syncs/contacts.js';
+import './apollo/syncs/opportunities.js';
+import './apollo/syncs/organization-search.js';
+import './apollo/syncs/sequences.js';
+import './apollo/syncs/tasks.js';
+import './apollo/actions/bulk-enrich-people.js';
+import './apollo/actions/create-account.js';
+import './apollo/actions/create-contact.js';
+import './apollo/actions/create-opportunity.js';
+import './apollo/actions/create-task.js';
+import './apollo/actions/delete-account.js';
+import './apollo/actions/delete-contact.js';
+import './apollo/actions/delete-opportunity.js';
+import './apollo/actions/enrich-organization.js';
+import './apollo/actions/enrich-person.js';
+import './apollo/actions/get-account.js';
+import './apollo/actions/get-contact.js';
+import './apollo/actions/get-opportunity.js';
+import './apollo/actions/list-accounts.js';
+import './apollo/actions/list-contacts.js';
+import './apollo/actions/list-opportunities.js';
+import './apollo/actions/list-sequences.js';
+import './apollo/actions/list-tasks.js';
+import './apollo/actions/list-users.js';
+import './apollo/actions/remove-contact-from-sequence.js';
+import './apollo/actions/search-organizations.js';
+import './apollo/actions/search-people.js';
+import './apollo/actions/update-account.js';
+import './apollo/actions/update-contact.js';
+import './apollo/actions/update-opportunity.js';
+import './apollo/actions/update-task.js';
 
 // -- Integration: asana
 import './asana/syncs/projects.js';
@@ -293,6 +346,52 @@ import './clicksend/syncs/sms-history.js';
 import './clicksend/actions/fetch-account.js';
 import './clicksend/actions/send-sms.js';
 
+// -- Integration: clickup
+import './clickup/syncs/comments.js';
+import './clickup/syncs/folders.js';
+import './clickup/syncs/goals.js';
+import './clickup/syncs/lists.js';
+import './clickup/syncs/spaces.js';
+import './clickup/syncs/tasks.js';
+import './clickup/syncs/time-entries.js';
+import './clickup/syncs/users.js';
+import './clickup/actions/create-comment.js';
+import './clickup/actions/create-folder.js';
+import './clickup/actions/create-goal.js';
+import './clickup/actions/create-list.js';
+import './clickup/actions/create-space.js';
+import './clickup/actions/create-task.js';
+import './clickup/actions/create-time-entry.js';
+import './clickup/actions/delete-comment.js';
+import './clickup/actions/delete-folder.js';
+import './clickup/actions/delete-goal.js';
+import './clickup/actions/delete-list.js';
+import './clickup/actions/delete-space.js';
+import './clickup/actions/delete-task.js';
+import './clickup/actions/delete-time-entry.js';
+import './clickup/actions/get-folder.js';
+import './clickup/actions/get-goal.js';
+import './clickup/actions/get-list.js';
+import './clickup/actions/get-space.js';
+import './clickup/actions/get-task.js';
+import './clickup/actions/get-time-entry.js';
+import './clickup/actions/get-user.js';
+import './clickup/actions/list-comments.js';
+import './clickup/actions/list-folders.js';
+import './clickup/actions/list-goals.js';
+import './clickup/actions/list-lists.js';
+import './clickup/actions/list-spaces.js';
+import './clickup/actions/list-tasks.js';
+import './clickup/actions/list-time-entries.js';
+import './clickup/actions/list-users.js';
+import './clickup/actions/update-comment.js';
+import './clickup/actions/update-folder.js';
+import './clickup/actions/update-goal.js';
+import './clickup/actions/update-list.js';
+import './clickup/actions/update-space.js';
+import './clickup/actions/update-task.js';
+import './clickup/actions/update-time-entry.js';
+
 // -- Integration: confluence
 import './confluence/syncs/attachments.js';
 import './confluence/syncs/blog-posts.js';
@@ -460,6 +559,31 @@ import './expensify/syncs/users.js';
 import './expensify/actions/create-user.js';
 import './expensify/actions/disable-user.js';
 import './expensify/actions/list-policies.js';
+
+// -- Integration: facebook
+import './facebook/syncs/page-posts.js';
+import './facebook/syncs/page-scheduled-posts.js';
+import './facebook/syncs/page-videos.js';
+import './facebook/syncs/pages.js';
+import './facebook/actions/create-page-photo.js';
+import './facebook/actions/create-page-post.js';
+import './facebook/actions/create-page-video.js';
+import './facebook/actions/create-post-comment.js';
+import './facebook/actions/create-scheduled-page-post.js';
+import './facebook/actions/delete-comment.js';
+import './facebook/actions/delete-post.js';
+import './facebook/actions/get-comment.js';
+import './facebook/actions/get-page-app-subscriptions.js';
+import './facebook/actions/get-page.js';
+import './facebook/actions/get-post.js';
+import './facebook/actions/get-user-profile.js';
+import './facebook/actions/list-page-posts.js';
+import './facebook/actions/list-page-scheduled-posts.js';
+import './facebook/actions/list-page-videos.js';
+import './facebook/actions/list-post-comments.js';
+import './facebook/actions/list-user-pages.js';
+import './facebook/actions/subscribe-app-to-page.js';
+import './facebook/actions/unsubscribe-app-from-page.js';
 
 // -- Integration: fireflies
 import './fireflies/actions/add-to-live.js';
@@ -1059,6 +1183,47 @@ import './linkedin/actions/update-post.js';
 // -- Integration: luma
 import './luma/syncs/list-events.js';
 
+// -- Integration: mailchimp
+import './mailchimp/syncs/audiences.js';
+import './mailchimp/syncs/automations.js';
+import './mailchimp/syncs/members.js';
+import './mailchimp/syncs/segments.js';
+import './mailchimp/syncs/stores.js';
+import './mailchimp/actions/create-audience.js';
+import './mailchimp/actions/create-campaign.js';
+import './mailchimp/actions/create-member.js';
+import './mailchimp/actions/create-segment.js';
+import './mailchimp/actions/create-store.js';
+import './mailchimp/actions/create-template.js';
+import './mailchimp/actions/delete-audience.js';
+import './mailchimp/actions/delete-campaign.js';
+import './mailchimp/actions/delete-member.js';
+import './mailchimp/actions/delete-segment.js';
+import './mailchimp/actions/delete-template.js';
+import './mailchimp/actions/get-audience.js';
+import './mailchimp/actions/get-automation.js';
+import './mailchimp/actions/get-campaign-report.js';
+import './mailchimp/actions/get-campaign.js';
+import './mailchimp/actions/get-member.js';
+import './mailchimp/actions/get-segment.js';
+import './mailchimp/actions/get-store.js';
+import './mailchimp/actions/get-template.js';
+import './mailchimp/actions/list-audiences.js';
+import './mailchimp/actions/list-automations.js';
+import './mailchimp/actions/list-campaigns.js';
+import './mailchimp/actions/list-members.js';
+import './mailchimp/actions/list-segments.js';
+import './mailchimp/actions/list-stores.js';
+import './mailchimp/actions/list-templates.js';
+import './mailchimp/actions/schedule-campaign.js';
+import './mailchimp/actions/tag-member.js';
+import './mailchimp/actions/update-audience.js';
+import './mailchimp/actions/update-campaign.js';
+import './mailchimp/actions/update-member.js';
+import './mailchimp/actions/update-segment.js';
+import './mailchimp/actions/update-store.js';
+import './mailchimp/actions/update-template.js';
+
 // -- Integration: metabase
 import './metabase/syncs/users.js';
 import './metabase/actions/create-user.js';
@@ -1066,6 +1231,45 @@ import './metabase/actions/disable-user.js';
 import './metabase/actions/enable-user.js';
 import './metabase/actions/fetch-user.js';
 import './metabase/actions/update-user.js';
+
+// -- Integration: microsoft
+import './microsoft/syncs/applications.js';
+import './microsoft/syncs/directory-roles.js';
+import './microsoft/syncs/groups.js';
+import './microsoft/syncs/organizations.js';
+import './microsoft/syncs/service-principals.js';
+import './microsoft/syncs/users.js';
+import './microsoft/actions/add-group-member.js';
+import './microsoft/actions/create-application.js';
+import './microsoft/actions/create-group.js';
+import './microsoft/actions/create-service-principal.js';
+import './microsoft/actions/create-user.js';
+import './microsoft/actions/delete-application.js';
+import './microsoft/actions/delete-group.js';
+import './microsoft/actions/delete-service-principal.js';
+import './microsoft/actions/delete-user.js';
+import './microsoft/actions/get-application.js';
+import './microsoft/actions/get-directory-role.js';
+import './microsoft/actions/get-group.js';
+import './microsoft/actions/get-organization.js';
+import './microsoft/actions/get-service-principal.js';
+import './microsoft/actions/get-user.js';
+import './microsoft/actions/list-applications.js';
+import './microsoft/actions/list-devices.js';
+import './microsoft/actions/list-directory-role-members.js';
+import './microsoft/actions/list-directory-roles.js';
+import './microsoft/actions/list-group-members.js';
+import './microsoft/actions/list-groups.js';
+import './microsoft/actions/list-organizations.js';
+import './microsoft/actions/list-service-principals.js';
+import './microsoft/actions/list-user-memberships.js';
+import './microsoft/actions/list-users.js';
+import './microsoft/actions/remove-group-member.js';
+import './microsoft/actions/update-application.js';
+import './microsoft/actions/update-group.js';
+import './microsoft/actions/update-organization.js';
+import './microsoft/actions/update-service-principal.js';
+import './microsoft/actions/update-user.js';
 
 // -- Integration: microsoft-teams
 import './microsoft-teams/syncs/channel-message-replies.js';
@@ -1103,6 +1307,54 @@ import './microsoft-teams/actions/list-team-members.js';
 import './microsoft-teams/actions/remove-team-member.js';
 import './microsoft-teams/actions/reply-to-channel-message.js';
 import './microsoft-teams/actions/update-channel.js';
+
+// -- Integration: monday
+import './monday/syncs/boards.js';
+import './monday/syncs/columns.js';
+import './monday/syncs/groups.js';
+import './monday/syncs/subitems.js';
+import './monday/syncs/teams.js';
+import './monday/syncs/updates.js';
+import './monday/syncs/users.js';
+import './monday/syncs/workspaces.js';
+import './monday/actions/archive-item.js';
+import './monday/actions/change-column-value.js';
+import './monday/actions/create-board.js';
+import './monday/actions/create-column.js';
+import './monday/actions/create-group.js';
+import './monday/actions/create-item.js';
+import './monday/actions/create-subitem.js';
+import './monday/actions/create-update.js';
+import './monday/actions/delete-board.js';
+import './monday/actions/delete-column.js';
+import './monday/actions/delete-group.js';
+import './monday/actions/delete-item.js';
+import './monday/actions/delete-update.js';
+import './monday/actions/duplicate-board.js';
+import './monday/actions/get-board.js';
+import './monday/actions/get-column.js';
+import './monday/actions/get-group.js';
+import './monday/actions/get-item.js';
+import './monday/actions/get-subitem.js';
+import './monday/actions/get-team.js';
+import './monday/actions/get-update.js';
+import './monday/actions/get-user.js';
+import './monday/actions/get-workspace.js';
+import './monday/actions/list-boards.js';
+import './monday/actions/list-columns.js';
+import './monday/actions/list-groups.js';
+import './monday/actions/list-items.js';
+import './monday/actions/list-subitems.js';
+import './monday/actions/list-teams.js';
+import './monday/actions/list-updates.js';
+import './monday/actions/list-users.js';
+import './monday/actions/list-workspaces.js';
+import './monday/actions/move-item-to-board.js';
+import './monday/actions/move-item-to-group.js';
+import './monday/actions/update-board.js';
+import './monday/actions/update-column.js';
+import './monday/actions/update-group.js';
+import './monday/actions/update-item.js';
 
 // -- Integration: namely-pat
 import './namely-pat/syncs/unified-employees.js';
@@ -1238,6 +1490,42 @@ import './one-drive-personal/actions/move-item.js';
 import './one-drive-personal/actions/search-items.js';
 import './one-drive-personal/actions/update-item.js';
 import './one-drive-personal/actions/upload-small-file.js';
+
+// -- Integration: openai
+import './openai/syncs/batches.js';
+import './openai/syncs/files.js';
+import './openai/syncs/fine-tuning-jobs.js';
+import './openai/syncs/models.js';
+import './openai/syncs/vector-stores.js';
+import './openai/actions/add-vector-store-file.js';
+import './openai/actions/cancel-fine-tuning-job.js';
+import './openai/actions/create-batch.js';
+import './openai/actions/create-chat-completion.js';
+import './openai/actions/create-embedding.js';
+import './openai/actions/create-file.js';
+import './openai/actions/create-image.js';
+import './openai/actions/create-moderation.js';
+import './openai/actions/create-response.js';
+import './openai/actions/create-speech.js';
+import './openai/actions/create-transcription.js';
+import './openai/actions/create-vector-store.js';
+import './openai/actions/delete-response.js';
+import './openai/actions/delete-vector-store-file.js';
+import './openai/actions/delete-vector-store.js';
+import './openai/actions/get-batch.js';
+import './openai/actions/get-file.js';
+import './openai/actions/get-model.js';
+import './openai/actions/get-response.js';
+import './openai/actions/get-vector-store-file.js';
+import './openai/actions/get-vector-store.js';
+import './openai/actions/list-batches.js';
+import './openai/actions/list-files.js';
+import './openai/actions/list-fine-tuning-jobs.js';
+import './openai/actions/list-models.js';
+import './openai/actions/list-vector-store-files.js';
+import './openai/actions/list-vector-stores.js';
+import './openai/actions/search-vector-store.js';
+import './openai/actions/update-vector-store.js';
 
 // -- Integration: oracle-hcm
 import './oracle-hcm/syncs/employees.js';
@@ -1582,6 +1870,58 @@ import './smartsheet/actions/create-user.js';
 import './smartsheet/actions/delete-user.js';
 import './smartsheet/actions/disable-user.js';
 
+// -- Integration: spotify
+import './spotify/syncs/albums.js';
+import './spotify/syncs/artists.js';
+import './spotify/syncs/playlist-tracks.js';
+import './spotify/syncs/playlists.js';
+import './spotify/syncs/recently-played.js';
+import './spotify/syncs/saved-episodes.js';
+import './spotify/syncs/saved-shows.js';
+import './spotify/syncs/saved-tracks.js';
+import './spotify/syncs/top-items.js';
+import './spotify/actions/add-to-queue.js';
+import './spotify/actions/create-playlist-track.js';
+import './spotify/actions/create-playlist.js';
+import './spotify/actions/create-saved-album.js';
+import './spotify/actions/create-saved-track.js';
+import './spotify/actions/delete-playlist-track.js';
+import './spotify/actions/delete-playlist.js';
+import './spotify/actions/delete-saved-album.js';
+import './spotify/actions/delete-saved-show.js';
+import './spotify/actions/delete-saved-track.js';
+import './spotify/actions/follow-artist.js';
+import './spotify/actions/follow-playlist.js';
+import './spotify/actions/get-album.js';
+import './spotify/actions/get-artist.js';
+import './spotify/actions/get-current-playback.js';
+import './spotify/actions/get-current-user.js';
+import './spotify/actions/get-devices.js';
+import './spotify/actions/get-episode.js';
+import './spotify/actions/get-playlist.js';
+import './spotify/actions/get-queue.js';
+import './spotify/actions/get-show.js';
+import './spotify/actions/get-track.js';
+import './spotify/actions/list-albums.js';
+import './spotify/actions/list-artists.js';
+import './spotify/actions/list-playlist-tracks.js';
+import './spotify/actions/list-playlists.js';
+import './spotify/actions/list-saved-shows.js';
+import './spotify/actions/list-saved-tracks.js';
+import './spotify/actions/pause-playback.js';
+import './spotify/actions/reorder-playlist-tracks.js';
+import './spotify/actions/search.js';
+import './spotify/actions/seek-to-position.js';
+import './spotify/actions/set-repeat-mode.js';
+import './spotify/actions/set-volume.js';
+import './spotify/actions/skip-to-next.js';
+import './spotify/actions/skip-to-previous.js';
+import './spotify/actions/start-playback.js';
+import './spotify/actions/toggle-shuffle.js';
+import './spotify/actions/transfer-playback.js';
+import './spotify/actions/unfollow-playlist.js';
+import './spotify/actions/update-playlist.js';
+
 // -- Integration: stripe-app
 import './stripe-app/syncs/subscriptions.js';
 
@@ -1719,8 +2059,21 @@ import './workable/actions/create-comment.js';
 // -- Integration: workday
 import './workday/syncs/employees.js';
 import './workday/syncs/groups.js';
+import './workday/syncs/job-profiles.js';
 import './workday/syncs/locations.js';
-import './workday/syncs/unified-employees.js';
+import './workday/syncs/organizations.js';
+import './workday/syncs/positions.js';
+import './workday/syncs/workers.js';
+import './workday/actions/get-job-profile.js';
+import './workday/actions/get-location.js';
+import './workday/actions/get-organization.js';
+import './workday/actions/get-position.js';
+import './workday/actions/get-worker.js';
+import './workday/actions/list-job-profiles.js';
+import './workday/actions/list-locations.js';
+import './workday/actions/list-organizations.js';
+import './workday/actions/list-positions.js';
+import './workday/actions/list-workers.js';
 
 // -- Integration: xero
 import './xero/syncs/accounts.js';

@@ -1,0 +1,82 @@
+{
+  "nango": {
+    "batchSave": {
+      "Workspace": [
+        {
+          "id": "6502905",
+          "name": "My Team",
+          "kind": "open",
+          "state": "active"
+        }
+      ]
+    },
+    "batchDelete": {
+      "Workspace": []
+    }
+  },
+  "api": {
+    "post": {
+      "/v2": {
+        "response": {
+          "data": {
+            "workspaces": [
+              {
+                "id": "6502905",
+                "name": "My Team",
+                "description": null,
+                "kind": "open",
+                "state": "active"
+              }
+            ]
+          },
+          "extensions": {
+            "request_id": "ce8efa94-530f-98b0-9fc2-c76d1826fd92"
+          }
+        },
+        "status": 200,
+        "headers": {
+          "date": "Fri, 22 May 2026 05:53:25 GMT",
+          "content-type": "application/json",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=31536000; includeSubDomains",
+          "content-security-policy-report-only": "frame-ancestors https://*.monday.com; script-src 'self'; worker-src 'self'; connect-src 'self'; report-uri https://o916138.ingest.us.sentry.io/api/4507803872198656/security/?sentry_key=8e1fb7e952d4abfd146752c94791f51a&sentry_environment=production;",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4952",
+          "x-ratelimit-reset": "1779429237",
+          "api-version": "2026-04",
+          "vary": "origin, Accept-Encoding",
+          "x-api-gateway": "true",
+          "x-api-router": "true",
+          "x-request-id": "ce8efa94-530f-98b0-9fc2-c76d1826fd92",
+          "x-envoy-upstream-service-time": "364",
+          "content-security-policy": ";",
+          "x-monday-rgn": "euc1, use1",
+          "server": "cloudflare",
+          "x-routed-from": "use1",
+          "x-routed-to": "euc1",
+          "set-cookie": "__cf_bm=q0X5CGYPqnO4wbYoquhEp2B8bBMGp7NbOlMTrhuE544-1779429204.8564544-1.0.1.1-PZkPx9uspIBQpXvXJW59tSFHc2Qr_5K6o_WsUMB..xpPilt.18Hf6BU3UsjNMXnpfIivU8cPoT2rnJ3QMq0YiNBCe_meBd0shi2P634uXHVs36BKAZ38Rj.SInMTP.ECXDOkjmti.gBj1HLPSrLosA; HttpOnly; SameSite=None; Secure; Path=/; Domain=monday.com; Expires=Fri, 22 May 2026 06:23:25 GMT, _cfuvid=K9Iuxy6DWlJS5jqkSZ96t.63WKgOZa3ZYtIwf96UzX0-1779429204.8564544-1.0.1.1-JdtBqyWbxHYhIBtxoaQSjkpG55XeTh4thLxcdFD4iYA; HttpOnly; SameSite=None; Secure; Path=/; Domain=monday.com",
+          "cf-cache-status": "DYNAMIC",
+          "cf-ray": "9ff98f725a8ffc83-PDX"
+        },
+        "hash": "d7d089870c88783b0cf8ecf7da6e5b369ca53ce7",
+        "request": {
+          "data": {
+            "query": "query ($limit: Int, $page: Int) { workspaces(limit: $limit, page: $page) { id name description kind state } }",
+            "variables": {
+              "limit": 100,
+              "page": 1
+            }
+          }
+        }
+      }
+    }
+  }
+}

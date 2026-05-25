@@ -1,0 +1,209 @@
+{
+  "input": {
+    "workflow_id": "7d3fee6619"
+  },
+  "output": {
+    "id": "7d3fee6619",
+    "create_time": "2026-05-21T19:14:04+00:00",
+    "start_time": "",
+    "status": "save",
+    "emails_sent": 0,
+    "recipients": {
+      "list_id": "16ed227135",
+      "list_is_active": true,
+      "list_name": "NangoDev"
+    },
+    "settings": {
+      "title": "NangoDev Welcome Message",
+      "from_name": "NangoDev",
+      "reply_to": "api@nango.dev",
+      "use_conversation": false,
+      "to_name": "",
+      "authenticate": true,
+      "auto_footer": false,
+      "inline_css": false
+    },
+    "tracking": {
+      "opens": true,
+      "html_clicks": true,
+      "text_clicks": false,
+      "goal_tracking": false,
+      "ecomm360": false,
+      "google_analytics": "",
+      "clicktale": ""
+    },
+    "trigger_settings": {
+      "workflow_type": "singleWelcome",
+      "workflow_title": "Single Email Welcome",
+      "runtime": {
+        "days": [
+          "sunday",
+          "monday",
+          "tuesday",
+          "wednesday",
+          "thursday",
+          "friday",
+          "saturday"
+        ],
+        "hours": {
+          "type": "automation"
+        }
+      },
+      "workflow_emails_count": 1
+    },
+    "_links": [
+      {
+        "rel": "parent",
+        "href": "https://us3.api.mailchimp.com/3.0/automations",
+        "method": "GET",
+        "targetSchema": "https://us3.api.mailchimp.com/schema/3.0/Definitions/Automations/CollectionResponse.json",
+        "schema": "https://us3.api.mailchimp.com/schema/3.0/Paths/Automations/Collection.json"
+      },
+      {
+        "rel": "self",
+        "href": "https://us3.api.mailchimp.com/3.0/automations/7d3fee6619",
+        "method": "GET",
+        "targetSchema": "https://us3.api.mailchimp.com/schema/3.0/Definitions/Automations/Response.json"
+      },
+      {
+        "rel": "start-all-emails",
+        "href": "https://us3.api.mailchimp.com/3.0/automations/7d3fee6619/actions/start-all-emails",
+        "method": "POST"
+      },
+      {
+        "rel": "pause-all-emails",
+        "href": "https://us3.api.mailchimp.com/3.0/automations/7d3fee6619/actions/pause-all-emails",
+        "method": "POST"
+      },
+      {
+        "rel": "emails",
+        "href": "https://us3.api.mailchimp.com/3.0/automations/7d3fee6619/emails",
+        "method": "GET",
+        "targetSchema": "https://us3.api.mailchimp.com/schema/3.0/Definitions/Automations/Emails/CollectionResponse.json"
+      },
+      {
+        "rel": "removed-subscribers",
+        "href": "https://us3.api.mailchimp.com/3.0/automations/7d3fee6619/removed-subscribers",
+        "method": "GET",
+        "targetSchema": "https://us3.api.mailchimp.com/schema/3.0/Definitions/Automations/RemovedSubscribers/CollectionResponse.json"
+      }
+    ]
+  },
+  "nango": {},
+  "api": {
+    "get": {
+      "/3.0/automations/7d3fee6619": {
+        "response": {
+          "id": "7d3fee6619",
+          "create_time": "2026-05-21T19:14:04+00:00",
+          "start_time": "",
+          "status": "save",
+          "emails_sent": 0,
+          "recipients": {
+            "list_id": "16ed227135",
+            "list_is_active": true,
+            "list_name": "NangoDev"
+          },
+          "settings": {
+            "title": "NangoDev Welcome Message",
+            "from_name": "NangoDev",
+            "reply_to": "api@nango.dev",
+            "use_conversation": false,
+            "to_name": "",
+            "authenticate": true,
+            "auto_footer": false,
+            "inline_css": false
+          },
+          "tracking": {
+            "opens": true,
+            "html_clicks": true,
+            "text_clicks": false,
+            "goal_tracking": false,
+            "ecomm360": false,
+            "google_analytics": "",
+            "clicktale": ""
+          },
+          "trigger_settings": {
+            "workflow_type": "singleWelcome",
+            "workflow_title": "Single Email Welcome",
+            "runtime": {
+              "days": [
+                "sunday",
+                "monday",
+                "tuesday",
+                "wednesday",
+                "thursday",
+                "friday",
+                "saturday"
+              ],
+              "hours": {
+                "type": "automation"
+              }
+            },
+            "workflow_emails_count": 1
+          },
+          "_links": [
+            {
+              "rel": "parent",
+              "href": "https://us3.api.mailchimp.com/3.0/automations",
+              "method": "GET",
+              "targetSchema": "https://us3.api.mailchimp.com/schema/3.0/Definitions/Automations/CollectionResponse.json",
+              "schema": "https://us3.api.mailchimp.com/schema/3.0/Paths/Automations/Collection.json"
+            },
+            {
+              "rel": "self",
+              "href": "https://us3.api.mailchimp.com/3.0/automations/7d3fee6619",
+              "method": "GET",
+              "targetSchema": "https://us3.api.mailchimp.com/schema/3.0/Definitions/Automations/Response.json"
+            },
+            {
+              "rel": "start-all-emails",
+              "href": "https://us3.api.mailchimp.com/3.0/automations/7d3fee6619/actions/start-all-emails",
+              "method": "POST"
+            },
+            {
+              "rel": "pause-all-emails",
+              "href": "https://us3.api.mailchimp.com/3.0/automations/7d3fee6619/actions/pause-all-emails",
+              "method": "POST"
+            },
+            {
+              "rel": "emails",
+              "href": "https://us3.api.mailchimp.com/3.0/automations/7d3fee6619/emails",
+              "method": "GET",
+              "targetSchema": "https://us3.api.mailchimp.com/schema/3.0/Definitions/Automations/Emails/CollectionResponse.json"
+            },
+            {
+              "rel": "removed-subscribers",
+              "href": "https://us3.api.mailchimp.com/3.0/automations/7d3fee6619/removed-subscribers",
+              "method": "GET",
+              "targetSchema": "https://us3.api.mailchimp.com/schema/3.0/Definitions/Automations/RemovedSubscribers/CollectionResponse.json"
+            }
+          ]
+        },
+        "status": 200,
+        "headers": {
+          "date": "Thu, 21 May 2026 19:15:19 GMT",
+          "content-type": "application/json; charset=utf-8",
+          "content-length": "1993",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=5184000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4957",
+          "x-ratelimit-reset": "1779390930",
+          "x-request-id": "1-6a0f59c7-04091de722317c792d5f821e",
+          "etag": "W/\"7c9-WFtNCa7Rqb2zKs4vbHmL/LYJ1cQ\""
+        },
+        "hash": "4b5cc17da20eef3ba168c82e5be031b5d6e7f3cb",
+        "request": {}
+      }
+    }
+  }
+}

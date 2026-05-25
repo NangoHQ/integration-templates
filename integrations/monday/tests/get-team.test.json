@@ -1,0 +1,103 @@
+{
+  "input": {
+    "team_id": "13240071"
+  },
+  "output": {
+    "id": "13240071",
+    "name": "TestTeam",
+    "picture_url": "https://cdn.monday.com/images/dapulse_team_default.png",
+    "owners": [
+      {
+        "id": "104094154",
+        "name": "Nango Developer",
+        "email": "api@nango.dev"
+      }
+    ],
+    "users": [
+      {
+        "id": "104094154",
+        "name": "Nango Developer",
+        "email": "api@nango.dev"
+      }
+    ]
+  },
+  "nango": {},
+  "api": {
+    "post": {
+      "/v2": {
+        "response": {
+          "data": {
+            "teams": [
+              {
+                "id": "13240071",
+                "name": "TestTeam",
+                "picture_url": "https://cdn.monday.com/images/dapulse_team_default.png",
+                "owners": [
+                  {
+                    "id": "104094154",
+                    "name": "Nango Developer",
+                    "email": "api@nango.dev"
+                  }
+                ],
+                "users": [
+                  {
+                    "id": "104094154",
+                    "name": "Nango Developer",
+                    "email": "api@nango.dev"
+                  }
+                ]
+              }
+            ]
+          },
+          "extensions": {
+            "request_id": "27d2e912-08f5-9f28-be93-da7489a02ff6"
+          }
+        },
+        "status": 200,
+        "headers": {
+          "date": "Fri, 22 May 2026 05:46:14 GMT",
+          "content-type": "application/json",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=31536000; includeSubDomains",
+          "content-security-policy-report-only": "frame-ancestors https://*.monday.com; script-src 'self'; worker-src 'self'; connect-src 'self'; report-uri https://o916138.ingest.us.sentry.io/api/4507803872198656/security/?sentry_key=8e1fb7e952d4abfd146752c94791f51a&sentry_environment=production;",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4947",
+          "x-ratelimit-reset": "1779428805",
+          "api-version": "2026-04",
+          "vary": "origin, Accept-Encoding",
+          "x-api-gateway": "true",
+          "x-api-router": "true",
+          "x-request-id": "27d2e912-08f5-9f28-be93-da7489a02ff6",
+          "x-envoy-upstream-service-time": "446",
+          "content-security-policy": ";",
+          "x-monday-rgn": "euc1, use1",
+          "server": "cloudflare",
+          "x-routed-from": "use1",
+          "x-routed-to": "euc1",
+          "set-cookie": "__cf_bm=M4rjUSNEQj4NlVmLm1yHhBE.94Yy3K17DJNsE8Tz2FE-1779428773.724875-1.0.1.1-9nHPjB14zTCKeB6jT548zILwW3SkLNlnM_XmqiRsphnhuleOHmnnaaorO0PAg7BAxtu8.q1frxNvR9z5A_V5jC0zPERnBEHB6dRK_Zf4yRREhwi3ltmV10.8E3w6oEWz1jeVL8Ipia7CMXBsepJqBA; HttpOnly; SameSite=None; Secure; Path=/; Domain=monday.com; Expires=Fri, 22 May 2026 06:16:14 GMT, _cfuvid=DYFxXzqTKw8uDu_I_tPsLFn6DRLwxtU4l_qLnW3OAy8-1779428773.724875-1.0.1.1-WRRQS2mEGDEXaCHyNDggDJY.kNMlqLV8uJs.EQD_Z_I; HttpOnly; SameSite=None; Secure; Path=/; Domain=monday.com",
+          "cf-cache-status": "DYNAMIC",
+          "cf-ray": "9ff984ebcece8e12-PDX"
+        },
+        "hash": "26f9c5f295f4475ec50ddf65e77bf5074b89e0bc",
+        "request": {
+          "data": {
+            "query": "\n            query($ids: [ID!]) {\n                teams(ids: $ids) {\n                    id\n                    name\n                    picture_url\n                    owners {\n                        id\n                        name\n                        email\n                    }\n                    users {\n                        id\n                        name\n                        email\n                    }\n                }\n            }\n        ",
+            "variables": {
+              "ids": [
+                "13240071"
+              ]
+            }
+          }
+        }
+      }
+    }
+  }
+}

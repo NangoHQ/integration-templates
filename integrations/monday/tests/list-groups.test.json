@@ -1,0 +1,116 @@
+{
+  "input": {
+    "board_id": "5096980653"
+  },
+  "output": {
+    "groups": [
+      {
+        "id": "group_mm3k40a7",
+        "title": "Test Group Create 2026",
+        "color": "#fdab3d",
+        "position": "10011.0",
+        "archived": false,
+        "deleted": false
+      },
+      {
+        "id": "group_mm3k8ksb",
+        "title": "Test Group Create 2026",
+        "color": "#e2445c",
+        "position": "19922.0",
+        "archived": false,
+        "deleted": false
+      },
+      {
+        "id": "topics",
+        "title": "All Tasks Updated",
+        "color": "#579bfc",
+        "position": "39744",
+        "archived": false,
+        "deleted": false
+      }
+    ]
+  },
+  "nango": {},
+  "api": {
+    "post": {
+      "/v2": {
+        "response": {
+          "data": {
+            "boards": [
+              {
+                "groups": [
+                  {
+                    "id": "group_mm3k40a7",
+                    "title": "Test Group Create 2026",
+                    "color": "#fdab3d",
+                    "position": "10011.0",
+                    "archived": false,
+                    "deleted": false
+                  },
+                  {
+                    "id": "group_mm3k8ksb",
+                    "title": "Test Group Create 2026",
+                    "color": "#e2445c",
+                    "position": "19922.0",
+                    "archived": false,
+                    "deleted": false
+                  },
+                  {
+                    "id": "topics",
+                    "title": "All Tasks Updated",
+                    "color": "#579bfc",
+                    "position": "39744",
+                    "archived": false,
+                    "deleted": false
+                  }
+                ]
+              }
+            ]
+          },
+          "extensions": {
+            "request_id": "8985d6d7-4d22-93ec-afe7-8446b9f84d86"
+          }
+        },
+        "status": 200,
+        "headers": {
+          "date": "Fri, 22 May 2026 05:50:39 GMT",
+          "content-type": "application/json",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=31536000; includeSubDomains",
+          "content-security-policy-report-only": "frame-ancestors https://*.monday.com; script-src 'self'; worker-src 'self'; connect-src 'self'; report-uri https://o916138.ingest.us.sentry.io/api/4507803872198656/security/?sentry_key=8e1fb7e952d4abfd146752c94791f51a&sentry_environment=production;",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4968",
+          "x-ratelimit-reset": "1779429053",
+          "api-version": "2026-04",
+          "vary": "origin, Accept-Encoding",
+          "x-api-gateway": "true",
+          "x-api-router": "true",
+          "x-request-id": "8985d6d7-4d22-93ec-afe7-8446b9f84d86",
+          "x-envoy-upstream-service-time": "367",
+          "content-security-policy": ";",
+          "x-monday-rgn": "euc1, use1",
+          "server": "cloudflare",
+          "x-routed-from": "use1",
+          "x-routed-to": "euc1",
+          "set-cookie": "<redacted>",
+          "cf-cache-status": "DYNAMIC",
+          "cf-ray": "9ff98b68ba186c17-PDX"
+        },
+        "hash": "1aeca7ae7586b9b4778839494fef88321d22d6f7",
+        "request": {
+          "data": {
+            "query": "\n            query {\n                boards(ids: 5096980653) {\n                    groups {\n                        id\n                        title\n                        color\n                        position\n                        archived\n                        deleted\n                    }\n                }\n            }\n        "
+          }
+        }
+      }
+    }
+  }
+}

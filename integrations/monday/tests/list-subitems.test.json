@@ -1,0 +1,112 @@
+{
+  "input": {
+    "parent_item_id": "2933602562"
+  },
+  "output": {
+    "subitems": [
+      {
+        "id": "2933645613",
+        "name": "Second test subitem",
+        "board_id": "5096982894",
+        "column_values": [
+          {
+            "id": "person",
+            "text": ""
+          },
+          {
+            "id": "status"
+          },
+          {
+            "id": "date0",
+            "text": ""
+          }
+        ]
+      }
+    ]
+  },
+  "nango": {},
+  "api": {
+    "post": {
+      "/v2": {
+        "response": {
+          "data": {
+            "items": [
+              {
+                "subitems": [
+                  {
+                    "id": "2933645613",
+                    "name": "Second test subitem",
+                    "board": {
+                      "id": "5096982894"
+                    },
+                    "column_values": [
+                      {
+                        "id": "person",
+                        "text": ""
+                      },
+                      {
+                        "id": "status",
+                        "text": null
+                      },
+                      {
+                        "id": "date0",
+                        "text": ""
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          "extensions": {
+            "request_id": "6319218e-3de1-94ce-87e7-32bfd4325ed6"
+          }
+        },
+        "status": 200,
+        "headers": {
+          "date": "Fri, 22 May 2026 05:45:50 GMT",
+          "content-type": "application/json",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=31536000; includeSubDomains",
+          "content-security-policy-report-only": "frame-ancestors https://*.monday.com; script-src 'self'; worker-src 'self'; connect-src 'self'; report-uri https://o916138.ingest.us.sentry.io/api/4507803872198656/security/?sentry_key=8e1fb7e952d4abfd146752c94791f51a&sentry_environment=production;",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4991",
+          "x-ratelimit-reset": "1779428805",
+          "api-version": "2026-04",
+          "vary": "origin, Accept-Encoding",
+          "x-api-gateway": "true",
+          "x-api-router": "true",
+          "x-request-id": "6319218e-3de1-94ce-87e7-32bfd4325ed6",
+          "x-envoy-upstream-service-time": "711",
+          "content-security-policy": ";",
+          "x-monday-rgn": "euc1, use1",
+          "server": "cloudflare",
+          "x-routed-from": "use1",
+          "x-routed-to": "euc1",
+          "set-cookie": "__cf_bm=kN6jiOr1kz3x_znIovEcDwv95ITzaL4bz2_IC2KAGiM-1779428749.267581-1.0.1.1-O5y56Ik2VmGqHaB76NzQknVL6T3dM4N3mw3AMgMkQAwx5.jO5nxc2J5XP.kURXVZgcE4RN1McCTb9yVL202VOOT5oUx6WkiY96SRzubpCVmloeGhYaxl3c_lLp.XIkUQWUCQWjriFyW4nqSjK3YocQ; HttpOnly; SameSite=None; Secure; Path=/; Domain=monday.com; Expires=Fri, 22 May 2026 06:15:50 GMT, _cfuvid=4HMjp3KZP5f8qwPfdttVYLrmnOTmnzF8M6f5eLdpIno-1779428749.267581-1.0.1.1-k4N.pIs1vlHYisBjHzsCV9MeFJdgqfmeDanHDGZKOVs; HttpOnly; SameSite=None; Secure; Path=/; Domain=monday.com",
+          "cf-cache-status": "DYNAMIC",
+          "cf-ray": "9ff98452e96f61c8-PDX"
+        },
+        "hash": "d1532fd779e72c717e50abce2872ed8d780a3385",
+        "request": {
+          "data": {
+            "query": "\n            query($ids: [ID!]) {\n                items(ids: $ids) {\n                    subitems {\n                        id\n                        name\n                        board {\n                            id\n                        }\n                        column_values {\n                            id\n                            text\n                        }\n                    }\n                }\n            }\n        ",
+            "variables": {
+              "ids": [
+                "2933602562"
+              ]
+            }
+          }
+        }
+      }
+    }
+  }
+}

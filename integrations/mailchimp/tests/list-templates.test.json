@@ -1,0 +1,647 @@
+{
+  "input": {},
+  "output": {
+    "items": [
+      {
+        "id": 10003418,
+        "type": "user",
+        "name": "Updated Test Template from Nango",
+        "drag_and_drop": false,
+        "responsive": false,
+        "category": "",
+        "date_created": "2026-05-21T19:09:13+00:00",
+        "date_edited": "2026-05-21T19:09:14+00:00",
+        "created_by": "Nango Developer",
+        "edited_by": "Nango Developer",
+        "active": true,
+        "thumbnail": "https://mcusercontent.com/d8ba0a687ccbd9857e68a507c/template-screens/00be506b41c57e42bf2e5bd3b3e40afe_10003418_screen.png",
+        "share_url": "",
+        "content_type": "html"
+      },
+      {
+        "id": 10003417,
+        "type": "user",
+        "name": "Test Template from Nango",
+        "drag_and_drop": false,
+        "responsive": false,
+        "category": "",
+        "date_created": "2026-05-21T19:09:02+00:00",
+        "date_edited": "2026-05-21T19:09:02+00:00",
+        "created_by": "Nango Developer",
+        "edited_by": "Nango Developer",
+        "active": true,
+        "thumbnail": "https://mcusercontent.com/d8ba0a687ccbd9857e68a507c/template-screens/00be506b41c57e42bf2e5bd3b3e40afe_10003417_screen.png",
+        "share_url": "",
+        "content_type": "html"
+      },
+      {
+        "id": 607,
+        "type": "base",
+        "name": "Low Stock",
+        "drag_and_drop": false,
+        "responsive": true,
+        "category": "",
+        "date_created": "2024-08-13T15:39:03+00:00",
+        "date_edited": "",
+        "created_by": "",
+        "edited_by": "",
+        "active": true,
+        "thumbnail": "https://digitalasset.intuit.com/render/content/dam/intuit/mc-fe/en_us/images/low-stock-template.png",
+        "share_url": "",
+        "content_type": "template"
+      },
+      {
+        "id": 608,
+        "type": "base",
+        "name": "Back In Stock",
+        "drag_and_drop": false,
+        "responsive": true,
+        "category": "",
+        "date_created": "2024-08-13T15:39:03+00:00",
+        "date_edited": "",
+        "created_by": "",
+        "edited_by": "",
+        "active": true,
+        "thumbnail": "https://digitalasset.intuit.com/render/content/dam/intuit/mc-fe/en_us/images/low-stock-template.png",
+        "share_url": "",
+        "content_type": "template"
+      },
+      {
+        "id": 609,
+        "type": "base",
+        "name": "Price Drop",
+        "drag_and_drop": false,
+        "responsive": true,
+        "category": "",
+        "date_created": "2024-08-13T15:39:03+00:00",
+        "date_edited": "",
+        "created_by": "",
+        "edited_by": "",
+        "active": true,
+        "thumbnail": "https://digitalasset.intuit.com/render/content/dam/intuit/mc-fe/en_us/images/low-stock-template.png",
+        "share_url": "",
+        "content_type": "template"
+      },
+      {
+        "id": 606,
+        "type": "base",
+        "name": "Order Delivered",
+        "drag_and_drop": true,
+        "responsive": true,
+        "category": "",
+        "date_created": "2024-04-15T17:09:04+00:00",
+        "date_edited": "",
+        "created_by": "",
+        "edited_by": "",
+        "active": true,
+        "thumbnail": "https://digitalasset.intuit.com/render/content/dam/intuit/mc-fe/en_us/images/tx-order-delivered.png",
+        "share_url": "",
+        "content_type": "template"
+      },
+      {
+        "id": 2000118,
+        "type": "gallery",
+        "name": "Eventbrite Ticket Launch",
+        "drag_and_drop": true,
+        "responsive": true,
+        "category": "Integrations",
+        "date_created": "2019-07-23T20:09:05+00:00",
+        "date_edited": "",
+        "created_by": "",
+        "edited_by": "",
+        "active": true,
+        "thumbnail": "https://cdn-images.mailchimp.com/template_screenshots/Eventbrite_Template_1+Ticket+Launch.png",
+        "share_url": "",
+        "content_type": "template"
+      },
+      {
+        "id": 2000119,
+        "type": "gallery",
+        "name": "Eventbrite Pre Event Announcement",
+        "drag_and_drop": true,
+        "responsive": true,
+        "category": "Integrations",
+        "date_created": "2019-07-23T20:09:05+00:00",
+        "date_edited": "",
+        "created_by": "",
+        "edited_by": "",
+        "active": true,
+        "thumbnail": "https://cdn-images.mailchimp.com/template_screenshots/Eventbrite_Template_2+Pre-event+Announcement.png",
+        "share_url": "",
+        "content_type": "template"
+      },
+      {
+        "id": 2000120,
+        "type": "gallery",
+        "name": "Eventbrite Urgency Driven Email",
+        "drag_and_drop": true,
+        "responsive": true,
+        "category": "Integrations",
+        "date_created": "2019-07-23T20:09:05+00:00",
+        "date_edited": "",
+        "created_by": "",
+        "edited_by": "",
+        "active": true,
+        "thumbnail": "https://cdn-images.mailchimp.com/template_screenshots/Eventbrite_Template_3+Urgency+Driven+Email.png",
+        "share_url": "",
+        "content_type": "template"
+      },
+      {
+        "id": 2000121,
+        "type": "gallery",
+        "name": "Eventbrite Targeted Email to Drive VIP Sales",
+        "drag_and_drop": true,
+        "responsive": true,
+        "category": "Integrations",
+        "date_created": "2019-07-23T20:09:05+00:00",
+        "date_edited": "",
+        "created_by": "",
+        "edited_by": "",
+        "active": true,
+        "thumbnail": "https://cdn-images.mailchimp.com/template_screenshots/Eventbrite_Template_4+Targeted+Email+to+Drive+VIP+Sales.png",
+        "share_url": "",
+        "content_type": "template"
+      }
+    ],
+    "next_cursor": "10"
+  },
+  "nango": {},
+  "api": {
+    "get": {
+      "/3.0/templates": {
+        "response": {
+          "templates": [
+            {
+              "id": 10003418,
+              "type": "user",
+              "name": "Updated Test Template from Nango",
+              "drag_and_drop": false,
+              "responsive": false,
+              "category": "",
+              "date_created": "2026-05-21T19:09:13+00:00",
+              "date_edited": "2026-05-21T19:09:14+00:00",
+              "created_by": "Nango Developer",
+              "edited_by": "Nango Developer",
+              "active": true,
+              "thumbnail": "https://mcusercontent.com/d8ba0a687ccbd9857e68a507c/template-screens/00be506b41c57e42bf2e5bd3b3e40afe_10003418_screen.png",
+              "share_url": "",
+              "content_type": "html",
+              "_links": [
+                {
+                  "rel": "self",
+                  "href": "https://us3.api.mailchimp.com/3.0/templates/10003418",
+                  "method": "GET",
+                  "targetSchema": "https://us3.api.mailchimp.com/schema/3.0/Definitions/Templates/Response.json"
+                },
+                {
+                  "rel": "parent",
+                  "href": "https://us3.api.mailchimp.com/3.0/templates",
+                  "method": "GET",
+                  "targetSchema": "https://us3.api.mailchimp.com/schema/3.0/Definitions/Templates/CollectionResponse.json",
+                  "schema": "https://us3.api.mailchimp.com/schema/3.0/Paths/Templates/Collection.json"
+                },
+                {
+                  "rel": "delete",
+                  "href": "https://us3.api.mailchimp.com/3.0/templates/10003418",
+                  "method": "DELETE"
+                },
+                {
+                  "rel": "default-content",
+                  "href": "https://us3.api.mailchimp.com/3.0/templates/10003418/default-content",
+                  "method": "GET",
+                  "targetSchema": "https://us3.api.mailchimp.com/schema/3.0/Definitions/Templates/Default-Content/Response.json",
+                  "schema": "https://us3.api.mailchimp.com/schema/3.0/Paths/Templates/Collection.json"
+                }
+              ]
+            },
+            {
+              "id": 10003417,
+              "type": "user",
+              "name": "Test Template from Nango",
+              "drag_and_drop": false,
+              "responsive": false,
+              "category": "",
+              "date_created": "2026-05-21T19:09:02+00:00",
+              "date_edited": "2026-05-21T19:09:02+00:00",
+              "created_by": "Nango Developer",
+              "edited_by": "Nango Developer",
+              "active": true,
+              "thumbnail": "https://mcusercontent.com/d8ba0a687ccbd9857e68a507c/template-screens/00be506b41c57e42bf2e5bd3b3e40afe_10003417_screen.png",
+              "share_url": "",
+              "content_type": "html",
+              "_links": [
+                {
+                  "rel": "self",
+                  "href": "https://us3.api.mailchimp.com/3.0/templates/10003417",
+                  "method": "GET",
+                  "targetSchema": "https://us3.api.mailchimp.com/schema/3.0/Definitions/Templates/Response.json"
+                },
+                {
+                  "rel": "parent",
+                  "href": "https://us3.api.mailchimp.com/3.0/templates",
+                  "method": "GET",
+                  "targetSchema": "https://us3.api.mailchimp.com/schema/3.0/Definitions/Templates/CollectionResponse.json",
+                  "schema": "https://us3.api.mailchimp.com/schema/3.0/Paths/Templates/Collection.json"
+                },
+                {
+                  "rel": "delete",
+                  "href": "https://us3.api.mailchimp.com/3.0/templates/10003417",
+                  "method": "DELETE"
+                },
+                {
+                  "rel": "default-content",
+                  "href": "https://us3.api.mailchimp.com/3.0/templates/10003417/default-content",
+                  "method": "GET",
+                  "targetSchema": "https://us3.api.mailchimp.com/schema/3.0/Definitions/Templates/Default-Content/Response.json",
+                  "schema": "https://us3.api.mailchimp.com/schema/3.0/Paths/Templates/Collection.json"
+                }
+              ]
+            },
+            {
+              "id": 607,
+              "type": "base",
+              "name": "Low Stock",
+              "drag_and_drop": false,
+              "responsive": true,
+              "category": "",
+              "date_created": "2024-08-13T15:39:03+00:00",
+              "date_edited": "",
+              "created_by": "",
+              "edited_by": "",
+              "active": true,
+              "thumbnail": "https://digitalasset.intuit.com/render/content/dam/intuit/mc-fe/en_us/images/low-stock-template.png",
+              "share_url": "",
+              "content_type": "template",
+              "_links": [
+                {
+                  "rel": "self",
+                  "href": "https://us3.api.mailchimp.com/3.0/templates/607",
+                  "method": "GET",
+                  "targetSchema": "https://us3.api.mailchimp.com/schema/3.0/Definitions/Templates/Response.json"
+                },
+                {
+                  "rel": "parent",
+                  "href": "https://us3.api.mailchimp.com/3.0/templates",
+                  "method": "GET",
+                  "targetSchema": "https://us3.api.mailchimp.com/schema/3.0/Definitions/Templates/CollectionResponse.json",
+                  "schema": "https://us3.api.mailchimp.com/schema/3.0/Paths/Templates/Collection.json"
+                },
+                {
+                  "rel": "delete",
+                  "href": "https://us3.api.mailchimp.com/3.0/templates/607",
+                  "method": "DELETE"
+                },
+                {
+                  "rel": "default-content",
+                  "href": "https://us3.api.mailchimp.com/3.0/templates/607/default-content",
+                  "method": "GET",
+                  "targetSchema": "https://us3.api.mailchimp.com/schema/3.0/Definitions/Templates/Default-Content/Response.json",
+                  "schema": "https://us3.api.mailchimp.com/schema/3.0/Paths/Templates/Collection.json"
+                }
+              ]
+            },
+            {
+              "id": 608,
+              "type": "base",
+              "name": "Back In Stock",
+              "drag_and_drop": false,
+              "responsive": true,
+              "category": "",
+              "date_created": "2024-08-13T15:39:03+00:00",
+              "date_edited": "",
+              "created_by": "",
+              "edited_by": "",
+              "active": true,
+              "thumbnail": "https://digitalasset.intuit.com/render/content/dam/intuit/mc-fe/en_us/images/low-stock-template.png",
+              "share_url": "",
+              "content_type": "template",
+              "_links": [
+                {
+                  "rel": "self",
+                  "href": "https://us3.api.mailchimp.com/3.0/templates/608",
+                  "method": "GET",
+                  "targetSchema": "https://us3.api.mailchimp.com/schema/3.0/Definitions/Templates/Response.json"
+                },
+                {
+                  "rel": "parent",
+                  "href": "https://us3.api.mailchimp.com/3.0/templates",
+                  "method": "GET",
+                  "targetSchema": "https://us3.api.mailchimp.com/schema/3.0/Definitions/Templates/CollectionResponse.json",
+                  "schema": "https://us3.api.mailchimp.com/schema/3.0/Paths/Templates/Collection.json"
+                },
+                {
+                  "rel": "delete",
+                  "href": "https://us3.api.mailchimp.com/3.0/templates/608",
+                  "method": "DELETE"
+                },
+                {
+                  "rel": "default-content",
+                  "href": "https://us3.api.mailchimp.com/3.0/templates/608/default-content",
+                  "method": "GET",
+                  "targetSchema": "https://us3.api.mailchimp.com/schema/3.0/Definitions/Templates/Default-Content/Response.json",
+                  "schema": "https://us3.api.mailchimp.com/schema/3.0/Paths/Templates/Collection.json"
+                }
+              ]
+            },
+            {
+              "id": 609,
+              "type": "base",
+              "name": "Price Drop",
+              "drag_and_drop": false,
+              "responsive": true,
+              "category": "",
+              "date_created": "2024-08-13T15:39:03+00:00",
+              "date_edited": "",
+              "created_by": "",
+              "edited_by": "",
+              "active": true,
+              "thumbnail": "https://digitalasset.intuit.com/render/content/dam/intuit/mc-fe/en_us/images/low-stock-template.png",
+              "share_url": "",
+              "content_type": "template",
+              "_links": [
+                {
+                  "rel": "self",
+                  "href": "https://us3.api.mailchimp.com/3.0/templates/609",
+                  "method": "GET",
+                  "targetSchema": "https://us3.api.mailchimp.com/schema/3.0/Definitions/Templates/Response.json"
+                },
+                {
+                  "rel": "parent",
+                  "href": "https://us3.api.mailchimp.com/3.0/templates",
+                  "method": "GET",
+                  "targetSchema": "https://us3.api.mailchimp.com/schema/3.0/Definitions/Templates/CollectionResponse.json",
+                  "schema": "https://us3.api.mailchimp.com/schema/3.0/Paths/Templates/Collection.json"
+                },
+                {
+                  "rel": "delete",
+                  "href": "https://us3.api.mailchimp.com/3.0/templates/609",
+                  "method": "DELETE"
+                },
+                {
+                  "rel": "default-content",
+                  "href": "https://us3.api.mailchimp.com/3.0/templates/609/default-content",
+                  "method": "GET",
+                  "targetSchema": "https://us3.api.mailchimp.com/schema/3.0/Definitions/Templates/Default-Content/Response.json",
+                  "schema": "https://us3.api.mailchimp.com/schema/3.0/Paths/Templates/Collection.json"
+                }
+              ]
+            },
+            {
+              "id": 606,
+              "type": "base",
+              "name": "Order Delivered",
+              "drag_and_drop": true,
+              "responsive": true,
+              "category": "",
+              "date_created": "2024-04-15T17:09:04+00:00",
+              "date_edited": "",
+              "created_by": "",
+              "edited_by": "",
+              "active": true,
+              "thumbnail": "https://digitalasset.intuit.com/render/content/dam/intuit/mc-fe/en_us/images/tx-order-delivered.png",
+              "share_url": "",
+              "content_type": "template",
+              "_links": [
+                {
+                  "rel": "self",
+                  "href": "https://us3.api.mailchimp.com/3.0/templates/606",
+                  "method": "GET",
+                  "targetSchema": "https://us3.api.mailchimp.com/schema/3.0/Definitions/Templates/Response.json"
+                },
+                {
+                  "rel": "parent",
+                  "href": "https://us3.api.mailchimp.com/3.0/templates",
+                  "method": "GET",
+                  "targetSchema": "https://us3.api.mailchimp.com/schema/3.0/Definitions/Templates/CollectionResponse.json",
+                  "schema": "https://us3.api.mailchimp.com/schema/3.0/Paths/Templates/Collection.json"
+                },
+                {
+                  "rel": "delete",
+                  "href": "https://us3.api.mailchimp.com/3.0/templates/606",
+                  "method": "DELETE"
+                },
+                {
+                  "rel": "default-content",
+                  "href": "https://us3.api.mailchimp.com/3.0/templates/606/default-content",
+                  "method": "GET",
+                  "targetSchema": "https://us3.api.mailchimp.com/schema/3.0/Definitions/Templates/Default-Content/Response.json",
+                  "schema": "https://us3.api.mailchimp.com/schema/3.0/Paths/Templates/Collection.json"
+                }
+              ]
+            },
+            {
+              "id": 2000118,
+              "type": "gallery",
+              "name": "Eventbrite Ticket Launch",
+              "drag_and_drop": true,
+              "responsive": true,
+              "category": "Integrations",
+              "date_created": "2019-07-23T20:09:05+00:00",
+              "date_edited": "",
+              "created_by": "",
+              "edited_by": "",
+              "active": true,
+              "thumbnail": "https://cdn-images.mailchimp.com/template_screenshots/Eventbrite_Template_1+Ticket+Launch.png",
+              "share_url": "",
+              "content_type": "template",
+              "_links": [
+                {
+                  "rel": "self",
+                  "href": "https://us3.api.mailchimp.com/3.0/templates/2000118",
+                  "method": "GET",
+                  "targetSchema": "https://us3.api.mailchimp.com/schema/3.0/Definitions/Templates/Response.json"
+                },
+                {
+                  "rel": "parent",
+                  "href": "https://us3.api.mailchimp.com/3.0/templates",
+                  "method": "GET",
+                  "targetSchema": "https://us3.api.mailchimp.com/schema/3.0/Definitions/Templates/CollectionResponse.json",
+                  "schema": "https://us3.api.mailchimp.com/schema/3.0/Paths/Templates/Collection.json"
+                },
+                {
+                  "rel": "delete",
+                  "href": "https://us3.api.mailchimp.com/3.0/templates/2000118",
+                  "method": "DELETE"
+                },
+                {
+                  "rel": "default-content",
+                  "href": "https://us3.api.mailchimp.com/3.0/templates/2000118/default-content",
+                  "method": "GET",
+                  "targetSchema": "https://us3.api.mailchimp.com/schema/3.0/Definitions/Templates/Default-Content/Response.json",
+                  "schema": "https://us3.api.mailchimp.com/schema/3.0/Paths/Templates/Collection.json"
+                }
+              ]
+            },
+            {
+              "id": 2000119,
+              "type": "gallery",
+              "name": "Eventbrite Pre Event Announcement",
+              "drag_and_drop": true,
+              "responsive": true,
+              "category": "Integrations",
+              "date_created": "2019-07-23T20:09:05+00:00",
+              "date_edited": "",
+              "created_by": "",
+              "edited_by": "",
+              "active": true,
+              "thumbnail": "https://cdn-images.mailchimp.com/template_screenshots/Eventbrite_Template_2+Pre-event+Announcement.png",
+              "share_url": "",
+              "content_type": "template",
+              "_links": [
+                {
+                  "rel": "self",
+                  "href": "https://us3.api.mailchimp.com/3.0/templates/2000119",
+                  "method": "GET",
+                  "targetSchema": "https://us3.api.mailchimp.com/schema/3.0/Definitions/Templates/Response.json"
+                },
+                {
+                  "rel": "parent",
+                  "href": "https://us3.api.mailchimp.com/3.0/templates",
+                  "method": "GET",
+                  "targetSchema": "https://us3.api.mailchimp.com/schema/3.0/Definitions/Templates/CollectionResponse.json",
+                  "schema": "https://us3.api.mailchimp.com/schema/3.0/Paths/Templates/Collection.json"
+                },
+                {
+                  "rel": "delete",
+                  "href": "https://us3.api.mailchimp.com/3.0/templates/2000119",
+                  "method": "DELETE"
+                },
+                {
+                  "rel": "default-content",
+                  "href": "https://us3.api.mailchimp.com/3.0/templates/2000119/default-content",
+                  "method": "GET",
+                  "targetSchema": "https://us3.api.mailchimp.com/schema/3.0/Definitions/Templates/Default-Content/Response.json",
+                  "schema": "https://us3.api.mailchimp.com/schema/3.0/Paths/Templates/Collection.json"
+                }
+              ]
+            },
+            {
+              "id": 2000120,
+              "type": "gallery",
+              "name": "Eventbrite Urgency Driven Email",
+              "drag_and_drop": true,
+              "responsive": true,
+              "category": "Integrations",
+              "date_created": "2019-07-23T20:09:05+00:00",
+              "date_edited": "",
+              "created_by": "",
+              "edited_by": "",
+              "active": true,
+              "thumbnail": "https://cdn-images.mailchimp.com/template_screenshots/Eventbrite_Template_3+Urgency+Driven+Email.png",
+              "share_url": "",
+              "content_type": "template",
+              "_links": [
+                {
+                  "rel": "self",
+                  "href": "https://us3.api.mailchimp.com/3.0/templates/2000120",
+                  "method": "GET",
+                  "targetSchema": "https://us3.api.mailchimp.com/schema/3.0/Definitions/Templates/Response.json"
+                },
+                {
+                  "rel": "parent",
+                  "href": "https://us3.api.mailchimp.com/3.0/templates",
+                  "method": "GET",
+                  "targetSchema": "https://us3.api.mailchimp.com/schema/3.0/Definitions/Templates/CollectionResponse.json",
+                  "schema": "https://us3.api.mailchimp.com/schema/3.0/Paths/Templates/Collection.json"
+                },
+                {
+                  "rel": "delete",
+                  "href": "https://us3.api.mailchimp.com/3.0/templates/2000120",
+                  "method": "DELETE"
+                },
+                {
+                  "rel": "default-content",
+                  "href": "https://us3.api.mailchimp.com/3.0/templates/2000120/default-content",
+                  "method": "GET",
+                  "targetSchema": "https://us3.api.mailchimp.com/schema/3.0/Definitions/Templates/Default-Content/Response.json",
+                  "schema": "https://us3.api.mailchimp.com/schema/3.0/Paths/Templates/Collection.json"
+                }
+              ]
+            },
+            {
+              "id": 2000121,
+              "type": "gallery",
+              "name": "Eventbrite Targeted Email to Drive VIP Sales",
+              "drag_and_drop": true,
+              "responsive": true,
+              "category": "Integrations",
+              "date_created": "2019-07-23T20:09:05+00:00",
+              "date_edited": "",
+              "created_by": "",
+              "edited_by": "",
+              "active": true,
+              "thumbnail": "https://cdn-images.mailchimp.com/template_screenshots/Eventbrite_Template_4+Targeted+Email+to+Drive+VIP+Sales.png",
+              "share_url": "",
+              "content_type": "template",
+              "_links": [
+                {
+                  "rel": "self",
+                  "href": "https://us3.api.mailchimp.com/3.0/templates/2000121",
+                  "method": "GET",
+                  "targetSchema": "https://us3.api.mailchimp.com/schema/3.0/Definitions/Templates/Response.json"
+                },
+                {
+                  "rel": "parent",
+                  "href": "https://us3.api.mailchimp.com/3.0/templates",
+                  "method": "GET",
+                  "targetSchema": "https://us3.api.mailchimp.com/schema/3.0/Definitions/Templates/CollectionResponse.json",
+                  "schema": "https://us3.api.mailchimp.com/schema/3.0/Paths/Templates/Collection.json"
+                },
+                {
+                  "rel": "delete",
+                  "href": "https://us3.api.mailchimp.com/3.0/templates/2000121",
+                  "method": "DELETE"
+                },
+                {
+                  "rel": "default-content",
+                  "href": "https://us3.api.mailchimp.com/3.0/templates/2000121/default-content",
+                  "method": "GET",
+                  "targetSchema": "https://us3.api.mailchimp.com/schema/3.0/Definitions/Templates/Default-Content/Response.json",
+                  "schema": "https://us3.api.mailchimp.com/schema/3.0/Paths/Templates/Collection.json"
+                }
+              ]
+            }
+          ],
+          "total_items": 121,
+          "_links": [
+            {
+              "rel": "self",
+              "href": "https://us3.api.mailchimp.com/3.0/templates",
+              "method": "GET",
+              "targetSchema": "https://us3.api.mailchimp.com/schema/3.0/Definitions/Templates/CollectionResponse.json",
+              "schema": "https://us3.api.mailchimp.com/schema/3.0/Paths/Templates/Collection.json"
+            }
+          ]
+        },
+        "status": 200,
+        "headers": {
+          "date": "Thu, 21 May 2026 20:31:07 GMT",
+          "content-type": "application/json; charset=utf-8",
+          "content-length": "13009",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=5184000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4972",
+          "x-ratelimit-reset": "1779395470",
+          "x-request-id": "1-6a0f6b8b-64dc19690f7742ed10c2b565",
+          "etag": "W/\"32d1-kE8OFUsVRSSLHeeWaNCgxmp+q+A\""
+        },
+        "hash": "1769345d8e233622e1fa713688f53c0af0552672",
+        "request": {
+          "params": {
+            "count": "10",
+            "offset": "0"
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,130 @@
+{
+  "input": {},
+  "output": {
+    "teams": [
+      {
+        "id": "13240071",
+        "name": "TestTeam",
+        "picture_url": "https://cdn.monday.com/images/dapulse_team_default.png",
+        "owners": [
+          {
+            "id": "104094154",
+            "name": "Nango Developer"
+          }
+        ],
+        "users": [
+          {
+            "id": "104094154",
+            "name": "Nango Developer"
+          }
+        ]
+      },
+      {
+        "id": "13240072",
+        "name": "Team@2",
+        "picture_url": "https://cdn.monday.com/images/dapulse_team_default.png",
+        "owners": [
+          {
+            "id": "104094154",
+            "name": "Nango Developer"
+          }
+        ],
+        "users": [
+          {
+            "id": "104094154",
+            "name": "Nango Developer"
+          }
+        ]
+      }
+    ]
+  },
+  "nango": {},
+  "api": {
+    "post": {
+      "/v2": {
+        "response": {
+          "data": {
+            "teams": [
+              {
+                "id": "13240071",
+                "name": "TestTeam",
+                "picture_url": "https://cdn.monday.com/images/dapulse_team_default.png",
+                "owners": [
+                  {
+                    "id": "104094154",
+                    "name": "Nango Developer"
+                  }
+                ],
+                "users": [
+                  {
+                    "id": "104094154",
+                    "name": "Nango Developer"
+                  }
+                ]
+              },
+              {
+                "id": "13240072",
+                "name": "Team@2",
+                "picture_url": "https://cdn.monday.com/images/dapulse_team_default.png",
+                "owners": [
+                  {
+                    "id": "104094154",
+                    "name": "Nango Developer"
+                  }
+                ],
+                "users": [
+                  {
+                    "id": "104094154",
+                    "name": "Nango Developer"
+                  }
+                ]
+              }
+            ]
+          },
+          "extensions": {
+            "request_id": "0d7fe535-4d42-9732-9564-ff0fb650d781"
+          }
+        },
+        "status": 200,
+        "headers": {
+          "date": "Fri, 22 May 2026 05:49:34 GMT",
+          "content-type": "application/json",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=31536000; includeSubDomains",
+          "content-security-policy-report-only": "frame-ancestors https://*.monday.com; script-src 'self'; worker-src 'self'; connect-src 'self'; report-uri https://o916138.ingest.us.sentry.io/api/4507803872198656/security/?sentry_key=8e1fb7e952d4abfd146752c94791f51a&sentry_environment=production;",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4963",
+          "x-ratelimit-reset": "1779428989",
+          "api-version": "2026-04",
+          "vary": "origin, Accept-Encoding",
+          "x-api-gateway": "true",
+          "x-api-router": "true",
+          "x-request-id": "0d7fe535-4d42-9732-9564-ff0fb650d781",
+          "x-envoy-upstream-service-time": "617",
+          "content-security-policy": ";",
+          "x-monday-rgn": "euc1, use1",
+          "server": "cloudflare",
+          "x-routed-from": "use1",
+          "x-routed-to": "euc1",
+          "set-cookie": "__cf_bm=4dn.aSamv.VipO1WNdqa307uIh6PDjnj8k2Bhk_iE6I-1779428973.780102-1.0.1.1-2nRinLgsA3uJDwWM8_xvB3n7FG8H2LA33hfAWwIlNUpGZktEsVQr3FRzX7R4cGgsZQ9cNkhOlS9HaqV9kfxaLDZ3HP9bMG3S_PtfXlGRXNVkGUj_JrY2HdC5K_2_1M_zQxIXNiqWY6Mu1dPegumiTw; HttpOnly; SameSite=None; Secure; Path=/; Domain=monday.com; Expires=Fri, 22 May 2026 06:19:34 GMT, _cfuvid=54WWRSMOku4cn3nqhoO32aWdNUdf57WRiCxowxkpB3w-1779428973.780102-1.0.1.1-R0A9SO6mpW8wcLOqPRAMD5fiPssAnaFB00bSLt2uBvY; HttpOnly; SameSite=None; Secure; Path=/; Domain=monday.com",
+          "cf-cache-status": "DYNAMIC",
+          "cf-ray": "9ff989ce1ad13416-PDX"
+        },
+        "hash": "de667b083f8d3748afc8a6d4d2c3f36ff98c4219",
+        "request": {
+          "data": {
+            "query": "\n            query {\n                teams {\n                    id\n                    name\n                    picture_url\n                    owners {\n                        id\n                        name\n                    }\n                    users {\n                        id\n                        name\n                    }\n                }\n            }\n        "
+          }
+        }
+      }
+    }
+  }
+}

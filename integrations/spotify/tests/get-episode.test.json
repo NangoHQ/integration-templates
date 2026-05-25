@@ -1,0 +1,160 @@
+{
+  "input": {
+    "id": "0AYabmryUy29iVTvK45dLw"
+  },
+  "output": {
+    "id": "0AYabmryUy29iVTvK45dLw",
+    "name": "Radiohead — “All I Need”",
+    "description": "Keep those negative thoughts to yourself! They are a parasite to those around you, and who knows that better than Thom Yorke? This week, Rob proves that Radiohead has the ability to sully the minds of even the most innocent by discussing “All I Need,” from their 2007 album, 'In Rainbows.' He breaks down the initial reaction to the pay-what-you-can release of 'In Rainbows’ and discusses why the album resonates with a new generation of Radiohead fans. Finally, he is joined by 'In Rainbows' expert Cole Cuchna from Dissect to break down the various lyrical interpretations of “All I Need” and the timeless quality of the album’s sonics.  Listen to Rob’s ’90s Radiohead episode: https://open.spotify.com/episode/7EHs9EMkYVbLrhl4KkzzSn?si=c4a63a2fee6e4a94 Listen to Dissect’s 'In Rainbows' breakdown: https://open.spotify.com/episode/3r7UlNtqVjeVEVUsOQoEsu?si=1bb40847b7e1472d  Host: Rob Harvilla Producers: Olivia Crerie, Julianna Ress, and Justin Sayles Additional Video Editing: Kevin Pooler and Chris Sutton Guest: Cole Cuchna Learn more about your ad choices. Visit podcastchoices.com/adchoices",
+    "htmlDescription": "<p>Keep those negative thoughts to yourself! They are a parasite to those around you, and who knows that better than Thom Yorke? This week, Rob proves that Radiohead has the ability to sully the minds of even the most innocent by discussing “All I Need,” from their 2007 album, &#39;In Rainbows.&#39; He breaks down the initial reaction to the pay-what-you-can release of &#39;In Rainbows’ and discusses why the album resonates with a new generation of Radiohead fans. Finally, he is joined by &#39;In Rainbows&#39; expert Cole Cuchna from Dissect to break down the various lyrical interpretations of “All I Need” and the timeless quality of the album’s sonics.</p><br/><p><br /></p><br/><p>Listen to Rob’s ’90s Radiohead episode:</p><br/><p><a href=\"https://open.spotify.com/episode/7EHs9EMkYVbLrhl4KkzzSn?si&#61;c4a63a2fee6e4a94\" rel=\"nofollow\">https://open.spotify.com/episode/7EHs9EMkYVbLrhl4KkzzSn?si&#61;c4a63a2fee6e4a94</a></p><br/><p>Listen to Dissect’s &#39;In Rainbows&#39; breakdown:</p><br/><p><a href=\"https://open.spotify.com/episode/3r7UlNtqVjeVEVUsOQoEsu?si&#61;1bb40847b7e1472d\" rel=\"nofollow\">https://open.spotify.com/episode/3r7UlNtqVjeVEVUsOQoEsu?si&#61;1bb40847b7e1472d</a></p><br/><p><br /></p><br/><p>Host: Rob Harvilla</p><br/><p>Producers: Olivia Crerie, Julianna Ress, and Justin Sayles</p><br/><p>Additional Video Editing: Kevin Pooler and Chris Sutton</p><br/><p>Guest: Cole Cuchna</p><p> </p><p>Learn more about your ad choices. Visit <a href=\"https://podcastchoices.com/adchoices\" rel=\"nofollow\">podcastchoices.com/adchoices</a></p>",
+    "durationMs": 6066410,
+    "explicit": false,
+    "href": "https://api.spotify.com/v1/episodes/0AYabmryUy29iVTvK45dLw",
+    "uri": "spotify:episode:0AYabmryUy29iVTvK45dLw",
+    "type": "episode",
+    "releaseDate": "2026-04-15",
+    "releaseDatePrecision": "day",
+    "images": [
+      {
+        "url": "https://i.scdn.co/image/ab6765630000ba8a2a5ffff0bed3988f7c5346bc",
+        "height": 640,
+        "width": 640
+      },
+      {
+        "url": "https://i.scdn.co/image/ab67656300005f1f2a5ffff0bed3988f7c5346bc",
+        "height": 300,
+        "width": 300
+      },
+      {
+        "url": "https://i.scdn.co/image/ab6765630000f68d2a5ffff0bed3988f7c5346bc",
+        "height": 64,
+        "width": 64
+      }
+    ],
+    "show": {
+      "id": "0njxeKJKFtoJhCRF1ShmL4",
+      "name": "60 Songs That Explain the '90s",
+      "href": "https://api.spotify.com/v1/shows/0njxeKJKFtoJhCRF1ShmL4",
+      "uri": "spotify:show:0njxeKJKFtoJhCRF1ShmL4"
+    },
+    "language": "en",
+    "languages": [
+      "en"
+    ],
+    "isPlayable": true
+  },
+  "nango": {},
+  "api": {
+    "get": {
+      "/v1/episodes/0AYabmryUy29iVTvK45dLw": {
+        "response": {
+          "description": "Keep those negative thoughts to yourself! They are a parasite to those around you, and who knows that better than Thom Yorke? This week, Rob proves that Radiohead has the ability to sully the minds of even the most innocent by discussing “All I Need,” from their 2007 album, 'In Rainbows.' He breaks down the initial reaction to the pay-what-you-can release of 'In Rainbows’ and discusses why the album resonates with a new generation of Radiohead fans. Finally, he is joined by 'In Rainbows' expert Cole Cuchna from Dissect to break down the various lyrical interpretations of “All I Need” and the timeless quality of the album’s sonics.  Listen to Rob’s ’90s Radiohead episode: https://open.spotify.com/episode/7EHs9EMkYVbLrhl4KkzzSn?si=c4a63a2fee6e4a94 Listen to Dissect’s 'In Rainbows' breakdown: https://open.spotify.com/episode/3r7UlNtqVjeVEVUsOQoEsu?si=1bb40847b7e1472d  Host: Rob Harvilla Producers: Olivia Crerie, Julianna Ress, and Justin Sayles Additional Video Editing: Kevin Pooler and Chris Sutton Guest: Cole Cuchna Learn more about your ad choices. Visit podcastchoices.com/adchoices",
+          "duration_ms": 6066410,
+          "explicit": false,
+          "external_urls": {
+            "spotify": "https://open.spotify.com/episode/0AYabmryUy29iVTvK45dLw"
+          },
+          "href": "https://api.spotify.com/v1/episodes/0AYabmryUy29iVTvK45dLw",
+          "html_description": "<p>Keep those negative thoughts to yourself! They are a parasite to those around you, and who knows that better than Thom Yorke? This week, Rob proves that Radiohead has the ability to sully the minds of even the most innocent by discussing “All I Need,” from their 2007 album, &#39;In Rainbows.&#39; He breaks down the initial reaction to the pay-what-you-can release of &#39;In Rainbows’ and discusses why the album resonates with a new generation of Radiohead fans. Finally, he is joined by &#39;In Rainbows&#39; expert Cole Cuchna from Dissect to break down the various lyrical interpretations of “All I Need” and the timeless quality of the album’s sonics.</p><br/><p><br /></p><br/><p>Listen to Rob’s ’90s Radiohead episode:</p><br/><p><a href=\"https://open.spotify.com/episode/7EHs9EMkYVbLrhl4KkzzSn?si&#61;c4a63a2fee6e4a94\" rel=\"nofollow\">https://open.spotify.com/episode/7EHs9EMkYVbLrhl4KkzzSn?si&#61;c4a63a2fee6e4a94</a></p><br/><p>Listen to Dissect’s &#39;In Rainbows&#39; breakdown:</p><br/><p><a href=\"https://open.spotify.com/episode/3r7UlNtqVjeVEVUsOQoEsu?si&#61;1bb40847b7e1472d\" rel=\"nofollow\">https://open.spotify.com/episode/3r7UlNtqVjeVEVUsOQoEsu?si&#61;1bb40847b7e1472d</a></p><br/><p><br /></p><br/><p>Host: Rob Harvilla</p><br/><p>Producers: Olivia Crerie, Julianna Ress, and Justin Sayles</p><br/><p>Additional Video Editing: Kevin Pooler and Chris Sutton</p><br/><p>Guest: Cole Cuchna</p><p> </p><p>Learn more about your ad choices. Visit <a href=\"https://podcastchoices.com/adchoices\" rel=\"nofollow\">podcastchoices.com/adchoices</a></p>",
+          "id": "0AYabmryUy29iVTvK45dLw",
+          "images": [
+            {
+              "height": 640,
+              "url": "https://i.scdn.co/image/ab6765630000ba8a2a5ffff0bed3988f7c5346bc",
+              "width": 640
+            },
+            {
+              "height": 300,
+              "url": "https://i.scdn.co/image/ab67656300005f1f2a5ffff0bed3988f7c5346bc",
+              "width": 300
+            },
+            {
+              "height": 64,
+              "url": "https://i.scdn.co/image/ab6765630000f68d2a5ffff0bed3988f7c5346bc",
+              "width": 64
+            }
+          ],
+          "is_externally_hosted": false,
+          "is_playable": true,
+          "language": "en",
+          "languages": [
+            "en"
+          ],
+          "name": "Radiohead — “All I Need”",
+          "release_date": "2026-04-15",
+          "release_date_precision": "day",
+          "show": {
+            "copyrights": [],
+            "description": "First came '60 Songs That Explain the '90s.' (We did that.) Then came '60 Songs That Explain the '90s: The 2000s.' (We're doing that now—and yes, that's the actual name.) But whether you want to jump back to the Clinton years or join us as we reboot our old iPods, you can find all of the collected works of Rob Harvilla below. Come back each Wednesday for a new episode.",
+            "explicit": true,
+            "external_urls": {
+              "spotify": "https://open.spotify.com/show/0njxeKJKFtoJhCRF1ShmL4"
+            },
+            "href": "https://api.spotify.com/v1/shows/0njxeKJKFtoJhCRF1ShmL4",
+            "html_description": "<p>First came &#39;60 Songs That Explain the &#39;90s.&#39; (We did that.) Then came &#39;60 Songs That Explain the &#39;90s: The 2000s.&#39; (We&#39;re doing that now—and yes, that&#39;s the actual name.) But whether you want to jump back to the Clinton years or join us as we reboot our old iPods, you can find all of the collected works of Rob Harvilla below. Come back each Wednesday for a new episode.</p>",
+            "id": "0njxeKJKFtoJhCRF1ShmL4",
+            "images": [
+              {
+                "height": 640,
+                "url": "https://i.scdn.co/image/ab6765630000ba8add526e51999c9c4b9098ab93",
+                "width": 640
+              },
+              {
+                "height": 300,
+                "url": "https://i.scdn.co/image/ab67656300005f1fdd526e51999c9c4b9098ab93",
+                "width": 300
+              },
+              {
+                "height": 64,
+                "url": "https://i.scdn.co/image/ab6765630000f68ddd526e51999c9c4b9098ab93",
+                "width": 64
+              }
+            ],
+            "is_externally_hosted": false,
+            "languages": [
+              "en"
+            ],
+            "media_type": "mixed",
+            "name": "60 Songs That Explain the '90s",
+            "total_episodes": 175,
+            "type": "show",
+            "uri": "spotify:show:0njxeKJKFtoJhCRF1ShmL4"
+          },
+          "type": "episode",
+          "uri": "spotify:episode:0AYabmryUy29iVTvK45dLw"
+        },
+        "status": 200,
+        "headers": {
+          "date": "Wed, 20 May 2026 08:38:16 GMT",
+          "content-type": "application/json; charset=utf-8",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=31536000",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4896",
+          "x-ratelimit-reset": "1779266302",
+          "cache-control": "public, max-age=0",
+          "etag": "\"MC-ImJhOTBkNWUwMjg3Yzk1YjhmNmI4MzQ2Y2U0NTIxYzFiIg==\"",
+          "x-robots-tag": "noindex, nofollow",
+          "access-control-allow-headers": "Accept, App-Platform, Authorization, Content-Type, Origin, Retry-After, Spotify-App-Version, X-Cloud-Trace-Context, client-token, content-access-token",
+          "access-control-allow-methods": "GET, POST, OPTIONS, PUT, DELETE, PATCH",
+          "access-control-allow-credentials": "true",
+          "access-control-max-age": "604800",
+          "alt-svc": "h3=\":443\"; ma=2592000,h3-29=\":443\"; ma=2592000, h3=\":443\"; ma=2592000,h3-29=\":443\"; ma=2592000",
+          "server": "envoy",
+          "via": "HTTP/2 edgeproxy, 1.1 google"
+        },
+        "hash": "de0bb76532163cfad6bfa2a277bc4218c0333d69",
+        "request": {}
+      }
+    }
+  }
+}

@@ -1,0 +1,97 @@
+{
+  "nango": {
+    "batchSave": {
+      "User": [
+        {
+          "id": "104094154",
+          "name": "Nango Developer",
+          "email": "api@nango.dev",
+          "created_at": "2026-05-21T19:31:20Z",
+          "url": "https://nango-unit.monday.com/users/104094154",
+          "photo_thumb": "https://cdn1.monday.com/dapulse_default_photo.png",
+          "phone": "",
+          "time_zone_identifier": "Africa/Nairobi",
+          "utc_hours_diff": 3
+        }
+      ]
+    },
+    "batchDelete": {
+      "User": []
+    }
+  },
+  "api": {
+    "post": {
+      "/v2": {
+        "response": {
+          "data": {
+            "users": [
+              {
+                "id": "104094154",
+                "name": "Nango Developer",
+                "email": "api@nango.dev",
+                "created_at": "2026-05-21T19:31:20Z",
+                "url": "https://nango-unit.monday.com/users/104094154",
+                "photo_thumb": "https://cdn1.monday.com/dapulse_default_photo.png",
+                "title": null,
+                "location": null,
+                "phone": "",
+                "mobile_phone": null,
+                "time_zone_identifier": "Africa/Nairobi",
+                "utc_hours_diff": 3
+              }
+            ]
+          },
+          "extensions": {
+            "request_id": "8e58fb32-6378-9507-922d-2831b6a27397"
+          }
+        },
+        "status": 200,
+        "headers": {
+          "date": "Fri, 22 May 2026 05:51:05 GMT",
+          "content-type": "application/json",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=31536000; includeSubDomains",
+          "content-security-policy-report-only": "frame-ancestors https://*.monday.com; script-src 'self'; worker-src 'self'; connect-src 'self'; report-uri https://o916138.ingest.us.sentry.io/api/4507803872198656/security/?sentry_key=8e1fb7e952d4abfd146752c94791f51a&sentry_environment=production;",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4986",
+          "x-ratelimit-reset": "1779429113",
+          "api-version": "2026-04",
+          "vary": "origin, Accept-Encoding",
+          "x-api-gateway": "true",
+          "x-api-router": "true",
+          "x-request-id": "8e58fb32-6378-9507-922d-2831b6a27397",
+          "x-envoy-upstream-service-time": "401",
+          "content-security-policy": ";",
+          "x-monday-rgn": "euc1, use1",
+          "server": "cloudflare",
+          "x-routed-from": "use1",
+          "x-routed-to": "euc1",
+          "cf-cache-status": "DYNAMIC",
+          "set-cookie": "__cf_bm=qufPbs22bKFG8PqDSNkr5mSBTz95ZXb39fJD2ZGuxGg-1779429065.4693515-1.0.1.1-cAA67n7OVHV2CdS6JKnr.U3VcR_EOcsDcTs.5erKi04M4n47W30t6ZQQH6_F0WvPNLvcJSUvI_avO36_BpJXZ94Rb6FTxlhjGHMyFqFpeAHUHsbeFcFLdt5zuG.Fd1rPHdde9R.86Vl4lP.XmMDPyw; HttpOnly; SameSite=None; Secure; Path=/; Domain=monday.com; Expires=Fri, 22 May 2026 06:21:05 GMT, _cfuvid=RorHCfAZEG64kympl49CQxPzBH5iDKDSIxj9XRW.91c-1779429065.4693515-1.0.1.1-2HW8TSnygGh31UtDs7BxnnCVwtHOabDlDwN.PUvRvIQ; HttpOnly; SameSite=None; Secure; Path=/; Domain=monday.com",
+          "cf-ray": "9ff98c0b2ca961c8-PDX"
+        },
+        "hash": "f022059e7187c4d16115a9522eac06be459b7d89",
+        "request": {
+          "headers": {
+            "api-version": "2026-04"
+          },
+          "data": {
+            "query": "query ($limit: Int, $page: Int) { users(limit: $limit, page: $page) { id name email created_at url photo_thumb title location phone mobile_phone time_zone_identifier utc_hours_diff } }",
+            "variables": {
+              "limit": 100,
+              "page": 1
+            }
+          }
+        }
+      }
+    }
+  }
+}

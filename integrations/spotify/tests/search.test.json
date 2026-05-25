@@ -1,0 +1,632 @@
+{
+  "input": {
+    "query": "Radiohead",
+    "type": [
+      "track"
+    ],
+    "limit": 5
+  },
+  "output": {
+    "query": "Radiohead",
+    "types": [
+      "track"
+    ],
+    "tracks": {
+      "items": [
+        {
+          "id": "70LcF31zb1H0PyJoS1Sx1r",
+          "name": "Creep",
+          "uri": "spotify:track:70LcF31zb1H0PyJoS1Sx1r",
+          "type": "track",
+          "explicit": true,
+          "durationMs": 238640,
+          "album": {
+            "id": "3gBVdu4a1MMJVMy6vwPEb8",
+            "name": "Pablo Honey",
+            "images": [
+              {
+                "url": "https://i.scdn.co/image/ab67616d0000b273ec548c00d3ac2f10be73366d",
+                "height": 640,
+                "width": 640
+              },
+              {
+                "url": "https://i.scdn.co/image/ab67616d00001e02ec548c00d3ac2f10be73366d",
+                "height": 300,
+                "width": 300
+              },
+              {
+                "url": "https://i.scdn.co/image/ab67616d00004851ec548c00d3ac2f10be73366d",
+                "height": 64,
+                "width": 64
+              }
+            ]
+          },
+          "artists": [
+            {
+              "id": "4Z8W4fKeB5YxbusRsdQVPb",
+              "name": "Radiohead"
+            }
+          ]
+        },
+        {
+          "id": "2fuYa3Lx06QQJAm0MjztKr",
+          "name": "Let Down",
+          "uri": "spotify:track:2fuYa3Lx06QQJAm0MjztKr",
+          "type": "track",
+          "explicit": false,
+          "durationMs": 299560,
+          "album": {
+            "id": "6dVIqQ8qmQ5GBnJ9shOYGE",
+            "name": "OK Computer",
+            "images": [
+              {
+                "url": "https://i.scdn.co/image/ab67616d0000b273c8b444df094279e70d0ed856",
+                "height": 640,
+                "width": 640
+              },
+              {
+                "url": "https://i.scdn.co/image/ab67616d00001e02c8b444df094279e70d0ed856",
+                "height": 300,
+                "width": 300
+              },
+              {
+                "url": "https://i.scdn.co/image/ab67616d00004851c8b444df094279e70d0ed856",
+                "height": 64,
+                "width": 64
+              }
+            ]
+          },
+          "artists": [
+            {
+              "id": "4Z8W4fKeB5YxbusRsdQVPb",
+              "name": "Radiohead"
+            }
+          ]
+        },
+        {
+          "id": "10nyNJ6zNy2YVYLrcwLccB",
+          "name": "No Surprises",
+          "uri": "spotify:track:10nyNJ6zNy2YVYLrcwLccB",
+          "type": "track",
+          "explicit": false,
+          "durationMs": 229120,
+          "album": {
+            "id": "6dVIqQ8qmQ5GBnJ9shOYGE",
+            "name": "OK Computer",
+            "images": [
+              {
+                "url": "https://i.scdn.co/image/ab67616d0000b273c8b444df094279e70d0ed856",
+                "height": 640,
+                "width": 640
+              },
+              {
+                "url": "https://i.scdn.co/image/ab67616d00001e02c8b444df094279e70d0ed856",
+                "height": 300,
+                "width": 300
+              },
+              {
+                "url": "https://i.scdn.co/image/ab67616d00004851c8b444df094279e70d0ed856",
+                "height": 64,
+                "width": 64
+              }
+            ]
+          },
+          "artists": [
+            {
+              "id": "4Z8W4fKeB5YxbusRsdQVPb",
+              "name": "Radiohead"
+            }
+          ]
+        },
+        {
+          "id": "5Qv2Nby1xTr9pQyjkrc94J",
+          "name": "All I Need",
+          "uri": "spotify:track:5Qv2Nby1xTr9pQyjkrc94J",
+          "type": "track",
+          "explicit": false,
+          "durationMs": 228746,
+          "album": {
+            "id": "5vkqYmiPBYLaalcmjujWxK",
+            "name": "In Rainbows",
+            "images": [
+              {
+                "url": "https://i.scdn.co/image/ab67616d0000b273de3c04b5fc750b68899b20a9",
+                "height": 640,
+                "width": 640
+              },
+              {
+                "url": "https://i.scdn.co/image/ab67616d00001e02de3c04b5fc750b68899b20a9",
+                "height": 300,
+                "width": 300
+              },
+              {
+                "url": "https://i.scdn.co/image/ab67616d00004851de3c04b5fc750b68899b20a9",
+                "height": 64,
+                "width": 64
+              }
+            ]
+          },
+          "artists": [
+            {
+              "id": "4Z8W4fKeB5YxbusRsdQVPb",
+              "name": "Radiohead"
+            }
+          ]
+        },
+        {
+          "id": "0z1o5L7HJx562xZSATcIpY",
+          "name": "Exit Music (For A Film)",
+          "uri": "spotify:track:0z1o5L7HJx562xZSATcIpY",
+          "type": "track",
+          "explicit": false,
+          "durationMs": 267186,
+          "album": {
+            "id": "6dVIqQ8qmQ5GBnJ9shOYGE",
+            "name": "OK Computer",
+            "images": [
+              {
+                "url": "https://i.scdn.co/image/ab67616d0000b273c8b444df094279e70d0ed856",
+                "height": 640,
+                "width": 640
+              },
+              {
+                "url": "https://i.scdn.co/image/ab67616d00001e02c8b444df094279e70d0ed856",
+                "height": 300,
+                "width": 300
+              },
+              {
+                "url": "https://i.scdn.co/image/ab67616d00004851c8b444df094279e70d0ed856",
+                "height": 64,
+                "width": 64
+              }
+            ]
+          },
+          "artists": [
+            {
+              "id": "4Z8W4fKeB5YxbusRsdQVPb",
+              "name": "Radiohead"
+            }
+          ]
+        }
+      ],
+      "paging": {
+        "total": 7,
+        "offset": 0,
+        "limit": 5,
+        "nextOffset": 5,
+        "hasMore": true
+      }
+    }
+  },
+  "nango": {},
+  "api": {
+    "get": {
+      "/v1/search": {
+        "response": {
+          "tracks": {
+            "href": "https://api.spotify.com/v1/search?offset=0&limit=5&query=Radiohead&type=track",
+            "limit": 5,
+            "next": "https://api.spotify.com/v1/search?offset=5&limit=5&query=Radiohead&type=track",
+            "offset": 0,
+            "previous": null,
+            "total": 7,
+            "items": [
+              {
+                "album": {
+                  "album_type": "album",
+                  "artists": [
+                    {
+                      "external_urls": {
+                        "spotify": "https://open.spotify.com/artist/4Z8W4fKeB5YxbusRsdQVPb"
+                      },
+                      "href": "https://api.spotify.com/v1/artists/4Z8W4fKeB5YxbusRsdQVPb",
+                      "id": "4Z8W4fKeB5YxbusRsdQVPb",
+                      "name": "Radiohead",
+                      "type": "artist",
+                      "uri": "spotify:artist:4Z8W4fKeB5YxbusRsdQVPb"
+                    }
+                  ],
+                  "external_urls": {
+                    "spotify": "https://open.spotify.com/album/3gBVdu4a1MMJVMy6vwPEb8"
+                  },
+                  "href": "https://api.spotify.com/v1/albums/3gBVdu4a1MMJVMy6vwPEb8",
+                  "id": "3gBVdu4a1MMJVMy6vwPEb8",
+                  "images": [
+                    {
+                      "height": 640,
+                      "width": 640,
+                      "url": "https://i.scdn.co/image/ab67616d0000b273ec548c00d3ac2f10be73366d"
+                    },
+                    {
+                      "height": 300,
+                      "width": 300,
+                      "url": "https://i.scdn.co/image/ab67616d00001e02ec548c00d3ac2f10be73366d"
+                    },
+                    {
+                      "height": 64,
+                      "width": 64,
+                      "url": "https://i.scdn.co/image/ab67616d00004851ec548c00d3ac2f10be73366d"
+                    }
+                  ],
+                  "is_playable": true,
+                  "name": "Pablo Honey",
+                  "release_date": "1993-02-22",
+                  "release_date_precision": "day",
+                  "total_tracks": 12,
+                  "type": "album",
+                  "uri": "spotify:album:3gBVdu4a1MMJVMy6vwPEb8"
+                },
+                "artists": [
+                  {
+                    "external_urls": {
+                      "spotify": "https://open.spotify.com/artist/4Z8W4fKeB5YxbusRsdQVPb"
+                    },
+                    "href": "https://api.spotify.com/v1/artists/4Z8W4fKeB5YxbusRsdQVPb",
+                    "id": "4Z8W4fKeB5YxbusRsdQVPb",
+                    "name": "Radiohead",
+                    "type": "artist",
+                    "uri": "spotify:artist:4Z8W4fKeB5YxbusRsdQVPb"
+                  }
+                ],
+                "disc_number": 1,
+                "duration_ms": 238640,
+                "explicit": true,
+                "external_ids": {
+                  "isrc": "GBAYE9200070"
+                },
+                "external_urls": {
+                  "spotify": "https://open.spotify.com/track/70LcF31zb1H0PyJoS1Sx1r"
+                },
+                "href": "https://api.spotify.com/v1/tracks/70LcF31zb1H0PyJoS1Sx1r",
+                "id": "70LcF31zb1H0PyJoS1Sx1r",
+                "is_local": false,
+                "is_playable": true,
+                "name": "Creep",
+                "track_number": 2,
+                "type": "track",
+                "uri": "spotify:track:70LcF31zb1H0PyJoS1Sx1r"
+              },
+              {
+                "album": {
+                  "album_type": "album",
+                  "artists": [
+                    {
+                      "external_urls": {
+                        "spotify": "https://open.spotify.com/artist/4Z8W4fKeB5YxbusRsdQVPb"
+                      },
+                      "href": "https://api.spotify.com/v1/artists/4Z8W4fKeB5YxbusRsdQVPb",
+                      "id": "4Z8W4fKeB5YxbusRsdQVPb",
+                      "name": "Radiohead",
+                      "type": "artist",
+                      "uri": "spotify:artist:4Z8W4fKeB5YxbusRsdQVPb"
+                    }
+                  ],
+                  "external_urls": {
+                    "spotify": "https://open.spotify.com/album/6dVIqQ8qmQ5GBnJ9shOYGE"
+                  },
+                  "href": "https://api.spotify.com/v1/albums/6dVIqQ8qmQ5GBnJ9shOYGE",
+                  "id": "6dVIqQ8qmQ5GBnJ9shOYGE",
+                  "images": [
+                    {
+                      "height": 640,
+                      "width": 640,
+                      "url": "https://i.scdn.co/image/ab67616d0000b273c8b444df094279e70d0ed856"
+                    },
+                    {
+                      "height": 300,
+                      "width": 300,
+                      "url": "https://i.scdn.co/image/ab67616d00001e02c8b444df094279e70d0ed856"
+                    },
+                    {
+                      "height": 64,
+                      "width": 64,
+                      "url": "https://i.scdn.co/image/ab67616d00004851c8b444df094279e70d0ed856"
+                    }
+                  ],
+                  "is_playable": true,
+                  "name": "OK Computer",
+                  "release_date": "1997-05-28",
+                  "release_date_precision": "day",
+                  "total_tracks": 12,
+                  "type": "album",
+                  "uri": "spotify:album:6dVIqQ8qmQ5GBnJ9shOYGE"
+                },
+                "artists": [
+                  {
+                    "external_urls": {
+                      "spotify": "https://open.spotify.com/artist/4Z8W4fKeB5YxbusRsdQVPb"
+                    },
+                    "href": "https://api.spotify.com/v1/artists/4Z8W4fKeB5YxbusRsdQVPb",
+                    "id": "4Z8W4fKeB5YxbusRsdQVPb",
+                    "name": "Radiohead",
+                    "type": "artist",
+                    "uri": "spotify:artist:4Z8W4fKeB5YxbusRsdQVPb"
+                  }
+                ],
+                "disc_number": 1,
+                "duration_ms": 299560,
+                "explicit": false,
+                "external_ids": {
+                  "isrc": "GBAYE9701374"
+                },
+                "external_urls": {
+                  "spotify": "https://open.spotify.com/track/2fuYa3Lx06QQJAm0MjztKr"
+                },
+                "href": "https://api.spotify.com/v1/tracks/2fuYa3Lx06QQJAm0MjztKr",
+                "id": "2fuYa3Lx06QQJAm0MjztKr",
+                "is_local": false,
+                "is_playable": true,
+                "name": "Let Down",
+                "track_number": 5,
+                "type": "track",
+                "uri": "spotify:track:2fuYa3Lx06QQJAm0MjztKr"
+              },
+              {
+                "album": {
+                  "album_type": "album",
+                  "artists": [
+                    {
+                      "external_urls": {
+                        "spotify": "https://open.spotify.com/artist/4Z8W4fKeB5YxbusRsdQVPb"
+                      },
+                      "href": "https://api.spotify.com/v1/artists/4Z8W4fKeB5YxbusRsdQVPb",
+                      "id": "4Z8W4fKeB5YxbusRsdQVPb",
+                      "name": "Radiohead",
+                      "type": "artist",
+                      "uri": "spotify:artist:4Z8W4fKeB5YxbusRsdQVPb"
+                    }
+                  ],
+                  "external_urls": {
+                    "spotify": "https://open.spotify.com/album/6dVIqQ8qmQ5GBnJ9shOYGE"
+                  },
+                  "href": "https://api.spotify.com/v1/albums/6dVIqQ8qmQ5GBnJ9shOYGE",
+                  "id": "6dVIqQ8qmQ5GBnJ9shOYGE",
+                  "images": [
+                    {
+                      "height": 640,
+                      "width": 640,
+                      "url": "https://i.scdn.co/image/ab67616d0000b273c8b444df094279e70d0ed856"
+                    },
+                    {
+                      "height": 300,
+                      "width": 300,
+                      "url": "https://i.scdn.co/image/ab67616d00001e02c8b444df094279e70d0ed856"
+                    },
+                    {
+                      "height": 64,
+                      "width": 64,
+                      "url": "https://i.scdn.co/image/ab67616d00004851c8b444df094279e70d0ed856"
+                    }
+                  ],
+                  "is_playable": true,
+                  "name": "OK Computer",
+                  "release_date": "1997-05-28",
+                  "release_date_precision": "day",
+                  "total_tracks": 12,
+                  "type": "album",
+                  "uri": "spotify:album:6dVIqQ8qmQ5GBnJ9shOYGE"
+                },
+                "artists": [
+                  {
+                    "external_urls": {
+                      "spotify": "https://open.spotify.com/artist/4Z8W4fKeB5YxbusRsdQVPb"
+                    },
+                    "href": "https://api.spotify.com/v1/artists/4Z8W4fKeB5YxbusRsdQVPb",
+                    "id": "4Z8W4fKeB5YxbusRsdQVPb",
+                    "name": "Radiohead",
+                    "type": "artist",
+                    "uri": "spotify:artist:4Z8W4fKeB5YxbusRsdQVPb"
+                  }
+                ],
+                "disc_number": 1,
+                "duration_ms": 229120,
+                "explicit": false,
+                "external_ids": {
+                  "isrc": "GBAYE9700386"
+                },
+                "external_urls": {
+                  "spotify": "https://open.spotify.com/track/10nyNJ6zNy2YVYLrcwLccB"
+                },
+                "href": "https://api.spotify.com/v1/tracks/10nyNJ6zNy2YVYLrcwLccB",
+                "id": "10nyNJ6zNy2YVYLrcwLccB",
+                "is_local": false,
+                "is_playable": true,
+                "name": "No Surprises",
+                "track_number": 10,
+                "type": "track",
+                "uri": "spotify:track:10nyNJ6zNy2YVYLrcwLccB"
+              },
+              {
+                "album": {
+                  "album_type": "album",
+                  "artists": [
+                    {
+                      "external_urls": {
+                        "spotify": "https://open.spotify.com/artist/4Z8W4fKeB5YxbusRsdQVPb"
+                      },
+                      "href": "https://api.spotify.com/v1/artists/4Z8W4fKeB5YxbusRsdQVPb",
+                      "id": "4Z8W4fKeB5YxbusRsdQVPb",
+                      "name": "Radiohead",
+                      "type": "artist",
+                      "uri": "spotify:artist:4Z8W4fKeB5YxbusRsdQVPb"
+                    }
+                  ],
+                  "external_urls": {
+                    "spotify": "https://open.spotify.com/album/5vkqYmiPBYLaalcmjujWxK"
+                  },
+                  "href": "https://api.spotify.com/v1/albums/5vkqYmiPBYLaalcmjujWxK",
+                  "id": "5vkqYmiPBYLaalcmjujWxK",
+                  "images": [
+                    {
+                      "height": 640,
+                      "width": 640,
+                      "url": "https://i.scdn.co/image/ab67616d0000b273de3c04b5fc750b68899b20a9"
+                    },
+                    {
+                      "height": 300,
+                      "width": 300,
+                      "url": "https://i.scdn.co/image/ab67616d00001e02de3c04b5fc750b68899b20a9"
+                    },
+                    {
+                      "height": 64,
+                      "width": 64,
+                      "url": "https://i.scdn.co/image/ab67616d00004851de3c04b5fc750b68899b20a9"
+                    }
+                  ],
+                  "is_playable": true,
+                  "name": "In Rainbows",
+                  "release_date": "2007-12-28",
+                  "release_date_precision": "day",
+                  "total_tracks": 10,
+                  "type": "album",
+                  "uri": "spotify:album:5vkqYmiPBYLaalcmjujWxK"
+                },
+                "artists": [
+                  {
+                    "external_urls": {
+                      "spotify": "https://open.spotify.com/artist/4Z8W4fKeB5YxbusRsdQVPb"
+                    },
+                    "href": "https://api.spotify.com/v1/artists/4Z8W4fKeB5YxbusRsdQVPb",
+                    "id": "4Z8W4fKeB5YxbusRsdQVPb",
+                    "name": "Radiohead",
+                    "type": "artist",
+                    "uri": "spotify:artist:4Z8W4fKeB5YxbusRsdQVPb"
+                  }
+                ],
+                "disc_number": 1,
+                "duration_ms": 228746,
+                "explicit": false,
+                "external_ids": {
+                  "isrc": "GBSTK0700005"
+                },
+                "external_urls": {
+                  "spotify": "https://open.spotify.com/track/5Qv2Nby1xTr9pQyjkrc94J"
+                },
+                "href": "https://api.spotify.com/v1/tracks/5Qv2Nby1xTr9pQyjkrc94J",
+                "id": "5Qv2Nby1xTr9pQyjkrc94J",
+                "is_local": false,
+                "is_playable": true,
+                "name": "All I Need",
+                "track_number": 5,
+                "type": "track",
+                "uri": "spotify:track:5Qv2Nby1xTr9pQyjkrc94J"
+              },
+              {
+                "album": {
+                  "album_type": "album",
+                  "artists": [
+                    {
+                      "external_urls": {
+                        "spotify": "https://open.spotify.com/artist/4Z8W4fKeB5YxbusRsdQVPb"
+                      },
+                      "href": "https://api.spotify.com/v1/artists/4Z8W4fKeB5YxbusRsdQVPb",
+                      "id": "4Z8W4fKeB5YxbusRsdQVPb",
+                      "name": "Radiohead",
+                      "type": "artist",
+                      "uri": "spotify:artist:4Z8W4fKeB5YxbusRsdQVPb"
+                    }
+                  ],
+                  "external_urls": {
+                    "spotify": "https://open.spotify.com/album/6dVIqQ8qmQ5GBnJ9shOYGE"
+                  },
+                  "href": "https://api.spotify.com/v1/albums/6dVIqQ8qmQ5GBnJ9shOYGE",
+                  "id": "6dVIqQ8qmQ5GBnJ9shOYGE",
+                  "images": [
+                    {
+                      "height": 640,
+                      "width": 640,
+                      "url": "https://i.scdn.co/image/ab67616d0000b273c8b444df094279e70d0ed856"
+                    },
+                    {
+                      "height": 300,
+                      "width": 300,
+                      "url": "https://i.scdn.co/image/ab67616d00001e02c8b444df094279e70d0ed856"
+                    },
+                    {
+                      "height": 64,
+                      "width": 64,
+                      "url": "https://i.scdn.co/image/ab67616d00004851c8b444df094279e70d0ed856"
+                    }
+                  ],
+                  "is_playable": true,
+                  "name": "OK Computer",
+                  "release_date": "1997-05-28",
+                  "release_date_precision": "day",
+                  "total_tracks": 12,
+                  "type": "album",
+                  "uri": "spotify:album:6dVIqQ8qmQ5GBnJ9shOYGE"
+                },
+                "artists": [
+                  {
+                    "external_urls": {
+                      "spotify": "https://open.spotify.com/artist/4Z8W4fKeB5YxbusRsdQVPb"
+                    },
+                    "href": "https://api.spotify.com/v1/artists/4Z8W4fKeB5YxbusRsdQVPb",
+                    "id": "4Z8W4fKeB5YxbusRsdQVPb",
+                    "name": "Radiohead",
+                    "type": "artist",
+                    "uri": "spotify:artist:4Z8W4fKeB5YxbusRsdQVPb"
+                  }
+                ],
+                "disc_number": 1,
+                "duration_ms": 267186,
+                "explicit": false,
+                "external_ids": {
+                  "isrc": "GBAYE9701372"
+                },
+                "external_urls": {
+                  "spotify": "https://open.spotify.com/track/0z1o5L7HJx562xZSATcIpY"
+                },
+                "href": "https://api.spotify.com/v1/tracks/0z1o5L7HJx562xZSATcIpY",
+                "id": "0z1o5L7HJx562xZSATcIpY",
+                "is_local": false,
+                "is_playable": true,
+                "name": "Exit Music (For A Film)",
+                "track_number": 4,
+                "type": "track",
+                "uri": "spotify:track:0z1o5L7HJx562xZSATcIpY"
+              }
+            ]
+          }
+        },
+        "status": 200,
+        "headers": {
+          "date": "Wed, 20 May 2026 08:37:51 GMT",
+          "content-type": "application/json; charset=utf-8",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=31536000",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4938",
+          "x-ratelimit-reset": "1779266302",
+          "cache-control": "public, max-age=0",
+          "etag": "\"MC-ImZhYzdjYmZlNWVlMmUxOTE1YjlkNzc1NjU2ZDU0YzcwIg==\"",
+          "x-robots-tag": "noindex, nofollow",
+          "access-control-allow-headers": "Accept, App-Platform, Authorization, Content-Type, Origin, Retry-After, Spotify-App-Version, X-Cloud-Trace-Context, client-token, content-access-token",
+          "access-control-allow-methods": "GET, POST, OPTIONS, PUT, DELETE, PATCH",
+          "access-control-allow-credentials": "true",
+          "access-control-max-age": "604800",
+          "alt-svc": "h3=\":443\"; ma=2592000,h3-29=\":443\"; ma=2592000, h3=\":443\"; ma=2592000",
+          "server": "envoy",
+          "via": "HTTP/2 edgeproxy, 1.1 google"
+        },
+        "hash": "5d8a7cb526bdf58e1a23eeaf07f8f5700c7101ce",
+        "request": {
+          "params": {
+            "limit": "5",
+            "q": "Radiohead",
+            "type": "track"
+          }
+        }
+      }
+    }
+  }
+}
