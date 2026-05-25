@@ -1,0 +1,468 @@
+{
+  "nango": {
+    "batchSave": {
+      "Member": [
+        {
+          "id": "0f8c53293177b8e9f1658ae7951a468e",
+          "email_address": "api@nango.dev",
+          "unique_email_id": "9b69bff67b",
+          "contact_id": "1c04b34d91df00d7a72b6d51861cc6b1",
+          "full_name": "Nango Developer",
+          "web_id": 479301571,
+          "email_type": "html",
+          "status": "subscribed",
+          "consents_to_one_to_one_messaging": true,
+          "merge_fields": {
+            "FNAME": "Nango",
+            "LNAME": "Developer",
+            "ADDRESS": {
+              "addr1": "NangoDev\n2093 Philadelphia Pike\nClaymont, DE 19703-2424\nUSA",
+              "addr2": "",
+              "city": "",
+              "state": "",
+              "zip": "",
+              "country": "US"
+            },
+            "PHONE": "",
+            "BIRTHDAY": "",
+            "COMPANY": ""
+          },
+          "ip_signup": "",
+          "timestamp_signup": "",
+          "ip_opt": "105.161.152.132",
+          "timestamp_opt": "2026-05-21T18:04:00+00:00",
+          "member_rating": 2,
+          "last_changed": "2026-05-21T19:12:03+00:00",
+          "language": "",
+          "vip": false,
+          "email_client": "",
+          "location": {
+            "latitude": 0,
+            "longitude": 0,
+            "gmtoff": 0,
+            "dstoff": 0,
+            "country_code": "",
+            "timezone": "",
+            "region": ""
+          },
+          "source": "Admin Add",
+          "tags_count": 1,
+          "tags": [
+            {
+              "id": 3730783,
+              "name": "TestTag"
+            }
+          ],
+          "list_id": "16ed227135"
+        }
+      ]
+    },
+    "batchDelete": {
+      "Member": []
+    }
+  },
+  "api": {
+    "get": {
+      "/3.0/lists": {
+        "response": {
+          "lists": [
+            {
+              "id": "16ed227135",
+              "web_id": 684456,
+              "name": "NangoDev",
+              "contact": {
+                "company": "NangoDev",
+                "address1": "2093 Philadelphia Pike",
+                "address2": "",
+                "city": "Claymont",
+                "state": "DE",
+                "zip": "19703-2424",
+                "country": "US",
+                "phone": ""
+              },
+              "permission_reminder": "You are receiving this email because you opted in via our website.",
+              "use_archive_bar": true,
+              "campaign_defaults": {
+                "from_name": "NangoDev",
+                "from_email": "api@nango.dev",
+                "subject": "",
+                "language": "en"
+              },
+              "notify_on_subscribe": "api@nango.dev",
+              "notify_on_unsubscribe": "",
+              "date_created": "2026-05-21T18:03:59+00:00",
+              "list_rating": 0,
+              "email_type_option": false,
+              "subscribe_url_short": "http://eepurl.com/XtovMEcWqM",
+              "subscribe_url_long": "https://dev.us3.list-manage.com/subscribe?u=d8ba0a687ccbd9857e68a507c&id=16ed227135",
+              "beamer_address": "us3-619f5317fe-a6ad7ebb22@inbound.mailchimp.com",
+              "visibility": "prv",
+              "double_optin": false,
+              "has_welcome": true,
+              "marketing_permissions": false,
+              "modules": [],
+              "stats": {
+                "member_count": 1,
+                "unsubscribe_count": 0,
+                "cleaned_count": 0,
+                "member_count_since_send": 0,
+                "unsubscribe_count_since_send": 0,
+                "cleaned_count_since_send": 0,
+                "campaign_count": 5,
+                "campaign_last_sent": "",
+                "merge_field_count": 6,
+                "avg_sub_rate": 0,
+                "avg_unsub_rate": 0,
+                "target_sub_rate": 0,
+                "open_rate": 0,
+                "click_rate": 0,
+                "last_sub_date": "2026-05-21T18:04:00+00:00",
+                "last_unsub_date": ""
+              },
+              "_links": [
+                {
+                  "rel": "self",
+                  "href": "https://us3.api.mailchimp.com/3.0/lists/16ed227135",
+                  "method": "GET",
+                  "targetSchema": "https://us3.api.mailchimp.com/schema/3.0/Definitions/Lists/Response.json"
+                },
+                {
+                  "rel": "parent",
+                  "href": "https://us3.api.mailchimp.com/3.0/lists",
+                  "method": "GET",
+                  "targetSchema": "https://us3.api.mailchimp.com/schema/3.0/Definitions/Lists/CollectionResponse.json",
+                  "schema": "https://us3.api.mailchimp.com/schema/3.0/Paths/Lists/Collection.json"
+                },
+                {
+                  "rel": "update",
+                  "href": "https://us3.api.mailchimp.com/3.0/lists/16ed227135",
+                  "method": "PATCH",
+                  "targetSchema": "https://us3.api.mailchimp.com/schema/3.0/Definitions/Lists/Response.json",
+                  "schema": "https://us3.api.mailchimp.com/schema/3.0/Definitions/Lists/PATCH.json"
+                },
+                {
+                  "rel": "batch-sub-unsub-members",
+                  "href": "https://us3.api.mailchimp.com/3.0/lists/16ed227135",
+                  "method": "POST",
+                  "targetSchema": "https://us3.api.mailchimp.com/schema/3.0/Definitions/Lists/BatchPOST-Response.json",
+                  "schema": "https://us3.api.mailchimp.com/schema/3.0/Definitions/Lists/BatchPOST.json"
+                },
+                {
+                  "rel": "delete",
+                  "href": "https://us3.api.mailchimp.com/3.0/lists/16ed227135",
+                  "method": "DELETE"
+                },
+                {
+                  "rel": "abuse-reports",
+                  "href": "https://us3.api.mailchimp.com/3.0/lists/16ed227135/abuse-reports",
+                  "method": "GET",
+                  "targetSchema": "https://us3.api.mailchimp.com/schema/3.0/Definitions/Lists/Abuse/CollectionResponse.json",
+                  "schema": "https://us3.api.mailchimp.com/schema/3.0/Paths/Lists/Abuse/Collection.json"
+                },
+                {
+                  "rel": "activity",
+                  "href": "https://us3.api.mailchimp.com/3.0/lists/16ed227135/activity",
+                  "method": "GET",
+                  "targetSchema": "https://us3.api.mailchimp.com/schema/3.0/Definitions/Lists/Activity/Response.json"
+                },
+                {
+                  "rel": "clients",
+                  "href": "https://us3.api.mailchimp.com/3.0/lists/16ed227135/clients",
+                  "method": "GET",
+                  "targetSchema": "https://us3.api.mailchimp.com/schema/3.0/Definitions/Lists/Clients/Response.json"
+                },
+                {
+                  "rel": "growth-history",
+                  "href": "https://us3.api.mailchimp.com/3.0/lists/16ed227135/growth-history",
+                  "method": "GET",
+                  "targetSchema": "https://us3.api.mailchimp.com/schema/3.0/Definitions/Lists/Growth/CollectionResponse.json",
+                  "schema": "https://us3.api.mailchimp.com/schema/3.0/Paths/Lists/Growth/Collection.json"
+                },
+                {
+                  "rel": "interest-categories",
+                  "href": "https://us3.api.mailchimp.com/3.0/lists/16ed227135/interest-categories",
+                  "method": "GET",
+                  "targetSchema": "https://us3.api.mailchimp.com/schema/3.0/Definitions/Lists/InterestCategories/CollectionResponse.json",
+                  "schema": "https://us3.api.mailchimp.com/schema/3.0/Paths/Lists/InterestCategories/Collection.json"
+                },
+                {
+                  "rel": "members",
+                  "href": "https://us3.api.mailchimp.com/3.0/lists/16ed227135/members",
+                  "method": "GET",
+                  "targetSchema": "https://us3.api.mailchimp.com/schema/3.0/Definitions/Lists/Members/CollectionResponse.json",
+                  "schema": "https://us3.api.mailchimp.com/schema/3.0/Paths/Lists/Members/Collection.json"
+                },
+                {
+                  "rel": "merge-fields",
+                  "href": "https://us3.api.mailchimp.com/3.0/lists/16ed227135/merge-fields",
+                  "method": "GET",
+                  "targetSchema": "https://us3.api.mailchimp.com/schema/3.0/Definitions/Lists/MergeFields/CollectionResponse.json",
+                  "schema": "https://us3.api.mailchimp.com/schema/3.0/Paths/Lists/MergeFields/Collection.json"
+                },
+                {
+                  "rel": "segments",
+                  "href": "https://us3.api.mailchimp.com/3.0/lists/16ed227135/segments",
+                  "method": "GET",
+                  "targetSchema": "https://us3.api.mailchimp.com/schema/3.0/Definitions/Lists/Segments/CollectionResponse.json",
+                  "schema": "https://us3.api.mailchimp.com/schema/3.0/Paths/Lists/Segments/Collection.json"
+                },
+                {
+                  "rel": "webhooks",
+                  "href": "https://us3.api.mailchimp.com/3.0/lists/16ed227135/webhooks",
+                  "method": "GET",
+                  "targetSchema": "https://us3.api.mailchimp.com/schema/3.0/Definitions/Lists/Webhooks/CollectionResponse.json",
+                  "schema": "https://us3.api.mailchimp.com/schema/3.0/Paths/Lists/Webhooks/Collection.json"
+                },
+                {
+                  "rel": "signup-forms",
+                  "href": "https://us3.api.mailchimp.com/3.0/lists/16ed227135/signup-forms",
+                  "method": "GET",
+                  "targetSchema": "https://us3.api.mailchimp.com/schema/3.0/Definitions/Lists/SignupForms/CollectionResponse.json",
+                  "schema": "https://us3.api.mailchimp.com/schema/3.0/Paths/Lists/SignupForms/Collection.json"
+                },
+                {
+                  "rel": "locations",
+                  "href": "https://us3.api.mailchimp.com/3.0/lists/16ed227135/locations",
+                  "method": "GET",
+                  "targetSchema": "https://us3.api.mailchimp.com/schema/3.0/Definitions/Lists/Locations/CollectionResponse.json",
+                  "schema": "https://us3.api.mailchimp.com/schema/3.0/Paths/Lists/Locations/Collection.json"
+                }
+              ]
+            }
+          ],
+          "total_items": 1,
+          "constraints": {
+            "may_create": true,
+            "max_instances": 5,
+            "current_total_instances": 1
+          },
+          "_links": [
+            {
+              "rel": "self",
+              "href": "https://us3.api.mailchimp.com/3.0/lists",
+              "method": "GET",
+              "targetSchema": "https://us3.api.mailchimp.com/schema/3.0/Definitions/Lists/CollectionResponse.json",
+              "schema": "https://us3.api.mailchimp.com/schema/3.0/Paths/Lists/Collection.json"
+            },
+            {
+              "rel": "create",
+              "href": "https://us3.api.mailchimp.com/3.0/lists",
+              "method": "POST",
+              "targetSchema": "https://us3.api.mailchimp.com/schema/3.0/Definitions/Lists/Response.json",
+              "schema": "https://us3.api.mailchimp.com/schema/3.0/Definitions/Lists/POST.json"
+            }
+          ]
+        },
+        "status": 200,
+        "headers": {
+          "date": "Thu, 21 May 2026 19:15:09 GMT",
+          "content-type": "application/json; charset=utf-8",
+          "content-length": "6209",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=5184000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4970",
+          "x-ratelimit-reset": "1779390930",
+          "x-request-id": "1-6a0f59bd-6a048c794946fbbb0302f665",
+          "etag": "W/\"1841-KYi3uX7zE0+gTWlNnYV5zQFIfsA\""
+        },
+        "hash": "65176f891067ef361e1a8b2b5358fffb6ded7f00",
+        "request": {
+          "params": {
+            "count": "100",
+            "offset": "0"
+          }
+        }
+      },
+      "/3.0/lists/16ed227135/members": {
+        "response": {
+          "members": [
+            {
+              "id": "0f8c53293177b8e9f1658ae7951a468e",
+              "email_address": "api@nango.dev",
+              "unique_email_id": "9b69bff67b",
+              "contact_id": "1c04b34d91df00d7a72b6d51861cc6b1",
+              "full_name": "Nango Developer",
+              "web_id": 479301571,
+              "email_type": "html",
+              "status": "subscribed",
+              "consents_to_one_to_one_messaging": true,
+              "sms_phone_number": "",
+              "sms_subscription_status": "",
+              "sms_subscription_last_updated": "",
+              "merge_fields": {
+                "FNAME": "Nango",
+                "LNAME": "Developer",
+                "ADDRESS": {
+                  "addr1": "NangoDev\n2093 Philadelphia Pike\nClaymont, DE 19703-2424\nUSA",
+                  "addr2": "",
+                  "city": "",
+                  "state": "",
+                  "zip": "",
+                  "country": "US"
+                },
+                "PHONE": "",
+                "BIRTHDAY": "",
+                "COMPANY": ""
+              },
+              "stats": {
+                "avg_open_rate": 0,
+                "avg_click_rate": 0
+              },
+              "ip_signup": "",
+              "timestamp_signup": "",
+              "ip_opt": "105.161.152.132",
+              "timestamp_opt": "2026-05-21T18:04:00+00:00",
+              "member_rating": 2,
+              "last_changed": "2026-05-21T19:12:03+00:00",
+              "language": "",
+              "vip": false,
+              "email_client": "",
+              "location": {
+                "latitude": 0,
+                "longitude": 0,
+                "gmtoff": 0,
+                "dstoff": 0,
+                "country_code": "",
+                "timezone": "",
+                "region": ""
+              },
+              "source": "Admin Add",
+              "tags_count": 1,
+              "tags": [
+                {
+                  "id": 3730783,
+                  "name": "TestTag"
+                }
+              ],
+              "list_id": "16ed227135",
+              "_links": [
+                {
+                  "rel": "self",
+                  "href": "https://us3.api.mailchimp.com/3.0/lists/16ed227135/members/0f8c53293177b8e9f1658ae7951a468e",
+                  "method": "GET",
+                  "targetSchema": "https://us3.api.mailchimp.com/schema/3.0/Definitions/Lists/Members/Response.json"
+                },
+                {
+                  "rel": "parent",
+                  "href": "https://us3.api.mailchimp.com/3.0/lists/16ed227135/members",
+                  "method": "GET",
+                  "targetSchema": "https://us3.api.mailchimp.com/schema/3.0/Definitions/Lists/Members/CollectionResponse.json",
+                  "schema": "https://us3.api.mailchimp.com/schema/3.0/Paths/Lists/Members/Collection.json"
+                },
+                {
+                  "rel": "update",
+                  "href": "https://us3.api.mailchimp.com/3.0/lists/16ed227135/members/0f8c53293177b8e9f1658ae7951a468e",
+                  "method": "PATCH",
+                  "targetSchema": "https://us3.api.mailchimp.com/schema/3.0/Definitions/Lists/Members/Response.json",
+                  "schema": "https://us3.api.mailchimp.com/schema/3.0/Definitions/Lists/Members/PATCH.json"
+                },
+                {
+                  "rel": "upsert",
+                  "href": "https://us3.api.mailchimp.com/3.0/lists/16ed227135/members/0f8c53293177b8e9f1658ae7951a468e",
+                  "method": "PUT",
+                  "targetSchema": "https://us3.api.mailchimp.com/schema/3.0/Definitions/Lists/Members/Response.json",
+                  "schema": "https://us3.api.mailchimp.com/schema/3.0/Definitions/Lists/Members/PUT.json"
+                },
+                {
+                  "rel": "delete",
+                  "href": "https://us3.api.mailchimp.com/3.0/lists/16ed227135/members/0f8c53293177b8e9f1658ae7951a468e",
+                  "method": "DELETE"
+                },
+                {
+                  "rel": "activity",
+                  "href": "https://us3.api.mailchimp.com/3.0/lists/16ed227135/members/0f8c53293177b8e9f1658ae7951a468e/activity",
+                  "method": "GET",
+                  "targetSchema": "https://us3.api.mailchimp.com/schema/3.0/Definitions/Lists/Members/Activity/Response.json"
+                },
+                {
+                  "rel": "goals",
+                  "href": "https://us3.api.mailchimp.com/3.0/lists/16ed227135/members/0f8c53293177b8e9f1658ae7951a468e/goals",
+                  "method": "GET",
+                  "targetSchema": "https://us3.api.mailchimp.com/schema/3.0/Definitions/Lists/Members/Goals/Response.json"
+                },
+                {
+                  "rel": "notes",
+                  "href": "https://us3.api.mailchimp.com/3.0/lists/16ed227135/members/0f8c53293177b8e9f1658ae7951a468e/notes",
+                  "method": "GET",
+                  "targetSchema": "https://us3.api.mailchimp.com/schema/3.0/Definitions/Lists/Members/Notes/CollectionResponse.json"
+                },
+                {
+                  "rel": "events",
+                  "href": "https://us3.api.mailchimp.com/3.0/lists/16ed227135/members/0f8c53293177b8e9f1658ae7951a468e/events",
+                  "method": "POST",
+                  "targetSchema": "https://us3.api.mailchimp.com/schema/3.0/Definitions/Lists/Members/Events/POST.json"
+                },
+                {
+                  "rel": "delete_permanent",
+                  "href": "https://us3.api.mailchimp.com/3.0/lists/16ed227135/members/0f8c53293177b8e9f1658ae7951a468e/actions/delete-permanent",
+                  "method": "POST"
+                }
+              ]
+            }
+          ],
+          "list_id": "16ed227135",
+          "total_items": 1,
+          "_links": [
+            {
+              "rel": "self",
+              "href": "https://us3.api.mailchimp.com/3.0/lists/16ed227135/members",
+              "method": "GET",
+              "targetSchema": "https://us3.api.mailchimp.com/schema/3.0/Definitions/Lists/Members/CollectionResponse.json",
+              "schema": "https://us3.api.mailchimp.com/schema/3.0/Paths/Lists/Members/Collection.json"
+            },
+            {
+              "rel": "parent",
+              "href": "https://us3.api.mailchimp.com/3.0/lists/16ed227135",
+              "method": "GET",
+              "targetSchema": "https://us3.api.mailchimp.com/schema/3.0/Definitions/Lists/Members/Response.json"
+            },
+            {
+              "rel": "create",
+              "href": "https://us3.api.mailchimp.com/3.0/lists/16ed227135/members",
+              "method": "POST",
+              "targetSchema": "https://us3.api.mailchimp.com/schema/3.0/Definitions/Lists/Members/Response.json",
+              "schema": "https://us3.api.mailchimp.com/schema/3.0/Definitions/Lists/Members/POST.json"
+            }
+          ]
+        },
+        "status": 200,
+        "headers": {
+          "date": "Thu, 21 May 2026 19:15:10 GMT",
+          "content-type": "application/json; charset=utf-8",
+          "content-length": "4370",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=5184000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4969",
+          "x-ratelimit-reset": "1779390930",
+          "x-request-id": "1-6a0f59be-113b8667023babe47075ff97",
+          "etag": "W/\"1112-t/d0yLyU/75Y/cz7DJvvW+9aaCc\""
+        },
+        "hash": "f3975e28db8182340ac5e1419d2870117040863a",
+        "request": {
+          "params": {
+            "count": "100",
+            "offset": "0"
+          }
+        }
+      }
+    }
+  }
+}
