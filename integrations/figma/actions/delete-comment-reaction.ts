@@ -9,7 +9,7 @@ const InputSchema = z.object({
 
 const ProviderResponseSchema = z.object({
     status: z.number().optional(),
-    error: z.union([z.boolean(), z.null()]).optional()
+    error: z.boolean().nullable().optional()
 });
 
 const OutputSchema = z.object({

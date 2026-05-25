@@ -3,7 +3,7 @@ import { createAction } from 'nango';
 
 const InputSchema = z.object({
     file_key: z.string().describe('File key or branch key. Example: "UzYlOaPNPL2c7zmHCEljOs"'),
-    page_size: z.number().max(50).optional().describe('Number of items per page. Max 50.'),
+    page_size: z.number().int().positive().max(50).optional().describe('Number of items per page. Max 50.'),
     cursor: z.string().optional().describe('Pagination cursor (version ID) from the previous response. Omit for the first page.')
 });
 

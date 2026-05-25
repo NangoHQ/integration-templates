@@ -28,7 +28,7 @@ const OutputSchema = z.object({
     thumbnailUrl: z.string().optional(),
     version: z.string().optional(),
     err: z.string().optional(),
-    nodes: z.record(z.string(), z.union([NodeEntrySchema, z.null()])).optional()
+    nodes: z.record(z.string(), NodeEntrySchema.nullable()).optional()
 });
 
 const action = createAction({

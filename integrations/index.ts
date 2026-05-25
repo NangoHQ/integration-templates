@@ -605,6 +605,7 @@ import './figma/actions/delete-webhook.js';
 import './figma/actions/file-nodes.js';
 import './figma/actions/get-comment.js';
 import './figma/actions/get-component.js';
+import './figma/actions/get-component-set.js';
 import './figma/actions/get-current-user.js';
 import './figma/actions/get-file-component-sets.js';
 import './figma/actions/get-file-components.js';
@@ -628,6 +629,7 @@ import './figma/actions/list-styles.js';
 import './figma/actions/list-versions.js';
 import './figma/actions/list-webhooks.js';
 import './figma/actions/render-images.js';
+import './figma/actions/update-dev-resources.js';
 import './figma/actions/update-variables.js';
 import './figma/actions/update-webhook.js';
 

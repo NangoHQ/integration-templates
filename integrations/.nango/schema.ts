@@ -17278,6 +17278,36 @@ export interface ActionOutput_figma_getcomponent {
   name?: string | undefined;};};
 };
 
+export interface ActionInput_figma_getcomponentset {
+  /**
+   * The unique identifier of the component set.
+   */
+  key: string;
+};
+
+export interface ActionOutput_figma_getcomponentset {
+  key: string;
+  file_key: string;
+  node_id: string;
+  thumbnail_url?: string | undefined;
+  name: string;
+  description: string;
+  created_at: string;
+  updated_at: string;
+  user: {  id: string;
+  handle?: string | undefined;
+  img_url?: string | undefined;};
+  containing_frame?: {  nodeId?: string | undefined;
+  name?: string | undefined;
+  backgroundColor?: string | undefined;
+  pageId: string;
+  pageName: string;
+  containingStateGroup?: {  nodeId?: string | undefined;
+  name?: string | undefined;};
+  containingComponentSet?: {  nodeId?: string | undefined;
+  name?: string | undefined;};};
+};
+
 export interface ActionInput_figma_getcurrentuser {
 };
 
@@ -17315,9 +17345,9 @@ export interface ActionOutput_figma_getfilecomponentsets {
   pageId: string;
   pageName: string;
   containingStateGroup?: {  nodeId: string;
-  name: string;} | null | undefined;
+  name: string;} | undefined;
   containingComponentSet?: {  nodeId: string;
-  name: string;} | null | undefined;};})[];};
+  name: string;} | undefined;};})[];};
 };
 
 export interface ActionInput_figma_getfilecomponents {
@@ -17760,7 +17790,7 @@ export interface ActionOutput_figma_listfilenodes {
   components?: {  [key: string]: unknown | undefined;};
   componentSets?: {  [key: string]: unknown | undefined;};
   schemaVersion?: number | undefined;
-  styles?: {  [key: string]: unknown | undefined;};} | null;};
+  styles?: {  [key: string]: unknown | undefined;};};};
 };
 
 export interface ActionInput_figma_listfiles {
@@ -17922,6 +17952,36 @@ export interface ActionInput_figma_renderimages {
 export interface ActionOutput_figma_renderimages {
   images: {  [key: string]: string;};
   err?: string | undefined;
+};
+
+export interface ActionInput_figma_updatedevresources {
+  /**
+   * A list of dev resources that you want to update.
+   */
+  dev_resources: ({  /**
+   * Unique identifier of the dev resource. Example: "devres_123"
+   */
+  id: string;
+  /**
+   * The name of the dev resource.
+   */
+  name?: string | undefined;
+  /**
+   * The URL of the dev resource.
+   */
+  url?: string | undefined;})[];
+};
+
+export interface ActionOutput_figma_updatedevresources {
+  /**
+   * Ids for dev resources that were successfully updated.
+   */
+  links_updated: string[];
+  /**
+   * Errors for dev resources that could not be updated.
+   */
+  errors?: ({  id: string;
+  error: string;})[] | undefined;
 };
 
 export interface ActionInput_figma_updatevariables {

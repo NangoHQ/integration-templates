@@ -53,7 +53,6 @@ const sync = createSync({
         const rawCheckpoint = await nango.getCheckpoint();
         const checkpoint = CheckpointSchema.parse(rawCheckpoint ?? { cursor: '' });
         let cursor = checkpoint.cursor || undefined;
-        cursor = undefined;
 
         await nango.trackDeletesStart('File');
 

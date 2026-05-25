@@ -61,36 +61,52 @@ const action = createAction({
     scopes: ['file_versions:read', 'files:read'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
-        // https://www.figma.com/developers/api#get-versions-endpoint
-        const response = await nango.get({
-            endpoint: `/v1/files/${encodeURIComponent(input.file_key)}/versions`,
-            retries: 3
-        });
+        let nextPageUrl: string | undefined;
 
-        const parsed = ProviderVersionsResponseSchema.parse(response.data);
-        const version = parsed.versions.find((v) => v.id === input.version_id);
-
-        if (!version) {
-            throw new nango.ActionError({
-                type: 'not_found',
-                message: `Version ${input.version_id} not found for file ${input.file_key}.`
-            });
-        }
-
-        return {
-            id: version.id,
-            created_at: version.created_at,
-            ...(version.label != null && { label: version.label }),
-            ...(version.description != null && { description: version.description }),
-            ...(version.user != null && {
-                user: {
-                    id: version.user.id,
-                    handle: version.user.handle,
-                    ...(version.user.img_url != null && { img_url: version.user.img_url }),
-                    ...(version.user.email != null && { email: version.user.email })
+        do {
+            const params: Record<string, string> = {};
+            if (nextPageUrl) {
+                const url = new URL(nextPageUrl);
+                const after = url.searchParams.get('after');
+                if (after) {
+                    params['after'] = after;
                 }
-            })
-        };
+            }
+
+            // https://www.figma.com/developers/api#get-versions-endpoint
+            const response = await nango.get({
+                endpoint: `/v1/files/${encodeURIComponent(input.file_key)}/versions`,
+                params,
+                retries: 3
+            });
+
+            const parsed = ProviderVersionsResponseSchema.parse(response.data);
+            const version = parsed.versions.find((v) => v.id === input.version_id);
+
+            if (version) {
+                return {
+                    id: version.id,
+                    created_at: version.created_at,
+                    ...(version.label != null && { label: version.label }),
+                    ...(version.description != null && { description: version.description }),
+                    ...(version.user != null && {
+                        user: {
+                            id: version.user.id,
+                            handle: version.user.handle,
+                            ...(version.user.img_url != null && { img_url: version.user.img_url }),
+                            ...(version.user.email != null && { email: version.user.email })
+                        }
+                    })
+                };
+            }
+
+            nextPageUrl = parsed.pagination?.next_page;
+        } while (nextPageUrl);
+
+        throw new nango.ActionError({
+            type: 'not_found',
+            message: `Version ${input.version_id} not found for file ${input.file_key}.`
+        });
     }
 });
 

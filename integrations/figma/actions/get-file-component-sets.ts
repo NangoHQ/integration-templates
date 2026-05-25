@@ -17,8 +17,8 @@ const FrameInfoSchema = z.object({
     backgroundColor: z.string().optional(),
     pageId: z.string(),
     pageName: z.string(),
-    containingStateGroup: z.union([z.object({ nodeId: z.string(), name: z.string() }), z.null()]).optional(),
-    containingComponentSet: z.union([z.object({ nodeId: z.string(), name: z.string() }), z.null()]).optional()
+    containingStateGroup: z.object({ nodeId: z.string(), name: z.string() }).nullable().optional(),
+    containingComponentSet: z.object({ nodeId: z.string(), name: z.string() }).nullable().optional()
 });
 
 const ComponentSetSchema = z.object({

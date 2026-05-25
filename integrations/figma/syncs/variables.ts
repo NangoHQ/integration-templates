@@ -137,16 +137,10 @@ const sync = createSync({
                         maxUpdatedAt = variable.updatedAt;
                     }
                 }
-
-                if (maxUpdatedAt) {
-                    await nango.saveCheckpoint({ updated_after: maxUpdatedAt });
-                }
             }
         }
 
-        if (!maxUpdatedAt) {
-            await nango.saveCheckpoint({ updated_after: new Date().toISOString() });
-        }
+        await nango.saveCheckpoint({ updated_after: maxUpdatedAt ?? new Date().toISOString() });
     }
 });
 

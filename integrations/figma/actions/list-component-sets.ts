@@ -4,7 +4,7 @@ import { createAction, ProxyConfiguration } from 'nango';
 const InputSchema = z.object({
     team_id: z.string().describe('Figma team ID. Example: "1639747348117609063"'),
     cursor: z.string().optional().describe('Pagination cursor from the previous response. Maps to the after query parameter. Omit for the first page.'),
-    page_size: z.number().optional().describe('Number of items per page. Default: 30. Maximum: 1000.')
+    page_size: z.number().int().positive().max(1000).optional().describe('Number of items per page. Default: 30. Maximum: 1000.')
 });
 
 const UserSchema = z.object({
