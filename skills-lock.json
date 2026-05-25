@@ -2,18 +2,21 @@
     "version": 1,
     "skills": {
         "building-nango-functions-locally": {
-            "source": "/Users/provic/code/skills",
-            "sourceType": "local",
+            "source": "NangoHQ/skills",
+            "sourceType": "github",
+            "skillPath": "skills/building-nango-functions-locally/SKILL.md",
             "computedHash": "b3c3a91480c0e2d3cae6f984f5c9e9f811c1730055a063e30fe427b9704ebccf"
         },
         "building-nango-functions-remotely": {
-            "source": "/Users/provic/code/skills",
-            "sourceType": "local",
+            "source": "NangoHQ/skills",
+            "sourceType": "github",
+            "skillPath": "skills/building-nango-functions-remotely/SKILL.md",
             "computedHash": "04f762d580cd03b4ebaf079cd3266bcba5c5945302b8f08b9942f0221967bd00"
         },
         "migrating-nango-deletion-detection": {
-            "source": "/Users/provic/code/skills",
-            "sourceType": "local",
+            "source": "NangoHQ/skills",
+            "sourceType": "github",
+            "skillPath": "skills/migrating-nango-deletion-detection/SKILL.md",
             "computedHash": "cbbac66fe257822108eb0cff834d85ed0cf2d69f94514043d5bd3bcb2d0c8a79"
         },
         "migrating-to-checkpoints": {
@@ -23,13 +26,15 @@
             "computedHash": "52d6c8ff9c8abbca74b20bfce435d3d23f4ebe0fd11ab9d1f660eeff2d2c3753"
         },
         "migrating-to-zero-yaml": {
-            "source": "/Users/provic/code/skills",
-            "sourceType": "local",
+            "source": "NangoHQ/skills",
+            "sourceType": "github",
+            "skillPath": "skills/migrating-to-zero-yaml/SKILL.md",
             "computedHash": "0ada2caa8d3c59be915077997b75e9c3190c016242159397c56716b01e750b4d"
         },
         "nango-toolbox": {
-            "source": "/Users/provic/code/skills",
-            "sourceType": "local",
+            "source": "NangoHQ/skills",
+            "sourceType": "github",
+            "skillPath": "skills/nango-toolbox/SKILL.md",
             "computedHash": "0acf21257d5439f19ffd496f243cdbe3baaa80b28ccf396ac274aa60799ac4a2"
         }
     }
