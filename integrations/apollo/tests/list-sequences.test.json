@@ -1,0 +1,65 @@
+{
+  "input": {},
+  "output": {
+    "sequences": []
+  },
+  "nango": {},
+  "api": {
+    "get": {
+      "/v1/emailer_campaigns/search": {
+        "response": {
+          "pagination": {
+            "page": 1,
+            "per_page": 25,
+            "total_entries": 0,
+            "total_pages": 0
+          },
+          "breadcrumbs": [],
+          "emailer_campaigns": [],
+          "num_fetch_result": null
+        },
+        "status": 200,
+        "headers": {
+          "date": "Mon, 18 May 2026 11:16:46 GMT",
+          "content-type": "application/json; charset=utf-8",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "ALLOWALL",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=31536000",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4938",
+          "x-ratelimit-reset": "1779103014",
+          "cache-control": "max-age=0, private, must-revalidate",
+          "content-security-policy": "frame-ancestors 'self' chrome-extension://alhgpfoeiimagjlnfekdhkjlkiomcapa chrome-extension://ececkagaccnfmkopaiemklekhoimmgpn *.salesforce.com *.lightning.force.com; report-uri https://o101058.ingest.us.sentry.io/api/222018/security/?sentry_key=86bb17dd8c2449719dd6b498f3431191&sentry_environment=production&sentry_release=921578f02cadce558872b59befb4057474aa1ff3",
+          "etag": "W/\"b98df708ff8d850493d09d931d66def4\"",
+          "set-cookie": "X-CSRF-TOKEN=vIbHRcKJqrJnJR46Hl74l1um1cpNJjCAxuB4Z9pvcCfVyKLSXxZChVilO0OrQbnCLVY9AoJSBJT-SEhCU-QhMA; path=/; secure; SameSite=Lax, _leadgenie_session=WlFlexGOPRiI9Rkbsk8LF3Z1uf05WuxNkgtOl0DBh%2FzajCRaJXhyKSKYr9rzJeAnF0CQm7fyjsWTvOPDjG%2BYarMhReGZE2DeH%2Ftzfh%2B2FUzWcdBt0nVT2QZpZyyPHEe29L16LBts0lNRbUpFqkTeFc3Ck81FMMl9LrI1ZM4fA7Y07z5NJ3OFtA9v%2BuROo7cLBIB8SnuGdZh3ZdCTAPJPFhJ%2Bpz3Gov9bGppqUu5IVCqFcvW1anEjBAlBQS411m2GE9w5BNPYAePR7%2FyQyZChBsyZp7KdaqNWZmk%3D--yMtwPurHyG7wEybm--kXQ5kDdiIPeN8YuyIR%2BCrw%3D%3D; path=/; secure; HttpOnly; SameSite=None, __cf_bm=.EKlykijgSePcGTDeR7F1vyvGY0Pt0I9hhanHdsEks4-1779103005.8453157-1.0.1.1-BqsSZGFPy41QOi2ez2wRVEyqEZ.uZBd6iv_jw6NhpFj00S0E_YlzUWwNAJmg2MVWWKXg80hllcx2FDQ4Yquw6NXPKF43ky21jMKR4OP5YmiXeohEx78u6m997ceHtSgB; HttpOnly; SameSite=None; Secure; Path=/; Domain=apollo.io; Expires=Mon, 18 May 2026 11:46:45 GMT",
+          "vary": "Origin",
+          "x-24-hour-requests-left": "596",
+          "x-24-hour-usage": "4",
+          "x-hourly-requests-left": "196",
+          "x-hourly-usage": "4",
+          "x-minute-requests-left": "48",
+          "x-minute-usage": "2",
+          "x-rate-limit-24-hour": "600",
+          "x-rate-limit-hourly": "200",
+          "x-rate-limit-minute": "50",
+          "x-request-id": "bbeac911-6c34-487a-871b-eecbc44887b5",
+          "x-runtime": "0.061286",
+          "x-transaction-id": "6fff11d1-c1e4-4a3c-8c6f-4fa5dfaa776f",
+          "cf-cache-status": "DYNAMIC",
+          "server": "cloudflare",
+          "cf-ray": "9fda739a8b0228b9-PDX"
+        },
+        "hash": "ad347f9daeedff82bed806d52572d8372b966f73",
+        "request": {}
+      }
+    }
+  }
+}

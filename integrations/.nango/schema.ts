@@ -11,6 +11,489 @@
  * ! See the official zod documentation: https://zod.dev/basics?id=inferring-types
  */
 
+export interface ScimGroup {
+  id: string;
+  externalId?: string | undefined;
+  displayName?: string | undefined;
+  meta?: {  resourceType?: string | undefined;
+  created?: string | undefined;
+  lastModified?: string | undefined;
+  location?: string | undefined;};
+  members?: ({  value: string;
+  display?: string | undefined;})[];
+};
+
+export interface ScimUser {
+  id: string;
+  userName: string;
+  displayName?: string | undefined;
+  name?: {  formatted?: string | undefined;
+  familyName?: string | undefined;
+  givenName?: string | undefined;};
+  emails?: ({  value: string;
+  type?: string | undefined;
+  primary?: boolean | undefined;})[];
+  externalId?: string | undefined;
+  active?: boolean | undefined;
+  meta?: {  created?: string | undefined;
+  lastModified?: string | undefined;
+  resourceType?: string | undefined;};
+};
+
+export interface ActionInput_1password_scim_createscimgroup {
+  /**
+   * The display name of the SCIM group. Example: "Engineering"
+   */
+  displayName: string;
+  /**
+   * The external identifier for the group. Example: "group-123"
+   */
+  externalId?: string | undefined;
+  /**
+   * Array of group members to assign on creation
+   */
+  members?: ({  /**
+   * The identifier of the member. Example: "user-123"
+   */
+  value: string;
+  /**
+   * The display name of the member. Example: "John Doe"
+   */
+  display?: string | undefined;})[];
+};
+
+export interface ActionOutput_1password_scim_createscimgroup {
+  id: string;
+  displayName: string;
+  externalId?: string | undefined;
+  members?: ({  value: string;
+  display?: string | undefined;})[];
+  meta?: {  resourceType?: string | undefined;
+  created?: string | undefined;
+  lastModified?: string | undefined;
+  location?: string | undefined;
+  version?: string | undefined;};
+};
+
+export interface ActionInput_1password_scim_createscimuser {
+  /**
+   * SCIM userName. Example: "user@example.com"
+   */
+  userName: string;
+  /**
+   * External identifier for the user.
+   */
+  externalId?: string | undefined;
+  /**
+   * Display name for the user.
+   */
+  displayName?: string | undefined;
+  name?: {  formatted?: string | undefined;
+  familyName?: string | undefined;
+  givenName?: string | undefined;};
+  emails?: ({  value: string;
+  type?: string | undefined;
+  primary?: boolean | undefined;})[];
+  active?: boolean | undefined;
+};
+
+export interface ActionOutput_1password_scim_createscimuser {
+  id: string;
+  userName: string;
+  externalId?: string | undefined;
+  displayName?: string | undefined;
+  name?: {  formatted?: string | undefined;
+  familyName?: string | undefined;
+  givenName?: string | undefined;};
+  emails?: ({  value: string;
+  type?: string | undefined;
+  primary?: boolean | undefined;})[];
+  active?: boolean | undefined;
+  meta?: {  resourceType?: string | undefined;
+  created?: string | undefined;
+  lastModified?: string | undefined;
+  location?: string | undefined;};
+};
+
+export interface ActionInput_1password_scim_deletescimgroup {
+  /**
+   * SCIM Group ID. Example: "group-123"
+   */
+  id: string;
+};
+
+export interface ActionOutput_1password_scim_deletescimgroup {
+  id: string;
+  deleted: boolean;
+};
+
+export interface ActionInput_1password_scim_deletescimuser {
+  /**
+   * SCIM user ID to delete. Example: "123"
+   */
+  id: string;
+};
+
+export interface ActionOutput_1password_scim_deletescimuser {
+  id: string;
+  deleted: boolean;
+};
+
+export interface ActionInput_1password_scim_getscimgroup {
+  /**
+   * SCIM Group ID. Example: "e9e30dba-f08f-4109-8486-d5c6a331660a"
+   */
+  groupId: string;
+};
+
+export interface ActionOutput_1password_scim_getscimgroup {
+  schemas: string[];
+  id: string;
+  externalId?: string | undefined;
+  displayName: string;
+  members?: ({  /**
+   * The ID of the SCIM resource
+   */
+  value: string;
+  display?: string | undefined;
+  "$ref"?: string | undefined;
+  type?: string | undefined;})[];
+  meta?: {  resourceType?: string | undefined;
+  created?: string | undefined;
+  lastModified?: string | undefined;
+  location?: string | undefined;
+  version?: string | undefined;};
+};
+
+export interface ActionInput_1password_scim_getscimuser {
+  /**
+   * The SCIM user ID. Example: "123"
+   */
+  id: string;
+};
+
+export interface ActionOutput_1password_scim_getscimuser {
+  schemas: string[];
+  id: string;
+  externalId?: string | undefined;
+  meta?: {  resourceType?: string | undefined;
+  created?: string | undefined;
+  lastModified?: string | undefined;
+  location?: string | undefined;
+  version?: string | undefined;};
+  userName: string;
+  name?: {  formatted?: string | undefined;
+  familyName?: string | undefined;
+  givenName?: string | undefined;
+  middleName?: string | undefined;
+  honorificPrefix?: string | undefined;
+  honorificSuffix?: string | undefined;};
+  displayName?: string | undefined;
+  nickName?: string | undefined;
+  profileUrl?: string | undefined;
+  title?: string | undefined;
+  userType?: string | undefined;
+  preferredLanguage?: string | undefined;
+  locale?: string | undefined;
+  timezone?: string | undefined;
+  active?: boolean | undefined;
+  emails?: ({  value: string;
+  display?: string | undefined;
+  type?: string | undefined;
+  primary?: boolean | undefined;})[];
+  groups?: ({  value: string;
+  display?: string | undefined;
+  type?: string | undefined;
+  "$ref"?: string | undefined;})[];
+  roles?: ({})[] | undefined;
+  entitlements?: ({})[] | undefined;
+};
+
+export interface ActionInput_1password_scim_getserviceproviderconfig {
+};
+
+export interface ActionOutput_1password_scim_getserviceproviderconfig {
+  schemas?: string[] | undefined;
+  id?: string | undefined;
+  meta?: {  resourceType?: string | undefined;
+  created?: string | undefined;
+  lastModified?: string | undefined;
+  location?: string | undefined;
+  version?: string | undefined;};
+  documentationUri?: string | undefined;
+  patch?: {  supported?: boolean | undefined;};
+  bulk?: {  supported?: boolean | undefined;
+  maxOperations?: number | undefined;
+  maxPayloadSize?: number | undefined;};
+  filter?: {  supported?: boolean | undefined;
+  maxResults?: number | undefined;};
+  changePassword?: {  supported?: boolean | undefined;};
+  sort?: {  supported?: boolean | undefined;};
+  etag?: {  supported?: boolean | undefined;};
+  authenticationSchemes?: ({  name?: string | undefined;
+  description?: string | undefined;
+  specUri?: string | undefined;
+  documentationUri?: string | undefined;
+  type?: string | undefined;
+  primary?: boolean | undefined;})[];
+};
+
+export interface ActionInput_1password_scim_listresourcetypes {
+};
+
+export interface ActionOutput_1password_scim_listresourcetypes {
+  schemas?: string[] | undefined;
+  totalResults?: number | undefined;
+  itemsPerPage?: number | undefined;
+  startIndex?: number | undefined;
+  Resources?: ({  schemas?: string[] | undefined;
+  id?: string | undefined;
+  name?: string | undefined;
+  description?: string | undefined;
+  endpoint?: string | undefined;
+  schema?: string | undefined;
+  schemaExtensions?: ({  schema?: string | undefined;
+  required?: boolean | undefined;})[];
+  meta?: {  resourceType?: string | undefined;
+  location?: string | undefined;};})[];
+};
+
+export interface ActionInput_1password_scim_listschemas {
+};
+
+export interface ActionOutput_1password_scim_listschemas {
+  schemas?: string[] | undefined;
+  totalResults?: number | undefined;
+  Resources?: ({  id: string;
+  name?: string | undefined;
+  description?: string | undefined;
+  attributes?: unknown[] | undefined;})[];
+};
+
+export interface ActionInput_1password_scim_listscimgroups {
+  /**
+   * Pagination cursor from the previous response. Omit for the first page.
+   */
+  cursor?: string | undefined;
+  /**
+   * SCIM filter expression. Example: 'displayName eq "Engineering"'
+   */
+  filter?: string | undefined;
+  /**
+   * Number of results per page (1-250). Defaults to 100.
+   */
+  count?: number | undefined;
+};
+
+export interface ActionOutput_1password_scim_listscimgroups {
+  groups: ({  id: string;
+  displayName: string;
+  members?: ({  value: string;
+  display?: string | undefined;
+  type?: string | undefined;})[];
+  meta?: {  resourceType?: string | undefined;
+  created?: string | undefined;
+  lastModified?: string | undefined;
+  location?: string | undefined;
+  version?: string | undefined;};
+  externalId?: string | undefined;
+  schemas?: string[] | undefined;})[];
+  next_cursor?: string | undefined;
+};
+
+export interface ActionInput_1password_scim_listscimusers {
+  /**
+   * SCIM filter query. Example: userName eq "john.doe@example.com"
+   */
+  filter?: string | undefined;
+  /**
+   * 1-based index of the first result to return.
+   */
+  start_index?: number | undefined;
+  /**
+   * Number of results to return per page.
+   */
+  count?: number | undefined;
+};
+
+export interface ActionOutput_1password_scim_listscimusers {
+  users: ({  id: string;
+  userName: string;
+  name?: {  familyName?: string | undefined;
+  givenName?: string | undefined;
+  formatted?: string | undefined;};
+  emails?: ({  value: string;
+  type?: string | undefined;
+  primary?: boolean | undefined;})[];
+  active?: boolean | undefined;
+  externalId?: string | undefined;
+  meta?: {  created?: string | undefined;
+  lastModified?: string | undefined;
+  resourceType?: string | undefined;};
+  schemas?: string[] | undefined;})[];
+  total_results: number;
+  start_index?: number | undefined;
+  items_per_page?: number | undefined;
+  next_start_index?: number | undefined;
+};
+
+export interface ActionInput_1password_scim_patchscimgroup {
+  /**
+   * The SCIM group ID to patch. Example: "group-123"
+   */
+  group_id: string;
+  /**
+   * SCIM PatchOp operations to apply.
+   */
+  operations: ({  0: {  op: 'add';
+  path?: string | undefined;
+  value?: unknown | undefined;};
+  1: {  op: 'replace';
+  path?: string | undefined;
+  value?: unknown | undefined;};
+  2: {  op: 'remove';
+  path: string;
+  value?: unknown | undefined;};})[];
+};
+
+export interface ActionOutput_1password_scim_patchscimgroup {
+  schemas: string[];
+  id: string;
+  displayName?: string | undefined;
+  members?: ({  value: string;
+  display?: string | undefined;
+  type?: string | undefined;
+  "$ref"?: string | undefined;})[];
+  meta?: {  resourceType: string;
+  created?: string | undefined;
+  lastModified?: string | undefined;
+  location?: string | undefined;
+  version?: string | undefined;};
+  externalId?: string | undefined;
+};
+
+export interface ActionInput_1password_scim_patchscimuser {
+  /**
+   * The SCIM user ID to patch. Example: "2819c223-7f76-453a-919d-413861904646"
+   */
+  userId: string;
+  /**
+   * SCIM patch operations to apply.
+   */
+  operations: ({  0: {  op: 'add';
+  path?: string | undefined;
+  value?: unknown | undefined;};
+  1: {  op: 'replace';
+  path?: string | undefined;
+  value?: unknown | undefined;};
+  2: {  op: 'remove';
+  path: string;
+  value?: unknown | undefined;};})[];
+};
+
+export interface ActionOutput_1password_scim_patchscimuser {
+  id: string;
+  userName?: string | undefined;
+  externalId?: string | undefined;
+  displayName?: string | undefined;
+  active?: boolean | undefined;
+  name?: {  formatted?: string | undefined;
+  familyName?: string | undefined;
+  givenName?: string | undefined;};
+  emails?: ({  value?: string | undefined;
+  type?: string | undefined;
+  primary?: boolean | undefined;})[];
+  meta?: {  resourceType?: string | undefined;
+  created?: string | undefined;
+  lastModified?: string | undefined;
+  location?: string | undefined;
+  version?: string | undefined;};
+};
+
+export interface ActionInput_1password_scim_updatescimgroup {
+  /**
+   * The unique identifier of the SCIM group to update. Example: "9067729b3d-f987ac4d-a175-44f0-a528-6d23c5d2ec4d"
+   */
+  groupId: string;
+  /**
+   * The new display name for the group.
+   */
+  displayName?: string | undefined;
+  /**
+   * Array of user IDs to add as members to the group.
+   */
+  addMembers?: string[] | undefined;
+  /**
+   * Array of user IDs to remove from the group.
+   */
+  removeMembers?: string[] | undefined;
+};
+
+export interface ActionOutput_1password_scim_updatescimgroup {
+  id: string;
+  schemas?: string[] | undefined;
+  displayName?: string | undefined;
+  members?: ({  value: string;
+  display?: string | undefined;
+  "$ref"?: string | undefined;
+  type?: string | undefined;})[];
+  meta?: {  resourceType?: string | undefined;
+  created?: string | undefined;
+  lastModified?: string | undefined;
+  location?: string | undefined;
+  version?: string | undefined;};
+};
+
+export interface ActionInput_1password_scim_updatescimuser {
+  /**
+   * SCIM user ID. Example: "2819c223-7f76-453a-919d-413861904646"
+   */
+  id: string;
+  /**
+   * Array of SCIM PatchOp operations to apply
+   */
+  operations: ({  0: {  op: 'add';
+  path?: string | undefined;
+  value?: unknown | undefined;};
+  1: {  op: 'replace';
+  path?: string | undefined;
+  value?: unknown | undefined;};
+  2: {  op: 'remove';
+  path: string;
+  value?: unknown | undefined;};})[];
+};
+
+export interface ActionOutput_1password_scim_updatescimuser {
+  id: string;
+  externalId?: string | undefined;
+  meta?: {  resourceType?: string | undefined;
+  created?: string | undefined;
+  lastModified?: string | undefined;
+  location?: string | undefined;
+  version?: string | undefined;};
+  schemas?: string[] | undefined;
+  userName?: string | undefined;
+  name?: {  formatted?: string | undefined;
+  familyName?: string | undefined;
+  givenName?: string | undefined;
+  middleName?: string | undefined;
+  honorificPrefix?: string | undefined;
+  honorificSuffix?: string | undefined;};
+  displayName?: string | undefined;
+  nickName?: string | undefined;
+  profileUrl?: string | undefined;
+  title?: string | undefined;
+  userType?: string | undefined;
+  preferredLanguage?: string | undefined;
+  locale?: string | undefined;
+  timezone?: string | undefined;
+  active?: boolean | undefined;
+  emails?: ({  value?: string | undefined;
+  display?: string | undefined;
+  type?: string | undefined;
+  primary?: boolean | undefined;})[];
+};
+
 export interface StandardEmployee {
   id: string;
   firstName: string;
@@ -18,36 +501,38 @@ export interface StandardEmployee {
   email: string;
   displayName: string;
   employeeNumber?: string | undefined;
-  title?: string | undefined;
+  title: string;
   department: {  id: string;
   name: string;};
   employmentType: 'FULL_TIME' | 'PART_TIME' | 'CONTRACTOR' | 'INTERN' | 'TEMPORARY' | 'OTHER';
-  employmentStatus: 'ACTIVE' | 'TERMINATED' | 'ON_LEAVE' | 'SUSPENDED' | 'PENDING';
+  employmentStatus?: string | undefined;
   startDate: string;
-  terminationDate?: string | undefined;
-  manager?: {  id?: string | undefined;
-  firstName?: string | undefined;
-  lastName?: string | undefined;
-  email?: string | undefined;};
+  terminationDate: string | null;
+  terminationType: string | null;
+  manager?: {  id: string;
+  firstName: string;
+  lastName: string;
+  email: string;} | undefined;
   workLocation: {  name: string;
   type: 'OFFICE' | 'REMOTE' | 'HYBRID';
-  primaryAddress?: {  street?: string | undefined;
-  city?: string | undefined;
-  state?: string | undefined;
-  country?: string | undefined;
-  postalCode?: string | undefined;
-  type: 'WORK' | 'HOME';};};
-  addresses: ({  street?: string | undefined;
-  city?: string | undefined;
-  state?: string | undefined;
-  country?: string | undefined;
-  postalCode?: string | undefined;
-  type: 'WORK' | 'HOME';})[];
+  primaryAddress?: {  street: string;
+  city: string;
+  state: string;
+  country: string;
+  postalCode: string;
+  type: 'WORK' | 'HOME';} | undefined;};
+  addresses: ({  street: string;
+  city: string;
+  state: string;
+  country: string;
+  postalCode: string;
+  type: 'HOME' | 'WORK';})[];
   phones: ({  type: 'WORK' | 'HOME' | 'MOBILE';
   number: string;})[];
   emails: ({  type: 'WORK' | 'PERSONAL';
   address: string;})[];
-  providerSpecific: {};
+  customFields?: {  [key: string]: any | undefined;};
+  providerSpecific: {  [key: string]: any | undefined;};
   createdAt: string;
   updatedAt: string;
 };
@@ -1311,6 +1796,1467 @@ export interface ActionOutput_anrok_voidtransaction {
   validation_errors?: any | undefined;})[];
 };
 
+export interface Account {
+  id: string;
+  accountName?: string | undefined;
+  accountNumber?: string | undefined;
+  accountType?: string | undefined;
+  annualRevenue?: number | undefined;
+  billingCity?: string | undefined;
+  billingCode?: string | undefined;
+  billingCountry?: string | undefined;
+  billingState?: string | undefined;
+  billingStreet?: string | undefined;
+  createdByName?: string | undefined;
+  createdById?: string | undefined;
+  createdByEmail?: string | undefined;
+  createdTime?: string | undefined;
+  description?: string | undefined;
+  employees?: number | undefined;
+  fax?: string | undefined;
+  industry?: string | undefined;
+  modifiedByName?: string | undefined;
+  modifiedById?: string | undefined;
+  modifiedByEmail?: string | undefined;
+  modifiedTime: string;
+  ownerName?: string | undefined;
+  ownerId?: string | undefined;
+  ownerEmail?: string | undefined;
+  ownership?: string | undefined;
+  parentAccountName?: string | undefined;
+  parentAccountId?: string | undefined;
+  phone?: string | undefined;
+  rating?: string | undefined;
+  shippingCity?: string | undefined;
+  shippingCode?: string | undefined;
+  shippingCountry?: string | undefined;
+  shippingState?: string | undefined;
+  shippingStreet?: string | undefined;
+  sicCode?: string | undefined;
+  tickerSymbol?: string | undefined;
+  website?: string | undefined;
+};
+
+export interface Contact {
+  id: string;
+  first_name?: string | undefined;
+  last_name?: string | undefined;
+  full_name?: string | undefined;
+  email?: string | undefined;
+  secondary_email?: string | undefined;
+  phone?: string | undefined;
+  mobile?: string | undefined;
+  home_phone?: string | undefined;
+  other_phone?: string | undefined;
+  title?: string | undefined;
+  department?: string | undefined;
+  account_name?: string | undefined;
+  account_id?: string | undefined;
+  owner_name?: string | undefined;
+  owner_id?: string | undefined;
+  owner_email?: string | undefined;
+  created_time: string;
+  modified_time: string;
+  mailing_street?: string | undefined;
+  mailing_city?: string | undefined;
+  mailing_state?: string | undefined;
+  mailing_zip?: string | undefined;
+  mailing_country?: string | undefined;
+  other_street?: string | undefined;
+  other_city?: string | undefined;
+  other_state?: string | undefined;
+  other_zip?: string | undefined;
+  other_country?: string | undefined;
+  description?: string | undefined;
+  twitter?: string | undefined;
+  skype_id?: string | undefined;
+  date_of_birth?: string | undefined;
+  lead_source?: string | undefined;
+  email_opt_out?: boolean | undefined;
+  fax?: string | undefined;
+  assistant?: string | undefined;
+  asst_phone?: string | undefined;
+  reporting_to_name?: string | undefined;
+  reporting_to_id?: string | undefined;
+  created_by_name?: string | undefined;
+  created_by_id?: string | undefined;
+  modified_by_name?: string | undefined;
+  modified_by_id?: string | undefined;
+};
+
+export interface Opportunity {
+  id: string;
+  name?: string | undefined;
+  amount?: number | undefined;
+  stage?: string | undefined;
+  close_date?: string | undefined;
+  owner_id?: string | undefined;
+  updated_at: string;
+};
+
+export interface Organization {
+  id: string;
+  name: string;
+  created_at: string;
+  updated_at: string;
+  url: string;
+  external_id?: string | undefined;
+  domain_names?: string[] | undefined;
+  group_id?: number | undefined;
+  shared_comments?: boolean | undefined;
+  shared_tickets?: boolean | undefined;
+  tags?: string[] | undefined;
+  notes?: string | undefined;
+  details?: string | undefined;
+};
+
+export interface Sequence {
+  id: string;
+  name?: string | undefined;
+  active?: boolean | undefined;
+  created_at?: string | undefined;
+  updated_at?: string | undefined;
+  num_steps?: number | undefined;
+  unique_scheduled?: number | undefined;
+  unique_delivered?: number | undefined;
+  unique_opened?: number | undefined;
+  unique_replied?: number | undefined;
+  unique_bounced?: number | undefined;
+  user_id?: string | undefined;
+  email_account_id?: string | undefined;
+  label_ids?: string[] | undefined;
+  folder_id?: string | undefined;
+  tags?: string[] | undefined;
+  archived?: boolean | undefined;
+  scheduling_status?: string | undefined;
+  pause_on_out_of_office?: boolean | undefined;
+  pause_on_holiday?: boolean | undefined;
+};
+
+export interface Task {
+  id: string;
+  subject?: string | undefined;
+  status?: string | undefined;
+  priority?: string | undefined;
+  owner_id?: string | undefined;
+  owner_name?: string | undefined;
+  created_by_id?: string | undefined;
+  modified_by_id?: string | undefined;
+  created_time?: string | undefined;
+  modified_time?: string | undefined;
+  due_date?: string | undefined;
+  description?: string | undefined;
+  related_module?: string | undefined;
+  related_record_id?: string | undefined;
+};
+
+export interface ActionInput_apollo_bulkenrichpeople {
+  /**
+   * Array of person lookup details. Maximum 10 people per request.
+   */
+  details: ({  /**
+   * Apollo person ID. Example: "64a7ff0cc4dfae00013df1a5"
+   */
+  id?: string | undefined;
+  /**
+   * Email address to look up.
+   */
+  email?: string | undefined;
+  /**
+   * First name for name-based lookup.
+   */
+  first_name?: string | undefined;
+  /**
+   * Last name for name-based lookup.
+   */
+  last_name?: string | undefined;
+  /**
+   * Organization name for name-based lookup.
+   */
+  organization_name?: string | undefined;
+  /**
+   * LinkedIn URL to look up.
+   */
+  linkedin_url?: string | undefined;
+  /**
+   * Organization domain to look up.
+   */
+  domain?: string | undefined;})[];
+  /**
+   * Whether to reveal personal email addresses in the response.
+   */
+  reveal_personal_emails?: boolean | undefined;
+  /**
+   * Whether to reveal phone numbers in the response.
+   */
+  reveal_phone_number?: boolean | undefined;
+};
+
+export interface ActionOutput_apollo_bulkenrichpeople {
+  status: string;
+  total_requested: number;
+  unique_enriched: number;
+  missing_records: number;
+  credits_consumed: number;
+  matches: ({  id: string;
+  first_name?: string | undefined;
+  last_name?: string | undefined;
+  name?: string | undefined;
+  linkedin_url?: string | undefined;
+  title?: string | undefined;
+  email_status?: string | undefined;
+  photo_url?: string | undefined;
+  email?: string | undefined;
+  organization_id?: string | undefined;
+  employment_history?: ({  id: string;
+  created_at?: string | undefined;
+  current?: boolean | undefined;
+  degree?: string | undefined;
+  description?: string | undefined;
+  emails?: string[] | undefined;
+  end_date?: string | undefined;
+  grade_level?: string | undefined;
+  kind?: string | undefined;
+  major?: string | undefined;
+  org_matched_by_name?: boolean | undefined;
+  organization_id?: string | undefined;
+  organization_name?: string | undefined;
+  raw_address?: string | undefined;
+  start_date?: string | undefined;
+  title?: string | undefined;
+  updated_at?: string | undefined;})[];})[];
+};
+
+export interface ActionInput_apollo_createaccount {
+  /**
+   * Account name. Example: "Acme Corporation"
+   */
+  name: string;
+  /**
+   * Account domain. Example: "acme.com"
+   */
+  domain?: string | undefined;
+  /**
+   * Account phone number. Example: "+1-555-123-4567"
+   */
+  phone?: string | undefined;
+  /**
+   * Account address. Example: "123 Main St, San Francisco, CA 94105"
+   */
+  raw_address?: string | undefined;
+  /**
+   * Account industry. Example: "Software"
+   */
+  industry?: string | undefined;
+  /**
+   * Number of employees. Example: 500
+   */
+  number_of_employees?: number | undefined;
+  /**
+   * Annual revenue. Example: 1000000
+   */
+  annual_revenue?: number | undefined;
+  /**
+   * Account website URL. Example: "https://acme.com"
+   */
+  website_url?: string | undefined;
+  /**
+   * ID of the user who owns this account. Example: "6a0af1f0c9f63c0018aed306"
+   */
+  owner_id?: string | undefined;
+  /**
+   * ID of the account stage. Example: "6a0af1f0c9f63c0018aed307"
+   */
+  account_stage_id?: string | undefined;
+  /**
+   * CRM ID for the account. Example: "0015000000ABC123"
+   */
+  crm_id?: string | undefined;
+};
+
+export interface ActionOutput_apollo_createaccount {
+  id: string;
+  name?: string | undefined;
+  domain?: string | undefined;
+  phone?: string | undefined;
+  raw_address?: string | undefined;
+  industry?: string | undefined;
+  number_of_employees?: number | undefined;
+  annual_revenue?: number | undefined;
+  website_url?: string | undefined;
+  owner_id?: string | undefined;
+  account_stage_id?: string | undefined;
+  crm_id?: string | undefined;
+  created_at?: string | undefined;
+  updated_at?: string | undefined;
+};
+
+export interface ActionInput_apollo_createcontact {
+  first_name: string;
+  last_name: string;
+  email: string;
+  title?: string | undefined;
+  organization_name?: string | undefined;
+  account_id?: string | undefined;
+  website_url?: string | undefined;
+  label_names?: string[] | undefined;
+  contact_stage_id?: string | undefined;
+  present_raw_address?: string | undefined;
+  direct_phone?: string | undefined;
+  corporate_phone?: string | undefined;
+  mobile_phone?: string | undefined;
+  home_phone?: string | undefined;
+  other_phone?: string | undefined;
+  typed_custom_fields?: {  [key: string]: unknown | undefined;};
+  run_dedupe?: boolean | undefined;
+};
+
+export interface ActionOutput_apollo_createcontact {
+  id: string;
+  first_name?: string | undefined;
+  last_name?: string | undefined;
+  email?: string | undefined;
+  title?: string | undefined;
+  organization_name?: string | undefined;
+  account_id?: string | undefined;
+  website_url?: string | undefined;
+  label_names?: string[] | undefined;
+  contact_stage_id?: string | undefined;
+  present_raw_address?: string | undefined;
+  direct_phone?: string | undefined;
+  corporate_phone?: string | undefined;
+  mobile_phone?: string | undefined;
+  home_phone?: string | undefined;
+  other_phone?: string | undefined;
+  typed_custom_fields?: {  [key: string]: unknown | undefined;};
+  created_at?: string | undefined;
+  updated_at?: string | undefined;
+};
+
+export interface ActionInput_apollo_createopportunity {
+  /**
+   * Name of the deal (human-readable). Example: Massive Q3 Deal
+   */
+  name: string;
+  /**
+   * ID of the deal owner in your Apollo team. Retrieve via Get a List of Users. Example: 66302798d03b9601c7934ebf
+   */
+  owner_id?: string | undefined;
+  /**
+   * ID of the target account (company) in Apollo. Find via Organization Search (organization_id). Example: 5e66b6381e05b4008c8331b8
+   */
+  account_id?: string | undefined;
+  /**
+   * Monetary value as a string. Do not include commas or currency symbols; commas cause the amount to be left blank. Example: 55123478
+   */
+  amount?: string | undefined;
+  /**
+   * ID of the deal stage in your Apollo team. Retrieve via List Deal Stages. Example: 6095a710bd01d100a506d4bd
+   */
+  opportunity_stage_id?: string | undefined;
+  /**
+   * Estimated close date in YYYY-MM-DD format. Example: 2025-10-30
+   */
+  closed_date?: string | undefined;
+  typed_custom_fields?: {  [key: string]: any | undefined;};
+};
+
+export interface ActionOutput_apollo_createopportunity {
+  id: string;
+  name: string;
+  amount?: number | undefined;
+  closed_date?: string | undefined;
+  account_id?: string | undefined;
+  owner_id?: string | undefined;
+  opportunity_stage_id?: string | undefined;
+  is_closed?: boolean | undefined;
+  is_won?: boolean | undefined;
+  created_at?: string | undefined;
+};
+
+export interface ActionInput_apollo_createtask {
+  /**
+   * The ID of the user who owns the task. Example: "6a0af1f0c9f63c0018aed306"
+   */
+  user_id: string;
+  /**
+   * The type of task. Example: "action_item"
+   */
+  type: 'action_item' | 'call' | 'email' | 'meeting';
+  /**
+   * The priority of the task. Example: "medium"
+   */
+  priority: 'low' | 'medium' | 'high';
+  /**
+   * The due date of the task in ISO 8601 format. Example: "2026-05-20T12:00:00Z"
+   */
+  due_at: string;
+  /**
+   * The note or description for the task. Example: "Follow up with prospect"
+   */
+  note: string;
+  /**
+   * The ID of the contact this task is for. Example: "6a0af1f3f1ce1100203b8047"
+   */
+  contact_id?: string | undefined;
+  /**
+   * The ID of the account this task is for. Example: "6a0af1f0c9f63c0018aed306"
+   */
+  account_id?: string | undefined;
+  /**
+   * The ID of the opportunity this task is for. Example: "6a0af21285c69e000cc28695"
+   */
+  opportunity_id?: string | undefined;
+};
+
+export interface ActionOutput_apollo_createtask {
+  task: {  id: string;
+  user_id: string;
+  type: string;
+  priority: string;
+  due_at?: string | undefined;
+  note?: string | undefined;
+  contact_id?: string | undefined;
+  account_id?: string | undefined;
+  opportunity_id?: string | undefined;
+  created_at?: string | undefined;
+  updated_at?: string | undefined;};
+};
+
+export interface ActionInput_apollo_deleteaccount {
+  /**
+   * The Apollo ID for the account to archive. Example: "6a0af20b832cec00105fb3a7"
+   */
+  id: string;
+};
+
+export interface ActionOutput_apollo_deleteaccount {
+  id: string;
+  archived: boolean;
+  name?: string | undefined;
+};
+
+export interface ActionInput_apollo_deletecontact {
+  /**
+   * Apollo contact ID to delete. Example: "6a0af20f499fdc0010dfadaf"
+   */
+  contactId: string;
+};
+
+export interface ActionOutput_apollo_deletecontact {
+  id: string;
+  deleted: boolean;
+  archived?: boolean | undefined;
+};
+
+export interface ActionInput_apollo_deleteopportunity {
+  /**
+   * Apollo opportunity ID. Example: "6a0af21285c69e000cc28695"
+   */
+  id: string;
+};
+
+export interface ActionOutput_apollo_deleteopportunity {
+  id: string;
+  name?: string | undefined;
+  is_closed?: boolean | undefined;
+};
+
+export interface ActionInput_apollo_enrichorganization {
+  /**
+   * The domain of the company to enrich. Example: "apollo.io" or "microsoft.com". Do not include "www.", the "@" symbol, or similar.
+   */
+  domain?: string | undefined;
+  /**
+   * The Apollo ID of the organization to enrich. Example: "5e66b6381e05b4008c8331b8"
+   */
+  id?: string | undefined;
+};
+
+export interface ActionOutput_apollo_enrichorganization {
+  organization?: {  id: string;
+  name?: string | undefined;
+  website_url?: string | undefined;
+  blog_url?: string | undefined;
+  angellist_url?: string | undefined;
+  linkedin_url?: string | undefined;
+  twitter_url?: string | undefined;
+  facebook_url?: string | undefined;
+  primary_phone?: unknown | undefined;
+  languages?: string[] | undefined;
+  alexa_ranking?: number | undefined;
+  phone?: string | undefined;
+  linkedin_uid?: string | undefined;
+  founded_year?: number | undefined;
+  publicly_traded_symbol?: string | undefined;
+  publicly_traded_exchange?: string | undefined;
+  logo_url?: string | undefined;
+  crunchbase_url?: string | undefined;
+  primary_domain?: string | undefined;
+  industry?: string | undefined;
+  keywords?: string[] | undefined;
+  estimated_num_employees?: number | undefined;
+  industry_tag_id?: string | undefined;
+  industry_tag_hash?: {  [key: string]: unknown | undefined;};
+  retail_location_count?: number | undefined;
+  raw_address?: string | undefined;
+  street_address?: string | undefined;
+  city?: string | undefined;
+  state?: string | undefined;
+  country?: string | undefined;
+  postal_code?: string | undefined;
+  owned_by_organization_id?: string | undefined;
+  owned_by_organization?: unknown | undefined;
+  num_organizations_owned?: number | undefined;
+  num_subsidiaries?: number | undefined;
+  total_funding?: number | undefined;
+  total_funding_printed?: string | undefined;
+  latest_funding_round_date?: string | undefined;
+  latest_funding_stage?: string | undefined;
+  funding_events?: unknown[] | undefined;
+  intent_strength?: number | undefined;
+  intent_topic?: string | undefined;
+  intent_signal_score?: number | undefined;
+  intent_score_normalized?: number | undefined;
+  intent_score_bucket?: string | undefined;
+  intent_surge_from?: string | undefined;
+  intent_surge_to?: string | undefined;
+  sic_codes?: string[] | undefined;
+  naics_codes?: string[] | undefined;
+  technology_names?: string[] | undefined;
+  technology_categories?: string[] | undefined;
+  short_description?: string | undefined;
+  seo_description?: string | undefined;
+  annual_revenue_printed?: string | undefined;
+  annual_revenue?: number | undefined;
+  department_head_count?: {  [key: string]: number;} | undefined;};
+};
+
+export interface ActionInput_apollo_enrichperson {
+  /**
+   * The email address of the person. Example: "alice@nango-test.io"
+   */
+  email?: string | undefined;
+  /**
+   * The Apollo ID for the person. Example: "587cf802f65125cad923a266"
+   */
+  id?: string | undefined;
+  /**
+   * The first name of the person. Example: "Tim"
+   */
+  first_name?: string | undefined;
+  /**
+   * The last name of the person. Example: "Zheng"
+   */
+  last_name?: string | undefined;
+  /**
+   * The full name of the person. Example: "Tim Zheng"
+   */
+  name?: string | undefined;
+  /**
+   * The domain name for the person's employer. Example: "apollo.io"
+   */
+  domain?: string | undefined;
+  /**
+   * The name of the person's employer. Example: "Apollo"
+   */
+  organization_name?: string | undefined;
+  /**
+   * The URL for the person's LinkedIn profile. Example: "http://www.linkedin.com/in/tim-zheng-677ba010"
+   */
+  linkedin_url?: string | undefined;
+  /**
+   * The hashed email of the person (MD5 or SHA-256).
+   */
+  hashed_email?: string | undefined;
+  /**
+   * Set to true to reveal personal emails.
+   */
+  reveal_personal_emails?: boolean | undefined;
+  /**
+   * Set to true to reveal phone numbers.
+   */
+  reveal_phone_number?: boolean | undefined;
+  /**
+   * Webhook URL for phone number delivery (required if reveal_phone_number is true).
+   */
+  webhook_url?: string | undefined;
+  /**
+   * Set to true to enable email waterfall enrichment.
+   */
+  run_waterfall_email?: boolean | undefined;
+  /**
+   * Set to true to enable phone waterfall enrichment.
+   */
+  run_waterfall_phone?: boolean | undefined;
+};
+
+export interface ActionOutput_apollo_enrichperson {
+  id?: string | undefined;
+  firstName?: string | undefined;
+  lastName?: string | undefined;
+  name?: string | undefined;
+  email?: string | undefined;
+  organizationId?: string | undefined;
+  organizationName?: string | undefined;
+  organizationWebsiteUrl?: string | undefined;
+  title?: string | undefined;
+  linkedinUrl?: string | undefined;
+  twitterUrl?: string | undefined;
+  country?: string | undefined;
+  state?: string | undefined;
+  city?: string | undefined;
+  employmentHistory?: ({  id?: string | undefined;
+  organizationId?: string | undefined;
+  organizationName?: string | undefined;
+  organizationWebsiteUrl?: string | undefined;
+  title?: string | undefined;
+  startDate?: string | undefined;
+  endDate?: string | undefined;
+  current?: boolean | undefined;})[];
+  emailStatus?: string | undefined;
+  emailTrueStatus?: string | undefined;
+  emails?: ({  email?: string | undefined;
+  type?: string | undefined;
+  status?: string | undefined;})[];
+  phoneNumbers?: ({  number?: string | undefined;
+  type?: string | undefined;
+  status?: string | undefined;})[];
+  isLikelyToRespond?: boolean | undefined;
+  departments?: string[] | undefined;
+  subdepartments?: string[] | undefined;
+  functions?: string[] | undefined;
+  seniority?: string | undefined;
+  photoUrl?: string | undefined;
+  tenureInMonths?: number | undefined;
+};
+
+export interface ActionInput_apollo_getaccount {
+  /**
+   * The Apollo ID for the account. Example: "6a0af1f0c9f63c0018aed306"
+   */
+  id: string;
+};
+
+export interface ActionOutput_apollo_getaccount {
+  id: string;
+  name?: string | undefined;
+  domain?: string | undefined;
+  phone?: string | undefined;
+  raw_address?: string | undefined;
+  owner_id?: string | undefined;
+  account_stage_id?: string | undefined;
+  created_at?: string | undefined;
+  updated_at?: string | undefined;
+  typed_custom_fields?: {  [key: string]: unknown | undefined;};
+  organization?: {  id?: string | undefined;
+  name?: string | undefined;
+  domain?: string | undefined;};
+};
+
+export interface ActionInput_apollo_getcontact {
+  /**
+   * The ID of the contact to retrieve. Example: "6a0af1f3f1ce1100203b8047"
+   */
+  id: string;
+};
+
+export interface ActionOutput_apollo_getcontact {
+  id: string;
+  first_name?: string | undefined;
+  last_name?: string | undefined;
+  name?: string | undefined;
+  email?: string | undefined;
+  title?: string | undefined;
+  organization_name?: string | undefined;
+  organization_id?: string | undefined;
+  account_id?: string | undefined;
+  linkedin_url?: string | undefined;
+  contact_stage_id?: string | undefined;
+  owner_id?: string | undefined;
+  creator_id?: string | undefined;
+  source?: string | undefined;
+  original_source?: string | undefined;
+  headline?: string | undefined;
+  photo_url?: string | undefined;
+  present_raw_address?: string | undefined;
+  created_at?: string | undefined;
+  updated_at?: string | undefined;
+  email_status?: string | undefined;
+  sanitized_phone?: string | undefined;
+  existence_level?: string | undefined;
+  twitter_url?: string | undefined;
+  label_ids?: string[] | undefined;
+  contact_roles?: unknown[] | undefined;
+  emailer_campaign_ids?: string[] | undefined;
+  typed_custom_fields?: {  [key: string]: unknown | undefined;};
+};
+
+export interface ActionInput_apollo_getopportunity {
+  /**
+   * The ID of the opportunity to retrieve. Example: "6a0af21285c69e000cc28695"
+   */
+  id: string;
+};
+
+export interface ActionOutput_apollo_getopportunity {
+  id: string;
+  team_id: string;
+  owner_id?: string | undefined;
+  salesforce_owner_id?: string | undefined;
+  amount?: number | undefined;
+  closed_date?: string | undefined;
+  account_id?: string | undefined;
+  description?: string | undefined;
+  is_closed?: boolean | undefined;
+  is_won?: boolean | undefined;
+  name: string;
+  stage_name?: string | undefined;
+  opportunity_stage_id?: string | undefined;
+  source?: string | undefined;
+  salesforce_id?: string | undefined;
+  created_at?: string | undefined;
+  actual_close_date?: string | undefined;
+  next_step?: string | undefined;
+  next_step_date?: string | undefined;
+  closed_lost_reason?: string | undefined;
+  closed_won_reason?: string | undefined;
+  forecast_category?: string | undefined;
+  deal_probability?: number | undefined;
+  created_by_id?: string | undefined;
+  current_solutions?: string | undefined;
+  deal_source?: string | undefined;
+  manually_updated_probability?: string | undefined;
+  manually_updated_forecast?: string | undefined;
+  crm_id?: string | undefined;
+  crm_record_url?: string | undefined;
+  crm_owner_id?: string | undefined;
+  probability?: string | undefined;
+  opportunity_pipeline_id?: string | undefined;
+  stage_updated_at?: string | undefined;
+  next_step_last_updated_at?: string | undefined;
+  exchange_rate_code?: string | undefined;
+  exchange_rate_value?: number | undefined;
+  amount_in_team_currency?: number | undefined;
+  forecasted_revenue?: number | undefined;
+  last_activity_date?: string | undefined;
+  existence_level?: string | undefined;
+  typed_custom_fields?: {  [key: string]: unknown | undefined;};
+  opportunity_rule_config_statuses?: unknown[] | undefined;
+  opportunity_contact_roles?: unknown[] | undefined;
+  currency?: {  name: string;
+  iso_code: string;
+  symbol: string;} | undefined;
+  num_contacts?: number | undefined;
+  account?: {  id: string;
+  name: string;
+  domain?: string | undefined;
+  team_id: string;
+  organization_id?: string | undefined;
+  account_stage_id?: string | undefined;
+  source?: string | undefined;
+  original_source?: string | undefined;
+  creator_id?: string | undefined;
+  owner_id?: string | undefined;
+  created_at?: string | undefined;
+  phone?: string | undefined;
+  phone_status?: string | undefined;
+  hubspot_id?: string | undefined;
+  salesforce_id?: string | undefined;};
+};
+
+export interface ActionInput_apollo_listaccounts {
+  /**
+   * Pagination cursor from the previous response. Pass the value of `next_cursor` from the previous response to fetch the next page. Omit for the first page.
+   */
+  cursor?: string | undefined;
+  /**
+   * Keywords to narrow the search of accounts. Keywords should directly match at least part of an account name. Example: "apollo"
+   */
+  q_organization_name?: string | undefined;
+  /**
+   * Apollo IDs for account stages to include in search results. Call List Account Stages endpoint to retrieve available IDs.
+   */
+  account_stage_ids?: string[] | undefined;
+  /**
+   * Apollo IDs for labels to include in search results.
+   */
+  account_label_ids?: string[] | undefined;
+  /**
+   * Sort matching accounts by the specified field.
+   */
+  sort_by_field?: 'account_last_activity_date' | 'account_created_at' | 'account_updated_at' | undefined;
+  /**
+   * Set to true to sort in ascending order. Must be used with sort_by_field. Defaults to false (descending).
+   */
+  sort_ascending?: boolean | undefined;
+  /**
+   * Number of results per page. Max 100. Defaults to 100.
+   */
+  per_page?: number | undefined;
+};
+
+export interface ActionOutput_apollo_listaccounts {
+  /**
+   * List of accounts matching the search criteria.
+   */
+  accounts: ({  /**
+   * Apollo ID for the account.
+   */
+  id: string;
+  /**
+   * Name of the account/company.
+   */
+  name: string;
+  /**
+   * Primary domain of the account.
+   */
+  domain?: string | undefined;
+  /**
+   * Apollo organization ID.
+   */
+  organization_id?: string | undefined;
+  /**
+   * ID of the account stage.
+   */
+  account_stage_id?: string | undefined;
+  /**
+   * ID of the user who owns this account.
+   */
+  owner_id?: string | undefined;
+  /**
+   * ISO 8601 timestamp when the account was created.
+   */
+  created_at?: string | undefined;
+  /**
+   * ISO 8601 timestamp when the account was last updated.
+   */
+  updated_at?: string | undefined;
+  /**
+   * ISO 8601 timestamp of the most recent activity.
+   */
+  last_activity_at?: string | undefined;
+  /**
+   * Phone number associated with the account.
+   */
+  phone?: string | undefined;
+  /**
+   * Physical address of the account.
+   */
+  address?: string | undefined;
+  /**
+   * City of the account.
+   */
+  city?: string | undefined;
+  /**
+   * State of the account.
+   */
+  state?: string | undefined;
+  /**
+   * Country of the account.
+   */
+  country?: string | undefined;
+  /**
+   * Postal code of the account.
+   */
+  postal_code?: string | undefined;
+  /**
+   * Industry of the account.
+   */
+  industry?: string | undefined;
+  /**
+   * Number of employees at the account.
+   */
+  employees?: number | undefined;
+  /**
+   * Annual revenue of the account.
+   */
+  annual_revenue?: number | undefined;
+  /**
+   * Description of the account.
+   */
+  description?: string | undefined;
+  /**
+   * Website URL of the account.
+   */
+  website?: string | undefined;
+  /**
+   * LinkedIn URL of the account.
+   */
+  linkedin_url?: string | undefined;
+  /**
+   * Twitter URL of the account.
+   */
+  twitter_url?: string | undefined;
+  /**
+   * Facebook URL of the account.
+   */
+  facebook_url?: string | undefined;
+  /**
+   * Labels attached to the account.
+   */
+  labels?: ({  id: string;
+  name: string;})[] | undefined;})[];
+  /**
+   * Pagination information for the results.
+   */
+  pagination: {  /**
+   * Current page number.
+   */
+  page: number;
+  /**
+   * Number of results per page.
+   */
+  per_page: number;
+  /**
+   * Total number of accounts matching the query.
+   */
+  total_entries: number;
+  /**
+   * Total number of pages available.
+   */
+  total_pages: number;};
+  /**
+   * Cursor to fetch the next page of results. Null if there are no more pages.
+   */
+  next_cursor?: string | undefined;
+};
+
+export interface ActionInput_apollo_listcontacts {
+  /**
+   * Pagination cursor from the previous response. Omit for the first page.
+   */
+  cursor?: string | undefined;
+  /**
+   * Keywords to narrow the search. Can include names, job titles, employers, and email addresses.
+   */
+  q_keywords?: string | undefined;
+  /**
+   * Contact stage IDs to filter by.
+   */
+  contact_stage_ids?: string[] | undefined;
+  /**
+   * Contact label IDs to filter by.
+   */
+  contact_label_ids?: string[] | undefined;
+  /**
+   * Field to sort results by.
+   */
+  sort_by_field?: 'contact_last_activity_date' | 'contact_email_last_opened_at' | 'contact_email_last_clicked_at' | 'contact_created_at' | 'contact_updated_at' | undefined;
+  /**
+   * Sort in ascending order. Requires sort_by_field.
+   */
+  sort_ascending?: boolean | undefined;
+  /**
+   * Number of results per page (1-100).
+   */
+  per_page?: number | undefined;
+  /**
+   * Page number to retrieve.
+   */
+  page?: number | undefined;
+};
+
+export interface ActionOutput_apollo_listcontacts {
+  contacts: ({  id: string;
+  first_name?: string | undefined;
+  last_name?: string | undefined;
+  name?: string | undefined;
+  email?: string | undefined;
+  organization_name?: string | undefined;
+  title?: string | undefined;
+  phone?: string | undefined;
+  created_at?: string | undefined;
+  updated_at?: string | undefined;})[];
+  pagination: {  page: number;
+  per_page: number;
+  total_entries: number;
+  total_pages: number;
+  /**
+   * Cursor for the next page. Omit if on the last page.
+   */
+  next_cursor?: string | undefined;};
+};
+
+export interface ActionInput_apollo_listopportunities {
+  /**
+   * Page number to retrieve. Defaults to 1.
+   */
+  page?: number | undefined;
+  /**
+   * Number of results per page. Defaults to 25.
+   */
+  per_page?: number | undefined;
+  /**
+   * Sort deals by amount (largest first), is_closed (closed deals first), or is_won (won deals first).
+   */
+  sort_by_field?: 'amount' | 'is_closed' | 'is_won' | undefined;
+};
+
+export interface ActionOutput_apollo_listopportunities {
+  opportunities: ({  id: string;
+  name?: string | undefined;
+  amount?: number | undefined;
+  closed_date?: string | undefined;
+  is_closed?: boolean | undefined;
+  is_won?: boolean | undefined;
+  stage_name?: string | undefined;
+  account_id?: string | undefined;
+  owner_id?: string | undefined;
+  description?: string | undefined;
+  created_at?: string | undefined;})[];
+  pagination: {  page: number;
+  per_page: number;
+  total_entries: number;
+  total_pages: number;};
+};
+
+export interface ActionInput_apollo_listsequences {
+  /**
+   * Pagination cursor from the previous response. Omit for the first page.
+   */
+  cursor?: string | undefined;
+};
+
+export interface ActionOutput_apollo_listsequences {
+  sequences: ({  id: string;
+  name?: string | undefined;
+  status?: string | undefined;
+  created_at?: string | undefined;
+  updated_at?: string | undefined;})[];
+  next_cursor?: string | undefined;
+};
+
+export interface ActionInput_apollo_listtasks {
+  /**
+   * Page number to retrieve. Default is 1.
+   */
+  page?: number | undefined;
+  /**
+   * Number of results per page. Default is 25.
+   */
+  per_page?: number | undefined;
+};
+
+export interface ActionOutput_apollo_listtasks {
+  tasks: ({  id: string;
+  type?: string | undefined;
+  title?: string | undefined;
+  note?: string | undefined;
+  due_date?: string | undefined;
+  priority?: string | undefined;
+  status?: string | undefined;
+  contact_id?: string | undefined;
+  account_id?: string | undefined;
+  opportunity_id?: string | undefined;
+  owner_id?: string | undefined;
+  created_at?: string | undefined;
+  updated_at?: string | undefined;})[];
+  pagination: {  page: number;
+  per_page: number;
+  total_entries: number;
+  total_pages: number;};
+};
+
+export interface ActionInput_apollo_listusers {
+  /**
+   * Page number for pagination. Defaults to 1.
+   */
+  page?: number | undefined;
+};
+
+export interface ActionOutput_apollo_listusers {
+  users: ({  id: string;
+  email?: string | undefined;
+  firstName?: string | undefined;
+  lastName?: string | undefined;
+  name?: string | undefined;
+  phone?: string | undefined;
+  teamId?: string | undefined;
+  createdAt?: string | undefined;
+  updatedAt?: string | undefined;
+  userType?: string | undefined;})[];
+  nextPage?: number | undefined;
+  totalPages?: number | undefined;
+  totalEntries?: number | undefined;
+};
+
+export interface ActionInput_apollo_removecontactfromsequence {
+  /**
+   * Apollo sequence (emailer campaign) ID. Example: "66e9e215ece19801b219997f"
+   */
+  emailer_campaign_id: string;
+  /**
+   * Apollo contact IDs to remove or stop from the sequence. Example: ["66e34b81740c50074e3d1bd4"]
+   */
+  contact_ids: string[];
+  /**
+   * Action to perform on the contacts in the sequence. Defaults to remove.
+   */
+  action?: 'remove' | 'stop' | undefined;
+};
+
+export interface ActionOutput_apollo_removecontactfromsequence {
+  contacts: ({  id: string;
+  name?: string | undefined;
+  email?: string | undefined;})[];
+  emailer_campaigns: ({  id: string;
+  name?: string | undefined;})[];
+};
+
+export interface ActionInput_apollo_searchorganizations {
+  /**
+   * Domain names for the organization (e.g., "apollo.io", "microsoft.com"). Up to 1,000 domains.
+   */
+  q_organization_domains_list?: string[] | undefined;
+  /**
+   * Employee count ranges (e.g., "1,10", "250,500").
+   */
+  organization_num_employees_ranges?: string[] | undefined;
+  /**
+   * HQ locations to include (e.g., "texas", "tokyo", "spain").
+   */
+  organization_locations?: string[] | undefined;
+  /**
+   * HQ locations to exclude.
+   */
+  organization_not_locations?: string[] | undefined;
+  /**
+   * Keyword tags to filter by (e.g., "mining", "consulting").
+   */
+  q_organization_keyword_tags?: string[] | undefined;
+  /**
+   * Organization name to search for. Partial matches accepted.
+   */
+  q_organization_name?: string | undefined;
+  /**
+   * Specific Apollo organization IDs to include.
+   */
+  organization_ids?: string[] | undefined;
+  /**
+   * Technologies the organization uses (e.g., "salesforce", "google_analytics").
+   */
+  currently_using_any_of_technology_uids?: string[] | undefined;
+  /**
+   * Minimum revenue filter (no currency symbols, commas, or decimals).
+   */
+  revenue_range_min?: number | undefined;
+  /**
+   * Maximum revenue filter.
+   */
+  revenue_range_max?: number | undefined;
+  /**
+   * Minimum latest funding amount.
+   */
+  latest_funding_amount_range_min?: number | undefined;
+  /**
+   * Maximum latest funding amount.
+   */
+  latest_funding_amount_range_max?: number | undefined;
+  /**
+   * Minimum total funding amount.
+   */
+  total_funding_range_min?: number | undefined;
+  /**
+   * Maximum total funding amount.
+   */
+  total_funding_range_max?: number | undefined;
+  /**
+   * Minimum latest funding date (YYYY-MM-DD).
+   */
+  latest_funding_date_range_min?: string | undefined;
+  /**
+   * Maximum latest funding date (YYYY-MM-DD).
+   */
+  latest_funding_date_range_max?: string | undefined;
+  /**
+   * Job titles in active job postings.
+   */
+  q_organization_job_titles?: string[] | undefined;
+  /**
+   * Locations of jobs being recruited.
+   */
+  organization_job_locations?: string[] | undefined;
+  /**
+   * Minimum number of active job postings.
+   */
+  organization_num_jobs_range_min?: number | undefined;
+  /**
+   * Maximum number of active job postings.
+   */
+  organization_num_jobs_range_max?: number | undefined;
+  /**
+   * Earliest job posted date (YYYY-MM-DD).
+   */
+  organization_job_posted_at_range_min?: string | undefined;
+  /**
+   * Latest job posted date (YYYY-MM-DD).
+   */
+  organization_job_posted_at_range_max?: string | undefined;
+  /**
+   * Page number for pagination. Default: 1.
+   */
+  page?: number | undefined;
+  /**
+   * Results per page (max 100). Default: 25.
+   */
+  per_page?: number | undefined;
+};
+
+export interface ActionOutput_apollo_searchorganizations {
+  organizations: ({  id: string;
+  name?: string | undefined;
+  domain?: string | undefined;
+  website_url?: string | undefined;
+  city?: string | undefined;
+  state?: string | undefined;
+  country?: string | undefined;
+  location?: string | undefined;
+  num_employees?: number | undefined;
+  description?: string | undefined;
+  phone?: string | undefined;
+  industry?: string | undefined;
+  founded_year?: number | undefined;
+  revenue?: number | undefined;
+  revenue_range?: string | undefined;
+  total_funding?: number | undefined;
+  latest_funding_amount?: number | undefined;
+  latest_funding_date?: string | undefined;
+  funding_currency?: string | undefined;
+  currency?: string | undefined;
+  alexa_ranking?: number | undefined;
+  publicly_traded?: boolean | undefined;
+  ticker?: string | undefined;
+  linkedin_url?: string | undefined;
+  facebook_url?: string | undefined;
+  twitter_url?: string | undefined;
+  technologies?: string[] | undefined;
+  num_jobs?: number | undefined;
+  account_id?: string | undefined;})[];
+  pagination?: {  page: number;
+  per_page: number;
+  total_entries: number;
+  total_pages: number;} | undefined;
+};
+
+export interface ActionInput_apollo_searchpeople {
+  /**
+   * Job titles to search for. Example: ["sales director", "vp sales"]
+   */
+  person_titles?: string[] | undefined;
+  /**
+   * Seniority levels to filter by. Example: ["c_suite", "director", "manager"]
+   */
+  person_seniorities?: string[] | undefined;
+  /**
+   * Organization domains to filter by. Example: ["apollo.io", "nango.dev"]
+   */
+  q_organization_domains_list?: string[] | undefined;
+  /**
+   * Person locations to filter by. Example: ["California, US", "New York, US"]
+   */
+  person_locations?: string[] | undefined;
+  /**
+   * Organization headquarters locations. Example: ["California, US"]
+   */
+  organization_locations?: string[] | undefined;
+  /**
+   * Number of results per page (1-100). Default: 25
+   */
+  per_page?: number | undefined;
+  /**
+   * Page number for pagination. Default: 1
+   */
+  page?: number | undefined;
+};
+
+export interface ActionOutput_apollo_searchpeople {
+  people: ({  id: string;
+  first_name?: string | undefined;
+  last_name?: string | undefined;
+  name?: string | undefined;
+  title?: string | undefined;
+  email?: string | undefined;
+  organization_name?: string | undefined;
+  organization_domain?: string | undefined;})[];
+  pagination?: {  page?: number | undefined;
+  per_page?: number | undefined;
+  total_entries?: number | undefined;
+  total_pages?: number | undefined;
+  next_page?: number | undefined;};
+};
+
+export interface ActionInput_apollo_updateaccount {
+  id: string;
+  name?: string | undefined;
+  domain?: string | undefined;
+  owner_id?: string | undefined;
+  account_stage_id?: string | undefined;
+  raw_address?: string | undefined;
+  phone?: string | undefined;
+  typed_custom_fields?: {  [key: string]: unknown | undefined;};
+};
+
+export interface ActionOutput_apollo_updateaccount {
+  id: string;
+  name?: string | undefined;
+  domain?: string | undefined;
+  owner_id?: string | undefined;
+  account_stage_id?: string | undefined;
+  raw_address?: string | undefined;
+  phone?: string | undefined;
+  typed_custom_fields?: {  [key: string]: unknown | undefined;};
+};
+
+export interface ActionInput_apollo_updatecontact {
+  /**
+   * The Apollo ID for the contact to update. Example: "6a0af1f3f1ce1100203b8047"
+   */
+  id: string;
+  first_name?: string | undefined;
+  last_name?: string | undefined;
+  organization_name?: string | undefined;
+  title?: string | undefined;
+  account_id?: string | undefined;
+  email?: string | undefined;
+  website_url?: string | undefined;
+  label_names?: string[] | undefined;
+  contact_stage_id?: string | undefined;
+  present_raw_address?: string | undefined;
+  direct_phone?: string | undefined;
+  corporate_phone?: string | undefined;
+  mobile_phone?: string | undefined;
+  home_phone?: string | undefined;
+  other_phone?: string | undefined;
+  typed_custom_fields?: {  [key: string]: string;} | undefined;
+};
+
+export interface ActionOutput_apollo_updatecontact {
+  id: string;
+  first_name?: string | undefined;
+  last_name?: string | undefined;
+  email?: string | undefined;
+  organization_name?: string | undefined;
+  title?: string | undefined;
+  account_id?: string | undefined;
+  website_url?: string | undefined;
+  label_names?: string[] | undefined;
+  contact_stage_id?: string | undefined;
+  present_raw_address?: string | undefined;
+  direct_phone?: string | undefined;
+  corporate_phone?: string | undefined;
+  mobile_phone?: string | undefined;
+  home_phone?: string | undefined;
+  other_phone?: string | undefined;
+  typed_custom_fields?: {  [key: string]: string;} | undefined;
+};
+
+export interface ActionInput_apollo_updateopportunity {
+  /**
+   * The ID of the opportunity to update. Example: "6a0af21285c69e000cc28695"
+   */
+  id: string;
+  /**
+   * The ID for the deal owner within your team's Apollo account.
+   */
+  owner_id?: string | undefined;
+  /**
+   * The name of the deal.
+   */
+  name?: string | undefined;
+  /**
+   * The monetary value of the deal.
+   */
+  amount?: number | undefined;
+  /**
+   * The ID for the deal stage within your team's Apollo account.
+   */
+  opportunity_stage_id?: string | undefined;
+  /**
+   * The estimated close date for the deal. Format: YYYY-MM-DD.
+   */
+  closed_date?: string | undefined;
+  typed_custom_fields?: {} | undefined;
+};
+
+export interface ActionOutput_apollo_updateopportunity {
+  id: string;
+  name?: string | undefined;
+  owner_id?: string | undefined;
+  account_id?: string | undefined;
+  amount?: number | undefined;
+  opportunity_stage_id?: string | undefined;
+  closed_date?: string | undefined;
+  created_at?: string | undefined;
+  updated_at?: string | undefined;
+};
+
+export interface ActionInput_apollo_updatetask {
+  /**
+   * The Apollo ID of the task to update. This is used for reference only since the original task cannot be modified via OAuth. Example: 6a0af245e3c1270014ee8e23
+   */
+  id: string;
+  /**
+   * The Apollo user_id for the task owner. Example: 66a3d80d4238fe02d2baaaaf
+   */
+  user_id: string;
+  /**
+   * The Apollo contact_id to associate with the task. Either contact_id, account_id, or opportunity_id is required. Example: 6a0af1f3f1ce1100203b8047
+   */
+  contact_id?: string | undefined;
+  /**
+   * The Apollo account_id to associate with the task. Either contact_id, account_id, or opportunity_id is required.
+   */
+  account_id?: string | undefined;
+  /**
+   * The Apollo opportunity_id to associate with the task. Either contact_id, account_id, or opportunity_id is required.
+   */
+  opportunity_id?: string | undefined;
+  /**
+   * The type of task to create.
+   */
+  type: 'call' | 'outreach_manual_email' | 'linkedin_step_connect' | 'linkedin_step_message' | 'linkedin_step_view_profile' | 'linkedin_step_interact_post' | 'action_item';
+  /**
+   * The status of the task. Use scheduled for future tasks, completed or skipped for past tasks.
+   */
+  status: 'scheduled' | 'completed' | 'skipped';
+  /**
+   * The due date and time in ISO 8601 format. Apollo uses GMT by default. Example: 2025-02-15T08:10:30Z
+   */
+  due_at: string;
+  /**
+   * The priority of the task. Defaults to medium.
+   */
+  priority?: 'high' | 'medium' | 'low' | undefined;
+  /**
+   * A title for the task. If omitted, Apollo auto-generates a title. Example: Follow up on demo request
+   */
+  title?: string | undefined;
+  /**
+   * A description or note for the task. Example: Discuss product demo results and next steps.
+   */
+  note?: string | undefined;
+};
+
+export interface ActionOutput_apollo_updatetask {
+  task: {  id: string;
+  user_id: string;
+  contact_id: string;
+  account_id: string;
+  opportunity_id: string;
+  type: string;
+  status: string;
+  priority: string;
+  due_at: string;
+  title: string;
+  note: string;
+  created_at: string;};
+  /**
+   * The ID of the task that was requested to be updated. Note: The original task still exists and should be manually deleted in the Apollo UI.
+   */
+  original_task_id: string;
+};
+
 export interface Project {
   id: string;
   name: string;
@@ -1377,23 +3323,6 @@ export interface Tag {
   type: string;
   created_at?: number | undefined;
   updated_at?: number | undefined;
-};
-
-export interface Task {
-  id: string;
-  subject?: string | undefined;
-  status?: string | undefined;
-  priority?: string | undefined;
-  owner_id?: string | undefined;
-  owner_name?: string | undefined;
-  created_by_id?: string | undefined;
-  modified_by_id?: string | undefined;
-  created_time?: string | undefined;
-  modified_time?: string | undefined;
-  due_date?: string | undefined;
-  description?: string | undefined;
-  related_module?: string | undefined;
-  related_record_id?: string | undefined;
 };
 
 export interface SyncMetadata_asana_tasks {
@@ -6823,18 +8752,9 @@ export interface SyncMetadata_brightcrowd_booksbyid {
 
 export interface Page {
   id: string;
-  status?: string | undefined;
-  title?: string | undefined;
-  spaceId?: string | undefined;
-  parentId?: string | undefined;
-  parentType?: string | undefined;
-  authorId?: string | undefined;
-  ownerId?: string | undefined;
-  createdAt?: string | undefined;
-  updatedAt?: string | undefined;
-  versionNumber?: number | undefined;
-  bodyStorage?: string | undefined;
-  url?: string | undefined;
+  name: string;
+  category?: string | undefined;
+  access_token: string;
 };
 
 export interface SyncMetadata_brightcrowd_pages {
@@ -8222,6 +10142,1417 @@ export interface ActionOutput_clicksend_sendsms {
   updatedAt: string;
 };
 
+export interface Comment {
+  id: string;
+  comment_text?: string | undefined;
+  user?: unknown | undefined;
+  date?: string | undefined;
+  reply_count?: number | undefined;
+};
+
+export interface SyncMetadata_clickup_comments {
+  team_id: string;
+};
+
+export interface SyncMetadata_clickup_folders {
+  team_id: string;
+};
+
+export interface Goal {
+  id: string;
+  name: string;
+  color?: string | undefined;
+  date_created: string;
+  date_updated: string;
+  creator: number;
+  team_id: string;
+  pretty_id?: string | undefined;
+  archived?: boolean | undefined;
+  description?: string | undefined;
+  multiple_owners?: boolean | undefined;
+  due_date?: string | undefined;
+  start_date?: string | undefined;
+  folder_id?: string | undefined;
+  members: number[];
+  owners: number[];
+  percent_completed?: number | undefined;
+  pretty_url?: string | undefined;
+};
+
+export interface SyncMetadata_clickup_goals {
+  team_id: string;
+};
+
+export interface SyncMetadata_clickup_lists {
+  team_id: string;
+};
+
+export interface Space {
+  id: string;
+  state: 'live' | 'scheduled' | 'ended';
+  title?: string | undefined;
+  created_at?: string | undefined;
+  updated_at?: string | undefined;
+  creator_id?: string | undefined;
+  host_ids?: string[] | undefined;
+  speaker_ids?: string[] | undefined;
+  invited_user_ids?: string[] | undefined;
+  participant_count?: number | undefined;
+  subscriber_count?: number | undefined;
+  is_ticketed?: boolean | undefined;
+  lang?: string | undefined;
+  scheduled_start?: string | undefined;
+  started_at?: string | undefined;
+  ended_at?: string | undefined;
+};
+
+export interface SyncMetadata_clickup_spaces {
+  team_id: string;
+};
+
+export interface TimeEntry {
+  id: string;
+  start: string;
+  end: string;
+  duration: string;
+  description?: string | undefined;
+  user_id?: number | undefined;
+  user_username?: string | undefined;
+  user_email?: string | undefined;
+  task_id?: string | undefined;
+  task_name?: string | undefined;
+};
+
+export interface SyncMetadata_clickup_timeentries {
+  team_id: string;
+};
+
+export interface ActionInput_clickup_createcomment {
+  /**
+   * ClickUp Task ID to comment on. Example: "86c9w2nke"
+   */
+  task_id?: string | undefined;
+  /**
+   * ClickUp List ID to comment on. Example: "901523451693"
+   */
+  list_id?: string | undefined;
+  /**
+   * The text content of the comment
+   */
+  comment_text: string;
+  /**
+   * Whether to notify all watchers
+   */
+  notify_all?: boolean | undefined;
+};
+
+export interface ActionOutput_clickup_createcomment {
+  /**
+   * Comment ID as string
+   */
+  id: string;
+  hist_id: string;
+  /**
+   * Unix timestamp in milliseconds
+   */
+  date: number;
+};
+
+export interface ActionInput_clickup_createfolder {
+  /**
+   * Space ID where the folder will be created. Example: "901511023604"
+   */
+  space_id: string;
+  /**
+   * Name of the folder to create. Example: "New Folder"
+   */
+  name: string;
+};
+
+export interface ActionOutput_clickup_createfolder {
+  id: string;
+  name: string;
+  space: {  id: string;
+  name: string;};
+  lists?: ({  id: string;
+  name: string;})[] | undefined;
+  created_at?: string | undefined;
+  updated_at?: string | undefined;
+};
+
+export interface ActionInput_clickup_creategoal {
+  /**
+   * Name of the goal. Example: "Q1 Revenue Target"
+   */
+  name: string;
+  /**
+   * ClickUp team ID. Optional - uses metadata if not provided. Example: "90152560096"
+   */
+  team_id?: string | undefined;
+  /**
+   * Due date in milliseconds since epoch. Example: 1704067200000
+   */
+  due_date?: number | undefined;
+  /**
+   * Description of the goal. Example: "Increase revenue by 20% in Q1"
+   */
+  description?: string | undefined;
+  /**
+   * Whether the goal can have multiple owners.
+   */
+  multiple_owners?: boolean | undefined;
+  /**
+   * Color code for the goal in hex format. Example: "#ff0000"
+   */
+  color?: string | undefined;
+  /**
+   * Array of owners for the goal
+   */
+  owners?: ({  id: string;
+  type: 'user' | 'team';})[] | undefined;
+};
+
+export interface ActionOutput_clickup_creategoal {
+  id: string;
+  name: string;
+  team_id: string;
+  description?: string | undefined;
+  due_date?: string | undefined;
+  color?: string | undefined;
+  multiple_owners?: boolean | undefined;
+  owners?: ({  id: string;
+  type: string;
+  username?: string | undefined;
+  email?: string | undefined;
+  color?: string | undefined;})[];
+};
+
+export interface ActionInput_clickup_createlist {
+  /**
+   * The name of the list to create. Example: "My List"
+   */
+  name: string;
+  /**
+   * The ID of the folder to create the list in. Use this to create a list inside a folder. Either folder_id or space_id must be provided. Example: "901516078072"
+   */
+  folder_id?: string | undefined;
+  /**
+   * The ID of the space to create the list in. Use this to create a folderless list directly in a space. Either folder_id or space_id must be provided. Example: "901511023376"
+   */
+  space_id?: string | undefined;
+  /**
+   * The description or content of the list.
+   */
+  content?: string | undefined;
+  /**
+   * The due date for the list in milliseconds since epoch.
+   */
+  due_date?: number | undefined;
+  /**
+   * Whether the due_date includes time information.
+   */
+  due_date_time?: boolean | undefined;
+  /**
+   * The priority level of the list (1-4, where 1 is Urgent).
+   */
+  priority?: number | undefined;
+  /**
+   * The user ID to assign to this list.
+   */
+  assignee?: number | undefined;
+  /**
+   * The status of the list (refers to list color, not task statuses).
+   */
+  status?: string | undefined;
+};
+
+export interface ActionOutput_clickup_createlist {
+  id: string;
+  name: string;
+  folder?: {  id: string;
+  name: string;} | undefined;
+  space: {  id: string;
+  name: string;};
+  statuses?: ({  id: string;
+  status: string;
+  orderindex: number;
+  color: string;
+  type: string;})[] | undefined;
+};
+
+export interface ActionInput_clickup_createspace {
+  /**
+   * Name of the space. Example: "Engineering"
+   */
+  name: string;
+  /**
+   * ClickUp team ID (workspace). Uses connection metadata if not provided. Example: "90152560096"
+   */
+  team_id?: string | undefined;
+  /**
+   * Whether tasks can have multiple assignees
+   */
+  multiple_assignees?: boolean | undefined;
+  /**
+   * Space features configuration
+   */
+  features?: {  due_dates?: {  /**
+   * Enable due dates
+   */
+  enabled: boolean;
+  /**
+   * Enable start dates
+   */
+  start_date?: boolean | undefined;};
+  time_tracking?: {  /**
+   * Enable time tracking
+   */
+  enabled: boolean;} | undefined;
+  tags?: {  /**
+   * Enable tags
+   */
+  enabled: boolean;} | undefined;
+  priorities?: {  /**
+   * Enable priorities
+   */
+  enabled: boolean;} | undefined;};
+};
+
+export interface ActionOutput_clickup_createspace {
+  id: string;
+  name: string;
+  statuses: ({  id: string;
+  status: string;
+  color: string;
+  orderindex: number;
+  type: string;})[];
+  features?: {  due_dates?: {  enabled: boolean;
+  start_date?: boolean | undefined;};
+  time_tracking?: {  enabled: boolean;} | undefined;
+  tags?: {  enabled: boolean;} | undefined;
+  priorities?: {  enabled: boolean;} | undefined;};
+  multiple_assignees?: boolean | undefined;
+};
+
+export interface ActionInput_clickup_createtask {
+  /**
+   * The ID of the list to create the task in. Example: "901523451693"
+   */
+  list_id: string;
+  /**
+   * The name of the task.
+   */
+  name: string;
+  /**
+   * The description of the task (supports Markdown).
+   */
+  description?: string | undefined;
+  /**
+   * Array of user IDs to assign to the task.
+   */
+  assignees?: number[] | undefined;
+  /**
+   * The status of the task (e.g., "to do", "in progress", "complete").
+   */
+  status?: string | undefined;
+  /**
+   * Priority level: 1=urgent, 2=high, 3=normal, 4=low.
+   */
+  priority?: number | undefined;
+  /**
+   * Due date as Unix timestamp in milliseconds.
+   */
+  due_date?: number | undefined;
+  /**
+   * Start date as Unix timestamp in milliseconds.
+   */
+  start_date?: number | undefined;
+  /**
+   * Time estimate in milliseconds.
+   */
+  time_estimate?: number | undefined;
+  /**
+   * Array of tag names to apply to the task.
+   */
+  tags?: string[] | undefined;
+  /**
+   * ID of the parent task (for subtasks).
+   */
+  parent?: string | undefined;
+};
+
+export interface ActionOutput_clickup_createtask {
+  id: string;
+  name: string;
+  text_content?: string | undefined;
+  description?: string | undefined;
+  status?: {  status: string;
+  color?: string | undefined;
+  orderindex?: number | undefined;
+  type?: string | undefined;};
+  priority?: {  id: string;
+  priority: string;
+  color: string;
+  orderindex: string;} | undefined;
+  due_date?: string | undefined;
+  start_date?: string | undefined;
+  time_estimate?: string | undefined;
+  list?: {  id: string;
+  name: string;} | undefined;
+  folder?: {  id: string;
+  name: string;} | undefined;
+  space?: {  id: string;
+  name?: string | undefined;};
+  tags?: ({  name: string;
+  tag_fg?: string | undefined;
+  tag_bg?: string | undefined;
+  creator?: number | undefined;})[];
+  assignees?: ({  id: number;
+  username?: string | undefined;
+  email?: string | undefined;
+  color?: string | undefined;
+  profilePicture?: string | undefined;
+  initials?: string | undefined;})[];
+  parent?: string | undefined;
+  url?: string | undefined;
+  creator?: {  id: number;
+  username?: string | undefined;
+  email?: string | undefined;
+  color?: string | undefined;
+  initials?: string | undefined;
+  profilePicture?: string | undefined;};
+  created_at?: string | undefined;
+};
+
+export interface ActionInput_clickup_createtimeentry {
+  /**
+   * ClickUp Workspace/Team ID. Example: "90152560096"
+   */
+  team_id: string;
+  /**
+   * Description of the time entry
+   */
+  description?: string | undefined;
+  /**
+   * Start time in milliseconds since Unix epoch
+   */
+  start: number;
+  /**
+   * Duration in milliseconds
+   */
+  duration: number;
+  /**
+   * Task ID to associate with the time entry. Example: "abc123"
+   */
+  task_id?: string | undefined;
+  /**
+   * Whether the time entry is billable
+   */
+  billable?: boolean | undefined;
+  /**
+   * Tags to associate with the time entry
+   */
+  tags?: ({  name: string;
+  tag_fg?: string | undefined;
+  tag_bg?: string | undefined;})[];
+};
+
+export interface ActionOutput_clickup_createtimeentry {
+  /**
+   * Time entry ID
+   */
+  id: string;
+  task?: {  id: string;
+  name?: string | undefined;};
+  workspace_id?: string | undefined;
+  user?: {  id?: number | undefined;
+  username?: string | undefined;
+  email?: string | undefined;};
+  billable?: boolean | undefined;
+  start?: number | undefined;
+  end?: number | string | undefined;
+  duration?: number | undefined;
+  description?: string | undefined;
+};
+
+export interface ActionInput_clickup_deletecomment {
+  /**
+   * The ID of the comment to delete. Example: "90150225604615"
+   */
+  comment_id: string;
+};
+
+export interface ActionOutput_clickup_deletecomment {
+  /**
+   * Whether the comment was successfully deleted
+   */
+  success: boolean;
+};
+
+export interface ActionInput_clickup_deletefolder {
+  /**
+   * The ID of the folder to delete. Example: "901516078072"
+   */
+  folder_id: string;
+};
+
+export interface ActionOutput_clickup_deletefolder {
+  /**
+   * Whether the deletion was successful
+   */
+  success: boolean;
+};
+
+export interface ActionInput_clickup_deletegoal {
+  /**
+   * The ID of the goal to delete. Example: "2def2fe3-90cb-4332-8d3e-ba04e38c67ef"
+   */
+  goal_id: string;
+};
+
+export interface ActionOutput_clickup_deletegoal {
+  /**
+   * Whether the goal was successfully deleted
+   */
+  success: boolean;
+};
+
+export interface ActionInput_clickup_deletelist {
+  /**
+   * The ID of the list to delete. Example: "901523451693"
+   */
+  list_id: string;
+};
+
+export interface ActionOutput_clickup_deletelist {
+  /**
+   * Whether the deletion was successful
+   */
+  success: boolean;
+};
+
+export interface ActionInput_clickup_deletespace {
+  /**
+   * Space ID to delete. Example: "901511023604"
+   */
+  space_id: string;
+};
+
+export interface ActionOutput_clickup_deletespace {
+  success: boolean;
+};
+
+export interface ActionInput_clickup_deletetask {
+  /**
+   * The ID of the task to delete. Example: "86c9w2nke"
+   */
+  taskId: string;
+};
+
+export interface ActionOutput_clickup_deletetask {
+};
+
+export interface ActionInput_clickup_deletetimeentry {
+  /**
+   * The ID of the time entry to delete. Example: "5090290025624291206"
+   */
+  time_entry_id: string;
+};
+
+export interface ActionOutput_clickup_deletetimeentry {
+  deleted: boolean;
+  time_entry?: {  id: string;
+  task?: {  id?: string | undefined;
+  name?: string | undefined;};
+  user?: {  id?: number | undefined;
+  username?: string | undefined;
+  email?: string | undefined;};
+  billable?: boolean | undefined;
+  start?: string | undefined;
+  end?: string | undefined;
+  duration?: string | undefined;
+  description?: string | undefined;
+  tags?: any[] | undefined;
+  source?: string | undefined;
+  at?: string | undefined;};
+};
+
+export interface ActionInput_clickup_getfolder {
+  /**
+   * The ID of the folder to retrieve. Example: "901516078072"
+   */
+  folder_id: string;
+};
+
+export interface ActionOutput_clickup_getfolder {
+  id: string;
+  name: string;
+  override_statuses?: boolean | undefined;
+  hidden?: boolean | undefined;
+  space: {  id: string;
+  name: string;};
+  task_count?: number | undefined;
+  lists?: ({  id: string;
+  name: string;})[] | undefined;
+  archived?: boolean | undefined;
+};
+
+export interface ActionInput_clickup_getgoal {
+  /**
+   * Goal ID. Example: "2def2fe3-90cb-4332-8d3e-ba04e38c67ef"
+   */
+  goal_id: string;
+};
+
+export interface ActionOutput_clickup_getgoal {
+  id: string;
+  name: string;
+  team_id: string;
+  color?: string | undefined;
+  due_date?: string | undefined;
+  description?: string | undefined;
+  private: boolean;
+  archived: boolean;
+  members?: unknown[] | undefined;
+  owners?: unknown[] | undefined;
+  key_results?: unknown[] | undefined;
+  percent_completed?: number | undefined;
+};
+
+export interface ActionInput_clickup_getlist {
+  /**
+   * The ID of the list to retrieve. Example: "901523451693"
+   */
+  listId: string;
+};
+
+export interface ActionOutput_clickup_getlist {
+  id: string;
+  name: string;
+  orderindex: number;
+  task_count?: number | undefined;
+  folder?: {  id: string;
+  name: string;
+  hidden?: boolean | undefined;
+  access?: boolean | undefined;};
+  space: {  id: string;
+  name: string;};
+  statuses?: ({  id: string;
+  status: string;
+  orderindex: number;
+  color: string;
+  type: string;})[] | undefined;
+  permission_level?: string | undefined;
+};
+
+export interface ActionInput_clickup_getspace {
+  /**
+   * Space ID. Example: "901511023604"
+   */
+  space_id: string;
+};
+
+export interface ActionOutput_clickup_getspace {
+  id: string;
+  name: string;
+  color?: string | undefined;
+  private: boolean;
+  archived: boolean;
+  statuses: ({  id: string;
+  status: string;
+  orderindex: number;
+  color: string;})[];
+  multiple_assignees: boolean;
+  features?: {} | undefined;
+};
+
+export interface ActionInput_clickup_gettask {
+  /**
+   * The ClickUp task ID. Example: "86c9w2nke"
+   */
+  task_id: string;
+  /**
+   * Set to true when using custom task IDs instead of ClickUp native IDs.
+   */
+  custom_task_ids?: boolean | undefined;
+  /**
+   * ClickUp team/workspace ID. Required when custom_task_ids is true. Example: "90152560096"
+   */
+  team_id?: string | undefined;
+};
+
+export interface ActionOutput_clickup_gettask {
+  id: string;
+  name: string;
+  status?: {  status: string;
+  color?: string | undefined;
+  orderindex?: number | undefined;
+  type?: string | undefined;};
+  priority?: {  priority: string;
+  color?: string | undefined;};
+  assignees?: ({  id: number;
+  username?: string | undefined;
+  email?: string | undefined;
+  color?: string | undefined;
+  profilePicture?: string | undefined;})[];
+  due_date?: string | undefined;
+  start_date?: string | undefined;
+  time_estimate?: number | undefined;
+  time_spent?: number | undefined;
+  tags?: ({  name: string;})[] | undefined;
+  list?: {  id: string;
+  name: string;} | undefined;
+  folder?: {  id: string;
+  name: string;} | undefined;
+  space?: {  id: string;
+  name?: string | undefined;};
+  attachments?: ({  id: string;
+  title?: string | undefined;
+  url?: string | undefined;})[];
+};
+
+export interface ActionInput_clickup_gettimeentry {
+  /**
+   * The ID of the time entry to retrieve. Example: "5090290025624291206"
+   */
+  time_entry_id: string;
+};
+
+export interface ActionOutput_clickup_gettimeentry {
+  id: string;
+  task?: {  id: string;
+  name: string;
+  status: string;} | undefined;
+  workspace_id?: string | undefined;
+  user: {  id: number;
+  username?: string | undefined;
+  email?: string | undefined;};
+  billable: boolean;
+  start?: string | undefined;
+  end?: string | undefined;
+  duration?: string | undefined;
+  description?: string | undefined;
+  tags?: string[] | undefined;
+  source?: string | undefined;
+  task_location?: {  list_id: string;
+  folder_id: string;
+  space_id: string;} | undefined;
+};
+
+export interface ActionInput_clickup_getuser {
+  /**
+   * User ID. Example: 302438666
+   */
+  user_id: number;
+};
+
+export interface ActionOutput_clickup_getuser {
+  id: number;
+  username?: string | undefined;
+  email?: string | undefined;
+  color?: string | undefined;
+  profile_picture?: string | undefined;
+  initials?: string | undefined;
+  role?: number | undefined;
+  role_key?: string | undefined;
+  last_active?: string | undefined;
+  date_joined?: string | undefined;
+  date_invited?: string | undefined;
+};
+
+export interface ActionInput_clickup_listcomments {
+  /**
+   * Task ID to list comments from. Example: "abc123". Either task_id or list_id must be provided.
+   */
+  task_id?: string | undefined;
+  /**
+   * List ID to list comments from. Example: "123". Either task_id or list_id must be provided.
+   */
+  list_id?: string | undefined;
+};
+
+export interface ActionOutput_clickup_listcomments {
+  comments: ({  id: string;
+  comment?: string | ({})[] | undefined;
+  comment_text?: string | undefined;
+  user?: {  id?: number | undefined;
+  username?: string | undefined;
+  email?: string | undefined;
+  color?: string | undefined;
+  profilePicture?: string | undefined;};
+  date?: string | undefined;
+  reply_count?: number | undefined;})[];
+};
+
+export interface ActionInput_clickup_listfolders {
+  /**
+   * The ID of the space to list folders from. Example: "901511023604"
+   */
+  space_id: string;
+  /**
+   * Include archived folders. Defaults to false.
+   */
+  archived?: boolean | undefined;
+};
+
+export interface ActionOutput_clickup_listfolders {
+  folders: ({  id: string;
+  name: string;
+  orderindex: number;
+  override_statuses?: boolean | undefined;
+  hidden?: boolean | undefined;
+  space?: {  id: string;
+  name: string;} | undefined;
+  task_count?: string | undefined;
+  lists?: unknown[] | undefined;
+  archived?: boolean | undefined;
+  created_at?: string | undefined;
+  updated_at?: string | undefined;})[];
+};
+
+export interface ActionInput_clickup_listgoals {
+  /**
+   * ClickUp team/workspace ID. Example: "90152560096"
+   */
+  team_id: string;
+};
+
+export interface ActionOutput_clickup_listgoals {
+  goals: ({  id: string;
+  name: string;
+  team_id: string;
+  color?: string | undefined;
+  description?: string | undefined;
+  creator: number;
+  date_created?: string | undefined;
+  date_updated?: string | undefined;
+  date_closed?: string | undefined;
+  archived?: boolean | undefined;
+  multiple_owners?: boolean | undefined;
+  watchers?: number[] | undefined;
+  owners?: number[] | undefined;
+  key_results?: unknown[] | undefined;
+  percent_completed?: number | undefined;
+  folder_id?: string | undefined;
+  type?: 'number' | 'currency' | 'boolean' | 'percentage' | undefined;})[];
+  folders: ({  id: string;
+  name: string;
+  team_id: string;
+  creator: number;
+  date_created?: string | undefined;
+  date_updated?: string | undefined;
+  archived?: boolean | undefined;})[];
+};
+
+export interface ActionInput_clickup_listlists {
+  /**
+   * Folder ID to list lists within. Provide either folder_id or space_id, not both.
+   */
+  folder_id?: string | undefined;
+  /**
+   * Space ID to list folderless lists directly in the space. Provide either folder_id or space_id, not both.
+   */
+  space_id?: string | undefined;
+  /**
+   * Whether to include archived lists. Default: false.
+   */
+  archived?: boolean | undefined;
+};
+
+export interface ActionOutput_clickup_listlists {
+  lists: ({  id: string;
+  name: string;
+  orderindex: number;
+  content?: string | undefined;
+  status?: {  status?: string | undefined;
+  color?: string | undefined;
+  hide_label?: boolean | undefined;};
+  priority?: {  priority?: string | undefined;
+  color?: string | undefined;};
+  assignee?: string | undefined;
+  task_count?: number | undefined;
+  due_date?: string | undefined;
+  start_date?: string | undefined;
+  folder?: {  id?: string | undefined;
+  name?: string | undefined;
+  hidden?: boolean | undefined;
+  access?: boolean | undefined;};
+  space?: {  id?: string | undefined;
+  name?: string | undefined;};
+  archived?: boolean | undefined;
+  override_statuses?: boolean | undefined;
+  permission_level?: string | undefined;})[];
+};
+
+export interface ActionInput_clickup_listspaces {
+  /**
+   * ClickUp team (workspace) ID. Example: "90152560096"
+   */
+  team_id: string;
+  /**
+   * Include archived spaces. Default: false
+   */
+  archived?: boolean | undefined;
+};
+
+export interface ActionOutput_clickup_listspaces {
+  spaces: ({  id: string;
+  name: string;
+  color?: string | undefined;
+  avatar?: string | undefined;
+  archived?: boolean | undefined;
+  private?: boolean | undefined;})[];
+};
+
+export interface ActionInput_clickup_listtasks {
+  /**
+   * List ID to fetch tasks from. Example: "901523451693"
+   */
+  list_id: string;
+  /**
+   * Include archived tasks. Default: false
+   */
+  archived?: boolean | undefined;
+  /**
+   * Page number (0-based). Omit for first page
+   */
+  page?: number | undefined;
+  /**
+   * Field to order by
+   */
+  order_by?: 'id' | 'created' | 'updated' | 'due_date' | undefined;
+  /**
+   * Reverse order. Default: false
+   */
+  reverse?: boolean | undefined;
+  /**
+   * Include subtasks. Default: false
+   */
+  subtasks?: boolean | undefined;
+  /**
+   * Filter by status names
+   */
+  statuses?: string[] | undefined;
+  /**
+   * Filter by assignee user IDs
+   */
+  assignees?: string[] | undefined;
+  /**
+   * Filter by tags
+   */
+  tags?: string[] | undefined;
+  /**
+   * Filter by due date greater than (ms epoch)
+   */
+  due_date_gt?: number | undefined;
+  /**
+   * Filter by due date less than (ms epoch)
+   */
+  due_date_lt?: number | undefined;
+  /**
+   * Filter by date created greater than (ms epoch)
+   */
+  date_created_gt?: number | undefined;
+  /**
+   * Filter by date created less than (ms epoch)
+   */
+  date_created_lt?: number | undefined;
+  /**
+   * Filter by date updated greater than (ms epoch)
+   */
+  date_updated_gt?: number | undefined;
+  /**
+   * Filter by date updated less than (ms epoch)
+   */
+  date_updated_lt?: number | undefined;
+};
+
+export interface ActionOutput_clickup_listtasks {
+  tasks: ({  id: string;
+  name?: string | undefined;
+  text_content?: string | undefined;
+  description?: string | undefined;
+  status?: {  status?: string | undefined;
+  color?: string | undefined;};
+  orderindex?: string | undefined;
+  date_created?: string | undefined;
+  date_updated?: string | undefined;
+  date_closed?: string | undefined;
+  archived?: boolean | undefined;
+  creator?: {  id?: number | undefined;
+  username?: string | undefined;
+  color?: string | undefined;
+  email?: string | undefined;
+  profile_picture?: string | undefined;};
+  assignees?: ({  id?: number | undefined;
+  username?: string | undefined;
+  color?: string | undefined;
+  email?: string | undefined;
+  profile_picture?: string | undefined;})[];
+  watchers?: ({  id?: number | undefined;
+  username?: string | undefined;
+  color?: string | undefined;
+  email?: string | undefined;
+  profile_picture?: string | undefined;})[];
+  tags?: ({  name?: string | undefined;
+  tag_fg?: string | undefined;
+  tag_bg?: string | undefined;})[];
+  parent?: string | undefined;
+  priority?: {  priority?: string | undefined;
+  color?: string | undefined;};
+  due_date?: string | undefined;
+  start_date?: string | undefined;
+  folder?: {  id?: string | undefined;
+  name?: string | undefined;
+  hidden?: boolean | undefined;
+  access?: boolean | undefined;};
+  space?: {  id?: string | undefined;
+  name?: string | undefined;
+  access?: boolean | undefined;};
+  list?: {  id?: string | undefined;
+  name?: string | undefined;
+  access?: boolean | undefined;};
+  url?: string | undefined;})[];
+  last_page: boolean;
+};
+
+export interface ActionInput_clickup_listtimeentries {
+  /**
+   * Start date in milliseconds since epoch to filter time entries
+   */
+  start_date?: number | undefined;
+  /**
+   * End date in milliseconds since epoch to filter time entries
+   */
+  end_date?: number | undefined;
+  /**
+   * User ID to filter time entries by assignee
+   */
+  assignee?: number | undefined;
+  /**
+   * Include task tags in the response
+   */
+  include_task_tags?: boolean | undefined;
+  /**
+   * Include location names in the response
+   */
+  include_location_names?: boolean | undefined;
+  /**
+   * Space ID to filter time entries
+   */
+  space_id?: number | undefined;
+  /**
+   * Folder ID to filter time entries
+   */
+  folder_id?: number | undefined;
+  /**
+   * List ID to filter time entries
+   */
+  list_id?: number | undefined;
+  /**
+   * Task ID to filter time entries
+   */
+  task_id?: string | undefined;
+};
+
+export interface ActionOutput_clickup_listtimeentries {
+  data: ({  id: string;
+  task: {  id: string;
+  name: string;
+  status?: string | undefined;
+  task_url?: string | undefined;};
+  user: {  id: number;
+  username: string;
+  email: string;
+  color?: string | undefined;
+  profile_picture?: string | undefined;
+  initials?: string | undefined;};
+  billable: boolean;
+  start: string;
+  end: string;
+  duration: number;
+  description?: string | undefined;
+  tags?: ({  name: string;})[] | undefined;
+  source?: string | undefined;
+  task_location?: {  list_id: number;
+  folder_id: number;
+  space_id: number;} | undefined;
+  workspace_id: number;})[];
+};
+
+export interface ActionInput_clickup_listusers {
+};
+
+export interface ActionOutput_clickup_listusers {
+  users: ({  id: string;
+  username: string;
+  email: string;
+  color: string;
+  role: number;
+  role_key: string;
+  last_active?: string | undefined;})[];
+};
+
+export interface ActionInput_clickup_updatecomment {
+  /**
+   * The ID of the comment to update. Example: "90150225604615"
+   */
+  comment_id: string;
+  /**
+   * The new text content of the comment.
+   */
+  comment_text: string;
+  /**
+   * The user ID to assign the comment to. Optional.
+   */
+  assignee?: number | undefined;
+  /**
+   * Whether the comment is resolved. Optional.
+   */
+  resolved?: boolean | undefined;
+};
+
+export interface ActionOutput_clickup_updatecomment {
+  /**
+   * Whether the update was successful.
+   */
+  success: boolean;
+};
+
+export interface ActionInput_clickup_updatefolder {
+  /**
+   * The ID of the folder to update. Example: "901516078072"
+   */
+  id: string;
+  /**
+   * The new name for the folder. Example: "Updated Folder Name"
+   */
+  name: string;
+};
+
+export interface ActionOutput_clickup_updatefolder {
+  id: string;
+  name: string;
+  orderindex?: number | undefined;
+  override_statuses?: boolean | undefined;
+  hidden?: boolean | undefined;
+  space_id?: string | undefined;
+  task_count?: string | undefined;
+};
+
+export interface ActionInput_clickup_updategoal {
+  /**
+   * The ID of the goal to update. Example: "2def2fe3-90cb-4332-8d3e-ba04e38c67ef"
+   */
+  goal_id: string;
+  /**
+   * The name of the goal
+   */
+  name?: string | undefined;
+  /**
+   * The due date as a Unix timestamp in milliseconds
+   */
+  due_date?: number | undefined;
+  /**
+   * The description of the goal
+   */
+  description?: string | undefined;
+  /**
+   * Whether the goal has multiple owners
+   */
+  multiple_owners?: boolean | undefined;
+  /**
+   * The color of the goal in hex format
+   */
+  color?: string | undefined;
+};
+
+export interface ActionOutput_clickup_updategoal {
+};
+
+export interface ActionInput_clickup_updatelist {
+  /**
+   * The ID of the list to update. Example: "901523451693"
+   */
+  list_id: string;
+  /**
+   * The new name of the list.
+   */
+  name?: string | undefined;
+  /**
+   * The new content/description of the list.
+   */
+  content?: string | undefined;
+  /**
+   * The due date as a Unix timestamp in milliseconds.
+   */
+  due_date?: number | undefined;
+  /**
+   * Whether the due_date includes a time component.
+   */
+  due_date_time?: boolean | undefined;
+  /**
+   * The priority of the list (1-4, where 1 is Urgent).
+   */
+  priority?: number | undefined;
+  /**
+   * The user ID to assign the list to.
+   */
+  assignee?: number | undefined;
+  /**
+   * The status of the list.
+   */
+  status?: string | undefined;
+  /**
+   * Whether to unset the status.
+   */
+  unset_status?: boolean | undefined;
+};
+
+export interface ActionOutput_clickup_updatelist {
+  id: string;
+  name: string;
+  content?: string | undefined;
+  orderindex?: number | undefined;
+  status?: string | undefined;
+  priority?: number | undefined;
+  assignee?: number | undefined;
+  due_date?: string | undefined;
+  start_date?: string | undefined;
+  folder?: {  id: string;
+  name: string;
+  hidden?: boolean | undefined;
+  access?: boolean | undefined;};
+  space?: {  id: string;} | undefined;
+  archived?: boolean | undefined;
+  override_statuses?: boolean | undefined;
+  permission_level?: string | undefined;
+};
+
+export interface ActionInput_clickup_updatespace {
+  /**
+   * The ID of the space to update. Example: "901511023604"
+   */
+  space_id: string;
+  /**
+   * The new name for the space.
+   */
+  name?: string | undefined;
+  /**
+   * The color of the space in hexadecimal format.
+   */
+  color?: string | undefined;
+  /**
+   * Whether the space is private.
+   */
+  private?: boolean | undefined;
+  /**
+   * Whether admins can manage the space.
+   */
+  admin_can_manage?: boolean | undefined;
+  /**
+   * Whether tasks in the space can have multiple assignees.
+   */
+  multiple_assignees?: boolean | undefined;
+  /**
+   * Feature toggles for the space.
+   */
+  features?: {  /**
+   * Enable due dates feature.
+   */
+  due_dates?: boolean | undefined;
+  /**
+   * Enable sprints feature.
+   */
+  sprints?: boolean | undefined;
+  /**
+   * Enable time tracking feature.
+   */
+  time_tracking?: boolean | undefined;
+  /**
+   * Enable points feature.
+   */
+  points?: boolean | undefined;
+  /**
+   * Enable custom items feature.
+   */
+  custom_items?: boolean | undefined;
+  /**
+   * Enable priorities feature.
+   */
+  priorities?: boolean | undefined;
+  /**
+   * Enable tags feature.
+   */
+  tags?: boolean | undefined;
+  /**
+   * Enable time estimates feature.
+   */
+  time_estimates?: boolean | undefined;
+  /**
+   * Enable checklists feature.
+   */
+  checklists?: boolean | undefined;
+  /**
+   * Enable zoom integration.
+   */
+  zoom?: boolean | undefined;
+  /**
+   * Enable milestones feature.
+   */
+  milestones?: boolean | undefined;
+  /**
+   * Enable reminders feature.
+   */
+  reminders?: boolean | undefined;
+  /**
+   * Enable custom fields feature.
+   */
+  custom_fields?: boolean | undefined;
+  /**
+   * Enable dependency warning feature.
+   */
+  dependency_warning?: boolean | undefined;
+  /**
+   * Enable status pies feature.
+   */
+  status_pies?: boolean | undefined;
+  /**
+   * Enable multiple assignees feature.
+   */
+  multiple_assignees?: boolean | undefined;
+  /**
+   * Enable emails feature.
+   */
+  emails?: boolean | undefined;};
+};
+
+export interface ActionOutput_clickup_updatespace {
+  id: string;
+  name: string;
+  color?: string | undefined;
+  private?: boolean | undefined;
+  admin_can_manage?: boolean | undefined;
+  multiple_assignees?: boolean | undefined;
+  features?: {} | undefined;
+};
+
+export interface ActionInput_clickup_updatetask {
+  /**
+   * ClickUp task ID. Example: "86c9w2nke"
+   */
+  task_id: string;
+  /**
+   * New name for the task
+   */
+  name?: string | undefined;
+  /**
+   * New description for the task
+   */
+  description?: string | undefined;
+  /**
+   * Status of the task
+   */
+  status?: string | undefined;
+  priority?: 1 | 2 | 3 | 4 | undefined;
+  /**
+   * Due date in milliseconds since epoch
+   */
+  due_date?: number | undefined;
+  /**
+   * Whether due_date includes time
+   */
+  due_date_time?: boolean | undefined;
+  /**
+   * Parent task ID
+   */
+  parent?: string | undefined;
+  /**
+   * Time estimate in milliseconds
+   */
+  time_estimate?: number | undefined;
+  /**
+   * Start date in milliseconds since epoch
+   */
+  start_date?: number | undefined;
+  /**
+   * Whether start_date includes time
+   */
+  start_date_time?: boolean | undefined;
+  assignees?: {  /**
+   * Array of numeric user IDs to add as assignees
+   */
+  add?: number[] | undefined;
+  /**
+   * Array of numeric user IDs to remove from assignees
+   */
+  rem?: number[] | undefined;};
+  /**
+   * Whether to archive the task
+   */
+  archived?: boolean | undefined;
+};
+
+export interface ActionOutput_clickup_updatetask {
+  id: string;
+  name?: string | undefined;
+  description?: string | undefined;
+  status?: string | undefined;
+  priority?: number | undefined;
+  due_date?: string | undefined;
+  start_date?: string | undefined;
+  time_estimate?: number | undefined;
+  archived?: boolean | undefined;
+  parent?: string | undefined;
+  assignees?: string[] | undefined;
+  url?: string | undefined;
+};
+
+export interface ActionInput_clickup_updatetimeentry {
+  /**
+   * The ID of the time entry to update. Example: "5090290025624291206"
+   */
+  timer_id: string;
+  /**
+   * The description of the time entry.
+   */
+  description?: string | undefined;
+  /**
+   * The start time in Unix epoch milliseconds.
+   */
+  start?: number | undefined;
+  /**
+   * Duration in milliseconds.
+   */
+  duration?: number | undefined;
+  /**
+   * Whether the time entry is billable.
+   */
+  billable?: boolean | undefined;
+  /**
+   * Task ID to associate the time entry with.
+   */
+  tid?: string | undefined;
+  /**
+   * List of tag names to apply to the time entry.
+   */
+  tags?: string[] | undefined;
+};
+
+export interface ActionOutput_clickup_updatetimeentry {
+  id: string;
+  task_id?: string | undefined;
+  task_name?: string | undefined;
+  user_id?: string | undefined;
+  user_name?: string | undefined;
+  description: string;
+  start: number;
+  end: number;
+  duration: number;
+  billable: boolean;
+  tags: string[];
+};
+
 export interface Attachment {
   id: string;
   status?: string | undefined;
@@ -8327,25 +11658,6 @@ export interface SyncMetadata_confluence_inlinecomments {
 export interface SyncMetadata_confluence_pages {
   spaceIds?: string[] | undefined;
   cloudId?: string | undefined;
-};
-
-export interface Space {
-  id: string;
-  state: 'live' | 'scheduled' | 'ended';
-  title?: string | undefined;
-  created_at?: string | undefined;
-  updated_at?: string | undefined;
-  creator_id?: string | undefined;
-  host_ids?: string[] | undefined;
-  speaker_ids?: string[] | undefined;
-  invited_user_ids?: string[] | undefined;
-  participant_count?: number | undefined;
-  subscriber_count?: number | undefined;
-  is_ticketed?: boolean | undefined;
-  lang?: string | undefined;
-  scheduled_start?: string | undefined;
-  started_at?: string | undefined;
-  ended_at?: string | undefined;
 };
 
 export interface SyncMetadata_confluence_spaces {
@@ -11748,15 +15060,13 @@ export interface ActionOutput_docusign_deleteuser {
 
 export interface File {
   id: string;
-  name: string;
-  mimeType: string;
-  parents?: string[] | undefined;
-  driveId?: string | undefined;
-  createdTime: string;
-  modifiedTime: string;
-  size?: string | undefined;
-  webViewLink?: string | undefined;
-  trashed?: boolean | undefined;
+  object?: string | undefined;
+  bytes?: number | undefined;
+  created_at?: number | undefined;
+  filename?: string | undefined;
+  purpose?: string | undefined;
+  status?: string | undefined;
+  status_details?: string | undefined;
 };
 
 export interface SyncMetadata_dropbox_files {
@@ -13092,6 +16402,526 @@ export interface ActionOutput_expensify_listpolicies {
   areTagsEnabled: boolean;})[];
 };
 
+export interface PagePost {
+  id: string;
+  pageId: string;
+  message?: string | undefined;
+  createdTime: string;
+  updatedTime: string;
+  permalinkUrl?: string | undefined;
+  statusType?: string | undefined;
+  isPublished?: boolean | undefined;
+  isHidden?: boolean | undefined;
+};
+
+export interface SyncMetadata_facebook_pageposts {
+  pageIds?: string[] | undefined;
+};
+
+export interface PageScheduledPost {
+  id: string;
+  page_id: string;
+  page_name?: string | undefined;
+  message?: string | undefined;
+  scheduled_publish_time?: number | undefined;
+  created_time?: string | undefined;
+  published: boolean;
+};
+
+export interface SyncMetadata_facebook_pagescheduledposts {
+  pageIds?: string[] | undefined;
+};
+
+export interface PageVideo {
+  id: string;
+  page_id: string;
+  title?: string | undefined;
+  description?: string | undefined;
+  created_time: string;
+  updated_time?: string | undefined;
+  length?: number | undefined;
+  permalink_url?: string | undefined;
+  picture?: string | undefined;
+  source?: string | undefined;
+  views?: number | undefined;
+};
+
+export interface ActionInput_facebook_createpagephoto {
+  /**
+   * The Facebook Page ID to post the photo to. Example: "1148671018324630"
+   */
+  pageId: string;
+  /**
+   * The URL of the photo to upload. Example: "https://example.com/photo.jpg"
+   */
+  url: string;
+  /**
+   * Caption text for the photo. Example: "Check out our new product!"
+   */
+  caption?: string | undefined;
+  /**
+   * Whether the photo should be published immediately. Set to false to create an unpublished photo (draft). Defaults to true.
+   */
+  published?: boolean | undefined;
+};
+
+export interface ActionOutput_facebook_createpagephoto {
+  /**
+   * The ID of the created photo.
+   */
+  id: string;
+  /**
+   * The ID of the post associated with the photo (if published).
+   */
+  postId?: string | undefined;
+};
+
+export interface ActionInput_facebook_createpagepost {
+  /**
+   * Facebook Page ID to post to. Example: "1148671018324630"
+   */
+  pageId: string;
+  /**
+   * The message content of the post.
+   */
+  message?: string | undefined;
+  /**
+   * URL to share in the post.
+   */
+  link?: string | undefined;
+  /**
+   * Whether to publish immediately (true) or schedule (false). Default: true
+   */
+  published?: boolean | undefined;
+  /**
+   * Unix timestamp for scheduled post publishing. Required if published=false.
+   */
+  scheduledPublishTime?: number | undefined;
+};
+
+export interface ActionOutput_facebook_createpagepost {
+  /**
+   * The ID of the created post.
+   */
+  id: string;
+};
+
+export interface ActionInput_facebook_createpagevideo {
+  /**
+   * Facebook Page ID to upload the video to. Example: "1148671018324630"
+   */
+  page_id: string;
+  /**
+   * URL of the video to upload. Must be a publicly accessible URL. Example: "https://example.com/video.mp4"
+   */
+  file_url: string;
+  /**
+   * Title of the video.
+   */
+  title?: string | undefined;
+  /**
+   * Description or message for the video post.
+   */
+  description?: string | undefined;
+  /**
+   * Whether the video should be published immediately. Set to false to create a draft. Defaults to true.
+   */
+  published?: boolean | undefined;
+};
+
+export interface ActionOutput_facebook_createpagevideo {
+  /**
+   * The video ID.
+   */
+  id: string;
+  /**
+   * The ID of the post that was created for this video.
+   */
+  post_id?: string | undefined;
+};
+
+export interface ActionInput_facebook_createpostcomment {
+  /**
+   * The ID of the page that owns the post. Example: "1148671018324630"
+   */
+  pageId: string;
+  /**
+   * The ID of the post to comment on. Example: "1148671018324630_122098284213327930"
+   */
+  postId: string;
+  /**
+   * The comment text message. Example: "Great post!"
+   */
+  message: string;
+};
+
+export interface ActionOutput_facebook_createpostcomment {
+  id: string;
+};
+
+export interface ActionInput_facebook_createscheduledpagepost {
+  /**
+   * Facebook Page ID to post on. Example: "123456789012345"
+   */
+  page_id: string;
+  /**
+   * The message text for the post
+   */
+  message?: string | undefined;
+  /**
+   * Unix timestamp when the post should be published. Must be at least 10 minutes and at most 6 months in the future.
+   */
+  scheduled_publish_time: number;
+  /**
+   * URL to attach to the post
+   */
+  link?: string | undefined;
+  /**
+   * URL of a photo to attach to the post
+   */
+  photo_url?: string | undefined;
+};
+
+export interface ActionOutput_facebook_createscheduledpagepost {
+  /**
+   * The ID of the scheduled post
+   */
+  id: string;
+  /**
+   * The post ID (if immediately published)
+   */
+  post_id?: string | undefined;
+};
+
+export interface ActionInput_facebook_deletecomment {
+  /**
+   * Facebook comment ID to delete. Example: "122098284213327930_1544841897156600"
+   */
+  commentId: string;
+  /**
+   * The Facebook Page ID that owns the comment. Required when the user manages multiple pages to ensure the correct page token is used. Example: "1148671018324630"
+   */
+  pageId?: string | undefined;
+};
+
+export interface ActionOutput_facebook_deletecomment {
+  success: boolean;
+};
+
+export interface ActionInput_facebook_deletepost {
+  /**
+   * The ID of the Facebook post to delete. Example: "1148671018324630_122098284213327930"
+   */
+  postId: string;
+};
+
+export interface ActionOutput_facebook_deletepost {
+  success: boolean;
+};
+
+export interface ActionInput_facebook_getcomment {
+  /**
+   * The ID of the comment to retrieve. Example: "122098284213327930_1544841897156600"
+   */
+  commentId: string;
+  /**
+   * Comma-separated list of fields to retrieve. Example: "id,message,created_time,from,like_count"
+   */
+  fields?: string | undefined;
+  /**
+   * The Facebook Page ID that owns the comment. Required when the user manages multiple pages to ensure the correct page token is used. Example: "1148671018324630"
+   */
+  pageId?: string | undefined;
+};
+
+export interface ActionOutput_facebook_getcomment {
+  id: string;
+  message?: string | undefined;
+  createdTime?: string | undefined;
+  from?: {  id: string;
+  name: string;} | undefined;
+  likeCount?: number | undefined;
+};
+
+export interface ActionInput_facebook_getpageappsubscriptions {
+  /**
+   * Facebook Page ID. Example: "1148671018324630"
+   */
+  pageId: string;
+  /**
+   * Comma-separated list of fields to return for each subscribed app. Example: "id,name,link,subscribed_fields"
+   */
+  fields?: string | undefined;
+};
+
+export interface ActionOutput_facebook_getpageappsubscriptions {
+  /**
+   * List of apps subscribed to the page
+   */
+  data: ({  /**
+   * App ID
+   */
+  id: string;
+  /**
+   * App name
+   */
+  name?: string | undefined;
+  /**
+   * App link URL
+   */
+  link?: string | undefined;
+  /**
+   * List of subscribed webhook fields
+   */
+  subscribed_fields?: string[] | undefined;})[];
+  /**
+   * Pagination information
+   */
+  paging?: {  cursors?: {  before?: string | undefined;
+  after?: string | undefined;};
+  /**
+   * URL for the next page of results
+   */
+  next?: string | undefined;};
+};
+
+export interface ActionInput_facebook_getpage {
+  /**
+   * Facebook Page ID. Example: "1148671018324630"
+   */
+  pageId: string;
+  /**
+   * Comma-separated fields to retrieve. Example: "id,name,category,fan_count,about,link"
+   */
+  fields?: string | undefined;
+};
+
+export interface ActionOutput_facebook_getpage {
+  id: string;
+  name?: string | undefined;
+  category?: string | undefined;
+  fanCount?: number | undefined;
+  about?: string | undefined;
+  link?: string | undefined;
+};
+
+export interface ActionInput_facebook_getpost {
+  /**
+   * The ID of the Facebook post to retrieve. Example: "1148671018324630_122098284213327930"
+   */
+  post_id: string;
+  /**
+   * Comma-separated list of fields to retrieve. Example: "id,message,created_time,from"
+   */
+  fields?: string | undefined;
+};
+
+export interface ActionOutput_facebook_getpost {
+  id: string;
+  message?: string | undefined;
+  created_time?: string | undefined;
+  from?: {  id: string;
+  name: string;} | undefined;
+};
+
+export interface ActionInput_facebook_getuserprofile {
+  /**
+   * Comma-separated list of fields to retrieve. Example: "id,name,email,picture"
+   */
+  fields?: string | undefined;
+};
+
+export interface ActionOutput_facebook_getuserprofile {
+  id: string;
+  name?: string | undefined;
+};
+
+export interface ActionInput_facebook_listpageposts {
+  /**
+   * Facebook Page ID. Example: "1148671018324630"
+   */
+  pageId: string;
+  /**
+   * Unix timestamp or ISO date. Posts created after this time.
+   */
+  since?: string | undefined;
+  /**
+   * Unix timestamp or ISO date. Posts created before this time.
+   */
+  until?: string | undefined;
+  /**
+   * Number of posts to return per page. Max 100.
+   */
+  limit?: number | undefined;
+  /**
+   * Comma-separated list of fields to include. Example: "id,message,created_time,permalink_url"
+   */
+  fields?: string | undefined;
+  /**
+   * Pagination cursor from the previous response. Omit for the first page.
+   */
+  cursor?: string | undefined;
+};
+
+export interface ActionOutput_facebook_listpageposts {
+  posts: ({  id: string;
+  message?: string | undefined;
+  createdTime?: string | undefined;
+  permalinkUrl?: string | undefined;})[];
+  nextCursor?: string | undefined;
+};
+
+export interface ActionInput_facebook_listpagescheduledposts {
+  /**
+   * Facebook Page ID. Example: "1148671018324630"
+   */
+  pageId: string;
+  /**
+   * Maximum number of scheduled posts to return. Default: 25
+   */
+  limit?: number | undefined;
+  /**
+   * Pagination cursor from the previous response. Omit for the first page.
+   */
+  cursor?: string | undefined;
+};
+
+export interface ActionOutput_facebook_listpagescheduledposts {
+  posts: ({  id: string;
+  message?: string | undefined;
+  scheduledPublishTime?: number | undefined;})[];
+  nextCursor?: string | undefined;
+};
+
+export interface ActionInput_facebook_listpagevideos {
+  /**
+   * Facebook Page ID. Example: "1234567890"
+   */
+  page_id: string;
+  /**
+   * Maximum number of videos to return. Default: 25
+   */
+  limit?: number | undefined;
+  /**
+   * Comma-separated list of fields to return. Example: "id,title,description,created_time,source"
+   */
+  fields?: string | undefined;
+  /**
+   * Pagination cursor from the previous response. Omit for the first page.
+   */
+  cursor?: string | undefined;
+};
+
+export interface ActionOutput_facebook_listpagevideos {
+  videos: ({  id: string;
+  title?: string | undefined;
+  description?: string | undefined;
+  created_time?: string | undefined;
+  updated_time?: string | undefined;
+  source?: string | undefined;
+  length?: number | undefined;})[];
+  next_cursor?: string | undefined;
+};
+
+export interface ActionInput_facebook_listpostcomments {
+  /**
+   * The post ID to list comments for. Example: "1148671018324630_122098284213327930"
+   */
+  postId: string;
+  /**
+   * Filter for comments. "toplevel" (default) returns top-level comments only. "stream" returns all comments including replies.
+   */
+  filter?: 'toplevel' | 'stream' | undefined;
+  /**
+   * Order of comments. "chronological" = oldest first, "reverse_chronological" = newest first.
+   */
+  order?: 'chronological' | 'reverse_chronological' | undefined;
+  /**
+   * Include summary metadata (total_count, order, can_comment).
+   */
+  summary?: boolean | undefined;
+  /**
+   * Pagination cursor from the previous response. Omit for the first page.
+   */
+  cursor?: string | undefined;
+};
+
+export interface ActionOutput_facebook_listpostcomments {
+  comments: ({  id: string;
+  message?: string | undefined;
+  createdTime: string;
+  from?: {  id: string;
+  name?: string | undefined;};})[];
+  nextCursor?: string | undefined;
+  summary?: {  order?: 'chronological' | 'reverse_chronological' | 'ranked' | undefined;
+  totalCount?: number | undefined;
+  canComment?: boolean | undefined;};
+};
+
+export interface ActionInput_facebook_listuserpages {
+};
+
+export interface ActionOutput_facebook_listuserpages {
+  /**
+   * List of Facebook Pages accessible to the user
+   */
+  pages: ({  /**
+   * Page ID. Example: "123456789"
+   */
+  id: string;
+  /**
+   * Page name. Example: "My Business Page"
+   */
+  name: string;
+  /**
+   * Page category. Example: "Retail Company"
+   */
+  category?: string | undefined;
+  /**
+   * Detailed category list
+   */
+  categoryList?: ({  id: string;
+  name: string;})[] | undefined;
+  /**
+   * Page access token for API calls
+   */
+  accessToken?: string | undefined;
+  /**
+   * Number of fans/likes
+   */
+  fanCount?: number | undefined;
+  /**
+   * Page profile picture URL
+   */
+  pictureUrl?: string | undefined;})[];
+};
+
+export interface ActionInput_facebook_subscribeapptopage {
+  /**
+   * Facebook Page ID to subscribe the app to. Example: "1148671018324630"
+   */
+  page_id: string;
+  /**
+   * Array of webhook event types to subscribe to. Example: ["feed", "messages", "mention", "name", "picture"]
+   */
+  subscribed_fields: string[];
+};
+
+export interface ActionOutput_facebook_subscribeapptopage {
+  success: boolean;
+};
+
+export interface ActionInput_facebook_unsubscribeappfrompage {
+  /**
+   * Facebook Page ID. Example: "123456789012345"
+   */
+  pageId: string;
+};
+
+export interface ActionOutput_facebook_unsubscribeappfrompage {
+  success: boolean;
+};
+
 export interface ActionInput_fireflies_addtolive {
   query: string;
   variables: {};
@@ -13130,53 +16960,6 @@ export interface Article {
 };
 
 export interface SyncMetadata_freshdesk_articles {
-};
-
-export interface Contact {
-  id: string;
-  first_name?: string | undefined;
-  last_name?: string | undefined;
-  full_name?: string | undefined;
-  email?: string | undefined;
-  secondary_email?: string | undefined;
-  phone?: string | undefined;
-  mobile?: string | undefined;
-  home_phone?: string | undefined;
-  other_phone?: string | undefined;
-  title?: string | undefined;
-  department?: string | undefined;
-  account_name?: string | undefined;
-  account_id?: string | undefined;
-  owner_name?: string | undefined;
-  owner_id?: string | undefined;
-  owner_email?: string | undefined;
-  created_time: string;
-  modified_time: string;
-  mailing_street?: string | undefined;
-  mailing_city?: string | undefined;
-  mailing_state?: string | undefined;
-  mailing_zip?: string | undefined;
-  mailing_country?: string | undefined;
-  other_street?: string | undefined;
-  other_city?: string | undefined;
-  other_state?: string | undefined;
-  other_zip?: string | undefined;
-  other_country?: string | undefined;
-  description?: string | undefined;
-  twitter?: string | undefined;
-  skype_id?: string | undefined;
-  date_of_birth?: string | undefined;
-  lead_source?: string | undefined;
-  email_opt_out?: boolean | undefined;
-  fax?: string | undefined;
-  assistant?: string | undefined;
-  asst_phone?: string | undefined;
-  reporting_to_name?: string | undefined;
-  reporting_to_id?: string | undefined;
-  created_by_name?: string | undefined;
-  created_by_id?: string | undefined;
-  modified_by_name?: string | undefined;
-  modified_by_id?: string | undefined;
 };
 
 export interface SyncMetadata_freshdesk_contacts {
@@ -13577,16 +17360,11 @@ export interface SyncMetadata_gem_jobs {
 export interface Location {
   id: string;
   name: string;
-  description: string | null;
-  city: string | null;
-  state: {  name: string;
-  abbrev: string;
-  iso_code: string;} | null;
-  country: {  name: string;
-  iso_code: string;};
-  zip_code: string;
-  address: string;
-  phone_number: string | null;
+  inactive?: boolean | undefined;
+  location_type?: string | undefined;
+  time_zone?: string | undefined;
+  usage?: string | undefined;
+  last_updated?: string | undefined;
 };
 
 export interface SyncMetadata_gem_locations {
@@ -24106,13 +27884,26 @@ export interface Collection {
 };
 
 export interface Segment {
+  /**
+   * The unique id for the segment
+   */
   id: string;
-  name: string;
+  name?: string | undefined;
+  member_count?: number | undefined;
   type?: string | undefined;
-  created_at?: number | undefined;
-  updated_at?: number | undefined;
-  person_type?: string | undefined;
-  count?: number | undefined;
+  /**
+   * ISO 8601 timestamp
+   */
+  created_at?: string | undefined;
+  /**
+   * ISO 8601 timestamp
+   */
+  updated_at?: string | undefined;
+  /**
+   * The list id
+   */
+  list_id: string;
+  options?: {  [key: string]: unknown | undefined;};
 };
 
 export interface ActionInput_intercom_attachcontacttocompany {
@@ -29207,6 +32998,1819 @@ export interface ActionOutput_linkedin_updatepost {
 export interface SyncMetadata_luma_listevents {
 };
 
+export interface Audience {
+  id: string;
+  name: string;
+  date_created?: string | undefined;
+  list_rating?: number | undefined;
+  email_type_option?: boolean | undefined;
+  visibility?: string | undefined;
+  double_optin?: boolean | undefined;
+  has_welcome?: boolean | undefined;
+  marketing_permissions?: boolean | undefined;
+  permission_reminder?: string | undefined;
+  notify_on_subscribe?: string | undefined;
+  notify_on_unsubscribe?: string | undefined;
+  subscribe_url_short?: string | undefined;
+  subscribe_url_long?: string | undefined;
+  beamer_address?: string | undefined;
+  web_id?: number | undefined;
+  stats?: {  [key: string]: unknown | undefined;};
+};
+
+export interface Automation {
+  id: string;
+  create_time: string;
+  start_time?: string | undefined;
+  status: string;
+  emails_sent?: number | undefined;
+  title?: string | undefined;
+  from_name?: string | undefined;
+  reply_to?: string | undefined;
+  list_id?: string | undefined;
+  list_name?: string | undefined;
+  workflow_type?: string | undefined;
+};
+
+export interface Member {
+  id: string;
+  email_address?: string | undefined;
+  unique_email_id?: string | undefined;
+  contact_id?: string | undefined;
+  full_name?: string | undefined;
+  web_id?: number | undefined;
+  email_type?: string | undefined;
+  status?: string | undefined;
+  unsubscribe_reason?: string | undefined;
+  consents_to_one_to_one_messaging?: boolean | undefined;
+  merge_fields?: {  [key: string]: unknown | undefined;};
+  interests?: {  [key: string]: unknown | undefined;};
+  ip_signup?: string | undefined;
+  timestamp_signup?: string | undefined;
+  ip_opt?: string | undefined;
+  timestamp_opt?: string | undefined;
+  member_rating?: number | undefined;
+  last_changed?: string | undefined;
+  language?: string | undefined;
+  vip?: boolean | undefined;
+  email_client?: string | undefined;
+  location?: {  latitude?: number | undefined;
+  longitude?: number | undefined;
+  gmtoff?: number | undefined;
+  dstoff?: number | undefined;
+  country_code?: string | undefined;
+  timezone?: string | undefined;
+  region?: string | undefined;};
+  source?: string | undefined;
+  tags_count?: number | undefined;
+  tags?: ({  id?: number | undefined;
+  name?: string | undefined;})[];
+  list_id?: string | undefined;
+};
+
+export interface Store {
+  id: string;
+  list_id?: string | undefined;
+  name?: string | undefined;
+  domain?: string | undefined;
+  email_address?: string | undefined;
+  currency_code?: string | undefined;
+  money_format?: string | undefined;
+  primary_locale?: string | undefined;
+  timezone?: string | undefined;
+  phone?: string | undefined;
+  address?: {  address1?: string | undefined;
+  address2?: string | undefined;
+  city?: string | undefined;
+  province?: string | undefined;
+  province_code?: string | undefined;
+  postal_code?: string | undefined;
+  country?: string | undefined;
+  country_code?: string | undefined;
+  longitude?: number | undefined;
+  latitude?: number | undefined;};
+  created_at?: string | undefined;
+  updated_at?: string | undefined;
+};
+
+export interface ActionInput_mailchimp_createaudience {
+  name: string;
+  contact: {  company: string;
+  address1: string;
+  address2?: string | undefined;
+  city: string;
+  state: string;
+  zip: string;
+  country: string;
+  phone?: string | undefined;};
+  permission_reminder: string;
+  campaign_defaults: {  from_name: string;
+  from_email: string;
+  subject: string;
+  language: string;};
+  email_type_option: boolean;
+  visibility?: 'pub' | 'prv' | undefined;
+  notify_on_subscribe?: string | undefined;
+  notify_on_unsubscribe?: string | undefined;
+  use_archive_bar?: boolean | undefined;
+};
+
+export interface ActionOutput_mailchimp_createaudience {
+  id: string;
+  name: string;
+  contact: {  company: string;
+  address1: string;
+  address2?: string | undefined;
+  city: string;
+  state: string;
+  zip: string;
+  country: string;
+  phone?: string | undefined;};
+  permission_reminder: string;
+  campaign_defaults: {  from_name: string;
+  from_email: string;
+  subject: string;
+  language: string;};
+  email_type_option: boolean;
+  visibility?: string | undefined;
+};
+
+export interface ActionInput_mailchimp_createcampaign {
+  /**
+   * Campaign type. Example: "regular"
+   */
+  type: 'regular' | 'plaintext' | 'absplit' | 'rss' | 'variate';
+  recipients: {  /**
+   * Audience/list ID. Example: "a1b2c3d4e5"
+   */
+  list_id: string;
+  segment_opts?: {  saved_segment_id?: number | undefined;
+  match?: string | undefined;
+  conditions?: unknown[] | undefined;};};
+  settings?: {  subject_line?: string | undefined;
+  preview_text?: string | undefined;
+  title?: string | undefined;
+  from_name?: string | undefined;
+  reply_to?: string | undefined;
+  template_id?: number | undefined;};
+  tracking?: {  opens?: boolean | undefined;
+  html_clicks?: boolean | undefined;
+  text_clicks?: boolean | undefined;
+  google_analytics?: string | undefined;};
+  rss_opts?: {  feed_url?: string | undefined;
+  frequency?: string | undefined;};
+  variate_settings?: {  winner_criteria?: string | undefined;
+  wait_time?: number | undefined;
+  test_size?: number | undefined;
+  subject_lines?: string[] | undefined;
+  send_times?: string[] | undefined;
+  from_names?: string[] | undefined;
+  reply_to_addresses?: string[] | undefined;};
+  social_card?: {  image_url?: string | undefined;
+  description?: string | undefined;
+  title?: string | undefined;};
+};
+
+export interface ActionOutput_mailchimp_createcampaign {
+  id: string;
+  web_id: number;
+  type: string;
+  status: string;
+  create_time?: string | undefined;
+  settings?: {  subject_line?: string | undefined;
+  preview_text?: string | undefined;
+  title?: string | undefined;
+  from_name?: string | undefined;
+  reply_to?: string | undefined;
+  template_id?: number | undefined;};
+  recipients?: {  list_id: string;
+  list_name?: string | undefined;
+  recipient_count?: number | undefined;};
+};
+
+export interface ActionInput_mailchimp_createmember {
+  /**
+   * The unique ID for the list. Example: "a1b2c3d4"
+   */
+  list_id: string;
+  /**
+   * Email address for the subscriber. Example: "user@example.com"
+   */
+  email_address: string;
+  /**
+   * Subscriber's current status.
+   */
+  status: 'subscribed' | 'unsubscribed' | 'cleaned' | 'pending' | 'transactional';
+  /**
+   * An individual merge var and value for a member.
+   */
+  merge_fields?: {  [key: string]: string;} | undefined;
+  /**
+   * The key of this object's properties is the ID of the interest in question.
+   */
+  interests?: {  [key: string]: boolean;} | undefined;
+  /**
+   * If set/detected, the subscriber's language.
+   */
+  language?: string | undefined;
+  /**
+   * VIP status for subscriber.
+   */
+  vip?: boolean | undefined;
+  /**
+   * The tags that are associated with this member.
+   */
+  tags?: string[] | undefined;
+  /**
+   * Subscriber location information.
+   */
+  location?: {  latitude: number;
+  longitude: number;} | undefined;
+  /**
+   * IP address the subscriber signed up from.
+   */
+  ip_signup?: string | undefined;
+  /**
+   * The date and time the subscriber signed up for the list in ISO 8601 format.
+   */
+  timestamp_signup?: string | undefined;
+  /**
+   * The IP address the subscriber used to confirm their opt-in status.
+   */
+  ip_opt?: string | undefined;
+  /**
+   * The date and time the subscriber confirmed their opt-in status in ISO 8601 format.
+   */
+  timestamp_opt?: string | undefined;
+};
+
+export interface ActionOutput_mailchimp_createmember {
+  /**
+   * The MD5 hash of the lowercase version of the member's email address.
+   */
+  id: string;
+  email_address: string;
+  status: string;
+  unique_email_id?: string | undefined;
+  contact_id?: string | undefined;
+  list_id?: string | undefined;
+  merge_fields?: {  [key: string]: unknown | undefined;};
+  interests?: {  [key: string]: boolean;} | undefined;
+  vip?: boolean | undefined;
+  language?: string | undefined;
+  timestamp_opt?: string | undefined;
+  timestamp_signup?: string | undefined;
+  ip_opt?: string | undefined;
+  ip_signup?: string | undefined;
+};
+
+export interface ActionInput_mailchimp_createsegment {
+  /**
+   * The unique ID for the list. Example: "16ed227135"
+   */
+  list_id: string;
+  /**
+   * The name of the segment. Example: "VIP Customers"
+   */
+  name: string;
+  /**
+   * An array of emails to be used for a static segment. Cannot be provided with the options field.
+   */
+  static_segment?: string[] | undefined;
+  /**
+   * The conditions of the segment. Static and fuzzy segments do not have conditions.
+   */
+  options?: {  match?: 'any' | 'all' | undefined;
+  conditions?: ({  condition_type?: string | undefined;
+  field?: string | undefined;
+  op?: string | undefined;
+  value?: unknown | undefined;})[];};
+};
+
+export interface ActionOutput_mailchimp_createsegment {
+  id: number;
+  name: string;
+  member_count: number;
+  type: string;
+  created_at?: string | undefined;
+  updated_at?: string | undefined;
+  list_id?: string | undefined;
+  options?: {  match?: 'any' | 'all' | undefined;
+  conditions?: ({  condition_type?: string | undefined;
+  field?: string | undefined;
+  op?: string | undefined;
+  value?: unknown | undefined;})[];};
+};
+
+export interface ActionInput_mailchimp_createstore {
+  /**
+   * The unique identifier for the store. Example: "my_store_001"
+   */
+  id: string;
+  /**
+   * The Mailchimp list ID to associate with the store. Example: "a1b2c3d4e5"
+   */
+  list_id: string;
+  /**
+   * The name of the store. Example: "My Online Store"
+   */
+  name: string;
+  /**
+   * The three-letter ISO 4217 currency code. Example: "USD"
+   */
+  currency_code: string;
+  /**
+   * The e-commerce platform of the store.
+   */
+  platform?: string | undefined;
+  /**
+   * The store domain.
+   */
+  domain?: string | undefined;
+  /**
+   * Whether the store is currently syncing.
+   */
+  is_syncing?: boolean | undefined;
+  /**
+   * The email address for the store.
+   */
+  email_address?: string | undefined;
+  /**
+   * The currency format for the store.
+   */
+  money_format?: string | undefined;
+  /**
+   * The primary locale for the store. Example: "en"
+   */
+  primary_locale?: string | undefined;
+  /**
+   * The timezone for the store.
+   */
+  timezone?: string | undefined;
+  /**
+   * The store phone number.
+   */
+  phone?: string | undefined;
+  /**
+   * The store address.
+   */
+  address?: {  address1?: string | undefined;
+  address2?: string | undefined;
+  city?: string | undefined;
+  province?: string | undefined;
+  province_code?: string | undefined;
+  postal_code?: string | undefined;
+  country?: string | undefined;
+  country_code?: string | undefined;
+  longitude?: number | undefined;
+  latitude?: number | undefined;};
+};
+
+export interface ActionOutput_mailchimp_createstore {
+  id: string;
+  list_id: string;
+  name: string;
+  platform?: string | undefined;
+  domain?: string | undefined;
+  is_syncing?: boolean | undefined;
+  email_address?: string | undefined;
+  currency_code: string;
+  money_format?: string | undefined;
+  primary_locale?: string | undefined;
+  timezone?: string | undefined;
+  phone?: string | undefined;
+  address?: {  address1?: string | undefined;
+  address2?: string | undefined;
+  city?: string | undefined;
+  province?: string | undefined;
+  province_code?: string | undefined;
+  postal_code?: string | undefined;
+  country?: string | undefined;
+  country_code?: string | undefined;
+  longitude?: number | undefined;
+  latitude?: number | undefined;};
+  list_is_active?: boolean | undefined;
+  created_at?: string | undefined;
+  updated_at?: string | undefined;
+};
+
+export interface ActionInput_mailchimp_createtemplate {
+  /**
+   * The name for the template. Example: "Welcome Email Template"
+   */
+  name: string;
+  /**
+   * The HTML content for the template. Example: "<html><body>Hello</body></html>"
+   */
+  html: string;
+  /**
+   * The ID of the folder to store the template in. Example: 42
+   */
+  folder_id?: number | undefined;
+};
+
+export interface ActionOutput_mailchimp_createtemplate {
+  id: number;
+  name?: string | undefined;
+  type?: string | undefined;
+  date_created?: string | undefined;
+  date_edited?: string | undefined;
+  active?: boolean | undefined;
+  thumbnail?: string | undefined;
+  share_url?: string | undefined;
+  folder_id?: number | undefined;
+};
+
+export interface ActionInput_mailchimp_deleteaudience {
+  /**
+   * The unique ID for the audience/list to delete. Example: "a1b2c3d4e5"
+   */
+  list_id: string;
+};
+
+export interface ActionOutput_mailchimp_deleteaudience {
+  success: boolean;
+  list_id?: string | undefined;
+};
+
+export interface ActionInput_mailchimp_deletecampaign {
+  /**
+   * The unique ID of the campaign to delete. Example: "a1b2c3d4e5"
+   */
+  campaign_id: string;
+};
+
+export interface ActionOutput_mailchimp_deletecampaign {
+  success: boolean;
+  campaign_id: string;
+};
+
+export interface ActionInput_mailchimp_deletemember {
+  /**
+   * The unique ID for the list. Example: "a1b2c3d4e5"
+   */
+  list_id: string;
+  /**
+   * The MD5 hash of the lowercase version of the list member's email address. Example: "f52b1fb13b40f6b01297aa7e5c1d8e5c"
+   */
+  subscriber_hash: string;
+};
+
+export interface ActionOutput_mailchimp_deletemember {
+  success: boolean;
+  /**
+   * The MD5 hash of the lowercase email address for the deleted member.
+   */
+  id?: string | undefined;
+  /**
+   * The subscription status of the deleted member.
+   */
+  status?: string | undefined;
+};
+
+export interface ActionInput_mailchimp_deletesegment {
+  /**
+   * The unique ID of the Mailchimp audience/list. Example: "16ed227135"
+   */
+  list_id: string;
+  /**
+   * The unique ID of the segment to delete. Example: "3730784"
+   */
+  segment_id: string;
+};
+
+export interface ActionOutput_mailchimp_deletesegment {
+  success: boolean;
+  list_id: string;
+  segment_id: string;
+};
+
+export interface ActionInput_mailchimp_deletetemplate {
+  /**
+   * The ID of the template to delete. Example: "1234"
+   */
+  template_id: string;
+};
+
+export interface ActionOutput_mailchimp_deletetemplate {
+  success: boolean;
+  template_id?: string | undefined;
+};
+
+export interface ActionInput_mailchimp_getaudience {
+  /**
+   * The unique ID for the list. Example: "a1b2c3d4e5"
+   */
+  list_id: string;
+};
+
+export interface ActionOutput_mailchimp_getaudience {
+  id: string;
+  web_id?: number | undefined;
+  name?: string | undefined;
+  contact?: {  company?: string | undefined;
+  address1?: string | undefined;
+  address2?: string | undefined;
+  city?: string | undefined;
+  state?: string | undefined;
+  zip?: string | undefined;
+  country?: string | undefined;
+  phone?: string | undefined;};
+  permission_reminder?: string | undefined;
+  use_archive_bar?: boolean | undefined;
+  campaign_defaults?: {  from_name?: string | undefined;
+  from_email?: string | undefined;
+  subject?: string | undefined;
+  language?: string | undefined;};
+  notify_on_subscribe?: string | undefined;
+  notify_on_unsubscribe?: string | undefined;
+  date_created?: string | undefined;
+  list_rating?: number | undefined;
+  subscribe_url_short?: string | undefined;
+  subscribe_url_long?: string | undefined;
+  beamer_address?: string | undefined;
+  visibility?: string | undefined;
+  double_optin?: boolean | undefined;
+  use_custom_footer?: boolean | undefined;
+  forwards?: {} | undefined;
+  facebook_page?: string | undefined;
+  rss_url?: string | undefined;
+  rss_email?: {} | undefined;
+  twitter_handle?: string | undefined;
+  vip?: boolean | undefined;
+  modules?: unknown[] | undefined;
+  stats?: {  member_count?: number | undefined;
+  total_contacts?: number | undefined;
+  unsubscribe_count?: number | undefined;
+  cleaned_count?: number | undefined;
+  member_count_since_send?: number | undefined;
+  unsubscribe_count_since_send?: number | undefined;
+  cleaned_count_since_send?: number | undefined;
+  campaign_count?: number | undefined;
+  campaign_last_sent?: string | undefined;
+  merge_field_count?: number | undefined;
+  avg_sub_rate?: number | undefined;
+  avg_unsub_rate?: number | undefined;
+  target_sub_rate?: number | undefined;
+  open_rate?: number | undefined;
+  click_rate?: number | undefined;
+  last_sub_date?: string | undefined;
+  last_unsub_date?: string | undefined;};
+  _links?: ({  rel?: string | undefined;
+  href?: string | undefined;
+  method?: string | undefined;
+  targetSchema?: string | undefined;
+  schema?: string | undefined;})[];
+};
+
+export interface ActionInput_mailchimp_getautomation {
+  /**
+   * The unique id for the Automation workflow. Example: "1a2b3c4d5e"
+   */
+  workflow_id: string;
+};
+
+export interface ActionOutput_mailchimp_getautomation {
+  id: string;
+  create_time?: string | undefined;
+  start_time?: string | undefined;
+  status?: string | undefined;
+  emails_sent?: number | undefined;
+  recipients?: {  list_id?: string | undefined;
+  list_is_active?: boolean | undefined;
+  list_name?: string | undefined;
+  segment_opts?: {  saved_segment_id?: number | undefined;
+  match?: string | undefined;
+  conditions?: unknown[] | undefined;};
+  store_id?: string | undefined;};
+  settings?: {  title?: string | undefined;
+  from_name?: string | undefined;
+  reply_to?: string | undefined;
+  use_conversation?: boolean | undefined;
+  to_name?: string | undefined;
+  authenticate?: boolean | undefined;
+  auto_footer?: boolean | undefined;
+  inline_css?: boolean | undefined;};
+  tracking?: {  opens?: boolean | undefined;
+  html_clicks?: boolean | undefined;
+  text_clicks?: boolean | undefined;
+  goal_tracking?: boolean | undefined;
+  ecomm360?: boolean | undefined;
+  google_analytics?: string | undefined;
+  clicktale?: string | undefined;
+  salesforce?: {  campaign?: boolean | undefined;
+  notes?: boolean | undefined;};
+  capsule?: {  notes?: boolean | undefined;};};
+  trigger_settings?: {  workflow_type?: string | undefined;
+  workflow_title?: string | undefined;
+  runtime?: {  days?: string[] | undefined;
+  hours?: {  type?: string | undefined;};};
+  workflow_emails_count?: number | undefined;};
+  report_summary?: {  opens?: number | undefined;
+  unique_opens?: number | undefined;
+  open_rate?: number | undefined;
+  clicks?: number | undefined;
+  subscriber_clicks?: number | undefined;
+  click_rate?: number | undefined;};
+  _links?: ({  rel?: string | undefined;
+  href?: string | undefined;
+  method?: string | undefined;
+  targetSchema?: string | undefined;
+  schema?: string | undefined;})[];
+};
+
+export interface ActionInput_mailchimp_getcampaignreport {
+  /**
+   * The unique ID of the campaign. Example: "abc123"
+   */
+  campaign_id: string;
+};
+
+export interface ActionOutput_mailchimp_getcampaignreport {
+  id?: string | undefined;
+  campaign_title?: string | undefined;
+  type?: string | undefined;
+  list_id?: string | undefined;
+  list_is_active?: boolean | undefined;
+  list_name?: string | undefined;
+  subject_line?: string | undefined;
+  preview_text?: string | undefined;
+  emails_sent?: number | undefined;
+  abuse_reports?: number | undefined;
+  unsubscribed?: number | undefined;
+  send_time?: string | undefined;
+  bounces?: {  hard_bounces?: number | undefined;
+  soft_bounces?: number | undefined;
+  syntax_errors?: number | undefined;};
+  forwards?: {  forwards_count?: number | undefined;
+  forwards_opens?: number | undefined;};
+  opens?: {  opens_total?: number | undefined;
+  unique_opens?: number | undefined;
+  open_rate?: number | undefined;
+  last_open?: string | undefined;};
+  clicks?: {  clicks_total?: number | undefined;
+  unique_clicks?: number | undefined;
+  unique_subscriber_clicks?: number | undefined;
+  click_rate?: number | undefined;
+  last_click?: string | undefined;};
+  industry_stats?: {  type?: string | undefined;
+  open_rate?: number | undefined;
+  click_rate?: number | undefined;
+  bounce_rate?: number | undefined;
+  unopen_rate?: number | undefined;
+  unsub_rate?: number | undefined;
+  abuse_rate?: number | undefined;};
+  list_stats?: {  sub_rate?: number | undefined;
+  unsub_rate?: number | undefined;
+  open_rate?: number | undefined;
+  click_rate?: number | undefined;};
+  ecommerce?: {  total_orders?: number | undefined;
+  total_spent?: number | undefined;
+  total_revenue?: number | undefined;
+  currency_code?: string | undefined;};
+  delivery_status?: {  enabled?: boolean | undefined;
+  can_cancel?: boolean | undefined;
+  status?: string | undefined;
+  emails_sent?: number | undefined;
+  emails_canceled?: number | undefined;};
+};
+
+export interface ActionInput_mailchimp_getcampaign {
+  /**
+   * The unique id for the campaign. Example: "a1b2c3d4e5"
+   */
+  campaign_id: string;
+};
+
+export interface ActionOutput_mailchimp_getcampaign {
+  id: string;
+  web_id?: number | undefined;
+  parent_campaign_id?: string | undefined;
+  type?: string | undefined;
+  create_time?: string | undefined;
+  archive_url?: string | undefined;
+  long_archive_url?: string | undefined;
+  status?: string | undefined;
+  emails_sent?: number | undefined;
+  send_time?: string | undefined;
+  content_type?: string | undefined;
+  needs_block_refresh?: boolean | undefined;
+  resendable?: boolean | undefined;
+  recipients?: {  list_id?: string | undefined;
+  list_is_active?: boolean | undefined;
+  list_name?: string | undefined;
+  segment_text?: string | undefined;
+  recipient_count?: number | undefined;
+  segment_opts?: {  [key: string]: unknown | undefined;};};
+  settings?: {  subject_line?: string | undefined;
+  preview_text?: string | undefined;
+  title?: string | undefined;
+  from_name?: string | undefined;
+  reply_to?: string | undefined;
+  use_conversation?: boolean | undefined;
+  to_name?: string | undefined;
+  folder_id?: string | undefined;
+  authenticate?: boolean | undefined;
+  auto_footer?: boolean | undefined;
+  inline_css?: boolean | undefined;
+  auto_tweet?: boolean | undefined;
+  auto_fb_post?: string[] | undefined;
+  fb_comments?: boolean | undefined;
+  timewarp?: boolean | undefined;
+  template_id?: number | undefined;
+  drag_and_drop?: boolean | undefined;};
+  variate_settings?: {  winner_criteria?: string | undefined;
+  wait_time?: number | undefined;
+  test_size?: number | undefined;
+  subject_lines?: string[] | undefined;
+  send_times?: string[] | undefined;
+  from_names?: string[] | undefined;
+  reply_to_addresses?: string[] | undefined;
+  contents?: string[] | undefined;
+  combinations?: ({  [key: string]: unknown | undefined;})[];};
+  tracking?: {  opens?: boolean | undefined;
+  html_clicks?: boolean | undefined;
+  text_clicks?: boolean | undefined;
+  goal_tracking?: boolean | undefined;
+  ecomm360?: boolean | undefined;
+  google_analytics?: string | undefined;
+  clicktale?: string | undefined;
+  salesforce?: {  [key: string]: unknown | undefined;};
+  capsule?: {  [key: string]: unknown | undefined;};};
+  rss_opts?: {  feed_url?: string | undefined;
+  frequency?: string | undefined;
+  schedule?: {  [key: string]: unknown | undefined;};
+  last_sent?: string | undefined;
+  constrain_rss_img?: boolean | undefined;};
+  ab_split_opts?: {  split_test?: string | undefined;
+  pick_winner?: string | undefined;
+  wait_units?: string | undefined;
+  wait_time?: number | undefined;
+  split_size?: number | undefined;
+  from_name_a?: string | undefined;
+  from_name_b?: string | undefined;
+  reply_email_a?: string | undefined;
+  reply_email_b?: string | undefined;
+  subject_a?: string | undefined;
+  subject_b?: string | undefined;
+  send_time_a?: string | undefined;
+  send_time_b?: string | undefined;};
+  social_card?: {  image_url?: string | undefined;
+  description?: string | undefined;
+  title?: string | undefined;};
+  report_summary?: {  opens?: number | undefined;
+  unique_opens?: number | undefined;
+  open_rate?: number | undefined;
+  clicks?: number | undefined;
+  subscriber_clicks?: number | undefined;
+  click_rate?: number | undefined;
+  ecommerce?: {  [key: string]: unknown | undefined;};};
+  delivery_status?: {  enabled?: boolean | undefined;
+  can_cancel?: boolean | undefined;
+  status?: string | undefined;
+  emails_sent?: number | undefined;
+  emails_canceled?: number | undefined;};
+  resend_shortcut_eligibility?: {  to_non_openers?: {  [key: string]: unknown | undefined;};
+  to_new_subscribers?: {  [key: string]: unknown | undefined;};
+  to_non_clickers?: {  [key: string]: unknown | undefined;};
+  to_non_purchasers?: {  [key: string]: unknown | undefined;};};
+  resend_shortcut_usage?: {  shortcut_campaigns?: ({  [key: string]: unknown | undefined;})[];
+  original_campaign?: {  [key: string]: unknown | undefined;};};
+  _links?: ({  rel?: string | undefined;
+  href?: string | undefined;
+  method?: string | undefined;
+  targetSchema?: string | undefined;
+  schema?: string | undefined;})[];
+};
+
+export interface ActionInput_mailchimp_getmember {
+  /**
+   * The unique ID for the list. Example: "16ed227135"
+   */
+  list_id: string;
+  /**
+   * The email address of the member to retrieve. The subscriber hash will be computed automatically. Example: "user@example.com"
+   */
+  email: string;
+};
+
+export interface ActionOutput_mailchimp_getmember {
+  id?: string | undefined;
+  email_address?: string | undefined;
+  unique_email_id?: string | undefined;
+  contact_id?: string | undefined;
+  full_name?: string | undefined;
+  web_id?: number | undefined;
+  email_type?: string | undefined;
+  status?: string | undefined;
+  unsubscribe_reason?: string | undefined;
+  consents_to_one_to_one_messaging?: boolean | undefined;
+  sms_phone_number?: string | undefined;
+  sms_subscription_status?: string | undefined;
+  sms_subscription_last_updated?: string | undefined;
+  merge_fields?: {  [key: string]: unknown | undefined;};
+  interests?: {  [key: string]: unknown | undefined;};
+  stats?: {  avg_open_rate?: number | undefined;
+  avg_click_rate?: number | undefined;
+  ecommerce_data?: {  total_revenue?: number | undefined;
+  number_of_orders?: number | undefined;
+  currency_code?: string | undefined;};};
+  ip_signup?: string | undefined;
+  timestamp_signup?: string | undefined;
+  ip_opt?: string | undefined;
+  timestamp_opt?: string | undefined;
+  member_rating?: number | string | undefined;
+  last_changed?: string | undefined;
+  language?: string | undefined;
+  vip?: boolean | undefined;
+  email_client?: string | undefined;
+  location?: {  latitude?: number | undefined;
+  longitude?: number | undefined;
+  gmtoff?: number | undefined;
+  dstoff?: number | undefined;
+  country_code?: string | undefined;
+  timezone?: string | undefined;
+  region?: string | undefined;};
+  marketing_permissions?: ({  marketing_permission_id?: string | undefined;
+  text?: string | undefined;
+  enabled?: boolean | undefined;})[];
+  last_note?: {  note_id?: number | undefined;
+  created_at?: string | undefined;
+  created_by?: string | undefined;
+  note?: string | undefined;};
+  source?: string | undefined;
+  tags_count?: number | undefined;
+  tags?: ({  id?: number | undefined;
+  name?: string | undefined;})[];
+  list_id?: string | undefined;
+  _links?: ({  rel?: string | undefined;
+  href?: string | undefined;
+  method?: string | undefined;
+  targetSchema?: string | undefined;
+  schema?: string | undefined;})[];
+};
+
+export interface ActionInput_mailchimp_getsegment {
+  /**
+   * The unique ID for the list. Example: "a1b2c3d4e5"
+   */
+  list_id: string;
+  /**
+   * The unique ID for the segment. Example: 12345
+   */
+  segment_id: number;
+};
+
+export interface ActionOutput_mailchimp_getsegment {
+  id: number;
+  name: string;
+  member_count: number;
+  type: string;
+  created_at: string;
+  updated_at: string;
+  options?: {  match?: string | undefined;
+  conditions?: ({  [key: string]: unknown | undefined;})[];};
+  list_id: string;
+  _links?: ({  rel?: string | undefined;
+  href?: string | undefined;
+  method?: string | undefined;
+  targetSchema?: string | undefined;
+  schema?: string | undefined;})[];
+};
+
+export interface ActionInput_mailchimp_getstore {
+  /**
+   * The unique identifier for the store. Example: "store123"
+   */
+  store_id: string;
+};
+
+export interface ActionOutput_mailchimp_getstore {
+  id: string;
+  list_id: string;
+  name: string;
+  platform: string;
+  domain: string;
+  is_syncing: boolean;
+  currency_code: string;
+  money_format: string;
+  primary_locale: string;
+  timezone?: string | undefined;
+  phone?: string | undefined;
+  email_address?: string | undefined;
+  address?: {  address1?: string | undefined;
+  address2?: string | undefined;
+  city?: string | undefined;
+  province?: string | undefined;
+  province_code?: string | undefined;
+  postal_code?: string | undefined;
+  country?: string | undefined;
+  country_code?: string | undefined;
+  longitude?: number | undefined;
+  latitude?: number | undefined;};
+  created_at: string;
+  updated_at: string;
+  list_is_active?: boolean | undefined;
+  automations?: {  abandoned_cart?: {  is_supported?: boolean | undefined;
+  id?: string | undefined;
+  status?: string | undefined;};
+  abandoned_browse?: {  is_supported?: boolean | undefined;
+  id?: string | undefined;
+  status?: string | undefined;};};
+  connected_site?: {  site_foreign_id?: string | undefined;
+  site_script?: {  url?: string | undefined;
+  fragment?: string | undefined;};
+  domain?: string | undefined;
+  is_verified?: boolean | undefined;};
+  syncing_flags?: {  [key: string]: unknown | undefined;};
+  _links?: ({  [key: string]: unknown | undefined;})[];
+};
+
+export interface ActionInput_mailchimp_gettemplate {
+  /**
+   * The ID of the template to retrieve. Example: 12345
+   */
+  template_id: number;
+};
+
+export interface ActionOutput_mailchimp_gettemplate {
+  id: number;
+  type?: string | undefined;
+  name?: string | undefined;
+  drag_and_drop?: boolean | undefined;
+  responsive?: boolean | undefined;
+  category?: string | undefined;
+  date_created?: string | undefined;
+  date_edited?: string | undefined;
+  created_by?: string | undefined;
+  edited_by?: string | undefined;
+  active?: boolean | undefined;
+  folder_id?: string | undefined;
+  thumbnail?: string | undefined;
+  share_url?: string | undefined;
+  content_type?: string | undefined;
+  _links?: ({  rel?: string | undefined;
+  href?: string | undefined;
+  method?: string | undefined;
+  targetSchema?: string | undefined;
+  schema?: string | undefined;})[];
+};
+
+export interface ActionInput_mailchimp_listaudiences {
+  /**
+   * Pagination offset from the previous response. Omit for the first page.
+   */
+  cursor?: string | undefined;
+  /**
+   * Number of records to return. Default is 10. Maximum is 1000.
+   */
+  count?: number | undefined;
+};
+
+export interface ActionOutput_mailchimp_listaudiences {
+  lists: ({  id: string;
+  web_id?: number | undefined;
+  name?: string | undefined;
+  contact?: {  company?: string | undefined;
+  address1?: string | undefined;
+  address2?: string | undefined;
+  city?: string | undefined;
+  state?: string | undefined;
+  zip?: string | undefined;
+  country?: string | undefined;
+  phone?: string | undefined;};
+  permission_reminder?: string | undefined;
+  use_archive_bar?: boolean | undefined;
+  campaign_defaults?: {  from_name?: string | undefined;
+  from_email?: string | undefined;
+  subject?: string | undefined;
+  language?: string | undefined;};
+  notify_on_subscribe?: string | undefined;
+  notify_on_unsubscribe?: string | undefined;
+  date_created?: string | undefined;
+  list_rating?: number | undefined;
+  email_type_option?: boolean | undefined;
+  double_optin?: boolean | undefined;
+  marketing_permissions?: boolean | undefined;
+  stats?: {  member_count?: number | undefined;
+  total_contacts?: number | undefined;
+  unsubscribe_count?: number | undefined;
+  cleaned_count?: number | undefined;
+  member_count_since_send?: number | undefined;
+  unsubscribe_count_since_send?: number | undefined;
+  cleaned_count_since_send?: number | undefined;
+  campaign_count?: number | undefined;
+  campaign_last_sent?: string | undefined;
+  merge_field_count?: number | undefined;
+  avg_sub_rate?: number | undefined;
+  avg_unsub_rate?: number | undefined;
+  target_sub_rate?: number | undefined;
+  open_rate?: number | undefined;
+  click_rate?: number | undefined;
+  last_sub_date?: string | undefined;
+  last_unsub_date?: string | undefined;};
+  visibility?: string | undefined;})[];
+  total_items?: number | undefined;
+  next_cursor?: string | undefined;
+};
+
+export interface ActionInput_mailchimp_listautomations {
+  count?: number | undefined;
+  offset?: number | undefined;
+  before_create_time?: string | undefined;
+  since_create_time?: string | undefined;
+  before_start_time?: string | undefined;
+  since_start_time?: string | undefined;
+  status?: 'save' | 'paused' | 'sending' | undefined;
+};
+
+export interface ActionOutput_mailchimp_listautomations {
+  automations: ({  id: string;
+  create_time?: string | undefined;
+  start_time?: string | undefined;
+  status?: string | undefined;
+  emails_sent?: number | undefined;
+  recipients?: {  [key: string]: unknown | undefined;};
+  settings?: {  [key: string]: unknown | undefined;};
+  tracking?: {  [key: string]: unknown | undefined;};
+  report_summary?: {  [key: string]: unknown | undefined;};})[];
+  total_items: number;
+  next_offset?: number | undefined;
+};
+
+export interface ActionInput_mailchimp_listcampaigns {
+  /**
+   * Pagination cursor (offset) from the previous response. Omit for the first page.
+   */
+  cursor?: string | undefined;
+  /**
+   * The number of records to return. Default is 10. Maximum is 1000.
+   */
+  count?: number | undefined;
+  /**
+   * The status of the campaign.
+   */
+  status?: string | undefined;
+  /**
+   * The campaign type.
+   */
+  type?: string | undefined;
+  /**
+   * The unique id for the list.
+   */
+  list_id?: string | undefined;
+  /**
+   * The unique folder id.
+   */
+  folder_id?: string | undefined;
+  /**
+   * Restrict results to campaigns created after this time (ISO 8601).
+   */
+  since_create_time?: string | undefined;
+  /**
+   * Restrict results to campaigns created before this time (ISO 8601).
+   */
+  before_create_time?: string | undefined;
+  /**
+   * Restrict results to campaigns sent after this time (ISO 8601).
+   */
+  since_send_time?: string | undefined;
+  /**
+   * Restrict results to campaigns sent before this time (ISO 8601).
+   */
+  before_send_time?: string | undefined;
+};
+
+export interface ActionOutput_mailchimp_listcampaigns {
+  items: ({  id: string;
+  web_id?: number | undefined;
+  type?: string | undefined;
+  create_time?: string | undefined;
+  status?: string | undefined;
+  emails_sent?: number | undefined;
+  send_time?: string | undefined;
+  content_type?: string | undefined;
+  settings?: {  subject_line?: string | undefined;
+  title?: string | undefined;
+  from_name?: string | undefined;
+  reply_to?: string | undefined;
+  template_id?: number | undefined;};
+  recipients?: {  list_id?: string | undefined;
+  list_name?: string | undefined;
+  recipient_count?: number | undefined;};
+  report_summary?: {  opens?: number | undefined;
+  unique_opens?: number | undefined;
+  open_rate?: number | undefined;
+  clicks?: number | undefined;
+  subscriber_clicks?: number | undefined;
+  click_rate?: number | undefined;};})[];
+  total_items: number;
+  next_cursor?: string | undefined;
+};
+
+export interface ActionInput_mailchimp_listmembers {
+  /**
+   * The unique ID for the list. Example: "a1b2c3d4e5"
+   */
+  list_id: string;
+  /**
+   * Pagination cursor (offset) from the previous response. Omit for the first page.
+   */
+  cursor?: string | undefined;
+  /**
+   * The number of records to return. Default is 10. Maximum is 1000.
+   */
+  count?: number | undefined;
+  /**
+   * The subscriber's status.
+   */
+  status?: 'subscribed' | 'unsubscribed' | 'cleaned' | 'pending' | 'transactional' | undefined;
+  /**
+   * Restrict results to subscribers who opted-in after the set timeframe. Uses ISO 8601 time format: 2015-10-21T15:41:36+00:00.
+   */
+  since_timestamp_opt?: string | undefined;
+  /**
+   * Restrict results to subscribers who opted-in before the set timeframe. Uses ISO 8601 time format: 2015-10-21T15:41:36+00:00.
+   */
+  before_timestamp_opt?: string | undefined;
+  /**
+   * Restrict results to subscribers whose information changed after the set timeframe. Uses ISO 8601 time format: 2015-10-21T15:41:36+00:00.
+   */
+  since_last_changed?: string | undefined;
+  /**
+   * Restrict results to subscribers whose information changed before the set timeframe. Uses ISO 8601 time format: 2015-10-21T15:41:36+00:00.
+   */
+  before_last_changed?: string | undefined;
+};
+
+export interface ActionOutput_mailchimp_listmembers {
+  members: ({  id: string;
+  email_address: string;
+  unique_email_id?: string | undefined;
+  contact_id?: string | undefined;
+  full_name?: string | undefined;
+  web_id?: number | undefined;
+  email_type?: string | undefined;
+  status?: string | undefined;
+  unsubscribe_reason?: string | undefined;
+  consents_to_one_to_one_messaging?: boolean | undefined;
+  merge_fields?: {  [key: string]: unknown | undefined;};
+  interests?: {  [key: string]: unknown | undefined;};
+  stats?: {  avg_open_rate?: number | undefined;
+  avg_click_rate?: number | undefined;};
+  ip_signup?: string | undefined;
+  timestamp_signup?: string | undefined;
+  ip_opt?: string | undefined;
+  timestamp_opt?: string | undefined;
+  member_rating?: number | undefined;
+  last_changed?: string | undefined;
+  language?: string | undefined;
+  vip?: boolean | undefined;
+  email_client?: string | undefined;
+  location?: {  latitude?: number | undefined;
+  longitude?: number | undefined;
+  gmtoff?: number | undefined;
+  dstoff?: number | undefined;
+  country_code?: string | undefined;
+  timezone?: string | undefined;
+  region?: string | undefined;};
+  source?: string | undefined;
+  tags_count?: number | undefined;
+  tags?: ({  id?: number | undefined;
+  name?: string | undefined;})[];
+  list_id?: string | undefined;})[];
+  next_cursor?: string | undefined;
+  total_items?: number | undefined;
+};
+
+export interface ActionInput_mailchimp_listsegments {
+  /**
+   * The unique ID for the list. Example: "a1b2c3d4"
+   */
+  list_id: string;
+  /**
+   * Pagination cursor (offset) from the previous response. Omit for the first page.
+   */
+  cursor?: string | undefined;
+  /**
+   * The number of records to return. Default value is 10. Maximum value is 1000.
+   */
+  count?: number | undefined;
+  /**
+   * Limit results based on segment type.
+   */
+  type?: string | undefined;
+  /**
+   * Exclude results based on segment type.
+   */
+  exclude_type?: 'saved' | 'static' | 'fuzzy' | undefined;
+  /**
+   * Restrict results to segments created after the set time. Uses ISO 8601 time format.
+   */
+  since_created_at?: string | undefined;
+  /**
+   * Restrict results to segments created before the set time. Uses ISO 8601 time format.
+   */
+  before_created_at?: string | undefined;
+  /**
+   * Restrict results to segments updated after the set time. Uses ISO 8601 time format.
+   */
+  since_updated_at?: string | undefined;
+  /**
+   * Restrict results to segments updated before the set time. Uses ISO 8601 time format.
+   */
+  before_updated_at?: string | undefined;
+  /**
+   * Include cleaned members in response.
+   */
+  include_cleaned?: boolean | undefined;
+  /**
+   * Include transactional members in response.
+   */
+  include_transactional?: boolean | undefined;
+  /**
+   * Include unsubscribed members in response.
+   */
+  include_unsubscribed?: boolean | undefined;
+};
+
+export interface ActionOutput_mailchimp_listsegments {
+  items: ({  id: number;
+  name: string;
+  member_count: number;
+  type?: 'saved' | 'static' | 'fuzzy' | undefined;
+  created_at?: string | undefined;
+  updated_at?: string | undefined;
+  options?: {  match?: 'any' | 'all' | undefined;
+  conditions?: ({  condition_type?: string | undefined;
+  field?: string | undefined;
+  op?: string | undefined;
+  value?: string | number | undefined;
+  extra?: string | undefined;})[];};})[];
+  next_cursor?: string | undefined;
+};
+
+export interface ActionInput_mailchimp_liststores {
+  /**
+   * Pagination cursor from the previous response. Omit for the first page.
+   */
+  cursor?: string | undefined;
+  /**
+   * The number of records to return. Maximum 1000, default 10.
+   */
+  count?: number | undefined;
+  /**
+   * A comma-separated list of fields to return.
+   */
+  fields?: string | undefined;
+  /**
+   * A comma-separated list of fields to exclude.
+   */
+  exclude_fields?: string | undefined;
+};
+
+export interface ActionOutput_mailchimp_liststores {
+  items: ({  id: string;
+  list_id?: string | undefined;
+  name?: string | undefined;
+  domain?: string | undefined;
+  email_address?: string | undefined;
+  currency_code?: string | undefined;
+  money_format?: string | undefined;
+  primary_locale?: string | undefined;
+  timezone?: string | undefined;
+  phone?: string | undefined;
+  address?: {  address1?: string | undefined;
+  address2?: string | undefined;
+  city?: string | undefined;
+  province?: string | undefined;
+  province_code?: string | undefined;
+  postal_code?: string | undefined;
+  country?: string | undefined;
+  country_code?: string | undefined;
+  longitude?: number | undefined;
+  latitude?: number | undefined;};
+  created_at?: string | undefined;
+  updated_at?: string | undefined;})[];
+  next_cursor?: string | undefined;
+};
+
+export interface ActionInput_mailchimp_listtemplates {
+  /**
+   * Pagination offset from the previous response. Omit for the first page.
+   */
+  cursor?: string | undefined;
+  /**
+   * Number of templates to return per page. Max 1000, default 10.
+   */
+  count?: number | undefined;
+  /**
+   * Filter templates by folder ID.
+   */
+  folder_id?: string | undefined;
+  /**
+   * Filter templates by type. Possible values: user, base, or gallery.
+   */
+  type?: string | undefined;
+};
+
+export interface ActionOutput_mailchimp_listtemplates {
+  /**
+   * The list of templates.
+   */
+  items: ({  /**
+   * The individual id for the template.
+   */
+  id: number;
+  /**
+   * The type of template (user, base, or gallery).
+   */
+  type?: string | undefined;
+  /**
+   * The name of the template.
+   */
+  name?: string | undefined;
+  /**
+   * Whether the template uses the drag and drop editor.
+   */
+  drag_and_drop?: boolean | undefined;
+  /**
+   * Whether the template contains media queries to make it responsive.
+   */
+  responsive?: boolean | undefined;
+  /**
+   * If available, the category the template is listed in.
+   */
+  category?: string | undefined;
+  /**
+   * The date and time the template was created in ISO 8601 format.
+   */
+  date_created?: string | undefined;
+  /**
+   * The date and time the template was edited in ISO 8601 format.
+   */
+  date_edited?: string | undefined;
+  /**
+   * The login name for template's creator.
+   */
+  created_by?: string | undefined;
+  /**
+   * The login name who last edited the template.
+   */
+  edited_by?: string | undefined;
+  /**
+   * User templates are not deleted, but marked as inactive. Returns whether the template is still active.
+   */
+  active?: boolean | undefined;
+  /**
+   * The id of the folder the template is currently in.
+   */
+  folder_id?: string | undefined;
+  /**
+   * If available, the URL for a thumbnail of the template.
+   */
+  thumbnail?: string | undefined;
+  /**
+   * The URL used for template sharing.
+   */
+  share_url?: string | undefined;
+  /**
+   * How the template content is put together. Possible values: template, multichannel, html.
+   */
+  content_type?: string | undefined;})[];
+  /**
+   * Offset to request the next page. Omit if there are no more pages.
+   */
+  next_cursor?: string | undefined;
+};
+
+export interface ActionInput_mailchimp_schedulecampaign {
+  /**
+   * The unique id for the campaign. Example: "a1b2c3d4e5"
+   */
+  campaign_id: string;
+  /**
+   * The date and time to schedule the campaign in ISO 8601 format. Example: "2026-05-25T14:00:00Z"
+   */
+  schedule_time: string;
+};
+
+export interface ActionOutput_mailchimp_schedulecampaign {
+  campaign_id: string;
+  status?: string | undefined;
+  schedule_time: string;
+};
+
+export interface ActionInput_mailchimp_tagmember {
+  /**
+   * The unique ID for the list. Example: "a1b2c3d4e5"
+   */
+  list_id: string;
+  /**
+   * The email address of the list member. Example: "user@example.com"
+   */
+  email: string;
+  /**
+   * Tags to add or remove on the member.
+   */
+  tags: ({  /**
+   * The name of the tag. Example: "VIP"
+   */
+  name: string;
+  /**
+   * Use "active" to add the tag, "inactive" to remove it.
+   */
+  status: 'active' | 'inactive';})[];
+};
+
+export interface ActionOutput_mailchimp_tagmember {
+  success: boolean;
+};
+
+export interface ActionInput_mailchimp_updateaudience {
+  /**
+   * The unique ID for the audience. Example: "a1b2c3d4e5"
+   */
+  list_id: string;
+  /**
+   * The name of the audience.
+   */
+  name?: string | undefined;
+  /**
+   * The contact information for the audience.
+   */
+  contact?: {  company?: string | undefined;
+  address1?: string | undefined;
+  address2?: string | undefined;
+  city?: string | undefined;
+  state?: string | undefined;
+  zip?: string | undefined;
+  country?: string | undefined;
+  phone?: string | undefined;};
+  /**
+   * The permission reminder for the audience.
+   */
+  permission_reminder?: string | undefined;
+  /**
+   * The default campaign settings for the audience.
+   */
+  campaign_defaults?: {  from_name?: string | undefined;
+  from_email?: string | undefined;
+  subject?: string | undefined;
+  language?: string | undefined;};
+  /**
+   * The email address to notify when someone subscribes.
+   */
+  notify_on_subscribe?: string | undefined;
+  /**
+   * The email address to notify when someone unsubscribes.
+   */
+  notify_on_unsubscribe?: string | undefined;
+  /**
+   * Whether subscribers can choose the format of the email.
+   */
+  email_type_option?: boolean | undefined;
+  /**
+   * The visibility of the audience.
+   */
+  visibility?: 'pub' | 'prv' | undefined;
+};
+
+export interface ActionOutput_mailchimp_updateaudience {
+  id: string;
+  name: string;
+  contact: {  company?: string | undefined;
+  address1?: string | undefined;
+  address2?: string | undefined;
+  city?: string | undefined;
+  state?: string | undefined;
+  zip?: string | undefined;
+  country?: string | undefined;
+  phone?: string | undefined;};
+  permission_reminder: string;
+  campaign_defaults: {  from_name?: string | undefined;
+  from_email?: string | undefined;
+  subject?: string | undefined;
+  language?: string | undefined;};
+  notify_on_subscribe?: string | undefined;
+  notify_on_unsubscribe?: string | undefined;
+  email_type_option: boolean;
+  visibility?: string | undefined;
+  web_id?: number | undefined;
+  date_created?: string | undefined;
+  list_rating?: number | undefined;
+};
+
+export interface ActionInput_mailchimp_updatecampaign {
+  /**
+   * The unique ID of the campaign to update.
+   */
+  campaign_id: string;
+  recipients?: {  list_id?: string | undefined;
+  segment_opts?: {  match?: string | undefined;
+  conditions?: ({  [key: string]: unknown | undefined;})[];
+  saved_segment_id?: number | undefined;
+  prebuilt_segment_id?: string | undefined;};};
+  settings?: {  subject_line?: string | undefined;
+  preview_text?: string | undefined;
+  title?: string | undefined;
+  from_name?: string | undefined;
+  reply_to?: string | undefined;
+  use_conversation?: boolean | undefined;
+  to_name?: string | undefined;
+  folder_id?: string | undefined;
+  authenticate?: boolean | undefined;
+  auto_footer?: boolean | undefined;
+  inline_css?: boolean | undefined;
+  auto_tweet?: boolean | undefined;
+  fb_comments?: boolean | undefined;
+  template_id?: number | undefined;};
+  variate_settings?: {  winner_criteria?: string | undefined;
+  test_size?: number | undefined;
+  wait_time?: number | undefined;
+  from_names?: string[] | undefined;
+  send_times?: string[] | undefined;
+  subject_lines?: string[] | undefined;
+  reply_to_addresses?: string[] | undefined;};
+  tracking?: {  goal_tracking?: boolean | undefined;};
+  social_card?: {  title?: string | undefined;
+  description?: string | undefined;
+  image_url?: string | undefined;};
+};
+
+export interface ActionOutput_mailchimp_updatecampaign {
+  id: string;
+  web_id?: number | undefined;
+  type?: string | undefined;
+  create_time?: string | undefined;
+  archive_url?: string | undefined;
+  long_archive_url?: string | undefined;
+  status?: string | undefined;
+  emails_sent?: number | undefined;
+  send_time?: string | undefined;
+  content_type?: string | undefined;
+  needs_block_refresh?: boolean | undefined;
+  recipients?: {  list_id?: string | undefined;
+  list_is_active?: boolean | undefined;
+  list_name?: string | undefined;
+  segment_text?: string | undefined;
+  recipient_count?: number | undefined;};
+  settings?: {  subject_line?: string | undefined;
+  preview_text?: string | undefined;
+  title?: string | undefined;
+  from_name?: string | undefined;
+  reply_to?: string | undefined;
+  use_conversation?: boolean | undefined;
+  to_name?: string | undefined;
+  folder_id?: string | undefined;
+  authenticate?: boolean | undefined;
+  auto_footer?: boolean | undefined;
+  inline_css?: boolean | undefined;
+  auto_tweet?: boolean | undefined;
+  fb_comments?: boolean | undefined;
+  template_id?: number | undefined;};
+  tracking?: {  goal_tracking?: boolean | undefined;};
+};
+
+export interface ActionInput_mailchimp_updatemember {
+  /**
+   * The unique ID for the list. Example: "16ed227135"
+   */
+  list_id: string;
+  /**
+   * The MD5 hash of the lowercase version of the list member's email address. Example: "0f8c53293177b8e9f1658ae7951a468e"
+   */
+  subscriber_hash: string;
+  /**
+   * Email address for a subscriber.
+   */
+  email_address?: string | undefined;
+  /**
+   * Type of email this member asked to get ("html" or "text").
+   */
+  email_type?: string | undefined;
+  /**
+   * Subscriber's current status.
+   */
+  status?: 'subscribed' | 'unsubscribed' | 'cleaned' | 'pending' | 'transactional' | undefined;
+  /**
+   * An individual merge var and value for a member.
+   */
+  merge_fields?: {  [key: string]: unknown | undefined;};
+  /**
+   * The key of this object's properties is the ID of the interest in question.
+   */
+  interests?: {  [key: string]: boolean;} | undefined;
+  /**
+   * If set/detected, the subscriber's language.
+   */
+  language?: string | undefined;
+  /**
+   * VIP status for subscriber.
+   */
+  vip?: boolean | undefined;
+  /**
+   * Subscriber location information.
+   */
+  location?: {  latitude?: number | undefined;
+  longitude?: number | undefined;
+  gmtoff?: number | undefined;
+  dstoff?: number | undefined;
+  country_code?: string | undefined;
+  timezone?: string | undefined;
+  region?: string | undefined;};
+  /**
+   * IP address the subscriber signed up from.
+   */
+  ip_signup?: string | undefined;
+  /**
+   * The date and time the subscriber signed up for the list in ISO 8601 format.
+   */
+  timestamp_signup?: string | undefined;
+  /**
+   * The IP address the subscriber used to confirm their opt-in status.
+   */
+  ip_opt?: string | undefined;
+  /**
+   * The date and time the subscriber confirmed their opt-in status in ISO 8601 format.
+   */
+  timestamp_opt?: string | undefined;
+};
+
+export interface ActionOutput_mailchimp_updatemember {
+  id: string;
+  email_address: string;
+  status: string;
+  list_id: string;
+  vip?: boolean | undefined;
+  language?: string | undefined;
+  merge_fields?: {  [key: string]: unknown | undefined;};
+  last_changed?: string | undefined;
+};
+
+export interface ActionInput_mailchimp_updatesegment {
+  /**
+   * The unique ID for the list. Example: "a1b2c3d4e5"
+   */
+  list_id: string;
+  /**
+   * The unique id for the segment. Example: "12345"
+   */
+  segment_id: string;
+  /**
+   * The name of the segment.
+   */
+  name: string;
+  options?: {  match?: 'any' | 'all' | undefined;
+  conditions?: ({  [key: string]: unknown | undefined;})[];};
+  static_segment?: string[] | undefined;
+};
+
+export interface ActionOutput_mailchimp_updatesegment {
+  id: number;
+  name: string;
+  member_count?: number | undefined;
+  type?: 'saved' | 'static' | 'fuzzy' | undefined;
+  created_at?: string | undefined;
+  updated_at?: string | undefined;
+  options?: {  match?: 'any' | 'all' | undefined;
+  conditions?: ({  [key: string]: unknown | undefined;})[];};
+};
+
+export interface ActionInput_mailchimp_updatestore {
+  /**
+   * The unique identifier for the store. Example: "example_store"
+   */
+  store_id: string;
+  /**
+   * The name of the store.
+   */
+  name?: string | undefined;
+  /**
+   * The e-commerce platform of the store.
+   */
+  platform?: string | undefined;
+  /**
+   * The store domain.
+   */
+  domain?: string | undefined;
+  /**
+   * Whether to disable automations because the store is currently syncing.
+   */
+  is_syncing?: boolean | undefined;
+  /**
+   * The email address for the store.
+   */
+  email_address?: string | undefined;
+  /**
+   * The three-letter ISO 4217 code for the currency that the store accepts.
+   */
+  currency_code?: string | undefined;
+  /**
+   * The currency format for the store.
+   */
+  money_format?: string | undefined;
+  /**
+   * The primary locale for the store.
+   */
+  primary_locale?: string | undefined;
+  /**
+   * The timezone for the store.
+   */
+  timezone?: string | undefined;
+  /**
+   * The store phone number.
+   */
+  phone?: string | undefined;
+  /**
+   * The store address.
+   */
+  address?: {  address1?: string | undefined;
+  address2?: string | undefined;
+  city?: string | undefined;
+  province?: string | undefined;
+  province_code?: string | undefined;
+  postal_code?: string | undefined;
+  country?: string | undefined;
+  country_code?: string | undefined;
+  longitude?: number | undefined;
+  latitude?: number | undefined;};
+};
+
+export interface ActionOutput_mailchimp_updatestore {
+  id: string;
+  list_id?: string | undefined;
+  name?: string | undefined;
+  platform?: string | undefined;
+  domain?: string | undefined;
+  is_syncing?: boolean | undefined;
+  email_address?: string | undefined;
+  currency_code?: string | undefined;
+  money_format?: string | undefined;
+  primary_locale?: string | undefined;
+  timezone?: string | undefined;
+  phone?: string | undefined;
+  address?: {  address1?: string | undefined;
+  address2?: string | undefined;
+  city?: string | undefined;
+  province?: string | undefined;
+  province_code?: string | undefined;
+  postal_code?: string | undefined;
+  country?: string | undefined;
+  country_code?: string | undefined;
+  longitude?: number | undefined;
+  latitude?: number | undefined;};
+  connected_site?: {  site_foreign_id?: string | undefined;
+  site_script?: {  url?: string | undefined;
+  fragment?: string | undefined;};};
+  automations?: {  abandoned_cart?: {  is_supported?: boolean | undefined;
+  id?: string | undefined;
+  status?: string | undefined;};
+  abandoned_browse?: {  is_supported?: boolean | undefined;
+  id?: string | undefined;
+  status?: string | undefined;};};
+  list_is_active?: boolean | undefined;
+  created_at?: string | undefined;
+  updated_at?: string | undefined;
+};
+
+export interface ActionInput_mailchimp_updatetemplate {
+  /**
+   * Template ID. Example: "123"
+   */
+  template_id: string;
+  /**
+   * The name of the template.
+   */
+  name?: string | undefined;
+  /**
+   * The raw HTML for the template.
+   */
+  html?: string | undefined;
+  /**
+   * The folder ID to organize the template in.
+   */
+  folder_id?: string | undefined;
+};
+
+export interface ActionOutput_mailchimp_updatetemplate {
+  id: string;
+  type?: string | undefined;
+  name?: string | undefined;
+  drag_and_drop?: boolean | undefined;
+  responsive?: boolean | undefined;
+  category?: string | undefined;
+  date_created?: string | undefined;
+  date_edited?: string | undefined;
+  created_by?: string | undefined;
+  edited_by?: string | undefined;
+  active?: boolean | undefined;
+  folder_id?: string | undefined;
+  thumbnail?: string | undefined;
+  share_url?: string | undefined;
+  content_type?: string | undefined;
+};
+
 export interface SyncMetadata_metabase_users {
 };
 
@@ -29264,6 +34868,1290 @@ export interface ActionInput_metabase_updateuser {
 
 export interface ActionOutput_metabase_updateuser {
   success: boolean;
+};
+
+export interface MicrosoftApplication {
+  id: string;
+  appId: string;
+  displayName?: string | undefined;
+  createdDateTime?: string | undefined;
+  description?: string | undefined;
+  signInAudience?: string | undefined;
+  publisherDomain?: string | undefined;
+};
+
+export interface DirectoryRole {
+  id: string;
+  displayName?: string | undefined;
+  description?: string | undefined;
+  roleTemplateId?: string | undefined;
+};
+
+export interface Group {
+  id: string;
+  name: string;
+  description?: string | undefined;
+  isDefault?: boolean | undefined;
+  isDeleted?: boolean | undefined;
+  isPublic?: boolean | undefined;
+  createdAt?: string | undefined;
+  updatedAt?: string | undefined;
+  url?: string | undefined;
+};
+
+export interface Organization {
+  id: string;
+  name: string;
+  created_at: string;
+  updated_at: string;
+  url: string;
+  external_id?: string | undefined;
+  domain_names?: string[] | undefined;
+  group_id?: number | undefined;
+  shared_comments?: boolean | undefined;
+  shared_tickets?: boolean | undefined;
+  tags?: string[] | undefined;
+  notes?: string | undefined;
+  details?: string | undefined;
+};
+
+export interface ServicePrincipal {
+  id: string;
+  appId?: string | undefined;
+  displayName?: string | undefined;
+  createdDateTime?: string | undefined;
+};
+
+export interface ActionInput_microsoft_addgroupmember {
+  /**
+   * The ID of the group to add a member to. Example: "51d82e22-a356-4506-afa1-2c3992bed3d7"
+   */
+  groupId: string;
+  /**
+   * The ID of the user, group, or service principal to add as a member. Example: "9fc4580d-5ed8-46c5-9fff-258fd68d533d"
+   */
+  memberId: string;
+};
+
+export interface ActionOutput_microsoft_addgroupmember {
+  success: boolean;
+  groupId: string;
+  memberId: string;
+};
+
+export interface ActionInput_microsoft_createapplication {
+  /**
+   * The display name for the application. Example: "My Application"
+   */
+  displayName: string;
+  /**
+   * Free text field to provide a description of the application. Example: "Application description"
+   */
+  description?: string | undefined;
+  /**
+   * Specifies the Microsoft accounts supported. Example: "AzureADandPersonalMicrosoftAccount"
+   */
+  signInAudience?: 'AzureADMyOrg' | 'AzureADMultipleOrgs' | 'AzureADandPersonalMicrosoftAccount' | 'PersonalMicrosoftAccount' | undefined;
+  /**
+   * Also known as App ID URI, this value acts as the prefix for scopes. Example: ["api://myapp"]
+   */
+  identifierUris?: string[] | undefined;
+  /**
+   * Specifies settings for a web application.
+   */
+  web?: {  /**
+   * The redirect URIs for web applications.
+   */
+  redirectUris?: string[] | undefined;
+  /**
+   * Home page URL of the application.
+   */
+  homePageUrl?: string | undefined;
+  /**
+   * URL for logout.
+   */
+  logoutUrl?: string | undefined;
+  implicitGrantSettings?: {  enableIdTokenIssuance?: boolean | undefined;
+  enableAccessTokenIssuance?: boolean | undefined;};};
+  /**
+   * Specifies settings for a single-page application.
+   */
+  spa?: {  /**
+   * The redirect URIs for single-page applications.
+   */
+  redirectUris?: string[] | undefined;};
+  /**
+   * Specifies settings for public clients (mobile/desktop apps).
+   */
+  publicClient?: {  /**
+   * The redirect URIs for public client applications.
+   */
+  redirectUris?: string[] | undefined;};
+  /**
+   * Specifies settings for an application that implements a web API.
+   */
+  api?: {  /**
+   * The access token version expected.
+   */
+  requestedAccessTokenVersion?: number | undefined;
+  oauth2PermissionScopes?: ({  id: string;
+  value: string;
+  type?: string | undefined;
+  adminConsentDescription?: string | undefined;
+  adminConsentDisplayName?: string | undefined;
+  userConsentDescription?: string | undefined;
+  userConsentDisplayName?: string | undefined;
+  isEnabled?: boolean | undefined;})[];};
+  /**
+   * Custom strings to categorize the application. Example: ["production"]
+   */
+  tags?: string[] | undefined;
+  /**
+   * Configures the groups claim issued in tokens. Example: "SecurityGroup"
+   */
+  groupMembershipClaims?: 'None' | 'SecurityGroup' | 'All' | undefined;
+  /**
+   * Resources that the application needs to access.
+   */
+  requiredResourceAccess?: ({  resourceAppId: string;
+  resourceAccess: ({  id: string;
+  type: 'Scope' | 'Role';})[];})[] | undefined;
+  /**
+   * Password credentials for the application.
+   */
+  passwordCredentials?: ({  /**
+   * Display name for the password. Example: "Password 1"
+   */
+  displayName: string;
+  /**
+   * End date time in ISO 8601 format.
+   */
+  endDateTime?: string | undefined;
+  /**
+   * Start date time in ISO 8601 format.
+   */
+  startDateTime?: string | undefined;})[];
+  /**
+   * Specifies whether to fall back to public client type.
+   */
+  isFallbackPublicClient?: boolean | undefined;
+  /**
+   * Notes for management of the application.
+   */
+  notes?: string | undefined;
+  /**
+   * URL where the service exposes SAML metadata.
+   */
+  samlMetadataUrl?: string | undefined;
+  /**
+   * References app contact info from a Service Management database.
+   */
+  serviceManagementReference?: string | undefined;
+};
+
+export interface ActionOutput_microsoft_createapplication {
+  /**
+   * Unique identifier for the application object. Example: "03ef14b0-ca33-4840-8f4f-d6e91916010e"
+   */
+  id: string;
+  /**
+   * The unique identifier for the application assigned by Microsoft Entra ID. Example: "631a96bc-a705-4eda-9f99-fdaf9f54f6a2"
+   */
+  appId: string;
+  /**
+   * The display name for the application.
+   */
+  displayName: string;
+  description?: string | undefined;
+  createdDateTime?: string | undefined;
+  identifierUris?: string[] | undefined;
+  signInAudience?: string | undefined;
+  publisherDomain?: string | undefined;
+  tags?: string[] | undefined;
+  web?: {  [key: string]: unknown | undefined;};
+  spa?: {  [key: string]: unknown | undefined;};
+  publicClient?: {  [key: string]: unknown | undefined;};
+  api?: {  [key: string]: unknown | undefined;};
+  passwordCredentials?: ({  [key: string]: unknown | undefined;})[];
+  keyCredentials?: ({  [key: string]: unknown | undefined;})[];
+  appRoles?: ({  [key: string]: unknown | undefined;})[];
+  requiredResourceAccess?: ({  [key: string]: unknown | undefined;})[];
+  isFallbackPublicClient?: boolean | undefined;
+  groupMembershipClaims?: string | undefined;
+  notes?: string | undefined;
+  samlMetadataUrl?: string | undefined;
+  serviceManagementReference?: string | undefined;
+};
+
+export interface ActionInput_microsoft_creategroup {
+  /**
+   * The display name for the group. Example: "Engineering Team"
+   */
+  displayName: string;
+  /**
+   * An optional description for the group. Example: "Team collaboration space"
+   */
+  description?: string | undefined;
+  /**
+   * The mail alias for the group. Required by Microsoft Graph. Example: "engineeringteam"
+   */
+  mailNickname: string;
+  /**
+   * Whether the group is mail-enabled. Default: false for security groups
+   */
+  mailEnabled?: boolean | undefined;
+  /**
+   * Whether the group is a security group. Default: true
+   */
+  securityEnabled?: boolean | undefined;
+  /**
+   * Group type classification. Use ["Unified"] for Microsoft 365 groups, leave empty for security groups.
+   */
+  groupTypes?: string[] | undefined;
+};
+
+export interface ActionOutput_microsoft_creategroup {
+  /**
+   * The unique identifier of the created group
+   */
+  id: string;
+  /**
+   * The display name of the group
+   */
+  displayName?: string | undefined;
+  /**
+   * The description of the group
+   */
+  description?: string | undefined;
+  /**
+   * The mail alias of the group
+   */
+  mailNickname?: string | undefined;
+  /**
+   * Whether the group is mail-enabled
+   */
+  mailEnabled?: boolean | undefined;
+  /**
+   * Whether the group is a security group
+   */
+  securityEnabled?: boolean | undefined;
+  /**
+   * Group type classification
+   */
+  groupTypes?: string[] | undefined;
+  /**
+   * The date and time the group was created
+   */
+  createdDateTime?: string | undefined;
+};
+
+export interface ActionInput_microsoft_createserviceprincipal {
+  /**
+   * The application ID to create a service principal for. Example: "dd6b0cea-e204-44c6-b2e0-1162323c22f4"
+   */
+  appId: string;
+};
+
+export interface ActionOutput_microsoft_createserviceprincipal {
+  id: string;
+  appId: string;
+  displayName?: string | undefined;
+  accountEnabled?: boolean | undefined;
+  appDisplayName?: string | undefined;
+  appOwnerOrganizationId?: string | undefined;
+  appRoleAssignmentRequired?: boolean | undefined;
+};
+
+export interface ActionInput_microsoft_createuser {
+  /**
+   * Whether the account is enabled. Example: true
+   */
+  accountEnabled?: boolean | undefined;
+  /**
+   * Display name of the user. Example: "John Doe"
+   */
+  displayName: string;
+  /**
+   * Mail alias for the user. Example: "johndoe"
+   */
+  mailNickname: string;
+  /**
+   * User principal name (UPN). Example: "johndoe@contoso.onmicrosoft.com"
+   */
+  userPrincipalName: string;
+  /**
+   * Password profile for the user
+   */
+  passwordProfile: {  /**
+   * Password for the user. Example: "Password123!"
+   */
+  password: string;
+  /**
+   * Whether user must change password at next sign-in. Example: true
+   */
+  forceChangePasswordNextSignIn?: boolean | undefined;};
+  /**
+   * First name of the user. Example: "John"
+   */
+  givenName?: string | undefined;
+  /**
+   * Last name of the user. Example: "Doe"
+   */
+  surname?: string | undefined;
+  /**
+   * Job title of the user. Example: "Software Engineer"
+   */
+  jobTitle?: string | undefined;
+  /**
+   * Department of the user. Example: "Engineering"
+   */
+  department?: string | undefined;
+  /**
+   * Mobile phone number. Example: "+1 555 555 5555"
+   */
+  mobilePhone?: string | undefined;
+  /**
+   * Office location. Example: "Building 1"
+   */
+  officeLocation?: string | undefined;
+};
+
+export interface ActionOutput_microsoft_createuser {
+  id: string;
+  displayName?: string | undefined;
+  userPrincipalName?: string | undefined;
+  accountEnabled?: boolean | undefined;
+  givenName?: string | undefined;
+  surname?: string | undefined;
+  jobTitle?: string | undefined;
+  department?: string | undefined;
+  mobilePhone?: string | undefined;
+  officeLocation?: string | undefined;
+  mail?: string | undefined;
+  createdDateTime?: string | undefined;
+};
+
+export interface ActionInput_microsoft_deleteapplication {
+  /**
+   * The unique identifier for the application object. Example: "cc67332f-dfd9-43f0-af0f-bc0ff5334965"
+   */
+  applicationId: string;
+};
+
+export interface ActionOutput_microsoft_deleteapplication {
+  success: boolean;
+  applicationId: string;
+};
+
+export interface ActionInput_microsoft_deletegroup {
+  /**
+   * The unique identifier of the group to delete. Example: "51d82e22-a356-4506-afa1-2c3992bed3d7"
+   */
+  id: string;
+};
+
+export interface ActionOutput_microsoft_deletegroup {
+  /**
+   * Whether the group was successfully deleted
+   */
+  success: boolean;
+};
+
+export interface ActionInput_microsoft_deleteserviceprincipal {
+  /**
+   * The unique identifier of the service principal to delete. Example: "8c7410b7-37cd-4463-981d-74cd6ab033a7"
+   */
+  service_principal_id: string;
+};
+
+export interface ActionOutput_microsoft_deleteserviceprincipal {
+  success: boolean;
+  service_principal_id: string;
+};
+
+export interface ActionInput_microsoft_deleteuser {
+  /**
+   * The unique identifier of the user to delete. Example: "9fc4580d-5ed8-46c5-9fff-258fd68d533d"
+   */
+  userId: string;
+};
+
+export interface ActionOutput_microsoft_deleteuser {
+  success: boolean;
+  userId: string;
+  message: string;
+};
+
+export interface ActionInput_microsoft_getapplication {
+  /**
+   * The unique identifier for the application. Example: "cc67332f-dfd9-43f0-af0f-bc0ff5334965"
+   */
+  id: string;
+};
+
+export interface ActionOutput_microsoft_getapplication {
+  id: string;
+  appId?: string | undefined;
+  displayName?: string | undefined;
+  description?: string | undefined;
+  createdDateTime?: string | undefined;
+  publisherDomain?: string | undefined;
+  signInAudience?: string | undefined;
+};
+
+export interface ActionInput_microsoft_getdirectoryrole {
+  /**
+   * The unique identifier for the directory role. Example: "c35aa61d-9e3d-419e-84a9-24767a8a9988"
+   */
+  directoryRoleId: string;
+};
+
+export interface ActionOutput_microsoft_getdirectoryrole {
+  id: string;
+  description?: string | undefined;
+  displayName?: string | undefined;
+  roleTemplateId?: string | undefined;
+};
+
+export interface ActionInput_microsoft_getgroup {
+  /**
+   * The unique identifier for the group. Example: "51d82e22-a356-4506-afa1-2c3992bed3d7"
+   */
+  id: string;
+};
+
+export interface ActionOutput_microsoft_getgroup {
+  id: string;
+  displayName: string;
+  description?: string | undefined;
+  groupTypes?: string[] | undefined;
+  mail?: string | undefined;
+  mailEnabled?: boolean | undefined;
+  mailNickname?: string | undefined;
+  securityEnabled?: boolean | undefined;
+  visibility?: string | undefined;
+  createdDateTime?: string | undefined;
+  renewedDateTime?: string | undefined;
+};
+
+export interface ActionInput_microsoft_getorganization {
+  /**
+   * Organization ID. Example: "56480ae2-88be-49cf-86f6-d62a45bf8758"
+   */
+  id: string;
+};
+
+export interface ActionOutput_microsoft_getorganization {
+  id: string;
+  displayName?: string | undefined;
+  businessPhones?: string[] | undefined;
+  city?: string | undefined;
+  country?: string | undefined;
+  countryLetterCode?: string | undefined;
+  createdDateTime?: string | undefined;
+  deletedDateTime?: string | undefined;
+  marketingNotificationEmails?: string[] | undefined;
+  onPremisesLastSyncDateTime?: string | undefined;
+  onPremisesSyncEnabled?: boolean | undefined;
+  postalCode?: string | undefined;
+  preferredLanguage?: string | undefined;
+  securityComplianceNotificationMails?: string[] | undefined;
+  securityComplianceNotificationPhones?: string[] | undefined;
+  state?: string | undefined;
+  street?: string | undefined;
+  technicalNotificationMails?: string[] | undefined;
+  tenantType?: string | undefined;
+  verifiedDomains?: ({  capabilities?: string | undefined;
+  isDefault?: boolean | undefined;
+  isInitial?: boolean | undefined;
+  name?: string | undefined;
+  type?: string | undefined;})[];
+  assignedPlans?: ({  assignedDateTime?: string | undefined;
+  capabilityStatus?: string | undefined;
+  service?: string | undefined;
+  servicePlanId?: string | undefined;})[];
+  provisionedPlans?: ({  capabilityStatus?: string | undefined;
+  provisioningStatus?: string | undefined;
+  service?: string | undefined;})[];
+};
+
+export interface ActionInput_microsoft_getserviceprincipal {
+  /**
+   * The unique identifier of the service principal. Example: "8c7410b7-37cd-4463-981d-74cd6ab033a7"
+   */
+  servicePrincipalId: string;
+};
+
+export interface ActionOutput_microsoft_getserviceprincipal {
+  /**
+   * The unique identifier for the service principal.
+   */
+  id: string;
+  appId?: string | undefined;
+  displayName?: string | undefined;
+  appDisplayName?: string | undefined;
+  servicePrincipalType?: string | undefined;
+  accountEnabled?: boolean | undefined;
+  alternativeNames?: string[] | undefined;
+  appDescription?: string | undefined;
+  appOwnerOrganizationId?: string | undefined;
+  description?: string | undefined;
+  loginUrl?: string | undefined;
+  logoutUrl?: string | undefined;
+  notificationEmailAddresses?: string[] | undefined;
+  preferredSingleSignOnMode?: string | undefined;
+  replyUrls?: string[] | undefined;
+  servicePrincipalNames?: string[] | undefined;
+  signInAudience?: string | undefined;
+  tags?: string[] | undefined;
+  addIns?: unknown | undefined;
+  appRoles?: unknown | undefined;
+  info?: unknown | undefined;
+  keyCredentials?: unknown | undefined;
+  oauth2PermissionScopes?: unknown | undefined;
+  passwordCredentials?: unknown | undefined;
+  verifiedPublisher?: unknown | undefined;
+  createdDateTime?: string | undefined;
+  deletedDateTime?: string | undefined;
+};
+
+export interface ActionInput_microsoft_getuser {
+  /**
+   * The ID of the user to retrieve. Example: "9fc4580d-5ed8-46c5-9fff-258fd68d533d"
+   */
+  userId: string;
+};
+
+export interface ActionOutput_microsoft_getuser {
+  id: string;
+  displayName?: string | undefined;
+  givenName?: string | undefined;
+  surname?: string | undefined;
+  mail?: string | undefined;
+  userPrincipalName?: string | undefined;
+  jobTitle?: string | undefined;
+  officeLocation?: string | undefined;
+  mobilePhone?: string | undefined;
+  businessPhones?: string[] | undefined;
+  preferredLanguage?: string | undefined;
+  createdDateTime?: string | undefined;
+  accountEnabled?: boolean | undefined;
+  department?: string | undefined;
+  companyName?: string | undefined;
+};
+
+export interface ActionInput_microsoft_listapplications {
+  /**
+   * OData filter expression to filter applications. Example: displayName eq 'MyApp'
+   */
+  filter?: string | undefined;
+  /**
+   * OData select expression to specify which properties to return. Example: id,displayName,appId
+   */
+  select?: string | undefined;
+  /**
+   * Number of items to return in a page (max 999). Example: 50
+   */
+  top?: number | undefined;
+  /**
+   * Pagination cursor from the previous response. Omit for the first page.
+   */
+  cursor?: string | undefined;
+};
+
+export interface ActionOutput_microsoft_listapplications {
+  applications: ({  id: string;
+  appId?: string | undefined;
+  displayName?: string | undefined;
+  description?: string | undefined;
+  signInAudience?: string | undefined;
+  publisherDomain?: string | undefined;
+  createdDateTime?: string | undefined;
+  identifierUris?: string[] | undefined;})[];
+  nextCursor?: string | undefined;
+};
+
+export interface ActionInput_microsoft_listdevices {
+  /**
+   * Pagination cursor (odata.nextLink) from the previous response. Omit for the first page.
+   */
+  cursor?: string | undefined;
+};
+
+export interface ActionOutput_microsoft_listdevices {
+  devices: ({  /**
+   * The unique identifier for the device.
+   */
+  id: string;
+  /**
+   * The device ID.
+   */
+  deviceId?: string | undefined;
+  /**
+   * The display name for the device.
+   */
+  displayName?: string | undefined;
+  /**
+   * The operating system of the device.
+   */
+  operatingSystem?: string | undefined;
+  /**
+   * The operating system version of the device.
+   */
+  operatingSystemVersion?: string | undefined;
+  /**
+   * Whether the device account is enabled.
+   */
+  accountEnabled?: boolean | undefined;
+  /**
+   * The timestamp of the approximate last sign-in.
+   */
+  approximateLastSignInDateTime?: string | undefined;
+  /**
+   * The enrollment profile name.
+   */
+  enrollmentProfileName?: string | undefined;
+  /**
+   * The device management type.
+   */
+  managementType?: string | undefined;
+  /**
+   * The timestamp when the device was registered.
+   */
+  registrationDateTime?: string | undefined;
+  /**
+   * The ownership of the device.
+   */
+  deviceOwnership?: string | undefined;
+  /**
+   * The domain name.
+   */
+  domainName?: string | undefined;
+  /**
+   * The profile type of the device.
+   */
+  profileType?: string | undefined;
+  /**
+   * The MDM application ID.
+   */
+  mdmAppId?: string | undefined;
+  /**
+   * The compliance expiration timestamp.
+   */
+  complianceExpirationDateTime?: string | undefined;
+  /**
+   * Whether on-premises sync is enabled.
+   */
+  onPremisesSyncEnabled?: boolean | undefined;
+  /**
+   * The trust type of the device.
+   */
+  trustType?: string | undefined;
+  /**
+   * Alternative security IDs for the device.
+   */
+  alternativeSecurityIds?: ({  [key: string]: unknown | undefined;})[];})[];
+  /**
+   * The odata.nextLink cursor for the next page of results.
+   */
+  next_cursor?: string | undefined;
+};
+
+export interface ActionInput_microsoft_listdirectoryrolemembers {
+  /**
+   * The unique identifier of the directory role. Example: "c35aa61d-9e3d-419e-84a9-24767a8a9988"
+   */
+  directoryRoleId: string;
+  /**
+   * Pagination cursor (skipToken) from the previous response. Omit for the first page.
+   */
+  cursor?: string | undefined;
+};
+
+export interface ActionOutput_microsoft_listdirectoryrolemembers {
+  members: ({  id: string;
+  type: 'user' | 'servicePrincipal';
+  displayName?: string | undefined;
+  email?: string | undefined;
+  userPrincipalName?: string | undefined;
+  appId?: string | undefined;
+  servicePrincipalType?: string | undefined;})[];
+  nextLink?: string | undefined;
+};
+
+export interface ActionInput_microsoft_listdirectoryroles {
+  /**
+   * OData filter query parameter using eq operator only. Example: displayName eq Global Administrator
+   */
+  filter?: string | undefined;
+  /**
+   * OData select query parameter to specify which properties to include in the response. Example: id,displayName,description
+   */
+  select?: string | undefined;
+  /**
+   * Maximum number of records to return per page.
+   */
+  top?: number | undefined;
+  /**
+   * Pagination cursor (skipToken) from the previous response. Omit for the first page.
+   */
+  cursor?: string | undefined;
+};
+
+export interface ActionOutput_microsoft_listdirectoryroles {
+  items: ({  id: string;
+  deletedDateTime?: string | undefined;
+  description?: string | undefined;
+  displayName?: string | undefined;
+  roleTemplateId?: string | undefined;})[];
+  next_cursor?: string | undefined;
+};
+
+export interface ActionInput_microsoft_listgroupmembers {
+  /**
+   * The unique identifier of the group. Example: "51d82e22-a356-4506-afa1-2c3992bed3d7"
+   */
+  groupId: string;
+  /**
+   * Pagination cursor (skipToken) from the previous response. Omit for the first page.
+   */
+  cursor?: string | undefined;
+};
+
+export interface ActionOutput_microsoft_listgroupmembers {
+  /**
+   * List of direct members of the group
+   */
+  members: ({  /**
+   * The unique identifier of the member
+   */
+  id: string;
+  /**
+   * The type of directory object (e.g., #microsoft.graph.user, #microsoft.graph.group)
+   */
+  type?: string | undefined;
+  /**
+   * The display name of the member
+   */
+  displayName?: string | undefined;
+  /**
+   * The email address of the member
+   */
+  mail?: string | undefined;
+  /**
+   * The user principal name of the member
+   */
+  userPrincipalName?: string | undefined;})[];
+  /**
+   * URL to retrieve the next page of results, if more members exist
+   */
+  nextLink?: string | undefined;
+};
+
+export interface ActionInput_microsoft_listgroups {
+  /**
+   * OData filter expression
+   */
+  filter?: string | undefined;
+  /**
+   * Comma-separated list of properties to return
+   */
+  select?: string | undefined;
+  /**
+   * Number of items to return per page (1-999). Default is 100.
+   */
+  top?: number | undefined;
+  /**
+   * OData orderby expression
+   */
+  orderby?: string | undefined;
+  /**
+   * Pagination URL from the previous response. Omit for the first page.
+   */
+  cursor?: string | undefined;
+};
+
+export interface ActionOutput_microsoft_listgroups {
+  items: ({  id: string;
+  displayName?: string | undefined;
+  description?: string | undefined;
+  mail?: string | undefined;
+  mailNickname?: string | undefined;
+  groupTypes?: string[] | undefined;
+  securityEnabled?: boolean | undefined;
+  mailEnabled?: boolean | undefined;
+  visibility?: string | undefined;
+  createdDateTime?: string | undefined;
+  renewedDateTime?: string | undefined;
+  expirationDateTime?: string | undefined;})[];
+  nextCursor?: string | undefined;
+};
+
+export interface ActionInput_microsoft_listorganizations {
+  /**
+   * Comma-separated list of properties to include in the response.
+   */
+  "$select"?: string | undefined;
+  /**
+   * OData filter to narrow results.
+   */
+  "$filter"?: string | undefined;
+  /**
+   * Number of items to return per page.
+   */
+  "$top"?: number | undefined;
+  /**
+   * Number of items to skip.
+   */
+  "$skip"?: number | undefined;
+  /**
+   * Include a count of the total number of items.
+   */
+  "$count"?: boolean | undefined;
+};
+
+export interface ActionOutput_microsoft_listorganizations {
+  organizations: ({  id: string;
+  displayName?: string | undefined;
+  createdDateTime?: string | undefined;
+  businessPhones?: string[] | undefined;
+  city?: string | undefined;
+  country?: string | undefined;
+  countryLetterCode?: string | undefined;
+  defaultUsageLocation?: string | undefined;
+  marketingNotificationEmails?: string[] | undefined;
+  onPremisesLastSyncDateTime?: string | undefined;
+  onPremisesSyncEnabled?: boolean | undefined;
+  postalCode?: string | undefined;
+  preferredLanguage?: string | undefined;
+  securityComplianceNotificationMails?: string[] | undefined;
+  securityComplianceNotificationPhones?: string[] | undefined;
+  state?: string | undefined;
+  street?: string | undefined;
+  technicalNotificationMails?: string[] | undefined;
+  tenantType?: string | undefined;
+  assignedPlans?: ({  assignedDateTime?: string | undefined;
+  capabilityStatus?: string | undefined;
+  service?: string | undefined;
+  servicePlanId?: string | undefined;})[];
+  verifiedDomains?: ({  capabilities?: string | undefined;
+  isDefault?: boolean | undefined;
+  isInitial?: boolean | undefined;
+  name?: string | undefined;
+  type?: string | undefined;})[];
+  provisionedPlans?: ({  capabilityStatus?: string | undefined;
+  provisioningStatus?: string | undefined;
+  service?: string | undefined;})[];})[];
+  count?: number | undefined;
+  nextLink?: string | undefined;
+};
+
+export interface ActionInput_microsoft_listserviceprincipals {
+  /**
+   * Pagination cursor for the next page of results. Pass the value from @odata.nextLink or next_cursor.
+   */
+  cursor?: string | undefined;
+};
+
+export interface ActionOutput_microsoft_listserviceprincipals {
+  items: ({  /**
+   * The unique identifier for the service principal
+   */
+  id: string;
+  /**
+   * The application ID of the application associated with this service principal
+   */
+  appId: string;
+  /**
+   * The display name for the service principal
+   */
+  displayName?: string | undefined;
+  /**
+   * The application display name
+   */
+  appDisplayName?: string | undefined;
+  /**
+   * The type of service principal: Application or ManagedIdentity
+   */
+  servicePrincipalType?: string | undefined;
+  /**
+   * Whether the service principal account is enabled
+   */
+  accountEnabled?: boolean | undefined;
+  /**
+   * The date and time the service principal was created
+   */
+  createdDateTime?: string | undefined;
+  /**
+   * A description for the service principal
+   */
+  description?: string | undefined;
+  /**
+   * The URL that users are redirected to when signing in to the application
+   */
+  loginUrl?: string | undefined;
+  /**
+   * The URL that users are redirected to when signing out of the application
+   */
+  logoutUrl?: string | undefined;
+  /**
+   * Free text field to capture information about the service principal
+   */
+  notes?: string | undefined;
+  /**
+   * Email addresses to which notifications are sent
+   */
+  notificationEmailAddresses?: string[] | undefined;
+  /**
+   * The preferred single sign-on mode for the application
+   */
+  preferredSingleSignOnMode?: string | undefined;
+  /**
+   * The publisher name of the application associated with this service principal
+   */
+  publisherName?: string | undefined;
+  /**
+   * The sign-in audience for the application
+   */
+  signInAudience?: string | undefined;
+  /**
+   * Custom strings that can be used to categorize and identify the service principal
+   */
+  tags?: string[] | undefined;})[];
+  /**
+   * Pagination cursor to retrieve the next page of results. Pass this value as the cursor parameter in the next request.
+   */
+  nextCursor?: string | undefined;
+};
+
+export interface ActionInput_microsoft_listusermemberships {
+  /**
+   * The user ID or user principal name to list memberships for. Example: "9fc4580d-5ed8-46c5-9fff-258fd68d533d" or "user@contoso.com"
+   */
+  userId: string;
+  /**
+   * Pagination cursor from the previous response. Omit for the first page.
+   */
+  cursor?: string | undefined;
+  /**
+   * Optional filter to return only specific member types: group, directoryRole, or administrativeUnit. Omit to return all types.
+   */
+  filterType?: 'group' | 'directoryRole' | 'administrativeUnit' | undefined;
+};
+
+export interface ActionOutput_microsoft_listusermemberships {
+  items: ({  id: string;
+  type: 'group' | 'directoryRole' | 'administrativeUnit' | 'unknown';
+  displayName?: string | undefined;
+  description?: string | undefined;
+  groupDetails?: {  mail?: string | undefined;
+  mailEnabled?: boolean | undefined;
+  securityEnabled?: boolean | undefined;
+  groupTypes?: string[] | undefined;
+  visibility?: string | undefined;
+  createdDateTime?: string | undefined;};
+  directoryRoleDetails?: {  roleTemplateId?: string | undefined;};
+  administrativeUnitDetails?: {  visibility?: string | undefined;};})[];
+  /**
+   * Pagination cursor for the next page. Null if no more pages.
+   */
+  next_cursor?: string | undefined;
+};
+
+export interface ActionInput_microsoft_listusers {
+  /**
+   * OData filter query. Example: "startswith(displayName,'John')"
+   */
+  filter?: string | undefined;
+  /**
+   * Comma-separated list of properties to return. Example: "id,displayName,mail"
+   */
+  select?: string | undefined;
+  /**
+   * Number of users to return (1-999). Default: 100
+   */
+  top?: number | undefined;
+  /**
+   * Order by clause. Example: "displayName"
+   */
+  orderby?: string | undefined;
+  /**
+   * Pagination cursor (skipToken) from previous response. Omit for first page.
+   */
+  cursor?: string | undefined;
+};
+
+export interface ActionOutput_microsoft_listusers {
+  users: ({  id: string;
+  displayName?: string | undefined;
+  mail?: string | undefined;
+  userPrincipalName?: string | undefined;
+  givenName?: string | undefined;
+  surname?: string | undefined;
+  jobTitle?: string | undefined;
+  officeLocation?: string | undefined;
+  mobilePhone?: string | undefined;
+  businessPhones?: string[] | undefined;
+  accountEnabled?: boolean | undefined;
+  createdDateTime?: string | undefined;})[];
+  nextCursor?: string | undefined;
+};
+
+export interface ActionInput_microsoft_removegroupmember {
+  /**
+   * The ID of the group from which to remove the member. Example: "51d82e22-a356-4506-afa1-2c3992bed3d7"
+   */
+  groupId: string;
+  /**
+   * The ID of the member to remove from the group. Example: "9fc4580d-5ed8-46c5-9fff-258fd68d533d"
+   */
+  memberId: string;
+};
+
+export interface ActionOutput_microsoft_removegroupmember {
+  success: boolean;
+};
+
+export interface ActionInput_microsoft_updateapplication {
+  /**
+   * The unique identifier of the application object. Example: "cc67332f-dfd9-43f0-af0f-bc0ff5334965"
+   */
+  id: string;
+  /**
+   * The display name for the application.
+   */
+  displayName?: string | undefined;
+  /**
+   * An optional description of the application.
+   */
+  description?: string | undefined;
+  /**
+   * Specifies what Microsoft accounts are supported.
+   */
+  signInAudience?: 'AzureADMyOrg' | 'AzureADMultipleOrgs' | 'AzureADandPersonalMicrosoftAccount' | undefined;
+  /**
+   * Configures the groups claim issued in tokens.
+   */
+  groupMembershipClaims?: 'None' | 'SecurityGroup' | 'All' | undefined;
+  /**
+   * Custom strings to categorize and identify the application.
+   */
+  tags?: string[] | undefined;
+  /**
+   * Specifies the fallback application type as public client.
+   */
+  isFallbackPublicClient?: boolean | undefined;
+};
+
+export interface ActionOutput_microsoft_updateapplication {
+  id: string;
+  success: boolean;
+};
+
+export interface ActionInput_microsoft_updategroup {
+  /**
+   * The unique identifier for the group. Example: "51d82e22-a356-4506-afa1-2c3992bed3d7"
+   */
+  groupId: string;
+  /**
+   * An optional description for the group.
+   */
+  description?: string | undefined;
+  /**
+   * The display name for the group.
+   */
+  displayName?: string | undefined;
+  /**
+   * The mail alias for the group.
+   */
+  mailNickname?: string | undefined;
+  /**
+   * Specifies whether the group is a security group.
+   */
+  securityEnabled?: boolean | undefined;
+  /**
+   * Specifies the visibility of a Microsoft 365 group.
+   */
+  visibility?: 'Private' | 'Public' | undefined;
+  /**
+   * Indicates whether people external to the organization can send messages to the group.
+   */
+  allowExternalSenders?: boolean | undefined;
+  /**
+   * Indicates whether new members added to the group will be auto-subscribed to receive email notifications.
+   */
+  autoSubscribeNewMembers?: boolean | undefined;
+  /**
+   * The preferred data location for the Microsoft 365 group.
+   */
+  preferredDataLocation?: string | undefined;
+  /**
+   * The unique identifier that can be assigned to a group.
+   */
+  uniqueName?: string | undefined;
+};
+
+export interface ActionOutput_microsoft_updategroup {
+  success: boolean;
+  groupId: string;
+};
+
+export interface ActionInput_microsoft_updateorganization {
+  /**
+   * The unique identifier of the organization.
+   */
+  id: string;
+  /**
+   * Email addresses for marketing notifications.
+   */
+  marketingNotificationEmails?: string[] | undefined;
+  /**
+   * Privacy profile with contact email and statement URL.
+   */
+  privacyProfile?: {  /**
+   * Contact email for privacy issues.
+   */
+  contactEmail?: string | undefined;
+  /**
+   * URL to the privacy statement.
+   */
+  statementUrl?: string | undefined;};
+  /**
+   * Email addresses for security compliance notifications.
+   */
+  securityComplianceNotificationMails?: string[] | undefined;
+  /**
+   * Phone numbers for security compliance notifications.
+   */
+  securityComplianceNotificationPhones?: string[] | undefined;
+  /**
+   * Email addresses for technical notifications.
+   */
+  technicalNotificationMails?: string[] | undefined;
+};
+
+export interface ActionOutput_microsoft_updateorganization {
+  /**
+   * Whether the update was successful.
+   */
+  success: boolean;
+};
+
+export interface ActionInput_microsoft_updateserviceprincipal {
+  /**
+   * The unique identifier for the service principal. Example: "8c7410b7-37cd-4463-981d-74cd6ab033a7"
+   */
+  servicePrincipalId: string;
+  /**
+   * Whether the service principal account is enabled.
+   */
+  accountEnabled?: boolean | undefined;
+  /**
+   * Whether an appRoleAssignment is required before Microsoft Entra ID will issue a user or access token.
+   */
+  appRoleAssignmentRequired?: boolean | undefined;
+  /**
+   * The display name for the service principal.
+   */
+  displayName?: string | undefined;
+  /**
+   * Home page or landing page of the application.
+   */
+  homepage?: string | undefined;
+  /**
+   * URL used by Microsoft authorization service to log out a user.
+   */
+  logoutUrl?: string | undefined;
+  /**
+   * Single sign-on mode configured for this application. Values: password, saml, external, oidc.
+   */
+  preferredSingleSignOnMode?: string | undefined;
+  /**
+   * URLs that user tokens are sent to for sign in, or redirect URIs for OAuth 2.0 codes and tokens.
+   */
+  replyUrls?: string[] | undefined;
+  /**
+   * List of identifiersUris copied from the associated application.
+   */
+  servicePrincipalNames?: string[] | undefined;
+  /**
+   * Custom strings used to categorize and identify the application.
+   */
+  tags?: string[] | undefined;
+  /**
+   * Used to retrieve service principals by subscription, identify resource group and full resource IDs.
+   */
+  alternativeNames?: string[] | undefined;
+};
+
+export interface ActionOutput_microsoft_updateserviceprincipal {
+  success: boolean;
+  servicePrincipalId: string;
+  updatedFields: string[];
+};
+
+export interface ActionInput_microsoft_updateuser {
+  /**
+   * The unique identifier of the user to update. Example: "9fc4580d-5ed8-46c5-9fff-258fd68d533d"
+   */
+  userId: string;
+  /**
+   * The name displayed in the address book for the user.
+   */
+  displayName?: string | undefined;
+  /**
+   * The given name (first name) of the user.
+   */
+  givenName?: string | undefined;
+  /**
+   * The surname (family name or last name) of the user.
+   */
+  surname?: string | undefined;
+  /**
+   * The job title of the user.
+   */
+  jobTitle?: string | undefined;
+  /**
+   * The name of the department in which the user works.
+   */
+  department?: string | undefined;
+  /**
+   * The office location in the user's place of business.
+   */
+  officeLocation?: string | undefined;
+  /**
+   * The primary cellular telephone number for the user.
+   */
+  mobilePhone?: string | undefined;
+  /**
+   * The telephone numbers for the user.
+   */
+  businessPhones?: string[] | undefined;
+  /**
+   * The city in which the user is located.
+   */
+  city?: string | undefined;
+  /**
+   * The country/region in which the user is located.
+   */
+  country?: string | undefined;
+  /**
+   * The preferred language for the user. Should follow ISO 639-1 Code; for example, "en-US".
+   */
+  preferredLanguage?: string | undefined;
+  /**
+   * The mail alias for the user.
+   */
+  mailNickname?: string | undefined;
+  /**
+   * true if the account is enabled; otherwise, false.
+   */
+  accountEnabled?: boolean | undefined;
+};
+
+export interface ActionOutput_microsoft_updateuser {
+  success: boolean;
+  userId: string;
 };
 
 export interface ChannelMessageReply {
@@ -34602,20 +41490,910 @@ export interface ActionOutput_one_drive_personal_uploadsmallfile {
   lastModifiedDateTime?: string | undefined;
 };
 
+export interface Batch {
+  id: string;
+  object?: string | undefined;
+  endpoint?: string | undefined;
+  errors?: {  object?: string | undefined;
+  data?: ({  code?: string | undefined;
+  message?: string | undefined;
+  param?: string | undefined;
+  line?: number | undefined;})[];};
+  input_file_id?: string | undefined;
+  completion_window?: string | undefined;
+  status?: string | undefined;
+  output_file_id?: string | undefined;
+  error_file_id?: string | undefined;
+  created_at?: number | undefined;
+  in_progress_at?: number | undefined;
+  expires_at?: number | undefined;
+  finalizing_at?: number | undefined;
+  completed_at?: number | undefined;
+  failed_at?: number | undefined;
+  expired_at?: number | undefined;
+  cancelling_at?: number | undefined;
+  cancelled_at?: number | undefined;
+  request_counts?: {  total?: number | undefined;
+  completed?: number | undefined;
+  failed?: number | undefined;};
+  metadata?: {  [key: string]: unknown | undefined;};
+};
+
+export interface FineTuningJob {
+  id: string;
+  object: string;
+  model: string;
+  created_at: number;
+  finished_at?: number | undefined;
+  fine_tuned_model?: string | undefined;
+  organization_id: string;
+  status: string;
+  training_file: string;
+  validation_file?: string | undefined;
+  result_files: string[];
+  hyperparameters: {  n_epochs: number | string;
+  batch_size?: number | string | undefined;
+  learning_rate_multiplier?: number | string | undefined;};
+  metadata?: {  [key: string]: unknown | undefined;};
+  error?: unknown | undefined;
+};
+
+export interface Model {
+  id: string;
+  object?: string | undefined;
+  created?: number | undefined;
+  owned_by?: string | undefined;
+};
+
+export interface VectorStore {
+  id: string;
+  object: string;
+  created_at: number;
+  name?: string | undefined;
+  description?: string | undefined;
+  usage_bytes: number;
+  file_counts: {  in_progress: number;
+  completed: number;
+  failed: number;
+  cancelled: number;
+  total: number;};
+  status: 'in_progress' | 'completed' | 'cancelled' | 'failed';
+  expires_after?: {  anchor: string;
+  days: number;} | undefined;
+  expires_at?: number | undefined;
+  last_active_at?: number | undefined;
+  metadata?: {  [key: string]: unknown | undefined;};
+};
+
+export interface ActionInput_openai_addvectorstorefile {
+  /**
+   * The ID of the vector store to attach the file to. Example: "vs_abc123"
+   */
+  vector_store_id: string;
+  /**
+   * The ID of the file to attach. Must be a file that was previously uploaded. Example: "file-abc123"
+   */
+  file_id: string;
+  /**
+   * Chunking strategy for the file. Use "auto" or "static" with required static config.
+   */
+  chunking_strategy?: {  type: 'auto';} | {  type: 'static';
+  static: {  /**
+   * Maximum number of tokens per chunk
+   */
+  max_chunk_size_tokens: number;
+  /**
+   * Number of tokens to overlap between chunks
+   */
+  chunk_overlap_tokens: number;};} | undefined;
+  attributes?: {  [key: string]: any | undefined;};
+};
+
+export interface ActionOutput_openai_addvectorstorefile {
+  id: string;
+  vector_store_id: string;
+  status: 'in_progress' | 'completed' | 'failed' | 'cancelled';
+  created_at: number;
+  usage_bytes?: number | undefined;
+};
+
+export interface ActionInput_openai_cancelfinetuningjob {
+  /**
+   * The ID of the fine-tuning job to cancel. Example: "ftjob-abc123"
+   */
+  fine_tuning_job_id: string;
+};
+
+export interface ActionOutput_openai_cancelfinetuningjob {
+  id: string;
+  object: string;
+  created_at: number;
+  finished_at?: number | undefined;
+  model: string;
+  fine_tuned_model?: string | undefined;
+  organization_id: string;
+  result_files: string[];
+  status: string;
+  validation_file?: string | undefined;
+  training_file: string;
+  hyperparameters: {  n_epochs?: number | string | undefined;
+  batch_size?: number | string | undefined;
+  learning_rate_multiplier?: number | string | undefined;};
+  trained_tokens?: number | undefined;
+  error?: {  code?: string | undefined;
+  message?: string | undefined;
+  param?: string | undefined;
+  line?: number | undefined;};
+};
+
+export interface ActionInput_openai_createbatch {
+  /**
+   * The ID of the uploaded file used as batch input. Example: "file-abc123"
+   */
+  input_file_id: string;
+  /**
+   * The OpenAI endpoint to call for each request in the batch.
+   */
+  endpoint: '/v1/chat/completions' | '/v1/embeddings' | '/v1/completions';
+  /**
+   * The time window for batch completion. Only "24h" is currently supported.
+   */
+  completion_window: '24h';
+  /**
+   * Optional key-value metadata to attach to the batch.
+   */
+  metadata?: {  [key: string]: string;} | undefined;
+};
+
+export interface ActionOutput_openai_createbatch {
+  id: string;
+  object: string;
+  endpoint: string;
+  input_file_id: string;
+  completion_window: string;
+  status: string;
+  output_file_id?: string | undefined;
+  error_file_id?: string | undefined;
+  created_at: number;
+  in_progress_at?: number | undefined;
+  expires_at?: number | undefined;
+  finalizing_at?: number | undefined;
+  completed_at?: number | undefined;
+  failed_at?: number | undefined;
+  expired_at?: number | undefined;
+  cancelling_at?: number | undefined;
+  cancelled_at?: number | undefined;
+  request_counts?: {  total: number;
+  completed: number;
+  failed: number;} | undefined;
+  metadata?: {  [key: string]: string;} | undefined;
+};
+
+export interface ActionInput_openai_createchatcompletion {
+  /**
+   * Model ID. Example: "gpt-4o-mini"
+   */
+  model: string;
+  /**
+   * Array of messages with role and content
+   */
+  messages: ({  role: 'system' | 'user' | 'assistant' | 'tool';
+  content: string;})[];
+  /**
+   * Sampling temperature (0-2)
+   */
+  temperature?: number | undefined;
+  /**
+   * Maximum tokens to generate
+   */
+  max_tokens?: number | undefined;
+  /**
+   * Tools available to the model
+   */
+  tools?: unknown[] | undefined;
+  /**
+   * Tool choice strategy
+   */
+  tool_choice?: unknown | undefined;
+  /**
+   * Response format specification
+   */
+  response_format?: unknown | undefined;
+  /**
+   * Stream response. Should be false for actions
+   */
+  stream?: boolean | undefined;
+};
+
+export interface ActionOutput_openai_createchatcompletion {
+  id: string;
+  object: string;
+  created: number;
+  model: string;
+  choices: ({  index: number;
+  message: {  role: string;
+  content?: string | undefined;};
+  finish_reason?: string | undefined;})[];
+  usage?: {  prompt_tokens: number;
+  completion_tokens: number;
+  total_tokens: number;} | undefined;
+};
+
+export interface ActionInput_openai_createembedding {
+  /**
+   * ID of the model to use. Example: "text-embedding-3-small"
+   */
+  model: string;
+  /**
+   * Input text to embed, encoded as a string or array of strings.
+   */
+  input: string | string[];
+  /**
+   * The format to return the embeddings in. Can be "float" or "base64".
+   */
+  encodingFormat?: 'float' | 'base64' | undefined;
+  /**
+   * The number of dimensions the resulting output embeddings should have. Only supported in text-embedding-3 and later models.
+   */
+  dimensions?: number | undefined;
+};
+
+export interface ActionOutput_openai_createembedding {
+  object: string;
+  data: ({  object: string;
+  embedding: number[];
+  index: number;})[];
+  model: string;
+  usage: {  promptTokens: number;
+  totalTokens: number;};
+};
+
+export interface ActionInput_openai_createfile {
+  /**
+   * Informational message about using the proxy script
+   */
+  message: string;
+};
+
+export interface ActionOutput_openai_createfile {
+  message: string;
+  proxyScript: string;
+};
+
+export interface ActionInput_openai_createimage {
+  /**
+   * A text description of the desired image(s). The maximum length is 1000 characters.
+   */
+  prompt: string;
+  /**
+   * The model to use for image generation.
+   */
+  model?: 'dall-e-2' | 'dall-e-3' | 'gpt-image-1' | undefined;
+  /**
+   * The number of images to generate. Must be between 1 and 10.
+   */
+  n?: number | undefined;
+  /**
+   * The size of the generated images. For dall-e-2: 256x256, 512x512, 1024x1024. For dall-e-3: 1024x1024, 1792x1024, 1024x1792.
+   */
+  size?: '256x256' | '512x512' | '1024x1024' | '1792x1024' | '1024x1792' | undefined;
+  /**
+   * The quality of the image. hd is available only for dall-e-3.
+   */
+  quality?: 'standard' | 'hd' | undefined;
+  /**
+   * The format of the returned images.
+   */
+  response_format?: 'url' | 'b64_json' | undefined;
+};
+
+export interface ActionOutput_openai_createimage {
+  created?: number | undefined;
+  data: ({  url?: string | undefined;
+  b64_json?: string | undefined;
+  revised_prompt?: string | undefined;})[];
+};
+
+export interface ActionInput_openai_createmoderation {
+  /**
+   * Text or array of text strings to classify. Example: "I want to hurt someone."
+   */
+  input: string | string[];
+  /**
+   * Model to use for moderation. Defaults to "omni-moderation-latest". Other option: "text-moderation-latest".
+   */
+  model?: string | undefined;
+};
+
+export interface ActionOutput_openai_createmoderation {
+  id: string;
+  model: string;
+  results: ({  flagged: boolean;
+  categories: {  [key: string]: boolean;};
+  category_scores: {  [key: string]: number;};})[];
+};
+
+export interface ActionInput_openai_createresponse {
+  model: string;
+  input: string | ({  [key: string]: unknown | undefined;})[];
+  instructions?: string | undefined;
+  tools?: ({  [key: string]: unknown | undefined;})[];
+  tool_choice?: string | {  [key: string]: unknown | undefined;};
+  temperature?: number | undefined;
+  max_output_tokens?: number | undefined;
+  store?: boolean | undefined;
+};
+
+export interface ActionOutput_openai_createresponse {
+  id: string;
+  output: ({  [key: string]: unknown | undefined;})[];
+  usage?: {  input_tokens: number;
+  output_tokens: number;
+  total_tokens: number;} | undefined;
+};
+
+export interface ActionInput_openai_createspeech {
+  /**
+   * TTS model to use. Example: "tts-1"
+   */
+  model: 'tts-1' | 'tts-1-hd' | 'gpt-4o-mini-tts';
+  /**
+   * Text to synthesize into speech. Max 4096 characters. Example: "Hello world"
+   */
+  input: string;
+  /**
+   * Voice to use for synthesis. Example: "alloy"
+   */
+  voice: 'alloy' | 'echo' | 'fable' | 'onyx' | 'nova' | 'shimmer';
+  /**
+   * Audio format. Defaults to "mp3".
+   */
+  response_format?: 'mp3' | 'opus' | 'aac' | 'flac' | 'wav' | 'pcm' | undefined;
+  /**
+   * Speech speed. 0.25 to 4.0. Defaults to 1.0.
+   */
+  speed?: number | undefined;
+};
+
+export interface ActionOutput_openai_createspeech {
+  /**
+   * Base64-encoded audio content.
+   */
+  audio_data: string;
+  /**
+   * MIME type of the audio format.
+   */
+  content_type: string;
+};
+
+export interface ActionInput_openai_createtranscription {
+  /**
+   * Local path to audio file (flac, mp3, mp4, mpeg, mpga, m4a, ogg, wav, webm, max 25MB)
+   */
+  filePath: string;
+  /**
+   * Transcription model to use
+   */
+  model: 'whisper-1' | 'gpt-4o-transcribe';
+  /**
+   * ISO-639-1 language code (e.g., "en", "es")
+   */
+  language?: string | undefined;
+  /**
+   * Optional prompt to guide transcription style
+   */
+  prompt?: string | undefined;
+  /**
+   * Output format
+   */
+  response_format?: 'json' | 'text' | 'srt' | 'verbose_json' | 'vtt' | undefined;
+  /**
+   * Sampling temperature
+   */
+  temperature?: number | undefined;
+};
+
+export interface ActionOutput_openai_createtranscription {
+  /**
+   * Transcribed text
+   */
+  text: string;
+  /**
+   * Implementation note about proxy requirement
+   */
+  note?: string | undefined;
+};
+
+export interface ActionInput_openai_createvectorstore {
+  /**
+   * A name for the vector store
+   */
+  name?: string | undefined;
+  /**
+   * File IDs to attach to the vector store immediately
+   */
+  file_ids?: string[] | undefined;
+  /**
+   * Expiration policy for the vector store
+   */
+  expires_after?: {  anchor: 'last_active_at';
+  /**
+   * Number of days after last activity when the vector store expires
+   */
+  days: number;} | undefined;
+  /**
+   * Chunking strategy for parsing files
+   */
+  chunking_strategy?: {  type: 'auto';} | {  type: 'static';
+  static: {  max_chunk_size_tokens: number;
+  chunk_overlap_tokens: number;};} | undefined;
+  /**
+   * Metadata with up to 16 key-value pairs
+   */
+  metadata?: {} | undefined;
+};
+
+export interface ActionOutput_openai_createvectorstore {
+  id: string;
+  name?: string | undefined;
+  status: 'completed' | 'in_progress' | 'expired';
+  file_counts: {  in_progress: number;
+  completed: number;
+  failed: number;
+  cancelled: number;
+  total: number;};
+  usage_bytes: number;
+  created_at: number;
+  last_active_at?: number | undefined;
+  expires_after?: {  anchor: 'last_active_at';
+  /**
+   * Number of days after last activity when the vector store expires
+   */
+  days: number;} | undefined;
+  chunking_strategy?: {  type: 'auto';} | {  type: 'static';
+  static: {  max_chunk_size_tokens: number;
+  chunk_overlap_tokens: number;};} | undefined;
+  metadata?: {} | undefined;
+};
+
+export interface ActionInput_openai_deleteresponse {
+  /**
+   * The ID of the response to delete. Example: "resp_abc123"
+   */
+  response_id: string;
+};
+
+export interface ActionOutput_openai_deleteresponse {
+  id: string;
+  deleted: boolean;
+};
+
+export interface ActionInput_openai_deletevectorstorefile {
+  /**
+   * The ID of the vector store. Example: "vs_abc123"
+   */
+  vector_store_id: string;
+  /**
+   * The ID of the file to remove from the vector store. Example: "file-abc123"
+   */
+  file_id: string;
+};
+
+export interface ActionOutput_openai_deletevectorstorefile {
+  id: string;
+  object: 'vector_store.file.deleted';
+  deleted: boolean;
+};
+
+export interface ActionInput_openai_deletevectorstore {
+  /**
+   * The ID of the vector store to delete. Example: "vs_abc123"
+   */
+  vector_store_id: string;
+};
+
+export interface ActionOutput_openai_deletevectorstore {
+  /**
+   * The ID of the deleted vector store
+   */
+  id: string;
+  /**
+   * The object type
+   */
+  object: 'vector_store.deleted';
+  /**
+   * Whether the vector store was successfully deleted
+   */
+  deleted: boolean;
+};
+
+export interface ActionInput_openai_getbatch {
+  /**
+   * The ID of the batch to retrieve. Example: "batch_abc123"
+   */
+  batch_id: string;
+};
+
+export interface ActionOutput_openai_getbatch {
+  id: string;
+  status: 'validating' | 'failed' | 'in_progress' | 'finalizing' | 'completed' | 'expired' | 'cancelling' | 'cancelled';
+  input_file_id: string;
+  output_file_id?: string | undefined;
+  error_file_id?: string | undefined;
+  endpoint: string;
+  request_counts: {  total: number;
+  completed: number;
+  failed: number;};
+  created_at: number;
+  expires_at?: number | undefined;
+  completed_at?: number | undefined;
+};
+
+export interface ActionInput_openai_getfile {
+  /**
+   * The ID of the file to retrieve. Example: "file-123"
+   */
+  file_id: string;
+};
+
+export interface ActionOutput_openai_getfile {
+  id: string;
+  filename: string;
+  purpose: string;
+  bytes: number;
+  created_at: number;
+  status: string;
+};
+
+export interface ActionInput_openai_getmodel {
+  /**
+   * Model ID. Example: "gpt-4o-mini"
+   */
+  model: string;
+};
+
+export interface ActionOutput_openai_getmodel {
+  id: string;
+  object: string;
+  created: number;
+  owned_by: string;
+};
+
+export interface ActionInput_openai_getresponse {
+  /**
+   * The ID of the response to retrieve. Must start with "resp_". Example: "resp_abc123"
+   */
+  response_id: string;
+};
+
+export interface ActionOutput_openai_getresponse {
+  /**
+   * The unique identifier of the response.
+   */
+  id: string;
+  /**
+   * The model used to generate the response.
+   */
+  model: string;
+  /**
+   * Array of output items from the response.
+   */
+  output: ({  [key: string]: unknown | undefined;})[];
+  usage?: {  input_tokens?: number | undefined;
+  output_tokens?: number | undefined;
+  total_tokens?: number | undefined;};
+  /**
+   * Unix timestamp (in seconds) of when the response was created.
+   */
+  created_at: number;
+};
+
+export interface ActionInput_openai_getvectorstorefile {
+  /**
+   * The ID of the vector store. Example: "vs_6a0cb67e028081918ccec0ba7278ffd0"
+   */
+  vector_store_id: string;
+  /**
+   * The ID of the file. Example: "file_abc123"
+   */
+  file_id: string;
+};
+
+export interface ActionOutput_openai_getvectorstorefile {
+  id: string;
+  object: string;
+  vector_store_id: string;
+  status: string;
+  created_at: number;
+  usage_bytes: number;
+  chunking_strategy?: {  type: string;
+  static?: {  max_chunk_size_tokens: number;
+  chunk_overlap_tokens: number;} | undefined;};
+  last_error?: {  code: string;
+  message: string;} | undefined;
+};
+
+export interface ActionInput_openai_getvectorstore {
+  /**
+   * The ID of the vector store to retrieve. Example: "vs_abc123"
+   */
+  vector_store_id: string;
+};
+
+export interface ActionOutput_openai_getvectorstore {
+  id: string;
+  name?: string | undefined;
+  status: string;
+  file_counts?: {  in_progress?: number | undefined;
+  completed?: number | undefined;
+  failed?: number | undefined;
+  cancelled?: number | undefined;
+  total?: number | undefined;};
+  usage_bytes?: number | undefined;
+  created_at?: number | undefined;
+  last_active_at?: number | undefined;
+  expires_at?: number | undefined;
+  metadata?: {} | undefined;
+};
+
+export interface ActionInput_openai_listbatches {
+  /**
+   * A cursor for use in pagination. `after` is an object ID that defines your place in the list.
+   */
+  after?: string | undefined;
+};
+
+export interface ActionOutput_openai_listbatches {
+  batches: ({  id: string;
+  object: 'batch';
+  endpoint: string;
+  errors: {  object?: string | undefined;
+  data?: ({  code?: string | undefined;
+  message?: string | undefined;
+  param?: string | undefined;
+  line?: number | undefined;})[];};
+  input_file_id: string;
+  completion_window: string;
+  status: 'validating' | 'failed' | 'in_progress' | 'finalizing' | 'completed' | 'expired' | 'cancelling' | 'cancelled';
+  output_file_id: string;
+  error_file_id: string;
+  created_at: number;
+  in_progress_at: number;
+  expires_at: number;
+  finalizing_at: number;
+  completed_at: number;
+  failed_at: number;
+  expired_at: number;
+  cancelling_at: number;
+  cancelled_at: number;
+  request_counts: {  total: number;
+  completed: number;
+  failed: number;};})[];
+  has_more: boolean;
+  next_cursor?: string | undefined;
+};
+
+export interface ActionInput_openai_listfiles {
+  /**
+   * Filter by file purpose. Example: "assistants"
+   */
+  purpose?: 'assistants' | 'batch' | 'fine-tune' | 'vision' | undefined;
+  /**
+   * Pagination cursor from the previous response (last_id). Omit for the first page.
+   */
+  cursor?: string | undefined;
+  /**
+   * Number of files to return (1-10000, default 10000).
+   */
+  limit?: number | undefined;
+  /**
+   * Sort order by created_at. Example: "desc"
+   */
+  order?: 'asc' | 'desc' | undefined;
+};
+
+export interface ActionOutput_openai_listfiles {
+  files: ({  id: string;
+  object: string;
+  bytes: number;
+  created_at: number;
+  filename: string;
+  purpose: string;
+  status: string;
+  status_details?: string | undefined;})[];
+  has_more: boolean;
+  next_cursor?: string | undefined;
+};
+
+export interface ActionInput_openai_listfinetuningjobs {
+  /**
+   * Pagination cursor (job ID) from the previous response. Omit for the first page.
+   */
+  after?: string | undefined;
+  /**
+   * Number of jobs to return (1-100). Defaults to 20.
+   */
+  limit?: number | undefined;
+};
+
+export interface ActionOutput_openai_listfinetuningjobs {
+  items: ({  id: string;
+  object: string;
+  created_at: number;
+  finished_at?: number | undefined;
+  model: string;
+  fine_tuned_model?: string | undefined;
+  organization_id: string;
+  result_files?: string[] | undefined;
+  status: 'validating_files' | 'queued' | 'running' | 'succeeded' | 'failed' | 'cancelled';
+  validation_file?: string | undefined;
+  training_file: string;
+  hyperparameters?: {  n_epochs?: number | string | undefined;
+  batch_size?: number | string | undefined;
+  learning_rate_multiplier?: number | string | undefined;};
+  trained_tokens?: number | undefined;
+  error?: {  code: string;
+  message: string;
+  param?: string | undefined;};
+  metadata?: {  [key: string]: unknown | undefined;};
+  seed?: number | undefined;
+  estimated_finish?: number | undefined;
+  integrations?: string[] | undefined;})[];
+  has_more: boolean;
+  /**
+   * Use as the "after" parameter for the next page of results
+   */
+  next_cursor?: string | undefined;
+};
+
+export interface ActionInput_openai_listmodels {
+};
+
+export interface ActionOutput_openai_listmodels {
+  models: ({  id: string;
+  object: string;
+  created: number;
+  owned_by: string;})[];
+};
+
+export interface ActionInput_openai_listvectorstorefiles {
+  /**
+   * The ID of the vector store to list files from. Example: "vs_abc123"
+   */
+  vector_store_id: string;
+  /**
+   * Cursor for pagination. The ID of the file to start after.
+   */
+  after?: string | undefined;
+  /**
+   * Number of files to return (1-100, default 20).
+   */
+  limit?: number | undefined;
+  /**
+   * Sort order by created_at.
+   */
+  order?: 'asc' | 'desc' | undefined;
+  /**
+   * Filter by file status.
+   */
+  filter?: 'in_progress' | 'completed' | 'failed' | 'cancelled' | undefined;
+};
+
+export interface ActionOutput_openai_listvectorstorefiles {
+  data: ({  id: string;
+  object: string;
+  vector_store_id: string;
+  status: 'in_progress' | 'completed' | 'failed' | 'cancelled';
+  created_at: number;
+  usage_bytes: number;})[];
+  has_more: boolean;
+  first_id?: string | undefined;
+  last_id?: string | undefined;
+};
+
+export interface ActionInput_openai_listvectorstores {
+  /**
+   * Cursor for pagination. Use the `last_id` from the previous response to get the next page.
+   */
+  after?: string | undefined;
+  /**
+   * Number of vector stores to return. Default: 20, Max: 100.
+   */
+  limit?: number | undefined;
+  /**
+   * Sort order by created_at. Options: asc, desc. Default: desc.
+   */
+  order?: 'asc' | 'desc' | undefined;
+};
+
+export interface ActionOutput_openai_listvectorstores {
+  data: ({  id: string;
+  object: string;
+  created_at: number;
+  name: string;
+  bytes?: number | undefined;
+  file_counts?: {  in_progress: number;
+  completed: number;
+  failed: number;
+  cancelled: number;
+  total: number;} | undefined;
+  metadata?: any | undefined;
+  expires_after?: {  anchor: string;
+  days: number;} | undefined;
+  expires_at?: number | undefined;
+  last_active_at?: number | undefined;})[];
+  has_more: boolean;
+  first_id?: string | undefined;
+  last_id?: string | undefined;
+};
+
+export interface ActionInput_openai_searchvectorstore {
+  vector_store_id: string;
+  query: string;
+  max_num_results?: number | undefined;
+  filters?: {  [key: string]: unknown | undefined;};
+  ranking_options?: {  ranker?: string | undefined;
+  score_threshold?: number | undefined;};
+  rewrite_query?: boolean | undefined;
+  next_page?: string | undefined;
+};
+
+export interface ActionOutput_openai_searchvectorstore {
+  object: string;
+  search_query: string[];
+  data: ({  file_id: string;
+  filename?: string | undefined;
+  score: number;
+  attributes?: {  [key: string]: unknown | undefined;};
+  content?: ({  type?: string | undefined;
+  text?: string | undefined;})[];})[];
+  has_more: boolean;
+  next_page?: string | undefined;
+};
+
+export interface ActionInput_openai_updatevectorstore {
+  vector_store_id: string;
+  name?: string | undefined;
+  expires_after?: {  anchor: 'last_active_at';
+  days: number;} | undefined;
+  metadata?: {  [key: string]: unknown | undefined;};
+};
+
+export interface ActionOutput_openai_updatevectorstore {
+  id: string;
+  object: string;
+  created_at: number;
+  name: string;
+  bytes?: number | undefined;
+  file_counts: {  total: number;
+  in_progress: number;
+  completed: number;
+  failed: number;
+  cancelled: number;};
+  expires_after?: {  anchor: 'last_active_at';
+  days: number;} | undefined;
+  metadata?: {  [key: string]: unknown | undefined;};
+};
+
 export interface Employee {
   id: string;
-  user_name: string | null;
+  worker_id?: string | undefined;
+  employee_id?: string | undefined;
+  contingent_worker_id?: string | undefined;
+  user_id?: string | undefined;
   first_name?: string | undefined;
   last_name?: string | undefined;
+  email?: string | undefined;
+  phone?: string | undefined;
+  hire_date?: string | undefined;
+  termination_date?: string | undefined;
   active?: boolean | undefined;
-  email: string;
-  role: string;
-  department: string;
-  site: string;
-  country?: string | null | undefined;
-  external_id?: string | undefined;
-  employment_relationship?: string | undefined;
-  phone_number: string | null;
+  job_title?: string | undefined;
+  department?: string | undefined;
+  location?: string | undefined;
+  manager_id?: string | undefined;
+  employment_type?: string | undefined;
+  last_updated?: string | undefined;
 };
 
 export interface SyncMetadata_oracle_hcm_employees {
@@ -36251,22 +44029,6 @@ export interface Lead {
   fax?: string | undefined;
   secondaryEmail?: string | undefined;
   tags?: string[] | undefined;
-};
-
-export interface Organization {
-  id: string;
-  name: string;
-  created_at: string;
-  updated_at: string;
-  url: string;
-  external_id?: string | undefined;
-  domain_names?: string[] | undefined;
-  group_id?: number | undefined;
-  shared_comments?: boolean | undefined;
-  shared_tickets?: boolean | undefined;
-  tags?: string[] | undefined;
-  notes?: string | undefined;
-  details?: string | undefined;
 };
 
 export interface Pipeline {
@@ -38822,47 +46584,6 @@ export interface ActionOutput_pipedrive_updatestage {
   update_time?: string | undefined;
   pipeline_name?: string | undefined;
   pipeline_deal_probability?: boolean | undefined;
-};
-
-export interface Account {
-  id: string;
-  accountName?: string | undefined;
-  accountNumber?: string | undefined;
-  accountType?: string | undefined;
-  annualRevenue?: number | undefined;
-  billingCity?: string | undefined;
-  billingCode?: string | undefined;
-  billingCountry?: string | undefined;
-  billingState?: string | undefined;
-  billingStreet?: string | undefined;
-  createdByName?: string | undefined;
-  createdById?: string | undefined;
-  createdByEmail?: string | undefined;
-  createdTime?: string | undefined;
-  description?: string | undefined;
-  employees?: number | undefined;
-  fax?: string | undefined;
-  industry?: string | undefined;
-  modifiedByName?: string | undefined;
-  modifiedById?: string | undefined;
-  modifiedByEmail?: string | undefined;
-  modifiedTime: string;
-  ownerName?: string | undefined;
-  ownerId?: string | undefined;
-  ownerEmail?: string | undefined;
-  ownership?: string | undefined;
-  parentAccountName?: string | undefined;
-  parentAccountId?: string | undefined;
-  phone?: string | undefined;
-  rating?: string | undefined;
-  shippingCity?: string | undefined;
-  shippingCode?: string | undefined;
-  shippingCountry?: string | undefined;
-  shippingState?: string | undefined;
-  shippingStreet?: string | undefined;
-  sicCode?: string | undefined;
-  tickerSymbol?: string | undefined;
-  website?: string | undefined;
 };
 
 export interface BillPayment {
@@ -42948,16 +50669,6 @@ export interface Case {
   is_escalated?: boolean | undefined;
 };
 
-export interface Opportunity {
-  id: string;
-  name?: string | undefined;
-  amount?: number | undefined;
-  stage?: string | undefined;
-  close_date?: string | undefined;
-  owner_id?: string | undefined;
-  updated_at: string;
-};
-
 export interface SyncMetadata_salesforce_recordsbysoql {
   soql_query: string;
   api_version?: string | undefined;
@@ -45649,6 +53360,1315 @@ export interface ActionOutput_smartsheet_disableuser {
   success: boolean;
 };
 
+export interface Album {
+  id: string;
+  name: string;
+  albumType?: string | undefined;
+  artists?: ({  id: string;
+  name: string;})[] | undefined;
+  spotifyUrl?: string | undefined;
+  images?: ({  url: string;
+  height?: number | undefined;
+  width?: number | undefined;})[];
+  releaseDate?: string | undefined;
+  totalTracks?: number | undefined;
+  addedAt: string;
+};
+
+export interface Artist {
+  id: string;
+  name: string;
+  genres?: string[] | undefined;
+  followers?: number | undefined;
+  popularity?: number | undefined;
+  external_urls?: {  [key: string]: string;} | undefined;
+  images?: ({  url: string;
+  height?: number | undefined;
+  width?: number | undefined;})[];
+  uri?: string | undefined;
+};
+
+export interface PlaylistTrack {
+  id: string;
+  playlist_id: string;
+  track_id?: string | undefined;
+  episode_id?: string | undefined;
+  name?: string | undefined;
+  type?: 'track' | 'episode' | undefined;
+  uri?: string | undefined;
+  added_at?: string | undefined;
+  added_by_id?: string | undefined;
+  is_local?: boolean | undefined;
+  duration_ms?: number | undefined;
+  explicit?: boolean | undefined;
+  artists?: string | undefined;
+  album_id?: string | undefined;
+  album_name?: string | undefined;
+  track_number?: number | undefined;
+  disc_number?: number | undefined;
+  show_id?: string | undefined;
+  show_name?: string | undefined;
+  description?: string | undefined;
+  html_description?: string | undefined;
+};
+
+export interface SyncMetadata_spotify_playlisttracks {
+  /**
+   * The Spotify ID of the playlist to sync tracks from
+   */
+  playlist_id: string;
+  /**
+   * Optional. An ISO 3166-1 alpha-2 country code for track relinking
+   */
+  market?: string | undefined;
+};
+
+export interface Playlist {
+  id: string;
+  name: string;
+  description?: string | undefined;
+  collaborative: boolean;
+  public?: boolean | undefined;
+  snapshot_id: string;
+  href: string;
+  uri: string;
+  owner_id: string;
+  owner_display_name?: string | undefined;
+  tracks_total: number;
+  images?: ({  url: string;
+  height?: number | undefined;
+  width?: number | undefined;})[];
+};
+
+export interface RecentlyPlayed {
+  id: string;
+  trackId: string;
+  trackName: string;
+  trackUri: string;
+  durationMs: number;
+  explicit: boolean;
+  previewUrl?: string | undefined;
+  artistIds: string[];
+  artistNames: string[];
+  albumId: string;
+  albumName: string;
+  playedAt: string;
+  contextType?: string | undefined;
+  contextUri?: string | undefined;
+};
+
+export interface SavedEpisode {
+  id: string;
+  name: string;
+  description?: string | undefined;
+  duration_ms: number;
+  explicit?: boolean | undefined;
+  added_at: string;
+  release_date?: string | undefined;
+  release_date_precision?: string | undefined;
+  show_id?: string | undefined;
+  show_name?: string | undefined;
+  show_publisher?: string | undefined;
+  images?: ({  url: string;
+  height: number;
+  width: number;})[] | undefined;
+  resume_point_fully_played?: boolean | undefined;
+  resume_position_ms?: number | undefined;
+};
+
+export interface SavedShow {
+  id: string;
+  name: string;
+  description?: string | undefined;
+  publisher?: string | undefined;
+  added_at: string;
+  type: string;
+  uri: string;
+  spotify_url?: string | undefined;
+  images?: ({  url: string;
+  height?: number | undefined;
+  width?: number | undefined;})[];
+  languages?: string[] | undefined;
+  explicit?: boolean | undefined;
+  available_markets?: string[] | undefined;
+};
+
+export interface SavedTrack {
+  id: string;
+  name: string;
+  uri: string;
+  artistName?: string | undefined;
+  albumName?: string | undefined;
+  durationMs?: number | undefined;
+  explicit?: boolean | undefined;
+  popularity?: number | undefined;
+  previewUrl?: string | undefined;
+  addedAt: string;
+  trackNumber?: number | undefined;
+  discNumber?: number | undefined;
+};
+
+export interface TopItem {
+  id: string;
+  name: string;
+  type: 'artist' | 'track';
+  time_range: 'short_term' | 'medium_term' | 'long_term';
+  popularity?: number | undefined;
+  uri?: string | undefined;
+  external_urls?: {  spotify?: string | undefined;};
+  genres?: string[] | undefined;
+  artists?: ({  id: string;
+  name: string;})[] | undefined;
+  album?: {  id: string;
+  name: string;
+  images?: ({  url: string;
+  height?: number | undefined;
+  width?: number | undefined;})[];};
+  duration_ms?: number | undefined;
+  explicit?: boolean | undefined;
+};
+
+export interface ActionInput_spotify_addtoqueue {
+  /**
+   * Spotify URI of the track or episode to add. Example: "spotify:track:70LcF31zb1H0PyJoS1Sx1r"
+   */
+  uri: string;
+  /**
+   * Optional ID of the device to target. If omitted, the user's currently active device is used.
+   */
+  device_id?: string | undefined;
+};
+
+export interface ActionOutput_spotify_addtoqueue {
+  success: boolean;
+};
+
+export interface ActionInput_spotify_createplaylisttrack {
+  /**
+   * The Spotify ID of the playlist. Example: "3cEYpjA9oz9GiPac4AsH4n"
+   */
+  playlistId: string;
+  /**
+   * An array of Spotify URIs to add. Can be track or episode URIs. Between 1 and 100 items. Example: ["spotify:track:4iV5W9uYEdYUVa79Axb7Rh", "spotify:track:1301WleyT98MSxVHPZCA6M"]
+   */
+  uris: string[];
+  /**
+   * The position to insert the items, a zero-based index. If omitted, items are appended to the end. Example: 0
+   */
+  position?: number | undefined;
+};
+
+export interface ActionOutput_spotify_createplaylisttrack {
+  /**
+   * A snapshot ID for the playlist after the addition
+   */
+  snapshotId: string;
+};
+
+export interface ActionInput_spotify_createplaylist {
+  /**
+   * The name for the new playlist. Example: "My Cool Playlist"
+   */
+  name: string;
+  /**
+   * Description for the playlist.
+   */
+  description?: string | undefined;
+  /**
+   * Whether the playlist should be public. Default: true
+   */
+  public?: boolean | undefined;
+  /**
+   * Whether the playlist should be collaborative.
+   */
+  collaborative?: boolean | undefined;
+  /**
+   * Optional user ID to create playlist for. If omitted, uses the current user.
+   */
+  user_id?: string | undefined;
+};
+
+export interface ActionOutput_spotify_createplaylist {
+  /**
+   * The Spotify ID of the created playlist
+   */
+  id: string;
+  /**
+   * The name of the playlist
+   */
+  name: string;
+  /**
+   * The description of the playlist
+   */
+  description?: string | undefined;
+  /**
+   * Whether the playlist is public
+   */
+  isPublic?: boolean | undefined;
+  /**
+   * Whether the playlist is collaborative
+   */
+  isCollaborative?: boolean | undefined;
+  /**
+   * The ID of the playlist owner
+   */
+  ownerId?: string | undefined;
+  /**
+   * The display name of the playlist owner
+   */
+  ownerName?: string | undefined;
+  /**
+   * A link to the Web API endpoint for full details of the playlist
+   */
+  href?: string | undefined;
+  /**
+   * The Spotify URI for the playlist
+   */
+  uri?: string | undefined;
+};
+
+export interface ActionInput_spotify_createsavedalbum {
+  /**
+   * Spotify album IDs to save to the user's library. Maximum 20.
+   */
+  ids: string[];
+};
+
+export interface ActionOutput_spotify_createsavedalbum {
+  /**
+   * Whether the albums were successfully saved.
+   */
+  success: boolean;
+};
+
+export interface ActionInput_spotify_createsavedtrack {
+  /**
+   * An array of Spotify track IDs to save. Between 1 and 40 IDs. Example: ["70LcF31zb1H0PyJoS1Sx1r"]
+   */
+  ids: string[];
+};
+
+export interface ActionOutput_spotify_createsavedtrack {
+  /**
+   * Whether the tracks were successfully saved to the library
+   */
+  success: boolean;
+};
+
+export interface ActionInput_spotify_deleteplaylisttrack {
+  /**
+   * Spotify playlist ID. Example: "0PUR2D6eCDOIjLIeu9kIcq"
+   */
+  playlist_id: string;
+  /**
+   * Array of track objects with URIs to remove from the playlist
+   */
+  tracks: ({  /**
+   * Spotify URI of the track to remove. Example: "spotify:track:70LcF31zb1H0PyJoS1Sx1r"
+   */
+  uri: string;})[];
+  /**
+   * Optional snapshot ID for the playlist. If provided, the tracks are only removed if they match the current state of the playlist.
+   */
+  snapshot_id?: string | undefined;
+};
+
+export interface ActionOutput_spotify_deleteplaylisttrack {
+  playlist_id: string;
+  snapshot_id: string;
+  tracks_removed: number;
+};
+
+export interface ActionInput_spotify_deleteplaylist {
+  /**
+   * The Spotify ID of the playlist to unfollow/remove from the user's library. Example: '5mBo6dx15GhupMndL3T2sk'
+   */
+  playlist_id: string;
+};
+
+export interface ActionOutput_spotify_deleteplaylist {
+  /**
+   * Whether the playlist was successfully removed from the user's library
+   */
+  success: boolean;
+};
+
+export interface ActionInput_spotify_deletesavedalbum {
+  /**
+   * Array of Spotify album IDs to remove from the user's library. Between 1 and 40 IDs.
+   */
+  ids: string[];
+};
+
+export interface ActionOutput_spotify_deletesavedalbum {
+  /**
+   * Whether the albums were successfully removed from the library.
+   */
+  success: boolean;
+};
+
+export interface ActionInput_spotify_deletesavedshow {
+  /**
+   * Array of Spotify show IDs to remove from the library. Between 1 and 40 IDs.
+   */
+  ids: string[];
+};
+
+export interface ActionOutput_spotify_deletesavedshow {
+  /**
+   * Whether the shows were successfully removed from the library.
+   */
+  success: boolean;
+};
+
+export interface ActionInput_spotify_deletesavedtrack {
+  /**
+   * Spotify track IDs to remove from the library. Between 1 and 50 IDs. Example: ["70LcF31zb1H0PyJoS1Sx1r"]
+   */
+  ids: string[];
+};
+
+export interface ActionOutput_spotify_deletesavedtrack {
+  /**
+   * Whether the tracks were successfully removed
+   */
+  success: boolean;
+};
+
+export interface ActionInput_spotify_followartist {
+  /**
+   * Spotify artist IDs to follow. Between 1 and 50 IDs. Example: ["4Z8W4fKeB5YxbusRsdQVPb"]
+   */
+  ids: string[];
+};
+
+export interface ActionOutput_spotify_followartist {
+  success: boolean;
+};
+
+export interface ActionInput_spotify_followplaylist {
+  /**
+   * The Spotify ID of the playlist to follow. Example: "5mBo6dx15GhupMndL3T2sk"
+   */
+  playlist_id: string;
+  /**
+   * If true, the playlist will be included in the user's public profile. Default: true
+   */
+  public?: boolean | undefined;
+};
+
+export interface ActionOutput_spotify_followplaylist {
+  /**
+   * Whether the playlist was successfully followed
+   */
+  success: boolean;
+  /**
+   * The ID of the playlist that was followed
+   */
+  playlist_id: string;
+};
+
+export interface ActionInput_spotify_getalbum {
+  /**
+   * The Spotify ID for the album. Example: "6dVIqQ8qmQ5GBnJ9shOYGE"
+   */
+  id: string;
+  /**
+   * An ISO 3166-1 alpha-2 country code. Provide this parameter if you want to apply Track Relinking.
+   */
+  market?: string | undefined;
+};
+
+export interface ActionOutput_spotify_getalbum {
+  id: string;
+  name: string;
+  album_type: string;
+  total_tracks: number;
+  release_date: string;
+  release_date_precision: string;
+  uri: string;
+  spotify_url?: string | undefined;
+  images: ({  url: string;
+  height?: number | undefined;
+  width?: number | undefined;})[];
+  artists: ({  id: string;
+  name: string;
+  type: string;
+  uri: string;
+  spotify_url?: string | undefined;})[];
+  tracks?: ({  id: string;
+  name: string;
+  type: string;
+  uri: string;
+  track_number: number;
+  duration_ms: number;
+  explicit: boolean;
+  artists: ({  id: string;
+  name: string;
+  type: string;
+  uri: string;
+  spotify_url?: string | undefined;})[];
+  spotify_url?: string | undefined;})[];
+};
+
+export interface ActionInput_spotify_getartist {
+  /**
+   * The Spotify ID for the artist. Example: "4Z8W4fKeB5YxbusRsdQVPb"
+   */
+  id: string;
+};
+
+export interface ActionOutput_spotify_getartist {
+  id: string;
+  name: string;
+  type: 'artist';
+  uri: string;
+  href: string;
+  external_urls?: {  spotify: string;} | undefined;
+  genres?: string[] | undefined;
+  images?: ({  url: string;
+  height?: number | undefined;
+  width?: number | undefined;})[];
+  followers?: {  href?: string | undefined;
+  total: number;};
+  popularity?: number | undefined;
+};
+
+export interface ActionInput_spotify_getcurrentplayback {
+  /**
+   * An ISO 3166-1 alpha-2 country code. Example: "US"
+   */
+  market?: string | undefined;
+  /**
+   * A comma-separated list of item types. Valid types are: track, episode. Example: "track,episode"
+   */
+  additional_types?: string | undefined;
+};
+
+export interface ActionOutput_spotify_getcurrentplayback {
+  device?: {  id?: string | undefined;
+  is_active?: boolean | undefined;
+  is_private_session?: boolean | undefined;
+  is_restricted?: boolean | undefined;
+  name?: string | undefined;
+  type?: string | undefined;
+  volume_percent?: number | undefined;
+  supports_volume?: boolean | undefined;};
+  repeat_state?: string | undefined;
+  shuffle_state?: boolean | undefined;
+  context?: {  type?: string | undefined;
+  href?: string | undefined;
+  external_urls?: {  [key: string]: string;} | undefined;
+  uri?: string | undefined;};
+  timestamp?: number | undefined;
+  progress_ms?: number | undefined;
+  is_playing?: boolean | undefined;
+  item?: {  album?: {  album_type?: string | undefined;
+  artists?: ({  external_urls?: {  [key: string]: string;} | undefined;
+  href?: string | undefined;
+  id?: string | undefined;
+  name?: string | undefined;
+  type?: string | undefined;
+  uri?: string | undefined;})[];
+  available_markets?: string[] | undefined;
+  external_urls?: {  [key: string]: string;} | undefined;
+  href?: string | undefined;
+  id?: string | undefined;
+  images?: ({  url?: string | undefined;
+  height?: number | undefined;
+  width?: number | undefined;})[];
+  name?: string | undefined;
+  release_date?: string | undefined;
+  release_date_precision?: string | undefined;
+  total_tracks?: number | undefined;
+  type?: string | undefined;
+  uri?: string | undefined;};
+  artists?: ({  external_urls?: {  [key: string]: string;} | undefined;
+  href?: string | undefined;
+  id?: string | undefined;
+  name?: string | undefined;
+  type?: string | undefined;
+  uri?: string | undefined;})[];
+  available_markets?: string[] | undefined;
+  disc_number?: number | undefined;
+  duration_ms?: number | undefined;
+  explicit?: boolean | undefined;
+  external_ids?: {  [key: string]: string;} | undefined;
+  external_urls?: {  [key: string]: string;} | undefined;
+  href?: string | undefined;
+  id?: string | undefined;
+  is_local?: boolean | undefined;
+  name?: string | undefined;
+  popularity?: number | undefined;
+  preview_url?: string | undefined;
+  track_number?: number | undefined;
+  type?: string | undefined;
+  uri?: string | undefined;} | {  audio_preview_url?: string | undefined;
+  description?: string | undefined;
+  duration_ms?: number | undefined;
+  explicit?: boolean | undefined;
+  external_urls?: {  [key: string]: string;} | undefined;
+  href?: string | undefined;
+  html_description?: string | undefined;
+  id?: string | undefined;
+  images?: ({  url?: string | undefined;
+  height?: number | undefined;
+  width?: number | undefined;})[];
+  is_externally_hosted?: boolean | undefined;
+  is_playable?: boolean | undefined;
+  language?: string | undefined;
+  languages?: string[] | undefined;
+  name?: string | undefined;
+  release_date?: string | undefined;
+  release_date_precision?: string | undefined;
+  resume_point?: {  fully_played?: boolean | undefined;
+  resume_position_ms?: number | undefined;};
+  type?: string | undefined;
+  uri?: string | undefined;};
+  currently_playing_type?: string | undefined;
+  actions?: {  disallows?: {  [key: string]: boolean;} | undefined;};
+};
+
+export interface ActionInput_spotify_getcurrentuser {
+};
+
+export interface ActionOutput_spotify_getcurrentuser {
+  id: string;
+  display_name?: string | undefined;
+  email?: string | undefined;
+  country?: string | undefined;
+  product?: string | undefined;
+  images?: ({  url: string;
+  height?: number | undefined;
+  width?: number | undefined;})[];
+  external_urls?: {  [key: string]: string;} | undefined;
+  followers?: {  href?: string | undefined;
+  total: number;};
+  href?: string | undefined;
+  type?: string | undefined;
+  uri?: string | undefined;
+};
+
+export interface ActionInput_spotify_getdevices {
+};
+
+export interface ActionOutput_spotify_getdevices {
+  devices: ({  id?: string | undefined;
+  name: string;
+  type: string;
+  is_active: boolean;
+  volume_percent?: number | undefined;})[];
+};
+
+export interface ActionInput_spotify_getepisode {
+  /**
+   * The Spotify ID for the episode. Example: "0AYabmryUy29iVTvK45dLw"
+   */
+  id: string;
+  /**
+   * An ISO 3166-1 alpha-2 country code. If specified, only content available in that market will be returned.
+   */
+  market?: string | undefined;
+};
+
+export interface ActionOutput_spotify_getepisode {
+  id: string;
+  name: string;
+  description?: string | undefined;
+  htmlDescription?: string | undefined;
+  durationMs: number;
+  explicit: boolean;
+  href: string;
+  uri: string;
+  type: 'episode';
+  releaseDate?: string | undefined;
+  releaseDatePrecision?: 'year' | 'month' | 'day' | undefined;
+  audioPreviewUrl?: string | undefined;
+  images?: ({  url: string;
+  height?: number | undefined;
+  width?: number | undefined;})[];
+  show?: {  id: string;
+  name: string;
+  href: string;
+  uri: string;} | undefined;
+  language?: string | undefined;
+  languages?: string[] | undefined;
+  isPlayable?: boolean | undefined;
+  resumePoint?: {  fullyPlayed: boolean;
+  resumePositionMs: number;} | undefined;
+};
+
+export interface ActionInput_spotify_getplaylist {
+  /**
+   * The Spotify ID of the playlist. Example: "0PUR2D6eCDOIjLIeu9kIcq"
+   */
+  playlist_id: string;
+  /**
+   * A comma-separated list of fields to return. Example: "name,description,owner"
+   */
+  fields?: string | undefined;
+  /**
+   * An ISO 3166-1 alpha-2 country code to filter results. Example: "US"
+   */
+  market?: string | undefined;
+};
+
+export interface ActionOutput_spotify_getplaylist {
+  id: string;
+  name: string;
+  description?: string | undefined;
+  owner_id?: string | undefined;
+  owner_name?: string | undefined;
+  track_count?: number | undefined;
+  is_public?: boolean | undefined;
+  is_collaborative?: boolean | undefined;
+};
+
+export interface ActionInput_spotify_getqueue {
+};
+
+export interface ActionOutput_spotify_getqueue {
+  currentlyPlaying?: {} | undefined;
+  queue?: ({})[] | undefined;
+};
+
+export interface ActionInput_spotify_getshow {
+  /**
+   * The Spotify ID for the show. Example: "18WzIf6SqovUQHHTeZaucQ"
+   */
+  id: string;
+  /**
+   * An ISO 3166-1 alpha-2 country code. If a country code is specified, only content that is available in that market will be returned.
+   */
+  market?: string | undefined;
+};
+
+export interface ActionOutput_spotify_getshow {
+  id: string;
+  name: string;
+  description: string;
+  publisher?: string | undefined;
+  images?: ({  url: string;
+  height?: number | undefined;
+  width?: number | undefined;})[];
+  explicit?: boolean | undefined;
+  total_episodes?: number | undefined;
+};
+
+export interface ActionInput_spotify_gettrack {
+  /**
+   * Spotify track ID. Example: "70LcF31zb1H0PyJoS1Sx1r"
+   */
+  id: string;
+  /**
+   * Optional ISO 3166-1 alpha-2 country code for content restrictions, or "from_token". Example: "US"
+   */
+  market?: string | 'from_token' | undefined;
+};
+
+export interface ActionOutput_spotify_gettrack {
+  id: string;
+  name: string;
+  uri?: string | undefined;
+  href?: string | undefined;
+  duration_ms?: number | undefined;
+  explicit?: boolean | undefined;
+  popularity?: number | undefined;
+  preview_url?: string | undefined;
+  track_number?: number | undefined;
+  disc_number?: number | undefined;
+  type: 'track';
+  artists: ({  id: string;
+  name: string;
+  uri?: string | undefined;
+  href?: string | undefined;})[];
+  album?: {  id: string;
+  name: string;
+  album_type?: string | undefined;
+  total_tracks?: number | undefined;
+  uri?: string | undefined;
+  href?: string | undefined;};
+};
+
+export interface ActionInput_spotify_listalbums {
+  /**
+   * The maximum number of items to return. Default: 20. Minimum: 1. Maximum: 50.
+   */
+  limit?: number | undefined;
+  /**
+   * The index of the first item to return. Default: 0.
+   */
+  offset?: number | undefined;
+  /**
+   * An ISO 3166-1 alpha-2 country code. Provide this parameter if you want to apply Track Relinking.
+   */
+  market?: string | undefined;
+};
+
+export interface ActionOutput_spotify_listalbums {
+  albums: ({  id: string;
+  name: string;
+  artists?: ({  id: string;
+  name: string;})[] | undefined;
+  images?: ({  url: string;
+  height?: number | undefined;
+  width?: number | undefined;})[];
+  release_date?: string | undefined;
+  total_tracks?: number | undefined;
+  added_at?: string | undefined;})[];
+  /**
+   * The offset for the next page. Omit if no more pages.
+   */
+  next_offset?: number | undefined;
+};
+
+export interface ActionInput_spotify_listartists {
+  /**
+   * Pagination cursor (the `after` value from the previous response). Omit for the first page.
+   */
+  cursor?: string | undefined;
+};
+
+export interface ActionOutput_spotify_listartists {
+  artists: ({  id: string;
+  name: string;
+  uri: string;
+  href: string;
+  type: 'artist';
+  external_urls?: {  spotify?: string | undefined;};
+  followers?: {  total: number;} | undefined;
+  genres?: string[] | undefined;
+  images?: ({  url: string;
+  height?: number | undefined;
+  width?: number | undefined;})[];
+  popularity?: number | undefined;})[];
+  next_cursor?: string | undefined;
+};
+
+export interface ActionInput_spotify_listplaylisttracks {
+  /**
+   * The Spotify ID of the playlist. Example: "3cEYpjA9oz9GiPac4AsH4n"
+   */
+  playlist_id: string;
+  /**
+   * An ISO 3166-1 alpha-2 country code. If a country code is specified, only content that is available in that market will be returned.
+   */
+  market?: string | undefined;
+  /**
+   * Filters for the query: a comma-separated list of the fields to return. If omitted, all fields are returned.
+   */
+  fields?: string | undefined;
+  /**
+   * The maximum number of items to return. Default: 20. Minimum: 1. Maximum: 50.
+   */
+  limit?: number | undefined;
+  /**
+   * The index of the first item to return. Default:  0 (the first item). Use with limit to get the next set of items.
+   */
+  offset?: number | undefined;
+  /**
+   * A comma-separated list of item types that your client supports besides the default track type. Valid types are: track and episode.
+   */
+  additional_types?: string | undefined;
+};
+
+export interface ActionOutput_spotify_listplaylisttracks {
+  items: ({  id: string;
+  name: string;
+  uri: string;
+  href?: string | undefined;
+  duration_ms?: number | undefined;
+  explicit?: boolean | undefined;
+  popularity?: number | undefined;
+  preview_url?: string | undefined;
+  track_number?: number | undefined;
+  disc_number?: number | undefined;
+  is_local?: boolean | undefined;
+  is_playable?: boolean | undefined;
+  album?: {  id: string;
+  name: string;
+  uri: string;
+  href?: string | undefined;
+  album_type?: string | undefined;
+  total_tracks?: number | undefined;
+  release_date?: string | undefined;
+  release_date_precision?: string | undefined;
+  images?: ({  url: string;
+  height: number;
+  width: number;})[] | undefined;};
+  artists?: ({  id: string;
+  name: string;
+  uri: string;
+  href?: string | undefined;
+  external_urls?: {  spotify?: string | undefined;};})[];})[];
+  total: number;
+  next_offset?: number | undefined;
+};
+
+export interface ActionInput_spotify_listplaylists {
+  /**
+   * Maximum number of playlists to return. Default: 20, Max: 50.
+   */
+  limit?: number | undefined;
+  /**
+   * The index of the first playlist to return. Default: 0.
+   */
+  offset?: number | undefined;
+};
+
+export interface ActionOutput_spotify_listplaylists {
+  playlists: ({  id: string;
+  name: string;
+  description?: string | undefined;
+  owner_id: string;
+  owner_name?: string | undefined;
+  public?: boolean | undefined;
+  collaborative?: boolean | undefined;
+  href?: string | undefined;
+  uri?: string | undefined;
+  tracks_total?: number | undefined;})[];
+  total: number;
+  next_offset?: number | undefined;
+};
+
+export interface ActionInput_spotify_listsavedshows {
+  /**
+   * The maximum number of items to return. Default: 20. Minimum: 1. Maximum: 50.
+   */
+  limit?: number | undefined;
+  /**
+   * The index of the first item to return. Default: 0.
+   */
+  offset?: number | undefined;
+  /**
+   * An ISO 3166-1 alpha-2 country code. If a country code is specified, only content that is available in that market is returned.
+   */
+  market?: string | undefined;
+};
+
+export interface ActionOutput_spotify_listsavedshows {
+  items: ({  id: string;
+  name: string;
+  description?: string | undefined;
+  publisher?: string | undefined;
+  explicit?: boolean | undefined;
+  total_episodes?: number | undefined;})[];
+  /**
+   * Offset for the next page, if more results are available
+   */
+  next_offset?: number | undefined;
+};
+
+export interface ActionInput_spotify_listsavedtracks {
+  /**
+   * The maximum number of items to return. Default: 20, Maximum: 50.
+   */
+  limit?: number | undefined;
+  /**
+   * The index of the first item to return. Default: 0.
+   */
+  offset?: number | undefined;
+  /**
+   * An ISO 3166-1 alpha-2 country code. Example: "US"
+   */
+  market?: string | undefined;
+};
+
+export interface ActionOutput_spotify_listsavedtracks {
+  items: ({  added_at?: string | undefined;
+  track: {  id: string;
+  name: string;
+  uri?: string | undefined;
+  duration_ms?: number | undefined;
+  explicit?: boolean | undefined;
+  popularity?: number | undefined;
+  preview_url?: string | undefined;
+  track_number?: number | undefined;
+  disc_number?: number | undefined;
+  album?: {  id: string;
+  name: string;
+  uri?: string | undefined;
+  album_type?: string | undefined;
+  images?: ({  url: string;
+  height?: number | undefined;
+  width?: number | undefined;})[];};
+  artists?: ({  id: string;
+  name: string;
+  uri?: string | undefined;})[];};})[];
+  next_offset?: number | undefined;
+  total: number;
+};
+
+export interface ActionInput_spotify_pauseplayback {
+  /**
+   * The ID of the device to pause playback on. If omitted, playback pauses on the currently active device.
+   */
+  device_id?: string | undefined;
+};
+
+export interface ActionOutput_spotify_pauseplayback {
+  success: boolean;
+};
+
+export interface ActionInput_spotify_reorderplaylisttracks {
+  /**
+   * The Spotify ID of the playlist. Example: "0PUR2D6eCDOIjLIeu9kIcq"
+   */
+  playlist_id: string;
+  /**
+   * The position of the first track to be reordered.
+   */
+  range_start: number;
+  /**
+   * The position where the tracks should be inserted.
+   */
+  insert_before: number;
+  /**
+   * The amount of tracks to be reordered. Defaults to 1 if not supplied.
+   */
+  range_length?: number | undefined;
+  /**
+   * The playlist's snapshot ID against which you want to make the changes.
+   */
+  snapshot_id?: string | undefined;
+};
+
+export interface ActionOutput_spotify_reorderplaylisttracks {
+  snapshot_id?: string | undefined;
+};
+
+export interface ActionInput_spotify_search {
+  /**
+   * Search query string. Example: "Radiohead"
+   */
+  query: string;
+  /**
+   * Types of items to search for. At least one type is required.
+   */
+  type: ({  0: 'track';
+  1: 'album';
+  2: 'artist';
+  3: 'playlist';
+  4: 'show';
+  5: 'episode';})[];
+  /**
+   * ISO 3166-1 alpha-2 country code for content restriction. Example: "US"
+   */
+  market?: string | undefined;
+  /**
+   * Maximum number of results to return per type. Default: 20, Maximum: 50.
+   */
+  limit?: number | undefined;
+  /**
+   * Index of the first result to return. Default: 0.
+   */
+  offset?: number | undefined;
+  /**
+   * If "audio", response includes any playable audio content.
+   */
+  include_external?: 'audio' | undefined;
+};
+
+export interface ActionOutput_spotify_search {
+  query: string;
+  types: ({  0: 'track';
+  1: 'album';
+  2: 'artist';
+  3: 'playlist';
+  4: 'show';
+  5: 'episode';})[];
+  tracks?: {  items: ({  id: string;
+  name: string;
+  uri: string;
+  type: 'track';
+  popularity?: number | undefined;
+  explicit?: boolean | undefined;
+  durationMs?: number | undefined;
+  previewUrl?: string | undefined;
+  album?: {  id: string;
+  name: string;
+  images?: ({  url: string;
+  height: number;
+  width: number;})[] | undefined;};
+  artists?: ({  id: string;
+  name: string;})[] | undefined;})[];
+  paging: {  total: number;
+  offset: number;
+  limit: number;
+  nextOffset?: number | undefined;
+  hasMore: boolean;};};
+  albums?: {  items: ({  id: string;
+  name: string;
+  uri: string;
+  type: 'album';
+  albumType?: string | undefined;
+  totalTracks?: number | undefined;
+  images?: ({  url: string;
+  height: number;
+  width: number;})[] | undefined;
+  artists?: ({  id: string;
+  name: string;})[] | undefined;})[];
+  paging: {  total: number;
+  offset: number;
+  limit: number;
+  nextOffset?: number | undefined;
+  hasMore: boolean;};};
+  artists?: {  items: ({  id: string;
+  name: string;
+  uri: string;
+  type: 'artist';
+  popularity?: number | undefined;
+  images?: ({  url: string;
+  height: number;
+  width: number;})[] | undefined;
+  genres?: string[] | undefined;})[];
+  paging: {  total: number;
+  offset: number;
+  limit: number;
+  nextOffset?: number | undefined;
+  hasMore: boolean;};};
+  playlists?: {  items: ({  id: string;
+  name: string;
+  uri: string;
+  type: 'playlist';
+  description?: string | undefined;
+  owner?: {  id: string;
+  displayName?: string | undefined;};
+  images?: ({  url: string;
+  height: number;
+  width: number;})[] | undefined;
+  tracksTotal?: number | undefined;})[];
+  paging: {  total: number;
+  offset: number;
+  limit: number;
+  nextOffset?: number | undefined;
+  hasMore: boolean;};};
+  shows?: {  items: ({  id: string;
+  name: string;
+  uri: string;
+  type: 'show';
+  description?: string | undefined;
+  explicit?: boolean | undefined;
+  images?: ({  url: string;
+  height: number;
+  width: number;})[] | undefined;
+  languages?: string[] | undefined;
+  publisher?: string | undefined;
+  totalEpisodes?: number | undefined;})[];
+  paging: {  total: number;
+  offset: number;
+  limit: number;
+  nextOffset?: number | undefined;
+  hasMore: boolean;};};
+  episodes?: {  items: ({  id: string;
+  name: string;
+  uri: string;
+  type: 'episode';
+  description?: string | undefined;
+  explicit?: boolean | undefined;
+  durationMs?: number | undefined;
+  images?: ({  url: string;
+  height: number;
+  width: number;})[] | undefined;
+  releaseDate?: string | undefined;
+  show?: {  id: string;
+  name: string;} | undefined;})[];
+  paging: {  total: number;
+  offset: number;
+  limit: number;
+  nextOffset?: number | undefined;
+  hasMore: boolean;};};
+};
+
+export interface ActionInput_spotify_seektoposition {
+  /**
+   * Position in milliseconds to seek to. Example: 10000
+   */
+  position_ms: number;
+  /**
+   * Optional. The ID of the device this command is targeting.
+   */
+  device_id?: string | undefined;
+};
+
+export interface ActionOutput_spotify_seektoposition {
+  success: boolean;
+};
+
+export interface ActionInput_spotify_setrepeatmode {
+  /**
+   * The repeat mode to set. Can be track, context, or off.
+   */
+  state: 'track' | 'context' | 'off';
+  /**
+   * The ID of the device this command is targeting. If not supplied, the user’s currently active device is the target.
+   */
+  device_id?: string | undefined;
+};
+
+export interface ActionOutput_spotify_setrepeatmode {
+  /**
+   * Whether the repeat mode was successfully set.
+   */
+  success: boolean;
+};
+
+export interface ActionInput_spotify_setvolume {
+  /**
+   * The volume to set. Must be between 0 and 100 inclusive.
+   */
+  volume_percent: number;
+  /**
+   * The ID of the device this command is targeting. If not supplied, the user's currently active device is the target.
+   */
+  device_id?: string | undefined;
+};
+
+export interface ActionOutput_spotify_setvolume {
+  success: boolean;
+};
+
+export interface ActionInput_spotify_skiptonext {
+  /**
+   * The id of the device this command is targeting. If not supplied, the user's currently active device is the target.
+   */
+  deviceId?: string | undefined;
+};
+
+export interface ActionOutput_spotify_skiptonext {
+  /**
+   * Whether the playback was successfully skipped to the next track.
+   */
+  success: boolean;
+};
+
+export interface ActionInput_spotify_skiptoprevious {
+  /**
+   * The ID of the device this command is targeting. If not supplied, the user's currently active device is the target.
+   */
+  device_id?: string | undefined;
+};
+
+export interface ActionOutput_spotify_skiptoprevious {
+  /**
+   * Whether the operation was successful
+   */
+  success: boolean;
+};
+
+export interface ActionInput_spotify_startplayback {
+  /**
+   * The ID of the device to play on. If not provided, playback will start on the user's currently active device.
+   */
+  device_id?: string | undefined;
+  /**
+   * Spotify URI of the context to play. This can be an album, artist, or playlist URI. Example: "spotify:album:6dVIqQ8qmQ5GBnJ9shOYGE"
+   */
+  context_uri?: string | undefined;
+  /**
+   * An array of Spotify track URIs to play. If provided, context_uri should not be provided. Example: ["spotify:track:70LcF31zb1H0PyJoS1Sx1r"]
+   */
+  uris?: string[] | undefined;
+  /**
+   * Indicates from where in the context playback should start. Only available when context_uri corresponds to an album or playlist.
+   */
+  offset?: {  /**
+   * The index of the item in the context to play, starting from 0.
+   */
+  position?: number | undefined;
+  /**
+   * The URI of the item to start playback from.
+   */
+  uri?: string | undefined;};
+  /**
+   * The position in milliseconds to start playback from.
+   */
+  position_ms?: number | undefined;
+};
+
+export interface ActionOutput_spotify_startplayback {
+  /**
+   * Whether the playback was started successfully
+   */
+  success: boolean;
+};
+
+export interface ActionInput_spotify_toggleshuffle {
+  /**
+   * Whether shuffle should be enabled (true) or disabled (false)
+   */
+  state: boolean;
+  /**
+   * Optional device ID to target. If not provided, the user's currently active device is targeted
+   */
+  device_id?: string | undefined;
+};
+
+export interface ActionOutput_spotify_toggleshuffle {
+  success: boolean;
+};
+
+export interface ActionInput_spotify_transferplayback {
+  /**
+   * The ID of the device to transfer playback to. Example: "e26cf707-53c5-4640-a6d3-3eb0fb2239ad"
+   */
+  device_id: string;
+  /**
+   * Whether to ensure playback happens on the new device. Default: false
+   */
+  play?: boolean | undefined;
+};
+
+export interface ActionOutput_spotify_transferplayback {
+  success: boolean;
+};
+
+export interface ActionInput_spotify_unfollowplaylist {
+  /**
+   * The Spotify ID of the playlist to unfollow. Example: "5mBo6dx15GhupMndL3T2sk"
+   */
+  playlist_id: string;
+};
+
+export interface ActionOutput_spotify_unfollowplaylist {
+  /**
+   * Whether the playlist was successfully unfollowed
+   */
+  success: boolean;
+  /**
+   * The ID of the playlist that was unfollowed
+   */
+  playlist_id: string;
+};
+
+export interface ActionInput_spotify_updateplaylist {
+  /**
+   * The Spotify ID of the playlist. Example: "0PUR2D6eCDOIjLIeu9kIcq"
+   */
+  playlistId: string;
+  /**
+   * The new name for the playlist.
+   */
+  name?: string | undefined;
+  /**
+   * The new description for the playlist. Pass null to clear the description.
+   */
+  description?: string | undefined;
+  /**
+   * If true, the playlist will be public. If false, it will be private.
+   */
+  public?: boolean | undefined;
+  /**
+   * If true, the playlist will become collaborative and other users will be able to modify it.
+   */
+  collaborative?: boolean | undefined;
+};
+
+export interface ActionOutput_spotify_updateplaylist {
+  success: boolean;
+  playlistId: string;
+};
+
 export interface Subscription {
   id: string;
   automatic_tax: {  enabled: boolean;
@@ -47271,18 +56291,317 @@ export interface ActionOutput_workable_createcomment {
   id: string;
 };
 
-export interface SyncMetadata_workday_employees {
-  lagMinutes?: number | undefined;
+export interface JobProfile {
+  id: string;
+  name: string;
+  description?: string | undefined;
+  summary?: string | undefined;
+  active: boolean;
+  management_level_id?: string | undefined;
+  job_level_id?: string | undefined;
+  job_family_id?: string | undefined;
+  job_category_id?: string | undefined;
+  last_updated?: string | undefined;
 };
 
-export interface SyncMetadata_workday_groups {
+export interface Position {
+  /**
+   * Position ID (e.g., "POS-001")
+   */
+  id: string;
+  /**
+   * Position name
+   */
+  name?: string | undefined;
+  /**
+   * Position code
+   */
+  position_code?: string | undefined;
+  /**
+   * Effective date of the position
+   */
+  effective_date?: string | undefined;
+  /**
+   * Whether the position is inactive
+   */
+  inactive?: boolean | undefined;
+  /**
+   * Job profile reference ID
+   */
+  job_profile_id?: string | undefined;
+  /**
+   * Job profile name
+   */
+  job_profile_name?: string | undefined;
+  /**
+   * Location reference ID
+   */
+  location_id?: string | undefined;
+  /**
+   * Location name
+   */
+  location_name?: string | undefined;
+  /**
+   * Supervisory organization reference ID
+   */
+  supervisory_org_id?: string | undefined;
+  /**
+   * Supervisory organization name
+   */
+  supervisory_org_name?: string | undefined;
+  /**
+   * Assigned worker ID
+   */
+  worker_id?: string | undefined;
+  /**
+   * Assigned worker name
+   */
+  worker_name?: string | undefined;
+  /**
+   * Full-time equivalent percentage
+   */
+  full_time_equivalent?: string | undefined;
+  /**
+   * Scheduled weekly hours
+   */
+  scheduled_weekly_hours?: string | undefined;
+  /**
+   * Pay rate
+   */
+  pay_rate?: string | undefined;
+  /**
+   * Currency code
+   */
+  currency?: string | undefined;
+  /**
+   * Compensation frequency
+   */
+  compensation_frequency?: string | undefined;
 };
 
-export interface SyncMetadata_workday_locations {
+export interface Worker {
+  /**
+   * Worker unique identifier
+   */
+  id: string;
+  /**
+   * Employee ID from Workday
+   */
+  employee_id?: string | undefined;
+  /**
+   * Contingent Worker ID from Workday
+   */
+  contingent_worker_id?: string | undefined;
+  /**
+   * User ID from Workday
+   */
+  user_id?: string | undefined;
+  first_name?: string | undefined;
+  last_name?: string | undefined;
+  email?: string | undefined;
+  phone?: string | undefined;
+  hire_date?: string | undefined;
+  termination_date?: string | undefined;
+  is_active?: boolean | undefined;
+  /**
+   * Employee or Contingent_Worker
+   */
+  worker_type?: string | undefined;
+  job_title?: string | undefined;
+  business_title?: string | undefined;
+  job_profile_id?: string | undefined;
+  position_id?: string | undefined;
+  manager_id?: string | undefined;
+  location_id?: string | undefined;
+  company_id?: string | undefined;
+  cost_center_id?: string | undefined;
+  department_id?: string | undefined;
 };
 
-export interface SyncMetadata_workday_unifiedemployees {
-  lagMinutes?: number | undefined;
+export interface ActionInput_workday_getjobprofile {
+  /**
+   * Job_Profile_ID. Example: "JOB_PROFILE_001"
+   */
+  id: string;
+};
+
+export interface ActionOutput_workday_getjobprofile {
+  id: string;
+  name: string;
+  description?: string | undefined;
+  inactive?: boolean | undefined;
+  job_family?: string | undefined;
+  management_level?: string | undefined;
+  job_category?: string | undefined;
+  reference_id?: string | undefined;
+};
+
+export interface ActionInput_workday_getlocation {
+  /**
+   * Location_ID. Example: "San_Francisco_Site"
+   */
+  id: string;
+};
+
+export interface ActionOutput_workday_getlocation {
+  id: string;
+  name: string;
+  location_code?: string | undefined;
+  location_usage?: string | undefined;
+  inactive: boolean;
+};
+
+export interface ActionInput_workday_getorganization {
+  /**
+   * Organization_Reference_ID. Example: "HRIS_matrix"
+   */
+  id: string;
+};
+
+export interface ActionOutput_workday_getorganization {
+  id: string;
+  name: string;
+  type?: string | undefined;
+  subtype?: string | undefined;
+  description?: string | undefined;
+  external_id?: string | undefined;
+};
+
+export interface ActionInput_workday_getposition {
+  /**
+   * Position_ID. Example: "P-00030"
+   */
+  id: string;
+};
+
+export interface ActionOutput_workday_getposition {
+  id: string;
+  name: string;
+  position_code?: string | undefined;
+  effective_date?: string | undefined;
+  status?: string | undefined;
+  inactive?: boolean | undefined;
+  job_profile?: string | undefined;
+  location?: string | undefined;
+  worker?: string | undefined;
+};
+
+export interface ActionInput_workday_getworker {
+  /**
+   * Employee_ID. Example: "21001"
+   */
+  id: string;
+};
+
+export interface ActionOutput_workday_getworker {
+  id: string;
+  employee_id?: string | undefined;
+  contingent_worker_id?: string | undefined;
+  name?: string | undefined;
+  email?: string | undefined;
+  user_id?: string | undefined;
+  active?: boolean | undefined;
+};
+
+export interface ActionInput_workday_listjobprofiles {
+  /**
+   * Page number for pagination (1-based). Omit for the first page.
+   */
+  cursor?: string | undefined;
+};
+
+export interface ActionOutput_workday_listjobprofiles {
+  items: ({  id: string;
+  name: string;
+  reference_id?: string | undefined;
+  inactive: boolean;
+  description?: string | undefined;
+  effective_date?: string | undefined;})[];
+  next_cursor?: string | undefined;
+};
+
+export interface ActionInput_workday_listlocations {
+  /**
+   * Pagination cursor (page number). Omit for first page.
+   */
+  cursor?: string | undefined;
+};
+
+export interface ActionOutput_workday_listlocations {
+  items: ({  id: string;
+  reference_id?: string | undefined;
+  name: string;
+  location_usage?: string | undefined;
+  country?: string | undefined;
+  inactive: boolean;})[];
+  /**
+   * Next page number for pagination.
+   */
+  next_page?: string | undefined;
+};
+
+export interface ActionInput_workday_listorganizations {
+  /**
+   * Pagination cursor (page number). Omit for the first page.
+   */
+  cursor?: string | undefined;
+};
+
+export interface ActionOutput_workday_listorganizations {
+  items: ({  id: string;
+  name: string;
+  type?: string | undefined;
+  subtype?: string | undefined;
+  description?: string | undefined;
+  inactive: boolean;
+  external_id?: string | undefined;})[];
+  next_cursor?: string | undefined;
+};
+
+export interface ActionInput_workday_listpositions {
+};
+
+export interface ActionOutput_workday_listpositions {
+  items: ({  id: string;
+  title: string;
+  job_profile_id?: string | undefined;
+  job_profile_name?: string | undefined;
+  location_id?: string | undefined;
+  location_name?: string | undefined;
+  worker_id?: string | undefined;
+  worker_name?: string | undefined;
+  availability_date?: string | undefined;
+  inactive: boolean;
+  organization_id?: string | undefined;
+  organization_name?: string | undefined;})[];
+};
+
+export interface ActionInput_workday_listworkers {
+  /**
+   * Pagination cursor (page number). Omit for the first page.
+   */
+  cursor?: string | undefined;
+};
+
+export interface ActionOutput_workday_listworkers {
+  items: ({  id: string;
+  employee_id?: string | undefined;
+  contingent_worker_id?: string | undefined;
+  user_id?: string | undefined;
+  name?: string | undefined;
+  email?: string | undefined;
+  phone?: string | undefined;
+  hire_date?: string | undefined;
+  termination_date?: string | undefined;
+  worker_type?: string | undefined;
+  employment_status?: string | undefined;
+  business_title?: string | undefined;
+  job_profile?: string | undefined;
+  department?: string | undefined;
+  location?: string | undefined;
+  manager_id?: string | undefined;
+  is_active?: boolean | undefined;})[];
+  next_cursor?: string | undefined;
 };
 
 export interface BankTransaction {

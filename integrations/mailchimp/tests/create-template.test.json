@@ -1,0 +1,94 @@
+{
+  "input": {
+    "name": "Test Template from Nango",
+    "html": "<html><body>Hello World</body></html>"
+  },
+  "output": {
+    "id": 10003418,
+    "name": "Test Template from Nango",
+    "type": "user",
+    "date_created": "2026-05-21T19:09:13+00:00",
+    "date_edited": "2026-05-21T19:09:14+00:00",
+    "active": true,
+    "thumbnail": "",
+    "share_url": ""
+  },
+  "nango": {},
+  "api": {
+    "post": {
+      "/3.0/templates": {
+        "response": {
+          "id": 10003418,
+          "type": "user",
+          "name": "Test Template from Nango",
+          "drag_and_drop": false,
+          "responsive": false,
+          "category": "",
+          "date_created": "2026-05-21T19:09:13+00:00",
+          "date_edited": "2026-05-21T19:09:14+00:00",
+          "created_by": "Nango Developer",
+          "edited_by": "Nango Developer",
+          "active": true,
+          "thumbnail": "",
+          "share_url": "",
+          "content_type": "html",
+          "_links": [
+            {
+              "rel": "self",
+              "href": "https://us3.api.mailchimp.com/3.0/templates/10003418",
+              "method": "GET",
+              "targetSchema": "https://us3.api.mailchimp.com/schema/3.0/Definitions/Templates/Response.json"
+            },
+            {
+              "rel": "parent",
+              "href": "https://us3.api.mailchimp.com/3.0/templates",
+              "method": "GET",
+              "targetSchema": "https://us3.api.mailchimp.com/schema/3.0/Definitions/Templates/CollectionResponse.json",
+              "schema": "https://us3.api.mailchimp.com/schema/3.0/Paths/Templates/Collection.json"
+            },
+            {
+              "rel": "delete",
+              "href": "https://us3.api.mailchimp.com/3.0/templates/10003418",
+              "method": "DELETE"
+            },
+            {
+              "rel": "default-content",
+              "href": "https://us3.api.mailchimp.com/3.0/templates/10003418/default-content",
+              "method": "GET",
+              "targetSchema": "https://us3.api.mailchimp.com/schema/3.0/Definitions/Templates/Default-Content/Response.json",
+              "schema": "https://us3.api.mailchimp.com/schema/3.0/Paths/Templates/Collection.json"
+            }
+          ]
+        },
+        "status": 200,
+        "headers": {
+          "date": "Thu, 21 May 2026 19:09:14 GMT",
+          "content-type": "application/json; charset=utf-8",
+          "content-length": "1210",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=5184000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4997",
+          "x-ratelimit-reset": "1779390613",
+          "x-request-id": "1-6a0f5859-094c619451de2e054caa982d",
+          "etag": "W/\"4ba-nHpDqh+Zie/UyvZ7Bc/ftD6hA94\""
+        },
+        "hash": "5b7598ff98e983257bf13d3cee542fc0629d358f",
+        "request": {
+          "data": {
+            "name": "Test Template from Nango",
+            "html": "<html><body>Hello World</body></html>"
+          }
+        }
+      }
+    }
+  }
+}

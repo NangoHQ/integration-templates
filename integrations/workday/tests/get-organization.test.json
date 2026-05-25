@@ -1,0 +1,26 @@
+{
+  "input": {
+    "id": "HRIS_matrix"
+  },
+  "output": {
+    "id": "HRIS_matrix",
+    "name": "HRIS",
+    "type": "MATRIX",
+    "subtype": "Matrix",
+    "external_id": "1765$1"
+  },
+  "nango": {
+    "getConnection": {
+      "credentials": {
+        "type": "BASIC",
+        "username": "test_user@tenant",
+        "password": "test_password"
+      },
+      "connection_config": {
+        "hostname": "test.workday.com",
+        "tenant": "test_tenant"
+      }
+    }
+  },
+  "api": {}
+}

@@ -1,0 +1,192 @@
+{
+  "input": {
+    "type": "regular",
+    "recipients": {
+      "list_id": "16ed227135"
+    },
+    "settings": {
+      "subject_line": "Test Campaign",
+      "from_name": "Test",
+      "reply_to": "hello@nango.dev"
+    }
+  },
+  "output": {
+    "id": "9f3751b89b",
+    "web_id": 4746129,
+    "type": "regular",
+    "status": "save",
+    "create_time": "2026-05-21T19:14:31+00:00",
+    "settings": {
+      "subject_line": "Test Campaign",
+      "title": "",
+      "from_name": "Test",
+      "reply_to": "hello@nango.dev",
+      "template_id": 0
+    },
+    "recipients": {
+      "list_id": "16ed227135",
+      "list_name": "NangoDev",
+      "recipient_count": 1
+    }
+  },
+  "nango": {},
+  "api": {
+    "post": {
+      "/3.0/campaigns": {
+        "response": {
+          "id": "9f3751b89b",
+          "web_id": 4746129,
+          "type": "regular",
+          "create_time": "2026-05-21T19:14:31+00:00",
+          "archive_url": "http://eepurl.com/DAJe8s8Zmx",
+          "long_archive_url": "https://us3.campaign-archive.com/?u=d8ba0a687ccbd9857e68a507c&id=9f3751b89b",
+          "status": "save",
+          "emails_sent": 0,
+          "send_time": "",
+          "content_type": "template",
+          "needs_block_refresh": false,
+          "resendable": false,
+          "recipients": {
+            "list_id": "16ed227135",
+            "list_is_active": true,
+            "list_name": "NangoDev",
+            "segment_text": "",
+            "recipient_count": 1
+          },
+          "settings": {
+            "subject_line": "Test Campaign",
+            "title": "",
+            "from_name": "Test",
+            "reply_to": "hello@nango.dev",
+            "use_conversation": false,
+            "to_name": "",
+            "folder_id": "",
+            "authenticate": true,
+            "auto_footer": false,
+            "inline_css": false,
+            "auto_tweet": false,
+            "fb_comments": true,
+            "timewarp": false,
+            "template_id": 0,
+            "drag_and_drop": false
+          },
+          "tracking": {
+            "opens": true,
+            "html_clicks": true,
+            "text_clicks": false,
+            "goal_tracking": false,
+            "ecomm360": false,
+            "google_analytics": "",
+            "clicktale": ""
+          },
+          "delivery_status": {
+            "enabled": false
+          },
+          "_links": [
+            {
+              "rel": "parent",
+              "href": "https://us3.api.mailchimp.com/3.0/campaigns",
+              "method": "GET",
+              "targetSchema": "https://us3.api.mailchimp.com/schema/3.0/Definitions/Campaigns/CollectionResponse.json",
+              "schema": "https://us3.api.mailchimp.com/schema/3.0/Paths/Campaigns/Collection.json"
+            },
+            {
+              "rel": "self",
+              "href": "https://us3.api.mailchimp.com/3.0/campaigns/9f3751b89b",
+              "method": "GET",
+              "targetSchema": "https://us3.api.mailchimp.com/schema/3.0/Definitions/Campaigns/Response.json"
+            },
+            {
+              "rel": "delete",
+              "href": "https://us3.api.mailchimp.com/3.0/campaigns/9f3751b89b",
+              "method": "DELETE"
+            },
+            {
+              "rel": "send",
+              "href": "https://us3.api.mailchimp.com/3.0/campaigns/9f3751b89b/actions/send",
+              "method": "POST"
+            },
+            {
+              "rel": "cancel_send",
+              "href": "https://us3.api.mailchimp.com/3.0/campaigns/9f3751b89b/actions/cancel-send",
+              "method": "POST"
+            },
+            {
+              "rel": "feedback",
+              "href": "https://us3.api.mailchimp.com/3.0/campaigns/9f3751b89b/feedback",
+              "method": "GET",
+              "targetSchema": "https://us3.api.mailchimp.com/schema/3.0/Definitions/Campaigns/Feedback/CollectionResponse.json"
+            },
+            {
+              "rel": "content",
+              "href": "https://us3.api.mailchimp.com/3.0/campaigns/9f3751b89b/content",
+              "method": "GET",
+              "targetSchema": "https://us3.api.mailchimp.com/schema/3.0/Definitions/Campaigns/Content/Response.json"
+            },
+            {
+              "rel": "send_checklist",
+              "href": "https://us3.api.mailchimp.com/3.0/campaigns/9f3751b89b/send-checklist",
+              "method": "GET",
+              "targetSchema": "https://us3.api.mailchimp.com/schema/3.0/Definitions/Campaigns/Checklist/Response.json"
+            },
+            {
+              "rel": "pause",
+              "href": "https://us3.api.mailchimp.com/3.0/campaigns/9f3751b89b/actions/pause",
+              "method": "POST"
+            },
+            {
+              "rel": "resume",
+              "href": "https://us3.api.mailchimp.com/3.0/campaigns/9f3751b89b/actions/resume",
+              "method": "POST"
+            },
+            {
+              "rel": "replicate",
+              "href": "https://us3.api.mailchimp.com/3.0/campaigns/9f3751b89b/actions/replicate",
+              "method": "POST"
+            },
+            {
+              "rel": "create_resend",
+              "href": "https://us3.api.mailchimp.com/3.0/campaigns/9f3751b89b/actions/create-resend",
+              "method": "POST"
+            }
+          ]
+        },
+        "status": 200,
+        "headers": {
+          "date": "Thu, 21 May 2026 19:14:31 GMT",
+          "content-type": "application/json; charset=utf-8",
+          "content-length": "2880",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=5184000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4997",
+          "x-ratelimit-reset": "1779390930",
+          "x-request-id": "1-6a0f5997-4740bb4e2ae8edee4563506f",
+          "etag": "W/\"b40-P4oM/yMSPfk3QEJV5RrHhIXXRI8\""
+        },
+        "hash": "8631a477464b04ee19c546199001078e6efcb081",
+        "request": {
+          "data": {
+            "type": "regular",
+            "recipients": {
+              "list_id": "16ed227135"
+            },
+            "settings": {
+              "subject_line": "Test Campaign",
+              "from_name": "Test",
+              "reply_to": "hello@nango.dev"
+            }
+          }
+        }
+      }
+    }
+  }
+}

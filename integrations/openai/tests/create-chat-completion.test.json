@@ -1,0 +1,125 @@
+{
+  "input": {
+    "model": "gpt-4o-mini",
+    "messages": [
+      {
+        "role": "user",
+        "content": "Hello, world!"
+      }
+    ],
+    "stream": false
+  },
+  "output": {
+    "id": "chatcmpl-DhYLGSorC1kLzZWxina1MuaFLrrv4",
+    "object": "chat.completion",
+    "created": 1779272486,
+    "model": "gpt-4o-mini-2024-07-18",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "Hello! How can I assist you today?"
+        },
+        "finish_reason": "stop"
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 11,
+      "completion_tokens": 9,
+      "total_tokens": 20
+    }
+  },
+  "nango": {},
+  "api": {
+    "post": {
+      "/v1/chat/completions": {
+        "response": {
+          "id": "chatcmpl-DhYLGSorC1kLzZWxina1MuaFLrrv4",
+          "object": "chat.completion",
+          "created": 1779272486,
+          "model": "gpt-4o-mini-2024-07-18",
+          "choices": [
+            {
+              "index": 0,
+              "message": {
+                "role": "assistant",
+                "content": "Hello! How can I assist you today?",
+                "refusal": null,
+                "annotations": []
+              },
+              "logprobs": null,
+              "finish_reason": "stop"
+            }
+          ],
+          "usage": {
+            "prompt_tokens": 11,
+            "completion_tokens": 9,
+            "total_tokens": 20,
+            "prompt_tokens_details": {
+              "cached_tokens": 0,
+              "audio_tokens": 0
+            },
+            "completion_tokens_details": {
+              "reasoning_tokens": 0,
+              "audio_tokens": 0,
+              "accepted_prediction_tokens": 0,
+              "rejected_prediction_tokens": 0
+            }
+          },
+          "service_tier": "default",
+          "system_fingerprint": "fp_2467975d28"
+        },
+        "status": 200,
+        "headers": {
+          "date": "Wed, 20 May 2026 10:21:27 GMT",
+          "content-type": "application/json",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=31536000; includeSubDomains; preload",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "X-Request-ID, CF-Ray, CF-Ray",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4925",
+          "x-ratelimit-reset": "1779272500",
+          "cf-ray": "9fea9d4fff408969-PDX",
+          "cf-cache-status": "DYNAMIC",
+          "server": "cloudflare",
+          "openai-organization": "nangodev",
+          "openai-processing-ms": "503",
+          "openai-project": "proj_bkqat9iXXSSrc8Kx228QbGL9",
+          "openai-version": "2020-10-01",
+          "x-openai-proxy-wasm": "v0.1",
+          "x-ratelimit-limit-requests": "10000",
+          "x-ratelimit-limit-tokens": "200000",
+          "x-ratelimit-remaining-requests": "9999",
+          "x-ratelimit-remaining-tokens": "199994",
+          "x-ratelimit-reset-requests": "8.64s",
+          "x-ratelimit-reset-tokens": "1ms",
+          "x-request-id": "req_31127800cf5d4df69af6060425d3e7d3",
+          "set-cookie": "__cf_bm=vTX3CK2zv.Uqr7ZDZfKS51shqbhSoDFOSplZendwHNQ-1779272486.3990293-1.0.1.1-UISC2uZuKKtCzl0q1dEQnF_ASBeQZBT7Y8BiZam7uXzSmexcmaYYSXQnuUK5f.AnC4FXVzH.3VqvdKngwSn_gGoPbAtAzzhOUqV9kvTWWInAErzCRJifuCtseD8bVySt; HttpOnly; SameSite=None; Secure; Path=/; Domain=api.openai.com; Expires=Wed, 20 May 2026 10:51:27 GMT",
+          "alt-svc": "h3=\":443\"; ma=86400"
+        },
+        "hash": "b20cbdf5a537592eab72e53f86d020ed37034727",
+        "request": {
+          "data": {
+            "model": "gpt-4o-mini",
+            "messages": [
+              {
+                "role": "user",
+                "content": "Hello, world!"
+              }
+            ],
+            "stream": false
+          }
+        }
+      }
+    }
+  }
+}

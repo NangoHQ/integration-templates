@@ -1,0 +1,310 @@
+{
+  "nango": {
+    "batchSave": {
+      "RecentlyPlayed": [
+        {
+          "id": "7d8UsuThQiOn5WZ5pdv0Ti_2026-05-20T08:41:41.704Z",
+          "trackId": "7d8UsuThQiOn5WZ5pdv0Ti",
+          "trackName": "Outlaw",
+          "trackUri": "spotify:track:7d8UsuThQiOn5WZ5pdv0Ti",
+          "durationMs": 218444,
+          "explicit": false,
+          "artistIds": [
+            "6HCnsY0Rxi3cg53xreoAIm"
+          ],
+          "artistNames": [
+            "Emancipator"
+          ],
+          "albumId": "5UBtUeQ9d4Vgf5qCZVw5fm",
+          "albumName": "Dusk to Dawn",
+          "playedAt": "2026-05-20T08:41:41.704Z",
+          "contextType": "playlist",
+          "contextUri": "spotify:playlist:37i9dQZF1FwWyQlHlLcKgZ"
+        },
+        {
+          "id": "7d8UsuThQiOn5WZ5pdv0Ti_2026-05-20T08:36:15.124Z",
+          "trackId": "7d8UsuThQiOn5WZ5pdv0Ti",
+          "trackName": "Outlaw",
+          "trackUri": "spotify:track:7d8UsuThQiOn5WZ5pdv0Ti",
+          "durationMs": 218444,
+          "explicit": false,
+          "artistIds": [
+            "6HCnsY0Rxi3cg53xreoAIm"
+          ],
+          "artistNames": [
+            "Emancipator"
+          ],
+          "albumId": "5UBtUeQ9d4Vgf5qCZVw5fm",
+          "albumName": "Dusk to Dawn",
+          "playedAt": "2026-05-20T08:36:15.124Z",
+          "contextType": "playlist",
+          "contextUri": "spotify:playlist:37i9dQZF1FwWyQlHlLcKgZ"
+        }
+      ]
+    },
+    "batchDelete": {
+      "RecentlyPlayed": []
+    }
+  },
+  "api": {
+    "get": {
+      "/v1/me/player/recently-played": [
+        {
+          "response": {
+            "items": [
+              {
+                "track": {
+                  "album": {
+                    "album_type": "album",
+                    "artists": [
+                      {
+                        "external_urls": {
+                          "spotify": "https://open.spotify.com/artist/6HCnsY0Rxi3cg53xreoAIm"
+                        },
+                        "href": "https://api.spotify.com/v1/artists/6HCnsY0Rxi3cg53xreoAIm",
+                        "id": "6HCnsY0Rxi3cg53xreoAIm",
+                        "name": "Emancipator",
+                        "type": "artist",
+                        "uri": "spotify:artist:6HCnsY0Rxi3cg53xreoAIm"
+                      }
+                    ],
+                    "external_urls": {
+                      "spotify": "https://open.spotify.com/album/5UBtUeQ9d4Vgf5qCZVw5fm"
+                    },
+                    "href": "https://api.spotify.com/v1/albums/5UBtUeQ9d4Vgf5qCZVw5fm",
+                    "id": "5UBtUeQ9d4Vgf5qCZVw5fm",
+                    "images": [
+                      {
+                        "height": 640,
+                        "url": "https://i.scdn.co/image/ab67616d0000b273683812adb2b4eb20fb688c9d",
+                        "width": 640
+                      },
+                      {
+                        "height": 300,
+                        "url": "https://i.scdn.co/image/ab67616d00001e02683812adb2b4eb20fb688c9d",
+                        "width": 300
+                      },
+                      {
+                        "height": 64,
+                        "url": "https://i.scdn.co/image/ab67616d00004851683812adb2b4eb20fb688c9d",
+                        "width": 64
+                      }
+                    ],
+                    "name": "Dusk to Dawn",
+                    "release_date": "2013-01-29",
+                    "release_date_precision": "day",
+                    "total_tracks": 10,
+                    "type": "album",
+                    "uri": "spotify:album:5UBtUeQ9d4Vgf5qCZVw5fm"
+                  },
+                  "artists": [
+                    {
+                      "external_urls": {
+                        "spotify": "https://open.spotify.com/artist/6HCnsY0Rxi3cg53xreoAIm"
+                      },
+                      "href": "https://api.spotify.com/v1/artists/6HCnsY0Rxi3cg53xreoAIm",
+                      "id": "6HCnsY0Rxi3cg53xreoAIm",
+                      "name": "Emancipator",
+                      "type": "artist",
+                      "uri": "spotify:artist:6HCnsY0Rxi3cg53xreoAIm"
+                    }
+                  ],
+                  "disc_number": 1,
+                  "duration_ms": 218444,
+                  "explicit": false,
+                  "external_urls": {
+                    "spotify": "https://open.spotify.com/track/7d8UsuThQiOn5WZ5pdv0Ti"
+                  },
+                  "href": "https://api.spotify.com/v1/tracks/7d8UsuThQiOn5WZ5pdv0Ti",
+                  "id": "7d8UsuThQiOn5WZ5pdv0Ti",
+                  "is_local": false,
+                  "name": "Outlaw",
+                  "preview_url": null,
+                  "track_number": 4,
+                  "type": "track",
+                  "uri": "spotify:track:7d8UsuThQiOn5WZ5pdv0Ti"
+                },
+                "played_at": "2026-05-20T08:41:41.704Z",
+                "context": {
+                  "type": "playlist",
+                  "external_urls": {
+                    "spotify": "https://open.spotify.com/playlist/37i9dQZF1FwWyQlHlLcKgZ"
+                  },
+                  "href": "https://api.spotify.com/v1/playlists/37i9dQZF1FwWyQlHlLcKgZ",
+                  "uri": "spotify:playlist:37i9dQZF1FwWyQlHlLcKgZ"
+                }
+              },
+              {
+                "track": {
+                  "album": {
+                    "album_type": "album",
+                    "artists": [
+                      {
+                        "external_urls": {
+                          "spotify": "https://open.spotify.com/artist/6HCnsY0Rxi3cg53xreoAIm"
+                        },
+                        "href": "https://api.spotify.com/v1/artists/6HCnsY0Rxi3cg53xreoAIm",
+                        "id": "6HCnsY0Rxi3cg53xreoAIm",
+                        "name": "Emancipator",
+                        "type": "artist",
+                        "uri": "spotify:artist:6HCnsY0Rxi3cg53xreoAIm"
+                      }
+                    ],
+                    "external_urls": {
+                      "spotify": "https://open.spotify.com/album/5UBtUeQ9d4Vgf5qCZVw5fm"
+                    },
+                    "href": "https://api.spotify.com/v1/albums/5UBtUeQ9d4Vgf5qCZVw5fm",
+                    "id": "5UBtUeQ9d4Vgf5qCZVw5fm",
+                    "images": [
+                      {
+                        "height": 640,
+                        "url": "https://i.scdn.co/image/ab67616d0000b273683812adb2b4eb20fb688c9d",
+                        "width": 640
+                      },
+                      {
+                        "height": 300,
+                        "url": "https://i.scdn.co/image/ab67616d00001e02683812adb2b4eb20fb688c9d",
+                        "width": 300
+                      },
+                      {
+                        "height": 64,
+                        "url": "https://i.scdn.co/image/ab67616d00004851683812adb2b4eb20fb688c9d",
+                        "width": 64
+                      }
+                    ],
+                    "name": "Dusk to Dawn",
+                    "release_date": "2013-01-29",
+                    "release_date_precision": "day",
+                    "total_tracks": 10,
+                    "type": "album",
+                    "uri": "spotify:album:5UBtUeQ9d4Vgf5qCZVw5fm"
+                  },
+                  "artists": [
+                    {
+                      "external_urls": {
+                        "spotify": "https://open.spotify.com/artist/6HCnsY0Rxi3cg53xreoAIm"
+                      },
+                      "href": "https://api.spotify.com/v1/artists/6HCnsY0Rxi3cg53xreoAIm",
+                      "id": "6HCnsY0Rxi3cg53xreoAIm",
+                      "name": "Emancipator",
+                      "type": "artist",
+                      "uri": "spotify:artist:6HCnsY0Rxi3cg53xreoAIm"
+                    }
+                  ],
+                  "disc_number": 1,
+                  "duration_ms": 218444,
+                  "explicit": false,
+                  "external_urls": {
+                    "spotify": "https://open.spotify.com/track/7d8UsuThQiOn5WZ5pdv0Ti"
+                  },
+                  "href": "https://api.spotify.com/v1/tracks/7d8UsuThQiOn5WZ5pdv0Ti",
+                  "id": "7d8UsuThQiOn5WZ5pdv0Ti",
+                  "is_local": false,
+                  "name": "Outlaw",
+                  "preview_url": null,
+                  "track_number": 4,
+                  "type": "track",
+                  "uri": "spotify:track:7d8UsuThQiOn5WZ5pdv0Ti"
+                },
+                "played_at": "2026-05-20T08:36:15.124Z",
+                "context": {
+                  "type": "playlist",
+                  "external_urls": {
+                    "spotify": "https://open.spotify.com/playlist/37i9dQZF1FwWyQlHlLcKgZ"
+                  },
+                  "href": "https://api.spotify.com/v1/playlists/37i9dQZF1FwWyQlHlLcKgZ",
+                  "uri": "spotify:playlist:37i9dQZF1FwWyQlHlLcKgZ"
+                }
+              }
+            ],
+            "next": "https://api.spotify.com/v1/me/player/recently-played?before=1779266175124&limit=50",
+            "cursors": {
+              "after": "1779266501704",
+              "before": "1779266175124"
+            },
+            "limit": 50,
+            "href": "https://api.spotify.com/v1/me/player/recently-played?limit=50"
+          },
+          "status": 200,
+          "headers": {
+            "date": "Wed, 20 May 2026 08:45:06 GMT",
+            "content-type": "application/json; charset=UTF-8",
+            "transfer-encoding": "chunked",
+            "connection": "keep-alive",
+            "x-xss-protection": "0",
+            "x-content-type-options": "nosniff",
+            "x-download-options": "noopen",
+            "x-frame-options": "SAMEORIGIN",
+            "x-dns-prefetch-control": "off",
+            "strict-transport-security": "max-age=31536000",
+            "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+            "access-control-allow-origin": "*",
+            "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+            "x-ratelimit-limit": "5000",
+            "x-ratelimit-remaining": "4996",
+            "x-ratelimit-reset": "1779266762",
+            "cache-control": "private, max-age=0",
+            "x-robots-tag": "noindex, nofollow",
+            "access-control-allow-headers": "Accept, App-Platform, Authorization, Content-Type, Origin, Retry-After, Spotify-App-Version, X-Cloud-Trace-Context, client-token, content-access-token",
+            "access-control-allow-methods": "GET, POST, OPTIONS, PUT, DELETE, PATCH",
+            "access-control-allow-credentials": "true",
+            "access-control-max-age": "604800",
+            "alt-svc": "h3=\":443\"; ma=2592000,h3-29=\":443\"; ma=2592000, h3=\":443\"; ma=2592000,h3-29=\":443\"; ma=2592000",
+            "server": "envoy",
+            "via": "HTTP/2 edgeproxy, 1.1 google"
+          },
+          "hash": "ed3c7e15b41d05f8927f7cf2ffaeb064a9fe8ca0",
+          "request": {
+            "params": {
+              "limit": "50"
+            }
+          }
+        },
+        {
+          "response": {
+            "items": [],
+            "next": null,
+            "cursors": null,
+            "limit": 50,
+            "href": "https://api.spotify.com/v1/me/player/recently-played?after=1779266501704&limit=50"
+          },
+          "status": 200,
+          "headers": {
+            "date": "Wed, 20 May 2026 08:45:06 GMT",
+            "content-type": "application/json; charset=UTF-8",
+            "transfer-encoding": "chunked",
+            "connection": "keep-alive",
+            "x-xss-protection": "0",
+            "x-content-type-options": "nosniff",
+            "x-download-options": "noopen",
+            "x-frame-options": "SAMEORIGIN",
+            "x-dns-prefetch-control": "off",
+            "strict-transport-security": "max-age=31536000",
+            "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+            "access-control-allow-origin": "*",
+            "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+            "x-ratelimit-limit": "5000",
+            "x-ratelimit-remaining": "4995",
+            "x-ratelimit-reset": "1779266762",
+            "cache-control": "private, max-age=0",
+            "x-robots-tag": "noindex, nofollow",
+            "access-control-allow-headers": "Accept, App-Platform, Authorization, Content-Type, Origin, Retry-After, Spotify-App-Version, X-Cloud-Trace-Context, client-token, content-access-token",
+            "access-control-allow-methods": "GET, POST, OPTIONS, PUT, DELETE, PATCH",
+            "access-control-allow-credentials": "true",
+            "access-control-max-age": "604800",
+            "alt-svc": "h3=\":443\"; ma=2592000,h3-29=\":443\"; ma=2592000, h3=\":443\"; ma=2592000,h3-29=\":443\"; ma=2592000",
+            "server": "envoy",
+            "via": "HTTP/2 edgeproxy, 1.1 google"
+          },
+          "hash": "8a55166ab13b3ba293087e11895bf48e5c94f748",
+          "request": {
+            "params": {
+              "after": "1779266501704",
+              "limit": "50"
+            }
+          }
+        }
+      ]
+    }
+  }
+}

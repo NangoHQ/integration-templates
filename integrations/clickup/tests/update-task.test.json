@@ -1,0 +1,144 @@
+{
+  "input": {
+    "task_id": "86c9w403t",
+    "name": "Updated Task Name for Test"
+  },
+  "output": {
+    "id": "86c9w403t",
+    "name": "Updated Task Name for Test",
+    "description": "",
+    "status": "to do",
+    "archived": false,
+    "url": "https://app.clickup.com/t/86c9w403t"
+  },
+  "nango": {},
+  "api": {
+    "put": {
+      "/api/v2/task/86c9w403t": {
+        "response": {
+          "id": "86c9w403t",
+          "custom_id": null,
+          "custom_item_id": 0,
+          "name": "Updated Task Name for Test",
+          "text_content": "",
+          "description": "",
+          "status": {
+            "id": "p901511023376_DCnaeiSB",
+            "status": "to do",
+            "color": "#87909e",
+            "orderindex": 0,
+            "type": "open"
+          },
+          "orderindex": "39908296.00000000000000000000000000000000",
+          "date_created": "1779205039697",
+          "date_updated": "1779205173437",
+          "date_closed": null,
+          "date_done": null,
+          "archived": false,
+          "creator": {
+            "id": 302438666,
+            "username": "Nango Developer",
+            "color": "#595d66",
+            "email": "api@nango.dev",
+            "profilePicture": null
+          },
+          "assignees": [],
+          "group_assignees": [],
+          "watchers": [
+            {
+              "id": 302438666,
+              "username": "Nango Developer",
+              "color": "#595d66",
+              "initials": "ND",
+              "email": "api@nango.dev",
+              "profilePicture": null
+            }
+          ],
+          "checklists": [],
+          "tags": [],
+          "parent": null,
+          "top_level_parent": null,
+          "priority": null,
+          "due_date": null,
+          "start_date": null,
+          "points": null,
+          "time_estimate": null,
+          "time_spent": 0,
+          "custom_fields": [],
+          "dependencies": [],
+          "linked_tasks": [],
+          "locations": [],
+          "team_id": "90152560096",
+          "url": "https://app.clickup.com/t/86c9w403t",
+          "sharing": {
+            "public": false,
+            "public_share_expires_on": null,
+            "public_fields": [
+              "assignees",
+              "priority",
+              "due_date",
+              "content",
+              "comments",
+              "attachments",
+              "customFields",
+              "subtasks",
+              "tags",
+              "checklists",
+              "coverimage"
+            ],
+            "token": null,
+            "seo_optimized": false
+          },
+          "permission_level": "create",
+          "list": {
+            "id": "901523453440",
+            "name": "Temp List for Update Test",
+            "access": true
+          },
+          "project": {
+            "id": "901516079413",
+            "name": "hidden",
+            "hidden": true,
+            "access": true
+          },
+          "folder": {
+            "id": "901516079413",
+            "name": "hidden",
+            "hidden": true,
+            "access": true
+          },
+          "space": {
+            "id": "901511023376"
+          },
+          "attachments": []
+        },
+        "status": 200,
+        "headers": {
+          "date": "Tue, 19 May 2026 15:39:33 GMT",
+          "content-type": "application/json; charset=utf-8",
+          "content-length": "1542",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=5184000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4984",
+          "x-ratelimit-reset": "1779205209",
+          "etag": "W/\"606-Ue/jLdGxpd/OPByZMHIoBXloTAY\""
+        },
+        "hash": "22369e60e7e25d77fd7b92d3f7d1945c5871b7db",
+        "request": {
+          "data": {
+            "name": "Updated Task Name for Test"
+          }
+        }
+      }
+    }
+  }
+}

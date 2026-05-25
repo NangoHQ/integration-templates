@@ -1,0 +1,1565 @@
+{
+  "input": {},
+  "output": {
+    "items": [
+      {
+        "id": "Kuala_Lumpur_site",
+        "name": "Kuala Lumpur",
+        "country": "MY",
+        "inactive": false
+      },
+      {
+        "id": "Toronto_site",
+        "name": "Toronto",
+        "country": "CA",
+        "inactive": false
+      },
+      {
+        "id": "Hong_Kong_site",
+        "name": "Hong Kong",
+        "country": "HK",
+        "inactive": false
+      },
+      {
+        "id": "Home_Office_USA_site",
+        "name": "Home Office (USA)",
+        "country": "US",
+        "inactive": false
+      },
+      {
+        "id": "Mumbai_site",
+        "name": "Mumbai",
+        "country": "IN",
+        "inactive": false
+      },
+      {
+        "id": "Manila_site",
+        "name": "Manila",
+        "country": "PH",
+        "inactive": false
+      },
+      {
+        "id": "Milan_site",
+        "name": "Milan",
+        "country": "IT",
+        "inactive": false
+      },
+      {
+        "id": "Sao_Paulo_site",
+        "name": "São Paulo",
+        "country": "BR",
+        "inactive": false
+      },
+      {
+        "id": "Shanghai_site",
+        "name": "Shanghai",
+        "country": "CN",
+        "inactive": false
+      },
+      {
+        "id": "Paris_site",
+        "name": "Paris",
+        "country": "FR",
+        "inactive": false
+      },
+      {
+        "id": "Nice_site",
+        "name": "Nice",
+        "country": "FR",
+        "inactive": false
+      },
+      {
+        "id": "Tokyo_site",
+        "name": "Tokyo",
+        "country": "JP",
+        "inactive": false
+      },
+      {
+        "id": "Montreal_site",
+        "name": "Montreal",
+        "country": "CA",
+        "inactive": false
+      },
+      {
+        "id": "Sydney_site",
+        "name": "Sydney",
+        "country": "AU",
+        "inactive": false
+      },
+      {
+        "id": "London_site",
+        "name": "London",
+        "country": "GB",
+        "inactive": false
+      },
+      {
+        "id": "Mexico_City_site",
+        "name": "Mexico City",
+        "country": "MX",
+        "inactive": false
+      },
+      {
+        "id": "Vancouver_site",
+        "name": "Vancouver",
+        "country": "CA",
+        "inactive": false
+      },
+      {
+        "id": "Singapore_site",
+        "name": "Singapore",
+        "country": "SG",
+        "inactive": false
+      },
+      {
+        "id": "Barcelona_site",
+        "name": "Barcelona",
+        "country": "ES",
+        "inactive": false
+      },
+      {
+        "id": "Stockholm_site",
+        "name": "Stockholm",
+        "country": "SE",
+        "inactive": false
+      },
+      {
+        "id": "Munich_site",
+        "name": "Munich",
+        "country": "DE",
+        "inactive": false
+      },
+      {
+        "id": "Geneva_site",
+        "name": "Geneva",
+        "country": "CH",
+        "inactive": false
+      },
+      {
+        "id": "Boston_site",
+        "name": "Boston",
+        "country": "US",
+        "inactive": false
+      },
+      {
+        "id": "Atlanta_site",
+        "name": "Atlanta",
+        "country": "US",
+        "inactive": false
+      },
+      {
+        "id": "Chicago_site",
+        "name": "Chicago",
+        "country": "US",
+        "inactive": false
+      },
+      {
+        "id": "New_York_site",
+        "name": "New York",
+        "country": "US",
+        "inactive": false
+      },
+      {
+        "id": "LOCATION-4-97",
+        "name": "Suntec Tower",
+        "inactive": false
+      },
+      {
+        "id": "LOCATION-4-70",
+        "name": "1155 Building",
+        "inactive": false
+      },
+      {
+        "id": "Amsterdam_site",
+        "name": "Amsterdam",
+        "country": "NL",
+        "inactive": false
+      },
+      {
+        "id": "Dallas_site",
+        "name": "Dallas",
+        "country": "US",
+        "inactive": false
+      },
+      {
+        "id": "San_Francisco_site",
+        "name": "San Francisco",
+        "country": "US",
+        "inactive": false
+      },
+      {
+        "id": "LOCATION-4-98",
+        "name": "Suite 500B",
+        "inactive": false
+      },
+      {
+        "id": "LOCATION-4-71",
+        "name": "Suite 1500",
+        "inactive": false
+      },
+      {
+        "id": "LOCATION-4-33",
+        "name": "Embarcadero Tower 2",
+        "inactive": false
+      },
+      {
+        "id": "LOCATION-4-32",
+        "name": "Embarcadero Tower 1",
+        "inactive": false
+      },
+      {
+        "id": "LOCATION-4-102",
+        "name": "Cubicle 515",
+        "inactive": false
+      },
+      {
+        "id": "LOCATION-4-101",
+        "name": "Cubicle 513",
+        "inactive": false
+      },
+      {
+        "id": "LOCATION-4-100",
+        "name": "Cubicle 512",
+        "inactive": false
+      },
+      {
+        "id": "LOCATION-4-99",
+        "name": "Cubicle 511",
+        "inactive": false
+      },
+      {
+        "id": "LOCATION-4-96",
+        "name": "Cubicle 1525",
+        "inactive": false
+      },
+      {
+        "id": "LOCATION-4-95",
+        "name": "Cubicle 1524",
+        "inactive": false
+      },
+      {
+        "id": "LOCATION-4-94",
+        "name": "Cubicle 1523",
+        "inactive": false
+      },
+      {
+        "id": "LOCATION-4-93",
+        "name": "Cubicle 1522",
+        "inactive": false
+      },
+      {
+        "id": "LOCATION-4-92",
+        "name": "Cubicle 1521",
+        "inactive": false
+      },
+      {
+        "id": "LOCATION-4-91",
+        "name": "Cubicle 1520",
+        "inactive": false
+      },
+      {
+        "id": "LOCATION-4-90",
+        "name": "Cubicle 1519",
+        "inactive": false
+      },
+      {
+        "id": "LOCATION-4-89",
+        "name": "Cubicle 1518",
+        "inactive": false
+      },
+      {
+        "id": "LOCATION-4-88",
+        "name": "Cubicle 1517",
+        "inactive": false
+      },
+      {
+        "id": "LOCATION-4-87",
+        "name": "Cubicle 1516",
+        "inactive": false
+      },
+      {
+        "id": "LOCATION-4-86",
+        "name": "Cubicle 1515",
+        "inactive": false
+      },
+      {
+        "id": "LOCATION-4-85",
+        "name": "Cubicle 1514",
+        "inactive": false
+      },
+      {
+        "id": "LOCATION-4-84",
+        "name": "Cubicle 1513",
+        "inactive": false
+      },
+      {
+        "id": "LOCATION-4-83",
+        "name": "Cubicle 1512",
+        "inactive": false
+      },
+      {
+        "id": "LOCATION-4-82",
+        "name": "Cubicle 1511",
+        "inactive": false
+      },
+      {
+        "id": "LOCATION-4-81",
+        "name": "Cubicle 1510",
+        "inactive": false
+      },
+      {
+        "id": "LOCATION-4-80",
+        "name": "Cubicle 1509",
+        "inactive": false
+      },
+      {
+        "id": "LOCATION-4-79",
+        "name": "Cubicle 1508",
+        "inactive": false
+      },
+      {
+        "id": "LOCATION-4-78",
+        "name": "Cubicle 1507",
+        "inactive": false
+      },
+      {
+        "id": "LOCATION-4-77",
+        "name": "Cubicle 1506",
+        "inactive": false
+      },
+      {
+        "id": "LOCATION-4-76",
+        "name": "Cubicle 1505",
+        "inactive": false
+      },
+      {
+        "id": "LOCATION-4-75",
+        "name": "Cubicle 1504",
+        "inactive": false
+      },
+      {
+        "id": "LOCATION-4-74",
+        "name": "Cubicle 1503",
+        "inactive": false
+      },
+      {
+        "id": "LOCATION-4-73",
+        "name": "Cubicle 1502",
+        "inactive": false
+      },
+      {
+        "id": "LOCATION-4-72",
+        "name": "Cubicle 1501",
+        "inactive": false
+      },
+      {
+        "id": "LOCATION-4-39",
+        "name": "Suite 300 - Under Construction",
+        "inactive": false
+      },
+      {
+        "id": "LOCATION-4-38",
+        "name": "Suite 200",
+        "inactive": false
+      },
+      {
+        "id": "LOCATION-4-37",
+        "name": "Suite 100",
+        "inactive": false
+      },
+      {
+        "id": "LOCATION-4-36",
+        "name": "Suite 300",
+        "inactive": false
+      },
+      {
+        "id": "LOCATION-4-35",
+        "name": "Suite 200",
+        "inactive": false
+      },
+      {
+        "id": "LOCATION-4-34",
+        "name": "Suite 100",
+        "inactive": false
+      },
+      {
+        "id": "LOCATION-4-69",
+        "name": "Cubicle 3010",
+        "inactive": false
+      },
+      {
+        "id": "LOCATION-4-68",
+        "name": "Cubicle 3009",
+        "inactive": false
+      },
+      {
+        "id": "LOCATION-4-67",
+        "name": "Cubicle 3007",
+        "inactive": false
+      },
+      {
+        "id": "LOCATION-4-66",
+        "name": "Cubicle 3008",
+        "inactive": false
+      },
+      {
+        "id": "LOCATION-4-65",
+        "name": "Cubicle 3006",
+        "inactive": false
+      },
+      {
+        "id": "LOCATION-4-64",
+        "name": "Cubicle 3005",
+        "inactive": false
+      },
+      {
+        "id": "LOCATION-4-63",
+        "name": "Cubicle 3004",
+        "inactive": false
+      },
+      {
+        "id": "LOCATION-4-62",
+        "name": "Cubicle 3003",
+        "inactive": false
+      },
+      {
+        "id": "LOCATION-4-61",
+        "name": "Cubicle 3002",
+        "inactive": false
+      },
+      {
+        "id": "LOCATION-4-60",
+        "name": "Cubicle 3001",
+        "inactive": false
+      },
+      {
+        "id": "LOCATION-4-59",
+        "name": "Cubicle 2010",
+        "inactive": false
+      },
+      {
+        "id": "LOCATION-4-58",
+        "name": "Cubicle 2009",
+        "inactive": false
+      },
+      {
+        "id": "LOCATION-4-57",
+        "name": "Cubicle 2008",
+        "inactive": false
+      },
+      {
+        "id": "LOCATION-4-56",
+        "name": "Cubicle 2007",
+        "inactive": false
+      },
+      {
+        "id": "LOCATION-4-55",
+        "name": "Cubicle 2006",
+        "inactive": false
+      },
+      {
+        "id": "LOCATION-4-54",
+        "name": "Cubicle 2005",
+        "inactive": false
+      },
+      {
+        "id": "LOCATION-4-53",
+        "name": "Cubicle 2004",
+        "inactive": false
+      },
+      {
+        "id": "LOCATION-4-52",
+        "name": "Cubicle 2003",
+        "inactive": false
+      },
+      {
+        "id": "LOCATION-4-51",
+        "name": "Cubicle 2002",
+        "inactive": false
+      },
+      {
+        "id": "LOCATION-4-50",
+        "name": "Cubicle 2001",
+        "inactive": false
+      },
+      {
+        "id": "LOCATION-4-49",
+        "name": "Cubicle 1010",
+        "inactive": false
+      },
+      {
+        "id": "LOCATION-4-48",
+        "name": "Cubicle 1009",
+        "inactive": false
+      },
+      {
+        "id": "LOCATION-4-47",
+        "name": "Cubicle 1008",
+        "inactive": false
+      },
+      {
+        "id": "LOCATION-4-46",
+        "name": "Cubicle 1007",
+        "inactive": false
+      },
+      {
+        "id": "LOCATION-4-45",
+        "name": "Cubicle 1006",
+        "inactive": false
+      },
+      {
+        "id": "LOCATION-4-44",
+        "name": "Cubicle 1005",
+        "inactive": false
+      },
+      {
+        "id": "LOCATION-4-43",
+        "name": "Cubicle 1004",
+        "inactive": false
+      },
+      {
+        "id": "LOCATION-4-42",
+        "name": "Cubicle 1003",
+        "inactive": false
+      },
+      {
+        "id": "LOCATION-4-41",
+        "name": "Cubicle 1002",
+        "inactive": false
+      },
+      {
+        "id": "LOCATION-4-40",
+        "name": "Cubicle 1001",
+        "inactive": false
+      },
+      {
+        "id": "LOCATION-6-207",
+        "name": "PAN Houston",
+        "country": "US",
+        "inactive": false
+      },
+      {
+        "id": "LOCATION-6-206",
+        "name": "Apple Houston",
+        "country": "US",
+        "inactive": false
+      },
+      {
+        "id": "LOCATION-6-205",
+        "name": "Erpa Hyderabad",
+        "country": "IN",
+        "inactive": false
+      },
+      {
+        "id": "LOCATION-6-204",
+        "name": "Erpa Vancover",
+        "country": "CA",
+        "inactive": false
+      },
+      {
+        "id": "LOCATION-6-203",
+        "name": "Erpa Huston",
+        "country": "US",
+        "inactive": false
+      },
+      {
+        "id": "LOCATION-6-202",
+        "name": "Erpa New Jersey",
+        "country": "US",
+        "inactive": false
+      },
+      {
+        "id": "LOCATION-6-201",
+        "name": "FM Huston",
+        "country": "US",
+        "inactive": false
+      },
+      {
+        "id": "LOCATION-6-200",
+        "name": "FM Hyderabad",
+        "country": "IN",
+        "inactive": false
+      },
+      {
+        "id": "LOCATION-6-199",
+        "name": "Mumbai_VP",
+        "country": "IN",
+        "inactive": false
+      },
+      {
+        "id": "LOCATION-6-191",
+        "name": "Bangalore",
+        "country": "IN",
+        "inactive": false
+      },
+      {
+        "id": "LOCATION-6-190",
+        "name": "California",
+        "country": "US",
+        "inactive": false
+      },
+      {
+        "id": "LOCATION-6-189",
+        "name": "New Jersey",
+        "country": "US",
+        "inactive": false
+      },
+      {
+        "id": "LOCATION-10-188",
+        "name": "Berwyn",
+        "country": "US",
+        "inactive": false
+      },
+      {
+        "id": "LOCATION-10-187",
+        "name": "Zurich",
+        "country": "CH",
+        "inactive": false
+      },
+      {
+        "id": "LOCATION-10-186",
+        "name": "Athens",
+        "country": "GR",
+        "inactive": false
+      },
+      {
+        "id": "LOCATION-10-185",
+        "name": "Lisbon",
+        "country": "PT",
+        "inactive": false
+      },
+      {
+        "id": "LOCATION-10-184",
+        "name": "Madrid",
+        "country": "ES",
+        "inactive": false
+      },
+      {
+        "id": "LOCATION-10-183",
+        "name": "Rome",
+        "country": "IT",
+        "inactive": false
+      },
+      {
+        "id": "LOCATION-10-182",
+        "name": "Sofia",
+        "country": "BG",
+        "inactive": false
+      },
+      {
+        "id": "LOCATION-10-181",
+        "name": "Bucharest",
+        "country": "RO",
+        "inactive": false
+      },
+      {
+        "id": "LOCATION-10-180",
+        "name": "Budapest",
+        "country": "HU",
+        "inactive": false
+      },
+      {
+        "id": "LOCATION-10-179",
+        "name": "Vienna",
+        "country": "AT",
+        "inactive": false
+      },
+      {
+        "id": "LOCATION-10-178",
+        "name": "Berlin",
+        "country": "DE",
+        "inactive": false
+      },
+      {
+        "id": "LOCATION-10-177",
+        "name": "Copenhagen",
+        "country": "DK",
+        "inactive": false
+      },
+      {
+        "id": "LOCATION-10-176",
+        "name": "Helsinki",
+        "country": "FI",
+        "inactive": false
+      },
+      {
+        "id": "LOCATION-10-175",
+        "name": "Wellington",
+        "country": "NZ",
+        "inactive": false
+      },
+      {
+        "id": "LOCATION-10-174",
+        "name": "Jakarta",
+        "country": "ID",
+        "inactive": false
+      },
+      {
+        "id": "LOCATION-4-173",
+        "name": "Calgary",
+        "country": "CA",
+        "inactive": false
+      },
+      {
+        "id": "LOCATION-4-172",
+        "name": "Prague",
+        "country": "CZ",
+        "inactive": false
+      },
+      {
+        "id": "LOCATION-4-171",
+        "name": "Moscow",
+        "country": "RU",
+        "inactive": false
+      },
+      {
+        "id": "LOCATION-4-170",
+        "name": "Warsaw",
+        "country": "PL",
+        "inactive": false
+      },
+      {
+        "id": "LOCATION-4-169",
+        "name": "Kuala Lumpur",
+        "country": "MY",
+        "inactive": true
+      },
+      {
+        "id": "LOCATION-4-168",
+        "name": "Melbourne",
+        "country": "AU",
+        "inactive": false
+      },
+      {
+        "id": "LOCATION-4-167",
+        "name": "Auckland",
+        "country": "NZ",
+        "inactive": false
+      },
+      {
+        "id": "LOCATION-4-166",
+        "name": "Oslo",
+        "country": "NO",
+        "inactive": false
+      },
+      {
+        "id": "LOCATION-4-165",
+        "name": "Dublin",
+        "country": "IE",
+        "inactive": false
+      },
+      {
+        "id": "LOCATION-4-164",
+        "name": "Dubai",
+        "country": "AE",
+        "inactive": false
+      },
+      {
+        "id": "LOCATION-4-163",
+        "name": "Brussels",
+        "country": "BE",
+        "inactive": false
+      },
+      {
+        "id": "LOCATION-6-209",
+        "name": "Pan-WH-1",
+        "inactive": false
+      },
+      {
+        "id": "LOCATION-6-208",
+        "name": "Pan-WH-2",
+        "country": "US",
+        "inactive": false
+      },
+      {
+        "id": "LOCATION-4-162",
+        "name": "Global Support Office",
+        "inactive": false
+      },
+      {
+        "id": "LOCATION-4-110",
+        "name": "Cubicle 520",
+        "inactive": false
+      },
+      {
+        "id": "LOCATION-4-108",
+        "name": "Office of the CFO",
+        "inactive": false
+      },
+      {
+        "id": "LOCATION-4-107",
+        "name": "Cubicle 519",
+        "inactive": false
+      },
+      {
+        "id": "LOCATION-4-106",
+        "name": "Cubicle 518",
+        "inactive": false
+      },
+      {
+        "id": "LOCATION-4-105",
+        "name": "Cubicle 517",
+        "inactive": false
+      },
+      {
+        "id": "LOCATION-4-104",
+        "name": "Cubicle 516",
+        "inactive": false
+      },
+      {
+        "id": "LOCATION-4-103",
+        "name": "Cubicle 514",
+        "inactive": false
+      },
+      {
+        "id": "LOCATION-4-161",
+        "name": "Office of Global Support",
+        "inactive": false
+      },
+      {
+        "id": "LOCATION-4-160",
+        "name": "Shipping & Receiving",
+        "inactive": false
+      },
+      {
+        "id": "LOCATION-4-159",
+        "name": "Office of the CIO",
+        "inactive": false
+      },
+      {
+        "id": "LOCATION-4-158",
+        "name": "Legal Office B",
+        "inactive": false
+      },
+      {
+        "id": "LOCATION-4-157",
+        "name": "Legal Office A",
+        "inactive": false
+      },
+      {
+        "id": "LOCATION-4-156",
+        "name": "Cubicle 2015",
+        "inactive": false
+      },
+      {
+        "id": "LOCATION-4-155",
+        "name": "Cubicle 2014",
+        "inactive": false
+      },
+      {
+        "id": "LOCATION-4-154",
+        "name": "Cubicle 2013",
+        "inactive": false
+      },
+      {
+        "id": "LOCATION-4-153",
+        "name": "Cubicle 2012",
+        "inactive": false
+      },
+      {
+        "id": "LOCATION-4-152",
+        "name": "Cubicle 2011",
+        "inactive": false
+      },
+      {
+        "id": "LOCATION-4-151",
+        "name": "Cubicle 2010",
+        "inactive": false
+      },
+      {
+        "id": "LOCATION-4-150",
+        "name": "Cubicle 2009",
+        "inactive": false
+      },
+      {
+        "id": "LOCATION-4-149",
+        "name": "Cubicle 2008",
+        "inactive": false
+      },
+      {
+        "id": "LOCATION-4-148",
+        "name": "Cubicle 2007",
+        "inactive": false
+      },
+      {
+        "id": "LOCATION-4-147",
+        "name": "Cubicle 1015",
+        "inactive": false
+      },
+      {
+        "id": "LOCATION-4-146",
+        "name": "Cubicle 1014",
+        "inactive": false
+      },
+      {
+        "id": "LOCATION-4-145",
+        "name": "Cubicle 1013",
+        "inactive": false
+      },
+      {
+        "id": "LOCATION-4-144",
+        "name": "Cubicle 1012",
+        "inactive": false
+      },
+      {
+        "id": "LOCATION-4-143",
+        "name": "Cubicle 1011",
+        "inactive": false
+      },
+      {
+        "id": "LOCATION-4-142",
+        "name": "Cubicle 3015",
+        "inactive": false
+      },
+      {
+        "id": "LOCATION-4-141",
+        "name": "Cubicle 3014",
+        "inactive": false
+      },
+      {
+        "id": "LOCATION-4-140",
+        "name": "Cubicle 3013",
+        "inactive": false
+      },
+      {
+        "id": "LOCATION-4-139",
+        "name": "Cubicle 3012",
+        "inactive": false
+      },
+      {
+        "id": "LOCATION-4-138",
+        "name": "Cubicle 3011",
+        "inactive": false
+      },
+      {
+        "id": "LOCATION-4-137",
+        "name": "Cubicle 2015",
+        "inactive": false
+      },
+      {
+        "id": "LOCATION-4-136",
+        "name": "Cubicle 2014",
+        "inactive": false
+      },
+      {
+        "id": "LOCATION-4-135",
+        "name": "Cubicle 2013",
+        "inactive": false
+      },
+      {
+        "id": "LOCATION-4-134",
+        "name": "Cubicle 2012",
+        "inactive": false
+      },
+      {
+        "id": "LOCATION-4-133",
+        "name": "Cubicle 2011",
+        "inactive": false
+      },
+      {
+        "id": "LOCATION-4-132",
+        "name": "Cubicle 1015",
+        "inactive": false
+      },
+      {
+        "id": "LOCATION-4-131",
+        "name": "Cubicle 1014",
+        "inactive": false
+      },
+      {
+        "id": "LOCATION-4-130",
+        "name": "Cubicle 1013",
+        "inactive": false
+      },
+      {
+        "id": "LOCATION-4-129",
+        "name": "Cubicle 1012",
+        "inactive": false
+      },
+      {
+        "id": "LOCATION-4-128",
+        "name": "Cubicle 1011",
+        "inactive": false
+      },
+      {
+        "id": "LOCATION-4-127",
+        "name": "Office of the CHRO",
+        "inactive": false
+      },
+      {
+        "id": "LOCATION-4-126",
+        "name": "Cubicle 2006",
+        "inactive": false
+      },
+      {
+        "id": "LOCATION-4-125",
+        "name": "Cubicle 2005",
+        "inactive": false
+      },
+      {
+        "id": "LOCATION-4-124",
+        "name": "Cubicle 2004",
+        "inactive": false
+      },
+      {
+        "id": "LOCATION-4-123",
+        "name": "Cubicle 2003",
+        "inactive": false
+      },
+      {
+        "id": "LOCATION-4-122",
+        "name": "Cubicle 2002",
+        "inactive": false
+      },
+      {
+        "id": "LOCATION-4-121",
+        "name": "Cubicle 2001",
+        "inactive": false
+      },
+      {
+        "id": "LOCATION-4-120",
+        "name": "Cubicle 1010",
+        "inactive": false
+      },
+      {
+        "id": "LOCATION-4-119",
+        "name": "Cubicle 1009",
+        "inactive": false
+      },
+      {
+        "id": "LOCATION-4-118",
+        "name": "Cubicle 1008",
+        "inactive": false
+      },
+      {
+        "id": "LOCATION-4-117",
+        "name": "Cubicle 1007",
+        "inactive": false
+      },
+      {
+        "id": "LOCATION-4-116",
+        "name": "Cubicle 1006",
+        "inactive": false
+      },
+      {
+        "id": "LOCATION-4-115",
+        "name": "Cubicle 1005",
+        "inactive": false
+      },
+      {
+        "id": "LOCATION-4-114",
+        "name": "Cubicle 1004",
+        "inactive": false
+      },
+      {
+        "id": "LOCATION-4-113",
+        "name": "Cubicle 1003",
+        "inactive": false
+      },
+      {
+        "id": "LOCATION-4-112",
+        "name": "Cubicle 1002",
+        "inactive": false
+      },
+      {
+        "id": "LOCATION-4-111",
+        "name": "Cubicle 1001",
+        "inactive": false
+      },
+      {
+        "id": "LOCATION-4-109",
+        "name": "Office of the CEO",
+        "inactive": false
+      },
+      {
+        "id": "LOCATION-6-511",
+        "name": "Edmonton",
+        "country": "CA",
+        "inactive": false
+      },
+      {
+        "id": "LOCATION-6-380",
+        "name": "SAMSUNG NEW JERSEY",
+        "country": "US",
+        "inactive": false
+      },
+      {
+        "id": "LOCATION-6-502",
+        "name": "Los Angeles",
+        "country": "US",
+        "inactive": false
+      },
+      {
+        "id": "LOCATION-6-501",
+        "name": "Reading",
+        "country": "GB",
+        "inactive": false
+      },
+      {
+        "id": "LOCATION-6-245",
+        "name": "KPMG Rome",
+        "country": "IT",
+        "inactive": false
+      },
+      {
+        "id": "LOCATION-6-244",
+        "name": "KPMG Dublin",
+        "country": "IE",
+        "inactive": false
+      },
+      {
+        "id": "LOCATION-6-243",
+        "name": "KPMG London",
+        "country": "GB",
+        "inactive": false
+      },
+      {
+        "id": "LOCATION-6-242",
+        "name": "WLI Rome",
+        "country": "IT",
+        "inactive": false
+      },
+      {
+        "id": "LOCATION-6-370",
+        "name": "Net2Apps Location 1",
+        "inactive": false
+      },
+      {
+        "id": "LOCATION-6-241",
+        "name": "WLI Dublin",
+        "country": "GB",
+        "inactive": false
+      },
+      {
+        "id": "LOCATION-6-240",
+        "name": "WLI London",
+        "country": "GB",
+        "inactive": false
+      },
+      {
+        "id": "LOCATION-6-239",
+        "name": "Banana New Jersey",
+        "country": "US",
+        "inactive": false
+      },
+      {
+        "id": "LOCATION-6-621",
+        "name": "Los Angeles",
+        "country": "US",
+        "inactive": false
+      },
+      {
+        "id": "LOCATION-6-492",
+        "name": "Shell Oslo",
+        "inactive": false
+      },
+      {
+        "id": "LOCATION-6-491",
+        "name": "Shell Manchester",
+        "inactive": false
+      },
+      {
+        "id": "LOCATION-6-360",
+        "name": "BRONX",
+        "country": "US",
+        "inactive": false
+      },
+      {
+        "id": "LOCATION-6-229",
+        "name": "Huston",
+        "country": "US",
+        "inactive": false
+      },
+      {
+        "id": "LOCATION-6-611",
+        "name": "CS San Francisco",
+        "country": "US",
+        "inactive": false
+      },
+      {
+        "id": "LOCATION-6-482",
+        "name": "RELX Berlin",
+        "inactive": false
+      },
+      {
+        "id": "LOCATION-6-481",
+        "name": "Shell London",
+        "inactive": false
+      },
+      {
+        "id": "LOCATION-6-222",
+        "name": "Citi  Principal Warehouse New jersey",
+        "country": "US",
+        "inactive": false
+      },
+      {
+        "id": "LOCATION-6-219",
+        "name": "Citi  Houston",
+        "country": "US",
+        "inactive": false
+      },
+      {
+        "id": "LOCATION-6-218",
+        "name": "Citi New Jersey",
+        "country": "US",
+        "inactive": false
+      },
+      {
+        "id": "LOCATION-6-601",
+        "name": "ABS Reading",
+        "country": "DE",
+        "inactive": false
+      },
+      {
+        "id": "LOCATION-6-217",
+        "name": "Citi London",
+        "country": "GB",
+        "inactive": false
+      },
+      {
+        "id": "LOCATION-6-471",
+        "name": "RELX England",
+        "inactive": false
+      },
+      {
+        "id": "LOCATION-6-340",
+        "name": "Memorial Hospital",
+        "country": "US",
+        "inactive": false
+      },
+      {
+        "id": "LOCATION-6-591",
+        "name": "ABS Munich",
+        "country": "DE",
+        "inactive": false
+      },
+      {
+        "id": "LOCATION-6-461",
+        "name": "Ashburn",
+        "country": "US",
+        "inactive": false
+      },
+      {
+        "id": "LOCATION-6-332",
+        "name": "SI MANIKGANJ",
+        "country": "BD",
+        "inactive": false
+      },
+      {
+        "id": "LOCATION-6-331",
+        "name": "SI RAJSHAHI DOHS",
+        "country": "BD",
+        "inactive": false
+      },
+      {
+        "id": "LOCATION-6-330",
+        "name": "HR Mohakhali DOHS",
+        "country": "BD",
+        "inactive": false
+      },
+      {
+        "id": "LOCATION-6-581",
+        "name": "US Certification",
+        "country": "US",
+        "inactive": false
+      },
+      {
+        "id": "LOCATION-6-320",
+        "name": "MK SNOW Huston",
+        "country": "US",
+        "inactive": false
+      },
+      {
+        "id": "LOCATION-6-571",
+        "name": "San Francisco Office",
+        "country": "US",
+        "inactive": false
+      },
+      {
+        "id": "LOCATION-6-441",
+        "name": "CN_Hyderabad",
+        "country": "IN",
+        "inactive": false
+      },
+      {
+        "id": "LOCATION-6-311",
+        "name": "North Bangalore",
+        "country": "IN",
+        "inactive": false
+      },
+      {
+        "id": "LOCATION-6-310",
+        "name": "Tumkur",
+        "country": "IN",
+        "inactive": false
+      },
+      {
+        "id": "LOCATION-6-562",
+        "name": "San Francisco Office",
+        "country": "US",
+        "inactive": false
+      },
+      {
+        "id": "LOCATION-6-561",
+        "name": "San Francisco Office",
+        "country": "US",
+        "inactive": false
+      },
+      {
+        "id": "LOCATION-6-431",
+        "name": "Wells Fargo San Francisco",
+        "country": "US",
+        "inactive": false
+      },
+      {
+        "id": "No Nearby Office",
+        "name": "Wells Fargo NJ",
+        "country": "US",
+        "inactive": false
+      },
+      {
+        "id": "LOCATION-6-300",
+        "name": "MK_SanFrancisco",
+        "country": "US",
+        "inactive": false
+      },
+      {
+        "id": "LOCATION-6-551",
+        "name": "reading",
+        "country": "GB",
+        "inactive": false
+      },
+      {
+        "id": "LOCATION-6-420",
+        "name": "Adex-Sweetreat loc",
+        "country": "GB",
+        "inactive": false
+      },
+      {
+        "id": "LOCATION-6-291",
+        "name": "Pune",
+        "country": "IN",
+        "inactive": false
+      },
+      {
+        "id": "LOCATION-6-541",
+        "name": "Los Angeles",
+        "country": "US",
+        "inactive": false
+      },
+      {
+        "id": "LOCATION-6-413",
+        "name": "New York - 28",
+        "country": "US",
+        "inactive": false
+      },
+      {
+        "id": "LOCATION-6-412",
+        "name": "Mumbai - 28",
+        "country": "IN",
+        "inactive": false
+      },
+      {
+        "id": "LOCATION-6-411",
+        "name": "Bangalore - 28",
+        "country": "IN",
+        "inactive": false
+      },
+      {
+        "id": "LOCATION-6-410",
+        "name": "Stockholm",
+        "country": "SE",
+        "inactive": false
+      },
+      {
+        "id": "LOCATION-6-280",
+        "name": "New Delhi",
+        "country": "IN",
+        "inactive": false
+      },
+      {
+        "id": "LOCATION-6-532",
+        "name": "Tampa",
+        "country": "US",
+        "inactive": false
+      },
+      {
+        "id": "LOCATION-6-531",
+        "name": "Seattle",
+        "country": "US",
+        "inactive": false
+      },
+      {
+        "id": "LOCATION-6-403",
+        "name": "Arizona",
+        "country": "US",
+        "inactive": false
+      },
+      {
+        "id": "LOCATION-6-402",
+        "name": "Mumbai - 17",
+        "country": "IN",
+        "inactive": false
+      },
+      {
+        "id": "LOCATION-6-401",
+        "name": "Bangalore - 17",
+        "country": "IN",
+        "inactive": false
+      },
+      {
+        "id": "LOCATION-6-272",
+        "name": "Hyderabad",
+        "country": "IN",
+        "inactive": false
+      },
+      {
+        "id": "LOCATION-6-400",
+        "name": "New York - 17",
+        "country": "US",
+        "inactive": false
+      },
+      {
+        "id": "LOCATION-6-271",
+        "name": "Chennai",
+        "country": "IN",
+        "inactive": false
+      },
+      {
+        "id": "LOCATION-6-270",
+        "name": "Bangalore - 01",
+        "country": "IN",
+        "inactive": false
+      },
+      {
+        "id": "LOCATION-6-521",
+        "name": "Ottawa",
+        "country": "CA",
+        "inactive": false
+      },
+      {
+        "id": "LOCATION-6-390",
+        "name": "Net2Apps Location 2",
+        "country": "US",
+        "inactive": false
+      },
+      {
+        "id": "LOCATION-6-260",
+        "name": "NAFDAC ATLANTA",
+        "country": "US",
+        "inactive": false
+      },
+      {
+        "id": "LOCATION-6-250",
+        "name": "WLI Site",
+        "country": "GB",
+        "inactive": false
+      },
+      {
+        "id": "LOCATION-6-225",
+        "name": "Citi New jersey WH  Floor 3",
+        "country": "US",
+        "inactive": false
+      },
+      {
+        "id": "LOCATION-6-224",
+        "name": "Citi New jersey WH  Floor 2",
+        "country": "US",
+        "inactive": false
+      },
+      {
+        "id": "LOCATION-6-223",
+        "name": "Citi New jersey WH  Floor 1",
+        "country": "US",
+        "inactive": false
+      },
+      {
+        "id": "LOCATION-6-350",
+        "name": "K-Houston",
+        "country": "US",
+        "inactive": false
+      },
+      {
+        "id": "LOCATION-6-221",
+        "name": "Citi Housten Room B",
+        "country": "US",
+        "inactive": false
+      },
+      {
+        "id": "LOCATION-6-220",
+        "name": "Citi Housten Room A",
+        "country": "US",
+        "inactive": false
+      },
+      {
+        "id": "LOCATION-6-342",
+        "name": "Holly Spring Waregouse(HSW)",
+        "country": "US",
+        "inactive": false
+      },
+      {
+        "id": "LOCATION-6-341",
+        "name": "Memorial Hospital Storeroom(MHS)",
+        "country": "US",
+        "inactive": false
+      },
+      {
+        "id": "LOCATION-6-451",
+        "name": "Chennai Test",
+        "country": "IN",
+        "inactive": false
+      },
+      {
+        "id": "LOCATION-6-440",
+        "name": "Test site 01",
+        "country": "GB",
+        "inactive": false
+      },
+      {
+        "id": "LOCATION-6-290",
+        "name": "Pune",
+        "inactive": false
+      },
+      {
+        "id": "LOCATION-6-533",
+        "name": "UM",
+        "country": "US",
+        "inactive": false
+      },
+      {
+        "id": "LOCATION-6-522",
+        "name": "SF",
+        "country": "US",
+        "inactive": false
+      },
+      {
+        "id": "LOCATION-6-345",
+        "name": "HSW BIN 2",
+        "inactive": false
+      },
+      {
+        "id": "LOCATION-6-344",
+        "name": "HSW BIN 1",
+        "inactive": false
+      },
+      {
+        "id": "LOCATION-6-343",
+        "name": "MHS BIN A",
+        "inactive": false
+      },
+      {
+        "id": "LOCATION-6-211",
+        "name": "Pan- Cb_2",
+        "inactive": false
+      },
+      {
+        "id": "LOCATION-6-210",
+        "name": "Pan- Cb_1",
+        "inactive": false
+      }
+    ]
+  },
+  "nango": {
+    "getConnection": {}
+  },
+  "api": {}
+}

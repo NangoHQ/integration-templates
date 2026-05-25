@@ -1,0 +1,157 @@
+{
+  "input": {
+    "displayName": "Nango Test Application 3"
+  },
+  "output": {
+    "id": "ba499780-1b6c-4bc5-a127-9228742dbd0b",
+    "appId": "c2c0df55-9838-4d7a-9cad-830dbb0eb64d",
+    "displayName": "Nango Test Application 3",
+    "createdDateTime": "2026-05-18T22:10:38.36252Z",
+    "identifierUris": [],
+    "signInAudience": "AzureADMyOrg",
+    "publisherDomain": "nango.dev",
+    "tags": [],
+    "web": {
+      "homePageUrl": null,
+      "logoutUrl": null,
+      "redirectUris": [],
+      "implicitGrantSettings": {
+        "enableAccessTokenIssuance": false,
+        "enableIdTokenIssuance": false
+      },
+      "redirectUriSettings": []
+    },
+    "spa": {
+      "redirectUris": []
+    },
+    "publicClient": {
+      "redirectUris": []
+    },
+    "api": {
+      "acceptMappedClaims": null,
+      "knownClientApplications": [],
+      "requestedAccessTokenVersion": null,
+      "oauth2PermissionScopes": [],
+      "preAuthorizedApplications": []
+    },
+    "passwordCredentials": [],
+    "keyCredentials": [],
+    "appRoles": [],
+    "requiredResourceAccess": []
+  },
+  "nango": {},
+  "api": {
+    "post": {
+      "/v1.0/applications": {
+        "response": {
+          "@odata.context": "https://graph.microsoft.com/v1.0/$metadata#applications/$entity",
+          "id": "ba499780-1b6c-4bc5-a127-9228742dbd0b",
+          "deletedDateTime": null,
+          "appId": "c2c0df55-9838-4d7a-9cad-830dbb0eb64d",
+          "applicationTemplateId": null,
+          "disabledByMicrosoftStatus": null,
+          "createdByAppId": "abe05e12-a08b-4d0d-ae66-51e7ca2b08d0",
+          "createdDateTime": "2026-05-18T22:10:38.36252Z",
+          "displayName": "Nango Test Application 3",
+          "description": null,
+          "groupMembershipClaims": null,
+          "identifierUris": [],
+          "isDeviceOnlyAuthSupported": null,
+          "isDisabled": null,
+          "isFallbackPublicClient": null,
+          "nativeAuthenticationApisEnabled": null,
+          "notes": null,
+          "publisherDomain": "nango.dev",
+          "serviceManagementReference": null,
+          "signInAudience": "AzureADMyOrg",
+          "tags": [],
+          "tokenEncryptionKeyId": null,
+          "uniqueName": null,
+          "samlMetadataUrl": null,
+          "defaultRedirectUri": null,
+          "certification": null,
+          "optionalClaims": null,
+          "servicePrincipalLockConfiguration": null,
+          "requestSignatureVerification": null,
+          "addIns": [],
+          "api": {
+            "acceptMappedClaims": null,
+            "knownClientApplications": [],
+            "requestedAccessTokenVersion": null,
+            "oauth2PermissionScopes": [],
+            "preAuthorizedApplications": []
+          },
+          "appRoles": [],
+          "info": {
+            "logoUrl": null,
+            "marketingUrl": null,
+            "privacyStatementUrl": null,
+            "supportUrl": null,
+            "termsOfServiceUrl": null
+          },
+          "keyCredentials": [],
+          "parentalControlSettings": {
+            "countriesBlockedForMinors": [],
+            "legalAgeGroupRule": "Allow"
+          },
+          "passwordCredentials": [],
+          "publicClient": {
+            "redirectUris": []
+          },
+          "requiredResourceAccess": [],
+          "verifiedPublisher": {
+            "displayName": null,
+            "verifiedPublisherId": null,
+            "addedDateTime": null
+          },
+          "web": {
+            "homePageUrl": null,
+            "logoutUrl": null,
+            "redirectUris": [],
+            "implicitGrantSettings": {
+              "enableAccessTokenIssuance": false,
+              "enableIdTokenIssuance": false
+            },
+            "redirectUriSettings": []
+          },
+          "spa": {
+            "redirectUris": []
+          }
+        },
+        "status": 201,
+        "headers": {
+          "date": "Mon, 18 May 2026 22:10:38 GMT",
+          "content-type": "application/json;odata.metadata=minimal;odata.streaming=true;IEEE754Compatible=false;charset=utf-8",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=31536000",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4936",
+          "x-ratelimit-reset": "1779142238",
+          "cache-control": "no-cache",
+          "location": "https://graph.microsoft.com/v1.0/56480ae2-88be-49cf-86f6-d62a45bf8758/directoryObjects/ba499780-1b6c-4bc5-a127-9228742dbd0b/Microsoft.DirectoryServices.Application",
+          "vary": "Accept-Encoding",
+          "request-id": "257f481e-d829-4740-9fd0-4fcfd2a5144e",
+          "client-request-id": "257f481e-d829-4740-9fd0-4fcfd2a5144e",
+          "x-ms-ags-diagnostic": "{\"ServerInfo\":{\"DataCenter\":\"West US 2\",\"Slice\":\"E\",\"Ring\":\"4\",\"ScaleUnit\":\"004\",\"RoleInstance\":\"MW2PEPF0000E057\"}}",
+          "x-ms-resource-unit": "1",
+          "odata-version": "4.0"
+        },
+        "hash": "274305d493ebb293fec146c5010d193157f65352",
+        "request": {
+          "data": {
+            "displayName": "Nango Test Application 3"
+          }
+        }
+      }
+    }
+  }
+}

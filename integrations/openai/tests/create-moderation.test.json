@@ -1,0 +1,163 @@
+{
+  "input": {
+    "input": "This is a test message for moderation."
+  },
+  "output": {
+    "id": "modr-4625",
+    "model": "omni-moderation-latest",
+    "results": [
+      {
+        "flagged": false,
+        "categories": {
+          "sexual": false,
+          "hate": false,
+          "harassment": false,
+          "self-harm": false,
+          "sexual/minors": false,
+          "hate/threatening": false,
+          "violence/graphic": false,
+          "self-harm/intent": false,
+          "self-harm/instructions": false,
+          "harassment/threatening": false,
+          "violence": false
+        },
+        "category_scores": {
+          "sexual": 0.00007321812616608614,
+          "hate": 0.00003150386940813393,
+          "harassment": 0.0006567535265395168,
+          "self-harm": 0.00001177445922838707,
+          "sexual/minors": 0.000009610241549947397,
+          "hate/threatening": 9.666109404131067e-7,
+          "violence/graphic": 0.000009610241549947397,
+          "self-harm/intent": 0.0002128468589176327,
+          "self-harm/instructions": 0.0000019833367060283617,
+          "harassment/threatening": 0.000015598027633743823,
+          "violence": 0.0005048825150668042
+        }
+      }
+    ]
+  },
+  "nango": {},
+  "api": {
+    "post": {
+      "/v1/moderations": {
+        "response": {
+          "id": "modr-4625",
+          "model": "omni-moderation-latest",
+          "results": [
+            {
+              "flagged": false,
+              "categories": {
+                "harassment": false,
+                "harassment/threatening": false,
+                "sexual": false,
+                "hate": false,
+                "hate/threatening": false,
+                "illicit": false,
+                "illicit/violent": false,
+                "self-harm/intent": false,
+                "self-harm/instructions": false,
+                "self-harm": false,
+                "sexual/minors": false,
+                "violence": false,
+                "violence/graphic": false
+              },
+              "category_scores": {
+                "harassment": 0.0006567535265395168,
+                "harassment/threatening": 0.000015598027633743823,
+                "sexual": 0.00007321812616608614,
+                "hate": 0.00003150386940813393,
+                "hate/threatening": 9.666109404131067e-7,
+                "illicit": 0.0000461905832902385,
+                "illicit/violent": 0.000009761566060239504,
+                "self-harm/intent": 0.0002128468589176327,
+                "self-harm/instructions": 0.0000019833367060283617,
+                "self-harm": 0.00001177445922838707,
+                "sexual/minors": 0.000009610241549947397,
+                "violence": 0.0005048825150668042,
+                "violence/graphic": 0.000009610241549947397
+              },
+              "category_applied_input_types": {
+                "harassment": [
+                  "text"
+                ],
+                "harassment/threatening": [
+                  "text"
+                ],
+                "sexual": [
+                  "text"
+                ],
+                "hate": [
+                  "text"
+                ],
+                "hate/threatening": [
+                  "text"
+                ],
+                "illicit": [
+                  "text"
+                ],
+                "illicit/violent": [
+                  "text"
+                ],
+                "self-harm/intent": [
+                  "text"
+                ],
+                "self-harm/instructions": [
+                  "text"
+                ],
+                "self-harm": [
+                  "text"
+                ],
+                "sexual/minors": [
+                  "text"
+                ],
+                "violence": [
+                  "text"
+                ],
+                "violence/graphic": [
+                  "text"
+                ]
+              }
+            }
+          ]
+        },
+        "status": 200,
+        "headers": {
+          "date": "Wed, 20 May 2026 10:26:56 GMT",
+          "content-type": "application/json",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=31536000; includeSubDomains; preload",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "CF-Ray",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4956",
+          "x-ratelimit-reset": "1779272822",
+          "server": "cloudflare",
+          "openai-version": "2020-10-01",
+          "openai-organization": "nangodev",
+          "openai-project": "proj_bkqat9iXXSSrc8Kx228QbGL9",
+          "x-request-id": "req_175b55fe2d0445f39bfbdd5d80ba72e3",
+          "openai-processing-ms": "238",
+          "x-openai-proxy-wasm": "v0.1",
+          "cf-cache-status": "DYNAMIC",
+          "set-cookie": "__cf_bm=rBwcdhLWl1hrLuZA3bk4LtUcqZZTWFaNIkjKPS94J2s-1779272815.6763413-1.0.1.1-FZL3gzRpKGAc3SyZdSa4TG9wGAjNng0KBNPDPVq5GAPU33hEwVr0dZ0vIms.PfMQs_h8Z_DR76xoOQz0WmE7yQTlKRkXYeGxDgc4Sr8L9abNlkJ6TwXVFx_tOBdAQ0O2; HttpOnly; SameSite=None; Secure; Path=/; Domain=api.openai.com; Expires=Wed, 20 May 2026 10:56:56 GMT",
+          "cf-ray": "9feaa559fe0a6c17-PDX",
+          "alt-svc": "h3=\":443\"; ma=86400"
+        },
+        "hash": "032d7b0443b8f8c789d842cf945419119a98a4b5",
+        "request": {
+          "data": {
+            "input": "This is a test message for moderation."
+          }
+        }
+      }
+    }
+  }
+}

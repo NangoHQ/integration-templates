@@ -1,0 +1,75 @@
+{
+  "nango": {
+    "batchSave": {
+      "Sequence": []
+    },
+    "batchDelete": {
+      "Sequence": []
+    }
+  },
+  "api": {
+    "post": {
+      "/v1/emailer_campaigns/search": {
+        "response": {
+          "pagination": {
+            "page": 1,
+            "per_page": 25,
+            "total_entries": 0,
+            "total_pages": 0
+          },
+          "breadcrumbs": [],
+          "emailer_campaigns": [],
+          "num_fetch_result": null
+        },
+        "status": 200,
+        "headers": {
+          "date": "Mon, 18 May 2026 12:58:56 GMT",
+          "content-type": "application/json; charset=utf-8",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "ALLOWALL",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=31536000",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4974",
+          "x-ratelimit-reset": "1779109137",
+          "cache-control": "max-age=0, private, must-revalidate",
+          "content-security-policy": "frame-ancestors 'self' chrome-extension://alhgpfoeiimagjlnfekdhkjlkiomcapa chrome-extension://ececkagaccnfmkopaiemklekhoimmgpn *.salesforce.com *.lightning.force.com; report-uri https://o101058.ingest.us.sentry.io/api/222018/security/?sentry_key=86bb17dd8c2449719dd6b498f3431191&sentry_environment=production&sentry_release=027efffa398b1dc50d0f12d6f7c2853a0efae32c",
+          "etag": "W/\"b98df708ff8d850493d09d931d66def4\"",
+          "set-cookie": "X-CSRF-TOKEN=LpoRIeiW5IxmeP0QFLRn6k_82eeWssdW4ALOXE0ZUFAeW6N0xXGJI02_r9ANwFRUkz9TME_ZQv27F4A1USM9aQ; path=/; secure; SameSite=Lax, _leadgenie_session=K8KI%2BbczEQgeC18Vqp0m9iyHXTE%2B0PSG0fzxhHfB7e%2FBz2NVTHJcoZnpQzyJCCvTIohheXq1VUednaJ41%2BNtdABUgbOtFHodLTqywE73h7WqQ%2FcgbAh8c%2FjWlAGzAiFhxI1dVoGquOFaEvOIJNrdtsqnsZUDHHNJz7R5ooFTvhaqR7ybYvoxetCJR9blNwiD8oFp%2Frs0KsBR%2BtjPOmqx%2FipzdCYU2DKLr3lYQHg566q8MvIW6QsNCxwb9lEW3Dpeit1RPnvhcqcUCBs7Elk%2BvAFNhLeu6f%2B%2BxO0%3D--aVLoaLwhJk0i9tcK--wgw179cvWDi0F3kTq1Jyfw%3D%3D; path=/; secure; HttpOnly; SameSite=None, __cf_bm=5V1NUvYq_gubs5E.IDS_tuJZt3xQqwQHVzL54uUqALg-1779109136.23308-1.0.1.1-5b49jeU0W79HKvmsbuxmYWFrVSmbzTQRb.7tm9ZYxUQSj5_AfdrOKI52GTuBlH5zYIFWJPUPWSTSJ3aA8ulcWohwtLRiMuLXOEbrf3Fi_DHlNECRrp9FQqtSlkVcZHKu; HttpOnly; SameSite=None; Secure; Path=/; Domain=apollo.io; Expires=Mon, 18 May 2026 13:28:56 GMT",
+          "vary": "Origin",
+          "x-24-hour-requests-left": "572",
+          "x-24-hour-usage": "28",
+          "x-hourly-requests-left": "198",
+          "x-hourly-usage": "2",
+          "x-minute-requests-left": "48",
+          "x-minute-usage": "2",
+          "x-rate-limit-24-hour": "600",
+          "x-rate-limit-hourly": "200",
+          "x-rate-limit-minute": "50",
+          "x-request-id": "3d734c8e-d988-4dd0-bc86-0e034e980bfa",
+          "x-runtime": "0.033743",
+          "x-transaction-id": "77439f2c-8eb4-46f9-8c3c-f84754625075",
+          "cf-cache-status": "DYNAMIC",
+          "server": "cloudflare",
+          "cf-ray": "9fdb09457b10fefd-PDX"
+        },
+        "hash": "56d078a56c1f3cd5d1ef1ae1bfe4b920c5592389",
+        "request": {
+          "data": {
+            "pagination": {
+              "page": 1,
+              "per_page": 100
+            }
+          }
+        }
+      }
+    }
+  }
+}

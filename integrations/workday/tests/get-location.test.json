@@ -1,0 +1,14 @@
+{
+  "input": {
+    "id": "San_Francisco_Site"
+  },
+  "output": {
+    "id": "San_Francisco_site",
+    "name": "",
+    "inactive": false
+  },
+  "nango": {
+    "getConnection": {}
+  },
+  "api": {}
+}
