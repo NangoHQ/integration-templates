@@ -1,24 +1,31 @@
 {
   "input": {
-    "userName": "scim-test-action@nango.dev",
+    "userName": "create-scim-user-test-20260522@nango.dev",
     "name": {
-      "givenName": "SCIM",
+      "givenName": "Create",
       "familyName": "Test"
-    },
-    "active": true
-  },
-  "output": {
-    "id": "Z54GW3SPDZBJJPCEBMEOO2HQPE",
-    "userName": "scim-test-action@nango.dev",
-    "displayName": "SCIM Test",
-    "name": {
-      "formatted": "SCIM Test",
-      "familyName": "Test",
-      "givenName": "SCIM"
     },
     "emails": [
       {
-        "value": "scim-test-action@nango.dev",
+        "value": "create-scim-user-test-20260522@nango.dev",
+        "type": "work",
+        "primary": true
+      }
+    ],
+    "active": true
+  },
+  "output": {
+    "id": "TUUWOM3BINHPRMYTZOI3H224DM",
+    "userName": "create-scim-user-test-20260522@nango.dev",
+    "displayName": "Create Test",
+    "name": {
+      "givenName": "Create",
+      "familyName": "Test",
+      "formatted": "Create Test"
+    },
+    "emails": [
+      {
+        "value": "create-scim-user-test-20260522@nango.dev",
         "primary": true
       }
     ],
@@ -33,33 +40,33 @@
       "/Users": {
         "response": {
           "active": true,
-          "displayName": "SCIM Test",
+          "displayName": "Create Test",
           "emails": [
             {
               "primary": true,
-              "value": "scim-test-action@nango.dev"
+              "value": "create-scim-user-test-20260522@nango.dev"
             }
           ],
-          "id": "Z54GW3SPDZBJJPCEBMEOO2HQPE",
+          "id": "TUUWOM3BINHPRMYTZOI3H224DM",
           "meta": {
             "resourceType": "User"
           },
           "name": {
             "familyName": "Test",
-            "formatted": "SCIM Test",
-            "givenName": "SCIM"
+            "formatted": "Create Test",
+            "givenName": "Create"
           },
           "preferredLanguage": "en",
           "schemas": [
             "urn:ietf:params:scim:schemas:core:2.0:User"
           ],
-          "userName": "scim-test-action@nango.dev"
+          "userName": "create-scim-user-test-20260522@nango.dev"
         },
         "status": 200,
         "headers": {
-          "date": "Thu, 21 May 2026 14:22:58 GMT",
+          "date": "Fri, 22 May 2026 18:02:03 GMT",
           "content-type": "application/scim+json",
-          "content-length": "366",
+          "content-length": "400",
           "connection": "keep-alive",
           "x-xss-protection": "0",
           "x-content-type-options": "nosniff",
@@ -71,21 +78,28 @@
           "access-control-allow-origin": "*",
           "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
           "x-ratelimit-limit": "5000",
-          "x-ratelimit-remaining": "4979",
-          "x-ratelimit-reset": "1779373384",
-          "etag": "W/\"16e-W7fwXQ5DPZwbvH3tTax0GGwNVFs\""
+          "x-ratelimit-remaining": "4991",
+          "x-ratelimit-reset": "1779472954",
+          "etag": "W/\"190-CxkD9uvZ4Y2N0nc0z9Bu/uIYQWE\""
         },
-        "hash": "83dd0b0644f91314b863a968996454e7450942ed",
+        "hash": "268849268cb59c0a4033d39bfc23b7764da05a2e",
         "request": {
           "data": {
             "schemas": [
               "urn:ietf:params:scim:schemas:core:2.0:User"
             ],
-            "userName": "scim-test-action@nango.dev",
+            "userName": "create-scim-user-test-20260522@nango.dev",
             "name": {
-              "givenName": "SCIM",
+              "givenName": "Create",
               "familyName": "Test"
             },
+            "emails": [
+              {
+                "value": "create-scim-user-test-20260522@nango.dev",
+                "type": "work",
+                "primary": true
+              }
+            ],
             "active": true
           }
         }

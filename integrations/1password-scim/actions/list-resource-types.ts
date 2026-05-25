@@ -3,37 +3,37 @@ import { createAction } from 'nango';
 
 const InputSchema = z.object({});
 
-const ResourceTypeMetaSchema = z.object({
+const SchemaExtensionSchema = z.object({
+    schema: z.string(),
+    required: z.boolean()
+});
+
+const MetaSchema = z.object({
     resourceType: z.string().optional(),
     location: z.string().optional()
 });
 
-const SchemaExtensionSchema = z.object({
-    schema: z.string().optional(),
-    required: z.boolean().optional()
-});
-
 const ResourceTypeSchema = z.object({
     schemas: z.array(z.string()).optional(),
-    id: z.string().optional(),
-    name: z.string().optional(),
+    id: z.string(),
+    name: z.string(),
+    endpoint: z.string(),
     description: z.string().optional(),
-    endpoint: z.string().optional(),
-    schema: z.string().optional(),
+    schema: z.string(),
     schemaExtensions: z.array(SchemaExtensionSchema).optional(),
-    meta: ResourceTypeMetaSchema.optional()
+    meta: MetaSchema.optional()
 });
 
 const OutputSchema = z.object({
     schemas: z.array(z.string()).optional(),
-    totalResults: z.number().optional(),
-    itemsPerPage: z.number().optional(),
+    totalResults: z.number(),
+    Resources: z.array(ResourceTypeSchema),
     startIndex: z.number().optional(),
-    Resources: z.array(ResourceTypeSchema).optional()
+    itemsPerPage: z.number().optional()
 });
 
 const action = createAction({
-    description: 'List SCIM resource types.',
+    description: 'List SCIM resource types',
     version: '1.0.0',
     endpoint: {
         method: 'GET',
@@ -42,6 +42,7 @@ const action = createAction({
     },
     input: InputSchema,
     output: OutputSchema,
+    scopes: ['scim'],
 
     exec: async (nango, _input): Promise<z.infer<typeof OutputSchema>> => {
         const response = await nango.get({
@@ -50,15 +51,9 @@ const action = createAction({
             retries: 3
         });
 
-        const providerData = OutputSchema.parse(response.data);
+        const listResponse = OutputSchema.parse(response.data);
 
-        return {
-            ...(providerData.schemas !== undefined && { schemas: providerData.schemas }),
-            ...(providerData.totalResults !== undefined && { totalResults: providerData.totalResults }),
-            ...(providerData.itemsPerPage !== undefined && { itemsPerPage: providerData.itemsPerPage }),
-            ...(providerData.startIndex !== undefined && { startIndex: providerData.startIndex }),
-            ...(providerData.Resources !== undefined && { Resources: providerData.Resources })
-        };
+        return listResponse;
     }
 });
 

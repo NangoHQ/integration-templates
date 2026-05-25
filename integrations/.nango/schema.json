@@ -1,57 +1,40 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema#",
   "definitions": {
-    "ScimGroup": {
+    "Group": {
       "type": "object",
       "properties": {
         "id": {
           "type": "string"
         },
-        "externalId": {
+        "name": {
           "type": "string"
         },
-        "displayName": {
+        "description": {
           "type": "string"
         },
-        "meta": {
-          "type": "object",
-          "properties": {
-            "resourceType": {
-              "type": "string"
-            },
-            "created": {
-              "type": "string"
-            },
-            "lastModified": {
-              "type": "string"
-            },
-            "location": {
-              "type": "string"
-            }
-          },
-          "additionalProperties": false
+        "isDefault": {
+          "type": "boolean"
         },
-        "members": {
-          "type": "array",
-          "items": {
-            "type": "object",
-            "properties": {
-              "value": {
-                "type": "string"
-              },
-              "display": {
-                "type": "string"
-              }
-            },
-            "required": [
-              "value"
-            ],
-            "additionalProperties": false
-          }
+        "isDeleted": {
+          "type": "boolean"
+        },
+        "isPublic": {
+          "type": "boolean"
+        },
+        "createdAt": {
+          "type": "string"
+        },
+        "updatedAt": {
+          "type": "string"
+        },
+        "url": {
+          "type": "string"
         }
       },
       "required": [
-        "id"
+        "id",
+        "name"
       ],
       "additionalProperties": false,
       "description": "! ** DEPRECATION NOTICE ** ! This file will stop being generated in future versions of nango. ! For access to function types, please export types directly from your code. ! You can leverage `zod.infer` to generate types from your zod schemas. ! See the official zod documentation: https://zod.dev/basics?id=inferring-types"
@@ -71,13 +54,13 @@
         "name": {
           "type": "object",
           "properties": {
-            "formatted": {
+            "givenName": {
               "type": "string"
             },
             "familyName": {
               "type": "string"
             },
-            "givenName": {
+            "formatted": {
               "type": "string"
             }
           },
@@ -98,37 +81,21 @@
                 "type": "boolean"
               }
             },
-            "required": [
-              "value"
-            ],
             "additionalProperties": false
           }
-        },
-        "externalId": {
-          "type": "string"
         },
         "active": {
           "type": "boolean"
         },
-        "meta": {
-          "type": "object",
-          "properties": {
-            "created": {
-              "type": "string"
-            },
-            "lastModified": {
-              "type": "string"
-            },
-            "resourceType": {
-              "type": "string"
-            }
-          },
-          "additionalProperties": false
+        "externalId": {
+          "type": "string"
+        },
+        "updated_at": {
+          "type": "string"
         }
       },
       "required": [
-        "id",
-        "userName"
+        "id"
       ],
       "additionalProperties": false
     },
@@ -137,11 +104,11 @@
       "properties": {
         "displayName": {
           "type": "string",
-          "description": "The display name of the SCIM group. Example: \"Engineering\""
+          "description": "Display name of the SCIM group. Example: \"Engineering\""
         },
         "externalId": {
           "type": "string",
-          "description": "The external identifier for the group. Example: \"group-123\""
+          "description": "External identifier for the group."
         },
         "members": {
           "type": "array",
@@ -153,7 +120,7 @@
               },
               "display": {
                 "type": "string",
-                "description": "The display name of the member. Example: \"John Doe\""
+                "description": "Display name of the member."
               }
             },
             "required": [
@@ -161,7 +128,7 @@
             ],
             "additionalProperties": false
           },
-          "description": "Array of group members to assign on creation"
+          "description": "Members to add to the group at creation."
         }
       },
       "required": [
@@ -232,30 +199,29 @@
       "properties": {
         "userName": {
           "type": "string",
-          "description": "SCIM userName. Example: \"user@example.com\""
+          "description": "User login name, typically an email. Example: \"bjensen@example.com\""
         },
         "externalId": {
           "type": "string",
-          "description": "External identifier for the user."
-        },
-        "displayName": {
-          "type": "string",
-          "description": "Display name for the user."
+          "description": "Identifier from the provisioning client. Example: \"bjensen\""
         },
         "name": {
           "type": "object",
           "properties": {
-            "formatted": {
+            "givenName": {
               "type": "string"
             },
             "familyName": {
               "type": "string"
             },
-            "givenName": {
+            "formatted": {
               "type": "string"
             }
           },
           "additionalProperties": false
+        },
+        "displayName": {
+          "type": "string"
         },
         "emails": {
           "type": "array",
@@ -279,7 +245,8 @@
           }
         },
         "active": {
-          "type": "boolean"
+          "type": "boolean",
+          "description": "Whether the user is active."
         }
       },
       "required": [
@@ -305,13 +272,13 @@
         "name": {
           "type": "object",
           "properties": {
-            "formatted": {
+            "givenName": {
               "type": "string"
             },
             "familyName": {
               "type": "string"
             },
-            "givenName": {
+            "formatted": {
               "type": "string"
             }
           },
@@ -427,13 +394,13 @@
     "ActionInput_1password_scim_getscimgroup": {
       "type": "object",
       "properties": {
-        "groupId": {
+        "id": {
           "type": "string",
-          "description": "SCIM Group ID. Example: \"e9e30dba-f08f-4109-8486-d5c6a331660a\""
+          "description": "The SCIM group ID. Example: \"2819c223-7f76-453a-919d-413861904646\""
         }
       },
       "required": [
-        "groupId"
+        "id"
       ],
       "additionalProperties": false
     },
@@ -451,33 +418,6 @@
         },
         "externalId": {
           "type": "string"
-        },
-        "displayName": {
-          "type": "string"
-        },
-        "members": {
-          "type": "array",
-          "items": {
-            "type": "object",
-            "properties": {
-              "value": {
-                "type": "string"
-              },
-              "display": {
-                "type": "string"
-              },
-              "$ref": {
-                "type": "string"
-              },
-              "type": {
-                "type": "string"
-              }
-            },
-            "required": [
-              "value"
-            ],
-            "additionalProperties": false
-          }
         },
         "meta": {
           "type": "object",
@@ -499,6 +439,30 @@
             }
           },
           "additionalProperties": false
+        },
+        "displayName": {
+          "type": "string"
+        },
+        "members": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "value": {
+                "type": "string"
+              },
+              "$ref": {
+                "type": "string"
+              },
+              "display": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "value"
+            ],
+            "additionalProperties": false
+          }
         }
       },
       "required": [
@@ -513,7 +477,7 @@
       "properties": {
         "id": {
           "type": "string",
-          "description": "The SCIM user ID. Example: \"123\""
+          "description": "SCIM User ID. Example: \"2819c223-7f76-453a-919d-413861904646\""
         }
       },
       "required": [
@@ -535,27 +499,6 @@
         },
         "externalId": {
           "type": "string"
-        },
-        "meta": {
-          "type": "object",
-          "properties": {
-            "resourceType": {
-              "type": "string"
-            },
-            "created": {
-              "type": "string"
-            },
-            "lastModified": {
-              "type": "string"
-            },
-            "location": {
-              "type": "string"
-            },
-            "version": {
-              "type": "string"
-            }
-          },
-          "additionalProperties": false
         },
         "userName": {
           "type": "string"
@@ -629,9 +572,102 @@
                 "type": "boolean"
               }
             },
-            "required": [
-              "value"
-            ],
+            "additionalProperties": false
+          }
+        },
+        "phoneNumbers": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "value": {
+                "type": "string"
+              },
+              "display": {
+                "type": "string"
+              },
+              "type": {
+                "type": "string"
+              },
+              "primary": {
+                "type": "boolean"
+              }
+            },
+            "additionalProperties": false
+          }
+        },
+        "ims": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "value": {
+                "type": "string"
+              },
+              "display": {
+                "type": "string"
+              },
+              "type": {
+                "type": "string"
+              },
+              "primary": {
+                "type": "boolean"
+              }
+            },
+            "additionalProperties": false
+          }
+        },
+        "photos": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "value": {
+                "type": "string"
+              },
+              "display": {
+                "type": "string"
+              },
+              "type": {
+                "type": "string"
+              },
+              "primary": {
+                "type": "boolean"
+              }
+            },
+            "additionalProperties": false
+          }
+        },
+        "addresses": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "formatted": {
+                "type": "string"
+              },
+              "streetAddress": {
+                "type": "string"
+              },
+              "locality": {
+                "type": "string"
+              },
+              "region": {
+                "type": "string"
+              },
+              "postalCode": {
+                "type": "string"
+              },
+              "country": {
+                "type": "string"
+              },
+              "type": {
+                "type": "string"
+              },
+              "primary": {
+                "type": "boolean"
+              }
+            },
             "additionalProperties": false
           }
         },
@@ -653,16 +689,6 @@
                 "type": "string"
               }
             },
-            "required": [
-              "value"
-            ],
-            "additionalProperties": false
-          }
-        },
-        "roles": {
-          "type": "array",
-          "items": {
-            "type": "object",
             "additionalProperties": false
           }
         },
@@ -670,14 +696,90 @@
           "type": "array",
           "items": {
             "type": "object",
+            "properties": {
+              "value": {
+                "type": "string"
+              },
+              "display": {
+                "type": "string"
+              },
+              "type": {
+                "type": "string"
+              },
+              "primary": {
+                "type": "boolean"
+              }
+            },
             "additionalProperties": false
           }
+        },
+        "roles": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "value": {
+                "type": "string"
+              },
+              "display": {
+                "type": "string"
+              },
+              "type": {
+                "type": "string"
+              },
+              "primary": {
+                "type": "boolean"
+              }
+            },
+            "additionalProperties": false
+          }
+        },
+        "x509Certificates": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "value": {
+                "type": "string"
+              },
+              "display": {
+                "type": "string"
+              },
+              "type": {
+                "type": "string"
+              },
+              "primary": {
+                "type": "boolean"
+              }
+            },
+            "additionalProperties": false
+          }
+        },
+        "meta": {
+          "type": "object",
+          "properties": {
+            "resourceType": {
+              "type": "string"
+            },
+            "created": {
+              "type": "string"
+            },
+            "lastModified": {
+              "type": "string"
+            },
+            "version": {
+              "type": "string"
+            },
+            "location": {
+              "type": "string"
+            }
+          },
+          "additionalProperties": false
         }
       },
       "required": [
         "schemas",
-        "id",
-        "userName"
+        "id"
       ],
       "additionalProperties": false
     },
@@ -694,30 +796,6 @@
             "type": "string"
           }
         },
-        "id": {
-          "type": "string"
-        },
-        "meta": {
-          "type": "object",
-          "properties": {
-            "resourceType": {
-              "type": "string"
-            },
-            "created": {
-              "type": "string"
-            },
-            "lastModified": {
-              "type": "string"
-            },
-            "location": {
-              "type": "string"
-            },
-            "version": {
-              "type": "string"
-            }
-          },
-          "additionalProperties": false
-        },
         "documentationUri": {
           "type": "string"
         },
@@ -728,6 +806,9 @@
               "type": "boolean"
             }
           },
+          "required": [
+            "supported"
+          ],
           "additionalProperties": false
         },
         "bulk": {
@@ -743,6 +824,11 @@
               "type": "number"
             }
           },
+          "required": [
+            "supported",
+            "maxOperations",
+            "maxPayloadSize"
+          ],
           "additionalProperties": false
         },
         "filter": {
@@ -755,6 +841,10 @@
               "type": "number"
             }
           },
+          "required": [
+            "supported",
+            "maxResults"
+          ],
           "additionalProperties": false
         },
         "changePassword": {
@@ -764,6 +854,9 @@
               "type": "boolean"
             }
           },
+          "required": [
+            "supported"
+          ],
           "additionalProperties": false
         },
         "sort": {
@@ -773,6 +866,9 @@
               "type": "boolean"
             }
           },
+          "required": [
+            "supported"
+          ],
           "additionalProperties": false
         },
         "etag": {
@@ -782,6 +878,9 @@
               "type": "boolean"
             }
           },
+          "required": [
+            "supported"
+          ],
           "additionalProperties": false
         },
         "authenticationSchemes": {
@@ -808,10 +907,50 @@
                 "type": "boolean"
               }
             },
+            "required": [
+              "name",
+              "description",
+              "type"
+            ],
             "additionalProperties": false
           }
+        },
+        "meta": {
+          "type": "object",
+          "properties": {
+            "location": {
+              "type": "string"
+            },
+            "resourceType": {
+              "type": "string"
+            },
+            "created": {
+              "type": "string"
+            },
+            "lastModified": {
+              "type": "string"
+            },
+            "version": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "location",
+            "resourceType"
+          ],
+          "additionalProperties": false
         }
       },
+      "required": [
+        "schemas",
+        "patch",
+        "bulk",
+        "filter",
+        "changePassword",
+        "sort",
+        "etag",
+        "authenticationSchemes"
+      ],
       "additionalProperties": false
     },
     "ActionInput_1password_scim_listresourcetypes": {
@@ -828,12 +967,6 @@
           }
         },
         "totalResults": {
-          "type": "number"
-        },
-        "itemsPerPage": {
-          "type": "number"
-        },
-        "startIndex": {
           "type": "number"
         },
         "Resources": {
@@ -853,10 +986,10 @@
               "name": {
                 "type": "string"
               },
-              "description": {
+              "endpoint": {
                 "type": "string"
               },
-              "endpoint": {
+              "description": {
                 "type": "string"
               },
               "schema": {
@@ -874,6 +1007,10 @@
                       "type": "boolean"
                     }
                   },
+                  "required": [
+                    "schema",
+                    "required"
+                  ],
                   "additionalProperties": false
                 }
               },
@@ -890,10 +1027,26 @@
                 "additionalProperties": false
               }
             },
+            "required": [
+              "id",
+              "name",
+              "endpoint",
+              "schema"
+            ],
             "additionalProperties": false
           }
+        },
+        "startIndex": {
+          "type": "number"
+        },
+        "itemsPerPage": {
+          "type": "number"
         }
       },
+      "required": [
+        "totalResults",
+        "Resources"
+      ],
       "additionalProperties": false
     },
     "ActionInput_1password_scim_listschemas": {
@@ -904,15 +1057,6 @@
       "type": "object",
       "properties": {
         "schemas": {
-          "type": "array",
-          "items": {
-            "type": "string"
-          }
-        },
-        "totalResults": {
-          "type": "number"
-        },
-        "Resources": {
           "type": "array",
           "items": {
             "type": "object",
@@ -928,11 +1072,80 @@
               },
               "attributes": {
                 "type": "array",
-                "items": {}
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "name": {
+                      "type": "string"
+                    },
+                    "type": {
+                      "type": "string"
+                    },
+                    "multiValued": {
+                      "type": "boolean"
+                    },
+                    "required": {
+                      "type": "boolean"
+                    },
+                    "mutability": {
+                      "type": "string"
+                    },
+                    "returned": {
+                      "type": "string"
+                    },
+                    "uniqueness": {
+                      "type": "string"
+                    },
+                    "description": {
+                      "type": "string"
+                    },
+                    "subAttributes": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "name": {
+                            "type": "string"
+                          },
+                          "type": {
+                            "type": "string"
+                          },
+                          "multiValued": {
+                            "type": "boolean"
+                          },
+                          "required": {
+                            "type": "boolean"
+                          },
+                          "mutability": {
+                            "type": "string"
+                          },
+                          "returned": {
+                            "type": "string"
+                          },
+                          "uniqueness": {
+                            "type": "string"
+                          },
+                          "description": {
+                            "type": "string"
+                          }
+                        },
+                        "required": [
+                          "name"
+                        ],
+                        "additionalProperties": false
+                      }
+                    }
+                  },
+                  "required": [
+                    "name"
+                  ],
+                  "additionalProperties": false
+                }
               }
             },
             "required": [
-              "id"
+              "id",
+              "name"
             ],
             "additionalProperties": false
           }
@@ -947,13 +1160,13 @@
           "type": "string",
           "description": "Pagination cursor from the previous response. Omit for the first page."
         },
-        "filter": {
-          "type": "string",
-          "description": "SCIM filter expression. Example: 'displayName eq \"Engineering\"'"
-        },
         "count": {
           "type": "number",
-          "description": "Number of results per page (1-250). Defaults to 100."
+          "description": "Number of results per page. Defaults to 100."
+        },
+        "filter": {
+          "type": "string",
+          "description": "SCIM filter expression. Example: displayName co \"Engineering\""
         }
       },
       "additionalProperties": false
@@ -961,37 +1174,22 @@
     "ActionOutput_1password_scim_listscimgroups": {
       "type": "object",
       "properties": {
-        "groups": {
+        "items": {
           "type": "array",
           "items": {
             "type": "object",
             "properties": {
+              "schemas": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
               "id": {
                 "type": "string"
               },
-              "displayName": {
+              "externalId": {
                 "type": "string"
-              },
-              "members": {
-                "type": "array",
-                "items": {
-                  "type": "object",
-                  "properties": {
-                    "value": {
-                      "type": "string"
-                    },
-                    "display": {
-                      "type": "string"
-                    },
-                    "type": {
-                      "type": "string"
-                    }
-                  },
-                  "required": [
-                    "value"
-                  ],
-                  "additionalProperties": false
-                }
               },
               "meta": {
                 "type": "object",
@@ -1014,42 +1212,58 @@
                 },
                 "additionalProperties": false
               },
-              "externalId": {
+              "displayName": {
                 "type": "string"
               },
-              "schemas": {
+              "members": {
                 "type": "array",
                 "items": {
-                  "type": "string"
+                  "type": "object",
+                  "properties": {
+                    "value": {
+                      "type": "string"
+                    },
+                    "$ref": {
+                      "type": "string"
+                    },
+                    "display": {
+                      "type": "string"
+                    },
+                    "type": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
                 }
               }
             },
             "required": [
+              "schemas",
               "id",
               "displayName"
             ],
             "additionalProperties": false
           }
         },
-        "next_cursor": {
+        "nextCursor": {
           "type": "string"
         }
       },
       "required": [
-        "groups"
+        "items"
       ],
       "additionalProperties": false
     },
     "ActionInput_1password_scim_listscimusers": {
       "type": "object",
       "properties": {
+        "cursor": {
+          "type": "string",
+          "description": "Pagination cursor from the previous response. Omit for the first page."
+        },
         "filter": {
           "type": "string",
-          "description": "SCIM filter query. Example: userName eq \"john.doe@example.com\""
-        },
-        "start_index": {
-          "type": "number",
-          "description": "1-based index of the first result to return."
+          "description": "SCIM filter expression. Example: userName eq \"user@example.com\""
         },
         "count": {
           "type": "number",
@@ -1061,7 +1275,7 @@
     "ActionOutput_1password_scim_listscimusers": {
       "type": "object",
       "properties": {
-        "users": {
+        "items": {
           "type": "array",
           "items": {
             "type": "object",
@@ -1075,17 +1289,23 @@
               "name": {
                 "type": "object",
                 "properties": {
+                  "formatted": {
+                    "type": "string"
+                  },
                   "familyName": {
                     "type": "string"
                   },
                   "givenName": {
                     "type": "string"
-                  },
-                  "formatted": {
-                    "type": "string"
                   }
                 },
                 "additionalProperties": false
+              },
+              "displayName": {
+                "type": "string"
+              },
+              "active": {
+                "type": "boolean"
               },
               "emails": {
                 "type": "array",
@@ -1095,44 +1315,17 @@
                     "value": {
                       "type": "string"
                     },
-                    "type": {
-                      "type": "string"
-                    },
                     "primary": {
                       "type": "boolean"
+                    },
+                    "type": {
+                      "type": "string"
                     }
                   },
                   "required": [
                     "value"
                   ],
                   "additionalProperties": false
-                }
-              },
-              "active": {
-                "type": "boolean"
-              },
-              "externalId": {
-                "type": "string"
-              },
-              "meta": {
-                "type": "object",
-                "properties": {
-                  "created": {
-                    "type": "string"
-                  },
-                  "lastModified": {
-                    "type": "string"
-                  },
-                  "resourceType": {
-                    "type": "string"
-                  }
-                },
-                "additionalProperties": false
-              },
-              "schemas": {
-                "type": "array",
-                "items": {
-                  "type": "string"
                 }
               }
             },
@@ -1143,102 +1336,92 @@
             "additionalProperties": false
           }
         },
-        "total_results": {
+        "totalResults": {
           "type": "number"
         },
-        "start_index": {
-          "type": "number"
-        },
-        "items_per_page": {
-          "type": "number"
-        },
-        "next_start_index": {
-          "type": "number"
+        "nextCursor": {
+          "type": "string"
         }
       },
       "required": [
-        "users",
-        "total_results"
+        "items"
       ],
       "additionalProperties": false
     },
     "ActionInput_1password_scim_patchscimgroup": {
       "type": "object",
       "properties": {
-        "group_id": {
+        "id": {
           "type": "string",
-          "description": "The SCIM group ID to patch. Example: \"group-123\""
+          "description": "SCIM Group ID. Example: \"9067729b3d-f987ac4d-a175-44f0-a528-6d23c5d2ec4d\""
         },
         "operations": {
           "type": "array",
           "items": {
             "type": "object",
             "properties": {
-              "0": {
-                "type": "object",
-                "properties": {
-                  "op": {
-                    "type": "string",
-                    "const": "add"
-                  },
-                  "path": {
-                    "type": "string"
-                  },
-                  "value": {}
-                },
-                "required": [
-                  "op"
-                ],
-                "additionalProperties": false
+              "op": {
+                "type": "string",
+                "enum": [
+                  "add",
+                  "remove",
+                  "replace"
+                ]
               },
-              "1": {
-                "type": "object",
-                "properties": {
-                  "op": {
-                    "type": "string",
-                    "const": "replace"
-                  },
-                  "path": {
-                    "type": "string"
-                  },
-                  "value": {}
-                },
-                "required": [
-                  "op"
-                ],
-                "additionalProperties": false
+              "path": {
+                "type": "string",
+                "description": "Target attribute path. Example: \"members\" or \"displayName\""
               },
-              "2": {
-                "type": "object",
-                "properties": {
-                  "op": {
-                    "type": "string",
-                    "const": "remove"
-                  },
-                  "path": {
+              "value": {
+                "anyOf": [
+                  {
                     "type": "string"
                   },
-                  "value": {}
-                },
-                "required": [
-                  "op",
-                  "path"
-                ],
-                "additionalProperties": false
+                  {
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "properties": {
+                        "value": {
+                          "type": "string"
+                        },
+                        "display": {
+                          "type": "string"
+                        },
+                        "$ref": {
+                          "type": "string"
+                        }
+                      },
+                      "required": [
+                        "value"
+                      ],
+                      "additionalProperties": false
+                    }
+                  },
+                  {
+                    "type": "object",
+                    "additionalProperties": {
+                      "anyOf": [
+                        {},
+                        {
+                          "not": {}
+                        }
+                      ]
+                    }
+                  }
+                ]
               }
             },
             "required": [
-              "0",
-              "1",
-              "2"
+              "op"
             ],
             "additionalProperties": false
           },
-          "description": "SCIM PatchOp operations to apply."
+          "description": "SCIM patch operations to apply to the group."
         }
       },
       "required": [
-        "group_id",
+        "id",
         "operations"
       ],
       "additionalProperties": false
@@ -1246,12 +1429,6 @@
     "ActionOutput_1password_scim_patchscimgroup": {
       "type": "object",
       "properties": {
-        "schemas": {
-          "type": "array",
-          "items": {
-            "type": "string"
-          }
-        },
         "id": {
           "type": "string"
         },
@@ -1267,12 +1444,6 @@
                 "type": "string"
               },
               "display": {
-                "type": "string"
-              },
-              "type": {
-                "type": "string"
-              },
-              "$ref": {
                 "type": "string"
               }
             },
@@ -1301,9 +1472,6 @@
               "type": "string"
             }
           },
-          "required": [
-            "resourceType"
-          ],
           "additionalProperties": false
         },
         "externalId": {
@@ -1311,7 +1479,6 @@
         }
       },
       "required": [
-        "schemas",
         "id"
       ],
       "additionalProperties": false
@@ -1321,74 +1488,32 @@
       "properties": {
         "userId": {
           "type": "string",
-          "description": "The SCIM user ID to patch. Example: \"2819c223-7f76-453a-919d-413861904646\""
+          "description": "SCIM User ID. Example: \"2819c223-7f76-453a-919d-413861904646\""
         },
         "operations": {
           "type": "array",
           "items": {
             "type": "object",
             "properties": {
-              "0": {
-                "type": "object",
-                "properties": {
-                  "op": {
-                    "type": "string",
-                    "const": "add"
-                  },
-                  "path": {
-                    "type": "string"
-                  },
-                  "value": {}
-                },
-                "required": [
-                  "op"
-                ],
-                "additionalProperties": false
+              "op": {
+                "type": "string",
+                "enum": [
+                  "add",
+                  "replace",
+                  "remove"
+                ]
               },
-              "1": {
-                "type": "object",
-                "properties": {
-                  "op": {
-                    "type": "string",
-                    "const": "replace"
-                  },
-                  "path": {
-                    "type": "string"
-                  },
-                  "value": {}
-                },
-                "required": [
-                  "op"
-                ],
-                "additionalProperties": false
+              "path": {
+                "type": "string"
               },
-              "2": {
-                "type": "object",
-                "properties": {
-                  "op": {
-                    "type": "string",
-                    "const": "remove"
-                  },
-                  "path": {
-                    "type": "string"
-                  },
-                  "value": {}
-                },
-                "required": [
-                  "op",
-                  "path"
-                ],
-                "additionalProperties": false
-              }
+              "value": {}
             },
             "required": [
-              "0",
-              "1",
-              "2"
+              "op"
             ],
             "additionalProperties": false
           },
-          "description": "SCIM patch operations to apply."
+          "description": "SCIM PatchOp operations. Example: [{\"op\":\"replace\",\"path\":\"userName\",\"value\":\"new@example.com\"}]"
         }
       },
       "required": [
@@ -1400,20 +1525,26 @@
     "ActionOutput_1password_scim_patchscimuser": {
       "type": "object",
       "properties": {
+        "schemas": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
         "id": {
           "type": "string"
         },
         "userName": {
           "type": "string"
         },
-        "externalId": {
-          "type": "string"
+        "active": {
+          "type": "boolean"
         },
         "displayName": {
           "type": "string"
         },
-        "active": {
-          "type": "boolean"
+        "preferredLanguage": {
+          "type": "string"
         },
         "name": {
           "type": "object",
@@ -1445,6 +1576,9 @@
                 "type": "boolean"
               }
             },
+            "required": [
+              "value"
+            ],
             "additionalProperties": false
           }
         },
@@ -1471,6 +1605,7 @@
         }
       },
       "required": [
+        "schemas",
         "id"
       ],
       "additionalProperties": false
@@ -1480,25 +1615,38 @@
       "properties": {
         "groupId": {
           "type": "string",
-          "description": "The unique identifier of the SCIM group to update. Example: \"9067729b3d-f987ac4d-a175-44f0-a528-6d23c5d2ec4d\""
+          "description": "The SCIM group ID. Example: \"27i3xrasou26ukebqazeadyhua\""
         },
         "displayName": {
           "type": "string",
-          "description": "The new display name for the group."
+          "description": "New display name for the group"
         },
-        "addMembers": {
+        "members": {
           "type": "array",
           "items": {
-            "type": "string"
+            "type": "object",
+            "properties": {
+              "op": {
+                "type": "string",
+                "enum": [
+                  "add",
+                  "remove"
+                ]
+              },
+              "userId": {
+                "type": "string"
+              },
+              "display": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "op",
+              "userId"
+            ],
+            "additionalProperties": false
           },
-          "description": "Array of user IDs to add as members to the group."
-        },
-        "removeMembers": {
-          "type": "array",
-          "items": {
-            "type": "string"
-          },
-          "description": "Array of user IDs to remove from the group."
+          "description": "Member add or remove operations"
         }
       },
       "required": [
@@ -1512,12 +1660,6 @@
         "id": {
           "type": "string"
         },
-        "schemas": {
-          "type": "array",
-          "items": {
-            "type": "string"
-          }
-        },
         "displayName": {
           "type": "string"
         },
@@ -1531,12 +1673,6 @@
               },
               "display": {
                 "type": "string"
-              },
-              "$ref": {
-                "type": "string"
-              },
-              "type": {
-                "type": "string"
               }
             },
             "required": [
@@ -1544,27 +1680,6 @@
             ],
             "additionalProperties": false
           }
-        },
-        "meta": {
-          "type": "object",
-          "properties": {
-            "resourceType": {
-              "type": "string"
-            },
-            "created": {
-              "type": "string"
-            },
-            "lastModified": {
-              "type": "string"
-            },
-            "location": {
-              "type": "string"
-            },
-            "version": {
-              "type": "string"
-            }
-          },
-          "additionalProperties": false
         }
       },
       "required": [
@@ -1577,79 +1692,31 @@
       "properties": {
         "id": {
           "type": "string",
-          "description": "SCIM user ID. Example: \"2819c223-7f76-453a-919d-413861904646\""
+          "description": "SCIM User ID. Example: \"2819c223-7f76-453a-919d-413861904646\""
         },
-        "operations": {
-          "type": "array",
-          "items": {
-            "type": "object",
-            "properties": {
-              "0": {
-                "type": "object",
-                "properties": {
-                  "op": {
-                    "type": "string",
-                    "const": "add"
-                  },
-                  "path": {
-                    "type": "string"
-                  },
-                  "value": {}
-                },
-                "required": [
-                  "op"
-                ],
-                "additionalProperties": false
-              },
-              "1": {
-                "type": "object",
-                "properties": {
-                  "op": {
-                    "type": "string",
-                    "const": "replace"
-                  },
-                  "path": {
-                    "type": "string"
-                  },
-                  "value": {}
-                },
-                "required": [
-                  "op"
-                ],
-                "additionalProperties": false
-              },
-              "2": {
-                "type": "object",
-                "properties": {
-                  "op": {
-                    "type": "string",
-                    "const": "remove"
-                  },
-                  "path": {
-                    "type": "string"
-                  },
-                  "value": {}
-                },
-                "required": [
-                  "op",
-                  "path"
-                ],
-                "additionalProperties": false
-              }
-            },
-            "required": [
-              "0",
-              "1",
-              "2"
-            ],
-            "additionalProperties": false
-          },
-          "description": "Array of SCIM PatchOp operations to apply"
+        "userName": {
+          "type": "string",
+          "description": "User email address. Example: \"user@example.com\""
+        },
+        "givenName": {
+          "type": "string",
+          "description": "First name. Example: \"Jane\""
+        },
+        "familyName": {
+          "type": "string",
+          "description": "Last name. Example: \"Doe\""
+        },
+        "displayName": {
+          "type": "string",
+          "description": "Display name. Example: \"Jane Doe\""
+        },
+        "active": {
+          "type": "boolean",
+          "description": "Whether the user is active."
         }
       },
       "required": [
-        "id",
-        "operations"
+        "id"
       ],
       "additionalProperties": false
     },
@@ -1659,85 +1726,16 @@
         "id": {
           "type": "string"
         },
-        "externalId": {
-          "type": "string"
-        },
-        "meta": {
-          "type": "object",
-          "properties": {
-            "resourceType": {
-              "type": "string"
-            },
-            "created": {
-              "type": "string"
-            },
-            "lastModified": {
-              "type": "string"
-            },
-            "location": {
-              "type": "string"
-            },
-            "version": {
-              "type": "string"
-            }
-          },
-          "additionalProperties": false
-        },
-        "schemas": {
-          "type": "array",
-          "items": {
-            "type": "string"
-          }
-        },
         "userName": {
           "type": "string"
         },
-        "name": {
-          "type": "object",
-          "properties": {
-            "formatted": {
-              "type": "string"
-            },
-            "familyName": {
-              "type": "string"
-            },
-            "givenName": {
-              "type": "string"
-            },
-            "middleName": {
-              "type": "string"
-            },
-            "honorificPrefix": {
-              "type": "string"
-            },
-            "honorificSuffix": {
-              "type": "string"
-            }
-          },
-          "additionalProperties": false
+        "givenName": {
+          "type": "string"
+        },
+        "familyName": {
+          "type": "string"
         },
         "displayName": {
-          "type": "string"
-        },
-        "nickName": {
-          "type": "string"
-        },
-        "profileUrl": {
-          "type": "string"
-        },
-        "title": {
-          "type": "string"
-        },
-        "userType": {
-          "type": "string"
-        },
-        "preferredLanguage": {
-          "type": "string"
-        },
-        "locale": {
-          "type": "string"
-        },
-        "timezone": {
           "type": "string"
         },
         "active": {
@@ -1751,9 +1749,6 @@
               "value": {
                 "type": "string"
               },
-              "display": {
-                "type": "string"
-              },
               "type": {
                 "type": "string"
               },
@@ -1761,6 +1756,9 @@
                 "type": "boolean"
               }
             },
+            "required": [
+              "value"
+            ],
             "additionalProperties": false
           }
         }
@@ -126433,43 +126431,6 @@
     },
     "SyncMetadata_sap_success_factors_employees": {
       "type": "object",
-      "additionalProperties": false
-    },
-    "Group": {
-      "type": "object",
-      "properties": {
-        "id": {
-          "type": "string"
-        },
-        "name": {
-          "type": "string"
-        },
-        "description": {
-          "type": "string"
-        },
-        "isDefault": {
-          "type": "boolean"
-        },
-        "isDeleted": {
-          "type": "boolean"
-        },
-        "isPublic": {
-          "type": "boolean"
-        },
-        "createdAt": {
-          "type": "string"
-        },
-        "updatedAt": {
-          "type": "string"
-        },
-        "url": {
-          "type": "string"
-        }
-      },
-      "required": [
-        "id",
-        "name"
-      ],
       "additionalProperties": false
     },
     "SyncMetadata_sap_success_factors_groups": {
