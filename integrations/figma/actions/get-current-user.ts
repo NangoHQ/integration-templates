@@ -20,7 +20,7 @@ const action = createAction({
     },
     input: InputSchema,
     output: OutputSchema,
-    scopes: [],
+    scopes: ['current_user:read'],
 
     exec: async (nango, _input): Promise<z.infer<typeof OutputSchema>> => {
         const config: ProxyConfiguration = {

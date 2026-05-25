@@ -61,18 +61,9 @@ const action = createAction({
     scopes: ['file_versions:read', 'files:read'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
-        let nextPageUrl: string | undefined;
+        let params: Record<string, string> = {};
 
         do {
-            const params: Record<string, string> = {};
-            if (nextPageUrl) {
-                const url = new URL(nextPageUrl);
-                const after = url.searchParams.get('after');
-                if (after) {
-                    params['after'] = after;
-                }
-            }
-
             // https://www.figma.com/developers/api#get-versions-endpoint
             const response = await nango.get({
                 endpoint: `/v1/files/${encodeURIComponent(input.file_key)}/versions`,
@@ -100,8 +91,10 @@ const action = createAction({
                 };
             }
 
-            nextPageUrl = parsed.pagination?.next_page;
-        } while (nextPageUrl);
+            const prevPageUrl = parsed.pagination?.prev_page;
+            if (!prevPageUrl) break;
+            params = Object.fromEntries(new URL(prevPageUrl).searchParams.entries());
+        } while (true);
 
         throw new nango.ActionError({
             type: 'not_found',
