@@ -17,14 +17,14 @@ const MessageBatchRequestCountsSchema = z.object({
 
 const MessageBatchSchema = z.object({
     id: z.string(),
-    archived_at: z.string().optional(),
-    cancel_initiated_at: z.string().optional(),
+    archived_at: z.string().nullable().optional(),
+    cancel_initiated_at: z.string().nullable().optional(),
     created_at: z.string(),
-    ended_at: z.string().optional(),
+    ended_at: z.string().nullable().optional(),
     expires_at: z.string(),
     processing_status: z.enum(['in_progress', 'canceling', 'ended']),
     request_counts: MessageBatchRequestCountsSchema,
-    results_url: z.string().optional(),
+    results_url: z.string().nullable().optional(),
     type: z.literal('message_batch')
 });
 
@@ -99,10 +99,10 @@ const action = createAction({
             processing_status: batch.processing_status,
             request_counts: batch.request_counts,
             type: batch.type,
-            ...(batch.archived_at !== undefined && { archived_at: batch.archived_at }),
-            ...(batch.cancel_initiated_at !== undefined && { cancel_initiated_at: batch.cancel_initiated_at }),
-            ...(batch.ended_at !== undefined && { ended_at: batch.ended_at }),
-            ...(batch.results_url !== undefined && { results_url: batch.results_url })
+            ...(batch.archived_at != null && { archived_at: batch.archived_at }),
+            ...(batch.cancel_initiated_at != null && { cancel_initiated_at: batch.cancel_initiated_at }),
+            ...(batch.ended_at != null && { ended_at: batch.ended_at }),
+            ...(batch.results_url != null && { results_url: batch.results_url })
         }));
 
         return {

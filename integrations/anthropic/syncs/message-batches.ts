@@ -11,10 +11,10 @@ const MessageBatchRequestCountsSchema = z.object({
 
 const MessageBatchSchema = z.object({
     id: z.string(),
-    archived_at: z.string().optional(),
-    cancel_initiated_at: z.string().optional(),
+    archived_at: z.string().nullable().optional(),
+    cancel_initiated_at: z.string().nullable().optional(),
     created_at: z.string(),
-    ended_at: z.string().optional(),
+    ended_at: z.string().nullable().optional(),
     expires_at: z.string(),
     processing_status: z.enum(['in_progress', 'canceling', 'ended']),
     request_counts: MessageBatchRequestCountsSchema,

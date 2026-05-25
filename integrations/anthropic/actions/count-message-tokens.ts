@@ -3,14 +3,14 @@ import { createAction } from 'nango';
 
 const MessageSchema = z.object({
     role: z.enum(['user', 'assistant']),
-    content: z.union([z.string(), z.array(z.unknown())])
+    content: z.union([z.string(), z.array(z.record(z.string(), z.unknown()))])
 });
 
 const InputSchema = z.object({
     model: z.string().describe('The model that will count tokens. Example: "claude-sonnet-4-0"'),
     messages: z.array(MessageSchema).describe('Input messages to count tokens for.'),
     system: z
-        .union([z.string(), z.array(z.unknown())])
+        .union([z.string(), z.array(z.record(z.string(), z.unknown()))])
         .optional()
         .describe('System prompt.'),
     thinking: z.unknown().optional().describe('Thinking configuration.'),

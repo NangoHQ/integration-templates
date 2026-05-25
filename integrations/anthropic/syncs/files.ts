@@ -14,7 +14,7 @@ const FileMetadataSchema = z.object({
     size_bytes: z.number(),
     type: z.literal('file'),
     downloadable: z.boolean().optional(),
-    scope: z.union([BetaFileScopeSchema, z.null()]).optional()
+    scope: BetaFileScopeSchema.nullable().optional()
 });
 
 const FileListResponseSchema = z.object({
@@ -123,8 +123,11 @@ const sync = createSync({
                 await nango.batchSave(files, 'File');
             }
 
-            if (!page.has_more || !page.last_id) {
+            if (!page.has_more) {
                 break;
+            }
+            if (!page.last_id) {
+                throw new Error('Anthropic files API returned has_more=true but no last_id cursor');
             }
 
             afterId = page.last_id;

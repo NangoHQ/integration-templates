@@ -20,7 +20,7 @@ const FileMetadataSchema = z.object({
     size_bytes: z.number(),
     type: z.string(),
     downloadable: z.boolean().optional(),
-    scope: ScopeSchema.optional()
+    scope: ScopeSchema.nullable().optional()
 });
 
 const OutputSchema = z.object({

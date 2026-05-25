@@ -67,7 +67,6 @@ const InputSchema = z.object({
     tools: z.array(ToolSchema).optional().describe('Tools available to the model'),
     tool_choice: ToolChoiceSchema.optional().describe('Tool choice configuration'),
     thinking: ThinkingConfigSchema.optional().describe('Thinking configuration'),
-    stream: z.boolean().optional().describe('Enable streaming response'),
     temperature: z.number().optional().describe('Sampling temperature'),
     top_k: z.number().int().optional().describe('Top-k sampling parameter'),
     top_p: z.number().optional().describe('Top-p sampling parameter'),
@@ -128,7 +127,6 @@ const action = createAction({
             tools?: z.infer<typeof InputSchema>['tools'];
             tool_choice?: z.infer<typeof InputSchema>['tool_choice'];
             thinking?: z.infer<typeof InputSchema>['thinking'];
-            stream?: z.infer<typeof InputSchema>['stream'];
             temperature?: z.infer<typeof InputSchema>['temperature'];
             top_k?: z.infer<typeof InputSchema>['top_k'];
             top_p?: z.infer<typeof InputSchema>['top_p'];
@@ -151,9 +149,6 @@ const action = createAction({
         }
         if (input.thinking !== undefined) {
             data.thinking = input.thinking;
-        }
-        if (input.stream !== undefined) {
-            data.stream = input.stream;
         }
         if (input.temperature !== undefined) {
             data.temperature = input.temperature;

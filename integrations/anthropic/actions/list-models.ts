@@ -3,7 +3,7 @@ import { createAction } from 'nango';
 
 const InputSchema = z.object({
     cursor: z.string().optional().describe('Pagination cursor from the previous response. Omit for the first page.'),
-    limit: z.number().optional().describe('Number of items to return per page. Defaults to 20. Ranges from 1 to 1000.')
+    limit: z.number().int().min(1).max(1000).optional().describe('Number of items to return per page. Defaults to 20. Ranges from 1 to 1000.')
 });
 
 const ProviderModelSchema = z
@@ -21,9 +21,9 @@ const ProviderModelSchema = z
 const ProviderResponseSchema = z
     .object({
         data: z.array(ProviderModelSchema),
-        first_id: z.string(),
+        first_id: z.string().nullable().optional(),
         has_more: z.boolean(),
-        last_id: z.string()
+        last_id: z.string().nullable().optional()
     })
     .passthrough();
 
@@ -68,7 +68,7 @@ const action = createAction({
 
         return {
             items: providerResponse.data,
-            ...(providerResponse.has_more ? { next_cursor: providerResponse.last_id } : {})
+            ...(providerResponse.has_more && providerResponse.last_id != null ? { next_cursor: providerResponse.last_id } : {})
         };
     }
 });

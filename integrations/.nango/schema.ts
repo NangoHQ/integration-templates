@@ -1864,11 +1864,11 @@ export interface ActionInput_anthropic_countmessagetokens {
    * Input messages to count tokens for.
    */
   messages: ({  role: 'user' | 'assistant';
-  content: string | unknown[];})[];
+  content: string | ({  [key: string]: unknown | undefined;})[];})[];
   /**
    * System prompt.
    */
-  system?: string | unknown[] | undefined;
+  system?: string | ({  [key: string]: unknown | undefined;})[];
   /**
    * Thinking configuration.
    */
@@ -1995,10 +1995,6 @@ export interface ActionInput_anthropic_createmessage {
    * Token budget for thinking. Example: 1024
    */
   budget_tokens: number;} | undefined;
-  /**
-   * Enable streaming response
-   */
-  stream?: boolean | undefined;
   /**
    * Sampling temperature
    */

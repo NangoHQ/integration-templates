@@ -54,7 +54,7 @@ const ModelSchema = z.object({
 });
 
 const InputSchema = z.object({
-    model_id: z.string().describe('Model identifier or alias. Example: "claude-opus-4-6"')
+    model_id: z.string().min(1).describe('Model identifier or alias. Example: "claude-opus-4-6"')
 });
 
 const OutputSchema = ModelSchema;
