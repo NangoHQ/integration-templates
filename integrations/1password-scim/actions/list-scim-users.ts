@@ -36,7 +36,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'List SCIM users from 1Password SCIM.',
-    version: '1.0.0',
+    version: '1.1.0',
     endpoint: {
         method: 'GET',
         path: '/actions/list-scim-users',

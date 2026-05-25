@@ -1,11 +1,11 @@
 import { z } from 'zod';
 import { createAction } from 'nango';
 
-const ScimOperationSchema = z.object({
-    op: z.enum(['add', 'replace', 'remove']),
-    path: z.string().optional(),
-    value: z.unknown().optional()
-});
+const ScimOperationSchema = z.discriminatedUnion('op', [
+    z.object({ op: z.literal('add'), path: z.string().optional(), value: z.unknown().optional() }),
+    z.object({ op: z.literal('replace'), path: z.string().optional(), value: z.unknown().optional() }),
+    z.object({ op: z.literal('remove'), path: z.string(), value: z.unknown().optional() })
+]);
 
 const InputSchema = z.object({
     userId: z.string().describe('SCIM User ID. Example: "2819c223-7f76-453a-919d-413861904646"'),
@@ -58,7 +58,7 @@ const OutputSchema = z.looseObject({
 
 const action = createAction({
     description: 'Patch attributes for a 1Password SCIM user.',
-    version: '1.0.0',
+    version: '1.1.0',
     endpoint: {
         method: 'POST',
         path: '/actions/patch-scim-user',

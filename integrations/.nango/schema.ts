@@ -115,7 +115,7 @@ export interface ActionOutput_1password_scim_createscimuser {
 
 export interface ActionInput_1password_scim_deletescimgroup {
   /**
-   * SCIM Group ID. Example: "group-123"
+   * SCIM Group ID. Example: "abc123"
    */
   id: string;
 };
@@ -376,7 +376,7 @@ export interface ActionInput_1password_scim_patchscimgroup {
   /**
    * SCIM patch operations to apply to the group.
    */
-  operations: ({  op: 'add' | 'remove' | 'replace';
+  operations: ({  0: {  op: 'add';
   /**
    * Target attribute path. Example: "members" or "displayName"
    */
@@ -386,7 +386,29 @@ export interface ActionInput_1password_scim_patchscimgroup {
    */
   value: string;
   display?: string | undefined;
-  "$ref"?: string | undefined;})[] | {  [key: string]: unknown | undefined;};})[];
+  "$ref"?: string | undefined;})[] | {  [key: string]: unknown | undefined;};};
+  1: {  op: 'replace';
+  /**
+   * Target attribute path. Example: "members" or "displayName"
+   */
+  path?: string | undefined;
+  value?: string | ({  /**
+   * User ID. Example: "2819c223-7f76-453a-919d-413861904646"
+   */
+  value: string;
+  display?: string | undefined;
+  "$ref"?: string | undefined;})[] | {  [key: string]: unknown | undefined;};};
+  2: {  op: 'remove';
+  /**
+   * Target attribute path. Example: "members" or "displayName"
+   */
+  path: string;
+  value?: string | ({  /**
+   * User ID. Example: "2819c223-7f76-453a-919d-413861904646"
+   */
+  value: string;
+  display?: string | undefined;
+  "$ref"?: string | undefined;})[] | {  [key: string]: unknown | undefined;};};})[];
 };
 
 export interface ActionOutput_1password_scim_patchscimgroup {
@@ -410,9 +432,15 @@ export interface ActionInput_1password_scim_patchscimuser {
   /**
    * SCIM PatchOp operations. Example: [{"op":"replace","path":"userName","value":"new@example.com"}]
    */
-  operations: ({  op: 'add' | 'replace' | 'remove';
+  operations: ({  0: {  op: 'add';
   path?: string | undefined;
-  value?: unknown | undefined;})[];
+  value?: unknown | undefined;};
+  1: {  op: 'replace';
+  path?: string | undefined;
+  value?: unknown | undefined;};
+  2: {  op: 'remove';
+  path: string;
+  value?: unknown | undefined;};})[];
 };
 
 export interface ActionOutput_1password_scim_patchscimuser {
@@ -34891,34 +34919,6 @@ export interface DirectoryRole {
   roleTemplateId?: string | undefined;
 };
 
-export interface Group {
-  id: string;
-  name: string;
-  description?: string | undefined;
-  isDefault?: boolean | undefined;
-  isDeleted?: boolean | undefined;
-  isPublic?: boolean | undefined;
-  createdAt?: string | undefined;
-  updatedAt?: string | undefined;
-  url?: string | undefined;
-};
-
-export interface Organization {
-  id: string;
-  name: string;
-  created_at: string;
-  updated_at: string;
-  url: string;
-  external_id?: string | undefined;
-  domain_names?: string[] | undefined;
-  group_id?: number | undefined;
-  shared_comments?: boolean | undefined;
-  shared_tickets?: boolean | undefined;
-  tags?: string[] | undefined;
-  notes?: string | undefined;
-  details?: string | undefined;
-};
-
 export interface ServicePrincipal {
   id: string;
   appId?: string | undefined;
@@ -37195,18 +37195,6 @@ export interface Column {
   title: string;
   type: string;
   settings_str?: string | undefined;
-};
-
-export interface Group {
-  id: string;
-  name: string;
-  description?: string | undefined;
-  isDefault?: boolean | undefined;
-  isDeleted?: boolean | undefined;
-  isPublic?: boolean | undefined;
-  createdAt?: string | undefined;
-  updatedAt?: string | undefined;
-  url?: string | undefined;
 };
 
 export interface Subitem {
@@ -56245,13 +56233,13 @@ export interface Refund {
 
 export interface ActionInput_woocommerce_batchupdateorders {
   create?: ({  /**
-   * Order ID. Required for update operations.
+   * Order ID.
    */
   id?: number | undefined;})[];
   update?: ({  /**
    * Order ID. Required for update operations.
    */
-  id?: number | undefined;})[];
+  id: number;})[] | undefined;
   delete?: number[] | undefined;
 };
 
@@ -57008,9 +56996,9 @@ export interface ActionInput_woocommerce_createrefund {
    */
   order_id: number;
   /**
-   * Refund amount. Example: "10.00"
+   * Refund amount. Example: "10.00". Omit to let WooCommerce compute the total from line_items.
    */
-  amount: string;
+  amount?: string | undefined;
   /**
    * Reason for refund.
    */
@@ -57180,10 +57168,6 @@ export interface ActionInput_woocommerce_deleteproductcategory {
    * Unique identifier for the product category to delete. Example: 17
    */
   id: number;
-  /**
-   * Required to be true, as the resource does not support trashing.
-   */
-  force?: boolean | undefined;
 };
 
 export interface ActionOutput_woocommerce_deleteproductcategory {

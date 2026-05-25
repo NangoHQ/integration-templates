@@ -46,7 +46,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'List SCIM groups from 1Password SCIM.',
-    version: '1.0.0',
+    version: '1.1.0',
     endpoint: {
         method: 'GET',
         path: '/actions/list-scim-groups',
@@ -77,7 +77,7 @@ const action = createAction({
             params: {
                 startIndex: String(startIndex),
                 count: String(count),
-                ...(input.filter !== undefined && { filter: input.filter })
+                ...(input.filter && { filter: input.filter })
             },
             retries: 3
         });

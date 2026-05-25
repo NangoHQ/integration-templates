@@ -7,11 +7,23 @@ const ScimMemberSchema = z.object({
     $ref: z.string().optional()
 });
 
-const ScimOperationSchema = z.object({
-    op: z.enum(['add', 'remove', 'replace']),
-    path: z.string().optional().describe('Target attribute path. Example: "members" or "displayName"'),
-    value: z.union([z.string(), z.array(ScimMemberSchema), z.record(z.string(), z.unknown())]).optional()
-});
+const ScimOperationSchema = z.discriminatedUnion('op', [
+    z.object({
+        op: z.literal('add'),
+        path: z.string().optional().describe('Target attribute path. Example: "members" or "displayName"'),
+        value: z.union([z.string(), z.array(ScimMemberSchema), z.record(z.string(), z.unknown())]).optional()
+    }),
+    z.object({
+        op: z.literal('replace'),
+        path: z.string().optional().describe('Target attribute path. Example: "members" or "displayName"'),
+        value: z.union([z.string(), z.array(ScimMemberSchema), z.record(z.string(), z.unknown())]).optional()
+    }),
+    z.object({
+        op: z.literal('remove'),
+        path: z.string().describe('Target attribute path. Example: "members" or "displayName"'),
+        value: z.union([z.string(), z.array(ScimMemberSchema), z.record(z.string(), z.unknown())]).optional()
+    })
+]);
 
 const InputSchema = z.object({
     id: z.string().describe('SCIM Group ID. Example: "9067729b3d-f987ac4d-a175-44f0-a528-6d23c5d2ec4d"'),
@@ -60,7 +72,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Patch attributes or membership for a 1Password SCIM group.',
-    version: '1.0.0',
+    version: '1.1.0',
     endpoint: {
         method: 'POST',
         path: '/actions/patch-scim-group',

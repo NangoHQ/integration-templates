@@ -49,7 +49,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'List SCIM schemas supported by the bridge.',
-    version: '1.0.0',
+    version: '1.1.0',
     endpoint: {
         method: 'GET',
         path: '/actions/list-schemas',

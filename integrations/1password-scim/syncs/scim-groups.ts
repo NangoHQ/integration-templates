@@ -58,7 +58,7 @@ const sync = createSync({
             // https://support.1password.com/scim-endpoints/
             endpoint: '/Groups',
             params: {
-                ...(updatedAfter && { filter: `meta.lastModified gt "${updatedAfter}"` }),
+                ...(updatedAfter && { filter: `meta.lastModified ge "${updatedAfter}"` }),
                 sortBy: 'meta.lastModified',
                 sortOrder: 'ascending'
             },
