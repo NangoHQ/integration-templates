@@ -3,13 +3,13 @@ import { afterEach, vi, expect, it, describe } from 'vitest';
 import createSync from '../syncs/conversion-events.js';
 
 describe('google-analytics conversion-events tests', () => {
-    const models = 'ConversionEvent'.split(',');
+    const models = 'KeyEvent'.split(',');
 
     const createTestContext = () => {
         const nangoMock = new global.vitest.NangoSyncMock({
             dirname: __dirname,
             name: 'conversion-events',
-            Model: 'ConversionEvent'
+            Model: 'KeyEvent'
         });
 
         return {

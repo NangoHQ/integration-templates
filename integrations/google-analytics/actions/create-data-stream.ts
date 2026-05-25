@@ -15,16 +15,34 @@ const IosAppStreamDataInputSchema = z.object({
     bundle_id: z.string().describe('The Apple App Store Bundle ID for the app. Example: "com.example.myiosapp"')
 });
 
-const InputSchema = z.object({
+const CommonInputSchema = {
     property_id: z.string().describe('GA4 property numeric ID. Example: "1234"'),
-    type: DataStreamTypeSchema.describe('The type of data stream to create.'),
-    display_name: z.string().describe('Human-readable display name for the Data Stream.'),
-    web_stream_data: WebStreamDataInputSchema.optional().describe('Data specific to web streams. Required when type is WEB_DATA_STREAM.'),
-    android_app_stream_data: AndroidAppStreamDataInputSchema.optional().describe(
-        'Data specific to Android app streams. Required when type is ANDROID_APP_DATA_STREAM.'
-    ),
-    ios_app_stream_data: IosAppStreamDataInputSchema.optional().describe('Data specific to iOS app streams. Required when type is IOS_APP_DATA_STREAM.')
-});
+    display_name: z.string().describe('Human-readable display name for the Data Stream.')
+};
+
+const InputSchema = z.discriminatedUnion('type', [
+    z.object({
+        ...CommonInputSchema,
+        type: z.literal('WEB_DATA_STREAM'),
+        web_stream_data: WebStreamDataInputSchema.describe('Data specific to web streams. Required when type is WEB_DATA_STREAM.')
+    }),
+    z.object({
+        ...CommonInputSchema,
+        type: z.literal('ANDROID_APP_DATA_STREAM'),
+        android_app_stream_data: AndroidAppStreamDataInputSchema.describe(
+            'Data specific to Android app streams. Required when type is ANDROID_APP_DATA_STREAM.'
+        )
+    }),
+    z.object({
+        ...CommonInputSchema,
+        type: z.literal('IOS_APP_DATA_STREAM'),
+        ios_app_stream_data: IosAppStreamDataInputSchema.describe('Data specific to iOS app streams. Required when type is IOS_APP_DATA_STREAM.')
+    }),
+    z.object({
+        ...CommonInputSchema,
+        type: z.literal('DATA_STREAM_TYPE_UNSPECIFIED')
+    })
+]);
 
 const WebStreamDataSchema = z.object({
     measurementId: z.string().optional(),
@@ -90,19 +108,15 @@ const action = createAction({
             displayName: input.display_name
         };
 
-        if (input.web_stream_data !== undefined) {
+        if (input.type === 'WEB_DATA_STREAM') {
             body.webStreamData = {
                 defaultUri: input.web_stream_data.default_uri
             };
-        }
-
-        if (input.android_app_stream_data !== undefined) {
+        } else if (input.type === 'ANDROID_APP_DATA_STREAM') {
             body.androidAppStreamData = {
                 packageName: input.android_app_stream_data.package_name
             };
-        }
-
-        if (input.ios_app_stream_data !== undefined) {
+        } else if (input.type === 'IOS_APP_DATA_STREAM') {
             body.iosAppStreamData = {
                 bundleId: input.ios_app_stream_data.bundle_id
             };

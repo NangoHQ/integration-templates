@@ -4,7 +4,7 @@ import { createAction } from 'nango';
 const InputSchema = z.object({
     parent: z.string().describe('The resource name of the account under which to create the property. Example: "accounts/12345"'),
     displayName: z.string().describe('Human-readable display name for the property. Max 100 UTF-16 code units.'),
-    timeZone: z.string().optional().describe('Reporting time zone for the property. Example: "America/Los_Angeles"'),
+    timeZone: z.string().describe('Reporting time zone for the property. Example: "America/Los_Angeles"'),
     currencyCode: z.string().optional().describe('Currency type used in reports. Example: "USD"'),
     industryCategory: z.string().optional().describe('Industry category for benchmarking. Example: "TECHNOLOGY"'),
     serviceLevel: z.string().optional().describe('Service level. Example: "STANDARD" or "GOOGLE_ANALYTICS_360"'),

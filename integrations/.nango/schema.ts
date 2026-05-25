@@ -20467,7 +20467,7 @@ export interface Audience {
   stats?: {  [key: string]: unknown | undefined;};
 };
 
-export interface ConversionEvent {
+export interface KeyEvent {
   id: string;
   name?: string | undefined;
   eventName?: string | undefined;
@@ -20475,7 +20475,7 @@ export interface ConversionEvent {
   deletable?: boolean | undefined;
   custom?: boolean | undefined;
   countingMethod?: string | undefined;
-  defaultConversionValue?: {  value?: number | undefined;
+  defaultValue?: {  numericValue?: number | undefined;
   currencyCode?: string | undefined;};
 };
 
@@ -20591,39 +20591,63 @@ export interface ActionOutput_google_analytics_createconversionevent {
 };
 
 export interface ActionInput_google_analytics_createdatastream {
-  /**
+  0: {  /**
    * GA4 property numeric ID. Example: "1234"
    */
   property_id: string;
   /**
-   * The type of data stream to create.
+   * Human-readable display name for the Data Stream.
    */
-  type: 'DATA_STREAM_TYPE_UNSPECIFIED' | 'WEB_DATA_STREAM' | 'ANDROID_APP_DATA_STREAM' | 'IOS_APP_DATA_STREAM';
+  display_name: string;
+  type: 'WEB_DATA_STREAM';
+  /**
+   * Data specific to web streams. Required when type is WEB_DATA_STREAM.
+   */
+  web_stream_data: {  /**
+   * Domain name of the web app being measured. Example: "https://www.example.com"
+   */
+  default_uri: string;};};
+  1: {  /**
+   * GA4 property numeric ID. Example: "1234"
+   */
+  property_id: string;
   /**
    * Human-readable display name for the Data Stream.
    */
   display_name: string;
-  /**
-   * Data specific to web streams. Required when type is WEB_DATA_STREAM.
-   */
-  web_stream_data?: {  /**
-   * Domain name of the web app being measured. Example: "https://www.example.com"
-   */
-  default_uri: string;} | undefined;
+  type: 'ANDROID_APP_DATA_STREAM';
   /**
    * Data specific to Android app streams. Required when type is ANDROID_APP_DATA_STREAM.
    */
-  android_app_stream_data?: {  /**
+  android_app_stream_data: {  /**
    * The package name for the app being measured. Example: "com.example.myandroidapp"
    */
-  package_name: string;} | undefined;
+  package_name: string;};};
+  2: {  /**
+   * GA4 property numeric ID. Example: "1234"
+   */
+  property_id: string;
+  /**
+   * Human-readable display name for the Data Stream.
+   */
+  display_name: string;
+  type: 'IOS_APP_DATA_STREAM';
   /**
    * Data specific to iOS app streams. Required when type is IOS_APP_DATA_STREAM.
    */
-  ios_app_stream_data?: {  /**
+  ios_app_stream_data: {  /**
    * The Apple App Store Bundle ID for the app. Example: "com.example.myiosapp"
    */
-  bundle_id: string;} | undefined;
+  bundle_id: string;};};
+  3: {  /**
+   * GA4 property numeric ID. Example: "1234"
+   */
+  property_id: string;
+  /**
+   * Human-readable display name for the Data Stream.
+   */
+  display_name: string;
+  type: 'DATA_STREAM_TYPE_UNSPECIFIED';};
 };
 
 export interface ActionOutput_google_analytics_createdatastream {
@@ -20653,7 +20677,7 @@ export interface ActionInput_google_analytics_createproperty {
   /**
    * Reporting time zone for the property. Example: "America/Los_Angeles"
    */
-  timeZone?: string | undefined;
+  timeZone: string;
   /**
    * Currency type used in reports. Example: "USD"
    */
@@ -20796,7 +20820,8 @@ export interface ActionInput_google_analytics_runreport {
   metrics?: ({  name: string;})[] | undefined;
   dateRanges?: ({  startDate: string;
   endDate: string;})[] | undefined;
-  filter?: {} | undefined;
+  dimensionFilter?: {} | undefined;
+  metricFilter?: {} | undefined;
   ordering?: ({  dimension?: {  dimensionName: string;} | undefined;
   metric?: {  metricName: string;} | undefined;
   desc?: boolean | undefined;})[];

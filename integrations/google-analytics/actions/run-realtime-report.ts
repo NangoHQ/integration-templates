@@ -85,13 +85,13 @@ const action = createAction({
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const propertyParts = input.property.split('/');
-        if (propertyParts.length !== 2 || propertyParts[0] !== 'properties') {
+        if (propertyParts.length !== 2 || propertyParts[0] !== 'properties' || !propertyParts[1]) {
             throw new nango.ActionError({
                 type: 'invalid_property',
                 message: 'Property must be in the format "properties/{propertyId}". Example: "properties/1234"'
             });
         }
-        const propertyId = encodeURIComponent(propertyParts[1] || '');
+        const propertyId = encodeURIComponent(propertyParts[1]);
 
         const requestBody: Record<string, unknown> = {
             ...(input.dimensions !== undefined && { dimensions: input.dimensions }),

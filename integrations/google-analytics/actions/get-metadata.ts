@@ -38,7 +38,7 @@ const action = createAction({
     },
     input: InputSchema,
     output: OutputSchema,
-    scopes: ['https://www.googleapis.com/auth/analytics'],
+    scopes: ['https://www.googleapis.com/auth/analytics.readonly'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const config: ProxyConfiguration = {

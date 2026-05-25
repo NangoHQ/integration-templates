@@ -33,7 +33,8 @@ const InputSchema = z.object({
     dimensions: z.array(DimensionSchema).optional(),
     metrics: z.array(MetricSchema).optional(),
     dateRanges: z.array(DateRangeSchema).optional(),
-    filter: z.object({}).passthrough().optional(),
+    dimensionFilter: z.object({}).passthrough().optional(),
+    metricFilter: z.object({}).passthrough().optional(),
     ordering: z.array(OrderBySchema).optional(),
     limit: z.number().optional()
 });
@@ -93,7 +94,8 @@ const action = createAction({
                 ...(input.dimensions !== undefined && { dimensions: input.dimensions }),
                 ...(input.metrics !== undefined && { metrics: input.metrics }),
                 ...(input.dateRanges !== undefined && { dateRanges: input.dateRanges }),
-                ...(input.filter !== undefined && { filter: input.filter }),
+                ...(input.dimensionFilter !== undefined && { dimensionFilter: input.dimensionFilter }),
+                ...(input.metricFilter !== undefined && { metricFilter: input.metricFilter }),
                 ...(input.ordering !== undefined && { orderBys: input.ordering }),
                 ...(input.limit !== undefined && { limit: input.limit })
             },
