@@ -12,6 +12,7 @@
 - Pattern 6: `updated_at` via POST search with nested cursor pagination
 - Delete strategies
 - Full refresh fallback
+- Metadata
 - Validation and execution
 - Invalid patterns
 
@@ -556,6 +557,8 @@ Use full refresh only when the provider truly cannot return changes, deletions, 
 
 Never reuse this pattern on a changed-only endpoint (`modified_after`, `updated_after`, changed-records feed, etc.). Those endpoints omit unchanged rows, so `trackDeletesEnd()` would treat unchanged records as deleted.
 
+Call `trackDeletesStart` **after** any metadata or input validation, but **before** the fetch loop. If validation fails and returns early, `trackDeletesEnd` will never run — leaving delete tracking unclosed and causing missed or false deletions.
+
 ```typescript
 const sync = createSync({
     frequency: 'every hour',
@@ -588,6 +591,37 @@ const sync = createSync({
         }
 
         await nango.trackDeletesEnd('Record');
+    }
+});
+```
+
+## Metadata
+
+Use metadata when the sync depends on connection-specific values such as `team_id`, `workspace_id`, or `guild_id` that the caller must supply before the sync can run.
+
+**When metadata is required, always set `autoStart: false`.** The sync cannot execute correctly until the caller has set the metadata — auto-starting it would fail immediately.
+
+```typescript
+const MetadataSchema = z.object({
+    team_id: z.string()
+});
+
+const sync = createSync({
+    description: 'Brief single sentence',
+    version: '1.0.0',
+    frequency: 'every hour',
+    autoStart: false,   // required when metadata is needed
+    metadata: MetadataSchema,
+    models: { Record: RecordSchema },
+
+    exec: async (nango) => {
+        const metadata = await nango.getMetadata<z.infer<typeof MetadataSchema>>();
+
+        if (!metadata?.team_id) {
+            throw new Error('team_id is required in metadata');
+        }
+
+        // use metadata.team_id in requests
     }
 });
 ```
