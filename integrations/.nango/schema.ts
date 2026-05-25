@@ -1796,6 +1796,217 @@ export interface ActionOutput_anrok_voidtransaction {
   validation_errors?: any | undefined;})[];
 };
 
+export interface File {
+  id: string;
+  object?: string | undefined;
+  bytes?: number | undefined;
+  created_at?: number | undefined;
+  filename?: string | undefined;
+  purpose?: string | undefined;
+  status?: string | undefined;
+  status_details?: string | undefined;
+};
+
+export interface MessageBatch {
+  id: string;
+  archived_at?: string | undefined;
+  cancel_initiated_at?: string | undefined;
+  created_at: string;
+  ended_at?: string | undefined;
+  expires_at: string;
+  processing_status: 'in_progress' | 'canceling' | 'ended';
+  request_counts: {  canceled: number;
+  errored: number;
+  expired: number;
+  processing: number;
+  succeeded: number;};
+  results_url?: string | undefined;
+  type: 'message_batch';
+};
+
+export interface Model {
+  id: string;
+  object?: string | undefined;
+  created?: number | undefined;
+  owned_by?: string | undefined;
+};
+
+export interface ActionInput_anthropic_createfile {
+  /**
+   * Original filename of the uploaded file. Example: "document.pdf"
+   */
+  filename: string;
+  /**
+   * Base64-encoded file content.
+   */
+  content: string;
+  /**
+   * MIME type of the file. Example: "application/pdf"
+   */
+  mime_type?: string | undefined;
+};
+
+export interface ActionOutput_anthropic_createfile {
+  id: string;
+  created_at: string;
+  filename: string;
+  mime_type: string;
+  size_bytes: number;
+  type: 'file';
+  downloadable?: boolean | undefined;
+  scope?: {  id: string;
+  type: 'session';} | undefined;
+};
+
+export interface ActionInput_anthropic_deletefile {
+  /**
+   * ID of the File to delete. Example: "file_011CNha8iCJcU1wXNR6q4V8w"
+   */
+  file_id: string;
+};
+
+export interface ActionOutput_anthropic_deletefile {
+  id: string;
+  type?: 'file_deleted' | undefined;
+};
+
+export interface ActionInput_anthropic_getfile {
+  /**
+   * The ID of the file to retrieve. Example: "file_01HqW8Kq0Z2Q2W8Kq0Z2Q2W8"
+   */
+  file_id: string;
+};
+
+export interface ActionOutput_anthropic_getfile {
+  id: string;
+  created_at: string;
+  filename: string;
+  mime_type: string;
+  size_bytes: number;
+  type: 'file';
+  downloadable?: boolean | undefined;
+  scope?: {  id: string;
+  type: 'session';} | undefined;
+};
+
+export interface ActionInput_anthropic_getmodel {
+  /**
+   * Model identifier or alias. Example: "claude-opus-4-6"
+   */
+  model_id: string;
+};
+
+export interface ActionOutput_anthropic_getmodel {
+  id: string;
+  capabilities: {  batch: {  supported: boolean;};
+  citations: {  supported: boolean;};
+  code_execution: {  supported: boolean;};
+  context_management: {  clear_thinking_20251015: {  supported: boolean;};
+  clear_tool_uses_20250919: {  supported: boolean;};
+  compact_20260112: {  supported: boolean;};
+  supported: boolean;};
+  effort: {  high: {  supported: boolean;};
+  low: {  supported: boolean;};
+  max: {  supported: boolean;};
+  medium: {  supported: boolean;};
+  supported: boolean;
+  xhigh?: {  supported: boolean;} | undefined;};
+  image_input: {  supported: boolean;};
+  pdf_input: {  supported: boolean;};
+  structured_outputs: {  supported: boolean;};
+  thinking: {  supported: boolean;
+  types: {  adaptive: {  supported: boolean;};
+  enabled: {  supported: boolean;};};};};
+  created_at: string;
+  display_name: string;
+  max_input_tokens: number;
+  max_tokens: number;
+  type: string;
+};
+
+export interface ActionInput_anthropic_listfiles {
+  /**
+   * Pagination cursor from the previous response. Omit for the first page.
+   */
+  cursor?: string | undefined;
+  /**
+   * Number of items to return per page. Defaults to 20. Ranges from 1 to 1000.
+   */
+  limit?: number | undefined;
+  /**
+   * Filter by scope ID. Only returns files associated with the specified scope (e.g., a session ID).
+   */
+  scope_id?: string | undefined;
+};
+
+export interface ActionOutput_anthropic_listfiles {
+  files: ({  id: string;
+  created_at: string;
+  filename: string;
+  mime_type: string;
+  size_bytes: number;
+  type: string;
+  downloadable?: boolean | undefined;
+  scope?: {  id: string;
+  type: string;} | undefined;})[];
+  next_cursor?: string | undefined;
+};
+
+export interface ActionInput_anthropic_listmessagebatches {
+  /**
+   * Pagination cursor from the previous response. Omit for the first page.
+   */
+  cursor?: string | undefined;
+  /**
+   * ID of the object to use as a cursor for pagination. Returns the page immediately before this object.
+   */
+  before_id?: string | undefined;
+  /**
+   * Number of items to return per page. Defaults to 20. Ranges from 1 to 1000.
+   */
+  limit?: number | undefined;
+};
+
+export interface ActionOutput_anthropic_listmessagebatches {
+  items: ({  id: string;
+  archived_at?: string | undefined;
+  cancel_initiated_at?: string | undefined;
+  created_at: string;
+  ended_at?: string | undefined;
+  expires_at: string;
+  processing_status: 'in_progress' | 'canceling' | 'ended';
+  request_counts: {  canceled: number;
+  errored: number;
+  expired: number;
+  processing: number;
+  succeeded: number;};
+  results_url?: string | undefined;
+  type: 'message_batch';})[];
+  next_cursor?: string | undefined;
+};
+
+export interface ActionInput_anthropic_listmodels {
+  /**
+   * Pagination cursor from the previous response. Omit for the first page.
+   */
+  cursor?: string | undefined;
+  /**
+   * Number of items to return per page. Defaults to 20. Ranges from 1 to 1000.
+   */
+  limit?: number | undefined;
+};
+
+export interface ActionOutput_anthropic_listmodels {
+  items: ({  id: string;
+  capabilities: {};
+  created_at: string;
+  display_name: string;
+  max_input_tokens: number;
+  max_tokens: number;
+  type: 'model';})[];
+  next_cursor?: string | undefined;
+};
+
 export interface Account {
   id: string;
   accountName?: string | undefined;
@@ -15056,17 +15267,6 @@ export interface ActionInput_docusign_deleteuser {
 
 export interface ActionOutput_docusign_deleteuser {
   success: boolean;
-};
-
-export interface File {
-  id: string;
-  object?: string | undefined;
-  bytes?: number | undefined;
-  created_at?: number | undefined;
-  filename?: string | undefined;
-  purpose?: string | undefined;
-  status?: string | undefined;
-  status_details?: string | undefined;
 };
 
 export interface SyncMetadata_dropbox_files {
@@ -34899,22 +35099,6 @@ export interface Group {
   url?: string | undefined;
 };
 
-export interface Organization {
-  id: string;
-  name: string;
-  created_at: string;
-  updated_at: string;
-  url: string;
-  external_id?: string | undefined;
-  domain_names?: string[] | undefined;
-  group_id?: number | undefined;
-  shared_comments?: boolean | undefined;
-  shared_tickets?: boolean | undefined;
-  tags?: string[] | undefined;
-  notes?: string | undefined;
-  details?: string | undefined;
-};
-
 export interface ServicePrincipal {
   id: string;
   appId?: string | undefined;
@@ -37191,18 +37375,6 @@ export interface Column {
   title: string;
   type: string;
   settings_str?: string | undefined;
-};
-
-export interface Group {
-  id: string;
-  name: string;
-  description?: string | undefined;
-  isDefault?: boolean | undefined;
-  isDeleted?: boolean | undefined;
-  isPublic?: boolean | undefined;
-  createdAt?: string | undefined;
-  updatedAt?: string | undefined;
-  url?: string | undefined;
 };
 
 export interface Subitem {
@@ -41536,13 +41708,6 @@ export interface FineTuningJob {
   learning_rate_multiplier?: number | string | undefined;};
   metadata?: {  [key: string]: unknown | undefined;};
   error?: unknown | undefined;
-};
-
-export interface Model {
-  id: string;
-  object?: string | undefined;
-  created?: number | undefined;
-  owned_by?: string | undefined;
 };
 
 export interface VectorStore {
@@ -56241,13 +56406,13 @@ export interface Refund {
 
 export interface ActionInput_woocommerce_batchupdateorders {
   create?: ({  /**
-   * Order ID. Required for update operations.
+   * Order ID.
    */
   id?: number | undefined;})[];
   update?: ({  /**
    * Order ID. Required for update operations.
    */
-  id?: number | undefined;})[];
+  id: number;})[] | undefined;
   delete?: number[] | undefined;
 };
 
@@ -57004,9 +57169,9 @@ export interface ActionInput_woocommerce_createrefund {
    */
   order_id: number;
   /**
-   * Refund amount. Example: "10.00"
+   * Refund amount. Example: "10.00". Omit to let WooCommerce compute the total from line_items.
    */
-  amount: string;
+  amount?: string | undefined;
   /**
    * Reason for refund.
    */
@@ -57176,10 +57341,6 @@ export interface ActionInput_woocommerce_deleteproductcategory {
    * Unique identifier for the product category to delete. Example: 17
    */
   id: number;
-  /**
-   * Required to be true, as the resource does not support trashing.
-   */
-  force?: boolean | undefined;
 };
 
 export interface ActionOutput_woocommerce_deleteproductcategory {
