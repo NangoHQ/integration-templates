@@ -1,0 +1,263 @@
+integrations/lever/syncs/opportunities.ts
+  s_07470ee9df92f4::t_6a5ee7fe9b951a 14
+integrations/clari-copilot/syncs/calls.ts
+  s_07470ee9df92f4::t_6a5ee7fe9b951a 14
+integrations/hackerrank-work/syncs/users.ts
+  s_07470ee9df92f4::t_a6412f43e96a1a 28,57-58
+  s_07470ee9df92f4::t_6a5ee7fe9b951a 8
+integrations/bill/syncs/users.ts
+  s_07470ee9df92f4::t_6a5ee7fe9b951a 15
+integrations/clicksend/syncs/sms-history.ts
+  s_07470ee9df92f4::t_6a5ee7fe9b951a 15
+integrations/xero/syncs/general-ledger.ts
+  s_07470ee9df92f4::t_6a5ee7fe9b951a 187
+integrations/ring-central/syncs/contacts.ts
+  s_07470ee9df92f4::t_6a5ee7fe9b951a 10
+integrations/dialpad/syncs/users.ts
+  s_07470ee9df92f4::t_6a5ee7fe9b951a 10
+integrations/gem/syncs/job-stages.ts
+  s_07470ee9df92f4::t_6a5ee7fe9b951a 15
+integrations/linkedin/syncs/messages.ts
+  s_07470ee9df92f4::t_6a5ee7fe9b951a 17
+integrations/recruiterflow/syncs/job-remote-statuses.ts
+  s_07470ee9df92f4::t_6a5ee7fe9b951a 10
+integrations/recruiterflow/syncs/candidate-activity-types.ts
+  s_07470ee9df92f4::t_6a5ee7fe9b951a 8
+integrations/greenhouse-basic/syncs/candidates.ts
+  s_07470ee9df92f4::t_6a5ee7fe9b951a 12
+integrations/ramp/syncs/users.ts
+  s_07470ee9df92f4::t_6a5ee7fe9b951a 10
+integrations/checkr-partner/syncs/background-checks.ts
+  s_07470ee9df92f4::t_6a5ee7fe9b951a 10
+integrations/keeper-scim/syncs/users.ts
+  s_07470ee9df92f4::t_6a5ee7fe9b951a 24
+integrations/recruiterflow/syncs/employment-types.ts
+  s_07470ee9df92f4::t_6a5ee7fe9b951a 8
+integrations/pennylane/syncs/invoices.ts
+  s_07470ee9df92f4::t_6a5ee7fe9b951a 14
+integrations/brightcrowd/syncs/pages.ts
+  s_07470ee9df92f4::t_6a5ee7fe9b951a 12
+  s_07470ee9df92f4::t_a6412f43e96a1a 47
+integrations/basecamp/syncs/todos.ts
+  s_07470ee9df92f4::t_a6412f43e96a1a 45
+  s_07470ee9df92f4::t_6a5ee7fe9b951a 15
+integrations/adp/syncs/unified-employees.ts
+  s_07470ee9df92f4::t_6a5ee7fe9b951a 11
+integrations/metabase/syncs/users.ts
+  s_07470ee9df92f4::t_6a5ee7fe9b951a 8
+integrations/ashby/syncs/jobs.ts
+  s_07470ee9df92f4::t_6a5ee7fe9b951a 14
+integrations/hibob-service-user/syncs/employees.ts
+  s_07470ee9df92f4::t_6a5ee7fe9b951a 10
+integrations/netsuite-tba/syncs/invoices.ts
+  s_07470ee9df92f4::t_6a5ee7fe9b951a 19
+integrations/recruiterflow/syncs/jobs.ts
+  s_07470ee9df92f4::t_6a5ee7fe9b951a 10
+integrations/recruiterflow/syncs/organization-locations.ts
+  s_07470ee9df92f4::t_6a5ee7fe9b951a 10
+integrations/recruiterflow/syncs/job-stage-names.ts
+  s_07470ee9df92f4::t_a6412f43e96a1a 36-39,41
+  s_07470ee9df92f4::t_6a5ee7fe9b951a 8
+integrations/cal-com-v2/syncs/event-types.ts
+  s_07470ee9df92f4::t_6a5ee7fe9b951a 9
+integrations/lastpass/syncs/users.ts
+  s_07470ee9df92f4::t_6a5ee7fe9b951a 12
+  s_07470ee9df92f4::t_a6412f43e96a1a 32
+internal/flows.zero.json
+  s_07470ee9df92f4::t_1fd53b1e52ccab 2041,2486,24481,24717,30944,32171,32954,33327,33483,34134,34290,35211,35484,35650,39561,39882,40456,41049,41541,41967,45723,45969,46405,57205,57374,57543,62568,62619,62822,63015,66972,67129,67556,69553,69704,69793,69887,70445,71936,72105,72511,72594,72762,73099,73184,81109,81190,81902,81983,82270,82370,82772,82956,83056,83458,83531,99422,100654,102126,103358,103463,103527,103851,104072,104241,104565,104786,105149,105314,105848,106013,106875,107022,107129,107251,107572,107636,107834,122226,122478,122728,122792,125978,130078,134178,138278,145371,145627,152168,162867,164857,164956,165117,165243,165341,165450,171715,172256,180425,180773,185020,185369,187293,187536,188377,188463,188698,215719,215894,216307,217083,217146,217355,217400,217448,217493,217538,217586,217866,217938,217998,218486,218575,219047,219136,219200,225201,225310,225438,225584,226035,226420,231516,236766,237423,241427,241776,255119,255398,262069
+integrations/gem/syncs/applications.ts
+  s_07470ee9df92f4::t_6a5ee7fe9b951a 15
+integrations/gorgias/syncs/tickets.ts
+  s_07470ee9df92f4::t_6a5ee7fe9b951a 20
+integrations/smartsheet/syncs/users.ts
+  s_07470ee9df92f4::t_6a5ee7fe9b951a 14
+integrations/netsuite-tba/syncs/payments.ts
+  s_07470ee9df92f4::t_6a5ee7fe9b951a 18
+integrations/netsuite-tba/syncs/general-ledger.ts
+  s_07470ee9df92f4::t_6a5ee7fe9b951a 33
+integrations/oracle-hcm/syncs/unified-employees.ts
+  s_07470ee9df92f4::t_6a5ee7fe9b951a 21
+integrations/brightcrowd/syncs/books-by-id.ts
+  s_07470ee9df92f4::t_a6412f43e96a1a 45
+  s_07470ee9df92f4::t_6a5ee7fe9b951a 11
+integrations/stripe-app/syncs/subscriptions.ts
+  s_07470ee9df92f4::t_6a5ee7fe9b951a 13
+integrations/github-app/syncs/commits.ts
+  s_07470ee9df92f4::t_6a5ee7fe9b951a 40
+  s_07470ee9df92f4::t_a6412f43e96a1a 89,94,119,127,149
+integrations/freshdesk/syncs/contacts.ts
+  s_07470ee9df92f4::t_6a5ee7fe9b951a 15
+integrations/recruiterflow/syncs/job-departments.ts
+  s_07470ee9df92f4::t_6a5ee7fe9b951a 8
+integrations/perimeter81/syncs/users.ts
+  s_07470ee9df92f4::t_6a5ee7fe9b951a 24
+integrations/discourse/syncs/active-users.ts
+  s_07470ee9df92f4::t_6a5ee7fe9b951a 23
+integrations/gong/syncs/calls.ts
+  s_07470ee9df92f4::t_6a5ee7fe9b951a 20
+integrations/luma/syncs/list-events.ts
+  s_07470ee9df92f4::t_6a5ee7fe9b951a 24
+integrations/gong/syncs/call-transcripts.ts
+  s_07470ee9df92f4::t_a6412f43e96a1a 108
+  s_07470ee9df92f4::t_6a5ee7fe9b951a 20
+integrations/workable/syncs/jobs.ts
+  s_07470ee9df92f4::t_6a5ee7fe9b951a 12
+integrations/jira-basic/syncs/users.ts
+  s_07470ee9df92f4::t_6a5ee7fe9b951a 10
+integrations/expensify/syncs/users.ts
+  s_07470ee9df92f4::t_6a5ee7fe9b951a 12
+integrations/avalara/syncs/transactions.ts
+  s_07470ee9df92f4::t_6a5ee7fe9b951a 16
+integrations/hackerrank-work/syncs/teams.ts
+  s_07470ee9df92f4::t_6a5ee7fe9b951a 8
+  s_07470ee9df92f4::t_a6412f43e96a1a 28,57-58
+integrations/namely-pat/syncs/unified-employees.ts
+  s_07470ee9df92f4::t_6a5ee7fe9b951a 15
+integrations/freshdesk/syncs/users.ts
+  s_07470ee9df92f4::t_6a5ee7fe9b951a 10
+integrations/sharepoint-online/syncs/shared-sites-selection.ts
+  s_07470ee9df92f4::t_6a5ee7fe9b951a 21
+integrations/pennylane/syncs/products.ts
+  s_07470ee9df92f4::t_6a5ee7fe9b951a 14
+integrations/grammarly/syncs/users.ts
+  s_07470ee9df92f4::t_6a5ee7fe9b951a 10
+integrations/gem/syncs/jobs.ts
+  s_07470ee9df92f4::t_6a5ee7fe9b951a 15
+integrations/recruiterflow/syncs/users.ts
+  s_07470ee9df92f4::t_6a5ee7fe9b951a 10
+integrations/ashby/syncs/candidates.ts
+  s_07470ee9df92f4::t_6a5ee7fe9b951a 14
+integrations/ukg-pro/syncs/unified-employees.ts
+  s_07470ee9df92f4::t_6a5ee7fe9b951a 15
+integrations/workable/syncs/candidates.ts
+  s_07470ee9df92f4::t_6a5ee7fe9b951a 12
+integrations/github-app/syncs/pull-requests.ts
+  s_07470ee9df92f4::t_6a5ee7fe9b951a 20
+  s_07470ee9df92f4::t_a6412f43e96a1a 57,69,130-132
+integrations/sap-success-factors/syncs/groups.ts
+  s_07470ee9df92f4::t_6a5ee7fe9b951a 15
+integrations/recharge/syncs/customers.ts
+  s_07470ee9df92f4::t_6a5ee7fe9b951a 15
+integrations/lattice/syncs/users.ts
+  s_07470ee9df92f4::t_6a5ee7fe9b951a 10
+integrations/gusto/syncs/unified-employees.ts
+  s_07470ee9df92f4::t_6a5ee7fe9b951a 14
+integrations/hibob-service-user/syncs/unified-employees.ts
+  s_07470ee9df92f4::t_a6412f43e96a1a 59,63-65
+  s_07470ee9df92f4::t_6a5ee7fe9b951a 19
+integrations/gem/syncs/locations.ts
+  s_07470ee9df92f4::t_6a5ee7fe9b951a 11
+integrations/aircall/syncs/users.ts
+  s_07470ee9df92f4::t_6a5ee7fe9b951a 10
+integrations/gong/syncs/users.ts
+  s_07470ee9df92f4::t_6a5ee7fe9b951a 16
+integrations/google/syncs/workspace-org-units.ts
+  s_07470ee9df92f4::t_a6412f43e96a1a 46,74-78,113-116
+  s_07470ee9df92f4::t_6a5ee7fe9b951a 23
+integrations/discourse/syncs/categories.ts
+  s_07470ee9df92f4::t_6a5ee7fe9b951a 10
+integrations/oracle-hcm/syncs/employees.ts
+  s_07470ee9df92f4::t_6a5ee7fe9b951a 21
+integrations/hackerrank-work/syncs/interviews.ts
+  s_07470ee9df92f4::t_6a5ee7fe9b951a 12
+integrations/bamboohr-basic/syncs/unified-employees.ts
+  s_07470ee9df92f4::t_6a5ee7fe9b951a 26
+integrations/paycom/syncs/unified-employees.ts
+  s_07470ee9df92f4::t_6a5ee7fe9b951a 11
+integrations/front/syncs/conversations.ts
+  s_07470ee9df92f4::t_6a5ee7fe9b951a 11
+integrations/sap-success-factors/syncs/locations.ts
+  s_07470ee9df92f4::t_6a5ee7fe9b951a 15
+integrations/freshdesk/syncs/articles.ts
+  s_07470ee9df92f4::t_6a5ee7fe9b951a 19
+integrations/bamboohr-basic/syncs/employees.ts
+  s_07470ee9df92f4::t_6a5ee7fe9b951a 26
+integrations/.nango/nango.json
+  s_07470ee9df92f4::t_1fd53b1e52ccab 2258,2760,24093,24367,31859,32688,33101,33264,34278,34593,39201,39591,40200,40830,41344,41777,46057,46316,46797,58933,59133,64821,64882,65126,69833,69995,70456,72824,72988,73091,73192,73799,75419,75611,76067,76168,76366,76741,76833,85977,86077,86419,86541,86988,87075,105599,106873,106995,107068,107452,107692,108108,108291,109188,109345,109457,109584,109940,110014,110244,126932,127226,127519,127591,131067,139300,139574,146707,159055,161256,161375,161543,161685,161803,161938,169310,178801,179158,183996,184379,186469,186723,187604,187707,187979,206980,207426,208329,208406,208629,208682,208739,208792,208845,208902,209187,209269,209337,209913,210014,210086,213654,213770,213905,214058,214583,215012,221045,227162,231749,232134,246776,247105,254459
+integrations/docusign/syncs/users.ts
+  s_07470ee9df92f4::t_6a5ee7fe9b951a 14
+integrations/pennylane/syncs/suppliers.ts
+  s_07470ee9df92f4::t_6a5ee7fe9b951a 14
+integrations/exact-online/syncs/customers.ts
+  s_07470ee9df92f4::t_6a5ee7fe9b951a 10
+  s_07470ee9df92f4::t_a6412f43e96a1a 31
+integrations/gusto/syncs/employees.ts
+  s_07470ee9df92f4::t_6a5ee7fe9b951a 13
+integrations/aws-iam/syncs/users.ts
+  s_07470ee9df92f4::t_6a5ee7fe9b951a 11
+integrations/gem/syncs/candidates.ts
+  s_07470ee9df92f4::t_6a5ee7fe9b951a 15
+integrations/recruiterflow/syncs/locations.ts
+  s_07470ee9df92f4::t_6a5ee7fe9b951a 10
+integrations/hackerrank-work/syncs/tests.ts
+  s_07470ee9df92f4::t_6a5ee7fe9b951a 8
+integrations/netsuite-tba/syncs/credit-notes.ts
+  s_07470ee9df92f4::t_6a5ee7fe9b951a 19
+integrations/exact-online/syncs/payments.ts
+  s_07470ee9df92f4::t_6a5ee7fe9b951a 10
+integrations/ring-central/syncs/users.ts
+  s_07470ee9df92f4::t_6a5ee7fe9b951a 24
+integrations/recruiterflow/syncs/candidates.ts
+  s_07470ee9df92f4::t_6a5ee7fe9b951a 10
+integrations/pennylane/syncs/customers.ts
+  s_07470ee9df92f4::t_6a5ee7fe9b951a 15
+integrations/brightcrowd/syncs/book-analytics.ts
+  s_07470ee9df92f4::t_a6412f43e96a1a 48-50
+  s_07470ee9df92f4::t_6a5ee7fe9b951a 15
+integrations/gem/syncs/users.ts
+  s_07470ee9df92f4::t_6a5ee7fe9b951a 11
+integrations/shopify/syncs/orders.ts
+  s_07470ee9df92f4::t_6a5ee7fe9b951a 14
+integrations/sap-success-factors/syncs/employees.ts
+  s_07470ee9df92f4::t_6a5ee7fe9b951a 15
+integrations/freshdesk/syncs/tickets.ts
+  s_07470ee9df92f4::t_6a5ee7fe9b951a 14
+integrations/harvest/syncs/users.ts
+  s_07470ee9df92f4::t_6a5ee7fe9b951a 28
+integrations/greenhouse-basic/syncs/jobs.ts
+  s_07470ee9df92f4::t_6a5ee7fe9b951a 12
+integrations/greenhouse-basic/syncs/applications.ts
+  s_07470ee9df92f4::t_6a5ee7fe9b951a 12
+integrations/sap-success-factors/syncs/unified-employees.ts
+  s_07470ee9df92f4::t_6a5ee7fe9b951a 15
+integrations/brightcrowd/syncs/books.ts
+  s_07470ee9df92f4::t_6a5ee7fe9b951a 14
+integrations/gorgias/syncs/users.ts
+  s_07470ee9df92f4::t_6a5ee7fe9b951a 19
+integrations/okta/syncs/users.ts
+  s_07470ee9df92f4::t_6a5ee7fe9b951a 15
+integrations/datadog/syncs/users.ts
+  s_07470ee9df92f4::t_6a5ee7fe9b951a 10
+integrations/sage-intacct-oauth/syncs/accounts.ts
+  s_07470ee9df92f4::t_6a5ee7fe9b951a 11
+integrations/cal-com-v2/syncs/events.ts
+  s_07470ee9df92f4::t_6a5ee7fe9b951a 7
+integrations/gem/syncs/job-posts.ts
+  s_07470ee9df92f4::t_6a5ee7fe9b951a 15
+integrations/recruiterflow/syncs/job-statuses.ts
+  s_07470ee9df92f4::t_6a5ee7fe9b951a 10
+integrations/ukg-ready/syncs/unified-employees.ts
+  s_07470ee9df92f4::t_6a5ee7fe9b951a 16
+integrations/paylocity/syncs/users.ts
+  s_07470ee9df92f4::t_6a5ee7fe9b951a 16
+integrations/netsuite-tba/syncs/locations.ts
+  s_07470ee9df92f4::t_6a5ee7fe9b951a 18
+integrations/netsuite-tba/syncs/customers.ts
+  s_07470ee9df92f4::t_6a5ee7fe9b951a 18
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.5.1",
+  "base_commit_sha": "cdeaf6df04a73621a8c5d0a3789c0d29d5ccb0a1",
+  "prompts": {},
+  "sessions": {
+    "s_07470ee9df92f4": {
+      "agent_id": {
+        "tool": "codex",
+        "id": "019e5066-ad12-7983-a016-ab2496c03987",
+        "model": "gpt-5.5"
+      },
+      "human_author": "Marcin Dobrowolski <marcindobry@hotmail.com>"
+    }
+  }
+}
