@@ -1,0 +1,41 @@
+{
+    "version": 1,
+    "skills": {
+        "building-nango-functions-locally": {
+            "source": "NangoHQ/skills",
+            "sourceType": "github",
+            "skillPath": "skills/building-nango-functions-locally/SKILL.md",
+            "computedHash": "3253c33df60dc297a1849582293f656bc31f284b87d95e9bbdb486cfc29d1f8d"
+        },
+        "building-nango-functions-remotely": {
+            "source": "NangoHQ/skills",
+            "sourceType": "github",
+            "skillPath": "skills/building-nango-functions-remotely/SKILL.md",
+            "computedHash": "342fcd63acf11e55b47856788c396cbaba995b6393628050ddcc24d4f19f4e22"
+        },
+        "migrating-nango-deletion-detection": {
+            "source": "NangoHQ/skills",
+            "sourceType": "github",
+            "skillPath": "skills/migrating-nango-deletion-detection/SKILL.md",
+            "computedHash": "cbbac66fe257822108eb0cff834d85ed0cf2d69f94514043d5bd3bcb2d0c8a79"
+        },
+        "migrating-to-checkpoints": {
+            "source": "NangoHQ/skills",
+            "sourceType": "github",
+            "skillPath": "skills/migrating-to-checkpoints/SKILL.md",
+            "computedHash": "52d6c8ff9c8abbca74b20bfce435d3d23f4ebe0fd11ab9d1f660eeff2d2c3753"
+        },
+        "migrating-to-zero-yaml": {
+            "source": "NangoHQ/skills",
+            "sourceType": "github",
+            "skillPath": "skills/migrating-to-zero-yaml/SKILL.md",
+            "computedHash": "0ada2caa8d3c59be915077997b75e9c3190c016242159397c56716b01e750b4d"
+        },
+        "nango-toolbox": {
+            "source": "NangoHQ/skills",
+            "sourceType": "github",
+            "skillPath": "skills/nango-toolbox/SKILL.md",
+            "computedHash": "2c7a1d4f873259f234056785626a21e123c225a5511bd627595c3e3b47622189"
+        }
+    }
+}
