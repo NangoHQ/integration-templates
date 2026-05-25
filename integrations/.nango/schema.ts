@@ -30568,27 +30568,6 @@ export interface ActionOutput_lastpass_deleteuser {
 export interface SyncMetadata_lattice_users {
 };
 
-export interface ActionInput_lattice_scim_createuser {
-  firstName: string;
-  lastName: string;
-  email: string;
-};
-
-export interface ActionOutput_lattice_scim_createuser {
-  id: string;
-  email: string;
-  firstName: string;
-  lastName: string;
-};
-
-export interface ActionInput_lattice_scim_disableuser {
-  id: string;
-};
-
-export interface ActionOutput_lattice_scim_disableuser {
-  success: boolean;
-};
-
 export interface LeverOpportunity {
   id: string;
   name: string;
@@ -34899,22 +34878,6 @@ export interface Group {
   url?: string | undefined;
 };
 
-export interface Organization {
-  id: string;
-  name: string;
-  created_at: string;
-  updated_at: string;
-  url: string;
-  external_id?: string | undefined;
-  domain_names?: string[] | undefined;
-  group_id?: number | undefined;
-  shared_comments?: boolean | undefined;
-  shared_tickets?: boolean | undefined;
-  tags?: string[] | undefined;
-  notes?: string | undefined;
-  details?: string | undefined;
-};
-
 export interface ServicePrincipal {
   id: string;
   appId?: string | undefined;
@@ -37191,18 +37154,6 @@ export interface Column {
   title: string;
   type: string;
   settings_str?: string | undefined;
-};
-
-export interface Group {
-  id: string;
-  name: string;
-  description?: string | undefined;
-  isDefault?: boolean | undefined;
-  isDeleted?: boolean | undefined;
-  isPublic?: boolean | undefined;
-  createdAt?: string | undefined;
-  updatedAt?: string | undefined;
-  url?: string | undefined;
 };
 
 export interface Subitem {
@@ -56241,13 +56192,13 @@ export interface Refund {
 
 export interface ActionInput_woocommerce_batchupdateorders {
   create?: ({  /**
-   * Order ID. Required for update operations.
+   * Order ID.
    */
   id?: number | undefined;})[];
   update?: ({  /**
    * Order ID. Required for update operations.
    */
-  id?: number | undefined;})[];
+  id: number;})[] | undefined;
   delete?: number[] | undefined;
 };
 
@@ -57004,9 +56955,9 @@ export interface ActionInput_woocommerce_createrefund {
    */
   order_id: number;
   /**
-   * Refund amount. Example: "10.00"
+   * Refund amount. Example: "10.00". Omit to let WooCommerce compute the total from line_items.
    */
-  amount: string;
+  amount?: string | undefined;
   /**
    * Reason for refund.
    */
@@ -57176,10 +57127,6 @@ export interface ActionInput_woocommerce_deleteproductcategory {
    * Unique identifier for the product category to delete. Example: 17
    */
   id: number;
-  /**
-   * Required to be true, as the resource does not support trashing.
-   */
-  force?: boolean | undefined;
 };
 
 export interface ActionOutput_woocommerce_deleteproductcategory {
