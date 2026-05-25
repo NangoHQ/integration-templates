@@ -1,0 +1,109 @@
+{
+  "input": {},
+  "output": {
+    "users": [
+      {
+        "id": "104094154",
+        "name": "Nango Developer",
+        "email": "api@nango.dev",
+        "created_at": "2026-05-21T19:31:20Z",
+        "url": "https://nango-unit.monday.com/users/104094154",
+        "is_admin": true,
+        "is_guest": false,
+        "is_view_only": false,
+        "enabled": true,
+        "teams": [
+          {
+            "id": "13240071",
+            "name": "TestTeam"
+          },
+          {
+            "id": "13240072",
+            "name": "Team@2"
+          }
+        ]
+      }
+    ]
+  },
+  "nango": {},
+  "api": {
+    "post": {
+      "/v2": {
+        "response": {
+          "data": {
+            "users": [
+              {
+                "id": "104094154",
+                "name": "Nango Developer",
+                "email": "api@nango.dev",
+                "created_at": "2026-05-21T19:31:20Z",
+                "title": null,
+                "url": "https://nango-unit.monday.com/users/104094154",
+                "is_admin": true,
+                "is_guest": false,
+                "is_view_only": false,
+                "enabled": true,
+                "teams": [
+                  {
+                    "id": "13240071",
+                    "name": "TestTeam"
+                  },
+                  {
+                    "id": "13240072",
+                    "name": "Team@2"
+                  }
+                ]
+              }
+            ]
+          },
+          "extensions": {
+            "request_id": "e9f79b1b-6f8b-9007-bb49-5ebf463d60f8"
+          }
+        },
+        "status": 200,
+        "headers": {
+          "date": "Fri, 22 May 2026 05:49:56 GMT",
+          "content-type": "application/json",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=31536000; includeSubDomains",
+          "content-security-policy-report-only": "frame-ancestors https://*.monday.com; script-src 'self'; worker-src 'self'; connect-src 'self'; report-uri https://o916138.ingest.us.sentry.io/api/4507803872198656/security/?sentry_key=8e1fb7e952d4abfd146752c94791f51a&sentry_environment=production;",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4996",
+          "x-ratelimit-reset": "1779429053",
+          "api-version": "2026-04",
+          "vary": "origin, Accept-Encoding",
+          "x-api-gateway": "true",
+          "x-api-router": "true",
+          "x-request-id": "e9f79b1b-6f8b-9007-bb49-5ebf463d60f8",
+          "x-envoy-upstream-service-time": "374",
+          "content-security-policy": ";",
+          "x-monday-rgn": "euc1, use1",
+          "server": "cloudflare",
+          "x-routed-from": "use1",
+          "x-routed-to": "euc1",
+          "set-cookie": "__cf_bm=qOOMsAh3Rss1.D7874p89BHnuULx6_L92aYp.LXyoHE-1779428996.2088087-1.0.1.1-HC_0o2rOrTfSi57ze_V9QetzA_6hEnbC9UjZL5AeoidrBKGRMtMzYKMnGz6F5eEs9QJ3ct.8JrXIvjqBZDX1iBrz.rM445rFVjl52vaM0_Oniu6FaK1pERLNpVh9ELMKy9QxqDdxEsQPH0tHUgPQJA; HttpOnly; SameSite=None; Secure; Path=/; Domain=monday.com; Expires=Fri, 22 May 2026 06:19:56 GMT, _cfuvid=XkDLSpwFn2ldmhpc8foGSZkBPZBOrvHrSWMyrhnmf4g-1779428996.2088087-1.0.1.1-2w8uJkQ8U6buYV63u2KHGRb0R0IB4Vv8zxUVbw63eaA; HttpOnly; SameSite=None; Secure; Path=/; Domain=monday.com",
+          "cf-cache-status": "DYNAMIC",
+          "cf-ray": "9ff98a5a4b37c654-PDX"
+        },
+        "hash": "d2f0e87c2da6a33c62ec119b5ecca97f9ac406ec",
+        "request": {
+          "data": {
+            "query": "\n            query GetUsers($limit: Int, $page: Int, $ids: [ID!], $emails: [String], $name: String) {\n                users(limit: $limit, page: $page, ids: $ids, emails: $emails, name: $name) {\n                    id\n                    name\n                    email\n                    created_at\n                    title\n                    url\n                    is_admin\n                    is_guest\n                    is_view_only\n                    enabled\n                    teams {\n                        id\n                        name\n                    }\n                }\n            }\n        ",
+            "variables": {
+              "limit": 50,
+              "page": 1
+            }
+          }
+        }
+      }
+    }
+  }
+}

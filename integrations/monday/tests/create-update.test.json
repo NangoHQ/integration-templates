@@ -1,0 +1,85 @@
+{
+  "input": {
+    "item_id": "2933602562",
+    "body": "Test update from Nango action"
+  },
+  "output": {
+    "id": "579577494",
+    "body": "Test update from Nango action",
+    "created_at": "2026-05-22T05:48:02.305Z",
+    "creator_id": "104094154",
+    "item_id": "2933602562",
+    "text_body": "Test update from Nango action",
+    "updated_at": "2026-05-22T05:48:02.305Z"
+  },
+  "nango": {},
+  "api": {
+    "post": {
+      "/v2": {
+        "response": {
+          "data": {
+            "create_update": {
+              "id": "579577494",
+              "body": "Test update from Nango action",
+              "created_at": "2026-05-22T05:48:02.305Z",
+              "creator_id": "104094154",
+              "item_id": "2933602562",
+              "text_body": "Test update from Nango action",
+              "updated_at": "2026-05-22T05:48:02.305Z"
+            }
+          },
+          "extensions": {
+            "request_id": "5f98f11c-4af6-95ba-8cbe-0135627409cd"
+          }
+        },
+        "status": 200,
+        "headers": {
+          "date": "Fri, 22 May 2026 05:48:02 GMT",
+          "content-type": "application/json",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=31536000; includeSubDomains",
+          "content-security-policy-report-only": "frame-ancestors https://*.monday.com; script-src 'self'; worker-src 'self'; connect-src 'self'; report-uri https://o916138.ingest.us.sentry.io/api/4507803872198656/security/?sentry_key=8e1fb7e952d4abfd146752c94791f51a&sentry_environment=production;",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4971",
+          "x-ratelimit-reset": "1779428927",
+          "api-version": "2026-04",
+          "vary": "origin, Accept-Encoding",
+          "x-api-gateway": "true",
+          "x-api-router": "true",
+          "x-request-id": "5f98f11c-4af6-95ba-8cbe-0135627409cd",
+          "x-envoy-upstream-service-time": "944",
+          "content-security-policy": ";",
+          "x-monday-rgn": "euc1, use1",
+          "server": "cloudflare",
+          "x-routed-from": "use1",
+          "x-routed-to": "euc1",
+          "set-cookie": "<redacted>",
+          "cf-cache-status": "DYNAMIC",
+          "cf-ray": "9ff9878e99b761c8-PDX"
+        },
+        "hash": "9c40dadddac93796799ad4a40d4accf2de1d4a03",
+        "request": {
+          "headers": {
+            "api-version": "2026-04"
+          },
+          "data": {
+            "query": "\n            mutation ($item_id: ID!, $body: String!, $parent_id: ID) {\n                create_update(item_id: $item_id, body: $body, parent_id: $parent_id) {\n                    id\n                    body\n                    created_at\n                    creator_id\n                    item_id\n                    text_body\n                    updated_at\n                }\n            }\n        ",
+            "variables": {
+              "item_id": "2933602562",
+              "body": "Test update from Nango action",
+              "parent_id": null
+            }
+          }
+        }
+      }
+    }
+  }
+}

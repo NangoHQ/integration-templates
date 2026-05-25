@@ -1,0 +1,81 @@
+{
+  "input": {
+    "board_id": "5096980653",
+    "group_id": "topics",
+    "item_name": "Test item from Nango action"
+  },
+  "output": {
+    "id": "2934090455",
+    "name": "Test item from Nango action",
+    "url": "https://nango-unit.monday.com/boards/5096980653/pulses/2934090455",
+    "board_id": "5096980653",
+    "group_id": "topics",
+    "group_title": "All Tasks Updated"
+  },
+  "nango": {},
+  "api": {
+    "post": {
+      "/v2": {
+        "response": {
+          "data": {
+            "create_item": {
+              "id": "2934090455",
+              "name": "Test item from Nango action",
+              "url": "https://nango-unit.monday.com/boards/5096980653/pulses/2934090455",
+              "board": {
+                "id": "5096980653"
+              },
+              "group": {
+                "id": "topics",
+                "title": "All Tasks Updated"
+              }
+            }
+          },
+          "extensions": {
+            "request_id": "61e6ef2e-1ab6-9064-ad0c-6995f0f39b81"
+          }
+        },
+        "status": 200,
+        "headers": {
+          "date": "Fri, 22 May 2026 05:54:21 GMT",
+          "content-type": "application/json",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=31536000; includeSubDomains",
+          "content-security-policy-report-only": "frame-ancestors https://*.monday.com; script-src 'self'; worker-src 'self'; connect-src 'self'; report-uri https://o916138.ingest.us.sentry.io/api/4507803872198656/security/?sentry_key=8e1fb7e952d4abfd146752c94791f51a&sentry_environment=production;",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4966",
+          "x-ratelimit-reset": "1779429298",
+          "api-version": "2026-04",
+          "vary": "origin, Accept-Encoding",
+          "x-api-gateway": "true",
+          "x-api-router": "true",
+          "x-request-id": "61e6ef2e-1ab6-9064-ad0c-6995f0f39b81",
+          "x-envoy-upstream-service-time": "1060",
+          "content-security-policy": ";",
+          "x-monday-rgn": "euc1, use1",
+          "server": "cloudflare",
+          "x-routed-from": "use1",
+          "x-routed-to": "euc1",
+          "cf-cache-status": "DYNAMIC",
+          "set-cookie": "__cf_bm=RQDQy5Yb8KCG6t6cGR1bMBXzJq62AUe9n_nDs5O_V_Y-1779429260.3228917-1.0.1.1-fQmDX6LMsZVZT17TuHxU6sU.qfsLdRhFkNqQQw6_bzTYkZ22lqbiKc3m5RSUCfjRTV.gNKeREyX5mhxKFZCcUggvSKR5zCbn7pJZns8eKqLhyBCS96ziz9ZpGIZUvHzKXVvH2IX7HWaFspYyI0EoIQ; HttpOnly; SameSite=None; Secure; Path=/; Domain=monday.com; Expires=Fri, 22 May 2026 06:24:21 GMT, _cfuvid=Emney7SfGB_wC7_IMDewjNwx5DYl4_5y_YqY7KrFP7E-1779429260.3228917-1.0.1.1-8MvVlYiREErhTe2D0mYbYSbaaYYQPF97Pq1XoNm.94g; HttpOnly; SameSite=None; Secure; Path=/; Domain=monday.com",
+          "cf-ray": "9ff990cd0dfca11a-PDX"
+        },
+        "hash": "e4ce93417b6fe3017357af01ae61fc89c9d3be58",
+        "request": {
+          "headers": {
+            "api-version": "2026-04"
+          },
+          "data": "sha1:cd57b23815b21d2822ec174dc6ba5674c350cb08"
+        }
+      }
+    }
+  }
+}

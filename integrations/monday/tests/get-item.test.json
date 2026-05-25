@@ -1,0 +1,268 @@
+{
+  "input": {
+    "item_id": "2933609588"
+  },
+  "output": {
+    "id": "2933609588",
+    "name": "Setup",
+    "board_id": "5096980653",
+    "group_id": "topics",
+    "group_title": "All Tasks",
+    "state": "archived",
+    "column_values": [
+      {
+        "id": "task_owner",
+        "text": "",
+        "type": "people"
+      },
+      {
+        "id": "task_status",
+        "text": "In Progress",
+        "value": "{\"index\":0,\"post_id\":null,\"changed_at\":\"2024-03-18T14:54:15.455Z\"}",
+        "type": "status"
+      },
+      {
+        "id": "task_priority",
+        "text": "High",
+        "value": "{\"index\":2,\"post_id\":null,\"changed_at\":\"2024-01-10T09:16:03.075Z\"}",
+        "type": "status"
+      },
+      {
+        "id": "task_type",
+        "text": "Other",
+        "value": "{\"index\":3,\"changed_at\":\"2026-05-21T19:33:13.664Z\"}",
+        "type": "status"
+      },
+      {
+        "id": "task_estimation",
+        "text": "3",
+        "value": "\"3\"",
+        "type": "numbers"
+      },
+      {
+        "id": "task_actual_effort",
+        "text": "",
+        "type": "numbers"
+      },
+      {
+        "id": "link",
+        "text": "",
+        "type": "link"
+      },
+      {
+        "id": "check",
+        "text": "",
+        "value": "{\"checked\":false}",
+        "type": "checkbox"
+      },
+      {
+        "id": "item_id",
+        "text": "TNAN-001",
+        "value": "{\"item_id\":\"TNAN-001\"}",
+        "type": "item_id"
+      },
+      {
+        "id": "task_epic",
+        "type": "board_relation"
+      },
+      {
+        "id": "task_sprint",
+        "type": "board_relation"
+      },
+      {
+        "id": "mirror",
+        "type": "mirror"
+      },
+      {
+        "id": "monday_doc_v2",
+        "text": "",
+        "value": "{\"files\":null}",
+        "type": "direct_doc"
+      },
+      {
+        "id": "mirror__1",
+        "type": "mirror"
+      },
+      {
+        "id": "subtasks_mm3jpjfr",
+        "type": "subtasks"
+      }
+    ],
+    "creator": {
+      "id": "104094154",
+      "name": "Nango Developer",
+      "email": "api@nango.dev"
+    },
+    "created_at": "2026-05-21T19:32:13Z",
+    "updated_at": "2026-05-21T20:37:39Z"
+  },
+  "nango": {},
+  "api": {
+    "post": {
+      "/v2": {
+        "response": {
+          "data": {
+            "items": [
+              {
+                "id": "2933609588",
+                "name": "Setup",
+                "board": {
+                  "id": "5096980653"
+                },
+                "group": {
+                  "id": "topics",
+                  "title": "All Tasks"
+                },
+                "state": "archived",
+                "column_values": [
+                  {
+                    "id": "task_owner",
+                    "text": "",
+                    "value": null,
+                    "type": "people"
+                  },
+                  {
+                    "id": "task_status",
+                    "text": "In Progress",
+                    "value": "{\"index\":0,\"post_id\":null,\"changed_at\":\"2024-03-18T14:54:15.455Z\"}",
+                    "type": "status"
+                  },
+                  {
+                    "id": "task_priority",
+                    "text": "High",
+                    "value": "{\"index\":2,\"post_id\":null,\"changed_at\":\"2024-01-10T09:16:03.075Z\"}",
+                    "type": "status"
+                  },
+                  {
+                    "id": "task_type",
+                    "text": "Other",
+                    "value": "{\"index\":3,\"changed_at\":\"2026-05-21T19:33:13.664Z\"}",
+                    "type": "status"
+                  },
+                  {
+                    "id": "task_estimation",
+                    "text": "3",
+                    "value": "\"3\"",
+                    "type": "numbers"
+                  },
+                  {
+                    "id": "task_actual_effort",
+                    "text": "",
+                    "value": null,
+                    "type": "numbers"
+                  },
+                  {
+                    "id": "link",
+                    "text": "",
+                    "value": null,
+                    "type": "link"
+                  },
+                  {
+                    "id": "check",
+                    "text": "",
+                    "value": "{\"checked\":false}",
+                    "type": "checkbox"
+                  },
+                  {
+                    "id": "item_id",
+                    "text": "TNAN-001",
+                    "value": "{\"item_id\":\"TNAN-001\"}",
+                    "type": "item_id"
+                  },
+                  {
+                    "id": "task_epic",
+                    "text": null,
+                    "value": null,
+                    "type": "board_relation"
+                  },
+                  {
+                    "id": "task_sprint",
+                    "text": null,
+                    "value": null,
+                    "type": "board_relation"
+                  },
+                  {
+                    "id": "mirror",
+                    "text": null,
+                    "value": null,
+                    "type": "mirror"
+                  },
+                  {
+                    "id": "monday_doc_v2",
+                    "text": "",
+                    "value": "{\"files\":null}",
+                    "type": "direct_doc"
+                  },
+                  {
+                    "id": "mirror__1",
+                    "text": null,
+                    "value": null,
+                    "type": "mirror"
+                  },
+                  {
+                    "id": "subtasks_mm3jpjfr",
+                    "text": null,
+                    "value": null,
+                    "type": "subtasks"
+                  }
+                ],
+                "creator": {
+                  "id": "104094154",
+                  "name": "Nango Developer",
+                  "email": "api@nango.dev"
+                },
+                "created_at": "2026-05-21T19:32:13Z",
+                "updated_at": "2026-05-21T20:37:39Z"
+              }
+            ]
+          },
+          "extensions": {
+            "request_id": "d1820c5f-0ca7-9c8d-820a-da44e005e682"
+          }
+        },
+        "status": 200,
+        "headers": {
+          "date": "Fri, 22 May 2026 05:45:47 GMT",
+          "content-type": "application/json",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=31536000; includeSubDomains",
+          "content-security-policy-report-only": "frame-ancestors https://*.monday.com; script-src 'self'; worker-src 'self'; connect-src 'self'; report-uri https://o916138.ingest.us.sentry.io/api/4507803872198656/security/?sentry_key=8e1fb7e952d4abfd146752c94791f51a&sentry_environment=production;",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4996",
+          "x-ratelimit-reset": "1779428805",
+          "api-version": "2026-04",
+          "vary": "origin, Accept-Encoding",
+          "x-api-gateway": "true",
+          "x-api-router": "true",
+          "x-request-id": "d1820c5f-0ca7-9c8d-820a-da44e005e682",
+          "x-envoy-upstream-service-time": "450",
+          "content-security-policy": ";",
+          "x-monday-rgn": "euc1, use1",
+          "server": "cloudflare",
+          "x-routed-from": "use1",
+          "x-routed-to": "euc1",
+          "set-cookie": "__cf_bm=Vur29uTS4laD2iJecjiCSUEwkbwb_GadkX_ow6_hkYs-1779428746.6240547-1.0.1.1-H9.FGledprHigiRmqOe8ZQszcAm2FIcdyo8Ss9gO0ljmNm95igkVm8oh54bg2YmLoLmrzEd3FEqZGs3ziwsl.BSVUZQR6hzLZFsSNinPMooP8c5xM2IkWnYHrudcVjn._J4nyzXcBOJ7VcvksIHAiA; HttpOnly; SameSite=None; Secure; Path=/; Domain=monday.com; Expires=Fri, 22 May 2026 06:15:47 GMT, _cfuvid=8FuLN93i.vTofi7AsaDnUHGJ7kP0P3TZBQkJH68PqnQ-1779428746.6240547-1.0.1.1-zH1IqOkejIa04IURxJa3dqnePP_07mUWiBIFg4u7jcE; HttpOnly; SameSite=None; Secure; Path=/; Domain=monday.com",
+          "cf-cache-status": "DYNAMIC",
+          "cf-ray": "9ff984426c3d4e7c-PDX"
+        },
+        "hash": "7ade286b4d4f61f2cd49f0b68d330ed283164063",
+        "request": {
+          "headers": {
+            "api-version": "2026-04"
+          },
+          "data": {
+            "query": "\n            query {\n                items(ids: [2933609588]) {\n                    id\n                    name\n                    board {\n                        id\n                    }\n                    group {\n                        id\n                        title\n                    }\n                    state\n                    column_values {\n                        id\n                        text\n                        value\n                        type\n                    }\n                    creator {\n                        id\n                        name\n                        email\n                    }\n                    created_at\n                    updated_at\n                }\n            }\n        "
+          }
+        }
+      }
+    }
+  }
+}

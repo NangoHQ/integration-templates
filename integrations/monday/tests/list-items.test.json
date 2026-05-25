@@ -1,0 +1,268 @@
+{
+  "input": {
+    "board_id": "5096980653",
+    "limit": 10
+  },
+  "output": {
+    "items": [
+      {
+        "id": "2933602562",
+        "name": "Deploy",
+        "created_at": "2026-05-21T19:32:13Z",
+        "updated_at": "2026-05-22T05:47:42Z",
+        "state": "active",
+        "board_id": "5096980653",
+        "group_id": "topics",
+        "group_title": "All Tasks Updated",
+        "column_values": [
+          {
+            "id": "task_owner",
+            "text": "",
+            "value": null
+          },
+          {
+            "id": "task_status",
+            "text": "Done",
+            "value": "{\"index\":1,\"changed_at\":\"2026-05-22T05:47:17.769Z\"}"
+          },
+          {
+            "id": "task_priority",
+            "text": "Medium",
+            "value": "{\"index\":7,\"post_id\":null,\"changed_at\":\"2024-01-10T09:16:05.096Z\"}"
+          },
+          {
+            "id": "task_type",
+            "text": "Other",
+            "value": "{\"index\":3,\"changed_at\":\"2026-05-21T19:33:14.204Z\"}"
+          },
+          {
+            "id": "task_estimation",
+            "text": "",
+            "value": null
+          },
+          {
+            "id": "task_actual_effort",
+            "text": "",
+            "value": null
+          },
+          {
+            "id": "link",
+            "text": "",
+            "value": null
+          },
+          {
+            "id": "check",
+            "text": "",
+            "value": "{\"checked\":false}"
+          },
+          {
+            "id": "item_id",
+            "text": "TNAN-002",
+            "value": "{\"item_id\":\"TNAN-002\"}"
+          },
+          {
+            "id": "task_epic",
+            "text": null,
+            "value": null
+          },
+          {
+            "id": "task_sprint",
+            "text": null,
+            "value": null
+          },
+          {
+            "id": "mirror",
+            "text": null,
+            "value": null
+          },
+          {
+            "id": "monday_doc_v2",
+            "text": "",
+            "value": "{\"files\":null}"
+          },
+          {
+            "id": "mirror__1",
+            "text": null,
+            "value": null
+          },
+          {
+            "id": "subtasks_mm3jpjfr",
+            "text": null,
+            "value": null
+          },
+          {
+            "id": "text_mm3kz5mh",
+            "text": "",
+            "value": null
+          },
+          {
+            "id": "text_mm3k4qb1",
+            "text": "",
+            "value": null
+          }
+        ]
+      }
+    ]
+  },
+  "nango": {},
+  "api": {
+    "post": {
+      "/v2": {
+        "response": {
+          "data": {
+            "boards": [
+              {
+                "items_page": {
+                  "cursor": null,
+                  "items": [
+                    {
+                      "id": "2933602562",
+                      "name": "Deploy",
+                      "created_at": "2026-05-21T19:32:13Z",
+                      "updated_at": "2026-05-22T05:47:42Z",
+                      "state": "active",
+                      "group": {
+                        "id": "topics",
+                        "title": "All Tasks Updated"
+                      },
+                      "board": {
+                        "id": "5096980653"
+                      },
+                      "column_values": [
+                        {
+                          "id": "task_owner",
+                          "text": "",
+                          "value": null
+                        },
+                        {
+                          "id": "task_status",
+                          "text": "Done",
+                          "value": "{\"index\":1,\"changed_at\":\"2026-05-22T05:47:17.769Z\"}"
+                        },
+                        {
+                          "id": "task_priority",
+                          "text": "Medium",
+                          "value": "{\"index\":7,\"post_id\":null,\"changed_at\":\"2024-01-10T09:16:05.096Z\"}"
+                        },
+                        {
+                          "id": "task_type",
+                          "text": "Other",
+                          "value": "{\"index\":3,\"changed_at\":\"2026-05-21T19:33:14.204Z\"}"
+                        },
+                        {
+                          "id": "task_estimation",
+                          "text": "",
+                          "value": null
+                        },
+                        {
+                          "id": "task_actual_effort",
+                          "text": "",
+                          "value": null
+                        },
+                        {
+                          "id": "link",
+                          "text": "",
+                          "value": null
+                        },
+                        {
+                          "id": "check",
+                          "text": "",
+                          "value": "{\"checked\":false}"
+                        },
+                        {
+                          "id": "item_id",
+                          "text": "TNAN-002",
+                          "value": "{\"item_id\":\"TNAN-002\"}"
+                        },
+                        {
+                          "id": "task_epic",
+                          "text": null,
+                          "value": null
+                        },
+                        {
+                          "id": "task_sprint",
+                          "text": null,
+                          "value": null
+                        },
+                        {
+                          "id": "mirror",
+                          "text": null,
+                          "value": null
+                        },
+                        {
+                          "id": "monday_doc_v2",
+                          "text": "",
+                          "value": "{\"files\":null}"
+                        },
+                        {
+                          "id": "mirror__1",
+                          "text": null,
+                          "value": null
+                        },
+                        {
+                          "id": "subtasks_mm3jpjfr",
+                          "text": null,
+                          "value": null
+                        },
+                        {
+                          "id": "text_mm3kz5mh",
+                          "text": "",
+                          "value": null
+                        },
+                        {
+                          "id": "text_mm3k4qb1",
+                          "text": "",
+                          "value": null
+                        }
+                      ]
+                    }
+                  ]
+                }
+              }
+            ]
+          },
+          "extensions": {
+            "request_id": "cd3a30f1-535c-9720-8f9f-f4142e213ad2"
+          }
+        },
+        "status": 200,
+        "headers": {
+          "date": "Fri, 22 May 2026 05:51:18 GMT",
+          "content-type": "application/json",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=31536000; includeSubDomains",
+          "content-security-policy-report-only": "frame-ancestors https://*.monday.com; script-src 'self'; worker-src 'self'; connect-src 'self'; report-uri https://o916138.ingest.us.sentry.io/api/4507803872198656/security/?sentry_key=8e1fb7e952d4abfd146752c94791f51a&sentry_environment=production;",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4966",
+          "x-ratelimit-reset": "1779429113",
+          "api-version": "2026-04",
+          "vary": "origin, Accept-Encoding",
+          "x-api-gateway": "true",
+          "x-api-router": "true",
+          "x-request-id": "cd3a30f1-535c-9720-8f9f-f4142e213ad2",
+          "x-envoy-upstream-service-time": "1020",
+          "content-security-policy": ";",
+          "x-monday-rgn": "euc1, use1",
+          "server": "cloudflare",
+          "x-routed-from": "use1",
+          "x-routed-to": "euc1",
+          "set-cookie": "__cf_bm=onHtehj7QckAeRN4hPo3HwbTLD6fVEgxK4NZhwIqwQs-1779429077.5259435-1.0.1.1-mLkoiVwvFmDZPyvwUGs.xpcUU5cwH1c1GzN4voLqcC_CsoScKZ4CveCodXhdE5snpaHpuYikIpY92s0GnG8e9uSRE.eb1SCfAYjWNNULLUrDPQSQNb9sPnoTdd7uatBDgM_aeanueIsofjC2cNK.3A; HttpOnly; SameSite=None; Secure; Path=/; Domain=monday.com; Expires=Fri, 22 May 2026 06:21:18 GMT, _cfuvid=dh1mvuOvryYOdFyWvfbkOi4uwdY55.eEdXXnhh8vAr8-1779429077.5259435-1.0.1.1-M7iar9MhJ8VnaV3aKm1Z1gY.Yta.h1nzueyeWqeVg1Y; HttpOnly; SameSite=None; Secure; Path=/; Domain=monday.com",
+          "cf-cache-status": "DYNAMIC",
+          "cf-ray": "9ff98c56886bc8da-PDX"
+        },
+        "hash": "1cf7176705503a03ea1eb01902c003d2999db92d",
+        "request": {
+          "data": "sha1:b0e6620776226938d2a37d4c460a7a001f3d7b7a"
+        }
+      }
+    }
+  }
+}

@@ -1308,6 +1308,54 @@ import './microsoft-teams/actions/remove-team-member.js';
 import './microsoft-teams/actions/reply-to-channel-message.js';
 import './microsoft-teams/actions/update-channel.js';
 
+// -- Integration: monday
+import './monday/syncs/boards.js';
+import './monday/syncs/columns.js';
+import './monday/syncs/groups.js';
+import './monday/syncs/subitems.js';
+import './monday/syncs/teams.js';
+import './monday/syncs/updates.js';
+import './monday/syncs/users.js';
+import './monday/syncs/workspaces.js';
+import './monday/actions/archive-item.js';
+import './monday/actions/change-column-value.js';
+import './monday/actions/create-board.js';
+import './monday/actions/create-column.js';
+import './monday/actions/create-group.js';
+import './monday/actions/create-item.js';
+import './monday/actions/create-subitem.js';
+import './monday/actions/create-update.js';
+import './monday/actions/delete-board.js';
+import './monday/actions/delete-column.js';
+import './monday/actions/delete-group.js';
+import './monday/actions/delete-item.js';
+import './monday/actions/delete-update.js';
+import './monday/actions/duplicate-board.js';
+import './monday/actions/get-board.js';
+import './monday/actions/get-column.js';
+import './monday/actions/get-group.js';
+import './monday/actions/get-item.js';
+import './monday/actions/get-subitem.js';
+import './monday/actions/get-team.js';
+import './monday/actions/get-update.js';
+import './monday/actions/get-user.js';
+import './monday/actions/get-workspace.js';
+import './monday/actions/list-boards.js';
+import './monday/actions/list-columns.js';
+import './monday/actions/list-groups.js';
+import './monday/actions/list-items.js';
+import './monday/actions/list-subitems.js';
+import './monday/actions/list-teams.js';
+import './monday/actions/list-updates.js';
+import './monday/actions/list-users.js';
+import './monday/actions/list-workspaces.js';
+import './monday/actions/move-item-to-board.js';
+import './monday/actions/move-item-to-group.js';
+import './monday/actions/update-board.js';
+import './monday/actions/update-column.js';
+import './monday/actions/update-group.js';
+import './monday/actions/update-item.js';
+
 // -- Integration: namely-pat
 import './namely-pat/syncs/unified-employees.js';
 

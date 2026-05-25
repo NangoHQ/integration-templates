@@ -1,0 +1,312 @@
+{
+  "input": {
+    "board_id": "5096980653"
+  },
+  "output": {
+    "id": "5096980653",
+    "name": "Tasks",
+    "state": "active",
+    "board_kind": "public",
+    "description": "",
+    "updated_at": "2026-05-22T05:47:48Z",
+    "created_at": "2026-05-21T19:32:04Z",
+    "workspace": {
+      "id": "6502905",
+      "name": "My Team"
+    },
+    "groups": [
+      {
+        "id": "group_mm3k40a7",
+        "title": "Test Group Create 2026",
+        "color": "#fdab3d",
+        "position": "10011.0"
+      },
+      {
+        "id": "group_mm3k8ksb",
+        "title": "Test Group Create 2026",
+        "color": "#e2445c",
+        "position": "19922.0"
+      },
+      {
+        "id": "topics",
+        "title": "All Tasks Updated",
+        "color": "#579bfc",
+        "position": "39744"
+      }
+    ],
+    "columns": [
+      {
+        "id": "name",
+        "title": "Name",
+        "type": "name"
+      },
+      {
+        "id": "task_owner",
+        "title": "Owner",
+        "type": "people"
+      },
+      {
+        "id": "task_status",
+        "title": "Status",
+        "type": "status"
+      },
+      {
+        "id": "task_priority",
+        "title": "Priority",
+        "type": "status"
+      },
+      {
+        "id": "task_type",
+        "title": "Type",
+        "type": "status"
+      },
+      {
+        "id": "task_estimation",
+        "title": "Estimated SP",
+        "type": "numbers"
+      },
+      {
+        "id": "task_actual_effort",
+        "title": "Actual SP",
+        "type": "numbers"
+      },
+      {
+        "id": "link",
+        "title": "GitHub link",
+        "type": "link"
+      },
+      {
+        "id": "check",
+        "title": "Unplanned?",
+        "type": "checkbox"
+      },
+      {
+        "id": "item_id",
+        "title": "Task ID",
+        "type": "item_id"
+      },
+      {
+        "id": "task_epic",
+        "title": "Epic",
+        "type": "board_relation"
+      },
+      {
+        "id": "task_sprint",
+        "title": "Sprint",
+        "type": "board_relation"
+      },
+      {
+        "id": "mirror",
+        "title": "Active sprint",
+        "type": "mirror"
+      },
+      {
+        "id": "monday_doc_v2",
+        "title": "monday Doc v2",
+        "type": "direct_doc"
+      },
+      {
+        "id": "mirror__1",
+        "title": "Sprint Completed?",
+        "type": "mirror"
+      },
+      {
+        "id": "subtasks_mm3jpjfr",
+        "title": "Subitems",
+        "type": "subtasks"
+      },
+      {
+        "id": "text_mm3kz5mh",
+        "title": "Temp Delete Column",
+        "type": "text"
+      },
+      {
+        "id": "text_mm3kmqah",
+        "title": "Temp Delete Column",
+        "type": "text"
+      }
+    ],
+    "items_count": 1
+  },
+  "nango": {},
+  "api": {
+    "post": {
+      "/v2": {
+        "response": {
+          "data": {
+            "boards": [
+              {
+                "id": "5096980653",
+                "name": "Tasks",
+                "state": "active",
+                "board_kind": "public",
+                "description": "",
+                "updated_at": "2026-05-22T05:47:48Z",
+                "created_at": "2026-05-21T19:32:04Z",
+                "workspace": {
+                  "id": "6502905",
+                  "name": "My Team"
+                },
+                "groups": [
+                  {
+                    "id": "group_mm3k40a7",
+                    "title": "Test Group Create 2026",
+                    "color": "#fdab3d",
+                    "position": "10011.0"
+                  },
+                  {
+                    "id": "group_mm3k8ksb",
+                    "title": "Test Group Create 2026",
+                    "color": "#e2445c",
+                    "position": "19922.0"
+                  },
+                  {
+                    "id": "topics",
+                    "title": "All Tasks Updated",
+                    "color": "#579bfc",
+                    "position": "39744"
+                  }
+                ],
+                "columns": [
+                  {
+                    "id": "name",
+                    "title": "Name",
+                    "type": "name"
+                  },
+                  {
+                    "id": "task_owner",
+                    "title": "Owner",
+                    "type": "people"
+                  },
+                  {
+                    "id": "task_status",
+                    "title": "Status",
+                    "type": "status"
+                  },
+                  {
+                    "id": "task_priority",
+                    "title": "Priority",
+                    "type": "status"
+                  },
+                  {
+                    "id": "task_type",
+                    "title": "Type",
+                    "type": "status"
+                  },
+                  {
+                    "id": "task_estimation",
+                    "title": "Estimated SP",
+                    "type": "numbers"
+                  },
+                  {
+                    "id": "task_actual_effort",
+                    "title": "Actual SP",
+                    "type": "numbers"
+                  },
+                  {
+                    "id": "link",
+                    "title": "GitHub link",
+                    "type": "link"
+                  },
+                  {
+                    "id": "check",
+                    "title": "Unplanned?",
+                    "type": "checkbox"
+                  },
+                  {
+                    "id": "item_id",
+                    "title": "Task ID",
+                    "type": "item_id"
+                  },
+                  {
+                    "id": "task_epic",
+                    "title": "Epic",
+                    "type": "board_relation"
+                  },
+                  {
+                    "id": "task_sprint",
+                    "title": "Sprint",
+                    "type": "board_relation"
+                  },
+                  {
+                    "id": "mirror",
+                    "title": "Active sprint",
+                    "type": "mirror"
+                  },
+                  {
+                    "id": "monday_doc_v2",
+                    "title": "monday Doc v2",
+                    "type": "direct_doc"
+                  },
+                  {
+                    "id": "mirror__1",
+                    "title": "Sprint Completed?",
+                    "type": "mirror"
+                  },
+                  {
+                    "id": "subtasks_mm3jpjfr",
+                    "title": "Subitems",
+                    "type": "subtasks"
+                  },
+                  {
+                    "id": "text_mm3kz5mh",
+                    "title": "Temp Delete Column",
+                    "type": "text"
+                  },
+                  {
+                    "id": "text_mm3kmqah",
+                    "title": "Temp Delete Column",
+                    "type": "text"
+                  }
+                ],
+                "items_count": 1
+              }
+            ]
+          },
+          "extensions": {
+            "request_id": "abf3473c-4ef3-9ca4-894c-0f0ef185cfbf"
+          }
+        },
+        "status": 200,
+        "headers": {
+          "date": "Fri, 22 May 2026 05:48:06 GMT",
+          "content-type": "application/json",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=31536000; includeSubDomains",
+          "content-security-policy-report-only": "frame-ancestors https://*.monday.com; script-src 'self'; worker-src 'self'; connect-src 'self'; report-uri https://o916138.ingest.us.sentry.io/api/4507803872198656/security/?sentry_key=8e1fb7e952d4abfd146752c94791f51a&sentry_environment=production;",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4963",
+          "x-ratelimit-reset": "1779428927",
+          "api-version": "2026-04",
+          "vary": "origin, Accept-Encoding",
+          "x-api-gateway": "true",
+          "x-api-router": "true",
+          "x-request-id": "abf3473c-4ef3-9ca4-894c-0f0ef185cfbf",
+          "x-envoy-upstream-service-time": "429",
+          "content-security-policy": ";",
+          "x-monday-rgn": "euc1, use1",
+          "server": "cloudflare",
+          "x-routed-from": "use1",
+          "x-routed-to": "euc1",
+          "set-cookie": "<redacted>",
+          "cf-cache-status": "DYNAMIC",
+          "cf-ray": "9ff987a87a274e7c-PDX"
+        },
+        "hash": "62010df39270ae3ec8b100294acf08a1be543325",
+        "request": {
+          "data": {
+            "query": "\n            query {\n                boards(ids: [5096980653]) {\n                    id\n                    name\n                    state\n                    board_kind\n                    description\n                    updated_at\n                    created_at\n                    workspace {\n                        id\n                        name\n                    }\n                    groups {\n                        id\n                        title\n                        color\n                        position\n                    }\n                    columns {\n                        id\n                        title\n                        type\n                    }\n                    items_count\n                }\n            }\n        "
+          }
+        }
+      }
+    }
+  }
+}
