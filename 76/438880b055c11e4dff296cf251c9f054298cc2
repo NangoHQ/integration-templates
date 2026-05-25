@@ -1,0 +1,25 @@
+integrations/gong/syncs/call-transcripts.ts
+  s_07470ee9df92f4::t_b3aa0bf2452340 15
+integrations/exact-online/syncs/payments.ts
+  s_07470ee9df92f4::t_b3aa0bf2452340 30
+integrations/checkr-partner/syncs/background-checks.ts
+  s_07470ee9df92f4::t_b3aa0bf2452340 31,39-40
+integrations/clari-copilot/syncs/calls.ts
+  s_07470ee9df92f4::t_b3aa0bf2452340 9,70
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.5.1",
+  "base_commit_sha": "76438880b055c11e4dff296cf251c9f054298cc2",
+  "prompts": {},
+  "sessions": {
+    "s_07470ee9df92f4": {
+      "agent_id": {
+        "tool": "codex",
+        "id": "019e5066-ad12-7983-a016-ab2496c03987",
+        "model": "gpt-5.5"
+      },
+      "human_author": "Marcin Dobrowolski <marcindobry@hotmail.com>"
+    }
+  }
+}
