@@ -3,64 +3,49 @@ import { createAction } from 'nango';
 
 const InputSchema = z.object({});
 
-const SupportedConfigSchema = z.object({
-    supported: z.boolean().optional()
-});
-
-const BulkConfigSchema = z.object({
-    supported: z.boolean().optional(),
-    maxOperations: z.number().optional(),
-    maxPayloadSize: z.number().optional()
-});
-
-const FilterConfigSchema = z.object({
-    supported: z.boolean().optional(),
-    maxResults: z.number().optional()
-});
-
 const AuthenticationSchemeSchema = z.object({
-    name: z.string().optional(),
-    description: z.string().optional(),
+    name: z.string(),
+    description: z.string(),
     specUri: z.string().optional(),
     documentationUri: z.string().optional(),
-    type: z.string().optional(),
+    type: z.string(),
     primary: z.boolean().optional()
 });
 
 const MetaSchema = z.object({
-    resourceType: z.string().optional(),
+    location: z.string(),
+    resourceType: z.string(),
     created: z.string().optional(),
     lastModified: z.string().optional(),
-    location: z.string().optional(),
     version: z.string().optional()
 });
 
-const ProviderServiceProviderConfigSchema = z.object({
-    schemas: z.array(z.string()).optional(),
-    id: z.string().optional(),
-    meta: MetaSchema.optional(),
-    documentationUri: z.string().optional(),
-    patch: SupportedConfigSchema.optional(),
-    bulk: BulkConfigSchema.optional(),
-    filter: FilterConfigSchema.optional(),
-    changePassword: SupportedConfigSchema.optional(),
-    sort: SupportedConfigSchema.optional(),
-    etag: SupportedConfigSchema.optional(),
-    authenticationSchemes: z.array(AuthenticationSchemeSchema).optional()
-});
-
 const OutputSchema = z.object({
-    schemas: z.array(z.string()).optional(),
-    id: z.string().optional(),
-    meta: MetaSchema.optional(),
+    schemas: z.array(z.string()),
     documentationUri: z.string().optional(),
-    patch: SupportedConfigSchema.optional(),
-    bulk: BulkConfigSchema.optional(),
-    filter: FilterConfigSchema.optional(),
-    changePassword: SupportedConfigSchema.optional(),
-    sort: SupportedConfigSchema.optional(),
-    etag: SupportedConfigSchema.optional(),
-    authenticationSchemes: z.array(AuthenticationSchemeSchema).optional()
+    patch: z.object({
+        supported: z.boolean()
+    }),
+    bulk: z.object({
+        supported: z.boolean(),
+        maxOperations: z.number(),
+        maxPayloadSize: z.number()
+    }),
+    filter: z.object({
+        supported: z.boolean(),
+        maxResults: z.number()
+    }),
+    changePassword: z.object({
+        supported: z.boolean()
+    }),
+    sort: z.object({
+        supported: z.boolean()
+    }),
+    etag: z.object({
+        supported: z.boolean()
+    }),
+    authenticationSchemes: z.array(AuthenticationSchemeSchema),
+    meta: MetaSchema.optional()
 });
 
 const action = createAction({
@@ -76,34 +61,15 @@ const action = createAction({
     scopes: [],
 
     exec: async (nango, _input): Promise<z.infer<typeof OutputSchema>> => {
+        // https://support.1password.com/scim-endpoints/
         const response = await nango.get({
-            // https://support.1password.com/scim-endpoints/
             endpoint: '/ServiceProviderConfig',
             retries: 3
         });
 
-        if (!response.data) {
-            throw new nango.ActionError({
-                type: 'not_found',
-                message: 'Service provider config not found'
-            });
-        }
+        const providerConfig = OutputSchema.parse(response.data);
 
-        const config = ProviderServiceProviderConfigSchema.parse(response.data);
-
-        return {
-            ...(config.schemas !== undefined && { schemas: config.schemas }),
-            ...(config.id !== undefined && { id: config.id }),
-            ...(config.meta !== undefined && { meta: config.meta }),
-            ...(config.documentationUri !== undefined && { documentationUri: config.documentationUri }),
-            ...(config.patch !== undefined && { patch: config.patch }),
-            ...(config.bulk !== undefined && { bulk: config.bulk }),
-            ...(config.filter !== undefined && { filter: config.filter }),
-            ...(config.changePassword !== undefined && { changePassword: config.changePassword }),
-            ...(config.sort !== undefined && { sort: config.sort }),
-            ...(config.etag !== undefined && { etag: config.etag }),
-            ...(config.authenticationSchemes !== undefined && { authenticationSchemes: config.authenticationSchemes })
-        };
+        return providerConfig;
     }
 });
 

@@ -3,19 +3,48 @@ import { createAction } from 'nango';
 
 const InputSchema = z.object({});
 
-const SchemaResourceSchema = z
-    .object({
-        id: z.string(),
-        name: z.string().optional(),
-        description: z.string().optional(),
-        attributes: z.array(z.unknown()).optional()
-    })
-    .passthrough();
+const SchemaAttributeSchema = z.object({
+    name: z.string(),
+    type: z.string().optional(),
+    multiValued: z.boolean().optional(),
+    required: z.boolean().optional(),
+    mutability: z.string().optional(),
+    returned: z.string().optional(),
+    uniqueness: z.string().optional(),
+    description: z.string().optional(),
+    subAttributes: z
+        .array(
+            z.object({
+                name: z.string(),
+                type: z.string().optional(),
+                multiValued: z.boolean().optional(),
+                required: z.boolean().optional(),
+                mutability: z.string().optional(),
+                returned: z.string().optional(),
+                uniqueness: z.string().optional(),
+                description: z.string().optional()
+            })
+        )
+        .optional()
+});
 
-const OutputSchema = z.object({
+const ProviderSchemaSchema = z.object({
+    id: z.string(),
+    name: z.string(),
+    description: z.string().optional(),
+    attributes: z.array(SchemaAttributeSchema).optional()
+});
+
+const ProviderListResponseSchema = z.object({
     schemas: z.array(z.string()).optional(),
     totalResults: z.number().optional(),
-    Resources: z.array(SchemaResourceSchema).optional()
+    Resources: z.array(ProviderSchemaSchema).optional(),
+    startIndex: z.number().optional(),
+    itemsPerPage: z.number().optional()
+});
+
+const OutputSchema = z.object({
+    schemas: z.array(ProviderSchemaSchema).optional()
 });
 
 const action = createAction({
@@ -28,7 +57,6 @@ const action = createAction({
     },
     input: InputSchema,
     output: OutputSchema,
-    scopes: [],
 
     exec: async (nango, _input): Promise<z.infer<typeof OutputSchema>> => {
         const response = await nango.get({
@@ -37,26 +65,10 @@ const action = createAction({
             retries: 3
         });
 
-        const listResponse = z
-            .object({
-                schemas: z.array(z.string()).optional(),
-                totalResults: z.number().optional(),
-                Resources: z.array(z.unknown()).optional()
-            })
-            .parse(response.data);
-
-        const resources = listResponse.Resources;
-        if (!resources) {
-            return {
-                schemas: listResponse.schemas,
-                totalResults: listResponse.totalResults
-            };
-        }
+        const listResponse = ProviderListResponseSchema.parse(response.data);
 
         return {
-            schemas: listResponse.schemas,
-            totalResults: listResponse.totalResults,
-            Resources: resources.map((resource) => SchemaResourceSchema.parse(resource))
+            schemas: listResponse.Resources
         };
     }
 });
