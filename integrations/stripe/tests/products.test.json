@@ -1,0 +1,370 @@
+{
+  "nango": {
+    "batchSave": {
+      "Product": [
+        {
+          "id": "prod_UaeZuNkqRy4KtP",
+          "object": "product",
+          "active": true,
+          "created": 1779833740,
+          "default_price": null,
+          "description": null,
+          "images": [],
+          "livemode": false,
+          "metadata": {},
+          "name": "Test Product AI Builder",
+          "shippable": null,
+          "statement_descriptor": null,
+          "tax_code": null,
+          "unit_label": null,
+          "updated": 1779833740,
+          "url": null
+        },
+        {
+          "id": "prod_UaeZqt6x4Au5Sk",
+          "object": "product",
+          "active": true,
+          "created": 1779833733,
+          "default_price": null,
+          "description": null,
+          "images": [],
+          "livemode": false,
+          "metadata": {},
+          "name": "Test Product AI Builder",
+          "shippable": null,
+          "statement_descriptor": null,
+          "tax_code": null,
+          "unit_label": null,
+          "updated": 1779833733,
+          "url": null
+        },
+        {
+          "id": "prod_UaeXpBPqPzTh8d",
+          "object": "product",
+          "active": true,
+          "created": 1779833605,
+          "default_price": null,
+          "description": null,
+          "images": [],
+          "livemode": false,
+          "metadata": {},
+          "name": "Test Product AI Builder",
+          "shippable": null,
+          "statement_descriptor": null,
+          "tax_code": null,
+          "unit_label": null,
+          "updated": 1779833605,
+          "url": null
+        },
+        {
+          "id": "prod_UaeW2INWNbCwSA",
+          "object": "product",
+          "active": true,
+          "created": 1779833572,
+          "default_price": null,
+          "description": null,
+          "images": [],
+          "livemode": false,
+          "metadata": {},
+          "name": "Test Product AI Builder",
+          "shippable": null,
+          "statement_descriptor": null,
+          "tax_code": null,
+          "unit_label": null,
+          "updated": 1779833572,
+          "url": null
+        },
+        {
+          "id": "prod_UaeWh1bvZgwCCG",
+          "object": "product",
+          "active": true,
+          "created": 1779833563,
+          "default_price": null,
+          "description": null,
+          "images": [],
+          "livemode": false,
+          "metadata": {},
+          "name": "Test Product AI Builder",
+          "shippable": null,
+          "statement_descriptor": null,
+          "tax_code": null,
+          "unit_label": null,
+          "updated": 1779833563,
+          "url": null
+        },
+        {
+          "id": "prod_Uae6ZKq4YfmcYb",
+          "object": "product",
+          "active": true,
+          "created": 1779832000,
+          "default_price": null,
+          "description": null,
+          "images": [],
+          "livemode": false,
+          "metadata": {},
+          "name": "Updated Product Name",
+          "shippable": null,
+          "statement_descriptor": null,
+          "tax_code": null,
+          "unit_label": null,
+          "updated": 1779833900,
+          "url": null
+        }
+      ]
+    },
+    "batchDelete": {
+      "Product": []
+    }
+  },
+  "api": {
+    "get": {
+      "/v1/products": [
+        {
+          "response": {
+            "object": "list",
+            "data": [
+              {
+                "id": "prod_UaeZuNkqRy4KtP",
+                "object": "product",
+                "active": true,
+                "attributes": [],
+                "created": 1779833740,
+                "default_price": null,
+                "description": null,
+                "images": [],
+                "livemode": false,
+                "marketing_features": [],
+                "metadata": {},
+                "name": "Test Product AI Builder",
+                "package_dimensions": null,
+                "shippable": null,
+                "statement_descriptor": null,
+                "tax_code": null,
+                "tax_details": null,
+                "type": "service",
+                "unit_label": null,
+                "updated": 1779833740,
+                "url": null
+              },
+              {
+                "id": "prod_UaeZqt6x4Au5Sk",
+                "object": "product",
+                "active": true,
+                "attributes": [],
+                "created": 1779833733,
+                "default_price": null,
+                "description": null,
+                "images": [],
+                "livemode": false,
+                "marketing_features": [],
+                "metadata": {},
+                "name": "Test Product AI Builder",
+                "package_dimensions": null,
+                "shippable": null,
+                "statement_descriptor": null,
+                "tax_code": null,
+                "tax_details": null,
+                "type": "service",
+                "unit_label": null,
+                "updated": 1779833733,
+                "url": null
+              }
+            ],
+            "has_more": true,
+            "url": "/v1/products"
+          },
+          "status": 200,
+          "headers": {
+            "date": "Tue, 26 May 2026 23:14:42 GMT",
+            "content-type": "application/json",
+            "content-length": "1263",
+            "connection": "keep-alive",
+            "x-xss-protection": "0",
+            "x-content-type-options": "nosniff",
+            "x-download-options": "noopen",
+            "x-frame-options": "SAMEORIGIN",
+            "x-dns-prefetch-control": "off",
+            "strict-transport-security": "max-age=5184000; includeSubDomains",
+            "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+            "access-control-allow-origin": "*",
+            "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+            "x-ratelimit-limit": "5000",
+            "x-ratelimit-remaining": "4980",
+            "x-ratelimit-reset": "1779837315",
+            "etag": "W/\"4ef-mO/y3so96zcQ0WAVbgDw99HZza4\""
+          },
+          "hash": "7fed9934e1ae3415c03905889985a77775947b30",
+          "request": {
+            "params": {
+              "limit": "2"
+            }
+          }
+        },
+        {
+          "response": {
+            "object": "list",
+            "data": [
+              {
+                "id": "prod_UaeXpBPqPzTh8d",
+                "object": "product",
+                "active": true,
+                "attributes": [],
+                "created": 1779833605,
+                "default_price": null,
+                "description": null,
+                "images": [],
+                "livemode": false,
+                "marketing_features": [],
+                "metadata": {},
+                "name": "Test Product AI Builder",
+                "package_dimensions": null,
+                "shippable": null,
+                "statement_descriptor": null,
+                "tax_code": null,
+                "tax_details": null,
+                "type": "service",
+                "unit_label": null,
+                "updated": 1779833605,
+                "url": null
+              },
+              {
+                "id": "prod_UaeW2INWNbCwSA",
+                "object": "product",
+                "active": true,
+                "attributes": [],
+                "created": 1779833572,
+                "default_price": null,
+                "description": null,
+                "images": [],
+                "livemode": false,
+                "marketing_features": [],
+                "metadata": {},
+                "name": "Test Product AI Builder",
+                "package_dimensions": null,
+                "shippable": null,
+                "statement_descriptor": null,
+                "tax_code": null,
+                "tax_details": null,
+                "type": "service",
+                "unit_label": null,
+                "updated": 1779833572,
+                "url": null
+              }
+            ],
+            "has_more": true,
+            "url": "/v1/products"
+          },
+          "status": 200,
+          "headers": {
+            "date": "Tue, 26 May 2026 23:14:43 GMT",
+            "content-type": "application/json",
+            "content-length": "1263",
+            "connection": "keep-alive",
+            "x-xss-protection": "0",
+            "x-content-type-options": "nosniff",
+            "x-download-options": "noopen",
+            "x-frame-options": "SAMEORIGIN",
+            "x-dns-prefetch-control": "off",
+            "strict-transport-security": "max-age=5184000; includeSubDomains",
+            "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+            "access-control-allow-origin": "*",
+            "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+            "x-ratelimit-limit": "5000",
+            "x-ratelimit-remaining": "4979",
+            "x-ratelimit-reset": "1779837315",
+            "etag": "W/\"4ef-qzLFJ4Iy+q1DstvXEjCF5JAcI6E\""
+          },
+          "hash": "ced31bbb05722b76407c7ef42b694473bf09dab9",
+          "request": {
+            "params": {
+              "limit": "2",
+              "starting_after": "prod_UaeZqt6x4Au5Sk"
+            }
+          }
+        },
+        {
+          "response": {
+            "object": "list",
+            "data": [
+              {
+                "id": "prod_UaeWh1bvZgwCCG",
+                "object": "product",
+                "active": true,
+                "attributes": [],
+                "created": 1779833563,
+                "default_price": null,
+                "description": null,
+                "images": [],
+                "livemode": false,
+                "marketing_features": [],
+                "metadata": {},
+                "name": "Test Product AI Builder",
+                "package_dimensions": null,
+                "shippable": null,
+                "statement_descriptor": null,
+                "tax_code": null,
+                "tax_details": null,
+                "type": "service",
+                "unit_label": null,
+                "updated": 1779833563,
+                "url": null
+              },
+              {
+                "id": "prod_Uae6ZKq4YfmcYb",
+                "object": "product",
+                "active": true,
+                "attributes": [],
+                "created": 1779832000,
+                "default_price": null,
+                "description": null,
+                "images": [],
+                "livemode": false,
+                "marketing_features": [],
+                "metadata": {},
+                "name": "Updated Product Name",
+                "package_dimensions": null,
+                "shippable": null,
+                "statement_descriptor": null,
+                "tax_code": null,
+                "tax_details": null,
+                "type": "service",
+                "unit_label": null,
+                "updated": 1779833900,
+                "url": null
+              }
+            ],
+            "has_more": false,
+            "url": "/v1/products"
+          },
+          "status": 200,
+          "headers": {
+            "date": "Tue, 26 May 2026 23:14:43 GMT",
+            "content-type": "application/json",
+            "content-length": "1261",
+            "connection": "keep-alive",
+            "x-xss-protection": "0",
+            "x-content-type-options": "nosniff",
+            "x-download-options": "noopen",
+            "x-frame-options": "SAMEORIGIN",
+            "x-dns-prefetch-control": "off",
+            "strict-transport-security": "max-age=5184000; includeSubDomains",
+            "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+            "access-control-allow-origin": "*",
+            "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+            "x-ratelimit-limit": "5000",
+            "x-ratelimit-remaining": "4978",
+            "x-ratelimit-reset": "1779837315",
+            "etag": "W/\"4ed-glBCrEBVH15Q97QVF9dInnu4n/4\""
+          },
+          "hash": "8e48f69055d5bbfe49691a1728962d32d282fa28",
+          "request": {
+            "params": {
+              "limit": "2",
+              "starting_after": "prod_UaeW2INWNbCwSA"
+            }
+          }
+        }
+      ]
+    }
+  }
+}
