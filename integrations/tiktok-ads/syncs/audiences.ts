@@ -34,12 +34,17 @@ const MetadataSchema = z.object({
     advertiser_id: z.string()
 });
 
+const CheckpointSchema = z.object({
+    page: z.number()
+});
+
 const sync = createSync({
     description: 'Sync audiences from TikTok Ads.',
     version: '1.0.0',
     frequency: 'every hour',
     autoStart: false,
     metadata: MetadataSchema,
+    checkpoint: CheckpointSchema,
     models: {
         Audience: AudienceSchema
     },
@@ -49,36 +54,21 @@ const sync = createSync({
     ],
 
     exec: async (nango) => {
-        let metadata: unknown = null;
-        try {
-            metadata = await nango.getMetadata();
-        } catch (error) {
-            if (!(error instanceof Error) || !error.message.includes('Missing mock data for getMetadata')) {
-                throw error;
-            }
-        }
+        const checkpoint = await nango.getCheckpoint();
+        const startPage = checkpoint ? checkpoint['page'] : 1;
+        let nextPage: number | undefined = startPage;
+
+        const metadata = await nango.getMetadata();
         const metadataParsed = MetadataSchema.safeParse(metadata);
-        if (!metadataParsed.success && metadata != null) {
+        if (!metadataParsed.success) {
             throw new Error('advertiser_id is required in metadata');
         }
-        const fallbackAdvertiserId = z.string().parse(
-            z
-                .object({
-                    connection_config: z.record(z.string(), z.unknown()).optional()
-                })
-                .parse(await nango.getConnection()).connection_config?.['advertiser_id'] ?? '7644143197428744199'
-        );
-        const advertiserId = metadataParsed.success ? metadataParsed.data.advertiser_id : fallbackAdvertiserId;
-
-        // This endpoint only offers page-based pagination, so use a full refresh
-        // with delete tracking instead of resuming from a mutable page number.
-        await nango.trackDeletesStart('Audience');
+        const advertiserId = metadataParsed.data.advertiser_id;
 
         // https://business-api.tiktok.com/portal/docs?id=1739940506015746
         const proxyConfig: ProxyConfiguration = {
             // https://business-api.tiktok.com/portal/docs?id=1739940506015746
             endpoint: 'dmp/custom_audience/list/',
-            baseUrlOverride: 'https://sandbox-ads.tiktok.com/open_api/v1.3/',
             params: {
                 advertiser_id: advertiserId,
                 page_size: 100
@@ -86,11 +76,14 @@ const sync = createSync({
             paginate: {
                 type: 'offset',
                 offset_name_in_request: 'page',
-                offset_start_value: 1,
+                offset_start_value: startPage,
                 offset_calculation_method: 'per-page',
                 limit_name_in_request: 'page_size',
                 limit: 100,
-                response_path: 'data.list'
+                response_path: 'data.list',
+                on_page: async ({ nextPageParam }) => {
+                    nextPage = typeof nextPageParam === 'number' ? nextPageParam : undefined;
+                }
             },
             retries: 3
         };
@@ -120,9 +113,13 @@ const sync = createSync({
             if (audiences.length > 0) {
                 await nango.batchSave(audiences, 'Audience');
             }
+
+            if (nextPage !== undefined) {
+                await nango.saveCheckpoint({ page: nextPage });
+            }
         }
 
-        await nango.trackDeletesEnd('Audience');
+        await nango.saveCheckpoint({ page: 1 });
     }
 });
 

@@ -91,7 +91,6 @@ const action = createAction({
         const response = await nango.get({
             endpoint: 'adgroup/get/',
             params: params,
-            baseUrlOverride: 'https://sandbox-ads.tiktok.com/open_api/v1.3/',
             retries: 3
         });
 

@@ -84,7 +84,6 @@ const action = createAction({
         const response = await nango.get({
             // https://business-api.tiktok.com/portal/docs?id=1739940507792385
             endpoint: 'dmp/custom_audience/get/',
-            baseUrlOverride: 'https://sandbox-ads.tiktok.com/open_api/v1.3/',
             params: {
                 advertiser_id: input.advertiser_id,
                 custom_audience_ids: JSON.stringify([input.audience_id])

@@ -75,7 +75,6 @@ const action = createAction({
         const response = await nango.get({
             // https://business-api.tiktok.com/portal/docs/api-reference/v1.3
             endpoint: 'file/image/ad/search/',
-            baseUrlOverride: 'https://sandbox-ads.tiktok.com/open_api/v1.3/',
             params,
             retries: 3
         });

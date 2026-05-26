@@ -68,7 +68,6 @@ const action = createAction({
                 page: page,
                 ...(input.page_size !== undefined && { page_size: input.page_size })
             },
-            baseUrlOverride: 'https://sandbox-ads.tiktok.com/open_api/v1.3/',
             retries: 3
         });
 

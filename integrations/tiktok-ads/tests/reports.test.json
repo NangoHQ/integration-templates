@@ -1,6 +1,20 @@
 {
   "nango": {
-    "getConnection": {},
+    "getMetadata": {
+      "advertiser_id": "7644143197428744199",
+      "dimensions": [
+        "campaign_id",
+        "stat_time_day"
+      ],
+      "metrics": [
+        "spend",
+        "impressions",
+        "clicks"
+      ],
+      "data_level": "AUCTION_CAMPAIGN",
+      "report_type": "BASIC",
+      "service_type": "AUCTION"
+    },
     "batchSave": {
       "ReportRow": []
     },
@@ -14,12 +28,12 @@
         "response": {
           "code": 40001,
           "message": "Permission error: The access token lacks the required scope for endpoint '/report/integrated/get/(method=GET)'. Please first check if the request method is correct then ask the user to generate a new access token and reauthorize your API App with the necessary API scopes.",
-          "request_id": "20260527055216168BC79A0758D897B08C",
+          "request_id": "20260526191229E6552B48AAC251747BEA",
           "data": {}
         },
         "status": 200,
         "headers": {
-          "date": "Tue, 26 May 2026 21:52:16 GMT",
+          "date": "Tue, 26 May 2026 11:12:29 GMT",
           "content-type": "application/json",
           "content-length": "366",
           "connection": "keep-alive",
@@ -33,9 +47,9 @@
           "access-control-allow-origin": "*",
           "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
           "x-ratelimit-limit": "5000",
-          "x-ratelimit-remaining": "4979",
-          "x-ratelimit-reset": "1779832390",
-          "etag": "W/\"16e-kum/tOsZd03xG6/FHzwcvJDpjV0\""
+          "x-ratelimit-remaining": "4989",
+          "x-ratelimit-reset": "1779793997",
+          "etag": "W/\"16e-E+llflAlk1UG6tDNlOoYIYr54E0\""
         },
         "hash": "fcfcc423e2f61fcff9db8ed77b3430280336103a",
         "request": {

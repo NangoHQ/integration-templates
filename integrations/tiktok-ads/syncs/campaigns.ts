@@ -63,7 +63,6 @@ const sync = createSync({
             params: {
                 advertiser_id: '7644143197428744199'
             },
-            baseUrlOverride: 'https://sandbox-ads.tiktok.com/open_api/v1.3/',
             paginate: {
                 type: 'offset',
                 offset_name_in_request: 'page',

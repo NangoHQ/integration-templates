@@ -66,7 +66,6 @@ const action = createAction({
         // https://business-api.tiktok.com/portal/docs?id=1739940572667906
         const response = await nango.post({
             endpoint: 'dmp/custom_audience/update/',
-            baseUrlOverride: 'https://sandbox-ads.tiktok.com/open_api/v1.3/',
             data: body,
             retries: 3
         });

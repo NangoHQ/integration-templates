@@ -36,7 +36,6 @@ const action = createAction({
         const response = await nango.post({
             // https://business-api.tiktok.com/portal/docs?id=1739940539757569
             endpoint: '/dmp/custom_audience/delete/',
-            baseUrlOverride: 'https://sandbox-ads.tiktok.com/open_api/v1.3/',
             data: {
                 advertiser_id: input.advertiser_id,
                 custom_audience_ids: [input.custom_audience_id]

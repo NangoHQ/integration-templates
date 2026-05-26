@@ -104,8 +104,7 @@ const action = createAction({
             // https://business-api.tiktok.com/portal/docs?id=1739315828649986
             endpoint: 'campaign/get/',
             params,
-            retries: 3,
-            baseUrlOverride: 'https://sandbox-ads.tiktok.com/open_api/v1.3/'
+            retries: 3
         });
 
         const providerResponse = ProviderResponseSchema.parse(response.data);

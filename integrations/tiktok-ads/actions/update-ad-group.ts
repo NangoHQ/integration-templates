@@ -91,8 +91,7 @@ const action = createAction({
                 ...(input.conversion_bid_price !== undefined && { conversion_bid_price: input.conversion_bid_price }),
                 ...(input.roas_bid !== undefined && { roas_bid: input.roas_bid })
             },
-            retries: 3,
-            baseUrlOverride: 'https://sandbox-ads.tiktok.com/open_api/v1.3/'
+            retries: 3
         });
 
         const providerResponse = ProviderResponseSchema.parse(response.data);

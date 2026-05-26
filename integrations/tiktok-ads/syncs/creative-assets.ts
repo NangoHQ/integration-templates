@@ -51,7 +51,6 @@ const sync = createSync<{ CreativeAsset: typeof CreativeAssetSchema }, never, ty
         const proxyConfig: ProxyConfiguration = {
             // https://business-api.tiktok.com/portal/docs?id=1740052016789506
             endpoint: 'file/image/ad/search/',
-            baseUrlOverride: 'https://sandbox-ads.tiktok.com/open_api/v1.3/',
             params: {
                 advertiser_id: advertiserId,
                 page_size: 100

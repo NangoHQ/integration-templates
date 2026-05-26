@@ -50,7 +50,6 @@ const action = createAction({
         const response = await nango.get({
             // https://business-api.tiktok.com/portal/docs?id=1825119032526849
             endpoint: 'discovery/trending_list/',
-            baseUrlOverride: 'https://sandbox-ads.tiktok.com/open_api/v1.3/',
             params: {
                 advertiser_id: advertiserId,
                 discovery_type: input.discovery_type,

@@ -121,8 +121,7 @@ const action = createAction({
                 filtering: JSON.stringify({ campaign_ids: [input.campaign_id] }),
                 page_size: '1'
             },
-            retries: 3,
-            baseUrlOverride: 'https://sandbox-ads.tiktok.com/open_api/v1.3/'
+            retries: 3
         });
 
         const parsed = ProviderResponseSchema.parse(response.data);

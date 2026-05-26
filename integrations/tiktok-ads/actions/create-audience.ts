@@ -48,8 +48,7 @@ const action = createAction({
                 ...(input.audience_enhancement !== undefined && { audience_enhancement: input.audience_enhancement }),
                 ...(input.retention_in_days !== undefined && { retention_in_days: input.retention_in_days })
             },
-            retries: 3,
-            baseUrlOverride: 'https://sandbox-ads.tiktok.com/open_api/v1.3/'
+            retries: 3
         });
 
         const providerResponse = ProviderResponseSchema.parse(response.data);

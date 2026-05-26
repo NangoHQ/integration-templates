@@ -1,6 +1,8 @@
 {
   "nango": {
-    "getConnection": {},
+    "getMetadata": {
+      "advertiser_id": "7644143197428744199"
+    },
     "batchSave": {
       "Ad": []
     },
@@ -12,24 +14,16 @@
     "get": {
       "/ad/get/": {
         "response": {
-          "code": 0,
-          "message": "OK",
-          "request_id": "20260527055217168BC79A0758D897B0E0",
-          "data": {
-            "list": [],
-            "page_info": {
-              "page": 1,
-              "page_size": 100,
-              "total_page": 0,
-              "total_number": 0
-            }
-          }
+          "code": 40105,
+          "message": "Access token is incorrect or has been revoked.",
+          "request_id": "20260527014351E536E08FBD17778C264C",
+          "data": {}
         },
         "status": 200,
         "headers": {
-          "date": "Tue, 26 May 2026 21:52:17 GMT",
+          "date": "Tue, 26 May 2026 17:43:51 GMT",
           "content-type": "application/json",
-          "content-length": "182",
+          "content-length": "140",
           "connection": "keep-alive",
           "x-xss-protection": "0",
           "x-content-type-options": "nosniff",
@@ -41,9 +35,9 @@
           "access-control-allow-origin": "*",
           "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
           "x-ratelimit-limit": "5000",
-          "x-ratelimit-remaining": "4976",
-          "x-ratelimit-reset": "1779832390",
-          "etag": "W/\"b6-fgB4N8J2uH0f5QJFe+wklutsdCc\""
+          "x-ratelimit-remaining": "4984",
+          "x-ratelimit-reset": "1779817457",
+          "etag": "W/\"8c-krhqDEEpQn5Sk65Ndpr821ecEok\""
         },
         "hash": "6ad11baece67f310d19b3d210ea05192fb1a8025",
         "request": {

@@ -87,7 +87,6 @@ const action = createAction({
                 ...(input.query_lifetime !== undefined && { query_lifetime: String(input.query_lifetime) }),
                 ...(input.enable_total_metrics !== undefined && { enable_total_metrics: String(input.enable_total_metrics) })
             },
-            baseUrlOverride: 'https://sandbox-ads.tiktok.com/open_api/v1.3/',
             retries: 3
         });
 

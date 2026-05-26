@@ -25,7 +25,8 @@ const AdSchema = z.object({
 });
 
 const CheckpointSchema = z.object({
-    updated_after: z.string()
+    updated_after: z.string(),
+    page: z.number()
 });
 
 const MetadataSchema = z.object({
@@ -52,7 +53,8 @@ const sync = createSync({
     exec: async (nango) => {
         const checkpoint = await nango.getCheckpoint();
         let updatedAfter = '1970-01-01T00:00:00Z';
-        let maxModifyTime: string | undefined;
+        let page: number | undefined = 1;
+        let lastProcessedModifyTime: string | undefined;
 
         if (checkpoint) {
             const parsedCheckpoint = CheckpointSchema.safeParse(checkpoint);
@@ -60,28 +62,15 @@ const sync = createSync({
                 throw new Error(`Invalid checkpoint: ${parsedCheckpoint.error.message}`);
             }
             updatedAfter = parsedCheckpoint.data.updated_after;
+            page = parsedCheckpoint.data.page;
         }
 
-        let metadata: unknown = null;
-        try {
-            metadata = await nango.getMetadata();
-        } catch (error) {
-            if (!(error instanceof Error) || !error.message.includes('Missing mock data for getMetadata')) {
-                throw error;
-            }
-        }
+        const metadata = await nango.getMetadata();
         const parsedMetadata = MetadataSchema.safeParse(metadata);
-        if (!parsedMetadata.success && metadata != null) {
+        if (!parsedMetadata.success) {
             throw new Error(`Invalid metadata: ${parsedMetadata.error.message}`);
         }
-        const fallbackAdvertiserId = z.string().parse(
-            z
-                .object({
-                    connection_config: z.record(z.string(), z.unknown()).optional()
-                })
-                .parse(await nango.getConnection()).connection_config?.['advertiser_id'] ?? '7644143197428744199'
-        );
-        const advertiserId = parsedMetadata.success ? parsedMetadata.data.advertiser_id : fallbackAdvertiserId;
+        const advertiserId = parsedMetadata.data.advertiser_id;
 
         const proxyConfig: ProxyConfiguration = {
             // https://business-api.tiktok.com/portal/docs?id=1735735588640770
@@ -93,14 +82,16 @@ const sync = createSync({
             paginate: {
                 type: 'offset',
                 offset_name_in_request: 'page',
-                offset_start_value: 1,
+                offset_start_value: page,
                 offset_calculation_method: 'per-page',
                 limit_name_in_request: 'page_size',
                 limit: 100,
-                response_path: 'data.list'
+                response_path: 'data.list',
+                on_page: async ({ nextPageParam }) => {
+                    page = typeof nextPageParam === 'number' ? nextPageParam : undefined;
+                }
             },
-            retries: 3,
-            baseUrlOverride: 'https://sandbox-ads.tiktok.com/open_api/v1.3/'
+            retries: 3
         };
 
         for await (const pageResults of nango.paginate(proxyConfig)) {
@@ -120,20 +111,36 @@ const sync = createSync({
                 ...(record.modify_time != null && { modify_time: record.modify_time })
             }));
 
-            if (ads.length > 0) {
-                await nango.batchSave(ads, 'Ad');
-            }
-
-            for (const ad of ads) {
-                if (ad.modify_time && (!maxModifyTime || ad.modify_time > maxModifyTime)) {
-                    maxModifyTime = ad.modify_time;
+            if (ads.length === 0) {
+                if (page === undefined && lastProcessedModifyTime) {
+                    await nango.saveCheckpoint({
+                        updated_after: lastProcessedModifyTime,
+                        page: 1
+                    });
                 }
+                continue;
             }
-        }
 
-        if (maxModifyTime && maxModifyTime > updatedAfter) {
+            await nango.batchSave(ads, 'Ad');
+
+            const lastAd = ads[ads.length - 1];
+            if (!lastAd || !lastAd.modify_time) {
+                throw new Error('Missing modify_time on last ad of page; cannot save checkpoint');
+            }
+            lastProcessedModifyTime = lastAd.modify_time;
+
+            if (page !== undefined) {
+                await nango.saveCheckpoint({
+                    updated_after: updatedAfter,
+                    page
+                });
+                continue;
+            }
+
+            updatedAfter = lastProcessedModifyTime;
             await nango.saveCheckpoint({
-                updated_after: maxModifyTime
+                updated_after: updatedAfter,
+                page: 1
             });
         }
     }

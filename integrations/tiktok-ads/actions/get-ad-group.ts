@@ -119,8 +119,7 @@ const action = createAction({
                 advertiser_id: input.advertiser_id,
                 filtering: JSON.stringify({ adgroup_ids: [input.adgroup_id] })
             },
-            retries: 3,
-            baseUrlOverride: 'https://sandbox-ads.tiktok.com/open_api/v1.3/'
+            retries: 3
         });
 
         const rawData = typeof response.data === 'string' ? JSON.parse(response.data) : response.data;

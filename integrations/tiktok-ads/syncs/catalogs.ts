@@ -71,7 +71,6 @@ const sync = createSync({
         const catalogProxyConfig: ProxyConfiguration = {
             // https://business-api.tiktok.com/portal/docs?id=1740315452868610
             endpoint: 'catalog/get/',
-            baseUrlOverride: 'https://sandbox-ads.tiktok.com/open_api/v1.3/',
             params: {
                 bc_id: bcId,
                 page: '1',
@@ -107,7 +106,6 @@ const sync = createSync({
                 const feedProxyConfig: ProxyConfiguration = {
                     // https://business-api.tiktok.com/portal/docs?id=1740665183073281
                     endpoint: 'catalog/feed/get/',
-                    baseUrlOverride: 'https://sandbox-ads.tiktok.com/open_api/v1.3/',
                     params: {
                         catalog_id: catalog.catalog_id,
                         bc_id: bcId

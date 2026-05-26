@@ -83,7 +83,6 @@ const action = createAction({
             // https://business-api.tiktok.com/portal/docs?id=1739067433456642
             endpoint: '/file/image/ad/upload/',
             data: requestBody,
-            baseUrlOverride: 'https://sandbox-ads.tiktok.com/open_api/v1.3/',
             retries: 3
         });
 

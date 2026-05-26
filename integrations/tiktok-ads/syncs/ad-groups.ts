@@ -76,8 +76,7 @@ const sync = createSync({
                 limit: 100,
                 response_path: 'data.list'
             },
-            retries: 3,
-            baseUrlOverride: 'https://sandbox-ads.tiktok.com/open_api/v1.3/'
+            retries: 3
         };
 
         for await (const batch of nango.paginate(proxyConfig)) {

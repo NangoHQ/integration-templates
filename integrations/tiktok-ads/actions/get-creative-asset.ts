@@ -57,7 +57,6 @@ const action = createAction({
                 advertiser_id: input.advertiser_id,
                 image_ids: JSON.stringify([input.image_id])
             },
-            baseUrlOverride: 'https://sandbox-ads.tiktok.com/open_api/v1.3/',
             retries: 3
         });
 

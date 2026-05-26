@@ -59,7 +59,6 @@ const action = createAction({
                 ...(input.partner_name !== undefined && { partner_name: input.partner_name }),
                 ...(input.pixel_category !== undefined && { pixel_category: input.pixel_category })
             },
-            baseUrlOverride: 'https://sandbox-ads.tiktok.com/open_api/v1.3/',
             retries: 3
         });
 

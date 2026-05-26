@@ -54,7 +54,6 @@ const action = createAction({
         // https://business-api.tiktok.com/portal/docs?id=1740315452868610
         const response = await nango.get({
             endpoint: 'catalog/get/',
-            baseUrlOverride: 'https://sandbox-ads.tiktok.com/open_api/v1.3/',
             params: {
                 bc_id: input.bc_id,
                 ...(input.catalog_id !== undefined && { catalog_id: input.catalog_id })

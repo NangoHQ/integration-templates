@@ -55219,6 +55219,175 @@ export interface ActionOutput_tiktok_ads_createadgroup {
   modify_time?: string | undefined;
 };
 
+export interface ActionInput_tiktok_ads_createad {
+  /**
+   * Advertiser ID. Example: "7644143197428744199"
+   */
+  advertiser_id: string;
+  /**
+   * Ad group ID to create the ad under. Example: "1866248800809074"
+   */
+  adgroup_id: string;
+  /**
+   * Array of creative objects for the ad.
+   */
+  creatives: ({  /**
+   * Name of the ad. Example: "Summer Sale Ad"
+   */
+  ad_name: string;
+  /**
+   * Ad format. Example: "SINGLE_IMAGE", "CAROUSEL", "SINGLE_VIDEO"
+   */
+  ad_format?: string | undefined;
+  /**
+   * Primary text for the ad. Example: "Shop our summer collection!"
+   */
+  ad_text?: string | undefined;
+  /**
+   * Multiple ad texts for dynamic creative.
+   */
+  ad_texts?: string[] | undefined;
+  /**
+   * Call to action button text. Example: "SHOP_NOW"
+   */
+  call_to_action?: string | undefined;
+  /**
+   * Landing page URL for the ad. Example: "https://example.com/sale"
+   */
+  landing_page_url?: string | undefined;
+  /**
+   * Video ID from the TikTok asset library.
+   */
+  video_id?: string | undefined;
+  /**
+   * Image IDs from the TikTok asset library.
+   */
+  image_ids?: string[] | undefined;
+  /**
+   * Identity ID for the ad. Required for certain placements.
+   */
+  identity_id?: string | undefined;
+  /**
+   * Identity type. Example: "CUSTOMIZED_USER", "AUTH_CODE", "TT_USER"
+   */
+  identity_type?: string | undefined;
+  /**
+   * Whether the creative is authorized.
+   */
+  creative_authorized?: boolean | undefined;
+  /**
+   * Operation status of the ad. Example: "ENABLE" or "DISABLE"
+   */
+  operation_status?: string | undefined;
+  /**
+   * Click tracking URL.
+   */
+  click_tracking_url?: string | undefined;
+  /**
+   * Impression tracking URL.
+   */
+  impression_tracking_url?: string | undefined;
+  /**
+   * AIGC disclosure type. Example: "NOT_DECLARED"
+   */
+  aigc_disclosure_type?: string | undefined;
+  /**
+   * Deeplink URL for app promotion.
+   */
+  deeplink?: string | undefined;
+  /**
+   * Deeplink type. Example: "NORMAL"
+   */
+  deeplink_type?: string | undefined;
+  /**
+   * Background music ID.
+   */
+  music_id?: string | undefined;
+  /**
+   * Page ID for instant form or landing page.
+   */
+  page_id?: number | undefined;
+  /**
+   * Phone number for call ads.
+   */
+  phone_number?: string | undefined;
+  /**
+   * Phone region calling code.
+   */
+  phone_region_calling_code?: string | undefined;
+  /**
+   * Phone region code.
+   */
+  phone_region_code?: string | undefined;
+  /**
+   * Catalog ID for catalog ads.
+   */
+  catalog_id?: string | undefined;
+  /**
+   * Product set ID for catalog ads.
+   */
+  product_set_id?: string | undefined;
+  /**
+   * SKU IDs for catalog ads.
+   */
+  sku_ids?: string[] | undefined;
+  /**
+   * Item group IDs for collection ads.
+   */
+  item_group_ids?: string[] | undefined;
+  /**
+   * TikTok Shop item ID.
+   */
+  tiktok_item_id?: string | undefined;
+  /**
+   * Card ID for playable ads.
+   */
+  card_id?: string | undefined;
+  /**
+   * Playable ad URL.
+   */
+  playable_url?: string | undefined;
+  /**
+   * Whether promotional music is disabled.
+   */
+  promotional_music_disabled?: boolean | undefined;
+  /**
+   * Auto disclaimer types.
+   */
+  auto_disclaimer_types?: string[] | undefined;
+  /**
+   * Creative type.
+   */
+  creative_type?: string | undefined;
+  /**
+   * Dark post status.
+   */
+  dark_post_status?: string | undefined;
+  /**
+   * UTM parameters.
+   */
+  utm_params?: ({  utm_campaign?: string | undefined;
+  utm_content?: string | undefined;
+  utm_medium?: string | undefined;
+  utm_source?: string | undefined;
+  utm_term?: string | undefined;})[];})[];
+};
+
+export interface ActionOutput_tiktok_ads_createad {
+  /**
+   * IDs of the created ads.
+   */
+  ad_ids: string[];
+  /**
+   * Number of successfully created ads.
+   */
+  success_count?: number | undefined;
+  /**
+   * Number of failed ad creations.
+   */
+  fail_count?: number | undefined;
+};
+
 export interface ActionInput_tiktok_ads_createaudience {
   /**
    * Advertiser ID. Example: "7644143197428744199"
@@ -55255,6 +55424,84 @@ export interface ActionOutput_tiktok_ads_createaudience {
    * The ID of the created custom audience.
    */
   custom_audience_id: string;
+};
+
+export interface ActionInput_tiktok_ads_createautomatedrule {
+  /**
+   * Advertiser ID. Example: "7644143197428744199"
+   */
+  advertiser_id: string;
+  /**
+   * Language. Default: "EN"
+   */
+  lang?: string | undefined;
+  rules: ({  actions: ({  action_type?: string | undefined;
+  frequency_info?: {  count?: number | undefined;
+  custom_frequency_type?: string | undefined;
+  time?: number | undefined;
+  /**
+   * Frequency type. Example: "ONCE", "CONTINUOUS"
+   */
+  type: string;};
+  /**
+   * Action subject type. Example: "BUDGET", "BID", "STATUS"
+   */
+  subject_type: string;
+  value?: {  limit?: number | undefined;
+  use_limit?: boolean | undefined;
+  value?: number | undefined;};
+  value_type?: string | undefined;})[];
+  apply_objects: ({  bind_type?: string | undefined;
+  /**
+   * Dimension to apply the rule to. Example: "CAMPAIGN", "ADGROUP", "AD"
+   */
+  dimension: string;
+  dimension_ids?: string[] | undefined;
+  /**
+   * Pre-condition type. Example: "ALL", "IN", "NOT_IN"
+   */
+  pre_condition_type: string;})[];
+  conditions: ({  calculation_type?: string | undefined;
+  match_type?: string | undefined;
+  range_type?: string | undefined;
+  /**
+   * Condition subject type. Example: "SPEND", "BUDGET", "COST_PER_RESULT"
+   */
+  subject_type: string;
+  values?: string[] | undefined;})[];
+  /**
+   * Rule name. Example: "Increase budget for high-performing campaigns"
+   */
+  name: string;
+  notification: {  email_setting?: {  email_exec_time?: string[] | undefined;
+  mute_option?: string | undefined;
+  no_result_notification?: boolean | undefined;
+  notification_period?: string | undefined;};
+  /**
+   * Notification type. Example: "SEND_NOTIFICATION", "NO_NOTIFICATION"
+   */
+  notification_type: string;};
+  rule_exec_info: {  exec_time?: string | undefined;
+  /**
+   * Execution time type. Example: "SCHEDULE", "CONTINUOUS"
+   */
+  exec_time_type: string;
+  time_period_info?: ({  date_type: string;
+  end_time: string;
+  num: number[];
+  start_time: string;})[] | undefined;};
+  /**
+   * Timezone. Example: "America/Los_Angeles", "UTC"
+   */
+  tzone?: string | undefined;})[];
+};
+
+export interface ActionOutput_tiktok_ads_createautomatedrule {
+  code?: number | undefined;
+  message?: string | undefined;
+  request_id?: string | undefined;
+  data?: {  success?: ({  [key: string]: unknown | undefined;})[];
+  failed?: ({  [key: string]: unknown | undefined;})[];};
 };
 
 export interface ActionInput_tiktok_ads_createcampaign {
@@ -55396,6 +55643,38 @@ export interface ActionOutput_tiktok_ads_createcampaign {
   request_id?: string | undefined;
 };
 
+export interface ActionInput_tiktok_ads_createcatalogfeed {
+  /**
+   * Business Center ID. Example: "123456789"
+   */
+  bc_id: string;
+  /**
+   * Catalog ID. Example: "123456789"
+   */
+  catalog_id: string;
+  /**
+   * Name of the feed. Example: "My Product Feed"
+   */
+  feed_name: string;
+  /**
+   * Update mode. Example: "INCREMENTAL" or "OVERWRITE"
+   */
+  update_mode: string;
+  schedule_param?: {  day_of_month?: number | undefined;
+  hour?: number | undefined;
+  interval_count?: number | undefined;
+  interval_type?: string | undefined;
+  minute?: number | undefined;
+  source?: {  password?: string | undefined;
+  uri?: string | undefined;
+  username?: string | undefined;};
+  timezone?: string | undefined;};
+};
+
+export interface ActionOutput_tiktok_ads_createcatalogfeed {
+  feed_id: string;
+};
+
 export interface ActionInput_tiktok_ads_createcatalog {
   /**
    * Advertiser ID. Example: "7644143197428744199"
@@ -55467,6 +55746,88 @@ export interface ActionOutput_tiktok_ads_createcreativeasset {
   preview_url?: string | undefined;
 };
 
+export interface ActionInput_tiktok_ads_creategmvmaxcampaign {
+  /**
+   * Advertiser ID. Example: "7644143197428744199"
+   */
+  advertiser_id: string;
+  /**
+   * Campaign name. Example: "My GMV Max Campaign"
+   */
+  campaign_name: string;
+  /**
+   * Unique request ID for idempotency. Example: "req-123"
+   */
+  request_id: string;
+  /**
+   * Campaign start time in ISO 8601 format. Example: "2024-01-01T00:00:00Z"
+   */
+  schedule_start_time: string;
+  /**
+   * Schedule type. Example: "STARTEND" or "FROM_NOW"
+   */
+  schedule_type: string;
+  /**
+   * Shopping ads type. Example: "PRODUCT_SALE"
+   */
+  shopping_ads_type: string;
+  /**
+   * Store authorized business center ID. Example: "123456"
+   */
+  store_authorized_bc_id: string;
+  /**
+   * Store ID. Example: "123456"
+   */
+  store_id: string;
+  /**
+   * Deep bid type. Example: "ROI"
+   */
+  deep_bid_type: string;
+  /**
+   * Optimization goal. Example: "GMV_MAX"
+   */
+  optimization_goal: string;
+  affiliate_posts_enabled?: boolean | undefined;
+  auto_budget_enabled?: boolean | undefined;
+  budget?: number | undefined;
+  custom_anchor_video_list?: ({  identity_info?: {  identity_authorized_bc_id?: string | undefined;
+  identity_authorized_shop_id?: string | undefined;
+  identity_id: string;
+  identity_type: string;
+  store_id?: string | undefined;};
+  item_id?: string | undefined;
+  spu_id_list?: string[] | undefined;})[];
+  identity_list?: ({  identity_authorized_bc_id?: string | undefined;
+  identity_authorized_shop_id?: string | undefined;
+  identity_id: string;
+  identity_type: string;
+  store_id?: string | undefined;})[];
+  item_group_ids?: string[] | undefined;
+  item_list?: ({  identity_info?: {  identity_authorized_bc_id?: string | undefined;
+  identity_authorized_shop_id?: string | undefined;
+  identity_id: string;
+  identity_type: string;
+  store_id?: string | undefined;};
+  item_id?: string | undefined;
+  spu_id_list?: string[] | undefined;
+  video_info?: {  video_id: string;} | undefined;})[];
+  product_specific_type?: string | undefined;
+  product_video_specific_type?: string | undefined;
+  promotion_days?: {  auto_schedule_enabled?: boolean | undefined;
+  custom_schedule_list?: ({  end_date: string;
+  schedule_type?: string | undefined;
+  start_date: string;})[];
+  is_enabled?: boolean | undefined;
+  roas_bid_multiplier?: number | undefined;};
+  roas_bid?: number | undefined;
+  schedule_end_time?: string | undefined;
+};
+
+export interface ActionOutput_tiktok_ads_creategmvmaxcampaign {
+  campaign_id?: string | undefined;
+  campaign_name?: string | undefined;
+};
+
 export interface ActionInput_tiktok_ads_createpixel {
   /**
    * Advertiser ID. Example: "7644143197428744199"
@@ -55496,6 +55857,312 @@ export interface ActionOutput_tiktok_ads_createpixel {
   advertiser_id?: string | undefined;
 };
 
+export interface ActionInput_tiktok_ads_createsmartplusad {
+  /**
+   * Advertiser ID. Example: 7644143197428744199
+   */
+  advertiser_id: string;
+  /**
+   * Ad group ID. Example: 1866248998099217
+   */
+  adgroup_id: string;
+  /**
+   * Ad name
+   */
+  ad_name: string;
+  /**
+   * Operation status. Default: ENABLE
+   */
+  operation_status?: string | undefined;
+  creative_list?: ({  creative_info: {  /**
+   * Ad format. Example: SINGLE_VIDEO
+   */
+  ad_format: string;
+  aigc_disclosure_type?: string | undefined;
+  identity_authorized_bc_id?: string | undefined;
+  identity_id?: string | undefined;
+  identity_type?: string | undefined;
+  image_info?: ({  /**
+   * Image ID
+   */
+  web_uri: string;})[] | undefined;
+  music_info?: {  /**
+   * Music ID
+   */
+  music_id: string;} | undefined;
+  tiktok_item_id?: string | undefined;
+  video_info?: {  /**
+   * Video ID
+   */
+  video_id: string;
+  file_name?: string | undefined;};};})[];
+  ad_text_list?: ({  ad_text: string;})[] | undefined;
+  auto_message_list?: ({  auto_message_id: string;})[] | undefined;
+  call_to_action_list?: ({  call_to_action: string;})[] | undefined;
+  interactive_add_on_list?: ({  card_id: string;})[] | undefined;
+  page_list?: ({  page_id: string;})[] | undefined;
+  landing_page_url_list?: ({  landing_page_url?: string | undefined;})[];
+  deeplink_list?: ({  deeplink?: string | undefined;
+  deeplink_type?: string | undefined;})[];
+  ad_configuration?: {  identity_type?: string | undefined;
+  identity_id?: string | undefined;
+  dark_post_status?: string | undefined;
+  product_specific_type?: string | undefined;
+  product_set_id?: string | undefined;
+  product_ids?: string[] | undefined;
+  catalog_creative_toggle?: boolean | undefined;
+  call_to_action_id?: string | undefined;
+  end_card_cta?: string | undefined;
+  product_display_field_list?: string[] | undefined;
+  auto_disclaimer_types?: string[] | undefined;
+  fallback_type?: string | undefined;
+  phone_info?: {  phone_number?: string | undefined;
+  phone_region_calling_code?: string | undefined;
+  phone_region_code?: string | undefined;};
+  tracking_info?: {  impression_tracking_url?: string | undefined;
+  click_tracking_url?: string | undefined;
+  tracking_app_id?: string | undefined;
+  tracking_message_event_set_id?: string | undefined;};
+  utm_params?: ({  key?: string | undefined;
+  value?: string | undefined;})[];};
+};
+
+export interface ActionOutput_tiktok_ads_createsmartplusad {
+  /**
+   * The ID of the created Smart+ ad
+   */
+  smart_plus_ad_id: string;
+  advertiser_id?: string | undefined;
+  campaign_id?: string | undefined;
+  adgroup_id?: string | undefined;
+  ad_name?: string | undefined;
+  operation_status?: string | undefined;
+  create_time?: string | undefined;
+  modify_time?: string | undefined;
+};
+
+export interface ActionInput_tiktok_ads_createsmartplusadgroup {
+  /**
+   * Advertiser ID. Example: "7644143197428744199"
+   */
+  advertiser_id: string;
+  /**
+   * Campaign ID. Example: "1866249031553154"
+   */
+  campaign_id: string;
+  /**
+   * Ad group name.
+   */
+  adgroup_name: string;
+  /**
+   * Billing event. Example: "CPC"
+   */
+  billing_event: string;
+  /**
+   * Optimization goal. Example: "CLICK"
+   */
+  optimization_goal: string;
+  /**
+   * Promotion type. Example: "WEBSITE"
+   */
+  promotion_type: string;
+  /**
+   * Request ID for idempotency. Example: "req-123"
+   */
+  request_id: string;
+  /**
+   * Schedule start time. Format: YYYY-MM-DD HH:MM:SS
+   */
+  schedule_start_time: string;
+  /**
+   * Schedule type. Example: "SCHEDULE_START_END"
+   */
+  schedule_type: string;
+  /**
+   * Targeting specifications.
+   */
+  targeting_spec: {  actions?: ({})[] | undefined;
+  age_groups?: string[] | undefined;
+  audience_ids?: string[] | undefined;
+  blocked_pangle_app_ids?: string[] | undefined;
+  carrier_ids?: string[] | undefined;
+  device_model_ids?: string[] | undefined;
+  device_price_ranges?: number[] | undefined;
+  excluded_audience_ids?: string[] | undefined;
+  excluded_pangle_audience_package_ids?: string[] | undefined;
+  gender?: string | undefined;
+  household_income?: string[] | undefined;
+  included_pangle_audience_package_ids?: string[] | undefined;
+  interest_category_ids?: string[] | undefined;
+  interest_keyword_ids?: string[] | undefined;
+  isp_ids?: string[] | undefined;
+  languages?: string[] | undefined;
+  location_ids?: string[] | undefined;
+  min_android_version?: string | undefined;
+  min_ios_version?: string | undefined;
+  network_types?: string[] | undefined;
+  operating_systems?: string[] | undefined;
+  purchase_intention_keyword_ids?: string[] | undefined;
+  saved_audience_id?: string | undefined;
+  smart_audience_enabled?: boolean | undefined;
+  smart_interest_behavior_enabled?: boolean | undefined;
+  spc_audience_age?: string | undefined;
+  spending_power?: string | undefined;
+  zipcode_ids?: string[] | undefined;};
+  app_id?: string | undefined;
+  bid_price?: number | undefined;
+  bid_type?: string | undefined;
+  budget?: number | undefined;
+  budget_mode?: string | undefined;
+  catalog_authorized_bc_id?: string | undefined;
+  catalog_id?: string | undefined;
+  click_attribution_window?: string | undefined;
+  comment_disabled?: boolean | undefined;
+  conversion_bid_price?: number | undefined;
+  custom_conversion_id?: string | undefined;
+  dayparting?: string | undefined;
+  deep_bid_type?: string | undefined;
+  deep_cpabid?: number | undefined;
+  deep_funnel_event_source?: string | undefined;
+  deep_funnel_event_source_id?: string | undefined;
+  deep_funnel_optimization_event?: string | undefined;
+  deep_funnel_optimization_status?: string | undefined;
+  engaged_view_attribution_window?: string | undefined;
+  identity_authorized_bc_id?: string | undefined;
+  identity_id?: string | undefined;
+  identity_type?: string | undefined;
+  message_event_set_id?: string | undefined;
+  messaging_app_account_id?: string | undefined;
+  messaging_app_type?: string | undefined;
+  min_budget?: number | undefined;
+  movie_premiere_date?: string | undefined;
+  open_api_partner?: string | undefined;
+  operation_status?: string | undefined;
+  optimization_event?: string | undefined;
+  phone_info?: {} | undefined;
+  pixel_id?: string | undefined;
+  placement_type?: string | undefined;
+  placements?: string[] | undefined;
+  product_source?: string | undefined;
+  promotion_target_type?: string | undefined;
+  promotion_website_type?: string | undefined;
+  roas_bid?: number | undefined;
+  schedule_end_time?: string | undefined;
+  share_disabled?: boolean | undefined;
+  suggestion_audience_enabled?: boolean | undefined;
+  targeting_optimization_mode?: string | undefined;
+  vbo_window?: string | undefined;
+  video_download_disabled?: boolean | undefined;
+  view_attribution_window?: string | undefined;
+  zalo_id_type?: string | undefined;
+};
+
+export interface ActionOutput_tiktok_ads_createsmartplusadgroup {
+  adgroup_id?: string | undefined;
+  code: number;
+  message: string;
+  request_id?: string | undefined;
+};
+
+export interface ActionInput_tiktok_ads_createsmartpluscampaign {
+  /**
+   * Advertiser ID. Example: "7644143197428744199"
+   */
+  advertiser_id: string;
+  /**
+   * Campaign name. Example: "Smart+ Campaign"
+   */
+  campaign_name: string;
+  /**
+   * Campaign objective type. Example: "WEB_CONVERSIONS"
+   */
+  objective_type: string;
+  /**
+   * Unique request ID for idempotency. Example: "req-123"
+   */
+  request_id: string;
+  /**
+   * App ID. Example: "123456"
+   */
+  app_id?: string | undefined;
+  /**
+   * App promotion type. Example: "APP_INSTALL"
+   */
+  app_promotion_type?: string | undefined;
+  /**
+   * Bid align type. Example: "BID_ALIGN"
+   */
+  bid_align_type?: string | undefined;
+  /**
+   * Campaign budget. Example: 100
+   */
+  budget?: number | undefined;
+  /**
+   * Budget mode. Example: "BUDGET_MODE_DAY"
+   */
+  budget_mode?: string | undefined;
+  /**
+   * Whether budget optimization is enabled.
+   */
+  budget_optimize_on?: boolean | undefined;
+  /**
+   * Campaign app profile page state.
+   */
+  campaign_app_profile_page_state?: string | undefined;
+  /**
+   * Campaign type.
+   */
+  campaign_type?: string | undefined;
+  /**
+   * Whether catalog is enabled.
+   */
+  catalog_enabled?: boolean | undefined;
+  /**
+   * Catalog type.
+   */
+  catalog_type?: string | undefined;
+  /**
+   * Whether to disable SKAN campaign.
+   */
+  disable_skan_campaign?: boolean | undefined;
+  /**
+   * Whether this is an advanced dedicated campaign.
+   */
+  is_advanced_dedicated_campaign?: boolean | undefined;
+  /**
+   * Whether this is a promotional campaign.
+   */
+  is_promotional_campaign?: boolean | undefined;
+  /**
+   * Open API partner name.
+   */
+  open_api_partner?: string | undefined;
+  /**
+   * Operation status. Example: "ENABLE"
+   */
+  operation_status?: string | undefined;
+  /**
+   * Purchase order number.
+   */
+  po_number?: string | undefined;
+  /**
+   * Postback window mode.
+   */
+  postback_window_mode?: string | undefined;
+  /**
+   * Sales destination.
+   */
+  sales_destination?: string | undefined;
+  /**
+   * Special industries.
+   */
+  special_industries?: string[] | undefined;
+};
+
+export interface ActionOutput_tiktok_ads_createsmartpluscampaign {
+  campaign_id: string;
+};
+
 export interface ActionInput_tiktok_ads_deleteadgroup {
   /**
    * Advertiser ID. Example: "7644143197428744199"
@@ -55509,6 +56176,23 @@ export interface ActionInput_tiktok_ads_deleteadgroup {
 
 export interface ActionOutput_tiktok_ads_deleteadgroup {
   adgroup_id: string;
+  request_id?: string | undefined;
+};
+
+export interface ActionInput_tiktok_ads_deletead {
+  /**
+   * The advertiser ID. Example: "7644143197428744199"
+   */
+  advertiser_id: string;
+  /**
+   * The ad ID to delete. Example: "1234567890123456"
+   */
+  ad_id: string;
+};
+
+export interface ActionOutput_tiktok_ads_deletead {
+  success: boolean;
+  ad_id: string;
   request_id?: string | undefined;
 };
 
@@ -55545,6 +56229,42 @@ export interface ActionOutput_tiktok_ads_deletecampaign {
   success: boolean;
   campaign_id: string;
   message?: string | undefined;
+};
+
+export interface ActionInput_tiktok_ads_deletecatalogfeed {
+  /**
+   * Business Center ID. Example: "1234567890123456789"
+   */
+  bc_id: string;
+  /**
+   * Catalog ID. Example: "1234567890123456789"
+   */
+  catalog_id: string;
+  /**
+   * Feed ID. Example: "1234567890123456789"
+   */
+  feed_id: string;
+};
+
+export interface ActionOutput_tiktok_ads_deletecatalogfeed {
+  success: boolean;
+  message?: string | undefined;
+  request_id?: string | undefined;
+};
+
+export interface ActionInput_tiktok_ads_deletecatalog {
+  /**
+   * Business Center ID. Example: "123456789"
+   */
+  bc_id: string;
+  /**
+   * Catalog ID. Example: "987654321"
+   */
+  catalog_id: string;
+};
+
+export interface ActionOutput_tiktok_ads_deletecatalog {
+  catalog_id: string;
 };
 
 export interface ActionInput_tiktok_ads_deletepixel {
@@ -55617,6 +56337,39 @@ export interface ActionOutput_tiktok_ads_getadgroup {
   roas_bid?: number | undefined;
 };
 
+export interface ActionInput_tiktok_ads_getad {
+  /**
+   * Ad ID. Example: "1680067909753890"
+   */
+  ad_id: string;
+};
+
+export interface ActionOutput_tiktok_ads_getad {
+  ad_id: string;
+  advertiser_id?: string | undefined;
+  campaign_id?: string | undefined;
+  campaign_name?: string | undefined;
+  adgroup_id?: string | undefined;
+  adgroup_name?: string | undefined;
+  ad_name?: string | undefined;
+  ad_text?: string | undefined;
+  ad_texts?: string[] | undefined;
+  ad_format?: string | undefined;
+  status?: string | undefined;
+  opt_status?: string | undefined;
+  operation_status?: string | undefined;
+  secondary_status?: string | undefined;
+  create_time?: string | undefined;
+  modify_time?: string | undefined;
+  landing_page_url?: string | undefined;
+  video_id?: string | undefined;
+  image_ids?: string[] | undefined;
+  is_aco?: boolean | undefined;
+  call_to_action?: string | undefined;
+  open_url_type?: string | undefined;
+  display_name?: string | undefined;
+};
+
 export interface ActionInput_tiktok_ads_getadvertiser {
   /**
    * Advertiser ID. Example: "7644143197428744199"
@@ -55680,6 +56433,43 @@ export interface ActionOutput_tiktok_ads_getaudience {
   action_detail: string;})[] | undefined;
 };
 
+export interface ActionInput_tiktok_ads_getautomatedrule {
+  /**
+   * Advertiser ID. Example: "7644143197428744199"
+   */
+  advertiser_id: string;
+  /**
+   * Automated rule ID. Example: "123456789"
+   */
+  rule_id: string;
+};
+
+export interface ActionOutput_tiktok_ads_getautomatedrule {
+  rule_id: string;
+  advertiser_id?: string | undefined;
+  name?: string | undefined;
+  status?: string | undefined;
+  data_dimension?: string | undefined;
+  actions?: ({  action_type?: string | undefined;
+  subject_type?: string | undefined;
+  value_type?: string | undefined;
+  value?: unknown | undefined;})[];
+  conditions?: ({  subject_type?: string | undefined;
+  calculation_type?: string | undefined;
+  match_type?: string | undefined;
+  range_type?: string | undefined;
+  values?: string[] | undefined;})[];
+  apply_objects?: ({  object_id?: string | undefined;
+  object_type?: string | undefined;})[];
+  notification?: {  email?: string[] | undefined;};
+  rule_exec_info?: {  exec_time_type?: string | undefined;
+  exec_time?: string | undefined;
+  time_period_info?: unknown[] | undefined;};
+  tzone?: string | undefined;
+  create_time?: string | undefined;
+  modify_time?: string | undefined;
+};
+
 export interface ActionInput_tiktok_ads_getcampaign {
   /**
    * The advertiser ID. Example: "7644143197428744199"
@@ -55727,6 +56517,37 @@ export interface ActionOutput_tiktok_ads_getcampaign {
   special_industries?: string[] | undefined;
   app_id?: string | undefined;
   placement_type?: string | undefined;
+};
+
+export interface ActionInput_tiktok_ads_getcatalogfeed {
+  /**
+   * Catalog ID. Example: "123456789"
+   */
+  catalog_id: string;
+  /**
+   * Business Center ID. Example: "123456789"
+   */
+  bc_id: string;
+  /**
+   * Feed ID. If provided, returns the specific feed. Example: "987654321"
+   */
+  feed_id?: string | undefined;
+};
+
+export interface ActionOutput_tiktok_ads_getcatalogfeed {
+  feeds: ({  feed_id: string;
+  feed_name: string;
+  update_mode: string;
+  schedule_param?: {  day_of_month?: number | undefined;
+  hour?: number | undefined;
+  interval_count?: number | undefined;
+  interval_type?: string | undefined;
+  minute?: number | undefined;
+  source?: {  source_type?: string | undefined;
+  source_url?: string | undefined;};
+  timezone?: string | undefined;};
+  catalog_id?: string | undefined;
+  bc_id?: string | undefined;})[];
 };
 
 export interface ActionInput_tiktok_ads_getcatalog {
@@ -55782,6 +56603,21 @@ export interface ActionOutput_tiktok_ads_getcreativeasset {
   displayable?: boolean | undefined;
 };
 
+export interface ActionInput_tiktok_ads_getgmvmaxcampaign {
+  /**
+   * Advertiser ID. Example: "7644143197428744199"
+   */
+  advertiser_id: string;
+  /**
+   * GMV Max campaign ID. Example: "1866249031553154"
+   */
+  campaign_id: string;
+};
+
+export interface ActionOutput_tiktok_ads_getgmvmaxcampaign {
+  campaign?: {  [key: string]: unknown | undefined;};
+};
+
 export interface ActionInput_tiktok_ads_getpixel {
   /**
    * Advertiser ID. Example: "7644143197428744199"
@@ -55810,6 +56646,153 @@ export interface ActionOutput_tiktok_ads_getpixel {
   asset_relation_status?: string | undefined;
   owner_bc_id?: string | undefined;
   updated_at?: number | undefined;};
+};
+
+export interface ActionInput_tiktok_ads_getsmartplusad {
+  /**
+   * Advertiser ID. Example: "7644143197428744199"
+   */
+  advertiser_id: string;
+  /**
+   * Filter by Smart+ ad IDs.
+   */
+  smart_plus_ad_ids?: string[] | undefined;
+  /**
+   * Filter by ad group IDs.
+   */
+  adgroup_ids?: string[] | undefined;
+  /**
+   * Filter by campaign IDs.
+   */
+  campaign_ids?: string[] | undefined;
+  /**
+   * Filter by creation start time (yyyy-mm-dd hh:mm:ss).
+   */
+  creation_filter_start_time?: string | undefined;
+  /**
+   * Filter by creation end time (yyyy-mm-dd hh:mm:ss).
+   */
+  creation_filter_end_time?: string | undefined;
+  /**
+   * Filter by modified after time (yyyy-mm-dd hh:mm:ss).
+   */
+  modified_after?: string | undefined;
+  /**
+   * Filter by objective type.
+   */
+  objective_type?: string | undefined;
+  /**
+   * Filter by optimization goal.
+   */
+  optimization_goal?: string | undefined;
+  /**
+   * Filter by primary status.
+   */
+  primary_status?: string | undefined;
+  /**
+   * Filter by secondary status.
+   */
+  secondary_status?: string | undefined;
+  /**
+   * Page number. Default: 1
+   */
+  page?: number | undefined;
+  /**
+   * Page size. Default: 10
+   */
+  page_size?: number | undefined;
+  /**
+   * Specific fields to return.
+   */
+  fields?: string[] | undefined;
+};
+
+export interface ActionOutput_tiktok_ads_getsmartplusad {
+  ads: ({})[];
+  page_info?: {  page?: number | undefined;
+  page_size?: number | undefined;
+  total_number?: number | undefined;
+  total_page?: number | undefined;};
+};
+
+export interface ActionInput_tiktok_ads_getsmartplusadgroup {
+  /**
+   * Smart+ Ad Group ID. Example: "1866248800809074"
+   */
+  adgroup_id: string;
+  /**
+   * Advertiser ID. Example: "7644143197428744199"
+   */
+  advertiser_id: string;
+};
+
+export interface ActionOutput_tiktok_ads_getsmartplusadgroup {
+  adgroup_id: string;
+  campaign_id: string;
+  advertiser_id: string;
+  adgroup_name?: string | undefined;
+  placement_type?: string | undefined;
+  placements?: string[] | undefined;
+  budget?: number | undefined;
+  budget_mode?: string | undefined;
+  secondary_status?: string | undefined;
+  operation_status?: string | undefined;
+  optimization_goal?: string | undefined;
+  bid_type?: string | undefined;
+  bid_price?: number | undefined;
+  promotion_type?: string | undefined;
+  creative_material_mode?: string | undefined;
+  schedule_type?: string | undefined;
+  schedule_start_time?: string | undefined;
+  schedule_end_time?: string | undefined;
+  create_time?: string | undefined;
+  modify_time?: string | undefined;
+  pixel_id?: string | undefined;
+  app_id?: string | undefined;
+  billing_event?: string | undefined;
+  targeting_spec?: {} | undefined;
+  roas_bid?: number | undefined;
+  click_attribution_window?: string | undefined;
+  view_attribution_window?: string | undefined;
+};
+
+export interface ActionInput_tiktok_ads_getsmartpluscampaign {
+  /**
+   * Advertiser ID. Example: "7644143197428744199"
+   */
+  advertiser_id: string;
+  /**
+   * Campaign ID to filter by. Example: "1866249031553154"
+   */
+  campaign_id?: string | undefined;
+  /**
+   * Page number. Defaults to 1.
+   */
+  page?: number | undefined;
+  /**
+   * Page size. Defaults to 10.
+   */
+  page_size?: number | undefined;
+};
+
+export interface ActionOutput_tiktok_ads_getsmartpluscampaign {
+  campaigns: ({  campaign_id: string;
+  campaign_name: string;
+  advertiser_id: string;
+  campaign_type?: string | undefined;
+  budget?: number | undefined;
+  budget_mode?: string | undefined;
+  objective_type?: string | undefined;
+  secondary_status?: string | undefined;
+  operation_status?: string | undefined;
+  create_time?: string | undefined;
+  modify_time?: string | undefined;
+  is_smart_performance_campaign?: boolean | undefined;
+  budget_optimize_on?: boolean | undefined;})[];
+  page_info: {  total_number: number;
+  page: number;
+  page_size: number;
+  total_page: number;};
 };
 
 export interface ActionInput_tiktok_ads_gettrendingcontent {
@@ -55925,6 +56908,22 @@ export interface ActionOutput_tiktok_ads_listads {
   next_cursor?: string | undefined;
 };
 
+export interface ActionInput_tiktok_ads_listadvertisers {
+  /**
+   * Pagination cursor from the previous response. Omit for the first page.
+   */
+  cursor?: string | undefined;
+};
+
+export interface ActionOutput_tiktok_ads_listadvertisers {
+  items: ({  advertiser_id: string;
+  advertiser_name?: string | undefined;
+  status?: string | undefined;
+  create_time?: string | undefined;
+  role?: string | undefined;})[];
+  next_cursor?: string | undefined;
+};
+
 export interface ActionInput_tiktok_ads_listaudiences {
   /**
    * Advertiser ID. Example: "7644143197428744199"
@@ -55953,6 +56952,43 @@ export interface ActionOutput_tiktok_ads_listaudiences {
   create_time?: string | undefined;
   expired_time?: string | undefined;})[];
   next_cursor?: string | undefined;
+};
+
+export interface ActionInput_tiktok_ads_listautomatedrules {
+  /**
+   * Advertiser ID. Example: "7644143197428744199"
+   */
+  advertiser_id: string;
+  filtering?: {  action?: string | undefined;
+  data_dimension?: string | undefined;
+  rule_info?: string[] | undefined;
+  status?: string | undefined;
+  time?: string[] | undefined;};
+  /**
+   * Page number. Default: 1
+   */
+  page?: number | undefined;
+  /**
+   * Page size. Default: 10
+   */
+  page_size?: number | undefined;
+  /**
+   * Timezone. Default: UTC
+   */
+  tzone?: string | undefined;
+};
+
+export interface ActionOutput_tiktok_ads_listautomatedrules {
+  items: ({  rule_id?: string | undefined;
+  name?: string | undefined;
+  status?: string | undefined;
+  action?: string | undefined;
+  data_dimension?: string | undefined;
+  tzone?: string | undefined;})[];
+  page_info?: {  page?: number | undefined;
+  page_size?: number | undefined;
+  total_number?: number | undefined;
+  total_page?: number | undefined;};
 };
 
 export interface ActionInput_tiktok_ads_listcampaigns {
@@ -56326,6 +57362,243 @@ export interface ActionOutput_tiktok_ads_updateadgroup {
   success?: boolean | undefined;
 };
 
+export interface ActionInput_tiktok_ads_updatead {
+  /**
+   * Advertiser ID. Example: "7644143197428744199"
+   */
+  advertiser_id: string;
+  /**
+   * Ad group ID. Example: "1866248998099217"
+   */
+  adgroup_id: string;
+  /**
+   * Array of creative objects to update. Each object must include ad_id.
+   */
+  creatives: ({  /**
+   * The ID of the ad to update.
+   */
+  ad_id: string;
+  /**
+   * The new name for the ad.
+   */
+  ad_name?: string | undefined;
+  /**
+   * The new primary text for the ad.
+   */
+  ad_text?: string | undefined;
+  /**
+   * Multiple ad texts for dynamic creative.
+   */
+  ad_texts?: string[] | undefined;
+  /**
+   * Call to action text.
+   */
+  call_to_action?: string | undefined;
+  /**
+   * Call to action ID.
+   */
+  call_to_action_id?: string | undefined;
+  /**
+   * Video asset ID.
+   */
+  video_id?: string | undefined;
+  /**
+   * Image asset IDs.
+   */
+  image_ids?: string[] | undefined;
+  /**
+   * Landing page URL.
+   */
+  landing_page_url?: string | undefined;
+  /**
+   * Deeplink URL.
+   */
+  deeplink?: string | undefined;
+  /**
+   * Deeplink type.
+   */
+  deeplink_type?: string | undefined;
+  /**
+   * Tracking pixel ID.
+   */
+  tracking_pixel_id?: number | undefined;
+  /**
+   * Music ID.
+   */
+  music_id?: string | undefined;
+  /**
+   * Page ID.
+   */
+  page_id?: number | undefined;
+  /**
+   * Whether the creative is authorized.
+   */
+  creative_authorized?: boolean | undefined;
+  /**
+   * Whether instant product page is used.
+   */
+  instant_product_page_used?: boolean | undefined;
+  /**
+   * Whether promotional music is disabled.
+   */
+  promotional_music_disabled?: boolean | undefined;
+  /**
+   * Click tracking URL.
+   */
+  click_tracking_url?: string | undefined;
+  /**
+   * Impression tracking URL.
+   */
+  impression_tracking_url?: string | undefined;
+  /**
+   * Video view tracking URL.
+   */
+  video_view_tracking_url?: string | undefined;
+  /**
+   * AIGC disclosure type.
+   */
+  aigc_disclosure_type?: string | undefined;
+  /**
+   * Identity ID.
+   */
+  identity_id?: string | undefined;
+  /**
+   * Identity type.
+   */
+  identity_type?: string | undefined;
+  /**
+   * Avatar icon web URI.
+   */
+  avatar_icon_web_uri?: string | undefined;
+  /**
+   * Display name.
+   */
+  display_name?: string | undefined;
+  /**
+   * App name.
+   */
+  app_name?: string | undefined;
+  /**
+   * Product set ID.
+   */
+  product_set_id?: string | undefined;
+  /**
+   * Product specific type.
+   */
+  product_specific_type?: string | undefined;
+  /**
+   * SKU IDs.
+   */
+  sku_ids?: string[] | undefined;
+  /**
+   * TikTok item ID.
+   */
+  tiktok_item_id?: string | undefined;
+  /**
+   * Item group IDs.
+   */
+  item_group_ids?: string[] | undefined;
+  /**
+   * Shopping ads deeplink type.
+   */
+  shopping_ads_deeplink_type?: string | undefined;
+  /**
+   * Shopping ads fallback type.
+   */
+  shopping_ads_fallback_type?: string | undefined;
+  /**
+   * Shopping ads video package ID.
+   */
+  shopping_ads_video_package_id?: string | undefined;
+  /**
+   * Dynamic destination.
+   */
+  dynamic_destination?: string | undefined;
+  /**
+   * Dynamic format.
+   */
+  dynamic_format?: string | undefined;
+  /**
+   * Carousel image index.
+   */
+  carousel_image_index?: number | undefined;
+  /**
+   * Page image index.
+   */
+  page_image_index?: number | undefined;
+  /**
+   * Dark post status.
+   */
+  dark_post_status?: string | undefined;
+  /**
+   * Item duet status.
+   */
+  item_duet_status?: string | undefined;
+  /**
+   * Item stitch status.
+   */
+  item_stitch_status?: string | undefined;
+  /**
+   * Vertical video strategy.
+   */
+  vertical_video_strategy?: string | undefined;
+  /**
+   * Creative type.
+   */
+  creative_type?: string | undefined;
+  /**
+   * Operation status.
+   */
+  operation_status?: string | undefined;
+  /**
+   * Card ID.
+   */
+  card_id?: string | undefined;
+  /**
+   * Playable URL.
+   */
+  playable_url?: string | undefined;
+  /**
+   * CPP URL.
+   */
+  cpp_url?: string | undefined;
+  /**
+   * Whether VAST Moat is enabled.
+   */
+  vast_moat_enabled?: boolean | undefined;
+  /**
+   * Brand safety postbid partner.
+   */
+  brand_safety_postbid_partner?: string | undefined;
+  /**
+   * Brand safety VAST URL.
+   */
+  brand_safety_vast_url?: string | undefined;
+  /**
+   * Viewability postbid partner.
+   */
+  viewability_postbid_partner?: string | undefined;
+  /**
+   * Viewability VAST URL.
+   */
+  viewability_vast_url?: string | undefined;
+  /**
+   * Fallback type.
+   */
+  fallback_type?: string | undefined;})[];
+  /**
+   * If true, performs a partial update of the provided fields only.
+   */
+  patch_update?: boolean | undefined;
+};
+
+export interface ActionOutput_tiktok_ads_updatead {
+  code: number;
+  message: string;
+  request_id: string;
+  data?: {  ad_ids?: string[] | undefined;};
+};
+
 export interface ActionInput_tiktok_ads_updateaudience {
   /**
    * Advertiser ID. Example: "7644143197428744199"
@@ -56364,6 +57637,117 @@ export interface ActionOutput_tiktok_ads_updateaudience {
   audience_sub_type?: string | undefined;
 };
 
+export interface ActionInput_tiktok_ads_updateautomatedrule {
+  /**
+   * Advertiser ID. Example: "7644143197428744199"
+   */
+  advertiser_id: string;
+  /**
+   * Language. Default: "EN"
+   */
+  lang?: string | undefined;
+  /**
+   * Array of rules to update
+   */
+  rules: ({  /**
+   * Rule ID to update. Example: "1234567890"
+   */
+  rule_id: string;
+  /**
+   * Rule name. Example: "My Automated Rule"
+   */
+  name: string;
+  actions: ({  /**
+   * Subject type of the action. Example: "BUDGET", "BID"
+   */
+  subject_type: string;
+  /**
+   * Action type. Example: "INCREASE", "DECREASE", "SET"
+   */
+  action_type?: string | undefined;
+  /**
+   * Value type. Example: "PERCENTAGE", "ABSOLUTE"
+   */
+  value_type?: string | undefined;
+  value?: {  limit?: number | undefined;
+  use_limit?: boolean | undefined;
+  value?: number | undefined;};
+  frequency_info?: {  /**
+   * Frequency type. Example: "ONCE", "CUSTOM"
+   */
+  type: string;
+  count?: number | undefined;
+  custom_frequency_type?: string | undefined;
+  time?: number | undefined;};})[];
+  apply_objects: ({  /**
+   * Dimension to apply the rule to. Example: "CAMPAIGN", "ADGROUP"
+   */
+  dimension: string;
+  /**
+   * Pre-condition type. Example: "ALL", "PARTIAL"
+   */
+  pre_condition_type: string;
+  bind_type?: string | undefined;
+  dimension_ids?: string[] | undefined;})[];
+  conditions: ({  /**
+   * Subject type of the condition. Example: "COST_PER_RESULT", "SPEND"
+   */
+  subject_type: string;
+  /**
+   * Calculation type. Example: "ALL_TIME", "DAILY"
+   */
+  calculation_type?: string | undefined;
+  /**
+   * Match type. Example: "GREATER_THAN", "LESS_THAN"
+   */
+  match_type?: string | undefined;
+  /**
+   * Range type. Example: "ABSOLUTE", "PERCENTAGE"
+   */
+  range_type?: string | undefined;
+  values?: string[] | undefined;})[];
+  notification: {  /**
+   * Notification type. Example: "EMAIL", "NONE"
+   */
+  notification_type: string;
+  email_setting?: {  email_exec_time?: string[] | undefined;
+  mute_option?: string | undefined;
+  no_result_notification?: boolean | undefined;
+  notification_period?: string | undefined;};};
+  rule_exec_info: {  /**
+   * Execution time type. Example: "SCHEDULED", "REALTIME"
+   */
+  exec_time_type: string;
+  /**
+   * Execution time. Example: "09:00"
+   */
+  exec_time?: string | undefined;
+  time_period_info?: ({  /**
+   * Date type. Example: "WEEKDAY", "WEEKEND"
+   */
+  date_type: string;
+  /**
+   * Start time. Example: "09:00"
+   */
+  start_time: string;
+  /**
+   * End time. Example: "18:00"
+   */
+  end_time: string;
+  num: number[];})[] | undefined;};
+  /**
+   * Timezone. Example: "UTC"
+   */
+  tzone?: string | undefined;})[];
+};
+
+export interface ActionOutput_tiktok_ads_updateautomatedrule {
+  code?: number | undefined;
+  message?: string | undefined;
+  request_id?: string | undefined;
+  data?: {} | undefined;
+};
+
 export interface ActionInput_tiktok_ads_updatecampaign {
   /**
    * TikTok advertiser ID. Example: "7644143197428744199"
@@ -56398,6 +57782,106 @@ export interface ActionOutput_tiktok_ads_updatecampaign {
   campaign_id?: string | undefined;
 };
 
+export interface ActionInput_tiktok_ads_updatecatalogfeed {
+  /**
+   * Business Center ID. Example: "1234567890"
+   */
+  bc_id: string;
+  /**
+   * Catalog ID. Example: "1234567890"
+   */
+  catalog_id: string;
+  /**
+   * Feed ID. Example: "1234567890"
+   */
+  feed_id: string;
+  /**
+   * Name of the feed. Example: "Updated Feed Name"
+   */
+  feed_name: string;
+  schedule_param?: {  day_of_month?: number | undefined;
+  hour?: number | undefined;
+  interval_count?: number | undefined;
+  interval_type?: string | undefined;
+  minute?: number | undefined;
+  source?: {  password?: string | undefined;
+  uri?: string | undefined;
+  username?: string | undefined;};
+  timezone?: string | undefined;};
+  /**
+   * Update mode. Example: "INCREMENTAL" or "REPLACE"
+   */
+  update_mode: string;
+};
+
+export interface ActionOutput_tiktok_ads_updatecatalogfeed {
+  code: number;
+  message: string;
+  request_id?: string | undefined;
+};
+
+export interface ActionInput_tiktok_ads_updategmvmaxcampaign {
+  /**
+   * Advertiser ID. Example: "7644143197428744199"
+   */
+  advertiser_id: string;
+  /**
+   * Campaign ID. Example: "1866249031553154"
+   */
+  campaign_id: string;
+  campaign_name?: string | undefined;
+  budget?: number | undefined;
+  auto_budget_enabled?: boolean | undefined;
+  affiliate_posts_enabled?: boolean | undefined;
+  roas_bid?: number | undefined;
+  schedule_end_time?: string | undefined;
+  schedule_type?: string | undefined;
+  item_group_ids?: string[] | undefined;
+  custom_anchor_video_list?: ({  item_id?: string | undefined;
+  spu_id_list?: string[] | undefined;
+  identity_info?: {  /**
+   * Identity ID. Example: "123"
+   */
+  identity_id: string;
+  /**
+   * Identity type. Example: "CUSTOMIZED_USER"
+   */
+  identity_type: string;
+  identity_authorized_bc_id?: string | undefined;
+  identity_authorized_shop_id?: string | undefined;
+  store_id?: string | undefined;};})[];
+  item_list?: ({  item_id?: string | undefined;
+  spu_id_list?: string[] | undefined;
+  identity_info?: {  /**
+   * Identity ID. Example: "123"
+   */
+  identity_id: string;
+  /**
+   * Identity type. Example: "CUSTOMIZED_USER"
+   */
+  identity_type: string;
+  identity_authorized_bc_id?: string | undefined;
+  identity_authorized_shop_id?: string | undefined;
+  store_id?: string | undefined;};
+  video_info?: {  /**
+   * Video ID. Example: "v123"
+   */
+  video_id: string;} | undefined;})[];
+  promotion_days?: {  auto_schedule_enabled?: boolean | undefined;
+  is_enabled?: boolean | undefined;
+  roas_bid_multiplier?: number | undefined;
+  custom_schedule_list?: ({  start_date?: string | undefined;
+  end_date?: string | undefined;
+  schedule_type?: string | undefined;})[];};
+};
+
+export interface ActionOutput_tiktok_ads_updategmvmaxcampaign {
+  campaign_id?: string | undefined;
+  code: number;
+  message: string;
+  request_id?: string | undefined;
+};
+
 export interface ActionInput_tiktok_ads_updatepixel {
   /**
    * Advertiser ID. Example: "7644143197428744199"
@@ -56421,6 +57905,171 @@ export interface ActionInput_tiktok_ads_updatepixel {
 export interface ActionOutput_tiktok_ads_updatepixel {
   pixel_id: string;
   pixel_name: string;
+};
+
+export interface ActionInput_tiktok_ads_updatesmartplusad {
+  /**
+   * Advertiser ID. Example: "7644143197428744199"
+   */
+  advertiser_id: string;
+  /**
+   * Smart+ ad ID to update. Example: "1866249031553154"
+   */
+  smart_plus_ad_id: string;
+  /**
+   * New name for the ad.
+   */
+  ad_name?: string | undefined;
+  /**
+   * List of ad text objects.
+   */
+  ad_text_list?: ({  [key: string]: unknown | undefined;})[];
+  /**
+   * List of call-to-action objects.
+   */
+  call_to_action_list?: ({  [key: string]: unknown | undefined;})[];
+  /**
+   * List of creative objects to update.
+   */
+  creative_list?: ({  creative_info: {  ad_format: string;
+  aigc_disclosure_type?: string | undefined;
+  identity_authorized_bc_id?: string | undefined;
+  identity_id?: string | undefined;
+  identity_type?: string | undefined;
+  image_info?: ({  [key: string]: unknown | undefined;})[];
+  music_info?: {  [key: string]: unknown | undefined;};
+  tiktok_item_id?: string | undefined;
+  video_info?: {  [key: string]: unknown | undefined;};};})[];
+  /**
+   * List of deeplink objects.
+   */
+  deeplink_list?: ({  [key: string]: unknown | undefined;})[];
+  /**
+   * List of interactive add-on objects.
+   */
+  interactive_add_on_list?: ({  [key: string]: unknown | undefined;})[];
+  /**
+   * List of landing page URL objects.
+   */
+  landing_page_url_list?: ({  [key: string]: unknown | undefined;})[];
+  /**
+   * List of page objects.
+   */
+  page_list?: ({  [key: string]: unknown | undefined;})[];
+  /**
+   * Ad configuration settings.
+   */
+  ad_configuration?: {  auto_disclaimer_types?: string[] | undefined;
+  call_to_action_id?: string | undefined;
+  catalog_creative_toggle?: boolean | undefined;
+  dark_post_status?: string | undefined;
+  end_card_cta?: string | undefined;
+  fallback_type?: string | undefined;
+  identity_id?: string | undefined;
+  identity_type?: string | undefined;
+  product_ids?: string[] | undefined;
+  product_set_id?: string | undefined;
+  product_specific_type?: string | undefined;
+  tracking_info?: {  [key: string]: unknown | undefined;};
+  utm_params?: ({  [key: string]: unknown | undefined;})[];};
+};
+
+export interface ActionOutput_tiktok_ads_updatesmartplusad {
+  smart_plus_ad_id: string;
+  message?: string | undefined;
+  request_id?: string | undefined;
+};
+
+export interface ActionInput_tiktok_ads_updatesmartplusadgroup {
+  /**
+   * Advertiser ID. Example: "7644143197428744199"
+   */
+  advertiser_id: string;
+  /**
+   * Smart+ Ad Group ID. Example: "1866248998099217"
+   */
+  adgroup_id: string;
+  adgroup_name?: string | undefined;
+  bid_price?: number | undefined;
+  budget?: number | undefined;
+  comment_disabled?: boolean | undefined;
+  conversion_bid_price?: number | undefined;
+  dayparting?: string | undefined;
+  min_budget?: number | undefined;
+  movie_premiere_date?: string | undefined;
+  pacing?: string | undefined;
+  roas_bid?: number | undefined;
+  schedule_end_time?: string | undefined;
+  schedule_start_time?: string | undefined;
+  schedule_type?: string | undefined;
+  share_disabled?: boolean | undefined;
+  suggestion_audience_enabled?: boolean | undefined;
+  targeting_optimization_mode?: string | undefined;
+  targeting_spec?: {  actions?: ({  action_category_ids?: string[] | undefined;
+  action_period?: number | undefined;
+  action_scene?: string | undefined;
+  video_user_actions?: string[] | undefined;})[];
+  age_groups?: string[] | undefined;
+  audience_ids?: string[] | undefined;
+  blocked_pangle_app_ids?: string[] | undefined;
+  carrier_ids?: string[] | undefined;
+  device_model_ids?: string[] | undefined;
+  device_price_ranges?: number[] | undefined;
+  excluded_audience_ids?: string[] | undefined;
+  excluded_pangle_audience_package_ids?: string[] | undefined;
+  gender?: string | undefined;
+  household_income?: string[] | undefined;
+  included_pangle_audience_package_ids?: string[] | undefined;
+  interest_category_ids?: string[] | undefined;
+  interest_keyword_ids?: string[] | undefined;
+  isp_ids?: string[] | undefined;
+  languages?: string[] | undefined;
+  location_ids?: string[] | undefined;
+  min_android_version?: string | undefined;
+  min_ios_version?: string | undefined;
+  network_types?: string[] | undefined;
+  operating_systems?: string[] | undefined;
+  purchase_intention_keyword_ids?: string[] | undefined;
+  saved_audience_id?: string | undefined;
+  smart_audience_enabled?: boolean | undefined;
+  smart_interest_behavior_enabled?: boolean | undefined;
+  spc_audience_age?: string | undefined;
+  spending_power?: string | undefined;
+  zipcode_ids?: string[] | undefined;};
+};
+
+export interface ActionOutput_tiktok_ads_updatesmartplusadgroup {
+  adgroup_id: string;
+  message?: string | undefined;
+  request_id?: string | undefined;
+};
+
+export interface ActionInput_tiktok_ads_updatesmartpluscampaign {
+  /**
+   * Advertiser ID. Example: "7644143197428744199"
+   */
+  advertiser_id: string;
+  /**
+   * Smart+ campaign ID. Example: "1866249031553154"
+   */
+  campaign_id: string;
+  /**
+   * New campaign name
+   */
+  campaign_name?: string | undefined;
+  /**
+   * New campaign budget
+   */
+  budget?: number | undefined;
+  /**
+   * Purchase order number
+   */
+  po_number?: string | undefined;
+};
+
+export interface ActionOutput_tiktok_ads_updatesmartpluscampaign {
+  campaign_id: string;
+  request_id?: string | undefined;
 };
 
 export interface ActionInput_tiktok_ads_uploadimage {

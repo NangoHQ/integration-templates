@@ -41,7 +41,6 @@ const action = createAction({
         const config: ProxyConfiguration = {
             // https://business-api.tiktok.com/portal/docs?id=1739591716326402
             endpoint: 'adgroup/status/update/',
-            baseUrlOverride: 'https://sandbox-ads.tiktok.com/open_api/v1.3/',
             data: {
                 advertiser_id: input.advertiser_id,
                 adgroup_ids: [input.adgroup_id],

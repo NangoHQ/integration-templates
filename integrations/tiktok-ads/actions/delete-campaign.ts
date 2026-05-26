@@ -50,7 +50,6 @@ const action = createAction({
         // https://business-api.tiktok.com/portal/docs?id=1739320994354178
         const response = await nango.post({
             endpoint: 'campaign/status/update/',
-            baseUrlOverride: 'https://sandbox-ads.tiktok.com/open_api/v1.3/',
             data: {
                 advertiser_id: input.advertiser_id,
                 campaign_ids: [input.campaign_id],

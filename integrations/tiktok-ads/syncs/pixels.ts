@@ -74,7 +74,6 @@ const sync = createSync({
             // https://business-api.tiktok.com/portal/docs?id=1740858697598978
             const response = await nango.get({
                 endpoint: '/pixel/list/',
-                baseUrlOverride: 'https://sandbox-ads.tiktok.com/open_api/v1.3/',
                 params: {
                     advertiser_id: advertiserId,
                     page: page,

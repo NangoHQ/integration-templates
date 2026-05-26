@@ -154,7 +154,6 @@ const action = createAction({
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         // https://business-api.tiktok.com/portal/docs?id=1739499616346114
         const response = await nango.post({
-            baseUrlOverride: 'https://sandbox-ads.tiktok.com/open_api/v1.3/',
             endpoint: 'adgroup/create/',
             data: {
                 advertiser_id: input.advertiser_id,

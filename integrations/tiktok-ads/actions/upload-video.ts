@@ -87,8 +87,7 @@ const action = createAction({
             // https://business-api.tiktok.com/portal/docs/api-reference/v1.3
             endpoint: 'file/video/ad/upload/',
             data: requestBody,
-            retries: 1,
-            baseUrlOverride: 'https://sandbox-ads.tiktok.com/open_api/v1.3/'
+            retries: 1
         };
 
         const response = await nango.post(config);

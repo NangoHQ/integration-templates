@@ -64,9 +64,7 @@ const action = createAction({
             endpoint: 'catalog/create/',
             data: body,
             retries: 3,
-            ...(nango.connectionId === 'tiktok-ads-sandbox' && {
-                baseUrlOverride: 'https://sandbox-ads.tiktok.com/open_api/v1.3/'
-            })
+            ...(nango.connectionId === 'tiktok-ads-sandbox' && {})
         });
 
         const providerResponse = ProviderResponseSchema.parse(response.data);

@@ -1,6 +1,8 @@
 {
   "nango": {
-    "getConnection": {},
+    "getMetadata": {
+      "advertiser_id": "7644143197428744199"
+    },
     "batchSave": {
       "Audience": [
         {
@@ -54,60 +56,60 @@
         "response": {
           "code": 0,
           "message": "OK",
-          "request_id": "20260527055216156AB87DE0ED7E8EE0BF",
+          "request_id": "20260526191003CB1E94398B1B046F54D3",
           "data": {
-            "page_info": {
-              "total_number": 3,
-              "page_size": 100,
-              "page": 1,
-              "total_page": 1
-            },
             "list": [
               {
-                "calculate_type": "EMAIL_SHA256",
+                "is_expiring": false,
+                "cover_num": 0,
+                "audience_id": "195365792",
                 "is_valid": false,
                 "create_time": "2026-05-26 11:05:31",
-                "is_expiring": false,
-                "shared": false,
-                "audience_id": "195365792",
-                "audience_type": "Customer File Audience",
                 "name": "Test Audience Dryrun",
-                "cover_num": 0,
-                "expired_time": "2038-01-01 00:00:00",
-                "is_creator": true
+                "shared": false,
+                "is_creator": true,
+                "audience_type": "Customer File Audience",
+                "calculate_type": "EMAIL_SHA256",
+                "expired_time": "2038-01-01 00:00:00"
               },
               {
-                "calculate_type": "EMAIL_SHA256",
+                "is_expiring": false,
+                "cover_num": 0,
+                "audience_id": "195365791",
                 "is_valid": false,
                 "create_time": "2026-05-26 11:05:22",
-                "is_expiring": false,
-                "shared": false,
-                "audience_id": "195365791",
-                "audience_type": "Customer File Audience",
                 "name": "Test Audience Dryrun",
-                "cover_num": 0,
-                "expired_time": "2038-01-01 00:00:00",
-                "is_creator": true
+                "shared": false,
+                "is_creator": true,
+                "audience_type": "Customer File Audience",
+                "calculate_type": "EMAIL_SHA256",
+                "expired_time": "2038-01-01 00:00:00"
               },
               {
-                "calculate_type": "EMAIL_SHA256",
+                "is_expiring": false,
+                "cover_num": 0,
+                "audience_id": "195365740",
                 "is_valid": false,
                 "create_time": "2026-05-26 10:59:02",
-                "is_expiring": false,
-                "shared": false,
-                "audience_id": "195365740",
-                "audience_type": "Customer File Audience",
                 "name": "Updated Test Audience",
-                "cover_num": 0,
-                "expired_time": "2038-01-01 00:00:00",
-                "is_creator": true
+                "shared": false,
+                "is_creator": true,
+                "audience_type": "Customer File Audience",
+                "calculate_type": "EMAIL_SHA256",
+                "expired_time": "2038-01-01 00:00:00"
               }
-            ]
+            ],
+            "page_info": {
+              "page_size": 100,
+              "page": 1,
+              "total_number": 3,
+              "total_page": 1
+            }
           }
         },
         "status": 200,
         "headers": {
-          "date": "Tue, 26 May 2026 21:52:16 GMT",
+          "date": "Tue, 26 May 2026 11:10:03 GMT",
           "content-type": "application/json",
           "content-length": "1111",
           "connection": "keep-alive",
@@ -121,9 +123,9 @@
           "access-control-allow-origin": "*",
           "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
           "x-ratelimit-limit": "5000",
-          "x-ratelimit-remaining": "4978",
-          "x-ratelimit-reset": "1779832390",
-          "etag": "W/\"457-Z6tta9pnonKsuuLUiA4n6jZufX0\""
+          "x-ratelimit-remaining": "4922",
+          "x-ratelimit-reset": "1779793805",
+          "etag": "W/\"457-TUfJM/DbNtpq5v+0hVHDQkRs9hE\""
         },
         "hash": "5149c1157366b413cc350604b693e4d53ee61318",
         "request": {
