@@ -1,0 +1,94 @@
+{
+  "nango": {
+    "getConnection": {},
+    "batchSave": {
+      "Advertiser": [
+        {
+          "id": "7644143197428744199",
+          "name": "NangoAds Sandbox",
+          "status": "STATUS_PENDING_CONFIRM",
+          "country": "US",
+          "currency": "USD",
+          "timezone": "Etc/GMT-13",
+          "advertiser_account_type": "AUCTION",
+          "create_time": 1779790935
+        }
+      ]
+    },
+    "batchDelete": {
+      "Advertiser": []
+    }
+  },
+  "api": {
+    "get": {
+      "/advertiser/info/": {
+        "response": {
+          "code": 0,
+          "message": "OK",
+          "request_id": "202605270137417123B2787713B1884B82",
+          "data": {
+            "list": [
+              {
+                "balance": 0,
+                "name": "NangoAds Sandbox",
+                "promotion_area": "0",
+                "cellphone_number": null,
+                "language": "",
+                "display_timezone": "Pacific/Apia",
+                "license_city": null,
+                "currency": "USD",
+                "country": "US",
+                "industry": null,
+                "license_url": null,
+                "promotion_center_city": null,
+                "promotion_center_province": null,
+                "telephone_number": null,
+                "advertiser_id": "7644143197428744199",
+                "address": null,
+                "create_time": 1779790935,
+                "email": null,
+                "rejection_reason": null,
+                "license_no": null,
+                "brand": null,
+                "role": null,
+                "timezone": "Etc/GMT-13",
+                "status": "STATUS_PENDING_CONFIRM",
+                "company": null,
+                "advertiser_account_type": "AUCTION",
+                "license_province": null,
+                "contacter": null,
+                "description": null
+              }
+            ]
+          }
+        },
+        "status": 200,
+        "headers": {
+          "date": "Tue, 26 May 2026 17:37:41 GMT",
+          "content-type": "application/json",
+          "content-length": "793",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=5184000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4984",
+          "x-ratelimit-reset": "1779817076",
+          "etag": "W/\"319-lizeTJV4wAUsR6J0Z1jEm7iAKM8\""
+        },
+        "hash": "62239fbd4f4a3e9974cb03f6b40da0d755d4db85",
+        "request": {
+          "params": {
+            "advertiser_ids": "[\"7644143197428744199\"]"
+          }
+        }
+      }
+    }
+  }
+}

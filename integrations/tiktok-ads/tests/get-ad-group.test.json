@@ -1,0 +1,193 @@
+{
+  "input": {
+    "advertiser_id": "7644143197428744199",
+    "adgroup_id": "1866248998099217"
+  },
+  "output": {
+    "adgroup_id": "1866248998099217",
+    "campaign_id": "1866249031553154",
+    "advertiser_id": "7644143197428744199",
+    "adgroup_name": "Test Lead Gen Ad Group",
+    "placement_type": "PLACEMENT_TYPE_NORMAL",
+    "placements": [
+      "PLACEMENT_TIKTOK"
+    ],
+    "budget": 50,
+    "budget_mode": "BUDGET_MODE_DAY",
+    "operation_status": "ENABLE",
+    "optimization_goal": "LEAD_GENERATION",
+    "bid_type": "BID_TYPE_NO_BID",
+    "bid_price": 0,
+    "promotion_type": "LEAD_GENERATION",
+    "schedule_type": "SCHEDULE_START_END",
+    "schedule_start_time": "2026-05-26 11:00:00",
+    "schedule_end_time": "2026-06-26 11:00:00",
+    "create_time": "2026-05-26 11:12:19",
+    "modify_time": "2026-05-26 11:12:19",
+    "gender": "GENDER_UNLIMITED",
+    "age_groups": [
+      "AGE_25_34"
+    ],
+    "audience_ids": [],
+    "pixel_id": "7644154669358710792",
+    "comment_disabled": false,
+    "share_disabled": false,
+    "creative_material_mode": "CUSTOM",
+    "conversion_bid_price": 0,
+    "auto_targeting_enabled": false,
+    "dayparting": "111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111",
+    "pacing": "PACING_MODE_SMOOTH"
+  },
+  "nango": {},
+  "api": {
+    "get": {
+      "/adgroup/get/": {
+        "response": {
+          "code": 0,
+          "message": "OK",
+          "request_id": "20260527013037F48EDFE78CE57E8E53B3",
+          "data": {
+            "list": [
+              {
+                "app_id": null,
+                "creative_material_mode": "CUSTOM",
+                "attribution_event_count": "ONCE",
+                "excluded_audience_ids": [],
+                "feed_type": null,
+                "share_disabled": false,
+                "bid_price": 0,
+                "click_attribution_window": "SEVEN_DAYS",
+                "category_id": "0",
+                "pacing": "PACING_MODE_SMOOTH",
+                "audience_ids": [],
+                "adgroup_id": "1866248998099217",
+                "keywords": null,
+                "location_ids": [
+                  "6252001"
+                ],
+                "campaign_id": "1866249031553154",
+                "app_config": null,
+                "deep_bid_type": null,
+                "operating_systems": [],
+                "rf_purchased_type": null,
+                "interest_keyword_ids": [],
+                "rf_estimated_frequency": null,
+                "purchased_reach": null,
+                "inventory_filter_enabled": false,
+                "brand_safety_type": "NO_BRAND_SAFETY",
+                "operation_status": "ENABLE",
+                "dayparting": "111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111",
+                "tiktok_subplacements": [],
+                "pixel_id": "7644154669358710792",
+                "secondary_optimization_event": null,
+                "conversion_bid_price": 0,
+                "included_custom_actions": [],
+                "deep_funnel_optimization_status": null,
+                "adgroup_app_profile_page_state": null,
+                "deep_cpa_bid": 0,
+                "is_hfss": false,
+                "delivery_mode": null,
+                "bid_display_mode": "CPMV",
+                "auto_targeting_enabled": false,
+                "schedule_infos": null,
+                "actions": [],
+                "schedule_end_time": "2026-06-26 11:00:00",
+                "video_download_disabled": false,
+                "statistic_type": null,
+                "conversion_window": null,
+                "ios14_quota_type": "UNOCCUPIED",
+                "adgroup_name": "Test Lead Gen Ad Group",
+                "frequency_schedule": null,
+                "frequency": null,
+                "isp_ids": [],
+                "advertiser_id": "7644143197428744199",
+                "interest_category_ids": [],
+                "schedule_type": "SCHEDULE_START_END",
+                "placements": [
+                  "PLACEMENT_TIKTOK"
+                ],
+                "smart_audience_enabled": null,
+                "schedule_start_time": "2026-05-26 11:00:00",
+                "optimization_event": "FORM",
+                "is_lhf_compliance": false,
+                "scheduled_budget": 0,
+                "deep_funnel_event_source_id": null,
+                "category_exclusion_ids": [],
+                "deep_funnel_optimization_event": null,
+                "smart_interest_behavior_enabled": null,
+                "custom_conversion_id": null,
+                "automated_keywords_enabled": null,
+                "age_groups": [
+                  "AGE_25_34"
+                ],
+                "search_result_enabled": true,
+                "app_download_url": null,
+                "promotion_type": "LEAD_GENERATION",
+                "create_time": "2026-05-26 11:12:19",
+                "deep_funnel_event_source": null,
+                "languages": [],
+                "is_new_structure": true,
+                "placement_type": "PLACEMENT_TYPE_NORMAL",
+                "campaign_automation_type": "MANUAL",
+                "gender": "GENDER_UNLIMITED",
+                "network_types": [],
+                "purchased_impression": null,
+                "campaign_name": "Test Lead Gen Campaign",
+                "app_type": null,
+                "next_day_retention": null,
+                "billing_event": "OCPM",
+                "excluded_custom_actions": [],
+                "brand_safety_partner": null,
+                "is_smart_performance_campaign": false,
+                "rf_estimated_cpr": null,
+                "device_price_ranges": null,
+                "vbo_window": null,
+                "skip_learning_phase": true,
+                "modify_time": "2026-05-26 11:12:19",
+                "budget": 50,
+                "optimization_goal": "LEAD_GENERATION",
+                "comment_disabled": false,
+                "budget_mode": "BUDGET_MODE_DAY",
+                "bid_type": "BID_TYPE_NO_BID",
+                "view_attribution_window": "ONE_DAY"
+              }
+            ],
+            "page_info": {
+              "page": 1,
+              "page_size": 10,
+              "total_page": 1,
+              "total_number": 1
+            }
+          }
+        },
+        "status": 200,
+        "headers": {
+          "date": "Tue, 26 May 2026 17:30:38 GMT",
+          "content-type": "application/json",
+          "content-length": "3361",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=5184000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4944",
+          "x-ratelimit-reset": "1779816643",
+          "etag": "W/\"d21-I83MT/CM74zX8BQCLEDKnQJVYGA\""
+        },
+        "hash": "bee8d5a603eab35486defeab9d0401f1ef4a9f08",
+        "request": {
+          "params": {
+            "advertiser_id": "7644143197428744199",
+            "filtering": "{\"adgroup_ids\":[\"1866248998099217\"]}"
+          }
+        }
+      }
+    }
+  }
+}

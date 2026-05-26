@@ -1928,6 +1928,49 @@ import './stripe-app/syncs/subscriptions.js';
 // -- Integration: teamtailor
 import './teamtailor/syncs/candidates.js';
 
+// -- Integration: tiktok-ads
+import './tiktok-ads/syncs/ad-groups.js';
+import './tiktok-ads/syncs/ads.js';
+import './tiktok-ads/syncs/advertisers.js';
+import './tiktok-ads/syncs/audiences.js';
+import './tiktok-ads/syncs/automated-rules.js';
+import './tiktok-ads/syncs/campaigns.js';
+import './tiktok-ads/syncs/catalogs.js';
+import './tiktok-ads/syncs/creative-assets.js';
+import './tiktok-ads/syncs/pixels.js';
+import './tiktok-ads/syncs/reports.js';
+import './tiktok-ads/actions/create-ad-group.js';
+import './tiktok-ads/actions/create-audience.js';
+import './tiktok-ads/actions/create-campaign.js';
+import './tiktok-ads/actions/create-catalog.js';
+import './tiktok-ads/actions/create-creative-asset.js';
+import './tiktok-ads/actions/create-pixel.js';
+import './tiktok-ads/actions/delete-ad-group.js';
+import './tiktok-ads/actions/delete-audience.js';
+import './tiktok-ads/actions/delete-campaign.js';
+import './tiktok-ads/actions/delete-pixel.js';
+import './tiktok-ads/actions/get-ad-group.js';
+import './tiktok-ads/actions/get-advertiser.js';
+import './tiktok-ads/actions/get-audience.js';
+import './tiktok-ads/actions/get-campaign.js';
+import './tiktok-ads/actions/get-catalog.js';
+import './tiktok-ads/actions/get-creative-asset.js';
+import './tiktok-ads/actions/get-pixel.js';
+import './tiktok-ads/actions/get-trending-content.js';
+import './tiktok-ads/actions/list-ad-groups.js';
+import './tiktok-ads/actions/list-ads.js';
+import './tiktok-ads/actions/list-audiences.js';
+import './tiktok-ads/actions/list-campaigns.js';
+import './tiktok-ads/actions/list-creative-assets.js';
+import './tiktok-ads/actions/list-pixels.js';
+import './tiktok-ads/actions/run-integrated-report.js';
+import './tiktok-ads/actions/update-ad-group.js';
+import './tiktok-ads/actions/update-audience.js';
+import './tiktok-ads/actions/update-campaign.js';
+import './tiktok-ads/actions/update-pixel.js';
+import './tiktok-ads/actions/upload-image.js';
+import './tiktok-ads/actions/upload-video.js';
+
 // -- Integration: twitter-v2
 import './twitter-v2/syncs/liked-tweets.js';
 import './twitter-v2/syncs/lists.js';

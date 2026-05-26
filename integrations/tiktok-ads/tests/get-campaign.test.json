@@ -1,0 +1,106 @@
+{
+  "input": {
+    "advertiser_id": "7644143197428744199",
+    "campaign_id": "1866248504518946"
+  },
+  "output": {
+    "campaign_id": "1866248504518946",
+    "campaign_name": "Updated Campaign Name",
+    "advertiser_id": "7644143197428744199",
+    "campaign_type": "REGULAR_CAMPAIGN",
+    "budget": 100,
+    "budget_mode": "BUDGET_MODE_TOTAL",
+    "objective_type": "TRAFFIC",
+    "objective": "LANDING_PAGE",
+    "operation_status": "ENABLE",
+    "is_new_structure": true,
+    "create_time": "2026-05-26 11:01:48",
+    "modify_time": "2026-05-26 11:02:08",
+    "roas_bid": 0,
+    "is_smart_performance_campaign": false,
+    "is_search_campaign": false,
+    "is_advanced_dedicated_campaign": false,
+    "rta_bid_enabled": false,
+    "rta_product_selection_enabled": false,
+    "campaign_automation_type": "MANUAL",
+    "catalog_enabled": false,
+    "special_industries": []
+  },
+  "nango": {},
+  "api": {
+    "get": {
+      "/campaign/get/": {
+        "response": {
+          "code": 0,
+          "message": "OK",
+          "request_id": "202605261905549FADC3A86995D77056FA",
+          "data": {
+            "list": [
+              {
+                "is_new_structure": true,
+                "rta_product_selection_enabled": false,
+                "budget": 100,
+                "is_search_campaign": false,
+                "objective_type": "TRAFFIC",
+                "is_smart_performance_campaign": false,
+                "campaign_name": "Updated Campaign Name",
+                "campaign_automation_type": "MANUAL",
+                "catalog_enabled": false,
+                "advertiser_id": "7644143197428744199",
+                "modify_time": "2026-05-26 11:02:08",
+                "roas_bid": 0,
+                "is_advanced_dedicated_campaign": false,
+                "objective": "LANDING_PAGE",
+                "rta_bid_enabled": false,
+                "budget_mode": "BUDGET_MODE_TOTAL",
+                "operation_status": "ENABLE",
+                "campaign_id": "1866248504518946",
+                "rta_id": null,
+                "deep_bid_type": null,
+                "virtual_objective_type": null,
+                "special_industries": [],
+                "disable_skan_campaign": null,
+                "create_time": "2026-05-26 11:01:48",
+                "campaign_type": "REGULAR_CAMPAIGN"
+              }
+            ],
+            "page_info": {
+              "page": 1,
+              "page_size": 1,
+              "total_page": 1,
+              "total_number": 1
+            }
+          }
+        },
+        "status": 200,
+        "headers": {
+          "date": "Tue, 26 May 2026 11:05:54 GMT",
+          "content-type": "application/json",
+          "content-length": "962",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=5184000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4987",
+          "x-ratelimit-reset": "1779793608",
+          "etag": "W/\"3c2-2KTiUrn+SZhMhchNDenIVHao4+w\""
+        },
+        "hash": "d6c6f20c87ecf3805cf97edc8e2b28672edc2709",
+        "request": {
+          "params": {
+            "advertiser_id": "7644143197428744199",
+            "filtering": "{\"campaign_ids\":[\"1866248504518946\"]}",
+            "page_size": "1"
+          }
+        }
+      }
+    }
+  }
+}

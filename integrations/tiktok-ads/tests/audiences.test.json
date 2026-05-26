@@ -1,0 +1,139 @@
+{
+  "nango": {
+    "getConnection": {},
+    "batchSave": {
+      "Audience": [
+        {
+          "id": "195365792",
+          "name": "Test Audience Dryrun",
+          "audience_type": "Customer File Audience",
+          "cover_num": 0,
+          "is_valid": false,
+          "is_expiring": false,
+          "is_creator": true,
+          "shared": false,
+          "calculate_type": "EMAIL_SHA256",
+          "create_time": "2026-05-26 11:05:31",
+          "expired_time": "2038-01-01 00:00:00"
+        },
+        {
+          "id": "195365791",
+          "name": "Test Audience Dryrun",
+          "audience_type": "Customer File Audience",
+          "cover_num": 0,
+          "is_valid": false,
+          "is_expiring": false,
+          "is_creator": true,
+          "shared": false,
+          "calculate_type": "EMAIL_SHA256",
+          "create_time": "2026-05-26 11:05:22",
+          "expired_time": "2038-01-01 00:00:00"
+        },
+        {
+          "id": "195365740",
+          "name": "Updated Test Audience",
+          "audience_type": "Customer File Audience",
+          "cover_num": 0,
+          "is_valid": false,
+          "is_expiring": false,
+          "is_creator": true,
+          "shared": false,
+          "calculate_type": "EMAIL_SHA256",
+          "create_time": "2026-05-26 10:59:02",
+          "expired_time": "2038-01-01 00:00:00"
+        }
+      ]
+    },
+    "batchDelete": {
+      "Audience": []
+    }
+  },
+  "api": {
+    "get": {
+      "/dmp/custom_audience/list/": {
+        "response": {
+          "code": 0,
+          "message": "OK",
+          "request_id": "20260527055216156AB87DE0ED7E8EE0BF",
+          "data": {
+            "page_info": {
+              "total_number": 3,
+              "page_size": 100,
+              "page": 1,
+              "total_page": 1
+            },
+            "list": [
+              {
+                "calculate_type": "EMAIL_SHA256",
+                "is_valid": false,
+                "create_time": "2026-05-26 11:05:31",
+                "is_expiring": false,
+                "shared": false,
+                "audience_id": "195365792",
+                "audience_type": "Customer File Audience",
+                "name": "Test Audience Dryrun",
+                "cover_num": 0,
+                "expired_time": "2038-01-01 00:00:00",
+                "is_creator": true
+              },
+              {
+                "calculate_type": "EMAIL_SHA256",
+                "is_valid": false,
+                "create_time": "2026-05-26 11:05:22",
+                "is_expiring": false,
+                "shared": false,
+                "audience_id": "195365791",
+                "audience_type": "Customer File Audience",
+                "name": "Test Audience Dryrun",
+                "cover_num": 0,
+                "expired_time": "2038-01-01 00:00:00",
+                "is_creator": true
+              },
+              {
+                "calculate_type": "EMAIL_SHA256",
+                "is_valid": false,
+                "create_time": "2026-05-26 10:59:02",
+                "is_expiring": false,
+                "shared": false,
+                "audience_id": "195365740",
+                "audience_type": "Customer File Audience",
+                "name": "Updated Test Audience",
+                "cover_num": 0,
+                "expired_time": "2038-01-01 00:00:00",
+                "is_creator": true
+              }
+            ]
+          }
+        },
+        "status": 200,
+        "headers": {
+          "date": "Tue, 26 May 2026 21:52:16 GMT",
+          "content-type": "application/json",
+          "content-length": "1111",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=5184000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4978",
+          "x-ratelimit-reset": "1779832390",
+          "etag": "W/\"457-Z6tta9pnonKsuuLUiA4n6jZufX0\""
+        },
+        "hash": "5149c1157366b413cc350604b693e4d53ee61318",
+        "request": {
+          "params": {
+            "advertiser_id": "7644143197428744199",
+            "page": "1",
+            "page_size": "100"
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,60 @@
+{
+  "nango": {
+    "getConnection": {},
+    "batchSave": {
+      "Ad": []
+    },
+    "batchDelete": {
+      "Ad": []
+    }
+  },
+  "api": {
+    "get": {
+      "/ad/get/": {
+        "response": {
+          "code": 0,
+          "message": "OK",
+          "request_id": "20260527055217168BC79A0758D897B0E0",
+          "data": {
+            "list": [],
+            "page_info": {
+              "page": 1,
+              "page_size": 100,
+              "total_page": 0,
+              "total_number": 0
+            }
+          }
+        },
+        "status": 200,
+        "headers": {
+          "date": "Tue, 26 May 2026 21:52:17 GMT",
+          "content-type": "application/json",
+          "content-length": "182",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=5184000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4976",
+          "x-ratelimit-reset": "1779832390",
+          "etag": "W/\"b6-fgB4N8J2uH0f5QJFe+wklutsdCc\""
+        },
+        "hash": "6ad11baece67f310d19b3d210ea05192fb1a8025",
+        "request": {
+          "params": {
+            "advertiser_id": "7644143197428744199",
+            "filtering": "{\"modified_after\":\"1970-01-01T00:00:00Z\"}",
+            "page": "1",
+            "page_size": "100"
+          }
+        }
+      }
+    }
+  }
+}

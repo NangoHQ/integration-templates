@@ -1,0 +1,285 @@
+{
+  "nango": {
+    "getConnection": {},
+    "batchSave": {
+      "Pixel": [
+        {
+          "id": "7644150553831948295",
+          "pixel_name": "Test Pixel 1779793050 Updated",
+          "pixel_code": "D8ANP83C77U8UFHBHPO0",
+          "pixel_category": "CUSTOMIZE_EVENTS",
+          "create_time": "2026-05-26T10:57:36Z",
+          "activity_status": "NO_RECENT_ACTIVITY",
+          "pixel_setup_mode": "DEVELOPER"
+        },
+        {
+          "id": "7644150961388617735",
+          "pixel_name": "Test Pixel 1779793100",
+          "pixel_code": "D8ANPKRC77U8UFHBHPOG",
+          "pixel_category": "CUSTOMIZE_EVENTS",
+          "create_time": "2026-05-26T10:58:27Z",
+          "activity_status": "NO_RECENT_ACTIVITY",
+          "pixel_setup_mode": "DEVELOPER"
+        },
+        {
+          "id": "7644151940930469906",
+          "pixel_name": "Archived 1779793128",
+          "pixel_code": "D8ANPRBC77UETU48IPIG",
+          "pixel_category": "CUSTOMIZE_EVENTS",
+          "create_time": "2026-05-26T10:58:53Z",
+          "activity_status": "NO_RECENT_ACTIVITY",
+          "pixel_setup_mode": "DEVELOPER"
+        },
+        {
+          "id": "7644151235381067794",
+          "pixel_name": "Test Pixel Nango Archived Archived",
+          "pixel_code": "D8ANQFBC77UE4JC9G90G",
+          "pixel_category": "CUSTOMIZE_EVENTS",
+          "create_time": "2026-05-26T11:00:13Z",
+          "activity_status": "NO_RECENT_ACTIVITY",
+          "pixel_setup_mode": "DEVELOPER"
+        },
+        {
+          "id": "7644150536574025736",
+          "pixel_name": "Test Pixel Validate 1779793219",
+          "pixel_code": "D8ANQIJC77U5R8KLL9K0",
+          "pixel_category": "CUSTOMIZE_EVENTS",
+          "create_time": "2026-05-26T11:00:26Z",
+          "activity_status": "NO_RECENT_ACTIVITY",
+          "pixel_setup_mode": "DEVELOPER"
+        },
+        {
+          "id": "7644150536574042120",
+          "pixel_name": "Test Pixel Save 1779793232",
+          "pixel_code": "D8ANQLJC77U5R8KLL9KG",
+          "pixel_category": "CUSTOMIZE_EVENTS",
+          "create_time": "2026-05-26T11:00:38Z",
+          "activity_status": "NO_RECENT_ACTIVITY",
+          "pixel_setup_mode": "DEVELOPER"
+        },
+        {
+          "id": "7644151235381116946",
+          "pixel_name": "TestPixelUpdatedNameUnique456",
+          "pixel_code": "D8ANR43C77UE4JC9G920",
+          "pixel_category": "CUSTOMIZE_EVENTS",
+          "create_time": "2026-05-26T11:01:36Z",
+          "activity_status": "NO_RECENT_ACTIVITY",
+          "pixel_setup_mode": "DEVELOPER"
+        }
+      ]
+    },
+    "batchDelete": {
+      "Pixel": []
+    }
+  },
+  "api": {
+    "get": {
+      "/pixel/list/": {
+        "response": {
+          "code": 0,
+          "message": "OK",
+          "request_id": "20260526190744274C18C5C12FE87407B1",
+          "data": {
+            "page_info": {
+              "total_page": 1,
+              "total_number": 7,
+              "page_size": 20,
+              "page": 1
+            },
+            "pixels": [
+              {
+                "pixel_category": "CUSTOMIZE_EVENTS",
+                "activity_status": "NO_RECENT_ACTIVITY",
+                "advanced_matching_fields": {
+                  "email": true,
+                  "phone_number": true
+                },
+                "pixel_id": "7644150553831948295",
+                "events": [],
+                "partner_name": null,
+                "pixel_setup_mode": "DEVELOPER",
+                "pixel_code": "D8ANP83C77U8UFHBHPO0",
+                "create_time": "2026-05-26T10:57:36Z",
+                "pixel_name": "Test Pixel 1779793050 Updated",
+                "has_pcm_config": null,
+                "asset_ownership": {
+                  "asset_relation_status": null,
+                  "ownership_status": true,
+                  "updated_at": 0,
+                  "owner_bc_id": null
+                },
+                "pixel_script": "\n\t<script>\n\t\t!function (w, d, t) {\n\t\t  w.TiktokAnalyticsObject=t;var ttq=w[t]=w[t]||[];ttq.methods=[\"page\",\"track\",\"identify\",\"instances\",\"debug\",\"on\",\"off\",\"once\",\"ready\",\"alias\",\"group\",\"enableCookie\",\"disableCookie\"],ttq.setAndDefer=function(t,e){t[e]=function(){t.push([e].concat(Array.prototype.slice.call(arguments,0)))}};for(var i=0;i<ttq.methods.length;i++)ttq.setAndDefer(ttq,ttq.methods[i]);ttq.instance=function(t){for(var e=ttq._i[t]||[],n=0;n<ttq.methods.length;n++\n)ttq.setAndDefer(e,ttq.methods[n]);return e},ttq.load=function(e,n){var i=\"https://analytics.tiktok.com/i18n/pixel/events.js\";ttq._i=ttq._i||{},ttq._i[e]=[],ttq._i[e]._u=i,ttq._t=ttq._t||{},ttq._t[e]=+new Date,ttq._o=ttq._o||{},ttq._o[e]=n||{};n=document.createElement(\"script\");n.type=\"text/javascript\",n.async=!0,n.src=i+\"?sdkid=\"+e+\"&lib=\"+t;e=document.getElementsByTagName(\"script\")[0];e.parentNode.insertBefore(n,e)};\n\t\t\n\t\t  ttq.load('D8ANP83C77U8UFHBHPO0');\n\t\t  ttq.page();\n\t\t}(window, document, 'ttq');\n\t</script>\n\t"
+              },
+              {
+                "pixel_category": "CUSTOMIZE_EVENTS",
+                "activity_status": "NO_RECENT_ACTIVITY",
+                "advanced_matching_fields": {
+                  "email": true,
+                  "phone_number": true
+                },
+                "pixel_id": "7644150961388617735",
+                "events": [],
+                "partner_name": null,
+                "pixel_setup_mode": "DEVELOPER",
+                "pixel_code": "D8ANPKRC77U8UFHBHPOG",
+                "create_time": "2026-05-26T10:58:27Z",
+                "pixel_name": "Test Pixel 1779793100",
+                "has_pcm_config": null,
+                "asset_ownership": {
+                  "asset_relation_status": null,
+                  "ownership_status": true,
+                  "updated_at": 0,
+                  "owner_bc_id": null
+                },
+                "pixel_script": "\n\t<script>\n\t\t!function (w, d, t) {\n\t\t  w.TiktokAnalyticsObject=t;var ttq=w[t]=w[t]||[];ttq.methods=[\"page\",\"track\",\"identify\",\"instances\",\"debug\",\"on\",\"off\",\"once\",\"ready\",\"alias\",\"group\",\"enableCookie\",\"disableCookie\"],ttq.setAndDefer=function(t,e){t[e]=function(){t.push([e].concat(Array.prototype.slice.call(arguments,0)))}};for(var i=0;i<ttq.methods.length;i++)ttq.setAndDefer(ttq,ttq.methods[i]);ttq.instance=function(t){for(var e=ttq._i[t]||[],n=0;n<ttq.methods.length;n++\n)ttq.setAndDefer(e,ttq.methods[n]);return e},ttq.load=function(e,n){var i=\"https://analytics.tiktok.com/i18n/pixel/events.js\";ttq._i=ttq._i||{},ttq._i[e]=[],ttq._i[e]._u=i,ttq._t=ttq._t||{},ttq._t[e]=+new Date,ttq._o=ttq._o||{},ttq._o[e]=n||{};n=document.createElement(\"script\");n.type=\"text/javascript\",n.async=!0,n.src=i+\"?sdkid=\"+e+\"&lib=\"+t;e=document.getElementsByTagName(\"script\")[0];e.parentNode.insertBefore(n,e)};\n\t\t\n\t\t  ttq.load('D8ANPKRC77U8UFHBHPOG');\n\t\t  ttq.page();\n\t\t}(window, document, 'ttq');\n\t</script>\n\t"
+              },
+              {
+                "pixel_category": "CUSTOMIZE_EVENTS",
+                "activity_status": "NO_RECENT_ACTIVITY",
+                "advanced_matching_fields": {
+                  "email": true,
+                  "phone_number": true
+                },
+                "pixel_id": "7644151940930469906",
+                "events": [],
+                "partner_name": null,
+                "pixel_setup_mode": "DEVELOPER",
+                "pixel_code": "D8ANPRBC77UETU48IPIG",
+                "create_time": "2026-05-26T10:58:53Z",
+                "pixel_name": "Archived 1779793128",
+                "has_pcm_config": null,
+                "asset_ownership": {
+                  "asset_relation_status": null,
+                  "ownership_status": true,
+                  "updated_at": 0,
+                  "owner_bc_id": null
+                },
+                "pixel_script": "\n\t<script>\n\t\t!function (w, d, t) {\n\t\t  w.TiktokAnalyticsObject=t;var ttq=w[t]=w[t]||[];ttq.methods=[\"page\",\"track\",\"identify\",\"instances\",\"debug\",\"on\",\"off\",\"once\",\"ready\",\"alias\",\"group\",\"enableCookie\",\"disableCookie\"],ttq.setAndDefer=function(t,e){t[e]=function(){t.push([e].concat(Array.prototype.slice.call(arguments,0)))}};for(var i=0;i<ttq.methods.length;i++)ttq.setAndDefer(ttq,ttq.methods[i]);ttq.instance=function(t){for(var e=ttq._i[t]||[],n=0;n<ttq.methods.length;n++\n)ttq.setAndDefer(e,ttq.methods[n]);return e},ttq.load=function(e,n){var i=\"https://analytics.tiktok.com/i18n/pixel/events.js\";ttq._i=ttq._i||{},ttq._i[e]=[],ttq._i[e]._u=i,ttq._t=ttq._t||{},ttq._t[e]=+new Date,ttq._o=ttq._o||{},ttq._o[e]=n||{};n=document.createElement(\"script\");n.type=\"text/javascript\",n.async=!0,n.src=i+\"?sdkid=\"+e+\"&lib=\"+t;e=document.getElementsByTagName(\"script\")[0];e.parentNode.insertBefore(n,e)};\n\t\t\n\t\t  ttq.load('D8ANPRBC77UETU48IPIG');\n\t\t  ttq.page();\n\t\t}(window, document, 'ttq');\n\t</script>\n\t"
+              },
+              {
+                "pixel_category": "CUSTOMIZE_EVENTS",
+                "activity_status": "NO_RECENT_ACTIVITY",
+                "advanced_matching_fields": {
+                  "email": true,
+                  "phone_number": true
+                },
+                "pixel_id": "7644151235381067794",
+                "events": [],
+                "partner_name": null,
+                "pixel_setup_mode": "DEVELOPER",
+                "pixel_code": "D8ANQFBC77UE4JC9G90G",
+                "create_time": "2026-05-26T11:00:13Z",
+                "pixel_name": "Test Pixel Nango Archived Archived",
+                "has_pcm_config": null,
+                "asset_ownership": {
+                  "asset_relation_status": null,
+                  "ownership_status": true,
+                  "updated_at": 0,
+                  "owner_bc_id": null
+                },
+                "pixel_script": "\n\t<script>\n\t\t!function (w, d, t) {\n\t\t  w.TiktokAnalyticsObject=t;var ttq=w[t]=w[t]||[];ttq.methods=[\"page\",\"track\",\"identify\",\"instances\",\"debug\",\"on\",\"off\",\"once\",\"ready\",\"alias\",\"group\",\"enableCookie\",\"disableCookie\"],ttq.setAndDefer=function(t,e){t[e]=function(){t.push([e].concat(Array.prototype.slice.call(arguments,0)))}};for(var i=0;i<ttq.methods.length;i++)ttq.setAndDefer(ttq,ttq.methods[i]);ttq.instance=function(t){for(var e=ttq._i[t]||[],n=0;n<ttq.methods.length;n++\n)ttq.setAndDefer(e,ttq.methods[n]);return e},ttq.load=function(e,n){var i=\"https://analytics.tiktok.com/i18n/pixel/events.js\";ttq._i=ttq._i||{},ttq._i[e]=[],ttq._i[e]._u=i,ttq._t=ttq._t||{},ttq._t[e]=+new Date,ttq._o=ttq._o||{},ttq._o[e]=n||{};n=document.createElement(\"script\");n.type=\"text/javascript\",n.async=!0,n.src=i+\"?sdkid=\"+e+\"&lib=\"+t;e=document.getElementsByTagName(\"script\")[0];e.parentNode.insertBefore(n,e)};\n\t\t\n\t\t  ttq.load('D8ANQFBC77UE4JC9G90G');\n\t\t  ttq.page();\n\t\t}(window, document, 'ttq');\n\t</script>\n\t"
+              },
+              {
+                "pixel_category": "CUSTOMIZE_EVENTS",
+                "activity_status": "NO_RECENT_ACTIVITY",
+                "advanced_matching_fields": {
+                  "email": true,
+                  "phone_number": true
+                },
+                "pixel_id": "7644150536574025736",
+                "events": [],
+                "partner_name": null,
+                "pixel_setup_mode": "DEVELOPER",
+                "pixel_code": "D8ANQIJC77U5R8KLL9K0",
+                "create_time": "2026-05-26T11:00:26Z",
+                "pixel_name": "Test Pixel Validate 1779793219",
+                "has_pcm_config": null,
+                "asset_ownership": {
+                  "asset_relation_status": null,
+                  "ownership_status": true,
+                  "updated_at": 0,
+                  "owner_bc_id": null
+                },
+                "pixel_script": "\n\t<script>\n\t\t!function (w, d, t) {\n\t\t  w.TiktokAnalyticsObject=t;var ttq=w[t]=w[t]||[];ttq.methods=[\"page\",\"track\",\"identify\",\"instances\",\"debug\",\"on\",\"off\",\"once\",\"ready\",\"alias\",\"group\",\"enableCookie\",\"disableCookie\"],ttq.setAndDefer=function(t,e){t[e]=function(){t.push([e].concat(Array.prototype.slice.call(arguments,0)))}};for(var i=0;i<ttq.methods.length;i++)ttq.setAndDefer(ttq,ttq.methods[i]);ttq.instance=function(t){for(var e=ttq._i[t]||[],n=0;n<ttq.methods.length;n++\n)ttq.setAndDefer(e,ttq.methods[n]);return e},ttq.load=function(e,n){var i=\"https://analytics.tiktok.com/i18n/pixel/events.js\";ttq._i=ttq._i||{},ttq._i[e]=[],ttq._i[e]._u=i,ttq._t=ttq._t||{},ttq._t[e]=+new Date,ttq._o=ttq._o||{},ttq._o[e]=n||{};n=document.createElement(\"script\");n.type=\"text/javascript\",n.async=!0,n.src=i+\"?sdkid=\"+e+\"&lib=\"+t;e=document.getElementsByTagName(\"script\")[0];e.parentNode.insertBefore(n,e)};\n\t\t\n\t\t  ttq.load('D8ANQIJC77U5R8KLL9K0');\n\t\t  ttq.page();\n\t\t}(window, document, 'ttq');\n\t</script>\n\t"
+              },
+              {
+                "pixel_category": "CUSTOMIZE_EVENTS",
+                "activity_status": "NO_RECENT_ACTIVITY",
+                "advanced_matching_fields": {
+                  "email": true,
+                  "phone_number": true
+                },
+                "pixel_id": "7644150536574042120",
+                "events": [],
+                "partner_name": null,
+                "pixel_setup_mode": "DEVELOPER",
+                "pixel_code": "D8ANQLJC77U5R8KLL9KG",
+                "create_time": "2026-05-26T11:00:38Z",
+                "pixel_name": "Test Pixel Save 1779793232",
+                "has_pcm_config": null,
+                "asset_ownership": {
+                  "asset_relation_status": null,
+                  "ownership_status": true,
+                  "updated_at": 0,
+                  "owner_bc_id": null
+                },
+                "pixel_script": "\n\t<script>\n\t\t!function (w, d, t) {\n\t\t  w.TiktokAnalyticsObject=t;var ttq=w[t]=w[t]||[];ttq.methods=[\"page\",\"track\",\"identify\",\"instances\",\"debug\",\"on\",\"off\",\"once\",\"ready\",\"alias\",\"group\",\"enableCookie\",\"disableCookie\"],ttq.setAndDefer=function(t,e){t[e]=function(){t.push([e].concat(Array.prototype.slice.call(arguments,0)))}};for(var i=0;i<ttq.methods.length;i++)ttq.setAndDefer(ttq,ttq.methods[i]);ttq.instance=function(t){for(var e=ttq._i[t]||[],n=0;n<ttq.methods.length;n++\n)ttq.setAndDefer(e,ttq.methods[n]);return e},ttq.load=function(e,n){var i=\"https://analytics.tiktok.com/i18n/pixel/events.js\";ttq._i=ttq._i||{},ttq._i[e]=[],ttq._i[e]._u=i,ttq._t=ttq._t||{},ttq._t[e]=+new Date,ttq._o=ttq._o||{},ttq._o[e]=n||{};n=document.createElement(\"script\");n.type=\"text/javascript\",n.async=!0,n.src=i+\"?sdkid=\"+e+\"&lib=\"+t;e=document.getElementsByTagName(\"script\")[0];e.parentNode.insertBefore(n,e)};\n\t\t\n\t\t  ttq.load('D8ANQLJC77U5R8KLL9KG');\n\t\t  ttq.page();\n\t\t}(window, document, 'ttq');\n\t</script>\n\t"
+              },
+              {
+                "pixel_category": "CUSTOMIZE_EVENTS",
+                "activity_status": "NO_RECENT_ACTIVITY",
+                "advanced_matching_fields": {
+                  "email": true,
+                  "phone_number": true
+                },
+                "pixel_id": "7644151235381116946",
+                "events": [],
+                "partner_name": null,
+                "pixel_setup_mode": "DEVELOPER",
+                "pixel_code": "D8ANR43C77UE4JC9G920",
+                "create_time": "2026-05-26T11:01:36Z",
+                "pixel_name": "TestPixelUpdatedNameUnique456",
+                "has_pcm_config": null,
+                "asset_ownership": {
+                  "asset_relation_status": null,
+                  "ownership_status": true,
+                  "updated_at": 0,
+                  "owner_bc_id": null
+                },
+                "pixel_script": "\n\t<script>\n\t\t!function (w, d, t) {\n\t\t  w.TiktokAnalyticsObject=t;var ttq=w[t]=w[t]||[];ttq.methods=[\"page\",\"track\",\"identify\",\"instances\",\"debug\",\"on\",\"off\",\"once\",\"ready\",\"alias\",\"group\",\"enableCookie\",\"disableCookie\"],ttq.setAndDefer=function(t,e){t[e]=function(){t.push([e].concat(Array.prototype.slice.call(arguments,0)))}};for(var i=0;i<ttq.methods.length;i++)ttq.setAndDefer(ttq,ttq.methods[i]);ttq.instance=function(t){for(var e=ttq._i[t]||[],n=0;n<ttq.methods.length;n++\n)ttq.setAndDefer(e,ttq.methods[n]);return e},ttq.load=function(e,n){var i=\"https://analytics.tiktok.com/i18n/pixel/events.js\";ttq._i=ttq._i||{},ttq._i[e]=[],ttq._i[e]._u=i,ttq._t=ttq._t||{},ttq._t[e]=+new Date,ttq._o=ttq._o||{},ttq._o[e]=n||{};n=document.createElement(\"script\");n.type=\"text/javascript\",n.async=!0,n.src=i+\"?sdkid=\"+e+\"&lib=\"+t;e=document.getElementsByTagName(\"script\")[0];e.parentNode.insertBefore(n,e)};\n\t\t\n\t\t  ttq.load('D8ANR43C77UE4JC9G920');\n\t\t  ttq.page();\n\t\t}(window, document, 'ttq');\n\t</script>\n\t"
+              }
+            ]
+          }
+        },
+        "status": 200,
+        "headers": {
+          "date": "Tue, 26 May 2026 11:07:44 GMT",
+          "content-type": "application/json",
+          "content-length": "11366",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=5184000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4933",
+          "x-ratelimit-reset": "1779793674",
+          "etag": "W/\"2c66-QQ7wbdUmjvphqic0FtZCtlFgzIw\""
+        },
+        "hash": "bcb16ff33e5797f3d9f6471d36c34ec9ba4d271a",
+        "request": {
+          "params": {
+            "advertiser_id": "7644143197428744199",
+            "page": "1",
+            "page_size": "20"
+          }
+        }
+      }
+    }
+  }
+}
