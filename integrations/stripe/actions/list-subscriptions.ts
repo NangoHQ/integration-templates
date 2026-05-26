@@ -11,7 +11,7 @@ const InputSchema = z.object({
     price: z.string().optional().describe('Filter for subscriptions that contain this recurring price ID. Example: "price_xxx"'),
     created_after: z.number().optional().describe('Only return subscriptions created on or after this Unix timestamp.'),
     created_before: z.number().optional().describe('Only return subscriptions created on or before this Unix timestamp.'),
-    limit: z.number().min(1).max(100).optional().describe('A limit on the number of objects to be returned, between 1 and 100. Default is 10.'),
+    limit: z.number().int().min(1).max(100).optional().describe('A limit on the number of objects to be returned, between 1 and 100. Default is 10.'),
     cursor: z.string().optional().describe('Pagination cursor from the previous response. Maps to Stripe `starting_after`.')
 });
 

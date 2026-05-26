@@ -3,7 +3,7 @@ import { createAction } from 'nango';
 
 const InputSchema = z.object({
     cursor: z.string().optional().describe('Pagination cursor from the previous response. Maps to Stripe starting_after. Omit for the first page.'),
-    limit: z.number().min(1).max(100).optional().describe('Maximum number of objects to return. Limit can range between 1 and 100, and the default is 10.'),
+    limit: z.number().int().min(1).max(100).optional().describe('Maximum number of objects to return. Limit can range between 1 and 100, and the default is 10.'),
     customer: z.string().optional().describe('Only return Checkout Sessions for the Customer specified.'),
     status: z.enum(['complete', 'expired', 'open']).optional().describe('Only return Checkout Sessions matching the given status.'),
     subscription: z.string().optional().describe('Only return the Checkout Session for the subscription specified.'),

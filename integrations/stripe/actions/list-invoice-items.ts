@@ -4,7 +4,7 @@ import { createAction } from 'nango';
 const InputSchema = z.object({
     customer: z.string().optional().describe('The identifier of the customer whose invoice items to return.'),
     invoice: z.string().optional().describe('Only return invoice items belonging to this invoice.'),
-    limit: z.number().optional().describe('A limit on the number of objects to be returned. Limit can range between 1 and 100, and the default is 10.'),
+    limit: z.number().int().min(1).max(100).optional().describe('A limit on the number of objects to be returned. Limit can range between 1 and 100, and the default is 10.'),
     pending: z.boolean().optional().describe('Set to true to only show pending invoice items, which are not yet attached to any invoices.'),
     cursor: z.string().optional().describe('Pagination cursor from the previous response. Omit for the first page.')
 });

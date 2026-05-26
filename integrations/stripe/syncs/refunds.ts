@@ -73,7 +73,7 @@ const sync = createSync({
             const params: Record<string, string | number> = {
                 limit: 100
             };
-            if (createdAfter !== -1 && startingAfter === '') {
+            if (createdAfter !== -1) {
                 params['created[gte]'] = String(createdAfter);
             }
             if (startingAfter !== '') {

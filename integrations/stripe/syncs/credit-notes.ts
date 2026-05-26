@@ -68,8 +68,7 @@ const StripeListResponseSchema = z.object({
 });
 
 const CheckpointSchema = z.object({
-    created_after: z.number(),
-    starting_after: z.string()
+    created_after: z.number()
 });
 
 const sync = createSync({
@@ -91,12 +90,11 @@ const sync = createSync({
     exec: async (nango) => {
         const rawCheckpoint = await nango.getCheckpoint();
         const checkpoint = CheckpointSchema.parse({
-            created_after: typeof rawCheckpoint?.created_after === 'number' ? rawCheckpoint.created_after : 0,
-            starting_after: typeof rawCheckpoint?.starting_after === 'string' ? rawCheckpoint.starting_after : ''
+            created_after: typeof rawCheckpoint?.created_after === 'number' ? rawCheckpoint.created_after : 0
         });
         const startTime = Math.floor(Date.now() / 1000);
         const createdAfter = checkpoint.created_after;
-        let startingAfter = checkpoint.starting_after;
+        let startingAfter = '';
 
         const limit = 100;
         const hasMore = true;
@@ -141,13 +139,9 @@ const sync = createSync({
             }
 
             startingAfter = lastCreditNote.id;
-            await nango.saveCheckpoint({
-                created_after: createdAfter,
-                starting_after: startingAfter
-            });
         }
 
-        await nango.saveCheckpoint({ created_after: startTime, starting_after: '' });
+        await nango.saveCheckpoint({ created_after: startTime });
     }
 });
 

@@ -3,11 +3,11 @@ import { createAction } from 'nango';
 
 const InputSchema = z.object({
     invoice_item_id: z.string().describe('The ID of the invoice item to update. Example: "ii_1TbSq2EZpD6kXrae2X8tf717"'),
-    amount: z.number().optional().describe('The integer amount in the smallest currency unit.'),
+    amount: z.number().int().optional().describe('The integer amount in the smallest currency unit.'),
     description: z.string().optional().describe('An arbitrary string attached to the invoice item.'),
     discountable: z.boolean().optional().describe('Controls whether discounts apply to this invoice item.'),
     metadata: z.record(z.string(), z.string()).optional().describe('Set of key-value pairs to attach to the object.'),
-    quantity: z.number().optional().describe('Non-negative integer quantity of units for the invoice item.'),
+    quantity: z.number().int().min(0).optional().describe('Non-negative integer quantity of units for the invoice item.'),
     quantity_decimal: z.string().optional().describe('Non-negative decimal quantity with at most 12 decimal places.'),
     tax_behavior: z.enum(['exclusive', 'inclusive', 'unspecified']).optional().describe('Specifies whether the price is inclusive or exclusive of taxes.'),
     tax_code: z.string().optional().describe('A tax code ID.'),

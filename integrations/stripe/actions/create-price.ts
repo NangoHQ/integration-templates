@@ -160,7 +160,7 @@ function flattenStripeParams(obj: StripeFormData, prefix = ''): Array<[string, s
 
 function toStripeFormUrlEncoded(obj: StripeFormData): string {
     const entries = flattenStripeParams(obj);
-    return entries.map(([key, value]) => `${key}=${encodeURIComponent(value)}`).join('&');
+    return entries.map(([key, value]) => `${encodeURIComponent(key)}=${encodeURIComponent(value)}`).join('&');
 }
 
 const action = createAction({

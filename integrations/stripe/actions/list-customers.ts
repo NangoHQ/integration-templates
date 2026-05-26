@@ -21,12 +21,12 @@ const CustomerSchema = z
         object: z.literal('customer'),
         address: z
             .object({
-                city: z.string().optional(),
-                country: z.string().optional(),
-                line1: z.string().optional(),
-                line2: z.string().optional(),
-                postal_code: z.string().optional(),
-                state: z.string().optional()
+                city: z.string().nullable().optional(),
+                country: z.string().nullable().optional(),
+                line1: z.string().nullable().optional(),
+                line2: z.string().nullable().optional(),
+                postal_code: z.string().nullable().optional(),
+                state: z.string().nullable().optional()
             })
             .nullable()
             .optional(),
@@ -56,16 +56,17 @@ const CustomerSchema = z
             .object({
                 address: z
                     .object({
-                        city: z.string().optional(),
-                        country: z.string().optional(),
-                        line1: z.string().optional(),
-                        line2: z.string().optional(),
-                        postal_code: z.string().optional(),
-                        state: z.string().optional()
+                        city: z.string().nullable().optional(),
+                        country: z.string().nullable().optional(),
+                        line1: z.string().nullable().optional(),
+                        line2: z.string().nullable().optional(),
+                        postal_code: z.string().nullable().optional(),
+                        state: z.string().nullable().optional()
                     })
+                    .nullable()
                     .optional(),
-                name: z.string().optional(),
-                phone: z.string().optional()
+                name: z.string().nullable().optional(),
+                phone: z.string().nullable().optional()
             })
             .nullable()
             .optional(),

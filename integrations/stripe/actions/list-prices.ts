@@ -5,6 +5,7 @@ const InputSchema = z.object({
     cursor: z.string().optional().describe('Pagination cursor from the previous response. Omit for the first page.'),
     limit: z
         .number()
+        .int()
         .min(1)
         .max(100)
         .optional()
@@ -33,7 +34,15 @@ const PriceSchema = z
         billing_scheme: z.string().nullable().optional(),
         created: z.number(),
         currency: z.string(),
-        custom_unit_amount: z.number().nullable().optional(),
+        custom_unit_amount: z
+            .object({
+                enabled: z.boolean().nullable().optional(),
+                maximum: z.number().nullable().optional(),
+                minimum: z.number().nullable().optional(),
+                preset: z.number().nullable().optional()
+            })
+            .nullable()
+            .optional(),
         livemode: z.boolean(),
         lookup_key: z.string().nullable().optional(),
         metadata: z.record(z.string(), z.unknown()).optional(),

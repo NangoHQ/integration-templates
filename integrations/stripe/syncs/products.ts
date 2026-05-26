@@ -53,7 +53,7 @@ const sync = createSync({
 
         while (hasMore) {
             const params: Record<string, string | number> = {
-                limit: 2
+                limit: 100
             };
 
             if (startingAfter) {

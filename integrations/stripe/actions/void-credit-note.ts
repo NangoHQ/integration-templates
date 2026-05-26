@@ -2,7 +2,7 @@ import { z } from 'zod';
 import { createAction } from 'nango';
 
 const InputSchema = z.object({
-    credit_note_id: z.string().describe('The ID of the credit note to void. Example: "cn_xxx"')
+    credit_note_id: z.string().min(1).describe('The ID of the credit note to void. Example: "cn_xxx"')
 });
 
 const CreditNoteSchema = z

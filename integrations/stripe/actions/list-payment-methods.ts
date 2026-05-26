@@ -4,7 +4,7 @@ import { createAction } from 'nango';
 const ListInputSchema = z.object({
     customer: z.string().optional().describe('The ID of the customer whose PaymentMethods will be retrieved. Example: "cus_Uae6TTxHlP2hxk"'),
     type: z.string().optional().describe('Filters the list by the object type field. Example: "card"'),
-    limit: z.number().min(1).max(100).optional().describe('A limit on the number of objects to be returned, between 1 and 100. Default is 10.'),
+    limit: z.number().int().min(1).max(100).optional().describe('A limit on the number of objects to be returned, between 1 and 100. Default is 10.'),
     cursor: z.string().optional().describe('Pagination cursor (starting_after) from the previous response. Omit for the first page.')
 });
 
