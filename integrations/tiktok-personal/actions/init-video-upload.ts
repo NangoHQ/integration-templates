@@ -15,9 +15,9 @@ const PostInfoSchema = z.object({
 
 const FileUploadSourceSchema = z.object({
     source: z.literal('FILE_UPLOAD'),
-    video_size: z.number().describe('Size of the video in bytes.'),
-    chunk_size: z.number().describe('Size of each upload chunk in bytes.'),
-    total_chunk_count: z.number().describe('Total number of chunks.')
+    video_size: z.number().int().positive().describe('Size of the video in bytes.'),
+    chunk_size: z.number().int().positive().describe('Size of each upload chunk in bytes.'),
+    total_chunk_count: z.number().int().positive().describe('Total number of chunks.')
 });
 
 const PullFromUrlSourceSchema = z.object({

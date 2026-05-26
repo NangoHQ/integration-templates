@@ -14,11 +14,16 @@ const PostInfoInputSchema = z.object({
     brand_organic_toggle: z.boolean().optional().describe('If true, content promotes own business. Only for DIRECT_POST.')
 });
 
-const SourceInfoInputSchema = z.object({
-    source: z.literal('PULL_FROM_URL').describe('Must be PULL_FROM_URL for photos.'),
-    photo_images: z.array(z.string().url()).min(1).max(35).describe('Publicly accessible photo URLs (1-35).'),
-    photo_cover_index: z.number().int().min(0).describe('Index of the cover photo, starting from 0.')
-});
+const SourceInfoInputSchema = z
+    .object({
+        source: z.literal('PULL_FROM_URL').describe('Must be PULL_FROM_URL for photos.'),
+        photo_images: z.array(z.string().url()).min(1).max(35).describe('Publicly accessible photo URLs (1-35).'),
+        photo_cover_index: z.number().int().min(0).describe('Index of the cover photo, starting from 0.')
+    })
+    .refine((data) => data.photo_cover_index < data.photo_images.length, {
+        message: 'photo_cover_index must be less than the number of photo_images',
+        path: ['photo_cover_index']
+    });
 
 const InputSchema = z.object({
     media_type: z.literal('PHOTO').describe('Must be PHOTO.'),

@@ -4,14 +4,16 @@ import { createAction } from 'nango';
 const InputSchema = z.object({});
 
 const ProviderResponseSchema = z.object({
-    data: z.object({
-        user: z.object({
-            follower_count: z.number().optional(),
-            following_count: z.number().optional(),
-            likes_count: z.number().optional(),
-            video_count: z.number().optional()
+    data: z
+        .object({
+            user: z.object({
+                follower_count: z.number().optional(),
+                following_count: z.number().optional(),
+                likes_count: z.number().optional(),
+                video_count: z.number().optional()
+            })
         })
-    }),
+        .optional(),
     error: z.object({
         code: z.string(),
         message: z.string().optional(),
@@ -59,7 +61,13 @@ const action = createAction({
             });
         }
 
-        const user = parsed.data.user;
+        const user = parsed.data?.user;
+        if (!user) {
+            throw new nango.ActionError({
+                type: 'missing_data',
+                message: 'TikTok user stats response missing user data'
+            });
+        }
 
         return {
             ...(user.follower_count !== undefined && { follower_count: user.follower_count }),

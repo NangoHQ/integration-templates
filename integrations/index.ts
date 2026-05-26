@@ -1938,6 +1938,7 @@ import './tiktok-personal/actions/get-user-profile.js';
 import './tiktok-personal/actions/get-user-stats.js';
 import './tiktok-personal/actions/get-video.js';
 import './tiktok-personal/actions/init-inbox-video-upload.js';
+import './tiktok-personal/actions/init-photo-upload.js';
 import './tiktok-personal/actions/init-video-upload.js';
 import './tiktok-personal/actions/list-videos.js';
 import './tiktok-personal/actions/query-videos.js';

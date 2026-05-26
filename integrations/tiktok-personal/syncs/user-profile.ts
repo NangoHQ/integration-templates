@@ -61,11 +61,6 @@ const sync = createSync({
     },
 
     exec: async (nango) => {
-        // Blocker: provider only exposes /v2/user/info/ with no changed-since filter,
-        // no deleted-record endpoint, and no resumable cursor. The dataset is a single
-        // fixed user record per connection.
-        await nango.trackDeletesStart('UserProfile');
-
         // https://developers.tiktok.com/doc/tiktok-api-v2-get-user-info
         const fields = [
             'open_id',
@@ -118,6 +113,9 @@ const sync = createSync({
             ...(user.video_count !== undefined && { video_count: user.video_count })
         };
 
+        // Start delete tracking only after the response is confirmed valid so
+        // that API/validation errors cannot leave tracking open without a matching end.
+        await nango.trackDeletesStart('UserProfile');
         await nango.batchSave([record], 'UserProfile');
         await nango.trackDeletesEnd('UserProfile');
     }

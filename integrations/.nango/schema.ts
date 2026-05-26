@@ -55017,6 +55017,70 @@ export interface ActionOutput_tiktok_personal_initinboxvideoupload {
   upload_url?: string | undefined;
 };
 
+export interface ActionInput_tiktok_personal_initphotoupload {
+  /**
+   * Must be PHOTO.
+   */
+  media_type: 'PHOTO';
+  /**
+   * DIRECT_POST or MEDIA_UPLOAD.
+   */
+  post_mode: 'DIRECT_POST' | 'MEDIA_UPLOAD';
+  /**
+   * Post metadata.
+   */
+  post_info: {  /**
+   * Post title. Max 90 UTF-16 runes.
+   */
+  title?: string | undefined;
+  /**
+   * Post description. Max 4000 UTF-16 runes.
+   */
+  description?: string | undefined;
+  /**
+   * Privacy level. Required for DIRECT_POST.
+   */
+  privacy_level?: 'PUBLIC_TO_EVERYONE' | 'MUTUAL_FOLLOW_FRIENDS' | 'FOLLOWER_OF_CREATOR' | 'SELF_ONLY' | undefined;
+  /**
+   * If true, disables comments. Only for DIRECT_POST.
+   */
+  disable_comment?: boolean | undefined;
+  /**
+   * If true, auto-adds recommended music. Only for DIRECT_POST.
+   */
+  auto_add_music?: boolean | undefined;
+  /**
+   * If true, content is a paid partnership. Only for DIRECT_POST.
+   */
+  brand_content_toggle?: boolean | undefined;
+  /**
+   * If true, content promotes own business. Only for DIRECT_POST.
+   */
+  brand_organic_toggle?: boolean | undefined;};
+  /**
+   * Media source metadata.
+   */
+  source_info: {  /**
+   * Must be PULL_FROM_URL for photos.
+   */
+  source: 'PULL_FROM_URL';
+  /**
+   * Publicly accessible photo URLs (1-35).
+   */
+  photo_images: string[];
+  /**
+   * Index of the cover photo, starting from 0.
+   */
+  photo_cover_index: number;};
+};
+
+export interface ActionOutput_tiktok_personal_initphotoupload {
+  /**
+   * Identifier to track the posting action.
+   */
+  publish_id: string;
+};
+
 export interface ActionInput_tiktok_personal_initvideoupload {
   post_info: {  /**
    * Video caption. Supports hashtags and @mentions. Max 2200 characters.

@@ -19,10 +19,6 @@ const VideoSchema = z.object({
     view_count: z.number().optional()
 });
 
-const CheckpointSchema = z.object({
-    cursor: z.number()
-});
-
 const VideoListResponseSchema = z.object({
     data: z
         .object({
@@ -44,7 +40,6 @@ const sync = createSync({
     version: '1.0.0',
     frequency: 'every hour',
     autoStart: true,
-    checkpoint: CheckpointSchema,
     models: {
         Video: VideoSchema
     },
@@ -55,14 +50,10 @@ const sync = createSync({
         }
     ],
     exec: async (nango) => {
-        const checkpoint = await nango.getCheckpoint();
-
         await nango.trackDeletesStart('Video');
 
         let hasMore = true;
-        // TikTok's cursor paginates older videos only, so use it to resume an
-        // interrupted full sync rather than as a cross-run incremental marker.
-        let cursor: number | undefined = checkpoint?.cursor;
+        let cursor: number | undefined;
 
         while (hasMore) {
             // https://developers.tiktok.com/doc/tiktok-api-v2-video-list
@@ -108,15 +99,10 @@ const sync = createSync({
                 if (data.cursor === undefined) {
                     throw new Error('TikTok video list response missing cursor for next page');
                 }
-
                 cursor = data.cursor;
-                await nango.saveCheckpoint({ cursor });
-            } else {
-                cursor = undefined;
             }
         }
 
-        await nango.clearCheckpoint();
         await nango.trackDeletesEnd('Video');
     }
 });
