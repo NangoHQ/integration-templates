@@ -1,6 +1,5 @@
 import { z } from 'zod';
-import { createAction } from 'nango';
-import type { ProxyConfiguration } from '@nangohq/node';
+import { createAction, ProxyConfiguration } from 'nango';
 
 const InputSchema = z.object({
     id: z.string().describe('The ID of the price to update. Example: "price_1TbSoBEZpD6kXraeE9F1XSiB"'),
