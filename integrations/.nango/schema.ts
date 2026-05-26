@@ -57124,7 +57124,10 @@ export interface ActionOutput_stripe_listprices {
   billing_scheme?: string | undefined;
   created: number;
   currency: string;
-  custom_unit_amount?: number | undefined;
+  custom_unit_amount?: {  enabled?: boolean | undefined;
+  maximum?: number | undefined;
+  minimum?: number | undefined;
+  preset?: number | undefined;};
   livemode: boolean;
   lookup_key?: string | undefined;
   metadata?: {  [key: string]: unknown | undefined;};

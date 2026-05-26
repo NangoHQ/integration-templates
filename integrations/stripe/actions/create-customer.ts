@@ -84,8 +84,7 @@ const action = createAction({
                 ...(input.address.postal_code !== undefined && { 'address[postal_code]': input.address.postal_code }),
                 ...(input.address.country !== undefined && { 'address[country]': input.address.country })
             }),
-            ...(input.metadata !== undefined &&
-                Object.fromEntries(Object.entries(input.metadata).map(([k, v]) => [`metadata[${k}]`, v])))
+            ...(input.metadata !== undefined && Object.fromEntries(Object.entries(input.metadata).map(([k, v]) => [`metadata[${k}]`, v])))
         };
 
         const response = await nango.post({
