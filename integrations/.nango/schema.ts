@@ -22489,6 +22489,1386 @@ export interface ActionOutput_google_calendar_whoami {
   email: string;
 };
 
+export interface DocumentContent {
+  id: string;
+  documentId?: string | undefined;
+  title?: string | undefined;
+  revisionId?: string | undefined;
+  suggestionsViewMode?: string | undefined;
+  tabs?: unknown[] | undefined;
+  body?: unknown | undefined;
+  headers?: {  [key: string]: unknown | undefined;};
+  footers?: {  [key: string]: unknown | undefined;};
+  footnotes?: {  [key: string]: unknown | undefined;};
+  lists?: {  [key: string]: unknown | undefined;};
+  namedStyles?: unknown | undefined;
+  documentStyle?: unknown | undefined;
+  namedRanges?: {  [key: string]: unknown | undefined;};
+};
+
+export interface SyncMetadata_google_docs_documentcontentbyid {
+  documentIds: string[];
+};
+
+export interface FolderDocument {
+  id: string;
+  documentId: string;
+  title?: string | undefined;
+  revisionId?: string | undefined;
+  body?: {  [key: string]: unknown | undefined;};
+  tabs?: ({  [key: string]: unknown | undefined;})[];
+  createdTime?: string | undefined;
+  modifiedTime?: string | undefined;
+  parents?: string[] | undefined;
+  mimeType?: string | undefined;
+};
+
+export interface SyncMetadata_google_docs_documentsfromdrivefolders {
+  folderIds: string[];
+  maxResults?: number | undefined;
+};
+
+export interface DriveQueryDocument {
+  id: string;
+  name?: string | undefined;
+  title?: string | undefined;
+  modifiedTime?: string | undefined;
+  createdTime?: string | undefined;
+  revisionId?: string | undefined;
+  documentId?: string | undefined;
+  webViewLink?: string | undefined;
+  document?: {  [key: string]: unknown | undefined;};
+};
+
+export interface SyncMetadata_google_docs_documentsfromdrivequery {
+  q?: string | undefined;
+};
+
+export interface SharedDriveDocument {
+  id: string;
+  documentId: string;
+  title?: string | undefined;
+  modifiedTime?: string | undefined;
+  document?: {  [key: string]: unknown | undefined;};
+};
+
+export interface SyncMetadata_google_docs_documentsfromshareddrives {
+  sharedDriveIds: string[];
+};
+
+export interface RecentDocument {
+  id: string;
+  name: string;
+  modifiedTime: string;
+  createdTime?: string | undefined;
+  mimeType?: string | undefined;
+  title?: string | undefined;
+  revisionId?: string | undefined;
+  body?: unknown | undefined;
+};
+
+export interface SyncMetadata_google_docs_recentdocuments {
+  maxResults?: number | undefined;
+};
+
+export interface ActionInput_google_docs_adddocumenttab {
+  /**
+   * The ID of the document to add the tab to. Example: "1Kj3d86Z-Sfd56YP4dImQ-ggMRyP2QZ_BRO33zOO224c"
+   */
+  documentId: string;
+  /**
+   * The user-visible name of the tab.
+   */
+  title?: string | undefined;
+  /**
+   * The ID of the parent tab. Empty when the current tab is a root-level tab.
+   */
+  parentTabId?: string | undefined;
+  /**
+   * The zero-based index of the tab within the parent.
+   */
+  index?: number | undefined;
+  /**
+   * The emoji icon displayed with the tab.
+   */
+  iconEmoji?: string | undefined;
+};
+
+export interface ActionOutput_google_docs_adddocumenttab {
+  tabId: string;
+  title?: string | undefined;
+  parentTabId?: string | undefined;
+  index?: number | undefined;
+  nestingLevel?: number | undefined;
+  iconEmoji?: string | undefined;
+};
+
+export interface ActionInput_google_docs_createdocument {
+  /**
+   * Title for the new Google Doc. Example: "Meeting Notes"
+   */
+  title: string;
+};
+
+export interface ActionOutput_google_docs_createdocument {
+  documentId: string;
+  revisionId: string;
+};
+
+export interface ActionInput_google_docs_createfooter {
+  /**
+   * Google Docs document ID. Example: "1Kj3d86Z-Sfd56YP4dImQ-ggMRyP2QZ_BRO33zOO224c"
+   */
+  documentId: string;
+  /**
+   * Optional text to insert into the newly created footer.
+   */
+  text?: string | undefined;
+  /**
+   * Index of the section break in the document body. Defaults to 0 for the first section.
+   */
+  sectionBreakIndex?: number | undefined;
+};
+
+export interface ActionOutput_google_docs_createfooter {
+  documentId: string;
+  footerId: string;
+  textInserted?: boolean | undefined;
+};
+
+export interface ActionInput_google_docs_createfootnote {
+  /**
+   * The ID of the document to add the footnote to. Example: "1Kj3d86Z-Sfd56YP4dImQ-ggMRyP2QZ_BRO33zOO224c"
+   */
+  documentId: string;
+  /**
+   * The zero-based body index where the footnote reference should be inserted. Example: 10
+   */
+  index: number;
+  /**
+   * The tab ID for multi-tab documents. Omit for the first tab.
+   */
+  tabId?: string | undefined;
+  /**
+   * Optional text to insert into the newly created footnote segment.
+   */
+  footnoteText?: string | undefined;
+};
+
+export interface ActionOutput_google_docs_createfootnote {
+  documentId: string;
+  footnoteId: string;
+  footnoteText?: string | undefined;
+};
+
+export interface ActionInput_google_docs_createheader {
+  /**
+   * Google Docs document ID. Example: "1DLhzKGEHJyyDul07fu34aPrhaA5HOijCord1pNz79dQ"
+   */
+  documentId: string;
+  /**
+   * Optional text to insert into the newly created header.
+   */
+  text?: string | undefined;
+};
+
+export interface ActionOutput_google_docs_createheader {
+  documentId: string;
+  headerId: string;
+  textInserted: boolean;
+};
+
+export interface ActionInput_google_docs_createnamedrange {
+  /**
+   * Google Docs document ID. Example: "1Kj3d86Z-Sfd56YP4dImQ-ggMRyP2QZ_BRO33zOO224c"
+   */
+  documentId: string;
+  /**
+   * Name for the new named range. Example: "my-range"
+   */
+  name: string;
+  /**
+   * Start index of the range (inclusive).
+   */
+  startIndex: number;
+  /**
+   * End index of the range (exclusive).
+   */
+  endIndex: number;
+};
+
+export interface ActionOutput_google_docs_createnamedrange {
+  /**
+   * The ID of the newly created named range.
+   */
+  namedRangeId: string;
+};
+
+export interface ActionInput_google_docs_createparagraphbullets {
+  /**
+   * Google Docs document ID. Example: "1Kj3d86Z-Sfd56YP4dImQ-ggMRyP2QZ_BRO33zOO224c"
+   */
+  documentId: string;
+  /**
+   * Start index (inclusive) of the range to apply bullets to.
+   */
+  startIndex: number;
+  /**
+   * End index (exclusive) of the range to apply bullets to.
+   */
+  endIndex: number;
+  /**
+   * Bullet preset to use. Defaults to BULLET_DISC_CIRCLE_SQUARE.
+   */
+  bulletPreset?: 'BULLET_DISC_CIRCLE_SQUARE' | 'BULLET_DIAMONDX_ARROW3D_SQUARE' | 'BULLET_CHECKBOX' | 'BULLET_ARROW_DIAMOND_DISC' | 'BULLET_STAR_CIRCLE_SQUARE' | 'BULLET_ARROW3D_CIRCLE_SQUARE' | 'BULLET_LEFTTRIANGLE_DIAMOND_DISC' | 'BULLET_DIAMONDX_HOLLOWDIAMOND_SQUARE' | 'BULLET_DIAMOND_CIRCLE_SQUARE' | 'NUMBERED_DECIMAL_ALPHA_ROMAN' | 'NUMBERED_DECIMAL_ALPHA_ROMAN_PARENS' | 'NUMBERED_DECIMAL_NESTED' | 'NUMBERED_UPPERALPHA_ALPHA_ROMAN' | 'NUMBERED_UPPERROMAN_UPPERALPHA_DECIMAL' | 'NUMBERED_ZERODECIMAL_ALPHA_ROMAN' | undefined;
+};
+
+export interface ActionOutput_google_docs_createparagraphbullets {
+  documentId: string;
+  revisionId?: string | undefined;
+};
+
+export interface ActionInput_google_docs_deletecontentrange {
+  /**
+   * Google Docs document ID. Example: "1Kj3d86Z-Sfd56YP4dImQ-ggMRyP2QZ_BRO33zOO224c"
+   */
+  documentId: string;
+  /**
+   * Inclusive start index of the range to delete.
+   */
+  startIndex: number;
+  /**
+   * Exclusive end index of the range to delete.
+   */
+  endIndex: number;
+  /**
+   * Segment ID to delete from. Use the headerId or footerId for headers/footers; omit or use "" for the body.
+   */
+  segmentId?: string | undefined;
+};
+
+export interface ActionOutput_google_docs_deletecontentrange {
+  documentId: string;
+  replies: ({  [key: string]: unknown | undefined;})[];
+  writeControl?: {  [key: string]: unknown | undefined;};
+};
+
+export interface ActionInput_google_docs_deletedocumenttab {
+  /**
+   * Google Docs document ID. Example: "1rG_Aj6JXSnTeaHzE0CoIOAYtPdrwRKbilw54N0WQU34"
+   */
+  documentId: string;
+  /**
+   * Tab ID to delete. Example: "t.r7sklz35b6u5"
+   */
+  tabId: string;
+};
+
+export interface ActionOutput_google_docs_deletedocumenttab {
+  documentId: string;
+  tabId: string;
+};
+
+export interface ActionInput_google_docs_deletefooter {
+  /**
+   * The ID of the document to delete the footer from. Example: "1ctrF7XM2lZqmQeOBjGXi0SrUY6jgyKwYhDMq5S6omZQ"
+   */
+  documentId: string;
+  /**
+   * The ID of the footer to delete. Example: "kix.910kf3z0ydqh"
+   */
+  footerId: string;
+  /**
+   * The tab that contains the footer to delete. When omitted, applies to the first tab.
+   */
+  tabId?: string | undefined;
+};
+
+export interface ActionOutput_google_docs_deletefooter {
+  documentId: string;
+  success: boolean;
+};
+
+export interface ActionInput_google_docs_deleteheader {
+  /**
+   * Google Docs document ID. Example: "1Kj3d86Z-Sfd56YP4dImQ-ggMRyP2QZ_BRO33zOO224c"
+   */
+  documentId: string;
+  /**
+   * Header ID to delete. Example: "kix.oq93zh93nzrf"
+   */
+  headerId: string;
+};
+
+export interface ActionOutput_google_docs_deleteheader {
+  documentId: string;
+  headerId: string;
+  success: boolean;
+};
+
+export interface ActionInput_google_docs_deletenamedrange {
+  /**
+   * The ID of the document containing the named range. Example: "1Kj3d86Z-Sfd56YP4dImQ-ggMRyP2QZ_BRO33zOO224c"
+   */
+  documentId: string;
+  /**
+   * The ID of the named range to delete. Either namedRangeId or name must be provided. Example: "kix.ppfiu2m5lqas"
+   */
+  namedRangeId?: string | undefined;
+  /**
+   * The name of the named range to delete. Either namedRangeId or name must be provided. Example: "nango-test-range"
+   */
+  name?: string | undefined;
+  /**
+   * The tab ID to scope the deletion to. Example: "t.0"
+   */
+  tabId?: string | undefined;
+};
+
+export interface ActionOutput_google_docs_deletenamedrange {
+  success: boolean;
+  documentId: string;
+};
+
+export interface ActionInput_google_docs_deleteparagraphbullets {
+  /**
+   * The ID of the document to update. Example: "1Kj3d86Z-Sfd56YP4dImQ-ggMRyP2QZ_BRO33zOO224c"
+   */
+  documentId: string;
+  /**
+   * The range of paragraphs to remove bullets from.
+   */
+  range: {  /**
+   * The start index of the range (inclusive). Example: 153
+   */
+  startIndex: number;
+  /**
+   * The end index of the range (exclusive). Example: 199
+   */
+  endIndex: number;
+  /**
+   * The segment ID. Omit or use empty string for the body segment. Example: ""
+   */
+  segmentId?: string | undefined;};
+};
+
+export interface ActionOutput_google_docs_deleteparagraphbullets {
+  documentId: string;
+  success: boolean;
+};
+
+export interface ActionInput_google_docs_deletetablecolumn {
+  /**
+   * Google Docs document ID. Example: "1Kj3d86Z-Sfd56YP4dImQ-ggMRyP2QZ_BRO33zOO224c"
+   */
+  documentId: string;
+  /**
+   * The index of the table element in the document body. Example: 211
+   */
+  tableStartLocationIndex: number;
+  /**
+   * The row index of a cell in the column to delete. Example: 0
+   */
+  rowIndex: number;
+  /**
+   * The column index to delete. Example: 1
+   */
+  columnIndex: number;
+};
+
+export interface ActionOutput_google_docs_deletetablecolumn {
+  documentId: string;
+  success: boolean;
+};
+
+export interface ActionInput_google_docs_deletetablerow {
+  documentId: string;
+  tableStartIndex: number;
+  rowIndex: number;
+  columnIndex: number;
+  tabId?: string | undefined;
+  segmentId?: string | undefined;
+};
+
+export interface ActionOutput_google_docs_deletetablerow {
+  documentId?: string | undefined;
+  replies?: unknown[] | undefined;
+};
+
+export interface ActionInput_google_docs_exportdocument {
+  /**
+   * The ID of the Google Doc file to export. Example: "1Kj3d86Z-Sfd56YP4dImQ-ggMRyP2QZ_BRO33zOO224c"
+   */
+  fileId: string;
+  /**
+   * The target MIME type for the export.
+   */
+  mimeType: 'application/pdf' | 'application/vnd.openxmlformats-officedocument.wordprocessingml.document' | 'text/html' | 'text/plain';
+};
+
+export interface ActionOutput_google_docs_exportdocument {
+  fileId: string;
+  mimeType: string;
+  /**
+   * The exported document encoded as a base64 string.
+   */
+  data: string;
+  /**
+   * The size of the exported data in bytes.
+   */
+  size: number;
+};
+
+export interface ActionInput_google_docs_insertinlineimage {
+  /**
+   * Google Docs document ID. Example: "1Kj3d86Z-Sfd56YP4dImQ-ggMRyP2QZ_BRO33zOO224c"
+   */
+  documentId: string;
+  /**
+   * Publicly accessible image URL. Example: "https://example.com/image.png"
+   */
+  imageUri: string;
+  /**
+   * Specific location in the document to insert the image.
+   */
+  location?: {  segmentId?: string | undefined;
+  index: number;};
+  /**
+   * Insert at the end of a segment.
+   */
+  endOfSegmentLocation?: {  segmentId?: string | undefined;};
+  /**
+   * Optional size for the inserted image.
+   */
+  objectSize?: {  width?: {  magnitude: number;
+  unit: string;} | undefined;
+  height?: {  magnitude: number;
+  unit: string;} | undefined;};
+};
+
+export interface ActionOutput_google_docs_insertinlineimage {
+  documentId: string;
+  inlineObjectId?: string | undefined;
+};
+
+export interface ActionInput_google_docs_insertpagebreak {
+  /**
+   * Google Docs document ID. Example: "1Kj3d86Z-Sfd56YP4dImQ-ggMRyP2QZ_BRO33zOO224c"
+   */
+  documentId: string;
+  /**
+   * Zero-based body index where the page break should be inserted. If omitted, the page break is inserted at the end of the document body.
+   */
+  index?: number | undefined;
+};
+
+export interface ActionOutput_google_docs_insertpagebreak {
+  documentId: string;
+  inserted: boolean;
+};
+
+export interface ActionInput_google_docs_insertsectionbreak {
+  /**
+   * Google Docs document ID. Example: "1Kj3d86Z-Sfd56YP4dImQ-ggMRyP2QZ_BRO33zOO224c"
+   */
+  documentId: string;
+  /**
+   * Type of section break to insert. Defaults to NEXT_PAGE.
+   */
+  sectionType?: 'NEXT_PAGE' | 'CONTINUOUS' | undefined;
+  /**
+   * Zero-based body index where the section break should be inserted. If omitted, inserts at the end of the document body.
+   */
+  index?: number | undefined;
+  /**
+   * Tab ID for multi-tab documents. When omitted, applies to the first tab.
+   */
+  tabId?: string | undefined;
+  /**
+   * Optional section style updates to apply to the newly created section. Requires index to be provided.
+   */
+  sectionStyle?: {  marginTop?: {  magnitude: number;
+  unit: string;} | undefined;
+  marginBottom?: {  magnitude: number;
+  unit: string;} | undefined;
+  marginLeft?: {  magnitude: number;
+  unit: string;} | undefined;
+  marginRight?: {  magnitude: number;
+  unit: string;} | undefined;
+  pageNumberStart?: number | undefined;
+  contentDirection?: 'LEFT_TO_RIGHT' | 'RIGHT_TO_LEFT' | undefined;};
+};
+
+export interface ActionOutput_google_docs_insertsectionbreak {
+  documentId: string;
+  revisionId?: string | undefined;
+};
+
+export interface ActionInput_google_docs_inserttablecolumn {
+  /**
+   * Google Docs document ID. Example: "1Kj3d86Z-Sfd56YP4dImQ-ggMRyP2QZ_BRO33zOO224c"
+   */
+  documentId: string;
+  /**
+   * The index of the table element in the document body. Example: 211
+   */
+  tableStartLocationIndex: number;
+  /**
+   * The zero-based row index of the reference cell. Example: 1
+   */
+  rowIndex: number;
+  /**
+   * The zero-based column index of the reference cell. Example: 1
+   */
+  columnIndex: number;
+  /**
+   * Whether to insert the column to the right of the reference cell. Defaults to false (insert to the left).
+   */
+  insertRight?: boolean | undefined;
+};
+
+export interface ActionOutput_google_docs_inserttablecolumn {
+  documentId: string;
+};
+
+export interface ActionInput_google_docs_inserttablerow {
+  /**
+   * Google Docs document ID. Example: "abc123"
+   */
+  documentId: string;
+  /**
+   * Index of the table element in the body. Example: 211
+   */
+  tableStartLocationIndex: number;
+  /**
+   * Row index of the reference cell. Example: 0
+   */
+  rowIndex: number;
+  /**
+   * Column index of the reference cell. Example: 0
+   */
+  columnIndex: number;
+  /**
+   * Whether to insert below the reference cell (true) or above (false).
+   */
+  insertBelow: boolean;
+  /**
+   * Segment ID for headers or footers. Omit for body.
+   */
+  segmentId?: string | undefined;
+};
+
+export interface ActionOutput_google_docs_inserttablerow {
+  documentId: string;
+  revisionId?: string | undefined;
+};
+
+export interface ActionInput_google_docs_inserttable {
+  /**
+   * Google Docs document ID. Example: "1Kj3d86Z-Sfd56YP4dImQ-ggMRyP2QZ_BRO33zOO224c"
+   */
+  documentId: string;
+  /**
+   * Number of rows in the table. Example: 3
+   */
+  rows: number;
+  /**
+   * Number of columns in the table. Example: 3
+   */
+  columns: number;
+  location?: {  /**
+   * The insertion index in the document body.
+   */
+  index: number;
+  /**
+   * The segment ID; empty string targets the body segment.
+   */
+  segmentId?: string | undefined;};
+  endOfSegmentLocation?: {  /**
+   * The segment ID; empty string targets the body segment.
+   */
+  segmentId?: string | undefined;};
+};
+
+export interface ActionOutput_google_docs_inserttable {
+  documentId: string;
+  rows: number;
+  columns: number;
+  tableStartLocation?: {  index: number;
+  segmentId?: string | undefined;};
+};
+
+export interface ActionInput_google_docs_inserttext {
+  /**
+   * The ID of the document to edit. Example: "abc123"
+   */
+  documentId: string;
+  /**
+   * The text to insert into the document.
+   */
+  text: string;
+  /**
+   * A specific index location. Provide either location or endOfSegmentLocation, not both.
+   */
+  location?: {  /**
+   * The zero-based index in the segment where the text will be inserted.
+   */
+  index: number;
+  /**
+   * The ID of the header, footer or footnote segment. Omit or use empty string for the body.
+   */
+  segmentId?: string | undefined;
+  /**
+   * The ID of the tab for multi-tab documents.
+   */
+  tabId?: string | undefined;};
+  /**
+   * Insert at the end of a segment. Provide either location or endOfSegmentLocation, not both.
+   */
+  endOfSegmentLocation?: {  /**
+   * The ID of the header, footer or footnote segment. Omit or use empty string for the body.
+   */
+  segmentId?: string | undefined;
+  /**
+   * The ID of the tab for multi-tab documents.
+   */
+  tabId?: string | undefined;};
+};
+
+export interface ActionOutput_google_docs_inserttext {
+  documentId?: string | undefined;
+  replies?: ({})[] | undefined;
+};
+
+export interface ActionInput_google_docs_listrevisions {
+  /**
+   * Google Docs document ID. Example: "1Kj3d86Z-Sfd56YP4dImQ-ggMRyP2QZ_BRO33zOO224c"
+   */
+  documentId: string;
+  /**
+   * Pagination token from the previous response. Omit for the first page.
+   */
+  pageToken?: string | undefined;
+};
+
+export interface ActionOutput_google_docs_listrevisions {
+  revisions: ({  id: string;
+  modifiedTime?: string | undefined;
+  lastModifyingUser?: {  kind?: string | undefined;
+  displayName?: string | undefined;
+  photoLink?: string | undefined;
+  me?: boolean | undefined;
+  permissionId?: string | undefined;
+  emailAddress?: string | undefined;};
+  keepForever?: boolean | undefined;
+  published?: boolean | undefined;})[];
+  nextPageToken?: string | undefined;
+};
+
+export interface ActionInput_google_docs_mergetablecells {
+  /**
+   * The ID of the document containing the table. Example: "1Kj3d86Z-Sfd56YP4dImQ-ggMRyP2QZ_BRO33zOO224c"
+   */
+  documentId: string;
+  /**
+   * The location of the table in the document
+   */
+  tableStartLocation: {  /**
+   * The index of the table element in the document body. Example: 211
+   */
+  index: number;
+  /**
+   * The segment ID; omit for the body segment. Example: ""
+   */
+  segmentId?: string | undefined;};
+  /**
+   * The row index of the first cell in the range (0-based). Example: 0
+   */
+  rowIndex: number;
+  /**
+   * The column index of the first cell in the range (0-based). Example: 0
+   */
+  columnIndex: number;
+  /**
+   * The number of rows in the range. Example: 1
+   */
+  rowSpan: number;
+  /**
+   * The number of columns in the range. Example: 2
+   */
+  columnSpan: number;
+};
+
+export interface ActionOutput_google_docs_mergetablecells {
+  documentId: string;
+  merged: boolean;
+};
+
+export interface ActionInput_google_docs_pintableheaderrows {
+  /**
+   * The ID of the document containing the table. Example: "1Kj3d86Z-Sfd56YP4dImQ-ggMRyP2QZ_BRO33zOO224c"
+   */
+  documentId: string;
+  /**
+   * The index of the table element in the document body. Example: 211
+   */
+  tableStartLocation: number;
+  /**
+   * The number of rows to pin as header rows. Use 0 to unpin. Example: 1
+   */
+  pinnedHeaderRowsCount: number;
+};
+
+export interface ActionOutput_google_docs_pintableheaderrows {
+  documentId: string;
+  revisionId?: string | undefined;
+  replies?: ({})[] | undefined;
+};
+
+export interface ActionInput_google_docs_replacealltext {
+  /**
+   * The ID of the document to modify. Example: "1Kj3d86Z-Sfd56YP4dImQ-ggMRyP2QZ_BRO33zOO224c"
+   */
+  documentId: string;
+  /**
+   * The text to search for, or a regex pattern if regex is true. Example: "Nango"
+   */
+  searchText: string;
+  /**
+   * The text to replace with. Example: "Hello World"
+   */
+  replacementText: string;
+  /**
+   * Whether the search is case-sensitive. Defaults to false.
+   */
+  matchCase?: boolean | undefined;
+  /**
+   * Whether searchText is a regex pattern. Defaults to false.
+   */
+  regex?: boolean | undefined;
+  /**
+   * The tab ID to scope the replacement to. If omitted, applies to all tabs.
+   */
+  tabId?: string | undefined;
+};
+
+export interface ActionOutput_google_docs_replacealltext {
+  /**
+   * The number of occurrences that were changed.
+   */
+  occurrencesChanged: number;
+  /**
+   * The ID of the modified document.
+   */
+  documentId: string;
+  /**
+   * The revision ID of the document after the update.
+   */
+  revisionId?: string | undefined;
+};
+
+export interface ActionInput_google_docs_replaceimage {
+  /**
+   * The ID of the document containing the image to replace. Example: "1Kj3d86Z-Sfd56YP4dImQ-ggMRyP2QZ_BRO33zOO224c"
+   */
+  documentId: string;
+  /**
+   * The ID of the existing image to replace. Example: "kix.q9j8vk2w9bbp"
+   */
+  imageObjectId: string;
+  /**
+   * Publicly accessible URI of the new image. Example: "https://example.com/image.png"
+   */
+  uri: string;
+  /**
+   * Replacement method. CENTER_CROP scales and centers the image to fill the original bounds. USE_EXISTING_SIZE uses the original image size.
+   */
+  imageReplaceMethod?: 'CENTER_CROP' | 'USE_EXISTING_SIZE' | undefined;
+  /**
+   * The tab containing the image. When omitted, the first tab is used.
+   */
+  tabId?: string | undefined;
+};
+
+export interface ActionOutput_google_docs_replaceimage {
+  documentId: string;
+  replies?: ({  [key: string]: unknown | undefined;})[];
+  writeControl?: {  [key: string]: unknown | undefined;};
+};
+
+export interface ActionInput_google_docs_replacenamedrangecontent {
+  /**
+   * Google Docs document ID. Example: "1Kj3d86Z-Sfd56YP4dImQ-ggMRyP2QZ_BRO33zOO224c"
+   */
+  document_id: string;
+  /**
+   * Named range ID to replace content in. Example: "kix.ppfiu2m5lqas"
+   */
+  named_range_id: string;
+  /**
+   * Replacement text to insert into the named range.
+   */
+  text: string;
+};
+
+export interface ActionOutput_google_docs_replacenamedrangecontent {
+  document_id: string;
+  named_range_id: string;
+  replaced: boolean;
+  revision_id?: string | undefined;
+};
+
+export interface ActionInput_google_docs_unmergetablecells {
+  /**
+   * Google Docs document ID. Example: "1Kj3d86Z-Sfd56YP4dImQ-ggMRyP2QZ_BRO33zOO224c"
+   */
+  documentId: string;
+  tableRange: {  tableCellLocation: {  tableStartLocation: {  /**
+   * The zero-based index of the table element in the document body.
+   */
+  index: number;
+  /**
+   * The ID of the header, footer or footnote. Empty or omitted signifies the document body.
+   */
+  segmentId?: string | undefined;
+  /**
+   * The tab that the location is in.
+   */
+  tabId?: string | undefined;};
+  /**
+   * The zero-based row index of the starting cell.
+   */
+  rowIndex: number;
+  /**
+   * The zero-based column index of the starting cell.
+   */
+  columnIndex: number;};
+  /**
+   * The row span of the table range. Defaults to 1.
+   */
+  rowSpan?: number | undefined;
+  /**
+   * The column span of the table range. Defaults to 1.
+   */
+  columnSpan?: number | undefined;};
+};
+
+export interface ActionOutput_google_docs_unmergetablecells {
+  documentId: string;
+  replies?: ({})[] | undefined;
+  writeLocation?: {  index?: number | undefined;
+  segmentId?: string | undefined;
+  tabId?: string | undefined;};
+};
+
+export interface ActionInput_google_docs_updatedocumentstyle {
+  /**
+   * The ID of the document to update. Example: "1Kj3d86Z-Sfd56YP4dImQ-ggMRyP2QZ_BRO33zOO224c"
+   */
+  documentId: string;
+  /**
+   * The comma-separated field mask of document style fields to update. Example: "marginTop,marginBottom,pageSize"
+   */
+  fields: string;
+  /**
+   * The document style values to apply.
+   */
+  documentStyle: {  /**
+   * Top margin of the document.
+   */
+  marginTop?: {  /**
+   * The magnitude of the dimension. Example: 72
+   */
+  magnitude: number;
+  /**
+   * The unit of the dimension. Example: "PT"
+   */
+  unit: string;} | undefined;
+  /**
+   * Bottom margin of the document.
+   */
+  marginBottom?: {  /**
+   * The magnitude of the dimension. Example: 72
+   */
+  magnitude: number;
+  /**
+   * The unit of the dimension. Example: "PT"
+   */
+  unit: string;} | undefined;
+  /**
+   * Left margin of the document.
+   */
+  marginLeft?: {  /**
+   * The magnitude of the dimension. Example: 72
+   */
+  magnitude: number;
+  /**
+   * The unit of the dimension. Example: "PT"
+   */
+  unit: string;} | undefined;
+  /**
+   * Right margin of the document.
+   */
+  marginRight?: {  /**
+   * The magnitude of the dimension. Example: 72
+   */
+  magnitude: number;
+  /**
+   * The unit of the dimension. Example: "PT"
+   */
+  unit: string;} | undefined;
+  /**
+   * Page size of the document.
+   */
+  pageSize?: {  width: {  /**
+   * The magnitude of the dimension. Example: 72
+   */
+  magnitude: number;
+  /**
+   * The unit of the dimension. Example: "PT"
+   */
+  unit: string;};
+  height: {  /**
+   * The magnitude of the dimension. Example: 72
+   */
+  magnitude: number;
+  /**
+   * The unit of the dimension. Example: "PT"
+   */
+  unit: string;};} | undefined;
+  /**
+   * The page number from which to start counting pages.
+   */
+  pageNumberStart?: number | undefined;
+  /**
+   * The ID of the default header.
+   */
+  defaultHeaderId?: string | undefined;
+  /**
+   * The ID of the default footer.
+   */
+  defaultFooterId?: string | undefined;
+  /**
+   * The ID of the header used on even pages.
+   */
+  evenPageHeaderId?: string | undefined;
+  /**
+   * The ID of the footer used on even pages.
+   */
+  evenPageFooterId?: string | undefined;
+  /**
+   * The ID of the header used on the first page.
+   */
+  firstPageHeaderId?: string | undefined;
+  /**
+   * The ID of the footer used on the first page.
+   */
+  firstPageFooterId?: string | undefined;
+  /**
+   * Whether to use custom header and footer margins.
+   */
+  useCustomHeaderFooterMargins?: boolean | undefined;
+  /**
+   * Whether to use a different header and footer on the first page.
+   */
+  useFirstPageHeaderFooter?: boolean | undefined;
+  /**
+   * Whether to use different headers and footers on even pages.
+   */
+  useEvenPageHeaderFooter?: boolean | undefined;};
+  /**
+   * The tab that contains the style to update. When omitted, the request applies to the first tab.
+   */
+  tabId?: string | undefined;
+};
+
+export interface ActionOutput_google_docs_updatedocumentstyle {
+  documentId: string;
+  updated: boolean;
+};
+
+export interface ActionInput_google_docs_updatedocumenttabproperties {
+  /**
+   * Google Docs document ID. Example: "1Kj3d86Z-Sfd56YP4dImQ-ggMRyP2QZ_BRO33zOO224c"
+   */
+  documentId: string;
+  /**
+   * Tab ID to update. Example: "t.0"
+   */
+  tabId: string;
+  /**
+   * New tab title.
+   */
+  title?: string | undefined;
+  /**
+   * New parent tab ID. Set to empty string for root-level.
+   */
+  parentTabId?: string | undefined;
+  /**
+   * New zero-based index within the parent.
+   */
+  index?: number | undefined;
+  /**
+   * Emoji icon for the tab.
+   */
+  iconEmoji?: string | undefined;
+};
+
+export interface ActionOutput_google_docs_updatedocumenttabproperties {
+  documentId: string;
+  tabId: string;
+  updatedFields: string[];
+};
+
+export interface ActionInput_google_docs_updateparagraphstyle {
+  /**
+   * The ID of the document to update.
+   */
+  documentId: string;
+  range: {  /**
+   * The zero-based start index of the range in UTF-16 code units.
+   */
+  startIndex: number;
+  /**
+   * The zero-based end index of the range, exclusive.
+   */
+  endIndex: number;
+  /**
+   * The ID of the header, footer or footnote the range is in. Empty or omitted for the document body.
+   */
+  segmentId?: string | undefined;
+  /**
+   * The tab that the range is in. When omitted, applies to the first tab.
+   */
+  tabId?: string | undefined;};
+  /**
+   * A field mask of which paragraph style fields to update, e.g. "alignment,spaceAbove".
+   */
+  fields: string;
+  paragraphStyle: {  /**
+   * The named style type, e.g. NORMAL_TEXT, HEADING_1, HEADING_2, TITLE.
+   */
+  namedStyleType?: string | undefined;
+  /**
+   * The alignment, e.g. START, CENTER, END, JUSTIFIED.
+   */
+  alignment?: string | undefined;
+  lineSpacing?: number | undefined;
+  /**
+   * The content direction, e.g. LEFT_TO_RIGHT, RIGHT_TO_LEFT.
+   */
+  direction?: string | undefined;
+  /**
+   * The spacing mode, e.g. UNSPECIFIED, NEVER_COLLAPSE, COLLAPSE_LISTS.
+   */
+  spacingMode?: string | undefined;
+  spaceAbove?: {  magnitude: number;
+  unit: string;} | undefined;
+  spaceBelow?: {  magnitude: number;
+  unit: string;} | undefined;
+  indentFirstLine?: {  magnitude: number;
+  unit: string;} | undefined;
+  indentStart?: {  magnitude: number;
+  unit: string;} | undefined;
+  indentEnd?: {  magnitude: number;
+  unit: string;} | undefined;};
+};
+
+export interface ActionOutput_google_docs_updateparagraphstyle {
+  documentId: string;
+  replies: unknown[];
+};
+
+export interface ActionInput_google_docs_updatesectionstyle {
+  /**
+   * Google Docs document ID. Example: "1Kj3d86Z-Sfd56YP4dImQ-ggMRyP2QZ_BRO33zOO224c"
+   */
+  documentId: string;
+  /**
+   * Start index of the range overlapping the sections to style.
+   */
+  startIndex: number;
+  /**
+   * End index of the range overlapping the sections to style.
+   */
+  endIndex: number;
+  /**
+   * The section style properties to update.
+   */
+  sectionStyle: {  marginTop?: {  magnitude: number;
+  unit: string;} | undefined;
+  marginBottom?: {  magnitude: number;
+  unit: string;} | undefined;
+  marginLeft?: {  magnitude: number;
+  unit: string;} | undefined;
+  marginRight?: {  magnitude: number;
+  unit: string;} | undefined;
+  marginHeader?: {  magnitude: number;
+  unit: string;} | undefined;
+  marginFooter?: {  magnitude: number;
+  unit: string;} | undefined;
+  pageNumberStart?: number | undefined;
+  useFirstPageHeaderFooter?: boolean | undefined;
+  flipPageOrientation?: boolean | undefined;
+  columnSeparatorStyle?: string | undefined;
+  contentDirection?: string | undefined;
+  columnProperties?: ({  paddingEnd?: {  magnitude: number;
+  unit: string;} | undefined;
+  width?: {  magnitude: number;
+  unit: string;} | undefined;})[];};
+  /**
+   * Field mask specifying which fields to update. Example: "marginTop"
+   */
+  fields: string;
+};
+
+export interface ActionOutput_google_docs_updatesectionstyle {
+  documentId: string;
+  /**
+   * Number of replies returned by the batch update.
+   */
+  replyCount: number;
+};
+
+export interface ActionInput_google_docs_updatetablecellstyle {
+  /**
+   * Google Docs document ID. Example: "1Kj3d86Z-Sfd56YP4dImQ-ggMRyP2QZ_BRO33zOO224c"
+   */
+  documentId: string;
+  tableRange: {  tableCellLocation: {  tableStartLocation: {  /**
+   * The zero-based index of the table in the document body.
+   */
+  index: number;
+  /**
+   * The segment ID of the table location. Omit for the body segment.
+   */
+  segmentId?: string | undefined;
+  /**
+   * The tab ID for multi-tab documents. Example: "t.0".
+   */
+  tabId?: string | undefined;};
+  /**
+   * Zero-based row index of the starting cell.
+   */
+  rowIndex: number;
+  /**
+   * Zero-based column index of the starting cell.
+   */
+  columnIndex: number;};
+  /**
+   * Number of rows in the range. Defaults to 1.
+   */
+  rowSpan?: number | undefined;
+  /**
+   * Number of columns in the range. Defaults to 1.
+   */
+  columnSpan?: number | undefined;};
+  tableCellStyle: {  /**
+   * Background color of the cell.
+   */
+  backgroundColor?: {  color?: {  rgbColor?: {  red?: number | undefined;
+  green?: number | undefined;
+  blue?: number | undefined;};};};
+  /**
+   * Left border style.
+   */
+  borderLeft?: {  color?: {  color?: {  rgbColor?: {  red?: number | undefined;
+  green?: number | undefined;
+  blue?: number | undefined;};};};
+  width?: {  magnitude: number;
+  unit: string;} | undefined;
+  /**
+   * Border dash style. Example: "SOLID", "DOT", "DASH".
+   */
+  dashStyle?: string | undefined;};
+  /**
+   * Right border style.
+   */
+  borderRight?: {  color?: {  color?: {  rgbColor?: {  red?: number | undefined;
+  green?: number | undefined;
+  blue?: number | undefined;};};};
+  width?: {  magnitude: number;
+  unit: string;} | undefined;
+  /**
+   * Border dash style. Example: "SOLID", "DOT", "DASH".
+   */
+  dashStyle?: string | undefined;};
+  /**
+   * Top border style.
+   */
+  borderTop?: {  color?: {  color?: {  rgbColor?: {  red?: number | undefined;
+  green?: number | undefined;
+  blue?: number | undefined;};};};
+  width?: {  magnitude: number;
+  unit: string;} | undefined;
+  /**
+   * Border dash style. Example: "SOLID", "DOT", "DASH".
+   */
+  dashStyle?: string | undefined;};
+  /**
+   * Bottom border style.
+   */
+  borderBottom?: {  color?: {  color?: {  rgbColor?: {  red?: number | undefined;
+  green?: number | undefined;
+  blue?: number | undefined;};};};
+  width?: {  magnitude: number;
+  unit: string;} | undefined;
+  /**
+   * Border dash style. Example: "SOLID", "DOT", "DASH".
+   */
+  dashStyle?: string | undefined;};
+  /**
+   * Left padding.
+   */
+  paddingLeft?: {  magnitude: number;
+  unit: string;} | undefined;
+  /**
+   * Right padding.
+   */
+  paddingRight?: {  magnitude: number;
+  unit: string;} | undefined;
+  /**
+   * Top padding.
+   */
+  paddingTop?: {  magnitude: number;
+  unit: string;} | undefined;
+  /**
+   * Bottom padding.
+   */
+  paddingBottom?: {  magnitude: number;
+  unit: string;} | undefined;
+  /**
+   * Vertical content alignment. Example: "TOP", "MIDDLE", "BOTTOM".
+   */
+  contentAlignment?: string | undefined;};
+  /**
+   * Field mask for properties to update. Example: "backgroundColor" or "*". The root tableCellStyle is implied.
+   */
+  fields: string;
+};
+
+export interface ActionOutput_google_docs_updatetablecellstyle {
+  documentId: string;
+  replies?: unknown[] | undefined;
+};
+
+export interface ActionInput_google_docs_updatetablecolumnproperties {
+  /**
+   * Google Docs document ID. Example: "1Kj3d86Z-Sfd56YP4dImQ-ggMRyP2QZ_BRO33zOO224c"
+   */
+  documentId: string;
+  tableStartLocation: {  /**
+   * The zero-based index where the table starts in the document.
+   */
+  index: number;
+  /**
+   * The ID of the header, footer or footnote. Empty or omitted signifies the document body.
+   */
+  segmentId?: string | undefined;
+  /**
+   * The tab that the location is in. When omitted, applies to the first tab.
+   */
+  tabId?: string | undefined;};
+  /**
+   * Zero-based column indices whose properties should be updated. If empty, all columns are updated.
+   */
+  columnIndices: number[];
+  /**
+   * The column width in points (PT). Must be at least 5 points.
+   */
+  width: number;
+  /**
+   * The width type of the column. Defaults to FIXED_WIDTH when width is provided.
+   */
+  widthType?: 'EVENLY_DISTRIBUTED' | 'FIXED_WIDTH' | undefined;
+  /**
+   * The fields that should be updated. Defaults to "width,widthType".
+   */
+  fields?: string | undefined;
+};
+
+export interface ActionOutput_google_docs_updatetablecolumnproperties {
+  documentId: string;
+  replies?: ({})[] | undefined;
+};
+
+export interface ActionInput_google_docs_updatetablerowstyle {
+  /**
+   * The ID of the document to update. Example: "1Kj3d86Z-Sfd56YP4dImQ-ggMRyP2QZ_BRO33zOO224c"
+   */
+  documentId: string;
+  /**
+   * The location where the table starts in the document.
+   */
+  tableStartLocation: {  index: number;
+  tabId?: string | undefined;
+  segmentId?: string | undefined;};
+  /**
+   * Zero-based row indices to update. If omitted, all rows are updated.
+   */
+  rowIndices?: number[] | undefined;
+  /**
+   * The row style properties to apply.
+   */
+  tableRowStyle: {  minRowHeight?: {  magnitude: number;
+  unit: string;} | undefined;
+  preventOverflow?: boolean | undefined;
+  tableHeader?: boolean | undefined;};
+  /**
+   * Field mask for the row style update. Use "*" for all fields or specific fields like "minRowHeight".
+   */
+  fields: string;
+};
+
+export interface ActionOutput_google_docs_updatetablerowstyle {
+  documentId: string;
+  replies?: ({  [key: string]: unknown | undefined;})[];
+  writeControl?: {  requiredRevisionId?: string | undefined;};
+};
+
+export interface ActionInput_google_docs_updatetextstyle {
+  /**
+   * Google Docs document ID. Example: "1Kj3d86Z-Sfd56YP4dImQ-ggMRyP2QZ_BRO33zOO224c"
+   */
+  documentId: string;
+  /**
+   * Start index of the text range (inclusive).
+   */
+  startIndex: number;
+  /**
+   * End index of the text range (exclusive).
+   */
+  endIndex: number;
+  /**
+   * Segment ID for headers or footers. Omit for body.
+   */
+  segmentId?: string | undefined;
+  bold?: boolean | undefined;
+  italic?: boolean | undefined;
+  underline?: boolean | undefined;
+  strikethrough?: boolean | undefined;
+  foregroundColor?: {  color?: {  rgbColor?: {  red?: number | undefined;
+  green?: number | undefined;
+  blue?: number | undefined;
+  alpha?: number | undefined;};};};
+  backgroundColor?: {  color?: {  rgbColor?: {  red?: number | undefined;
+  green?: number | undefined;
+  blue?: number | undefined;
+  alpha?: number | undefined;};};};
+  link?: {  url?: string | undefined;
+  bookmarkId?: string | undefined;
+  headingId?: string | undefined;};
+  fontSize?: {  magnitude: number;
+  unit?: string | undefined;};
+  weightedFontFamily?: {  fontFamily: string;
+  weight?: number | undefined;};
+};
+
+export interface ActionOutput_google_docs_updatetextstyle {
+  documentId: string;
+  revisionId?: string | undefined;
+};
+
 export interface SyncMetadata_google_drive_documents {
   /**
    * Array of file IDs to sync directly
