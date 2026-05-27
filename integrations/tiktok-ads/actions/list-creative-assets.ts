@@ -92,6 +92,14 @@ const action = createAction({
             })
             .parse(response.data);
 
+        if (tikTokResponse.code !== 0) {
+            throw new nango.ActionError({
+                type: 'provider_error',
+                message: tikTokResponse.message || `Provider returned error code ${tikTokResponse.code}`,
+                code: tikTokResponse.code
+            });
+        }
+
         const providerData = tikTokResponse.data || {};
 
         const items = (providerData.list || []).map((item) => {

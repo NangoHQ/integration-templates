@@ -35,7 +35,7 @@ const sync = createSync({
     description: 'Sync advertisers from TikTok Ads.',
     version: '1.0.0',
     frequency: 'every hour',
-    autoStart: true,
+    autoStart: false,
     endpoints: [{ method: 'GET', path: '/syncs/advertisers' }],
     models: {
         Advertiser: AdvertiserSchema
@@ -43,10 +43,10 @@ const sync = createSync({
 
     exec: async (nango) => {
         const connection = await nango.getConnection();
-        const advertiserId = connection.connection_config?.['advertiser_id'] ?? '7644143197428744199';
+        const advertiserId = connection.connection_config?.['advertiser_id'];
 
-        if (typeof advertiserId !== 'string') {
-            throw new Error('advertiser_id must be a string');
+        if (!advertiserId || typeof advertiserId !== 'string') {
+            throw new Error('advertiser_id is required in connection config');
         }
 
         // https://business-api.tiktok.com/portal/docs?id=1739593083610113

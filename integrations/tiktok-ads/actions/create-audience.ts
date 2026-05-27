@@ -14,9 +14,11 @@ const InputSchema = z.object({
 const ProviderResponseSchema = z.object({
     code: z.number(),
     message: z.string(),
-    data: z.object({
-        custom_audience_id: z.string()
-    })
+    data: z
+        .object({
+            custom_audience_id: z.string()
+        })
+        .optional()
 });
 
 const OutputSchema = z.object({
@@ -58,6 +60,13 @@ const action = createAction({
                 type: 'provider_error',
                 message: providerResponse.message,
                 code: providerResponse.code
+            });
+        }
+
+        if (!providerResponse.data?.custom_audience_id) {
+            throw new nango.ActionError({
+                type: 'provider_error',
+                message: 'Provider response missing custom_audience_id'
             });
         }
 

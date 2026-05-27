@@ -1,6 +1,10 @@
 {
   "nango": {
-    "getConnection": {},
+    "getConnection": {
+      "connection_config": {
+        "advertiser_id": "7644143197428744199"
+      }
+    },
     "batchSave": {
       "Pixel": [
         {

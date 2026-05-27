@@ -30,11 +30,16 @@ const CheckpointSchema = z.object({
     updated_after: z.string()
 });
 
-const sync = createSync<{ CreativeAsset: typeof CreativeAssetSchema }, never, typeof CheckpointSchema>({
+const MetadataSchema = z.object({
+    advertiser_id: z.string()
+});
+
+const sync = createSync({
     description: 'Sync creative assets from TikTok Ads.',
     version: '1.0.0',
     frequency: 'every 5 minutes',
-    autoStart: true,
+    autoStart: false,
+    metadata: MetadataSchema,
     checkpoint: CheckpointSchema,
     models: {
         CreativeAsset: CreativeAssetSchema
@@ -43,8 +48,13 @@ const sync = createSync<{ CreativeAsset: typeof CreativeAssetSchema }, never, ty
     endpoints: [{ method: 'POST', path: '/syncs/creative-assets' }],
     exec: async (nango) => {
         const checkpoint = await nango.getCheckpoint();
-        const advertiserId = '7644143197428744199';
         const updatedAfter = checkpoint?.updated_after;
+
+        const metadata = await nango.getMetadata<z.infer<typeof MetadataSchema>>();
+        if (!metadata?.advertiser_id) {
+            throw new Error('advertiser_id is required in metadata');
+        }
+        const advertiserId = metadata.advertiser_id;
 
         let maxModifyTime: string | undefined;
 
@@ -67,8 +77,13 @@ const sync = createSync<{ CreativeAsset: typeof CreativeAssetSchema }, never, ty
             retries: 3
         };
 
-        for await (const batch of nango.paginate<z.infer<typeof _ProviderImageSchema>>(proxyConfig)) {
-            const records = batch
+        for await (const batch of nango.paginate(proxyConfig)) {
+            const parsedBatch = z.array(_ProviderImageSchema).safeParse(batch);
+            if (!parsedBatch.success) {
+                throw new Error(`Failed to parse creative assets page: ${parsedBatch.error.message}`);
+            }
+
+            const records = parsedBatch.data
                 .filter((item) => {
                     if (!updatedAfter || !item.modify_time) {
                         return true;

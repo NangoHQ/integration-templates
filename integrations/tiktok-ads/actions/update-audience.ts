@@ -14,7 +14,7 @@ const InputSchema = z.object({
 const ProviderResponseSchema = z.object({
     code: z.number(),
     message: z.string(),
-    request_id: z.string(),
+    request_id: z.string().optional(),
     data: z.record(z.string(), z.unknown()).optional()
 });
 

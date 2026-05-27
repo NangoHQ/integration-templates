@@ -54953,6 +54953,10 @@ export interface Campaign {
   modify_time?: string | undefined;
 };
 
+export interface SyncMetadata_tiktok_ads_campaigns {
+  advertiser_id: string;
+};
+
 export interface Catalog {
   id: string;
   catalog_id: string;
@@ -54986,6 +54990,10 @@ export interface CreativeAsset {
   size?: number | undefined;
   create_time?: string | undefined;
   modify_time?: string | undefined;
+};
+
+export interface SyncMetadata_tiktok_ads_creativeassets {
+  advertiser_id: string;
 };
 
 export interface Pixel {
@@ -56796,6 +56804,10 @@ export interface ActionOutput_tiktok_ads_getsmartpluscampaign {
 };
 
 export interface ActionInput_tiktok_ads_gettrendingcontent {
+  /**
+   * Advertiser ID. Example: "7644143197428744199"
+   */
+  advertiser_id: string;
   /**
    * Discovery type. Examples: HASHTAG, VIDEO, CREATOR, SONG
    */

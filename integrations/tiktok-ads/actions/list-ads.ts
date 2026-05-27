@@ -36,10 +36,12 @@ const PageInfoSchema = z.object({
 const ProviderResponseSchema = z.object({
     code: z.number(),
     message: z.string(),
-    data: z.object({
-        list: z.array(z.record(z.string(), z.unknown())),
-        page_info: PageInfoSchema
-    })
+    data: z
+        .object({
+            list: z.array(z.record(z.string(), z.unknown())),
+            page_info: PageInfoSchema
+        })
+        .optional()
 });
 
 const OutputSchema = z.object({
@@ -145,6 +147,10 @@ const action = createAction({
                 type: 'provider_error',
                 message: parsed.message
             });
+        }
+
+        if (!parsed.data) {
+            return { items: [] };
         }
 
         const nextCursor = parsed.data.page_info.page < parsed.data.page_info.total_page ? String(parsed.data.page_info.page + 1) : undefined;

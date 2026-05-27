@@ -123,11 +123,17 @@ const sync = createSync({
 
             await nango.batchSave(ads, 'Ad');
 
-            const lastAd = ads[ads.length - 1];
-            if (!lastAd || !lastAd.modify_time) {
-                throw new Error('Missing modify_time on last ad of page; cannot save checkpoint');
+            // Track the maximum modify_time seen across all ads in this page.
+            // API ordering is not guaranteed, so we cannot rely on the last record.
+            for (const ad of ads) {
+                if (ad.modify_time && (!lastProcessedModifyTime || ad.modify_time > lastProcessedModifyTime)) {
+                    lastProcessedModifyTime = ad.modify_time;
+                }
             }
-            lastProcessedModifyTime = lastAd.modify_time;
+
+            if (!lastProcessedModifyTime) {
+                throw new Error('Missing modify_time on all ads of page; cannot save checkpoint');
+            }
 
             if (page !== undefined) {
                 await nango.saveCheckpoint({

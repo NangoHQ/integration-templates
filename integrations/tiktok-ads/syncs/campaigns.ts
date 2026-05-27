@@ -36,11 +36,16 @@ const CheckpointSchema = z.object({
     modify_time: z.string()
 });
 
+const MetadataSchema = z.object({
+    advertiser_id: z.string()
+});
+
 const sync = createSync({
     description: 'Sync campaigns from TikTok Ads',
     version: '1.0.0',
     frequency: 'every hour',
-    autoStart: true,
+    autoStart: false,
+    metadata: MetadataSchema,
     checkpoint: CheckpointSchema,
     models: {
         Campaign: CampaignSchema
@@ -56,12 +61,17 @@ const sync = createSync({
         const checkpoint = await nango.getCheckpoint();
         const lastModifyTime = checkpoint?.modify_time;
 
+        const metadata = await nango.getMetadata<z.infer<typeof MetadataSchema>>();
+        if (!metadata?.advertiser_id) {
+            throw new Error('advertiser_id is required in metadata');
+        }
+
         const proxyConfig: ProxyConfiguration = {
             // https://business-api.tiktok.com/portal/docs?id=1739315828649986
             endpoint: 'campaign/get/',
             method: 'GET',
             params: {
-                advertiser_id: '7644143197428744199'
+                advertiser_id: metadata.advertiser_id
             },
             paginate: {
                 type: 'offset',

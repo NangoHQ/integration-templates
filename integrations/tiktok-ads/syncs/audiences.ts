@@ -65,6 +65,8 @@ const sync = createSync({
         }
         const advertiserId = metadataParsed.data.advertiser_id;
 
+        await nango.trackDeletesStart('Audience');
+
         // https://business-api.tiktok.com/portal/docs?id=1739940506015746
         const proxyConfig: ProxyConfiguration = {
             // https://business-api.tiktok.com/portal/docs?id=1739940506015746
@@ -120,6 +122,7 @@ const sync = createSync({
         }
 
         await nango.saveCheckpoint({ page: 1 });
+        await nango.trackDeletesEnd('Audience');
     }
 });
 

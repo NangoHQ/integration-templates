@@ -49,7 +49,7 @@ const sync = createSync({
     description: 'Sync pixels from TikTok Ads.',
     version: '1.0.0',
     frequency: 'every hour',
-    autoStart: true,
+    autoStart: false,
     models: {
         Pixel: PixelSchema
     },
@@ -63,7 +63,10 @@ const sync = createSync({
     exec: async (nango) => {
         const connection = await nango.getConnection();
         const connectionConfig = ConnectionConfigSchema.safeParse(connection.connection_config);
-        const advertiserId = connectionConfig.success ? connectionConfig.data.advertiser_id : '7644143197428744199';
+        if (!connectionConfig.success) {
+            throw new Error(`advertiser_id is required in connection config: ${connectionConfig.error.message}`);
+        }
+        const advertiserId = connectionConfig.data.advertiser_id;
 
         // Blocker: The TikTok pixel/list endpoint does not expose a changed-since filter,
         // cursor-based change feed, or deleted-record endpoint. It only supports optional

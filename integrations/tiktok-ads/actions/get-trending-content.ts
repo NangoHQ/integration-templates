@@ -2,6 +2,7 @@ import { z } from 'zod';
 import { createAction } from 'nango';
 
 const InputSchema = z.object({
+    advertiser_id: z.string().describe('Advertiser ID. Example: "7644143197428744199"'),
     discovery_type: z.string().describe('Discovery type. Examples: HASHTAG, VIDEO, CREATOR, SONG'),
     country_code: z.string().optional().describe('Country code. Default: US'),
     category_name: z.string().optional().describe('Category name. Default: ALL'),
@@ -45,13 +46,11 @@ const action = createAction({
     output: OutputSchema,
     scopes: [],
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
-        const advertiserId = '7644143197428744199';
-
         const response = await nango.get({
             // https://business-api.tiktok.com/portal/docs?id=1825119032526849
             endpoint: 'discovery/trending_list/',
             params: {
-                advertiser_id: advertiserId,
+                advertiser_id: input.advertiser_id,
                 discovery_type: input.discovery_type,
                 ...(input.country_code !== undefined && { country_code: input.country_code }),
                 ...(input.category_name !== undefined && { category_name: input.category_name }),
