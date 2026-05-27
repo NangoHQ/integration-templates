@@ -3,9 +3,9 @@ import { createAction } from 'nango';
 
 const InputSchema = z.object({
     documentId: z.string().describe('Google Docs document ID. Example: "1Kj3d86Z-Sfd56YP4dImQ-ggMRyP2QZ_BRO33zOO224c"'),
-    tableStartLocationIndex: z.number().describe('The index of the table element in the document body. Example: 211'),
-    rowIndex: z.number().describe('The row index of a cell in the column to delete. Example: 0'),
-    columnIndex: z.number().describe('The column index to delete. Example: 1')
+    tableStartLocationIndex: z.number().int().nonnegative().describe('The index of the table element in the document body. Example: 211'),
+    rowIndex: z.number().int().nonnegative().describe('The row index of a cell in the column to delete. Example: 0'),
+    columnIndex: z.number().int().nonnegative().describe('The column index to delete. Example: 1')
 });
 
 const OutputSchema = z.object({

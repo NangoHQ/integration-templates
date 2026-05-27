@@ -1411,7 +1411,7 @@
             "server": "ESF",
             "alt-svc": "h3=\":443\"; ma=2592000,h3-29=\":443\"; ma=2592000"
           },
-          "hash": "a86d5dd6eefb91cfbcee8b9c9c2c6e4933b33241",
+          "hash": "09ad8c45a731bae5480f0d71902b0e9856de3b2e",
           "request": {
             "params": {
               "corpora": "drive",
@@ -1420,7 +1420,8 @@
               "orderBy": "modifiedTime desc",
               "pageSize": "100",
               "q": "mimeType='application/vnd.google-apps.document'",
-              "supportsAllDrives": "true"
+              "supportsAllDrives": "true",
+              "fields": "nextPageToken, files(id, name, mimeType, modifiedTime)"
             }
           }
         },
@@ -1464,7 +1465,7 @@
             "server": "ESF",
             "alt-svc": "h3=\":443\"; ma=2592000,h3-29=\":443\"; ma=2592000"
           },
-          "hash": "f29e1cba65d7825bbe146b50f75ba484af062a6b",
+          "hash": "3605e31419190b3c83772dfed8cee6f2763962f9",
           "request": {
             "params": {
               "corpora": "drive",
@@ -1473,7 +1474,8 @@
               "orderBy": "modifiedTime desc",
               "pageSize": "100",
               "q": "mimeType='application/vnd.google-apps.document'",
-              "supportsAllDrives": "true"
+              "supportsAllDrives": "true",
+              "fields": "nextPageToken, files(id, name, mimeType, modifiedTime)"
             }
           }
         },
@@ -1517,7 +1519,7 @@
             "server": "ESF",
             "alt-svc": "h3=\":443\"; ma=2592000,h3-29=\":443\"; ma=2592000"
           },
-          "hash": "0b3d3b85b776d5a748e851e168816bb90d65f9a2",
+          "hash": "e6bf36e371b5c57dbcad2f1d61baeb5f624a8580",
           "request": {
             "params": {
               "corpora": "drive",
@@ -1526,7 +1528,8 @@
               "orderBy": "modifiedTime desc",
               "pageSize": "100",
               "q": "mimeType='application/vnd.google-apps.document'",
-              "supportsAllDrives": "true"
+              "supportsAllDrives": "true",
+              "fields": "nextPageToken, files(id, name, mimeType, modifiedTime)"
             }
           }
         }

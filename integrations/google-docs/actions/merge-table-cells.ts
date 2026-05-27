@@ -2,17 +2,17 @@ import { z } from 'zod';
 import { createAction } from 'nango';
 
 const TableStartLocationSchema = z.object({
-    index: z.number().describe('The index of the table element in the document body. Example: 211'),
+    index: z.number().int().nonnegative().describe('The index of the table element in the document body. Example: 211'),
     segmentId: z.string().optional().describe('The segment ID; omit for the body segment. Example: ""')
 });
 
 const InputSchema = z.object({
     documentId: z.string().describe('The ID of the document containing the table. Example: "1Kj3d86Z-Sfd56YP4dImQ-ggMRyP2QZ_BRO33zOO224c"'),
     tableStartLocation: TableStartLocationSchema.describe('The location of the table in the document'),
-    rowIndex: z.number().describe('The row index of the first cell in the range (0-based). Example: 0'),
-    columnIndex: z.number().describe('The column index of the first cell in the range (0-based). Example: 0'),
-    rowSpan: z.number().describe('The number of rows in the range. Example: 1'),
-    columnSpan: z.number().describe('The number of columns in the range. Example: 2')
+    rowIndex: z.number().int().nonnegative().describe('The row index of the first cell in the range (0-based). Example: 0'),
+    columnIndex: z.number().int().nonnegative().describe('The column index of the first cell in the range (0-based). Example: 0'),
+    rowSpan: z.number().int().min(1).describe('The number of rows in the range. Example: 1'),
+    columnSpan: z.number().int().min(1).describe('The number of columns in the range. Example: 2')
 });
 
 const BatchUpdateResponseSchema = z.object({

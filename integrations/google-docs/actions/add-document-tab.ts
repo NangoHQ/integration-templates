@@ -5,7 +5,7 @@ const InputSchema = z.object({
     documentId: z.string().describe('The ID of the document to add the tab to. Example: "1Kj3d86Z-Sfd56YP4dImQ-ggMRyP2QZ_BRO33zOO224c"'),
     title: z.string().optional().describe('The user-visible name of the tab.'),
     parentTabId: z.string().optional().describe('The ID of the parent tab. Empty when the current tab is a root-level tab.'),
-    index: z.number().int().optional().describe('The zero-based index of the tab within the parent.'),
+    index: z.number().int().nonnegative().optional().describe('The zero-based index of the tab within the parent.'),
     iconEmoji: z.string().optional().describe('The emoji icon displayed with the tab.')
 });
 

@@ -21,6 +21,7 @@ const InputSchema = z.object({
     index: z
         .number()
         .int()
+        .nonnegative()
         .optional()
         .describe('Zero-based body index where the section break should be inserted. If omitted, inserts at the end of the document body.'),
     tabId: z.string().optional().describe('Tab ID for multi-tab documents. When omitted, applies to the first tab.'),

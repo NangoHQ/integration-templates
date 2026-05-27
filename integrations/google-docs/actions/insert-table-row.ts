@@ -3,9 +3,9 @@ import { createAction } from 'nango';
 
 const InputSchema = z.object({
     documentId: z.string().describe('Google Docs document ID. Example: "abc123"'),
-    tableStartLocationIndex: z.number().int().describe('Index of the table element in the body. Example: 211'),
-    rowIndex: z.number().int().describe('Row index of the reference cell. Example: 0'),
-    columnIndex: z.number().int().describe('Column index of the reference cell. Example: 0'),
+    tableStartLocationIndex: z.number().int().nonnegative().describe('Index of the table element in the body. Example: 211'),
+    rowIndex: z.number().int().nonnegative().describe('Row index of the reference cell. Example: 0'),
+    columnIndex: z.number().int().nonnegative().describe('Column index of the reference cell. Example: 0'),
     insertBelow: z.boolean().describe('Whether to insert below the reference cell (true) or above (false).'),
     segmentId: z.string().optional().describe('Segment ID for headers or footers. Omit for body.')
 });

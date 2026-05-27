@@ -71,7 +71,7 @@ const action = createAction({
             data: {
                 requests
             },
-            retries: 1
+            retries: 3
         });
 
         const parsed = BatchUpdateResponseSchema.parse(response.data);

@@ -102,7 +102,7 @@ const action = createAction({
                     }
                 ]
             },
-            retries: 1
+            retries: 3
         };
 
         const response = await nango.post(config);

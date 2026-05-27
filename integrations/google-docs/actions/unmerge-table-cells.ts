@@ -6,15 +6,15 @@ const InputSchema = z.object({
     tableRange: z.object({
         tableCellLocation: z.object({
             tableStartLocation: z.object({
-                index: z.number().describe('The zero-based index of the table element in the document body.'),
+                index: z.number().int().nonnegative().describe('The zero-based index of the table element in the document body.'),
                 segmentId: z.string().optional().describe('The ID of the header, footer or footnote. Empty or omitted signifies the document body.'),
                 tabId: z.string().optional().describe('The tab that the location is in.')
             }),
-            rowIndex: z.number().describe('The zero-based row index of the starting cell.'),
-            columnIndex: z.number().describe('The zero-based column index of the starting cell.')
+            rowIndex: z.number().int().nonnegative().describe('The zero-based row index of the starting cell.'),
+            columnIndex: z.number().int().nonnegative().describe('The zero-based column index of the starting cell.')
         }),
-        rowSpan: z.number().optional().describe('The row span of the table range. Defaults to 1.'),
-        columnSpan: z.number().optional().describe('The column span of the table range. Defaults to 1.')
+        rowSpan: z.number().int().min(1).optional().describe('The row span of the table range. Defaults to 1.'),
+        columnSpan: z.number().int().min(1).optional().describe('The column span of the table range. Defaults to 1.')
     })
 });
 

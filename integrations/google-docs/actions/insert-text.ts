@@ -2,7 +2,7 @@ import { z } from 'zod';
 import { createAction } from 'nango';
 
 const LocationSchema = z.object({
-    index: z.number().describe('The zero-based index in the segment where the text will be inserted.'),
+    index: z.number().int().min(0).describe('The zero-based index in the segment where the text will be inserted.'),
     segmentId: z.string().optional().describe('The ID of the header, footer or footnote segment. Omit or use empty string for the body.'),
     tabId: z.string().optional().describe('The ID of the tab for multi-tab documents.')
 });

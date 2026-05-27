@@ -20,6 +20,9 @@ const InputSchema = z
     })
     .refine((data) => data.location !== undefined || data.endOfSegmentLocation !== undefined, {
         message: 'Either location or endOfSegmentLocation must be provided.'
+    })
+    .refine((data) => !(data.location !== undefined && data.endOfSegmentLocation !== undefined), {
+        message: 'Only one of location or endOfSegmentLocation may be provided, not both.'
     });
 
 const TableStartLocationSchema = z.object({
@@ -126,10 +129,20 @@ const action = createAction({
                 rows: input.rows,
                 columns: input.columns,
                 tableStartLocation: {
-                    index: input.location.index,
+                    index: input.location.index + 1,
                     ...(input.location.segmentId !== undefined && { segmentId: input.location.segmentId })
                 }
             };
+        }
+
+        // endOfSegmentLocation with a non-body segmentId (headers/footers) is not supported
+        // in the fallback path — only the body segment can be searched here.
+        if (input.endOfSegmentLocation?.segmentId) {
+            throw new nango.ActionError({
+                type: 'unsupported_operation',
+                message:
+                    'Unable to determine table start location when inserting into a non-body segment via endOfSegmentLocation. Use a location with an explicit index instead.'
+            });
         }
 
         // https://developers.google.com/docs/api/reference/rest/v1/documents/get

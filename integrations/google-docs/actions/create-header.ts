@@ -50,7 +50,7 @@ const action = createAction({
                     }
                 ]
             },
-            retries: 1
+            retries: 3
         });
 
         const batchResult = BatchUpdateResponseSchema.parse(createResponse.data);
@@ -81,7 +81,7 @@ const action = createAction({
                         }
                     ]
                 },
-                retries: 1
+                retries: 3
             });
             textInserted = true;
         }

@@ -7,8 +7,8 @@ const DimensionSchema = z.object({
 });
 
 const RangeSchema = z.object({
-    startIndex: z.number().describe('The zero-based start index of the range in UTF-16 code units.'),
-    endIndex: z.number().describe('The zero-based end index of the range, exclusive.'),
+    startIndex: z.number().int().min(0).describe('The zero-based start index of the range in UTF-16 code units.'),
+    endIndex: z.number().int().min(0).describe('The zero-based end index of the range, exclusive.'),
     segmentId: z.string().optional().describe('The ID of the header, footer or footnote the range is in. Empty or omitted for the document body.'),
     tabId: z.string().optional().describe('The tab that the range is in. When omitted, applies to the first tab.')
 });
@@ -29,7 +29,7 @@ const ParagraphStyleInputSchema = z.object({
 const InputSchema = z.object({
     documentId: z.string().describe('The ID of the document to update.'),
     range: RangeSchema,
-    fields: z.string().describe('A field mask of which paragraph style fields to update, e.g. "alignment,spaceAbove".'),
+    fields: z.string().min(1).describe('A field mask of which paragraph style fields to update, e.g. "alignment,spaceAbove".'),
     paragraphStyle: ParagraphStyleInputSchema
 });
 

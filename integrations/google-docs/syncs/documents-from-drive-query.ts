@@ -72,7 +72,7 @@ const sync = createSync({
 
         let maxModifiedTime: string | undefined;
 
-        const queryParts: string[] = ["mimeType='application/vnd.google-apps.document'"];
+        const queryParts: string[] = ["mimeType='application/vnd.google-apps.document'", 'trashed=false'];
 
         if (metadata && typeof metadata === 'object' && 'q' in metadata && typeof metadata.q === 'string' && metadata.q) {
             queryParts.push(metadata.q);

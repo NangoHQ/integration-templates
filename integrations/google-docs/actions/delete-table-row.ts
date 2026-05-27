@@ -3,9 +3,9 @@ import { createAction } from 'nango';
 
 const InputSchema = z.object({
     documentId: z.string(),
-    tableStartIndex: z.number(),
-    rowIndex: z.number(),
-    columnIndex: z.number(),
+    tableStartIndex: z.number().int().nonnegative(),
+    rowIndex: z.number().int().nonnegative(),
+    columnIndex: z.number().int().nonnegative(),
     tabId: z.string().optional(),
     segmentId: z.string().optional()
 });

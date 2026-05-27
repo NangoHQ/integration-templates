@@ -4,7 +4,12 @@ import { createAction } from 'nango';
 const InputSchema = z.object({
     documentId: z.string().describe('Google Docs document ID. Example: "1Kj3d86Z-Sfd56YP4dImQ-ggMRyP2QZ_BRO33zOO224c"'),
     text: z.string().optional().describe('Optional text to insert into the newly created footer.'),
-    sectionBreakIndex: z.number().optional().describe('Index of the section break in the document body. Defaults to 0 for the first section.')
+    sectionBreakIndex: z
+        .number()
+        .int()
+        .nonnegative()
+        .optional()
+        .describe('Index of the section break in the document body. Defaults to 0 for the first section.')
 });
 
 const BatchUpdateResponseSchema = z.object({

@@ -6,9 +6,9 @@ const InputSchema = z.object({
     imageObjectId: z.string().describe('The ID of the existing image to replace. Example: "kix.q9j8vk2w9bbp"'),
     uri: z.string().describe('Publicly accessible URI of the new image. Example: "https://example.com/image.png"'),
     imageReplaceMethod: z
-        .enum(['CENTER_CROP', 'USE_EXISTING_SIZE'])
+        .enum(['CENTER_CROP'])
         .optional()
-        .describe('Replacement method. CENTER_CROP scales and centers the image to fill the original bounds. USE_EXISTING_SIZE uses the original image size.'),
+        .describe('Replacement method. CENTER_CROP scales and centers the image to fill the original bounds.'),
     tabId: z.string().optional().describe('The tab containing the image. When omitted, the first tab is used.')
 });
 

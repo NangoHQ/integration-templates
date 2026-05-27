@@ -5,6 +5,7 @@ const InputSchema = z.object({
     documentId: z.string().describe('Google Docs document ID. Example: "1Kj3d86Z-Sfd56YP4dImQ-ggMRyP2QZ_BRO33zOO224c"'),
     index: z
         .number()
+        .int()
         .min(0)
         .optional()
         .describe('Zero-based body index where the page break should be inserted. If omitted, the page break is inserted at the end of the document body.')
@@ -66,7 +67,7 @@ const action = createAction({
         await nango.post({
             endpoint: `/v1/documents/${encodeURIComponent(input.documentId)}:batchUpdate`,
             data: requestBody,
-            retries: 1
+            retries: 3
         });
 
         return {

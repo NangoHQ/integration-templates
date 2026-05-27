@@ -23281,9 +23281,9 @@ export interface ActionInput_google_docs_replaceimage {
    */
   uri: string;
   /**
-   * Replacement method. CENTER_CROP scales and centers the image to fill the original bounds. USE_EXISTING_SIZE uses the original image size.
+   * Replacement method. CENTER_CROP scales and centers the image to fill the original bounds.
    */
-  imageReplaceMethod?: 'CENTER_CROP' | 'USE_EXISTING_SIZE' | undefined;
+  imageReplaceMethod?: 'CENTER_CROP' | undefined;
   /**
    * The tab containing the image. When omitted, the first tab is used.
    */
@@ -23849,12 +23849,10 @@ export interface ActionInput_google_docs_updatetextstyle {
   strikethrough?: boolean | undefined;
   foregroundColor?: {  color?: {  rgbColor?: {  red?: number | undefined;
   green?: number | undefined;
-  blue?: number | undefined;
-  alpha?: number | undefined;};};};
+  blue?: number | undefined;};};};
   backgroundColor?: {  color?: {  rgbColor?: {  red?: number | undefined;
   green?: number | undefined;
-  blue?: number | undefined;
-  alpha?: number | undefined;};};};
+  blue?: number | undefined;};};};
   link?: {  url?: string | undefined;
   bookmarkId?: string | undefined;
   headingId?: string | undefined;};

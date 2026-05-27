@@ -4,8 +4,7 @@ import { createAction } from 'nango';
 const RgbColorSchema = z.object({
     red: z.number().min(0).max(1).optional(),
     green: z.number().min(0).max(1).optional(),
-    blue: z.number().min(0).max(1).optional(),
-    alpha: z.number().min(0).max(1).optional()
+    blue: z.number().min(0).max(1).optional()
 });
 
 const ColorSchema = z.object({
@@ -34,8 +33,8 @@ const WeightedFontFamilySchema = z.object({
 
 const InputSchema = z.object({
     documentId: z.string().describe('Google Docs document ID. Example: "1Kj3d86Z-Sfd56YP4dImQ-ggMRyP2QZ_BRO33zOO224c"'),
-    startIndex: z.number().describe('Start index of the text range (inclusive).'),
-    endIndex: z.number().describe('End index of the text range (exclusive).'),
+    startIndex: z.number().int().min(0).describe('Start index of the text range (inclusive).'),
+    endIndex: z.number().int().min(0).describe('End index of the text range (exclusive).'),
     segmentId: z.string().optional().describe('Segment ID for headers or footers. Omit for body.'),
     bold: z.boolean().optional(),
     italic: z.boolean().optional(),

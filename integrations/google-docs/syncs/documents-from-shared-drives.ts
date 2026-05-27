@@ -108,7 +108,8 @@ const sync = createSync({
                     supportsAllDrives: 'true',
                     orderBy: 'modifiedTime',
                     pageSize: 100,
-                    q: qParts.join(' and ')
+                    q: qParts.join(' and '),
+                    fields: 'nextPageToken, files(id, name, mimeType, modifiedTime)'
                 };
                 if (currentPageToken) {
                     params['pageToken'] = currentPageToken;

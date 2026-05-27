@@ -6847,8 +6847,8 @@
         },
         {
           "id": "13Ythr0_CQdboxDOCmcv2koLe2FjHutML0Q00UtSBOx0",
-          "name": "Nango Test — Multi-Tab B",
-          "title": "Nango Test — Multi-Tab B",
+          "name": "Nango Test \u2014 Multi-Tab B",
+          "title": "Nango Test \u2014 Multi-Tab B",
           "modifiedTime": "2026-05-27T07:39:42.469Z",
           "createdTime": "2026-05-27T07:26:47.226Z",
           "revisionId": "AFwiY1_uAlG5mPj6uQ5Ph1TXlLRgWQGQLUI1ICSqtmdZNyR0ABKeg-Xvgo_uTbIxcwyL3Gxun4CWHg8czt5rSgxeF9a83n4zR7GolKrnIHw",
@@ -6856,7 +6856,7 @@
           "webViewLink": "https://docs.google.com/document/d/13Ythr0_CQdboxDOCmcv2koLe2FjHutML0Q00UtSBOx0/edit?usp=drivesdk",
           "document": {
             "documentId": "13Ythr0_CQdboxDOCmcv2koLe2FjHutML0Q00UtSBOx0",
-            "title": "Nango Test — Multi-Tab B",
+            "title": "Nango Test \u2014 Multi-Tab B",
             "revisionId": "AFwiY1_uAlG5mPj6uQ5Ph1TXlLRgWQGQLUI1ICSqtmdZNyR0ABKeg-Xvgo_uTbIxcwyL3Gxun4CWHg8czt5rSgxeF9a83n4zR7GolKrnIHw",
             "tabs": [
               {
@@ -7811,8 +7811,8 @@
         },
         {
           "id": "1rG_Aj6JXSnTeaHzE0CoIOAYtPdrwRKbilw54N0WQU34",
-          "name": "Nango Test — Multi-Tab A",
-          "title": "Nango Test — Multi-Tab A",
+          "name": "Nango Test \u2014 Multi-Tab A",
+          "title": "Nango Test \u2014 Multi-Tab A",
           "modifiedTime": "2026-05-27T07:40:27.251Z",
           "createdTime": "2026-05-27T07:26:16.942Z",
           "revisionId": "AFwiY1-GPOZSGGLSbJh7vd8zOCLiYbx_i9swQCNwf3lhiq97Exns5vy4h_5u-Rvl7bi6dgFqyhuBN3WIlYD5HW7PasiiZGVR-13x3eQ2--0",
@@ -7820,7 +7820,7 @@
           "webViewLink": "https://docs.google.com/document/d/1rG_Aj6JXSnTeaHzE0CoIOAYtPdrwRKbilw54N0WQU34/edit?usp=drivesdk",
           "document": {
             "documentId": "1rG_Aj6JXSnTeaHzE0CoIOAYtPdrwRKbilw54N0WQU34",
-            "title": "Nango Test — Multi-Tab A",
+            "title": "Nango Test \u2014 Multi-Tab A",
             "revisionId": "AFwiY1-GPOZSGGLSbJh7vd8zOCLiYbx_i9swQCNwf3lhiq97Exns5vy4h_5u-Rvl7bi6dgFqyhuBN3WIlYD5HW7PasiiZGVR-13x3eQ2--0",
             "tabs": [
               {
@@ -11552,8 +11552,8 @@
         },
         {
           "id": "1Kj3d86Z-Sfd56YP4dImQ-ggMRyP2QZ_BRO33zOO224c",
-          "name": "Nango Test — Primary",
-          "title": "Nango Test — Primary",
+          "name": "Nango Test \u2014 Primary",
+          "title": "Nango Test \u2014 Primary",
           "modifiedTime": "2026-05-27T07:44:06.531Z",
           "createdTime": "2026-05-27T07:22:48.930Z",
           "revisionId": "AFwiY1-Lwf8qYTw3meW-0Y5-DD_a2grEqDrGDGIft9MJ-Cdasrnx-Ov_IlsXujGfMUHceWxscTOboTPGz72KNoOAiO_YDoiZnNDWARv3uso",
@@ -11561,7 +11561,7 @@
           "webViewLink": "https://docs.google.com/document/d/1Kj3d86Z-Sfd56YP4dImQ-ggMRyP2QZ_BRO33zOO224c/edit?usp=drivesdk",
           "document": {
             "documentId": "1Kj3d86Z-Sfd56YP4dImQ-ggMRyP2QZ_BRO33zOO224c",
-            "title": "Nango Test — Primary",
+            "title": "Nango Test \u2014 Primary",
             "revisionId": "AFwiY1-Lwf8qYTw3meW-0Y5-DD_a2grEqDrGDGIft9MJ-Cdasrnx-Ov_IlsXujGfMUHceWxscTOboTPGz72KNoOAiO_YDoiZnNDWARv3uso",
             "tabs": [
               {
@@ -18481,7 +18481,7 @@
                         "nestingLevels": [
                           {
                             "bulletAlignment": "START",
-                            "glyphSymbol": "●",
+                            "glyphSymbol": "\u25cf",
                             "glyphFormat": "%0",
                             "indentFirstLine": {
                               "magnitude": 18,
@@ -18498,7 +18498,7 @@
                           },
                           {
                             "bulletAlignment": "START",
-                            "glyphSymbol": "○",
+                            "glyphSymbol": "\u25cb",
                             "glyphFormat": "%1",
                             "indentFirstLine": {
                               "magnitude": 54,
@@ -18515,7 +18515,7 @@
                           },
                           {
                             "bulletAlignment": "START",
-                            "glyphSymbol": "■",
+                            "glyphSymbol": "\u25a0",
                             "glyphFormat": "%2",
                             "indentFirstLine": {
                               "magnitude": 90,
@@ -18532,7 +18532,7 @@
                           },
                           {
                             "bulletAlignment": "START",
-                            "glyphSymbol": "●",
+                            "glyphSymbol": "\u25cf",
                             "glyphFormat": "%3",
                             "indentFirstLine": {
                               "magnitude": 126,
@@ -18549,7 +18549,7 @@
                           },
                           {
                             "bulletAlignment": "START",
-                            "glyphSymbol": "○",
+                            "glyphSymbol": "\u25cb",
                             "glyphFormat": "%4",
                             "indentFirstLine": {
                               "magnitude": 162,
@@ -18566,7 +18566,7 @@
                           },
                           {
                             "bulletAlignment": "START",
-                            "glyphSymbol": "■",
+                            "glyphSymbol": "\u25a0",
                             "glyphFormat": "%5",
                             "indentFirstLine": {
                               "magnitude": 198,
@@ -18583,7 +18583,7 @@
                           },
                           {
                             "bulletAlignment": "START",
-                            "glyphSymbol": "●",
+                            "glyphSymbol": "\u25cf",
                             "glyphFormat": "%6",
                             "indentFirstLine": {
                               "magnitude": 234,
@@ -18600,7 +18600,7 @@
                           },
                           {
                             "bulletAlignment": "START",
-                            "glyphSymbol": "○",
+                            "glyphSymbol": "\u25cb",
                             "glyphFormat": "%7",
                             "indentFirstLine": {
                               "magnitude": 270,
@@ -18617,7 +18617,7 @@
                           },
                           {
                             "bulletAlignment": "START",
-                            "glyphSymbol": "■",
+                            "glyphSymbol": "\u25a0",
                             "glyphFormat": "%8",
                             "indentFirstLine": {
                               "magnitude": 306,
@@ -18640,7 +18640,7 @@
                         "nestingLevels": [
                           {
                             "bulletAlignment": "START",
-                            "glyphSymbol": "●",
+                            "glyphSymbol": "\u25cf",
                             "glyphFormat": "%0",
                             "indentFirstLine": {
                               "magnitude": 18,
@@ -18657,7 +18657,7 @@
                           },
                           {
                             "bulletAlignment": "START",
-                            "glyphSymbol": "○",
+                            "glyphSymbol": "\u25cb",
                             "glyphFormat": "%1",
                             "indentFirstLine": {
                               "magnitude": 54,
@@ -18674,7 +18674,7 @@
                           },
                           {
                             "bulletAlignment": "START",
-                            "glyphSymbol": "■",
+                            "glyphSymbol": "\u25a0",
                             "glyphFormat": "%2",
                             "indentFirstLine": {
                               "magnitude": 90,
@@ -18691,7 +18691,7 @@
                           },
                           {
                             "bulletAlignment": "START",
-                            "glyphSymbol": "●",
+                            "glyphSymbol": "\u25cf",
                             "glyphFormat": "%3",
                             "indentFirstLine": {
                               "magnitude": 126,
@@ -18708,7 +18708,7 @@
                           },
                           {
                             "bulletAlignment": "START",
-                            "glyphSymbol": "○",
+                            "glyphSymbol": "\u25cb",
                             "glyphFormat": "%4",
                             "indentFirstLine": {
                               "magnitude": 162,
@@ -18725,7 +18725,7 @@
                           },
                           {
                             "bulletAlignment": "START",
-                            "glyphSymbol": "■",
+                            "glyphSymbol": "\u25a0",
                             "glyphFormat": "%5",
                             "indentFirstLine": {
                               "magnitude": 198,
@@ -18742,7 +18742,7 @@
                           },
                           {
                             "bulletAlignment": "START",
-                            "glyphSymbol": "●",
+                            "glyphSymbol": "\u25cf",
                             "glyphFormat": "%6",
                             "indentFirstLine": {
                               "magnitude": 234,
@@ -18759,7 +18759,7 @@
                           },
                           {
                             "bulletAlignment": "START",
-                            "glyphSymbol": "○",
+                            "glyphSymbol": "\u25cb",
                             "glyphFormat": "%7",
                             "indentFirstLine": {
                               "magnitude": 270,
@@ -18776,7 +18776,7 @@
                           },
                           {
                             "bulletAlignment": "START",
-                            "glyphSymbol": "■",
+                            "glyphSymbol": "\u25a0",
                             "glyphFormat": "%8",
                             "indentFirstLine": {
                               "magnitude": 306,
@@ -19055,8 +19055,8 @@
         },
         {
           "id": "1ctrF7XM2lZqmQeOBjGXi0SrUY6jgyKwYhDMq5S6omZQ",
-          "name": "Nango Test — Delete Set B",
-          "title": "Nango Test — Delete Set B",
+          "name": "Nango Test \u2014 Delete Set B",
+          "title": "Nango Test \u2014 Delete Set B",
           "modifiedTime": "2026-05-27T07:46:07.601Z",
           "createdTime": "2026-05-27T07:24:58.592Z",
           "revisionId": "AFwiY1-x3MOEa3lwFAMZ9FhqiO6c7nH9Ju2VnWUush-U4QLCU1OEQuwNLnaFm4zwD37He6jgm-DuU3xbUeeSCAA6ujDa2_RMb4di2651b4E",
@@ -19064,7 +19064,7 @@
           "webViewLink": "https://docs.google.com/document/d/1ctrF7XM2lZqmQeOBjGXi0SrUY6jgyKwYhDMq5S6omZQ/edit?usp=drivesdk",
           "document": {
             "documentId": "1ctrF7XM2lZqmQeOBjGXi0SrUY6jgyKwYhDMq5S6omZQ",
-            "title": "Nango Test — Delete Set B",
+            "title": "Nango Test \u2014 Delete Set B",
             "revisionId": "AFwiY1-x3MOEa3lwFAMZ9FhqiO6c7nH9Ju2VnWUush-U4QLCU1OEQuwNLnaFm4zwD37He6jgm-DuU3xbUeeSCAA6ujDa2_RMb4di2651b4E",
             "tabs": [
               {
@@ -19730,7 +19730,7 @@
                         "nestingLevels": [
                           {
                             "bulletAlignment": "START",
-                            "glyphSymbol": "●",
+                            "glyphSymbol": "\u25cf",
                             "glyphFormat": "%0",
                             "indentFirstLine": {
                               "magnitude": 18,
@@ -19747,7 +19747,7 @@
                           },
                           {
                             "bulletAlignment": "START",
-                            "glyphSymbol": "○",
+                            "glyphSymbol": "\u25cb",
                             "glyphFormat": "%1",
                             "indentFirstLine": {
                               "magnitude": 54,
@@ -19764,7 +19764,7 @@
                           },
                           {
                             "bulletAlignment": "START",
-                            "glyphSymbol": "■",
+                            "glyphSymbol": "\u25a0",
                             "glyphFormat": "%2",
                             "indentFirstLine": {
                               "magnitude": 90,
@@ -19781,7 +19781,7 @@
                           },
                           {
                             "bulletAlignment": "START",
-                            "glyphSymbol": "●",
+                            "glyphSymbol": "\u25cf",
                             "glyphFormat": "%3",
                             "indentFirstLine": {
                               "magnitude": 126,
@@ -19798,7 +19798,7 @@
                           },
                           {
                             "bulletAlignment": "START",
-                            "glyphSymbol": "○",
+                            "glyphSymbol": "\u25cb",
                             "glyphFormat": "%4",
                             "indentFirstLine": {
                               "magnitude": 162,
@@ -19815,7 +19815,7 @@
                           },
                           {
                             "bulletAlignment": "START",
-                            "glyphSymbol": "■",
+                            "glyphSymbol": "\u25a0",
                             "glyphFormat": "%5",
                             "indentFirstLine": {
                               "magnitude": 198,
@@ -19832,7 +19832,7 @@
                           },
                           {
                             "bulletAlignment": "START",
-                            "glyphSymbol": "●",
+                            "glyphSymbol": "\u25cf",
                             "glyphFormat": "%6",
                             "indentFirstLine": {
                               "magnitude": 234,
@@ -19849,7 +19849,7 @@
                           },
                           {
                             "bulletAlignment": "START",
-                            "glyphSymbol": "○",
+                            "glyphSymbol": "\u25cb",
                             "glyphFormat": "%7",
                             "indentFirstLine": {
                               "magnitude": 270,
@@ -19866,7 +19866,7 @@
                           },
                           {
                             "bulletAlignment": "START",
-                            "glyphSymbol": "■",
+                            "glyphSymbol": "\u25a0",
                             "glyphFormat": "%8",
                             "indentFirstLine": {
                               "magnitude": 306,
@@ -20026,7 +20026,7 @@
               "mimeType": "application/vnd.google-apps.document",
               "webViewLink": "https://docs.google.com/document/d/13Ythr0_CQdboxDOCmcv2koLe2FjHutML0Q00UtSBOx0/edit?usp=drivesdk",
               "id": "13Ythr0_CQdboxDOCmcv2koLe2FjHutML0Q00UtSBOx0",
-              "name": "Nango Test — Multi-Tab B",
+              "name": "Nango Test \u2014 Multi-Tab B",
               "createdTime": "2026-05-27T07:26:47.226Z",
               "modifiedTime": "2026-05-27T07:39:42.469Z"
             },
@@ -20042,7 +20042,7 @@
               "mimeType": "application/vnd.google-apps.document",
               "webViewLink": "https://docs.google.com/document/d/1rG_Aj6JXSnTeaHzE0CoIOAYtPdrwRKbilw54N0WQU34/edit?usp=drivesdk",
               "id": "1rG_Aj6JXSnTeaHzE0CoIOAYtPdrwRKbilw54N0WQU34",
-              "name": "Nango Test — Multi-Tab A",
+              "name": "Nango Test \u2014 Multi-Tab A",
               "createdTime": "2026-05-27T07:26:16.942Z",
               "modifiedTime": "2026-05-27T07:40:27.251Z"
             },
@@ -20058,7 +20058,7 @@
               "mimeType": "application/vnd.google-apps.document",
               "webViewLink": "https://docs.google.com/document/d/1Kj3d86Z-Sfd56YP4dImQ-ggMRyP2QZ_BRO33zOO224c/edit?usp=drivesdk",
               "id": "1Kj3d86Z-Sfd56YP4dImQ-ggMRyP2QZ_BRO33zOO224c",
-              "name": "Nango Test — Primary",
+              "name": "Nango Test \u2014 Primary",
               "createdTime": "2026-05-27T07:22:48.930Z",
               "modifiedTime": "2026-05-27T07:44:06.531Z"
             },
@@ -20066,7 +20066,7 @@
               "mimeType": "application/vnd.google-apps.document",
               "webViewLink": "https://docs.google.com/document/d/1ctrF7XM2lZqmQeOBjGXi0SrUY6jgyKwYhDMq5S6omZQ/edit?usp=drivesdk",
               "id": "1ctrF7XM2lZqmQeOBjGXi0SrUY6jgyKwYhDMq5S6omZQ",
-              "name": "Nango Test — Delete Set B",
+              "name": "Nango Test \u2014 Delete Set B",
               "createdTime": "2026-05-27T07:24:58.592Z",
               "modifiedTime": "2026-05-27T07:46:07.601Z"
             }
@@ -20097,13 +20097,13 @@
           "server": "ESF",
           "alt-svc": "h3=\":443\"; ma=2592000,h3-29=\":443\"; ma=2592000"
         },
-        "hash": "81443772c3350a4fc7360926f90f55ca8bcf4845",
+        "hash": "2f16ab1478f88dd58bf59837c78943c9847b09ab",
         "request": {
           "params": {
             "fields": "nextPageToken, files(id, name, mimeType, modifiedTime, createdTime, webViewLink)",
             "orderBy": "modifiedTime",
             "pageSize": "100",
-            "q": "mimeType='application/vnd.google-apps.document' and name contains 'Nango'"
+            "q": "mimeType='application/vnd.google-apps.document' and trashed=false and name contains 'Nango'"
           }
         }
       },
@@ -27264,7 +27264,7 @@
       },
       "/v1/documents/13Ythr0_CQdboxDOCmcv2koLe2FjHutML0Q00UtSBOx0": {
         "response": {
-          "title": "Nango Test — Multi-Tab B",
+          "title": "Nango Test \u2014 Multi-Tab B",
           "revisionId": "AFwiY1_uAlG5mPj6uQ5Ph1TXlLRgWQGQLUI1ICSqtmdZNyR0ABKeg-Xvgo_uTbIxcwyL3Gxun4CWHg8czt5rSgxeF9a83n4zR7GolKrnIHw",
           "suggestionsViewMode": "SUGGESTIONS_INLINE",
           "documentId": "13Ythr0_CQdboxDOCmcv2koLe2FjHutML0Q00UtSBOx0",
@@ -28270,7 +28270,7 @@
       },
       "/v1/documents/1rG_Aj6JXSnTeaHzE0CoIOAYtPdrwRKbilw54N0WQU34": {
         "response": {
-          "title": "Nango Test — Multi-Tab A",
+          "title": "Nango Test \u2014 Multi-Tab A",
           "revisionId": "AFwiY1-GPOZSGGLSbJh7vd8zOCLiYbx_i9swQCNwf3lhiq97Exns5vy4h_5u-Rvl7bi6dgFqyhuBN3WIlYD5HW7PasiiZGVR-13x3eQ2--0",
           "suggestionsViewMode": "SUGGESTIONS_INLINE",
           "documentId": "1rG_Aj6JXSnTeaHzE0CoIOAYtPdrwRKbilw54N0WQU34",
@@ -32053,7 +32053,7 @@
       },
       "/v1/documents/1Kj3d86Z-Sfd56YP4dImQ-ggMRyP2QZ_BRO33zOO224c": {
         "response": {
-          "title": "Nango Test — Primary",
+          "title": "Nango Test \u2014 Primary",
           "revisionId": "AFwiY1-Lwf8qYTw3meW-0Y5-DD_a2grEqDrGDGIft9MJ-Cdasrnx-Ov_IlsXujGfMUHceWxscTOboTPGz72KNoOAiO_YDoiZnNDWARv3uso",
           "suggestionsViewMode": "SUGGESTIONS_INLINE",
           "documentId": "1Kj3d86Z-Sfd56YP4dImQ-ggMRyP2QZ_BRO33zOO224c",
@@ -38975,7 +38975,7 @@
                       "nestingLevels": [
                         {
                           "bulletAlignment": "START",
-                          "glyphSymbol": "●",
+                          "glyphSymbol": "\u25cf",
                           "glyphFormat": "%0",
                           "indentFirstLine": {
                             "magnitude": 18,
@@ -38992,7 +38992,7 @@
                         },
                         {
                           "bulletAlignment": "START",
-                          "glyphSymbol": "○",
+                          "glyphSymbol": "\u25cb",
                           "glyphFormat": "%1",
                           "indentFirstLine": {
                             "magnitude": 54,
@@ -39009,7 +39009,7 @@
                         },
                         {
                           "bulletAlignment": "START",
-                          "glyphSymbol": "■",
+                          "glyphSymbol": "\u25a0",
                           "glyphFormat": "%2",
                           "indentFirstLine": {
                             "magnitude": 90,
@@ -39026,7 +39026,7 @@
                         },
                         {
                           "bulletAlignment": "START",
-                          "glyphSymbol": "●",
+                          "glyphSymbol": "\u25cf",
                           "glyphFormat": "%3",
                           "indentFirstLine": {
                             "magnitude": 126,
@@ -39043,7 +39043,7 @@
                         },
                         {
                           "bulletAlignment": "START",
-                          "glyphSymbol": "○",
+                          "glyphSymbol": "\u25cb",
                           "glyphFormat": "%4",
                           "indentFirstLine": {
                             "magnitude": 162,
@@ -39060,7 +39060,7 @@
                         },
                         {
                           "bulletAlignment": "START",
-                          "glyphSymbol": "■",
+                          "glyphSymbol": "\u25a0",
                           "glyphFormat": "%5",
                           "indentFirstLine": {
                             "magnitude": 198,
@@ -39077,7 +39077,7 @@
                         },
                         {
                           "bulletAlignment": "START",
-                          "glyphSymbol": "●",
+                          "glyphSymbol": "\u25cf",
                           "glyphFormat": "%6",
                           "indentFirstLine": {
                             "magnitude": 234,
@@ -39094,7 +39094,7 @@
                         },
                         {
                           "bulletAlignment": "START",
-                          "glyphSymbol": "○",
+                          "glyphSymbol": "\u25cb",
                           "glyphFormat": "%7",
                           "indentFirstLine": {
                             "magnitude": 270,
@@ -39111,7 +39111,7 @@
                         },
                         {
                           "bulletAlignment": "START",
-                          "glyphSymbol": "■",
+                          "glyphSymbol": "\u25a0",
                           "glyphFormat": "%8",
                           "indentFirstLine": {
                             "magnitude": 306,
@@ -39134,7 +39134,7 @@
                       "nestingLevels": [
                         {
                           "bulletAlignment": "START",
-                          "glyphSymbol": "●",
+                          "glyphSymbol": "\u25cf",
                           "glyphFormat": "%0",
                           "indentFirstLine": {
                             "magnitude": 18,
@@ -39151,7 +39151,7 @@
                         },
                         {
                           "bulletAlignment": "START",
-                          "glyphSymbol": "○",
+                          "glyphSymbol": "\u25cb",
                           "glyphFormat": "%1",
                           "indentFirstLine": {
                             "magnitude": 54,
@@ -39168,7 +39168,7 @@
                         },
                         {
                           "bulletAlignment": "START",
-                          "glyphSymbol": "■",
+                          "glyphSymbol": "\u25a0",
                           "glyphFormat": "%2",
                           "indentFirstLine": {
                             "magnitude": 90,
@@ -39185,7 +39185,7 @@
                         },
                         {
                           "bulletAlignment": "START",
-                          "glyphSymbol": "●",
+                          "glyphSymbol": "\u25cf",
                           "glyphFormat": "%3",
                           "indentFirstLine": {
                             "magnitude": 126,
@@ -39202,7 +39202,7 @@
                         },
                         {
                           "bulletAlignment": "START",
-                          "glyphSymbol": "○",
+                          "glyphSymbol": "\u25cb",
                           "glyphFormat": "%4",
                           "indentFirstLine": {
                             "magnitude": 162,
@@ -39219,7 +39219,7 @@
                         },
                         {
                           "bulletAlignment": "START",
-                          "glyphSymbol": "■",
+                          "glyphSymbol": "\u25a0",
                           "glyphFormat": "%5",
                           "indentFirstLine": {
                             "magnitude": 198,
@@ -39236,7 +39236,7 @@
                         },
                         {
                           "bulletAlignment": "START",
-                          "glyphSymbol": "●",
+                          "glyphSymbol": "\u25cf",
                           "glyphFormat": "%6",
                           "indentFirstLine": {
                             "magnitude": 234,
@@ -39253,7 +39253,7 @@
                         },
                         {
                           "bulletAlignment": "START",
-                          "glyphSymbol": "○",
+                          "glyphSymbol": "\u25cb",
                           "glyphFormat": "%7",
                           "indentFirstLine": {
                             "magnitude": 270,
@@ -39270,7 +39270,7 @@
                         },
                         {
                           "bulletAlignment": "START",
-                          "glyphSymbol": "■",
+                          "glyphSymbol": "\u25a0",
                           "glyphFormat": "%8",
                           "indentFirstLine": {
                             "magnitude": 306,
@@ -39577,7 +39577,7 @@
       },
       "/v1/documents/1ctrF7XM2lZqmQeOBjGXi0SrUY6jgyKwYhDMq5S6omZQ": {
         "response": {
-          "title": "Nango Test — Delete Set B",
+          "title": "Nango Test \u2014 Delete Set B",
           "revisionId": "AFwiY1-x3MOEa3lwFAMZ9FhqiO6c7nH9Ju2VnWUush-U4QLCU1OEQuwNLnaFm4zwD37He6jgm-DuU3xbUeeSCAA6ujDa2_RMb4di2651b4E",
           "suggestionsViewMode": "SUGGESTIONS_INLINE",
           "documentId": "1ctrF7XM2lZqmQeOBjGXi0SrUY6jgyKwYhDMq5S6omZQ",
@@ -40245,7 +40245,7 @@
                       "nestingLevels": [
                         {
                           "bulletAlignment": "START",
-                          "glyphSymbol": "●",
+                          "glyphSymbol": "\u25cf",
                           "glyphFormat": "%0",
                           "indentFirstLine": {
                             "magnitude": 18,
@@ -40262,7 +40262,7 @@
                         },
                         {
                           "bulletAlignment": "START",
-                          "glyphSymbol": "○",
+                          "glyphSymbol": "\u25cb",
                           "glyphFormat": "%1",
                           "indentFirstLine": {
                             "magnitude": 54,
@@ -40279,7 +40279,7 @@
                         },
                         {
                           "bulletAlignment": "START",
-                          "glyphSymbol": "■",
+                          "glyphSymbol": "\u25a0",
                           "glyphFormat": "%2",
                           "indentFirstLine": {
                             "magnitude": 90,
@@ -40296,7 +40296,7 @@
                         },
                         {
                           "bulletAlignment": "START",
-                          "glyphSymbol": "●",
+                          "glyphSymbol": "\u25cf",
                           "glyphFormat": "%3",
                           "indentFirstLine": {
                             "magnitude": 126,
@@ -40313,7 +40313,7 @@
                         },
                         {
                           "bulletAlignment": "START",
-                          "glyphSymbol": "○",
+                          "glyphSymbol": "\u25cb",
                           "glyphFormat": "%4",
                           "indentFirstLine": {
                             "magnitude": 162,
@@ -40330,7 +40330,7 @@
                         },
                         {
                           "bulletAlignment": "START",
-                          "glyphSymbol": "■",
+                          "glyphSymbol": "\u25a0",
                           "glyphFormat": "%5",
                           "indentFirstLine": {
                             "magnitude": 198,
@@ -40347,7 +40347,7 @@
                         },
                         {
                           "bulletAlignment": "START",
-                          "glyphSymbol": "●",
+                          "glyphSymbol": "\u25cf",
                           "glyphFormat": "%6",
                           "indentFirstLine": {
                             "magnitude": 234,
@@ -40364,7 +40364,7 @@
                         },
                         {
                           "bulletAlignment": "START",
-                          "glyphSymbol": "○",
+                          "glyphSymbol": "\u25cb",
                           "glyphFormat": "%7",
                           "indentFirstLine": {
                             "magnitude": 270,
@@ -40381,7 +40381,7 @@
                         },
                         {
                           "bulletAlignment": "START",
-                          "glyphSymbol": "■",
+                          "glyphSymbol": "\u25a0",
                           "glyphFormat": "%8",
                           "indentFirstLine": {
                             "magnitude": 306,

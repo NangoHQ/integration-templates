@@ -49,7 +49,7 @@ const action = createAction({
             deleteNamedRangeRequest['name'] = input.name;
         }
         if (input.tabId !== undefined) {
-            deleteNamedRangeRequest['tabId'] = input.tabId;
+            deleteNamedRangeRequest['tabsCriteria'] = { tabIds: [input.tabId] };
         }
 
         // https://developers.google.com/docs/api/reference/rest/v1/documents/batchUpdate

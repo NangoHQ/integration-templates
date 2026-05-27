@@ -9,7 +9,7 @@ const InputSchema = z.object({
         tabId: z.string().optional().describe('The tab that the location is in. When omitted, applies to the first tab.')
     }),
     columnIndices: z.array(z.number()).describe('Zero-based column indices whose properties should be updated. If empty, all columns are updated.'),
-    width: z.number().describe('The column width in points (PT). Must be at least 5 points.'),
+    width: z.number().min(5).describe('The column width in points (PT). Must be at least 5 points.'),
     widthType: z
         .enum(['EVENLY_DISTRIBUTED', 'FIXED_WIDTH'])
         .optional()

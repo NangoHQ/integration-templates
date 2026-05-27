@@ -96,10 +96,10 @@ const sync = createSync({
         }
 
         let completedFullRefresh = useCheckpointedFullRefresh;
+        let processedCount = 0;
 
         for (let i = useCheckpointedFullRefresh ? folderIndex : 0; i < folderIds.length; i++) {
             const folderId = folderIds[i];
-            let processedCount = 0;
             let currentPageToken = useCheckpointedFullRefresh && i === folderIndex ? pageToken : '';
 
             while (true) {
