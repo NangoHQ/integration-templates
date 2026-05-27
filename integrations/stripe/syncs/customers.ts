@@ -37,7 +37,8 @@ const PageSchema = z.object({
 });
 
 const sync = createSync({
-    description: 'Sync customers from Stripe. Incrementally fetches newly created customers using a creation-time checkpoint. Updates to existing customers are not captured; use a customer-events sync for update tracking.',
+    description:
+        'Sync customers from Stripe. Incrementally fetches newly created customers using a creation-time checkpoint. Updates to existing customers are not captured; use a customer-events sync for update tracking.',
     version: '1.0.0',
     frequency: 'every hour',
     autoStart: true,
