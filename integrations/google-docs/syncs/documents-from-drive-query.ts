@@ -1,6 +1,5 @@
 import { createSync } from 'nango';
 import { z } from 'zod';
-import type { CursorPagination } from '@nangohq/types';
 import type { ProxyConfiguration } from '@nangohq/runner-sdk';
 
 const MetadataSchema = z.object({
@@ -95,24 +94,22 @@ const sync = createSync({
             driveParams['pageToken'] = pageToken;
         }
 
-        const paginateConfig: Partial<CursorPagination> = {
-            type: 'cursor',
-            cursor_name_in_request: 'pageToken',
-            cursor_path_in_response: 'nextPageToken',
-            response_path: 'files',
-            limit_name_in_request: 'pageSize',
-            limit: 100,
-            on_page: async (state) => {
-                pageToken = typeof state.nextPageParam === 'string' ? state.nextPageParam : undefined;
-            }
-        };
-
         const proxyConfig: ProxyConfiguration = {
             baseUrlOverride: 'https://www.googleapis.com/drive/v3',
             // https://developers.google.com/workspace/drive/api/reference/rest/v3/files/list
             endpoint: '/files',
             params: driveParams,
-            paginate: paginateConfig,
+            paginate: {
+                type: 'cursor',
+                cursor_name_in_request: 'pageToken',
+                cursor_path_in_response: 'nextPageToken',
+                response_path: 'files',
+                limit_name_in_request: 'pageSize',
+                limit: 100,
+                on_page: async (state) => {
+                    pageToken = typeof state.nextPageParam === 'string' ? state.nextPageParam : undefined;
+                }
+            },
             retries: 3
         };
 
