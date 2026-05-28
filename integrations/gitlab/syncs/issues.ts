@@ -88,6 +88,8 @@ const sync = createSync({
             }
         }
 
+        let anySaved = false;
+
         for (const project of projects) {
             const params: Record<string, string | number> = {
                 state: 'all',
@@ -144,11 +146,14 @@ const sync = createSync({
 
                 if (issues.length > 0) {
                     await nango.batchSave(issues, 'Issue');
+                    anySaved = true;
                 }
             }
         }
 
-        await nango.saveCheckpoint({ updated_after: runStart });
+        if (anySaved) {
+            await nango.saveCheckpoint({ updated_after: runStart });
+        }
     }
 });
 
