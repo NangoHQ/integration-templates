@@ -3,8 +3,11 @@ import { z } from 'zod';
 
 const InputSchema = z.object({
     title: z.string().optional().describe('Filter by pipeline title (partial match)'),
-    have_stages: z.number().int().optional().describe('Filter by whether pipelines have deal stages (1 or 0)'),
-    limit: z.number().int().optional().describe('Number of results per page (max 100)'),
+    have_stages: z
+        .union([z.literal(0), z.literal(1)])
+        .optional()
+        .describe('Filter by whether pipelines have deal stages (1 or 0)'),
+    limit: z.number().int().min(1).max(100).optional().describe('Number of results per page (max 100)'),
     offset: z.number().int().optional().describe('Starting index for pagination'),
     orders_title: z.enum(['ASC', 'DESC']).optional().describe('Order by pipeline title'),
     orders_popular: z.enum(['ASC', 'DESC']).optional().describe('Order by number of deals')

@@ -3,7 +3,7 @@ import { createAction } from 'nango';
 
 const InputSchema = z.object({
     cursor: z.string().optional().describe('Pagination cursor (offset). Omit for the first page.'),
-    limit: z.number().max(100).optional().describe('Number of results per page (max 100).'),
+    limit: z.number().int().min(1).max(100).optional().describe('Number of results per page (max 100).'),
     seriesid: z.number().optional().describe('Filter to return campaigns from the targeted automation/series.'),
     orders_sdate: z.enum(['ASC', 'DESC']).optional().describe('Order campaigns by send date.'),
     orders_ldate: z.enum(['ASC', 'DESC']).optional().describe('Order campaigns by last send date.')
@@ -51,6 +51,9 @@ const action = createAction({
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const offset = input.cursor ? parseInt(input.cursor, 10) : 0;
+        if (input.cursor && (Number.isNaN(offset) || offset < 0 || String(offset) !== input.cursor)) {
+            throw new nango.ActionError({ type: 'invalid_input', message: 'cursor must be a valid non-negative integer string.' });
+        }
         const limit = input.limit ?? 20;
 
         const response = await nango.get({

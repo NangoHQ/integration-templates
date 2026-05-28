@@ -24,7 +24,7 @@ const AccountFieldSchema = z.object({
 const ProviderAccountSchema = z.object({
     id: z.string(),
     name: z.string(),
-    accountUrl: z.string().optional(),
+    accountUrl: z.string().nullable().optional(),
     createdTimestamp: z.string().optional(),
     updatedTimestamp: z.string().optional(),
     fields: z.array(AccountFieldSchema).optional()
@@ -95,7 +95,7 @@ const action = createAction({
         return {
             id: providerAccount.id,
             name: providerAccount.name,
-            ...(providerAccount.accountUrl !== undefined && { accountUrl: providerAccount.accountUrl }),
+            ...(providerAccount.accountUrl != null && { accountUrl: providerAccount.accountUrl }),
             ...(providerAccount.createdTimestamp !== undefined && { createdTimestamp: providerAccount.createdTimestamp }),
             ...(providerAccount.updatedTimestamp !== undefined && { updatedTimestamp: providerAccount.updatedTimestamp }),
             ...(providerAccount.fields !== undefined && { fields: providerAccount.fields })

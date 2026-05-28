@@ -68,7 +68,7 @@ const action = createAction({
                     ...(input.stringid !== undefined && { stringid: input.stringid }),
                     ...(input.sender_url !== undefined && { sender_url: input.sender_url }),
                     ...(input.sender_reminder !== undefined && { sender_reminder: input.sender_reminder }),
-                    ...(input.send_last_broadcast !== undefined && { send_last_broadcast: input.send_last_broadcast }),
+                    ...(input.send_last_broadcast !== undefined && { send_last_broadcast: input.send_last_broadcast ? 1 : 0 }),
                     ...(input.carboncopy !== undefined && { carboncopy: input.carboncopy }),
                     ...(input.subscription_notify !== undefined && { subscription_notify: input.subscription_notify }),
                     ...(input.unsubscription_notify !== undefined && { unsubscription_notify: input.unsubscription_notify }),

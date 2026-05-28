@@ -52,6 +52,9 @@ const action = createAction({
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const offset = input.cursor ? parseInt(input.cursor, 10) : 0;
+        if (input.cursor && (Number.isNaN(offset) || offset < 0 || String(offset) !== input.cursor)) {
+            throw new nango.ActionError({ type: 'invalid_input', message: 'cursor must be a valid non-negative integer string.' });
+        }
         const limit = input.limit ?? 20;
 
         // https://developers.activecampaign.com/reference/retrieve-fields

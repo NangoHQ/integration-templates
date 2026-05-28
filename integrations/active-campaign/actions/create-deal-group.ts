@@ -4,9 +4,18 @@ import { createAction } from 'nango';
 const InputSchema = z.object({
     title: z.string().describe('Pipeline title. Example: "Sales Pipeline"'),
     currency: z.string().describe('Default currency for new deals in this pipeline. Example: "usd"'),
-    allgroups: z.number().int().optional().describe('Whether all user groups can manage this pipeline. 1 = yes, 0 = no. Default: 1'),
-    allusers: z.number().int().optional().describe('Whether new deals are auto-assigned to all users. 1 = yes, 0 = no. Default: 0'),
-    autoassign: z.number().int().optional().describe('Deal auto-assign mode. 0 = disabled, 1 = round robin, 2 = by value. Default: 1'),
+    allgroups: z
+        .union([z.literal(0), z.literal(1)])
+        .optional()
+        .describe('Whether all user groups can manage this pipeline. 1 = yes, 0 = no. Default: 1'),
+    allusers: z
+        .union([z.literal(0), z.literal(1)])
+        .optional()
+        .describe('Whether new deals are auto-assigned to all users. 1 = yes, 0 = no. Default: 0'),
+    autoassign: z
+        .union([z.literal(0), z.literal(1), z.literal(2)])
+        .optional()
+        .describe('Deal auto-assign mode. 0 = disabled, 1 = round robin, 2 = by value. Default: 1'),
     users: z.array(z.string()).optional().describe('List of user IDs to auto-assign new deals to when auto-assign is enabled.'),
     groups: z.array(z.string()).optional().describe('List of user group IDs allowed to manage this pipeline when allgroups is 0.')
 });

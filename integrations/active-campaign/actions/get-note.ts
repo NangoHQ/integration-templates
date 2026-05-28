@@ -2,7 +2,7 @@ import { z } from 'zod';
 import { createAction } from 'nango';
 
 const InputSchema = z.object({
-    id: z.string().describe('Note ID. Example: "1"')
+    id: z.string().min(1).describe('Note ID. Example: "1"')
 });
 
 const ProviderNoteSchema = z.object({

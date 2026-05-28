@@ -30,7 +30,7 @@ const action = createAction({
         const response = await nango.delete({
             // https://developers.activecampaign.com/reference/delete-a-custom-field
             endpoint: `/3/fields/${encodeURIComponent(String(input.id))}`,
-            retries: 0 // eslint-disable-line @nangohq/custom-integrations-linting/proxy-call-retries
+            retries: 3
         });
 
         const providerData = ProviderResponseSchema.parse(response.data);

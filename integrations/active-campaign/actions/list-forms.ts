@@ -3,7 +3,7 @@ import { createAction } from 'nango';
 
 const InputSchema = z.object({
     cursor: z.string().optional().describe('Pagination cursor from the previous response. Omit for the first page.'),
-    limit: z.number().optional().describe('Number of results per page (default 20, max 100).')
+    limit: z.number().int().min(1).max(100).optional().describe('Number of results per page (default 20, max 100).')
 });
 
 const ProviderFormSchema = z
@@ -48,6 +48,9 @@ const action = createAction({
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const limit = input.limit ?? 20;
         const offset = input.cursor ? parseInt(input.cursor, 10) : 0;
+        if (input.cursor && (Number.isNaN(offset) || offset < 0 || String(offset) !== input.cursor)) {
+            throw new nango.ActionError({ type: 'invalid_input', message: 'cursor must be a valid non-negative integer string.' });
+        }
 
         const response = await nango.get({
             // https://developers.activecampaign.com/reference/forms-1

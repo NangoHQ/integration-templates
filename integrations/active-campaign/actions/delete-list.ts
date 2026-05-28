@@ -23,24 +23,15 @@ const action = createAction({
     scopes: ['lists'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
-        const response = await nango.delete({
+        await nango.delete({
             // https://developers.activecampaign.com/reference/delete-a-list
             endpoint: `/3/lists/${encodeURIComponent(String(input.id))}`,
             retries: 3
         });
 
-        const data = z.object({}).parse(response.data);
-
-        if (Object.keys(data).length === 0) {
-            return {
-                id: input.id,
-                success: true
-            };
-        }
-
         return {
             id: input.id,
-            success: false
+            success: true
         };
     }
 });

@@ -2,7 +2,7 @@ import { z } from 'zod';
 import { createAction } from 'nango';
 
 const InputSchema = z.object({
-    id: z.number().describe('ID of the tag to update. Example: 1'),
+    id: z.string().min(1).describe('ID of the tag to update. Example: "1"'),
     tag: z.string().optional().describe('Name of the tag being updated'),
     tagType: z.string().optional().describe('Tag-type of the tag being updated. Possible values: template, contact'),
     description: z.string().nullable().optional().describe('Description of the tag being updated')
@@ -11,7 +11,7 @@ const InputSchema = z.object({
 const ProviderTagSchema = z.object({
     tagType: z.string().optional(),
     tag: z.string().optional(),
-    description: z.string().optional(),
+    description: z.string().nullable().optional(),
     cdate: z.string().optional(),
     links: z.record(z.string(), z.string()).optional(),
     id: z.string().optional()

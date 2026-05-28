@@ -4,7 +4,7 @@ import { createAction } from 'nango';
 const InputSchema = z.object({
     note: z.string().describe('Text content of the note. Example: "Follow up with lead next week"'),
     relid: z.number().describe('ID of the related record. Example: 1'),
-    reltype: z.string().describe('Type of related object. Possible values: Activity, Deal, DealTask, Subscriber, CustomerAccount. Example: "Subscriber"')
+    reltype: z.enum(['Activity', 'Deal', 'DealTask', 'Subscriber', 'CustomerAccount']).describe('Type of related object. Example: "Subscriber"')
 });
 
 const ProviderNoteSchema = z.object({

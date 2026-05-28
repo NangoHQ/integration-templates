@@ -3,7 +3,7 @@ import { createAction } from 'nango';
 
 const InputSchema = z.object({
     cursor: z.string().optional().describe('Pagination cursor from the previous response. Omit for the first page.'),
-    limit: z.number().optional().describe('Number of deals to return per page. Example: 20'),
+    limit: z.number().int().min(1).optional().describe('Number of deals to return per page. Example: 20'),
     search: z.string().optional().describe('Search text to use with search_field parameter.'),
     search_field: z.string().optional().describe('Field to search for.'),
     title: z.string().optional().describe("Filter by deal's title."),
@@ -71,8 +71,8 @@ function encodeCursor(offset: number): string {
 function decodeCursor(cursor: string): number {
     const decoded = Buffer.from(cursor, 'base64').toString('utf-8');
     const parsed = parseInt(decoded, 10);
-    if (Number.isNaN(parsed)) {
-        return 0;
+    if (Number.isNaN(parsed) || parsed < 0 || String(parsed) !== decoded) {
+        throw new Error(`Invalid pagination cursor: "${cursor}"`);
     }
     return parsed;
 }

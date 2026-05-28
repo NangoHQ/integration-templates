@@ -960,15 +960,15 @@ export interface ActionInput_active_campaign_createdealgroup {
   /**
    * Whether all user groups can manage this pipeline. 1 = yes, 0 = no. Default: 1
    */
-  allgroups?: number | undefined;
+  allgroups?: 0 | 1 | undefined;
   /**
    * Whether new deals are auto-assigned to all users. 1 = yes, 0 = no. Default: 0
    */
-  allusers?: number | undefined;
+  allusers?: 0 | 1 | undefined;
   /**
    * Deal auto-assign mode. 0 = disabled, 1 = round robin, 2 = by value. Default: 1
    */
-  autoassign?: number | undefined;
+  autoassign?: 0 | 1 | 2 | undefined;
   /**
    * List of user IDs to auto-assign new deals to when auto-assign is enabled.
    */
@@ -1039,7 +1039,7 @@ export interface ActionInput_active_campaign_createdealstage {
   /**
    * Whether to reorder stages after creation. Can be 0 or 1.
    */
-  reorder?: number | undefined;
+  reorder?: 0 | 1 | undefined;
 };
 
 export interface ActionOutput_active_campaign_createdealstage {
@@ -1205,9 +1205,9 @@ export interface ActionInput_active_campaign_createnote {
    */
   relid: number;
   /**
-   * Type of related object. Possible values: Activity, Deal, DealTask, Subscriber, CustomerAccount. Example: "Subscriber"
+   * Type of related object. Example: "Subscriber"
    */
-  reltype: string;
+  reltype: 'Activity' | 'Deal' | 'DealTask' | 'Subscriber' | 'CustomerAccount';
 };
 
 export interface ActionOutput_active_campaign_createnote {
@@ -2170,7 +2170,7 @@ export interface ActionInput_active_campaign_listdealgroups {
   /**
    * Filter by whether pipelines have deal stages (1 or 0)
    */
-  have_stages?: number | undefined;
+  have_stages?: 0 | 1 | undefined;
   /**
    * Number of results per page (max 100)
    */
@@ -2946,9 +2946,9 @@ export interface ActionOutput_active_campaign_updatenote {
 
 export interface ActionInput_active_campaign_updatetag {
   /**
-   * ID of the tag to update. Example: 1
+   * ID of the tag to update. Example: "1"
    */
-  id: number;
+  id: string;
   /**
    * Name of the tag being updated
    */

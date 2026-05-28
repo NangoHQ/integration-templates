@@ -13,7 +13,10 @@ const InputSchema = z.object({
     cardRegion5: z.string().optional().describe('What to show in lower-right corner of Deal Cards. Example: "value"'),
     color: z.string().optional().describe('Deal Stage color as 6-character HEX without hashtag. Example: "32B0FC"'),
     width: z.number().optional().describe('Deal stage width in pixels. Example: 280'),
-    reorder: z.number().optional().describe('Whether to reorder stages after creation. Can be 0 or 1.')
+    reorder: z
+        .union([z.literal(0), z.literal(1)])
+        .optional()
+        .describe('Whether to reorder stages after creation. Can be 0 or 1.')
 });
 
 const ProviderDealStageSchema = z.object({

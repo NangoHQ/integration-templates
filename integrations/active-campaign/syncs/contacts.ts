@@ -131,7 +131,9 @@ const sync = createSync({
 
             const pageLastId = Number(providerContacts[providerContacts.length - 1]?.id ?? lastId);
             if (pageLastId <= lastId) {
-                break;
+                throw new Error(
+                    `Sync aborted: page returned non-increasing contact IDs (last seen ${lastId}, page last ${pageLastId}). Checkpoint not advanced.`
+                );
             }
 
             lastId = pageLastId;
