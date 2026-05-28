@@ -41,7 +41,7 @@ const ProviderPipelineSchema = z.object({
     committed_at: z.string().nullable().optional(),
     duration: z.number().nullable().optional(),
     queued_duration: z.number().nullable().optional(),
-    coverage: z.number().nullable().optional(),
+    coverage: z.string().nullable().optional(),
     web_url: z.string().optional(),
     archived: z.boolean().optional()
 });
@@ -142,7 +142,7 @@ const action = createAction({
             ...(providerPipeline.duration !== null && providerPipeline.duration !== undefined && { duration: providerPipeline.duration }),
             ...(providerPipeline.queued_duration !== null &&
                 providerPipeline.queued_duration !== undefined && { queued_duration: providerPipeline.queued_duration }),
-            ...(providerPipeline.coverage !== null && providerPipeline.coverage !== undefined && { coverage: providerPipeline.coverage }),
+            ...(providerPipeline.coverage !== null && providerPipeline.coverage !== undefined && { coverage: parseFloat(providerPipeline.coverage) }),
             ...(providerPipeline.web_url !== undefined && { web_url: providerPipeline.web_url }),
             ...(providerPipeline.archived !== undefined && { archived: providerPipeline.archived })
         };

@@ -9,7 +9,7 @@ const InputSchema = z.object({
     commit_message: z.string().describe('Commit message.'),
     author_email: z.string().optional().describe("Commit author's email address."),
     author_name: z.string().optional().describe("Commit author's name."),
-    encoding: z.string().optional().describe("Change encoding to 'base64'. Default is 'text'."),
+    encoding: z.enum(['text', 'base64']).optional().describe("Change encoding to 'base64'. Default is 'text'."),
     execute_filemode: z.boolean().optional().describe('If true, enables the execute flag on the file. If false, disables it.'),
     last_commit_id: z.string().optional().describe('Last known file commit ID.'),
     start_branch: z.string().optional().describe('Name of the base branch to create the branch from.')

@@ -24,6 +24,9 @@ const InputSchema = z.object({
     start_sha: z.string().optional().describe('SHA of the commit to use as the parent for the new commit'),
     start_project: z.string().optional().describe('The project ID or URL-encoded path to use as the source'),
     stats: z.boolean().optional().describe('Include commit stats. Default is true')
+}).refine((data) => data.allow_empty === true || (Array.isArray(data.actions) && data.actions.length > 0), {
+    message: 'actions must contain at least one item unless allow_empty is true',
+    path: ['actions']
 });
 
 const ProviderCommitSchema = z.object({

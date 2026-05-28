@@ -51,24 +51,33 @@ const action = createAction({
     scopes: ['api'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
-        // https://docs.gitlab.com/api/branches/#get-a-single-repository-branch
-        const response = await nango.get({
-            endpoint: `/api/v4/projects/${String(input.project_id)}/repository/branches/${encodeURIComponent(input.branch)}`,
-            retries: 3
-        });
-
-        if (!response.data) {
-            throw new nango.ActionError({
-                type: 'not_found',
-                message: 'Branch not found',
-                project_id: input.project_id,
-                branch: input.branch
+        try {
+            // https://docs.gitlab.com/api/branches/#get-a-single-repository-branch
+            const response = await nango.get({
+                endpoint: `/api/v4/projects/${String(input.project_id)}/repository/branches/${encodeURIComponent(input.branch)}`,
+                retries: 3
             });
+
+            return ProviderBranchSchema.parse(response.data);
+        } catch (error: unknown) {
+            if (
+                error !== null &&
+                typeof error === 'object' &&
+                'response' in error &&
+                typeof error.response === 'object' &&
+                error.response !== null &&
+                'status' in error.response &&
+                error.response.status === 404
+            ) {
+                throw new nango.ActionError({
+                    type: 'not_found',
+                    message: 'Branch not found',
+                    project_id: input.project_id,
+                    branch: input.branch
+                });
+            }
+            throw error;
         }
-
-        const providerBranch = ProviderBranchSchema.parse(response.data);
-
-        return providerBranch;
     }
 });
 

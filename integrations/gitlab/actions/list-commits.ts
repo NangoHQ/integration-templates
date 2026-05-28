@@ -27,24 +27,8 @@ const ProviderCommitSchema = z.object({
     web_url: z.string().optional()
 });
 
-const CommitSchema = z.object({
-    id: z.string(),
-    short_id: z.string().optional(),
-    title: z.string().optional(),
-    message: z.string().optional(),
-    author_name: z.string().optional(),
-    author_email: z.string().optional(),
-    authored_date: z.string().optional(),
-    committer_name: z.string().optional(),
-    committer_email: z.string().optional(),
-    committed_date: z.string().optional(),
-    created_at: z.string().optional(),
-    parent_ids: z.array(z.string()).optional(),
-    web_url: z.string().optional()
-});
-
 const OutputSchema = z.object({
-    commits: z.array(CommitSchema),
+    commits: z.array(ProviderCommitSchema),
     next_cursor: z.string().optional()
 });
 
@@ -75,25 +59,7 @@ const action = createAction({
             retries: 3
         });
 
-        const unknownItems = z.array(z.unknown()).parse(response.data);
-        const commits = unknownItems.map((item) => {
-            const commit = ProviderCommitSchema.parse(item);
-            return {
-                id: commit.id,
-                ...(commit.short_id !== undefined && { short_id: commit.short_id }),
-                ...(commit.title !== undefined && { title: commit.title }),
-                ...(commit.message !== undefined && { message: commit.message }),
-                ...(commit.author_name !== undefined && { author_name: commit.author_name }),
-                ...(commit.author_email !== undefined && { author_email: commit.author_email }),
-                ...(commit.authored_date !== undefined && { authored_date: commit.authored_date }),
-                ...(commit.committer_name !== undefined && { committer_name: commit.committer_name }),
-                ...(commit.committer_email !== undefined && { committer_email: commit.committer_email }),
-                ...(commit.committed_date !== undefined && { committed_date: commit.committed_date }),
-                ...(commit.created_at !== undefined && { created_at: commit.created_at }),
-                ...(commit.parent_ids !== undefined && { parent_ids: commit.parent_ids }),
-                ...(commit.web_url !== undefined && { web_url: commit.web_url })
-            };
-        });
+        const commits = z.array(ProviderCommitSchema).parse(response.data);
 
         const nextPage =
             typeof response.headers['x-next-page'] === 'string' && response.headers['x-next-page'] !== '' ? response.headers['x-next-page'] : undefined;
