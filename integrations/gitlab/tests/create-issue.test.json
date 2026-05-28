@@ -1,0 +1,125 @@
+{
+  "input": {
+    "project_id": 82599306,
+    "title": "Test issue from Nango action"
+  },
+  "output": {
+    "id": 191122953,
+    "iid": 3,
+    "project_id": 82599306,
+    "title": "Test issue from Nango action",
+    "state": "opened",
+    "created_at": "2026-05-27T13:32:53.981Z",
+    "updated_at": "2026-05-27T13:32:53.981Z",
+    "labels": [],
+    "web_url": "https://gitlab.com/nangodev-group/nangoDev-project/-/work_items/3",
+    "confidential": false
+  },
+  "nango": {},
+  "api": {
+    "post": {
+      "/api/v4/projects/82599306/issues": {
+        "response": {
+          "id": 191122953,
+          "iid": 3,
+          "project_id": 82599306,
+          "title": "Test issue from Nango action",
+          "description": null,
+          "state": "opened",
+          "created_at": "2026-05-27T13:32:53.981Z",
+          "updated_at": "2026-05-27T13:32:53.981Z",
+          "closed_at": null,
+          "closed_by": null,
+          "labels": [],
+          "milestone": null,
+          "assignees": [],
+          "author": {
+            "id": 38590808,
+            "username": "api46",
+            "public_email": null,
+            "name": "Nango Developer",
+            "state": "active",
+            "locked": false,
+            "avatar_url": "https://secure.gravatar.com/avatar/c89d19930bbb731cfec48ff1584648234d177e53d3c5641a51797a3d16ac420d?s=80&d=identicon",
+            "web_url": "https://gitlab.com/api46"
+          },
+          "type": "ISSUE",
+          "assignee": null,
+          "user_notes_count": 0,
+          "merge_requests_count": 0,
+          "upvotes": 0,
+          "downvotes": 0,
+          "start_date": null,
+          "due_date": null,
+          "confidential": false,
+          "discussion_locked": null,
+          "issue_type": "issue",
+          "web_url": "https://gitlab.com/nangodev-group/nangoDev-project/-/work_items/3",
+          "time_stats": {
+            "time_estimate": 0,
+            "total_time_spent": 0,
+            "human_time_estimate": null,
+            "human_total_time_spent": null
+          },
+          "task_completion_status": {
+            "count": 0,
+            "completed_count": 0
+          },
+          "weight": null,
+          "blocking_issues_count": 0,
+          "has_tasks": true,
+          "task_status": "",
+          "_links": {
+            "self": "https://gitlab.com/api/v4/projects/82599306/issues/3",
+            "notes": "https://gitlab.com/api/v4/projects/82599306/issues/3/notes",
+            "award_emoji": "https://gitlab.com/api/v4/projects/82599306/issues/3/award_emoji",
+            "project": "https://gitlab.com/api/v4/projects/82599306",
+            "closed_as_duplicate_of": null
+          },
+          "references": {
+            "short": "#3",
+            "relative": "#3",
+            "full": "nangodev-group/nangoDev-project#3"
+          },
+          "severity": "UNKNOWN",
+          "subscribed": true,
+          "moved_to_id": null,
+          "imported": false,
+          "imported_from": "none",
+          "service_desk_reply_to": null,
+          "epic_iid": null,
+          "epic": null,
+          "iteration": null,
+          "health_status": null
+        },
+        "status": 200,
+        "headers": {
+          "date": "Wed, 27 May 2026 13:32:54 GMT",
+          "content-type": "application/json",
+          "content-length": "1687",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=5184000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4919",
+          "x-ratelimit-reset": "1779888813",
+          "x-request-id": "a02563642b05148b-PDX",
+          "etag": "W/\"697-E0RnyhwwQaO9H78dxw6j3y5l4+I\""
+        },
+        "hash": "54c963c80fee34c80b9d9094ca5638b6b5d92634",
+        "request": {
+          "data": {
+            "title": "Test issue from Nango action"
+          }
+        }
+      }
+    }
+  }
+}
