@@ -1,14 +1,16 @@
 import { z } from 'zod';
 import { createAction } from 'nango';
 
-const InputSchema = z.object({
-    group_id: z.union([z.number(), z.string()]).describe('The ID or URL-encoded path of the group. Example: 123'),
-    permanently_remove: z.boolean().optional().describe('If true, immediately deletes a subgroup already marked for deletion.'),
-    full_path: z.string().optional().describe('The full path to the subgroup. Required when permanently_remove is true.')
-}).refine((data) => data.permanently_remove !== true || (typeof data.full_path === 'string' && data.full_path.length > 0), {
-    message: 'full_path is required when permanently_remove is true',
-    path: ['full_path']
-});
+const InputSchema = z
+    .object({
+        group_id: z.union([z.number(), z.string()]).describe('The ID or URL-encoded path of the group. Example: 123'),
+        permanently_remove: z.boolean().optional().describe('If true, immediately deletes a subgroup already marked for deletion.'),
+        full_path: z.string().optional().describe('The full path to the subgroup. Required when permanently_remove is true.')
+    })
+    .refine((data) => data.permanently_remove !== true || (typeof data.full_path === 'string' && data.full_path.length > 0), {
+        message: 'full_path is required when permanently_remove is true',
+        path: ['full_path']
+    });
 
 const OutputSchema = z.object({
     success: z.boolean(),

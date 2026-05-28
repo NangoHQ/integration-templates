@@ -11,23 +11,25 @@ const CommitActionSchema = z.object({
     previous_path: z.string().optional()
 });
 
-const InputSchema = z.object({
-    project_id: z.string().describe('The ID or URL-encoded path of the project. Example: "82599306"'),
-    branch: z.string().describe('Name of the branch to commit into. Example: "feature/test"'),
-    commit_message: z.string().describe('Commit message. Example: "Add new feature"'),
-    actions: z.array(CommitActionSchema).optional().describe('Array of file actions to perform in this commit'),
-    start_branch: z.string().optional().describe('Name of the branch to use as the parent for the new commit'),
-    author_email: z.string().optional().describe("Specify the commit author's email address"),
-    author_name: z.string().optional().describe("Specify the commit author's name"),
-    allow_empty: z.boolean().optional().describe('When true, creates an empty commit. Default is false'),
-    force: z.boolean().optional().describe('If true, overwrites branch with a new commit. Default is false'),
-    start_sha: z.string().optional().describe('SHA of the commit to use as the parent for the new commit'),
-    start_project: z.string().optional().describe('The project ID or URL-encoded path to use as the source'),
-    stats: z.boolean().optional().describe('Include commit stats. Default is true')
-}).refine((data) => data.allow_empty === true || (Array.isArray(data.actions) && data.actions.length > 0), {
-    message: 'actions must contain at least one item unless allow_empty is true',
-    path: ['actions']
-});
+const InputSchema = z
+    .object({
+        project_id: z.string().describe('The ID or URL-encoded path of the project. Example: "82599306"'),
+        branch: z.string().describe('Name of the branch to commit into. Example: "feature/test"'),
+        commit_message: z.string().describe('Commit message. Example: "Add new feature"'),
+        actions: z.array(CommitActionSchema).optional().describe('Array of file actions to perform in this commit'),
+        start_branch: z.string().optional().describe('Name of the branch to use as the parent for the new commit'),
+        author_email: z.string().optional().describe("Specify the commit author's email address"),
+        author_name: z.string().optional().describe("Specify the commit author's name"),
+        allow_empty: z.boolean().optional().describe('When true, creates an empty commit. Default is false'),
+        force: z.boolean().optional().describe('If true, overwrites branch with a new commit. Default is false'),
+        start_sha: z.string().optional().describe('SHA of the commit to use as the parent for the new commit'),
+        start_project: z.string().optional().describe('The project ID or URL-encoded path to use as the source'),
+        stats: z.boolean().optional().describe('Include commit stats. Default is true')
+    })
+    .refine((data) => data.allow_empty === true || (Array.isArray(data.actions) && data.actions.length > 0), {
+        message: 'actions must contain at least one item unless allow_empty is true',
+        path: ['actions']
+    });
 
 const ProviderCommitSchema = z.object({
     id: z.string(),

@@ -147,8 +147,9 @@ const sync = createSync({
         }
 
         if (maxLastActivityAt !== undefined) {
+            const safeCheckpoint = new Date(new Date(maxLastActivityAt).getTime() - 1000).toISOString();
             await nango.saveCheckpoint({
-                last_activity_after: maxLastActivityAt
+                last_activity_after: safeCheckpoint
             });
         }
     }

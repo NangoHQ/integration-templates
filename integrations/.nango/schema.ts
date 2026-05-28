@@ -22363,7 +22363,7 @@ export interface ActionInput_gitlab_updatefile {
   /**
    * Change encoding to 'base64'. Default is 'text'.
    */
-  encoding?: string | undefined;
+  encoding?: 'text' | 'base64' | undefined;
   /**
    * If true, enables the execute flag on the file. If false, disables it.
    */
