@@ -2,6 +2,7 @@ import { z } from 'zod';
 import { createAction, ProxyConfiguration } from 'nango';
 
 const InputSchema = z.object({
+    advertiser_id: z.string().describe('TikTok advertiser ID. Example: "7644117588953235464"'),
     identity_id: z.string().describe('Identity ID. Example: "7644635848793210900"'),
     identity_type: z.string().optional().describe('Identity type. Enum values: CUSTOMIZED_USER, AUTH_CODE, TT_USER, BC_AUTH_TT')
 });
@@ -54,26 +55,15 @@ const action = createAction({
     scopes: [],
 
     exec: async (nango, input) => {
-        const connection = await nango.getConnection();
-        const credentials = connection.credentials;
-        const accessToken =
-            credentials !== undefined && 'access_token' in credentials && typeof credentials.access_token === 'string'
-                ? credentials.access_token
-                : '8800214816a499f419ad4a0674175a8cb769e2ef';
-
         const config: ProxyConfiguration = {
             // https://business-api.tiktok.com/portal/docs/api-reference/v1.3
             endpoint: '/identity/get/',
             params: {
-                advertiser_id: '7644117588953235464',
+                advertiser_id: input.advertiser_id,
                 identity_id: input.identity_id,
                 ...(input.identity_type !== undefined && { identity_type: input.identity_type })
             },
-            retries: 3,
-            baseUrlOverride: 'https://sandbox-ads.tiktok.com/open_api/v1.3/',
-            headers: {
-                'Access-Token': accessToken
-            }
+            retries: 3
         };
 
         const response = await nango.get(config);

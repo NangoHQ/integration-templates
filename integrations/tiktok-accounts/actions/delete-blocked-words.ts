@@ -32,8 +32,6 @@ const action = createAction({
         const response = await nango.post({
             // https://business-api.tiktok.com/portal/docs?id=1739029277346817
             endpoint: '/blockedword/delete/',
-            providerConfigKey: 'tiktok-ads',
-            connectionId: 'e28036e5-e29b-4a53-b9c4-80bf358a0f84',
             data: {
                 advertiser_id: input.advertiser_id,
                 blocked_words: input.blocked_words

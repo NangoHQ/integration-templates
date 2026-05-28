@@ -38,10 +38,6 @@ const action = createAction({
         // https://business-api.tiktok.com/portal/docs/api-reference/v1.3/identity/create/
         const response = await nango.post({
             endpoint: 'identity/create/',
-            baseUrlOverride: 'https://sandbox-ads.tiktok.com/open_api/v1.3/',
-            headers: {
-                'Access-Token': 'ac274ff0f4a20e3e4f81aa7d95e593aafbdb6a27'
-            },
             data: {
                 advertiser_id: input.advertiser_id,
                 display_name: input.display_name,

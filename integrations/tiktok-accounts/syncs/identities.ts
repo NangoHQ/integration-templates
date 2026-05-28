@@ -35,7 +35,11 @@ const sync = createSync({
                   ? connection['connection_config']['advertiser_id']
                   : typeof connection['metadata']?.['advertiser_id'] === 'string' && connection['metadata']['advertiser_id'].length > 0
                     ? connection['metadata']['advertiser_id']
-                    : '7644117588953235464';
+                    : null;
+
+        if (!advertiserId) {
+            throw new Error('advertiser_id is required. Set it in sync metadata, connection_config, or connection metadata.');
+        }
 
         await nango.trackDeletesStart('Identity');
 

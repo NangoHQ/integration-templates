@@ -1,6 +1,10 @@
 {
   "nango": {
-    "getConnection": {},
+    "getConnection": {
+      "connection_config": {
+        "advertiser_id": "7644117588953235464"
+      }
+    },
     "getMetadata": {},
     "batchSave": {
       "Comment": []

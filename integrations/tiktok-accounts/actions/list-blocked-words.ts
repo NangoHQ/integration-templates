@@ -93,7 +93,7 @@ const action = createAction({
         const pageInfo = data.page_info;
 
         return {
-            blocked_words: list.map((item) => item.bw_content || ''),
+            blocked_words: list.filter((item) => item.bw_content !== undefined).map((item) => item.bw_content!),
             ...(pageInfo !== undefined && {
                 page_info: {
                     ...(pageInfo.page !== undefined && { page: pageInfo.page }),

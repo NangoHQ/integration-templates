@@ -40,9 +40,6 @@
         },
         "hash": "8d6a7ee98f9392f11d2e92f4b3a72e1f6694b0fe",
         "request": {
-          "headers": {
-            "Access-Token": "ac274ff0f4a20e3e4f81aa7d95e593aafbdb6a27"
-          },
           "data": {
             "advertiser_id": "7644117588953235464",
             "display_name": "Nango Sandbox Identity Dryrun"

@@ -58115,6 +58115,10 @@ export interface ActionOutput_tiktok_accounts_deletecomment {
 
 export interface ActionInput_tiktok_accounts_getidentity {
   /**
+   * TikTok advertiser ID. Example: "7644117588953235464"
+   */
+  advertiser_id: string;
+  /**
    * Identity ID. Example: "7644635848793210900"
    */
   identity_id: string;

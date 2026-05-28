@@ -34,10 +34,7 @@ const action = createAction({
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const response = await nango.post({
             // https://business-api.tiktok.com/portal/docs?id=1739029218470913
-            // TikTok Business API requires the access-token header; the tiktok-ads proxy config injects it automatically.
             endpoint: '/blockedword/create/',
-            providerConfigKey: 'tiktok-ads',
-            connectionId: 'nango-sandbox',
             data: {
                 advertiser_id: input.advertiser_id,
                 blocked_words: input.blocked_words

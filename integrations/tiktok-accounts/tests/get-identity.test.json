@@ -1,5 +1,6 @@
 {
   "input": {
+    "advertiser_id": "7644117588953235464",
     "identity_id": "7644635848793210900",
     "identity_type": "CUSTOMIZED_USER"
   },
@@ -129,9 +130,6 @@
             "advertiser_id": "7644117588953235464",
             "identity_id": "7644635848793210900",
             "identity_type": "CUSTOMIZED_USER"
-          },
-          "headers": {
-            "Access-Token": "8800214816a499f419ad4a0674175a8cb769e2ef"
           }
         }
       }
