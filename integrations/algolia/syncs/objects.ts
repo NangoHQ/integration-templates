@@ -49,8 +49,13 @@ const sync = createSync({
 
         // Blocker: Algolia browse is a full refresh with no changed-since or
         // deleted-object endpoint, but the browse cursor lets us resume an
-        // interrupted pass safely.
-        await nango.trackDeletesStart('Object');
+        // interrupted pass safely. Delete tracking is only safe on a full run
+        // because a resumed run skips earlier pages whose records would be
+        // falsely deleted by trackDeletesEnd.
+        const isFullRun = !resumeCursor;
+        if (isFullRun) {
+            await nango.trackDeletesStart('Object');
+        }
 
         const proxyConfig: ProxyConfiguration = {
             // https://www.algolia.com/doc/rest-api/search/#browse-index
@@ -94,7 +99,9 @@ const sync = createSync({
         }
 
         await nango.clearCheckpoint();
-        await nango.trackDeletesEnd('Object');
+        if (isFullRun) {
+            await nango.trackDeletesEnd('Object');
+        }
     }
 });
 

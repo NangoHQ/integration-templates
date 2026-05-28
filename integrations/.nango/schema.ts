@@ -1931,7 +1931,7 @@ export interface ActionOutput_algolia_createrule {
 };
 
 export interface ActionInput_algolia_createsynonym {
-  /**
+  0: {  /**
    * Algolia index name. Example: "algolia_movie_sample_dataset"
    */
   indexName: string;
@@ -1939,34 +1939,79 @@ export interface ActionInput_algolia_createsynonym {
    * Unique identifier for the synonym. Example: "nango-test-syn-create-1"
    */
   objectID: string;
+  type: 'synonym';
   /**
-   * Synonym type. Example: "synonym", "oneWaySynonym", "altCorrection1", "altCorrection2", "placeholder"
+   * Equivalent terms. Example: ["tv", "television"]
    */
-  type: string;
+  synonyms: string[];};
+  1: {  /**
+   * Algolia index name. Example: "algolia_movie_sample_dataset"
+   */
+  indexName: string;
   /**
-   * Array of equivalent terms (for "synonym" and "oneWaySynonym" types)
+   * Unique identifier for the synonym. Example: "nango-test-syn-create-1"
    */
-  synonyms?: string[] | undefined;
+  objectID: string;
+  type: 'oneWaySynonym';
   /**
-   * Input term (for "oneWaySynonym" type)
+   * Input term. Example: "iphone"
    */
-  input?: string | undefined;
+  input: string;
   /**
-   * Word to correct (for "altCorrection1" and "altCorrection2" types)
+   * One-way synonym targets. Example: ["apple phone", "smartphone"]
    */
-  word?: string | undefined;
+  synonyms: string[];};
+  2: {  /**
+   * Algolia index name. Example: "algolia_movie_sample_dataset"
+   */
+  indexName: string;
   /**
-   * Array of corrections (for "altCorrection1" and "altCorrection2" types)
+   * Unique identifier for the synonym. Example: "nango-test-syn-create-1"
    */
-  corrections?: string[] | undefined;
+  objectID: string;
+  type: 'altCorrection1';
   /**
-   * Placeholder token (for "placeholder" type)
+   * Word to correct. Example: "abdomen"
    */
-  placeholder?: string | undefined;
+  word: string;
   /**
-   * Array of replacement words (for "placeholder" type)
+   * Corrections. Example: ["stomach", "belly"]
    */
-  replacements?: string[] | undefined;
+  corrections: string[];};
+  3: {  /**
+   * Algolia index name. Example: "algolia_movie_sample_dataset"
+   */
+  indexName: string;
+  /**
+   * Unique identifier for the synonym. Example: "nango-test-syn-create-1"
+   */
+  objectID: string;
+  type: 'altCorrection2';
+  /**
+   * Word to correct. Example: "abdomen"
+   */
+  word: string;
+  /**
+   * Corrections. Example: ["stomach", "belly"]
+   */
+  corrections: string[];};
+  4: {  /**
+   * Algolia index name. Example: "algolia_movie_sample_dataset"
+   */
+  indexName: string;
+  /**
+   * Unique identifier for the synonym. Example: "nango-test-syn-create-1"
+   */
+  objectID: string;
+  type: 'placeholder';
+  /**
+   * Placeholder token. Example: "<BRAND>"
+   */
+  placeholder: string;
+  /**
+   * Replacement words. Example: ["Apple", "Samsung"]
+   */
+  replacements: string[];};
 };
 
 export interface ActionOutput_algolia_createsynonym {
@@ -2291,13 +2336,13 @@ export interface ActionInput_algolia_listobjects {
 
 export interface ActionOutput_algolia_listobjects {
   hits: ({  [key: string]: unknown | undefined;})[];
-  nbHits: number;
-  page: number;
-  nbPages: number;
-  hitsPerPage: number;
-  processingTimeMS: number;
-  query: string;
-  params: string;
+  nbHits?: number | undefined;
+  page?: number | undefined;
+  nbPages?: number | undefined;
+  hitsPerPage?: number | undefined;
+  processingTimeMS?: number | undefined;
+  query?: string | undefined;
+  params?: string | undefined;
   nextCursor?: string | undefined;
 };
 
@@ -2621,7 +2666,7 @@ export interface ActionOutput_algolia_updaterule {
 };
 
 export interface ActionInput_algolia_updatesynonym {
-  /**
+  0: {  /**
    * Name of the Algolia index. Example: "algolia_movie_sample_dataset"
    */
   indexName: string;
@@ -2630,37 +2675,98 @@ export interface ActionInput_algolia_updatesynonym {
    */
   objectID: string;
   /**
-   * Type of synonym
+   * Replicate the updated synonym to all replica indices
    */
-  type: 'synonym' | 'oneWaySynonym' | 'altCorrection1' | 'altCorrection2' | 'placeholder';
+  forwardToReplicas?: boolean | undefined;
+  type: 'synonym';
   /**
-   * Words or phrases considered equivalent (for synonym type)
+   * Words or phrases considered equivalent. Example: ["tv", "television"]
    */
-  synonyms?: string[] | undefined;
+  synonyms: string[];};
+  1: {  /**
+   * Name of the Algolia index. Example: "algolia_movie_sample_dataset"
+   */
+  indexName: string;
   /**
-   * Word or phrase to appear in query strings (for oneWaySynonym type)
+   * Unique identifier of the synonym object. Example: "nango-test-syn-update-1"
    */
-  input?: string | undefined;
-  /**
-   * Word or phrase to appear in query strings (for altCorrection1/2 types)
-   */
-  word?: string | undefined;
-  /**
-   * Words to be matched in records (for altCorrection1/2 types)
-   */
-  corrections?: string[] | undefined;
-  /**
-   * Placeholder token (for placeholder type)
-   */
-  placeholder?: string | undefined;
-  /**
-   * Query words that will match the placeholder token (for placeholder type)
-   */
-  replacements?: string[] | undefined;
+  objectID: string;
   /**
    * Replicate the updated synonym to all replica indices
    */
   forwardToReplicas?: boolean | undefined;
+  type: 'oneWaySynonym';
+  /**
+   * Word or phrase to appear in query strings. Example: "iphone"
+   */
+  input: string;
+  /**
+   * One-way synonym targets. Example: ["apple phone"]
+   */
+  synonyms: string[];};
+  2: {  /**
+   * Name of the Algolia index. Example: "algolia_movie_sample_dataset"
+   */
+  indexName: string;
+  /**
+   * Unique identifier of the synonym object. Example: "nango-test-syn-update-1"
+   */
+  objectID: string;
+  /**
+   * Replicate the updated synonym to all replica indices
+   */
+  forwardToReplicas?: boolean | undefined;
+  type: 'altCorrection1';
+  /**
+   * Word or phrase to appear in query strings. Example: "abdomen"
+   */
+  word: string;
+  /**
+   * Words to be matched in records. Example: ["stomach"]
+   */
+  corrections: string[];};
+  3: {  /**
+   * Name of the Algolia index. Example: "algolia_movie_sample_dataset"
+   */
+  indexName: string;
+  /**
+   * Unique identifier of the synonym object. Example: "nango-test-syn-update-1"
+   */
+  objectID: string;
+  /**
+   * Replicate the updated synonym to all replica indices
+   */
+  forwardToReplicas?: boolean | undefined;
+  type: 'altCorrection2';
+  /**
+   * Word or phrase to appear in query strings. Example: "abdomen"
+   */
+  word: string;
+  /**
+   * Words to be matched in records. Example: ["stomach"]
+   */
+  corrections: string[];};
+  4: {  /**
+   * Name of the Algolia index. Example: "algolia_movie_sample_dataset"
+   */
+  indexName: string;
+  /**
+   * Unique identifier of the synonym object. Example: "nango-test-syn-update-1"
+   */
+  objectID: string;
+  /**
+   * Replicate the updated synonym to all replica indices
+   */
+  forwardToReplicas?: boolean | undefined;
+  type: 'placeholder';
+  /**
+   * Placeholder token. Example: "<BRAND>"
+   */
+  placeholder: string;
+  /**
+   * Query words matching the placeholder. Example: ["Apple"]
+   */
+  replacements: string[];};
 };
 
 export interface ActionOutput_algolia_updatesynonym {

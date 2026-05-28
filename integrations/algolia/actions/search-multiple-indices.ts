@@ -10,6 +10,7 @@ const InputSchema = z.object({
     requests: z
         .array(SearchRequestSchema)
         .min(1, 'At least one search request is required.')
+        .max(50, 'Maximum 50 search requests per call.')
         .describe('Array of search requests, one per index or query. Maximum 50 requests.'),
     strategy: z.string().optional().describe('Multi-query search strategy. Example: "stopIfEnoughMatches"')
 });

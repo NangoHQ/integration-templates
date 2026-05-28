@@ -64,9 +64,14 @@ const sync = createSync({
         }
 
         // Blocker: Algolia synonyms search has no changed-since or
-        // deleted-synonym endpoint. We still checkpoint the current page so a
-        // full refresh can resume after an interruption.
-        await nango.trackDeletesStart('Synonym');
+        // deleted-synonym endpoint. We checkpoint the current page so a full
+        // refresh can resume after an interruption. Delete tracking is only
+        // safe on a full run because a resumed run skips earlier pages whose
+        // records would be falsely deleted by trackDeletesEnd.
+        const isFullRun = startPage === 0;
+        if (isFullRun) {
+            await nango.trackDeletesStart('Synonym');
+        }
 
         const proxyConfig: ProxyConfiguration = {
             // https://www.algolia.com/doc/rest-api/search/#search-synonyms
@@ -85,7 +90,7 @@ const sync = createSync({
                     if (typeof nextPageParam === 'number') {
                         await nango.saveCheckpoint({
                             indexName,
-                            page: nextPageParam + 1
+                            page: nextPageParam
                         });
                     }
                 }
@@ -118,7 +123,9 @@ const sync = createSync({
         }
 
         await nango.clearCheckpoint();
-        await nango.trackDeletesEnd('Synonym');
+        if (isFullRun) {
+            await nango.trackDeletesEnd('Synonym');
+        }
     }
 });
 

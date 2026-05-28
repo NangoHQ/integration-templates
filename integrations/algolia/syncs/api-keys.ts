@@ -51,7 +51,6 @@ const sync = createSync({
         // Blocker: Algolia's GET /1/keys endpoint returns all keys in a single
         // response with no pagination, no time-based filter, no cursor, and
         // no changed-records endpoint.
-        await nango.trackDeletesStart('ApiKey');
 
         // https://www.algolia.com/doc/rest-api/search/list-api-keys
         const response = await nango.get({
@@ -63,6 +62,8 @@ const sync = createSync({
         if (!parsed.success) {
             throw new Error(`Invalid API key list response: ${parsed.error.message}`);
         }
+
+        await nango.trackDeletesStart('ApiKey');
 
         const apiKeys = parsed.data.keys.map((key) => ({
             id: key.value,

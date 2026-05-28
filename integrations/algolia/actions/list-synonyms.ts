@@ -40,7 +40,7 @@ const action = createAction({
 
     exec: async (nango, input) => {
         const page = input['cursor'] ? parseInt(input['cursor'], 10) : 0;
-        if (Number.isNaN(page) || page < 0) {
+        if (Number.isNaN(page) || page < 0 || (input['cursor'] && String(page) !== input['cursor'])) {
             throw new nango.ActionError({
                 type: 'invalid_cursor',
                 message: 'cursor must be a non-negative integer string'

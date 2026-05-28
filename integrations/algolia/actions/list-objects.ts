@@ -12,24 +12,24 @@ const InputSchema = z.object({
 const ProviderBrowseResponseSchema = z.object({
     hits: z.array(z.record(z.string(), z.unknown())),
     cursor: z.string().optional(),
-    nbHits: z.number(),
-    page: z.number(),
-    nbPages: z.number(),
-    hitsPerPage: z.number(),
-    processingTimeMS: z.number(),
-    query: z.string(),
-    params: z.string()
+    nbHits: z.number().optional(),
+    page: z.number().optional(),
+    nbPages: z.number().optional(),
+    hitsPerPage: z.number().optional(),
+    processingTimeMS: z.number().optional(),
+    query: z.string().optional(),
+    params: z.string().optional()
 });
 
 const OutputSchema = z.object({
     hits: z.array(z.record(z.string(), z.unknown())),
-    nbHits: z.number(),
-    page: z.number(),
-    nbPages: z.number(),
-    hitsPerPage: z.number(),
-    processingTimeMS: z.number(),
-    query: z.string(),
-    params: z.string(),
+    nbHits: z.number().optional(),
+    page: z.number().optional(),
+    nbPages: z.number().optional(),
+    hitsPerPage: z.number().optional(),
+    processingTimeMS: z.number().optional(),
+    query: z.string().optional(),
+    params: z.string().optional(),
     nextCursor: z.string().optional()
 });
 
@@ -62,13 +62,13 @@ const action = createAction({
 
         return {
             hits: providerData.hits,
-            nbHits: providerData.nbHits,
-            page: providerData.page,
-            nbPages: providerData.nbPages,
-            hitsPerPage: providerData.hitsPerPage,
-            processingTimeMS: providerData.processingTimeMS,
-            query: providerData.query,
-            params: providerData.params,
+            ...(providerData.nbHits !== undefined && { nbHits: providerData.nbHits }),
+            ...(providerData.page !== undefined && { page: providerData.page }),
+            ...(providerData.nbPages !== undefined && { nbPages: providerData.nbPages }),
+            ...(providerData.hitsPerPage !== undefined && { hitsPerPage: providerData.hitsPerPage }),
+            ...(providerData.processingTimeMS !== undefined && { processingTimeMS: providerData.processingTimeMS }),
+            ...(providerData.query !== undefined && { query: providerData.query }),
+            ...(providerData.params !== undefined && { params: providerData.params }),
             ...(providerData.cursor !== undefined && { nextCursor: providerData.cursor })
         };
     }

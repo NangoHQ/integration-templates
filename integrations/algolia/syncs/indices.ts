@@ -52,9 +52,14 @@ const sync = createSync({
         const startPage = checkpoint?.page ?? 0;
 
         // Blocker: Algolia list indices does not expose changed-since or
-        // deleted-index endpoints. We still checkpoint the current page so an
-        // interrupted full refresh can resume.
-        await nango.trackDeletesStart('Index');
+        // deleted-index endpoints. We checkpoint the current page so an
+        // interrupted full refresh can resume. Delete tracking is only safe on
+        // a full run because a resumed run skips earlier pages whose records
+        // would be falsely deleted by trackDeletesEnd.
+        const isFullRun = startPage === 0;
+        if (isFullRun) {
+            await nango.trackDeletesStart('Index');
+        }
 
         const proxyConfig: ProxyConfiguration = {
             // https://www.algolia.com/doc/rest-api/search/#list-indices
@@ -69,7 +74,7 @@ const sync = createSync({
                 response_path: 'items',
                 on_page: async ({ nextPageParam }) => {
                     if (typeof nextPageParam === 'number') {
-                        await nango.saveCheckpoint({ page: nextPageParam + 1 });
+                        await nango.saveCheckpoint({ page: nextPageParam });
                     }
                 }
             },
@@ -113,7 +118,9 @@ const sync = createSync({
         }
 
         await nango.clearCheckpoint();
-        await nango.trackDeletesEnd('Index');
+        if (isFullRun) {
+            await nango.trackDeletesEnd('Index');
+        }
     }
 });
 
