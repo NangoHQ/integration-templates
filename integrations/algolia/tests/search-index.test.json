@@ -1,0 +1,2874 @@
+{
+  "input": {
+    "indexName": "algolia_movie_sample_dataset",
+    "query": "star wars"
+  },
+  "output": {
+    "hits": [
+      {
+        "id": 181808,
+        "original_language": "en",
+        "original_title": "Star Wars: The Last Jedi",
+        "overview": "Rey develops her newly discovered abilities with the guidance of Luke Skywalker, who is unsettled by the strength of her powers. Meanwhile, the Resistance prepares to do battle with the First Order.",
+        "popularity": 30.2452,
+        "poster_path": "https://image.tmdb.org/t/p/w342/kOVEVeg59E0wsnXmF9nrh6OmWII.jpg",
+        "release_date": "2017-12-13",
+        "title": "Star Wars: The Last Jedi",
+        "url": "https://www.themoviedb.org/movie/181808",
+        "vote_average": 6.755,
+        "vote_count": 16253,
+        "cast": [
+          {
+            "name": "Mark Hamill",
+            "character": "Luke Skywalker / Dobbu Scay (voice)"
+          },
+          {
+            "name": "Carrie Fisher",
+            "character": "Leia Organa"
+          },
+          {
+            "name": "Adam Driver",
+            "character": "Kylo Ren"
+          },
+          {
+            "name": "Daisy Ridley",
+            "character": "Rey"
+          },
+          {
+            "name": "John Boyega",
+            "character": "Finn"
+          }
+        ],
+        "crew": [
+          {
+            "name": "Rian Johnson",
+            "job": "Director"
+          }
+        ],
+        "genres": [
+          "Adventure",
+          "Action",
+          "Science Fiction"
+        ],
+        "keywords": [
+          "bunker",
+          "space battle",
+          "defeat",
+          "failure",
+          "sequel",
+          "blunt",
+          "space opera",
+          "military operation",
+          "tuwaderalit"
+        ],
+        "attribution": "This product uses the TMDB API but is not endorsed or certified by TMDB.",
+        "objectID": "media-sample-data-181808",
+        "_highlightResult": {
+          "original_title": {
+            "value": "<em>Star</em> <em>Wars</em>: The Last Jedi",
+            "matchLevel": "full",
+            "fullyHighlighted": false,
+            "matchedWords": [
+              "star",
+              "wars"
+            ]
+          }
+        }
+      },
+      {
+        "id": 11,
+        "original_language": "en",
+        "original_title": "Star Wars",
+        "overview": "Princess Leia is captured and held hostage by the evil Imperial forces in their effort to take over the galactic Empire. Venturesome Luke Skywalker and dashing captain Han Solo team together with the loveable robot duo R2-D2 and C-3PO to rescue the beautiful princess and restore peace and justice in the Empire.",
+        "popularity": 24.6071,
+        "poster_path": "https://image.tmdb.org/t/p/w342/6FfCtAuVAW8XJjZ7eWeLibRLWTw.jpg",
+        "release_date": "1977-05-25",
+        "title": "Star Wars",
+        "url": "https://www.themoviedb.org/movie/11",
+        "vote_average": 8.203,
+        "vote_count": 22207,
+        "cast": [
+          {
+            "name": "Mark Hamill",
+            "character": "Luke Skywalker"
+          },
+          {
+            "name": "Harrison Ford",
+            "character": "Han Solo"
+          },
+          {
+            "name": "Carrie Fisher",
+            "character": "Princess Leia Organa"
+          },
+          {
+            "name": "Peter Cushing",
+            "character": "Grand Moff Tarkin"
+          },
+          {
+            "name": "Alec Guinness",
+            "character": "Obi-Wan \"Ben\" Kenobi"
+          }
+        ],
+        "crew": [
+          {
+            "name": "George Lucas",
+            "job": "Director"
+          }
+        ],
+        "genres": [
+          "Adventure",
+          "Action",
+          "Science Fiction"
+        ],
+        "keywords": [
+          "empire",
+          "galaxy",
+          "rebellion",
+          "android",
+          "hermit",
+          "smuggling (contraband)",
+          "freedom",
+          "rebel",
+          "rescue mission",
+          "space",
+          "planet",
+          "desert",
+          "super power",
+          "oppression",
+          "space opera",
+          "nostalgic",
+          "wizard",
+          "totalitarianism",
+          "tuwaderalit"
+        ],
+        "attribution": "This product uses the TMDB API but is not endorsed or certified by TMDB.",
+        "objectID": "media-sample-data-11",
+        "_highlightResult": {
+          "original_title": {
+            "value": "<em>Star</em> <em>Wars</em>",
+            "matchLevel": "full",
+            "fullyHighlighted": true,
+            "matchedWords": [
+              "star",
+              "wars"
+            ]
+          }
+        }
+      },
+      {
+        "id": 181812,
+        "original_language": "en",
+        "original_title": "Star Wars: The Rise of Skywalker",
+        "overview": "The surviving Resistance faces the First Order once again as the journey of Rey, Finn and Poe Dameron continues. With the power and knowledge of generations behind them, the final battle begins.",
+        "popularity": 13.5902,
+        "poster_path": "https://image.tmdb.org/t/p/w342/db32LaOibwEliAmSL2jjDF6oDdj.jpg",
+        "release_date": "2019-12-18",
+        "title": "Star Wars: The Rise of Skywalker",
+        "url": "https://www.themoviedb.org/movie/181812",
+        "vote_average": 6.273,
+        "vote_count": 10768,
+        "cast": [
+          {
+            "name": "Carrie Fisher",
+            "character": "General Leia Organa"
+          },
+          {
+            "name": "Mark Hamill",
+            "character": "Luke Skywalker"
+          },
+          {
+            "name": "Daisy Ridley",
+            "character": "Rey"
+          },
+          {
+            "name": "Adam Driver",
+            "character": "Kylo Ren / Ben Solo"
+          },
+          {
+            "name": "John Boyega",
+            "character": "Finn"
+          }
+        ],
+        "crew": [
+          {
+            "name": "J.J. Abrams",
+            "job": "Director"
+          }
+        ],
+        "genres": [
+          "Adventure",
+          "Action",
+          "Science Fiction"
+        ],
+        "keywords": [
+          "space opera"
+        ],
+        "attribution": "This product uses the TMDB API but is not endorsed or certified by TMDB.",
+        "objectID": "media-sample-data-181812",
+        "_highlightResult": {
+          "original_title": {
+            "value": "<em>Star</em> <em>Wars</em>: The Rise of Skywalker",
+            "matchLevel": "full",
+            "fullyHighlighted": false,
+            "matchedWords": [
+              "star",
+              "wars"
+            ]
+          }
+        }
+      },
+      {
+        "id": 140607,
+        "original_language": "en",
+        "original_title": "Star Wars: The Force Awakens",
+        "overview": "Thirty years after defeating the Galactic Empire, Han Solo and his allies face a new threat from the evil Kylo Ren and his army of Stormtroopers.",
+        "popularity": 11.7989,
+        "poster_path": "https://image.tmdb.org/t/p/w342/wqnLdwVXoBjKibFRR5U3y0aDUhs.jpg",
+        "release_date": "2015-12-15",
+        "title": "Star Wars: The Force Awakens",
+        "url": "https://www.themoviedb.org/movie/140607",
+        "vote_average": 7.25,
+        "vote_count": 20459,
+        "cast": [
+          {
+            "name": "Daisy Ridley",
+            "character": "Rey"
+          },
+          {
+            "name": "John Boyega",
+            "character": "Finn"
+          },
+          {
+            "name": "Oscar Isaac",
+            "character": "Poe Dameron"
+          },
+          {
+            "name": "Adam Driver",
+            "character": "Kylo Ren"
+          },
+          {
+            "name": "Carrie Fisher",
+            "character": "Princess Leia"
+          }
+        ],
+        "crew": [
+          {
+            "name": "J.J. Abrams",
+            "job": "Director"
+          }
+        ],
+        "genres": [
+          "Adventure",
+          "Action",
+          "Science Fiction"
+        ],
+        "keywords": [
+          "android",
+          "spacecraft",
+          "space opera",
+          "brisk",
+          "disrespectful",
+          "tuwaderalit"
+        ],
+        "attribution": "This product uses the TMDB API but is not endorsed or certified by TMDB.",
+        "objectID": "media-sample-data-140607",
+        "_highlightResult": {
+          "original_title": {
+            "value": "<em>Star</em> <em>Wars</em>: The Force Awakens",
+            "matchLevel": "full",
+            "fullyHighlighted": false,
+            "matchedWords": [
+              "star",
+              "wars"
+            ]
+          }
+        }
+      },
+      {
+        "id": 330459,
+        "original_language": "en",
+        "original_title": "Rogue One: A Star Wars Story",
+        "overview": "A rogue band of resistance fighters unite for a mission to steal the Death Star plans and bring a new hope to the galaxy.",
+        "popularity": 9.7549,
+        "poster_path": "https://image.tmdb.org/t/p/w342/i0yw1mFbB7sNGHCs7EXZPzFkdA1.jpg",
+        "release_date": "2016-12-14",
+        "title": "Rogue One: A Star Wars Story",
+        "url": "https://www.themoviedb.org/movie/330459",
+        "vote_average": 7.505,
+        "vote_count": 16321,
+        "cast": [
+          {
+            "name": "Felicity Jones",
+            "character": "Jyn Erso"
+          },
+          {
+            "name": "Diego Luna",
+            "character": "Cassian Andor"
+          },
+          {
+            "name": "Alan Tudyk",
+            "character": "K-2SO"
+          },
+          {
+            "name": "Donnie Yen",
+            "character": "Chirrut Imwe"
+          },
+          {
+            "name": "Jiang Wen",
+            "character": "Baze Malbus"
+          }
+        ],
+        "crew": [
+          {
+            "name": "Gareth Edwards",
+            "job": "Director"
+          }
+        ],
+        "genres": [
+          "Action",
+          "Adventure",
+          "Science Fiction"
+        ],
+        "keywords": [
+          "rebellion",
+          "spacecraft",
+          "rebel",
+          "space battle",
+          "space travel",
+          "prequel",
+          "female protagonist",
+          "space western",
+          "suicide mission",
+          "robot",
+          "spin off",
+          "space opera",
+          "alien language",
+          "against the odds",
+          "blind man"
+        ],
+        "attribution": "This product uses the TMDB API but is not endorsed or certified by TMDB.",
+        "objectID": "media-sample-data-330459",
+        "_highlightResult": {
+          "original_title": {
+            "value": "Rogue One: A <em>Star</em> <em>Wars</em> Story",
+            "matchLevel": "full",
+            "fullyHighlighted": false,
+            "matchedWords": [
+              "star",
+              "wars"
+            ]
+          }
+        }
+      },
+      {
+        "id": 1893,
+        "original_language": "en",
+        "original_title": "Star Wars: Episode I - The Phantom Menace",
+        "overview": "Anakin Skywalker, a young slave strong with the Force, is discovered on Tatooine. Meanwhile, the evil Sith have returned, enacting their plot for revenge against the Jedi.",
+        "popularity": 9.5758,
+        "poster_path": "https://image.tmdb.org/t/p/w342/6wkfovpn7Eq8dYNKaG5PY3q2oq6.jpg",
+        "release_date": "1999-05-19",
+        "title": "Star Wars: Episode I - The Phantom Menace",
+        "url": "https://www.themoviedb.org/movie/1893",
+        "vote_average": 6.573,
+        "vote_count": 15741,
+        "cast": [
+          {
+            "name": "Liam Neeson",
+            "character": "Qui-Gon Jinn"
+          },
+          {
+            "name": "Ewan McGregor",
+            "character": "Obi-Wan Kenobi"
+          },
+          {
+            "name": "Natalie Portman",
+            "character": "Padmé Amidala"
+          },
+          {
+            "name": "Jake Lloyd",
+            "character": "Anakin Skywalker"
+          },
+          {
+            "name": "Ian McDiarmid",
+            "character": "Senator Palpatine"
+          }
+        ],
+        "crew": [
+          {
+            "name": "George Lucas",
+            "job": "Director"
+          }
+        ],
+        "genres": [
+          "Adventure",
+          "Action",
+          "Science Fiction"
+        ],
+        "keywords": [
+          "galaxy",
+          "senate",
+          "taskmaster",
+          "prophecy",
+          "queen",
+          "apprentice",
+          "taxes",
+          "prequel",
+          "space opera",
+          "tuwaderalit"
+        ],
+        "attribution": "This product uses the TMDB API but is not endorsed or certified by TMDB.",
+        "objectID": "media-sample-data-1893",
+        "_highlightResult": {
+          "original_title": {
+            "value": "<em>Star</em> <em>Wars</em>: Episode I - The Phantom Menace",
+            "matchLevel": "full",
+            "fullyHighlighted": false,
+            "matchedWords": [
+              "star",
+              "wars"
+            ]
+          }
+        }
+      },
+      {
+        "id": 1895,
+        "original_language": "en",
+        "original_title": "Star Wars: Episode III - Revenge of the Sith",
+        "overview": "When the sinister Sith unveil a thousand-year-old plot to rule the galaxy, the Republic crumbles and from its ashes rises the evil Galactic Empire. Jedi hero Anakin Skywalker must choose a side.",
+        "popularity": 9.3805,
+        "poster_path": "https://image.tmdb.org/t/p/w342/xfSAoBEm9MNBjmlNcDYLvLSMlnq.jpg",
+        "release_date": "2005-05-17",
+        "title": "Star Wars: Episode III - Revenge of the Sith",
+        "url": "https://www.themoviedb.org/movie/1895",
+        "vote_average": 7.463,
+        "vote_count": 14851,
+        "cast": [
+          {
+            "name": "Hayden Christensen",
+            "character": "Anakin Skywalker / Darth Vader"
+          },
+          {
+            "name": "Ewan McGregor",
+            "character": "Obi-Wan Kenobi"
+          },
+          {
+            "name": "Natalie Portman",
+            "character": "Padmé Amidala"
+          },
+          {
+            "name": "Ian McDiarmid",
+            "character": "Chancellor Palpatine / Darth Sidious"
+          },
+          {
+            "name": "Samuel L. Jackson",
+            "character": "Mace Windu"
+          }
+        ],
+        "crew": [
+          {
+            "name": "George Lucas",
+            "job": "Director"
+          }
+        ],
+        "genres": [
+          "Adventure",
+          "Action",
+          "Science Fiction"
+        ],
+        "keywords": [
+          "showdown",
+          "lava",
+          "fight",
+          "politics",
+          "volcano",
+          "chosen one",
+          "sequel",
+          "romance",
+          "prequel",
+          "tragedy",
+          "cult figure",
+          "tragic hero",
+          "vision",
+          "planet",
+          "hatred",
+          "dream sequence",
+          "expectant mother",
+          "space opera",
+          "chancel",
+          "burn injury",
+          "allegorical",
+          "tragic romance",
+          "fall from grace",
+          "power",
+          "violence",
+          "suspenseful",
+          "sinister",
+          "bold",
+          "tuwaderalit"
+        ],
+        "attribution": "This product uses the TMDB API but is not endorsed or certified by TMDB.",
+        "objectID": "media-sample-data-1895",
+        "_highlightResult": {
+          "original_title": {
+            "value": "<em>Star</em> <em>Wars</em>: Episode III - Revenge of the Sith",
+            "matchLevel": "full",
+            "fullyHighlighted": false,
+            "matchedWords": [
+              "star",
+              "wars"
+            ]
+          }
+        }
+      },
+      {
+        "id": 348350,
+        "original_language": "en",
+        "original_title": "Solo: A Star Wars Story",
+        "overview": "Through a series of daring escapades deep within a dark and dangerous criminal underworld, Han Solo meets his mighty future copilot Chewbacca and encounters the notorious gambler Lando Calrissian.",
+        "popularity": 9.0154,
+        "poster_path": "https://image.tmdb.org/t/p/w342/4oD6VEccFkorEBTEDXtpLAaz0Rl.jpg",
+        "release_date": "2018-05-15",
+        "title": "Solo: A Star Wars Story",
+        "url": "https://www.themoviedb.org/movie/348350",
+        "vote_average": 6.558,
+        "vote_count": 9215,
+        "cast": [
+          {
+            "name": "Alden Ehrenreich",
+            "character": "Han Solo"
+          },
+          {
+            "name": "Joonas Suotamo",
+            "character": "Chewbacca"
+          },
+          {
+            "name": "Woody Harrelson",
+            "character": "Tobias Beckett"
+          },
+          {
+            "name": "Emilia Clarke",
+            "character": "Qi'ra"
+          },
+          {
+            "name": "Donald Glover",
+            "character": "Lando Calrissian"
+          }
+        ],
+        "crew": [
+          {
+            "name": "Ron Howard",
+            "job": "Director"
+          }
+        ],
+        "genres": [
+          "Science Fiction",
+          "Adventure",
+          "Action"
+        ],
+        "keywords": [
+          "spacecraft",
+          "smuggling (contraband)",
+          "prequel",
+          "spin off",
+          "space opera"
+        ],
+        "attribution": "This product uses the TMDB API but is not endorsed or certified by TMDB.",
+        "objectID": "media-sample-data-348350",
+        "_highlightResult": {
+          "original_title": {
+            "value": "Solo: A <em>Star</em> <em>Wars</em> Story",
+            "matchLevel": "full",
+            "fullyHighlighted": false,
+            "matchedWords": [
+              "star",
+              "wars"
+            ]
+          }
+        }
+      },
+      {
+        "id": 1894,
+        "original_language": "en",
+        "original_title": "Star Wars: Episode II - Attack of the Clones",
+        "overview": "Following an assassination attempt on Senator Padmé Amidala, Jedi Knights Anakin Skywalker and Obi-Wan Kenobi investigate a mysterious plot into the heart of the Separatist movement and the beginning of the Clone Wars.",
+        "popularity": 8.1039,
+        "poster_path": "https://image.tmdb.org/t/p/w342/oZNPzxqM2s5DyVWab09NTQScDQt.jpg",
+        "release_date": "2002-05-15",
+        "title": "Star Wars: Episode II - Attack of the Clones",
+        "url": "https://www.themoviedb.org/movie/1894",
+        "vote_average": 6.592,
+        "vote_count": 14257,
+        "cast": [
+          {
+            "name": "Hayden Christensen",
+            "character": "Anakin Skywalker"
+          },
+          {
+            "name": "Ewan McGregor",
+            "character": "Obi-Wan Kenobi"
+          },
+          {
+            "name": "Natalie Portman",
+            "character": "Padmé Amidala"
+          },
+          {
+            "name": "Christopher Lee",
+            "character": "Count Dooku"
+          },
+          {
+            "name": "Samuel L. Jackson",
+            "character": "Mace Windu"
+          }
+        ],
+        "crew": [
+          {
+            "name": "George Lucas",
+            "job": "Director"
+          }
+        ],
+        "genres": [
+          "Adventure",
+          "Action",
+          "Science Fiction"
+        ],
+        "keywords": [
+          "army",
+          "laser gun",
+          "senate",
+          "investigation",
+          "sequel",
+          "prequel",
+          "cult figure",
+          "wedding",
+          "kendo",
+          "cynical",
+          "space opera",
+          "spaceport",
+          "teenage rebellion",
+          "good becoming evil",
+          "alien race",
+          "mechanical hand",
+          "nostalgic",
+          "romantic",
+          "excited",
+          "powerful",
+          "tuwaderalit"
+        ],
+        "attribution": "This product uses the TMDB API but is not endorsed or certified by TMDB.",
+        "objectID": "media-sample-data-1894",
+        "_highlightResult": {
+          "original_title": {
+            "value": "<em>Star</em> <em>Wars</em>: Episode II - Attack of the Clones",
+            "matchLevel": "full",
+            "fullyHighlighted": false,
+            "matchedWords": [
+              "star",
+              "wars"
+            ]
+          }
+        }
+      },
+      {
+        "id": 12180,
+        "original_language": "en",
+        "original_title": "Star Wars: The Clone Wars",
+        "overview": "As the Clone Wars sweep through the galaxy, the heroic Jedi Knights struggle to maintain order and restore peace. More and more systems are falling prey to the forces of the dark side as the Galactic Republic slips further and further under the sway of the Separatists and their never-ending droid army. Anakin Skywalker and his Padawan learner Ahsoka Tano find themselves on a mission with far-reaching consequences, one that brings them face-to-face with crime lord Jabba the Hutt. But Count Dooku and his sinister agents, including the nefarious Asajj Ventress, will stop at nothing to ensure that Anakin and Ahsoka fail at their quest. Meanwhile, on the front lines of the Clone Wars, Obi-Wan Kenobi and Master Yoda lead the massive clone army in a valiant effort to resist the forces of the dark side...",
+        "popularity": 3.8764,
+        "poster_path": "https://image.tmdb.org/t/p/w342/iJQfixW818LUdSXlCDL3JZm0S0g.jpg",
+        "release_date": "2008-08-05",
+        "title": "Star Wars: The Clone Wars",
+        "url": "https://www.themoviedb.org/movie/12180",
+        "vote_average": 6.149,
+        "vote_count": 2194,
+        "cast": [
+          {
+            "name": "Matt Lanter",
+            "character": "Anakin Skywalker (voice)"
+          },
+          {
+            "name": "Ashley Eckstein",
+            "character": "Ahsoka Tano (voice)"
+          },
+          {
+            "name": "James Arnold Taylor",
+            "character": "Obi-Wan Kenobi / 4A-7 / Medical Droid (voice)"
+          },
+          {
+            "name": "David Acord",
+            "character": "Rotta the Huttlet (voice)"
+          },
+          {
+            "name": "Dee Bradley Baker",
+            "character": "Captain Rex / Commander Cody / Commander Fox / Clone Troopers (voice)"
+          }
+        ],
+        "crew": [
+          {
+            "name": "Dave Filoni",
+            "job": "Director"
+          }
+        ],
+        "genres": [
+          "Animation",
+          "Action",
+          "Science Fiction",
+          "Adventure"
+        ],
+        "keywords": [
+          "android",
+          "separatists"
+        ],
+        "attribution": "This product uses the TMDB API but is not endorsed or certified by TMDB.",
+        "objectID": "media-sample-data-12180",
+        "_highlightResult": {
+          "original_title": {
+            "value": "<em>Star</em> <em>Wars</em>: The Clone <em>Wars</em>",
+            "matchLevel": "full",
+            "fullyHighlighted": false,
+            "matchedWords": [
+              "star",
+              "wars"
+            ]
+          }
+        }
+      },
+      {
+        "id": 732670,
+        "original_language": "en",
+        "original_title": "LEGO Star Wars Holiday Special",
+        "overview": "As her friends prep for a Life Day holiday celebration, Rey journeys with BB-8 on a quest to gain a deeper knowledge of the Force at a mysterious Jedi Temple. There, she embarks on a cross-timeline adventure through beloved moments in Star Wars history, coming into contact with iconic heroes and villains from all eras of the saga. But will she make it back in time for the Life Day feast?",
+        "popularity": 2.4503,
+        "poster_path": "https://image.tmdb.org/t/p/w342/zyzJSI7UZZzz5Toj10rYGF5689z.jpg",
+        "release_date": "2020-11-17",
+        "title": "LEGO Star Wars Holiday Special",
+        "url": "https://www.themoviedb.org/movie/732670",
+        "vote_average": 6.581,
+        "vote_count": 364,
+        "cast": [
+          {
+            "name": "Helen Sadler",
+            "character": "Rey (voice)"
+          },
+          {
+            "name": "Trevor Devall",
+            "character": "Emperor Palpatine / First Order Trooper / Mon Calamari (voice)"
+          },
+          {
+            "name": "Matt Sloan",
+            "character": "Darth Vader (voice)"
+          },
+          {
+            "name": "Omar Benson Miller",
+            "character": "Finn (voice)"
+          },
+          {
+            "name": "Jake Green",
+            "character": "Greedo / Poe Dameron / Snowtrooper (voice)"
+          }
+        ],
+        "crew": [
+          {
+            "name": "Ken Cunningham",
+            "job": "Director"
+          }
+        ],
+        "genres": [
+          "Animation",
+          "Family",
+          "Science Fiction",
+          "Adventure",
+          "Comedy"
+        ],
+        "keywords": [
+          "holiday",
+          "time travel",
+          "time machine",
+          "telekinetic",
+          "christmas",
+          "lego",
+          "short film",
+          "evil villain"
+        ],
+        "attribution": "This product uses the TMDB API but is not endorsed or certified by TMDB.",
+        "objectID": "media-sample-data-732670",
+        "_highlightResult": {
+          "original_title": {
+            "value": "LEGO <em>Star</em> <em>Wars</em> Holiday Special",
+            "matchLevel": "full",
+            "fullyHighlighted": false,
+            "matchedWords": [
+              "star",
+              "wars"
+            ]
+          }
+        }
+      },
+      {
+        "id": 980804,
+        "original_language": "en",
+        "original_title": "LEGO Star Wars Summer Vacation",
+        "overview": "Looking for a much-needed break, Finn arranges a surprise vacation for his friends Rey, Poe, Rose, Chewie, BB-8, R2-D2, and C-3PO, aboard the luxurious Halcyon. However, Finn's plan to have one last hurrah together quickly goes awry.",
+        "popularity": 2.255,
+        "poster_path": "https://image.tmdb.org/t/p/w342/vUL5UXsL5DaYgGVd2GSeqIvMKfK.jpg",
+        "release_date": "2022-08-05",
+        "title": "LEGO Star Wars Summer Vacation",
+        "url": "https://www.themoviedb.org/movie/980804",
+        "vote_average": 6.3,
+        "vote_count": 100,
+        "cast": [
+          {
+            "name": "Kelly Marie Tran",
+            "character": "Rose Tico (voice)"
+          },
+          {
+            "name": "Shelby Young",
+            "character": "Princess Leia Organa (voice)"
+          },
+          {
+            "name": "Matt Lanter",
+            "character": "Anakin Skywalker (voice) / Rodian (voice)"
+          },
+          {
+            "name": "Anthony Daniels",
+            "character": "C-3PO (voice)"
+          },
+          {
+            "name": "Omar Benson Miller",
+            "character": "Finn (voice)"
+          }
+        ],
+        "crew": [
+          {
+            "name": "Ken Cunningham",
+            "job": "Director"
+          }
+        ],
+        "genres": [
+          "Animation",
+          "Family",
+          "Science Fiction",
+          "Comedy"
+        ],
+        "keywords": [
+          "space battle",
+          "summer vacation"
+        ],
+        "attribution": "This product uses the TMDB API but is not endorsed or certified by TMDB.",
+        "objectID": "media-sample-data-980804",
+        "_highlightResult": {
+          "original_title": {
+            "value": "LEGO <em>Star</em> <em>Wars</em> Summer Vacation",
+            "matchLevel": "full",
+            "fullyHighlighted": false,
+            "matchedWords": [
+              "star",
+              "wars"
+            ]
+          }
+        }
+      },
+      {
+        "id": 74849,
+        "original_language": "en",
+        "original_title": "The Star Wars Holiday Special",
+        "overview": "Luke Skywalker and Han Solo battle evil Imperial forces to help Chewbacca reach his imperiled family on the Wookiee planet - in time for Life Day, their most important day of the year!",
+        "popularity": 2.1752,
+        "poster_path": "https://image.tmdb.org/t/p/w342/eLIKCGIiYVaplbhKFGcPzmiywF2.jpg",
+        "release_date": "1978-11-17",
+        "title": "The Star Wars Holiday Special",
+        "url": "https://www.themoviedb.org/movie/74849",
+        "vote_average": 3.395,
+        "vote_count": 506,
+        "cast": [
+          {
+            "name": "Peter Mayhew",
+            "character": "Chewbacca"
+          },
+          {
+            "name": "Mark Hamill",
+            "character": "Luke Skywalker"
+          },
+          {
+            "name": "Carrie Fisher",
+            "character": "Princess Leia Organa"
+          },
+          {
+            "name": "Harrison Ford",
+            "character": "Han Solo"
+          },
+          {
+            "name": "Anthony Daniels",
+            "character": "C-3PO"
+          }
+        ],
+        "crew": [
+          {
+            "name": "Steve Binder",
+            "job": "Director"
+          }
+        ],
+        "genres": [
+          "Adventure",
+          "Science Fiction",
+          "Family",
+          "TV Movie"
+        ],
+        "keywords": [
+          "holiday",
+          "talk show",
+          "tree house",
+          "hologram",
+          "musical",
+          "space",
+          "space opera",
+          "based on movie",
+          "vignette",
+          "variety show",
+          "live action and animation",
+          "bar"
+        ],
+        "attribution": "This product uses the TMDB API but is not endorsed or certified by TMDB.",
+        "objectID": "media-sample-data-74849",
+        "_highlightResult": {
+          "original_title": {
+            "value": "The <em>Star</em> <em>Wars</em> Holiday Special",
+            "matchLevel": "full",
+            "fullyHighlighted": false,
+            "matchedWords": [
+              "star",
+              "wars"
+            ]
+          }
+        }
+      },
+      {
+        "id": 857702,
+        "original_language": "en",
+        "original_title": "LEGO Star Wars Terrifying Tales",
+        "overview": "Poe Dameron and BB-8 must face the greedy crime boss Graballa the Hutt, who has purchased Darth Vader’s castle and is renovating it into the galaxy’s first all-inclusive Sith-inspired luxury hotel.",
+        "popularity": 2.1036,
+        "poster_path": "https://image.tmdb.org/t/p/w342/fYiaBZDjyXjvlY6EDZMAxIhBO1I.jpg",
+        "release_date": "2021-10-01",
+        "title": "LEGO Star Wars Terrifying Tales",
+        "url": "https://www.themoviedb.org/movie/857702",
+        "vote_average": 6.8,
+        "vote_count": 280,
+        "cast": [
+          {
+            "name": "Jake Green",
+            "character": "Poe Dameron / Motti (voice)"
+          },
+          {
+            "name": "Raphael Alejandro",
+            "character": "Dean (voice)"
+          },
+          {
+            "name": "Dana Snyder",
+            "character": "Graballa the Hutt (voice)"
+          },
+          {
+            "name": "Tony Hale",
+            "character": "Vaneé (voice)"
+          },
+          {
+            "name": "Christian Slater",
+            "character": "Ren (voice)"
+          }
+        ],
+        "crew": [
+          {
+            "name": "Ken Cunningham",
+            "job": "Director"
+          }
+        ],
+        "genres": [
+          "Animation",
+          "Family",
+          "Science Fiction",
+          "Comedy"
+        ],
+        "keywords": [],
+        "attribution": "This product uses the TMDB API but is not endorsed or certified by TMDB.",
+        "objectID": "media-sample-data-857702",
+        "_highlightResult": {
+          "original_title": {
+            "value": "LEGO <em>Star</em> <em>Wars</em> Terrifying Tales",
+            "matchLevel": "full",
+            "fullyHighlighted": false,
+            "matchedWords": [
+              "star",
+              "wars"
+            ]
+          }
+        }
+      },
+      {
+        "id": 392216,
+        "original_language": "en",
+        "original_title": "Phineas and Ferb: Star Wars",
+        "overview": "Phineas and Ferb become the galaxy's unlikeliest last hope when they must return the Death Star plans to the Rebel Alliance.",
+        "popularity": 2.0275,
+        "poster_path": "https://image.tmdb.org/t/p/w342/tz3dWhlrLb5eZ96iINOyGf1Pvdj.jpg",
+        "release_date": "2014-07-26",
+        "title": "Phineas and Ferb: Star Wars",
+        "url": "https://www.themoviedb.org/movie/392216",
+        "vote_average": 7.158,
+        "vote_count": 219,
+        "cast": [
+          {
+            "name": "Vincent Martella",
+            "character": "Phineas Flynn (voice) / Additional Voices"
+          },
+          {
+            "name": "Thomas Brodie-Sangster",
+            "character": "Ferb Fletcher (voice)"
+          },
+          {
+            "name": "Ashley French",
+            "character": "Candance Flynn (voice)"
+          },
+          {
+            "name": "Dee Bradley Baker",
+            "character": "Perry the Rebelpus / Chewbacca / Additional Voices"
+          },
+          {
+            "name": "April Winchell",
+            "character": "Princess Leia (voice)"
+          }
+        ],
+        "crew": [
+          {
+            "name": "Sue Perrotto",
+            "job": "Director"
+          },
+          {
+            "name": "Robert Hughes",
+            "job": "Director"
+          }
+        ],
+        "genres": [
+          "Animation",
+          "Comedy",
+          "Family",
+          "Science Fiction",
+          "Adventure",
+          "TV Movie",
+          "Action"
+        ],
+        "keywords": [
+          "space opera"
+        ],
+        "attribution": "This product uses the TMDB API but is not endorsed or certified by TMDB.",
+        "objectID": "media-sample-data-392216",
+        "_highlightResult": {
+          "original_title": {
+            "value": "Phineas and Ferb: <em>Star</em> <em>Wars</em>",
+            "matchLevel": "full",
+            "fullyHighlighted": false,
+            "matchedWords": [
+              "star",
+              "wars"
+            ]
+          }
+        }
+      },
+      {
+        "id": 42979,
+        "original_language": "en",
+        "original_title": "Robot Chicken: Star Wars",
+        "overview": "A series of 30 sketches, following the hilarious antics of various characters from a galaxy, far, far away.",
+        "popularity": 1.7282,
+        "poster_path": "https://image.tmdb.org/t/p/w342/h44WN4mVJ6wEpJgLaaNoFjv0NAo.jpg",
+        "release_date": "2007-07-17",
+        "title": "Robot Chicken: Star Wars",
+        "url": "https://www.themoviedb.org/movie/42979",
+        "vote_average": 7.244,
+        "vote_count": 268,
+        "cast": [
+          {
+            "name": "Seth Green",
+            "character": "The Nerd / Qui-Gon Jinn / Ponda Baba / Max Rebo (voice)"
+          },
+          {
+            "name": "Abraham Benrubi",
+            "character": "Darth Vader (voice)"
+          },
+          {
+            "name": "Keith Ferguson",
+            "character": "Han Solo (voice)"
+          },
+          {
+            "name": "Candace Bailey",
+            "character": "Princess Leia Organa / Girl / Various (voice)"
+          },
+          {
+            "name": "Bob Bergen",
+            "character": "Luke Skywalker (voice)"
+          }
+        ],
+        "crew": [
+          {
+            "name": "Seth Green",
+            "job": "Director"
+          }
+        ],
+        "genres": [
+          "Animation",
+          "Comedy",
+          "Science Fiction",
+          "Action",
+          "TV Movie",
+          "Adventure",
+          "Fantasy"
+        ],
+        "keywords": [
+          "based on tv series"
+        ],
+        "attribution": "This product uses the TMDB API but is not endorsed or certified by TMDB.",
+        "objectID": "media-sample-data-42979",
+        "_highlightResult": {
+          "original_title": {
+            "value": "Robot Chicken: <em>Star</em> <em>Wars</em>",
+            "matchLevel": "full",
+            "fullyHighlighted": false,
+            "matchedWords": [
+              "star",
+              "wars"
+            ]
+          }
+        }
+      },
+      {
+        "id": 42982,
+        "original_language": "en",
+        "original_title": "Robot Chicken: Star Wars Episode II",
+        "overview": "Seth Green and Matthew Senreich serve up more hilarious Star Wars-inspired satire in this second compilation of sketches featuring the zany stop-motion animation of Adult Swim's \"Robot Chicken.\" Gary the stormtrooper deals with irascible boss Darth Vader on Take Your Daughter to Work Day, while Anakin babysits a certain up-and-coming Jedi.",
+        "popularity": 1.5861,
+        "poster_path": "https://image.tmdb.org/t/p/w342/dM5eCurdAXYd3Dvyr9Rz2YSj3rJ.jpg",
+        "release_date": "2008-11-16",
+        "title": "Robot Chicken: Star Wars Episode II",
+        "url": "https://www.themoviedb.org/movie/42982",
+        "vote_average": 7.536,
+        "vote_count": 151,
+        "cast": [
+          {
+            "name": "Seth Green",
+            "character": "The Nerd / Anakin Skywalker / Obi-Wan Kenobi / Bossk (voice)"
+          },
+          {
+            "name": "Abraham Benrubi",
+            "character": "Darth Vader / Owen Lars (voice)"
+          },
+          {
+            "name": "Bob Bergen",
+            "character": "Luke Skywalker (voice)"
+          },
+          {
+            "name": "Ahmed Best",
+            "character": "Jar Jar Binks / Carl the Stormtrooper (voice)"
+          },
+          {
+            "name": "Breckin Meyer",
+            "character": "Boba Fett / Admiral Ackbar / Wampa (voice)"
+          }
+        ],
+        "crew": [
+          {
+            "name": "Seth Green",
+            "job": "Director"
+          }
+        ],
+        "genres": [
+          "Science Fiction",
+          "Animation",
+          "Comedy",
+          "Action",
+          "Adventure",
+          "Fantasy",
+          "TV Movie"
+        ],
+        "keywords": [
+          "based on tv series"
+        ],
+        "attribution": "This product uses the TMDB API but is not endorsed or certified by TMDB.",
+        "objectID": "media-sample-data-42982",
+        "_highlightResult": {
+          "original_title": {
+            "value": "Robot Chicken: <em>Star</em> <em>Wars</em> Episode II",
+            "matchLevel": "full",
+            "fullyHighlighted": false,
+            "matchedWords": [
+              "star",
+              "wars"
+            ]
+          }
+        }
+      },
+      {
+        "id": 76180,
+        "original_language": "en",
+        "original_title": "Empire of Dreams: The Story of the Star Wars Trilogy",
+        "overview": "From the earliest versions of the script to the blockbuster debuts, explore the creation of the Star Wars Trilogy.",
+        "popularity": 1.5783,
+        "poster_path": "https://image.tmdb.org/t/p/w342/xq0MPT1lLxfznTRaAbInxWT2wfh.jpg",
+        "release_date": "2004-09-20",
+        "title": "Empire of Dreams: The Story of the Star Wars Trilogy",
+        "url": "https://www.themoviedb.org/movie/76180",
+        "vote_average": 7.755,
+        "vote_count": 206,
+        "cast": [
+          {
+            "name": "Robert Clotworthy",
+            "character": "Narrator (voice)"
+          },
+          {
+            "name": "George Lucas",
+            "character": "Self"
+          },
+          {
+            "name": "Steven Spielberg",
+            "character": "Self"
+          },
+          {
+            "name": "Mark Hamill",
+            "character": "Self"
+          },
+          {
+            "name": "Carrie Fisher",
+            "character": "Self"
+          }
+        ],
+        "crew": [
+          {
+            "name": "Edith Becker",
+            "job": "Director"
+          },
+          {
+            "name": "Kevin Burns",
+            "job": "Director"
+          }
+        ],
+        "genres": [
+          "Documentary"
+        ],
+        "keywords": [
+          "based on true story",
+          "audition",
+          "making of",
+          "space opera",
+          "cinema history"
+        ],
+        "attribution": "This product uses the TMDB API but is not endorsed or certified by TMDB.",
+        "objectID": "media-sample-data-76180",
+        "_highlightResult": {
+          "original_title": {
+            "value": "Empire of Dreams: The Story of the <em>Star</em> <em>Wars</em> Trilogy",
+            "matchLevel": "full",
+            "fullyHighlighted": false,
+            "matchedWords": [
+              "star",
+              "wars"
+            ]
+          }
+        }
+      },
+      {
+        "id": 70608,
+        "original_language": "en",
+        "original_title": "LEGO Star Wars: The Padawan Menace",
+        "overview": "Master Yoda must go retrieve secret battle plans. However, things become a little more complicated when a class of younglings join the mission.",
+        "popularity": 1.4383,
+        "poster_path": "https://image.tmdb.org/t/p/w342/bCDa9memHnETeRrJWXzImTZdMal.jpg",
+        "release_date": "2011-07-22",
+        "title": "LEGO Star Wars: The Padawan Menace",
+        "url": "https://www.themoviedb.org/movie/70608",
+        "vote_average": 6.6,
+        "vote_count": 158,
+        "cast": [
+          {
+            "name": "Anthony Daniels",
+            "character": "C-3PO (voice)"
+          },
+          {
+            "name": "Nika Futterman",
+            "character": "Asajj Ventress / Jempa / Padme Amidala (voice)"
+          },
+          {
+            "name": "Phil LaMarr",
+            "character": "Darth Vader / Bail Organa / Jar Jar Binks / Republic Guard (voice)"
+          },
+          {
+            "name": "Tom Kane",
+            "character": "Yoda / Narrator / Senator Yaun / Pitchman (voice)"
+          },
+          {
+            "name": "Katie Leigh",
+            "character": "Ian / Mari / Ashla (voice)"
+          }
+        ],
+        "crew": [
+          {
+            "name": "David Scott",
+            "job": "Director"
+          }
+        ],
+        "genres": [
+          "Family",
+          "Animation",
+          "Science Fiction"
+        ],
+        "keywords": [
+          "space opera",
+          "lego"
+        ],
+        "attribution": "This product uses the TMDB API but is not endorsed or certified by TMDB.",
+        "objectID": "media-sample-data-70608",
+        "_highlightResult": {
+          "original_title": {
+            "value": "LEGO <em>Star</em> <em>Wars</em>: The Padawan Menace",
+            "matchLevel": "full",
+            "fullyHighlighted": false,
+            "matchedWords": [
+              "star",
+              "wars"
+            ]
+          }
+        }
+      },
+      {
+        "id": 51888,
+        "original_language": "en",
+        "original_title": "Robot Chicken: Star Wars Episode III",
+        "overview": "Millions of years from now, after Socrates, Shakespeare and the bible are long forgotten, only two great works will remain: the sci-fi cinema epic Star Wars and Adult Swim's stop-motion animated, cheap gag extravanganza Robot Chicken. And now, for the first time, they come together for the third time, in this all new special. That's right, all your mot beloved Star Wars characters are going back through the comedy meat grinder.",
+        "popularity": 1.3106,
+        "poster_path": "https://image.tmdb.org/t/p/w342/htL6wH77hfO1N97n6MOwt9AD1oB.jpg",
+        "release_date": "2010-12-19",
+        "title": "Robot Chicken: Star Wars Episode III",
+        "url": "https://www.themoviedb.org/movie/51888",
+        "vote_average": 7.455,
+        "vote_count": 165,
+        "cast": [
+          {
+            "name": "Seth Green",
+            "character": "Obi-Wan Kenobi / IG-88 / Weequay / Prune Face / R5-D4 (voice)"
+          },
+          {
+            "name": "Abraham Benrubi",
+            "character": "Darth Vader / Owen Lars (voice)"
+          },
+          {
+            "name": "Zac Efron",
+            "character": "Anakin Skywalker (voice)"
+          },
+          {
+            "name": "Seth MacFarlane",
+            "character": "Emperor Palpatine (voice)"
+          },
+          {
+            "name": "Carrie Fisher",
+            "character": "Princess Leia Organa (voice)"
+          }
+        ],
+        "crew": [
+          {
+            "name": "Chris McKay",
+            "job": "Director"
+          }
+        ],
+        "genres": [
+          "Comedy",
+          "Science Fiction",
+          "Animation",
+          "TV Movie",
+          "Action",
+          "Adventure",
+          "Fantasy"
+        ],
+        "keywords": [
+          "based on tv series"
+        ],
+        "attribution": "This product uses the TMDB API but is not endorsed or certified by TMDB.",
+        "objectID": "media-sample-data-51888",
+        "_highlightResult": {
+          "original_title": {
+            "value": "Robot Chicken: <em>Star</em> <em>Wars</em> Episode III",
+            "matchLevel": "full",
+            "fullyHighlighted": false,
+            "matchedWords": [
+              "star",
+              "wars"
+            ]
+          }
+        }
+      }
+    ],
+    "page": 0,
+    "nbHits": 21,
+    "nbPages": 2,
+    "hitsPerPage": 20,
+    "query": "star wars",
+    "params": "query=star+wars",
+    "processingTimeMS": 1
+  },
+  "nango": {},
+  "api": {
+    "post": {
+      "/1/indexes/algolia_movie_sample_dataset/query": {
+        "response": {
+          "hits": [
+            {
+              "id": 181808,
+              "original_language": "en",
+              "original_title": "Star Wars: The Last Jedi",
+              "overview": "Rey develops her newly discovered abilities with the guidance of Luke Skywalker, who is unsettled by the strength of her powers. Meanwhile, the Resistance prepares to do battle with the First Order.",
+              "popularity": 30.2452,
+              "poster_path": "https://image.tmdb.org/t/p/w342/kOVEVeg59E0wsnXmF9nrh6OmWII.jpg",
+              "release_date": "2017-12-13",
+              "title": "Star Wars: The Last Jedi",
+              "url": "https://www.themoviedb.org/movie/181808",
+              "vote_average": 6.755,
+              "vote_count": 16253,
+              "cast": [
+                {
+                  "name": "Mark Hamill",
+                  "character": "Luke Skywalker / Dobbu Scay (voice)"
+                },
+                {
+                  "name": "Carrie Fisher",
+                  "character": "Leia Organa"
+                },
+                {
+                  "name": "Adam Driver",
+                  "character": "Kylo Ren"
+                },
+                {
+                  "name": "Daisy Ridley",
+                  "character": "Rey"
+                },
+                {
+                  "name": "John Boyega",
+                  "character": "Finn"
+                }
+              ],
+              "crew": [
+                {
+                  "name": "Rian Johnson",
+                  "job": "Director"
+                }
+              ],
+              "genres": [
+                "Adventure",
+                "Action",
+                "Science Fiction"
+              ],
+              "keywords": [
+                "bunker",
+                "space battle",
+                "defeat",
+                "failure",
+                "sequel",
+                "blunt",
+                "space opera",
+                "military operation",
+                "tuwaderalit"
+              ],
+              "attribution": "This product uses the TMDB API but is not endorsed or certified by TMDB.",
+              "objectID": "media-sample-data-181808",
+              "_highlightResult": {
+                "original_title": {
+                  "value": "<em>Star</em> <em>Wars</em>: The Last Jedi",
+                  "matchLevel": "full",
+                  "fullyHighlighted": false,
+                  "matchedWords": [
+                    "star",
+                    "wars"
+                  ]
+                }
+              }
+            },
+            {
+              "id": 11,
+              "original_language": "en",
+              "original_title": "Star Wars",
+              "overview": "Princess Leia is captured and held hostage by the evil Imperial forces in their effort to take over the galactic Empire. Venturesome Luke Skywalker and dashing captain Han Solo team together with the loveable robot duo R2-D2 and C-3PO to rescue the beautiful princess and restore peace and justice in the Empire.",
+              "popularity": 24.6071,
+              "poster_path": "https://image.tmdb.org/t/p/w342/6FfCtAuVAW8XJjZ7eWeLibRLWTw.jpg",
+              "release_date": "1977-05-25",
+              "title": "Star Wars",
+              "url": "https://www.themoviedb.org/movie/11",
+              "vote_average": 8.203,
+              "vote_count": 22207,
+              "cast": [
+                {
+                  "name": "Mark Hamill",
+                  "character": "Luke Skywalker"
+                },
+                {
+                  "name": "Harrison Ford",
+                  "character": "Han Solo"
+                },
+                {
+                  "name": "Carrie Fisher",
+                  "character": "Princess Leia Organa"
+                },
+                {
+                  "name": "Peter Cushing",
+                  "character": "Grand Moff Tarkin"
+                },
+                {
+                  "name": "Alec Guinness",
+                  "character": "Obi-Wan \"Ben\" Kenobi"
+                }
+              ],
+              "crew": [
+                {
+                  "name": "George Lucas",
+                  "job": "Director"
+                }
+              ],
+              "genres": [
+                "Adventure",
+                "Action",
+                "Science Fiction"
+              ],
+              "keywords": [
+                "empire",
+                "galaxy",
+                "rebellion",
+                "android",
+                "hermit",
+                "smuggling (contraband)",
+                "freedom",
+                "rebel",
+                "rescue mission",
+                "space",
+                "planet",
+                "desert",
+                "super power",
+                "oppression",
+                "space opera",
+                "nostalgic",
+                "wizard",
+                "totalitarianism",
+                "tuwaderalit"
+              ],
+              "attribution": "This product uses the TMDB API but is not endorsed or certified by TMDB.",
+              "objectID": "media-sample-data-11",
+              "_highlightResult": {
+                "original_title": {
+                  "value": "<em>Star</em> <em>Wars</em>",
+                  "matchLevel": "full",
+                  "fullyHighlighted": true,
+                  "matchedWords": [
+                    "star",
+                    "wars"
+                  ]
+                }
+              }
+            },
+            {
+              "id": 181812,
+              "original_language": "en",
+              "original_title": "Star Wars: The Rise of Skywalker",
+              "overview": "The surviving Resistance faces the First Order once again as the journey of Rey, Finn and Poe Dameron continues. With the power and knowledge of generations behind them, the final battle begins.",
+              "popularity": 13.5902,
+              "poster_path": "https://image.tmdb.org/t/p/w342/db32LaOibwEliAmSL2jjDF6oDdj.jpg",
+              "release_date": "2019-12-18",
+              "title": "Star Wars: The Rise of Skywalker",
+              "url": "https://www.themoviedb.org/movie/181812",
+              "vote_average": 6.273,
+              "vote_count": 10768,
+              "cast": [
+                {
+                  "name": "Carrie Fisher",
+                  "character": "General Leia Organa"
+                },
+                {
+                  "name": "Mark Hamill",
+                  "character": "Luke Skywalker"
+                },
+                {
+                  "name": "Daisy Ridley",
+                  "character": "Rey"
+                },
+                {
+                  "name": "Adam Driver",
+                  "character": "Kylo Ren / Ben Solo"
+                },
+                {
+                  "name": "John Boyega",
+                  "character": "Finn"
+                }
+              ],
+              "crew": [
+                {
+                  "name": "J.J. Abrams",
+                  "job": "Director"
+                }
+              ],
+              "genres": [
+                "Adventure",
+                "Action",
+                "Science Fiction"
+              ],
+              "keywords": [
+                "space opera"
+              ],
+              "attribution": "This product uses the TMDB API but is not endorsed or certified by TMDB.",
+              "objectID": "media-sample-data-181812",
+              "_highlightResult": {
+                "original_title": {
+                  "value": "<em>Star</em> <em>Wars</em>: The Rise of Skywalker",
+                  "matchLevel": "full",
+                  "fullyHighlighted": false,
+                  "matchedWords": [
+                    "star",
+                    "wars"
+                  ]
+                }
+              }
+            },
+            {
+              "id": 140607,
+              "original_language": "en",
+              "original_title": "Star Wars: The Force Awakens",
+              "overview": "Thirty years after defeating the Galactic Empire, Han Solo and his allies face a new threat from the evil Kylo Ren and his army of Stormtroopers.",
+              "popularity": 11.7989,
+              "poster_path": "https://image.tmdb.org/t/p/w342/wqnLdwVXoBjKibFRR5U3y0aDUhs.jpg",
+              "release_date": "2015-12-15",
+              "title": "Star Wars: The Force Awakens",
+              "url": "https://www.themoviedb.org/movie/140607",
+              "vote_average": 7.25,
+              "vote_count": 20459,
+              "cast": [
+                {
+                  "name": "Daisy Ridley",
+                  "character": "Rey"
+                },
+                {
+                  "name": "John Boyega",
+                  "character": "Finn"
+                },
+                {
+                  "name": "Oscar Isaac",
+                  "character": "Poe Dameron"
+                },
+                {
+                  "name": "Adam Driver",
+                  "character": "Kylo Ren"
+                },
+                {
+                  "name": "Carrie Fisher",
+                  "character": "Princess Leia"
+                }
+              ],
+              "crew": [
+                {
+                  "name": "J.J. Abrams",
+                  "job": "Director"
+                }
+              ],
+              "genres": [
+                "Adventure",
+                "Action",
+                "Science Fiction"
+              ],
+              "keywords": [
+                "android",
+                "spacecraft",
+                "space opera",
+                "brisk",
+                "disrespectful",
+                "tuwaderalit"
+              ],
+              "attribution": "This product uses the TMDB API but is not endorsed or certified by TMDB.",
+              "objectID": "media-sample-data-140607",
+              "_highlightResult": {
+                "original_title": {
+                  "value": "<em>Star</em> <em>Wars</em>: The Force Awakens",
+                  "matchLevel": "full",
+                  "fullyHighlighted": false,
+                  "matchedWords": [
+                    "star",
+                    "wars"
+                  ]
+                }
+              }
+            },
+            {
+              "id": 330459,
+              "original_language": "en",
+              "original_title": "Rogue One: A Star Wars Story",
+              "overview": "A rogue band of resistance fighters unite for a mission to steal the Death Star plans and bring a new hope to the galaxy.",
+              "popularity": 9.7549,
+              "poster_path": "https://image.tmdb.org/t/p/w342/i0yw1mFbB7sNGHCs7EXZPzFkdA1.jpg",
+              "release_date": "2016-12-14",
+              "title": "Rogue One: A Star Wars Story",
+              "url": "https://www.themoviedb.org/movie/330459",
+              "vote_average": 7.505,
+              "vote_count": 16321,
+              "cast": [
+                {
+                  "name": "Felicity Jones",
+                  "character": "Jyn Erso"
+                },
+                {
+                  "name": "Diego Luna",
+                  "character": "Cassian Andor"
+                },
+                {
+                  "name": "Alan Tudyk",
+                  "character": "K-2SO"
+                },
+                {
+                  "name": "Donnie Yen",
+                  "character": "Chirrut Imwe"
+                },
+                {
+                  "name": "Jiang Wen",
+                  "character": "Baze Malbus"
+                }
+              ],
+              "crew": [
+                {
+                  "name": "Gareth Edwards",
+                  "job": "Director"
+                }
+              ],
+              "genres": [
+                "Action",
+                "Adventure",
+                "Science Fiction"
+              ],
+              "keywords": [
+                "rebellion",
+                "spacecraft",
+                "rebel",
+                "space battle",
+                "space travel",
+                "prequel",
+                "female protagonist",
+                "space western",
+                "suicide mission",
+                "robot",
+                "spin off",
+                "space opera",
+                "alien language",
+                "against the odds",
+                "blind man"
+              ],
+              "attribution": "This product uses the TMDB API but is not endorsed or certified by TMDB.",
+              "objectID": "media-sample-data-330459",
+              "_highlightResult": {
+                "original_title": {
+                  "value": "Rogue One: A <em>Star</em> <em>Wars</em> Story",
+                  "matchLevel": "full",
+                  "fullyHighlighted": false,
+                  "matchedWords": [
+                    "star",
+                    "wars"
+                  ]
+                }
+              }
+            },
+            {
+              "id": 1893,
+              "original_language": "en",
+              "original_title": "Star Wars: Episode I - The Phantom Menace",
+              "overview": "Anakin Skywalker, a young slave strong with the Force, is discovered on Tatooine. Meanwhile, the evil Sith have returned, enacting their plot for revenge against the Jedi.",
+              "popularity": 9.5758,
+              "poster_path": "https://image.tmdb.org/t/p/w342/6wkfovpn7Eq8dYNKaG5PY3q2oq6.jpg",
+              "release_date": "1999-05-19",
+              "title": "Star Wars: Episode I - The Phantom Menace",
+              "url": "https://www.themoviedb.org/movie/1893",
+              "vote_average": 6.573,
+              "vote_count": 15741,
+              "cast": [
+                {
+                  "name": "Liam Neeson",
+                  "character": "Qui-Gon Jinn"
+                },
+                {
+                  "name": "Ewan McGregor",
+                  "character": "Obi-Wan Kenobi"
+                },
+                {
+                  "name": "Natalie Portman",
+                  "character": "Padmé Amidala"
+                },
+                {
+                  "name": "Jake Lloyd",
+                  "character": "Anakin Skywalker"
+                },
+                {
+                  "name": "Ian McDiarmid",
+                  "character": "Senator Palpatine"
+                }
+              ],
+              "crew": [
+                {
+                  "name": "George Lucas",
+                  "job": "Director"
+                }
+              ],
+              "genres": [
+                "Adventure",
+                "Action",
+                "Science Fiction"
+              ],
+              "keywords": [
+                "galaxy",
+                "senate",
+                "taskmaster",
+                "prophecy",
+                "queen",
+                "apprentice",
+                "taxes",
+                "prequel",
+                "space opera",
+                "tuwaderalit"
+              ],
+              "attribution": "This product uses the TMDB API but is not endorsed or certified by TMDB.",
+              "objectID": "media-sample-data-1893",
+              "_highlightResult": {
+                "original_title": {
+                  "value": "<em>Star</em> <em>Wars</em>: Episode I - The Phantom Menace",
+                  "matchLevel": "full",
+                  "fullyHighlighted": false,
+                  "matchedWords": [
+                    "star",
+                    "wars"
+                  ]
+                }
+              }
+            },
+            {
+              "id": 1895,
+              "original_language": "en",
+              "original_title": "Star Wars: Episode III - Revenge of the Sith",
+              "overview": "When the sinister Sith unveil a thousand-year-old plot to rule the galaxy, the Republic crumbles and from its ashes rises the evil Galactic Empire. Jedi hero Anakin Skywalker must choose a side.",
+              "popularity": 9.3805,
+              "poster_path": "https://image.tmdb.org/t/p/w342/xfSAoBEm9MNBjmlNcDYLvLSMlnq.jpg",
+              "release_date": "2005-05-17",
+              "title": "Star Wars: Episode III - Revenge of the Sith",
+              "url": "https://www.themoviedb.org/movie/1895",
+              "vote_average": 7.463,
+              "vote_count": 14851,
+              "cast": [
+                {
+                  "name": "Hayden Christensen",
+                  "character": "Anakin Skywalker / Darth Vader"
+                },
+                {
+                  "name": "Ewan McGregor",
+                  "character": "Obi-Wan Kenobi"
+                },
+                {
+                  "name": "Natalie Portman",
+                  "character": "Padmé Amidala"
+                },
+                {
+                  "name": "Ian McDiarmid",
+                  "character": "Chancellor Palpatine / Darth Sidious"
+                },
+                {
+                  "name": "Samuel L. Jackson",
+                  "character": "Mace Windu"
+                }
+              ],
+              "crew": [
+                {
+                  "name": "George Lucas",
+                  "job": "Director"
+                }
+              ],
+              "genres": [
+                "Adventure",
+                "Action",
+                "Science Fiction"
+              ],
+              "keywords": [
+                "showdown",
+                "lava",
+                "fight",
+                "politics",
+                "volcano",
+                "chosen one",
+                "sequel",
+                "romance",
+                "prequel",
+                "tragedy",
+                "cult figure",
+                "tragic hero",
+                "vision",
+                "planet",
+                "hatred",
+                "dream sequence",
+                "expectant mother",
+                "space opera",
+                "chancel",
+                "burn injury",
+                "allegorical",
+                "tragic romance",
+                "fall from grace",
+                "power",
+                "violence",
+                "suspenseful",
+                "sinister",
+                "bold",
+                "tuwaderalit"
+              ],
+              "attribution": "This product uses the TMDB API but is not endorsed or certified by TMDB.",
+              "objectID": "media-sample-data-1895",
+              "_highlightResult": {
+                "original_title": {
+                  "value": "<em>Star</em> <em>Wars</em>: Episode III - Revenge of the Sith",
+                  "matchLevel": "full",
+                  "fullyHighlighted": false,
+                  "matchedWords": [
+                    "star",
+                    "wars"
+                  ]
+                }
+              }
+            },
+            {
+              "id": 348350,
+              "original_language": "en",
+              "original_title": "Solo: A Star Wars Story",
+              "overview": "Through a series of daring escapades deep within a dark and dangerous criminal underworld, Han Solo meets his mighty future copilot Chewbacca and encounters the notorious gambler Lando Calrissian.",
+              "popularity": 9.0154,
+              "poster_path": "https://image.tmdb.org/t/p/w342/4oD6VEccFkorEBTEDXtpLAaz0Rl.jpg",
+              "release_date": "2018-05-15",
+              "title": "Solo: A Star Wars Story",
+              "url": "https://www.themoviedb.org/movie/348350",
+              "vote_average": 6.558,
+              "vote_count": 9215,
+              "cast": [
+                {
+                  "name": "Alden Ehrenreich",
+                  "character": "Han Solo"
+                },
+                {
+                  "name": "Joonas Suotamo",
+                  "character": "Chewbacca"
+                },
+                {
+                  "name": "Woody Harrelson",
+                  "character": "Tobias Beckett"
+                },
+                {
+                  "name": "Emilia Clarke",
+                  "character": "Qi'ra"
+                },
+                {
+                  "name": "Donald Glover",
+                  "character": "Lando Calrissian"
+                }
+              ],
+              "crew": [
+                {
+                  "name": "Ron Howard",
+                  "job": "Director"
+                }
+              ],
+              "genres": [
+                "Science Fiction",
+                "Adventure",
+                "Action"
+              ],
+              "keywords": [
+                "spacecraft",
+                "smuggling (contraband)",
+                "prequel",
+                "spin off",
+                "space opera"
+              ],
+              "attribution": "This product uses the TMDB API but is not endorsed or certified by TMDB.",
+              "objectID": "media-sample-data-348350",
+              "_highlightResult": {
+                "original_title": {
+                  "value": "Solo: A <em>Star</em> <em>Wars</em> Story",
+                  "matchLevel": "full",
+                  "fullyHighlighted": false,
+                  "matchedWords": [
+                    "star",
+                    "wars"
+                  ]
+                }
+              }
+            },
+            {
+              "id": 1894,
+              "original_language": "en",
+              "original_title": "Star Wars: Episode II - Attack of the Clones",
+              "overview": "Following an assassination attempt on Senator Padmé Amidala, Jedi Knights Anakin Skywalker and Obi-Wan Kenobi investigate a mysterious plot into the heart of the Separatist movement and the beginning of the Clone Wars.",
+              "popularity": 8.1039,
+              "poster_path": "https://image.tmdb.org/t/p/w342/oZNPzxqM2s5DyVWab09NTQScDQt.jpg",
+              "release_date": "2002-05-15",
+              "title": "Star Wars: Episode II - Attack of the Clones",
+              "url": "https://www.themoviedb.org/movie/1894",
+              "vote_average": 6.592,
+              "vote_count": 14257,
+              "cast": [
+                {
+                  "name": "Hayden Christensen",
+                  "character": "Anakin Skywalker"
+                },
+                {
+                  "name": "Ewan McGregor",
+                  "character": "Obi-Wan Kenobi"
+                },
+                {
+                  "name": "Natalie Portman",
+                  "character": "Padmé Amidala"
+                },
+                {
+                  "name": "Christopher Lee",
+                  "character": "Count Dooku"
+                },
+                {
+                  "name": "Samuel L. Jackson",
+                  "character": "Mace Windu"
+                }
+              ],
+              "crew": [
+                {
+                  "name": "George Lucas",
+                  "job": "Director"
+                }
+              ],
+              "genres": [
+                "Adventure",
+                "Action",
+                "Science Fiction"
+              ],
+              "keywords": [
+                "army",
+                "laser gun",
+                "senate",
+                "investigation",
+                "sequel",
+                "prequel",
+                "cult figure",
+                "wedding",
+                "kendo",
+                "cynical",
+                "space opera",
+                "spaceport",
+                "teenage rebellion",
+                "good becoming evil",
+                "alien race",
+                "mechanical hand",
+                "nostalgic",
+                "romantic",
+                "excited",
+                "powerful",
+                "tuwaderalit"
+              ],
+              "attribution": "This product uses the TMDB API but is not endorsed or certified by TMDB.",
+              "objectID": "media-sample-data-1894",
+              "_highlightResult": {
+                "original_title": {
+                  "value": "<em>Star</em> <em>Wars</em>: Episode II - Attack of the Clones",
+                  "matchLevel": "full",
+                  "fullyHighlighted": false,
+                  "matchedWords": [
+                    "star",
+                    "wars"
+                  ]
+                }
+              }
+            },
+            {
+              "id": 12180,
+              "original_language": "en",
+              "original_title": "Star Wars: The Clone Wars",
+              "overview": "As the Clone Wars sweep through the galaxy, the heroic Jedi Knights struggle to maintain order and restore peace. More and more systems are falling prey to the forces of the dark side as the Galactic Republic slips further and further under the sway of the Separatists and their never-ending droid army. Anakin Skywalker and his Padawan learner Ahsoka Tano find themselves on a mission with far-reaching consequences, one that brings them face-to-face with crime lord Jabba the Hutt. But Count Dooku and his sinister agents, including the nefarious Asajj Ventress, will stop at nothing to ensure that Anakin and Ahsoka fail at their quest. Meanwhile, on the front lines of the Clone Wars, Obi-Wan Kenobi and Master Yoda lead the massive clone army in a valiant effort to resist the forces of the dark side...",
+              "popularity": 3.8764,
+              "poster_path": "https://image.tmdb.org/t/p/w342/iJQfixW818LUdSXlCDL3JZm0S0g.jpg",
+              "release_date": "2008-08-05",
+              "title": "Star Wars: The Clone Wars",
+              "url": "https://www.themoviedb.org/movie/12180",
+              "vote_average": 6.149,
+              "vote_count": 2194,
+              "cast": [
+                {
+                  "name": "Matt Lanter",
+                  "character": "Anakin Skywalker (voice)"
+                },
+                {
+                  "name": "Ashley Eckstein",
+                  "character": "Ahsoka Tano (voice)"
+                },
+                {
+                  "name": "James Arnold Taylor",
+                  "character": "Obi-Wan Kenobi / 4A-7 / Medical Droid (voice)"
+                },
+                {
+                  "name": "David Acord",
+                  "character": "Rotta the Huttlet (voice)"
+                },
+                {
+                  "name": "Dee Bradley Baker",
+                  "character": "Captain Rex / Commander Cody / Commander Fox / Clone Troopers (voice)"
+                }
+              ],
+              "crew": [
+                {
+                  "name": "Dave Filoni",
+                  "job": "Director"
+                }
+              ],
+              "genres": [
+                "Animation",
+                "Action",
+                "Science Fiction",
+                "Adventure"
+              ],
+              "keywords": [
+                "android",
+                "separatists"
+              ],
+              "attribution": "This product uses the TMDB API but is not endorsed or certified by TMDB.",
+              "objectID": "media-sample-data-12180",
+              "_highlightResult": {
+                "original_title": {
+                  "value": "<em>Star</em> <em>Wars</em>: The Clone <em>Wars</em>",
+                  "matchLevel": "full",
+                  "fullyHighlighted": false,
+                  "matchedWords": [
+                    "star",
+                    "wars"
+                  ]
+                }
+              }
+            },
+            {
+              "id": 732670,
+              "original_language": "en",
+              "original_title": "LEGO Star Wars Holiday Special",
+              "overview": "As her friends prep for a Life Day holiday celebration, Rey journeys with BB-8 on a quest to gain a deeper knowledge of the Force at a mysterious Jedi Temple. There, she embarks on a cross-timeline adventure through beloved moments in Star Wars history, coming into contact with iconic heroes and villains from all eras of the saga. But will she make it back in time for the Life Day feast?",
+              "popularity": 2.4503,
+              "poster_path": "https://image.tmdb.org/t/p/w342/zyzJSI7UZZzz5Toj10rYGF5689z.jpg",
+              "release_date": "2020-11-17",
+              "title": "LEGO Star Wars Holiday Special",
+              "url": "https://www.themoviedb.org/movie/732670",
+              "vote_average": 6.581,
+              "vote_count": 364,
+              "cast": [
+                {
+                  "name": "Helen Sadler",
+                  "character": "Rey (voice)"
+                },
+                {
+                  "name": "Trevor Devall",
+                  "character": "Emperor Palpatine / First Order Trooper / Mon Calamari (voice)"
+                },
+                {
+                  "name": "Matt Sloan",
+                  "character": "Darth Vader (voice)"
+                },
+                {
+                  "name": "Omar Benson Miller",
+                  "character": "Finn (voice)"
+                },
+                {
+                  "name": "Jake Green",
+                  "character": "Greedo / Poe Dameron / Snowtrooper (voice)"
+                }
+              ],
+              "crew": [
+                {
+                  "name": "Ken Cunningham",
+                  "job": "Director"
+                }
+              ],
+              "genres": [
+                "Animation",
+                "Family",
+                "Science Fiction",
+                "Adventure",
+                "Comedy"
+              ],
+              "keywords": [
+                "holiday",
+                "time travel",
+                "time machine",
+                "telekinetic",
+                "christmas",
+                "lego",
+                "short film",
+                "evil villain"
+              ],
+              "attribution": "This product uses the TMDB API but is not endorsed or certified by TMDB.",
+              "objectID": "media-sample-data-732670",
+              "_highlightResult": {
+                "original_title": {
+                  "value": "LEGO <em>Star</em> <em>Wars</em> Holiday Special",
+                  "matchLevel": "full",
+                  "fullyHighlighted": false,
+                  "matchedWords": [
+                    "star",
+                    "wars"
+                  ]
+                }
+              }
+            },
+            {
+              "id": 980804,
+              "original_language": "en",
+              "original_title": "LEGO Star Wars Summer Vacation",
+              "overview": "Looking for a much-needed break, Finn arranges a surprise vacation for his friends Rey, Poe, Rose, Chewie, BB-8, R2-D2, and C-3PO, aboard the luxurious Halcyon. However, Finn's plan to have one last hurrah together quickly goes awry.",
+              "popularity": 2.255,
+              "poster_path": "https://image.tmdb.org/t/p/w342/vUL5UXsL5DaYgGVd2GSeqIvMKfK.jpg",
+              "release_date": "2022-08-05",
+              "title": "LEGO Star Wars Summer Vacation",
+              "url": "https://www.themoviedb.org/movie/980804",
+              "vote_average": 6.3,
+              "vote_count": 100,
+              "cast": [
+                {
+                  "name": "Kelly Marie Tran",
+                  "character": "Rose Tico (voice)"
+                },
+                {
+                  "name": "Shelby Young",
+                  "character": "Princess Leia Organa (voice)"
+                },
+                {
+                  "name": "Matt Lanter",
+                  "character": "Anakin Skywalker (voice) / Rodian (voice)"
+                },
+                {
+                  "name": "Anthony Daniels",
+                  "character": "C-3PO (voice)"
+                },
+                {
+                  "name": "Omar Benson Miller",
+                  "character": "Finn (voice)"
+                }
+              ],
+              "crew": [
+                {
+                  "name": "Ken Cunningham",
+                  "job": "Director"
+                }
+              ],
+              "genres": [
+                "Animation",
+                "Family",
+                "Science Fiction",
+                "Comedy"
+              ],
+              "keywords": [
+                "space battle",
+                "summer vacation"
+              ],
+              "attribution": "This product uses the TMDB API but is not endorsed or certified by TMDB.",
+              "objectID": "media-sample-data-980804",
+              "_highlightResult": {
+                "original_title": {
+                  "value": "LEGO <em>Star</em> <em>Wars</em> Summer Vacation",
+                  "matchLevel": "full",
+                  "fullyHighlighted": false,
+                  "matchedWords": [
+                    "star",
+                    "wars"
+                  ]
+                }
+              }
+            },
+            {
+              "id": 74849,
+              "original_language": "en",
+              "original_title": "The Star Wars Holiday Special",
+              "overview": "Luke Skywalker and Han Solo battle evil Imperial forces to help Chewbacca reach his imperiled family on the Wookiee planet - in time for Life Day, their most important day of the year!",
+              "popularity": 2.1752,
+              "poster_path": "https://image.tmdb.org/t/p/w342/eLIKCGIiYVaplbhKFGcPzmiywF2.jpg",
+              "release_date": "1978-11-17",
+              "title": "The Star Wars Holiday Special",
+              "url": "https://www.themoviedb.org/movie/74849",
+              "vote_average": 3.395,
+              "vote_count": 506,
+              "cast": [
+                {
+                  "name": "Peter Mayhew",
+                  "character": "Chewbacca"
+                },
+                {
+                  "name": "Mark Hamill",
+                  "character": "Luke Skywalker"
+                },
+                {
+                  "name": "Carrie Fisher",
+                  "character": "Princess Leia Organa"
+                },
+                {
+                  "name": "Harrison Ford",
+                  "character": "Han Solo"
+                },
+                {
+                  "name": "Anthony Daniels",
+                  "character": "C-3PO"
+                }
+              ],
+              "crew": [
+                {
+                  "name": "Steve Binder",
+                  "job": "Director"
+                }
+              ],
+              "genres": [
+                "Adventure",
+                "Science Fiction",
+                "Family",
+                "TV Movie"
+              ],
+              "keywords": [
+                "holiday",
+                "talk show",
+                "tree house",
+                "hologram",
+                "musical",
+                "space",
+                "space opera",
+                "based on movie",
+                "vignette",
+                "variety show",
+                "live action and animation",
+                "bar"
+              ],
+              "attribution": "This product uses the TMDB API but is not endorsed or certified by TMDB.",
+              "objectID": "media-sample-data-74849",
+              "_highlightResult": {
+                "original_title": {
+                  "value": "The <em>Star</em> <em>Wars</em> Holiday Special",
+                  "matchLevel": "full",
+                  "fullyHighlighted": false,
+                  "matchedWords": [
+                    "star",
+                    "wars"
+                  ]
+                }
+              }
+            },
+            {
+              "id": 857702,
+              "original_language": "en",
+              "original_title": "LEGO Star Wars Terrifying Tales",
+              "overview": "Poe Dameron and BB-8 must face the greedy crime boss Graballa the Hutt, who has purchased Darth Vader’s castle and is renovating it into the galaxy’s first all-inclusive Sith-inspired luxury hotel.",
+              "popularity": 2.1036,
+              "poster_path": "https://image.tmdb.org/t/p/w342/fYiaBZDjyXjvlY6EDZMAxIhBO1I.jpg",
+              "release_date": "2021-10-01",
+              "title": "LEGO Star Wars Terrifying Tales",
+              "url": "https://www.themoviedb.org/movie/857702",
+              "vote_average": 6.8,
+              "vote_count": 280,
+              "cast": [
+                {
+                  "name": "Jake Green",
+                  "character": "Poe Dameron / Motti (voice)"
+                },
+                {
+                  "name": "Raphael Alejandro",
+                  "character": "Dean (voice)"
+                },
+                {
+                  "name": "Dana Snyder",
+                  "character": "Graballa the Hutt (voice)"
+                },
+                {
+                  "name": "Tony Hale",
+                  "character": "Vaneé (voice)"
+                },
+                {
+                  "name": "Christian Slater",
+                  "character": "Ren (voice)"
+                }
+              ],
+              "crew": [
+                {
+                  "name": "Ken Cunningham",
+                  "job": "Director"
+                }
+              ],
+              "genres": [
+                "Animation",
+                "Family",
+                "Science Fiction",
+                "Comedy"
+              ],
+              "keywords": [],
+              "attribution": "This product uses the TMDB API but is not endorsed or certified by TMDB.",
+              "objectID": "media-sample-data-857702",
+              "_highlightResult": {
+                "original_title": {
+                  "value": "LEGO <em>Star</em> <em>Wars</em> Terrifying Tales",
+                  "matchLevel": "full",
+                  "fullyHighlighted": false,
+                  "matchedWords": [
+                    "star",
+                    "wars"
+                  ]
+                }
+              }
+            },
+            {
+              "id": 392216,
+              "original_language": "en",
+              "original_title": "Phineas and Ferb: Star Wars",
+              "overview": "Phineas and Ferb become the galaxy's unlikeliest last hope when they must return the Death Star plans to the Rebel Alliance.",
+              "popularity": 2.0275,
+              "poster_path": "https://image.tmdb.org/t/p/w342/tz3dWhlrLb5eZ96iINOyGf1Pvdj.jpg",
+              "release_date": "2014-07-26",
+              "title": "Phineas and Ferb: Star Wars",
+              "url": "https://www.themoviedb.org/movie/392216",
+              "vote_average": 7.158,
+              "vote_count": 219,
+              "cast": [
+                {
+                  "name": "Vincent Martella",
+                  "character": "Phineas Flynn (voice) / Additional Voices"
+                },
+                {
+                  "name": "Thomas Brodie-Sangster",
+                  "character": "Ferb Fletcher (voice)"
+                },
+                {
+                  "name": "Ashley French",
+                  "character": "Candance Flynn (voice)"
+                },
+                {
+                  "name": "Dee Bradley Baker",
+                  "character": "Perry the Rebelpus / Chewbacca / Additional Voices"
+                },
+                {
+                  "name": "April Winchell",
+                  "character": "Princess Leia (voice)"
+                }
+              ],
+              "crew": [
+                {
+                  "name": "Sue Perrotto",
+                  "job": "Director"
+                },
+                {
+                  "name": "Robert Hughes",
+                  "job": "Director"
+                }
+              ],
+              "genres": [
+                "Animation",
+                "Comedy",
+                "Family",
+                "Science Fiction",
+                "Adventure",
+                "TV Movie",
+                "Action"
+              ],
+              "keywords": [
+                "space opera"
+              ],
+              "attribution": "This product uses the TMDB API but is not endorsed or certified by TMDB.",
+              "objectID": "media-sample-data-392216",
+              "_highlightResult": {
+                "original_title": {
+                  "value": "Phineas and Ferb: <em>Star</em> <em>Wars</em>",
+                  "matchLevel": "full",
+                  "fullyHighlighted": false,
+                  "matchedWords": [
+                    "star",
+                    "wars"
+                  ]
+                }
+              }
+            },
+            {
+              "id": 42979,
+              "original_language": "en",
+              "original_title": "Robot Chicken: Star Wars",
+              "overview": "A series of 30 sketches, following the hilarious antics of various characters from a galaxy, far, far away.",
+              "popularity": 1.7282,
+              "poster_path": "https://image.tmdb.org/t/p/w342/h44WN4mVJ6wEpJgLaaNoFjv0NAo.jpg",
+              "release_date": "2007-07-17",
+              "title": "Robot Chicken: Star Wars",
+              "url": "https://www.themoviedb.org/movie/42979",
+              "vote_average": 7.244,
+              "vote_count": 268,
+              "cast": [
+                {
+                  "name": "Seth Green",
+                  "character": "The Nerd / Qui-Gon Jinn / Ponda Baba / Max Rebo (voice)"
+                },
+                {
+                  "name": "Abraham Benrubi",
+                  "character": "Darth Vader (voice)"
+                },
+                {
+                  "name": "Keith Ferguson",
+                  "character": "Han Solo (voice)"
+                },
+                {
+                  "name": "Candace Bailey",
+                  "character": "Princess Leia Organa / Girl / Various (voice)"
+                },
+                {
+                  "name": "Bob Bergen",
+                  "character": "Luke Skywalker (voice)"
+                }
+              ],
+              "crew": [
+                {
+                  "name": "Seth Green",
+                  "job": "Director"
+                }
+              ],
+              "genres": [
+                "Animation",
+                "Comedy",
+                "Science Fiction",
+                "Action",
+                "TV Movie",
+                "Adventure",
+                "Fantasy"
+              ],
+              "keywords": [
+                "based on tv series"
+              ],
+              "attribution": "This product uses the TMDB API but is not endorsed or certified by TMDB.",
+              "objectID": "media-sample-data-42979",
+              "_highlightResult": {
+                "original_title": {
+                  "value": "Robot Chicken: <em>Star</em> <em>Wars</em>",
+                  "matchLevel": "full",
+                  "fullyHighlighted": false,
+                  "matchedWords": [
+                    "star",
+                    "wars"
+                  ]
+                }
+              }
+            },
+            {
+              "id": 42982,
+              "original_language": "en",
+              "original_title": "Robot Chicken: Star Wars Episode II",
+              "overview": "Seth Green and Matthew Senreich serve up more hilarious Star Wars-inspired satire in this second compilation of sketches featuring the zany stop-motion animation of Adult Swim's \"Robot Chicken.\" Gary the stormtrooper deals with irascible boss Darth Vader on Take Your Daughter to Work Day, while Anakin babysits a certain up-and-coming Jedi.",
+              "popularity": 1.5861,
+              "poster_path": "https://image.tmdb.org/t/p/w342/dM5eCurdAXYd3Dvyr9Rz2YSj3rJ.jpg",
+              "release_date": "2008-11-16",
+              "title": "Robot Chicken: Star Wars Episode II",
+              "url": "https://www.themoviedb.org/movie/42982",
+              "vote_average": 7.536,
+              "vote_count": 151,
+              "cast": [
+                {
+                  "name": "Seth Green",
+                  "character": "The Nerd / Anakin Skywalker / Obi-Wan Kenobi / Bossk (voice)"
+                },
+                {
+                  "name": "Abraham Benrubi",
+                  "character": "Darth Vader / Owen Lars (voice)"
+                },
+                {
+                  "name": "Bob Bergen",
+                  "character": "Luke Skywalker (voice)"
+                },
+                {
+                  "name": "Ahmed Best",
+                  "character": "Jar Jar Binks / Carl the Stormtrooper (voice)"
+                },
+                {
+                  "name": "Breckin Meyer",
+                  "character": "Boba Fett / Admiral Ackbar / Wampa (voice)"
+                }
+              ],
+              "crew": [
+                {
+                  "name": "Seth Green",
+                  "job": "Director"
+                }
+              ],
+              "genres": [
+                "Science Fiction",
+                "Animation",
+                "Comedy",
+                "Action",
+                "Adventure",
+                "Fantasy",
+                "TV Movie"
+              ],
+              "keywords": [
+                "based on tv series"
+              ],
+              "attribution": "This product uses the TMDB API but is not endorsed or certified by TMDB.",
+              "objectID": "media-sample-data-42982",
+              "_highlightResult": {
+                "original_title": {
+                  "value": "Robot Chicken: <em>Star</em> <em>Wars</em> Episode II",
+                  "matchLevel": "full",
+                  "fullyHighlighted": false,
+                  "matchedWords": [
+                    "star",
+                    "wars"
+                  ]
+                }
+              }
+            },
+            {
+              "id": 76180,
+              "original_language": "en",
+              "original_title": "Empire of Dreams: The Story of the Star Wars Trilogy",
+              "overview": "From the earliest versions of the script to the blockbuster debuts, explore the creation of the Star Wars Trilogy.",
+              "popularity": 1.5783,
+              "poster_path": "https://image.tmdb.org/t/p/w342/xq0MPT1lLxfznTRaAbInxWT2wfh.jpg",
+              "release_date": "2004-09-20",
+              "title": "Empire of Dreams: The Story of the Star Wars Trilogy",
+              "url": "https://www.themoviedb.org/movie/76180",
+              "vote_average": 7.755,
+              "vote_count": 206,
+              "cast": [
+                {
+                  "name": "Robert Clotworthy",
+                  "character": "Narrator (voice)"
+                },
+                {
+                  "name": "George Lucas",
+                  "character": "Self"
+                },
+                {
+                  "name": "Steven Spielberg",
+                  "character": "Self"
+                },
+                {
+                  "name": "Mark Hamill",
+                  "character": "Self"
+                },
+                {
+                  "name": "Carrie Fisher",
+                  "character": "Self"
+                }
+              ],
+              "crew": [
+                {
+                  "name": "Edith Becker",
+                  "job": "Director"
+                },
+                {
+                  "name": "Kevin Burns",
+                  "job": "Director"
+                }
+              ],
+              "genres": [
+                "Documentary"
+              ],
+              "keywords": [
+                "based on true story",
+                "audition",
+                "making of",
+                "space opera",
+                "cinema history"
+              ],
+              "attribution": "This product uses the TMDB API but is not endorsed or certified by TMDB.",
+              "objectID": "media-sample-data-76180",
+              "_highlightResult": {
+                "original_title": {
+                  "value": "Empire of Dreams: The Story of the <em>Star</em> <em>Wars</em> Trilogy",
+                  "matchLevel": "full",
+                  "fullyHighlighted": false,
+                  "matchedWords": [
+                    "star",
+                    "wars"
+                  ]
+                }
+              }
+            },
+            {
+              "id": 70608,
+              "original_language": "en",
+              "original_title": "LEGO Star Wars: The Padawan Menace",
+              "overview": "Master Yoda must go retrieve secret battle plans. However, things become a little more complicated when a class of younglings join the mission.",
+              "popularity": 1.4383,
+              "poster_path": "https://image.tmdb.org/t/p/w342/bCDa9memHnETeRrJWXzImTZdMal.jpg",
+              "release_date": "2011-07-22",
+              "title": "LEGO Star Wars: The Padawan Menace",
+              "url": "https://www.themoviedb.org/movie/70608",
+              "vote_average": 6.6,
+              "vote_count": 158,
+              "cast": [
+                {
+                  "name": "Anthony Daniels",
+                  "character": "C-3PO (voice)"
+                },
+                {
+                  "name": "Nika Futterman",
+                  "character": "Asajj Ventress / Jempa / Padme Amidala (voice)"
+                },
+                {
+                  "name": "Phil LaMarr",
+                  "character": "Darth Vader / Bail Organa / Jar Jar Binks / Republic Guard (voice)"
+                },
+                {
+                  "name": "Tom Kane",
+                  "character": "Yoda / Narrator / Senator Yaun / Pitchman (voice)"
+                },
+                {
+                  "name": "Katie Leigh",
+                  "character": "Ian / Mari / Ashla (voice)"
+                }
+              ],
+              "crew": [
+                {
+                  "name": "David Scott",
+                  "job": "Director"
+                }
+              ],
+              "genres": [
+                "Family",
+                "Animation",
+                "Science Fiction"
+              ],
+              "keywords": [
+                "space opera",
+                "lego"
+              ],
+              "attribution": "This product uses the TMDB API but is not endorsed or certified by TMDB.",
+              "objectID": "media-sample-data-70608",
+              "_highlightResult": {
+                "original_title": {
+                  "value": "LEGO <em>Star</em> <em>Wars</em>: The Padawan Menace",
+                  "matchLevel": "full",
+                  "fullyHighlighted": false,
+                  "matchedWords": [
+                    "star",
+                    "wars"
+                  ]
+                }
+              }
+            },
+            {
+              "id": 51888,
+              "original_language": "en",
+              "original_title": "Robot Chicken: Star Wars Episode III",
+              "overview": "Millions of years from now, after Socrates, Shakespeare and the bible are long forgotten, only two great works will remain: the sci-fi cinema epic Star Wars and Adult Swim's stop-motion animated, cheap gag extravanganza Robot Chicken. And now, for the first time, they come together for the third time, in this all new special. That's right, all your mot beloved Star Wars characters are going back through the comedy meat grinder.",
+              "popularity": 1.3106,
+              "poster_path": "https://image.tmdb.org/t/p/w342/htL6wH77hfO1N97n6MOwt9AD1oB.jpg",
+              "release_date": "2010-12-19",
+              "title": "Robot Chicken: Star Wars Episode III",
+              "url": "https://www.themoviedb.org/movie/51888",
+              "vote_average": 7.455,
+              "vote_count": 165,
+              "cast": [
+                {
+                  "name": "Seth Green",
+                  "character": "Obi-Wan Kenobi / IG-88 / Weequay / Prune Face / R5-D4 (voice)"
+                },
+                {
+                  "name": "Abraham Benrubi",
+                  "character": "Darth Vader / Owen Lars (voice)"
+                },
+                {
+                  "name": "Zac Efron",
+                  "character": "Anakin Skywalker (voice)"
+                },
+                {
+                  "name": "Seth MacFarlane",
+                  "character": "Emperor Palpatine (voice)"
+                },
+                {
+                  "name": "Carrie Fisher",
+                  "character": "Princess Leia Organa (voice)"
+                }
+              ],
+              "crew": [
+                {
+                  "name": "Chris McKay",
+                  "job": "Director"
+                }
+              ],
+              "genres": [
+                "Comedy",
+                "Science Fiction",
+                "Animation",
+                "TV Movie",
+                "Action",
+                "Adventure",
+                "Fantasy"
+              ],
+              "keywords": [
+                "based on tv series"
+              ],
+              "attribution": "This product uses the TMDB API but is not endorsed or certified by TMDB.",
+              "objectID": "media-sample-data-51888",
+              "_highlightResult": {
+                "original_title": {
+                  "value": "Robot Chicken: <em>Star</em> <em>Wars</em> Episode III",
+                  "matchLevel": "full",
+                  "fullyHighlighted": false,
+                  "matchedWords": [
+                    "star",
+                    "wars"
+                  ]
+                }
+              }
+            }
+          ],
+          "nbHits": 21,
+          "page": 0,
+          "nbPages": 2,
+          "hitsPerPage": 20,
+          "exhaustiveNbHits": true,
+          "exhaustiveTypo": true,
+          "exhaustive": {
+            "nbHits": true,
+            "typo": true
+          },
+          "query": "star wars",
+          "params": "query=star+wars",
+          "renderingContent": {},
+          "processingTimeMS": 1,
+          "processingTimingsMS": {
+            "_request": {
+              "roundTrip": 153
+            },
+            "total": 1
+          },
+          "serverTimeMS": 2
+        },
+        "status": 200,
+        "headers": {
+          "date": "Thu, 28 May 2026 10:59:30 GMT",
+          "content-type": "application/json; charset=UTF-8",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=31536000; includeSubDomains; preload",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4864",
+          "x-ratelimit-reset": "1779965971",
+          "server": "nginx",
+          "x-alg-pt": "1",
+          "accept-encoding": "deflate, gzip",
+          "cache-control": "no-store",
+          "timing-allow-origin": "*",
+          "content-disposition": "inline; filename=a.txt"
+        },
+        "hash": "eaf676ef573376368ff113b128b9d4f5d8881b95",
+        "request": {
+          "data": {
+            "query": "star wars"
+          }
+        }
+      }
+    }
+  }
+}

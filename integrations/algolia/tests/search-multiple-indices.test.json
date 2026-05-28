@@ -1,0 +1,471 @@
+{
+  "input": {
+    "requests": [
+      {
+        "indexName": "algolia_movie_sample_dataset",
+        "params": "query=star&hitsPerPage=3"
+      }
+    ]
+  },
+  "output": {
+    "results": [
+      {
+        "hits": [
+          {
+            "objectID": "media-sample-data-52959",
+            "id": 52959,
+            "original_language": "en",
+            "original_title": "Star!",
+            "overview": "Gertrude Lawrence rises to stage stardom at the cost of happiness.",
+            "popularity": 2.3059,
+            "poster_path": "https://image.tmdb.org/t/p/w342/xMyOm5hLWeuoWBea1DJrcJy8bU6.jpg",
+            "release_date": "1968-07-18",
+            "title": "Star!",
+            "url": "https://www.themoviedb.org/movie/52959",
+            "vote_average": 6.93,
+            "vote_count": 235,
+            "cast": [
+              {
+                "name": "Julie Andrews",
+                "character": "Gertrude Lawrence"
+              },
+              {
+                "name": "Richard Crenna",
+                "character": "Richard Aldrich"
+              },
+              {
+                "name": "Michael Craig",
+                "character": "Sir Anthony Spencer"
+              },
+              {
+                "name": "Daniel Massey",
+                "character": "Noël Coward"
+              },
+              {
+                "name": "Robert Reed",
+                "character": "Charles Fraser"
+              }
+            ],
+            "crew": [
+              {
+                "name": "Robert Wise",
+                "job": "Director"
+              }
+            ],
+            "genres": [
+              "Drama",
+              "Music",
+              "Romance"
+            ],
+            "keywords": [
+              "musical",
+              "singing"
+            ],
+            "attribution": "This product uses the TMDB API but is not endorsed or certified by TMDB.",
+            "_highlightResult": {
+              "original_title": {
+                "value": "<em>Star</em>!",
+                "matchLevel": "full",
+                "fullyHighlighted": true,
+                "matchedWords": [
+                  "star"
+                ]
+              }
+            }
+          },
+          {
+            "objectID": "media-sample-data-22599",
+            "id": 22599,
+            "original_language": "en",
+            "original_title": "Star",
+            "overview": "The Driver now carries an arrogant rock star who is visiting a major city. Played by Madonna, this title character wants to get away from her bodyguards in the Driver's BMW. He soon gets tired of her and decides to have a bit of fun.",
+            "popularity": 1.3727,
+            "poster_path": "https://image.tmdb.org/t/p/w342/zslEgrYEg6EDzOYrr8EfDoQK8j1.jpg",
+            "release_date": "2001-06-01",
+            "title": "Star",
+            "url": "https://www.themoviedb.org/movie/22599",
+            "vote_average": 6.923,
+            "vote_count": 317,
+            "cast": [
+              {
+                "name": "Clive Owen",
+                "character": "The Driver"
+              },
+              {
+                "name": "Madonna",
+                "character": "Star"
+              },
+              {
+                "name": "Michael Beattie",
+                "character": "Manager"
+              },
+              {
+                "name": "Toru Tanaka Jr.",
+                "character": "Bodyguard"
+              },
+              {
+                "name": "D-Teflon",
+                "character": "Bodyguard"
+              }
+            ],
+            "crew": [
+              {
+                "name": "Guy Ritchie",
+                "job": "Director"
+              }
+            ],
+            "genres": [
+              "Comedy",
+              "Action"
+            ],
+            "keywords": [],
+            "attribution": "This product uses the TMDB API but is not endorsed or certified by TMDB.",
+            "_highlightResult": {
+              "original_title": {
+                "value": "<em>Star</em>",
+                "matchLevel": "full",
+                "fullyHighlighted": true,
+                "matchedWords": [
+                  "star"
+                ]
+              }
+            }
+          },
+          {
+            "objectID": "media-sample-data-136244",
+            "id": 136244,
+            "original_language": "en",
+            "original_title": "Star",
+            "overview": "When Crystal Wyatt was 16 her father passed away. From that time her life would never be the same. Crystal is banished from the family ranch, and starts a new life as a singer in a San Francisco nightclub.",
+            "popularity": 1.1734,
+            "poster_path": "https://image.tmdb.org/t/p/w342/uh4dc15oIICvpl23JaQilM99zrv.jpg",
+            "release_date": "1993-09-20",
+            "title": "Star",
+            "url": "https://www.themoviedb.org/movie/136244",
+            "vote_average": 6.137,
+            "vote_count": 150,
+            "cast": [
+              {
+                "name": "Jennie Garth",
+                "character": "Crystal Wyatt"
+              },
+              {
+                "name": "Craig Bierko",
+                "character": "Spencer Hill"
+              },
+              {
+                "name": "Terry Farrell",
+                "character": "Elizabeth"
+              },
+              {
+                "name": "Penny Fuller",
+                "character": "Olivia Wyatt"
+              },
+              {
+                "name": "Mitchell Ryan",
+                "character": "Harrison Barclay"
+              }
+            ],
+            "crew": [
+              {
+                "name": "Michael Miller",
+                "job": "Director"
+              }
+            ],
+            "genres": [
+              "Romance",
+              "Drama"
+            ],
+            "keywords": [],
+            "attribution": "This product uses the TMDB API but is not endorsed or certified by TMDB.",
+            "_highlightResult": {
+              "original_title": {
+                "value": "<em>Star</em>",
+                "matchLevel": "full",
+                "fullyHighlighted": true,
+                "matchedWords": [
+                  "star"
+                ]
+              }
+            }
+          }
+        ],
+        "page": 0,
+        "nbHits": 757,
+        "nbPages": 253,
+        "hitsPerPage": 3,
+        "query": "star",
+        "params": "query=star&hitsPerPage=3",
+        "processingTimeMS": 1,
+        "index": "algolia_movie_sample_dataset",
+        "exhaustiveNbHits": true,
+        "exhaustiveTypo": true,
+        "exhaustive": {
+          "nbHits": true,
+          "typo": true
+        },
+        "renderingContent": {},
+        "processingTimingsMS": {
+          "_request": {
+            "queue": 1,
+            "roundTrip": 157
+          },
+          "total": 1
+        },
+        "serverTimeMS": 2
+      }
+    ]
+  },
+  "nango": {},
+  "api": {
+    "post": {
+      "/1/indexes/*/queries": {
+        "response": {
+          "results": [
+            {
+              "hits": [
+                {
+                  "id": 52959,
+                  "original_language": "en",
+                  "original_title": "Star!",
+                  "overview": "Gertrude Lawrence rises to stage stardom at the cost of happiness.",
+                  "popularity": 2.3059,
+                  "poster_path": "https://image.tmdb.org/t/p/w342/xMyOm5hLWeuoWBea1DJrcJy8bU6.jpg",
+                  "release_date": "1968-07-18",
+                  "title": "Star!",
+                  "url": "https://www.themoviedb.org/movie/52959",
+                  "vote_average": 6.93,
+                  "vote_count": 235,
+                  "cast": [
+                    {
+                      "name": "Julie Andrews",
+                      "character": "Gertrude Lawrence"
+                    },
+                    {
+                      "name": "Richard Crenna",
+                      "character": "Richard Aldrich"
+                    },
+                    {
+                      "name": "Michael Craig",
+                      "character": "Sir Anthony Spencer"
+                    },
+                    {
+                      "name": "Daniel Massey",
+                      "character": "Noël Coward"
+                    },
+                    {
+                      "name": "Robert Reed",
+                      "character": "Charles Fraser"
+                    }
+                  ],
+                  "crew": [
+                    {
+                      "name": "Robert Wise",
+                      "job": "Director"
+                    }
+                  ],
+                  "genres": [
+                    "Drama",
+                    "Music",
+                    "Romance"
+                  ],
+                  "keywords": [
+                    "musical",
+                    "singing"
+                  ],
+                  "attribution": "This product uses the TMDB API but is not endorsed or certified by TMDB.",
+                  "objectID": "media-sample-data-52959",
+                  "_highlightResult": {
+                    "original_title": {
+                      "value": "<em>Star</em>!",
+                      "matchLevel": "full",
+                      "fullyHighlighted": true,
+                      "matchedWords": [
+                        "star"
+                      ]
+                    }
+                  }
+                },
+                {
+                  "id": 22599,
+                  "original_language": "en",
+                  "original_title": "Star",
+                  "overview": "The Driver now carries an arrogant rock star who is visiting a major city. Played by Madonna, this title character wants to get away from her bodyguards in the Driver's BMW. He soon gets tired of her and decides to have a bit of fun.",
+                  "popularity": 1.3727,
+                  "poster_path": "https://image.tmdb.org/t/p/w342/zslEgrYEg6EDzOYrr8EfDoQK8j1.jpg",
+                  "release_date": "2001-06-01",
+                  "title": "Star",
+                  "url": "https://www.themoviedb.org/movie/22599",
+                  "vote_average": 6.923,
+                  "vote_count": 317,
+                  "cast": [
+                    {
+                      "name": "Clive Owen",
+                      "character": "The Driver"
+                    },
+                    {
+                      "name": "Madonna",
+                      "character": "Star"
+                    },
+                    {
+                      "name": "Michael Beattie",
+                      "character": "Manager"
+                    },
+                    {
+                      "name": "Toru Tanaka Jr.",
+                      "character": "Bodyguard"
+                    },
+                    {
+                      "name": "D-Teflon",
+                      "character": "Bodyguard"
+                    }
+                  ],
+                  "crew": [
+                    {
+                      "name": "Guy Ritchie",
+                      "job": "Director"
+                    }
+                  ],
+                  "genres": [
+                    "Comedy",
+                    "Action"
+                  ],
+                  "keywords": [],
+                  "attribution": "This product uses the TMDB API but is not endorsed or certified by TMDB.",
+                  "objectID": "media-sample-data-22599",
+                  "_highlightResult": {
+                    "original_title": {
+                      "value": "<em>Star</em>",
+                      "matchLevel": "full",
+                      "fullyHighlighted": true,
+                      "matchedWords": [
+                        "star"
+                      ]
+                    }
+                  }
+                },
+                {
+                  "id": 136244,
+                  "original_language": "en",
+                  "original_title": "Star",
+                  "overview": "When Crystal Wyatt was 16 her father passed away. From that time her life would never be the same. Crystal is banished from the family ranch, and starts a new life as a singer in a San Francisco nightclub.",
+                  "popularity": 1.1734,
+                  "poster_path": "https://image.tmdb.org/t/p/w342/uh4dc15oIICvpl23JaQilM99zrv.jpg",
+                  "release_date": "1993-09-20",
+                  "title": "Star",
+                  "url": "https://www.themoviedb.org/movie/136244",
+                  "vote_average": 6.137,
+                  "vote_count": 150,
+                  "cast": [
+                    {
+                      "name": "Jennie Garth",
+                      "character": "Crystal Wyatt"
+                    },
+                    {
+                      "name": "Craig Bierko",
+                      "character": "Spencer Hill"
+                    },
+                    {
+                      "name": "Terry Farrell",
+                      "character": "Elizabeth"
+                    },
+                    {
+                      "name": "Penny Fuller",
+                      "character": "Olivia Wyatt"
+                    },
+                    {
+                      "name": "Mitchell Ryan",
+                      "character": "Harrison Barclay"
+                    }
+                  ],
+                  "crew": [
+                    {
+                      "name": "Michael Miller",
+                      "job": "Director"
+                    }
+                  ],
+                  "genres": [
+                    "Romance",
+                    "Drama"
+                  ],
+                  "keywords": [],
+                  "attribution": "This product uses the TMDB API but is not endorsed or certified by TMDB.",
+                  "objectID": "media-sample-data-136244",
+                  "_highlightResult": {
+                    "original_title": {
+                      "value": "<em>Star</em>",
+                      "matchLevel": "full",
+                      "fullyHighlighted": true,
+                      "matchedWords": [
+                        "star"
+                      ]
+                    }
+                  }
+                }
+              ],
+              "nbHits": 757,
+              "page": 0,
+              "nbPages": 253,
+              "hitsPerPage": 3,
+              "exhaustiveNbHits": true,
+              "exhaustiveTypo": true,
+              "exhaustive": {
+                "nbHits": true,
+                "typo": true
+              },
+              "query": "star",
+              "params": "query=star&hitsPerPage=3",
+              "index": "algolia_movie_sample_dataset",
+              "renderingContent": {},
+              "processingTimeMS": 1,
+              "processingTimingsMS": {
+                "_request": {
+                  "queue": 1,
+                  "roundTrip": 157
+                },
+                "total": 1
+              },
+              "serverTimeMS": 2
+            }
+          ]
+        },
+        "status": 200,
+        "headers": {
+          "date": "Thu, 28 May 2026 11:02:30 GMT",
+          "content-type": "application/json; charset=UTF-8",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=31536000; includeSubDomains; preload",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4831",
+          "x-ratelimit-reset": "1779966157",
+          "server": "nginx",
+          "x-alg-pt": "1",
+          "accept-encoding": "deflate, gzip",
+          "cache-control": "no-store",
+          "timing-allow-origin": "*",
+          "content-disposition": "inline; filename=a.txt"
+        },
+        "hash": "fb432d0db23c269cee68f0027bb7494c11c52509",
+        "request": {
+          "data": {
+            "requests": [
+              {
+                "indexName": "algolia_movie_sample_dataset",
+                "params": "query=star&hitsPerPage=3"
+              }
+            ]
+          }
+        }
+      }
+    }
+  }
+}

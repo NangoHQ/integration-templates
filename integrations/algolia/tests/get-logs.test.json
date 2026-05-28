@@ -1,0 +1,84 @@
+{
+  "input": {
+    "indexName": "algolia_movie_sample_dataset",
+    "length": 1
+  },
+  "output": {
+    "logs": [
+      {
+        "timestamp": "2026-05-28T11:07:17Z",
+        "method": "GET",
+        "answer_code": "200",
+        "query_body": "",
+        "answer": "\n{\n  \"hits\": [\n    {\n      \"id\": 123612,\n      \"original_language\": \"tr\",\n      \"original_title\": \"Yedi Bela Hüsnü\",\n      \"overview\": \"Hüsnü is a lovestruck young man determined to win the heart of his neighborhood’s beauty, Hüsniye, and enlists his friend’s dubious tactics to no avail. When a thug seizes the neighborhood deeds and forces everyone to flee, Hüsnü tries to become the local tough guy to save his community and impress Hüsniye, but his bravado draws the attention of a hired killer.\",\n      \"popularity\": 0.2425,\n      \"poster_path\": \"https://image.tmdb.org/t/p/w342/oyjtzHkyeigMz2NsnRCM1K4cMYI.jpg\",\n      \"release_date\": \"1983-06-01\",\n      \"title\": \"Troublemaker Hüsnü\",\n      \"url\": \"https://www.themoviedb.org/movie/123612\",\n      \"vote_average\": 7.281,\n      \"vote_count\": 80,\n      \"cast\": [\n        {\n          \"name\": \"Kemal Sunal\",\n          \"character\": \"Hüsnü\"\n        },\n        {\n          \"name\": \"Oya Aydoğan\",\n          \"character\": \"Hüsniye\"\n        },\n        {\n          \"name\": \n",
+        "url": "/1/indexes/algolia_movie_sample_dataset/browse?query=&hitsPerPage=100&cursor=AhZxdWVyeT0maGl0c1BlclBhZ2U9MTAwhgEBF21lZGlhLXNhbXBsZS1kYXRhLTc3OTU5",
+        "ip": "44.247.133.183",
+        "query_headers": "Accept: application/json, text/plain, */*\nx-algolia-application-id: FIN9XRS75P\nx-algolia-api-key: 687b****************************\nuser-agent: nango-node-client/0.69.44 (linux/6.1.158; node.js/22.22.2); sdk\nAccept-Encoding: gzip, compress, deflate, br\nx-datadog-trace-id: 4755422789153119208\nx-datadog-parent-id: 2200245520392082534\nx-datadog-sampling-priority: 0\nx-datadog-tags: _dd.p.tid=6a1821e500000000\ntraceparent: 00-6a1821e50000000041fea7d4d844dbe8-1e88d7a4b59d5466-00\ntracestate: dd=t.tid:6a1821e500000000;t.dm:-1;s:0;p:1e88d7a4b59d5466\nHost: fin9xrs75p.algolia.net\nConnection: keep-alive\n",
+        "sha1": "3ff2bf885db81075ae19c0dbb924c7bd80eb5f6f",
+        "nb_api_calls": "1",
+        "processing_time_ms": "1",
+        "index": "algolia_movie_sample_dataset",
+        "query_params": "query=&hitsPerPage=100&cursor=AhZxdWVyeT0maGl0c1BlclBhZ2U9MTAwhgEBF21lZGlhLXNhbXBsZS1kYXRhLTc3OTU5",
+        "query_nb_hits": "24964"
+      }
+    ]
+  },
+  "nango": {},
+  "api": {
+    "get": {
+      "/1/logs": {
+        "response": {
+          "logs": [
+            {
+              "timestamp": "2026-05-28T11:07:17Z",
+              "method": "GET",
+              "answer_code": "200",
+              "query_body": "",
+              "answer": "\n{\n  \"hits\": [\n    {\n      \"id\": 123612,\n      \"original_language\": \"tr\",\n      \"original_title\": \"Yedi Bela Hüsnü\",\n      \"overview\": \"Hüsnü is a lovestruck young man determined to win the heart of his neighborhood’s beauty, Hüsniye, and enlists his friend’s dubious tactics to no avail. When a thug seizes the neighborhood deeds and forces everyone to flee, Hüsnü tries to become the local tough guy to save his community and impress Hüsniye, but his bravado draws the attention of a hired killer.\",\n      \"popularity\": 0.2425,\n      \"poster_path\": \"https://image.tmdb.org/t/p/w342/oyjtzHkyeigMz2NsnRCM1K4cMYI.jpg\",\n      \"release_date\": \"1983-06-01\",\n      \"title\": \"Troublemaker Hüsnü\",\n      \"url\": \"https://www.themoviedb.org/movie/123612\",\n      \"vote_average\": 7.281,\n      \"vote_count\": 80,\n      \"cast\": [\n        {\n          \"name\": \"Kemal Sunal\",\n          \"character\": \"Hüsnü\"\n        },\n        {\n          \"name\": \"Oya Aydoğan\",\n          \"character\": \"Hüsniye\"\n        },\n        {\n          \"name\": \n",
+              "url": "/1/indexes/algolia_movie_sample_dataset/browse?query=&hitsPerPage=100&cursor=AhZxdWVyeT0maGl0c1BlclBhZ2U9MTAwhgEBF21lZGlhLXNhbXBsZS1kYXRhLTc3OTU5",
+              "ip": "44.247.133.183",
+              "query_headers": "Accept: application/json, text/plain, */*\nx-algolia-application-id: FIN9XRS75P\nx-algolia-api-key: 687b****************************\nuser-agent: nango-node-client/0.69.44 (linux/6.1.158; node.js/22.22.2); sdk\nAccept-Encoding: gzip, compress, deflate, br\nx-datadog-trace-id: 4755422789153119208\nx-datadog-parent-id: 2200245520392082534\nx-datadog-sampling-priority: 0\nx-datadog-tags: _dd.p.tid=6a1821e500000000\ntraceparent: 00-6a1821e50000000041fea7d4d844dbe8-1e88d7a4b59d5466-00\ntracestate: dd=t.tid:6a1821e500000000;t.dm:-1;s:0;p:1e88d7a4b59d5466\nHost: fin9xrs75p.algolia.net\nConnection: keep-alive\n",
+              "sha1": "3ff2bf885db81075ae19c0dbb924c7bd80eb5f6f",
+              "nb_api_calls": "1",
+              "processing_time_ms": "1",
+              "index": "algolia_movie_sample_dataset",
+              "query_params": "query=&hitsPerPage=100&cursor=AhZxdWVyeT0maGl0c1BlclBhZ2U9MTAwhgEBF21lZGlhLXNhbXBsZS1kYXRhLTc3OTU5",
+              "query_nb_hits": "24964"
+            }
+          ]
+        },
+        "status": 200,
+        "headers": {
+          "date": "Thu, 28 May 2026 11:33:08 GMT",
+          "content-type": "application/json; charset=UTF-8",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=31536000; includeSubDomains; preload",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4992",
+          "x-ratelimit-reset": "1779968031",
+          "server": "nginx",
+          "accept-encoding": "deflate, gzip",
+          "cache-control": "no-store",
+          "timing-allow-origin": "*",
+          "content-disposition": "inline; filename=a.txt"
+        },
+        "hash": "d528aedee2d0baacf895087fa07a109b13148dde",
+        "request": {
+          "params": {
+            "indexName": "algolia_movie_sample_dataset",
+            "length": "1"
+          }
+        }
+      }
+    }
+  }
+}
