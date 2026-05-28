@@ -32,7 +32,7 @@ const action = createAction({
     scopes: ['api'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
-        const encodedProjectId = encodeURIComponent(input.project_id);
+        const encodedProjectId = input.project_id;
 
         if (input.archive) {
             // https://docs.gitlab.com/api/projects/#archive-a-project

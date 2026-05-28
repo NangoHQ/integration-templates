@@ -92,7 +92,7 @@ const action = createAction({
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         // https://docs.gitlab.com/api/releases/
         const response = await nango.get({
-            endpoint: `/api/v4/projects/${encodeURIComponent(input.project_id)}/releases`,
+            endpoint: `/api/v4/projects/${input.project_id}/releases`,
             params: {
                 ...(input.cursor !== undefined && { page: input.cursor }),
                 ...(input.order_by !== undefined && { order_by: input.order_by }),

@@ -3,7 +3,7 @@ import { createAction } from 'nango';
 
 const InputSchema = z.object({
     cursor: z.string().optional().describe('Pagination cursor (page number). Omit for the first page.'),
-    per_page: z.number().max(100).optional().describe('Number of results per page (max 100).'),
+    per_page: z.number().int().min(1).max(100).optional().describe('Number of results per page (max 100).'),
     search: z.string().optional().describe('Filter projects by name.'),
     owned: z.boolean().optional().describe('Limit to projects owned by the current user.'),
     membership: z.boolean().optional().describe('Limit to projects where the current user is a member.'),
@@ -53,7 +53,7 @@ const action = createAction({
     scopes: ['read_api', 'read_repository'],
 
     exec: async (nango, input) => {
-        const currentPage = input.cursor ? parseInt(input.cursor, 10) : 1;
+        const currentPage = input.cursor ? Number(input.cursor) : 1;
         if (Number.isNaN(currentPage) || currentPage < 1) {
             throw new nango.ActionError({
                 type: 'invalid_input',

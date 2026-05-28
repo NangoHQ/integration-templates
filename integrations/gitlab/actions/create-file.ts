@@ -39,7 +39,7 @@ const action = createAction({
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const response = await nango.post({
             // https://docs.gitlab.com/api/repository_files/#create-new-file-in-repository
-            endpoint: `/api/v4/projects/${encodeURIComponent(String(input.project_id))}/repository/files/${encodeURIComponent(input.file_path)}`,
+            endpoint: `/api/v4/projects/${String(input.project_id)}/repository/files/${encodeURIComponent(input.file_path)}`,
             data: {
                 branch: input.branch,
                 commit_message: input.commit_message,

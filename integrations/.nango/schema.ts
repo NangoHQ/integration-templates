@@ -20750,6 +20750,49 @@ export interface ActionOutput_gitlab_createproject {
   creator_id?: number | undefined;
 };
 
+export interface ActionInput_gitlab_createpipeline {
+  /**
+   * The ID or URL-encoded path of the project. Example: "82599306"
+   */
+  project_id: number | string;
+  /**
+   * The branch or tag to run the pipeline on. Example: "main"
+   */
+  ref: string;
+  variables?: ({  key: string;
+  variable_type?: string | undefined;
+  value: string;})[];
+  inputs?: {  [key: string]: unknown | undefined;};
+};
+
+export interface ActionOutput_gitlab_createpipeline {
+  id: number;
+  iid: number;
+  project_id: number;
+  sha: string;
+  ref: string;
+  status: string;
+  before_sha?: string | undefined;
+  tag: boolean;
+  yaml_errors?: string | undefined;
+  user?: {  name: string;
+  username: string;
+  id: number;
+  state: string;
+  avatar_url?: string | undefined;
+  web_url?: string | undefined;};
+  created_at: string;
+  updated_at: string;
+  started_at?: string | undefined;
+  finished_at?: string | undefined;
+  committed_at?: string | undefined;
+  duration?: number | undefined;
+  queued_duration?: number | undefined;
+  coverage?: number | undefined;
+  web_url?: string | undefined;
+  archived?: boolean | undefined;
+};
+
 export interface ActionInput_gitlab_createrelease {
   /**
    * The ID or URL-encoded path of the project. Example: 82599306
@@ -20956,9 +20999,9 @@ export interface ActionOutput_gitlab_deleterelease {
 
 export interface ActionInput_gitlab_getbranch {
   /**
-   * Project ID. Example: 82599306
+   * Project ID or URL-encoded path. Example: 82599306
    */
-  project_id: number;
+  project_id: number | string;
   /**
    * Branch name. Example: feature/test
    */
@@ -21247,9 +21290,9 @@ export interface ActionOutput_gitlab_getjob {
 
 export interface ActionInput_gitlab_getmergerequest {
   /**
-   * The ID of the project. Example: 82599306
+   * The ID or URL-encoded path of the project. Example: 82599306
    */
-  project_id: number;
+  project_id: number | string;
   /**
    * The internal ID of the merge request in the project. Example: 1
    */
@@ -21372,7 +21415,7 @@ export interface ActionInput_gitlab_getpipeline {
   /**
    * The ID or URL-encoded path of the project. Example: 82599306
    */
-  project_id: number;
+  project_id: number | string;
   /**
    * The ID of the pipeline. Example: 287
    */
@@ -22246,11 +22289,53 @@ export interface ActionOutput_gitlab_listreleases {
   next_cursor?: string | undefined;
 };
 
-export interface ActionInput_gitlab_updatefile {
+export interface ActionInput_gitlab_retryjob {
   /**
    * Project ID. Example: 82599306
    */
   project_id: number;
+  /**
+   * Job ID. Example: 12345
+   */
+  job_id: number;
+};
+
+export interface ActionOutput_gitlab_retryjob {
+  id: number;
+  status: string;
+  stage: string;
+  name: string;
+  ref: string;
+  tag: boolean;
+  coverage?: string | undefined;
+  created_at: string;
+  started_at?: string | undefined;
+  finished_at?: string | undefined;
+  duration?: number | undefined;
+  queued_duration?: number | undefined;
+  user?: {  id: number;
+  name: string;
+  username: string;
+  state: string;
+  avatar_url?: string | undefined;};
+  commit?: {  id: string;
+  short_id: string;
+  title: string;
+  message: string;
+  author_name: string;
+  authored_date: string;} | undefined;
+  pipeline?: {  id: number;
+  sha: string;
+  ref: string;
+  status: string;} | undefined;
+  web_url: string;
+};
+
+export interface ActionInput_gitlab_updatefile {
+  /**
+   * Project ID or URL-encoded path. Example: 82599306
+   */
+  project_id: number | string;
   /**
    * URL-encoded full path to the file. Example: hello.txt
    */

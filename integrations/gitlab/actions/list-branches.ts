@@ -84,7 +84,7 @@ const action = createAction({
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const projectId = String(input.project_id);
         const page = input.cursor ? Number(input.cursor) : 1;
-        if (Number.isNaN(page) || page < 1) {
+        if (Number.isNaN(page) || !Number.isInteger(page) || page < 1) {
             throw new nango.ActionError({
                 type: 'invalid_input',
                 message: 'cursor must be a valid positive integer page number'
@@ -93,9 +93,16 @@ const action = createAction({
 
         const perPage = input.per_page ?? 20;
 
+        if (input.search !== undefined && input.regex !== undefined) {
+            throw new nango.ActionError({
+                type: 'invalid_input',
+                message: 'search and regex are mutually exclusive'
+            });
+        }
+
         const config: ProxyConfiguration = {
             // https://docs.gitlab.com/api/branches/#list-all-repository-branches
-            endpoint: `/api/v4/projects/${encodeURIComponent(projectId)}/repository/branches`,
+            endpoint: `/api/v4/projects/${projectId}/repository/branches`,
             params: {
                 page: String(page),
                 per_page: String(perPage),

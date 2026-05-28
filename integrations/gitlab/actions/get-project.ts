@@ -278,7 +278,7 @@ const action = createAction({
     exec: async (nango, input) => {
         const config: ProxyConfiguration = {
             // https://docs.gitlab.com/api/projects/#get-a-single-project
-            endpoint: `/api/v4/projects/${encodeURIComponent(String(input.project_id))}`,
+            endpoint: `/api/v4/projects/${String(input.project_id)}`,
             retries: 3
         };
 

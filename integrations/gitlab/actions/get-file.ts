@@ -50,9 +50,9 @@ const action = createAction({
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const response = await nango.get({
             // https://docs.gitlab.com/api/repository_files/#retrieve-a-file-from-a-repository
-            endpoint: `/api/v4/projects/${encodeURIComponent(String(input.project_id))}/repository/files/${encodeURIComponent(input.file_path)}`,
+            endpoint: `/api/v4/projects/${String(input.project_id)}/repository/files/${input.file_path}`,
             params: {
-                ...(input.ref !== undefined && { ref: input.ref })
+                ref: input.ref ?? 'HEAD'
             },
             retries: 3
         });

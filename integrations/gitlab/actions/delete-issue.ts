@@ -27,7 +27,7 @@ const action = createAction({
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         // https://docs.gitlab.com/api/issues/#delete-an-issue
         await nango.delete({
-            endpoint: `/api/v4/projects/${encodeURIComponent(String(input.project_id))}/issues/${encodeURIComponent(String(input.issue_iid))}`,
+            endpoint: `/api/v4/projects/${String(input.project_id)}/issues/${input.issue_iid}`,
             retries: 1
         });
 

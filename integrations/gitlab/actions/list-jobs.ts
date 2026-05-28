@@ -67,7 +67,7 @@ const action = createAction({
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const response = await nango.get({
             // https://docs.gitlab.com/api/jobs/
-            endpoint: `/api/v4/projects/${encodeURIComponent(String(input.project_id))}/jobs`,
+            endpoint: `/api/v4/projects/${String(input.project_id)}/jobs`,
             params: {
                 ...(input.scope !== undefined && { scope: input.scope }),
                 ...(input.order_by !== undefined && { order_by: input.order_by }),

@@ -43,7 +43,7 @@ const action = createAction({
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         // https://docs.gitlab.com/api/releases/#update-a-release
         const response = await nango.put({
-            endpoint: `/api/v4/projects/${encodeURIComponent(input.project_id)}/releases/${encodeURIComponent(input.tag_name)}`,
+            endpoint: `/api/v4/projects/${input.project_id}/releases/${encodeURIComponent(input.tag_name)}`,
             data: {
                 ...(input.name !== undefined && { name: input.name }),
                 ...(input.description !== undefined && { description: input.description }),

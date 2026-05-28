@@ -27,7 +27,7 @@ const action = createAction({
     exec: async (nango, input) => {
         // https://docs.gitlab.com/api/branches/#delete-repository-branch
         await nango.delete({
-            endpoint: `/api/v4/projects/${encodeURIComponent(String(input.project_id))}/repository/branches/${encodeURIComponent(input.branch)}`,
+            endpoint: `/api/v4/projects/${String(input.project_id)}/repository/branches/${encodeURIComponent(input.branch)}`,
             retries: 3
         });
 

@@ -57,7 +57,7 @@ const action = createAction({
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const response = await nango.post({
             // https://docs.gitlab.com/api/pipelines/#cancel-all-jobs-for-a-pipeline
-            endpoint: `/api/v4/projects/${encodeURIComponent(String(input.project_id))}/pipelines/${encodeURIComponent(String(input.pipeline_id))}/cancel`,
+            endpoint: `/api/v4/projects/${String(input.project_id)}/pipelines/${input.pipeline_id}/cancel`,
             retries: 1
         });
 

@@ -37,7 +37,7 @@ const action = createAction({
 
         // https://docs.gitlab.com/api/groups/#delete-a-group
         await nango.delete({
-            endpoint: `/api/v4/groups/${encodeURIComponent(String(input.group_id))}`,
+            endpoint: `/api/v4/groups/${String(input.group_id)}`,
             params,
             retries: 3
         });

@@ -19,7 +19,7 @@ const InputSchema = z.object({
     confidential: z.boolean().optional(),
     issue_type: z.enum(['issue', 'incident', 'test_case', 'task']).optional(),
     cursor: z.string().optional().describe('Pagination cursor (page number) from the previous response. Omit for the first page.'),
-    per_page: z.number().max(100).optional()
+    per_page: z.number().int().min(1).max(100).optional()
 });
 
 const GitLabUserSchema = z.object({
@@ -149,6 +149,16 @@ const action = createAction({
     exec: async (nango, input) => {
         const projectId = typeof input.project_id === 'number' ? String(input.project_id) : input.project_id;
 
+        if (input.cursor !== undefined) {
+            const page = parseInt(input.cursor, 10);
+            if (Number.isNaN(page) || !Number.isInteger(page) || page < 1) {
+                throw new nango.ActionError({
+                    type: 'invalid_input',
+                    message: 'cursor must be a valid positive integer page number'
+                });
+            }
+        }
+
         const params: Record<string, string | number> = {
             ...(input.state !== undefined && { state: input.state }),
             ...(input.labels !== undefined && { labels: input.labels }),
@@ -166,7 +176,7 @@ const action = createAction({
             ...(input.confidential !== undefined && { confidential: input.confidential ? 'true' : 'false' }),
             ...(input.issue_type !== undefined && { issue_type: input.issue_type }),
             ...(input.per_page !== undefined && { per_page: input.per_page }),
-            ...(input.cursor !== undefined && { page: Number(input.cursor) })
+            ...(input.cursor !== undefined && { page: parseInt(input.cursor, 10) })
         };
 
         const config: ProxyConfiguration = {

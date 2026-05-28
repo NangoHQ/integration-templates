@@ -35,7 +35,7 @@ const action = createAction({
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const config: ProxyConfiguration = {
             // https://docs.gitlab.com/api/releases/#delete-a-release
-            endpoint: `/api/v4/projects/${encodeURIComponent(input.project_id)}/releases/${encodeURIComponent(input.tag_name)}`,
+            endpoint: `/api/v4/projects/${input.project_id}/releases/${encodeURIComponent(input.tag_name)}`,
             retries: 2
         };
 

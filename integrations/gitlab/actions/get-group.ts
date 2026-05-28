@@ -58,7 +58,7 @@ const action = createAction({
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const response = await nango.get({
             // https://docs.gitlab.com/api/groups/#get-a-single-group
-            endpoint: `/api/v4/groups/${encodeURIComponent(String(input.id))}`,
+            endpoint: `/api/v4/groups/${String(input.id)}`,
             retries: 3
         });
 

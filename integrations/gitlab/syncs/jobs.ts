@@ -60,6 +60,7 @@ const ProviderJobSchema = z.object({
         .object({
             id: z.number()
         })
+        .nullable()
         .optional()
 });
 
@@ -154,7 +155,7 @@ const sync = createSync({
                         ...(job.coverage !== null && job.coverage !== undefined && { coverage: job.coverage }),
                         ...(job.allow_failure !== undefined && { allow_failure: job.allow_failure }),
                         ...(job.user !== undefined && { user_id: job.user.id }),
-                        ...(job.runner !== undefined && { runner_id: job.runner.id })
+                        ...(job.runner !== null && job.runner !== undefined && { runner_id: job.runner.id })
                     }));
 
                     if (mappedJobs.length > 0) {

@@ -122,7 +122,7 @@ const action = createAction({
 
         // https://docs.gitlab.com/api/commits/#create-a-commit
         const response = await nango.post({
-            endpoint: `/api/v4/projects/${encodeURIComponent(input.project_id)}/repository/commits`,
+            endpoint: `/api/v4/projects/${input.project_id}/repository/commits`,
             data: requestBody,
             retries: 1
         });

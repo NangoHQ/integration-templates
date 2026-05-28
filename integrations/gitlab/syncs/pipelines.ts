@@ -70,7 +70,7 @@ const sync = createSync({
 
         const proxyConfig: ProxyConfiguration = {
             // https://docs.gitlab.com/api/pipelines/#list-project-pipelines
-            endpoint: `/api/v4/projects/${encodeURIComponent(metadata.project_id)}/pipelines`,
+            endpoint: `/api/v4/projects/${metadata.project_id}/pipelines`,
             params,
             paginate: {
                 type: 'offset',

@@ -2,7 +2,7 @@ import { z } from 'zod';
 import { createAction } from 'nango';
 
 const InputSchema = z.object({
-    project_id: z.number().describe('The ID of the project. Example: 82599306'),
+    project_id: z.union([z.number(), z.string()]).describe('The ID or URL-encoded path of the project. Example: 82599306'),
     merge_request_iid: z.number().describe('The internal ID of the merge request in the project. Example: 1')
 });
 
@@ -120,7 +120,7 @@ const action = createAction({
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const response = await nango.get({
             // https://docs.gitlab.com/api/merge_requests/#get-single-mr
-            endpoint: `/api/v4/projects/${encodeURIComponent(String(input.project_id))}/merge_requests/${encodeURIComponent(String(input.merge_request_iid))}`,
+            endpoint: `/api/v4/projects/${String(input.project_id)}/merge_requests/${input.merge_request_iid}`,
             retries: 3
         });
 

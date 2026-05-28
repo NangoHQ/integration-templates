@@ -94,7 +94,7 @@ const action = createAction({
 
         const response = await nango.post({
             // https://docs.gitlab.com/api/releases/#create-a-release
-            endpoint: `/api/v4/projects/${encodeURIComponent(projectId)}/releases`,
+            endpoint: `/api/v4/projects/${projectId}/releases`,
             data,
             retries: 3
         });

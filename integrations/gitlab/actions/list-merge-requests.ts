@@ -96,7 +96,7 @@ const action = createAction({
 
         // https://docs.gitlab.com/api/merge_requests/#list-project-merge-requests
         const response = await nango.get({
-            endpoint: `/api/v4/projects/${encodeURIComponent(String(input.project_id))}/merge_requests`,
+            endpoint: `/api/v4/projects/${String(input.project_id)}/merge_requests`,
             params: {
                 page: String(page),
                 per_page: '20',

@@ -50,7 +50,7 @@ const sync = createSync({
     description: 'Sync commits from GitLab.',
     version: '1.0.0',
     frequency: 'every hour',
-    autoStart: true,
+    autoStart: false,
     metadata: MetadataSchema,
     checkpoint: CheckpointSchema,
     models: {
@@ -146,7 +146,7 @@ const sync = createSync({
                 commits.push(commit);
 
                 if (record.committed_date) {
-                    if (!latestCommittedDate || record.committed_date > latestCommittedDate) {
+                    if (!latestCommittedDate || Date.parse(record.committed_date) > Date.parse(latestCommittedDate)) {
                         latestCommittedDate = record.committed_date;
                     }
                 }

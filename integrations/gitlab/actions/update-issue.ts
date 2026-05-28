@@ -96,7 +96,7 @@ const action = createAction({
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const response = await nango.put({
             // https://docs.gitlab.com/api/issues/#edit-an-issue
-            endpoint: `/api/v4/projects/${encodeURIComponent(input.project_id)}/issues/${encodeURIComponent(String(input.issue_iid))}`,
+            endpoint: `/api/v4/projects/${input.project_id}/issues/${input.issue_iid}`,
             data: {
                 ...(input.title !== undefined && { title: input.title }),
                 ...(input.description !== undefined && { description: input.description }),

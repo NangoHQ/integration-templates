@@ -49,7 +49,7 @@ const action = createAction({
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const response = await nango.put({
             // https://docs.gitlab.com/api/merge_requests/#update-a-merge-request
-            endpoint: `/api/v4/projects/${encodeURIComponent(String(input.project_id))}/merge_requests/${input.merge_request_iid}`,
+            endpoint: `/api/v4/projects/${String(input.project_id)}/merge_requests/${input.merge_request_iid}`,
             data: {
                 ...(input.target_branch !== undefined && { target_branch: input.target_branch }),
                 ...(input.title !== undefined && { title: input.title }),

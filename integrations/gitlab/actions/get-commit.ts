@@ -78,7 +78,7 @@ const action = createAction({
 
         // https://docs.gitlab.com/api/commits/#get-a-single-commit
         const response = await nango.get({
-            endpoint: `/api/v4/projects/${encodeURIComponent(projectId)}/repository/commits/${encodeURIComponent(input.sha)}`,
+            endpoint: `/api/v4/projects/${projectId}/repository/commits/${encodeURIComponent(input.sha)}`,
             retries: 3
         });
 

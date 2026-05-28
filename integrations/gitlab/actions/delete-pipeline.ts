@@ -25,7 +25,7 @@ const action = createAction({
     output: OutputSchema,
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
-        const encodedProjectId = encodeURIComponent(String(input.project_id));
+        const encodedProjectId = input.project_id;
 
         // https://docs.gitlab.com/api/pipelines/#delete-a-pipeline
         await nango.delete({

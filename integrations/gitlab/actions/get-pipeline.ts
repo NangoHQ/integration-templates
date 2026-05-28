@@ -2,7 +2,7 @@ import { z } from 'zod';
 import { createAction } from 'nango';
 
 const InputSchema = z.object({
-    project_id: z.number().describe('The ID or URL-encoded path of the project. Example: 82599306'),
+    project_id: z.union([z.number(), z.string()]).describe('The ID or URL-encoded path of the project. Example: 82599306'),
     pipeline_id: z.number().describe('The ID of the pipeline. Example: 287')
 });
 
@@ -68,7 +68,7 @@ const action = createAction({
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const response = await nango.get({
             // https://docs.gitlab.com/api/pipelines/#retrieve-a-single-pipeline
-            endpoint: `/api/v4/projects/${encodeURIComponent(String(input.project_id))}/pipelines/${encodeURIComponent(String(input.pipeline_id))}`,
+            endpoint: `/api/v4/projects/${String(input.project_id)}/pipelines/${input.pipeline_id}`,
             retries: 3
         });
 
