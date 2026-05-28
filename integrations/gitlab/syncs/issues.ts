@@ -59,6 +59,7 @@ const sync = createSync({
 
     exec: async (nango) => {
         const checkpoint = await nango.getCheckpoint();
+        const runStart = new Date().toISOString();
 
         const projectsConfig: ProxyConfiguration = {
             // https://docs.gitlab.com/api/projects/#list-all-projects
@@ -86,8 +87,6 @@ const sync = createSync({
                 }
             }
         }
-
-        let maxUpdatedAt: string | undefined;
 
         for (const project of projects) {
             const params: Record<string, string | number> = {
@@ -124,10 +123,6 @@ const sync = createSync({
                     }
 
                     const issue = parsed.data;
-                    if (maxUpdatedAt === undefined || issue.updated_at > maxUpdatedAt) {
-                        maxUpdatedAt = issue.updated_at;
-                    }
-
                     issues.push({
                         id: String(issue.id),
                         project_id: issue.project_id,
@@ -153,9 +148,7 @@ const sync = createSync({
             }
         }
 
-        if (maxUpdatedAt !== undefined && maxUpdatedAt.length > 0) {
-            await nango.saveCheckpoint({ updated_after: maxUpdatedAt });
-        }
+        await nango.saveCheckpoint({ updated_after: runStart });
     }
 });
 
