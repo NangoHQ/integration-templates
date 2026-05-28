@@ -2001,6 +2001,16 @@ import './stripe-app/syncs/subscriptions.js';
 // -- Integration: teamtailor
 import './teamtailor/syncs/candidates.js';
 
+// -- Integration: tiktok-accounts
+import './tiktok-accounts/syncs/comments.js';
+import './tiktok-accounts/syncs/identities.js';
+import './tiktok-accounts/actions/create-blocked-words.js';
+import './tiktok-accounts/actions/create-identity.js';
+import './tiktok-accounts/actions/delete-blocked-words.js';
+import './tiktok-accounts/actions/delete-comment.js';
+import './tiktok-accounts/actions/get-identity.js';
+import './tiktok-accounts/actions/list-blocked-words.js';
+
 // -- Integration: twitter-v2
 import './twitter-v2/syncs/liked-tweets.js';
 import './twitter-v2/syncs/lists.js';
