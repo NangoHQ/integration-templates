@@ -1,0 +1,82 @@
+{
+  "input": {
+    "id": 1,
+    "tag": "Updated Nango Test Tag 1"
+  },
+  "output": {
+    "tag": {
+      "tagType": "contact",
+      "tag": "Updated Nango Test Tag 1",
+      "description": "Nango test tag 1",
+      "cdate": "2026-05-28T03:43:37-05:00",
+      "links": {
+        "contactGoalTags": "https://nango56865.api-us1.com/api/3/tags/1/contactGoalTags",
+        "templateTags": "https://nango56865.api-us1.com/api/3/tags/1/templateTags"
+      },
+      "id": "1"
+    }
+  },
+  "nango": {},
+  "api": {
+    "patch": {
+      "/3/tags/1": {
+        "response": {
+          "tag": {
+            "tagType": "contact",
+            "tag": "Updated Nango Test Tag 1",
+            "description": "Nango test tag 1",
+            "subscriber_count": "1",
+            "cdate": "2026-05-28T03:43:37-05:00",
+            "created_timestamp": "2026-05-28 03:43:37",
+            "updated_timestamp": "2026-05-28 04:03:25",
+            "created_by": "0",
+            "updated_by": "0",
+            "deleted": "0",
+            "links": {
+              "contactGoalTags": "https://nango56865.api-us1.com/api/3/tags/1/contactGoalTags",
+              "templateTags": "https://nango56865.api-us1.com/api/3/tags/1/templateTags"
+            },
+            "id": "1"
+          }
+        },
+        "status": 200,
+        "headers": {
+          "date": "Thu, 28 May 2026 10:06:13 GMT",
+          "content-type": "application/json",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=63072000; includeSubDomains; preload",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4993",
+          "x-ratelimit-reset": "1779962827",
+          "cache-control": "no-store, no-cache, must-revalidate,no-cache, private",
+          "expires": "Thu, 19 Nov 1981 08:52:00 GMT",
+          "pragma": "no-cache",
+          "server": "cloudflare",
+          "set-cookie": "PHPSESSID=33ca480e3e8808dd17f21f6609eb71eb; path=/; secure; HttpOnly; SameSite=Lax, em_acp_globalauth_cookie=c33f5f41-8ee5-4f36-aff9-3dea4de251a5; path=/; domain=.nango56865.api-us1.com; secure; httponly; SameSite=Lax",
+          "x-envoy-decorator-operation": "ac-hosted-current-web.activecampaign-hosted.svc.cluster.local:80/*",
+          "x-envoy-upstream-service-time": "89",
+          "x-request-id": "966dd34a-77e4-4064-aa03-86989113a2cb",
+          "cf-cache-status": "DYNAMIC",
+          "cf-ray": "a02c7204fcfd5ec6-PDX"
+        },
+        "hash": "ac07a833a9076bddc244b7eaf74b89c51cc4481a",
+        "request": {
+          "data": {
+            "tag": {
+              "tag": "Updated Nango Test Tag 1"
+            }
+          }
+        }
+      }
+    }
+  }
+}

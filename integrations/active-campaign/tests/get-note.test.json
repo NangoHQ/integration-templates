@@ -1,0 +1,88 @@
+{
+  "input": {
+    "id": "1"
+  },
+  "output": {
+    "id": "1",
+    "relid": "1",
+    "reltype": "Subscriber",
+    "userid": "1",
+    "cdate": "2026-05-28T03:48:47-05:00",
+    "mdate": "2026-05-28T03:48:47-05:00",
+    "note": "Nango test note 1 — initial contact made",
+    "user": "1",
+    "owner": {
+      "type": "contact",
+      "id": "1"
+    },
+    "links": {
+      "activities": "https://nango56865.api-us1.com/api/3/notes/1/activities",
+      "user": "https://nango56865.api-us1.com/api/3/notes/1/user",
+      "mentions": "https://nango56865.api-us1.com/api/3/notes/1/mentions",
+      "notes": "https://nango56865.api-us1.com/api/3/notes/1/notes",
+      "owner": "https://nango56865.api-us1.com/api/3/notes/1/owner"
+    }
+  },
+  "nango": {},
+  "api": {
+    "get": {
+      "/3/notes/1": {
+        "response": {
+          "note": {
+            "relid": "1",
+            "reltype": "Subscriber",
+            "userid": "1",
+            "is_draft": "0",
+            "cdate": "2026-05-28T03:48:47-05:00",
+            "mdate": "2026-05-28T03:48:47-05:00",
+            "note": "Nango test note 1 — initial contact made",
+            "links": {
+              "activities": "https://nango56865.api-us1.com/api/3/notes/1/activities",
+              "user": "https://nango56865.api-us1.com/api/3/notes/1/user",
+              "mentions": "https://nango56865.api-us1.com/api/3/notes/1/mentions",
+              "notes": "https://nango56865.api-us1.com/api/3/notes/1/notes",
+              "owner": "https://nango56865.api-us1.com/api/3/notes/1/owner"
+            },
+            "id": "1",
+            "user": "1",
+            "owner": {
+              "type": "contact",
+              "id": "1"
+            }
+          }
+        },
+        "status": 200,
+        "headers": {
+          "date": "Thu, 28 May 2026 09:16:23 GMT",
+          "content-type": "application/json",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=63072000; includeSubDomains; preload",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4996",
+          "x-ratelimit-reset": "1779959840",
+          "cache-control": "no-store, no-cache, must-revalidate,no-cache, private",
+          "expires": "Thu, 19 Nov 1981 08:52:00 GMT",
+          "pragma": "no-cache",
+          "server": "cloudflare",
+          "set-cookie": "PHPSESSID=ce77af17902f0eaa41fb3d1ba29d7bf7; path=/; secure; HttpOnly; SameSite=Lax, em_acp_globalauth_cookie=30cd900c-6aba-4e87-8e4c-dce12f7ec35e; path=/; domain=.nango56865.api-us1.com; secure; httponly; SameSite=Lax",
+          "x-envoy-decorator-operation": "ac-hosted-current-web.activecampaign-hosted.svc.cluster.local:80/*",
+          "x-envoy-upstream-service-time": "77",
+          "x-request-id": "b003d9f5-951a-4265-89c4-523e9cb3b3a9",
+          "cf-cache-status": "DYNAMIC",
+          "cf-ray": "a02c29061ea79bf9-PDX"
+        },
+        "hash": "fe32ce3cb0d96a738f7d5b10853f5a626382f839",
+        "request": {}
+      }
+    }
+  }
+}

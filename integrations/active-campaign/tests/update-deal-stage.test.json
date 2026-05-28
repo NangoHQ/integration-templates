@@ -1,0 +1,106 @@
+{
+  "input": {
+    "id": "7",
+    "title": "To Contact Updated"
+  },
+  "output": {
+    "id": "7",
+    "title": "To Contact Updated",
+    "color": "19CCA3",
+    "group": "3",
+    "order": "1",
+    "width": "280",
+    "dealOrder": "next-action DESC",
+    "cardRegion1": "title",
+    "cardRegion2": "next-action",
+    "cardRegion3": "show-avatar",
+    "cardRegion4": "contact-fullname-acctname",
+    "cardRegion5": "value",
+    "udate": "2026-05-28T05:09:19-05:00"
+  },
+  "nango": {},
+  "api": {
+    "put": {
+      "/3/dealStages/7": {
+        "response": {
+          "dealGroups": [
+            {
+              "title": "Nango Test Pipeline 1779959097648",
+              "currency": "usd",
+              "autoassign": "0",
+              "allusers": "0",
+              "allgroups": "1",
+              "win_probability_initialize_date": null,
+              "cdate": "2026-05-28T04:04:57-05:00",
+              "udate": "2026-05-28T05:08:47-05:00",
+              "source": "",
+              "links": {
+                "stages": "https://nango56865.api-us1.com/api/3/dealGroups/3/stages",
+                "dealGroupUsers": "https://nango56865.api-us1.com/api/3/dealGroups/3/dealGroupUsers",
+                "dealGroupGroups": "https://nango56865.api-us1.com/api/3/dealGroups/3/dealGroupGroups",
+                "winProbabilityFeatures": "https://nango56865.api-us1.com/api/3/dealGroups/3/winProbabilityFeatures"
+              },
+              "id": "3"
+            }
+          ],
+          "dealStage": {
+            "group": "3",
+            "title": "To Contact Updated",
+            "color": "19CCA3",
+            "order": "1",
+            "width": "280",
+            "dealOrder": "next-action DESC",
+            "cardRegion1": "title",
+            "cardRegion2": "next-action",
+            "cardRegion3": "show-avatar",
+            "cardRegion4": "contact-fullname-acctname",
+            "cardRegion5": "value",
+            "cdate": null,
+            "udate": "2026-05-28T05:09:19-05:00",
+            "links": {
+              "group": "https://nango56865.api-us1.com/api/3/dealStages/7/group"
+            },
+            "id": "7"
+          }
+        },
+        "status": 200,
+        "headers": {
+          "date": "Thu, 28 May 2026 10:09:19 GMT",
+          "content-type": "application/json",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=63072000; includeSubDomains; preload",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4994",
+          "x-ratelimit-reset": "1779963016",
+          "cache-control": "no-store, no-cache, must-revalidate,no-cache, private",
+          "expires": "Thu, 19 Nov 1981 08:52:00 GMT",
+          "pragma": "no-cache",
+          "server": "cloudflare",
+          "set-cookie": "PHPSESSID=3b5535a815984b9eba536c62ca795a16; path=/; secure; HttpOnly; SameSite=Lax, em_acp_globalauth_cookie=4e7d3338-ac65-4542-aced-72d74dd3bb52; path=/; domain=.nango56865.api-us1.com; secure; httponly; SameSite=Lax",
+          "x-envoy-decorator-operation": "ac-hosted-current-web.activecampaign-hosted.svc.cluster.local:80/*",
+          "x-envoy-upstream-service-time": "113",
+          "x-request-id": "15c4dde6-5395-4bf0-9a85-d2d512f694de",
+          "cf-cache-status": "DYNAMIC",
+          "cf-ray": "a02c7691ec60e8e9-PDX"
+        },
+        "hash": "de2184f39aea171927431d488c70ab8c558e13de",
+        "request": {
+          "data": {
+            "dealStage": {
+              "title": "To Contact Updated"
+            }
+          }
+        }
+      }
+    }
+  }
+}

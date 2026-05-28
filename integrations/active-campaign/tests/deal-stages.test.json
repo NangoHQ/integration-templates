@@ -1,0 +1,391 @@
+{
+  "nango": {
+    "batchSave": {
+      "DealStage": [
+        {
+          "id": "1",
+          "title": "To Contact",
+          "color": "19CCA3",
+          "order": "1",
+          "group": "1",
+          "width": "280",
+          "dealOrder": "next-action DESC",
+          "cardRegion1": "title",
+          "cardRegion2": "next-action",
+          "cardRegion3": "show-avatar",
+          "cardRegion4": "contact-fullname-acctname",
+          "cardRegion5": "value"
+        },
+        {
+          "id": "2",
+          "title": "In Contact",
+          "color": "5487FF",
+          "order": "2",
+          "group": "1",
+          "width": "280",
+          "dealOrder": "next-action DESC",
+          "cardRegion1": "title",
+          "cardRegion2": "next-action",
+          "cardRegion3": "show-avatar",
+          "cardRegion4": "contact-fullname-acctname",
+          "cardRegion5": "value"
+        },
+        {
+          "id": "3",
+          "title": "Follow Up",
+          "color": "FBD965",
+          "order": "3",
+          "group": "1",
+          "width": "280",
+          "dealOrder": "next-action DESC",
+          "cardRegion1": "title",
+          "cardRegion2": "next-action",
+          "cardRegion3": "show-avatar",
+          "cardRegion4": "contact-fullname-acctname",
+          "cardRegion5": "value"
+        },
+        {
+          "id": "4",
+          "title": "To Contact",
+          "color": "19CCA3",
+          "order": "1",
+          "group": "2",
+          "width": "280",
+          "dealOrder": "next-action DESC",
+          "cardRegion1": "title",
+          "cardRegion2": "next-action",
+          "cardRegion3": "show-avatar",
+          "cardRegion4": "contact-fullname-acctname",
+          "cardRegion5": "value"
+        },
+        {
+          "id": "5",
+          "title": "In Contact",
+          "color": "5487FF",
+          "order": "2",
+          "group": "2",
+          "width": "280",
+          "dealOrder": "next-action DESC",
+          "cardRegion1": "title",
+          "cardRegion2": "next-action",
+          "cardRegion3": "show-avatar",
+          "cardRegion4": "contact-fullname-acctname",
+          "cardRegion5": "value"
+        },
+        {
+          "id": "6",
+          "title": "Follow Up",
+          "color": "FBD965",
+          "order": "3",
+          "group": "2",
+          "width": "280",
+          "dealOrder": "next-action DESC",
+          "cardRegion1": "title",
+          "cardRegion2": "next-action",
+          "cardRegion3": "show-avatar",
+          "cardRegion4": "contact-fullname-acctname",
+          "cardRegion5": "value"
+        },
+        {
+          "id": "7",
+          "title": "To Contact",
+          "color": "19CCA3",
+          "order": "1",
+          "group": "3",
+          "width": "280",
+          "dealOrder": "next-action DESC",
+          "cardRegion1": "title",
+          "cardRegion2": "next-action",
+          "cardRegion3": "show-avatar",
+          "cardRegion4": "contact-fullname-acctname",
+          "cardRegion5": "value",
+          "udate": "2026-05-28T09:05:48-05:00"
+        },
+        {
+          "id": "10",
+          "title": "To Contact",
+          "color": "19CCA3",
+          "order": "1",
+          "group": "4",
+          "width": "280",
+          "dealOrder": "next-action DESC",
+          "cardRegion1": "title",
+          "cardRegion2": "next-action",
+          "cardRegion3": "show-avatar",
+          "cardRegion4": "contact-fullname-acctname",
+          "cardRegion5": "value"
+        },
+        {
+          "id": "11",
+          "title": "In Contact",
+          "color": "5487FF",
+          "order": "2",
+          "group": "4",
+          "width": "280",
+          "dealOrder": "next-action DESC",
+          "cardRegion1": "title",
+          "cardRegion2": "next-action",
+          "cardRegion3": "show-avatar",
+          "cardRegion4": "contact-fullname-acctname",
+          "cardRegion5": "value"
+        },
+        {
+          "id": "12",
+          "title": "Follow Up",
+          "color": "FBD965",
+          "order": "3",
+          "group": "4",
+          "width": "280",
+          "dealOrder": "next-action DESC",
+          "cardRegion1": "title",
+          "cardRegion2": "next-action",
+          "cardRegion3": "show-avatar",
+          "cardRegion4": "contact-fullname-acctname",
+          "cardRegion5": "value"
+        }
+      ]
+    },
+    "batchDelete": {
+      "DealStage": []
+    }
+  },
+  "api": {
+    "get": {
+      "/3/dealStages": {
+        "response": {
+          "dealStages": [
+            {
+              "group": "1",
+              "title": "To Contact",
+              "color": "19CCA3",
+              "order": "1",
+              "width": "280",
+              "dealOrder": "next-action DESC",
+              "cardRegion1": "title",
+              "cardRegion2": "next-action",
+              "cardRegion3": "show-avatar",
+              "cardRegion4": "contact-fullname-acctname",
+              "cardRegion5": "value",
+              "cdate": null,
+              "udate": null,
+              "links": {
+                "group": "https://nango56865.api-us1.com/api/3/dealStages/1/group"
+              },
+              "id": "1"
+            },
+            {
+              "group": "1",
+              "title": "In Contact",
+              "color": "5487FF",
+              "order": "2",
+              "width": "280",
+              "dealOrder": "next-action DESC",
+              "cardRegion1": "title",
+              "cardRegion2": "next-action",
+              "cardRegion3": "show-avatar",
+              "cardRegion4": "contact-fullname-acctname",
+              "cardRegion5": "value",
+              "cdate": null,
+              "udate": null,
+              "links": {
+                "group": "https://nango56865.api-us1.com/api/3/dealStages/2/group"
+              },
+              "id": "2"
+            },
+            {
+              "group": "1",
+              "title": "Follow Up",
+              "color": "FBD965",
+              "order": "3",
+              "width": "280",
+              "dealOrder": "next-action DESC",
+              "cardRegion1": "title",
+              "cardRegion2": "next-action",
+              "cardRegion3": "show-avatar",
+              "cardRegion4": "contact-fullname-acctname",
+              "cardRegion5": "value",
+              "cdate": null,
+              "udate": null,
+              "links": {
+                "group": "https://nango56865.api-us1.com/api/3/dealStages/3/group"
+              },
+              "id": "3"
+            },
+            {
+              "group": "2",
+              "title": "To Contact",
+              "color": "19CCA3",
+              "order": "1",
+              "width": "280",
+              "dealOrder": "next-action DESC",
+              "cardRegion1": "title",
+              "cardRegion2": "next-action",
+              "cardRegion3": "show-avatar",
+              "cardRegion4": "contact-fullname-acctname",
+              "cardRegion5": "value",
+              "cdate": null,
+              "udate": null,
+              "links": {
+                "group": "https://nango56865.api-us1.com/api/3/dealStages/4/group"
+              },
+              "id": "4"
+            },
+            {
+              "group": "2",
+              "title": "In Contact",
+              "color": "5487FF",
+              "order": "2",
+              "width": "280",
+              "dealOrder": "next-action DESC",
+              "cardRegion1": "title",
+              "cardRegion2": "next-action",
+              "cardRegion3": "show-avatar",
+              "cardRegion4": "contact-fullname-acctname",
+              "cardRegion5": "value",
+              "cdate": null,
+              "udate": null,
+              "links": {
+                "group": "https://nango56865.api-us1.com/api/3/dealStages/5/group"
+              },
+              "id": "5"
+            },
+            {
+              "group": "2",
+              "title": "Follow Up",
+              "color": "FBD965",
+              "order": "3",
+              "width": "280",
+              "dealOrder": "next-action DESC",
+              "cardRegion1": "title",
+              "cardRegion2": "next-action",
+              "cardRegion3": "show-avatar",
+              "cardRegion4": "contact-fullname-acctname",
+              "cardRegion5": "value",
+              "cdate": null,
+              "udate": null,
+              "links": {
+                "group": "https://nango56865.api-us1.com/api/3/dealStages/6/group"
+              },
+              "id": "6"
+            },
+            {
+              "group": "3",
+              "title": "To Contact",
+              "color": "19CCA3",
+              "order": "1",
+              "width": "280",
+              "dealOrder": "next-action DESC",
+              "cardRegion1": "title",
+              "cardRegion2": "next-action",
+              "cardRegion3": "show-avatar",
+              "cardRegion4": "contact-fullname-acctname",
+              "cardRegion5": "value",
+              "cdate": null,
+              "udate": "2026-05-28T09:05:48-05:00",
+              "links": {
+                "group": "https://nango56865.api-us1.com/api/3/dealStages/7/group"
+              },
+              "id": "7"
+            },
+            {
+              "group": "4",
+              "title": "To Contact",
+              "color": "19CCA3",
+              "order": "1",
+              "width": "280",
+              "dealOrder": "next-action DESC",
+              "cardRegion1": "title",
+              "cardRegion2": "next-action",
+              "cardRegion3": "show-avatar",
+              "cardRegion4": "contact-fullname-acctname",
+              "cardRegion5": "value",
+              "cdate": null,
+              "udate": null,
+              "links": {
+                "group": "https://nango56865.api-us1.com/api/3/dealStages/10/group"
+              },
+              "id": "10"
+            },
+            {
+              "group": "4",
+              "title": "In Contact",
+              "color": "5487FF",
+              "order": "2",
+              "width": "280",
+              "dealOrder": "next-action DESC",
+              "cardRegion1": "title",
+              "cardRegion2": "next-action",
+              "cardRegion3": "show-avatar",
+              "cardRegion4": "contact-fullname-acctname",
+              "cardRegion5": "value",
+              "cdate": null,
+              "udate": null,
+              "links": {
+                "group": "https://nango56865.api-us1.com/api/3/dealStages/11/group"
+              },
+              "id": "11"
+            },
+            {
+              "group": "4",
+              "title": "Follow Up",
+              "color": "FBD965",
+              "order": "3",
+              "width": "280",
+              "dealOrder": "next-action DESC",
+              "cardRegion1": "title",
+              "cardRegion2": "next-action",
+              "cardRegion3": "show-avatar",
+              "cardRegion4": "contact-fullname-acctname",
+              "cardRegion5": "value",
+              "cdate": null,
+              "udate": null,
+              "links": {
+                "group": "https://nango56865.api-us1.com/api/3/dealStages/12/group"
+              },
+              "id": "12"
+            }
+          ],
+          "meta": {
+            "total": 10
+          }
+        },
+        "status": 200,
+        "headers": {
+          "date": "Thu, 28 May 2026 09:10:08 GMT",
+          "content-type": "application/json",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=63072000; includeSubDomains; preload",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4972",
+          "x-ratelimit-reset": "1779959446",
+          "cache-control": "no-store, no-cache, must-revalidate,no-cache, private",
+          "expires": "Thu, 19 Nov 1981 08:52:00 GMT",
+          "pragma": "no-cache",
+          "server": "cloudflare",
+          "set-cookie": "PHPSESSID=038eba2b37df957fd2bb8c903bd997e1; path=/; secure; HttpOnly; SameSite=Lax, em_acp_globalauth_cookie=76ed6088-171a-407e-858f-1fe640296e5a; path=/; domain=.nango56865.api-us1.com; secure; httponly; SameSite=Lax",
+          "x-envoy-decorator-operation": "ac-hosted-current-web.activecampaign-hosted.svc.cluster.local:80/*",
+          "x-envoy-upstream-service-time": "86",
+          "x-request-id": "cd7b0bb4-d81f-48be-9c60-44916899c6ac",
+          "cf-cache-status": "DYNAMIC",
+          "cf-ray": "a02c1fdaedce1f9b-PDX"
+        },
+        "hash": "eb8ae85e71722d6409ba3c55d478a2091183f98a",
+        "request": {
+          "params": {
+            "limit": "100",
+            "offset": "0"
+          }
+        }
+      }
+    }
+  }
+}
