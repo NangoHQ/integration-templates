@@ -63,11 +63,11 @@ const action = createAction({
         const wrapper = z
             .object({
                 success: z.boolean(),
-                results: JobSchema
+                results: JobSchema.optional()
             })
             .parse(response.data);
 
-        if (!wrapper.success) {
+        if (!wrapper.success || !wrapper.results) {
             throw new nango.ActionError({
                 type: 'api_error',
                 message: 'Failed to retrieve job from Ashby'

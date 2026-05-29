@@ -19,8 +19,8 @@ const ProviderApplicationSchema = z
 
 const ProviderListResponseSchema = z.object({
     success: z.boolean(),
-    results: z.array(ProviderApplicationSchema),
-    moreDataAvailable: z.boolean(),
+    results: z.array(ProviderApplicationSchema).optional(),
+    moreDataAvailable: z.boolean().optional(),
     nextCursor: z.string().optional(),
     syncToken: z.string().optional()
 });
@@ -71,8 +71,8 @@ const action = createAction({
         }
 
         return {
-            items: parsed.results,
-            moreDataAvailable: parsed.moreDataAvailable,
+            items: parsed.results ?? [],
+            moreDataAvailable: parsed.moreDataAvailable ?? false,
             ...(parsed.nextCursor !== undefined && { nextCursor: parsed.nextCursor }),
             ...(parsed.syncToken !== undefined && { syncToken: parsed.syncToken })
         };

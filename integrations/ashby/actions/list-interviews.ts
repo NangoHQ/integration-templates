@@ -45,8 +45,8 @@ const OutputSchema = z.object({
 
 const ProviderResponseSchema = z.object({
     success: z.boolean(),
-    results: z.array(ProviderInterviewSchema),
-    moreDataAvailable: z.boolean(),
+    results: z.array(ProviderInterviewSchema).optional(),
+    moreDataAvailable: z.boolean().optional(),
     nextCursor: z.string().optional(),
     syncToken: z.string().optional()
 });
@@ -89,7 +89,7 @@ const action = createAction({
         }
 
         return {
-            items: providerResponse.results.map((item) => ({
+            items: (providerResponse.results ?? []).map((item) => ({
                 id: item.id,
                 title: item.title,
                 externalTitle: item.externalTitle,

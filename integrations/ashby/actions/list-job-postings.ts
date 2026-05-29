@@ -2,6 +2,7 @@ import { z } from 'zod';
 import { createAction } from 'nango';
 
 const InputSchema = z.object({
+    cursor: z.string().optional().describe('Pagination cursor from the previous response. Omit for the first page.'),
     location: z.string().optional().describe('Filter by location name (case sensitive)'),
     department: z.string().optional().describe('Filter by department name (case sensitive)'),
     listedOnly: z.boolean().optional().describe('If true, filter out unlisted job postings'),
@@ -21,7 +22,7 @@ const JobPostingSchema = z.object({
     teamName: z.string(),
     locationName: z.string(),
     locationIds: LocationIdsSchema,
-    workplaceType: z.string().optional(),
+    workplaceType: z.string().nullable().optional(),
     employmentType: z.string(),
     isListed: z.boolean(),
     publishedDate: z.string(),
@@ -55,6 +56,7 @@ const action = createAction({
             // https://developers.ashbyhq.com/reference/jobpostinglist
             endpoint: '/jobPosting.list',
             data: {
+                ...(input.cursor !== undefined && { cursor: input.cursor }),
                 ...(input.location !== undefined && { location: input.location }),
                 ...(input.department !== undefined && { department: input.department }),
                 ...(input.listedOnly !== undefined && { listedOnly: input.listedOnly }),
@@ -65,7 +67,7 @@ const action = createAction({
 
         const ProviderResponseSchema = z.object({
             success: z.boolean(),
-            results: z.array(z.unknown()),
+            results: z.array(z.unknown()).optional(),
             moreDataAvailable: z.boolean().optional(),
             nextCursor: z.string().optional()
         });
@@ -79,7 +81,7 @@ const action = createAction({
             });
         }
 
-        const items = providerResponse.results.map((item: unknown) => {
+        const items = (providerResponse.results ?? []).map((item: unknown) => {
             return JobPostingSchema.parse(item);
         });
 

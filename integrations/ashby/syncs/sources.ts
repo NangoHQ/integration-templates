@@ -24,7 +24,8 @@ const ResponseSchema = z.object({
             sourceType: SourceTypeSchema.optional()
         })
     ),
-    moreDataAvailable: z.boolean()
+    moreDataAvailable: z.boolean(),
+    nextCursor: z.string().optional()
 });
 
 const sync = createSync({
@@ -46,21 +47,33 @@ const sync = createSync({
     exec: async (nango) => {
         await nango.trackDeletesStart('Source');
 
-        // https://developers.ashbyhq.com/reference/sourcelist
-        const response = await nango.post({
-            endpoint: '/source.list',
-            data: {
-                includeArchived: true
-            },
-            retries: 3
-        });
+        let nextCursor: string | undefined;
 
-        const envelope = ResponseSchema.parse(response.data);
-        const sources = envelope.results.map((item) => SourceSchema.parse(item));
+        do {
+            // https://developers.ashbyhq.com/reference/sourcelist
+            const response = await nango.post({
+                endpoint: '/source.list',
+                data: {
+                    includeArchived: true,
+                    ...(nextCursor && { cursor: nextCursor })
+                },
+                retries: 3
+            });
 
-        if (sources.length > 0) {
-            await nango.batchSave(sources, 'Source');
-        }
+            const envelope = ResponseSchema.parse(response.data);
+
+            if (!envelope.success) {
+                throw new Error('Ashby API returned a non-success response for source.list');
+            }
+
+            const sources = envelope.results.map((item) => SourceSchema.parse(item));
+
+            if (sources.length > 0) {
+                await nango.batchSave(sources, 'Source');
+            }
+
+            nextCursor = envelope.nextCursor;
+        } while (nextCursor);
 
         await nango.trackDeletesEnd('Source');
     }

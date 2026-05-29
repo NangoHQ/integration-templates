@@ -26,8 +26,10 @@ const OutputSchema = z.object({
 });
 
 const ListResponseSchema = z.object({
+    success: z.boolean(),
     results: z.array(ProviderSourceSchema.passthrough()),
-    moreDataAvailable: z.boolean()
+    moreDataAvailable: z.boolean(),
+    nextCursor: z.string().optional()
 });
 
 const action = createAction({
@@ -44,37 +46,51 @@ const action = createAction({
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         // Ashby does not expose a source.info endpoint, so we use source.list
-        // and filter by ID.
+        // and filter by ID across all pages.
         // https://developers.ashbyhq.com/reference/sourcelist
-        const response = await nango.post({
-            endpoint: '/source.list',
-            data: {
-                includeArchived: true
-            },
-            retries: 3
-        });
+        let nextCursor: string | undefined;
 
-        const listResponse = ListResponseSchema.parse(response.data);
-        const source = listResponse.results.find((s) => s.id === input.sourceId);
-
-        if (!source) {
-            throw new nango.ActionError({
-                type: 'not_found',
-                message: 'Source not found',
-                sourceId: input.sourceId
+        do {
+            const response = await nango.post({
+                endpoint: '/source.list',
+                data: {
+                    includeArchived: true,
+                    ...(nextCursor && { cursor: nextCursor })
+                },
+                retries: 3
             });
-        }
 
-        const providerSource = ProviderSourceSchema.parse(source);
+            const listResponse = ListResponseSchema.parse(response.data);
 
-        return {
-            id: providerSource.id,
-            title: providerSource.title,
-            isArchived: providerSource.isArchived,
-            ...(providerSource.sourceType !== undefined && {
-                sourceType: providerSource.sourceType
-            })
-        };
+            if (!listResponse.success) {
+                throw new nango.ActionError({
+                    type: 'provider_error',
+                    message: 'Ashby API returned a non-success response for source.list'
+                });
+            }
+
+            const source = listResponse.results.find((s) => s.id === input.sourceId);
+
+            if (source) {
+                const providerSource = ProviderSourceSchema.parse(source);
+                return {
+                    id: providerSource.id,
+                    title: providerSource.title,
+                    isArchived: providerSource.isArchived,
+                    ...(providerSource.sourceType !== undefined && {
+                        sourceType: providerSource.sourceType
+                    })
+                };
+            }
+
+            nextCursor = listResponse.nextCursor;
+        } while (nextCursor);
+
+        throw new nango.ActionError({
+            type: 'not_found',
+            message: 'Source not found',
+            sourceId: input.sourceId
+        });
     }
 });
 

@@ -110,7 +110,7 @@ const CheckpointSchema = z.object({
 
 const sync = createSync({
     description: 'Sync candidates from Ashby',
-    version: '1.0.0',
+    version: '1.3.0',
     frequency: 'every hour',
     autoStart: true,
     metadata: MetadataSchema,
@@ -123,7 +123,7 @@ const sync = createSync({
     exec: async (nango) => {
         const metadata = await nango.getMetadata();
         const pageLimit = typeof metadata?.limit === 'number' && metadata.limit > 0 && metadata.limit < 100 ? metadata.limit : 100;
-        const maxPages = typeof metadata?.max_pages === 'number' ? metadata.max_pages : typeof metadata?.limit === 'number' ? 5 : undefined;
+        const maxPages = typeof metadata?.max_pages === 'number' ? metadata.max_pages : undefined;
         let pageCount = 0;
 
         const checkpoint = await nango.getCheckpoint();

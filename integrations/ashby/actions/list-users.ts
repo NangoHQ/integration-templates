@@ -36,8 +36,8 @@ const OutputSchema = z.object({
 
 const ProviderResponseSchema = z.object({
     success: z.boolean(),
-    results: z.array(ProviderUserSchema),
-    moreDataAvailable: z.boolean(),
+    results: z.array(ProviderUserSchema).optional(),
+    moreDataAvailable: z.boolean().optional(),
     nextCursor: z.string().optional(),
     syncToken: z.string().optional()
 });
@@ -85,7 +85,7 @@ const action = createAction({
             });
         }
 
-        const items = providerResponse.results.map((user) => ({
+        const items = (providerResponse.results ?? []).map((user) => ({
             id: user.id,
             ...(user.firstName != null && { firstName: user.firstName }),
             ...(user.lastName != null && { lastName: user.lastName }),

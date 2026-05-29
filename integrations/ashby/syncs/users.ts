@@ -1,4 +1,4 @@
-import { createSync, type ProxyConfiguration } from 'nango';
+import { createSync } from 'nango';
 import { z } from 'zod';
 
 const AshbyUserSchema = z.object({
@@ -45,51 +45,43 @@ const sync = createSync({
 
     exec: async (nango) => {
         const checkpoint = await nango.getCheckpoint();
-        const currentSyncToken = checkpoint?.sync_token || undefined;
-        const currentCursor = checkpoint?.cursor || undefined;
+        let syncToken: string | undefined = checkpoint?.sync_token || undefined;
+        let cursor: string | undefined = checkpoint?.cursor || undefined;
 
-        let nextCursor: string | undefined;
-        let nextSyncToken: string | undefined;
+        while (true) {
+            const response = await nango.post<{
+                success: boolean;
+                results: unknown[];
+                moreDataAvailable: boolean;
+                nextCursor?: string;
+                syncToken?: string;
+                errors?: { type?: string; message?: string }[];
+            }>({
+                // https://developers.ashbyhq.com/reference/userlist
+                endpoint: '/user.list',
+                data: {
+                    limit: 100,
+                    includeDeactivated: true,
+                    ...(syncToken && { syncToken }),
+                    ...(cursor && { cursor })
+                },
+                retries: 3
+            });
 
-        const proxyConfig: ProxyConfiguration = {
-            // https://developers.ashbyhq.com/reference/userlist
-            endpoint: '/user.list',
-            method: 'POST',
-            data: {
-                limit: 100,
-                includeDeactivated: true,
-                ...(currentSyncToken && { syncToken: currentSyncToken }),
-                ...(currentCursor && { cursor: currentCursor })
-            },
-            paginate: {
-                type: 'cursor',
-                cursor_name_in_request: 'cursor',
-                cursor_path_in_response: 'nextCursor',
-                response_path: 'results',
-                limit_name_in_request: 'limit',
-                limit: 100,
-                on_page: async ({ nextPageParam, response }) => {
-                    const envelope = z
-                        .object({
-                            success: z.boolean(),
-                            moreDataAvailable: z.boolean(),
-                            nextCursor: z.string().nullable().optional(),
-                            syncToken: z.string().optional()
-                        })
-                        .parse(response.data);
+            const data = response.data;
 
-                    nextCursor = typeof nextPageParam === 'string' ? nextPageParam : undefined;
-
-                    if (!envelope.moreDataAvailable && envelope.syncToken) {
-                        nextSyncToken = envelope.syncToken;
-                    }
+            if (!data.success) {
+                const isSyncTokenExpired = data.errors?.some((e) => e.type === 'sync_token_expired');
+                if (isSyncTokenExpired && syncToken) {
+                    syncToken = undefined;
+                    cursor = undefined;
+                    await nango.saveCheckpoint({ sync_token: '', cursor: '' });
+                    continue;
                 }
-            },
-            retries: 3
-        };
+                throw new Error('Ashby API returned a non-success response for user.list');
+            }
 
-        for await (const users of nango.paginate(proxyConfig)) {
-            const parsedUsers = users.map((user) => AshbyUserSchema.parse(user));
+            const parsedUsers = data.results.map((user) => AshbyUserSchema.parse(user));
             const mappedUsers = parsedUsers.map((user) => ({
                 id: user.id,
                 ...(user.firstName != null && { firstName: user.firstName }),
@@ -104,17 +96,18 @@ const sync = createSync({
                 await nango.batchSave(mappedUsers, 'User');
             }
 
-            if (nextCursor) {
-                await nango.saveCheckpoint({
-                    sync_token: currentSyncToken || '',
-                    cursor: nextCursor
-                });
-            } else if (nextSyncToken) {
-                await nango.saveCheckpoint({
-                    sync_token: nextSyncToken,
-                    cursor: ''
-                });
+            cursor = data.nextCursor;
+
+            if (cursor) {
+                await nango.saveCheckpoint({ sync_token: syncToken || '', cursor });
+            } else {
+                if (data.syncToken) {
+                    syncToken = data.syncToken;
+                }
+                await nango.saveCheckpoint({ sync_token: syncToken || '', cursor: '' });
             }
+
+            if (!data.moreDataAvailable) break;
         }
     }
 });

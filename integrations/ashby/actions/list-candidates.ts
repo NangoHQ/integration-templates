@@ -35,8 +35,8 @@ const ProviderCandidateSchema = z
 
 const ProviderResponseSchema = z.object({
     success: z.boolean(),
-    results: z.array(ProviderCandidateSchema),
-    moreDataAvailable: z.boolean(),
+    results: z.array(ProviderCandidateSchema).optional(),
+    moreDataAvailable: z.boolean().optional(),
     nextCursor: z.string().optional(),
     syncToken: z.string().optional()
 });
@@ -156,7 +156,7 @@ const action = createAction({
         }
 
         return {
-            items: providerResponse.results.map(mapCandidate),
+            items: (providerResponse.results ?? []).map(mapCandidate),
             ...(providerResponse.nextCursor != null && { nextCursor: providerResponse.nextCursor }),
             ...(providerResponse.syncToken != null && { syncToken: providerResponse.syncToken })
         };

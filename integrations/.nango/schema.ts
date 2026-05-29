@@ -5630,6 +5630,10 @@ export interface ActionOutput_ashby_listinterviews {
 
 export interface ActionInput_ashby_listjobpostings {
   /**
+   * Pagination cursor from the previous response. Omit for the first page.
+   */
+  cursor?: string | undefined;
+  /**
    * Filter by location name (case sensitive)
    */
   location?: string | undefined;
