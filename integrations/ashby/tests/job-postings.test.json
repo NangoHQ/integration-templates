@@ -1,0 +1,99 @@
+{
+  "nango": {
+    "batchSave": {
+      "JobPosting": [
+        {
+          "id": "00000000-0000-0000-0000-000000000001",
+          "title": "Founding Developer Growth Lead",
+          "jobId": "00000000-0000-0000-0000-000000000002",
+          "departmentName": "Nango",
+          "teamName": "Nango",
+          "locationName": "San Francisco",
+          "locationIds": {
+            "primaryLocationId": "00000000-0000-0000-0000-000000000003",
+            "secondaryLocationIds": []
+          },
+          "workplaceType": "OnSite",
+          "employmentType": "FullTime",
+          "isListed": true,
+          "publishedDate": "+10000000001",
+          "externalLink": "https://jobs.ashbyhq.com/Nango/95526e19-b9c4-468f-b420-41348f1688ae",
+          "applyLink": "https://jobs.ashbyhq.com/Nango/95526e19-b9c4-468f-b420-41348f1688ae",
+          "compensationTierSummary": "$150K – $200K • 0.25% – 1%",
+          "shouldDisplayCompensationOnJobBoard": true,
+          "updatedAt": "2026-04-28T11:55:08.267Z"
+        }
+      ]
+    },
+    "batchDelete": {
+      "JobPosting": []
+    }
+  },
+  "api": {
+    "post": {
+      "/jobPosting.list": {
+        "response": {
+          "success": true,
+          "results": [
+            {
+              "id": "00000000-0000-0000-0000-000000000001",
+              "title": "Founding Developer Growth Lead",
+              "jobId": "00000000-0000-0000-0000-000000000002",
+              "departmentName": "Nango",
+              "teamName": "Nango",
+              "locationName": "San Francisco",
+              "locationExternalName": "San Francisco",
+              "workplaceType": "OnSite",
+              "employmentType": "FullTime",
+              "isListed": true,
+              "publishedDate": "+10000000001",
+              "applicationDeadline": null,
+              "externalLink": "https://jobs.ashbyhq.com/Nango/95526e19-b9c4-468f-b420-41348f1688ae",
+              "applyLink": "https://jobs.ashbyhq.com/Nango/95526e19-b9c4-468f-b420-41348f1688ae",
+              "locationIds": {
+                "primaryLocationId": "00000000-0000-0000-0000-000000000003",
+                "secondaryLocationIds": []
+              },
+              "compensationTierSummary": "$150K – $200K • 0.25% – 1%",
+              "shouldDisplayCompensationOnJobBoard": true,
+              "updatedAt": "2026-04-28T11:55:08.267Z"
+            }
+          ]
+        },
+        "status": 200,
+        "headers": {
+          "date": "Thu, 28 May 2026 21:09:18 GMT",
+          "content-type": "application/json; charset=utf-8",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "DENY",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=31536000; includeSubDomains; preload",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "1000",
+          "x-ratelimit-remaining": "980",
+          "x-ratelimit-reset": "+10000000002",
+          "x-ashby-request-id": "01KSR6Q43EFJTPHWFR8VH26EAG",
+          "referrer-policy": "same-origin",
+          "ashby-session-expiry-alert-level": "",
+          "vary": "Origin",
+          "cf-cache-status": "DYNAMIC",
+          "server": "cloudflare",
+          "cf-ray": "a0303d537e9de5c0-PDX",
+          "alt-svc": "h3=\":443\"; ma=86400"
+        },
+        "hash": "d3165044121dd6c0cace951e518903e0a644cf1a",
+        "request": {
+          "data": {
+            "limit": 100
+          }
+        }
+      }
+    }
+  }
+}

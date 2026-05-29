@@ -1,0 +1,1460 @@
+{
+  "nango": {
+    "getConnection": {},
+    "getMetadata": {},
+    "batchSave": {
+      "Application": [
+        {
+          "id": "00000000-0000-0000-0000-000000000001",
+          "created_at": "2024-02-04T21:38:12.466Z",
+          "updated_at": "2026-05-28T21:08:49.002Z",
+          "candidate_id": "00000000-0000-0000-0000-000000000002",
+          "job_id": "00000000-0000-0000-0000-000000000003",
+          "status": "Archived",
+          "source_id": "00000000-0000-0000-0000-000000000004",
+          "archived_at": "2024-02-05T09:25:35.089Z",
+          "custom_fields": []
+        },
+        {
+          "id": "00000000-0000-0000-0000-000000000005",
+          "created_at": "2024-02-05T14:13:34.127Z",
+          "updated_at": "2026-05-28T21:08:31.471Z",
+          "candidate_id": "00000000-0000-0000-0000-000000000006",
+          "job_id": "00000000-0000-0000-0000-000000000003",
+          "status": "Active",
+          "custom_fields": []
+        },
+        {
+          "id": "00000000-0000-0000-0000-000000000007",
+          "created_at": "2024-02-05T18:39:09.100Z",
+          "updated_at": "2024-02-05T18:39:12.752Z",
+          "candidate_id": "00000000-0000-0000-0000-000000000008",
+          "job_id": "00000000-0000-0000-0000-000000000003",
+          "status": "Archived",
+          "source_id": "00000000-0000-0000-0000-000000000004",
+          "archived_at": "2024-02-05T18:39:11.719Z",
+          "custom_fields": []
+        },
+        {
+          "id": "00000000-0000-0000-0000-000000000009",
+          "created_at": "2024-02-06T06:42:42.659Z",
+          "updated_at": "2024-02-06T09:13:21.226Z",
+          "candidate_id": "00000000-0000-0000-0000-00000000000a",
+          "job_id": "00000000-0000-0000-0000-000000000003",
+          "status": "Archived",
+          "source_id": "00000000-0000-0000-0000-000000000004",
+          "archived_at": "2024-02-06T09:13:21.223Z",
+          "custom_fields": []
+        },
+        {
+          "id": "00000000-0000-0000-0000-00000000000b",
+          "created_at": "2024-02-06T07:58:37.569Z",
+          "updated_at": "2024-02-06T09:12:12.366Z",
+          "candidate_id": "00000000-0000-0000-0000-00000000000c",
+          "job_id": "00000000-0000-0000-0000-000000000003",
+          "status": "Archived",
+          "source_id": "00000000-0000-0000-0000-000000000004",
+          "archived_at": "2024-02-06T09:12:12.362Z",
+          "custom_fields": []
+        },
+        {
+          "id": "00000000-0000-0000-0000-00000000000d",
+          "created_at": "2024-02-06T08:46:50.518Z",
+          "updated_at": "2025-10-23T10:13:25.690Z",
+          "candidate_id": "00000000-0000-0000-0000-00000000000e",
+          "job_id": "00000000-0000-0000-0000-000000000003",
+          "status": "Archived",
+          "source_id": "00000000-0000-0000-0000-000000000004",
+          "archived_at": "2024-02-06T09:11:31.451Z",
+          "custom_fields": []
+        },
+        {
+          "id": "00000000-0000-0000-0000-00000000000f",
+          "created_at": "2024-02-06T10:36:26.835Z",
+          "updated_at": "2024-02-06T10:36:30.369Z",
+          "candidate_id": "00000000-0000-0000-0000-000000000010",
+          "job_id": "00000000-0000-0000-0000-000000000003",
+          "status": "Archived",
+          "source_id": "00000000-0000-0000-0000-000000000011",
+          "archived_at": "2024-02-06T10:36:29.644Z",
+          "custom_fields": []
+        },
+        {
+          "id": "00000000-0000-0000-0000-000000000012",
+          "created_at": "2024-02-06T12:52:41.611Z",
+          "updated_at": "2024-02-06T20:47:53.225Z",
+          "candidate_id": "00000000-0000-0000-0000-000000000013",
+          "job_id": "00000000-0000-0000-0000-000000000003",
+          "status": "Archived",
+          "source_id": "00000000-0000-0000-0000-000000000011",
+          "archived_at": "2024-02-06T20:47:53.222Z",
+          "custom_fields": []
+        },
+        {
+          "id": "00000000-0000-0000-0000-000000000014",
+          "created_at": "2024-02-06T13:29:31.637Z",
+          "updated_at": "2024-02-06T20:47:40.655Z",
+          "candidate_id": "00000000-0000-0000-0000-000000000015",
+          "job_id": "00000000-0000-0000-0000-000000000003",
+          "status": "Archived",
+          "source_id": "00000000-0000-0000-0000-000000000004",
+          "archived_at": "2024-02-06T20:47:40.652Z",
+          "custom_fields": []
+        },
+        {
+          "id": "00000000-0000-0000-0000-000000000016",
+          "created_at": "2024-02-06T14:35:44.576Z",
+          "updated_at": "2024-02-06T20:47:26.685Z",
+          "candidate_id": "00000000-0000-0000-0000-000000000017",
+          "job_id": "00000000-0000-0000-0000-000000000003",
+          "status": "Archived",
+          "source_id": "00000000-0000-0000-0000-000000000004",
+          "archived_at": "2024-02-06T20:47:26.682Z",
+          "custom_fields": []
+        },
+        {
+          "id": "00000000-0000-0000-0000-000000000018",
+          "created_at": "2024-02-06T15:41:15.659Z",
+          "updated_at": "2024-02-06T20:43:42.914Z",
+          "candidate_id": "00000000-0000-0000-0000-000000000019",
+          "job_id": "00000000-0000-0000-0000-000000000003",
+          "status": "Archived",
+          "source_id": "00000000-0000-0000-0000-000000000004",
+          "archived_at": "2024-02-06T20:43:42.910Z",
+          "custom_fields": []
+        },
+        {
+          "id": "00000000-0000-0000-0000-00000000001a",
+          "created_at": "2024-02-06T17:18:07.010Z",
+          "updated_at": "2024-02-06T20:43:28.701Z",
+          "candidate_id": "00000000-0000-0000-0000-00000000001b",
+          "job_id": "00000000-0000-0000-0000-000000000003",
+          "status": "Archived",
+          "source_id": "00000000-0000-0000-0000-000000000004",
+          "archived_at": "2024-02-06T20:43:28.698Z",
+          "custom_fields": []
+        },
+        {
+          "id": "00000000-0000-0000-0000-00000000001c",
+          "created_at": "2024-02-06T18:18:22.819Z",
+          "updated_at": "2024-02-06T20:42:53.865Z",
+          "candidate_id": "00000000-0000-0000-0000-00000000001d",
+          "job_id": "00000000-0000-0000-0000-000000000003",
+          "status": "Archived",
+          "source_id": "00000000-0000-0000-0000-000000000004",
+          "archived_at": "2024-02-06T20:42:53.861Z",
+          "custom_fields": []
+        },
+        {
+          "id": "00000000-0000-0000-0000-00000000001e",
+          "created_at": "2024-02-06T18:33:53.230Z",
+          "updated_at": "2024-02-06T20:40:35.407Z",
+          "candidate_id": "00000000-0000-0000-0000-00000000001f",
+          "job_id": "00000000-0000-0000-0000-000000000003",
+          "status": "Archived",
+          "source_id": "00000000-0000-0000-0000-000000000004",
+          "archived_at": "2024-02-06T20:40:35.403Z",
+          "custom_fields": []
+        },
+        {
+          "id": "00000000-0000-0000-0000-000000000020",
+          "created_at": "2024-02-06T22:04:53.041Z",
+          "updated_at": "2024-02-07T07:21:29.881Z",
+          "candidate_id": "00000000-0000-0000-0000-000000000021",
+          "job_id": "00000000-0000-0000-0000-000000000003",
+          "status": "Archived",
+          "source_id": "00000000-0000-0000-0000-000000000011",
+          "archived_at": "2024-02-07T07:21:29.879Z",
+          "custom_fields": []
+        },
+        {
+          "id": "00000000-0000-0000-0000-000000000022",
+          "created_at": "2024-02-06T22:05:34.485Z",
+          "updated_at": "2024-02-07T07:21:14.516Z",
+          "candidate_id": "00000000-0000-0000-0000-000000000023",
+          "job_id": "00000000-0000-0000-0000-000000000003",
+          "status": "Archived",
+          "source_id": "00000000-0000-0000-0000-000000000011",
+          "archived_at": "2024-02-07T07:21:14.514Z",
+          "custom_fields": []
+        },
+        {
+          "id": "00000000-0000-0000-0000-000000000024",
+          "created_at": "2024-02-06T22:10:06.462Z",
+          "updated_at": "2024-02-08T09:41:24.809Z",
+          "candidate_id": "00000000-0000-0000-0000-000000000025",
+          "job_id": "00000000-0000-0000-0000-000000000026",
+          "status": "Archived",
+          "source_id": "00000000-0000-0000-0000-000000000011",
+          "archived_at": "2024-02-08T09:41:24.806Z",
+          "custom_fields": []
+        },
+        {
+          "id": "00000000-0000-0000-0000-000000000027",
+          "created_at": "2024-02-06T22:24:27.651Z",
+          "updated_at": "2024-02-07T07:21:06.655Z",
+          "candidate_id": "00000000-0000-0000-0000-000000000028",
+          "job_id": "00000000-0000-0000-0000-000000000003",
+          "status": "Archived",
+          "source_id": "00000000-0000-0000-0000-000000000011",
+          "archived_at": "2024-02-07T07:21:06.653Z",
+          "custom_fields": []
+        },
+        {
+          "id": "00000000-0000-0000-0000-000000000029",
+          "created_at": "2024-02-06T22:44:46.718Z",
+          "updated_at": "2024-02-07T07:21:00.277Z",
+          "candidate_id": "00000000-0000-0000-0000-00000000002a",
+          "job_id": "00000000-0000-0000-0000-000000000003",
+          "status": "Archived",
+          "source_id": "00000000-0000-0000-0000-000000000011",
+          "archived_at": "2024-02-07T07:21:00.270Z",
+          "custom_fields": []
+        },
+        {
+          "id": "00000000-0000-0000-0000-00000000002b",
+          "created_at": "2024-02-06T22:45:35.858Z",
+          "updated_at": "2024-02-07T07:20:55.379Z",
+          "candidate_id": "00000000-0000-0000-0000-00000000002c",
+          "job_id": "00000000-0000-0000-0000-000000000003",
+          "status": "Archived",
+          "source_id": "00000000-0000-0000-0000-000000000011",
+          "archived_at": "2024-02-07T07:20:55.377Z",
+          "custom_fields": []
+        }
+      ]
+    },
+    "batchDelete": {
+      "Application": []
+    }
+  },
+  "api": {
+    "post": {
+      "/application.list": [
+        {
+          "response": {
+            "success": true,
+            "results": [
+              {
+                "id": "00000000-0000-0000-0000-000000000001",
+                "createdAt": "2024-02-04T21:38:12.466Z",
+                "updatedAt": "2026-05-28T21:08:49.002Z",
+                "archivedAt": "2024-02-05T09:25:35.089Z",
+                "candidate": {
+                  "id": "00000000-0000-0000-0000-000000000002",
+                  "name": "Test User 1",
+                  "primaryEmailAddress": {
+                    "value": "user1@example.com",
+                    "type": "Personal",
+                    "isPrimary": true
+                  },
+                  "primaryPhoneNumber": {
+                    "value": "+10000000001",
+                    "type": "Personal",
+                    "isPrimary": true
+                  }
+                },
+                "status": "Archived",
+                "customFields": [],
+                "currentInterviewStage": {
+                  "id": "00000000-0000-0000-0000-00000000002d",
+                  "title": "Archived",
+                  "type": "Archived",
+                  "interviewPlanId": "00000000-0000-0000-0000-00000000002e",
+                  "orderInInterviewPlan": 10,
+                  "interviewStageGroupId": "00000000-0000-0000-0000-00000000002f"
+                },
+                "source": {
+                  "id": "00000000-0000-0000-0000-000000000004",
+                  "title": "Applied",
+                  "isArchived": false,
+                  "sourceType": {
+                    "id": "00000000-0000-0000-0000-000000000030",
+                    "title": "Inbound",
+                    "isArchived": false
+                  }
+                },
+                "creditedToUser": null,
+                "archiveReason": {
+                  "id": "00000000-0000-0000-0000-000000000031",
+                  "text": "Lacks Skills/Qualifications",
+                  "reasonType": "RejectedByOrg",
+                  "isArchived": false,
+                  "customFields": []
+                },
+                "job": {
+                  "id": "00000000-0000-0000-0000-000000000003",
+                  "title": "[Old] Senior Full-Stack Engineer - Remote",
+                  "locationId": "00000000-0000-0000-0000-000000000032",
+                  "departmentId": "00000000-0000-0000-0000-000000000033",
+                  "brandId": "00000000-0000-0000-0000-000000000034"
+                },
+                "hiringTeam": [],
+                "appliedViaJobPostingId": "00000000-0000-0000-0000-000000000035",
+                "submitterClientIp": null,
+                "submitterUserAgent": null
+              },
+              {
+                "id": "00000000-0000-0000-0000-000000000005",
+                "createdAt": "2024-02-05T14:13:34.127Z",
+                "updatedAt": "2026-05-28T21:08:31.471Z",
+                "candidate": {
+                  "id": "00000000-0000-0000-0000-000000000006",
+                  "name": "Test User 2",
+                  "primaryEmailAddress": {
+                    "value": "user2@example.com",
+                    "type": "Personal",
+                    "isPrimary": true
+                  },
+                  "primaryPhoneNumber": {
+                    "value": "+10000000002",
+                    "type": "Personal",
+                    "isPrimary": true
+                  }
+                },
+                "status": "Active",
+                "customFields": [],
+                "currentInterviewStage": {
+                  "id": "00000000-0000-0000-0000-000000000036",
+                  "title": "2nd Screen",
+                  "type": "Active",
+                  "interviewPlanId": "00000000-0000-0000-0000-00000000002e",
+                  "orderInInterviewPlan": 5,
+                  "interviewStageGroupId": null
+                },
+                "source": null,
+                "creditedToUser": null,
+                "archiveReason": null,
+                "job": {
+                  "id": "00000000-0000-0000-0000-000000000003",
+                  "title": "[Old] Senior Full-Stack Engineer - Remote",
+                  "locationId": "00000000-0000-0000-0000-000000000032",
+                  "departmentId": "00000000-0000-0000-0000-000000000033",
+                  "brandId": "00000000-0000-0000-0000-000000000034"
+                },
+                "hiringTeam": [],
+                "appliedViaJobPostingId": "00000000-0000-0000-0000-000000000037",
+                "submitterClientIp": null,
+                "submitterUserAgent": null
+              },
+              {
+                "id": "00000000-0000-0000-0000-000000000007",
+                "createdAt": "2024-02-05T18:39:09.100Z",
+                "updatedAt": "2024-02-05T18:39:12.752Z",
+                "archivedAt": "2024-02-05T18:39:11.719Z",
+                "candidate": {
+                  "id": "00000000-0000-0000-0000-000000000008",
+                  "name": "Test User 3",
+                  "primaryEmailAddress": {
+                    "value": "user3@example.com",
+                    "type": "Personal",
+                    "isPrimary": true
+                  },
+                  "primaryPhoneNumber": {
+                    "value": "+10000000003",
+                    "type": "Personal",
+                    "isPrimary": true
+                  }
+                },
+                "status": "Archived",
+                "customFields": [],
+                "currentInterviewStage": {
+                  "id": "00000000-0000-0000-0000-00000000002d",
+                  "title": "Archived",
+                  "type": "Archived",
+                  "interviewPlanId": "00000000-0000-0000-0000-00000000002e",
+                  "orderInInterviewPlan": 10,
+                  "interviewStageGroupId": "00000000-0000-0000-0000-00000000002f"
+                },
+                "source": {
+                  "id": "00000000-0000-0000-0000-000000000004",
+                  "title": "Applied",
+                  "isArchived": false,
+                  "sourceType": {
+                    "id": "00000000-0000-0000-0000-000000000030",
+                    "title": "Inbound",
+                    "isArchived": false
+                  }
+                },
+                "creditedToUser": null,
+                "archiveReason": {
+                  "id": "00000000-0000-0000-0000-000000000031",
+                  "text": "Lacks Skills/Qualifications",
+                  "reasonType": "RejectedByOrg",
+                  "isArchived": false,
+                  "customFields": []
+                },
+                "job": {
+                  "id": "00000000-0000-0000-0000-000000000003",
+                  "title": "[Old] Senior Full-Stack Engineer - Remote",
+                  "locationId": "00000000-0000-0000-0000-000000000032",
+                  "departmentId": "00000000-0000-0000-0000-000000000033",
+                  "brandId": "00000000-0000-0000-0000-000000000034"
+                },
+                "hiringTeam": [],
+                "appliedViaJobPostingId": "00000000-0000-0000-0000-000000000035",
+                "submitterClientIp": null,
+                "submitterUserAgent": null
+              },
+              {
+                "id": "00000000-0000-0000-0000-000000000009",
+                "createdAt": "2024-02-06T06:42:42.659Z",
+                "updatedAt": "2024-02-06T09:13:21.226Z",
+                "archivedAt": "2024-02-06T09:13:21.223Z",
+                "candidate": {
+                  "id": "00000000-0000-0000-0000-00000000000a",
+                  "name": "Test User 4",
+                  "primaryEmailAddress": {
+                    "value": "user4@example.com",
+                    "type": "Personal",
+                    "isPrimary": true
+                  }
+                },
+                "status": "Archived",
+                "customFields": [],
+                "currentInterviewStage": {
+                  "id": "00000000-0000-0000-0000-00000000002d",
+                  "title": "Archived",
+                  "type": "Archived",
+                  "interviewPlanId": "00000000-0000-0000-0000-00000000002e",
+                  "orderInInterviewPlan": 10,
+                  "interviewStageGroupId": "00000000-0000-0000-0000-00000000002f"
+                },
+                "source": {
+                  "id": "00000000-0000-0000-0000-000000000004",
+                  "title": "Applied",
+                  "isArchived": false,
+                  "sourceType": {
+                    "id": "00000000-0000-0000-0000-000000000030",
+                    "title": "Inbound",
+                    "isArchived": false
+                  }
+                },
+                "creditedToUser": null,
+                "archiveReason": {
+                  "id": "00000000-0000-0000-0000-000000000031",
+                  "text": "Lacks Skills/Qualifications",
+                  "reasonType": "RejectedByOrg",
+                  "isArchived": false,
+                  "customFields": []
+                },
+                "job": {
+                  "id": "00000000-0000-0000-0000-000000000003",
+                  "title": "[Old] Senior Full-Stack Engineer - Remote",
+                  "locationId": "00000000-0000-0000-0000-000000000032",
+                  "departmentId": "00000000-0000-0000-0000-000000000033",
+                  "brandId": "00000000-0000-0000-0000-000000000034"
+                },
+                "hiringTeam": [],
+                "appliedViaJobPostingId": "00000000-0000-0000-0000-000000000037",
+                "submitterClientIp": null,
+                "submitterUserAgent": null
+              },
+              {
+                "id": "00000000-0000-0000-0000-00000000000b",
+                "createdAt": "2024-02-06T07:58:37.569Z",
+                "updatedAt": "2024-02-06T09:12:12.366Z",
+                "archivedAt": "2024-02-06T09:12:12.362Z",
+                "candidate": {
+                  "id": "00000000-0000-0000-0000-00000000000c",
+                  "name": "Test User 5",
+                  "primaryEmailAddress": {
+                    "value": "user5@example.com",
+                    "type": "Personal",
+                    "isPrimary": true
+                  }
+                },
+                "status": "Archived",
+                "customFields": [],
+                "currentInterviewStage": {
+                  "id": "00000000-0000-0000-0000-00000000002d",
+                  "title": "Archived",
+                  "type": "Archived",
+                  "interviewPlanId": "00000000-0000-0000-0000-00000000002e",
+                  "orderInInterviewPlan": 10,
+                  "interviewStageGroupId": "00000000-0000-0000-0000-00000000002f"
+                },
+                "source": {
+                  "id": "00000000-0000-0000-0000-000000000004",
+                  "title": "Applied",
+                  "isArchived": false,
+                  "sourceType": {
+                    "id": "00000000-0000-0000-0000-000000000030",
+                    "title": "Inbound",
+                    "isArchived": false
+                  }
+                },
+                "creditedToUser": null,
+                "archiveReason": {
+                  "id": "00000000-0000-0000-0000-000000000031",
+                  "text": "Lacks Skills/Qualifications",
+                  "reasonType": "RejectedByOrg",
+                  "isArchived": false,
+                  "customFields": []
+                },
+                "job": {
+                  "id": "00000000-0000-0000-0000-000000000003",
+                  "title": "[Old] Senior Full-Stack Engineer - Remote",
+                  "locationId": "00000000-0000-0000-0000-000000000032",
+                  "departmentId": "00000000-0000-0000-0000-000000000033",
+                  "brandId": "00000000-0000-0000-0000-000000000034"
+                },
+                "hiringTeam": [],
+                "appliedViaJobPostingId": "00000000-0000-0000-0000-000000000037",
+                "submitterClientIp": null,
+                "submitterUserAgent": null
+              },
+              {
+                "id": "00000000-0000-0000-0000-00000000000d",
+                "createdAt": "2024-02-06T08:46:50.518Z",
+                "updatedAt": "2025-10-23T10:13:25.690Z",
+                "archivedAt": "2024-02-06T09:11:31.451Z",
+                "candidate": {
+                  "id": "00000000-0000-0000-0000-00000000000e",
+                  "name": "Test User 6",
+                  "primaryEmailAddress": {
+                    "value": "user6@example.com",
+                    "type": "Personal",
+                    "isPrimary": true
+                  }
+                },
+                "status": "Archived",
+                "customFields": [],
+                "currentInterviewStage": {
+                  "id": "00000000-0000-0000-0000-00000000002d",
+                  "title": "Archived",
+                  "type": "Archived",
+                  "interviewPlanId": "00000000-0000-0000-0000-00000000002e",
+                  "orderInInterviewPlan": 10,
+                  "interviewStageGroupId": "00000000-0000-0000-0000-00000000002f"
+                },
+                "source": {
+                  "id": "00000000-0000-0000-0000-000000000004",
+                  "title": "Applied",
+                  "isArchived": false,
+                  "sourceType": {
+                    "id": "00000000-0000-0000-0000-000000000030",
+                    "title": "Inbound",
+                    "isArchived": false
+                  }
+                },
+                "creditedToUser": null,
+                "archiveReason": {
+                  "id": "00000000-0000-0000-0000-000000000031",
+                  "text": "Lacks Skills/Qualifications",
+                  "reasonType": "RejectedByOrg",
+                  "isArchived": false,
+                  "customFields": []
+                },
+                "job": {
+                  "id": "00000000-0000-0000-0000-000000000003",
+                  "title": "[Old] Senior Full-Stack Engineer - Remote",
+                  "locationId": "00000000-0000-0000-0000-000000000032",
+                  "departmentId": "00000000-0000-0000-0000-000000000033",
+                  "brandId": "00000000-0000-0000-0000-000000000034"
+                },
+                "hiringTeam": [],
+                "appliedViaJobPostingId": "00000000-0000-0000-0000-000000000037",
+                "submitterClientIp": null,
+                "submitterUserAgent": null
+              },
+              {
+                "id": "00000000-0000-0000-0000-00000000000f",
+                "createdAt": "2024-02-06T10:36:26.835Z",
+                "updatedAt": "2024-02-06T10:36:30.369Z",
+                "archivedAt": "2024-02-06T10:36:29.644Z",
+                "candidate": {
+                  "id": "00000000-0000-0000-0000-000000000010",
+                  "name": "Test User 7",
+                  "primaryEmailAddress": {
+                    "value": "user7@example.com",
+                    "type": "Personal",
+                    "isPrimary": true
+                  }
+                },
+                "status": "Archived",
+                "customFields": [],
+                "currentInterviewStage": {
+                  "id": "00000000-0000-0000-0000-00000000002d",
+                  "title": "Archived",
+                  "type": "Archived",
+                  "interviewPlanId": "00000000-0000-0000-0000-00000000002e",
+                  "orderInInterviewPlan": 10,
+                  "interviewStageGroupId": "00000000-0000-0000-0000-00000000002f"
+                },
+                "source": {
+                  "id": "00000000-0000-0000-0000-000000000011",
+                  "title": "LinkedIn Limited Listings",
+                  "isArchived": false,
+                  "sourceType": {
+                    "id": "00000000-0000-0000-0000-000000000030",
+                    "title": "Inbound",
+                    "isArchived": false
+                  }
+                },
+                "creditedToUser": null,
+                "archiveReason": {
+                  "id": "00000000-0000-0000-0000-000000000031",
+                  "text": "Lacks Skills/Qualifications",
+                  "reasonType": "RejectedByOrg",
+                  "isArchived": false,
+                  "customFields": []
+                },
+                "job": {
+                  "id": "00000000-0000-0000-0000-000000000003",
+                  "title": "[Old] Senior Full-Stack Engineer - Remote",
+                  "locationId": "00000000-0000-0000-0000-000000000032",
+                  "departmentId": "00000000-0000-0000-0000-000000000033",
+                  "brandId": "00000000-0000-0000-0000-000000000034"
+                },
+                "hiringTeam": [],
+                "appliedViaJobPostingId": "00000000-0000-0000-0000-000000000035",
+                "submitterClientIp": null,
+                "submitterUserAgent": null
+              },
+              {
+                "id": "00000000-0000-0000-0000-000000000012",
+                "createdAt": "2024-02-06T12:52:41.611Z",
+                "updatedAt": "2024-02-06T20:47:53.225Z",
+                "archivedAt": "2024-02-06T20:47:53.222Z",
+                "candidate": {
+                  "id": "00000000-0000-0000-0000-000000000013",
+                  "name": "Test User 8",
+                  "primaryEmailAddress": {
+                    "value": "user8@example.com",
+                    "type": "Personal",
+                    "isPrimary": true
+                  },
+                  "primaryPhoneNumber": {
+                    "value": "+10000000004",
+                    "type": "Personal",
+                    "isPrimary": true
+                  }
+                },
+                "status": "Archived",
+                "customFields": [],
+                "currentInterviewStage": {
+                  "id": "00000000-0000-0000-0000-00000000002d",
+                  "title": "Archived",
+                  "type": "Archived",
+                  "interviewPlanId": "00000000-0000-0000-0000-00000000002e",
+                  "orderInInterviewPlan": 10,
+                  "interviewStageGroupId": "00000000-0000-0000-0000-00000000002f"
+                },
+                "source": {
+                  "id": "00000000-0000-0000-0000-000000000011",
+                  "title": "LinkedIn Limited Listings",
+                  "isArchived": false,
+                  "sourceType": {
+                    "id": "00000000-0000-0000-0000-000000000030",
+                    "title": "Inbound",
+                    "isArchived": false
+                  }
+                },
+                "creditedToUser": null,
+                "archiveReason": {
+                  "id": "00000000-0000-0000-0000-000000000031",
+                  "text": "Lacks Skills/Qualifications",
+                  "reasonType": "RejectedByOrg",
+                  "isArchived": false,
+                  "customFields": []
+                },
+                "job": {
+                  "id": "00000000-0000-0000-0000-000000000003",
+                  "title": "[Old] Senior Full-Stack Engineer - Remote",
+                  "locationId": "00000000-0000-0000-0000-000000000032",
+                  "departmentId": "00000000-0000-0000-0000-000000000033",
+                  "brandId": "00000000-0000-0000-0000-000000000034"
+                },
+                "hiringTeam": [],
+                "appliedViaJobPostingId": "00000000-0000-0000-0000-000000000035",
+                "submitterClientIp": null,
+                "submitterUserAgent": null
+              },
+              {
+                "id": "00000000-0000-0000-0000-000000000014",
+                "createdAt": "2024-02-06T13:29:31.637Z",
+                "updatedAt": "2024-02-06T20:47:40.655Z",
+                "archivedAt": "2024-02-06T20:47:40.652Z",
+                "candidate": {
+                  "id": "00000000-0000-0000-0000-000000000015",
+                  "name": "Test User 9",
+                  "primaryEmailAddress": {
+                    "value": "user9@example.com",
+                    "type": "Personal",
+                    "isPrimary": true
+                  }
+                },
+                "status": "Archived",
+                "customFields": [],
+                "currentInterviewStage": {
+                  "id": "00000000-0000-0000-0000-00000000002d",
+                  "title": "Archived",
+                  "type": "Archived",
+                  "interviewPlanId": "00000000-0000-0000-0000-00000000002e",
+                  "orderInInterviewPlan": 10,
+                  "interviewStageGroupId": "00000000-0000-0000-0000-00000000002f"
+                },
+                "source": {
+                  "id": "00000000-0000-0000-0000-000000000004",
+                  "title": "Applied",
+                  "isArchived": false,
+                  "sourceType": {
+                    "id": "00000000-0000-0000-0000-000000000030",
+                    "title": "Inbound",
+                    "isArchived": false
+                  }
+                },
+                "creditedToUser": null,
+                "archiveReason": {
+                  "id": "00000000-0000-0000-0000-000000000031",
+                  "text": "Lacks Skills/Qualifications",
+                  "reasonType": "RejectedByOrg",
+                  "isArchived": false,
+                  "customFields": []
+                },
+                "job": {
+                  "id": "00000000-0000-0000-0000-000000000003",
+                  "title": "[Old] Senior Full-Stack Engineer - Remote",
+                  "locationId": "00000000-0000-0000-0000-000000000032",
+                  "departmentId": "00000000-0000-0000-0000-000000000033",
+                  "brandId": "00000000-0000-0000-0000-000000000034"
+                },
+                "hiringTeam": [],
+                "appliedViaJobPostingId": "00000000-0000-0000-0000-000000000037",
+                "submitterClientIp": null,
+                "submitterUserAgent": null
+              },
+              {
+                "id": "00000000-0000-0000-0000-000000000016",
+                "createdAt": "2024-02-06T14:35:44.576Z",
+                "updatedAt": "2024-02-06T20:47:26.685Z",
+                "archivedAt": "2024-02-06T20:47:26.682Z",
+                "candidate": {
+                  "id": "00000000-0000-0000-0000-000000000017",
+                  "name": "Test User 10",
+                  "primaryEmailAddress": {
+                    "value": "user10@example.com",
+                    "type": "Personal",
+                    "isPrimary": true
+                  },
+                  "primaryPhoneNumber": {
+                    "value": "+10000000005",
+                    "type": "Personal",
+                    "isPrimary": true
+                  }
+                },
+                "status": "Archived",
+                "customFields": [],
+                "currentInterviewStage": {
+                  "id": "00000000-0000-0000-0000-00000000002d",
+                  "title": "Archived",
+                  "type": "Archived",
+                  "interviewPlanId": "00000000-0000-0000-0000-00000000002e",
+                  "orderInInterviewPlan": 10,
+                  "interviewStageGroupId": "00000000-0000-0000-0000-00000000002f"
+                },
+                "source": {
+                  "id": "00000000-0000-0000-0000-000000000004",
+                  "title": "Applied",
+                  "isArchived": false,
+                  "sourceType": {
+                    "id": "00000000-0000-0000-0000-000000000030",
+                    "title": "Inbound",
+                    "isArchived": false
+                  }
+                },
+                "creditedToUser": null,
+                "archiveReason": {
+                  "id": "00000000-0000-0000-0000-000000000031",
+                  "text": "Lacks Skills/Qualifications",
+                  "reasonType": "RejectedByOrg",
+                  "isArchived": false,
+                  "customFields": []
+                },
+                "job": {
+                  "id": "00000000-0000-0000-0000-000000000003",
+                  "title": "[Old] Senior Full-Stack Engineer - Remote",
+                  "locationId": "00000000-0000-0000-0000-000000000032",
+                  "departmentId": "00000000-0000-0000-0000-000000000033",
+                  "brandId": "00000000-0000-0000-0000-000000000034"
+                },
+                "hiringTeam": [],
+                "appliedViaJobPostingId": "00000000-0000-0000-0000-000000000037",
+                "submitterClientIp": null,
+                "submitterUserAgent": null
+              },
+              {
+                "id": "00000000-0000-0000-0000-000000000018",
+                "createdAt": "2024-02-06T15:41:15.659Z",
+                "updatedAt": "2024-02-06T20:43:42.914Z",
+                "archivedAt": "2024-02-06T20:43:42.910Z",
+                "candidate": {
+                  "id": "00000000-0000-0000-0000-000000000019",
+                  "name": "Test User 11",
+                  "primaryEmailAddress": {
+                    "value": "user11@example.com",
+                    "type": "Personal",
+                    "isPrimary": true
+                  },
+                  "primaryPhoneNumber": {
+                    "value": "+10000000006",
+                    "type": "Personal",
+                    "isPrimary": true
+                  }
+                },
+                "status": "Archived",
+                "customFields": [],
+                "currentInterviewStage": {
+                  "id": "00000000-0000-0000-0000-00000000002d",
+                  "title": "Archived",
+                  "type": "Archived",
+                  "interviewPlanId": "00000000-0000-0000-0000-00000000002e",
+                  "orderInInterviewPlan": 10,
+                  "interviewStageGroupId": "00000000-0000-0000-0000-00000000002f"
+                },
+                "source": {
+                  "id": "00000000-0000-0000-0000-000000000004",
+                  "title": "Applied",
+                  "isArchived": false,
+                  "sourceType": {
+                    "id": "00000000-0000-0000-0000-000000000030",
+                    "title": "Inbound",
+                    "isArchived": false
+                  }
+                },
+                "creditedToUser": null,
+                "archiveReason": {
+                  "id": "00000000-0000-0000-0000-000000000031",
+                  "text": "Lacks Skills/Qualifications",
+                  "reasonType": "RejectedByOrg",
+                  "isArchived": false,
+                  "customFields": []
+                },
+                "job": {
+                  "id": "00000000-0000-0000-0000-000000000003",
+                  "title": "[Old] Senior Full-Stack Engineer - Remote",
+                  "locationId": "00000000-0000-0000-0000-000000000032",
+                  "departmentId": "00000000-0000-0000-0000-000000000033",
+                  "brandId": "00000000-0000-0000-0000-000000000034"
+                },
+                "hiringTeam": [],
+                "appliedViaJobPostingId": "00000000-0000-0000-0000-000000000035",
+                "submitterClientIp": null,
+                "submitterUserAgent": null
+              },
+              {
+                "id": "00000000-0000-0000-0000-00000000001a",
+                "createdAt": "2024-02-06T17:18:07.010Z",
+                "updatedAt": "2024-02-06T20:43:28.701Z",
+                "archivedAt": "2024-02-06T20:43:28.698Z",
+                "candidate": {
+                  "id": "00000000-0000-0000-0000-00000000001b",
+                  "name": "Test User 12",
+                  "primaryEmailAddress": {
+                    "value": "user12@example.com",
+                    "type": "Personal",
+                    "isPrimary": true
+                  },
+                  "primaryPhoneNumber": {
+                    "value": "+10000000007",
+                    "type": "Personal",
+                    "isPrimary": true
+                  }
+                },
+                "status": "Archived",
+                "customFields": [],
+                "currentInterviewStage": {
+                  "id": "00000000-0000-0000-0000-00000000002d",
+                  "title": "Archived",
+                  "type": "Archived",
+                  "interviewPlanId": "00000000-0000-0000-0000-00000000002e",
+                  "orderInInterviewPlan": 10,
+                  "interviewStageGroupId": "00000000-0000-0000-0000-00000000002f"
+                },
+                "source": {
+                  "id": "00000000-0000-0000-0000-000000000004",
+                  "title": "Applied",
+                  "isArchived": false,
+                  "sourceType": {
+                    "id": "00000000-0000-0000-0000-000000000030",
+                    "title": "Inbound",
+                    "isArchived": false
+                  }
+                },
+                "creditedToUser": null,
+                "archiveReason": {
+                  "id": "00000000-0000-0000-0000-000000000031",
+                  "text": "Lacks Skills/Qualifications",
+                  "reasonType": "RejectedByOrg",
+                  "isArchived": false,
+                  "customFields": []
+                },
+                "job": {
+                  "id": "00000000-0000-0000-0000-000000000003",
+                  "title": "[Old] Senior Full-Stack Engineer - Remote",
+                  "locationId": "00000000-0000-0000-0000-000000000032",
+                  "departmentId": "00000000-0000-0000-0000-000000000033",
+                  "brandId": "00000000-0000-0000-0000-000000000034"
+                },
+                "hiringTeam": [],
+                "appliedViaJobPostingId": "00000000-0000-0000-0000-000000000037",
+                "submitterClientIp": null,
+                "submitterUserAgent": null
+              },
+              {
+                "id": "00000000-0000-0000-0000-00000000001c",
+                "createdAt": "2024-02-06T18:18:22.819Z",
+                "updatedAt": "2024-02-06T20:42:53.865Z",
+                "archivedAt": "2024-02-06T20:42:53.861Z",
+                "candidate": {
+                  "id": "00000000-0000-0000-0000-00000000001d",
+                  "name": "Test User 13",
+                  "primaryEmailAddress": {
+                    "value": "user13@example.com",
+                    "type": "Personal",
+                    "isPrimary": true
+                  },
+                  "primaryPhoneNumber": {
+                    "value": "+10000000008",
+                    "type": "Personal",
+                    "isPrimary": true
+                  }
+                },
+                "status": "Archived",
+                "customFields": [],
+                "currentInterviewStage": {
+                  "id": "00000000-0000-0000-0000-00000000002d",
+                  "title": "Archived",
+                  "type": "Archived",
+                  "interviewPlanId": "00000000-0000-0000-0000-00000000002e",
+                  "orderInInterviewPlan": 10,
+                  "interviewStageGroupId": "00000000-0000-0000-0000-00000000002f"
+                },
+                "source": {
+                  "id": "00000000-0000-0000-0000-000000000004",
+                  "title": "Applied",
+                  "isArchived": false,
+                  "sourceType": {
+                    "id": "00000000-0000-0000-0000-000000000030",
+                    "title": "Inbound",
+                    "isArchived": false
+                  }
+                },
+                "creditedToUser": null,
+                "archiveReason": {
+                  "id": "00000000-0000-0000-0000-000000000031",
+                  "text": "Lacks Skills/Qualifications",
+                  "reasonType": "RejectedByOrg",
+                  "isArchived": false,
+                  "customFields": []
+                },
+                "job": {
+                  "id": "00000000-0000-0000-0000-000000000003",
+                  "title": "[Old] Senior Full-Stack Engineer - Remote",
+                  "locationId": "00000000-0000-0000-0000-000000000032",
+                  "departmentId": "00000000-0000-0000-0000-000000000033",
+                  "brandId": "00000000-0000-0000-0000-000000000034"
+                },
+                "hiringTeam": [],
+                "appliedViaJobPostingId": "00000000-0000-0000-0000-000000000037",
+                "submitterClientIp": null,
+                "submitterUserAgent": null
+              },
+              {
+                "id": "00000000-0000-0000-0000-00000000001e",
+                "createdAt": "2024-02-06T18:33:53.230Z",
+                "updatedAt": "2024-02-06T20:40:35.407Z",
+                "archivedAt": "2024-02-06T20:40:35.403Z",
+                "candidate": {
+                  "id": "00000000-0000-0000-0000-00000000001f",
+                  "name": "Test User 14",
+                  "primaryEmailAddress": {
+                    "value": "user14@example.com",
+                    "type": "Personal",
+                    "isPrimary": true
+                  },
+                  "primaryPhoneNumber": {
+                    "value": "+10000000009",
+                    "type": "Personal",
+                    "isPrimary": true
+                  }
+                },
+                "status": "Archived",
+                "customFields": [],
+                "currentInterviewStage": {
+                  "id": "00000000-0000-0000-0000-00000000002d",
+                  "title": "Archived",
+                  "type": "Archived",
+                  "interviewPlanId": "00000000-0000-0000-0000-00000000002e",
+                  "orderInInterviewPlan": 10,
+                  "interviewStageGroupId": "00000000-0000-0000-0000-00000000002f"
+                },
+                "source": {
+                  "id": "00000000-0000-0000-0000-000000000004",
+                  "title": "Applied",
+                  "isArchived": false,
+                  "sourceType": {
+                    "id": "00000000-0000-0000-0000-000000000030",
+                    "title": "Inbound",
+                    "isArchived": false
+                  }
+                },
+                "creditedToUser": null,
+                "archiveReason": {
+                  "id": "00000000-0000-0000-0000-000000000031",
+                  "text": "Lacks Skills/Qualifications",
+                  "reasonType": "RejectedByOrg",
+                  "isArchived": false,
+                  "customFields": []
+                },
+                "job": {
+                  "id": "00000000-0000-0000-0000-000000000003",
+                  "title": "[Old] Senior Full-Stack Engineer - Remote",
+                  "locationId": "00000000-0000-0000-0000-000000000032",
+                  "departmentId": "00000000-0000-0000-0000-000000000033",
+                  "brandId": "00000000-0000-0000-0000-000000000034"
+                },
+                "hiringTeam": [],
+                "appliedViaJobPostingId": "00000000-0000-0000-0000-000000000037",
+                "submitterClientIp": null,
+                "submitterUserAgent": null
+              },
+              {
+                "id": "00000000-0000-0000-0000-000000000020",
+                "createdAt": "2024-02-06T22:04:53.041Z",
+                "updatedAt": "2024-02-07T07:21:29.881Z",
+                "archivedAt": "2024-02-07T07:21:29.879Z",
+                "candidate": {
+                  "id": "00000000-0000-0000-0000-000000000021",
+                  "name": "Test User 15",
+                  "primaryEmailAddress": {
+                    "value": "user15@example.com",
+                    "type": "Personal",
+                    "isPrimary": true
+                  },
+                  "primaryPhoneNumber": {
+                    "value": "+10000000010",
+                    "type": "Personal",
+                    "isPrimary": true
+                  }
+                },
+                "status": "Archived",
+                "customFields": [],
+                "currentInterviewStage": {
+                  "id": "00000000-0000-0000-0000-00000000002d",
+                  "title": "Archived",
+                  "type": "Archived",
+                  "interviewPlanId": "00000000-0000-0000-0000-00000000002e",
+                  "orderInInterviewPlan": 10,
+                  "interviewStageGroupId": "00000000-0000-0000-0000-00000000002f"
+                },
+                "source": {
+                  "id": "00000000-0000-0000-0000-000000000011",
+                  "title": "LinkedIn Limited Listings",
+                  "isArchived": false,
+                  "sourceType": {
+                    "id": "00000000-0000-0000-0000-000000000030",
+                    "title": "Inbound",
+                    "isArchived": false
+                  }
+                },
+                "creditedToUser": null,
+                "archiveReason": {
+                  "id": "00000000-0000-0000-0000-000000000031",
+                  "text": "Lacks Skills/Qualifications",
+                  "reasonType": "RejectedByOrg",
+                  "isArchived": false,
+                  "customFields": []
+                },
+                "job": {
+                  "id": "00000000-0000-0000-0000-000000000003",
+                  "title": "[Old] Senior Full-Stack Engineer - Remote",
+                  "locationId": "00000000-0000-0000-0000-000000000032",
+                  "departmentId": "00000000-0000-0000-0000-000000000033",
+                  "brandId": "00000000-0000-0000-0000-000000000034"
+                },
+                "hiringTeam": [],
+                "appliedViaJobPostingId": "00000000-0000-0000-0000-000000000037",
+                "submitterClientIp": null,
+                "submitterUserAgent": null
+              },
+              {
+                "id": "00000000-0000-0000-0000-000000000022",
+                "createdAt": "2024-02-06T22:05:34.485Z",
+                "updatedAt": "2024-02-07T07:21:14.516Z",
+                "archivedAt": "2024-02-07T07:21:14.514Z",
+                "candidate": {
+                  "id": "00000000-0000-0000-0000-000000000023",
+                  "name": "Test User 16",
+                  "primaryEmailAddress": {
+                    "value": "user16@example.com",
+                    "type": "Personal",
+                    "isPrimary": true
+                  },
+                  "primaryPhoneNumber": {
+                    "value": "+10000000011",
+                    "type": "Personal",
+                    "isPrimary": true
+                  }
+                },
+                "status": "Archived",
+                "customFields": [],
+                "currentInterviewStage": {
+                  "id": "00000000-0000-0000-0000-00000000002d",
+                  "title": "Archived",
+                  "type": "Archived",
+                  "interviewPlanId": "00000000-0000-0000-0000-00000000002e",
+                  "orderInInterviewPlan": 10,
+                  "interviewStageGroupId": "00000000-0000-0000-0000-00000000002f"
+                },
+                "source": {
+                  "id": "00000000-0000-0000-0000-000000000011",
+                  "title": "LinkedIn Limited Listings",
+                  "isArchived": false,
+                  "sourceType": {
+                    "id": "00000000-0000-0000-0000-000000000030",
+                    "title": "Inbound",
+                    "isArchived": false
+                  }
+                },
+                "creditedToUser": null,
+                "archiveReason": {
+                  "id": "00000000-0000-0000-0000-000000000031",
+                  "text": "Lacks Skills/Qualifications",
+                  "reasonType": "RejectedByOrg",
+                  "isArchived": false,
+                  "customFields": []
+                },
+                "job": {
+                  "id": "00000000-0000-0000-0000-000000000003",
+                  "title": "[Old] Senior Full-Stack Engineer - Remote",
+                  "locationId": "00000000-0000-0000-0000-000000000032",
+                  "departmentId": "00000000-0000-0000-0000-000000000033",
+                  "brandId": "00000000-0000-0000-0000-000000000034"
+                },
+                "hiringTeam": [],
+                "appliedViaJobPostingId": "00000000-0000-0000-0000-000000000037",
+                "submitterClientIp": null,
+                "submitterUserAgent": null
+              },
+              {
+                "id": "00000000-0000-0000-0000-000000000024",
+                "createdAt": "2024-02-06T22:10:06.462Z",
+                "updatedAt": "2024-02-08T09:41:24.809Z",
+                "archivedAt": "2024-02-08T09:41:24.806Z",
+                "candidate": {
+                  "id": "00000000-0000-0000-0000-000000000025",
+                  "name": "Test User 17",
+                  "primaryEmailAddress": {
+                    "value": "user17@example.com",
+                    "type": "Personal",
+                    "isPrimary": true
+                  },
+                  "primaryPhoneNumber": {
+                    "value": "(236) 785-7890",
+                    "type": "Personal",
+                    "isPrimary": true
+                  }
+                },
+                "status": "Archived",
+                "customFields": [],
+                "currentInterviewStage": {
+                  "id": "00000000-0000-0000-0000-000000000038",
+                  "title": "Archived",
+                  "type": "Archived",
+                  "interviewPlanId": "00000000-0000-0000-0000-000000000039",
+                  "orderInInterviewPlan": 10,
+                  "interviewStageGroupId": "00000000-0000-0000-0000-00000000002f"
+                },
+                "source": {
+                  "id": "00000000-0000-0000-0000-000000000011",
+                  "title": "LinkedIn Limited Listings",
+                  "isArchived": false,
+                  "sourceType": {
+                    "id": "00000000-0000-0000-0000-000000000030",
+                    "title": "Inbound",
+                    "isArchived": false
+                  }
+                },
+                "creditedToUser": null,
+                "archiveReason": {
+                  "id": "00000000-0000-0000-0000-000000000031",
+                  "text": "Lacks Skills/Qualifications",
+                  "reasonType": "RejectedByOrg",
+                  "isArchived": false,
+                  "customFields": []
+                },
+                "job": {
+                  "id": "00000000-0000-0000-0000-000000000026",
+                  "title": "[Old] Founding Success Engineer",
+                  "locationId": "00000000-0000-0000-0000-000000000032",
+                  "departmentId": "00000000-0000-0000-0000-000000000033",
+                  "brandId": "00000000-0000-0000-0000-000000000034"
+                },
+                "hiringTeam": [],
+                "appliedViaJobPostingId": "00000000-0000-0000-0000-00000000003a",
+                "submitterClientIp": null,
+                "submitterUserAgent": null
+              },
+              {
+                "id": "00000000-0000-0000-0000-000000000027",
+                "createdAt": "2024-02-06T22:24:27.651Z",
+                "updatedAt": "2024-02-07T07:21:06.655Z",
+                "archivedAt": "2024-02-07T07:21:06.653Z",
+                "candidate": {
+                  "id": "00000000-0000-0000-0000-000000000028",
+                  "name": "Test User 18",
+                  "primaryEmailAddress": {
+                    "value": "user18@example.com",
+                    "type": "Personal",
+                    "isPrimary": true
+                  },
+                  "primaryPhoneNumber": {
+                    "value": "+10000000012",
+                    "type": "Personal",
+                    "isPrimary": true
+                  }
+                },
+                "status": "Archived",
+                "customFields": [],
+                "currentInterviewStage": {
+                  "id": "00000000-0000-0000-0000-00000000002d",
+                  "title": "Archived",
+                  "type": "Archived",
+                  "interviewPlanId": "00000000-0000-0000-0000-00000000002e",
+                  "orderInInterviewPlan": 10,
+                  "interviewStageGroupId": "00000000-0000-0000-0000-00000000002f"
+                },
+                "source": {
+                  "id": "00000000-0000-0000-0000-000000000011",
+                  "title": "LinkedIn Limited Listings",
+                  "isArchived": false,
+                  "sourceType": {
+                    "id": "00000000-0000-0000-0000-000000000030",
+                    "title": "Inbound",
+                    "isArchived": false
+                  }
+                },
+                "creditedToUser": null,
+                "archiveReason": {
+                  "id": "00000000-0000-0000-0000-000000000031",
+                  "text": "Lacks Skills/Qualifications",
+                  "reasonType": "RejectedByOrg",
+                  "isArchived": false,
+                  "customFields": []
+                },
+                "job": {
+                  "id": "00000000-0000-0000-0000-000000000003",
+                  "title": "[Old] Senior Full-Stack Engineer - Remote",
+                  "locationId": "00000000-0000-0000-0000-000000000032",
+                  "departmentId": "00000000-0000-0000-0000-000000000033",
+                  "brandId": "00000000-0000-0000-0000-000000000034"
+                },
+                "hiringTeam": [],
+                "appliedViaJobPostingId": "00000000-0000-0000-0000-000000000037",
+                "submitterClientIp": null,
+                "submitterUserAgent": null
+              },
+              {
+                "id": "00000000-0000-0000-0000-000000000029",
+                "createdAt": "2024-02-06T22:44:46.718Z",
+                "updatedAt": "2024-02-07T07:21:00.277Z",
+                "archivedAt": "2024-02-07T07:21:00.270Z",
+                "candidate": {
+                  "id": "00000000-0000-0000-0000-00000000002a",
+                  "name": "Test User 19",
+                  "primaryEmailAddress": {
+                    "value": "user19@example.com",
+                    "type": "Personal",
+                    "isPrimary": true
+                  },
+                  "primaryPhoneNumber": {
+                    "value": "(+234) 703-825-6256",
+                    "type": "Personal",
+                    "isPrimary": true
+                  }
+                },
+                "status": "Archived",
+                "customFields": [],
+                "currentInterviewStage": {
+                  "id": "00000000-0000-0000-0000-00000000002d",
+                  "title": "Archived",
+                  "type": "Archived",
+                  "interviewPlanId": "00000000-0000-0000-0000-00000000002e",
+                  "orderInInterviewPlan": 10,
+                  "interviewStageGroupId": "00000000-0000-0000-0000-00000000002f"
+                },
+                "source": {
+                  "id": "00000000-0000-0000-0000-000000000011",
+                  "title": "LinkedIn Limited Listings",
+                  "isArchived": false,
+                  "sourceType": {
+                    "id": "00000000-0000-0000-0000-000000000030",
+                    "title": "Inbound",
+                    "isArchived": false
+                  }
+                },
+                "creditedToUser": null,
+                "archiveReason": {
+                  "id": "00000000-0000-0000-0000-000000000031",
+                  "text": "Lacks Skills/Qualifications",
+                  "reasonType": "RejectedByOrg",
+                  "isArchived": false,
+                  "customFields": []
+                },
+                "job": {
+                  "id": "00000000-0000-0000-0000-000000000003",
+                  "title": "[Old] Senior Full-Stack Engineer - Remote",
+                  "locationId": "00000000-0000-0000-0000-000000000032",
+                  "departmentId": "00000000-0000-0000-0000-000000000033",
+                  "brandId": "00000000-0000-0000-0000-000000000034"
+                },
+                "hiringTeam": [],
+                "appliedViaJobPostingId": "00000000-0000-0000-0000-000000000037",
+                "submitterClientIp": null,
+                "submitterUserAgent": null
+              },
+              {
+                "id": "00000000-0000-0000-0000-00000000002b",
+                "createdAt": "2024-02-06T22:45:35.858Z",
+                "updatedAt": "2024-02-07T07:20:55.379Z",
+                "archivedAt": "2024-02-07T07:20:55.377Z",
+                "candidate": {
+                  "id": "00000000-0000-0000-0000-00000000002c",
+                  "name": "Test User 20",
+                  "primaryEmailAddress": {
+                    "value": "user20@example.com",
+                    "type": "Personal",
+                    "isPrimary": true
+                  },
+                  "primaryPhoneNumber": {
+                    "value": "+10000000013",
+                    "type": "Personal",
+                    "isPrimary": true
+                  }
+                },
+                "status": "Archived",
+                "customFields": [],
+                "currentInterviewStage": {
+                  "id": "00000000-0000-0000-0000-00000000002d",
+                  "title": "Archived",
+                  "type": "Archived",
+                  "interviewPlanId": "00000000-0000-0000-0000-00000000002e",
+                  "orderInInterviewPlan": 10,
+                  "interviewStageGroupId": "00000000-0000-0000-0000-00000000002f"
+                },
+                "source": {
+                  "id": "00000000-0000-0000-0000-000000000011",
+                  "title": "LinkedIn Limited Listings",
+                  "isArchived": false,
+                  "sourceType": {
+                    "id": "00000000-0000-0000-0000-000000000030",
+                    "title": "Inbound",
+                    "isArchived": false
+                  }
+                },
+                "creditedToUser": null,
+                "archiveReason": {
+                  "id": "00000000-0000-0000-0000-000000000031",
+                  "text": "Lacks Skills/Qualifications",
+                  "reasonType": "RejectedByOrg",
+                  "isArchived": false,
+                  "customFields": []
+                },
+                "job": {
+                  "id": "00000000-0000-0000-0000-000000000003",
+                  "title": "[Old] Senior Full-Stack Engineer - Remote",
+                  "locationId": "00000000-0000-0000-0000-000000000032",
+                  "departmentId": "00000000-0000-0000-0000-000000000033",
+                  "brandId": "00000000-0000-0000-0000-000000000034"
+                },
+                "hiringTeam": [],
+                "appliedViaJobPostingId": "00000000-0000-0000-0000-000000000035",
+                "submitterClientIp": null,
+                "submitterUserAgent": null
+              }
+            ],
+            "moreDataAvailable": true,
+            "nextCursor": "x8FJ_8b6N88RWZRShYA4QyPY8db03AyJkHTWjmiQUSDT8f4hD1An3DtXM8Ab_XiQvPcUbA0Dt-dM67sudzaBh3Da8wEH90DasG2bSbRoayTBUeIvgeM"
+          },
+          "status": 200,
+          "headers": {
+            "date": "Thu, 28 May 2026 23:14:23 GMT",
+            "content-type": "application/json; charset=utf-8",
+            "transfer-encoding": "chunked",
+            "connection": "keep-alive",
+            "x-xss-protection": "0",
+            "x-content-type-options": "nosniff",
+            "x-download-options": "noopen",
+            "x-frame-options": "DENY",
+            "x-dns-prefetch-control": "off",
+            "strict-transport-security": "max-age=31536000; includeSubDomains; preload",
+            "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+            "access-control-allow-origin": "*",
+            "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+            "x-ratelimit-limit": "1000",
+            "x-ratelimit-remaining": "994",
+            "x-ratelimit-reset": "+10000000014",
+            "x-ashby-request-id": "01KSRDW53J0M7TM2R96SZV2JCT",
+            "referrer-policy": "same-origin",
+            "ashby-session-expiry-alert-level": "",
+            "vary": "Origin",
+            "cf-cache-status": "DYNAMIC",
+            "server": "cloudflare",
+            "cf-ray": "a030f48d1d5bfef7-PDX",
+            "alt-svc": "h3=\":443\"; ma=86400"
+          },
+          "hash": "31cb25f7dd7dc39452cc3c73afac5420fc9dfff9",
+          "request": {
+            "data": {
+              "limit": 100
+            }
+          }
+        },
+        {
+          "response": {
+            "success": true,
+            "results": [],
+            "moreDataAvailable": true,
+            "nextCursor": "1paIxW9JZAKhqPqyyczzNDPepleGcU9rXSU32iCIYFTNGg6DkjtobIsmAPtF-vB5bMN37616ptCQKDgGE6kErfyhXwuPjdSXHF15tI6eKsxDy7H94Ag"
+          },
+          "status": 200,
+          "headers": {
+            "date": "Thu, 28 May 2026 23:14:26 GMT",
+            "content-type": "application/json; charset=utf-8",
+            "transfer-encoding": "chunked",
+            "connection": "keep-alive",
+            "x-xss-protection": "0",
+            "x-content-type-options": "nosniff",
+            "x-download-options": "noopen",
+            "x-frame-options": "DENY",
+            "x-dns-prefetch-control": "off",
+            "strict-transport-security": "max-age=31536000; includeSubDomains; preload",
+            "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+            "access-control-allow-origin": "*",
+            "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+            "x-ratelimit-limit": "1000",
+            "x-ratelimit-remaining": "993",
+            "x-ratelimit-reset": "+10000000015",
+            "x-ashby-request-id": "01KSRDW6HA26AMJF05V1SYJKE2",
+            "referrer-policy": "same-origin",
+            "ashby-session-expiry-alert-level": "",
+            "vary": "Origin",
+            "cf-cache-status": "DYNAMIC",
+            "server": "cloudflare",
+            "cf-ray": "a030f4962dedc153-PDX",
+            "alt-svc": "h3=\":443\"; ma=86400"
+          },
+          "hash": "0872e665a7486e26e5c71b82a6a9438c60c924dd",
+          "request": {
+            "data": {
+              "limit": 100,
+              "cursor": "x8FJ_8b6N88RWZRShYA4QyPY8db03AyJkHTWjmiQUSDT8f4hD1An3DtXM8Ab_XiQvPcUbA0Dt-dM67sudzaBh3Da8wEH90DasG2bSbRoayTBUeIvgeM"
+            }
+          }
+        }
+      ]
+    }
+  }
+}

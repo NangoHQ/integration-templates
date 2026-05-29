@@ -1,12 +1,12 @@
 import { vi, expect, it, describe } from 'vitest';
 
-import createAction from '../actions/create-candidate.js';
+import createAction from '../actions/create-application.js';
 
-describe('ashby create-candidate tests', () => {
+describe('ashby create-application tests', () => {
     const nangoMock = new global.vitest.NangoActionMock({
         dirname: __dirname,
-        name: 'create-candidate',
-        Model: 'ActionOutput_ashby_createcandidate'
+        name: 'create-application',
+        Model: 'ActionOutput_ashby_createapplication'
     });
 
     it('should output the action output that is expected', async () => {

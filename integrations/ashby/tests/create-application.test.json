@@ -1,0 +1,107 @@
+{
+  "input": {
+    "candidateId": "00000000-0000-0000-0000-000000000001",
+    "jobId": "00000000-0000-0000-0000-000000000002"
+  },
+  "output": {
+    "id": "00000000-0000-0000-0000-000000000003",
+    "createdAt": "2026-05-28T21:10:51.928Z",
+    "updatedAt": "2026-05-28T21:10:53.331Z",
+    "status": "Lead",
+    "candidate": {
+      "id": "00000000-0000-0000-0000-000000000001",
+      "name": "Test User 1"
+    },
+    "job": {
+      "id": "00000000-0000-0000-0000-000000000002",
+      "title": "Staff Backend Engineer"
+    },
+    "currentInterviewStage": {
+      "id": "00000000-0000-0000-0000-000000000004"
+    },
+    "customFields": [],
+    "hiringTeam": []
+  },
+  "nango": {},
+  "api": {
+    "post": {
+      "/application.create": {
+        "response": {
+          "success": true,
+          "results": {
+            "id": "00000000-0000-0000-0000-000000000003",
+            "createdAt": "2026-05-28T21:10:51.928Z",
+            "updatedAt": "2026-05-28T21:10:53.331Z",
+            "candidate": {
+              "id": "00000000-0000-0000-0000-000000000001",
+              "name": "Test User 1"
+            },
+            "status": "Lead",
+            "customFields": [],
+            "currentInterviewStage": {
+              "id": "00000000-0000-0000-0000-000000000004"
+            },
+            "source": null,
+            "creditedToUser": null,
+            "archiveReason": null,
+            "job": {
+              "id": "00000000-0000-0000-0000-000000000002",
+              "title": "Staff Backend Engineer"
+            },
+            "hiringTeam": [],
+            "appliedViaJobPostingId": null,
+            "applicationHistory": [
+              {
+                "id": "00000000-0000-0000-0000-000000000009",
+                "stageId": "00000000-0000-0000-0000-000000000004",
+                "title": "New Lead",
+                "stageNumber": 0,
+                "enteredStageAt": "2026-05-28T21:10:51.928Z",
+                "allowedActions": [
+                  "set_entered_at"
+                ],
+                "actorId": "00000000-0000-0000-0000-00000000000a"
+              }
+            ],
+            "submitterClientIp": null,
+            "submitterUserAgent": null
+          }
+        },
+        "status": 200,
+        "headers": {
+          "date": "Thu, 28 May 2026 21:10:54 GMT",
+          "content-type": "application/json; charset=utf-8",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "DENY",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=31536000; includeSubDomains; preload",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "1000",
+          "x-ratelimit-remaining": "959",
+          "x-ratelimit-reset": "+10000000001",
+          "x-ashby-request-id": "01KSR6SZE4RBBAB7FRXTCAJQGZ",
+          "referrer-policy": "same-origin",
+          "ashby-session-expiry-alert-level": "",
+          "vary": "Origin",
+          "cf-cache-status": "DYNAMIC",
+          "server": "cloudflare",
+          "cf-ray": "a0303f9bfdf05f03-PDX",
+          "alt-svc": "h3=\":443\"; ma=86400"
+        },
+        "hash": "c115951fb02d17d794541ade678d4d6b83ea5054",
+        "request": {
+          "data": {
+            "candidateId": "00000000-0000-0000-0000-000000000001",
+            "jobId": "00000000-0000-0000-0000-000000000002"
+          }
+        }
+      }
+    }
+  }
+}

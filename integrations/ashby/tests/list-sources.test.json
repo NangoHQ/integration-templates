@@ -1,0 +1,411 @@
+{
+  "input": {},
+  "output": {
+    "items": [
+      {
+        "id": "00000000-0000-0000-0000-000000000001",
+        "title": "Referral",
+        "isArchived": false,
+        "sourceType": {
+          "id": "00000000-0000-0000-0000-000000000002",
+          "title": "Referral",
+          "isArchived": false
+        }
+      },
+      {
+        "id": "00000000-0000-0000-0000-000000000003",
+        "title": "Referral Link",
+        "isArchived": false,
+        "sourceType": {
+          "id": "00000000-0000-0000-0000-000000000002",
+          "title": "Referral",
+          "isArchived": false
+        }
+      },
+      {
+        "id": "00000000-0000-0000-0000-000000000004",
+        "title": "Ashby Chrome Extension",
+        "isArchived": false,
+        "sourceType": {
+          "id": "00000000-0000-0000-0000-000000000005",
+          "title": "Sourced",
+          "isArchived": false
+        }
+      },
+      {
+        "id": "00000000-0000-0000-0000-000000000006",
+        "title": "Recruiting Event",
+        "isArchived": false,
+        "sourceType": {
+          "id": "00000000-0000-0000-0000-000000000005",
+          "title": "Sourced",
+          "isArchived": false
+        }
+      },
+      {
+        "id": "00000000-0000-0000-0000-000000000007",
+        "title": "Internal Transfer",
+        "isArchived": false,
+        "sourceType": {
+          "id": "00000000-0000-0000-0000-000000000008",
+          "title": "Internal",
+          "isArchived": false
+        }
+      },
+      {
+        "id": "00000000-0000-0000-0000-000000000009",
+        "title": "Applied",
+        "isArchived": false,
+        "sourceType": {
+          "id": "00000000-0000-0000-0000-00000000000a",
+          "title": "Inbound",
+          "isArchived": false
+        }
+      },
+      {
+        "id": "00000000-0000-0000-0000-00000000000b",
+        "title": "Indeed Listings",
+        "isArchived": false,
+        "sourceType": {
+          "id": "00000000-0000-0000-0000-00000000000a",
+          "title": "Inbound",
+          "isArchived": false
+        }
+      },
+      {
+        "id": "00000000-0000-0000-0000-00000000000c",
+        "title": "Indeed Sponsored",
+        "isArchived": false,
+        "sourceType": {
+          "id": "00000000-0000-0000-0000-00000000000a",
+          "title": "Inbound",
+          "isArchived": false
+        }
+      },
+      {
+        "id": "00000000-0000-0000-0000-00000000000d",
+        "title": "LinkedIn",
+        "isArchived": false,
+        "sourceType": {
+          "id": "00000000-0000-0000-0000-00000000000a",
+          "title": "Inbound",
+          "isArchived": false
+        }
+      },
+      {
+        "id": "00000000-0000-0000-0000-00000000000e",
+        "title": "LinkedIn Limited Listings",
+        "isArchived": false,
+        "sourceType": {
+          "id": "00000000-0000-0000-0000-00000000000a",
+          "title": "Inbound",
+          "isArchived": false
+        }
+      },
+      {
+        "id": "00000000-0000-0000-0000-00000000000f",
+        "title": "ZipRecruiter Organic Postings",
+        "isArchived": false,
+        "sourceType": {
+          "id": "00000000-0000-0000-0000-00000000000a",
+          "title": "Inbound",
+          "isArchived": false
+        }
+      },
+      {
+        "id": "00000000-0000-0000-0000-000000000010",
+        "title": "Built In Listings",
+        "isArchived": false,
+        "sourceType": {
+          "id": "00000000-0000-0000-0000-00000000000a",
+          "title": "Inbound",
+          "isArchived": false
+        }
+      },
+      {
+        "id": "00000000-0000-0000-0000-000000000011",
+        "title": "Welcome to the Jungle",
+        "isArchived": false,
+        "sourceType": {
+          "id": "00000000-0000-0000-0000-00000000000a",
+          "title": "Inbound",
+          "isArchived": false
+        }
+      },
+      {
+        "id": "00000000-0000-0000-0000-000000000012",
+        "title": "Himalayas",
+        "isArchived": false,
+        "sourceType": {
+          "id": "00000000-0000-0000-0000-00000000000a",
+          "title": "Inbound",
+          "isArchived": false
+        }
+      },
+      {
+        "id": "00000000-0000-0000-0000-000000000013",
+        "title": "Sourcing Form",
+        "isArchived": false,
+        "sourceType": {
+          "id": "00000000-0000-0000-0000-000000000005",
+          "title": "Sourced",
+          "isArchived": false
+        }
+      },
+      {
+        "id": "00000000-0000-0000-0000-000000000014",
+        "title": "Y Combinator Work at a Startup",
+        "isArchived": false,
+        "sourceType": {
+          "id": "00000000-0000-0000-0000-000000000005",
+          "title": "Sourced",
+          "isArchived": false
+        }
+      },
+      {
+        "id": "00000000-0000-0000-0000-000000000015",
+        "title": "Public Booking Link",
+        "isArchived": false,
+        "sourceType": {
+          "id": "00000000-0000-0000-0000-000000000005",
+          "title": "Sourced",
+          "isArchived": false
+        }
+      },
+      {
+        "id": "00000000-0000-0000-0000-000000000016",
+        "title": "Y Combinator Work at a Startup",
+        "isArchived": false,
+        "sourceType": {
+          "id": "00000000-0000-0000-0000-00000000000a",
+          "title": "Inbound",
+          "isArchived": false
+        }
+      }
+    ]
+  },
+  "nango": {},
+  "api": {
+    "post": {
+      "/source.list": {
+        "response": {
+          "success": true,
+          "results": [
+            {
+              "id": "00000000-0000-0000-0000-000000000001",
+              "title": "Referral",
+              "isArchived": false,
+              "sourceType": {
+                "id": "00000000-0000-0000-0000-000000000002",
+                "title": "Referral",
+                "isArchived": false
+              }
+            },
+            {
+              "id": "00000000-0000-0000-0000-000000000003",
+              "title": "Referral Link",
+              "isArchived": false,
+              "sourceType": {
+                "id": "00000000-0000-0000-0000-000000000002",
+                "title": "Referral",
+                "isArchived": false
+              }
+            },
+            {
+              "id": "00000000-0000-0000-0000-000000000004",
+              "title": "Ashby Chrome Extension",
+              "isArchived": false,
+              "sourceType": {
+                "id": "00000000-0000-0000-0000-000000000005",
+                "title": "Sourced",
+                "isArchived": false
+              }
+            },
+            {
+              "id": "00000000-0000-0000-0000-000000000006",
+              "title": "Recruiting Event",
+              "isArchived": false,
+              "sourceType": {
+                "id": "00000000-0000-0000-0000-000000000005",
+                "title": "Sourced",
+                "isArchived": false
+              }
+            },
+            {
+              "id": "00000000-0000-0000-0000-000000000007",
+              "title": "Internal Transfer",
+              "isArchived": false,
+              "sourceType": {
+                "id": "00000000-0000-0000-0000-000000000008",
+                "title": "Internal",
+                "isArchived": false
+              }
+            },
+            {
+              "id": "00000000-0000-0000-0000-000000000009",
+              "title": "Applied",
+              "isArchived": false,
+              "sourceType": {
+                "id": "00000000-0000-0000-0000-00000000000a",
+                "title": "Inbound",
+                "isArchived": false
+              }
+            },
+            {
+              "id": "00000000-0000-0000-0000-00000000000b",
+              "title": "Indeed Listings",
+              "isArchived": false,
+              "sourceType": {
+                "id": "00000000-0000-0000-0000-00000000000a",
+                "title": "Inbound",
+                "isArchived": false
+              }
+            },
+            {
+              "id": "00000000-0000-0000-0000-00000000000c",
+              "title": "Indeed Sponsored",
+              "isArchived": false,
+              "sourceType": {
+                "id": "00000000-0000-0000-0000-00000000000a",
+                "title": "Inbound",
+                "isArchived": false
+              }
+            },
+            {
+              "id": "00000000-0000-0000-0000-00000000000d",
+              "title": "LinkedIn",
+              "isArchived": false,
+              "sourceType": {
+                "id": "00000000-0000-0000-0000-00000000000a",
+                "title": "Inbound",
+                "isArchived": false
+              }
+            },
+            {
+              "id": "00000000-0000-0000-0000-00000000000e",
+              "title": "LinkedIn Limited Listings",
+              "isArchived": false,
+              "sourceType": {
+                "id": "00000000-0000-0000-0000-00000000000a",
+                "title": "Inbound",
+                "isArchived": false
+              }
+            },
+            {
+              "id": "00000000-0000-0000-0000-00000000000f",
+              "title": "ZipRecruiter Organic Postings",
+              "isArchived": false,
+              "sourceType": {
+                "id": "00000000-0000-0000-0000-00000000000a",
+                "title": "Inbound",
+                "isArchived": false
+              }
+            },
+            {
+              "id": "00000000-0000-0000-0000-000000000010",
+              "title": "Built In Listings",
+              "isArchived": false,
+              "sourceType": {
+                "id": "00000000-0000-0000-0000-00000000000a",
+                "title": "Inbound",
+                "isArchived": false
+              }
+            },
+            {
+              "id": "00000000-0000-0000-0000-000000000011",
+              "title": "Welcome to the Jungle",
+              "isArchived": false,
+              "sourceType": {
+                "id": "00000000-0000-0000-0000-00000000000a",
+                "title": "Inbound",
+                "isArchived": false
+              }
+            },
+            {
+              "id": "00000000-0000-0000-0000-000000000012",
+              "title": "Himalayas",
+              "isArchived": false,
+              "sourceType": {
+                "id": "00000000-0000-0000-0000-00000000000a",
+                "title": "Inbound",
+                "isArchived": false
+              }
+            },
+            {
+              "id": "00000000-0000-0000-0000-000000000013",
+              "title": "Sourcing Form",
+              "isArchived": false,
+              "sourceType": {
+                "id": "00000000-0000-0000-0000-000000000005",
+                "title": "Sourced",
+                "isArchived": false
+              }
+            },
+            {
+              "id": "00000000-0000-0000-0000-000000000014",
+              "title": "Y Combinator Work at a Startup",
+              "isArchived": false,
+              "sourceType": {
+                "id": "00000000-0000-0000-0000-000000000005",
+                "title": "Sourced",
+                "isArchived": false
+              }
+            },
+            {
+              "id": "00000000-0000-0000-0000-000000000015",
+              "title": "Public Booking Link",
+              "isArchived": false,
+              "sourceType": {
+                "id": "00000000-0000-0000-0000-000000000005",
+                "title": "Sourced",
+                "isArchived": false
+              }
+            },
+            {
+              "id": "00000000-0000-0000-0000-000000000016",
+              "title": "Y Combinator Work at a Startup",
+              "isArchived": false,
+              "sourceType": {
+                "id": "00000000-0000-0000-0000-00000000000a",
+                "title": "Inbound",
+                "isArchived": false
+              }
+            }
+          ],
+          "moreDataAvailable": false
+        },
+        "status": 200,
+        "headers": {
+          "date": "Thu, 28 May 2026 21:06:30 GMT",
+          "content-type": "application/json; charset=utf-8",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "DENY",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=31536000; includeSubDomains; preload",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "1000",
+          "x-ratelimit-remaining": "977",
+          "x-ratelimit-reset": "+10000000001",
+          "x-ashby-request-id": "01KSR6HZQX2AVGTCKCXA7E3R64",
+          "referrer-policy": "same-origin",
+          "ashby-session-expiry-alert-level": "",
+          "vary": "Origin",
+          "cf-cache-status": "DYNAMIC",
+          "server": "cloudflare",
+          "cf-ray": "a03039377d499314-PDX",
+          "alt-svc": "h3=\":443\"; ma=86400"
+        },
+        "hash": "1419f4359293b92ddf942ef338ecdbeb2ccf36f9",
+        "request": {
+          "data": {}
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,101 @@
+{
+  "input": {
+    "applicationId": "00000000-0000-0000-0000-000000000001",
+    "sendNotifications": false
+  },
+  "output": {
+    "id": "00000000-0000-0000-0000-000000000001",
+    "createdAt": "2024-02-04T21:38:12.466Z",
+    "updatedAt": "2026-05-28T21:06:40.590Z",
+    "status": "Archived",
+    "candidate": {
+      "id": "00000000-0000-0000-0000-000000000002",
+      "name": "Test User 1"
+    },
+    "currentInterviewStage": {
+      "id": "00000000-0000-0000-0000-000000000003",
+      "title": "Archived"
+    },
+    "job": {
+      "id": "00000000-0000-0000-0000-000000000004",
+      "title": "[Old] Senior Full-Stack Engineer - Remote"
+    }
+  },
+  "nango": {},
+  "api": {
+    "post": {
+      "/application.update": {
+        "response": {
+          "success": true,
+          "results": {
+            "id": "00000000-0000-0000-0000-000000000001",
+            "createdAt": "2024-02-04T21:38:12.466Z",
+            "updatedAt": "2026-05-28T21:06:40.590Z",
+            "archivedAt": "2024-02-05T09:25:35.089Z",
+            "candidate": {
+              "id": "00000000-0000-0000-0000-000000000002",
+              "name": "Test User 1"
+            },
+            "status": "Archived",
+            "customFields": [],
+            "currentInterviewStage": {
+              "id": "00000000-0000-0000-0000-000000000003",
+              "title": "Archived"
+            },
+            "source": null,
+            "creditedToUser": null,
+            "archiveReason": {
+              "id": "00000000-0000-0000-0000-000000000007",
+              "text": "Lacks Skills/Qualifications",
+              "reasonType": "RejectedByOrg",
+              "isArchived": false,
+              "customFields": []
+            },
+            "job": {
+              "id": "00000000-0000-0000-0000-000000000004",
+              "title": "[Old] Senior Full-Stack Engineer - Remote"
+            },
+            "hiringTeam": [],
+            "appliedViaJobPostingId": "00000000-0000-0000-0000-00000000000b",
+            "submitterClientIp": null,
+            "submitterUserAgent": null
+          }
+        },
+        "status": 200,
+        "headers": {
+          "date": "Thu, 28 May 2026 21:06:40 GMT",
+          "content-type": "application/json; charset=utf-8",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "DENY",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=31536000; includeSubDomains; preload",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "1000",
+          "x-ratelimit-remaining": "970",
+          "x-ratelimit-reset": "+10000000002",
+          "x-ashby-request-id": "01KSR6J99XZ29D0RPM51BX7CPG",
+          "referrer-policy": "same-origin",
+          "ashby-session-expiry-alert-level": "",
+          "vary": "Origin",
+          "cf-cache-status": "DYNAMIC",
+          "server": "cloudflare",
+          "cf-ray": "a0303974dfac9314-PDX",
+          "alt-svc": "h3=\":443\"; ma=86400"
+        },
+        "hash": "f19dce4b937c1e1c6b53af08bf6a5563361b8cfa",
+        "request": {
+          "data": {
+            "applicationId": "00000000-0000-0000-0000-000000000001",
+            "sendNotifications": false
+          }
+        }
+      }
+    }
+  }
+}
