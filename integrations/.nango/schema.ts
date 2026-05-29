@@ -8540,6 +8540,14 @@ export interface ActionInput_auth0_cc_listorganizationinvitations {
    * Organization identifier. Example: "org_0000000000000001"
    */
   organization_id: string;
+  /**
+   * Pagination cursor from a previous response. Omit for the first page.
+   */
+  cursor?: string | undefined;
+  /**
+   * Number of results per page. Max 50.
+   */
+  per_page?: number | undefined;
 };
 
 export interface ActionOutput_auth0_cc_listorganizationinvitations {
@@ -8556,6 +8564,7 @@ export interface ActionOutput_auth0_cc_listorganizationinvitations {
   user_metadata?: {  [key: string]: unknown | undefined;};
   roles?: string[] | undefined;
   ticket_id?: string | undefined;})[];
+  next_cursor?: string | undefined;
 };
 
 export interface ActionInput_auth0_cc_listorganizationmemberroles {

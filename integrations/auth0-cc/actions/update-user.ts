@@ -23,25 +23,6 @@ const InputSchema = z.object({
     username: z.string().nullable().optional()
 });
 
-const ProviderResponseSchema = z.object({
-    user_id: z.string(),
-    email: z.string().optional(),
-    email_verified: z.boolean().optional(),
-    username: z.string().optional(),
-    phone_number: z.string().optional(),
-    phone_verified: z.boolean().optional(),
-    name: z.string().optional(),
-    nickname: z.string().optional(),
-    picture: z.string().optional(),
-    blocked: z.boolean().optional(),
-    given_name: z.string().optional(),
-    family_name: z.string().optional(),
-    created_at: z.string().optional(),
-    updated_at: z.string().optional(),
-    user_metadata: z.record(z.string(), z.unknown()).optional(),
-    app_metadata: z.record(z.string(), z.unknown()).optional()
-});
-
 const OutputSchema = z.object({
     user_id: z.string(),
     email: z.string().optional(),
@@ -96,7 +77,7 @@ const action = createAction({
                 ...(input.client_id !== undefined && { client_id: input.client_id }),
                 ...(input.username !== undefined && { username: input.username })
             },
-            retries: 1
+            retries: 3
         });
 
         if (!response.data) {
@@ -107,25 +88,25 @@ const action = createAction({
             });
         }
 
-        const providerUser = ProviderResponseSchema.parse(response.data);
+        const user = OutputSchema.parse(response.data);
 
         return {
-            user_id: providerUser.user_id,
-            ...(providerUser.email !== undefined && { email: providerUser.email }),
-            ...(providerUser.email_verified !== undefined && { email_verified: providerUser.email_verified }),
-            ...(providerUser.username !== undefined && { username: providerUser.username }),
-            ...(providerUser.phone_number !== undefined && { phone_number: providerUser.phone_number }),
-            ...(providerUser.phone_verified !== undefined && { phone_verified: providerUser.phone_verified }),
-            ...(providerUser.name !== undefined && { name: providerUser.name }),
-            ...(providerUser.nickname !== undefined && { nickname: providerUser.nickname }),
-            ...(providerUser.picture !== undefined && { picture: providerUser.picture }),
-            ...(providerUser.blocked !== undefined && { blocked: providerUser.blocked }),
-            ...(providerUser.given_name !== undefined && { given_name: providerUser.given_name }),
-            ...(providerUser.family_name !== undefined && { family_name: providerUser.family_name }),
-            ...(providerUser.created_at !== undefined && { created_at: providerUser.created_at }),
-            ...(providerUser.updated_at !== undefined && { updated_at: providerUser.updated_at }),
-            ...(providerUser.user_metadata !== undefined && { user_metadata: providerUser.user_metadata }),
-            ...(providerUser.app_metadata !== undefined && { app_metadata: providerUser.app_metadata })
+            user_id: user.user_id,
+            ...(user.email !== undefined && { email: user.email }),
+            ...(user.email_verified !== undefined && { email_verified: user.email_verified }),
+            ...(user.username !== undefined && { username: user.username }),
+            ...(user.phone_number !== undefined && { phone_number: user.phone_number }),
+            ...(user.phone_verified !== undefined && { phone_verified: user.phone_verified }),
+            ...(user.name !== undefined && { name: user.name }),
+            ...(user.nickname !== undefined && { nickname: user.nickname }),
+            ...(user.picture !== undefined && { picture: user.picture }),
+            ...(user.blocked !== undefined && { blocked: user.blocked }),
+            ...(user.given_name !== undefined && { given_name: user.given_name }),
+            ...(user.family_name !== undefined && { family_name: user.family_name }),
+            ...(user.created_at !== undefined && { created_at: user.created_at }),
+            ...(user.updated_at !== undefined && { updated_at: user.updated_at }),
+            ...(user.user_metadata !== undefined && { user_metadata: user.user_metadata }),
+            ...(user.app_metadata !== undefined && { app_metadata: user.app_metadata })
         };
     }
 });

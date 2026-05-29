@@ -24,22 +24,15 @@ const action = createAction({
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         // https://auth0.com/docs/api/management/v2/roles/delete-roles
-        const response = await nango.delete({
+        // nango.delete() throws on non-2xx, so reaching here means success.
+        await nango.delete({
             endpoint: `/api/v2/roles/${encodeURIComponent(input.id)}`,
             retries: 3
         });
 
-        if (response.status === 404) {
-            throw new nango.ActionError({
-                type: 'not_found',
-                message: `Role with id "${input.id}" was not found.`,
-                id: input.id
-            });
-        }
-
         return {
             id: input.id,
-            success: response.status >= 200 && response.status < 300
+            success: true
         };
     }
 });

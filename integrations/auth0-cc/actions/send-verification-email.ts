@@ -47,7 +47,7 @@ const action = createAction({
                 ...(input.client_id !== undefined && { client_id: input.client_id }),
                 ...(input.identity !== undefined && { identity: input.identity })
             },
-            retries: 1
+            retries: 3
         };
 
         const response = await nango.post(config);

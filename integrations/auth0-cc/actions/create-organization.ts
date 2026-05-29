@@ -149,7 +149,7 @@ const action = createAction({
                 ...(input['metadata'] !== undefined && { metadata: input['metadata'] }),
                 ...(input.enabled_connections !== undefined && { enabled_connections: input.enabled_connections })
             },
-            retries: 1
+            retries: 3
         };
         const response = await nango.post(config);
 

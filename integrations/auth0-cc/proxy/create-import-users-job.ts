@@ -45,18 +45,27 @@ async function run(input: {
     formData.append('users', blob, 'users.json');
 
     // https://auth0.com/docs/api/management/v2/jobs/post-users-imports
-    const response = await fetch(`https://${hostname}/api/v2/jobs/users-imports`, {
-        method: 'POST',
-        headers: { Authorization: `Bearer ${accessToken}` },
-        body: formData
-    });
-
-    if (!response.ok) {
+    // Retry up to 3 times with exponential backoff for transient failures.
+    let lastError: Error | undefined;
+    for (let attempt = 0; attempt < 3; attempt++) {
+        if (attempt > 0) {
+            await new Promise((resolve) => setTimeout(resolve, 500 * Math.pow(2, attempt - 1)));
+        }
+        const response = await fetch(`https://${hostname}/api/v2/jobs/users-imports`, {
+            method: 'POST',
+            headers: { Authorization: `Bearer ${accessToken}` },
+            body: formData
+        });
+        if (response.ok) {
+            return await response.json();
+        }
         const errorBody = await response.text();
-        throw new Error(`Auth0 returned ${response.status}: ${errorBody}`);
+        lastError = new Error(`Auth0 returned ${response.status}: ${errorBody}`);
+        if (response.status < 500) {
+            break;
+        }
     }
-
-    return await response.json();
+    throw lastError;
 }
 
 const input = {

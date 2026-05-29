@@ -96,25 +96,25 @@ const action = createAction({
 
         const response = await nango.get(config);
 
+        const mapResourceServer = (item: z.infer<typeof ProviderResourceServerSchema>): z.infer<typeof ResourceServerSchema> => ({
+            id: item.id,
+            ...(item.name != null && { name: item.name }),
+            ...(item.identifier != null && { identifier: item.identifier }),
+            ...(item.is_system != null && { is_system: item.is_system }),
+            ...(item.scopes != null && {
+                scopes: item.scopes.map((scope) => ({
+                    value: scope.value,
+                    ...(scope.description != null && { description: scope.description })
+                }))
+            }),
+            ...(item.signing_alg != null && { signing_alg: item.signing_alg }),
+            ...(item.token_lifetime != null && { token_lifetime: item.token_lifetime }),
+            ...(item.allow_offline_access != null && { allow_offline_access: item.allow_offline_access })
+        });
+
         if (Array.isArray(response.data)) {
             const items = z.array(ProviderResourceServerSchema).parse(response.data);
-            return {
-                items: items.map((item) => ({
-                    id: item.id,
-                    ...(item.name != null && { name: item.name }),
-                    ...(item.identifier != null && { identifier: item.identifier }),
-                    ...(item.is_system != null && { is_system: item.is_system }),
-                    ...(item.scopes != null && {
-                        scopes: item.scopes.map((scope) => ({
-                            value: scope.value,
-                            ...(scope.description != null && { description: scope.description })
-                        }))
-                    }),
-                    ...(item.signing_alg != null && { signing_alg: item.signing_alg }),
-                    ...(item.token_lifetime != null && { token_lifetime: item.token_lifetime }),
-                    ...(item.allow_offline_access != null && { allow_offline_access: item.allow_offline_access })
-                }))
-            };
+            return { items: items.map(mapResourceServer) };
         }
 
         const paginated = PaginatedResponseSchema.parse(response.data);
@@ -122,21 +122,7 @@ const action = createAction({
         const nextCursor = hasNextPage ? String(page + 1) : undefined;
 
         return {
-            items: paginated.resource_servers.map((item) => ({
-                id: item.id,
-                ...(item.name != null && { name: item.name }),
-                ...(item.identifier != null && { identifier: item.identifier }),
-                ...(item.is_system != null && { is_system: item.is_system }),
-                ...(item.scopes != null && {
-                    scopes: item.scopes.map((scope) => ({
-                        value: scope.value,
-                        ...(scope.description != null && { description: scope.description })
-                    }))
-                }),
-                ...(item.signing_alg != null && { signing_alg: item.signing_alg }),
-                ...(item.token_lifetime != null && { token_lifetime: item.token_lifetime }),
-                ...(item.allow_offline_access != null && { allow_offline_access: item.allow_offline_access })
-            })),
+            items: paginated.resource_servers.map(mapResourceServer),
             ...(nextCursor !== undefined && { next_cursor: nextCursor })
         };
     }

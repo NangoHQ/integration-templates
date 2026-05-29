@@ -25,7 +25,7 @@ const action = createAction({
         // https://auth0.com/docs/api/management/v2/users/delete-authenticators
         await nango.delete({
             endpoint: `/api/v2/users/${encodeURIComponent(input.userId)}/authenticators`,
-            retries: 1
+            retries: 3
         });
 
         return {

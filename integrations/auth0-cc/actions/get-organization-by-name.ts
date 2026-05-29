@@ -11,7 +11,7 @@ const ProviderOrganizationSchema = z.object({
     display_name: z.string().optional(),
     branding: z
         .object({
-            logo_url: z.string().optional(),
+            logo_url: z.string().nullable().optional(),
             colors: z.object({}).passthrough().optional()
         })
         .optional(),

@@ -30,7 +30,7 @@ const action = createAction({
             data: {
                 roles: input.role_ids
             },
-            retries: 1
+            retries: 3
         });
 
         return {

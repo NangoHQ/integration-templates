@@ -135,13 +135,6 @@ const action = createAction({
             retries: 3
         });
 
-        if (!response.data) {
-            throw new nango.ActionError({
-                type: 'not_found',
-                message: `Resource server with ID ${input.id} not found.`
-            });
-        }
-
         const providerData = ProviderResponseSchema.parse(response.data);
 
         return {

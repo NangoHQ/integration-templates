@@ -89,9 +89,13 @@ const action = createAction({
 
         if (Array.isArray(response.data)) {
             const parsed = z.array(ProviderOrganizationSchema).safeParse(response.data);
-            if (parsed.success) {
-                items = parsed.data;
+            if (!parsed.success) {
+                throw new nango.ActionError({
+                    type: 'invalid_response',
+                    message: `Unexpected organization list shape from Auth0: ${parsed.error.message}`
+                });
             }
+            items = parsed.data;
         } else if (response.data && typeof response.data === 'object') {
             const checkpointParsed = CheckpointPaginatedResponseSchema.safeParse(response.data);
             if (checkpointParsed.success) {

@@ -34,7 +34,7 @@ const action = createAction({
             data: {
                 permissions: input.permissions
             },
-            retries: 1
+            retries: 3
         });
 
         if (response.status !== 204) {

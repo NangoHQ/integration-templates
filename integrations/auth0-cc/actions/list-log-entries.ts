@@ -114,7 +114,10 @@ const action = createAction({
             if (paginatedParse.success) {
                 rawLogs = paginatedParse.data.logs;
             } else {
-                rawLogs = [];
+                throw new nango.ActionError({
+                    type: 'invalid_response',
+                    message: 'Unexpected response shape from Auth0 logs endpoint'
+                });
             }
         }
 

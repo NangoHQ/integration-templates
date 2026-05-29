@@ -58,16 +58,11 @@ const ClientSchema = z.object({
     client_metadata: z.record(z.string(), z.string()).optional()
 });
 
-const CheckpointSchema = z.object({
-    page: z.number()
-});
-
 const sync = createSync({
     description: 'Sync clients from Auth0',
     version: '1.0.0',
     frequency: 'every hour',
     autoStart: true,
-    checkpoint: CheckpointSchema,
     models: {
         Client: ClientSchema
     },
@@ -79,12 +74,10 @@ const sync = createSync({
     ],
 
     exec: async (nango) => {
-        // Auth0 GET /api/v2/clients does not support filtering by updated timestamp,
-        // cursors, or since_id. It only provides offset pagination, so this is a
-        // checkpointed full refresh that resumes from the last page on failure.
-        const checkpoint = await nango.getCheckpoint();
-        let page: number | undefined = checkpoint?.page ?? 0;
-
+        // Auth0 GET /api/v2/clients only supports offset pagination with no incremental filter.
+        // Checkpoint-based resume is incompatible with trackDeletes: resuming mid-pagination
+        // means clients from earlier pages are never seen in this run and get falsely deleted.
+        // Always enumerate from page 0 so trackDeletesEnd sees the full client set.
         await nango.trackDeletesStart('Client');
 
         const proxyConfig: ProxyConfiguration = {
@@ -93,13 +86,10 @@ const sync = createSync({
             paginate: {
                 type: 'offset',
                 offset_name_in_request: 'page',
-                offset_start_value: page ?? 0,
+                offset_start_value: 0,
                 offset_calculation_method: 'per-page',
                 limit_name_in_request: 'per_page',
-                limit: 50,
-                on_page: async ({ nextPageParam }) => {
-                    page = typeof nextPageParam === 'number' ? nextPageParam : undefined;
-                }
+                limit: 50
             },
             retries: 3
         };
@@ -143,13 +133,8 @@ const sync = createSync({
             if (clients.length > 0) {
                 await nango.batchSave(clients, 'Client');
             }
-
-            if (page !== undefined) {
-                await nango.saveCheckpoint({ page });
-            }
         }
 
-        await nango.clearCheckpoint();
         await nango.trackDeletesEnd('Client');
     }
 });

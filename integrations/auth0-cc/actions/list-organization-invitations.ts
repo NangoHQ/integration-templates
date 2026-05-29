@@ -2,7 +2,9 @@ import { z } from 'zod';
 import { createAction } from 'nango';
 
 const InputSchema = z.object({
-    organization_id: z.string().describe('Organization identifier. Example: "org_0000000000000001"')
+    organization_id: z.string().describe('Organization identifier. Example: "org_0000000000000001"'),
+    cursor: z.string().optional().describe('Pagination cursor from a previous response. Omit for the first page.'),
+    per_page: z.number().int().min(1).max(50).optional().describe('Number of results per page. Max 50.')
 });
 
 const OrganizationInvitationInviterSchema = z.object({
@@ -36,7 +38,8 @@ const PaginatedInvitationsSchema = z.object({
 });
 
 const OutputSchema = z.object({
-    invitations: z.array(OrganizationInvitationSchema)
+    invitations: z.array(OrganizationInvitationSchema),
+    next_cursor: z.string().optional()
 });
 
 const action = createAction({
@@ -52,51 +55,46 @@ const action = createAction({
     scopes: ['read:organization_invitations'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
-        const allInvitations: z.infer<typeof OrganizationInvitationSchema>[] = [];
-        let page = 0;
-        const perPage = 50;
-        let hasMore = true;
-
-        while (hasMore) {
-            // https://auth0.com/docs/api/management/v2/organizations/get-invitations
-            const response = await nango.get({
-                endpoint: `/api/v2/organizations/${encodeURIComponent(input.organization_id)}/invitations`,
-                params: {
-                    page: String(page),
-                    per_page: String(perPage)
-                },
-                retries: 3
+        const page = input.cursor ? parseInt(input.cursor, 10) : 0;
+        if (Number.isNaN(page) || page < 0) {
+            throw new nango.ActionError({
+                type: 'invalid_cursor',
+                message: 'cursor must be a non-negative integer string'
             });
+        }
+        const perPage = input.per_page ?? 50;
 
-            let invitations: z.infer<typeof OrganizationInvitationSchema>[] = [];
+        // https://auth0.com/docs/api/management/v2/organizations/get-invitations
+        const response = await nango.get({
+            endpoint: `/api/v2/organizations/${encodeURIComponent(input.organization_id)}/invitations`,
+            params: {
+                page: String(page),
+                per_page: String(perPage)
+            },
+            retries: 3
+        });
 
-            if (Array.isArray(response.data)) {
-                invitations = response.data
-                    .map((item: unknown) => {
-                        const parsed = OrganizationInvitationSchema.safeParse(item);
-                        return parsed.success ? parsed.data : null;
-                    })
-                    .filter((item): item is z.infer<typeof OrganizationInvitationSchema> => item !== null);
-            } else if (response.data && typeof response.data === 'object') {
-                const parsed = PaginatedInvitationsSchema.safeParse(response.data);
-                if (parsed.success) {
-                    invitations = parsed.data.invitations;
-                }
-            }
+        let invitations: z.infer<typeof OrganizationInvitationSchema>[] = [];
 
-            if (invitations.length === 0) {
-                hasMore = false;
-            } else {
-                allInvitations.push(...invitations);
-                page += 1;
-                if (invitations.length < perPage) {
-                    hasMore = false;
-                }
+        if (Array.isArray(response.data)) {
+            invitations = response.data
+                .map((item: unknown) => {
+                    const parsed = OrganizationInvitationSchema.safeParse(item);
+                    return parsed.success ? parsed.data : null;
+                })
+                .filter((item): item is z.infer<typeof OrganizationInvitationSchema> => item !== null);
+        } else if (response.data && typeof response.data === 'object') {
+            const parsed = PaginatedInvitationsSchema.safeParse(response.data);
+            if (parsed.success) {
+                invitations = parsed.data.invitations;
             }
         }
 
+        const nextCursor = invitations.length === perPage ? String(page + 1) : undefined;
+
         return {
-            invitations: allInvitations
+            invitations,
+            ...(nextCursor !== undefined && { next_cursor: nextCursor })
         };
     }
 });
