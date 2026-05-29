@@ -1,0 +1,120 @@
+{
+  "input": {
+    "name": "nango-test-conn-e5f6g7h8",
+    "strategy": "auth0"
+  },
+  "output": {
+    "id": "con_mQOhV2DSih8FD1xr",
+    "name": "nango-test-conn-e5f6g7h8",
+    "strategy": "auth0",
+    "realms": [
+      "nango-test-conn-e5f6g7h8"
+    ],
+    "enabled_clients": [],
+    "is_domain_connection": false,
+    "authentication": {
+      "active": true
+    },
+    "connected_accounts": {
+      "active": false
+    },
+    "options": {
+      "mfa": {
+        "active": true,
+        "return_enroll_settings": true
+      },
+      "passwordPolicy": "good",
+      "strategy_version": 2,
+      "authentication_methods": {
+        "password": {
+          "enabled": true,
+          "api_behavior": "required",
+          "signup_behavior": "allow"
+        },
+        "passkey": {
+          "enabled": false
+        }
+      },
+      "passkey_options": {
+        "challenge_ui": "both",
+        "progressive_enrollment_enabled": true,
+        "local_enrollment_enabled": true
+      },
+      "brute_force_protection": true
+    }
+  },
+  "nango": {},
+  "api": {
+    "post": {
+      "/api/v2/connections": {
+        "response": {
+          "id": "con_mQOhV2DSih8FD1xr",
+          "options": {
+            "mfa": {
+              "active": true,
+              "return_enroll_settings": true
+            },
+            "passwordPolicy": "good",
+            "strategy_version": 2,
+            "authentication_methods": {
+              "password": {
+                "enabled": true,
+                "api_behavior": "required",
+                "signup_behavior": "allow"
+              },
+              "passkey": {
+                "enabled": false
+              }
+            },
+            "passkey_options": {
+              "challenge_ui": "both",
+              "progressive_enrollment_enabled": true,
+              "local_enrollment_enabled": true
+            },
+            "brute_force_protection": true
+          },
+          "strategy": "auth0",
+          "name": "nango-test-conn-e5f6g7h8",
+          "is_domain_connection": false,
+          "authentication": {
+            "active": true
+          },
+          "connected_accounts": {
+            "active": false
+          },
+          "enabled_clients": [],
+          "realms": [
+            "nango-test-conn-e5f6g7h8"
+          ]
+        },
+        "status": 200,
+        "headers": {
+          "date": "Fri, 29 May 2026 10:18:57 GMT",
+          "content-type": "application/json; charset=utf-8",
+          "content-length": "627",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=5184000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4871",
+          "x-ratelimit-reset": "1780049955",
+          "etag": "W/\"273-rYv2D+hvo6CSt8rC1RePCLpcOu8\""
+        },
+        "hash": "3150a200a3ba16794a87ee63be2adb6bb15a185e",
+        "request": {
+          "data": {
+            "name": "nango-test-conn-e5f6g7h8",
+            "strategy": "auth0"
+          }
+        }
+      }
+    }
+  }
+}

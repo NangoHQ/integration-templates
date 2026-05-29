@@ -1,0 +1,167 @@
+{
+  "input": {},
+  "output": {
+    "items": [
+      {
+        "id": "con_cmMBOWyLiHXuLpIS",
+        "name": "google-oauth2",
+        "display_name": "Google OAuth2 Test Update",
+        "strategy": "google-oauth2",
+        "realms": [
+          "google-oauth2"
+        ],
+        "is_domain_connection": false,
+        "options": {
+          "email": true,
+          "scope": [
+            "email",
+            "profile"
+          ],
+          "profile": true
+        },
+        "authentication": {
+          "active": true
+        },
+        "connected_accounts": {
+          "active": false
+        }
+      },
+      {
+        "id": "con_jW8hSj1nXBvXVRnN",
+        "name": "Username-Password-Authentication",
+        "strategy": "auth0",
+        "realms": [
+          "Username-Password-Authentication"
+        ],
+        "is_domain_connection": false,
+        "options": {
+          "mfa": {
+            "active": true,
+            "return_enroll_settings": true
+          },
+          "passwordPolicy": "good",
+          "passkey_options": {
+            "challenge_ui": "both",
+            "local_enrollment_enabled": true,
+            "progressive_enrollment_enabled": true
+          },
+          "strategy_version": 2,
+          "authentication_methods": {
+            "passkey": {
+              "enabled": false
+            },
+            "password": {
+              "enabled": true
+            }
+          },
+          "brute_force_protection": true
+        },
+        "authentication": {
+          "active": true
+        },
+        "connected_accounts": {
+          "active": false
+        }
+      }
+    ]
+  },
+  "nango": {},
+  "api": {
+    "get": {
+      "/api/v2/connections": {
+        "response": [
+          {
+            "id": "con_cmMBOWyLiHXuLpIS",
+            "options": {
+              "email": true,
+              "scope": [
+                "email",
+                "profile"
+              ],
+              "profile": true
+            },
+            "strategy": "google-oauth2",
+            "name": "google-oauth2",
+            "is_domain_connection": false,
+            "authentication": {
+              "active": true
+            },
+            "connected_accounts": {
+              "active": false
+            },
+            "display_name": "Google OAuth2 Test Update",
+            "realms": [
+              "google-oauth2"
+            ]
+          },
+          {
+            "id": "con_jW8hSj1nXBvXVRnN",
+            "options": {
+              "mfa": {
+                "active": true,
+                "return_enroll_settings": true
+              },
+              "passwordPolicy": "good",
+              "passkey_options": {
+                "challenge_ui": "both",
+                "local_enrollment_enabled": true,
+                "progressive_enrollment_enabled": true
+              },
+              "strategy_version": 2,
+              "authentication_methods": {
+                "passkey": {
+                  "enabled": false
+                },
+                "password": {
+                  "enabled": true
+                }
+              },
+              "brute_force_protection": true
+            },
+            "strategy": "auth0",
+            "name": "Username-Password-Authentication",
+            "is_domain_connection": false,
+            "authentication": {
+              "active": true
+            },
+            "connected_accounts": {
+              "active": false
+            },
+            "realms": [
+              "Username-Password-Authentication"
+            ]
+          }
+        ],
+        "status": 200,
+        "headers": {
+          "date": "Fri, 29 May 2026 10:17:59 GMT",
+          "content-type": "application/json; charset=utf-8",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=31536000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "WWW-Authenticate,Server-Authorization",
+          "x-ratelimit-limit": "1000",
+          "x-ratelimit-remaining": "966",
+          "x-ratelimit-reset": "1780049887",
+          "cf-ray": "a034c0a1ec6f1a0b-PDX",
+          "cf-cache-status": "DYNAMIC",
+          "cache-control": "no-cache",
+          "link": "<https://dev-t7mk5a3nwodpwe5o.us.auth0.com/api/v2/connections?page=0&per_page=50>; rel=\"first\", <https://dev-t7mk5a3nwodpwe5o.us.auth0.com/api/v2/connections?page=0&per_page=50>; rel=\"last\"",
+          "server": "cloudflare",
+          "vary": "Accept-Encoding, origin",
+          "x-auth0-l": "0.031",
+          "alt-svc": "h3=\":443\"; ma=86400"
+        },
+        "hash": "1a131467f2a9c71d5950f162f37a8ad3ec02dcff",
+        "request": {}
+      }
+    }
+  }
+}
