@@ -160,16 +160,37 @@ import './asana/actions/update-tag.js';
 import './asana/actions/update-task.js';
 
 // -- Integration: ashby
+import './ashby/syncs/applications.js';
 import './ashby/syncs/candidates.js';
+import './ashby/syncs/departments.js';
+import './ashby/syncs/interviews.js';
+import './ashby/syncs/job-postings.js';
 import './ashby/syncs/jobs.js';
-import './ashby/actions/application-change-source.js';
-import './ashby/actions/application-change-stage.js';
-import './ashby/actions/application-update.js';
-import './ashby/actions/application-update-history.js';
+import './ashby/syncs/sources.js';
+import './ashby/syncs/users.js';
+import './ashby/actions/change-application-source.js';
+import './ashby/actions/change-application-stage.js';
 import './ashby/actions/create-application.js';
 import './ashby/actions/create-candidate.js';
 import './ashby/actions/create-note.js';
-import './ashby/actions/interview-stage.js';
+import './ashby/actions/get-application.js';
+import './ashby/actions/get-candidate.js';
+import './ashby/actions/get-department.js';
+import './ashby/actions/get-interview.js';
+import './ashby/actions/get-job-posting.js';
+import './ashby/actions/get-job.js';
+import './ashby/actions/get-source.js';
+import './ashby/actions/get-user.js';
+import './ashby/actions/list-applications.js';
+import './ashby/actions/list-candidates.js';
+import './ashby/actions/list-departments.js';
+import './ashby/actions/list-interviews.js';
+import './ashby/actions/list-job-postings.js';
+import './ashby/actions/list-jobs.js';
+import './ashby/actions/list-sources.js';
+import './ashby/actions/list-users.js';
+import './ashby/actions/update-application.js';
+import './ashby/actions/update-candidate.js';
 
 // -- Integration: attio
 import './attio/syncs/companies.js';
