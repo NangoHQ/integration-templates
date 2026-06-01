@@ -1,25 +1,123 @@
 {
   "input": {},
   "output": {
-    "users": [
+    "items": [
+      {
+        "id": "6NF7ZWCFBBHUXBSGZM5YXY2OSU",
+        "userName": "test@nango.dev",
+        "name": {
+          "formatted": "Test User",
+          "familyName": "User",
+          "givenName": "Test"
+        },
+        "displayName": "Test User",
+        "active": true,
+        "emails": [
+          {
+            "value": "test@nango.dev",
+            "primary": true
+          }
+        ],
+        "meta": {
+          "resourceType": "User"
+        },
+        "preferredLanguage": "en",
+        "schemas": [
+          "urn:ietf:params:scim:schemas:core:2.0:User"
+        ]
+      },
+      {
+        "id": "Z54GW3SPDZBJJPCEBMEOO2HQPE",
+        "userName": "scim-test-action@nango.dev",
+        "name": {
+          "formatted": "SCIM Test Updated",
+          "familyName": "Test Updated",
+          "givenName": "SCIM"
+        },
+        "displayName": "SCIM Test Updated",
+        "active": true,
+        "emails": [
+          {
+            "value": "scim-test-action@nango.dev",
+            "primary": true
+          }
+        ],
+        "meta": {
+          "resourceType": "User"
+        },
+        "preferredLanguage": "en",
+        "schemas": [
+          "urn:ietf:params:scim:schemas:core:2.0:User"
+        ]
+      },
+      {
+        "id": "I3CPWGZZEJESNNEPKKLGIPFQTE",
+        "userName": "tmp-delete-test@nango.dev",
+        "name": {
+          "formatted": "Tmp Delete Test",
+          "familyName": "Delete Test",
+          "givenName": "Tmp"
+        },
+        "displayName": "Tmp Delete Test",
+        "active": false,
+        "emails": [
+          {
+            "value": "tmp-delete-test@nango.dev",
+            "primary": true
+          }
+        ],
+        "meta": {
+          "resourceType": "User"
+        },
+        "preferredLanguage": "en",
+        "schemas": [
+          "urn:ietf:params:scim:schemas:core:2.0:User"
+        ]
+      },
+      {
+        "id": "TDJZWGRBQRAWTG2APQFSIY5RBY",
+        "userName": "tmp-delete-test-2@nango.dev",
+        "name": {
+          "formatted": "Tmp Delete Test 2",
+          "familyName": "Test 2",
+          "givenName": "Tmp Delete"
+        },
+        "displayName": "Tmp Delete Test 2",
+        "active": false,
+        "emails": [
+          {
+            "value": "tmp-delete-test-2@nango.dev",
+            "primary": true
+          }
+        ],
+        "meta": {
+          "resourceType": "User"
+        },
+        "preferredLanguage": "en",
+        "schemas": [
+          "urn:ietf:params:scim:schemas:core:2.0:User"
+        ]
+      },
       {
         "id": "WHIVOG5WFFDGJODAWIGRVZZU5A",
         "userName": "api@nango.dev",
         "name": {
+          "formatted": "Nango Developer",
           "familyName": "Developer",
-          "givenName": "Nango",
-          "formatted": "Nango Developer"
+          "givenName": "Nango"
         },
+        "displayName": "Nango Developer",
+        "active": true,
         "emails": [
           {
             "value": "api@nango.dev",
             "primary": true
           }
         ],
-        "active": true,
         "meta": {
           "resourceType": "User"
         },
+        "preferredLanguage": "en",
         "schemas": [
           "urn:ietf:params:scim:schemas:core:2.0:User"
         ]
@@ -28,50 +126,28 @@
         "id": "FHNN6ANJUZF3FFXYHEE6EWPHSM",
         "userName": "victor@nango.dev",
         "name": {
+          "formatted": "Victor Nango",
           "familyName": "Nango",
-          "givenName": "Victor",
-          "formatted": "Victor Nango"
+          "givenName": "Victor"
         },
+        "displayName": "Victor Nango",
+        "active": true,
         "emails": [
           {
             "value": "victor@nango.dev",
             "primary": true
           }
         ],
-        "active": true,
         "meta": {
           "resourceType": "User"
         },
-        "schemas": [
-          "urn:ietf:params:scim:schemas:core:2.0:User"
-        ]
-      },
-      {
-        "id": "6NF7ZWCFBBHUXBSGZM5YXY2OSU",
-        "userName": "test@nango.dev",
-        "name": {
-          "familyName": "User",
-          "givenName": "Test",
-          "formatted": "Test User"
-        },
-        "emails": [
-          {
-            "value": "test@nango.dev",
-            "primary": true
-          }
-        ],
-        "active": true,
-        "meta": {
-          "resourceType": "User"
-        },
+        "preferredLanguage": "en",
         "schemas": [
           "urn:ietf:params:scim:schemas:core:2.0:User"
         ]
       }
     ],
-    "total_results": 3,
-    "start_index": 1,
-    "items_per_page": 3
+    "totalResults": 6
   },
   "nango": {},
   "api": {
@@ -79,6 +155,102 @@
       "/Users": {
         "response": {
           "Resources": [
+            {
+              "active": true,
+              "displayName": "Test User",
+              "emails": [
+                {
+                  "primary": true,
+                  "value": "test@nango.dev"
+                }
+              ],
+              "id": "6NF7ZWCFBBHUXBSGZM5YXY2OSU",
+              "meta": {
+                "resourceType": "User"
+              },
+              "name": {
+                "familyName": "User",
+                "formatted": "Test User",
+                "givenName": "Test"
+              },
+              "preferredLanguage": "en",
+              "schemas": [
+                "urn:ietf:params:scim:schemas:core:2.0:User"
+              ],
+              "userName": "test@nango.dev"
+            },
+            {
+              "active": true,
+              "displayName": "SCIM Test Updated",
+              "emails": [
+                {
+                  "primary": true,
+                  "value": "scim-test-action@nango.dev"
+                }
+              ],
+              "id": "Z54GW3SPDZBJJPCEBMEOO2HQPE",
+              "meta": {
+                "resourceType": "User"
+              },
+              "name": {
+                "familyName": "Test Updated",
+                "formatted": "SCIM Test Updated",
+                "givenName": "SCIM"
+              },
+              "preferredLanguage": "en",
+              "schemas": [
+                "urn:ietf:params:scim:schemas:core:2.0:User"
+              ],
+              "userName": "scim-test-action@nango.dev"
+            },
+            {
+              "active": false,
+              "displayName": "Tmp Delete Test",
+              "emails": [
+                {
+                  "primary": true,
+                  "value": "tmp-delete-test@nango.dev"
+                }
+              ],
+              "id": "I3CPWGZZEJESNNEPKKLGIPFQTE",
+              "meta": {
+                "resourceType": "User"
+              },
+              "name": {
+                "familyName": "Delete Test",
+                "formatted": "Tmp Delete Test",
+                "givenName": "Tmp"
+              },
+              "preferredLanguage": "en",
+              "schemas": [
+                "urn:ietf:params:scim:schemas:core:2.0:User"
+              ],
+              "userName": "tmp-delete-test@nango.dev"
+            },
+            {
+              "active": false,
+              "displayName": "Tmp Delete Test 2",
+              "emails": [
+                {
+                  "primary": true,
+                  "value": "tmp-delete-test-2@nango.dev"
+                }
+              ],
+              "id": "TDJZWGRBQRAWTG2APQFSIY5RBY",
+              "meta": {
+                "resourceType": "User"
+              },
+              "name": {
+                "familyName": "Test 2",
+                "formatted": "Tmp Delete Test 2",
+                "givenName": "Tmp Delete"
+              },
+              "preferredLanguage": "en",
+              "schemas": [
+                "urn:ietf:params:scim:schemas:core:2.0:User"
+              ],
+              "userName": "tmp-delete-test-2@nango.dev"
+            },
             {
               "active": true,
               "displayName": "Nango Developer",
@@ -126,61 +298,43 @@
                 "urn:ietf:params:scim:schemas:core:2.0:User"
               ],
               "userName": "victor@nango.dev"
-            },
-            {
-              "active": true,
-              "displayName": "Test User",
-              "emails": [
-                {
-                  "primary": true,
-                  "value": "test@nango.dev"
-                }
-              ],
-              "id": "6NF7ZWCFBBHUXBSGZM5YXY2OSU",
-              "meta": {
-                "resourceType": "User"
-              },
-              "name": {
-                "familyName": "User",
-                "formatted": "Test User",
-                "givenName": "Test"
-              },
-              "preferredLanguage": "en",
-              "schemas": [
-                "urn:ietf:params:scim:schemas:core:2.0:User"
-              ],
-              "userName": "test@nango.dev"
             }
           ],
-          "itemsPerPage": 3,
+          "itemsPerPage": 6,
           "schemas": [
             "urn:ietf:params:scim:api:messages:2.0:ListResponse"
           ],
           "startIndex": 1,
-          "totalResults": 3
+          "totalResults": 6
         },
         "status": 200,
         "headers": {
-          "date": "Thu, 21 May 2026 14:17:10 GMT",
+          "date": "Fri, 22 May 2026 17:57:39 GMT",
           "content-type": "application/scim+json",
-          "content-length": "1185",
+          "transfer-encoding": "chunked",
           "connection": "keep-alive",
-          "x-xss-protection": "0",
+          "x-xss-protection": "1; mode=block",
           "x-content-type-options": "nosniff",
           "x-download-options": "noopen",
-          "x-frame-options": "SAMEORIGIN",
+          "x-frame-options": "DENY",
           "x-dns-prefetch-control": "off",
           "strict-transport-security": "max-age=5184000; includeSubDomains",
           "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
           "access-control-allow-origin": "*",
           "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
-          "x-ratelimit-limit": "5000",
-          "x-ratelimit-remaining": "4976",
-          "x-ratelimit-reset": "1779373033",
-          "etag": "W/\"4a1-4Jad/XhPgMh4vVQo+WGwGClgtn0\""
+          "x-ratelimit-limit": "1000",
+          "x-ratelimit-remaining": "998",
+          "x-ratelimit-reset": "1779472718",
+          "content-security-policy": "default-src 'none'; connect-src 'self' https:; script-src 'self'; img-src 'self' data: https://w3.org; style-src 'self'; frame-ancestors 'none'; form-action 'none'; manifest-src 'self'",
+          "referrer-policy": "no-referrer",
+          "x-robots-tag": "none"
         },
-        "hash": "730c01474338adf0f662fcb41508849916799ae7",
-        "request": {}
+        "hash": "076b65d8e1976e7ca542e22406bf03e922ac6d7f",
+        "request": {
+          "params": {
+            "startIndex": "1"
+          }
+        }
       }
     }
   }
