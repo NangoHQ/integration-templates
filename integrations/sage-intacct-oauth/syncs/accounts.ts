@@ -8,7 +8,7 @@ import { z } from 'zod';
 
 const sync = createSync({
     description: 'Fetches a list of all accounts from your sage intacct account.',
-    version: '1.0.0',
+    version: '1.1.0',
     frequency: 'every 6 hours',
     autoStart: true,
     syncType: 'full',
@@ -28,6 +28,8 @@ const sync = createSync({
     metadata: z.object({}),
 
     exec: async (nango) => {
+        await nango.trackDeletesStart('Account');
+
         const config: ProxyConfiguration = {
             // https://developer.sage.com/intacct/docs/openapi/gl/general-ledger.account/tag/Accounts/#tag/Accounts/operation/list-general-ledger-account
             endpoint: '/v1/objects/general-ledger/account',
@@ -51,7 +53,7 @@ const sync = createSync({
                 }
             }
         }
-        await nango.deleteRecordsFromPreviousExecutions('Account');
+        await nango.trackDeletesEnd('Account');
     }
 });
 

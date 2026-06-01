@@ -12,7 +12,7 @@ import { BasecampTodo, TodosMetadata } from '../models.js';
 const sync = createSync({
     description:
         'Syncs to-dos from Basecamp for the specified projects. Example of a metadata input Example: `{ projects: [ { projectId: 1234, todoSetId: 9999 }, ... ] }`',
-    version: '2.0.0',
+    version: '2.1.0',
     frequency: 'every 1 day',
     autoStart: false,
     syncType: 'full',
@@ -41,6 +41,8 @@ const sync = createSync({
         const baseUrlOverride = await validateAccountIdAndRetrieveBaseUrl(nango);
 
         const { projects } = parsed.data;
+
+        await nango.trackDeletesStart('BasecampTodo');
 
         for (const { projectId, todoSetId } of projects) {
             const listConfig: ProxyConfiguration = {
@@ -108,7 +110,7 @@ const sync = createSync({
             }
         }
 
-        await nango.deleteRecordsFromPreviousExecutions('BasecampTodo');
+        await nango.trackDeletesEnd('BasecampTodo');
     }
 });
 

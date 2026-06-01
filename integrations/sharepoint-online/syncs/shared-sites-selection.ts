@@ -5,18 +5,23 @@ import { toFile } from '../mappers/to-file.js';
 import type { ProxyConfiguration } from 'nango';
 import { FileMetadata, SharepointMetadata } from '../models.js';
 
+import { z } from 'zod';
 /**
  * Fetches data from SharePoint sites and processes list items for synchronization.
  *
  * @param nango An instance of NangoSync for handling synchronization tasks.
  * @returns Promise<void>
  */
+const CheckpointSchema = z.object({
+    updated_after: z.string()
+});
+
 const sync = createSync({
     description: 'This sync will be used to sync file metadata from SharePoint site based on the ones the user has picked.',
-    version: '3.0.0',
+    version: '3.1.0',
     frequency: 'every 1 hour',
     autoStart: false,
-    syncType: 'incremental',
+    checkpoint: CheckpointSchema,
 
     endpoints: [
         {
@@ -34,6 +39,10 @@ const sync = createSync({
     metadata: SharepointMetadata,
 
     exec: async (nango) => {
+        const rawCheckpoint = await nango.getCheckpoint();
+        const checkpoint = rawCheckpoint ? CheckpointSchema.parse(rawCheckpoint) : undefined;
+        const checkpointUpdatedAfter = checkpoint?.updated_after ? new Date(checkpoint.updated_after) : undefined;
+        const runStartedAt = new Date().toISOString();
         const metadata = await nango.getMetadata();
 
         if (!metadata || !Array.isArray(metadata.sharedSites) || metadata.sharedSites.length === 0) {
@@ -44,9 +53,11 @@ const sync = createSync({
 
         for (const [siteId, listIds] of Object.entries(siteIdToLists)) {
             for (const listId of listIds) {
-                await processListItems(nango, siteId, listId);
+                await processListItems(nango, siteId, listId, checkpointUpdatedAfter);
             }
         }
+
+        await nango.saveCheckpoint({ updated_after: runStartedAt });
     }
 });
 
@@ -93,7 +104,7 @@ async function getSiteIdToLists(nango: NangoSyncLocal, files: string[]): Promise
  * @param listId The ID of the SharePoint list containing items to sync.
  * @returns Promise<void>
  */
-async function processListItems(nango: NangoSyncLocal, siteId: string, listId: string): Promise<void> {
+async function processListItems(nango: NangoSyncLocal, siteId: string, listId: string, checkpointUpdatedAfter?: Date): Promise<void> {
     const config: ProxyConfiguration = {
         // https://learn.microsoft.com/en-us/graph/api/listitem-delta?view=graph-rest-1.0&tabs=http
         endpoint: `/v1.0/sites/${siteId}/lists/${listId}/items/delta`,
@@ -104,8 +115,7 @@ async function processListItems(nango: NangoSyncLocal, siteId: string, listId: s
             link_path_in_response_body: '@odata.nextLink',
             limit: 100
         },
-        // Include '$filter' parameter with the lastSyncDate if available
-        ...(nango.lastSyncDate ? { params: { $filter: `lastModifiedDateTime ge ${nango.lastSyncDate.toISOString()}` } } : {}),
+        ...(checkpointUpdatedAfter ? { params: { $filter: `lastModifiedDateTime ge ${checkpointUpdatedAfter.toISOString()}` } } : {}),
         retries: 10
     };
 

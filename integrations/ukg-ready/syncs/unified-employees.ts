@@ -7,12 +7,16 @@ import type { ProxyConfiguration } from 'nango';
 import { StandardEmployee } from '../models.js';
 import * as z from 'zod';
 
+const CheckpointSchema = z.object({
+    updated_after: z.string()
+});
+
 const sync = createSync({
     description: 'Fetch all employees from UKG Ready and maps them to the standard HRIS model',
-    version: '0.0.1',
+    version: '0.1.0',
     frequency: 'every hour',
     autoStart: true,
-    syncType: 'incremental',
+    checkpoint: CheckpointSchema,
 
     endpoints: [
         {
@@ -29,13 +33,19 @@ const sync = createSync({
     metadata: z.object({}),
 
     exec: async (nango) => {
+        const rawCheckpoint = await nango.getCheckpoint();
+        const checkpoint = rawCheckpoint ? CheckpointSchema.parse(rawCheckpoint) : undefined;
+        const checkpointUpdatedAfter = checkpoint?.updated_after ? new Date(checkpoint.updated_after) : undefined;
+        const runStartedAt = new Date().toISOString();
         const connection = await nango.getConnection();
 
-        if (nango.lastSyncDate) {
-            await incremental(nango, connection);
+        if (checkpointUpdatedAfter) {
+            await incremental(nango, connection, checkpointUpdatedAfter);
         } else {
             await initial(nango, connection);
         }
+
+        await nango.saveCheckpoint({ updated_after: runStartedAt });
     }
 });
 
@@ -69,16 +79,12 @@ async function initial(nango: NangoSyncLocal, connection: Record<string, any>) {
     }
 }
 
-async function incremental(nango: NangoSyncLocal, connection: Record<string, any>) {
-    if (!nango.lastSyncDate) {
-        throw new Error('Last sync date is required for incremental sync.');
-    }
-
+async function incremental(nango: NangoSyncLocal, connection: Record<string, any>, checkpointUpdatedAfter: Date) {
     const config: ProxyConfiguration = {
         // https://doc.people-doc.com/client/api/index-v2.html
         endpoint: `/ta/rest/v2/companies/${connection['connection_config']['realmId']}/employees/changed`,
         params: {
-            since: nango.lastSyncDate.toISOString()
+            since: checkpointUpdatedAfter.toISOString()
         },
         retries: 10
     };

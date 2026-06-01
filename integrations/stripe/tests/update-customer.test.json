@@ -1,0 +1,75 @@
+{
+  "input": {
+    "id": "cus_Uae6TTxHlP2hxk",
+    "name": "Updated Customer Name",
+    "email": "updated@example.com"
+  },
+  "output": {
+    "id": "cus_Uae6TTxHlP2hxk",
+    "name": "Updated Customer Name",
+    "email": "updated@example.com",
+    "created": 1779831985,
+    "metadata": {}
+  },
+  "nango": {},
+  "api": {
+    "post": {
+      "/v1/customers/cus_Uae6TTxHlP2hxk": {
+        "response": {
+          "id": "cus_Uae6TTxHlP2hxk",
+          "object": "customer",
+          "address": null,
+          "balance": -100,
+          "created": 1779831985,
+          "currency": "usd",
+          "customer_account": null,
+          "default_source": null,
+          "delinquent": false,
+          "description": null,
+          "discount": null,
+          "email": "updated@example.com",
+          "invoice_prefix": "KNM3Y4VZ",
+          "invoice_settings": {
+            "custom_fields": null,
+            "default_payment_method": "pm_1TbSoaEZpD6kXraeiNPSsDV1",
+            "footer": null,
+            "rendering_options": null
+          },
+          "livemode": false,
+          "metadata": {},
+          "name": "Updated Customer Name",
+          "next_invoice_sequence": 8,
+          "phone": null,
+          "preferred_locales": [],
+          "shipping": null,
+          "tax_exempt": "none",
+          "test_clock": null
+        },
+        "status": 200,
+        "headers": {
+          "date": "Tue, 26 May 2026 22:15:05 GMT",
+          "content-type": "application/json",
+          "content-length": "707",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=5184000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4956",
+          "x-ratelimit-reset": "1779833739",
+          "etag": "W/\"2c3-YffnW94Ag4PoI/mzI3e+dgH+e3o\""
+        },
+        "hash": "5ada28f063722f0302e8d7fd66666df1b83f2c13",
+        "request": {
+          "data": "name=Updated+Customer+Name&email=updated%40example.com"
+        }
+      }
+    }
+  }
+}

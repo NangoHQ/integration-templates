@@ -1,0 +1,506 @@
+{
+  "input": {},
+  "output": {
+    "items": [
+      {
+        "id": "ii_1TbTCyEZpD6kXraedh9rcab0",
+        "object": "invoiceitem",
+        "amount": 1000,
+        "currency": "usd",
+        "customer": "cus_Uae6TTxHlP2hxk",
+        "date": 1779833540,
+        "description": "Test invoice item",
+        "discountable": true,
+        "discounts": [],
+        "invoice": null,
+        "livemode": false,
+        "metadata": {},
+        "parent": null,
+        "period": {
+          "end": 1779833540,
+          "start": 1779833540
+        },
+        "pricing": {
+          "price_details": {
+            "price": "price_1TbTCqEZpD6kXraem18d0BIw",
+            "product": "prod_UaeVjxypbzy5zm"
+          },
+          "type": "price_details",
+          "unit_amount_decimal": "1000"
+        },
+        "proration": false,
+        "quantity": 1,
+        "quantity_decimal": "1",
+        "tax_rates": [],
+        "test_clock": null,
+        "customer_account": null
+      },
+      {
+        "id": "ii_1TbTCqEZpD6kXraeggSPYY9X",
+        "object": "invoiceitem",
+        "amount": 1000,
+        "currency": "usd",
+        "customer": "cus_Uae6TTxHlP2hxk",
+        "date": 1779833532,
+        "description": "Test invoice item",
+        "discountable": true,
+        "discounts": [],
+        "invoice": null,
+        "livemode": false,
+        "metadata": {},
+        "parent": null,
+        "period": {
+          "end": 1779833532,
+          "start": 1779833532
+        },
+        "pricing": {
+          "price_details": {
+            "price": "price_1TbTCqEZpD6kXraem18d0BIw",
+            "product": "prod_UaeVjxypbzy5zm"
+          },
+          "type": "price_details",
+          "unit_amount_decimal": "1000"
+        },
+        "proration": false,
+        "quantity": 1,
+        "quantity_decimal": "1",
+        "tax_rates": [],
+        "test_clock": null,
+        "customer_account": null
+      },
+      {
+        "id": "ii_1TbSqBEZpD6kXraeExFTvq5I",
+        "object": "invoiceitem",
+        "amount": 1200,
+        "currency": "usd",
+        "customer": "cus_Uae6TTxHlP2hxk",
+        "date": 1779832127,
+        "description": null,
+        "discountable": true,
+        "discounts": [],
+        "invoice": "in_1TbSqAEZpD6kXrae1Za2B0H7",
+        "livemode": false,
+        "metadata": {},
+        "parent": null,
+        "period": {
+          "end": 1779832127,
+          "start": 1779832127
+        },
+        "pricing": {
+          "price_details": {
+            "price": "price_1TbSqCEZpD6kXraeVaUr2Fwb",
+            "product": "prod_Uae8YscewfRxvZ"
+          },
+          "type": "price_details",
+          "unit_amount_decimal": "1200"
+        },
+        "proration": false,
+        "quantity": 1,
+        "quantity_decimal": "1",
+        "tax_rates": [],
+        "test_clock": null,
+        "customer_account": null
+      },
+      {
+        "id": "ii_1TbSq6EZpD6kXrae1n1HuAhI",
+        "object": "invoiceitem",
+        "amount": 800,
+        "currency": "usd",
+        "customer": "cus_Uae6TTxHlP2hxk",
+        "date": 1779832122,
+        "description": null,
+        "discountable": true,
+        "discounts": [],
+        "invoice": "in_1TbSq5EZpD6kXraeAJU5dQAG",
+        "livemode": false,
+        "metadata": {},
+        "parent": null,
+        "period": {
+          "end": 1779832122,
+          "start": 1779832122
+        },
+        "pricing": {
+          "price_details": {
+            "price": "price_1TbSq6EZpD6kXraeAzdRDs0D",
+            "product": "prod_Uae870DH647K7l"
+          },
+          "type": "price_details",
+          "unit_amount_decimal": "800"
+        },
+        "proration": false,
+        "quantity": 1,
+        "quantity_decimal": "1",
+        "tax_rates": [],
+        "test_clock": null,
+        "customer_account": null
+      },
+      {
+        "id": "ii_1TbSq2EZpD6kXrae2X8tf717",
+        "object": "invoiceitem",
+        "amount": 500,
+        "currency": "usd",
+        "customer": "cus_Uae6TTxHlP2hxk",
+        "date": 1779832118,
+        "description": "Updated description",
+        "discountable": true,
+        "discounts": [],
+        "invoice": "in_1TbSpyEZpD6kXrae3uL2sSEg",
+        "livemode": false,
+        "metadata": {},
+        "parent": null,
+        "period": {
+          "end": 1779832118,
+          "start": 1779832118
+        },
+        "pricing": {
+          "price_details": {
+            "price": "price_1TbSq2EZpD6kXraebB8JMSxw",
+            "product": "prod_Uae8i2ge18mOfh"
+          },
+          "type": "price_details",
+          "unit_amount_decimal": "500"
+        },
+        "proration": false,
+        "quantity": 1,
+        "quantity_decimal": "1",
+        "tax_rates": [],
+        "test_clock": null,
+        "customer_account": null
+      },
+      {
+        "id": "ii_1TbSjkEZpD6kXraeWHo30JJF",
+        "object": "invoiceitem",
+        "amount": 500,
+        "currency": "usd",
+        "customer": "cus_Uae07nJucy33Kr",
+        "date": 1779831728,
+        "description": null,
+        "discountable": true,
+        "discounts": [],
+        "invoice": "in_1TbSjiEZpD6kXraer00CsulC",
+        "livemode": false,
+        "metadata": {},
+        "parent": null,
+        "period": {
+          "end": 1779831728,
+          "start": 1779831728
+        },
+        "pricing": {
+          "price_details": {
+            "price": "price_1TbSjkEZpD6kXraeTt4iHjQn",
+            "product": "prod_Uae1ABOt8n47cS"
+          },
+          "type": "price_details",
+          "unit_amount_decimal": "500"
+        },
+        "proration": false,
+        "quantity": 1,
+        "quantity_decimal": "1",
+        "tax_rates": [],
+        "test_clock": null,
+        "customer_account": null
+      },
+      {
+        "id": "ii_1TbSjSEZpD6kXrae4XCSIHuz",
+        "object": "invoiceitem",
+        "amount": 1000,
+        "currency": "usd",
+        "customer": "cus_Uae07nJucy33Kr",
+        "date": 1779831710,
+        "description": "Test line item",
+        "discountable": true,
+        "discounts": [],
+        "invoice": "in_1TbSiZEZpD6kXraeFC3ZTK46",
+        "livemode": false,
+        "metadata": {},
+        "parent": null,
+        "period": {
+          "end": 1779831710,
+          "start": 1779831710
+        },
+        "pricing": {
+          "price_details": {
+            "price": "price_1TbSjSEZpD6kXrae1CQ22jNe",
+            "product": "prod_Uae1aUdaGQnvpR"
+          },
+          "type": "price_details",
+          "unit_amount_decimal": "1000"
+        },
+        "proration": false,
+        "quantity": 1,
+        "quantity_decimal": "1",
+        "tax_rates": [],
+        "test_clock": null,
+        "customer_account": null
+      }
+    ],
+    "has_more": false
+  },
+  "nango": {},
+  "api": {
+    "get": {
+      "/v1/invoiceitems": {
+        "response": {
+          "object": "list",
+          "data": [
+            {
+              "id": "ii_1TbTCyEZpD6kXraedh9rcab0",
+              "object": "invoiceitem",
+              "amount": 1000,
+              "currency": "usd",
+              "customer": "cus_Uae6TTxHlP2hxk",
+              "customer_account": null,
+              "date": 1779833540,
+              "description": "Test invoice item",
+              "discountable": true,
+              "discounts": [],
+              "invoice": null,
+              "livemode": false,
+              "metadata": {},
+              "parent": null,
+              "period": {
+                "end": 1779833540,
+                "start": 1779833540
+              },
+              "pricing": {
+                "price_details": {
+                  "price": "price_1TbTCqEZpD6kXraem18d0BIw",
+                  "product": "prod_UaeVjxypbzy5zm"
+                },
+                "type": "price_details",
+                "unit_amount_decimal": "1000"
+              },
+              "proration": false,
+              "quantity": 1,
+              "quantity_decimal": "1",
+              "tax_rates": [],
+              "test_clock": null
+            },
+            {
+              "id": "ii_1TbTCqEZpD6kXraeggSPYY9X",
+              "object": "invoiceitem",
+              "amount": 1000,
+              "currency": "usd",
+              "customer": "cus_Uae6TTxHlP2hxk",
+              "customer_account": null,
+              "date": 1779833532,
+              "description": "Test invoice item",
+              "discountable": true,
+              "discounts": [],
+              "invoice": null,
+              "livemode": false,
+              "metadata": {},
+              "parent": null,
+              "period": {
+                "end": 1779833532,
+                "start": 1779833532
+              },
+              "pricing": {
+                "price_details": {
+                  "price": "price_1TbTCqEZpD6kXraem18d0BIw",
+                  "product": "prod_UaeVjxypbzy5zm"
+                },
+                "type": "price_details",
+                "unit_amount_decimal": "1000"
+              },
+              "proration": false,
+              "quantity": 1,
+              "quantity_decimal": "1",
+              "tax_rates": [],
+              "test_clock": null
+            },
+            {
+              "id": "ii_1TbSqBEZpD6kXraeExFTvq5I",
+              "object": "invoiceitem",
+              "amount": 1200,
+              "currency": "usd",
+              "customer": "cus_Uae6TTxHlP2hxk",
+              "customer_account": null,
+              "date": 1779832127,
+              "description": null,
+              "discountable": true,
+              "discounts": [],
+              "invoice": "in_1TbSqAEZpD6kXrae1Za2B0H7",
+              "livemode": false,
+              "metadata": {},
+              "parent": null,
+              "period": {
+                "end": 1779832127,
+                "start": 1779832127
+              },
+              "pricing": {
+                "price_details": {
+                  "price": "price_1TbSqCEZpD6kXraeVaUr2Fwb",
+                  "product": "prod_Uae8YscewfRxvZ"
+                },
+                "type": "price_details",
+                "unit_amount_decimal": "1200"
+              },
+              "proration": false,
+              "quantity": 1,
+              "quantity_decimal": "1",
+              "tax_rates": [],
+              "test_clock": null
+            },
+            {
+              "id": "ii_1TbSq6EZpD6kXrae1n1HuAhI",
+              "object": "invoiceitem",
+              "amount": 800,
+              "currency": "usd",
+              "customer": "cus_Uae6TTxHlP2hxk",
+              "customer_account": null,
+              "date": 1779832122,
+              "description": null,
+              "discountable": true,
+              "discounts": [],
+              "invoice": "in_1TbSq5EZpD6kXraeAJU5dQAG",
+              "livemode": false,
+              "metadata": {},
+              "parent": null,
+              "period": {
+                "end": 1779832122,
+                "start": 1779832122
+              },
+              "pricing": {
+                "price_details": {
+                  "price": "price_1TbSq6EZpD6kXraeAzdRDs0D",
+                  "product": "prod_Uae870DH647K7l"
+                },
+                "type": "price_details",
+                "unit_amount_decimal": "800"
+              },
+              "proration": false,
+              "quantity": 1,
+              "quantity_decimal": "1",
+              "tax_rates": [],
+              "test_clock": null
+            },
+            {
+              "id": "ii_1TbSq2EZpD6kXrae2X8tf717",
+              "object": "invoiceitem",
+              "amount": 500,
+              "currency": "usd",
+              "customer": "cus_Uae6TTxHlP2hxk",
+              "customer_account": null,
+              "date": 1779832118,
+              "description": "Updated description",
+              "discountable": true,
+              "discounts": [],
+              "invoice": "in_1TbSpyEZpD6kXrae3uL2sSEg",
+              "livemode": false,
+              "metadata": {},
+              "parent": null,
+              "period": {
+                "end": 1779832118,
+                "start": 1779832118
+              },
+              "pricing": {
+                "price_details": {
+                  "price": "price_1TbSq2EZpD6kXraebB8JMSxw",
+                  "product": "prod_Uae8i2ge18mOfh"
+                },
+                "type": "price_details",
+                "unit_amount_decimal": "500"
+              },
+              "proration": false,
+              "quantity": 1,
+              "quantity_decimal": "1",
+              "tax_rates": [],
+              "test_clock": null
+            },
+            {
+              "id": "ii_1TbSjkEZpD6kXraeWHo30JJF",
+              "object": "invoiceitem",
+              "amount": 500,
+              "currency": "usd",
+              "customer": "cus_Uae07nJucy33Kr",
+              "customer_account": null,
+              "date": 1779831728,
+              "description": null,
+              "discountable": true,
+              "discounts": [],
+              "invoice": "in_1TbSjiEZpD6kXraer00CsulC",
+              "livemode": false,
+              "metadata": {},
+              "parent": null,
+              "period": {
+                "end": 1779831728,
+                "start": 1779831728
+              },
+              "pricing": {
+                "price_details": {
+                  "price": "price_1TbSjkEZpD6kXraeTt4iHjQn",
+                  "product": "prod_Uae1ABOt8n47cS"
+                },
+                "type": "price_details",
+                "unit_amount_decimal": "500"
+              },
+              "proration": false,
+              "quantity": 1,
+              "quantity_decimal": "1",
+              "tax_rates": [],
+              "test_clock": null
+            },
+            {
+              "id": "ii_1TbSjSEZpD6kXrae4XCSIHuz",
+              "object": "invoiceitem",
+              "amount": 1000,
+              "currency": "usd",
+              "customer": "cus_Uae07nJucy33Kr",
+              "customer_account": null,
+              "date": 1779831710,
+              "description": "Test line item",
+              "discountable": true,
+              "discounts": [],
+              "invoice": "in_1TbSiZEZpD6kXraeFC3ZTK46",
+              "livemode": false,
+              "metadata": {},
+              "parent": null,
+              "period": {
+                "end": 1779831710,
+                "start": 1779831710
+              },
+              "pricing": {
+                "price_details": {
+                  "price": "price_1TbSjSEZpD6kXrae1CQ22jNe",
+                  "product": "prod_Uae1aUdaGQnvpR"
+                },
+                "type": "price_details",
+                "unit_amount_decimal": "1000"
+              },
+              "proration": false,
+              "quantity": 1,
+              "quantity_decimal": "1",
+              "tax_rates": [],
+              "test_clock": null
+            }
+          ],
+          "has_more": false,
+          "url": "/v1/invoiceitems"
+        },
+        "status": 200,
+        "headers": {
+          "date": "Tue, 26 May 2026 22:12:55 GMT",
+          "content-type": "application/json",
+          "content-length": "6167",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=5184000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4952",
+          "x-ratelimit-reset": "1779833617",
+          "etag": "W/\"1817-aQ2Vi3Gxp4W95ZOsfzdbVNgqmas\""
+        },
+        "hash": "ddc4d55f7aaafaec3b20beaf562a70e441b041d5",
+        "request": {}
+      }
+    }
+  }
+}
