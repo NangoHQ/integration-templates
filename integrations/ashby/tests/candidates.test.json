@@ -1,0 +1,718 @@
+{
+  "nango": {
+    "getMetadata": {
+      "limit": 5,
+      "max_pages": 1
+    },
+    "batchSave": {
+      "Candidate": [
+        {
+          "id": "00000000-0000-0000-0000-000000000001",
+          "createdAt": "2024-02-04T21:38:12.442Z",
+          "updatedAt": "2026-05-28T21:08:48.983Z",
+          "name": "Test User 1",
+          "primaryEmailAddress": "user1@example.com",
+          "emailAddresses": [
+            {
+              "value": "user2@example.com",
+              "type": "Personal",
+              "isPrimary": true
+            }
+          ],
+          "primaryPhoneNumber": "+10000000001",
+          "phoneNumbers": [
+            {
+              "value": "+10000000002",
+              "type": "Personal",
+              "isPrimary": true
+            }
+          ],
+          "position": "Senior Full Stack Engineer",
+          "company": "The Mars Agency",
+          "school": "The University of Sheffield",
+          "applicationIds": [
+            "00000000-0000-0000-0000-000000000002",
+            "00000000-0000-0000-0000-000000000003"
+          ],
+          "profileUrl": "https://app.ashbyhq.com/candidate-searches/new/right-side/candidates/193024a8-7cb3-435f-8743-6f4f7433a824",
+          "tags": [],
+          "source": {
+            "id": "00000000-0000-0000-0000-000000000004",
+            "title": "Applied",
+            "isArchived": false,
+            "sourceType": {
+              "id": "00000000-0000-0000-0000-000000000005",
+              "title": "Inbound",
+              "isArchived": false
+            }
+          },
+          "customFields": []
+        },
+        {
+          "id": "00000000-0000-0000-0000-000000000006",
+          "createdAt": "2024-02-05T14:13:34.066Z",
+          "updatedAt": "2026-05-28T21:09:18.801Z",
+          "name": "Test User 2",
+          "primaryEmailAddress": "user3@example.com",
+          "emailAddresses": [
+            {
+              "value": "user4@example.com",
+              "type": "Personal",
+              "isPrimary": true
+            }
+          ],
+          "primaryPhoneNumber": "+10000000003",
+          "phoneNumbers": [
+            {
+              "value": "+10000000004",
+              "type": "Personal",
+              "isPrimary": true
+            }
+          ],
+          "position": "Senior Full Stack Developer",
+          "company": "Iron Forge Development",
+          "school": "Lublin University of Technology",
+          "applicationIds": [
+            "00000000-0000-0000-0000-000000000007",
+            "00000000-0000-0000-0000-000000000008",
+            "00000000-0000-0000-0000-000000000009"
+          ],
+          "profileUrl": "https://app.ashbyhq.com/candidate-searches/new/right-side/candidates/0f934ed0-63b7-440e-b363-11db9da0b8b4",
+          "timezone": "Europe/Warsaw",
+          "tags": [],
+          "location": {
+            "id": "00000000-0000-0000-0000-00000000000a",
+            "locationSummary": "Lublin, Lublin Voivodeship, Poland",
+            "locationComponents": [
+              {
+                "type": "Country",
+                "name": "Test User 3"
+              },
+              {
+                "type": "Region",
+                "name": "Test User 4"
+              },
+              {
+                "type": "City",
+                "name": "Test User 5"
+              }
+            ]
+          },
+          "source": {
+            "id": "00000000-0000-0000-0000-000000000004",
+            "title": "Applied",
+            "isArchived": false,
+            "sourceType": {
+              "id": "00000000-0000-0000-0000-000000000005",
+              "title": "Inbound",
+              "isArchived": false
+            }
+          },
+          "customFields": []
+        },
+        {
+          "id": "00000000-0000-0000-0000-00000000000b",
+          "createdAt": "2024-02-05T18:39:08.999Z",
+          "updatedAt": "2026-05-28T21:09:41.410Z",
+          "name": "Test User 6",
+          "primaryEmailAddress": "user5@example.com",
+          "emailAddresses": [
+            {
+              "value": "user6@example.com",
+              "type": "Personal",
+              "isPrimary": true
+            }
+          ],
+          "primaryPhoneNumber": "+10000000005",
+          "phoneNumbers": [
+            {
+              "value": "+10000000006",
+              "type": "Personal",
+              "isPrimary": true
+            }
+          ],
+          "position": "Software Engineer",
+          "company": "Bremen",
+          "school": "Caucasus University",
+          "applicationIds": [
+            "00000000-0000-0000-0000-00000000000c",
+            "00000000-0000-0000-0000-00000000000d"
+          ],
+          "profileUrl": "https://app.ashbyhq.com/candidate-searches/new/right-side/candidates/c0a774de-2aff-42d8-b6fc-56564c152bc8",
+          "timezone": "Asia/Tbilisi",
+          "tags": [],
+          "location": {
+            "id": "00000000-0000-0000-0000-00000000000e",
+            "locationSummary": "Tbilisi, Georgia",
+            "locationComponents": [
+              {
+                "type": "Country",
+                "name": "Test User 7"
+              },
+              {
+                "type": "Region",
+                "name": "Test User 8"
+              },
+              {
+                "type": "City",
+                "name": "Test User 9"
+              }
+            ]
+          },
+          "source": {
+            "id": "00000000-0000-0000-0000-000000000004",
+            "title": "Applied",
+            "isArchived": false,
+            "sourceType": {
+              "id": "00000000-0000-0000-0000-000000000005",
+              "title": "Inbound",
+              "isArchived": false
+            }
+          },
+          "customFields": []
+        },
+        {
+          "id": "00000000-0000-0000-0000-00000000000f",
+          "createdAt": "2024-02-06T06:42:42.617Z",
+          "updatedAt": "2024-02-06T09:39:23.767Z",
+          "name": "Test User 10",
+          "primaryEmailAddress": "user7@example.com",
+          "emailAddresses": [
+            {
+              "value": "user8@example.com",
+              "type": "Personal",
+              "isPrimary": true
+            }
+          ],
+          "phoneNumbers": [],
+          "applicationIds": [
+            "00000000-0000-0000-0000-000000000010"
+          ],
+          "profileUrl": "https://app.ashbyhq.com/candidate-searches/new/right-side/candidates/9da5892e-c879-4212-8cc5-4b02a0c6a35a",
+          "timezone": "Europe/Belgrade",
+          "tags": [],
+          "location": {
+            "id": "00000000-0000-0000-0000-000000000011",
+            "locationSummary": "Belgrade, Serbia",
+            "locationComponents": [
+              {
+                "type": "Country",
+                "name": "Test User 11"
+              },
+              {
+                "type": "Region",
+                "name": "Test User 12"
+              },
+              {
+                "type": "City",
+                "name": "Test User 13"
+              }
+            ]
+          },
+          "source": {
+            "id": "00000000-0000-0000-0000-000000000004",
+            "title": "Applied",
+            "isArchived": false,
+            "sourceType": {
+              "id": "00000000-0000-0000-0000-000000000005",
+              "title": "Inbound",
+              "isArchived": false
+            }
+          },
+          "customFields": []
+        },
+        {
+          "id": "00000000-0000-0000-0000-000000000012",
+          "createdAt": "2024-02-06T07:58:37.522Z",
+          "updatedAt": "2024-02-06T09:39:40.367Z",
+          "name": "Test User 14",
+          "primaryEmailAddress": "user9@example.com",
+          "emailAddresses": [
+            {
+              "value": "user10@example.com",
+              "type": "Personal",
+              "isPrimary": true
+            }
+          ],
+          "phoneNumbers": [],
+          "position": "Integrations Engineer",
+          "company": "Wingback",
+          "school": "Kiev National Linguistic University",
+          "applicationIds": [
+            "00000000-0000-0000-0000-000000000013"
+          ],
+          "profileUrl": "https://app.ashbyhq.com/candidate-searches/new/right-side/candidates/af59566a-0d54-41bf-8726-209b42c15685",
+          "timezone": "Europe/Kyiv",
+          "tags": [],
+          "location": {
+            "id": "00000000-0000-0000-0000-000000000014",
+            "locationSummary": "Kyiv, Ukraine",
+            "locationComponents": [
+              {
+                "type": "Country",
+                "name": "Test User 15"
+              },
+              {
+                "type": "Region",
+                "name": "Test User 16"
+              },
+              {
+                "type": "City",
+                "name": "Test User 17"
+              }
+            ]
+          },
+          "source": {
+            "id": "00000000-0000-0000-0000-000000000004",
+            "title": "Applied",
+            "isArchived": false,
+            "sourceType": {
+              "id": "00000000-0000-0000-0000-000000000005",
+              "title": "Inbound",
+              "isArchived": false
+            }
+          },
+          "customFields": []
+        }
+      ]
+    },
+    "batchDelete": {
+      "Candidate": []
+    }
+  },
+  "api": {
+    "post": {
+      "/candidate.list": {
+        "response": {
+          "success": true,
+          "results": [
+            {
+              "id": "00000000-0000-0000-0000-000000000001",
+              "createdAt": "2024-02-04T21:38:12.442Z",
+              "updatedAt": "2026-05-28T21:08:48.983Z",
+              "name": "Test User 1",
+              "primaryEmailAddress": {
+                "isPrimary": true,
+                "type": "Personal",
+                "value": "user1@example.com"
+              },
+              "emailAddresses": [
+                {
+                  "value": "user2@example.com",
+                  "type": "Personal",
+                  "isPrimary": true
+                }
+              ],
+              "primaryPhoneNumber": {
+                "isPrimary": true,
+                "type": "Personal",
+                "value": "+10000000001"
+              },
+              "phoneNumbers": [
+                {
+                  "value": "+10000000002",
+                  "type": "Personal",
+                  "isPrimary": true
+                }
+              ],
+              "socialLinks": [
+                {
+                  "type": "LinkedIn",
+                  "url": "https://linkedin.com/in/hasan-n-23a47274"
+                },
+                {
+                  "type": "Website",
+                  "url": "http://www.hasannaseem.com"
+                }
+              ],
+              "tags": [],
+              "position": "Senior Full Stack Engineer",
+              "company": "The Mars Agency",
+              "school": "The University of Sheffield",
+              "applicationIds": [
+                "00000000-0000-0000-0000-000000000002",
+                "00000000-0000-0000-0000-000000000003"
+              ],
+              "resumeFileHandle": {
+                "id": "00000000-0000-0000-0000-000000000015",
+                "name": "Test User 18",
+                "handle": "eyJoYW5kbGUiOnsidHlwZSI6IlJlc3VtZUZpbGUiLCJmaWxlSWQiOiJhZjhjNGVkNi00ZjgwLTQwMTAtODMyYy0yY2VkZmIxOTM1NWYiLCJvd25lcklkIjoiMTkzMDI0YTgtN2NiMy00MzVmLTg3NDMtNmY0Zjc0MzNhODI0In0sInNpZ25hdHVyZSI6Indma001V01DZlhROWttVDd5N3J3eDl5dC84b3VrQUYraHQyQ1I5Y3MvK0E9IiwidmVyc2lvbiI6IjEifQ"
+              },
+              "fileHandles": [
+                {
+                  "id": "00000000-0000-0000-0000-000000000015",
+                  "name": "Test User 18",
+                  "handle": "eyJoYW5kbGUiOnsidHlwZSI6IlJlc3VtZUZpbGUiLCJmaWxlSWQiOiJhZjhjNGVkNi00ZjgwLTQwMTAtODMyYy0yY2VkZmIxOTM1NWYiLCJvd25lcklkIjoiMTkzMDI0YTgtN2NiMy00MzVmLTg3NDMtNmY0Zjc0MzNhODI0In0sInNpZ25hdHVyZSI6Indma001V01DZlhROWttVDd5N3J3eDl5dC84b3VrQUYraHQyQ1I5Y3MvK0E9IiwidmVyc2lvbiI6IjEifQ"
+                }
+              ],
+              "customFields": [],
+              "profileUrl": "https://app.ashbyhq.com/candidate-searches/new/right-side/candidates/193024a8-7cb3-435f-8743-6f4f7433a824",
+              "source": {
+                "id": "00000000-0000-0000-0000-000000000004",
+                "title": "Applied",
+                "isArchived": false,
+                "sourceType": {
+                  "id": "00000000-0000-0000-0000-000000000005",
+                  "title": "Inbound",
+                  "isArchived": false
+                }
+              },
+              "creditedToUser": null,
+              "timezone": null,
+              "fraudStatus": null
+            },
+            {
+              "id": "00000000-0000-0000-0000-000000000006",
+              "createdAt": "2024-02-05T14:13:34.066Z",
+              "updatedAt": "2026-05-28T21:09:18.801Z",
+              "name": "Test User 2",
+              "primaryEmailAddress": {
+                "isPrimary": true,
+                "type": "Personal",
+                "value": "user3@example.com"
+              },
+              "emailAddresses": [
+                {
+                  "value": "user4@example.com",
+                  "type": "Personal",
+                  "isPrimary": true
+                }
+              ],
+              "primaryPhoneNumber": {
+                "isPrimary": true,
+                "type": "Personal",
+                "value": "+10000000003"
+              },
+              "phoneNumbers": [
+                {
+                  "value": "+10000000004",
+                  "type": "Personal",
+                  "isPrimary": true
+                }
+              ],
+              "socialLinks": [],
+              "tags": [],
+              "position": "Senior Full Stack Developer",
+              "company": "Iron Forge Development",
+              "school": "Lublin University of Technology",
+              "applicationIds": [
+                "00000000-0000-0000-0000-000000000007",
+                "00000000-0000-0000-0000-000000000008",
+                "00000000-0000-0000-0000-000000000009"
+              ],
+              "resumeFileHandle": {
+                "id": "00000000-0000-0000-0000-000000000016",
+                "name": "Test User 19",
+                "handle": "eyJoYW5kbGUiOnsidHlwZSI6IlJlc3VtZUZpbGUiLCJmaWxlSWQiOiI4ZTE2ZGZkNi00ZDk4LTQzZjItYmYyNi1kNGFmYjZlNjMzMmYiLCJvd25lcklkIjoiMGY5MzRlZDAtNjNiNy00NDBlLWIzNjMtMTFkYjlkYTBiOGI0In0sInNpZ25hdHVyZSI6ImxzYzBGcURzU0c5MnR5a2VmekFCOHZ1NFNUT1hMbDliSDhnblQrZEJJbGc9IiwidmVyc2lvbiI6IjEifQ"
+              },
+              "fileHandles": [
+                {
+                  "id": "00000000-0000-0000-0000-000000000016",
+                  "name": "Test User 19",
+                  "handle": "eyJoYW5kbGUiOnsidHlwZSI6IlJlc3VtZUZpbGUiLCJmaWxlSWQiOiI4ZTE2ZGZkNi00ZDk4LTQzZjItYmYyNi1kNGFmYjZlNjMzMmYiLCJvd25lcklkIjoiMGY5MzRlZDAtNjNiNy00NDBlLWIzNjMtMTFkYjlkYTBiOGI0In0sInNpZ25hdHVyZSI6ImxzYzBGcURzU0c5MnR5a2VmekFCOHZ1NFNUT1hMbDliSDhnblQrZEJJbGc9IiwidmVyc2lvbiI6IjEifQ"
+                }
+              ],
+              "customFields": [],
+              "profileUrl": "https://app.ashbyhq.com/candidate-searches/new/right-side/candidates/0f934ed0-63b7-440e-b363-11db9da0b8b4",
+              "source": {
+                "id": "00000000-0000-0000-0000-000000000004",
+                "title": "Applied",
+                "isArchived": false,
+                "sourceType": {
+                  "id": "00000000-0000-0000-0000-000000000005",
+                  "title": "Inbound",
+                  "isArchived": false
+                }
+              },
+              "creditedToUser": null,
+              "timezone": "Europe/Warsaw",
+              "location": {
+                "id": "00000000-0000-0000-0000-00000000000a",
+                "locationSummary": "Lublin, Lublin Voivodeship, Poland",
+                "locationComponents": [
+                  {
+                    "type": "Country",
+                    "name": "Test User 3"
+                  },
+                  {
+                    "type": "Region",
+                    "name": "Test User 4"
+                  },
+                  {
+                    "type": "City",
+                    "name": "Test User 5"
+                  }
+                ]
+              },
+              "fraudStatus": null
+            },
+            {
+              "id": "00000000-0000-0000-0000-00000000000b",
+              "createdAt": "2024-02-05T18:39:08.999Z",
+              "updatedAt": "2026-05-28T21:09:41.410Z",
+              "name": "Test User 6",
+              "primaryEmailAddress": {
+                "isPrimary": true,
+                "type": "Personal",
+                "value": "user5@example.com"
+              },
+              "emailAddresses": [
+                {
+                  "value": "user6@example.com",
+                  "type": "Personal",
+                  "isPrimary": true
+                }
+              ],
+              "primaryPhoneNumber": {
+                "isPrimary": true,
+                "type": "Personal",
+                "value": "+10000000005"
+              },
+              "phoneNumbers": [
+                {
+                  "value": "+10000000006",
+                  "type": "Personal",
+                  "isPrimary": true
+                }
+              ],
+              "socialLinks": [
+                {
+                  "type": "LinkedIn",
+                  "url": "https://www.linkedin.com/in/giorgi-ediberidze-7a3b711b8"
+                }
+              ],
+              "tags": [],
+              "position": "Software Engineer",
+              "company": "Bremen",
+              "school": "Caucasus University",
+              "applicationIds": [
+                "00000000-0000-0000-0000-00000000000c",
+                "00000000-0000-0000-0000-00000000000d"
+              ],
+              "resumeFileHandle": {
+                "id": "00000000-0000-0000-0000-000000000017",
+                "name": "Test User 23",
+                "handle": "eyJoYW5kbGUiOnsidHlwZSI6IlJlc3VtZUZpbGUiLCJmaWxlSWQiOiJjOWRkYWJkNi00MDllLTQ2YjItOTM2Ny0yOWY4ZDg2OGM0MzAiLCJvd25lcklkIjoiYzBhNzc0ZGUtMmFmZi00MmQ4LWI2ZmMtNTY1NjRjMTUyYmM4In0sInNpZ25hdHVyZSI6InBJbzRxMzVHWnliZ0J3aEFacTdjRmhPeXBZblVuYkFjZFptSTVFdm1Vcjg9IiwidmVyc2lvbiI6IjEifQ"
+              },
+              "fileHandles": [
+                {
+                  "id": "00000000-0000-0000-0000-000000000017",
+                  "name": "Test User 23",
+                  "handle": "eyJoYW5kbGUiOnsidHlwZSI6IlJlc3VtZUZpbGUiLCJmaWxlSWQiOiJjOWRkYWJkNi00MDllLTQ2YjItOTM2Ny0yOWY4ZDg2OGM0MzAiLCJvd25lcklkIjoiYzBhNzc0ZGUtMmFmZi00MmQ4LWI2ZmMtNTY1NjRjMTUyYmM4In0sInNpZ25hdHVyZSI6InBJbzRxMzVHWnliZ0J3aEFacTdjRmhPeXBZblVuYkFjZFptSTVFdm1Vcjg9IiwidmVyc2lvbiI6IjEifQ"
+                }
+              ],
+              "customFields": [],
+              "profileUrl": "https://app.ashbyhq.com/candidate-searches/new/right-side/candidates/c0a774de-2aff-42d8-b6fc-56564c152bc8",
+              "source": {
+                "id": "00000000-0000-0000-0000-000000000004",
+                "title": "Applied",
+                "isArchived": false,
+                "sourceType": {
+                  "id": "00000000-0000-0000-0000-000000000005",
+                  "title": "Inbound",
+                  "isArchived": false
+                }
+              },
+              "creditedToUser": null,
+              "timezone": "Asia/Tbilisi",
+              "location": {
+                "id": "00000000-0000-0000-0000-00000000000e",
+                "locationSummary": "Tbilisi, Georgia",
+                "locationComponents": [
+                  {
+                    "type": "Country",
+                    "name": "Test User 7"
+                  },
+                  {
+                    "type": "Region",
+                    "name": "Test User 8"
+                  },
+                  {
+                    "type": "City",
+                    "name": "Test User 9"
+                  }
+                ]
+              },
+              "fraudStatus": null
+            },
+            {
+              "id": "00000000-0000-0000-0000-00000000000f",
+              "createdAt": "2024-02-06T06:42:42.617Z",
+              "updatedAt": "2024-02-06T09:39:23.767Z",
+              "name": "Test User 10",
+              "primaryEmailAddress": {
+                "isPrimary": true,
+                "type": "Personal",
+                "value": "user7@example.com"
+              },
+              "emailAddresses": [
+                {
+                  "value": "user8@example.com",
+                  "type": "Personal",
+                  "isPrimary": true
+                }
+              ],
+              "phoneNumbers": [],
+              "socialLinks": [
+                {
+                  "type": "LinkedIn",
+                  "url": "https://www.linkedin.com/in/pavlestrainovic"
+                }
+              ],
+              "tags": [],
+              "applicationIds": [
+                "00000000-0000-0000-0000-000000000010"
+              ],
+              "fileHandles": [],
+              "customFields": [],
+              "profileUrl": "https://app.ashbyhq.com/candidate-searches/new/right-side/candidates/9da5892e-c879-4212-8cc5-4b02a0c6a35a",
+              "source": {
+                "id": "00000000-0000-0000-0000-000000000004",
+                "title": "Applied",
+                "isArchived": false,
+                "sourceType": {
+                  "id": "00000000-0000-0000-0000-000000000005",
+                  "title": "Inbound",
+                  "isArchived": false
+                }
+              },
+              "creditedToUser": null,
+              "timezone": "Europe/Belgrade",
+              "location": {
+                "id": "00000000-0000-0000-0000-000000000011",
+                "locationSummary": "Belgrade, Serbia",
+                "locationComponents": [
+                  {
+                    "type": "Country",
+                    "name": "Test User 11"
+                  },
+                  {
+                    "type": "Region",
+                    "name": "Test User 12"
+                  },
+                  {
+                    "type": "City",
+                    "name": "Test User 13"
+                  }
+                ]
+              },
+              "fraudStatus": null
+            },
+            {
+              "id": "00000000-0000-0000-0000-000000000012",
+              "createdAt": "2024-02-06T07:58:37.522Z",
+              "updatedAt": "2024-02-06T09:39:40.367Z",
+              "name": "Test User 14",
+              "primaryEmailAddress": {
+                "isPrimary": true,
+                "type": "Personal",
+                "value": "user9@example.com"
+              },
+              "emailAddresses": [
+                {
+                  "value": "user10@example.com",
+                  "type": "Personal",
+                  "isPrimary": true
+                }
+              ],
+              "phoneNumbers": [],
+              "socialLinks": [
+                {
+                  "type": "LinkedIn",
+                  "url": "https://linkedin.com/in/muliar-oleksandr"
+                }
+              ],
+              "tags": [],
+              "position": "Integrations Engineer",
+              "company": "Wingback",
+              "school": "Kiev National Linguistic University",
+              "applicationIds": [
+                "00000000-0000-0000-0000-000000000013"
+              ],
+              "resumeFileHandle": {
+                "id": "00000000-0000-0000-0000-000000000018",
+                "name": "Test User 30",
+                "handle": "eyJoYW5kbGUiOnsidHlwZSI6IlJlc3VtZUZpbGUiLCJmaWxlSWQiOiJhN2NkMDJiMy1mMGVjLTRmNDYtYjExMC00OTVmMTY1MTI1YTUiLCJvd25lcklkIjoiYWY1OTU2NmEtMGQ1NC00MWJmLTg3MjYtMjA5YjQyYzE1Njg1In0sInNpZ25hdHVyZSI6IjJDZzdEM0l5R2UrMnJsNU9iSnBaa2lqUnJuZjFqZ3YvZk5ESkRnRVk4KzA9IiwidmVyc2lvbiI6IjEifQ"
+              },
+              "fileHandles": [
+                {
+                  "id": "00000000-0000-0000-0000-000000000018",
+                  "name": "Test User 30",
+                  "handle": "eyJoYW5kbGUiOnsidHlwZSI6IlJlc3VtZUZpbGUiLCJmaWxlSWQiOiJhN2NkMDJiMy1mMGVjLTRmNDYtYjExMC00OTVmMTY1MTI1YTUiLCJvd25lcklkIjoiYWY1OTU2NmEtMGQ1NC00MWJmLTg3MjYtMjA5YjQyYzE1Njg1In0sInNpZ25hdHVyZSI6IjJDZzdEM0l5R2UrMnJsNU9iSnBaa2lqUnJuZjFqZ3YvZk5ESkRnRVk4KzA9IiwidmVyc2lvbiI6IjEifQ"
+                }
+              ],
+              "customFields": [],
+              "profileUrl": "https://app.ashbyhq.com/candidate-searches/new/right-side/candidates/af59566a-0d54-41bf-8726-209b42c15685",
+              "source": {
+                "id": "00000000-0000-0000-0000-000000000004",
+                "title": "Applied",
+                "isArchived": false,
+                "sourceType": {
+                  "id": "00000000-0000-0000-0000-000000000005",
+                  "title": "Inbound",
+                  "isArchived": false
+                }
+              },
+              "creditedToUser": null,
+              "timezone": "Europe/Kyiv",
+              "location": {
+                "id": "00000000-0000-0000-0000-000000000014",
+                "locationSummary": "Kyiv, Ukraine",
+                "locationComponents": [
+                  {
+                    "type": "Country",
+                    "name": "Test User 15"
+                  },
+                  {
+                    "type": "Region",
+                    "name": "Test User 16"
+                  },
+                  {
+                    "type": "City",
+                    "name": "Test User 17"
+                  }
+                ]
+              },
+              "fraudStatus": null
+            }
+          ],
+          "moreDataAvailable": true,
+          "nextCursor": "bB"
+        },
+        "status": 200,
+        "headers": {
+          "date": "Thu, 28 May 2026 21:45:43 GMT",
+          "content-type": "application/json; charset=utf-8",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "DENY",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=31536000; includeSubDomains; preload",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "1000",
+          "x-ratelimit-remaining": "994",
+          "x-ratelimit-reset": "+10000000010",
+          "x-ashby-request-id": "01KSR8SR8GEECCGY5PWKKEG4PP",
+          "referrer-policy": "same-origin",
+          "ashby-session-expiry-alert-level": "",
+          "vary": "Origin",
+          "cf-cache-status": "DYNAMIC",
+          "server": "cloudflare",
+          "cf-ray": "a03072a11f11efde-PDX",
+          "alt-svc": "h3=\":443\"; ma=86400"
+        },
+        "hash": "f5d92d47f9e2dbebd90fdb72f04aaace8b4efa8d",
+        "request": {
+          "data": {
+            "limit": 5
+          }
+        }
+      }
+    }
+  }
+}
