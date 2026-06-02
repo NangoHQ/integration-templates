@@ -65,7 +65,43 @@ import './airtable/actions/upload-attachment.js';
 import './airtable/actions/upsert-records.js';
 
 // -- Integration: algolia
-import './algolia/actions/create-contacts.js';
+import './algolia/syncs/api-keys.js';
+import './algolia/syncs/indices.js';
+import './algolia/syncs/objects.js';
+import './algolia/syncs/rules.js';
+import './algolia/syncs/synonyms.js';
+import './algolia/actions/batch-objects.js';
+import './algolia/actions/copy-index.js';
+import './algolia/actions/create-api-key.js';
+import './algolia/actions/create-object.js';
+import './algolia/actions/create-rule.js';
+import './algolia/actions/create-synonym.js';
+import './algolia/actions/delete-api-key.js';
+import './algolia/actions/delete-index.js';
+import './algolia/actions/delete-object.js';
+import './algolia/actions/delete-rule.js';
+import './algolia/actions/delete-synonym.js';
+import './algolia/actions/get-api-key.js';
+import './algolia/actions/get-index.js';
+import './algolia/actions/get-logs.js';
+import './algolia/actions/get-object.js';
+import './algolia/actions/get-rule.js';
+import './algolia/actions/get-settings.js';
+import './algolia/actions/get-synonym.js';
+import './algolia/actions/list-api-keys.js';
+import './algolia/actions/list-indices.js';
+import './algolia/actions/list-objects.js';
+import './algolia/actions/list-rules.js';
+import './algolia/actions/list-synonyms.js';
+import './algolia/actions/move-index.js';
+import './algolia/actions/partial-update-object.js';
+import './algolia/actions/search-index.js';
+import './algolia/actions/search-multiple-indices.js';
+import './algolia/actions/set-settings.js';
+import './algolia/actions/update-api-key.js';
+import './algolia/actions/update-object.js';
+import './algolia/actions/update-rule.js';
+import './algolia/actions/update-synonym.js';
 
 // -- Integration: anrok
 import './anrok/actions/create-ephemeral-transaction.js';

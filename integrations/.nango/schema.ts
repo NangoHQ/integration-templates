@@ -1689,16 +1689,1120 @@ export interface ActionOutput_airtable_upsertrecords {
   createdRecords: string[];
 };
 
-export interface ActionInput_algolia_createcontacts {
-  name: string;
-  company: string;
-  email: string;
+export interface ApiKey {
+  id: string;
+  value: string;
+  createdAt: number;
+  acl: string[];
+  description?: string | undefined;
+  indexes?: string[] | undefined;
+  maxHitsPerQuery?: number | undefined;
+  maxQueriesPerIPPerHour?: number | undefined;
+  queryParameters?: string | undefined;
+  referers?: string[] | undefined;
+  validity?: number | undefined;
 };
 
-export interface ActionOutput_algolia_createcontacts {
-  createdAt: Date;
-  taskID: number;
+export interface Index {
+  id: string;
+  name: string;
+  createdAt?: string | undefined;
+  updatedAt?: string | undefined;
+  entries?: number | undefined;
+  dataSize?: number | undefined;
+  fileSize?: number | undefined;
+  lastBuildTimeS?: number | undefined;
+  numberOfPendingTasks?: number | undefined;
+  pendingTask?: boolean | undefined;
+};
+
+export interface Object {
+  id: string;
+};
+
+export interface SyncMetadata_algolia_objects {
+  indexName: string;
+};
+
+export interface Rule {
+  id: string;
   objectID: string;
+  conditions?: ({  [key: string]: unknown | undefined;})[];
+  consequence?: {  [key: string]: unknown | undefined;};
+  description?: string | undefined;
+  enabled?: boolean | undefined;
+  validity?: ({  [key: string]: unknown | undefined;})[];
+};
+
+export interface SyncMetadata_algolia_rules {
+  indexName: string;
+};
+
+export interface Synonym {
+  id: string;
+  objectID: string;
+  type: string;
+  corrections?: string[] | undefined;
+  input?: string | undefined;
+  placeholder?: string | undefined;
+  replacements?: string[] | undefined;
+  synonyms?: string[] | undefined;
+  word?: string | undefined;
+};
+
+export interface SyncMetadata_algolia_synonyms {
+  indexName: string;
+};
+
+export interface ActionInput_algolia_batchobjects {
+  /**
+   * Name of the Algolia index. Example: "algolia_movie_sample_dataset"
+   */
+  indexName: string;
+  /**
+   * Batch operations to perform on the index.
+   */
+  requests: ({  action: 'addObject' | 'updateObject' | 'partialUpdateObject' | 'partialUpdateObjectNoCreate' | 'deleteObject' | 'delete' | 'clear';
+  body: {  [key: string]: unknown | undefined;};})[];
+};
+
+export interface ActionOutput_algolia_batchobjects {
+  taskID: number;
+  objectIDs: string[];
+};
+
+export interface ActionInput_algolia_copyindex {
+  /**
+   * Name of the source index to copy. Example: "algolia_movie_sample_dataset"
+   */
+  sourceIndexName: string;
+  /**
+   * Name of the destination index. Example: "nango_test_copy_index_destination"
+   */
+  destinationIndexName: string;
+  /**
+   * Optional array of scopes to copy. If omitted, the entire index is copied.
+   */
+  scope?: ({  0: 'settings';
+  1: 'synonyms';
+  2: 'rules';})[] | undefined;
+};
+
+export interface ActionOutput_algolia_copyindex {
+  /**
+   * The Algolia task ID for the copy operation
+   */
+  taskID: number;
+  /**
+   * ISO 8601 timestamp of when the operation was performed
+   */
+  updatedAt: string;
+};
+
+export interface ActionInput_algolia_createapikey {
+  /**
+   * Permissions that determine the type of API requests this key can make. Example: ["search", "addObject"]
+   */
+  acl: string[];
+  /**
+   * Description of an API key to help you identify this API key. Example: "Used for indexing by the CLI"
+   */
+  description?: string | undefined;
+  /**
+   * Index names or patterns that this API key can access. Example: ["dev_*", "prod_en_products"]
+   */
+  indexes?: string[] | undefined;
+  /**
+   * Maximum number of results this API key can retrieve in one query.
+   */
+  maxHitsPerQuery?: number | undefined;
+  /**
+   * Maximum number of API requests allowed per IP address or user token per hour.
+   */
+  maxQueriesPerIPPerHour?: number | undefined;
+  /**
+   * Query parameters to add when making API requests with this API key. Example: "typoTolerance=strict&restrictSources=192.168.1.0/24"
+   */
+  queryParameters?: string | undefined;
+  /**
+   * Allowed HTTP referrers for this API key. Example: ["*algolia.com*"]
+   */
+  referers?: string[] | undefined;
+  /**
+   * Duration (in seconds) after which the API key expires. Example: 86400
+   */
+  validity?: number | undefined;
+};
+
+export interface ActionOutput_algolia_createapikey {
+  /**
+   * The newly created API key. Example: 13ad45b4d0a2f6ea65ecbddf6aa260f2
+   */
+  key: string;
+  /**
+   * Date and time when the API key was created, in RFC 3339 format. Example: 2023-07-04T12:49:15Z
+   */
+  createdAt: string;
+};
+
+export interface ActionInput_algolia_createobject {
+  /**
+   * Name of the Algolia index. Example: "algolia_movie_sample_dataset"
+   */
+  indexName: string;
+  /**
+   * The record to add. A schemaless object with attributes that are useful in the context of search and discovery.
+   */
+  object: {};
+  /**
+   * Optional object ID. If provided, the record is added or replaced at this ID instead of auto-generating one.
+   */
+  objectID?: string | undefined;
+};
+
+export interface ActionOutput_algolia_createobject {
+  objectID: string;
+  taskID: number;
+  createdAt?: string | undefined;
+  updatedAt?: string | undefined;
+};
+
+export interface ActionInput_algolia_createrule {
+  /**
+   * Name of the Algolia index. Example: "algolia_movie_sample_dataset"
+   */
+  indexName: string;
+  /**
+   * Unique identifier for the rule. Example: "nango-test-rule-create"
+   */
+  objectID: string;
+  /**
+   * Conditions that trigger the rule.
+   */
+  conditions: ({  /**
+   * Query pattern that triggers the rule. Example: "smartphone"
+   */
+  pattern: string;
+  /**
+   * Which part of the search query the pattern should match. Example: "contains"
+   */
+  anchoring: string;
+  /**
+   * Whether the pattern should match plurals, synonyms, and typos.
+   */
+  alternatives?: boolean | undefined;
+  /**
+   * An additional restriction that only triggers the rule when the search has the same ruleContexts value.
+   */
+  context?: string | undefined;
+  /**
+   * Filters that trigger the rule. Example: "genre:comedy"
+   */
+  filters?: string | undefined;})[];
+  /**
+   * Effect of the rule.
+   */
+  consequence: {  /**
+   * Parameters to apply to this search.
+   */
+  params?: {  [key: string]: unknown | undefined;};
+  /**
+   * Records to pin to a specific position in the search results.
+   */
+  promote?: ({  [key: string]: unknown | undefined;})[];
+  /**
+   * Whether promoted records must also match active filters.
+   */
+  filterPromotes?: boolean | undefined;
+  /**
+   * Records to hide from the search results.
+   */
+  hide?: ({  [key: string]: unknown | undefined;})[];
+  /**
+   * Redirect to a virtual replica index.
+   */
+  redirect?: {  [key: string]: unknown | undefined;};
+  /**
+   * Custom data appended to the userData array in the response.
+   */
+  userData?: {  [key: string]: unknown | undefined;};};
+  /**
+   * Description of the rule.
+   */
+  description?: string | undefined;
+  /**
+   * Whether the rule is active.
+   */
+  enabled?: boolean | undefined;
+  /**
+   * Time periods when the rule is active.
+   */
+  validity?: ({  /**
+   * Timestamp when the rule should start to be active, measured in seconds since the Unix epoch.
+   */
+  from: number;
+  /**
+   * Timestamp when the rule should stop to be active, measured in seconds since the Unix epoch.
+   */
+  until: number;})[] | undefined;
+  /**
+   * Tags for the rule.
+   */
+  tags?: string[] | undefined;
+  /**
+   * Scope of the rule.
+   */
+  scope?: string | undefined;
+};
+
+export interface ActionOutput_algolia_createrule {
+  taskID: number;
+  updatedAt: string;
+};
+
+export interface ActionInput_algolia_createsynonym {
+  0: {  /**
+   * Algolia index name. Example: "algolia_movie_sample_dataset"
+   */
+  indexName: string;
+  /**
+   * Unique identifier for the synonym. Example: "nango-test-syn-create-1"
+   */
+  objectID: string;
+  type: 'synonym';
+  /**
+   * Equivalent terms. Example: ["tv", "television"]
+   */
+  synonyms: string[];};
+  1: {  /**
+   * Algolia index name. Example: "algolia_movie_sample_dataset"
+   */
+  indexName: string;
+  /**
+   * Unique identifier for the synonym. Example: "nango-test-syn-create-1"
+   */
+  objectID: string;
+  type: 'oneWaySynonym';
+  /**
+   * Input term. Example: "iphone"
+   */
+  input: string;
+  /**
+   * One-way synonym targets. Example: ["apple phone", "smartphone"]
+   */
+  synonyms: string[];};
+  2: {  /**
+   * Algolia index name. Example: "algolia_movie_sample_dataset"
+   */
+  indexName: string;
+  /**
+   * Unique identifier for the synonym. Example: "nango-test-syn-create-1"
+   */
+  objectID: string;
+  type: 'altCorrection1';
+  /**
+   * Word to correct. Example: "abdomen"
+   */
+  word: string;
+  /**
+   * Corrections. Example: ["stomach", "belly"]
+   */
+  corrections: string[];};
+  3: {  /**
+   * Algolia index name. Example: "algolia_movie_sample_dataset"
+   */
+  indexName: string;
+  /**
+   * Unique identifier for the synonym. Example: "nango-test-syn-create-1"
+   */
+  objectID: string;
+  type: 'altCorrection2';
+  /**
+   * Word to correct. Example: "abdomen"
+   */
+  word: string;
+  /**
+   * Corrections. Example: ["stomach", "belly"]
+   */
+  corrections: string[];};
+  4: {  /**
+   * Algolia index name. Example: "algolia_movie_sample_dataset"
+   */
+  indexName: string;
+  /**
+   * Unique identifier for the synonym. Example: "nango-test-syn-create-1"
+   */
+  objectID: string;
+  type: 'placeholder';
+  /**
+   * Placeholder token. Example: "<BRAND>"
+   */
+  placeholder: string;
+  /**
+   * Replacement words. Example: ["Apple", "Samsung"]
+   */
+  replacements: string[];};
+};
+
+export interface ActionOutput_algolia_createsynonym {
+  id?: string | undefined;
+  taskID: number;
+  updatedAt?: string | undefined;
+};
+
+export interface ActionInput_algolia_deleteapikey {
+  /**
+   * API key to delete. Example: "0f610218198809c8a7ed8c2fd8867183"
+   */
+  key: string;
+};
+
+export interface ActionOutput_algolia_deleteapikey {
+  /**
+   * Date and time when the key was deleted, in RFC 3339 format.
+   */
+  deletedAt: string;
+};
+
+export interface ActionInput_algolia_deleteindex {
+  /**
+   * Name of the Algolia index to delete. Example: "my-index"
+   */
+  indexName: string;
+};
+
+export interface ActionOutput_algolia_deleteindex {
+  taskID: number;
+  deletedAt: string;
+};
+
+export interface ActionInput_algolia_deleteobject {
+  /**
+   * Name of the Algolia index. Example: "algolia_movie_sample_dataset"
+   */
+  indexName: string;
+  /**
+   * ID of the object to delete. Example: "nango-test-obj-delete-1"
+   */
+  objectID: string;
+};
+
+export interface ActionOutput_algolia_deleteobject {
+  /**
+   * Algolia task ID for the deletion operation.
+   */
+  taskID: number;
+  /**
+   * ISO 8601 timestamp when the object was deleted.
+   */
+  deletedAt: string;
+};
+
+export interface ActionInput_algolia_deleterule {
+  /**
+   * Name of the Algolia index. Example: "algolia_movie_sample_dataset"
+   */
+  index_name: string;
+  /**
+   * Object ID of the query rule to delete. Example: "nango-test-rule-update-1"
+   */
+  object_id: string;
+};
+
+export interface ActionOutput_algolia_deleterule {
+  success: boolean;
+  object_id: string;
+  task_id?: number | undefined;
+  updated_at?: string | undefined;
+};
+
+export interface ActionInput_algolia_deletesynonym {
+  /**
+   * Algolia index name. Example: "algolia_movie_sample_dataset"
+   */
+  indexName: string;
+  /**
+   * Synonym object ID. Example: "nango-test-syn-delete-1"
+   */
+  objectID: string;
+};
+
+export interface ActionOutput_algolia_deletesynonym {
+  taskID: number;
+  deletedAt?: string | undefined;
+};
+
+export interface ActionInput_algolia_getapikey {
+  /**
+   * Algolia API key to retrieve. Example: "59d374984024673eb90738474aa4e9c2"
+   */
+  key: string;
+};
+
+export interface ActionOutput_algolia_getapikey {
+  value: string;
+  createdAt?: number | undefined;
+  acl?: string[] | undefined;
+  description?: string | undefined;
+  indexes?: string[] | undefined;
+  maxHitsPerQuery?: number | undefined;
+  maxQueriesPerIPPerHour?: number | undefined;
+  queryParameters?: string | undefined;
+  referers?: string[] | undefined;
+  validity?: number | undefined;
+};
+
+export interface ActionInput_algolia_getindex {
+  /**
+   * Name of the Algolia index to retrieve. Example: "algolia_movie_sample_dataset"
+   */
+  indexName: string;
+};
+
+export interface ActionOutput_algolia_getindex {
+  name: string;
+  createdAt?: string | undefined;
+  updatedAt?: string | undefined;
+  entries?: number | undefined;
+  dataSize?: number | undefined;
+  fileSize?: number | undefined;
+  lastBuildTimeS?: number | undefined;
+  numberOfPendingTasks?: number | undefined;
+  pendingTask?: boolean | undefined;
+};
+
+export interface ActionInput_algolia_getlogs {
+  /**
+   * Index name to filter logs. Example: "algolia_movie_sample_dataset"
+   */
+  indexName?: string | undefined;
+  /**
+   * Log type filter. Example: "all"
+   */
+  type?: 'all' | 'query' | 'build' | 'error' | undefined;
+  /**
+   * Offset for pagination. Example: 0
+   */
+  offset?: number | undefined;
+  /**
+   * Number of logs to retrieve (max 1000). Example: 10
+   */
+  length?: number | undefined;
+};
+
+export interface ActionOutput_algolia_getlogs {
+  logs: ({  timestamp?: string | undefined;
+  method?: string | undefined;
+  answer_code?: string | undefined;
+  query_body?: string | undefined;
+  answer?: string | undefined;
+  url?: string | undefined;
+  ip?: string | undefined;
+  query_headers?: string | undefined;
+  sha1?: string | undefined;
+  nb_api_calls?: string | number | undefined;
+  processing_time_ms?: string | number | undefined;
+  index?: string | undefined;
+  query_params?: string | undefined;
+  query_nb_hits?: string | number | undefined;
+  inner_queries?: ({})[] | undefined;})[];
+};
+
+export interface ActionInput_algolia_getobject {
+  /**
+   * Name of the Algolia index. Example: "algolia_movie_sample_dataset"
+   */
+  index_name: string;
+  /**
+   * Unique record identifier. Example: "nango-test-obj-get"
+   */
+  object_id: string;
+};
+
+/**
+ * The requested Algolia record.
+ */
+export interface ActionOutput_algolia_getobject {
+  /**
+   * Unique record identifier.
+   */
+  objectID: string;
+};
+
+export interface ActionInput_algolia_getrule {
+  /**
+   * Algolia index name. Example: "algolia_movie_sample_dataset"
+   */
+  indexName: string;
+  /**
+   * Unique identifier of the rule. Example: "nango-test-rule-get"
+   */
+  objectID: string;
+};
+
+export interface ActionOutput_algolia_getrule {
+  objectID: string;
+  conditions?: ({  pattern?: string | undefined;
+  anchoring?: string | undefined;
+  alternatives?: boolean | undefined;
+  context?: string | undefined;
+  filters?: string | undefined;})[];
+  consequence: {  params?: {} | undefined;
+  promote?: ({})[] | undefined;
+  filterPromotes?: boolean | undefined;
+  hide?: ({  objectID: string;})[] | undefined;
+  redirect?: {  indexName: string;} | undefined;
+  userData?: {} | undefined;};
+  description?: string | undefined;
+  enabled?: boolean | undefined;
+  validity?: ({  from?: number | undefined;
+  until?: number | undefined;})[];
+  tags?: string[] | undefined;
+  scope?: string | undefined;
+  condition?: {  pattern?: string | undefined;
+  anchoring?: string | undefined;
+  alternatives?: boolean | undefined;
+  context?: string | undefined;
+  filters?: string | undefined;};
+};
+
+export interface ActionInput_algolia_getsettings {
+  /**
+   * Algolia index name. Example: "algolia_movie_sample_dataset"
+   */
+  indexName: string;
+};
+
+export interface ActionOutput_algolia_getsettings {
+};
+
+export interface ActionInput_algolia_getsynonym {
+  /**
+   * Name of the Algolia index. Example: "algolia_movie_sample_dataset"
+   */
+  indexName: string;
+  /**
+   * Unique identifier of the synonym object. Example: "nango-test-syn-get"
+   */
+  objectID: string;
+};
+
+export interface ActionOutput_algolia_getsynonym {
+  objectID: string;
+  type: 'synonym' | 'onewaysynonym' | 'altcorrection1' | 'altcorrection2' | 'placeholder' | 'oneWaySynonym' | 'altCorrection1' | 'altCorrection2';
+  synonyms?: string[] | undefined;
+  input?: string | undefined;
+  word?: string | undefined;
+  corrections?: string[] | undefined;
+  placeholder?: string | undefined;
+  replacements?: string[] | undefined;
+};
+
+export interface ActionInput_algolia_listapikeys {
+};
+
+export interface ActionOutput_algolia_listapikeys {
+  keys: ({  value: string;
+  createdAt: number;
+  acl: string[];
+  description?: string | undefined;
+  indexes?: string[] | undefined;
+  maxHitsPerQuery?: number | undefined;
+  maxQueriesPerIPPerHour?: number | undefined;
+  queryParameters?: string | undefined;
+  referers?: string[] | undefined;
+  validity?: number | undefined;})[];
+};
+
+export interface ActionInput_algolia_listindices {
+  /**
+   * Pagination cursor from the previous response. Omit for the first page.
+   */
+  cursor?: string | undefined;
+  /**
+   * Number of indices to return per page.
+   */
+  hitsPerPage?: number | undefined;
+};
+
+export interface ActionOutput_algolia_listindices {
+  items: ({  name: string;
+  createdAt: string;
+  updatedAt: string;
+  entries: number;
+  dataSize: number;
+  fileSize: number;
+  lastBuildTimeS: number;
+  numberOfPendingTasks: number;
+  pendingTask: boolean;
+  primary?: string | undefined;
+  replicas?: string[] | undefined;
+  virtual?: boolean | undefined;})[];
+  nextCursor?: string | undefined;
+};
+
+export interface ActionInput_algolia_listobjects {
+  /**
+   * Name of the Algolia index to browse. Example: "algolia_movie_sample_dataset"
+   */
+  indexName: string;
+  /**
+   * Pagination cursor from the previous response. Omit for the first page.
+   */
+  cursor?: string | undefined;
+  /**
+   * Search query string. Example: "star wars"
+   */
+  query?: string | undefined;
+  /**
+   * Browse filters. Example: "genre:Action"
+   */
+  filters?: string | undefined;
+  /**
+   * Number of objects to retrieve per page. Default: 1000. Maximum: 1000.
+   */
+  hitsPerPage?: number | undefined;
+};
+
+export interface ActionOutput_algolia_listobjects {
+  hits: ({  [key: string]: unknown | undefined;})[];
+  nbHits?: number | undefined;
+  page?: number | undefined;
+  nbPages?: number | undefined;
+  hitsPerPage?: number | undefined;
+  processingTimeMS?: number | undefined;
+  query?: string | undefined;
+  params?: string | undefined;
+  nextCursor?: string | undefined;
+};
+
+export interface ActionInput_algolia_listrules {
+  /**
+   * Algolia index name. Example: "algolia_movie_sample_dataset"
+   */
+  indexName: string;
+  /**
+   * Optional text query to filter rules.
+   */
+  query?: string | undefined;
+  /**
+   * Pagination cursor (page number) from the previous response. Omit for the first page.
+   */
+  cursor?: string | undefined;
+  /**
+   * Number of rules per page.
+   */
+  hitsPerPage?: number | undefined;
+};
+
+export interface ActionOutput_algolia_listrules {
+  hits: ({  objectID: string;
+  description?: string | undefined;
+  enabled?: boolean | undefined;})[];
+  nbHits?: number | undefined;
+  page?: number | undefined;
+  nbPages?: number | undefined;
+  hitsPerPage?: number | undefined;
+  /**
+   * Cursor for the next page. Omit if there are no more pages.
+   */
+  nextPage?: string | undefined;
+};
+
+export interface ActionInput_algolia_listsynonyms {
+  /**
+   * Algolia index name. Example: "algolia_movie_sample_dataset"
+   */
+  indexName: string;
+  /**
+   * Optional search query for filtering synonyms.
+   */
+  query?: string | undefined;
+  /**
+   * Number of synonyms to return per page. Default: 20
+   */
+  hitsPerPage?: number | undefined;
+  /**
+   * Pagination cursor (page number). Omit for the first page.
+   */
+  cursor?: string | undefined;
+};
+
+export interface ActionOutput_algolia_listsynonyms {
+  synonyms: ({  objectID: string;
+  type: string;
+  synonyms?: string[] | undefined;
+  input?: string | undefined;
+  word?: string | undefined;
+  corrections?: string[] | undefined;
+  placeholder?: string | undefined;
+  replacements?: string[] | undefined;})[];
+  nbHits: number;
+  nextPage?: string | undefined;
+};
+
+export interface ActionInput_algolia_moveindex {
+  /**
+   * Name of the source index to move. Example: "my-source-index"
+   */
+  indexName: string;
+  /**
+   * Name of the destination index. The source index is renamed to this name, overwriting any existing index with the same name. Example: "my-destination-index"
+   */
+  destinationIndexName: string;
+};
+
+export interface ActionOutput_algolia_moveindex {
+  /**
+   * Algolia task ID for tracking the asynchronous operation.
+   */
+  taskID: number;
+  /**
+   * ISO 8601 timestamp of when the move operation was submitted.
+   */
+  updatedAt: string;
+};
+
+export interface ActionInput_algolia_partialupdateobject {
+  /**
+   * Name of the Algolia index containing the object. Example: "algolia_movie_sample_dataset"
+   */
+  indexName: string;
+  /**
+   * ID of the object to partially update. Example: "nango-test-obj-get"
+   */
+  objectID: string;
+  /**
+   * Attributes to update on the object. Only first-level attributes are supported.
+   */
+  attributes: {  [key: string]: unknown | undefined;};
+};
+
+export interface ActionOutput_algolia_partialupdateobject {
+  objectID: string;
+  updatedAt?: string | undefined;
+  taskID?: number | undefined;
+};
+
+export interface ActionInput_algolia_searchindex {
+  /**
+   * Name of the index to search. Example: "algolia_movie_sample_dataset"
+   */
+  indexName: string;
+  /**
+   * Search query string. Example: "star wars"
+   */
+  query?: string | undefined;
+  /**
+   * Page number to retrieve. Example: 0
+   */
+  page?: number | undefined;
+  /**
+   * Number of hits per page. Example: 20
+   */
+  hitsPerPage?: number | undefined;
+  /**
+   * Filter expression. Example: "genre:Action"
+   */
+  filters?: string | undefined;
+  /**
+   * Attributes to include in the response. Example: ["title","year"]
+   */
+  attributesToRetrieve?: string[] | undefined;
+  /**
+   * Facets for which to retrieve counts. Example: ["genre"]
+   */
+  facets?: string[] | undefined;
+  attributesToHighlight?: string[] | undefined;
+  attributesToSnippet?: string[] | undefined;
+  highlightPreTag?: string | undefined;
+  highlightPostTag?: string | undefined;
+  analytics?: boolean | undefined;
+  clickAnalytics?: boolean | undefined;
+};
+
+export interface ActionOutput_algolia_searchindex {
+  hits: ({  [key: string]: unknown | undefined;})[];
+  page?: number | undefined;
+  nbHits?: number | undefined;
+  nbPages?: number | undefined;
+  hitsPerPage?: number | undefined;
+  query?: string | undefined;
+  params?: string | undefined;
+  processingTimeMS?: number | undefined;
+  facets?: {  [key: string]: {  [key: string]: number;};} | undefined;
+  facets_stats?: {  [key: string]: {  avg: number;
+  max: number;
+  min: number;
+  sum: number;};} | undefined;
+};
+
+export interface ActionInput_algolia_searchmultipleindices {
+  /**
+   * Array of search requests, one per index or query. Maximum 50 requests.
+   */
+  requests: ({  /**
+   * Name of the index to search. Example: "algolia_movie_sample_dataset"
+   */
+  indexName: string;
+  /**
+   * URL-encoded search parameters string. Example: "query=star&hitsPerPage=3"
+   */
+  params?: string | undefined;})[];
+  /**
+   * Multi-query search strategy. Example: "stopIfEnoughMatches"
+   */
+  strategy?: string | undefined;
+};
+
+export interface ActionOutput_algolia_searchmultipleindices {
+  /**
+   * Search results in the same order as the requests.
+   */
+  results: ({  hits: ({  objectID: string;})[];
+  page?: number | undefined;
+  nbHits?: number | undefined;
+  nbPages?: number | undefined;
+  hitsPerPage?: number | undefined;
+  query?: string | undefined;
+  params?: string | undefined;
+  processingTimeMS?: number | undefined;
+  index?: string | undefined;})[];
+};
+
+export interface ActionInput_algolia_setsettings {
+  /**
+   * Name of the Algolia index. Example: "algolia_movie_sample_dataset"
+   */
+  indexName: string;
+  /**
+   * Index settings to apply. See https://www.algolia.com/doc/api-reference/settings-api-parameters/
+   */
+  settings: {  [key: string]: unknown | undefined;};
+};
+
+export interface ActionOutput_algolia_setsettings {
+  updatedAt?: string | undefined;
+  taskID?: number | undefined;
+};
+
+export interface ActionInput_algolia_updateapikey {
+  /**
+   * API key to update. Example: "13ad45b4d0a2f6ea65ecbddf6aa260f2"
+   */
+  key: string;
+  /**
+   * Permissions that determine the type of API requests this key can make.
+   */
+  acl: string[];
+  /**
+   * Description of an API key.
+   */
+  description?: string | undefined;
+  /**
+   * Index names or patterns that this API key can access.
+   */
+  indexes?: string[] | undefined;
+  /**
+   * Maximum number of results this API key can retrieve in one query.
+   */
+  maxHitsPerQuery?: number | undefined;
+  /**
+   * Maximum number of API requests allowed per IP address per hour.
+   */
+  maxQueriesPerIPPerHour?: number | undefined;
+  /**
+   * Query parameters to add when making API requests with this API key.
+   */
+  queryParameters?: string | undefined;
+  /**
+   * Allowed HTTP referrers for this API key.
+   */
+  referers?: string[] | undefined;
+  /**
+   * Duration (in seconds) after which the API key expires.
+   */
+  validity?: number | undefined;
+};
+
+export interface ActionOutput_algolia_updateapikey {
+  key: string;
+  updatedAt: string;
+};
+
+export interface ActionInput_algolia_updateobject {
+  /**
+   * Name of the Algolia index. Example: "algolia_movie_sample_dataset"
+   */
+  index_name: string;
+  /**
+   * ID of the object to update. Example: "nango-test-obj-update-1"
+   */
+  object_id: string;
+  /**
+   * Full object payload to replace the existing record.
+   */
+  object: {  [key: string]: unknown | undefined;};
+};
+
+export interface ActionOutput_algolia_updateobject {
+  object_id: string;
+  created_at?: string | undefined;
+  updated_at?: string | undefined;
+  task_id?: number | string | undefined;
+};
+
+export interface ActionInput_algolia_updaterule {
+  /**
+   * Name of the Algolia index. Example: algolia_movie_sample_dataset
+   */
+  index_name: string;
+  /**
+   * Unique identifier of the rule. Example: nango-test-rule-update-1
+   */
+  object_id: string;
+  conditions?: ({  pattern?: string | undefined;
+  anchoring?: string | undefined;
+  alternatives?: boolean | undefined;
+  context?: string | undefined;
+  filters?: string | undefined;})[];
+  consequence: {  params?: {  [key: string]: unknown | undefined;};
+  promote?: ({  [key: string]: unknown | undefined;})[];
+  hide?: ({  [key: string]: unknown | undefined;})[];
+  filterPromotes?: boolean | undefined;
+  redirect?: {  indexName: string;} | undefined;
+  userData?: {  [key: string]: unknown | undefined;};};
+  description?: string | undefined;
+  enabled?: boolean | undefined;
+  validity?: ({  from?: number | undefined;
+  until?: number | undefined;})[];
+  tags?: string[] | undefined;
+  scope?: string | undefined;
+  /**
+   * Whether changes are applied to replica indices.
+   */
+  forward_to_replicas?: boolean | undefined;
+};
+
+export interface ActionOutput_algolia_updaterule {
+  /**
+   * Unique identifier of the asynchronous task.
+   */
+  task_id: number;
+  /**
+   * Date and time when the rule was updated, in RFC 3339 format.
+   */
+  updated_at: string;
+};
+
+export interface ActionInput_algolia_updatesynonym {
+  0: {  /**
+   * Name of the Algolia index. Example: "algolia_movie_sample_dataset"
+   */
+  indexName: string;
+  /**
+   * Unique identifier of the synonym object. Example: "nango-test-syn-update-1"
+   */
+  objectID: string;
+  /**
+   * Replicate the updated synonym to all replica indices
+   */
+  forwardToReplicas?: boolean | undefined;
+  type: 'synonym';
+  /**
+   * Words or phrases considered equivalent. Example: ["tv", "television"]
+   */
+  synonyms: string[];};
+  1: {  /**
+   * Name of the Algolia index. Example: "algolia_movie_sample_dataset"
+   */
+  indexName: string;
+  /**
+   * Unique identifier of the synonym object. Example: "nango-test-syn-update-1"
+   */
+  objectID: string;
+  /**
+   * Replicate the updated synonym to all replica indices
+   */
+  forwardToReplicas?: boolean | undefined;
+  type: 'oneWaySynonym';
+  /**
+   * Word or phrase to appear in query strings. Example: "iphone"
+   */
+  input: string;
+  /**
+   * One-way synonym targets. Example: ["apple phone"]
+   */
+  synonyms: string[];};
+  2: {  /**
+   * Name of the Algolia index. Example: "algolia_movie_sample_dataset"
+   */
+  indexName: string;
+  /**
+   * Unique identifier of the synonym object. Example: "nango-test-syn-update-1"
+   */
+  objectID: string;
+  /**
+   * Replicate the updated synonym to all replica indices
+   */
+  forwardToReplicas?: boolean | undefined;
+  type: 'altCorrection1';
+  /**
+   * Word or phrase to appear in query strings. Example: "abdomen"
+   */
+  word: string;
+  /**
+   * Words to be matched in records. Example: ["stomach"]
+   */
+  corrections: string[];};
+  3: {  /**
+   * Name of the Algolia index. Example: "algolia_movie_sample_dataset"
+   */
+  indexName: string;
+  /**
+   * Unique identifier of the synonym object. Example: "nango-test-syn-update-1"
+   */
+  objectID: string;
+  /**
+   * Replicate the updated synonym to all replica indices
+   */
+  forwardToReplicas?: boolean | undefined;
+  type: 'altCorrection2';
+  /**
+   * Word or phrase to appear in query strings. Example: "abdomen"
+   */
+  word: string;
+  /**
+   * Words to be matched in records. Example: ["stomach"]
+   */
+  corrections: string[];};
+  4: {  /**
+   * Name of the Algolia index. Example: "algolia_movie_sample_dataset"
+   */
+  indexName: string;
+  /**
+   * Unique identifier of the synonym object. Example: "nango-test-syn-update-1"
+   */
+  objectID: string;
+  /**
+   * Replicate the updated synonym to all replica indices
+   */
+  forwardToReplicas?: boolean | undefined;
+  type: 'placeholder';
+  /**
+   * Placeholder token. Example: "<BRAND>"
+   */
+  placeholder: string;
+  /**
+   * Query words matching the placeholder. Example: ["Apple"]
+   */
+  replacements: string[];};
+};
+
+export interface ActionOutput_algolia_updatesynonym {
+  taskID: number;
+  updatedAt: string;
+  id: string;
 };
 
 export interface ActionInput_anrok_createephemeraltransaction {
