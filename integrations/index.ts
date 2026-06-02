@@ -2064,9 +2064,6 @@ import './stripe/actions/update-subscription.js';
 import './stripe/actions/void-credit-note.js';
 import './stripe/actions/void-invoice.js';
 
-// -- Integration: stripe-app
-import './stripe-app/syncs/subscriptions.js';
-
 // -- Integration: teamtailor
 import './teamtailor/syncs/candidates.js';
 
