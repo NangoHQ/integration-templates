@@ -1,0 +1,271 @@
+{
+  "input": {
+    "project_id": 82599306
+  },
+  "output": {
+    "items": [
+      {
+        "name": "feature/test",
+        "merged": false,
+        "protected": false,
+        "default": false,
+        "developers_can_push": false,
+        "developers_can_merge": false,
+        "can_push": true,
+        "web_url": "https://gitlab.com/nangodev-group/nangoDev-project/-/tree/feature/test",
+        "commit": {
+          "id": "97c63770bcfd90c8fe40389aaa76ae3a52599d43",
+          "short_id": "97c63770",
+          "title": "Test commit from Nango action save",
+          "message": "Test commit from Nango action save",
+          "author_name": "Nango Developer",
+          "author_email": "api@nango.dev",
+          "authored_date": "2026-05-27T13:33:24.000+00:00",
+          "committed_date": "2026-05-27T13:33:24.000+00:00",
+          "web_url": "https://gitlab.com/nangodev-group/nangoDev-project/-/commit/97c63770bcfd90c8fe40389aaa76ae3a52599d43"
+        }
+      },
+      {
+        "name": "main",
+        "merged": false,
+        "protected": true,
+        "default": true,
+        "developers_can_push": false,
+        "developers_can_merge": false,
+        "can_push": true,
+        "web_url": "https://gitlab.com/nangodev-group/nangoDev-project/-/tree/main",
+        "commit": {
+          "id": "326793c9823e44aa0d619020d479ea1a2bc4b188",
+          "short_id": "326793c9",
+          "title": "feat: add CI pipeline and update README",
+          "message": "feat: add CI pipeline and update README\n",
+          "author_name": "Victor Lang'at",
+          "author_email": "125632594+viictoo@users.noreply.github.com",
+          "authored_date": "2026-05-27T16:13:38.000+03:00",
+          "committed_date": "2026-05-27T16:13:38.000+03:00",
+          "web_url": "https://gitlab.com/nangodev-group/nangoDev-project/-/commit/326793c9823e44aa0d619020d479ea1a2bc4b188"
+        }
+      },
+      {
+        "name": "test-branch-create-action-1",
+        "merged": false,
+        "protected": false,
+        "default": false,
+        "developers_can_push": false,
+        "developers_can_merge": false,
+        "can_push": true,
+        "web_url": "https://gitlab.com/nangodev-group/nangoDev-project/-/tree/test-branch-create-action-1",
+        "commit": {
+          "id": "326793c9823e44aa0d619020d479ea1a2bc4b188",
+          "short_id": "326793c9",
+          "title": "feat: add CI pipeline and update README",
+          "message": "feat: add CI pipeline and update README\n",
+          "author_name": "Victor Lang'at",
+          "author_email": "125632594+viictoo@users.noreply.github.com",
+          "authored_date": "2026-05-27T16:13:38.000+03:00",
+          "committed_date": "2026-05-27T16:13:38.000+03:00",
+          "web_url": "https://gitlab.com/nangodev-group/nangoDev-project/-/commit/326793c9823e44aa0d619020d479ea1a2bc4b188"
+        }
+      },
+      {
+        "name": "test-branch-create-action-2",
+        "merged": false,
+        "protected": false,
+        "default": false,
+        "developers_can_push": false,
+        "developers_can_merge": false,
+        "can_push": true,
+        "web_url": "https://gitlab.com/nangodev-group/nangoDev-project/-/tree/test-branch-create-action-2",
+        "commit": {
+          "id": "326793c9823e44aa0d619020d479ea1a2bc4b188",
+          "short_id": "326793c9",
+          "title": "feat: add CI pipeline and update README",
+          "message": "feat: add CI pipeline and update README\n",
+          "author_name": "Victor Lang'at",
+          "author_email": "125632594+viictoo@users.noreply.github.com",
+          "authored_date": "2026-05-27T16:13:38.000+03:00",
+          "committed_date": "2026-05-27T16:13:38.000+03:00",
+          "web_url": "https://gitlab.com/nangodev-group/nangoDev-project/-/commit/326793c9823e44aa0d619020d479ea1a2bc4b188"
+        }
+      }
+    ]
+  },
+  "nango": {},
+  "api": {
+    "get": {
+      "/api/v4/projects/82599306/repository/branches": {
+        "response": [
+          {
+            "name": "feature/test",
+            "commit": {
+              "id": "97c63770bcfd90c8fe40389aaa76ae3a52599d43",
+              "short_id": "97c63770",
+              "created_at": "2026-05-27T13:33:24.000+00:00",
+              "parent_ids": [
+                "7db24468e03a7498b33621c983a12b445e0258d4"
+              ],
+              "title": "Test commit from Nango action save",
+              "message": "Test commit from Nango action save",
+              "author_name": "Nango Developer",
+              "author_email": "api@nango.dev",
+              "authored_date": "2026-05-27T13:33:24.000+00:00",
+              "committer_name": "Nango Developer",
+              "committer_email": "api@nango.dev",
+              "committed_date": "2026-05-27T13:33:24.000+00:00",
+              "trailers": {},
+              "extended_trailers": {},
+              "web_url": "https://gitlab.com/nangodev-group/nangoDev-project/-/commit/97c63770bcfd90c8fe40389aaa76ae3a52599d43"
+            },
+            "merged": false,
+            "protected": false,
+            "developers_can_push": false,
+            "developers_can_merge": false,
+            "can_push": true,
+            "default": false,
+            "web_url": "https://gitlab.com/nangodev-group/nangoDev-project/-/tree/feature/test"
+          },
+          {
+            "name": "main",
+            "commit": {
+              "id": "326793c9823e44aa0d619020d479ea1a2bc4b188",
+              "short_id": "326793c9",
+              "created_at": "2026-05-27T16:13:38.000+03:00",
+              "parent_ids": [
+                "e996045d27daf073cff218a952813f328ac4facf"
+              ],
+              "title": "feat: add CI pipeline and update README",
+              "message": "feat: add CI pipeline and update README\n",
+              "author_name": "Victor Lang'at",
+              "author_email": "125632594+viictoo@users.noreply.github.com",
+              "authored_date": "2026-05-27T16:13:38.000+03:00",
+              "committer_name": "Victor Lang'at",
+              "committer_email": "125632594+viictoo@users.noreply.github.com",
+              "committed_date": "2026-05-27T16:13:38.000+03:00",
+              "trailers": {},
+              "extended_trailers": {},
+              "web_url": "https://gitlab.com/nangodev-group/nangoDev-project/-/commit/326793c9823e44aa0d619020d479ea1a2bc4b188"
+            },
+            "merged": false,
+            "protected": true,
+            "developers_can_push": false,
+            "developers_can_merge": false,
+            "can_push": true,
+            "default": true,
+            "web_url": "https://gitlab.com/nangodev-group/nangoDev-project/-/tree/main"
+          },
+          {
+            "name": "test-branch-create-action-1",
+            "commit": {
+              "id": "326793c9823e44aa0d619020d479ea1a2bc4b188",
+              "short_id": "326793c9",
+              "created_at": "2026-05-27T16:13:38.000+03:00",
+              "parent_ids": [
+                "e996045d27daf073cff218a952813f328ac4facf"
+              ],
+              "title": "feat: add CI pipeline and update README",
+              "message": "feat: add CI pipeline and update README\n",
+              "author_name": "Victor Lang'at",
+              "author_email": "125632594+viictoo@users.noreply.github.com",
+              "authored_date": "2026-05-27T16:13:38.000+03:00",
+              "committer_name": "Victor Lang'at",
+              "committer_email": "125632594+viictoo@users.noreply.github.com",
+              "committed_date": "2026-05-27T16:13:38.000+03:00",
+              "trailers": {},
+              "extended_trailers": {},
+              "web_url": "https://gitlab.com/nangodev-group/nangoDev-project/-/commit/326793c9823e44aa0d619020d479ea1a2bc4b188"
+            },
+            "merged": false,
+            "protected": false,
+            "developers_can_push": false,
+            "developers_can_merge": false,
+            "can_push": true,
+            "default": false,
+            "web_url": "https://gitlab.com/nangodev-group/nangoDev-project/-/tree/test-branch-create-action-1"
+          },
+          {
+            "name": "test-branch-create-action-2",
+            "commit": {
+              "id": "326793c9823e44aa0d619020d479ea1a2bc4b188",
+              "short_id": "326793c9",
+              "created_at": "2026-05-27T16:13:38.000+03:00",
+              "parent_ids": [
+                "e996045d27daf073cff218a952813f328ac4facf"
+              ],
+              "title": "feat: add CI pipeline and update README",
+              "message": "feat: add CI pipeline and update README\n",
+              "author_name": "Victor Lang'at",
+              "author_email": "125632594+viictoo@users.noreply.github.com",
+              "authored_date": "2026-05-27T16:13:38.000+03:00",
+              "committer_name": "Victor Lang'at",
+              "committer_email": "125632594+viictoo@users.noreply.github.com",
+              "committed_date": "2026-05-27T16:13:38.000+03:00",
+              "trailers": {},
+              "extended_trailers": {},
+              "web_url": "https://gitlab.com/nangodev-group/nangoDev-project/-/commit/326793c9823e44aa0d619020d479ea1a2bc4b188"
+            },
+            "merged": false,
+            "protected": false,
+            "developers_can_push": false,
+            "developers_can_merge": false,
+            "can_push": true,
+            "default": false,
+            "web_url": "https://gitlab.com/nangodev-group/nangoDev-project/-/tree/test-branch-create-action-2"
+          }
+        ],
+        "status": 200,
+        "headers": {
+          "date": "Wed, 27 May 2026 13:33:56 GMT",
+          "content-type": "application/json",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=31536000",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4903",
+          "x-ratelimit-reset": "1779888874",
+          "set-cookie": "<redacted>",
+          "cf-ray": "a02564ecba706c17-PDX",
+          "cf-cache-status": "MISS",
+          "cache-control": "max-age=0, private, must-revalidate",
+          "etag": "W/\"aa1d28421bd864d4ba12c9bafe3fb5f1\"",
+          "link": "<https://gitlab.com/api/v4/projects/82599306/repository/branches?id=82599306&page=1&per_page=20>; rel=\"first\", <https://gitlab.com/api/v4/projects/82599306/repository/branches?id=82599306&page=1&per_page=20>; rel=\"last\"",
+          "server": "cloudflare",
+          "vary": "Origin, Accept-Encoding",
+          "content-security-policy": "default-src 'none'",
+          "gitlab-lb": "haproxy-main-04-lb-gprd",
+          "gitlab-sv": "api-gke-us-east1-b",
+          "nel": "{\"max_age\": 0}",
+          "ratelimit-limit": "2000",
+          "ratelimit-name": "throttle_authenticated_api",
+          "ratelimit-observed": "98",
+          "ratelimit-remaining": "1902",
+          "ratelimit-reset": "1779888840",
+          "referrer-policy": "strict-origin-when-cross-origin",
+          "x-gitlab-meta": "{\"correlation_id\":\"a02564ecba706c17-PDX\",\"version\":\"1\"}",
+          "x-next-page": "",
+          "x-page": "1",
+          "x-per-page": "20",
+          "x-prev-page": "",
+          "x-request-id": "a02564ecba706c17-PDX",
+          "x-runtime": "0.058943",
+          "x-total": "4",
+          "x-total-pages": "1"
+        },
+        "hash": "a365c63723d282de374235006dfd5ca9e45ed2b6",
+        "request": {
+          "params": {
+            "page": "1",
+            "per_page": "20"
+          }
+        }
+      }
+    }
+  }
+}

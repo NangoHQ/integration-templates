@@ -1,0 +1,148 @@
+{
+  "input": {
+    "project_id": 82599306,
+    "source_branch": "feature/nango-mr-test",
+    "target_branch": "main",
+    "title": "Test MR from Nango action"
+  },
+  "output": {
+    "id": 489411394,
+    "iid": 5,
+    "project_id": 82599306,
+    "title": "Test MR from Nango action",
+    "description": null,
+    "state": "opened",
+    "source_branch": "feature/nango-mr-test",
+    "target_branch": "main",
+    "web_url": "https://gitlab.com/nangodev-group/nangoDev-project/-/merge_requests/5",
+    "created_at": "2026-05-27T13:35:49.862Z",
+    "updated_at": "2026-05-27T13:35:49.862Z",
+    "author": {
+      "id": 38590808,
+      "name": "Nango Developer",
+      "username": "api46"
+    }
+  },
+  "nango": {},
+  "api": {
+    "post": {
+      "/api/v4/projects/82599306/merge_requests": {
+        "response": {
+          "id": 489411394,
+          "iid": 5,
+          "project_id": 82599306,
+          "title": "Test MR from Nango action",
+          "description": null,
+          "state": "opened",
+          "created_at": "2026-05-27T13:35:49.862Z",
+          "updated_at": "2026-05-27T13:35:49.862Z",
+          "merged_by": null,
+          "merge_user": null,
+          "merged_at": null,
+          "closed_by": null,
+          "closed_at": null,
+          "target_branch": "main",
+          "source_branch": "feature/nango-mr-test",
+          "user_notes_count": 0,
+          "upvotes": 0,
+          "downvotes": 0,
+          "author": {
+            "id": 38590808,
+            "username": "api46",
+            "public_email": null,
+            "name": "Nango Developer",
+            "state": "active",
+            "locked": false,
+            "avatar_url": "https://secure.gravatar.com/avatar/c89d19930bbb731cfec48ff1584648234d177e53d3c5641a51797a3d16ac420d?s=80&d=identicon",
+            "web_url": "https://gitlab.com/api46"
+          },
+          "assignees": [],
+          "assignee": null,
+          "reviewers": [],
+          "source_project_id": 82599306,
+          "target_project_id": 82599306,
+          "labels": [],
+          "draft": false,
+          "imported": false,
+          "imported_from": "none",
+          "work_in_progress": false,
+          "milestone": null,
+          "merge_when_pipeline_succeeds": false,
+          "merge_status": "checking",
+          "detailed_merge_status": "preparing",
+          "merge_after": null,
+          "sha": "326793c9823e44aa0d619020d479ea1a2bc4b188",
+          "merge_commit_sha": null,
+          "squash_commit_sha": null,
+          "discussion_locked": null,
+          "should_remove_source_branch": null,
+          "force_remove_source_branch": true,
+          "prepared_at": null,
+          "reference": "!5",
+          "references": {
+            "short": "!5",
+            "relative": "!5",
+            "full": "nangodev-group/nangoDev-project!5"
+          },
+          "web_url": "https://gitlab.com/nangodev-group/nangoDev-project/-/merge_requests/5",
+          "time_stats": {
+            "time_estimate": 0,
+            "total_time_spent": 0,
+            "human_time_estimate": null,
+            "human_total_time_spent": null
+          },
+          "squash": false,
+          "squash_on_merge": false,
+          "task_completion_status": {
+            "count": 0,
+            "completed_count": 0
+          },
+          "has_conflicts": false,
+          "blocking_discussions_resolved": true,
+          "approvals_before_merge": null,
+          "subscribed": true,
+          "changes_count": null,
+          "latest_build_started_at": null,
+          "latest_build_finished_at": null,
+          "first_deployed_to_production_at": null,
+          "pipeline": null,
+          "head_pipeline": null,
+          "diff_refs": null,
+          "merge_error": null,
+          "user": {
+            "can_merge": true
+          }
+        },
+        "status": 200,
+        "headers": {
+          "date": "Wed, 27 May 2026 13:35:50 GMT",
+          "content-type": "application/json",
+          "content-length": "1952",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=5184000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4955",
+          "x-ratelimit-reset": "1779888995",
+          "x-request-id": "a02567aeffc9dfd2-PDX",
+          "etag": "W/\"7a0-wBPjTdttTqA2IR9538XSwGv/xNY\""
+        },
+        "hash": "821eac90efe6cf948a8a149a9c8efb8731abc783",
+        "request": {
+          "data": {
+            "source_branch": "feature/nango-mr-test",
+            "target_branch": "main",
+            "title": "Test MR from Nango action"
+          }
+        }
+      }
+    }
+  }
+}

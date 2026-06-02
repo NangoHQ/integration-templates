@@ -1,0 +1,158 @@
+{
+  "input": {
+    "note": "Test note from Nango validate",
+    "relid": 1,
+    "reltype": "Subscriber"
+  },
+  "output": {
+    "id": "7",
+    "note": "Test note from Nango validate",
+    "reltype": "Subscriber",
+    "relid": 1,
+    "userid": "1",
+    "user": "1",
+    "cdate": "2026-05-28T04:05:34-05:00",
+    "mdate": "2026-05-28T04:05:34-05:00",
+    "owner": {
+      "type": "contact",
+      "id": 1
+    }
+  },
+  "nango": {},
+  "api": {
+    "post": {
+      "/3/notes": {
+        "response": {
+          "contacts": [
+            {
+              "cdate": "2026-05-28T03:05:54-05:00",
+              "email": "api@nango.dev",
+              "phone": "",
+              "firstName": "",
+              "lastName": "",
+              "orgid": "0",
+              "orgname": "",
+              "segmentio_id": "",
+              "bounced_hard": "0",
+              "bounced_soft": "0",
+              "bounced_date": null,
+              "ip": "0",
+              "ua": null,
+              "hash": "d4ae82724804ab9f53b6b524f5f3ad3e",
+              "socialdata_lastcheck": null,
+              "email_local": "",
+              "email_domain": "nango.dev",
+              "sentcnt": "0",
+              "rating_tstamp": null,
+              "gravatar": "0",
+              "deleted": "0",
+              "anonymized": "0",
+              "adate": null,
+              "udate": "2026-05-28T04:05:34-05:00",
+              "edate": null,
+              "deleted_at": null,
+              "created_utc_timestamp": "2026-05-28 03:05:54",
+              "updated_utc_timestamp": "2026-05-28 04:05:34",
+              "created_timestamp": "2026-05-28 03:05:54",
+              "updated_timestamp": "2026-05-28 04:05:34",
+              "created_by": null,
+              "updated_by": null,
+              "mpp_tracking": "0",
+              "last_click_date": null,
+              "last_open_date": null,
+              "last_mpp_open_date": null,
+              "best_send_hour": null,
+              "sms_consent": null,
+              "sms_consent_updated_at": null,
+              "whatsapp_id": null,
+              "whatsapp_username": null,
+              "links": {
+                "bounceLogs": "https://nango56865.api-us1.com/api/3/contacts/1/bounceLogs",
+                "contactAutomations": "https://nango56865.api-us1.com/api/3/contacts/1/contactAutomations?limit=2500&orders%5Blastdate%5D=DESC",
+                "contactData": "https://nango56865.api-us1.com/api/3/contacts/1/contactData",
+                "contactGoals": "https://nango56865.api-us1.com/api/3/contacts/1/contactGoals",
+                "contactLists": "https://nango56865.api-us1.com/api/3/contacts/1/contactLists",
+                "contactLogs": "https://nango56865.api-us1.com/api/3/contacts/1/contactLogs",
+                "contactTags": "https://nango56865.api-us1.com/api/3/contacts/1/contactTags",
+                "contactDeals": "https://nango56865.api-us1.com/api/3/contacts/1/contactDeals",
+                "deals": "https://nango56865.api-us1.com/api/3/contacts/1/deals",
+                "fieldValues": "https://nango56865.api-us1.com/api/3/contacts/1/fieldValues",
+                "geoIps": "https://nango56865.api-us1.com/api/3/contacts/1/geoIps",
+                "notes": "https://nango56865.api-us1.com/api/3/contacts/1/notes",
+                "organization": "https://nango56865.api-us1.com/api/3/contacts/1/organization",
+                "plusAppend": "https://nango56865.api-us1.com/api/3/contacts/1/plusAppend",
+                "trackingLogs": "https://nango56865.api-us1.com/api/3/contacts/1/trackingLogs",
+                "scoreValues": "https://nango56865.api-us1.com/api/3/contacts/1/scoreValues",
+                "accountContacts": "https://nango56865.api-us1.com/api/3/contacts/1/accountContacts",
+                "automationEntryCounts": "https://nango56865.api-us1.com/api/3/contacts/1/automationEntryCounts"
+              },
+              "id": "1",
+              "organization": null
+            }
+          ],
+          "note": {
+            "note": "Test note from Nango validate",
+            "cdate": "2026-05-28T04:05:34-05:00",
+            "mdate": "2026-05-28T04:05:34-05:00",
+            "reltype": "Subscriber",
+            "relid": 1,
+            "userid": "1",
+            "links": {
+              "activities": "https://nango56865.api-us1.com/api/3/notes/7/activities",
+              "user": "https://nango56865.api-us1.com/api/3/notes/7/user",
+              "mentions": "https://nango56865.api-us1.com/api/3/notes/7/mentions",
+              "notes": "https://nango56865.api-us1.com/api/3/notes/7/notes",
+              "owner": "https://nango56865.api-us1.com/api/3/notes/7/owner"
+            },
+            "owner": {
+              "type": "contact",
+              "id": 1
+            },
+            "is_draft": "",
+            "id": "7",
+            "user": "1"
+          }
+        },
+        "status": 201,
+        "headers": {
+          "date": "Thu, 28 May 2026 09:05:34 GMT",
+          "content-type": "application/json",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=63072000; includeSubDomains; preload",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4932",
+          "x-ratelimit-reset": "1779959135",
+          "cache-control": "no-store, no-cache, must-revalidate,no-cache, private",
+          "expires": "Thu, 19 Nov 1981 08:52:00 GMT",
+          "pragma": "no-cache",
+          "server": "cloudflare",
+          "set-cookie": "PHPSESSID=ad0ac1f7054623f363e01725af7a3fd9; path=/; secure; HttpOnly; SameSite=Lax, em_acp_globalauth_cookie=8f07a22c-4a83-4d2f-94ee-1397ef9d110f; path=/; domain=.nango56865.api-us1.com; secure; httponly; SameSite=Lax, cmp652926665=95e69fc01264628dd6a9ef2ed51b35c7; expires=Sat, 27-Jun-2026 09:05:34 GMT; Max-Age=2592000; path=/; domain=.nango56865.api-us1.com; secure; SameSite=Lax",
+          "x-envoy-decorator-operation": "ac-hosted-current-web.activecampaign-hosted.svc.cluster.local:80/*",
+          "x-envoy-upstream-service-time": "101",
+          "x-request-id": "bf5c25be-4a33-42dc-b611-a6dd85de7c3f",
+          "cf-cache-status": "DYNAMIC",
+          "cf-ray": "a02c192c3ee5fefe-PDX"
+        },
+        "hash": "18b7d4d046455517a7f67e86345cf18a1726e16d",
+        "request": {
+          "data": {
+            "note": {
+              "note": "Test note from Nango validate",
+              "relid": 1,
+              "reltype": "Subscriber"
+            }
+          }
+        }
+      }
+    }
+  }
+}

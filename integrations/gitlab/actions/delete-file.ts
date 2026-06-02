@@ -1,0 +1,61 @@
+import { z } from 'zod';
+import { createAction } from 'nango';
+
+const InputSchema = z.object({
+    project_id: z.union([z.number(), z.string()]).describe('Project ID or URL-encoded path. Example: 82599306'),
+    file_path: z.string().describe('Full path to the file. Example: hello.txt'),
+    branch: z.string().describe('Name of the branch to delete the file from. Example: feature/test'),
+    commit_message: z.string().describe('Commit message for the deletion.'),
+    author_email: z.string().optional().describe('Commit author email address.'),
+    author_name: z.string().optional().describe('Commit author name.'),
+    last_commit_id: z.string().optional().describe('Last known file commit ID.'),
+    start_branch: z.string().optional().describe('Name of the base branch to create the branch from.')
+});
+
+const ProviderResponseSchema = z.object({
+    file_path: z.string().optional(),
+    branch: z.string().optional()
+});
+
+const OutputSchema = z.object({
+    file_path: z.string().optional(),
+    branch: z.string().optional()
+});
+
+const action = createAction({
+    description: 'Delete a GitLab repository file.',
+    version: '1.0.0',
+    endpoint: {
+        method: 'POST',
+        path: '/actions/delete-file',
+        group: 'Repository Files'
+    },
+    input: InputSchema,
+    output: OutputSchema,
+    scopes: ['api'],
+
+    exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
+        const response = await nango.delete({
+            // https://docs.gitlab.com/api/repository_files/#delete-a-file-in-a-repository
+            endpoint: `/api/v4/projects/${String(input.project_id)}/repository/files/${encodeURIComponent(input.file_path)}`,
+            data: {
+                branch: input.branch,
+                commit_message: input.commit_message,
+                ...(input.author_email !== undefined && { author_email: input.author_email }),
+                ...(input.author_name !== undefined && { author_name: input.author_name }),
+                ...(input.last_commit_id !== undefined && { last_commit_id: input.last_commit_id }),
+                ...(input.start_branch !== undefined && { start_branch: input.start_branch })
+            },
+            retries: 3
+        });
+
+        const providerResponse = ProviderResponseSchema.parse(response.data || {});
+        return {
+            ...(providerResponse.file_path !== undefined && { file_path: providerResponse.file_path }),
+            ...(providerResponse.branch !== undefined && { branch: providerResponse.branch })
+        };
+    }
+});
+
+export type NangoActionLocal = Parameters<(typeof action)['exec']>[0];
+export default action;

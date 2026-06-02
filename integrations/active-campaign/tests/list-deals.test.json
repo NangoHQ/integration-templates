@@ -1,0 +1,300 @@
+{
+  "input": {},
+  "output": {
+    "items": [
+      {
+        "id": "10",
+        "title": "Nango Deal 10",
+        "status": "0"
+      },
+      {
+        "id": "13",
+        "title": "Nango Test Deal",
+        "status": "0"
+      },
+      {
+        "id": "14",
+        "title": "Nango Test Deal",
+        "value": "10000",
+        "currency": "usd",
+        "description": "",
+        "status": "0",
+        "contact": "1",
+        "group": "4",
+        "stage": "10",
+        "owner": "1",
+        "created_at": "2026-05-28T04:05:17-05:00",
+        "updated_at": "2026-05-28T04:05:18-05:00"
+      },
+      {
+        "id": "15",
+        "title": "Nango Test Deal",
+        "value": "10000",
+        "currency": "usd",
+        "description": "",
+        "status": "0",
+        "contact": "1",
+        "group": "4",
+        "stage": "10",
+        "owner": "1",
+        "created_at": "2026-05-28T04:05:28-05:00",
+        "updated_at": "2026-05-28T04:05:28-05:00"
+      },
+      {
+        "id": "9",
+        "title": "Nango Deal 9",
+        "status": "0"
+      },
+      {
+        "id": "8",
+        "title": "Nango Deal 8",
+        "status": "0"
+      },
+      {
+        "id": "7",
+        "title": "Nango Deal 7",
+        "status": "0"
+      },
+      {
+        "id": "6",
+        "title": "Nango Deal 6",
+        "status": "0"
+      },
+      {
+        "id": "5",
+        "title": "Nango Deal 5",
+        "status": "0"
+      },
+      {
+        "id": "4",
+        "title": "Nango Deal 4",
+        "status": "0"
+      },
+      {
+        "id": "3",
+        "title": "Nango Deal 3",
+        "status": "0"
+      },
+      {
+        "id": "2",
+        "title": "Nango Deal 2",
+        "status": "0"
+      },
+      {
+        "id": "1",
+        "title": "Nango Deal 1",
+        "status": "0"
+      }
+    ]
+  },
+  "nango": {},
+  "api": {
+    "get": {
+      "/3/deals": {
+        "response": {
+          "deals": [
+            {
+              "title": "Nango Deal 10",
+              "status": "0",
+              "id": "10",
+              "isDisabled": true
+            },
+            {
+              "title": "Nango Test Deal",
+              "status": "0",
+              "id": "13",
+              "isDisabled": true
+            },
+            {
+              "hash": "f08658f7",
+              "owner": "1",
+              "contact": "1",
+              "organization": null,
+              "group": "4",
+              "stage": "10",
+              "title": "Nango Test Deal",
+              "description": "",
+              "percent": "0",
+              "cdate": "2026-05-28T04:05:17-05:00",
+              "mdate": "2026-05-28T04:05:18-05:00",
+              "nextdate": null,
+              "nexttaskid": null,
+              "value": "10000",
+              "currency": "usd",
+              "winProbability": null,
+              "winProbabilityMdate": null,
+              "status": "0",
+              "activitycount": "2",
+              "nextdealid": "14",
+              "edate": null,
+              "links": {
+                "dealActivities": "https://nango56865.api-us1.com/api/3/deals/14/dealActivities",
+                "contact": "https://nango56865.api-us1.com/api/3/deals/14/contact",
+                "contactDeals": "https://nango56865.api-us1.com/api/3/deals/14/contactDeals",
+                "group": "https://nango56865.api-us1.com/api/3/deals/14/group",
+                "nextTask": "https://nango56865.api-us1.com/api/3/deals/14/nextTask",
+                "notes": "https://nango56865.api-us1.com/api/3/deals/14/notes",
+                "account": "https://nango56865.api-us1.com/api/3/deals/14/account",
+                "customerAccount": "https://nango56865.api-us1.com/api/3/deals/14/customerAccount",
+                "organization": "https://nango56865.api-us1.com/api/3/deals/14/organization",
+                "owner": "https://nango56865.api-us1.com/api/3/deals/14/owner",
+                "scoreValues": "https://nango56865.api-us1.com/api/3/deals/14/scoreValues",
+                "stage": "https://nango56865.api-us1.com/api/3/deals/14/stage",
+                "tasks": "https://nango56865.api-us1.com/api/3/deals/14/tasks",
+                "dealCustomFieldData": "https://nango56865.api-us1.com/api/3/deals/14/dealCustomFieldData"
+              },
+              "id": "14",
+              "isDisabled": false,
+              "account": null,
+              "customerAccount": null
+            },
+            {
+              "hash": "b7d0a729",
+              "owner": "1",
+              "contact": "1",
+              "organization": null,
+              "group": "4",
+              "stage": "10",
+              "title": "Nango Test Deal",
+              "description": "",
+              "percent": "0",
+              "cdate": "2026-05-28T04:05:28-05:00",
+              "mdate": "2026-05-28T04:05:28-05:00",
+              "nextdate": null,
+              "nexttaskid": null,
+              "value": "10000",
+              "currency": "usd",
+              "winProbability": null,
+              "winProbabilityMdate": null,
+              "status": "0",
+              "activitycount": "2",
+              "nextdealid": "15",
+              "edate": null,
+              "links": {
+                "dealActivities": "https://nango56865.api-us1.com/api/3/deals/15/dealActivities",
+                "contact": "https://nango56865.api-us1.com/api/3/deals/15/contact",
+                "contactDeals": "https://nango56865.api-us1.com/api/3/deals/15/contactDeals",
+                "group": "https://nango56865.api-us1.com/api/3/deals/15/group",
+                "nextTask": "https://nango56865.api-us1.com/api/3/deals/15/nextTask",
+                "notes": "https://nango56865.api-us1.com/api/3/deals/15/notes",
+                "account": "https://nango56865.api-us1.com/api/3/deals/15/account",
+                "customerAccount": "https://nango56865.api-us1.com/api/3/deals/15/customerAccount",
+                "organization": "https://nango56865.api-us1.com/api/3/deals/15/organization",
+                "owner": "https://nango56865.api-us1.com/api/3/deals/15/owner",
+                "scoreValues": "https://nango56865.api-us1.com/api/3/deals/15/scoreValues",
+                "stage": "https://nango56865.api-us1.com/api/3/deals/15/stage",
+                "tasks": "https://nango56865.api-us1.com/api/3/deals/15/tasks",
+                "dealCustomFieldData": "https://nango56865.api-us1.com/api/3/deals/15/dealCustomFieldData"
+              },
+              "id": "15",
+              "isDisabled": false,
+              "account": null,
+              "customerAccount": null
+            },
+            {
+              "title": "Nango Deal 9",
+              "status": "0",
+              "id": "9",
+              "isDisabled": true
+            },
+            {
+              "title": "Nango Deal 8",
+              "status": "0",
+              "id": "8",
+              "isDisabled": true
+            },
+            {
+              "title": "Nango Deal 7",
+              "status": "0",
+              "id": "7",
+              "isDisabled": true
+            },
+            {
+              "title": "Nango Deal 6",
+              "status": "0",
+              "id": "6",
+              "isDisabled": true
+            },
+            {
+              "title": "Nango Deal 5",
+              "status": "0",
+              "id": "5",
+              "isDisabled": true
+            },
+            {
+              "title": "Nango Deal 4",
+              "status": "0",
+              "id": "4",
+              "isDisabled": true
+            },
+            {
+              "title": "Nango Deal 3",
+              "status": "0",
+              "id": "3",
+              "isDisabled": true
+            },
+            {
+              "title": "Nango Deal 2",
+              "status": "0",
+              "id": "2",
+              "isDisabled": true
+            },
+            {
+              "title": "Nango Deal 1",
+              "status": "0",
+              "id": "1",
+              "isDisabled": true
+            }
+          ],
+          "meta": {
+            "currencies": {
+              "USD": {
+                "total": "13",
+                "value": "85000",
+                "currency": "USD",
+                "isDisabled": false
+              }
+            },
+            "total": 13
+          }
+        },
+        "status": 200,
+        "headers": {
+          "date": "Thu, 28 May 2026 10:05:01 GMT",
+          "content-type": "application/json",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=63072000; includeSubDomains; preload",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4877",
+          "x-ratelimit-reset": "1779962706",
+          "cache-control": "no-store, no-cache, must-revalidate,no-cache, private",
+          "expires": "Thu, 19 Nov 1981 08:52:00 GMT",
+          "pragma": "no-cache",
+          "server": "cloudflare",
+          "set-cookie": "<redacted>",
+          "x-envoy-decorator-operation": "ac-hosted-current-web.activecampaign-hosted.svc.cluster.local:80/*",
+          "x-envoy-upstream-service-time": "336",
+          "x-request-id": "5c8eaacf-5111-451e-90e8-9338286a5c84",
+          "cf-cache-status": "DYNAMIC",
+          "cf-ray": "a02c703eeaa0d74d-PDX"
+        },
+        "hash": "894d24ad1ffff6a921ecd6caa2837644dc152c42",
+        "request": {
+          "params": {
+            "limit": "20",
+            "offset": "0"
+          }
+        }
+      }
+    }
+  }
+}

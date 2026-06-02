@@ -1,0 +1,73 @@
+{
+  "input": {
+    "id": "1"
+  },
+  "output": {
+    "id": "1",
+    "tagType": "contact",
+    "tag": "nango-test-1",
+    "description": "Nango test tag 1",
+    "cdate": "2026-05-28T03:43:37-05:00",
+    "subscriber_count": "1",
+    "links": {
+      "contactGoalTags": "https://nango56865.api-us1.com/api/3/tags/1/contactGoalTags"
+    }
+  },
+  "nango": {},
+  "api": {
+    "get": {
+      "/3/tags/1": {
+        "response": {
+          "tag": {
+            "tagType": "contact",
+            "tag": "nango-test-1",
+            "description": "Nango test tag 1",
+            "subscriber_count": "1",
+            "cdate": "2026-05-28T03:43:37-05:00",
+            "created_timestamp": "2026-05-28 03:43:37",
+            "updated_timestamp": "2026-05-28 04:03:25",
+            "created_by": null,
+            "updated_by": null,
+            "deleted": "0",
+            "links": {
+              "contactGoalTags": "https://nango56865.api-us1.com/api/3/tags/1/contactGoalTags",
+              "templateTags": "https://nango56865.api-us1.com/api/3/tags/1/templateTags"
+            },
+            "id": "1"
+          }
+        },
+        "status": 200,
+        "headers": {
+          "date": "Thu, 28 May 2026 10:04:59 GMT",
+          "content-type": "application/json",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=63072000; includeSubDomains; preload",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4883",
+          "x-ratelimit-reset": "1779962706",
+          "cache-control": "no-store, no-cache, must-revalidate,no-cache, private",
+          "expires": "Thu, 19 Nov 1981 08:52:00 GMT",
+          "pragma": "no-cache",
+          "server": "cloudflare",
+          "set-cookie": "PHPSESSID=955445eb6e49489691c97402b35294df; path=/; secure; HttpOnly; SameSite=Lax, em_acp_globalauth_cookie=4db14b7a-6ad9-4e80-a307-97d6572e5623; path=/; domain=.nango56865.api-us1.com; secure; httponly; SameSite=Lax",
+          "x-envoy-decorator-operation": "ac-hosted-current-web.activecampaign-hosted.svc.cluster.local:80/*",
+          "x-envoy-upstream-service-time": "69",
+          "x-request-id": "1ea99f58-e4c8-4382-8e24-50a5cddeeb3b",
+          "cf-cache-status": "DYNAMIC",
+          "cf-ray": "a02c70383bc1e8e9-PDX"
+        },
+        "hash": "15cdb7fec6b846895194c7ab36a2b725b8fb6c33",
+        "request": {}
+      }
+    }
+  }
+}

@@ -1,0 +1,137 @@
+{
+    "input": {
+        "title": "Nango Test Pipeline",
+        "currency": "usd"
+    },
+    "output": {
+        "id": "7",
+        "title": "Nango Test Pipeline",
+        "currency": "usd",
+        "autoassign": 0,
+        "stages": ["19", "20", "21"],
+        "cdate": "2026-05-28T05:05:18-05:00",
+        "udate": "2026-05-28T05:05:18-05:00"
+    },
+    "nango": {},
+    "api": {
+        "post": {
+            "/3/dealGroups": {
+                "response": {
+                    "dealStages": [
+                        {
+                            "group": "7",
+                            "title": "To Contact",
+                            "color": "19CCA3",
+                            "order": "1",
+                            "width": "280",
+                            "dealOrder": "next-action DESC",
+                            "cardRegion1": "title",
+                            "cardRegion2": "next-action",
+                            "cardRegion3": "show-avatar",
+                            "cardRegion4": "contact-fullname-acctname",
+                            "cardRegion5": "value",
+                            "cdate": null,
+                            "udate": null,
+                            "links": {
+                                "group": "https://nango56865.api-us1.com/api/3/dealStages/19/group"
+                            },
+                            "id": "19"
+                        },
+                        {
+                            "group": "7",
+                            "title": "In Contact",
+                            "color": "5487FF",
+                            "order": "2",
+                            "width": "280",
+                            "dealOrder": "next-action DESC",
+                            "cardRegion1": "title",
+                            "cardRegion2": "next-action",
+                            "cardRegion3": "show-avatar",
+                            "cardRegion4": "contact-fullname-acctname",
+                            "cardRegion5": "value",
+                            "cdate": null,
+                            "udate": null,
+                            "links": {
+                                "group": "https://nango56865.api-us1.com/api/3/dealStages/20/group"
+                            },
+                            "id": "20"
+                        },
+                        {
+                            "group": "7",
+                            "title": "Follow Up",
+                            "color": "FBD965",
+                            "order": "3",
+                            "width": "280",
+                            "dealOrder": "next-action DESC",
+                            "cardRegion1": "title",
+                            "cardRegion2": "next-action",
+                            "cardRegion3": "show-avatar",
+                            "cardRegion4": "contact-fullname-acctname",
+                            "cardRegion5": "value",
+                            "cdate": null,
+                            "udate": null,
+                            "links": {
+                                "group": "https://nango56865.api-us1.com/api/3/dealStages/21/group"
+                            },
+                            "id": "21"
+                        }
+                    ],
+                    "dealGroup": {
+                        "title": "Nango Test Pipeline",
+                        "currency": "usd",
+                        "source": "",
+                        "cdate": "2026-05-28T05:05:18-05:00",
+                        "udate": "2026-05-28T05:05:18-05:00",
+                        "autoassign": "0",
+                        "links": {
+                            "stages": "https://nango56865.api-us1.com/api/3/dealGroups/7/stages",
+                            "dealGroupUsers": "https://nango56865.api-us1.com/api/3/dealGroups/7/dealGroupUsers",
+                            "dealGroupGroups": "https://nango56865.api-us1.com/api/3/dealGroups/7/dealGroupGroups",
+                            "winProbabilityFeatures": "https://nango56865.api-us1.com/api/3/dealGroups/7/winProbabilityFeatures"
+                        },
+                        "stages": ["19", "20", "21"],
+                        "id": "7"
+                    }
+                },
+                "status": 201,
+                "headers": {
+                    "date": "Thu, 28 May 2026 10:05:18 GMT",
+                    "content-type": "application/json",
+                    "transfer-encoding": "chunked",
+                    "connection": "keep-alive",
+                    "x-xss-protection": "0",
+                    "x-content-type-options": "nosniff",
+                    "x-download-options": "noopen",
+                    "x-frame-options": "SAMEORIGIN",
+                    "x-dns-prefetch-control": "off",
+                    "strict-transport-security": "max-age=63072000; includeSubDomains; preload",
+                    "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+                    "access-control-allow-origin": "*",
+                    "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+                    "x-ratelimit-limit": "5000",
+                    "x-ratelimit-remaining": "4978",
+                    "x-ratelimit-reset": "1779962766",
+                    "cache-control": "no-store, no-cache, must-revalidate,no-cache, private",
+                    "expires": "Thu, 19 Nov 1981 08:52:00 GMT",
+                    "pragma": "no-cache",
+                    "server": "cloudflare",
+                    "set-cookie": "PHPSESSID=e99778ac0bddb38beefae56b17939f2b; path=/; secure; HttpOnly; SameSite=Lax, em_acp_globalauth_cookie=527621b6-7ce4-458a-abbc-55b98cba467a; path=/; domain=.nango56865.api-us1.com; secure; httponly; SameSite=Lax, cmp652926665=7e300a8c9bc8da5c0e05509568fbf469; expires=Sat, 27-Jun-2026 10:05:18 GMT; Max-Age=2592000; path=/; domain=.nango56865.api-us1.com; secure; SameSite=Lax",
+                    "x-envoy-decorator-operation": "ac-hosted-current-web.activecampaign-hosted.svc.cluster.local:80/*",
+                    "x-envoy-upstream-service-time": "486",
+                    "x-request-id": "2f6fed18-b2ac-4786-af9b-543522a05b15",
+                    "cf-cache-status": "DYNAMIC",
+                    "cf-ray": "a02c70a9fd27816e-PDX"
+                },
+                "hash": "78499e530cc6f547b00d741823fc280be402b776",
+                "request": {
+                    "data": {
+                        "dealGroup": {
+                            "title": "Nango Test Pipeline",
+                            "currency": "usd"
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
