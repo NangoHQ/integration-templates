@@ -11708,19 +11708,16 @@ export interface ActionOutput_clicksend_sendsms {
 
 export interface Comment {
   id: string;
-  file_key: string;
-  parent_id?: string | undefined;
-  user_id: string;
-  user_handle?: string | undefined;
-  user_img_url?: string | undefined;
-  created_at: string;
-  resolved_at?: string | undefined;
-  message: string;
-  order_id?: string | undefined;
-  node_id?: string | undefined;
-  node_offset_x?: number | undefined;
-  node_offset_y?: number | undefined;
-  reactions?: ({})[] | undefined;
+  video_id: string;
+  text?: string | undefined;
+  username?: string | undefined;
+  user_id?: string | undefined;
+  status?: string | undefined;
+  create_time?: string | undefined;
+  likes?: number | undefined;
+  replies?: number | undefined;
+  profile_image?: string | undefined;
+  pinned?: boolean | undefined;
 };
 
 export interface SyncMetadata_clickup_comments {
@@ -23012,18 +23009,6 @@ export interface Branch {
 
 export interface SyncMetadata_gitlab_commits {
   project_id?: string | undefined;
-};
-
-export interface Group {
-  id: string;
-  name: string;
-  description?: string | undefined;
-  isDefault?: boolean | undefined;
-  isDeleted?: boolean | undefined;
-  isPublic?: boolean | undefined;
-  createdAt?: string | undefined;
-  updatedAt?: string | undefined;
-  url?: string | undefined;
 };
 
 export interface MergeRequest {
@@ -64789,6 +64774,173 @@ export interface TeamtailorCandidate {
 };
 
 export interface SyncMetadata_teamtailor_candidates {
+};
+
+export interface Identity {
+  /**
+   * Stable identity ID, usually identity_id
+   */
+  id: string;
+  /**
+   * The provider identity ID
+   */
+  identity_id: string;
+  /**
+   * Enum: AUTH_CODE, TT_USER, BC_AUTH_TT, CUSTOMIZED_USER
+   */
+  identity_type: string;
+  /**
+   * Display name of the identity
+   */
+  display_name?: string | undefined;
+  /**
+   * Avatar image URL
+   */
+  avatar_url?: string | undefined;
+};
+
+export interface SyncMetadata_tiktok_accounts_identities {
+  /**
+   * TikTok advertiser ID
+   */
+  advertiser_id: string;
+};
+
+export interface ActionInput_tiktok_accounts_createblockedwords {
+  /**
+   * TikTok ad account advertiser ID. Example: "7644117588953235464"
+   */
+  advertiser_id: string;
+  /**
+   * Words to add to the blocked word list.
+   */
+  blocked_words: string[];
+};
+
+export interface ActionOutput_tiktok_accounts_createblockedwords {
+  success: boolean;
+  request_id?: string | undefined;
+  message?: string | undefined;
+};
+
+export interface ActionInput_tiktok_accounts_createidentity {
+  /**
+   * Advertiser ID. Example: "7644117588953235464"
+   */
+  advertiser_id: string;
+  /**
+   * Display name for the identity. Maximum length is 100 characters.
+   */
+  display_name: string;
+  /**
+   * image_id of the avatar. Upload via the TikTok image upload endpoint. Width and height ratio must be 1:1.
+   */
+  image_uri?: string | undefined;
+};
+
+export interface ActionOutput_tiktok_accounts_createidentity {
+  identity_id: string;
+};
+
+export interface ActionInput_tiktok_accounts_deleteblockedwords {
+  /**
+   * Advertiser ID. Example: "7644117588953235464"
+   */
+  advertiser_id: string;
+  /**
+   * Blocked words to delete. Example: ["spam", "offensive"]
+   */
+  blocked_words: string[];
+};
+
+export interface ActionOutput_tiktok_accounts_deleteblockedwords {
+  success: boolean;
+  request_id?: string | undefined;
+};
+
+export interface ActionInput_tiktok_accounts_deletecomment {
+  /**
+   * Advertiser ID. Example: "7644117588953235464"
+   */
+  advertiser_id: string;
+  /**
+   * Ad ID. Example: "123456789"
+   */
+  ad_id: string;
+  /**
+   * TikTok video/item ID. Example: "123456789"
+   */
+  tiktok_item_id: string;
+  /**
+   * Comment ID to delete. Example: "123456789"
+   */
+  comment_id: string;
+  /**
+   * Identity type. Enum: AUTH_CODE, TT_USER, CUSTOMIZED_USER, BC_AUTH_TT. Example: "TT_USER"
+   */
+  identity_type: string;
+  /**
+   * Identity ID. Example: "123456789"
+   */
+  identity_id: string;
+};
+
+export interface ActionOutput_tiktok_accounts_deletecomment {
+  success: boolean;
+  code?: number | undefined;
+  request_id?: string | undefined;
+  message?: string | undefined;
+};
+
+export interface ActionInput_tiktok_accounts_getidentity {
+  /**
+   * TikTok advertiser ID. Example: "7644117588953235464"
+   */
+  advertiser_id: string;
+  /**
+   * Identity ID. Example: "7644635848793210900"
+   */
+  identity_id: string;
+  /**
+   * Identity type. Enum values: CUSTOMIZED_USER, AUTH_CODE, TT_USER, BC_AUTH_TT
+   */
+  identity_type?: string | undefined;
+};
+
+export interface ActionOutput_tiktok_accounts_getidentity {
+  identity_id: string;
+  identity_type: string;
+  display_name?: string | undefined;
+  profile_image?: string | undefined;
+  identity_authorized_bc_id?: string | undefined;
+  available_status?: string | undefined;
+  can_pull_video?: boolean | undefined;
+  can_push_video?: boolean | undefined;
+  can_use_live_ads?: boolean | undefined;
+  can_manage_message?: boolean | undefined;
+};
+
+export interface ActionInput_tiktok_accounts_listblockedwords {
+  /**
+   * TikTok advertiser ID. Example: "7644132249303924753"
+   */
+  advertiser_id: string;
+  /**
+   * Page number for pagination. Defaults to 1.
+   */
+  page?: number | undefined;
+  /**
+   * Number of results per page. Defaults to 10.
+   */
+  page_size?: number | undefined;
+};
+
+export interface ActionOutput_tiktok_accounts_listblockedwords {
+  blocked_words: string[];
+  page_info?: {  page?: number | undefined;
+  page_size?: number | undefined;
+  total_number?: number | undefined;
+  total_page?: number | undefined;};
 };
 
 export interface AdGroup {
