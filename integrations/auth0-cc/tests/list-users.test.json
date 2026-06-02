@@ -1,0 +1,401 @@
+{
+  "input": {
+    "per_page": 10
+  },
+  "output": {
+    "items": [
+      {
+        "user_id": "auth0|6a1967b6c90e8bf3e0e1dd86",
+        "email": "test-delete-user-action-20260529b@example.com",
+        "email_verified": false,
+        "created_at": "2026-05-29T10:17:26.692Z",
+        "updated_at": "2026-05-29T10:17:26.692Z",
+        "identities": [
+          {
+            "connection": "Username-Password-Authentication",
+            "user_id": "6a1967b6c90e8bf3e0e1dd86",
+            "provider": "auth0",
+            "isSocial": false
+          }
+        ],
+        "picture": "https://s.gravatar.com/avatar/e650190ce25bfc8870479046ea5be54b?s=480&r=pg&d=https%3A%2F%2Fcdn.auth0.com%2Favatars%2Fte.png",
+        "name": "test-delete-user-action-20260529b@example.com",
+        "nickname": "test-delete-user-action-20260529b"
+      },
+      {
+        "user_id": "auth0|6a1858e3c5b8df761f496ab1",
+        "email": "test@example.com",
+        "email_verified": false,
+        "created_at": "2026-05-29T10:17:26.495Z",
+        "updated_at": "2026-05-29T10:17:26.496Z",
+        "identities": [
+          {
+            "connection": "Username-Password-Authentication",
+            "user_id": "6a1858e3c5b8df761f496ab1",
+            "provider": "auth0",
+            "isSocial": false
+          }
+        ],
+        "picture": "https://s.gravatar.com/avatar/55502f40dc8b7c769880b10874abc9d0?s=480&r=pg&d=https%3A%2F%2Fcdn.auth0.com%2Favatars%2Fte.png",
+        "name": "test@example.com",
+        "nickname": "test"
+      },
+      {
+        "user_id": "auth0|6a185968ee963d799b38b029",
+        "email": "testuser@example.com",
+        "email_verified": false,
+        "created_at": "2026-05-28T15:04:08.176Z",
+        "updated_at": "2026-05-29T10:17:26.470Z",
+        "identities": [
+          {
+            "connection": "Username-Password-Authentication",
+            "user_id": "6a185968ee963d799b38b029",
+            "provider": "auth0",
+            "isSocial": false
+          },
+          {
+            "connection": "google-oauth2",
+            "user_id": "104052059100448207224",
+            "provider": "google-oauth2",
+            "isSocial": true,
+            "access_token": "GOOGLE_OAUTH_ACCESS_TOKEN_PLACEHOLDER",
+            "expires_in": 3599,
+            "profileData": {
+              "email_verified": true,
+              "name": "Nango Developer",
+              "given_name": "Nango",
+              "family_name": "Developer",
+              "picture": "https://lh3.googleusercontent.com/a/ACg8ocK6hPtnyJxrsAu6MwEP8pz0LKBFnAUIwqK_cH0sM6svMmUwkA=s96-c",
+              "idp_tenant_domain": "nango.dev",
+              "email": "api@nango.dev"
+            }
+          },
+          {
+            "connection": "Username-Password-Authentication",
+            "user_id": "6a19672ec88714c31665f70c",
+            "provider": "auth0",
+            "isSocial": false,
+            "profileData": {
+              "email": "test-delete-user-action-20260529@example.com",
+              "email_verified": false
+            }
+          }
+        ],
+        "picture": "https://s.gravatar.com/avatar/7ec7606c46a14a7ef514d1f1f9038823?s=480&r=pg&d=https%3A%2F%2Fcdn.auth0.com%2Favatars%2Fte.png",
+        "name": "testuser@example.com",
+        "nickname": "testuser"
+      },
+      {
+        "user_id": "auth0|6a1966e5c90e8bf3e0e1dd05",
+        "email": "test-grants-user-20260529@example.com",
+        "email_verified": false,
+        "created_at": "2026-05-29T10:13:57.796Z",
+        "updated_at": "2026-05-29T10:13:57.796Z",
+        "identities": [
+          {
+            "connection": "Username-Password-Authentication",
+            "user_id": "6a1966e5c90e8bf3e0e1dd05",
+            "provider": "auth0",
+            "isSocial": false
+          }
+        ],
+        "picture": "https://s.gravatar.com/avatar/38194426c403d036aab39689a48e5a1a?s=480&r=pg&d=https%3A%2F%2Fcdn.auth0.com%2Favatars%2Fte.png",
+        "name": "test-grants-user-20260529@example.com",
+        "nickname": "test-grants-user-20260529"
+      },
+      {
+        "user_id": "auth0|6a1858dcc5b8df761f496aac",
+        "email": "testuser12345@example.com",
+        "email_verified": false,
+        "created_at": "2026-05-28T15:01:48.872Z",
+        "updated_at": "2026-05-28T15:01:48.873Z",
+        "identities": [
+          {
+            "connection": "Username-Password-Authentication",
+            "user_id": "6a1858dcc5b8df761f496aac",
+            "provider": "auth0",
+            "isSocial": false
+          }
+        ],
+        "picture": "https://s.gravatar.com/avatar/057971dbb8e62f052cd660d6cb965aa5?s=480&r=pg&d=https%3A%2F%2Fcdn.auth0.com%2Favatars%2Fte.png",
+        "name": "testuser12345@example.com",
+        "nickname": "testuser12345"
+      },
+      {
+        "user_id": "auth0|6a18586795671f3add27a480",
+        "email": "testuser_123456@example.com",
+        "email_verified": false,
+        "created_at": "2026-05-28T14:59:51.388Z",
+        "updated_at": "2026-05-28T14:59:51.388Z",
+        "identities": [
+          {
+            "connection": "Username-Password-Authentication",
+            "user_id": "6a18586795671f3add27a480",
+            "provider": "auth0",
+            "isSocial": false
+          }
+        ],
+        "picture": "https://s.gravatar.com/avatar/76104ad9efd27f58d67944239f711851?s=480&r=pg&d=https%3A%2F%2Fcdn.auth0.com%2Favatars%2Fte.png",
+        "name": "testuser_123456@example.com",
+        "nickname": "testuser_123456"
+      },
+      {
+        "user_id": "auth0|6a1858595337bc3123146633",
+        "email": "testuser_delete_me@example.com",
+        "email_verified": false,
+        "created_at": "2026-05-28T14:59:37.829Z",
+        "updated_at": "2026-05-28T14:59:37.829Z",
+        "identities": [
+          {
+            "connection": "Username-Password-Authentication",
+            "user_id": "6a1858595337bc3123146633",
+            "provider": "auth0",
+            "isSocial": false
+          }
+        ],
+        "picture": "https://s.gravatar.com/avatar/550b9407384eb7736bd63c7186dddcc2?s=480&r=pg&d=https%3A%2F%2Fcdn.auth0.com%2Favatars%2Fte.png",
+        "name": "testuser_delete_me@example.com",
+        "nickname": "testuser_delete_me"
+      },
+      {
+        "user_id": "auth0|6a185829c4ed8f1232e7dc51",
+        "email": "testuser123456@example.com",
+        "email_verified": false,
+        "created_at": "2026-05-28T14:58:49.275Z",
+        "updated_at": "2026-05-28T14:58:49.275Z",
+        "identities": [
+          {
+            "connection": "Username-Password-Authentication",
+            "user_id": "6a185829c4ed8f1232e7dc51",
+            "provider": "auth0",
+            "isSocial": false
+          }
+        ],
+        "picture": "https://s.gravatar.com/avatar/90e95b95553ba563e29f3b60d94fdf78?s=480&r=pg&d=https%3A%2F%2Fcdn.auth0.com%2Favatars%2Fte.png",
+        "name": "testuser123456@example.com",
+        "nickname": "testuser123456"
+      }
+    ],
+    "total": 8
+  },
+  "nango": {},
+  "api": {
+    "get": {
+      "/api/v2/users": {
+        "response": {
+          "start": 0,
+          "limit": 10,
+          "length": 8,
+          "users": [
+            {
+              "identities": [
+                {
+                  "isSocial": false,
+                  "connection": "Username-Password-Authentication",
+                  "user_id": "6a1967b6c90e8bf3e0e1dd86",
+                  "provider": "auth0"
+                }
+              ],
+              "nickname": "test-delete-user-action-20260529b",
+              "created_at": "2026-05-29T10:17:26.692Z",
+              "user_id": "auth0|6a1967b6c90e8bf3e0e1dd86",
+              "email": "test-delete-user-action-20260529b@example.com",
+              "name": "test-delete-user-action-20260529b@example.com",
+              "picture": "https://s.gravatar.com/avatar/e650190ce25bfc8870479046ea5be54b?s=480&r=pg&d=https%3A%2F%2Fcdn.auth0.com%2Favatars%2Fte.png",
+              "email_verified": false,
+              "updated_at": "2026-05-29T10:17:26.692Z"
+            },
+            {
+              "nickname": "test",
+              "picture": "https://s.gravatar.com/avatar/55502f40dc8b7c769880b10874abc9d0?s=480&r=pg&d=https%3A%2F%2Fcdn.auth0.com%2Favatars%2Fte.png",
+              "email_verified": false,
+              "created_at": "2026-05-29T10:17:26.495Z",
+              "updated_at": "2026-05-29T10:17:26.496Z",
+              "identities": [
+                {
+                  "connection": "Username-Password-Authentication",
+                  "user_id": "6a1858e3c5b8df761f496ab1",
+                  "provider": "auth0",
+                  "isSocial": false
+                }
+              ],
+              "user_id": "auth0|6a1858e3c5b8df761f496ab1",
+              "email": "test@example.com",
+              "name": "test@example.com"
+            },
+            {
+              "name": "testuser@example.com",
+              "picture": "https://s.gravatar.com/avatar/7ec7606c46a14a7ef514d1f1f9038823?s=480&r=pg&d=https%3A%2F%2Fcdn.auth0.com%2Favatars%2Fte.png",
+              "email_verified": false,
+              "updated_at": "2026-05-29T10:17:26.470Z",
+              "user_id": "auth0|6a185968ee963d799b38b029",
+              "nickname": "testuser",
+              "created_at": "2026-05-28T15:04:08.176Z",
+              "identities": [
+                {
+                  "user_id": "6a185968ee963d799b38b029",
+                  "provider": "auth0",
+                  "isSocial": false,
+                  "connection": "Username-Password-Authentication"
+                },
+                {
+                  "access_token": "GOOGLE_OAUTH_ACCESS_TOKEN_PLACEHOLDER",
+                  "expires_in": 3599,
+                  "connection": "google-oauth2",
+                  "user_id": "104052059100448207224",
+                  "provider": "google-oauth2",
+                  "isSocial": true,
+                  "profileData": {
+                    "email_verified": true,
+                    "name": "Nango Developer",
+                    "given_name": "Nango",
+                    "family_name": "Developer",
+                    "picture": "https://lh3.googleusercontent.com/a/ACg8ocK6hPtnyJxrsAu6MwEP8pz0LKBFnAUIwqK_cH0sM6svMmUwkA=s96-c",
+                    "idp_tenant_domain": "nango.dev",
+                    "email": "api@nango.dev"
+                  }
+                },
+                {
+                  "connection": "Username-Password-Authentication",
+                  "user_id": "6a19672ec88714c31665f70c",
+                  "provider": "auth0",
+                  "isSocial": false,
+                  "profileData": {
+                    "email": "test-delete-user-action-20260529@example.com",
+                    "email_verified": false
+                  }
+                }
+              ],
+              "email": "testuser@example.com"
+            },
+            {
+              "picture": "https://s.gravatar.com/avatar/38194426c403d036aab39689a48e5a1a?s=480&r=pg&d=https%3A%2F%2Fcdn.auth0.com%2Favatars%2Fte.png",
+              "email_verified": false,
+              "created_at": "2026-05-29T10:13:57.796Z",
+              "identities": [
+                {
+                  "connection": "Username-Password-Authentication",
+                  "user_id": "6a1966e5c90e8bf3e0e1dd05",
+                  "provider": "auth0",
+                  "isSocial": false
+                }
+              ],
+              "user_id": "auth0|6a1966e5c90e8bf3e0e1dd05",
+              "nickname": "test-grants-user-20260529",
+              "updated_at": "2026-05-29T10:13:57.796Z",
+              "email": "test-grants-user-20260529@example.com",
+              "name": "test-grants-user-20260529@example.com"
+            },
+            {
+              "picture": "https://s.gravatar.com/avatar/057971dbb8e62f052cd660d6cb965aa5?s=480&r=pg&d=https%3A%2F%2Fcdn.auth0.com%2Favatars%2Fte.png",
+              "created_at": "2026-05-28T15:01:48.872Z",
+              "identities": [
+                {
+                  "user_id": "6a1858dcc5b8df761f496aac",
+                  "provider": "auth0",
+                  "isSocial": false,
+                  "connection": "Username-Password-Authentication"
+                }
+              ],
+              "user_id": "auth0|6a1858dcc5b8df761f496aac",
+              "email": "testuser12345@example.com",
+              "name": "testuser12345@example.com",
+              "nickname": "testuser12345",
+              "email_verified": false,
+              "updated_at": "2026-05-28T15:01:48.873Z"
+            },
+            {
+              "user_id": "auth0|6a18586795671f3add27a480",
+              "email_verified": false,
+              "identities": [
+                {
+                  "user_id": "6a18586795671f3add27a480",
+                  "provider": "auth0",
+                  "isSocial": false,
+                  "connection": "Username-Password-Authentication"
+                }
+              ],
+              "email": "testuser_123456@example.com",
+              "name": "testuser_123456@example.com",
+              "nickname": "testuser_123456",
+              "picture": "https://s.gravatar.com/avatar/76104ad9efd27f58d67944239f711851?s=480&r=pg&d=https%3A%2F%2Fcdn.auth0.com%2Favatars%2Fte.png",
+              "created_at": "2026-05-28T14:59:51.388Z",
+              "updated_at": "2026-05-28T14:59:51.388Z"
+            },
+            {
+              "user_id": "auth0|6a1858595337bc3123146633",
+              "email": "testuser_delete_me@example.com",
+              "name": "testuser_delete_me@example.com",
+              "picture": "https://s.gravatar.com/avatar/550b9407384eb7736bd63c7186dddcc2?s=480&r=pg&d=https%3A%2F%2Fcdn.auth0.com%2Favatars%2Fte.png",
+              "created_at": "2026-05-28T14:59:37.829Z",
+              "nickname": "testuser_delete_me",
+              "email_verified": false,
+              "updated_at": "2026-05-28T14:59:37.829Z",
+              "identities": [
+                {
+                  "user_id": "6a1858595337bc3123146633",
+                  "provider": "auth0",
+                  "isSocial": false,
+                  "connection": "Username-Password-Authentication"
+                }
+              ]
+            },
+            {
+              "user_id": "auth0|6a185829c4ed8f1232e7dc51",
+              "nickname": "testuser123456",
+              "email_verified": false,
+              "created_at": "2026-05-28T14:58:49.275Z",
+              "email": "testuser123456@example.com",
+              "name": "testuser123456@example.com",
+              "picture": "https://s.gravatar.com/avatar/90e95b95553ba563e29f3b60d94fdf78?s=480&r=pg&d=https%3A%2F%2Fcdn.auth0.com%2Favatars%2Fte.png",
+              "updated_at": "2026-05-28T14:58:49.275Z",
+              "identities": [
+                {
+                  "connection": "Username-Password-Authentication",
+                  "user_id": "6a185829c4ed8f1232e7dc51",
+                  "provider": "auth0",
+                  "isSocial": false
+                }
+              ]
+            }
+          ],
+          "total": 8
+        },
+        "status": 200,
+        "headers": {
+          "date": "Fri, 29 May 2026 10:17:36 GMT",
+          "content-type": "application/json; charset=utf-8",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=31536000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "WWW-Authenticate,Server-Authorization",
+          "x-ratelimit-limit": "1000",
+          "x-ratelimit-remaining": "974",
+          "x-ratelimit-reset": "1780049887",
+          "cf-ray": "a034c0146db411c8-PDX",
+          "cf-cache-status": "DYNAMIC",
+          "cache-control": "no-cache",
+          "server": "cloudflare",
+          "vary": "origin,accept-encoding",
+          "x-auth0-l": "0.027",
+          "alt-svc": "h3=\":443\"; ma=86400"
+        },
+        "hash": "d7f2427cf7fc7089e89eefd72da610443308da57",
+        "request": {
+          "params": {
+            "include_totals": "true",
+            "page": "0",
+            "per_page": "10"
+          }
+        }
+      }
+    }
+  }
+}

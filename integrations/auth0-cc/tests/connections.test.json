@@ -1,0 +1,409 @@
+{
+  "nango": {
+    "batchSave": {
+      "Connection": [
+        {
+          "id": "con_cmMBOWyLiHXuLpIS",
+          "name": "google-oauth2",
+          "strategy": "google-oauth2",
+          "display_name": "Google OAuth2 Test Update",
+          "realms": [
+            "google-oauth2"
+          ],
+          "is_domain_connection": false,
+          "options": {
+            "email": true,
+            "scope": [
+              "email",
+              "profile"
+            ],
+            "profile": true
+          },
+          "authentication": {
+            "active": true
+          },
+          "connected_accounts": {
+            "active": false
+          }
+        },
+        {
+          "id": "con_2CVUiqsalomD1yj2",
+          "name": "nango-test-conn-a1b2c3d4",
+          "strategy": "auth0",
+          "realms": [
+            "nango-test-conn-a1b2c3d4"
+          ],
+          "is_domain_connection": false,
+          "options": {
+            "mfa": {
+              "active": true,
+              "return_enroll_settings": true
+            },
+            "passwordPolicy": "good",
+            "passkey_options": {
+              "challenge_ui": "both",
+              "local_enrollment_enabled": true,
+              "progressive_enrollment_enabled": true
+            },
+            "strategy_version": 2,
+            "authentication_methods": {
+              "passkey": {
+                "enabled": false
+              },
+              "password": {
+                "enabled": true,
+                "api_behavior": "required",
+                "signup_behavior": "allow"
+              }
+            },
+            "brute_force_protection": true
+          },
+          "authentication": {
+            "active": true
+          },
+          "connected_accounts": {
+            "active": false
+          }
+        },
+        {
+          "id": "con_mQOhV2DSih8FD1xr",
+          "name": "nango-test-conn-e5f6g7h8",
+          "strategy": "auth0",
+          "realms": [
+            "nango-test-conn-e5f6g7h8"
+          ],
+          "is_domain_connection": false,
+          "options": {
+            "mfa": {
+              "active": true,
+              "return_enroll_settings": true
+            },
+            "passwordPolicy": "good",
+            "passkey_options": {
+              "challenge_ui": "both",
+              "local_enrollment_enabled": true,
+              "progressive_enrollment_enabled": true
+            },
+            "strategy_version": 2,
+            "authentication_methods": {
+              "passkey": {
+                "enabled": false
+              },
+              "password": {
+                "enabled": true,
+                "api_behavior": "required",
+                "signup_behavior": "allow"
+              }
+            },
+            "brute_force_protection": true
+          },
+          "authentication": {
+            "active": true
+          },
+          "connected_accounts": {
+            "active": false
+          }
+        },
+        {
+          "id": "con_D6OpvIZW0gwDV4UG",
+          "name": "tmp-test-delete-org-conn-1780050399926",
+          "strategy": "auth0",
+          "realms": [
+            "tmp-test-delete-org-conn-1780050399926"
+          ],
+          "is_domain_connection": false,
+          "options": {
+            "mfa": {
+              "active": true,
+              "return_enroll_settings": true
+            },
+            "passwordPolicy": "good",
+            "passkey_options": {
+              "challenge_ui": "both",
+              "local_enrollment_enabled": true,
+              "progressive_enrollment_enabled": true
+            },
+            "strategy_version": 2,
+            "authentication_methods": {
+              "passkey": {
+                "enabled": false
+              },
+              "password": {
+                "enabled": true,
+                "api_behavior": "required",
+                "signup_behavior": "allow"
+              }
+            },
+            "brute_force_protection": true
+          },
+          "authentication": {
+            "active": true
+          },
+          "connected_accounts": {
+            "active": false
+          }
+        },
+        {
+          "id": "con_jW8hSj1nXBvXVRnN",
+          "name": "Username-Password-Authentication",
+          "strategy": "auth0",
+          "realms": [
+            "Username-Password-Authentication"
+          ],
+          "is_domain_connection": false,
+          "options": {
+            "mfa": {
+              "active": true,
+              "return_enroll_settings": true
+            },
+            "passwordPolicy": "good",
+            "passkey_options": {
+              "challenge_ui": "both",
+              "local_enrollment_enabled": true,
+              "progressive_enrollment_enabled": true
+            },
+            "strategy_version": 2,
+            "authentication_methods": {
+              "passkey": {
+                "enabled": false
+              },
+              "password": {
+                "enabled": true
+              }
+            },
+            "brute_force_protection": true
+          },
+          "authentication": {
+            "active": true
+          },
+          "connected_accounts": {
+            "active": false
+          }
+        }
+      ]
+    },
+    "batchDelete": {
+      "Connection": []
+    }
+  },
+  "api": {
+    "get": {
+      "/api/v2/connections": {
+        "response": {
+          "connections": [
+            {
+              "id": "con_cmMBOWyLiHXuLpIS",
+              "options": {
+                "email": true,
+                "scope": [
+                  "email",
+                  "profile"
+                ],
+                "profile": true
+              },
+              "strategy": "google-oauth2",
+              "name": "google-oauth2",
+              "is_domain_connection": false,
+              "authentication": {
+                "active": true
+              },
+              "connected_accounts": {
+                "active": false
+              },
+              "display_name": "Google OAuth2 Test Update",
+              "realms": [
+                "google-oauth2"
+              ]
+            },
+            {
+              "id": "con_2CVUiqsalomD1yj2",
+              "options": {
+                "mfa": {
+                  "active": true,
+                  "return_enroll_settings": true
+                },
+                "passwordPolicy": "good",
+                "passkey_options": {
+                  "challenge_ui": "both",
+                  "local_enrollment_enabled": true,
+                  "progressive_enrollment_enabled": true
+                },
+                "strategy_version": 2,
+                "authentication_methods": {
+                  "passkey": {
+                    "enabled": false
+                  },
+                  "password": {
+                    "enabled": true,
+                    "api_behavior": "required",
+                    "signup_behavior": "allow"
+                  }
+                },
+                "brute_force_protection": true
+              },
+              "strategy": "auth0",
+              "name": "nango-test-conn-a1b2c3d4",
+              "is_domain_connection": false,
+              "authentication": {
+                "active": true
+              },
+              "connected_accounts": {
+                "active": false
+              },
+              "realms": [
+                "nango-test-conn-a1b2c3d4"
+              ]
+            },
+            {
+              "id": "con_mQOhV2DSih8FD1xr",
+              "options": {
+                "mfa": {
+                  "active": true,
+                  "return_enroll_settings": true
+                },
+                "passwordPolicy": "good",
+                "passkey_options": {
+                  "challenge_ui": "both",
+                  "local_enrollment_enabled": true,
+                  "progressive_enrollment_enabled": true
+                },
+                "strategy_version": 2,
+                "authentication_methods": {
+                  "passkey": {
+                    "enabled": false
+                  },
+                  "password": {
+                    "enabled": true,
+                    "api_behavior": "required",
+                    "signup_behavior": "allow"
+                  }
+                },
+                "brute_force_protection": true
+              },
+              "strategy": "auth0",
+              "name": "nango-test-conn-e5f6g7h8",
+              "is_domain_connection": false,
+              "authentication": {
+                "active": true
+              },
+              "connected_accounts": {
+                "active": false
+              },
+              "realms": [
+                "nango-test-conn-e5f6g7h8"
+              ]
+            },
+            {
+              "id": "con_D6OpvIZW0gwDV4UG",
+              "options": {
+                "mfa": {
+                  "active": true,
+                  "return_enroll_settings": true
+                },
+                "passwordPolicy": "good",
+                "passkey_options": {
+                  "challenge_ui": "both",
+                  "local_enrollment_enabled": true,
+                  "progressive_enrollment_enabled": true
+                },
+                "strategy_version": 2,
+                "authentication_methods": {
+                  "passkey": {
+                    "enabled": false
+                  },
+                  "password": {
+                    "enabled": true,
+                    "api_behavior": "required",
+                    "signup_behavior": "allow"
+                  }
+                },
+                "brute_force_protection": true
+              },
+              "strategy": "auth0",
+              "name": "tmp-test-delete-org-conn-1780050399926",
+              "is_domain_connection": false,
+              "authentication": {
+                "active": true
+              },
+              "connected_accounts": {
+                "active": false
+              },
+              "realms": [
+                "tmp-test-delete-org-conn-1780050399926"
+              ]
+            },
+            {
+              "id": "con_jW8hSj1nXBvXVRnN",
+              "options": {
+                "mfa": {
+                  "active": true,
+                  "return_enroll_settings": true
+                },
+                "passwordPolicy": "good",
+                "passkey_options": {
+                  "challenge_ui": "both",
+                  "local_enrollment_enabled": true,
+                  "progressive_enrollment_enabled": true
+                },
+                "strategy_version": 2,
+                "authentication_methods": {
+                  "passkey": {
+                    "enabled": false
+                  },
+                  "password": {
+                    "enabled": true
+                  }
+                },
+                "brute_force_protection": true
+              },
+              "strategy": "auth0",
+              "name": "Username-Password-Authentication",
+              "is_domain_connection": false,
+              "authentication": {
+                "active": true
+              },
+              "connected_accounts": {
+                "active": false
+              },
+              "realms": [
+                "Username-Password-Authentication"
+              ]
+            }
+          ]
+        },
+        "status": 200,
+        "headers": {
+          "date": "Fri, 29 May 2026 12:16:53 GMT",
+          "content-type": "application/json; charset=utf-8",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=31536000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "WWW-Authenticate,Server-Authorization",
+          "x-ratelimit-limit": "1000",
+          "x-ratelimit-remaining": "996",
+          "x-ratelimit-reset": "1780057036",
+          "cf-ray": "a0356ecd2d832095-PDX",
+          "cf-cache-status": "DYNAMIC",
+          "cache-control": "no-cache",
+          "server": "cloudflare",
+          "vary": "origin,accept-encoding",
+          "x-auth0-l": "0.016",
+          "alt-svc": "h3=\":443\"; ma=86400"
+        },
+        "hash": "4d111f0ca81016b335109b419bd4e3c735b2e77c",
+        "request": {
+          "params": {
+            "take": "50"
+          }
+        }
+      }
+    }
+  }
+}

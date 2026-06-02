@@ -1,0 +1,99 @@
+{
+  "input": {
+    "organization_id": "org_vMAVRdG4psn0AfaZ"
+  },
+  "output": {
+    "members": [
+      {
+        "user_id": "auth0|6a185968ee963d799b38b029",
+        "picture": "https://s.gravatar.com/avatar/7ec7606c46a14a7ef514d1f1f9038823?s=480&r=pg&d=https%3A%2F%2Fcdn.auth0.com%2Favatars%2Fte.png",
+        "name": "testuser@example.com",
+        "email": "testuser@example.com"
+      }
+    ]
+  },
+  "nango": {},
+  "api": {
+    "get": {
+      "/api/v2/organizations/org_vMAVRdG4psn0AfaZ/members": [
+        {
+          "response": {
+            "members": [
+              {
+                "user_id": "auth0|6a185968ee963d799b38b029",
+                "email": "testuser@example.com",
+                "picture": "https://s.gravatar.com/avatar/7ec7606c46a14a7ef514d1f1f9038823?s=480&r=pg&d=https%3A%2F%2Fcdn.auth0.com%2Favatars%2Fte.png",
+                "name": "testuser@example.com"
+              }
+            ],
+            "next": "MjAyNi0wNS0yOSAxMDoxNToyMS44MDMwMDBVVEMsYXV0aDB8NmExODU5NjhlZTk2M2Q3OTliMzhiMDI5"
+          },
+          "status": 200,
+          "headers": {
+            "date": "Fri, 29 May 2026 10:25:54 GMT",
+            "content-type": "application/json; charset=utf-8",
+            "transfer-encoding": "chunked",
+            "connection": "keep-alive",
+            "x-xss-protection": "0",
+            "x-content-type-options": "nosniff",
+            "x-download-options": "noopen",
+            "x-frame-options": "SAMEORIGIN",
+            "x-dns-prefetch-control": "off",
+            "strict-transport-security": "max-age=31536000; includeSubDomains",
+            "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+            "access-control-allow-origin": "*",
+            "access-control-expose-headers": "WWW-Authenticate,Server-Authorization",
+            "x-ratelimit-limit": "1000",
+            "x-ratelimit-remaining": "991",
+            "x-ratelimit-reset": "1780050367",
+            "cf-ray": "a034cc385ab0cb73-PDX",
+            "cf-cache-status": "DYNAMIC",
+            "cache-control": "no-cache",
+            "server": "cloudflare",
+            "vary": "origin",
+            "x-auth0-l": "0.039",
+            "alt-svc": "h3=\":443\"; ma=86400"
+          },
+          "hash": "947470e05e3e4903a96d03811e6d43ddc574bb41",
+          "request": {
+            "params": {
+              "take": "50"
+            }
+          }
+        },
+        {
+          "response": {
+            "members": []
+          },
+          "status": 200,
+          "headers": {
+            "date": "Fri, 29 May 2026 10:25:54 GMT",
+            "content-type": "application/json; charset=utf-8",
+            "content-length": "14",
+            "connection": "keep-alive",
+            "x-xss-protection": "0",
+            "x-content-type-options": "nosniff",
+            "x-download-options": "noopen",
+            "x-frame-options": "SAMEORIGIN",
+            "x-dns-prefetch-control": "off",
+            "strict-transport-security": "max-age=5184000; includeSubDomains",
+            "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+            "access-control-allow-origin": "*",
+            "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+            "x-ratelimit-limit": "5000",
+            "x-ratelimit-remaining": "4982",
+            "x-ratelimit-reset": "1780050387",
+            "etag": "W/\"e-PgkZCwMy/42mZFhvpZhhtiSEhYc\""
+          },
+          "hash": "159fc9dd12abfa9891416639f64f248ee11fa925",
+          "request": {
+            "params": {
+              "from": "MjAyNi0wNS0yOSAxMDoxNToyMS44MDMwMDBVVEMsYXV0aDB8NmExODU5NjhlZTk2M2Q3OTliMzhiMDI5",
+              "take": "50"
+            }
+          }
+        }
+      ]
+    }
+  }
+}

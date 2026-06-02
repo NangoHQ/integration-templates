@@ -1,0 +1,117 @@
+{
+    "input": {
+        "name": "Nango Test Client"
+    },
+    "output": {
+        "client_id": "zwnnoT7Qo2peYVRpmnAJrQHqOUnj3864",
+        "name": "Nango Test Client",
+        "tenant": "dev-t7mk5a3nwodpwe5o",
+        "global": false,
+        "client_secret": "Uahts_TrQzoFulFw0MQoFsM09h6i4DXz_owD8-bttitvlkMr4kHkvf38YTmRSK74",
+        "is_first_party": true,
+        "oidc_conformant": false,
+        "grant_types": ["authorization_code", "implicit", "refresh_token", "client_credentials"],
+        "sso_disabled": false,
+        "cross_origin_authentication": false,
+        "custom_login_page_on": true,
+        "is_token_endpoint_ip_header_trusted": false,
+        "jwt_configuration": {
+            "lifetime_in_seconds": 36000,
+            "secret_encoded": false
+        },
+        "refresh_token": {
+            "expiration_type": "non-expiring",
+            "leeway": 0,
+            "infinite_token_lifetime": true,
+            "infinite_idle_token_lifetime": true,
+            "token_lifetime": 2592000,
+            "idle_token_lifetime": 1296000,
+            "rotation_type": "non-rotating"
+        },
+        "signing_keys": [
+            {
+                "cert": "-----BEGIN CERTIFICATE-----\r\nMIIDHTCCAgWgAwIBAgIJRVX15R+dbJH0MA0GCSqGSIb3DQEBCwUAMCwxKjAoBgNV\r\nBAMTIWRldi10N21rNWEzbndvZHB3ZTVvLnVzLmF1dGgwLmNvbTAeFw0yNjA1Mjgx\r\nMzUyNThaFw00MDAyMDQxMzUyNThaMCwxKjAoBgNVBAMTIWRldi10N21rNWEzbndv\r\nZHB3ZTVvLnVzLmF1dGgwLmNvbTCCASIwDQYJKoZIhvcNAQEBBQADggEPADCCAQoC\r\nggEBAIj1ojX6jCVMJKn6XvojEz9FnZpRpDvN+PE/kShAsbZyRMt2dOHrKmN2t+Lj\r\nnQj4iS+pyGMK6KKEZMYdoC/OI2htJv+z8QJfkgWsgXJe5wJf/HJ68/Gfe7Xh5Fhx\r\ng5nKF6CoudVtqfdrZHgeUOa3gqasKEqdExhGcbLCJNWmEKr1Fa95OkBaSmQADzDD\r\n2B1Ac0T16BbJAA69McFgtXx/5WivB8KAJgI9mahoCgnmhQEUjm7DHrXFC15vhTHZ\r\nGp6hVZ13JyXNCEMQG9ImEr6Y6VYHnqZwBXvcBQk4qaajPNdK5tZxSxnkTeFJEc5H\r\nRlpoVqDZutDlZ6WkL5XlSP74X0ECAwEAAaNCMEAwDwYDVR0TAQH/BAUwAwEB/zAd\r\nBgNVHQ4EFgQUygzg1BRtHxa5rHQs1xshTrZXimIwDgYDVR0PAQH/BAQDAgKEMA0G\r\nCSqGSIb3DQEBCwUAA4IBAQB0OKUAEH5a1eOBng3LA0ZPbqqnwTLvhVGUaY4nBt4u\r\nrT1ZiSUvFBZygGfRhEacr+RdtTaDsJQRmOd1/9QhNGoIak0AgZzPIxDURvsEKz2T\r\nC0xITCVkWmK7TkiihL3q3yhpJSgxe//3aJaEfBpU9/8RBBdLZy+ZbYulrGcRUsqb\r\nRv4yzcvXT8UUgivwrZBFhS4qKYIpnoHvOYgeEUx4diyx2ee2jZsxg9xkHm4W9Vi+\r\nyyv5kDkURhB1yviD8uT+cX4eiqY8prPXoDxcNGDYa9J8FpUEy7QKmLJYDEu03wjl\r\nkVgvPuAvB3FV0QSyrvQgPP8w1hwdtMbYp5A0HDNVAf+j\r\n-----END CERTIFICATE-----\r\n",
+                "key": "-----BEGIN RSA PRIVATE KEY-----\r\nMIIEpAIBAAKCAQEA6Xvi9WcR8Gt7nF4Bhs8TSE3+sakGGCi4jof3wAKXRP80A2AC\r\nJeBAXzYzmrgF+vWHmQN4ciydY4ig3AidFAoei+De7ZoQQfZrxompPahqMtopWNhu\r\nM4/YT1rRSwrGyrIa9vIyO9r6hA0z9wqtqQ1GdMmbHh6VIMy0XYAhzgvhca3OLyHT\r\nwWY9Cl5+Q3Plno5DFsfzf0ldCV6Fpl3O9BTzughG+q5DYFttr6z05ztvMORXJAV+\r\nWN8ReDA40xOv8EBvi2xkVvbZEje1Ok27JOhyd0sKry5xc6lSWDKmhPwCCw2I86eV\r\nRQLAv7UcFCthX4NtK3EGWJGeWVUdXuUjgGyBSQIDAQABAoIBABTfJL5APPvLd+zW\r\nAHfvGe+sPTjffbJ6LWlcYTrSYHhkAd/NXNPK9KYuP7W0fqBdA4abp1A5icZEh/Cz\r\nems4rltduj/uNkbXQvIoCy9+VyP9mZWeH1fPo4wQd8YoC/ZBrqRlqTTtkdhtH7iV\r\nRUnn7GTzQsESBc29TuBO3HbBXCFftuVC7UgJ/EyJhKpAsi+4GBv0ZYsxAl3lpg/1\r\nsnVUu9U4w4BuSMIxiBpl58frOyYLmACoUBbIbx/uUM/LkReHXyQpLfwTc6ywHKI4\r\n+DBmeYOLLgApwSMxn0tITodTWNqTppkQhE5/3JWN9goNIz2OVbQXrTh1jHpsETQB\r\nTeLrsMECgYEA+zes9baq+dHAzKG6fjEsfj6KLwuzpl3LvX2LnVJah4GNN/0BEZyZ\r\n/4tYtpzspjAQujUn6RFvvK4rVW78q8kwQ4RjrA/LbHt2rnWMG8yZz/KwF2yis2nL\r\nRW9VT3ZcT274lOZMBTIIy7TS+x4anITlXiSIJR5vtb2bQvU4NOVOBrkCgYEA7e3J\r\nDFGYv7aljO+kdDDIkvZTmB3qBlWTnSgcTtH7vi05dZVb3ZrXoyZRIgw2qU+JWPkT\r\nsPqXpVnOq9jVD2wbOE4SWUTmb+z0v/bqjHk0OUAqwXlPJJ615KsufndZfYVb7olz\r\n4srNmdQKlpfvG//jSRqOi0TN/avvh5p8Jh0HBxECgYEAqR0jzA16L86qMZc2Cjlk\r\nMGA9ecow1/AQdbGMSQ3lb48g1+3zyD1Z1hOiVtxw2rdEq3WZNmbMh4HgHhUm9yXq\r\n3ajDyFKhqJe8n1j2RsiHStue+0XgiVLQyh9WmLWfEsIriWE3D9BM54UE+pOban50\r\nQdnp5MMGhJvtZzfY7JLo4dECgYEA3W2u7ggCYGlbKQ7dvkSoZh1ZLvioE70Q4/Gw\r\nZqqF3ze3gfa+yD6S8QN3/nffZzLeYC9uZAbTms85yDTEFNZHft8ptGqrCv87yGvD\r\nXXhvYdiV8fkz7qDGJ0oouwnX/zldlWHWt/qF3eO49u3vWd+LZz2P64zdKHgbM9hS\r\nMiZRpAECgYAqMOaX33yj0PqGAkkdgKMqIATcW8XE5rJWH3/tRJP0yMLpQRt5ZO//\r\n2k8pdDKQu5bO0MqW2W8E/kxFjcpuSURrzSa/6vNw1EP2aTAoIHYdy6zPcKkeuTzh\r\n6Kl9EXXi044UlwxeR2olQr+71HzsU0QJYdh+46CVfn4te/sMl13Kvg==\r\n-----END RSA PRIVATE KEY-----\r\n",
+                "pkcs7": "-----BEGIN PKCS7-----\r\nMIIDTAYJKoZIhvcNAQcCoIIDPTCCAzkCAQExADALBgkqhkiG9w0BBwGgggMhMIID\r\nHTCCAgWgAwIBAgIJRVX15R+dbJH0MA0GCSqGSIb3DQEBCwUAMCwxKjAoBgNVBAMT\r\nIWRldi10N21rNWEzbndvZHB3ZTVvLnVzLmF1dGgwLmNvbTAeFw0yNjA1MjgxMzUy\r\nNThaFw00MDAyMDQxMzUyNThaMCwxKjAoBgNVBAMTIWRldi10N21rNWEzbndvZHB3\r\nZTVvLnVzLmF1dGgwLmNvbTCCASIwDQYJKoZIhvcNAQEBBQADggEPADCCAQoCggEB\r\nAIj1ojX6jCVMJKn6XvojEz9FnZpRpDvN+PE/kShAsbZyRMt2dOHrKmN2t+LjnQj4\r\niS+pyGMK6KKEZMYdoC/OI2htJv+z8QJfkgWsgXJe5wJf/HJ68/Gfe7Xh5Fhxg5nK\r\nF6CoudVtqfdrZHgeUOa3gqasKEqdExhGcbLCJNWmEKr1Fa95OkBaSmQADzDD2B1A\r\nc0T16BbJAA69McFgtXx/5WivB8KAJgI9mahoCgnmhQEUjm7DHrXFC15vhTHZGp6h\r\nVZ13JyXNCEMQG9ImEr6Y6VYHnqZwBXvcBQk4qaajPNdK5tZxSxnkTeFJEc5HRlpo\r\nVqDZutDlZ6WkL5XlSP74X0ECAwEAAaNCMEAwDwYDVR0TAQH/BAUwAwEB/zAdBgNV\r\nHQ4EFgQUygzg1BRtHxa5rHQs1xshTrZXimIwDgYDVR0PAQH/BAQDAgKEMA0GCSqG\r\nSIb3DQEBCwUAA4IBAQB0OKUAEH5a1eOBng3LA0ZPbqqnwTLvhVGUaY4nBt4urT1Z\r\niSUvFBZygGfRhEacr+RdtTaDsJQRmOd1/9QhNGoIak0AgZzPIxDURvsEKz2TC0xI\r\nTCVkWmK7TkiihL3q3yhpJSgxe//3aJaEfBpU9/8RBBdLZy+ZbYulrGcRUsqbRv4y\r\nzcvXT8UUgivwrZBFhS4qKYIpnoHvOYgeEUx4diyx2ee2jZsxg9xkHm4W9Vi+yyv5\r\nkDkURhB1yviD8uT+cX4eiqY8prPXoDxcNGDYa9J8FpUEy7QKmLJYDEu03wjlkVgv\r\nPuAvB3FV0QSyrvQgPP8w1hwdtMbYp5A0HDNVAf+jMQA=\r\n-----END PKCS7-----\r\n",
+                "subject": "/CN=dev-t7mk5a3nwodpwe5o.us.auth0.com"
+            }
+        ]
+    },
+    "nango": {},
+    "api": {
+        "post": {
+            "/api/v2/clients": {
+                "response": {
+                    "tenant": "dev-t7mk5a3nwodpwe5o",
+                    "global": false,
+                    "is_token_endpoint_ip_header_trusted": false,
+                    "name": "Nango Test Client",
+                    "cross_origin_authentication": false,
+                    "is_first_party": true,
+                    "sso_disabled": false,
+                    "cross_origin_auth": false,
+                    "oidc_conformant": false,
+                    "refresh_token": {
+                        "expiration_type": "non-expiring",
+                        "leeway": 0,
+                        "infinite_token_lifetime": true,
+                        "infinite_idle_token_lifetime": true,
+                        "token_lifetime": 2592000,
+                        "idle_token_lifetime": 1296000,
+                        "rotation_type": "non-rotating"
+                    },
+                    "encrypted": true,
+                    "signing_keys": [
+                        {
+                            "cert": "-----BEGIN CERTIFICATE-----\r\nMIIDHTCCAgWgAwIBAgIJRVX15R+dbJH0MA0GCSqGSIb3DQEBCwUAMCwxKjAoBgNV\r\nBAMTIWRldi10N21rNWEzbndvZHB3ZTVvLnVzLmF1dGgwLmNvbTAeFw0yNjA1Mjgx\r\nMzUyNThaFw00MDAyMDQxMzUyNThaMCwxKjAoBgNVBAMTIWRldi10N21rNWEzbndv\r\nZHB3ZTVvLnVzLmF1dGgwLmNvbTCCASIwDQYJKoZIhvcNAQEBBQADggEPADCCAQoC\r\nggEBAIj1ojX6jCVMJKn6XvojEz9FnZpRpDvN+PE/kShAsbZyRMt2dOHrKmN2t+Lj\r\nnQj4iS+pyGMK6KKEZMYdoC/OI2htJv+z8QJfkgWsgXJe5wJf/HJ68/Gfe7Xh5Fhx\r\ng5nKF6CoudVtqfdrZHgeUOa3gqasKEqdExhGcbLCJNWmEKr1Fa95OkBaSmQADzDD\r\n2B1Ac0T16BbJAA69McFgtXx/5WivB8KAJgI9mahoCgnmhQEUjm7DHrXFC15vhTHZ\r\nGp6hVZ13JyXNCEMQG9ImEr6Y6VYHnqZwBXvcBQk4qaajPNdK5tZxSxnkTeFJEc5H\r\nRlpoVqDZutDlZ6WkL5XlSP74X0ECAwEAAaNCMEAwDwYDVR0TAQH/BAUwAwEB/zAd\r\nBgNVHQ4EFgQUygzg1BRtHxa5rHQs1xshTrZXimIwDgYDVR0PAQH/BAQDAgKEMA0G\r\nCSqGSIb3DQEBCwUAA4IBAQB0OKUAEH5a1eOBng3LA0ZPbqqnwTLvhVGUaY4nBt4u\r\nrT1ZiSUvFBZygGfRhEacr+RdtTaDsJQRmOd1/9QhNGoIak0AgZzPIxDURvsEKz2T\r\nC0xITCVkWmK7TkiihL3q3yhpJSgxe//3aJaEfBpU9/8RBBdLZy+ZbYulrGcRUsqb\r\nRv4yzcvXT8UUgivwrZBFhS4qKYIpnoHvOYgeEUx4diyx2ee2jZsxg9xkHm4W9Vi+\r\nyyv5kDkURhB1yviD8uT+cX4eiqY8prPXoDxcNGDYa9J8FpUEy7QKmLJYDEu03wjl\r\nkVgvPuAvB3FV0QSyrvQgPP8w1hwdtMbYp5A0HDNVAf+j\r\n-----END CERTIFICATE-----\r\n",
+                            "key": "-----BEGIN RSA PRIVATE KEY-----\r\nMIIEpAIBAAKCAQEA6Xvi9WcR8Gt7nF4Bhs8TSE3+sakGGCi4jof3wAKXRP80A2AC\r\nJeBAXzYzmrgF+vWHmQN4ciydY4ig3AidFAoei+De7ZoQQfZrxompPahqMtopWNhu\r\nM4/YT1rRSwrGyrIa9vIyO9r6hA0z9wqtqQ1GdMmbHh6VIMy0XYAhzgvhca3OLyHT\r\nwWY9Cl5+Q3Plno5DFsfzf0ldCV6Fpl3O9BTzughG+q5DYFttr6z05ztvMORXJAV+\r\nWN8ReDA40xOv8EBvi2xkVvbZEje1Ok27JOhyd0sKry5xc6lSWDKmhPwCCw2I86eV\r\nRQLAv7UcFCthX4NtK3EGWJGeWVUdXuUjgGyBSQIDAQABAoIBABTfJL5APPvLd+zW\r\nAHfvGe+sPTjffbJ6LWlcYTrSYHhkAd/NXNPK9KYuP7W0fqBdA4abp1A5icZEh/Cz\r\nems4rltduj/uNkbXQvIoCy9+VyP9mZWeH1fPo4wQd8YoC/ZBrqRlqTTtkdhtH7iV\r\nRUnn7GTzQsESBc29TuBO3HbBXCFftuVC7UgJ/EyJhKpAsi+4GBv0ZYsxAl3lpg/1\r\nsnVUu9U4w4BuSMIxiBpl58frOyYLmACoUBbIbx/uUM/LkReHXyQpLfwTc6ywHKI4\r\n+DBmeYOLLgApwSMxn0tITodTWNqTppkQhE5/3JWN9goNIz2OVbQXrTh1jHpsETQB\r\nTeLrsMECgYEA+zes9baq+dHAzKG6fjEsfj6KLwuzpl3LvX2LnVJah4GNN/0BEZyZ\r\n/4tYtpzspjAQujUn6RFvvK4rVW78q8kwQ4RjrA/LbHt2rnWMG8yZz/KwF2yis2nL\r\nRW9VT3ZcT274lOZMBTIIy7TS+x4anITlXiSIJR5vtb2bQvU4NOVOBrkCgYEA7e3J\r\nDFGYv7aljO+kdDDIkvZTmB3qBlWTnSgcTtH7vi05dZVb3ZrXoyZRIgw2qU+JWPkT\r\nsPqXpVnOq9jVD2wbOE4SWUTmb+z0v/bqjHk0OUAqwXlPJJ615KsufndZfYVb7olz\r\n4srNmdQKlpfvG//jSRqOi0TN/avvh5p8Jh0HBxECgYEAqR0jzA16L86qMZc2Cjlk\r\nMGA9ecow1/AQdbGMSQ3lb48g1+3zyD1Z1hOiVtxw2rdEq3WZNmbMh4HgHhUm9yXq\r\n3ajDyFKhqJe8n1j2RsiHStue+0XgiVLQyh9WmLWfEsIriWE3D9BM54UE+pOban50\r\nQdnp5MMGhJvtZzfY7JLo4dECgYEA3W2u7ggCYGlbKQ7dvkSoZh1ZLvioE70Q4/Gw\r\nZqqF3ze3gfa+yD6S8QN3/nffZzLeYC9uZAbTms85yDTEFNZHft8ptGqrCv87yGvD\r\nXXhvYdiV8fkz7qDGJ0oouwnX/zldlWHWt/qF3eO49u3vWd+LZz2P64zdKHgbM9hS\r\nMiZRpAECgYAqMOaX33yj0PqGAkkdgKMqIATcW8XE5rJWH3/tRJP0yMLpQRt5ZO//\r\n2k8pdDKQu5bO0MqW2W8E/kxFjcpuSURrzSa/6vNw1EP2aTAoIHYdy6zPcKkeuTzh\r\n6Kl9EXXi044UlwxeR2olQr+71HzsU0QJYdh+46CVfn4te/sMl13Kvg==\r\n-----END RSA PRIVATE KEY-----\r\n",
+                            "pkcs7": "-----BEGIN PKCS7-----\r\nMIIDTAYJKoZIhvcNAQcCoIIDPTCCAzkCAQExADALBgkqhkiG9w0BBwGgggMhMIID\r\nHTCCAgWgAwIBAgIJRVX15R+dbJH0MA0GCSqGSIb3DQEBCwUAMCwxKjAoBgNVBAMT\r\nIWRldi10N21rNWEzbndvZHB3ZTVvLnVzLmF1dGgwLmNvbTAeFw0yNjA1MjgxMzUy\r\nNThaFw00MDAyMDQxMzUyNThaMCwxKjAoBgNVBAMTIWRldi10N21rNWEzbndvZHB3\r\nZTVvLnVzLmF1dGgwLmNvbTCCASIwDQYJKoZIhvcNAQEBBQADggEPADCCAQoCggEB\r\nAIj1ojX6jCVMJKn6XvojEz9FnZpRpDvN+PE/kShAsbZyRMt2dOHrKmN2t+LjnQj4\r\niS+pyGMK6KKEZMYdoC/OI2htJv+z8QJfkgWsgXJe5wJf/HJ68/Gfe7Xh5Fhxg5nK\r\nF6CoudVtqfdrZHgeUOa3gqasKEqdExhGcbLCJNWmEKr1Fa95OkBaSmQADzDD2B1A\r\nc0T16BbJAA69McFgtXx/5WivB8KAJgI9mahoCgnmhQEUjm7DHrXFC15vhTHZGp6h\r\nVZ13JyXNCEMQG9ImEr6Y6VYHnqZwBXvcBQk4qaajPNdK5tZxSxnkTeFJEc5HRlpo\r\nVqDZutDlZ6WkL5XlSP74X0ECAwEAAaNCMEAwDwYDVR0TAQH/BAUwAwEB/zAdBgNV\r\nHQ4EFgQUygzg1BRtHxa5rHQs1xshTrZXimIwDgYDVR0PAQH/BAQDAgKEMA0GCSqG\r\nSIb3DQEBCwUAA4IBAQB0OKUAEH5a1eOBng3LA0ZPbqqnwTLvhVGUaY4nBt4urT1Z\r\niSUvFBZygGfRhEacr+RdtTaDsJQRmOd1/9QhNGoIak0AgZzPIxDURvsEKz2TC0xI\r\nTCVkWmK7TkiihL3q3yhpJSgxe//3aJaEfBpU9/8RBBdLZy+ZbYulrGcRUsqbRv4y\r\nzcvXT8UUgivwrZBFhS4qKYIpnoHvOYgeEUx4diyx2ee2jZsxg9xkHm4W9Vi+yyv5\r\nkDkURhB1yviD8uT+cX4eiqY8prPXoDxcNGDYa9J8FpUEy7QKmLJYDEu03wjlkVgv\r\nPuAvB3FV0QSyrvQgPP8w1hwdtMbYp5A0HDNVAf+jMQA=\r\n-----END PKCS7-----\r\n",
+                            "subject": "/CN=dev-t7mk5a3nwodpwe5o.us.auth0.com"
+                        }
+                    ],
+                    "client_id": "zwnnoT7Qo2peYVRpmnAJrQHqOUnj3864",
+                    "callback_url_template": false,
+                    "client_secret": "Uahts_TrQzoFulFw0MQoFsM09h6i4DXz_owD8-bttitvlkMr4kHkvf38YTmRSK74",
+                    "jwt_configuration": {
+                        "lifetime_in_seconds": 36000,
+                        "secret_encoded": false
+                    },
+                    "grant_types": ["authorization_code", "implicit", "refresh_token", "client_credentials"],
+                    "custom_login_page_on": true
+                },
+                "status": 201,
+                "headers": {
+                    "date": "Fri, 29 May 2026 10:20:10 GMT",
+                    "content-type": "application/json; charset=utf-8",
+                    "transfer-encoding": "chunked",
+                    "connection": "keep-alive",
+                    "x-xss-protection": "0",
+                    "x-content-type-options": "nosniff",
+                    "x-download-options": "noopen",
+                    "x-frame-options": "SAMEORIGIN",
+                    "x-dns-prefetch-control": "off",
+                    "strict-transport-security": "max-age=31536000; includeSubDomains",
+                    "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+                    "access-control-allow-origin": "*",
+                    "access-control-expose-headers": "WWW-Authenticate,Server-Authorization",
+                    "x-ratelimit-limit": "1000",
+                    "x-ratelimit-remaining": "996",
+                    "x-ratelimit-reset": "1780050067",
+                    "cf-ray": "a034c3d4dcfff8cb-PDX",
+                    "cf-cache-status": "DYNAMIC",
+                    "cache-control": "no-cache",
+                    "server": "cloudflare",
+                    "vary": "origin,accept-encoding",
+                    "x-auth0-l": "0.142",
+                    "alt-svc": "h3=\":443\"; ma=86400"
+                },
+                "hash": "8d3f035aaeb9ddc410a62f0cf5b1a00c2fa62c8c",
+                "request": {
+                    "data": {
+                        "name": "Nango Test Client"
+                    }
+                }
+            }
+        }
+    }
+}

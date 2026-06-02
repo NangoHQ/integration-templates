@@ -11069,6 +11069,2592 @@ export interface ActionOutput_attio_upsertrecord {
   values?: {  [key: string]: unknown | undefined;};
 };
 
+export interface Client {
+  id: string;
+  client_id?: string | undefined;
+  tenant?: string | undefined;
+  name?: string | undefined;
+  description?: string | undefined;
+  global?: boolean | undefined;
+  app_type?: string | undefined;
+  logo_uri?: string | undefined;
+  is_first_party?: boolean | undefined;
+  oidc_conformant?: boolean | undefined;
+  callbacks?: string[] | undefined;
+  allowed_origins?: string[] | undefined;
+  web_origins?: string[] | undefined;
+  allowed_logout_urls?: string[] | undefined;
+  grant_types?: string[] | undefined;
+  is_token_endpoint_ip_header_trusted?: boolean | undefined;
+  initiate_login_uri?: string | undefined;
+  organization_usage?: string | undefined;
+  organization_require_behavior?: string | undefined;
+  require_pushed_authorization_requests?: boolean | undefined;
+  require_proof_of_possession?: boolean | undefined;
+  sso_disabled?: boolean | undefined;
+  cross_origin_authentication?: boolean | undefined;
+  custom_login_page_on?: boolean | undefined;
+  custom_login_page?: string | undefined;
+  client_metadata?: {  [key: string]: string;} | undefined;
+};
+
+export interface Connection {
+  id: string;
+  name: string;
+  display_name?: string | undefined;
+  strategy: string;
+  realms?: string[] | undefined;
+  is_domain_connection?: boolean | undefined;
+  show_as_button?: boolean | undefined;
+  metadata?: {  [key: string]: string;} | undefined;
+  options?: unknown | undefined;
+  authentication?: unknown | undefined;
+  connected_accounts?: unknown | undefined;
+};
+
+export interface Grant {
+  id: string;
+  clientID?: string | undefined;
+  user_id?: string | undefined;
+  audience?: string | undefined;
+  scope?: string[] | undefined;
+};
+
+export interface LogEntry {
+  id: string;
+  date?: string | undefined;
+  type?: string | undefined;
+  description?: string | undefined;
+  connection?: string | undefined;
+  connection_id?: string | undefined;
+  client_id?: string | undefined;
+  client_name?: string | undefined;
+  ip?: string | undefined;
+  hostname?: string | undefined;
+  user_id?: string | undefined;
+  user_name?: string | undefined;
+  audience?: string | undefined;
+  scope?: string | undefined;
+  strategy?: string | undefined;
+  strategy_type?: string | undefined;
+  isMobile?: boolean | undefined;
+  user_agent?: string | undefined;
+  details?: {  [key: string]: unknown | undefined;};
+  security_context?: {  [key: string]: unknown | undefined;};
+  location_info?: {  [key: string]: unknown | undefined;};
+};
+
+export interface OrganizationMember {
+  id: string;
+  organization_id: string;
+  user_id: string;
+  email?: string | undefined;
+  name?: string | undefined;
+  picture?: string | undefined;
+  roles?: ({  id: string;
+  name: string;})[] | undefined;
+};
+
+export interface ResourceServer {
+  id: string;
+  name?: string | undefined;
+  is_system?: boolean | undefined;
+  identifier?: string | undefined;
+  scopes?: ({  value: string;
+  description?: string | undefined;})[];
+  signing_alg?: string | undefined;
+  signing_secret?: string | undefined;
+  allow_offline_access?: boolean | undefined;
+  allow_online_access?: boolean | undefined;
+  allow_online_access_with_ephemeral_sessions?: boolean | undefined;
+  skip_consent_for_verifiable_first_party_clients?: boolean | undefined;
+  token_lifetime?: number | undefined;
+  token_lifetime_for_web?: number | undefined;
+  enforce_policies?: boolean | undefined;
+  token_dialect?: string | undefined;
+  consent_policy?: string | undefined;
+  client_id?: string | undefined;
+};
+
+export interface RolePermission {
+  id: string;
+  role_id: string;
+  permission_name: string;
+  resource_server_identifier: string;
+  resource_server_name?: string | undefined;
+  description?: string | undefined;
+};
+
+export interface Role {
+  id: string;
+  name: string;
+  color?: number | undefined;
+  colors?: {  primary_color: number;
+  secondary_color?: number | undefined;
+  tertiary_color?: number | undefined;};
+  hoist?: boolean | undefined;
+  icon?: string | undefined;
+  unicode_emoji?: string | undefined;
+  position?: number | undefined;
+  permissions?: string | undefined;
+  managed?: boolean | undefined;
+  mentionable?: boolean | undefined;
+  flags?: number | undefined;
+};
+
+export interface UserBlock {
+  id: string;
+  user_id: string;
+  identifier: string;
+  ip?: string | undefined;
+  connection?: string | undefined;
+};
+
+export interface ActionInput_auth0_cc_addorganizationmembers {
+  /**
+   * Organization identifier. Example: "org_abc123"
+   */
+  organizationId: string;
+  /**
+   * List of user IDs to add as members. Example: ["auth0|123"]
+   */
+  members: string[];
+};
+
+export interface ActionOutput_auth0_cc_addorganizationmembers {
+  organizationId: string;
+  members: string[];
+};
+
+export interface ActionInput_auth0_cc_assignorganizationmemberroles {
+  /**
+   * Organization identifier. Example: "org_abc123"
+   */
+  organization_id: string;
+  /**
+   * ID of the user to associate roles with. Example: "auth0|123"
+   */
+  user_id: string;
+  /**
+   * List of role IDs to associate with the user. Example: ["rol_abc123"]
+   */
+  role_ids: string[];
+};
+
+export interface ActionOutput_auth0_cc_assignorganizationmemberroles {
+  success: boolean;
+};
+
+export interface ActionInput_auth0_cc_assignpermissionstorole {
+  /**
+   * ID of the role to add permissions to. Example: "rol_1234567890abcdef"
+   */
+  role_id: string;
+  /**
+   * Array of permission objects to assign to the role.
+   */
+  permissions: ({  /**
+   * Resource server (API) identifier that this permission is for. Example: "https://api.example.com"
+   */
+  resource_server_identifier: string;
+  /**
+   * Name of this permission. Example: "read:users"
+   */
+  permission_name: string;})[];
+};
+
+export interface ActionOutput_auth0_cc_assignpermissionstorole {
+  /**
+   * Whether the permissions were successfully assigned to the role.
+   */
+  success: boolean;
+};
+
+export interface ActionInput_auth0_cc_assignpermissionstouser {
+  /**
+   * Auth0 user ID. Example: "auth0|123456789"
+   */
+  user_id: string;
+  /**
+   * Array of permission objects to assign
+   */
+  permissions: ({  resource_server_identifier: string;
+  permission_name: string;})[];
+};
+
+export interface ActionOutput_auth0_cc_assignpermissionstouser {
+  success: boolean;
+  user_id: string;
+  permissions_assigned: number;
+};
+
+export interface ActionInput_auth0_cc_assignrolestouser {
+  /**
+   * The Auth0 user ID to assign roles to.
+   */
+  user_id: string;
+  /**
+   * List of role IDs to assign to the user.
+   */
+  roles: string[];
+};
+
+export type ActionOutput_auth0_cc_assignrolestouser = null
+
+export interface ActionInput_auth0_cc_createclient {
+  /**
+   * Name of this client (min length: 1 character, does not allow `<` or `>`).
+   */
+  name: string;
+  /**
+   * Free text description of this client (max length: 140 characters).
+   */
+  description?: string | undefined;
+  /**
+   * The type of application this client represents.
+   */
+  app_type?: 'native' | 'spa' | 'regular_web' | 'non_interactive' | 'resource_server' | 'sso_integration' | undefined;
+  /**
+   * Comma-separated list of URLs whitelisted for Auth0 to use as a callback to the client after authentication.
+   */
+  callbacks?: string[] | undefined;
+  /**
+   * Comma-separated list of URLs allowed to make requests from JavaScript to Auth0 API (typically used with CORS).
+   */
+  allowed_origins?: string[] | undefined;
+  /**
+   * Comma-separated list of allowed origins for use with Cross-Origin Authentication, Device Flow, and web message response mode.
+   */
+  web_origins?: string[] | undefined;
+  /**
+   * URL of the logo to display for this client. Recommended size is 150x150 pixels.
+   */
+  logo_uri?: string | undefined;
+  /**
+   * List of grant types supported for this application.
+   */
+  grant_types?: string[] | undefined;
+  /**
+   * Whether this client conforms to strict OIDC specifications.
+   */
+  oidc_conformant?: boolean | undefined;
+  /**
+   * Whether this client a first party client or not.
+   */
+  is_first_party?: boolean | undefined;
+  /**
+   * Whether this client can be used to make cross-origin authentication requests.
+   */
+  cross_origin_authentication?: boolean | undefined;
+  /**
+   * true to disable Single Sign On, false otherwise.
+   */
+  sso_disabled?: boolean | undefined;
+  /**
+   * true if the custom login page is to be used, false otherwise.
+   */
+  custom_login_page_on?: boolean | undefined;
+  /**
+   * Initiate login uri, must be https.
+   */
+  initiate_login_uri?: string | undefined;
+  /**
+   * Metadata associated with the client.
+   */
+  client_metadata?: {  [key: string]: string;} | undefined;
+  /**
+   * Defines the requested authentication method for the token endpoint.
+   */
+  token_endpoint_auth_method?: 'none' | 'client_secret_post' | 'client_secret_basic' | undefined;
+  /**
+   * Configuration related to JWTs for the client.
+   */
+  jwt_configuration?: {  lifetime_in_seconds?: number | undefined;
+  secret_encoded?: boolean | undefined;
+  scopes?: {} | undefined;
+  alg?: string | undefined;};
+  /**
+   * Refresh token configuration.
+   */
+  refresh_token?: {  rotation_type?: 'rotating' | 'non_rotating' | undefined;
+  expiration_type?: 'expiring' | 'non_expiring' | undefined;
+  leeway?: number | undefined;
+  token_lifetime?: number | undefined;
+  infinite_token_lifetime?: boolean | undefined;
+  idle_token_lifetime?: number | undefined;
+  infinite_idle_token_lifetime?: boolean | undefined;};
+  /**
+   * Addons enabled for this client and their associated configurations.
+   */
+  addons?: {  [key: string]: unknown | undefined;};
+  /**
+   * Additional configuration for native mobile apps.
+   */
+  mobile?: {  android?: {} | undefined;
+  ios?: {} | undefined;};
+};
+
+export interface ActionOutput_auth0_cc_createclient {
+  client_id: string;
+  tenant?: string | undefined;
+  name: string;
+  description?: string | undefined;
+  global?: boolean | undefined;
+  client_secret?: string | undefined;
+  app_type?: string | undefined;
+  logo_uri?: string | undefined;
+  is_first_party?: boolean | undefined;
+  oidc_conformant?: boolean | undefined;
+  callbacks?: string[] | undefined;
+  allowed_origins?: string[] | undefined;
+  web_origins?: string[] | undefined;
+  client_aliases?: string[] | undefined;
+  allowed_clients?: string[] | undefined;
+  allowed_logout_urls?: string[] | undefined;
+  grant_types?: string[] | undefined;
+  sso?: boolean | undefined;
+  sso_disabled?: boolean | undefined;
+  cross_origin_authentication?: boolean | undefined;
+  cross_origin_loc?: string | undefined;
+  custom_login_page_on?: boolean | undefined;
+  custom_login_page?: string | undefined;
+  custom_login_page_preview?: string | undefined;
+  form_template?: string | undefined;
+  initiate_login_uri?: string | undefined;
+  token_endpoint_auth_method?: string | undefined;
+  is_token_endpoint_ip_header_trusted?: boolean | undefined;
+  client_metadata?: {  [key: string]: string;} | undefined;
+  require_pushed_authorization_requests?: boolean | undefined;
+  require_proof_of_possession?: boolean | undefined;
+  par_request_expiry?: number | undefined;
+  resource_server_identifier?: string | undefined;
+  jwt_configuration?: {} | undefined;
+  encryption_key?: {} | undefined;
+  addons?: {  [key: string]: unknown | undefined;};
+  mobile?: {} | undefined;
+  refresh_token?: {} | undefined;
+  default_organization?: {} | undefined;
+  organization_usage?: string | undefined;
+  organization_require_behavior?: string | undefined;
+  organization_discovery_methods?: string[] | undefined;
+  client_authentication_methods?: {} | undefined;
+  signed_request_object?: {} | undefined;
+  compliance_level?: string | undefined;
+  token_exchange?: {} | undefined;
+  express_configuration?: {} | undefined;
+  my_organization_configuration?: {} | undefined;
+  third_party_security_mode?: string | undefined;
+  redirection_policy?: string | undefined;
+  external_metadata_type?: string | undefined;
+  external_metadata_created_by?: string | undefined;
+  external_client_id?: string | undefined;
+  jwks_uri?: string | undefined;
+  session_transfer?: {} | undefined;
+  oidc_logout?: {} | undefined;
+  native_social_login?: {} | undefined;
+  fedcm_login?: {} | undefined;
+  signing_keys?: unknown[] | undefined;
+};
+
+export interface ActionInput_auth0_cc_createconnection {
+  /**
+   * The name of the connection. Must start and end with an alphanumeric character and can only contain alphanumeric characters and "-". Max length 128.
+   */
+  name: string;
+  /**
+   * The identity provider identifier for the connection. Example: "auth0", "google-oauth2", "samlp".
+   */
+  strategy: string;
+  /**
+   * Connection name used in the new universal login experience.
+   */
+  display_name?: string | undefined;
+  /**
+   * The connection's options (depend on the connection strategy).
+   */
+  options?: {  [key: string]: unknown | undefined;};
+  /**
+   * The ids of the clients for which the connection is to be enabled.
+   */
+  enabled_clients?: string[] | undefined;
+  /**
+   * True promotes to a domain-level connection so that third-party applications can use it.
+   */
+  is_domain_connection?: boolean | undefined;
+  /**
+   * Enables showing a button for the connection in the login page (new experience only).
+   */
+  show_as_button?: boolean | undefined;
+  /**
+   * Defines the realms for which the connection will be used (ie: email domains).
+   */
+  realms?: string[] | undefined;
+  /**
+   * Metadata associated with the connection in the form of an object with string values (max 255 chars). Maximum of 10 metadata properties allowed.
+   */
+  metadata?: {  [key: string]: string;} | undefined;
+  /**
+   * Configure the purpose of a connection to be used for authentication during login.
+   */
+  authentication?: {  active: boolean;} | undefined;
+  /**
+   * Configure the purpose of a connection to be used for connected accounts and Token Vault.
+   */
+  connected_accounts?: {  active: boolean;
+  cross_app_access?: boolean | undefined;};
+};
+
+export interface ActionOutput_auth0_cc_createconnection {
+  /**
+   * The connection's identifier.
+   */
+  id: string;
+  /**
+   * The name of the connection.
+   */
+  name: string;
+  /**
+   * Connection name used in login screen.
+   */
+  display_name?: string | undefined;
+  /**
+   * The type of the connection, related to the identity provider.
+   */
+  strategy: string;
+  /**
+   * Defines the realms for which the connection will be used.
+   */
+  realms?: string[] | undefined;
+  /**
+   * The client ids for which the connection is enabled.
+   */
+  enabled_clients?: string[] | undefined;
+  /**
+   * True if the connection is domain level.
+   */
+  is_domain_connection?: boolean | undefined;
+  /**
+   * Enables showing a button for the connection in the login page.
+   */
+  show_as_button?: boolean | undefined;
+  /**
+   * Metadata associated with the connection.
+   */
+  metadata?: {  [key: string]: string;} | undefined;
+  /**
+   * Authentication purpose configuration.
+   */
+  authentication?: {  active: boolean;} | undefined;
+  /**
+   * Connected accounts purpose configuration.
+   */
+  connected_accounts?: {  active: boolean;
+  cross_app_access?: boolean | undefined;};
+  /**
+   * The connection's options.
+   */
+  options?: unknown | undefined;
+};
+
+export interface ActionInput_auth0_cc_createemailverificationticket {
+  /**
+   * User ID for whom the ticket should be created. Example: "auth0|1234567890abcdef"
+   */
+  user_id: string;
+  /**
+   * URL the user will be redirected to once the ticket is used.
+   */
+  result_url?: string | undefined;
+  /**
+   * ID of the client (application).
+   */
+  client_id?: string | undefined;
+  /**
+   * Organization ID.
+   */
+  organization_id?: string | undefined;
+  /**
+   * Number of seconds for which the ticket is valid before expiration. Defaults to 432000 seconds (5 days).
+   */
+  ttl_sec?: number | undefined;
+  /**
+   * Whether to include the email address as part of the returnUrl in the reset_email.
+   */
+  includeEmailInRedirect?: boolean | undefined;
+  /**
+   * Identity to be verified. Required for social, enterprise and passwordless email identities.
+   */
+  identity?: {  /**
+   * User ID of the identity to be verified. Example: "5457edea1b8f22891a000004"
+   */
+  user_id: string;
+  /**
+   * Identity provider name of the identity (e.g. "google-oauth2").
+   */
+  provider: string;
+  /**
+   * Connection ID of the identity. Example: "con_1234567890abcdef"
+   */
+  connection_id?: string | undefined;};
+};
+
+export interface ActionOutput_auth0_cc_createemailverificationticket {
+  /**
+   * URL representing the ticket.
+   */
+  ticket: string;
+};
+
+export interface ActionInput_auth0_cc_createexportusersjob {
+  /**
+   * Connection ID from which users will be exported. Example: con_0000000000000001
+   */
+  connection_id?: string | undefined;
+  /**
+   * Format of the exported file. Must be json or csv.
+   */
+  format?: 'json' | 'csv' | undefined;
+  /**
+   * Limit the number of records to export.
+   */
+  limit?: number | undefined;
+  /**
+   * List of fields to include in the export.
+   */
+  fields?: ({  name: string;
+  export_as?: string | undefined;})[];
+};
+
+export interface ActionOutput_auth0_cc_createexportusersjob {
+  id: string;
+  type: string;
+  status: string;
+  connection?: string | undefined;
+  created_at?: string | undefined;
+  connection_id?: string | undefined;
+  format?: 'json' | 'csv' | undefined;
+  limit?: number | undefined;
+  fields?: ({  name: string;
+  export_as?: string | undefined;})[];
+};
+
+export interface ActionInput_auth0_cc_createorganizationconnection {
+  /**
+   * Organization identifier. Example: "org_abc123"
+   */
+  organization_id: string;
+  /**
+   * Single connection ID to add to the organization. Example: "con_def456"
+   */
+  connection_id: string;
+  /**
+   * When true, all users that log in with this connection will be automatically granted membership in the organization.
+   */
+  assign_membership_on_login?: boolean | undefined;
+};
+
+export interface ActionOutput_auth0_cc_createorganizationconnection {
+  connection_id: string;
+  assign_membership_on_login?: boolean | undefined;
+  show_as_button?: boolean | undefined;
+  is_signup_enabled?: boolean | undefined;
+  connection?: {  name?: string | undefined;
+  strategy?: string | undefined;};
+};
+
+export interface ActionInput_auth0_cc_createorganization {
+  /**
+   * The name of this organization. Example: "acme-corp"
+   */
+  name: string;
+  /**
+   * Friendly name of this organization. Example: "Acme Corporation"
+   */
+  display_name?: string | undefined;
+  branding?: {  /**
+   * URL of logo to display on login page.
+   */
+  logo_url?: string | undefined;
+  colors?: {  /**
+   * HEX Color for primary elements.
+   */
+  primary: string;
+  /**
+   * HEX Color for background.
+   */
+  page_background: string;} | undefined;};
+  /**
+   * Metadata associated with the organization, in the form of an object with string values (max 255 chars). Maximum of 25 metadata properties allowed.
+   */
+  metadata?: {  [key: string]: string;} | undefined;
+  /**
+   * Connections that will be enabled for this organization. Max of 10 connections allowed.
+   */
+  enabled_connections?: ({  /**
+   * ID of the connection.
+   */
+  connection_id: string;
+  /**
+   * When true, all users that log in with this connection will be automatically granted membership in the organization.
+   */
+  assign_membership_on_login?: boolean | undefined;
+  /**
+   * Determines whether a connection should be displayed on this organization's login prompt. Only applicable for enterprise connections. Default: true.
+   */
+  show_as_button?: boolean | undefined;
+  /**
+   * Determines whether organization signup should be enabled for this organization connection. Only applicable for database connections. Default: false.
+   */
+  is_signup_enabled?: boolean | undefined;})[];
+};
+
+export interface ActionOutput_auth0_cc_createorganization {
+  id: string;
+  name: string;
+  display_name?: string | undefined;
+  branding?: {  logo_url?: string | undefined;
+  colors?: {  primary: string;
+  page_background: string;} | undefined;};
+  metadata?: {  [key: string]: string;} | undefined;
+  enabled_connections?: ({  connection_id: string;
+  assign_membership_on_login?: boolean | undefined;
+  show_as_button?: boolean | undefined;
+  is_signup_enabled?: boolean | undefined;
+  connection?: {  name?: string | undefined;
+  strategy?: string | undefined;};})[];
+};
+
+export interface ActionInput_auth0_cc_createpasswordchangeticket {
+  result_url?: string | undefined;
+  /**
+   * Auth0 user ID for whom the ticket should be created. Example: "auth0|1234567890abcdef"
+   */
+  user_id?: string | undefined;
+  client_id?: string | undefined;
+  organization_id?: string | undefined;
+  connection_id?: string | undefined;
+  email?: string | undefined;
+  /**
+   * Number of seconds the ticket is valid before expiration. Defaults to 432000 (5 days).
+   */
+  ttl_sec?: number | undefined;
+  mark_email_as_verified?: boolean | undefined;
+  includeEmailInRedirect?: boolean | undefined;
+  identity?: {  user_id: string;
+  provider: string;
+  connection_id?: string | undefined;};
+};
+
+export interface ActionOutput_auth0_cc_createpasswordchangeticket {
+  /**
+   * URL representing the password change ticket.
+   */
+  ticket: string;
+};
+
+export interface ActionInput_auth0_cc_createresourceserver {
+  /**
+   * Unique identifier for the resource server. Example: "https://api.example.com"
+   */
+  identifier: string;
+  /**
+   * Friendly name for the resource server.
+   */
+  name?: string | undefined;
+  /**
+   * List of permission scopes.
+   */
+  scopes?: ({  value: string;
+  description?: string | undefined;})[];
+  /**
+   * Token lifetime in seconds.
+   */
+  token_lifetime?: number | undefined;
+  /**
+   * Token lifetime for web in seconds.
+   */
+  token_lifetime_for_web?: number | undefined;
+  /**
+   * Whether refresh tokens can be issued.
+   */
+  allow_offline_access?: boolean | undefined;
+  /**
+   * Signing algorithm for tokens.
+   */
+  signing_alg?: string | undefined;
+};
+
+export interface ActionOutput_auth0_cc_createresourceserver {
+  id: string;
+  identifier: string;
+  name?: string | undefined;
+  scopes?: ({  value: string;
+  description?: string | undefined;})[];
+  token_lifetime?: number | undefined;
+  token_lifetime_for_web?: number | undefined;
+  allow_offline_access?: boolean | undefined;
+  signing_alg?: string | undefined;
+  is_system?: boolean | undefined;
+};
+
+export interface ActionInput_auth0_cc_createrole {
+  /**
+   * Name of the role. Example: "Admin"
+   */
+  name: string;
+  /**
+   * Description of the role. Example: "Administrator role with full access"
+   */
+  description?: string | undefined;
+};
+
+export interface ActionOutput_auth0_cc_createrole {
+  id: string;
+  name: string;
+  description?: string | undefined;
+};
+
+export interface ActionInput_auth0_cc_createuser {
+  /**
+   * Name of the connection this user should be created in. Example: "Username-Password-Authentication"
+   */
+  connection: string;
+  /**
+   * The user's email. Example: "john.doe@gmail.com"
+   */
+  email?: string | undefined;
+  /**
+   * Initial password for this user. Only valid for auth0 connection strategy. Example: "secret"
+   */
+  password?: string | undefined;
+  /**
+   * The user's username. Only valid if the connection requires a username. Example: "johndoe"
+   */
+  username?: string | undefined;
+  /**
+   * The user's full name. Example: "John Doe"
+   */
+  name?: string | undefined;
+  /**
+   * The user's given name(s). Example: "John"
+   */
+  given_name?: string | undefined;
+  /**
+   * The user's family name(s). Example: "Doe"
+   */
+  family_name?: string | undefined;
+  /**
+   * The user's nickname. Example: "Johnny"
+   */
+  nickname?: string | undefined;
+  /**
+   * A URI pointing to the user's picture.
+   */
+  picture?: string | undefined;
+  /**
+   * Data related to the user that does not affect the application's core functionality.
+   */
+  user_metadata?: {  [key: string]: unknown | undefined;};
+  /**
+   * Data related to the user that does affect the application's core functionality.
+   */
+  app_metadata?: {  [key: string]: unknown | undefined;};
+  /**
+   * Whether this user was blocked by an administrator (true) or not (false).
+   */
+  blocked?: boolean | undefined;
+  /**
+   * Whether this email address is verified (true) or unverified (false).
+   */
+  email_verified?: boolean | undefined;
+  /**
+   * The user's phone number (following the E.164 recommendation). Example: "+199999999999999"
+   */
+  phone_number?: string | undefined;
+  /**
+   * Whether this phone number has been verified (true) or not (false).
+   */
+  phone_verified?: boolean | undefined;
+  /**
+   * Whether the user will receive a verification email after creation (true) or no email (false).
+   */
+  verify_email?: boolean | undefined;
+  /**
+   * The external user's id provided by the identity provider. Example: "abc"
+   */
+  user_id?: string | undefined;
+};
+
+export interface ActionOutput_auth0_cc_createuser {
+  user_id?: string | undefined;
+  email?: string | undefined;
+  email_verified?: boolean | undefined;
+  username?: string | undefined;
+  phone_number?: string | undefined;
+  phone_verified?: boolean | undefined;
+  created_at?: string | undefined;
+  updated_at?: string | undefined;
+  name?: string | undefined;
+  nickname?: string | undefined;
+  picture?: string | undefined;
+  blocked?: boolean | undefined;
+  given_name?: string | undefined;
+  family_name?: string | undefined;
+};
+
+export interface ActionInput_auth0_cc_deleteclient {
+  /**
+   * The ID of the client to delete. Example: "abc123def456"
+   */
+  client_id: string;
+};
+
+export interface ActionOutput_auth0_cc_deleteclient {
+  success: boolean;
+  client_id: string;
+};
+
+export interface ActionInput_auth0_cc_deleteconnection {
+  /**
+   * The ID of the connection to delete. Example: "con_abc123"
+   */
+  id: string;
+};
+
+export interface ActionOutput_auth0_cc_deleteconnection {
+  id: string;
+  success: boolean;
+};
+
+export interface ActionInput_auth0_cc_deleteorganizationconnection {
+  /**
+   * Organization ID. Example: "org_abc123"
+   */
+  organization_id: string;
+  /**
+   * Connection ID. Example: "con_def456"
+   */
+  connection_id: string;
+};
+
+export interface ActionOutput_auth0_cc_deleteorganizationconnection {
+  success: boolean;
+};
+
+export interface ActionInput_auth0_cc_deleteorganizationinvitation {
+  /**
+   * Organization ID. Example: "org_abc123"
+   */
+  organization_id: string;
+  /**
+   * Invitation ID. Example: "inv_abc123"
+   */
+  invitation_id: string;
+};
+
+export interface ActionOutput_auth0_cc_deleteorganizationinvitation {
+  success: boolean;
+};
+
+export interface ActionInput_auth0_cc_deleteorganization {
+  /**
+   * Organization ID. Example: "org_abc123"
+   */
+  organization_id: string;
+};
+
+export interface ActionOutput_auth0_cc_deleteorganization {
+  success: boolean;
+  organization_id: string;
+};
+
+export interface ActionInput_auth0_cc_deleteresourceserver {
+  /**
+   * Resource server ID. Example: "5f7c3b8e2f5b3c0017e8c7a2"
+   */
+  id: string;
+};
+
+export interface ActionOutput_auth0_cc_deleteresourceserver {
+  success: boolean;
+};
+
+export interface ActionInput_auth0_cc_deleterole {
+  /**
+   * The ID of the role to delete. Example: "rol_abc123"
+   */
+  id: string;
+};
+
+export interface ActionOutput_auth0_cc_deleterole {
+  id: string;
+  success: boolean;
+};
+
+export interface ActionInput_auth0_cc_deleteuserauthenticators {
+  /**
+   * Auth0 user ID. Example: "auth0|1234567890"
+   */
+  userId: string;
+};
+
+export interface ActionOutput_auth0_cc_deleteuserauthenticators {
+  success: boolean;
+};
+
+export interface ActionInput_auth0_cc_deleteuserrefreshtokens {
+  /**
+   * Auth0 user ID. Example: "auth0|1234567890"
+   */
+  userId: string;
+};
+
+export interface ActionOutput_auth0_cc_deleteuserrefreshtokens {
+  success: boolean;
+};
+
+export interface ActionInput_auth0_cc_deleteusersessions {
+  /**
+   * Auth0 user ID. Example: "auth0|123456789"
+   */
+  user_id: string;
+};
+
+export interface ActionOutput_auth0_cc_deleteusersessions {
+  success: boolean;
+};
+
+export interface ActionInput_auth0_cc_deleteuser {
+  /**
+   * Auth0 user ID. Example: "auth0|123456789"
+   */
+  id: string;
+};
+
+export interface ActionOutput_auth0_cc_deleteuser {
+  success: boolean;
+  id: string;
+};
+
+export interface ActionInput_auth0_cc_getclient {
+  /**
+   * The ID of the client to retrieve. Example: "AaiyAPdpYdesoKnqjj8HJqRn4T5titww"
+   */
+  client_id: string;
+};
+
+export interface ActionOutput_auth0_cc_getclient {
+  client_id: string;
+  tenant?: string | undefined;
+  name?: string | undefined;
+  description?: string | undefined;
+  global?: boolean | undefined;
+  client_secret?: string | undefined;
+  app_type?: string | undefined;
+  logo_uri?: string | undefined;
+  is_first_party?: boolean | undefined;
+  oidc_conformant?: boolean | undefined;
+  callbacks?: string[] | undefined;
+  allowed_origins?: string[] | undefined;
+  web_origins?: string[] | undefined;
+  client_aliases?: string[] | undefined;
+  allowed_clients?: string[] | undefined;
+  allowed_logout_urls?: string[] | undefined;
+  grant_types?: string[] | undefined;
+  sso?: boolean | undefined;
+  sso_disabled?: boolean | undefined;
+  cross_origin_authentication?: boolean | undefined;
+  cross_origin_loc?: string | undefined;
+  custom_login_page_on?: boolean | undefined;
+  custom_login_page?: string | undefined;
+  custom_login_page_preview?: string | undefined;
+  form_template?: string | undefined;
+  token_endpoint_auth_method?: string | undefined;
+  is_token_endpoint_ip_header_trusted?: boolean | undefined;
+  initiate_login_uri?: string | undefined;
+  require_pushed_authorization_requests?: boolean | undefined;
+  require_proof_of_possession?: boolean | undefined;
+  jwks_uri?: string | undefined;
+  external_client_id?: string | undefined;
+  external_metadata_type?: string | undefined;
+  external_metadata_created_by?: string | undefined;
+  resource_server_identifier?: string | undefined;
+  compliance_level?: string | undefined;
+  client_metadata?: {  [key: string]: string;} | undefined;
+  addons?: {  [key: string]: unknown | undefined;};
+  jwt_configuration?: {  [key: string]: unknown | undefined;};
+  encryption_key?: {  [key: string]: unknown | undefined;};
+  mobile?: {  [key: string]: unknown | undefined;};
+  refresh_token?: {  [key: string]: unknown | undefined;};
+  default_organization?: {  [key: string]: unknown | undefined;};
+  organization_usage?: string | undefined;
+  organization_require_behavior?: string | undefined;
+  organization_discovery_methods?: string[] | undefined;
+  client_authentication_methods?: {  [key: string]: unknown | undefined;};
+  signed_request_object?: {  [key: string]: unknown | undefined;};
+  token_exchange?: {  [key: string]: unknown | undefined;};
+  session_transfer?: {  [key: string]: unknown | undefined;};
+  oidc_logout?: {  [key: string]: unknown | undefined;};
+  signing_keys?: ({  [key: string]: unknown | undefined;})[];
+  native_social_login?: {  [key: string]: unknown | undefined;};
+  fedcm_login?: {  [key: string]: unknown | undefined;};
+  token_quota?: {  [key: string]: unknown | undefined;};
+  express_configuration?: {  [key: string]: unknown | undefined;};
+  my_organization_configuration?: {  [key: string]: unknown | undefined;};
+  async_approval_notification_channels?: string[] | undefined;
+  par_request_expiry?: number | undefined;
+  skip_non_verifiable_callback_uri_confirmation_prompt?: boolean | undefined;
+  third_party_security_mode?: string | undefined;
+  redirection_policy?: string | undefined;
+};
+
+export interface ActionInput_auth0_cc_getconnection {
+  /**
+   * The ID of the connection to retrieve. Example: "con_0000000000000001"
+   */
+  connection_id: string;
+};
+
+export interface ActionOutput_auth0_cc_getconnection {
+  id: string;
+  name: string;
+  display_name?: string | undefined;
+  strategy: string;
+  realms?: string[] | undefined;
+  enabled_clients?: string[] | undefined;
+  is_domain_connection?: boolean | undefined;
+  show_as_button?: boolean | undefined;
+  metadata?: {  [key: string]: string;} | undefined;
+  options?: {  [key: string]: unknown | undefined;};
+  authentication?: {  active: boolean;} | undefined;
+  connected_accounts?: {  active: boolean;
+  cross_app_access?: boolean | undefined;};
+};
+
+export interface ActionInput_auth0_cc_getjoberrors {
+  /**
+   * ID of the job. Example: "job_0000000000000001"
+   */
+  id: string;
+};
+
+export interface ActionOutput_auth0_cc_getjoberrors {
+  errors: ({  user?: {  [key: string]: unknown | undefined;};
+  errors?: ({  code?: string | undefined;
+  message?: string | undefined;
+  path?: string | undefined;})[];})[];
+};
+
+export interface ActionInput_auth0_cc_getjob {
+  /**
+   * ID of the job to retrieve. Example: "job_0000000000000001"
+   */
+  job_id: string;
+};
+
+export interface ActionOutput_auth0_cc_getjob {
+  id: string;
+  type: string;
+  status: string;
+  created_at?: string | undefined;
+  connection_id?: string | undefined;
+  location?: string | undefined;
+  percentage_done?: number | undefined;
+  time_left_seconds?: number | undefined;
+  format?: string | undefined;
+  status_details?: string | undefined;
+  summary?: {  failed?: number | undefined;
+  updated?: number | undefined;
+  inserted?: number | undefined;
+  total?: number | undefined;};
+};
+
+export interface ActionInput_auth0_cc_getlogentry {
+  /**
+   * The unique log_id of the log entry to retrieve. Example: "9002021011123456789012345678"
+   */
+  log_id: string;
+};
+
+export interface ActionOutput_auth0_cc_getlogentry {
+  date?: string | {  [key: string]: unknown | undefined;};
+  type?: string | undefined;
+  description?: string | undefined;
+  connection?: string | undefined;
+  connection_id?: string | undefined;
+  client_id?: string | undefined;
+  client_name?: string | undefined;
+  ip?: string | undefined;
+  hostname?: string | undefined;
+  user_id?: string | undefined;
+  user_name?: string | undefined;
+  audience?: string | undefined;
+  scope?: string | undefined;
+  strategy?: string | undefined;
+  strategy_type?: string | undefined;
+  log_id?: string | undefined;
+  isMobile?: boolean | undefined;
+  details?: {  [key: string]: unknown | undefined;};
+  user_agent?: string | undefined;
+  security_context?: {  [key: string]: unknown | undefined;};
+  location_info?: {  [key: string]: unknown | undefined;};
+};
+
+export interface ActionInput_auth0_cc_getorganizationbyname {
+  /**
+   * Name of the organization to retrieve. Example: "acme-corp"
+   */
+  name: string;
+};
+
+export interface ActionOutput_auth0_cc_getorganizationbyname {
+  id: string;
+  name: string;
+  display_name?: string | undefined;
+  branding?: {  logo_url?: string | undefined;
+  colors?: {} | undefined;};
+  metadata?: {  [key: string]: string;} | undefined;
+  token_quota?: {  client_credentials?: {} | undefined;};
+};
+
+export interface ActionInput_auth0_cc_getorganization {
+  /**
+   * Organization identifier. Example: "org_abc123"
+   */
+  id: string;
+};
+
+export interface ActionOutput_auth0_cc_getorganization {
+  id: string;
+  name: string;
+  display_name?: string | undefined;
+  branding?: {  logo_url?: string | undefined;
+  colors?: {  primary: string;
+  page_background: string;} | undefined;};
+  metadata?: {  [key: string]: string;} | undefined;
+  token_quota?: {  client_credentials: {  enforce?: boolean | undefined;
+  per_day?: number | undefined;
+  per_hour?: number | undefined;};};
+};
+
+export interface ActionInput_auth0_cc_getresourceserver {
+  /**
+   * ID or audience of the resource server to retrieve.
+   */
+  id: string;
+};
+
+export interface ActionOutput_auth0_cc_getresourceserver {
+  id?: string | undefined;
+  name?: string | undefined;
+  is_system?: boolean | undefined;
+  identifier?: string | undefined;
+  scopes?: ({  value: string;
+  description?: string | undefined;})[];
+  signing_alg?: string | undefined;
+  signing_secret?: string | undefined;
+  allow_offline_access?: boolean | undefined;
+  allow_online_access?: boolean | undefined;
+  allow_online_access_with_ephemeral_sessions?: boolean | undefined;
+  skip_consent_for_verifiable_first_party_clients?: boolean | undefined;
+  token_lifetime?: number | undefined;
+  token_lifetime_for_web?: number | undefined;
+  enforce_policies?: boolean | undefined;
+  token_dialect?: string | undefined;
+  token_encryption?: {  format?: string | undefined;
+  encryption_key?: {  name?: string | undefined;
+  alg?: string | undefined;
+  kid?: string | undefined;
+  pem?: string | undefined;};};
+  consent_policy?: string | undefined;
+  authorization_details?: ({  [key: string]: unknown | undefined;})[];
+  proof_of_possession?: {  mechanism?: string | undefined;
+  required?: boolean | undefined;
+  required_for?: string | undefined;};
+  subject_type_authorization?: {  user?: {  policy?: string | undefined;};
+  client?: {  policy?: string | undefined;};};
+  authorization_policy?: {  policy_id: string;} | undefined;
+  client_id?: string | undefined;
+};
+
+export interface ActionInput_auth0_cc_getrole {
+  /**
+   * The ID of the role to retrieve. Example: "rol_abc123"
+   */
+  id: string;
+};
+
+export interface ActionOutput_auth0_cc_getrole {
+  id: string;
+  name: string;
+  description?: string | undefined;
+};
+
+export interface ActionInput_auth0_cc_getuserblocks {
+  /**
+   * Auth0 user ID to retrieve blocks for. Example: "auth0|1234567890"
+   */
+  user_id: string;
+};
+
+export interface ActionOutput_auth0_cc_getuserblocks {
+  blocked_for?: ({  identifier?: string | undefined;
+  ip?: string | undefined;
+  connection?: string | undefined;})[];
+};
+
+export interface ActionInput_auth0_cc_getusergrants {
+  /**
+   * The ID of the user to retrieve grants for. Example: "auth0|1234567890"
+   */
+  userId: string;
+};
+
+export interface ActionOutput_auth0_cc_getusergrants {
+  grants: ({  id: string;
+  clientID: string;
+  user_id: string;
+  audience: string;
+  scope: string[];})[];
+};
+
+export interface ActionInput_auth0_cc_getuserpermissions {
+  /**
+   * Auth0 user ID. Example: "auth0|1234567890"
+   */
+  user_id: string;
+};
+
+export interface ActionOutput_auth0_cc_getuserpermissions {
+  permissions: ({  permission_name: string;
+  description?: string | undefined;
+  resource_server_identifier?: string | undefined;
+  resource_server_name?: string | undefined;
+  sources?: unknown | undefined;})[];
+};
+
+export interface ActionInput_auth0_cc_getuserroles {
+  /**
+   * Auth0 user ID. Example: "auth0|123456789"
+   */
+  user_id: string;
+};
+
+export interface ActionOutput_auth0_cc_getuserroles {
+  roles: ({  id: string;
+  name?: string | undefined;
+  description?: string | undefined;})[];
+};
+
+export interface ActionInput_auth0_cc_getuser {
+  /**
+   * Auth0 user ID. Example: "auth0|507f1f77bcf86cd799439020"
+   */
+  id: string;
+};
+
+export interface ActionOutput_auth0_cc_getuser {
+  user_id?: string | undefined;
+  email?: string | undefined;
+  email_verified?: boolean | undefined;
+  username?: string | undefined;
+  phone_number?: string | undefined;
+  phone_verified?: boolean | undefined;
+  created_at?: string | undefined;
+  updated_at?: string | undefined;
+  identities?: ({  connection?: string | undefined;
+  user_id?: string | undefined;
+  provider?: string | undefined;
+  isSocial?: boolean | undefined;
+  access_token?: string | undefined;
+  access_token_secret?: string | undefined;
+  refresh_token?: string | undefined;
+  profileData?: {  [key: string]: unknown | undefined;};})[];
+  app_metadata?: {  [key: string]: unknown | undefined;};
+  user_metadata?: {  [key: string]: unknown | undefined;};
+  picture?: string | undefined;
+  name?: string | undefined;
+  nickname?: string | undefined;
+  multifactor?: string[] | undefined;
+  multifactor_last_modified?: string | undefined;
+  last_ip?: string | undefined;
+  last_login?: string | undefined;
+  last_password_reset?: string | undefined;
+  logins_count?: number | undefined;
+  blocked?: boolean | undefined;
+  given_name?: string | undefined;
+  family_name?: string | undefined;
+};
+
+export interface ActionInput_auth0_cc_inviteorganizationmember {
+  /**
+   * Organization identifier. Example: "org_abc123"
+   */
+  organization_id: string;
+  inviter: {  /**
+   * The inviter's name. Example: "Jane Doe"
+   */
+  name: string;};
+  invitee: {  /**
+   * The invitee's email. Example: "john.doe@example.com"
+   */
+  email: string;};
+  /**
+   * Auth0 client ID. Example: "AaiyAPdpYdesoKnqjj8HJqRn4T5titww"
+   */
+  client_id: string;
+  /**
+   * The id of the connection to force invitee to authenticate with. Example: "con_0000000000000001"
+   */
+  connection_id?: string | undefined;
+  /**
+   * List of role IDs to associate with the user. Example: ["rol_0000000000000001"]
+   */
+  roles?: string[] | undefined;
+  /**
+   * Number of seconds for which the invitation is valid before expiration. Defaults to 604800 (7 days). Max: 2592000 (30 days).
+   */
+  ttl_sec?: number | undefined;
+  /**
+   * Whether the user will receive an invitation email. Defaults to true.
+   */
+  send_invitation_email?: boolean | undefined;
+  /**
+   * Data related to the user that affects the application's core functionality.
+   */
+  app_metadata?: {  [key: string]: unknown | undefined;};
+  /**
+   * Data related to the user that does not affect the application's core functionality.
+   */
+  user_metadata?: {  [key: string]: unknown | undefined;};
+};
+
+export interface ActionOutput_auth0_cc_inviteorganizationmember {
+  /**
+   * The id of the user invitation. Example: "uinv_0000000000000001"
+   */
+  id: string;
+  /**
+   * Organization identifier.
+   */
+  organization_id: string;
+  inviter?: {  name?: string | undefined;};
+  invitee?: {  email?: string | undefined;};
+  /**
+   * The invitation url to be sent to the invitee.
+   */
+  invitation_url?: string | undefined;
+  /**
+   * The ISO 8601 formatted timestamp representing the creation time of the invitation.
+   */
+  created_at?: string | undefined;
+  /**
+   * The ISO 8601 formatted timestamp representing the expiration time of the invitation.
+   */
+  expires_at?: string | undefined;
+  /**
+   * Auth0 client ID.
+   */
+  client_id?: string | undefined;
+  /**
+   * The id of the connection to force invitee to authenticate with.
+   */
+  connection_id?: string | undefined;
+  /**
+   * The id of the invitation ticket.
+   */
+  ticket_id?: string | undefined;
+  /**
+   * List of role IDs associated with the user.
+   */
+  roles?: string[] | undefined;
+  app_metadata?: {  [key: string]: unknown | undefined;};
+  user_metadata?: {  [key: string]: unknown | undefined;};
+};
+
+export interface ActionInput_auth0_cc_linkuseraccount {
+  /**
+   * ID of the primary user account to link a second account to. Example: "auth0|123"
+   */
+  primary_user_id: string;
+  /**
+   * JWT for the secondary account being linked. If provided, provider and user_id must not be sent.
+   */
+  link_with?: string | undefined;
+  /**
+   * Identity provider of the secondary user account being linked. Example: "auth0"
+   */
+  provider?: string | undefined;
+  /**
+   * user_id of the secondary user account being linked.
+   */
+  user_id?: string | undefined;
+  /**
+   * connection_id of the secondary user account being linked when more than one auth0 database provider exists.
+   */
+  connection_id?: string | undefined;
+};
+
+export interface ActionOutput_auth0_cc_linkuseraccount {
+  0: {  connection: string;
+  user_id: string;
+  provider: string;
+  profileData?: {  email?: string | undefined;
+  email_verified?: boolean | undefined;
+  name?: string | undefined;
+  username?: string | undefined;
+  given_name?: string | undefined;
+  phone_number?: string | undefined;
+  phone_verified?: boolean | undefined;
+  family_name?: string | undefined;};
+  isSocial?: boolean | undefined;
+  access_token?: string | undefined;
+  access_token_secret?: string | undefined;
+  refresh_token?: string | undefined;};
+};
+
+export interface ActionInput_auth0_cc_listclients {
+  /**
+   * Pagination cursor from the previous response. Omit for the first page.
+   */
+  cursor?: string | undefined;
+  /**
+   * Number of results per page. Default is 50, maximum is 100.
+   */
+  per_page?: number | undefined;
+  /**
+   * Comma-separated list of fields to include or exclude.
+   */
+  fields?: string | undefined;
+  /**
+   * Whether specified fields are to be included (true) or excluded (false).
+   */
+  include_fields?: boolean | undefined;
+  /**
+   * Filter on the global client parameter.
+   */
+  is_global?: boolean | undefined;
+  /**
+   * Filter on whether or not a client is a first-party client.
+   */
+  is_first_party?: boolean | undefined;
+  /**
+   * Filter by a comma-separated list of application types.
+   */
+  app_type?: string | undefined;
+  /**
+   * Filter by the Client ID Metadata Document URI for CIMD-registered clients.
+   */
+  external_client_id?: string | undefined;
+};
+
+export interface ActionOutput_auth0_cc_listclients {
+  items: ({  client_id: string;
+  name?: string | undefined;
+  description?: string | undefined;
+  app_type?: string | undefined;
+  tenant?: string | undefined;
+  global?: boolean | undefined;
+  is_first_party?: boolean | undefined;
+  oidc_conformant?: boolean | undefined;
+  callbacks?: string[] | undefined;
+  allowed_origins?: string[] | undefined;
+  web_origins?: string[] | undefined;
+  grant_types?: string[] | undefined;
+  logo_uri?: string | undefined;
+  initiate_login_uri?: string | undefined;
+  custom_login_page_on?: boolean | undefined;
+  sso?: boolean | undefined;
+  cross_origin_authentication?: boolean | undefined;
+  token_endpoint_auth_method?: string | undefined;
+  client_secret?: string | undefined;
+  allowed_logout_urls?: string[] | undefined;
+  client_metadata?: {  [key: string]: string;} | undefined;
+  refresh_token?: unknown | undefined;
+  organization_usage?: string | undefined;
+  organization_require_behavior?: string | undefined;
+  mobile?: unknown | undefined;
+  addons?: unknown | undefined;
+  jwt_configuration?: unknown | undefined;
+  signing_keys?: unknown[] | undefined;
+  encryption_key?: unknown | undefined;
+  client_authentication_methods?: unknown | undefined;
+  require_pushed_authorization_requests?: boolean | undefined;
+  require_proof_of_possession?: boolean | undefined;
+  signed_request_object?: unknown | undefined;
+  compliance_level?: string | undefined;
+  skip_non_verifiable_callback_uri_confirmation_prompt?: boolean | undefined;
+  token_exchange?: unknown | undefined;
+  par_request_expiry?: number | undefined;
+  token_quota?: unknown | undefined;
+  express_configuration?: unknown | undefined;
+  my_organization_configuration?: unknown | undefined;
+  third_party_security_mode?: string | undefined;
+  redirection_policy?: string | undefined;
+  resource_server_identifier?: string | undefined;
+  async_approval_notification_channels?: unknown | undefined;
+  external_metadata_type?: string | undefined;
+  external_metadata_created_by?: string | undefined;
+  external_client_id?: string | undefined;
+  jwks_uri?: string | undefined;})[];
+  next_cursor?: string | undefined;
+};
+
+export interface ActionInput_auth0_cc_listconnections {
+  /**
+   * Pagination cursor from the previous response. Omit for the first page.
+   */
+  cursor?: string | undefined;
+  /**
+   * Number of results per page. Defaults to 50.
+   */
+  per_page?: number | undefined;
+  /**
+   * Filter by connection strategies.
+   */
+  strategy?: string[] | undefined;
+  /**
+   * Filter by connection name.
+   */
+  name?: string | undefined;
+  /**
+   * Comma-separated list of fields to include or exclude.
+   */
+  fields?: string | undefined;
+  /**
+   * Whether specified fields are included (true) or excluded (false). Defaults to true.
+   */
+  include_fields?: boolean | undefined;
+};
+
+export interface ActionOutput_auth0_cc_listconnections {
+  items: ({  id: string;
+  name: string;
+  display_name?: string | undefined;
+  strategy: string;
+  realms?: string[] | undefined;
+  is_domain_connection?: boolean | undefined;
+  show_as_button?: boolean | undefined;
+  metadata?: {  [key: string]: string;} | undefined;
+  options?: unknown | undefined;
+  authentication?: {  active: boolean;} | undefined;
+  connected_accounts?: {  active: boolean;
+  cross_app_access?: boolean | undefined;};})[];
+  next_cursor?: string | undefined;
+};
+
+export interface ActionInput_auth0_cc_listlogentries {
+  /**
+   * Pagination cursor (page number) from the previous response. Omit for the first page.
+   */
+  cursor?: string | undefined;
+  /**
+   * Number of results per page. Max 100.
+   */
+  per_page?: number | undefined;
+  /**
+   * Search criteria using Query String Syntax.
+   */
+  q?: string | undefined;
+  /**
+   * Sort field and order, e.g., date:-1.
+   */
+  sort?: string | undefined;
+  /**
+   * Comma-separated list of fields to include or exclude.
+   */
+  fields?: string | undefined;
+  /**
+   * Whether specified fields are to be included (true) or excluded (false).
+   */
+  include_fields?: boolean | undefined;
+};
+
+export interface ActionOutput_auth0_cc_listlogentries {
+  items: ({  /**
+   * Date when the event occurred in ISO 8601 format.
+   */
+  date?: string | undefined;
+  /**
+   * Type of event.
+   */
+  type?: string | undefined;
+  /**
+   * Description of this event.
+   */
+  description?: string | undefined;
+  /**
+   * Name of the connection the event relates to.
+   */
+  connection?: string | undefined;
+  /**
+   * ID of the connection the event relates to.
+   */
+  connection_id?: string | undefined;
+  /**
+   * ID of the client (application).
+   */
+  client_id?: string | undefined;
+  /**
+   * Name of the client (application).
+   */
+  client_name?: string | undefined;
+  /**
+   * IP address of the log event source.
+   */
+  ip?: string | undefined;
+  /**
+   * Hostname the event applies to.
+   */
+  hostname?: string | undefined;
+  /**
+   * ID of the user involved in the event.
+   */
+  user_id?: string | undefined;
+  /**
+   * Name of the user involved in the event.
+   */
+  user_name?: string | undefined;
+  /**
+   * API audience the event applies to.
+   */
+  audience?: string | undefined;
+  /**
+   * Scope permissions applied to the event.
+   */
+  scope?: string | undefined;
+  /**
+   * Name of the strategy involved in the event.
+   */
+  strategy?: string | undefined;
+  /**
+   * Type of strategy involved in the event.
+   */
+  strategy_type?: string | undefined;
+  /**
+   * Unique ID of the event.
+   */
+  log_id?: string | undefined;
+  /**
+   * Whether the client was a mobile device.
+   */
+  isMobile?: boolean | undefined;
+  /**
+   * Additional details about this event.
+   */
+  details?: {  [key: string]: unknown | undefined;};
+  /**
+   * User agent string from the client device.
+   */
+  user_agent?: string | undefined;
+  /**
+   * Information about security-related signals.
+   */
+  security_context?: {  ja3?: string | undefined;
+  ja4?: string | undefined;};
+  /**
+   * Information about the location that triggered this event.
+   */
+  location_info?: {  country_code?: string | undefined;
+  country_code3?: string | undefined;
+  country_name?: string | undefined;
+  city_name?: string | undefined;
+  latitude?: number | undefined;
+  longitude?: number | undefined;
+  time_zone?: string | undefined;
+  continent_code?: string | undefined;};})[];
+  /**
+   * Cursor to retrieve the next page of results.
+   */
+  next_cursor?: string | undefined;
+};
+
+export interface ActionInput_auth0_cc_listorganizationconnections {
+  /**
+   * Organization identifier. Example: "org_abc123"
+   */
+  organization_id: string;
+};
+
+export interface ActionOutput_auth0_cc_listorganizationconnections {
+  connections: ({  connection_id: string;
+  assign_membership_on_login?: boolean | undefined;
+  show_as_button?: boolean | undefined;
+  is_signup_enabled?: boolean | undefined;
+  connection?: {  name?: string | undefined;
+  strategy?: string | undefined;};})[];
+};
+
+export interface ActionInput_auth0_cc_listorganizationinvitations {
+  /**
+   * Organization identifier. Example: "org_0000000000000001"
+   */
+  organization_id: string;
+  /**
+   * Pagination cursor from a previous response. Omit for the first page.
+   */
+  cursor?: string | undefined;
+  /**
+   * Number of results per page. Max 50.
+   */
+  per_page?: number | undefined;
+};
+
+export interface ActionOutput_auth0_cc_listorganizationinvitations {
+  invitations: ({  id: string;
+  organization_id?: string | undefined;
+  inviter?: {  name: string;} | undefined;
+  invitee?: {  email: string;} | undefined;
+  invitation_url?: string | undefined;
+  created_at?: string | undefined;
+  expires_at?: string | undefined;
+  client_id?: string | undefined;
+  connection_id?: string | undefined;
+  app_metadata?: {  [key: string]: unknown | undefined;};
+  user_metadata?: {  [key: string]: unknown | undefined;};
+  roles?: string[] | undefined;
+  ticket_id?: string | undefined;})[];
+  next_cursor?: string | undefined;
+};
+
+export interface ActionInput_auth0_cc_listorganizationmemberroles {
+  /**
+   * Organization identifier. Example: "org_abc123"
+   */
+  organization_id: string;
+  /**
+   * ID of the user. Example: "auth0|123456789"
+   */
+  user_id: string;
+};
+
+export interface ActionOutput_auth0_cc_listorganizationmemberroles {
+  roles: ({  id: string;
+  name: string;
+  description?: string | undefined;})[];
+};
+
+export interface ActionInput_auth0_cc_listorganizationmembers {
+  /**
+   * Organization ID. Example: "org_abc123"
+   */
+  organization_id: string;
+  /**
+   * Comma-separated list of fields to include or exclude.
+   */
+  fields?: string | undefined;
+  /**
+   * Whether specified fields are included (true) or excluded (false).
+   */
+  include_fields?: boolean | undefined;
+};
+
+export interface ActionOutput_auth0_cc_listorganizationmembers {
+  members: ({  user_id?: string | undefined;
+  picture?: string | undefined;
+  name?: string | undefined;
+  email?: string | undefined;
+  roles?: ({  id: string;
+  name?: string | undefined;})[];})[];
+};
+
+export interface ActionInput_auth0_cc_listorganizations {
+  /**
+   * Pagination cursor from the previous response. Omit for the first page.
+   */
+  cursor?: string | undefined;
+  /**
+   * Number of results per page. Defaults to 50.
+   */
+  take?: number | undefined;
+  /**
+   * Field to sort by. Use field:order where order is 1 for ascending and -1 for descending. e.g. created_at:1
+   */
+  sort?: string | undefined;
+};
+
+export interface ActionOutput_auth0_cc_listorganizations {
+  items: ({  id: string;
+  name: string;
+  display_name?: string | undefined;
+  branding?: {  logo_url?: string | undefined;
+  colors?: {  primary?: string | undefined;
+  page_background?: string | undefined;};};
+  metadata?: {  [key: string]: string;} | undefined;})[];
+  next_cursor?: string | undefined;
+};
+
+export interface ActionInput_auth0_cc_listresourceservers {
+  /**
+   * Pagination cursor (page index). Omit for the first page.
+   */
+  cursor?: string | undefined;
+  /**
+   * Number of results per page. Maximum 100.
+   */
+  per_page?: number | undefined;
+};
+
+export interface ActionOutput_auth0_cc_listresourceservers {
+  items: ({  id: string;
+  name?: string | undefined;
+  identifier?: string | undefined;
+  is_system?: boolean | undefined;
+  scopes?: ({  value: string;
+  description?: string | undefined;})[];
+  signing_alg?: string | undefined;
+  token_lifetime?: number | undefined;
+  allow_offline_access?: boolean | undefined;})[];
+  next_cursor?: string | undefined;
+};
+
+export interface ActionInput_auth0_cc_listrolepermissions {
+  /**
+   * The ID of the role to list permissions for. Example: "rol_abc123"
+   */
+  role_id: string;
+};
+
+export interface ActionOutput_auth0_cc_listrolepermissions {
+  permissions: ({  resource_server_identifier: string;
+  permission_name: string;
+  resource_server_name: string;
+  description?: string | undefined;})[];
+};
+
+export interface ActionInput_auth0_cc_listroles {
+  /**
+   * Pagination cursor from the previous response. Omit for the first page.
+   */
+  cursor?: string | undefined;
+  /**
+   * Number of results per page. Defaults to 50.
+   */
+  per_page?: number | undefined;
+  /**
+   * Optional filter on name (case-insensitive).
+   */
+  name_filter?: string | undefined;
+};
+
+export interface ActionOutput_auth0_cc_listroles {
+  items: ({  id: string;
+  name: string;
+  description?: string | undefined;})[];
+  next_cursor?: string | undefined;
+};
+
+export interface ActionInput_auth0_cc_listuserauthenticators {
+  /**
+   * The ID of the user whose authenticators should be listed. Example: "auth0|123"
+   */
+  user_id: string;
+};
+
+export interface ActionOutput_auth0_cc_listuserauthenticators {
+  0: {  /**
+   * The ID of the authenticator.
+   */
+  id: string;
+  /**
+   * The type of authenticator (e.g., sms, otp, email, push, recovery-code).
+   */
+  type: string;
+  confirmed?: boolean | undefined;
+  name?: string | undefined;
+  phone_number?: string | undefined;
+  email?: string | undefined;
+  created_at?: string | undefined;
+  enrolled_at?: string | undefined;
+  last_auth_at?: string | undefined;};
+};
+
+export interface ActionInput_auth0_cc_listuserrefreshtokens {
+  /**
+   * User ID. Example: "auth0|507f1f77bcf86cd799439020"
+   */
+  user_id: string;
+};
+
+export interface ActionOutput_auth0_cc_listuserrefreshtokens {
+  tokens: ({  id: string;
+  user_id: string;
+  created_at?: string | {} | undefined;
+  idle_expires_at?: string | {} | undefined;
+  expires_at?: string | {} | undefined;
+  device?: {  initial_ip?: string | undefined;
+  initial_asn?: string | undefined;
+  initial_user_agent?: string | undefined;
+  last_ip?: string | undefined;
+  last_asn?: string | undefined;
+  last_user_agent?: string | undefined;};
+  client_id?: string | undefined;
+  session_id?: string | undefined;
+  rotating?: boolean | undefined;
+  resource_servers?: ({  audience: string;
+  scopes: string;})[] | undefined;
+  refresh_token_metadata?: {  [key: string]: string;} | undefined;
+  last_exchanged_at?: string | {} | undefined;})[];
+};
+
+export interface ActionInput_auth0_cc_listusersessions {
+  /**
+   * The ID of the user to list sessions for. Example: "auth0|123456789"
+   */
+  userId: string;
+};
+
+export interface ActionOutput_auth0_cc_listusersessions {
+  sessions: ({  id: string;
+  created_at?: string | undefined;
+  updated_at?: string | undefined;
+  authenticated_at?: string | undefined;
+  authentication?: unknown | undefined;
+  device?: unknown | undefined;
+  ip?: string | undefined;
+  last_ip?: string | undefined;
+  client_id?: string | undefined;
+  user_id?: string | undefined;})[];
+};
+
+export interface ActionInput_auth0_cc_listusers {
+  /**
+   * Pagination cursor (page index). Omit for the first page.
+   */
+  cursor?: string | undefined;
+  /**
+   * Number of results per page. Maximum 100.
+   */
+  per_page?: number | undefined;
+  /**
+   * Query in Lucene query string syntax.
+   */
+  q?: string | undefined;
+  /**
+   * Field to sort by. Use field:order where order is 1 for ascending and -1 for descending.
+   */
+  sort?: string | undefined;
+  /**
+   * Connection filter.
+   */
+  connection?: string | undefined;
+  /**
+   * Comma-separated list of fields to include or exclude.
+   */
+  fields?: string | undefined;
+  /**
+   * Whether specified fields are to be included (true) or excluded (false).
+   */
+  include_fields?: boolean | undefined;
+  /**
+   * The version of the search engine.
+   */
+  search_engine?: 'v1' | 'v2' | 'v3' | undefined;
+  /**
+   * If true (default), results are returned in a deterministic order.
+   */
+  primary_order?: boolean | undefined;
+};
+
+export interface ActionOutput_auth0_cc_listusers {
+  items: ({  user_id: string;
+  email?: string | undefined;
+  email_verified?: boolean | undefined;
+  username?: string | undefined;
+  phone_number?: string | undefined;
+  phone_verified?: boolean | undefined;
+  created_at?: string | undefined;
+  updated_at?: string | undefined;
+  identities?: ({  connection?: string | undefined;
+  user_id?: string | undefined;
+  provider?: string | undefined;
+  isSocial?: boolean | undefined;})[];
+  app_metadata?: {  [key: string]: unknown | undefined;};
+  user_metadata?: {  [key: string]: unknown | undefined;};
+  picture?: string | undefined;
+  name?: string | undefined;
+  nickname?: string | undefined;
+  multifactor?: string[] | undefined;
+  last_ip?: string | undefined;
+  last_login?: string | undefined;
+  last_password_reset?: string | undefined;
+  logins_count?: number | undefined;
+  blocked?: boolean | undefined;
+  given_name?: string | undefined;
+  family_name?: string | undefined;})[];
+  next_cursor?: string | undefined;
+  total?: number | undefined;
+};
+
+export interface ActionInput_auth0_cc_removeorganizationmemberroles {
+  /**
+   * Organization identifier. Example: "org_abc123"
+   */
+  organization_id: string;
+  /**
+   * User ID of the organization member to remove roles from. Example: "auth0|123456789"
+   */
+  user_id: string;
+  /**
+   * List of role IDs to remove from the organization member. Example: ["rol_abc123", "rol_def456"]
+   */
+  roles: string[];
+};
+
+export interface ActionOutput_auth0_cc_removeorganizationmemberroles {
+  success: boolean;
+};
+
+export interface ActionInput_auth0_cc_removeorganizationmembers {
+  /**
+   * The ID of the Auth0 organization. Example: "org_abc123"
+   */
+  organization_id: string;
+  /**
+   * Array of user IDs to remove from the organization. Example: ["auth0|user123", "auth0|user456"]
+   */
+  members: string[];
+};
+
+export interface ActionOutput_auth0_cc_removeorganizationmembers {
+  /**
+   * Whether the members were successfully removed.
+   */
+  success: boolean;
+};
+
+export interface ActionInput_auth0_cc_removepermissionsfromrole {
+  /**
+   * Role ID. Example: "rol_abc123"
+   */
+  role_id: string;
+  /**
+   * Permissions to remove from the role
+   */
+  permissions: ({  /**
+   * Resource server identifier. Example: "https://api.example.com"
+   */
+  resource_server_identifier: string;
+  /**
+   * Permission name. Example: "read:users"
+   */
+  permission_name: string;})[];
+};
+
+export interface ActionOutput_auth0_cc_removepermissionsfromrole {
+  success: boolean;
+};
+
+export interface ActionInput_auth0_cc_removepermissionsfromuser {
+  /**
+   * ID of the user to remove permissions from. Example: "auth0|123"
+   */
+  user_id: string;
+  /**
+   * Array of permissions to remove from the user.
+   */
+  permissions: ({  /**
+   * Name of the permission. Example: "read:test"
+   */
+  permission_name: string;
+  /**
+   * Resource server (API) identifier. Example: "https://test-api.example.com"
+   */
+  resource_server_identifier: string;})[];
+};
+
+export interface ActionOutput_auth0_cc_removepermissionsfromuser {
+  success: boolean;
+};
+
+export interface ActionInput_auth0_cc_removerolesfromuser {
+  /**
+   * Auth0 user ID. Example: "auth0|123"
+   */
+  user_id: string;
+  /**
+   * List of role IDs to remove from the user.
+   */
+  roles: string[];
+};
+
+export interface ActionOutput_auth0_cc_removerolesfromuser {
+  success: boolean;
+};
+
+export interface ActionInput_auth0_cc_sendverificationemail {
+  /**
+   * User ID of the user to send the verification email to. Example: auth0|123456789
+   */
+  user_id: string;
+  /**
+   * Client ID of the application. If omitted, the global Client ID is used.
+   */
+  client_id?: string | undefined;
+  /**
+   * Identity object for social, enterprise, or passwordless email verification.
+   */
+  identity?: {  /**
+   * User ID of the identity to be verified.
+   */
+  user_id: string;
+  /**
+   * Identity provider name (e.g. google-oauth2).
+   */
+  provider: string;
+  /**
+   * Connection ID of the identity.
+   */
+  connection_id?: string | undefined;};
+};
+
+export interface ActionOutput_auth0_cc_sendverificationemail {
+  id: string;
+  type: string;
+  status: string;
+  created_at?: string | undefined;
+};
+
+export interface ActionInput_auth0_cc_unblockuser {
+  /**
+   * Auth0 user ID. Example: "auth0|123"
+   */
+  userId?: string | undefined;
+  /**
+   * User identifier (email, username, or phone number).
+   */
+  identifier?: string | undefined;
+};
+
+export interface ActionOutput_auth0_cc_unblockuser {
+  success: boolean;
+  userId?: string | undefined;
+  identifier?: string | undefined;
+};
+
+export interface ActionInput_auth0_cc_unlinkuseraccount {
+  /**
+   * The user_id of the primary account. Example: "auth0|123"
+   */
+  user_id: string;
+  /**
+   * The identity provider name of the secondary linked account. Example: "google-oauth2"
+   */
+  provider: string;
+  /**
+   * The user_id of the secondary linked account to unlink. Example: "123456789081523216417"
+   */
+  identity_user_id: string;
+};
+
+export interface ActionOutput_auth0_cc_unlinkuseraccount {
+  identities: ({  provider: string;
+  user_id: string;
+  connection: string;
+  isSocial?: boolean | undefined;
+  access_token?: string | undefined;
+  access_token_secret?: string | undefined;
+  refresh_token?: string | undefined;
+  expires_in?: number | undefined;
+  profileData?: {  email?: string | undefined;
+  email_verified?: boolean | undefined;
+  name?: string | undefined;
+  username?: string | undefined;
+  given_name?: string | undefined;
+  phone_number?: string | undefined;
+  phone_verified?: boolean | undefined;
+  family_name?: string | undefined;};})[];
+};
+
+export interface ActionInput_auth0_cc_updateclient {
+  /**
+   * ID of the client to update. Example: "AaiyAPdpYdesoKnqjj8HJqRn4T5titww"
+   */
+  client_id: string;
+  /**
+   * The name of the client. Must contain at least one character. Does not allow '<' or '>'.
+   */
+  name?: string | undefined;
+  /**
+   * Free text description of the purpose of the Client. (Max character length: 140)
+   */
+  description?: string | undefined;
+  /**
+   * The URL of the client logo (recommended size: 150x150)
+   */
+  logo_uri?: string | undefined;
+  /**
+   * A set of URLs that are valid to call back from Auth0 when authenticating users
+   */
+  callbacks?: string[] | undefined;
+  /**
+   * A set of URLs that represents valid origins for CORS
+   */
+  allowed_origins?: string[] | undefined;
+  /**
+   * A set of URLs that represents valid web origins for use with web message response mode
+   */
+  web_origins?: string[] | undefined;
+  /**
+   * A set of grant types that the client is authorized to use
+   */
+  grant_types?: string[] | undefined;
+  /**
+   * URLs that are valid to redirect to after logout from Auth0
+   */
+  allowed_logout_urls?: string[] | undefined;
+  /**
+   * The type of application this client represents
+   */
+  app_type?: string | undefined;
+  /**
+   * Whether this client a first party client or not
+   */
+  is_first_party?: boolean | undefined;
+  /**
+   * Whether this client will conform to strict OIDC specifications
+   */
+  oidc_conformant?: boolean | undefined;
+  /**
+   * Initiate login uri, must be https
+   */
+  initiate_login_uri?: string | undefined;
+  /**
+   * Defines the requested authentication method for the token endpoint
+   */
+  token_endpoint_auth_method?: string | undefined;
+  /**
+   * The content (HTML, CSS, JS) of the custom login page
+   */
+  custom_login_page?: string | undefined;
+  /**
+   * Whether a custom login page is to be used
+   */
+  custom_login_page_on?: boolean | undefined;
+  /**
+   * Whether to use Auth0 instead of the IdP to do Single Sign On
+   */
+  sso?: boolean | undefined;
+  /**
+   * Whether to disable Single Sign On
+   */
+  sso_disabled?: boolean | undefined;
+  /**
+   * Whether this client can be used to make cross-origin authentication requests
+   */
+  cross_origin_authentication?: boolean | undefined;
+  /**
+   * Metadata associated with the client
+   */
+  client_metadata?: {  [key: string]: string;} | undefined;
+  /**
+   * Configuration related to native mobile apps
+   */
+  mobile?: {} | undefined;
+  /**
+   * Refresh token configuration
+   */
+  refresh_token?: {} | undefined;
+  /**
+   * An object that holds settings related to how JWTs are created
+   */
+  jwt_configuration?: {} | undefined;
+  /**
+   * Defines how to proceed during an authentication transaction with regards an organization
+   */
+  organization_usage?: string | undefined;
+  /**
+   * Defines how to proceed during an authentication transaction when organization_usage is require
+   */
+  organization_require_behavior?: string | undefined;
+};
+
+export interface ActionOutput_auth0_cc_updateclient {
+  client_id: string;
+  tenant?: string | undefined;
+  name?: string | undefined;
+  description?: string | undefined;
+  global?: boolean | undefined;
+  app_type?: string | undefined;
+  logo_uri?: string | undefined;
+  is_first_party?: boolean | undefined;
+  oidc_conformant?: boolean | undefined;
+  callbacks?: string[] | undefined;
+  allowed_origins?: string[] | undefined;
+  web_origins?: string[] | undefined;
+  allowed_logout_urls?: string[] | undefined;
+  grant_types?: string[] | undefined;
+  sso?: boolean | undefined;
+  sso_disabled?: boolean | undefined;
+  cross_origin_authentication?: boolean | undefined;
+  custom_login_page_on?: boolean | undefined;
+  initiate_login_uri?: string | undefined;
+  token_endpoint_auth_method?: string | undefined;
+  client_metadata?: {  [key: string]: string;} | undefined;
+  mobile?: {  [key: string]: unknown | undefined;};
+  refresh_token?: {  [key: string]: unknown | undefined;};
+  jwt_configuration?: {  [key: string]: unknown | undefined;};
+  organization_usage?: string | undefined;
+  organization_require_behavior?: string | undefined;
+  organization_discovery_methods?: string[] | undefined;
+  require_pushed_authorization_requests?: boolean | undefined;
+  require_proof_of_possession?: boolean | undefined;
+  compliance_level?: string | undefined;
+  par_request_expiry?: number | undefined;
+};
+
+export interface ActionInput_auth0_cc_updateconnection {
+  id: string;
+  display_name?: string | undefined;
+  options?: {  [key: string]: unknown | undefined;};
+  enabled_clients?: string[] | undefined;
+  is_domain_connection?: boolean | undefined;
+  show_as_button?: boolean | undefined;
+  realms?: string[] | undefined;
+  metadata?: {  [key: string]: string;} | undefined;
+  authentication?: {  active: boolean;} | undefined;
+  connected_accounts?: {  active: boolean;
+  cross_app_access?: boolean | undefined;};
+};
+
+export interface ActionOutput_auth0_cc_updateconnection {
+  id: string;
+  name: string;
+  display_name?: string | undefined;
+  strategy: string;
+  realms?: string[] | undefined;
+  enabled_clients?: string[] | undefined;
+  is_domain_connection?: boolean | undefined;
+  show_as_button?: boolean | undefined;
+  metadata?: {  [key: string]: string;} | undefined;
+  options?: {  [key: string]: unknown | undefined;};
+  authentication?: {  active: boolean;} | undefined;
+  connected_accounts?: {  active: boolean;
+  cross_app_access?: boolean | undefined;};
+};
+
+export interface ActionInput_auth0_cc_updateorganizationconnection {
+  /**
+   * Organization identifier. Example: "org_abc123"
+   */
+  organization_id: string;
+  /**
+   * Connection identifier. Example: "con_def456"
+   */
+  connection_id: string;
+  /**
+   * When true, all users that log in with this connection will be automatically granted membership in the organization.
+   */
+  assign_membership_on_login?: boolean | undefined;
+  /**
+   * Determines whether organization signup should be enabled for this organization connection. Only applicable for database connections.
+   */
+  is_signup_enabled?: boolean | undefined;
+  /**
+   * Determines whether a connection should be displayed on this organization's login prompt. Only applicable for enterprise connections.
+   */
+  show_as_button?: boolean | undefined;
+};
+
+export interface ActionOutput_auth0_cc_updateorganizationconnection {
+  connection_id: string;
+  assign_membership_on_login?: boolean | undefined;
+  show_as_button?: boolean | undefined;
+  is_signup_enabled?: boolean | undefined;
+  connection?: {  name?: string | undefined;
+  strategy?: string | undefined;};
+};
+
+export interface ActionInput_auth0_cc_updateorganization {
+  /**
+   * Organization identifier. Example: "org_abc123"
+   */
+  id: string;
+  /**
+   * The name of this organization. Example: "acme-corp"
+   */
+  name?: string | undefined;
+  /**
+   * Friendly name of this organization. Example: "Acme Corporation"
+   */
+  display_name?: string | undefined;
+  branding?: {  /**
+   * URL of logo to display on login page
+   */
+  logo_url?: string | undefined;
+  colors?: {  primary: string;
+  page_background: string;} | undefined;};
+  /**
+   * Metadata associated with the organization (max 25 properties, string values up to 255 chars)
+   */
+  metadata?: {  [key: string]: string | null;} | undefined;
+  token_quota?: {  client_credentials: {  enforce?: boolean | undefined;
+  per_day?: number | undefined;
+  per_hour?: number | undefined;};};
+};
+
+export interface ActionOutput_auth0_cc_updateorganization {
+  id: string;
+  name?: string | undefined;
+  display_name?: string | undefined;
+  branding?: {  logo_url?: string | undefined;
+  colors?: {  primary: string;
+  page_background: string;} | undefined;};
+  metadata?: {  [key: string]: string | null;} | undefined;
+  token_quota?: {  client_credentials: {  enforce?: boolean | undefined;
+  per_day?: number | undefined;
+  per_hour?: number | undefined;};};
+};
+
+export interface ActionInput_auth0_cc_updateresourceserver {
+  /**
+   * ID or audience of the resource server to update.
+   */
+  id: string;
+  /**
+   * Friendly name for this resource server. Can not contain `<` or `>` characters.
+   */
+  name?: string | undefined;
+  /**
+   * List of permissions (scopes) that this API uses.
+   */
+  scopes?: ({  /**
+   * Value of this scope.
+   */
+  value: string;
+  /**
+   * User-friendly description of this scope.
+   */
+  description?: string | undefined;})[];
+  /**
+   * Algorithm used to sign JWTs.
+   */
+  signing_alg?: 'HS256' | 'RS256' | 'RS512' | 'PS256' | undefined;
+  /**
+   * Secret used to sign tokens when using symmetric algorithms (HS256).
+   */
+  signing_secret?: string | undefined;
+  /**
+   * Whether to skip user consent for applications flagged as first party (true) or not (false).
+   */
+  skip_consent_for_verifiable_first_party_clients?: boolean | undefined;
+  /**
+   * Whether refresh tokens can be issued for this API (true) or not (false).
+   */
+  allow_offline_access?: boolean | undefined;
+  /**
+   * Whether Online Refresh Tokens can be issued for this API (true) or not (false).
+   */
+  allow_online_access?: boolean | undefined;
+  /**
+   * Whether Online Refresh Tokens can be issued even when sessions are configured as ephemeral (true) or not (false).
+   */
+  allow_online_access_with_ephemeral_sessions?: boolean | undefined;
+  /**
+   * Expiration value (in seconds) for access tokens issued for this API from the token endpoint.
+   */
+  token_lifetime?: number | undefined;
+  /**
+   * Dialect of issued access token.
+   */
+  token_dialect?: 'access_token' | 'access_token_authz' | 'rfc9068_profile' | 'rfc9068_profile_authz' | undefined;
+  /**
+   * Whether authorization policies are enforced (true) or not enforced (false).
+   */
+  enforce_policies?: boolean | undefined;
+};
+
+export interface ActionOutput_auth0_cc_updateresourceserver {
+  id: string;
+  name?: string | undefined;
+  is_system?: boolean | undefined;
+  identifier?: string | undefined;
+  scopes?: ({  /**
+   * Value of this scope.
+   */
+  value: string;
+  /**
+   * User-friendly description of this scope.
+   */
+  description?: string | undefined;})[];
+  signing_alg?: string | undefined;
+  signing_secret?: string | undefined;
+  allow_offline_access?: boolean | undefined;
+  allow_online_access?: boolean | undefined;
+  allow_online_access_with_ephemeral_sessions?: boolean | undefined;
+  skip_consent_for_verifiable_first_party_clients?: boolean | undefined;
+  token_lifetime?: number | undefined;
+  token_lifetime_for_web?: number | undefined;
+  enforce_policies?: boolean | undefined;
+  token_dialect?: string | undefined;
+  client_id?: string | undefined;
+};
+
+export interface ActionInput_auth0_cc_updaterole {
+  /**
+   * ID of the role to update. Example: "rol_1234567890abcdef"
+   */
+  id: string;
+  /**
+   * Name of this role.
+   */
+  name?: string | undefined;
+  /**
+   * Description of this role.
+   */
+  description?: string | undefined;
+};
+
+export interface ActionOutput_auth0_cc_updaterole {
+  id: string;
+  name?: string | undefined;
+  description?: string | undefined;
+};
+
+export interface ActionInput_auth0_cc_updateuser {
+  /**
+   * User ID. Example: "auth0|123"
+   */
+  user_id: string;
+  blocked?: boolean | undefined;
+  email_verified?: boolean | undefined;
+  email?: string | undefined;
+  phone_number?: string | undefined;
+  phone_verified?: boolean | undefined;
+  user_metadata?: {  [key: string]: unknown | undefined;};
+  app_metadata?: {  [key: string]: unknown | undefined;};
+  given_name?: string | undefined;
+  family_name?: string | undefined;
+  name?: string | undefined;
+  nickname?: string | undefined;
+  picture?: string | undefined;
+  verify_email?: boolean | undefined;
+  verify_phone_number?: boolean | undefined;
+  password?: string | undefined;
+  connection?: string | undefined;
+  client_id?: string | undefined;
+  username?: string | undefined;
+};
+
+export interface ActionOutput_auth0_cc_updateuser {
+  user_id: string;
+  email?: string | undefined;
+  email_verified?: boolean | undefined;
+  username?: string | undefined;
+  phone_number?: string | undefined;
+  phone_verified?: boolean | undefined;
+  name?: string | undefined;
+  nickname?: string | undefined;
+  picture?: string | undefined;
+  blocked?: boolean | undefined;
+  given_name?: string | undefined;
+  family_name?: string | undefined;
+  created_at?: string | undefined;
+  updated_at?: string | undefined;
+  user_metadata?: {  [key: string]: unknown | undefined;};
+  app_metadata?: {  [key: string]: unknown | undefined;};
+};
+
 export interface Transaction {
   id: string;
   code: string;
@@ -17618,23 +20204,6 @@ export interface Message {
 export interface SyncMetadata_discord_messages {
   botToken: string;
   channelId: string;
-};
-
-export interface Role {
-  id: string;
-  name: string;
-  color?: number | undefined;
-  colors?: {  primary_color: number;
-  secondary_color?: number | undefined;
-  tertiary_color?: number | undefined;};
-  hoist?: boolean | undefined;
-  icon?: string | undefined;
-  unicode_emoji?: string | undefined;
-  position?: number | undefined;
-  permissions?: string | undefined;
-  managed?: boolean | undefined;
-  mentionable?: boolean | undefined;
-  flags?: number | undefined;
 };
 
 export interface SyncMetadata_discord_roles {

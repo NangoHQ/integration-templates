@@ -1,0 +1,70 @@
+{
+  "input": {
+    "connection": "Username-Password-Authentication",
+    "email": "nango-test-28473910@example.com",
+    "password": "TestPass123!"
+  },
+  "output": {
+    "user_id": "auth0|6a1968140e195a2f41fca104",
+    "email": "nango-test-28473910@example.com",
+    "email_verified": false,
+    "created_at": "2026-05-29T10:19:00.132Z",
+    "updated_at": "2026-05-29T10:19:00.132Z",
+    "name": "nango-test-28473910@example.com",
+    "nickname": "nango-test-28473910",
+    "picture": "https://s.gravatar.com/avatar/659ff01d814162f7f1f5d8d488d7e73b?s=480&r=pg&d=https%3A%2F%2Fcdn.auth0.com%2Favatars%2Fna.png"
+  },
+  "nango": {},
+  "api": {
+    "post": {
+      "/api/v2/users": {
+        "response": {
+          "user_id": "auth0|6a1968140e195a2f41fca104",
+          "created_at": "2026-05-29T10:19:00.132Z",
+          "email": "nango-test-28473910@example.com",
+          "email_verified": false,
+          "identities": [
+            {
+              "connection": "Username-Password-Authentication",
+              "user_id": "6a1968140e195a2f41fca104",
+              "provider": "auth0",
+              "isSocial": false
+            }
+          ],
+          "name": "nango-test-28473910@example.com",
+          "nickname": "nango-test-28473910",
+          "picture": "https://s.gravatar.com/avatar/659ff01d814162f7f1f5d8d488d7e73b?s=480&r=pg&d=https%3A%2F%2Fcdn.auth0.com%2Favatars%2Fna.png",
+          "updated_at": "2026-05-29T10:19:00.132Z"
+        },
+        "status": 200,
+        "headers": {
+          "date": "Fri, 29 May 2026 10:19:00 GMT",
+          "content-type": "application/json; charset=utf-8",
+          "content-length": "536",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=5184000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4864",
+          "x-ratelimit-reset": "1780049955",
+          "etag": "W/\"218-ED1MvKdNIqTZorqV2BlBldTQ39E\""
+        },
+        "hash": "cda930ed06742aed67d7c7cda51c3320ec0a85f6",
+        "request": {
+          "data": {
+            "connection": "Username-Password-Authentication",
+            "email": "nango-test-28473910@example.com",
+            "password": "TestPass123!"
+          }
+        }
+      }
+    }
+  }
+}

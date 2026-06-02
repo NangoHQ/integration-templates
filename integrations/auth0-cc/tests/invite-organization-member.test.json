@@ -1,0 +1,83 @@
+{
+  "input": {
+    "organization_id": "org_vMAVRdG4psn0AfaZ",
+    "inviter": {
+      "name": "Test Inviter"
+    },
+    "invitee": {
+      "email": "test-invite-2026-05-29@example.com"
+    },
+    "client_id": "OQpYK3BsmXy4ZL5e7X9i6UG9nAiORFPj",
+    "send_invitation_email": false
+  },
+  "output": {
+    "id": "uinv_aVo75zMyxxTKvMh1",
+    "organization_id": "org_vMAVRdG4psn0AfaZ",
+    "inviter": {
+      "name": "Test Inviter"
+    },
+    "invitee": {
+      "email": "test-invite-2026-05-29@example.com"
+    },
+    "invitation_url": "https://example.com/login?invitation=vGkYDBQtYGAgwFHUhw20VAQeFFvbzeog&organization=org_vMAVRdG4psn0AfaZ&organization_name=nango-test-org",
+    "created_at": "2026-05-29T10:16:53.948Z",
+    "expires_at": "2026-06-05T10:16:53.948Z",
+    "client_id": "OQpYK3BsmXy4ZL5e7X9i6UG9nAiORFPj",
+    "ticket_id": "vGkYDBQtYGAgwFHUhw20VAQeFFvbzeog"
+  },
+  "nango": {},
+  "api": {
+    "post": {
+      "/api/v2/organizations/org_vMAVRdG4psn0AfaZ/invitations": {
+        "response": {
+          "id": "uinv_aVo75zMyxxTKvMh1",
+          "client_id": "OQpYK3BsmXy4ZL5e7X9i6UG9nAiORFPj",
+          "inviter": {
+            "name": "Test Inviter"
+          },
+          "invitee": {
+            "email": "test-invite-2026-05-29@example.com"
+          },
+          "invitation_url": "https://example.com/login?invitation=vGkYDBQtYGAgwFHUhw20VAQeFFvbzeog&organization=org_vMAVRdG4psn0AfaZ&organization_name=nango-test-org",
+          "ticket_id": "vGkYDBQtYGAgwFHUhw20VAQeFFvbzeog",
+          "created_at": "2026-05-29T10:16:53.948Z",
+          "expires_at": "2026-06-05T10:16:53.948Z",
+          "organization_id": "org_vMAVRdG4psn0AfaZ"
+        },
+        "status": 200,
+        "headers": {
+          "date": "Fri, 29 May 2026 10:16:54 GMT",
+          "content-type": "application/json; charset=utf-8",
+          "content-length": "492",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=5184000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4893",
+          "x-ratelimit-reset": "1780049830",
+          "etag": "W/\"1ec-xry38CyIYzTpdR2xC1ucZ+Yo2/8\""
+        },
+        "hash": "81a6033f186ee425b5529aee77d1e7aee3c8cbf1",
+        "request": {
+          "data": {
+            "inviter": {
+              "name": "Test Inviter"
+            },
+            "invitee": {
+              "email": "test-invite-2026-05-29@example.com"
+            },
+            "client_id": "OQpYK3BsmXy4ZL5e7X9i6UG9nAiORFPj",
+            "send_invitation_email": false
+          }
+        }
+      }
+    }
+  }
+}

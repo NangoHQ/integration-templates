@@ -1,0 +1,91 @@
+{
+  "input": {
+    "identifier": "https://nango-test-rs-save-2026-05-29.example.com",
+    "name": "Nango Test Resource Server Save",
+    "scopes": [
+      {
+        "value": "read:test",
+        "description": "Read test data"
+      }
+    ]
+  },
+  "output": {
+    "id": "6a1966dae7b5cb6ede1bc1ee",
+    "identifier": "https://nango-test-rs-save-2026-05-29.example.com",
+    "name": "Nango Test Resource Server Save",
+    "scopes": [
+      {
+        "value": "read:test",
+        "description": "Read test data"
+      }
+    ],
+    "token_lifetime": 86400,
+    "token_lifetime_for_web": 7200,
+    "allow_offline_access": false,
+    "signing_alg": "RS256"
+  },
+  "nango": {},
+  "api": {
+    "post": {
+      "/api/v2/resource-servers": {
+        "response": {
+          "id": "6a1966dae7b5cb6ede1bc1ee",
+          "name": "Nango Test Resource Server Save",
+          "identifier": "https://nango-test-rs-save-2026-05-29.example.com",
+          "allow_offline_access": false,
+          "skip_consent_for_verifiable_first_party_clients": false,
+          "subject_type_authorization": {
+            "client": {
+              "policy": "require_client_grant"
+            },
+            "user": {
+              "policy": "allow_all"
+            }
+          },
+          "token_lifetime": 86400,
+          "token_lifetime_for_web": 7200,
+          "signing_alg": "RS256",
+          "scopes": [
+            {
+              "value": "read:test",
+              "description": "Read test data"
+            }
+          ]
+        },
+        "status": 200,
+        "headers": {
+          "date": "Fri, 29 May 2026 10:13:46 GMT",
+          "content-type": "application/json; charset=utf-8",
+          "content-length": "467",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=5184000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4927",
+          "x-ratelimit-reset": "1780049647",
+          "etag": "W/\"1d3-6I+3Cq/w/Cj1Ek09U7rJoenWoO8\""
+        },
+        "hash": "c6cf81638c4c2f0991a340bddb540ebe55b14dd0",
+        "request": {
+          "data": {
+            "identifier": "https://nango-test-rs-save-2026-05-29.example.com",
+            "name": "Nango Test Resource Server Save",
+            "scopes": [
+              {
+                "value": "read:test",
+                "description": "Read test data"
+              }
+            ]
+          }
+        }
+      }
+    }
+  }
+}
