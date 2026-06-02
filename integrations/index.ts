@@ -2077,6 +2077,21 @@ import './stripe/actions/void-invoice.js';
 // -- Integration: teamtailor
 import './teamtailor/syncs/candidates.js';
 
+// -- Integration: tiktok-personal
+import './tiktok-personal/syncs/user-profile.js';
+import './tiktok-personal/syncs/videos.js';
+import './tiktok-personal/actions/get-creator-info.js';
+import './tiktok-personal/actions/get-publish-status.js';
+import './tiktok-personal/actions/get-user-info.js';
+import './tiktok-personal/actions/get-user-profile.js';
+import './tiktok-personal/actions/get-user-stats.js';
+import './tiktok-personal/actions/get-video.js';
+import './tiktok-personal/actions/init-inbox-video-upload.js';
+import './tiktok-personal/actions/init-photo-upload.js';
+import './tiktok-personal/actions/init-video-upload.js';
+import './tiktok-personal/actions/list-videos.js';
+import './tiktok-personal/actions/query-videos.js';
+
 // -- Integration: twitter-v2
 import './twitter-v2/syncs/liked-tweets.js';
 import './twitter-v2/syncs/lists.js';

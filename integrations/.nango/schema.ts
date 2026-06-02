@@ -59919,6 +59919,329 @@ export interface TeamtailorCandidate {
 export interface SyncMetadata_teamtailor_candidates {
 };
 
+export interface UserProfile {
+  id: string;
+  open_id: string;
+  union_id?: string | undefined;
+  avatar_url?: string | undefined;
+  display_name?: string | undefined;
+  bio_description?: string | undefined;
+  profile_deep_link?: string | undefined;
+  is_verified?: boolean | undefined;
+  follower_count?: number | undefined;
+  following_count?: number | undefined;
+  likes_count?: number | undefined;
+  video_count?: number | undefined;
+};
+
+export interface Video {
+  id: string;
+  create_time?: number | undefined;
+  cover_image_url?: string | undefined;
+  share_url?: string | undefined;
+  video_description?: string | undefined;
+  duration?: number | undefined;
+  height?: number | undefined;
+  width?: number | undefined;
+  title?: string | undefined;
+  embed_html?: string | undefined;
+  embed_link?: string | undefined;
+  like_count?: number | undefined;
+  comment_count?: number | undefined;
+  share_count?: number | undefined;
+  view_count?: number | undefined;
+};
+
+export interface ActionInput_tiktok_personal_getcreatorinfo {
+};
+
+export interface ActionOutput_tiktok_personal_getcreatorinfo {
+  creator_avatar_url?: string | undefined;
+  creator_username?: string | undefined;
+  creator_nickname?: string | undefined;
+  privacy_level_options?: string[] | undefined;
+  comment_disabled?: boolean | undefined;
+  duet_disabled?: boolean | undefined;
+  stitch_disabled?: boolean | undefined;
+  max_video_post_duration_sec?: number | undefined;
+};
+
+export interface ActionInput_tiktok_personal_getpublishstatus {
+  /**
+   * The publish ID returned when initializing a post. Example: "v1234567890"
+   */
+  publish_id: string;
+};
+
+export interface ActionOutput_tiktok_personal_getpublishstatus {
+  status: string;
+  fail_reason?: string | undefined;
+  publicaly_available_post_id?: string[] | undefined;
+  uploaded_bytes?: number | undefined;
+  downloaded_bytes?: number | undefined;
+};
+
+export interface ActionInput_tiktok_personal_getuserinfo {
+  /**
+   * Specific user fields to request. Defaults to basic profile fields.
+   */
+  fields?: string[] | undefined;
+};
+
+export interface ActionOutput_tiktok_personal_getuserinfo {
+  open_id?: string | undefined;
+  union_id?: string | undefined;
+  avatar_url?: string | undefined;
+  avatar_url_100?: string | undefined;
+  avatar_large_url?: string | undefined;
+  display_name?: string | undefined;
+  bio_description?: string | undefined;
+  profile_deep_link?: string | undefined;
+  is_verified?: boolean | undefined;
+  username?: string | undefined;
+  follower_count?: number | undefined;
+  following_count?: number | undefined;
+  likes_count?: number | undefined;
+  video_count?: number | undefined;
+};
+
+export interface ActionInput_tiktok_personal_getuserprofile {
+};
+
+export interface ActionOutput_tiktok_personal_getuserprofile {
+  bio_description?: string | undefined;
+  profile_deep_link?: string | undefined;
+  is_verified?: boolean | undefined;
+};
+
+export interface ActionInput_tiktok_personal_getuserstats {
+};
+
+export interface ActionOutput_tiktok_personal_getuserstats {
+  follower_count?: number | undefined;
+  following_count?: number | undefined;
+  likes_count?: number | undefined;
+  video_count?: number | undefined;
+};
+
+export interface ActionInput_tiktok_personal_getvideo {
+  /**
+   * TikTok video ID. Example: "7077642457847991554"
+   */
+  video_id: string;
+};
+
+export interface ActionOutput_tiktok_personal_getvideo {
+  id: string;
+  create_time?: number | undefined;
+  cover_image_url?: string | undefined;
+  share_url?: string | undefined;
+  video_description?: string | undefined;
+  duration?: number | undefined;
+  height?: number | undefined;
+  width?: number | undefined;
+  title?: string | undefined;
+  embed_html?: string | undefined;
+  embed_link?: string | undefined;
+  like_count?: number | undefined;
+  comment_count?: number | undefined;
+  share_count?: number | undefined;
+  view_count?: number | undefined;
+};
+
+export interface ActionInput_tiktok_personal_initinboxvideoupload {
+  source_info: {  source: 'FILE_UPLOAD';
+  video_size: number;
+  chunk_size: number;
+  total_chunk_count: number;} | {  source: 'PULL_FROM_URL';
+  video_url: string;};
+};
+
+export interface ActionOutput_tiktok_personal_initinboxvideoupload {
+  publish_id: string;
+  upload_url?: string | undefined;
+};
+
+export interface ActionInput_tiktok_personal_initphotoupload {
+  /**
+   * Must be PHOTO.
+   */
+  media_type: 'PHOTO';
+  /**
+   * DIRECT_POST or MEDIA_UPLOAD.
+   */
+  post_mode: 'DIRECT_POST' | 'MEDIA_UPLOAD';
+  /**
+   * Post metadata.
+   */
+  post_info: {  /**
+   * Post title. Max 90 UTF-16 runes.
+   */
+  title?: string | undefined;
+  /**
+   * Post description. Max 4000 UTF-16 runes.
+   */
+  description?: string | undefined;
+  /**
+   * Privacy level. Required for DIRECT_POST.
+   */
+  privacy_level?: 'PUBLIC_TO_EVERYONE' | 'MUTUAL_FOLLOW_FRIENDS' | 'FOLLOWER_OF_CREATOR' | 'SELF_ONLY' | undefined;
+  /**
+   * If true, disables comments. Only for DIRECT_POST.
+   */
+  disable_comment?: boolean | undefined;
+  /**
+   * If true, auto-adds recommended music. Only for DIRECT_POST.
+   */
+  auto_add_music?: boolean | undefined;
+  /**
+   * If true, content is a paid partnership. Only for DIRECT_POST.
+   */
+  brand_content_toggle?: boolean | undefined;
+  /**
+   * If true, content promotes own business. Only for DIRECT_POST.
+   */
+  brand_organic_toggle?: boolean | undefined;};
+  /**
+   * Media source metadata.
+   */
+  source_info: {  /**
+   * Must be PULL_FROM_URL for photos.
+   */
+  source: 'PULL_FROM_URL';
+  /**
+   * Publicly accessible photo URLs (1-35).
+   */
+  photo_images: string[];
+  /**
+   * Index of the cover photo, starting from 0.
+   */
+  photo_cover_index: number;};
+};
+
+export interface ActionOutput_tiktok_personal_initphotoupload {
+  /**
+   * Identifier to track the posting action.
+   */
+  publish_id: string;
+};
+
+export interface ActionInput_tiktok_personal_initvideoupload {
+  post_info: {  /**
+   * Video caption. Supports hashtags and @mentions. Max 2200 characters.
+   */
+  title?: string | undefined;
+  /**
+   * Privacy level for the posted video.
+   */
+  privacy_level: 'PUBLIC_TO_EVERYONE' | 'MUTUAL_FOLLOW_FRIENDS' | 'FOLLOWER_OF_CREATOR' | 'SELF_ONLY';
+  disable_duet?: boolean | undefined;
+  disable_stitch?: boolean | undefined;
+  disable_comment?: boolean | undefined;
+  /**
+   * Timestamp in milliseconds for the video cover frame.
+   */
+  video_cover_timestamp_ms?: number | undefined;
+  brand_content_toggle?: boolean | undefined;
+  brand_organic_toggle?: boolean | undefined;
+  /**
+   * Whether the content is AI-generated.
+   */
+  is_aigc?: boolean | undefined;};
+  source_info: {  source: 'FILE_UPLOAD';
+  /**
+   * Size of the video in bytes.
+   */
+  video_size: number;
+  /**
+   * Size of each upload chunk in bytes.
+   */
+  chunk_size: number;
+  /**
+   * Total number of chunks.
+   */
+  total_chunk_count: number;} | {  source: 'PULL_FROM_URL';
+  /**
+   * URL of the video. Domain must be verified with TikTok.
+   */
+  video_url: string;};
+  /**
+   * DIRECT_POST to publish immediately, MEDIA_UPLOAD to send to Creator Inbox.
+   */
+  post_mode?: 'DIRECT_POST' | 'MEDIA_UPLOAD' | undefined;
+  media_type?: 'VIDEO' | undefined;
+};
+
+export interface ActionOutput_tiktok_personal_initvideoupload {
+  /**
+   * Identifier to track the posting action.
+   */
+  publish_id: string;
+  /**
+   * URL provided by TikTok to upload the video file. Only present for FILE_UPLOAD.
+   */
+  upload_url?: string | undefined;
+  /**
+   * Post ID if available.
+   */
+  post_id?: string | undefined;
+};
+
+export interface ActionInput_tiktok_personal_listvideos {
+  cursor?: number | undefined;
+  max_count?: number | undefined;
+  fields?: string[] | undefined;
+};
+
+export interface ActionOutput_tiktok_personal_listvideos {
+  videos: ({  id: string;
+  create_time?: number | undefined;
+  cover_image_url?: string | undefined;
+  share_url?: string | undefined;
+  video_description?: string | undefined;
+  duration?: number | undefined;
+  height?: number | undefined;
+  width?: number | undefined;
+  title?: string | undefined;
+  embed_html?: string | undefined;
+  embed_link?: string | undefined;
+  like_count?: number | undefined;
+  comment_count?: number | undefined;
+  share_count?: number | undefined;
+  view_count?: number | undefined;})[];
+  cursor?: number | undefined;
+  has_more?: boolean | undefined;
+};
+
+export interface ActionInput_tiktok_personal_queryvideos {
+  /**
+   * List of TikTok video IDs to query. Maximum 20.
+   */
+  video_ids: string[];
+  /**
+   * Fields to return for each video. Defaults to all fields.
+   */
+  fields?: string[] | undefined;
+};
+
+export interface ActionOutput_tiktok_personal_queryvideos {
+  videos: ({  id: string;
+  create_time?: number | undefined;
+  cover_image_url?: string | undefined;
+  share_url?: string | undefined;
+  video_description?: string | undefined;
+  duration?: number | undefined;
+  height?: number | undefined;
+  width?: number | undefined;
+  title?: string | undefined;
+  embed_html?: string | undefined;
+  embed_link?: string | undefined;
+  like_count?: number | undefined;
+  comment_count?: number | undefined;
+  share_count?: number | undefined;
+  view_count?: number | undefined;})[];
+};
+
 export interface LikedTweet {
   id: string;
   text: string;
