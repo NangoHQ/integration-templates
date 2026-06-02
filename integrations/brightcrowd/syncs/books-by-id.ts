@@ -8,7 +8,7 @@ import { BookById, Metadata } from '../models.js';
  */
 const sync = createSync({
     description: 'Fetches a list of specified books from Brightcrowd.',
-    version: '2.0.0',
+    version: '2.1.0',
     frequency: 'every day',
     autoStart: false,
     syncType: 'full',
@@ -42,6 +42,8 @@ const sync = createSync({
             return;
         }
 
+        await nango.trackDeletesStart('BookById');
+
         const books: BookById[] = [];
 
         for (const bookId of bookIds) {
@@ -62,7 +64,7 @@ const sync = createSync({
             await nango.batchSave(books, 'BookById');
         }
 
-        await nango.deleteRecordsFromPreviousExecutions('BookById');
+        await nango.trackDeletesEnd('BookById');
     }
 });
 

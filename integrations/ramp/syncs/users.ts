@@ -7,7 +7,7 @@ import { z } from 'zod';
 
 const sync = createSync({
     description: 'Fetches a list of users from Ramp',
-    version: '1.0.0',
+    version: '1.1.0',
     frequency: 'every day',
     autoStart: true,
     syncType: 'full',
@@ -29,6 +29,8 @@ const sync = createSync({
     metadata: z.object({}),
 
     exec: async (nango) => {
+        await nango.trackDeletesStart('User');
+
         const proxyConfiguration: ProxyConfiguration = {
             // https://docs.ramp.com/developer-api/v1/api/users
             endpoint: '/developer/v1/users',
@@ -51,7 +53,7 @@ const sync = createSync({
 
             await nango.batchSave(users, 'User');
         }
-        await nango.deleteRecordsFromPreviousExecutions('User');
+        await nango.trackDeletesEnd('User');
     }
 });
 

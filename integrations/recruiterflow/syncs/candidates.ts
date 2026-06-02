@@ -7,7 +7,7 @@ import { z } from 'zod';
 
 const sync = createSync({
     description: 'Syncs all candidates from RecruiterFlow',
-    version: '2.0.0',
+    version: '2.1.0',
     frequency: 'every hour',
     autoStart: true,
     syncType: 'full',
@@ -27,6 +27,8 @@ const sync = createSync({
     metadata: z.object({}),
 
     exec: async (nango) => {
+        await nango.trackDeletesStart('RecruiterFlowCandidate');
+
         const proxyConfig: ProxyConfiguration = {
             // https://recruiterflow.com/api#/Candidate%20APIs/get_api_external_candidate_list
             endpoint: '/api/external/candidate/list',
@@ -47,7 +49,7 @@ const sync = createSync({
             await nango.batchSave(candidates.map(toCandidate), 'RecruiterFlowCandidate');
         }
 
-        await nango.deleteRecordsFromPreviousExecutions('RecruiterFlowCandidate');
+        await nango.trackDeletesEnd('RecruiterFlowCandidate');
     }
 });
 

@@ -54702,100 +54702,3141 @@ export interface ActionOutput_spotify_updateplaylist {
   playlistId: string;
 };
 
-export interface Subscription {
+export interface CheckoutSession {
   id: string;
-  automatic_tax: {  enabled: boolean;
-  liability: boolean | string | null;
-  disabled_reason: string | null;};
-  billing_cycle_anchor: number;
-  billing_thresholds: string | null;
-  cancel_at: string | null;
-  cancel_at_period_end: boolean;
-  canceled_at: string | null;
-  cancellation_details: {  comment: string | null;
-  feedback: string | null;
-  reason: string | null;};
-  collection_method: string;
+  amount_subtotal?: number | undefined;
+  amount_total?: number | undefined;
   created: number;
-  currency: string;
-  current_period_end: number;
-  current_period_start: number;
-  customer: string;
-  days_until_due: number | null;
-  default_payment_method: string | null;
-  description: string | null;
-  discount: string | null;
-  discounts: string[] | null;
-  ended_at: string | null;
-  invoice_settings: {  issuer: {  type: string;};
-  account_tax_ids: null | string | string[];};
-  items: ({  id: string;
-  billing_thresholds: string | null;
-  created: number;
-  plan: {  id: string;
-  object: string;
-  active: boolean;
-  aggregate_usage?: any | undefined;
-  amount: number;
-  amount_decimal: string;
-  billing_scheme: string;
-  created: number;
-  currency: string;
-  discounts?: any | undefined;
-  interval: string;
-  interval_count: number;
-  livemode: boolean;
-  nickname?: any | undefined;
-  product: string;
-  tiers_mode?: any | undefined;
-  transform_usage?: any | undefined;
-  trial_period_days?: any | undefined;
-  usage_type: string;};
-  price: {  id: string;
-  object: string;
-  active: boolean;
-  billing_scheme: string;
-  created: number;
-  currency: string;
-  custom_unit_amount?: any | undefined;
-  livemode: boolean;
-  lookup_key?: any | undefined;
-  nickname?: any | undefined;
-  product: string;
-  recurring: {  aggregate_usage?: any | undefined;
-  interval: string;
-  interval_count: number;
-  trial_period_days?: any | undefined;
-  usage_type: string;};
-  tax_behavior: string;
-  tiers_mode?: any | undefined;
-  transform_quantity?: any | undefined;
-  type: string;
-  unit_amount: number;
-  unit_amount_decimal: string;};
-  quantity: number;
-  subscription: string;
-  tax_rates: string[];})[];
-  latest_invoice: string;
-  livemode: boolean;
-  next_pending_invoice_item_invoice: string | null;
-  on_behalf_of: string | null;
-  pause_collection: string | null;
-  payment_settings: {  payment_method_options: string | null;
-  payment_method_types: string | null;
-  save_default_payment_method: string;};
-  pending_invoice_item_interval: string | null;
-  pending_setup_intent: string | null;
-  schedule: string | null;
-  start_date: number;
-  status: string;
-  transfer_data: string | null;
-  trial_end: string | null;
-  trial_settings: {  end_behavior: {  missing_payment_method: string;};};
-  trial_start: string | null;
+  currency?: string | undefined;
+  customer?: string | undefined;
+  customer_email?: string | undefined;
+  expires_at?: number | undefined;
+  livemode?: boolean | undefined;
+  metadata?: {  [key: string]: unknown | undefined;};
+  mode?: string | undefined;
+  payment_intent?: string | undefined;
+  payment_status?: string | undefined;
+  status?: string | undefined;
+  subscription?: string | undefined;
+  success_url?: string | undefined;
+  url?: string | undefined;
 };
 
-export interface SyncMetadata_stripe_app_subscriptions {
+export interface CreditNote {
+  id: string;
+  Type?: string | undefined;
+  Contact?: unknown | undefined;
+  Date?: string | undefined;
+  DueDate?: string | undefined;
+  Status?: string | undefined;
+  LineAmountTypes?: string | undefined;
+  LineItems?: unknown[] | undefined;
+  SubTotal?: number | undefined;
+  TotalTax?: number | undefined;
+  Total?: number | undefined;
+  UpdatedDateUTC?: string | undefined;
+  CurrencyCode?: string | undefined;
+  CreditNoteID?: string | undefined;
+  CreditNoteNumber?: string | undefined;
+  Reference?: string | undefined;
+  RemainingCredit?: number | undefined;
+  FullyPaidOnDate?: string | undefined;
+  SentToContact?: boolean | undefined;
+  HasAttachments?: boolean | undefined;
+  HasErrors?: boolean | undefined;
+};
+
+export interface InvoiceItem {
+  id: string;
+  amount: number;
+  currency: string;
+  customer?: string | undefined;
+  date: number;
+  description?: string | undefined;
+  discountable?: boolean | undefined;
+  discounts?: string[] | undefined;
+  invoice?: string | undefined;
+  livemode?: boolean | undefined;
+  metadata?: {  [key: string]: unknown | undefined;};
+  period_end?: number | undefined;
+  period_start?: number | undefined;
+  proration?: boolean | undefined;
+  quantity?: number | undefined;
+  quantity_decimal?: string | undefined;
+  tax_rates?: unknown[] | undefined;
+  test_clock?: string | undefined;
+};
+
+export interface PaymentIntent {
+  id: string;
+  amount?: number | undefined;
+  amount_capturable?: number | undefined;
+  amount_details?: {  [key: string]: unknown | undefined;};
+  amount_received?: number | undefined;
+  application?: string | undefined;
+  application_fee_amount?: number | undefined;
+  automatic_payment_methods?: {  [key: string]: unknown | undefined;};
+  canceled_at?: number | undefined;
+  cancellation_reason?: string | undefined;
+  capture_method?: string | undefined;
+  client_secret?: string | undefined;
+  confirmation_method?: string | undefined;
+  created: number;
+  currency?: string | undefined;
+  customer?: string | undefined;
+  description?: string | undefined;
+  last_payment_error?: {  [key: string]: unknown | undefined;};
+  latest_charge?: string | undefined;
+  livemode?: boolean | undefined;
+  metadata?: {  [key: string]: string;} | undefined;
+  next_action?: {  [key: string]: unknown | undefined;};
+  on_behalf_of?: string | undefined;
+  payment_method?: string | undefined;
+  payment_method_options?: {  [key: string]: unknown | undefined;};
+  payment_method_types?: string[] | undefined;
+  processing?: {  [key: string]: unknown | undefined;};
+  receipt_email?: string | undefined;
+  review?: string | undefined;
+  setup_future_usage?: string | undefined;
+  shipping?: {  [key: string]: unknown | undefined;};
+  source?: string | undefined;
+  statement_descriptor?: string | undefined;
+  statement_descriptor_suffix?: string | undefined;
+  status?: string | undefined;
+  transfer_data?: {  [key: string]: unknown | undefined;};
+  transfer_group?: string | undefined;
+};
+
+export interface PaymentMethod {
+  id: string;
+  object?: string | undefined;
+  type: string;
+  created: number;
+  customer?: string | undefined;
+  billing_details?: unknown | undefined;
+  card?: unknown | undefined;
+  us_bank_account?: unknown | undefined;
+  sepa_debit?: unknown | undefined;
+  livemode: boolean;
+  metadata?: unknown | undefined;
+};
+
+export interface Price {
+  id: string;
+  object?: string | undefined;
+  active?: boolean | undefined;
+  billing_scheme?: string | undefined;
+  created?: number | undefined;
+  currency?: string | undefined;
+  custom_unit_amount?: {  maximum?: number | undefined;
+  minimum?: number | undefined;
+  preset?: number | undefined;};
+  livemode?: boolean | undefined;
+  lookup_key?: string | undefined;
+  metadata?: {  [key: string]: unknown | undefined;};
+  nickname?: string | undefined;
+  product?: string | undefined;
+  recurring?: {  interval?: string | undefined;
+  interval_count?: number | undefined;
+  trial_period_days?: number | undefined;
+  usage_type?: string | undefined;};
+  tax_behavior?: string | undefined;
+  tiers_mode?: string | undefined;
+  transform_quantity?: {  divide_by?: number | undefined;
+  round?: string | undefined;};
+  type?: string | undefined;
+  unit_amount?: number | undefined;
+  unit_amount_decimal?: string | undefined;
+};
+
+export interface Refund {
+  id: string;
+  order_id: string;
+  date_created: string;
+  date_created_gmt: string;
+  amount?: string | undefined;
+  reason?: string | undefined;
+  refunded_by?: number | undefined;
+  refunded_payment?: boolean | undefined;
+};
+
+export interface SetupIntent {
+  id: string;
+  status: string;
+  customer?: string | undefined;
+  description?: string | undefined;
+  created: number;
+  payment_method?: string | undefined;
+  payment_method_types?: string[] | undefined;
+  usage?: string | undefined;
+  cancellation_reason?: string | undefined;
+  livemode?: boolean | undefined;
+  metadata?: {  [key: string]: unknown | undefined;};
+};
+
+export interface Subscription {
+  id: string;
+  status: string;
+  customer: string;
+  created: number;
+  current_period_start?: number | undefined;
+  current_period_end?: number | undefined;
+  cancel_at_period_end?: boolean | undefined;
+  canceled_at?: number | undefined;
+  ended_at?: number | undefined;
+  collection_method?: string | undefined;
+  currency?: string | undefined;
+  description?: string | undefined;
+  metadata?: {  [key: string]: string;} | undefined;
+  items?: ({  id: string;
+  price_id?: string | undefined;
+  product_id?: string | undefined;
+  quantity?: number | undefined;})[];
+};
+
+export interface ActionInput_stripe_cancelpaymentintent {
+  /**
+   * PaymentIntent ID to cancel. Example: pi_xxx
+   */
+  id: string;
+  /**
+   * Reason for cancellation. Example: duplicate, fraudulent, requested_by_customer, abandoned
+   */
+  cancellation_reason?: string | undefined;
+};
+
+export interface ActionOutput_stripe_cancelpaymentintent {
+  id: string;
+  amount: number;
+  currency: string;
+  status: string;
+  cancellation_reason?: string | undefined;
+  client_secret?: string | undefined;
+  created: number;
+  description?: string | undefined;
+  metadata?: {  [key: string]: string;} | undefined;
+};
+
+export interface ActionInput_stripe_capturepaymentintent {
+  /**
+   * The ID of the PaymentIntent to capture. Example: pi_xxx
+   */
+  id: string;
+  /**
+   * The amount to capture, in the smallest currency unit. Omit to capture the full amount.
+   */
+  amount_to_capture?: number | undefined;
+  /**
+   * The amount of the application fee to apply, in the smallest currency unit.
+   */
+  application_fee_amount?: number | undefined;
+  /**
+   * Whether this is the final capture. Defaults to true.
+   */
+  final_capture?: boolean | undefined;
+  /**
+   * Text that appears on the customer's statement for a non-card charge.
+   */
+  statement_descriptor?: string | undefined;
+  /**
+   * Suffix for the statement descriptor on a card charge.
+   */
+  statement_descriptor_suffix?: string | undefined;
+};
+
+export interface ActionOutput_stripe_capturepaymentintent {
+  id: string;
+  amount: number;
+  amount_capturable?: number | undefined;
+  amount_received?: number | undefined;
+  application_fee_amount?: number | undefined;
+  canceled_at?: number | undefined;
+  cancellation_reason?: string | undefined;
+  capture_method?: string | undefined;
+  client_secret?: string | undefined;
+  confirmation_method?: string | undefined;
+  created: number;
+  currency: string;
+  customer?: string | undefined;
+  description?: string | undefined;
+  latest_charge?: string | undefined;
+  livemode: boolean;
+  metadata?: {} | undefined;
+  next_action?: unknown | undefined;
+  payment_method?: string | undefined;
+  payment_method_options?: {} | undefined;
+  payment_method_types: string[];
+  receipt_email?: string | undefined;
+  setup_future_usage?: string | undefined;
+  shipping?: {} | undefined;
+  statement_descriptor?: string | undefined;
+  statement_descriptor_suffix?: string | undefined;
+  status: string;
+  transfer_data?: {} | undefined;
+  transfer_group?: string | undefined;
+};
+
+export interface ActionInput_stripe_createcheckoutsession {
+  /**
+   * The mode of the Checkout Session. Example: "payment"
+   */
+  mode: 'payment' | 'setup' | 'subscription';
+  /**
+   * URL to redirect the customer to after a successful payment. Example: "https://example.com/success"
+   */
+  success_url?: string | undefined;
+  /**
+   * URL to redirect the customer to if they cancel the payment. Example: "https://example.com/cancel"
+   */
+  cancel_url?: string | undefined;
+  /**
+   * ID of an existing Customer. Example: "cus_Uae6TTxHlP2hxk"
+   */
+  customer?: string | undefined;
+  /**
+   * Email address to prefill in Checkout. Example: "customer@example.com"
+   */
+  customer_email?: string | undefined;
+  /**
+   * Three-letter ISO currency code. Example: "usd"
+   */
+  currency?: string | undefined;
+  /**
+   * A list of items the customer is purchasing.
+   */
+  line_items?: ({  /**
+   * The ID of the Price object. Example: "price_1TbSoBEZpD6kXraeE9F1XSiB"
+   */
+  price: string;
+  /**
+   * The quantity of the line item being purchased. Example: 1
+   */
+  quantity: number;})[] | undefined;
+  /**
+   * Set of key-value pairs to attach to the session.
+   */
+  metadata?: {  [key: string]: string;} | undefined;
+};
+
+export interface ActionOutput_stripe_createcheckoutsession {
+  id: string;
+  mode: string;
+  created: number;
+  amount_subtotal?: number | undefined;
+  amount_total?: number | undefined;
+  currency?: string | undefined;
+  customer?: string | undefined;
+  customer_email?: string | undefined;
+  status?: string | undefined;
+  url?: string | undefined;
+  cancel_url?: string | undefined;
+  success_url?: string | undefined;
+  expires_at?: number | undefined;
+  payment_intent?: string | undefined;
+  subscription?: string | undefined;
+  client_secret?: string | undefined;
+  metadata?: {  [key: string]: string;} | undefined;
+};
+
+export interface ActionInput_stripe_createcreditnote {
+  /**
+   * ID of the invoice to credit. Example: in_xxx
+   */
+  invoice: string;
+  /**
+   * Total amount of the credit note in the smallest currency unit.
+   */
+  amount?: number | undefined;
+  /**
+   * Line items that make up the credit note.
+   */
+  lines?: ({  type: 'invoice_line_item' | 'custom_line_item';
+  amount?: number | undefined;
+  description?: string | undefined;
+  invoice_line_item?: string | undefined;
+  quantity?: number | undefined;
+  unit_amount?: number | undefined;
+  unit_amount_decimal?: string | undefined;
+  tax_rates?: string[] | undefined;})[];
+  reason?: 'duplicate' | 'fraudulent' | 'order_change' | 'product_unsatisfactory' | undefined;
+  memo?: string | undefined;
+  metadata?: {  [key: string]: string;} | undefined;
+  credit_amount?: number | undefined;
+  out_of_band_amount?: number | undefined;
+  refund_amount?: number | undefined;
+  effective_at?: number | undefined;
+  email_type?: 'credit_note' | 'none' | undefined;
+};
+
+export interface ActionOutput_stripe_createcreditnote {
+  id: string;
+  object: string;
+  amount: number;
+  amount_shipping?: number | undefined;
+  created?: number | undefined;
+  currency?: string | undefined;
+  customer?: string | undefined;
+  customer_balance_transaction?: string | undefined;
+  discount_amount?: number | undefined;
+  discount_amounts?: unknown[] | undefined;
+  invoice?: string | undefined;
+  lines?: {  object: string;
+  data: ({  id: string;
+  object: string;
+  amount: number;
+  description?: string | undefined;
+  discount_amount?: number | undefined;
+  discount_amounts?: unknown[] | undefined;
+  invoice_line_item?: string | undefined;
+  livemode?: boolean | undefined;
+  quantity?: number | undefined;
+  tax_rates?: unknown[] | undefined;
+  taxes?: unknown[] | undefined;
+  type: string;
+  unit_amount?: number | undefined;
+  unit_amount_decimal?: string | undefined;})[];
+  has_more: boolean;
+  url: string;};
+  livemode?: boolean | undefined;
+  memo?: string | undefined;
+  metadata?: {  [key: string]: string;} | undefined;
+  number?: string | undefined;
+  out_of_band_amount?: number | undefined;
+  pdf?: string | undefined;
+  pre_payment_amount?: number | undefined;
+  post_payment_amount?: number | undefined;
+  reason?: string | undefined;
+  refunds?: unknown[] | undefined;
+  shipping_cost?: unknown | undefined;
+  status?: string | undefined;
+  subtotal?: number | undefined;
+  subtotal_excluding_tax?: number | undefined;
+  total?: number | undefined;
+  total_excluding_tax?: number | undefined;
+  total_taxes?: unknown[] | undefined;
+  type?: string | undefined;
+  voided_at?: number | undefined;
+};
+
+export interface ActionInput_stripe_createcustomer {
+  /**
+   * Customer email address. Example: "customer@example.com"
+   */
+  email?: string | undefined;
+  /**
+   * Customer full name. Example: "Jane Doe"
+   */
+  name?: string | undefined;
+  /**
+   * An arbitrary string attached to the object. Example: "Enterprise plan"
+   */
+  description?: string | undefined;
+  /**
+   * Customer phone number. Example: "+1-555-555-5555"
+   */
+  phone?: string | undefined;
+  address?: {  line1?: string | undefined;
+  line2?: string | undefined;
+  city?: string | undefined;
+  state?: string | undefined;
+  postal_code?: string | undefined;
+  country?: string | undefined;};
+  /**
+   * Set of key-value pairs for storing additional information.
+   */
+  metadata?: {  [key: string]: string;} | undefined;
+};
+
+export interface ActionOutput_stripe_createcustomer {
+  id: string;
+  address?: {  line1?: string | undefined;
+  line2?: string | undefined;
+  city?: string | undefined;
+  state?: string | undefined;
+  postal_code?: string | undefined;
+  country?: string | undefined;};
+  created?: number | undefined;
+  currency?: string | undefined;
+  default_source?: string | undefined;
+  description?: string | undefined;
+  email?: string | undefined;
+  invoice_prefix?: string | undefined;
+  livemode?: boolean | undefined;
+  metadata?: {  [key: string]: string;} | undefined;
+  name?: string | undefined;
+  next_invoice_sequence?: number | undefined;
+  phone?: string | undefined;
+  preferred_locales?: string[] | undefined;
+  shipping?: unknown | undefined;
+  tax_exempt?: string | undefined;
+};
+
+export interface ActionInput_stripe_createinvoiceitem {
+  /**
+   * The ID of the customer to bill for this invoice item. Example: "cus_xxx"
+   */
+  customer: string;
+  /**
+   * The integer amount in the smallest currency unit.
+   */
+  amount?: number | undefined;
+  /**
+   * Three-letter ISO currency code, in lowercase. Example: "usd"
+   */
+  currency?: string | undefined;
+  /**
+   * The ID of an existing Price object to use for this invoice item. Example: "price_xxx"
+   */
+  price?: string | undefined;
+  /**
+   * The ID of an existing draft invoice to add this item to. Example: "in_xxx"
+   */
+  invoice?: string | undefined;
+  /**
+   * An arbitrary string to attach to the invoice item.
+   */
+  description?: string | undefined;
+  /**
+   * The quantity of units for the invoice item.
+   */
+  quantity?: number | undefined;
+};
+
+export interface ActionOutput_stripe_createinvoiceitem {
+  id: string;
+  amount?: number | undefined;
+  currency?: string | undefined;
+  customer_id?: string | undefined;
+  description?: string | undefined;
+  invoice_id?: string | undefined;
+  quantity?: number | undefined;
+  price_id?: string | undefined;
+  livemode?: boolean | undefined;
+  created_at?: number | undefined;
+};
+
+export interface ActionInput_stripe_createinvoice {
+  /**
+   * The ID of the customer to bill. Example: "cus_123"
+   */
+  customer: string;
+  /**
+   * How to collect payment
+   */
+  collection_method?: 'charge_automatically' | 'send_invoice' | undefined;
+  /**
+   * Three-letter ISO currency code. Example: "usd"
+   */
+  currency?: string | undefined;
+  /**
+   * An arbitrary string attached to the object
+   */
+  description?: string | undefined;
+  /**
+   * Number of days until due. Valid only for send_invoice
+   */
+  days_until_due?: number | undefined;
+  /**
+   * Unix timestamp for due date. Valid only for send_invoice
+   */
+  due_date?: number | undefined;
+  /**
+   * ID of default payment method
+   */
+  default_payment_method?: string | undefined;
+  /**
+   * Controls automatic collection
+   */
+  auto_advance?: boolean | undefined;
+  /**
+   * How to handle pending invoice items
+   */
+  pending_invoice_items_behavior?: 'exclude' | 'include' | undefined;
+  /**
+   * ID of subscription to invoice
+   */
+  subscription?: string | undefined;
+  /**
+   * Descriptor for credit card statement
+   */
+  statement_descriptor?: string | undefined;
+  /**
+   * Footer displayed on invoice
+   */
+  footer?: string | undefined;
+  /**
+   * Invoice number
+   */
+  number?: string | undefined;
+  /**
+   * Key-value pairs for metadata
+   */
+  metadata?: {  [key: string]: string;} | undefined;
+};
+
+export interface ActionOutput_stripe_createinvoice {
+  id: string;
+  object?: string | undefined;
+  account_country?: string | undefined;
+  account_name?: string | undefined;
+  account_tax_ids?: unknown | undefined;
+  amount_due?: number | undefined;
+  amount_paid?: number | undefined;
+  amount_overpaid?: number | undefined;
+  amount_remaining?: number | undefined;
+  amount_shipping?: number | undefined;
+  application?: unknown | undefined;
+  application_fee_amount?: number | undefined;
+  attempt_count?: number | undefined;
+  attempted?: boolean | undefined;
+  auto_advance?: boolean | undefined;
+  automatic_tax?: {  enabled: boolean;
+  liability?: unknown | undefined;
+  status?: string | undefined;};
+  billing_reason?: string | undefined;
+  collection_method?: string | undefined;
+  created?: number | undefined;
+  currency?: string | undefined;
+  custom_fields?: unknown | undefined;
+  customer?: string | undefined;
+  customer_address?: unknown | undefined;
+  customer_email?: string | undefined;
+  customer_name?: string | undefined;
+  customer_phone?: string | undefined;
+  customer_shipping?: unknown | undefined;
+  customer_tax_exempt?: string | undefined;
+  customer_tax_ids?: unknown[] | undefined;
+  default_payment_method?: string | undefined;
+  default_source?: string | undefined;
+  default_tax_rates?: unknown[] | undefined;
+  description?: string | undefined;
+  discounts?: unknown[] | undefined;
+  due_date?: number | undefined;
+  effective_at?: number | undefined;
+  ending_balance?: number | undefined;
+  footer?: string | undefined;
+  from_invoice?: unknown | undefined;
+  hosted_invoice_url?: string | undefined;
+  invoice_pdf?: string | undefined;
+  issuer?: {  type: string;
+  account?: string | undefined;};
+  last_finalization_error?: unknown | undefined;
+  latest_revision?: string | undefined;
+  lines?: {  object: string;
+  data: unknown[];
+  has_more: boolean;
+  total_count: number;
+  url: string;} | undefined;
+  livemode?: boolean | undefined;
+  metadata?: {  [key: string]: string;} | undefined;
+  next_payment_attempt?: number | undefined;
+  number?: string | undefined;
+  on_behalf_of?: string | undefined;
+  parent?: unknown | undefined;
+  payment_settings?: {  default_mandate?: string | undefined;
+  payment_method_options?: unknown | undefined;
+  payment_method_types?: string[] | undefined;};
+  period_end?: number | undefined;
+  period_start?: number | undefined;
+  post_payment_credit_notes_amount?: number | undefined;
+  pre_payment_credit_notes_amount?: number | undefined;
+  receipt_number?: string | undefined;
+  shipping_cost?: unknown | undefined;
+  shipping_details?: unknown | undefined;
+  starting_balance?: number | undefined;
+  statement_descriptor?: string | undefined;
+  status?: string | undefined;
+  status_transitions?: {  finalized_at?: number | undefined;
+  marked_uncollectible_at?: number | undefined;
+  paid_at?: number | undefined;
+  voided_at?: number | undefined;};
+  subtotal?: number | undefined;
+  subtotal_excluding_tax?: number | undefined;
+  test_clock?: unknown | undefined;
+  total?: number | undefined;
+  total_discount_amounts?: unknown[] | undefined;
+  total_excluding_tax?: number | undefined;
+  total_taxes?: unknown[] | undefined;
+  webhooks_delivered_at?: number | undefined;
+};
+
+export interface ActionInput_stripe_createpaymentintent {
+  /**
+   * Amount in smallest currency unit. Example: 2000
+   */
+  amount: number;
+  /**
+   * Currency code. Example: "usd"
+   */
+  currency: string;
+  /**
+   * Customer ID to associate. Example: "cus_xxx"
+   */
+  customer?: string | undefined;
+  /**
+   * Description for the payment intent.
+   */
+  description?: string | undefined;
+  /**
+   * Confirm immediately.
+   */
+  confirm?: boolean | undefined;
+  /**
+   * Capture method: automatic or manual.
+   */
+  capture_method?: string | undefined;
+  /**
+   * Payment method ID to use. Example: "pm_xxx"
+   */
+  payment_method?: string | undefined;
+  /**
+   * Email to send receipt to.
+   */
+  receipt_email?: string | undefined;
+  /**
+   * Set up payment method for future use.
+   */
+  setup_future_usage?: string | undefined;
+  /**
+   * Enable automatic payment methods.
+   */
+  automatic_payment_methods_enabled?: boolean | undefined;
+};
+
+export interface ActionOutput_stripe_createpaymentintent {
+  id: string;
+  object: string;
+  amount: number;
+  currency: string;
+  status: string;
+  client_secret?: string | undefined;
+  customer?: string | undefined;
+  description?: string | undefined;
+  created: number;
+  payment_method?: string | undefined;
+  capture_method?: string | undefined;
+  confirmation_method?: string | undefined;
+  setup_future_usage?: string | undefined;
+  automatic_payment_methods?: {  enabled?: boolean | undefined;};
+};
+
+export interface ActionInput_stripe_createpaymentmethod {
+  /**
+   * The type of the PaymentMethod. Example: "card"
+   */
+  type: string;
+  card?: {  /**
+   * Stripe token for the card. Example: "tok_visa"
+   */
+  token?: string | undefined;};
+  billing_details?: {  name?: string | undefined;
+  email?: string | undefined;
+  phone?: string | undefined;
+  address?: {  city?: string | undefined;
+  country?: string | undefined;
+  line1?: string | undefined;
+  line2?: string | undefined;
+  postal_code?: string | undefined;
+  state?: string | undefined;};};
+  metadata?: {  [key: string]: string;} | undefined;
+};
+
+export interface ActionOutput_stripe_createpaymentmethod {
+  id: string;
+  type: string;
+  created?: number | undefined;
+  livemode?: boolean | undefined;
+  customer?: string | undefined;
+  billing_details?: {  name?: string | undefined;
+  email?: string | undefined;
+  phone?: string | undefined;
+  address?: {  city?: string | undefined;
+  country?: string | undefined;
+  line1?: string | undefined;
+  line2?: string | undefined;
+  postal_code?: string | undefined;
+  state?: string | undefined;};};
+  metadata?: {  [key: string]: string;} | undefined;
+};
+
+export interface ActionInput_stripe_createprice {
+  /**
+   * Three-letter ISO currency code. Example: "usd"
+   */
+  currency: string;
+  /**
+   * A positive integer in the smallest currency unit (or 0 for a free price). Example: 1000
+   */
+  unit_amount?: number | undefined;
+  /**
+   * Same as unit_amount, but accepts a decimal value in the smallest currency unit. Example: "10.00"
+   */
+  unit_amount_decimal?: string | undefined;
+  custom_unit_amount?: {  enabled: boolean;
+  maximum?: number | undefined;
+  minimum?: number | undefined;
+  preset?: number | undefined;};
+  /**
+   * The ID of the Product this Price will belong to. Example: "prod_xxx"
+   */
+  product?: string | undefined;
+  product_data?: {  name: string;
+  active?: boolean | undefined;
+  metadata?: {  [key: string]: string;} | undefined;
+  statement_descriptor?: string | undefined;
+  tax_code?: string | undefined;
+  unit_label?: string | undefined;};
+  recurring?: {  interval: 'day' | 'week' | 'month' | 'year';
+  interval_count?: number | undefined;
+  meter?: string | undefined;
+  usage_type?: 'licensed' | 'metered' | undefined;};
+  active?: boolean | undefined;
+  metadata?: {  [key: string]: string;} | undefined;
+  nickname?: string | undefined;
+  lookup_key?: string | undefined;
+  tax_behavior?: 'exclusive' | 'inclusive' | 'unspecified' | undefined;
+  billing_scheme?: 'per_unit' | 'tiered' | undefined;
+  tiers_mode?: 'graduated' | 'volume' | undefined;
+};
+
+export interface ActionOutput_stripe_createprice {
+  id: string;
+  active: boolean;
+  billing_scheme?: string | undefined;
+  created: number;
+  currency: string;
+  custom_unit_amount?: {  enabled?: boolean | undefined;
+  maximum?: number | undefined;
+  minimum?: number | undefined;
+  preset?: number | undefined;};
+  livemode: boolean;
+  lookup_key?: string | undefined;
+  metadata?: {  [key: string]: string;} | undefined;
+  nickname?: string | undefined;
+  product?: string | undefined;
+  recurring?: {  interval: string;
+  interval_count: number;
+  trial_period_days?: number | undefined;
+  usage_type: string;};
+  tax_behavior?: string | undefined;
+  tiers_mode?: string | undefined;
+  transform_quantity?: {  divide_by: number;
+  round: string;} | undefined;
+  type: string;
+  unit_amount?: number | undefined;
+  unit_amount_decimal?: string | undefined;
+};
+
+export interface ActionInput_stripe_createproduct {
+  /**
+   * The product name. Example: "Gold Plan"
+   */
+  name: string;
+  /**
+   * Optional unique identifier for the product. Example: "prod_xxx"
+   */
+  id?: string | undefined;
+  /**
+   * Whether the product is available for purchase. Defaults to true.
+   */
+  active?: boolean | undefined;
+  /**
+   * The product description. Example: "A premium plan"
+   */
+  description?: string | undefined;
+  /**
+   * Up to 8 image URLs for this product.
+   */
+  images?: string[] | undefined;
+  /**
+   * Set of key-value pairs for storing additional information.
+   */
+  metadata?: {  [key: string]: string;} | undefined;
+  /**
+   * Whether this product is shipped (physical goods).
+   */
+  shippable?: boolean | undefined;
+  /**
+   * Descriptor for customer statements. Up to 22 characters.
+   */
+  statement_descriptor?: string | undefined;
+  /**
+   * A tax code ID. Example: "txcd_xxx"
+   */
+  tax_code?: string | undefined;
+  /**
+   * A label representing units of this product. Max 12 characters.
+   */
+  unit_label?: string | undefined;
+  /**
+   * A publicly-accessible webpage URL for this product.
+   */
+  url?: string | undefined;
+};
+
+export interface ActionOutput_stripe_createproduct {
+  id: string;
+  object: string;
+  active: boolean;
+  created: number;
+  default_price?: string | undefined;
+  description?: string | undefined;
+  images: string[];
+  marketing_features: unknown[];
+  livemode: boolean;
+  metadata: {  [key: string]: string;};
+  name: string;
+  package_dimensions?: unknown | undefined;
+  shippable?: boolean | undefined;
+  statement_descriptor?: string | undefined;
+  tax_code?: string | undefined;
+  unit_label?: string | undefined;
+  updated: number;
+  url?: string | undefined;
+};
+
+export interface ActionInput_stripe_createrefund {
+  /**
+   * The identifier of the PaymentIntent to refund. Example: "pi_xxx"
+   */
+  payment_intent?: string | undefined;
+  /**
+   * The identifier of the charge to refund. Example: "ch_xxx"
+   */
+  charge?: string | undefined;
+  /**
+   * A positive integer in the smallest currency unit representing how much of this charge to refund.
+   */
+  amount?: number | undefined;
+  /**
+   * Reason for the refund.
+   */
+  reason?: 'duplicate' | 'fraudulent' | 'requested_by_customer' | undefined;
+  /**
+   * Set of key-value pairs for storing additional information.
+   */
+  metadata?: {  [key: string]: string;} | undefined;
+  /**
+   * Whether the application fee should be refunded.
+   */
+  refund_application_fee?: boolean | undefined;
+  /**
+   * Whether the transfer should be reversed when refunding this charge.
+   */
+  reverse_transfer?: boolean | undefined;
+  /**
+   * Email for refund instructions for payment methods without native refund support.
+   */
+  instructions_email?: string | undefined;
+  /**
+   * Origin of the refund. If provided, a Charge or PaymentIntent identifier is not required.
+   */
+  origin?: 'customer_balance' | undefined;
+};
+
+export interface ActionOutput_stripe_createrefund {
+  id: string;
+  object: string;
+  amount: number;
+  balance_transaction?: string | undefined;
+  charge?: string | undefined;
+  created: number;
+  currency: string;
+  destination_details?: {  card?: {  reference?: string | undefined;
+  reference_status?: string | undefined;
+  reference_type?: string | undefined;
+  type?: string | undefined;};
+  type?: string | undefined;};
+  metadata?: {  [key: string]: string;} | undefined;
+  payment_intent?: string | undefined;
+  reason?: string | undefined;
+  receipt_number?: string | undefined;
+  source_transfer_reversal?: string | undefined;
+  status?: string | undefined;
+  transfer_reversal?: string | undefined;
+};
+
+export interface ActionInput_stripe_createsetupintent {
+  /**
+   * ID of the Customer this SetupIntent belongs to. Example: "cus_xxx"
+   */
+  customer?: string | undefined;
+  /**
+   * An arbitrary string attached to the object
+   */
+  description?: string | undefined;
+  /**
+   * Set to true to attempt to confirm this SetupIntent immediately
+   */
+  confirm?: boolean | undefined;
+  /**
+   * ID of the payment method to attach to this SetupIntent. Example: "pm_xxx"
+   */
+  payment_method?: string | undefined;
+  /**
+   * Set of key-value pairs to attach to the object
+   */
+  metadata?: {  [key: string]: string;} | undefined;
+  /**
+   * Configure automatic payment methods
+   */
+  automatic_payment_methods?: {  /**
+   * Whether this feature is enabled
+   */
+  enabled?: boolean | undefined;
+  /**
+   * Controls whether this SetupIntent will accept redirect-based payment methods
+   */
+  allow_redirects?: 'always' | 'never' | undefined;};
+  /**
+   * How the SetupIntent will be used
+   */
+  usage?: 'on_session' | 'off_session' | undefined;
+};
+
+export interface ActionOutput_stripe_createsetupintent {
+  id: string;
+  object: string;
+  status: string;
+  client_secret?: string | undefined;
+  customer_id?: string | undefined;
+  description?: string | undefined;
+  payment_method_id?: string | undefined;
+  usage?: string | undefined;
+  created_at: number;
+};
+
+export interface ActionInput_stripe_createsubscription {
+  /**
+   * The identifier of the customer to subscribe. Example: "cus_Uae6TTxHlP2hxk"
+   */
+  customer: string;
+  /**
+   * A list of subscription items, each with an attached price.
+   */
+  items: ({  /**
+   * The ID of the price object. Example: "price_1TbSoCEZpD6kXraexkCThz8o"
+   */
+  price: string;
+  /**
+   * Quantity for this item. Defaults to 1.
+   */
+  quantity?: number | undefined;})[];
+  /**
+   * ID of the default payment method for the subscription. Example: "pm_1TbSoaEZpD6kXraeiNPSsDV1"
+   */
+  default_payment_method?: string | undefined;
+  /**
+   * How to charge the subscription.
+   */
+  collection_method?: 'charge_automatically' | 'send_invoice' | undefined;
+  /**
+   * Set of key-value pairs to attach to the subscription.
+   */
+  metadata?: {  [key: string]: string;} | undefined;
+  /**
+   * Unix timestamp representing the end of the trial period.
+   */
+  trial_end?: number | undefined;
+  /**
+   * Whether this subscription should cancel at the end of the current period.
+   */
+  cancel_at_period_end?: boolean | undefined;
+  /**
+   * How to handle prorations.
+   */
+  proration_behavior?: 'create_prorations' | 'none' | undefined;
+  /**
+   * The subscription description.
+   */
+  description?: string | undefined;
+};
+
+export interface ActionOutput_stripe_createsubscription {
+  /**
+   * The subscription ID.
+   */
+  id: string;
+  /**
+   * The status of the subscription.
+   */
+  status: string;
+  /**
+   * The customer ID.
+   */
+  customer: string;
+  /**
+   * When the subscription was created.
+   */
+  created: number;
+  /**
+   * Start of the current period.
+   */
+  current_period_start?: number | undefined;
+  /**
+   * End of the current period.
+   */
+  current_period_end?: number | undefined;
+  /**
+   * Whether the subscription cancels at period end.
+   */
+  cancel_at_period_end: boolean;
+  /**
+   * How the subscription is billed.
+   */
+  collection_method: string;
+  /**
+   * Three-letter ISO currency code.
+   */
+  currency?: string | undefined;
+  /**
+   * Default payment method ID.
+   */
+  default_payment_method?: string | undefined;
+  /**
+   * Default payment source ID.
+   */
+  default_source?: string | undefined;
+  /**
+   * Subscription description.
+   */
+  description?: string | undefined;
+  /**
+   * When the subscription ended.
+   */
+  ended_at?: number | undefined;
+  /**
+   * The latest invoice ID.
+   */
+  latest_invoice?: string | undefined;
+  /**
+   * Key-value pairs attached to the subscription.
+   */
+  metadata?: {  [key: string]: string;} | undefined;
+  /**
+   * When the subscription started.
+   */
+  start_date?: number | undefined;
+  /**
+   * End of the trial period.
+   */
+  trial_end?: number | undefined;
+  /**
+   * Start of the trial period.
+   */
+  trial_start?: number | undefined;
+  /**
+   * The subscription items.
+   */
+  items: ({  id: string;
+  created: number;
+  current_period_end: number;
+  current_period_start: number;
+  price_id: string;
+  product_id: string;
+  quantity: number;
+  subscription: string;})[];
+};
+
+export interface ActionInput_stripe_deletecustomer {
+  /**
+   * Stripe Customer ID. Example: "cus_123"
+   */
+  id: string;
+};
+
+export interface ActionOutput_stripe_deletecustomer {
+  id: string;
+  deleted?: boolean | undefined;
+};
+
+export interface ActionInput_stripe_deleteinvoiceitem {
+  /**
+   * The ID of the invoice item to delete. Example: ii_xxx
+   */
+  invoice_item_id: string;
+};
+
+export interface ActionOutput_stripe_deleteinvoiceitem {
+  id: string;
+  deleted: boolean;
+};
+
+export interface ActionInput_stripe_deleteinvoice {
+  /**
+   * The ID of the draft invoice to delete. Example: "in_1TbSq0EZpD6kXraeoLevMdFv"
+   */
+  id: string;
+};
+
+export interface ActionOutput_stripe_deleteinvoice {
+  id: string;
+  deleted: boolean;
+};
+
+export interface ActionInput_stripe_deletepaymentintent {
+  /**
+   * The ID of the PaymentIntent to cancel. Example: "pi_3TbSopEZpD6kXrae1ZIp2rzC"
+   */
+  payment_intent_id: string;
+};
+
+export interface ActionOutput_stripe_deletepaymentintent {
+  id: string;
+  status: string;
+  canceled_at?: number | undefined;
+  cancellation_reason?: string | undefined;
+};
+
+export interface ActionInput_stripe_deleteprice {
+  /**
+   * The ID of the price to archive. Example: "price_1TbSoBEZpD6kXraeE9F1XSiB"
+   */
+  id: string;
+};
+
+export interface ActionOutput_stripe_deleteprice {
+  id: string;
+  object: 'price';
+  active: boolean;
+};
+
+export interface ActionInput_stripe_deleteproduct {
+  /**
+   * Product ID. Example: "prod_xxx"
+   */
+  id: string;
+};
+
+export interface ActionOutput_stripe_deleteproduct {
+  id: string;
+  deleted: boolean;
+};
+
+export interface ActionInput_stripe_deletesetupintent {
+  /**
+   * The ID of the SetupIntent to cancel. Example: seti_xxx
+   */
+  setup_intent_id: string;
+  /**
+   * Reason for canceling the SetupIntent.
+   */
+  cancellation_reason?: 'abandoned' | 'requested_by_customer' | 'duplicate' | undefined;
+};
+
+export interface ActionOutput_stripe_deletesetupintent {
+  id: string;
+  status: string;
+  cancellation_reason?: string | undefined;
+  customer?: string | undefined;
+  payment_method?: string | undefined;
+};
+
+export interface ActionInput_stripe_deletesubscription {
+  /**
+   * The ID of the subscription to delete. Example: sub_xxx
+   */
+  id: string;
+};
+
+export interface ActionOutput_stripe_deletesubscription {
+  id: string;
+  status?: string | undefined;
+};
+
+export interface ActionInput_stripe_finalizeinvoice {
+  /**
+   * The ID of the draft invoice to finalize. Example: in_1TbSpyEZpD6kXrae3uL2sSEg
+   */
+  invoice_id: string;
+  /**
+   * Controls whether Stripe performs automatic collection of the invoice.
+   */
+  auto_advance?: boolean | undefined;
+};
+
+export interface ActionOutput_stripe_finalizeinvoice {
+  id: string;
+  object: string;
+  status: string;
+  amount_due: number;
+  amount_paid: number;
+  amount_remaining: number;
+  created: number;
+  currency: string;
+  customer?: string | undefined;
+  lines: {  object: string;
+  data: ({  [key: string]: unknown | undefined;})[];
+  has_more: boolean;
+  total_count: number;
+  url: string;};
+  livemode: boolean;
+  metadata: {  [key: string]: unknown | undefined;};
+  number?: string | undefined;
+  period_end: number;
+  period_start: number;
+  subtotal: number;
+  total: number;
+  hosted_invoice_url?: string | undefined;
+  invoice_pdf?: string | undefined;
+  payment_intent?: string | undefined;
+  subscription?: string | undefined;
+};
+
+export interface ActionInput_stripe_getcheckoutsession {
+  /**
+   * Checkout Session ID. Example: "cs_test_..."
+   */
+  session_id: string;
+};
+
+export interface ActionOutput_stripe_getcheckoutsession {
+  id: string;
+  object: string;
+  after_expiration?: unknown | undefined;
+  allow_promotion_codes?: boolean | undefined;
+  amount_subtotal?: number | undefined;
+  amount_total?: number | undefined;
+  automatic_tax?: {  enabled: boolean;
+  liability?: unknown | undefined;
+  status?: unknown | undefined;};
+  billing_address_collection?: string | undefined;
+  cancel_url?: string | undefined;
+  client_reference_id?: string | undefined;
+  consent?: unknown | undefined;
+  consent_collection?: unknown | undefined;
+  created: number;
+  currency?: string | undefined;
+  custom_fields?: unknown[] | undefined;
+  custom_text?: {  shipping_address?: unknown | undefined;
+  submit?: unknown | undefined;};
+  customer?: string | undefined;
+  customer_creation?: string | undefined;
+  customer_details?: unknown | undefined;
+  customer_email?: string | undefined;
+  expires_at?: number | undefined;
+  invoice?: string | undefined;
+  invoice_creation?: {  enabled: boolean;
+  invoice_data?: {  [key: string]: unknown | undefined;};};
+  livemode: boolean;
+  locale?: string | undefined;
+  metadata?: {  [key: string]: unknown | undefined;};
+  mode: string;
+  payment_intent?: string | undefined;
+  payment_link?: string | undefined;
+  payment_method_collection?: string | undefined;
+  payment_method_options?: {  [key: string]: unknown | undefined;};
+  payment_method_types?: string[] | undefined;
+  payment_status: string;
+  phone_number_collection?: {  enabled: boolean;} | undefined;
+  recovered_from?: string | undefined;
+  setup_intent?: string | undefined;
+  shipping_address_collection?: unknown | undefined;
+  shipping_cost?: unknown | undefined;
+  shipping_details?: unknown | undefined;
+  shipping_options?: unknown[] | undefined;
+  status: string;
+  submit_type?: string | undefined;
+  subscription?: string | undefined;
+  success_url?: string | undefined;
+  total_details?: {  amount_discount: number;
+  amount_shipping: number;
+  amount_tax: number;} | undefined;
+  url?: string | undefined;
+};
+
+export interface ActionInput_stripe_getcreditnote {
+  /**
+   * The ID of the credit note to retrieve. Example: "cn_1MxvRqLkdIwHu7ixY0xbUcxk"
+   */
+  id: string;
+};
+
+export interface ActionOutput_stripe_getcreditnote {
+  id: string;
+  object: 'credit_note';
+  amount: number;
+  amount_shipping?: number | undefined;
+  created: number;
+  currency: string;
+  customer?: string | undefined;
+  customer_balance_transaction?: string | undefined;
+  discount_amount?: number | undefined;
+  discount_amounts?: ({  [key: string]: unknown | undefined;})[];
+  invoice?: string | undefined;
+  lines: {  object: 'list';
+  data: ({  id: string;
+  object: 'credit_note_line_item';
+  amount: number;
+  description?: string | undefined;
+  discount_amount?: number | undefined;
+  discount_amounts?: ({  [key: string]: unknown | undefined;})[];
+  invoice_line_item?: string | undefined;
+  livemode: boolean;
+  quantity?: number | undefined;
+  tax_rates?: ({  [key: string]: unknown | undefined;})[];
+  taxes?: ({  [key: string]: unknown | undefined;})[];
+  type: string;
+  unit_amount?: number | undefined;
+  unit_amount_decimal?: string | undefined;})[];
+  has_more: boolean;
+  url: string;};
+  livemode: boolean;
+  memo?: string | undefined;
+  metadata?: {  [key: string]: unknown | undefined;};
+  number?: string | undefined;
+  out_of_band_amount?: number | undefined;
+  pdf?: string | undefined;
+  post_payment_amount?: number | undefined;
+  pre_payment_amount?: number | undefined;
+  reason?: string | undefined;
+  refunds?: ({  [key: string]: unknown | undefined;})[];
+  shipping_cost?: {  [key: string]: unknown | undefined;};
+  status?: string | undefined;
+  subtotal?: number | undefined;
+  subtotal_excluding_tax?: number | undefined;
+  total?: number | undefined;
+  total_excluding_tax?: number | undefined;
+  total_taxes?: ({  [key: string]: unknown | undefined;})[];
+  type?: string | undefined;
+  voided_at?: number | undefined;
+};
+
+export interface ActionInput_stripe_getcustomer {
+  /**
+   * The ID of the customer to retrieve. Example: "cus_123"
+   */
+  id: string;
+};
+
+export interface ActionOutput_stripe_getcustomer {
+  id: string;
+  object?: string | undefined;
+  address?: {  city?: string | undefined;
+  country?: string | undefined;
+  line1?: string | undefined;
+  line2?: string | undefined;
+  postal_code?: string | undefined;
+  state?: string | undefined;};
+  balance?: number | undefined;
+  created?: number | undefined;
+  currency?: string | undefined;
+  default_source?: string | undefined;
+  delinquent?: boolean | undefined;
+  description?: string | undefined;
+  email?: string | undefined;
+  invoice_settings?: {  custom_fields?: ({  name: string;
+  value: string;})[] | undefined;
+  default_payment_method?: string | undefined;
+  footer?: string | undefined;
+  rendering_options?: unknown | undefined;};
+  livemode?: boolean | undefined;
+  metadata?: {  [key: string]: string;} | undefined;
+  name?: string | undefined;
+  phone?: string | undefined;
+  preferred_locales?: string[] | undefined;
+  shipping?: {  address?: {  city?: string | undefined;
+  country?: string | undefined;
+  line1?: string | undefined;
+  line2?: string | undefined;
+  postal_code?: string | undefined;
+  state?: string | undefined;};
+  name?: string | undefined;
+  phone?: string | undefined;};
+};
+
+export interface ActionInput_stripe_getinvoiceitem {
+  /**
+   * The ID of the invoice item to retrieve. Example: ii_1MtGUtLkdIwHu7ixBYwjAM00
+   */
+  invoice_item_id: string;
+};
+
+export interface ActionOutput_stripe_getinvoiceitem {
+  id: string;
+  object: string;
+  amount: number;
+  currency: string;
+  customer: string;
+  customer_account?: string | undefined;
+  date: number;
+  description?: string | undefined;
+  discountable: boolean;
+  discounts?: string[] | undefined;
+  invoice?: string | undefined;
+  livemode: boolean;
+  metadata?: {  [key: string]: unknown | undefined;};
+  net_amount?: number | undefined;
+  parent?: {  subscription_details?: {  subscription: string;
+  subscription_item?: string | undefined;};
+  type?: string | undefined;};
+  period: {  end: number;
+  start: number;};
+  pricing?: {  price_details?: {  price?: string | undefined;
+  product?: string | undefined;};
+  type?: string | undefined;
+  unit_amount_decimal?: string | undefined;};
+  proration: boolean;
+  proration_details?: {  discount_amounts?: ({  amount: number;
+  discount: string;})[] | undefined;};
+  quantity: number;
+  quantity_decimal?: string | undefined;
+  tax_rates?: ({  id: string;
+  object: string;
+  active: boolean;
+  country?: string | undefined;
+  created: number;
+  description?: string | undefined;
+  display_name: string;
+  effective_percentage?: number | undefined;
+  flat_amount?: {  amount: number;
+  currency: string;} | undefined;
+  inclusive: boolean;
+  jurisdiction?: string | undefined;
+  jurisdiction_level?: string | undefined;
+  livemode: boolean;
+  metadata?: {  [key: string]: unknown | undefined;};
+  percentage: number;
+  rate_type?: string | undefined;
+  state?: string | undefined;
+  tax_type?: string | undefined;})[];
+  test_clock?: string | undefined;
+};
+
+export interface ActionInput_stripe_getinvoice {
+  /**
+   * The ID of the invoice to retrieve. Example: in_1TbSpyEZpD6kXrae3uL2sSEg
+   */
+  id: string;
+};
+
+export interface ActionOutput_stripe_getinvoice {
+  id: string;
+  object: 'invoice';
+  account_country?: string | undefined;
+  account_name?: string | undefined;
+  account_tax_ids?: string[] | undefined;
+  amount_due?: number | undefined;
+  amount_paid?: number | undefined;
+  amount_remaining?: number | undefined;
+  amount_shipping?: number | undefined;
+  application?: string | undefined;
+  application_fee_amount?: number | undefined;
+  attempt_count?: number | undefined;
+  attempted?: boolean | undefined;
+  auto_advance?: boolean | undefined;
+  automatic_tax?: {  enabled: boolean;
+  liability?: string | undefined;
+  status?: string | undefined;};
+  billing_reason?: string | undefined;
+  charge?: string | undefined;
+  collection_method?: string | undefined;
+  created?: number | undefined;
+  currency?: string | undefined;
+  custom_fields?: ({  name: string;
+  value: string;})[] | undefined;
+  customer?: string | undefined;
+  customer_address?: {  city?: string | undefined;
+  country?: string | undefined;
+  line1?: string | undefined;
+  line2?: string | undefined;
+  postal_code?: string | undefined;
+  state?: string | undefined;};
+  customer_balance?: number | undefined;
+  customer_email?: string | undefined;
+  customer_name?: string | undefined;
+  customer_phone?: string | undefined;
+  customer_shipping?: {  address?: {  city?: string | undefined;
+  country?: string | undefined;
+  line1?: string | undefined;
+  line2?: string | undefined;
+  postal_code?: string | undefined;
+  state?: string | undefined;};
+  name?: string | undefined;
+  phone?: string | undefined;};
+  customer_tax_exempt?: string | undefined;
+  customer_tax_ids?: ({  type: string;
+  value: string;})[] | undefined;
+  default_payment_method?: string | undefined;
+  default_source?: string | undefined;
+  default_tax_rates?: unknown[] | undefined;
+  description?: string | undefined;
+  discount?: unknown | undefined;
+  discounts?: unknown[] | undefined;
+  due_date?: number | undefined;
+  effective_at?: number | undefined;
+  ending_balance?: number | undefined;
+  footer?: string | undefined;
+  from_invoice?: unknown | undefined;
+  hosted_invoice_url?: string | undefined;
+  invoice_pdf?: string | undefined;
+  last_finalization_error?: unknown | undefined;
+  latest_revision?: string | undefined;
+  lines?: {  object: 'list';
+  data: unknown[];
+  has_more: boolean;
+  url?: string | undefined;};
+  livemode?: boolean | undefined;
+  metadata?: {  [key: string]: string;} | undefined;
+  next_payment_attempt?: number | undefined;
+  number?: string | undefined;
+  on_behalf_of?: string | undefined;
+  paid?: boolean | undefined;
+  paid_out_of_band?: boolean | undefined;
+  payment_intent?: string | undefined;
+  payment_settings?: {  default_mandate?: string | undefined;
+  payment_method_options?: unknown | undefined;
+  payment_method_types?: string[] | undefined;};
+  period_end?: number | undefined;
+  period_start?: number | undefined;
+  post_payment_credit_notes_amount?: number | undefined;
+  pre_payment_credit_notes_amount?: number | undefined;
+  quote?: string | undefined;
+  receipt_number?: string | undefined;
+  rendering?: unknown | undefined;
+  rendering_options?: unknown | undefined;
+  shipping_cost?: unknown | undefined;
+  shipping_details?: unknown | undefined;
+  starting_balance?: number | undefined;
+  statement_descriptor?: string | undefined;
+  status?: string | undefined;
+  status_transitions?: {  finalized_at?: number | undefined;
+  marked_uncollectible_at?: number | undefined;
+  paid_at?: number | undefined;
+  voided_at?: number | undefined;};
+  subscription?: string | undefined;
+  subscription_details?: unknown | undefined;
+  subtotal?: number | undefined;
+  subtotal_excluding_tax?: number | undefined;
+  tax?: number | undefined;
+  test_clock?: string | undefined;
+  total?: number | undefined;
+  total_discount_amounts?: unknown[] | undefined;
+  total_excluding_tax?: number | undefined;
+  total_pretax_credit_amounts?: unknown[] | undefined;
+  total_tax_amounts?: unknown[] | undefined;
+  transfer_data?: unknown | undefined;
+  webhooks_delivered_at?: number | undefined;
+};
+
+export interface ActionInput_stripe_getpaymentintent {
+  /**
+   * Stripe PaymentIntent ID. Example: pi_3TbSonEZpD6kXrae0do5CLRX
+   */
+  intent_id: string;
+};
+
+export interface ActionOutput_stripe_getpaymentintent {
+  id: string;
+  object: 'payment_intent';
+  amount: number;
+  amount_capturable?: number | undefined;
+  amount_received?: number | undefined;
+  application?: string | undefined;
+  application_fee_amount?: number | undefined;
+  automatic_payment_methods?: {  [key: string]: unknown | undefined;};
+  canceled_at?: number | undefined;
+  cancellation_reason?: string | undefined;
+  capture_method: string;
+  charges?: {  [key: string]: unknown | undefined;};
+  client_secret?: string | undefined;
+  confirmation_method: string;
+  created: number;
+  currency: string;
+  customer?: string | undefined;
+  description?: string | undefined;
+  invoice?: string | undefined;
+  last_payment_error?: {  [key: string]: unknown | undefined;};
+  latest_charge?: string | undefined;
+  livemode: boolean;
+  metadata?: {  [key: string]: string;} | undefined;
+  next_action?: {  [key: string]: unknown | undefined;};
+  payment_method?: string | undefined;
+  payment_method_options?: {  [key: string]: unknown | undefined;};
+  payment_method_types?: string[] | undefined;
+  processing?: {  [key: string]: unknown | undefined;};
+  receipt_email?: string | undefined;
+  review?: string | undefined;
+  setup_future_usage?: string | undefined;
+  shipping?: {  [key: string]: unknown | undefined;};
+  source?: string | undefined;
+  statement_descriptor?: string | undefined;
+  statement_descriptor_suffix?: string | undefined;
+  status: string;
+  transfer_data?: {  [key: string]: unknown | undefined;};
+  transfer_group?: string | undefined;
+};
+
+export interface ActionInput_stripe_getpaymentmethod {
+  /**
+   * Payment method ID. Example: "pm_1Q0PsIJvEtkwdCNYMSaVuRz6"
+   */
+  payment_method: string;
+};
+
+export interface ActionOutput_stripe_getpaymentmethod {
+  id: string;
+  object: string;
+  allow_redisplay?: 'always' | 'limited' | 'unspecified' | undefined;
+  billing_details?: {  address?: {  city?: string | undefined;
+  country?: string | undefined;
+  line1?: string | undefined;
+  line2?: string | undefined;
+  postal_code?: string | undefined;
+  state?: string | undefined;};
+  email?: string | undefined;
+  name?: string | undefined;
+  phone?: string | undefined;
+  tax_id?: string | undefined;};
+  created: number;
+  customer?: string | undefined;
+  livemode: boolean;
+  metadata?: {  [key: string]: string;} | undefined;
+  type: string;
+};
+
+export interface ActionInput_stripe_getprice {
+  /**
+   * The ID of the price to retrieve. Example: "price_1MoBy5LkdIwHu7ixZhnattbh"
+   */
+  id: string;
+};
+
+export interface ActionOutput_stripe_getprice {
+  id: string;
+  object: string;
+  active: boolean;
+  billing_scheme: 'per_unit' | 'tiered';
+  created: number;
+  currency: string;
+  currency_options?: {  [key: string]: unknown | undefined;};
+  custom_unit_amount?: {  maximum: number;
+  minimum: number;
+  preset: number;} | undefined;
+  livemode: boolean;
+  lookup_key: string;
+  metadata: {  [key: string]: string;};
+  nickname: string;
+  product: string;
+  recurring: {  interval: 'day' | 'week' | 'month' | 'year';
+  interval_count: number;
+  meter?: string | undefined;
+  usage_type: 'metered' | 'licensed';};
+  tax_behavior: 'exclusive' | 'inclusive' | 'unspecified';
+  tiers?: ({  flat_amount: number;
+  flat_amount_decimal: string;
+  unit_amount: number;
+  unit_amount_decimal: string;
+  up_to: number;})[] | undefined;
+  tiers_mode: 'graduated' | 'volume';
+  transform_quantity?: {  divide_by: number;
+  round: 'up' | 'down';} | undefined;
+  type: 'one_time' | 'recurring';
+  unit_amount: number;
+  unit_amount_decimal: string;
+};
+
+export interface ActionInput_stripe_getproduct {
+  /**
+   * The ID of the product to retrieve. Example: "prod_xxx"
+   */
+  id: string;
+};
+
+export interface ActionOutput_stripe_getproduct {
+  id: string;
+  object: 'product';
+  active: boolean;
+  created: number;
+  default_price?: string | undefined;
+  description?: string | undefined;
+  images?: string[] | undefined;
+  livemode: boolean;
+  marketing_features?: ({  name: string;})[] | undefined;
+  metadata?: {  [key: string]: string;} | undefined;
+  name: string;
+  package_dimensions?: {  height: number;
+  length: number;
+  weight: number;
+  width: number;} | undefined;
+  shippable?: boolean | undefined;
+  statement_descriptor?: string | undefined;
+  tax_code?: string | undefined;
+  unit_label?: string | undefined;
+  updated: number;
+  url?: string | undefined;
+};
+
+export interface ActionInput_stripe_getrefund {
+  /**
+   * The ID of the refund to retrieve. Example: "re_3TbSqaEZpD6kXrae0EGbSIG6"
+   */
+  refund_id: string;
+};
+
+export interface ActionOutput_stripe_getrefund {
+  id: string;
+  object?: string | undefined;
+  amount: number;
+  balance_transaction?: string | undefined;
+  charge?: string | undefined;
+  created: number;
+  currency: string;
+  description?: string | undefined;
+  destination_details?: {  [key: string]: unknown | undefined;};
+  failure_balance_transaction?: string | undefined;
+  failure_reason?: string | undefined;
+  instructions_email?: string | undefined;
+  metadata?: {  [key: string]: unknown | undefined;};
+  next_action?: {  [key: string]: unknown | undefined;};
+  payment_intent?: string | undefined;
+  pending_reason?: string | undefined;
+  reason?: string | undefined;
+  receipt_number?: string | undefined;
+  source_transfer_reversal?: string | undefined;
+  status?: string | undefined;
+  transfer_reversal?: string | undefined;
+};
+
+export interface ActionInput_stripe_getsetupintent {
+  /**
+   * The ID of the SetupIntent to retrieve. Example: seti_1TbSoQEZpD6kXraey8RhA0h1
+   */
+  id: string;
+};
+
+export interface ActionOutput_stripe_getsetupintent {
+};
+
+export interface ActionInput_stripe_getsubscription {
+  /**
+   * The ID of the subscription to retrieve. Example: "sub_1MowQVLkdIwHu7ixeRlqHVzs"
+   */
+  id: string;
+};
+
+export interface ActionOutput_stripe_getsubscription {
+  id: string;
+  object: 'subscription';
+  application?: string | undefined;
+  application_fee_percent?: number | undefined;
+  automatic_tax?: {  [key: string]: unknown | undefined;};
+  billing_cycle_anchor?: number | undefined;
+  billing_thresholds?: {  [key: string]: unknown | undefined;};
+  cancel_at?: number | undefined;
+  cancel_at_period_end?: boolean | undefined;
+  canceled_at?: number | undefined;
+  cancellation_details?: {  [key: string]: unknown | undefined;};
+  collection_method?: string | undefined;
+  created?: number | undefined;
+  currency?: string | undefined;
+  current_period_end?: number | undefined;
+  current_period_start?: number | undefined;
+  customer?: string | undefined;
+  days_until_due?: number | undefined;
+  default_payment_method?: string | undefined;
+  default_source?: string | undefined;
+  default_tax_rates?: ({  [key: string]: unknown | undefined;})[];
+  description?: string | undefined;
+  discount?: {  [key: string]: unknown | undefined;};
+  discounts?: ({  [key: string]: unknown | undefined;})[];
+  ended_at?: number | undefined;
+  invoice_settings?: {  [key: string]: unknown | undefined;};
+  items?: {  object?: 'list' | undefined;
+  data: ({  [key: string]: unknown | undefined;})[];
+  has_more?: boolean | undefined;
+  total_count?: number | undefined;
+  url?: string | undefined;};
+  latest_invoice?: string | undefined;
+  livemode?: boolean | undefined;
+  metadata?: {  [key: string]: string;} | undefined;
+  next_pending_invoice_item_invoice?: string | undefined;
+  on_behalf_of?: string | undefined;
+  pause_collection?: {  [key: string]: unknown | undefined;};
+  payment_settings?: {  [key: string]: unknown | undefined;};
+  pending_invoice_item_interval?: {  [key: string]: unknown | undefined;};
+  pending_setup_intent?: string | undefined;
+  pending_update?: {  [key: string]: unknown | undefined;};
+  schedule?: string | undefined;
+  start_date?: number | undefined;
+  status?: string | undefined;
+  test_clock?: string | undefined;
+  transfer_data?: {  [key: string]: unknown | undefined;};
+  trial_end?: number | undefined;
+  trial_settings?: {  [key: string]: unknown | undefined;};
+  trial_start?: number | undefined;
+};
+
+export interface ActionInput_stripe_listcheckoutsessions {
+  /**
+   * Pagination cursor from the previous response. Maps to Stripe starting_after. Omit for the first page.
+   */
+  cursor?: string | undefined;
+  /**
+   * Maximum number of objects to return. Limit can range between 1 and 100, and the default is 10.
+   */
+  limit?: number | undefined;
+  /**
+   * Only return Checkout Sessions for the Customer specified.
+   */
+  customer?: string | undefined;
+  /**
+   * Only return Checkout Sessions matching the given status.
+   */
+  status?: 'complete' | 'expired' | 'open' | undefined;
+  /**
+   * Only return the Checkout Session for the subscription specified.
+   */
+  subscription?: string | undefined;
+  /**
+   * Only return the Checkout Session for the PaymentIntent specified.
+   */
+  payment_intent?: string | undefined;
+};
+
+export interface ActionOutput_stripe_listcheckoutsessions {
+  items: ({  id: string;
+  object: 'checkout.session';
+  amount_subtotal?: number | undefined;
+  amount_total?: number | undefined;
+  automatic_tax?: {  enabled: boolean;
+  liability?: unknown | undefined;
+  status?: unknown | undefined;};
+  cancel_url?: string | undefined;
+  client_reference_id?: string | undefined;
+  created: number;
+  currency?: string | undefined;
+  customer?: string | undefined;
+  customer_creation?: string | undefined;
+  customer_details?: unknown | undefined;
+  customer_email?: string | undefined;
+  expires_at?: number | undefined;
+  invoice?: string | undefined;
+  livemode: boolean;
+  locale?: string | undefined;
+  metadata?: {  [key: string]: string;} | undefined;
+  mode: string;
+  payment_intent?: string | undefined;
+  payment_link?: string | undefined;
+  payment_method_collection?: string | undefined;
+  payment_method_types?: string[] | undefined;
+  payment_status: string;
+  phone_number_collection?: {  enabled: boolean;} | undefined;
+  setup_intent?: string | undefined;
+  shipping_cost?: unknown | undefined;
+  shipping_details?: unknown | undefined;
+  status?: string | undefined;
+  subscription?: string | undefined;
+  success_url?: string | undefined;
+  total_details?: {  amount_discount: number;
+  amount_shipping: number;
+  amount_tax: number;} | undefined;
+  url?: string | undefined;})[];
+  has_more: boolean;
+  next_cursor?: string | undefined;
+};
+
+export interface ActionInput_stripe_listcreditnotes {
+  /**
+   * Pagination cursor from the previous response. Maps to Stripe starting_after.
+   */
+  cursor?: string | undefined;
+  /**
+   * Limit on the number of objects returned. Default is 10.
+   */
+  limit?: number | undefined;
+  /**
+   * Only return credit notes for the customer specified by this customer ID.
+   */
+  customer?: string | undefined;
+  /**
+   * Only return credit notes for the invoice specified by this invoice ID.
+   */
+  invoice?: string | undefined;
+  /**
+   * Only return credit notes created after this Unix timestamp (inclusive). Maps to created[gte].
+   */
+  created_after?: number | undefined;
+  /**
+   * Only return credit notes created before this Unix timestamp (inclusive). Maps to created[lte].
+   */
+  created_before?: number | undefined;
+};
+
+export interface ActionOutput_stripe_listcreditnotes {
+  items: ({  id: string;
+  object: 'credit_note';
+  amount: number;
+  amount_shipping?: number | undefined;
+  created: number;
+  currency: string;
+  customer?: string | undefined;
+  customer_balance_transaction?: string | undefined;
+  discount_amount: number;
+  discount_amounts: unknown[];
+  invoice?: string | undefined;
+  lines: {  object: 'list';
+  data: ({  id: string;
+  object: 'credit_note_line_item';
+  amount: number;
+  description?: string | undefined;
+  discount_amount: number;
+  discount_amounts: unknown[];
+  invoice_line_item?: string | undefined;
+  livemode: boolean;
+  quantity?: number | undefined;
+  tax_rates: unknown[];
+  taxes: unknown[];
+  type: string;
+  unit_amount?: number | undefined;
+  unit_amount_decimal?: string | undefined;})[];
+  has_more: boolean;
+  url: string;};
+  livemode: boolean;
+  memo?: string | undefined;
+  metadata?: {  [key: string]: unknown | undefined;};
+  number?: string | undefined;
+  out_of_band_amount?: number | undefined;
+  pdf?: string | undefined;
+  pre_payment_amount: number;
+  post_payment_amount: number;
+  reason?: string | undefined;
+  refunds: unknown[];
+  shipping_cost?: unknown | undefined;
+  status: string;
+  subtotal: number;
+  subtotal_excluding_tax: number;
+  total: number;
+  total_excluding_tax: number;
+  total_taxes: unknown[];
+  type: string;
+  voided_at?: number | undefined;})[];
+  has_more: boolean;
+  next_cursor?: string | undefined;
+};
+
+export interface ActionInput_stripe_listcustomers {
+  /**
+   * Pagination cursor from the previous response. Maps to Stripe's starting_after. Omit for the first page.
+   */
+  cursor?: string | undefined;
+  /**
+   * A case-sensitive filter on the list based on the customer email field.
+   */
+  email?: string | undefined;
+  /**
+   * A limit on the number of objects to be returned. Limit can range between 1 and 100, and the default is 10.
+   */
+  limit?: number | undefined;
+  /**
+   * Only return customers that were created after this Unix timestamp. Maps to created[gte].
+   */
+  created_after?: number | undefined;
+  /**
+   * Only return customers that were created before this Unix timestamp. Maps to created[lte].
+   */
+  created_before?: number | undefined;
+};
+
+export interface ActionOutput_stripe_listcustomers {
+  items: ({  id: string;
+  object: 'customer';
+  address?: {  city?: string | undefined;
+  country?: string | undefined;
+  line1?: string | undefined;
+  line2?: string | undefined;
+  postal_code?: string | undefined;
+  state?: string | undefined;};
+  balance?: number | undefined;
+  created?: number | undefined;
+  currency?: string | undefined;
+  default_source?: string | undefined;
+  delinquent?: boolean | undefined;
+  description?: string | undefined;
+  email?: string | undefined;
+  invoice_prefix?: string | undefined;
+  invoice_settings?: {  custom_fields?: unknown | undefined;
+  default_payment_method?: string | undefined;
+  footer?: string | undefined;
+  rendering_options?: unknown | undefined;};
+  livemode?: boolean | undefined;
+  metadata?: {  [key: string]: string;} | undefined;
+  name?: string | undefined;
+  next_invoice_sequence?: number | undefined;
+  phone?: string | undefined;
+  preferred_locales?: string[] | undefined;
+  shipping?: {  address?: {  city?: string | undefined;
+  country?: string | undefined;
+  line1?: string | undefined;
+  line2?: string | undefined;
+  postal_code?: string | undefined;
+  state?: string | undefined;};
+  name?: string | undefined;
+  phone?: string | undefined;};
+  tax_exempt?: 'none' | 'exempt' | 'reverse' | undefined;
+  test_clock?: string | undefined;})[];
+  next_cursor?: string | undefined;
+};
+
+export interface ActionInput_stripe_listinvoiceitems {
+  /**
+   * The identifier of the customer whose invoice items to return.
+   */
+  customer?: string | undefined;
+  /**
+   * Only return invoice items belonging to this invoice.
+   */
+  invoice?: string | undefined;
+  /**
+   * A limit on the number of objects to be returned. Limit can range between 1 and 100, and the default is 10.
+   */
+  limit?: number | undefined;
+  /**
+   * Set to true to only show pending invoice items, which are not yet attached to any invoices.
+   */
+  pending?: boolean | undefined;
+  /**
+   * Pagination cursor from the previous response. Omit for the first page.
+   */
+  cursor?: string | undefined;
+};
+
+export interface ActionOutput_stripe_listinvoiceitems {
+  items: ({  id: string;
+  object: string;
+  amount: number;
+  currency: string;
+  customer?: string | undefined;
+  date: number;
+  description?: string | undefined;
+  discountable: boolean;
+  discounts: unknown[];
+  invoice?: string | undefined;
+  livemode: boolean;
+  metadata: {  [key: string]: unknown | undefined;};
+  parent?: unknown | undefined;
+  period?: {  end: number;
+  start: number;} | undefined;
+  pricing?: unknown | undefined;
+  proration: boolean;
+  quantity: number;
+  quantity_decimal?: string | undefined;
+  tax_rates: unknown[];
+  test_clock?: unknown | undefined;})[];
+  has_more: boolean;
+  next_cursor?: string | undefined;
+};
+
+export interface ActionInput_stripe_listinvoices {
+  /**
+   * Only return invoices for the customer specified by this customer ID. Example: "cus_Uae6TTxHlP2hxk"
+   */
+  customer?: string | undefined;
+  /**
+   * The status of the invoice.
+   */
+  status?: 'draft' | 'open' | 'paid' | 'uncollectible' | 'void' | undefined;
+  /**
+   * Only return invoices for the subscription specified by this subscription ID. Example: "sub_1TbSpTEZpD6kXraenpiDSgpD"
+   */
+  subscription?: string | undefined;
+  /**
+   * The collection method of the invoice to retrieve.
+   */
+  collection_method?: 'charge_automatically' | 'send_invoice' | undefined;
+  /**
+   * A limit on the number of objects to be returned. Limit can range between 1 and 100, and the default is 10.
+   */
+  limit?: number | undefined;
+  /**
+   * Pagination cursor from the previous response (maps to starting_after). Omit for the first page.
+   */
+  cursor?: string | undefined;
+};
+
+export interface ActionOutput_stripe_listinvoices {
+  items: ({  id: string;
+  object: 'invoice';
+  account_country?: string | undefined;
+  account_name?: string | undefined;
+  account_tax_ids?: unknown | undefined;
+  amount_due: number;
+  amount_paid: number;
+  amount_overpaid?: number | undefined;
+  amount_remaining: number;
+  amount_shipping?: number | undefined;
+  application?: string | undefined;
+  attempt_count: number;
+  attempted: boolean;
+  auto_advance?: boolean | undefined;
+  automatic_tax?: {  [key: string]: unknown | undefined;};
+  billing_reason?: string | undefined;
+  collection_method?: string | undefined;
+  created: number;
+  currency: string;
+  custom_fields?: unknown | undefined;
+  customer?: string | undefined;
+  customer_address?: unknown | undefined;
+  customer_email?: string | undefined;
+  customer_name?: string | undefined;
+  customer_phone?: string | undefined;
+  customer_shipping?: unknown | undefined;
+  customer_tax_exempt?: string | undefined;
+  customer_tax_ids?: unknown[] | undefined;
+  default_payment_method?: string | undefined;
+  default_source?: string | undefined;
+  default_tax_rates?: unknown[] | undefined;
+  description?: string | undefined;
+  discounts?: unknown[] | undefined;
+  due_date?: number | undefined;
+  ending_balance?: number | undefined;
+  footer?: string | undefined;
+  from_invoice?: unknown | undefined;
+  hosted_invoice_url?: string | undefined;
+  invoice_pdf?: string | undefined;
+  issuer?: {  [key: string]: unknown | undefined;};
+  last_finalization_error?: unknown | undefined;
+  latest_revision?: string | undefined;
+  lines?: {  [key: string]: unknown | undefined;};
+  livemode: boolean;
+  metadata?: {  [key: string]: unknown | undefined;};
+  next_payment_attempt?: number | undefined;
+  number?: string | undefined;
+  on_behalf_of?: string | undefined;
+  parent?: unknown | undefined;
+  payment_settings?: {  [key: string]: unknown | undefined;};
+  period_end: number;
+  period_start: number;
+  post_payment_credit_notes_amount?: number | undefined;
+  pre_payment_credit_notes_amount?: number | undefined;
+  receipt_number?: string | undefined;
+  shipping_cost?: unknown | undefined;
+  shipping_details?: unknown | undefined;
+  starting_balance: number;
+  statement_descriptor?: string | undefined;
+  status?: string | undefined;
+  status_transitions?: {  [key: string]: unknown | undefined;};
+  subtotal: number;
+  subtotal_excluding_tax?: number | undefined;
+  test_clock?: string | undefined;
+  total: number;
+  total_discount_amounts?: unknown[] | undefined;
+  total_excluding_tax?: number | undefined;
+  total_taxes?: unknown[] | undefined;
+  webhooks_delivered_at?: number | undefined;})[];
+  has_more: boolean;
+  next_cursor?: string | undefined;
+};
+
+export interface ActionInput_stripe_listpaymentintents {
+  /**
+   * Pagination cursor from the previous response. Omit for the first page.
+   */
+  cursor?: string | undefined;
+  /**
+   * Maximum number of results to return. Defaults to 10.
+   */
+  limit?: number | undefined;
+  /**
+   * Only return PaymentIntents for the customer specified by this customer ID.
+   */
+  customer?: string | undefined;
+  /**
+   * Filter by creation time: minimum timestamp (inclusive).
+   */
+  created_gte?: number | undefined;
+  /**
+   * Filter by creation time: maximum timestamp (inclusive).
+   */
+  created_lte?: number | undefined;
+  /**
+   * Only return PaymentIntents with the specified status.
+   */
+  status?: string | undefined;
+};
+
+export interface ActionOutput_stripe_listpaymentintents {
+  items: ({  id: string;
+  object: 'payment_intent';
+  amount: number;
+  currency: string;
+  status: string;
+  created: number;
+  livemode: boolean;})[];
+  next_cursor?: string | undefined;
+};
+
+export interface ActionInput_stripe_listpaymentmethods {
+  /**
+   * The ID of the customer whose PaymentMethods will be retrieved. Example: "cus_Uae6TTxHlP2hxk"
+   */
+  customer?: string | undefined;
+  /**
+   * Filters the list by the object type field. Example: "card"
+   */
+  type?: string | undefined;
+  /**
+   * A limit on the number of objects to be returned, between 1 and 100. Default is 10.
+   */
+  limit?: number | undefined;
+  /**
+   * Pagination cursor (starting_after) from the previous response. Omit for the first page.
+   */
+  cursor?: string | undefined;
+};
+
+export interface ActionOutput_stripe_listpaymentmethods {
+  items: ({  id: string;
+  object: string;
+  created?: number | undefined;
+  customer?: string | undefined;
+  livemode?: boolean | undefined;
+  metadata?: {  [key: string]: unknown | undefined;};
+  type?: string | undefined;})[];
+  next_cursor?: string | undefined;
+};
+
+export interface ActionInput_stripe_listprices {
+  /**
+   * Pagination cursor from the previous response. Omit for the first page.
+   */
+  cursor?: string | undefined;
+  /**
+   * A limit on the number of objects to be returned. Limit can range between 1 and 100, and the default is 10.
+   */
+  limit?: number | undefined;
+  /**
+   * Only return prices that are active or inactive (e.g., pass false to list all inactive prices).
+   */
+  active?: boolean | undefined;
+  /**
+   * Only return prices for the given product.
+   */
+  product?: string | undefined;
+  /**
+   * Only return prices of type recurring or one_time.
+   */
+  type?: 'one_time' | 'recurring' | undefined;
+  /**
+   * Only return prices for the given currency.
+   */
+  currency?: string | undefined;
+};
+
+export interface ActionOutput_stripe_listprices {
+  prices: ({  id: string;
+  object?: string | undefined;
+  active: boolean;
+  billing_scheme?: string | undefined;
+  created: number;
+  currency: string;
+  custom_unit_amount?: {  enabled?: boolean | undefined;
+  maximum?: number | undefined;
+  minimum?: number | undefined;
+  preset?: number | undefined;};
+  livemode: boolean;
+  lookup_key?: string | undefined;
+  metadata?: {  [key: string]: unknown | undefined;};
+  nickname?: string | undefined;
+  product?: string | undefined;
+  recurring?: {  interval?: string | undefined;
+  interval_count?: number | undefined;
+  trial_period_days?: number | undefined;
+  usage_type?: string | undefined;};
+  tax_behavior?: string | undefined;
+  tiers_mode?: string | undefined;
+  transform_quantity?: unknown | undefined;
+  type: 'one_time' | 'recurring';
+  unit_amount?: number | undefined;
+  unit_amount_decimal?: string | undefined;})[];
+  next_cursor?: string | undefined;
+};
+
+export interface ActionInput_stripe_listproducts {
+  /**
+   * Pagination cursor from the previous response. Omit for the first page.
+   */
+  cursor?: string | undefined;
+  /**
+   * Maximum number of products to return. Defaults to 10.
+   */
+  limit?: number | undefined;
+  /**
+   * Filter by active status.
+   */
+  active?: boolean | undefined;
+  /**
+   * Filter by shippable status.
+   */
+  shippable?: boolean | undefined;
+  /**
+   * Filter by URL.
+   */
+  url?: string | undefined;
+};
+
+export interface ActionOutput_stripe_listproducts {
+  items: ({  id: string;
+  active?: boolean | undefined;
+  created?: number | undefined;
+  default_price?: string | undefined;
+  description?: string | undefined;
+  images?: string[] | undefined;
+  livemode?: boolean | undefined;
+  marketing_features?: unknown[] | undefined;
+  metadata?: {  [key: string]: string;} | undefined;
+  name?: string | undefined;
+  package_dimensions?: {  height?: number | undefined;
+  length?: number | undefined;
+  weight?: number | undefined;
+  width?: number | undefined;};
+  shippable?: boolean | undefined;
+  statement_descriptor?: string | undefined;
+  tax_code?: string | undefined;
+  unit_label?: string | undefined;
+  updated?: number | undefined;
+  url?: string | undefined;})[];
+  next_cursor?: string | undefined;
+};
+
+export interface ActionInput_stripe_listrefunds {
+  /**
+   * Pagination cursor from the previous response. Maps to Stripe starting_after. Omit for the first page.
+   */
+  cursor?: string | undefined;
+  /**
+   * A limit on the number of objects to be returned. Default is 10.
+   */
+  limit?: number | undefined;
+  /**
+   * Only return refunds for the charge specified by this charge ID.
+   */
+  charge?: string | undefined;
+  /**
+   * Only return refunds for the PaymentIntent specified by this ID.
+   */
+  payment_intent?: string | undefined;
+  /**
+   * Minimum created timestamp to filter by (inclusive).
+   */
+  created_gte?: number | undefined;
+  /**
+   * Minimum created timestamp to filter by (exclusive).
+   */
+  created_gt?: number | undefined;
+  /**
+   * Maximum created timestamp to filter by (inclusive).
+   */
+  created_lte?: number | undefined;
+  /**
+   * Maximum created timestamp to filter by (exclusive).
+   */
+  created_lt?: number | undefined;
+};
+
+export interface ActionOutput_stripe_listrefunds {
+  items: ({  id: string;
+  object: string;
+  amount: number;
+  balance_transaction?: string | undefined;
+  charge?: string | undefined;
+  created: number;
+  currency: string;
+  destination_details?: {} | undefined;
+  metadata?: {} | undefined;
+  payment_intent?: string | undefined;
+  reason?: string | undefined;
+  receipt_number?: string | undefined;
+  source_transfer_reversal?: string | undefined;
+  status: string;
+  transfer_reversal?: string | undefined;})[];
+  has_more: boolean;
+  next_cursor?: string | undefined;
+};
+
+export interface ActionInput_stripe_listsetupintents {
+  /**
+   * Pagination cursor from the previous response. Omit for the first page.
+   */
+  cursor?: string | undefined;
+  /**
+   * A limit on the number of objects to be returned. Limit can range between 1 and 100, and the default is 10.
+   */
+  limit?: number | undefined;
+  /**
+   * Only return SetupIntents for the customer specified by this customer ID. Example: "cus_xxx"
+   */
+  customer?: string | undefined;
+  /**
+   * Only return SetupIntents that associate with the specified payment method. Example: "pm_xxx"
+   */
+  payment_method?: string | undefined;
+  /**
+   * If present, the SetupIntent's payment method will be attached to the in-context Stripe Account.
+   */
+  attach_to_self?: boolean | undefined;
+  /**
+   * Minimum value to filter by created timestamp (exclusive).
+   */
+  created_after?: number | undefined;
+  /**
+   * Maximum value to filter by created timestamp (exclusive).
+   */
+  created_before?: number | undefined;
+};
+
+export interface ActionOutput_stripe_listsetupintents {
+  items: ({  id: string;
+  object: string;
+  status: string;
+  customer?: string | undefined;
+  payment_method?: string | undefined;
+  created: number;
+  usage?: string | undefined;
+  cancellation_reason?: string | undefined;
+  description?: string | undefined;
+  livemode?: boolean | undefined;
+  metadata?: {  [key: string]: unknown | undefined;};
+  payment_method_types?: string[] | undefined;})[];
+  next_cursor?: string | undefined;
+};
+
+export interface ActionInput_stripe_listsubscriptions {
+  /**
+   * The ID of the customer whose subscriptions to retrieve. Example: "cus_xxx"
+   */
+  customer?: string | undefined;
+  /**
+   * The status of the subscriptions to retrieve.
+   */
+  status?: 'active' | 'canceled' | 'ended' | 'incomplete' | 'incomplete_expired' | 'past_due' | 'paused' | 'trialing' | 'unpaid' | 'all' | undefined;
+  /**
+   * The collection method of the subscriptions to retrieve.
+   */
+  collection_method?: 'charge_automatically' | 'send_invoice' | undefined;
+  /**
+   * Filter for subscriptions that contain this recurring price ID. Example: "price_xxx"
+   */
+  price?: string | undefined;
+  /**
+   * Only return subscriptions created on or after this Unix timestamp.
+   */
+  created_after?: number | undefined;
+  /**
+   * Only return subscriptions created on or before this Unix timestamp.
+   */
+  created_before?: number | undefined;
+  /**
+   * A limit on the number of objects to be returned, between 1 and 100. Default is 10.
+   */
+  limit?: number | undefined;
+  /**
+   * Pagination cursor from the previous response. Maps to Stripe `starting_after`.
+   */
+  cursor?: string | undefined;
+};
+
+export interface ActionOutput_stripe_listsubscriptions {
+  items: ({  id: string;
+  object: 'subscription';
+  status?: string | undefined;
+  customer?: string | undefined;
+  collection_method?: string | undefined;
+  created?: number | undefined;
+  current_period_start?: number | undefined;
+  current_period_end?: number | undefined;
+  cancel_at_period_end?: boolean | undefined;
+  canceled_at?: number | undefined;
+  ended_at?: number | undefined;
+  start_date?: number | undefined;
+  trial_start?: number | undefined;
+  trial_end?: number | undefined;
+  latest_invoice?: string | undefined;
+  default_payment_method?: string | undefined;
+  items?: {  object: 'list';
+  data: unknown[];
+  has_more: boolean;
+  url: string;} | undefined;})[];
+  next_cursor?: string | undefined;
+};
+
+export interface ActionInput_stripe_payinvoice {
+  /**
+   * The ID of the invoice to pay. Example: "in_xxx"
+   */
+  invoice_id: string;
+  /**
+   * Mark the invoice as paid without a real payment method. Useful in test mode.
+   */
+  paid_out_of_band?: boolean | undefined;
+  /**
+   * Forgive the invoice if the payment fails.
+   */
+  forgive?: boolean | undefined;
+  /**
+   * A payment method to charge. Example: "pm_xxx".
+   */
+  payment_method?: string | undefined;
+  /**
+   * A payment source to charge. Deprecated by Stripe.
+   */
+  source?: string | undefined;
+};
+
+export interface ActionOutput_stripe_payinvoice {
+  id: string;
+  amount_due: number;
+  amount_paid: number;
+  amount_remaining: number;
+  attempted: boolean;
+  created_at: number;
+  currency: string;
+  customer_id?: string | undefined;
+  description?: string | undefined;
+  hosted_invoice_url?: string | undefined;
+  invoice_pdf?: string | undefined;
+  livemode: boolean;
+  metadata?: {  [key: string]: string;} | undefined;
+  number?: string | undefined;
+  paid?: boolean | undefined;
+  payment_intent_id?: string | undefined;
+  status?: string | undefined;
+  subscription_id?: string | undefined;
+  total?: number | undefined;
+};
+
+export interface ActionInput_stripe_updatecustomer {
+  /**
+   * The ID of the customer to update. Example: cus_123
+   */
+  id: string;
+  /**
+   * The customer's full name.
+   */
+  name?: string | undefined;
+  /**
+   * The customer's email address.
+   */
+  email?: string | undefined;
+  /**
+   * The customer's phone number.
+   */
+  phone?: string | undefined;
+  /**
+   * An arbitrary string attached to the object.
+   */
+  description?: string | undefined;
+  /**
+   * The customer's address.
+   */
+  address?: {  line1?: string | undefined;
+  line2?: string | undefined;
+  city?: string | undefined;
+  state?: string | undefined;
+  postal_code?: string | undefined;
+  country?: string | undefined;};
+  /**
+   * Set of key-value pairs for metadata.
+   */
+  metadata?: {  [key: string]: string;} | undefined;
+};
+
+export interface ActionOutput_stripe_updatecustomer {
+  id: string;
+  name?: string | undefined;
+  email?: string | undefined;
+  phone?: string | undefined;
+  description?: string | undefined;
+  created?: number | undefined;
+  metadata?: {  [key: string]: string;} | undefined;
+};
+
+export interface ActionInput_stripe_updateinvoiceitem {
+  /**
+   * The ID of the invoice item to update. Example: "ii_1TbSq2EZpD6kXrae2X8tf717"
+   */
+  invoice_item_id: string;
+  /**
+   * The integer amount in the smallest currency unit.
+   */
+  amount?: number | undefined;
+  /**
+   * An arbitrary string attached to the invoice item.
+   */
+  description?: string | undefined;
+  /**
+   * Controls whether discounts apply to this invoice item.
+   */
+  discountable?: boolean | undefined;
+  /**
+   * Set of key-value pairs to attach to the object.
+   */
+  metadata?: {  [key: string]: string;} | undefined;
+  /**
+   * Non-negative integer quantity of units for the invoice item.
+   */
+  quantity?: number | undefined;
+  /**
+   * Non-negative decimal quantity with at most 12 decimal places.
+   */
+  quantity_decimal?: string | undefined;
+  /**
+   * Specifies whether the price is inclusive or exclusive of taxes.
+   */
+  tax_behavior?: 'exclusive' | 'inclusive' | 'unspecified' | undefined;
+  /**
+   * A tax code ID.
+   */
+  tax_code?: string | undefined;
+  /**
+   * The decimal unit amount in the smallest currency unit.
+   */
+  unit_amount_decimal?: string | undefined;
+};
+
+export interface ActionOutput_stripe_updateinvoiceitem {
+  id: string;
+  object: string;
+  amount: number;
+  currency: string;
+  customer?: string | undefined;
+  date: number;
+  description?: string | undefined;
+  discountable?: boolean | undefined;
+  discounts?: unknown[] | undefined;
+  invoice?: string | undefined;
+  livemode: boolean;
+  metadata?: {  [key: string]: string;} | undefined;
+  period?: {  end: number;
+  start: number;} | undefined;
+  pricing?: {  price_details?: {  price?: string | undefined;
+  product?: string | undefined;};
+  type?: string | undefined;
+  unit_amount_decimal?: string | undefined;};
+  proration?: boolean | undefined;
+  quantity?: number | undefined;
+  quantity_decimal?: string | undefined;
+  tax_rates?: unknown[] | undefined;
+  unit_amount_decimal?: string | undefined;
+};
+
+export interface ActionInput_stripe_updateinvoice {
+  /**
+   * The ID of the invoice to update. Example: "in_1MtHbELkdIwHu7ixl4OzzPMv"
+   */
+  id: string;
+  /**
+   * An arbitrary string attached to the object. Often useful for displaying to users. Referenced as 'memo' in the Dashboard.
+   */
+  description?: string | undefined;
+  /**
+   * Controls whether Stripe performs automatic collection of the invoice.
+   */
+  auto_advance?: boolean | undefined;
+  /**
+   * Either charge_automatically or send_invoice. This field can be updated only on draft invoices.
+   */
+  collection_method?: 'charge_automatically' | 'send_invoice' | undefined;
+  /**
+   * The number of days from which the invoice is created until it is due. Only valid for invoices where collection_method=send_invoice. This field can only be updated on draft invoices.
+   */
+  days_until_due?: number | undefined;
+  /**
+   * The date on which payment for this invoice is due. Only valid for invoices where collection_method=send_invoice. This field can only be updated on draft invoices.
+   */
+  due_date?: number | undefined;
+  /**
+   * Footer to be displayed on the invoice.
+   */
+  footer?: string | undefined;
+  /**
+   * Extra information about a charge for the customer's credit card statement. It must contain at least one letter.
+   */
+  statement_descriptor?: string | undefined;
+  /**
+   * ID of the default payment method for the invoice. It must belong to the customer associated with the invoice.
+   */
+  default_payment_method?: string | undefined;
+  /**
+   * Set of key-value pairs that you can attach to an object. This can be useful for storing additional information about the object in a structured format.
+   */
+  metadata?: {  [key: string]: string;} | undefined;
+};
+
+export interface ActionOutput_stripe_updateinvoice {
+  id: string;
+  object?: string | undefined;
+  amount_due?: number | undefined;
+  amount_paid?: number | undefined;
+  amount_remaining?: number | undefined;
+  auto_advance?: boolean | undefined;
+  billing_reason?: string | undefined;
+  collection_method?: string | undefined;
+  created?: number | undefined;
+  currency?: string | undefined;
+  customer?: string | undefined;
+  description?: string | undefined;
+  due_date?: number | undefined;
+  footer?: string | undefined;
+  hosted_invoice_url?: string | undefined;
+  invoice_pdf?: string | undefined;
+  lines?: {  object: string;
+  data: unknown[];
+  has_more: boolean;
+  total_count: number;
+  url: string;} | undefined;
+  livemode?: boolean | undefined;
+  metadata?: {  [key: string]: string;} | undefined;
+  number?: string | undefined;
+  status?: string | undefined;
+  status_transitions?: {  finalized_at?: number | undefined;
+  marked_uncollectible_at?: number | undefined;
+  paid_at?: number | undefined;
+  voided_at?: number | undefined;};
+  subtotal?: number | undefined;
+  total?: number | undefined;
+};
+
+export interface ActionInput_stripe_updatepaymentintent {
+  /**
+   * The ID of the PaymentIntent to update. Example: pi_xxx
+   */
+  id: string;
+  /**
+   * Amount in the smallest currency unit. Example: 100 for $1.00
+   */
+  amount?: number | undefined;
+  /**
+   * Three-letter ISO currency code. Example: usd
+   */
+  currency?: string | undefined;
+  /**
+   * An arbitrary string attached to the object.
+   */
+  description?: string | undefined;
+  /**
+   * Set of key-value pairs to attach to the object.
+   */
+  metadata?: {  [key: string]: string;} | undefined;
+  /**
+   * ID of the payment method to attach.
+   */
+  payment_method?: string | undefined;
+  /**
+   * ID of the Customer this PaymentIntent belongs to.
+   */
+  customer?: string | undefined;
+  /**
+   * Email address to send the receipt to.
+   */
+  receipt_email?: string | undefined;
+};
+
+export interface ActionOutput_stripe_updatepaymentintent {
+  id: string;
+  object: string;
+  amount: number;
+  amount_capturable: number;
+  amount_received: number;
+  application?: string | undefined;
+  application_fee_amount?: number | undefined;
+  automatic_payment_methods?: {  [key: string]: unknown | undefined;};
+  canceled_at?: number | undefined;
+  cancellation_reason?: string | undefined;
+  capture_method: string;
+  client_secret?: string | undefined;
+  confirmation_method: string;
+  created: number;
+  currency: string;
+  customer?: string | undefined;
+  description?: string | undefined;
+  invoice?: string | undefined;
+  last_payment_error?: {  [key: string]: unknown | undefined;};
+  latest_charge?: string | undefined;
+  livemode: boolean;
+  metadata?: {  [key: string]: string;} | undefined;
+  next_action?: {  [key: string]: unknown | undefined;};
+  on_behalf_of?: string | undefined;
+  payment_method?: string | undefined;
+  payment_method_configuration_details?: {  [key: string]: unknown | undefined;};
+  payment_method_options?: {  [key: string]: unknown | undefined;};
+  payment_method_types?: string[] | undefined;
+  processing?: {  [key: string]: unknown | undefined;};
+  receipt_email?: string | undefined;
+  review?: string | undefined;
+  setup_future_usage?: string | undefined;
+  shipping?: {  [key: string]: unknown | undefined;};
+  statement_descriptor?: string | undefined;
+  statement_descriptor_suffix?: string | undefined;
+  status: string;
+  transfer_data?: {  [key: string]: unknown | undefined;};
+  transfer_group?: string | undefined;
+};
+
+export interface ActionInput_stripe_updateprice {
+  /**
+   * The ID of the price to update. Example: "price_1TbSoBEZpD6kXraeE9F1XSiB"
+   */
+  id: string;
+  /**
+   * Whether the price can be used for new purchases.
+   */
+  active?: boolean | undefined;
+  /**
+   * A set of key-value pairs to attach to the price.
+   */
+  metadata?: {  [key: string]: string;} | undefined;
+  /**
+   * A brief description of the price, hidden from customers.
+   */
+  nickname?: string | undefined;
+  /**
+   * Specifies whether the price is considered inclusive or exclusive of tax.
+   */
+  tax_behavior?: 'exclusive' | 'inclusive' | 'unspecified' | undefined;
+};
+
+export interface ActionOutput_stripe_updateprice {
+  id: string;
+  object: string;
+  active: boolean;
+  billing_scheme: string;
+  created: number;
+  currency: string;
+  custom_unit_amount?: {  [key: string]: unknown | undefined;};
+  livemode: boolean;
+  lookup_key?: string | undefined;
+  metadata?: {  [key: string]: string;} | undefined;
+  nickname?: string | undefined;
+  product: string;
+  recurring?: {  [key: string]: unknown | undefined;};
+  tax_behavior?: string | undefined;
+  tiers?: ({  [key: string]: unknown | undefined;})[];
+  tiers_mode?: string | undefined;
+  transform_quantity?: {  [key: string]: unknown | undefined;};
+  type: string;
+  unit_amount?: number | undefined;
+  unit_amount_decimal?: string | undefined;
+};
+
+export interface ActionInput_stripe_updateproduct {
+  /**
+   * Product ID. Example: "prod_xxx"
+   */
+  id: string;
+  active?: boolean | undefined;
+  default_price?: string | undefined;
+  description?: string | undefined;
+  images?: string[] | undefined;
+  marketing_features?: ({  name: string;})[] | undefined;
+  metadata?: {  [key: string]: string;} | undefined;
+  name?: string | undefined;
+  package_dimensions?: {  height: number;
+  length: number;
+  weight: number;
+  width: number;} | undefined;
+  shippable?: boolean | undefined;
+  statement_descriptor?: string | undefined;
+  tax_code?: string | undefined;
+  tax_details?: {  performance_location?: string | undefined;
+  tax_code?: string | undefined;};
+  unit_label?: string | undefined;
+  url?: string | undefined;
+};
+
+export interface ActionOutput_stripe_updateproduct {
+  id: string;
+  object: string;
+  active?: boolean | undefined;
+  created?: number | undefined;
+  default_price?: string | undefined;
+  description?: string | undefined;
+  images?: string[] | undefined;
+  marketing_features?: ({  name: string;})[] | undefined;
+  livemode?: boolean | undefined;
+  metadata?: {  [key: string]: string;} | undefined;
+  name?: string | undefined;
+  package_dimensions?: {  height: number;
+  length: number;
+  weight: number;
+  width: number;} | undefined;
+  shippable?: boolean | undefined;
+  statement_descriptor?: string | undefined;
+  tax_code?: string | undefined;
+  unit_label?: string | undefined;
+  updated?: number | undefined;
+  url?: string | undefined;
+};
+
+export interface ActionInput_stripe_updaterefund {
+  /**
+   * The ID of the refund to update. Example: "re_3TbSqaEZpD6kXrae0EGbSIG6"
+   */
+  id: string;
+  /**
+   * Set of key-value pairs to attach to the refund.
+   */
+  metadata?: {  [key: string]: string;} | undefined;
+};
+
+export interface ActionOutput_stripe_updaterefund {
+  id: string;
+  amount: number;
+  balance_transaction?: string | undefined;
+  charge?: string | undefined;
+  created: number;
+  currency: string;
+  metadata?: {  [key: string]: string;} | undefined;
+  payment_intent?: string | undefined;
+  reason?: string | undefined;
+  receipt_number?: string | undefined;
+  status: string;
+  source_transfer_reversal?: string | undefined;
+  transfer_reversal?: string | undefined;
+};
+
+export interface ActionInput_stripe_updatesetupintent {
+  /**
+   * The ID of the SetupIntent to update. Example: "seti_xxx"
+   */
+  id: string;
+  /**
+   * An arbitrary string attached to the object.
+   */
+  description?: string | undefined;
+  /**
+   * Set of key-value pairs to attach to the object.
+   */
+  metadata?: {  [key: string]: string;} | undefined;
+  /**
+   * ID of the Customer this SetupIntent belongs to.
+   */
+  customer?: string | undefined;
+};
+
+export interface ActionOutput_stripe_updatesetupintent {
+  id: string;
+  object: string;
+  client_secret?: string | undefined;
+  created: number;
+  customer?: string | undefined;
+  description?: string | undefined;
+  status: string;
+  usage: string;
+  payment_method?: string | undefined;
+  metadata?: {  [key: string]: string;} | undefined;
+};
+
+export interface ActionInput_stripe_updatesubscription {
+  /**
+   * The ID of the subscription to update. Example: "sub_xxx"
+   */
+  id: string;
+  /**
+   * A description of the subscription, meant to be displayable to the customer.
+   */
+  description?: string | undefined;
+  /**
+   * Set of key-value pairs that you can attach to the subscription.
+   */
+  metadata?: {  [key: string]: string;} | undefined;
+  /**
+   * Indicate whether this subscription should cancel at the end of the current period.
+   */
+  cancel_at_period_end?: boolean | undefined;
+  /**
+   * ID of the default payment method for the subscription.
+   */
+  default_payment_method?: string | undefined;
+  /**
+   * Determines how to handle prorations when the billing cycle changes.
+   */
+  proration_behavior?: 'create_prorations' | 'none' | 'always_invoice' | undefined;
+};
+
+export interface ActionOutput_stripe_updatesubscription {
+  id: string;
+  status: string;
+  customer: string;
+  description?: string | undefined;
+  cancel_at_period_end?: boolean | undefined;
+  current_period_start?: number | undefined;
+  current_period_end?: number | undefined;
+  items?: ({  id: string;
+  price_id?: string | undefined;
+  quantity?: number | undefined;})[];
+};
+
+export interface ActionInput_stripe_voidcreditnote {
+  /**
+   * The ID of the credit note to void. Example: "cn_xxx"
+   */
+  credit_note_id: string;
+};
+
+export interface ActionOutput_stripe_voidcreditnote {
+  id: string;
+  object?: string | undefined;
+  amount?: number | undefined;
+  created?: number | undefined;
+  currency?: string | undefined;
+  customer?: string | undefined;
+  customer_balance_transaction?: string | undefined;
+  discount_amount?: number | undefined;
+  discount_amounts?: ({  [key: string]: unknown | undefined;})[];
+  invoice?: string | undefined;
+  lines?: {  [key: string]: unknown | undefined;};
+  livemode?: boolean | undefined;
+  memo?: string | undefined;
+  metadata?: {  [key: string]: unknown | undefined;};
+  number?: string | undefined;
+  out_of_band_amount?: number | undefined;
+  pdf?: string | undefined;
+  reason?: string | undefined;
+  refund?: string | undefined;
+  status?: string | undefined;
+  subtotal?: number | undefined;
+  subtotal_excluding_tax?: number | undefined;
+  tax_amounts?: ({  [key: string]: unknown | undefined;})[];
+  total?: number | undefined;
+  total_excluding_tax?: number | undefined;
+  type?: string | undefined;
+  voided_at?: number | undefined;
+  voided_reason?: string | undefined;
+};
+
+export interface ActionInput_stripe_voidinvoice {
+  /**
+   * The ID of the invoice to void. Example: "in_xxx"
+   */
+  invoice_id: string;
+};
+
+export interface ActionOutput_stripe_voidinvoice {
+  id: string;
+  status?: string | undefined;
+  amount_due?: number | undefined;
+  amount_paid?: number | undefined;
+  amount_remaining?: number | undefined;
+  currency?: string | undefined;
+  customer?: string | undefined;
+  description?: string | undefined;
+  hosted_invoice_url?: string | undefined;
+  invoice_pdf?: string | undefined;
+  lines?: {  object?: string | undefined;
+  data?: unknown[] | undefined;
+  has_more?: boolean | undefined;
+  url?: string | undefined;};
+  metadata?: {  [key: string]: unknown | undefined;};
+  number?: string | undefined;
+  paid?: boolean | undefined;
+  payment_intent?: string | undefined;
+  period_end?: number | undefined;
+  period_start?: number | undefined;
+  subtotal?: number | undefined;
+  total?: number | undefined;
+  voided_at?: number | undefined;
+  created?: number | undefined;
 };
 
 export interface TeamtailorCandidate {
@@ -56177,17 +59218,6 @@ export interface ProductVariation {
   meta_data?: ({  id?: number | undefined;
   key?: string | undefined;
   value?: unknown | undefined;})[];
-};
-
-export interface Refund {
-  id: string;
-  order_id: string;
-  date_created: string;
-  date_created_gmt: string;
-  amount?: string | undefined;
-  reason?: string | undefined;
-  refunded_by?: number | undefined;
-  refunded_payment?: boolean | undefined;
 };
 
 export interface ActionInput_woocommerce_batchupdateorders {
@@ -59837,30 +62867,6 @@ export interface BankTransaction {
   lineItemCount?: number | undefined;
   bankAccountCode?: string | undefined;
   bankAccountName?: string | undefined;
-};
-
-export interface CreditNote {
-  id: string;
-  Type?: string | undefined;
-  Contact?: unknown | undefined;
-  Date?: string | undefined;
-  DueDate?: string | undefined;
-  Status?: string | undefined;
-  LineAmountTypes?: string | undefined;
-  LineItems?: unknown[] | undefined;
-  SubTotal?: number | undefined;
-  TotalTax?: number | undefined;
-  Total?: number | undefined;
-  UpdatedDateUTC?: string | undefined;
-  CurrencyCode?: string | undefined;
-  CreditNoteID?: string | undefined;
-  CreditNoteNumber?: string | undefined;
-  Reference?: string | undefined;
-  RemainingCredit?: number | undefined;
-  FullyPaidOnDate?: string | undefined;
-  SentToContact?: boolean | undefined;
-  HasAttachments?: boolean | undefined;
-  HasErrors?: boolean | undefined;
 };
 
 export interface Organisation {

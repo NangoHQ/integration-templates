@@ -6,12 +6,16 @@ import type { ProxyConfiguration } from 'nango';
 import { JobPost } from '../models.js';
 import { z } from 'zod';
 
+const CheckpointSchema = z.object({
+    updated_after: z.string()
+});
+
 const sync = createSync({
     description: 'Get a list of all job posts from Gem ATS',
-    version: '1.0.0',
+    version: '1.1.0',
     frequency: 'every 1h',
     autoStart: true,
-    syncType: 'incremental',
+    checkpoint: CheckpointSchema,
 
     endpoints: [
         {
@@ -28,6 +32,11 @@ const sync = createSync({
     metadata: z.object({}),
 
     exec: async (nango) => {
+        const rawCheckpoint = await nango.getCheckpoint();
+        const checkpoint = rawCheckpoint ? CheckpointSchema.parse(rawCheckpoint) : undefined;
+        const checkpointUpdatedAfter = checkpoint?.updated_after ? new Date(checkpoint.updated_after) : undefined;
+        const runStartedAt = new Date().toISOString();
+
         const proxyConfig: ProxyConfiguration = {
             // https://api.gem.com/ats/v0/reference#tag/Job-Post/paths/~1ats~1v0~1job_posts~1/get
             endpoint: '/ats/v0/job_posts',
@@ -39,7 +48,7 @@ const sync = createSync({
                 limit: 100
             },
             params: {
-                ...(nango.lastSyncDate && { updated_after: nango.lastSyncDate.toISOString() })
+                ...(checkpointUpdatedAfter && { updated_after: checkpointUpdatedAfter.toISOString() })
             },
             retries: 10
         };
@@ -57,6 +66,7 @@ const sync = createSync({
                 await nango.batchSave(activeJobPosts, 'JobPost');
             }
         }
+        await nango.saveCheckpoint({ updated_after: runStartedAt });
     }
 });
 

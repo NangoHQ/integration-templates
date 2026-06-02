@@ -32,14 +32,4 @@ describe('sap-success-factors locations tests', () => {
         }
     });
 
-    it('should get, map correctly the data and batchDelete the result', async () => {
-        await fetchData.exec(nangoMock);
-
-        for (const model of models) {
-            const batchDeleteData = await nangoMock.getBatchDeleteData(model);
-            if (batchDeleteData && batchDeleteData.length > 0) {
-                expect(nangoMock.batchDelete).toHaveBeenCalledWith(batchDeleteData, model);
-            }
-        }
-    });
 });

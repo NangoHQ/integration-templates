@@ -1,0 +1,158 @@
+{
+  "nango": {
+    "batchSave": {
+      "Refund": [
+        {
+          "id": "re_3TbTL5EZpD6kXrae0zNvsOPM",
+          "amount": 2000,
+          "currency": "usd",
+          "status": "succeeded",
+          "created": 1779834055,
+          "charge": "ch_3TbTL5EZpD6kXrae0rDBh2Wu",
+          "payment_intent": "pi_3TbTL5EZpD6kXrae06hTAy3Z",
+          "balance_transaction": "txn_3TbTL5EZpD6kXrae0p6vtiNQ"
+        },
+        {
+          "id": "re_3TbTKTEZpD6kXrae0yC5VbdL",
+          "amount": 2000,
+          "currency": "usd",
+          "status": "succeeded",
+          "created": 1779834020,
+          "charge": "ch_3TbTKTEZpD6kXrae0CVnhlcS",
+          "payment_intent": "pi_3TbTKTEZpD6kXrae0kQmj7S5",
+          "balance_transaction": "txn_3TbTKTEZpD6kXrae0DvEVmAt"
+        },
+        {
+          "id": "re_3TbSqaEZpD6kXrae0EGbSIG6",
+          "amount": 1000,
+          "currency": "usd",
+          "status": "succeeded",
+          "created": 1779832154,
+          "charge": "ch_3TbSqaEZpD6kXrae00FIdBKp",
+          "payment_intent": "pi_3TbSqaEZpD6kXrae0PlMCGAz",
+          "balance_transaction": "txn_3TbSqaEZpD6kXrae0Zps71b9"
+        }
+      ]
+    },
+    "batchDelete": {
+      "Refund": []
+    }
+  },
+  "api": {
+    "get": {
+      "/v1/refunds": {
+        "response": {
+          "object": "list",
+          "count": 3,
+          "data": [
+            {
+              "id": "re_3TbTL5EZpD6kXrae0zNvsOPM",
+              "object": "refund",
+              "amount": 2000,
+              "balance_transaction": "txn_3TbTL5EZpD6kXrae0p6vtiNQ",
+              "charge": "ch_3TbTL5EZpD6kXrae0rDBh2Wu",
+              "created": 1779834055,
+              "currency": "usd",
+              "destination_details": {
+                "card": {
+                  "reference": "7932565074279207",
+                  "reference_status": "available",
+                  "reference_type": "acquirer_reference_number",
+                  "type": "refund"
+                },
+                "type": "card"
+              },
+              "metadata": {},
+              "payment_intent": "pi_3TbTL5EZpD6kXrae06hTAy3Z",
+              "reason": null,
+              "receipt_number": null,
+              "source_transfer_reversal": null,
+              "status": "succeeded",
+              "transfer_reversal": null
+            },
+            {
+              "id": "re_3TbTKTEZpD6kXrae0yC5VbdL",
+              "object": "refund",
+              "amount": 2000,
+              "balance_transaction": "txn_3TbTKTEZpD6kXrae0DvEVmAt",
+              "charge": "ch_3TbTKTEZpD6kXrae0CVnhlcS",
+              "created": 1779834020,
+              "currency": "usd",
+              "destination_details": {
+                "card": {
+                  "reference": "5963659271221533",
+                  "reference_status": "available",
+                  "reference_type": "acquirer_reference_number",
+                  "type": "refund"
+                },
+                "type": "card"
+              },
+              "metadata": {},
+              "payment_intent": "pi_3TbTKTEZpD6kXrae0kQmj7S5",
+              "reason": null,
+              "receipt_number": null,
+              "source_transfer_reversal": null,
+              "status": "succeeded",
+              "transfer_reversal": null
+            },
+            {
+              "id": "re_3TbSqaEZpD6kXrae0EGbSIG6",
+              "object": "refund",
+              "amount": 1000,
+              "balance_transaction": "txn_3TbSqaEZpD6kXrae0Zps71b9",
+              "charge": "ch_3TbSqaEZpD6kXrae00FIdBKp",
+              "created": 1779832154,
+              "currency": "usd",
+              "destination_details": {
+                "card": {
+                  "reference": "9921109399452825",
+                  "reference_status": "available",
+                  "reference_type": "acquirer_reference_number",
+                  "type": "refund"
+                },
+                "type": "card"
+              },
+              "metadata": {
+                "order_id": "test-123"
+              },
+              "payment_intent": "pi_3TbSqaEZpD6kXrae0PlMCGAz",
+              "reason": null,
+              "receipt_number": null,
+              "source_transfer_reversal": null,
+              "status": "succeeded",
+              "transfer_reversal": null
+            }
+          ],
+          "has_more": false,
+          "url": "/v1/refunds"
+        },
+        "status": 200,
+        "headers": {
+          "date": "Tue, 26 May 2026 22:24:38 GMT",
+          "content-type": "application/json",
+          "content-length": "2409",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=5184000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4729",
+          "x-ratelimit-reset": "1779834295",
+          "etag": "W/\"969-TlJoQl5HZSmnkV7KQFURl6NUWK0\""
+        },
+        "hash": "5ae82dfd3dd9d3e6d4841f455b913a166bb7b5a5",
+        "request": {
+          "params": {
+            "limit": "100"
+          }
+        }
+      }
+    }
+  }
+}

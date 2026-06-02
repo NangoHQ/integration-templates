@@ -5,7 +5,7 @@ import { z } from 'zod';
 
 const sync = createSync({
     description: 'Syncs all employment types from RecruiterFlow',
-    version: '2.0.0',
+    version: '2.1.0',
     frequency: 'every hour',
     autoStart: true,
     syncType: 'full',
@@ -25,6 +25,8 @@ const sync = createSync({
     metadata: z.object({}),
 
     exec: async (nango) => {
+        await nango.trackDeletesStart('RecruiterFlowEmploymentType');
+
         const proxyConfig: ProxyConfiguration = {
             // https://recruiterflow.com/api#/Other%20APIs/get_api_external_organization_employment_type_list
             endpoint: '/api/external/organization/employment-type/list',
@@ -40,7 +42,7 @@ const sync = createSync({
         }));
 
         await nango.batchSave(updatedEmploymentTypes, 'RecruiterFlowEmploymentType');
-        await nango.deleteRecordsFromPreviousExecutions('RecruiterFlowEmploymentType');
+        await nango.trackDeletesEnd('RecruiterFlowEmploymentType');
     }
 });
 

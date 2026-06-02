@@ -6,14 +6,19 @@ import { formatDate } from '../helpers/utils.js';
 import type { ProxyConfiguration } from 'nango';
 import { NetsuiteLocation, NetsuiteMetadata } from '../models.js';
 
+import { z } from 'zod';
 const retries = 3;
+
+const CheckpointSchema = z.object({
+    updated_after: z.string()
+});
 
 const sync = createSync({
     description: 'Fetches all locations in Netsuite',
-    version: '2.0.0',
+    version: '2.1.0',
     frequency: 'every hour',
     autoStart: false,
-    syncType: 'incremental',
+    checkpoint: CheckpointSchema,
 
     endpoints: [
         {
@@ -29,7 +34,12 @@ const sync = createSync({
     metadata: NetsuiteMetadata,
 
     exec: async (nango) => {
-        const lastModifiedDateQuery = nango.lastSyncDate ? `lastModifiedDate ON_OR_AFTER "${await formatDate(nango.lastSyncDate, nango)}"` : undefined;
+        const rawCheckpoint = await nango.getCheckpoint();
+        const checkpoint = rawCheckpoint ? CheckpointSchema.parse(rawCheckpoint) : undefined;
+        const checkpointUpdatedAfter = checkpoint?.updated_after ? new Date(checkpoint.updated_after) : undefined;
+        const runStartedAt = new Date().toISOString();
+
+        const lastModifiedDateQuery = checkpointUpdatedAfter ? `lastModifiedDate ON_OR_AFTER "${await formatDate(checkpointUpdatedAfter, nango)}"` : undefined;
         const proxyConfig: ProxyConfiguration = {
             // https://system.netsuite.com/help/helpcenter/en_US/APIs/REST_API_Browser/record/v1/2022.1/index.html#tag-location
             endpoint: '/location',
@@ -79,6 +89,7 @@ const sync = createSync({
             }
             await nango.batchSave(mappedLocations, 'NetsuiteLocation');
         }
+        await nango.saveCheckpoint({ updated_after: runStartedAt });
     }
 });
 
