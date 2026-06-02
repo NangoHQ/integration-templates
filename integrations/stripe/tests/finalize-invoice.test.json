@@ -1,0 +1,253 @@
+{
+  "input": {
+    "invoice_id": "in_1TbTGsEZpD6kXraesod5rlc7"
+  },
+  "output": {
+    "id": "in_1TbTGsEZpD6kXraesod5rlc7",
+    "object": "invoice",
+    "status": "open",
+    "amount_due": 1000,
+    "amount_paid": 0,
+    "amount_remaining": 1000,
+    "created": 1779833782,
+    "currency": "usd",
+    "customer": "cus_Uae6TTxHlP2hxk",
+    "lines": {
+      "object": "list",
+      "data": [
+        {
+          "id": "il_1TbTGsEZpD6kXraenCkZ11Tw",
+          "object": "line_item",
+          "amount": 1000,
+          "currency": "usd",
+          "description": null,
+          "discount_amounts": [],
+          "discountable": true,
+          "discounts": [],
+          "invoice": "in_1TbTGsEZpD6kXraesod5rlc7",
+          "livemode": false,
+          "metadata": {},
+          "parent": {
+            "invoice_item_details": {
+              "invoice_item": "ii_1TbTGsEZpD6kXraeMG7d0XMU",
+              "proration": false,
+              "proration_details": {
+                "credited_items": null
+              },
+              "subscription": null
+            },
+            "subscription_item_details": null,
+            "type": "invoice_item_details"
+          },
+          "period": {
+            "end": 1779833782,
+            "start": 1779833782
+          },
+          "pretax_credit_amounts": [],
+          "pricing": {
+            "price_details": {
+              "price": "price_1TbTGtEZpD6kXraeAGa24hyh",
+              "product": "prod_UaeaniVd0cZYxl"
+            },
+            "type": "price_details",
+            "unit_amount_decimal": "1000"
+          },
+          "quantity": 1,
+          "quantity_decimal": "1",
+          "subtotal": 1000,
+          "taxes": []
+        }
+      ],
+      "has_more": false,
+      "total_count": 1,
+      "url": "/v1/invoices/in_1TbTGsEZpD6kXraesod5rlc7/lines"
+    },
+    "livemode": false,
+    "metadata": {},
+    "number": "KNM3Y4VZ-0010",
+    "period_end": 1782510483,
+    "period_start": 1779832083,
+    "subtotal": 1000,
+    "total": 1000,
+    "hosted_invoice_url": "https://invoice.stripe.com/i/acct_1TbP2HEZpD6kXrae/test_YWNjdF8xVGJQMkhFWnBENmtYcmFlLF9VYWVhR0RQeHN6V0paR1pLSWFRSHhNMVFKdWVGbnpOLDE3MDM3NDU5MA0200IdwpsZyh?s=ap",
+    "invoice_pdf": "https://pay.stripe.com/invoice/acct_1TbP2HEZpD6kXrae/test_YWNjdF8xVGJQMkhFWnBENmtYcmFlLF9VYWVhR0RQeHN6V0paR1pLSWFRSHhNMVFKdWVGbnpOLDE3MDM3NDU5MA0200IdwpsZyh/pdf?s=ap"
+  },
+  "nango": {},
+  "api": {
+    "post": {
+      "/v1/invoices/in_1TbTGsEZpD6kXraesod5rlc7/finalize": {
+        "response": {
+          "id": "in_1TbTGsEZpD6kXraesod5rlc7",
+          "object": "invoice",
+          "account_country": "US",
+          "account_name": "AI Builder Sandbox",
+          "account_tax_ids": null,
+          "amount_due": 1000,
+          "amount_overpaid": 0,
+          "amount_paid": 0,
+          "amount_remaining": 1000,
+          "amount_shipping": 0,
+          "application": null,
+          "attempt_count": 0,
+          "attempted": false,
+          "auto_advance": false,
+          "automatic_tax": {
+            "disabled_reason": null,
+            "enabled": false,
+            "liability": null,
+            "provider": null,
+            "status": null
+          },
+          "automatically_finalizes_at": null,
+          "billing_reason": "manual",
+          "collection_method": "charge_automatically",
+          "created": 1779833782,
+          "currency": "usd",
+          "custom_fields": null,
+          "customer": "cus_Uae6TTxHlP2hxk",
+          "customer_account": null,
+          "customer_address": null,
+          "customer_email": "updated@example.com",
+          "customer_name": "Updated Customer Name",
+          "customer_phone": null,
+          "customer_shipping": null,
+          "customer_tax_exempt": "none",
+          "customer_tax_ids": [],
+          "default_payment_method": null,
+          "default_source": null,
+          "default_tax_rates": [],
+          "description": null,
+          "discounts": [],
+          "due_date": null,
+          "effective_at": 1779833788,
+          "ending_balance": 0,
+          "footer": null,
+          "from_invoice": null,
+          "hosted_invoice_url": "https://invoice.stripe.com/i/acct_1TbP2HEZpD6kXrae/test_YWNjdF8xVGJQMkhFWnBENmtYcmFlLF9VYWVhR0RQeHN6V0paR1pLSWFRSHhNMVFKdWVGbnpOLDE3MDM3NDU5MA0200IdwpsZyh?s=ap",
+          "invoice_pdf": "https://pay.stripe.com/invoice/acct_1TbP2HEZpD6kXrae/test_YWNjdF8xVGJQMkhFWnBENmtYcmFlLF9VYWVhR0RQeHN6V0paR1pLSWFRSHhNMVFKdWVGbnpOLDE3MDM3NDU5MA0200IdwpsZyh/pdf?s=ap",
+          "issuer": {
+            "type": "self"
+          },
+          "last_finalization_error": null,
+          "latest_revision": null,
+          "lines": {
+            "object": "list",
+            "data": [
+              {
+                "id": "il_1TbTGsEZpD6kXraenCkZ11Tw",
+                "object": "line_item",
+                "amount": 1000,
+                "currency": "usd",
+                "description": null,
+                "discount_amounts": [],
+                "discountable": true,
+                "discounts": [],
+                "invoice": "in_1TbTGsEZpD6kXraesod5rlc7",
+                "livemode": false,
+                "metadata": {},
+                "parent": {
+                  "invoice_item_details": {
+                    "invoice_item": "ii_1TbTGsEZpD6kXraeMG7d0XMU",
+                    "proration": false,
+                    "proration_details": {
+                      "credited_items": null
+                    },
+                    "subscription": null
+                  },
+                  "subscription_item_details": null,
+                  "type": "invoice_item_details"
+                },
+                "period": {
+                  "end": 1779833782,
+                  "start": 1779833782
+                },
+                "pretax_credit_amounts": [],
+                "pricing": {
+                  "price_details": {
+                    "price": "price_1TbTGtEZpD6kXraeAGa24hyh",
+                    "product": "prod_UaeaniVd0cZYxl"
+                  },
+                  "type": "price_details",
+                  "unit_amount_decimal": "1000"
+                },
+                "quantity": 1,
+                "quantity_decimal": "1",
+                "subtotal": 1000,
+                "taxes": []
+              }
+            ],
+            "has_more": false,
+            "total_count": 1,
+            "url": "/v1/invoices/in_1TbTGsEZpD6kXraesod5rlc7/lines"
+          },
+          "livemode": false,
+          "metadata": {},
+          "next_payment_attempt": null,
+          "number": "KNM3Y4VZ-0010",
+          "on_behalf_of": null,
+          "parent": null,
+          "payment_settings": {
+            "default_mandate": null,
+            "payment_method_options": null,
+            "payment_method_types": null
+          },
+          "period_end": 1782510483,
+          "period_start": 1779832083,
+          "post_payment_credit_notes_amount": 0,
+          "pre_payment_credit_notes_amount": 0,
+          "receipt_number": null,
+          "rendering": {
+            "amount_tax_display": null,
+            "pdf": {
+              "page_size": "letter"
+            },
+            "template": null,
+            "template_version": null
+          },
+          "shipping_cost": null,
+          "shipping_details": null,
+          "starting_balance": 0,
+          "statement_descriptor": null,
+          "status": "open",
+          "status_transitions": {
+            "finalized_at": 1779833788,
+            "marked_uncollectible_at": null,
+            "paid_at": null,
+            "voided_at": null
+          },
+          "subtotal": 1000,
+          "subtotal_excluding_tax": 1000,
+          "test_clock": null,
+          "total": 1000,
+          "total_discount_amounts": [],
+          "total_excluding_tax": 1000,
+          "total_pretax_credit_amounts": [],
+          "total_taxes": [],
+          "webhooks_delivered_at": 1779833782
+        },
+        "status": 200,
+        "headers": {
+          "date": "Tue, 26 May 2026 22:16:30 GMT",
+          "content-type": "application/json",
+          "content-length": "4199",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=5184000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4928",
+          "x-ratelimit-reset": "1779833800",
+          "etag": "W/\"1067-ZkSRu6Yvw8hcBAZFDdYaH0/HzaQ\""
+        },
+        "hash": "f7d41cbe4da31b6b91105131b0069aeab1b2f908",
+        "request": {}
+      }
+    }
+  }
+}
