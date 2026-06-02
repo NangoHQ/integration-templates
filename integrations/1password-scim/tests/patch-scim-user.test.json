@@ -1,27 +1,31 @@
 {
   "input": {
-    "userId": "WHIVOG5WFFDGJODAWIGRVZZU5A",
+    "userId": "NFAPLXW3PFA6NJKAV7IAD63BQI",
     "operations": [
       {
         "op": "replace",
         "path": "displayName",
-        "value": "Nango Developer Test"
+        "value": "Patched Delete Test"
       }
     ]
   },
   "output": {
-    "id": "WHIVOG5WFFDGJODAWIGRVZZU5A",
-    "userName": "api@nango.dev",
-    "displayName": "Nango Developer Test",
-    "active": true,
+    "schemas": [
+      "urn:ietf:params:scim:schemas:core:2.0:User"
+    ],
+    "id": "NFAPLXW3PFA6NJKAV7IAD63BQI",
+    "userName": "delete-test-1@nango.dev",
+    "active": false,
+    "displayName": "Patched Delete Test",
+    "preferredLanguage": "en",
     "name": {
-      "formatted": "Nango Developer Test",
-      "familyName": "Developer Test",
-      "givenName": "Nango"
+      "formatted": "Patched Delete Test",
+      "familyName": "Delete Test",
+      "givenName": "Patched"
     },
     "emails": [
       {
-        "value": "api@nango.dev",
+        "value": "delete-test-1@nango.dev",
         "primary": true
       }
     ],
@@ -32,36 +36,36 @@
   "nango": {},
   "api": {
     "patch": {
-      "/Users/WHIVOG5WFFDGJODAWIGRVZZU5A": {
+      "/Users/NFAPLXW3PFA6NJKAV7IAD63BQI": {
         "response": {
-          "active": true,
-          "displayName": "Nango Developer Test",
+          "active": false,
+          "displayName": "Patched Delete Test",
           "emails": [
             {
               "primary": true,
-              "value": "api@nango.dev"
+              "value": "delete-test-1@nango.dev"
             }
           ],
-          "id": "WHIVOG5WFFDGJODAWIGRVZZU5A",
+          "id": "NFAPLXW3PFA6NJKAV7IAD63BQI",
           "meta": {
             "resourceType": "User"
           },
           "name": {
-            "familyName": "Developer Test",
-            "formatted": "Nango Developer Test",
-            "givenName": "Nango"
+            "familyName": "Delete Test",
+            "formatted": "Patched Delete Test",
+            "givenName": "Patched"
           },
           "preferredLanguage": "en",
           "schemas": [
             "urn:ietf:params:scim:schemas:core:2.0:User"
           ],
-          "userName": "api@nango.dev"
+          "userName": "delete-test-1@nango.dev"
         },
         "status": 200,
         "headers": {
-          "date": "Thu, 21 May 2026 14:14:34 GMT",
+          "date": "Fri, 22 May 2026 18:02:52 GMT",
           "content-type": "application/scim+json",
-          "content-length": "373",
+          "content-length": "391",
           "connection": "keep-alive",
           "x-xss-protection": "0",
           "x-content-type-options": "nosniff",
@@ -73,11 +77,11 @@
           "access-control-allow-origin": "*",
           "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
           "x-ratelimit-limit": "5000",
-          "x-ratelimit-remaining": "4963",
-          "x-ratelimit-reset": "1779372909",
-          "etag": "W/\"175-ujiyI6OGOnXrlsZyTtUpGoyTz3A\""
+          "x-ratelimit-remaining": "4988",
+          "x-ratelimit-reset": "1779473020",
+          "etag": "W/\"187-YAatFsEEbwcaB7k5IFXLuJrJQVo\""
         },
-        "hash": "f84b3c402b0c2bf6e173e5bb3757ef13979101fe",
+        "hash": "f7924e74e55c521b2401be45e0ffd06e70ae5228",
         "request": {
           "data": {
             "schemas": [
@@ -87,7 +91,7 @@
               {
                 "op": "replace",
                 "path": "displayName",
-                "value": "Nango Developer Test"
+                "value": "Patched Delete Test"
               }
             ]
           }
