@@ -1826,6 +1826,436 @@ export interface ActionOutput_anrok_voidtransaction {
   validation_errors?: any | undefined;})[];
 };
 
+export interface File {
+  id: string;
+  object?: string | undefined;
+  bytes?: number | undefined;
+  created_at?: number | undefined;
+  filename?: string | undefined;
+  purpose?: string | undefined;
+  status?: string | undefined;
+  status_details?: string | undefined;
+};
+
+export interface MessageBatch {
+  id: string;
+  archived_at?: string | undefined;
+  cancel_initiated_at?: string | undefined;
+  created_at: string;
+  ended_at?: string | undefined;
+  expires_at: string;
+  processing_status: 'in_progress' | 'canceling' | 'ended';
+  request_counts: {  canceled: number;
+  errored: number;
+  expired: number;
+  processing: number;
+  succeeded: number;};
+  results_url?: string | undefined;
+  type: 'message_batch';
+};
+
+export interface Model {
+  id: string;
+  object?: string | undefined;
+  created?: number | undefined;
+  owned_by?: string | undefined;
+};
+
+export interface ActionInput_anthropic_cancelmessagebatch {
+  /**
+   * ID of the Message Batch to cancel. Example: "msgbatch_013Zva2CMHLNnXjNJJKqJ2EF"
+   */
+  message_batch_id: string;
+};
+
+export interface ActionOutput_anthropic_cancelmessagebatch {
+  id: string;
+  archived_at?: string | undefined;
+  cancel_initiated_at?: string | undefined;
+  created_at: string;
+  ended_at?: string | undefined;
+  expires_at: string;
+  processing_status: 'in_progress' | 'canceling' | 'ended';
+  request_counts: {  canceled: number;
+  errored: number;
+  expired: number;
+  processing: number;
+  succeeded: number;};
+  results_url?: string | undefined;
+  type: 'message_batch';
+};
+
+export interface ActionInput_anthropic_countmessagetokens {
+  /**
+   * The model that will count tokens. Example: "claude-sonnet-4-0"
+   */
+  model: string;
+  /**
+   * Input messages to count tokens for.
+   */
+  messages: ({  role: 'user' | 'assistant';
+  content: string | ({  [key: string]: unknown | undefined;})[];})[];
+  /**
+   * System prompt.
+   */
+  system?: string | ({  [key: string]: unknown | undefined;})[];
+  /**
+   * Thinking configuration.
+   */
+  thinking?: unknown | undefined;
+  /**
+   * Tool definitions.
+   */
+  tools?: unknown[] | undefined;
+  /**
+   * Tool choice configuration.
+   */
+  tool_choice?: unknown | undefined;
+  /**
+   * Cache control configuration.
+   */
+  cache_control?: unknown | undefined;
+  /**
+   * Output format configuration.
+   */
+  output_config?: unknown | undefined;
+};
+
+export interface ActionOutput_anthropic_countmessagetokens {
+  /**
+   * The total number of tokens across the provided list of messages, system prompt, and tools.
+   */
+  input_tokens: number;
+};
+
+export interface ActionInput_anthropic_createmessagebatch {
+  /**
+   * List of requests for prompt completion. Each is an individual request to create a Message.
+   */
+  requests: ({  /**
+   * Unique identifier for the request within the batch. Must be unique. Example: "my-request-1"
+   */
+  custom_id: string;
+  /**
+   * Messages API creation parameters for the individual request. See https://docs.anthropic.com/en/api/messages
+   */
+  params: {};})[];
+};
+
+export interface ActionOutput_anthropic_createmessagebatch {
+  id: string;
+  type: string;
+  processing_status: string;
+  request_counts: {  processing: number;
+  succeeded: number;
+  errored: number;
+  canceled: number;
+  expired: number;};
+  created_at: string;
+  expires_at: string;
+  ended_at?: string | undefined;
+  cancel_initiated_at?: string | undefined;
+  results_url?: string | undefined;
+};
+
+export interface ActionInput_anthropic_createmessage {
+  /**
+   * Anthropic model ID. Example: "claude-3-5-sonnet-20241022"
+   */
+  model: string;
+  /**
+   * Maximum tokens to generate. Example: 1024
+   */
+  max_tokens: number;
+  /**
+   * Conversation messages
+   */
+  messages: ({  role: 'user' | 'assistant';
+  content: string | ({  0: {  type: 'text';
+  text: string;};
+  1: {  type: 'image';
+  source: {  type: string;
+  media_type: string;
+  data: string;};};
+  2: {  type: 'tool_use';
+  id: string;
+  name: string;
+  input: {  [key: string]: unknown | undefined;};};
+  3: {  type: 'tool_result';
+  tool_use_id: string;
+  content?: string | ({  0: {  type: 'text';
+  text: string;};
+  1: {  type: 'image';
+  source: {  type: string;
+  media_type: string;
+  data: string;};};})[] | undefined;
+  is_error?: boolean | undefined;};})[];})[];
+  /**
+   * System prompt
+   */
+  system?: string | ({  type: 'text';
+  text: string;})[] | undefined;
+  /**
+   * Tools available to the model
+   */
+  tools?: ({  name: string;
+  description: string;
+  input_schema: {  type: 'object';
+  properties?: {  [key: string]: unknown | undefined;};
+  required?: string[] | undefined;};})[];
+  /**
+   * Tool choice configuration
+   */
+  tool_choice?: {  /**
+   * Tool choice type. Example: "auto", "any", "tool"
+   */
+  type: string;
+  /**
+   * Tool name when type is "tool". Example: "my_tool"
+   */
+  name?: string | undefined;};
+  /**
+   * Thinking configuration
+   */
+  thinking?: {  /**
+   * Thinking configuration type. Example: "enabled"
+   */
+  type: string;
+  /**
+   * Token budget for thinking. Example: 1024
+   */
+  budget_tokens: number;} | undefined;
+  /**
+   * Sampling temperature
+   */
+  temperature?: number | undefined;
+  /**
+   * Top-k sampling parameter
+   */
+  top_k?: number | undefined;
+  /**
+   * Top-p sampling parameter
+   */
+  top_p?: number | undefined;
+  /**
+   * Stop sequences
+   */
+  stop_sequences?: string[] | undefined;
+  /**
+   * Metadata key-value pairs
+   */
+  metadata?: {  [key: string]: string;} | undefined;
+};
+
+export interface ActionOutput_anthropic_createmessage {
+  id: string;
+  type: 'message';
+  role: 'assistant';
+  content: ({  0: {  type: 'text';
+  text: string;};
+  1: {  type: 'tool_use';
+  id: string;
+  name: string;
+  input: {  [key: string]: unknown | undefined;};};
+  2: {  type: 'thinking';
+  thinking: string;
+  signature?: string | undefined;};
+  3: {  type: 'redacted_thinking';
+  data: string;};})[];
+  model: string;
+  stop_reason?: string | null | undefined;
+  stop_sequence?: string | null | undefined;
+  usage: {  input_tokens: number;
+  output_tokens: number;
+  cache_creation_input_tokens?: number | undefined;
+  cache_read_input_tokens?: number | undefined;};
+};
+
+export interface ActionInput_anthropic_deletefile {
+  /**
+   * ID of the File to delete. Example: "file_011CNha8iCJcU1wXNR6q4V8w"
+   */
+  file_id: string;
+};
+
+export interface ActionOutput_anthropic_deletefile {
+  id: string;
+  type?: 'file_deleted' | undefined;
+};
+
+export interface ActionInput_anthropic_getfile {
+  /**
+   * The ID of the file to retrieve. Example: "file_01HqW8Kq0Z2Q2W8Kq0Z2Q2W8"
+   */
+  file_id: string;
+};
+
+export interface ActionOutput_anthropic_getfile {
+  id: string;
+  created_at: string;
+  filename: string;
+  mime_type: string;
+  size_bytes: number;
+  type: 'file';
+  downloadable?: boolean | undefined;
+  scope?: {  id: string;
+  type: 'session';} | undefined;
+};
+
+export interface ActionInput_anthropic_getmessagebatch {
+  /**
+   * The ID of the message batch to retrieve. Example: "msgbatch_01Ab2cDe3Fg4hIj5Kl6mNo7Pq8r"
+   */
+  message_batch_id: string;
+};
+
+export interface ActionOutput_anthropic_getmessagebatch {
+  id: string;
+  archived_at?: string | undefined;
+  cancel_initiated_at?: string | undefined;
+  created_at: string;
+  ended_at?: string | undefined;
+  expires_at: string;
+  processing_status: 'in_progress' | 'canceling' | 'ended';
+  request_counts: {  canceled: number;
+  errored: number;
+  expired: number;
+  processing: number;
+  succeeded: number;};
+  results_url?: string | undefined;
+  type: 'message_batch';
+};
+
+export interface ActionInput_anthropic_getmodel {
+  /**
+   * Model identifier or alias. Example: "claude-opus-4-6"
+   */
+  model_id: string;
+};
+
+export interface ActionOutput_anthropic_getmodel {
+  id: string;
+  capabilities: {  batch: {  supported: boolean;};
+  citations: {  supported: boolean;};
+  code_execution: {  supported: boolean;};
+  context_management: {  clear_thinking_20251015: {  supported: boolean;};
+  clear_tool_uses_20250919: {  supported: boolean;};
+  compact_20260112: {  supported: boolean;};
+  supported: boolean;};
+  effort: {  high: {  supported: boolean;};
+  low: {  supported: boolean;};
+  max: {  supported: boolean;};
+  medium: {  supported: boolean;};
+  supported: boolean;
+  xhigh?: {  supported: boolean;} | undefined;};
+  image_input: {  supported: boolean;};
+  pdf_input: {  supported: boolean;};
+  structured_outputs: {  supported: boolean;};
+  thinking: {  supported: boolean;
+  types: {  adaptive: {  supported: boolean;};
+  enabled: {  supported: boolean;};};};};
+  created_at: string;
+  display_name: string;
+  max_input_tokens: number;
+  max_tokens: number;
+  type: string;
+};
+
+export interface ActionInput_anthropic_listfiles {
+  /**
+   * Pagination cursor from the previous response. Omit for the first page.
+   */
+  cursor?: string | undefined;
+  /**
+   * Number of items to return per page. Defaults to 20. Ranges from 1 to 1000.
+   */
+  limit?: number | undefined;
+  /**
+   * Filter by scope ID. Only returns files associated with the specified scope (e.g., a session ID).
+   */
+  scope_id?: string | undefined;
+};
+
+export interface ActionOutput_anthropic_listfiles {
+  files: ({  id: string;
+  created_at: string;
+  filename: string;
+  mime_type: string;
+  size_bytes: number;
+  type: string;
+  downloadable?: boolean | undefined;
+  scope?: {  id: string;
+  type: string;} | undefined;})[];
+  next_cursor?: string | undefined;
+};
+
+export interface ActionInput_anthropic_listmessagebatchresults {
+  /**
+   * The ID of the Message Batch to retrieve results for. Example: "msgbatch_01AbCdEfGhIjKlMnOpQrStUv"
+   */
+  message_batch_id: string;
+};
+
+export interface ActionOutput_anthropic_listmessagebatchresults {
+  results: ({  custom_id: string;
+  result: {  [key: string]: unknown | undefined;};})[];
+};
+
+export interface ActionInput_anthropic_listmessagebatches {
+  /**
+   * Pagination cursor from the previous response. Omit for the first page.
+   */
+  cursor?: string | undefined;
+  /**
+   * ID of the object to use as a cursor for pagination. Returns the page immediately before this object.
+   */
+  before_id?: string | undefined;
+  /**
+   * Number of items to return per page. Defaults to 20. Ranges from 1 to 1000.
+   */
+  limit?: number | undefined;
+};
+
+export interface ActionOutput_anthropic_listmessagebatches {
+  items: ({  id: string;
+  archived_at?: string | undefined;
+  cancel_initiated_at?: string | undefined;
+  created_at: string;
+  ended_at?: string | undefined;
+  expires_at: string;
+  processing_status: 'in_progress' | 'canceling' | 'ended';
+  request_counts: {  canceled: number;
+  errored: number;
+  expired: number;
+  processing: number;
+  succeeded: number;};
+  results_url?: string | undefined;
+  type: 'message_batch';})[];
+  next_cursor?: string | undefined;
+};
+
+export interface ActionInput_anthropic_listmodels {
+  /**
+   * Pagination cursor from the previous response. Omit for the first page.
+   */
+  cursor?: string | undefined;
+  /**
+   * Number of items to return per page. Defaults to 20. Ranges from 1 to 1000.
+   */
+  limit?: number | undefined;
+};
+
+export interface ActionOutput_anthropic_listmodels {
+  items: ({  id: string;
+  capabilities: {};
+  created_at: string;
+  display_name: string;
+  max_input_tokens: number;
+  max_tokens: number;
+  type: 'model';})[];
+  next_cursor?: string | undefined;
+};
+
 export interface Account {
   id: string;
   accountName?: string | undefined;
@@ -15095,17 +15525,6 @@ export interface ActionInput_docusign_deleteuser {
 
 export interface ActionOutput_docusign_deleteuser {
   success: boolean;
-};
-
-export interface File {
-  id: string;
-  object?: string | undefined;
-  bytes?: number | undefined;
-  created_at?: number | undefined;
-  filename?: string | undefined;
-  purpose?: string | undefined;
-  status?: string | undefined;
-  status_details?: string | undefined;
 };
 
 export interface SyncMetadata_dropbox_files {
@@ -42650,13 +43069,6 @@ export interface FineTuningJob {
   learning_rate_multiplier?: number | string | undefined;};
   metadata?: {  [key: string]: unknown | undefined;};
   error?: unknown | undefined;
-};
-
-export interface Model {
-  id: string;
-  object?: string | undefined;
-  created?: number | undefined;
-  owned_by?: string | undefined;
 };
 
 export interface VectorStore {

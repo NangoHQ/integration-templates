@@ -73,6 +73,23 @@ import './anrok/actions/create-or-update-transaction.js';
 import './anrok/actions/negate-transaction.js';
 import './anrok/actions/void-transaction.js';
 
+// -- Integration: anthropic
+import './anthropic/syncs/files.js';
+import './anthropic/syncs/message-batches.js';
+import './anthropic/syncs/models.js';
+import './anthropic/actions/cancel-message-batch.js';
+import './anthropic/actions/count-message-tokens.js';
+import './anthropic/actions/create-message-batch.js';
+import './anthropic/actions/create-message.js';
+import './anthropic/actions/delete-file.js';
+import './anthropic/actions/get-file.js';
+import './anthropic/actions/get-message-batch.js';
+import './anthropic/actions/get-model.js';
+import './anthropic/actions/list-files.js';
+import './anthropic/actions/list-message-batch-results.js';
+import './anthropic/actions/list-message-batches.js';
+import './anthropic/actions/list-models.js';
+
 // -- Integration: apollo
 import './apollo/syncs/accounts.js';
 import './apollo/syncs/contacts.js';
