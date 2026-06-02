@@ -7,7 +7,7 @@ import { z } from 'zod';
 
 const sync = createSync({
     description: 'Fetches all payments in Exact Online',
-    version: '2.0.0',
+    version: '2.1.0',
     frequency: 'every hour',
     autoStart: true,
     syncType: 'full',
@@ -27,6 +27,7 @@ const sync = createSync({
 
     exec: async (nango) => {
         const { division } = await getUser(nango);
+        await nango.trackDeletesStart('ExactPayment');
 
         // List the accounts inside the user's Division
         for await (const paymentItems of nango.paginate<EO_Payment>({
@@ -57,7 +58,7 @@ const sync = createSync({
             await nango.batchSave(payments, 'ExactPayment');
         }
 
-        await nango.deleteRecordsFromPreviousExecutions('ExactPayment');
+        await nango.trackDeletesEnd('ExactPayment');
     }
 });
 

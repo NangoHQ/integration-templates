@@ -8,7 +8,7 @@ import * as z from 'zod';
 
 const sync = createSync({
     description: 'Fetches a list of current employees from ADP and maps them to the standard HRIS model',
-    version: '0.0.1',
+    version: '0.1.0',
     frequency: 'every hour',
     autoStart: true,
     syncType: 'full',
@@ -28,6 +28,8 @@ const sync = createSync({
     metadata: z.object({}),
 
     exec: async (nango) => {
+        await nango.trackDeletesStart('StandardEmployee');
+
         let total = 0;
 
         const proxyConfig: ProxyConfiguration = {
@@ -59,7 +61,7 @@ const sync = createSync({
         }
 
         await nango.log(`Total unified employee(s) processed: ${total}`);
-        await nango.deleteRecordsFromPreviousExecutions('StandardEmployee');
+        await nango.trackDeletesEnd('StandardEmployee');
     }
 });
 

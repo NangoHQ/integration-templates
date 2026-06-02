@@ -11,4 +11,6 @@ integrations/**/nango-integrations
 tmp-run-integration-template
 build/
 dist/
-.claude/settings.local.json
+.agents/
+.claude/
+skills-lock.json

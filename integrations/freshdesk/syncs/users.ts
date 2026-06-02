@@ -7,7 +7,7 @@ import { z } from 'zod';
 
 const sync = createSync({
     description: 'Fetches the list of users',
-    version: '2.0.0',
+    version: '2.1.0',
     frequency: 'every day',
     autoStart: true,
     syncType: 'full',
@@ -27,6 +27,8 @@ const sync = createSync({
     metadata: z.object({}),
 
     exec: async (nango) => {
+        await nango.trackDeletesStart('User');
+
         const proxyConfiguration: ProxyConfiguration = {
             // https://developer.freshdesk.com/api/#list_all_agents
             endpoint: '/api/v2/agents',
@@ -45,7 +47,7 @@ const sync = createSync({
             await nango.batchSave(users, 'User');
         }
 
-        await nango.deleteRecordsFromPreviousExecutions('User');
+        await nango.trackDeletesEnd('User');
     }
 });
 

@@ -8,7 +8,7 @@ import { z } from 'zod';
 
 const sync = createSync({
     description: 'Get a list of all users from Gem',
-    version: '1.0.0',
+    version: '1.1.0',
     frequency: 'every 1h',
     autoStart: true,
     syncType: 'full',
@@ -28,6 +28,8 @@ const sync = createSync({
     metadata: z.object({}),
 
     exec: async (nango) => {
+        await nango.trackDeletesStart('TeamMemberUser');
+
         const proxyConfig: ProxyConfiguration = {
             // https://api.gem.com/v0/reference#tag/Users/paths/~1v0~1users/get
             endpoint: '/v0/users',
@@ -46,7 +48,7 @@ const sync = createSync({
             await nango.batchSave(mappedUsers, 'TeamMemberUser');
         }
 
-        await nango.deleteRecordsFromPreviousExecutions('TeamMemberUser');
+        await nango.trackDeletesEnd('TeamMemberUser');
     }
 });
 
