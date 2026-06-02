@@ -1,0 +1,3545 @@
+{
+  "nango": {
+    "batchSave": {
+      "PaymentIntent": [
+        {
+          "id": "pi_3TbTWDEZpD6kXrae0vjEKN0y",
+          "amount": 1000,
+          "amount_capturable": 0,
+          "amount_details": {
+            "tip": {}
+          },
+          "amount_received": 0,
+          "canceled_at": 1779834746,
+          "cancellation_reason": "void_invoice",
+          "capture_method": "automatic",
+          "client_secret": "pi_3TbTWDEZpD6kXrae0vjEKN0y_secret_ChgLVHb5pomt0D5iWwblnPZmU",
+          "confirmation_method": "automatic",
+          "created": 1779834733,
+          "currency": "usd",
+          "customer": "cus_UaepkMAC4Sf8Di",
+          "description": "Payment for Invoice",
+          "livemode": false,
+          "metadata": {},
+          "payment_method_options": {
+            "amazon_pay": {
+              "express_checkout_element_session_id": null
+            },
+            "card": {
+              "installments": null,
+              "mandate_options": null,
+              "network": null,
+              "request_three_d_secure": "automatic"
+            },
+            "cashapp": {},
+            "klarna": {
+              "preferred_locale": null
+            },
+            "link": {
+              "persistent_token": null
+            }
+          },
+          "payment_method_types": [
+            "amazon_pay",
+            "card",
+            "cashapp",
+            "klarna",
+            "link"
+          ],
+          "status": "canceled"
+        },
+        {
+          "id": "pi_3TbTVSEZpD6kXrae1ZW68Qo9",
+          "amount": 1000,
+          "amount_capturable": 0,
+          "amount_details": {
+            "tip": {}
+          },
+          "amount_received": 0,
+          "canceled_at": 1779834700,
+          "cancellation_reason": "void_invoice",
+          "capture_method": "automatic",
+          "client_secret": "pi_3TbTVSEZpD6kXrae1ZW68Qo9_secret_yXEJH2P2zXO7Xbv3rLMeisCkU",
+          "confirmation_method": "automatic",
+          "created": 1779834686,
+          "currency": "usd",
+          "customer": "cus_UaepM9M2k4nHBk",
+          "description": "Payment for Invoice",
+          "livemode": false,
+          "metadata": {},
+          "payment_method_options": {
+            "amazon_pay": {
+              "express_checkout_element_session_id": null
+            },
+            "card": {
+              "installments": null,
+              "mandate_options": null,
+              "network": null,
+              "request_three_d_secure": "automatic"
+            },
+            "cashapp": {},
+            "klarna": {
+              "preferred_locale": null
+            },
+            "link": {
+              "persistent_token": null
+            }
+          },
+          "payment_method_types": [
+            "amazon_pay",
+            "card",
+            "cashapp",
+            "klarna",
+            "link"
+          ],
+          "status": "canceled"
+        },
+        {
+          "id": "pi_3TbTPXEZpD6kXrae15aTkbrt",
+          "amount": 5000,
+          "amount_capturable": 0,
+          "amount_details": {
+            "tip": {}
+          },
+          "amount_received": 5000,
+          "capture_method": "automatic",
+          "client_secret": "pi_3TbTPXEZpD6kXrae15aTkbrt_secret_JgHatLpW8sgJnt8l5mpJSuHjo",
+          "confirmation_method": "automatic",
+          "created": 1779834319,
+          "currency": "usd",
+          "customer": "cus_Uae6TTxHlP2hxk",
+          "description": "Subscription creation",
+          "latest_charge": "ch_3TbTPXEZpD6kXrae1WkdWbcV",
+          "livemode": false,
+          "metadata": {},
+          "payment_method": "pm_1TbSoaEZpD6kXraeiNPSsDV1",
+          "payment_method_options": {
+            "amazon_pay": {
+              "express_checkout_element_session_id": null
+            },
+            "card": {
+              "installments": null,
+              "mandate_options": null,
+              "network": null,
+              "request_three_d_secure": "automatic"
+            },
+            "cashapp": {},
+            "klarna": {
+              "preferred_locale": null
+            },
+            "link": {
+              "persistent_token": null
+            }
+          },
+          "payment_method_types": [
+            "amazon_pay",
+            "card",
+            "cashapp",
+            "klarna",
+            "link"
+          ],
+          "setup_future_usage": "off_session",
+          "status": "succeeded"
+        },
+        {
+          "id": "pi_3TbTLtEZpD6kXrae0bS8H275",
+          "amount": 2000,
+          "amount_capturable": 0,
+          "amount_details": {
+            "tip": {}
+          },
+          "amount_received": 2000,
+          "capture_method": "automatic",
+          "client_secret": "pi_3TbTLtEZpD6kXrae0bS8H275_secret_lcCnUbMd9vDBCnLb7ZwrUFk5S",
+          "confirmation_method": "automatic",
+          "created": 1779834093,
+          "currency": "usd",
+          "customer": "cus_Uae6TTxHlP2hxk",
+          "description": "Subscription creation",
+          "latest_charge": "ch_3TbTLtEZpD6kXrae07ojJcaM",
+          "livemode": false,
+          "metadata": {},
+          "payment_method": "pm_1TbSoaEZpD6kXraeiNPSsDV1",
+          "payment_method_options": {
+            "amazon_pay": {
+              "express_checkout_element_session_id": null
+            },
+            "card": {
+              "installments": null,
+              "mandate_options": null,
+              "network": null,
+              "request_three_d_secure": "automatic"
+            },
+            "cashapp": {},
+            "klarna": {
+              "preferred_locale": null
+            },
+            "link": {
+              "persistent_token": null
+            }
+          },
+          "payment_method_types": [
+            "amazon_pay",
+            "card",
+            "cashapp",
+            "klarna",
+            "link"
+          ],
+          "setup_future_usage": "off_session",
+          "status": "succeeded"
+        },
+        {
+          "id": "pi_3TbTLfEZpD6kXrae1ii1rFPp",
+          "amount": 5000,
+          "amount_capturable": 0,
+          "amount_details": {
+            "tip": {}
+          },
+          "amount_received": 5000,
+          "capture_method": "automatic",
+          "client_secret": "pi_3TbTLfEZpD6kXrae1ii1rFPp_secret_cfvhmPdjYQdKhPaasMzycshtZ",
+          "confirmation_method": "automatic",
+          "created": 1779834079,
+          "currency": "usd",
+          "customer": "cus_Uae6TTxHlP2hxk",
+          "description": "Subscription creation",
+          "latest_charge": "ch_3TbTLfEZpD6kXrae1806dEJ0",
+          "livemode": false,
+          "metadata": {},
+          "payment_method": "pm_1TbSoaEZpD6kXraeiNPSsDV1",
+          "payment_method_options": {
+            "amazon_pay": {
+              "express_checkout_element_session_id": null
+            },
+            "card": {
+              "installments": null,
+              "mandate_options": null,
+              "network": null,
+              "request_three_d_secure": "automatic"
+            },
+            "cashapp": {},
+            "klarna": {
+              "preferred_locale": null
+            },
+            "link": {
+              "persistent_token": null
+            }
+          },
+          "payment_method_types": [
+            "amazon_pay",
+            "card",
+            "cashapp",
+            "klarna",
+            "link"
+          ],
+          "setup_future_usage": "off_session",
+          "status": "succeeded"
+        },
+        {
+          "id": "pi_3TbTL5EZpD6kXrae06hTAy3Z",
+          "amount": 2000,
+          "amount_capturable": 0,
+          "amount_details": {
+            "tip": {}
+          },
+          "amount_received": 2000,
+          "automatic_payment_methods": {
+            "allow_redirects": "never",
+            "enabled": true
+          },
+          "capture_method": "automatic_async",
+          "client_secret": "pi_3TbTL5EZpD6kXrae06hTAy3Z_secret_NyWK82Ky0fJPmT4K0cAiW0SWI",
+          "confirmation_method": "automatic",
+          "created": 1779834043,
+          "currency": "usd",
+          "customer": "cus_Uae6TTxHlP2hxk",
+          "latest_charge": "ch_3TbTL5EZpD6kXrae0rDBh2Wu",
+          "livemode": false,
+          "metadata": {},
+          "payment_method": "pm_1TbSoaEZpD6kXraeiNPSsDV1",
+          "payment_method_options": {
+            "card": {
+              "installments": null,
+              "mandate_options": null,
+              "network": null,
+              "request_three_d_secure": "automatic"
+            },
+            "link": {
+              "persistent_token": null
+            }
+          },
+          "payment_method_types": [
+            "card",
+            "link"
+          ],
+          "status": "succeeded"
+        },
+        {
+          "id": "pi_3TbTKTEZpD6kXrae0kQmj7S5",
+          "amount": 2000,
+          "amount_capturable": 0,
+          "amount_details": {
+            "tip": {}
+          },
+          "amount_received": 2000,
+          "automatic_payment_methods": {
+            "allow_redirects": "never",
+            "enabled": true
+          },
+          "capture_method": "automatic_async",
+          "client_secret": "pi_3TbTKTEZpD6kXrae0kQmj7S5_secret_QdfMWd631lKHnNbiCRk34Qr1x",
+          "confirmation_method": "automatic",
+          "created": 1779834005,
+          "currency": "usd",
+          "customer": "cus_Uae6TTxHlP2hxk",
+          "latest_charge": "ch_3TbTKTEZpD6kXrae0CVnhlcS",
+          "livemode": false,
+          "metadata": {},
+          "payment_method": "pm_1TbSoaEZpD6kXraeiNPSsDV1",
+          "payment_method_options": {
+            "card": {
+              "installments": null,
+              "mandate_options": null,
+              "network": null,
+              "request_three_d_secure": "automatic"
+            },
+            "link": {
+              "persistent_token": null
+            }
+          },
+          "payment_method_types": [
+            "card",
+            "link"
+          ],
+          "status": "succeeded"
+        },
+        {
+          "id": "pi_3TbTJdEZpD6kXrae1eQmVDpJ",
+          "amount": 7000,
+          "amount_capturable": 0,
+          "amount_details": {
+            "tip": {}
+          },
+          "amount_received": 7000,
+          "capture_method": "automatic",
+          "client_secret": "pi_3TbTJdEZpD6kXrae1eQmVDpJ_secret_dbJJVHm0MGr29DDkxmpQCbeOu",
+          "confirmation_method": "automatic",
+          "created": 1779833953,
+          "currency": "usd",
+          "customer": "cus_Uae6TTxHlP2hxk",
+          "description": "Subscription creation",
+          "latest_charge": "ch_3TbTJdEZpD6kXrae15dH5AZT",
+          "livemode": false,
+          "metadata": {},
+          "payment_method": "pm_1TbSoaEZpD6kXraeiNPSsDV1",
+          "payment_method_options": {
+            "amazon_pay": {
+              "express_checkout_element_session_id": null
+            },
+            "card": {
+              "installments": null,
+              "mandate_options": null,
+              "network": null,
+              "request_three_d_secure": "automatic"
+            },
+            "cashapp": {},
+            "klarna": {
+              "preferred_locale": null
+            },
+            "link": {
+              "persistent_token": null
+            }
+          },
+          "payment_method_types": [
+            "amazon_pay",
+            "card",
+            "cashapp",
+            "klarna",
+            "link"
+          ],
+          "setup_future_usage": "off_session",
+          "status": "succeeded"
+        },
+        {
+          "id": "pi_3TbTGzEZpD6kXrae0RA30LY7",
+          "amount": 1000,
+          "amount_capturable": 0,
+          "amount_details": {
+            "tip": {}
+          },
+          "amount_received": 0,
+          "canceled_at": 1779834073,
+          "cancellation_reason": "duplicate",
+          "capture_method": "automatic",
+          "client_secret": "pi_3TbTGzEZpD6kXrae0RA30LY7_secret_jcyoHuUUWRGoHPyZt4l33n7cY",
+          "confirmation_method": "automatic",
+          "created": 1779833789,
+          "currency": "usd",
+          "customer": "cus_Uae6TTxHlP2hxk",
+          "description": "Payment for Invoice",
+          "livemode": false,
+          "metadata": {},
+          "payment_method": "pm_1TbSoaEZpD6kXraeiNPSsDV1",
+          "payment_method_options": {
+            "amazon_pay": {
+              "express_checkout_element_session_id": null
+            },
+            "card": {
+              "installments": null,
+              "mandate_options": null,
+              "network": null,
+              "request_three_d_secure": "automatic"
+            },
+            "cashapp": {},
+            "klarna": {
+              "preferred_locale": null
+            },
+            "link": {
+              "persistent_token": null
+            }
+          },
+          "payment_method_types": [
+            "amazon_pay",
+            "card",
+            "cashapp",
+            "klarna",
+            "link"
+          ],
+          "status": "canceled"
+        },
+        {
+          "id": "pi_3TbTGbEZpD6kXrae05zPnaWf",
+          "amount": 1000,
+          "amount_capturable": 0,
+          "amount_details": {
+            "tip": {}
+          },
+          "amount_received": 1000,
+          "automatic_payment_methods": {
+            "allow_redirects": "never",
+            "enabled": true
+          },
+          "capture_method": "manual",
+          "client_secret": "pi_3TbTGbEZpD6kXrae05zPnaWf_secret_3acbVnVjDXjWlpJDdktGWmB8Y",
+          "confirmation_method": "automatic",
+          "created": 1779833765,
+          "currency": "usd",
+          "customer": "cus_Uae6TTxHlP2hxk",
+          "latest_charge": "ch_3TbTGbEZpD6kXrae0N7RRaXp",
+          "livemode": false,
+          "metadata": {},
+          "payment_method": "pm_1TbSoaEZpD6kXraeiNPSsDV1",
+          "payment_method_options": {
+            "card": {
+              "installments": null,
+              "mandate_options": null,
+              "network": null,
+              "request_three_d_secure": "automatic"
+            },
+            "link": {
+              "persistent_token": null
+            }
+          },
+          "payment_method_types": [
+            "card",
+            "link"
+          ],
+          "status": "succeeded"
+        },
+        {
+          "id": "pi_3TbTGQEZpD6kXrae0LEFzv8a",
+          "amount": 1000,
+          "amount_capturable": 0,
+          "amount_details": {
+            "tip": {}
+          },
+          "amount_received": 0,
+          "canceled_at": 1779834127,
+          "cancellation_reason": "duplicate",
+          "capture_method": "automatic",
+          "client_secret": "pi_3TbTGQEZpD6kXrae0LEFzv8a_secret_yngJ7n1JyWN3O3mZRzWbkWFBQ",
+          "confirmation_method": "automatic",
+          "created": 1779833754,
+          "currency": "usd",
+          "customer": "cus_Uae6TTxHlP2hxk",
+          "description": "Payment for Invoice",
+          "livemode": false,
+          "metadata": {},
+          "payment_method": "pm_1TbSoaEZpD6kXraeiNPSsDV1",
+          "payment_method_options": {
+            "amazon_pay": {
+              "express_checkout_element_session_id": null
+            },
+            "card": {
+              "installments": null,
+              "mandate_options": null,
+              "network": null,
+              "request_three_d_secure": "automatic"
+            },
+            "cashapp": {},
+            "klarna": {
+              "preferred_locale": null
+            },
+            "link": {
+              "persistent_token": null
+            }
+          },
+          "payment_method_types": [
+            "amazon_pay",
+            "card",
+            "cashapp",
+            "klarna",
+            "link"
+          ],
+          "status": "canceled"
+        },
+        {
+          "id": "pi_3TbTG9EZpD6kXrae1F9lgGxY",
+          "amount": 400,
+          "amount_capturable": 0,
+          "amount_details": {
+            "tip": {}
+          },
+          "amount_received": 0,
+          "capture_method": "automatic",
+          "client_secret": "pi_3TbTG9EZpD6kXrae1F9lgGxY_secret_kq7iaEieDkw4orvm4dF0pU13K",
+          "confirmation_method": "automatic",
+          "created": 1779833737,
+          "currency": "usd",
+          "customer": "cus_Uae6TTxHlP2hxk",
+          "description": "Payment for Invoice",
+          "livemode": false,
+          "metadata": {},
+          "payment_method": "pm_1TbSoaEZpD6kXraeiNPSsDV1",
+          "payment_method_options": {
+            "amazon_pay": {
+              "express_checkout_element_session_id": null
+            },
+            "card": {
+              "installments": null,
+              "mandate_options": null,
+              "network": null,
+              "request_three_d_secure": "automatic"
+            },
+            "cashapp": {},
+            "klarna": {
+              "preferred_locale": null
+            },
+            "link": {
+              "persistent_token": null
+            }
+          },
+          "payment_method_types": [
+            "amazon_pay",
+            "card",
+            "cashapp",
+            "klarna",
+            "link"
+          ],
+          "status": "requires_confirmation"
+        },
+        {
+          "id": "pi_3TbTF8EZpD6kXrae0hZuSJJU",
+          "amount": 500,
+          "amount_capturable": 0,
+          "amount_details": {
+            "tip": {}
+          },
+          "amount_received": 0,
+          "canceled_at": 1779833982,
+          "cancellation_reason": "duplicate",
+          "capture_method": "automatic",
+          "client_secret": "pi_3TbTF8EZpD6kXrae0hZuSJJU_secret_ZUUGbOTLum83PW8Ig3jl7KsnH",
+          "confirmation_method": "automatic",
+          "created": 1779833674,
+          "currency": "usd",
+          "customer": "cus_Uae6TTxHlP2hxk",
+          "description": "Payment for Invoice",
+          "livemode": false,
+          "metadata": {},
+          "payment_method": "pm_1TbSoaEZpD6kXraeiNPSsDV1",
+          "payment_method_options": {
+            "amazon_pay": {
+              "express_checkout_element_session_id": null
+            },
+            "card": {
+              "installments": null,
+              "mandate_options": null,
+              "network": null,
+              "request_three_d_secure": "automatic"
+            },
+            "cashapp": {},
+            "klarna": {
+              "preferred_locale": null
+            },
+            "link": {
+              "persistent_token": null
+            }
+          },
+          "payment_method_types": [
+            "amazon_pay",
+            "card",
+            "cashapp",
+            "klarna",
+            "link"
+          ],
+          "status": "canceled"
+        },
+        {
+          "id": "pi_3TbTEkEZpD6kXrae0T2e5lIc",
+          "amount": 2000,
+          "amount_capturable": 0,
+          "amount_details": {
+            "tip": {}
+          },
+          "amount_received": 0,
+          "automatic_payment_methods": {
+            "allow_redirects": "always",
+            "enabled": true
+          },
+          "canceled_at": 1779833659,
+          "capture_method": "automatic_async",
+          "client_secret": "pi_3TbTEkEZpD6kXrae0T2e5lIc_secret_fiyGpQt4eMMUQ2TXn5zDeyLFy",
+          "confirmation_method": "automatic",
+          "created": 1779833650,
+          "currency": "usd",
+          "livemode": false,
+          "metadata": {},
+          "payment_method_options": {
+            "amazon_pay": {
+              "express_checkout_element_session_id": null
+            },
+            "card": {
+              "installments": null,
+              "mandate_options": null,
+              "network": null,
+              "request_three_d_secure": "automatic"
+            },
+            "cashapp": {},
+            "klarna": {
+              "preferred_locale": null
+            },
+            "link": {
+              "persistent_token": null
+            }
+          },
+          "payment_method_types": [
+            "card",
+            "klarna",
+            "link",
+            "cashapp",
+            "amazon_pay"
+          ],
+          "status": "canceled"
+        },
+        {
+          "id": "pi_3TbTENEZpD6kXrae1zmMQAH1",
+          "amount": 4000,
+          "amount_capturable": 0,
+          "amount_details": {
+            "tip": {}
+          },
+          "amount_received": 4000,
+          "capture_method": "automatic",
+          "client_secret": "pi_3TbTENEZpD6kXrae1zmMQAH1_secret_BiGsBGjBJWzMNcCoiwaK3q5k8",
+          "confirmation_method": "automatic",
+          "created": 1779833627,
+          "currency": "usd",
+          "customer": "cus_Uae6TTxHlP2hxk",
+          "description": "Subscription creation",
+          "latest_charge": "ch_3TbTENEZpD6kXrae1RsAdJ86",
+          "livemode": false,
+          "metadata": {},
+          "payment_method": "pm_1TbSoaEZpD6kXraeiNPSsDV1",
+          "payment_method_options": {
+            "amazon_pay": {
+              "express_checkout_element_session_id": null
+            },
+            "card": {
+              "installments": null,
+              "mandate_options": null,
+              "network": null,
+              "request_three_d_secure": "automatic"
+            },
+            "cashapp": {},
+            "klarna": {
+              "preferred_locale": null
+            },
+            "link": {
+              "persistent_token": null
+            }
+          },
+          "payment_method_types": [
+            "amazon_pay",
+            "card",
+            "cashapp",
+            "klarna",
+            "link"
+          ],
+          "setup_future_usage": "off_session",
+          "status": "succeeded"
+        },
+        {
+          "id": "pi_3TbTCgEZpD6kXrae16ICMbzh",
+          "amount": 2000,
+          "amount_capturable": 0,
+          "amount_details": {
+            "tip": {}
+          },
+          "amount_received": 0,
+          "automatic_payment_methods": {
+            "allow_redirects": "always",
+            "enabled": true
+          },
+          "capture_method": "automatic_async",
+          "client_secret": "pi_3TbTCgEZpD6kXrae16ICMbzh_secret_I5eehgvYslPlhxTUCi3XTX2Ht",
+          "confirmation_method": "automatic",
+          "created": 1779833522,
+          "currency": "usd",
+          "livemode": false,
+          "metadata": {},
+          "payment_method_options": {
+            "amazon_pay": {
+              "express_checkout_element_session_id": null
+            },
+            "card": {
+              "installments": null,
+              "mandate_options": null,
+              "network": null,
+              "request_three_d_secure": "automatic"
+            },
+            "cashapp": {},
+            "klarna": {
+              "preferred_locale": null
+            },
+            "link": {
+              "persistent_token": null
+            }
+          },
+          "payment_method_types": [
+            "card",
+            "klarna",
+            "link",
+            "cashapp",
+            "amazon_pay"
+          ],
+          "status": "requires_payment_method"
+        },
+        {
+          "id": "pi_3TbTCUEZpD6kXrae1lyOQSrU",
+          "amount": 2000,
+          "amount_capturable": 0,
+          "amount_details": {
+            "tip": {}
+          },
+          "amount_received": 0,
+          "automatic_payment_methods": {
+            "allow_redirects": "always",
+            "enabled": true
+          },
+          "capture_method": "automatic_async",
+          "client_secret": "pi_3TbTCUEZpD6kXrae1lyOQSrU_secret_hpHv3nFnzUQ685CpovW4zOlh6",
+          "confirmation_method": "automatic",
+          "created": 1779833510,
+          "currency": "usd",
+          "livemode": false,
+          "metadata": {},
+          "payment_method_options": {
+            "amazon_pay": {
+              "express_checkout_element_session_id": null
+            },
+            "card": {
+              "installments": null,
+              "mandate_options": null,
+              "network": null,
+              "request_three_d_secure": "automatic"
+            },
+            "cashapp": {},
+            "klarna": {
+              "preferred_locale": null
+            },
+            "link": {
+              "persistent_token": null
+            }
+          },
+          "payment_method_types": [
+            "card",
+            "klarna",
+            "link",
+            "cashapp",
+            "amazon_pay"
+          ],
+          "status": "requires_payment_method"
+        },
+        {
+          "id": "pi_3TbSqaEZpD6kXrae0PlMCGAz",
+          "amount": 5000,
+          "amount_capturable": 0,
+          "amount_details": {
+            "tip": {}
+          },
+          "amount_received": 5000,
+          "automatic_payment_methods": {
+            "allow_redirects": "never",
+            "enabled": true
+          },
+          "capture_method": "automatic_async",
+          "client_secret": "pi_3TbSqaEZpD6kXrae0PlMCGAz_secret_eDALlNxOVX7NBsHMz47jprLUI",
+          "confirmation_method": "automatic",
+          "created": 1779832152,
+          "currency": "usd",
+          "customer": "cus_Uae6TTxHlP2hxk",
+          "latest_charge": "ch_3TbSqaEZpD6kXrae00FIdBKp",
+          "livemode": false,
+          "metadata": {},
+          "payment_method": "pm_1TbSoaEZpD6kXraeiNPSsDV1",
+          "payment_method_options": {
+            "card": {
+              "installments": null,
+              "mandate_options": null,
+              "network": null,
+              "request_three_d_secure": "automatic"
+            },
+            "link": {
+              "persistent_token": null
+            }
+          },
+          "payment_method_types": [
+            "card",
+            "link"
+          ],
+          "status": "succeeded"
+        },
+        {
+          "id": "pi_3TbSqDEZpD6kXrae0s1PZcnF",
+          "amount": 1200,
+          "amount_capturable": 0,
+          "amount_details": {
+            "tip": {}
+          },
+          "amount_received": 0,
+          "canceled_at": 1779832132,
+          "cancellation_reason": "duplicate",
+          "capture_method": "automatic",
+          "client_secret": "pi_3TbSqDEZpD6kXrae0s1PZcnF_secret_hpHwsCrMl16jN37IPVEZXcq9X",
+          "confirmation_method": "automatic",
+          "created": 1779832129,
+          "currency": "usd",
+          "customer": "cus_Uae6TTxHlP2hxk",
+          "description": "Payment for Invoice",
+          "livemode": false,
+          "metadata": {},
+          "payment_method": "pm_1TbSoaEZpD6kXraeiNPSsDV1",
+          "payment_method_options": {
+            "amazon_pay": {
+              "express_checkout_element_session_id": null
+            },
+            "card": {
+              "installments": null,
+              "mandate_options": null,
+              "network": null,
+              "request_three_d_secure": "automatic"
+            },
+            "cashapp": {},
+            "klarna": {
+              "preferred_locale": null
+            },
+            "link": {
+              "persistent_token": null
+            }
+          },
+          "payment_method_types": [
+            "amazon_pay",
+            "card",
+            "cashapp",
+            "klarna",
+            "link"
+          ],
+          "status": "canceled"
+        },
+        {
+          "id": "pi_3TbSq9EZpD6kXrae1GcZK6l7",
+          "amount": 800,
+          "amount_capturable": 0,
+          "amount_details": {
+            "tip": {}
+          },
+          "amount_received": 0,
+          "canceled_at": 1779833615,
+          "cancellation_reason": "duplicate",
+          "capture_method": "automatic",
+          "client_secret": "pi_3TbSq9EZpD6kXrae1GcZK6l7_secret_1755EEOY6xwcnCnhIYnW6nj7R",
+          "confirmation_method": "automatic",
+          "created": 1779832125,
+          "currency": "usd",
+          "customer": "cus_Uae6TTxHlP2hxk",
+          "description": "Payment for Invoice",
+          "livemode": false,
+          "metadata": {},
+          "payment_method": "pm_1TbSoaEZpD6kXraeiNPSsDV1",
+          "payment_method_options": {
+            "amazon_pay": {
+              "express_checkout_element_session_id": null
+            },
+            "card": {
+              "installments": null,
+              "mandate_options": null,
+              "network": null,
+              "request_three_d_secure": "automatic"
+            },
+            "cashapp": {},
+            "klarna": {
+              "preferred_locale": null
+            },
+            "link": {
+              "persistent_token": null
+            }
+          },
+          "payment_method_types": [
+            "amazon_pay",
+            "card",
+            "cashapp",
+            "klarna",
+            "link"
+          ],
+          "status": "canceled"
+        },
+        {
+          "id": "pi_3TbSpcEZpD6kXrae06pejoqc",
+          "amount": 2000,
+          "amount_capturable": 0,
+          "amount_details": {
+            "tip": {}
+          },
+          "amount_received": 2000,
+          "capture_method": "automatic",
+          "client_secret": "pi_3TbSpcEZpD6kXrae06pejoqc_secret_kEfV3O6Uny7YvYySBcfupMn0v",
+          "confirmation_method": "automatic",
+          "created": 1779832092,
+          "currency": "usd",
+          "customer": "cus_Uae6TTxHlP2hxk",
+          "description": "Subscription creation",
+          "latest_charge": "ch_3TbSpcEZpD6kXrae0ml2ftAl",
+          "livemode": false,
+          "metadata": {},
+          "payment_method": "pm_1TbSoaEZpD6kXraeiNPSsDV1",
+          "payment_method_options": {
+            "amazon_pay": {
+              "express_checkout_element_session_id": null
+            },
+            "card": {
+              "installments": null,
+              "mandate_options": null,
+              "network": null,
+              "request_three_d_secure": "automatic"
+            },
+            "cashapp": {},
+            "klarna": {
+              "preferred_locale": null
+            },
+            "link": {
+              "persistent_token": null
+            }
+          },
+          "payment_method_types": [
+            "amazon_pay",
+            "card",
+            "cashapp",
+            "klarna",
+            "link"
+          ],
+          "setup_future_usage": "off_session",
+          "status": "succeeded"
+        },
+        {
+          "id": "pi_3TbSpYEZpD6kXrae0SA5Z7bE",
+          "amount": 2000,
+          "amount_capturable": 0,
+          "amount_details": {
+            "tip": {}
+          },
+          "amount_received": 2000,
+          "capture_method": "automatic",
+          "client_secret": "pi_3TbSpYEZpD6kXrae0SA5Z7bE_secret_ETPU3TvPsdi2JgHte9vAvKCNi",
+          "confirmation_method": "automatic",
+          "created": 1779832088,
+          "currency": "usd",
+          "customer": "cus_Uae6TTxHlP2hxk",
+          "description": "Subscription creation",
+          "latest_charge": "ch_3TbSpYEZpD6kXrae08Y4nHd7",
+          "livemode": false,
+          "metadata": {},
+          "payment_method": "pm_1TbSoaEZpD6kXraeiNPSsDV1",
+          "payment_method_options": {
+            "amazon_pay": {
+              "express_checkout_element_session_id": null
+            },
+            "card": {
+              "installments": null,
+              "mandate_options": null,
+              "network": null,
+              "request_three_d_secure": "automatic"
+            },
+            "cashapp": {},
+            "klarna": {
+              "preferred_locale": null
+            },
+            "link": {
+              "persistent_token": null
+            }
+          },
+          "payment_method_types": [
+            "amazon_pay",
+            "card",
+            "cashapp",
+            "klarna",
+            "link"
+          ],
+          "setup_future_usage": "off_session",
+          "status": "succeeded"
+        },
+        {
+          "id": "pi_3TbSpUEZpD6kXrae1gusZBoW",
+          "amount": 2000,
+          "amount_capturable": 0,
+          "amount_details": {
+            "tip": {}
+          },
+          "amount_received": 2000,
+          "capture_method": "automatic",
+          "client_secret": "pi_3TbSpUEZpD6kXrae1gusZBoW_secret_4vqDkBwNvesbAdJMhB1en5r1h",
+          "confirmation_method": "automatic",
+          "created": 1779832084,
+          "currency": "usd",
+          "customer": "cus_Uae6TTxHlP2hxk",
+          "description": "Subscription creation",
+          "latest_charge": "ch_3TbSpUEZpD6kXrae1TyCNdg4",
+          "livemode": false,
+          "metadata": {},
+          "payment_method": "pm_1TbSoaEZpD6kXraeiNPSsDV1",
+          "payment_method_options": {
+            "amazon_pay": {
+              "express_checkout_element_session_id": null
+            },
+            "card": {
+              "installments": null,
+              "mandate_options": null,
+              "network": null,
+              "request_three_d_secure": "automatic"
+            },
+            "cashapp": {},
+            "klarna": {
+              "preferred_locale": null
+            },
+            "link": {
+              "persistent_token": null
+            }
+          },
+          "payment_method_types": [
+            "amazon_pay",
+            "card",
+            "cashapp",
+            "klarna",
+            "link"
+          ],
+          "setup_future_usage": "off_session",
+          "status": "succeeded"
+        },
+        {
+          "id": "pi_3TbSozEZpD6kXrae0sZsePqO",
+          "amount": 3000,
+          "amount_capturable": 0,
+          "amount_details": {
+            "tip": {}
+          },
+          "amount_received": 3000,
+          "automatic_payment_methods": {
+            "allow_redirects": "never",
+            "enabled": true
+          },
+          "capture_method": "manual",
+          "client_secret": "pi_3TbSozEZpD6kXrae0sZsePqO_secret_dSiDdaIZuDAGiWNH40coYoOSV",
+          "confirmation_method": "automatic",
+          "created": 1779832053,
+          "currency": "usd",
+          "customer": "cus_Uae6TTxHlP2hxk",
+          "latest_charge": "ch_3TbSozEZpD6kXrae01YLbeFV",
+          "livemode": false,
+          "metadata": {},
+          "payment_method": "pm_1TbSoaEZpD6kXraeiNPSsDV1",
+          "payment_method_options": {
+            "card": {
+              "installments": null,
+              "mandate_options": null,
+              "network": null,
+              "request_three_d_secure": "automatic"
+            },
+            "link": {
+              "persistent_token": null
+            }
+          },
+          "payment_method_types": [
+            "card",
+            "link"
+          ],
+          "status": "succeeded"
+        },
+        {
+          "id": "pi_3TbSoqEZpD6kXrae142yMTEG",
+          "amount": 1500,
+          "amount_capturable": 0,
+          "amount_details": {
+            "tip": {}
+          },
+          "amount_received": 0,
+          "automatic_payment_methods": {
+            "allow_redirects": "always",
+            "enabled": true
+          },
+          "canceled_at": 1779833583,
+          "capture_method": "automatic_async",
+          "client_secret": "pi_3TbSoqEZpD6kXrae142yMTEG_secret_cSpk2zOjDabsISrbxtsKfCg5m",
+          "confirmation_method": "automatic",
+          "created": 1779832044,
+          "currency": "usd",
+          "customer": "cus_Uae6TTxHlP2hxk",
+          "livemode": false,
+          "metadata": {},
+          "payment_method_options": {
+            "amazon_pay": {
+              "express_checkout_element_session_id": null
+            },
+            "card": {
+              "installments": null,
+              "mandate_options": null,
+              "network": null,
+              "request_three_d_secure": "automatic"
+            },
+            "cashapp": {},
+            "klarna": {
+              "preferred_locale": null
+            },
+            "link": {
+              "persistent_token": null
+            }
+          },
+          "payment_method_types": [
+            "card",
+            "klarna",
+            "link",
+            "cashapp",
+            "amazon_pay"
+          ],
+          "status": "canceled"
+        },
+        {
+          "id": "pi_3TbSopEZpD6kXrae1ZIp2rzC",
+          "amount": 1500,
+          "amount_capturable": 0,
+          "amount_details": {
+            "tip": {}
+          },
+          "amount_received": 0,
+          "automatic_payment_methods": {
+            "allow_redirects": "always",
+            "enabled": true
+          },
+          "canceled_at": 1779833555,
+          "capture_method": "automatic_async",
+          "client_secret": "pi_3TbSopEZpD6kXrae1ZIp2rzC_secret_MsM5O47FFzLVg2bWQMusuPG6r",
+          "confirmation_method": "automatic",
+          "created": 1779832043,
+          "currency": "usd",
+          "customer": "cus_Uae6TTxHlP2hxk",
+          "livemode": false,
+          "metadata": {},
+          "payment_method_options": {
+            "amazon_pay": {
+              "express_checkout_element_session_id": null
+            },
+            "card": {
+              "installments": null,
+              "mandate_options": null,
+              "network": null,
+              "request_three_d_secure": "automatic"
+            },
+            "cashapp": {},
+            "klarna": {
+              "preferred_locale": null
+            },
+            "link": {
+              "persistent_token": null
+            }
+          },
+          "payment_method_types": [
+            "card",
+            "klarna",
+            "link",
+            "cashapp",
+            "amazon_pay"
+          ],
+          "status": "canceled"
+        },
+        {
+          "id": "pi_3TbSonEZpD6kXrae0do5CLRX",
+          "amount": 2000,
+          "amount_capturable": 0,
+          "amount_details": {
+            "tip": {}
+          },
+          "amount_received": 0,
+          "automatic_payment_methods": {
+            "allow_redirects": "always",
+            "enabled": true
+          },
+          "canceled_at": 1779833594,
+          "capture_method": "automatic_async",
+          "client_secret": "pi_3TbSonEZpD6kXrae0do5CLRX_secret_6w6BgRMFqU2E8zUwx8WeIDwJk",
+          "confirmation_method": "automatic",
+          "created": 1779832041,
+          "currency": "usd",
+          "customer": "cus_Uae6TTxHlP2hxk",
+          "description": "Updated via Nango action",
+          "livemode": false,
+          "metadata": {},
+          "payment_method_options": {
+            "amazon_pay": {
+              "express_checkout_element_session_id": null
+            },
+            "card": {
+              "installments": null,
+              "mandate_options": null,
+              "network": null,
+              "request_three_d_secure": "automatic"
+            },
+            "cashapp": {},
+            "klarna": {
+              "preferred_locale": null
+            },
+            "link": {
+              "persistent_token": null
+            }
+          },
+          "payment_method_types": [
+            "card",
+            "klarna",
+            "link",
+            "cashapp",
+            "amazon_pay"
+          ],
+          "status": "canceled"
+        },
+        {
+          "id": "pi_3TbSjlEZpD6kXrae1U623ywc",
+          "amount": 500,
+          "amount_capturable": 0,
+          "amount_details": {
+            "tip": {}
+          },
+          "amount_received": 0,
+          "canceled_at": 1779831749,
+          "cancellation_reason": "duplicate",
+          "capture_method": "automatic",
+          "client_secret": "pi_3TbSjlEZpD6kXrae1U623ywc_secret_GQbTcvP6r0X9WsImx6afsff8G",
+          "confirmation_method": "automatic",
+          "created": 1779831729,
+          "currency": "usd",
+          "customer": "cus_Uae07nJucy33Kr",
+          "description": "Payment for Invoice",
+          "livemode": false,
+          "metadata": {},
+          "payment_method_options": {
+            "amazon_pay": {
+              "express_checkout_element_session_id": null
+            },
+            "card": {
+              "installments": null,
+              "mandate_options": null,
+              "network": null,
+              "request_three_d_secure": "automatic"
+            },
+            "cashapp": {},
+            "klarna": {
+              "preferred_locale": null
+            },
+            "link": {
+              "persistent_token": null
+            }
+          },
+          "payment_method_types": [
+            "amazon_pay",
+            "card",
+            "cashapp",
+            "klarna",
+            "link"
+          ],
+          "status": "canceled"
+        },
+        {
+          "id": "pi_3TbSjTEZpD6kXrae0Vh5SGoP",
+          "amount": 1000,
+          "amount_capturable": 0,
+          "amount_details": {
+            "tip": {}
+          },
+          "amount_received": 0,
+          "canceled_at": 1779831713,
+          "cancellation_reason": "void_invoice",
+          "capture_method": "automatic",
+          "client_secret": "pi_3TbSjTEZpD6kXrae0Vh5SGoP_secret_DMZyMkOkbKnQoinjWCep8dPR7",
+          "confirmation_method": "automatic",
+          "created": 1779831711,
+          "currency": "usd",
+          "customer": "cus_Uae07nJucy33Kr",
+          "description": "Payment for Invoice",
+          "livemode": false,
+          "metadata": {},
+          "payment_method_options": {
+            "amazon_pay": {
+              "express_checkout_element_session_id": null
+            },
+            "card": {
+              "installments": null,
+              "mandate_options": null,
+              "network": null,
+              "request_three_d_secure": "automatic"
+            },
+            "cashapp": {},
+            "klarna": {
+              "preferred_locale": null
+            },
+            "link": {
+              "persistent_token": null
+            }
+          },
+          "payment_method_types": [
+            "amazon_pay",
+            "card",
+            "cashapp",
+            "klarna",
+            "link"
+          ],
+          "status": "canceled"
+        }
+      ]
+    },
+    "batchDelete": {
+      "PaymentIntent": []
+    }
+  },
+  "api": {
+    "get": {
+      "/v1/payment_intents": {
+        "response": {
+          "object": "list",
+          "data": [
+            {
+              "id": "pi_3TbTWDEZpD6kXrae0vjEKN0y",
+              "object": "payment_intent",
+              "amount": 1000,
+              "amount_capturable": 0,
+              "amount_details": {
+                "tip": {}
+              },
+              "amount_received": 0,
+              "application": null,
+              "application_fee_amount": null,
+              "automatic_payment_methods": null,
+              "canceled_at": 1779834746,
+              "cancellation_reason": "void_invoice",
+              "capture_method": "automatic",
+              "client_secret": "pi_3TbTWDEZpD6kXrae0vjEKN0y_secret_ChgLVHb5pomt0D5iWwblnPZmU",
+              "confirmation_method": "automatic",
+              "created": 1779834733,
+              "currency": "usd",
+              "customer": "cus_UaepkMAC4Sf8Di",
+              "customer_account": null,
+              "description": "Payment for Invoice",
+              "excluded_payment_method_types": null,
+              "last_payment_error": null,
+              "latest_charge": null,
+              "livemode": false,
+              "managed_payments": {
+                "enabled": false
+              },
+              "metadata": {},
+              "next_action": null,
+              "on_behalf_of": null,
+              "payment_details": {
+                "customer_reference": null,
+                "order_reference": "in_1TbTWCEZpD6kXrae5HcVlKNv"
+              },
+              "payment_method": null,
+              "payment_method_configuration_details": null,
+              "payment_method_options": {
+                "amazon_pay": {
+                  "express_checkout_element_session_id": null
+                },
+                "card": {
+                  "installments": null,
+                  "mandate_options": null,
+                  "network": null,
+                  "request_three_d_secure": "automatic"
+                },
+                "cashapp": {},
+                "klarna": {
+                  "preferred_locale": null
+                },
+                "link": {
+                  "persistent_token": null
+                }
+              },
+              "payment_method_types": [
+                "amazon_pay",
+                "card",
+                "cashapp",
+                "klarna",
+                "link"
+              ],
+              "processing": null,
+              "receipt_email": null,
+              "review": null,
+              "setup_future_usage": null,
+              "shared_payment_granted_token": null,
+              "shipping": null,
+              "source": null,
+              "statement_descriptor": null,
+              "statement_descriptor_suffix": null,
+              "status": "canceled",
+              "transfer_data": null,
+              "transfer_group": null
+            },
+            {
+              "id": "pi_3TbTVSEZpD6kXrae1ZW68Qo9",
+              "object": "payment_intent",
+              "amount": 1000,
+              "amount_capturable": 0,
+              "amount_details": {
+                "tip": {}
+              },
+              "amount_received": 0,
+              "application": null,
+              "application_fee_amount": null,
+              "automatic_payment_methods": null,
+              "canceled_at": 1779834700,
+              "cancellation_reason": "void_invoice",
+              "capture_method": "automatic",
+              "client_secret": "pi_3TbTVSEZpD6kXrae1ZW68Qo9_secret_yXEJH2P2zXO7Xbv3rLMeisCkU",
+              "confirmation_method": "automatic",
+              "created": 1779834686,
+              "currency": "usd",
+              "customer": "cus_UaepM9M2k4nHBk",
+              "customer_account": null,
+              "description": "Payment for Invoice",
+              "excluded_payment_method_types": null,
+              "last_payment_error": null,
+              "latest_charge": null,
+              "livemode": false,
+              "managed_payments": {
+                "enabled": false
+              },
+              "metadata": {},
+              "next_action": null,
+              "on_behalf_of": null,
+              "payment_details": {
+                "customer_reference": null,
+                "order_reference": "in_1TbTVQEZpD6kXrae8T9HjJvn"
+              },
+              "payment_method": null,
+              "payment_method_configuration_details": null,
+              "payment_method_options": {
+                "amazon_pay": {
+                  "express_checkout_element_session_id": null
+                },
+                "card": {
+                  "installments": null,
+                  "mandate_options": null,
+                  "network": null,
+                  "request_three_d_secure": "automatic"
+                },
+                "cashapp": {},
+                "klarna": {
+                  "preferred_locale": null
+                },
+                "link": {
+                  "persistent_token": null
+                }
+              },
+              "payment_method_types": [
+                "amazon_pay",
+                "card",
+                "cashapp",
+                "klarna",
+                "link"
+              ],
+              "processing": null,
+              "receipt_email": null,
+              "review": null,
+              "setup_future_usage": null,
+              "shared_payment_granted_token": null,
+              "shipping": null,
+              "source": null,
+              "statement_descriptor": null,
+              "statement_descriptor_suffix": null,
+              "status": "canceled",
+              "transfer_data": null,
+              "transfer_group": null
+            },
+            {
+              "id": "pi_3TbTPXEZpD6kXrae15aTkbrt",
+              "object": "payment_intent",
+              "amount": 5000,
+              "amount_capturable": 0,
+              "amount_details": {
+                "tip": {}
+              },
+              "amount_received": 5000,
+              "application": null,
+              "application_fee_amount": null,
+              "automatic_payment_methods": null,
+              "canceled_at": null,
+              "cancellation_reason": null,
+              "capture_method": "automatic",
+              "client_secret": "pi_3TbTPXEZpD6kXrae15aTkbrt_secret_JgHatLpW8sgJnt8l5mpJSuHjo",
+              "confirmation_method": "automatic",
+              "created": 1779834319,
+              "currency": "usd",
+              "customer": "cus_Uae6TTxHlP2hxk",
+              "customer_account": null,
+              "description": "Subscription creation",
+              "excluded_payment_method_types": null,
+              "last_payment_error": null,
+              "latest_charge": "ch_3TbTPXEZpD6kXrae1WkdWbcV",
+              "livemode": false,
+              "managed_payments": {
+                "enabled": false
+              },
+              "metadata": {},
+              "next_action": null,
+              "on_behalf_of": null,
+              "payment_details": {
+                "customer_reference": null,
+                "order_reference": "in_1TbTPWEZpD6kXraeFErYlfqb"
+              },
+              "payment_method": "pm_1TbSoaEZpD6kXraeiNPSsDV1",
+              "payment_method_configuration_details": null,
+              "payment_method_options": {
+                "amazon_pay": {
+                  "express_checkout_element_session_id": null
+                },
+                "card": {
+                  "installments": null,
+                  "mandate_options": null,
+                  "network": null,
+                  "request_three_d_secure": "automatic"
+                },
+                "cashapp": {},
+                "klarna": {
+                  "preferred_locale": null
+                },
+                "link": {
+                  "persistent_token": null
+                }
+              },
+              "payment_method_types": [
+                "amazon_pay",
+                "card",
+                "cashapp",
+                "klarna",
+                "link"
+              ],
+              "processing": null,
+              "receipt_email": null,
+              "review": null,
+              "setup_future_usage": "off_session",
+              "shared_payment_granted_token": null,
+              "shipping": null,
+              "source": null,
+              "statement_descriptor": null,
+              "statement_descriptor_suffix": null,
+              "status": "succeeded",
+              "transfer_data": null,
+              "transfer_group": null
+            },
+            {
+              "id": "pi_3TbTLtEZpD6kXrae0bS8H275",
+              "object": "payment_intent",
+              "amount": 2000,
+              "amount_capturable": 0,
+              "amount_details": {
+                "tip": {}
+              },
+              "amount_received": 2000,
+              "application": null,
+              "application_fee_amount": null,
+              "automatic_payment_methods": null,
+              "canceled_at": null,
+              "cancellation_reason": null,
+              "capture_method": "automatic",
+              "client_secret": "pi_3TbTLtEZpD6kXrae0bS8H275_secret_lcCnUbMd9vDBCnLb7ZwrUFk5S",
+              "confirmation_method": "automatic",
+              "created": 1779834093,
+              "currency": "usd",
+              "customer": "cus_Uae6TTxHlP2hxk",
+              "customer_account": null,
+              "description": "Subscription creation",
+              "excluded_payment_method_types": null,
+              "last_payment_error": null,
+              "latest_charge": "ch_3TbTLtEZpD6kXrae07ojJcaM",
+              "livemode": false,
+              "managed_payments": {
+                "enabled": false
+              },
+              "metadata": {},
+              "next_action": null,
+              "on_behalf_of": null,
+              "payment_details": {
+                "customer_reference": null,
+                "order_reference": "in_1TbTLsEZpD6kXraeXiurj3c3"
+              },
+              "payment_method": "pm_1TbSoaEZpD6kXraeiNPSsDV1",
+              "payment_method_configuration_details": null,
+              "payment_method_options": {
+                "amazon_pay": {
+                  "express_checkout_element_session_id": null
+                },
+                "card": {
+                  "installments": null,
+                  "mandate_options": null,
+                  "network": null,
+                  "request_three_d_secure": "automatic"
+                },
+                "cashapp": {},
+                "klarna": {
+                  "preferred_locale": null
+                },
+                "link": {
+                  "persistent_token": null
+                }
+              },
+              "payment_method_types": [
+                "amazon_pay",
+                "card",
+                "cashapp",
+                "klarna",
+                "link"
+              ],
+              "processing": null,
+              "receipt_email": null,
+              "review": null,
+              "setup_future_usage": "off_session",
+              "shared_payment_granted_token": null,
+              "shipping": null,
+              "source": null,
+              "statement_descriptor": null,
+              "statement_descriptor_suffix": null,
+              "status": "succeeded",
+              "transfer_data": null,
+              "transfer_group": null
+            },
+            {
+              "id": "pi_3TbTLfEZpD6kXrae1ii1rFPp",
+              "object": "payment_intent",
+              "amount": 5000,
+              "amount_capturable": 0,
+              "amount_details": {
+                "tip": {}
+              },
+              "amount_received": 5000,
+              "application": null,
+              "application_fee_amount": null,
+              "automatic_payment_methods": null,
+              "canceled_at": null,
+              "cancellation_reason": null,
+              "capture_method": "automatic",
+              "client_secret": "pi_3TbTLfEZpD6kXrae1ii1rFPp_secret_cfvhmPdjYQdKhPaasMzycshtZ",
+              "confirmation_method": "automatic",
+              "created": 1779834079,
+              "currency": "usd",
+              "customer": "cus_Uae6TTxHlP2hxk",
+              "customer_account": null,
+              "description": "Subscription creation",
+              "excluded_payment_method_types": null,
+              "last_payment_error": null,
+              "latest_charge": "ch_3TbTLfEZpD6kXrae1806dEJ0",
+              "livemode": false,
+              "managed_payments": {
+                "enabled": false
+              },
+              "metadata": {},
+              "next_action": null,
+              "on_behalf_of": null,
+              "payment_details": {
+                "customer_reference": null,
+                "order_reference": "in_1TbTLeEZpD6kXrae9gQFgq6W"
+              },
+              "payment_method": "pm_1TbSoaEZpD6kXraeiNPSsDV1",
+              "payment_method_configuration_details": null,
+              "payment_method_options": {
+                "amazon_pay": {
+                  "express_checkout_element_session_id": null
+                },
+                "card": {
+                  "installments": null,
+                  "mandate_options": null,
+                  "network": null,
+                  "request_three_d_secure": "automatic"
+                },
+                "cashapp": {},
+                "klarna": {
+                  "preferred_locale": null
+                },
+                "link": {
+                  "persistent_token": null
+                }
+              },
+              "payment_method_types": [
+                "amazon_pay",
+                "card",
+                "cashapp",
+                "klarna",
+                "link"
+              ],
+              "processing": null,
+              "receipt_email": null,
+              "review": null,
+              "setup_future_usage": "off_session",
+              "shared_payment_granted_token": null,
+              "shipping": null,
+              "source": null,
+              "statement_descriptor": null,
+              "statement_descriptor_suffix": null,
+              "status": "succeeded",
+              "transfer_data": null,
+              "transfer_group": null
+            },
+            {
+              "id": "pi_3TbTL5EZpD6kXrae06hTAy3Z",
+              "object": "payment_intent",
+              "amount": 2000,
+              "amount_capturable": 0,
+              "amount_details": {
+                "tip": {}
+              },
+              "amount_received": 2000,
+              "application": null,
+              "application_fee_amount": null,
+              "automatic_payment_methods": {
+                "allow_redirects": "never",
+                "enabled": true
+              },
+              "canceled_at": null,
+              "cancellation_reason": null,
+              "capture_method": "automatic_async",
+              "client_secret": "pi_3TbTL5EZpD6kXrae06hTAy3Z_secret_NyWK82Ky0fJPmT4K0cAiW0SWI",
+              "confirmation_method": "automatic",
+              "created": 1779834043,
+              "currency": "usd",
+              "customer": "cus_Uae6TTxHlP2hxk",
+              "customer_account": null,
+              "description": null,
+              "excluded_payment_method_types": null,
+              "last_payment_error": null,
+              "latest_charge": "ch_3TbTL5EZpD6kXrae0rDBh2Wu",
+              "livemode": false,
+              "managed_payments": {
+                "enabled": false
+              },
+              "metadata": {},
+              "next_action": null,
+              "on_behalf_of": null,
+              "payment_method": "pm_1TbSoaEZpD6kXraeiNPSsDV1",
+              "payment_method_configuration_details": {
+                "id": "pmc_1TbP2oEZpD6kXraeQGnR7vPZ",
+                "parent": null
+              },
+              "payment_method_options": {
+                "card": {
+                  "installments": null,
+                  "mandate_options": null,
+                  "network": null,
+                  "request_three_d_secure": "automatic"
+                },
+                "link": {
+                  "persistent_token": null
+                }
+              },
+              "payment_method_types": [
+                "card",
+                "link"
+              ],
+              "processing": null,
+              "receipt_email": null,
+              "review": null,
+              "setup_future_usage": null,
+              "shared_payment_granted_token": null,
+              "shipping": null,
+              "source": null,
+              "statement_descriptor": null,
+              "statement_descriptor_suffix": null,
+              "status": "succeeded",
+              "transfer_data": null,
+              "transfer_group": null
+            },
+            {
+              "id": "pi_3TbTKTEZpD6kXrae0kQmj7S5",
+              "object": "payment_intent",
+              "amount": 2000,
+              "amount_capturable": 0,
+              "amount_details": {
+                "tip": {}
+              },
+              "amount_received": 2000,
+              "application": null,
+              "application_fee_amount": null,
+              "automatic_payment_methods": {
+                "allow_redirects": "never",
+                "enabled": true
+              },
+              "canceled_at": null,
+              "cancellation_reason": null,
+              "capture_method": "automatic_async",
+              "client_secret": "pi_3TbTKTEZpD6kXrae0kQmj7S5_secret_QdfMWd631lKHnNbiCRk34Qr1x",
+              "confirmation_method": "automatic",
+              "created": 1779834005,
+              "currency": "usd",
+              "customer": "cus_Uae6TTxHlP2hxk",
+              "customer_account": null,
+              "description": null,
+              "excluded_payment_method_types": null,
+              "last_payment_error": null,
+              "latest_charge": "ch_3TbTKTEZpD6kXrae0CVnhlcS",
+              "livemode": false,
+              "managed_payments": {
+                "enabled": false
+              },
+              "metadata": {},
+              "next_action": null,
+              "on_behalf_of": null,
+              "payment_method": "pm_1TbSoaEZpD6kXraeiNPSsDV1",
+              "payment_method_configuration_details": {
+                "id": "pmc_1TbP2oEZpD6kXraeQGnR7vPZ",
+                "parent": null
+              },
+              "payment_method_options": {
+                "card": {
+                  "installments": null,
+                  "mandate_options": null,
+                  "network": null,
+                  "request_three_d_secure": "automatic"
+                },
+                "link": {
+                  "persistent_token": null
+                }
+              },
+              "payment_method_types": [
+                "card",
+                "link"
+              ],
+              "processing": null,
+              "receipt_email": null,
+              "review": null,
+              "setup_future_usage": null,
+              "shared_payment_granted_token": null,
+              "shipping": null,
+              "source": null,
+              "statement_descriptor": null,
+              "statement_descriptor_suffix": null,
+              "status": "succeeded",
+              "transfer_data": null,
+              "transfer_group": null
+            },
+            {
+              "id": "pi_3TbTJdEZpD6kXrae1eQmVDpJ",
+              "object": "payment_intent",
+              "amount": 7000,
+              "amount_capturable": 0,
+              "amount_details": {
+                "tip": {}
+              },
+              "amount_received": 7000,
+              "application": null,
+              "application_fee_amount": null,
+              "automatic_payment_methods": null,
+              "canceled_at": null,
+              "cancellation_reason": null,
+              "capture_method": "automatic",
+              "client_secret": "pi_3TbTJdEZpD6kXrae1eQmVDpJ_secret_dbJJVHm0MGr29DDkxmpQCbeOu",
+              "confirmation_method": "automatic",
+              "created": 1779833953,
+              "currency": "usd",
+              "customer": "cus_Uae6TTxHlP2hxk",
+              "customer_account": null,
+              "description": "Subscription creation",
+              "excluded_payment_method_types": null,
+              "last_payment_error": null,
+              "latest_charge": "ch_3TbTJdEZpD6kXrae15dH5AZT",
+              "livemode": false,
+              "managed_payments": {
+                "enabled": false
+              },
+              "metadata": {},
+              "next_action": null,
+              "on_behalf_of": null,
+              "payment_details": {
+                "customer_reference": null,
+                "order_reference": "in_1TbTJcEZpD6kXraeZIhV1Mfw"
+              },
+              "payment_method": "pm_1TbSoaEZpD6kXraeiNPSsDV1",
+              "payment_method_configuration_details": null,
+              "payment_method_options": {
+                "amazon_pay": {
+                  "express_checkout_element_session_id": null
+                },
+                "card": {
+                  "installments": null,
+                  "mandate_options": null,
+                  "network": null,
+                  "request_three_d_secure": "automatic"
+                },
+                "cashapp": {},
+                "klarna": {
+                  "preferred_locale": null
+                },
+                "link": {
+                  "persistent_token": null
+                }
+              },
+              "payment_method_types": [
+                "amazon_pay",
+                "card",
+                "cashapp",
+                "klarna",
+                "link"
+              ],
+              "processing": null,
+              "receipt_email": null,
+              "review": null,
+              "setup_future_usage": "off_session",
+              "shared_payment_granted_token": null,
+              "shipping": null,
+              "source": null,
+              "statement_descriptor": null,
+              "statement_descriptor_suffix": null,
+              "status": "succeeded",
+              "transfer_data": null,
+              "transfer_group": null
+            },
+            {
+              "id": "pi_3TbTGzEZpD6kXrae0RA30LY7",
+              "object": "payment_intent",
+              "amount": 1000,
+              "amount_capturable": 0,
+              "amount_details": {
+                "tip": {}
+              },
+              "amount_received": 0,
+              "application": null,
+              "application_fee_amount": null,
+              "automatic_payment_methods": null,
+              "canceled_at": 1779834073,
+              "cancellation_reason": "duplicate",
+              "capture_method": "automatic",
+              "client_secret": "pi_3TbTGzEZpD6kXrae0RA30LY7_secret_jcyoHuUUWRGoHPyZt4l33n7cY",
+              "confirmation_method": "automatic",
+              "created": 1779833789,
+              "currency": "usd",
+              "customer": "cus_Uae6TTxHlP2hxk",
+              "customer_account": null,
+              "description": "Payment for Invoice",
+              "excluded_payment_method_types": null,
+              "last_payment_error": null,
+              "latest_charge": null,
+              "livemode": false,
+              "managed_payments": {
+                "enabled": false
+              },
+              "metadata": {},
+              "next_action": null,
+              "on_behalf_of": null,
+              "payment_details": {
+                "customer_reference": null,
+                "order_reference": "in_1TbTGsEZpD6kXraesod5rlc7"
+              },
+              "payment_method": "pm_1TbSoaEZpD6kXraeiNPSsDV1",
+              "payment_method_configuration_details": null,
+              "payment_method_options": {
+                "amazon_pay": {
+                  "express_checkout_element_session_id": null
+                },
+                "card": {
+                  "installments": null,
+                  "mandate_options": null,
+                  "network": null,
+                  "request_three_d_secure": "automatic"
+                },
+                "cashapp": {},
+                "klarna": {
+                  "preferred_locale": null
+                },
+                "link": {
+                  "persistent_token": null
+                }
+              },
+              "payment_method_types": [
+                "amazon_pay",
+                "card",
+                "cashapp",
+                "klarna",
+                "link"
+              ],
+              "processing": null,
+              "receipt_email": null,
+              "review": null,
+              "setup_future_usage": null,
+              "shared_payment_granted_token": null,
+              "shipping": null,
+              "source": null,
+              "statement_descriptor": null,
+              "statement_descriptor_suffix": null,
+              "status": "canceled",
+              "transfer_data": null,
+              "transfer_group": null
+            },
+            {
+              "id": "pi_3TbTGbEZpD6kXrae05zPnaWf",
+              "object": "payment_intent",
+              "amount": 1000,
+              "amount_capturable": 0,
+              "amount_details": {
+                "tip": {}
+              },
+              "amount_received": 1000,
+              "application": null,
+              "application_fee_amount": null,
+              "automatic_payment_methods": {
+                "allow_redirects": "never",
+                "enabled": true
+              },
+              "canceled_at": null,
+              "cancellation_reason": null,
+              "capture_method": "manual",
+              "client_secret": "pi_3TbTGbEZpD6kXrae05zPnaWf_secret_3acbVnVjDXjWlpJDdktGWmB8Y",
+              "confirmation_method": "automatic",
+              "created": 1779833765,
+              "currency": "usd",
+              "customer": "cus_Uae6TTxHlP2hxk",
+              "customer_account": null,
+              "description": null,
+              "excluded_payment_method_types": null,
+              "last_payment_error": null,
+              "latest_charge": "ch_3TbTGbEZpD6kXrae0N7RRaXp",
+              "livemode": false,
+              "managed_payments": {
+                "enabled": false
+              },
+              "metadata": {},
+              "next_action": null,
+              "on_behalf_of": null,
+              "payment_method": "pm_1TbSoaEZpD6kXraeiNPSsDV1",
+              "payment_method_configuration_details": {
+                "id": "pmc_1TbP2oEZpD6kXraeQGnR7vPZ",
+                "parent": null
+              },
+              "payment_method_options": {
+                "card": {
+                  "installments": null,
+                  "mandate_options": null,
+                  "network": null,
+                  "request_three_d_secure": "automatic"
+                },
+                "link": {
+                  "persistent_token": null
+                }
+              },
+              "payment_method_types": [
+                "card",
+                "link"
+              ],
+              "processing": null,
+              "receipt_email": null,
+              "review": null,
+              "setup_future_usage": null,
+              "shared_payment_granted_token": null,
+              "shipping": null,
+              "source": null,
+              "statement_descriptor": null,
+              "statement_descriptor_suffix": null,
+              "status": "succeeded",
+              "transfer_data": null,
+              "transfer_group": null
+            },
+            {
+              "id": "pi_3TbTGQEZpD6kXrae0LEFzv8a",
+              "object": "payment_intent",
+              "amount": 1000,
+              "amount_capturable": 0,
+              "amount_details": {
+                "tip": {}
+              },
+              "amount_received": 0,
+              "application": null,
+              "application_fee_amount": null,
+              "automatic_payment_methods": null,
+              "canceled_at": 1779834127,
+              "cancellation_reason": "duplicate",
+              "capture_method": "automatic",
+              "client_secret": "pi_3TbTGQEZpD6kXrae0LEFzv8a_secret_yngJ7n1JyWN3O3mZRzWbkWFBQ",
+              "confirmation_method": "automatic",
+              "created": 1779833754,
+              "currency": "usd",
+              "customer": "cus_Uae6TTxHlP2hxk",
+              "customer_account": null,
+              "description": "Payment for Invoice",
+              "excluded_payment_method_types": null,
+              "last_payment_error": null,
+              "latest_charge": null,
+              "livemode": false,
+              "managed_payments": {
+                "enabled": false
+              },
+              "metadata": {},
+              "next_action": null,
+              "on_behalf_of": null,
+              "payment_details": {
+                "customer_reference": null,
+                "order_reference": "in_1TbTGFEZpD6kXraeoXPG2mCk"
+              },
+              "payment_method": "pm_1TbSoaEZpD6kXraeiNPSsDV1",
+              "payment_method_configuration_details": null,
+              "payment_method_options": {
+                "amazon_pay": {
+                  "express_checkout_element_session_id": null
+                },
+                "card": {
+                  "installments": null,
+                  "mandate_options": null,
+                  "network": null,
+                  "request_three_d_secure": "automatic"
+                },
+                "cashapp": {},
+                "klarna": {
+                  "preferred_locale": null
+                },
+                "link": {
+                  "persistent_token": null
+                }
+              },
+              "payment_method_types": [
+                "amazon_pay",
+                "card",
+                "cashapp",
+                "klarna",
+                "link"
+              ],
+              "processing": null,
+              "receipt_email": null,
+              "review": null,
+              "setup_future_usage": null,
+              "shared_payment_granted_token": null,
+              "shipping": null,
+              "source": null,
+              "statement_descriptor": null,
+              "statement_descriptor_suffix": null,
+              "status": "canceled",
+              "transfer_data": null,
+              "transfer_group": null
+            },
+            {
+              "id": "pi_3TbTG9EZpD6kXrae1F9lgGxY",
+              "object": "payment_intent",
+              "amount": 400,
+              "amount_capturable": 0,
+              "amount_details": {
+                "tip": {}
+              },
+              "amount_received": 0,
+              "application": null,
+              "application_fee_amount": null,
+              "automatic_payment_methods": null,
+              "canceled_at": null,
+              "cancellation_reason": null,
+              "capture_method": "automatic",
+              "client_secret": "pi_3TbTG9EZpD6kXrae1F9lgGxY_secret_kq7iaEieDkw4orvm4dF0pU13K",
+              "confirmation_method": "automatic",
+              "created": 1779833737,
+              "currency": "usd",
+              "customer": "cus_Uae6TTxHlP2hxk",
+              "customer_account": null,
+              "description": "Payment for Invoice",
+              "excluded_payment_method_types": null,
+              "last_payment_error": null,
+              "latest_charge": null,
+              "livemode": false,
+              "managed_payments": {
+                "enabled": false
+              },
+              "metadata": {},
+              "next_action": null,
+              "on_behalf_of": null,
+              "payment_details": {
+                "customer_reference": null,
+                "order_reference": "in_1TbTFzEZpD6kXraevORfRmgF"
+              },
+              "payment_method": "pm_1TbSoaEZpD6kXraeiNPSsDV1",
+              "payment_method_configuration_details": null,
+              "payment_method_options": {
+                "amazon_pay": {
+                  "express_checkout_element_session_id": null
+                },
+                "card": {
+                  "installments": null,
+                  "mandate_options": null,
+                  "network": null,
+                  "request_three_d_secure": "automatic"
+                },
+                "cashapp": {},
+                "klarna": {
+                  "preferred_locale": null
+                },
+                "link": {
+                  "persistent_token": null
+                }
+              },
+              "payment_method_types": [
+                "amazon_pay",
+                "card",
+                "cashapp",
+                "klarna",
+                "link"
+              ],
+              "processing": null,
+              "receipt_email": null,
+              "review": null,
+              "setup_future_usage": null,
+              "shared_payment_granted_token": null,
+              "shipping": null,
+              "source": null,
+              "statement_descriptor": null,
+              "statement_descriptor_suffix": null,
+              "status": "requires_confirmation",
+              "transfer_data": null,
+              "transfer_group": null
+            },
+            {
+              "id": "pi_3TbTF8EZpD6kXrae0hZuSJJU",
+              "object": "payment_intent",
+              "amount": 500,
+              "amount_capturable": 0,
+              "amount_details": {
+                "tip": {}
+              },
+              "amount_received": 0,
+              "application": null,
+              "application_fee_amount": null,
+              "automatic_payment_methods": null,
+              "canceled_at": 1779833982,
+              "cancellation_reason": "duplicate",
+              "capture_method": "automatic",
+              "client_secret": "pi_3TbTF8EZpD6kXrae0hZuSJJU_secret_ZUUGbOTLum83PW8Ig3jl7KsnH",
+              "confirmation_method": "automatic",
+              "created": 1779833674,
+              "currency": "usd",
+              "customer": "cus_Uae6TTxHlP2hxk",
+              "customer_account": null,
+              "description": "Payment for Invoice",
+              "excluded_payment_method_types": null,
+              "last_payment_error": null,
+              "latest_charge": null,
+              "livemode": false,
+              "managed_payments": {
+                "enabled": false
+              },
+              "metadata": {},
+              "next_action": null,
+              "on_behalf_of": null,
+              "payment_details": {
+                "customer_reference": null,
+                "order_reference": "in_1TbSpyEZpD6kXrae3uL2sSEg"
+              },
+              "payment_method": "pm_1TbSoaEZpD6kXraeiNPSsDV1",
+              "payment_method_configuration_details": null,
+              "payment_method_options": {
+                "amazon_pay": {
+                  "express_checkout_element_session_id": null
+                },
+                "card": {
+                  "installments": null,
+                  "mandate_options": null,
+                  "network": null,
+                  "request_three_d_secure": "automatic"
+                },
+                "cashapp": {},
+                "klarna": {
+                  "preferred_locale": null
+                },
+                "link": {
+                  "persistent_token": null
+                }
+              },
+              "payment_method_types": [
+                "amazon_pay",
+                "card",
+                "cashapp",
+                "klarna",
+                "link"
+              ],
+              "processing": null,
+              "receipt_email": null,
+              "review": null,
+              "setup_future_usage": null,
+              "shared_payment_granted_token": null,
+              "shipping": null,
+              "source": null,
+              "statement_descriptor": null,
+              "statement_descriptor_suffix": null,
+              "status": "canceled",
+              "transfer_data": null,
+              "transfer_group": null
+            },
+            {
+              "id": "pi_3TbTEkEZpD6kXrae0T2e5lIc",
+              "object": "payment_intent",
+              "amount": 2000,
+              "amount_capturable": 0,
+              "amount_details": {
+                "tip": {}
+              },
+              "amount_received": 0,
+              "application": null,
+              "application_fee_amount": null,
+              "automatic_payment_methods": {
+                "allow_redirects": "always",
+                "enabled": true
+              },
+              "canceled_at": 1779833659,
+              "cancellation_reason": null,
+              "capture_method": "automatic_async",
+              "client_secret": "pi_3TbTEkEZpD6kXrae0T2e5lIc_secret_fiyGpQt4eMMUQ2TXn5zDeyLFy",
+              "confirmation_method": "automatic",
+              "created": 1779833650,
+              "currency": "usd",
+              "customer": null,
+              "customer_account": null,
+              "description": null,
+              "excluded_payment_method_types": null,
+              "last_payment_error": null,
+              "latest_charge": null,
+              "livemode": false,
+              "managed_payments": {
+                "enabled": false
+              },
+              "metadata": {},
+              "next_action": null,
+              "on_behalf_of": null,
+              "payment_method": null,
+              "payment_method_configuration_details": {
+                "id": "pmc_1TbP2oEZpD6kXraeQGnR7vPZ",
+                "parent": null
+              },
+              "payment_method_options": {
+                "amazon_pay": {
+                  "express_checkout_element_session_id": null
+                },
+                "card": {
+                  "installments": null,
+                  "mandate_options": null,
+                  "network": null,
+                  "request_three_d_secure": "automatic"
+                },
+                "cashapp": {},
+                "klarna": {
+                  "preferred_locale": null
+                },
+                "link": {
+                  "persistent_token": null
+                }
+              },
+              "payment_method_types": [
+                "card",
+                "klarna",
+                "link",
+                "cashapp",
+                "amazon_pay"
+              ],
+              "processing": null,
+              "receipt_email": null,
+              "review": null,
+              "setup_future_usage": null,
+              "shared_payment_granted_token": null,
+              "shipping": null,
+              "source": null,
+              "statement_descriptor": null,
+              "statement_descriptor_suffix": null,
+              "status": "canceled",
+              "transfer_data": null,
+              "transfer_group": null
+            },
+            {
+              "id": "pi_3TbTENEZpD6kXrae1zmMQAH1",
+              "object": "payment_intent",
+              "amount": 4000,
+              "amount_capturable": 0,
+              "amount_details": {
+                "tip": {}
+              },
+              "amount_received": 4000,
+              "application": null,
+              "application_fee_amount": null,
+              "automatic_payment_methods": null,
+              "canceled_at": null,
+              "cancellation_reason": null,
+              "capture_method": "automatic",
+              "client_secret": "pi_3TbTENEZpD6kXrae1zmMQAH1_secret_BiGsBGjBJWzMNcCoiwaK3q5k8",
+              "confirmation_method": "automatic",
+              "created": 1779833627,
+              "currency": "usd",
+              "customer": "cus_Uae6TTxHlP2hxk",
+              "customer_account": null,
+              "description": "Subscription creation",
+              "excluded_payment_method_types": null,
+              "last_payment_error": null,
+              "latest_charge": "ch_3TbTENEZpD6kXrae1RsAdJ86",
+              "livemode": false,
+              "managed_payments": {
+                "enabled": false
+              },
+              "metadata": {},
+              "next_action": null,
+              "on_behalf_of": null,
+              "payment_details": {
+                "customer_reference": null,
+                "order_reference": "in_1TbTEMEZpD6kXraeDgD4Yq4H"
+              },
+              "payment_method": "pm_1TbSoaEZpD6kXraeiNPSsDV1",
+              "payment_method_configuration_details": null,
+              "payment_method_options": {
+                "amazon_pay": {
+                  "express_checkout_element_session_id": null
+                },
+                "card": {
+                  "installments": null,
+                  "mandate_options": null,
+                  "network": null,
+                  "request_three_d_secure": "automatic"
+                },
+                "cashapp": {},
+                "klarna": {
+                  "preferred_locale": null
+                },
+                "link": {
+                  "persistent_token": null
+                }
+              },
+              "payment_method_types": [
+                "amazon_pay",
+                "card",
+                "cashapp",
+                "klarna",
+                "link"
+              ],
+              "processing": null,
+              "receipt_email": null,
+              "review": null,
+              "setup_future_usage": "off_session",
+              "shared_payment_granted_token": null,
+              "shipping": null,
+              "source": null,
+              "statement_descriptor": null,
+              "statement_descriptor_suffix": null,
+              "status": "succeeded",
+              "transfer_data": null,
+              "transfer_group": null
+            },
+            {
+              "id": "pi_3TbTCgEZpD6kXrae16ICMbzh",
+              "object": "payment_intent",
+              "amount": 2000,
+              "amount_capturable": 0,
+              "amount_details": {
+                "tip": {}
+              },
+              "amount_received": 0,
+              "application": null,
+              "application_fee_amount": null,
+              "automatic_payment_methods": {
+                "allow_redirects": "always",
+                "enabled": true
+              },
+              "canceled_at": null,
+              "cancellation_reason": null,
+              "capture_method": "automatic_async",
+              "client_secret": "pi_3TbTCgEZpD6kXrae16ICMbzh_secret_I5eehgvYslPlhxTUCi3XTX2Ht",
+              "confirmation_method": "automatic",
+              "created": 1779833522,
+              "currency": "usd",
+              "customer": null,
+              "customer_account": null,
+              "description": null,
+              "excluded_payment_method_types": null,
+              "last_payment_error": null,
+              "latest_charge": null,
+              "livemode": false,
+              "managed_payments": {
+                "enabled": false
+              },
+              "metadata": {},
+              "next_action": null,
+              "on_behalf_of": null,
+              "payment_method": null,
+              "payment_method_configuration_details": {
+                "id": "pmc_1TbP2oEZpD6kXraeQGnR7vPZ",
+                "parent": null
+              },
+              "payment_method_options": {
+                "amazon_pay": {
+                  "express_checkout_element_session_id": null
+                },
+                "card": {
+                  "installments": null,
+                  "mandate_options": null,
+                  "network": null,
+                  "request_three_d_secure": "automatic"
+                },
+                "cashapp": {},
+                "klarna": {
+                  "preferred_locale": null
+                },
+                "link": {
+                  "persistent_token": null
+                }
+              },
+              "payment_method_types": [
+                "card",
+                "klarna",
+                "link",
+                "cashapp",
+                "amazon_pay"
+              ],
+              "processing": null,
+              "receipt_email": null,
+              "review": null,
+              "setup_future_usage": null,
+              "shared_payment_granted_token": null,
+              "shipping": null,
+              "source": null,
+              "statement_descriptor": null,
+              "statement_descriptor_suffix": null,
+              "status": "requires_payment_method",
+              "transfer_data": null,
+              "transfer_group": null
+            },
+            {
+              "id": "pi_3TbTCUEZpD6kXrae1lyOQSrU",
+              "object": "payment_intent",
+              "amount": 2000,
+              "amount_capturable": 0,
+              "amount_details": {
+                "tip": {}
+              },
+              "amount_received": 0,
+              "application": null,
+              "application_fee_amount": null,
+              "automatic_payment_methods": {
+                "allow_redirects": "always",
+                "enabled": true
+              },
+              "canceled_at": null,
+              "cancellation_reason": null,
+              "capture_method": "automatic_async",
+              "client_secret": "pi_3TbTCUEZpD6kXrae1lyOQSrU_secret_hpHv3nFnzUQ685CpovW4zOlh6",
+              "confirmation_method": "automatic",
+              "created": 1779833510,
+              "currency": "usd",
+              "customer": null,
+              "customer_account": null,
+              "description": null,
+              "excluded_payment_method_types": null,
+              "last_payment_error": null,
+              "latest_charge": null,
+              "livemode": false,
+              "managed_payments": {
+                "enabled": false
+              },
+              "metadata": {},
+              "next_action": null,
+              "on_behalf_of": null,
+              "payment_method": null,
+              "payment_method_configuration_details": {
+                "id": "pmc_1TbP2oEZpD6kXraeQGnR7vPZ",
+                "parent": null
+              },
+              "payment_method_options": {
+                "amazon_pay": {
+                  "express_checkout_element_session_id": null
+                },
+                "card": {
+                  "installments": null,
+                  "mandate_options": null,
+                  "network": null,
+                  "request_three_d_secure": "automatic"
+                },
+                "cashapp": {},
+                "klarna": {
+                  "preferred_locale": null
+                },
+                "link": {
+                  "persistent_token": null
+                }
+              },
+              "payment_method_types": [
+                "card",
+                "klarna",
+                "link",
+                "cashapp",
+                "amazon_pay"
+              ],
+              "processing": null,
+              "receipt_email": null,
+              "review": null,
+              "setup_future_usage": null,
+              "shared_payment_granted_token": null,
+              "shipping": null,
+              "source": null,
+              "statement_descriptor": null,
+              "statement_descriptor_suffix": null,
+              "status": "requires_payment_method",
+              "transfer_data": null,
+              "transfer_group": null
+            },
+            {
+              "id": "pi_3TbSqaEZpD6kXrae0PlMCGAz",
+              "object": "payment_intent",
+              "amount": 5000,
+              "amount_capturable": 0,
+              "amount_details": {
+                "tip": {}
+              },
+              "amount_received": 5000,
+              "application": null,
+              "application_fee_amount": null,
+              "automatic_payment_methods": {
+                "allow_redirects": "never",
+                "enabled": true
+              },
+              "canceled_at": null,
+              "cancellation_reason": null,
+              "capture_method": "automatic_async",
+              "client_secret": "pi_3TbSqaEZpD6kXrae0PlMCGAz_secret_eDALlNxOVX7NBsHMz47jprLUI",
+              "confirmation_method": "automatic",
+              "created": 1779832152,
+              "currency": "usd",
+              "customer": "cus_Uae6TTxHlP2hxk",
+              "customer_account": null,
+              "description": null,
+              "excluded_payment_method_types": null,
+              "last_payment_error": null,
+              "latest_charge": "ch_3TbSqaEZpD6kXrae00FIdBKp",
+              "livemode": false,
+              "managed_payments": {
+                "enabled": false
+              },
+              "metadata": {},
+              "next_action": null,
+              "on_behalf_of": null,
+              "payment_method": "pm_1TbSoaEZpD6kXraeiNPSsDV1",
+              "payment_method_configuration_details": {
+                "id": "pmc_1TbP2oEZpD6kXraeQGnR7vPZ",
+                "parent": null
+              },
+              "payment_method_options": {
+                "card": {
+                  "installments": null,
+                  "mandate_options": null,
+                  "network": null,
+                  "request_three_d_secure": "automatic"
+                },
+                "link": {
+                  "persistent_token": null
+                }
+              },
+              "payment_method_types": [
+                "card",
+                "link"
+              ],
+              "processing": null,
+              "receipt_email": null,
+              "review": null,
+              "setup_future_usage": null,
+              "shared_payment_granted_token": null,
+              "shipping": null,
+              "source": null,
+              "statement_descriptor": null,
+              "statement_descriptor_suffix": null,
+              "status": "succeeded",
+              "transfer_data": null,
+              "transfer_group": null
+            },
+            {
+              "id": "pi_3TbSqDEZpD6kXrae0s1PZcnF",
+              "object": "payment_intent",
+              "amount": 1200,
+              "amount_capturable": 0,
+              "amount_details": {
+                "tip": {}
+              },
+              "amount_received": 0,
+              "application": null,
+              "application_fee_amount": null,
+              "automatic_payment_methods": null,
+              "canceled_at": 1779832132,
+              "cancellation_reason": "duplicate",
+              "capture_method": "automatic",
+              "client_secret": "pi_3TbSqDEZpD6kXrae0s1PZcnF_secret_hpHwsCrMl16jN37IPVEZXcq9X",
+              "confirmation_method": "automatic",
+              "created": 1779832129,
+              "currency": "usd",
+              "customer": "cus_Uae6TTxHlP2hxk",
+              "customer_account": null,
+              "description": "Payment for Invoice",
+              "excluded_payment_method_types": null,
+              "last_payment_error": null,
+              "latest_charge": null,
+              "livemode": false,
+              "managed_payments": {
+                "enabled": false
+              },
+              "metadata": {},
+              "next_action": null,
+              "on_behalf_of": null,
+              "payment_details": {
+                "customer_reference": null,
+                "order_reference": "in_1TbSqAEZpD6kXrae1Za2B0H7"
+              },
+              "payment_method": "pm_1TbSoaEZpD6kXraeiNPSsDV1",
+              "payment_method_configuration_details": null,
+              "payment_method_options": {
+                "amazon_pay": {
+                  "express_checkout_element_session_id": null
+                },
+                "card": {
+                  "installments": null,
+                  "mandate_options": null,
+                  "network": null,
+                  "request_three_d_secure": "automatic"
+                },
+                "cashapp": {},
+                "klarna": {
+                  "preferred_locale": null
+                },
+                "link": {
+                  "persistent_token": null
+                }
+              },
+              "payment_method_types": [
+                "amazon_pay",
+                "card",
+                "cashapp",
+                "klarna",
+                "link"
+              ],
+              "processing": null,
+              "receipt_email": null,
+              "review": null,
+              "setup_future_usage": null,
+              "shared_payment_granted_token": null,
+              "shipping": null,
+              "source": null,
+              "statement_descriptor": null,
+              "statement_descriptor_suffix": null,
+              "status": "canceled",
+              "transfer_data": null,
+              "transfer_group": null
+            },
+            {
+              "id": "pi_3TbSq9EZpD6kXrae1GcZK6l7",
+              "object": "payment_intent",
+              "amount": 800,
+              "amount_capturable": 0,
+              "amount_details": {
+                "tip": {}
+              },
+              "amount_received": 0,
+              "application": null,
+              "application_fee_amount": null,
+              "automatic_payment_methods": null,
+              "canceled_at": 1779833615,
+              "cancellation_reason": "duplicate",
+              "capture_method": "automatic",
+              "client_secret": "pi_3TbSq9EZpD6kXrae1GcZK6l7_secret_1755EEOY6xwcnCnhIYnW6nj7R",
+              "confirmation_method": "automatic",
+              "created": 1779832125,
+              "currency": "usd",
+              "customer": "cus_Uae6TTxHlP2hxk",
+              "customer_account": null,
+              "description": "Payment for Invoice",
+              "excluded_payment_method_types": null,
+              "last_payment_error": null,
+              "latest_charge": null,
+              "livemode": false,
+              "managed_payments": {
+                "enabled": false
+              },
+              "metadata": {},
+              "next_action": null,
+              "on_behalf_of": null,
+              "payment_details": {
+                "customer_reference": null,
+                "order_reference": "in_1TbSq5EZpD6kXraeAJU5dQAG"
+              },
+              "payment_method": "pm_1TbSoaEZpD6kXraeiNPSsDV1",
+              "payment_method_configuration_details": null,
+              "payment_method_options": {
+                "amazon_pay": {
+                  "express_checkout_element_session_id": null
+                },
+                "card": {
+                  "installments": null,
+                  "mandate_options": null,
+                  "network": null,
+                  "request_three_d_secure": "automatic"
+                },
+                "cashapp": {},
+                "klarna": {
+                  "preferred_locale": null
+                },
+                "link": {
+                  "persistent_token": null
+                }
+              },
+              "payment_method_types": [
+                "amazon_pay",
+                "card",
+                "cashapp",
+                "klarna",
+                "link"
+              ],
+              "processing": null,
+              "receipt_email": null,
+              "review": null,
+              "setup_future_usage": null,
+              "shared_payment_granted_token": null,
+              "shipping": null,
+              "source": null,
+              "statement_descriptor": null,
+              "statement_descriptor_suffix": null,
+              "status": "canceled",
+              "transfer_data": null,
+              "transfer_group": null
+            },
+            {
+              "id": "pi_3TbSpcEZpD6kXrae06pejoqc",
+              "object": "payment_intent",
+              "amount": 2000,
+              "amount_capturable": 0,
+              "amount_details": {
+                "tip": {}
+              },
+              "amount_received": 2000,
+              "application": null,
+              "application_fee_amount": null,
+              "automatic_payment_methods": null,
+              "canceled_at": null,
+              "cancellation_reason": null,
+              "capture_method": "automatic",
+              "client_secret": "pi_3TbSpcEZpD6kXrae06pejoqc_secret_kEfV3O6Uny7YvYySBcfupMn0v",
+              "confirmation_method": "automatic",
+              "created": 1779832092,
+              "currency": "usd",
+              "customer": "cus_Uae6TTxHlP2hxk",
+              "customer_account": null,
+              "description": "Subscription creation",
+              "excluded_payment_method_types": null,
+              "last_payment_error": null,
+              "latest_charge": "ch_3TbSpcEZpD6kXrae0ml2ftAl",
+              "livemode": false,
+              "managed_payments": {
+                "enabled": false
+              },
+              "metadata": {},
+              "next_action": null,
+              "on_behalf_of": null,
+              "payment_details": {
+                "customer_reference": null,
+                "order_reference": "in_1TbSpcEZpD6kXraeSgFHIINk"
+              },
+              "payment_method": "pm_1TbSoaEZpD6kXraeiNPSsDV1",
+              "payment_method_configuration_details": null,
+              "payment_method_options": {
+                "amazon_pay": {
+                  "express_checkout_element_session_id": null
+                },
+                "card": {
+                  "installments": null,
+                  "mandate_options": null,
+                  "network": null,
+                  "request_three_d_secure": "automatic"
+                },
+                "cashapp": {},
+                "klarna": {
+                  "preferred_locale": null
+                },
+                "link": {
+                  "persistent_token": null
+                }
+              },
+              "payment_method_types": [
+                "amazon_pay",
+                "card",
+                "cashapp",
+                "klarna",
+                "link"
+              ],
+              "processing": null,
+              "receipt_email": null,
+              "review": null,
+              "setup_future_usage": "off_session",
+              "shared_payment_granted_token": null,
+              "shipping": null,
+              "source": null,
+              "statement_descriptor": null,
+              "statement_descriptor_suffix": null,
+              "status": "succeeded",
+              "transfer_data": null,
+              "transfer_group": null
+            },
+            {
+              "id": "pi_3TbSpYEZpD6kXrae0SA5Z7bE",
+              "object": "payment_intent",
+              "amount": 2000,
+              "amount_capturable": 0,
+              "amount_details": {
+                "tip": {}
+              },
+              "amount_received": 2000,
+              "application": null,
+              "application_fee_amount": null,
+              "automatic_payment_methods": null,
+              "canceled_at": null,
+              "cancellation_reason": null,
+              "capture_method": "automatic",
+              "client_secret": "pi_3TbSpYEZpD6kXrae0SA5Z7bE_secret_ETPU3TvPsdi2JgHte9vAvKCNi",
+              "confirmation_method": "automatic",
+              "created": 1779832088,
+              "currency": "usd",
+              "customer": "cus_Uae6TTxHlP2hxk",
+              "customer_account": null,
+              "description": "Subscription creation",
+              "excluded_payment_method_types": null,
+              "last_payment_error": null,
+              "latest_charge": "ch_3TbSpYEZpD6kXrae08Y4nHd7",
+              "livemode": false,
+              "managed_payments": {
+                "enabled": false
+              },
+              "metadata": {},
+              "next_action": null,
+              "on_behalf_of": null,
+              "payment_details": {
+                "customer_reference": null,
+                "order_reference": "in_1TbSpXEZpD6kXrae0HotVkCv"
+              },
+              "payment_method": "pm_1TbSoaEZpD6kXraeiNPSsDV1",
+              "payment_method_configuration_details": null,
+              "payment_method_options": {
+                "amazon_pay": {
+                  "express_checkout_element_session_id": null
+                },
+                "card": {
+                  "installments": null,
+                  "mandate_options": null,
+                  "network": null,
+                  "request_three_d_secure": "automatic"
+                },
+                "cashapp": {},
+                "klarna": {
+                  "preferred_locale": null
+                },
+                "link": {
+                  "persistent_token": null
+                }
+              },
+              "payment_method_types": [
+                "amazon_pay",
+                "card",
+                "cashapp",
+                "klarna",
+                "link"
+              ],
+              "processing": null,
+              "receipt_email": null,
+              "review": null,
+              "setup_future_usage": "off_session",
+              "shared_payment_granted_token": null,
+              "shipping": null,
+              "source": null,
+              "statement_descriptor": null,
+              "statement_descriptor_suffix": null,
+              "status": "succeeded",
+              "transfer_data": null,
+              "transfer_group": null
+            },
+            {
+              "id": "pi_3TbSpUEZpD6kXrae1gusZBoW",
+              "object": "payment_intent",
+              "amount": 2000,
+              "amount_capturable": 0,
+              "amount_details": {
+                "tip": {}
+              },
+              "amount_received": 2000,
+              "application": null,
+              "application_fee_amount": null,
+              "automatic_payment_methods": null,
+              "canceled_at": null,
+              "cancellation_reason": null,
+              "capture_method": "automatic",
+              "client_secret": "pi_3TbSpUEZpD6kXrae1gusZBoW_secret_4vqDkBwNvesbAdJMhB1en5r1h",
+              "confirmation_method": "automatic",
+              "created": 1779832084,
+              "currency": "usd",
+              "customer": "cus_Uae6TTxHlP2hxk",
+              "customer_account": null,
+              "description": "Subscription creation",
+              "excluded_payment_method_types": null,
+              "last_payment_error": null,
+              "latest_charge": "ch_3TbSpUEZpD6kXrae1TyCNdg4",
+              "livemode": false,
+              "managed_payments": {
+                "enabled": false
+              },
+              "metadata": {},
+              "next_action": null,
+              "on_behalf_of": null,
+              "payment_details": {
+                "customer_reference": null,
+                "order_reference": "in_1TbSpTEZpD6kXrae7nzUQ7OT"
+              },
+              "payment_method": "pm_1TbSoaEZpD6kXraeiNPSsDV1",
+              "payment_method_configuration_details": null,
+              "payment_method_options": {
+                "amazon_pay": {
+                  "express_checkout_element_session_id": null
+                },
+                "card": {
+                  "installments": null,
+                  "mandate_options": null,
+                  "network": null,
+                  "request_three_d_secure": "automatic"
+                },
+                "cashapp": {},
+                "klarna": {
+                  "preferred_locale": null
+                },
+                "link": {
+                  "persistent_token": null
+                }
+              },
+              "payment_method_types": [
+                "amazon_pay",
+                "card",
+                "cashapp",
+                "klarna",
+                "link"
+              ],
+              "processing": null,
+              "receipt_email": null,
+              "review": null,
+              "setup_future_usage": "off_session",
+              "shared_payment_granted_token": null,
+              "shipping": null,
+              "source": null,
+              "statement_descriptor": null,
+              "statement_descriptor_suffix": null,
+              "status": "succeeded",
+              "transfer_data": null,
+              "transfer_group": null
+            },
+            {
+              "id": "pi_3TbSozEZpD6kXrae0sZsePqO",
+              "object": "payment_intent",
+              "amount": 3000,
+              "amount_capturable": 0,
+              "amount_details": {
+                "tip": {}
+              },
+              "amount_received": 3000,
+              "application": null,
+              "application_fee_amount": null,
+              "automatic_payment_methods": {
+                "allow_redirects": "never",
+                "enabled": true
+              },
+              "canceled_at": null,
+              "cancellation_reason": null,
+              "capture_method": "manual",
+              "client_secret": "pi_3TbSozEZpD6kXrae0sZsePqO_secret_dSiDdaIZuDAGiWNH40coYoOSV",
+              "confirmation_method": "automatic",
+              "created": 1779832053,
+              "currency": "usd",
+              "customer": "cus_Uae6TTxHlP2hxk",
+              "customer_account": null,
+              "description": null,
+              "excluded_payment_method_types": null,
+              "last_payment_error": null,
+              "latest_charge": "ch_3TbSozEZpD6kXrae01YLbeFV",
+              "livemode": false,
+              "managed_payments": {
+                "enabled": false
+              },
+              "metadata": {},
+              "next_action": null,
+              "on_behalf_of": null,
+              "payment_method": "pm_1TbSoaEZpD6kXraeiNPSsDV1",
+              "payment_method_configuration_details": {
+                "id": "pmc_1TbP2oEZpD6kXraeQGnR7vPZ",
+                "parent": null
+              },
+              "payment_method_options": {
+                "card": {
+                  "installments": null,
+                  "mandate_options": null,
+                  "network": null,
+                  "request_three_d_secure": "automatic"
+                },
+                "link": {
+                  "persistent_token": null
+                }
+              },
+              "payment_method_types": [
+                "card",
+                "link"
+              ],
+              "processing": null,
+              "receipt_email": null,
+              "review": null,
+              "setup_future_usage": null,
+              "shared_payment_granted_token": null,
+              "shipping": null,
+              "source": null,
+              "statement_descriptor": null,
+              "statement_descriptor_suffix": null,
+              "status": "succeeded",
+              "transfer_data": null,
+              "transfer_group": null
+            },
+            {
+              "id": "pi_3TbSoqEZpD6kXrae142yMTEG",
+              "object": "payment_intent",
+              "amount": 1500,
+              "amount_capturable": 0,
+              "amount_details": {
+                "tip": {}
+              },
+              "amount_received": 0,
+              "application": null,
+              "application_fee_amount": null,
+              "automatic_payment_methods": {
+                "allow_redirects": "always",
+                "enabled": true
+              },
+              "canceled_at": 1779833583,
+              "cancellation_reason": null,
+              "capture_method": "automatic_async",
+              "client_secret": "pi_3TbSoqEZpD6kXrae142yMTEG_secret_cSpk2zOjDabsISrbxtsKfCg5m",
+              "confirmation_method": "automatic",
+              "created": 1779832044,
+              "currency": "usd",
+              "customer": "cus_Uae6TTxHlP2hxk",
+              "customer_account": null,
+              "description": null,
+              "excluded_payment_method_types": null,
+              "last_payment_error": null,
+              "latest_charge": null,
+              "livemode": false,
+              "managed_payments": {
+                "enabled": false
+              },
+              "metadata": {},
+              "next_action": null,
+              "on_behalf_of": null,
+              "payment_method": null,
+              "payment_method_configuration_details": {
+                "id": "pmc_1TbP2oEZpD6kXraeQGnR7vPZ",
+                "parent": null
+              },
+              "payment_method_options": {
+                "amazon_pay": {
+                  "express_checkout_element_session_id": null
+                },
+                "card": {
+                  "installments": null,
+                  "mandate_options": null,
+                  "network": null,
+                  "request_three_d_secure": "automatic"
+                },
+                "cashapp": {},
+                "klarna": {
+                  "preferred_locale": null
+                },
+                "link": {
+                  "persistent_token": null
+                }
+              },
+              "payment_method_types": [
+                "card",
+                "klarna",
+                "link",
+                "cashapp",
+                "amazon_pay"
+              ],
+              "processing": null,
+              "receipt_email": null,
+              "review": null,
+              "setup_future_usage": null,
+              "shared_payment_granted_token": null,
+              "shipping": null,
+              "source": null,
+              "statement_descriptor": null,
+              "statement_descriptor_suffix": null,
+              "status": "canceled",
+              "transfer_data": null,
+              "transfer_group": null
+            },
+            {
+              "id": "pi_3TbSopEZpD6kXrae1ZIp2rzC",
+              "object": "payment_intent",
+              "amount": 1500,
+              "amount_capturable": 0,
+              "amount_details": {
+                "tip": {}
+              },
+              "amount_received": 0,
+              "application": null,
+              "application_fee_amount": null,
+              "automatic_payment_methods": {
+                "allow_redirects": "always",
+                "enabled": true
+              },
+              "canceled_at": 1779833555,
+              "cancellation_reason": null,
+              "capture_method": "automatic_async",
+              "client_secret": "pi_3TbSopEZpD6kXrae1ZIp2rzC_secret_MsM5O47FFzLVg2bWQMusuPG6r",
+              "confirmation_method": "automatic",
+              "created": 1779832043,
+              "currency": "usd",
+              "customer": "cus_Uae6TTxHlP2hxk",
+              "customer_account": null,
+              "description": null,
+              "excluded_payment_method_types": null,
+              "last_payment_error": null,
+              "latest_charge": null,
+              "livemode": false,
+              "managed_payments": {
+                "enabled": false
+              },
+              "metadata": {},
+              "next_action": null,
+              "on_behalf_of": null,
+              "payment_method": null,
+              "payment_method_configuration_details": {
+                "id": "pmc_1TbP2oEZpD6kXraeQGnR7vPZ",
+                "parent": null
+              },
+              "payment_method_options": {
+                "amazon_pay": {
+                  "express_checkout_element_session_id": null
+                },
+                "card": {
+                  "installments": null,
+                  "mandate_options": null,
+                  "network": null,
+                  "request_three_d_secure": "automatic"
+                },
+                "cashapp": {},
+                "klarna": {
+                  "preferred_locale": null
+                },
+                "link": {
+                  "persistent_token": null
+                }
+              },
+              "payment_method_types": [
+                "card",
+                "klarna",
+                "link",
+                "cashapp",
+                "amazon_pay"
+              ],
+              "processing": null,
+              "receipt_email": null,
+              "review": null,
+              "setup_future_usage": null,
+              "shared_payment_granted_token": null,
+              "shipping": null,
+              "source": null,
+              "statement_descriptor": null,
+              "statement_descriptor_suffix": null,
+              "status": "canceled",
+              "transfer_data": null,
+              "transfer_group": null
+            },
+            {
+              "id": "pi_3TbSonEZpD6kXrae0do5CLRX",
+              "object": "payment_intent",
+              "amount": 2000,
+              "amount_capturable": 0,
+              "amount_details": {
+                "tip": {}
+              },
+              "amount_received": 0,
+              "application": null,
+              "application_fee_amount": null,
+              "automatic_payment_methods": {
+                "allow_redirects": "always",
+                "enabled": true
+              },
+              "canceled_at": 1779833594,
+              "cancellation_reason": null,
+              "capture_method": "automatic_async",
+              "client_secret": "pi_3TbSonEZpD6kXrae0do5CLRX_secret_6w6BgRMFqU2E8zUwx8WeIDwJk",
+              "confirmation_method": "automatic",
+              "created": 1779832041,
+              "currency": "usd",
+              "customer": "cus_Uae6TTxHlP2hxk",
+              "customer_account": null,
+              "description": "Updated via Nango action",
+              "excluded_payment_method_types": null,
+              "last_payment_error": null,
+              "latest_charge": null,
+              "livemode": false,
+              "managed_payments": {
+                "enabled": false
+              },
+              "metadata": {},
+              "next_action": null,
+              "on_behalf_of": null,
+              "payment_method": null,
+              "payment_method_configuration_details": {
+                "id": "pmc_1TbP2oEZpD6kXraeQGnR7vPZ",
+                "parent": null
+              },
+              "payment_method_options": {
+                "amazon_pay": {
+                  "express_checkout_element_session_id": null
+                },
+                "card": {
+                  "installments": null,
+                  "mandate_options": null,
+                  "network": null,
+                  "request_three_d_secure": "automatic"
+                },
+                "cashapp": {},
+                "klarna": {
+                  "preferred_locale": null
+                },
+                "link": {
+                  "persistent_token": null
+                }
+              },
+              "payment_method_types": [
+                "card",
+                "klarna",
+                "link",
+                "cashapp",
+                "amazon_pay"
+              ],
+              "processing": null,
+              "receipt_email": null,
+              "review": null,
+              "setup_future_usage": null,
+              "shared_payment_granted_token": null,
+              "shipping": null,
+              "source": null,
+              "statement_descriptor": null,
+              "statement_descriptor_suffix": null,
+              "status": "canceled",
+              "transfer_data": null,
+              "transfer_group": null
+            },
+            {
+              "id": "pi_3TbSjlEZpD6kXrae1U623ywc",
+              "object": "payment_intent",
+              "amount": 500,
+              "amount_capturable": 0,
+              "amount_details": {
+                "tip": {}
+              },
+              "amount_received": 0,
+              "application": null,
+              "application_fee_amount": null,
+              "automatic_payment_methods": null,
+              "canceled_at": 1779831749,
+              "cancellation_reason": "duplicate",
+              "capture_method": "automatic",
+              "client_secret": "pi_3TbSjlEZpD6kXrae1U623ywc_secret_GQbTcvP6r0X9WsImx6afsff8G",
+              "confirmation_method": "automatic",
+              "created": 1779831729,
+              "currency": "usd",
+              "customer": "cus_Uae07nJucy33Kr",
+              "customer_account": null,
+              "description": "Payment for Invoice",
+              "excluded_payment_method_types": null,
+              "last_payment_error": null,
+              "latest_charge": null,
+              "livemode": false,
+              "managed_payments": {
+                "enabled": false
+              },
+              "metadata": {},
+              "next_action": null,
+              "on_behalf_of": null,
+              "payment_details": {
+                "customer_reference": null,
+                "order_reference": "in_1TbSjiEZpD6kXraer00CsulC"
+              },
+              "payment_method": null,
+              "payment_method_configuration_details": null,
+              "payment_method_options": {
+                "amazon_pay": {
+                  "express_checkout_element_session_id": null
+                },
+                "card": {
+                  "installments": null,
+                  "mandate_options": null,
+                  "network": null,
+                  "request_three_d_secure": "automatic"
+                },
+                "cashapp": {},
+                "klarna": {
+                  "preferred_locale": null
+                },
+                "link": {
+                  "persistent_token": null
+                }
+              },
+              "payment_method_types": [
+                "amazon_pay",
+                "card",
+                "cashapp",
+                "klarna",
+                "link"
+              ],
+              "processing": null,
+              "receipt_email": null,
+              "review": null,
+              "setup_future_usage": null,
+              "shared_payment_granted_token": null,
+              "shipping": null,
+              "source": null,
+              "statement_descriptor": null,
+              "statement_descriptor_suffix": null,
+              "status": "canceled",
+              "transfer_data": null,
+              "transfer_group": null
+            },
+            {
+              "id": "pi_3TbSjTEZpD6kXrae0Vh5SGoP",
+              "object": "payment_intent",
+              "amount": 1000,
+              "amount_capturable": 0,
+              "amount_details": {
+                "tip": {}
+              },
+              "amount_received": 0,
+              "application": null,
+              "application_fee_amount": null,
+              "automatic_payment_methods": null,
+              "canceled_at": 1779831713,
+              "cancellation_reason": "void_invoice",
+              "capture_method": "automatic",
+              "client_secret": "pi_3TbSjTEZpD6kXrae0Vh5SGoP_secret_DMZyMkOkbKnQoinjWCep8dPR7",
+              "confirmation_method": "automatic",
+              "created": 1779831711,
+              "currency": "usd",
+              "customer": "cus_Uae07nJucy33Kr",
+              "customer_account": null,
+              "description": "Payment for Invoice",
+              "excluded_payment_method_types": null,
+              "last_payment_error": null,
+              "latest_charge": null,
+              "livemode": false,
+              "managed_payments": {
+                "enabled": false
+              },
+              "metadata": {},
+              "next_action": null,
+              "on_behalf_of": null,
+              "payment_details": {
+                "customer_reference": null,
+                "order_reference": "in_1TbSiZEZpD6kXraeFC3ZTK46"
+              },
+              "payment_method": null,
+              "payment_method_configuration_details": null,
+              "payment_method_options": {
+                "amazon_pay": {
+                  "express_checkout_element_session_id": null
+                },
+                "card": {
+                  "installments": null,
+                  "mandate_options": null,
+                  "network": null,
+                  "request_three_d_secure": "automatic"
+                },
+                "cashapp": {},
+                "klarna": {
+                  "preferred_locale": null
+                },
+                "link": {
+                  "persistent_token": null
+                }
+              },
+              "payment_method_types": [
+                "amazon_pay",
+                "card",
+                "cashapp",
+                "klarna",
+                "link"
+              ],
+              "processing": null,
+              "receipt_email": null,
+              "review": null,
+              "setup_future_usage": null,
+              "shared_payment_granted_token": null,
+              "shipping": null,
+              "source": null,
+              "statement_descriptor": null,
+              "statement_descriptor_suffix": null,
+              "status": "canceled",
+              "transfer_data": null,
+              "transfer_group": null
+            }
+          ],
+          "has_more": false,
+          "url": "/v1/payment_intents"
+        },
+        "status": 200,
+        "headers": {
+          "date": "Tue, 26 May 2026 23:14:06 GMT",
+          "content-type": "application/json",
+          "content-length": "62684",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=5184000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4970",
+          "x-ratelimit-reset": "1779837250",
+          "etag": "W/\"f4dc-LYcURhwXkM2SlgqOn3u4PKtxhVU\""
+        },
+        "hash": "e807285de4692b0123439e654f0073be8a7e058e",
+        "request": {
+          "params": {
+            "limit": "100"
+          }
+        }
+      }
+    }
+  }
+}
