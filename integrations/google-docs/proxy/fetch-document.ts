@@ -1,5 +1,4 @@
 import { Nango } from '@nangohq/node';
-import type { Document, DocumentId } from '../types.js';
 
 const nango = new Nango({ secretKey: String(process.env['NANGO_SECRET_KEY']) });
 
@@ -9,27 +8,25 @@ const nango = new Nango({ secretKey: String(process.env['NANGO_SECRET_KEY']) });
  * so this function should run in your stack using the proxy
  * @see https://docs.nango.dev/guides/proxy-requests#proxy-requests
  */
-async function run(input: DocumentId): Promise<Document> {
-    const config = {
+async function run(input: { id: string }): Promise<unknown> {
+    const response = await nango.get({
         // https://developers.google.com/docs/api/reference/rest/v1/documents/get
-        endpoint: `/v1/documents/${input.id}`,
+        endpoint: `/v1/documents/${encodeURIComponent(input.id)}`,
         params: {
             includeTabsContent: 'true'
         },
         retries: 3
-        // connectionId: 'your-notion-connection-id'
-        // providerConfigKey: 'notion'
-    };
+        // connectionId: 'your-connection-id'
+        // providerConfigKey: 'google-docs'
+    });
 
-    const documentResponse = await nango.get<Document>(config);
-
-    if (documentResponse.status !== 200) {
-        throw new Error(`Failed to fetch document: Status Code ${documentResponse.status}`);
+    if (response.status !== 200) {
+        throw new Error(`Failed to fetch document: Status Code ${response.status}`);
     }
 
-    return documentResponse.data;
+    return response.data;
 }
 
-const documentId: DocumentId = { id: 'your-document-id' }; // Replace with your actual document ID
+const input = { id: 'your-document-id' }; // Replace with your actual document ID
 
-await run(documentId);
+await run(input);

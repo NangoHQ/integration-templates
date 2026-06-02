@@ -1,0 +1,218 @@
+{
+  "input": {},
+  "output": {
+    "keys": [
+      {
+        "value": "1526235f19485b7623ed68e42922f442",
+        "createdAt": 1779965722,
+        "acl": [
+          "search"
+        ],
+        "validity": 0
+      },
+      {
+        "value": "16f13a4c4ed97cdf95b224d9d1541c59",
+        "createdAt": 1779963527,
+        "acl": [
+          "browse",
+          "recommendation"
+        ],
+        "description": "Recommendation API Key for api@nango.dev",
+        "validity": 0
+      },
+      {
+        "value": "23e1969f1cb42e08c8969ceb05ab6ea5",
+        "createdAt": 1779963527,
+        "acl": [
+          "usage",
+          "logs"
+        ],
+        "description": "Usage API Key for api@nango.dev",
+        "validity": 0
+      },
+      {
+        "value": "3c14ccd86a3d089982d753e3b8a78f20",
+        "createdAt": 1779965671,
+        "acl": [
+          "search"
+        ],
+        "description": "Nango test key — delete-2",
+        "validity": 0
+      },
+      {
+        "value": "59d374984024673eb90738474aa4e9c2",
+        "createdAt": 1779963527,
+        "acl": [
+          "search",
+          "browse",
+          "seeUnretrievableAttributes",
+          "listIndexes",
+          "analytics",
+          "logs",
+          "addObject",
+          "deleteObject",
+          "deleteIndex",
+          "settings",
+          "editSettings",
+          "recommendation"
+        ],
+        "description": "Write API Key for api@nango.dev",
+        "validity": 0
+      },
+      {
+        "value": "702821dd9e0f8392b5f7d99f40734054",
+        "createdAt": 1779965732,
+        "acl": [
+          "search"
+        ],
+        "validity": 0
+      },
+      {
+        "value": "8eb6a239d13ddc2f9de3103046441e35",
+        "createdAt": 1779963527,
+        "acl": [
+          "listIndexes",
+          "analytics"
+        ],
+        "description": "Analytics API Key for api@nango.dev",
+        "validity": 0
+      },
+      {
+        "value": "c129fed732d422c9f989fd542c88dfbf",
+        "createdAt": 1779963527,
+        "acl": [
+          "search",
+          "listIndexes",
+          "settings",
+          "browse"
+        ],
+        "description": "Search API Key for api@nango.dev",
+        "validity": 0
+      }
+    ]
+  },
+  "nango": {},
+  "api": {
+    "get": {
+      "/1/keys": {
+        "response": {
+          "keys": [
+            {
+              "value": "1526235f19485b7623ed68e42922f442",
+              "createdAt": 1779965722,
+              "acl": [
+                "search"
+              ],
+              "validity": 0
+            },
+            {
+              "value": "16f13a4c4ed97cdf95b224d9d1541c59",
+              "createdAt": 1779963527,
+              "acl": [
+                "browse",
+                "recommendation"
+              ],
+              "validity": 0,
+              "description": "Recommendation API Key for api@nango.dev"
+            },
+            {
+              "value": "23e1969f1cb42e08c8969ceb05ab6ea5",
+              "createdAt": 1779963527,
+              "acl": [
+                "usage",
+                "logs"
+              ],
+              "validity": 0,
+              "description": "Usage API Key for api@nango.dev"
+            },
+            {
+              "value": "3c14ccd86a3d089982d753e3b8a78f20",
+              "createdAt": 1779965671,
+              "acl": [
+                "search"
+              ],
+              "validity": 0,
+              "description": "Nango test key — delete-2"
+            },
+            {
+              "value": "59d374984024673eb90738474aa4e9c2",
+              "createdAt": 1779963527,
+              "acl": [
+                "search",
+                "browse",
+                "seeUnretrievableAttributes",
+                "listIndexes",
+                "analytics",
+                "logs",
+                "addObject",
+                "deleteObject",
+                "deleteIndex",
+                "settings",
+                "editSettings",
+                "recommendation"
+              ],
+              "validity": 0,
+              "description": "Write API Key for api@nango.dev"
+            },
+            {
+              "value": "702821dd9e0f8392b5f7d99f40734054",
+              "createdAt": 1779965732,
+              "acl": [
+                "search"
+              ],
+              "validity": 0
+            },
+            {
+              "value": "8eb6a239d13ddc2f9de3103046441e35",
+              "createdAt": 1779963527,
+              "acl": [
+                "listIndexes",
+                "analytics"
+              ],
+              "validity": 0,
+              "description": "Analytics API Key for api@nango.dev"
+            },
+            {
+              "value": "c129fed732d422c9f989fd542c88dfbf",
+              "createdAt": 1779963527,
+              "acl": [
+                "search",
+                "listIndexes",
+                "settings",
+                "browse"
+              ],
+              "validity": 0,
+              "description": "Search API Key for api@nango.dev"
+            }
+          ]
+        },
+        "status": 200,
+        "headers": {
+          "date": "Thu, 28 May 2026 10:59:00 GMT",
+          "content-type": "application/json; charset=UTF-8",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=31536000; includeSubDomains; preload",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4929",
+          "x-ratelimit-reset": "1779965971",
+          "server": "nginx",
+          "accept-encoding": "deflate, gzip",
+          "cache-control": "no-store",
+          "timing-allow-origin": "*",
+          "content-disposition": "inline; filename=a.txt"
+        },
+        "hash": "ea0adeae32c85b25404a41c456c694f66c4e7f7b",
+        "request": {}
+      }
+    }
+  }
+}

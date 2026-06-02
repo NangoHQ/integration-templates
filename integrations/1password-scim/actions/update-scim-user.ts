@@ -1,84 +1,60 @@
 import { z } from 'zod';
 import { createAction } from 'nango';
 
-const ScimOperationSchema = z.discriminatedUnion('op', [
-    z.object({ op: z.literal('add'), path: z.string().optional(), value: z.unknown().optional() }),
-    z.object({ op: z.literal('replace'), path: z.string().optional(), value: z.unknown().optional() }),
-    z.object({ op: z.literal('remove'), path: z.string(), value: z.unknown().optional() })
-]);
-
 const InputSchema = z.object({
-    id: z.string().describe('SCIM user ID. Example: "2819c223-7f76-453a-919d-413861904646"'),
-    operations: z.array(ScimOperationSchema).min(1).describe('Array of SCIM PatchOp operations to apply')
+    id: z.string().describe('SCIM User ID. Example: "2819c223-7f76-453a-919d-413861904646"'),
+    userName: z.string().optional().describe('User email address. Example: "user@example.com"'),
+    givenName: z.string().optional().describe('First name. Example: "Jane"'),
+    familyName: z.string().optional().describe('Last name. Example: "Doe"'),
+    displayName: z.string().optional().describe('Display name. Example: "Jane Doe"'),
+    active: z.boolean().optional().describe('Whether the user is active.')
 });
 
-const ScimMetaSchema = z.object({
-    resourceType: z.string().optional(),
+const NameSchema = z.object({
+    formatted: z.string().optional(),
+    familyName: z.string().optional(),
+    givenName: z.string().optional()
+});
+
+const EmailSchema = z.object({
+    value: z.string(),
+    type: z.string().optional(),
+    primary: z.boolean().optional()
+});
+
+const MetaSchema = z.object({
+    resourceType: z.string(),
     created: z.string().optional(),
     lastModified: z.string().optional(),
     location: z.string().optional(),
     version: z.string().optional()
 });
 
-const ScimNameSchema = z.object({
-    formatted: z.string().optional(),
-    familyName: z.string().optional(),
-    givenName: z.string().optional(),
-    middleName: z.string().optional(),
-    honorificPrefix: z.string().optional(),
-    honorificSuffix: z.string().optional()
+const ProviderUserSchema = z.object({
+    schemas: z.array(z.string()),
+    id: z.string(),
+    externalId: z.string().optional(),
+    meta: MetaSchema.optional(),
+    userName: z.string().optional(),
+    name: NameSchema.optional(),
+    displayName: z.string().optional(),
+    active: z.boolean().optional(),
+    emails: z.array(EmailSchema).optional()
 });
-
-const ScimEmailSchema = z.object({
-    value: z.string().optional(),
-    display: z.string().optional(),
-    type: z.string().optional(),
-    primary: z.boolean().optional()
-});
-
-const ScimUserSchema = z
-    .object({
-        id: z.string(),
-        externalId: z.string().optional(),
-        meta: ScimMetaSchema.optional(),
-        schemas: z.array(z.string()).optional(),
-        userName: z.string().optional(),
-        name: ScimNameSchema.optional(),
-        displayName: z.string().optional(),
-        nickName: z.string().optional(),
-        profileUrl: z.string().optional(),
-        title: z.string().optional(),
-        userType: z.string().optional(),
-        preferredLanguage: z.string().optional(),
-        locale: z.string().optional(),
-        timezone: z.string().optional(),
-        active: z.boolean().optional(),
-        emails: z.array(ScimEmailSchema).optional()
-    })
-    .passthrough();
 
 const OutputSchema = z.object({
     id: z.string(),
-    externalId: z.string().optional(),
-    meta: ScimMetaSchema.optional(),
-    schemas: z.array(z.string()).optional(),
     userName: z.string().optional(),
-    name: ScimNameSchema.optional(),
+    givenName: z.string().optional(),
+    familyName: z.string().optional(),
     displayName: z.string().optional(),
-    nickName: z.string().optional(),
-    profileUrl: z.string().optional(),
-    title: z.string().optional(),
-    userType: z.string().optional(),
-    preferredLanguage: z.string().optional(),
-    locale: z.string().optional(),
-    timezone: z.string().optional(),
     active: z.boolean().optional(),
-    emails: z.array(ScimEmailSchema).optional()
+    emails: z.array(z.object({ value: z.string(), type: z.string().optional(), primary: z.boolean().optional() })).optional()
 });
 
 const action = createAction({
-    description: 'Update a SCIM user in 1Password SCIM',
-    version: '1.0.0',
+    description: 'Update a SCIM user in 1Password SCIM.',
+    version: '1.1.0',
     endpoint: {
         method: 'POST',
         path: '/actions/update-scim-user',
@@ -86,18 +62,40 @@ const action = createAction({
     },
     input: InputSchema,
     output: OutputSchema,
-    scopes: ['scim'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
-        const patchBody = {
-            schemas: ['urn:ietf:params:scim:api:messages:2.0:PatchOp'],
-            Operations: input.operations
-        };
+        const operations: Array<{ op: 'replace'; path?: string; value: unknown }> = [];
 
+        if (input.userName !== undefined) {
+            operations.push({ op: 'replace', path: 'userName', value: input.userName });
+        }
+        if (input.givenName !== undefined) {
+            operations.push({ op: 'replace', path: 'name.givenName', value: input.givenName });
+        }
+        if (input.familyName !== undefined) {
+            operations.push({ op: 'replace', path: 'name.familyName', value: input.familyName });
+        }
+        if (input.displayName !== undefined) {
+            operations.push({ op: 'replace', path: 'displayName', value: input.displayName });
+        }
+        if (input.active !== undefined) {
+            operations.push({ op: 'replace', path: 'active', value: input.active });
+        }
+
+        if (operations.length === 0) {
+            throw new nango.ActionError({
+                type: 'invalid_input',
+                message: 'At least one field to update must be provided.'
+            });
+        }
+
+        // https://support.1password.com/scim-endpoints/
         const response = await nango.patch({
-            // https://support.1password.com/scim-endpoints/
-            endpoint: `/Users/${encodeURIComponent(input.id)}`,
-            data: patchBody,
+            endpoint: `v2/Users/${encodeURIComponent(input.id)}`,
+            data: {
+                schemas: ['urn:ietf:params:scim:api:messages:2.0:PatchOp'],
+                Operations: operations
+            },
             retries: 3
         });
 
@@ -118,25 +116,22 @@ const action = createAction({
             rawData = getResponse.data;
         }
 
-        const providerUser = ScimUserSchema.parse(rawData);
+        const providerUser = ProviderUserSchema.parse(rawData);
 
         return {
             id: providerUser.id,
-            ...(providerUser.externalId !== undefined && { externalId: providerUser.externalId }),
-            ...(providerUser.meta !== undefined && { meta: providerUser.meta }),
-            ...(providerUser.schemas !== undefined && { schemas: providerUser.schemas }),
             ...(providerUser.userName !== undefined && { userName: providerUser.userName }),
-            ...(providerUser.name !== undefined && { name: providerUser.name }),
+            ...(providerUser.name?.givenName !== undefined && { givenName: providerUser.name.givenName }),
+            ...(providerUser.name?.familyName !== undefined && { familyName: providerUser.name.familyName }),
             ...(providerUser.displayName !== undefined && { displayName: providerUser.displayName }),
-            ...(providerUser.nickName !== undefined && { nickName: providerUser.nickName }),
-            ...(providerUser.profileUrl !== undefined && { profileUrl: providerUser.profileUrl }),
-            ...(providerUser.title !== undefined && { title: providerUser.title }),
-            ...(providerUser.userType !== undefined && { userType: providerUser.userType }),
-            ...(providerUser.preferredLanguage !== undefined && { preferredLanguage: providerUser.preferredLanguage }),
-            ...(providerUser.locale !== undefined && { locale: providerUser.locale }),
-            ...(providerUser.timezone !== undefined && { timezone: providerUser.timezone }),
             ...(providerUser.active !== undefined && { active: providerUser.active }),
-            ...(providerUser.emails !== undefined && { emails: providerUser.emails })
+            ...(providerUser.emails !== undefined && {
+                emails: providerUser.emails.map((email) => ({
+                    value: email.value,
+                    ...(email.type !== undefined && { type: email.type }),
+                    ...(email.primary !== undefined && { primary: email.primary })
+                }))
+            })
         };
     }
 });
