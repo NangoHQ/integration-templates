@@ -11,53 +11,51 @@
  * ! See the official zod documentation: https://zod.dev/basics?id=inferring-types
  */
 
-export interface ScimGroup {
+export interface Group {
   id: string;
-  externalId?: string | undefined;
-  displayName?: string | undefined;
-  meta?: {  resourceType?: string | undefined;
-  created?: string | undefined;
-  lastModified?: string | undefined;
-  location?: string | undefined;};
-  members?: ({  value: string;
-  display?: string | undefined;})[];
+  name: string;
+  description?: string | undefined;
+  isDefault?: boolean | undefined;
+  isDeleted?: boolean | undefined;
+  isPublic?: boolean | undefined;
+  createdAt?: string | undefined;
+  updatedAt?: string | undefined;
+  url?: string | undefined;
 };
 
 export interface ScimUser {
   id: string;
-  userName: string;
+  userName?: string | undefined;
   displayName?: string | undefined;
-  name?: {  formatted?: string | undefined;
+  name?: {  givenName?: string | undefined;
   familyName?: string | undefined;
-  givenName?: string | undefined;};
-  emails?: ({  value: string;
+  formatted?: string | undefined;};
+  emails?: ({  value?: string | undefined;
   type?: string | undefined;
   primary?: boolean | undefined;})[];
-  externalId?: string | undefined;
   active?: boolean | undefined;
-  meta?: {  created?: string | undefined;
-  lastModified?: string | undefined;
-  resourceType?: string | undefined;};
+  externalId?: string | undefined;
+  updated_at?: string | undefined;
 };
 
 export interface ActionInput_1password_scim_createscimgroup {
   /**
-   * The display name of the SCIM group. Example: "Engineering"
+   * Display name of the SCIM group. Example: "Engineering"
    */
   displayName: string;
   /**
-   * The external identifier for the group. Example: "group-123"
+   * External identifier for the group.
    */
   externalId?: string | undefined;
   /**
-   * Array of group members to assign on creation
+   * Members to add to the group at creation.
    */
   members?: ({  /**
-   * The identifier of the member. Example: "user-123"
+   * Identifier of the member. Example: "user-id-123"
    */
   value: string;
   /**
-   * The display name of the member. Example: "John Doe"
+   * Display name of the member.
    */
   display?: string | undefined;})[];
 };
@@ -77,23 +75,23 @@ export interface ActionOutput_1password_scim_createscimgroup {
 
 export interface ActionInput_1password_scim_createscimuser {
   /**
-   * SCIM userName. Example: "user@example.com"
+   * User login name, typically an email. Example: "bjensen@example.com"
    */
   userName: string;
   /**
-   * External identifier for the user.
+   * Identifier from the provisioning client. Example: "bjensen"
    */
   externalId?: string | undefined;
-  /**
-   * Display name for the user.
-   */
-  displayName?: string | undefined;
-  name?: {  formatted?: string | undefined;
+  name?: {  givenName?: string | undefined;
   familyName?: string | undefined;
-  givenName?: string | undefined;};
+  formatted?: string | undefined;};
+  displayName?: string | undefined;
   emails?: ({  value: string;
   type?: string | undefined;
   primary?: boolean | undefined;})[];
+  /**
+   * Whether the user is active.
+   */
   active?: boolean | undefined;
 };
 
@@ -102,9 +100,9 @@ export interface ActionOutput_1password_scim_createscimuser {
   userName: string;
   externalId?: string | undefined;
   displayName?: string | undefined;
-  name?: {  formatted?: string | undefined;
+  name?: {  givenName?: string | undefined;
   familyName?: string | undefined;
-  givenName?: string | undefined;};
+  formatted?: string | undefined;};
   emails?: ({  value: string;
   type?: string | undefined;
   primary?: boolean | undefined;})[];
@@ -117,7 +115,7 @@ export interface ActionOutput_1password_scim_createscimuser {
 
 export interface ActionInput_1password_scim_deletescimgroup {
   /**
-   * SCIM Group ID. Example: "group-123"
+   * SCIM Group ID. Example: "abc123"
    */
   id: string;
 };
@@ -141,33 +139,29 @@ export interface ActionOutput_1password_scim_deletescimuser {
 
 export interface ActionInput_1password_scim_getscimgroup {
   /**
-   * SCIM Group ID. Example: "e9e30dba-f08f-4109-8486-d5c6a331660a"
+   * The SCIM group ID. Example: "2819c223-7f76-453a-919d-413861904646"
    */
-  groupId: string;
+  id: string;
 };
 
 export interface ActionOutput_1password_scim_getscimgroup {
   schemas: string[];
   id: string;
   externalId?: string | undefined;
-  displayName: string;
-  members?: ({  /**
-   * The ID of the SCIM resource
-   */
-  value: string;
-  display?: string | undefined;
-  "$ref"?: string | undefined;
-  type?: string | undefined;})[];
   meta?: {  resourceType?: string | undefined;
   created?: string | undefined;
   lastModified?: string | undefined;
   location?: string | undefined;
   version?: string | undefined;};
+  displayName: string;
+  members?: ({  value: string;
+  "$ref"?: string | undefined;
+  display?: string | undefined;})[];
 };
 
 export interface ActionInput_1password_scim_getscimuser {
   /**
-   * The SCIM user ID. Example: "123"
+   * SCIM User ID. Example: "2819c223-7f76-453a-919d-413861904646"
    */
   id: string;
 };
@@ -176,12 +170,7 @@ export interface ActionOutput_1password_scim_getscimuser {
   schemas: string[];
   id: string;
   externalId?: string | undefined;
-  meta?: {  resourceType?: string | undefined;
-  created?: string | undefined;
-  lastModified?: string | undefined;
-  location?: string | undefined;
-  version?: string | undefined;};
-  userName: string;
+  userName?: string | undefined;
   name?: {  formatted?: string | undefined;
   familyName?: string | undefined;
   givenName?: string | undefined;
@@ -197,45 +186,79 @@ export interface ActionOutput_1password_scim_getscimuser {
   locale?: string | undefined;
   timezone?: string | undefined;
   active?: boolean | undefined;
-  emails?: ({  value: string;
+  emails?: ({  value?: string | undefined;
   display?: string | undefined;
   type?: string | undefined;
   primary?: boolean | undefined;})[];
-  groups?: ({  value: string;
+  phoneNumbers?: ({  value?: string | undefined;
+  display?: string | undefined;
+  type?: string | undefined;
+  primary?: boolean | undefined;})[];
+  ims?: ({  value?: string | undefined;
+  display?: string | undefined;
+  type?: string | undefined;
+  primary?: boolean | undefined;})[];
+  photos?: ({  value?: string | undefined;
+  display?: string | undefined;
+  type?: string | undefined;
+  primary?: boolean | undefined;})[];
+  addresses?: ({  formatted?: string | undefined;
+  streetAddress?: string | undefined;
+  locality?: string | undefined;
+  region?: string | undefined;
+  postalCode?: string | undefined;
+  country?: string | undefined;
+  type?: string | undefined;
+  primary?: boolean | undefined;})[];
+  groups?: ({  value?: string | undefined;
   display?: string | undefined;
   type?: string | undefined;
   "$ref"?: string | undefined;})[];
-  roles?: ({})[] | undefined;
-  entitlements?: ({})[] | undefined;
+  entitlements?: ({  value?: string | undefined;
+  display?: string | undefined;
+  type?: string | undefined;
+  primary?: boolean | undefined;})[];
+  roles?: ({  value?: string | undefined;
+  display?: string | undefined;
+  type?: string | undefined;
+  primary?: boolean | undefined;})[];
+  x509Certificates?: ({  value?: string | undefined;
+  display?: string | undefined;
+  type?: string | undefined;
+  primary?: boolean | undefined;})[];
+  meta?: {  resourceType?: string | undefined;
+  created?: string | undefined;
+  lastModified?: string | undefined;
+  version?: string | undefined;
+  location?: string | undefined;};
 };
 
 export interface ActionInput_1password_scim_getserviceproviderconfig {
 };
 
 export interface ActionOutput_1password_scim_getserviceproviderconfig {
-  schemas?: string[] | undefined;
-  id?: string | undefined;
-  meta?: {  resourceType?: string | undefined;
-  created?: string | undefined;
-  lastModified?: string | undefined;
-  location?: string | undefined;
-  version?: string | undefined;};
+  schemas: string[];
   documentationUri?: string | undefined;
-  patch?: {  supported?: boolean | undefined;};
-  bulk?: {  supported?: boolean | undefined;
-  maxOperations?: number | undefined;
-  maxPayloadSize?: number | undefined;};
-  filter?: {  supported?: boolean | undefined;
-  maxResults?: number | undefined;};
-  changePassword?: {  supported?: boolean | undefined;};
-  sort?: {  supported?: boolean | undefined;};
-  etag?: {  supported?: boolean | undefined;};
-  authenticationSchemes?: ({  name?: string | undefined;
-  description?: string | undefined;
+  patch: {  supported: boolean;};
+  bulk: {  supported: boolean;
+  maxOperations: number;
+  maxPayloadSize: number;};
+  filter: {  supported: boolean;
+  maxResults: number;};
+  changePassword: {  supported: boolean;};
+  sort: {  supported: boolean;};
+  etag: {  supported: boolean;};
+  authenticationSchemes: ({  name: string;
+  description: string;
   specUri?: string | undefined;
   documentationUri?: string | undefined;
-  type?: string | undefined;
+  type: string;
   primary?: boolean | undefined;})[];
+  meta?: {  location: string;
+  resourceType: string;
+  created?: string | undefined;
+  lastModified?: string | undefined;
+  version?: string | undefined;};
 };
 
 export interface ActionInput_1password_scim_listresourcetypes {
@@ -243,31 +266,44 @@ export interface ActionInput_1password_scim_listresourcetypes {
 
 export interface ActionOutput_1password_scim_listresourcetypes {
   schemas?: string[] | undefined;
-  totalResults?: number | undefined;
-  itemsPerPage?: number | undefined;
-  startIndex?: number | undefined;
-  Resources?: ({  schemas?: string[] | undefined;
-  id?: string | undefined;
-  name?: string | undefined;
+  totalResults: number;
+  Resources: ({  schemas?: string[] | undefined;
+  id: string;
+  name: string;
+  endpoint: string;
   description?: string | undefined;
-  endpoint?: string | undefined;
-  schema?: string | undefined;
-  schemaExtensions?: ({  schema?: string | undefined;
-  required?: boolean | undefined;})[];
+  schema: string;
+  schemaExtensions?: ({  schema: string;
+  required: boolean;})[] | undefined;
   meta?: {  resourceType?: string | undefined;
   location?: string | undefined;};})[];
+  startIndex?: number | undefined;
+  itemsPerPage?: number | undefined;
 };
 
 export interface ActionInput_1password_scim_listschemas {
 };
 
 export interface ActionOutput_1password_scim_listschemas {
-  schemas?: string[] | undefined;
-  totalResults?: number | undefined;
-  Resources?: ({  id: string;
-  name?: string | undefined;
+  schemas?: ({  id: string;
+  name: string;
   description?: string | undefined;
-  attributes?: unknown[] | undefined;})[];
+  attributes?: ({  name: string;
+  type?: string | undefined;
+  multiValued?: boolean | undefined;
+  required?: boolean | undefined;
+  mutability?: string | undefined;
+  returned?: string | undefined;
+  uniqueness?: string | undefined;
+  description?: string | undefined;
+  subAttributes?: ({  name: string;
+  type?: string | undefined;
+  multiValued?: boolean | undefined;
+  required?: boolean | undefined;
+  mutability?: string | undefined;
+  returned?: string | undefined;
+  uniqueness?: string | undefined;
+  description?: string | undefined;})[];})[];})[];
 };
 
 export interface ActionInput_1password_scim_listscimgroups {
@@ -276,40 +312,41 @@ export interface ActionInput_1password_scim_listscimgroups {
    */
   cursor?: string | undefined;
   /**
-   * SCIM filter expression. Example: 'displayName eq "Engineering"'
-   */
-  filter?: string | undefined;
-  /**
-   * Number of results per page (1-250). Defaults to 100.
+   * Number of results per page. Defaults to 100.
    */
   count?: number | undefined;
+  /**
+   * SCIM filter expression. Example: displayName co "Engineering"
+   */
+  filter?: string | undefined;
 };
 
 export interface ActionOutput_1password_scim_listscimgroups {
-  groups: ({  id: string;
-  displayName: string;
-  members?: ({  value: string;
-  display?: string | undefined;
-  type?: string | undefined;})[];
+  items: ({  schemas: string[];
+  id: string;
+  externalId?: string | undefined;
   meta?: {  resourceType?: string | undefined;
   created?: string | undefined;
   lastModified?: string | undefined;
   location?: string | undefined;
   version?: string | undefined;};
-  externalId?: string | undefined;
-  schemas?: string[] | undefined;})[];
-  next_cursor?: string | undefined;
+  displayName: string;
+  members?: ({  value?: string | undefined;
+  "$ref"?: string | undefined;
+  display?: string | undefined;
+  type?: string | undefined;})[];})[];
+  nextCursor?: string | undefined;
 };
 
 export interface ActionInput_1password_scim_listscimusers {
   /**
-   * SCIM filter query. Example: userName eq "john.doe@example.com"
+   * Pagination cursor from the previous response. Omit for the first page.
+   */
+  cursor?: string | undefined;
+  /**
+   * SCIM filter expression. Example: userName eq "user@example.com"
    */
   filter?: string | undefined;
-  /**
-   * 1-based index of the first result to return.
-   */
-  start_index?: number | undefined;
   /**
    * Number of results to return per page.
    */
@@ -317,54 +354,69 @@ export interface ActionInput_1password_scim_listscimusers {
 };
 
 export interface ActionOutput_1password_scim_listscimusers {
-  users: ({  id: string;
+  items: ({  id: string;
   userName: string;
-  name?: {  familyName?: string | undefined;
-  givenName?: string | undefined;
-  formatted?: string | undefined;};
-  emails?: ({  value: string;
-  type?: string | undefined;
-  primary?: boolean | undefined;})[];
+  name?: {  formatted?: string | undefined;
+  familyName?: string | undefined;
+  givenName?: string | undefined;};
+  displayName?: string | undefined;
   active?: boolean | undefined;
-  externalId?: string | undefined;
-  meta?: {  created?: string | undefined;
-  lastModified?: string | undefined;
-  resourceType?: string | undefined;};
-  schemas?: string[] | undefined;})[];
-  total_results: number;
-  start_index?: number | undefined;
-  items_per_page?: number | undefined;
-  next_start_index?: number | undefined;
+  emails?: ({  value: string;
+  primary?: boolean | undefined;
+  type?: string | undefined;})[];})[];
+  totalResults?: number | undefined;
+  nextCursor?: string | undefined;
 };
 
 export interface ActionInput_1password_scim_patchscimgroup {
   /**
-   * The SCIM group ID to patch. Example: "group-123"
+   * SCIM Group ID. Example: "9067729b3d-f987ac4d-a175-44f0-a528-6d23c5d2ec4d"
    */
-  group_id: string;
+  id: string;
   /**
-   * SCIM PatchOp operations to apply.
+   * SCIM patch operations to apply to the group.
    */
   operations: ({  0: {  op: 'add';
+  /**
+   * Target attribute path. Example: "members" or "displayName"
+   */
   path?: string | undefined;
-  value?: unknown | undefined;};
+  value?: string | ({  /**
+   * User ID. Example: "2819c223-7f76-453a-919d-413861904646"
+   */
+  value: string;
+  display?: string | undefined;
+  "$ref"?: string | undefined;})[] | {  [key: string]: unknown | undefined;};};
   1: {  op: 'replace';
+  /**
+   * Target attribute path. Example: "members" or "displayName"
+   */
   path?: string | undefined;
-  value?: unknown | undefined;};
+  value?: string | ({  /**
+   * User ID. Example: "2819c223-7f76-453a-919d-413861904646"
+   */
+  value: string;
+  display?: string | undefined;
+  "$ref"?: string | undefined;})[] | {  [key: string]: unknown | undefined;};};
   2: {  op: 'remove';
+  /**
+   * Target attribute path. Example: "members" or "displayName"
+   */
   path: string;
-  value?: unknown | undefined;};})[];
+  value?: string | ({  /**
+   * User ID. Example: "2819c223-7f76-453a-919d-413861904646"
+   */
+  value: string;
+  display?: string | undefined;
+  "$ref"?: string | undefined;})[] | {  [key: string]: unknown | undefined;};};})[];
 };
 
 export interface ActionOutput_1password_scim_patchscimgroup {
-  schemas: string[];
   id: string;
   displayName?: string | undefined;
   members?: ({  value: string;
-  display?: string | undefined;
-  type?: string | undefined;
-  "$ref"?: string | undefined;})[];
-  meta?: {  resourceType: string;
+  display?: string | undefined;})[];
+  meta?: {  resourceType?: string | undefined;
   created?: string | undefined;
   lastModified?: string | undefined;
   location?: string | undefined;
@@ -374,11 +426,11 @@ export interface ActionOutput_1password_scim_patchscimgroup {
 
 export interface ActionInput_1password_scim_patchscimuser {
   /**
-   * The SCIM user ID to patch. Example: "2819c223-7f76-453a-919d-413861904646"
+   * SCIM User ID. Example: "2819c223-7f76-453a-919d-413861904646"
    */
   userId: string;
   /**
-   * SCIM patch operations to apply.
+   * SCIM PatchOp operations. Example: [{"op":"replace","path":"userName","value":"new@example.com"}]
    */
   operations: ({  0: {  op: 'add';
   path?: string | undefined;
@@ -392,15 +444,16 @@ export interface ActionInput_1password_scim_patchscimuser {
 };
 
 export interface ActionOutput_1password_scim_patchscimuser {
+  schemas: string[];
   id: string;
   userName?: string | undefined;
-  externalId?: string | undefined;
-  displayName?: string | undefined;
   active?: boolean | undefined;
+  displayName?: string | undefined;
+  preferredLanguage?: string | undefined;
   name?: {  formatted?: string | undefined;
   familyName?: string | undefined;
   givenName?: string | undefined;};
-  emails?: ({  value?: string | undefined;
+  emails?: ({  value: string;
   type?: string | undefined;
   primary?: boolean | undefined;})[];
   meta?: {  resourceType?: string | undefined;
@@ -412,84 +465,63 @@ export interface ActionOutput_1password_scim_patchscimuser {
 
 export interface ActionInput_1password_scim_updatescimgroup {
   /**
-   * The unique identifier of the SCIM group to update. Example: "9067729b3d-f987ac4d-a175-44f0-a528-6d23c5d2ec4d"
+   * The SCIM group ID. Example: "27i3xrasou26ukebqazeadyhua"
    */
   groupId: string;
   /**
-   * The new display name for the group.
+   * New display name for the group
    */
   displayName?: string | undefined;
   /**
-   * Array of user IDs to add as members to the group.
+   * Member add or remove operations
    */
-  addMembers?: string[] | undefined;
-  /**
-   * Array of user IDs to remove from the group.
-   */
-  removeMembers?: string[] | undefined;
+  members?: ({  op: 'add' | 'remove';
+  userId: string;
+  display?: string | undefined;})[];
 };
 
 export interface ActionOutput_1password_scim_updatescimgroup {
   id: string;
-  schemas?: string[] | undefined;
   displayName?: string | undefined;
   members?: ({  value: string;
-  display?: string | undefined;
-  "$ref"?: string | undefined;
-  type?: string | undefined;})[];
-  meta?: {  resourceType?: string | undefined;
-  created?: string | undefined;
-  lastModified?: string | undefined;
-  location?: string | undefined;
-  version?: string | undefined;};
+  display?: string | undefined;})[];
 };
 
 export interface ActionInput_1password_scim_updatescimuser {
   /**
-   * SCIM user ID. Example: "2819c223-7f76-453a-919d-413861904646"
+   * SCIM User ID. Example: "2819c223-7f76-453a-919d-413861904646"
    */
   id: string;
   /**
-   * Array of SCIM PatchOp operations to apply
+   * User email address. Example: "user@example.com"
    */
-  operations: ({  0: {  op: 'add';
-  path?: string | undefined;
-  value?: unknown | undefined;};
-  1: {  op: 'replace';
-  path?: string | undefined;
-  value?: unknown | undefined;};
-  2: {  op: 'remove';
-  path: string;
-  value?: unknown | undefined;};})[];
+  userName?: string | undefined;
+  /**
+   * First name. Example: "Jane"
+   */
+  givenName?: string | undefined;
+  /**
+   * Last name. Example: "Doe"
+   */
+  familyName?: string | undefined;
+  /**
+   * Display name. Example: "Jane Doe"
+   */
+  displayName?: string | undefined;
+  /**
+   * Whether the user is active.
+   */
+  active?: boolean | undefined;
 };
 
 export interface ActionOutput_1password_scim_updatescimuser {
   id: string;
-  externalId?: string | undefined;
-  meta?: {  resourceType?: string | undefined;
-  created?: string | undefined;
-  lastModified?: string | undefined;
-  location?: string | undefined;
-  version?: string | undefined;};
-  schemas?: string[] | undefined;
   userName?: string | undefined;
-  name?: {  formatted?: string | undefined;
-  familyName?: string | undefined;
   givenName?: string | undefined;
-  middleName?: string | undefined;
-  honorificPrefix?: string | undefined;
-  honorificSuffix?: string | undefined;};
+  familyName?: string | undefined;
   displayName?: string | undefined;
-  nickName?: string | undefined;
-  profileUrl?: string | undefined;
-  title?: string | undefined;
-  userType?: string | undefined;
-  preferredLanguage?: string | undefined;
-  locale?: string | undefined;
-  timezone?: string | undefined;
   active?: boolean | undefined;
-  emails?: ({  value?: string | undefined;
-  display?: string | undefined;
+  emails?: ({  value: string;
   type?: string | undefined;
   primary?: boolean | undefined;})[];
 };
@@ -639,18 +671,16 @@ export interface View {
 
 export interface Webhook {
   id: string;
-  type: number;
-  name?: string | undefined;
-  channel_id?: string | undefined;
-  guild_id?: string | undefined;
-  avatar?: string | undefined;
-  application_id?: string | undefined;
-  user_id?: string | undefined;
-  user_name?: string | undefined;
-  source_guild_id?: string | undefined;
-  source_guild_name?: string | undefined;
-  source_channel_id?: string | undefined;
-  source_channel_name?: string | undefined;
+  event_type: string;
+  team_id: string;
+  context: string;
+  context_id: string;
+  plan_api_id: string;
+  status: string;
+  client_id: string;
+  passcode: string;
+  endpoint: string;
+  description: string;
 };
 
 export interface SyncMetadata_airtable_webhooks {
@@ -1794,6 +1824,436 @@ export interface ActionOutput_anrok_voidtransaction {
   succeeded: ({  id: string;})[];
   failed: ({  id: string;
   validation_errors?: any | undefined;})[];
+};
+
+export interface File {
+  id: string;
+  object?: string | undefined;
+  bytes?: number | undefined;
+  created_at?: number | undefined;
+  filename?: string | undefined;
+  purpose?: string | undefined;
+  status?: string | undefined;
+  status_details?: string | undefined;
+};
+
+export interface MessageBatch {
+  id: string;
+  archived_at?: string | undefined;
+  cancel_initiated_at?: string | undefined;
+  created_at: string;
+  ended_at?: string | undefined;
+  expires_at: string;
+  processing_status: 'in_progress' | 'canceling' | 'ended';
+  request_counts: {  canceled: number;
+  errored: number;
+  expired: number;
+  processing: number;
+  succeeded: number;};
+  results_url?: string | undefined;
+  type: 'message_batch';
+};
+
+export interface Model {
+  id: string;
+  object?: string | undefined;
+  created?: number | undefined;
+  owned_by?: string | undefined;
+};
+
+export interface ActionInput_anthropic_cancelmessagebatch {
+  /**
+   * ID of the Message Batch to cancel. Example: "msgbatch_013Zva2CMHLNnXjNJJKqJ2EF"
+   */
+  message_batch_id: string;
+};
+
+export interface ActionOutput_anthropic_cancelmessagebatch {
+  id: string;
+  archived_at?: string | undefined;
+  cancel_initiated_at?: string | undefined;
+  created_at: string;
+  ended_at?: string | undefined;
+  expires_at: string;
+  processing_status: 'in_progress' | 'canceling' | 'ended';
+  request_counts: {  canceled: number;
+  errored: number;
+  expired: number;
+  processing: number;
+  succeeded: number;};
+  results_url?: string | undefined;
+  type: 'message_batch';
+};
+
+export interface ActionInput_anthropic_countmessagetokens {
+  /**
+   * The model that will count tokens. Example: "claude-sonnet-4-0"
+   */
+  model: string;
+  /**
+   * Input messages to count tokens for.
+   */
+  messages: ({  role: 'user' | 'assistant';
+  content: string | ({  [key: string]: unknown | undefined;})[];})[];
+  /**
+   * System prompt.
+   */
+  system?: string | ({  [key: string]: unknown | undefined;})[];
+  /**
+   * Thinking configuration.
+   */
+  thinking?: unknown | undefined;
+  /**
+   * Tool definitions.
+   */
+  tools?: unknown[] | undefined;
+  /**
+   * Tool choice configuration.
+   */
+  tool_choice?: unknown | undefined;
+  /**
+   * Cache control configuration.
+   */
+  cache_control?: unknown | undefined;
+  /**
+   * Output format configuration.
+   */
+  output_config?: unknown | undefined;
+};
+
+export interface ActionOutput_anthropic_countmessagetokens {
+  /**
+   * The total number of tokens across the provided list of messages, system prompt, and tools.
+   */
+  input_tokens: number;
+};
+
+export interface ActionInput_anthropic_createmessagebatch {
+  /**
+   * List of requests for prompt completion. Each is an individual request to create a Message.
+   */
+  requests: ({  /**
+   * Unique identifier for the request within the batch. Must be unique. Example: "my-request-1"
+   */
+  custom_id: string;
+  /**
+   * Messages API creation parameters for the individual request. See https://docs.anthropic.com/en/api/messages
+   */
+  params: {};})[];
+};
+
+export interface ActionOutput_anthropic_createmessagebatch {
+  id: string;
+  type: string;
+  processing_status: string;
+  request_counts: {  processing: number;
+  succeeded: number;
+  errored: number;
+  canceled: number;
+  expired: number;};
+  created_at: string;
+  expires_at: string;
+  ended_at?: string | undefined;
+  cancel_initiated_at?: string | undefined;
+  results_url?: string | undefined;
+};
+
+export interface ActionInput_anthropic_createmessage {
+  /**
+   * Anthropic model ID. Example: "claude-3-5-sonnet-20241022"
+   */
+  model: string;
+  /**
+   * Maximum tokens to generate. Example: 1024
+   */
+  max_tokens: number;
+  /**
+   * Conversation messages
+   */
+  messages: ({  role: 'user' | 'assistant';
+  content: string | ({  0: {  type: 'text';
+  text: string;};
+  1: {  type: 'image';
+  source: {  type: string;
+  media_type: string;
+  data: string;};};
+  2: {  type: 'tool_use';
+  id: string;
+  name: string;
+  input: {  [key: string]: unknown | undefined;};};
+  3: {  type: 'tool_result';
+  tool_use_id: string;
+  content?: string | ({  0: {  type: 'text';
+  text: string;};
+  1: {  type: 'image';
+  source: {  type: string;
+  media_type: string;
+  data: string;};};})[] | undefined;
+  is_error?: boolean | undefined;};})[];})[];
+  /**
+   * System prompt
+   */
+  system?: string | ({  type: 'text';
+  text: string;})[] | undefined;
+  /**
+   * Tools available to the model
+   */
+  tools?: ({  name: string;
+  description: string;
+  input_schema: {  type: 'object';
+  properties?: {  [key: string]: unknown | undefined;};
+  required?: string[] | undefined;};})[];
+  /**
+   * Tool choice configuration
+   */
+  tool_choice?: {  /**
+   * Tool choice type. Example: "auto", "any", "tool"
+   */
+  type: string;
+  /**
+   * Tool name when type is "tool". Example: "my_tool"
+   */
+  name?: string | undefined;};
+  /**
+   * Thinking configuration
+   */
+  thinking?: {  /**
+   * Thinking configuration type. Example: "enabled"
+   */
+  type: string;
+  /**
+   * Token budget for thinking. Example: 1024
+   */
+  budget_tokens: number;} | undefined;
+  /**
+   * Sampling temperature
+   */
+  temperature?: number | undefined;
+  /**
+   * Top-k sampling parameter
+   */
+  top_k?: number | undefined;
+  /**
+   * Top-p sampling parameter
+   */
+  top_p?: number | undefined;
+  /**
+   * Stop sequences
+   */
+  stop_sequences?: string[] | undefined;
+  /**
+   * Metadata key-value pairs
+   */
+  metadata?: {  [key: string]: string;} | undefined;
+};
+
+export interface ActionOutput_anthropic_createmessage {
+  id: string;
+  type: 'message';
+  role: 'assistant';
+  content: ({  0: {  type: 'text';
+  text: string;};
+  1: {  type: 'tool_use';
+  id: string;
+  name: string;
+  input: {  [key: string]: unknown | undefined;};};
+  2: {  type: 'thinking';
+  thinking: string;
+  signature?: string | undefined;};
+  3: {  type: 'redacted_thinking';
+  data: string;};})[];
+  model: string;
+  stop_reason?: string | null | undefined;
+  stop_sequence?: string | null | undefined;
+  usage: {  input_tokens: number;
+  output_tokens: number;
+  cache_creation_input_tokens?: number | undefined;
+  cache_read_input_tokens?: number | undefined;};
+};
+
+export interface ActionInput_anthropic_deletefile {
+  /**
+   * ID of the File to delete. Example: "file_011CNha8iCJcU1wXNR6q4V8w"
+   */
+  file_id: string;
+};
+
+export interface ActionOutput_anthropic_deletefile {
+  id: string;
+  type?: 'file_deleted' | undefined;
+};
+
+export interface ActionInput_anthropic_getfile {
+  /**
+   * The ID of the file to retrieve. Example: "file_01HqW8Kq0Z2Q2W8Kq0Z2Q2W8"
+   */
+  file_id: string;
+};
+
+export interface ActionOutput_anthropic_getfile {
+  id: string;
+  created_at: string;
+  filename: string;
+  mime_type: string;
+  size_bytes: number;
+  type: 'file';
+  downloadable?: boolean | undefined;
+  scope?: {  id: string;
+  type: 'session';} | undefined;
+};
+
+export interface ActionInput_anthropic_getmessagebatch {
+  /**
+   * The ID of the message batch to retrieve. Example: "msgbatch_01Ab2cDe3Fg4hIj5Kl6mNo7Pq8r"
+   */
+  message_batch_id: string;
+};
+
+export interface ActionOutput_anthropic_getmessagebatch {
+  id: string;
+  archived_at?: string | undefined;
+  cancel_initiated_at?: string | undefined;
+  created_at: string;
+  ended_at?: string | undefined;
+  expires_at: string;
+  processing_status: 'in_progress' | 'canceling' | 'ended';
+  request_counts: {  canceled: number;
+  errored: number;
+  expired: number;
+  processing: number;
+  succeeded: number;};
+  results_url?: string | undefined;
+  type: 'message_batch';
+};
+
+export interface ActionInput_anthropic_getmodel {
+  /**
+   * Model identifier or alias. Example: "claude-opus-4-6"
+   */
+  model_id: string;
+};
+
+export interface ActionOutput_anthropic_getmodel {
+  id: string;
+  capabilities: {  batch: {  supported: boolean;};
+  citations: {  supported: boolean;};
+  code_execution: {  supported: boolean;};
+  context_management: {  clear_thinking_20251015: {  supported: boolean;};
+  clear_tool_uses_20250919: {  supported: boolean;};
+  compact_20260112: {  supported: boolean;};
+  supported: boolean;};
+  effort: {  high: {  supported: boolean;};
+  low: {  supported: boolean;};
+  max: {  supported: boolean;};
+  medium: {  supported: boolean;};
+  supported: boolean;
+  xhigh?: {  supported: boolean;} | undefined;};
+  image_input: {  supported: boolean;};
+  pdf_input: {  supported: boolean;};
+  structured_outputs: {  supported: boolean;};
+  thinking: {  supported: boolean;
+  types: {  adaptive: {  supported: boolean;};
+  enabled: {  supported: boolean;};};};};
+  created_at: string;
+  display_name: string;
+  max_input_tokens: number;
+  max_tokens: number;
+  type: string;
+};
+
+export interface ActionInput_anthropic_listfiles {
+  /**
+   * Pagination cursor from the previous response. Omit for the first page.
+   */
+  cursor?: string | undefined;
+  /**
+   * Number of items to return per page. Defaults to 20. Ranges from 1 to 1000.
+   */
+  limit?: number | undefined;
+  /**
+   * Filter by scope ID. Only returns files associated with the specified scope (e.g., a session ID).
+   */
+  scope_id?: string | undefined;
+};
+
+export interface ActionOutput_anthropic_listfiles {
+  files: ({  id: string;
+  created_at: string;
+  filename: string;
+  mime_type: string;
+  size_bytes: number;
+  type: string;
+  downloadable?: boolean | undefined;
+  scope?: {  id: string;
+  type: string;} | undefined;})[];
+  next_cursor?: string | undefined;
+};
+
+export interface ActionInput_anthropic_listmessagebatchresults {
+  /**
+   * The ID of the Message Batch to retrieve results for. Example: "msgbatch_01AbCdEfGhIjKlMnOpQrStUv"
+   */
+  message_batch_id: string;
+};
+
+export interface ActionOutput_anthropic_listmessagebatchresults {
+  results: ({  custom_id: string;
+  result: {  [key: string]: unknown | undefined;};})[];
+};
+
+export interface ActionInput_anthropic_listmessagebatches {
+  /**
+   * Pagination cursor from the previous response. Omit for the first page.
+   */
+  cursor?: string | undefined;
+  /**
+   * ID of the object to use as a cursor for pagination. Returns the page immediately before this object.
+   */
+  before_id?: string | undefined;
+  /**
+   * Number of items to return per page. Defaults to 20. Ranges from 1 to 1000.
+   */
+  limit?: number | undefined;
+};
+
+export interface ActionOutput_anthropic_listmessagebatches {
+  items: ({  id: string;
+  archived_at?: string | undefined;
+  cancel_initiated_at?: string | undefined;
+  created_at: string;
+  ended_at?: string | undefined;
+  expires_at: string;
+  processing_status: 'in_progress' | 'canceling' | 'ended';
+  request_counts: {  canceled: number;
+  errored: number;
+  expired: number;
+  processing: number;
+  succeeded: number;};
+  results_url?: string | undefined;
+  type: 'message_batch';})[];
+  next_cursor?: string | undefined;
+};
+
+export interface ActionInput_anthropic_listmodels {
+  /**
+   * Pagination cursor from the previous response. Omit for the first page.
+   */
+  cursor?: string | undefined;
+  /**
+   * Number of items to return per page. Defaults to 20. Ranges from 1 to 1000.
+   */
+  limit?: number | undefined;
+};
+
+export interface ActionOutput_anthropic_listmodels {
+  items: ({  id: string;
+  capabilities: {};
+  created_at: string;
+  display_name: string;
+  max_input_tokens: number;
+  max_tokens: number;
+  type: 'model';})[];
+  next_cursor?: string | undefined;
 };
 
 export interface Account {
@@ -10144,10 +10604,19 @@ export interface ActionOutput_clicksend_sendsms {
 
 export interface Comment {
   id: string;
-  comment_text?: string | undefined;
-  user?: unknown | undefined;
-  date?: string | undefined;
-  reply_count?: number | undefined;
+  file_key: string;
+  parent_id?: string | undefined;
+  user_id: string;
+  user_handle?: string | undefined;
+  user_img_url?: string | undefined;
+  created_at: string;
+  resolved_at?: string | undefined;
+  message: string;
+  order_id?: string | undefined;
+  node_id?: string | undefined;
+  node_offset_x?: number | undefined;
+  node_offset_y?: number | undefined;
+  reactions?: ({})[] | undefined;
 };
 
 export interface SyncMetadata_clickup_comments {
@@ -15058,17 +15527,6 @@ export interface ActionOutput_docusign_deleteuser {
   success: boolean;
 };
 
-export interface File {
-  id: string;
-  object?: string | undefined;
-  bytes?: number | undefined;
-  created_at?: number | undefined;
-  filename?: string | undefined;
-  purpose?: string | undefined;
-  status?: string | undefined;
-  status_details?: string | undefined;
-};
-
 export interface SyncMetadata_dropbox_files {
   rootPaths?: string[] | undefined;
 };
@@ -16920,6 +17378,1142 @@ export interface ActionInput_facebook_unsubscribeappfrompage {
 
 export interface ActionOutput_facebook_unsubscribeappfrompage {
   success: boolean;
+};
+
+export interface SyncMetadata_figma_comments {
+  team_id: string;
+};
+
+export interface ComponentSet {
+  id: string;
+  key?: string | undefined;
+  file_key?: string | undefined;
+  node_id?: string | undefined;
+  thumbnail_url?: string | undefined;
+  name?: string | undefined;
+  description?: string | undefined;
+  updated_at?: string | undefined;
+  created_at?: string | undefined;
+  user?: unknown | undefined;
+  containing_frame?: unknown | undefined;
+};
+
+export interface SyncMetadata_figma_componentsets {
+  team_id: string;
+};
+
+export interface Component {
+  id: string;
+  file_key: string;
+  node_id: string;
+  thumbnail_url?: string | undefined;
+  name: string;
+  description?: string | undefined;
+  created_at: string;
+  updated_at: string;
+  user?: {  id: string;
+  handle: string;
+  img_url?: string | undefined;};
+  containing_frame?: {  nodeId?: string | undefined;
+  name?: string | undefined;
+  backgroundColor?: string | undefined;
+  pageId: string;
+  pageName: string;
+  containingStateGroup?: {  nodeId?: string | undefined;
+  name?: string | undefined;};
+  containingComponentSet?: {  nodeId?: string | undefined;
+  name?: string | undefined;};};
+};
+
+export interface SyncMetadata_figma_components {
+  team_id: string;
+};
+
+export interface SyncMetadata_figma_files {
+  project_id: string;
+};
+
+export interface SyncMetadata_figma_projects {
+  team_id: string;
+};
+
+export interface Style {
+  id: string;
+  key: string;
+  file_key: string;
+  node_id?: string | undefined;
+  style_type?: string | undefined;
+  thumbnail_url?: string | undefined;
+  name?: string | undefined;
+  description?: string | undefined;
+  created_at?: string | undefined;
+  updated_at?: string | undefined;
+  sort_position?: string | undefined;
+  user_id?: string | undefined;
+  user_handle?: string | undefined;
+  user_img_url?: string | undefined;
+};
+
+export interface SyncMetadata_figma_styles {
+  team_id: string;
+};
+
+export interface Variable {
+  id: string;
+  subscribed_id: string;
+  name: string;
+  key: string;
+  variableCollectionId: string;
+  resolvedDataType: 'BOOLEAN' | 'FLOAT' | 'STRING' | 'COLOR';
+  updatedAt: string;
+  fileKey: string;
+};
+
+export interface SyncMetadata_figma_variables {
+  team_id: string;
+};
+
+export interface Version {
+  id: string;
+  file_key: string;
+  created_at: string;
+  label?: string | undefined;
+  description?: string | undefined;
+  thumbnail_url?: string | undefined;
+  user?: {  id: string;
+  handle?: string | undefined;
+  img_url?: string | undefined;};
+};
+
+export interface SyncMetadata_figma_versions {
+  file_key?: string | undefined;
+  team_id?: string | undefined;
+};
+
+export interface SyncMetadata_figma_webhooks {
+  team_id: string;
+};
+
+export interface ActionInput_figma_createcommentreaction {
+  /**
+   * The key of the file containing the comment. Example: "UzYlOaPNPL2c7zmHCEljOs"
+   */
+  file_key: string;
+  /**
+   * The ID of the comment to react to. Example: "1774450119"
+   */
+  comment_id: string;
+  /**
+   * The emoji shortcode for the reaction. Example: ":thumbsup:"
+   */
+  emoji: string;
+};
+
+export interface ActionOutput_figma_createcommentreaction {
+  status: number;
+  error: boolean;
+};
+
+export interface ActionInput_figma_createcomment {
+  /**
+   * The file key to add the comment to. Example: "UzYlOaPNPL2c7zmHCEljOs"
+   */
+  file_key: string;
+  /**
+   * The text contents of the comment to post.
+   */
+  message: string;
+  /**
+   * The ID of the comment to reply to, if any. This must be a root comment.
+   */
+  comment_id?: string | undefined;
+  /**
+   * The node ID to attach the comment to. Example: "91:1"
+   */
+  node_id?: string | undefined;
+  /**
+   * X coordinate offset within the node from the top-left corner.
+   */
+  node_offset_x?: number | undefined;
+  /**
+   * Y coordinate offset within the node from the top-left corner.
+   */
+  node_offset_y?: number | undefined;
+};
+
+export interface ActionOutput_figma_createcomment {
+  id: string;
+  client_meta?: {  x: number;
+  y: number;} | {  node_id: string;
+  node_offset: {  x: number;
+  y: number;};} | {  x: number;
+  y: number;
+  region_height: number;
+  region_width: number;
+  comment_pin_corner?: string | undefined;} | {  node_id: string;
+  node_offset: {  x: number;
+  y: number;};
+  region_height: number;
+  region_width: number;
+  comment_pin_corner?: string | undefined;};
+  file_key?: string | undefined;
+  parent_id?: string | undefined;
+  user?: {  id: string;
+  handle: string;
+  img_url?: string | undefined;};
+  created_at?: string | undefined;
+  resolved_at?: string | undefined;
+  message?: string | undefined;
+  order_id?: string | undefined;
+  reactions?: ({  user: {  id: string;
+  handle: string;
+  img_url?: string | undefined;};
+  emoji: string;
+  created_at?: string | undefined;})[];
+};
+
+export interface ActionInput_figma_createdevresources {
+  dev_resources: ({  name: string;
+  url: string;
+  file_key: string;
+  node_id: string;})[];
+};
+
+export interface ActionOutput_figma_createdevresources {
+  links_created: ({  id: string;
+  name: string;
+  url: string;
+  file_key: string;
+  node_id: string;})[];
+  errors?: ({  file_key: string;
+  node_id: string;
+  error: string;})[] | undefined;
+};
+
+export interface ActionInput_figma_deletecommentreaction {
+  /**
+   * File key of the file to delete the comment reaction from. Example: "UzYlOaPNPL2c7zmHCEljOs"
+   */
+  file_key: string;
+  /**
+   * ID of the comment to delete the reaction from. Example: "1774450119"
+   */
+  comment_id: string;
+  /**
+   * Emoji shortcode of the reaction to delete. Example: ":thumbsup:"
+   */
+  emoji: string;
+};
+
+export interface ActionOutput_figma_deletecommentreaction {
+  success: boolean;
+};
+
+export interface ActionInput_figma_deletecomment {
+  /**
+   * The key of the Figma file containing the comment. Example: "UzYlOaPNPL2c7zmHCEljOs"
+   */
+  file_key: string;
+  /**
+   * The ID of the comment to delete. Example: "1774450194"
+   */
+  comment_id: string;
+};
+
+export interface ActionOutput_figma_deletecomment {
+  success: boolean;
+};
+
+export interface ActionInput_figma_deletedevresource {
+  /**
+   * The Figma file key to delete the dev resource from. Example: "UzYlOaPNPL2c7zmHCEljOs"
+   */
+  file_key: string;
+  /**
+   * The ID of the dev resource to delete. Example: "1234567890"
+   */
+  dev_resource_id: string;
+};
+
+export interface ActionOutput_figma_deletedevresource {
+  success: boolean;
+};
+
+export interface ActionInput_figma_deletewebhook {
+  /**
+   * The ID of the webhook to delete. Example: "12345"
+   */
+  webhook_id: string;
+};
+
+export interface ActionOutput_figma_deletewebhook {
+  id: string;
+  event_type?: string | undefined;
+  context?: string | undefined;
+  context_id?: string | undefined;
+  status?: string | undefined;
+  endpoint?: string | undefined;
+  description?: string | undefined;
+};
+
+export interface FileNode {
+  id: string;
+  file_key: string;
+  file_name?: string | undefined;
+  node_id: string;
+  name?: string | undefined;
+  type: string;
+  last_modified: string;
+};
+
+export interface SyncMetadata_figma_filenodes {
+  team_id: string;
+};
+
+export interface ActionInput_figma_getcomment {
+  /**
+   * Figma file key. Example: "UzYlOaPNPL2c7zmHCEljOs"
+   */
+  file_key: string;
+  /**
+   * Comment ID. Example: "1774450119"
+   */
+  comment_id: string;
+};
+
+export interface ActionOutput_figma_getcomment {
+  id: string;
+  file_key?: string | undefined;
+  parent_id?: string | undefined;
+  user: {  id: string;
+  handle: string;
+  img_url?: string | undefined;
+  email?: string | undefined;};
+  created_at: string;
+  resolved_at?: string | undefined;
+  message: string;
+  client_meta?: {  node_id?: string | undefined;
+  node_type?: string | undefined;
+  node_offset?: {  x: number;
+  y: number;} | undefined;};
+  order_id?: string | undefined;
+};
+
+export interface ActionInput_figma_getcomponent {
+  /**
+   * The unique identifier of the component. Example: "abc123"
+   */
+  key: string;
+};
+
+export interface ActionOutput_figma_getcomponent {
+  key: string;
+  file_key: string;
+  node_id: string;
+  thumbnail_url?: string | undefined;
+  name: string;
+  description?: string | undefined;
+  created_at: string;
+  updated_at: string;
+  user: {  id: string;
+  handle: string;
+  img_url: string;};
+  containing_frame?: {  nodeId?: string | undefined;
+  name?: string | undefined;
+  backgroundColor?: string | undefined;
+  pageId?: string | undefined;
+  pageName?: string | undefined;
+  containingStateGroup?: {  nodeId?: string | undefined;
+  name?: string | undefined;};
+  containingComponentSet?: {  nodeId?: string | undefined;
+  name?: string | undefined;};};
+};
+
+export interface ActionInput_figma_getcomponentset {
+  /**
+   * The unique identifier of the component set.
+   */
+  key: string;
+};
+
+export interface ActionOutput_figma_getcomponentset {
+  key: string;
+  file_key: string;
+  node_id: string;
+  thumbnail_url?: string | undefined;
+  name: string;
+  description: string;
+  created_at: string;
+  updated_at: string;
+  user: {  id: string;
+  handle?: string | undefined;
+  img_url?: string | undefined;};
+  containing_frame?: {  nodeId?: string | undefined;
+  name?: string | undefined;
+  backgroundColor?: string | undefined;
+  pageId: string;
+  pageName: string;
+  containingStateGroup?: {  nodeId?: string | undefined;
+  name?: string | undefined;};
+  containingComponentSet?: {  nodeId?: string | undefined;
+  name?: string | undefined;};};
+};
+
+export interface ActionInput_figma_getcurrentuser {
+};
+
+export interface ActionOutput_figma_getcurrentuser {
+  id: string;
+  email: string;
+  handle: string;
+  img_url?: string | undefined;
+};
+
+export interface ActionInput_figma_getfilecomponentsets {
+  /**
+   * The unique identifier of the Figma file to retrieve component sets from. Example: "UzYlOaPNPL2c7zmHCEljOs"
+   */
+  file_key: string;
+};
+
+export interface ActionOutput_figma_getfilecomponentsets {
+  status: number;
+  error: boolean;
+  meta: {  component_sets: ({  key: string;
+  file_key: string;
+  node_id: string;
+  thumbnail_url?: string | undefined;
+  name: string;
+  description: string;
+  created_at: string;
+  updated_at: string;
+  user: {  id: string;
+  handle: string;
+  img_url: string;};
+  containing_frame?: {  nodeId?: string | undefined;
+  name?: string | undefined;
+  backgroundColor?: string | undefined;
+  pageId: string;
+  pageName: string;
+  containingStateGroup?: {  nodeId: string;
+  name: string;} | undefined;
+  containingComponentSet?: {  nodeId: string;
+  name: string;} | undefined;};})[];};
+};
+
+export interface ActionInput_figma_getfilecomponents {
+  /**
+   * The key of the Figma file to retrieve components from. Example: "UzYlOaPNPL2c7zmHCEljOs"
+   */
+  file_key: string;
+};
+
+export interface ActionOutput_figma_getfilecomponents {
+  components: ({  key: string;
+  file_key: string;
+  node_id: string;
+  thumbnail_url?: string | undefined;
+  name: string;
+  description: string;
+  created_at: string;
+  updated_at: string;
+  user: {  id: string;
+  handle: string;
+  img_url: string;};
+  containing_frame?: {  nodeId?: string | undefined;
+  name?: string | undefined;
+  backgroundColor?: string | undefined;
+  pageId: string;
+  pageName: string;};})[];
+};
+
+export interface ActionInput_figma_getfilenode {
+  /**
+   * The Figma file key. Example: "UzYlOaPNPL2c7zmHCEljOs"
+   */
+  file_key: string;
+  /**
+   * The ID of the node to retrieve. Example: "91:1"
+   */
+  node_id: string;
+};
+
+export interface ActionOutput_figma_getfilenode {
+  /**
+   * The requested node as a JSON object
+   */
+  document: {  [key: string]: unknown | undefined;};
+  /**
+   * A mapping from component IDs to component metadata
+   */
+  components: {  [key: string]: {  key: string;
+  name: string;
+  description: string;
+  componentSetId?: string | undefined;
+  documentationLinks: ({  uri: string;})[];
+  remote: boolean;};};
+  /**
+   * A mapping from component set IDs to component set metadata
+   */
+  componentSets: {  [key: string]: {  key: string;
+  name: string;
+  description: string;
+  documentationLinks: ({  uri: string;})[];
+  remote: boolean;};};
+  /**
+   * The version of the file schema that this file uses
+   */
+  schemaVersion: number;
+  /**
+   * A mapping from style IDs to style metadata
+   */
+  styles: {  [key: string]: {  key: string;
+  name: string;
+  description: string;
+  remote: boolean;
+  styleType: string;};};
+};
+
+export interface ActionInput_figma_getfilestyles {
+  /**
+   * The unique identifier of the Figma file. Example: "UzYlOaPNPL2c7zmHCEljOs"
+   */
+  file_key: string;
+};
+
+export interface ActionOutput_figma_getfilestyles {
+  status: number;
+  error: boolean;
+  meta: {  styles: ({  key: string;
+  file_key: string;
+  node_id: string;
+  style_type: 'FILL' | 'TEXT' | 'EFFECT' | 'GRID';
+  thumbnail_url?: string | undefined;
+  name: string;
+  description: string;
+  created_at: string;
+  updated_at: string;
+  user: {  id: string;
+  handle: string;
+  img_url: string;};
+  sort_position: string;})[];};
+};
+
+export interface ActionInput_figma_getlocalvariables {
+  /**
+   * The key of the Figma file. Example: "UzYlOaPNPL2c7zmHCEljOs"
+   */
+  file_key: string;
+};
+
+export interface ActionOutput_figma_getlocalvariables {
+  status: number;
+  error: boolean;
+  meta: {  variableCollections: {  [key: string]: {  id: string;
+  name: string;
+  hiddenFromPublishing?: boolean | undefined;
+  key?: string | undefined;
+  defaultModeId?: string | undefined;
+  modes?: ({  name: string;
+  modeId: string;})[] | undefined;
+  remote?: boolean | undefined;
+  variableIds?: string[] | undefined;
+  localVariableIds?: string[] | undefined;};};
+  variables: {  [key: string]: {  id: string;
+  name: string;
+  description?: string | undefined;
+  variableCollectionId?: string | undefined;
+  key?: string | undefined;
+  remote?: boolean | undefined;
+  resolvedType?: string | undefined;
+  valuesByMode?: {  [key: string]: unknown | undefined;};
+  scopes?: string[] | undefined;
+  hiddenFromPublishing?: boolean | undefined;
+  codeSyntax?: {  [key: string]: unknown | undefined;};};};};
+};
+
+export interface ActionInput_figma_getproject {
+  /**
+   * Figma team ID. Example: "1639747348117609063"
+   */
+  team_id: string;
+  /**
+   * The ID of the project to retrieve. Example: "604829489"
+   */
+  project_id: string;
+};
+
+export interface ActionOutput_figma_getproject {
+  id: string;
+  name: string;
+};
+
+export interface ActionInput_figma_getpublishedvariables {
+  /**
+   * Figma file key to retrieve published variables from. Example: "UzYlOaPNPL2c7zmHCEljOs"
+   */
+  file_key: string;
+};
+
+export interface ActionOutput_figma_getpublishedvariables {
+  status: number;
+  error: boolean;
+  meta: {  variables: {  [key: string]: {  id: string;
+  subscribed_id: string;
+  name: string;
+  key: string;
+  variableCollectionId: string;
+  resolvedDataType: 'BOOLEAN' | 'FLOAT' | 'STRING' | 'COLOR';
+  updatedAt: string;};};
+  variableCollections: {  [key: string]: {  id: string;
+  subscribed_id: string;
+  name: string;
+  key: string;
+  updatedAt: string;};};};
+};
+
+export interface ActionInput_figma_getstyle {
+  /**
+   * The unique identifier of the style. Example: "0f6da13a103e47271a3c8c6d52187ca4587ae898"
+   */
+  key: string;
+};
+
+export interface ActionOutput_figma_getstyle {
+  key: string;
+  file_key: string;
+  node_id: string;
+  style_type: 'FILL' | 'TEXT' | 'EFFECT' | 'GRID';
+  thumbnail_url?: string | undefined;
+  name: string;
+  description: string;
+  created_at: string;
+  updated_at: string;
+  user: {  id: string;
+  handle: string;
+  img_url: string;};
+  sort_position: string;
+};
+
+export interface ActionInput_figma_getversion {
+  /**
+   * The file key for the Figma file. Example: "UzYlOaPNPL2c7zmHCEljOs"
+   */
+  file_key: string;
+  /**
+   * The unique identifier for the version. Example: "2356506860085774014"
+   */
+  version_id: string;
+};
+
+export interface ActionOutput_figma_getversion {
+  id: string;
+  created_at: string;
+  label?: string | undefined;
+  description?: string | undefined;
+  user?: {  id: string;
+  handle: string;
+  img_url?: string | undefined;
+  email?: string | undefined;};
+};
+
+export interface ActionInput_figma_getwebhook {
+  /**
+   * The ID of the webhook to retrieve. Example: "123456789"
+   */
+  webhook_id: string;
+};
+
+export interface ActionOutput_figma_getwebhook {
+  id: string;
+  event_type: 'PING' | 'FILE_UPDATE' | 'FILE_VERSION_UPDATE' | 'FILE_DELETE' | 'LIBRARY_PUBLISH' | 'FILE_COMMENT' | 'DEV_MODE_STATUS_UPDATE';
+  team_id: string;
+  context: string;
+  context_id: string;
+  plan_api_id: string;
+  status: 'ACTIVE' | 'PAUSED';
+  client_id: string;
+  passcode: string;
+  endpoint: string;
+  description: string;
+};
+
+export interface ActionInput_figma_listcommentreactions {
+  /**
+   * File key or branch key. Example: "UzYlOaPNPL2c7zmHCEljOs"
+   */
+  file_key: string;
+  /**
+   * Comment ID. Example: "1774450119"
+   */
+  comment_id: string;
+  /**
+   * Pagination cursor from the previous response. Omit for the first page.
+   */
+  cursor?: string | undefined;
+};
+
+export interface ActionOutput_figma_listcommentreactions {
+  reactions: ({  user: {  id: string;
+  handle: string;
+  img_url: string;};
+  emoji: string;
+  created_at: string;})[];
+  next_cursor?: string | undefined;
+};
+
+export interface ActionInput_figma_listcomments {
+  /**
+   * File key to list comments from. Example: "UzYlOaPNPL2c7zmHCEljOs"
+   */
+  file_key: string;
+  /**
+   * If enabled, returns comments as markdown equivalents when applicable.
+   */
+  as_md?: boolean | undefined;
+  /**
+   * Pagination cursor. Not used by this endpoint; reserved for future compatibility.
+   */
+  cursor?: string | undefined;
+};
+
+export interface ActionOutput_figma_listcomments {
+  items: ({  id: string;
+  file_key: string;
+  client_meta?: {  x: number;
+  y: number;} | {  node_id: string;
+  node_offset: {  x: number;
+  y: number;};} | {  x: number;
+  y: number;
+  region_height: number;
+  region_width: number;
+  comment_pin_corner?: string | undefined;} | {  node_id: string;
+  node_offset: {  x: number;
+  y: number;};
+  region_height: number;
+  region_width: number;
+  comment_pin_corner?: string | undefined;};
+  parent_id?: string | undefined;
+  user: {  id: string;
+  handle: string;
+  img_url: string;};
+  created_at: string;
+  resolved_at?: string | undefined;
+  message: string;
+  order_id?: string | undefined;
+  reactions: ({  user: {  id: string;
+  handle: string;
+  img_url: string;};
+  emoji: string;
+  created_at: string;})[];})[];
+  next_cursor?: string | undefined;
+};
+
+export interface ActionInput_figma_listcomponentsets {
+  /**
+   * Figma team ID. Example: "1639747348117609063"
+   */
+  team_id: string;
+  /**
+   * Pagination cursor from the previous response. Maps to the after query parameter. Omit for the first page.
+   */
+  cursor?: string | undefined;
+  /**
+   * Number of items per page. Default: 30. Maximum: 1000.
+   */
+  page_size?: number | undefined;
+};
+
+export interface ActionOutput_figma_listcomponentsets {
+  component_sets: ({  key: string;
+  file_key: string;
+  node_id: string;
+  thumbnail_url?: string | undefined;
+  name: string;
+  description?: string | undefined;
+  created_at: string;
+  updated_at: string;
+  user?: {  id: string;
+  handle: string;
+  img_url: string;
+  email?: string | undefined;};
+  containing_frame?: {  node_id?: string | undefined;
+  name?: string | undefined;
+  backgroundColor?: string | undefined;
+  pageId?: string | undefined;
+  pageName?: string | undefined;
+  containingStateGroup?: string | undefined;
+  containingComponentSet?: string | undefined;};})[];
+  next_cursor?: string | undefined;
+};
+
+export interface ActionInput_figma_listcomponents {
+  /**
+   * Team ID. Example: "1639747348117609063"
+   */
+  team_id: string;
+  /**
+   * Pagination cursor from the previous response (numeric). Omit for the first page.
+   */
+  cursor?: string | undefined;
+  /**
+   * Number of items to return per page. Defaults to 30. Maximum of 1000.
+   */
+  page_size?: number | undefined;
+};
+
+export interface ActionOutput_figma_listcomponents {
+  components: ({  key: string;
+  file_key: string;
+  node_id: string;
+  thumbnail_url?: string | undefined;
+  name: string;
+  description?: string | undefined;
+  created_at?: string | undefined;
+  updated_at?: string | undefined;
+  user?: {  id: string;
+  email?: string | undefined;
+  handle?: string | undefined;
+  img_url?: string | undefined;
+  name?: string | undefined;};
+  containing_frame?: {  node_id?: string | undefined;
+  name?: string | undefined;
+  page_id?: string | undefined;
+  page_name?: string | undefined;};})[];
+  next_cursor?: string | undefined;
+};
+
+export interface ActionInput_figma_listdevresources {
+  /**
+   * The file to get dev resources from. This must be a main file key, not a branch key.
+   */
+  file_key: string;
+  /**
+   * Optional list of node IDs to filter dev resources by. Only dev resources attached to these nodes will be returned.
+   */
+  node_ids?: string[] | undefined;
+};
+
+export interface ActionOutput_figma_listdevresources {
+  dev_resources: ({  id: string;
+  name: string;
+  url: string;
+  file_key: string;
+  node_id: string;})[];
+};
+
+export interface ActionInput_figma_listfilenodes {
+  /**
+   * File to export JSON from. This can be a file key or branch key. Example: "UzYlOaPNPL2c7zmHCEljOs"
+   */
+  file_key: string;
+  /**
+   * Node IDs to retrieve. Example: ["91:1", "1:2"]
+   */
+  ids: string[];
+  /**
+   * A specific version ID to get. Omitting this will get the current version of the file.
+   */
+  version?: string | undefined;
+  /**
+   * Positive integer representing how deep into the node tree to traverse.
+   */
+  depth?: number | undefined;
+  /**
+   * Set to "paths" to export vector data.
+   */
+  geometry?: string | undefined;
+  /**
+   * A comma separated list of plugin IDs and/or the string "shared".
+   */
+  plugin_data?: string | undefined;
+};
+
+export interface ActionOutput_figma_listfilenodes {
+  name?: string | undefined;
+  role?: string | undefined;
+  lastModified?: string | undefined;
+  editorType?: string | undefined;
+  thumbnailUrl?: string | undefined;
+  version?: string | undefined;
+  err?: string | undefined;
+  nodes?: {  [key: string]: {  document?: unknown | undefined;
+  components?: {  [key: string]: unknown | undefined;};
+  componentSets?: {  [key: string]: unknown | undefined;};
+  schemaVersion?: number | undefined;
+  styles?: {  [key: string]: unknown | undefined;};};};
+};
+
+export interface ActionInput_figma_listfiles {
+  /**
+   * ID of the project to list files from. Example: "604829489"
+   */
+  project_id: string;
+  /**
+   * Returns branch metadata in the response for each main file with a branch inside the project.
+   */
+  branch_data?: boolean | undefined;
+};
+
+export interface ActionOutput_figma_listfiles {
+  name: string;
+  files: ({  key: string;
+  name: string;
+  thumbnail_url?: string | undefined;
+  last_modified: string;})[];
+};
+
+export interface ActionInput_figma_listprojects {
+  /**
+   * Pagination cursor from the previous response. Omit for the first page.
+   */
+  cursor?: string | undefined;
+};
+
+export interface ActionOutput_figma_listprojects {
+  team_name: string;
+  projects: ({  id: string;
+  name: string;})[];
+  next_cursor?: string | undefined;
+};
+
+export interface ActionInput_figma_liststyles {
+  /**
+   * Pagination cursor from the previous response. Omit for the first page.
+   */
+  cursor?: string | undefined;
+  /**
+   * Number of items to return in a paged list of results. Defaults to 30.
+   */
+  page_size?: number | undefined;
+};
+
+export interface ActionOutput_figma_liststyles {
+  styles: ({  key: string;
+  file_key: string;
+  node_id: string;
+  style_type: string;
+  thumbnail_url?: string | undefined;
+  name: string;
+  description?: string | undefined;
+  created_at: string;
+  updated_at: string;
+  user: {  id: string;
+  handle: string;
+  img_url?: string | undefined;};
+  sort_position?: string | undefined;})[];
+  next_cursor?: string | undefined;
+};
+
+export interface ActionInput_figma_listversions {
+  /**
+   * File key or branch key. Example: "UzYlOaPNPL2c7zmHCEljOs"
+   */
+  file_key: string;
+  /**
+   * Number of items per page. Max 50.
+   */
+  page_size?: number | undefined;
+  /**
+   * Pagination cursor (version ID) from the previous response. Omit for the first page.
+   */
+  cursor?: string | undefined;
+};
+
+export interface ActionOutput_figma_listversions {
+  versions: ({  id: string;
+  created_at: string;
+  label?: string | undefined;
+  description?: string | undefined;
+  user: {  id: string;
+  handle: string;
+  img_url: string;};
+  thumbnail_url?: string | undefined;})[];
+  next_cursor?: string | undefined;
+};
+
+export interface ActionInput_figma_listwebhooks {
+  /**
+   * ID of the Figma team to list webhooks for. Example: "1639747348117609063"
+   */
+  team_id: string;
+};
+
+export interface ActionOutput_figma_listwebhooks {
+  webhooks: ({  id: string;
+  event_type: string;
+  team_id: string;
+  context: string;
+  context_id: string;
+  plan_api_id: string;
+  status: string;
+  client_id?: string | undefined;
+  passcode: string;
+  endpoint: string;
+  description?: string | undefined;})[];
+};
+
+export interface ActionInput_figma_renderimages {
+  /**
+   * The file key to render images from. Example: "UzYlOaPNPL2c7zmHCEljOs"
+   */
+  file_key: string;
+  /**
+   * Node IDs to render. Example: ["91:1"]
+   */
+  node_ids: string[];
+  /**
+   * Image scaling factor between 0.01 and 4.
+   */
+  scale?: number | undefined;
+  /**
+   * Image output format. Defaults to png.
+   */
+  format?: 'jpg' | 'png' | 'svg' | 'pdf' | undefined;
+  /**
+   * Whether text elements are rendered as outlines in SVGs. Defaults to true.
+   */
+  svg_outline_text?: boolean | undefined;
+  /**
+   * Whether to include id attributes for all SVG elements. Defaults to false.
+   */
+  svg_include_id?: boolean | undefined;
+  /**
+   * Whether to include node id attributes for all SVG elements. Defaults to false.
+   */
+  svg_include_node_id?: boolean | undefined;
+  /**
+   * Whether to simplify inside/outside strokes in SVGs. Defaults to true.
+   */
+  svg_simplify_stroke?: boolean | undefined;
+  /**
+   * Whether content that overlaps the node should be excluded. Defaults to true.
+   */
+  contents_only?: boolean | undefined;
+  /**
+   * Use full dimensions of the node regardless of cropping. Defaults to false.
+   */
+  use_absolute_bounds?: boolean | undefined;
+  /**
+   * A specific version ID to use. Omit for the current version.
+   */
+  version?: string | undefined;
+};
+
+export interface ActionOutput_figma_renderimages {
+  images: {  [key: string]: string;};
+  err?: string | undefined;
+};
+
+export interface ActionInput_figma_updatedevresources {
+  /**
+   * A list of dev resources that you want to update.
+   */
+  dev_resources: ({  /**
+   * Unique identifier of the dev resource. Example: "devres_123"
+   */
+  id: string;
+  /**
+   * The name of the dev resource.
+   */
+  name?: string | undefined;
+  /**
+   * The URL of the dev resource.
+   */
+  url?: string | undefined;})[];
+};
+
+export interface ActionOutput_figma_updatedevresources {
+  /**
+   * Ids for dev resources that were successfully updated.
+   */
+  links_updated: string[];
+  /**
+   * Errors for dev resources that could not be updated.
+   */
+  errors?: ({  id: string;
+  error: string;})[] | undefined;
+};
+
+export interface ActionInput_figma_updatevariables {
+  /**
+   * File key or branch key. Example: "UzYlOaPNPL2c7zmHCEljOs"
+   */
+  file_key: string;
+  variableCollections?: ({  action: 'CREATE' | 'UPDATE' | 'DELETE';
+  id?: string | undefined;
+  name?: string | undefined;
+  parentVariableCollectionId?: string | undefined;
+  initialModeId?: string | undefined;
+  initialModeIdToParentModeIdMapping?: {  [key: string]: string;} | undefined;
+  hiddenFromPublishing?: boolean | undefined;})[];
+  variableModes?: ({  action: 'CREATE' | 'UPDATE' | 'DELETE';
+  id?: string | undefined;
+  name?: string | undefined;
+  variableCollectionId: string;})[];
+  variables?: ({  action: 'CREATE' | 'UPDATE' | 'DELETE';
+  id?: string | undefined;
+  name?: string | undefined;
+  variableCollectionId?: string | undefined;
+  resolvedType?: 'BOOLEAN' | 'FLOAT' | 'STRING' | 'COLOR' | undefined;
+  description?: string | undefined;
+  hiddenFromPublishing?: boolean | undefined;
+  scopes?: string[] | undefined;
+  codeSyntax?: {  [key: string]: string;} | undefined;})[];
+  variableModeValues?: ({  variableId: string;
+  modeId: string;
+  value: boolean | number | string | {  r: number;
+  g: number;
+  b: number;
+  a?: number | undefined;} | {  type: 'VARIABLE_ALIAS';
+  id: string;} | null;})[];
+};
+
+export interface ActionOutput_figma_updatevariables {
+  status: number;
+  error: boolean;
+  meta?: {  tempIdToRealId?: {  [key: string]: string;} | undefined;};
+};
+
+export interface ActionInput_figma_updatewebhook {
+  /**
+   * The ID of the webhook to update. Example: "123456789"
+   */
+  webhook_id: string;
+  /**
+   * The type of event that will trigger this webhook to fire.
+   */
+  event_type?: 'PING' | 'FILE_UPDATE' | 'FILE_VERSION_UPDATE' | 'FILE_DELETE' | 'LIBRARY_PUBLISH' | 'FILE_COMMENT' | 'DEV_MODE_STATUS_UPDATE' | undefined;
+  /**
+   * The HTTP endpoint that will receive a POST request when the event triggers. Max length 2048 characters.
+   */
+  endpoint?: string | undefined;
+  /**
+   * String that will be passed back to your webhook endpoint to verify that it is being called by Figma. Max length 100 characters.
+   */
+  passcode?: string | undefined;
+  /**
+   * State to put the webhook in. The webhook cannot be put into an error state this way.
+   */
+  status?: 'ACTIVE' | 'PAUSED' | undefined;
+  /**
+   * User-provided description or name for the webhook. Max length 140 characters. Providing an empty string will delete the description.
+   */
+  description?: string | undefined;
+};
+
+export interface ActionOutput_figma_updatewebhook {
+  id: string;
+  event_type: string;
+  team_id: string;
+  context: string;
+  context_id: string;
+  plan_api_id: string;
+  status: string;
+  client_id?: string | undefined;
+  passcode: string;
+  endpoint: string;
+  description?: string | undefined;
 };
 
 export interface ActionInput_fireflies_addtolive {
@@ -20445,6 +22039,470 @@ export interface SyncMetadata_google_workspaceuseraccesstokens {
 export interface SyncMetadata_google_workspaceusers {
   orgsToSync: ({  id: string;
   path: string;})[];
+};
+
+export interface Audience {
+  id: string;
+  name?: string | undefined;
+  audience_type?: string | undefined;
+  cover_num?: number | undefined;
+  is_valid?: boolean | undefined;
+  is_expiring?: boolean | undefined;
+  is_creator?: boolean | undefined;
+  shared?: boolean | undefined;
+  calculate_type?: string | undefined;
+  create_time?: string | undefined;
+  expired_time?: string | undefined;
+};
+
+export interface KeyEvent {
+  id: string;
+  name?: string | undefined;
+  eventName?: string | undefined;
+  createTime?: string | undefined;
+  deletable?: boolean | undefined;
+  custom?: boolean | undefined;
+  countingMethod?: string | undefined;
+  defaultValue?: {  numericValue?: number | undefined;
+  currencyCode?: string | undefined;};
+};
+
+export interface DataStream {
+  id: string;
+  displayName?: string | undefined;
+  type?: string | undefined;
+  propertyId: string;
+  measurementId?: string | undefined;
+  defaultUri?: string | undefined;
+  firebaseAppId?: string | undefined;
+  packageName?: string | undefined;
+  bundleId?: string | undefined;
+  createTime?: string | undefined;
+  updateTime?: string | undefined;
+};
+
+export interface Property {
+  id: string;
+  displayName?: string | undefined;
+  propertyType?: string | undefined;
+  parent?: string | undefined;
+  createTime?: string | undefined;
+  updateTime?: string | undefined;
+  timeZone?: string | undefined;
+  currencyCode?: string | undefined;
+  industryCategory?: string | undefined;
+  serviceLevel?: string | undefined;
+};
+
+export interface ActionInput_google_analytics_archiveconversionevent {
+  /**
+   * GA4 property numeric ID. Example: "12345"
+   */
+  property_id: string;
+  /**
+   * Conversion event numeric ID. Example: "67890"
+   */
+  conversion_event_id: string;
+};
+
+export interface ActionOutput_google_analytics_archiveconversionevent {
+  success: boolean;
+  /**
+   * Resource name of the archived conversion event.
+   */
+  name: string;
+};
+
+export interface ActionInput_google_analytics_batchrunreports {
+  /**
+   * Google Analytics property ID. Example: "properties/123456789"
+   */
+  property: string;
+  requests: ({  dimensions?: ({  name: string;})[] | undefined;
+  metrics?: ({  name: string;})[] | undefined;
+  dateRanges?: ({  startDate: string;
+  endDate: string;})[] | undefined;
+  offset?: string | undefined;
+  limit?: string | undefined;
+  keepEmptyRows?: boolean | undefined;
+  returnPropertyQuota?: boolean | undefined;})[];
+};
+
+export interface ActionOutput_google_analytics_batchrunreports {
+  reports: ({  dimensionHeaders?: ({  name?: string | undefined;})[];
+  metricHeaders?: ({  name?: string | undefined;
+  type?: string | undefined;})[];
+  rows?: ({  dimensionValues?: ({  value?: string | undefined;})[];
+  metricValues?: ({  value?: string | undefined;})[];})[];
+  totals?: ({  dimensionValues?: ({  value?: string | undefined;})[];
+  metricValues?: ({  value?: string | undefined;})[];})[];
+  maximums?: ({  dimensionValues?: ({  value?: string | undefined;})[];
+  metricValues?: ({  value?: string | undefined;})[];})[];
+  minimums?: ({  dimensionValues?: ({  value?: string | undefined;})[];
+  metricValues?: ({  value?: string | undefined;})[];})[];
+  rowCount?: number | undefined;
+  metadata?: {  [key: string]: unknown | undefined;};
+  propertyQuota?: {  [key: string]: unknown | undefined;};
+  kind?: string | undefined;})[];
+  kind?: string | undefined;
+};
+
+export interface ActionInput_google_analytics_createconversionevent {
+  /**
+   * GA4 property ID. Example: "123456789"
+   */
+  propertyId: string;
+  /**
+   * The event name for this conversion event. Example: "click"
+   */
+  eventName: string;
+  /**
+   * Optional. The method by which conversions will be counted. Example: "ONCE_PER_EVENT"
+   */
+  countingMethod?: string | undefined;
+  /**
+   * Optional. Defines a default value/currency for a conversion event.
+   */
+  defaultConversionValue?: {  value: number;
+  currencyCode: string;} | undefined;
+};
+
+export interface ActionOutput_google_analytics_createconversionevent {
+  name: string;
+  eventName: string;
+  createTime?: string | undefined;
+  deletable?: boolean | undefined;
+  custom?: boolean | undefined;
+  countingMethod?: string | undefined;
+  defaultConversionValue?: {  value: number;
+  currencyCode: string;} | undefined;
+};
+
+export interface ActionInput_google_analytics_createdatastream {
+  0: {  /**
+   * GA4 property numeric ID. Example: "1234"
+   */
+  property_id: string;
+  /**
+   * Human-readable display name for the Data Stream.
+   */
+  display_name: string;
+  type: 'WEB_DATA_STREAM';
+  /**
+   * Data specific to web streams. Required when type is WEB_DATA_STREAM.
+   */
+  web_stream_data: {  /**
+   * Domain name of the web app being measured. Example: "https://www.example.com"
+   */
+  default_uri: string;};};
+  1: {  /**
+   * GA4 property numeric ID. Example: "1234"
+   */
+  property_id: string;
+  /**
+   * Human-readable display name for the Data Stream.
+   */
+  display_name: string;
+  type: 'ANDROID_APP_DATA_STREAM';
+  /**
+   * Data specific to Android app streams. Required when type is ANDROID_APP_DATA_STREAM.
+   */
+  android_app_stream_data: {  /**
+   * The package name for the app being measured. Example: "com.example.myandroidapp"
+   */
+  package_name: string;};};
+  2: {  /**
+   * GA4 property numeric ID. Example: "1234"
+   */
+  property_id: string;
+  /**
+   * Human-readable display name for the Data Stream.
+   */
+  display_name: string;
+  type: 'IOS_APP_DATA_STREAM';
+  /**
+   * Data specific to iOS app streams. Required when type is IOS_APP_DATA_STREAM.
+   */
+  ios_app_stream_data: {  /**
+   * The Apple App Store Bundle ID for the app. Example: "com.example.myiosapp"
+   */
+  bundle_id: string;};};
+  3: {  /**
+   * GA4 property numeric ID. Example: "1234"
+   */
+  property_id: string;
+  /**
+   * Human-readable display name for the Data Stream.
+   */
+  display_name: string;
+  type: 'DATA_STREAM_TYPE_UNSPECIFIED';};
+};
+
+export interface ActionOutput_google_analytics_createdatastream {
+  name?: string | undefined;
+  type?: 'DATA_STREAM_TYPE_UNSPECIFIED' | 'WEB_DATA_STREAM' | 'ANDROID_APP_DATA_STREAM' | 'IOS_APP_DATA_STREAM' | undefined;
+  displayName?: string | undefined;
+  createTime?: string | undefined;
+  updateTime?: string | undefined;
+  webStreamData?: {  measurementId?: string | undefined;
+  firebaseAppId?: string | undefined;
+  defaultUri?: string | undefined;};
+  androidAppStreamData?: {  firebaseAppId?: string | undefined;
+  packageName?: string | undefined;};
+  iosAppStreamData?: {  firebaseAppId?: string | undefined;
+  bundleId?: string | undefined;};
+};
+
+export interface ActionInput_google_analytics_createproperty {
+  /**
+   * The resource name of the account under which to create the property. Example: "accounts/12345"
+   */
+  parent: string;
+  /**
+   * Human-readable display name for the property. Max 100 UTF-16 code units.
+   */
+  displayName: string;
+  /**
+   * Reporting time zone for the property. Example: "America/Los_Angeles"
+   */
+  timeZone: string;
+  /**
+   * Currency type used in reports. Example: "USD"
+   */
+  currencyCode?: string | undefined;
+  /**
+   * Industry category for benchmarking. Example: "TECHNOLOGY"
+   */
+  industryCategory?: string | undefined;
+  /**
+   * Service level. Example: "STANDARD" or "GOOGLE_ANALYTICS_360"
+   */
+  serviceLevel?: string | undefined;
+  /**
+   * Property type. Example: "ORDINARY_PROPERTY"
+   */
+  propertyType?: string | undefined;
+};
+
+export interface ActionOutput_google_analytics_createproperty {
+  /**
+   * Resource name of the created property. Example: "properties/12345"
+   */
+  name: string;
+  /**
+   * Parent account name. Example: "accounts/12345"
+   */
+  parent: string;
+  displayName: string;
+  createTime?: string | undefined;
+  updateTime?: string | undefined;
+  timeZone?: string | undefined;
+  currencyCode?: string | undefined;
+  industryCategory?: string | undefined;
+  serviceLevel?: string | undefined;
+  propertyType?: string | undefined;
+  account?: string | undefined;
+};
+
+export interface ActionInput_google_analytics_getmetadata {
+  /**
+   * GA4 property ID. Use "0" for universal metadata. Example: "123456789"
+   */
+  propertyId: string;
+};
+
+export interface ActionOutput_google_analytics_getmetadata {
+  name: string;
+  dimensions: ({  apiName: string;
+  uiName: string;
+  description: string;
+  category: string;
+  deprecatedApiNames?: string[] | undefined;})[];
+  metrics: ({  apiName: string;
+  uiName: string;
+  description: string;
+  type: string;
+  category: string;
+  deprecatedApiNames?: string[] | undefined;})[];
+};
+
+export interface ActionInput_google_analytics_runpivotreport {
+  /**
+   * Google Analytics property numeric ID. Example: 535258304
+   */
+  property: string;
+  dimensions?: ({  [key: string]: unknown | undefined;})[];
+  metrics?: ({  [key: string]: unknown | undefined;})[];
+  dateRanges?: ({  [key: string]: unknown | undefined;})[];
+  pivots?: ({  [key: string]: unknown | undefined;})[];
+  dimensionFilter?: {  [key: string]: unknown | undefined;};
+  metricFilter?: {  [key: string]: unknown | undefined;};
+  currencyCode?: string | undefined;
+  cohortSpec?: {  [key: string]: unknown | undefined;};
+  keepEmptyRows?: boolean | undefined;
+  returnPropertyQuota?: boolean | undefined;
+  comparisons?: ({  [key: string]: unknown | undefined;})[];
+};
+
+export interface ActionOutput_google_analytics_runpivotreport {
+  pivotHeaders?: ({  [key: string]: unknown | undefined;})[];
+  dimensionHeaders?: ({  [key: string]: unknown | undefined;})[];
+  metricHeaders?: ({  [key: string]: unknown | undefined;})[];
+  rows?: ({  [key: string]: unknown | undefined;})[];
+  aggregates?: ({  [key: string]: unknown | undefined;})[];
+  metadata?: {  [key: string]: unknown | undefined;};
+  propertyQuota?: {  [key: string]: unknown | undefined;};
+  kind?: string | undefined;
+};
+
+export interface ActionInput_google_analytics_runrealtimereport {
+  /**
+   * A Google Analytics property identifier. Example: "properties/1234"
+   */
+  property: string;
+  dimensions?: ({  name?: string | undefined;})[];
+  metrics?: ({  name?: string | undefined;
+  expression?: string | undefined;
+  invisible?: boolean | undefined;})[];
+  dimensionFilter?: {} | undefined;
+  metricFilter?: {} | undefined;
+  /**
+   * The number of rows to return. If unspecified, 10,000 rows are returned.
+   */
+  limit?: string | undefined;
+  metricAggregations?: string[] | undefined;
+  orderBys?: ({})[] | undefined;
+  returnPropertyQuota?: boolean | undefined;
+  minuteRanges?: ({  name?: string | undefined;
+  startMinutesAgo?: number | undefined;
+  endMinutesAgo?: number | undefined;})[];
+};
+
+export interface ActionOutput_google_analytics_runrealtimereport {
+  dimensionHeaders?: ({  name?: string | undefined;})[];
+  metricHeaders?: ({  name?: string | undefined;
+  type?: string | undefined;})[];
+  rows?: ({  dimensionValues?: ({  value?: string | undefined;
+  oneValue?: string | undefined;})[];
+  metricValues?: ({  value?: string | undefined;})[];})[];
+  totals?: ({  dimensionValues?: ({  value?: string | undefined;
+  oneValue?: string | undefined;})[];
+  metricValues?: ({  value?: string | undefined;})[];})[];
+  maximums?: ({  dimensionValues?: ({  value?: string | undefined;
+  oneValue?: string | undefined;})[];
+  metricValues?: ({  value?: string | undefined;})[];})[];
+  minimums?: ({  dimensionValues?: ({  value?: string | undefined;
+  oneValue?: string | undefined;})[];
+  metricValues?: ({  value?: string | undefined;})[];})[];
+  rowCount?: number | undefined;
+  propertyQuota?: {} | undefined;
+  kind?: string | undefined;
+};
+
+export interface ActionInput_google_analytics_runreport {
+  /**
+   * GA4 property ID. Example: "properties/123456789" or "123456789"
+   */
+  property: string;
+  dimensions?: ({  name: string;})[] | undefined;
+  metrics?: ({  name: string;})[] | undefined;
+  dateRanges?: ({  startDate: string;
+  endDate: string;})[] | undefined;
+  dimensionFilter?: {} | undefined;
+  metricFilter?: {} | undefined;
+  ordering?: ({  dimension?: {  dimensionName: string;} | undefined;
+  metric?: {  metricName: string;} | undefined;
+  desc?: boolean | undefined;})[];
+  limit?: number | undefined;
+};
+
+export interface ActionOutput_google_analytics_runreport {
+  dimensionHeaders?: ({  name?: string | undefined;})[];
+  metricHeaders?: ({  name?: string | undefined;
+  type?: string | undefined;})[];
+  rows?: ({  dimensionValues?: ({  value?: string | undefined;})[];
+  metricValues?: ({  value?: string | undefined;})[];})[];
+  rowCount?: number | undefined;
+  totals?: ({  dimensionValues?: ({  value?: string | undefined;})[];
+  metricValues?: ({  value?: string | undefined;})[];})[];
+  maximums?: ({  dimensionValues?: ({  value?: string | undefined;})[];
+  metricValues?: ({  value?: string | undefined;})[];})[];
+  minimums?: ({  dimensionValues?: ({  value?: string | undefined;})[];
+  metricValues?: ({  value?: string | undefined;})[];})[];
+};
+
+export interface ActionInput_google_analytics_updatedatastream {
+  /**
+   * GA4 property ID.
+   */
+  propertyId: string;
+  /**
+   * Data stream ID to update.
+   */
+  dataStreamId: string;
+  /**
+   * Human-readable display name for the Data Stream.
+   */
+  displayName?: string | undefined;
+  /**
+   * Data specific to web streams.
+   */
+  webStreamData?: {  /**
+   * Domain name of the web app being measured.
+   */
+  defaultUri?: string | undefined;};
+  /**
+   * The list of fields to be updated. If omitted, it will be computed from provided fields.
+   */
+  updateMask?: string | undefined;
+};
+
+export interface ActionOutput_google_analytics_updatedatastream {
+  name: string;
+  type?: string | undefined;
+  displayName?: string | undefined;
+  createTime?: string | undefined;
+  updateTime?: string | undefined;
+  webStreamData?: {  defaultUri?: string | undefined;
+  measurementId?: string | undefined;
+  firebaseAppId?: string | undefined;};
+  androidAppStreamData?: {  packageName?: string | undefined;
+  firebaseAppId?: string | undefined;};
+  iosAppStreamData?: {  bundleId?: string | undefined;
+  firebaseAppId?: string | undefined;};
+};
+
+export interface ActionInput_google_analytics_updateproperty {
+  /**
+   * Property resource name. Example: "properties/123456789"
+   */
+  name: string;
+  /**
+   * Human-readable display name for the property.
+   */
+  displayName?: string | undefined;
+  /**
+   * The reporting time zone for the property. Example: "America/Los_Angeles".
+   */
+  timeZone?: string | undefined;
+  /**
+   * The currency type used in reports. Example: "USD".
+   */
+  currencyCode?: string | undefined;
+  /**
+   * Industry category. Example: "TECHNOLOGY".
+   */
+  industryCategory?: string | undefined;
+};
+
+export interface ActionOutput_google_analytics_updateproperty {
+  name: string;
+  displayName?: string | undefined;
+  industryCategory?: string | undefined;
+  timeZone?: string | undefined;
+  currencyCode?: string | undefined;
+  serviceLevel?: string | undefined;
+  account?: string | undefined;
 };
 
 export interface CalendarEvent {
@@ -30568,27 +32626,6 @@ export interface ActionOutput_lastpass_deleteuser {
 export interface SyncMetadata_lattice_users {
 };
 
-export interface ActionInput_lattice_scim_createuser {
-  firstName: string;
-  lastName: string;
-  email: string;
-};
-
-export interface ActionOutput_lattice_scim_createuser {
-  id: string;
-  email: string;
-  firstName: string;
-  lastName: string;
-};
-
-export interface ActionInput_lattice_scim_disableuser {
-  id: string;
-};
-
-export interface ActionOutput_lattice_scim_disableuser {
-  success: boolean;
-};
-
 export interface LeverOpportunity {
   id: string;
   name: string;
@@ -32998,20 +35035,6 @@ export interface ActionOutput_linkedin_updatepost {
 export interface SyncMetadata_luma_listevents {
 };
 
-export interface Audience {
-  id: string;
-  name?: string | undefined;
-  audience_type?: string | undefined;
-  cover_num?: number | undefined;
-  is_valid?: boolean | undefined;
-  is_expiring?: boolean | undefined;
-  is_creator?: boolean | undefined;
-  shared?: boolean | undefined;
-  calculate_type?: string | undefined;
-  create_time?: string | undefined;
-  expired_time?: string | undefined;
-};
-
 export interface Automation {
   id: string;
   create_time: string;
@@ -34879,18 +36902,6 @@ export interface DirectoryRole {
   displayName?: string | undefined;
   description?: string | undefined;
   roleTemplateId?: string | undefined;
-};
-
-export interface Group {
-  id: string;
-  name: string;
-  description?: string | undefined;
-  isDefault?: boolean | undefined;
-  isDeleted?: boolean | undefined;
-  isPublic?: boolean | undefined;
-  createdAt?: string | undefined;
-  updatedAt?: string | undefined;
-  url?: string | undefined;
 };
 
 export interface ServicePrincipal {
@@ -41502,13 +43513,6 @@ export interface FineTuningJob {
   learning_rate_multiplier?: number | string | undefined;};
   metadata?: {  [key: string]: unknown | undefined;};
   error?: unknown | undefined;
-};
-
-export interface Model {
-  id: string;
-  object?: string | undefined;
-  created?: number | undefined;
-  owned_by?: string | undefined;
 };
 
 export interface VectorStore {
@@ -61207,6 +63211,329 @@ export interface ActionOutput_tiktok_ads_uploadvideo {
    * API request ID for tracing
    */
   request_id?: string | undefined;
+};
+
+export interface UserProfile {
+  id: string;
+  open_id: string;
+  union_id?: string | undefined;
+  avatar_url?: string | undefined;
+  display_name?: string | undefined;
+  bio_description?: string | undefined;
+  profile_deep_link?: string | undefined;
+  is_verified?: boolean | undefined;
+  follower_count?: number | undefined;
+  following_count?: number | undefined;
+  likes_count?: number | undefined;
+  video_count?: number | undefined;
+};
+
+export interface Video {
+  id: string;
+  create_time?: number | undefined;
+  cover_image_url?: string | undefined;
+  share_url?: string | undefined;
+  video_description?: string | undefined;
+  duration?: number | undefined;
+  height?: number | undefined;
+  width?: number | undefined;
+  title?: string | undefined;
+  embed_html?: string | undefined;
+  embed_link?: string | undefined;
+  like_count?: number | undefined;
+  comment_count?: number | undefined;
+  share_count?: number | undefined;
+  view_count?: number | undefined;
+};
+
+export interface ActionInput_tiktok_personal_getcreatorinfo {
+};
+
+export interface ActionOutput_tiktok_personal_getcreatorinfo {
+  creator_avatar_url?: string | undefined;
+  creator_username?: string | undefined;
+  creator_nickname?: string | undefined;
+  privacy_level_options?: string[] | undefined;
+  comment_disabled?: boolean | undefined;
+  duet_disabled?: boolean | undefined;
+  stitch_disabled?: boolean | undefined;
+  max_video_post_duration_sec?: number | undefined;
+};
+
+export interface ActionInput_tiktok_personal_getpublishstatus {
+  /**
+   * The publish ID returned when initializing a post. Example: "v1234567890"
+   */
+  publish_id: string;
+};
+
+export interface ActionOutput_tiktok_personal_getpublishstatus {
+  status: string;
+  fail_reason?: string | undefined;
+  publicaly_available_post_id?: string[] | undefined;
+  uploaded_bytes?: number | undefined;
+  downloaded_bytes?: number | undefined;
+};
+
+export interface ActionInput_tiktok_personal_getuserinfo {
+  /**
+   * Specific user fields to request. Defaults to basic profile fields.
+   */
+  fields?: string[] | undefined;
+};
+
+export interface ActionOutput_tiktok_personal_getuserinfo {
+  open_id?: string | undefined;
+  union_id?: string | undefined;
+  avatar_url?: string | undefined;
+  avatar_url_100?: string | undefined;
+  avatar_large_url?: string | undefined;
+  display_name?: string | undefined;
+  bio_description?: string | undefined;
+  profile_deep_link?: string | undefined;
+  is_verified?: boolean | undefined;
+  username?: string | undefined;
+  follower_count?: number | undefined;
+  following_count?: number | undefined;
+  likes_count?: number | undefined;
+  video_count?: number | undefined;
+};
+
+export interface ActionInput_tiktok_personal_getuserprofile {
+};
+
+export interface ActionOutput_tiktok_personal_getuserprofile {
+  bio_description?: string | undefined;
+  profile_deep_link?: string | undefined;
+  is_verified?: boolean | undefined;
+};
+
+export interface ActionInput_tiktok_personal_getuserstats {
+};
+
+export interface ActionOutput_tiktok_personal_getuserstats {
+  follower_count?: number | undefined;
+  following_count?: number | undefined;
+  likes_count?: number | undefined;
+  video_count?: number | undefined;
+};
+
+export interface ActionInput_tiktok_personal_getvideo {
+  /**
+   * TikTok video ID. Example: "7077642457847991554"
+   */
+  video_id: string;
+};
+
+export interface ActionOutput_tiktok_personal_getvideo {
+  id: string;
+  create_time?: number | undefined;
+  cover_image_url?: string | undefined;
+  share_url?: string | undefined;
+  video_description?: string | undefined;
+  duration?: number | undefined;
+  height?: number | undefined;
+  width?: number | undefined;
+  title?: string | undefined;
+  embed_html?: string | undefined;
+  embed_link?: string | undefined;
+  like_count?: number | undefined;
+  comment_count?: number | undefined;
+  share_count?: number | undefined;
+  view_count?: number | undefined;
+};
+
+export interface ActionInput_tiktok_personal_initinboxvideoupload {
+  source_info: {  source: 'FILE_UPLOAD';
+  video_size: number;
+  chunk_size: number;
+  total_chunk_count: number;} | {  source: 'PULL_FROM_URL';
+  video_url: string;};
+};
+
+export interface ActionOutput_tiktok_personal_initinboxvideoupload {
+  publish_id: string;
+  upload_url?: string | undefined;
+};
+
+export interface ActionInput_tiktok_personal_initphotoupload {
+  /**
+   * Must be PHOTO.
+   */
+  media_type: 'PHOTO';
+  /**
+   * DIRECT_POST or MEDIA_UPLOAD.
+   */
+  post_mode: 'DIRECT_POST' | 'MEDIA_UPLOAD';
+  /**
+   * Post metadata.
+   */
+  post_info: {  /**
+   * Post title. Max 90 UTF-16 runes.
+   */
+  title?: string | undefined;
+  /**
+   * Post description. Max 4000 UTF-16 runes.
+   */
+  description?: string | undefined;
+  /**
+   * Privacy level. Required for DIRECT_POST.
+   */
+  privacy_level?: 'PUBLIC_TO_EVERYONE' | 'MUTUAL_FOLLOW_FRIENDS' | 'FOLLOWER_OF_CREATOR' | 'SELF_ONLY' | undefined;
+  /**
+   * If true, disables comments. Only for DIRECT_POST.
+   */
+  disable_comment?: boolean | undefined;
+  /**
+   * If true, auto-adds recommended music. Only for DIRECT_POST.
+   */
+  auto_add_music?: boolean | undefined;
+  /**
+   * If true, content is a paid partnership. Only for DIRECT_POST.
+   */
+  brand_content_toggle?: boolean | undefined;
+  /**
+   * If true, content promotes own business. Only for DIRECT_POST.
+   */
+  brand_organic_toggle?: boolean | undefined;};
+  /**
+   * Media source metadata.
+   */
+  source_info: {  /**
+   * Must be PULL_FROM_URL for photos.
+   */
+  source: 'PULL_FROM_URL';
+  /**
+   * Publicly accessible photo URLs (1-35).
+   */
+  photo_images: string[];
+  /**
+   * Index of the cover photo, starting from 0.
+   */
+  photo_cover_index: number;};
+};
+
+export interface ActionOutput_tiktok_personal_initphotoupload {
+  /**
+   * Identifier to track the posting action.
+   */
+  publish_id: string;
+};
+
+export interface ActionInput_tiktok_personal_initvideoupload {
+  post_info: {  /**
+   * Video caption. Supports hashtags and @mentions. Max 2200 characters.
+   */
+  title?: string | undefined;
+  /**
+   * Privacy level for the posted video.
+   */
+  privacy_level: 'PUBLIC_TO_EVERYONE' | 'MUTUAL_FOLLOW_FRIENDS' | 'FOLLOWER_OF_CREATOR' | 'SELF_ONLY';
+  disable_duet?: boolean | undefined;
+  disable_stitch?: boolean | undefined;
+  disable_comment?: boolean | undefined;
+  /**
+   * Timestamp in milliseconds for the video cover frame.
+   */
+  video_cover_timestamp_ms?: number | undefined;
+  brand_content_toggle?: boolean | undefined;
+  brand_organic_toggle?: boolean | undefined;
+  /**
+   * Whether the content is AI-generated.
+   */
+  is_aigc?: boolean | undefined;};
+  source_info: {  source: 'FILE_UPLOAD';
+  /**
+   * Size of the video in bytes.
+   */
+  video_size: number;
+  /**
+   * Size of each upload chunk in bytes.
+   */
+  chunk_size: number;
+  /**
+   * Total number of chunks.
+   */
+  total_chunk_count: number;} | {  source: 'PULL_FROM_URL';
+  /**
+   * URL of the video. Domain must be verified with TikTok.
+   */
+  video_url: string;};
+  /**
+   * DIRECT_POST to publish immediately, MEDIA_UPLOAD to send to Creator Inbox.
+   */
+  post_mode?: 'DIRECT_POST' | 'MEDIA_UPLOAD' | undefined;
+  media_type?: 'VIDEO' | undefined;
+};
+
+export interface ActionOutput_tiktok_personal_initvideoupload {
+  /**
+   * Identifier to track the posting action.
+   */
+  publish_id: string;
+  /**
+   * URL provided by TikTok to upload the video file. Only present for FILE_UPLOAD.
+   */
+  upload_url?: string | undefined;
+  /**
+   * Post ID if available.
+   */
+  post_id?: string | undefined;
+};
+
+export interface ActionInput_tiktok_personal_listvideos {
+  cursor?: number | undefined;
+  max_count?: number | undefined;
+  fields?: string[] | undefined;
+};
+
+export interface ActionOutput_tiktok_personal_listvideos {
+  videos: ({  id: string;
+  create_time?: number | undefined;
+  cover_image_url?: string | undefined;
+  share_url?: string | undefined;
+  video_description?: string | undefined;
+  duration?: number | undefined;
+  height?: number | undefined;
+  width?: number | undefined;
+  title?: string | undefined;
+  embed_html?: string | undefined;
+  embed_link?: string | undefined;
+  like_count?: number | undefined;
+  comment_count?: number | undefined;
+  share_count?: number | undefined;
+  view_count?: number | undefined;})[];
+  cursor?: number | undefined;
+  has_more?: boolean | undefined;
+};
+
+export interface ActionInput_tiktok_personal_queryvideos {
+  /**
+   * List of TikTok video IDs to query. Maximum 20.
+   */
+  video_ids: string[];
+  /**
+   * Fields to return for each video. Defaults to all fields.
+   */
+  fields?: string[] | undefined;
+};
+
+export interface ActionOutput_tiktok_personal_queryvideos {
+  videos: ({  id: string;
+  create_time?: number | undefined;
+  cover_image_url?: string | undefined;
+  share_url?: string | undefined;
+  video_description?: string | undefined;
+  duration?: number | undefined;
+  height?: number | undefined;
+  width?: number | undefined;
+  title?: string | undefined;
+  embed_html?: string | undefined;
+  embed_link?: string | undefined;
+  like_count?: number | undefined;
+  comment_count?: number | undefined;
+  share_count?: number | undefined;
+  view_count?: number | undefined;})[];
 };
 
 export interface LikedTweet {

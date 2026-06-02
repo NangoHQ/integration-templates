@@ -73,6 +73,23 @@ import './anrok/actions/create-or-update-transaction.js';
 import './anrok/actions/negate-transaction.js';
 import './anrok/actions/void-transaction.js';
 
+// -- Integration: anthropic
+import './anthropic/syncs/files.js';
+import './anthropic/syncs/message-batches.js';
+import './anthropic/syncs/models.js';
+import './anthropic/actions/cancel-message-batch.js';
+import './anthropic/actions/count-message-tokens.js';
+import './anthropic/actions/create-message-batch.js';
+import './anthropic/actions/create-message.js';
+import './anthropic/actions/delete-file.js';
+import './anthropic/actions/get-file.js';
+import './anthropic/actions/get-message-batch.js';
+import './anthropic/actions/get-model.js';
+import './anthropic/actions/list-files.js';
+import './anthropic/actions/list-message-batch-results.js';
+import './anthropic/actions/list-message-batches.js';
+import './anthropic/actions/list-models.js';
+
 // -- Integration: apollo
 import './apollo/syncs/accounts.js';
 import './apollo/syncs/contacts.js';
@@ -585,6 +602,54 @@ import './facebook/actions/list-user-pages.js';
 import './facebook/actions/subscribe-app-to-page.js';
 import './facebook/actions/unsubscribe-app-from-page.js';
 
+// -- Integration: figma
+import './figma/syncs/comments.js';
+import './figma/syncs/component-sets.js';
+import './figma/syncs/components.js';
+import './figma/syncs/files.js';
+import './figma/syncs/projects.js';
+import './figma/syncs/styles.js';
+import './figma/syncs/variables.js';
+import './figma/syncs/versions.js';
+import './figma/syncs/webhooks.js';
+import './figma/actions/create-comment-reaction.js';
+import './figma/actions/create-comment.js';
+import './figma/actions/create-dev-resources.js';
+import './figma/actions/delete-comment-reaction.js';
+import './figma/actions/delete-comment.js';
+import './figma/actions/delete-dev-resource.js';
+import './figma/actions/delete-webhook.js';
+import './figma/actions/file-nodes.js';
+import './figma/actions/get-comment.js';
+import './figma/actions/get-component.js';
+import './figma/actions/get-component-set.js';
+import './figma/actions/get-current-user.js';
+import './figma/actions/get-file-component-sets.js';
+import './figma/actions/get-file-components.js';
+import './figma/actions/get-file-node.js';
+import './figma/actions/get-file-styles.js';
+import './figma/actions/get-local-variables.js';
+import './figma/actions/get-project.js';
+import './figma/actions/get-published-variables.js';
+import './figma/actions/get-style.js';
+import './figma/actions/get-version.js';
+import './figma/actions/get-webhook.js';
+import './figma/actions/list-comment-reactions.js';
+import './figma/actions/list-comments.js';
+import './figma/actions/list-component-sets.js';
+import './figma/actions/list-components.js';
+import './figma/actions/list-dev-resources.js';
+import './figma/actions/list-file-nodes.js';
+import './figma/actions/list-files.js';
+import './figma/actions/list-projects.js';
+import './figma/actions/list-styles.js';
+import './figma/actions/list-versions.js';
+import './figma/actions/list-webhooks.js';
+import './figma/actions/render-images.js';
+import './figma/actions/update-dev-resources.js';
+import './figma/actions/update-variables.js';
+import './figma/actions/update-webhook.js';
+
 // -- Integration: fireflies
 import './fireflies/actions/add-to-live.js';
 
@@ -686,6 +751,24 @@ import './gong/actions/fetch-call-transcripts.js';
 import './google/syncs/workspace-org-units.js';
 import './google/syncs/workspace-user-access-tokens.js';
 import './google/syncs/workspace-users.js';
+
+// -- Integration: google-analytics
+import './google-analytics/syncs/accounts.js';
+import './google-analytics/syncs/audiences.js';
+import './google-analytics/syncs/conversion-events.js';
+import './google-analytics/syncs/data-streams.js';
+import './google-analytics/syncs/properties.js';
+import './google-analytics/actions/archive-conversion-event.js';
+import './google-analytics/actions/batch-run-reports.js';
+import './google-analytics/actions/create-conversion-event.js';
+import './google-analytics/actions/create-data-stream.js';
+import './google-analytics/actions/create-property.js';
+import './google-analytics/actions/get-metadata.js';
+import './google-analytics/actions/run-pivot-report.js';
+import './google-analytics/actions/run-realtime-report.js';
+import './google-analytics/actions/run-report.js';
+import './google-analytics/actions/update-data-stream.js';
+import './google-analytics/actions/update-property.js';
 
 // -- Integration: google-calendar
 import './google-calendar/syncs/events.js';
@@ -1080,10 +1163,6 @@ import './lastpass/actions/delete-user.js';
 
 // -- Integration: lattice
 import './lattice/syncs/users.js';
-
-// -- Integration: lattice-scim
-import './lattice-scim/actions/create-user.js';
-import './lattice-scim/actions/disable-user.js';
 
 // -- Integration: lever
 import './lever/syncs/opportunities.js';
@@ -2066,6 +2145,21 @@ import './tiktok-ads/actions/update-smart-plus-adgroup.js';
 import './tiktok-ads/actions/update-smart-plus-campaign.js';
 import './tiktok-ads/actions/upload-image.js';
 import './tiktok-ads/actions/upload-video.js';
+
+// -- Integration: tiktok-personal
+import './tiktok-personal/syncs/user-profile.js';
+import './tiktok-personal/syncs/videos.js';
+import './tiktok-personal/actions/get-creator-info.js';
+import './tiktok-personal/actions/get-publish-status.js';
+import './tiktok-personal/actions/get-user-info.js';
+import './tiktok-personal/actions/get-user-profile.js';
+import './tiktok-personal/actions/get-user-stats.js';
+import './tiktok-personal/actions/get-video.js';
+import './tiktok-personal/actions/init-inbox-video-upload.js';
+import './tiktok-personal/actions/init-photo-upload.js';
+import './tiktok-personal/actions/init-video-upload.js';
+import './tiktok-personal/actions/list-videos.js';
+import './tiktok-personal/actions/query-videos.js';
 
 // -- Integration: twitter-v2
 import './twitter-v2/syncs/liked-tweets.js';
