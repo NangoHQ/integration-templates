@@ -1,0 +1,144 @@
+{
+  "input": {
+    "applicantId": 61
+  },
+  "output": {
+    "id": 61,
+    "appliedDate": "2026-05-29T14:15:03+00:00",
+    "status": {
+      "id": 1,
+      "label": "New",
+      "dateChanged": "2026-05-29T14:15:03+00:00",
+      "changedByUser": null
+    },
+    "rating": null,
+    "resumeFileId": null,
+    "coverLetterFileId": null,
+    "attachmentCount": null,
+    "attachments": null,
+    "movedTo": null,
+    "movedFrom": null,
+    "alsoConsideredForCount": 0,
+    "duplicateApplicationCount": 1,
+    "referredBy": null,
+    "desiredSalary": null,
+    "commentCount": 0,
+    "emailCount": 0,
+    "eventCount": 2,
+    "questionsAndAnswers": [],
+    "applicationReferences": null,
+    "applicant": {
+      "id": 118,
+      "firstName": "Validation",
+      "lastName": "Run",
+      "email": "validation.run@example.com"
+    },
+    "job": {
+      "id": 22,
+      "title": {
+        "id": null,
+        "label": "Financial Analyst"
+      },
+      "hiringLead": {
+        "employeeId": 83,
+        "firstName": "Preston",
+        "lastName": "Wilder",
+        "avatar": "https://resources.bamboohr.com/images/photo_person_160x160.png",
+        "jobTitle": {
+          "id": 18276,
+          "label": "Account Executive"
+        }
+      }
+    }
+  },
+  "nango": {},
+  "api": {
+    "get": {
+      "/v1/applicant_tracking/applications/61": {
+        "response": {
+          "id": 61,
+          "appliedDate": "2026-05-29T14:15:03+00:00",
+          "status": {
+            "id": 1,
+            "label": "New",
+            "dateChanged": "2026-05-29T14:15:03+00:00",
+            "changedByUser": null
+          },
+          "rating": null,
+          "applicant": {
+            "id": 118,
+            "firstName": "Validation",
+            "lastName": "Run",
+            "avatar": null,
+            "email": "validation.run@example.com",
+            "source": null,
+            "phoneNumber": null,
+            "address": null,
+            "linkedinUrl": null,
+            "twitterUsername": null,
+            "websiteUrl": null,
+            "availableStartDate": null,
+            "education": null
+          },
+          "job": {
+            "id": 22,
+            "title": {
+              "id": null,
+              "label": "Financial Analyst"
+            },
+            "hiringLead": {
+              "employeeId": 83,
+              "firstName": "Preston",
+              "lastName": "Wilder",
+              "avatar": "https://resources.bamboohr.com/images/photo_person_160x160.png",
+              "jobTitle": {
+                "id": 18276,
+                "label": "Account Executive"
+              }
+            }
+          },
+          "resumeFileId": null,
+          "coverLetterFileId": null,
+          "movedTo": null,
+          "movedFrom": null,
+          "alsoConsideredForCount": 0,
+          "duplicateApplicationCount": 1,
+          "referredBy": null,
+          "desiredSalary": null,
+          "commentCount": 0,
+          "emailCount": 0,
+          "attachmentCount": null,
+          "eventCount": 2,
+          "questionsAndAnswers": [],
+          "attachments": null,
+          "applicationReferences": null
+        },
+        "status": 200,
+        "headers": {
+          "date": "Fri, 29 May 2026 14:24:52 GMT",
+          "content-type": "application/json",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=31536000; includeSubdomains;",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4861",
+          "x-ratelimit-reset": "1780064718",
+          "server": "nginx",
+          "cache-control": "no-cache, private",
+          "x-request-id": "141031254703679893710558626417971184920",
+          "vary": "Authorization,User-Agent"
+        },
+        "hash": "700acbc0bab15639f918e3713652d712debe8566",
+        "request": {}
+      }
+    }
+  }
+}

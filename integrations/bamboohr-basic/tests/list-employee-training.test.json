@@ -1,0 +1,195 @@
+{
+  "input": {
+    "employee_id": 4
+  },
+  "output": {
+    "items": [
+      {
+        "id": "1006",
+        "employeeId": "4",
+        "completed": "2025-03-13",
+        "type": "14"
+      },
+      {
+        "id": "1007",
+        "employeeId": "4",
+        "completed": "2025-07-08",
+        "instructor": "American Red Cross",
+        "cost": "50.00 USD",
+        "type": "17"
+      },
+      {
+        "id": "1095",
+        "employeeId": "4",
+        "completed": "2025-03-17",
+        "type": "15"
+      },
+      {
+        "id": "1096",
+        "employeeId": "4",
+        "completed": "2025-03-17",
+        "type": "16"
+      },
+      {
+        "id": "1269",
+        "employeeId": "4",
+        "completed": "2026-01-27",
+        "credits": "1",
+        "cost": "10.00 USD",
+        "type": "20"
+      },
+      {
+        "id": "1271",
+        "employeeId": "4",
+        "completed": "2026-05-29",
+        "notes": "Test note",
+        "instructor": "Test Instructor",
+        "credits": "1",
+        "hours": "2",
+        "type": "14"
+      },
+      {
+        "id": "1274",
+        "employeeId": "4",
+        "completed": "2026-05-29",
+        "notes": "Test note",
+        "instructor": "Test Instructor",
+        "credits": "1",
+        "hours": "2",
+        "type": "14"
+      },
+      {
+        "id": "1275",
+        "employeeId": "4",
+        "completed": "2026-05-29",
+        "notes": "Test note",
+        "instructor": "Test Instructor",
+        "credits": "1",
+        "hours": "2",
+        "type": "14"
+      }
+    ]
+  },
+  "nango": {},
+  "api": {
+    "get": {
+      "/v1/training/record/employee/4": {
+        "response": {
+          "1006": {
+            "id": "1006",
+            "employeeId": "4",
+            "completed": "2025-03-13",
+            "notes": null,
+            "instructor": null,
+            "credits": null,
+            "hours": null,
+            "cost": null,
+            "type": "14"
+          },
+          "1007": {
+            "id": "1007",
+            "employeeId": "4",
+            "completed": "2025-07-08",
+            "notes": null,
+            "instructor": "American Red Cross",
+            "credits": null,
+            "hours": null,
+            "cost": "50.00 USD",
+            "type": "17"
+          },
+          "1095": {
+            "id": "1095",
+            "employeeId": "4",
+            "completed": "2025-03-17",
+            "notes": null,
+            "instructor": null,
+            "credits": null,
+            "hours": null,
+            "cost": null,
+            "type": "15"
+          },
+          "1096": {
+            "id": "1096",
+            "employeeId": "4",
+            "completed": "2025-03-17",
+            "notes": null,
+            "instructor": null,
+            "credits": null,
+            "hours": null,
+            "cost": null,
+            "type": "16"
+          },
+          "1269": {
+            "id": "1269",
+            "employeeId": "4",
+            "completed": "2026-01-27",
+            "notes": null,
+            "instructor": null,
+            "credits": "1",
+            "hours": null,
+            "cost": "10.00 USD",
+            "type": "20"
+          },
+          "1271": {
+            "id": "1271",
+            "employeeId": "4",
+            "completed": "2026-05-29",
+            "notes": "Test note",
+            "instructor": "Test Instructor",
+            "credits": "1",
+            "hours": "2",
+            "cost": null,
+            "type": "14"
+          },
+          "1274": {
+            "id": "1274",
+            "employeeId": "4",
+            "completed": "2026-05-29",
+            "notes": "Test note",
+            "instructor": "Test Instructor",
+            "credits": "1",
+            "hours": "2",
+            "cost": null,
+            "type": "14"
+          },
+          "1275": {
+            "id": "1275",
+            "employeeId": "4",
+            "completed": "2026-05-29",
+            "notes": "Test note",
+            "instructor": "Test Instructor",
+            "credits": "1",
+            "hours": "2",
+            "cost": null,
+            "type": "14"
+          }
+        },
+        "status": 200,
+        "headers": {
+          "date": "Fri, 29 May 2026 14:19:59 GMT",
+          "content-type": "application/json",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=31536000; includeSubdomains;",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4849",
+          "x-ratelimit-reset": "1780064413",
+          "server": "nginx",
+          "cache-control": "no-cache, private",
+          "x-request-id": "141031231489828277031597325689857132555",
+          "vary": "Authorization,User-Agent"
+        },
+        "hash": "6e0c937a5660f327ade8ff9ba310acb3b1044c5b",
+        "request": {}
+      }
+    }
+  }
+}

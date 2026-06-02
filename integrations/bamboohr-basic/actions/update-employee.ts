@@ -1,49 +1,168 @@
+import { z } from 'zod';
 import { createAction } from 'nango';
-import { BamboohrResponseStatus, BamboohrUpdateEmployee } from '../models.js';
+
+const InputSchema = z.object({
+    employeeId: z.string().describe('The employee ID. Example: "123"'),
+    firstName: z.string().optional(),
+    lastName: z.string().optional(),
+    workEmail: z.string().optional(),
+    jobTitle: z.string().optional(),
+    department: z.string().optional(),
+    division: z.string().optional(),
+    location: z.string().optional(),
+    hireDate: z.string().optional().describe('Hire date in YYYY-MM-DD format. Example: "2024-01-15"'),
+    mobilePhone: z.string().optional(),
+    homePhone: z.string().optional(),
+    workPhone: z.string().optional(),
+    address1: z.string().optional(),
+    address2: z.string().optional(),
+    city: z.string().optional(),
+    state: z.string().optional(),
+    zipcode: z.string().optional(),
+    country: z.string().optional()
+});
+
+const ProviderResponseSchema = z.object({
+    id: z.string(),
+    firstName: z.string().optional(),
+    lastName: z.string().optional(),
+    status: z.string().optional(),
+    workEmail: z.string().optional(),
+    jobTitle: z.string().optional(),
+    department: z.string().optional(),
+    division: z.string().optional(),
+    location: z.string().optional(),
+    hireDate: z.string().optional(),
+    mobilePhone: z.string().optional(),
+    homePhone: z.string().optional(),
+    workPhone: z.string().optional(),
+    address1: z.string().optional(),
+    address2: z.string().optional(),
+    city: z.string().optional(),
+    state: z.string().optional(),
+    zipcode: z.string().optional(),
+    country: z.string().optional()
+});
+
+const OutputSchema = z.object({
+    id: z.string(),
+    firstName: z.string().optional(),
+    lastName: z.string().optional(),
+    status: z.string().optional(),
+    workEmail: z.string().optional(),
+    jobTitle: z.string().optional(),
+    department: z.string().optional(),
+    division: z.string().optional(),
+    location: z.string().optional(),
+    hireDate: z.string().optional(),
+    mobilePhone: z.string().optional(),
+    homePhone: z.string().optional(),
+    workPhone: z.string().optional(),
+    address1: z.string().optional(),
+    address2: z.string().optional(),
+    city: z.string().optional(),
+    state: z.string().optional(),
+    zipcode: z.string().optional(),
+    country: z.string().optional()
+});
 
 const action = createAction({
-    description: 'Update an existing employee in the system',
-    version: '2.0.0',
-
+    description: 'Update an employee in BambooHR.',
+    version: '3.0.0',
     endpoint: {
-        method: 'PUT',
-        path: '/employees',
+        method: 'POST',
+        path: '/actions/update-employee',
         group: 'Employees'
     },
+    input: InputSchema,
+    output: OutputSchema,
+    scopes: ['employee:write'],
 
-    input: BamboohrUpdateEmployee,
-    output: BamboohrResponseStatus,
+    exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
+        const data: Record<string, string> = {};
 
-    exec: async (nango, input): Promise<BamboohrResponseStatus> => {
-        if (!input.id) {
-            throw new nango.ActionError({
-                message: 'id is a required field'
-            });
+        if (input.firstName !== undefined) {
+            data['firstName'] = input.firstName;
+        }
+        if (input.lastName !== undefined) {
+            data['lastName'] = input.lastName;
+        }
+        if (input.workEmail !== undefined) {
+            data['workEmail'] = input.workEmail;
+        }
+        if (input.jobTitle !== undefined) {
+            data['jobTitle'] = input.jobTitle;
+        }
+        if (input.department !== undefined) {
+            data['department'] = input.department;
+        }
+        if (input.division !== undefined) {
+            data['division'] = input.division;
+        }
+        if (input.location !== undefined) {
+            data['location'] = input.location;
+        }
+        if (input.hireDate !== undefined) {
+            data['hireDate'] = input.hireDate;
+        }
+        if (input.mobilePhone !== undefined) {
+            data['mobilePhone'] = input.mobilePhone;
+        }
+        if (input.homePhone !== undefined) {
+            data['homePhone'] = input.homePhone;
+        }
+        if (input.workPhone !== undefined) {
+            data['workPhone'] = input.workPhone;
+        }
+        if (input.address1 !== undefined) {
+            data['address1'] = input.address1;
+        }
+        if (input.address2 !== undefined) {
+            data['address2'] = input.address2;
+        }
+        if (input.city !== undefined) {
+            data['city'] = input.city;
+        }
+        if (input.state !== undefined) {
+            data['state'] = input.state;
+        }
+        if (input.zipcode !== undefined) {
+            data['zipcode'] = input.zipcode;
+        }
+        if (input.country !== undefined) {
+            data['country'] = input.country;
         }
 
-        // @allowTryCatch
-        try {
-            const { id, ...postData } = input;
+        // https://documentation.bamboohr.com/reference/update-employee
+        const response = await nango.post({
+            endpoint: `/v1/employees/${encodeURIComponent(input.employeeId)}`,
+            data,
+            retries: 10
+        });
 
-            const response = await nango.post({
-                endpoint: `/v1/employees/${id}`,
-                data: postData,
-                retries: 3
-            });
+        const providerResponse = ProviderResponseSchema.parse(response.data);
 
-            return {
-                status: response.statusText
-            };
-        } catch (error: any) {
-            const messageHeader = error.response?.headers['x-bamboohr-error-message'];
-            const errorMessage = messageHeader || error.response?.data || error.message;
-
-            throw new nango.ActionError({
-                message: `Failed to update employee`,
-                status: error.response.status,
-                error: errorMessage || undefined
-            });
-        }
+        return {
+            id: providerResponse.id,
+            ...(providerResponse.firstName !== undefined && { firstName: providerResponse.firstName }),
+            ...(providerResponse.lastName !== undefined && { lastName: providerResponse.lastName }),
+            ...(providerResponse.status !== undefined && { status: providerResponse.status }),
+            ...(providerResponse.workEmail !== undefined && { workEmail: providerResponse.workEmail }),
+            ...(providerResponse.jobTitle !== undefined && { jobTitle: providerResponse.jobTitle }),
+            ...(providerResponse.department !== undefined && { department: providerResponse.department }),
+            ...(providerResponse.division !== undefined && { division: providerResponse.division }),
+            ...(providerResponse.location !== undefined && { location: providerResponse.location }),
+            ...(providerResponse.hireDate !== undefined && { hireDate: providerResponse.hireDate }),
+            ...(providerResponse.mobilePhone !== undefined && { mobilePhone: providerResponse.mobilePhone }),
+            ...(providerResponse.homePhone !== undefined && { homePhone: providerResponse.homePhone }),
+            ...(providerResponse.workPhone !== undefined && { workPhone: providerResponse.workPhone }),
+            ...(providerResponse.address1 !== undefined && { address1: providerResponse.address1 }),
+            ...(providerResponse.address2 !== undefined && { address2: providerResponse.address2 }),
+            ...(providerResponse.city !== undefined && { city: providerResponse.city }),
+            ...(providerResponse.state !== undefined && { state: providerResponse.state }),
+            ...(providerResponse.zipcode !== undefined && { zipcode: providerResponse.zipcode }),
+            ...(providerResponse.country !== undefined && { country: providerResponse.country })
+        };
     }
 });
 
