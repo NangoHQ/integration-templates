@@ -1,29 +1,29 @@
 {
   "input": {
-    "groupId": "sitza7mfvjmrgdr6krnetp7g2q"
+    "id": "27i3xrasou26ukebqazeadyhua"
   },
   "output": {
     "schemas": [
       "urn:ietf:params:scim:schemas:core:2.0:Group"
     ],
-    "id": "sitza7mfvjmrgdr6krnetp7g2q",
-    "displayName": "Test Group Patched",
+    "id": "27i3xrasou26ukebqazeadyhua",
+    "displayName": "Updated Test Group Again",
     "meta": {
       "resourceType": "Group",
-      "created": "2026-05-21T14:15:21Z",
-      "lastModified": "2026-05-21T14:23:16Z"
+      "created": "2026-05-21T14:15:27Z",
+      "lastModified": "2026-05-22T17:55:44Z"
     }
   },
   "nango": {},
   "api": {
     "get": {
-      "/Groups/sitza7mfvjmrgdr6krnetp7g2q": {
+      "/Groups/27i3xrasou26ukebqazeadyhua": {
         "response": {
-          "displayName": "Test Group Patched",
-          "id": "sitza7mfvjmrgdr6krnetp7g2q",
+          "displayName": "Updated Test Group Again",
+          "id": "27i3xrasou26ukebqazeadyhua",
           "meta": {
-            "created": "2026-05-21T14:15:21Z",
-            "lastModified": "2026-05-21T14:23:16Z",
+            "created": "2026-05-21T14:15:27Z",
+            "lastModified": "2026-05-22T17:55:44Z",
             "resourceType": "Group"
           },
           "schemas": [
@@ -32,9 +32,9 @@
         },
         "status": 200,
         "headers": {
-          "date": "Thu, 21 May 2026 14:23:45 GMT",
+          "date": "Fri, 22 May 2026 17:56:58 GMT",
           "content-type": "application/scim+json",
-          "content-length": "232",
+          "content-length": "238",
           "connection": "keep-alive",
           "x-xss-protection": "0",
           "x-content-type-options": "nosniff",
@@ -46,11 +46,11 @@
           "access-control-allow-origin": "*",
           "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
           "x-ratelimit-limit": "5000",
-          "x-ratelimit-remaining": "4980",
-          "x-ratelimit-reset": "1779373452",
-          "etag": "W/\"e8-sCbpq8DnsEXAzU3UgYfcv3yqCoU\""
+          "x-ratelimit-remaining": "4961",
+          "x-ratelimit-reset": "1779472638",
+          "etag": "W/\"ee-phkDgtVuw8Efku0KCW01M9tWLaY\""
         },
-        "hash": "4796620fd8d68c125fef0c70ea499194bf8278f8",
+        "hash": "cff520e4a0550722c4841501ba9b8b5ccffc498e",
         "request": {}
       }
     }

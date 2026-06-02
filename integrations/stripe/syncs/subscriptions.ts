@@ -73,7 +73,7 @@ const StripeListResponseSchema = z.object({
 
 const sync = createSync({
     description: 'Sync subscriptions from Stripe.',
-    version: '1.0.0',
+    version: '1.2.0',
     frequency: 'every hour',
     autoStart: true,
     endpoints: [

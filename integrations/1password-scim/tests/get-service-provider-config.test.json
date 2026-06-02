@@ -4,10 +4,6 @@
     "schemas": [
       "urn:ietf:params:scim:schemas:core:2.0:ServiceProviderConfig"
     ],
-    "meta": {
-      "resourceType": "ServiceProviderConfig",
-      "location": "/scim/v2/ServiceProviderConfig"
-    },
     "patch": {
       "supported": true
     },
@@ -37,7 +33,11 @@
         "documentationUri": "",
         "type": "oauthbearertoken"
       }
-    ]
+    ],
+    "meta": {
+      "location": "/scim/v2/ServiceProviderConfig",
+      "resourceType": "ServiceProviderConfig"
+    }
   },
   "nango": {},
   "api": {
@@ -84,7 +84,7 @@
         },
         "status": 200,
         "headers": {
-          "date": "Thu, 21 May 2026 14:12:24 GMT",
+          "date": "Fri, 22 May 2026 17:56:13 GMT",
           "content-type": "application/scim+json",
           "content-length": "618",
           "connection": "keep-alive",
@@ -98,8 +98,8 @@
           "access-control-allow-origin": "*",
           "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
           "x-ratelimit-limit": "5000",
-          "x-ratelimit-remaining": "4988",
-          "x-ratelimit-reset": "1779372787",
+          "x-ratelimit-remaining": "4964",
+          "x-ratelimit-reset": "1779472577",
           "etag": "W/\"26a-w0+4oAS0AeoXKyujVcfXuuWu7cs\""
         },
         "hash": "d767f2df4600c78829583fd233635afb1465cc7b",
