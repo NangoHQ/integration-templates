@@ -17,7 +17,7 @@ import { z } from 'zod';
 
 const sync = createSync({
     description: 'Fetches a list of tickets with their associated messages',
-    version: '2.0.0',
+    version: '2.1.0',
     frequency: 'every 6 hours',
     autoStart: true,
     syncType: 'full',
@@ -39,6 +39,8 @@ const sync = createSync({
     metadata: z.object({}),
 
     exec: async (nango) => {
+        await nango.trackDeletesStart('Ticket');
+
         const ticketsConfig: ProxyConfiguration = {
             // https://developers.gorgias.com/reference/list-tickets
             endpoint: '/api/tickets',
@@ -70,7 +72,7 @@ const sync = createSync({
             }
             await nango.batchSave(processedTickets, 'Ticket');
         }
-        await nango.deleteRecordsFromPreviousExecutions('Ticket');
+        await nango.trackDeletesEnd('Ticket');
     }
 });
 

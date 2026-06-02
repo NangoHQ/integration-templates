@@ -16,7 +16,7 @@ interface HibobResponse {
  */
 const sync = createSync({
     description: 'Fetches a list of all employees and maps them to the standardized HRIS model',
-    version: '1.0.0',
+    version: '1.1.0',
     frequency: 'every hour',
     autoStart: true,
     syncType: 'full',
@@ -56,15 +56,16 @@ const sync = createSync({
         }
 
         const employees = response.data.employees.map(toStandardEmployee);
+        await nango.trackDeletesStart('StandardEmployee');
 
         if (employees.length === 0) {
             await nango.log('No employees found');
-            return;
+        } else {
+            await nango.log(`Found ${employees.length} employees`);
+            await nango.batchSave(employees, 'StandardEmployee');
         }
 
-        await nango.log(`Found ${employees.length} employees`);
-        await nango.batchSave(employees, 'StandardEmployee');
-        await nango.deleteRecordsFromPreviousExecutions('StandardEmployee');
+        await nango.trackDeletesEnd('StandardEmployee');
     }
 });
 

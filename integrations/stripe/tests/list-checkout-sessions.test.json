@@ -1,0 +1,208 @@
+{
+  "input": {},
+  "output": {
+    "items": [
+      {
+        "id": "cs_test_a1Mt5GiZCZL9Ayj8u00dCA82CAhD9rYOU7aaIewJHlVSEfXibOhhPuuyaF",
+        "object": "checkout.session",
+        "amount_subtotal": 1000,
+        "amount_total": 1000,
+        "automatic_tax": {
+          "enabled": false,
+          "liability": null,
+          "status": null
+        },
+        "cancel_url": null,
+        "client_reference_id": null,
+        "created": 1779832157,
+        "currency": "usd",
+        "customer": null,
+        "customer_creation": "if_required",
+        "customer_details": null,
+        "customer_email": null,
+        "expires_at": 1779918556,
+        "invoice": null,
+        "livemode": false,
+        "locale": null,
+        "metadata": {},
+        "mode": "payment",
+        "payment_intent": null,
+        "payment_link": null,
+        "payment_method_collection": "if_required",
+        "payment_method_types": [
+          "card",
+          "klarna",
+          "link",
+          "cashapp",
+          "amazon_pay"
+        ],
+        "payment_status": "unpaid",
+        "phone_number_collection": {
+          "enabled": false
+        },
+        "setup_intent": null,
+        "shipping_cost": null,
+        "status": "open",
+        "subscription": null,
+        "success_url": "https://example.com/success",
+        "total_details": {
+          "amount_discount": 0,
+          "amount_shipping": 0,
+          "amount_tax": 0
+        },
+        "url": "https://checkout.stripe.com/c/pay/cs_test_a1Mt5GiZCZL9Ayj8u00dCA82CAhD9rYOU7aaIewJHlVSEfXibOhhPuuyaF#fidnandhYHdWcXxpYCc%2FJ2FgY2RwaXEnKSdicGRmZGhqaWBTZHdsZGtxJz8nZmprcXdqaScpJ2R1bE5gfCc%2FJ3VuWnFgdnFaMDRRZ1U3TUBfdUEzbl13ZGB3R0tiT3Jjbm5vRGhdR1NRbV1QX0xPcT1LPE01V39IQXZDTnVTVmZAdH9tVGt3dmgxTVVhTF9JdjUyakg9f0pDQHVmRGQ0bDI1NWJORlFPN303JyknY3dqaFZgd3Ngdyc%2FcXdwYCknZ2RmbmJ3anBrYUZqaWp3Jz8nJmNjY2NjYycpJ2lkfGpwcVF8dWAnPyd2bGtiaWBabHFgaCcpJ2BrZGdpYFVpZGZgbWppYWB3dic%2FcXdwYHgl"
+      }
+    ],
+    "has_more": false
+  },
+  "nango": {},
+  "api": {
+    "get": {
+      "/v1/checkout/sessions": {
+        "response": {
+          "object": "list",
+          "data": [
+            {
+              "id": "cs_test_a1Mt5GiZCZL9Ayj8u00dCA82CAhD9rYOU7aaIewJHlVSEfXibOhhPuuyaF",
+              "object": "checkout.session",
+              "adaptive_pricing": {
+                "enabled": true
+              },
+              "after_expiration": null,
+              "allow_promotion_codes": null,
+              "amount_subtotal": 1000,
+              "amount_total": 1000,
+              "automatic_tax": {
+                "enabled": false,
+                "liability": null,
+                "provider": null,
+                "status": null
+              },
+              "billing_address_collection": null,
+              "branding_settings": {
+                "background_color": "#ffffff",
+                "border_style": "rounded",
+                "button_color": "#0074d4",
+                "display_name": "AI Builder Sandbox",
+                "font_family": "default",
+                "icon": null,
+                "logo": null
+              },
+              "cancel_url": null,
+              "client_reference_id": null,
+              "client_secret": null,
+              "collected_information": null,
+              "consent": null,
+              "consent_collection": null,
+              "created": 1779832157,
+              "currency": "usd",
+              "currency_conversion": null,
+              "custom_fields": [],
+              "custom_text": {
+                "after_submit": null,
+                "shipping_address": null,
+                "submit": null,
+                "terms_of_service_acceptance": null
+              },
+              "customer": null,
+              "customer_account": null,
+              "customer_creation": "if_required",
+              "customer_details": null,
+              "customer_email": null,
+              "discounts": [],
+              "expires_at": 1779918556,
+              "integration_identifier": null,
+              "invoice": null,
+              "invoice_creation": {
+                "enabled": false,
+                "invoice_data": {
+                  "account_tax_ids": null,
+                  "custom_fields": null,
+                  "description": null,
+                  "footer": null,
+                  "issuer": null,
+                  "metadata": {},
+                  "rendering_options": null
+                }
+              },
+              "livemode": false,
+              "locale": null,
+              "managed_payments": {
+                "enabled": false
+              },
+              "metadata": {},
+              "mode": "payment",
+              "origin_context": null,
+              "payment_intent": null,
+              "payment_link": null,
+              "payment_method_collection": "if_required",
+              "payment_method_configuration_details": {
+                "id": "pmc_1TbP2oEZpD6kXraeQGnR7vPZ",
+                "parent": null
+              },
+              "payment_method_options": {
+                "card": {
+                  "request_three_d_secure": "automatic"
+                }
+              },
+              "payment_method_types": [
+                "card",
+                "klarna",
+                "link",
+                "cashapp",
+                "amazon_pay"
+              ],
+              "payment_status": "unpaid",
+              "permissions": null,
+              "phone_number_collection": {
+                "enabled": false
+              },
+              "recovered_from": null,
+              "saved_payment_method_options": null,
+              "setup_intent": null,
+              "shipping_address_collection": null,
+              "shipping_cost": null,
+              "shipping_options": [],
+              "status": "open",
+              "submit_type": null,
+              "subscription": null,
+              "success_url": "https://example.com/success",
+              "total_details": {
+                "amount_discount": 0,
+                "amount_shipping": 0,
+                "amount_tax": 0
+              },
+              "ui_mode": "hosted_page",
+              "url": "https://checkout.stripe.com/c/pay/cs_test_a1Mt5GiZCZL9Ayj8u00dCA82CAhD9rYOU7aaIewJHlVSEfXibOhhPuuyaF#fidnandhYHdWcXxpYCc%2FJ2FgY2RwaXEnKSdicGRmZGhqaWBTZHdsZGtxJz8nZmprcXdqaScpJ2R1bE5gfCc%2FJ3VuWnFgdnFaMDRRZ1U3TUBfdUEzbl13ZGB3R0tiT3Jjbm5vRGhdR1NRbV1QX0xPcT1LPE01V39IQXZDTnVTVmZAdH9tVGt3dmgxTVVhTF9JdjUyakg9f0pDQHVmRGQ0bDI1NWJORlFPN303JyknY3dqaFZgd3Ngdyc%2FcXdwYCknZ2RmbmJ3anBrYUZqaWp3Jz8nJmNjY2NjYycpJ2lkfGpwcVF8dWAnPyd2bGtiaWBabHFgaCcpJ2BrZGdpYFVpZGZgbWppYWB3dic%2FcXdwYHgl",
+              "wallet_options": null
+            }
+          ],
+          "has_more": false,
+          "url": "/v1/checkout/sessions"
+        },
+        "status": 200,
+        "headers": {
+          "date": "Tue, 26 May 2026 22:17:02 GMT",
+          "content-type": "application/json",
+          "content-length": "3717",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=5184000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4963",
+          "x-ratelimit-reset": "1779833860",
+          "etag": "W/\"e85-TRR8Re6unFfTgab/mGSA0BeaMxA\""
+        },
+        "hash": "7f31d59fb27cdc326320e48097f66f20ac99ad54",
+        "request": {}
+      }
+    }
+  }
+}

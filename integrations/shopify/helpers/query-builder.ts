@@ -2,9 +2,9 @@ export function buildGraphQLQuery(
     tableName: string,
     topLevelFields: string[],
     paginatedFields: { field: string; fields: string[] }[],
-    lastSyncDate?: Date
+    updatedAfter?: Date
 ): string {
-    const filterCondition = lastSyncDate ? `query: "updated_at:>'${new Date(lastSyncDate).toISOString()}'"` : '';
+    const filterCondition = updatedAfter ? `query: "updated_at:>'${updatedAfter.toISOString()}'"` : '';
 
     const paginatedQueries = paginatedFields
         .map(({ field, fields }) => {

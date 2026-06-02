@@ -5,12 +5,16 @@ import type { ProxyConfiguration } from 'nango';
 import { User } from '../models.js';
 import { z } from 'zod';
 
+const CheckpointSchema = z.object({
+    updated_after: z.string()
+});
+
 const sync = createSync({
     description: 'Fetches a list of users from Smartsheet',
-    version: '1.0.0',
+    version: '1.1.0',
     frequency: 'every 6 hours',
     autoStart: true,
-    syncType: 'incremental',
+    checkpoint: CheckpointSchema,
 
     endpoints: [
         {
@@ -29,6 +33,11 @@ const sync = createSync({
     metadata: z.object({}),
 
     exec: async (nango) => {
+        const rawCheckpoint = await nango.getCheckpoint();
+        const checkpoint = rawCheckpoint ? CheckpointSchema.parse(rawCheckpoint) : undefined;
+        const checkpointUpdatedAfter = checkpoint?.updated_after ? new Date(checkpoint.updated_after) : undefined;
+        const runStartedAt = new Date().toISOString();
+
         const params: Record<string, string> = {};
         const proxyConfiguration: ProxyConfiguration = {
             // https://smartsheet.redoc.ly/tag/users
@@ -36,9 +45,9 @@ const sync = createSync({
             params
         };
 
-        if (nango.lastSyncDate) {
+        if (checkpointUpdatedAfter) {
             proxyConfiguration.params = {
-                modifiedSince: nango.lastSyncDate.toISOString()
+                modifiedSince: checkpointUpdatedAfter.toISOString()
             };
         }
 
@@ -78,6 +87,7 @@ const sync = createSync({
 
             currentPage++;
         }
+        await nango.saveCheckpoint({ updated_after: runStartedAt });
     }
 });
 

@@ -9,7 +9,7 @@ import { Page, Metadata } from '../models.js';
  */
 const sync = createSync({
     description: 'Fetches a list of all pages in a book from Brightcrowd.',
-    version: '2.0.0',
+    version: '2.1.0',
     frequency: 'every day',
     autoStart: false,
     syncType: 'full',
@@ -44,11 +44,13 @@ const sync = createSync({
             return;
         }
 
+        await nango.trackDeletesStart('Page');
+
         for (const bookId of bookIds) {
             await fetchPages(nango, bookId);
         }
 
-        await nango.deleteRecordsFromPreviousExecutions('Page');
+        await nango.trackDeletesEnd('Page');
     }
 });
 

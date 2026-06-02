@@ -177,12 +177,17 @@ function mapJournal(journal: XeroJournal): z.infer<typeof GeneralLedgerSchema> {
     };
 }
 
+const CheckpointSchema = z.object({
+    updated_after: z.string(),
+    highest_journal_number: z.number()
+});
+
 const sync = createSync({
     description: 'Sync Xero general ledger journals, each containing journal lines with account and tax details.',
-    version: '3.1.0',
+    version: '3.2.0',
     frequency: 'every hour',
     autoStart: true,
-    syncType: 'incremental',
+    checkpoint: CheckpointSchema,
     scopes: ['accounting.journals.read'],
     models: {
         GeneralLedger: GeneralLedgerSchema
@@ -190,19 +195,23 @@ const sync = createSync({
     endpoints: [{ method: 'GET', path: '/syncs/general-ledger', group: 'General Ledger' }],
 
     exec: async (nango) => {
+        const rawCheckpoint = await nango.getCheckpoint();
+        const checkpoint = rawCheckpoint ? CheckpointSchema.parse(rawCheckpoint) : undefined;
+        const runStartedAt = new Date().toISOString();
         const tenantId = await resolveTenantId(nango);
+        const checkpointUpdatedAfter = checkpoint?.updated_after;
 
         const headers: Record<string, string> = {
             'xero-tenant-id': tenantId,
             'If-Modified-Since': ''
         };
 
-        if (nango.lastSyncDate) {
-            headers['If-Modified-Since'] = nango.lastSyncDate.toISOString().replace(/\.\d{3}Z$/, '');
+        if (checkpointUpdatedAfter) {
+            headers['If-Modified-Since'] = checkpointUpdatedAfter.replace(/\.\d{3}Z$/, '');
         }
 
         let hasMoreRecords = true;
-        let highestJournalNumber = 0;
+        let highestJournalNumber = checkpoint?.highest_journal_number ?? 0;
 
         do {
             // https://developer.xero.com/documentation/api/accounting/journals
@@ -245,7 +254,13 @@ const sync = createSync({
             }
 
             highestJournalNumber = maxJournalNumber;
+            await nango.saveCheckpoint({
+                updated_after: checkpointUpdatedAfter ?? '',
+                highest_journal_number: highestJournalNumber
+            });
         } while (hasMoreRecords);
+
+        await nango.saveCheckpoint({ updated_after: runStartedAt, highest_journal_number: 0 });
     }
 });
 

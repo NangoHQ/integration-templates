@@ -13,10 +13,11 @@ interface User {
 let savedUsers: User[] = [];
 
 class MockNango implements Partial<NangoSync> {
-    lastSyncDate?: Date;
     variant = 'cloud';
     track_deletes = false;
     batchSize = 100;
+    deleteTrackingStarts: string[] = [];
+    deleteTrackingEnds: string[] = [];
 
     async get<T = any>(config: Omit<ProxyConfiguration, 'method'>): Promise<AxiosResponse<T>> {
         throw new Error('Method not implemented.');
@@ -70,9 +71,13 @@ class MockNango implements Partial<NangoSync> {
         return true;
     }
 
-    async deleteRecordsFromPreviousExecutions(model: string): Promise<any> {
-        // Mock deletion logic if needed
-    };
+    async trackDeletesStart(model: string): Promise<void> {
+        this.deleteTrackingStarts.push(model);
+    }
+
+    async trackDeletesEnd(model: string): Promise<void> {
+        this.deleteTrackingEnds.push(model);
+    }
 }
 
 describe('Discourse Active Users Pagination', () => {
@@ -81,7 +86,8 @@ describe('Discourse Active Users Pagination', () => {
     });
 
     it('should configure offset-based pagination correctly', async () => {
-        const nango = new MockNango() as unknown as NangoSync;
+        const mockNango = new MockNango();
+        const nango = mockNango as unknown as NangoSync;
         const fetchData = (await import('../syncs/active-users')).default;
         await fetchData.exec(nango);
 
@@ -92,6 +98,8 @@ describe('Discourse Active Users Pagination', () => {
             name: 'John Doe',
             admin: true
         });
+        expect(mockNango.deleteTrackingStarts).toEqual(['User']);
+        expect(mockNango.deleteTrackingEnds).toEqual(['User']);
     });
 
     it('should handle empty pages', async () => {

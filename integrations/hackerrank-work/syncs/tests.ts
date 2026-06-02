@@ -5,10 +5,10 @@ import { z } from 'zod';
 
 const sync = createSync({
     description: 'Fetches a list of tests from hackerrank work',
-    version: '2.0.0',
+    version: '2.1.0',
     frequency: 'every 6 hours',
     autoStart: true,
-    syncType: 'incremental',
+    syncType: 'full',
 
     endpoints: [
         {
@@ -25,6 +25,7 @@ const sync = createSync({
     metadata: z.object({}),
 
     exec: async (nango) => {
+        // No checkpoint is used because the HackerRank tests endpoint does not expose a server-side changed-since filter.
         let totalRecords = 0;
 
         const config: ProxyConfiguration = {
@@ -39,13 +40,9 @@ const sync = createSync({
             }
         };
 
-        const lastSyncDate = nango.lastSyncDate;
         for await (const test of nango.paginate(config)) {
             const testsToSave = [];
             for (const item of test) {
-                if (lastSyncDate !== undefined && new Date(item.created_at) < lastSyncDate) {
-                    continue; // Skip tests created before lastSyncDate
-                }
                 const mappedTest: HackerRankWorkTest = mapTest(item);
 
                 totalRecords++;

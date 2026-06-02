@@ -6,12 +6,16 @@ import type { ProxyConfiguration } from 'nango';
 import { Customer } from '../models.js';
 import { z } from 'zod';
 
+const CheckpointSchema = z.object({
+    updated_after: z.string()
+});
+
 const sync = createSync({
     description: 'Incrementally fetch all Recharge customers and their subscription details.',
-    version: '2.0.0',
+    version: '2.1.0',
     frequency: 'every 1 hour',
     autoStart: true,
-    syncType: 'incremental',
+    checkpoint: CheckpointSchema,
 
     endpoints: [
         {
@@ -30,6 +34,11 @@ const sync = createSync({
     metadata: z.object({}),
 
     exec: async (nango) => {
+        const rawCheckpoint = await nango.getCheckpoint();
+        const checkpoint = rawCheckpoint ? CheckpointSchema.parse(rawCheckpoint) : undefined;
+        const checkpointUpdatedAfter = checkpoint?.updated_after ? new Date(checkpoint.updated_after) : undefined;
+        const runStartedAt = new Date().toISOString();
+
         const customerConfig: ProxyConfiguration = {
             // https://developer.rechargepayments.com/2021-11/customers/customers_list
             endpoint: '/customers',
@@ -41,7 +50,7 @@ const sync = createSync({
                 limit: 100
             },
             params: {
-                ...(nango.lastSyncDate && { updated_at_min: nango.lastSyncDate.toISOString() }),
+                ...(checkpointUpdatedAfter && { updated_at_min: checkpointUpdatedAfter.toISOString() }),
                 sort_by: 'created_at-desc'
             },
             retries: 10
@@ -51,7 +60,7 @@ const sync = createSync({
 
         for await (const customers of nango.paginate<RechargeCustomer>(customerConfig)) {
             for (const customer of customers) {
-                const subscriptions = await fetchSubscriptions(customer.id, nango);
+                const subscriptions = await fetchSubscriptions(customer.id, nango, checkpointUpdatedAfter);
                 const mappedForCustomer = toCustomer(customer, subscriptions);
                 mappedCustomers.push(mappedForCustomer);
             }
@@ -59,13 +68,15 @@ const sync = createSync({
         if (mappedCustomers.length > 0) {
             await nango.batchSave(mappedCustomers, 'Customer');
         }
+
+        await nango.saveCheckpoint({ updated_after: runStartedAt });
     }
 });
 
 export type NangoSyncLocal = Parameters<(typeof sync)['exec']>[0];
 export default sync;
 
-async function fetchSubscriptions(customerId: number, nango: NangoSyncLocal): Promise<any[]> {
+async function fetchSubscriptions(customerId: number, nango: NangoSyncLocal, checkpointUpdatedAfter?: Date): Promise<any[]> {
     const subscriptionConfig: ProxyConfiguration = {
         // https://developer.rechargepayments.com/2021-11/subscriptions/subscriptions_list
         endpoint: '/subscriptions',
@@ -79,7 +90,7 @@ async function fetchSubscriptions(customerId: number, nango: NangoSyncLocal): Pr
         params: {
             customer_id: customerId,
             sort_by: 'created_at-desc',
-            ...(nango.lastSyncDate && { updated_at_min: nango.lastSyncDate.toISOString() })
+            ...(checkpointUpdatedAfter && { updated_at_min: checkpointUpdatedAfter.toISOString() })
         },
         retries: 10
     };

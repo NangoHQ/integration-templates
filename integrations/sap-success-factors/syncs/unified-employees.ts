@@ -6,12 +6,16 @@ import type { ProxyConfiguration } from 'nango';
 import { StandardEmployee } from '../models.js';
 import { z } from 'zod';
 
+const CheckpointSchema = z.object({
+    updated_after: z.string()
+});
+
 const sync = createSync({
     description: 'Fetches a list of current employees from  sap success factors and maps them to the standard HRIS model',
-    version: '2.0.0',
+    version: '2.1.0',
     frequency: 'every hour',
     autoStart: true,
-    syncType: 'incremental',
+    checkpoint: CheckpointSchema,
 
     endpoints: [
         {
@@ -28,7 +32,12 @@ const sync = createSync({
     metadata: z.object({}),
 
     exec: async (nango) => {
-        const lastModifiedDate = nango.lastSyncDate?.toISOString();
+        const rawCheckpoint = await nango.getCheckpoint();
+        const checkpoint = rawCheckpoint ? CheckpointSchema.parse(rawCheckpoint) : undefined;
+        const checkpointUpdatedAfter = checkpoint?.updated_after ? new Date(checkpoint.updated_after) : undefined;
+        const runStartedAt = new Date().toISOString();
+
+        const lastModifiedDate = checkpointUpdatedAfter?.toISOString();
 
         const config: ProxyConfiguration = {
             // https://help.sap.com/docs/successfactors-platform/sap-successfactors-api-reference-guide-odata-v2/perperson
@@ -57,6 +66,7 @@ const sync = createSync({
             const mappedRecords = await Promise.all(records.map((person) => toStandardEmployee(person, nango)));
             await nango.batchSave(mappedRecords, 'StandardEmployee');
         }
+        await nango.saveCheckpoint({ updated_after: runStartedAt });
     }
 });
 

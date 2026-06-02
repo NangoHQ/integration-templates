@@ -11,7 +11,7 @@ import { z } from 'zod';
  */
 const sync = createSync({
     description: 'Fetches a list of users from DocuSign',
-    version: '2.0.0',
+    version: '2.1.0',
     frequency: 'every day',
     autoStart: true,
     syncType: 'full',
@@ -33,6 +33,8 @@ const sync = createSync({
     metadata: z.object({}),
 
     exec: async (nango) => {
+        await nango.trackDeletesStart('User');
+
         let totalRecords = 0;
         const { baseUri, accountId } = await getRequestInfo(nango);
 
@@ -63,7 +65,7 @@ const sync = createSync({
             await nango.batchSave(users, 'User');
         }
 
-        await nango.deleteRecordsFromPreviousExecutions('User');
+        await nango.trackDeletesEnd('User');
     }
 });
 

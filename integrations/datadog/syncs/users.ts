@@ -7,7 +7,7 @@ import { z } from 'zod';
 
 const sync = createSync({
     description: 'Fetches a list of users from Datadog.',
-    version: '2.0.0',
+    version: '2.1.0',
     frequency: 'every day',
     autoStart: true,
     syncType: 'full',
@@ -29,6 +29,8 @@ const sync = createSync({
     metadata: z.object({}),
 
     exec: async (nango) => {
+        await nango.trackDeletesStart('User');
+
         const config: ProxyConfiguration = {
             // https://docs.datadoghq.com/api/latest/users/#list-all-users
             endpoint: '/v2/users',
@@ -64,7 +66,7 @@ const sync = createSync({
             await nango.batchSave(users, 'User');
         }
 
-        await nango.deleteRecordsFromPreviousExecutions('User');
+        await nango.trackDeletesEnd('User');
     }
 });
 

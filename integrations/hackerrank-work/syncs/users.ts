@@ -5,10 +5,10 @@ import { z } from 'zod';
 
 const sync = createSync({
     description: 'Fetches a list of users from hackerrank work',
-    version: '2.0.0',
+    version: '2.1.0',
     frequency: 'every 6 hours',
     autoStart: true,
-    syncType: 'incremental',
+    syncType: 'full',
 
     endpoints: [
         {
@@ -24,6 +24,8 @@ const sync = createSync({
     metadata: z.object({}),
 
     exec: async (nango) => {
+        // No checkpoint is used because the HackerRank users endpoint does not expose a server-side changed-since filter.
+        await nango.trackDeletesStart('HackerRankWorkUser');
         let totalRecords = 0;
 
         const config: ProxyConfiguration = {
@@ -38,13 +40,9 @@ const sync = createSync({
             }
         };
 
-        const lastSyncDate = nango.lastSyncDate;
         for await (const user of nango.paginate(config)) {
             const usersToSave = [];
             for (const item of user) {
-                if (lastSyncDate !== undefined && new Date(item.created_at) < lastSyncDate) {
-                    continue; // Skip users created before lastSyncDate
-                }
                 const mappedUser: HackerRankWorkUser = mapUser(item);
 
                 totalRecords++;
@@ -56,6 +54,8 @@ const sync = createSync({
                 await nango.log(`Saving batch of ${usersToSave.length} user(s) (total user(s): ${totalRecords})`);
             }
         }
+
+        await nango.trackDeletesEnd('HackerRankWorkUser');
     }
 });
 
