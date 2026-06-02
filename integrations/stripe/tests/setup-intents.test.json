@@ -1,0 +1,726 @@
+{
+  "nango": {
+    "batchSave": {
+      "SetupIntent": [
+        {
+          "id": "seti_1TbTTlEZpD6kXrae7nist44z",
+          "status": "requires_payment_method",
+          "created": 1779834581,
+          "payment_method_types": [
+            "card",
+            "klarna",
+            "link",
+            "cashapp",
+            "amazon_pay"
+          ],
+          "usage": "off_session",
+          "livemode": false
+        },
+        {
+          "id": "seti_1TbTQ6EZpD6kXraeNsyWf4pi",
+          "status": "requires_payment_method",
+          "created": 1779834354,
+          "payment_method_types": [
+            "card",
+            "klarna",
+            "link",
+            "cashapp",
+            "amazon_pay"
+          ],
+          "usage": "off_session",
+          "livemode": false
+        },
+        {
+          "id": "seti_1TbTPvEZpD6kXraeGfzN23Jj",
+          "status": "requires_payment_method",
+          "created": 1779834343,
+          "payment_method_types": [
+            "card",
+            "klarna",
+            "link",
+            "cashapp",
+            "amazon_pay"
+          ],
+          "usage": "off_session",
+          "livemode": false
+        },
+        {
+          "id": "seti_1TbTJ2EZpD6kXraeqa01MnkF",
+          "status": "requires_payment_method",
+          "customer": "cus_Uae6TTxHlP2hxk",
+          "created": 1779833916,
+          "payment_method_types": [
+            "card",
+            "bancontact",
+            "klarna",
+            "link",
+            "cashapp",
+            "amazon_pay",
+            "kakao_pay",
+            "naver_pay",
+            "pix"
+          ],
+          "usage": "off_session",
+          "livemode": false
+        },
+        {
+          "id": "seti_1TbTHDEZpD6kXraeFuksge1L",
+          "status": "requires_payment_method",
+          "customer": "cus_Uae6TTxHlP2hxk",
+          "created": 1779833803,
+          "payment_method_types": [
+            "card",
+            "bancontact",
+            "klarna",
+            "link",
+            "cashapp",
+            "amazon_pay",
+            "kakao_pay",
+            "naver_pay",
+            "pix"
+          ],
+          "usage": "off_session",
+          "livemode": false
+        },
+        {
+          "id": "seti_1TbTGGEZpD6kXraeT9vLHMs3",
+          "status": "requires_payment_method",
+          "customer": "cus_Uae6TTxHlP2hxk",
+          "created": 1779833744,
+          "payment_method_types": [
+            "card",
+            "bancontact",
+            "klarna",
+            "link",
+            "cashapp",
+            "amazon_pay",
+            "kakao_pay",
+            "naver_pay",
+            "pix"
+          ],
+          "usage": "off_session",
+          "livemode": false
+        },
+        {
+          "id": "seti_1TbTG8EZpD6kXraeuYrWtpcJ",
+          "status": "requires_payment_method",
+          "customer": "cus_Uae6TTxHlP2hxk",
+          "created": 1779833736,
+          "payment_method_types": [
+            "card",
+            "bancontact",
+            "klarna",
+            "link",
+            "cashapp",
+            "amazon_pay",
+            "kakao_pay",
+            "naver_pay",
+            "pix"
+          ],
+          "usage": "off_session",
+          "livemode": false
+        },
+        {
+          "id": "seti_1TbSoSEZpD6kXraefHQePToh",
+          "status": "canceled",
+          "customer": "cus_Uae6TTxHlP2hxk",
+          "created": 1779832020,
+          "payment_method_types": [
+            "card",
+            "bancontact",
+            "klarna",
+            "link",
+            "cashapp",
+            "amazon_pay",
+            "kakao_pay",
+            "naver_pay",
+            "pix"
+          ],
+          "usage": "off_session",
+          "livemode": false
+        },
+        {
+          "id": "seti_1TbSoREZpD6kXraeuWbOyTzo",
+          "status": "canceled",
+          "customer": "cus_Uae6TTxHlP2hxk",
+          "created": 1779832019,
+          "payment_method_types": [
+            "card",
+            "bancontact",
+            "klarna",
+            "link",
+            "cashapp",
+            "amazon_pay",
+            "kakao_pay",
+            "naver_pay",
+            "pix"
+          ],
+          "usage": "off_session",
+          "livemode": false
+        },
+        {
+          "id": "seti_1TbSoQEZpD6kXraey8RhA0h1",
+          "status": "requires_payment_method",
+          "customer": "cus_Uae6TTxHlP2hxk",
+          "description": "Updated via Nango action",
+          "created": 1779832018,
+          "payment_method_types": [
+            "card",
+            "bancontact",
+            "klarna",
+            "link",
+            "cashapp",
+            "amazon_pay",
+            "kakao_pay",
+            "naver_pay",
+            "pix"
+          ],
+          "usage": "off_session",
+          "livemode": false
+        }
+      ]
+    },
+    "batchDelete": {
+      "SetupIntent": []
+    }
+  },
+  "api": {
+    "get": {
+      "/v1/setup_intents": {
+        "response": {
+          "object": "list",
+          "data": [
+            {
+              "id": "seti_1TbTTlEZpD6kXrae7nist44z",
+              "object": "setup_intent",
+              "application": null,
+              "automatic_payment_methods": null,
+              "cancellation_reason": null,
+              "client_secret": "seti_1TbTTlEZpD6kXrae7nist44z_secret_UaenQ70pNfkLsGOW0hEbOMcCfvfySXV",
+              "created": 1779834581,
+              "customer": null,
+              "customer_account": null,
+              "description": null,
+              "excluded_payment_method_types": null,
+              "flow_directions": null,
+              "last_setup_error": null,
+              "latest_attempt": null,
+              "livemode": false,
+              "managed_payments": {
+                "enabled": false
+              },
+              "mandate": null,
+              "metadata": {},
+              "next_action": null,
+              "on_behalf_of": null,
+              "payment_method": null,
+              "payment_method_configuration_details": null,
+              "payment_method_options": {
+                "card": {
+                  "mandate_options": null,
+                  "network": null,
+                  "request_three_d_secure": "automatic"
+                }
+              },
+              "payment_method_types": [
+                "card",
+                "klarna",
+                "link",
+                "cashapp",
+                "amazon_pay"
+              ],
+              "single_use_mandate": null,
+              "status": "requires_payment_method",
+              "usage": "off_session"
+            },
+            {
+              "id": "seti_1TbTQ6EZpD6kXraeNsyWf4pi",
+              "object": "setup_intent",
+              "application": null,
+              "automatic_payment_methods": null,
+              "cancellation_reason": null,
+              "client_secret": "seti_1TbTQ6EZpD6kXraeNsyWf4pi_secret_Uaej4siw9tBlW6UhNBnT00iaXvxcBNF",
+              "created": 1779834354,
+              "customer": null,
+              "customer_account": null,
+              "description": null,
+              "excluded_payment_method_types": null,
+              "flow_directions": null,
+              "last_setup_error": null,
+              "latest_attempt": null,
+              "livemode": false,
+              "managed_payments": {
+                "enabled": false
+              },
+              "mandate": null,
+              "metadata": {},
+              "next_action": null,
+              "on_behalf_of": null,
+              "payment_method": null,
+              "payment_method_configuration_details": null,
+              "payment_method_options": {
+                "card": {
+                  "mandate_options": null,
+                  "network": null,
+                  "request_three_d_secure": "automatic"
+                }
+              },
+              "payment_method_types": [
+                "card",
+                "klarna",
+                "link",
+                "cashapp",
+                "amazon_pay"
+              ],
+              "single_use_mandate": null,
+              "status": "requires_payment_method",
+              "usage": "off_session"
+            },
+            {
+              "id": "seti_1TbTPvEZpD6kXraeGfzN23Jj",
+              "object": "setup_intent",
+              "application": null,
+              "automatic_payment_methods": null,
+              "cancellation_reason": null,
+              "client_secret": "seti_1TbTPvEZpD6kXraeGfzN23Jj_secret_UaejiCOTi3ISdwTCrBCtr9i1Ku9rJmk",
+              "created": 1779834343,
+              "customer": null,
+              "customer_account": null,
+              "description": null,
+              "excluded_payment_method_types": null,
+              "flow_directions": null,
+              "last_setup_error": null,
+              "latest_attempt": null,
+              "livemode": false,
+              "managed_payments": {
+                "enabled": false
+              },
+              "mandate": null,
+              "metadata": {},
+              "next_action": null,
+              "on_behalf_of": null,
+              "payment_method": null,
+              "payment_method_configuration_details": null,
+              "payment_method_options": {
+                "card": {
+                  "mandate_options": null,
+                  "network": null,
+                  "request_three_d_secure": "automatic"
+                }
+              },
+              "payment_method_types": [
+                "card",
+                "klarna",
+                "link",
+                "cashapp",
+                "amazon_pay"
+              ],
+              "single_use_mandate": null,
+              "status": "requires_payment_method",
+              "usage": "off_session"
+            },
+            {
+              "id": "seti_1TbTJ2EZpD6kXraeqa01MnkF",
+              "object": "setup_intent",
+              "application": null,
+              "automatic_payment_methods": {
+                "allow_redirects": "always",
+                "enabled": true
+              },
+              "cancellation_reason": null,
+              "client_secret": "seti_1TbTJ2EZpD6kXraeqa01MnkF_secret_Uaec6QGhRM3ojJfzxCAJuSwps4lHrCp",
+              "created": 1779833916,
+              "customer": "cus_Uae6TTxHlP2hxk",
+              "customer_account": null,
+              "description": null,
+              "excluded_payment_method_types": null,
+              "flow_directions": null,
+              "last_setup_error": null,
+              "latest_attempt": null,
+              "livemode": false,
+              "managed_payments": {
+                "enabled": false
+              },
+              "mandate": null,
+              "metadata": {},
+              "next_action": null,
+              "on_behalf_of": null,
+              "payment_method": null,
+              "payment_method_configuration_details": {
+                "id": "pmc_1TbP2oEZpD6kXraeQGnR7vPZ",
+                "parent": null
+              },
+              "payment_method_options": {
+                "card": {
+                  "mandate_options": null,
+                  "network": null,
+                  "request_three_d_secure": "automatic"
+                }
+              },
+              "payment_method_types": [
+                "card",
+                "bancontact",
+                "klarna",
+                "link",
+                "cashapp",
+                "amazon_pay",
+                "kakao_pay",
+                "naver_pay",
+                "pix"
+              ],
+              "single_use_mandate": null,
+              "status": "requires_payment_method",
+              "usage": "off_session"
+            },
+            {
+              "id": "seti_1TbTHDEZpD6kXraeFuksge1L",
+              "object": "setup_intent",
+              "application": null,
+              "automatic_payment_methods": {
+                "allow_redirects": "always",
+                "enabled": true
+              },
+              "cancellation_reason": null,
+              "client_secret": "seti_1TbTHDEZpD6kXraeFuksge1L_secret_UaeabfXOFSHzlF54shCiv6HqZq7vYWR",
+              "created": 1779833803,
+              "customer": "cus_Uae6TTxHlP2hxk",
+              "customer_account": null,
+              "description": null,
+              "excluded_payment_method_types": null,
+              "flow_directions": null,
+              "last_setup_error": null,
+              "latest_attempt": null,
+              "livemode": false,
+              "managed_payments": {
+                "enabled": false
+              },
+              "mandate": null,
+              "metadata": {},
+              "next_action": null,
+              "on_behalf_of": null,
+              "payment_method": null,
+              "payment_method_configuration_details": {
+                "id": "pmc_1TbP2oEZpD6kXraeQGnR7vPZ",
+                "parent": null
+              },
+              "payment_method_options": {
+                "card": {
+                  "mandate_options": null,
+                  "network": null,
+                  "request_three_d_secure": "automatic"
+                }
+              },
+              "payment_method_types": [
+                "card",
+                "bancontact",
+                "klarna",
+                "link",
+                "cashapp",
+                "amazon_pay",
+                "kakao_pay",
+                "naver_pay",
+                "pix"
+              ],
+              "single_use_mandate": null,
+              "status": "requires_payment_method",
+              "usage": "off_session"
+            },
+            {
+              "id": "seti_1TbTGGEZpD6kXraeT9vLHMs3",
+              "object": "setup_intent",
+              "application": null,
+              "automatic_payment_methods": {
+                "allow_redirects": "always",
+                "enabled": true
+              },
+              "cancellation_reason": null,
+              "client_secret": "seti_1TbTGGEZpD6kXraeT9vLHMs3_secret_UaeZcFtClNdKt9kWKSyfF9t9NTSWU5u",
+              "created": 1779833744,
+              "customer": "cus_Uae6TTxHlP2hxk",
+              "customer_account": null,
+              "description": null,
+              "excluded_payment_method_types": null,
+              "flow_directions": null,
+              "last_setup_error": null,
+              "latest_attempt": null,
+              "livemode": false,
+              "managed_payments": {
+                "enabled": false
+              },
+              "mandate": null,
+              "metadata": {},
+              "next_action": null,
+              "on_behalf_of": null,
+              "payment_method": null,
+              "payment_method_configuration_details": {
+                "id": "pmc_1TbP2oEZpD6kXraeQGnR7vPZ",
+                "parent": null
+              },
+              "payment_method_options": {
+                "card": {
+                  "mandate_options": null,
+                  "network": null,
+                  "request_three_d_secure": "automatic"
+                }
+              },
+              "payment_method_types": [
+                "card",
+                "bancontact",
+                "klarna",
+                "link",
+                "cashapp",
+                "amazon_pay",
+                "kakao_pay",
+                "naver_pay",
+                "pix"
+              ],
+              "single_use_mandate": null,
+              "status": "requires_payment_method",
+              "usage": "off_session"
+            },
+            {
+              "id": "seti_1TbTG8EZpD6kXraeuYrWtpcJ",
+              "object": "setup_intent",
+              "application": null,
+              "automatic_payment_methods": {
+                "allow_redirects": "always",
+                "enabled": true
+              },
+              "cancellation_reason": null,
+              "client_secret": "seti_1TbTG8EZpD6kXraeuYrWtpcJ_secret_UaeZigCjrL96turIAfPZHymtTHvzozG",
+              "created": 1779833736,
+              "customer": "cus_Uae6TTxHlP2hxk",
+              "customer_account": null,
+              "description": null,
+              "excluded_payment_method_types": null,
+              "flow_directions": null,
+              "last_setup_error": null,
+              "latest_attempt": null,
+              "livemode": false,
+              "managed_payments": {
+                "enabled": false
+              },
+              "mandate": null,
+              "metadata": {},
+              "next_action": null,
+              "on_behalf_of": null,
+              "payment_method": null,
+              "payment_method_configuration_details": {
+                "id": "pmc_1TbP2oEZpD6kXraeQGnR7vPZ",
+                "parent": null
+              },
+              "payment_method_options": {
+                "card": {
+                  "mandate_options": null,
+                  "network": null,
+                  "request_three_d_secure": "automatic"
+                }
+              },
+              "payment_method_types": [
+                "card",
+                "bancontact",
+                "klarna",
+                "link",
+                "cashapp",
+                "amazon_pay",
+                "kakao_pay",
+                "naver_pay",
+                "pix"
+              ],
+              "single_use_mandate": null,
+              "status": "requires_payment_method",
+              "usage": "off_session"
+            },
+            {
+              "id": "seti_1TbSoSEZpD6kXraefHQePToh",
+              "object": "setup_intent",
+              "application": null,
+              "automatic_payment_methods": {
+                "allow_redirects": "always",
+                "enabled": true
+              },
+              "cancellation_reason": null,
+              "client_secret": "seti_1TbSoSEZpD6kXraefHQePToh_secret_Uae6oqeygb7UmgPUUnEbBnfGqAVOPti",
+              "created": 1779832020,
+              "customer": "cus_Uae6TTxHlP2hxk",
+              "customer_account": null,
+              "description": null,
+              "excluded_payment_method_types": null,
+              "flow_directions": null,
+              "last_setup_error": null,
+              "latest_attempt": null,
+              "livemode": false,
+              "managed_payments": {
+                "enabled": false
+              },
+              "mandate": null,
+              "metadata": {},
+              "next_action": null,
+              "on_behalf_of": null,
+              "payment_method": null,
+              "payment_method_configuration_details": {
+                "id": "pmc_1TbP2oEZpD6kXraeQGnR7vPZ",
+                "parent": null
+              },
+              "payment_method_options": {
+                "card": {
+                  "mandate_options": null,
+                  "network": null,
+                  "request_three_d_secure": "automatic"
+                }
+              },
+              "payment_method_types": [
+                "card",
+                "bancontact",
+                "klarna",
+                "link",
+                "cashapp",
+                "amazon_pay",
+                "kakao_pay",
+                "naver_pay",
+                "pix"
+              ],
+              "single_use_mandate": null,
+              "status": "canceled",
+              "usage": "off_session"
+            },
+            {
+              "id": "seti_1TbSoREZpD6kXraeuWbOyTzo",
+              "object": "setup_intent",
+              "application": null,
+              "automatic_payment_methods": {
+                "allow_redirects": "always",
+                "enabled": true
+              },
+              "cancellation_reason": null,
+              "client_secret": "seti_1TbSoREZpD6kXraeuWbOyTzo_secret_Uae6gAMNKnz7oiIfnzS4YRK0tMfJVQg",
+              "created": 1779832019,
+              "customer": "cus_Uae6TTxHlP2hxk",
+              "customer_account": null,
+              "description": null,
+              "excluded_payment_method_types": null,
+              "flow_directions": null,
+              "last_setup_error": null,
+              "latest_attempt": null,
+              "livemode": false,
+              "managed_payments": {
+                "enabled": false
+              },
+              "mandate": null,
+              "metadata": {},
+              "next_action": null,
+              "on_behalf_of": null,
+              "payment_method": null,
+              "payment_method_configuration_details": {
+                "id": "pmc_1TbP2oEZpD6kXraeQGnR7vPZ",
+                "parent": null
+              },
+              "payment_method_options": {
+                "card": {
+                  "mandate_options": null,
+                  "network": null,
+                  "request_three_d_secure": "automatic"
+                }
+              },
+              "payment_method_types": [
+                "card",
+                "bancontact",
+                "klarna",
+                "link",
+                "cashapp",
+                "amazon_pay",
+                "kakao_pay",
+                "naver_pay",
+                "pix"
+              ],
+              "single_use_mandate": null,
+              "status": "canceled",
+              "usage": "off_session"
+            },
+            {
+              "id": "seti_1TbSoQEZpD6kXraey8RhA0h1",
+              "object": "setup_intent",
+              "application": null,
+              "automatic_payment_methods": {
+                "allow_redirects": "always",
+                "enabled": true
+              },
+              "cancellation_reason": null,
+              "client_secret": "seti_1TbSoQEZpD6kXraey8RhA0h1_secret_Uae6IC26U5Pjp6MYxDPtYnO0eYQWYlZ",
+              "created": 1779832018,
+              "customer": "cus_Uae6TTxHlP2hxk",
+              "customer_account": null,
+              "description": "Updated via Nango action",
+              "excluded_payment_method_types": null,
+              "flow_directions": null,
+              "last_setup_error": null,
+              "latest_attempt": null,
+              "livemode": false,
+              "managed_payments": {
+                "enabled": false
+              },
+              "mandate": null,
+              "metadata": {},
+              "next_action": null,
+              "on_behalf_of": null,
+              "payment_method": null,
+              "payment_method_configuration_details": {
+                "id": "pmc_1TbP2oEZpD6kXraeQGnR7vPZ",
+                "parent": null
+              },
+              "payment_method_options": {
+                "card": {
+                  "mandate_options": null,
+                  "network": null,
+                  "request_three_d_secure": "automatic"
+                }
+              },
+              "payment_method_types": [
+                "card",
+                "bancontact",
+                "klarna",
+                "link",
+                "cashapp",
+                "amazon_pay",
+                "kakao_pay",
+                "naver_pay",
+                "pix"
+              ],
+              "single_use_mandate": null,
+              "status": "requires_payment_method",
+              "usage": "off_session"
+            }
+          ],
+          "has_more": false,
+          "url": "/v1/setup_intents"
+        },
+        "status": 200,
+        "headers": {
+          "date": "Tue, 26 May 2026 23:14:56 GMT",
+          "content-type": "application/json",
+          "content-length": "13976",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=5184000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4972",
+          "x-ratelimit-reset": "1779837315",
+          "etag": "W/\"3698-rscbdFv0ljyzxebbbfTeCYubgbg\""
+        },
+        "hash": "008d91f7a725f889226805ea06aa0ed9fa3bc20f",
+        "request": {
+          "params": {
+            "limit": "100"
+          }
+        }
+      }
+    }
+  }
+}
