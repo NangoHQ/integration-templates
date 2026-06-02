@@ -1,48 +1,78 @@
 import { z } from 'zod';
 import { createAction } from 'nango';
 
-const MemberSchema = z.object({
-    value: z.string(),
+const ScimMemberSchema = z.object({
+    value: z.string().describe('User ID. Example: "2819c223-7f76-453a-919d-413861904646"'),
     display: z.string().optional(),
-    type: z.string().optional(),
     $ref: z.string().optional()
 });
 
-const MetaSchema = z.object({
-    resourceType: z.string(),
-    created: z.string().optional(),
-    lastModified: z.string().optional(),
-    location: z.string().optional(),
-    version: z.string().optional()
-});
+const ScimOperationSchema = z.discriminatedUnion('op', [
+    z.object({
+        op: z.literal('add'),
+        path: z.string().optional().describe('Target attribute path. Example: "members" or "displayName"'),
+        value: z.union([z.string(), z.array(ScimMemberSchema), z.record(z.string(), z.unknown())]).optional()
+    }),
+    z.object({
+        op: z.literal('replace'),
+        path: z.string().optional().describe('Target attribute path. Example: "members" or "displayName"'),
+        value: z.union([z.string(), z.array(ScimMemberSchema), z.record(z.string(), z.unknown())]).optional()
+    }),
+    z.object({
+        op: z.literal('remove'),
+        path: z.string().describe('Target attribute path. Example: "members" or "displayName"'),
+        value: z.union([z.string(), z.array(ScimMemberSchema), z.record(z.string(), z.unknown())]).optional()
+    })
+]);
 
 const InputSchema = z.object({
-    group_id: z.string().describe('The SCIM group ID to patch. Example: "group-123"'),
-    operations: z
-        .array(
-            z.discriminatedUnion('op', [
-                z.object({ op: z.literal('add'), path: z.string().optional(), value: z.unknown().optional() }),
-                z.object({ op: z.literal('replace'), path: z.string().optional(), value: z.unknown().optional() }),
-                z.object({ op: z.literal('remove'), path: z.string(), value: z.unknown().optional() })
-            ])
-        )
-        .describe('SCIM PatchOp operations to apply.')
+    id: z.string().describe('SCIM Group ID. Example: "9067729b3d-f987ac4d-a175-44f0-a528-6d23c5d2ec4d"'),
+    operations: z.array(ScimOperationSchema).describe('SCIM patch operations to apply to the group.')
 });
 
-const OutputSchema = z
-    .object({
-        schemas: z.array(z.string()),
-        id: z.string(),
-        displayName: z.string().optional(),
-        members: z.array(MemberSchema).optional(),
-        meta: MetaSchema.optional(),
-        externalId: z.string().optional()
-    })
-    .passthrough();
+const ScimGroupSchema = z.object({
+    schemas: z.array(z.string()),
+    id: z.string(),
+    displayName: z.string().optional(),
+    members: z.array(ScimMemberSchema).optional(),
+    meta: z
+        .object({
+            resourceType: z.string().optional(),
+            created: z.string().optional(),
+            lastModified: z.string().optional(),
+            location: z.string().optional(),
+            version: z.string().optional()
+        })
+        .optional(),
+    externalId: z.string().optional().nullable()
+});
+
+const OutputSchema = z.object({
+    id: z.string(),
+    displayName: z.string().optional(),
+    members: z
+        .array(
+            z.object({
+                value: z.string(),
+                display: z.string().optional()
+            })
+        )
+        .optional(),
+    meta: z
+        .object({
+            resourceType: z.string().optional(),
+            created: z.string().optional(),
+            lastModified: z.string().optional(),
+            location: z.string().optional(),
+            version: z.string().optional()
+        })
+        .optional(),
+    externalId: z.string().optional()
+});
 
 const action = createAction({
     description: 'Patch attributes or membership for a 1Password SCIM group.',
-    version: '1.0.0',
+    version: '1.1.0',
     endpoint: {
         method: 'POST',
         path: '/actions/patch-scim-group',
@@ -50,39 +80,51 @@ const action = createAction({
     },
     input: InputSchema,
     output: OutputSchema,
-    scopes: [],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
+        const requestBody = {
+            schemas: ['urn:ietf:params:scim:api:messages:2.0:PatchOp'],
+            Operations: input.operations
+        };
+
+        // https://support.1password.com/scim-endpoints/
         const response = await nango.patch({
-            // https://support.1password.com/scim-endpoints/
-            endpoint: `/Groups/${encodeURIComponent(input.group_id)}`,
-            data: {
-                schemas: ['urn:ietf:params:scim:api:messages:2.0:PatchOp'],
-                Operations: input.operations
-            },
-            retries: 10
+            endpoint: `/Groups/${encodeURIComponent(input.id)}`,
+            data: requestBody,
+            retries: 3
         });
 
         let rawData = response.data;
         if (!rawData) {
             // SCIM PATCH may return 204 No Content on success; fetch current state
             const getResponse = await nango.get({
-                endpoint: `/Groups/${encodeURIComponent(input.group_id)}`,
+                endpoint: `/Groups/${encodeURIComponent(input.id)}`,
                 retries: 3
             });
             if (!getResponse.data) {
                 throw new nango.ActionError({
                     type: 'not_found',
                     message: 'Group not found',
-                    group_id: input.group_id
+                    id: input.id
                 });
             }
             rawData = getResponse.data;
         }
 
-        const providerGroup = OutputSchema.parse(rawData);
+        const providerGroup = ScimGroupSchema.parse(rawData);
 
-        return providerGroup;
+        return {
+            id: providerGroup.id,
+            ...(providerGroup.displayName !== undefined && { displayName: providerGroup.displayName }),
+            ...(providerGroup.members !== undefined && {
+                members: providerGroup.members.map((member) => ({
+                    value: member.value,
+                    ...(member.display !== undefined && { display: member.display })
+                }))
+            }),
+            ...(providerGroup.meta !== undefined && { meta: providerGroup.meta }),
+            ...(providerGroup.externalId != null && { externalId: providerGroup.externalId })
+        };
     }
 });
 
