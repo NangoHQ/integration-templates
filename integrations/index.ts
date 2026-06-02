@@ -480,7 +480,6 @@ import './bamboohr-basic/syncs/training-records.js';
 import './bamboohr-basic/syncs/unified-employees.js';
 import './bamboohr-basic/syncs/users.js';
 import './bamboohr-basic/actions/create-applicant.js';
-import './bamboohr-basic/actions/create-company-file.js';
 import './bamboohr-basic/actions/create-employee-goal.js';
 import './bamboohr-basic/actions/create-employee-table-row.js';
 import './bamboohr-basic/actions/create-employee-training.js';
@@ -531,7 +530,6 @@ import './bamboohr-basic/actions/update-employee-training.js';
 import './bamboohr-basic/actions/update-employee.js';
 import './bamboohr-basic/actions/update-time-off-request-status.js';
 import './bamboohr-basic/actions/update-time-off-request.js';
-import './bamboohr-basic/actions/upload-employee-file.js';
 
 // -- Integration: basecamp
 import './basecamp/syncs/todos.js';

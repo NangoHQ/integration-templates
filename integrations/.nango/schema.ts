@@ -14187,40 +14187,6 @@ export interface ActionOutput_bamboohr_basic_createapplicant {
   candidateId: number;
 };
 
-export interface ActionInput_bamboohr_basic_createcompanyfile {
-  /**
-   * The display name for the uploaded file. Example: "handbook.pdf"
-   */
-  fileName: string;
-  /**
-   * The ID of the file category (section) to upload the file into. Example: 123
-   */
-  categoryId: number;
-  /**
-   * Whether to share the file with all employees. Defaults to "no".
-   */
-  share?: 'yes' | 'no' | undefined;
-  /**
-   * Base64-encoded file content.
-   */
-  fileContentBase64: string;
-  /**
-   * MIME type of the file. Defaults to "application/octet-stream".
-   */
-  mimeType?: string | undefined;
-};
-
-export interface ActionOutput_bamboohr_basic_createcompanyfile {
-  /**
-   * The ID of the newly created company file.
-   */
-  id: string;
-  /**
-   * The URL of the new file resource.
-   */
-  location?: string | undefined;
-};
-
 export interface ActionInput_bamboohr_basic_createemployeegoal {
   /**
    * The employee ID with whom the goal is associated. Example: 123
@@ -15608,36 +15574,6 @@ export interface ActionOutput_bamboohr_basic_updatetimeoffrequest {
   requestId: number;
   status: string;
   note?: string | undefined;
-};
-
-export interface ActionInput_bamboohr_basic_uploademployeefile {
-  /**
-   * Employee ID. Example: "123"
-   */
-  employeeId: string;
-  /**
-   * The display name for the uploaded file. Example: "document.pdf"
-   */
-  fileName: string;
-  /**
-   * The ID of the employee file section to upload the file into.
-   */
-  categoryId: number;
-  /**
-   * Whether to share the file with the employee. Defaults to "no".
-   */
-  share?: 'yes' | 'no' | undefined;
-  /**
-   * Base64-encoded file content.
-   */
-  fileContent: string;
-};
-
-export interface ActionOutput_bamboohr_basic_uploademployeefile {
-  /**
-   * URL of the newly created file resource from the Location header.
-   */
-  fileUrl: string;
 };
 
 export interface BasecampTodo {
