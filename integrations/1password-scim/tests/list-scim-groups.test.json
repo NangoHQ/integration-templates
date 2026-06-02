@@ -1,26 +1,100 @@
 {
   "input": {},
   "output": {
-    "groups": []
+    "items": [
+      {
+        "schemas": [
+          "urn:ietf:params:scim:schemas:core:2.0:Group"
+        ],
+        "id": "sitza7mfvjmrgdr6krnetp7g2q",
+        "meta": {
+          "resourceType": "Group",
+          "created": "2026-05-21T14:15:21Z",
+          "lastModified": "2026-05-21T14:23:16Z"
+        },
+        "displayName": "Test Group Patched"
+      },
+      {
+        "schemas": [
+          "urn:ietf:params:scim:schemas:core:2.0:Group"
+        ],
+        "id": "27i3xrasou26ukebqazeadyhua",
+        "meta": {
+          "resourceType": "Group",
+          "created": "2026-05-21T14:15:27Z",
+          "lastModified": "2026-05-22T17:57:03Z"
+        },
+        "displayName": "Updated Test Group Nango"
+      },
+      {
+        "schemas": [
+          "urn:ietf:params:scim:schemas:core:2.0:Group"
+        ],
+        "id": "va2pjrrhr7ykpdxkscbql6ipue",
+        "meta": {
+          "resourceType": "Group",
+          "created": "2026-05-22T17:57:33Z",
+          "lastModified": "2026-05-22T17:57:33Z"
+        },
+        "displayName": "Nango Test Group 2026-05-22-001"
+      }
+    ]
   },
   "nango": {},
   "api": {
     "get": {
       "/Groups": {
         "response": {
-          "Resources": [],
-          "itemsPerPage": 0,
+          "Resources": [
+            {
+              "displayName": "Test Group Patched",
+              "id": "sitza7mfvjmrgdr6krnetp7g2q",
+              "meta": {
+                "created": "2026-05-21T14:15:21Z",
+                "lastModified": "2026-05-21T14:23:16Z",
+                "resourceType": "Group"
+              },
+              "schemas": [
+                "urn:ietf:params:scim:schemas:core:2.0:Group"
+              ]
+            },
+            {
+              "displayName": "Updated Test Group Nango",
+              "id": "27i3xrasou26ukebqazeadyhua",
+              "meta": {
+                "created": "2026-05-21T14:15:27Z",
+                "lastModified": "2026-05-22T17:57:03Z",
+                "resourceType": "Group"
+              },
+              "schemas": [
+                "urn:ietf:params:scim:schemas:core:2.0:Group"
+              ]
+            },
+            {
+              "displayName": "Nango Test Group 2026-05-22-001",
+              "id": "va2pjrrhr7ykpdxkscbql6ipue",
+              "meta": {
+                "created": "2026-05-22T17:57:33Z",
+                "lastModified": "2026-05-22T17:57:33Z",
+                "resourceType": "Group"
+              },
+              "schemas": [
+                "urn:ietf:params:scim:schemas:core:2.0:Group"
+              ]
+            }
+          ],
+          "itemsPerPage": 3,
           "schemas": [
             "urn:ietf:params:scim:api:messages:2.0:ListResponse"
           ],
           "startIndex": 1,
-          "totalResults": 0
+          "totalResults": 3
         },
         "status": 200,
         "headers": {
-          "date": "Thu, 21 May 2026 14:14:36 GMT",
+          "date": "Fri, 22 May 2026 17:58:47 GMT",
           "content-type": "application/scim+json",
-          "content-length": "131",
+          "content-length": "845",
           "connection": "keep-alive",
           "x-xss-protection": "0",
           "x-content-type-options": "nosniff",
@@ -32,9 +106,9 @@
           "access-control-allow-origin": "*",
           "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
           "x-ratelimit-limit": "5000",
-          "x-ratelimit-remaining": "4958",
-          "x-ratelimit-reset": "1779372909",
-          "etag": "W/\"83-YD0A9a7pFMa8PajsxmQickyAnqI\""
+          "x-ratelimit-remaining": "4983",
+          "x-ratelimit-reset": "1779472763",
+          "etag": "W/\"34d-tl3vTtVJVFbVxXL4ATKKE9j/WY8\""
         },
         "hash": "72f429f5c708396297b485e5d184a3746b0a31f4",
         "request": {

@@ -1,64 +1,64 @@
 {
   "input": {
-    "id": "WHIVOG5WFFDGJODAWIGRVZZU5A"
+    "id": "FHNN6ANJUZF3FFXYHEE6EWPHSM"
   },
   "output": {
     "schemas": [
       "urn:ietf:params:scim:schemas:core:2.0:User"
     ],
-    "id": "WHIVOG5WFFDGJODAWIGRVZZU5A",
-    "meta": {
-      "resourceType": "User"
-    },
-    "userName": "api@nango.dev",
+    "id": "FHNN6ANJUZF3FFXYHEE6EWPHSM",
+    "userName": "victor@nango.dev",
     "name": {
-      "formatted": "Nango Developer",
-      "familyName": "Developer",
-      "givenName": "Nango"
+      "formatted": "Victor Nango",
+      "familyName": "Nango",
+      "givenName": "Victor"
     },
-    "displayName": "Nango Developer",
+    "displayName": "Victor Nango",
     "preferredLanguage": "en",
     "active": true,
     "emails": [
       {
-        "value": "api@nango.dev",
+        "value": "victor@nango.dev",
         "primary": true
       }
-    ]
+    ],
+    "meta": {
+      "resourceType": "User"
+    }
   },
   "nango": {},
   "api": {
     "get": {
-      "/Users/WHIVOG5WFFDGJODAWIGRVZZU5A": {
+      "/Users/FHNN6ANJUZF3FFXYHEE6EWPHSM": {
         "response": {
           "active": true,
-          "displayName": "Nango Developer",
+          "displayName": "Victor Nango",
           "emails": [
             {
               "primary": true,
-              "value": "api@nango.dev"
+              "value": "victor@nango.dev"
             }
           ],
-          "id": "WHIVOG5WFFDGJODAWIGRVZZU5A",
+          "id": "FHNN6ANJUZF3FFXYHEE6EWPHSM",
           "meta": {
             "resourceType": "User"
           },
           "name": {
-            "familyName": "Developer",
-            "formatted": "Nango Developer",
-            "givenName": "Nango"
+            "familyName": "Nango",
+            "formatted": "Victor Nango",
+            "givenName": "Victor"
           },
           "preferredLanguage": "en",
           "schemas": [
             "urn:ietf:params:scim:schemas:core:2.0:User"
           ],
-          "userName": "api@nango.dev"
+          "userName": "victor@nango.dev"
         },
         "status": 200,
         "headers": {
-          "date": "Thu, 21 May 2026 14:20:17 GMT",
+          "date": "Fri, 22 May 2026 18:03:54 GMT",
           "content-type": "application/scim+json",
-          "content-length": "358",
+          "content-length": "355",
           "connection": "keep-alive",
           "x-xss-protection": "0",
           "x-content-type-options": "nosniff",
@@ -70,11 +70,11 @@
           "access-control-allow-origin": "*",
           "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
           "x-ratelimit-limit": "5000",
-          "x-ratelimit-remaining": "4987",
-          "x-ratelimit-reset": "1779373244",
-          "etag": "W/\"166-t8Fv+wR05PU6dOCa+oZ7zfqzKVQ\""
+          "x-ratelimit-remaining": "4992",
+          "x-ratelimit-reset": "1779473081",
+          "etag": "W/\"163-IIDdehP5Zemb1uqZGkkmRgMeEbk\""
         },
-        "hash": "98706753641767c95aea179f3c799518c775206b",
+        "hash": "35953810abf9712711678043713a705f7b1d080c",
         "request": {}
       }
     }
