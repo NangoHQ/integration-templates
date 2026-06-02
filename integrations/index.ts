@@ -529,7 +529,6 @@ import './bamboohr-basic/actions/update-employee-table-row.js';
 import './bamboohr-basic/actions/update-employee-training.js';
 import './bamboohr-basic/actions/update-employee.js';
 import './bamboohr-basic/actions/update-time-off-request-status.js';
-import './bamboohr-basic/actions/update-time-off-request.js';
 
 // -- Integration: basecamp
 import './basecamp/syncs/todos.js';

@@ -16,8 +16,8 @@ const ProviderUserSchema = z.object({
 const ProviderResponseSchema = z.record(z.string(), ProviderUserSchema);
 
 const UserSchema = z.object({
-    id: z.number(),
-    employeeId: z.number(),
+    id: z.number().optional(),
+    employeeId: z.number().optional(),
     firstName: z.string().optional(),
     lastName: z.string().optional(),
     email: z.string().optional(),
@@ -53,8 +53,8 @@ const action = createAction({
         const providerResponse = ProviderResponseSchema.parse(response.data);
 
         const users = Object.values(providerResponse).map((user) => ({
-            id: user.id ?? 0,
-            employeeId: user.employeeId ?? 0,
+            ...(user.id !== undefined && { id: user.id }),
+            ...(user.employeeId !== undefined && { employeeId: user.employeeId }),
             ...(user.firstName !== undefined && { firstName: user.firstName }),
             ...(user.lastName !== undefined && { lastName: user.lastName }),
             ...(user.email !== undefined && { email: user.email }),

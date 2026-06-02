@@ -40,6 +40,8 @@ const action = createAction({
 
         if (Buffer.isBuffer(raw)) {
             buffer = raw;
+        } else if (raw instanceof ArrayBuffer) {
+            buffer = Buffer.from(raw);
         } else if (typeof raw === 'string') {
             buffer = Buffer.from(raw, 'binary');
         } else if (

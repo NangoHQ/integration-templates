@@ -135,8 +135,9 @@ const sync = createSync({
             await nango.batchSave(records, 'EmployeeTableRow');
         }
 
-        const newCheckpoint = maxLastChanged || new Date().toISOString();
-        await nango.saveCheckpoint({ updated_after: newCheckpoint });
+        if (maxLastChanged) {
+            await nango.saveCheckpoint({ updated_after: maxLastChanged });
+        }
     }
 });
 

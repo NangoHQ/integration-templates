@@ -580,7 +580,8 @@
               "payType": "Salary",
               "payPer": "Year",
               "workPhone": "801-724-6600",
-              "homePhone": "801-724-6600"
+              "homePhone": "801-724-6600",
+              "terminationDate": ""
             },
             {
               "id": "5",
@@ -610,7 +611,8 @@
               "payType": "Salary",
               "payPer": "Year",
               "workPhone": "+44 207 555 4730",
-              "homePhone": "+44 207 555 4467"
+              "homePhone": "+44 207 555 4467",
+              "terminationDate": ""
             },
             {
               "id": "6",
@@ -640,7 +642,8 @@
               "payType": "Salary",
               "payPer": "Year",
               "workPhone": "+61 2 5555 3103",
-              "homePhone": "+61 2 5555 6498"
+              "homePhone": "+61 2 5555 6498",
+              "terminationDate": ""
             },
             {
               "id": "7",
@@ -670,7 +673,8 @@
               "payType": "Salary",
               "payPer": "Year",
               "workPhone": "604-555-3131",
-              "homePhone": "604-555-3310"
+              "homePhone": "604-555-3310",
+              "terminationDate": ""
             },
             {
               "id": "8",
@@ -700,7 +704,8 @@
               "payType": "Salary",
               "payPer": "Year",
               "workPhone": "801-724-6600",
-              "homePhone": "801-724-6600"
+              "homePhone": "801-724-6600",
+              "terminationDate": ""
             },
             {
               "id": "9",
@@ -730,7 +735,8 @@
               "payType": "Salary",
               "payPer": "Year",
               "workPhone": "801-724-6600",
-              "homePhone": "801-724-6600"
+              "homePhone": "801-724-6600",
+              "terminationDate": ""
             },
             {
               "id": "10",
@@ -760,7 +766,8 @@
               "payType": "Salary",
               "payPer": "Year",
               "workPhone": "801-724-6600",
-              "homePhone": "801-724-6600"
+              "homePhone": "801-724-6600",
+              "terminationDate": ""
             },
             {
               "id": "11",
@@ -790,7 +797,8 @@
               "payType": "Salary",
               "payPer": "Year",
               "workPhone": "801-724-6600",
-              "homePhone": "801-724-6600"
+              "homePhone": "801-724-6600",
+              "terminationDate": ""
             },
             {
               "id": "12",
@@ -820,7 +828,8 @@
               "payType": "Salary",
               "payPer": "Year",
               "workPhone": "801-724-6600",
-              "homePhone": "801-724-6600"
+              "homePhone": "801-724-6600",
+              "terminationDate": ""
             },
             {
               "id": "13",
@@ -850,7 +859,8 @@
               "payType": "Salary",
               "payPer": "Year",
               "workPhone": "801-724-6600",
-              "homePhone": "801-555-8541"
+              "homePhone": "801-555-8541",
+              "terminationDate": ""
             },
             {
               "id": "14",
@@ -880,7 +890,8 @@
               "payType": "Salary",
               "payPer": "Year",
               "workPhone": "801-724-6600",
-              "homePhone": "801-724-6600"
+              "homePhone": "801-724-6600",
+              "terminationDate": ""
             },
             {
               "id": "15",
@@ -910,7 +921,8 @@
               "payType": "Salary",
               "payPer": "Year",
               "workPhone": "801-724-6600",
-              "homePhone": "801-724-6600"
+              "homePhone": "801-724-6600",
+              "terminationDate": ""
             },
             {
               "id": "16",
@@ -940,7 +952,8 @@
               "payType": "Salary",
               "payPer": "Year",
               "workPhone": "801-724-6600",
-              "homePhone": "801-724-6600"
+              "homePhone": "801-724-6600",
+              "terminationDate": ""
             },
             {
               "id": "17",
@@ -970,7 +983,8 @@
               "payType": "Salary",
               "payPer": "Year",
               "workPhone": "801-724-6600",
-              "homePhone": "801-555-1278"
+              "homePhone": "801-555-1278",
+              "terminationDate": ""
             },
             {
               "id": "18",
@@ -1000,7 +1014,8 @@
               "payType": "Hourly",
               "payPer": "Hour",
               "workPhone": "801-724-6600",
-              "homePhone": "604-555-4468"
+              "homePhone": "604-555-4468",
+              "terminationDate": ""
             },
             {
               "id": "19",
@@ -1030,7 +1045,8 @@
               "payType": "Salary",
               "payPer": "Year",
               "workPhone": "801-724-6600",
-              "homePhone": null
+              "homePhone": null,
+              "terminationDate": ""
             },
             {
               "id": "22",
@@ -1060,7 +1076,8 @@
               "payType": "Hourly",
               "payPer": "Hour",
               "workPhone": "555-555-5555",
-              "homePhone": null
+              "homePhone": null,
+              "terminationDate": ""
             },
             {
               "id": "23",
@@ -1090,7 +1107,8 @@
               "payType": "Hourly",
               "payPer": "Hour",
               "workPhone": "801-724-6600",
-              "homePhone": "801-555-7896"
+              "homePhone": "801-555-7896",
+              "terminationDate": ""
             },
             {
               "id": "24",
@@ -1120,7 +1138,8 @@
               "payType": "Hourly",
               "payPer": "Hour",
               "workPhone": "604-555-3139",
-              "homePhone": "212-555-9630"
+              "homePhone": "212-555-9630",
+              "terminationDate": ""
             },
             {
               "id": "25",
@@ -1150,7 +1169,8 @@
               "payType": "Hourly",
               "payPer": "Hour",
               "workPhone": "801-724-6600",
-              "homePhone": null
+              "homePhone": null,
+              "terminationDate": ""
             },
             {
               "id": "26",
@@ -1180,7 +1200,8 @@
               "payType": "Hourly",
               "payPer": "Hour",
               "workPhone": "801-724-6600",
-              "homePhone": "801-724-6600"
+              "homePhone": "801-724-6600",
+              "terminationDate": ""
             },
             {
               "id": "27",
@@ -1210,7 +1231,8 @@
               "payType": "Hourly",
               "payPer": "Hour",
               "workPhone": "801-724-6600",
-              "homePhone": "415-555-9510"
+              "homePhone": "415-555-9510",
+              "terminationDate": ""
             },
             {
               "id": "28",
@@ -1240,7 +1262,8 @@
               "payType": "Hourly",
               "payPer": "Hour",
               "workPhone": "801-724-6600",
-              "homePhone": null
+              "homePhone": null,
+              "terminationDate": ""
             },
             {
               "id": "29",
@@ -1270,7 +1293,8 @@
               "payType": "Salary",
               "payPer": "Year",
               "workPhone": "801-724-6600",
-              "homePhone": "415-555-4561"
+              "homePhone": "415-555-4561",
+              "terminationDate": ""
             },
             {
               "id": "30",
@@ -1300,7 +1324,8 @@
               "payType": "Hourly",
               "payPer": "Hour",
               "workPhone": "604-555-3133",
-              "homePhone": "604-555-1230"
+              "homePhone": "604-555-1230",
+              "terminationDate": ""
             },
             {
               "id": "31",
@@ -1330,7 +1355,8 @@
               "payType": "Hourly",
               "payPer": "Hour",
               "workPhone": "801-724-6600",
-              "homePhone": "212-555-4567"
+              "homePhone": "212-555-4567",
+              "terminationDate": ""
             },
             {
               "id": "32",
@@ -1360,7 +1386,8 @@
               "payType": "Hourly",
               "payPer": "Hour",
               "workPhone": "801-724-6600",
-              "homePhone": "604-555-6688"
+              "homePhone": "604-555-6688",
+              "terminationDate": ""
             },
             {
               "id": "33",
@@ -1390,7 +1417,8 @@
               "payType": "Salary",
               "payPer": "Year",
               "workPhone": "801-724-6600",
-              "homePhone": "415-555-7845"
+              "homePhone": "415-555-7845",
+              "terminationDate": ""
             },
             {
               "id": "34",
@@ -1420,7 +1448,8 @@
               "payType": "Hourly",
               "payPer": "Hour",
               "workPhone": "801-724-6600",
-              "homePhone": "415-555-5241"
+              "homePhone": "415-555-5241",
+              "terminationDate": ""
             },
             {
               "id": "35",
@@ -1450,7 +1479,8 @@
               "payType": "Hourly",
               "payPer": "Hour",
               "workPhone": "801-724-6600",
-              "homePhone": "385-228-4167"
+              "homePhone": "385-228-4167",
+              "terminationDate": ""
             },
             {
               "id": "36",
@@ -1480,7 +1510,8 @@
               "payType": "Hourly",
               "payPer": "Hour",
               "workPhone": "801-724-6600",
-              "homePhone": "801-555-2525"
+              "homePhone": "801-555-2525",
+              "terminationDate": ""
             },
             {
               "id": "37",
@@ -1510,7 +1541,8 @@
               "payType": "Salary",
               "payPer": "Year",
               "workPhone": "+44 207 555 4730",
-              "homePhone": null
+              "homePhone": null,
+              "terminationDate": ""
             },
             {
               "id": "38",
@@ -1540,7 +1572,8 @@
               "payType": "Salary",
               "payPer": "Year",
               "workPhone": "+44 207 555 4730",
-              "homePhone": null
+              "homePhone": null,
+              "terminationDate": ""
             },
             {
               "id": "39",
@@ -1570,7 +1603,8 @@
               "payType": "Salary",
               "payPer": "Year",
               "workPhone": "+44 207 555 4730",
-              "homePhone": null
+              "homePhone": null,
+              "terminationDate": ""
             },
             {
               "id": "40",
@@ -1600,7 +1634,8 @@
               "payType": "Salary",
               "payPer": "Year",
               "workPhone": "801-724-6600",
-              "homePhone": "801-555-9510"
+              "homePhone": "801-555-9510",
+              "terminationDate": ""
             },
             {
               "id": "41",
@@ -1630,7 +1665,8 @@
               "payType": "Salary",
               "payPer": "Year",
               "workPhone": "801-724-6600",
-              "homePhone": "801-310-4714"
+              "homePhone": "801-310-4714",
+              "terminationDate": ""
             },
             {
               "id": "42",
@@ -1660,7 +1696,8 @@
               "payType": "Salary",
               "payPer": "Year",
               "workPhone": "801-724-6600",
-              "homePhone": "801-555-7894"
+              "homePhone": "801-555-7894",
+              "terminationDate": ""
             },
             {
               "id": "43",
@@ -1690,7 +1727,8 @@
               "payType": "Salary",
               "payPer": "Year",
               "workPhone": "801-724-6600",
-              "homePhone": "415-555-6532"
+              "homePhone": "415-555-6532",
+              "terminationDate": ""
             },
             {
               "id": "44",
@@ -1720,7 +1758,8 @@
               "payType": "Salary",
               "payPer": "Year",
               "workPhone": "801-724-6600",
-              "homePhone": "415-555-9865"
+              "homePhone": "415-555-9865",
+              "terminationDate": ""
             },
             {
               "id": "45",
@@ -1750,7 +1789,8 @@
               "payType": "Salary",
               "payPer": "Year",
               "workPhone": "801-724-6600",
-              "homePhone": "801-724-6600"
+              "homePhone": "801-724-6600",
+              "terminationDate": ""
             },
             {
               "id": "46",
@@ -1780,7 +1820,8 @@
               "payType": "Salary",
               "payPer": "Year",
               "workPhone": "+44 207 555 4730",
-              "homePhone": "+44 207 555 7984"
+              "homePhone": "+44 207 555 7984",
+              "terminationDate": ""
             },
             {
               "id": "47",
@@ -1810,7 +1851,8 @@
               "payType": "Salary",
               "payPer": "Year",
               "workPhone": "801-724-6600",
-              "homePhone": "415-555-2563"
+              "homePhone": "415-555-2563",
+              "terminationDate": ""
             },
             {
               "id": "48",
@@ -1840,7 +1882,8 @@
               "payType": "Salary",
               "payPer": "Year",
               "workPhone": "+44 207 555 4730",
-              "homePhone": null
+              "homePhone": null,
+              "terminationDate": ""
             },
             {
               "id": "49",
@@ -1870,7 +1913,8 @@
               "payType": "Salary",
               "payPer": "Year",
               "workPhone": "801-724-6600",
-              "homePhone": "415-555-7894"
+              "homePhone": "415-555-7894",
+              "terminationDate": ""
             },
             {
               "id": "50",
@@ -1900,7 +1944,8 @@
               "payType": "Salary",
               "payPer": "Year",
               "workPhone": "801-724-6600",
-              "homePhone": "415-555-7410"
+              "homePhone": "415-555-7410",
+              "terminationDate": ""
             },
             {
               "id": "51",
@@ -1930,7 +1975,8 @@
               "payType": "Salary",
               "payPer": "Year",
               "workPhone": "+61 2 5555 3108",
-              "homePhone": "+61 2 5555 6498"
+              "homePhone": "+61 2 5555 6498",
+              "terminationDate": ""
             },
             {
               "id": "52",
@@ -1960,7 +2006,8 @@
               "payType": "Salary",
               "payPer": "Year",
               "workPhone": "801-724-6600",
-              "homePhone": "801-555-9630"
+              "homePhone": "801-555-9630",
+              "terminationDate": ""
             },
             {
               "id": "53",
@@ -1990,7 +2037,8 @@
               "payType": "Salary",
               "payPer": "Year",
               "workPhone": "801-724-6600",
-              "homePhone": "415-555-6352"
+              "homePhone": "415-555-6352",
+              "terminationDate": ""
             },
             {
               "id": "54",
@@ -2020,7 +2068,8 @@
               "payType": "Hourly",
               "payPer": "Hour",
               "workPhone": "+61 2 5555 3101",
-              "homePhone": "+61 2 5555 6498"
+              "homePhone": "+61 2 5555 6498",
+              "terminationDate": ""
             },
             {
               "id": "55",
@@ -2050,7 +2099,8 @@
               "payType": "Salary",
               "payPer": "Year",
               "workPhone": "801-724-6600",
-              "homePhone": null
+              "homePhone": null,
+              "terminationDate": ""
             },
             {
               "id": "56",
@@ -2080,7 +2130,8 @@
               "payType": "Salary",
               "payPer": "Year",
               "workPhone": "+61 2 5555 3109",
-              "homePhone": "+61 2 5555 6498"
+              "homePhone": "+61 2 5555 6498",
+              "terminationDate": ""
             },
             {
               "id": "57",
@@ -2110,7 +2161,8 @@
               "payType": "Salary",
               "payPer": "Year",
               "workPhone": "801-724-6600",
-              "homePhone": null
+              "homePhone": null,
+              "terminationDate": ""
             },
             {
               "id": "58",
@@ -2140,7 +2192,8 @@
               "payType": "Salary",
               "payPer": "Year",
               "workPhone": "801-724-6600",
-              "homePhone": "801-555-0123"
+              "homePhone": "801-555-0123",
+              "terminationDate": ""
             },
             {
               "id": "59",
@@ -2170,7 +2223,8 @@
               "payType": "Salary",
               "payPer": "Year",
               "workPhone": "801-724-6600",
-              "homePhone": "604-555-8774"
+              "homePhone": "604-555-8774",
+              "terminationDate": ""
             },
             {
               "id": "60",
@@ -2200,7 +2254,8 @@
               "payType": "Salary",
               "payPer": "Year",
               "workPhone": "801-724-6600",
-              "homePhone": null
+              "homePhone": null,
+              "terminationDate": ""
             },
             {
               "id": "61",
@@ -2230,7 +2285,8 @@
               "payType": "Salary",
               "payPer": "Year",
               "workPhone": "604-555-3134",
-              "homePhone": "604-555-3557"
+              "homePhone": "604-555-3557",
+              "terminationDate": ""
             },
             {
               "id": "62",
@@ -2260,7 +2316,8 @@
               "payType": "Salary",
               "payPer": "Year",
               "workPhone": "801-724-6600",
-              "homePhone": "212-555-7890"
+              "homePhone": "212-555-7890",
+              "terminationDate": ""
             },
             {
               "id": "63",
@@ -2290,7 +2347,8 @@
               "payType": "Salary",
               "payPer": "Year",
               "workPhone": "+44 207 555 4730",
-              "homePhone": null
+              "homePhone": null,
+              "terminationDate": ""
             },
             {
               "id": "64",
@@ -2320,7 +2378,8 @@
               "payType": "Salary",
               "payPer": "Year",
               "workPhone": "801-724-6600",
-              "homePhone": "801-555-7536"
+              "homePhone": "801-555-7536",
+              "terminationDate": ""
             },
             {
               "id": "65",
@@ -2350,7 +2409,8 @@
               "payType": "Hourly",
               "payPer": "Hour",
               "workPhone": "+44 207 555 4730",
-              "homePhone": "+44 207 555 3338"
+              "homePhone": "+44 207 555 3338",
+              "terminationDate": ""
             },
             {
               "id": "66",
@@ -2380,7 +2440,8 @@
               "payType": "Hourly",
               "payPer": "Hour",
               "workPhone": "604-555-3138",
-              "homePhone": "604-555-4563"
+              "homePhone": "604-555-4563",
+              "terminationDate": ""
             },
             {
               "id": "67",
@@ -2410,7 +2471,8 @@
               "payType": "Salary",
               "payPer": "Year",
               "workPhone": "801-724-6600",
-              "homePhone": null
+              "homePhone": null,
+              "terminationDate": ""
             },
             {
               "id": "68",
@@ -2440,7 +2502,8 @@
               "payType": "Hourly",
               "payPer": "Hour",
               "workPhone": "801-724-6600",
-              "homePhone": "801-724-6600"
+              "homePhone": "801-724-6600",
+              "terminationDate": ""
             },
             {
               "id": "69",
@@ -2470,7 +2533,8 @@
               "payType": "Salary",
               "payPer": "Year",
               "workPhone": "+44 207 555 4730",
-              "homePhone": null
+              "homePhone": null,
+              "terminationDate": ""
             },
             {
               "id": "70",
@@ -2500,7 +2564,8 @@
               "payType": "Hourly",
               "payPer": "Hour",
               "workPhone": "801-724-6600",
-              "homePhone": "801-724-6600"
+              "homePhone": "801-724-6600",
+              "terminationDate": ""
             },
             {
               "id": "71",
@@ -2530,7 +2595,8 @@
               "payType": "Salary",
               "payPer": "Year",
               "workPhone": "801-724-6600",
-              "homePhone": "415-555-4785"
+              "homePhone": "415-555-4785",
+              "terminationDate": ""
             },
             {
               "id": "72",
@@ -2560,7 +2626,8 @@
               "payType": "Salary",
               "payPer": "Year",
               "workPhone": "801-724-6600",
-              "homePhone": "415-555-3210"
+              "homePhone": "415-555-3210",
+              "terminationDate": ""
             },
             {
               "id": "73",
@@ -2590,7 +2657,8 @@
               "payType": "Salary",
               "payPer": "Year",
               "workPhone": "801-724-6600",
-              "homePhone": "415-555-5896"
+              "homePhone": "415-555-5896",
+              "terminationDate": ""
             },
             {
               "id": "74",
@@ -2620,7 +2688,8 @@
               "payType": "Salary",
               "payPer": "Year",
               "workPhone": "801-724-6600",
-              "homePhone": null
+              "homePhone": null,
+              "terminationDate": ""
             },
             {
               "id": "75",
@@ -2650,7 +2719,8 @@
               "payType": "Hourly",
               "payPer": "Hour",
               "workPhone": "+61 2 5555 3105",
-              "homePhone": "+61 2 5555 6498"
+              "homePhone": "+61 2 5555 6498",
+              "terminationDate": ""
             },
             {
               "id": "76",
@@ -2680,7 +2750,8 @@
               "payType": "Salary",
               "payPer": "Year",
               "workPhone": "+44 207 555 4730",
-              "homePhone": null
+              "homePhone": null,
+              "terminationDate": ""
             },
             {
               "id": "77",
@@ -2710,7 +2781,8 @@
               "payType": "Hourly",
               "payPer": "Hour",
               "workPhone": "+61 2 5555 3104",
-              "homePhone": "+61 2 5555 6498"
+              "homePhone": "+61 2 5555 6498",
+              "terminationDate": ""
             },
             {
               "id": "78",
@@ -2740,7 +2812,8 @@
               "payType": "Salary",
               "payPer": "Year",
               "workPhone": "801-724-6600",
-              "homePhone": "604-555-6478"
+              "homePhone": "604-555-6478",
+              "terminationDate": ""
             },
             {
               "id": "79",
@@ -2770,7 +2843,8 @@
               "payType": "Salary",
               "payPer": "Year",
               "workPhone": "801-724-6600",
-              "homePhone": "604-555-4147"
+              "homePhone": "604-555-4147",
+              "terminationDate": ""
             },
             {
               "id": "80",
@@ -2800,7 +2874,8 @@
               "payType": "Hourly",
               "payPer": "Hour",
               "workPhone": "+44 207 555 4730",
-              "homePhone": null
+              "homePhone": null,
+              "terminationDate": ""
             },
             {
               "id": "81",
@@ -2830,7 +2905,8 @@
               "payType": "Salary",
               "payPer": "Year",
               "workPhone": "801-724-6600",
-              "homePhone": "801-555-4598"
+              "homePhone": "801-555-4598",
+              "terminationDate": ""
             },
             {
               "id": "82",
@@ -2860,7 +2936,8 @@
               "payType": "Salary",
               "payPer": "Year",
               "workPhone": "801-724-6600",
-              "homePhone": "212-555-7410"
+              "homePhone": "212-555-7410",
+              "terminationDate": ""
             },
             {
               "id": "83",
@@ -2890,7 +2967,8 @@
               "payType": "Salary",
               "payPer": "Year",
               "workPhone": "801-724-6600",
-              "homePhone": null
+              "homePhone": null,
+              "terminationDate": ""
             },
             {
               "id": "84",
@@ -2920,7 +2998,8 @@
               "payType": "Salary",
               "payPer": "Year",
               "workPhone": "801-724-6600",
-              "homePhone": "415-555-9876"
+              "homePhone": "415-555-9876",
+              "terminationDate": ""
             },
             {
               "id": "85",
@@ -2950,7 +3029,8 @@
               "payType": "Salary",
               "payPer": "Year",
               "workPhone": "+61 2 5555 3102",
-              "homePhone": "+61 2 5555 6498"
+              "homePhone": "+61 2 5555 6498",
+              "terminationDate": ""
             },
             {
               "id": "86",
@@ -2980,7 +3060,8 @@
               "payType": "Salary",
               "payPer": "Year",
               "workPhone": "801-724-6600",
-              "homePhone": null
+              "homePhone": null,
+              "terminationDate": ""
             },
             {
               "id": "87",
@@ -3010,7 +3091,8 @@
               "payType": "Salary",
               "payPer": "Year",
               "workPhone": "801-724-6600",
-              "homePhone": "415-555-7530"
+              "homePhone": "415-555-7530",
+              "terminationDate": ""
             },
             {
               "id": "88",
@@ -3040,7 +3122,8 @@
               "payType": "Salary",
               "payPer": "Year",
               "workPhone": "801-724-6600",
-              "homePhone": "415-555-4512"
+              "homePhone": "415-555-4512",
+              "terminationDate": ""
             },
             {
               "id": "89",
@@ -3070,7 +3153,8 @@
               "payType": "Salary",
               "payPer": "Year",
               "workPhone": "+44 207 555 4730",
-              "homePhone": null
+              "homePhone": null,
+              "terminationDate": ""
             },
             {
               "id": "90",
@@ -3100,7 +3184,8 @@
               "payType": "Contract",
               "payPer": "Hour",
               "workPhone": "604-555-3135",
-              "homePhone": "604-555-7832"
+              "homePhone": "604-555-7832",
+              "terminationDate": ""
             },
             {
               "id": "91",
@@ -3130,7 +3215,8 @@
               "payType": "Salary",
               "payPer": "Year",
               "workPhone": "801-724-6600",
-              "homePhone": "801-555-3636"
+              "homePhone": "801-555-3636",
+              "terminationDate": ""
             },
             {
               "id": "92",
@@ -3160,7 +3246,8 @@
               "payType": "Salary",
               "payPer": "Year",
               "workPhone": "+44 207 555 4730",
-              "homePhone": null
+              "homePhone": null,
+              "terminationDate": ""
             },
             {
               "id": "93",
@@ -3190,7 +3277,8 @@
               "payType": "Salary",
               "payPer": "Year",
               "workPhone": "801-724-6600",
-              "homePhone": "801-724-6600"
+              "homePhone": "801-724-6600",
+              "terminationDate": ""
             },
             {
               "id": "94",
@@ -3220,7 +3308,8 @@
               "payType": "Salary",
               "payPer": "Year",
               "workPhone": "801-724-6600",
-              "homePhone": null
+              "homePhone": null,
+              "terminationDate": ""
             },
             {
               "id": "95",
@@ -3250,7 +3339,8 @@
               "payType": "Salary",
               "payPer": "Year",
               "workPhone": "801-724-6600",
-              "homePhone": null
+              "homePhone": null,
+              "terminationDate": ""
             },
             {
               "id": "96",
@@ -3280,7 +3370,8 @@
               "payType": "Salary",
               "payPer": "Year",
               "workPhone": "604-555-3140",
-              "homePhone": "604-555-7530"
+              "homePhone": "604-555-7530",
+              "terminationDate": ""
             },
             {
               "id": "97",
@@ -3310,7 +3401,8 @@
               "payType": "Salary",
               "payPer": "Year",
               "workPhone": "801-724-6600",
-              "homePhone": "801-724-6600"
+              "homePhone": "801-724-6600",
+              "terminationDate": ""
             },
             {
               "id": "98",
@@ -3340,7 +3432,8 @@
               "payType": "Hourly",
               "payPer": "Hour",
               "workPhone": "604-555-3137",
-              "homePhone": "604-333-4484"
+              "homePhone": "604-333-4484",
+              "terminationDate": ""
             },
             {
               "id": "99",
@@ -3370,7 +3463,8 @@
               "payType": "Hourly",
               "payPer": "Hour",
               "workPhone": "+61 2 5555 3107",
-              "homePhone": "+61 2 5555 6498"
+              "homePhone": "+61 2 5555 6498",
+              "terminationDate": ""
             },
             {
               "id": "100",
@@ -3400,7 +3494,8 @@
               "payType": "Salary",
               "payPer": "Year",
               "workPhone": "801-724-6600",
-              "homePhone": "415-555-1230"
+              "homePhone": "415-555-1230",
+              "terminationDate": ""
             },
             {
               "id": "101",
@@ -3430,7 +3525,8 @@
               "payType": "Salary",
               "payPer": "Year",
               "workPhone": "801-724-6600",
-              "homePhone": "801-555-6510"
+              "homePhone": "801-555-6510",
+              "terminationDate": ""
             },
             {
               "id": "102",
@@ -3460,7 +3556,8 @@
               "payType": "Salary",
               "payPer": "Year",
               "workPhone": "604-555-3136",
-              "homePhone": "604-555-3210"
+              "homePhone": "604-555-3210",
+              "terminationDate": ""
             },
             {
               "id": "103",
@@ -3490,7 +3587,8 @@
               "payType": "Salary",
               "payPer": "Year",
               "workPhone": "801-724-6600",
-              "homePhone": "801-555-8520"
+              "homePhone": "801-555-8520",
+              "terminationDate": ""
             },
             {
               "id": "104",
@@ -3520,7 +3618,8 @@
               "payType": "Salary",
               "payPer": "Year",
               "workPhone": "801-724-6600",
-              "homePhone": "212-555-8520"
+              "homePhone": "212-555-8520",
+              "terminationDate": ""
             },
             {
               "id": "105",
@@ -3550,7 +3649,8 @@
               "payType": "Salary",
               "payPer": "Year",
               "workPhone": "801-724-6600",
-              "homePhone": "801-555-0369"
+              "homePhone": "801-555-0369",
+              "terminationDate": ""
             },
             {
               "id": "106",
@@ -3580,7 +3680,8 @@
               "payType": "Salary",
               "payPer": "Year",
               "workPhone": "+61 2 5555 3106",
-              "homePhone": "+61 2 5555 6498"
+              "homePhone": "+61 2 5555 6498",
+              "terminationDate": ""
             },
             {
               "id": "107",
@@ -3610,7 +3711,8 @@
               "payType": "Salary",
               "payPer": "Year",
               "workPhone": null,
-              "homePhone": "435-555-4566"
+              "homePhone": "435-555-4566",
+              "terminationDate": ""
             },
             {
               "id": "108",
@@ -3640,7 +3742,8 @@
               "payType": null,
               "payPer": "Year",
               "workPhone": null,
-              "homePhone": "801-724-6600"
+              "homePhone": "801-724-6600",
+              "terminationDate": ""
             },
             {
               "id": "109",
@@ -3670,7 +3773,8 @@
               "payType": "Salary",
               "payPer": "Year",
               "workPhone": null,
-              "homePhone": null
+              "homePhone": null,
+              "terminationDate": ""
             },
             {
               "id": "110",
@@ -3700,7 +3804,8 @@
               "payType": "Salary",
               "payPer": "Year",
               "workPhone": null,
-              "homePhone": "+61 7 3359 1527"
+              "homePhone": "+61 7 3359 1527",
+              "terminationDate": ""
             },
             {
               "id": "111",
@@ -3730,7 +3835,8 @@
               "payType": "Salary",
               "payPer": "Year",
               "workPhone": null,
-              "homePhone": "801-724-6600"
+              "homePhone": "801-724-6600",
+              "terminationDate": ""
             },
             {
               "id": "112",
@@ -3760,7 +3866,8 @@
               "payType": null,
               "payPer": null,
               "workPhone": null,
-              "homePhone": null
+              "homePhone": null,
+              "terminationDate": ""
             },
             {
               "id": "113",
@@ -3790,7 +3897,8 @@
               "payType": null,
               "payPer": null,
               "workPhone": null,
-              "homePhone": null
+              "homePhone": null,
+              "terminationDate": ""
             },
             {
               "id": "114",
@@ -3820,7 +3928,8 @@
               "payType": null,
               "payPer": null,
               "workPhone": null,
-              "homePhone": null
+              "homePhone": null,
+              "terminationDate": ""
             },
             {
               "id": "115",
@@ -3850,7 +3959,8 @@
               "payType": null,
               "payPer": null,
               "workPhone": null,
-              "homePhone": null
+              "homePhone": null,
+              "terminationDate": ""
             },
             {
               "id": "118",
@@ -3880,7 +3990,8 @@
               "payType": null,
               "payPer": null,
               "workPhone": null,
-              "homePhone": null
+              "homePhone": null,
+              "terminationDate": ""
             },
             {
               "id": "119",
@@ -3910,7 +4021,8 @@
               "payType": null,
               "payPer": null,
               "workPhone": null,
-              "homePhone": null
+              "homePhone": null,
+              "terminationDate": ""
             },
             {
               "id": "120",
@@ -3940,7 +4052,8 @@
               "payType": null,
               "payPer": null,
               "workPhone": null,
-              "homePhone": null
+              "homePhone": null,
+              "terminationDate": ""
             },
             {
               "id": "121",
@@ -3970,7 +4083,8 @@
               "payType": null,
               "payPer": null,
               "workPhone": null,
-              "homePhone": null
+              "homePhone": null,
+              "terminationDate": ""
             }
           ]
         },
@@ -3999,7 +4113,7 @@
           "x-request-id": "141059433467328692053693546255691420448",
           "vary": "Authorization,User-Agent"
         },
-        "hash": "227eb8a31d618a60243bf12b73d58dd8147b4b75",
+        "hash": "ab959f84d04979800e47d5d8a45ba1712d65fed2",
         "request": {
           "params": {
             "format": "JSON",

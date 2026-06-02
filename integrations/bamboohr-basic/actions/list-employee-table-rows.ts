@@ -12,8 +12,7 @@ const InputSchema = z.object({
 
 const TableRowSchema = z
     .object({
-        id: z.string(),
-        employeeId: z.string()
+        id: z.string()
     })
     .passthrough();
 
@@ -54,7 +53,7 @@ const action = createAction({
             if (!parsed.success) {
                 throw new nango.ActionError({
                     type: 'invalid_row',
-                    message: 'Row missing required id or employeeId fields.'
+                    message: 'Row missing required id field.'
                 });
             }
             return parsed.data;

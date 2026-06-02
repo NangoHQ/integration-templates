@@ -126,8 +126,11 @@ const sync = createSync({
 
             if (employees.length > 0) {
                 await nango.batchSave(employees, 'Employee');
-                await nango.saveCheckpoint({ lastSyncDate: maxLastChanged ?? new Date().toISOString() });
             }
+        }
+
+        if (maxLastChanged) {
+            await nango.saveCheckpoint({ lastSyncDate: maxLastChanged });
         }
     }
 });

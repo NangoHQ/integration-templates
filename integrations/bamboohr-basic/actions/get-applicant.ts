@@ -2,7 +2,7 @@ import { z } from 'zod';
 import { createAction } from 'nango';
 
 const InputSchema = z.object({
-    applicantId: z.number().describe('Applicant ID. Example: 123')
+    applicationId: z.number().int().describe('Application ID. Example: 123')
 });
 
 const ProviderJobTitleSchema = z.object({
@@ -272,7 +272,7 @@ const action = createAction({
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const response = await nango.get({
             // https://documentation.bamboohr.com/reference/get-application-details
-            endpoint: `/v1/applicant_tracking/applications/${encodeURIComponent(String(input.applicantId))}`,
+            endpoint: `/v1/applicant_tracking/applications/${encodeURIComponent(String(input.applicationId))}`,
             retries: 3
         });
 
@@ -280,7 +280,7 @@ const action = createAction({
             throw new nango.ActionError({
                 type: 'not_found',
                 message: 'Applicant not found',
-                applicant_id: input.applicantId
+                application_id: input.applicationId
             });
         }
 

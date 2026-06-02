@@ -31,7 +31,7 @@ const action = createAction({
 
         await nango.delete({
             // https://documentation.bamboohr.com/reference/delete-employee-file
-            endpoint: `v1/employees/${encodeURIComponent(employeeId)}/files/${encodeURIComponent(fileId)}`,
+            endpoint: `/v1/employees/${encodeURIComponent(employeeId)}/files/${encodeURIComponent(fileId)}`,
             retries: 3
         });
 

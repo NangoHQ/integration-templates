@@ -7,7 +7,7 @@ const WebhookSchema = z.object({
     id: z.string().describe('The ID of the webhook. Example: "123"'),
     name: z.string().describe('The name of the webhook.'),
     created: z.string().describe('The creation date of the webhook.'),
-    last_sent: z.string().describe('The date the webhook was last sent.'),
+    lastSent: z.string().nullable().describe('The date the webhook was last sent, or null if never sent.'),
     url: z.string().describe('The URL of the webhook.')
 });
 

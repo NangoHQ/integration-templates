@@ -82,10 +82,13 @@ const action = createAction({
         let entries: unknown[] = [];
         if (Array.isArray(raw)) {
             entries = raw;
-        } else {
-            const wrapper = z.object({ entries: z.array(z.unknown()) }).safeParse(raw);
-            if (wrapper.success) {
-                entries = wrapper.data.entries;
+        } else if (raw != null && typeof raw === 'object') {
+            for (const value of Object.values(raw)) {
+                if (Array.isArray(value)) {
+                    for (const item of value) {
+                        entries.push(item);
+                    }
+                }
             }
         }
 

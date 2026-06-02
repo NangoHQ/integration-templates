@@ -8,7 +8,7 @@ const MilestoneSchema = z.object({
     currentValue: z.number().nullable().optional(),
     startValue: z.number().nullable().optional(),
     endValue: z.number().nullable().optional(),
-    completedDateTime: z.string(),
+    completedDateTime: z.string().nullable().optional(),
     lastUpdateDateTime: z.string(),
     lastUpdateUserId: z.number()
 });
@@ -39,14 +39,16 @@ const ProviderResponseSchema = z.object({
 });
 
 const InputSchema = z.object({
-    employeeId: z.number().describe('Employee ID with whom the goal is associated. Example: 123'),
-    goalId: z.number().describe('Goal ID for the specified employee. Example: 456'),
+    employeeId: z.number().int().describe('Employee ID with whom the goal is associated. Example: 123'),
+    goalId: z.number().int().describe('Goal ID for the specified employee. Example: 456'),
     title: z.string().describe('The title of the goal'),
     description: z.string().optional().describe('A detailed description of the goal'),
     dueDate: z.string().describe('The due date for the goal in YYYY-MM-DD format'),
     percentComplete: z.number().min(0).max(100).optional().describe('The percentage of completion for the goal (0-100)'),
     completionDate: z.string().nullable().optional().describe('The date the goal was completed in YYYY-MM-DD format'),
-    sharedWithEmployeeIds: z.array(z.number()).describe('List of employee IDs with whom the goal is shared. Must include the employee ID of the goal owner.'),
+    sharedWithEmployeeIds: z
+        .array(z.number().int())
+        .describe('List of employee IDs with whom the goal is shared. Must include the employee ID of the goal owner.'),
     alignsWithOptionId: z.string().nullable().optional().describe('The option ID that aligns with this goal')
 });
 

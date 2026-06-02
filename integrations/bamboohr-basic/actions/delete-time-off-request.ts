@@ -22,7 +22,7 @@ const action = createAction({
     output: OutputSchema,
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
-        const response = await nango.put({
+        await nango.put({
             // https://documentation.bamboohr.com/reference/update-time-off-request-status
             endpoint: `/v1/time_off/requests/${encodeURIComponent(input.request_id)}/status`,
             data: {
@@ -33,22 +33,6 @@ const action = createAction({
             },
             retries: 10
         });
-
-        if (response.status === 404) {
-            throw new nango.ActionError({
-                type: 'not_found',
-                message: `Time off request ${input.request_id} not found.`,
-                request_id: input.request_id
-            });
-        }
-
-        if (response.status === 403) {
-            throw new nango.ActionError({
-                type: 'forbidden',
-                message: `You do not have permission to cancel time off request ${input.request_id}. It may already be canceled or you lack access.`,
-                request_id: input.request_id
-            });
-        }
 
         return {
             success: true,

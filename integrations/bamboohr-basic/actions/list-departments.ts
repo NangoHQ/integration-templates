@@ -4,7 +4,7 @@ import { createAction } from 'nango';
 const InputSchema = z.object({});
 
 const ProviderOptionSchema = z.object({
-    id: z.number(),
+    id: z.union([z.string(), z.number()]),
     name: z.string(),
     archived: z.string().optional()
 });
@@ -24,7 +24,7 @@ const ProviderListsResponseSchema = z.array(ProviderListSchema);
 const OutputSchema = z.object({
     departments: z.array(
         z.object({
-            id: z.number(),
+            id: z.union([z.string(), z.number()]),
             name: z.string(),
             archived: z.string().optional()
         })
@@ -53,7 +53,9 @@ const action = createAction({
         });
 
         const providerLists = ProviderListsResponseSchema.parse(response.data);
-        const departmentList = providerLists.find((list) => list.alias === 'jobDepartment' || list.name?.toLowerCase() === 'department');
+        const departmentList = providerLists.find(
+            (list) => list.alias === 'department' || list.alias === 'jobDepartment' || list.name?.toLowerCase() === 'department'
+        );
 
         if (!departmentList || !departmentList.options) {
             throw new nango.ActionError({

@@ -108,6 +108,17 @@ function parseOptionalInt(value: string | undefined): number | undefined {
     return parsed;
 }
 
+function parseOptionalFloat(value: string | undefined): number | undefined {
+    if (value === undefined) {
+        return undefined;
+    }
+    const parsed = parseFloat(value);
+    if (Number.isNaN(parsed)) {
+        return undefined;
+    }
+    return parsed;
+}
+
 const action = createAction({
     description: 'Retrieve a single time off request from BambooHR.',
     version: '1.0.0',
@@ -171,11 +182,11 @@ const action = createAction({
             amount: rawRequest.amount
                 ? {
                       unit: rawRequest.amount.unit,
-                      amount: parseOptionalInt(rawRequest.amount.amount)
+                      amount: parseOptionalFloat(rawRequest.amount.amount)
                   }
                 : undefined,
             actions: rawRequest.actions,
-            dates: rawRequest.dates ? Object.fromEntries(Object.entries(rawRequest.dates).map(([date, amount]) => [date, parseInt(amount, 10)])) : undefined,
+            dates: rawRequest.dates ? Object.fromEntries(Object.entries(rawRequest.dates).map(([date, amount]) => [date, parseFloat(amount)])) : undefined,
             notes: rawRequest.notes
         };
     }

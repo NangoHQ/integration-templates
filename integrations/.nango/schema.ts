@@ -14593,9 +14593,9 @@ export interface ActionOutput_bamboohr_basic_deletewebhook {
 
 export interface ActionInput_bamboohr_basic_getapplicant {
   /**
-   * Applicant ID. Example: 123
+   * Application ID. Example: 123
    */
-  applicantId: number;
+  applicationId: number;
 };
 
 export interface ActionOutput_bamboohr_basic_getapplicant {
@@ -14973,7 +14973,7 @@ export interface ActionInput_bamboohr_basic_listdepartments {
 };
 
 export interface ActionOutput_bamboohr_basic_listdepartments {
-  departments: ({  id: number;
+  departments: ({  id: string | number;
   name: string;
   archived?: string | undefined;})[];
 };
@@ -15076,8 +15076,7 @@ export interface ActionInput_bamboohr_basic_listemployeetablerows {
 };
 
 export interface ActionOutput_bamboohr_basic_listemployeetablerows {
-  rows: ({  id: string;
-  employeeId: string;})[];
+  rows: ({  id: string;})[];
 };
 
 export interface ActionInput_bamboohr_basic_listemployeetraining {
@@ -15313,8 +15312,8 @@ export interface ActionInput_bamboohr_basic_listusers {
 };
 
 export interface ActionOutput_bamboohr_basic_listusers {
-  users: ({  id: number;
-  employeeId: number;
+  users: ({  id?: number | undefined;
+  employeeId?: number | undefined;
   firstName?: string | undefined;
   lastName?: string | undefined;
   email?: string | undefined;
@@ -15339,9 +15338,9 @@ export interface ActionOutput_bamboohr_basic_listwebhooks {
    */
   created: string;
   /**
-   * The date the webhook was last sent.
+   * The date the webhook was last sent, or null if never sent.
    */
-  last_sent: string;
+  lastSent: string;
   /**
    * The URL of the webhook.
    */
@@ -15404,7 +15403,7 @@ export interface ActionOutput_bamboohr_basic_updateemployeegoal {
   currentValue?: number | undefined;
   startValue?: number | undefined;
   endValue?: number | undefined;
-  completedDateTime: string;
+  completedDateTime?: string | undefined;
   lastUpdateDateTime: string;
   lastUpdateUserId: number;})[];
   actions?: {  canEditGoalProgressBar: boolean;
@@ -15552,28 +15551,6 @@ export interface ActionOutput_bamboohr_basic_updatetimeoffrequeststatus {
   success: boolean;
   requestId: string;
   status: string;
-};
-
-export interface ActionInput_bamboohr_basic_updatetimeoffrequest {
-  /**
-   * The ID of the time off request to update. Example: 1686
-   */
-  requestId: number;
-  /**
-   * The new status for the time off request.
-   */
-  status: 'approved' | 'denied' | 'declined' | 'canceled' | 'cancelled';
-  /**
-   * A note to attach to the change in status.
-   */
-  note?: string | undefined;
-};
-
-export interface ActionOutput_bamboohr_basic_updatetimeoffrequest {
-  success: boolean;
-  requestId: number;
-  status: string;
-  note?: string | undefined;
 };
 
 export interface BasecampTodo {

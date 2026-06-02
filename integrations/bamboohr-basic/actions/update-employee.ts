@@ -22,28 +22,6 @@ const InputSchema = z.object({
     country: z.string().optional()
 });
 
-const ProviderResponseSchema = z.object({
-    id: z.string(),
-    firstName: z.string().optional(),
-    lastName: z.string().optional(),
-    status: z.string().optional(),
-    workEmail: z.string().optional(),
-    jobTitle: z.string().optional(),
-    department: z.string().optional(),
-    division: z.string().optional(),
-    location: z.string().optional(),
-    hireDate: z.string().optional(),
-    mobilePhone: z.string().optional(),
-    homePhone: z.string().optional(),
-    workPhone: z.string().optional(),
-    address1: z.string().optional(),
-    address2: z.string().optional(),
-    city: z.string().optional(),
-    state: z.string().optional(),
-    zipcode: z.string().optional(),
-    country: z.string().optional()
-});
-
 const OutputSchema = z.object({
     id: z.string(),
     firstName: z.string().optional(),
@@ -140,29 +118,7 @@ const action = createAction({
             retries: 10
         });
 
-        const providerResponse = ProviderResponseSchema.parse(response.data);
-
-        return {
-            id: providerResponse.id,
-            ...(providerResponse.firstName !== undefined && { firstName: providerResponse.firstName }),
-            ...(providerResponse.lastName !== undefined && { lastName: providerResponse.lastName }),
-            ...(providerResponse.status !== undefined && { status: providerResponse.status }),
-            ...(providerResponse.workEmail !== undefined && { workEmail: providerResponse.workEmail }),
-            ...(providerResponse.jobTitle !== undefined && { jobTitle: providerResponse.jobTitle }),
-            ...(providerResponse.department !== undefined && { department: providerResponse.department }),
-            ...(providerResponse.division !== undefined && { division: providerResponse.division }),
-            ...(providerResponse.location !== undefined && { location: providerResponse.location }),
-            ...(providerResponse.hireDate !== undefined && { hireDate: providerResponse.hireDate }),
-            ...(providerResponse.mobilePhone !== undefined && { mobilePhone: providerResponse.mobilePhone }),
-            ...(providerResponse.homePhone !== undefined && { homePhone: providerResponse.homePhone }),
-            ...(providerResponse.workPhone !== undefined && { workPhone: providerResponse.workPhone }),
-            ...(providerResponse.address1 !== undefined && { address1: providerResponse.address1 }),
-            ...(providerResponse.address2 !== undefined && { address2: providerResponse.address2 }),
-            ...(providerResponse.city !== undefined && { city: providerResponse.city }),
-            ...(providerResponse.state !== undefined && { state: providerResponse.state }),
-            ...(providerResponse.zipcode !== undefined && { zipcode: providerResponse.zipcode }),
-            ...(providerResponse.country !== undefined && { country: providerResponse.country })
-        };
+        return OutputSchema.parse(response.data);
     }
 });
 

@@ -56,34 +56,39 @@ const sync = createSync({
         const endDate = today;
 
         // https://documentation.bamboohr.com/reference/list-employees
-        const employeesResponse = await nango.get({
-            endpoint: '/v1/employees',
-            params: {
-                fields: 'employeeId',
-                'page[limit]': '2500'
-            },
-            retries: 3
-        });
-
         const employees: { employeeId: string }[] = [];
-        if (Array.isArray(employeesResponse.data)) {
-            for (const raw of employeesResponse.data) {
+        const pageSize = 2500;
+        let offset = 0;
+        while (true) {
+            const employeesResponse = await nango.get({
+                endpoint: '/v1/employees',
+                params: {
+                    fields: 'employeeId',
+                    'page[limit]': String(pageSize),
+                    'page[offset]': String(offset)
+                },
+                retries: 3
+            });
+
+            const rawList = Array.isArray(employeesResponse.data)
+                ? employeesResponse.data
+                : Array.isArray(employeesResponse.data?.data)
+                  ? employeesResponse.data.data
+                  : [];
+
+            for (const raw of rawList) {
                 if (raw != null && typeof raw === 'object' && 'employeeId' in raw) {
-                    const id = raw.employeeId;
+                    const id = raw['employeeId'];
                     if (typeof id === 'string') {
                         employees.push({ employeeId: id });
                     }
                 }
             }
-        } else if (employeesResponse.data != null && typeof employeesResponse.data === 'object' && Array.isArray(employeesResponse.data.data)) {
-            for (const raw of employeesResponse.data.data) {
-                if (raw != null && typeof raw === 'object' && 'employeeId' in raw) {
-                    const id = raw.employeeId;
-                    if (typeof id === 'string') {
-                        employees.push({ employeeId: id });
-                    }
-                }
+
+            if (rawList.length < pageSize) {
+                break;
             }
+            offset += pageSize;
         }
 
         let maxEntryDate: string | undefined;
@@ -148,9 +153,9 @@ const sync = createSync({
             }
         }
 
-        await nango.saveCheckpoint({
-            lastEntryDate: maxEntryDate ?? endDate
-        });
+        if (maxEntryDate) {
+            await nango.saveCheckpoint({ lastEntryDate: maxEntryDate });
+        }
     }
 });
 

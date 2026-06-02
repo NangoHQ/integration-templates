@@ -58,7 +58,6 @@ const ApplicantSchema = z.object({
 });
 
 const CheckpointSchema = z.object({
-    updated_after: z.string(),
     page: z.number().int().positive()
 });
 
@@ -80,17 +79,14 @@ const sync = createSync({
 
     exec: async (nango) => {
         const checkpoint = await nango.getCheckpoint();
-        const updatedAfter: string = checkpoint?.['updated_after'] ?? '';
         let page: number | undefined = checkpoint?.['page'] ?? 1;
-        let lastProcessedAppliedDate: string | undefined;
 
         const proxyConfig: ProxyConfiguration = {
             // https://documentation.bamboohr.com/reference/get-applications
             endpoint: '/v1/applicant_tracking/applications',
             params: {
                 sortBy: 'last_updated',
-                sortOrder: 'ASC',
-                ...(updatedAfter ? { newSince: updatedAfter } : {})
+                sortOrder: 'ASC'
             },
             paginate: {
                 type: 'offset',
@@ -146,20 +142,13 @@ const sync = createSync({
             });
 
             await nango.batchSave(applicants, 'Applicant');
-            lastProcessedAppliedDate = applicants[applicants.length - 1]?.appliedDate;
 
             if (page !== undefined) {
-                await nango.saveCheckpoint({
-                    updated_after: updatedAfter,
-                    page
-                });
+                await nango.saveCheckpoint({ page });
             }
         }
 
-        await nango.saveCheckpoint({
-            updated_after: lastProcessedAppliedDate ?? updatedAfter,
-            page: 1
-        });
+        await nango.saveCheckpoint({ page: 1 });
     }
 });
 

@@ -14,6 +14,7 @@ const BamboohrEmployeeSchema = z.object({
     workEmail: z.string(),
     jobTitle: z.string(),
     hireDate: z.string(),
+    terminationDate: z.string(),
     supervisorId: z.string(),
     supervisor: z.string(),
     createdByUserId: z.string(),
@@ -167,7 +168,7 @@ function toStandardEmployee(employee: BamboohrEmployee): z.infer<typeof Standard
         employmentType: mapEmploymentType(employee.employmentHistoryStatus),
         employmentStatus: mapEmploymentStatus(employee.employmentHistoryStatus),
         startDate: employee.hireDate || undefined,
-        terminationDate: employee.employmentHistoryStatus.toUpperCase() === 'TERMINATED' ? employee.hireDate || undefined : undefined,
+        terminationDate: employee.employmentHistoryStatus.toUpperCase() === 'TERMINATED' ? employee.terminationDate || undefined : undefined,
         manager: employee.supervisorId
             ? {
                   id: employee.supervisorId,
@@ -260,6 +261,7 @@ const sync = createSync({
                     'workEmail',
                     'jobTitle',
                     'hireDate',
+                    'terminationDate',
                     'supervisorId',
                     'supervisor',
                     'createdByUserId',

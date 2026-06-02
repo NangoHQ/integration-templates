@@ -24,7 +24,7 @@ const action = createAction({
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         // https://documentation.bamboohr.com/reference/delete-employee
         await nango.delete({
-            endpoint: `v1/employees/${encodeURIComponent(input.employeeId)}`,
+            endpoint: `/v1/employees/${encodeURIComponent(input.employeeId)}`,
             retries: 3
         });
 

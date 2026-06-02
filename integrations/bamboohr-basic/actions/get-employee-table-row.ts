@@ -9,8 +9,12 @@ const InputSchema = z.object({
 
 const OutputSchema = z.object({}).passthrough();
 
+function escapeRegExp(s: string): string {
+    return s.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+}
+
 function parseTableRowFromXml(xml: string, targetRowId: string): Record<string, string> | null {
-    const rowRegex = new RegExp(`<row id="${targetRowId}"[^>]*>([\\s\\S]*?)</row>`);
+    const rowRegex = new RegExp(`<row id="${escapeRegExp(targetRowId)}"[^>]*>([\\s\\S]*?)</row>`);
     const rowMatch = xml.match(rowRegex);
     if (!rowMatch || rowMatch[1] === undefined) {
         return null;

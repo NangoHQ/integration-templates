@@ -39,8 +39,6 @@ const sync = createSync({
     },
 
     exec: async (nango) => {
-        await nango.trackDeletesStart('Location');
-
         // https://documentation.bamboohr.com/reference/list-list-fields
         const response = await nango.get({
             endpoint: '/v1/meta/lists',
@@ -57,6 +55,8 @@ const sync = createSync({
         if (!locationList) {
             throw new Error('Location list not found in BambooHR list fields');
         }
+
+        await nango.trackDeletesStart('Location');
 
         const options = locationList.options ?? [];
         const locations = options.map((option) => ({
