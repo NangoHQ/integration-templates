@@ -1,0 +1,148 @@
+{
+  "input": {
+    "mode": "setup",
+    "currency": "usd",
+    "success_url": "https://example.com/success",
+    "cancel_url": "https://example.com/cancel"
+  },
+  "output": {
+    "id": "cs_test_c1YrwbhZPkdszhbVHvAnhZmNBjKGGBESzmfinOuoX7MovTUUBveeyjHYDC",
+    "mode": "setup",
+    "created": 1779834581,
+    "currency": "usd",
+    "status": "open",
+    "url": "https://checkout.stripe.com/c/pay/cs_test_c1YrwbhZPkdszhbVHvAnhZmNBjKGGBESzmfinOuoX7MovTUUBveeyjHYDC#fidnandhYHdWcXxpYCc%2FJ2FgY2RwaXEnKSdicGRmZGhqaWBTZHdsZGtxJz8nZmprcXdqaScpJ2R1bE5gfCc%2FJ3VuWnFgdnFaMDRRZ1U3TUBfdUEzbl13ZGB3R0tiT3Jjbm5vRGhdR1NRbV1QX0xPcT1LPE01V39IQXZDTnVTVmZAdH9tVGt3dmgxTVVhTF9JdjUyakg9f0pDQHVmRGQ0bDI1NWJORlFPN303JyknY3dqaFZgd3Ngdyc%2FcXdwYCknZ2RmbmJ3anBrYUZqaWp3Jz8nJmNjY2NjYycpJ2lkfGpwcVF8dWAnPyd2bGtiaWBaZmppcGhrJyknYGtkZ2lgVWlkZmBtamlhYHd2Jz9xd3BgeCUl",
+    "cancel_url": "https://example.com/cancel",
+    "success_url": "https://example.com/success",
+    "expires_at": 1779920981,
+    "metadata": {}
+  },
+  "nango": {},
+  "api": {
+    "post": {
+      "/v1/checkout/sessions": {
+        "response": {
+          "id": "cs_test_c1YrwbhZPkdszhbVHvAnhZmNBjKGGBESzmfinOuoX7MovTUUBveeyjHYDC",
+          "object": "checkout.session",
+          "adaptive_pricing": {
+            "enabled": false
+          },
+          "after_expiration": null,
+          "allow_promotion_codes": null,
+          "amount_subtotal": null,
+          "amount_total": null,
+          "automatic_tax": {
+            "enabled": false,
+            "liability": null,
+            "provider": null,
+            "status": null
+          },
+          "billing_address_collection": null,
+          "branding_settings": {
+            "background_color": "#ffffff",
+            "border_style": "rounded",
+            "button_color": "#0074d4",
+            "display_name": "AI Builder Sandbox",
+            "font_family": "default",
+            "icon": null,
+            "logo": null
+          },
+          "cancel_url": "https://example.com/cancel",
+          "client_reference_id": null,
+          "client_secret": null,
+          "collected_information": null,
+          "consent": null,
+          "consent_collection": null,
+          "created": 1779834581,
+          "currency": "usd",
+          "currency_conversion": null,
+          "custom_fields": [],
+          "custom_text": {
+            "after_submit": null,
+            "shipping_address": null,
+            "submit": null,
+            "terms_of_service_acceptance": null
+          },
+          "customer": null,
+          "customer_account": null,
+          "customer_creation": "if_required",
+          "customer_details": null,
+          "customer_email": null,
+          "discounts": null,
+          "expires_at": 1779920981,
+          "integration_identifier": null,
+          "invoice": null,
+          "invoice_creation": null,
+          "livemode": false,
+          "locale": null,
+          "managed_payments": null,
+          "metadata": {},
+          "mode": "setup",
+          "origin_context": null,
+          "payment_intent": null,
+          "payment_link": null,
+          "payment_method_collection": "always",
+          "payment_method_configuration_details": {
+            "id": "pmc_1TbP2oEZpD6kXraeQGnR7vPZ",
+            "parent": null
+          },
+          "payment_method_options": {
+            "card": {
+              "request_three_d_secure": "automatic"
+            }
+          },
+          "payment_method_types": [
+            "card",
+            "klarna",
+            "link",
+            "cashapp",
+            "amazon_pay"
+          ],
+          "payment_status": "no_payment_required",
+          "permissions": null,
+          "phone_number_collection": {
+            "enabled": false
+          },
+          "recovered_from": null,
+          "saved_payment_method_options": null,
+          "setup_intent": "seti_1TbTTlEZpD6kXrae7nist44z",
+          "shipping_address_collection": null,
+          "shipping_cost": null,
+          "shipping_options": [],
+          "status": "open",
+          "submit_type": null,
+          "subscription": null,
+          "success_url": "https://example.com/success",
+          "total_details": null,
+          "ui_mode": "hosted_page",
+          "url": "https://checkout.stripe.com/c/pay/cs_test_c1YrwbhZPkdszhbVHvAnhZmNBjKGGBESzmfinOuoX7MovTUUBveeyjHYDC#fidnandhYHdWcXxpYCc%2FJ2FgY2RwaXEnKSdicGRmZGhqaWBTZHdsZGtxJz8nZmprcXdqaScpJ2R1bE5gfCc%2FJ3VuWnFgdnFaMDRRZ1U3TUBfdUEzbl13ZGB3R0tiT3Jjbm5vRGhdR1NRbV1QX0xPcT1LPE01V39IQXZDTnVTVmZAdH9tVGt3dmgxTVVhTF9JdjUyakg9f0pDQHVmRGQ0bDI1NWJORlFPN303JyknY3dqaFZgd3Ngdyc%2FcXdwYCknZ2RmbmJ3anBrYUZqaWp3Jz8nJmNjY2NjYycpJ2lkfGpwcVF8dWAnPyd2bGtiaWBaZmppcGhrJyknYGtkZ2lgVWlkZmBtamlhYHd2Jz9xd3BgeCUl",
+          "wallet_options": null
+        },
+        "status": 200,
+        "headers": {
+          "date": "Tue, 26 May 2026 22:29:41 GMT",
+          "content-type": "application/json",
+          "content-length": "2897",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=5184000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4981",
+          "x-ratelimit-reset": "1779834613",
+          "etag": "W/\"b51-8kMLHrJXa6ScNhLMccJJ3AZ1dUA\""
+        },
+        "hash": "036756300db157b61035ff80b7076a7feb2a852f",
+        "request": {
+          "data": "mode=setup&success_url=https%3A%2F%2Fexample.com%2Fsuccess&cancel_url=https%3A%2F%2Fexample.com%2Fcancel&currency=usd"
+        }
+      }
+    }
+  }
+}

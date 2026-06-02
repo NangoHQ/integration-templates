@@ -1,0 +1,223 @@
+{
+  "input": {},
+  "output": {
+    "items": [
+      {
+        "id": "cus_Uae6f1e9m8SH1q",
+        "object": "customer",
+        "address": null,
+        "balance": 0,
+        "created": 1779831987,
+        "currency": null,
+        "default_source": null,
+        "delinquent": false,
+        "description": null,
+        "email": "b@test.com",
+        "invoice_prefix": "LNZHTLEK",
+        "invoice_settings": {
+          "custom_fields": null,
+          "default_payment_method": null,
+          "footer": null,
+          "rendering_options": null
+        },
+        "livemode": false,
+        "metadata": {},
+        "name": "Test Customer B",
+        "next_invoice_sequence": 1,
+        "phone": null,
+        "preferred_locales": [],
+        "shipping": null,
+        "tax_exempt": "none",
+        "test_clock": null,
+        "customer_account": null,
+        "discount": null
+      },
+      {
+        "id": "cus_Uae6TTxHlP2hxk",
+        "object": "customer",
+        "address": null,
+        "balance": 0,
+        "created": 1779831985,
+        "currency": "usd",
+        "default_source": null,
+        "delinquent": false,
+        "description": null,
+        "email": "a@test.com",
+        "invoice_prefix": "KNM3Y4VZ",
+        "invoice_settings": {
+          "custom_fields": null,
+          "default_payment_method": "pm_1TbSoaEZpD6kXraeiNPSsDV1",
+          "footer": null,
+          "rendering_options": null
+        },
+        "livemode": false,
+        "metadata": {},
+        "name": "Test Customer A",
+        "next_invoice_sequence": 6,
+        "phone": null,
+        "preferred_locales": [],
+        "shipping": null,
+        "tax_exempt": "none",
+        "test_clock": null,
+        "customer_account": null,
+        "discount": null
+      },
+      {
+        "id": "cus_Uae07nJucy33Kr",
+        "object": "customer",
+        "address": null,
+        "balance": 0,
+        "created": 1779831647,
+        "currency": "usd",
+        "default_source": null,
+        "delinquent": false,
+        "description": null,
+        "email": "test@example.com",
+        "invoice_prefix": "1R1PQQOG",
+        "invoice_settings": {
+          "custom_fields": null,
+          "default_payment_method": null,
+          "footer": null,
+          "rendering_options": null
+        },
+        "livemode": false,
+        "metadata": {},
+        "name": "Test Customer",
+        "next_invoice_sequence": 3,
+        "phone": null,
+        "preferred_locales": [],
+        "shipping": null,
+        "tax_exempt": "none",
+        "test_clock": null,
+        "customer_account": null,
+        "discount": null
+      }
+    ]
+  },
+  "nango": {},
+  "api": {
+    "get": {
+      "/v1/customers": {
+        "response": {
+          "object": "list",
+          "data": [
+            {
+              "id": "cus_Uae6f1e9m8SH1q",
+              "object": "customer",
+              "address": null,
+              "balance": 0,
+              "created": 1779831987,
+              "currency": null,
+              "customer_account": null,
+              "default_source": null,
+              "delinquent": false,
+              "description": null,
+              "discount": null,
+              "email": "b@test.com",
+              "invoice_prefix": "LNZHTLEK",
+              "invoice_settings": {
+                "custom_fields": null,
+                "default_payment_method": null,
+                "footer": null,
+                "rendering_options": null
+              },
+              "livemode": false,
+              "metadata": {},
+              "name": "Test Customer B",
+              "next_invoice_sequence": 1,
+              "phone": null,
+              "preferred_locales": [],
+              "shipping": null,
+              "tax_exempt": "none",
+              "test_clock": null
+            },
+            {
+              "id": "cus_Uae6TTxHlP2hxk",
+              "object": "customer",
+              "address": null,
+              "balance": 0,
+              "created": 1779831985,
+              "currency": "usd",
+              "customer_account": null,
+              "default_source": null,
+              "delinquent": false,
+              "description": null,
+              "discount": null,
+              "email": "a@test.com",
+              "invoice_prefix": "KNM3Y4VZ",
+              "invoice_settings": {
+                "custom_fields": null,
+                "default_payment_method": "pm_1TbSoaEZpD6kXraeiNPSsDV1",
+                "footer": null,
+                "rendering_options": null
+              },
+              "livemode": false,
+              "metadata": {},
+              "name": "Test Customer A",
+              "next_invoice_sequence": 6,
+              "phone": null,
+              "preferred_locales": [],
+              "shipping": null,
+              "tax_exempt": "none",
+              "test_clock": null
+            },
+            {
+              "id": "cus_Uae07nJucy33Kr",
+              "object": "customer",
+              "address": null,
+              "balance": 0,
+              "created": 1779831647,
+              "currency": "usd",
+              "customer_account": null,
+              "default_source": null,
+              "delinquent": false,
+              "description": null,
+              "discount": null,
+              "email": "test@example.com",
+              "invoice_prefix": "1R1PQQOG",
+              "invoice_settings": {
+                "custom_fields": null,
+                "default_payment_method": null,
+                "footer": null,
+                "rendering_options": null
+              },
+              "livemode": false,
+              "metadata": {},
+              "name": "Test Customer",
+              "next_invoice_sequence": 3,
+              "phone": null,
+              "preferred_locales": [],
+              "shipping": null,
+              "tax_exempt": "none",
+              "test_clock": null
+            }
+          ],
+          "has_more": false,
+          "url": "/v1/customers"
+        },
+        "status": 200,
+        "headers": {
+          "date": "Tue, 26 May 2026 22:11:46 GMT",
+          "content-type": "application/json",
+          "content-length": "2471",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=5184000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4984",
+          "x-ratelimit-reset": "1779833556",
+          "etag": "W/\"9a7-sZzlaABQaBomTqYQb+7RIqxiq7Y\""
+        },
+        "hash": "c13ba309d10da9254e1dbf8d31a774383f6315d4",
+        "request": {}
+      }
+    }
+  }
+}
